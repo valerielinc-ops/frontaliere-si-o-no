@@ -252,6 +252,37 @@ describe('jobSectorLanding — sector match regex', () => {
     }
   });
 
+  it('classifica il ruolo italiano di agente di sicurezza senza inglobare cyber o sicurezza sul lavoro (#19661)', () => {
+    for (const title of [
+      'Agente di sicurezza ausiliario - contratto orario',
+      'Agente della sicurezza notturna',
+      'Agenti di sicurezza per eventi',
+    ]) {
+      expect(jobMatchesSector({ title }, 'sicurezza'), `fisica: ${title}`).toBe(true);
+      expect(jobMatchesSector({ title }, 'cybersecurity'), `non cyber: ${title}`).toBe(false);
+    }
+
+    for (const title of [
+      'Agente di sicurezza informatica',
+      'Agente della sicurezza sul lavoro',
+      'Cyber Agente di sicurezza',
+      'Agente di sicurezza cyber',
+    ]) {
+      expect(jobMatchesSector({ title }, 'sicurezza'), `non fisica: ${title}`).toBe(false);
+    }
+    expect(jobMatchesSector({ title: 'Agente di sicurezza informatica' }, 'cybersecurity')).toBe(true);
+
+    // Come per Security Guard, un token IT in un campo distinto non qualifica
+    // il ruolo fisico: il veto intra-field non attraversa il joiner ` \n `.
+    for (const job of [
+      { title: 'Supporto IT', category: 'Agente di sicurezza' },
+      { title: 'IT', tags: ['Agente della sicurezza'] },
+    ]) {
+      expect(jobMatchesSector(job, 'sicurezza'), `fisica cross-field: ${JSON.stringify(job)}`).toBe(true);
+      expect(jobMatchesSector(job, 'cybersecurity'), `non cyber cross-field: ${JSON.stringify(job)}`).toBe(false);
+    }
+  });
+
   it('include i sistemi di sicurezza fisica senza inglobare il lessico cyber (#9938)', () => {
     for (const title of [
       'Capo Progetto Sistemi di Sicurezza 80–100%',

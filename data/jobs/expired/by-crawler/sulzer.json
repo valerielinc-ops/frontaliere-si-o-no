@@ -2001,21 +2001,10 @@
       "sales-engineer-sulzer-ch-4",
       "sales-engineer-sulzer-jakarta",
       "sales-ingenieur-sulzer-jakarta",
-      "sales-ingenieur-sulzer-molndal",
-      "sales-engineer-sulzer-ch-3"
+      "sales-ingenieur-sulzer-molndal"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "area-sales-manager-sulzer-ch-6",
-        "responsabile-vendite-di-area-sulzer-takoradi",
-        "responsabile-vendite-di-area-sulzer-jarfalla",
-        "sales-ingegnere-sulzer-jakarta",
-        "sales-engineer-sulzer-ch-5",
-        "sales-engineer-sulzer-ch-2",
-        "sales-ingegnere-sulzer-molndal",
-        "area-sales-manager-sulzer-ch",
-        "sales-engineer-sulzer-ch-4",
-        "sales-engineer-sulzer-ch-3",
         "sales-manager-sulzer-ch",
         "area-sales-manager-sulzer-ch-5",
         "area-sales-manager-sulzer-ch-3",
@@ -2026,6 +2015,15 @@
         "responsabile-vendite-area-emea-turbine-a-gas-sulzer-winterthur",
         "territory-sales-specialist-turbo-machinery-sulzer-ch",
         "responsabile-vendite-di-area-sulzer-johannesburg",
+        "area-sales-manager-sulzer-ch-6",
+        "area-sales-manager-sulzer-ch",
+        "responsabile-vendite-di-area-sulzer-takoradi",
+        "responsabile-vendite-di-area-sulzer-jarfalla",
+        "sales-ingegnere-sulzer-jakarta",
+        "sales-engineer-sulzer-ch-5",
+        "sales-engineer-sulzer-ch-2",
+        "sales-ingegnere-sulzer-molndal",
+        "sales-engineer-sulzer-ch-4",
         "sales-engineer-sulzer-ch"
       ],
       "de": [
@@ -2039,24 +2037,24 @@
         "bereich-sales-manager-sulzer-jarfalla",
         "sales-ingenieur-sulzer-jakarta",
         "sales-ingenieur-sulzer-molndal",
-        "sales-engineer-sulzer-ch-4",
-        "area-sales-manager-sulzer-ch",
         "sales-manager-sulzer-ch",
-        "sales-engineer-sulzer-ch",
         "area-sales-manager-sulzer-ch-3",
-        "emea-area-sales-manager-gasturbinen-sulzer-winterthur"
+        "emea-area-sales-manager-gasturbinen-sulzer-winterthur",
+        "area-sales-manager-sulzer-ch",
+        "sales-engineer-sulzer-ch-4",
+        "sales-engineer-sulzer-ch"
       ],
       "en": [
         "sales-manager-sulzer-shanghai",
         "sales-manager-sulzer-winterthur",
         "sales-engineer-sulzer-subang-jaya",
-        "area-sales-manager-sulzer-ch",
         "area-sales-manager-sulzer-ch-0egno5",
         "sales-engineer-sulzer-jakarta",
         "sales-manager-sulzer-ch",
-        "sales-engineer-sulzer-ch",
         "emea-area-sales-manager-gas-turbines-sulzer-ch",
-        "territory-sales-specialist-turbo-machinery-sulzer-ch"
+        "territory-sales-specialist-turbo-machinery-sulzer-ch",
+        "area-sales-manager-sulzer-ch",
+        "sales-engineer-sulzer-ch"
       ],
       "fr": [
         "directeur-des-ventes-sulzer-shanghai",
@@ -2069,12 +2067,12 @@
         "directeur-regional-des-ventes-sulzer-takoradi",
         "directeur-regional-des-ventes-sulzer-jarfalla",
         "sales-ingenieur-sulzer-jakarta",
-        "sales-engineer-sulzer-ch-4",
-        "area-sales-manager-sulzer-ch",
         "sales-manager-sulzer-ch",
-        "sales-engineer-sulzer-ch",
         "area-sales-manager-sulzer-ch-3",
-        "directeur-regional-des-ventes-de-l-emea-turbines-a-gaz-sulzer-winterthur"
+        "directeur-regional-des-ventes-de-l-emea-turbines-a-gaz-sulzer-winterthur",
+        "area-sales-manager-sulzer-ch",
+        "sales-engineer-sulzer-ch-4",
+        "sales-engineer-sulzer-ch"
       ]
     },
     "salaryMin": 83000,
@@ -3080,8 +3078,7 @@
     ],
     "previousSlugsByLocale": {
       "it": [
-        "apprendista-ingegnere-sulzer-curitiba",
-        "estagiario-a-de-engenharia-sulzer-ch"
+        "apprendista-ingegnere-sulzer-curitiba"
       ],
       "en": [
         "estagiario-a-de-engenharia-sulzer-curitiba",
@@ -3270,8 +3267,7 @@
       "inhouse-consultant-bi-analytics-sulzer-ch",
       "inhouse-consultant-bi-analytics-sulzer-ch-2",
       "consultant-interne-bi-analytique-sulzer-madrid",
-      "inhouse-consulente-bi-analytics-sulzer-madrid-0eg6om",
-      "inhouse-consulente-bi-analytics-sulzer-madrid"
+      "inhouse-consulente-bi-analytics-sulzer-madrid-0eg6om"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -3515,8 +3511,6 @@
     ],
     "previousSlugsByLocale": {
       "it": [
-        "manual-machinist-sulzer-ch",
-        "manual-machinist-sulzer-birmingham",
         "macchinista-manuale-sulzer-bridgeport",
         "manual-machinist-sulzer-ch-4",
         "manual-machinist-sulzer-bridgeport",
@@ -3534,7 +3528,9 @@
         "manual-machinist-sulzer-salt-lake-city",
         "macchinista-manuale-sulzer-la-porte",
         "manual-machinist-sulzer-la-porte",
-        "fitter-macchinista-sulzer-birmingham"
+        "fitter-macchinista-sulzer-birmingham",
+        "manual-machinist-sulzer-ch",
+        "manual-machinist-sulzer-birmingham"
       ],
       "de": [
         "manueller-maschinist-sulzer-bridgeport",
@@ -4511,9 +4507,6 @@
     ],
     "previousSlugsByLocale": {
       "it": [
-        "gestione-dei-progetti-sulzer-cuautitlan-izcalli",
-        "industrial-machinery-project-manager-sulzer-ch",
-        "responsabile-del-progetto-sulzer-casablanca",
         "responsabile-del-progetto-sulzer-suzhou",
         "responsabile-del-progetto-sulzer-purwakarta",
         "projektmanager-sulzer-purwakarta",
@@ -4531,7 +4524,10 @@
         "project-manager-sulzer-ch",
         "project-manager-sulzer-ch-2",
         "responsabile-del-progetto-sulzer-pasadena",
-        "responsabile-di-progetto-senior-m-v-x-sulzer-venlo"
+        "responsabile-di-progetto-senior-m-v-x-sulzer-venlo",
+        "industrial-machinery-project-manager-sulzer-ch",
+        "gestione-dei-progetti-sulzer-cuautitlan-izcalli",
+        "responsabile-del-progetto-sulzer-casablanca"
       ],
       "en": [
         "project-manager-sulzer-leeds",
@@ -9724,13 +9720,6 @@
     ],
     "previousSlugsByLocale": {
       "it": [
-        "meccanico-sulzer-pasadena-dd0120",
-        "mechanik-sulzer-pasadena-dd0120",
-        "mecanique-sulzer-pasadena-dd0120",
-        "mechanic-sulzer-ch-9",
-        "mechanic-sulzer-phoenix",
-        "meccanico-sulzer-la-porte",
-        "mechanic-sulzer-la-porte",
         "mechanic-sulzer-ch-6",
         "mechanic-sulzer-ch",
         "meccanica-sulzer-farmington",
@@ -9742,16 +9731,23 @@
         "mechanic-sulzer-santa-fe-springs",
         "meccanico-sulzer-pasadena",
         "mechanik-sulzer-pasadena-42dbaf",
-        "mecanique-sulzer-pasadena-42dbaf"
+        "mecanique-sulzer-pasadena-42dbaf",
+        "meccanico-sulzer-pasadena-dd0120",
+        "mechanik-sulzer-pasadena-dd0120",
+        "mecanique-sulzer-pasadena-dd0120",
+        "mechanic-sulzer-ch-9",
+        "mechanic-sulzer-phoenix",
+        "meccanico-sulzer-la-porte",
+        "mechanic-sulzer-la-porte"
       ],
       "en": [
-        "mechanic-sulzer-la-porte",
-        "mechanic-sulzer-phoenix",
         "mechanic-sulzer-pasadena",
         "mechanic-sulzer-bridgeport",
         "mechanic-sulzer-margate",
         "mechanic-sulzer-orange",
-        "helper-mechanic-sulzer-orange"
+        "helper-mechanic-sulzer-orange",
+        "mechanic-sulzer-la-porte",
+        "mechanic-sulzer-phoenix"
       ],
       "de": [
         "mechanik-sulzer-la-porte-af208d",
@@ -9765,10 +9761,10 @@
         "mechanik-sulzer-farmington",
         "helfer-mechaniker-sulzer-orange",
         "mechanik-sulzer-pasadena-0de108",
-        "mechanik-sulzer-pasadena-dd0120",
         "mechanik-sulzer-la-porte",
         "mechanic-sulzer-ch",
-        "mechanik-sulzer-pasadena-42dbaf"
+        "mechanik-sulzer-pasadena-42dbaf",
+        "mechanik-sulzer-pasadena-dd0120"
       ],
       "fr": [
         "mechanic-sulzer-ch-6",
@@ -9783,11 +9779,11 @@
         "mecanicien-sulzer-pasadena",
         "mecanique-sulzer-phoenix-75f2cf",
         "mecanique-sulzer-santa-fe-springs",
-        "mecanique-sulzer-pasadena-dd0120",
         "mecanique-sulzer-la-porte",
         "mechanic-sulzer-ch",
         "mecanique-sulzer-phoenix",
-        "mecanique-sulzer-pasadena-42dbaf"
+        "mecanique-sulzer-pasadena-42dbaf",
+        "mecanique-sulzer-pasadena-dd0120"
       ]
     },
     "salaryMin": 73500,
@@ -9977,8 +9973,7 @@
       "i-miei-amici-sulzer-jundiai",
       "la-mia-vita-sulzer-jundiai",
       "montador-ajustador-i-sulzer-jundiai-0eg5cd",
-      "montador-ajustador-i-sulzer-ch-2",
-      "montador-ajustador-i-sulzer-jundiai"
+      "montador-ajustador-i-sulzer-ch-2"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -13081,8 +13076,7 @@
       "fp-a-controller-sulzer-madrid",
       "fp-a-controller-sulzer-suzhou",
       "controleur-fp-a-sulzer-suzhou",
-      "controleur-fp-a-sulzer-suzhou-e3a40e",
-      "controller-fp-a-sulzer-pune"
+      "controleur-fp-a-sulzer-suzhou-e3a40e"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -15525,8 +15519,7 @@
     "previousSlugs": [
       "student-intern-professional-sulzer-ch",
       "student-tirocinante-professional-sulzer-shanghai-0egt0t",
-      "student-intern-professional-sulzer-ch-2",
-      "student-tirocinante-professional-sulzer-shanghai"
+      "student-intern-professional-sulzer-ch-2"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -18475,7 +18468,7 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "macchinista-del-livello-di-viaggio-sulzer-chattanooga-cea36b-a53a3934",
+    "slug": "macchinista-del-livello-di-viaggio-sulzer-chattanooga-cea36b-94179dc1",
     "title": "Journey Level Machinist",
     "titleByLocale": {
       "it": "Macchinista del livello di viaggio",
@@ -18494,23 +18487,32 @@
       "fr": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society. About the role Job Summary Set up and operate machine tools, including HBM, VBM, lathes, milling machines, ID/OD grinders, planers, and bore, without assistance, following department policy and procedures manual, to manufacture and recondition component parts to customer, OEM and industry standards. Interprets mechanical drawings, blueprints, and sketches and performs precision metal cutting, grinding, shaping and fitting. Measures components, parts, and raw materials with precision measuring instruments, gauges, and tools. Works under limited supervision. ​\n• Performs layouts, sets up, and operates machines.\n• Read and interpret procedures, work orders, and technical drawings to meet specifications.\n• Apply knowledge of metals and alloys, including stainless and carbon steels.\n• Improves set ups and methods for higher quality and improved cost.\n• Operate overhead crane and forklifts safely as directed by Supervisor. Perform other duties as necessary.\n• Maintain regular and reliable attendance.\n• Maintains a safe, neat, and orderly workstation\n• Assists in the disassembly, inspection, and re-assembly of pump equipment when required\n• Communicate effectively to ensure smooth workflow transitions between team members.\n• Support and assist coworkers, including training and collaboration.\n• Supports, cooperates with, and participates in company-wide safety program which includes following all safety policies and procedures\n• Supports and cooperates in Sulzer Nuclear Quality Program\n• Performs other duties as assigned\n• Works overtime as requested\n• Operates forklifts, overhead cranes, man lifts, and scissor lifts QUALIFICATIONS:\n• Completion of a machinist apprentice program or equivalent training.\n• Minimum of five (5) years of experience in machining.\n• Ability to hold close tolerances and conduct component inspection.\n• Ability to read and interpret technical drawings.\n• Basic math skills. What we offer you\n• 15 days of paid time off and 12 company-paid holidays\n• 401k plan with a 6% match\n• Comprehensive health plan including medical, dental, vision, Life, short-term & long-term disability\n• Health savings account matching\n• Motivating wellness program\n• Employee Assistance Program\n• Paid paternal leave\n• Gym re-imbursement Sulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment. We are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA."
     },
     "slugByLocale": {
-      "it": "macchinista-del-livello-di-viaggio-sulzer-chattanooga-cea36b-a53a3934",
-      "en": "journey-level-machinist-sulzer-ch-1ce38698",
-      "de": "machinist-auf-reiseebene-sulzer-chattanooga-2dac299b",
-      "fr": "machiniste-de-niveau-voyage-sulzer-chattanooga-628088aa"
+      "it": "macchinista-del-livello-di-viaggio-sulzer-chattanooga-cea36b-94179dc1",
+      "en": "journey-level-machinist-sulzer-ch-6438bdc7",
+      "de": "machinist-auf-reiseebene-sulzer-chattanooga-f7d5e8a6",
+      "fr": "machiniste-de-niveau-voyage-sulzer-chattanooga-c6510142"
     },
     "sector": "Industria",
     "expiredAt": "2026-09-18T14:17:44.335Z",
     "previousSlugsByLocale": {
       "it": [
+        "journey-level-machinist-sulzer-ch-2-fbec4933",
+        "journey-level-machinist-sulzer-ch-6438bdc7",
+        "macchinista-del-livello-di-viaggio-sulzer-chattanooga-cea36b-a53a3934",
         "journey-level-machinist-sulzer-ch-2-dffc8cc0",
         "journey-level-machinist-sulzer-ch-1ce38698"
       ],
       "de": [
+        "journey-level-machinist-sulzer-ch-2-fbec4933",
+        "journey-level-machinist-sulzer-ch-6438bdc7",
+        "machinist-auf-reiseebene-sulzer-chattanooga-2dac299b",
         "journey-level-machinist-sulzer-ch-2-dffc8cc0",
         "journey-level-machinist-sulzer-ch-1ce38698"
       ],
       "fr": [
+        "journey-level-machinist-sulzer-ch-2-fbec4933",
+        "journey-level-machinist-sulzer-ch-6438bdc7",
+        "machiniste-de-niveau-voyage-sulzer-chattanooga-628088aa",
         "journey-level-machinist-sulzer-ch-2-dffc8cc0",
         "journey-level-machinist-sulzer-ch-1ce38698"
       ],
@@ -18524,8 +18526,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "previousSlugs": [
+      "journey-level-machinist-sulzer-ch-2-fbec4933",
+      "journey-level-machinist-sulzer-ch-2",
+      "journey-level-machinist-sulzer-ch-6438bdc7",
+      "macchinista-del-livello-di-viaggio-sulzer-chattanooga-cea36b-a53a3934",
       "journey-level-machinist-sulzer-ch-2-dffc8cc0",
-      "journey-level-machinist-sulzer-ch-2"
+      "journey-level-machinist-sulzer-ch-1ce38698",
+      "machinist-auf-reiseebene-sulzer-chattanooga-2dac299b",
+      "machiniste-de-niveau-voyage-sulzer-chattanooga-628088aa"
     ]
   },
   {
@@ -20560,16 +20568,26 @@
         "service-koordinator-sulzer-winterthur-cb55b7b8",
         "service-coordinateur-sulzer-winterthur-614ab438",
         "service-coordinatore-sulzer-winterthur-bb547a44",
-        "service-coordinator-sulzer-winterthur-a0dfbfcc"
+        "service-coordinator-sulzer-winterthur-a0dfbfcc",
+        "service-installationstekniker-sulzer-winterthur-fd6ade1a",
+        "service-installationstekniker-sulzer-ch-45206fc9",
+        "coordinatore-servizi-sulzer-winterthur-ed352f56",
+        "service-coordinator-sulzer-ch-945a45f5",
+        "service-koordinator-sulzer-winterthur-d4bd7c53",
+        "service-coordinateur-sulzer-winterthur-581d7a8a",
+        "service-coordinatore-sulzer-winterthur-5c40581b",
+        "service-coordinator-sulzer-winterthur-576a71ad"
       ],
       "en": [
         "service-coordinator-sulzer-ch-f25e4a13",
         "service-coordinator-sulzer-winterthur-a0dfbfcc",
-        "service-installationstekniker-sulzer-ch-57662a1c",
         "coordinatore-servizi-sulzer-winterthur",
         "service-koordinator-sulzer-winterthur",
         "service-coordinateur-sulzer-winterthur",
-        "service-coordinatore-sulzer-winterthur"
+        "service-coordinatore-sulzer-winterthur",
+        "service-installationstekniker-sulzer-ch-45206fc9",
+        "service-coordinator-sulzer-ch-945a45f5",
+        "service-coordinator-sulzer-winterthur-576a71ad"
       ],
       "de": [
         "service-installationstekniker-sulzer-ch-57662a1c",
@@ -20578,16 +20596,24 @@
         "coordinatore-servizi-sulzer-winterthur",
         "service-coordinateur-sulzer-winterthur",
         "service-coordinatore-sulzer-winterthur",
-        "service-coordinator-sulzer-winterthur"
+        "service-coordinator-sulzer-winterthur",
+        "service-installationentekniker-sulzer-winterthur-ef8fa152",
+        "service-installationstekniker-sulzer-ch-45206fc9",
+        "service-koordinator-sulzer-winterthur-d4bd7c53",
+        "service-coordinator-sulzer-ch-945a45f5"
       ],
       "fr": [
         "service-coordinateur-sulzer-winterthur-614ab438",
         "service-coordinator-sulzer-ch-f25e4a13",
+        "service-installationstekniker-sulzer-ch-57662a1c",
         "service-installationstekniker-sulzer-ch",
         "coordinatore-servizi-sulzer-winterthur",
         "service-koordinator-sulzer-winterthur",
         "service-coordinatore-sulzer-winterthur",
-        "service-coordinator-sulzer-winterthur"
+        "service-coordinator-sulzer-winterthur",
+        "service-installationstekniker-sulzer-winterthur-fd6ade1a",
+        "service-coordinateur-sulzer-winterthur-581d7a8a",
+        "service-coordinator-sulzer-ch-945a45f5"
       ]
     },
     "salaryMin": 83000,
@@ -20606,7 +20632,17 @@
       "service-coordinateur-sulzer-winterthur",
       "service-coordinatore-sulzer-winterthur",
       "service-coordinator-sulzer-winterthur",
-      "service-installationstekniker-sulzer-ch"
+      "service-installationstekniker-sulzer-ch",
+      "service-installationstekniker-sulzer-ch-57662a1c",
+      "service-installationstekniker-sulzer-winterthur-fd6ade1a",
+      "service-installationstekniker-sulzer-ch-45206fc9",
+      "coordinatore-servizi-sulzer-winterthur-ed352f56",
+      "service-coordinator-sulzer-ch-945a45f5",
+      "service-koordinator-sulzer-winterthur-d4bd7c53",
+      "service-coordinateur-sulzer-winterthur-581d7a8a",
+      "service-coordinatore-sulzer-winterthur-5c40581b",
+      "service-coordinator-sulzer-winterthur-576a71ad",
+      "service-installationentekniker-sulzer-winterthur-ef8fa152"
     ]
   },
   {
@@ -21574,33 +21610,53 @@
         "helper-mechanic-sulzer-ch-fbb6ecb7",
         "aiuto-meccanico-sulzer-la-porte-555ee79d",
         "helper-mechanic-sulzer-ch-2-a6681daf",
-        "helper-mechanic-sulzer-orange",
         "helfer-mechaniker-sulzer-la-porte-259f7193",
-        "mecanicien-adjoint-sulzer-la-porte-34c251a5"
+        "mecanicien-adjoint-sulzer-la-porte-34c251a5",
+        "helper-mechanic-sulzer-orange",
+        "aiuto-meccanico-sulzer-orange-cc7c187f",
+        "helper-mechanic-sulzer-ch-b86129b6",
+        "aiuto-meccanico-sulzer-la-porte-81130b54",
+        "helper-mechanic-sulzer-ch-2-8e93a0cd",
+        "helfer-mechaniker-sulzer-la-porte-b736c80b",
+        "mecanicien-adjoint-sulzer-la-porte-6fe7bb34"
       ],
       "en": [
         "helper-mechanic-sulzer-orange-36c5a871",
-        "helper-mechanic-sulzer-ch-fbb6ecb7",
-        "aiuto-meccanico-sulzer-la-porte",
         "helper-mechanic-sulzer-ch-2-a6681daf",
         "helfer-mechaniker-sulzer-la-porte-259f7193",
-        "mecanicien-adjoint-sulzer-la-porte-34c251a5"
+        "mecanicien-adjoint-sulzer-la-porte-34c251a5",
+        "aiuto-meccanico-sulzer-la-porte",
+        "helper-mechanic-sulzer-ch-b86129b6",
+        "helper-mechanic-sulzer-orange-9ece4b29",
+        "helper-mechanic-sulzer-ch-2-8e93a0cd",
+        "helfer-mechaniker-sulzer-la-porte-b736c80b",
+        "mecanicien-adjoint-sulzer-la-porte-6fe7bb34"
       ],
       "de": [
         "helper-mechanic-sulzer-ch-fbb6ecb7",
         "helfer-mechaniker-sulzer-la-porte-259f7193",
         "helper-mechanic-sulzer-ch-2-a6681daf",
+        "mecanicien-adjoint-sulzer-la-porte-34c251a5",
         "aiuto-meccanico-sulzer-la-porte",
         "helper-mechanic-sulzer-orange",
-        "mecanicien-adjoint-sulzer-la-porte-34c251a5"
+        "helfer-mechaniker-sulzer-orange-91a91501",
+        "helper-mechanic-sulzer-ch-b86129b6",
+        "helfer-mechaniker-sulzer-la-porte-b736c80b",
+        "helper-mechanic-sulzer-ch-2-8e93a0cd",
+        "mecanicien-adjoint-sulzer-la-porte-6fe7bb34"
       ],
       "fr": [
         "helper-mechanic-sulzer-ch-fbb6ecb7",
         "mecanicien-adjoint-sulzer-la-porte-34c251a5",
         "helper-mechanic-sulzer-ch-2-a6681daf",
+        "helfer-mechaniker-sulzer-la-porte-259f7193",
         "aiuto-meccanico-sulzer-la-porte",
         "helper-mechanic-sulzer-orange",
-        "helfer-mechaniker-sulzer-la-porte-259f7193"
+        "mecanicien-adjoint-sulzer-orange-223384d3",
+        "helper-mechanic-sulzer-ch-b86129b6",
+        "mecanicien-adjoint-sulzer-la-porte-6fe7bb34",
+        "helper-mechanic-sulzer-ch-2-8e93a0cd",
+        "helfer-mechaniker-sulzer-la-porte-b736c80b"
       ]
     },
     "salaryMin": 73500,
@@ -21610,11 +21666,21 @@
     "previousSlugs": [
       "aiuto-meccanico-sulzer-la-porte-555ee79d",
       "helper-mechanic-sulzer-ch-2-a6681daf",
-      "helper-mechanic-sulzer-orange",
       "helfer-mechaniker-sulzer-la-porte-259f7193",
       "mecanicien-adjoint-sulzer-la-porte-34c251a5",
       "helper-mechanic-sulzer-orange-36c5a871",
-      "aiuto-meccanico-sulzer-la-porte"
+      "helper-mechanic-sulzer-orange",
+      "aiuto-meccanico-sulzer-la-porte",
+      "helper-mechanic-sulzer-ch-fbb6ecb7",
+      "aiuto-meccanico-sulzer-orange-cc7c187f",
+      "helper-mechanic-sulzer-ch-b86129b6",
+      "aiuto-meccanico-sulzer-la-porte-81130b54",
+      "helper-mechanic-sulzer-ch-2-8e93a0cd",
+      "helfer-mechaniker-sulzer-la-porte-b736c80b",
+      "mecanicien-adjoint-sulzer-la-porte-6fe7bb34",
+      "helper-mechanic-sulzer-orange-9ece4b29",
+      "helfer-mechaniker-sulzer-orange-91a91501",
+      "mecanicien-adjoint-sulzer-orange-223384d3"
     ]
   },
   {
@@ -21664,7 +21730,7 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "ts-field-service-ingegnere-sulzer-makati-b175d471",
+    "slug": "ts-field-service-ingegnere-sulzer-makati-6eeeff88",
     "title": "TS Field Service Engineer",
     "titleByLocale": {
       "it": "Ingegnere di assistenza sul campo TS",
@@ -21683,15 +21749,21 @@
       "fr": "Sulzer est une entreprise d'ingénierie de premier plan avec un riche héritage d'innovation. Rejoignez notre équipe mondiale pour développer votre expertise et développer des solutions innovantes qui permettent une société prospère et plus durable.\n\nSur le rôle\n\nResponsable de la mise en service, de la mise en service, du dépannage, du démarrage et de l'essai des équipements rotatifs et des systèmes mécaniques, électriques et d'instrumentation connexes; de la supervision des activités de l'AID; du suivi des opérations sur le terrain et des conclusions de rapports; de la représentation de l'entreprise dans les communications avec les clients; de la conformité aux normes ISO, HSE et de l'entreprise; de la promotion de la sécurité au travail par le biais des inspections et de l'arrêt de travail; et de la coordination avec les équipes de projet, de vente, d'ingénierie et d'atelier pour assurer la réussite de l'exécution des projets.\n\nPrincipales tâches et responsabilités\n\n- Pré-démarrage et mise en service d'équipements rotatifs installés, réparés ou revus. - Au besoin, superviser et assister l'AIR de l'équipement rotatif et de l'équipement auxiliaire associé selon les dessins et spécifications techniques. - Prise de vues systématique, analyse des causes profondes et des systèmes et composants mécaniques, électriques et instrumentaux avec considération de la qualité, du temps et des coûts.\n\n- Le plomb pour le démarrage et l'essai de nouvelles installations/érections ou unités de rotation révisées, y compris les pièces mécaniques, les pièces électriques, les instruments et le système de contrôle. - Surveiller les activités de séquence sur le terrain en fonction de la portée et du calendrier convenus et faire rapport régulièrement au bureau.\n\n- L'affectation des travaux peut être effectuée en magasin ou sur le terrain selon la demande de projet de la clientèle - Communiquer avec le client ou un tiers sur place en tant que représentant du RES - S'assurer que tous les travaux et activités sont effectués conformément aux procédures ISO, ainsi qu'aux règlements de la HSE et de l'entreprise. - Prévenir les accidents, effectuer des déplacements et observer. - Campagne en utilisant l'autorité de travail de stop à son subordonné lorsque toute loi et condition dangereuses enregistrent alors en utilisant la carte d'observation. - Examiner l'efficacité du HIRAD.\n\n- Coordonner avec le CPVP, les ventes, l'ingénierie et l'atelier\n\nCompétences et comportement requis (Quels sont les points forts requis?)\n\n- Joueur d'équipe - Bien organisé et structuré - Excellente communication et aptitudes interpersonnelles - Minset proactif et automotivé - Multitâche - Doit avoir de l'expérience dans l'installation, l'entretien et le dépannage de l'équipement rotatif - Volonté de voyager et de travailler sur les sites de projet.\n\nQualifications/expérience et connaissances requises\n\n- Baccalauréat en génie mécanique - De préférence avec au moins 5 ans d'expérience de travail sur la réparation de l'équipement rotatif - Avoir de l'expérience dans l'OEM sera un avantage - Avoir des connaissances sur la réparation ou la révision des générateurs de turbine - Fluent en anglais\n\nCe que nous vous offrons\n\nNous croyons en la force d'une main-d'oeuvre diversifiée et nous sommes déterminés à offrir un milieu de travail inclusif.\n\nNous sommes fiers d'être reconnus comme un employeur de premier plan 2026 au Brésil, au Canada, en Chine, en Finlande, en Allemagne, en Irlande, au Mexique, en Suisse, en Afrique du Sud, au Royaume-Uni et aux États-Unis."
     },
     "slugByLocale": {
-      "it": "ts-field-service-ingegnere-sulzer-makati-b175d471",
-      "en": "ts-field-service-engineer-sulzer-ch-4f28b44f",
-      "de": "ts-field-service-ingenieur-sulzer-makati-3851b070",
-      "fr": "ts-field-service-ingenieur-sulzer-makati-3851b070"
+      "it": "ts-field-service-ingegnere-sulzer-makati-6eeeff88",
+      "en": "ts-field-service-engineer-sulzer-ch-80536723",
+      "de": "ts-field-service-ingenieur-sulzer-makati-00b1871e",
+      "fr": "ts-field-service-ingenieur-sulzer-makati-00b1871e"
     },
     "sector": "Industria",
     "expiredAt": "2026-08-21T10:08:39.631Z",
     "previousSlugsByLocale": {
       "it": [
+        "ts-field-service-engineer-sulzer-ch-80536723",
+        "field-service-ingegnere-sulzer-falkirk-66a76117",
+        "field-service-engineer-sulzer-ch-876612fd",
+        "field-service-ingenieur-sulzer-falkirk-a086c376",
+        "field-service-engineer-sulzer-ch-2-c6965848",
+        "ts-field-service-ingegnere-sulzer-makati-b175d471",
         "ts-field-service-engineer-sulzer-ch-4f28b44f",
         "field-service-ingegnere-sulzer-falkirk-197f6ed0",
         "field-service-engineer-sulzer-ch-43c9d6d2",
@@ -21699,25 +21771,34 @@
         "field-service-engineer-sulzer-ch-2-d6679d65"
       ],
       "en": [
-        "field-service-engineer-sulzer-ch-43c9d6d2",
-        "ts-field-service-engineer-sulzer-ch-4f28b44f",
+        "field-service-engineer-sulzer-ch-876612fd",
         "field-service-ingegnere-sulzer-falkirk",
         "field-service-ingenieur-sulzer-falkirk",
-        "field-service-engineer-sulzer-ch-2"
+        "field-service-engineer-sulzer-ch-2",
+        "ts-field-service-engineer-sulzer-ch-4f28b44f",
+        "field-service-engineer-sulzer-ch-43c9d6d2"
       ],
       "de": [
+        "ts-field-service-engineer-sulzer-ch-80536723",
+        "field-service-ingenieur-sulzer-falkirk-a086c376",
+        "field-service-engineer-sulzer-ch-876612fd",
+        "field-service-ingegnere-sulzer-falkirk",
+        "field-service-engineer-sulzer-ch-2",
+        "ts-field-service-ingenieur-sulzer-makati-3851b070",
         "ts-field-service-engineer-sulzer-ch-4f28b44f",
         "field-service-ingenieur-sulzer-falkirk-1f86aa1d",
-        "field-service-engineer-sulzer-ch-43c9d6d2",
-        "field-service-ingegnere-sulzer-falkirk",
-        "field-service-engineer-sulzer-ch-2"
+        "field-service-engineer-sulzer-ch-43c9d6d2"
       ],
       "fr": [
+        "ts-field-service-engineer-sulzer-ch-80536723",
+        "field-service-ingenieur-sulzer-falkirk-a086c376",
+        "field-service-engineer-sulzer-ch-876612fd",
+        "field-service-ingegnere-sulzer-falkirk",
+        "field-service-engineer-sulzer-ch-2",
+        "ts-field-service-ingenieur-sulzer-makati-3851b070",
         "ts-field-service-engineer-sulzer-ch-4f28b44f",
         "field-service-ingenieur-sulzer-falkirk-1f86aa1d",
-        "field-service-engineer-sulzer-ch-43c9d6d2",
-        "field-service-ingegnere-sulzer-falkirk",
-        "field-service-engineer-sulzer-ch-2"
+        "field-service-engineer-sulzer-ch-43c9d6d2"
       ]
     },
     "salaryMin": 73500,
@@ -21725,13 +21806,21 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "previousSlugs": [
+      "field-service-ingegnere-sulzer-falkirk-66a76117",
+      "field-service-engineer-sulzer-ch-876612fd",
+      "field-service-ingenieur-sulzer-falkirk-a086c376",
+      "field-service-engineer-sulzer-ch-2-c6965848",
+      "field-service-ingegnere-sulzer-falkirk",
+      "field-service-ingenieur-sulzer-falkirk",
+      "field-service-engineer-sulzer-ch-2",
+      "ts-field-service-engineer-sulzer-ch-80536723",
+      "ts-field-service-ingegnere-sulzer-makati-b175d471",
+      "ts-field-service-engineer-sulzer-ch-4f28b44f",
       "field-service-ingegnere-sulzer-falkirk-197f6ed0",
       "field-service-engineer-sulzer-ch-43c9d6d2",
       "field-service-ingenieur-sulzer-falkirk-1f86aa1d",
       "field-service-engineer-sulzer-ch-2-d6679d65",
-      "field-service-ingegnere-sulzer-falkirk",
-      "field-service-ingenieur-sulzer-falkirk",
-      "field-service-engineer-sulzer-ch-2"
+      "ts-field-service-ingenieur-sulzer-makati-3851b070"
     ]
   },
   {
@@ -22899,7 +22988,15 @@
         "cnc-mill-machinist-sulzer-ch-2f8c9f6a",
         "cnc-muhlenmaschine-sulzer-la-porte-e14e7b8d",
         "cnc-mill-machinist-5-axis-sulzer-ch-4285df15",
-        "lavoratore-di-fresatrici-cnc-sulzer-la-porte-89e5ca40"
+        "lavoratore-di-fresatrici-cnc-sulzer-la-porte-89e5ca40",
+        "macchinista-cnc-sulzer-barboursville-43bb861e",
+        "machinist-cnc-sulzer-ch-d6836d08",
+        "machinist-cnc-sulzer-barboursville-ce752e01",
+        "cnc-mill-machinist-5-axis-sulzer-la-porte-7d17e679",
+        "cnc-mill-machinist-sulzer-ch-d0962138",
+        "cnc-muhlenmaschine-sulzer-la-porte-fb850c42",
+        "cnc-mill-machinist-5-axis-sulzer-ch-8c47433d",
+        "lavoratore-di-fresatrici-cnc-sulzer-la-porte-9b78294c"
       ],
       "de": [
         "machinist-cnc-sulzer-ch-10cf783b",
@@ -22908,7 +23005,11 @@
         "machinist-cnc-sulzer-barboursville",
         "cnc-mill-machinist-5-axis-sulzer-la-porte",
         "cnc-mill-machinist-5-axis-sulzer-ch",
-        "lavoratore-di-fresatrici-cnc-sulzer-la-porte"
+        "lavoratore-di-fresatrici-cnc-sulzer-la-porte",
+        "maschinist-cnc-sulzer-barboursville-336baa0a",
+        "machinist-cnc-sulzer-ch-d6836d08",
+        "cnc-muhlenmaschine-sulzer-la-porte-fb850c42",
+        "cnc-mill-machinist-sulzer-ch-d0962138"
       ],
       "fr": [
         "machinist-cnc-sulzer-ch-10cf783b",
@@ -22917,16 +23018,21 @@
         "cnc-mill-machinist-5-axis-sulzer-la-porte",
         "cnc-muhlenmaschine-sulzer-la-porte",
         "cnc-mill-machinist-5-axis-sulzer-ch",
-        "lavoratore-di-fresatrici-cnc-sulzer-la-porte"
+        "lavoratore-di-fresatrici-cnc-sulzer-la-porte",
+        "machiniste-cnc-sulzer-barboursville-638ed27f",
+        "machinist-cnc-sulzer-ch-d6836d08",
+        "cnc-mill-machinist-sulzer-ch-d0962138"
       ],
       "en": [
         "cnc-mill-machinist-sulzer-ch-2f8c9f6a",
-        "machinist-cnc-sulzer-ch-10cf783b",
+        "cnc-mill-machinist-5-axis-sulzer-ch-4285df15",
         "machinist-cnc-sulzer-barboursville",
         "cnc-mill-machinist-5-axis-sulzer-la-porte",
         "cnc-muhlenmaschine-sulzer-la-porte",
-        "cnc-mill-machinist-5-axis-sulzer-ch-4285df15",
-        "lavoratore-di-fresatrici-cnc-sulzer-la-porte"
+        "lavoratore-di-fresatrici-cnc-sulzer-la-porte",
+        "machinist-cnc-sulzer-ch-d6836d08",
+        "cnc-mill-machinist-sulzer-ch-d0962138",
+        "cnc-mill-machinist-5-axis-sulzer-ch-8c47433d"
       ]
     },
     "salaryMin": 73500,
@@ -22944,7 +23050,18 @@
       "cnc-mill-machinist-5-axis-sulzer-la-porte",
       "cnc-mill-machinist-5-axis-sulzer-ch",
       "lavoratore-di-fresatrici-cnc-sulzer-la-porte",
-      "cnc-muhlenmaschine-sulzer-la-porte"
+      "cnc-muhlenmaschine-sulzer-la-porte",
+      "machinist-cnc-sulzer-ch-10cf783b",
+      "macchinista-cnc-sulzer-barboursville-43bb861e",
+      "machinist-cnc-sulzer-ch-d6836d08",
+      "machinist-cnc-sulzer-barboursville-ce752e01",
+      "cnc-mill-machinist-5-axis-sulzer-la-porte-7d17e679",
+      "cnc-mill-machinist-sulzer-ch-d0962138",
+      "cnc-muhlenmaschine-sulzer-la-porte-fb850c42",
+      "cnc-mill-machinist-5-axis-sulzer-ch-8c47433d",
+      "lavoratore-di-fresatrici-cnc-sulzer-la-porte-9b78294c",
+      "maschinist-cnc-sulzer-barboursville-336baa0a",
+      "machiniste-cnc-sulzer-barboursville-638ed27f"
     ]
   },
   {
@@ -23172,7 +23289,7 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "repair-coordinatore-sulzer-bridgeport-fc2cb0cc",
+    "slug": "repair-coordinatore-sulzer-bridgeport-5c65824e",
     "title": "Repair Coordinator",
     "titleByLocale": {
       "it": "Repair Coordinatore",
@@ -23191,49 +23308,63 @@
       "fr": "Sulzer est une entreprise d'ingénierie de premier plan avec un fier héritage d'innovation. Rejoignez notre équipe mondiale pour développer votre expertise et développer des solutions innovantes qui permettent une société prospère et plus durable. Sur le rôle Résumé de l'emploi Agit comme la liaison entre le client, les ventes, les vendeurs, l'ingénierie, et les services de production, détermine et fournit des résumés de coûts détaillés et des devis pour les travaux de réparation dans le centre de service. Coordonner la réparation en fournissant des instructions de travail qui incluent toutes les informations pertinentes nécessaires pour traiter la réparation par le centre de service satisfaisant aux exigences de l'ISO. Principales responsabilités\n• Examen des exigences du client pour la réparation de la pompe\n• Analyse les résultats de l'inspection, travaille avec le personnel de l'atelier et le directeur régional pour déterminer la portée des travaux requis pour les réparations\n• Planifier les réparations (heures de travail, besoins d'achat, instructions de travail et coût total)\n• Génére des devis de réparation\n• Compléte le démontage, l'inspection, la réparation et le montage des ensembles d'instructions de travail (commandes de travail, impressions, procédures, formulaires d'inspection).\n• Faire/ examiner les croquis et les dessins selon la norme ISO et en AutoCAD au besoin.\n• Remplit les demandes d'achat. Consulter les fournisseurs pour déterminer la disponibilité, la qualité, la quantité et le meilleur prix de tous les matériaux par rapport à un emploi donné.\n• Évaluer les prix des fournisseurs et déterminer les exigences acceptables en matière de qualité, de quantité et de prix pour respecter les engagements pris envers les clients.\n• Au besoin, accélérer les pièces et les matériaux des fournisseurs pour s'assurer que les engagements de livraison sont respectés.\n• Le cas échéant, préparer et faciliter toutes les tâches liées à l'expédition à l'arrivée/à l'arrivée nécessaires au transport final des réparations. Cela peut inclure tous les documents d'expédition, d'importation et d'exportation au besoin.\n• Gérer les projets pour atteindre les objectifs du cycle des appels d'offres et des commandes pour le centre de services.\n• Veiller au respect des engagements des clients et communiquer régulièrement avec tous les départements pour les tenir au courant des activités de coordination\n• Tous les travaux sont effectués selon les exigences ISO et OSHAS\n• Soutient, coopère avec et participe à l'ensemble de l'entreprise LEAN et EHS Management système qui comprend suivre toutes les politiques et procédures en matière de sécurité, de santé et d'environnement. Soutenir et coopérer à des initiatives d'amélioration à l'échelle de l'entreprise.\n• Effectuer une analyse des causes profondes des défaillances de la pompe\n• Effectuer des sélections de matériaux de base pour les projets de réparation\n• Effectuer des calculs techniques par industrie et par normes Sulzer\n• Exécute d'autres fonctions selon les affectations Qualifications / Exigences\n• Fortes aptitudes organisationnelles, interpersonnelles et analytiques.\n• Excellentes compétences en communication verbale et écrite, y compris diplomatie et négociation\n• Connaissance approfondie de tous les procédés de fabrication et d'atelier liés à la réparation des pompes et à la fabrication des pièces de pompe et ou des équipements étroitement liés requis\n• Fortes compétences PC, avec compétence dans les logiciels Microsoft\n• Expérience de travail et connaissance des systèmes PGI requis. Expérience SAP précédente fortement souhaitée mais pas critique.\n• Baccalauréat en génie mécanique est préféré\n• L'expérience des rôles étroitement liés est privilégiée.\n• La connaissance technique de la conception et de la réparation de la pompe, ainsi que la forme d'ajustement et les fonctions des composants est préférée. Ce que nous vous offrons\n• 15 jours de congé payé et 12 jours fériés payés par l'entreprise\n• Plan 401k avec un match de 6%\n• Plan de santé global comprenant des soins médicaux, dentaires, de la vision, de la vie, des incapacités de courte et de longue durée\n• Compatibilité des comptes d'épargne santé\n• Programme de bien-être motivant\n• Programme d'aide aux employés\n• Congé parental payé\n• Remboursement de gymnastique Sulzer est un employeur à chances égales. Nous croyons en la force d'un effectif diversifié et sommes déterminés à offrir un milieu de travail inclusif. Nous sommes fiers d'être reconnus comme l'un des meilleurs employeurs 2026 au Brésil, au Canada, en Chine, en Finlande, en Allemagne, en Irlande, au Mexique, en Suisse, en Afrique du Sud, au Royaume-Uni et aux États-Unis."
     },
     "slugByLocale": {
-      "it": "repair-coordinatore-sulzer-bridgeport-fc2cb0cc",
-      "en": "repair-coordinator-sulzer-ch-ac8f6d40",
-      "de": "repair-koordinator-sulzer-bridgeport-009f1863",
-      "fr": "repair-coordinateur-sulzer-bridgeport-af0aef0a"
+      "it": "repair-coordinatore-sulzer-bridgeport-5c65824e",
+      "en": "repair-coordinator-sulzer-ch-f6459f38",
+      "de": "repair-koordinator-sulzer-bridgeport-5bbe97de",
+      "fr": "repair-coordinateur-sulzer-bridgeport-9f353fa5"
     },
     "sector": "Industria",
     "expiredAt": "2026-08-07T22:03:25.093Z",
     "previousSlugsByLocale": {
       "it": [
-        "repair-coordinator-sulzer-ch-ac8f6d40",
-        "repair-coordinatore-sulzer-santa-fe-springs-e785f263",
-        "repair-coordinator-sulzer-ch-2-71f7f9bf",
+        "repair-coordinator-sulzer-ch-f6459f38",
+        "repair-coordinatore-sulzer-santa-fe-springs-49fe5a24",
+        "repair-coordinator-sulzer-ch-2-634d6a2e",
         "repair-coordinator-sulzer-bridgeport",
         "repair-coordinator-sulzer-santa-fe-springs",
         "repair-koordinator-sulzer-santa-fe-springs",
-        "repair-coordinateur-sulzer-santa-fe-springs"
+        "repair-coordinateur-sulzer-santa-fe-springs",
+        "repair-coordinatore-sulzer-bridgeport-fc2cb0cc",
+        "repair-coordinator-sulzer-ch-ac8f6d40",
+        "repair-coordinatore-sulzer-santa-fe-springs-e785f263",
+        "repair-coordinator-sulzer-ch-2-71f7f9bf"
       ],
       "en": [
-        "repair-coordinator-sulzer-bridgeport-3940ef35",
-        "repair-coordinator-sulzer-santa-fe-springs-5eedd412",
-        "repair-coordinator-sulzer-ch-ac8f6d40",
+        "repair-coordinator-sulzer-bridgeport-17633b90",
+        "repair-coordinator-sulzer-santa-fe-springs-12116bb0",
         "repair-coordinatore-sulzer-santa-fe-springs",
         "repair-coordinator-sulzer-ch-2",
         "repair-koordinator-sulzer-santa-fe-springs",
-        "repair-coordinateur-sulzer-santa-fe-springs"
+        "repair-coordinateur-sulzer-santa-fe-springs",
+        "repair-coordinator-sulzer-ch-ac8f6d40",
+        "repair-coordinator-sulzer-bridgeport-3940ef35",
+        "repair-coordinator-sulzer-santa-fe-springs-5eedd412"
       ],
       "de": [
+        "repair-coordinator-sulzer-ch-f6459f38",
+        "repair-koordinator-sulzer-santa-fe-springs-51bc61df",
+        "repair-coordinator-sulzer-ch-2-634d6a2e",
+        "repair-coordinatore-sulzer-santa-fe-springs",
+        "repair-coordinator-sulzer-bridgeport",
+        "repair-coordinator-sulzer-santa-fe-springs",
+        "repair-coordinateur-sulzer-santa-fe-springs",
+        "repair-koordinator-sulzer-bridgeport-009f1863",
         "repair-coordinator-sulzer-ch-ac8f6d40",
         "repair-koordinator-sulzer-santa-fe-springs-687619ea",
-        "repair-coordinator-sulzer-ch-2-71f7f9bf",
-        "repair-coordinatore-sulzer-santa-fe-springs",
-        "repair-coordinator-sulzer-bridgeport",
-        "repair-coordinator-sulzer-santa-fe-springs",
-        "repair-coordinateur-sulzer-santa-fe-springs"
+        "repair-coordinator-sulzer-ch-2-71f7f9bf"
       ],
       "fr": [
-        "repair-coordinator-sulzer-ch-ac8f6d40",
-        "repair-coordinateur-sulzer-santa-fe-springs-fa86a607",
-        "repair-coordinator-sulzer-ch-2-71f7f9bf",
+        "repair-coordinator-sulzer-ch-f6459f38",
+        "repair-coordinateur-sulzer-santa-fe-springs-9dd0e29a",
+        "repair-coordinator-sulzer-ch-2-634d6a2e",
         "repair-coordinatore-sulzer-santa-fe-springs",
         "repair-coordinator-sulzer-bridgeport",
         "repair-coordinator-sulzer-santa-fe-springs",
-        "repair-koordinator-sulzer-santa-fe-springs"
+        "repair-koordinator-sulzer-santa-fe-springs",
+        "repair-coordinateur-sulzer-bridgeport-af0aef0a",
+        "repair-coordinator-sulzer-ch-ac8f6d40",
+        "repair-coordinateur-sulzer-santa-fe-springs-fa86a607",
+        "repair-coordinator-sulzer-ch-2-71f7f9bf"
       ]
     },
     "salaryMin": 73500,
@@ -23241,17 +23372,28 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "previousSlugs": [
-      "repair-coordinatore-sulzer-santa-fe-springs-e785f263",
-      "repair-coordinator-sulzer-ch-2-71f7f9bf",
+      "repair-coordinatore-sulzer-santa-fe-springs-49fe5a24",
+      "repair-coordinator-sulzer-ch-2-634d6a2e",
       "repair-coordinator-sulzer-bridgeport",
       "repair-coordinator-sulzer-santa-fe-springs",
       "repair-koordinator-sulzer-santa-fe-springs",
       "repair-coordinateur-sulzer-santa-fe-springs",
-      "repair-coordinator-sulzer-bridgeport-3940ef35",
-      "repair-coordinator-sulzer-santa-fe-springs-5eedd412",
+      "repair-coordinator-sulzer-bridgeport-17633b90",
+      "repair-coordinator-sulzer-santa-fe-springs-12116bb0",
       "repair-coordinatore-sulzer-santa-fe-springs",
       "repair-coordinator-sulzer-ch-2",
+      "repair-koordinator-sulzer-santa-fe-springs-51bc61df",
+      "repair-coordinateur-sulzer-santa-fe-springs-9dd0e29a",
+      "repair-coordinator-sulzer-ch-f6459f38",
+      "repair-coordinatore-sulzer-bridgeport-fc2cb0cc",
+      "repair-coordinator-sulzer-ch-ac8f6d40",
+      "repair-coordinatore-sulzer-santa-fe-springs-e785f263",
+      "repair-coordinator-sulzer-ch-2-71f7f9bf",
+      "repair-coordinator-sulzer-bridgeport-3940ef35",
+      "repair-coordinator-sulzer-santa-fe-springs-5eedd412",
+      "repair-koordinator-sulzer-bridgeport-009f1863",
       "repair-koordinator-sulzer-santa-fe-springs-687619ea",
+      "repair-coordinateur-sulzer-bridgeport-af0aef0a",
       "repair-coordinateur-sulzer-santa-fe-springs-fa86a607"
     ]
   },
@@ -23642,25 +23784,39 @@
         "senior-project-manager-sulzer-ch-2-85ffc841",
         "senior-project-manager-sulzer-ch-1af9d7eb",
         "senior-project-engineer-sulzer-ch-c5104608",
-        "responsabile-del-progetto-senior-sulzer-cumming-a8663d52"
+        "responsabile-del-progetto-senior-sulzer-cumming-a8663d52",
+        "responsabile-del-progetto-senior-sulzer-leeds-94d951be",
+        "senior-project-manager-sulzer-ch-2-2a56ae36",
+        "senior-project-manager-sulzer-ch-ddae07df",
+        "senior-project-engineer-sulzer-ch-44c6efcc",
+        "responsabile-del-progetto-senior-sulzer-cumming-967e9301"
       ],
       "de": [
         "senior-project-manager-sulzer-ch-2-85ffc841",
         "senior-project-manager-sulzer-ch-1af9d7eb",
         "senior-project-engineer-sulzer-ch-c5104608",
-        "responsabile-del-progetto-senior-sulzer-cumming"
+        "responsabile-del-progetto-senior-sulzer-cumming",
+        "senior-projektmanager-sulzer-leeds-b1ab54bf",
+        "senior-project-manager-sulzer-ch-2-2a56ae36",
+        "senior-project-manager-sulzer-ch-ddae07df",
+        "senior-project-engineer-sulzer-ch-44c6efcc"
       ],
       "fr": [
         "senior-project-manager-sulzer-ch-2-85ffc841",
         "senior-project-manager-sulzer-ch-1af9d7eb",
         "senior-project-engineer-sulzer-ch-c5104608",
-        "responsabile-del-progetto-senior-sulzer-cumming"
+        "responsabile-del-progetto-senior-sulzer-cumming",
+        "directeur-principal-de-projet-sulzer-leeds-d88688df",
+        "senior-project-manager-sulzer-ch-2-2a56ae36",
+        "senior-project-manager-sulzer-ch-ddae07df",
+        "senior-project-engineer-sulzer-ch-44c6efcc"
       ],
       "en": [
         "senior-project-engineer-sulzer-ch-c5104608",
         "senior-project-manager-sulzer-ch-2",
-        "senior-project-manager-sulzer-ch-1af9d7eb",
-        "responsabile-del-progetto-senior-sulzer-cumming"
+        "responsabile-del-progetto-senior-sulzer-cumming",
+        "senior-project-manager-sulzer-ch-ddae07df",
+        "senior-project-engineer-sulzer-ch-44c6efcc"
       ]
     },
     "salaryMin": 101500,
@@ -23672,7 +23828,15 @@
       "senior-project-engineer-sulzer-ch-c5104608",
       "responsabile-del-progetto-senior-sulzer-cumming-a8663d52",
       "responsabile-del-progetto-senior-sulzer-cumming",
-      "senior-project-manager-sulzer-ch-2"
+      "senior-project-manager-sulzer-ch-2",
+      "senior-project-manager-sulzer-ch-1af9d7eb",
+      "responsabile-del-progetto-senior-sulzer-leeds-94d951be",
+      "senior-project-manager-sulzer-ch-2-2a56ae36",
+      "senior-project-manager-sulzer-ch-ddae07df",
+      "senior-project-engineer-sulzer-ch-44c6efcc",
+      "responsabile-del-progetto-senior-sulzer-cumming-967e9301",
+      "senior-projektmanager-sulzer-leeds-b1ab54bf",
+      "directeur-principal-de-projet-sulzer-leeds-d88688df"
     ]
   },
   {
@@ -24555,6 +24719,49 @@
     "salaryPeriod": "YEAR"
   },
   {
+    "slug": "field-service-ingegnere-mumbai-sulzer-navi-mumbai-befcf573",
+    "title": "Field Service Engineer - Mumbai",
+    "titleByLocale": {
+      "it": "Field Service Ingegnere - Mumbai",
+      "en": "Field Service Engineer - Mumbai",
+      "de": "Field Service Ingenieur - Mumbai",
+      "fr": "Field Service Ingénieur - Mumbai"
+    },
+    "company": "Sulzer",
+    "companyKey": "sulzer",
+    "location": "Navi Mumbai",
+    "addressLocality": "Navi Mumbai",
+    "descriptionByLocale": {
+      "it": "Sulzer è una società di ingegneria leader con un patrimonio orgoglioso di innovazione. Unisciti al nostro team globale per accrescere le tue competenze e sviluppare soluzioni innovative che consentano una società prospera e più sostenibile. Informazioni sul ruolo Sintesi del lavoro L'Ingegnere di Servizio Sr. (Field) è responsabile per fornire consulenza tecnica ai clienti, compresa la messa in servizio, l'installazione e la sperimentazione di prodotti e attrezzature. Questo ruolo garantisce la consegna di servizi di alta qualità e supporta la soddisfazione del cliente attraverso competenze tecniche e risoluzione dei problemi.\n• Questo profilo di lavoro è destinato a professionisti esperti che applicano la conoscenza pratica di un'area di lavoro e lavorano indipendentemente con la supervisione generale.\n• Principali responsabilità e compiti :\n• 1. Fornire supporto tecnico ai centri di servizio e cliente, inclusi ma non limitati\n• a. Rapporto di ispezione di revisione\n• b. Fornire raccomandazioni per il metodo di riparazione.\n• c. Condurre livello 1 radice causa di analisi guasti che consiste in: fornire possibile causa di guasto basata su osservazioni.\n• su componenti durante l'ispezione.\n• d. Fornire la raccomandazione di aggiornamento in base ai risultati.\n• e. Fornire indicazioni e raccomandazioni per abbattere, assemblare e impostare di complesso.\n• 2. Fornire supporto tecnico a Field Service\n• a. Rispondi a quesiti tecnici\n• . Assistere con istruzioni per la messa in servizio complessa o la risoluzione dei problemi.\n• 3. Fornire assistenza tecnica al cliente e al team Front end\n• Rispondi a domande tecniche. Vendite di assistenza per incontri tecnici relativi a casi problematici (fuori garanzia)\n• 4. Condotto livello 2 radice causa analisi guasto che consiste in: Liaise con il cliente per raccogliere i dati necessari per l'analisi. rivedere i dati del sito forniti dal cliente. preparare dettagliato rapporto di analisi causa guasto radice con sfondo, risultato di analisi e raccomandazioni. 5. Condurre livello 3 radice causa analisi guasto e valutazione delle prestazioni che consiste di: a . Prendere la misura sulle apparecchiature in loco con analizzatore di vibrazioni, misuratore di flusso ultrasuoni, metodo termodinamico Esperienza di lavoro :\n• 1. Minimo di 5 anni di esperienza nella progettazione, collaudo e riparazione della pompa centrifuga.\n• 2. Esperienza rilevante nell'utilizzo di strumenti di calcolo e software per la progettazione della pompa\n• 3 Esperienza rilevante nelle industrie di energia e petrolio e gas, compresa la conoscenza dell'industria\n• Competenza (ad esempio professionale, tecnico):\n• 1. Competenza tecnica nell'utilizzo di strumenti di calcolo e progettazione software.\n• 2. Esperienza rilevante nelle industrie Power and Oil & Gas, compresa la conoscenza del processo industriale, pratiche e standard.\n• Istruzione: BE/Equivalente, Soggetto: BE/Equivalente in Ingegneria Meccanica\n• Lingue: Inglese parlato e scritto\n• Competenze morbide :\n• 1. Capacità di progettazione e siccità (CAD92D & 3D) e competenze informatiche generali\n• 2. Esperienza precedente utilizzando software associato scansione 3D per l'elaborazione e la modellazione. Cosa ti offriamo\n• 22 giorni di vacanza + 9 giorni di congedo casuale + 8 giorni Sick Leave + 13 giorni\n• regime pensionistico contributivo\n• Assicurazione ospedaliera\n• Parcheggio in loco\n• Premio di servizio lungo Sulzer è un datore di lavoro pari opportunità. Crediamo nella forza di una forza lavoro diversificata e ci impegniamo ad offrire un ambiente di lavoro inclusivo. Siamo orgogliosi di essere riconosciuti come Top Employer 2026 in Brasile, Canada, Cina, Finlandia, Germania, Irlanda, Messico, Svizzera, Sudafrica, Regno Unito e Stati Uniti.",
+      "en": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society.\n\nAbout the role\n\nJob Summary\nThe Sr. (Field) Service Engineer is responsible for providing technical advice to customers, including commissioning, installing, and testing of products and equipment. This role ensures high-quality service delivery and supports customer satisfaction through technical expertise and problem resolution.\n• This job profile is intended for experienced professionals who apply practical knowledge of a job area and work independently with general supervision.\n• Main accountabilities and tasks :\n• 1.Provide technical support to Customer/service centers including but not limited to\n• a. Review inspection report\n• b. Provide recommendations for method of repair.\n• c. Conduct level 1 root cause failure analysis which consists of: providing possible cause of failure based on observations.\n• made on components during inspection.\n• d. Provide recommendation of upgrade based on findings.\n• e. Provide guidance and recommendations for strip down, assembly and setting of complex.\n• 2. Provide technical support to Field Service\n• a. Reply to technical queries\n• . Assist them with instructions for complex commissioning or troubleshooting.\n• 3. Provide technical support to customer and Front end team\n• Reply to technical queries. Assist sales for technical meeting related to troublesome cases (out of warranty)\n• 4. Conduct level 2 root cause failure analysis which consists of:\nLiaise with customer to gather data required for analysis. reviewing site data provided by customer. prepare detailed root cause failure analysis report with background, result of analysis and recommendations.\n5. Conduct level 3 root cause failure analysis and performance assessment which consist of:\na . Take measurement on equipment at site with vibration analyzer, ultra-sonic flow meter, thermodynamic method\n\nWork experience :\n• 1. Minimum of 5 years of experience in centrifugal pump design, testing and repair.\n• 2. Relevant experience in using calculation tools and software for pump design\n• 3 Relevant experience in Power and Oil & Gas industries, including knowledge of industry\n\n• Expertise (e.g. professional, technical):\n• 1. Technical expertise in using calculation tools and software design.\n• 2. Relevant experience in Power and Oil & Gas industries, including knowledge of industry process, practices & standards.\n\n• Education: BE/Equivalent, Subject : BE/Equivalent in Mechanical Engineering\n• Languages: English spoken and written\n• Soft skills :\n• 1. Design and droughting skills (CAD92D & 3D) and General computer skills\n• 2. Previous experience using 3D scan associated software for processing and modelling.\n\nWhat we offer you\n\n• 22 vacation days + 9 days Casual leave + 8 days Sick Leave + 13 days Festival holidays\n• Defined contribution pension scheme\n• Hospitalization insurance benefit\n• On-site car parking\n• Long service award\n\nSulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment.\n\nWe are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
+      "de": "Sulzer ist ein führendes Ingenieurunternehmen mit einem stolzen Erbe an Innovationen. Schließen Sie sich unserem globalen Team an, um Ihr Fachwissen zu erweitern und innovative Lösungen zu entwickeln, die eine wohlhabende und nachhaltigere Gesellschaft ermöglichen. Über die Rolle Stellenbeschreibung Der Sr. (Field) Service Engineer ist verantwortlich für die technische Beratung der Kunden, einschließlich der Inbetriebnahme, Installation und Prüfung von Produkten und Geräten. Diese Rolle gewährleistet eine qualitativ hochwertige Servicebereitstellung und unterstützt die Kundenzufriedenheit durch technisches Fachwissen und Problemlösung.\n• Dieses Jobprofil richtet sich an erfahrene Fachkräfte, die praktische Kenntnisse eines Jobbereichs anwenden und unabhängig mit allgemeiner Aufsicht arbeiten.\n• Hauptverantwortlichkeiten und Aufgaben :\n• 1. Bereitstellung von technischem Support für Kunden-/Servicecenter, einschließlich, aber nicht beschränkt auf\n• a. Überprüfungsinspektionsbericht\n• b. Geben Sie Empfehlungen für die Reparaturmethode.\n• c. Analyse der Ursache des Fehlers auf der Durchführungsebene 1, bestehend aus: Bereitstellung möglicher Fehlerursachen auf der Grundlage von Beobachtungen.\n• auf Komponenten während der Inspektion hergestellt.\n• d. Geben Sie eine Empfehlung für ein Upgrade basierend auf den Ergebnissen.\n• e. Bereitstellung von Anleitungen und Empfehlungen für Strip Down, Montage und Einstellung von Komplexen.\n• 2. Bereitstellung technischer Unterstützung für den Außendienst\n• a. Antworten auf technische Fragen\n• Hilfe bei Anweisungen für die komplexe Inbetriebnahme oder Fehlerbehebung.\n• 3. Bereitstellung technischer Unterstützung für Kunden und Front-End-Team\n• Beantworten Sie technische Anfragen. Assist Sales für technische Besprechungen im Zusammenhang mit schwierigen Fällen (außer Garantie)\n• 4. Grundursachenanalyse der Leitungsebene 2, bestehend aus: Kontaktieren Sie den Kunden, um die für die Analyse erforderlichen Daten zu sammeln. Überprüfung der vom Kunden bereitgestellten Websitedaten. Erstellen Sie einen detaillierten Bericht über die Analyse der Ursachenfehler mit Hintergrund, Ergebnis der Analyse und Empfehlungen. 5. Grundursachenanalyse und Leistungsbewertung der Durchführungsebene 3, bestehend aus: a. Messen an Geräten vor Ort mit Vibrationsanalysator, Ultraschalldurchflussmesser, thermodynamisches Verfahren Berufserfahrung :\n• 1. Mindestens 5 Jahre Erfahrung in der Konstruktion, Prüfung und Reparatur von Kreiselpumpen.\n• 2. Einschlägige Erfahrungen mit der Verwendung von Berechnungsinstrumenten und -software für den Pumpenentwurf\n• 3 Relevante Erfahrung in der Energie- und Öl- & Gasindustrie, einschließlich Branchenkenntnisse\n• Fachwissen (z. B. fachlich, technisch):\n• 1. Technisches Fachwissen im Umgang mit Berechnungswerkzeugen und Softwaredesign.\n• 2. Relevante Erfahrung in der Energie- und Öl- und Gasindustrie, einschließlich Kenntnisse der Industrieprozesse, Praktiken und Standards.\n• Ausbildung: BE / Äquivalent, Fach: BE / Äquivalent in Maschinenbau\n• Sprachen: Englisch gesprochen und geschrieben\n• Soft Skills:\n• 1. Design- und Dürrefähigkeiten (CAD92D & 3D) und allgemeine Computerkenntnisse\n• 2. Frühere Erfahrungen mit 3D-Scan-assoziierter Software für die Verarbeitung und Modellierung. Was wir Ihnen bieten\n• 22 Urlaubstage + 9 Tage Freizeiturlaub + 8 Tage Krankheitsurlaub + 13 Tage Festivalferien\n• Beitragsorientierte Altersversorgung\n• Krankenhausversicherungsleistung\n• Vor-Ort-Parkplätze\n• Long Service Award Sulzer ist ein Arbeitgeber für Chancengleichheit. Wir glauben an die Stärke einer vielfältigen Belegschaft und engagieren uns für ein integratives Arbeitsumfeld. Wir sind stolz darauf, als Top Employer 2026 in Brasilien, Kanada, China, Finnland, Deutschland, Irland, Mexiko, der Schweiz, Südafrika, Großbritannien und den USA anerkannt zu werden.",
+      "fr": "Sulzer est une société d'ingénierie de premier plan avec un fier héritage d'innovation. Rejoignez notre équipe mondiale pour développer votre expertise et développer des solutions innovantes qui permettent une société prospère et plus durable. Sur le rôle Résumé de l'emploi Il est chargé de fournir des conseils techniques aux clients, y compris la mise en service, l'installation et l'essai de produits et d'équipement. Ce rôle assure une prestation de services de haute qualité et soutient la satisfaction de la clientèle par l'expertise technique et la résolution de problèmes.\n• Ce profil d'emploi est destiné aux professionnels expérimentés qui appliquent des connaissances pratiques d'un domaine d'emploi et travaillent de manière indépendante avec une supervision générale.\n• Principales responsabilités et tâches :\n• 1.Fournir un soutien technique aux centres clients/services, notamment\n• a. Examen du rapport d ' inspection\n• b. Formuler des recommandations concernant les méthodes de réparation.\n• c. Effectuer une analyse de la défaillance de la cause racine de niveau 1 qui consiste à fournir une cause possible de défaillance fondée sur des observations.\n• sur les composants lors de l'inspection.\n• d. Fournir une recommandation de mise à niveau fondée sur les conclusions.\n• e. Fournir des conseils et des recommandations pour le démontage, le montage et l'installation d'un complexe.\n• 2. Fournir un appui technique au Service mobile\n• a. Réponse aux questions techniques\n• . Les aider avec des instructions pour la mise en service ou le dépannage complexes.\n• 3. Fournir un soutien technique au client et à l'équipe de première ligne\n• Répondre aux questions techniques. Aider les ventes pour la réunion technique liée à certains cas problématiques (hors garantie)\n• 4. Effectuer une analyse de la défaillance des causes profondes de niveau 2 qui consiste à : Assurer la liaison avec le client pour recueillir les données nécessaires à l'analyse. examiner les données du site fournies par le client. préparer un rapport détaillé sur l'analyse des causes profondes des défaillances, avec le contexte, les résultats de l'analyse et les recommandations. 5. Effectuer une analyse de la cause fondamentale de niveau 3 et une évaluation du rendement qui consistent en : a . Mesurer l'équipement sur place avec analyseur de vibrations, débitmètre ultrasonore, méthode thermodynamique Expérience professionnelle :\n• 1. Au moins 5 ans d'expérience dans la conception, l'essai et la réparation des pompes centrifuges.\n• 2. Expérience pertinente dans l ' utilisation d ' outils de calcul et de logiciels pour la conception des pompes\n• 3 Expérience pertinente dans les industries de l'électricité et du pétrole et du gaz, y compris la connaissance de l'industrie\n• Expertise (p. ex. professionnelle, technique) :\n• 1. Expertise technique dans l'utilisation des outils de calcul et la conception de logiciels.\n• 2. Expérience pertinente dans les industries de l'électricité et du pétrole et du gaz, y compris connaissance des processus, des pratiques et des normes de l'industrie.\n• Éducation: BE/Equivalent, Sujet: BE/Equivalent en génie mécanique\n• Langues: Anglais parlé et écrit\n• Compétences douces :\n• 1. Compétences en conception et en sécheresse (CAD92D & 3D) et compétences informatiques générales\n• 2. Expérience antérieure utilisant le logiciel associé à la numérisation 3D pour le traitement et la modélisation. Ce que nous vous offrons\n• 22 jours de vacances + 9 jours Congés occasionnels + 8 jours Congés maladie + 13 jours Vacances festival\n• Régime de pension à cotisations définies\n• Assurance hospitalisation\n• Parking sur place\n• Prix de longue durée Sulzer est un employeur à chances égales. Nous croyons en la force d'une main-d'oeuvre diversifiée et sommes déterminés à offrir un milieu de travail inclusif. Nous sommes fiers d'être reconnus comme l'un des meilleurs employeurs 2026 au Brésil, au Canada, en Chine, en Finlande, en Allemagne, en Irlande, au Mexique, en Suisse, en Afrique du Sud, au Royaume-Uni et aux États-Unis."
+    },
+    "slugByLocale": {
+      "it": "field-service-ingegnere-mumbai-sulzer-navi-mumbai-befcf573",
+      "en": "field-service-engineer-mumbai-sulzer-ch-1bbffb3e",
+      "de": "field-service-ingenieur-mumbai-sulzer-navi-mumbai-9fccb151",
+      "fr": "field-service-ingenieur-mumbai-sulzer-navi-mumbai-9fccb151"
+    },
+    "sector": "Industria",
+    "expiredAt": "2026-07-29T23:00:43.624Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "field-service-engineer-mumbai-sulzer-ch-1bbffb3e"
+      ],
+      "de": [
+        "field-service-engineer-mumbai-sulzer-ch-1bbffb3e"
+      ],
+      "fr": [
+        "field-service-engineer-mumbai-sulzer-ch-1bbffb3e"
+      ]
+    },
+    "salaryMin": 73500,
+    "salaryMax": 111500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "field-service-ingegnere-mumbai-sulzer-navi-mumbai-f48fa72f",
     "title": "Field Service Engineer - Mumbai",
     "titleByLocale": {
@@ -24589,9 +24796,6 @@
         "field-service-engineer-mumbai-sulzer-ch-2436df5f"
       ],
       "fr": [
-        "field-service-engineer-mumbai-sulzer-ch-2436df5f"
-      ],
-      "en": [
         "field-service-engineer-mumbai-sulzer-ch-2436df5f"
       ]
     },
@@ -25116,9 +25320,49 @@
       ],
       "fr": [
         "workshop-technician-monteur-m-v-x-sulzer-ch-630ea484"
+      ]
+    },
+    "salaryMin": 73500,
+    "salaryMax": 111500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "workshop-tecnico-monteur-m-v-x-sulzer-maastricht-3330ba73",
+    "title": "Workshop Technician (monteur) (m/v/x)",
+    "titleByLocale": {
+      "it": "Workshop Tecnico (monteur) (m/v/x)",
+      "en": "Workshop Technician (monteur) (m/v/x)",
+      "de": "Workshop Techniker (monteur) (m/v/x)",
+      "fr": "Workshop Technicien (monteur) (m/v/x)"
+    },
+    "company": "Sulzer",
+    "companyKey": "sulzer",
+    "location": "Maastricht",
+    "addressLocality": "Maastricht",
+    "descriptionByLocale": {
+      "it": "Sulzer è una società di ingegneria leader con un patrimonio orgoglioso di innovazione. Unisciti al nostro team globale per accrescere le tue competenze e sviluppare soluzioni innovative che consentano una società prospera e più sostenibile.\n\nInformazioni sul ruolo\n\nSulzer Flow è statoldwijd marktleider in de ontwikkeling en leveing van onder andere pompen, roerwerken, vermalers, compressoren en beluchters in geselecteerde industriële markten, met name in olie & gas, energia, acqua, afvalwater en de papierindustrie. De Sulzer Water & General Industry Business Unità heeft vestigingen in België en Nederland en è in deze regio met ongeveer 50 medewerkers actief in de verkoop, installatoe en service van bovengenoemde producten. Kom werken bij Sulzer als Workshop Technician (monteur) en help mee om onze service naar een prossimo livello te brengen.\n\nIn deze rol ben je verantwoordelijk voor:\n• Het analizzaren, reviseren en repareren van pompen, roerwerken, vermalers, compressoren en beluchters in onze werkplaats te Maastricht-Airport\n• Werkzaamheden della macchina\n• Opstellen van analyzerapporten\n• Uitvoeren van testen in de proefstand\n\nOm te slagen in deze rol, heb je nodig:\n• Succesvol afgeronde technische mbo-opleiding, bij voorkeur in werktuigbouwkunde di vergelijkbaar\n• Ervaring met montaggio van of service aan Rotating Equipment is een pré maar geen must\n• Affiniteit ha incontrato elektrotechniek è\n• Technisch inzicht, je bent een echte sleutelaar\n• Je beschikt sopra analytisch en probleemoplossend vermogen\n• Je bent accuraat en werkt gestructureerd\n• Engelse taal, Engelse taal is een pré\n• Je beschikt sopra enige computerervaring (Word, Excel)\n• Een zelfstandige, flexibele en klantgerichte instelling\n\nCosa ti offriamo\n\nSulzer biedt een uitstekend pakket aan arbeidsvoorwaarden, waaronder:\n• Een meer dan marktconform salari\n• Jaarlijkse prestatiebonus\n• Een royaal aantal vakantie en ATV dagen (38)\n• Een solide pensieroenregeling (PMT)\n\nSulzer è un datore di lavoro pari opportunità. Crediamo nella forza di una forza lavoro diversificata e ci impegniamo ad offrire un ambiente di lavoro inclusivo.\n\nSiamo orgogliosi di essere riconosciuti come Top Employer 2026 in Brasile, Canada, Cina, Finlandia, Germania, Irlanda, Messico, Svizzera, Sud Africa, Regno Unito e Stati Uniti.",
+      "en": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society.\n\nAbout the role\n\nSulzer Flow is wereldwijd marktleider in de ontwikkeling en levering van onder andere pompen, roerwerken, vermalers, compressoren en beluchters in geselecteerde industriële markten, met name in olie & gas, energie, water, afvalwater en de papierindustrie. De Sulzer Water & General Industry Business Unit heeft vestigingen in België en Nederland en is in deze regio met ongeveer 50 medewerkers actief in de verkoop, installatie en service van bovengenoemde producten. Kom werken bij Sulzer als Workshop Technician (monteur) en help mee om onze service naar een next level te brengen.\n\nIn deze rol ben je verantwoordelijk voor:\n• Het analyseren, reviseren en repareren van pompen, roerwerken, vermalers, compressoren en beluchters in onze werkplaats te Maastricht-Airport\n• Machinale werkzaamheden\n• Opstellen van analyserapporten\n• Uitvoeren van testen in de proefstand\n\nOm te slagen in deze rol, heb je nodig:\n• Succesvol afgeronde technische mbo-opleiding, bij voorkeur in werktuigbouwkunde of vergelijkbaar\n• Ervaring met montage van of service aan Rotating Equipment is een pré maar geen must\n• Affiniteit met elektrotechniek is een pré\n• Technisch inzicht, je bent een echte sleutelaar\n• Je beschikt over analytisch en probleemoplossend vermogen\n• Je bent accuraat en werkt gestructureerd\n• Goede beheersing van de Nederlandse taal is een must, Engelse taal is een pré\n• Je beschikt over enige computerervaring (Word, Excel)\n• Een zelfstandige, flexibele en klantgerichte instelling\n\nWhat we offer you\n\nSulzer biedt een uitstekend pakket aan arbeidsvoorwaarden, waaronder:\n• Een meer dan marktconform salaris\n• Jaarlijkse prestatiebonus\n• Een royaal aantal vakantie en ATV dagen (38)\n• Een solide pensioenregeling (PMT)\n\nSulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment.\n\nWe are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
+      "de": "Sulzer ist ein führendes Ingenieurunternehmen mit einem stolzen Erbe an Innovationen. Schließen Sie sich unserem globalen Team an, um Ihr Fachwissen zu erweitern und innovative Lösungen zu entwickeln, die eine prosperierende und nachhaltigere Gesellschaft ermöglichen.\n\nÜber die Rolle\n\nSulzer Flow ist werldwijd marktleider in de ontwikkeling en levering van onder anderen pompen, roerwerken, vermalers, compressoren en beluchters in geselecteerde industriële markten, met name in olie & gas, energie, water, afvalwater en de papierindustrie. De Sulzer Water & General Industry Unit heeft vestigingen in België en Nederland en ist in deze regio met ongeveer 50 medewerkers actief in de verkoop, installatie en service van bovengenoemde producten. Kom werken bij Sulzer als Werkstatttechniker (monteur) en help mee om onze service naar een next level te brengen.\n\nIn deze rol ben je verantwoordelijk voor:\n• Het analyseren, revisionren en repareren van pompen, roerwerken, vermalers, compressoren en beluchters in onze werkplaats te Maastricht-Flughafen\n• Machinale werkzaamheden\n• Opstellen van analyserapporten\n• Uitvoeren van test in de proefstand\n\nOm te slagen in deze rol, heb je nodig:\n• Succesvol afgeronde technische mbo-opleiding, bij voorkeur in werktuigbouwkunde von vergelijkbaar\n• Ervaring erfüllt Montage van of service aan Rotating Equipment ist een pré maar geen muss\n• Affiniteit met elektrotechniek is een pré\n• Technisch inzicht, je bent een echte sleutelaar\n• Je beschikt over analytisch en probleemoplosend vermogen\n• Je bent accuraat en werkt gestructureerd\n• Goede beheersing van de Nederlandse taal is een must, Engelse taal is een pré\n• Je beschikt over enige computerervaring (Word, Excel)\n• Een zelfstandige, flexible en klantgerichte instelling\n\nWas wir Ihnen bieten\n\nSulzer biedt een uitstekend pakket aan arbeidsvoorwaarden, waaronder:\n• Een meer dan marktconform salaris\n• Jaarlijkse prestatiebonus\n• Een royaal aantal vakantie en ATV dagen (38)\n• Pensioenregeling (PMT)\n\nSulzer ist ein Arbeitgeber für Chancengleichheit. Wir glauben an die Stärke einer vielfältigen Belegschaft und engagieren uns für ein integratives Arbeitsumfeld.\n\nWir sind stolz darauf, als Top Employer 2026 in Brasilien, Kanada, China, Finnland, Deutschland, Irland, Mexiko, der Schweiz, Südafrika, Großbritannien und den USA anerkannt zu werden.",
+      "fr": "Sulzer est une entreprise d'ingénierie de premier plan avec un fier héritage d'innovation. Rejoignez notre équipe mondiale pour développer votre expertise et développer des solutions innovantes qui permettent une société prospère et plus durable.\n\nSur le rôle\n\nSulzer Flow est wedldwijd marktleider in de antwikkeling en levering van onder andere pompen, roerwerken, vermalers, compresseurs en béluchters in geselecteerde industriële markten, rencontré nom in olie & gas, energie, water, afvalwater en de papierindustrie. De Sulzer Eau et affaires générales Unit heeft vestigingen in België en Nederland en is in deze regio met ongeveer 50 medewerkers actief in de verkoop, installatie en service van bovengenoemde producten. Kom werken bij Sulzer als Workshop Technician (monteur) en aide mee om onze service naar een next level te brengen.\n\nDans deze rol ben je verantwoordelijk voor:\n• Het analysen, revisionren en repareren van pompen, roerwerken, vermalers, compresseurs en beluchters in onze werkplaats te Maastricht-Airport\n• Machinale werkzaamheden\n• Opstellen van analysisrapporten\n• Uitvoeren van testen in de proefstand\n\nOm te slagen in deze rol, heb je nodig:\n• Succesvol afgeronde technische mbo-opleiding, bij voorkeur in werktuigbouwkunde of bordlijkbaar\n• Ervaring met montage fourgon de service aan Rotation équipement est een pré maar geen doit\n• Affiniteit met elektrotechniek est een pre\n• Technisch inzicht, je me suis penché sur la question\n• Je beschikt sur analytisch en probleemoplossend vermogen\n• Je me suis penchée sur la question de la structure\n• Goede beheering van de Nederlandse taal is een must, Engelse taal is een pre\n• Je beschikt over enige computerervaring (Word, Excel)\n• Een zelfstandige, flexibele en klantgerichte instelling\n\nCe que nous vous offrons\n\nSulzer biedt een uitstekend pakket aan arbeidsvoorwaarden, waaronder:\n• Een meer dan marktconform salaris\n• Jaarlijkse prestatiebonus\n• Een royaal aantal vakantie en ATV dagen (38)\n• Een solide pensioenregeling (PMT)\n\nSulzer est un employeur à chances égales. Nous croyons en la force d'un effectif diversifié et sommes déterminés à offrir un milieu de travail inclusif.\n\nNous sommes fiers d'être reconnus comme l'un des meilleurs employeurs 2026 au Brésil, au Canada, en Chine, en Finlande, en Allemagne, en Irlande, au Mexique, en Suisse, en Afrique du Sud, au Royaume-Uni et aux États-Unis."
+    },
+    "slugByLocale": {
+      "it": "workshop-tecnico-monteur-m-v-x-sulzer-maastricht-3330ba73",
+      "en": "workshop-technician-monteur-m-v-x-sulzer-ch-2ebd751e",
+      "de": "workshop-techniker-monteur-m-v-x-sulzer-maastricht-1e736a50",
+      "fr": "workshop-technicien-monteur-m-v-x-sulzer-maastricht-57625aa3"
+    },
+    "sector": "Industria",
+    "expiredAt": "2026-07-25T10:58:52.917Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "workshop-technician-monteur-m-v-x-sulzer-ch-2ebd751e"
       ],
-      "en": [
-        "workshop-technician-monteur-m-v-x-sulzer-ch-630ea484"
+      "de": [
+        "workshop-technician-monteur-m-v-x-sulzer-ch-2ebd751e"
+      ],
+      "fr": [
+        "workshop-technician-monteur-m-v-x-sulzer-ch-2ebd751e"
       ]
     },
     "salaryMin": 73500,
@@ -25969,6 +26213,49 @@
     "salaryPeriod": "YEAR"
   },
   {
+    "slug": "senior-sales-and-application-ingegnere-sulzer-taipei-3b5c7ae8",
+    "title": "Senior Sales and Application Engineer",
+    "titleByLocale": {
+      "it": "Senior Sales and Application Ingegnere",
+      "en": "Senior Sales and Application Engineer",
+      "de": "Senior Sales and Application Ingenieur",
+      "fr": "Senior Sales and Application Ingénieur"
+    },
+    "company": "Sulzer",
+    "companyKey": "sulzer",
+    "location": "Taipei",
+    "addressLocality": "Taipei",
+    "descriptionByLocale": {
+      "it": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society. About the role Job Summary The Sales Engineering Specialist supports the sales process by providing technical expertise and helping customers understand how products meet their needs. This role bridges the gap between engineering and sales, ensuring technical accuracy and customer satisfaction. This job profile is intended for professionals who apply advanced knowledge of a job area. Required to manage projects / processes independently with limited supervision. Typically coaches and reviews the work of lower level professionals. Key\n• Responsibilities Provide technical support during the sales process. Conduct product demonstrations and presentations. Collaborate with engineering and product teams. Customize solutions based on client requirements. Assist in proposal development and contract negotiations. Support post-sales implementation and troubleshooting. Maintain up-to-date knowledge of products and technologies. Skills &\n• Qualifications Typically a University degree (or equivalent work experience) and at least of 5-7 years of relevant experience (or equivalent skills) are minimally required to carry out the role. Technical background in engineering or related field. Strong communication and interpersonal skills. Experience in solution selling. Ability to translate technical features into business benefits. Familiarity with CRM and technical documentation tools. What we offer you Sulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment. We are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
+      "en": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society.\n\nAbout the role\n\nJob Summary\nThe Sales Engineering Specialist supports the sales process by providing technical expertise and helping customers understand how products meet their needs. This role bridges the gap between engineering and sales, ensuring technical accuracy and customer satisfaction.\nThis job profile is intended for professionals who apply advanced knowledge of a job area. Required to manage projects / processes independently with limited supervision. Typically coaches and reviews the work of lower level professionals. Key\n• Responsibilities\nProvide technical support during the sales process.\nConduct product demonstrations and presentations.\nCollaborate with engineering and product teams.\nCustomize solutions based on client requirements.\nAssist in proposal development and contract negotiations.\nSupport post-sales implementation and troubleshooting.\nMaintain up-to-date knowledge of products and technologies.\nSkills &\n• Qualifications\nTypically a University degree (or equivalent work experience) and at least of 5-7 years of relevant experience (or equivalent skills) are minimally required to carry out the role.\n\nTechnical background in engineering or related field.\nStrong communication and interpersonal skills.\nExperience in solution selling.\nAbility to translate technical features into business benefits.\nFamiliarity with CRM and technical documentation tools.\n\nWhat we offer you\n\nSulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment.\n\nWe are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
+      "de": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society. About the role Job Summary The Sales Engineering Specialist supports the sales process by providing technical expertise and helping customers understand how products meet their needs. This role bridges the gap between engineering and sales, ensuring technical accuracy and customer satisfaction. This job profile is intended for professionals who apply advanced knowledge of a job area. Required to manage projects / processes independently with limited supervision. Typically coaches and reviews the work of lower level professionals. Key\n• Responsibilities Provide technical support during the sales process. Conduct product demonstrations and presentations. Collaborate with engineering and product teams. Customize solutions based on client requirements. Assist in proposal development and contract negotiations. Support post-sales implementation and troubleshooting. Maintain up-to-date knowledge of products and technologies. Skills &\n• Qualifications Typically a University degree (or equivalent work experience) and at least of 5-7 years of relevant experience (or equivalent skills) are minimally required to carry out the role. Technical background in engineering or related field. Strong communication and interpersonal skills. Experience in solution selling. Ability to translate technical features into business benefits. Familiarity with CRM and technical documentation tools. What we offer you Sulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment. We are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
+      "fr": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society. About the role Job Summary The Sales Engineering Specialist supports the sales process by providing technical expertise and helping customers understand how products meet their needs. This role bridges the gap between engineering and sales, ensuring technical accuracy and customer satisfaction. This job profile is intended for professionals who apply advanced knowledge of a job area. Required to manage projects / processes independently with limited supervision. Typically coaches and reviews the work of lower level professionals. Key\n• Responsibilities Provide technical support during the sales process. Conduct product demonstrations and presentations. Collaborate with engineering and product teams. Customize solutions based on client requirements. Assist in proposal development and contract negotiations. Support post-sales implementation and troubleshooting. Maintain up-to-date knowledge of products and technologies. Skills &\n• Qualifications Typically a University degree (or equivalent work experience) and at least of 5-7 years of relevant experience (or equivalent skills) are minimally required to carry out the role. Technical background in engineering or related field. Strong communication and interpersonal skills. Experience in solution selling. Ability to translate technical features into business benefits. Familiarity with CRM and technical documentation tools. What we offer you Sulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment. We are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA."
+    },
+    "slugByLocale": {
+      "it": "senior-sales-and-application-ingegnere-sulzer-taipei-3b5c7ae8",
+      "en": "senior-sales-and-application-engineer-sulzer-ch-01e00ffa",
+      "de": "senior-sales-and-application-ingenieur-sulzer-taipei-f6525774",
+      "fr": "senior-sales-and-application-ingenieur-sulzer-taipei-f6525774"
+    },
+    "sector": "Industria",
+    "expiredAt": "2026-07-22T12:18:04.379Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "senior-sales-and-application-engineer-sulzer-ch-01e00ffa"
+      ],
+      "de": [
+        "senior-sales-and-application-engineer-sulzer-ch-01e00ffa"
+      ],
+      "fr": [
+        "senior-sales-and-application-engineer-sulzer-ch-01e00ffa"
+      ]
+    },
+    "salaryMin": 101500,
+    "salaryMax": 154000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "senior-sales-and-application-ingegnere-sulzer-taipei-5a0701bb",
     "title": "Senior Sales and Application Engineer",
     "titleByLocale": {
@@ -26003,9 +26290,6 @@
         "senior-sales-and-application-engineer-sulzer-ch-6f2d8737"
       ],
       "fr": [
-        "senior-sales-and-application-engineer-sulzer-ch-6f2d8737"
-      ],
-      "en": [
         "senior-sales-and-application-engineer-sulzer-ch-6f2d8737"
       ]
     },
@@ -26158,7 +26442,7 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "responsabile-di-progetto-senior-m-v-x-sulzer-venlo-d4a891fe",
+    "slug": "responsabile-di-progetto-senior-m-v-x-sulzer-venlo-b162ee35",
     "title": "Senior Project Manager Gas Turbines (m/v/x)",
     "titleByLocale": {
       "it": "Responsabile di progetto senior (m/v/x)",
@@ -26177,27 +26461,35 @@
       "fr": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society. About the role We’re looking for a Senior Project Manager to lead the execution of complex, long‑term customer contracts (e.g., LTSA / framework agreements) and high‑risk projects. You’ll be the key link between our customers and internal teams—bringing people together, keeping delivery on track, and building strong, long‑term partnerships. In this role, you’ll lead cross‑functional teams in a matrix environment, communicate confidently with senior customer stakeholders, and spot opportunities to grow the business. Main accountabilities and tasks\n• Ensure contractual execution within cost, time, quality and Sulzer PM standards\n• Manage financial performance of customer contracts, including cost control, forecasting and invoicing aligned with as‑sold budgets and milestones\n• Act as primary customer interface: contract updates, issue resolution, claims, variations and addenda negotiations\n• Present contract progress to senior management on a regular basis\n• Create and maintain customer, contract and project data, proposals, TOA calculations, purchase orders and scope releases in the Business Management System\n• Coordinate project handovers and communication between customers, execution centers and operations\n• Lead and manage project teams within a matrix organization\n• Ensure full contractual compliance, handle NCRs and customer complaints\n• Develop business insights, business cases and support continuous improvement initiatives\n• Support customer visits, ensure safety inductions, PPE compliance and ESH requirements\n• Promote quality improvements, safety awareness and identify risks and improvement opportunities, escalating with recommended solutions What we're looking for:\n• 9+ years of experience in project and contract management, preferably in complex and international environments\n• Experience with industrial rotating equipment\n• Bachelor’s degree in Mechanical Engineering preferred; project management background is a plus\n• Recognized project management certification (e.g. PRINCE2, PMI, PM²) or equivalent degree\n• Strong experience in contract and commercial management, including legal aspects\n• Confident communication and negotiation skills at senior customer management level\n• Proven ability to lead cross‑functional teams in a matrix organization\n• Strong communication skills; proactive, well‑organized and solution‑driven people manager\n• Fluent English required\n• Willingness to travel 25–50% worldwide What we offer you\n• 8% holiday allowance and up to 40 days of annual leave\n• A solid pension scheme with attractive employer contribution\n• Travel allowance for commuting (EUR 0.23/km, tax-free)\n• Free coffee, tea and water , plus access to an on-site canteen with fresh and affordable meals\n• Free parking on-site\n• Employee benefit programs such as Bike leasing with tax advantages and Gym contribution\n• A staff association offering social activities and seasonal gifts\n• Training and development opportunities aligned with your role and personal development plan Sulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment. We are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA."
     },
     "slugByLocale": {
-      "it": "responsabile-di-progetto-senior-m-v-x-sulzer-venlo-d4a891fe",
-      "en": "senior-project-manager-m-v-x-sulzer-ch-f5151bf5",
-      "de": "senior-projektmanager-m-v-x-sulzer-venlo-331b999f",
-      "fr": "directeur-principal-de-projet-m-v-x-sulzer-venlo-c4fc9aba"
+      "it": "responsabile-di-progetto-senior-m-v-x-sulzer-venlo-b162ee35",
+      "en": "senior-project-manager-m-v-x-sulzer-ch-d989296b",
+      "de": "senior-projektmanager-m-v-x-sulzer-venlo-88d43cf7",
+      "fr": "directeur-principal-de-projet-m-v-x-sulzer-venlo-b8824362"
     },
     "sector": "Industria",
     "expiredAt": "2026-07-19T11:25:24.806Z",
     "previousSlugsByLocale": {
       "it": [
+        "senior-project-manager-m-v-x-sulzer-ch-d989296b",
+        "senior-project-manager-gas-turbines-m-v-x-sulzer-ch-8205e6a8",
+        "responsabile-di-progetto-senior-m-v-x-sulzer-venlo-d4a891fe",
         "senior-project-manager-m-v-x-sulzer-ch-f5151bf5",
         "senior-project-manager-gas-turbines-m-v-x-sulzer-ch-24aad819"
       ],
       "de": [
-        "senior-project-manager-m-v-x-sulzer-ch-f5151bf5",
-        "senior-project-manager-gas-turbines-m-v-x-sulzer-ch"
+        "senior-project-manager-m-v-x-sulzer-ch-d989296b",
+        "senior-project-manager-gas-turbines-m-v-x-sulzer-ch",
+        "senior-projektmanager-m-v-x-sulzer-venlo-331b999f",
+        "senior-project-manager-m-v-x-sulzer-ch-f5151bf5"
       ],
       "fr": [
-        "senior-project-manager-m-v-x-sulzer-ch-f5151bf5",
-        "senior-project-manager-gas-turbines-m-v-x-sulzer-ch"
+        "senior-project-manager-m-v-x-sulzer-ch-d989296b",
+        "senior-project-manager-gas-turbines-m-v-x-sulzer-ch",
+        "directeur-principal-de-projet-m-v-x-sulzer-venlo-c4fc9aba",
+        "senior-project-manager-m-v-x-sulzer-ch-f5151bf5"
       ],
       "en": [
+        "senior-project-manager-gas-turbines-m-v-x-sulzer-ch-8205e6a8",
         "senior-project-manager-m-v-x-sulzer-ch-f5151bf5",
         "senior-project-manager-gas-turbines-m-v-x-sulzer-ch-24aad819"
       ]
@@ -26207,8 +26499,14 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "previousSlugs": [
+      "senior-project-manager-gas-turbines-m-v-x-sulzer-ch-8205e6a8",
+      "senior-project-manager-gas-turbines-m-v-x-sulzer-ch",
+      "senior-project-manager-m-v-x-sulzer-ch-d989296b",
+      "responsabile-di-progetto-senior-m-v-x-sulzer-venlo-d4a891fe",
+      "senior-project-manager-m-v-x-sulzer-ch-f5151bf5",
       "senior-project-manager-gas-turbines-m-v-x-sulzer-ch-24aad819",
-      "senior-project-manager-gas-turbines-m-v-x-sulzer-ch"
+      "senior-projektmanager-m-v-x-sulzer-venlo-331b999f",
+      "directeur-principal-de-projet-m-v-x-sulzer-venlo-c4fc9aba"
     ]
   },
   {
@@ -26247,9 +26545,49 @@
       ],
       "fr": [
         "project-manager-management-sulzer-ch-77be51d3"
+      ]
+    },
+    "salaryMin": 101500,
+    "salaryMax": 154000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "gestione-dei-progetti-sulzer-cuautitlan-izcalli-2adff903",
+    "title": "Project Manager Management",
+    "titleByLocale": {
+      "it": "Gestione dei progetti",
+      "en": "Project Manager Management",
+      "de": "Projektmanager Management",
+      "fr": "Gestionnaire de projet"
+    },
+    "company": "Sulzer",
+    "companyKey": "sulzer",
+    "location": "Cuautitlan Izcalli",
+    "addressLocality": "Cuautitlan Izcalli",
+    "descriptionByLocale": {
+      "it": "Sulzer è una società di ingegneria leader con un patrimonio orgoglioso di innovazione. Unisciti al nostro team globale per accrescere le tue competenze e sviluppare soluzioni innovative che consentano una società prospera e più sostenibile. Informazioni sul ruolo Sintesi del lavoro Il Project Management Specialist è responsabile della gestione di progetti o processi tecnici indipendentemente dalla supervisione limitata. Il ruolo include l'allenatore dei giovani professionisti, risolvere problemi complessi, e garantire il successo del progetto attraverso la leadership tecnica e analitica. Questo profilo di lavoro è destinato a professionisti specializzati che applicano conoscenze avanzate di un'area di lavoro. Richiesto di gestire progetti / processi indipendentemente con supervisione limitata. In genere allena e recensioni il lavoro di professionisti di livello inferiore. Objetivo del puesto Asegurar la correttea ejecución de proyectos desde su transferencia por el área de ventas hasta la instalación finale y el cierre administrativo, garantizando el cumplimiento del alcance, costi, riesgos, tiempos de entrega (OTD) y satisfacción del cliente. Responsabilidades principales\n• Planificar y coordinatorr las actividades del proyecto conformare un requerimientos contrattuali.\n• Mantener el calendario de entregas y dar seguimiento puntual para asegurar cumplimiento en tiempo.\n• Asegurar que el alcance de suministro sea preciso, completo y bien definido.\n• Establecer comunicazione continua con áreas internas y externas (ingeniería, calidad, ventas, compras, fábrica, clientela).\n• Identificar riesgos, gestionar cambios y contribuir a mantenimento o mejorar el margen de utilidad del proyecto.\n• Avance documentali, minutas y reportes del proyecto para las áreas involucradas.\n• Reportar incidenti, senza conformidades y asegurar el cumplimiento de los estandares QESH. I principali di KPI\n• Margen planificado del proyecto\n• Entregas a tiempo\n• Garantías de equipo\n• Soddisfazione della clientela Informazioni\n• Licenciatura en: Administración de Empresas, Ingeniería Mecánica, Industrial, Química o afín.\n• Experiencia: 7 años en adelante gestionando ejecución de proyectos o roles similares en industria Manufacturera.\n• Conocimientos en análisis de costos, riesgos, gestión del cambio y atención a clientela.\n• Inglés avanzado (leer, hablar, escribir).\n• Conocimientos deseables en geniería de diseño. Abilidades y competencias\n• Enfoque en risultatoados y ejecución.\n• Gestión de riesgos y seguimiento.\n• Comunicación efectiva y trabajo en equipo.\n• Interpretación de planos. Experiencia en metodología SCRUM\n• Conocimientos PMI (60 horas).\n• Alineación con los principios corporativos: responsabilidad, trabajo en equipo, piegación de valor y aprovechamiento de oportunidades. Software software\n• SAP (CJ20N, ZPSREP61, VA03, MD4C) – Nivel avanzado\n• Microsoft Office – avanzado.\n• Progetto / Planner – avanzado\n• M-Files – Intermedio. Cosa ti offriamo Ofrecemos:\n• Salario competitivo acorde a experiencia\n• Vales de despensa\n• Seguro de Gastos médicos Mayors\n• Fondo di ahorro\n• Aguinaldo superior a la ley\n• Prestazioni superiori Sulzer è un datore di lavoro pari opportunità. Crediamo nella forza di una forza lavoro diversificata e ci impegniamo ad offrire un ambiente di lavoro inclusivo. Siamo orgogliosi di essere riconosciuti come Top Employer 2026 in Brasile, Canada, Cina, Finlandia, Germania, Irlanda, Messico, Svizzera, Sudafrica, Regno Unito e Stati Uniti.",
+      "en": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society.\n\nAbout the role\n\nJob Summary\nThe Project Management Specialist is responsible for managing technical projects or processes independently with limited supervision. The role includes coaching junior professionals, solving complex problems, and ensuring project success through technical and analytical leadership.\nThis job profile is intended for specialist professionals that apply advanced knowledge of a job area. Required to manage projects / processes independently with limited supervision. Typically coaches and reviews the work of lower level professionals. Objetivo del puesto\nAsegurar la correcta ejecución de proyectos desde su transferencia por el área de ventas hasta la instalación final y el cierre administrativo, garantizando el cumplimiento del alcance, costos, riesgos, tiempos de entrega (OTD) y satisfacción del cliente.\n\nResponsabilidades principales\n\n• Planificar y coordinar las actividades del proyecto conforme a requerimientos contractuales.\n\n• Mantener el calendario de entregas y dar seguimiento puntual para asegurar cumplimiento en tiempo.\n\n• Asegurar que el alcance de suministro sea preciso, completo y bien definido.\n\n• Establecer comunicación continua con áreas internas y externas (ingeniería, calidad, ventas, compras, fábrica, clientes).\n\n• Identificar riesgos, gestionar cambios y contribuir a mantener o mejorar el margen de utilidad del proyecto.\n\n• Preparar y documentar avances, minutas y reportes del proyecto para las áreas involucradas.\n\n• Reportar incidentes, no conformidades y asegurar el cumplimiento de los estandares QESH.\n\nKPI’s principales\n\n• Margen planificado del proyecto\n\n• Entregas a tiempo\n\n• Garantías de equipo\n\n• Satisfacción del cliente\n\nRequisitos\n\n• Licenciatura en: Administración de Empresas, Ingeniería Mecánica, Industrial, Química o afín.\n\n• Experiencia: 7 años en adelante gestionando ejecución de proyectos o roles similares en industria manufacturera.\n\n• Conocimientos en análisis de costos, riesgos, gestión del cambio y atención a clientes.\n\n• Inglés avanzado (leer, hablar, escribir).\n\n• Conocimientos deseables en ingeniería de diseño.\n\nHabilidades y competencias\n\n• Enfoque en resultados y ejecución.\n\n• Gestión de riesgos y seguimiento.\n\n• Comunicación efectiva y trabajo en equipo.\n\n• Interpretación de planos.\nExperiencia en metodología SCRUM\n\n• Conocimientos PMI (60 horas).\n\n• Alineación con los principios corporativos: responsabilidad, trabajo en equipo, creación de valor y aprovechamiento de oportunidades.\n\nSoftware\n\n• SAP (CJ20N, ZPSREP61, VA03, MD4C) – Nivel avanzado\n\n• Microsoft Office – avanzado.\n\n• Project / Planner – avanzado\n\n• M-Files – Intermedio.\n\nWhat we offer you\n\nOfrecemos:\n\n• Salario competitivo acorde a experiencia\n\n• Vales de despensa\n\n• Seguro de Gastos médicos mayores\n\n• Fondo de ahorro\n\n• Aguinaldo superior a la ley\n\n• Prestaciones superiores\n\nSulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment.\n\nWe are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
+      "de": "Sulzer ist ein führendes Ingenieurunternehmen mit einem stolzen Erbe an Innovationen. Schließen Sie sich unserem globalen Team an, um Ihr Fachwissen zu erweitern und innovative Lösungen zu entwickeln, die eine wohlhabende und nachhaltigere Gesellschaft ermöglichen. Über die Rolle Stellenbeschreibung Der Projektmanagement-Spezialist ist für die unabhängige Verwaltung technischer Projekte oder Prozesse mit eingeschränkter Aufsicht verantwortlich. Die Rolle umfasst das Coaching von Nachwuchsfachkräften, die Lösung komplexer Probleme und die Sicherstellung des Projekterfolgs durch technische und analytische Führung. Dieses Stellenprofil richtet sich an Fachkräfte, die fortgeschrittene Kenntnisse eines Stellenbereichs anwenden. Erforderlich, um Projekte / Prozesse unabhängig mit begrenzter Aufsicht zu verwalten. Typischerweise coacht und überprüft die Arbeit von Fachleuten auf niedrigerem Niveau. Objetivo del puesto Asegurar la correcta ejecución de proyectos desde su transferencia por el área de ventas hasta la instalación final y el cierre administrativo, garantizando el cumplimiento del alcance, costos, riesgos, tiempos de entrega (OTD) y satisfacción del cliente. Responsabilidades principales\n• Planificar y coordinar las actividades del proyecto conforme a requerimientos contractes. Mantener el calendario de entregas y dar seguimiento puntual para asegurar cumplimiento en tiempo.\n• Asegurar que el alcance de suministro sea preciso, completo y bien definido.\n• Establecer comunicación continua con áreas internas y externas (ingeniería, calidad, ventas, compras, fábrica, clientes). Identificar riesgos, gestionar cambios y contribuir a mantener o mejorar el margen de utilidad del proyecto. Preparar y documentar avances, minutas y reportes del proyecto para las áreas involucradas.\n• Reportar Incidentes, no conformidades y asegurar el cumplimiento de los estandares QESH. Auftraggeber des KPI Margen planificado del proyecto\n• Entregas a tiempo\n• Garantías de equipo\n• Satisfacción del cliente Requisitos Licenciatura en: Administración de Empresas, Ingeniería Mecánica, Industrial, Química o afín.\n• Experiencia: 7 años en adelante gestionando ejecución de proyectos o roles similares en industria manufacturera.\n• Conocimientos en análisis de costos, riesgos, gestión del cambio y atención a clientes.\n• Inglés avanzado (leer, hablar, escribir).\n• Conocimientos deseables en ingeniería de diseño. Habilidades y compencias\n• Enfoque en resultados y ejecución.\n• Gestión de riesgos y seguimiento.\n• Comunicación efectiva y trabajo en equipo.\n• Interpretación de planos. Experiencia en metodología SCRUM\n• Conocimientos PMI (60 horas).\n• Alineación con los principios corporativos: responsabilidad, trabajo en equipo, creación de valor y aprovechamiento de oportunidades. Software SAP (CJ20N, ZPSREP61, VA03, MD4C) – Nivel avanzado\n• Microsoft Office – avanzado.\n• Projekt / Planer – avanzado\n• M-Files – Intermedio. Was wir Ihnen bieten Ofrecemos:\n• Salario competitivo acorde a experiencia\n• Vales de despensa\n• Seguro de Gastos médicos mayores\n• Fondo de ahorro\n• Aguinaldo superior a la ley\n• Prestaciones superiores Sulzer ist ein Arbeitgeber für Chancengleichheit. Wir glauben an die Stärke einer vielfältigen Belegschaft und setzen uns für ein integratives Arbeitsumfeld ein. Wir sind stolz darauf, als Top Employer 2026 in Brasilien, Kanada, China, Finnland, Deutschland, Irland, Mexiko, der Schweiz, Südafrika, Großbritannien und den USA anerkannt zu werden.",
+      "fr": "Sulzer est une entreprise d'ingénierie de premier plan avec un fier héritage d'innovation. Rejoignez notre équipe mondiale pour développer votre expertise et développer des solutions innovantes qui permettent une société prospère et plus durable. Sur le rôle Résumé de l'emploi Le spécialiste en gestion de projet est responsable de la gestion indépendante des projets ou des processus techniques avec une supervision limitée. Le rôle consiste notamment à coacher les jeunes professionnels, à résoudre des problèmes complexes et à assurer la réussite du projet grâce à un leadership technique et analytique. Ce profil d'emploi est destiné aux professionnels spécialisés qui appliquent des connaissances avancées d'un domaine d'emploi. Requis pour gérer les projets/processus de façon indépendante avec une supervision limitée. En général, il entraîne et examine le travail des professionnels de niveau inférieur. Objetivo del puesto Asegurar la correcta ejecución de proyectos desde su transferencia por elárea de ventas hasta la instalación final y el cierre administrativo, garantizando el cumplimiento del alcance, costos, riesgos, tiempos de entrega (OTD) y satisfacción del cliente. Responsabilidades principales\n• Planificar y coordinar las actividades del proyecto conforme a requerimientos contractales.\n• Mantener el calendario de entregas y dar seguimiento puntual para asegurar cumplimiento en tiempo.\n• Asegurar que el alcance de suministro sea preciso, completo y bien definido.\n• Establecer comunicación continua con áreas internas y externas (ingeniería, calidad, ventas, compras, fábrica, clients).\n• Identificar riesgos, gestionar cambios y contribuer a mantener o mejorar el margen de utilidad del proyecto.\n• Préparation d'avances documentaires, minutas y reportes del proyecto para las areas involucradas.\n• Cas signalés, pas de conformidades y asegurar el cumplimiento de los estandares QESH. Les principales\n• Margen planificado del proyecto\n• Entregas a tiempo\n• Garantías de equipo\n• Satisfacción del cliente Requisitos\n• Licenciatura en: Administration de Empresas, Ingeniería Mecánica, Industrial, Química o afín.\n• Experiencia: 7 años en adelante gestionando ejecución de proyectos o roles similares en industria manufacturera.\n• Conocimientos en análisis de costos, riesgos, gestión del cambio y atención a clientes.\n• Inglés avanzado (leer, hablar, escribir).\n• Conocimientos deseables en ingeniería de diseño. Habilidades y competencias\n• Enfoque en résultats y ejecución.\n• Gestión de riesgos y seguimiento.\n• Comunicación efectiva y trabajo en equipo.\n• Interprétation de planos. Experiencia en metodología SCRUM\n• Conocimientos PMI (60 horas).\n• Alineación con los principios corporativos: responsabilidad, trabajo en equipo, creación de valor y aprovechamiento de oportunidades. Logiciels\n• SAP (CJ20N, ZPSREP61, VA03, MD4C) – Nivel avanzado\n• Microsoft Office – avanzado.\n• Projet / planificateur – avanzado\n• Fichiers M – Intermedio. Ce que nous vous offrons Descemos:\n• Salario comppetitivo acorde a experiencia\n• Vales de despensa\n• Seguro de Gastos médocs maires\n• Fondo de ahorro\n• Aguinaldo supérieur a la ley\n• Prestaciones supérieures Sulzer est un employeur à chances égales. Nous croyons en la force d'une main-d'oeuvre diversifiée et sommes déterminés à offrir un milieu de travail inclusif. Nous sommes fiers d'être reconnus comme l'un des meilleurs employeurs 2026 au Brésil, au Canada, en Chine, en Finlande, en Allemagne, en Irlande, au Mexique, en Suisse, en Afrique du Sud, au Royaume-Uni et aux États-Unis."
+    },
+    "slugByLocale": {
+      "it": "gestione-dei-progetti-sulzer-cuautitlan-izcalli-2adff903",
+      "en": "project-manager-management-sulzer-ch-ebac102d",
+      "de": "projektmanager-management-sulzer-cuautitlan-izcalli-36ed7834",
+      "fr": "gestionnaire-de-projet-sulzer-cuautitlan-izcalli-9879fe64"
+    },
+    "sector": "Industria",
+    "expiredAt": "2026-07-18T22:43:33.178Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "project-manager-management-sulzer-ch-ebac102d"
       ],
-      "en": [
-        "project-manager-management-sulzer-ch-77be51d3"
+      "de": [
+        "project-manager-management-sulzer-ch-ebac102d"
+      ],
+      "fr": [
+        "project-manager-management-sulzer-ch-ebac102d"
       ]
     },
     "salaryMin": 101500,
@@ -27578,6 +27916,37 @@
     "slugByLocale": {
       "de": "mechanic-techniker-night-shift-sulzer-la-porte-3ac19043",
       "fr": "mechanic-technicien-night-shift-sulzer-la-porte-93da6771"
+    },
+    "sector": "Industria",
+    "expiredAt": "2026-06-30T23:16:36.616Z",
+    "postalCode": "8001",
+    "salaryMin": 73500,
+    "salaryMax": 111500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "mechanic-technician-night-shift-sulzer-ch-e36a79b9",
+    "title": "Mechanic/Technician-Night Shift",
+    "titleByLocale": {
+      "it": "Mechanic/Technician-Night Shift",
+      "en": "Mechanic/Technician-Night Shift",
+      "de": "Mechanic/Techniker-Night Shift",
+      "fr": "Mechanic/Technicien-Night Shift"
+    },
+    "company": "Sulzer",
+    "companyKey": "sulzer",
+    "location": "La Porte",
+    "addressLocality": "La Porte",
+    "descriptionByLocale": {
+      "it": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society. About the role A mechanic is a professional who repairs and maintains machinery and parts. A mechanic's duties include inspecting, diagnosing, and fixing faults, conducting safety checks, and keeping records of the work done. A mechanic uses manual tools and technological devices to perform the tasks. A mechanic also communicates with customers and coworkers to establish timeframe and cost of each project. Mechanic/Technician-Night Shift Sulzer offers you a wealth of opportunities to drive your career into the direction that you want, depending on your skills and interests. We invite you to apply if you are ready to take the next step. Your main tasks and responsibilities:\n• Assemble machines utilizing the specified assembly checklist\n• Disassemble and inspect machines utilizing the specified disassembly and inspection checklist\n• Complete all documentation pertaining to the work assignment\n• Communicate mechanical issues found during inspection to the appropriate Department Supervisor\n• Work closely and clearly communicate with the other departments, Mechanical personnel, Supervisor and Lead Man To succeed in this role, you will need:\n• Must be able to work overtime when necessary\n• Must be able to use precision measuring instruments\n• Must have experience working with turbo machinery repair\n• Must have the required tools to perform their expected tasks What we offer you\n• 11 Paid Holidays\n• 15 Paid Time off (PTO) Days\n• Medical, dental, vision, life, and disability\n• 401k with 6% company match\n• Employee Assistance Program\n• Employee Wellness Program\n• Bonus Programs\n• New onsite cafeteria, all meals subsidized (La Porte Service Center) Sulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment. We are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
+      "en": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society. About the role A mechanic is a professional who repairs and maintains machinery and parts. A mechanic's duties include inspecting, diagnosing, and fixing faults, conducting safety checks, and keeping records of the work done. A mechanic uses manual tools and technological devices to perform the tasks. A mechanic also communicates with customers and coworkers to establish timeframe and cost of each project. Mechanic/Technician-Night Shift Sulzer offers you a wealth of opportunities to drive your career into the direction that you want, depending on your skills and interests. We invite you to apply if you are ready to take the next step. Your main tasks and responsibilities:\n• Assemble machines utilizing the specified assembly checklist\n• Disassemble and inspect machines utilizing the specified disassembly and inspection checklist\n• Complete all documentation pertaining to the work assignment\n• Communicate mechanical issues found during inspection to the appropriate Department Supervisor\n• Work closely and clearly communicate with the other departments, Mechanical personnel, Supervisor and Lead Man To succeed in this role, you will need:\n• Must be able to work overtime when necessary\n• Must be able to use precision measuring instruments\n• Must have experience working with turbo machinery repair\n• Must have the required tools to perform their expected tasks What we offer you What we offer you:\n• 11 Paid Holidays\n• 15 Paid Time off (PTO) Days\n• Medical, dental, vision, life, and disability\n• 401k with 6% company match\n• Employee Assistance Program\n• Employee Wellness Program\n• Bonus Programs\n• New onsite cafeteria, all meals subsidized (La Porte Service Center) Sulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment. We are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
+      "de": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society. About the role A mechanic is a professional who repairs and maintains machinery and parts. A mechanic's duties include inspecting, diagnosing, and fixing faults, conducting safety checks, and keeping records of the work done. A mechanic uses manual tools and technological devices to perform the tasks. A mechanic also communicates with customers and coworkers to establish timeframe and cost of each project. Mechanic/Technician-Night Shift Sulzer offers you a wealth of opportunities to drive your career into the direction that you want, depending on your skills and interests. We invite you to apply if you are ready to take the next step. Your main tasks and responsibilities:\n• Assemble machines utilizing the specified assembly checklist\n• Disassemble and inspect machines utilizing the specified disassembly and inspection checklist\n• Complete all documentation pertaining to the work assignment\n• Communicate mechanical issues found during inspection to the appropriate Department Supervisor\n• Work closely and clearly communicate with the other departments, Mechanical personnel, Supervisor and Lead Man To succeed in this role, you will need:\n• Must be able to work overtime when necessary\n• Must be able to use precision measuring instruments\n• Must have experience working with turbo machinery repair\n• Must have the required tools to perform their expected tasks What we offer you\n• 11 Paid Holidays\n• 15 Paid Time off (PTO) Days\n• Medical, dental, vision, life, and disability\n• 401k with 6% company match\n• Employee Assistance Program\n• Employee Wellness Program\n• Bonus Programs\n• New onsite cafeteria, all meals subsidized (La Porte Service Center) Sulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment. We are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
+      "fr": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society. About the role A mechanic is a professional who repairs and maintains machinery and parts. A mechanic's duties include inspecting, diagnosing, and fixing faults, conducting safety checks, and keeping records of the work done. A mechanic uses manual tools and technological devices to perform the tasks. A mechanic also communicates with customers and coworkers to establish timeframe and cost of each project. Mechanic/Technician-Night Shift Sulzer offers you a wealth of opportunities to drive your career into the direction that you want, depending on your skills and interests. We invite you to apply if you are ready to take the next step. Your main tasks and responsibilities:\n• Assemble machines utilizing the specified assembly checklist\n• Disassemble and inspect machines utilizing the specified disassembly and inspection checklist\n• Complete all documentation pertaining to the work assignment\n• Communicate mechanical issues found during inspection to the appropriate Department Supervisor\n• Work closely and clearly communicate with the other departments, Mechanical personnel, Supervisor and Lead Man To succeed in this role, you will need:\n• Must be able to work overtime when necessary\n• Must be able to use precision measuring instruments\n• Must have experience working with turbo machinery repair\n• Must have the required tools to perform their expected tasks What we offer you\n• 11 Paid Holidays\n• 15 Paid Time off (PTO) Days\n• Medical, dental, vision, life, and disability\n• 401k with 6% company match\n• Employee Assistance Program\n• Employee Wellness Program\n• Bonus Programs\n• New onsite cafeteria, all meals subsidized (La Porte Service Center) Sulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment. We are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA."
+    },
+    "slugByLocale": {
+      "de": "mechanic-techniker-night-shift-sulzer-la-porte-da6c6a50",
+      "fr": "mechanic-technicien-night-shift-sulzer-la-porte-02ebf346"
     },
     "sector": "Industria",
     "expiredAt": "2026-06-30T23:16:36.616Z",
@@ -31007,15 +31376,44 @@
     "previousSlugsByLocale": {
       "it": [
         "national-sales-manager-ppi-sulzer-ch-b2758f1f"
-      ],
-      "en": [
-        "national-sales-manager-ppi-sulzer-ch-b2758f1f"
-      ],
-      "de": [
-        "national-sales-manager-ppi-sulzer-ch-b2758f1f"
-      ],
-      "fr": [
-        "national-sales-manager-ppi-sulzer-ch-b2758f1f"
+      ]
+    },
+    "postalCode": "8001",
+    "salaryMin": 68000,
+    "salaryMax": 103000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "national-sales-manager-sulzer-easley-edd1fd92",
+    "title": "National Sales Manager PPI",
+    "titleByLocale": {
+      "it": "National Sales Manager",
+      "en": "National Sales Manager PPI",
+      "de": "National Sales Manager PPI",
+      "fr": "National Sales Manager PPI"
+    },
+    "company": "Sulzer",
+    "companyKey": "sulzer",
+    "location": "Easley",
+    "addressLocality": "Easley",
+    "descriptionByLocale": {
+      "it": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society. About the role This role leads and develops Direct and Regional Sales Managers, implements sales strategies, and supports the Pulp and Paper market. This position has direct accountability for all PPI sales activities, both direct and indirect, in the USA. This role will necessitate effective collaboration and coordination with operations, procurement, quality, and other relevant departments. Essential Functions:\n• Achieve sales growth targets by developing and executing annual sales plans.\n• Lead the RSM’s, monitor individual performance against goals, and provide coaching, mentoring, and training.\n• Responsible for ownership and personal management of the direct corporate accounts. Develops trust and solid partnerships with Corporate and OEM accounts. Negotiates and manages agreements with both.\n• Engages collaboratively with technical associations and partners with leading technical universities.\n• Analyze and identify market trends, and the competition to jointly develop strategic plans for expanding sales of new and existing products.\n• Travel, as necessary within the assigned territory. Other Duties:\n• Must possess superior presentation, communication, and negotiation skills.\n• Experience with multiple direct reports and a proven history of leading teams.\n• Superior analytical, strategic thinking, leadership skills.\n• Demonstrated success through focus, good judgment, and decision-making.\n• Keen sense of teamwork and business goal alignment.\n• Well-developed sense of urgency to deliver results.\n• Excellent relationship and people skills. Supervisory Duties:\n• Network of Regional Sales Managers and Application Specialists covering the PPI market. Qualifications:\n• Bachelor’s degree in engineering or a similar technical degree preferred. MBA is a plus.\n• At least 10-15 years’ regional sales experience.\n• At least 5 years people management experience. What we offer you\n• Competitive Paid Time Off\n• 12 Company Paid Holidays per year\n• Annual Bonus Program\n• Full Medical, Dental, and Vision benefits\n• Company Paid Short Term and Long Term Disability, Company Paid Life Insurance\n• 6% 401K or Roth Company Match with Immediate Vesting\n• Company Paid Retirement Security Contributions following 1 year of employment\n• Tuition Reimbursement/Educational Assistance\n• Quarterly Gym Reimbursement Sulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment. We are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
+      "en": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society. About the role This role leads and develops Direct and Regional Sales Managers, implements sales strategies, and supports the Pulp and Paper market. This position has direct accountability for all PPI sales activities, both direct and indirect, in the USA. This role will necessitate effective collaboration and coordination with operations, procurement, quality, and other relevant departments. Essential Functions:\n• Achieve sales growth targets by developing and executing annual sales plans.\n• Lead the RSM’s, monitor individual performance against goals, and provide coaching, mentoring, and training.\n• Responsible for ownership and personal management of the direct corporate accounts. Develops trust and solid partnerships with Corporate and OEM accounts. Negotiates and manages agreements with both.\n• Engages collaboratively with technical associations and partners with leading technical universities.\n• Analyze and identify market trends, and the competition to jointly develop strategic plans for expanding sales of new and existing products.\n• Travel, as necessary within the assigned territory. Other Duties:\n• Must possess superior presentation, communication, and negotiation skills.\n• Experience with multiple direct reports and a proven history of leading teams.\n• Superior analytical, strategic thinking, leadership skills.\n• Demonstrated success through focus, good judgment, and decision-making.\n• Keen sense of teamwork and business goal alignment.\n• Well-developed sense of urgency to deliver results.\n• Excellent relationship and people skills. Supervisory Duties:\n• Network of Regional Sales Managers and Application Specialists covering the PPI market. Qualifications:\n• Bachelor’s degree in engineering or a similar technical degree preferred. MBA is a plus.\n• At least 10-15 years’ regional sales experience.\n• At least 5 years people management experience. What we offer you\n• Competitive Paid Time Off\n• 12 Company Paid Holidays per year\n• Annual Bonus Program\n• Full Medical, Dental, and Vision benefits\n• Company Paid Short Term and Long Term Disability, Company Paid Life Insurance\n• 6% 401K or Roth Company Match with Immediate Vesting\n• Company Paid Retirement Security Contributions following 1 year of employment\n• Tuition Reimbursement/Educational Assistance\n• Quarterly Gym Reimbursement Sulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment. We are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
+      "de": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society. About the role This role leads and develops Direct and Regional Sales Managers, implements sales strategies, and supports the Pulp and Paper market. This position has direct accountability for all PPI sales activities, both direct and indirect, in the USA. This role will necessitate effective collaboration and coordination with operations, procurement, quality, and other relevant departments. Essential Functions:\n• Achieve sales growth targets by developing and executing annual sales plans.\n• Lead the RSM’s, monitor individual performance against goals, and provide coaching, mentoring, and training.\n• Responsible for ownership and personal management of the direct corporate accounts. Develops trust and solid partnerships with Corporate and OEM accounts. Negotiates and manages agreements with both.\n• Engages collaboratively with technical associations and partners with leading technical universities.\n• Analyze and identify market trends, and the competition to jointly develop strategic plans for expanding sales of new and existing products.\n• Travel, as necessary within the assigned territory. Other Duties:\n• Must possess superior presentation, communication, and negotiation skills.\n• Experience with multiple direct reports and a proven history of leading teams.\n• Superior analytical, strategic thinking, leadership skills.\n• Demonstrated success through focus, good judgment, and decision-making.\n• Keen sense of teamwork and business goal alignment.\n• Well-developed sense of urgency to deliver results.\n• Excellent relationship and people skills. Supervisory Duties:\n• Network of Regional Sales Managers and Application Specialists covering the PPI market. Qualifications:\n• Bachelor’s degree in engineering or a similar technical degree preferred. MBA is a plus.\n• At least 10-15 years’ regional sales experience.\n• At least 5 years people management experience. What we offer you\n• Competitive Paid Time Off\n• 12 Company Paid Holidays per year\n• Annual Bonus Program\n• Full Medical, Dental, and Vision benefits\n• Company Paid Short Term and Long Term Disability, Company Paid Life Insurance\n• 6% 401K or Roth Company Match with Immediate Vesting\n• Company Paid Retirement Security Contributions following 1 year of employment\n• Tuition Reimbursement/Educational Assistance\n• Quarterly Gym Reimbursement Sulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment. We are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA.",
+      "fr": "Sulzer is a leading engineering company with a proud heritage of innovation. Join our global team to grow your expertise and develop innovative solutions that enable a prosperous and more sustainable society. About the role This role leads and develops Direct and Regional Sales Managers, implements sales strategies, and supports the Pulp and Paper market. This position has direct accountability for all PPI sales activities, both direct and indirect, in the USA. This role will necessitate effective collaboration and coordination with operations, procurement, quality, and other relevant departments. Essential Functions:\n• Achieve sales growth targets by developing and executing annual sales plans.\n• Lead the RSM’s, monitor individual performance against goals, and provide coaching, mentoring, and training.\n• Responsible for ownership and personal management of the direct corporate accounts. Develops trust and solid partnerships with Corporate and OEM accounts. Negotiates and manages agreements with both.\n• Engages collaboratively with technical associations and partners with leading technical universities.\n• Analyze and identify market trends, and the competition to jointly develop strategic plans for expanding sales of new and existing products.\n• Travel, as necessary within the assigned territory. Other Duties:\n• Must possess superior presentation, communication, and negotiation skills.\n• Experience with multiple direct reports and a proven history of leading teams.\n• Superior analytical, strategic thinking, leadership skills.\n• Demonstrated success through focus, good judgment, and decision-making.\n• Keen sense of teamwork and business goal alignment.\n• Well-developed sense of urgency to deliver results.\n• Excellent relationship and people skills. Supervisory Duties:\n• Network of Regional Sales Managers and Application Specialists covering the PPI market. Qualifications:\n• Bachelor’s degree in engineering or a similar technical degree preferred. MBA is a plus.\n• At least 10-15 years’ regional sales experience.\n• At least 5 years people management experience. What we offer you\n• Competitive Paid Time Off\n• 12 Company Paid Holidays per year\n• Annual Bonus Program\n• Full Medical, Dental, and Vision benefits\n• Company Paid Short Term and Long Term Disability, Company Paid Life Insurance\n• 6% 401K or Roth Company Match with Immediate Vesting\n• Company Paid Retirement Security Contributions following 1 year of employment\n• Tuition Reimbursement/Educational Assistance\n• Quarterly Gym Reimbursement Sulzer is an equal opportunity employer. We believe in the strength of a diverse workforce and are committed to offering an inclusive work environment. We are proud to be recognized as a Top Employer 2026 in Brazil, Canada, China, Finland, Germany, Ireland, Mexico, Switzerland, South Africa, the UK and the USA."
+    },
+    "slugByLocale": {
+      "it": "national-sales-manager-sulzer-easley-edd1fd92",
+      "en": "national-sales-manager-ppi-sulzer-ch-ffe27486",
+      "de": "national-sales-manager-ppi-sulzer-ch-ffe27486",
+      "fr": "national-sales-manager-ppi-sulzer-ch-ffe27486"
+    },
+    "sector": "Industria",
+    "expiredAt": "2026-06-11T13:56:24.454Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "national-sales-manager-ppi-sulzer-ch-ffe27486"
       ]
     },
     "postalCode": "8001",

@@ -1,41 +1,46 @@
 /**
  * sitemap-jobs.xml crawl-budget filters (seo/sitemap-crawl-budget).
  *
- * Lightweight unit tests for the filter predicates used by the sitemap
+ * Lightweight unit tests for the shared filter predicate used by the sitemap
  * generator in `build-plugins/jobsSeoPagesPlugin.ts`. The generator itself is
- * a multi-thousand-line Vite plugin with filesystem side-effects; rather than
- * spawn a full build we inline the same predicate logic and assert it against
- * representative job records. If the predicate in the plugin drifts, update
- * both sides in lockstep.
+ * a multi-thousand-line Vite plugin with filesystem side-effects, so these
+ * fixtures exercise its eligibility contract without spawning a full build.
  *
  * The predicates under test:
  *   1. thin-content filter   — IT description must have >= 50 words
- *   2. needsRetranslation    — skip jobs flagged as pending retranslation
+ *   2. needsRetranslation    — keep the source-locale IT canonical, skip jobs
+ *                              whose IT copy is still pending translation
+ *   3. locale indexability   — sitemap and HTML robots use the same localized
+ *                              source-content and self-canonical decision
  *
  * Run: npx vitest run tests/jobs-sitemap-filters.test.ts
  */
-import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import { describe, it, expect } from 'vitest';
-import { SKIP_LIVE_DATA } from './helpers/live-data';
+import { readFileSync } from 'node:fs';
+import {
+  isActiveJobLocaleIndexable,
+  isActiveJobLocaleSitemapEligible,
+  isActiveJobSitemapEligible,
+  type ActiveJobSitemapCandidate,
+} from '../build-plugins/shared/activeJobSitemapEligibility';
 
-interface SitemapJob {
+interface SitemapJob extends ActiveJobSitemapCandidate {
   title?: string;
   company?: string;
   location?: string;
-  description?: string;
-  descriptionByLocale?: Record<string, string>;
-  needsRetranslation?: boolean;
 }
 
-// Mirrors build-plugins/jobsSeoPagesPlugin.ts (seo/sitemap-crawl-budget).
-function isSitemapEligible(job: SitemapJob): boolean {
-  if (job.needsRetranslation === true) return false;
-  const desc = String(job.descriptionByLocale?.it || job.description || '');
-  const wordCount = desc.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
-  return wordCount >= 50;
-}
+const descriptionWithWords = (count: number): string =>
+  Array.from({ length: count }, (_, i) => `word${i}`).join(' ');
 
-const LONG_DESC = Array.from({ length: 60 }, (_, i) => `word${i}`).join(' ');
+const INDEXABLE_DESC = descriptionWithWords(50);
+const CANONICAL_URL = 'https://frontaliereticino.ch/en/find-jobs-zurich/example/';
+const selfCanonicalDecision = {
+  canonicalUrl: CANONICAL_URL,
+  effectiveCanonicalUrl: CANONICAL_URL,
+  hasIndexableRenderedBody: true,
+  sourceDetailWordCount: 50,
+};
 
 describe('sitemap-jobs.xml eligibility filter', () => {
   it('includes a normal job with ≥50 words IT description', () => {
@@ -43,9 +48,9 @@ describe('sitemap-jobs.xml eligibility filter', () => {
       title: 'Infermiere',
       company: 'EOC',
       location: 'Bellinzona',
-      description: LONG_DESC,
+      description: INDEXABLE_DESC,
     };
-    expect(isSitemapEligible(job)).toBe(true);
+    expect(isActiveJobSitemapEligible(job)).toBe(true);
   });
 
   it('excludes jobs with thin content (<50 words) — preserves FRO-278 behaviour', () => {
@@ -53,73 +58,191 @@ describe('sitemap-jobs.xml eligibility filter', () => {
       title: 'Short',
       company: 'Acme',
       location: 'Lugano',
-      description: 'Just a few words here.',
+      description: descriptionWithWords(49),
     };
-    expect(isSitemapEligible(job)).toBe(false);
+    expect(isActiveJobSitemapEligible(job)).toBe(false);
   });
 
-  it('excludes jobs flagged needsRetranslation: true — even when content is long', () => {
+  it('excludes non-IT source jobs whose IT translation is still pending', () => {
     const job: SitemapJob = {
       title: 'Store Manager',
       company: 'Prada',
       location: 'Zurich',
-      description: LONG_DESC,
+      description: INDEXABLE_DESC,
+      needsRetranslation: true,
+      sourceLang: 'en',
+    };
+    expect(isActiveJobSitemapEligible(job)).toBe(false);
+  });
+
+  it('keeps an IT-source job when only its foreign-locale translations are pending', () => {
+    const job: SitemapJob = {
+      description: INDEXABLE_DESC,
+      needsRetranslation: true,
+      sourceLang: 'it',
+    };
+    expect(isActiveJobSitemapEligible(job)).toBe(true);
+  });
+
+  it('defaults a missing source language to IT while translations are pending', () => {
+    const job: SitemapJob = {
+      description: INDEXABLE_DESC,
       needsRetranslation: true,
     };
-    expect(isSitemapEligible(job)).toBe(false);
+    expect(isActiveJobSitemapEligible(job)).toBe(true);
   });
 
   it('keeps jobs where needsRetranslation is falsy (undefined / false)', () => {
     const jobUndef: SitemapJob = {
-      description: LONG_DESC,
+      description: INDEXABLE_DESC,
     };
     const jobFalse: SitemapJob = {
-      description: LONG_DESC,
+      description: INDEXABLE_DESC,
       needsRetranslation: false,
     };
-    expect(isSitemapEligible(jobUndef)).toBe(true);
-    expect(isSitemapEligible(jobFalse)).toBe(true);
+    expect(isActiveJobSitemapEligible(jobUndef)).toBe(true);
+    expect(isActiveJobSitemapEligible(jobFalse)).toBe(true);
   });
 
   it('prefers descriptionByLocale.it over description when both exist', () => {
     const job: SitemapJob = {
       description: 'short',
-      descriptionByLocale: { it: LONG_DESC },
+      descriptionByLocale: { it: INDEXABLE_DESC },
     };
-    expect(isSitemapEligible(job)).toBe(true);
+    expect(isActiveJobSitemapEligible(job)).toBe(true);
   });
 
   it('strips HTML tags before counting words (so HTML-heavy descriptions are judged by text density)', () => {
     const tagged = `<p><strong>Benefits</strong></p>${'<li>word</li>'.repeat(49)}<p>final</p>`;
     const job: SitemapJob = { description: tagged };
-    expect(isSitemapEligible(job)).toBe(true);
+    expect(isActiveJobSitemapEligible(job)).toBe(true);
   });
-});
 
-describe('sitemap-jobs.xml regression guard (dataset-level)', () => {
-  // legge il dataset assemblato data/jobs.json, riscritto a ogni crawl: rosso possibile senza cambi di codice
-  it.skipIf(SKIP_LIVE_DATA)('filters out needsRetranslation jobs from the live jobs.json dataset', async () => {
-    // Lightweight smoke-test on the real dataset — ensures the predicate
-    // actually prunes entries when run against the current jobs.json.
-    const fs = await import('fs');
-    const path = await import('path');
-    const jobsPath = path.resolve(__dirname, '..', 'data', 'jobs.json');
-    if (!fs.existsSync(jobsPath)) {
-      // data/jobs.json is gitignored; if the fixture isn't present (CI shallow
-      // clone, etc.) we skip without failing — the predicate is fully covered
-      // by the synthetic cases above.
-      return;
-    }
-    const jobs = readJsonFile(jobsPath) as SitemapJob[];
-    if (!Array.isArray(jobs) || jobs.length === 0) return;
-    const before = jobs.filter((j) => {
-      const desc = String(j.descriptionByLocale?.it || j.description || '');
-      return desc.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length >= 50;
-    });
-    const after = before.filter((j) => j.needsRetranslation !== true);
-    // At least one dataset guarantee: eligibility never grows after filtering.
-    expect(after.length).toBeLessThanOrEqual(before.length);
-    // And the filter must actually drop every needsRetranslation entry.
-    expect(after.some((j) => j.needsRetranslation === true)).toBe(false);
+  it('excludes a locale that the renderer classifies as noindex even when the Italian group is eligible', () => {
+    const job: SitemapJob = {
+      descriptionByLocale: {
+        it: INDEXABLE_DESC,
+      },
+    };
+
+    expect(isActiveJobSitemapEligible(job)).toBe(true);
+    expect(isActiveJobLocaleIndexable(job, 'en', {
+      ...selfCanonicalDecision,
+      hasIndexableRenderedBody: false,
+      sourceDetailWordCount: 49,
+    })).toBe(false);
+  });
+
+  it('preserves the renderer body branch when localized content is indexable', () => {
+    const job: SitemapJob = {
+      descriptionByLocale: { it: INDEXABLE_DESC },
+    };
+
+    expect(isActiveJobLocaleIndexable(job, 'en', {
+      ...selfCanonicalDecision,
+      hasIndexableRenderedBody: true,
+      sourceDetailWordCount: 1,
+    })).toBe(true);
+  });
+
+  it('preserves indexability from complete aggregated canonical source content', () => {
+    const job: SitemapJob = {
+      descriptionByLocale: { it: INDEXABLE_DESC },
+    };
+
+    expect(isActiveJobLocaleIndexable(job, 'fr', {
+      ...selfCanonicalDecision,
+      hasIndexableRenderedBody: false,
+      sourceDetailWordCount: 50,
+    })).toBe(true);
+  });
+
+  it('keeps a fallback-only renderer page indexable without advertising an unproven locale', () => {
+    const job: SitemapJob = {
+      descriptionByLocale: { it: INDEXABLE_DESC },
+    };
+    const sourceBackedPrepass = {
+      ...selfCanonicalDecision,
+      hasIndexableRenderedBody: false,
+      sourceDetailWordCount: 49,
+    };
+    const renderedFallbackDecision = {
+      ...sourceBackedPrepass,
+      sourceDetailWordCount: 50,
+    };
+
+    expect(isActiveJobLocaleSitemapEligible(job, 'de', sourceBackedPrepass)).toBe(false);
+    expect(isActiveJobLocaleIndexable(job, 'de', renderedFallbackDecision)).toBe(true);
+  });
+
+  it('excludes a locale whose emitted detail canonical points elsewhere', () => {
+    const job: SitemapJob = {
+      descriptionByLocale: { it: INDEXABLE_DESC, en: INDEXABLE_DESC },
+    };
+
+    expect(isActiveJobLocaleIndexable(job, 'en', {
+      canonicalUrl: CANONICAL_URL,
+      effectiveCanonicalUrl: 'https://frontaliereticino.ch/en/companies/example/',
+      hasIndexableRenderedBody: true,
+      sourceDetailWordCount: 50,
+    })).toBe(false);
+  });
+
+  it('keeps the existing IT-source pending-translation policy for indexable locale pages', () => {
+    const job: SitemapJob = {
+      descriptionByLocale: {
+        it: INDEXABLE_DESC,
+        en: INDEXABLE_DESC,
+      },
+      needsRetranslation: true,
+      sourceLang: 'it',
+    };
+
+    expect(isActiveJobLocaleIndexable(job, 'it', {
+      ...selfCanonicalDecision,
+    })).toBe(true);
+    expect(isActiveJobLocaleIndexable(job, 'en', selfCanonicalDecision)).toBe(true);
+  });
+
+  it('keeps locale robots indexable when the separate Italian sitemap group is below threshold', () => {
+    const job: SitemapJob = {
+      descriptionByLocale: {
+        it: descriptionWithWords(49),
+        en: INDEXABLE_DESC,
+      },
+    };
+
+    expect(isActiveJobLocaleIndexable(job, 'en', selfCanonicalDecision)).toBe(true);
+    expect(isActiveJobLocaleSitemapEligible(job, 'en', selfCanonicalDecision)).toBe(false);
+  });
+
+  it('keeps locale robots independent when the Italian sitemap translation is pending', () => {
+    const job: SitemapJob = {
+      descriptionByLocale: {
+        it: INDEXABLE_DESC,
+        de: INDEXABLE_DESC,
+      },
+      needsRetranslation: true,
+      sourceLang: 'de',
+    };
+
+    expect(isActiveJobLocaleIndexable(job, 'de', selfCanonicalDecision)).toBe(true);
+    expect(isActiveJobLocaleSitemapEligible(job, 'de', selfCanonicalDecision)).toBe(false);
+  });
+
+  it('does not treat a keywords-only canonical record as prepass source evidence', () => {
+    const source = readFileSync(
+      new URL('../build-plugins/jobsSeoPagesPlugin.ts', import.meta.url),
+      'utf8',
+    );
+    const start = source.indexOf('const resolveSourceBackedLocaleIndexabilitySignals =');
+    const end = source.indexOf('const canonicalFallbackKeyForJobLocale =', start);
+    const resolver = source.slice(start, end);
+
+    expect(start).toBeGreaterThan(-1);
+    expect(end).toBeGreaterThan(start);
+    expect(resolver).toContain('const canonicalLocale = canonicalLocaleHasSignal(canonicalLocaleRaw)');
+    expect(resolver).toContain('cleanItems(canonicalLocale?.keywords, 8)');
+    expect(resolver).not.toContain('cleanItems(canonicalLocaleRaw?.keywords, 8)');
   });
 });

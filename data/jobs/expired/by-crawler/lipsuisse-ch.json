@@ -47,6 +47,18 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.lipsuisse.ch/offres-emploi/carreleur-2",
-    "firstSeenAt": "2026-11-04T21:49:56.499Z"
+    "firstSeenAt": "2026-11-04T21:49:56.499Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://www.lipsuisse.ch/offres-emploi/carreleur",
+        "firstSeenAt": "2026-11-04T21:49:56.499Z",
+        "title": "Carreleur"
+      },
+      {
+        "sourceIdentity": "url:https://www.lipsuisse.ch/offres-emploi/carreleur-2",
+        "firstSeenAt": "2026-11-04T21:49:56.499Z",
+        "title": "Carreleur"
+      }
+    ]
   }
 ]

@@ -91,7 +91,6 @@
         "dipl-expert-expert-nds-in-emergenza-dipl-infermiera-hf-fh-emergency-center-80-100-sro-ag-spital-region-oberaargau"
       ],
       "de": [
-        "dipl-expertin-experte-nds-in-notfallpflege-dipl-pflegefachperson-hf-fh-notfallzentrum-80-c2527372",
         "dipl-expert-expert-nds-in-emergenza-dipl-infermiera-hf-fh-emergency-center-80-100-sro-ag-spital-region-oberaargau"
       ],
       "fr": [
@@ -178,7 +177,6 @@
         "dipl-radiology-specialist-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-3af3dd4b"
       ],
       "de": [
-        "dipl-radiologiefachperson-hf-50-100-sro-langenthal-4323b9d2",
         "dipl-specialista-di-radiologia-hf-50-100-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-radiologiefachperson-hf-50-100-sro-langenthal",
         "dipl-radiologiefachperson-hf-50-100-sro-langenthal-52564c65"
@@ -270,7 +268,6 @@
         "dipl-tecnologia-chirurgica-specialistica-hf-o-toa-80-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "de": [
-        "dipl-fachperson-operationstechnik-hf-oder-toa-80-100-sro-langenthal-9db8f9d7",
         "dipl-tecnologia-chirurgica-specialistica-hf-o-toa-80-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "fr": [
@@ -347,7 +344,9 @@
       "etudes-superieures-dnd-expert-expert-soins-d-urgence-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal-eeba7ebc",
       "studi-post-laurea-nds-dipl-emergenza-esperto-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal-cbbb561f43",
       "etudes-superieures-dnd-expert-expert-soins-d-urgence-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal",
-      "etudes-superieures-dnd-expert-expert-soins-d-urgence-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal-079a80fb"
+      "etudes-superieures-dnd-expert-expert-soins-d-urgence-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal-079a80fb",
+      "etudes-superieures-dnd-expert-expert-soins-d-urgence-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal-4781dabc",
+      "etudes-superieures-dnd-expert-expert-soins-d-urgence-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal-a63987a8"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -360,7 +359,9 @@
         "nachdiplomstudium-nds-dipl-expertin-experte-notfallpflege-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "nachdiplomstudium-nds-dipl-expertin-experte-notfallpflege-nds-hf-80-100-sro-langenthal",
         "studi-post-laurea-nds-dipl-emergenza-esperto-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal-cbbb561f43",
-        "etudes-superieures-dnd-expert-expert-soins-d-urgence-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal-079a80fb"
+        "etudes-superieures-dnd-expert-expert-soins-d-urgence-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal-079a80fb",
+        "etudes-superieures-dnd-expert-expert-soins-d-urgence-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal-4781dabc",
+        "etudes-superieures-dnd-expert-expert-soins-d-urgence-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal-a63987a8"
       ],
       "en": [
         "nachdiplomstudium-nds-dipl-expertin-experte-notfallpflege-nds-hf-80-100-sro-langenthal-f9e5fa48",
@@ -371,7 +372,6 @@
         "etudes-superieures-dnd-expert-expert-soins-d-urgence-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "de": [
-        "nachdiplomstudium-nds-dipl-expertin-experte-notfallpflege-nds-hf-80-100-sro-langenthal-f9e5fa48",
         "studi-post-laurea-nds-dipl-emergenza-esperto-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "nachdiplomstudium-nds-dipl-expertin-experte-notfallpflege-nds-hf-80-100-sro-langenthal",
         "etudes-superieures-dnd-expert-expert-soins-d-urgence-nds-hf-80-100-sro-ag-spital-region-oberaargau-langenthal"
@@ -769,21 +769,18 @@
       "en": [
         "advanced-practice-nurse-apn-zentrum-fur-essstorungen-und-adipositas-60-sro-langenthal-29f0f435",
         "infirmiere-praticienne-avancee-apn-centre-des-troubles-de-l-alimentation-et-de-l-obesite-60-sro-ag-spital-region",
-        "advanced-practice-nurse-apn-centre-for-eating-disorders-and-obesity-60-sro-ag-spital-region-oberaargau-0a5044d1",
         "advanced-practice-nurse-apn-zentrum-fur-essstorungen-und-adipositas-60-sro-langenthal",
         "advanced-practice-nurse-apn-centre-for-eating-disorders-and-obesity-60-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "fr": [
         "advanced-practice-nurse-apn-zentrum-fur-essstorungen-und-adipositas-60-sro-langenthal-29f0f435",
         "advanced-practice-nurse-apn-centre-for-eating-disorders-and-obesity-60-sro-ag-spital-region-oberaargau-langenthal",
-        "infirmiere-praticienne-avancee-apn-centre-des-troubles-de-l-alimentation-et-de-l-obesite-60-sro-ag-spital-3fcb59ed",
         "advanced-practice-nurse-apn-zentrum-fur-essstorungen-und-adipositas-60-sro-langenthal",
         "infirmiere-praticienne-avancee-apn-centre-des-troubles-de-l-alimentation-et-de-l-obesite-60-sro-ag-spital-region"
       ],
       "de": [
         "advanced-practice-nurse-apn-centre-for-eating-disorders-and-obesity-60-sro-ag-spital-region-oberaargau-langenthal",
-        "infirmiere-praticienne-avancee-apn-centre-des-troubles-de-l-alimentation-et-de-l-obesite-60-sro-ag-spital-region",
-        "advanced-practice-nurse-apn-zentrum-fur-essstorungen-und-adipositas-60-sro-langenthal-29f0f435"
+        "infirmiere-praticienne-avancee-apn-centre-des-troubles-de-l-alimentation-et-de-l-obesite-60-sro-ag-spital-region"
       ]
     },
     "postalCode": "4900",
@@ -1110,7 +1107,8 @@
       "infirmier-ere-diplome-e-es-hes-70-100-chirurgie-generale-sro-ag-spital-region-oberaargau-langenthal",
       "dipl-infermieristica-professionale-hf-fh-70-100-chirurgia-generale-sro-ag-spital-region-oberaargau-langenthal-f3c8ff17",
       "dipl-nursing-professional-hf-fh-70-100-general-surgery-sro-ag-spital-region-oberaargau-langenthal",
-      "c-est-quoi-soins-infirmiers-professionnels-hf-fh-70-100-chirurgie-generale-sro-ag-spital-region-oberaargau-langenthal"
+      "c-est-quoi-soins-infirmiers-professionnels-hf-fh-70-100-chirurgie-generale-sro-ag-spital-region-oberaargau-langenthal",
+      "dipl-infermieristica-professionale-hf-fh-70-100-chirurgia-generale-sro-ag-spital-region-oberaargau-langenthal-5ed71e91"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1120,7 +1118,8 @@
         "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal",
         "dipl-infermieristica-professionale-hf-fh-70-100-chirurgia-generale-sro-ag-spital-region-oberaargau-langenthal-f3c8ff17",
         "dipl-nursing-professional-hf-fh-70-100-general-surgery-sro-ag-spital-region-oberaargau-langenthal",
-        "c-est-quoi-soins-infirmiers-professionnels-hf-fh-70-100-chirurgie-generale-sro-ag-spital-region-oberaargau-langenthal"
+        "c-est-quoi-soins-infirmiers-professionnels-hf-fh-70-100-chirurgie-generale-sro-ag-spital-region-oberaargau-langenthal",
+        "dipl-infermieristica-professionale-hf-fh-70-100-chirurgia-generale-sro-ag-spital-region-oberaargau-langenthal-5ed71e91"
       ],
       "en": [
         "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal",
@@ -1206,7 +1205,13 @@
       "dipl-care-specialist-hf-fh-70-100-general-medicine-sro-ag-spital-region-oberaargau-langenthal",
       "dipl-specialista-di-radiologia-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-d1bd7d",
       "dipl-specialiste-en-radiologie-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-d1bd7d",
-      "dipl-radiology-specialist-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-d1bd7d"
+      "dipl-radiology-specialist-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-d1bd7d",
+      "dipl-specialista-hf-fh-70-100-generale-medicina-sro-ag-spital-region-oberaargau-langenthal-08e19438",
+      "dipl-care-specialist-hf-fh-70-100-general-medicine-sro-ag-spital-region-oberaargau-langenthal-2dc3defc",
+      "dipl-specialista-di-radiologia-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-d1bd7d-8993e87d",
+      "dipl-radiology-specialist-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-d1bd7d-5234ece6",
+      "dipl-radiologiefachperson-hf-50-100-sro-langenthal-4e9c43e5",
+      "dipl-specialiste-en-radiologie-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-d1bd7d-d4eeb9ef"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1220,7 +1225,13 @@
         "dipl-specialista-di-radiologia-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-d1bd7d-0aace1a9",
         "dipl-radiology-specialist-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-d1bd7d-b206ab72",
         "dipl-radiologiefachperson-hf-50-100-sro-langenthal-83985cda",
-        "dipl-specialiste-en-radiologie-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-d1bd7d-41fde66e"
+        "dipl-specialiste-en-radiologie-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-d1bd7d-41fde66e",
+        "dipl-specialista-hf-fh-70-100-generale-medicina-sro-ag-spital-region-oberaargau-langenthal-08e19438",
+        "dipl-care-specialist-hf-fh-70-100-general-medicine-sro-ag-spital-region-oberaargau-langenthal-2dc3defc",
+        "dipl-specialista-di-radiologia-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-d1bd7d-8993e87d",
+        "dipl-radiology-specialist-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-d1bd7d-5234ece6",
+        "dipl-radiologiefachperson-hf-50-100-sro-langenthal-4e9c43e5",
+        "dipl-specialiste-en-radiologie-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-d1bd7d-d4eeb9ef"
       ],
       "en": [
         "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal",
@@ -1229,7 +1240,9 @@
         "dipl-radiology-specialist-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-d1bd7d-b206ab72",
         "dipl-specialista-di-radiologia-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-d1bd7d",
         "dipl-radiologiefachperson-hf-50-100-sro-langenthal-83985cda",
-        "dipl-specialiste-en-radiologie-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-d1bd7d"
+        "dipl-specialiste-en-radiologie-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-d1bd7d",
+        "dipl-radiology-specialist-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-d1bd7d-5234ece6",
+        "dipl-radiologiefachperson-hf-50-100-sro-langenthal-4e9c43e5"
       ],
       "fr": [
         "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal",
@@ -1239,7 +1252,9 @@
         "dipl-care-specialist-hf-fh-70-100-general-medicine-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-specialista-di-radiologia-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-d1bd7d",
         "dipl-radiology-specialist-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-d1bd7d",
-        "dipl-radiologiefachperson-hf-50-100-sro-langenthal-83985cda"
+        "dipl-radiologiefachperson-hf-50-100-sro-langenthal-83985cda",
+        "dipl-specialiste-en-radiologie-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-d1bd7d-d4eeb9ef",
+        "dipl-radiologiefachperson-hf-50-100-sro-langenthal-4e9c43e5"
       ],
       "de": [
         "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal",
@@ -1247,7 +1262,8 @@
         "dipl-care-specialist-hf-fh-70-100-general-medicine-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-specialista-di-radiologia-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-d1bd7d",
         "dipl-radiology-specialist-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-d1bd7d",
-        "dipl-specialiste-en-radiologie-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-d1bd7d"
+        "dipl-specialiste-en-radiologie-hf-50-100-sro-ag-spital-region-oberaargau-langenthal-d1bd7d",
+        "dipl-radiologiefachperson-hf-50-100-sro-langenthal-4e9c43e5"
       ]
     },
     "postalCode": "4900",
@@ -1393,6 +1409,25 @@
     "expiredAt": "2026-11-08T09:23:54.531Z",
     "previousSlugsByLocale": {
       "it": [
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-42eeb232",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-555d6345",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-88dd3560",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-7a09ce26",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-9cf07ba4",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-b7ef0cf7",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-165993bb",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-a5a6ce68",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-8707cb0c",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-288a391c",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-58216863",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-b711601d",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-49512f81",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-c4b9ce96",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-8a9a4276",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-829f8454",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-7b7dfc8e",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-ef7d8de0",
+        "dipl-terapia-professionale-fh-50-100-sro-ag-spital-region-oberaargau-langenthal-cp048d",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-0b2a1ade",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-a0a0dd0d",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-cb131bff",
@@ -1412,33 +1447,32 @@
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-169eae8f",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-3cbcf967",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal",
-        "dipl-terapia-professionale-fh-50-100-sro-ag-spital-region-oberaargau-langenthal-cp048d",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-916cdbbd",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-92f4fa57",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-85a3c59a",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-0ba269cd",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-c437a771",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-70e2e13f",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-42eeb232",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-555d6345",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-88dd3560",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-7a09ce26",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-9cf07ba4",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-b7ef0cf7",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-165993bb",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-a5a6ce68",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-8707cb0c",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-288a391c",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-58216863",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-b711601d",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-49512f81",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-c4b9ce96",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-8a9a4276",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-829f8454",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-7b7dfc8e",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-ef7d8de0"
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-70e2e13f"
       ],
       "en": [
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-42eeb232",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-555d6345",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-88dd3560",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-7a09ce26",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-9cf07ba4",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-b7ef0cf7",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-165993bb",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-a5a6ce68",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-8707cb0c",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-288a391c",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-58216863",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-b711601d",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-49512f81",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-c4b9ce96",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-8a9a4276",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-829f8454",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-7b7dfc8e",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-ef7d8de0",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-0b2a1ade",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-a0a0dd0d",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-cb131bff",
@@ -1462,12 +1496,14 @@
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-85a3c59a",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-0ba269cd",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-c437a771",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-70e2e13f",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-70e2e13f"
+      ],
+      "de": [
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-42eeb232",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-555d6345",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-88dd3560",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-7a09ce26",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-9cf07ba4",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-7a09ce26",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-b7ef0cf7",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-165993bb",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-a5a6ce68",
@@ -1480,9 +1516,6 @@
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-8a9a4276",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-829f8454",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-7b7dfc8e",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-ef7d8de0"
-      ],
-      "de": [
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-0b2a1ade",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-a0a0dd0d",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-cb131bff",
@@ -1507,12 +1540,14 @@
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-0ba269cd",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-85a3c59a",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-c437a771",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-70e2e13f",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-70e2e13f"
+      ],
+      "fr": [
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-42eeb232",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-555d6345",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-88dd3560",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-9cf07ba4",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-7a09ce26",
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-9cf07ba4",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-b7ef0cf7",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-165993bb",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-a5a6ce68",
@@ -1525,9 +1560,7 @@
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-8a9a4276",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-829f8454",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-7b7dfc8e",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-ef7d8de0"
-      ],
-      "fr": [
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-ef7d8de0",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-0b2a1ade",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-a0a0dd0d",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-cb131bff",
@@ -1551,25 +1584,7 @@
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-85a3c59a",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-0ba269cd",
         "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-c437a771",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-70e2e13f",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-42eeb232",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-555d6345",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-88dd3560",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-7a09ce26",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-9cf07ba4",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-b7ef0cf7",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-165993bb",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-a5a6ce68",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-8707cb0c",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-288a391c",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-58216863",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-b711601d",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-49512f81",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-c4b9ce96",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-8a9a4276",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-829f8454",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-7b7dfc8e",
-        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-ef7d8de0"
+        "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-70e2e13f"
       ]
     },
     "postalCode": "4900",
@@ -1624,8 +1639,7 @@
       "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-3cbcf967",
       "dipl-ergotherapeut-in-fh-50-100-sro-langenthal",
       "dipl-terapia-professionale-fh-50-100-sro-ag-spital-region-oberaargau-langenthal-cp048d",
-      "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-ef7d8de0",
-      "dipl-terapia-professionale-fh-50-100-sro-ag-spital-region-oberaargau-langenthal"
+      "dipl-ergotherapeut-in-fh-50-100-sro-langenthal-ef7d8de0"
     ],
     "sourceIdentityHistory": [
       {
@@ -2061,7 +2075,9 @@
       "medecin-principal-unite-de-soins-intensifs-principaux-80-100-sro-ag-spital-region-oberaargau-langenthal",
       "dipl-expertin-experte-intensivpflege-60-100-sro-langenthal",
       "unita-di-cura-intensiva-fisica-principale-80-100-sro-ag-spital-region-oberaargau-langenthal",
-      "leitende-arztin-leitenden-arzt-intensivstation-80-100-sro-langenthal"
+      "leitende-arztin-leitenden-arzt-intensivstation-80-100-sro-langenthal",
+      "unita-di-cura-intensiva-fisica-principale-80-100-sro-ag-spital-region-oberaargau-langenthal-277eae3d",
+      "leitende-arztin-leitenden-arzt-intensivstation-80-100-sro-langenthal-47b71fe5"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -2081,7 +2097,9 @@
         "principal-physician-principal-intensive-care-unit-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "leitende-arztin-leitenden-arzt-intensivstation-80-100-sro-langenthal-8ab33e9c",
         "medecin-principal-unite-de-soins-intensifs-principaux-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "dipl-expertin-experte-intensivpflege-60-100-sro-langenthal"
+        "dipl-expertin-experte-intensivpflege-60-100-sro-langenthal",
+        "unita-di-cura-intensiva-fisica-principale-80-100-sro-ag-spital-region-oberaargau-langenthal-277eae3d",
+        "leitende-arztin-leitenden-arzt-intensivstation-80-100-sro-langenthal-47b71fe5"
       ],
       "en": [
         "unita-di-cura-intensiva-fisica-principale-80-100-sro-ag-spital-region-oberaargau-langenthal",
@@ -2090,7 +2108,8 @@
       "de": [
         "dipl-expertin-experte-intensivpflege-60-100-sro-langenthal",
         "unita-di-cura-intensiva-fisica-principale-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "leitende-arztin-leitenden-arzt-intensivstation-80-100-sro-langenthal-8ab33e9c"
+        "leitende-arztin-leitenden-arzt-intensivstation-80-100-sro-langenthal-8ab33e9c",
+        "leitende-arztin-leitenden-arzt-intensivstation-80-100-sro-langenthal-47b71fe5"
       ],
       "fr": [
         "dipl-expert-soins-intensifs-60-100-sro-ag-spital-region-oberaargau-langenthal",
@@ -2274,8 +2293,6 @@
     "expiredAt": "2026-10-30T09:22:33.139Z",
     "previousSlugs": [
       "dipl-specialista-hf-fh-50-100-br-all-ortopedia-sro-ag-spital-region-oberaargau-langenthal",
-      "dipl-care-specialist-hf-fh-50-100-br-all-orthopaedics-sro-ag-spital-region-oberaargau-langenthal-b7698b78",
-      "c-est-quoi-specialiste-des-soins-hf-fh-50-100-br-tous-orthopedie-sro-ag-spital-region-oberaargau-langenthal-e67c63e7",
       "dipl-care-specialist-hf-fh-50-100-br-all-orthopaedics-sro-ag-spital-region-oberaargau-langenthal-fea952",
       "c-est-quoi-specialiste-des-soins-hf-fh-50-100-br-tous-orthopedie-sro-ag-spital-region-oberaargau-langenthal-fea952",
       "dipl-specialista-hf-fh-70-100-generale-medicina-sro-ag-spital-region-oberaargau-langenthal",
@@ -2294,13 +2311,12 @@
       "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal-b3dfb5ae",
       "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal-a75ff860",
       "dipl-care-specialist-hf-fh-50-100-br-all-orthopaedics-sro-ag-spital-region-oberaargau-langenthal",
-      "c-est-quoi-specialiste-des-soins-hf-fh-50-100-br-tous-orthopedie-sro-ag-spital-region-oberaargau-langenthal"
+      "c-est-quoi-specialiste-des-soins-hf-fh-50-100-br-tous-orthopedie-sro-ag-spital-region-oberaargau-langenthal",
+      "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal-cb0e8a67",
+      "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal-1d6141fa"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "dipl-specialista-hf-fh-50-100-br-all-ortopedia-sro-ag-spital-region-oberaargau-langenthal",
-        "dipl-care-specialist-hf-fh-50-100-br-all-orthopaedics-sro-ag-spital-region-oberaargau-langenthal-b7698b78",
-        "c-est-quoi-specialiste-des-soins-hf-fh-50-100-br-tous-orthopedie-sro-ag-spital-region-oberaargau-langenthal-e67c63e7",
         "dipl-care-specialist-hf-fh-50-100-br-all-orthopaedics-sro-ag-spital-region-oberaargau-langenthal-fea952",
         "c-est-quoi-specialiste-des-soins-hf-fh-50-100-br-tous-orthopedie-sro-ag-spital-region-oberaargau-langenthal-fea952",
         "dipl-specialista-hf-fh-70-100-generale-medicina-sro-ag-spital-region-oberaargau-langenthal",
@@ -2317,26 +2333,35 @@
         "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopadie-sro-langenthal-152fa09e",
         "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopadie-sro-langenthal",
         "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal-b3dfb5ae",
-        "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal-a75ff860"
+        "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal-a75ff860",
+        "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal-cb0e8a67",
+        "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal-1d6141fa",
+        "dipl-specialista-hf-fh-50-100-br-all-ortopedia-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "en": [
         "dipl-care-specialist-hf-fh-50-100-br-all-orthopaedics-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopadie-sro-langenthal",
         "dipl-care-specialist-hf-fh-50-100-br-all-orthopaedics-sro-ag-spital-region-oberaargau-langenthal-fea952",
         "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal-dd7de89e",
-        "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal-96f2865f"
+        "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal-96f2865f",
+        "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal-b3dfb5ae",
+        "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal-a75ff860"
       ],
       "de": [
         "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopadie-sro-langenthal",
         "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal-dd7de89e",
-        "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal-96f2865f"
+        "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal-96f2865f",
+        "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal-b3dfb5ae",
+        "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal-a75ff860"
       ],
       "fr": [
         "c-est-quoi-specialiste-des-soins-hf-fh-50-100-br-tous-orthopedie-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopadie-sro-langenthal",
         "c-est-quoi-specialiste-des-soins-hf-fh-50-100-br-tous-orthopedie-sro-ag-spital-region-oberaargau-langenthal-fea952",
         "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal-dd7de89e",
-        "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal-96f2865f"
+        "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal-96f2865f",
+        "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal-b3dfb5ae",
+        "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal-a75ff860"
       ]
     },
     "postalCode": "4900",
@@ -6107,12 +6132,12 @@
       "dipl-infermieristica-professionale-hf-occupazione-operativa-focus-p-sro-ag-spital-region-oberaargau-langenthal-a975f3",
       "dipl-nursing-professional-hf-operational-employment-focus-p-sro-ag-spital-region-oberaargau-langenthal-a975f3",
       "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-ag-spital-region-oberaargau-langenthal",
-      "dipl-infermieristica-professionale-hf-occupazione-operativa-focus-p-sro-ag-spital-region-oberaargau-langenthal",
       "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-ag-spital-region-oberaargau-langenthal-7943d658",
       "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-ag-spital-region-oberaargau-langenthal",
       "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal-928aeaaf",
       "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal",
-      "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal"
+      "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal",
+      "dipl-infermieristica-professionale-hf-occupazione-operativa-focus-p-sro-ag-spital-region-oberaargau-langenthal"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -6135,9 +6160,9 @@
         "dipl-infermieristica-professionale-hf-occupazione-operativa-focus-p-sro-ag-spital-region-oberaargau-langenthal-a975f3",
         "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal-7310e89e",
-        "dipl-infermieristica-professionale-hf-occupazione-operativa-focus-p-sro-ag-spital-region-oberaargau-langenthal",
+        "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal",
         "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal",
-        "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal"
+        "dipl-infermieristica-professionale-hf-occupazione-operativa-focus-p-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "en": [
         "dipl-nursing-professional-hf-operational-employment-focus-p-sro-ag-spital-region-oberaargau-langenthal-a975f3",
@@ -6153,8 +6178,8 @@
         "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal",
         "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal-928aeaaf",
         "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-ag-spital-region-oberaargau-langenthal",
-        "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal-7310e89e",
-        "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal"
+        "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal",
+        "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal-7310e89e"
       ],
       "fr": [
         "c-est-quoi-professionnels-des-soins-infirmiers-hf-emploi-operationnel-focus-p-sro-ag-spital-region-oberaargau-a975f3",
@@ -6172,7 +6197,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/5f5b2503-36ba-478a-b124-544a36b11142",
-    "firstSeenAt": "2026-09-03T13:35:06.210Z"
+    "firstSeenAt": "2026-09-03T13:35:06.210Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/5f5b2503-36ba-478a-b124-544a36b11142",
+        "firstSeenAt": "2026-09-03T13:35:06.210Z",
+        "title": "dipl. Pflegefachfrau/-mann HF (Betriebsanstellung) Fokus P"
+      },
+      {
+        "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/9a873ebd-3a9e-4a94-bf8a-81165a286fa2",
+        "firstSeenAt": "2026-09-03T13:35:06.210Z",
+        "title": "dipl. Pflegefachfrau/-mann HF (Betriebsanstellung) Fokus P"
+      },
+      {
+        "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/f7058a73-e4fb-440e-94e0-26599487a55d",
+        "firstSeenAt": "2026-09-03T13:35:06.210Z",
+        "title": "dipl. Pflegefachfrau/-mann HF (Betriebsanstellung) Fokus P"
+      }
+    ]
   },
   {
     "slug": "dipl-infermieristica-professionale-hf-occupazione-operativa-sro-ag-spital-region-oberaargau-langenthal",
@@ -6205,8 +6247,8 @@
       "dipl-nursing-professional-hf-operational-employment-sro-ag-spital-region-oberaargau-langenthal",
       "c-est-quoi-soins-infirmiers-professionnels-hf-emploi-operationnel-sro-ag-spital-region-oberaargau-langenthal",
       "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-ag-spital-region-oberaargau-langenthal",
-      "dipl-infermieristica-professionale-hf-occupazione-operativa-sro-ag-spital-region-oberaargau-langenthal",
-      "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal"
+      "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal",
+      "dipl-infermieristica-professionale-hf-occupazione-operativa-sro-ag-spital-region-oberaargau-langenthal"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -6214,8 +6256,8 @@
         "dipl-nursing-professional-hf-operational-employment-sro-ag-spital-region-oberaargau-langenthal",
         "c-est-quoi-soins-infirmiers-professionnels-hf-emploi-operationnel-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-ag-spital-region-oberaargau-langenthal",
-        "dipl-infermieristica-professionale-hf-occupazione-operativa-sro-ag-spital-region-oberaargau-langenthal",
-        "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal"
+        "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal",
+        "dipl-infermieristica-professionale-hf-occupazione-operativa-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "en": [
         "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal"
@@ -6223,9 +6265,6 @@
       "fr": [
         "c-est-quoi-soins-infirmiers-professionnels-hf-emploi-operationnel-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal"
-      ],
-      "de": [
-        "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal-dba9686a"
       ]
     },
     "postalCode": "4900",
@@ -6234,7 +6273,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/cf1f7ea6-cdc8-48aa-b02f-14c8a86a1e04",
-    "firstSeenAt": "2026-09-04T13:27:24.310Z"
+    "firstSeenAt": "2026-09-04T13:27:24.310Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/9c919a4d-6230-4786-b8c5-fe9ad04ce8dd",
+        "firstSeenAt": "2026-09-04T13:27:24.310Z",
+        "title": "dipl. Pflegefachfrau/-mann HF (Betriebsanstellung)"
+      },
+      {
+        "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/b156dd97-ff9c-42cd-9cfe-da940e6c599d",
+        "firstSeenAt": "2026-09-04T13:27:24.310Z",
+        "title": "dipl. Pflegefachfrau/-mann HF (Betriebsanstellung)"
+      },
+      {
+        "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/cf1f7ea6-cdc8-48aa-b02f-14c8a86a1e04",
+        "firstSeenAt": "2026-09-04T13:27:24.310Z",
+        "title": "dipl. Pflegefachfrau/-mann HF (Betriebsanstellung)"
+      }
+    ]
   },
   {
     "slug": "preparazione-endoscopia-aemp-100-sro-ag-spital-region-oberaargau-langenthal",

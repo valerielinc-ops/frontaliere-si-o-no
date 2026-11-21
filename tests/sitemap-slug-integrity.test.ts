@@ -17,6 +17,7 @@ import { loadSwissArticleCanonicalOverrides } from '@/build-plugins/shared/swiss
 import { ARTICLE_SECTION_DESCRIPTORS } from '@/build-plugins/shared/articleSectionDescriptors';
 import { fullyRetiredArticleIds } from '@/scripts/lib/sitemap-retired-urls.mjs';
 import { indexExcludedArticleIds } from '../scripts/lib/article-canonical-overrides.mjs';
+import { iterateJsonArrayFile } from '../scripts/lib/read-large-json.mjs';
 
 const root = resolve(__dirname, '..');
 
@@ -162,9 +163,61 @@ function registerRetiredSitemapAbsenceChecks(opts: {
 // Blog sitemap (static, checked into repo)
 const blogSitemap = readProjectFile('public/sitemap-blog.xml');
 
-// Jobs data (source of truth for build-time sitemap-jobs.xml generation)
-const jobs: { id: string; slug: string; slugByLocale?: Record<string, string>; needsRetranslation?: boolean; title: string; company: string; location: string; description: string }[] =
-  JSON.parse(readProjectFile('data/jobs.json'));
+type JobSlugCandidate = {
+  id: string;
+  slug: string;
+  slugByLocale?: Record<string, string>;
+  needsRetranslation?: boolean;
+  title: string;
+  company: string;
+  location: string;
+  description: string;
+};
+
+type JobSlugIntegrity = {
+  validJobCount: number;
+  missingSlugIds: string[];
+  slugCounts: Map<string, string[]>;
+  incompleteLocaleSlugs: string[];
+  unsafeSlugs: string[];
+};
+
+// Jobs data is the source of truth for build-time sitemap-jobs.xml generation.
+// Iterate it item-wise: the assembled corpus can exceed V8's single-string
+// limit, while these checks only need bounded violation aggregates.
+function collectJobSlugIntegrity(filePath: string): JobSlugIntegrity {
+  const result: JobSlugIntegrity = {
+    validJobCount: 0,
+    missingSlugIds: [],
+    slugCounts: new Map(),
+    incompleteLocaleSlugs: [],
+    unsafeSlugs: [],
+  };
+  const badChars = /[^a-z0-9\-]/;
+
+  for (const job of iterateJsonArrayFile(filePath) as Iterable<JobSlugCandidate>) {
+    if (!job.title || !job.company || !job.location || !job.description) continue;
+    result.validJobCount += 1;
+
+    if (!job.slug || job.slug.trim() === '') result.missingSlugIds.push(job.id);
+    if (job.slug) {
+      const ids = result.slugCounts.get(job.slug) ?? [];
+      ids.push(job.id);
+      result.slugCounts.set(job.slug, ids);
+    }
+
+    if (job.slugByLocale && !job.needsRetranslation) {
+      const missing = ['it', 'en', 'de', 'fr'].filter((locale) => !job.slugByLocale?.[locale]);
+      if (missing.length > 0) result.incompleteLocaleSlugs.push(`${job.id} missing: ${missing.join(',')}`);
+    }
+
+    if (badChars.test(job.slug)) result.unsafeSlugs.push(`${job.id}: "${job.slug}"`);
+  }
+
+  return result;
+}
+
+const jobSlugIntegrity = collectJobSlugIntegrity(resolve(root, 'data', 'jobs.json'));
 
 // Extract all Italian <loc> slugs from the blog sitemap
 // Pattern: /articoli-frontaliere/{slug}/
@@ -534,27 +587,16 @@ describe('SwissArticles SWISS_ARTICLES array ↔ ALL_SWISS_ARTICLE_IDS consisten
 // ── Job Slug Integrity ───────────────────────────────────────────────────────
 
 describe('Job data slug integrity (source for build-time sitemap-jobs.xml)', () => {
-  // Filter same way as jobsSeoPagesPlugin: must have title, company, location, description
-  const validJobs = jobs.filter(j => j.title && j.company && j.location && j.description);
-
   it('jobs.json has at least 1 valid job', () => {
-    expect(validJobs.length).toBeGreaterThan(0);
+    expect(jobSlugIntegrity.validJobCount).toBeGreaterThan(0);
   });
 
   it('every valid job has a non-empty slug', () => {
-    const broken = validJobs.filter(j => !j.slug || j.slug.trim() === '');
-    expect(broken.map(j => j.id), 'Jobs with empty slug').toEqual([]);
+    expect(jobSlugIntegrity.missingSlugIds, 'Jobs with empty slug').toEqual([]);
   });
 
   it('no duplicate job slugs (warns, build plugin deduplicates)', () => {
-    const slugCounts = new Map<string, string[]>();
-    for (const j of validJobs) {
-      if (!j.slug) continue;
-      const list = slugCounts.get(j.slug) || [];
-      list.push(j.id);
-      slugCounts.set(j.slug, list);
-    }
-    const dupes = [...slugCounts.entries()].filter(([, ids]) => ids.length > 1);
+    const dupes = [...jobSlugIntegrity.slugCounts.entries()].filter(([, ids]) => ids.length > 1);
     if (dupes.length > 0) {
       console.warn(`⚠️  ${dupes.length} duplicate job slug(s) — build plugin skips duplicates but data should be cleaned:\n` +
         dupes.map(([slug, ids]) => `  ${slug} → [${ids.join(', ')}]`).join('\n'));
@@ -564,24 +606,15 @@ describe('Job data slug integrity (source for build-time sitemap-jobs.xml)', () 
   });
 
   it('every job with slugByLocale has all 4 locale entries', () => {
-    const broken = validJobs.filter(j => {
-      if (!j.slugByLocale) return false; // optional, plugin falls back to slug
-      // Skip jobs awaiting translation — they intentionally lack locale fields
-      // until the translate-pending pipeline processes them.
-      if (j.needsRetranslation) return false;
-      return !j.slugByLocale.it || !j.slugByLocale.en || !j.slugByLocale.de || !j.slugByLocale.fr;
-    });
     expect(
-      broken.map(j => `${j.id} missing: ${['it','en','de','fr'].filter(l => !j.slugByLocale?.[l]).join(',')}`),
+      jobSlugIntegrity.incompleteLocaleSlugs,
       'Jobs with incomplete slugByLocale'
     ).toEqual([]);
   });
 
   it('job slugs contain only URL-safe characters', () => {
-    const BAD_CHARS = /[^a-z0-9\-]/;
-    const broken = validJobs.filter(j => BAD_CHARS.test(j.slug));
     expect(
-      broken.map(j => `${j.id}: "${j.slug}"`),
+      jobSlugIntegrity.unsafeSlugs,
       'Jobs with URL-unsafe slugs'
     ).toEqual([]);
   });

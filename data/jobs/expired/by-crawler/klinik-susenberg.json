@@ -40,7 +40,6 @@
         "personale-80-100-klinik-susenberg-zurich"
       ],
       "de": [
-        "mitarbeiterin-80-100-klinik-susenberg-zurich-51fa9dfe",
         "personale-80-100-klinik-susenberg-zurich"
       ]
     },
@@ -209,14 +208,12 @@
       "it": [
         "oktober-bis-dezember-2026-klinik-susenberg-zurich-ee2cb5c9",
         "ottobre-a-dicembre-2026-klinik-susenberg-zurich-3be9bc99d5",
-        "ottobre-a-dicembre-2026-klinik-susenberg-zurich-e261c75e",
         "october-to-december-2026-klinik-susenberg-zurich",
         "octobre-a-decembre-2026-klinik-susenberg-zurich",
         "ottobre-a-dicembre-2026-klinik-susenberg-zurich",
         "oktober-bis-dezember-2026-klinik-susenberg-zurich"
       ],
       "en": [
-        "october-to-december-2026-klinik-susenberg-zurich-94698ae6",
         "ottobre-a-dicembre-2026-klinik-susenberg-zurich",
         "oktober-bis-dezember-2026-klinik-susenberg-zurich",
         "octobre-a-decembre-2026-klinik-susenberg-zurich",
@@ -229,7 +226,6 @@
         "oktober-bis-dezember-2026-klinik-susenberg-zurich"
       ],
       "fr": [
-        "octobre-a-decembre-2026-klinik-susenberg-zurich-b8d14fe6",
         "ottobre-a-dicembre-2026-klinik-susenberg-zurich",
         "oktober-bis-dezember-2026-klinik-susenberg-zurich",
         "october-to-december-2026-klinik-susenberg-zurich",
@@ -243,7 +239,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.susenbergklinik.ch/fileadmin/user_upload/stellen/02-unterassistent_oktobr-dezember2026_2026-10-01.pdf",
-    "firstSeenAt": "2026-10-01T21:27:34.146Z"
+    "firstSeenAt": "2026-10-01T21:27:34.146Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://www.susenbergklinik.ch/fileadmin/user_upload/stellen/00-unterassistent_oktober-dezember_2026-10-22.pdf",
+        "firstSeenAt": "2026-10-03T09:31:11.126Z",
+        "title": "Oktober bis Dezember 2026"
+      },
+      {
+        "sourceIdentity": "url:https://www.susenbergklinik.ch/fileadmin/user_upload/stellen/02-unterassistent_oktobr-dezember2026_2026-10-01.pdf",
+        "firstSeenAt": "2026-10-01T21:27:34.146Z",
+        "title": "Oktober bis Dezember 2026"
+      }
+    ]
   },
   {
     "slug": "koch-kochin-cfc-50-60-befristet-bis-juni-2027-klinik-susenberg-zurich",

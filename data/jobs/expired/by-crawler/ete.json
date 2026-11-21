@@ -1022,18 +1022,24 @@
     "previousSlugsByLocale": {
       "it": [
         "logisticien-ne-de-nuit-emil-egger-ag-avenches",
-        "logisticien-ne-de-nuit-ete-ch-avenches"
+        "logisticien-ne-de-nuit-ete-ch-avenches",
+        "logistician-emil-egger-ag-avenches",
+        "logistiker-emil-egger-ag-avenches"
       ],
       "en": [
         "logisticien-ne-de-nuit-ete-ch-avenches",
+        "logistiker-emil-egger-ag-avenches",
         "logistician-emil-egger-ag-avenches"
       ],
       "de": [
         "logisticien-ne-de-nuit-ete-ch-avenches",
+        "logistician-emil-egger-ag-avenches",
         "logistiker-emil-egger-ag-avenches"
       ],
       "fr": [
-        "logisticien-ne-de-nuit-ete-ch-avenches"
+        "logisticien-ne-de-nuit-ete-ch-avenches",
+        "logistician-emil-egger-ag-avenches",
+        "logistiker-emil-egger-ag-avenches"
       ]
     },
     "postalCode": "1580",
@@ -1042,7 +1048,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.ete.ch/jobs/logisticien-ne-de-nuit-7",
-    "firstSeenAt": "2026-09-01T05:44:45.407Z"
+    "firstSeenAt": "2026-09-01T05:44:45.407Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://www.ete.ch/jobs/logisticien-ne-de-nuit-7",
+        "firstSeenAt": "2026-09-01T05:44:45.407Z",
+        "title": "Logisticien/ne de nuit"
+      },
+      {
+        "sourceIdentity": "url:https://www.ete.ch/jobs/logisticien-ne-de-nuit-8",
+        "firstSeenAt": "2026-11-12T09:17:59.369Z",
+        "title": "Logisticien/ne de nuit"
+      }
+    ]
   },
   {
     "slug": "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-harkingen-b3aa4e17",

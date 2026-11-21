@@ -326,7 +326,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/1cf01eec-6908-4a7b-9d6e-b151888e5f05",
-    "firstSeenAt": "2026-10-06T09:12:23.766Z"
+    "firstSeenAt": "2026-08-11T10:06:52.440Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/1cf01eec-6908-4a7b-9d6e-b151888e5f05",
+        "firstSeenAt": "2026-08-11T10:06:52.440Z",
+        "title": "Spa Attendant (f/m/d)"
+      },
+      {
+        "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/aa08bd9d-8830-4438-97d8-980e17388564",
+        "firstSeenAt": "2026-10-06T09:12:23.774Z",
+        "title": "Spa Attendant (f/m/d)"
+      }
+    ]
   },
   {
     "slug": "area-pubblica-partecipante-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
@@ -1012,7 +1024,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/aa08bd9d-8830-4438-97d8-980e17388564",
-    "firstSeenAt": "2026-10-06T09:12:23.774Z"
+    "firstSeenAt": "2026-08-11T10:06:52.440Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/1cf01eec-6908-4a7b-9d6e-b151888e5f05",
+        "firstSeenAt": "2026-08-11T10:06:52.440Z",
+        "title": "Spa Attendant (f/m/d)"
+      },
+      {
+        "sourceIdentity": "url:https://kempinski.pinpointhq.com/en/postings/aa08bd9d-8830-4438-97d8-980e17388564",
+        "firstSeenAt": "2026-08-11T10:06:52.440Z",
+        "title": "Spa Attendant (f/m/d)"
+      }
+    ]
   },
   {
     "slug": "host-hostess-e-commis-de-rang-f-m-d-neora-restaurant-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",

@@ -16300,7 +16300,7 @@
       "slug": "events-hospitality-tirocinante-roger-dubuis-meyrin",
       "slugByLocale": {
         "it": "events-hospitality-tirocinante-roger-dubuis-meyrin",
-        "en": "events-hospitality-intern-richemont-meyrin",
+        "en": "events-hospitality-internal-roger-dubuis-meyrin",
         "de": "events-hospitality-praktikant-roger-dubuis-meyrin",
         "fr": "events-hospitality-intern-richemont-meyrin"
       },
@@ -16310,7 +16310,7 @@
       "title": "Events & Hospitality Intern",
       "titleByLocale": {
         "it": "Events & Hospitality Tirocinante",
-        "en": "Events & Hospitality Intern",
+        "en": "Events & Hospitality Internal",
         "de": "Events & Hospitality Praktikant",
         "fr": "Events & Hospitality Intern"
       },
@@ -16354,9 +16354,11 @@
         ],
         "de": [
           "events-hospitality-intern-richemont-meyrin"
+        ],
+        "en": [
+          "events-hospitality-intern-richemont-meyrin"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-13T21:34:58.776Z",
       "salaryMin": 51100,
       "salaryMax": 77500,

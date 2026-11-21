@@ -162,7 +162,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://emploi.ophtalmique.ch/?page=advertisement_display&id=1922",
-    "firstSeenAt": "2026-10-02T09:26:21.331Z",
+    "firstSeenAt": "2026-09-03T23:23:27.136Z",
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://emploi.ophtalmique.ch/?page=advertisement_display&id=1899",
@@ -171,7 +171,7 @@
       },
       {
         "sourceIdentity": "url:https://emploi.ophtalmique.ch/?page=advertisement_display&id=1922",
-        "firstSeenAt": "2026-10-02T09:26:21.331Z",
+        "firstSeenAt": "2026-09-03T23:23:27.136Z",
         "title": "Gestionnaire administratif"
       }
     ]
@@ -365,7 +365,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://emploi.ophtalmique.ch/?page=advertisement_display&id=1888",
-    "firstSeenAt": "2026-08-11T22:12:19.023Z"
+    "firstSeenAt": "2026-08-11T22:12:19.023Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://emploi.ophtalmique.ch/?page=advertisement_display&id=1888",
+        "firstSeenAt": "2026-08-11T22:12:19.023Z",
+        "title": "Assistant-e en soins et santé communautaire"
+      },
+      {
+        "sourceIdentity": "url:https://emploi.ophtalmique.ch/?page=advertisement_display&id=1919",
+        "firstSeenAt": "2026-08-11T22:12:19.023Z",
+        "title": "Assistant-e en soins et santé communautaire"
+      }
+    ]
   },
   {
     "slug": "infermiere-di-piscina-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
@@ -607,7 +619,6 @@
         "poolist-nurse-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne-c55362cd",
         "infirmier-ere-pooliste-ophtalmique-lausanne-3908a83d",
         "poolist-nurse-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne-cfd0407a",
-        "poolist-nurse-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne-1ecc9c5a",
         "infirmier-ere-pooliste-ophtalmique-lausanne",
         "poolist-nurse-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne"
       ],
@@ -720,7 +731,6 @@
         "infirmier-ere-pooliste-ophtalmique-lausanne-a542e642",
         "infirmier-ere-pooliste-ophtalmique-lausanne-3908a83d",
         "infirmier-ere-pooliste-ophtalmique-lausanne-51564196",
-        "infirmier-ere-pooliste-ophtalmique-lausanne-6ab29a99",
         "infirmier-ere-pooliste-ophtalmique-lausanne"
       ]
     },
@@ -941,7 +951,7 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "optometrista-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne-81886ac4",
+    "slug": "optometrista-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne-0ea19d6f",
     "title": "Opticien-ne",
     "titleByLocale": {
       "it": "Optometrista",
@@ -960,25 +970,31 @@
       "fr": "Fondée à Lausanne en 1843, la Fondation Asile des aveugles inclut l'Hôpital ophtalmique Jules-Gonin, service universitaire d'ophtalmologie, un centre de recherche, le Centre pédagogique pour élèves handicapés de la vue (CPHV), le service social, réadaptation et basse vision et 'établissement médico-social Clair-Soleil. Plus de 650 collaborateurs se mobilisent chaque jour au service de la santé visuelle pour offrir des prestations de diagnostic, de traitement et d'accompagnement aux personnes atteintes dans leur vision. Afin de compléter notre équipe, nous recherchons un-e Opticien-ne \n• Votre mission Assurer un accueil et une prise en charge de qualité du patient Effectuer des examens diagnostiques (OCT, champ visuel, topographie, etc.) Assurer la gestion administrative du secrétariat de contactologie (prise de rendez-vous, conseils d'entretien, pose et manipulation des lentilles, suivi de facturation, etc.) Vos atouts CFC d'opticien-ne ou titre équivalent Expérience dans un milieu hospitalier ou cabinet d'ophtalmologue, un atout Sens de l'observation et des relations humaines Aisance dans l'utilisation des outils informatiques Nous vous offrons Une activité enrichissante au sein d'un environnement dynamique où vous pouvez mettre en valeur vos talents, une formation spécifique à notre mission, des conditions salariales en rapport avec vos compétences. Taux d'activité: 80% Nature du contrat: contrat de durée maximale environ 6 mois Entrée en fonction: à convenir Lieu de travail: Hôpital ophtalmique Jules-Gonin, Lausanne Renseignements: Monsieur Yohan Abbou, Responsable des optométristes, 021 626 82 40 postuler Fondation Asile des aveugles — Hôpital ophtalmique Jules-Gonin, Lausanne (VD)."
     },
     "slugByLocale": {
-      "it": "optometrista-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne-81886ac4",
-      "en": "optometrist-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne-acce35b2",
-      "de": "optometrist-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne-acce35b2",
-      "fr": "opticien-ne-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne-f799c443"
+      "it": "optometrista-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne-0ea19d6f",
+      "en": "optometrist-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne-5a846f6e",
+      "de": "optometrist-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne-5a846f6e",
+      "fr": "opticien-ne-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne-ec894faa"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-05-19T23:06:25.429Z",
     "previousSlugsByLocale": {
       "fr": [
+        "opticien-ne-ophtalmique-lausanne-4bb44833",
+        "opticien-ne-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne-f799c443",
         "opticien-ne-ophtalmique-lausanne-5b4d36ac"
       ],
       "it": [
+        "opticien-ne-ophtalmique-lausanne-4bb44833",
+        "optometrista-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne-81886ac4",
         "opticien-ne-ophtalmique-lausanne-5b4d36ac"
       ],
       "en": [
-        "opticien-ne-ophtalmique-lausanne"
+        "opticien-ne-ophtalmique-lausanne",
+        "optometrist-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne-acce35b2"
       ],
       "de": [
-        "opticien-ne-ophtalmique-lausanne"
+        "opticien-ne-ophtalmique-lausanne",
+        "optometrist-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne-acce35b2"
       ]
     },
     "postalCode": "1004",
@@ -987,8 +1003,12 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "previousSlugs": [
+      "opticien-ne-ophtalmique-lausanne-4bb44833",
+      "opticien-ne-ophtalmique-lausanne",
+      "optometrista-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne-81886ac4",
       "opticien-ne-ophtalmique-lausanne-5b4d36ac",
-      "opticien-ne-ophtalmique-lausanne"
+      "optometrist-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne-acce35b2",
+      "opticien-ne-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne-f799c443"
     ]
   }
 ]

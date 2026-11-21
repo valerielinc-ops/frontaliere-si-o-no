@@ -550,7 +550,10 @@
         "assistenzarztin-assistenzarzt-ipw-winterthur-fe83f431",
         "assistenzarztin-assistenzarzt-ipw-winterthur-41d1c6f3",
         "assistenzarztin-assistenzarzt-ipw-winterthur-06aedacb",
-        "assistenzarztin-assistenzarzt-ipw-winterthur-c0f36518"
+        "assistenzarztin-assistenzarzt-ipw-winterthur-c0f36518",
+        "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur-b31b4cf9",
+        "assistant-doctor-assistant-doctor-integrierte-psychiatrie-winterthur-ipw-winterthur-18db0d6b",
+        "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-winterthur-827cab01"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -577,11 +580,13 @@
         ],
         "en": [
           "assistenzarztin-assistenzarzt-ipw-winterthur",
-          "assistant-doctor-assistant-doctor-integrierte-psychiatrie-winterthur-ipw-winterthur-4a6852"
+          "assistant-doctor-assistant-doctor-integrierte-psychiatrie-winterthur-ipw-winterthur-4a6852",
+          "assistant-doctor-assistant-doctor-integrierte-psychiatrie-winterthur-ipw-winterthur-18db0d6b"
         ],
         "fr": [
           "assistenzarztin-assistenzarzt-ipw-winterthur",
-          "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-winterthur-4a6852"
+          "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-winterthur-4a6852",
+          "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-winterthur-827cab01"
         ]
       },
       "firstSeenAt": "2026-09-19T22:53:56.606Z",
@@ -1815,8 +1820,7 @@
       "validThrough": "2027-01-06T21:27:10.049Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-07T21:31:43.760Z",
-      "sourceIdentity": "url:https://live.solique.ch/ipw/de/jobs/physiotherapeutin---physiotherapeut-fh--4104641",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://live.solique.ch/ipw/de/jobs/physiotherapeutin---physiotherapeut-fh--4104641"
     },
     {
       "id": "ipw-bda7637537dc",

@@ -620,7 +620,6 @@
       "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz",
       "mitarbeiterin-addetto-a-alle-vendite-fruchte-e-gemuse-transgourmet-risch-rotkreuz-d6cdd91f",
       "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz-7a237196",
-      "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz-842f7a45",
       "addetta-addetto-alla-vendita-di-frutta-e-verdura-transgourmet-risch-rotkreuz-a668e78c",
       "mitarbeiterin-addetto-a-alle-vendite-fruchte-e-gemuse-transgourmet-risch-rotkreuz-5f2e998c",
       "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz-139d92d8",
@@ -2877,7 +2876,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/system-engineer-windows/779a2b13-3f51-4dd8-8a42-18d49b53ee75",
-    "firstSeenAt": "2026-09-07T15:03:07.167Z"
+    "firstSeenAt": "2026-09-07T15:03:07.167Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/system-engineer-windows/779a2b13-3f51-4dd8-8a42-18d49b53ee75",
+        "firstSeenAt": "2026-09-07T15:03:07.167Z",
+        "title": "System Engineer Windows"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.transgourmet.ch/offene-stellen/system-engineer-windows/7e64ac0a-b198-4130-b569-bf0e22abf392",
+        "firstSeenAt": "2026-09-07T15:03:07.167Z",
+        "title": "System Engineer Windows"
+      }
+    ]
   },
   {
     "slug": "system-engineer-windows-transgourmet-schlieren",
@@ -3150,16 +3161,13 @@
       ],
       "fr": [
         "system-engineer-windows-transgourmet-moosseedorf",
-        "system-ingegnere-windows-transgourmet-moosseedorf",
-        "system-ingenieur-windows-transgourmet-moosseedorf-d3facd46"
+        "system-ingegnere-windows-transgourmet-moosseedorf"
       ],
       "en": [
-        "system-engineer-windows-transgourmet-moosseedorf-aea4ce53",
         "system-ingegnere-windows-transgourmet-moosseedorf",
         "system-ingenieur-windows-transgourmet-moosseedorf"
       ],
       "de": [
-        "system-engineer-windows-transgourmet-moosseedorf-aea4ce53",
         "system-ingegnere-windows-transgourmet-moosseedorf",
         "system-ingenieur-windows-transgourmet-moosseedorf"
       ]
@@ -3850,25 +3858,39 @@
         "mitarbeiterin-mitarbeiter-verkauf-getranke-80-100-transgourmet-winterthur-1878139c",
         "mitarbeiterin-addetto-a-alle-vendite-getranke-80-100-transgourmet-winterthur-e65f6335",
         "mitarbeiterin-sales-associate-getranke-80-100-transgourmet-winterthur-7aaabe66",
-        "mitarbeiterin-vendeur-se-getranke-80-100-transgourmet-winterthur-191642ff"
+        "mitarbeiterin-vendeur-se-getranke-80-100-transgourmet-winterthur-191642ff",
+        "dipendenti-dipendenti-vendite-bevande-80-100-transgourmet-winterthur-9663481d",
+        "mitarbeiterin-mitarbeiter-verkauf-getranke-80-100-transgourmet-winterthur-5a552066",
+        "mitarbeiterin-addetto-a-alle-vendite-getranke-80-100-transgourmet-winterthur-4e7a3c16",
+        "mitarbeiterin-sales-associate-getranke-80-100-transgourmet-winterthur-7c9d80f5",
+        "mitarbeiterin-vendeur-se-getranke-80-100-transgourmet-winterthur-d3266997"
       ],
       "en": [
         "mitarbeiterin-mitarbeiter-verkauf-getranke-80-100-transgourmet-winterthur-1878139c",
         "mitarbeiterin-sales-associate-getranke-80-100-transgourmet-winterthur-7aaabe66",
         "mitarbeiterin-addetto-a-alle-vendite-getranke-80-100-transgourmet-winterthur",
-        "mitarbeiterin-vendeur-se-getranke-80-100-transgourmet-winterthur"
+        "mitarbeiterin-vendeur-se-getranke-80-100-transgourmet-winterthur",
+        "employee-employee-sales-drinks-80-100-transgourmet-winterthur-c7519a62",
+        "mitarbeiterin-mitarbeiter-verkauf-getranke-80-100-transgourmet-winterthur-5a552066",
+        "mitarbeiterin-sales-associate-getranke-80-100-transgourmet-winterthur-7c9d80f5"
       ],
       "fr": [
         "mitarbeiterin-mitarbeiter-verkauf-getranke-80-100-transgourmet-winterthur-1878139c",
         "mitarbeiterin-vendeur-se-getranke-80-100-transgourmet-winterthur-191642ff",
         "mitarbeiterin-addetto-a-alle-vendite-getranke-80-100-transgourmet-winterthur",
-        "mitarbeiterin-sales-associate-getranke-80-100-transgourmet-winterthur"
+        "mitarbeiterin-sales-associate-getranke-80-100-transgourmet-winterthur",
+        "boissons-de-vente-pour-employes-80-100-transgourmet-winterthur-53854419",
+        "mitarbeiterin-mitarbeiter-verkauf-getranke-80-100-transgourmet-winterthur-5a552066",
+        "mitarbeiterin-vendeur-se-getranke-80-100-transgourmet-winterthur-d3266997"
       ],
       "de": [
-        "mitarbeiterin-mitarbeiter-verkauf-getranke-80-100-transgourmet-winterthur-1878139c",
         "mitarbeiterin-addetto-a-alle-vendite-getranke-80-100-transgourmet-winterthur-e65f6335",
         "mitarbeiterin-sales-associate-getranke-80-100-transgourmet-winterthur-7aaabe66",
-        "mitarbeiterin-vendeur-se-getranke-80-100-transgourmet-winterthur-191642ff"
+        "mitarbeiterin-vendeur-se-getranke-80-100-transgourmet-winterthur-191642ff",
+        "mitarbeiterin-mitarbeiter-verkauf-getranke-80-100-transgourmet-winterthur-5a552066",
+        "mitarbeiterin-addetto-a-alle-vendite-getranke-80-100-transgourmet-winterthur-4e7a3c16",
+        "mitarbeiterin-sales-associate-getranke-80-100-transgourmet-winterthur-7c9d80f5",
+        "mitarbeiterin-vendeur-se-getranke-80-100-transgourmet-winterthur-d3266997"
       ]
     },
     "postalCode": "8409",
@@ -3883,7 +3905,15 @@
       "mitarbeiterin-vendeur-se-getranke-80-100-transgourmet-winterthur-191642ff",
       "mitarbeiterin-addetto-a-alle-vendite-getranke-80-100-transgourmet-winterthur",
       "mitarbeiterin-vendeur-se-getranke-80-100-transgourmet-winterthur",
-      "mitarbeiterin-sales-associate-getranke-80-100-transgourmet-winterthur"
+      "mitarbeiterin-sales-associate-getranke-80-100-transgourmet-winterthur",
+      "mitarbeiterin-mitarbeiter-verkauf-getranke-80-100-transgourmet-winterthur-1878139c",
+      "dipendenti-dipendenti-vendite-bevande-80-100-transgourmet-winterthur-9663481d",
+      "mitarbeiterin-mitarbeiter-verkauf-getranke-80-100-transgourmet-winterthur-5a552066",
+      "mitarbeiterin-addetto-a-alle-vendite-getranke-80-100-transgourmet-winterthur-4e7a3c16",
+      "mitarbeiterin-sales-associate-getranke-80-100-transgourmet-winterthur-7c9d80f5",
+      "mitarbeiterin-vendeur-se-getranke-80-100-transgourmet-winterthur-d3266997",
+      "employee-employee-sales-drinks-80-100-transgourmet-winterthur-c7519a62",
+      "boissons-de-vente-pour-employes-80-100-transgourmet-winterthur-53854419"
     ]
   },
   {
@@ -3970,25 +4000,39 @@
         "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-langenthal-15c5dd79",
         "mitarbeiterin-addetto-a-alle-vendite-kasse-e-check-in-transgourmet-langenthal-319a50b5",
         "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-langenthal-ce4d2f82",
-        "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-langenthal-30ae1608"
+        "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-langenthal-30ae1608",
+        "dipendenti-dipendenti-vendita-cassa-e-check-in-transgourmet-langenthal-dbffcb9b",
+        "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-langenthal-8069ca5b",
+        "mitarbeiterin-addetto-a-alle-vendite-kasse-e-check-in-transgourmet-langenthal-3a213d20",
+        "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-langenthal-bd53a1c1",
+        "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-langenthal-2a3bf779"
       ],
       "en": [
         "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-langenthal-15c5dd79",
         "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-langenthal-ce4d2f82",
         "mitarbeiterin-addetto-a-alle-vendite-kasse-e-check-in-transgourmet-langenthal",
-        "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-langenthal"
+        "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-langenthal",
+        "employee-employee-sale-cash-register-and-check-in-transgourmet-langenthal-e82ecdd9",
+        "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-langenthal-8069ca5b",
+        "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-langenthal-bd53a1c1"
       ],
       "fr": [
         "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-langenthal-15c5dd79",
         "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-langenthal-30ae1608",
         "mitarbeiterin-addetto-a-alle-vendite-kasse-e-check-in-transgourmet-langenthal",
-        "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-langenthal"
+        "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-langenthal",
+        "employe-employe-caisse-enregistreuse-et-enregistrement-des-ventes-transgourmet-langenthal-68011b35",
+        "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-langenthal-8069ca5b",
+        "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-langenthal-2a3bf779"
       ],
       "de": [
-        "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-langenthal-15c5dd79",
         "mitarbeiterin-addetto-a-alle-vendite-kasse-e-check-in-transgourmet-langenthal-319a50b5",
         "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-langenthal-ce4d2f82",
-        "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-langenthal-30ae1608"
+        "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-langenthal-30ae1608",
+        "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-langenthal-8069ca5b",
+        "mitarbeiterin-addetto-a-alle-vendite-kasse-e-check-in-transgourmet-langenthal-3a213d20",
+        "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-langenthal-bd53a1c1",
+        "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-langenthal-2a3bf779"
       ]
     },
     "postalCode": "4900",
@@ -4003,7 +4047,15 @@
       "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-langenthal-30ae1608",
       "mitarbeiterin-addetto-a-alle-vendite-kasse-e-check-in-transgourmet-langenthal",
       "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-langenthal",
-      "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-langenthal"
+      "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-langenthal",
+      "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-langenthal-15c5dd79",
+      "dipendenti-dipendenti-vendita-cassa-e-check-in-transgourmet-langenthal-dbffcb9b",
+      "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-langenthal-8069ca5b",
+      "mitarbeiterin-addetto-a-alle-vendite-kasse-e-check-in-transgourmet-langenthal-3a213d20",
+      "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-langenthal-bd53a1c1",
+      "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-langenthal-2a3bf779",
+      "employee-employee-sale-cash-register-and-check-in-transgourmet-langenthal-e82ecdd9",
+      "employe-employe-caisse-enregistreuse-et-enregistrement-des-ventes-transgourmet-langenthal-68011b35"
     ]
   },
   {

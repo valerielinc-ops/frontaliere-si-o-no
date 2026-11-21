@@ -1070,9 +1070,9 @@
     "previousSlugsByLocale": {
       "it": [
         "dipl-pflegefachmann-frau-stgag-ch-89f08bdc",
-        "dipl-pflegefachmann-frau-spital-thurgau-stgag-munsterlingen-db6596d0",
         "dipl-pflegefachmann-frau-stgag-ch",
-        "dipl-pflegefachmann-frau-spital-thurgau-stgag-munsterlingen"
+        "dipl-pflegefachmann-frau-spital-thurgau-stgag-munsterlingen",
+        "dipl-pflegefachmann-frau-spital-thurgau-stgag-munsterlingen-db6596d0"
       ],
       "de": [
         "dipl-pflegefachmann-frau-spital-thurgau-stgag-munsterlingen",
@@ -2049,8 +2049,7 @@
         "mitarbeiter-in-patientenservice-stgag-ch"
       ],
       "de": [
-        "mitarbeiter-in-patientenservice-stgag-munsterlingen",
-        "mitarbeiter-in-patientenservice-stgag-ch-d0654802"
+        "mitarbeiter-in-patientenservice-stgag-munsterlingen"
       ],
       "fr": [
         "mitarbeiter-in-patientenservice-spital-thurgau-stgag-diessenhofen",
@@ -2063,7 +2062,29 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://rekrutierung.stgag.ch/vacancies/3767/description/1?lang=ger",
-    "firstSeenAt": "2026-08-24T10:07:48.192Z"
+    "firstSeenAt": "2026-08-24T10:07:48.192Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://rekrutierung.stgag.ch/vacancies/3767/description/1?lang=ger",
+        "firstSeenAt": "2026-08-24T10:07:48.192Z",
+        "title": "Mitarbeiter/-in Patientenservice"
+      },
+      {
+        "sourceIdentity": "url:https://rekrutierung.stgag.ch/vacancies/3768/description/1?lang=ger",
+        "firstSeenAt": "2026-08-24T10:07:48.194Z",
+        "title": "Mitarbeiter/-in Patientenservice"
+      },
+      {
+        "sourceIdentity": "url:https://rekrutierung.stgag.ch/vacancies/3769/description/1?lang=ger",
+        "firstSeenAt": "2026-08-24T10:07:48.194Z",
+        "title": "Mitarbeiter/-in Patientenservice"
+      },
+      {
+        "sourceIdentity": "url:https://rekrutierung.stgag.ch/vacancies/3878/description/1?lang=ger",
+        "firstSeenAt": "2026-11-04T09:26:11.555Z",
+        "title": "Mitarbeiter/-in Patientenservice"
+      }
+    ]
   },
   {
     "slug": "facharztin-arzt-per-radiologie-spital-thurgau-stgag-munsterlingen-9325345e",
@@ -2100,16 +2121,16 @@
       "radiology-specialist-spital-thurgau-stgag-munsterlingen",
       "facharztin-arzt-fur-radiologie-stgag-munsterlingen",
       "specialiste-de-radiologie-spital-thurgau-stgag-munsterlingen",
-      "facharztin-arzt-per-radiologie-spital-thurgau-stgag-munsterlingen",
-      "facharztin-arzt-fur-radiologie-stgag-ch"
+      "facharztin-arzt-fur-radiologie-stgag-ch",
+      "facharztin-arzt-per-radiologie-spital-thurgau-stgag-munsterlingen"
     ],
     "previousSlugsByLocale": {
       "it": [
         "facharztin-arzt-fur-radiologie-stgag-ch-83153bef",
         "facharztin-arzt-per-radiologie-spital-thurgau-stgag-heerbrugg",
-        "facharztin-arzt-per-radiologie-spital-thurgau-stgag-munsterlingen-9325345e",
+        "facharztin-arzt-fur-radiologie-stgag-ch",
         "facharztin-arzt-per-radiologie-spital-thurgau-stgag-munsterlingen",
-        "facharztin-arzt-fur-radiologie-stgag-ch"
+        "facharztin-arzt-per-radiologie-spital-thurgau-stgag-munsterlingen-9325345e"
       ],
       "en": [
         "facharztin-arzt-fur-radiologie-stgag-ch-83153bef",
@@ -2138,7 +2159,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://rekrutierung.stgag.ch/vacancies/3696/description/1?lang=ger",
-    "firstSeenAt": "2026-07-01T12:40:25.246Z"
+    "firstSeenAt": "2026-07-01T12:40:25.246Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://rekrutierung.stgag.ch/vacancies/3696/description/1?lang=ger",
+        "firstSeenAt": "2026-07-01T12:40:25.246Z",
+        "title": "Fachärztin/-arzt für Radiologie"
+      },
+      {
+        "sourceIdentity": "url:https://rekrutierung.stgag.ch/vacancies/3845/description/1?lang=ger",
+        "firstSeenAt": "2026-07-01T12:40:25.246Z",
+        "title": "Fachärztin/-arzt für Radiologie"
+      }
+    ]
   },
   {
     "slug": "pedagogico-sociale-spital-thurgau-stgag-munsterlingen",
@@ -4141,7 +4174,6 @@
     "expiredAt": "2026-10-10T09:27:12.898Z",
     "previousSlugs": [
       "specialista-per-l-educazione-hf-2-anni-settembre-2027-bfgs-spital-thurgau-stgag-kantonsspital-munsterlingen",
-      "specialista-per-l-educazione-hf-2-anni-abbreviato-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-1db02278",
       "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2026-bfgs-stgag-ch-20de4b0c",
       "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-c87ae2b0",
       "specialista-per-l-educazione-hf-3-anni-abbreviato-legato-al-lavoro-bfgs-febbraio-2027-spital-thurgau-stgag-a8e8e537",
@@ -4154,7 +4186,6 @@
     "previousSlugsByLocale": {
       "it": [
         "specialista-per-l-educazione-hf-2-anni-settembre-2027-bfgs-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "specialista-per-l-educazione-hf-2-anni-abbreviato-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-1db02278",
         "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2026-bfgs-stgag-ch-20de4b0c",
         "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-c87ae2b0",
         "specialista-per-l-educazione-hf-3-anni-abbreviato-legato-al-lavoro-bfgs-febbraio-2027-spital-thurgau-stgag-a8e8e537"
@@ -4170,7 +4201,6 @@
         "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-februar-2027-spital-thurgau-stgag-munsterlingen"
       ],
       "de": [
-        "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2026-bfgs-stgag-ch-20de4b0c",
         "specialista-per-l-educazione-hf-3-anni-abbreviato-legato-al-lavoro-bfgs-febbraio-2027-spital-thurgau-stgag-munsterlingen",
         "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-februar-2027-spital-thurgau-stgag-munsterlingen"
       ]
@@ -4342,6 +4372,78 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://rekrutierung.stgag.ch/vacancies/3431/description/1?lang=ger",
     "firstSeenAt": "2026-05-17T11:05:42.133Z"
+  },
+  {
+    "slug": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-r136ul",
+    "title": "Dipl. Pflegefachmann/-frau Forensik",
+    "titleByLocale": {
+      "it": "Specialista Infermieristico Certificato in Medicina Legale",
+      "en": "Dipl. Pflegefachmann/-frau Forensik",
+      "de": "Dipl. Pflegefachmann/-frau Forensik",
+      "fr": "Spécialiste certifié en sciences infirmières et médico-légales"
+    },
+    "company": "Spital Thurgau (STGAG)",
+    "companyKey": "spital-thurgau",
+    "location": "Münsterlingen",
+    "addressLocality": "Münsterlingen",
+    "descriptionByLocale": {
+      "it": "I servizi psichiatrici Thurgau offre una cura psichiatrica integrata di tutte le età e per tutti i disturbi del cantone. Lavora alla stazione Forensik 1, dove i pazienti sono principalmente ospitati in conformità con l'articolo 59 STGB, e se l'indicazione è fatta secondo l'articolo 60 STGB. La stazione offre una struttura quotidiana di supporto e attiva e si sforza di un'interazione costruttiva, nonviolenta e apprezzativa tra loro.\n\nPer completare il team di assistenza, ne cercheremo uno dal dicembre 2026 o d'accordo\n\nDipl. Infermieristica professionale forense\n\n60%\n\nStai cercando un ambiente di lavoro che sia più di un semplice luogo di lavoro quotidiano? Con noi si sperimenta un'atmosfera di lavoro stimolante. La nostra cultura aziendale è caratterizzata da coesione, rispetto e apprezzamento.\n\nPrendilo.\n• Cura professionale dei nostri pazienti come caregiver nel processo di cura dall'ingresso all'uscita in un team interdisciplinare\n• Partecipazione a decisioni rilevanti come il rilassamento e le norme di uscita\n• Pianificazione e attuazione delle attività milieuterapeutiche\n• Coordinamento dei processi e delle mansioni con istituzioni/persone pre e post-supervisori\n\nPorta con te\n• Formazione completa come specialista in allattamento HF/FH con attenzione alla psichiatria, esperienza professionale benefica\n• Impegno alla formazione personale o all'ulteriore formazione per mantenere uno stato attuale di conoscenza\n• Flessibilità, indipendenza, resilienza e lavoro di squadra\n• Interessi nella creazione di un ambiente di lavoro positivo\n• Una competenza di comunicazione aperta, personale, partecipativa\n\nI servizi psichiatrici Thurgau si presentano\n\nLa Clinica Psichiatrica Münsterlingen (PKM) insieme alla Psichiatria Adulta Estetica (AEP) è responsabile della cura psichiatrica e psicoterapeutica della popolazione adulta a Thurgau. Con oltre 280 letti e offerte specializzate nelle aree di psicoterapia, psichiatria generale e acuta, disturbi della dipendenza, psichiatria dell'età e forense, offriamo terapie basate su prove e qualitativamente ottimali per l'intero spettro di malattie psichiatrici. Una cultura apprezzativa combinata con un'eccellente formazione e formazione rendono PKM un datore di lavoro altamente attraente come parte dei servizi psichiatrici Thurgau.\n\nPreferiamo applicazioni dirette, agenti di lavoro si prega di astenersi dal contatto.\n\n• Ubicazione: Clinica Psichiatrica, Münsterlingen\n• Dipartimento: Cura (compresa l'ostetrica)\n• Area: Servizi psichiatrici Thurgau\n• Pensum: tempo pieno, tempo parziale possibile\n• Occupazione: permanente\n• Data di entrata: 01.12.2026",
+      "en": "The Psychiatric Services Thurgau offers integrated psychiatric care of all ages and for all disorders in the canton. You work at Station Forensik 1, where patients are mainly accommodated in accordance with Article 59 STGB, and if the indication is made in accordance with Article 60 STGB. The station offers a supportive and activating daily structure and strives for a constructive, nonviolent and appreciative interaction with each other.\n\nTo complement the care team, we will be looking for one from December 2026 or by agreement\n\nDipl. Nursing professional forensics\n\n60%\n\nAre you looking for a working environment that is more than just a place of daily work? With us you experience an inspiring working atmosphere. Our corporate culture is characterized by cohesion, respect and appreciation.\n\nYou take over\n• Professional care of our patients as a caregiver in the care process from entry to exit in an interdisciplinary team\n• Participation in relevant decisions such as relaxation and exit regulations\n• Planning and implementation of milieutherapeutic activities\n• Coordination of processes and tasks with pre- and post-supervising institutions/persons\n\nYou bring with you\n• Completed training as a nursing specialist HF/FH with focus on psychiatry, professional experience beneficial\n• Commitment to personal training or further education to maintain a current state of knowledge\n• Flexibility, independence, resilience and teamwork\n• Interest in co-creating a positive working environment\n• An open, personal, participatory communication competence\n\nThe Psychiatric Services Thurgau introduce themselves\n\nThe Psychiatric Clinic Münsterlingen (PKM) together with the Outpatient Adult Psychiatry (AEP) is responsible for the psychiatric and psychotherapeutic care of the adult population in Thurgau. With over 280 beds and specialized offerings in the areas of psychotherapy, general and acute psychiatry, addiction disorders, age psychiatry and forensics, we offer evidence-based and qualitatively optimal therapies for the entire spectrum of psychiatric diseases. An appreciative culture combined with an excellent education and training make PKM a highly attractive employer as part of the Psychiatric Services Thurgau.\n\nWe prefer direct applications, job agents please refrain from contacting.\n\n• Location: Psychiatric Clinic, Münsterlingen\n• Department: Care (including midwife)\n• Area: Psychiatric Services Thurgau\n• Pensum: full time, part time possible\n• Employment: Permanent\n• Date of entry: 01.12.2026",
+      "de": "Die Psychiatrischen Dienste Thurgau bieten im Kanton eine integrierte psychiatrische Versorgung aller Altersstufen und für alle Störungsbilder an. Du arbeitest auf der Station Forensik 1, auf der vorwiegend Patienten/-innen nach Artikel 59 STGB, bei entsprechender Indikationsstellung auch nach Artikel 60 STGB untergebracht sind. Die Station bietet eine fördernde und aktivierende Tagesstruktur und strebt einen konstruktiven, gewaltfreien und wertschätzenden Umgang miteinander an.\n\nZur Ergänzung des Pflegeteams suchen wir ab Dezember 2026 oder nach Vereinbarung eine/n\n\nDipl. Pflegefachmann/-frau Forensik\n\n60%\n\nSuchst du ein Arbeitsumfeld, das mehr ist als nur ein Ort des täglichen Wirkens? Bei uns erlebst du ein inspirierendes Arbeitsklima. Unsere Unternehmenskultur zeichnet sich durch Zusammenhalt, Respekt und Wertschätzung aus.\n\nDu übernimmst\n• Professionelle Betreuung unserer Patienten/-innen als Bezugsperson im Pflegeprozess von Ein- bis Austritt in einem interdisziplinären Team\n• Mitwirkung bei massnahmerelevanten Entscheidungen wie Lockerungen und Ausgangregelunge\n• Planung und Durchführung von milieutherapeutischen Aktivitäten\n• Koordination der Abläufe und Aufgaben mit vor- und nachbetreuenden Institutionen/ Personen\n\nDu bringst mit\n• Abgeschlossene Ausbildung als Pflegefachmann/-frau HF/FH mit Schwerpunkt Psychiatrie, Berufserfahrung von Vorteil\n• Engagement für persönliche Fort- oder Weiterbildung zur Erhaltung eines aktuellen Wissensstandes\n• Flexibilität, Selbständigkeit, Belastbarkeit und Teamfähigkeit\n• Interesse an der Mitgestaltung eines positiven Arbeitsklimas\n• Eine offene, personenbezogene, partizipative Kommunikationskompetenz\n\nDie Psychiatrischen Dienste Thurgau stellen sich vor\n\nDie Psychiatrische Klinik Münsterlingen (PKM) ist zusammen mit der Ambulanten Erwachsenenpsychiatrie (AEP) für die psychiatrische und psychotherapeutische Versorgung der erwachsenen Bevölkerung im Thurgau zuständig. Mit über 280 Betten und spezialisierten Angeboten in den Schwerpunktbereichen Psychotherapie, Allgemein- und Akutpsychiatrie, Abhängigkeitserkrankungen, Alterspsychiatrie und Forensik bieten wir evidenzbasierte und qualitativ optimale Therapien für das gesamte Spektrum von psychiatrischen Erkrankungen an. Eine wertschätzende Kultur verbunden mit einer hervorragenden Aus- und Weiterbildung machen die PKM als Teil der Psychiatrischen Dienste Thurgau zu einer höchst attraktiven Arbeitgeberin.\n\nWir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme.\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.12.2026",
+      "fr": "Les Services psychiatriques Thurgau offrent des soins psychiatriques intégrés pour tous les âges et pour tous les troubles du canton. Vous travaillez à la Station Forensik 1, où les patients sont principalement logés conformément à l'article 59 STGB, et si l'indication est faite conformément à l'article 60 STGB. La station offre une structure quotidienne de soutien et d'activation et s'efforce d'avoir une interaction constructive, non violente et reconnaissante.\n\nPour compléter l'équipe de soins, nous en chercherons un à partir de décembre 2026 ou par accord\n\nDipl. Médecin infirmier professionnel\n\n60%\n\nCherchez-vous un milieu de travail qui n'est pas seulement un lieu de travail quotidien? Avec nous, vous vivez une atmosphère de travail inspirante. Notre culture d'entreprise se caractérise par la cohésion, le respect et l'appréciation.\n\nTu prends le relais\n• Soins professionnels de nos patients en tant que soignant dans le processus de soins de l'entrée à la sortie dans une équipe interdisciplinaire\n• Participation aux décisions pertinentes telles que la réglementation sur l ' assouplissement et la sortie\n• Planification et mise en œuvre des activités en milieu thérapeutique\n• Coordination des processus et des tâches avec les institutions/personnes précédant et suivant la supervision\n\nTu amènes avec toi\n• Achevé la formation en tant que spécialiste des soins infirmiers HF/FH avec l'accent sur la psychiatrie, expérience professionnelle bénéfique\n• Engagement à la formation personnelle ou à la formation continue pour maintenir l'état actuel des connaissances\n• Flexibilité, indépendance, résilience et travail d'équipe\n• Intérêt à créer un environnement de travail positif\n• Une compétence de communication ouverte, personnelle et participative\n\nLes services psychiatriques Thurgau se présentent\n\nLa clinique psychiatrique Münsterlingen (PKM) et la clinique psychiatrique pour adultes ambulatoires (AEP) sont responsables des soins psychiatriques et psychothérapeutiques de la population adulte de Thurgau. Avec plus de 280 lits et des offres spécialisées dans les domaines de la psychothérapie, la psychiatrie générale et aiguë, les troubles de la dépendance, la psychiatrie d'âge et la médecine légale, nous offrons des thérapies fondées sur des preuves et qualitativement optimales pour l'ensemble du spectre des maladies psychiatriques. Une culture reconnaissante combinée à une excellente éducation et formation font de PKM un employeur très attrayant dans le cadre des Services psychiatriques Thurgau.\n\nNous préférons les candidatures directes, les agents d'emploi s'il vous plaît ne pas contacter.\n\n• Lieu: Clinique psychiatrique, Münsterlingen\n• Département: Soins (y compris la sage-femme)\n• Région: Services psychiatriques Thurgau\n• Pensum: temps plein, temps partiel possible\n• Emploi permanent\n• Date d'entrée: 01.12.2026"
+    },
+    "slugByLocale": {
+      "it": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-r136ul",
+      "en": "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
+      "de": "dipl-pflegefachmann-frau-forensik-stgag-ch",
+      "fr": "dipl-pflegefachmann-frau-forensik-stgag-ch-2"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-10-06T21:17:07.168Z",
+    "previousSlugs": [
+      "dipl-pflegefachmann-frau-forensik-stgag-ch",
+      "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+      "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-r14fca",
+      "dipl-nursing-professional-forensics-spital-thurgau-stgag-munsterlingen",
+      "dipl-services-de-medecine-legale-spital-thurgau-stgag-munsterlingen"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "dipl-pflegefachmann-frau-forensik-stgag-ch",
+        "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-r14fca"
+      ],
+      "en": [
+        "dipl-nursing-professional-forensics-spital-thurgau-stgag-munsterlingen"
+      ],
+      "fr": [
+        "dipl-services-de-medecine-legale-spital-thurgau-stgag-munsterlingen"
+      ]
+    },
+    "postalCode": "8596",
+    "salaryMin": 81500,
+    "salaryMax": 114000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "dedupArchive": true,
+    "sourceIdentity": "url:https://rekrutierung.stgag.ch/vacancies/3442/description/1?lang=ger",
+    "firstSeenAt": "2026-05-18T22:46:00.094Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://rekrutierung.stgag.ch/vacancies/1641/description/1?lang=ger",
+        "firstSeenAt": "2026-09-10T23:09:24.685Z",
+        "title": "Dipl. Pflegefachmann/-frau Forensik"
+      },
+      {
+        "sourceIdentity": "url:https://rekrutierung.stgag.ch/vacancies/2268/description/1?lang=ger",
+        "firstSeenAt": "2026-05-18T22:46:00.094Z",
+        "title": "Dipl. Pflegefachmann/-frau Forensik"
+      },
+      {
+        "sourceIdentity": "url:https://rekrutierung.stgag.ch/vacancies/3442/description/1?lang=ger",
+        "firstSeenAt": "2026-05-18T22:46:00.094Z",
+        "title": "Dipl. Pflegefachmann/-frau Forensik"
+      }
+    ]
   },
   {
     "slug": "dipl-pflegefachmann-frau-hf-fh-per-la-notfallstation-spital-thurgau-stgag-r139uy",
@@ -6630,7 +6732,8 @@
       "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0",
       "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0",
       "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-s-r1391v",
-      "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-806f69d4"
+      "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-806f69d4",
+      "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-91ff1e41"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -6638,12 +6741,14 @@
         "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-s-r136rt",
         "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-",
         "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-s-r1391v",
-        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-806f69d4"
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-806f69d4",
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-91ff1e41"
       ],
       "en": [
         "education-care-specialist-hf-3-years-shortened-working-related-bfgs-january-2026-spital-thurgau-stgag-munsterlingen",
         "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-",
-        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-806f69d4"
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-806f69d4",
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-91ff1e41"
       ],
       "de": [
         "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-"
@@ -6651,7 +6756,8 @@
       "fr": [
         "specialiste-de-l-education-hf-3-ans-de-raccourcissement-lie-au-travail-bfgs-janvier-2026-spital-thurgau-stgag-munsterlin",
         "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-",
-        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-806f69d4"
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-806f69d4",
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-91ff1e41"
       ]
     },
     "postalCode": "8596",
@@ -6675,7 +6781,7 @@
     ]
   },
   {
-    "slug": "collaboratore-trice-in-empfang-spital-thurgau-stgag-kantonsspital-frauenfeld-7e16b82f",
+    "slug": "collaboratore-trice-in-empfang-spital-thurgau-stgag-kantonsspital-frauenfeld-4f5c924f",
     "title": "Mitarbeiter/-in Empfang",
     "titleByLocale": {
       "it": "Ricevimento dei dipendenti",
@@ -6694,27 +6800,35 @@
       "fr": "Réception du personnel – Spital Thurgau (STGAG).\n\n• Lieu: Hôpital cantonal Frauenfeld\n• Département : Administration\n• Division: Spital Thurgau AG\n• Charge de travail à temps partiel\n• Emploi permanent\n• Date d'entrée: 01.10.2026"
     },
     "slugByLocale": {
-      "it": "collaboratore-trice-in-empfang-spital-thurgau-stgag-kantonsspital-frauenfeld-7e16b82f",
-      "en": "staff-reception-spital-thurgau-stgag-kantonsspital-frauenfeld-9bdc63ea",
-      "de": "mitarbeiter-in-empfang-stgag-ch-030bb4c5",
-      "fr": "reception-du-personnel-spital-thurgau-stgag-kantonsspital-frauenfeld-f8698cbe"
+      "it": "collaboratore-trice-in-empfang-spital-thurgau-stgag-kantonsspital-frauenfeld-4f5c924f",
+      "en": "staff-reception-spital-thurgau-stgag-kantonsspital-frauenfeld-c396712f",
+      "de": "mitarbeiter-in-empfang-stgag-ch-48b74297",
+      "fr": "reception-du-personnel-spital-thurgau-stgag-kantonsspital-frauenfeld-4b0e2445"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-09-23T23:43:33.527Z",
     "previousSlugsByLocale": {
       "it": [
+        "mitarbeiter-in-empfang-stgag-ch-48b74297",
+        "mitarbeiter-in-empfang-spital-thurgau-stgag-kantonsspital-frauenfeld-99052271",
+        "collaboratore-trice-in-empfang-spital-thurgau-stgag-kantonsspital-frauenfeld-7e16b82f",
         "mitarbeiter-in-empfang-stgag-ch-030bb4c5",
         "mitarbeiter-in-empfang-spital-thurgau-stgag-kantonsspital-frauenfeld-b1f3a3f4"
       ],
       "en": [
-        "mitarbeiter-in-empfang-spital-thurgau-stgag-kantonsspital-frauenfeld-b1f3a3f4",
-        "mitarbeiter-in-empfang-stgag-ch"
+        "mitarbeiter-in-empfang-spital-thurgau-stgag-kantonsspital-frauenfeld-99052271",
+        "mitarbeiter-in-empfang-stgag-ch",
+        "staff-reception-spital-thurgau-stgag-kantonsspital-frauenfeld-9bdc63ea",
+        "mitarbeiter-in-empfang-spital-thurgau-stgag-kantonsspital-frauenfeld-b1f3a3f4"
       ],
       "fr": [
-        "mitarbeiter-in-empfang-spital-thurgau-stgag-kantonsspital-frauenfeld-b1f3a3f4",
-        "mitarbeiter-in-empfang-stgag-ch"
+        "mitarbeiter-in-empfang-spital-thurgau-stgag-kantonsspital-frauenfeld-99052271",
+        "mitarbeiter-in-empfang-stgag-ch",
+        "reception-du-personnel-spital-thurgau-stgag-kantonsspital-frauenfeld-f8698cbe",
+        "mitarbeiter-in-empfang-spital-thurgau-stgag-kantonsspital-frauenfeld-b1f3a3f4"
       ],
       "de": [
+        "mitarbeiter-in-empfang-spital-thurgau-stgag-kantonsspital-frauenfeld-99052271",
         "mitarbeiter-in-empfang-stgag-ch-030bb4c5",
         "mitarbeiter-in-empfang-spital-thurgau-stgag-kantonsspital-frauenfeld-b1f3a3f4"
       ]
@@ -6727,8 +6841,14 @@
     "sourceIdentity": "url:https://rekrutierung.stgag.ch/vacancies/3711/description/1?lang=ger",
     "firstSeenAt": "2026-09-11T09:59:52.526Z",
     "previousSlugs": [
+      "mitarbeiter-in-empfang-stgag-ch-48b74297",
+      "mitarbeiter-in-empfang-spital-thurgau-stgag-kantonsspital-frauenfeld-99052271",
+      "collaboratore-trice-in-empfang-spital-thurgau-stgag-kantonsspital-frauenfeld-7e16b82f",
+      "mitarbeiter-in-empfang-stgag-ch",
+      "mitarbeiter-in-empfang-stgag-ch-030bb4c5",
       "mitarbeiter-in-empfang-spital-thurgau-stgag-kantonsspital-frauenfeld-b1f3a3f4",
-      "mitarbeiter-in-empfang-stgag-ch"
+      "staff-reception-spital-thurgau-stgag-kantonsspital-frauenfeld-9bdc63ea",
+      "reception-du-personnel-spital-thurgau-stgag-kantonsspital-frauenfeld-f8698cbe"
     ]
   },
   {
@@ -6986,7 +7106,6 @@
         "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch"
       ],
       "de": [
-        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-4840f54c",
         "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-spital-thurgau-stgag-cf185fe7",
         "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-ef4833af",
         "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-26638d63",
@@ -7025,6 +7144,124 @@
       "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch",
       "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen",
       "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-6cc68e62"
+    ]
+  },
+  {
+    "id": "spital-thurgau-46997e17bd69",
+    "slug": "specialista-dell-istruzione-hf-3-anni-abbreviato-legato-al-lavoro-bfgs-gennaio-2026-spital-thurgau-stgag-b405997c",
+    "title": "Ausbildung dipl. Pflegefachmann/-frau HF (3 Jahre verkürzt, berufsbegleitend, BfGS) Januar 2026",
+    "titleByLocale": {
+      "it": "Specialista dell'istruzione HF (3 anni abbreviato, legato al lavoro, BfGS) Gennaio 2026",
+      "en": "Education Care specialist HF (3 years shortened, working-related, BfGS) January 2026",
+      "de": "Ausbildung dipl. Pflegefachmann/-frau HF (3 Jahre verkürzt, berufsbegleitend, BfGS) Januar 2026",
+      "fr": "Spécialiste de l'éducation HF (3 ans de raccourcissement, lié au travail, BfGS) Janvier 2026"
+    },
+    "company": "Spital Thurgau (STGAG)",
+    "companyKey": "spital-thurgau",
+    "location": "Münsterlingen",
+    "addressLocality": "Münsterlingen",
+    "descriptionByLocale": {
+      "it": "Istruzione Infermieristica specialista HF (3 anni abbreviato, in-service, BfGS) gennaio 2026 — Spital Thurgau (STGAG).\n• Posizione: Clinica Psichiatrica, Münsterlingen\n• Dipartimento: Istruzione\n• Area: Servizi psichiatrici Thurgau\n• Pensum: parttime\n• rapporto di lavoro: formazione",
+      "en": "Education Nursing specialist HF (3 years shortened, in-service, BfGS) January 2026 — Spital Thurgau (STGAG).\n• Location: Psychiatric Clinic, Münsterlingen\n• Department: Education\n• Area: Psychiatric services Thurgau\n• Pensum: parttime\n• employment relationship: training",
+      "de": "Ausbildung dipl. Pflegefachmann/-frau HF (3 Jahre verkürzt, berufsbegleitend, BfGS) Januar 2026 — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Bildung\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Teilzeit\n• Anstellungsverhältnis: Ausbildung",
+      "fr": "Éducation Spécialiste des soins infirmiers HF (3 ans raccourcis, en service, BfGS) Janvier 2026 — Spital Thurgau (STGAG).\n• Lieu: Clinique psychiatrique, Münsterlingen\n• Ministère de l'éducation\n• Région: Services psychiatriques Thurgau\n• Pensum: à temps partiel\n• relation de travail: formation"
+    },
+    "slugByLocale": {
+      "it": "specialista-dell-istruzione-hf-3-anni-abbreviato-legato-al-lavoro-bfgs-gennaio-2026-spital-thurgau-stgag-b405997c",
+      "en": "education-care-specialist-hf-3-years-shortened-working-related-bfgs-january-2026-spital-thurgau-stgag-8add9d20",
+      "de": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-2d08ec39",
+      "fr": "specialiste-de-l-education-hf-3-ans-de-raccourcissement-lie-au-travail-bfgs-janvier-2026-spital-thurgau-stgag-71178220"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-09-13T13:56:48.124Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-2d08ec39",
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-spital-thurgau-stgag-2ffab7c3",
+        "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-5bcf8a7d",
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-9d6cbeea",
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-c2f4b77e",
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-2-64c4d58e",
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-3-c735d551",
+        "sostanza-in-urologia-spital-thurgau-stgag-kantonsspital-munsterlingen-00bdb97a",
+        "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767-a5bc25da",
+        "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-cfd12b66",
+        "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-d99a7cc4",
+        "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0-ebcc6ab8",
+        "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-0770ac6a",
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch"
+      ],
+      "en": [
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-2d08ec39",
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-spital-thurgau-stgag-2ffab7c3",
+        "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-5bcf8a7d",
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-9d6cbeea",
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen",
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-2-64c4d58e",
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-3-c735d551",
+        "sostanza-in-urologia-spital-thurgau-stgag-kantonsspital-munsterlingen-00bdb97a",
+        "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767-a5bc25da",
+        "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-cfd12b66",
+        "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-d99a7cc4",
+        "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0-ebcc6ab8",
+        "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-0770ac6a",
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch"
+      ],
+      "fr": [
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-2d08ec39",
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-spital-thurgau-stgag-2ffab7c3",
+        "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-5bcf8a7d",
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-9d6cbeea",
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen",
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-2-64c4d58e",
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-3-c735d551",
+        "sostanza-in-urologia-spital-thurgau-stgag-kantonsspital-munsterlingen-00bdb97a",
+        "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767-a5bc25da",
+        "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-cfd12b66",
+        "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-d99a7cc4",
+        "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0-ebcc6ab8",
+        "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-0770ac6a",
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch"
+      ],
+      "de": [
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-spital-thurgau-stgag-2ffab7c3",
+        "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-5bcf8a7d",
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-9d6cbeea",
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen",
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-2-64c4d58e",
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-3-c735d551",
+        "sostanza-in-urologia-spital-thurgau-stgag-kantonsspital-munsterlingen-00bdb97a",
+        "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767-a5bc25da",
+        "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-cfd12b66",
+        "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-d99a7cc4",
+        "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0-ebcc6ab8",
+        "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-0770ac6a",
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-6ca74f3b"
+      ]
+    },
+    "postalCode": "8596",
+    "salaryMin": 81500,
+    "salaryMax": 114000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://rekrutierung.stgag.ch/vacancies/3149/description/1?lang=ger",
+    "firstSeenAt": "2026-05-10T22:26:54.983Z",
+    "previousSlugs": [
+      "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-spital-thurgau-stgag-2ffab7c3",
+      "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-5bcf8a7d",
+      "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-9d6cbeea",
+      "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-c2f4b77e",
+      "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-2-64c4d58e",
+      "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-3-c735d551",
+      "sostanza-in-urologia-spital-thurgau-stgag-kantonsspital-munsterlingen-00bdb97a",
+      "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767-a5bc25da",
+      "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-cfd12b66",
+      "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-d99a7cc4",
+      "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0-ebcc6ab8",
+      "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-0770ac6a",
+      "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch",
+      "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen",
+      "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-6ca74f3b"
     ]
   },
   {
@@ -7880,6 +8117,70 @@
     "salaryPeriod": "YEAR"
   },
   {
+    "slug": "mpa-segretario-medico-spital-thurgau-stgag-chur",
+    "title": "MPA / Arztsekretärin",
+    "titleByLocale": {
+      "it": "MPA / Segretario Medico",
+      "en": "MPA / Medical Secretary",
+      "de": "MPA / Arztsekretärin",
+      "fr": "MPA / Secrétaire médical"
+    },
+    "company": "Spital Thurgau (STGAG)",
+    "companyKey": "spital-thurgau",
+    "location": "Chur",
+    "addressLocality": "Chur",
+    "descriptionByLocale": {
+      "it": "MPA / Arztsekretärin — Spital Thurgau (STGAG).\n• Standort: Radiologisches Diagnosezentrum Belmont, Chur\n• Abteilung: Administration\n• Bereich: Team Radiologie Plus (Kantonsspital Münsterlingen)\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.08.2026",
+      "en": "MPA / Arztsekretärin — Spital Thurgau (STGAG).\n• Standort: Radiologisches Diagnosezentrum Belmont, Chur\n• Abteilung: Administration\n• Bereich: Team Radiologie Plus (Kantonsspital Münsterlingen)\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.08.2026",
+      "de": "MPA / Arztsekretärin — Spital Thurgau (STGAG).\n\n• Standort: Radiologisches Diagnosezentrum Belmont, Chur\n• Abteilung: Administration\n• Bereich: Radiologie Südost (Diagnose Zentrum Belmont)\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.08.2026",
+      "fr": "MPA / Arztsekretärin — Spital Thurgau (STGAG).\n• Standort: Radiologisches Diagnosezentrum Belmont, Chur\n• Abteilung: Administration\n• Bereich: Team Radiologie Plus (Kantonsspital Münsterlingen)\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.08.2026"
+    },
+    "slugByLocale": {
+      "it": "mpa-segretario-medico-spital-thurgau-stgag-chur",
+      "en": "mpa-medical-secretary-spital-thurgau-stgag-chur",
+      "de": "mpa-arztsekretarin-stgag-ch",
+      "fr": "mpa-secretaire-medical-spital-thurgau-stgag-chur"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-07-21T22:08:18.601Z",
+    "previousSlugs": [
+      "mpa-arztsekretarin-stgag-ch",
+      "mpa-arztsekretarin-stgag-munsterlingen",
+      "mpa-arztsekretarin-spital-thurgau-stgag-chur"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "mpa-arztsekretarin-stgag-ch"
+      ],
+      "en": [
+        "mpa-arztsekretarin-stgag-ch"
+      ],
+      "de": [
+        "mpa-arztsekretarin-stgag-munsterlingen",
+        "mpa-arztsekretarin-spital-thurgau-stgag-chur"
+      ],
+      "fr": [
+        "mpa-arztsekretarin-stgag-ch"
+      ]
+    },
+    "postalCode": "8596",
+    "salaryMin": 57500,
+    "salaryMax": 87000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://rekrutierung.stgag.ch/vacancies/3861/description/1?lang=ger",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://rekrutierung.stgag.ch/vacancies/3861/description/1?lang=ger",
+        "title": "MPA / Arztsekretärin"
+      },
+      {
+        "sourceIdentity": "url:https://rekrutierung.stgag.ch/vacancies/3886/description/1?lang=ger",
+        "title": "MPA / Arztsekretärin"
+      }
+    ]
+  },
+  {
     "slug": "applikations-manager-in-amministrativo-fachapplikationen-spital-thurgau-stgag-kantonsspital-frauenfeld",
     "title": "Applikations-Manager/-in administrative Fachapplikationen",
     "titleByLocale": {
@@ -8044,6 +8345,150 @@
     "firstSeenAt": "2026-09-10T23:09:24.666Z"
   },
   {
+    "slug": "fachperson-gesundheit-cfc-spital-thurgau-stgag-kantonsspital-frauenfeld",
+    "title": "Fachperson Gesundheit EFZ",
+    "titleByLocale": {
+      "it": "Fachperson Gesundheit CFC",
+      "en": "Health professional EFZ",
+      "de": "Fachperson Gesundheit EFZ",
+      "fr": "Professionnels de la santé EFZ"
+    },
+    "company": "Spital Thurgau (STGAG)",
+    "companyKey": "spital-thurgau",
+    "location": "Kantonsspital Frauenfeld",
+    "addressLocality": "Kantonsspital Frauenfeld",
+    "descriptionByLocale": {
+      "it": "Fachperson Gesundheit EFZ — Spital Thurgau (STGAG).\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Kantonsspital Frauenfeld\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.08.2026",
+      "en": "Fachperson Gesundheit EFZ — Spital Thurgau (STGAG).\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Kantonsspital Frauenfeld\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.08.2026",
+      "de": "Fachperson Gesundheit EFZ — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Kantonsspital Frauenfeld\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.08.2026",
+      "fr": "Fachperson Gesundheit EFZ — Spital Thurgau (STGAG).\n• Standort: Kantonsspital Frauenfeld\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Kantonsspital Frauenfeld\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.08.2026"
+    },
+    "slugByLocale": {
+      "it": "fachperson-gesundheit-cfc-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "en": "health-professional-efz-spital-thurgau-stgag-kantonsspital-frauenfeld-53e96193",
+      "de": "fachperson-gesundheit-efz-stgag-ch-25297f07",
+      "fr": "professionnels-de-la-sante-efz-spital-thurgau-stgag-kantonsspital-frauenfeld-9619e107"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-07-15T11:06:42.098Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "fachperson-gesundheit-efz-stgag-ch-25297f07",
+        "fachperson-gesundheit-efz-fur-das-stationssekretariat-stgag-ch-6b4b57b3",
+        "responsabile-del-team-ristorazione-dei-pazienti-spital-thurgau-stgag-kantonsspital-frauenfeld-f8c8b4b9",
+        "teamleiter-in-patientenverpflegung-stgag-ch-49254b41",
+        "teamleiter-in-patientenverpflegung-spital-thurgau-stgag-kantonsspital-frauenfeld-c82bc5b6",
+        "dirigente-medico-chirurgia-spital-thurgau-stgag-kantonsspital-frauenfeld-74222bd6",
+        "leitende-n-arztin-arzt-chirurgie-stgag-ch-d264b79b",
+        "fachperson-gesundheit-cfc-per-das-stationssekretariat-spital-thurgau-stgag-kantonsspital-frauenfeld-d0848a1f",
+        "dottore-senior-medico-chirurgia-spital-thurgau-stgag-kantonsspital-frauenfeld-ff4eda68",
+        "specialist-health-efz-for-the-station-secretariat-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "interno-in-psicosomatik-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "specialiste-de-la-sante-efz-pour-le-secretariat-de-la-station-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "fachperson-gesundheit-efz-stgag-ch",
+        "fachperson-gesundheit-efz-fur-das-stationssekretariat-stgag-ch",
+        "responsabile-del-team-ristorazione-dei-pazienti-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "teamleiter-in-patientenverpflegung-stgag-ch",
+        "teamleiter-in-patientenverpflegung-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "dirigente-medico-chirurgia-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "leitende-n-arztin-arzt-chirurgie-stgag-ch"
+      ],
+      "en": [
+        "fachperson-gesundheit-efz-stgag-ch-25297f07",
+        "specialist-health-efz-for-the-station-secretariat-spital-thurgau-stgag-kantonsspital-frauenfeld-d34923c4",
+        "fachperson-gesundheit-efz-fur-das-stationssekretariat-stgag-ch-6b4b57b3",
+        "teamleiter-in-patientenverpflegung-spital-thurgau-stgag-kantonsspital-frauenfeld-c82bc5b6",
+        "leitende-n-arztin-arzt-chirurgie-stgag-ch-d264b79b",
+        "responsabile-del-team-ristorazione-dei-pazienti-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "teamleiter-in-patientenverpflegung-stgag-ch",
+        "dirigente-medico-chirurgia-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "fachperson-gesundheit-cfc-per-das-stationssekretariat-spital-thurgau-stgag-kantonsspital-frauenfeld-d0848a1f",
+        "dottore-senior-medico-chirurgia-spital-thurgau-stgag-kantonsspital-frauenfeld-ff4eda68",
+        "interno-in-psicosomatik-spital-thurgau-stgag-kantonsspital-munsterlingen-7b148437",
+        "fachperson-gesundheit-cfc-spital-thurgau-stgag-kantonsspital-frauenfeld-d4d0e961",
+        "specialiste-de-la-sante-efz-pour-le-secretariat-de-la-station-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "fachperson-gesundheit-efz-stgag-ch",
+        "specialist-health-efz-for-the-station-secretariat-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "fachperson-gesundheit-efz-fur-das-stationssekretariat-stgag-ch",
+        "teamleiter-in-patientenverpflegung-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "leitende-n-arztin-arzt-chirurgie-stgag-ch",
+        "health-professional-efz-spital-thurgau-stgag-kantonsspital-frauenfeld"
+      ],
+      "fr": [
+        "fachperson-gesundheit-efz-stgag-ch-25297f07",
+        "specialiste-de-la-sante-efz-pour-le-secretariat-de-la-station-spital-thurgau-stgag-kantonsspital-frauenfeld-70abf289",
+        "fachperson-gesundheit-efz-fur-das-stationssekretariat-stgag-ch-6b4b57b3",
+        "teamleiter-in-patientenverpflegung-spital-thurgau-stgag-kantonsspital-frauenfeld-c82bc5b6",
+        "leitende-n-arztin-arzt-chirurgie-stgag-ch-d264b79b",
+        "responsabile-del-team-ristorazione-dei-pazienti-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "teamleiter-in-patientenverpflegung-stgag-ch",
+        "dirigente-medico-chirurgia-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "fachperson-gesundheit-cfc-per-das-stationssekretariat-spital-thurgau-stgag-kantonsspital-frauenfeld-d0848a1f",
+        "dottore-senior-medico-chirurgia-spital-thurgau-stgag-kantonsspital-frauenfeld-ff4eda68",
+        "specialist-health-efz-for-the-station-secretariat-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "interno-in-psicosomatik-spital-thurgau-stgag-kantonsspital-munsterlingen-7b148437",
+        "fachperson-gesundheit-cfc-spital-thurgau-stgag-kantonsspital-frauenfeld-d4d0e961",
+        "fachperson-gesundheit-efz-stgag-ch",
+        "specialiste-de-la-sante-efz-pour-le-secretariat-de-la-station-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "fachperson-gesundheit-efz-fur-das-stationssekretariat-stgag-ch",
+        "teamleiter-in-patientenverpflegung-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "leitende-n-arztin-arzt-chirurgie-stgag-ch",
+        "professionnels-de-la-sante-efz-spital-thurgau-stgag-kantonsspital-frauenfeld"
+      ],
+      "de": [
+        "fachperson-gesundheit-efz-fur-das-stationssekretariat-stgag-ch-6b4b57b3",
+        "teamleiter-in-patientenverpflegung-stgag-ch-49254b41",
+        "teamleiter-in-patientenverpflegung-spital-thurgau-stgag-kantonsspital-frauenfeld-c82bc5b6",
+        "leitende-n-arztin-arzt-chirurgie-stgag-ch-d264b79b",
+        "responsabile-del-team-ristorazione-dei-pazienti-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "dirigente-medico-chirurgia-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "fachperson-gesundheit-cfc-per-das-stationssekretariat-spital-thurgau-stgag-kantonsspital-frauenfeld-d0848a1f",
+        "dottore-senior-medico-chirurgia-spital-thurgau-stgag-kantonsspital-frauenfeld-ff4eda68",
+        "specialist-health-efz-for-the-station-secretariat-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "interno-in-psicosomatik-spital-thurgau-stgag-kantonsspital-munsterlingen-7b148437",
+        "fachperson-gesundheit-cfc-spital-thurgau-stgag-kantonsspital-frauenfeld-d4d0e961",
+        "specialiste-de-la-sante-efz-pour-le-secretariat-de-la-station-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "fachperson-gesundheit-efz-fur-das-stationssekretariat-stgag-ch",
+        "teamleiter-in-patientenverpflegung-stgag-ch",
+        "teamleiter-in-patientenverpflegung-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "leitende-n-arztin-arzt-chirurgie-stgag-ch"
+      ]
+    },
+    "postalCode": "8596",
+    "salaryMin": 57500,
+    "salaryMax": 87000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "previousSlugs": [
+      "fachperson-gesundheit-efz-stgag-ch",
+      "interno-in-psicosomatik-spital-thurgau-stgag-kantonsspital-munsterlingen",
+      "fachperson-gesundheit-cfc-per-das-stationssekretariat-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "fachperson-gesundheit-efz-fur-das-stationssekretariat-stgag-ch",
+      "specialist-health-efz-for-the-station-secretariat-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "specialiste-de-la-sante-efz-pour-le-secretariat-de-la-station-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "responsabile-del-team-ristorazione-dei-pazienti-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "teamleiter-in-patientenverpflegung-stgag-ch",
+      "teamleiter-in-patientenverpflegung-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "dottore-senior-medico-chirurgia-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "dirigente-medico-chirurgia-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "leitende-n-arztin-arzt-chirurgie-stgag-ch",
+      "fachperson-gesundheit-efz-fur-das-stationssekretariat-stgag-ch-6b4b57b3",
+      "responsabile-del-team-ristorazione-dei-pazienti-spital-thurgau-stgag-kantonsspital-frauenfeld-f8c8b4b9",
+      "teamleiter-in-patientenverpflegung-stgag-ch-49254b41",
+      "teamleiter-in-patientenverpflegung-spital-thurgau-stgag-kantonsspital-frauenfeld-c82bc5b6",
+      "dirigente-medico-chirurgia-spital-thurgau-stgag-kantonsspital-frauenfeld-74222bd6",
+      "leitende-n-arztin-arzt-chirurgie-stgag-ch-d264b79b",
+      "fachperson-gesundheit-cfc-per-das-stationssekretariat-spital-thurgau-stgag-kantonsspital-frauenfeld-d0848a1f",
+      "dottore-senior-medico-chirurgia-spital-thurgau-stgag-kantonsspital-frauenfeld-ff4eda68",
+      "specialist-health-efz-for-the-station-secretariat-spital-thurgau-stgag-kantonsspital-frauenfeld-d34923c4",
+      "interno-in-psicosomatik-spital-thurgau-stgag-kantonsspital-munsterlingen-7b148437",
+      "fachperson-gesundheit-cfc-spital-thurgau-stgag-kantonsspital-frauenfeld-d4d0e961",
+      "specialiste-de-la-sante-efz-pour-le-secretariat-de-la-station-spital-thurgau-stgag-kantonsspital-frauenfeld-70abf289",
+      "health-professional-efz-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "professionnels-de-la-sante-efz-spital-thurgau-stgag-kantonsspital-frauenfeld"
+    ]
+  },
+  {
     "slug": "fachperson-gesundheit-cfc-spital-thurgau-stgag-kantonsspital-frauenfeld-b2ffddd5",
     "title": "Fachperson Gesundheit EFZ",
     "titleByLocale": {
@@ -8079,7 +8524,6 @@
         "teamleiter-in-patientenverpflegung-spital-thurgau-stgag-kantonsspital-frauenfeld-e9cc6afb",
         "dirigente-medico-chirurgia-spital-thurgau-stgag-kantonsspital-frauenfeld-a12c460c",
         "leitende-n-arztin-arzt-chirurgie-stgag-ch-545ca5e9",
-        "fachperson-gesundheit-cfc-spital-thurgau-stgag-kantonsspital-frauenfeld-b2ffddd5",
         "interno-in-psicosomatik-spital-thurgau-stgag-kantonsspital-munsterlingen-0b9262e6",
         "fachperson-gesundheit-cfc-per-das-stationssekretariat-spital-thurgau-stgag-kantonsspital-frauenfeld-321779ed",
         "dottore-senior-medico-chirurgia-spital-thurgau-stgag-kantonsspital-frauenfeld-7f55fba0",
@@ -8093,12 +8537,12 @@
         "teamleiter-in-patientenverpflegung-spital-thurgau-stgag-kantonsspital-frauenfeld-e9cc6afb",
         "leitende-n-arztin-arzt-chirurgie-stgag-ch-545ca5e9",
         "fachperson-gesundheit-cfc-spital-thurgau-stgag-kantonsspital-frauenfeld-b2ffddd5",
-        "responsabile-del-team-ristorazione-dei-pazienti-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "teamleiter-in-patientenverpflegung-stgag-ch",
-        "dirigente-medico-chirurgia-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "interno-in-psicosomatik-spital-thurgau-stgag-kantonsspital-munsterlingen-0b9262e6",
         "fachperson-gesundheit-cfc-per-das-stationssekretariat-spital-thurgau-stgag-kantonsspital-frauenfeld-321779ed",
         "dottore-senior-medico-chirurgia-spital-thurgau-stgag-kantonsspital-frauenfeld-7f55fba0",
+        "responsabile-del-team-ristorazione-dei-pazienti-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "teamleiter-in-patientenverpflegung-stgag-ch",
+        "dirigente-medico-chirurgia-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "specialiste-de-la-sante-efz-pour-le-secretariat-de-la-station-spital-thurgau-stgag-kantonsspital-frauenfeld"
       ],
       "fr": [
@@ -8108,12 +8552,12 @@
         "teamleiter-in-patientenverpflegung-spital-thurgau-stgag-kantonsspital-frauenfeld-e9cc6afb",
         "leitende-n-arztin-arzt-chirurgie-stgag-ch-545ca5e9",
         "fachperson-gesundheit-cfc-spital-thurgau-stgag-kantonsspital-frauenfeld-b2ffddd5",
-        "responsabile-del-team-ristorazione-dei-pazienti-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "teamleiter-in-patientenverpflegung-stgag-ch",
-        "dirigente-medico-chirurgia-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "interno-in-psicosomatik-spital-thurgau-stgag-kantonsspital-munsterlingen-0b9262e6",
         "fachperson-gesundheit-cfc-per-das-stationssekretariat-spital-thurgau-stgag-kantonsspital-frauenfeld-321779ed",
         "dottore-senior-medico-chirurgia-spital-thurgau-stgag-kantonsspital-frauenfeld-7f55fba0",
+        "responsabile-del-team-ristorazione-dei-pazienti-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "teamleiter-in-patientenverpflegung-stgag-ch",
+        "dirigente-medico-chirurgia-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "specialist-health-efz-for-the-station-secretariat-spital-thurgau-stgag-kantonsspital-frauenfeld"
       ],
       "de": [
@@ -8122,12 +8566,11 @@
         "teamleiter-in-patientenverpflegung-spital-thurgau-stgag-kantonsspital-frauenfeld-e9cc6afb",
         "leitende-n-arztin-arzt-chirurgie-stgag-ch-545ca5e9",
         "fachperson-gesundheit-cfc-spital-thurgau-stgag-kantonsspital-frauenfeld-b2ffddd5",
-        "fachperson-gesundheit-efz-stgag-ch-a80096ca",
-        "responsabile-del-team-ristorazione-dei-pazienti-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "dirigente-medico-chirurgia-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "interno-in-psicosomatik-spital-thurgau-stgag-kantonsspital-munsterlingen-0b9262e6",
         "fachperson-gesundheit-cfc-per-das-stationssekretariat-spital-thurgau-stgag-kantonsspital-frauenfeld-321779ed",
         "dottore-senior-medico-chirurgia-spital-thurgau-stgag-kantonsspital-frauenfeld-7f55fba0",
+        "responsabile-del-team-ristorazione-dei-pazienti-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "dirigente-medico-chirurgia-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "specialist-health-efz-for-the-station-secretariat-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "specialiste-de-la-sante-efz-pour-le-secretariat-de-la-station-spital-thurgau-stgag-kantonsspital-frauenfeld"
       ]
@@ -8147,13 +8590,13 @@
       "interno-in-psicosomatik-spital-thurgau-stgag-kantonsspital-munsterlingen-0b9262e6",
       "fachperson-gesundheit-cfc-per-das-stationssekretariat-spital-thurgau-stgag-kantonsspital-frauenfeld-321779ed",
       "dottore-senior-medico-chirurgia-spital-thurgau-stgag-kantonsspital-frauenfeld-7f55fba0",
+      "specialist-health-efz-for-the-station-secretariat-spital-thurgau-stgag-kantonsspital-frauenfeld-7d2c8322",
+      "specialiste-de-la-sante-efz-pour-le-secretariat-de-la-station-spital-thurgau-stgag-kantonsspital-frauenfeld-ce4e7137",
       "specialist-health-efz-for-the-station-secretariat-spital-thurgau-stgag-kantonsspital-frauenfeld",
       "specialiste-de-la-sante-efz-pour-le-secretariat-de-la-station-spital-thurgau-stgag-kantonsspital-frauenfeld",
-      "specialist-health-efz-for-the-station-secretariat-spital-thurgau-stgag-kantonsspital-frauenfeld-7d2c8322",
       "responsabile-del-team-ristorazione-dei-pazienti-spital-thurgau-stgag-kantonsspital-frauenfeld",
       "teamleiter-in-patientenverpflegung-stgag-ch",
-      "dirigente-medico-chirurgia-spital-thurgau-stgag-kantonsspital-frauenfeld",
-      "specialiste-de-la-sante-efz-pour-le-secretariat-de-la-station-spital-thurgau-stgag-kantonsspital-frauenfeld-ce4e7137"
+      "dirigente-medico-chirurgia-spital-thurgau-stgag-kantonsspital-frauenfeld"
     ]
   },
   {
@@ -8496,17 +8939,34 @@
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-07-01T12:40:25.313Z",
     "previousSlugs": [
-      "weiterbildung-zum-zur-dipl-experten-in-anasthesiologie-nds-hf-stgag-ch"
+      "weiterbildung-zum-zur-dipl-experten-in-anasthesiologie-nds-hf-stgag-ch",
+      "formazione-continua-per-il-la-dipl-esperto-a-in-anestesiologia-nds-hf-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "further-education-for-to-the-dipl-experts-in-anesthesiology-nds-hf-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "formation-complementaire-pour-pour-le-dipl-experts-en-anesthesiologie-nds-hf-spital-thurgau-stgag-kantonsspital"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "weiterbildung-zum-zur-dipl-experten-in-anasthesiologie-nds-hf-stgag-ch"
+        "weiterbildung-zum-zur-dipl-experten-in-anasthesiologie-nds-hf-stgag-ch",
+        "further-education-for-to-the-dipl-experts-in-anesthesiology-nds-hf-spital-thurgau-stgag-kantonsspital-e6b6a917",
+        "formation-complementaire-pour-pour-le-dipl-experts-en-anesthesiologie-nds-hf-spital-thurgau-stgag-kantonsspital-6cb02cbb",
+        "formazione-continua-per-il-la-dipl-esperto-a-in-anestesiologia-nds-hf-spital-thurgau-stgag-kantonsspital-frauenfeld"
       ],
       "en": [
-        "weiterbildung-zum-zur-dipl-experten-in-anasthesiologie-nds-hf-stgag-ch"
+        "weiterbildung-zum-zur-dipl-experten-in-anasthesiologie-nds-hf-stgag-ch",
+        "formazione-continua-per-il-la-dipl-esperto-a-in-anestesiologia-nds-hf-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "formation-complementaire-pour-pour-le-dipl-experts-en-anesthesiologie-nds-hf-spital-thurgau-stgag-kantonsspital",
+        "further-education-for-to-the-dipl-experts-in-anesthesiology-nds-hf-spital-thurgau-stgag-kantonsspital-frauenfeld"
       ],
       "fr": [
-        "weiterbildung-zum-zur-dipl-experten-in-anasthesiologie-nds-hf-stgag-ch"
+        "weiterbildung-zum-zur-dipl-experten-in-anasthesiologie-nds-hf-stgag-ch",
+        "formazione-continua-per-il-la-dipl-esperto-a-in-anestesiologia-nds-hf-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "further-education-for-to-the-dipl-experts-in-anesthesiology-nds-hf-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "formation-complementaire-pour-pour-le-dipl-experts-en-anesthesiologie-nds-hf-spital-thurgau-stgag-kantonsspital"
+      ],
+      "de": [
+        "formazione-continua-per-il-la-dipl-esperto-a-in-anestesiologia-nds-hf-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "further-education-for-to-the-dipl-experts-in-anesthesiology-nds-hf-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "formation-complementaire-pour-pour-le-dipl-experts-en-anesthesiologie-nds-hf-spital-thurgau-stgag-kantonsspital"
       ]
     },
     "postalCode": "8596",
@@ -9848,6 +10308,44 @@
     "salaryPeriod": "YEAR"
   },
   {
+    "slug": "intern-in-fachmatura-health-fmg-settembre-2026-spital-thurgau-stgag-kantonsspital-munsterlingen-05c5a844",
+    "title": "Praktikant/-in Fachmatura Gesundheit (FMG) September 2026",
+    "titleByLocale": {
+      "it": "Intern/-in Fachmatura Health (FMG) Settembre 2026",
+      "en": "Praktikant/-in Fachmatura Gesundheit (FMG) September 2026",
+      "de": "Praktikant/-in Fachmatura Gesundheit (FMG) September 2026",
+      "fr": "Praktikant/-in Fachmatura Gesundheit (FMG) September 2026"
+    },
+    "company": "Spital Thurgau (STGAG)",
+    "companyKey": "spital-thurgau",
+    "location": "Kantonsspital Münsterlingen",
+    "addressLocality": "Kantonsspital Münsterlingen",
+    "descriptionByLocale": {
+      "it": "Praktikant/-in Fachmatura Gesundheit (FMG) September 2026 — Spital Thurgau (STGAG). Standort: Kantonsspital Münsterlingen Abteilung: Bildung Bereich: Bildung, Beratung + Entwicklung Pflege (Kantonsspital Münsterlingen) Pensum: Vollzeit Anstellungsverhältnis: Befristet Eintrittsdatum: 07.09.2026",
+      "en": "Praktikant/-in Fachmatura Gesundheit (FMG) September 2026 — Spital Thurgau (STGAG). Standort: Kantonsspital Münsterlingen Abteilung: Bildung Bereich: Bildung, Beratung + Entwicklung Pflege (Kantonsspital Münsterlingen) Pensum: Vollzeit Anstellungsverhältnis: Befristet Eintrittsdatum: 07.09.2026",
+      "de": "Praktikant/-in Fachmatura Gesundheit (FMG) September 2026 — Spital Thurgau (STGAG).\n• Standort: Kantonsspital Münsterlingen\n• Abteilung: Bildung\n• Bereich: Bildung, Beratung + Entwicklung Pflege (Kantonsspital Münsterlingen)\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Befristet\n• Eintrittsdatum: 07.09.2026",
+      "fr": "Praktikant/-in Fachmatura Gesundheit (FMG) September 2026 — Spital Thurgau (STGAG). Standort: Kantonsspital Münsterlingen Abteilung: Bildung Bereich: Bildung, Beratung + Entwicklung Pflege (Kantonsspital Münsterlingen) Pensum: Vollzeit Anstellungsverhältnis: Befristet Eintrittsdatum: 07.09.2026"
+    },
+    "slugByLocale": {
+      "it": "intern-in-fachmatura-health-fmg-settembre-2026-spital-thurgau-stgag-kantonsspital-munsterlingen-05c5a844",
+      "en": "praktikant-in-fachmatura-gesundheit-fmg-september-2026-stgag-ch-244fc008",
+      "de": "praktikant-in-fachmatura-gesundheit-fmg-september-2026-stgag-ch-244fc008",
+      "fr": "praktikant-in-fachmatura-gesundheit-fmg-september-2026-stgag-ch-244fc008"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-05-14T22:48:28.769Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "praktikant-in-fachmatura-gesundheit-fmg-september-2026-stgag-ch-244fc008"
+      ]
+    },
+    "postalCode": "8596",
+    "salaryMin": 41600,
+    "salaryMax": 63000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "intern-in-fachmatura-health-fmg-settembre-2026-spital-thurgau-stgag-kantonsspital-munsterlingen-229a1deb",
     "title": "Praktikant/-in Fachmatura Gesundheit (FMG) September 2026",
     "titleByLocale": {
@@ -9876,15 +10374,6 @@
     "expiredAt": "2026-05-14T22:48:28.769Z",
     "previousSlugsByLocale": {
       "it": [
-        "praktikant-in-fachmatura-gesundheit-fmg-september-2026-stgag-ch-6173643f"
-      ],
-      "en": [
-        "praktikant-in-fachmatura-gesundheit-fmg-september-2026-stgag-ch-6173643f"
-      ],
-      "de": [
-        "praktikant-in-fachmatura-gesundheit-fmg-september-2026-stgag-ch-6173643f"
-      ],
-      "fr": [
         "praktikant-in-fachmatura-gesundheit-fmg-september-2026-stgag-ch-6173643f"
       ]
     },

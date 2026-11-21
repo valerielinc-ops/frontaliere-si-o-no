@@ -84,6 +84,7 @@
       "ai-ricerca-scientist-ingegnere-sonarsource-sonar-geneva",
       "ai-forschung-scientist-ingenieur-sonarsource-sonar-geneva",
       "ai-recherche-scientist-ingenieur-sonarsource-sonar-geneva",
+      "ai-research-scientist-engineer-sonarsource-ch-2c0f58fa",
       "ai-research-engineer-sonarsource-ch",
       "ai-research-scientist-engineer-sonarsource-ch"
     ],
@@ -534,6 +535,10 @@
     },
     "sector": "Software / Dev Tools",
     "expiredAt": "2026-10-16T09:28:38.304Z",
+    "previousSlugs": [
+      "senior-software-engineer-java-remediation-agent-sonarsource-ch-b785743b",
+      "senior-software-engineer-java-remediation-agent-sonarsource-ch"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "senior-software-engineer-java-remediation-agent-sonarsource-ch-b785743b"
@@ -543,9 +548,6 @@
       ],
       "fr": [
         "senior-software-engineer-java-remediation-agent-sonarsource-ch"
-      ],
-      "en": [
-        "senior-software-engineer-java-remediation-agent-sonarsource-ch-b785743b"
       ]
     },
     "postalCode": "1204",
@@ -554,10 +556,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.lever.co/sonarsource/5ec02e8c-02d4-4a82-9e9c-2b81c7229d9e",
-    "firstSeenAt": "2026-09-09T14:05:30.173Z",
-    "previousSlugs": [
-      "senior-software-engineer-java-remediation-agent-sonarsource-ch"
-    ]
+    "firstSeenAt": "2026-09-09T14:05:30.173Z"
   },
   {
     "slug": "senior-software-ingegnere-java-remediation-agent-sonarsource-sonar-geneva-a09f5367",

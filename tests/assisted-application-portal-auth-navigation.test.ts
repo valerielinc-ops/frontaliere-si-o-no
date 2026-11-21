@@ -1,9 +1,24 @@
 import { describe, expect, it, vi } from 'vitest';
-import { handleAuth } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { handleAuth, passwordControlMatches } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 const URL = 'https://career74.sapsf.eu/career';
 
 describe('assisted portal account navigation', () => {
+  it('checks the current password input even when the snapshot redacts its value', async () => {
+    const field = { id: 'password', frame: 0, inputType: 'password', value: '' };
+    const control = { value: 'test-password' };
+    const evaluate = vi.fn(async (read: (element: typeof control, expected: string) => boolean, expected: string) => read(control, expected));
+    const locator = vi.fn(() => ({ first: () => ({ evaluate }) }));
+    const page = { frames: () => [{ locator }] };
+
+    expect(await passwordControlMatches(page, field, 'test-password')).toBe(true);
+    expect(await passwordControlMatches(page, field, 'other-password')).toBe(false);
+    expect(locator).toHaveBeenCalledWith('[data-aa-id="password"]');
+    control.value = '';
+    expect(await passwordControlMatches(page, field, 'test-password')).toBe(false);
+    expect(field.value).toBe('');
+  });
+
   it('hands off an existing-account registration page without creating another account', async () => {
     const save = vi.fn(async () => {});
     const page = { url: () => URL };
@@ -603,7 +618,7 @@ describe('assisted portal account navigation', () => {
       }
       : {
         url,
-        fields: loginFields.map((field) => ({ ...field, value: values.get(field.id) || '' })),
+        fields: loginFields.map((field) => ({ ...field, value: field.inputType === 'password' ? '' : values.get(field.id) || '' })),
         buttons: [
           { id: 'login', text: 'Anmelden', disabled: false, frame: 0, formId: 'login-form' },
           ...(showRegistration ? [{ id: 'register', text: 'Registrieren', disabled: false, frame: 0, formId: 'login-form' }] : []),
@@ -629,6 +644,8 @@ describe('assisted portal account navigation', () => {
           }),
           fill: vi.fn(async (value: string) => { values.set(id, value); }),
           inputValue: vi.fn(async () => values.get(id) || ''),
+          evaluate: vi.fn(async (read: (element: { value: string }, expected: string) => boolean, expected: string) =>
+            read({ value: values.get(id) || '' }, expected)),
           count: vi.fn(async () => 0),
         };
         return locator;

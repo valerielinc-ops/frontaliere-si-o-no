@@ -87,7 +87,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.corner.ch/o/customer-advisor-100-team-zurich-1",
-    "firstSeenAt": "2026-10-22T09:42:14.142Z"
+    "firstSeenAt": "2026-10-22T09:42:14.142Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.corner.ch/o/customer-advisor-100-team-zurich-1",
+        "firstSeenAt": "2026-10-22T09:42:14.142Z",
+        "title": "Customer Advisor 100% Team Zurich"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.corner.ch/o/customer-advisor-100-team-zurich-ref-1133",
+        "firstSeenAt": "2026-10-22T09:42:14.142Z",
+        "title": "Customer Advisor 100% Team Zurich"
+      }
+    ]
   },
   {
     "slug": "consumer-loan-advisor-ref-1129-corner-banca-lugano",
@@ -119,6 +131,64 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.corner.ch/o/consumer-loan-advisor-ref-1129",
     "firstSeenAt": "2026-09-03T13:49:26.508Z"
+  },
+  {
+    "slug": "fi-administration-business-support-rif-1116-1136-corner-banca-lugano-71904b4c32",
+    "title": "FI Administration & Business Support  - ref. 1116/1136",
+    "titleByLocale": {
+      "it": "FI Administration & Business Support - rif. 1116/1136",
+      "en": "FI Administration & Business Support  - ref. 1116/1136",
+      "de": "FI Verwaltung und Unternehmensunterstützung - Ref. 1116/1136",
+      "fr": "FI Administration et soutien aux entreprises - réf. 1116/1136"
+    },
+    "company": "Cornèr Banca",
+    "companyKey": "corner-banca",
+    "location": "Lugano",
+    "addressLocality": "Lugano",
+    "descriptionByLocale": {
+      "it": "Siamo alla ricerca di una persona altamente motivata e qualificata da inserire nel nostro team FI Administration & Business Support. La persona selezionata sarà responsabile di garantire il supporto operativo e amministrativo alle attività a sostegno della rete di intermediari finanziari, gestendo tempestivamente le richieste, fornendo assistenza amministrativa e assicurando una gestione accurata delle pratiche, nel rispetto delle procedure definite e delle tempistiche di servizio. È richiesta un’ottima conoscenza dell’italiano, del francese, del tedesco e dell’inglese (livello minimo C1), sia scritta che orale.\n\nPrincipali responsabilità\n• Fornire supporto amministrativo alle attività della funzione.\n\n• Gestire e monitorare i casi particolari, assicurandone la corretta presa in carico e risoluzione in linea con le priorità concordate.\n\n• Elaborare i nuovi casi (Svizzera/Europa) entro 24 ore, garantendo accuratezza, completezza e conformità agli standard di servizio.\n\n• Gestire la casella di posta condivisa e le richieste quotidiane, assicurando risposte tempestive e una gestione efficiente delle attività operative giornaliere.\n\n• Gestire le richieste relative alle carte di credito, in collaborazione con i team interni competenti.\n\n• Preparare report periodici e ad hoc, inclusa l'estrazione e l'analisi di dati/statistiche per il monitoraggio operativo.\n\nCosa offriamo?\n• Flessibilità nel lavoro da casa e nella gestione dell'orario di lavoro, con l'obiettivo di garantire un sano equilibrio tra vita professionale e privata.\n\n• Numerosi benefit e incentivi.\n\n• Attività dedicate al benessere, alla motivazione e al team building.\n\n• Ottima conoscenza di Microsoft Office, in particolare Excel e Word.\n\n• Capacità di redigere documentazione amministrativa in almeno due lingue nazionali.\n\n• Ottime capacità comunicative e relazionali con interlocutori interni ed esterni, sia telefonicamente sia via e-mail.\n\n• Rapidità nell'apprendimento, flessibilità operativa e orientamento alla ricerca di soluzioni.\n\n• Predisposizione al lavoro di squadra e capacità di collaborare con diverse funzioni aziendali.\n\n• Ottima conoscenza dell’italiano, del francese, del tedesco e dell’inglese (livello minimo C1), sia scritta che orale.\n\n• Precedente esperienza in ruoli analoghi nel settore bancario/finanziario o in funzioni di supporto amministrativo (preferibile).\n\n• Residenza in Ticino oppure disponibilità a trasferirsi.",
+      "en": "We are looking for a highly motivated and qualified candidate to join our FI Administration & Business Support team. The successful candidate will ensure the operational and administrative coverage of activities supporting the network of financial intermediaries, providing timely handling of requests, administrative support and accurate case management, in compliance with defined procedures and service timelines. Excellent knowledge of Italian, French, German and English (minimum C1 level), both written and spoken, is required.\n\nKey Resopnsabilities\n\n• Provide administrative support to the function’s activities\n\n• Manage and monitor special cases, ensuring proper ownership and resolution in line with agreed priorities\n\n• Process new cases (Switzerland/Europe) within 24 hours, ensuring accuracy, completeness and compliance with service standards\n\n• Manage the shared inbox and daily requests, ensuring timely responses and efficient handling of the daily operational workload\n\n• Handle any credit card-related requests in coordination with the relevant internal teams\n\n• Prepare periodic and ad hoc reporting, including data/statistical extraction and analysis for operational monitoring\n\nWhat do we offer?\n\n• Flexibility in working from home and in managing working hours, depending on the role and operational requirements, while ensuring a healthy work-life balance.\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Excellent knowledge of Microsoft Office (especially Excel and Word)\n\n• Ability to draft administrative documentation in at least two national languages\n\n• Strong communication and interpersonal skills with internal/external partners via phone and/or e-mail\n\n• Fast learner, operational flexibility and solution-oriented mindset\n\n• Team-oriented attitude and ability to collaborate across functions\n\n• Excellent knowledge of Italian, French, German and English (minimum C1 level), both written and spoken, is required\n\n• Previous experience in similar roles within the banking/financial sector or in administrative support functions (preferred)\n\n• Resident in Ticino or willing to relocate",
+      "de": "Wir suchen einen hochmotivierten und qualifizierten Kandidaten für unseren FI Administration & Business Support. Der erfolgreiche Bewerber gewährleistet die operative und administrative Abdeckung der Tätigkeiten, die das Netz der Finanzintermediäre unterstützen, die rechtzeitige Bearbeitung von Anträgen, die administrative Unterstützung und eine genaue Fallbearbeitung unter Einhaltung der festgelegten Verfahren und Zeitpläne. Hervorragende Kenntnisse in Italienisch, Französisch, Deutsch und Englisch (Mindestniveau C1), sowohl schriftlich als auch gesprochen, sind erforderlich.\n\nSchlüsselfunktionen\n\n• Bereitstellung administrativer Unterstützung für die Aktivitäten der Funktion\n\n• Verwalten und Überwachen von Sonderfällen, Gewährleistung einer ordnungsgemäßen Verwaltung und Lösung im Einklang mit den vereinbarten Prioritäten\n\n• Bearbeitung neuer Fälle (Schweiz/Europa) innerhalb von 24 Stunden, Gewährleistung von Genauigkeit, Vollständigkeit und Einhaltung von Servicestandards\n\n• Verwalten Sie den gemeinsam genutzten Posteingang und die täglichen Anfragen, um zeitnahe Antworten und eine effiziente Abwicklung der täglichen betrieblichen Arbeitsbelastung zu gewährleisten\n\n• Bearbeitung von Kreditkartenanfragen in Abstimmung mit den zuständigen internen Teams\n\n• Bereiten Sie regelmäßige und Ad-hoc-Berichte vor, einschließlich Daten-/Statistikextraktion und -analyse für die betriebliche Überwachung\n\nWas bieten wir an?\n\n• Flexibilität bei der Arbeit von zu Hause aus und bei der Verwaltung der Arbeitszeiten, abhängig von der Rolle und den betrieblichen Anforderungen, bei gleichzeitiger Gewährleistung einer gesunden Work-Life-Balance.\n\n• Zahlreiche Vorteile und Anreize\n\n• Wohlbefinden, Motivation und Teambuilding\n\n• Ausgezeichnete Kenntnisse von Microsoft Office (insbesondere Excel und Word)\n\n• Fähigkeit zur Erstellung von Verwaltungsunterlagen in mindestens zwei Landessprachen\n\n• Starke Kommunikation und zwischenmenschliche Fähigkeiten mit internen / externen Partnern per Telefon und / oder E-Mail\n\n• Schneller Lernender, operative Flexibilität und lösungsorientiertes Mindset\n\n• Teamorientierte Einstellung und Fähigkeit zur funktionsübergreifenden Zusammenarbeit\n\n• Hervorragende Kenntnisse in Italienisch, Französisch, Deutsch und Englisch (Mindestniveau C1), sowohl schriftlich als auch gesprochen, sind erforderlich\n\n• Frühere Erfahrungen in ähnlichen Rollen im Banken- / Finanzsektor oder in administrativen Unterstützungsfunktionen (bevorzugt)\n\n• Wohnen im Tessin oder bereit zu verlagern",
+      "fr": "Nous recherchons un candidat hautement motivé et qualifié pour rejoindre notre équipe d'administration et de soutien aux entreprises FI. Le candidat retenu assurera la couverture opérationnelle et administrative des activités d'appui au réseau d'intermédiaires financiers, en assurant le traitement rapide des demandes, le soutien administratif et la gestion précise des cas, conformément aux procédures et aux délais de service définis. Une excellente connaissance de l'italien, du français, de l'allemand et de l'anglais (niveau minimum C1), à la fois écrite et parlée, est requise.\n\nResopnsabilités clés\n\n• Fournir un appui administratif aux activités de la fonction\n\n• Gérer et surveiller les cas particuliers, en veillant à ce qu ' ils soient dûment pris en charge et réglés conformément aux priorités convenues\n\n• Traiter les nouveaux cas (Suisse/Europe) dans les 24 heures, en garantissant l'exactitude, l'exhaustivité et la conformité aux normes de service\n\n• Gérer la boîte de réception partagée et les demandes quotidiennes, en veillant à ce que les réponses soient fournies en temps voulu et à ce que la charge de travail opérationnelle quotidienne soit gérée efficacement\n\n• Traitement des demandes de carte de crédit en coordination avec les équipes internes concernées\n\n• Préparer des rapports périodiques et spéciaux, y compris l ' extraction et l ' analyse de données/statistiques aux fins de la surveillance opérationnelle\n\nQu'est-ce qu'on offre ?\n\n• La flexibilité dans le travail à domicile et dans la gestion des heures de travail, selon le rôle et les exigences opérationnelles, tout en assurant un équilibre sain entre le travail et la vie personnelle.\n\n• De nombreux avantages et incitations\n\n• Activités de bien-être, de motivation et de renforcement des équipes\n\n• Excellente connaissance de Microsoft Office (surtout Excel et Word)\n\n• Aptitude à rédiger la documentation administrative dans au moins deux langues nationales\n\n• Fortes compétences en communication et en relations interpersonnelles avec des partenaires internes/externes par téléphone et/ou courriel\n\n• Apprentissage rapide, flexibilité opérationnelle et état d'esprit orienté vers la solution\n\n• Attitude et capacité de collaboration axées sur l'équipe\n\n• Excellente connaissance de l'italien, du français, de l'allemand et de l'anglais (niveau minimum C1), à la fois écrite et parlée, est nécessaire\n\n• Expérience antérieure dans des rôles similaires au sein du secteur bancaire/financier ou dans des fonctions de soutien administratif (préféré)\n\n• Résident au Tessin ou prêt à déménager"
+    },
+    "slugByLocale": {
+      "it": "fi-administration-business-support-rif-1116-1136-corner-banca-lugano-71904b4c32",
+      "en": "fi-administration-e-business-support-ref-1116-1136-corner-banca-lugano",
+      "de": "fi-verwaltung-und-unternehmensunterstutzung-ref-1116-1136-corner-banca-lugano",
+      "fr": "fi-administration-et-soutien-aux-entreprises-ref-1116-1136-corner-banca-lugano"
+    },
+    "sector": "",
+    "expiredAt": "2026-10-28T09:51:28.559Z",
+    "previousSlugs": [
+      "fi-administration-e-business-support-ref-1116-1136-corner-banca-lugano-2",
+      "fi-administration-e-business-support-ref-1116-1136-corner-banca-lugano"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "fi-administration-e-business-support-ref-1116-1136-corner-banca-lugano-2",
+        "fi-administration-e-business-support-ref-1116-1136-corner-banca-lugano"
+      ]
+    },
+    "postalCode": "6900",
+    "streetAddress": "Via Canova 16",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.corner.ch/o/fi-administration-business-support-ref-11161136",
+    "firstSeenAt": "2026-10-16T21:51:25.384Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.corner.ch/o/fi-administration-business-support-100-ref-111611361138",
+        "firstSeenAt": "2026-10-16T21:51:25.384Z",
+        "title": "FI Administration & Business Support  - ref. 1116/1136"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.corner.ch/o/fi-administration-business-support-ref-11161136",
+        "firstSeenAt": "2026-10-16T21:51:25.384Z",
+        "title": "FI Administration & Business Support  - ref. 1116/1136"
+      }
+    ]
   },
   {
     "slug": "fi-administration-business-support-rif-1116-1136-corner-banca-lugano-71904b4c32-d54026bc",
@@ -153,8 +223,7 @@
         "fi-administration-e-business-support-ref-1116-1136-corner-banca-lugano-1571c9b6"
       ],
       "en": [
-        "fi-administration-e-business-support-ref-1116-1136-corner-banca-lugano-2",
-        "fi-administration-e-business-support-ref-1116-1136-corner-banca-lugano-1571c9b6"
+        "fi-administration-e-business-support-ref-1116-1136-corner-banca-lugano-2"
       ],
       "de": [
         "fi-administration-e-business-support-ref-1116-1136-corner-banca-lugano-2",
@@ -177,10 +246,22 @@
       "fi-administration-e-business-support-ref-1116-1136-corner-banca-lugano-2-73feb519",
       "fi-administration-e-business-support-ref-1116-1136-corner-banca-lugano-2",
       "fi-administration-e-business-support-ref-1116-1136-corner-banca-lugano"
+    ],
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.corner.ch/o/fi-administration-business-support-100-ref-111611361138",
+        "firstSeenAt": "2026-10-16T21:51:25.384Z",
+        "title": "FI Administration & Business Support  - ref. 1116/1136"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.corner.ch/o/fi-administration-business-support-ref-11161136",
+        "firstSeenAt": "2026-10-16T21:51:25.384Z",
+        "title": "FI Administration & Business Support  - ref. 1116/1136"
+      }
     ]
   },
   {
-    "slug": "candidatura-spontanea-apprendistato-corner-banca-switzerland-ef89de95",
+    "slug": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
     "title": "Candidatura spontanea apprendistato",
     "titleByLocale": {
       "it": "Candidatura spontanea apprendistato",
@@ -199,7 +280,7 @@
       "fr": "Appréciation\n\nAdresses\n\n- Les étudiants brillants qui ont terminé leurs études secondaires et se préparent à entrer dans le monde du travail - Ils obtiennent un diplôme à la fin d'une formation double qui comprend une rotation entre les bureaux orientés pour leur fournir les connaissances nécessaires du secteur\n\nDurée\n\n- 4 ans (ordinateur)\n\nProgramme scolaire\n\n- Applications de développement de formation informatisée / gestion d'infrastructure / développement d'entreprise numérique - Formation scolaire : profil élargi à maturité intégrée, au Centre technique professionnel de Locarno - Cours interentreprises : Ameti Bodio\n\nBesoins\n\n- Collège diplômé avec tous les niveaux d'aptitude et plus 4.7 - Légère motivation, passion pour le contact avec les gens, désir d'étudier et de se familiariser avec les chiffres et les programmes informatiques"
     },
     "slugByLocale": {
-      "it": "candidatura-spontanea-apprendistato-corner-banca-switzerland-ef89de95",
+      "it": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
       "en": "unsolicited-application-apprenticeship-corner-banca-switzerland",
       "de": "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
       "fr": "unsolicited-application-apprenticeship-corner-banca-switzerland"
@@ -207,27 +288,32 @@
     "sector": "",
     "expiredAt": "2026-10-25T21:43:51.440Z",
     "previousSlugs": [
+      "initiativbewerbung-lehre-corner-banca-switzerland",
       "candidatura-spontanea-apprendistato-corner-banca-switzerland-a99e496b4f",
+      "spontaner-ausbildungseinsatz-corner-banca-switzerland",
+      "apprentissage-spontane-corner-banca-switzerland",
+      "candidatura-spontanea-apprendistato-corner-banca-switzerland-ef89de95",
       "initiativbewerbung-lehre-corner-banca-switzerland-7ee315e0",
       "spontaner-ausbildungseinsatz-corner-banca-switzerland-dd885680",
-      "apprentissage-spontane-corner-banca-switzerland",
-      "apprentissage-spontane-corner-banca-switzerland-f00aa4ff",
-      "initiativbewerbung-lehre-corner-banca-switzerland",
-      "spontaner-ausbildungseinsatz-corner-banca-switzerland"
+      "apprentissage-spontane-corner-banca-switzerland-f00aa4ff"
     ],
     "previousSlugsByLocale": {
       "de": [
+        "initiativbewerbung-lehre-corner-banca-switzerland",
+        "spontaner-ausbildungseinsatz-corner-banca-switzerland",
         "initiativbewerbung-lehre-corner-banca-switzerland-7ee315e0",
         "spontaner-ausbildungseinsatz-corner-banca-switzerland-dd885680",
         "apprentissage-spontane-corner-banca-switzerland"
       ],
       "fr": [
+        "apprentissage-spontane-corner-banca-switzerland",
         "apprentissage-spontane-corner-banca-switzerland-f00aa4ff",
         "initiativbewerbung-lehre-corner-banca-switzerland",
         "spontaner-ausbildungseinsatz-corner-banca-switzerland"
       ],
       "it": [
         "candidatura-spontanea-apprendistato-corner-banca-switzerland-a99e496b4f",
+        "candidatura-spontanea-apprendistato-corner-banca-switzerland-ef89de95",
         "initiativbewerbung-lehre-corner-banca-switzerland",
         "spontaner-ausbildungseinsatz-corner-banca-switzerland",
         "apprentissage-spontane-corner-banca-switzerland"
@@ -244,7 +330,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
-    "firstSeenAt": "2026-05-17T10:02:58.679Z"
+    "firstSeenAt": "2026-05-17T10:02:58.679Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.corner.ch/o/commercial-apprenticeship",
+        "firstSeenAt": "2026-05-17T10:02:58.679Z",
+        "title": "Candidatura spontanea apprendistato"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
+        "firstSeenAt": "2026-05-17T10:02:58.679Z",
+        "title": "Candidatura spontanea apprendistato"
+      }
+    ]
   },
   {
     "slug": "consulente-clientela-retail-attivita-di-cassa-ref-1135-corner-banca-lugano",
@@ -1873,57 +1971,6 @@
     "firstSeenAt": "2026-07-08T22:13:15.983Z"
   },
   {
-    "slug": "responsabile-del-caso-di-raccolta-legale-corner-banca-wallisellen-ed25e484",
-    "title": "Legal Collection case Manager",
-    "titleByLocale": {
-      "it": "Legal Collection caso Manager",
-      "en": "Legal Collection case Manager",
-      "de": "Fallmanager für Rechtssammlung",
-      "fr": "Gestionnaire de dossier de recouvrement juridique"
-    },
-    "company": "Cornèr Banca",
-    "companyKey": "corner-banca",
-    "location": "Wallisellen",
-    "addressLocality": "Wallisellen",
-    "descriptionByLocale": {
-      "it": "Siamo alla ricerca di uno specialista di Collezioni Legali motivato e orientato al dettaglio per unirsi al nostro team. Sarete responsabili della gestione del recupero del debito legale attività e supporto alle strategie di raccolta nell'ambito della Legge svizzera sull'esecuzione del debito e sulla corruzione (SchKG) e applicabile i prodotti finanziari e i regolamenti sulla finanza dei consumatori. Questo ruolo richiede una stretta collaborazione con gli stakeholder interni, i partner legali esterni e i debitori per massimizzare i risultati di recupero mantenendo un approccio professionale e orientato al cliente Cosa offriamo\n• Posizione permanente in un ambiente di lavoro dinamico e internazionale.\n• Competitivo stipendio e benefici pacchetto.\n• Posto di lavoro situato a Wallisellen (Zurich), con la possibilità di lavoro a distanza parziale (home office).\n• Programma di onboarding e formazione completo durante i primi tre mesi presso il nostro ufficio di Lugano.\n• Opportunità per la crescita e lo sviluppo professionale all'interno di un'organizzazione in crescita. Principali responsabilità\n• Gestire un portafoglio di account delinquenti e avviare, monitorare e seguire le procedure legali di recupero del debito.\n• Preparare, rivedere e elaborare la documentazione legale, mantenere i record di casi e monitorare i procedimenti legali in corso per garantire il follow-up tempestivo.\n• Liaise con debitori, rappresentanti legali, agenzie di riscossione del debito, tribunali e autorità pubbliche, e negoziare accordi di pagamento e accordi di regolamento, se del caso.\n• Valutare i casi di raccolta, raccomandare azioni legali appropriate e sostenere il raggiungimento degli obiettivi di recupero.\n• Collabora con i dipartimenti interni, incluso il Servizio Clienti e contribuisce al continuo miglioramento dei processi di raccolta e delle strategie di recupero.\n• Sono necessari almeno 3 anni di solida esperienza nella gestione della riscossione del debito all'interno del sistema giudiziario e di esecuzione svizzero (ritito legale).\n• Una forte comprensione delle procedure di esecuzione e di insolvenza del debito svizzero, unitamente alla familiarità con i prodotti finanziari e le norme di finanza dei consumatori, sarebbe un vantaggio.\n• Francese fluente (livello C1, scritto e parlato) e buone competenze italiane (livello B2, scritto e parlato). La conoscenza del tedesco è considerata un vantaggio.\n• Forte mentalità orientata all'obiettivo, capacità organizzative e capacità di problem solving.\n• La capacità di lavorare in modo indipendente è essenziale, pur mantenendo un forte spirito di squadra e una comunicazione eccellente con i colleghi della sede centrale mentre si lavora da un ufficio di ramo remoto.\n• Alta attenzione ai dettagli e impegno alla precisione.\n• La competenza in Microsoft Office e sistemi di gestione dei casi.\n• Diploma commerciale o qualifica equivalente (ad esempio, una laurea in diritto svizzero, scienze politiche o un campo correlato).",
-      "en": "We are looking for a motivated and detail-oriented Legal Collections Specialist to join our team. You will be responsible for managing legal debt recovery\n\nactivities and supporting collection strategies within the framework of the Swiss Debt Enforcement and Bankruptcy Act (SchKG) and applicable\n\nfinancial products and consumer finance regulations.\n\nThis role requires close collaboration with internal stakeholders, external legal partners, and debtors to maximize recovery outcomes while maintaining a professional and customer-focused approach\n\nWhat We Offer\n\n• Permanent position in a dynamic and international work environment.\n\n• Competitive salary and benefits package.\n\n• Workplace located in Wallisellen (Zurich), with the possibility of partial remote work (home office).\n\n• Comprehensive onboarding and training program during the first three months at our Lugano office.\n\n• Opportunities for professional growth and development within a growing organization.\n\nKey Responsibilities\n\n• Manage a portfolio of delinquent accounts and initiate, monitor, and follow up on legal debt recovery procedures.\n\n• Prepare, review, and process legal documentation, maintain accurate case records, and monitor ongoing legal proceedings to ensure timely follow-up.\n\n• Liaise with debtors, legal representatives, debt collection agencies, courts, and public authorities, and negotiate payment arrangements and settlement agreements where appropriate.\n\n• Evaluate collection cases, recommend appropriate legal actions, and support the achievement of recovery targets.\n\n• Collaborate with internal departments, including Customer Service, and contribute to the continuous improvement of collection processes and recovery strategies.\n\n• At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.\n\n• A strong understanding of Swiss debt enforcement and insolvency procedures, together with familiarity with financial products and consumer finance regulations, would be an advantage.\n\n• Fluent French (C1 level, written and spoken) and good Italian skills (B2 level, written and spoken). Knowledge of German is considered an advantage.\n\n• Strong goal-oriented mindset, organizational abilities, and problem-solving skills.\n\n• The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with colleagues at the head office while working from a remote branch office.\n\n• High attention to detail and commitment to accuracy.\n\n• Proficiency in Microsoft Office and case management systems.\n\n• Commercial diploma or equivalent qualification (e.g., a degree in Swiss law, political science, or a related field).",
-      "de": "Wir suchen einen motivierten und detailorientierten Legal Collections Specialist, der sich unserem Team anschließt. Sie werden für die Verwaltung der rechtlichen Schuldeneintreibung verantwortlich sein Aktivitäten und unterstützende Inkassostrategien im Rahmen des Schweizer Schuldner- und Konkursgesetzes (SchKG) und anwendbar Finanzprodukte und Verbraucherfinanzierungsvorschriften. Diese Rolle erfordert eine enge Zusammenarbeit mit internen Stakeholdern, externen Rechtspartnern und Schuldnern, um die Sanierungsergebnisse zu maximieren und gleichzeitig einen professionellen und kundenorientierten Ansatz beizubehalten. Was wir anbieten\n• Festanstellung in einem dynamischen und internationalen Arbeitsumfeld.\n• Wettbewerbsfähiges Gehalts- und Leistungspaket.\n• Arbeitsplatz in Wallisellen (Zürich), mit der Möglichkeit der teilweisen Remote-Arbeit (Home Office).\n• Umfassendes Onboarding- und Schulungsprogramm während der ersten drei Monate in unserem Büro in Lugano.\n• Möglichkeiten für professionelles Wachstum und Entwicklung innerhalb einer wachsenden Organisation. Hauptzuständigkeiten\n• Verwalten Sie ein Portfolio von delinquenten Konten und initiieren, überwachen und verfolgen Sie die rechtlichen Verfahren zur Beitreibung von Schulden.\n• Bereiten, überprüfen und verarbeiten Sie rechtliche Dokumentation, pflegen Sie genaue Fallaufzeichnungen und überwachen Sie laufende Gerichtsverfahren, um eine rechtzeitige Nachverfolgung zu gewährleisten.\n• Kontaktaufnahme mit Schuldnern, gesetzlichen Vertretern, Inkassobüros, Gerichten und Behörden sowie gegebenenfalls Verhandlungen über Zahlungsvereinbarungen und Vergleichsvereinbarungen.\n• Bewerten Sie Sammelfälle, empfehlen Sie geeignete rechtliche Schritte und unterstützen Sie die Erreichung der Wiederherstellungsziele.\n• Arbeiten Sie mit internen Abteilungen, einschließlich Kundenservice, zusammen und tragen Sie zur kontinuierlichen Verbesserung der Sammlungsprozesse und Wiederherstellungsstrategien bei.\n• Mindestens 3 Jahre solide Erfahrung im Inkassomanagement innerhalb des Schweizer Vollstreckungs- und Justizsystems (Inkasso) sind erforderlich.\n• Ein gutes Verständnis der Schweizer Schuldenvollstreckungs- und Insolvenzverfahren sowie die Vertrautheit mit Finanzprodukten und Verbraucherfinanzvorschriften wären von Vorteil.\n• Fließend Französisch (C1-Niveau, geschrieben und gesprochen) und gute Italienischkenntnisse (B2-Niveau, geschrieben und gesprochen). Deutschkenntnisse gelten als Vorteil.\n• Starke zielorientierte Denkweise, organisatorische Fähigkeiten und Problemlösungsfähigkeiten.\n• Die Fähigkeit, selbstständig zu arbeiten, ist unerlässlich, während gleichzeitig ein starker Teamgeist und eine hervorragende Kommunikation mit den Kollegen in der Zentrale von einer entfernten Niederlassung aus aufrechterhalten werden.\n• Hohe Liebe zum Detail und Verpflichtung zur Genauigkeit.\n• Kenntnisse in Microsoft Office und Case Management Systemen.\n• Handelsdiplom oder gleichwertige Qualifikation (z. B. ein Abschluss in Schweizer Recht, Politikwissenschaft oder einem verwandten Bereich).",
-      "fr": "Nous cherchons un spécialiste des collections juridiques motivé et axé sur les détails pour rejoindre notre équipe. Vous serez responsable de la gestion du recouvrement légal des créances des activités et des stratégies de recouvrement dans le cadre de la loi suisse sur l'exécution des dettes et la faillite (SchKG) et applicable réglementation des produits financiers et des finances des consommateurs. Ce rôle exige une collaboration étroite avec les intervenants internes, les partenaires juridiques externes et les débiteurs afin de maximiser les résultats en matière de recouvrement tout en maintenant une approche professionnelle axée sur le client Ce que nous offrons\n• Position permanente dans un environnement de travail dynamique et international.\n• Ensemble concurrentiel de salaires et d'avantages sociaux.\n• Lieu de travail situé à Wallisellen (Zurich), avec possibilité de travail à distance partiel (bureau à domicile).\n• Programme complet d'embarquement et de formation au cours des trois premiers mois à notre bureau de Lugano.\n• Possibilités de développement professionnel au sein d'une organisation en croissance. Principales responsabilités\n• Gérer un portefeuille de comptes délinquants et lancer, surveiller et suivre les procédures légales de recouvrement des créances.\n• Préparer, examiner et traiter les documents juridiques, tenir des dossiers exacts et surveiller les procédures judiciaires en cours afin d'assurer un suivi rapide.\n• Assurer la liaison avec les débiteurs, les représentants légaux, les organismes de recouvrement de la dette, les tribunaux et les autorités publiques, et négocier les modalités de paiement et les accords de règlement le cas échéant.\n• Évaluer les cas de recouvrement, recommander des mesures juridiques appropriées et appuyer la réalisation des objectifs de recouvrement.\n• Collaborer avec les ministères internes, y compris le Service à la clientèle, et contribuer à l'amélioration continue des processus de collecte et des stratégies de recouvrement.\n• Au moins 3 années d'expérience solide dans la gestion du recouvrement des créances au sein du système judiciaire et d'exécution suisse (recouvrement légal) sont nécessaires.\n• Une bonne compréhension des procédures suisses d'exécution de la dette et d'insolvabilité, ainsi que la connaissance des produits financiers et des règles de financement des consommateurs, seraient un avantage.\n• Le français fluent (niveau C1, écrit et parlé) et de bonnes compétences italiennes (niveau B2, écrit et parlé). La connaissance de l'allemand est considérée comme un avantage.\n• Forte capacité d'esprit, d'organisation et de résolution de problèmes.\n• La capacité de travailler de façon indépendante est essentielle, tout en maintenant un esprit d'équipe solide et une excellente communication avec les collègues du siège social tout en travaillant à partir d'une succursale éloignée.\n• Une grande attention aux détails et l'engagement à l'exactitude.\n• Compétence en Microsoft Office et systèmes de gestion de cas.\n• Diplôme commercial ou diplôme équivalent (par exemple, un diplôme en droit suisse, en sciences politiques ou dans un domaine connexe)."
-    },
-    "slugByLocale": {
-      "it": "responsabile-del-caso-di-raccolta-legale-corner-banca-wallisellen-ed25e484",
-      "en": "legal-collection-case-manager-corner-banca-wallisellen-f2792050",
-      "de": "fallmanager-fur-rechtssammlung-corner-banca-wallisellen-8814c756",
-      "fr": "gestionnaire-de-dossier-de-recouvrement-juridique-corner-banca-wallisellen-086096c5"
-    },
-    "sector": "",
-    "expiredAt": "2026-08-13T21:49:13.990Z",
-    "previousSlugsByLocale": {
-      "it": [
-        "legal-collection-case-manager-corner-banca-wallisellen-f2792050"
-      ],
-      "de": [
-        "legal-collection-case-manager-corner-banca-wallisellen"
-      ],
-      "fr": [
-        "legal-collection-case-manager-corner-banca-wallisellen"
-      ],
-      "en": [
-        "legal-collection-case-manager-corner-banca-wallisellen-f2792050"
-      ]
-    },
-    "salaryMin": 101500,
-    "salaryMax": 154000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.corner.ch/o/legal-collection-case-manager",
-    "firstSeenAt": "2026-07-08T22:13:15.982Z",
-    "previousSlugs": [
-      "legal-collection-case-manager-corner-banca-wallisellen"
-    ]
-  },
-  {
     "slug": "responsabile-del-caso-di-raccolta-legale-corner-banca-wallisellen-a2dc02d7",
     "title": "Legal Collection case Manager",
     "titleByLocale": {
@@ -1962,6 +2009,64 @@
       ],
       "fr": [
         "legal-collection-case-manager-corner-banca-wallisellen-d1be687a"
+      ]
+    },
+    "salaryMin": 101500,
+    "salaryMax": 154000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.corner.ch/o/legal-collection-case-manager",
+    "firstSeenAt": "2026-07-08T22:13:15.982Z"
+  },
+  {
+    "slug": "responsabile-del-caso-di-raccolta-legale-corner-banca-wallisellen-ed25e484",
+    "title": "Legal Collection case Manager",
+    "titleByLocale": {
+      "it": "Legal Collection caso Manager",
+      "en": "Legal Collection case Manager",
+      "de": "Fallmanager für Rechtssammlung",
+      "fr": "Gestionnaire de dossier de recouvrement juridique"
+    },
+    "company": "Cornèr Banca",
+    "companyKey": "corner-banca",
+    "location": "Wallisellen",
+    "addressLocality": "Wallisellen",
+    "descriptionByLocale": {
+      "it": "Siamo alla ricerca di uno specialista di Collezioni Legali motivato e orientato al dettaglio per unirsi al nostro team. Sarete responsabili della gestione del recupero del debito legale attività e supporto alle strategie di raccolta nell'ambito della Legge svizzera sull'esecuzione del debito e sulla corruzione (SchKG) e applicabile i prodotti finanziari e i regolamenti sulla finanza dei consumatori. Questo ruolo richiede una stretta collaborazione con gli stakeholder interni, i partner legali esterni e i debitori per massimizzare i risultati di recupero mantenendo un approccio professionale e orientato al cliente Cosa offriamo\n• Posizione permanente in un ambiente di lavoro dinamico e internazionale.\n• Competitivo stipendio e benefici pacchetto.\n• Posto di lavoro situato a Wallisellen (Zurich), con la possibilità di lavoro a distanza parziale (home office).\n• Programma di onboarding e formazione completo durante i primi tre mesi presso il nostro ufficio di Lugano.\n• Opportunità per la crescita e lo sviluppo professionale all'interno di un'organizzazione in crescita. Principali responsabilità\n• Gestire un portafoglio di account delinquenti e avviare, monitorare e seguire le procedure legali di recupero del debito.\n• Preparare, rivedere e elaborare la documentazione legale, mantenere i record di casi e monitorare i procedimenti legali in corso per garantire il follow-up tempestivo.\n• Liaise con debitori, rappresentanti legali, agenzie di riscossione del debito, tribunali e autorità pubbliche, e negoziare accordi di pagamento e accordi di regolamento, se del caso.\n• Valutare i casi di raccolta, raccomandare azioni legali appropriate e sostenere il raggiungimento degli obiettivi di recupero.\n• Collabora con i dipartimenti interni, incluso il Servizio Clienti e contribuisce al continuo miglioramento dei processi di raccolta e delle strategie di recupero.\n• Sono necessari almeno 3 anni di solida esperienza nella gestione della riscossione del debito all'interno del sistema giudiziario e di esecuzione svizzero (ritito legale).\n• Una forte comprensione delle procedure di esecuzione e di insolvenza del debito svizzero, unitamente alla familiarità con i prodotti finanziari e le norme di finanza dei consumatori, sarebbe un vantaggio.\n• Francese fluente (livello C1, scritto e parlato) e buone competenze italiane (livello B2, scritto e parlato). La conoscenza del tedesco è considerata un vantaggio.\n• Forte mentalità orientata all'obiettivo, capacità organizzative e capacità di problem solving.\n• La capacità di lavorare in modo indipendente è essenziale, pur mantenendo un forte spirito di squadra e una comunicazione eccellente con i colleghi della sede centrale mentre si lavora da un ufficio di ramo remoto.\n• Alta attenzione ai dettagli e impegno alla precisione.\n• La competenza in Microsoft Office e sistemi di gestione dei casi.\n• Diploma commerciale o qualifica equivalente (ad esempio, una laurea in diritto svizzero, scienze politiche o un campo correlato).",
+      "en": "We are looking for a motivated and detail-oriented Legal Collections Specialist to join our team. You will be responsible for managing legal debt recovery\n\nactivities and supporting collection strategies within the framework of the Swiss Debt Enforcement and Bankruptcy Act (SchKG) and applicable\n\nfinancial products and consumer finance regulations.\n\nThis role requires close collaboration with internal stakeholders, external legal partners, and debtors to maximize recovery outcomes while maintaining a professional and customer-focused approach\n\nWhat We Offer\n\n• Permanent position in a dynamic and international work environment.\n\n• Competitive salary and benefits package.\n\n• Workplace located in Wallisellen (Zurich), with the possibility of partial remote work (home office).\n\n• Comprehensive onboarding and training program during the first three months at our Lugano office.\n\n• Opportunities for professional growth and development within a growing organization.\n\nKey Responsibilities\n\n• Manage a portfolio of delinquent accounts and initiate, monitor, and follow up on legal debt recovery procedures.\n\n• Prepare, review, and process legal documentation, maintain accurate case records, and monitor ongoing legal proceedings to ensure timely follow-up.\n\n• Liaise with debtors, legal representatives, debt collection agencies, courts, and public authorities, and negotiate payment arrangements and settlement agreements where appropriate.\n\n• Evaluate collection cases, recommend appropriate legal actions, and support the achievement of recovery targets.\n\n• Collaborate with internal departments, including Customer Service, and contribute to the continuous improvement of collection processes and recovery strategies.\n\n• At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.\n\n• A strong understanding of Swiss debt enforcement and insolvency procedures, together with familiarity with financial products and consumer finance regulations, would be an advantage.\n\n• Fluent French (C1 level, written and spoken) and good Italian skills (B2 level, written and spoken). Knowledge of German is considered an advantage.\n\n• Strong goal-oriented mindset, organizational abilities, and problem-solving skills.\n\n• The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with colleagues at the head office while working from a remote branch office.\n\n• High attention to detail and commitment to accuracy.\n\n• Proficiency in Microsoft Office and case management systems.\n\n• Commercial diploma or equivalent qualification (e.g., a degree in Swiss law, political science, or a related field).",
+      "de": "Wir suchen einen motivierten und detailorientierten Legal Collections Specialist, der sich unserem Team anschließt. Sie werden für die Verwaltung der rechtlichen Schuldeneintreibung verantwortlich sein Aktivitäten und unterstützende Inkassostrategien im Rahmen des Schweizer Schuldner- und Konkursgesetzes (SchKG) und anwendbar Finanzprodukte und Verbraucherfinanzierungsvorschriften. Diese Rolle erfordert eine enge Zusammenarbeit mit internen Stakeholdern, externen Rechtspartnern und Schuldnern, um die Sanierungsergebnisse zu maximieren und gleichzeitig einen professionellen und kundenorientierten Ansatz beizubehalten. Was wir anbieten\n• Festanstellung in einem dynamischen und internationalen Arbeitsumfeld.\n• Wettbewerbsfähiges Gehalts- und Leistungspaket.\n• Arbeitsplatz in Wallisellen (Zürich), mit der Möglichkeit der teilweisen Remote-Arbeit (Home Office).\n• Umfassendes Onboarding- und Schulungsprogramm während der ersten drei Monate in unserem Büro in Lugano.\n• Möglichkeiten für professionelles Wachstum und Entwicklung innerhalb einer wachsenden Organisation. Hauptzuständigkeiten\n• Verwalten Sie ein Portfolio von delinquenten Konten und initiieren, überwachen und verfolgen Sie die rechtlichen Verfahren zur Beitreibung von Schulden.\n• Bereiten, überprüfen und verarbeiten Sie rechtliche Dokumentation, pflegen Sie genaue Fallaufzeichnungen und überwachen Sie laufende Gerichtsverfahren, um eine rechtzeitige Nachverfolgung zu gewährleisten.\n• Kontaktaufnahme mit Schuldnern, gesetzlichen Vertretern, Inkassobüros, Gerichten und Behörden sowie gegebenenfalls Verhandlungen über Zahlungsvereinbarungen und Vergleichsvereinbarungen.\n• Bewerten Sie Sammelfälle, empfehlen Sie geeignete rechtliche Schritte und unterstützen Sie die Erreichung der Wiederherstellungsziele.\n• Arbeiten Sie mit internen Abteilungen, einschließlich Kundenservice, zusammen und tragen Sie zur kontinuierlichen Verbesserung der Sammlungsprozesse und Wiederherstellungsstrategien bei.\n• Mindestens 3 Jahre solide Erfahrung im Inkassomanagement innerhalb des Schweizer Vollstreckungs- und Justizsystems (Inkasso) sind erforderlich.\n• Ein gutes Verständnis der Schweizer Schuldenvollstreckungs- und Insolvenzverfahren sowie die Vertrautheit mit Finanzprodukten und Verbraucherfinanzvorschriften wären von Vorteil.\n• Fließend Französisch (C1-Niveau, geschrieben und gesprochen) und gute Italienischkenntnisse (B2-Niveau, geschrieben und gesprochen). Deutschkenntnisse gelten als Vorteil.\n• Starke zielorientierte Denkweise, organisatorische Fähigkeiten und Problemlösungsfähigkeiten.\n• Die Fähigkeit, selbstständig zu arbeiten, ist unerlässlich, während gleichzeitig ein starker Teamgeist und eine hervorragende Kommunikation mit den Kollegen in der Zentrale von einer entfernten Niederlassung aus aufrechterhalten werden.\n• Hohe Liebe zum Detail und Verpflichtung zur Genauigkeit.\n• Kenntnisse in Microsoft Office und Case Management Systemen.\n• Handelsdiplom oder gleichwertige Qualifikation (z. B. ein Abschluss in Schweizer Recht, Politikwissenschaft oder einem verwandten Bereich).",
+      "fr": "Nous cherchons un spécialiste des collections juridiques motivé et axé sur les détails pour rejoindre notre équipe. Vous serez responsable de la gestion du recouvrement légal des créances des activités et des stratégies de recouvrement dans le cadre de la loi suisse sur l'exécution des dettes et la faillite (SchKG) et applicable réglementation des produits financiers et des finances des consommateurs. Ce rôle exige une collaboration étroite avec les intervenants internes, les partenaires juridiques externes et les débiteurs afin de maximiser les résultats en matière de recouvrement tout en maintenant une approche professionnelle axée sur le client Ce que nous offrons\n• Position permanente dans un environnement de travail dynamique et international.\n• Ensemble concurrentiel de salaires et d'avantages sociaux.\n• Lieu de travail situé à Wallisellen (Zurich), avec possibilité de travail à distance partiel (bureau à domicile).\n• Programme complet d'embarquement et de formation au cours des trois premiers mois à notre bureau de Lugano.\n• Possibilités de développement professionnel au sein d'une organisation en croissance. Principales responsabilités\n• Gérer un portefeuille de comptes délinquants et lancer, surveiller et suivre les procédures légales de recouvrement des créances.\n• Préparer, examiner et traiter les documents juridiques, tenir des dossiers exacts et surveiller les procédures judiciaires en cours afin d'assurer un suivi rapide.\n• Assurer la liaison avec les débiteurs, les représentants légaux, les organismes de recouvrement de la dette, les tribunaux et les autorités publiques, et négocier les modalités de paiement et les accords de règlement le cas échéant.\n• Évaluer les cas de recouvrement, recommander des mesures juridiques appropriées et appuyer la réalisation des objectifs de recouvrement.\n• Collaborer avec les ministères internes, y compris le Service à la clientèle, et contribuer à l'amélioration continue des processus de collecte et des stratégies de recouvrement.\n• Au moins 3 années d'expérience solide dans la gestion du recouvrement des créances au sein du système judiciaire et d'exécution suisse (recouvrement légal) sont nécessaires.\n• Une bonne compréhension des procédures suisses d'exécution de la dette et d'insolvabilité, ainsi que la connaissance des produits financiers et des règles de financement des consommateurs, seraient un avantage.\n• Le français fluent (niveau C1, écrit et parlé) et de bonnes compétences italiennes (niveau B2, écrit et parlé). La connaissance de l'allemand est considérée comme un avantage.\n• Forte capacité d'esprit, d'organisation et de résolution de problèmes.\n• La capacité de travailler de façon indépendante est essentielle, tout en maintenant un esprit d'équipe solide et une excellente communication avec les collègues du siège social tout en travaillant à partir d'une succursale éloignée.\n• Une grande attention aux détails et l'engagement à l'exactitude.\n• Compétence en Microsoft Office et systèmes de gestion de cas.\n• Diplôme commercial ou diplôme équivalent (par exemple, un diplôme en droit suisse, en sciences politiques ou dans un domaine connexe)."
+    },
+    "slugByLocale": {
+      "it": "responsabile-del-caso-di-raccolta-legale-corner-banca-wallisellen-ed25e484",
+      "en": "legal-collection-case-manager-corner-banca-wallisellen-f2792050",
+      "de": "fallmanager-fur-rechtssammlung-corner-banca-wallisellen-8814c756",
+      "fr": "gestionnaire-de-dossier-de-recouvrement-juridique-corner-banca-wallisellen-086096c5"
+    },
+    "sector": "",
+    "expiredAt": "2026-08-13T21:49:13.990Z",
+    "previousSlugs": [
+      "legal-collection-case-manager-corner-banca-wallisellen-f2792050",
+      "legal-collection-case-manager-corner-banca-wallisellen",
+      "responsabile-del-caso-di-raccolta-legale-corner-banca-wallisellen-ed25e484",
+      "fallmanager-fur-rechtssammlung-corner-banca-wallisellen-8814c756",
+      "gestionnaire-de-dossier-de-recouvrement-juridique-corner-banca-wallisellen-086096c5"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "legal-collection-case-manager-corner-banca-wallisellen-f2792050",
+        "responsabile-del-caso-di-raccolta-legale-corner-banca-wallisellen-ed25e484"
+      ],
+      "de": [
+        "legal-collection-case-manager-corner-banca-wallisellen",
+        "fallmanager-fur-rechtssammlung-corner-banca-wallisellen-8814c756"
+      ],
+      "fr": [
+        "legal-collection-case-manager-corner-banca-wallisellen",
+        "gestionnaire-de-dossier-de-recouvrement-juridique-corner-banca-wallisellen-086096c5"
+      ],
+      "en": [
+        "legal-collection-case-manager-corner-banca-wallisellen-f2792050"
       ]
     },
     "salaryMin": 101500,
@@ -2351,18 +2456,26 @@
     "previousSlugsByLocale": {
       "it": [
         "customer-advisor-40-corner-banca-wallisellen-5e2f7b3d",
-        "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen-38e79b1e"
+        "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen-38e79b1e",
+        "customer-consulente-40-corner-banca-wallisellen-9a714621",
+        "customer-advisor-40-corner-banca-wallisellen-bf1f4276",
+        "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen-3f0552a8"
       ],
       "en": [
         "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen-38e79b1e",
-        "customer-advisor-40-corner-banca-wallisellen-5e2f7b3d"
+        "customer-advisor-40-corner-banca-wallisellen-bf1f4276",
+        "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen-3f0552a8"
       ],
       "de": [
+        "customer-advisor-40-corner-banca-wallisellen-5e2f7b3d",
         "customer-advisor-40-corner-banca-wallisellen",
+        "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen-3f0552a8",
         "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen-38e79b1e"
       ],
       "fr": [
+        "customer-advisor-40-corner-banca-wallisellen-5e2f7b3d",
         "customer-advisor-40-corner-banca-wallisellen",
+        "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen-3f0552a8",
         "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen-38e79b1e"
       ]
     },
@@ -2371,7 +2484,12 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "previousSlugs": [
-      "customer-advisor-40-corner-banca-wallisellen"
+      "customer-advisor-40-corner-banca-wallisellen",
+      "customer-advisor-40-corner-banca-wallisellen-5e2f7b3d",
+      "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen-38e79b1e",
+      "customer-consulente-40-corner-banca-wallisellen-9a714621",
+      "customer-advisor-40-corner-banca-wallisellen-bf1f4276",
+      "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen-3f0552a8"
     ]
   },
   {

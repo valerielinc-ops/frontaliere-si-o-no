@@ -1398,7 +1398,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.ksgr.ch/offene-stellen/mitarbeiter-in-gastronomie/53414d9c-b996-4053-b1ab-332f88ce9566",
-    "firstSeenAt": "2026-10-03T09:23:27.856Z"
+    "firstSeenAt": "2026-10-02T09:23:16.253Z"
   },
   {
     "slug": "chirurgia-viscerale-del-direttore-di-stazione-kantonsspital-graubunden-chur",
@@ -1813,7 +1813,6 @@
     "previousSlugs": [
       "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur",
       "professionisti-professionisti-industria-alberghiera-kantonsspital-graubunden-chur",
-      "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-n4c2dy",
       "professionals-professionals-hotel-industry-kantonsspital-graubunden-chur",
       "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-12y522",
       "professionnels-professionnels-industrie-hoteliere-kantonsspital-graubunden-chur"
@@ -1842,7 +1841,6 @@
     "previousSlugsByLocale": {
       "it": [
         "professionisti-professionisti-industria-alberghiera-kantonsspital-graubunden-chur",
-        "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-n4c2dy",
         "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-12y522"
       ],
       "en": [
@@ -2231,8 +2229,7 @@
     ],
     "previousSlugsByLocale": {
       "de": [
-        "pflegefachkraft-akutgeriatrie-kantonsspital-graubunden-walenstadt",
-        "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-graubunden-walenstadt-1d3a6dd1"
+        "pflegefachkraft-akutgeriatrie-kantonsspital-graubunden-walenstadt"
       ],
       "it": [
         "pflegefachfrau-pflegefachmann-akutgeriatrie-kantonsspital-graubunden-walenstadt-1d3a6dd1",
@@ -2252,7 +2249,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.ksgr.ch/offene-stellen/pflegefachfrau-pflegefachmann-akutgeriatrie/9ec993c7-3f46-4f44-8f84-7d98adab00d7",
-    "firstSeenAt": "2026-04-13T21:59:17.590Z"
+    "firstSeenAt": "2026-04-13T21:59:17.590Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.ksgr.ch/offene-stellen/pflegefachfrau-pflegefachmann-akutgeriatrie/6ce45155-9997-43b5-b8fa-08e453e3474a",
+        "firstSeenAt": "2026-11-06T21:49:32.612Z",
+        "title": "Pflegefachfrau / Pflegefachmann Akutgeriatrie"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ksgr.ch/offene-stellen/pflegefachfrau-pflegefachmann-akutgeriatrie/9ec993c7-3f46-4f44-8f84-7d98adab00d7",
+        "firstSeenAt": "2026-04-13T21:59:17.590Z",
+        "title": "Pflegefachfrau / Pflegefachmann Akutgeriatrie"
+      }
+    ]
   },
   {
     "slug": "infermiere-a-medicina-interna-pool-infermieristico-kantonsspital-graubunden-chur",
@@ -2430,15 +2439,25 @@
     },
     "sector": "",
     "expiredAt": "2026-09-21T15:33:20.811Z",
+    "previousSlugs": [
+      "kinderphysiotherapeut-in-kantonsspital-graubunden-chur-67af44cc",
+      "kinderphysiotherapeut-in-kantonsspital-graubunden-chur",
+      "bambino-fisioterapista-kantonsspital-graubunden-chur-05c009d6",
+      "child-physiotherapist-kantonsspital-graubunden-chur-4b6ce496",
+      "physiotherapeute-pour-enfants-kantonsspital-graubunden-chur-ad7229e9"
+    ],
     "previousSlugsByLocale": {
       "it": [
-        "kinderphysiotherapeut-in-kantonsspital-graubunden-chur-67af44cc"
+        "kinderphysiotherapeut-in-kantonsspital-graubunden-chur-67af44cc",
+        "bambino-fisioterapista-kantonsspital-graubunden-chur-05c009d6"
       ],
       "en": [
-        "kinderphysiotherapeut-in-kantonsspital-graubunden-chur"
+        "kinderphysiotherapeut-in-kantonsspital-graubunden-chur",
+        "child-physiotherapist-kantonsspital-graubunden-chur-4b6ce496"
       ],
       "fr": [
-        "kinderphysiotherapeut-in-kantonsspital-graubunden-chur"
+        "kinderphysiotherapeut-in-kantonsspital-graubunden-chur",
+        "physiotherapeute-pour-enfants-kantonsspital-graubunden-chur-ad7229e9"
       ],
       "de": [
         "kinderphysiotherapeut-in-kantonsspital-graubunden-chur-67af44cc"
@@ -2451,9 +2470,54 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.ksgr.ch/offene-stellen/kinderphysiotherapeut-in/5655bd22-cb7f-4ac7-aa91-501e1b575012",
-    "firstSeenAt": "2026-06-24T22:21:49.663Z",
-    "previousSlugs": [
-      "kinderphysiotherapeut-in-kantonsspital-graubunden-chur"
+    "firstSeenAt": "2026-06-24T22:21:49.663Z"
+  },
+  {
+    "slug": "mitarbeiter-in-room-service-kantonsspital-graubunden-chur",
+    "title": "Mitarbeiter:in Room-Service",
+    "titleByLocale": {
+      "de": "Mitarbeiter:in Room-Service",
+      "it": "Servizio in camera",
+      "en": "Staff Room Service",
+      "fr": "Service des chambres du personnel"
+    },
+    "company": "Kantonsspital Graubünden",
+    "companyKey": "kantonsspital-graubuenden-ksgr",
+    "location": "Chur",
+    "addressLocality": "Chur",
+    "descriptionByLocale": {
+      "de": "Starte am 1. Januar 2027 oder nach Vereinbarung als\n\nAufgaben:\n• Du empfängst unsere Patientinnen und Patienten auf der Station und verwöhnst sie mit einem professionellen Mahlzeiten- und Getränkeservice\n\n• Du bist Ansprechperson bei Fragen rund um die Infrastruktur im Zimmer und sorgst für Sauberkeit rund ums Bett und die Wäscheversorgung im Zimmer\n\n• Du betreust Auszubildende der Berufe Fachfrau / Fachmann Gesundheit sowie Fachfrau / Fachmann Hotellerie/Hauswirtschaft\n\nAnforderungen:\n• Ausbildung als Servicefachfrau /Servicefachmann, Hotelfachfrau / Hotelfachmann, Restaurationsfachfrau / Restaurationsfachmann oder Fachfrau / Fachmann Hauswirtschaft\n\n• Gute EDV-Kenntnisse (Word, Outlook) und gute Deutschkenntnisse in Wort und Schrift\n\n• Erfahrung in der gehobenen Hotellerie sowie selbstständige Arbeitsweise und Ruhe in hektischen Situationen\n\n• Motivierte und freundliche Persönlichkeit mit gepflegten Umgangsformen und ausgeprägter Kundenorientierung\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
+      "it": "Iniziare il 1 gennaio 2027 o per accordo come\n\nCompiti:\n• Riceverai i nostri pazienti nel reparto e li coccolerai con un pasto professionale e un servizio di bevande\n\n• Siete la persona di contatto per domande circa l'infrastruttura in camera e garantire pulizia intorno al letto e lavanderia in camera\n\n• Ti stai occupando di apprendisti dello specialista professioni / professionisti della salute e specialista / industria alberghiera / pulizia\n\nRequisiti\n• Formazione come specialista del servizio, specialista dell'hotel, specialista del restauro o specialista / specialista della pulizia\n\n• Buone competenze informatiche (parola, Outlook) e buona conoscenza del tedesco in parole e scrittura\n\n• Esperienza nell'industria alberghiera e metodi di lavoro indipendenti e la pace della mente in situazioni frenetiche\n\n• Personalità motivata e amichevole con modi coltivati e pronunciato orientamento del cliente\n\nPuoi fare qualcosa che gli altri non possono?\nFai la differenza?\nAllora appartieni a noi!",
+      "en": "Start on January 1, 2027 or by arrangement as\n\nTasks:\n• You will receive our patients on the ward and pamper them with a professional meal and drink service\n\n• You are the contact person for questions about the infrastructure in the room and ensure cleanliness around the bed and laundry in the room\n\n• You are looking after apprentices of the professions specialist / health professional as well as specialist / hotel industry / housekeeping\n\nRequirements\n• Training as a service specialist, hotel specialist, restoration specialist or specialist / housekeeping specialist\n\n• Good computer skills (word, Outlook) and good knowledge of German in words and writing\n\n• Experience in the upscale hotel industry as well as independent working methods and peace of mind in hectic situations\n\n• Motivated and friendly personality with cultivated manners and pronounced customer orientation\n\nCan you do something that others can’t?\nYou make the difference?\nThen you belong to us!",
+      "fr": "Commencer le 1er janvier 2027 ou par arrangement\n\nTâches :\n• Vous recevrez nos patients dans le service et les choperez avec un service de repas et de boissons professionnels\n\n• Vous êtes la personne de contact pour les questions sur l'infrastructure dans la chambre et assurer la propreté autour du lit et la buanderie dans la chambre\n\n• Vous êtes à la recherche d'apprentis de la profession spécialiste / professionnel de la santé ainsi que spécialiste / hôtellerie / ménage\n\nExigences\n• Formation en tant que spécialiste des services, spécialiste de l'hôtellerie, spécialiste de la restauration ou spécialiste de l'entretien ménager\n\n• Bonnes compétences en informatique (mot, Outlook) et bonne connaissance de l'allemand en mots et en écriture\n\n• Expérience dans l'hôtellerie haut de gamme ainsi que des méthodes de travail indépendantes et la tranquillité d'esprit dans les situations mouvementées\n\n• Personnalité motivée et amicale avec des manières cultivées et une orientation client prononcée\n\nPouvez-vous faire quelque chose que les autres peuvent faire?\nTu fais la différence ?\nAlors tu nous appartiens !"
+    },
+    "slugByLocale": {
+      "de": "mitarbeiter-in-room-service-kantonsspital-graubunden-chur",
+      "it": "mitarbeiter-in-room-service-kantonsspital-graubunden-chur",
+      "en": "mitarbeiter-in-room-service-kantonsspital-graubunden-chur",
+      "fr": "mitarbeiter-in-room-service-kantonsspital-graubunden-chur"
+    },
+    "sector": "",
+    "expiredAt": "2026-09-19T23:04:40.184Z",
+    "postalCode": "7000",
+    "streetAddress": "Loëstrasse 170",
+    "salaryMin": 41080,
+    "salaryMax": 114000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.ksgr.ch/offene-stellen/mitarbeiter-in-room-service/ead2ec2e-af6c-48fa-8511-7d837b5a2811",
+    "firstSeenAt": "2026-09-19T23:04:40.184Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.ksgr.ch/offene-stellen/mitarbeiter-in-room-service/9c8c34ea-40dd-45a4-8a14-dc094b360251",
+        "firstSeenAt": "2026-11-16T09:21:39.073Z",
+        "title": "Mitarbeiter:in Room-Service"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.ksgr.ch/offene-stellen/mitarbeiter-in-room-service/ead2ec2e-af6c-48fa-8511-7d837b5a2811",
+        "firstSeenAt": "2026-09-19T23:04:40.184Z",
+        "title": "Mitarbeiter:in Room-Service"
+      }
     ]
   },
   {
@@ -2588,6 +2652,55 @@
     "salaryMax": 87000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "cuocere-cucinare-kantonsspital-graubunden-chur",
+    "title": "Köchin / Koch",
+    "titleByLocale": {
+      "de": "Köchin / Koch",
+      "it": "Cuocere / cucinare",
+      "en": "Cook / Cook",
+      "fr": "Cuisinière"
+    },
+    "company": "Kantonsspital Graubünden",
+    "companyKey": "kantonsspital-graubuenden-ksgr",
+    "location": "Chur",
+    "addressLocality": "Chur",
+    "descriptionByLocale": {
+      "de": "Starte am 1. September 2026 als\n\nAufgaben:\n• Du wirkst in unserer modernen Küche mit und übernimmst abwechslungsreiche Aufgaben rund um die Produktion und Fertigung schmackhafter Speisen – präzise, kreativ und mit hohem Qualitätsanspruch\n\n• Du setzt dich aktiv mit aktuellen Ernährungstrends auseinander und bringst neue Ideen ein\n\n• Du engagierst dich für eine attraktive Nachwuchsförderung und stärkst unser Team langfristig\n\nAnforderungen:\n• Eine abgeschlossene Ausbildung als Köchin / Koch EFZ\n\n• Erfahrung in der Zusammenarbeit in multikulturellen Teams auf unterschiedlichen Kompetenzebenen\n\n• Sicherheit im Umgang mit MS-Office-Applikationen und Erfahrung mit Systemen im Verpflegungsmanagement\n\n• Überzeugungskraft, Selbstorganisation und eine effiziente, kundenorientierte Arbeitsweise\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
+      "it": "Iniziare il 1 settembre 2026 come\n\nCompiti:\n• Si partecipa alla nostra cucina moderna e si occupa di varie attività per la produzione e la produzione di cibi gustosi – precisi, creativi e con elevati standard di qualità\n\n• Affronta attivamente le attuali tendenze nutrizionali e porta nuove idee\n\n• Siete impegnati a una promozione attraente di giovani talenti e rafforzare il nostro team a lungo termine\n\nRequisiti\n• Una formazione completa come cuoco / chef EFZ\n\n• Esperienza di lavoro in team multiculturali a diversi livelli di competenza\n\n• Sicurezza nel trattare le applicazioni MS-Office e l'esperienza con i sistemi di gestione della ristorazione\n\n• Persuasione, auto-organizzazione e un modo efficiente e orientato al cliente di lavorare\n\nPuoi fare qualcosa che gli altri non possono?\nFai la differenza?\nAllora appartieni a noi!",
+      "en": "Start on September 1, 2026 as\n\nTasks:\n• You participate in our modern kitchen and take on varied tasks around the production and production of tasty food – precise, creative and with high quality standards\n\n• You actively deal with current nutrition trends and bring new ideas\n\n• You are committed to an attractive promotion of young talent and strengthen our team in the long term\n\nRequirements\n• A completed training as a cook / chef EFZ\n\n• Experience working in multicultural teams at different levels of competence\n\n• Safety in dealing with MS-Office applications and experience with catering management systems\n\n• Persuasiveness, self-organization and an efficient, customer-oriented way of working\n\nCan you do something that others can’t?\nYou make the difference?\nThen you belong to us!",
+      "fr": "Commencer le 1er septembre 2026\n\nTâches :\n• Vous participez à notre cuisine moderne et assumez des tâches variées autour de la production et de la production d'aliments savoureux – précis, créatifs et de haute qualité\n\n• Vous traitez activement les tendances nutritionnelles actuelles et apportez de nouvelles idées\n\n• Vous êtes engagés dans une promotion attrayante des jeunes talents et renforcer notre équipe à long terme\n\nExigences\n• Une formation terminée comme cuisinier / chef EFZ\n\n• Expérience dans des équipes multiculturelles à différents niveaux de compétence\n\n• Sécurité dans le traitement des applications MS-Office et expérience des systèmes de gestion de la restauration\n\n• Persuasion, auto-organisation et une manière de travailler efficace et orientée vers le client\n\nPouvez-vous faire quelque chose que les autres peuvent faire?\nTu fais la différence ?\nAlors tu nous appartiens !"
+    },
+    "slugByLocale": {
+      "de": "kochin-koch-kantonsspital-graubunden-chur",
+      "it": "cuocere-cucinare-kantonsspital-graubunden-chur",
+      "en": "cook-cook-kantonsspital-graubunden-chur",
+      "fr": "cuisiniere-kantonsspital-graubunden-chur"
+    },
+    "sector": "",
+    "expiredAt": "2026-09-17T18:30:45.440Z",
+    "previousSlugs": [
+      "kochin-koch-kantonsspital-graubunden-chur"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "kochin-koch-kantonsspital-graubunden-chur"
+      ],
+      "en": [
+        "kochin-koch-kantonsspital-graubunden-chur"
+      ],
+      "fr": [
+        "kochin-koch-kantonsspital-graubunden-chur"
+      ]
+    },
+    "postalCode": "7000",
+    "streetAddress": "Loëstrasse 170",
+    "salaryMin": 41080,
+    "salaryMax": 87000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.ksgr.ch/offene-stellen/koechin-koch/e837c4ad-e7d9-44fd-b793-394d8b5e63d5"
   },
   {
     "slug": "salute-specialistica-efz-pneumology-kantonsspital-graubunden-chur",
@@ -3388,6 +3501,54 @@
     "salaryPeriod": "YEAR"
   },
   {
+    "slug": "specialista-in-cardiologia-nefrologia-kantonsspital-graubunden-chur-2683e9f3",
+    "title": "Fachfrau / Fachmann Gesundheit Kardiologie / Nephrologie",
+    "titleByLocale": {
+      "de": "Fachfrau / Fachmann Gesundheit Kardiologie / Nephrologie",
+      "it": "Specialista in Cardiologia / Nefrologia",
+      "en": "Healthcare Specialist in Cardiology / Nephrology",
+      "fr": "Spécialiste en Santé Cardiologie / Néphrologie"
+    },
+    "company": "Kantonsspital Graubünden",
+    "companyKey": "kantonsspital-graubuenden-ksgr",
+    "location": "Chur",
+    "addressLocality": "Chur",
+    "descriptionByLocale": {
+      "de": "Starte am 1. Juni 2026 oder nach Vereinbarung als \n• Aufgaben: - Du betreust und unterstützt unsere Patientinnen und Patienten bei den Aktivitäten des täglichen Lebens - Du führst angeordnete medizinisch-diagnostische sowie medizinisch-technische Massnahmen fachgerecht durch - Du übernimmst allgemeine sowie patientenbezogene administrative \n• Aufgaben und trägst zu einem reibungslosen Stationsablauf bei \n• Anforderungen: - Du verfügst über einen Abschluss als Fachfrau / Fachmann Gesundheit EFZ - Du hast Freude an der Pflege und Betreuung von Menschen und bringst echtes Interesse für ihre individuellen Bedürfnisse mit - Du bist teamfähig, motiviert und bereicherst unser Team mit deiner offenen, kooperativen Art Du kannst etwas, was andere nicht können? Du machst den Unterschied aus? Dann gehörst du zu uns!",
+      "it": "Inizia il 1° giugno 2026 o su accordo con Attività: - Assisti e supporta i nostri pazienti nelle attività quotidiane della vita - Esegui correttamente le procedure mediche diagnostiche e tecniche ordinate - Assumi compiti amministrativi generali e specifici per i pazienti, contribuendo a un flusso di lavoro stabile \n• Requisiti: - Possiedi un diploma di laurea in Specialista in Salute EFZ - Ti piace la cura e l'assistenza delle persone e hai un vero interesse per le loro esigenze individuali - Sei in grado di lavorare in squadra, motivato e arricchisci il nostro team con la tua natura aperta e collaborativa",
+      "en": "Start on June 1, 2026 or as agreed upon \n• Responsibilities: - You care for and support our patients in their daily activities of life - You carry out prescribed medical-diagnostic and medical-technical measures properly - You assume general and patient-specific administrative tasks and contribute to a smooth station flow \n• Requirements: - You hold a degree as a Healthcare Specialist EFZ - You enjoy nursing and caring for people and bring genuine interest in their individual needs - You are team-oriented, motivated, and enrich our team with your open, cooperative nature",
+      "fr": "Commence le 1er juin 2026 ou selon accord Responsabilités: - Vous prenez soin et supportez nos patients dans leurs activités quotidiennes - Vous effectuez correctement les mesures médicales diagnostiques et techniques prescrites - Vous assumez des tâches administratives générales et spécifiques aux patients, contribuant à un bon fonctionnement de la station \n• Exigences: - Vous possédez un diplôme de Spécialiste en Santé EFZ - Vous aimez la prise en charge et l'accompagnement des personnes et portez un véritable intérêt à leurs besoins individuels - Vous êtes à l'aise en équipe, motivé et enrichissez notre équipe avec votre nature ouverte et coopérative"
+    },
+    "slugByLocale": {
+      "de": "fachfrau-fachmann-gesundheit-kardiologie-nephrologie-kantonsspital-graubunden-chur-cf9f3920",
+      "it": "specialista-in-cardiologia-nefrologia-kantonsspital-graubunden-chur-2683e9f3",
+      "en": "healthcare-specialist-in-cardiology-nephrology-kantonsspital-graubunden-chur-f41d0d26",
+      "fr": "specialiste-en-sante-cardiologie-nephrologie-kantonsspital-graubunden-chur-6f9c9559"
+    },
+    "sector": "",
+    "expiredAt": "2026-05-19T22:46:01.073Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "fachfrau-fachmann-gesundheit-kardiologie-nephrologie-kantonsspital-graubunden-chur-cf9f3920"
+      ],
+      "en": [
+        "fachfrau-fachmann-gesundheit-kardiologie-nephrologie-kantonsspital-graubunden-chur-cf9f3920"
+      ],
+      "de": [
+        "fachfrau-fachmann-gesundheit-kardiologie-nephrologie-kantonsspital-graubunden-chur-cf9f3920"
+      ],
+      "fr": [
+        "fachfrau-fachmann-gesundheit-kardiologie-nephrologie-kantonsspital-graubunden-chur-cf9f3920"
+      ]
+    },
+    "postalCode": "7000",
+    "streetAddress": "Loëstrasse 170",
+    "salaryMin": 41080,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "specialista-in-cardiologia-nefrologia-kantonsspital-graubunden-chur-54514fe8",
     "title": "Fachfrau / Fachmann Gesundheit Kardiologie / Nephrologie",
     "titleByLocale": {
@@ -3419,9 +3580,6 @@
         "fachfrau-fachmann-gesundheit-kardiologie-nephrologie-kantonsspital-graubunden-chur-f2ddf786"
       ],
       "en": [
-        "fachfrau-fachmann-gesundheit-kardiologie-nephrologie-kantonsspital-graubunden-chur-f2ddf786"
-      ],
-      "de": [
         "fachfrau-fachmann-gesundheit-kardiologie-nephrologie-kantonsspital-graubunden-chur-f2ddf786"
       ],
       "fr": [
@@ -3469,11 +3627,56 @@
       "en": [
         "fachfrau-fachmann-betriebsunterhalt-kantonsspital-graubunden-chur-1f29fd30"
       ],
-      "de": [
-        "fachfrau-fachmann-betriebsunterhalt-kantonsspital-graubunden-chur-1f29fd30"
-      ],
       "fr": [
         "fachfrau-fachmann-betriebsunterhalt-kantonsspital-graubunden-chur-1f29fd30"
+      ]
+    },
+    "postalCode": "7000",
+    "streetAddress": "Loëstrasse 170",
+    "salaryMin": 41080,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "specialista-lavoratore-specializzato-kantonsspital-graubunden-chur-d8dd78d3",
+    "title": "Fachfrau / Fachmann Betriebsunterhalt",
+    "titleByLocale": {
+      "de": "Fachfrau / Fachmann Betriebsunterhalt",
+      "it": "Specialista / lavoratore specializzato",
+      "en": "Specialist / skilled worker",
+      "fr": "Spécialiste / travailleur qualifié"
+    },
+    "company": "Kantonsspital Graubünden",
+    "companyKey": "kantonsspital-graubuenden-ksgr",
+    "location": "Chur",
+    "addressLocality": "Chur",
+    "descriptionByLocale": {
+      "de": "## Descrizione\nStarte am 1. September 2026 oder nach Vereinbarung als\n\n## Aufgaben:\n- Du stellst die Betriebsbereitschaft der Einrichtung und Ausstattung in deinem Fachbereich sicher und sorgst dafür, dass alles zuverlässig funktioniert\n- Du planst, berätst und unterstützt bei Umzügen und Transporten von Mobiliar, Geräten und Materialien innerhalb des Spitals – effizient, sorgfältig und mit Überblick\n- Du stellst Mobiliar her und führst Reparaturen selbstständig aus, inklusive eigener Priorisierung und Organisation deiner Aufträge\n- Du arbeitest eng mit der Spitaltechnik, externen Handwerkern und Lieferanten zusammen und trägst so zu reibungslosen Abläufen und professionellen Lösungen bei\n- Du begleitest einfache wie auch komplexere Instandhaltungsarbeiten und Projekte, bei denen dein handwerkliches Geschick und deine technische Kompetenz gefragt sind\n\n## Anforderungen:\n- Du hast eine Ausbildung als Fachfrau / Fachmann Betriebsunterhalt EFZ (Hausdienst) oder eine vergleichbare handwerklich-technische Ausbildung, auf die man sich verlassen kann\n- Du bringst handwerkliches Geschick, technisches Verständnis und eine selbstständige Arbeitsweise mit – du packst an, findest Lösungen und übernimmst Verantwortung\n- Du bist körperlich belastbar und flexibel, behältst auch in hektischen Situationen den Überblick und lässt dich nicht so schnell aus der Ruhe bringen\n- Du arbeitest gerne im Team, bist dienstleistungsorientiert und kommunizierst klar, weil dir ein respektvolles Miteinander genauso wichtig ist wie gute Arbeit\n\n## Du kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
+      "it": "Descrizione Inizia il 1° Settembre 2026 o su appuntamento come ## Compiti: - Garantisci la prontezza operativa della struttura e dell'attrezzatura nel tuo settore specialistico e ti assicuri che tutto funzioni in modo affidabile - Pianifichi, consigli e supporti traslochi e trasporti di mobili, attrezzature e materiali all'interno dell'ospedale – in modo efficiente, accurato e con una visione d'insieme - Produci mobili ed esegui riparazioni in modo indipendente, inclusa la definizione delle priorità e l'organizzazione dei tuoi incarichi - Lavori a stretto contatto con la tecnologia ospedaliera, gli artigiani e i fornitori esterni, contribuendo così a processi fluidi e soluzioni professionali - Accompagni lavori di manutenzione semplici e complessi e progetti in cui sono richieste la tua abilità artigianale e la tua competenza tecnica ## \n• Requisiti: - Hai una formazione come tecnico/a Manutenzione aziendale AFC (servizio domestico) o una formazione tecnico-artigianale comparabile su cui puoi contare - Hai abilità artigianale, comprensione tecnica e un modo di lavorare indipendente – affronti, trovi soluzioni e ti assumi responsabilità - Sei fisicamente resistente e flessibile, tieni traccia anche in situazioni frenetiche e non ti lasci turbare così rapidamente - Lavori volentieri nel team, sei orientato al servizio e comunichi chiaramente, perché",
+      "en": "Descrizione Start on the 1st September 2026 or by appointment as ## tasks: - You ensure the operational readiness of the furnishings and equipment in your department and ensure that everything works reliably - You plan, advise and support the relocation and transport of furniture, equipment and materials within the hospital – efficiently, carefully and with an overview - You produce furniture and carry out repairs independently, including your own prioritisation and organisation of your orders - You work closely with hospital technology, external craftsmen and suppliers and thus contribute to smooth processes and professional solutions - You accompany simple as well as more complex maintenance work and projects that require your craftsmanship and technical competence ## \n• Requirements: - You have training as a specialist in operational maintenance EFZ (domestic service) or a comparable manual-technical training that you can rely on - You bring craftsmanship, technical understanding and an independent way of working – You tackle, find solutions and take responsibility - You are physically resilient and flexible, keep track even in hectic situations and do not let yourself get upset so quickly - You work like to work in a team, are service-oriented and communicate clearly because you have a",
+      "fr": "Descrizione Commence le 1er Septembre 2026 ou sur rendez-vous en tant que ## tâches : - Vous assurez la disponibilité opérationnelle de l'installation et de l'équipement dans votre domaine de spécialisation et vous vous assurez que tout fonctionne de manière fiable - Vous planifiez, conseillez et soutenez les déménagements et le transport du mobilier, des appareils et du matériel à l'intérieur de l'hôpital – de manière efficace, minutieuse et avec une vue d'ensemble - Vous fabriquez du mobilier et effectuez des réparations de manière indépendante, y compris la hiérarchisation et l'organisation de vos propres commandes - Vous travaillez en étroite collaboration avec la technologie hospitalière, des artisans et des fournisseurs externes et contribuez ainsi au bon fonctionnement et à des solutions professionnelles - Vous accompagnez des travaux de maintenance simples ou plus complexes et des projets qui requièrent votre savoir-faire et vos compétences techniques ## \n• Exigences : - Vous avez une formation en tant que spécialiste de l'entretien de l'entreprise CFC (service domestique) ou une formation technique et artisanale comparable sur laquelle vous pouvez compter - Vous apportez une habileté artisanale, une compréhension technique et une méthode de travail autonome – Vous vous engagez, trouvez des solutions et prenez des responsabilités - Vous êtes physiquement résilient et flexible, vous gardez une vue d'ensemble même dans des situations trépidantes et ne vous laissez pas décourager si rapidement - Vous travaillez vous aimez travailler en équipe, vous êtes orienté vers le service et vous communiquez clairement parce que vous"
+    },
+    "slugByLocale": {
+      "de": "fachfrau-fachmann-betriebsunterhalt-kantonsspital-graubunden-chur-19a8ab64",
+      "it": "specialista-lavoratore-specializzato-kantonsspital-graubunden-chur-d8dd78d3",
+      "en": "specialist-skilled-worker-kantonsspital-graubunden-chur-39427975",
+      "fr": "specialiste-travailleur-qualifie-kantonsspital-graubunden-chur-c0793eab"
+    },
+    "sector": "",
+    "expiredAt": "2026-05-19T22:46:01.073Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "fachfrau-fachmann-betriebsunterhalt-kantonsspital-graubunden-chur-19a8ab64"
+      ],
+      "en": [
+        "fachfrau-fachmann-betriebsunterhalt-kantonsspital-graubunden-chur-19a8ab64"
+      ],
+      "de": [
+        "fachfrau-fachmann-betriebsunterhalt-kantonsspital-graubunden-chur-19a8ab64"
+      ],
+      "fr": [
+        "fachfrau-fachmann-betriebsunterhalt-kantonsspital-graubunden-chur-19a8ab64"
       ]
     },
     "postalCode": "7000",
@@ -4208,6 +4411,70 @@
     "salaryPeriod": "YEAR"
   },
   {
+    "slug": "assistente-in-angiologia-kantonsspital-graubunden-chur-39da44b3",
+    "title": "Assistenzärztin / Assistenzarzt Angiologie",
+    "titleByLocale": {
+      "de": "Assistenzärztin / Assistenzarzt Angiologie",
+      "it": "Assistente in Angiologia",
+      "en": "Associate Physician in Angiology",
+      "fr": "Assistante en Angiologie"
+    },
+    "company": "Kantonsspital Graubünden",
+    "companyKey": "kantonsspital-graubuenden-ksgr",
+    "location": "Chur",
+    "addressLocality": "Chur",
+    "descriptionByLocale": {
+      "de": "Starte nach Vereinbarung als Aufgaben: - Du unterstützt Kaderärztinnen und Kaderärzte im klinischen Alltag und übernimmst mit zunehmender Erfahrung eigene Untersuchungen und Therapien unter Supervision - Du führst selbstständig angiologische Ultraschallabklärungen durch und entwickelst deine diagnostischen Fähigkeiten kontinuierlich weiter - Du profitierst von einem strukturierten Teaching durch erfahrene Fachärztinnen und Fachärzte für Angiologie, inklusive Expertise in interventionellen arteriellen und venösen Therapien Anforderungen: - Dein Ziel ist es, den Facharzttitel für Angiologie zu erlangen - Du hast bereits drei Jahre als Assistenzärztin bzw. Assistenzarzt in der Allgemeinen Inneren Medizin absolviert - Idealerweise verfügst du über klinische Erfahrung in der vaskulären Medizin und hast im besten Fall bereits Kenntnisse in abdomineller Sonographie, Echokardiographie oder Duplexsonographie - Deine empathische und offene Art ist eine Bereicherung für unser Team und für unsere Patientinnen und Patienten Du kannst etwas, was andere nicht können? Du machst den Unterschied aus? Dann gehörst du zu uns!",
+      "it": "Inizia dopo accordo come Attività: - Supporti gli specialisti in medicina interna e assumi con crescente esperienza proprie indagini e terapie sotto supervisione - Esegui autonomamente esami ultrasonografici angiologici e sviluppa continuamente le tue capacità diagnostiche - Benefici di un teaching strutturato da parte di esperti in angiologia, inclusa competenza in terapie interventistiche arteriali e venose Requisiti: - L'obiettivo è ottenere il titolo di specialista in angiologia - Hai già completato tre anni come assistente in medicina interna generale - Idealmente, hai esperienza clinica in medicina vascolare e, se possibile, conoscenze in sonografia addominale, ecocardiografia o duplex - La tua natura empatica e aperta è un arricchimento per il nostro team e i nostri pazienti Puoi fare qualcosa che altri non possono? Fai la differenza? Allora sei tu il nostro!",
+      "en": "Start after agreement as Responsibilities: - You support senior physicians in clinical practice and take on your own investigations and therapies with increasing experience under supervision - You perform angiological ultrasound examinations independently and continuously develop your diagnostic skills - You benefit from structured teaching by experienced specialists in angiology, including expertise in interventional arterial and venous therapies Requirements: - Your goal is to obtain the specialist title in angiology - You have already completed three years as an associate physician in general internal medicine - Ideally, you have clinical experience in vascular medicine and, if possible, already have knowledge in abdominal sonography, echocardiography, or duplex - Your empathetic and open nature is an enrichment for our team and our patients Can you do something others can't? Do you make the difference? Then you belong to us!",
+      "fr": "Commence après accord comme Responsabilités: - Vous supportez les médecins spécialistes en pratique clinique et assumez vos propres investigations et thérapies avec une expérience croissante sous supervision - Vous effectuez des examens d'échographie angiologique de manière autonome et développez continuellement vos compétences diagnostiques - Vous bénéficiez d'un enseignement structuré par des spécialistes expérimentés en angiologie, y compris des compétences en thérapies interventielles artérielles et veineuses Exigences: - Votre objectif est d'obtenir le titre de spécialiste en angiologie - Vous avez déjà complété trois ans en tant qu'assistant en médecine interne générale - Idéalement, vous avez une expérience clinique en médecine vasculaire et, si possible, des connaissances en échographie abdominale, échocardiographie ou duplex - Votre nature empathique et ouverte est un enrichissement pour notre équipe et nos patients Pouvez-vous faire quelque chose que les autres ne peuvent pas? Faites-vous la différence? Alors vous nous appartenez!"
+    },
+    "slugByLocale": {
+      "de": "assistenzarztin-assistenzarzt-angiologie-kantonsspital-graubunden-chur-1501e337",
+      "it": "assistente-in-angiologia-kantonsspital-graubunden-chur-39da44b3",
+      "en": "associate-physician-in-angiology-kantonsspital-graubunden-chur-b613256b",
+      "fr": "assistante-en-angiologie-kantonsspital-graubunden-chur-dc0e8ece"
+    },
+    "sector": "",
+    "expiredAt": "2026-04-22T21:58:29.199Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "assistenzarztin-assistenzarzt-angiologie-kantonsspital-graubunden-chur-1501e337",
+        "assistant-physician-angiology-kantonsspital-graubunden-chur-5251951d",
+        "capoclinica-capoclinica-angiologia-kantonsspital-graubunden-chur-4b778b3f",
+        "capoclinica-capoclinica-reumatologia-kantonsspital-graubunden-chur-7468066e"
+      ],
+      "en": [
+        "assistenzarztin-assistenzarzt-angiologie-kantonsspital-graubunden-chur-1501e337",
+        "assistant-physician-angiology-kantonsspital-graubunden-chur-5251951d",
+        "capoclinica-capoclinica-angiologia-kantonsspital-graubunden-chur-4b778b3f",
+        "capoclinica-capoclinica-reumatologia-kantonsspital-graubunden-chur-7468066e"
+      ],
+      "de": [
+        "assistant-physician-angiology-kantonsspital-graubunden-chur-5251951d",
+        "capoclinica-capoclinica-angiologia-kantonsspital-graubunden-chur-4b778b3f",
+        "capoclinica-capoclinica-reumatologia-kantonsspital-graubunden-chur-7468066e",
+        "assistenzarztin-assistenzarzt-angiologie-kantonsspital-graubunden-chur-1501e337"
+      ],
+      "fr": [
+        "assistenzarztin-assistenzarzt-angiologie-kantonsspital-graubunden-chur-1501e337",
+        "assistant-physician-angiology-kantonsspital-graubunden-chur-5251951d",
+        "capoclinica-capoclinica-angiologia-kantonsspital-graubunden-chur-4b778b3f",
+        "capoclinica-capoclinica-reumatologia-kantonsspital-graubunden-chur-7468066e"
+      ]
+    },
+    "postalCode": "7000",
+    "salaryMin": 41080,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "previousSlugs": [
+      "assistant-physician-angiology-kantonsspital-graubunden-chur-5251951d",
+      "capoclinica-capoclinica-angiologia-kantonsspital-graubunden-chur-4b778b3f",
+      "capoclinica-capoclinica-reumatologia-kantonsspital-graubunden-chur-7468066e"
+    ]
+  },
+  {
     "slug": "assistente-in-angiologia-kantonsspital-graubunden-chur-5802e73b",
     "title": "Assistenzärztin / Assistenzarzt Angiologie",
     "titleByLocale": {
@@ -4248,7 +4515,6 @@
         "capoclinica-capoclinica-reumatologia-kantonsspital-graubunden-chur-06a953d4"
       ],
       "de": [
-        "assistenzarztin-assistenzarzt-angiologie-kantonsspital-graubunden-chur-d79b0488",
         "assistant-physician-angiology-kantonsspital-graubunden-chur-7c3c9432",
         "capoclinica-capoclinica-angiologia-kantonsspital-graubunden-chur-1370eea0",
         "capoclinica-capoclinica-reumatologia-kantonsspital-graubunden-chur-06a953d4"
@@ -4440,7 +4706,7 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "primario-a-neurologia-stroke-medicine-kantonsspital-graubunden-chur-a16d7b49",
+    "slug": "primario-a-neurologia-stroke-medicine-kantonsspital-graubunden-chur-141b6cfb",
     "title": "Oberärztin / Oberarzt Neurologie / Stroke Medicine",
     "titleByLocale": {
       "de": "Oberärztin / Oberarzt Neurologie / Stroke Medicine",
@@ -4459,25 +4725,32 @@
       "fr": "Commencez à travailler avec nous à une date convenue comme Missions : - Prendre en charge des patients en ambulatoire et en hospitalisation, y compris à l’unité neurovasculaire (Stroke Unit) - Travailler de manière interdisciplinaire avec la médecine interne, les soins intensifs, les urgences et le service ambulatoire - Participer également dans des hôpitaux partenaires et soutenir les soins de santé régionaux Exigences : - Vous êtes médecin spécialiste en neurologie ou en passe de l’obtenir - Vous faites preuve d’esprit d’équipe et d’une capacité d’intégration dans un environnement interdisciplinaire - Vous avez un large intérêt clinique et, idéalement, des attestations de compétences en EEG, ENMG et/ou neurosonologie Vous savez faire ce que les autres ne savent pas ? Vous faites la différence ? Alors rejoignez-nous !"
     },
     "slugByLocale": {
-      "de": "oberarztin-oberarzt-neurologie-stroke-medicine-kantonsspital-graubunden-chur-6ad8dfba",
-      "it": "primario-a-neurologia-stroke-medicine-kantonsspital-graubunden-chur-a16d7b49",
-      "en": "senior-physician-neurology-stroke-medicine-kantonsspital-graubunden-chur-d06f1a98",
-      "fr": "medecin-chef-de-clinique-en-neurologie-medecine-des-avc-kantonsspital-graubunden-chur-e561ccc6"
+      "de": "oberarztin-oberarzt-neurologie-stroke-medicine-kantonsspital-graubunden-chur-d430a710",
+      "it": "primario-a-neurologia-stroke-medicine-kantonsspital-graubunden-chur-141b6cfb",
+      "en": "senior-physician-neurology-stroke-medicine-kantonsspital-graubunden-chur-f707cc12",
+      "fr": "medecin-chef-de-clinique-en-neurologie-medecine-des-avc-kantonsspital-graubunden-chur-69fb6c52"
     },
     "sector": "",
     "expiredAt": "2026-04-13T10:51:03.996Z",
     "previousSlugsByLocale": {
       "it": [
+        "oberarztin-oberarzt-neurologie-stroke-medicine-kantonsspital-graubunden-chur-d430a710",
+        "primario-a-neurologia-stroke-medicine-kantonsspital-graubunden-chur-a16d7b49",
         "oberarztin-oberarzt-neurologie-stroke-medicine-kantonsspital-graubunden-chur-6ad8dfba"
       ],
       "en": [
-        "oberarztin-oberarzt-neurologie-stroke-medicine-kantonsspital-graubunden-chur"
-      ],
-      "de": [
+        "oberarztin-oberarzt-neurologie-stroke-medicine-kantonsspital-graubunden-chur",
+        "senior-physician-neurology-stroke-medicine-kantonsspital-graubunden-chur-d06f1a98",
         "oberarztin-oberarzt-neurologie-stroke-medicine-kantonsspital-graubunden-chur-6ad8dfba"
       ],
+      "de": [
+        "oberarztin-oberarzt-neurologie-stroke-medicine-kantonsspital-graubunden-chur-6ad8dfba",
+        "oberarztin-oberarzt-neurologie-stroke-medicine-kantonsspital-graubunden-chur-d430a710"
+      ],
       "fr": [
-        "oberarztin-oberarzt-neurologie-stroke-medicine-kantonsspital-graubunden-chur"
+        "oberarztin-oberarzt-neurologie-stroke-medicine-kantonsspital-graubunden-chur",
+        "medecin-chef-de-clinique-en-neurologie-medecine-des-avc-kantonsspital-graubunden-chur-e561ccc6",
+        "oberarztin-oberarzt-neurologie-stroke-medicine-kantonsspital-graubunden-chur-6ad8dfba"
       ]
     },
     "postalCode": "7000",
@@ -4486,7 +4759,12 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "previousSlugs": [
-      "oberarztin-oberarzt-neurologie-stroke-medicine-kantonsspital-graubunden-chur"
+      "oberarztin-oberarzt-neurologie-stroke-medicine-kantonsspital-graubunden-chur",
+      "oberarztin-oberarzt-neurologie-stroke-medicine-kantonsspital-graubunden-chur-d430a710",
+      "primario-a-neurologia-stroke-medicine-kantonsspital-graubunden-chur-a16d7b49",
+      "oberarztin-oberarzt-neurologie-stroke-medicine-kantonsspital-graubunden-chur-6ad8dfba",
+      "senior-physician-neurology-stroke-medicine-kantonsspital-graubunden-chur-d06f1a98",
+      "medecin-chef-de-clinique-en-neurologie-medecine-des-avc-kantonsspital-graubunden-chur-e561ccc6"
     ]
   }
 ]

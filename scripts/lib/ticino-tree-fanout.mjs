@@ -238,9 +238,21 @@ async function writeStdout(chunk) {
   await once(process.stdout, 'drain');
 }
 
-async function mapPathStream(section = 'ticino') {
+async function mapPathStream(section = 'ticino', prefix = '') {
   const fannedSections = sectionTreeLayoutSectionsFromEnv();
   let pending = Buffer.alloc(0);
+
+  const mapRecord = (record) => {
+    const canonicalPath = record.toString('utf8');
+    if (!prefix) return sectionTreePhysicalPath(section, canonicalPath, fannedSections);
+    if (canonicalPath === prefix) return canonicalPath;
+    const scopePrefix = `${prefix}/`;
+    if (!canonicalPath.startsWith(scopePrefix)) {
+      throw new Error(`path ${canonicalPath} is outside mapping prefix ${prefix}`);
+    }
+    const relativePath = canonicalPath.slice(scopePrefix.length);
+    return `${scopePrefix}${sectionTreePhysicalPath(section, relativePath, fannedSections)}`;
+  };
 
   for await (const chunk of process.stdin) {
     const input = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
@@ -260,20 +272,20 @@ async function mapPathStream(section = 'ticino') {
         : Buffer.concat([pending, input.subarray(start, separator)]);
       pending = Buffer.alloc(0);
       if (record.length > 0) {
-        await writeStdout(`${sectionTreePhysicalPath(section, record.toString('utf8'), fannedSections)}\0`);
+        await writeStdout(`${mapRecord(record)}\0`);
       }
       start = separator + 1;
     }
   }
 
   if (pending.length > 0) {
-    await writeStdout(`${sectionTreePhysicalPath(section, pending.toString('utf8'), fannedSections)}\0`);
+    await writeStdout(`${mapRecord(pending)}\0`);
   }
 }
 
 if (isInvokedDirectly(import.meta.url)) {
   await (async () => {
-    const [command, firstArgument] = process.argv.slice(2);
+    const [command, firstArgument, secondArgument] = process.argv.slice(2);
     try {
       if (command === 'is-fanned') {
         if (!firstArgument) throw new Error('Usage: ticino-tree-fanout.mjs is-fanned <section>');
@@ -285,9 +297,9 @@ if (isInvokedDirectly(import.meta.url)) {
         }
         process.stdout.write(`${JSON.stringify({ moved: rewriteSectionTreeIndex(stage, section, prefix, targetLayout) })}\n`);
       } else if (command === 'map-paths') {
-        await mapPathStream(firstArgument || 'ticino');
+        await mapPathStream(firstArgument || 'ticino', secondArgument || '');
       } else if (!firstArgument || !['fanout', 'unfanout'].includes(command)) {
-        throw new Error('Usage: ticino-tree-fanout.mjs <fanout|unfanout> <section-root> | map-paths [section] | is-fanned <section> | index-layout <stage> <section> <prefix> <layout>');
+        throw new Error('Usage: ticino-tree-fanout.mjs <fanout|unfanout> <section-root> | map-paths [section] [prefix] | is-fanned <section> | index-layout <stage> <section> <prefix> <layout>');
       } else if (command === 'fanout') {
         fanoutTicinoTree(firstArgument);
       } else {

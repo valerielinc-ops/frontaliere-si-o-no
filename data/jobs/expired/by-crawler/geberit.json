@@ -1589,7 +1589,6 @@
         "apprendista-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona-d8e7b95b",
         "lernender-logistiker-a-lehrbeginn-2027-geberit-ch-6c24f03c",
         "apprendista-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona-205158e3",
-        "apprendista-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona-edb5481f",
         "lernender-logistiker-a-lehrbeginn-2027-geberit-ch",
         "apprendista-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona"
       ],
@@ -1901,7 +1900,6 @@
         "apprentice-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona-f6d4c5f9",
         "lernender-logistiker-a-lehrbeginn-2027-geberit-ch-6c24f03c",
         "apprentice-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona-1e8231da",
-        "apprentice-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona-3b4704db",
         "lernender-logistiker-a-lehrbeginn-2027-geberit-ch",
         "apprentice-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona"
       ],
@@ -2213,7 +2211,6 @@
         "apprenti-e-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona-91f034c3",
         "lernender-logistiker-a-lehrbeginn-2027-geberit-ch-6c24f03c",
         "apprenti-e-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona-a8f612ae",
-        "apprenti-e-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona-2f80dcfd",
         "lernender-logistiker-a-lehrbeginn-2027-geberit-ch",
         "apprenti-e-logistiker-a-lehrbeginn-2027-geberit-rapperswil-jona"
       ],
@@ -4012,22 +4009,30 @@
       "it": [
         "ingegnere-gps-a-al-100-geberit-rapperswil-jona-be644901",
         "gps-engineer-a-100-geberit-ch-80b502bc",
-        "ingenieur-gps-a-100-geberit-rapperswil-jona"
+        "ingenieur-gps-a-100-geberit-rapperswil-jona",
+        "gps-ingegnere-a-100-geberit-rapperswil-jona-8e9e6b6d",
+        "ingegnere-gps-a-al-100-geberit-rapperswil-jona-5d8b888d",
+        "gps-engineer-a-100-geberit-ch-1090ed50"
       ],
       "fr": [
         "ingenieur-gps-a-100-geberit-rapperswil-jona-0168b06e",
+        "gps-engineer-a-100-geberit-ch-80b502bc",
         "ingegnere-gps-a-al-100-geberit-rapperswil-jona",
-        "gps-engineer-a-100-geberit-ch"
+        "gps-engineer-a-100-geberit-ch",
+        "gps-ingenieur-a-100-geberit-rapperswil-jona-8d07dec4",
+        "ingenieur-gps-a-100-geberit-rapperswil-jona-c1ab65ff"
       ],
       "en": [
         "ingegnere-gps-a-al-100-geberit-rapperswil-jona",
-        "gps-engineer-a-100-geberit-ch-80b502bc",
-        "ingenieur-gps-a-100-geberit-rapperswil-jona"
+        "ingenieur-gps-a-100-geberit-rapperswil-jona",
+        "gps-engineer-a-100-geberit-ch-1090ed50",
+        "gps-engineer-a-100-geberit-ch-80b502bc"
       ],
       "de": [
         "ingegnere-gps-a-al-100-geberit-rapperswil-jona",
-        "gps-engineer-a-100-geberit-ch-80b502bc",
-        "ingenieur-gps-a-100-geberit-rapperswil-jona"
+        "ingenieur-gps-a-100-geberit-rapperswil-jona",
+        "gps-engineer-a-100-geberit-ch-1090ed50",
+        "gps-engineer-a-100-geberit-ch-80b502bc"
       ]
     },
     "postalCode": "8645",
@@ -4038,10 +4043,16 @@
     "salaryPeriod": "YEAR",
     "previousSlugs": [
       "ingegnere-gps-a-al-100-geberit-rapperswil-jona-be644901",
-      "ingenieur-gps-a-100-geberit-rapperswil-jona",
       "ingenieur-gps-a-100-geberit-rapperswil-jona-0168b06e",
+      "ingenieur-gps-a-100-geberit-rapperswil-jona",
       "ingegnere-gps-a-al-100-geberit-rapperswil-jona",
-      "gps-engineer-a-100-geberit-ch"
+      "gps-engineer-a-100-geberit-ch",
+      "gps-engineer-a-100-geberit-ch-80b502bc",
+      "gps-ingegnere-a-100-geberit-rapperswil-jona-8e9e6b6d",
+      "ingegnere-gps-a-al-100-geberit-rapperswil-jona-5d8b888d",
+      "gps-engineer-a-100-geberit-ch-1090ed50",
+      "gps-ingenieur-a-100-geberit-rapperswil-jona-8d07dec4",
+      "ingenieur-gps-a-100-geberit-rapperswil-jona-c1ab65ff"
     ]
   },
   {
@@ -4473,7 +4484,7 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "meccanica-lorda-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona-c1e28b7a",
+    "slug": "meccanica-lorda-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona-5fa853e3",
     "title": "Mechaniker Instandhaltung Grobmechanik (a) 100%",
     "titleByLocale": {
       "de": "Mechaniker Instandhaltung Grobmechanik (a) 100%",
@@ -4492,15 +4503,21 @@
       "fr": "## PRINCIPAUX TÂCHES\n\nDans votre rôle, vous êtes responsable de l'entretien, de la réparation et de l'entretien des usines de production et des machines. Vous vous occupez du fonctionnement fiable de l'approvisionnement en matières premières et des travaux d'entretien mécanique moteur bruts. Cela comprend notamment les activités suivantes:\n\n- Mise en œuvre de mesures d'entretien préventif pour assurer la disponibilité des installations\n- Analyse des défauts et dépannage des systèmes mécaniques, hydrauliques et pneumatiques\n- Transport de travaux d'entretien mécanique des machines, installations et équipements\n- Responsabilité de la lubrification, de l'huile et du graissage des machines et des unités selon les plans de lubrification et les spécifications du fabricant\n- Exécution de l'entretien préventif (par exemple rétractation, réglage, changement de composants mécaniques)\n\n## PROFIL\n\nVous apportez un diplôme de mécanicien de production EFZ, mécanicien industriel ou formation comparable et avez plusieurs années d'expérience professionnelle dans les domaines de l'entretien. De plus, les caractéristiques et les capacités suivantes vous distinguent :\n\n- Comprendre les relations mécaniques et les méthodes de travail robustes et tangibles\n- Expérience ou intérêt pour la technologie lubrifiante (huiles, graisses, plans de lubrification)\n- Connaissance approfondie de la mécanique, de l'hydraulique et des pneumatiques\n- Compétences analytiques et approche structurée\n- Gestion expérimentée des programmes MS-Office et de bonnes connaissances SAP\n- Le travail indépendant, un degré élevé de responsabilité personnelle et d'engagement\n- Esprit d'équipe et fiabilité\n- préparation pour environ 5 affectations de fin de semaine par an ainsi que 5 semaines de travail de nuit (21:00 – 05:00) et 5 semaines de travail en retard (12:00 – 20:30); Autres heures de travail en heures quotidiennes\n\n## NOTES SUPPLÉMENTAIRES\n\nPour cette position, nous ne considérons que les demandes directes."
     },
     "slugByLocale": {
-      "de": "mechaniker-instandhaltung-grobmechanik-a-100-geberit-ch-95c10bdf",
-      "it": "meccanica-lorda-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona-c1e28b7a",
-      "en": "mechanic-maintenance-gross-mechanics-a-100-geberit-rapperswil-jona-06750675",
-      "fr": "entretien-mecanique-mecanique-brute-a-100-geberit-rapperswil-jona-de20357e"
+      "de": "mechaniker-instandhaltung-grobmechanik-a-100-geberit-ch-71cc80c7",
+      "it": "meccanica-lorda-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona-5fa853e3",
+      "en": "mechanic-maintenance-gross-mechanics-a-100-geberit-rapperswil-jona-3cd79e70",
+      "fr": "entretien-mecanique-mecanique-brute-a-100-geberit-rapperswil-jona-e3326325"
     },
     "sector": "Industrial / Sanitary technology (manufacturing)",
     "expiredAt": "2026-06-29T22:42:42.983Z",
     "previousSlugsByLocale": {
       "en": [
+        "mecanicien-maintenance-mecanique-de-precision-a-100-geberit-rapperswil-jona-2294c358",
+        "meccanica-di-precisione-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona-b60569f4",
+        "meccanico-manutenzione-meccanica-di-precisione-a-100-geberit-rapperswil-jona-25438c33",
+        "mecanique-maintenance-mecanique-brute-a-100-geberit-rapperswil-jona",
+        "mecanicien-maintenance-mecanique-lourde-a-100-geberit-rapperswil-jona",
+        "mechanic-maintenance-gross-mechanics-a-100-geberit-rapperswil-jona-06750675",
         "mechanic-maintenance-rough-mechanics-a-100-geberit-rapperswil-jona-fa2e204c",
         "maintenance-mechanic-for-heavy-mechanical-work-a-100-geberit-rapperswil-jona-11b2e184",
         "mechaniker-instandhaltung-grobmechanik-a-100-geberit-ch-95c10bdf",
@@ -4515,10 +4532,25 @@
         "mecanicien-maintenance-mecanique-de-precision-a-100-geberit-rapperswil-jona-05d06b38",
         "meccanica-di-precisione-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona-26a6c367",
         "meccanico-manutenzione-meccanica-di-precisione-a-100-geberit-rapperswil-jona-46682221",
-        "mecanique-maintenance-mecanique-brute-a-100-geberit-rapperswil-jona",
-        "mecanicien-maintenance-mecanique-lourde-a-100-geberit-rapperswil-jona"
+        "mechanic-maintenance-rough-mechanics-a-100-geberit-rapperswil-jona-90bbd559",
+        "maintenance-mechanic-for-heavy-mechanical-work-a-100-geberit-rapperswil-jona-d470b321",
+        "mechaniker-instandhaltung-grobmechanik-a-100-geberit-ch-71cc80c7",
+        "manutenzione-meccanica-meccanica-grezza-a-100-geberit-rapperswil-jona-8f5936a6",
+        "meccanico-manutenzione-meccanica-generale-a-100-geberit-rapperswil-jona-91ce15ec",
+        "manutenzione-meccanica-meccanica-di-precisione-a-100-geberit-rapperswil-jona-22747d47",
+        "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch-86147a70",
+        "mechanic-maintenance-precision-mechanics-a-100-geberit-rapperswil-jona-56d83b3e",
+        "mecanique-de-precision-de-l-entretien-mecanique-a-100-geberit-rapperswil-jona-e9c6d880",
+        "maintenance-mechanic-precision-mechanics-a-100-geberit-rapperswil-jona-f3a461f2",
+        "mecanique-mecanique-de-precision-d-entretien-a-100-geberit-rapperswil-jona-2f1239cf"
       ],
       "fr": [
+        "mecanicien-maintenance-mecanique-de-precision-a-100-geberit-rapperswil-jona-2294c358",
+        "meccanica-di-precisione-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona-b60569f4",
+        "meccanico-manutenzione-meccanica-di-precisione-a-100-geberit-rapperswil-jona-25438c33",
+        "mechanic-maintenance-rough-mechanics-a-100-geberit-rapperswil-jona",
+        "maintenance-mechanic-for-heavy-mechanical-work-a-100-geberit-rapperswil-jona",
+        "entretien-mecanique-mecanique-brute-a-100-geberit-rapperswil-jona-de20357e",
         "mecanique-maintenance-mecanique-brute-a-100-geberit-rapperswil-jona-275bcec5",
         "mecanicien-maintenance-mecanique-lourde-a-100-geberit-rapperswil-jona-4dc44964",
         "mechaniker-instandhaltung-grobmechanik-a-100-geberit-ch-95c10bdf",
@@ -4533,10 +4565,27 @@
         "mecanicien-maintenance-mecanique-de-precision-a-100-geberit-rapperswil-jona-05d06b38",
         "meccanica-di-precisione-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona-26a6c367",
         "meccanico-manutenzione-meccanica-di-precisione-a-100-geberit-rapperswil-jona-46682221",
-        "mechanic-maintenance-rough-mechanics-a-100-geberit-rapperswil-jona",
-        "maintenance-mechanic-for-heavy-mechanical-work-a-100-geberit-rapperswil-jona"
+        "mecanique-maintenance-mecanique-brute-a-100-geberit-rapperswil-jona-11ce72ff",
+        "mecanicien-maintenance-mecanique-lourde-a-100-geberit-rapperswil-jona-e2fdce15",
+        "mechaniker-instandhaltung-grobmechanik-a-100-geberit-ch-71cc80c7",
+        "manutenzione-meccanica-meccanica-grezza-a-100-geberit-rapperswil-jona-8f5936a6",
+        "meccanico-manutenzione-meccanica-generale-a-100-geberit-rapperswil-jona-91ce15ec",
+        "manutenzione-meccanica-meccanica-di-precisione-a-100-geberit-rapperswil-jona-22747d47",
+        "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch-86147a70",
+        "mechanic-maintenance-precision-mechanics-a-100-geberit-rapperswil-jona-56d83b3e",
+        "mecanique-de-precision-de-l-entretien-mecanique-a-100-geberit-rapperswil-jona-e9c6d880",
+        "maintenance-mechanic-precision-mechanics-a-100-geberit-rapperswil-jona-f3a461f2",
+        "mecanique-mecanique-de-precision-d-entretien-a-100-geberit-rapperswil-jona-2f1239cf"
       ],
       "it": [
+        "mecanicien-maintenance-mecanique-de-precision-a-100-geberit-rapperswil-jona-2294c358",
+        "meccanica-di-precisione-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona-b60569f4",
+        "meccanico-manutenzione-meccanica-di-precisione-a-100-geberit-rapperswil-jona-25438c33",
+        "mechanic-maintenance-rough-mechanics-a-100-geberit-rapperswil-jona",
+        "maintenance-mechanic-for-heavy-mechanical-work-a-100-geberit-rapperswil-jona",
+        "mecanique-maintenance-mecanique-brute-a-100-geberit-rapperswil-jona",
+        "mecanicien-maintenance-mecanique-lourde-a-100-geberit-rapperswil-jona",
+        "meccanica-lorda-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona-c1e28b7a",
         "mechaniker-instandhaltung-grobmechanik-a-100-geberit-ch-95c10bdf",
         "manutenzione-meccanica-meccanica-grezza-a-100-geberit-rapperswil-jona-5251695b",
         "meccanico-manutenzione-meccanica-generale-a-100-geberit-rapperswil-jona-93c956d1",
@@ -4549,12 +4598,24 @@
         "mecanicien-maintenance-mecanique-de-precision-a-100-geberit-rapperswil-jona-05d06b38",
         "meccanica-di-precisione-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona-26a6c367",
         "meccanico-manutenzione-meccanica-di-precisione-a-100-geberit-rapperswil-jona-46682221",
-        "mechanic-maintenance-rough-mechanics-a-100-geberit-rapperswil-jona",
-        "maintenance-mechanic-for-heavy-mechanical-work-a-100-geberit-rapperswil-jona",
-        "mecanique-maintenance-mecanique-brute-a-100-geberit-rapperswil-jona",
-        "mecanicien-maintenance-mecanique-lourde-a-100-geberit-rapperswil-jona"
+        "mechaniker-instandhaltung-grobmechanik-a-100-geberit-ch-71cc80c7",
+        "manutenzione-meccanica-meccanica-grezza-a-100-geberit-rapperswil-jona-8f5936a6",
+        "meccanico-manutenzione-meccanica-generale-a-100-geberit-rapperswil-jona-91ce15ec",
+        "manutenzione-meccanica-meccanica-di-precisione-a-100-geberit-rapperswil-jona-22747d47",
+        "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch-86147a70",
+        "mechanic-maintenance-precision-mechanics-a-100-geberit-rapperswil-jona-56d83b3e",
+        "mecanique-de-precision-de-l-entretien-mecanique-a-100-geberit-rapperswil-jona-e9c6d880",
+        "maintenance-mechanic-precision-mechanics-a-100-geberit-rapperswil-jona-f3a461f2",
+        "mecanique-mecanique-de-precision-d-entretien-a-100-geberit-rapperswil-jona-2f1239cf"
       ],
       "de": [
+        "mecanicien-maintenance-mecanique-de-precision-a-100-geberit-rapperswil-jona-2294c358",
+        "meccanica-di-precisione-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona-b60569f4",
+        "meccanico-manutenzione-meccanica-di-precisione-a-100-geberit-rapperswil-jona-25438c33",
+        "mechanic-maintenance-rough-mechanics-a-100-geberit-rapperswil-jona",
+        "maintenance-mechanic-for-heavy-mechanical-work-a-100-geberit-rapperswil-jona",
+        "mecanique-maintenance-mecanique-brute-a-100-geberit-rapperswil-jona",
+        "mecanicien-maintenance-mecanique-lourde-a-100-geberit-rapperswil-jona",
         "mechaniker-instandhaltung-grobmechanik-a-100-geberit-ch-95c10bdf",
         "manutenzione-meccanica-meccanica-grezza-a-100-geberit-rapperswil-jona-5251695b",
         "meccanico-manutenzione-meccanica-generale-a-100-geberit-rapperswil-jona-93c956d1",
@@ -4567,10 +4628,15 @@
         "mecanicien-maintenance-mecanique-de-precision-a-100-geberit-rapperswil-jona-05d06b38",
         "meccanica-di-precisione-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona-26a6c367",
         "meccanico-manutenzione-meccanica-di-precisione-a-100-geberit-rapperswil-jona-46682221",
-        "mechanic-maintenance-rough-mechanics-a-100-geberit-rapperswil-jona",
-        "maintenance-mechanic-for-heavy-mechanical-work-a-100-geberit-rapperswil-jona",
-        "mecanique-maintenance-mecanique-brute-a-100-geberit-rapperswil-jona",
-        "mecanicien-maintenance-mecanique-lourde-a-100-geberit-rapperswil-jona"
+        "manutenzione-meccanica-meccanica-grezza-a-100-geberit-rapperswil-jona-8f5936a6",
+        "meccanico-manutenzione-meccanica-generale-a-100-geberit-rapperswil-jona-91ce15ec",
+        "manutenzione-meccanica-meccanica-di-precisione-a-100-geberit-rapperswil-jona-22747d47",
+        "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch-86147a70",
+        "mechanic-maintenance-precision-mechanics-a-100-geberit-rapperswil-jona-56d83b3e",
+        "mecanique-de-precision-de-l-entretien-mecanique-a-100-geberit-rapperswil-jona-e9c6d880",
+        "maintenance-mechanic-precision-mechanics-a-100-geberit-rapperswil-jona-f3a461f2",
+        "mecanique-mecanique-de-precision-d-entretien-a-100-geberit-rapperswil-jona-2f1239cf",
+        "mechaniker-instandhaltung-grobmechanik-a-100-geberit-ch-71cc80c7"
       ]
     },
     "postalCode": "8645",
@@ -4580,8 +4646,28 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "previousSlugs": [
-      "mechanic-maintenance-rough-mechanics-a-100-geberit-rapperswil-jona-fa2e204c",
-      "maintenance-mechanic-for-heavy-mechanical-work-a-100-geberit-rapperswil-jona-11b2e184",
+      "mechanic-maintenance-rough-mechanics-a-100-geberit-rapperswil-jona-90bbd559",
+      "maintenance-mechanic-for-heavy-mechanical-work-a-100-geberit-rapperswil-jona-d470b321",
+      "manutenzione-meccanica-meccanica-grezza-a-100-geberit-rapperswil-jona-8f5936a6",
+      "meccanico-manutenzione-meccanica-generale-a-100-geberit-rapperswil-jona-91ce15ec",
+      "manutenzione-meccanica-meccanica-di-precisione-a-100-geberit-rapperswil-jona-22747d47",
+      "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch-86147a70",
+      "mechanic-maintenance-precision-mechanics-a-100-geberit-rapperswil-jona-56d83b3e",
+      "mecanique-de-precision-de-l-entretien-mecanique-a-100-geberit-rapperswil-jona-e9c6d880",
+      "maintenance-mechanic-precision-mechanics-a-100-geberit-rapperswil-jona-f3a461f2",
+      "mecanique-mecanique-de-precision-d-entretien-a-100-geberit-rapperswil-jona-2f1239cf",
+      "mecanicien-maintenance-mecanique-de-precision-a-100-geberit-rapperswil-jona-2294c358",
+      "meccanica-di-precisione-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona-b60569f4",
+      "meccanico-manutenzione-meccanica-di-precisione-a-100-geberit-rapperswil-jona-25438c33",
+      "mecanique-maintenance-mecanique-brute-a-100-geberit-rapperswil-jona",
+      "mecanicien-maintenance-mecanique-lourde-a-100-geberit-rapperswil-jona",
+      "mecanique-maintenance-mecanique-brute-a-100-geberit-rapperswil-jona-11ce72ff",
+      "mecanicien-maintenance-mecanique-lourde-a-100-geberit-rapperswil-jona-e2fdce15",
+      "mechanic-maintenance-rough-mechanics-a-100-geberit-rapperswil-jona",
+      "maintenance-mechanic-for-heavy-mechanical-work-a-100-geberit-rapperswil-jona",
+      "mechaniker-instandhaltung-grobmechanik-a-100-geberit-ch-71cc80c7",
+      "meccanica-lorda-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona-c1e28b7a",
+      "mechaniker-instandhaltung-grobmechanik-a-100-geberit-ch-95c10bdf",
       "manutenzione-meccanica-meccanica-grezza-a-100-geberit-rapperswil-jona-5251695b",
       "meccanico-manutenzione-meccanica-generale-a-100-geberit-rapperswil-jona-93c956d1",
       "manutenzione-meccanica-meccanica-di-precisione-a-100-geberit-rapperswil-jona-3f3c72c8",
@@ -4593,12 +4679,12 @@
       "mecanicien-maintenance-mecanique-de-precision-a-100-geberit-rapperswil-jona-05d06b38",
       "meccanica-di-precisione-di-manutenzione-meccanica-a-100-geberit-rapperswil-jona-26a6c367",
       "meccanico-manutenzione-meccanica-di-precisione-a-100-geberit-rapperswil-jona-46682221",
-      "mecanique-maintenance-mecanique-brute-a-100-geberit-rapperswil-jona",
-      "mecanicien-maintenance-mecanique-lourde-a-100-geberit-rapperswil-jona",
+      "mechanic-maintenance-gross-mechanics-a-100-geberit-rapperswil-jona-06750675",
+      "mechanic-maintenance-rough-mechanics-a-100-geberit-rapperswil-jona-fa2e204c",
+      "maintenance-mechanic-for-heavy-mechanical-work-a-100-geberit-rapperswil-jona-11b2e184",
+      "entretien-mecanique-mecanique-brute-a-100-geberit-rapperswil-jona-de20357e",
       "mecanique-maintenance-mecanique-brute-a-100-geberit-rapperswil-jona-275bcec5",
-      "mecanicien-maintenance-mecanique-lourde-a-100-geberit-rapperswil-jona-4dc44964",
-      "mechanic-maintenance-rough-mechanics-a-100-geberit-rapperswil-jona",
-      "maintenance-mechanic-for-heavy-mechanical-work-a-100-geberit-rapperswil-jona"
+      "mecanicien-maintenance-mecanique-lourde-a-100-geberit-rapperswil-jona-4dc44964"
     ]
   },
   {

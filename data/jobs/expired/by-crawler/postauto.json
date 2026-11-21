@@ -197,7 +197,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://job.post.ch/default/job/postauto-chauffeurin/74661-de_de",
-    "firstSeenAt": "2026-08-31T17:30:53.245Z",
+    "firstSeenAt": "2026-08-18T21:57:55.549Z",
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://job.post.ch/default/job/postauto-chauffeurin/74549-de_de",
@@ -3936,13 +3936,11 @@
       "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
       "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-winterthur",
       "sicherheitsspezialist-in-offentlicher-verkehr-post",
-      "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur",
       "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
     ],
     "previousSlugsByLocale": {
       "de": [
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
-        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen-95ae3855",
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
       ],
       "it": [
@@ -3951,7 +3949,6 @@
         "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur",
         "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
         "sicherheitsspezialist-in-offentlicher-verkehr-post",
-        "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur",
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen-95ae3855"
       ],
       "en": [
@@ -3970,7 +3967,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://job.post.ch/default/job/sicherheitsspezialistin-%c3%96ffentlicher-verkehr/74240-de_de",
-    "firstSeenAt": "2026-08-03T22:23:06.691Z"
+    "firstSeenAt": "2026-08-03T22:23:06.691Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/sicherheitsspezialistin-%c3%96ffentlicher-verkehr/74239-de_de",
+        "firstSeenAt": "2026-08-03T22:23:09.325Z",
+        "title": "Sicherheitsspezialist:in Öffentlicher Verkehr"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/sicherheitsspezialistin-%c3%96ffentlicher-verkehr/74240-de_de",
+        "firstSeenAt": "2026-08-03T22:23:06.691Z",
+        "title": "Sicherheitsspezialist:in Öffentlicher Verkehr"
+      },
+      {
+        "sourceIdentity": "url:https://job.post.ch/default/job/sicherheitsspezialistin-%c3%96ffentlicher-verkehr/75095-de_de",
+        "firstSeenAt": "2026-10-27T09:58:02.143Z",
+        "title": "Sicherheitsspezialist:in Öffentlicher Verkehr"
+      }
+    ]
   },
   {
     "slug": "responsable-d-equipe-personnel-de-conduite-gland-post",

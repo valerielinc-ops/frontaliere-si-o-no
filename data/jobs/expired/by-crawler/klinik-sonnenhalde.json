@@ -38,7 +38,6 @@
       "it": [
         "dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen-2941a679",
         "dipl-cura-professionale-hf-fh-klinik-sonnenhalde-riehen-4e16f96a93",
-        "dipl-cura-professionale-hf-fh-klinik-sonnenhalde-riehen-534ac79b",
         "dipl-care-professional-hf-fh-klinik-sonnenhalde-riehen",
         "dipl-soins-professionnels-hf-fh-klinik-sonnenhalde-riehen",
         "dipl-cura-professionale-hf-fh-klinik-sonnenhalde-riehen",
@@ -46,7 +45,6 @@
       ],
       "en": [
         "dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen-2941a679",
-        "dipl-care-professional-hf-fh-klinik-sonnenhalde-riehen-61193e79",
         "dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen",
         "dipl-cura-professionale-hf-fh-klinik-sonnenhalde-riehen",
         "dipl-soins-professionnels-hf-fh-klinik-sonnenhalde-riehen",
@@ -54,7 +52,6 @@
       ],
       "fr": [
         "dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen-2941a679",
-        "dipl-soins-professionnels-hf-fh-klinik-sonnenhalde-riehen-f06cac82",
         "dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen",
         "dipl-cura-professionale-hf-fh-klinik-sonnenhalde-riehen",
         "dipl-care-professional-hf-fh-klinik-sonnenhalde-riehen",
@@ -74,7 +71,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/412/description/1",
-    "firstSeenAt": "2026-09-09T14:02:44.100Z"
+    "firstSeenAt": "2026-06-04T12:36:43.883Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/396/description/1",
+        "firstSeenAt": "2026-06-04T12:36:43.883Z",
+        "title": "Dipl. Pflegefachperson HF/FH"
+      },
+      {
+        "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/412/description/1",
+        "firstSeenAt": "2026-06-04T12:36:43.883Z",
+        "title": "Dipl. Pflegefachperson HF / FH"
+      },
+      {
+        "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/424/description/1",
+        "firstSeenAt": "2026-09-09T14:02:44.100Z",
+        "title": "Dipl. Pflegefachperson HF / FH"
+      }
+    ]
   },
   {
     "slug": "dipl-professionista-hf-fh-mh-klinik-sonnenhalde-riehen",
