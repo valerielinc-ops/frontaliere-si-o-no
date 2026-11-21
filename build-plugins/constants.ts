@@ -809,8 +809,10 @@ const POSTHOG_LOCAL_HOST_GATE_FN = `function(){var h=String(window.location&&win
  * `$exception_values`/`$exception_list` message text and drops the event on
  * a BENIGN_MESSAGES match, then falls back to a resolved-stack-frame check
  * that drops exceptions whose ENTIRE stack lives in a known third-party
- * script origin (THIRD_PARTY_STACK_ORIGINS). Wrapped in try/catch to fail
- * OPEN — a filter bug must never break PostHog init or hide a real error.
+ * script origin (THIRD_PARTY_STACK_ORIGINS); ownership-neutral native frames
+ * are ignored only when at least one known third-party origin remains. Wrapped
+ * in try/catch to fail OPEN — a filter bug must never break PostHog init or
+ * hide a real error.
  * The #8773 Google-iOS injected recursion guard is generated from the same
  * message, user-agent and first-party-asset patterns as the SPA filter.
  * The quota wrapper below samples complete sessions at the same deterministic

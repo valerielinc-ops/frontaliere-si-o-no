@@ -75,7 +75,8 @@ export const THIRD_PARTY_STACK_ORIGINS: readonly RegExp[] = [
   // securepubads.g.doubleclick.net frames; no first-party fix is possible.
   /^https:\/\/securepubads\.g\.doubleclick\.net\//i,
   // Google Funding Choices CMP — #19705.
-  // The live sample is a RangeError whose resolved frames are Funding Choices
+  // The reported PostHog sample is a RangeError whose resolved frames are
+  // Funding Choices
   // runtime URLs interleaved with `[native code]`; the recursion is inside the
   // vendor CMP, not the page. Keep the origin check narrow and fail open for
   // any first-party frame.
