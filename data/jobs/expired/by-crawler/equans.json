@@ -8303,14 +8303,15 @@
     "slugByLocale": {
       "it": "tecnica-r-housekeeper-in-equans-switzerland-chur-f1c04ed8",
       "en": "technical-r-housekeeper-in-equans-switzerland-chur",
-      "de": "technische-r-hauswart-in-equans-chur",
+      "de": "technische-r-hauswart-in-equans-chur-37fe5d00",
       "fr": "technique-equans-switzerland-chur"
     },
     "sector": "Facility Management / Impiantistica",
     "expiredAt": "2026-10-25T09:13:22.453Z",
     "previousSlugs": [
       "technicien-de-maintenance-des-batiments-equans-switzerland-chur",
-      "technische-r-hauswart-in-equans-chur-37fe5d00"
+      "technische-r-hauswart-in-equans-chur-37fe5d00",
+      "technische-r-hauswart-in-equans-chur"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -26747,7 +26748,6 @@
       "fiocco-automatico-equans-switzerland-brig",
       "automatic-fitter-equans-switzerland-brig",
       "automatikmonteur-in-equans-brig",
-      "automatikmonteur-in-equans-switzerland-brig",
       "monteur-automatique-equans-switzerland-brig",
       "monteur-automatique-equans-switzerland-brig-459a24",
       "automatikmonteur-in-equans-switzerland-brig-glis",
@@ -26755,7 +26755,9 @@
       "filettatura-automatica-equans-switzerland-brig",
       "automatic-fitter-equans-switzerland-brig-292438",
       "automatikmonteur-in-equans-brig-glis",
-      "automatikmonteur-in-equans-brig-glis-af1c3a42"
+      "automatikmonteur-in-equans-brig-glis-af1c3a42",
+      "automatikmonteur-in-equans-switzerland-brig",
+      "automatikmonteur-in-equans-switzerland-brig-63dd43ae"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -26778,15 +26780,17 @@
         "automatikmonteur-in-equans-brig-glis"
       ],
       "de": [
-        "automatikmonteur-in-equans-brig"
+        "automatikmonteur-in-equans-brig",
+        "automatikmonteur-in-equans-switzerland-brig"
       ],
       "fr": [
-        "automatikmonteur-in-equans-switzerland-brig",
+        "automatikmonteur-in-equans-switzerland-brig-63dd43ae",
         "automatikmonteur-in-equans-brig-glis-af1c3a42",
         "automatikmonteur-in-equans-switzerland-brig-glis",
         "monteur-automatique-equans-switzerland-brig",
         "monteur-automatique-equans-switzerland-brig-459a24",
-        "automatikmonteur-in-equans-brig-glis"
+        "automatikmonteur-in-equans-brig-glis",
+        "automatikmonteur-in-equans-switzerland-brig"
       ]
     },
     "postalCode": "3902",
