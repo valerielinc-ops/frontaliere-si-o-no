@@ -677,7 +677,7 @@ jobs:
           SKIP_AI_TRANSLATION: "1"
         run: |
           before="$(git rev-parse HEAD)"
-          bash scripts/lib/git-commit-data.sh --extra-only "🌐 Auto-translate pending jobs (Argos bulk)" data/jobs/by-crawler/ data/translation-cache/ data/local-mt-negative-cache.json data/translation-title-fix-attempts.json
+          bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs (Argos bulk)" data/jobs/by-crawler/ data/translation-cache/ data/local-mt-negative-cache.json data/translation-title-fix-attempts.json
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
       - name: "Phase 2 pre: Flag locale-mismatched job descriptions"
@@ -797,7 +797,7 @@ jobs:
           SKIP_AI_TRANSLATION: "1"
         run: |
           before="$(git rev-parse HEAD)"
-          bash scripts/lib/git-commit-data.sh --extra-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/translation-cache/ data/local-mt-negative-cache.json data/jobs-crawler-config.json data/slug-registry.json data/translation-stats-history.json data/cascade-company-skip.json
+          bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/translation-cache/ data/local-mt-negative-cache.json data/jobs-crawler-config.json data/slug-registry.json data/translation-stats-history.json data/cascade-company-skip.json
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
       - name: Gate Phase 2d/2e repair lanes on remaining run budget
@@ -826,7 +826,7 @@ jobs:
           SKIP_AI_TRANSLATION: "1"
         run: |
           before="$(git rev-parse HEAD)"
-          bash scripts/lib/git-commit-data.sh --extra-only "🔤 Fix untranslated titles (free cascade)" data/jobs/by-crawler/ data/translation-cache/ data/translation-title-fix-attempts.json
+          bash scripts/lib/git-commit-data.sh --slice-only "🔤 Fix untranslated titles (free cascade)" data/jobs/by-crawler/ data/translation-cache/ data/translation-title-fix-attempts.json
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
       - name: "Phase 2e: Fix untranslated descriptions (free cascade)"
@@ -851,7 +851,7 @@ jobs:
           SKIP_AI_TRANSLATION: "1"
         run: |
           before="$(git rev-parse HEAD)"
-          bash scripts/lib/git-commit-data.sh --extra-only "📝 Fix untranslated descriptions (free cascade)" data/jobs/by-crawler/
+          bash scripts/lib/git-commit-data.sh --slice-only "📝 Fix untranslated descriptions (free cascade)" data/jobs/by-crawler/
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
       - name: Cleanup Codex auth broker
@@ -1036,7 +1036,7 @@ jobs:
         if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         env:
           SKIP_AI_TRANSLATION: "1"
-        run: bash scripts/lib/git-commit-data.sh --extra-only "🔗 Regenerate locale slugs (post-translation)" data/jobs/by-crawler/
+        run: bash scripts/lib/git-commit-data.sh --slice-only "🔗 Regenerate locale slugs (post-translation)" data/jobs/by-crawler/
       - name: Save per-company translation cache
         if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         continue-on-error: true
