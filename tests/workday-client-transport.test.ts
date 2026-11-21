@@ -18,6 +18,7 @@ import {
   fetchWorkdayJobDetail,
   fetchWorkdayJsonWithRetry,
   fetchWorkdayJobs,
+  resetWorkdayImplicitRateLimitStateForTests,
   WorkdayApiError,
   WorkdayRateLimitError,
 } from '../scripts/lib/ats-clients/workday-client.mjs';
@@ -44,6 +45,7 @@ function browserTransport(body: unknown) {
 }
 
 afterEach(() => {
+  resetWorkdayImplicitRateLimitStateForTests();
   vi.unstubAllGlobals();
   vi.unstubAllEnvs();
   launchStealthOrChromiumMock.mockReset();
@@ -63,6 +65,7 @@ describe('Workday JSON transport', () => {
       method: 'POST',
       body: '{}',
       browserFallback: null,
+      fallbackCooldownMs: 0,
     });
 
     expect(data).toEqual({ total: 1, jobPostings: [] });
@@ -163,13 +166,64 @@ describe('Workday JSON transport', () => {
     });
     vi.stubGlobal('fetch', directFetch);
 
-    const detail = await fetchWorkdayJobDetail(API_BASE, '/job/Zurich/Swiss_R1', {
+    await expect(fetchWorkdayJobDetail(API_BASE, '/job/Zurich/Swiss_R1', {
       browserFallback,
-    });
-
-    expect(detail).toBeNull();
+      fallbackCooldownMs: 0,
+    })).rejects.toBeInstanceOf(WorkdayRateLimitError);
     expect(directFetch).toHaveBeenCalledTimes(2);
     expect(browserFallback).not.toHaveBeenCalled();
+  });
+
+  it('fails a no-context listing instead of returning a partial board after a later-page 429', async () => {
+    const directFetch = vi.fn(async (_url: string, options: RequestInit) => {
+      const offset = JSON.parse(String(options.body)).offset;
+      if (offset === 0) {
+        return new Response(JSON.stringify({
+          total: 2,
+          jobPostings: [{ title: 'First role', externalPath: '/job/Zurich/First_R1' }],
+        }), { status: 200 });
+      }
+      return new Response('', { status: 429 });
+    });
+    vi.stubGlobal('fetch', directFetch);
+    const iterator = fetchWorkdayJobs(API_BASE, {
+      pageSize: 1,
+      minDelayMs: 0,
+      browserFallback: null,
+      fallbackCooldownMs: 0,
+    });
+
+    await expect(iterator.next()).resolves.toMatchObject({
+      done: false,
+      value: { title: 'First role' },
+    });
+    await expect(iterator.next()).rejects.toBeInstanceOf(WorkdayRateLimitError);
+    expect(directFetch).toHaveBeenCalledTimes(3);
+  });
+
+  it('shares a no-context Retry-After cooldown across successive tenant requests', async () => {
+    vi.useFakeTimers();
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
+    const directFetch = vi.fn()
+      .mockResolvedValueOnce(new Response('', { status: 429, headers: { 'Retry-After': '5' } }))
+      .mockResolvedValueOnce(new Response(JSON.stringify({ recovered: true }), { status: 200 }));
+    vi.stubGlobal('fetch', directFetch);
+
+    try {
+      await expect(fetchWorkdayJsonWithRetry(API_BASE, `${API_BASE}/job/Zurich/First_R1`, {
+        browserFallback: null,
+      })).rejects.toBeInstanceOf(WorkdayRateLimitError);
+      const second = fetchWorkdayJsonWithRetry(API_BASE, `${API_BASE}/job/Zurich/Second_R2`, {
+        browserFallback: null,
+      });
+      await vi.advanceTimersByTimeAsync(4_999);
+      expect(directFetch).toHaveBeenCalledOnce();
+      await vi.advanceTimersByTimeAsync(1);
+      await expect(second).resolves.toEqual({ recovered: true });
+      expect(directFetch).toHaveBeenCalledTimes(2);
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   it('propagates a terminal rate limit from the Lonza listing without a partial result', async () => {

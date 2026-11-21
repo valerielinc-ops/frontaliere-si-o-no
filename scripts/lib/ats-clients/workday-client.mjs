@@ -464,6 +464,30 @@ const DEFAULT_RATE_LIMIT_COOLDOWN_MS = 60_000;
 // a tenant/egress limit. With the existing two-minute Retry-After cap, this
 // keeps the worst bounded exit below five minutes (2 x 120s).
 const DEFAULT_RATE_LIMIT_CIRCUIT_THRESHOLD = 2;
+const implicitRateLimitStates = new Map();
+
+function newRateLimitState(apiBase) {
+  return {
+    blockedUntil: 0,
+    consecutiveRateLimits: 0,
+    lastRateLimitUrl: apiBase,
+    queue: Promise.resolve(),
+    observedRateLimits: new WeakSet(),
+  };
+}
+
+function implicitRateLimitState(apiBase) {
+  const key = String(apiBase).replace(/\/+$/, '');
+  if (!implicitRateLimitStates.has(key)) {
+    implicitRateLimitStates.set(key, newRateLimitState(key));
+  }
+  return implicitRateLimitStates.get(key);
+}
+
+/** Test isolation for the process-wide policy used by legacy no-context callers. */
+export function resetWorkdayImplicitRateLimitStateForTests() {
+  implicitRateLimitStates.clear();
+}
 
 /**
  * Own the transport for one Workday tenant during a crawler run.
@@ -475,7 +499,7 @@ const DEFAULT_RATE_LIMIT_CIRCUIT_THRESHOLD = 2;
  * previous request is waiting out the tenant's Retry-After window.
  *
  * @param {string} apiBase
- * @param {{ browserFallback?: Function|null, retryAfterCapMs?: number, fallbackCooldownMs?: number, rateLimitCircuitThreshold?: number }} [options]
+ * @param {{ browserFallback?: Function|null, retryAfterCapMs?: number, fallbackCooldownMs?: number, rateLimitCircuitThreshold?: number, rateLimitState?: object }} [options]
  * @returns {{ request: (url: string, options?: object) => Promise<any>, close: () => Promise<void> }}
  */
 export function createWorkdayRequestContext(apiBase, options = {}) {
@@ -489,11 +513,7 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
   } = options;
   let browserSession = null;
   let closed = false;
-  let blockedUntil = 0;
-  let consecutiveRateLimits = 0;
-  let lastRateLimitUrl = apiBase;
-  let queue = Promise.resolve();
-  const observedRateLimits = new WeakSet();
+  const rateLimitState = options.rateLimitState ?? newRateLimitState(apiBase);
   const circuitThreshold = Math.max(
     1,
     Number(rateLimitCircuitThreshold) || DEFAULT_RATE_LIMIT_CIRCUIT_THRESHOLD,
@@ -516,28 +536,30 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
     const cooldownMs = retryAfterMs === null
       ? Math.max(0, Number(fallbackCooldownMs) || 0)
       : retryAfterMs;
-    blockedUntil = Math.max(blockedUntil, Date.now() + cooldownMs);
-    lastRateLimitUrl = err?.url || lastRateLimitUrl;
-    if (!err || typeof err !== 'object' || !observedRateLimits.has(err)) {
-      consecutiveRateLimits += 1;
-      if (err && typeof err === 'object') observedRateLimits.add(err);
+    rateLimitState.blockedUntil = Math.max(rateLimitState.blockedUntil, Date.now() + cooldownMs);
+    rateLimitState.lastRateLimitUrl = err?.url || rateLimitState.lastRateLimitUrl;
+    if (!err || typeof err !== 'object' || !rateLimitState.observedRateLimits.has(err)) {
+      rateLimitState.consecutiveRateLimits += 1;
+      if (err && typeof err === 'object') rateLimitState.observedRateLimits.add(err);
     }
     return true;
   };
 
   const waitForRateLimit = async () => {
-    const waitMs = blockedUntil - Date.now();
+    const waitMs = rateLimitState.blockedUntil - Date.now();
     if (waitMs > 0) await new Promise((resolve) => setTimeout(resolve, waitMs));
   };
 
-  const rateLimitError = (url) => new WorkdayRateLimitError(url || lastRateLimitUrl, {
-    consecutiveFailures: consecutiveRateLimits,
-    retryAfterMs: Math.max(0, blockedUntil - Date.now()),
-    circuitOpen: consecutiveRateLimits >= circuitThreshold,
+  const rateLimitError = (url) => new WorkdayRateLimitError(url || rateLimitState.lastRateLimitUrl, {
+    consecutiveFailures: rateLimitState.consecutiveRateLimits,
+    retryAfterMs: Math.max(0, rateLimitState.blockedUntil - Date.now()),
+    circuitOpen: rateLimitState.consecutiveRateLimits >= circuitThreshold,
   });
 
   const beforeDirectAttempt = async () => {
-    if (consecutiveRateLimits >= circuitThreshold) throw rateLimitError(lastRateLimitUrl);
+    if (rateLimitState.consecutiveRateLimits >= circuitThreshold) {
+      throw rateLimitError(rateLimitState.lastRateLimitUrl);
+    }
     await waitForRateLimit();
   };
 
@@ -552,7 +574,7 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
       { capMs: retryAfterCapMs },
     );
     if (retryAfterMs === null
-      && consecutiveRateLimits < circuitThreshold
+      && rateLimitState.consecutiveRateLimits < circuitThreshold
       && retry.attempt < retry.maxRetries) {
       await waitForRateLimit();
     }
@@ -570,26 +592,26 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
           beforeBrowserFallback: waitForRateLimit,
           onTransientFailure,
         });
-        consecutiveRateLimits = 0;
+        rateLimitState.consecutiveRateLimits = 0;
         return data;
       } catch (err) {
         // Browser fallback errors are outside fetchWithRetry's hook. Preserve a
         // terminal 429 there too, so the next detail remains behind Retry-After.
         if (err instanceof WorkdayRateLimitError) throw err;
         if (observeRateLimit(err)) throw rateLimitError(url);
-        if (Number(err?.statusCode ?? err?.status) > 0) consecutiveRateLimits = 0;
+        if (Number(err?.statusCode ?? err?.status) > 0) rateLimitState.consecutiveRateLimits = 0;
         throw err;
       }
     };
 
-    const pending = queue.then(run, run);
-    queue = pending.catch(() => {});
+    const pending = rateLimitState.queue.then(run, run);
+    rateLimitState.queue = pending.catch(() => {});
     return pending;
   };
 
   const close = async () => {
     closed = true;
-    await queue;
+    await rateLimitState.queue;
     await browserSession?.close();
   };
 
@@ -613,20 +635,29 @@ export async function fetchWorkdayJsonWithRetry(apiBase, url, options = {}) {
     return requestContext.request(url, requestOptions);
   }
 
-  const browserSession = options.browserFallback === undefined
-    ? createWorkdayBrowserJsonFallback(apiBase)
-    : null;
-  const browserFallback = options.browserFallback === undefined
-    ? browserSession.request
-    : options.browserFallback;
+  // A caller without a tenant-wide context still needs the same policy inside
+  // this request. Otherwise its retry loop bypasses the no-header cooldown and
+  // returns an untyped 429 that higher-level listing/detail helpers can degrade
+  // into partial output.
+  const {
+    browserFallback,
+    retryAfterCapMs,
+    fallbackCooldownMs,
+    rateLimitCircuitThreshold,
+    ...requestOptions
+  } = options;
+  const requestContext = createWorkdayRequestContext(apiBase, {
+    browserFallback,
+    retryAfterCapMs,
+    fallbackCooldownMs,
+    rateLimitCircuitThreshold,
+    rateLimitState: implicitRateLimitState(apiBase),
+  });
 
   try {
-    return await fetchJsonWithRetry(url, {
-      ...options,
-      browserFallback,
-    });
+    return await requestContext.request(url, requestOptions);
   } finally {
-    await browserSession?.close();
+    await requestContext.close();
   }
 }
 
@@ -654,6 +685,8 @@ export async function fetchWorkdayJsonWithRetry(apiBase, url, options = {}) {
  * @property {string} [userAgent] Override User-Agent header.
  * @property {number} [minDelayMs] Polite delay between paginated calls (default 2000ms).
  * @property {number} [timeoutMs] Per-request timeout (default 20000ms).
+ * @property {number} [fallbackCooldownMs] Cooldown for a 429 without Retry-After.
+ * @property {number} [rateLimitCircuitThreshold] Consecutive 429 responses before opening the circuit.
  * @property {{ request: (url: string, options?: object) => Promise<any> }} [requestContext]
  *   Shared tenant transport. When present, listing pages use its serialized
  *   browser session and Retry-After cooldown instead of owning a new session.
@@ -758,6 +791,9 @@ export async function* fetchWorkdayJobs(apiBase, options = {}) {
           userAgent,
           timeoutMs,
           retries: 1,
+          retryAfterCapMs: options.retryAfterCapMs,
+          fallbackCooldownMs: options.fallbackCooldownMs,
+          rateLimitCircuitThreshold: options.rateLimitCircuitThreshold,
           ...transport,
         });
       } catch (err) {
@@ -836,7 +872,7 @@ export async function* fetchWorkdayJobs(apiBase, options = {}) {
  * errors (404 for a renamed or retired site) → `WorkdayApiError`.
  *
  * @param {string} apiBase Output of `buildWorkdayApiBase`.
- * @param {{ appliedFacets?: Record<string, string[]>, userAgent?: string, timeoutMs?: number, requestContext?: { request: Function }, browserFallback?: Function|null }} [options]
+ * @param {{ appliedFacets?: Record<string, string[]>, userAgent?: string, timeoutMs?: number, requestContext?: { request: Function }, browserFallback?: Function|null, retryAfterCapMs?: number, fallbackCooldownMs?: number, rateLimitCircuitThreshold?: number }} [options]
  * @returns {Promise<WorkdayBoardSummary>}
  */
 export async function fetchWorkdayBoardSummary(apiBase, options = {}) {
@@ -862,6 +898,9 @@ export async function fetchWorkdayBoardSummary(apiBase, options = {}) {
       userAgent,
       timeoutMs,
       retries: 1,
+      retryAfterCapMs: options.retryAfterCapMs,
+      fallbackCooldownMs: options.fallbackCooldownMs,
+      rateLimitCircuitThreshold: options.rateLimitCircuitThreshold,
       ...transport,
     });
     const postings = assertJsonListShape(data, { key: 'jobPostings', source: `workday:${apiBase}` });
@@ -935,6 +974,9 @@ export function workdayFacetLeafValues(facets, facetParameter) {
  * @param {number} [options.timeoutMs] Per-request timeout. Default 15000ms.
  * @param {string} [options.userAgent] Override User-Agent header.
  * @param {number} [options.retries] Override the shared transient retry count.
+ * @param {number} [options.retryAfterCapMs] Maximum accepted Retry-After cooldown.
+ * @param {number} [options.fallbackCooldownMs] Cooldown for a 429 without Retry-After.
+ * @param {number} [options.rateLimitCircuitThreshold] Consecutive 429 responses before opening the circuit.
  * @param {{ request: (url: string, options?: object) => Promise<any> }} [options.requestContext]
  *   Shared tenant transport for listing, detail and summary requests.
  * @param {(args: {url: string, method: string, body?: string, userAgent: string, timeoutMs: number}) => Promise<any>|null} [options.browserFallback] Alternate browser transport after direct retries are exhausted. Omit to use the lazy default browser transport; pass `null` to disable it.
@@ -972,6 +1014,9 @@ export async function fetchWorkdayJobDetail(apiBase, externalPath, options = {})
       userAgent,
       timeoutMs,
       retries,
+      retryAfterCapMs: options.retryAfterCapMs,
+      fallbackCooldownMs: options.fallbackCooldownMs,
+      rateLimitCircuitThreshold: options.rateLimitCircuitThreshold,
       ...transport,
     });
   } catch (err) {
