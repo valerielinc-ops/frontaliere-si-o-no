@@ -1,9 +1,107 @@
-import { emitSitemapXml } from "./sitemap-shard.mjs";
+import {
+  emitSitemapXml,
+  isAuthoritativeJobSitemapShardFilename,
+} from "./sitemap-shard.mjs";
 import { SITEMAP_SHARD_CAP } from "./sitemap-limits.mjs";
 
 const URL_BLOCK_RX = /<url>[\s\S]*?<\/url>/g;
 const LOC_RX = /<loc>\s*([^<]+?)\s*<\/loc>/;
 const SITEMAP_BLOCK_RX = /<sitemap>[\s\S]*?<\/sitemap>/g;
+
+function assertLocSet(value, label) {
+  if (!value || typeof value.has !== "function" || typeof value[Symbol.iterator] !== "function") {
+    throw new Error(`[jobs-fast-sitemap] ${label} must be a complete URL set`);
+  }
+}
+
+/**
+ * Return every current active job-detail URL that the full build no longer
+ * admits to the sitemap. The active-detail inventory is intentionally a
+ * separate input from the sitemap allowlist: it identifies the URL family,
+ * while the allowlist owns the current indexability decision. That keeps
+ * hubs and previous-slug bridges out of the subtraction by construction.
+ */
+export function staleActiveJobDetailLocs(
+  activeJobDetailLocs,
+  currentReceiptLocs,
+  fullBuildSitemapLocs,
+) {
+  assertLocSet(activeJobDetailLocs, "active job-detail inventory");
+  assertLocSet(currentReceiptLocs, "current receipt locations");
+  assertLocSet(fullBuildSitemapLocs, "full-build sitemap allowlist");
+
+  const stale = [];
+  for (const rawLoc of activeJobDetailLocs) {
+    if (typeof rawLoc !== "string") {
+      throw new Error("[jobs-fast-sitemap] active job-detail inventory contains a non-string URL");
+    }
+    let parsed;
+    try {
+      parsed = new URL(rawLoc);
+    } catch {
+      throw new Error(`[jobs-fast-sitemap] invalid active job-detail URL ${rawLoc}`);
+    }
+    if (
+      parsed.origin !== "https://frontaliereticino.ch" ||
+      parsed.search ||
+      parsed.hash ||
+      !parsed.pathname.endsWith("/")
+    ) {
+      throw new Error(`[jobs-fast-sitemap] invalid active job-detail URL ${rawLoc}`);
+    }
+    const loc = parsed.href;
+    if (!currentReceiptLocs.has(loc) && !fullBuildSitemapLocs.has(loc)) stale.push(loc);
+  }
+  return [...new Set(stale)].sort();
+}
+
+function isActiveJobDetailSitemapPath(pathname) {
+  if (pathname === "/sitemap-jobs.xml") return true;
+  const filename = String(pathname || "").replace(/^\//u, "");
+  if (isAuthoritativeJobSitemapShardFilename(filename)) return true;
+  return /^sitemap-jobs-[a-z0-9-]+-(?:en|de|fr)(?:-\d{3})?\.xml$/u.test(filename);
+}
+
+/**
+ * Locate removals in the active job-detail sitemap files already loaded by
+ * the publisher. The returned map is also the post-publish verification
+ * ledger (`pathname -> removed locs`), so dispatch and tracking cannot drift.
+ */
+export function routeActiveJobSitemapRemovals(removalLocs, sitemapXmlByPath) {
+  if (!removalLocs || typeof removalLocs[Symbol.iterator] !== "function") {
+    throw new Error("[jobs-fast-sitemap] removal locations must be iterable");
+  }
+  if (!(sitemapXmlByPath instanceof Map)) {
+    throw new Error("[jobs-fast-sitemap] sitemap sources must be a Map");
+  }
+
+  const locsByPath = new Map();
+  const activeSources = [...sitemapXmlByPath]
+    .filter(([pathname]) => isActiveJobDetailSitemapPath(pathname))
+    .map(([pathname, xml]) => {
+      assertUrlset(xml, pathname);
+      return [pathname, new Set(
+        [...String(xml).matchAll(URL_BLOCK_RX)]
+          .map((block) => block[0].match(LOC_RX)?.[1]?.trim())
+          .filter(Boolean),
+      )];
+    });
+
+  for (const loc of new Set(removalLocs)) {
+    if (typeof loc !== "string") {
+      throw new Error("[jobs-fast-sitemap] removal locations contain a non-string URL");
+    }
+    const matches = activeSources.filter(([, locs]) => locs.has(loc));
+    if (matches.length > 1) {
+      throw new Error(`[jobs-fast-sitemap] active detail URL appears in multiple sitemap files: ${loc}`);
+    }
+    if (matches.length === 0) continue;
+    const pathname = matches[0][0];
+    if (!locsByPath.has(pathname)) locsByPath.set(pathname, new Set());
+    locsByPath.get(pathname).add(loc);
+  }
+  return locsByPath;
+}
 
 function assertUrlset(xml, label) {
   if (
