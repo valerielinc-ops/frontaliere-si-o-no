@@ -386,7 +386,7 @@ describe('Swiss Life crawler parser', () => {
       }
     });
 
-    it('recovers a retry-exhausted board through the Workday browser transport', async () => {
+    it('recovers a retry-exhausted transient board through the Workday browser transport', async () => {
       const previousRetryBaseMs = process.env.JOBS_CRAWLER_RETRY_BASE_MS;
       process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
       const listing = makeListing('rate-limited-through-browser');

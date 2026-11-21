@@ -88,7 +88,7 @@ export class WorkdayAuthError extends WorkdayApiError {
 export class WorkdayRateLimitError extends WorkdayApiError {
   /**
    * @param {string} url
-   * @param {{ consecutiveFailures: number, retryAfterMs: number, circuitOpen: boolean }} metadata
+   * @param {{ consecutiveFailures: number, retryAfterMs: number, circuitOpen: boolean, retryExhausted?: boolean }} metadata
    */
   constructor(url, metadata) {
     const retryAfterMs = Math.max(0, Number(metadata?.retryAfterMs) || 0);
@@ -105,6 +105,7 @@ export class WorkdayRateLimitError extends WorkdayApiError {
     this.retryAfterMs = retryAfterMs;
     this.consecutiveFailures = consecutiveFailures;
     this.circuitOpen = Boolean(metadata?.circuitOpen);
+    this.retryExhausted = Boolean(metadata?.retryExhausted);
   }
 }
 
@@ -550,10 +551,11 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
     if (waitMs > 0) await new Promise((resolve) => setTimeout(resolve, waitMs));
   };
 
-  const rateLimitError = (url) => new WorkdayRateLimitError(url || rateLimitState.lastRateLimitUrl, {
+  const rateLimitError = (url, sourceError = null) => new WorkdayRateLimitError(url || rateLimitState.lastRateLimitUrl, {
     consecutiveFailures: rateLimitState.consecutiveRateLimits,
     retryAfterMs: Math.max(0, rateLimitState.blockedUntil - Date.now()),
     circuitOpen: rateLimitState.consecutiveRateLimits >= circuitThreshold,
+    retryExhausted: Boolean(sourceError?.retryExhausted || sourceError?.retryBudgetExhausted),
   });
 
   const beforeDirectAttempt = async () => {
@@ -598,7 +600,7 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
         // Browser fallback errors are outside fetchWithRetry's hook. Preserve a
         // terminal 429 there too, so the next detail remains behind Retry-After.
         if (err instanceof WorkdayRateLimitError) throw err;
-        if (observeRateLimit(err)) throw rateLimitError(url);
+        if (observeRateLimit(err)) throw rateLimitError(url, err);
         if (Number(err?.statusCode ?? err?.status) > 0) rateLimitState.consecutiveRateLimits = 0;
         throw err;
       }
