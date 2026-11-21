@@ -219,6 +219,72 @@ export function isIndexedDbError(error: unknown): boolean {
  */
 export const BROWSER_EXTENSION_ORIGIN_PATTERN = /(?:chrome|moz|safari)-extension:\/\//;
 
+export interface SafeErrorDetails {
+  readonly isError: boolean;
+  readonly name: string;
+  readonly message: string;
+  readonly stack: string;
+}
+
+const EMPTY_ERROR_DETAILS: SafeErrorDetails = Object.freeze({
+  isError: false,
+  name: '',
+  message: '',
+  stack: '',
+});
+
+/**
+ * Read Error properties without letting a Firefox dead wrapper throw from the
+ * telemetry listener itself. Accessing `event.error` and then `.stack` is not
+ * intrinsically safe: a privileged add-on can leave the page a wrapper whose
+ * parent document has already been destroyed.
+ */
+export function readErrorDetailsSafely(error: unknown): SafeErrorDetails {
+  try {
+    const isError = error instanceof Error
+      || Object.prototype.toString.call(error) === '[object Error]';
+    if (!isError) return EMPTY_ERROR_DETAILS;
+    const candidate = error as { name?: unknown; message?: unknown; stack?: unknown };
+    return {
+      isError: true,
+      name: typeof candidate.name === 'string' ? candidate.name : '',
+      message: typeof candidate.message === 'string' ? candidate.message : '',
+      stack: typeof candidate.stack === 'string' ? candidate.stack : '',
+    };
+  } catch {
+    return EMPTY_ERROR_DETAILS;
+  }
+}
+
+/** Safe counterpart of direct `ErrorEvent.error` access. */
+export function readErrorEventDetailsSafely(event: ErrorEvent): SafeErrorDetails {
+  try {
+    return readErrorDetailsSafely(event.error);
+  } catch {
+    return EMPTY_ERROR_DETAILS;
+  }
+}
+
+/**
+ * Firefox uses this exact wording for a privileged add-on retaining a DOM
+ * object after its document is destroyed. The message alone is not enough:
+ * callers must also prove that neither the parsed event nor the raw stack has
+ * a source before reclassifying it as third-party.
+ */
+export function isFirefoxDeadObjectFromRedactedSource({
+  message,
+  userAgent,
+  hasSource,
+}: {
+  message: string;
+  userAgent: string;
+  hasSource: boolean;
+}): boolean {
+  return /^(?:TypeError:\s*)?can't access dead object$/i.test(message.trim())
+    && /\bFirefox\/\d/i.test(userAgent)
+    && !hasSource;
+}
+
 /**
  * Minimum frame count before an all-origin-redacted stack is treated as
  * conclusive. One or two nameless frames say nothing; a long run of them is a

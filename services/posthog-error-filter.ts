@@ -37,7 +37,10 @@ import {
   BROWSER_EXTENSION_ORIGIN_PATTERN,
   isGoogleVignetteInjectedOpaqueError,
   isGoogleIosAppInjectedStackOverflow,
+  isFirefoxDeadObjectFromRedactedSource,
   isOriginRedactedThirdPartyStack,
+  readErrorDetailsSafely,
+  readErrorEventDetailsSafely,
 } from './benignErrorPatterns';
 
 /** Patterns that match benign / unactionable exception messages. */
@@ -230,12 +233,12 @@ export function installRawStackRecorder(): void {
   if (rawStackRecorderInstalled || typeof window === 'undefined') return;
   rawStackRecorderInstalled = true;
   window.addEventListener('error', (event) => {
-    const err = (event as ErrorEvent).error;
-    if (err instanceof Error && err.stack) recordRawErrorStack(err.message || event.message || '', err.stack);
+    const details = readErrorEventDetailsSafely(event as ErrorEvent);
+    if (details.stack) recordRawErrorStack(details.message || event.message || '', details.stack);
   });
   window.addEventListener('unhandledrejection', (event) => {
-    const reason = (event as PromiseRejectionEvent).reason;
-    if (reason instanceof Error && reason.stack) recordRawErrorStack(reason.message || '', reason.stack);
+    const details = readErrorDetailsSafely((event as PromiseRejectionEvent).reason);
+    if (details.stack) recordRawErrorStack(details.message, details.stack);
   });
 }
 
@@ -256,6 +259,11 @@ export function createExceptionFilter() {
     if (isThirdPartyStackOnly(event)) return null;
     const origins = extractStackFrameOrigins(event);
     const rawStack = origins.length === 0 ? lookupRawErrorStack(blob) : '';
+    if (isFirefoxDeadObjectFromRedactedSource({
+      message: blob,
+      userAgent: eventUserAgent(event),
+      hasSource: origins.length > 0 || rawStack.trim() !== '',
+    })) return null;
     if (isGoogleIosAppInjectedStackOverflow(
       blob,
       origins.length > 0 ? origins.join('\n') : rawStack,
