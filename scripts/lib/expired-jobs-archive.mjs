@@ -650,7 +650,10 @@ export function mergeExpiredRouteEvidence(survivor, historical, source = 'expire
   // exact buckets. Do not flatten those values into legacy history a second
   // time: that changes the persisted representation on the next identical
   // crawl even though no route changed.
-  transferSlugHistory(survivor, historical, source, { syncLegacy: false });
+  transferSlugHistory(survivor, historical, source, {
+    syncLegacy: false,
+    skipSelfCanonical: true,
+  });
   const after = JSON.stringify({
     canton: survivor.canton,
     location: survivor.location,
@@ -998,7 +1001,7 @@ export function transferSlugHistory(
   survivor,
   removed,
   source = 'reconcile-crawler-company-ownership',
-  { syncLegacy = true } = {},
+  { syncLegacy = true, skipSelfCanonical = false } = {},
 ) {
   validateSlugHistoryShape(survivor, 'survivor');
   validateSlugHistoryShape(removed, 'removed');
@@ -1013,8 +1016,10 @@ export function transferSlugHistory(
     ]),
   ]));
   const add = (locale, slug) => {
-    const activeSlug = survivor.slugByLocale?.[locale]
-      || (locale === 'it' ? survivor.slug : '');
+    const activeSlug = skipSelfCanonical
+      ? survivor.slugByLocale?.[locale]
+        || (locale === 'it' ? survivor.slug : '')
+      : survivor.slugByLocale?.[locale];
     if (!slug || slug === activeSlug) return;
     const before = new Set(survivor.previousSlugsByLocale?.[locale] || []).size;
     addPreviousSlugForLocale(
