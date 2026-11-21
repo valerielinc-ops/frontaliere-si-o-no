@@ -25,6 +25,7 @@
  */
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { SKIP_LIVE_DATA } from './helpers/live-data';
 
@@ -39,6 +40,10 @@ const SEARCH_ROOTS = [
   'tests',
 ];
 const SEARCH_FILES = ['vite.config.ts', 'package.json', 'tsconfig.json'];
+// Generated public data is checked through its explicit contracts below. It is
+// not source code, and walking it here can try to decode multi-gigabyte JSON
+// snapshots before this filename guard reaches its actual source inputs.
+const EXCLUDED_SEARCH_DIRECTORIES = new Set(['public/data']);
 const SEARCH_EXTENSIONS = new Set([
   '.ts',
   '.tsx',
@@ -55,7 +60,11 @@ const SEARCH_EXTENSIONS = new Set([
   '.html',
 ]);
 
-function collectMatches(needle: string): { file: string; line: number; text: string }[] {
+function collectMatches(
+  needle: string,
+  root = ROOT,
+  searchRoots = SEARCH_ROOTS,
+): { file: string; line: number; text: string }[] {
   const matches: { file: string; line: number; text: string }[] = [];
   const visit = (absPath: string, relPath: string) => {
     let stat: fs.Stats;
@@ -65,6 +74,7 @@ function collectMatches(needle: string): { file: string; line: number; text: str
       return;
     }
     if (stat.isDirectory()) {
+      if (EXCLUDED_SEARCH_DIRECTORIES.has(relPath)) return;
       for (const entry of fs.readdirSync(absPath)) {
         if (entry === 'node_modules' || entry.startsWith('.')) continue;
         visit(path.join(absPath, entry), path.posix.join(relPath, entry));
@@ -82,11 +92,11 @@ function collectMatches(needle: string): { file: string; line: number; text: str
       }
     }
   };
-  for (const dir of SEARCH_ROOTS) {
-    visit(path.join(ROOT, dir), dir);
+  for (const dir of searchRoots) {
+    visit(path.join(root, dir), dir);
   }
   for (const file of SEARCH_FILES) {
-    visit(path.join(ROOT, file), file);
+    visit(path.join(root, file), file);
   }
   return matches;
 }
@@ -108,6 +118,20 @@ const ALLOWED_REFERENCES = new Set<string>([
 ]);
 
 describe('sitemap-news canonical filename — A4 Google News compliance', () => {
+  it('does not decode generated files below public/data while scanning sources', () => {
+    const fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'sitemap-news-canonical-'));
+    try {
+      fs.mkdirSync(path.join(fixtureRoot, 'public', 'data'), { recursive: true });
+      fs.writeFileSync(path.join(fixtureRoot, 'public', 'source.json'), '{"name":"sitemap_news"}');
+      fs.writeFileSync(path.join(fixtureRoot, 'public', 'data', 'generated.json'), '{"name":"sitemap_news"}');
+
+      expect(collectMatches('sitemap_news', fixtureRoot, ['public']).map((match) => match.file))
+        .toEqual(['public/source.json']);
+    } finally {
+      fs.rmSync(fixtureRoot, { recursive: true, force: true });
+    }
+  });
+
   it('no source file emits the legacy underscore variant `sitemap_news.xml`', () => {
     const offenders = collectMatches('sitemap_news').filter(
       (m) => !ALLOWED_REFERENCES.has(m.file),
