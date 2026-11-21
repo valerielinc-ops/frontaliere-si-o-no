@@ -1,7 +1,7 @@
 {
   "key": "bankslm",
   "label": "Bank SLM AG",
-  "generatedAt": "2026-11-20T21:57:49.348Z",
+  "generatedAt": "2026-11-21T21:32:59.382Z",
   "total": 3,
   "discovered": 3,
   "parsed": 3,
@@ -20,15 +20,15 @@
       },
       {
         "status": 200,
-        "url": "https://karriere.bankslm.ch/jobs/8690578-sachbearbeiter-in-risiko-compliance-40-50"
-      },
-      {
-        "status": 200,
         "url": "https://karriere.bankslm.ch/jobs/8690206-finanzplanungsspezialist-in-vorsorgekunden-60-80"
       },
       {
         "status": 200,
         "url": "https://karriere.bankslm.ch/jobs/7019430-privatkundenberater-in-basis-60"
+      },
+      {
+        "status": 200,
+        "url": "https://karriere.bankslm.ch/jobs/8690578-sachbearbeiter-in-risiko-compliance-40-50"
       }
     ],
     "proxiedBy": [],
@@ -45,18 +45,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 6552,
-  "avgDurationMs": 6552,
+  "unchangedCount": 0,
+  "durationMs": 12248,
+  "avgDurationMs": 12248,
   "durationHistory": [
-    6552
+    12248
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "bankslm-2f173056316e",
       "slug": "consulente-clienti-privato-basato-sul-60-bank-slm-ag-munsingen",
@@ -69,7 +67,7 @@
       "url": "https://karriere.bankslm.ch/jobs/7019430-privatkundenberater-in-basis-60",
       "source": "Bank SLM AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:57:35.640Z",
+      "crawledAt": "2026-11-21T21:32:43.462Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -92,7 +90,7 @@
       "salaryMax": 62400,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:57:35.640Z",
+      "validThrough": "2026-12-21T21:32:43.462Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -114,7 +112,7 @@
       "url": "https://karriere.bankslm.ch/jobs/8690206-finanzplanungsspezialist-in-vorsorgekunden-60-80",
       "source": "Bank SLM AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:57:35.639Z",
+      "crawledAt": "2026-11-21T21:32:43.461Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -137,7 +135,7 @@
       "salaryMax": 148000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T21:57:35.639Z",
+      "validThrough": "2027-02-07T21:32:43.461Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -159,7 +157,7 @@
       "url": "https://karriere.bankslm.ch/jobs/8690578-sachbearbeiter-in-risiko-compliance-40-50",
       "source": "Bank SLM AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:57:35.638Z",
+      "crawledAt": "2026-11-21T21:32:43.460Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -182,7 +180,7 @@
       "salaryMax": 52000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T21:57:35.638Z",
+      "validThrough": "2027-02-07T21:32:43.460Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -193,5 +191,7 @@
       }
     }
   ],
-  "codeCommit": "07c2e8305c6747f1893222ba4bfdddc597008157"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "4b92eb0854b9f965b31956a24be8b4a2b342e4b2"
 }
