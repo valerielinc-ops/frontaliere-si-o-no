@@ -1104,6 +1104,18 @@ function compatHistoryFixture(
     `const compareResponse = ${JSON.stringify(compareResponse)};`,
     'const args = process.argv.slice(2);',
     "if (args[0] === 'api') {",
+    "  if (args[1] === 'graphql') {",
+    "    const field = (name) => { const value = args.find((arg) => arg.startsWith(name + '=')); return value ? value.slice(name.length + 1) : ''; };",
+    "    const before = field('beforeOid');",
+    "    const after = field('afterOid');",
+    "    const ref = field('name');",
+    "    if (!ref || spawnSync('git', ['--git-dir=' + remote, 'update-ref', ref, after, before], { encoding: 'utf8' }).status !== 0) process.exit(1);",
+    '    process.exit(0);',
+    '  }',
+    "  if (args[1] === 'repos/fixture/publisher') {",
+    "    process.stdout.write('fixture-node-id\\n');",
+    '    process.exit(0);',
+    '  }',
     "  const endpoint = args.find((arg) => arg.startsWith('repos/fixture/publisher/compare/'));",
     "  if (endpoint) {",
     "    if (compareResponse === 'too-large') {",
@@ -1122,6 +1134,7 @@ function compatHistoryFixture(
     "    process.stdout.write(result.stdout); process.exit(0);",
     '  }',
     '}',
+    "if (args[0] === 'pr' && args[1] === 'list' && process.env.REFRESH_FIXTURE_OPEN_PR !== '0') process.stdout.write('42\\n');",
     "if (args[0] === 'pr' && args[1] === 'create') process.stdout.write('https://github.com/fixture/publisher/pull/1\\n');",
     'process.exit(0);',
     '',
@@ -1133,7 +1146,7 @@ function compatHistoryFixture(
   return { directory, remote, runner, bin, body, gitConfig };
 }
 
-function publishCompat(setup: ReturnType<typeof compatHistoryFixture>) {
+function publishCompat(setup: ReturnType<typeof compatHistoryFixture>, extraEnv: Record<string, string> = {}) {
   write(setup.runner, COMPAT_SHARD, JSON.stringify({ paths: ['/base', '/main', '/run'] }, null, 2) + '\n');
   const result = spawnSync('bash', [
     'scripts/lib/open-data-refresh-pr.sh',
@@ -1146,6 +1159,8 @@ function publishCompat(setup: ReturnType<typeof compatHistoryFixture>) {
       PATH: `${setup.bin}${path.delimiter}${process.env.PATH || ''}`,
       GH_TOKEN: 'fixture-token', GITHUB_REPOSITORY: 'fixture/publisher',
       GIT_CONFIG_GLOBAL: setup.gitConfig,
+      REFRESH_FIXTURE_OPEN_PR: '1',
+      ...extraEnv,
     },
   });
   return {
@@ -1297,6 +1312,20 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
     // Ten times the history, the same commits on the runner: what it reads
     // does not depend on how old the stable branch is.
     expect(boundedRuns[0].commitCount).toBe(boundedRuns[1].commitCount);
+  }, 120_000);
+
+  it('rebuilds an orphaned compat branch from main when no refresh PR is open', () => {
+    const setup = compatHistoryFixture(50);
+    const staleHead = git(setup.remote, ['rev-parse', COMPAT_BRANCH]);
+    const currentMainHead = git(setup.remote, ['rev-parse', 'main']);
+
+    const run = publishCompat(setup, { REFRESH_FIXTURE_OPEN_PR: '0' });
+
+    expect(run.result.status, run.output).toBe(0);
+    expect(run.output).toContain(`No open refresh PR for ${COMPAT_BRANCH}`);
+    expect(run.shard).toEqual({ paths: ['/base', '/main', '/run'] });
+    expect(git(setup.remote, ['rev-parse', `${COMPAT_BRANCH}^`])).toBe(currentMainHead);
+    expect(git(setup.remote, ['rev-parse', COMPAT_BRANCH])).not.toBe(staleHead);
   }, 120_000);
 
   it('falls back to a bounded treeless merge-base lookup when GitHub rejects a large compare diff', () => {
