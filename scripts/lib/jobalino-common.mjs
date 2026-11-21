@@ -56,7 +56,7 @@ import {
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
-import { readAttr } from './html-attr.mjs';
+import { readAttr, scanMarkupStartTags } from './html-attr.mjs';
 
 const API_HOST = 'https://my.jobalino.ch';
 const DETAIL_DELAY_MS = 250;
@@ -181,13 +181,15 @@ export function parseJobalinoListingHtml(html = '') {
   // The legacy JSONP listing emits /job/...; the current public component
   // emits /public/job/de/.... Attribute order also differs between the two
   // transports. Parse the anchor first, then read its href so both official
-  // views resolve to one canonical vacancy identity.
-  const tileRx = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
-  let m;
-  while ((m = tileRx.exec(html))) {
-    const classes = readAttr(m[1], 'class').toLowerCase().split(/\s+/).filter(Boolean);
+  // views resolve to one canonical vacancy identity. `scanMarkupStartTags`
+  // keeps `>` inside quoted attributes inside the opening tag.
+  for (const tag of scanMarkupStartTags(html, 'a')) {
+    const closing = /<\/a\s*>/i.exec(html.slice(tag.end));
+    if (!closing) continue;
+    const body = html.slice(tag.end, tag.end + closing.index);
+    const classes = readAttr(tag.raw, 'class').toLowerCase().split(/\s+/).filter(Boolean);
     if (!classes.includes('reflink')) continue;
-    const rawHref = decodeEntities(readAttr(m[1], 'href')).trim();
+    const rawHref = decodeEntities(readAttr(tag.raw, 'href')).trim();
     const href = rawHref.match(/^https:\/\/my\.jobalino\.ch\/(?:public\/)?job\/(?:(de|fr|it|en)\/)?([a-f0-9]+)\/([a-z0-9_-]+)(?:\?[^"']*)?$/i);
     if (!href) continue;
     const locale = href[1] || '';
@@ -200,7 +202,6 @@ export function parseJobalinoListingHtml(html = '') {
     const url = `${API_HOST}/job/${localeSegment}${id}/${slug}`;
     if (seen.has(id)) continue;
     seen.add(id);
-    const body = m[2];
     const pick = (cls) => {
       const re = new RegExp(`<span\\s+[^>]*?${classAttrRx(cls)}[^>]*>([\\s\\S]*?)<\\/span>`);
       const x = body.match(re);

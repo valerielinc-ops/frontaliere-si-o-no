@@ -72,6 +72,9 @@ function tenantEmployer(tile = {}, posting = {}) {
     const listingName = normalizeSpace(tile.company || '');
     return { name: listingName, isTenant: normalize(listingName) === SOURCE_COMPANY_NAME };
   }
+  if (Array.isArray(posting.hiringOrganization) && posting.hiringOrganization.length > 1) {
+    throw new Error('Teo Jakob AG hiringOrganization is ambiguous');
+  }
   const organizations = objectValues(posting.hiringOrganization);
   if (!organizations) {
     throw new Error('Teo Jakob AG hiringOrganization is unusable');
@@ -92,12 +95,18 @@ function tenantEmployer(tile = {}, posting = {}) {
 
 function addressCandidates(posting = {}) {
   if (!hasOwn(posting, 'jobLocation')) return null;
+  if (Array.isArray(posting.jobLocation) && posting.jobLocation.length > 1) {
+    throw new Error('Teo Jakob AG jobLocation is ambiguous');
+  }
   const locations = objectValues(posting.jobLocation);
   if (!locations) throw new Error('Teo Jakob AG jobLocation is unusable');
   const addresses = [];
   for (const location of locations) {
     if (!hasOwn(location, 'address')) {
       throw new Error('Teo Jakob AG jobLocation address is unusable');
+    }
+    if (Array.isArray(location.address) && location.address.length > 1) {
+      throw new Error('Teo Jakob AG jobLocation is ambiguous');
     }
     const locationAddresses = objectValues(location.address);
     if (!locationAddresses) {

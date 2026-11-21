@@ -72,6 +72,13 @@ describe('Jobalino exact href attributes', () => {
       url: 'https://my.jobalino.ch/job/abc123/projektleiter',
     }]);
   });
+
+  it('keeps a valid tile when a quoted attribute contains >', () => {
+    const html = listingHtml(
+      'data-label="x > y" class="reflink" href="https://my.jobalino.ch/public/job/de/abc123/projektleiter"',
+    );
+    expect(parseJobalinoListingHtml(html)).toMatchObject([{ id: 'abc123' }]);
+  });
 });
 
 describe('Teo Jakob JSON-LD arrays', () => {
@@ -123,58 +130,26 @@ describe('Teo Jakob JSON-LD arrays', () => {
     await expect(fetchAllTeoJakobAgJobs()).rejects.toThrow(expected);
   });
 
-  it.each([
-    {
-      organizations: [
-        { '@type': 'Organization', name: 'Other Employer AG' },
-        { '@type': 'Organization', name: 'Teo Jakob AG' },
-      ],
-      locations: [
-        { '@type': 'Place', address: FOREIGN_ADDRESS },
-        { '@type': 'Place', address: SWISS_ADDRESS },
-      ],
-    },
-    {
-      organizations: [
-        { '@type': 'Organization', name: 'Teo Jakob AG' },
-        { '@type': 'Organization', name: 'Other Employer AG' },
-      ],
-      locations: [
-        { '@type': 'Place', address: SWISS_ADDRESS },
-        { '@type': 'Place', address: FOREIGN_ADDRESS },
-      ],
-    },
-  ])('selects the unique tenant and Swiss address independently of array order', async ({ organizations, locations }) => {
-    stubJobalino(detailHtml({ hiringOrganization: organizations, jobLocation: locations }));
-
-    const jobs = await fetchAllTeoJakobAgJobs();
-
-    expect(jobs).toHaveLength(1);
-    expect(jobs[0]).toMatchObject({
-      company: 'Teo Jakob AG',
-      location: 'Bern',
-      canton: 'BE',
-      postalCode: '3000',
-      streetAddress: 'Gerechtigkeitsgasse 1',
-    });
-  });
-
-  it.each([
-    [FOREIGN_ADDRESS, SWISS_ADDRESS],
-    [SWISS_ADDRESS, FOREIGN_ADDRESS],
-  ])('selects the unique address from a nested address array independently of order', async (first, second) => {
+  it('fails closed for a multi-member hiringOrganization array', async () => {
     stubJobalino(detailHtml({
-      jobLocation: { '@type': 'Place', address: [first, second] },
+      hiringOrganization: [
+        { '@type': 'Organization', name: 'Other Employer AG' },
+        { '@type': 'Organization', name: 'Teo Jakob AG' },
+      ],
     }));
 
-    const jobs = await fetchAllTeoJakobAgJobs();
+    await expect(fetchAllTeoJakobAgJobs()).rejects.toThrow(/hiringOrganization is ambiguous/i);
+  });
 
-    expect(jobs).toHaveLength(1);
-    expect(jobs[0]).toMatchObject({
-      location: 'Bern',
-      postalCode: '3000',
-      streetAddress: 'Gerechtigkeitsgasse 1',
-    });
+  it('fails closed for a multi-member jobLocation array', async () => {
+    stubJobalino(detailHtml({
+      jobLocation: [
+        { '@type': 'Place', address: FOREIGN_ADDRESS },
+        { '@type': 'Place', address: SWISS_ADDRESS },
+      ],
+    }));
+
+    await expect(fetchAllTeoJakobAgJobs()).rejects.toThrow(/jobLocation is ambiguous/i);
   });
 
   it('fails closed when multiple organization objects claim the tenant', async () => {
