@@ -56,6 +56,7 @@ import {
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
+import { readAttr } from './html-attr.mjs';
 
 const API_HOST = 'https://my.jobalino.ch';
 const DETAIL_DELAY_MS = 250;
@@ -181,10 +182,13 @@ export function parseJobalinoListingHtml(html = '') {
   // emits /public/job/de/.... Attribute order also differs between the two
   // transports. Parse the anchor first, then read its href so both official
   // views resolve to one canonical vacancy identity.
-  const tileRx = /<a\b([^>]*\bclass=["'][^"']*\breflink\b[^"']*["'][^>]*)>([\s\S]*?)<\/a>/gi;
+  const tileRx = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
   let m;
   while ((m = tileRx.exec(html))) {
-    const href = m[1].match(/(?:^|\s)href\s*=\s*["']https:\/\/my\.jobalino\.ch\/(?:public\/)?job\/(?:(de|fr|it|en)\/)?([a-f0-9]+)\/([a-z0-9_-]+)(?:\?[^"']*)?["']/i);
+    const classes = readAttr(m[1], 'class').toLowerCase().split(/\s+/).filter(Boolean);
+    if (!classes.includes('reflink')) continue;
+    const rawHref = decodeEntities(readAttr(m[1], 'href')).trim();
+    const href = rawHref.match(/^https:\/\/my\.jobalino\.ch\/(?:public\/)?job\/(?:(de|fr|it|en)\/)?([a-f0-9]+)\/([a-z0-9_-]+)(?:\?[^"']*)?$/i);
     if (!href) continue;
     const locale = href[1] || '';
     const id = href[2];

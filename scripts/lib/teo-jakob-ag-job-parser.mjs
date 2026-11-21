@@ -44,53 +44,73 @@ function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
 }
 
-function firstObject(value) {
-  if (Array.isArray(value)) {
-    if (value.length !== 1) return null;
-    const [entry] = value;
-    return entry && typeof entry === 'object' && !Array.isArray(entry) ? entry : null;
+function objectValues(value) {
+  const values = Array.isArray(value) ? value : [value];
+  return values.filter((entry) => entry && typeof entry === 'object');
+}
+
+function tenantEmployer(tile = {}, posting = {}) {
+  const organizations = objectValues(posting.hiringOrganization);
+  if (organizations.length === 0) {
+    const listingName = normalizeSpace(tile.company || '');
+    return { name: listingName, isTenant: normalize(listingName) === SOURCE_COMPANY_NAME };
   }
-  return value && typeof value === 'object' ? value : null;
+  const named = organizations
+    .map((organization) => normalizeSpace(organization.name || ''))
+    .filter(Boolean);
+  const matching = named.filter((name) => normalize(name) === SOURCE_COMPANY_NAME);
+  if (matching.length > 1) {
+    throw new Error('Teo Jakob AG hiringOrganization is ambiguous');
+  }
+  if (matching.length === 1) return { name: matching[0], isTenant: true };
+  return { name: named.join(' | '), isTenant: false };
 }
 
-export function hasAmbiguousJsonLdSource(posting = {}) {
-  const locations = Array.isArray(posting.jobLocation)
-    ? posting.jobLocation
-    : [posting.jobLocation];
-  const sourceFields = [
-    posting.hiringOrganization,
-    posting.jobLocation,
-    ...locations.map((location) => location?.address),
-  ];
-  return sourceFields.some((value) => Array.isArray(value) && value.length !== 1);
-}
-
-function jsonLdAddress(posting = {}) {
-  const location = firstObject(posting.jobLocation);
-  const address = firstObject(location?.address);
-  return address || {};
-}
-
-function sourceEmployerName(tile = {}, posting = {}) {
-  const hiringOrganization = firstObject(posting.hiringOrganization);
-  return normalizeSpace(hiringOrganization?.name || tile.company || '');
+function addressCandidates(posting = {}) {
+  const addresses = [];
+  for (const location of objectValues(posting.jobLocation)) {
+    addresses.push(...objectValues(location.address));
+  }
+  return addresses;
 }
 
 function sourceGeography(tile = {}, posting = {}) {
-  const address = jsonLdAddress(posting);
-  const addressLocality = normalizeSpace(tile.city || address.addressLocality || '');
-  const addressCountry = normalizeSpace(tile.country || address.addressCountry || '');
-  const evidence = {
-    location: normalizeSpace([addressLocality, addressCountry].filter(Boolean).join(', ')),
-    addressLocality,
-    addressRegion: normalizeSpace(address.addressRegion || ''),
-    addressCountry,
-    country: addressCountry,
-    postalCode: normalizeSpace(tile.zip || address.postalCode || ''),
-    streetAddress: normalizeSpace(tile.address || address.streetAddress || ''),
-  };
-  const resolved = resolveSourceBackedSwissGeography(evidence);
-  return resolved ? sourceBackedSwissGeographyFields(evidence, resolved) : null;
+  const listingCity = normalizeSpace(tile.city || '');
+  const listingPostal = normalizeSpace(tile.zip || '');
+  const candidates = addressCandidates(posting);
+  const sourceCandidates = candidates.length > 0 ? candidates : [{}];
+  const matches = [];
+
+  for (const address of sourceCandidates) {
+    const candidateCity = normalizeSpace(address.addressLocality || '');
+    const candidatePostal = normalizeSpace(address.postalCode || '');
+    if (listingCity && candidateCity && normalize(listingCity) !== normalize(candidateCity)) continue;
+    if (listingPostal && candidatePostal && listingPostal !== candidatePostal) continue;
+    const addressLocality = listingCity || candidateCity;
+    const addressCountry = normalizeSpace(address.addressCountry || tile.country || '');
+    const evidence = {
+      location: normalizeSpace([addressLocality, addressCountry].filter(Boolean).join(', ')),
+      addressLocality,
+      addressRegion: normalizeSpace(address.addressRegion || ''),
+      addressCountry,
+      country: addressCountry,
+      postalCode: listingPostal || candidatePostal,
+      streetAddress: normalizeSpace(tile.address || address.streetAddress || ''),
+    };
+    const resolved = resolveSourceBackedSwissGeography(evidence);
+    if (!resolved) continue;
+    matches.push(sourceBackedSwissGeographyFields(evidence, resolved));
+  }
+
+  const distinct = new Map(matches.map((candidate) => [JSON.stringify({
+    addressLocality: candidate.addressLocality,
+    addressRegion: candidate.addressRegion,
+    addressCountry: candidate.addressCountry,
+    postalCode: candidate.postalCode,
+    streetAddress: candidate.streetAddress,
+  }), candidate]));
+  if (distinct.size > 1) throw new Error('Teo Jakob AG jobLocation is ambiguous');
+  return distinct.values().next().value || null;
 }
 
 export function isTeoJakobAgJob(job) {
@@ -203,14 +223,11 @@ export async function fetchAllTeoJakobAgJobs() {
     if (!posting) {
       throw new Error('Teo Jakob AG detail has no JobPosting JSON-LD: ' + tile.url);
     }
-    if (hasAmbiguousJsonLdSource(posting)) {
-      throw new Error('Teo Jakob AG detail has ambiguous employer or geography JSON-LD: ' + tile.url);
-    }
-    const employer = sourceEmployerName(tile, posting || {});
-    if (!employer) {
+    const employer = tenantEmployer(tile, posting || {});
+    if (!employer.name) {
       throw new Error('Teo Jakob AG employer is missing from listing and detail: ' + tile.url);
     }
-    if (normalize(employer) !== SOURCE_COMPANY_NAME) {
+    if (!employer.isTenant) {
       foreignCompany += 1;
       continue;
     }
