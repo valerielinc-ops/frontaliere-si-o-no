@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hes-so-valais",
-  "assembledAt": "2026-11-20T21:27:41.850Z",
-  "runId": "44818010851",
+  "assembledAt": "2026-11-21T21:21:43.347Z",
+  "runId": "44950138256",
   "jobs": [
     {
       "url": "https://www.hevs.ch/fr/recruitee/professeurs-hes-ou-professeures-hes-***-professoren-fh-und-professorinnen-fh-215676",
@@ -67,7 +67,7 @@
         ]
       },
       "firstSeenAt": "2026-11-17T21:17:34.119Z",
-      "crawledAt": "2026-11-20T21:27:38.705Z",
+      "crawledAt": "2026-11-21T21:21:40.818Z",
       "salaryMin": 51000,
       "salaryMax": 94500,
       "currency": "CHF",
@@ -86,9 +86,8 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:27:38.705Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.hevs.ch/fr/recruitee/professeurs-hes-ou-professeures-hes-***-professoren-fh-und-professorinnen-fh-215676"
+      "validThrough": "2027-02-15T21:21:40.818Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://www.hevs.ch/fr/recruitee/leitende-wissenschaftliche-mitarbeiterin-oder-leitender-wissenschaftlicher-mitarbeiter-80--215673",
@@ -155,7 +154,7 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-11-16T21:16:07.969Z",
-      "crawledAt": "2026-11-20T21:27:38.705Z",
+      "crawledAt": "2026-11-21T21:21:40.818Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -174,9 +173,8 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:27:38.705Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.hevs.ch/fr/recruitee/leitende-wissenschaftliche-mitarbeiterin-oder-leitender-wissenschaftlicher-mitarbeiter-80--215673"
+      "validThrough": "2027-02-14T21:21:40.818Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://www.hevs.ch/fr/recruitee/collaboratrice-administrative-ou-collaborateur-administratif-60-215618",
@@ -242,7 +240,7 @@
         ]
       },
       "firstSeenAt": "2026-11-05T21:15:57.137Z",
-      "crawledAt": "2026-11-20T21:27:38.705Z",
+      "crawledAt": "2026-11-21T21:21:40.818Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -261,9 +259,8 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:27:38.705Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.hevs.ch/fr/recruitee/collaboratrice-administrative-ou-collaborateur-administratif-60-215618"
+      "validThrough": "2027-02-03T21:21:40.818Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://www.hevs.ch/fr/recruitee/apprenti-employe-de-commerce-cfc-ou-apprentie-employee-de-commerce-cfc-215560",
@@ -329,7 +326,7 @@
         ]
       },
       "firstSeenAt": "2026-10-29T21:38:55.675Z",
-      "crawledAt": "2026-11-20T21:27:38.705Z",
+      "crawledAt": "2026-11-21T21:21:40.818Z",
       "salaryMin": 51000,
       "salaryMax": 77500,
       "currency": "CHF",
@@ -348,9 +345,8 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:27:38.705Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.hevs.ch/fr/recruitee/apprenti-employe-de-commerce-cfc-ou-apprentie-employee-de-commerce-cfc-215560"
+      "validThrough": "2027-01-28T21:21:40.818Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
