@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-21T00:49:33.013Z",
+  "generatedAt": "2026-11-21T07:51:12.289Z",
   "windowDays": 7,
   "dutyHubPath": "/farmacie-di-turno/",
   "cantons": {
@@ -9,28 +9,10 @@
         "TI"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-11-21T00:48:43.361Z",
+      "fetchedAt": "2026-11-21T07:50:21.902Z",
       "sourceUrl": "https://www.ofct.ch/farmacieturno/",
       "sourceType": "official",
       "duties": [
-        {
-          "pharmacy": "Farmacia Sun Store Lugano Beltramina",
-          "city": "Lugano",
-          "coverageName": "Luganese",
-          "dutyType": "day",
-          "startsAt": "2026-11-14T07:00:00.000Z",
-          "endsAt": "2026-11-21T07:00:00.000Z",
-          "sourceUrl": "https://www.ofct.ch/luganese/"
-        },
-        {
-          "pharmacy": "Zanini SA",
-          "city": "Stabio",
-          "coverageName": "Mendrisiotto",
-          "dutyType": "day",
-          "startsAt": "2026-11-17T07:00:00.000Z",
-          "endsAt": "2026-11-21T07:00:00.000Z",
-          "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
-        },
         {
           "pharmacy": "Grassi",
           "city": "Faido",
@@ -93,6 +75,24 @@
           "startsAt": "2026-11-27T17:30:00.000Z",
           "endsAt": "2026-11-30T17:30:00.000Z",
           "sourceUrl": "https://www.ofct.ch/bellinzonese/"
+        },
+        {
+          "pharmacy": "Farmacia Castagnola",
+          "city": "Castagnola",
+          "coverageName": "Luganese",
+          "dutyType": "day",
+          "startsAt": "2026-11-28T07:00:00.000Z",
+          "endsAt": "2026-12-05T07:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/luganese/"
+        },
+        {
+          "pharmacy": "Ronchi",
+          "city": "Castel San Pietro",
+          "coverageName": "Mendrisiotto",
+          "dutyType": "day",
+          "startsAt": "2026-11-28T07:00:00.000Z",
+          "endsAt": "2026-12-01T07:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
         }
       ],
       "unresolvedDuties": 3
@@ -102,7 +102,7 @@
         "GE"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-11-21T00:49:31.595Z",
+      "fetchedAt": "2026-11-21T07:51:10.683Z",
       "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/",
       "sourceType": "association",
       "duties": [
@@ -186,37 +186,10 @@
         "JU"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-11-21T00:49:33.013Z",
+      "fetchedAt": "2026-11-21T07:51:12.289Z",
       "sourceUrl": "https://www.jura.ch/fr/Autorites/Administration/CHA/SIC/Urgences/Numeros-d-urgence-Urgence.html",
       "sourceType": "official",
       "duties": [
-        {
-          "pharmacy": "Sun Store Milliet Gare",
-          "city": "Porrentruy",
-          "coverageName": "Ajoie",
-          "dutyType": "weekend",
-          "startsAt": "2026-11-14T07:00:00.000Z",
-          "endsAt": "2026-11-21T07:00:00.000Z",
-          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/cf870cc726e98e945551d2d9bf14db412111d06a31ed96503068c955fe97873e.pdf/Plan-de-garde-des-pharmacies-dAjoie-de-mars-2026-a-fevrier-2027.pdf?download=1"
-        },
-        {
-          "pharmacy": "Tilleul",
-          "city": "Delémont",
-          "coverageName": "Delémont",
-          "dutyType": "weekend",
-          "startsAt": "2026-11-14T07:00:00.000Z",
-          "endsAt": "2026-11-21T07:00:00.000Z",
-          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/01baf7bafb804ba41706469e756cfccecfac1eee8116c5ba49fc8a29abfe57a6.pdf/Plan-de-garde-des-pharmacies-de-Delemont-en-2026.pdf?download=1"
-        },
-        {
-          "pharmacy": "Centre Coop",
-          "city": "Moutier",
-          "coverageName": "Moutier",
-          "dutyType": "night",
-          "startsAt": "2026-11-20T17:30:00.000Z",
-          "endsAt": "2026-11-21T07:00:00.000Z",
-          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/7f1515f9545180504c2d10f45dc07fb2704ad22e31937b789f63868e1c469ca0.pdf/Plan-de-garde-des-pharmacies-de-Moutier-en-2026.pdf?download=1"
-        },
         {
           "pharmacy": "Pharmacie du Centre",
           "city": "Delémont",
@@ -315,6 +288,24 @@
           "startsAt": "2026-11-27T17:30:00.000Z",
           "endsAt": "2026-11-28T07:00:00.000Z",
           "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/7f1515f9545180504c2d10f45dc07fb2704ad22e31937b789f63868e1c469ca0.pdf/Plan-de-garde-des-pharmacies-de-Moutier-en-2026.pdf?download=1"
+        },
+        {
+          "pharmacy": "Pharmacie du Jura",
+          "city": "Delémont",
+          "coverageName": "Delémont",
+          "dutyType": "weekend",
+          "startsAt": "2026-11-28T07:00:00.000Z",
+          "endsAt": "2026-12-05T07:00:00.000Z",
+          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/01baf7bafb804ba41706469e756cfccecfac1eee8116c5ba49fc8a29abfe57a6.pdf/Plan-de-garde-des-pharmacies-de-Delemont-en-2026.pdf?download=1"
+        },
+        {
+          "pharmacy": "Sun Store Esplanade",
+          "city": "Porrentruy",
+          "coverageName": "Ajoie",
+          "dutyType": "weekend",
+          "startsAt": "2026-11-28T07:00:00.000Z",
+          "endsAt": "2026-12-05T07:00:00.000Z",
+          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/cf870cc726e98e945551d2d9bf14db412111d06a31ed96503068c955fe97873e.pdf/Plan-de-garde-des-pharmacies-dAjoie-de-mars-2026-a-fevrier-2027.pdf?download=1"
         }
       ],
       "unresolvedDuties": 0
@@ -324,7 +315,7 @@
         "BS"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-11-21T00:49:33.013Z",
+      "fetchedAt": "2026-11-21T07:51:12.289Z",
       "sourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt",
       "sourceType": "official",
       "duties": [
@@ -408,7 +399,7 @@
         "ZH"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-11-21T00:49:33.013Z",
+      "fetchedAt": "2026-11-21T07:51:12.289Z",
       "sourceUrl": "https://www.avkz.ch/notfalldienst",
       "sourceType": "association",
       "duties": [
@@ -492,7 +483,7 @@
         "SO"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-11-21T00:49:33.013Z",
+      "fetchedAt": "2026-11-21T07:51:12.289Z",
       "sourceUrl": "https://avso.ch/notfalldienst-apotheken/",
       "sourceType": "association",
       "duties": [
