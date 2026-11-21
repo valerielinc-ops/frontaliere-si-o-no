@@ -4075,12 +4075,12 @@
     },
     {
       "id": "pdgr-45e82b2f0279",
-      "slug": "fachspezialist-in-hr-entwicklung-pdgr-ch",
+      "slug": "specialista-hr-per-lo-sviluppo-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
         "de": "fachspezialist-in-hr-entwicklung-pdgr-ch",
-        "it": "fachspezialist-in-hr-entwicklung-pdgr-ch",
-        "en": "fachspezialist-in-hr-entwicklung-pdgr-ch",
-        "fr": "fachspezialist-in-hr-entwicklung-pdgr-ch"
+        "it": "specialista-hr-per-lo-sviluppo-psychiatrische-dienste-graubunden-chur",
+        "en": "hr-development-specialist-psychiatrische-dienste-graubunden-chur",
+        "fr": "specialiste-du-developpement-rh-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -4157,16 +4157,30 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-18T21:43:05.753Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:43:05.753Z"
+      "firstSeenAt": "2026-11-20T21:43:05.753Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-hr-entwicklung-pdgr-ch"
+        ],
+        "en": [
+          "fachspezialist-in-hr-entwicklung-pdgr-ch"
+        ],
+        "fr": [
+          "fachspezialist-in-hr-entwicklung-pdgr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-hr-entwicklung-pdgr-ch"
+      ]
     },
     {
       "id": "pdgr-0f228fc06d6e",
-      "slug": "responsabile-tagesstatte-con-agogischer-fuhrungsverantwortung-psychiatrische-dienste-graubunden-landquart",
+      "slug": "responsabile-di-centro-diurno-con-responsabilita-di-conduzione-agogica-psychiatrische-dienste-graubunden-landquart",
       "slugByLocale": {
         "de": "leiter-in-tagesstatte-mit-agogischer-fuhrungsverantwortung-pdgr-ch",
-        "it": "responsabile-tagesstatte-con-agogischer-fuhrungsverantwortung-psychiatrische-dienste-graubunden-landquart",
-        "en": "leiter-in-tagesstatte-mit-agogischer-fuhrungsverantwortung-psychiatrische-dienste-graubunden-landquart",
-        "fr": "leiter-in-tagesstatte-mit-agogischer-fuhrungsverantwortung-psychiatrische-dienste-graubunden-landquart"
+        "it": "responsabile-di-centro-diurno-con-responsabilita-di-conduzione-agogica-psychiatrische-dienste-graubunden-landquart",
+        "en": "day-center-manager-with-educational-leadership-responsibility-psychiatrische-dienste-graubunden-landquart",
+        "fr": "responsable-de-centre-de-jour-avec-responsabilite-de-conduite-agogique-psychiatrische-dienste-graubunden-landquart"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -4217,11 +4231,20 @@
       "pensum": "80%",
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-tagesstatte-mit-agogischer-fuhrungsverantwortung-pdgr-ch"
+          "leiter-in-tagesstatte-mit-agogischer-fuhrungsverantwortung-pdgr-ch",
+          "responsabile-tagesstatte-con-agogischer-fuhrungsverantwortung-psychiatrische-dienste-graubunden-landquart"
+        ],
+        "en": [
+          "leiter-in-tagesstatte-mit-agogischer-fuhrungsverantwortung-psychiatrische-dienste-graubunden-landquart"
+        ],
+        "fr": [
+          "leiter-in-tagesstatte-mit-agogischer-fuhrungsverantwortung-psychiatrische-dienste-graubunden-landquart"
         ]
       },
       "previousSlugs": [
-        "leiter-in-tagesstatte-mit-agogischer-fuhrungsverantwortung-pdgr-ch"
+        "leiter-in-tagesstatte-mit-agogischer-fuhrungsverantwortung-pdgr-ch",
+        "responsabile-tagesstatte-con-agogischer-fuhrungsverantwortung-psychiatrische-dienste-graubunden-landquart",
+        "leiter-in-tagesstatte-mit-agogischer-fuhrungsverantwortung-psychiatrische-dienste-graubunden-landquart"
       ],
       "salaryMin": 110500,
       "salaryMax": 154000,

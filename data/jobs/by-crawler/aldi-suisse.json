@@ -7726,11 +7726,11 @@
     },
     {
       "id": "aldi-suisse-829ee3a122bd",
-      "slug": "gerant-de-filiale-m-w-d-aldi-suisse-le-locle",
+      "slug": "responsabile-di-filiale-m-f-d-aldi-suisse-le-locle",
       "slugByLocale": {
         "de": "gerant-de-filiale-m-f-d-aldi-suisse",
-        "it": "gerant-de-filiale-m-w-d-aldi-suisse-le-locle",
-        "en": "gerant-de-filiale-m-f-d-aldi-suisse",
+        "it": "responsabile-di-filiale-m-f-d-aldi-suisse-le-locle",
+        "en": "branch-manager-m-f-d-aldi-suisse-le-locle",
         "fr": "gerant-de-filiale-m-f-d-aldi-suisse"
       },
       "company": "ALDI SUISSE",
@@ -7819,11 +7819,16 @@
       "crawledAt": "2026-11-20T21:43:15.243Z",
       "previousSlugsByLocale": {
         "it": [
+          "gerant-de-filiale-m-f-d-aldi-suisse",
+          "gerant-de-filiale-m-w-d-aldi-suisse-le-locle"
+        ],
+        "en": [
           "gerant-de-filiale-m-f-d-aldi-suisse"
         ]
       },
       "previousSlugs": [
-        "gerant-de-filiale-m-f-d-aldi-suisse"
+        "gerant-de-filiale-m-f-d-aldi-suisse",
+        "gerant-de-filiale-m-w-d-aldi-suisse-le-locle"
       ],
       "salaryMin": 72000,
       "salaryMax": 110500,

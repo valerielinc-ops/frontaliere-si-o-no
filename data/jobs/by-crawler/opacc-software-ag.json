@@ -689,12 +689,12 @@
     },
     {
       "id": "opacc-software-ag-185811f40078",
-      "slug": "leiterin-interne-informatik-rothenburg-opacc-software-ag-ch",
+      "slug": "responsabile-delle-scienze-informatiche-interne-opacc-software-ag-rothenburg",
       "slugByLocale": {
         "de": "leiterin-interne-informatik-rothenburg-opacc-software-ag-ch",
-        "it": "leiterin-interne-informatik-rothenburg-opacc-software-ag-ch",
-        "en": "leiterin-interne-informatik-rothenburg-opacc-software-ag-ch",
-        "fr": "leiterin-interne-informatik-rothenburg-opacc-software-ag-ch"
+        "it": "responsabile-delle-scienze-informatiche-interne-opacc-software-ag-rothenburg",
+        "en": "head-of-internal-computer-science-opacc-software-ag-rothenburg",
+        "fr": "directeur-de-l-informatique-interne-opacc-software-ag-rothenburg"
       },
       "company": "Opacc Software AG",
       "companyKey": "opacc-software-ag",
@@ -770,7 +770,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-18T21:22:44.255Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:22:44.255Z"
+      "firstSeenAt": "2026-11-20T21:22:44.255Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leiterin-interne-informatik-rothenburg-opacc-software-ag-ch"
+        ],
+        "en": [
+          "leiterin-interne-informatik-rothenburg-opacc-software-ag-ch"
+        ],
+        "fr": [
+          "leiterin-interne-informatik-rothenburg-opacc-software-ag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leiterin-interne-informatik-rothenburg-opacc-software-ag-ch"
+      ]
     }
   ]
 }

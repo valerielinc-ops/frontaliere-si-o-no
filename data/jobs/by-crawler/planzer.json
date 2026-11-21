@@ -1039,12 +1039,12 @@
     },
     {
       "id": "planzer-8f3bb559da47",
-      "slug": "technischer-allrounder-m-w-d-planzer-emmen",
+      "slug": "interno-tecnico-m-f-d-planzer-emmen",
       "slugByLocale": {
         "de": "technischer-allrounder-m-w-d-planzer-emmen",
-        "it": "technischer-allrounder-m-w-d-planzer-emmen",
-        "en": "technischer-allrounder-m-w-d-planzer-emmen",
-        "fr": "technischer-allrounder-m-w-d-planzer-emmen"
+        "it": "interno-tecnico-m-f-d-planzer-emmen",
+        "en": "technical-all-rounder-m-f-d-planzer-emmen",
+        "fr": "h-f-d-pour-toutes-les-techniques-planzer-emmen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -1107,16 +1107,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-18T21:21:24.516Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:21:24.516Z"
+      "firstSeenAt": "2026-11-20T21:21:24.516Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technischer-allrounder-m-w-d-planzer-emmen"
+        ],
+        "en": [
+          "technischer-allrounder-m-w-d-planzer-emmen"
+        ],
+        "fr": [
+          "technischer-allrounder-m-w-d-planzer-emmen"
+        ]
+      },
+      "previousSlugs": [
+        "technischer-allrounder-m-w-d-planzer-emmen"
+      ]
     },
     {
       "id": "planzer-726ae0b000f9",
-      "slug": "direktionsassistent-m-w-d-planzer-dietikon",
+      "slug": "direttore-aggiunto-m-f-d-planzer-dietikon",
       "slugByLocale": {
         "de": "direktionsassistent-m-w-d-planzer-dietikon",
-        "it": "direktionsassistent-m-w-d-planzer-dietikon",
-        "en": "direktionsassistent-m-w-d-planzer-dietikon",
-        "fr": "direktionsassistent-m-w-d-planzer-dietikon"
+        "it": "direttore-aggiunto-m-f-d-planzer-dietikon",
+        "en": "assistant-director-m-f-d-planzer-dietikon",
+        "fr": "directeur-adjoint-h-f-d-planzer-dietikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -1179,7 +1193,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-18T21:21:23.835Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:21:23.835Z"
+      "firstSeenAt": "2026-11-20T21:21:23.835Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "direktionsassistent-m-w-d-planzer-dietikon"
+        ],
+        "en": [
+          "direktionsassistent-m-w-d-planzer-dietikon"
+        ],
+        "fr": [
+          "direktionsassistent-m-w-d-planzer-dietikon"
+        ]
+      },
+      "previousSlugs": [
+        "direktionsassistent-m-w-d-planzer-dietikon"
+      ]
     },
     {
       "id": "planzer-a144f4ce0ee7",
@@ -1259,8 +1287,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-lager-m-w-d-planzer-domat-ems",
         "it": "collaboratore-trice-magazzino-m-w-d-planzer-domat-ems",
-        "en": "mitarbeiter-lager-m-w-d-planzer-domat-ems",
-        "fr": "mitarbeiter-lager-m-w-d-planzer-domat-ems"
+        "en": "employee-camp-m-f-d-planzer-domat-ems",
+        "fr": "camp-des-employes-h-f-d-planzer-domat-ems"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -1310,6 +1338,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-lager-m-w-d-planzer-domat-ems"
+        ],
+        "en": [
+          "mitarbeiter-lager-m-w-d-planzer-domat-ems"
+        ],
+        "fr": [
+          "mitarbeiter-lager-m-w-d-planzer-domat-ems"
         ]
       },
       "previousSlugs": [
@@ -1335,12 +1369,12 @@
     },
     {
       "id": "planzer-6a0563ddf1e1",
-      "slug": "betriebsleiter-hochsicherheitslager-edelmetalle-m-w-d-planzer-dallikon",
+      "slug": "gestione-delle-operazioni-magazzini-di-alta-sicurezza-e-metalli-preziosi-m-f-d-planzer-dallikon",
       "slugByLocale": {
         "de": "betriebsleiter-hochsicherheitslager-edelmetalle-m-w-d-planzer-dallikon",
-        "it": "betriebsleiter-hochsicherheitslager-edelmetalle-m-w-d-planzer-dallikon",
-        "en": "betriebsleiter-hochsicherheitslager-edelmetalle-m-w-d-planzer-dallikon",
-        "fr": "betriebsleiter-hochsicherheitslager-edelmetalle-m-w-d-planzer-dallikon"
+        "it": "gestione-delle-operazioni-magazzini-di-alta-sicurezza-e-metalli-preziosi-m-f-d-planzer-dallikon",
+        "en": "operations-manager-high-security-warehouses-precious-metals-m-f-d-planzer-dallikon",
+        "fr": "gestionnaire-des-operations-entrepots-de-haute-securite-et-metaux-precieux-h-f-d-planzer-dallikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -1403,7 +1437,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T21:21:21.614Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:21:21.614Z"
+      "firstSeenAt": "2026-11-20T21:21:21.614Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebsleiter-hochsicherheitslager-edelmetalle-m-w-d-planzer-dallikon"
+        ],
+        "en": [
+          "betriebsleiter-hochsicherheitslager-edelmetalle-m-w-d-planzer-dallikon"
+        ],
+        "fr": [
+          "betriebsleiter-hochsicherheitslager-edelmetalle-m-w-d-planzer-dallikon"
+        ]
+      },
+      "previousSlugs": [
+        "betriebsleiter-hochsicherheitslager-edelmetalle-m-w-d-planzer-dallikon"
+      ]
     }
   ]
 }

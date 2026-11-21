@@ -10461,12 +10461,12 @@
     },
     {
       "id": "upd-fbb56b8b662a",
-      "slug": "dipl-pflegefachperson-therapiestation-per-abhangigkeit-munsingen-universitare-psychiatrische-dienste-bern-upd-munsingen",
+      "slug": "infermiere-a-diplomato-a-presso-il-reparto-terapeutico-per-le-dipendenze-munsingen-universitare-psychiatrische-dienste",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-therapiestation-fur-abhangigkeit-munsingen-upd-munsingen",
-        "it": "dipl-pflegefachperson-therapiestation-per-abhangigkeit-munsingen-universitare-psychiatrische-dienste-bern-upd-munsingen",
-        "en": "dipl-pflegefachperson-therapiestation-fur-abhangigkeit-munsingen-upd-munsingen",
-        "fr": "dipl-pflegefachperson-therapiestation-fur-abhangigkeit-munsingen-upd-munsingen"
+        "it": "infermiere-a-diplomato-a-presso-il-reparto-terapeutico-per-le-dipendenze-munsingen-universitare-psychiatrische-dienste",
+        "en": "dipl-nurse-specialist-therapy-station-for-dependence-munsingen-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "fr": "dipl-infirmiere-specialiste-poste-de-therapie-pour-la-dependance-munsingen-universitare-psychiatrische-dienste-bern-upd"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -10514,11 +10514,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-therapiestation-fur-abhangigkeit-munsingen-upd-munsingen",
+          "dipl-pflegefachperson-therapiestation-per-abhangigkeit-munsingen-universitare-psychiatrische-dienste-bern-upd-munsingen"
+        ],
+        "en": [
+          "dipl-pflegefachperson-therapiestation-fur-abhangigkeit-munsingen-upd-munsingen"
+        ],
+        "fr": [
           "dipl-pflegefachperson-therapiestation-fur-abhangigkeit-munsingen-upd-munsingen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-therapiestation-fur-abhangigkeit-munsingen-upd-munsingen"
+        "dipl-pflegefachperson-therapiestation-fur-abhangigkeit-munsingen-upd-munsingen",
+        "dipl-pflegefachperson-therapiestation-per-abhangigkeit-munsingen-universitare-psychiatrische-dienste-bern-upd-munsingen"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -10540,12 +10548,12 @@
     },
     {
       "id": "upd-13fbdcbe07f9",
-      "slug": "assistenzpsychologin-ii-assistenzpsychologe-ii-upd-biel",
+      "slug": "assistente-psicologo-ii-assistente-psicologo-ii-universitare-psychiatrische-dienste-bern-upd-biel",
       "slugByLocale": {
         "de": "assistenzpsychologin-ii-assistenzpsychologe-ii-upd-biel",
-        "it": "assistenzpsychologin-ii-assistenzpsychologe-ii-upd-biel",
-        "en": "assistenzpsychologin-ii-assistenzpsychologe-ii-upd-biel",
-        "fr": "assistenzpsychologin-ii-assistenzpsychologe-ii-upd-biel"
+        "it": "assistente-psicologo-ii-assistente-psicologo-ii-universitare-psychiatrische-dienste-bern-upd-biel",
+        "en": "assistant-psychologist-ii-assistant-psychologist-ii-universitare-psychiatrische-dienste-bern-upd-biel",
+        "fr": "assistant-psychologue-ii-assistant-psychologue-ii-universitare-psychiatrische-dienste-bern-upd-biel"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -10607,7 +10615,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-18T21:38:59.985Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:38:59.985Z"
+      "firstSeenAt": "2026-11-20T21:38:59.985Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzpsychologin-ii-assistenzpsychologe-ii-upd-biel"
+        ],
+        "en": [
+          "assistenzpsychologin-ii-assistenzpsychologe-ii-upd-biel"
+        ],
+        "fr": [
+          "assistenzpsychologin-ii-assistenzpsychologe-ii-upd-biel"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzpsychologin-ii-assistenzpsychologe-ii-upd-biel"
+      ]
     }
   ]
 }

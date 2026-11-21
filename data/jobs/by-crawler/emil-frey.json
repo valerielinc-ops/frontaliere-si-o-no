@@ -7201,7 +7201,7 @@
     },
     {
       "id": "emil-frey-1983b5e8e561",
-      "slug": "collaboratore-trice-aussendienst-emil-frey-glattpark-opfikon",
+      "slug": "collaboratore-trice-nel-servizio-esterno-emil-frey-glattpark-opfikon",
       "slugByLocale": {
         "de": "mitarbeiter-in-aussendienst-emil-frey-glattpark-opfikon",
         "it": "collaboratore-trice-nel-servizio-esterno-emil-frey-glattpark-opfikon",
@@ -7254,7 +7254,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-aussendienst-emil-frey-glattpark-opfikon"
+          "mitarbeiter-in-aussendienst-emil-frey-glattpark-opfikon",
+          "collaboratore-trice-aussendienst-emil-frey-glattpark-opfikon"
         ],
         "en": [
           "mitarbeiter-in-aussendienst-emil-frey-glattpark-opfikon"
@@ -7264,7 +7265,8 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-aussendienst-emil-frey-glattpark-opfikon"
+        "mitarbeiter-in-aussendienst-emil-frey-glattpark-opfikon",
+        "collaboratore-trice-aussendienst-emil-frey-glattpark-opfikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -7289,12 +7291,12 @@
     },
     {
       "id": "emil-frey-f9a32f2ed46f",
-      "slug": "verkaufsberater-in-toyota-emil-frey-ostermundigen",
+      "slug": "consulente-alla-vendita-toyota-emil-frey-ostermundigen",
       "slugByLocale": {
         "de": "verkaufsberater-in-toyota-emil-frey-ostermundigen",
-        "it": "verkaufsberater-in-toyota-emil-frey-ostermundigen",
-        "en": "verkaufsberater-in-toyota-emil-frey-ostermundigen",
-        "fr": "verkaufsberater-in-toyota-emil-frey-ostermundigen"
+        "it": "consulente-alla-vendita-toyota-emil-frey-ostermundigen",
+        "en": "toyota-sales-advisor-emil-frey-ostermundigen",
+        "fr": "conseiller-ere-de-vente-toyota-emil-frey-ostermundigen"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -7357,7 +7359,21 @@
       "validThrough": "2027-02-18T21:28:30.930Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T21:28:30.930Z",
-      "sourceIdentity": "url:https://jobs.emilfrey.ch/verkaufsberater-in-toyota-de-j2643.html"
+      "sourceIdentity": "url:https://jobs.emilfrey.ch/verkaufsberater-in-toyota-de-j2643.html",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-toyota-emil-frey-ostermundigen"
+        ],
+        "en": [
+          "verkaufsberater-in-toyota-emil-frey-ostermundigen"
+        ],
+        "fr": [
+          "verkaufsberater-in-toyota-emil-frey-ostermundigen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-toyota-emil-frey-ostermundigen"
+      ]
     },
     {
       "id": "emil-frey-3ab85ece1e20",

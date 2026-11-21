@@ -12525,7 +12525,7 @@
     },
     {
       "id": "raiffeisen-29cf5b57d94c",
-      "slug": "finanzplaner-in-w-m-d-raiffeisen-wallisellen",
+      "slug": "pianificatore-pianificatrice-finanziario-finanziaria-m-f-d-raiffeisen-wallisellen",
       "slugByLocale": {
         "de": "finanzplaner-in-w-m-d-raiffeisen-wallisellen",
         "it": "pianificatore-pianificatrice-finanziario-finanziaria-m-f-d-raiffeisen-wallisellen",
@@ -12595,7 +12595,8 @@
       "firstSeenAt": "2026-11-20T21:37:14.537Z",
       "previousSlugsByLocale": {
         "it": [
-          "pianificatore-pianificatrice-finanziario-a-m-f-d-raiffeisen-wallisellen"
+          "pianificatore-pianificatrice-finanziario-a-m-f-d-raiffeisen-wallisellen",
+          "finanzplaner-in-w-m-d-raiffeisen-wallisellen"
         ],
         "en": [
           "finanzplaner-in-w-m-d-raiffeisen-wallisellen"
@@ -12702,12 +12703,12 @@
     },
     {
       "id": "raiffeisen-4f0b44983049",
-      "slug": "senior-privatkundenberater-immobilien-w-m-d-raiffeisen-zurich",
+      "slug": "senior-private-client-advisor-immobiliare-m-f-d-raiffeisen-zurich",
       "slugByLocale": {
         "de": "senior-privatkundenberater-immobilien-w-m-d-raiffeisen-zurich",
-        "it": "senior-privatkundenberater-immobilien-w-m-d-raiffeisen-zurich",
-        "en": "senior-privatkundenberater-immobilien-w-m-d-raiffeisen-zurich",
-        "fr": "senior-privatkundenberater-immobilien-w-m-d-raiffeisen-zurich"
+        "it": "senior-private-client-advisor-immobiliare-m-f-d-raiffeisen-zurich",
+        "en": "senior-private-client-advisor-real-estate-m-f-d-raiffeisen-zurich",
+        "fr": "conseiller-principal-client-prive-immobilier-h-f-d-raiffeisen-zurich"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12769,16 +12770,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T21:37:14.511Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:37:14.511Z"
+      "firstSeenAt": "2026-11-20T21:37:14.511Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-privatkundenberater-immobilien-w-m-d-raiffeisen-zurich"
+        ],
+        "en": [
+          "senior-privatkundenberater-immobilien-w-m-d-raiffeisen-zurich"
+        ],
+        "fr": [
+          "senior-privatkundenberater-immobilien-w-m-d-raiffeisen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-privatkundenberater-immobilien-w-m-d-raiffeisen-zurich"
+      ]
     },
     {
       "id": "raiffeisen-b24773dd8994",
-      "slug": "hochschulpraktikant-marketing-w-m-d-raiffeisen-st-gallen",
+      "slug": "stage-universitario-marketing-m-f-d-raiffeisen-st-gallen",
       "slugByLocale": {
         "de": "hochschulpraktikant-marketing-w-m-d-raiffeisen-st-gallen",
-        "it": "hochschulpraktikant-marketing-w-m-d-raiffeisen-st-gallen",
-        "en": "hochschulpraktikant-marketing-w-m-d-raiffeisen-st-gallen",
-        "fr": "hochschulpraktikant-marketing-w-m-d-raiffeisen-st-gallen"
+        "it": "stage-universitario-marketing-m-f-d-raiffeisen-st-gallen",
+        "en": "university-intern-marketing-m-f-d-raiffeisen-st-gallen",
+        "fr": "university-stagiaire-marketing-h-f-d-raiffeisen-st-gallen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12840,16 +12855,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-18T21:37:14.477Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:37:14.477Z"
+      "firstSeenAt": "2026-11-20T21:37:14.477Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hochschulpraktikant-marketing-w-m-d-raiffeisen-st-gallen"
+        ],
+        "en": [
+          "hochschulpraktikant-marketing-w-m-d-raiffeisen-st-gallen"
+        ],
+        "fr": [
+          "hochschulpraktikant-marketing-w-m-d-raiffeisen-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "hochschulpraktikant-marketing-w-m-d-raiffeisen-st-gallen"
+      ]
     },
     {
       "id": "raiffeisen-43ce9d6d740f",
-      "slug": "kundenberater-w-m-d-raiffeisen-gossau",
+      "slug": "servizio-clienti-m-f-d-raiffeisen-gossau",
       "slugByLocale": {
         "de": "kundenberater-w-m-d-raiffeisen-gossau",
-        "it": "kundenberater-w-m-d-raiffeisen-gossau",
-        "en": "kundenberater-w-m-d-raiffeisen-gossau",
-        "fr": "kundenberater-w-m-d-raiffeisen-gossau"
+        "it": "servizio-clienti-m-f-d-raiffeisen-gossau",
+        "en": "customer-service-provider-m-f-d-raiffeisen-gossau",
+        "fr": "fournisseur-de-services-a-la-clientele-h-f-d-raiffeisen-gossau"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12911,7 +12940,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-18T21:37:14.472Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:37:14.472Z"
+      "firstSeenAt": "2026-11-20T21:37:14.472Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-w-m-d-raiffeisen-gossau"
+        ],
+        "en": [
+          "kundenberater-w-m-d-raiffeisen-gossau"
+        ],
+        "fr": [
+          "kundenberater-w-m-d-raiffeisen-gossau"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-w-m-d-raiffeisen-gossau"
+      ]
     }
   ]
 }

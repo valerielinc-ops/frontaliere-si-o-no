@@ -2487,12 +2487,12 @@
     },
     {
       "id": "new-yorker-28585",
-      "slug": "aushilfe-m-w-d-im-vendita-new-yorker-basel",
+      "slug": "addetto-a-di-supporto-m-f-d-alle-vendite-new-yorker-basel",
       "slugByLocale": {
         "de": "aushilfe-m-w-d-im-verkauf-new-yorker-basel",
-        "it": "aushilfe-m-w-d-im-vendita-new-yorker-basel",
-        "en": "aushilfe-m-w-d-im-verkauf-new-yorker-basel",
-        "fr": "aushilfe-m-w-d-im-verkauf-new-yorker-basel"
+        "it": "addetto-a-di-supporto-m-f-d-alle-vendite-new-yorker-basel",
+        "en": "retail-assistant-m-f-d-new-yorker-basel",
+        "fr": "auxiliaire-h-f-d-dans-la-vente-new-yorker-basel"
       },
       "company": "New Yorker",
       "companyKey": "new-yorker",
@@ -2539,11 +2539,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "aushilfe-m-w-d-im-verkauf-new-yorker-basel",
+          "aushilfe-m-w-d-im-vendita-new-yorker-basel"
+        ],
+        "en": [
+          "aushilfe-m-w-d-im-verkauf-new-yorker-basel"
+        ],
+        "fr": [
           "aushilfe-m-w-d-im-verkauf-new-yorker-basel"
         ]
       },
       "previousSlugs": [
-        "aushilfe-m-w-d-im-verkauf-new-yorker-basel"
+        "aushilfe-m-w-d-im-verkauf-new-yorker-basel",
+        "aushilfe-m-w-d-im-vendita-new-yorker-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

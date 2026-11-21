@@ -4796,12 +4796,12 @@
     },
     {
       "id": "spital-uster-d10e8cd9836b",
-      "slug": "hotelfachassistentin-hotelfachassistent-room-service-50-70-spital-uster-ch",
+      "slug": "assistente-alberghiero-servizio-in-camera-50-70-spital-uster-uster",
       "slugByLocale": {
         "de": "hotelfachassistentin-hotelfachassistent-room-service-50-70-spital-uster-ch",
-        "it": "hotelfachassistentin-hotelfachassistent-room-service-50-70-spital-uster-ch",
-        "en": "hotelfachassistentin-hotelfachassistent-room-service-50-70-spital-uster-ch",
-        "fr": "hotelfachassistentin-hotelfachassistent-room-service-50-70-spital-uster-ch"
+        "it": "assistente-alberghiero-servizio-in-camera-50-70-spital-uster-uster",
+        "en": "hotel-assistant-room-service-50-70-spital-uster-uster",
+        "fr": "assistant-d-hotel-service-en-chambre-50-70-spital-uster-uster"
       },
       "company": "Spital Uster",
       "companyKey": "spital-uster",
@@ -4878,16 +4878,30 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-17T21:21:09.013Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:21:09.013Z"
+      "firstSeenAt": "2026-11-20T21:21:09.013Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hotelfachassistentin-hotelfachassistent-room-service-50-70-spital-uster-ch"
+        ],
+        "en": [
+          "hotelfachassistentin-hotelfachassistent-room-service-50-70-spital-uster-ch"
+        ],
+        "fr": [
+          "hotelfachassistentin-hotelfachassistent-room-service-50-70-spital-uster-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hotelfachassistentin-hotelfachassistent-room-service-50-70-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-91facb832a26",
-      "slug": "dipl-pflegefachperson-hf-60-100-medizinisches-ambulatorium-spital-uster-ch",
+      "slug": "dipl-infermiera-hf-60-100-ambulatorium-medico-spital-uster-uster",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-60-100-medizinisches-ambulatorium-spital-uster-ch",
-        "it": "dipl-pflegefachperson-hf-60-100-medizinisches-ambulatorium-spital-uster-ch",
-        "en": "dipl-pflegefachperson-hf-60-100-medizinisches-ambulatorium-spital-uster-ch",
-        "fr": "dipl-pflegefachperson-hf-60-100-medizinisches-ambulatorium-spital-uster-ch"
+        "it": "dipl-infermiera-hf-60-100-ambulatorium-medico-spital-uster-uster",
+        "en": "dipl-nurse-hf-60-100-medical-ambulatorium-spital-uster-uster",
+        "fr": "dipl-infirmiere-hf-60-100-ambulateur-medical-spital-uster-uster"
       },
       "company": "Spital Uster",
       "companyKey": "spital-uster",
@@ -4964,7 +4978,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-17T21:21:09.007Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:21:09.007Z"
+      "firstSeenAt": "2026-11-20T21:21:09.007Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-60-100-medizinisches-ambulatorium-spital-uster-ch"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-60-100-medizinisches-ambulatorium-spital-uster-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-60-100-medizinisches-ambulatorium-spital-uster-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-60-100-medizinisches-ambulatorium-spital-uster-ch"
+      ]
     }
   ]
 }

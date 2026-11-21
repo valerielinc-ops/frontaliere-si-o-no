@@ -2086,12 +2086,12 @@
     },
     {
       "id": "spital-schwyz-222b23fef02d",
-      "slug": "dipl-pflegefachperson-hf-onkologiepflege-40-60-spital-schwyz-schwyz",
+      "slug": "dipl-cura-professionale-hf-oncologia-cura-40-60-spital-schwyz-schwyz",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-onkologiepflege-40-60-spital-schwyz-schwyz",
-        "it": "dipl-pflegefachperson-hf-onkologiepflege-40-60-spital-schwyz-schwyz",
-        "en": "dipl-pflegefachperson-hf-onkologiepflege-40-60-spital-schwyz-schwyz",
-        "fr": "dipl-pflegefachperson-hf-onkologiepflege-40-60-spital-schwyz-schwyz"
+        "it": "dipl-cura-professionale-hf-oncologia-cura-40-60-spital-schwyz-schwyz",
+        "en": "dipl-care-professional-hf-oncology-care-40-60-spital-schwyz-schwyz",
+        "fr": "dipl-soins-d-oncologie-pour-les-professionnels-de-la-sante-40-a-60-spital-schwyz-schwyz"
       },
       "company": "Spital Schwyz",
       "companyKey": "spital-schwyz",
@@ -2153,7 +2153,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-18T21:58:21.736Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:58:21.736Z"
+      "firstSeenAt": "2026-11-20T21:58:21.736Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-onkologiepflege-40-60-spital-schwyz-schwyz"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-onkologiepflege-40-60-spital-schwyz-schwyz"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-onkologiepflege-40-60-spital-schwyz-schwyz"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-onkologiepflege-40-60-spital-schwyz-schwyz"
+      ]
     }
   ]
 }

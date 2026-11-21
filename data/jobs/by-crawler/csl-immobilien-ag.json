@@ -181,12 +181,12 @@
     },
     {
       "id": "csl-immobilien-ag-bd764aaf76dc",
-      "slug": "lernende-r-zurich-praktikant-1j-zurich-zh-csl-immobilien-ag-ch",
+      "slug": "apprendista-zurigo-stagista-1-anno-csl-immobilien-ag-zurich-zh",
       "slugByLocale": {
         "de": "lernende-r-zurich-praktikant-1j-zurich-zh-csl-immobilien-ag-ch",
-        "it": "lernende-r-zurich-praktikant-1j-zurich-zh-csl-immobilien-ag-ch",
-        "en": "lernende-r-zurich-praktikant-1j-zurich-zh-csl-immobilien-ag-ch",
-        "fr": "lernende-r-zurich-praktikant-1j-zurich-zh-csl-immobilien-ag-ch"
+        "it": "apprendista-zurigo-stagista-1-anno-csl-immobilien-ag-zurich-zh",
+        "en": "apprentice-zurich-intern-1-yr-csl-immobilien-ag-zurich-zh",
+        "fr": "apprenti-e-zurich-stagiaire-1-an-csl-immobilien-ag-zurich-zh"
       },
       "company": "CSL Immobilien AG",
       "companyKey": "csl-immobilien-ag",
@@ -249,7 +249,21 @@
       "validThrough": "2027-02-18T21:51:58.577Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T21:51:58.577Z",
-      "sourceIdentity": "url:https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/90894baf-5ec6-cf55-6b6d-d1ff32afbbe3?jp=abacus"
+      "sourceIdentity": "url:https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/90894baf-5ec6-cf55-6b6d-d1ff32afbbe3?jp=abacus",
+      "previousSlugsByLocale": {
+        "it": [
+          "lernende-r-zurich-praktikant-1j-zurich-zh-csl-immobilien-ag-ch"
+        ],
+        "en": [
+          "lernende-r-zurich-praktikant-1j-zurich-zh-csl-immobilien-ag-ch"
+        ],
+        "fr": [
+          "lernende-r-zurich-praktikant-1j-zurich-zh-csl-immobilien-ag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lernende-r-zurich-praktikant-1j-zurich-zh-csl-immobilien-ag-ch"
+      ]
     }
   ]
 }

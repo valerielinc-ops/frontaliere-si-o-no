@@ -12688,12 +12688,12 @@
     },
     {
       "id": "rolex-2c3c62eae884",
-      "slug": "responsable-de-groupe-h-f-rolex-ch-2",
+      "slug": "gestione-gruppo-m-f-rolex-bienne",
       "slugByLocale": {
         "fr": "responsable-de-groupe-h-f-rolex-ch",
-        "it": "responsable-de-groupe-h-f-rolex-ch-2",
-        "en": "responsable-de-groupe-h-f-rolex-ch-2",
-        "de": "responsable-de-groupe-h-f-rolex-ch-2"
+        "it": "gestione-gruppo-m-f-rolex-bienne",
+        "en": "group-manager-m-f-rolex-bienne-768749",
+        "de": "gruppenleiter-m-w-rolex-bienne"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -12754,7 +12754,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T21:23:35.989Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-26T13:57:59.272Z"
+      "firstSeenAt": "2026-09-26T13:57:59.272Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-de-groupe-h-f-rolex-ch-2"
+        ],
+        "en": [
+          "responsable-de-groupe-h-f-rolex-ch-2"
+        ],
+        "de": [
+          "responsable-de-groupe-h-f-rolex-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-de-groupe-h-f-rolex-ch-2"
+      ]
     }
   ]
 }

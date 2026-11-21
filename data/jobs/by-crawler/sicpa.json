@@ -758,10 +758,10 @@
     },
     {
       "id": "sicpa-b8887e8df6a6",
-      "slug": "sales-operations-assistant-sicpa-prilly",
+      "slug": "assistente-delle-operazioni-di-vendita-sicpa-sa-prilly",
       "slugByLocale": {
         "fr": "sales-operations-assistant-sicpa-prilly",
-        "it": "sales-operations-assistant-sicpa-prilly",
+        "it": "assistente-delle-operazioni-di-vendita-sicpa-sa-prilly",
         "en": "sales-operations-assistant-sicpa-prilly",
         "de": "sales-operations-assistant-sicpa-prilly"
       },
@@ -840,7 +840,15 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-18T22:02:04.781Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T22:02:04.781Z"
+      "firstSeenAt": "2026-11-20T22:02:04.781Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-operations-assistant-sicpa-prilly"
+        ]
+      },
+      "previousSlugs": [
+        "sales-operations-assistant-sicpa-prilly"
+      ]
     }
   ]
 }

@@ -4427,7 +4427,7 @@
       "slugByLocale": {
         "it": "una-un-network-amp-orchestration-engineer-srg-ssr-lugano",
         "en": "una-un-network-amp-orchestration-engineer-srg-ssr-lugano",
-        "de": "una-un-network-amp-orchestration-engineer-srg-ssr-lugano",
+        "de": "una-un-network-orchestration-ingenieur-srg-ssr-lugano",
         "fr": "una-un-network-amp-orchestration-engineer-srg-ssr-lugano"
       },
       "company": "SRG SSR",
@@ -4517,16 +4517,24 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T21:20:29.983Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:20:29.983Z"
+      "firstSeenAt": "2026-11-20T21:20:29.983Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "una-un-network-amp-orchestration-engineer-srg-ssr-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "una-un-network-amp-orchestration-engineer-srg-ssr-lugano"
+      ]
     },
     {
       "id": "srg-ssr-d8413dc4ae69",
-      "slug": "assistent-in-accessibility-services-srg-ssr-bern",
+      "slug": "assistente-ai-servizi-di-accessibilita-srg-ssr-bern",
       "slugByLocale": {
         "de": "assistent-in-accessibility-services-srg-ssr-bern",
-        "it": "assistent-in-accessibility-services-srg-ssr-bern",
+        "it": "assistente-ai-servizi-di-accessibilita-srg-ssr-bern",
         "en": "assistent-in-accessibility-services-srg-ssr-bern",
-        "fr": "assistent-in-accessibility-services-srg-ssr-bern"
+        "fr": "assistant-e-des-services-d-accessibilite-srg-ssr-bern"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -4609,7 +4617,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-18T21:20:29.210Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:20:29.210Z"
+      "firstSeenAt": "2026-11-20T21:20:29.210Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-accessibility-services-srg-ssr-bern"
+        ],
+        "fr": [
+          "assistent-in-accessibility-services-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-accessibility-services-srg-ssr-bern"
+      ]
     }
   ]
 }

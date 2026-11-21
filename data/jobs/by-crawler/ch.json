@@ -103,8 +103,8 @@
       "slugByLocale": {
         "de": "kundenberater-vorsorge-finanzen-quereinstieg-hybrid-mit-homeoffice-global-sana-bachenbulach",
         "it": "kundenberater-previdenza-finanzen-cambio-carriera-hybrid-con-homeoffice-global-sana-bachenbulach",
-        "en": "kundenberater-vorsorge-finanzen-quereinstieg-hybrid-mit-homeoffice-global-sana-bachenbulach",
-        "fr": "kundenberater-vorsorge-finanzen-quereinstieg-hybrid-mit-homeoffice-global-sana-bachenbulach"
+        "en": "customer-advisor-precaution-finance-cross-entry-hybrid-with-homeoffice-global-sana-bachenbulach-zurich",
+        "fr": "conseiller-a-la-clientele-precaution-finance-entree-croisee-hybride-avec-homeoffice-global-sana-bachenbulach-zurich"
       },
       "company": "Global Sana",
       "companyKey": "ch",
@@ -154,10 +154,12 @@
           "consulente-alla-clientela-previdenza-finanze-ingresso-da-un-altro-settore-modalita-ibrida-con-home-office-global-sana"
         ],
         "en": [
-          "customer-advisor-precaution-finance-cross-entry-hybrid-with-homeoffice-global-sana-bachenbulach-zurich"
+          "customer-advisor-precaution-finance-cross-entry-hybrid-with-homeoffice-global-sana-bachenbulach-zurich",
+          "kundenberater-vorsorge-finanzen-quereinstieg-hybrid-mit-homeoffice-global-sana-bachenbulach"
         ],
         "fr": [
-          "conseiller-a-la-clientele-precaution-finance-entree-croisee-hybride-avec-homeoffice-global-sana-bachenbulach-zurich"
+          "conseiller-a-la-clientele-precaution-finance-entree-croisee-hybride-avec-homeoffice-global-sana-bachenbulach-zurich",
+          "kundenberater-vorsorge-finanzen-quereinstieg-hybrid-mit-homeoffice-global-sana-bachenbulach"
         ],
         "de": [
           "kundenberater-vorsorge-finanzen-quereinstieg-hybrid-mit-homeoffice-bachenbulach-zurich-ch"
@@ -167,7 +169,8 @@
         "kundenberater-vorsorge-finanzen-quereinstieg-hybrid-mit-homeoffice-bachenbulach-zurich-ch",
         "consulente-alla-clientela-previdenza-finanze-ingresso-da-un-altro-settore-modalita-ibrida-con-home-office-global-sana",
         "customer-advisor-precaution-finance-cross-entry-hybrid-with-homeoffice-global-sana-bachenbulach-zurich",
-        "conseiller-a-la-clientele-precaution-finance-entree-croisee-hybride-avec-homeoffice-global-sana-bachenbulach-zurich"
+        "conseiller-a-la-clientele-precaution-finance-entree-croisee-hybride-avec-homeoffice-global-sana-bachenbulach-zurich",
+        "kundenberater-vorsorge-finanzen-quereinstieg-hybrid-mit-homeoffice-global-sana-bachenbulach"
       ],
       "salaryMin": 113000,
       "salaryMax": 198500,
@@ -193,12 +196,12 @@
     },
     {
       "id": "ch-bb68f4e2a64a",
-      "slug": "vbv-vorsorgeberater-kundenzone-deutschschweiz-global-sana-adliswil",
+      "slug": "vbv-consulente-precauzionale-zona-clienti-svizzera-tedesca-global-sana-adliswil",
       "slugByLocale": {
-        "de": "vbv-vorsorgeberater-kundenzone-deutschschweiz-convit-central-gmbh-adliswil-switzerland-ch",
-        "it": "vbv-vorsorgeberater-kundenzone-deutschschweiz-global-sana-adliswil",
-        "en": "vbv-vorsorgeberater-kundenzone-deutschschweiz-global-sana-adliswil",
-        "fr": "vbv-vorsorgeberater-kundenzone-deutschschweiz-global-sana-adliswil"
+        "de": "vbv-vorsorgeberater-kundenzone-deutschschweiz-global-sana-adliswil",
+        "it": "vbv-consulente-precauzionale-zona-clienti-svizzera-tedesca-global-sana-adliswil",
+        "en": "vbv-precautionary-consultant-customer-zone-german-speaking-switzerland-global-sana-adliswil",
+        "fr": "vbv-precautionary-consultant-zone-client-suisse-alemanique-global-sana-adliswil"
       },
       "company": "Global Sana",
       "companyKey": "ch",
@@ -245,20 +248,27 @@
       "previousSlugsByLocale": {
         "it": [
           "vbv-vorsorgeberater-kundenzone-deutschschweiz-convit-central-gmbh-adliswil-switzerland-ch",
-          "vbv-consulente-precauzionale-zona-clienti-svizzera-tedesca-global-sana-convit-central-gmbh-adliswil-switzerland"
+          "vbv-consulente-precauzionale-zona-clienti-svizzera-tedesca-global-sana-convit-central-gmbh-adliswil-switzerland",
+          "vbv-vorsorgeberater-kundenzone-deutschschweiz-global-sana-adliswil"
         ],
         "en": [
-          "vbv-precautionary-consultant-customer-zone-german-speaking-switzerland-global-sana-convit-central-gmbh-adliswil"
+          "vbv-precautionary-consultant-customer-zone-german-speaking-switzerland-global-sana-convit-central-gmbh-adliswil",
+          "vbv-vorsorgeberater-kundenzone-deutschschweiz-global-sana-adliswil"
         ],
         "fr": [
-          "vbv-precautionary-consultant-zone-client-suisse-alemanique-global-sana-convit-central-gmbh-adliswil-switzerland"
+          "vbv-precautionary-consultant-zone-client-suisse-alemanique-global-sana-convit-central-gmbh-adliswil-switzerland",
+          "vbv-vorsorgeberater-kundenzone-deutschschweiz-global-sana-adliswil"
+        ],
+        "de": [
+          "vbv-vorsorgeberater-kundenzone-deutschschweiz-convit-central-gmbh-adliswil-switzerland-ch"
         ]
       },
       "previousSlugs": [
         "vbv-vorsorgeberater-kundenzone-deutschschweiz-convit-central-gmbh-adliswil-switzerland-ch",
         "vbv-consulente-precauzionale-zona-clienti-svizzera-tedesca-global-sana-convit-central-gmbh-adliswil-switzerland",
         "vbv-precautionary-consultant-customer-zone-german-speaking-switzerland-global-sana-convit-central-gmbh-adliswil",
-        "vbv-precautionary-consultant-zone-client-suisse-alemanique-global-sana-convit-central-gmbh-adliswil-switzerland"
+        "vbv-precautionary-consultant-zone-client-suisse-alemanique-global-sana-convit-central-gmbh-adliswil-switzerland",
+        "vbv-vorsorgeberater-kundenzone-deutschschweiz-global-sana-adliswil"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -380,8 +390,8 @@
       "slugByLocale": {
         "de": "kundenberater-vorsorge-finanzen-einstieg-mit-oder-ohne-vbv-homeoffice-moglich-dietlikon",
         "it": "kundenberater-previdenza-finanzen-einstieg-con-o-ohne-vbv-homeoffice-moglich-global-sana-dietlikon",
-        "en": "kundenberater-vorsorge-finanzen-einstieg-mit-oder-ohne-vbv-homeoffice-moglich-dietlikon",
-        "fr": "kundenberater-vorsorge-finanzen-einstieg-mit-oder-ohne-vbv-homeoffice-moglich-dietlikon"
+        "en": "customer-consultants-provision-finance-entry-with-or-without-vbv-home-office-possible-global-sana-dietlikon-canton-of",
+        "fr": "consultants-clients-provision-finance-entree-avec-ou-sans-vbv-bureau-a-domicile-possible-global-sana-dietlikon-canton-of"
       },
       "company": "Global Sana",
       "companyKey": "ch",
@@ -432,10 +442,12 @@
           "consulente-alla-clientela-per-previdenza-finanze-ingresso-con-o-senza-vbv-possibilita-di-lavorare-da-casa-global-sana"
         ],
         "en": [
-          "customer-consultants-provision-finance-entry-with-or-without-vbv-home-office-possible-global-sana-dietlikon-canton-of"
+          "customer-consultants-provision-finance-entry-with-or-without-vbv-home-office-possible-global-sana-dietlikon-canton-of",
+          "kundenberater-vorsorge-finanzen-einstieg-mit-oder-ohne-vbv-homeoffice-moglich-dietlikon"
         ],
         "fr": [
-          "consultants-clients-provision-finance-entree-avec-ou-sans-vbv-bureau-a-domicile-possible-global-sana-dietlikon-canton-of"
+          "consultants-clients-provision-finance-entree-avec-ou-sans-vbv-bureau-a-domicile-possible-global-sana-dietlikon-canton-of",
+          "kundenberater-vorsorge-finanzen-einstieg-mit-oder-ohne-vbv-homeoffice-moglich-dietlikon"
         ]
       },
       "previousSlugs": [
@@ -469,12 +481,12 @@
     },
     {
       "id": "ch-4818d48aeaea",
-      "slug": "vorsorgeberater-vbv-profil-leben-region-mittelland-global-sana-meilen",
+      "slug": "consulente-preventivo-vbv-profile-life-regione-mittelland-global-sana-convit-central-gmbh-meilen-switzerland",
       "slugByLocale": {
         "de": "vorsorgeberater-vbv-profil-leben-region-mittelland-global-sana-meilen",
-        "it": "vorsorgeberater-vbv-profil-leben-region-mittelland-global-sana-meilen",
-        "en": "vorsorgeberater-vbv-profil-leben-region-mittelland-global-sana-meilen",
-        "fr": "vorsorgeberater-vbv-profil-leben-region-mittelland-global-sana-meilen"
+        "it": "consulente-preventivo-vbv-profile-life-regione-mittelland-global-sana-convit-central-gmbh-meilen-switzerland",
+        "en": "preventive-advisor-vbv-profile-life-region-mittelland-global-sana-convit-central-gmbh-meilen-switzerland",
+        "fr": "conseiller-preventif-profil-vbv-vie-region-mittelland-global-sana-convit-central-gmbh-meilen-switzerland"
       },
       "company": "Global Sana",
       "companyKey": "ch",
@@ -521,13 +533,16 @@
       "previousSlugsByLocale": {
         "it": [
           "vorsorgeberater-vbv-profil-leben-region-mittelland-convit-central-gmbh-meilen-switzerland",
-          "consulente-preventivo-vbv-profile-life-regione-mittelland-global-sana-convit-central-gmbh-meilen-switzerland"
+          "consulente-preventivo-vbv-profile-life-regione-mittelland-global-sana-convit-central-gmbh-meilen-switzerland",
+          "vorsorgeberater-vbv-profil-leben-region-mittelland-global-sana-meilen"
         ],
         "en": [
-          "preventive-advisor-vbv-profile-life-region-mittelland-global-sana-convit-central-gmbh-meilen-switzerland"
+          "preventive-advisor-vbv-profile-life-region-mittelland-global-sana-convit-central-gmbh-meilen-switzerland",
+          "vorsorgeberater-vbv-profil-leben-region-mittelland-global-sana-meilen"
         ],
         "fr": [
-          "conseiller-preventif-profil-vbv-vie-region-mittelland-global-sana-convit-central-gmbh-meilen-switzerland"
+          "conseiller-preventif-profil-vbv-vie-region-mittelland-global-sana-convit-central-gmbh-meilen-switzerland",
+          "vorsorgeberater-vbv-profil-leben-region-mittelland-global-sana-meilen"
         ],
         "de": [
           "vorsorgeberater-vbv-profil-leben-region-mittelland-convit-central-gmbh-meilen-switzerland"
@@ -537,7 +552,8 @@
         "vorsorgeberater-vbv-profil-leben-region-mittelland-convit-central-gmbh-meilen-switzerland",
         "consulente-preventivo-vbv-profile-life-regione-mittelland-global-sana-convit-central-gmbh-meilen-switzerland",
         "preventive-advisor-vbv-profile-life-region-mittelland-global-sana-convit-central-gmbh-meilen-switzerland",
-        "conseiller-preventif-profil-vbv-vie-region-mittelland-global-sana-convit-central-gmbh-meilen-switzerland"
+        "conseiller-preventif-profil-vbv-vie-region-mittelland-global-sana-convit-central-gmbh-meilen-switzerland",
+        "vorsorgeberater-vbv-profil-leben-region-mittelland-global-sana-meilen"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -566,8 +582,8 @@
       "slugByLocale": {
         "de": "kundenberater-vorsorge-quereinstieg-ohne-branchenerfahrung-homeoffice-moglich-oberglatt",
         "it": "kundenberater-previdenza-cambio-carriera-ohne-branchenerfahrung-homeoffice-moglich-global-sana-oberglatt",
-        "en": "kundenberater-vorsorge-quereinstieg-ohne-branchenerfahrung-homeoffice-moglich-oberglatt",
-        "fr": "kundenberater-vorsorge-quereinstieg-ohne-branchenerfahrung-homeoffice-moglich-oberglatt"
+        "en": "customer-advisor-provision-lateral-entry-without-industry-experience-home-office-possible-global-sana-oberglatt-zurich",
+        "fr": "fourniture-de-conseiller-a-la-clientele-entree-laterale-sans-experience-de-l-industrie-bureau-a-domicile-possible-global"
       },
       "company": "Global Sana",
       "companyKey": "ch",
@@ -617,10 +633,12 @@
           "consulente-clienti-per-la-previdenza-ingresso-laterale-senza-esperienza-nel-settore-possibile-lavoro-da-casa-global-sana"
         ],
         "en": [
-          "customer-advisor-provision-lateral-entry-without-industry-experience-home-office-possible-global-sana-oberglatt-zurich"
+          "customer-advisor-provision-lateral-entry-without-industry-experience-home-office-possible-global-sana-oberglatt-zurich",
+          "kundenberater-vorsorge-quereinstieg-ohne-branchenerfahrung-homeoffice-moglich-oberglatt"
         ],
         "fr": [
-          "fourniture-de-conseiller-a-la-clientele-entree-laterale-sans-experience-de-l-industrie-bureau-a-domicile-possible-global"
+          "fourniture-de-conseiller-a-la-clientele-entree-laterale-sans-experience-de-l-industrie-bureau-a-domicile-possible-global",
+          "kundenberater-vorsorge-quereinstieg-ohne-branchenerfahrung-homeoffice-moglich-oberglatt"
         ]
       },
       "previousSlugs": [
@@ -752,8 +770,8 @@
       "slugByLocale": {
         "de": "kundenberater-in-der-vermogensverwaltung-mit-eigenem-kundenbuch-zurich-zurich-ch-ch",
         "it": "kundenberater-in-der-vermogensverwaltung-mit-eigenem-kundenbuch-zurich-zurich-ch-ch",
-        "en": "kundenberater-in-der-vermogensverwaltung-mit-eigenem-kundenbuch-zurich-zurich-ch-ch",
-        "fr": "kundenberater-in-der-vermogensverwaltung-mit-eigenem-kundenbuch-zurich-zurich-ch-ch"
+        "en": "client-advisor-in-asset-management-with-own-client-book-global-sana-zurich-zurich",
+        "fr": "conseiller-client-en-gestion-d-actifs-avec-son-propre-carnet-client-global-sana-zurich-zurich"
       },
       "company": "Global Sana",
       "companyKey": "ch",
@@ -823,17 +841,20 @@
           "consulente-alla-clientela-nella-gestione-patrimoniale-con-un-proprio-portafoglio-clienti-global-sana-zurich-zurich"
         ],
         "en": [
-          "client-advisor-in-asset-management-with-own-client-book-global-sana-zurich-zurich"
+          "client-advisor-in-asset-management-with-own-client-book-global-sana-zurich-zurich",
+          "kundenberater-in-der-vermogensverwaltung-mit-eigenem-kundenbuch-zurich-zurich-ch-ch"
         ],
         "fr": [
-          "conseiller-client-en-gestion-d-actifs-avec-son-propre-carnet-client-global-sana-zurich-zurich"
+          "conseiller-client-en-gestion-d-actifs-avec-son-propre-carnet-client-global-sana-zurich-zurich",
+          "kundenberater-in-der-vermogensverwaltung-mit-eigenem-kundenbuch-zurich-zurich-ch-ch"
         ]
       },
       "previousSlugs": [
         "consulente-clienti-nella-gestione-patrimoniale-con-un-proprio-portafoglio-clienti-global-sana-zurich-zurich",
         "consulente-alla-clientela-nella-gestione-patrimoniale-con-un-proprio-portafoglio-clienti-global-sana-zurich-zurich",
         "client-advisor-in-asset-management-with-own-client-book-global-sana-zurich-zurich",
-        "conseiller-client-en-gestion-d-actifs-avec-son-propre-carnet-client-global-sana-zurich-zurich"
+        "conseiller-client-en-gestion-d-actifs-avec-son-propre-carnet-client-global-sana-zurich-zurich",
+        "kundenberater-in-der-vermogensverwaltung-mit-eigenem-kundenbuch-zurich-zurich-ch-ch"
       ],
       "needsRetranslation": true
     },
@@ -843,8 +864,8 @@
       "slugByLocale": {
         "de": "vbv-vorsorgeberater-fur-privatkunden-profil-leben-global-sana-regensdorf",
         "it": "vbv-vorsorgeberater-per-privatkunden-profil-leben-global-sana-regensdorf",
-        "en": "vbv-vorsorgeberater-fur-privatkunden-profil-leben-global-sana-regensdorf",
-        "fr": "vbv-vorsorgeberater-fur-privatkunden-profil-leben-global-sana-regensdorf"
+        "en": "vbv-pension-advisor-for-private-clients-profile-life-global-sana-convit-central-gmbh-regensdorf-switzerland",
+        "fr": "conseiller-en-pension-vbv-pour-les-clients-prives-profile-life-global-sana-convit-central-gmbh-regensdorf-switzerland"
       },
       "company": "Global Sana",
       "companyKey": "ch",
@@ -894,10 +915,12 @@
           "consulente-previdenziale-vbv-per-clienti-privati-profilo-vita-global-sana-convit-central-gmbh-regensdorf-switzerland"
         ],
         "en": [
-          "vbv-pension-advisor-for-private-clients-profile-life-global-sana-convit-central-gmbh-regensdorf-switzerland"
+          "vbv-pension-advisor-for-private-clients-profile-life-global-sana-convit-central-gmbh-regensdorf-switzerland",
+          "vbv-vorsorgeberater-fur-privatkunden-profil-leben-global-sana-regensdorf"
         ],
         "fr": [
-          "conseiller-en-pension-vbv-pour-les-clients-prives-profile-life-global-sana-convit-central-gmbh-regensdorf-switzerland"
+          "conseiller-en-pension-vbv-pour-les-clients-prives-profile-life-global-sana-convit-central-gmbh-regensdorf-switzerland",
+          "vbv-vorsorgeberater-fur-privatkunden-profil-leben-global-sana-regensdorf"
         ],
         "de": [
           "vbv-vorsorgeberater-fur-privatkunden-profil-leben-convit-central-gmbh-regensdorf"
@@ -907,7 +930,8 @@
         "vbv-vorsorgeberater-fur-privatkunden-profil-leben-convit-central-gmbh-regensdorf",
         "consulente-previdenziale-vbv-per-clienti-privati-profilo-vita-global-sana-convit-central-gmbh-regensdorf-switzerland",
         "vbv-pension-advisor-for-private-clients-profile-life-global-sana-convit-central-gmbh-regensdorf-switzerland",
-        "conseiller-en-pension-vbv-pour-les-clients-prives-profile-life-global-sana-convit-central-gmbh-regensdorf-switzerland"
+        "conseiller-en-pension-vbv-pour-les-clients-prives-profile-life-global-sana-convit-central-gmbh-regensdorf-switzerland",
+        "vbv-vorsorgeberater-fur-privatkunden-profil-leben-global-sana-regensdorf"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -933,12 +957,12 @@
     },
     {
       "id": "ch-ada12f737893",
-      "slug": "vbv-vorsorgeberater-profil-leben-privatkundenberatung-global-sana-zurich",
+      "slug": "vbv-pension-consultant-profil-leben-consulenza-clienti-privata-global-sana-convit-central-gmbh-zurich-switzerland",
       "slugByLocale": {
         "de": "vbv-vorsorgeberater-profil-leben-privatkundenberatung-convit-central-gmbh-zurich",
-        "it": "vbv-vorsorgeberater-profil-leben-privatkundenberatung-global-sana-zurich",
-        "en": "vbv-vorsorgeberater-profil-leben-privatkundenberatung-global-sana-zurich",
-        "fr": "vbv-vorsorgeberater-profil-leben-privatkundenberatung-global-sana-zurich"
+        "it": "vbv-pension-consultant-profil-leben-consulenza-clienti-privata-global-sana-convit-central-gmbh-zurich-switzerland",
+        "en": "vbv-pension-consultant-profil-leben-private-client-consulting-global-sana-convit-central-gmbh-zurich-switzerland",
+        "fr": "consultant-en-pension-vbv-profil-leben-conseils-clients-prives-global-sana-convit-central-gmbh-zurich-switzerland"
       },
       "company": "Global Sana",
       "companyKey": "ch",
@@ -985,20 +1009,24 @@
       "previousSlugsByLocale": {
         "it": [
           "vbv-vorsorgeberater-profil-leben-privatkundenberatung-convit-central-gmbh-zurich",
-          "vbv-pension-consultant-profil-leben-consulenza-clienti-privata-global-sana-convit-central-gmbh-zurich-switzerland"
+          "vbv-pension-consultant-profil-leben-consulenza-clienti-privata-global-sana-convit-central-gmbh-zurich-switzerland",
+          "vbv-vorsorgeberater-profil-leben-privatkundenberatung-global-sana-zurich"
         ],
         "en": [
-          "vbv-pension-consultant-profil-leben-private-client-consulting-global-sana-convit-central-gmbh-zurich-switzerland"
+          "vbv-pension-consultant-profil-leben-private-client-consulting-global-sana-convit-central-gmbh-zurich-switzerland",
+          "vbv-vorsorgeberater-profil-leben-privatkundenberatung-global-sana-zurich"
         ],
         "fr": [
-          "consultant-en-pension-vbv-profil-leben-conseils-clients-prives-global-sana-convit-central-gmbh-zurich-switzerland"
+          "consultant-en-pension-vbv-profil-leben-conseils-clients-prives-global-sana-convit-central-gmbh-zurich-switzerland",
+          "vbv-vorsorgeberater-profil-leben-privatkundenberatung-global-sana-zurich"
         ]
       },
       "previousSlugs": [
         "vbv-vorsorgeberater-profil-leben-privatkundenberatung-convit-central-gmbh-zurich",
         "vbv-pension-consultant-profil-leben-consulenza-clienti-privata-global-sana-convit-central-gmbh-zurich-switzerland",
         "vbv-pension-consultant-profil-leben-private-client-consulting-global-sana-convit-central-gmbh-zurich-switzerland",
-        "consultant-en-pension-vbv-profil-leben-conseils-clients-prives-global-sana-convit-central-gmbh-zurich-switzerland"
+        "consultant-en-pension-vbv-profil-leben-conseils-clients-prives-global-sana-convit-central-gmbh-zurich-switzerland",
+        "vbv-vorsorgeberater-profil-leben-privatkundenberatung-global-sana-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1116,8 +1144,8 @@
       "slugByLocale": {
         "de": "vbv-fachberater-vorsorge-profil-leben-global-sana-uster",
         "it": "vbv-fachberater-previdenza-profil-leben-global-sana-uster",
-        "en": "vbv-fachberater-vorsorge-profil-leben-convit-central-gmbh-uster-switzerland-ch-ch",
-        "fr": "vbv-fachberater-vorsorge-profil-leben-convit-central-gmbh-uster-switzerland-ch-ch"
+        "en": "vbv-specialist-advisor-precautionary-profile-life-global-sana-convit-central-gmbh-uster-switzerland",
+        "fr": "conseiller-specialiste-du-vbv-precautionnaire-vie-de-profil-global-sana-convit-central-gmbh-uster-switzerland"
       },
       "company": "Global Sana",
       "companyKey": "ch",
@@ -1167,10 +1195,12 @@
           "consulente-specializzato-vbv-in-previdenza-profilo-vita-global-sana-convit-central-gmbh-uster-switzerland"
         ],
         "en": [
-          "vbv-specialist-advisor-precautionary-profile-life-global-sana-convit-central-gmbh-uster-switzerland"
+          "vbv-specialist-advisor-precautionary-profile-life-global-sana-convit-central-gmbh-uster-switzerland",
+          "vbv-fachberater-vorsorge-profil-leben-convit-central-gmbh-uster-switzerland-ch-ch"
         ],
         "fr": [
-          "conseiller-specialiste-du-vbv-precautionnaire-vie-de-profil-global-sana-convit-central-gmbh-uster-switzerland"
+          "conseiller-specialiste-du-vbv-precautionnaire-vie-de-profil-global-sana-convit-central-gmbh-uster-switzerland",
+          "vbv-fachberater-vorsorge-profil-leben-convit-central-gmbh-uster-switzerland-ch-ch"
         ],
         "de": [
           "vbv-fachberater-vorsorge-profil-leben-convit-central-gmbh-uster-switzerland-ch-ch"
@@ -1210,8 +1240,8 @@
       "slugByLocale": {
         "de": "vbv-vorsorgeberater-einstieg-mit-fachprofil-leben-global-sana-bachenbulach",
         "it": "vbv-vorsorgeberater-einstieg-mit-fachprofil-leben-global-sana-bachenbulach",
-        "en": "vbv-vorsorgeberater-einstieg-mit-fachprofil-leben-global-sana-bachenbulach",
-        "fr": "vbv-vorsorgeberater-einstieg-mit-fachprofil-leben-global-sana-bachenbulach"
+        "en": "vbv-preventive-consultant-entry-with-a-professional-profile-life-global-sana-convit-central-gmbh-bachenbulach",
+        "fr": "consultant-en-prevention-du-vbv-entree-avec-un-profil-professionnel-vie-global-sana-convit-central-gmbh-bachenbulach"
       },
       "company": "Global Sana",
       "companyKey": "ch",
@@ -1261,10 +1291,12 @@
           "consulente-previdenziale-vbv-ingresso-con-profilo-specialistico-vita-global-sana-convit-central-gmbh-bachenbulach"
         ],
         "en": [
-          "vbv-preventive-consultant-entry-with-a-professional-profile-life-global-sana-convit-central-gmbh-bachenbulach"
+          "vbv-preventive-consultant-entry-with-a-professional-profile-life-global-sana-convit-central-gmbh-bachenbulach",
+          "vbv-vorsorgeberater-einstieg-mit-fachprofil-leben-global-sana-bachenbulach"
         ],
         "fr": [
-          "consultant-en-prevention-du-vbv-entree-avec-un-profil-professionnel-vie-global-sana-convit-central-gmbh-bachenbulach"
+          "consultant-en-prevention-du-vbv-entree-avec-un-profil-professionnel-vie-global-sana-convit-central-gmbh-bachenbulach",
+          "vbv-vorsorgeberater-einstieg-mit-fachprofil-leben-global-sana-bachenbulach"
         ],
         "de": [
           "vbv-vorsorgeberater-einstieg-mit-fachprofil-leben-convit-central-gmbh-bachenbulach"
@@ -1274,7 +1306,8 @@
         "vbv-vorsorgeberater-einstieg-mit-fachprofil-leben-convit-central-gmbh-bachenbulach",
         "consulente-previdenziale-vbv-ingresso-con-profilo-specialistico-vita-global-sana-convit-central-gmbh-bachenbulach",
         "vbv-preventive-consultant-entry-with-a-professional-profile-life-global-sana-convit-central-gmbh-bachenbulach",
-        "consultant-en-prevention-du-vbv-entree-avec-un-profil-professionnel-vie-global-sana-convit-central-gmbh-bachenbulach"
+        "consultant-en-prevention-du-vbv-entree-avec-un-profil-professionnel-vie-global-sana-convit-central-gmbh-bachenbulach",
+        "vbv-vorsorgeberater-einstieg-mit-fachprofil-leben-global-sana-bachenbulach"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1492,8 +1525,8 @@
       "slugByLocale": {
         "de": "kundenberater-vorsorge-finanzen-quereinstieg-homeoffice-moglich-global-sana-dubendorf",
         "it": "kundenberater-previdenza-finanzen-cambio-carriera-homeoffice-moglich-global-sana-dubendorf",
-        "en": "kundenberater-vorsorge-finanzen-quereinstieg-homeoffice-moglich-global-sana-dubendorf",
-        "fr": "kundenberater-vorsorge-finanzen-quereinstieg-homeoffice-moglich-global-sana-dubendorf"
+        "en": "customer-advisor-provision-finance-cross-entry-home-office-possible-global-sana-dubendorf-zurich",
+        "fr": "conseiller-a-la-clientele-provision-finances-entree-croisee-bureau-a-domicile-possible-global-sana-dubendorf-zurich"
       },
       "company": "Global Sana",
       "companyKey": "ch",
@@ -1543,10 +1576,12 @@
           "consulente-alla-clientela-previdenza-finanze-possibilita-di-ingresso-da-un-altro-settore-possibilita-di-lavorare-da-casa"
         ],
         "en": [
-          "customer-advisor-provision-finance-cross-entry-home-office-possible-global-sana-dubendorf-zurich"
+          "customer-advisor-provision-finance-cross-entry-home-office-possible-global-sana-dubendorf-zurich",
+          "kundenberater-vorsorge-finanzen-quereinstieg-homeoffice-moglich-global-sana-dubendorf"
         ],
         "fr": [
-          "conseiller-a-la-clientele-provision-finances-entree-croisee-bureau-a-domicile-possible-global-sana-dubendorf-zurich"
+          "conseiller-a-la-clientele-provision-finances-entree-croisee-bureau-a-domicile-possible-global-sana-dubendorf-zurich",
+          "kundenberater-vorsorge-finanzen-quereinstieg-homeoffice-moglich-global-sana-dubendorf"
         ],
         "de": [
           "kundenberater-vorsorge-finanzen-quereinstieg-homeoffice-moglich-dubendorf-zurich-ch-ch"
@@ -1556,7 +1591,8 @@
         "kundenberater-vorsorge-finanzen-quereinstieg-homeoffice-moglich-dubendorf-zurich-ch-ch",
         "consulente-alla-clientela-previdenza-finanze-possibilita-di-ingresso-da-un-altro-settore-possibilita-di-lavorare-da-casa",
         "customer-advisor-provision-finance-cross-entry-home-office-possible-global-sana-dubendorf-zurich",
-        "conseiller-a-la-clientele-provision-finances-entree-croisee-bureau-a-domicile-possible-global-sana-dubendorf-zurich"
+        "conseiller-a-la-clientele-provision-finances-entree-croisee-bureau-a-domicile-possible-global-sana-dubendorf-zurich",
+        "kundenberater-vorsorge-finanzen-quereinstieg-homeoffice-moglich-global-sana-dubendorf"
       ],
       "salaryMin": 113000,
       "salaryMax": 198500,
@@ -1669,12 +1705,12 @@
     },
     {
       "id": "ch-83ed6ae265a5",
-      "slug": "kundenberater-altersvorsorge-ohne-branchenerfahrung-global-sana-thalwil",
+      "slug": "servizio-di-assistenza-clienti-senza-esperienza-nel-settore-global-sana-convit-central-gmbh-thalwil-switzerland",
       "slugByLocale": {
         "de": "kundenberater-altersvorsorge-ohne-branchenerfahrung-global-sana-thalwil",
-        "it": "kundenberater-altersvorsorge-ohne-branchenerfahrung-global-sana-thalwil",
-        "en": "kundenberater-altersvorsorge-ohne-branchenerfahrung-global-sana-thalwil",
-        "fr": "kundenberater-altersvorsorge-ohne-branchenerfahrung-global-sana-thalwil"
+        "it": "servizio-di-assistenza-clienti-senza-esperienza-nel-settore-global-sana-convit-central-gmbh-thalwil-switzerland",
+        "en": "customer-advisor-retirement-provision-without-industry-experience-global-sana-convit-central-gmbh-thalwil-switzerland",
+        "fr": "prestation-de-retraite-pour-conseiller-a-la-clientele-sans-experience-de-l-industrie-global-sana-convit-central-gmbh"
       },
       "company": "Global Sana",
       "companyKey": "ch",
@@ -1721,13 +1757,16 @@
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-altersvorsorge-ohne-branchenerfahrung-convit-central-gmbh-thalwil",
-          "servizio-di-assistenza-clienti-senza-esperienza-nel-settore-global-sana-convit-central-gmbh-thalwil-switzerland"
+          "servizio-di-assistenza-clienti-senza-esperienza-nel-settore-global-sana-convit-central-gmbh-thalwil-switzerland",
+          "kundenberater-altersvorsorge-ohne-branchenerfahrung-global-sana-thalwil"
         ],
         "en": [
-          "customer-advisor-retirement-provision-without-industry-experience-global-sana-convit-central-gmbh-thalwil-switzerland"
+          "customer-advisor-retirement-provision-without-industry-experience-global-sana-convit-central-gmbh-thalwil-switzerland",
+          "kundenberater-altersvorsorge-ohne-branchenerfahrung-global-sana-thalwil"
         ],
         "fr": [
-          "prestation-de-retraite-pour-conseiller-a-la-clientele-sans-experience-de-l-industrie-global-sana-convit-central-gmbh"
+          "prestation-de-retraite-pour-conseiller-a-la-clientele-sans-experience-de-l-industrie-global-sana-convit-central-gmbh",
+          "kundenberater-altersvorsorge-ohne-branchenerfahrung-global-sana-thalwil"
         ],
         "de": [
           "kundenberater-altersvorsorge-ohne-branchenerfahrung-convit-central-gmbh-thalwil"
@@ -1737,7 +1776,8 @@
         "kundenberater-altersvorsorge-ohne-branchenerfahrung-convit-central-gmbh-thalwil",
         "servizio-di-assistenza-clienti-senza-esperienza-nel-settore-global-sana-convit-central-gmbh-thalwil-switzerland",
         "customer-advisor-retirement-provision-without-industry-experience-global-sana-convit-central-gmbh-thalwil-switzerland",
-        "prestation-de-retraite-pour-conseiller-a-la-clientele-sans-experience-de-l-industrie-global-sana-convit-central-gmbh"
+        "prestation-de-retraite-pour-conseiller-a-la-clientele-sans-experience-de-l-industrie-global-sana-convit-central-gmbh",
+        "kundenberater-altersvorsorge-ohne-branchenerfahrung-global-sana-thalwil"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

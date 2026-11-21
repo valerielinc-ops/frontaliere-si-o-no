@@ -2046,7 +2046,7 @@
     },
     {
       "id": "spitex-ch-f29ca07203fc",
-      "slug": "leitung-betreuung-e-hauswirtschaft-80-100-spitex-heitersberg-mellingen",
+      "slug": "responsabile-dell-assistenza-e-dell-economia-domestica-80-100-spitex-heitersberg-mellingen",
       "slugByLocale": {
         "de": "leitung-betreuung-und-hauswirtschaft-80-100-spitex-ch-mellingen",
         "it": "responsabile-dell-assistenza-e-dell-economia-domestica-80-100-spitex-heitersberg-mellingen",
@@ -2099,7 +2099,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "leitung-betreuung-und-hauswirtschaft-80-100-spitex-ch-mellingen"
+          "leitung-betreuung-und-hauswirtschaft-80-100-spitex-ch-mellingen",
+          "leitung-betreuung-e-hauswirtschaft-80-100-spitex-heitersberg-mellingen"
         ],
         "en": [
           "leitung-betreuung-und-hauswirtschaft-80-100-spitex-ch-mellingen"
@@ -2109,7 +2110,8 @@
         ]
       },
       "previousSlugs": [
-        "leitung-betreuung-und-hauswirtschaft-80-100-spitex-ch-mellingen"
+        "leitung-betreuung-und-hauswirtschaft-80-100-spitex-ch-mellingen",
+        "leitung-betreuung-e-hauswirtschaft-80-100-spitex-heitersberg-mellingen"
       ],
       "salaryMin": 67500,
       "salaryMax": 84500,
@@ -2296,7 +2298,7 @@
     },
     {
       "id": "spitex-ch-8e92a6b784dc",
-      "slug": "advanced-practice-nurse-apn-60-100-spitex-ch-windisch",
+      "slug": "infermiera-avanzata-apn-60-100-spitex-region-brugg-ag-windisch",
       "slugByLocale": {
         "de": "advanced-practice-nurse-apn-60-100-spitex-ch-windisch",
         "it": "infermiera-avanzata-apn-60-100-spitex-region-brugg-ag-windisch",
@@ -2366,6 +2368,9 @@
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-20T22:01:20.446Z",
       "previousSlugsByLocale": {
+        "it": [
+          "advanced-practice-nurse-apn-60-100-spitex-ch-windisch"
+        ],
         "fr": [
           "advanced-practice-nurse-apn-60-100-spitex-ch-windisch"
         ]
@@ -3481,7 +3486,7 @@
     },
     {
       "id": "spitex-ch-057886719409",
-      "slug": "zusatzverdienst-mit-flexiblen-arbeitszeiten-im-ganzen-gebiet-der-spitex-bachtel-spitex-ch",
+      "slug": "guadagno-extra-con-orari-di-lavoro-flessibili-in-tutto-il-territorio-di-spitex-bachtel-spitex-bachtel-ag-wetzikon-zh",
       "slugByLocale": {
         "de": "zusatzverdienst-mit-flexiblen-arbeitszeiten-im-ganzen-gebiet-der-spitex-bachtel-spitex-ch",
         "it": "guadagno-extra-con-orari-di-lavoro-flessibili-in-tutto-il-territorio-di-spitex-bachtel-spitex-bachtel-ag-wetzikon-zh",
@@ -3551,6 +3556,9 @@
       "firstSeenAt": "2026-10-21T09:25:09.130Z",
       "sourceIdentity": "url:https://www.spitexjobs.ch/job/zusatzverdienst-mit-flexiblen-arbeitszeiten-im-ganzen-gebiet-der-spitex-bachtel/j996451",
       "previousSlugsByLocale": {
+        "it": [
+          "zusatzverdienst-mit-flexiblen-arbeitszeiten-im-ganzen-gebiet-der-spitex-bachtel-spitex-ch"
+        ],
         "en": [
           "zusatzverdienst-mit-flexiblen-arbeitszeiten-im-ganzen-gebiet-der-spitex-bachtel-spitex-ch"
         ],
@@ -3736,12 +3744,12 @@
     },
     {
       "id": "spitex-ch-75bb88c38649",
-      "slug": "dipl-pflegefachperson-hf-fachbereich-psychiatrie-60-100-spitex-ch-hochdorf",
+      "slug": "dipl-infermiera-hf-dipartimento-di-psichiatria-60-100-spitex-seetal-hochdorf",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fachbereich-psychiatrie-60-100-spitex-ch-hochdorf",
-        "it": "dipl-pflegefachperson-hf-fachbereich-psychiatrie-60-100-spitex-ch-hochdorf",
-        "en": "dipl-pflegefachperson-hf-fachbereich-psychiatrie-60-100-spitex-ch-hochdorf",
-        "fr": "dipl-pflegefachperson-hf-fachbereich-psychiatrie-60-100-spitex-ch-hochdorf"
+        "it": "dipl-infermiera-hf-dipartimento-di-psichiatria-60-100-spitex-seetal-hochdorf",
+        "en": "dipl-nurse-hf-department-of-psychiatry-60-100-spitex-seetal-hochdorf",
+        "fr": "dipl-infirmiere-hf-departement-de-psychiatrie-60-100-spitex-seetal-hochdorf"
       },
       "company": "Spitex Seetal",
       "companyKey": "spitex-ch",
@@ -3803,7 +3811,21 @@
       "streetAddress": "Hochdorf",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-20T22:01:18.331Z"
+      "firstSeenAt": "2026-11-20T22:01:18.331Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fachbereich-psychiatrie-60-100-spitex-ch-hochdorf"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fachbereich-psychiatrie-60-100-spitex-ch-hochdorf"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fachbereich-psychiatrie-60-100-spitex-ch-hochdorf"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fachbereich-psychiatrie-60-100-spitex-ch-hochdorf"
+      ]
     }
   ]
 }

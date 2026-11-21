@@ -2116,12 +2116,12 @@
     },
     {
       "id": "grand-resort-bad-ragaz-3df5789678c0",
-      "slug": "room-attendant-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+      "slug": "in-camera-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz",
       "slugByLocale": {
         "de": "room-attendant-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-        "it": "room-attendant-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+        "it": "in-camera-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz",
         "en": "room-attendant-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-        "fr": "room-attendant-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+        "fr": "salle-d-assistance-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz"
       },
       "company": "Grand Resort Bad Ragaz",
       "companyKey": "grand-resort-bad-ragaz",
@@ -2183,7 +2183,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-18T21:22:22.518Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:22:22.518Z"
+      "firstSeenAt": "2026-11-20T21:22:22.518Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "room-attendant-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+        ],
+        "fr": [
+          "room-attendant-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+        ]
+      },
+      "previousSlugs": [
+        "room-attendant-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+      ]
     },
     {
       "id": "grand-resort-bad-ragaz-51304393e54f",

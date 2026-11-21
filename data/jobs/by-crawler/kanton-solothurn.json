@@ -2005,12 +2005,12 @@
     },
     {
       "id": "kanton-solothurn-e4598b5a949b",
-      "slug": "klassenlehrer-in-mittelstufe-80-100-kanton-solothurn-solothurn",
+      "slug": "insegnante-di-classe-per-la-scuola-media-80-100-kanton-solothurn-solothurn",
       "slugByLocale": {
         "de": "klassenlehrer-in-mittelstufe-80-100-kanton-solothurn-solothurn",
-        "it": "klassenlehrer-in-mittelstufe-80-100-kanton-solothurn-solothurn",
-        "en": "klassenlehrer-in-mittelstufe-80-100-kanton-solothurn-solothurn",
-        "fr": "klassenlehrer-in-mittelstufe-80-100-kanton-solothurn-solothurn"
+        "it": "insegnante-di-classe-per-la-scuola-media-80-100-kanton-solothurn-solothurn",
+        "en": "class-teacher-middle-level-80-100-kanton-solothurn-solothurn",
+        "fr": "enseignant-e-titulaire-de-classe-au-degre-moyen-80-100-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -2072,7 +2072,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T21:50:22.958Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:50:22.958Z"
+      "firstSeenAt": "2026-11-20T21:50:22.958Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "klassenlehrer-in-mittelstufe-80-100-kanton-solothurn-solothurn"
+        ],
+        "en": [
+          "klassenlehrer-in-mittelstufe-80-100-kanton-solothurn-solothurn"
+        ],
+        "fr": [
+          "klassenlehrer-in-mittelstufe-80-100-kanton-solothurn-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "klassenlehrer-in-mittelstufe-80-100-kanton-solothurn-solothurn"
+      ]
     }
   ]
 }

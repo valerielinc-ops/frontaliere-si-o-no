@@ -1422,10 +1422,10 @@
     },
     {
       "id": "migrolino-88fdaf2f514f",
-      "slug": "verkaufsmitarbeiter-in-migrolino-bottmingen",
+      "slug": "addetto-a-alle-vendite-migrolino-bottmingen",
       "slugByLocale": {
         "de": "verkaufsmitarbeiter-in-migrolino-bottmingen",
-        "it": "verkaufsmitarbeiter-in-migrolino-bottmingen",
+        "it": "addetto-a-alle-vendite-migrolino-bottmingen",
         "en": "verkaufsmitarbeiter-in-migrolino-bottmingen",
         "fr": "verkaufsmitarbeiter-in-migrolino-bottmingen"
       },
@@ -1488,7 +1488,15 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-18T21:26:03.772Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsmitarbeiter-in-migrolino-bottmingen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsmitarbeiter-in-migrolino-bottmingen"
+      ]
     }
   ]
 }

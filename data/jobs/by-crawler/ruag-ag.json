@@ -5065,7 +5065,7 @@
         "it": "business-development-partner-manager-100-w-m-d-ruag-ag-bern",
         "en": "business-development-partner-manager-100-w-m-d-ruag-ag-bern",
         "de": "business-development-partner-manager-100-w-m-d-ruag-ag-bern",
-        "fr": "business-development-partner-manager-100-w-m-d-ruag-ag-bern"
+        "fr": "developpement-des-affaires-et-gestionnaire-de-partenaires-100-h-f-d-ruag-ag-bern"
       },
       "id": "ruag-ag-a688f713fd88",
       "needsRetranslation": true,
@@ -5094,12 +5094,14 @@
           "responsabile-dello-sviluppo-commerciale-e-dei-partner-100-m-f-d-ruag-ag-bern"
         ],
         "fr": [
-          "developpement-des-affaires-et-gestionnaire-de-partenaires-100-h-f-d-ruag-ag-bern"
+          "developpement-des-affaires-et-gestionnaire-de-partenaires-100-h-f-d-ruag-ag-bern",
+          "business-development-partner-manager-100-w-m-d-ruag-ag-bern"
         ]
       },
       "previousSlugs": [
         "responsabile-dello-sviluppo-commerciale-e-dei-partner-100-m-f-d-ruag-ag-bern",
-        "developpement-des-affaires-et-gestionnaire-de-partenaires-100-h-f-d-ruag-ag-bern"
+        "developpement-des-affaires-et-gestionnaire-de-partenaires-100-h-f-d-ruag-ag-bern",
+        "business-development-partner-manager-100-w-m-d-ruag-ag-bern"
       ]
     },
     {
@@ -5225,7 +5227,7 @@
         "it": "senior-project-manager-c5i-100-f-m-d-ruag-ag-thun",
         "en": "senior-project-manager-c5i-100-f-m-d-ruag-ag-thun",
         "de": "senior-project-manager-c5i-100-f-m-d-ruag-ag-thun",
-        "fr": "senior-project-manager-c5i-100-f-m-d-ruag-ag-thun"
+        "fr": "directeur-principal-de-projet-c5i-100-h-f-d-ruag-ag-thun"
       },
       "id": "ruag-ag-4efde7ad2fd9",
       "needsRetranslation": true,
@@ -5247,7 +5249,15 @@
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:20:13.725Z"
+      "firstSeenAt": "2026-11-20T21:20:13.725Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "senior-project-manager-c5i-100-f-m-d-ruag-ag-thun"
+        ]
+      },
+      "previousSlugs": [
+        "senior-project-manager-c5i-100-f-m-d-ruag-ag-thun"
+      ]
     }
   ]
 }

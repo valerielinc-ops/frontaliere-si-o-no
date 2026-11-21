@@ -1632,12 +1632,12 @@
     },
     {
       "id": "msc-cargo-366420ad6a7c",
-      "slug": "hr-director-msc-geneva",
+      "slug": "risorse-umane-direttore-msc-group-geneva",
       "slugByLocale": {
         "en": "hr-director-msc-geneva",
-        "it": "hr-director-msc-geneva",
-        "de": "hr-director-msc-geneva",
-        "fr": "hr-director-msc-geneva"
+        "it": "risorse-umane-direttore-msc-group-geneva",
+        "de": "personalwesen-direktor-msc-group-geneva",
+        "fr": "ressources-humaines-directeur-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -1701,30 +1701,30 @@
       "firstSeenAt": "2026-10-02T21:26:19.496Z",
       "previousSlugsByLocale": {
         "it": [
-          "risorse-umane-direttore-msc-group-geneva",
           "directeur-des-ressources-humaines-msc-group-geneva",
           "directeur-rh-msc-group-geneva",
           "hr-director-msc-group-geneva",
           "personalwesen-direktor-msc-group-geneva",
-          "ressources-humaines-directeur-msc-group-geneva"
+          "ressources-humaines-directeur-msc-group-geneva",
+          "hr-director-msc-geneva"
         ],
         "de": [
-          "personalwesen-direktor-msc-group-geneva"
+          "hr-director-msc-geneva"
         ],
         "fr": [
-          "ressources-humaines-directeur-msc-group-geneva",
           "directeur-des-ressources-humaines-msc-group-geneva",
           "directeur-rh-msc-group-geneva",
-          "hr-director-msc-group-geneva"
+          "hr-director-msc-group-geneva",
+          "hr-director-msc-geneva"
         ]
       },
       "previousSlugs": [
-        "risorse-umane-direttore-msc-group-geneva",
         "personalwesen-direktor-msc-group-geneva",
         "ressources-humaines-directeur-msc-group-geneva",
         "directeur-des-ressources-humaines-msc-group-geneva",
         "directeur-rh-msc-group-geneva",
-        "hr-director-msc-group-geneva"
+        "hr-director-msc-group-geneva",
+        "hr-director-msc-geneva"
       ],
       "sourceIdentity": "url:https://careers.msccruises.com/gb/en/job/mctmcugb17778externalengb"
     },
@@ -2077,7 +2077,7 @@
         "en": "finance-business-partner-commercial-msc-geneva",
         "it": "finance-business-partner-commercial-msc-geneva",
         "de": "finance-business-partner-commercial-msc-geneva",
-        "fr": "finance-business-partner-commercial-msc-geneva"
+        "fr": "partenaire-d-affaires-financier-commercial-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -2140,7 +2140,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T22:09:02.374Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T22:09:02.374Z"
+      "firstSeenAt": "2026-11-20T22:09:02.374Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "finance-business-partner-commercial-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "finance-business-partner-commercial-msc-geneva"
+      ]
     }
   ]
 }

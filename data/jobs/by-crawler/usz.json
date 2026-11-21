@@ -8699,9 +8699,9 @@
     },
     {
       "id": "usz-c8815608926f",
-      "slug": "assistente-tecnico-di-sterilizzazione-80-100-universitatsspital-zurich-usz-zurich-130a70245f",
+      "slug": "assistente-tecnico-di-sterilizzazione-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
-        "it": "assistente-tecnico-di-sterilizzazione-80-100-universitatsspital-zurich-usz-zurich-130a70245f",
+        "it": "assistente-tecnico-di-sterilizzazione-80-100-universitatsspital-zurich-usz-zurich",
         "en": "technical-sterilization-assistants-80-100-universitatsspital-zurich-usz-zurich",
         "de": "techn-sterilisationsassisten-in-80-100-usz-ch",
         "fr": "assistants-techniques-de-sterilisation-80-100-universitatsspital-zurich-usz-zurich"
@@ -8749,12 +8749,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "techn-sterilisationsassisten-in-80-100-usz-ch",
-        "assistente-tecnico-di-sterilizzazione-80-100-universitatsspital-zurich-usz-zurich"
+        "assistente-tecnico-di-sterilizzazione-80-100-universitatsspital-zurich-usz-zurich",
+        "assistente-tecnico-di-sterilizzazione-80-100-universitatsspital-zurich-usz-zurich-130a70245f"
       ],
       "previousSlugsByLocale": {
         "it": [
           "techn-sterilisationsassisten-in-80-100-usz-ch",
-          "assistente-tecnico-di-sterilizzazione-80-100-universitatsspital-zurich-usz-zurich"
+          "assistente-tecnico-di-sterilizzazione-80-100-universitatsspital-zurich-usz-zurich",
+          "assistente-tecnico-di-sterilizzazione-80-100-universitatsspital-zurich-usz-zurich-130a70245f"
         ]
       },
       "needsRetranslation": true,
@@ -18954,7 +18956,7 @@
         "de": "spezialpflege-fage-fur-die-chest-pain-unit-40-usz-ch",
         "it": "spezialpflege-fage-per-la-chest-pain-unit-40-universitatsspital-zurich-usz-zurich",
         "en": "spezialpflege-fage-fur-die-chest-pain-unit-40-usz-ch",
-        "fr": "spezialpflege-fage-fur-die-chest-pain-unit-40-usz-ch"
+        "fr": "soins-speciaux-fage-pour-l-unite-de-douleur-thoracique-40-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -19004,12 +19006,12 @@
           "spezialpflege-fage-fur-die-chest-pain-unit-40-usz-ch"
         ],
         "fr": [
-          "soins-speciaux-fage-pour-l-unite-de-douleur-thoracique-40-universitatsspital-zurich-usz-zurich"
+          "soins-speciaux-fage-pour-l-unite-de-douleur-thoracique-40-universitatsspital-zurich-usz-zurich",
+          "spezialpflege-fage-fur-die-chest-pain-unit-40-usz-ch"
         ]
       },
       "previousSlugs": [
-        "spezialpflege-fage-fur-die-chest-pain-unit-40-usz-ch",
-        "soins-speciaux-fage-pour-l-unite-de-douleur-thoracique-40-universitatsspital-zurich-usz-zurich"
+        "spezialpflege-fage-fur-die-chest-pain-unit-40-usz-ch"
       ],
       "salaryMin": 29400,
       "salaryMax": 44600,
@@ -19864,8 +19866,8 @@
       "slugByLocale": {
         "de": "fage-fur-die-bettenstation-urologie-80-100-usz-ch",
         "it": "fage-per-la-bettenstation-urologie-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "fage-fur-die-bettenstation-urologie-80-100-usz-ch",
-        "fr": "fage-fur-die-bettenstation-urologie-80-100-usz-ch"
+        "en": "fage-for-the-urology-bed-station-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "fage-pour-la-station-de-lit-urology-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -19915,16 +19917,16 @@
           "fage-fur-die-bettenstation-urologie-80-100-usz-ch"
         ],
         "en": [
-          "fage-for-the-urology-bed-station-80-100-universitatsspital-zurich-usz-zurich"
+          "fage-for-the-urology-bed-station-80-100-universitatsspital-zurich-usz-zurich",
+          "fage-fur-die-bettenstation-urologie-80-100-usz-ch"
         ],
         "fr": [
-          "fage-pour-la-station-de-lit-urology-80-100-universitatsspital-zurich-usz-zurich"
+          "fage-pour-la-station-de-lit-urology-80-100-universitatsspital-zurich-usz-zurich",
+          "fage-fur-die-bettenstation-urologie-80-100-usz-ch"
         ]
       },
       "previousSlugs": [
-        "fage-fur-die-bettenstation-urologie-80-100-usz-ch",
-        "fage-for-the-urology-bed-station-80-100-universitatsspital-zurich-usz-zurich",
-        "fage-pour-la-station-de-lit-urology-80-100-universitatsspital-zurich-usz-zurich"
+        "fage-fur-die-bettenstation-urologie-80-100-usz-ch"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

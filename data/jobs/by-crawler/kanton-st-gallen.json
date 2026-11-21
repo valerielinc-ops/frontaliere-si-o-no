@@ -7214,7 +7214,7 @@
     },
     {
       "id": "kanton-st-gallen-103a269c9c15",
-      "slug": "lehrperson-per-das-fach-physik-kanton-st-gallen-sargans",
+      "slug": "docente-di-fisica-kanton-st-gallen-sargans",
       "slugByLocale": {
         "de": "lehrperson-fur-das-fach-physik-kanton-st-gallen-ch",
         "it": "docente-di-fisica-kanton-st-gallen-sargans",
@@ -7268,7 +7268,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "lehrperson-fur-das-fach-physik-kanton-st-gallen-ch"
+          "lehrperson-fur-das-fach-physik-kanton-st-gallen-ch",
+          "lehrperson-per-das-fach-physik-kanton-st-gallen-sargans"
         ],
         "en": [
           "lehrperson-fur-das-fach-physik-kanton-st-gallen-ch"
@@ -7278,7 +7279,8 @@
         ]
       },
       "previousSlugs": [
-        "lehrperson-fur-das-fach-physik-kanton-st-gallen-ch"
+        "lehrperson-fur-das-fach-physik-kanton-st-gallen-ch",
+        "lehrperson-per-das-fach-physik-kanton-st-gallen-sargans"
       ],
       "salaryMin": 48500,
       "salaryMax": 89500,
@@ -7564,7 +7566,7 @@
     },
     {
       "id": "kanton-st-gallen-926183fb73e1",
-      "slug": "gerichtsschreiber-in-kreisgericht-rheintal-m-w-d-kanton-st-gallen-ch",
+      "slug": "cancelliere-a-del-tribunale-distrettuale-di-rheintal-m-f-d-kanton-st-gallen-altstatten",
       "slugByLocale": {
         "de": "gerichtsschreiber-in-kreisgericht-rheintal-m-w-d-kanton-st-gallen-ch",
         "it": "cancelliere-a-del-tribunale-distrettuale-di-rheintal-m-f-d-kanton-st-gallen-altstatten",
@@ -7635,6 +7637,9 @@
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T21:24:30.027Z",
       "previousSlugsByLocale": {
+        "it": [
+          "gerichtsschreiber-in-kreisgericht-rheintal-m-w-d-kanton-st-gallen-ch"
+        ],
         "en": [
           "gerichtsschreiber-in-kreisgericht-rheintal-m-w-d-kanton-st-gallen-ch"
         ],
@@ -7740,8 +7745,8 @@
       "slugByLocale": {
         "de": "einzel-oder-co-lehrgangsleitung-fur-den-lehrgang-dipl-gebaudetechniker-in-hf-m-w-d-kanton",
         "it": "einzel-o-co-lehrgangsleitung-per-den-lehrgang-dipl-gebaudetechniker-in-hf-m-w-d-kanton-st-gallen",
-        "en": "einzel-oder-co-lehrgangsleitung-fur-den-lehrgang-dipl-gebaudetechniker-in-hf-m-w-d-kanton",
-        "fr": "einzel-oder-co-lehrgangsleitung-fur-den-lehrgang-dipl-gebaudetechniker-in-hf-m-w-d-kanton"
+        "en": "sole-or-co-course-director-for-the-diploma-building-technician-hf-course-m-f-d-kanton-st-gallen-st-gallen",
+        "fr": "direction-individuelle-ou-codirection-du-cursus-de-technicien-ne-diplome-e-es-en-technique-du-batiment-h-f-d-kanton-st"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -7790,6 +7795,12 @@
       "previousSlugsByLocale": {
         "it": [
           "einzel-oder-co-lehrgangsleitung-fur-den-lehrgang-dipl-gebaudetechniker-in-hf-m-w-d-kanton"
+        ],
+        "en": [
+          "einzel-oder-co-lehrgangsleitung-fur-den-lehrgang-dipl-gebaudetechniker-in-hf-m-w-d-kanton"
+        ],
+        "fr": [
+          "einzel-oder-co-lehrgangsleitung-fur-den-lehrgang-dipl-gebaudetechniker-in-hf-m-w-d-kanton"
         ]
       },
       "previousSlugs": [
@@ -7819,8 +7830,8 @@
       "slugByLocale": {
         "de": "technische-r-fachmitarbeiter-in-wahlen-und-abstimmungen-m-w-d-kanton-st-gallen-ch",
         "it": "technische-r-fachmitarbeiter-in-wahlen-e-abstimmungen-m-w-d-kanton-st-gallen",
-        "en": "technische-r-fachmitarbeiter-in-wahlen-und-abstimmungen-m-w-d-kanton-st-gallen-ch",
-        "fr": "technische-r-fachmitarbeiter-in-wahlen-und-abstimmungen-m-w-d-kanton-st-gallen-ch"
+        "en": "technical-specialist-for-elections-and-referendums-m-f-d-kanton-st-gallen-st-gallen",
+        "fr": "collaborateur-rice-technique-specialise-e-elections-et-votations-h-f-d-kanton-st-gallen-st-gallen"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -7870,6 +7881,12 @@
       "previousSlugsByLocale": {
         "it": [
           "technische-r-fachmitarbeiter-in-wahlen-und-abstimmungen-m-w-d-kanton-st-gallen-ch"
+        ],
+        "en": [
+          "technische-r-fachmitarbeiter-in-wahlen-und-abstimmungen-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
+          "technische-r-fachmitarbeiter-in-wahlen-und-abstimmungen-m-w-d-kanton-st-gallen-ch"
         ]
       },
       "previousSlugs": [
@@ -7899,8 +7916,8 @@
       "slugByLocale": {
         "de": "leitung-hauptsitz-konkursamt-und-stellvertretung-des-amtsleiters-m-w-d-kanton-st-gallen-ch",
         "it": "leitung-hauptsitz-konkursamt-e-stellvertretung-des-amtsleiters-m-w-d-kanton-st-gallen",
-        "en": "leitung-hauptsitz-konkursamt-und-stellvertretung-des-amtsleiters-m-w-d-kanton-st-gallen-ch",
-        "fr": "leitung-hauptsitz-konkursamt-und-stellvertretung-des-amtsleiters-m-w-d-kanton-st-gallen-ch"
+        "en": "headquarters-bankruptcy-office-and-deputy-head-of-office-m-f-d-kanton-st-gallen-st-gallen",
+        "fr": "administration-centrale-bureau-de-la-faillite-et-chef-de-bureau-adjoint-h-f-d-kanton-st-gallen-st-gallen"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -7949,6 +7966,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leitung-hauptsitz-konkursamt-und-stellvertretung-des-amtsleiters-m-w-d-kanton-st-gallen-ch"
+        ],
+        "en": [
+          "leitung-hauptsitz-konkursamt-und-stellvertretung-des-amtsleiters-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
           "leitung-hauptsitz-konkursamt-und-stellvertretung-des-amtsleiters-m-w-d-kanton-st-gallen-ch"
         ]
       },

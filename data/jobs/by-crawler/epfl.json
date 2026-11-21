@@ -6850,7 +6850,7 @@
     },
     {
       "id": "epfl-08b03f34b72a",
-      "slug": "neural-interface-hardware-postdoctoral-position-in-electrical-and-micro-engineering-and",
+      "slug": "neurale-interfaccia-hardware-posizione-postdoctoral-in-ingegneria-elettrica-e-micro-e-neuro-x-1-epfl-geneve",
       "slugByLocale": {
         "en": "neural-interface-hardware-postdoctoral-position-in-electrical-and-micro-engineering-and",
         "it": "neurale-interfaccia-hardware-posizione-postdoctoral-in-ingegneria-elettrica-e-micro-e-neuro-x-1-epfl-geneve",
@@ -6922,6 +6922,9 @@
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T09:37:38.946Z",
       "previousSlugsByLocale": {
+        "it": [
+          "neural-interface-hardware-postdoctoral-position-in-electrical-and-micro-engineering-and"
+        ],
         "de": [
           "neural-interface-hardware-postdoctoral-position-in-electrical-and-micro-engineering-and"
         ],
@@ -6936,7 +6939,7 @@
     },
     {
       "id": "epfl-13673c33b9bb",
-      "slug": "adjoint-e-au-directeur-epfl-neuro-institute-epfl-lausanne",
+      "slug": "direttore-aggiunto-epfl-neuro-institute-epfl-lausanne",
       "slugByLocale": {
         "fr": "adjoint-e-au-directeur-epfl-neuro-institute-epfl-lausanne",
         "it": "direttore-aggiunto-epfl-neuro-institute-epfl-lausanne",
@@ -7008,6 +7011,9 @@
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T09:37:26.657Z",
       "previousSlugsByLocale": {
+        "it": [
+          "adjoint-e-au-directeur-epfl-neuro-institute-epfl-lausanne"
+        ],
         "en": [
           "adjoint-e-au-directeur-epfl-neuro-institute-epfl-lausanne"
         ],
@@ -7172,11 +7178,11 @@
     },
     {
       "id": "epfl-ba5ef7d54d8c",
-      "slug": "administrative-assistant-epfl-lausanne",
+      "slug": "assistente-amministrativo-epfl-lausanne",
       "slugByLocale": {
         "en": "administrative-assistant-epfl-lausanne",
-        "it": "administrative-assistant-epfl-lausanne",
-        "de": "administrative-assistant-epfl-lausanne",
+        "it": "assistente-amministrativo-epfl-lausanne",
+        "de": "administrative-assistent-epfl-lausanne-3f610e",
         "fr": "administrative-assistant-epfl-lausanne"
       },
       "company": "EPFL",
@@ -7243,7 +7249,18 @@
       "validThrough": "2027-02-18T21:29:29.593Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-03T09:20:32.237Z",
-      "sourceIdentity": "url:https://careers.epfl.ch/job/lausanne-administrative-assistant/1458277374"
+      "sourceIdentity": "url:https://careers.epfl.ch/job/lausanne-administrative-assistant/1458277374",
+      "previousSlugsByLocale": {
+        "it": [
+          "administrative-assistant-epfl-lausanne"
+        ],
+        "de": [
+          "administrative-assistant-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "administrative-assistant-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-1ab4a1bafd73",
@@ -7251,7 +7268,7 @@
       "slugByLocale": {
         "en": "postdoctoral-researcher-in-rf-mm-wave-ic-design-for-a-wafer-scale-ion-accelerator-nanolab",
         "it": "postdoctoral-researcher-in-rf-mm-wave-ic-design-for-a-wafer-scale-ion-accelerator-nanolab",
-        "de": "postdoctoral-researcher-in-rf-mm-wave-ic-design-for-a-wafer-scale-ion-accelerator-nanolab",
+        "de": "postdoktorand-im-hf-mm-wave-ic-design-fur-einen-wafer-scale-ionenbeschleuniger-nanolab-epfl-epfl-lausanne",
         "fr": "postdoctoral-researcher-in-rf-mm-wave-ic-design-for-a-wafer-scale-ion-accelerator-nanolab"
       },
       "company": "EPFL",
@@ -7318,7 +7335,15 @@
       "validThrough": "2027-02-18T21:29:29.001Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T21:29:29.001Z",
-      "sourceIdentity": "url:https://careers.epfl.ch/job/lausanne-postdoctoral-researcher-in-rfmm-wave-ic-design-for-a-wafer-scale-ion-accelerator-nanolab-epfl/1458273874"
+      "sourceIdentity": "url:https://careers.epfl.ch/job/lausanne-postdoctoral-researcher-in-rfmm-wave-ic-design-for-a-wafer-scale-ion-accelerator-nanolab-epfl/1458273874",
+      "previousSlugsByLocale": {
+        "de": [
+          "postdoctoral-researcher-in-rf-mm-wave-ic-design-for-a-wafer-scale-ion-accelerator-nanolab"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-researcher-in-rf-mm-wave-ic-design-for-a-wafer-scale-ion-accelerator-nanolab"
+      ]
     }
   ]
 }

@@ -15543,8 +15543,8 @@
       "slugByLocale": {
         "de": "allrounderin-allrounder-technischer-dienst-oder-betriebselektrikerin-betriebselektriker-w",
         "it": "allrounderin-allrounder-technischer-dienst-o-betriebselektrikerin-betriebselektriker-m-w-d-solothurner-spitaler-ag-soh-solothurn",
-        "en": "allrounderin-allrounder-technischer-dienst-oder-betriebselektrikerin-betriebselektriker-w",
-        "fr": "allrounderin-allrounder-technischer-dienst-oder-betriebselektrikerin-betriebselektriker-w"
+        "en": "all-rounder-all-rounder-technical-service-or-company-electrician-company-electrician-m-f-d-solothurner-spitaler-ag-soh",
+        "fr": "service-technique-ou-electricien-d-entreprise-electricien-d-entreprise-h-f-d-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -15596,10 +15596,12 @@
           "addetta-addetto-tuttofare-al-servizio-tecnico-o-elettricista-aziendale-m-f-d-solothurner-spitaler-ag-soh-solothurn"
         ],
         "en": [
-          "all-rounder-all-rounder-technical-service-or-company-electrician-company-electrician-m-f-d-solothurner-spitaler-ag-soh"
+          "all-rounder-all-rounder-technical-service-or-company-electrician-company-electrician-m-f-d-solothurner-spitaler-ag-soh",
+          "allrounderin-allrounder-technischer-dienst-oder-betriebselektrikerin-betriebselektriker-w"
         ],
         "fr": [
-          "service-technique-ou-electricien-d-entreprise-electricien-d-entreprise-h-f-d-solothurner-spitaler-ag-soh-solothurn"
+          "service-technique-ou-electricien-d-entreprise-electricien-d-entreprise-h-f-d-solothurner-spitaler-ag-soh-solothurn",
+          "allrounderin-allrounder-technischer-dienst-oder-betriebselektrikerin-betriebselektriker-w"
         ]
       },
       "previousSlugs": [
@@ -15800,12 +15802,12 @@
     },
     {
       "id": "soh-solothurner-spitaeler-2355ae0b1061",
-      "slug": "assistenz-arztlicher-leitung-notfallstation-w-m-d-soh-solothurner-spitaeler-olten",
+      "slug": "assistente-direttore-medico-m-f-d-solothurner-spitaler-ag-soh-olten",
       "slugByLocale": {
         "de": "assistenz-arztlicher-leitung-notfallstation-w-m-d-soh-solothurner-spitaeler-olten",
-        "it": "assistenz-arztlicher-leitung-notfallstation-w-m-d-soh-solothurner-spitaeler-olten",
-        "en": "assistenz-arztlicher-leitung-notfallstation-w-m-d-soh-solothurner-spitaeler-olten",
-        "fr": "assistenz-arztlicher-leitung-notfallstation-w-m-d-soh-solothurner-spitaeler-olten"
+        "it": "assistente-direttore-medico-m-f-d-solothurner-spitaler-ag-soh-olten",
+        "en": "assistant-medical-director-m-f-d-solothurner-spitaler-ag-soh-olten",
+        "fr": "directeur-medical-adjoint-h-f-d-solothurner-spitaler-ag-soh-olten"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -15867,7 +15869,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T21:22:32.440Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:22:32.440Z"
+      "firstSeenAt": "2026-11-20T21:22:32.440Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenz-arztlicher-leitung-notfallstation-w-m-d-soh-solothurner-spitaeler-olten"
+        ],
+        "en": [
+          "assistenz-arztlicher-leitung-notfallstation-w-m-d-soh-solothurner-spitaeler-olten"
+        ],
+        "fr": [
+          "assistenz-arztlicher-leitung-notfallstation-w-m-d-soh-solothurner-spitaeler-olten"
+        ]
+      },
+      "previousSlugs": [
+        "assistenz-arztlicher-leitung-notfallstation-w-m-d-soh-solothurner-spitaeler-olten"
+      ]
     }
   ]
 }

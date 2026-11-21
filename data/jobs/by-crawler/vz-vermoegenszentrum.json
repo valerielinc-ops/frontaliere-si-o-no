@@ -7254,9 +7254,9 @@
     },
     {
       "id": "vz-vermoegenszentrum-ce1cf8f2de94",
-      "slug": "premiere-experience-en-financial-consulting-vz-vermogenszentrum-lausanne",
+      "slug": "prima-esperienza-in-financial-consulting-vz-vermogenszentrum-lausanne-vaud",
       "slugByLocale": {
-        "fr": "premiere-experience-en-financial-consulting-vz-vermoegenszentrum-ch",
+        "fr": "premiere-experience-en-financial-consulting-vz-vermogenszentrum-lausanne",
         "it": "prima-esperienza-in-financial-consulting-vz-vermogenszentrum-lausanne-vaud",
         "en": "premiere-experience-en-financial-consulting-vz-vermogenszentrum-lausanne",
         "de": "erste-erfahrungen-in-der-finanzberatung-vz-vermogenszentrum-lausanne-vaud"
@@ -7318,14 +7318,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "premiere-experience-en-financial-consulting-vz-vermoegenszentrum-ch"
+          "premiere-experience-en-financial-consulting-vz-vermoegenszentrum-ch",
+          "premiere-experience-en-financial-consulting-vz-vermogenszentrum-lausanne"
         ],
         "de": [
+          "premiere-experience-en-financial-consulting-vz-vermoegenszentrum-ch"
+        ],
+        "fr": [
           "premiere-experience-en-financial-consulting-vz-vermoegenszentrum-ch"
         ]
       },
       "previousSlugs": [
-        "premiere-experience-en-financial-consulting-vz-vermoegenszentrum-ch"
+        "premiere-experience-en-financial-consulting-vz-vermoegenszentrum-ch",
+        "premiere-experience-en-financial-consulting-vz-vermogenszentrum-lausanne"
       ],
       "salaryMin": 104500,
       "salaryMax": 183500,
@@ -7635,12 +7640,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-64ebd2cf0d38",
-      "slug": "sachbearbeiter-in-credit-operations-hypotheken-mit-franzosischkenntnissen-vz",
+      "slug": "impiegato-a-nelle-operazioni-di-credito-ipotecario-con-conoscenze-del-francese-vz-vermogenszentrum-zurich-zurich",
       "slugByLocale": {
         "de": "sachbearbeiter-in-credit-operations-hypotheken-mit-franzosischkenntnissen-vz",
-        "it": "sachbearbeiter-in-credit-operations-hypotheken-mit-franzosischkenntnissen-vz",
-        "en": "sachbearbeiter-in-credit-operations-hypotheken-mit-franzosischkenntnissen-vz",
-        "fr": "sachbearbeiter-in-credit-operations-hypotheken-mit-franzosischkenntnissen-vz"
+        "it": "impiegato-a-nelle-operazioni-di-credito-ipotecario-con-conoscenze-del-francese-vz-vermogenszentrum-zurich-zurich",
+        "en": "credit-operations-clerk-mortgages-with-knowledge-of-french-vz-vermogenszentrum-zurich-zurich",
+        "fr": "gestionnaire-des-operations-de-credit-hypothecaire-avec-des-connaissances-en-francais-vz-vermogenszentrum-zurich-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -7711,7 +7716,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-18T21:20:58.817Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:20:58.817Z"
+      "firstSeenAt": "2026-11-20T21:20:58.817Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-credit-operations-hypotheken-mit-franzosischkenntnissen-vz"
+        ],
+        "en": [
+          "sachbearbeiter-in-credit-operations-hypotheken-mit-franzosischkenntnissen-vz"
+        ],
+        "fr": [
+          "sachbearbeiter-in-credit-operations-hypotheken-mit-franzosischkenntnissen-vz"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-credit-operations-hypotheken-mit-franzosischkenntnissen-vz"
+      ]
     }
   ]
 }

@@ -12869,9 +12869,9 @@
       },
       "slugByLocale": {
         "it": "saldatore-tubista-pemsa-lugano-1a7cc67111",
-        "en": "saldatore-tubista-pemsa-lugano-uq96lw",
-        "de": "saldatore-tubista-pemsa-lugano-uq96lw",
-        "fr": "saldatore-tubista-pemsa-lugano-uq96lw"
+        "en": "saldatore-tubista-pemsa-lugano",
+        "de": "saldatore-tubista-pemsa-lugano",
+        "fr": "saldatore-tubista-pemsa-lugano"
       },
       "id": "pemsa-a4ed741e0c2c",
       "salaryMin": 55500,
@@ -12892,20 +12892,21 @@
       "firstSeenAt": "2026-09-08T13:41:50.002Z",
       "previousSlugsByLocale": {
         "en": [
-          "saldatore-tubista-pemsa-lugano"
+          "saldatore-tubista-pemsa-lugano-uq96lw"
         ],
         "de": [
-          "saldatore-tubista-pemsa-lugano"
+          "saldatore-tubista-pemsa-lugano-uq96lw"
         ],
         "fr": [
-          "saldatore-tubista-pemsa-lugano"
+          "saldatore-tubista-pemsa-lugano-uq96lw"
         ],
         "it": [
           "saldatore-tubista-pemsa-lugano"
         ]
       },
       "previousSlugs": [
-        "saldatore-tubista-pemsa-lugano"
+        "saldatore-tubista-pemsa-lugano",
+        "saldatore-tubista-pemsa-lugano-uq96lw"
       ],
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
@@ -23692,9 +23693,9 @@
       },
       "slugByLocale": {
         "it": "installatore-idraulico-pemsa-stabio",
-        "en": "installatore-idraulico-pemsa-stabio",
-        "de": "installatore-idraulico-pemsa-stabio",
-        "fr": "installatore-idraulico-pemsa-stabio"
+        "en": "hydraulic-installer-pemsa-stabio",
+        "de": "hydraulikinstallateur-pemsa-stabio",
+        "fr": "installation-hydraulique-pemsa-stabio"
       },
       "id": "pemsa-341c596e3b62",
       "salaryMin": 58000,
@@ -23717,7 +23718,21 @@
       "streetAddress": "Stabio",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-20T21:34:53.302Z"
+      "firstSeenAt": "2026-11-20T21:34:53.302Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "installatore-idraulico-pemsa-stabio"
+        ],
+        "de": [
+          "installatore-idraulico-pemsa-stabio"
+        ],
+        "fr": [
+          "installatore-idraulico-pemsa-stabio"
+        ]
+      },
+      "previousSlugs": [
+        "installatore-idraulico-pemsa-stabio"
+      ]
     },
     {
       "title": "Idraulico Installatore 3",
@@ -23824,9 +23839,9 @@
       },
       "slugByLocale": {
         "it": "idraulico-afc-riscaldamenti-pemsa-lugano",
-        "en": "idraulico-afc-riscaldamenti-pemsa-lugano",
-        "de": "idraulico-afc-riscaldamenti-pemsa-lugano",
-        "fr": "idraulico-afc-riscaldamenti-pemsa-lugano"
+        "en": "insurance-pemsa-lugano",
+        "de": "versicherung-pemsa-lugano",
+        "fr": "assurance-pemsa-lugano"
       },
       "id": "pemsa-924a950375f1",
       "salaryMin": 58000,
@@ -23849,7 +23864,21 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-20T21:34:53.302Z"
+      "firstSeenAt": "2026-11-20T21:34:53.302Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "idraulico-afc-riscaldamenti-pemsa-lugano"
+        ],
+        "de": [
+          "idraulico-afc-riscaldamenti-pemsa-lugano"
+        ],
+        "fr": [
+          "idraulico-afc-riscaldamenti-pemsa-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "idraulico-afc-riscaldamenti-pemsa-lugano"
+      ]
     },
     {
       "title": "IDRAULICO AFC SANITARI",
@@ -23890,9 +23919,9 @@
       },
       "slugByLocale": {
         "it": "idraulico-afc-sanitari-pemsa-paradiso",
-        "en": "idraulico-afc-sanitari-pemsa-paradiso",
-        "de": "idraulico-afc-sanitari-pemsa-paradiso",
-        "fr": "idraulico-afc-sanitari-pemsa-paradiso"
+        "en": "health-afc-pemsa-paradiso",
+        "de": "gesundheit-afc-pemsa-paradiso",
+        "fr": "afc-de-sante-pemsa-paradiso"
       },
       "id": "pemsa-7ab9060640b8",
       "salaryMin": 58000,
@@ -23915,7 +23944,21 @@
       "streetAddress": "Paradiso",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-20T21:34:53.302Z"
+      "firstSeenAt": "2026-11-20T21:34:53.302Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "idraulico-afc-sanitari-pemsa-paradiso"
+        ],
+        "de": [
+          "idraulico-afc-sanitari-pemsa-paradiso"
+        ],
+        "fr": [
+          "idraulico-afc-sanitari-pemsa-paradiso"
+        ]
+      },
+      "previousSlugs": [
+        "idraulico-afc-sanitari-pemsa-paradiso"
+      ]
     }
   ]
 }

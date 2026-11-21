@@ -4809,8 +4809,8 @@
       "slugByLocale": {
         "en": "administrative-business-partner-iii-lcs-google-switzerland-zurich",
         "it": "administrative-business-partner-iii-lcs-google-switzerland-zurich",
-        "de": "administrative-business-partner-iii-lcs-google-switzerland-zurich",
-        "fr": "administrative-business-partner-iii-lcs-google-switzerland-zurich"
+        "de": "administrativer-geschaftspartner-iii-lcs-google-switzerland-zurich",
+        "fr": "partenaire-administratif-d-affaires-iii-lcs-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
       "companyKey": "google-switzerland",
@@ -4881,7 +4881,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-18T21:20:39.006Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:20:39.006Z"
+      "firstSeenAt": "2026-11-20T21:20:39.006Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "administrative-business-partner-iii-lcs-google-switzerland-zurich"
+        ],
+        "fr": [
+          "administrative-business-partner-iii-lcs-google-switzerland-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "administrative-business-partner-iii-lcs-google-switzerland-zurich"
+      ]
     }
   ]
 }

@@ -6421,12 +6421,12 @@
     },
     {
       "id": "lups-1fda79b75d2e",
-      "slug": "assistenzpsychologin-80-100-w-m-d-lups-st-urban",
+      "slug": "assistente-psicologo-80-100-m-f-d-luzerner-psychiatrie-lups-st-urban",
       "slugByLocale": {
         "de": "assistenzpsychologin-80-100-w-m-d-lups-st-urban",
-        "it": "assistenzpsychologin-80-100-w-m-d-lups-st-urban",
-        "en": "assistenzpsychologin-80-100-w-m-d-lups-st-urban",
-        "fr": "assistenzpsychologin-80-100-w-m-d-lups-st-urban"
+        "it": "assistente-psicologo-80-100-m-f-d-luzerner-psychiatrie-lups-st-urban",
+        "en": "assistant-psychologist-80-100-m-f-d-luzerner-psychiatrie-lups-st-urban",
+        "fr": "assistant-psychologue-80-100-h-f-d-luzerner-psychiatrie-lups-st-urban"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -6488,16 +6488,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T21:25:36.411Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:25:36.411Z"
+      "firstSeenAt": "2026-11-20T21:25:36.411Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzpsychologin-80-100-w-m-d-lups-st-urban"
+        ],
+        "en": [
+          "assistenzpsychologin-80-100-w-m-d-lups-st-urban"
+        ],
+        "fr": [
+          "assistenzpsychologin-80-100-w-m-d-lups-st-urban"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzpsychologin-80-100-w-m-d-lups-st-urban"
+      ]
     },
     {
       "id": "lups-5ffb5128b4fc",
-      "slug": "collaboratore-trice-reinigung-100-m-w-d-luzerner-psychiatrie-lups-st-urban",
+      "slug": "addetto-a-alle-pulizie-100-m-f-d-luzerner-psychiatrie-lups-st-urban",
       "slugByLocale": {
         "de": "mitarbeiter-reinigung-100-m-w-d-lups-st-urban",
-        "it": "collaboratore-trice-reinigung-100-m-w-d-luzerner-psychiatrie-lups-st-urban",
-        "en": "mitarbeiter-reinigung-100-m-w-d-lups-st-urban",
-        "fr": "mitarbeiter-reinigung-100-m-w-d-lups-st-urban"
+        "it": "addetto-a-alle-pulizie-100-m-f-d-luzerner-psychiatrie-lups-st-urban",
+        "en": "employee-cleaning-100-m-f-d-luzerner-psychiatrie-lups-st-urban",
+        "fr": "nettoyage-des-employes-100-h-f-d-luzerner-psychiatrie-lups-st-urban"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -6544,11 +6558,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-reinigung-100-m-w-d-lups-st-urban",
+          "collaboratore-trice-reinigung-100-m-w-d-luzerner-psychiatrie-lups-st-urban"
+        ],
+        "en": [
+          "mitarbeiter-reinigung-100-m-w-d-lups-st-urban"
+        ],
+        "fr": [
           "mitarbeiter-reinigung-100-m-w-d-lups-st-urban"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-reinigung-100-m-w-d-lups-st-urban"
+        "mitarbeiter-reinigung-100-m-w-d-lups-st-urban",
+        "collaboratore-trice-reinigung-100-m-w-d-luzerner-psychiatrie-lups-st-urban"
       ],
       "salaryMin": 69000,
       "salaryMax": 86500,
@@ -6571,12 +6593,12 @@
     },
     {
       "id": "lups-18ab8e907361",
-      "slug": "pflegefachperson-w-m-d-60-80-luzerner-psychiatrie-lups-luzern",
+      "slug": "professionista-m-f-d-60-80-luzerner-psychiatrie-lups-luzern",
       "slugByLocale": {
         "de": "pflegefachperson-w-m-d-60-80-lups-luzern",
-        "it": "pflegefachperson-w-m-d-60-80-luzerner-psychiatrie-lups-luzern",
-        "en": "pflegefachperson-w-m-d-60-80-luzerner-psychiatrie-lups-luzern",
-        "fr": "pflegefachperson-w-m-d-60-80-luzerner-psychiatrie-lups-luzern"
+        "it": "professionista-m-f-d-60-80-luzerner-psychiatrie-lups-luzern",
+        "en": "care-professional-m-f-d-60-80-luzerner-psychiatrie-lups-luzern",
+        "fr": "professionnel-de-soins-h-f-d-60-80-luzerner-psychiatrie-lups-luzern"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -6623,11 +6645,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-w-m-d-60-80-lups-luzern"
+          "pflegefachperson-w-m-d-60-80-lups-luzern",
+          "pflegefachperson-w-m-d-60-80-luzerner-psychiatrie-lups-luzern"
+        ],
+        "en": [
+          "pflegefachperson-w-m-d-60-80-luzerner-psychiatrie-lups-luzern"
+        ],
+        "fr": [
+          "pflegefachperson-w-m-d-60-80-luzerner-psychiatrie-lups-luzern"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-w-m-d-60-80-lups-luzern"
+        "pflegefachperson-w-m-d-60-80-lups-luzern",
+        "pflegefachperson-w-m-d-60-80-luzerner-psychiatrie-lups-luzern"
       ],
       "salaryMin": 69200,
       "salaryMax": 96400,

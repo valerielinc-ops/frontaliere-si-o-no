@@ -1816,8 +1816,8 @@
       "slugByLocale": {
         "de": "reparaturexperte-fur-elektrowerkzeuge-m-w-d-hilti-ch",
         "it": "reparaturexperte-per-elektrowerkzeuge-m-w-d-hilti-zurich-adliswil",
-        "en": "reparaturexperte-fur-elektrowerkzeuge-m-w-d-hilti-zurich-adliswil",
-        "fr": "reparaturexperte-fur-elektrowerkzeuge-m-w-d-hilti-zurich-adliswil"
+        "en": "repair-experts-for-power-tools-m-f-d-hilti-zurich-adliswil-zurich",
+        "fr": "experts-en-reparation-des-outils-electriques-h-f-d-hilti-zurich-adliswil-zurich"
       },
       "company": "Hilti",
       "companyKey": "hilti",
@@ -1865,10 +1865,17 @@
       "previousSlugsByLocale": {
         "it": [
           "reparaturexperte-fur-elektrowerkzeuge-m-w-d-hilti-ch"
+        ],
+        "en": [
+          "reparaturexperte-fur-elektrowerkzeuge-m-w-d-hilti-zurich-adliswil"
+        ],
+        "fr": [
+          "reparaturexperte-fur-elektrowerkzeuge-m-w-d-hilti-zurich-adliswil"
         ]
       },
       "previousSlugs": [
-        "reparaturexperte-fur-elektrowerkzeuge-m-w-d-hilti-ch"
+        "reparaturexperte-fur-elektrowerkzeuge-m-w-d-hilti-ch",
+        "reparaturexperte-fur-elektrowerkzeuge-m-w-d-hilti-zurich-adliswil"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,

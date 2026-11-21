@@ -2830,11 +2830,11 @@
     },
     {
       "id": "holcim-8401cf760654",
-      "slug": "chauffeur-malaxeur-centraliste-holcim-ch",
+      "slug": "driver-centralist-holcim-group-sierre",
       "slugByLocale": {
         "fr": "chauffeur-malaxeur-centraliste-holcim-ch",
         "it": "driver-centralist-holcim-group-sierre",
-        "en": "chauffeur-malaxeur-centraliste-holcim-ch",
+        "en": "driver-centralist-holcim-group-sierre",
         "de": "fahrer-zentralist-holcim-group-sierre"
       },
       "company": "Holcim Group",
@@ -2899,7 +2899,13 @@
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T21:48:23.372Z",
       "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-malaxeur-centraliste-holcim-ch"
+        ],
         "de": [
+          "chauffeur-malaxeur-centraliste-holcim-ch"
+        ],
+        "en": [
           "chauffeur-malaxeur-centraliste-holcim-ch"
         ]
       },

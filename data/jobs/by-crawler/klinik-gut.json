@@ -436,12 +436,12 @@
     },
     {
       "id": "klinik-gut-5620-ab96e29a96ac",
-      "slug": "stationsleitung-pflege-80-100-klinik-gut-flasch",
+      "slug": "gestione-della-stazione-cura-80-100-klinik-gut-ag-flasch",
       "slugByLocale": {
         "de": "stationsleitung-pflege-80-100-klinik-gut-flasch",
-        "it": "stationsleitung-pflege-80-100-klinik-gut-flasch",
-        "en": "stationsleitung-pflege-80-100-klinik-gut-flasch",
-        "fr": "stationsleitung-pflege-80-100-klinik-gut-flasch"
+        "it": "gestione-della-stazione-cura-80-100-klinik-gut-ag-flasch",
+        "en": "station-management-care-80-100-klinik-gut-ag-flasch",
+        "fr": "gestion-de-station-soins-80-100-klinik-gut-ag-flasch"
       },
       "company": "Klinik Gut AG",
       "companyKey": "klinik-gut",
@@ -506,19 +506,23 @@
       "firstSeenAt": "2026-11-20T21:27:28.664Z",
       "previousSlugsByLocale": {
         "it": [
-          "gestione-della-stazione-cura-80-100-klinik-gut-ag-flasch"
+          "gestione-della-stazione-cura-80-100-klinik-gut-ag-flasch",
+          "stationsleitung-pflege-80-100-klinik-gut-flasch"
         ],
         "en": [
-          "station-management-care-80-100-klinik-gut-ag-flasch"
+          "station-management-care-80-100-klinik-gut-ag-flasch",
+          "stationsleitung-pflege-80-100-klinik-gut-flasch"
         ],
         "fr": [
-          "gestion-de-station-soins-80-100-klinik-gut-ag-flasch"
+          "gestion-de-station-soins-80-100-klinik-gut-ag-flasch",
+          "stationsleitung-pflege-80-100-klinik-gut-flasch"
         ]
       },
       "previousSlugs": [
         "gestione-della-stazione-cura-80-100-klinik-gut-ag-flasch",
         "station-management-care-80-100-klinik-gut-ag-flasch",
-        "gestion-de-station-soins-80-100-klinik-gut-ag-flasch"
+        "gestion-de-station-soins-80-100-klinik-gut-ag-flasch",
+        "stationsleitung-pflege-80-100-klinik-gut-flasch"
       ]
     }
   ]

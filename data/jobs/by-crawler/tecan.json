@@ -797,11 +797,11 @@
     },
     {
       "id": "tecan-a4bd65c31dd4",
-      "slug": "production-engineer-tecan-mannedorf",
+      "slug": "production-ingegnere-tecan-mannedorf",
       "slugByLocale": {
         "en": "production-engineer-tecan-mannedorf",
-        "it": "production-engineer-tecan-mannedorf",
-        "de": "production-engineer-tecan-mannedorf",
+        "it": "production-ingegnere-tecan-mannedorf",
+        "de": "production-ingenieur-tecan-mannedorf",
         "fr": "production-engineer-tecan-mannedorf"
       },
       "company": "Tecan",
@@ -864,7 +864,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T22:07:45.573Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-08-08T09:47:59.321Z"
+      "firstSeenAt": "2026-08-08T09:47:59.321Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "production-engineer-tecan-mannedorf"
+        ],
+        "de": [
+          "production-engineer-tecan-mannedorf"
+        ]
+      },
+      "previousSlugs": [
+        "production-engineer-tecan-mannedorf"
+      ]
     }
   ]
 }

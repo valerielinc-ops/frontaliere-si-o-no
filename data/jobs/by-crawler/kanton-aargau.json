@@ -6048,12 +6048,12 @@
     },
     {
       "id": "kanton-aargau-55833a076c98",
-      "slug": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
+      "slug": "interno-legale-interno-legale-100-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
-        "it": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
-        "en": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
-        "fr": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch"
+        "it": "interno-legale-interno-legale-100-kanton-aargau-aarau",
+        "en": "legal-intern-legal-intern-100-kanton-aargau-aarau",
+        "fr": "stage-juridique-stage-juridique-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -6138,13 +6138,16 @@
           "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-6-95661592",
           "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-2",
           "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-6",
-          "interno-legale-interno-legale-100-kanton-aargau-aarau"
+          "interno-legale-interno-legale-100-kanton-aargau-aarau",
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch"
         ],
         "en": [
-          "legal-intern-legal-intern-100-kanton-aargau-aarau"
+          "legal-intern-legal-intern-100-kanton-aargau-aarau",
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch"
         ],
         "fr": [
-          "stage-juridique-stage-juridique-100-kanton-aargau-aarau"
+          "stage-juridique-stage-juridique-100-kanton-aargau-aarau",
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch"
         ],
         "de": [
           "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-qsbtky"
@@ -6196,7 +6199,8 @@
         "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-7097a380",
         "interno-legale-interno-legale-100-kanton-aargau-aarau",
         "legal-intern-legal-intern-100-kanton-aargau-aarau",
-        "stage-juridique-stage-juridique-100-kanton-aargau-aarau"
+        "stage-juridique-stage-juridique-100-kanton-aargau-aarau",
+        "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch"
       ],
       "sourceIdentity": "url:https://jobs.ag.ch/offene-stellen/rechtspraktikantin-rechtspraktikant/b1213770-9c33-4cc3-9113-5543963472b5"
     },
@@ -6375,12 +6379,12 @@
     },
     {
       "id": "kanton-aargau-858ee46fd864",
-      "slug": "fachprojektleiterin-fachprojektleiter-bauherrenvertretung-gebaudetechnik-hlkk-s-80-100",
+      "slug": "specialist-project-manager-specialist-project-manager-building-manager-rappresentanza-building-technology-hlkk-s-80-100",
       "slugByLocale": {
         "de": "fachprojektleiterin-fachprojektleiter-bauherrenvertretung-gebaudetechnik-hlkk-s-80-100",
-        "it": "fachprojektleiterin-fachprojektleiter-bauherrenvertretung-gebaudetechnik-hlkk-s-80-100",
-        "en": "fachprojektleiterin-fachprojektleiter-bauherrenvertretung-gebaudetechnik-hlkk-s-80-100",
-        "fr": "fachprojektleiterin-fachprojektleiter-bauherrenvertretung-gebaudetechnik-hlkk-s-80-100"
+        "it": "specialist-project-manager-specialist-project-manager-building-manager-rappresentanza-building-technology-hlkk-s-80-100",
+        "en": "specialist-project-manager-specialist-project-manager-building-manager-representation-building-technology-hlkk-s-80-100",
+        "fr": "specialiste-gestionnaire-de-projet-specialiste-gestionnaire-de-projet-gestionnaire-de-batiment-representation"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -6446,29 +6450,33 @@
       "firstSeenAt": "2026-11-20T21:49:14.023Z",
       "previousSlugsByLocale": {
         "it": [
-          "specialist-project-manager-specialist-project-manager-building-manager-rappresentanza-building-technology-hlkk-s-80-100"
+          "specialist-project-manager-specialist-project-manager-building-manager-rappresentanza-building-technology-hlkk-s-80-100",
+          "fachprojektleiterin-fachprojektleiter-bauherrenvertretung-gebaudetechnik-hlkk-s-80-100"
         ],
         "en": [
-          "specialist-project-manager-specialist-project-manager-building-manager-representation-building-technology-hlkk-s-80-100"
+          "specialist-project-manager-specialist-project-manager-building-manager-representation-building-technology-hlkk-s-80-100",
+          "fachprojektleiterin-fachprojektleiter-bauherrenvertretung-gebaudetechnik-hlkk-s-80-100"
         ],
         "fr": [
-          "specialiste-gestionnaire-de-projet-specialiste-gestionnaire-de-projet-gestionnaire-de-batiment-representation"
+          "specialiste-gestionnaire-de-projet-specialiste-gestionnaire-de-projet-gestionnaire-de-batiment-representation",
+          "fachprojektleiterin-fachprojektleiter-bauherrenvertretung-gebaudetechnik-hlkk-s-80-100"
         ]
       },
       "previousSlugs": [
         "specialist-project-manager-specialist-project-manager-building-manager-rappresentanza-building-technology-hlkk-s-80-100",
         "specialist-project-manager-specialist-project-manager-building-manager-representation-building-technology-hlkk-s-80-100",
-        "specialiste-gestionnaire-de-projet-specialiste-gestionnaire-de-projet-gestionnaire-de-batiment-representation"
+        "specialiste-gestionnaire-de-projet-specialiste-gestionnaire-de-projet-gestionnaire-de-batiment-representation",
+        "fachprojektleiterin-fachprojektleiter-bauherrenvertretung-gebaudetechnik-hlkk-s-80-100"
       ]
     },
     {
       "id": "kanton-aargau-23f526e9dee2",
-      "slug": "sozialpadagogin-sozialpadagoge-80-kanton-aargau-ch",
+      "slug": "pedagoga-sociale-pedagoga-sociale-80-kanton-aargau-aarburg",
       "slugByLocale": {
         "de": "sozialpadagogin-sozialpadagoge-80-kanton-aargau-ch",
-        "it": "sozialpadagogin-sozialpadagoge-80-kanton-aargau-ch",
-        "en": "sozialpadagogin-sozialpadagoge-80-kanton-aargau-ch",
-        "fr": "sozialpadagogin-sozialpadagoge-80-kanton-aargau-ch"
+        "it": "pedagoga-sociale-pedagoga-sociale-80-kanton-aargau-aarburg",
+        "en": "social-pedagogue-social-pedagogue-80-kanton-aargau-aarburg",
+        "fr": "pedagogue-sociale-pedagogue-sociale-80-kanton-aargau-aarburg"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -6534,19 +6542,23 @@
       "firstSeenAt": "2026-11-20T21:49:12.091Z",
       "previousSlugsByLocale": {
         "it": [
-          "pedagoga-sociale-pedagoga-sociale-80-kanton-aargau-aarburg"
+          "pedagoga-sociale-pedagoga-sociale-80-kanton-aargau-aarburg",
+          "sozialpadagogin-sozialpadagoge-80-kanton-aargau-ch"
         ],
         "en": [
-          "social-pedagogue-social-pedagogue-80-kanton-aargau-aarburg"
+          "social-pedagogue-social-pedagogue-80-kanton-aargau-aarburg",
+          "sozialpadagogin-sozialpadagoge-80-kanton-aargau-ch"
         ],
         "fr": [
-          "pedagogue-sociale-pedagogue-sociale-80-kanton-aargau-aarburg"
+          "pedagogue-sociale-pedagogue-sociale-80-kanton-aargau-aarburg",
+          "sozialpadagogin-sozialpadagoge-80-kanton-aargau-ch"
         ]
       },
       "previousSlugs": [
         "pedagoga-sociale-pedagoga-sociale-80-kanton-aargau-aarburg",
         "social-pedagogue-social-pedagogue-80-kanton-aargau-aarburg",
-        "pedagogue-sociale-pedagogue-sociale-80-kanton-aargau-aarburg"
+        "pedagogue-sociale-pedagogue-sociale-80-kanton-aargau-aarburg",
+        "sozialpadagogin-sozialpadagoge-80-kanton-aargau-ch"
       ]
     },
     {
@@ -6555,8 +6567,8 @@
       "slugByLocale": {
         "de": "juristische-mitarbeiterin-juristischer-mitarbeiter-baubewilligungen-80-90-kanton-aargau-ch",
         "it": "juristische-mitarbeiterin-juristischer-collaboratore-trice-baubewilligungen-80-90-kanton-aargau-aarau",
-        "en": "juristische-mitarbeiterin-juristischer-mitarbeiter-baubewilligungen-80-90-kanton-aargau-ch",
-        "fr": "juristische-mitarbeiterin-juristischer-mitarbeiter-baubewilligungen-80-90-kanton-aargau-ch"
+        "en": "legal-employee-legal-employee-building-permits-80-90-kanton-aargau-aarau",
+        "fr": "employe-juridique-employe-juridique-permis-de-construire-80-90-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -6610,16 +6622,16 @@
           "juristische-mitarbeiterin-juristischer-mitarbeiter-baubewilligungen-80-90-kanton-aargau-ch"
         ],
         "en": [
-          "legal-employee-legal-employee-building-permits-80-90-kanton-aargau-aarau"
+          "legal-employee-legal-employee-building-permits-80-90-kanton-aargau-aarau",
+          "juristische-mitarbeiterin-juristischer-mitarbeiter-baubewilligungen-80-90-kanton-aargau-ch"
         ],
         "fr": [
-          "employe-juridique-employe-juridique-permis-de-construire-80-90-kanton-aargau-aarau"
+          "employe-juridique-employe-juridique-permis-de-construire-80-90-kanton-aargau-aarau",
+          "juristische-mitarbeiterin-juristischer-mitarbeiter-baubewilligungen-80-90-kanton-aargau-ch"
         ]
       },
       "previousSlugs": [
-        "juristische-mitarbeiterin-juristischer-mitarbeiter-baubewilligungen-80-90-kanton-aargau-ch",
-        "legal-employee-legal-employee-building-permits-80-90-kanton-aargau-aarau",
-        "employe-juridique-employe-juridique-permis-de-construire-80-90-kanton-aargau-aarau"
+        "juristische-mitarbeiterin-juristischer-mitarbeiter-baubewilligungen-80-90-kanton-aargau-ch"
       ],
       "salaryMin": 63500,
       "salaryMax": 108500,
@@ -6640,12 +6652,12 @@
     },
     {
       "id": "kanton-aargau-ef05bc479814",
-      "slug": "sozialpadagogin-sozialpadagoge-uma-80-kanton-aargau-ch",
+      "slug": "social-pedagogue-social-pedagogue-uma-80-kanton-aargau-brugg",
       "slugByLocale": {
         "de": "sozialpadagogin-sozialpadagoge-uma-80-kanton-aargau-ch",
-        "it": "sozialpadagogin-sozialpadagoge-uma-80-kanton-aargau-ch",
+        "it": "social-pedagogue-social-pedagogue-uma-80-kanton-aargau-brugg",
         "en": "sozialpadagogin-sozialpadagoge-uma-80-kanton-aargau-ch",
-        "fr": "sozialpadagogin-sozialpadagoge-uma-80-kanton-aargau-ch"
+        "fr": "pedagogue-sociale-pedagogue-sociale-uma-80-kanton-aargau-brugg"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -6711,15 +6723,18 @@
       "firstSeenAt": "2026-11-20T21:49:10.283Z",
       "previousSlugsByLocale": {
         "it": [
-          "social-pedagogue-social-pedagogue-uma-80-kanton-aargau-brugg"
+          "social-pedagogue-social-pedagogue-uma-80-kanton-aargau-brugg",
+          "sozialpadagogin-sozialpadagoge-uma-80-kanton-aargau-ch"
         ],
         "fr": [
-          "pedagogue-sociale-pedagogue-sociale-uma-80-kanton-aargau-brugg"
+          "pedagogue-sociale-pedagogue-sociale-uma-80-kanton-aargau-brugg",
+          "sozialpadagogin-sozialpadagoge-uma-80-kanton-aargau-ch"
         ]
       },
       "previousSlugs": [
         "social-pedagogue-social-pedagogue-uma-80-kanton-aargau-brugg",
-        "pedagogue-sociale-pedagogue-sociale-uma-80-kanton-aargau-brugg"
+        "pedagogue-sociale-pedagogue-sociale-uma-80-kanton-aargau-brugg",
+        "sozialpadagogin-sozialpadagoge-uma-80-kanton-aargau-ch"
       ]
     }
   ]
