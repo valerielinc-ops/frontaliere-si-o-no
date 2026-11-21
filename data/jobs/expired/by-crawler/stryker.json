@@ -1852,6 +1852,18 @@
     },
     "sector": "Medtech / Dispositivi medici",
     "expiredAt": "2026-05-29T14:10:14.096Z",
+    "previousSlugs": [
+      "ausbildung-produktionsmechaniker-m-w-d-stryker-ch-5b7fd07c",
+      "apprentice-manufacturing-stryker-ch-1a81d422",
+      "apprendista-produzione-stryker-selzach-235441db",
+      "apprentice-manufacturing-stryker-selzach-33d61c5f",
+      "ausbildung-fertigung-stryker-selzach-1c879812",
+      "apprentissage-fabrication-stryker-selzach-22e29983",
+      "ausbildung-produktionsmechaniker-m-w-d-stryker-ch",
+      "apprendista-produzione-stryker-selzach",
+      "ausbildung-fertigung-stryker-selzach",
+      "apprentissage-fabrication-stryker-selzach"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "ausbildung-produktionsmechaniker-m-w-d-stryker-ch-5b7fd07c",
@@ -1864,24 +1876,24 @@
       "en": [
         "ausbildung-produktionsmechaniker-m-w-d-stryker-ch",
         "apprentice-manufacturing-stryker-ch-1a81d422",
-        "apprendista-produzione-stryker-selzach",
         "apprentice-manufacturing-stryker-selzach-33d61c5f",
+        "apprendista-produzione-stryker-selzach",
         "ausbildung-fertigung-stryker-selzach",
         "apprentissage-fabrication-stryker-selzach"
       ],
       "de": [
         "apprentice-manufacturing-stryker-ch-1a81d422",
         "ausbildung-produktionsmechaniker-m-w-d-stryker-ch",
-        "apprendista-produzione-stryker-selzach",
         "apprentice-manufacturing-stryker-selzach-33d61c5f",
+        "apprendista-produzione-stryker-selzach",
         "ausbildung-fertigung-stryker-selzach",
         "apprentissage-fabrication-stryker-selzach"
       ],
       "fr": [
         "apprentice-manufacturing-stryker-ch-1a81d422",
         "ausbildung-produktionsmechaniker-m-w-d-stryker-ch",
-        "apprendista-produzione-stryker-selzach",
         "apprentice-manufacturing-stryker-selzach-33d61c5f",
+        "apprendista-produzione-stryker-selzach",
         "ausbildung-fertigung-stryker-selzach",
         "apprentissage-fabrication-stryker-selzach"
       ]
@@ -1889,19 +1901,7 @@
     "salaryMin": 49500,
     "salaryMax": 75000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "previousSlugs": [
-      "ausbildung-produktionsmechaniker-m-w-d-stryker-ch-5b7fd07c",
-      "apprentice-manufacturing-stryker-ch-1a81d422",
-      "apprendista-produzione-stryker-selzach-235441db",
-      "apprentice-manufacturing-stryker-selzach-33d61c5f",
-      "ausbildung-fertigung-stryker-selzach-1c879812",
-      "apprentissage-fabrication-stryker-selzach-22e29983",
-      "ausbildung-produktionsmechaniker-m-w-d-stryker-ch",
-      "apprendista-produzione-stryker-selzach",
-      "ausbildung-fertigung-stryker-selzach",
-      "apprentissage-fabrication-stryker-selzach"
-    ]
+    "salaryPeriod": "YEAR"
   },
   {
     "slug": "rappresentante-vendite-junior-foot-ankle-stryker-selzach",

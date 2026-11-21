@@ -39,6 +39,8 @@ const PUBLISHER_RUNTIME_FILES = [
   'scripts/lib/git-fetch-target.mjs',
   'scripts/lib/run-bounded-command.mjs',
   'scripts/lib/compare-merge-base.sh',
+  'scripts/lib/git-no-lazy.mjs',
+  'scripts/lib/is-invoked-directly.mjs',
   'scripts/lib/pipeline-phase-timing.mjs',
   'scripts/lib/single-flight-lock.mjs',
   'scripts/lib/git-add-resolved.mjs',
@@ -1297,7 +1299,7 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
     expect(boundedRuns[0].commitCount).toBe(boundedRuns[1].commitCount);
   }, 120_000);
 
-  it('falls back to a bounded blobless merge-base lookup when GitHub rejects a large compare diff', () => {
+  it('falls back to a bounded treeless merge-base lookup when GitHub rejects a large compare diff', () => {
     const setup = compatHistoryFixture(50, undefined, undefined, { compareResponse: 'too-large' });
     advanceCompatMain(setup);
     const currentMainHead = git(setup.remote, ['rev-parse', 'refs/heads/main']);

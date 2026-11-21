@@ -127,9 +127,6 @@
       ],
       "fr": [
         "mitarbeiter-in-ikea-restaurant-kuche-ikea-bistro-60-80-ikea-ch-5d006a6e"
-      ],
-      "de": [
-        "mitarbeiter-in-ikea-restaurant-kuche-ikea-bistro-60-80-ikea-ch-5d006a6e"
       ]
     },
     "postalCode": "8957",
@@ -867,6 +864,7 @@
         "collaborator-customer-relations-80-ikea-riddes-valais-switzerland-7a8e074a",
         "logistics-contributor-40-ikea-riddes-valais-switzerland",
         "mitarbeiter-customer-relations-80-ikea-riddes-valais-switzerland",
+        "collaboratore-customer-relations-80-ikea-riddes-valais-switzerland",
         "collaborator-customer-relations-80-ikea-riddes-valais-switzerland"
       ],
       "de": [
@@ -874,6 +872,7 @@
         "mitarbeiter-customer-relations-80-ikea-riddes-valais-switzerland-63fcb40c",
         "logistikbeitrag-40-ikea-riddes-valais-switzerland",
         "collaborator-customer-relations-80-ikea-riddes-valais-switzerland",
+        "collaboratore-customer-relations-80-ikea-riddes-valais-switzerland",
         "mitarbeiter-customer-relations-80-ikea-riddes-valais-switzerland"
       ],
       "fr": [
@@ -881,6 +880,7 @@
         "collaborateur-trice-logistique-40-ikea-ch",
         "collaborator-customer-relations-80-ikea-riddes-valais-switzerland",
         "mitarbeiter-customer-relations-80-ikea-riddes-valais-switzerland",
+        "collaboratore-customer-relations-80-ikea-riddes-valais-switzerland",
         "collaborateur-trice-relations-clients-80-ikea-ch"
       ]
     },
@@ -905,19 +905,19 @@
       }
     ],
     "previousSlugs": [
-      "collaborateur-trice-relations-clients-80-ikea-ch",
       "collaborateur-trice-relations-clients-80-ikea-ch-4201cfb9",
       "collaboratore-customer-relations-80-ikea-riddes-valais-switzerland-91405aa4",
       "collaborateur-trice-relations-clients-80-ikea-ch-9a91fb12",
       "collaboratore-logistico-40-ikea-riddes-valais-switzerland",
       "collaborateur-trice-logistique-40-ikea-ch",
       "collaborateur-trice-logistique-40-ikea-riddes",
-      "collaborator-customer-relations-80-ikea-riddes-valais-switzerland",
-      "mitarbeiter-customer-relations-80-ikea-riddes-valais-switzerland",
       "collaborator-customer-relations-80-ikea-riddes-valais-switzerland-7a8e074a",
       "logistics-contributor-40-ikea-riddes-valais-switzerland",
       "mitarbeiter-customer-relations-80-ikea-riddes-valais-switzerland-63fcb40c",
       "logistikbeitrag-40-ikea-riddes-valais-switzerland",
+      "collaborateur-trice-relations-clients-80-ikea-ch",
+      "collaborator-customer-relations-80-ikea-riddes-valais-switzerland",
+      "mitarbeiter-customer-relations-80-ikea-riddes-valais-switzerland",
       "collaboratore-customer-relations-80-ikea-riddes-valais-switzerland"
     ]
   },
@@ -2053,7 +2053,6 @@
         "administration-des-employes-pour-l-ingenierie-et-la-maintenance-a-domicile-focus-electrics-100-ikea-pratteln-1-basel"
       ],
       "de": [
-        "mitarbeiter-in-administration-fur-haustechnik-und-instandhaltung-schwerpunkt-elektrik-100-7d87799e",
         "mitarbeiter-in-administration-fur-haustechnik-und-instandhaltung-schwerpunkt-elektrik-100"
       ]
     },
@@ -2910,7 +2909,6 @@
         "apprenticeship-as-a-logistics-specialist-01-08-2027-31-07-2030-ikea-dietlikon-zurich-switzerland"
       ],
       "de": [
-        "lehrstelle-logistiker-in-01-08-2027-31-07-2030-ikea-ch-151c7388",
         "lehrstelle-logistiker-in-efz-01-08-2027-31-07-2030-ikea-ch"
       ],
       "fr": [
@@ -6765,7 +6763,6 @@
         "addetto-a-alle-vendite-schlafzimmerabteilung-40-ikea-dietlikon",
         "mitarbeiter-in-verkauf-schlafzimmerabteilung-40-ikea-ch",
         "collaborateur-trice-vente-schlafzimmerabteilung-40-ikea-dietlikon-zurich-switzerland",
-        "associate-sales-schlafzimmerabteilung-80-ikea-dietlikon-zurich-switzerland",
         "collaborateur-trice-vente-schlafzimmerabteilung-80-ikea-dietlikon-zurich-switzerland",
         "addetto-a-alle-vendite-in-schlafzimmerabteilung-80-100-ikea-spreitenbach",
         "associate-sales-in-schlafzimmerabteilung-80-100-ikea-spreitenbach-aargau-switzerland",
@@ -6782,7 +6779,6 @@
         "mitarbeiter-in-verkauf-schlafzimmerabteilung-40-ikea-ch",
         "mitarbeiter-in-verkauf-in-schlafzimmerabteilung-80-100-ikea-ch",
         "mitarbeiter-in-verkauf-textilabteilung-50-ikea-ch",
-        "mitarbeiter-in-verkauf-schlafzimmerabteilung-80-ikea-ch",
         "addetto-a-alle-vendite-schlafzimmerabteilung-100-ikea-lyssach",
         "addetto-a-alle-vendite-schlafzimmerabteilung-40-ikea-dietlikon",
         "associate-sales-schlafzimmerabteilung-40-ikea-dietlikon-zurich-switzerland",
@@ -6812,7 +6808,6 @@
         "associate-sales-schlafzimmerabteilung-40-ikea-dietlikon-zurich-switzerland",
         "mitarbeiter-in-verkauf-schlafzimmerabteilung-40-ikea-ch",
         "associate-sales-schlafzimmerabteilung-80-ikea-dietlikon-zurich-switzerland",
-        "collaborateur-trice-vente-schlafzimmerabteilung-80-ikea-dietlikon-zurich-switzerland",
         "addetto-a-alle-vendite-in-schlafzimmerabteilung-80-100-ikea-spreitenbach",
         "associate-sales-in-schlafzimmerabteilung-80-100-ikea-spreitenbach-aargau-switzerland",
         "mitarbeiter-in-verkauf-in-schlafzimmerabteilung-80-100-ikea-ch",
@@ -7182,9 +7177,6 @@
       "en": [
         "mitabeiter-in-logistik-auffullteam-50-befristet-bis-31-dezember-2026-ikea-ch",
         "mitabeiter-in-logistics-filling-team-50-limited-to-31-december-2026-ikea-spreitenbach-aargau-switzerland-ff69864f"
-      ],
-      "de": [
-        "mitabeiter-in-logistik-auffullteam-50-befristet-bis-31-dezember-2026-ikea-ch"
       ],
       "fr": [
         "mitabeiter-in-logistik-auffullteam-50-befristet-bis-31-dezember-2026-ikea-ch",

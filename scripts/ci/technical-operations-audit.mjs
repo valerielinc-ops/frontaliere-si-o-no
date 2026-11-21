@@ -65,6 +65,7 @@ const OUTPUT_HELPER_CALL_RE = /\b(?:write_output|writeOutput|writeGithubOutput|w
 const OUTPUT_HELPER_KV_CALL_RE = /\b(?:write_output|writeOutput|writeGithubOutput|writeGithubOutputs|set_output|setOutput|emit_output|emitOutput)\s*\(\s*["'`]([A-Za-z_][A-Za-z0-9_-]*)["'`]\s*,/g;
 const OUTPUT_HELPER_SHELL_RE = /\b(?:write_output|writeOutput|writeGithubOutput|writeGithubOutputs|set_output|setOutput|emit_output|emitOutput)\s+["']?([A-Za-z_][A-Za-z0-9_-]*)["']?/g;
 const OUTPUT_ACTIONS_FILE_RE = /\bappend(?:Actions|GitHub)File\s*\(\s*["']GITHUB_OUTPUT["']\s*,\s*["']([A-Za-z_][A-Za-z0-9_-]*)["']/g;
+const MAX_LITERAL_SHELL_LOOP_VALUES = 32;
 const LOCAL_MODULE_RE = /\b(?:from\s*|import\s*\(\s*|require\s*\(\s*)["'](\.{1,2}\/[^"']+)["']/g;
 const INVOKED_COMMAND_RE = /\b(?:node|bash|sh|tsx|bun|deno)\s+["']?((?:scripts|functions|tests|\.github\/actions|\.github\/scripts)\/[A-Za-z0-9_./-]+\.(?:mjs|cjs|js|ts|sh|yml|yaml))\b/g;
 const SCRIPT_DIR_COMMAND_RE = /\b(?:bash|sh|source|\.)\s+["']?\$\{SCRIPT_DIR\}\/([^"'\s]+)/g;
@@ -1492,6 +1493,186 @@ function literalOutputKeys(source, sinkRanges = outputSinkRanges(source)) {
   return keys;
 }
 
+function literalShellLoopValues(source) {
+  const tokens = String(source || '').trim().split(/\s+/u).filter(Boolean);
+  if (tokens.length === 0 || tokens.length > MAX_LITERAL_SHELL_LOOP_VALUES) return [];
+  const values = [];
+  for (const token of tokens) {
+    const literal = /^(?:'([A-Za-z_][A-Za-z0-9_-]*)'|"([A-Za-z_][A-Za-z0-9_-]*)"|([A-Za-z_][A-Za-z0-9_-]*))$/u.exec(token);
+    if (!literal) return [];
+    values.push(literal[1] || literal[2] || literal[3]);
+  }
+  return values;
+}
+
+function shellQuoteStateAfter(source, initialQuote = null) {
+  const raw = String(source || '');
+  let quote = initialQuote;
+  let escaped = false;
+  let comment = false;
+  for (let index = 0; index < raw.length; index += 1) {
+    const char = raw[index];
+    if (comment) {
+      if (char === '\n') comment = false;
+      continue;
+    }
+    if (quote) {
+      if (escaped && quote !== "'") {
+        escaped = false;
+        continue;
+      }
+      if (char === '\\' && quote !== "'") {
+        escaped = true;
+        continue;
+      }
+      if (char === quote) quote = null;
+      continue;
+    }
+    if (char === '\\') {
+      index += 1;
+      continue;
+    }
+    if (char === '#' && (index === 0 || /[\s;|&()]/u.test(raw[index - 1]))) {
+      comment = true;
+      continue;
+    }
+    if (char === "'" || char === '"' || char === '`') quote = char;
+  }
+  return quote;
+}
+
+function shellContainsHeredoc(source) {
+  const raw = String(source || '');
+  let quote = null;
+  let escaped = false;
+  let comment = false;
+  for (let index = 0; index < raw.length; index += 1) {
+    const char = raw[index];
+    if (comment) {
+      if (char === '\n') comment = false;
+      continue;
+    }
+    if (quote) {
+      if (escaped && quote !== "'") {
+        escaped = false;
+        continue;
+      }
+      if (char === '\\' && quote !== "'") {
+        escaped = true;
+        continue;
+      }
+      if (char === quote) quote = null;
+      continue;
+    }
+    if (char === '\\') {
+      index += 1;
+      continue;
+    }
+    if (char === '#' && (index === 0 || /[\s;|&()]/u.test(raw[index - 1]))) {
+      comment = true;
+      continue;
+    }
+    if (char === "'" || char === '"' || char === '`') {
+      quote = char;
+      continue;
+    }
+    if (char === '<' && raw[index + 1] === '<'
+      && raw[index - 1] !== '<' && raw[index + 2] !== '<') return true;
+  }
+  return false;
+}
+
+function matchingShellLoopEnd(source, bodyStart) {
+  const raw = String(source || '');
+  let depth = 1;
+  let lineStart = bodyStart;
+  let quote = null;
+  while (lineStart < raw.length) {
+    const newline = raw.indexOf('\n', lineStart);
+    const lineEnd = newline < 0 ? raw.length : newline;
+    const line = raw.slice(lineStart, lineEnd);
+    if (quote === null && /^\s*(?:for\b[^;\r\n]*|while\b[^;\r\n]*|until\b[^;\r\n]*)\s*;\s*do\b/u.test(line)) {
+      depth += 1;
+    }
+    if (quote === null && /^\s*done\b/u.test(line)) {
+      depth -= 1;
+      if (depth === 0) return lineStart;
+    }
+    quote = shellQuoteStateAfter(raw.slice(lineStart, newline < 0 ? lineEnd : lineEnd + 1), quote);
+    if (newline < 0) break;
+    lineStart = newline + 1;
+  }
+  return -1;
+}
+
+function shellEchoWritesInterpolatedKey(source, variable) {
+  const raw = String(source || '');
+  const escapedVariable = variable.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(
+    `^\\s*echo\\s+"\\$\\{${escapedVariable}\\}=[^"\\r\\n]*"\\s*>>\\s*"\\$GITHUB_OUTPUT"\\s*(?:#.*)?$`,
+    'u',
+  ).test(raw);
+}
+
+function shellLoopVariableWasReassigned(source, variable) {
+  const raw = String(source || '');
+  const escapedVariable = variable.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const anyAssignmentRe = new RegExp(`\\b${escapedVariable}\\s*(?:\\+?=)`, 'u');
+  const assignmentRe = new RegExp(
+    `(?:^|[;\\n])\\s*(?:(?:export|readonly|local|declare|typeset)\\s+(?:-[A-Za-z]+\\s+)*)?${escapedVariable}\\s*=`,
+    'u',
+  );
+  const nestedLoopRe = new RegExp(`\\bfor\\s+${escapedVariable}\\s+in\\b`, 'u');
+  const mutatorRe = new RegExp(
+    `\\b(?:read\\b[^;\\n]*\\b${escapedVariable}\\b|printf\\s+-v\\s+${escapedVariable}\\b|unset\\b[^;\\n]*\\b${escapedVariable}\\b)`,
+    'u',
+  );
+  return anyAssignmentRe.test(raw) || assignmentRe.test(raw) || nestedLoopRe.test(raw) || mutatorRe.test(raw);
+}
+
+/**
+ * Prove output keys interpolated from a bounded literal shell loop. Only a
+ * finite list of output-key-safe words is expanded, and the interpolation
+ * must feed a proven GITHUB_OUTPUT sink inside the matching loop body.
+ * Variable-backed, globbed and command-substitution domains remain unknown.
+ */
+function literalShellLoopOutputKeys(source) {
+  const raw = String(source || '');
+  const keys = new Set();
+  if (!/\bfor\b/u.test(raw) || !raw.includes('$GITHUB_OUTPUT') || shellContainsHeredoc(raw)) return keys;
+  const loopRe = /(?:^|\r?\n)[ \t]*for[ \t]+([A-Za-z_][A-Za-z0-9_]*)[ \t]+in[ \t]+([^;\r\n]+?)[ \t]*;[ \t]*do[ \t]*(?:#.*)?(?:\r?\n|$)/gu;
+  for (const loop of raw.matchAll(loopRe)) {
+    const loopStart = loop.index ?? 0;
+    if (shellQuoteStateAfter(raw.slice(0, loopStart)) !== null) continue;
+    const variable = loop[1];
+    const values = literalShellLoopValues(loop[2]);
+    if (values.length === 0 || variable === 'GITHUB_OUTPUT') continue;
+    const bodyStart = (loop.index ?? 0) + loop[0].length;
+    const bodyEnd = matchingShellLoopEnd(raw, bodyStart);
+    if (bodyEnd < 0) continue;
+    if ((raw.slice(bodyStart, bodyEnd).match(/\$GITHUB_OUTPUT\b/gu) || []).length !== 1) continue;
+    let provesInterpolatedKey = false;
+    let lineStart = bodyStart;
+    let quote = null;
+    while (lineStart < bodyEnd) {
+      const newline = raw.indexOf('\n', lineStart);
+      const lineEnd = newline < 0 || newline > bodyEnd ? bodyEnd : newline;
+      if (quote === null
+        && !shellLoopVariableWasReassigned(raw.slice(bodyStart, lineStart), variable)
+        && !shellLoopVariableWasReassigned(raw.slice(0, lineStart), 'GITHUB_OUTPUT')
+        && shellEchoWritesInterpolatedKey(raw.slice(lineStart, lineEnd), variable)) {
+        provesInterpolatedKey = true;
+        break;
+      }
+      quote = shellQuoteStateAfter(raw.slice(lineStart, newline < 0 ? lineEnd : lineEnd + 1), quote);
+      if (newline < 0 || newline >= bodyEnd) break;
+      lineStart = newline + 1;
+    }
+    if (provesInterpolatedKey) values.forEach((value) => keys.add(value));
+  }
+  return keys;
+}
+
 function matchingBrace(source, openingIndex) {
   const raw = String(source || '');
   let depth = 0;
@@ -2197,6 +2378,7 @@ function outputKeysFromSource(source, { outputFlags = null, stdoutToGithubOutput
   for (const match of raw.matchAll(OUTPUT_HELPER_SHELL_RE)) keys.add(match[1]);
   for (const match of raw.matchAll(OUTPUT_ACTIONS_FILE_RE)) keys.add(match[1]);
   for (const key of literalOutputKeys(raw, sinkRanges)) keys.add(key);
+  for (const key of literalShellLoopOutputKeys(raw)) keys.add(key);
   for (const key of literalOutputKeys(raw, stdoutRanges)) keys.add(key);
   for (const key of objectEntryOutputKeys(raw, sinkRanges)) keys.add(key);
   for (const key of literalOutputKeys(raw, directOutputWriterRanges(raw))) keys.add(key);

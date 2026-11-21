@@ -1498,7 +1498,6 @@
         "care-professional-50-100-geriatric-acute-rehabilitation-late-and-night-service-spital-uster-uster-106be90e",
         "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital-uster-9dc72baa",
         "care-professional-50-100-geriatric-acute-rehabilitation-late-and-night-service-spital-uster-uster-d95c0e69",
-        "care-professional-50-100-geriatric-acute-rehabilitation-late-and-night-service-spital-uster-uster-3e56ad78",
         "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital-uster",
         "care-professional-50-100-geriatric-acute-rehabilitation-late-and-night-service-spital-uster-uster"
       ],
@@ -2504,7 +2503,6 @@
         "health-50-100-geriatric-acupuncture-late-and-night-service-spital-uster-uster-413945bc",
         "health-50-100-geriatric-acupuncture-late-and-night-service-spital-uster-uster-ee3a8ec5",
         "health-50-100-geriatric-acupuncture-late-and-night-service-spital-uster-uster-16c60324",
-        "health-50-100-geriatric-acupuncture-late-and-night-service-spital-uster-uster-0cd6343c",
         "health-50-100-geriatric-acupuncture-late-and-night-service-spital-uster-uster"
       ],
       "fr": [
@@ -2597,7 +2595,6 @@
         "sante-50-100-acupuncture-geriatrique-service-tard-et-nuit-spital-uster-uster-a286336d",
         "sante-50-100-acupuncture-geriatrique-service-tard-et-nuit-spital-uster-uster-2fc816a4",
         "sante-50-100-acupuncture-geriatrique-service-tard-et-nuit-spital-uster-uster-2672a5df",
-        "sante-50-100-acupuncture-geriatrique-service-tard-et-nuit-spital-uster-uster-d76e6155",
         "sante-50-100-acupuncture-geriatrique-service-tard-et-nuit-spital-uster-uster"
       ]
     },
@@ -3194,7 +3191,6 @@
         "studenti-nds-hf-assistenza-di-emergenza-spital-uster-uster",
         "studierende-nds-hf-notfallpflege-spital-uster-ch-2ebfdc2a",
         "studenti-nds-hf-infermieristica-d-emergenza-spital-uster-uster-29521c1986",
-        "studenti-nds-hf-infermieristica-d-emergenza-spital-uster-uster-6aea03ba",
         "students-nds-hf-emergency-nursing-spital-uster-uster",
         "etudiants-nds-hf-soins-d-urgence-spital-uster-uster",
         "studenti-nds-hf-infermieristica-d-emergenza-spital-uster-uster",
@@ -3202,7 +3198,6 @@
       ],
       "en": [
         "students-nds-hf-emergency-care-spital-uster-uster",
-        "students-nds-hf-emergency-nursing-spital-uster-uster-c8f5e88c",
         "studenti-nds-hf-infermieristica-d-emergenza-spital-uster-uster",
         "studierende-nds-hf-notfallpflege-spital-uster-ch",
         "etudiants-nds-hf-soins-d-urgence-spital-uster-uster",
@@ -3210,7 +3205,6 @@
       ],
       "fr": [
         "etudiants-nds-hf-soins-infirmiers-d-urgence-spital-uster-uster",
-        "etudiants-nds-hf-soins-d-urgence-spital-uster-uster-b234458d",
         "studenti-nds-hf-infermieristica-d-emergenza-spital-uster-uster",
         "studierende-nds-hf-notfallpflege-spital-uster-ch",
         "students-nds-hf-emergency-nursing-spital-uster-uster",
@@ -3229,7 +3223,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.spitaluster.ch/offene-stellen/studierende-nds-hf-notfallpflege/7b42cd4b-0569-4bb2-a139-54fd9895c5ec",
-    "firstSeenAt": "2026-06-19T22:39:38.596Z"
+    "firstSeenAt": "2026-06-19T22:39:38.596Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.spitaluster.ch/offene-stellen/studierende-nds-hf-notfallpflege/7b42cd4b-0569-4bb2-a139-54fd9895c5ec",
+        "firstSeenAt": "2026-06-19T22:39:38.596Z",
+        "title": "Studierende NDS HF – Notfallpflege"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.spitaluster.ch/offene-stellen/studierende-nds-hf-notfallpflege/f09afd8d-e4c8-406e-95a0-c131ed38e307",
+        "firstSeenAt": "2026-06-19T22:39:38.596Z",
+        "title": "Studierende NDS HF – Notfallpflege"
+      }
+    ]
   },
   {
     "slug": "assistente-medico-a-100-medicina-spital-uster-uster-51554477",
@@ -4080,7 +4086,6 @@
         "expert-expert-nds-50-100-emergency-care-spital-uster-uster-319fd211",
         "expert-expert-nds-50-100-emergency-care-spital-uster-uster-1db14bc9",
         "expert-expert-nds-50-100-emergency-care-spital-uster-uster-1f36d3e8",
-        "expert-expert-nds-50-100-emergency-care-spital-uster-uster-184f17fe",
         "expert-expert-nds-50-100-emergency-care-spital-uster-uster"
       ],
       "de": [
@@ -6636,7 +6641,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.spitaluster.ch/offene-stellen/physiotherapeut-in-fh/136ce889-b6b0-43d8-ae2e-d9e98c1d0fb1",
-    "firstSeenAt": "2026-09-11T13:35:20.780Z"
+    "firstSeenAt": "2026-09-11T13:35:20.780Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.spitaluster.ch/offene-stellen/physiotherapeut-in-fh/136ce889-b6b0-43d8-ae2e-d9e98c1d0fb1",
+        "firstSeenAt": "2026-09-11T13:35:20.780Z",
+        "title": "Physiotherapeut/in FH 80%-100%"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.spitaluster.ch/offene-stellen/physiotherapeut-in-fh/e335c411-76cb-4acd-aadc-395a16dbe628",
+        "firstSeenAt": "2026-09-11T13:35:20.780Z",
+        "title": "Physiotherapeut/in FH 80%-100%"
+      }
+    ]
   },
   {
     "slug": "ergotherapeut-in-hf-fh-60-100-spital-uster-ch",
@@ -6669,7 +6686,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.spitaluster.ch/offene-stellen/ergotherapeut-in-hf-fh/b6e39141-a6ea-4c56-83b4-e938dce7f0c9",
-    "firstSeenAt": "2026-09-11T13:35:20.777Z"
+    "firstSeenAt": "2026-09-11T13:35:20.777Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.spitaluster.ch/offene-stellen/ergotherapeut-in-hf-fh/3873fa6f-399f-41d2-a24a-5d12337894c8",
+        "firstSeenAt": "2026-09-11T13:35:20.777Z",
+        "title": "Ergotherapeut/in HF/FH 60%-100%"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.spitaluster.ch/offene-stellen/ergotherapeut-in-hf-fh/b6e39141-a6ea-4c56-83b4-e938dce7f0c9",
+        "firstSeenAt": "2026-09-11T13:35:20.777Z",
+        "title": "Ergotherapeut/in HF/FH 60%-100%"
+      }
+    ]
   },
   {
     "slug": "assistente-farmaceutico-assistente-farmaceutico-70-100-spital-uster-uster",
@@ -6857,8 +6886,7 @@
     "previousSlugsByLocale": {
       "de": [
         "dipl-pflegefachperson-hf-und-fachperson-gesundheit-60-100-medizinisches-ambulatorium",
-        "dipl-pflegefachperson-hf-80-100-chirurgie-spital-uster-ch",
-        "dipl-pflegefachperson-hf-60-100-medizinisches-ambulatorium-spital-uster-ch-4fd29bd6"
+        "dipl-pflegefachperson-hf-80-100-chirurgie-spital-uster-ch"
       ],
       "it": [
         "dipl-pflegefachperson-hf-60-100-medizinisches-ambulatorium-spital-uster-ch-4fd29bd6",
@@ -7166,7 +7194,7 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "dipl-specialista-hf-80-100-chirurgia-spital-uster-uster-3bd89aac",
+    "slug": "dipl-specialista-hf-80-100-chirurgia-spital-uster-uster-1c585074",
     "title": "Dipl. Pflegefachperson HF 80-100% – Chirurgie",
     "titleByLocale": {
       "it": "Dipl. Specialista HF 80-100% – Chirurgia",
@@ -7185,25 +7213,31 @@
       "fr": "Pour nos lits chirurgicaux, nous regardons 1. Juillet 2026 ou par accord une personnalité ouverte et engagée comme Tâches :\n• Soins et soins aux patients dans des situations partiellement complexes et dans une équipe de traitement multidisciplinaire\n• Responsabilité et gestion du processus de prise en charge des patients assignés et délégation des tâches à FaGe, aux aides infirmières et aux stagiaires\n• Coopération étroite avec d'autres groupes professionnels impliqués dans le processus de traitement et contribution à une culture d'équipe précieuse Exigences:\n• formation complète pour le Dipl. Spécialiste des soins HF/FH\n• personne ouverte, apprenante et responsable avec un travail professionnel\n• Déchargez l'équipe de déploiement pour des raisons commémoratives et motivées\n• bonne connaissance de l'allemand en paroles et en écriture\n• versé dans le traitement de l'ordinateur / logiciel (document patient KISIM)\n• Chargeabilité, flexibilité, bonne capacité organisationnelle\n• La joie et l'ouverture de l'innovation pour des changements tournés vers l'avenir\n• Engagement pour le succès de l'équipe et le développement des soins\n• très bonne connaissance orale et écrite de l'allemand Nous offrons:\n• des activités intéressantes et variées dans une équipe dévouée et motivée\n• intégration structurée dans les soins et le traitement de nos patients\n• au moins cinq semaines de vacances et jours de blague pour la période de changement\n• excellent restaurant du personnel et de nombreuses réductions\n• emplacement central à proximité de la gare d'Uster et de l'autoroute\n• parking gratuit pendant le quart de nuit (jusqu'à 7 heures"
     },
     "slugByLocale": {
-      "it": "dipl-specialista-hf-80-100-chirurgia-spital-uster-uster-3bd89aac",
-      "en": "dipl-nurse-hf-80-100-surgery-spital-uster-uster-50352eb4",
-      "de": "dipl-pflegefachperson-hf-80-100-chirurgie-spital-uster-ch-3d668e82",
-      "fr": "dipl-specialiste-des-soins-hf-80-100-chirurgie-spital-uster-uster-49f2fb8d"
+      "it": "dipl-specialista-hf-80-100-chirurgia-spital-uster-uster-1c585074",
+      "en": "dipl-nurse-hf-80-100-surgery-spital-uster-uster-70b60cfb",
+      "de": "dipl-pflegefachperson-hf-80-100-chirurgie-spital-uster-ch-4abcccfe",
+      "fr": "dipl-specialiste-des-soins-hf-80-100-chirurgie-spital-uster-uster-a1880b73"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-09-19T22:52:19.466Z",
     "previousSlugsByLocale": {
       "it": [
+        "dipl-pflegefachperson-hf-80-100-chirurgie-spital-uster-ch-4abcccfe",
+        "dipl-specialista-hf-80-100-chirurgia-spital-uster-uster-3bd89aac",
         "dipl-pflegefachperson-hf-80-100-chirurgie-spital-uster-ch-3d668e82"
       ],
       "en": [
-        "dipl-pflegefachperson-hf-80-100-chirurgie-spital-uster-ch"
+        "dipl-pflegefachperson-hf-80-100-chirurgie-spital-uster-ch",
+        "dipl-nurse-hf-80-100-surgery-spital-uster-uster-50352eb4",
+        "dipl-pflegefachperson-hf-80-100-chirurgie-spital-uster-ch-3d668e82"
       ],
       "de": [
         "dipl-pflegefachperson-hf-80-100-chirurgie-spital-uster-ch-3d668e82"
       ],
       "fr": [
-        "dipl-pflegefachperson-hf-80-100-chirurgie-spital-uster-ch"
+        "dipl-pflegefachperson-hf-80-100-chirurgie-spital-uster-ch",
+        "dipl-specialiste-des-soins-hf-80-100-chirurgie-spital-uster-uster-49f2fb8d",
+        "dipl-pflegefachperson-hf-80-100-chirurgie-spital-uster-ch-3d668e82"
       ]
     },
     "postalCode": "8610",
@@ -7212,7 +7246,12 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "previousSlugs": [
-      "dipl-pflegefachperson-hf-80-100-chirurgie-spital-uster-ch"
+      "dipl-pflegefachperson-hf-80-100-chirurgie-spital-uster-ch",
+      "dipl-pflegefachperson-hf-80-100-chirurgie-spital-uster-ch-4abcccfe",
+      "dipl-specialista-hf-80-100-chirurgia-spital-uster-uster-3bd89aac",
+      "dipl-pflegefachperson-hf-80-100-chirurgie-spital-uster-ch-3d668e82",
+      "dipl-nurse-hf-80-100-surgery-spital-uster-uster-50352eb4",
+      "dipl-specialiste-des-soins-hf-80-100-chirurgie-spital-uster-uster-49f2fb8d"
     ]
   },
   {

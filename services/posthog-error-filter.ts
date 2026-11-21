@@ -37,7 +37,10 @@ import {
   BROWSER_EXTENSION_ORIGIN_PATTERN,
   isGoogleVignetteInjectedOpaqueError,
   isGoogleIosAppInjectedStackOverflow,
+  isFirefoxDeadObjectFromRedactedSource,
   isOriginRedactedThirdPartyStack,
+  readErrorDetailsSafely,
+  readErrorEventDetailsSafely,
 } from './benignErrorPatterns';
 
 /** Patterns that match benign / unactionable exception messages. */
@@ -242,6 +245,18 @@ function lookupRawErrorStack(message: string): string {
 }
 
 /**
+ * PostHog may preserve Analytics' source-less synthetic fallback as the raw
+ * stack. `at :0:1` carries line/column placeholders but no file or origin, so
+ * it must not defeat the already message+Firefox-gated dead-object classifier.
+ * Every other non-empty raw stack remains source evidence (fail open).
+ */
+function rawStackHasIdentifiableSource(rawStack: string): boolean {
+  const normalized = rawStack.trim();
+  if (!normalized) return false;
+  return !/^(?:TypeError:\s*can't access dead object\s*\n)?\s*at\s+:0:1$/i.test(normalized);
+}
+
+/**
  * Register the raw-stack recorder. Idempotent, and a no-op outside the browser.
  * Call synchronously from `initPostHog()` before the PostHog SDK is imported.
  */
@@ -249,12 +264,12 @@ export function installRawStackRecorder(): void {
   if (rawStackRecorderInstalled || typeof window === 'undefined') return;
   rawStackRecorderInstalled = true;
   window.addEventListener('error', (event) => {
-    const err = (event as ErrorEvent).error;
-    if (err instanceof Error && err.stack) recordRawErrorStack(err.message || event.message || '', err.stack);
+    const details = readErrorEventDetailsSafely(event as ErrorEvent);
+    if (details.stack) recordRawErrorStack(details.message || event.message || '', details.stack);
   });
   window.addEventListener('unhandledrejection', (event) => {
-    const reason = (event as PromiseRejectionEvent).reason;
-    if (reason instanceof Error && reason.stack) recordRawErrorStack(reason.message || '', reason.stack);
+    const details = readErrorDetailsSafely((event as PromiseRejectionEvent).reason);
+    if (details.stack) recordRawErrorStack(details.message, details.stack);
   });
 }
 
@@ -275,6 +290,11 @@ export function createExceptionFilter() {
     if (isThirdPartyStackOnly(event)) return null;
     const origins = extractStackFrameOrigins(event);
     const rawStack = origins.length === 0 ? lookupRawErrorStack(blob) : '';
+    if (isFirefoxDeadObjectFromRedactedSource({
+      message: blob,
+      userAgent: eventUserAgent(event),
+      hasSource: origins.length > 0 || rawStackHasIdentifiableSource(rawStack),
+    })) return null;
     if (isGoogleIosAppInjectedStackOverflow(
       blob,
       origins.length > 0 ? origins.join('\n') : rawStack,
