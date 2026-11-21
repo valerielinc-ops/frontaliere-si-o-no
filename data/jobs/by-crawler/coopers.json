@@ -3985,7 +3985,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-18T21:38:01.848Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:38:01.848Z",
+      "firstSeenAt": "2026-11-19T21:30:58.615Z",
       "sourceIdentity": "url:https://www.coopers.ch/en/jobs/detail.php?refcode=18a5ln",
       "needsRetranslation": true
     },
@@ -4074,7 +4074,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-18T21:38:00.890Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:38:00.890Z",
+      "firstSeenAt": "2026-11-19T21:30:57.490Z",
       "sourceIdentity": "url:https://www.coopers.ch/en/jobs/detail.php?refcode=sd9k62",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
@@ -4173,7 +4173,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:37:59.928Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:37:59.928Z",
+      "firstSeenAt": "2026-11-19T21:30:56.487Z",
       "sourceIdentity": "url:https://www.coopers.ch/en/jobs/detail.php?refcode=rd63o1",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
@@ -4271,7 +4271,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-18T21:37:59.005Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:37:59.005Z",
+      "firstSeenAt": "2026-11-19T21:30:55.513Z",
       "sourceIdentity": "url:https://www.coopers.ch/en/jobs/detail.php?refcode=xn45q1",
       "previousSlugsByLocale": {
         "it": [
@@ -4594,7 +4594,8 @@
         "operazioni-dei-partner-del-personale-supporto-backoffice-m-f-d-coopers-group-ag-basel-stadt",
         "operations-des-partenaires-du-personnel-support-backoffice-h-f-d-coopers-group-ag-basel-stadt"
       ],
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "sourceIdentity": "url:https://www.coopers.ch/en/jobs/detail.php?refcode=6k0xw8"
     },
     {
       "id": "coopers-43e91663563e",
@@ -4680,7 +4681,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-19T21:37:58.054Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:37:58.054Z"
+      "firstSeenAt": "2026-11-20T21:37:58.054Z",
+      "sourceIdentity": "url:https://www.coopers.ch/en/jobs/detail.php?refcode=9ig63t"
     }
   ]
 }
