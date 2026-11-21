@@ -33,6 +33,7 @@ export const DRY_RUN_COMMAND =
 const INCLUDED_INGEST_GB = 50;
 const INCLUDED_STORAGE_GB_MONTH = 10;
 const RETENTION_DAYS = 7;
+const UTC_DAY_MS = 864e5;
 
 const INTERNAL_CRAWLER_UA = 'frontaliere-bing-tree-crawler';
 export const WAF_BLOCKED_UAS = ['Baiduspider', 'CorsairBot', 'Chrome/48.0.2564.116', 'Chrome/99.0.4844.51'];
@@ -109,10 +110,42 @@ export function evaluateJobCanonV1Retirement(snapshot) {
     && samplingHistoryBlockers.length === 0;
   const v2SampleIntervals = snapshot.jobCanonV2SampleIntervals ?? [];
   const v1SampleIntervals = snapshot.jobCanonV1SampleIntervals ?? [];
-  const telemetrySamplingComplete = v2SampleIntervals.length === observedDays.length
+  const signalSamplingComplete = v2SampleIntervals.length === observedDays.length
     && v2SampleIntervals.length >= WINDOW_DAYS
     && [...v2SampleIntervals, ...v1SampleIntervals]
       .every((interval) => interval === 1);
+  const expectedSamplingDays = Array.isArray(snapshot.workerLogSamplingExpectedDays)
+    ? snapshot.workerLogSamplingExpectedDays
+    : [];
+  const streamSamplingBuckets = Array.isArray(snapshot.workerLogSamplingBuckets)
+    ? snapshot.workerLogSamplingBuckets
+    : [];
+  const streamSamplingBlockers = [];
+  if (expectedSamplingDays.length === 0) streamSamplingBlockers.push('coverage:unknown');
+  const bucketsByDay = new Map();
+  for (const bucket of streamSamplingBuckets) {
+    if (typeof bucket?.day !== 'string' || bucketsByDay.has(bucket.day)) {
+      streamSamplingBlockers.push('shape:duplicate-or-unknown-day');
+      continue;
+    }
+    bucketsByDay.set(bucket.day, bucket);
+  }
+  for (const day of expectedSamplingDays) {
+    const bucket = bucketsByDay.get(day);
+    if (!bucket) {
+      streamSamplingBlockers.push(`coverage:${day}:missing`);
+      continue;
+    }
+    if (bucket.rows !== 1 || !Number.isFinite(bucket.count) || bucket.count <= 0) {
+      streamSamplingBlockers.push(`coverage:${day}:empty-or-ambiguous`);
+    }
+    if (bucket.sampleInterval !== 1) {
+      streamSamplingBlockers.push(`sample-interval:${day}:${bucket.sampleInterval ?? 'unknown'}`);
+    }
+  }
+  for (const day of bucketsByDay.keys()) {
+    if (!expectedSamplingDays.includes(day)) streamSamplingBlockers.push(`coverage:${day}:unexpected`);
+  }
   const v2SuccessLogs = Number.isFinite(snapshot.jobCanonV2SuccessLogs)
     ? snapshot.jobCanonV2SuccessLogs
     : 0;
@@ -126,12 +159,13 @@ export function evaluateJobCanonV1Retirement(snapshot) {
   if (!samplingHistoryComplete && samplingHistoryBlockers.length === 0) {
     blockers.push('sampling-history:incomplete');
   }
-  if (!telemetrySamplingComplete) {
+  if (!signalSamplingComplete) {
     const intervals = [...v2SampleIntervals, ...v1SampleIntervals];
-    blockers.push(`sampling-telemetry:${intervals.length
+    blockers.push(`sampling-signal:${intervals.length
       ? intervals.map((interval) => interval ?? 'unknown').join(',')
       : 'missing'}`);
   }
+  for (const blocker of streamSamplingBlockers) blockers.push(`sampling-stream:${blocker}`);
   if (v2SuccessLogs === 0) blockers.push('v2-success:0');
   if (v1FallbackLogs !== 0) blockers.push(`v1-fallback:${v1FallbackLogs}`);
 
@@ -147,6 +181,8 @@ export function evaluateJobCanonV1Retirement(snapshot) {
     samplingRate: snapshot.samplingRate ?? null,
     v2SampleIntervals,
     v1SampleIntervals,
+    workerLogSamplingExpectedDays: expectedSamplingDays,
+    workerLogSamplingBuckets: streamSamplingBuckets,
     samplingHistory: snapshot.samplingHistory ?? null,
     ready: blockers.length === 0,
     blockers,
@@ -331,6 +367,34 @@ function auditMutationTime(entry) {
   return Number.isFinite(timestamp) ? timestamp : null;
 }
 
+function utcDaysInTimeframe(timeframe) {
+  if (!Number.isFinite(timeframe?.from) || !Number.isFinite(timeframe?.to) || timeframe.from >= timeframe.to) {
+    return [];
+  }
+  const days = [];
+  for (let cursor = Math.floor(timeframe.from / UTC_DAY_MS) * UTC_DAY_MS; cursor < timeframe.to; cursor += UTC_DAY_MS) {
+    days.push(new Date(cursor).toISOString().slice(0, 10));
+  }
+  return days;
+}
+
+function workerLogSamplingBuckets(calculation) {
+  if (!Array.isArray(calculation?.series)) return [];
+  return calculation.series.map((series) => {
+    const day = typeof series?.time === 'string'
+      ? series.time.match(/^(\d{4}-\d{2}-\d{2}) 00:00:00$/)?.[1] ?? null
+      : null;
+    const rows = Array.isArray(series?.data) ? series.data : [];
+    const row = rows.length === 1 ? rows[0] : null;
+    return {
+      day,
+      rows: rows.length,
+      count: Number.isFinite(row?.count) ? row.count : null,
+      sampleInterval: Number.isFinite(row?.sampleInterval) ? row.sampleInterval : null,
+    };
+  });
+}
+
 export function evaluateSamplingHistory(entries, timeframe) {
   const blockers = [];
   const mutations = [];
@@ -487,6 +551,24 @@ export async function collectSnapshot(now = Date.now()) {
     .filter(Boolean);
   const jobCanonV1Fallback = await query(buildJobCanonV1FallbackLogFilters());
   const jobCanonV1FallbackRows = jobCanonV1Fallback.aggregates ?? [];
+  // Cloudflare accepts granularity as a millisecond bucket width and returns
+  // these daily series aligned to 00:00:00 UTC. The aggregate is deliberately
+  // ignored: each intersecting day must independently prove exact ingestion.
+  const workerLogSampling = await telemetry({
+    queryId: 'cf-observability-audit-worker-log-sampling',
+    view: 'calculations',
+    granularity: UTC_DAY_MS,
+    limit: 1,
+    timeframe: { from: timeframe.from, to: timeframe.to },
+    parameters: {
+      datasets: [],
+      filters: [service],
+      calculations: [{ operator: 'count' }],
+      limit: 1,
+      groupBys: [],
+    },
+  });
+  const workerLogSamplingCalculation = workerLogSampling.calculations?.[0] ?? null;
   const samplingHistory = await collectSamplingHistory(timeframe);
 
   const events = await telemetry({
@@ -523,6 +605,8 @@ export async function collectSnapshot(now = Date.now()) {
     jobCanonV1SampleIntervals: jobCanonV1FallbackRows
       .filter((row) => (row.value ?? 0) > 0)
       .map((row) => row.sampleInterval ?? null),
+    workerLogSamplingExpectedDays: utcDaysInTimeframe(timeframe),
+    workerLogSamplingBuckets: workerLogSamplingBuckets(workerLogSamplingCalculation),
     samplingHistory,
     queryWindowDays: (timeframe.to - timeframe.from) / 864e5,
     internalCrawlerRequests: await count(filter(USER_AGENT, 'includes', INTERNAL_CRAWLER_UA)),
