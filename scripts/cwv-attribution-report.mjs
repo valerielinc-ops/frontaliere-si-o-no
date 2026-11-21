@@ -243,7 +243,7 @@ export async function main({
     logError(`::error title=${VALUED_ATTRIBUTION_GAP_FAILURE_TITLE}::${report.coverage.valuedInpIncompleteRows} righe INP senza valore finito o con device vuoto/unknown`);
     return 1;
   }
-  if (!(report.valuedSelectors || []).length
+  if (!(report.valuedSelectors || []).some((row) => row.section === 'inp')
     && String(report.window?.startDate || '') > VALUED_ATTRIBUTION_LIVE_FROM
     && hasNonGoodInpTemplateSamples(report.templates)) {
     logError(`::error title=${VALUED_ATTRIBUTION_GAP_FAILURE_TITLE}::${VALUED_ATTRIBUTION_GAP_MESSAGE}`);

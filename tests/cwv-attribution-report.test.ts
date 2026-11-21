@@ -28,6 +28,7 @@ import {
   main,
   NO_EVENTS_MESSAGE,
   ATTRIBUTION_GAP_MESSAGE,
+  VALUED_ATTRIBUTION_GAP_FAILURE_TITLE,
   WINDOW_DAYS,
   LAG_DAYS,
 } from '../scripts/cwv-attribution-report.mjs';
@@ -288,6 +289,22 @@ describe('report', () => {
     expect(code).toBe(1);
     expect(out).toContain(ATTRIBUTION_GAP_MESSAGE);
     expect(err).toContain(ATTRIBUTION_GAP_MESSAGE);
+    expect(gh).not.toHaveBeenCalled();
+  });
+
+  it('fails when post-2026-11-20 INP has only a valid CLS valued-selector row', async () => {
+    const { code, err, gh } = await run(
+      ['--dry-run'],
+      {
+        ...FULL,
+        template: [row(['job_detail', 'INP', '344', 'mobile'], 1)],
+        valuedSelectors: [row(['/', 'cwv:cls:footer:complete:footer>div|ac1|cc1', '0.2', 'mobile'], 1)],
+      },
+      fakeGh(),
+      new Date('2026-11-30T12:00:00Z'),
+    );
+    expect(code).toBe(1);
+    expect(err).toContain(VALUED_ATTRIBUTION_GAP_FAILURE_TITLE);
     expect(gh).not.toHaveBeenCalled();
   });
 
