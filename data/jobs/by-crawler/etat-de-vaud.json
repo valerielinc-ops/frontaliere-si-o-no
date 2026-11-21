@@ -4851,7 +4851,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-17T21:55:36.594Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:55:36.594Z",
+      "firstSeenAt": "2026-11-19T21:40:01.758Z",
       "sourceIdentity": "url:https://offres-emploi.vd.ch/",
       "previousSlugsByLocale": {
         "it": [
@@ -5023,7 +5023,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-18T21:55:35.698Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:55:35.698Z",
+      "firstSeenAt": "2026-11-20T09:52:08.767Z",
       "previousSlugsByLocale": {
         "it": [
           "urbanista-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
@@ -5035,7 +5035,8 @@
       "previousSlugs": [
         "urbanista-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "urbanist-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
-      ]
+      ],
+      "sourceIdentity": "url:https://offres-emploi.vd.ch/"
     },
     {
       "id": "etat-de-vaud-6099",
@@ -5106,7 +5107,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-18T21:55:35.240Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:55:35.240Z",
+      "firstSeenAt": "2026-11-20T09:52:08.335Z",
       "previousSlugsByLocale": {
         "it": [
           "pubblicazione-ufficiale-di-comunicazione-digitale-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
@@ -5122,7 +5123,8 @@
         "pubblicazione-ufficiale-di-comunicazione-digitale-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "publication-digital-communication-officer-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "veroffentlichung-digital-communication-officer-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
-      ]
+      ],
+      "sourceIdentity": "url:https://offres-emploi.vd.ch/"
     }
   ]
 }

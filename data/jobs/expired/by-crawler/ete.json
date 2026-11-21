@@ -1050,7 +1050,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.ete.ch/jobs/logisticien-ne-de-nuit-7",
-    "firstSeenAt": "2026-09-01T05:44:45.407Z"
+    "firstSeenAt": "2026-09-01T05:44:45.407Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://www.ete.ch/jobs/logisticien-ne-de-nuit-7",
+        "firstSeenAt": "2026-09-01T05:44:45.407Z",
+        "title": "Logisticien/ne de nuit"
+      },
+      {
+        "sourceIdentity": "url:https://www.ete.ch/jobs/logisticien-ne-de-nuit-8",
+        "firstSeenAt": "2026-11-12T09:17:59.369Z",
+        "title": "Logisticien/ne de nuit"
+      }
+    ]
   },
   {
     "slug": "mitarbeiterin-guterumschlag-dauerhafte-nachtschicht-emil-egger-ag-harkingen-b3aa4e17",
