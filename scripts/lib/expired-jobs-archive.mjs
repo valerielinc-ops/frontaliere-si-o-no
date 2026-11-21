@@ -646,7 +646,11 @@ export function mergeExpiredRouteEvidence(survivor, historical, source = 'expire
   });
   if (!survivor.canton && historical.canton) survivor.canton = historical.canton;
   if (!survivor.location && historical.location) survivor.location = historical.location;
-  transferSlugHistory(survivor, historical, source);
+  // The archive merge already carries locale-attributed evidence in its
+  // exact buckets. Do not flatten those values into legacy history a second
+  // time: that changes the persisted representation on the next identical
+  // crawl even though no route changed.
+  transferSlugHistory(survivor, historical, source, { syncLegacy: false });
   const after = JSON.stringify({
     canton: survivor.canton,
     location: survivor.location,
@@ -990,7 +994,12 @@ export function archiveFilteredJobsToSlices(droppedRows, opts = {}) {
 }
 
 /** Preserve every route known by `removed` on `survivor`. */
-export function transferSlugHistory(survivor, removed, source = 'reconcile-crawler-company-ownership') {
+export function transferSlugHistory(
+  survivor,
+  removed,
+  source = 'reconcile-crawler-company-ownership',
+  { syncLegacy = true } = {},
+) {
   validateSlugHistoryShape(survivor, 'survivor');
   validateSlugHistoryShape(removed, 'removed');
   let transferred = 0;
@@ -1004,7 +1013,9 @@ export function transferSlugHistory(survivor, removed, source = 'reconcile-crawl
     ]),
   ]));
   const add = (locale, slug) => {
-    if (!slug || slug === survivor.slugByLocale?.[locale]) return;
+    const activeSlug = survivor.slugByLocale?.[locale]
+      || (locale === 'it' ? survivor.slug : '');
+    if (!slug || slug === activeSlug) return;
     const before = new Set(survivor.previousSlugsByLocale?.[locale] || []).size;
     addPreviousSlugForLocale(
       survivor,
@@ -1012,6 +1023,7 @@ export function transferSlugHistory(survivor, removed, source = 'reconcile-crawl
       slug,
       DEFAULT_PREV_SLUG_CAP,
       source,
+      { syncLegacy },
     );
     const after = new Set(survivor.previousSlugsByLocale?.[locale] || []).size;
     if (after > before) transferred += 1;

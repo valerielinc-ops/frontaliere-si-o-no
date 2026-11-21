@@ -1,3 +1,5 @@
+import { addPreviousSlugForLocale } from './dedicated-crawler-common.mjs';
+
 export const JOB_LOCALES = Object.freeze(['it', 'en', 'de', 'fr']);
 export const DEFAULT_LOCALE_HISTORY_CAP = 20;
 export const LEGACY_HISTORY_CAP = 80;
@@ -355,14 +357,16 @@ export function applyActiveLocaleRouteAlias(job, action, {
     throw new Error('legacy history cap reached');
   }
 
-  if (!job.previousSlugsByLocale) job.previousSlugsByLocale = {};
-  if (!Array.isArray(job.previousSlugsByLocale[action.locale])) {
-    job.previousSlugsByLocale[action.locale] = [];
-  }
-  job.previousSlugsByLocale[action.locale].push(action.slug);
-  if (action.includeFlat) {
-    if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
-    if (!job.previousSlugs.includes(action.slug)) job.previousSlugs.push(action.slug);
-  }
+  addPreviousSlugForLocale(
+    job,
+    action.locale,
+    action.slug,
+    localeCap,
+    'active-locale-route-recovery.applyActiveLocaleRouteAlias',
+    {
+      syncLegacy: action.includeFlat,
+      legacyCap,
+    },
+  );
   return job;
 }
