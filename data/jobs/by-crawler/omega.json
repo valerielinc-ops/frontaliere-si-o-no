@@ -1,7 +1,7 @@
 {
   "crawlerKey": "omega",
-  "assembledAt": "2026-11-20T23:15:39.393Z",
-  "runId": "44820100410",
+  "assembledAt": "2026-11-21T22:21:16.570Z",
+  "runId": "44951360971",
   "jobs": [
     {
       "id": "omega-33609",
@@ -34,7 +34,7 @@
       "url": "https://www.swatchgroup.com/de/job/33609",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T23:15:32.449Z",
+      "crawledAt": "2026-11-21T22:21:11.024Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -96,9 +96,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T23:15:32.449Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.swatchgroup.com/de/job/33609"
+      "validThrough": "2027-01-25T22:21:11.024Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "omega-33645",
@@ -131,7 +130,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33645",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T23:14:02.750Z",
+      "crawledAt": "2026-11-21T22:19:41.155Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -193,9 +192,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T23:14:02.750Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.swatchgroup.com/fr/job/33645"
+      "validThrough": "2027-01-28T22:19:41.155Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "omega-33698",
@@ -228,7 +226,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33698",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T23:12:32.998Z",
+      "crawledAt": "2026-11-21T22:18:10.925Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -349,8 +347,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
-          "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne",
           "operational-learning-omega-sa-biel-bienne-df8c3bd2",
           "betriebliches-lernen-omega-sa-biel-bienne-a4a46766",
           "operational-learning-omega-sa-biel-bienne-a5e0ea17",
@@ -368,7 +364,9 @@
           "operational-learning-omega-sa-biel-bienne-0fd1adfb",
           "betriebliches-lernen-omega-sa-biel-bienne-1fd81109",
           "operational-learning-omega-sa-biel-bienne-29e6dcd9",
-          "betriebliches-lernen-omega-sa-biel-bienne-723e5a52"
+          "betriebliches-lernen-omega-sa-biel-bienne-723e5a52",
+          "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
+          "apprentissage-operateur-rice-en-horlogerie-afp-omega-sa-biel-bienne"
         ],
         "en": [
           "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
@@ -397,9 +395,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T23:12:32.998Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.swatchgroup.com/fr/job/33698"
+      "validThrough": "2027-02-01T22:18:10.925Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "omega-33741",
@@ -432,7 +429,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33741",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T23:11:02.952Z",
+      "crawledAt": "2026-11-21T22:16:40.843Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -515,9 +512,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T23:11:02.952Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.swatchgroup.com/fr/job/33741"
+      "validThrough": "2027-02-03T22:16:40.843Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "omega-33831",
@@ -550,7 +546,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33831",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T23:09:32.262Z",
+      "crawledAt": "2026-11-21T22:15:11.253Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -611,9 +607,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T23:09:32.262Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.swatchgroup.com/fr/job/33831"
+      "validThrough": "2027-02-04T22:15:11.253Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "omega-34046",
@@ -646,7 +641,7 @@
       "url": "https://www.swatchgroup.com/fr/job/34046",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T23:08:01.773Z",
+      "crawledAt": "2026-11-21T22:13:41.335Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -714,9 +709,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T23:08:01.773Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.swatchgroup.com/fr/job/34046"
+      "validThrough": "2027-02-09T22:13:41.335Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "omega-34191",
@@ -749,7 +743,7 @@
       "url": "https://www.swatchgroup.com/fr/job/34191",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T23:06:31.570Z",
+      "crawledAt": "2026-11-21T22:12:10.818Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -811,9 +805,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T23:06:31.570Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.swatchgroup.com/fr/job/34191"
+      "validThrough": "2027-02-11T22:12:10.818Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "omega-34211",
@@ -846,7 +839,7 @@
       "url": "https://www.swatchgroup.com/fr/job/34211",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T23:05:02.919Z",
+      "crawledAt": "2026-11-21T22:10:40.758Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -905,9 +898,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T23:05:02.919Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.swatchgroup.com/fr/job/34211"
+      "validThrough": "2027-02-11T22:10:40.758Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "omega-34226",
@@ -940,7 +932,7 @@
       "url": "https://www.swatchgroup.com/de/job/34226",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T23:03:32.393Z",
+      "crawledAt": "2026-11-21T22:09:10.852Z",
       "addressLocality": "Berne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -999,15 +991,15 @@
           "ventes-representant-h-f-80-omega-boutique-bern-omega-sa-berne",
           "sales-representative-m-w-d-80-omega-boutique-bern-omega-sa-berne"
         ],
-        "fr": [
-          "sales-representative-m-w-80-omega-boutique-bern-omega-berne",
-          "conseiller-ere-de-vente-h-f-a-80-boutique-omega-berne-omega-sa-berne"
-        ],
         "en": [
           "supporting-representatives-m-f-omega-sa-berne"
         ],
         "de": [
           "sales-representative-m-w-80-omega-boutique-bern-omega-berne-b5fdcffd"
+        ],
+        "fr": [
+          "sales-representative-m-w-80-omega-boutique-bern-omega-berne",
+          "conseiller-ere-de-vente-h-f-a-80-boutique-omega-berne-omega-sa-berne"
         ]
       },
       "firstSeenAt": "2026-09-19T23:17:22.823Z",
@@ -1025,9 +1017,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-13T23:03:32.393Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.swatchgroup.com/de/job/34226"
+      "validThrough": "2027-02-13T22:09:10.852Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "omega-34231",
@@ -1060,7 +1051,7 @@
       "url": "https://www.swatchgroup.com/de/job/34231",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T23:02:02.967Z",
+      "crawledAt": "2026-11-21T22:07:40.240Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1122,9 +1113,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-13T23:02:02.967Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.swatchgroup.com/de/job/34231"
+      "validThrough": "2027-02-13T22:07:40.240Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "omega-34261",
@@ -1157,7 +1147,7 @@
       "url": "https://www.swatchgroup.com/fr/job/34261",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T23:00:33.154Z",
+      "crawledAt": "2026-11-21T22:06:10.244Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1216,9 +1206,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T23:00:33.154Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.swatchgroup.com/fr/job/34261"
+      "validThrough": "2027-02-14T22:06:10.244Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "omega-34386",
@@ -1251,7 +1240,7 @@
       "url": "https://www.swatchgroup.com/fr/job/34386",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:59:02.873Z",
+      "crawledAt": "2026-11-21T22:04:39.693Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1328,9 +1317,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-16T22:59:02.873Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.swatchgroup.com/fr/job/34386"
+      "validThrough": "2027-02-16T22:04:39.693Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
