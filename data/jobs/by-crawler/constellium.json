@@ -1,7 +1,7 @@
 {
   "crawlerKey": "constellium",
-  "assembledAt": "2026-11-20T22:02:49.763Z",
-  "runId": "44819632919",
+  "assembledAt": "2026-11-21T21:33:24.525Z",
+  "runId": "44951078949",
   "jobs": [
     {
       "id": "constellium-59289459d2d6",
@@ -51,7 +51,7 @@
       "applyUrl": "https://jobs.constellium.com/job/Steg-Automatikerin-Elektrikerin-%28100-%29-1-Vala-3940/1447487733/",
       "source": "Constellium Valais Dedicated Parser (Jobs2Web)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:02:41.165Z",
+      "crawledAt": "2026-11-21T21:33:17.985Z",
       "previousSlugs": [
         "automatiker-in-elektriker-in-100-1-constellium-ch"
       ],
@@ -83,9 +83,8 @@
       "addressRegion": "VS",
       "streetAddress": "Steg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T22:02:41.165Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.constellium.com/job/steg-automatikerin-elektrikerin-%28100-%29-1-vala-3940/1447487733"
+      "validThrough": "2027-01-12T21:33:17.985Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

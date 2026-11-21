@@ -1,7 +1,7 @@
 {
   "crawlerKey": "zermatt-bergbahnen",
-  "assembledAt": "2026-11-20T22:02:48.269Z",
-  "runId": "44819632919",
+  "assembledAt": "2026-11-21T21:31:24.962Z",
+  "runId": "44951078949",
   "jobs": [
     {
       "id": "zermatt-bergbahnen-4992cc0352fc",
@@ -49,7 +49,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/kuechenchef-kuechenchefin-im-tagesbetrieb_job_5225639",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:02:39.700Z",
+      "crawledAt": "2026-11-21T21:31:19.058Z",
       "previousSlugs": [
         "kuchenchef-kuchenchefin-im-tagesbetrieb-zermatt-zermatt-bergbahnen"
       ],
@@ -89,9 +89,8 @@
       },
       "streetAddress": "Schluhmattstrasse 123",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-03T22:02:39.700Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/kuechenchef-kuechenchefin-im-tagesbetrieb_job_5225639"
+      "validThrough": "2027-01-04T21:31:19.058Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "zermatt-bergbahnen-450c7c2a86a3",
@@ -139,7 +138,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-metallbauer-in-efz_job_4602024",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:02:39.122Z",
+      "crawledAt": "2026-11-21T21:31:18.507Z",
       "previousSlugs": [
         "lehrstelle-metallbauer-in-efz-zermatt-zermatt-bergbahnen"
       ],
@@ -178,9 +177,9 @@
       },
       "streetAddress": "Schluhmattstrasse 123",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-18T22:02:39.122Z",
+      "validThrough": "2027-02-19T21:31:18.507Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-metallbauer-in-efz_job_4602024"
+      "firstSeenAt": "2026-11-21T21:31:18.507Z"
     },
     {
       "id": "zermatt-bergbahnen-44fe7c8677eb",
@@ -228,7 +227,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-informatiker-in-efz_job_3706844",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:02:38.567Z",
+      "crawledAt": "2026-11-21T21:31:17.925Z",
       "requirementsByLocale": {
         "en": [
           "Good analytical skills and networked thinking",
@@ -312,9 +311,8 @@
       },
       "streetAddress": "Schluhmattstrasse 123",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T22:02:38.567Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-informatiker-in-efz_job_3706844"
+      "validThrough": "2026-12-21T21:31:17.925Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "zermatt-bergbahnen-bd63db5ea475",
@@ -362,7 +360,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-seilbahnmechatroniker-in-efz_job_3704876",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:02:38.001Z",
+      "crawledAt": "2026-11-21T21:31:17.362Z",
       "previousSlugs": [
         "lehrstelle-seilbahnmechatroniker-in-efz-zermatt-zermatt-bergbahnen",
         "apprendistato-seilbahnmechatroniker-in-cfc-zermatt-bergbahnen-zermatt"
@@ -410,9 +408,8 @@
       },
       "streetAddress": "Schluhmattstrasse 123",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-16T22:02:38.001Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-seilbahnmechatroniker-in-efz_job_3704876"
+      "validThrough": "2027-02-17T21:31:17.362Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "zermatt-bergbahnen-9def23ac7bda",
@@ -460,7 +457,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-polymechaniker-in-produktionsmechaniker-in_job_3700464",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:02:37.456Z",
+      "crawledAt": "2026-11-21T21:31:16.771Z",
       "previousSlugs": [
         "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt",
         "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-zermatt-bergbahnen"
@@ -506,9 +503,9 @@
       },
       "streetAddress": "Schluhmattstrasse 123",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-18T22:02:37.456Z",
+      "validThrough": "2027-02-19T21:31:16.771Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-polymechaniker-in-produktionsmechaniker-in_job_3700464"
+      "firstSeenAt": "2026-11-21T21:31:16.771Z"
     },
     {
       "id": "zermatt-bergbahnen-a8e8db360385",
@@ -556,7 +553,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/mitarbeitende-r-unterhalt-revision-gletscherlifte_job_3001261",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:02:36.897Z",
+      "crawledAt": "2026-11-21T21:31:16.171Z",
       "requirementsByLocale": {
         "it": [
           "Costituisce titolo preferenziale l'esperienza nella costruzione di funivie o impianti",
@@ -606,9 +603,8 @@
       },
       "streetAddress": "Schluhmattstrasse 123",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T22:02:36.897Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/mitarbeitende-r-unterhalt-revision-gletscherlifte_job_3001261"
+      "validThrough": "2026-12-21T21:31:16.171Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "zermatt-bergbahnen-69ee22f23cab",
@@ -698,7 +694,8 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-28T22:02:36.290Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/elektroinstallateur-in-efz_job_3001247"
+      "sourceIdentity": "url:https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/elektroinstallateur-in-efz_job_3001247",
+      "crawlerMissStreak": 1
     }
   ]
 }

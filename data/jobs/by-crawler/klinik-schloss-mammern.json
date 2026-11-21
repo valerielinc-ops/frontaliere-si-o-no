@@ -1,7 +1,7 @@
 {
   "crawlerKey": "klinik-schloss-mammern",
-  "assembledAt": "2026-11-20T21:57:16.432Z",
-  "runId": "44819632919",
+  "assembledAt": "2026-11-21T21:32:44.023Z",
+  "runId": "44951078949",
   "jobs": [
     {
       "id": "klinik-schloss-mammern-d8faae95e015",
@@ -34,7 +34,7 @@
       "url": "https://ksm-jobs.ch/job/psychologin-psychologe-60/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:57:09.112Z",
+      "crawledAt": "2026-11-21T21:32:38.037Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -94,9 +94,8 @@
       },
       "streetAddress": "Dr. A.O. Fleisch-Strasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-11T21:57:09.112Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://ksm-jobs.ch/job/psychologin-psychologe-60"
+      "validThrough": "2027-02-12T21:32:38.037Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-schloss-mammern-7e7ce8c400a6",
@@ -130,7 +129,7 @@
       "url": "https://ksm-jobs.ch/job/ausbildungsplatz-fachfrau-fachmann-hotellerie-hauswirtschaft-efz/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:57:06.528Z",
+      "crawledAt": "2026-11-21T21:32:35.540Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -184,9 +183,8 @@
       },
       "streetAddress": "Dr. A.O. Fleisch-Strasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-03T21:57:06.528Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://ksm-jobs.ch/job/ausbildungsplatz-fachfrau-fachmann-hotellerie-hauswirtschaft-efz"
+      "validThrough": "2027-01-04T21:32:35.540Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-schloss-mammern-d0bf62fbbfe7",
@@ -219,7 +217,7 @@
       "url": "https://ksm-jobs.ch/job/ausbildungsplatz-als-fachfrau-betreuung-fachrichtung-kinderbetreuung-efz/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:57:05.191Z",
+      "crawledAt": "2026-11-21T21:32:34.197Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -275,9 +273,275 @@
       },
       "streetAddress": "Dr. A.O. Fleisch-Strasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T21:57:05.191Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://ksm-jobs.ch/job/ausbildungsplatz-als-fachfrau-betreuung-fachrichtung-kinderbetreuung-efz"
+      "validThrough": "2026-12-21T21:32:34.197Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "klinik-schloss-mammern-7e42f31b1bb8",
+      "slug": "massaggiatore-trice-medico-a-turni-nei-weekend-e-festivi-klinik-schloss-mammern-mammern",
+      "slugByLocale": {
+        "it": "massaggiatore-trice-medico-a-turni-nei-weekend-e-festivi-klinik-schloss-mammern-mammern",
+        "en": "medical-massage-therapist-weekend-and-holiday-shifts-klinik-schloss-mammern-mammern",
+        "de": "medizinische-r-masseur-in-einsatze-an-wochenenden-und-feiertagen-klinik-schloss-mammern",
+        "fr": "masseur-masseuse-medical-e-postes-le-week-end-et-les-jours-feries-klinik-schloss-mammern-mammern"
+      },
+      "company": "Klinik Schloss Mammern",
+      "companyKey": "klinik-schloss-mammern",
+      "companyDomain": "klinik-schloss-mammern.ch",
+      "title": "Medizinische/r Masseur/in – Einsätze an Wochenenden und Feiertagen",
+      "titleByLocale": {
+        "it": "Medico / massaggiatore - incarichi nei fine settimana e festivi",
+        "en": "Medical / masseur - assignments on weekends and public holidays",
+        "de": "Medizinische/r Masseur/in – Einsätze an Wochenenden und Feiertagen",
+        "fr": "Médecin / masseur - affectations les week-ends et jours fériés"
+      },
+      "description": "Die Klinik Schloss Mammern, eingebettet in eine beeindruckende Landschaft, ist eine führende Privatklinik für jede Phase der Rehabilitation und wird seit 1889 als Familienunternehmen in mittlerweile 4. Generation geführt.\nMit rund 440 engagierten Mitarbeitenden bieten wir eine erstklassige medizinische Betreuung und Therapie in vier Fachrichtungen: kardiologisch, internistisch-onkologisch, muskuloskelettal und pneumologisch. Unsere Patientinnen und Patienten geniessen eine gehobene Hotellerie auf Fünf-Sterne-Niveau in einem stilvollen Ambiente und mit modernster Infrastruktur.\nDer persönliche und herzliche Umgang mit Patientinnen und Patienten ist uns wichtig und wir legen grossen Wert auf eine langfristige und gegenseitig bereichernde Zusammenarbeit.\nZur Verstärkung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n Medizinischen Masseur/in – Einsätze an Wochenenden und Feiertagen\n\nDas Aufgabengebiet:\n• Betreuung von stationären Rehabilitationspatienten aus internistischen (kardial/pulmonal), onkologischen und muskuloskelettalen Fachbereichen\n• Einsatz ganztags an Wochenenden und Feiertagen im 14-tägigen Wechsel\nDas bringen Sie mit:\n• Sie verfügen über eine abgeschlossene Ausbildung als Medizinische/r Masseur/in (Zertifikat aus EU-Länder oder der Schweiz ist Voraussetzung).\n• Sie bringen gute Kenntnisse in lymphologischer Therapie und Fussreflexzonenmassage mit.\n• Eine selbständige, speditive Arbeitsweise zeichnet Sie aus.\n• Sie sind eine aufgeschlossene, belastbare, engagierte und flexible Persönlichkeit.\nDas haben wir Ihnen zu bieten:\n• Erleben Sie eine sinnvolle Tätigkeit mit Relevanz und Verantwortung in einem inspirierenden Umfeld und einem kollegialen Team.\n• Nutzen Sie vielfältige interne und externe Fort- und Weiterbildungsmöglichkeiten mit zeitlicher sowie finanzieller Unterstützung.\n• Profitieren Sie von unserem Sportangebot mit Trainingsgeräten und Hallenbad, das Ihnen zu Randzeiten kostenlos zur Verfügung steht.\n• Erhöhen Sie Ihr Urlaubskontingent von fünf Wochen durch Zukauf von fünf zusätzlichen Tagen.\n• Wir belohnen unsere langjährigen Mitarbeitenden mit Dienstaltersgeschenken in Form von zusätzlichen Urlaubstagen oder Jubiläumszahlungen.\n• Bei uns erhalten Sie eine kostenlose Prüfung des Impfstatus und auf Wunsch eine individuelle Impfauffrischung. Die Grippeimpfung bieten wir kostenlos an.\n• Nutzen Sie den Zugang zu exklusiven Produkt- und Freizeitangeboten zu unschlagbaren Preisen.\n• Profitieren Sie von unseren gratis Parkplätzen und erreichen Sie uns bequem mit den öffentlichen Verkehrsmitteln.\n• Vertrauen Sie unserer professionellen Kinderbetreuung (12 Wochen bis 12 Jahre) im firmeneigenen Kinderhort zu vergünstigten Tarifen.\n• Geniessen Sie eine erstklassige Verpflegung und komfortable Wohnmöglichkeiten.\n• Seien Sie bei unseren Team-Events, Weihnachtsfeiern und Sommerfesten dabei.\n• Entspannen Sie an unserem Privatstrand am wunderschönen Untersee.",
+      "descriptionByLocale": {
+        "it": "Il Klinik Schloss Mammern, immerso in un paesaggio impressionante, è una clinica privata leader per ogni fase di riabilitazione ed è stato eseguito dal 1889 come azienda di famiglia nel frattempo quarta generazione.\nCon circa 440 dipendenti dedicati, offriamo assistenza medica di prima classe e terapia in quattro discipline: interni cardiologici, internistic-oncologici, muscoloscheletrici e pneumologiche. I nostri pazienti godono di un settore alberghiero di alto livello a cinque stelle in un'atmosfera elegante e con l'ultima infrastruttura.\nIl trattamento personale e sentito dei pazienti è importante per noi e attribuiamo grande importanza ad una cooperazione a lungo termine e reciprocamente arricchinte.\nPer rafforzare il nostro team, stiamo cercando un massaggiatore medico immediatamente o su appuntamento – assegnazioni nei fine settimana e festivi\n\nIl campo di responsabilità è:\n• Cura dei pazienti riabilitativi inpatici da aree specialistiche interne (cardiac/polmonare), oncologiche e muscoloscheletriche\n• Utilizzare a tempo pieno nei fine settimana e festivi in un cambio di 14 giorni\nQuesto è ciò che portate con voi:\n• Avete completato la formazione come massaggiatore medico (il certificato dei paesi UE o la Svizzera è un prerequisito).\n• Hanno una buona conoscenza della terapia linfatica e della riflessologia del piede.\n• Un metodo di lavoro indipendente e previsionale ti distingue.\n• Sei una personalità aperta, resiliente, impegnata e flessibile.\nQuesto è ciò che dobbiamo offrirvi:\n• Sperimenta un'attività significativa con rilevanza e responsabilità in un ambiente stimolante e in un team collegiale.\n• Approfitta di una vasta gamma di opportunità di formazione interna ed esterna con il tempo e il supporto finanziario.\n• Approfitta della nostra offerta sportiva con attrezzature per la formazione e piscina coperta, che è disponibile gratuitamente in tempi marginali.\n• Aumentare la quota di vacanza di cinque settimane acquistando un ulteriore cinque giorni.\n• Ricompenseremo i nostri dipendenti a lungo termine con regali di anzianità in forma di vacanze aggiuntive o pagamenti anniversario.\n• Con noi riceverete un esame gratuito dello stato di vaccinazione e su richiesta un rinfrescante di vaccinazione individuale. Offriamo la vaccinazione dell'influenza gratuitamente.\n• Approfitta dell'accesso alle offerte esclusive di prodotti e tempo libero a prezzi imbattibili.\n• Approfittate dei nostri parcheggi gratuiti e raggiungeteci comodamente con i mezzi pubblici.\n• Fidatevi della nostra assistenza all’infanzia professionale (12 settimane a 12 anni) nel centro di assistenza all’infanzia dell’azienda a prezzi scontati.\n• Godetevi cibo di prima classe e opzioni di vita confortevoli.\n• Partecipa ai nostri eventi di squadra, feste di Natale e feste estive.\n• Rilassatevi sulla nostra spiaggia privata sul bellissimo Untersee.",
+        "en": "The Klinik Schloss Mammern, embedded in an impressive landscape, is a leading private clinic for every phase of rehabilitation and has been run since 1889 as a family business in the meantime 4th generation.\nWith around 440 dedicated employees, we offer first-class medical care and therapy in four disciplines: cardiological, internistic-oncological, musculoskeletal and pneumological. Our patients enjoy an upscale hotel industry at five-star level in a stylish atmosphere and with the latest infrastructure.\nThe personal and heartfelt treatment of patients is important to us and we attach great importance to a long-term and mutually enriching cooperation.\nTo strengthen our team, we are looking for a medical masseur immediately or by appointment – assignments on weekends and public holidays\n\nThe area of responsibility shall be:\n• Care of inpatient rehabilitation patients from internistic (cardiac/pulmonary), oncological and musculoskeletal specialist areas\n• Use full-time on weekends and public holidays in a 14-day change\nThis is what you bring with you:\n• You have completed training as a medical masseur (certificate from EU countries or Switzerland is a prerequisite).\n• They have good knowledge of lymphological therapy and foot reflexology.\n• An independent, forward-looking working method distinguishes you.\n• You are an open-minded, resilient, committed and flexible personality.\nThis is what we have to offer you:\n• Experience a meaningful activity with relevance and responsibility in an inspiring environment and a collegial team.\n• Take advantage of a wide range of internal and external training opportunities with time and financial support.\n• Take advantage of our sports offer with training equipment and indoor pool, which is available free of charge at marginal times.\n• Increase your holiday quota of five weeks by purchasing an additional five days.\n• We reward our long-term employees with seniority gifts in the form of additional holidays or anniversary payments.\n• With us you will receive a free examination of the vaccination status and on request an individual vaccination refresher. We offer the flu vaccination free of charge.\n• Take advantage of access to exclusive product and leisure offers at unbeatable prices.\n• Take advantage of our free parking spaces and reach us comfortably by public transport.\n• Trust our professional childcare (12 weeks to 12 years) in the company’s childcare centre at discounted rates.\n• Enjoy first-class food and comfortable living options.\n• Join our team events, Christmas parties and summer parties.\n• Relax on our private beach on the beautiful Untersee.",
+        "de": "Die Klinik Schloss Mammern, eingebettet in eine beeindruckende Landschaft, ist eine führende Privatklinik für jede Phase der Rehabilitation und wird seit 1889 als Familienunternehmen in mittlerweile 4. Generation geführt.\nMit rund 440 engagierten Mitarbeitenden bieten wir eine erstklassige medizinische Betreuung und Therapie in vier Fachrichtungen: kardiologisch, internistisch-onkologisch, muskuloskelettal und pneumologisch. Unsere Patientinnen und Patienten geniessen eine gehobene Hotellerie auf Fünf-Sterne-Niveau in einem stilvollen Ambiente und mit modernster Infrastruktur.\nDer persönliche und herzliche Umgang mit Patientinnen und Patienten ist uns wichtig und wir legen grossen Wert auf eine langfristige und gegenseitig bereichernde Zusammenarbeit.\nZur Verstärkung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n Medizinischen Masseur/in – Einsätze an Wochenenden und Feiertagen\n\nDas Aufgabengebiet:\n• Betreuung von stationären Rehabilitationspatienten aus internistischen (kardial/pulmonal), onkologischen und muskuloskelettalen Fachbereichen\n• Einsatz ganztags an Wochenenden und Feiertagen im 14-tägigen Wechsel\nDas bringen Sie mit:\n• Sie verfügen über eine abgeschlossene Ausbildung als Medizinische/r Masseur/in (Zertifikat aus EU-Länder oder der Schweiz ist Voraussetzung).\n• Sie bringen gute Kenntnisse in lymphologischer Therapie und Fussreflexzonenmassage mit.\n• Eine selbständige, speditive Arbeitsweise zeichnet Sie aus.\n• Sie sind eine aufgeschlossene, belastbare, engagierte und flexible Persönlichkeit.\nDas haben wir Ihnen zu bieten:\n• Erleben Sie eine sinnvolle Tätigkeit mit Relevanz und Verantwortung in einem inspirierenden Umfeld und einem kollegialen Team.\n• Nutzen Sie vielfältige interne und externe Fort- und Weiterbildungsmöglichkeiten mit zeitlicher sowie finanzieller Unterstützung.\n• Profitieren Sie von unserem Sportangebot mit Trainingsgeräten und Hallenbad, das Ihnen zu Randzeiten kostenlos zur Verfügung steht.\n• Erhöhen Sie Ihr Urlaubskontingent von fünf Wochen durch Zukauf von fünf zusätzlichen Tagen.\n• Wir belohnen unsere langjährigen Mitarbeitenden mit Dienstaltersgeschenken in Form von zusätzlichen Urlaubstagen oder Jubiläumszahlungen.\n• Bei uns erhalten Sie eine kostenlose Prüfung des Impfstatus und auf Wunsch eine individuelle Impfauffrischung. Die Grippeimpfung bieten wir kostenlos an.\n• Nutzen Sie den Zugang zu exklusiven Produkt- und Freizeitangeboten zu unschlagbaren Preisen.\n• Profitieren Sie von unseren gratis Parkplätzen und erreichen Sie uns bequem mit den öffentlichen Verkehrsmitteln.\n• Vertrauen Sie unserer professionellen Kinderbetreuung (12 Wochen bis 12 Jahre) im firmeneigenen Kinderhort zu vergünstigten Tarifen.\n• Geniessen Sie eine erstklassige Verpflegung und komfortable Wohnmöglichkeiten.\n• Seien Sie bei unseren Team-Events, Weihnachtsfeiern und Sommerfesten dabei.\n• Entspannen Sie an unserem Privatstrand am wunderschönen Untersee.",
+        "fr": "Le Klinik Schloss Mammern, intégré dans un paysage impressionnant, est une clinique privée de premier plan pour chaque phase de réhabilitation et est géré depuis 1889 comme une entreprise familiale dans l'intervalle 4ème génération.\nAvec environ 440 employés dévoués, nous offrons des soins médicaux et une thérapie de première classe dans quatre disciplines : cardiologique, interniste-oncologique, musculosquelettique et pneumologique. Nos patients profitent d'une industrie hôtelière haut de gamme au niveau cinq étoiles dans une atmosphère élégante et avec les dernières infrastructures.\nLe traitement personnel et sincère des patients est important pour nous et nous attachons une grande importance à une coopération à long terme et mutuellement enrichissante.\nPour renforcer notre équipe, nous cherchons un masseur médical immédiatement ou sur rendez-vous – affectations le week-end et les jours fériés\n\nLe domaine de responsabilité est:\n• Soins aux patients hospitalisés réhabilités dans des zones internistes (cardiaques/pulmonaires), oncologiques et musculosquelettiques spécialisées\n• Utiliser à temps plein les week-ends et jours fériés dans un changement de 14 jours\nVoici ce que vous apportez avec vous :\n• Vous avez suivi une formation de masseur médical (un certificat des pays de l'UE ou de la Suisse est une condition préalable).\n• Ils ont une bonne connaissance de la thérapie lymphologique et de la réflexologie des pieds.\n• Une méthode de travail indépendante et tournée vers l'avenir vous distingue.\n• Vous êtes une personnalité ouverte, résiliente, engagée et flexible.\nVoilà ce que nous avons à vous offrir :\n• Expérience d'une activité significative avec pertinence et responsabilité dans un environnement inspirant et une équipe collégiale.\n• Profitez d'un large éventail de possibilités de formation interne et externe avec le temps et le soutien financier.\n• Profitez de notre offre sportive avec équipement d'entraînement et piscine intérieure, qui est disponible gratuitement aux heures marginales.\n• Augmentez votre quota de vacances de cinq semaines en achetant cinq jours supplémentaires.\n• Nous récompensons nos employés à long terme avec des cadeaux d'ancienneté sous forme de congés supplémentaires ou de paiements d'anniversaire.\n• Avec nous, vous recevrez un examen gratuit du statut vaccinal et, sur demande, un rafraîchissement individuel de la vaccination. Nous offrons la vaccination contre la grippe gratuitement.\n• Profitez de l'accès à des produits exclusifs et des offres de loisirs à des prix imbattables.\n• Profitez de nos places de stationnement gratuites et rejoignez-nous confortablement par les transports en commun.\n• Faites confiance à notre garderie professionnelle (12 semaines à 12 ans) dans l'entreprise centre de garde d'enfants à des taux réduits.\n• Profitez de la nourriture de première classe et des options de vie confortables.\n• Rejoignez notre équipe, fêtes de Noël et fêtes d'été.\n• Détendez-vous sur notre plage privée sur la belle Untersee."
+      },
+      "needsRetranslation": false,
+      "location": "Mammern",
+      "canton": "TG",
+      "url": "https://ksm-jobs.ch/job/medizinische-r-masseur-in-–-einsaetze-an-wochenenden-und-feiertagen/",
+      "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-21T21:32:32.830Z",
+      "addressLocality": "Mammern",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8265",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://ksm-jobs.ch/job/medizinische-r-masseur-in-–-einsaetze-an-wochenenden-und-feiertagen/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "medizinische-r-masseur-in-einsatze-an-wochenenden-und-feiertagen-klinik-schloss-mammern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-masseur-in-einsatze-an-wochenenden-und-feiertagen-klinik-schloss-mammern"
+        ]
+      },
+      "firstSeenAt": "2026-08-20T21:51:21.950Z",
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Klinik Schloss Mammern",
+        "streetAddress": "Dr. A.O. Fleisch-Strasse",
+        "postalCode": "8265",
+        "addressLocality": "Mammern",
+        "addressRegion": "TG",
+        "checkedAt": "2026-10-31T20:49:32.819Z",
+        "streetAddressSource": "zefix-registry"
+      },
+      "streetAddress": "Dr. A.O. Fleisch-Strasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-21T21:32:32.830Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "klinik-schloss-mammern-2f47d2506ad1",
+      "slug": "salute-professionale-80-100-klinik-schloss-mammern-mammern",
+      "slugByLocale": {
+        "it": "salute-professionale-80-100-klinik-schloss-mammern-mammern",
+        "en": "health-professional-80-100-klinik-schloss-mammern-mammern",
+        "de": "fachfrau-fachmann-gesundheit-80-100-klinik-schloss-mammern-mammern",
+        "fr": "professionnel-de-la-sante-80-100-klinik-schloss-mammern-mammern"
+      },
+      "company": "Klinik Schloss Mammern",
+      "companyKey": "klinik-schloss-mammern",
+      "companyDomain": "klinik-schloss-mammern.ch",
+      "title": "Fachfrau/Fachmann Gesundheit 80%-100%",
+      "titleByLocale": {
+        "it": "Salute professionale 80%-100 %",
+        "en": "Professional Health 80%-100 %",
+        "de": "Fachfrau/Fachmann Gesundheit 80%-100%",
+        "fr": "Santé professionnelle 80-100 %"
+      },
+      "description": "Die Klinik Schloss Mammern, eingebettet in eine beeindruckende Landschaft, ist eine führende Privatklinik für jede Phase der Rehabilitation und wird seit 1889 als Familienunternehmen in mittlerweile 4. Generation geführt.\nMit rund 440 engagierten Mitarbeitenden bieten wir eine erstklassige medizinische Betreuung und Therapie in vier Fachrichtungen: kardiologisch, internistisch-onkologisch, muskuloskelettal und pneumologisch. Unsere Patientinnen und Patienten geniessen eine gehobene Hotellerie auf Fünf-Sterne-Niveau in einem stilvollen Ambiente und mit modernster Infrastruktur.\nDer persönliche und herzliche Umgang mit Patientinnen und Patienten ist uns wichtig und wir legen grossen Wert auf eine langfristige und gegenseitig bereichernde Zusammenarbeit.\nZur Verstärkung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n Fachfrau/Fachmann Gesundheit 80%-100%\n\nDas Aufgabengebiet:\n• Sie sind mitzuständig für eine professionelle Rehabilitationspflege, Behandlung und individuelle Betreuung von Patientinnen und Patienten, einschliesslich Grund- und Behandlungspflege im 2-Schicht-System (Früh- und Spätschicht).\n• Sie führen in Delegation Patienten- und Angehörigenedukation durch.\n• Als Teil des Pflegeteams arbeiten Sie eng mit dem interdisziplinären Team zusammen.\n• Sie übernehmen Administrations- und Stationsordnungsaufgaben.\n• Sie wirken bei der praktischen Ausbildung von Pflegefachpersonen und Fachangestellten Gesundheit mit.\nDas bringen Sie mit:\n• Sie besitzen ein Eidgenössisches Fähigkeitszeugnis als Fachfrau/Fachmann Gesundheit oder vergleichbares Diplom.\n• Ihr Denken und Handeln ist patienten- und kundenorientiert.\n• Teamarbeit liegt Ihnen und Sie bringen eine motivierte und aufgeschlossene Persönlichkeit mit.\n• Sie verfügen über Fach- und Sozialkompetenz sowie Belastbarkeit, Flexibilität und ein hohes Mass an Engagement.\n• Die grundlegenden PC-Anwendungen sind Ihnen vertraut.\nDas haben wir Ihnen zu bieten:\n• Erleben Sie eine sinnvolle Tätigkeit mit Relevanz und Verantwortung in einem inspirierenden Umfeld und einem kollegialen Team.\n• Nutzen Sie vielfältige interne und externe Fort- und Weiterbildungsmöglichkeiten mit zeitlicher sowie finanzieller Unterstützung.\n• Profitieren Sie von unserem Sportangebot mit Trainingsgeräten und Hallenbad, das Ihnen zu Randzeiten kostenlos zur Verfügung steht\n• Erhöhen Sie Ihr Urlaubskontingent von fünf Wochen durch Zukauf von fünf zusätzlichen Tagen.\n• Unsere Mitarbeitenden in Teilzeit können flexible Arbeitsverträge nutzen, um die Sicherheit eines festen Jobs mit stundenweisen Einsätzen zu kombinieren.\n• Wir belohnen unsere langjährigen Mitarbeitenden mit Dienstaltersgeschenken in Form von zusätzlichen Urlaubstagen oder Jubiläumszahlungen.\n• Nutzen Sie den Zugang zu exklusiven Produkt- und Freizeitangeboten zu unschlagbaren Preisen.\n• Vertrauen Sie unserer professionellen Kinderbetreuung (12 Wochen bis 12 Jahre) im firmeneigenen Kinderhort zu vergünstigten Tarifen.\n• Profitieren Sie von unseren gratis Parkplätzen und erreichen Sie uns bequem mit den öffentlichen Verkehrsmitteln.\n• Geniessen Sie eine erstklassige Verpflegung und komfortable Wohnmöglichkeiten.\n• Seien Sie bei unseren Team-Events, Weihnachtsfeiern und Sommerfesten dabei.\n• Entspannen Sie an unserem Privatstrand am wunderschönen Untersee.",
+      "descriptionByLocale": {
+        "it": "Il Klinik Schloss Mammern, immerso in un paesaggio impressionante, è una clinica privata leader per ogni fase di riabilitazione ed è stato eseguito dal 1889 come azienda di famiglia nel frattempo quarta generazione.\nCon circa 440 dipendenti dedicati, offriamo assistenza medica di prima classe e terapia in quattro discipline: interni cardiologici, internistic-oncologici, muscoloscheletrici e pneumologiche. I nostri pazienti godono di un settore alberghiero di alto livello a cinque stelle in un'atmosfera elegante e con l'ultima infrastruttura.\nIl trattamento personale e sentito dei pazienti è importante per noi e attribuiamo grande importanza ad una cooperazione a lungo termine e reciprocamente arricchinte.\nPer rafforzare il nostro team, stiamo cercando una salute specialistica 80%-100 %\n\nResponsabilità:\n• Sono responsabili per la cura professionale di riabilitazione, il trattamento e la cura individuale dei pazienti, tra cui la cura di base e di trattamento nel sistema a 2 turni (prima e fine turno).\n• Eseguono l'educazione dei pazienti e della famiglia in delegazione.\n• Come parte del team di assistenza, lavorerai a stretto contatto con il team interdisciplinare.\n• Si occupa di attività di amministrazione e di regolamentazione della stazione.\n• Partecipano alla formazione pratica di infermieri e professionisti della salute.\nQuesto è ciò che portate con voi:\n• Hai un certificato federale svizzero di competenza come specialista in salute o un diploma paragonabile.\n• Il tuo pensiero e le tue azioni sono orientate al paziente e al cliente.\n• Il lavoro di squadra è tuo e porti una personalità motivata e aperta.\n• Hanno competenze specialistiche e sociali, così come resilienza, flessibilità e un alto grado di impegno.\n• Le applicazioni PC di base sono familiari a voi.\nQuesto è ciò che abbiamo da offrirvi:\n• Sperimenta un'attività significativa con rilevanza e responsabilità in un ambiente stimolante e in un team collegiale.\n• Approfitta di una vasta gamma di opportunità di formazione interna ed esterna con il tempo e il supporto finanziario.\n• Approfitta della nostra offerta sportiva con attrezzature di formazione e piscina coperta, che è disponibile gratuitamente in tempi marginali\n• Aumentare la quota di vacanza di cinque settimane acquistando altri cinque giorni.\n• I nostri dipendenti a tempo parziale possono utilizzare contratti di lavoro flessibili per combinare la sicurezza di un lavoro permanente con incarichi orari.\n• Noi premiamo i nostri dipendenti a lungo termine con regali di anzianità in forma di festività aggiuntive o pagamenti anniversario.\n• Approfitta dell'accesso alle offerte esclusive di prodotti e tempo libero a prezzi imbattibili.\n• Fidatevi della nostra assistenza all’infanzia professionale (12 settimane a 12 anni) nel centro di assistenza all’infanzia dell’azienda a prezzi scontati.\n• Approfittate dei nostri parcheggi gratuiti e raggiungeteci comodamente con i mezzi pubblici.\n• Godetevi cibo di prima classe e opzioni di vita confortevoli.\n• Partecipa ai nostri eventi di squadra, feste di Natale e feste estive.\n• Rilassati sulla nostra spiaggia privata sulla bellissima Untersee.",
+        "en": "The Klinik Schloss Mammern, embedded in an impressive landscape, is a leading private clinic for every phase of rehabilitation and has been run since 1889 as a family business in the meantime 4th generation.\nWith around 440 dedicated employees, we offer first-class medical care and therapy in four disciplines: cardiological, internistic-oncological, musculoskeletal and pneumological. Our patients enjoy an upscale hotel industry at five-star level in a stylish atmosphere and with the latest infrastructure.\nThe personal and heartfelt treatment of patients is important to us and we attach great importance to a long-term and mutually enriching cooperation.\nIn order to strengthen our team, we are looking for a specialist health 80%-100 %\n\nResponsibility:\n• They are responsible for professional rehabilitation care, treatment and individual care of patients, including basic and treatment care in the 2-shift system (early and late shift).\n• They carry out patient and family education in delegation.\n• As part of the care team, you will work closely with the interdisciplinary team.\n• You take on administration and station regulations tasks.\n• They participate in the practical training of nurses and health professionals.\nThis is what you bring with you:\n• You have a Swiss Federal Certificate of Competence as a specialist in health or a comparable diploma.\n• Your thinking and actions are patient- and customer-oriented.\n• Teamwork is yours and you bring a motivated and open-minded personality.\n• They have specialist and social competence as well as resilience, flexibility and a high degree of commitment.\n• The basic PC applications are familiar to you.\nThis is what we have to offer you:\n• Experience a meaningful activity with relevance and responsibility in an inspiring environment and a collegial team.\n• Take advantage of a wide range of internal and external training opportunities with time and financial support.\n• Benefit from our sports offer with training equipment and indoor pool, which is available free of charge at marginal times\n• Increase your holiday quota of five weeks by purchasing an additional five days.\n• Our part-time employees can use flexible employment contracts to combine the security of a permanent job with hourly assignments.\n• We reward our long-term employees with seniority gifts in the form of additional holidays or anniversary payments.\n• Take advantage of access to exclusive product and leisure offers at unbeatable prices.\n• Trust our professional childcare (12 weeks to 12 years) in the company’s childcare centre at discounted rates.\n• Take advantage of our free parking spaces and reach us comfortably by public transport.\n• Enjoy first-class food and comfortable living options.\n• Join our team events, Christmas parties and summer parties.\n• Relax on our private beach on the beautiful Untersee.",
+        "de": "Die Klinik Schloss Mammern, eingebettet in eine beeindruckende Landschaft, ist eine führende Privatklinik für jede Phase der Rehabilitation und wird seit 1889 als Familienunternehmen in mittlerweile 4. Generation geführt.\nMit rund 440 engagierten Mitarbeitenden bieten wir eine erstklassige medizinische Betreuung und Therapie in vier Fachrichtungen: kardiologisch, internistisch-onkologisch, muskuloskelettal und pneumologisch. Unsere Patientinnen und Patienten geniessen eine gehobene Hotellerie auf Fünf-Sterne-Niveau in einem stilvollen Ambiente und mit modernster Infrastruktur.\nDer persönliche und herzliche Umgang mit Patientinnen und Patienten ist uns wichtig und wir legen grossen Wert auf eine langfristige und gegenseitig bereichernde Zusammenarbeit.\nZur Verstärkung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n Fachfrau/Fachmann Gesundheit 80%-100%\n\nDas Aufgabengebiet:\n• Sie sind mitzuständig für eine professionelle Rehabilitationspflege, Behandlung und individuelle Betreuung von Patientinnen und Patienten, einschliesslich Grund- und Behandlungspflege im 2-Schicht-System (Früh- und Spätschicht).\n• Sie führen in Delegation Patienten- und Angehörigenedukation durch.\n• Als Teil des Pflegeteams arbeiten Sie eng mit dem interdisziplinären Team zusammen.\n• Sie übernehmen Administrations- und Stationsordnungsaufgaben.\n• Sie wirken bei der praktischen Ausbildung von Pflegefachpersonen und Fachangestellten Gesundheit mit.\nDas bringen Sie mit:\n• Sie besitzen ein Eidgenössisches Fähigkeitszeugnis als Fachfrau/Fachmann Gesundheit oder vergleichbares Diplom.\n• Ihr Denken und Handeln ist patienten- und kundenorientiert.\n• Teamarbeit liegt Ihnen und Sie bringen eine motivierte und aufgeschlossene Persönlichkeit mit.\n• Sie verfügen über Fach- und Sozialkompetenz sowie Belastbarkeit, Flexibilität und ein hohes Mass an Engagement.\n• Die grundlegenden PC-Anwendungen sind Ihnen vertraut.\nDas haben wir Ihnen zu bieten:\n• Erleben Sie eine sinnvolle Tätigkeit mit Relevanz und Verantwortung in einem inspirierenden Umfeld und einem kollegialen Team.\n• Nutzen Sie vielfältige interne und externe Fort- und Weiterbildungsmöglichkeiten mit zeitlicher sowie finanzieller Unterstützung.\n• Profitieren Sie von unserem Sportangebot mit Trainingsgeräten und Hallenbad, das Ihnen zu Randzeiten kostenlos zur Verfügung steht\n• Erhöhen Sie Ihr Urlaubskontingent von fünf Wochen durch Zukauf von fünf zusätzlichen Tagen.\n• Unsere Mitarbeitenden in Teilzeit können flexible Arbeitsverträge nutzen, um die Sicherheit eines festen Jobs mit stundenweisen Einsätzen zu kombinieren.\n• Wir belohnen unsere langjährigen Mitarbeitenden mit Dienstaltersgeschenken in Form von zusätzlichen Urlaubstagen oder Jubiläumszahlungen.\n• Nutzen Sie den Zugang zu exklusiven Produkt- und Freizeitangeboten zu unschlagbaren Preisen.\n• Vertrauen Sie unserer professionellen Kinderbetreuung (12 Wochen bis 12 Jahre) im firmeneigenen Kinderhort zu vergünstigten Tarifen.\n• Profitieren Sie von unseren gratis Parkplätzen und erreichen Sie uns bequem mit den öffentlichen Verkehrsmitteln.\n• Geniessen Sie eine erstklassige Verpflegung und komfortable Wohnmöglichkeiten.\n• Seien Sie bei unseren Team-Events, Weihnachtsfeiern und Sommerfesten dabei.\n• Entspannen Sie an unserem Privatstrand am wunderschönen Untersee.",
+        "fr": "Le Klinik Schloss Mammern, intégré dans un paysage impressionnant, est une clinique privée de premier plan pour chaque phase de réhabilitation et est géré depuis 1889 comme une entreprise familiale dans l'intervalle 4ème génération.\nAvec environ 440 employés dévoués, nous offrons des soins médicaux de première classe et une thérapie dans quatre disciplines : cardiologique, interniste-oncologique, musculosquelettique et pneumologique. Nos patients profitent d'une industrie hôtelière haut de gamme au niveau cinq étoiles dans une atmosphère élégante et avec la dernière infrastructure.\nLe traitement personnel et sincère des patients est important pour nous et nous attachons une grande importance à une coopération à long terme et mutuellement enrichissante.\nAfin de renforcer notre équipe, nous recherchons un spécialiste de la santé 80-100 %\n\nResponsabilité :\n• Ils sont responsables des soins professionnels de réadaptation, du traitement et des soins individuels des patients, y compris les soins de base et le traitement dans le système de 2 équipes (début et fin de travail).\n• Ils assurent l'éducation des patients et des familles en délégation.\n• Dans le cadre de l'équipe de soins, vous travaillerez en étroite collaboration avec l'équipe interdisciplinaire.\n• Vous assumez des tâches administratives et réglementaires.\n• Ils participent à la formation pratique des infirmières et des professionnels de la santé.\nC'est ce que vous apportez avec vous :\n• Vous avez un certificat fédéral de compétence suisse en tant que spécialiste de la santé ou un diplôme comparable.\n• Vos pensées et vos actions sont axées sur le patient et le client.\n• Le travail d'équipe est à vous et vous apportez une personnalité motivée et ouverte.\n• Ils ont des compétences spécialisées et sociales ainsi que la résilience, la flexibilité et un degré élevé d'engagement.\n• Les applications PC de base vous sont familières.\nC'est ce que nous avons à vous offrir :\n• Expérience d'une activité significative avec pertinence et responsabilité dans un environnement inspirant et une équipe collégiale.\n• Profitez d'un large éventail de possibilités de formation interne et externe avec du temps et un soutien financier.\n• Profitez de notre offre sportive avec équipement d'entraînement et piscine intérieure, qui est disponible gratuitement à des heures marginales\n• Augmentez votre quota de vacances de cinq semaines en achetant cinq jours supplémentaires.\n• Nos employés à temps partiel peuvent utiliser des contrats d'emploi flexibles pour combiner la sécurité d'un emploi permanent avec des affectations horaires.\n• Nous récompensons nos employés à long terme avec des cadeaux d'ancienneté sous forme de jours fériés supplémentaires ou de paiements d'anniversaire.\n• Profitez de l'accès à des produits exclusifs et des offres de loisirs à des prix imbattables.\n• Faites confiance à notre garde d'enfants professionnelle (12 semaines à 12 ans) dans le centre de garde d'enfants de l'entreprise à des taux réduits.\n• Profitez de nos places de parking gratuites et rejoignez-nous confortablement par les transports en commun.\n• Profitez de la nourriture de première classe et des options de vie confortables.\n• Rejoignez notre équipe, fêtes de Noël et fêtes d'été.\n• Détendez-vous sur notre plage privée sur la belle Untersee."
+      },
+      "needsRetranslation": false,
+      "location": "Mammern",
+      "canton": "TG",
+      "url": "https://ksm-jobs.ch/job/fachfrau-fachmann-gesundheit-80-100/",
+      "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-21T21:32:31.389Z",
+      "addressLocality": "Mammern",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8265",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://ksm-jobs.ch/job/fachfrau-fachmann-gesundheit-80-100/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-80-100-klinik-schloss-mammern-mammern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-80-100-klinik-schloss-mammern-mammern"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T13:03:51.516Z",
+      "salaryMin": 60000,
+      "salaryMax": 102000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60000,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Klinik Schloss Mammern",
+        "streetAddress": "Dr. A.O. Fleisch-Strasse",
+        "postalCode": "8265",
+        "addressLocality": "Mammern",
+        "addressRegion": "TG",
+        "checkedAt": "2026-10-31T20:49:32.819Z",
+        "streetAddressSource": "zefix-registry"
+      },
+      "streetAddress": "Dr. A.O. Fleisch-Strasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-21T21:32:31.389Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "klinik-schloss-mammern-d7c3efcefe44",
+      "slug": "esperienza-pratica-klinik-schloss-mammern-mammern",
+      "slugByLocale": {
+        "it": "esperienza-pratica-klinik-schloss-mammern-mammern",
+        "en": "practical-experience-klinik-schloss-mammern-mammern",
+        "de": "schnupperpraktikum-klinik-schloss-mammern-mammern",
+        "fr": "experience-pratique-klinik-schloss-mammern-mammern"
+      },
+      "company": "Klinik Schloss Mammern",
+      "companyKey": "klinik-schloss-mammern",
+      "companyDomain": "klinik-schloss-mammern.ch",
+      "title": "Schnupperpraktikum",
+      "titleByLocale": {
+        "it": "Esperienza pratica",
+        "en": "Practical experience",
+        "de": "Schnupperpraktikum",
+        "fr": "Expérience pratique"
+      },
+      "description": "Wir bieten die Möglichkeit, im Rahmen eines Schnupperpraktikums erste berufliche Erfahrungen zu sammeln und verschiedene Bereiche unserer Klinik kennenzulernen.\n\nWas erwartet Dich?\n– Unterstützung durch ein erfahrenes Team\n– Spannende \n• Aufgaben und echte Einblicke in den Arbeitsalltag\n– Möglichkeit, Deine Fähigkeiten zu testen und Fragen zu stellen\nBei Interesse an einem Schnupperpraktikum freuen wir uns auf eine kurze schriftliche Anfrage in Form eines Motivationsschreibens und dem Lebenslauf. Sende uns bitte Deine Unterlagen ausschliesslich über den Button „Jetzt bewerben“.\n\nFür weitere Auskünfte stehen wir Dir auch gerne telefonisch zur Verfügung.",
+      "descriptionByLocale": {
+        "it": "Offriamo la possibilità di acquisire una prima esperienza professionale e di conoscere diverse aree della nostra clinica nell'ambito di uno stage di prova.\n\nCosa ti aspetta?\n– Supporto da parte di un team esperto\n- Emozionante\n• Compiti e approfondimenti reali sulla vita lavorativa quotidiana\n– Opportunità di mettere alla prova le tue abilità e porre domande\nSe sei interessato a uno stage di prova, non vediamo l'ora di ricevere una breve richiesta scritta sotto forma di lettera di motivazione e CV. Inviaci i tuoi documenti esclusivamente utilizzando il pulsante \"Candidati ora\".\n\nSaremo lieti di fornirvi ulteriori informazioni anche telefonicamente.",
+        "en": "We offer the opportunity to gain initial professional experience and get to know different areas of our clinic as part of a trial internship.\n\nWhat awaits you?\n– Support from an experienced team\n– Exciting\n• Tasks and real insights into everyday working life\n– Opportunity to test your skills and ask questions\nIf you are interested in a trial internship, we look forward to receiving a short written inquiry in the form of a letter of motivation and CV. Please send us your documents exclusively using the “Apply now” button.\n\nWe are also happy to provide you with further information by telephone.",
+        "de": "Wir bieten die Möglichkeit, im Rahmen eines Schnupperpraktikums erste berufliche Erfahrungen zu sammeln und verschiedene Bereiche unserer Klinik kennenzulernen.\n\nWas erwartet Dich?\n– Unterstützung durch ein erfahrenes Team\n– Spannende \n• Aufgaben und echte Einblicke in den Arbeitsalltag\n– Möglichkeit, Deine Fähigkeiten zu testen und Fragen zu stellen\nBei Interesse an einem Schnupperpraktikum freuen wir uns auf eine kurze schriftliche Anfrage in Form eines Motivationsschreibens und dem Lebenslauf. Sende uns bitte Deine Unterlagen ausschliesslich über den Button „Jetzt bewerben“.\n\nFür weitere Auskünfte stehen wir Dir auch gerne telefonisch zur Verfügung.",
+        "fr": "Nous offrons la possibilité d’acquérir une première expérience professionnelle et de découvrir différents domaines de notre clinique dans le cadre d’un stage d’essai.\n\nQu'est-ce qui vous attend ?\n– Accompagnement d’une équipe expérimentée\n- Passionnant\n• Tâches et aperçus réels de la vie professionnelle quotidienne\n– Possibilité de tester vos compétences et de poser des questions\nSi vous êtes intéressé par un stage d'essai, nous attendons avec impatience de recevoir une courte demande écrite sous la forme d'une lettre de motivation et d'un CV. Merci de nous envoyer vos documents exclusivement en utilisant le bouton « Postuler maintenant ».\n\nNous serons également heureux de vous fournir de plus amples informations par téléphone."
+      },
+      "needsRetranslation": false,
+      "location": "Mammern",
+      "canton": "TG",
+      "url": "https://ksm-jobs.ch/job/schnupperpraktikum/",
+      "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-21T21:32:30.039Z",
+      "addressLocality": "Mammern",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8265",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://ksm-jobs.ch/job/schnupperpraktikum/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "schnupperpraktikum-klinik-schloss-mammern-mammern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "schnupperpraktikum-klinik-schloss-mammern-mammern"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T23:07:44.670Z",
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Klinik Schloss Mammern",
+        "streetAddress": "Dr. A.O. Fleisch-Strasse",
+        "postalCode": "8265",
+        "addressLocality": "Mammern",
+        "addressRegion": "TG",
+        "checkedAt": "2026-10-31T20:49:32.819Z",
+        "streetAddressSource": "zefix-registry"
+      },
+      "streetAddress": "Dr. A.O. Fleisch-Strasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-21T21:32:30.039Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-schloss-mammern-b0619c5b660d",
@@ -374,277 +638,7 @@
       "validThrough": "2026-12-20T10:00:33.452Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://ksm-jobs.ch/job/lohnsachbearbeiter-100-befristet-fuer-6-9-monate-try-and-hire",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "klinik-schloss-mammern-7e42f31b1bb8",
-      "slug": "massaggiatore-trice-medico-a-turni-nei-weekend-e-festivi-klinik-schloss-mammern-mammern",
-      "slugByLocale": {
-        "it": "massaggiatore-trice-medico-a-turni-nei-weekend-e-festivi-klinik-schloss-mammern-mammern",
-        "en": "medical-massage-therapist-weekend-and-holiday-shifts-klinik-schloss-mammern-mammern",
-        "de": "medizinische-r-masseur-in-einsatze-an-wochenenden-und-feiertagen-klinik-schloss-mammern",
-        "fr": "masseur-masseuse-medical-e-postes-le-week-end-et-les-jours-feries-klinik-schloss-mammern-mammern"
-      },
-      "company": "Klinik Schloss Mammern",
-      "companyKey": "klinik-schloss-mammern",
-      "companyDomain": "klinik-schloss-mammern.ch",
-      "title": "Medizinische/r Masseur/in – Einsätze an Wochenenden und Feiertagen",
-      "titleByLocale": {
-        "it": "Medico / massaggiatore - incarichi nei fine settimana e festivi",
-        "en": "Medical / masseur - assignments on weekends and public holidays",
-        "de": "Medizinische/r Masseur/in – Einsätze an Wochenenden und Feiertagen",
-        "fr": "Médecin / masseur - affectations les week-ends et jours fériés"
-      },
-      "description": "Die Klinik Schloss Mammern, eingebettet in eine beeindruckende Landschaft, ist eine führende Privatklinik für jede Phase der Rehabilitation und wird seit 1889 als Familienunternehmen in mittlerweile 4. Generation geführt.\nMit rund 440 engagierten Mitarbeitenden bieten wir eine erstklassige medizinische Betreuung und Therapie in vier Fachrichtungen: kardiologisch, internistisch-onkologisch, muskuloskelettal und pneumologisch. Unsere Patientinnen und Patienten geniessen eine gehobene Hotellerie auf Fünf-Sterne-Niveau in einem stilvollen Ambiente und mit modernster Infrastruktur.\nDer persönliche und herzliche Umgang mit Patientinnen und Patienten ist uns wichtig und wir legen grossen Wert auf eine langfristige und gegenseitig bereichernde Zusammenarbeit.\nZur Verstärkung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n Medizinischen Masseur/in – Einsätze an Wochenenden und Feiertagen\n\nDas Aufgabengebiet:\n• Betreuung von stationären Rehabilitationspatienten aus internistischen (kardial/pulmonal), onkologischen und muskuloskelettalen Fachbereichen\n• Einsatz ganztags an Wochenenden und Feiertagen im 14-tägigen Wechsel\nDas bringen Sie mit:\n• Sie verfügen über eine abgeschlossene Ausbildung als Medizinische/r Masseur/in (Zertifikat aus EU-Länder oder der Schweiz ist Voraussetzung).\n• Sie bringen gute Kenntnisse in lymphologischer Therapie und Fussreflexzonenmassage mit.\n• Eine selbständige, speditive Arbeitsweise zeichnet Sie aus.\n• Sie sind eine aufgeschlossene, belastbare, engagierte und flexible Persönlichkeit.\nDas haben wir Ihnen zu bieten:\n• Erleben Sie eine sinnvolle Tätigkeit mit Relevanz und Verantwortung in einem inspirierenden Umfeld und einem kollegialen Team.\n• Nutzen Sie vielfältige interne und externe Fort- und Weiterbildungsmöglichkeiten mit zeitlicher sowie finanzieller Unterstützung.\n• Profitieren Sie von unserem Sportangebot mit Trainingsgeräten und Hallenbad, das Ihnen zu Randzeiten kostenlos zur Verfügung steht.\n• Erhöhen Sie Ihr Urlaubskontingent von fünf Wochen durch Zukauf von fünf zusätzlichen Tagen.\n• Wir belohnen unsere langjährigen Mitarbeitenden mit Dienstaltersgeschenken in Form von zusätzlichen Urlaubstagen oder Jubiläumszahlungen.\n• Bei uns erhalten Sie eine kostenlose Prüfung des Impfstatus und auf Wunsch eine individuelle Impfauffrischung. Die Grippeimpfung bieten wir kostenlos an.\n• Nutzen Sie den Zugang zu exklusiven Produkt- und Freizeitangeboten zu unschlagbaren Preisen.\n• Profitieren Sie von unseren gratis Parkplätzen und erreichen Sie uns bequem mit den öffentlichen Verkehrsmitteln.\n• Vertrauen Sie unserer professionellen Kinderbetreuung (12 Wochen bis 12 Jahre) im firmeneigenen Kinderhort zu vergünstigten Tarifen.\n• Geniessen Sie eine erstklassige Verpflegung und komfortable Wohnmöglichkeiten.\n• Seien Sie bei unseren Team-Events, Weihnachtsfeiern und Sommerfesten dabei.\n• Entspannen Sie an unserem Privatstrand am wunderschönen Untersee.",
-      "descriptionByLocale": {
-        "it": "Il Klinik Schloss Mammern, immerso in un paesaggio impressionante, è una clinica privata leader per ogni fase di riabilitazione ed è stato eseguito dal 1889 come azienda di famiglia nel frattempo quarta generazione.\nCon circa 440 dipendenti dedicati, offriamo assistenza medica di prima classe e terapia in quattro discipline: interni cardiologici, internistic-oncologici, muscoloscheletrici e pneumologiche. I nostri pazienti godono di un settore alberghiero di alto livello a cinque stelle in un'atmosfera elegante e con l'ultima infrastruttura.\nIl trattamento personale e sentito dei pazienti è importante per noi e attribuiamo grande importanza ad una cooperazione a lungo termine e reciprocamente arricchinte.\nPer rafforzare il nostro team, stiamo cercando un massaggiatore medico immediatamente o su appuntamento – assegnazioni nei fine settimana e festivi\n\nIl campo di responsabilità è:\n• Cura dei pazienti riabilitativi inpatici da aree specialistiche interne (cardiac/polmonare), oncologiche e muscoloscheletriche\n• Utilizzare a tempo pieno nei fine settimana e festivi in un cambio di 14 giorni\nQuesto è ciò che portate con voi:\n• Avete completato la formazione come massaggiatore medico (il certificato dei paesi UE o la Svizzera è un prerequisito).\n• Hanno una buona conoscenza della terapia linfatica e della riflessologia del piede.\n• Un metodo di lavoro indipendente e previsionale ti distingue.\n• Sei una personalità aperta, resiliente, impegnata e flessibile.\nQuesto è ciò che dobbiamo offrirvi:\n• Sperimenta un'attività significativa con rilevanza e responsabilità in un ambiente stimolante e in un team collegiale.\n• Approfitta di una vasta gamma di opportunità di formazione interna ed esterna con il tempo e il supporto finanziario.\n• Approfitta della nostra offerta sportiva con attrezzature per la formazione e piscina coperta, che è disponibile gratuitamente in tempi marginali.\n• Aumentare la quota di vacanza di cinque settimane acquistando un ulteriore cinque giorni.\n• Ricompenseremo i nostri dipendenti a lungo termine con regali di anzianità in forma di vacanze aggiuntive o pagamenti anniversario.\n• Con noi riceverete un esame gratuito dello stato di vaccinazione e su richiesta un rinfrescante di vaccinazione individuale. Offriamo la vaccinazione dell'influenza gratuitamente.\n• Approfitta dell'accesso alle offerte esclusive di prodotti e tempo libero a prezzi imbattibili.\n• Approfittate dei nostri parcheggi gratuiti e raggiungeteci comodamente con i mezzi pubblici.\n• Fidatevi della nostra assistenza all’infanzia professionale (12 settimane a 12 anni) nel centro di assistenza all’infanzia dell’azienda a prezzi scontati.\n• Godetevi cibo di prima classe e opzioni di vita confortevoli.\n• Partecipa ai nostri eventi di squadra, feste di Natale e feste estive.\n• Rilassatevi sulla nostra spiaggia privata sul bellissimo Untersee.",
-        "en": "The Klinik Schloss Mammern, embedded in an impressive landscape, is a leading private clinic for every phase of rehabilitation and has been run since 1889 as a family business in the meantime 4th generation.\nWith around 440 dedicated employees, we offer first-class medical care and therapy in four disciplines: cardiological, internistic-oncological, musculoskeletal and pneumological. Our patients enjoy an upscale hotel industry at five-star level in a stylish atmosphere and with the latest infrastructure.\nThe personal and heartfelt treatment of patients is important to us and we attach great importance to a long-term and mutually enriching cooperation.\nTo strengthen our team, we are looking for a medical masseur immediately or by appointment – assignments on weekends and public holidays\n\nThe area of responsibility shall be:\n• Care of inpatient rehabilitation patients from internistic (cardiac/pulmonary), oncological and musculoskeletal specialist areas\n• Use full-time on weekends and public holidays in a 14-day change\nThis is what you bring with you:\n• You have completed training as a medical masseur (certificate from EU countries or Switzerland is a prerequisite).\n• They have good knowledge of lymphological therapy and foot reflexology.\n• An independent, forward-looking working method distinguishes you.\n• You are an open-minded, resilient, committed and flexible personality.\nThis is what we have to offer you:\n• Experience a meaningful activity with relevance and responsibility in an inspiring environment and a collegial team.\n• Take advantage of a wide range of internal and external training opportunities with time and financial support.\n• Take advantage of our sports offer with training equipment and indoor pool, which is available free of charge at marginal times.\n• Increase your holiday quota of five weeks by purchasing an additional five days.\n• We reward our long-term employees with seniority gifts in the form of additional holidays or anniversary payments.\n• With us you will receive a free examination of the vaccination status and on request an individual vaccination refresher. We offer the flu vaccination free of charge.\n• Take advantage of access to exclusive product and leisure offers at unbeatable prices.\n• Take advantage of our free parking spaces and reach us comfortably by public transport.\n• Trust our professional childcare (12 weeks to 12 years) in the company’s childcare centre at discounted rates.\n• Enjoy first-class food and comfortable living options.\n• Join our team events, Christmas parties and summer parties.\n• Relax on our private beach on the beautiful Untersee.",
-        "de": "Die Klinik Schloss Mammern, eingebettet in eine beeindruckende Landschaft, ist eine führende Privatklinik für jede Phase der Rehabilitation und wird seit 1889 als Familienunternehmen in mittlerweile 4. Generation geführt.\nMit rund 440 engagierten Mitarbeitenden bieten wir eine erstklassige medizinische Betreuung und Therapie in vier Fachrichtungen: kardiologisch, internistisch-onkologisch, muskuloskelettal und pneumologisch. Unsere Patientinnen und Patienten geniessen eine gehobene Hotellerie auf Fünf-Sterne-Niveau in einem stilvollen Ambiente und mit modernster Infrastruktur.\nDer persönliche und herzliche Umgang mit Patientinnen und Patienten ist uns wichtig und wir legen grossen Wert auf eine langfristige und gegenseitig bereichernde Zusammenarbeit.\nZur Verstärkung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n Medizinischen Masseur/in – Einsätze an Wochenenden und Feiertagen\n\nDas Aufgabengebiet:\n• Betreuung von stationären Rehabilitationspatienten aus internistischen (kardial/pulmonal), onkologischen und muskuloskelettalen Fachbereichen\n• Einsatz ganztags an Wochenenden und Feiertagen im 14-tägigen Wechsel\nDas bringen Sie mit:\n• Sie verfügen über eine abgeschlossene Ausbildung als Medizinische/r Masseur/in (Zertifikat aus EU-Länder oder der Schweiz ist Voraussetzung).\n• Sie bringen gute Kenntnisse in lymphologischer Therapie und Fussreflexzonenmassage mit.\n• Eine selbständige, speditive Arbeitsweise zeichnet Sie aus.\n• Sie sind eine aufgeschlossene, belastbare, engagierte und flexible Persönlichkeit.\nDas haben wir Ihnen zu bieten:\n• Erleben Sie eine sinnvolle Tätigkeit mit Relevanz und Verantwortung in einem inspirierenden Umfeld und einem kollegialen Team.\n• Nutzen Sie vielfältige interne und externe Fort- und Weiterbildungsmöglichkeiten mit zeitlicher sowie finanzieller Unterstützung.\n• Profitieren Sie von unserem Sportangebot mit Trainingsgeräten und Hallenbad, das Ihnen zu Randzeiten kostenlos zur Verfügung steht.\n• Erhöhen Sie Ihr Urlaubskontingent von fünf Wochen durch Zukauf von fünf zusätzlichen Tagen.\n• Wir belohnen unsere langjährigen Mitarbeitenden mit Dienstaltersgeschenken in Form von zusätzlichen Urlaubstagen oder Jubiläumszahlungen.\n• Bei uns erhalten Sie eine kostenlose Prüfung des Impfstatus und auf Wunsch eine individuelle Impfauffrischung. Die Grippeimpfung bieten wir kostenlos an.\n• Nutzen Sie den Zugang zu exklusiven Produkt- und Freizeitangeboten zu unschlagbaren Preisen.\n• Profitieren Sie von unseren gratis Parkplätzen und erreichen Sie uns bequem mit den öffentlichen Verkehrsmitteln.\n• Vertrauen Sie unserer professionellen Kinderbetreuung (12 Wochen bis 12 Jahre) im firmeneigenen Kinderhort zu vergünstigten Tarifen.\n• Geniessen Sie eine erstklassige Verpflegung und komfortable Wohnmöglichkeiten.\n• Seien Sie bei unseren Team-Events, Weihnachtsfeiern und Sommerfesten dabei.\n• Entspannen Sie an unserem Privatstrand am wunderschönen Untersee.",
-        "fr": "Le Klinik Schloss Mammern, intégré dans un paysage impressionnant, est une clinique privée de premier plan pour chaque phase de réhabilitation et est géré depuis 1889 comme une entreprise familiale dans l'intervalle 4ème génération.\nAvec environ 440 employés dévoués, nous offrons des soins médicaux et une thérapie de première classe dans quatre disciplines : cardiologique, interniste-oncologique, musculosquelettique et pneumologique. Nos patients profitent d'une industrie hôtelière haut de gamme au niveau cinq étoiles dans une atmosphère élégante et avec les dernières infrastructures.\nLe traitement personnel et sincère des patients est important pour nous et nous attachons une grande importance à une coopération à long terme et mutuellement enrichissante.\nPour renforcer notre équipe, nous cherchons un masseur médical immédiatement ou sur rendez-vous – affectations le week-end et les jours fériés\n\nLe domaine de responsabilité est:\n• Soins aux patients hospitalisés réhabilités dans des zones internistes (cardiaques/pulmonaires), oncologiques et musculosquelettiques spécialisées\n• Utiliser à temps plein les week-ends et jours fériés dans un changement de 14 jours\nVoici ce que vous apportez avec vous :\n• Vous avez suivi une formation de masseur médical (un certificat des pays de l'UE ou de la Suisse est une condition préalable).\n• Ils ont une bonne connaissance de la thérapie lymphologique et de la réflexologie des pieds.\n• Une méthode de travail indépendante et tournée vers l'avenir vous distingue.\n• Vous êtes une personnalité ouverte, résiliente, engagée et flexible.\nVoilà ce que nous avons à vous offrir :\n• Expérience d'une activité significative avec pertinence et responsabilité dans un environnement inspirant et une équipe collégiale.\n• Profitez d'un large éventail de possibilités de formation interne et externe avec le temps et le soutien financier.\n• Profitez de notre offre sportive avec équipement d'entraînement et piscine intérieure, qui est disponible gratuitement aux heures marginales.\n• Augmentez votre quota de vacances de cinq semaines en achetant cinq jours supplémentaires.\n• Nous récompensons nos employés à long terme avec des cadeaux d'ancienneté sous forme de congés supplémentaires ou de paiements d'anniversaire.\n• Avec nous, vous recevrez un examen gratuit du statut vaccinal et, sur demande, un rafraîchissement individuel de la vaccination. Nous offrons la vaccination contre la grippe gratuitement.\n• Profitez de l'accès à des produits exclusifs et des offres de loisirs à des prix imbattables.\n• Profitez de nos places de stationnement gratuites et rejoignez-nous confortablement par les transports en commun.\n• Faites confiance à notre garderie professionnelle (12 semaines à 12 ans) dans l'entreprise centre de garde d'enfants à des taux réduits.\n• Profitez de la nourriture de première classe et des options de vie confortables.\n• Rejoignez notre équipe, fêtes de Noël et fêtes d'été.\n• Détendez-vous sur notre plage privée sur la belle Untersee."
-      },
-      "needsRetranslation": false,
-      "location": "Mammern",
-      "canton": "TG",
-      "url": "https://ksm-jobs.ch/job/medizinische-r-masseur-in-–-einsaetze-an-wochenenden-und-feiertagen/",
-      "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:57:03.856Z",
-      "addressLocality": "Mammern",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8265",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://ksm-jobs.ch/job/medizinische-r-masseur-in-–-einsaetze-an-wochenenden-und-feiertagen/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "medizinische-r-masseur-in-einsatze-an-wochenenden-und-feiertagen-klinik-schloss-mammern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "medizinische-r-masseur-in-einsatze-an-wochenenden-und-feiertagen-klinik-schloss-mammern"
-        ]
-      },
-      "firstSeenAt": "2026-08-20T21:51:21.950Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
-          "unitText": "YEAR"
-        }
-      },
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Klinik Schloss Mammern",
-        "streetAddress": "Dr. A.O. Fleisch-Strasse",
-        "postalCode": "8265",
-        "addressLocality": "Mammern",
-        "addressRegion": "TG",
-        "checkedAt": "2026-10-31T20:49:32.819Z",
-        "streetAddressSource": "zefix-registry"
-      },
-      "streetAddress": "Dr. A.O. Fleisch-Strasse",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T21:57:03.856Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://ksm-jobs.ch/job/medizinische-r-masseur-in-%e2%80%93-einsaetze-an-wochenenden-und-feiertagen"
-    },
-    {
-      "id": "klinik-schloss-mammern-2f47d2506ad1",
-      "slug": "salute-professionale-80-100-klinik-schloss-mammern-mammern",
-      "slugByLocale": {
-        "it": "salute-professionale-80-100-klinik-schloss-mammern-mammern",
-        "en": "health-professional-80-100-klinik-schloss-mammern-mammern",
-        "de": "fachfrau-fachmann-gesundheit-80-100-klinik-schloss-mammern-mammern",
-        "fr": "professionnel-de-la-sante-80-100-klinik-schloss-mammern-mammern"
-      },
-      "company": "Klinik Schloss Mammern",
-      "companyKey": "klinik-schloss-mammern",
-      "companyDomain": "klinik-schloss-mammern.ch",
-      "title": "Fachfrau/Fachmann Gesundheit 80%-100%",
-      "titleByLocale": {
-        "it": "Salute professionale 80%-100 %",
-        "en": "Professional Health 80%-100 %",
-        "de": "Fachfrau/Fachmann Gesundheit 80%-100%",
-        "fr": "Santé professionnelle 80-100 %"
-      },
-      "description": "Die Klinik Schloss Mammern, eingebettet in eine beeindruckende Landschaft, ist eine führende Privatklinik für jede Phase der Rehabilitation und wird seit 1889 als Familienunternehmen in mittlerweile 4. Generation geführt.\nMit rund 440 engagierten Mitarbeitenden bieten wir eine erstklassige medizinische Betreuung und Therapie in vier Fachrichtungen: kardiologisch, internistisch-onkologisch, muskuloskelettal und pneumologisch. Unsere Patientinnen und Patienten geniessen eine gehobene Hotellerie auf Fünf-Sterne-Niveau in einem stilvollen Ambiente und mit modernster Infrastruktur.\nDer persönliche und herzliche Umgang mit Patientinnen und Patienten ist uns wichtig und wir legen grossen Wert auf eine langfristige und gegenseitig bereichernde Zusammenarbeit.\nZur Verstärkung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n Fachfrau/Fachmann Gesundheit 80%-100%\n\nDas Aufgabengebiet:\n• Sie sind mitzuständig für eine professionelle Rehabilitationspflege, Behandlung und individuelle Betreuung von Patientinnen und Patienten, einschliesslich Grund- und Behandlungspflege im 2-Schicht-System (Früh- und Spätschicht).\n• Sie führen in Delegation Patienten- und Angehörigenedukation durch.\n• Als Teil des Pflegeteams arbeiten Sie eng mit dem interdisziplinären Team zusammen.\n• Sie übernehmen Administrations- und Stationsordnungsaufgaben.\n• Sie wirken bei der praktischen Ausbildung von Pflegefachpersonen und Fachangestellten Gesundheit mit.\nDas bringen Sie mit:\n• Sie besitzen ein Eidgenössisches Fähigkeitszeugnis als Fachfrau/Fachmann Gesundheit oder vergleichbares Diplom.\n• Ihr Denken und Handeln ist patienten- und kundenorientiert.\n• Teamarbeit liegt Ihnen und Sie bringen eine motivierte und aufgeschlossene Persönlichkeit mit.\n• Sie verfügen über Fach- und Sozialkompetenz sowie Belastbarkeit, Flexibilität und ein hohes Mass an Engagement.\n• Die grundlegenden PC-Anwendungen sind Ihnen vertraut.\nDas haben wir Ihnen zu bieten:\n• Erleben Sie eine sinnvolle Tätigkeit mit Relevanz und Verantwortung in einem inspirierenden Umfeld und einem kollegialen Team.\n• Nutzen Sie vielfältige interne und externe Fort- und Weiterbildungsmöglichkeiten mit zeitlicher sowie finanzieller Unterstützung.\n• Profitieren Sie von unserem Sportangebot mit Trainingsgeräten und Hallenbad, das Ihnen zu Randzeiten kostenlos zur Verfügung steht\n• Erhöhen Sie Ihr Urlaubskontingent von fünf Wochen durch Zukauf von fünf zusätzlichen Tagen.\n• Unsere Mitarbeitenden in Teilzeit können flexible Arbeitsverträge nutzen, um die Sicherheit eines festen Jobs mit stundenweisen Einsätzen zu kombinieren.\n• Wir belohnen unsere langjährigen Mitarbeitenden mit Dienstaltersgeschenken in Form von zusätzlichen Urlaubstagen oder Jubiläumszahlungen.\n• Nutzen Sie den Zugang zu exklusiven Produkt- und Freizeitangeboten zu unschlagbaren Preisen.\n• Vertrauen Sie unserer professionellen Kinderbetreuung (12 Wochen bis 12 Jahre) im firmeneigenen Kinderhort zu vergünstigten Tarifen.\n• Profitieren Sie von unseren gratis Parkplätzen und erreichen Sie uns bequem mit den öffentlichen Verkehrsmitteln.\n• Geniessen Sie eine erstklassige Verpflegung und komfortable Wohnmöglichkeiten.\n• Seien Sie bei unseren Team-Events, Weihnachtsfeiern und Sommerfesten dabei.\n• Entspannen Sie an unserem Privatstrand am wunderschönen Untersee.",
-      "descriptionByLocale": {
-        "it": "Il Klinik Schloss Mammern, immerso in un paesaggio impressionante, è una clinica privata leader per ogni fase di riabilitazione ed è stato eseguito dal 1889 come azienda di famiglia nel frattempo quarta generazione.\nCon circa 440 dipendenti dedicati, offriamo assistenza medica di prima classe e terapia in quattro discipline: interni cardiologici, internistic-oncologici, muscoloscheletrici e pneumologiche. I nostri pazienti godono di un settore alberghiero di alto livello a cinque stelle in un'atmosfera elegante e con l'ultima infrastruttura.\nIl trattamento personale e sentito dei pazienti è importante per noi e attribuiamo grande importanza ad una cooperazione a lungo termine e reciprocamente arricchinte.\nPer rafforzare il nostro team, stiamo cercando una salute specialistica 80%-100 %\n\nResponsabilità:\n• Sono responsabili per la cura professionale di riabilitazione, il trattamento e la cura individuale dei pazienti, tra cui la cura di base e di trattamento nel sistema a 2 turni (prima e fine turno).\n• Eseguono l'educazione dei pazienti e della famiglia in delegazione.\n• Come parte del team di assistenza, lavorerai a stretto contatto con il team interdisciplinare.\n• Si occupa di attività di amministrazione e di regolamentazione della stazione.\n• Partecipano alla formazione pratica di infermieri e professionisti della salute.\nQuesto è ciò che portate con voi:\n• Hai un certificato federale svizzero di competenza come specialista in salute o un diploma paragonabile.\n• Il tuo pensiero e le tue azioni sono orientate al paziente e al cliente.\n• Il lavoro di squadra è tuo e porti una personalità motivata e aperta.\n• Hanno competenze specialistiche e sociali, così come resilienza, flessibilità e un alto grado di impegno.\n• Le applicazioni PC di base sono familiari a voi.\nQuesto è ciò che abbiamo da offrirvi:\n• Sperimenta un'attività significativa con rilevanza e responsabilità in un ambiente stimolante e in un team collegiale.\n• Approfitta di una vasta gamma di opportunità di formazione interna ed esterna con il tempo e il supporto finanziario.\n• Approfitta della nostra offerta sportiva con attrezzature di formazione e piscina coperta, che è disponibile gratuitamente in tempi marginali\n• Aumentare la quota di vacanza di cinque settimane acquistando altri cinque giorni.\n• I nostri dipendenti a tempo parziale possono utilizzare contratti di lavoro flessibili per combinare la sicurezza di un lavoro permanente con incarichi orari.\n• Noi premiamo i nostri dipendenti a lungo termine con regali di anzianità in forma di festività aggiuntive o pagamenti anniversario.\n• Approfitta dell'accesso alle offerte esclusive di prodotti e tempo libero a prezzi imbattibili.\n• Fidatevi della nostra assistenza all’infanzia professionale (12 settimane a 12 anni) nel centro di assistenza all’infanzia dell’azienda a prezzi scontati.\n• Approfittate dei nostri parcheggi gratuiti e raggiungeteci comodamente con i mezzi pubblici.\n• Godetevi cibo di prima classe e opzioni di vita confortevoli.\n• Partecipa ai nostri eventi di squadra, feste di Natale e feste estive.\n• Rilassati sulla nostra spiaggia privata sulla bellissima Untersee.",
-        "en": "The Klinik Schloss Mammern, embedded in an impressive landscape, is a leading private clinic for every phase of rehabilitation and has been run since 1889 as a family business in the meantime 4th generation.\nWith around 440 dedicated employees, we offer first-class medical care and therapy in four disciplines: cardiological, internistic-oncological, musculoskeletal and pneumological. Our patients enjoy an upscale hotel industry at five-star level in a stylish atmosphere and with the latest infrastructure.\nThe personal and heartfelt treatment of patients is important to us and we attach great importance to a long-term and mutually enriching cooperation.\nIn order to strengthen our team, we are looking for a specialist health 80%-100 %\n\nResponsibility:\n• They are responsible for professional rehabilitation care, treatment and individual care of patients, including basic and treatment care in the 2-shift system (early and late shift).\n• They carry out patient and family education in delegation.\n• As part of the care team, you will work closely with the interdisciplinary team.\n• You take on administration and station regulations tasks.\n• They participate in the practical training of nurses and health professionals.\nThis is what you bring with you:\n• You have a Swiss Federal Certificate of Competence as a specialist in health or a comparable diploma.\n• Your thinking and actions are patient- and customer-oriented.\n• Teamwork is yours and you bring a motivated and open-minded personality.\n• They have specialist and social competence as well as resilience, flexibility and a high degree of commitment.\n• The basic PC applications are familiar to you.\nThis is what we have to offer you:\n• Experience a meaningful activity with relevance and responsibility in an inspiring environment and a collegial team.\n• Take advantage of a wide range of internal and external training opportunities with time and financial support.\n• Benefit from our sports offer with training equipment and indoor pool, which is available free of charge at marginal times\n• Increase your holiday quota of five weeks by purchasing an additional five days.\n• Our part-time employees can use flexible employment contracts to combine the security of a permanent job with hourly assignments.\n• We reward our long-term employees with seniority gifts in the form of additional holidays or anniversary payments.\n• Take advantage of access to exclusive product and leisure offers at unbeatable prices.\n• Trust our professional childcare (12 weeks to 12 years) in the company’s childcare centre at discounted rates.\n• Take advantage of our free parking spaces and reach us comfortably by public transport.\n• Enjoy first-class food and comfortable living options.\n• Join our team events, Christmas parties and summer parties.\n• Relax on our private beach on the beautiful Untersee.",
-        "de": "Die Klinik Schloss Mammern, eingebettet in eine beeindruckende Landschaft, ist eine führende Privatklinik für jede Phase der Rehabilitation und wird seit 1889 als Familienunternehmen in mittlerweile 4. Generation geführt.\nMit rund 440 engagierten Mitarbeitenden bieten wir eine erstklassige medizinische Betreuung und Therapie in vier Fachrichtungen: kardiologisch, internistisch-onkologisch, muskuloskelettal und pneumologisch. Unsere Patientinnen und Patienten geniessen eine gehobene Hotellerie auf Fünf-Sterne-Niveau in einem stilvollen Ambiente und mit modernster Infrastruktur.\nDer persönliche und herzliche Umgang mit Patientinnen und Patienten ist uns wichtig und wir legen grossen Wert auf eine langfristige und gegenseitig bereichernde Zusammenarbeit.\nZur Verstärkung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n Fachfrau/Fachmann Gesundheit 80%-100%\n\nDas Aufgabengebiet:\n• Sie sind mitzuständig für eine professionelle Rehabilitationspflege, Behandlung und individuelle Betreuung von Patientinnen und Patienten, einschliesslich Grund- und Behandlungspflege im 2-Schicht-System (Früh- und Spätschicht).\n• Sie führen in Delegation Patienten- und Angehörigenedukation durch.\n• Als Teil des Pflegeteams arbeiten Sie eng mit dem interdisziplinären Team zusammen.\n• Sie übernehmen Administrations- und Stationsordnungsaufgaben.\n• Sie wirken bei der praktischen Ausbildung von Pflegefachpersonen und Fachangestellten Gesundheit mit.\nDas bringen Sie mit:\n• Sie besitzen ein Eidgenössisches Fähigkeitszeugnis als Fachfrau/Fachmann Gesundheit oder vergleichbares Diplom.\n• Ihr Denken und Handeln ist patienten- und kundenorientiert.\n• Teamarbeit liegt Ihnen und Sie bringen eine motivierte und aufgeschlossene Persönlichkeit mit.\n• Sie verfügen über Fach- und Sozialkompetenz sowie Belastbarkeit, Flexibilität und ein hohes Mass an Engagement.\n• Die grundlegenden PC-Anwendungen sind Ihnen vertraut.\nDas haben wir Ihnen zu bieten:\n• Erleben Sie eine sinnvolle Tätigkeit mit Relevanz und Verantwortung in einem inspirierenden Umfeld und einem kollegialen Team.\n• Nutzen Sie vielfältige interne und externe Fort- und Weiterbildungsmöglichkeiten mit zeitlicher sowie finanzieller Unterstützung.\n• Profitieren Sie von unserem Sportangebot mit Trainingsgeräten und Hallenbad, das Ihnen zu Randzeiten kostenlos zur Verfügung steht\n• Erhöhen Sie Ihr Urlaubskontingent von fünf Wochen durch Zukauf von fünf zusätzlichen Tagen.\n• Unsere Mitarbeitenden in Teilzeit können flexible Arbeitsverträge nutzen, um die Sicherheit eines festen Jobs mit stundenweisen Einsätzen zu kombinieren.\n• Wir belohnen unsere langjährigen Mitarbeitenden mit Dienstaltersgeschenken in Form von zusätzlichen Urlaubstagen oder Jubiläumszahlungen.\n• Nutzen Sie den Zugang zu exklusiven Produkt- und Freizeitangeboten zu unschlagbaren Preisen.\n• Vertrauen Sie unserer professionellen Kinderbetreuung (12 Wochen bis 12 Jahre) im firmeneigenen Kinderhort zu vergünstigten Tarifen.\n• Profitieren Sie von unseren gratis Parkplätzen und erreichen Sie uns bequem mit den öffentlichen Verkehrsmitteln.\n• Geniessen Sie eine erstklassige Verpflegung und komfortable Wohnmöglichkeiten.\n• Seien Sie bei unseren Team-Events, Weihnachtsfeiern und Sommerfesten dabei.\n• Entspannen Sie an unserem Privatstrand am wunderschönen Untersee.",
-        "fr": "Le Klinik Schloss Mammern, intégré dans un paysage impressionnant, est une clinique privée de premier plan pour chaque phase de réhabilitation et est géré depuis 1889 comme une entreprise familiale dans l'intervalle 4ème génération.\nAvec environ 440 employés dévoués, nous offrons des soins médicaux de première classe et une thérapie dans quatre disciplines : cardiologique, interniste-oncologique, musculosquelettique et pneumologique. Nos patients profitent d'une industrie hôtelière haut de gamme au niveau cinq étoiles dans une atmosphère élégante et avec la dernière infrastructure.\nLe traitement personnel et sincère des patients est important pour nous et nous attachons une grande importance à une coopération à long terme et mutuellement enrichissante.\nAfin de renforcer notre équipe, nous recherchons un spécialiste de la santé 80-100 %\n\nResponsabilité :\n• Ils sont responsables des soins professionnels de réadaptation, du traitement et des soins individuels des patients, y compris les soins de base et le traitement dans le système de 2 équipes (début et fin de travail).\n• Ils assurent l'éducation des patients et des familles en délégation.\n• Dans le cadre de l'équipe de soins, vous travaillerez en étroite collaboration avec l'équipe interdisciplinaire.\n• Vous assumez des tâches administratives et réglementaires.\n• Ils participent à la formation pratique des infirmières et des professionnels de la santé.\nC'est ce que vous apportez avec vous :\n• Vous avez un certificat fédéral de compétence suisse en tant que spécialiste de la santé ou un diplôme comparable.\n• Vos pensées et vos actions sont axées sur le patient et le client.\n• Le travail d'équipe est à vous et vous apportez une personnalité motivée et ouverte.\n• Ils ont des compétences spécialisées et sociales ainsi que la résilience, la flexibilité et un degré élevé d'engagement.\n• Les applications PC de base vous sont familières.\nC'est ce que nous avons à vous offrir :\n• Expérience d'une activité significative avec pertinence et responsabilité dans un environnement inspirant et une équipe collégiale.\n• Profitez d'un large éventail de possibilités de formation interne et externe avec du temps et un soutien financier.\n• Profitez de notre offre sportive avec équipement d'entraînement et piscine intérieure, qui est disponible gratuitement à des heures marginales\n• Augmentez votre quota de vacances de cinq semaines en achetant cinq jours supplémentaires.\n• Nos employés à temps partiel peuvent utiliser des contrats d'emploi flexibles pour combiner la sécurité d'un emploi permanent avec des affectations horaires.\n• Nous récompensons nos employés à long terme avec des cadeaux d'ancienneté sous forme de jours fériés supplémentaires ou de paiements d'anniversaire.\n• Profitez de l'accès à des produits exclusifs et des offres de loisirs à des prix imbattables.\n• Faites confiance à notre garde d'enfants professionnelle (12 semaines à 12 ans) dans le centre de garde d'enfants de l'entreprise à des taux réduits.\n• Profitez de nos places de parking gratuites et rejoignez-nous confortablement par les transports en commun.\n• Profitez de la nourriture de première classe et des options de vie confortables.\n• Rejoignez notre équipe, fêtes de Noël et fêtes d'été.\n• Détendez-vous sur notre plage privée sur la belle Untersee."
-      },
-      "needsRetranslation": false,
-      "location": "Mammern",
-      "canton": "TG",
-      "url": "https://ksm-jobs.ch/job/fachfrau-fachmann-gesundheit-80-100/",
-      "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:57:02.450Z",
-      "addressLocality": "Mammern",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8265",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://ksm-jobs.ch/job/fachfrau-fachmann-gesundheit-80-100/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-80-100-klinik-schloss-mammern-mammern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-fachmann-gesundheit-80-100-klinik-schloss-mammern-mammern"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T13:03:51.516Z",
-      "salaryMin": 60000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      },
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Klinik Schloss Mammern",
-        "streetAddress": "Dr. A.O. Fleisch-Strasse",
-        "postalCode": "8265",
-        "addressLocality": "Mammern",
-        "addressRegion": "TG",
-        "checkedAt": "2026-10-31T20:49:32.819Z",
-        "streetAddressSource": "zefix-registry"
-      },
-      "streetAddress": "Dr. A.O. Fleisch-Strasse",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T21:57:02.450Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://ksm-jobs.ch/job/fachfrau-fachmann-gesundheit-80-100"
-    },
-    {
-      "id": "klinik-schloss-mammern-d7c3efcefe44",
-      "slug": "esperienza-pratica-klinik-schloss-mammern-mammern",
-      "slugByLocale": {
-        "it": "esperienza-pratica-klinik-schloss-mammern-mammern",
-        "en": "practical-experience-klinik-schloss-mammern-mammern",
-        "de": "schnupperpraktikum-klinik-schloss-mammern-mammern",
-        "fr": "experience-pratique-klinik-schloss-mammern-mammern"
-      },
-      "company": "Klinik Schloss Mammern",
-      "companyKey": "klinik-schloss-mammern",
-      "companyDomain": "klinik-schloss-mammern.ch",
-      "title": "Schnupperpraktikum",
-      "titleByLocale": {
-        "it": "Esperienza pratica",
-        "en": "Practical experience",
-        "de": "Schnupperpraktikum",
-        "fr": "Expérience pratique"
-      },
-      "description": "Wir bieten die Möglichkeit, im Rahmen eines Schnupperpraktikums erste berufliche Erfahrungen zu sammeln und verschiedene Bereiche unserer Klinik kennenzulernen.\n\nWas erwartet Dich?\n– Unterstützung durch ein erfahrenes Team\n– Spannende \n• Aufgaben und echte Einblicke in den Arbeitsalltag\n– Möglichkeit, Deine Fähigkeiten zu testen und Fragen zu stellen\nBei Interesse an einem Schnupperpraktikum freuen wir uns auf eine kurze schriftliche Anfrage in Form eines Motivationsschreibens und dem Lebenslauf. Sende uns bitte Deine Unterlagen ausschliesslich über den Button „Jetzt bewerben“.\n\nFür weitere Auskünfte stehen wir Dir auch gerne telefonisch zur Verfügung.",
-      "descriptionByLocale": {
-        "it": "Offriamo la possibilità di acquisire una prima esperienza professionale e di conoscere diverse aree della nostra clinica nell'ambito di uno stage di prova.\n\nCosa ti aspetta?\n– Supporto da parte di un team esperto\n- Emozionante\n• Compiti e approfondimenti reali sulla vita lavorativa quotidiana\n– Opportunità di mettere alla prova le tue abilità e porre domande\nSe sei interessato a uno stage di prova, non vediamo l'ora di ricevere una breve richiesta scritta sotto forma di lettera di motivazione e CV. Inviaci i tuoi documenti esclusivamente utilizzando il pulsante \"Candidati ora\".\n\nSaremo lieti di fornirvi ulteriori informazioni anche telefonicamente.",
-        "en": "We offer the opportunity to gain initial professional experience and get to know different areas of our clinic as part of a trial internship.\n\nWhat awaits you?\n– Support from an experienced team\n– Exciting\n• Tasks and real insights into everyday working life\n– Opportunity to test your skills and ask questions\nIf you are interested in a trial internship, we look forward to receiving a short written inquiry in the form of a letter of motivation and CV. Please send us your documents exclusively using the “Apply now” button.\n\nWe are also happy to provide you with further information by telephone.",
-        "de": "Wir bieten die Möglichkeit, im Rahmen eines Schnupperpraktikums erste berufliche Erfahrungen zu sammeln und verschiedene Bereiche unserer Klinik kennenzulernen.\n\nWas erwartet Dich?\n– Unterstützung durch ein erfahrenes Team\n– Spannende \n• Aufgaben und echte Einblicke in den Arbeitsalltag\n– Möglichkeit, Deine Fähigkeiten zu testen und Fragen zu stellen\nBei Interesse an einem Schnupperpraktikum freuen wir uns auf eine kurze schriftliche Anfrage in Form eines Motivationsschreibens und dem Lebenslauf. Sende uns bitte Deine Unterlagen ausschliesslich über den Button „Jetzt bewerben“.\n\nFür weitere Auskünfte stehen wir Dir auch gerne telefonisch zur Verfügung.",
-        "fr": "Nous offrons la possibilité d’acquérir une première expérience professionnelle et de découvrir différents domaines de notre clinique dans le cadre d’un stage d’essai.\n\nQu'est-ce qui vous attend ?\n– Accompagnement d’une équipe expérimentée\n- Passionnant\n• Tâches et aperçus réels de la vie professionnelle quotidienne\n– Possibilité de tester vos compétences et de poser des questions\nSi vous êtes intéressé par un stage d'essai, nous attendons avec impatience de recevoir une courte demande écrite sous la forme d'une lettre de motivation et d'un CV. Merci de nous envoyer vos documents exclusivement en utilisant le bouton « Postuler maintenant ».\n\nNous serons également heureux de vous fournir de plus amples informations par téléphone."
-      },
-      "needsRetranslation": false,
-      "location": "Mammern",
-      "canton": "TG",
-      "url": "https://ksm-jobs.ch/job/schnupperpraktikum/",
-      "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:57:00.879Z",
-      "addressLocality": "Mammern",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8265",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://ksm-jobs.ch/job/schnupperpraktikum/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "schnupperpraktikum-klinik-schloss-mammern-mammern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "schnupperpraktikum-klinik-schloss-mammern-mammern"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T23:07:44.670Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
-          "unitText": "YEAR"
-        }
-      },
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Klinik Schloss Mammern",
-        "streetAddress": "Dr. A.O. Fleisch-Strasse",
-        "postalCode": "8265",
-        "addressLocality": "Mammern",
-        "addressRegion": "TG",
-        "checkedAt": "2026-10-31T20:49:32.819Z",
-        "streetAddressSource": "zefix-registry"
-      },
-      "streetAddress": "Dr. A.O. Fleisch-Strasse",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T21:57:00.879Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://ksm-jobs.ch/job/schnupperpraktikum"
+      "crawlerMissStreak": 2
     }
   ]
 }

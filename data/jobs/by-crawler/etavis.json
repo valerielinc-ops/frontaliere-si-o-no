@@ -1,7 +1,7 @@
 {
   "crawlerKey": "etavis",
-  "assembledAt": "2026-11-20T22:00:09.002Z",
-  "runId": "44819632919",
+  "assembledAt": "2026-11-21T21:35:19.620Z",
+  "runId": "44951078949",
   "jobs": [
     {
       "id": "etavis-5b6b036201f3",
@@ -34,7 +34,7 @@
       "url": "https://etavis.softgarden.io/job/56797623/Bauleitender-Monteur-w-m-d-80-100-?jobDbPVId=288489686&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:58.433Z",
+      "crawledAt": "2026-11-21T21:35:11.794Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "streetAddress": "Mohnweg 5",
@@ -78,9 +78,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:58.433Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/56797623/bauleitender-monteur-w-m-d-80-100-?jobdbpvid=288489686&l=de"
+      "validThrough": "2026-12-21T21:35:11.794Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-7155bc5f937f",
@@ -113,7 +112,7 @@
       "url": "https://etavis.softgarden.io/job/56797408/Elektroinstallateur-Industrie-Umgebung-Biel-sowie-Solothurn-w-m-d-80-100-?jobDbPVId=288489706&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:58.151Z",
+      "crawledAt": "2026-11-21T21:35:11.501Z",
       "addressLocality": "Biel",
       "postalCode": "2501",
       "streetAddress": "-",
@@ -197,9 +196,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:59:58.151Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/56797408/elektroinstallateur-industrie-umgebung-biel-sowie-solothurn-w-m-d-80-100-?jobdbpvid=288489706&l=de"
+      "validThrough": "2026-12-21T21:35:11.501Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-1159efcc6f4f",
@@ -232,7 +230,7 @@
       "url": "https://etavis.softgarden.io/job/40351407/Elektroplaner-w-m-d-80%E2%80%93100-?jobDbPVId=288489721&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:57.865Z",
+      "crawledAt": "2026-11-21T21:35:11.207Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -276,9 +274,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:57.865Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/40351407/elektroplaner-w-m-d-80%e2%80%93100-?jobdbpvid=288489721&l=de"
+      "validThrough": "2026-12-21T21:35:11.207Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-f36e2466e051",
@@ -311,7 +308,7 @@
       "url": "https://etavis.softgarden.io/job/31805316/Projektleiter-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=288489736&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:57.585Z",
+      "crawledAt": "2026-11-21T21:35:10.912Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -357,9 +354,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:57.585Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/31805316/projektleiter-elektroinstallation-w-m-d-80%e2%80%93100-?jobdbpvid=288489736&l=de"
+      "validThrough": "2026-12-21T21:35:10.912Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-3737aa4143ce",
@@ -392,7 +388,7 @@
       "url": "https://etavis.softgarden.io/job/66883765/Planificateur-%C3%A9lectricien?jobDbPVId=288489771&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:59:57.309Z",
+      "crawledAt": "2026-11-21T21:35:10.619Z",
       "addressLocality": "Renens",
       "postalCode": "1020",
       "streetAddress": "Rue du Caudray 6",
@@ -436,9 +432,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:57.309Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/66883765/planificateur-%c3%a9lectricien?jobdbpvid=288489771&l=de"
+      "validThrough": "2026-12-21T21:35:10.619Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-bf32987fd50a",
@@ -471,7 +466,7 @@
       "url": "https://etavis.softgarden.io/job/62056279/ICT-Systemtechniker-IPTV-Multimedia-HF-Netzwerk-w-m-d-80-100-?jobDbPVId=288489791&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:57.031Z",
+      "crawledAt": "2026-11-21T21:35:10.323Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "-",
@@ -515,9 +510,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:59:57.031Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/62056279/ict-systemtechniker-iptv-multimedia-hf-netzwerk-w-m-d-80-100-?jobdbpvid=288489791&l=de"
+      "validThrough": "2026-12-21T21:35:10.323Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-90005dbdfe12",
@@ -550,7 +544,7 @@
       "url": "https://etavis.softgarden.io/job/56776563/Elektroinstallateur-w-m-d-80%E2%80%93100-?jobDbPVId=288489811&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:56.750Z",
+      "crawledAt": "2026-11-21T21:35:10.028Z",
       "addressLocality": "Wohlen bei Bern",
       "postalCode": "3033",
       "streetAddress": "Kappelenring 69",
@@ -630,9 +624,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:56.750Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/56776563/elektroinstallateur-w-m-d-80%e2%80%93100-?jobdbpvid=288489811&l=de"
+      "validThrough": "2026-12-21T21:35:10.028Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-d6676f195e05",
@@ -665,7 +658,7 @@
       "url": "https://etavis.softgarden.io/job/65550956/Elektroinstallateur-w-m-d-80%E2%80%93100-?jobDbPVId=288799008&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:56.472Z",
+      "crawledAt": "2026-11-21T21:35:09.734Z",
       "addressLocality": "Frick",
       "postalCode": "5070",
       "streetAddress": "Bahnhofplatz 1",
@@ -730,9 +723,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T21:59:56.472Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/65550956/elektroinstallateur-w-m-d-80%e2%80%93100-?jobdbpvid=288799008&l=de"
+      "validThrough": "2026-12-25T21:35:09.734Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-882aedea4994",
@@ -765,7 +757,7 @@
       "url": "https://etavis.softgarden.io/job/64736116/Montatrice-tore-di-servizio-f-m-d-80-100-?jobDbPVId=289115778&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-20T21:59:56.197Z",
+      "crawledAt": "2026-11-21T21:35:09.440Z",
       "addressLocality": "Bellinzona",
       "postalCode": "6500",
       "streetAddress": "Viale Portone 12",
@@ -801,9 +793,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:56.197Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/64736116/montatrice-tore-di-servizio-f-m-d-80-100-?jobdbpvid=289115778&l=de"
+      "validThrough": "2026-12-21T21:35:09.440Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-0cae4136ec27",
@@ -836,7 +827,7 @@
       "url": "https://etavis.softgarden.io/job/63115909/Lernende-Elektroinstallateure-EFZ-w-m-d-2027?jobDbPVId=289176972&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:55.916Z",
+      "crawledAt": "2026-11-21T21:35:09.142Z",
       "addressLocality": "Burgdorf",
       "postalCode": "3400",
       "streetAddress": "Buchmattstrasse 5",
@@ -881,9 +872,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:59:55.916Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/63115909/lernende-elektroinstallateure-efz-w-m-d-2027?jobdbpvid=289176972&l=de"
+      "validThrough": "2026-12-27T21:35:09.142Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-ef03efc367e2",
@@ -916,7 +906,7 @@
       "url": "https://etavis.softgarden.io/job/63115649/Lernende-Elektroinstallateure-EFZ-w-m-d-2027?jobDbPVId=289176992&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:55.641Z",
+      "crawledAt": "2026-11-21T21:35:08.849Z",
       "addressLocality": "Rüegsau",
       "postalCode": "3417",
       "streetAddress": "Rüegsaustrasse 2",
@@ -961,9 +951,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:59:55.641Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/63115649/lernende-elektroinstallateure-efz-w-m-d-2027?jobdbpvid=289176992&l=de"
+      "validThrough": "2026-12-27T21:35:08.849Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-59376333cb03",
@@ -996,7 +985,7 @@
       "url": "https://etavis.softgarden.io/job/63115729/Lernende-Montage-Elektriker-EFZ-w-m-d-2027?jobDbPVId=289176997&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:55.359Z",
+      "crawledAt": "2026-11-21T21:35:08.555Z",
       "addressLocality": "Burgdorf",
       "postalCode": "3400",
       "streetAddress": "Buchmattstrasse 5",
@@ -1041,9 +1030,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:59:55.359Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/63115729/lernende-montage-elektriker-efz-w-m-d-2027?jobdbpvid=289176997&l=de"
+      "validThrough": "2026-12-27T21:35:08.555Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-ab60e8067ee5",
@@ -1076,7 +1064,7 @@
       "url": "https://etavis.softgarden.io/job/63115294/Lernende-Montage-Elektriker-EFZ-w-m-d-2027?jobDbPVId=289177017&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:55.080Z",
+      "crawledAt": "2026-11-21T21:35:08.263Z",
       "addressLocality": "Rüegsau",
       "postalCode": "3417",
       "streetAddress": "Rüegsaustrasse 2",
@@ -1121,9 +1109,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:59:55.080Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/63115294/lernende-montage-elektriker-efz-w-m-d-2027?jobdbpvid=289177017&l=de"
+      "validThrough": "2026-12-27T21:35:08.263Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-819c6db15e2c",
@@ -1156,7 +1143,7 @@
       "url": "https://etavis.softgarden.io/job/63648764/Servicemonteur-w-m-d-80%E2%80%93100-?jobDbPVId=289177032&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:54.796Z",
+      "crawledAt": "2026-11-21T21:35:07.969Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "streetAddress": "Mohnweg 5",
@@ -1200,9 +1187,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:59:54.796Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/63648764/servicemonteur-w-m-d-80%e2%80%93100-?jobdbpvid=289177032&l=de"
+      "validThrough": "2026-12-27T21:35:07.969Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-a44ae75a095c",
@@ -1235,7 +1221,7 @@
       "url": "https://etavis.softgarden.io/job/62954924/Projektleiter-in-Elektroplanung-w-m-d-80%E2%80%93100-?jobDbPVId=289177057&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:54.523Z",
+      "crawledAt": "2026-11-21T21:35:07.675Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -1281,9 +1267,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:59:54.523Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/62954924/projektleiter-in-elektroplanung-w-m-d-80%e2%80%93100-?jobdbpvid=289177057&l=de"
+      "validThrough": "2026-12-27T21:35:07.675Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-868724ece206",
@@ -1316,7 +1301,7 @@
       "url": "https://etavis.softgarden.io/job/64303288/Chef-de-projet?jobDbPVId=289177072&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:59:54.245Z",
+      "crawledAt": "2026-11-21T21:35:07.380Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "streetAddress": "Karrweg 4",
@@ -1411,9 +1396,8 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-27T21:59:54.245Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/64303288/chef-de-projet?jobdbpvid=289177072&l=de"
+      "validThrough": "2026-12-27T21:35:07.380Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-e82b51679456",
@@ -1446,7 +1430,7 @@
       "url": "https://etavis.softgarden.io/job/68441817/Strategischer-Eink%C3%A4ufer-Elektro-w-m-d-80%E2%80%93100-?jobDbPVId=289203917&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:53.966Z",
+      "crawledAt": "2026-11-21T21:35:07.081Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Pfingstweidstrasse 106",
@@ -1496,9 +1480,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T21:59:53.966Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/68441817/strategischer-eink%c3%a4ufer-elektro-w-m-d-80%e2%80%93100-?jobdbpvid=289203917&l=de"
+      "validThrough": "2027-01-27T21:35:07.081Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-7a873e4c80c2",
@@ -1531,7 +1514,7 @@
       "url": "https://etavis.softgarden.io/job/68446067/Projektleiter-Elektroplanung-w-m-d-80-100-?jobDbPVId=289218127&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:53.684Z",
+      "crawledAt": "2026-11-21T21:35:06.787Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "Harzbüchelstrasse 30A",
@@ -1580,11 +1563,11 @@
         "en": [
           "projektleiter-elektroplanung-w-m-d-80-100-etavis-st-gallen"
         ],
-        "fr": [
-          "projektleiter-elektroplanung-w-m-d-80-100-etavis-st-gallen"
-        ],
         "de": [
           "projektleiter-elektroplanung-w-m-d-80-100-etavis-st-gallen-65f6e421"
+        ],
+        "fr": [
+          "projektleiter-elektroplanung-w-m-d-80-100-etavis-st-gallen"
         ]
       },
       "firstSeenAt": "2026-09-01T08:43:07.530Z",
@@ -1602,9 +1585,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T21:59:53.684Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/68446067/projektleiter-elektroplanung-w-m-d-80-100-?jobdbpvid=289218127&l=de"
+      "validThrough": "2027-01-28T21:35:06.787Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-aebfaa3f1456",
@@ -1637,7 +1619,7 @@
       "url": "https://etavis.softgarden.io/job/64851897/KNX-Systemintegrator-w-m-d-80%E2%80%93100-?jobDbPVId=289294562&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:53.405Z",
+      "crawledAt": "2026-11-21T21:35:06.491Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Technoparkstrasse 1",
@@ -1724,9 +1706,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T21:59:53.405Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/64851897/knx-systemintegrator-w-m-d-80%e2%80%93100-?jobdbpvid=289294562&l=de"
+      "validThrough": "2026-12-29T21:35:06.491Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-339a3ee83683",
@@ -1759,7 +1740,7 @@
       "url": "https://etavis.softgarden.io/job/64998038/Elektroinstallateur-Service-und-Kleininstallationen-w-m-d-80%E2%80%93100-?jobDbPVId=289392732&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:52.947Z",
+      "crawledAt": "2026-11-21T21:35:06.022Z",
       "addressLocality": "Wohlen bei Bern",
       "postalCode": "3033",
       "streetAddress": "Kappelenring 69",
@@ -1842,9 +1823,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T21:59:52.947Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/64998038/elektroinstallateur-service-und-kleininstallationen-w-m-d-80%e2%80%93100-?jobdbpvid=289392732&l=de"
+      "validThrough": "2026-12-30T21:35:06.022Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-992c85c003fd",
@@ -1877,7 +1857,7 @@
       "url": "https://etavis.softgarden.io/job/64111368/Elektro-Projektleiter-w-m-d-80%E2%80%93100-?jobDbPVId=289392747&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:52.669Z",
+      "crawledAt": "2026-11-21T21:35:05.731Z",
       "addressLocality": "Wohlen bei Bern",
       "postalCode": "3033",
       "streetAddress": "Kappelenring 69",
@@ -1923,9 +1903,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T21:59:52.669Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/64111368/elektro-projektleiter-w-m-d-80%e2%80%93100-?jobdbpvid=289392747&l=de"
+      "validThrough": "2026-12-30T21:35:05.731Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-06b05b4c03a7",
@@ -1958,7 +1937,7 @@
       "url": "https://etavis.softgarden.io/job/68507612/Montage-Elektriker-Ladenbau-E-Mobility-w-m-d-80-100-%C3%BCberregionaler-Einsatz-ganze-Schweiz-?jobDbPVId=289531112&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:52.392Z",
+      "crawledAt": "2026-11-21T21:35:05.436Z",
       "addressLocality": "Wil",
       "postalCode": "9500",
       "streetAddress": "Toggenburgerstrasse 120",
@@ -2008,9 +1987,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:59:52.392Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/68507612/montage-elektriker-ladenbau-e-mobility-w-m-d-80-100-%c3%bcberregionaler-einsatz-ganze-schweiz-?jobdbpvid=289531112&l=de"
+      "validThrough": "2027-02-01T21:35:05.436Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-2edab8e05813",
@@ -2043,7 +2021,7 @@
       "url": "https://etavis.softgarden.io/job/68507447/Elektroinstallateur-Ladenbau-E-Mobility-w-m-d-80-100-%C3%BCberregionaler-Einsatz-ganze-Schweiz-?jobDbPVId=289530907&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:52.114Z",
+      "crawledAt": "2026-11-21T21:35:05.145Z",
       "addressLocality": "Wil",
       "postalCode": "9500",
       "streetAddress": "Toggenburgerstrasse 120",
@@ -2095,9 +2073,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:59:52.114Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/68507447/elektroinstallateur-ladenbau-e-mobility-w-m-d-80-100-%c3%bcberregionaler-einsatz-ganze-schweiz-?jobdbpvid=289530907&l=de"
+      "validThrough": "2027-02-01T21:35:05.145Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-32dff28b1ebd",
@@ -2130,7 +2107,7 @@
       "url": "https://etavis.softgarden.io/job/68507417/Servicetechniker-Ladenbau-E-Mobility-w-m-d-80-100-%C3%BCberregionaler-Einsatz-ganze-Schweiz-?jobDbPVId=289530847&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:51.832Z",
+      "crawledAt": "2026-11-21T21:35:04.854Z",
       "addressLocality": "Wil",
       "postalCode": "9500",
       "streetAddress": "Toggenburgerstrasse 120",
@@ -2182,9 +2159,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:59:51.832Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/68507417/servicetechniker-ladenbau-e-mobility-w-m-d-80-100-%c3%bcberregionaler-einsatz-ganze-schweiz-?jobdbpvid=289530847&l=de"
+      "validThrough": "2027-02-01T21:35:04.854Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-bb64af281cec",
@@ -2217,7 +2193,7 @@
       "url": "https://etavis.softgarden.io/job/68507412/Bauleitender-Elektroinstallateur-Ladenbau-E-Mobility-w-m-d-80-100-%C3%BCberregionaler-Einsatz-ganze-Schweiz-?jobDbPVId=289530842&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:51.556Z",
+      "crawledAt": "2026-11-21T21:35:04.561Z",
       "addressLocality": "Wil",
       "postalCode": "9500",
       "streetAddress": "Toggenburgerstrasse 120",
@@ -2269,9 +2245,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:59:51.556Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/68507412/bauleitender-elektroinstallateur-ladenbau-e-mobility-w-m-d-80-100-%c3%bcberregionaler-einsatz-ganze-schweiz-?jobdbpvid=289530842&l=de"
+      "validThrough": "2027-02-01T21:35:04.561Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-83d8010c3b68",
@@ -2304,7 +2279,7 @@
       "url": "https://etavis.softgarden.io/job/68507407/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=289530807&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:51.279Z",
+      "crawledAt": "2026-11-21T21:35:04.265Z",
       "addressLocality": "Vaz/Obervaz",
       "postalCode": "7082",
       "streetAddress": "Voa Tgapalotta 11",
@@ -2350,12 +2325,12 @@
           "elektroinstallateur-w-m-d-80-100-etavis-vaz-obervaz",
           "electrician-m-f-d-80-100-etavis-grossenbacher-ag-vaz-obervaz"
         ],
+        "de": [
+          "elektroinstallateur-w-m-d-80-100-etavis-vaz-obervaz-0c620d9a"
+        ],
         "fr": [
           "elektroinstallateur-w-m-d-80-100-etavis-vaz-obervaz",
           "electricien-h-f-d-80-100-etavis-grossenbacher-ag-vaz-obervaz"
-        ],
-        "de": [
-          "elektroinstallateur-w-m-d-80-100-etavis-vaz-obervaz-0c620d9a"
         ]
       },
       "firstSeenAt": "2026-07-04T10:51:33.053Z",
@@ -2373,9 +2348,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:59:51.279Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/68507407/elektroinstallateur-w-m-d-80-100-?jobdbpvid=289530807&l=de"
+      "validThrough": "2027-02-01T21:35:04.265Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-7e952e42406e",
@@ -2408,7 +2382,7 @@
       "url": "https://etavis.softgarden.io/job/68507397/Bauleitender-Monteur-Elektroinstallation-w-m-d-80-100-?jobDbPVId=289530797&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:50.994Z",
+      "crawledAt": "2026-11-21T21:35:03.975Z",
       "addressLocality": "Vaz/Obervaz",
       "postalCode": "7082",
       "streetAddress": "Voa Tgapalotta",
@@ -2462,12 +2436,12 @@
           "bauleitender-monteur-elektroinstallation-w-m-d-80-100-etavis-vaz-obervaz",
           "lead-electrician-electrical-installation-f-m-d-80-100-etavis-grossenbacher-ag-vaz-obervaz"
         ],
+        "de": [
+          "bauleitender-monteur-elektroinstallation-w-m-d-80-100-etavis-vaz-obervaz-ef075342"
+        ],
         "fr": [
           "bauleitender-monteur-elektroinstallation-w-m-d-80-100-etavis-vaz-obervaz",
           "monteur-chef-de-chantier-en-installations-electriques-f-h-d-80-100-etavis-grossenbacher-ag-vaz-obervaz"
-        ],
-        "de": [
-          "bauleitender-monteur-elektroinstallation-w-m-d-80-100-etavis-vaz-obervaz-ef075342"
         ]
       },
       "firstSeenAt": "2026-11-03T09:34:18.761Z",
@@ -2485,9 +2459,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:59:50.994Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/68507397/bauleitender-monteur-elektroinstallation-w-m-d-80-100-?jobdbpvid=289530797&l=de"
+      "validThrough": "2027-02-01T21:35:03.975Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-3e9348611b95",
@@ -2520,7 +2493,7 @@
       "url": "https://etavis.softgarden.io/job/68507307/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=289530697&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:50.715Z",
+      "crawledAt": "2026-11-21T21:35:03.682Z",
       "addressLocality": "Widnau",
       "postalCode": "9443",
       "streetAddress": "Bahnhofstrasse 15",
@@ -2566,12 +2539,12 @@
           "elektroinstallateur-w-m-d-80-100-etavis-widnau",
           "electrician-m-f-d-80-100-etavis-grossenbacher-ag-widnau"
         ],
+        "de": [
+          "elektroinstallateur-w-m-d-80-100-etavis-widnau-733c5117"
+        ],
         "fr": [
           "elektroinstallateur-w-m-d-80-100-etavis-widnau",
           "electricien-h-f-d-80-100-etavis-grossenbacher-ag-widnau"
-        ],
-        "de": [
-          "elektroinstallateur-w-m-d-80-100-etavis-widnau-733c5117"
         ]
       },
       "firstSeenAt": "2026-07-04T10:51:30.924Z",
@@ -2589,9 +2562,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:59:50.715Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/68507307/elektroinstallateur-w-m-d-80-100-?jobdbpvid=289530697&l=de"
+      "validThrough": "2027-02-01T21:35:03.682Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-ad713638ee3a",
@@ -2624,7 +2596,7 @@
       "url": "https://etavis.softgarden.io/job/68507247/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=289530582&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:50.440Z",
+      "crawledAt": "2026-11-21T21:35:03.389Z",
       "addressLocality": "Buchs",
       "postalCode": "9470",
       "streetAddress": "Fabrikstrasse 19",
@@ -2666,12 +2638,12 @@
           "elektroinstallateur-w-m-d-80-100-etavis-buchs",
           "electrical-installer-w-m-d-80-100-etavis-grossenbacher-ag-buchs"
         ],
+        "de": [
+          "elektroinstallateur-w-m-d-80-100-etavis-buchs-d790c552"
+        ],
         "fr": [
           "elektroinstallateur-w-m-d-80-100-etavis-buchs",
           "installateur-electrique-m-j-80-100-etavis-grossenbacher-ag-buchs"
-        ],
-        "de": [
-          "elektroinstallateur-w-m-d-80-100-etavis-buchs-d790c552"
         ]
       },
       "firstSeenAt": "2026-07-04T10:51:31.534Z",
@@ -2689,9 +2661,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:59:50.440Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/68507247/elektroinstallateur-w-m-d-80-100-?jobdbpvid=289530582&l=de"
+      "validThrough": "2027-02-01T21:35:03.389Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-c1b9c1dfa7f0",
@@ -2724,7 +2695,7 @@
       "url": "https://etavis.softgarden.io/job/68507242/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=289530507&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:50.165Z",
+      "crawledAt": "2026-11-21T21:35:03.092Z",
       "addressLocality": "Mels",
       "postalCode": "8887",
       "streetAddress": "Kirchstrasse 6",
@@ -2766,12 +2737,12 @@
           "elektroinstallateur-w-m-d-80-100-etavis-mels",
           "electrical-installer-w-m-d-80-100-etavis-grossenbacher-ag-mels"
         ],
+        "de": [
+          "elektroinstallateur-w-m-d-80-100-etavis-mels-2b8a05cc"
+        ],
         "fr": [
           "elektroinstallateur-w-m-d-80-100-etavis-mels",
           "installateur-electrique-m-j-80-100-etavis-grossenbacher-ag-mels"
-        ],
-        "de": [
-          "elektroinstallateur-w-m-d-80-100-etavis-mels-2b8a05cc"
         ]
       },
       "firstSeenAt": "2026-07-04T10:51:31.228Z",
@@ -2789,9 +2760,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:59:50.165Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/68507242/elektroinstallateur-w-m-d-80-100-?jobdbpvid=289530507&l=de"
+      "validThrough": "2027-02-01T21:35:03.092Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-f1789058cdb9",
@@ -2824,7 +2794,7 @@
       "url": "https://etavis.softgarden.io/job/68507047/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=289530227&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:49.721Z",
+      "crawledAt": "2026-11-21T21:35:02.617Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "streetAddress": "Pulvermühlestrasse 93",
@@ -2874,9 +2844,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:59:49.721Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/68507047/elektroinstallateur-w-m-d-80-100-?jobdbpvid=289530227&l=de"
+      "validThrough": "2027-02-01T21:35:02.617Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-bf8473794fbd",
@@ -2909,7 +2878,7 @@
       "url": "https://etavis.softgarden.io/job/68507042/Servicetechniker-Elektroinstallation-w-m-d-80-100-?jobDbPVId=289530222&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:49.442Z",
+      "crawledAt": "2026-11-21T21:35:02.320Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "streetAddress": "Pulvermühlestrasse 93",
@@ -2961,9 +2930,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:59:49.442Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/68507042/servicetechniker-elektroinstallation-w-m-d-80-100-?jobdbpvid=289530222&l=de"
+      "validThrough": "2027-02-01T21:35:02.320Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-de2359ef9bb8",
@@ -2996,7 +2964,7 @@
       "url": "https://etavis.softgarden.io/job/68507032/Bauleitender-Monteur-Elektroinstallation-w-m-d-80-100-?jobDbPVId=289530167&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:49.168Z",
+      "crawledAt": "2026-11-21T21:35:02.026Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "streetAddress": "Pulvermühlestrasse 93",
@@ -3076,9 +3044,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:59:49.168Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/68507032/bauleitender-monteur-elektroinstallation-w-m-d-80-100-?jobdbpvid=289530167&l=de"
+      "validThrough": "2027-02-01T21:35:02.026Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-78acb15f1b9a",
@@ -3111,7 +3078,7 @@
       "url": "https://etavis.softgarden.io/job/66095773/Systemtechniker-ICT-Servicetechniker-w-m-d-80-100-?jobDbPVId=289529982&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:48.889Z",
+      "crawledAt": "2026-11-21T21:35:01.735Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "Oststrasse 25",
@@ -3163,9 +3130,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:59:48.889Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/66095773/systemtechniker-ict-servicetechniker-w-m-d-80-100-?jobdbpvid=289529982&l=de"
+      "validThrough": "2027-02-01T21:35:01.735Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-c0e11f173c1f",
@@ -3198,7 +3164,7 @@
       "url": "https://etavis.softgarden.io/job/67216705/Elektroinstallateur-w-m-d-mit-Erfahrung-im-Bereich-Photovoltaik-80%E2%80%93100-?jobDbPVId=289716802&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:48.610Z",
+      "crawledAt": "2026-11-21T21:35:01.440Z",
       "addressLocality": "Baden",
       "postalCode": "5400",
       "streetAddress": "Kehlstrasse 61B",
@@ -3244,9 +3210,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-02T21:59:48.610Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/67216705/elektroinstallateur-w-m-d-mit-erfahrung-im-bereich-photovoltaik-80%e2%80%93100-?jobdbpvid=289716802&l=de"
+      "validThrough": "2027-01-02T21:35:01.440Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-d28659a5dc68",
@@ -3279,7 +3244,7 @@
       "url": "https://etavis.softgarden.io/job/65753281/Servicemonteur-w-m-d-80%E2%80%93100-?jobDbPVId=289716817&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:48.339Z",
+      "crawledAt": "2026-11-21T21:35:01.147Z",
       "addressLocality": "Neuhausen am Rheinfall",
       "postalCode": "8212",
       "streetAddress": "Schaffhauserstrasse 15",
@@ -3323,9 +3288,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-02T21:59:48.339Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/65753281/servicemonteur-w-m-d-80%e2%80%93100-?jobdbpvid=289716817&l=de"
+      "validThrough": "2027-01-02T21:35:01.147Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-060aa59fbdfc",
@@ -3358,7 +3322,7 @@
       "url": "https://etavis.softgarden.io/job/68588562/Servicetechniker-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=289852352&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:48.062Z",
+      "crawledAt": "2026-11-21T21:35:00.854Z",
       "addressLocality": "Arbon",
       "postalCode": "9320",
       "streetAddress": "Berglistrasse 2",
@@ -3410,9 +3374,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T21:59:48.062Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/68588562/servicetechniker-elektroinstallation-w-m-d-80%e2%80%93100-?jobdbpvid=289852352&l=de"
+      "validThrough": "2027-02-04T21:35:00.854Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-5bb37450d607",
@@ -3445,7 +3408,7 @@
       "url": "https://etavis.softgarden.io/job/51169698/Lernende-Elektroinstallateure-EFZ-w-m-d-2027?jobDbPVId=289860102&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:47.782Z",
+      "crawledAt": "2026-11-21T21:35:00.562Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "streetAddress": "Mohnweg 5",
@@ -3495,9 +3458,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:47.782Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/51169698/lernende-elektroinstallateure-efz-w-m-d-2027?jobdbpvid=289860102&l=de"
+      "validThrough": "2026-12-21T21:35:00.562Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-e0594d46ef8a",
@@ -3530,7 +3492,7 @@
       "url": "https://etavis.softgarden.io/job/51169703/Lernende-Montage-Elektriker-EFZ-w-m-d-2027?jobDbPVId=289860167&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:47.503Z",
+      "crawledAt": "2026-11-21T21:35:00.268Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "streetAddress": "Mohnweg 5",
@@ -3580,9 +3542,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:47.503Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/51169703/lernende-montage-elektriker-efz-w-m-d-2027?jobdbpvid=289860167&l=de"
+      "validThrough": "2026-12-21T21:35:00.268Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-e80c1d867bb7",
@@ -3615,7 +3576,7 @@
       "url": "https://etavis.softgarden.io/job/68592592/Head-of-IT-Operations-Transformation-m-w-d-?jobDbPVId=289866537&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:47.221Z",
+      "crawledAt": "2026-11-21T21:34:59.979Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Technoparkstrasse 1",
@@ -3669,9 +3630,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T21:59:47.221Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/68592592/head-of-it-operations-transformation-m-w-d-?jobdbpvid=289866537&l=de"
+      "validThrough": "2027-02-04T21:34:59.979Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-41691dd30a59",
@@ -3704,7 +3664,7 @@
       "url": "https://etavis.softgarden.io/job/64622908/Bauleitender-Monteur-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=290264523&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:46.942Z",
+      "crawledAt": "2026-11-21T21:34:59.689Z",
       "addressLocality": "Kloten",
       "postalCode": "8302",
       "streetAddress": "Frachtstrasse",
@@ -3792,9 +3752,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:46.942Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/64622908/bauleitender-monteur-elektroinstallation-w-m-d-80%e2%80%93100-?jobdbpvid=290264523&l=de"
+      "validThrough": "2026-12-21T21:34:59.689Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-7c43283ba2ca",
@@ -3827,7 +3786,7 @@
       "url": "https://etavis.softgarden.io/job/64588908/Lernende-Elektroinstallateure-EFZ-w-m-d-2027?jobDbPVId=290264498&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:46.192Z",
+      "crawledAt": "2026-11-21T21:34:58.875Z",
       "addressLocality": "Uetendorf",
       "postalCode": "3661",
       "streetAddress": "Gewerbestrasse 2",
@@ -3883,9 +3842,8 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:46.192Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/64588908/lernende-elektroinstallateure-efz-w-m-d-2027?jobdbpvid=290264498&l=de"
+      "validThrough": "2026-12-21T21:34:58.875Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-89852cac6ca0",
@@ -3918,7 +3876,7 @@
       "url": "https://etavis.softgarden.io/job/52143564/Bauleitender-Monteur-w-m-d-80-100-?jobDbPVId=290263658&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:45.911Z",
+      "crawledAt": "2026-11-21T21:34:58.579Z",
       "addressLocality": "Uetendorf",
       "postalCode": "3661",
       "streetAddress": "Gewerbestrasse 2",
@@ -3973,9 +3931,8 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T21:59:45.911Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/52143564/bauleitender-monteur-w-m-d-80-100-?jobdbpvid=290263658&l=de"
+      "validThrough": "2026-12-21T21:34:58.579Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-427154b54bc0",
@@ -4008,7 +3965,7 @@
       "url": "https://etavis.softgarden.io/job/52142914/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=290263648&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:45.631Z",
+      "crawledAt": "2026-11-21T21:34:58.287Z",
       "addressLocality": "Uetendorf",
       "postalCode": "3661",
       "streetAddress": "Gewerbestrasse 2",
@@ -4092,9 +4049,8 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T21:59:45.631Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/52142914/elektroinstallateur-w-m-d-80-100-?jobdbpvid=290263648&l=de"
+      "validThrough": "2026-12-21T21:34:58.287Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-4ca43d89e11d",
@@ -4127,7 +4083,7 @@
       "url": "https://etavis.softgarden.io/job/64588878/Lernende-Montage-Elektriker-EFZ-w-m-d-2027?jobDbPVId=290264493&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:45.354Z",
+      "crawledAt": "2026-11-21T21:34:57.994Z",
       "addressLocality": "Uetendorf",
       "postalCode": "3661",
       "streetAddress": "Gewerbestrasse 2",
@@ -4183,9 +4139,8 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:45.354Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/64588878/lernende-montage-elektriker-efz-w-m-d-2027?jobdbpvid=290264493&l=de"
+      "validThrough": "2026-12-21T21:34:57.994Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-3fe04aa65581",
@@ -4218,7 +4173,7 @@
       "url": "https://etavis.softgarden.io/job/58904663/Service-Techniker-w-m-d-80%E2%80%93100-am-Standort-Liestal?jobDbPVId=290263843&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:45.073Z",
+      "crawledAt": "2026-11-21T21:34:57.699Z",
       "addressLocality": "Liestal",
       "postalCode": "4410",
       "streetAddress": "Rheinstrasse 16",
@@ -4262,9 +4217,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:45.073Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/58904663/service-techniker-w-m-d-80%e2%80%93100-am-standort-liestal?jobdbpvid=290263843&l=de"
+      "validThrough": "2026-12-21T21:34:57.699Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-380fa006c509",
@@ -4297,7 +4251,7 @@
       "url": "https://etavis.softgarden.io/job/64623718/Lernende-Montage-Elektriker-EFZ-w-m-d-2027?jobDbPVId=290264538&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:44.794Z",
+      "crawledAt": "2026-11-21T21:34:57.405Z",
       "addressLocality": "Wohlen bei Bern",
       "postalCode": "3033",
       "streetAddress": "Kappelenring 69",
@@ -4342,9 +4296,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:44.794Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/64623718/lernende-montage-elektriker-efz-w-m-d-2027?jobdbpvid=290264538&l=de"
+      "validThrough": "2026-12-21T21:34:57.405Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-b1a605c02c12",
@@ -4377,7 +4330,7 @@
       "url": "https://etavis.softgarden.io/job/64623753/Lernende-Elektroinstallateure-EFZ-w-m-d-2027?jobDbPVId=290264553&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:44.518Z",
+      "crawledAt": "2026-11-21T21:34:57.115Z",
       "addressLocality": "Wohlen bei Bern",
       "postalCode": "3033",
       "streetAddress": "Kappelenring 69",
@@ -4424,9 +4377,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:44.518Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/64623753/lernende-elektroinstallateure-efz-w-m-d-2027?jobdbpvid=290264553&l=de"
+      "validThrough": "2026-12-21T21:34:57.115Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-2a6df685cb74",
@@ -4459,7 +4411,7 @@
       "url": "https://etavis.softgarden.io/job/65160773/Projektleiter-Junior-Projektleiter-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=290366063&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:44.240Z",
+      "crawledAt": "2026-11-21T21:34:56.826Z",
       "addressLocality": "Winterthur",
       "postalCode": "8400",
       "streetAddress": "Im Hölderli 26",
@@ -4540,9 +4492,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:44.240Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/65160773/projektleiter-junior-projektleiter-elektroinstallation-w-m-d-80%e2%80%93100-?jobdbpvid=290366063&l=de"
+      "validThrough": "2026-12-21T21:34:56.826Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-961808d25822",
@@ -4575,7 +4526,7 @@
       "url": "https://etavis.softgarden.io/job/64633753/Servicemonteur-w-m-d-80%E2%80%93100-?jobDbPVId=290366088&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:43.960Z",
+      "crawledAt": "2026-11-21T21:34:56.533Z",
       "addressLocality": "Uetendorf",
       "postalCode": "3661",
       "streetAddress": "Gewerbestrasse 2",
@@ -4636,9 +4587,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:43.960Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/64633753/servicemonteur-w-m-d-80%e2%80%93100-?jobdbpvid=290366088&l=de"
+      "validThrough": "2026-12-21T21:34:56.533Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-de812addd84a",
@@ -4671,7 +4621,7 @@
       "url": "https://etavis.softgarden.io/job/68707233/Stellvertretender-Business-Unit-Leiter-w-m-d-80%E2%80%93100-?jobDbPVId=290455208&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:43.684Z",
+      "crawledAt": "2026-11-21T21:34:56.241Z",
       "addressLocality": "Oftringen",
       "postalCode": "4665",
       "streetAddress": "Gärtnereiweg 4b",
@@ -4723,9 +4673,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T21:59:43.684Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/68707233/stellvertretender-business-unit-leiter-w-m-d-80%e2%80%93100-?jobdbpvid=290455208&l=de"
+      "validThrough": "2027-02-10T21:34:56.241Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-1f52c8ffd2d4",
@@ -4758,7 +4707,7 @@
       "url": "https://etavis.softgarden.io/job/68046702/Capo-progetto-infrastruttura-f-m-d-80-100-?jobDbPVId=290600639&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-20T21:59:43.409Z",
+      "crawledAt": "2026-11-21T21:34:55.951Z",
       "addressLocality": "Lugano",
       "postalCode": "6900",
       "streetAddress": "Via Giovanni Maraini 19",
@@ -4794,9 +4743,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-10T21:59:43.409Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/68046702/capo-progetto-infrastruttura-f-m-d-80-100-?jobdbpvid=290600639&l=de"
+      "validThrough": "2027-01-10T21:34:55.951Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-1b7e0d458d58",
@@ -4829,7 +4777,7 @@
       "url": "https://etavis.softgarden.io/job/64672289/Projektleiter-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=290643260&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:43.123Z",
+      "crawledAt": "2026-11-21T21:34:55.657Z",
       "addressLocality": "Kloten",
       "postalCode": "8302",
       "streetAddress": "Frachtstrasse",
@@ -4875,9 +4823,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:43.123Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/64672289/projektleiter-elektroinstallation-w-m-d-80%e2%80%93100-?jobdbpvid=290643260&l=de"
+      "validThrough": "2026-12-21T21:34:55.657Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-11845d7fb423",
@@ -4910,7 +4857,7 @@
       "url": "https://etavis.softgarden.io/job/51182698/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=290643285&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:42.833Z",
+      "crawledAt": "2026-11-21T21:34:55.364Z",
       "addressLocality": "Muttenz",
       "postalCode": "4132",
       "streetAddress": "Sankt Jakob-Strasse 40",
@@ -4955,9 +4902,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:42.833Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/51182698/lernende-elektroinstallateure-efz-w-m-d-?jobdbpvid=290643285&l=de"
+      "validThrough": "2026-12-21T21:34:55.364Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-2cbfd30f030c",
@@ -4990,7 +4936,7 @@
       "url": "https://etavis.softgarden.io/job/51571593/Lernende-Montage-Elektriker-EFZ-w-m-d-?jobDbPVId=290643290&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:42.560Z",
+      "crawledAt": "2026-11-21T21:34:55.073Z",
       "addressLocality": "Liestal",
       "postalCode": "4410",
       "streetAddress": "Rheinstrasse 16",
@@ -5035,9 +4981,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:42.560Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/51571593/lernende-montage-elektriker-efz-w-m-d-?jobdbpvid=290643290&l=de"
+      "validThrough": "2026-12-21T21:34:55.073Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-5b7f997b3b4e",
@@ -5070,7 +5015,7 @@
       "url": "https://etavis.softgarden.io/job/51193313/Lernende-Montage-Elektriker-EFZ-w-m-d-?jobDbPVId=290643295&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:42.277Z",
+      "crawledAt": "2026-11-21T21:34:54.779Z",
       "addressLocality": "Muttenz",
       "postalCode": "4132",
       "streetAddress": "Sankt Jakob-Strasse 40",
@@ -5115,9 +5060,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:42.277Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/51193313/lernende-montage-elektriker-efz-w-m-d-?jobdbpvid=290643295&l=de"
+      "validThrough": "2026-12-21T21:34:54.779Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-fcd932631e7d",
@@ -5150,7 +5094,7 @@
       "url": "https://etavis.softgarden.io/job/51183473/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=290643300&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:42.003Z",
+      "crawledAt": "2026-11-21T21:34:54.484Z",
       "addressLocality": "Liestal",
       "postalCode": "4410",
       "streetAddress": "Rheinstrasse 16",
@@ -5195,9 +5139,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:42.003Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/51183473/lernende-elektroinstallateure-efz-w-m-d-?jobdbpvid=290643300&l=de"
+      "validThrough": "2026-12-21T21:34:54.484Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-880886458b87",
@@ -5230,7 +5173,7 @@
       "url": "https://etavis.softgarden.io/job/51190623/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=290643305&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:41.723Z",
+      "crawledAt": "2026-11-21T21:34:54.192Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -5275,9 +5218,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:41.723Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/51190623/lernende-elektroinstallateure-efz-w-m-d-?jobdbpvid=290643305&l=de"
+      "validThrough": "2026-12-21T21:34:54.192Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-28ee5e291b5c",
@@ -5310,7 +5252,7 @@
       "url": "https://etavis.softgarden.io/job/51190918/Lernende-Montage-Elektriker-EFZ-w-m-d-?jobDbPVId=290643310&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:41.441Z",
+      "crawledAt": "2026-11-21T21:34:53.896Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -5355,9 +5297,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:41.441Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/51190918/lernende-montage-elektriker-efz-w-m-d-?jobdbpvid=290643310&l=de"
+      "validThrough": "2026-12-21T21:34:53.896Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-e23b84520cc1",
@@ -5390,7 +5331,7 @@
       "url": "https://etavis.softgarden.io/job/51191343/Lernende-Automatiker-EFZ-w-m-d-?jobDbPVId=290643315&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:41.163Z",
+      "crawledAt": "2026-11-21T21:34:53.602Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -5435,9 +5376,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:41.163Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/51191343/lernende-automatiker-efz-w-m-d-?jobdbpvid=290643315&l=de"
+      "validThrough": "2026-12-21T21:34:53.602Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-7591341d5b9b",
@@ -5470,7 +5410,7 @@
       "url": "https://etavis.softgarden.io/job/51190973/Lernende-Automatikmonteure-EFZ-w-m-d-?jobDbPVId=290643320&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:40.879Z",
+      "crawledAt": "2026-11-21T21:34:53.310Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -5515,9 +5455,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:40.879Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/51190973/lernende-automatikmonteure-efz-w-m-d-?jobdbpvid=290643320&l=de"
+      "validThrough": "2026-12-21T21:34:53.310Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-2d4f595221dd",
@@ -5550,7 +5489,7 @@
       "url": "https://etavis.softgarden.io/job/64698524/Bauleitender-Monteur-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=290792670&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:40.600Z",
+      "crawledAt": "2026-11-21T21:34:53.014Z",
       "addressLocality": "Neuhausen am Rheinfall",
       "postalCode": "8212",
       "streetAddress": "Schaffhauserstrasse 15",
@@ -5637,9 +5576,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:40.600Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/64698524/bauleitender-monteur-elektroinstallation-w-m-d-80%e2%80%93100-?jobdbpvid=290792670&l=de"
+      "validThrough": "2026-12-21T21:34:53.014Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-2163562586ff",
@@ -5672,7 +5610,7 @@
       "url": "https://etavis.softgarden.io/job/64698834/Teamleiter-Gruppenleiter-w-m-d-80%E2%80%93100-?jobDbPVId=290792675&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:40.321Z",
+      "crawledAt": "2026-11-21T21:34:52.708Z",
       "addressLocality": "Neuhausen am Rheinfall",
       "postalCode": "8212",
       "streetAddress": "Schaffhauserstrasse 15",
@@ -5716,9 +5654,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:40.321Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/64698834/teamleiter-gruppenleiter-w-m-d-80%e2%80%93100-?jobdbpvid=290792675&l=de"
+      "validThrough": "2026-12-21T21:34:52.708Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-ab34af51c098",
@@ -5751,7 +5688,7 @@
       "url": "https://etavis.softgarden.io/job/64692079/Projektleiter-Elektroinstallation-w-m-d-80-100-?jobDbPVId=290792710&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:40.040Z",
+      "crawledAt": "2026-11-21T21:34:52.409Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Technoparkstrasse 1",
@@ -5797,9 +5734,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:40.040Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/64692079/projektleiter-elektroinstallation-w-m-d-80-100-?jobdbpvid=290792710&l=de"
+      "validThrough": "2026-12-21T21:34:52.409Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-f7804c524b66",
@@ -5832,7 +5768,7 @@
       "url": "https://etavis.softgarden.io/job/64677789/Servicemonteur-Elektroinstallateur-EFZ-w-m-d-80%E2%80%93100-?jobDbPVId=290792720&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:39.749Z",
+      "crawledAt": "2026-11-21T21:34:52.112Z",
       "addressLocality": "Uster",
       "postalCode": "8610",
       "streetAddress": "Winterthurerstrasse 35",
@@ -5910,9 +5846,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:39.749Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/64677789/servicemonteur-elektroinstallateur-efz-w-m-d-80%e2%80%93100-?jobdbpvid=290792720&l=de"
+      "validThrough": "2026-12-21T21:34:52.112Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-32d986558e2d",
@@ -5945,7 +5880,7 @@
       "url": "https://etavis.softgarden.io/job/64691379/Bauleitender-Monteur-Elektroinstallation-w-m-d-80-100-?jobDbPVId=290792735&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:39.465Z",
+      "crawledAt": "2026-11-21T21:34:51.817Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Technoparkstrasse 1",
@@ -6032,9 +5967,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:39.465Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/64691379/bauleitender-monteur-elektroinstallation-w-m-d-80-100-?jobdbpvid=290792735&l=de"
+      "validThrough": "2026-12-21T21:34:51.817Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-64762c3b3785",
@@ -6067,7 +6001,7 @@
       "url": "https://etavis.softgarden.io/job/64690859/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=290792760&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:39.177Z",
+      "crawledAt": "2026-11-21T21:34:51.520Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Technoparkstrasse 1",
@@ -6139,9 +6073,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:39.177Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/64690859/elektroinstallateur-w-m-d-80-100-?jobdbpvid=290792760&l=de"
+      "validThrough": "2026-12-21T21:34:51.520Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-3dba6963cb4c",
@@ -6174,7 +6107,7 @@
       "url": "https://etavis.softgarden.io/job/64691444/Bauleitender-Monteur-Elektroinstallation-w-m-d-80-100-?jobDbPVId=290792775&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:38.897Z",
+      "crawledAt": "2026-11-21T21:34:51.225Z",
       "addressLocality": "Baden",
       "postalCode": "5400",
       "streetAddress": "Kehlstrasse 61B",
@@ -6250,9 +6183,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:38.897Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/64691444/bauleitender-monteur-elektroinstallation-w-m-d-80-100-?jobdbpvid=290792775&l=de"
+      "validThrough": "2026-12-21T21:34:51.225Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-b7ed720081d3",
@@ -6285,7 +6217,7 @@
       "url": "https://etavis.softgarden.io/job/64690814/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=290792785&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:38.615Z",
+      "crawledAt": "2026-11-21T21:34:50.931Z",
       "addressLocality": "Baden",
       "postalCode": "5400",
       "streetAddress": "Kehlstrasse 61B",
@@ -6345,9 +6277,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:38.615Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/64690814/elektroinstallateur-w-m-d-80-100-?jobdbpvid=290792785&l=de"
+      "validThrough": "2026-12-21T21:34:50.931Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-a2d991ee7c0c",
@@ -6380,7 +6311,7 @@
       "url": "https://etavis.softgarden.io/job/64692879/Servicemonteur-w-m-d-80-100-?jobDbPVId=290792800&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:38.333Z",
+      "crawledAt": "2026-11-21T21:34:50.638Z",
       "addressLocality": "Oftringen",
       "postalCode": "4665",
       "streetAddress": "Gärtnereiweg 4b",
@@ -6424,9 +6355,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:38.333Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/64692879/servicemonteur-w-m-d-80-100-?jobdbpvid=290792800&l=de"
+      "validThrough": "2026-12-21T21:34:50.638Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-c4795b542548",
@@ -6459,7 +6389,7 @@
       "url": "https://etavis.softgarden.io/job/64690639/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=290792820&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:38.052Z",
+      "crawledAt": "2026-11-21T21:34:50.339Z",
       "addressLocality": "Oftringen",
       "postalCode": "4665",
       "streetAddress": "Gärtnereiweg 4b",
@@ -6527,9 +6457,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:38.052Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/64690639/elektroinstallateur-w-m-d-80-100-?jobdbpvid=290792820&l=de"
+      "validThrough": "2026-12-21T21:34:50.339Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-048809a33dd8",
@@ -6562,7 +6491,7 @@
       "url": "https://etavis.softgarden.io/job/65309486/Projektleiter-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=290792840&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:37.774Z",
+      "crawledAt": "2026-11-21T21:34:50.040Z",
       "addressLocality": "Liestal",
       "postalCode": "4410",
       "streetAddress": "Rheinstrasse 16",
@@ -6608,9 +6537,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:37.774Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/65309486/projektleiter-elektroinstallation-w-m-d-80%e2%80%93100-?jobdbpvid=290792840&l=de"
+      "validThrough": "2026-12-21T21:34:50.040Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-afa71cc46dc0",
@@ -6643,7 +6571,7 @@
       "url": "https://etavis.softgarden.io/job/59896845/Kalkulator-Schaltanlagenbau-w-m-d-80-100-?jobDbPVId=290792860&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:37.488Z",
+      "crawledAt": "2026-11-21T21:34:49.741Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -6687,9 +6615,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:37.488Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/59896845/kalkulator-schaltanlagenbau-w-m-d-80-100-?jobdbpvid=290792860&l=de"
+      "validThrough": "2026-12-21T21:34:49.741Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-42aaa686802a",
@@ -6722,7 +6649,7 @@
       "url": "https://etavis.softgarden.io/job/68608368/Sachbearbeiterin-Kreditorenbuchhaltung-40-w-m-d-?jobDbPVId=290834615&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:37.202Z",
+      "crawledAt": "2026-11-21T21:34:49.442Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -6772,9 +6699,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T21:59:37.202Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/68608368/sachbearbeiterin-kreditorenbuchhaltung-40-w-m-d-?jobdbpvid=290834615&l=de"
+      "validThrough": "2027-02-04T21:34:49.442Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-979ff0540b15",
@@ -6807,7 +6733,7 @@
       "url": "https://etavis.softgarden.io/job/51183648/Lernende-Montage-Elektriker-EFZ-w-m-d-?jobDbPVId=291004750&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:36.924Z",
+      "crawledAt": "2026-11-21T21:34:49.142Z",
       "addressLocality": "Baden",
       "postalCode": "5400",
       "streetAddress": "Kehlstrasse 61b",
@@ -6852,9 +6778,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:36.924Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/51183648/lernende-montage-elektriker-efz-w-m-d-?jobdbpvid=291004750&l=de"
+      "validThrough": "2026-12-21T21:34:49.142Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-349b30c6e9aa",
@@ -6887,7 +6812,7 @@
       "url": "https://etavis.softgarden.io/job/51187003/Lernende-Montage-Elektriker-EFZ-w-m-d-?jobDbPVId=291004785&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:36.642Z",
+      "crawledAt": "2026-11-21T21:34:48.852Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Technoparkstrasse 1",
@@ -6932,9 +6857,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:36.642Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/51187003/lernende-montage-elektriker-efz-w-m-d-?jobdbpvid=291004785&l=de"
+      "validThrough": "2026-12-21T21:34:48.852Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-8d4e4606aca9",
@@ -6967,7 +6891,7 @@
       "url": "https://etavis.softgarden.io/job/51186998/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=291004795&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:36.328Z",
+      "crawledAt": "2026-11-21T21:34:48.527Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Technoparkstrasse 1",
@@ -7012,9 +6936,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:36.328Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/51186998/lernende-elektroinstallateure-efz-w-m-d-?jobdbpvid=291004795&l=de"
+      "validThrough": "2026-12-21T21:34:48.527Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-c3440f1beebc",
@@ -7047,7 +6970,7 @@
       "url": "https://etavis.softgarden.io/job/51184078/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=291004800&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:36.006Z",
+      "crawledAt": "2026-11-21T21:34:48.187Z",
       "addressLocality": "Oftringen",
       "postalCode": "4665",
       "streetAddress": "Gärtnereiweg 4b",
@@ -7092,9 +7015,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:36.006Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/51184078/lernende-elektroinstallateure-efz-w-m-d-?jobdbpvid=291004800&l=de"
+      "validThrough": "2026-12-21T21:34:48.187Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "etavis-5d1299bc37de",
@@ -7127,7 +7049,7 @@
       "url": "https://etavis.softgarden.io/job/51183483/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=291004790&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:59:35.717Z",
+      "crawledAt": "2026-11-21T21:34:47.886Z",
       "addressLocality": "Baden",
       "postalCode": "5400",
       "streetAddress": "Kehlstrasse 61b",
@@ -7172,9 +7094,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:59:35.717Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://etavis.softgarden.io/job/51183483/lernende-elektroinstallateure-efz-w-m-d-?jobdbpvid=291004790&l=de"
+      "validThrough": "2026-12-21T21:34:47.886Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
