@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kuhn-rikon",
-  "assembledAt": "2026-11-19T21:40:31.325Z",
-  "runId": "44617000254",
+  "assembledAt": "2026-11-21T21:33:13.437Z",
+  "runId": "44950605939",
   "jobs": [
     {
       "id": "kuhn-rikon-4edc9ba1b5a5",
@@ -35,7 +35,7 @@
       "url": "https://my.jobalino.ch/job/7ae949ca06781987fbd101ae9e246d6a/verkaufsberater-in-outlet-landquart-w-m",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:40:22.372Z",
+      "crawledAt": "2026-11-21T21:33:06.783Z",
       "addressLocality": "Landquart",
       "streetAddress": "Industriestrasse 1",
       "postalCode": "7302",
@@ -145,9 +145,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T21:40:22.372Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://my.jobalino.ch/job/7ae949ca06781987fbd101ae9e246d6a/verkaufsberater-in-outlet-landquart-w-m"
+      "validThrough": "2026-12-21T21:33:06.783Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kuhn-rikon-c3c4f662e0c6",
@@ -181,7 +180,7 @@
       "url": "https://my.jobalino.ch/job/093cd182d6b09fd293edc53c732daa2d/lehrstelle-detailhandelsfachmann-frau-efz-gestalten-von-einkaufserlebnissen-haushalt",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:40:21.993Z",
+      "crawledAt": "2026-11-21T21:33:06.355Z",
       "addressLocality": "Rikon im Tösstal",
       "streetAddress": "Neschwilerstrasse 4",
       "postalCode": "8486",
@@ -228,9 +227,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:40:21.993Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://my.jobalino.ch/job/093cd182d6b09fd293edc53c732daa2d/lehrstelle-detailhandelsfachmann-frau-efz-gestalten-von-einkaufserlebnissen-haushalt"
+      "validThrough": "2026-12-21T21:33:06.355Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kuhn-rikon-119347dd0f71",
@@ -263,7 +261,7 @@
       "url": "https://my.jobalino.ch/job/32d44bf225d93aeca1f2eea1de8acc55/produktionsmitarbeiter-in_1275",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:40:21.484Z",
+      "crawledAt": "2026-11-21T21:33:05.750Z",
       "addressLocality": "Rikon",
       "streetAddress": "Neschwilerstrasse 4",
       "postalCode": "8486",
@@ -322,9 +320,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T21:40:21.484Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://my.jobalino.ch/job/32d44bf225d93aeca1f2eea1de8acc55/produktionsmitarbeiter-in_1275"
+      "validThrough": "2026-12-21T21:33:05.750Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "kuhn-rikon-5839a9a31d67",
@@ -358,7 +355,7 @@
       "url": "https://my.jobalino.ch/job/e4d6d5c22448bf0488f22b458dfc3c7b/verkaufsberater-in-im-store-luzern-m-w_9104",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:40:21.051Z",
+      "crawledAt": "2026-11-21T21:33:05.290Z",
       "addressLocality": "Luzern",
       "streetAddress": "Weinmarkt 9",
       "postalCode": "6003",
@@ -410,9 +407,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:40:21.051Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://my.jobalino.ch/job/e4d6d5c22448bf0488f22b458dfc3c7b/verkaufsberater-in-im-store-luzern-m-w_9104"
+      "validThrough": "2027-02-09T21:33:05.290Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

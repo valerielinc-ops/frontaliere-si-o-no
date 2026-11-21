@@ -1,7 +1,7 @@
 {
   "crawlerKey": "nsn-medical",
-  "assembledAt": "2026-11-19T21:40:05.177Z",
-  "runId": "44617000254",
+  "assembledAt": "2026-11-21T21:29:54.899Z",
+  "runId": "44950605939",
   "jobs": [
     {
       "id": "nsn-medical-75557ee37143",
@@ -35,7 +35,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/750/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:39:56.872Z",
+      "crawledAt": "2026-11-21T21:29:45.107Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -79,9 +79,8 @@
       },
       "streetAddress": "Onkologie",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:39:56.872Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2884.umantis.com/vacancies/750/description/1"
+      "validThrough": "2026-12-21T21:29:45.107Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "nsn-medical-f7893ec37f61",
@@ -115,7 +114,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/788/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:39:56.261Z",
+      "crawledAt": "2026-11-21T21:29:44.423Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -165,9 +164,8 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:39:56.261Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2884.umantis.com/vacancies/788/description/1"
+      "validThrough": "2026-12-21T21:29:44.423Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "nsn-medical-85c6a3cf8d30",
@@ -201,7 +199,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/787/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:39:55.678Z",
+      "crawledAt": "2026-11-21T21:29:43.771Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -256,9 +254,9 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:39:55.678Z",
+      "validThrough": "2026-12-21T21:29:43.771Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2884.umantis.com/vacancies/787/description/1"
+      "firstSeenAt": "2026-11-21T21:29:43.771Z"
     },
     {
       "id": "nsn-medical-f6ce5f68445e",
@@ -292,7 +290,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/817/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:39:55.099Z",
+      "crawledAt": "2026-11-21T21:29:43.111Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -336,9 +334,8 @@
       },
       "streetAddress": "Onkologie",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:39:55.099Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2884.umantis.com/vacancies/817/description/1"
+      "validThrough": "2026-12-21T21:29:43.111Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "nsn-medical-a79485ca05f1",
@@ -371,7 +368,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/822/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:39:54.468Z",
+      "crawledAt": "2026-11-21T21:29:42.444Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -415,9 +412,8 @@
       },
       "streetAddress": "Onkologie",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:39:54.468Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2884.umantis.com/vacancies/822/description/1"
+      "validThrough": "2026-12-21T21:29:42.444Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "nsn-medical-57ec4c5a6ecd",
@@ -450,7 +446,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/828/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:39:53.888Z",
+      "crawledAt": "2026-11-21T21:29:41.806Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -547,9 +543,8 @@
       },
       "streetAddress": "Onkologie",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:39:53.888Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2884.umantis.com/vacancies/828/description/1"
+      "validThrough": "2026-12-21T21:29:41.806Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "nsn-medical-42b885f0dd7b",
@@ -583,7 +578,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/830/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:39:53.277Z",
+      "crawledAt": "2026-11-21T21:29:41.139Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -660,9 +655,8 @@
       },
       "streetAddress": "Onkologie",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:39:53.277Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2884.umantis.com/vacancies/830/description/1"
+      "validThrough": "2026-12-21T21:29:41.139Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "nsn-medical-dc64a1cfd5c3",
@@ -695,7 +689,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/836/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:39:52.683Z",
+      "crawledAt": "2026-11-21T21:29:40.500Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -753,9 +747,8 @@
       },
       "streetAddress": "Onkologie",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:39:52.683Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2884.umantis.com/vacancies/836/description/1"
+      "validThrough": "2026-12-21T21:29:40.500Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "nsn-medical-e0036e41ee60",
@@ -789,7 +782,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/841/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:39:52.204Z",
+      "crawledAt": "2026-11-21T21:29:39.676Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -835,9 +828,8 @@
       },
       "streetAddress": "Onkologie",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T21:39:52.204Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2884.umantis.com/vacancies/841/description/1"
+      "validThrough": "2026-12-22T21:29:39.676Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "nsn-medical-ad0a666e3083",
@@ -871,7 +863,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/843/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:39:51.605Z",
+      "crawledAt": "2026-11-21T21:29:38.976Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -926,9 +918,81 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:39:51.605Z",
+      "validThrough": "2027-01-28T21:29:38.976Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "nsn-medical-1bb16e2ff4dd",
+      "slug": "medizinische-r-praxisassistent-in-100-winterthur-nsn-medical-onkologie",
+      "slugByLocale": {
+        "de": "medizinische-r-praxisassistent-in-100-winterthur-nsn-medical-onkologie",
+        "it": "medizinische-r-praxisassistent-in-100-winterthur-nsn-medical-onkologie",
+        "en": "medizinische-r-praxisassistent-in-100-winterthur-nsn-medical-onkologie",
+        "fr": "medizinische-r-praxisassistent-in-100-winterthur-nsn-medical-onkologie"
+      },
+      "company": "NSN Medical Group",
+      "companyKey": "nsn-medical",
+      "companyDomain": "nsn.ch",
+      "title": "Medizinische/r Praxisassistent/in (100%) – Winterthur",
+      "titleByLocale": {
+        "de": "Medizinische/r Praxisassistent/in (100%) – Winterthur",
+        "it": "Medizinische/r Praxisassistent/in (100%) – Winterthur",
+        "en": "Medizinische/r Praxisassistent/in (100%) – Winterthur",
+        "fr": "Medizinische/r Praxisassistent/in (100%) – Winterthur"
+      },
+      "description": "Das sind wir :\nWir begleiten Menschen mit Tumor- und Blutkrankheiten ganzheitlich – medizinisch, therapeutisch und menschlich. Unser Ansatz verbindet moderne Schulmedizin mit komplementären Therapien und stellt den Menschen konsequent in den Mittelpunkt. An unseren Standorten in Zürich, Winterthur, Uster und Glarus arbeiten wir interdisziplinär, respektvoll und auf Augenhöhe. Wir schaffen ein Umfeld, in dem Qualität, Zeit und Menschlichkeit nicht nur Worte sind, sondern täglich gelebt werden. Möchtest du eine Aufgabe, bei der du dein Organisationstalent einbringen und gleichzeitig Menschen in einer anspruchsvollen Lebenssituation begleiten kannst? Dann bist du bei uns genau richtig.\nZur Verstärkung unseres Teams in Winterthur suchen wir per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als\n\nMedizinische/r Praxisassistent/in (100%) – Winterthur\n\nDein Arbeitsalltag:\n\n• Du bist die erste Ansprechperson für unsere Patientinnen und Patienten und sorgst für eine vertrauensvolle Atmosphäre\n• Du organisierst und koordinierst den Praxisalltag effizient und vorausschauend\n• Du unterstützt unsere Ärztinnen und Ärzte aktiv in den Sprechstunden\n• Du führst eigenständig Labordiagnostik durch\n• Du setzt ärztliche Anordnungen zuverlässig um\n• Du übernimmst das Telefonmanagement und koordinierst Termine professionell\n• Du erledigst administrative Aufgaben und sorgst für eine saubere Dokumentation\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als MPA oder FaGe\n• Berufserfahrung im medizinischen Umfeld von Vorteil\n• Sicherer Umgang mit MS Office (Praxissoftware-Kenntnisse sind ein Plus)\n• Freude am Umgang mit Menschen und ein hohes Einfühlungsvermögen\n• Strukturierte, selbstständige und verantwortungsbewusste Arbeitsweise\n• Sehr gute Deutschkenntnisse in Wort und Schrift\nDeine Persönlichkeit:\n• Freundlich, empathisch und serviceorientiert\n• Zuverlässig und gut organisiert\n• Teamfähig und flexibel\n• Gepflegtes Auftreten mit positiver Ausstrahlung\n\nDas bieten wir dir:\n\n• Eine sinnstiftende Tätigkeit in einem zukunftsorientierten medizinischen Umfeld\n• Moderne Praxisräume und ein angenehmes Arbeitsumfeld\n• Flexible Arbeitszeiten für eine gute Work-Life-Balance\n• Die Möglichkeit, dich aktiv einzubringen und den Praxisalltag mitzugestalten\n• Ein spannender Mix aus Schulmedizin und komplementären Therapieansätzen",
+      "descriptionByLocale": {
+        "de": "Das sind wir :\nWir begleiten Menschen mit Tumor- und Blutkrankheiten ganzheitlich – medizinisch, therapeutisch und menschlich. Unser Ansatz verbindet moderne Schulmedizin mit komplementären Therapien und stellt den Menschen konsequent in den Mittelpunkt. An unseren Standorten in Zürich, Winterthur, Uster und Glarus arbeiten wir interdisziplinär, respektvoll und auf Augenhöhe. Wir schaffen ein Umfeld, in dem Qualität, Zeit und Menschlichkeit nicht nur Worte sind, sondern täglich gelebt werden. Möchtest du eine Aufgabe, bei der du dein Organisationstalent einbringen und gleichzeitig Menschen in einer anspruchsvollen Lebenssituation begleiten kannst? Dann bist du bei uns genau richtig.\nZur Verstärkung unseres Teams in Winterthur suchen wir per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als\n\nMedizinische/r Praxisassistent/in (100%) – Winterthur\n\nDein Arbeitsalltag:\n\n• Du bist die erste Ansprechperson für unsere Patientinnen und Patienten und sorgst für eine vertrauensvolle Atmosphäre\n• Du organisierst und koordinierst den Praxisalltag effizient und vorausschauend\n• Du unterstützt unsere Ärztinnen und Ärzte aktiv in den Sprechstunden\n• Du führst eigenständig Labordiagnostik durch\n• Du setzt ärztliche Anordnungen zuverlässig um\n• Du übernimmst das Telefonmanagement und koordinierst Termine professionell\n• Du erledigst administrative Aufgaben und sorgst für eine saubere Dokumentation\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als MPA oder FaGe\n• Berufserfahrung im medizinischen Umfeld von Vorteil\n• Sicherer Umgang mit MS Office (Praxissoftware-Kenntnisse sind ein Plus)\n• Freude am Umgang mit Menschen und ein hohes Einfühlungsvermögen\n• Strukturierte, selbstständige und verantwortungsbewusste Arbeitsweise\n• Sehr gute Deutschkenntnisse in Wort und Schrift\nDeine Persönlichkeit:\n• Freundlich, empathisch und serviceorientiert\n• Zuverlässig und gut organisiert\n• Teamfähig und flexibel\n• Gepflegtes Auftreten mit positiver Ausstrahlung\n\nDas bieten wir dir:\n\n• Eine sinnstiftende Tätigkeit in einem zukunftsorientierten medizinischen Umfeld\n• Moderne Praxisräume und ein angenehmes Arbeitsumfeld\n• Flexible Arbeitszeiten für eine gute Work-Life-Balance\n• Die Möglichkeit, dich aktiv einzubringen und den Praxisalltag mitzugestalten\n• Ein spannender Mix aus Schulmedizin und komplementären Therapieansätzen",
+        "it": "Das sind wir :\nWir begleiten Menschen mit Tumor- und Blutkrankheiten ganzheitlich – medizinisch, therapeutisch und menschlich. Unser Ansatz verbindet moderne Schulmedizin mit komplementären Therapien und stellt den Menschen konsequent in den Mittelpunkt. An unseren Standorten in Zürich, Winterthur, Uster und Glarus arbeiten wir interdisziplinär, respektvoll und auf Augenhöhe. Wir schaffen ein Umfeld, in dem Qualität, Zeit und Menschlichkeit nicht nur Worte sind, sondern täglich gelebt werden. Möchtest du eine Aufgabe, bei der du dein Organisationstalent einbringen und gleichzeitig Menschen in einer anspruchsvollen Lebenssituation begleiten kannst? Dann bist du bei uns genau richtig.\nZur Verstärkung unseres Teams in Winterthur suchen wir per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als\n\nMedizinische/r Praxisassistent/in (100%) – Winterthur\n\nDein Arbeitsalltag:\n\n• Du bist die erste Ansprechperson für unsere Patientinnen und Patienten und sorgst für eine vertrauensvolle Atmosphäre\n• Du organisierst und koordinierst den Praxisalltag effizient und vorausschauend\n• Du unterstützt unsere Ärztinnen und Ärzte aktiv in den Sprechstunden\n• Du führst eigenständig Labordiagnostik durch\n• Du setzt ärztliche Anordnungen zuverlässig um\n• Du übernimmst das Telefonmanagement und koordinierst Termine professionell\n• Du erledigst administrative Aufgaben und sorgst für eine saubere Dokumentation\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als MPA oder FaGe\n• Berufserfahrung im medizinischen Umfeld von Vorteil\n• Sicherer Umgang mit MS Office (Praxissoftware-Kenntnisse sind ein Plus)\n• Freude am Umgang mit Menschen und ein hohes Einfühlungsvermögen\n• Strukturierte, selbstständige und verantwortungsbewusste Arbeitsweise\n• Sehr gute Deutschkenntnisse in Wort und Schrift\nDeine Persönlichkeit:\n• Freundlich, empathisch und serviceorientiert\n• Zuverlässig und gut organisiert\n• Teamfähig und flexibel\n• Gepflegtes Auftreten mit positiver Ausstrahlung\n\nDas bieten wir dir:\n\n• Eine sinnstiftende Tätigkeit in einem zukunftsorientierten medizinischen Umfeld\n• Moderne Praxisräume und ein angenehmes Arbeitsumfeld\n• Flexible Arbeitszeiten für eine gute Work-Life-Balance\n• Die Möglichkeit, dich aktiv einzubringen und den Praxisalltag mitzugestalten\n• Ein spannender Mix aus Schulmedizin und komplementären Therapieansätzen",
+        "en": "Das sind wir :\nWir begleiten Menschen mit Tumor- und Blutkrankheiten ganzheitlich – medizinisch, therapeutisch und menschlich. Unser Ansatz verbindet moderne Schulmedizin mit komplementären Therapien und stellt den Menschen konsequent in den Mittelpunkt. An unseren Standorten in Zürich, Winterthur, Uster und Glarus arbeiten wir interdisziplinär, respektvoll und auf Augenhöhe. Wir schaffen ein Umfeld, in dem Qualität, Zeit und Menschlichkeit nicht nur Worte sind, sondern täglich gelebt werden. Möchtest du eine Aufgabe, bei der du dein Organisationstalent einbringen und gleichzeitig Menschen in einer anspruchsvollen Lebenssituation begleiten kannst? Dann bist du bei uns genau richtig.\nZur Verstärkung unseres Teams in Winterthur suchen wir per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als\n\nMedizinische/r Praxisassistent/in (100%) – Winterthur\n\nDein Arbeitsalltag:\n\n• Du bist die erste Ansprechperson für unsere Patientinnen und Patienten und sorgst für eine vertrauensvolle Atmosphäre\n• Du organisierst und koordinierst den Praxisalltag effizient und vorausschauend\n• Du unterstützt unsere Ärztinnen und Ärzte aktiv in den Sprechstunden\n• Du führst eigenständig Labordiagnostik durch\n• Du setzt ärztliche Anordnungen zuverlässig um\n• Du übernimmst das Telefonmanagement und koordinierst Termine professionell\n• Du erledigst administrative Aufgaben und sorgst für eine saubere Dokumentation\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als MPA oder FaGe\n• Berufserfahrung im medizinischen Umfeld von Vorteil\n• Sicherer Umgang mit MS Office (Praxissoftware-Kenntnisse sind ein Plus)\n• Freude am Umgang mit Menschen und ein hohes Einfühlungsvermögen\n• Strukturierte, selbstständige und verantwortungsbewusste Arbeitsweise\n• Sehr gute Deutschkenntnisse in Wort und Schrift\nDeine Persönlichkeit:\n• Freundlich, empathisch und serviceorientiert\n• Zuverlässig und gut organisiert\n• Teamfähig und flexibel\n• Gepflegtes Auftreten mit positiver Ausstrahlung\n\nDas bieten wir dir:\n\n• Eine sinnstiftende Tätigkeit in einem zukunftsorientierten medizinischen Umfeld\n• Moderne Praxisräume und ein angenehmes Arbeitsumfeld\n• Flexible Arbeitszeiten für eine gute Work-Life-Balance\n• Die Möglichkeit, dich aktiv einzubringen und den Praxisalltag mitzugestalten\n• Ein spannender Mix aus Schulmedizin und komplementären Therapieansätzen",
+        "fr": "Das sind wir :\nWir begleiten Menschen mit Tumor- und Blutkrankheiten ganzheitlich – medizinisch, therapeutisch und menschlich. Unser Ansatz verbindet moderne Schulmedizin mit komplementären Therapien und stellt den Menschen konsequent in den Mittelpunkt. An unseren Standorten in Zürich, Winterthur, Uster und Glarus arbeiten wir interdisziplinär, respektvoll und auf Augenhöhe. Wir schaffen ein Umfeld, in dem Qualität, Zeit und Menschlichkeit nicht nur Worte sind, sondern täglich gelebt werden. Möchtest du eine Aufgabe, bei der du dein Organisationstalent einbringen und gleichzeitig Menschen in einer anspruchsvollen Lebenssituation begleiten kannst? Dann bist du bei uns genau richtig.\nZur Verstärkung unseres Teams in Winterthur suchen wir per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als\n\nMedizinische/r Praxisassistent/in (100%) – Winterthur\n\nDein Arbeitsalltag:\n\n• Du bist die erste Ansprechperson für unsere Patientinnen und Patienten und sorgst für eine vertrauensvolle Atmosphäre\n• Du organisierst und koordinierst den Praxisalltag effizient und vorausschauend\n• Du unterstützt unsere Ärztinnen und Ärzte aktiv in den Sprechstunden\n• Du führst eigenständig Labordiagnostik durch\n• Du setzt ärztliche Anordnungen zuverlässig um\n• Du übernimmst das Telefonmanagement und koordinierst Termine professionell\n• Du erledigst administrative Aufgaben und sorgst für eine saubere Dokumentation\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung als MPA oder FaGe\n• Berufserfahrung im medizinischen Umfeld von Vorteil\n• Sicherer Umgang mit MS Office (Praxissoftware-Kenntnisse sind ein Plus)\n• Freude am Umgang mit Menschen und ein hohes Einfühlungsvermögen\n• Strukturierte, selbstständige und verantwortungsbewusste Arbeitsweise\n• Sehr gute Deutschkenntnisse in Wort und Schrift\nDeine Persönlichkeit:\n• Freundlich, empathisch und serviceorientiert\n• Zuverlässig und gut organisiert\n• Teamfähig und flexibel\n• Gepflegtes Auftreten mit positiver Ausstrahlung\n\nDas bieten wir dir:\n\n• Eine sinnstiftende Tätigkeit in einem zukunftsorientierten medizinischen Umfeld\n• Moderne Praxisräume und ein angenehmes Arbeitsumfeld\n• Flexible Arbeitszeiten für eine gute Work-Life-Balance\n• Die Möglichkeit, dich aktiv einzubringen und den Praxisalltag mitzugestalten\n• Ein spannender Mix aus Schulmedizin und komplementären Therapieansätzen"
+      },
+      "needsRetranslation": true,
+      "location": "Onkologie",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2884.umantis.com/Vacancies/844/Description/1",
+      "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-21T21:29:38.315Z",
+      "addressLocality": "Onkologie",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Sanità / Ospedali",
+      "department": "MPA/Arztsekretariat",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-20",
+      "postedDate": "2026-11-20",
+      "postingDateSource": "reported",
+      "applyUrl": "https://recruitingapp-2884.umantis.com/Vacancies/844/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Onkologie",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-18T21:29:38.315Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2884.umantis.com/vacancies/843/description/1"
+      "firstSeenAt": "2026-11-21T21:29:38.315Z"
     }
   ]
 }
