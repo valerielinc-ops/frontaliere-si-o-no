@@ -403,6 +403,14 @@ export function evaluateSamplingHistory(entries, timeframe) {
     if (!kind) continue;
     const actionType = entry?.action?.type;
     const method = entry?.raw?.method;
+    const hasActionType = typeof actionType === 'string' && actionType.length > 0;
+    const hasMethod = typeof method === 'string' && method.length > 0;
+    if (!hasActionType && !hasMethod) {
+      // A recognized Worker resource without either operation classifier cannot
+      // prove that it was only a read. Do not silently omit a possible change.
+      blockers.push(`${kind}:ambiguous-operation`);
+      continue;
+    }
     const isMutation = ['create', 'update', 'delete'].includes(actionType)
       || ['POST', 'PUT', 'PATCH', 'DELETE'].includes(method);
     if (!isMutation || entry?.action?.result === 'failure') continue;
@@ -485,10 +493,18 @@ async function collectSamplingHistory(timeframe) {
     }
     entries.push(...json.result);
     pages += 1;
-    const nextCursor = json.result_info?.cursor ?? null;
-    if (!nextCursor) {
+    const resultInfo = json.result_info;
+    if (!resultInfo || typeof resultInfo !== 'object'
+      || !Object.hasOwn(resultInfo, 'cursor')) {
+      throw new Error('audit-logs pagination metadata is missing its cursor');
+    }
+    const nextCursor = resultInfo.cursor;
+    if (nextCursor === null) {
       cursor = null;
       continue;
+    }
+    if (typeof nextCursor !== 'string' || nextCursor.length === 0) {
+      throw new Error('audit-logs pagination returned an invalid cursor');
     }
     if (seenCursors.has(nextCursor)) throw new Error('audit-logs pagination returned a repeated cursor');
     seenCursors.add(nextCursor);
