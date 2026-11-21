@@ -378,6 +378,10 @@ describe('active job aliases in the IT /job-canon publishing leg', () => {
         fr: ['legacy-fr-v1'],
       },
     }),
+    job('transferred-locale-route', 'ZH', {
+      it: 'transfer-current-it', en: 'transfer-current-en',
+      de: 'transfer-current-de', fr: 'transfer-current-fr',
+    }, { previousSlugsByLocale: { en: ['transfer-old-en'] } }),
     job('cross-bucket-projection', 'AG', {
       it: 'cross-bucket-current-it', en: 'cross-bucket-current-en',
       de: 'cross-bucket-current-de', fr: 'cross-bucket-current-fr',
@@ -639,6 +643,12 @@ ${duplicateShardEntries.join(',\n')}
     for (const [slug, locale, target] of cases) {
       expect(readEntry(slug)?.alias?.[locale]).toBe(target);
     }
+  });
+
+  it('publishes a transferred locale route as an alias in the matching v1 and v2 shards', () => {
+    const entry = readEntry('transfer-old-en');
+    expect(entry?.alias?.en).toBe('/en/find-jobs-zurich/transfer-current-en');
+    expect(readV2Entry('transfer-old-en')).toEqual(entry);
   });
 
   it('projects active aliases into the bucket that owns each previous slug', () => {
