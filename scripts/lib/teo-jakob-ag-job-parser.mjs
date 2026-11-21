@@ -86,7 +86,8 @@ export function isTeoJakobAgJob(job) {
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === TEO_JAKOB_AG_COMPANY_DOMAIN;
+    return host === TEO_JAKOB_AG_COMPANY_DOMAIN
+      || host.endsWith('.' + TEO_JAKOB_AG_COMPANY_DOMAIN);
   } catch {
     return false;
   }
