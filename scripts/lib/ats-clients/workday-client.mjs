@@ -601,7 +601,7 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
         // terminal 429 there too, so the next detail remains behind Retry-After.
         if (err instanceof WorkdayRateLimitError) throw err;
         if (observeRateLimit(err)) throw rateLimitError(url, err);
-        if (Number(err?.statusCode ?? err?.status) > 0) rateLimitState.consecutiveRateLimits = 0;
+        rateLimitState.consecutiveRateLimits = 0;
         throw err;
       }
     };
@@ -1126,12 +1126,16 @@ export function fetchWorkdaySidebarText(apiBase, stripHtml, options = {}) {
   if (!apiBase || typeof stripHtml !== 'function') return Promise.resolve('');
   const key = String(apiBase).replace(/\/+$/, '');
   if (!workdaySidebarCache.has(key)) {
-    workdaySidebarCache.set(key, fetchWorkdayJobDetail(key, '/sidebar', options)
+    const pending = fetchWorkdayJobDetail(key, '/sidebar', options)
       .then((entries) => formatWorkdaySidebarText(entries, stripHtml))
       .catch((err) => {
-        if (err instanceof WorkdayRateLimitError) throw err;
+        if (err instanceof WorkdayRateLimitError) {
+          if (workdaySidebarCache.get(key) === pending) workdaySidebarCache.delete(key);
+          throw err;
+        }
         return '';
-      }));
+      });
+    workdaySidebarCache.set(key, pending);
   }
   return workdaySidebarCache.get(key);
 }

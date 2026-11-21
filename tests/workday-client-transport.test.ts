@@ -18,6 +18,7 @@ import {
   fetchWorkdayJobDetail,
   fetchWorkdayJsonWithRetry,
   fetchWorkdayJobs,
+  fetchWorkdaySidebarText,
   resetWorkdayImplicitRateLimitStateForTests,
   WorkdayApiError,
   WorkdayRateLimitError,
@@ -394,6 +395,64 @@ describe('Workday JSON transport', () => {
       expect(browserFallback).not.toHaveBeenCalled();
     } finally {
       await context.close();
+      vi.useRealTimers();
+    }
+  });
+
+  it('does not treat a connection failure as a consecutive rate limit', async () => {
+    const directFetch = vi.fn()
+      .mockResolvedValueOnce(new Response('', { status: 429 }))
+      .mockRejectedValueOnce(new TypeError('fetch failed'))
+      .mockResolvedValueOnce(new Response('', { status: 429 }));
+    vi.stubGlobal('fetch', directFetch);
+    const context = createWorkdayRequestContext(API_BASE, {
+      browserFallback: null,
+      fallbackCooldownMs: 0,
+      rateLimitCircuitThreshold: 2,
+    });
+
+    try {
+      await expect(context.request(`${API_BASE}/job/Zurich/First_R1`, { retries: 0 }))
+        .rejects.toMatchObject({
+          name: 'WorkdayRateLimitError',
+          consecutiveFailures: 1,
+          circuitOpen: false,
+        });
+      await expect(context.request(`${API_BASE}/job/Zurich/Second_R2`, { retries: 0 }))
+        .rejects.toBeInstanceOf(WorkdayApiError);
+      await expect(context.request(`${API_BASE}/job/Zurich/Third_R3`, { retries: 0 }))
+        .rejects.toMatchObject({
+          name: 'WorkdayRateLimitError',
+          consecutiveFailures: 1,
+          circuitOpen: false,
+        });
+    } finally {
+      await context.close();
+    }
+  });
+
+  it('evicts a rate-limited sidebar promise before retrying after cooldown', async () => {
+    vi.useFakeTimers();
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
+    const sidebarBase = `${API_BASE}/sidebar-cache-retry`;
+    const directFetch = vi.fn()
+      .mockResolvedValueOnce(new Response('', { status: 429 }))
+      .mockResolvedValueOnce(new Response(JSON.stringify([
+        { type: 'TEXT', title: 'About', text: 'Recovered' },
+      ]), { status: 200 }));
+    vi.stubGlobal('fetch', directFetch);
+    const options = { browserFallback: null, fallbackCooldownMs: 5 };
+
+    try {
+      await expect(fetchWorkdaySidebarText(sidebarBase, (html) => html, options))
+        .rejects.toBeInstanceOf(WorkdayRateLimitError);
+      const second = fetchWorkdaySidebarText(sidebarBase, (html) => html, options);
+      await vi.advanceTimersByTimeAsync(4);
+      expect(directFetch).toHaveBeenCalledOnce();
+      await vi.advanceTimersByTimeAsync(1);
+      await expect(second).resolves.toBe('About\n\nRecovered');
+      expect(directFetch).toHaveBeenCalledTimes(2);
+    } finally {
       vi.useRealTimers();
     }
   });
