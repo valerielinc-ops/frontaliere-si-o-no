@@ -945,7 +945,6 @@ export const LIVE_DATA_PARTIAL_TESTS = Object.freeze([
   { file: "tests/ga4-engagement-reliability.test.ts", roots: ["data/ai-channel-history.jsonl"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: 'tests/translation-coverage-monitor.test.ts', roots: ['data/translation-stats-history.json'], since: '2026-10-15', evidence: 'review', runtime: true },
   { file: "tests/job-cross-locale-guard.test.ts", roots: ["data/jobs.json"], since: "2026-09-19", evidence: "review", runtime: true },
-  { file: "tests/jobs-sitemap-filters.test.ts", roots: ["data/jobs.json"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/loop-l2-demand-utility.test.ts", roots: ["data/gsc-orphan-queries-clusters.json"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/migrate-prospected-slugs.test.ts", roots: ["data/jobs/"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/newsletter-dynamic-metrics.test.ts", roots: ["data/health-premiums/", "public/data/"], since: "2026-09-19", evidence: "review", runtime: true },
