@@ -117,6 +117,7 @@ function sourceGeography(tile = {}, posting = {}) {
   const candidates = addressCandidates(posting);
   const sourceCandidates = candidates || [{}];
   const matches = [];
+  const matchingAddressKeys = new Set();
 
   for (const address of sourceCandidates) {
     const candidateCity = normalizeSpace(address.addressLocality || '');
@@ -125,8 +126,14 @@ function sourceGeography(tile = {}, posting = {}) {
     if (listingPostal && candidatePostal && listingPostal !== candidatePostal) continue;
     const addressLocality = listingCity || candidateCity;
     const addressCountry = normalizeSpace(address.addressCountry || tile.country || '');
+    const sourceAddressKey = JSON.stringify({
+      addressLocality: candidateCity,
+      addressRegion: normalizeSpace(address.addressRegion || ''),
+      postalCode: candidatePostal,
+      streetAddress: normalizeSpace(address.streetAddress || ''),
+    });
     const evidence = {
-      location: normalizeSpace([addressLocality, addressCountry].filter(Boolean).join(', ')),
+      location: addressLocality,
       addressLocality,
       addressRegion: normalizeSpace(address.addressRegion || ''),
       addressCountry,
@@ -136,9 +143,13 @@ function sourceGeography(tile = {}, posting = {}) {
     };
     const resolved = resolveSourceBackedSwissGeography(evidence);
     if (!resolved) continue;
+    matchingAddressKeys.add(sourceAddressKey);
     matches.push(sourceBackedSwissGeographyFields(evidence, resolved));
   }
 
+  if (matchingAddressKeys.size > 1) {
+    throw new Error('Teo Jakob AG jobLocation is ambiguous');
+  }
   const distinct = new Map(matches.map((candidate) => [JSON.stringify({
     addressLocality: candidate.addressLocality,
     addressRegion: candidate.addressRegion,
