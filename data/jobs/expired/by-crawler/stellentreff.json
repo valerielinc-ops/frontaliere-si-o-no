@@ -472,7 +472,7 @@
     "slugByLocale": {
       "it": "polimeccanica-produzione-cnc-in-una-squadra-collegiale-stellentreff-ag-appenzell-appenzell-innerrhoden",
       "en": "polymechanic-cnc-production-in-a-collegial-team-stellentreff-ag-appenzell-appenzell-innerrhoden",
-      "de": "polymechaniker-in-cnc-fertigung-in-kollegialem-team-appenzell-appenzell-innerrhoden",
+      "de": "polymechaniker-in-cnc-fertigung-in-kollegialem-team-appenzell-appenzell-innerrhoden-fdeda2f1",
       "fr": "polymecanique-production-cnc-dans-une-equipe-collegiale-stellentreff-ag-appenzell-appenzell-innerrhoden"
     },
     "sector": "Altro",
@@ -500,8 +500,8 @@
     "sourceIdentity": "url:https://www.stellentreff.ch/stellen/polymechaniker-in-cnc-fertigung-appenzell-dauerstelle-116525",
     "firstSeenAt": "2026-09-28T21:42:32.449Z",
     "previousSlugs": [
-      "polymechaniker-in-cnc-fertigung-in-kollegialem-team-appenzell-appenzell-innerrhoden",
-      "polymechaniker-in-cnc-fertigung-in-kollegialem-team-appenzell-appenzell-innerrhoden-fdeda2f1"
+      "polymechaniker-in-cnc-fertigung-in-kollegialem-team-appenzell-appenzell-innerrhoden-fdeda2f1",
+      "polymechaniker-in-cnc-fertigung-in-kollegialem-team-appenzell-appenzell-innerrhoden"
     ]
   },
   {
@@ -83507,9 +83507,9 @@
     "sourceIdentity": "url:https://www.stellentreff.ch/stellen/maler-in-willisau-temporaer-114984",
     "firstSeenAt": "2026-09-08T14:02:01.190Z",
     "previousSlugs": [
+      "maler-in-per-kundenmalerei-e-fassaden-stellentreff-ag-willisau-4d394dd5",
       "maler-in-fur-kundenmalerei-und-fassaden-willisau-luzern-stellentreff-ch",
-      "maler-in-per-kundenmalerei-e-fassaden-stellentreff-ag-willisau",
-      "maler-in-per-kundenmalerei-e-fassaden-stellentreff-ag-willisau-4d394dd5"
+      "maler-in-per-kundenmalerei-e-fassaden-stellentreff-ag-willisau"
     ]
   },
   {
@@ -105740,23 +105740,26 @@
     "slugByLocale": {
       "it": "giardinieri-lavoratori-ausiliari-con-esperienza-in-nuovi-impianti-stellentreff-ag-sursee-luzern",
       "en": "gardeners-auxiliary-workers-with-experience-in-new-plants-stellentreff-ag-sursee-luzern",
-      "de": "gartner-in-hilfsarbeiter-in-mit-erfahrung-in-neuanlagen-sursee-luzern-stellentreff-ch",
+      "de": "gartner-in-hilfsarbeiter-in-mit-erfahrung-in-neuanlagen-sursee-luzern-stellentreff-ch-d56290f0",
       "fr": "jardiniers-ouvriers-auxiliaires-ayant-de-l-experience-dans-les-nouvelles-plantes-stellentreff-ag-sursee-luzern"
     },
     "sector": "Altro",
     "expiredAt": "2026-09-21T16:00:58.985Z",
-    "previousSlugs": [
-      "gartner-in-hilfsarbeiter-in-mit-erfahrung-in-neuanlagen-sursee-luzern-stellentreff-ch"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "gartner-in-hilfsarbeiter-in-mit-erfahrung-in-neuanlagen-sursee-luzern-stellentreff-ch-d56290f0",
         "gartner-in-hilfsarbeiter-in-mit-erfahrung-in-neuanlagen-sursee-luzern-stellentreff-ch"
       ],
       "en": [
+        "gartner-in-hilfsarbeiter-in-mit-erfahrung-in-neuanlagen-sursee-luzern-stellentreff-ch-d56290f0",
         "gartner-in-hilfsarbeiter-in-mit-erfahrung-in-neuanlagen-sursee-luzern-stellentreff-ch"
       ],
       "fr": [
+        "gartner-in-hilfsarbeiter-in-mit-erfahrung-in-neuanlagen-sursee-luzern-stellentreff-ch-d56290f0",
         "gartner-in-hilfsarbeiter-in-mit-erfahrung-in-neuanlagen-sursee-luzern-stellentreff-ch"
+      ],
+      "de": [
+        "gartner-in-hilfsarbeiter-in-mit-erfahrung-in-neuanlagen-sursee-luzern-stellentreff-ch-d56290f0"
       ]
     },
     "salaryMin": 69500,
@@ -105764,7 +105767,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.stellentreff.ch/stellen/gaertner-in-hilfsarbeiter-in-sursee-temporaer-113816",
-    "firstSeenAt": "2026-09-08T14:02:01.125Z"
+    "firstSeenAt": "2026-09-08T14:02:01.125Z",
+    "previousSlugs": [
+      "gartner-in-hilfsarbeiter-in-mit-erfahrung-in-neuanlagen-sursee-luzern-stellentreff-ch"
+    ]
   },
   {
     "slug": "giardinieri-lavoratori-ausiliari-con-incarichi-flessibili-stellentreff-ag-hochdorf-luzern",

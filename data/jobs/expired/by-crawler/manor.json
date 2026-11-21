@@ -5444,12 +5444,12 @@
     "sector": "",
     "expiredAt": "2026-11-20T07:12:39.194Z",
     "previousSlugs": [
-      "collaborateur-trice-caisse-supermarche-50-manor-ag-vevey",
       "cashier-supermarket-50-manor-ag-vevey-5a1414",
       "kassier-in-supermarkt-50-manor-ag-vevey",
       "6-millions-d-euros-pour-la-construction-d-une-nouvelle-infrastructure-pour-la-construction-d-une-nouvelle-infrastructure",
       "kollaborateur-trice-caisse-supermarche-50-manor-ag-vevey",
-      "collaborateur-couche-caisse-supermarche-50-manor-ag-vevey"
+      "collaborateur-couche-caisse-supermarche-50-manor-ag-vevey",
+      "collaborateur-trice-caisse-supermarche-50-manor-ag-vevey-9bb9ad73"
     ],
     "previousSlugsByLocale": {
       "en": [
@@ -5462,9 +5462,12 @@
         "kollaborateur-trice-caisse-supermarche-50-manor-ag-vevey"
       ],
       "fr": [
-        "collaborateur-trice-caisse-supermarche-50-manor-ag-vevey",
+        "collaborateur-trice-caisse-supermarche-50-manor-ag-vevey-9bb9ad73",
         "6-millions-d-euros-pour-la-construction-d-une-nouvelle-infrastructure-pour-la-construction-d-une-nouvelle-infrastructure",
         "collaborateur-couche-caisse-supermarche-50-manor-ag-vevey"
+      ],
+      "it": [
+        "collaborateur-trice-caisse-supermarche-50-manor-ag-vevey"
       ]
     },
     "salaryMin": 36000,
@@ -12776,13 +12779,13 @@
     "previousSlugs": [
       "mitarbeiter-in-verkauf-spiel-aren-50-manor-ag-emmen",
       "manor-mitarbeiter-in-verkauf-spielwaren-50-emmen-4af9c4ce",
+      "collaboratore-trice-in-vendita-spielwaren-50-manor-ag-emmen-e802f26a",
+      "mitarbeiter-in-sales-spielwaren-50-manor-ag-emmen-c1a16bc4",
+      "mitarbeiter-in-vente-spielwaren-50-manor-ag-emmen-7b45e421",
       "collaboratore-trice-in-vendita-spielwaren-50-manor-ag-emmen",
       "mitarbeiter-in-sales-spielwaren-50-manor-ag-emmen",
       "mitarbeiter-in-vente-spielwaren-50-manor-ag-emmen",
-      "manor-mitarbeiter-in-verkauf-spielwaren-50-emmen",
-      "collaboratore-trice-in-vendita-spielwaren-50-manor-ag-emmen-e802f26a",
-      "mitarbeiter-in-sales-spielwaren-50-manor-ag-emmen-c1a16bc4",
-      "mitarbeiter-in-vente-spielwaren-50-manor-ag-emmen-7b45e421"
+      "manor-mitarbeiter-in-verkauf-spielwaren-50-emmen"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -24468,116 +24471,6 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "manor-collaborateur-trice-logistique-entree-marchandises-distribution-60-fribourg",
-    "title": "Collaborateur/trice logistique (Entrée Marchandises/distribution) 60%",
-    "titleByLocale": {
-      "it": "Collaborateur/trice logistique (Entrée Marchandises/distribution) 60%"
-    },
-    "company": "Manor AG",
-    "companyKey": "manor",
-    "location": "Fribourg",
-    "addressLocality": "Fribourg",
-    "descriptionByLocale": {
-      "fr": "Logistique, manutention\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente"
-    },
-    "slugByLocale": {
-      "it": "manor-collaborateur-trice-logistique-entree-marchandises-distribution-60-fribourg"
-    },
-    "sector": "",
-    "expiredAt": "2026-11-20T21:36:47.891Z",
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://positions.manor.ch/job/fribourg-collaborateurtrice-logistique-%28entr%c3%a9e-marchandisesdistribution%29-60/1377769955"
-  },
-  {
-    "slug": "manor-collaborateur-trice-vente-bijouterie-etudiant-e-20-geneve",
-    "title": "Collaborateur/trice vente (Bijouterie) Etudiant/e 20%",
-    "titleByLocale": {
-      "it": "Collaborateur/trice vente (Bijouterie) Etudiant/e 20%"
-    },
-    "company": "Manor AG",
-    "companyKey": "manor",
-    "location": "Genève",
-    "addressLocality": "Genève",
-    "descriptionByLocale": {
-      "fr": "Il est demandé un excellent niveau d'anglais.\nexpérience contact client.\nesprit d'équipe.\nFlexible.\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente"
-    },
-    "slugByLocale": {
-      "it": "manor-collaborateur-trice-vente-bijouterie-etudiant-e-20-geneve"
-    },
-    "sector": "",
-    "expiredAt": "2026-11-20T21:36:47.891Z",
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://positions.manor.ch/job/gen%c3%a8ve-1-collaborateurtrice-vente-%28bijouterie%29-etudiante-20/1377764755"
-  },
-  {
-    "slug": "manor-collaborateur-trice-vente-coffrets-smart-wonderbox-80-fribourg",
-    "title": "Collaborateur/trice vente (Coffrets Smart/Wonderbox) 80%",
-    "titleByLocale": {
-      "it": "Collaborateur/trice vente (Coffrets Smart/Wonderbox) 80%"
-    },
-    "company": "Manor AG",
-    "companyKey": "manor",
-    "location": "Fribourg",
-    "addressLocality": "Fribourg",
-    "descriptionByLocale": {
-      "fr": "Polyvalence, facilité de contact\nParler français, allemand et anglais\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente"
-    },
-    "slugByLocale": {
-      "it": "manor-collaborateur-trice-vente-coffrets-smart-wonderbox-80-fribourg"
-    },
-    "sector": "",
-    "expiredAt": "2026-11-20T21:36:47.891Z",
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://positions.manor.ch/job/fribourg-collaborateurtrice-vente-%28coffrets-smartwonderbox%29-80/1377768555"
-  },
-  {
-    "slug": "manor-collaborateur-trice-vente-jouets-25-fribourg",
-    "title": "Collaborateur/trice vente (Jouets) 25%",
-    "titleByLocale": {
-      "it": "Collaborateur/trice vente (Jouets) 25%"
-    },
-    "company": "Manor AG",
-    "companyKey": "manor",
-    "location": "Fribourg",
-    "addressLocality": "Fribourg",
-    "descriptionByLocale": {
-      "fr": "VENTE\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente"
-    },
-    "slugByLocale": {
-      "it": "manor-collaborateur-trice-vente-jouets-25-fribourg"
-    },
-    "sector": "",
-    "expiredAt": "2026-11-20T21:36:47.891Z",
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://positions.manor.ch/job/fribourg-collaborateurtrice-vente-%28jouets%29-25/1377769655"
-  },
-  {
-    "slug": "manor-collaborateur-trice-vente-papeterie-etudiant-e-20-fribourg",
-    "title": "Collaborateur/trice vente (Papeterie) Etudiant/e 20%",
-    "titleByLocale": {
-      "it": "Collaborateur/trice vente (Papeterie) Etudiant/e 20%"
-    },
-    "company": "Manor AG",
-    "companyKey": "manor",
-    "location": "Fribourg",
-    "addressLocality": "Fribourg",
-    "descriptionByLocale": {
-      "fr": "Flexibilité - Sens du contact -\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente"
-    },
-    "slugByLocale": {
-      "it": "manor-collaborateur-trice-vente-papeterie-etudiant-e-20-fribourg"
-    },
-    "sector": "",
-    "expiredAt": "2026-11-20T21:36:47.891Z",
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://positions.manor.ch/job/fribourg-collaborateurtrice-vente-%28papeterie%29-etudiante-20/1377770355"
-  },
-  {
     "slug": "manor-mitarbeiter-in-packlitisch-50-basel",
     "title": "Mitarbeiter*in Päcklitisch 50%",
     "titleByLocale": {
@@ -24604,72 +24497,6 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://positions.manor.ch/job/basel-mitarbeiterin-p%c3%a4cklitisch-50/1376038255"
-  },
-  {
-    "slug": "manor-mitarbeiter-in-spielwaren-40-spreitenbach",
-    "title": "Mitarbeiter*in Spielwaren 40%",
-    "titleByLocale": {
-      "it": "Mitarbeiter*in Spielwaren 40%"
-    },
-    "company": "Manor AG",
-    "companyKey": "manor",
-    "location": "Spreitenbach",
-    "addressLocality": "Spreitenbach",
-    "descriptionByLocale": {
-      "de": "Deutschkenntnisse\n\n## Über Manor\nWas wir unseren Kundinnen und Kunden versprechen, gilt auch für unsere Mitarbeitenden: Bei Manor ist jeder Tag besonders. In unseren Arbeitswelten erlebt man Vielfältigkeit und Abwechslung, und dies in 56 Warenhäusern, 21 Food Märkten, 23 Restaurants, 3 Verteilzentralen sowie am Hauptsitz in Basel.\n\n## Deine Benefits bei Manor\nDen Erfolg von Manor verdanken wir dem Engagement unserer Mitarbeiterinnen und Mitarbeiter. Diesen Einsatz honorieren wir mit attraktiven Angeboten.\n\n**ANSTELLUNGSBEDINGUNGEN** — Wir setzen uns für gute und faire Arbeitsbedingungen ein.\n- Mindestlohn von CHF 4'200\n- 5–7 Wochen Ferien\n- Attraktive Treueprämien alle 5 Dienstjahre\n- Spannende leistungsbezogene Prämien (monatliche Sales Challenges für Mitarbeitende, jährliche Bonus Programme für Kader)\n\n**PERSONALRABATTE** — Für unsere Mitarbeitenden sind wir noch attraktiver.\n- 10–25% Manor Non Food\n- 25% Manora Restaurants\n- 10% Manor Food\n- Spezialrabatte auf Kleidung für Verkaufsmitarbeiter"
-    },
-    "slugByLocale": {
-      "it": "manor-mitarbeiter-in-spielwaren-40-spreitenbach"
-    },
-    "sector": "",
-    "expiredAt": "2026-11-20T21:36:47.891Z",
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://positions.manor.ch/job/spreitenbach-mitarbeiterin-spielwaren-40/1377768955"
-  },
-  {
-    "slug": "manor-mitarbeiter-in-verkauf-spielwaren-10-luzern",
-    "title": "Mitarbeiter*in Verkauf Spielwaren 10%",
-    "titleByLocale": {
-      "it": "Mitarbeiter*in Verkauf Spielwaren 10%"
-    },
-    "company": "Manor AG",
-    "companyKey": "manor",
-    "location": "Luzern",
-    "addressLocality": "Luzern",
-    "descriptionByLocale": {
-      "de": "kommunikativ, offen und Deutsch in Wort und Schrift\n\n## Über Manor\nWas wir unseren Kundinnen und Kunden versprechen, gilt auch für unsere Mitarbeitenden: Bei Manor ist jeder Tag besonders. In unseren Arbeitswelten erlebt man Vielfältigkeit und Abwechslung, und dies in 56 Warenhäusern, 21 Food Märkten, 23 Restaurants, 3 Verteilzentralen sowie am Hauptsitz in Basel.\n\n## Deine Benefits bei Manor\nDen Erfolg von Manor verdanken wir dem Engagement unserer Mitarbeiterinnen und Mitarbeiter. Diesen Einsatz honorieren wir mit attraktiven Angeboten.\n\n**ANSTELLUNGSBEDINGUNGEN** — Wir setzen uns für gute und faire Arbeitsbedingungen ein.\n- Mindestlohn von CHF 4'200\n- 5–7 Wochen Ferien\n- Attraktive Treueprämien alle 5 Dienstjahre\n- Spannende leistungsbezogene Prämien (monatliche Sales Challenges für Mitarbeitende, jährliche Bonus Programme für Kader)\n\n**PERSONALRABATTE** — Für unsere Mitarbeitenden sind wir noch attraktiver.\n- 10–25% Manor Non Food\n- 25% Manora Restaurants\n- 10% Manor Food\n- Spezialrabatte auf Kleidung für Verkaufsmitarbeiter"
-    },
-    "slugByLocale": {
-      "it": "manor-mitarbeiter-in-verkauf-spielwaren-10-luzern"
-    },
-    "sector": "",
-    "expiredAt": "2026-11-20T21:36:47.891Z",
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://positions.manor.ch/job/luzern-mitarbeiterin-verkauf-spielwaren-10/1377766855"
-  },
-  {
-    "slug": "manor-mitarbeiter-in-verkauf-spielwaren-50-emmen",
-    "title": "Mitarbeiter*in Verkauf Spielwaren 50%",
-    "titleByLocale": {
-      "it": "Mitarbeiter*in Verkauf Spielwaren 50%"
-    },
-    "company": "Manor AG",
-    "companyKey": "manor",
-    "location": "Emmen",
-    "addressLocality": "Emmen",
-    "descriptionByLocale": {
-      "de": "kundenorientiert, freundlich, hilfsbereit, teamfähig, speditiv, stressresistent\n\n## Über Manor\nWas wir unseren Kundinnen und Kunden versprechen, gilt auch für unsere Mitarbeitenden: Bei Manor ist jeder Tag besonders. In unseren Arbeitswelten erlebt man Vielfältigkeit und Abwechslung, und dies in 56 Warenhäusern, 21 Food Märkten, 23 Restaurants, 3 Verteilzentralen sowie am Hauptsitz in Basel.\n\n## Deine Benefits bei Manor\nDen Erfolg von Manor verdanken wir dem Engagement unserer Mitarbeiterinnen und Mitarbeiter. Diesen Einsatz honorieren wir mit attraktiven Angeboten.\n\n**ANSTELLUNGSBEDINGUNGEN** — Wir setzen uns für gute und faire Arbeitsbedingungen ein.\n- Mindestlohn von CHF 4'200\n- 5–7 Wochen Ferien\n- Attraktive Treueprämien alle 5 Dienstjahre\n- Spannende leistungsbezogene Prämien (monatliche Sales Challenges für Mitarbeitende, jährliche Bonus Programme für Kader)\n\n**PERSONALRABATTE** — Für unsere Mitarbeitenden sind wir noch attraktiver.\n- 10–25% Manor Non Food\n- 25% Manora Restaurants\n- 10% Manor Food\n- Spezialrabatte auf Kleidung für Verkaufsmitarbeiter"
-    },
-    "slugByLocale": {
-      "it": "manor-mitarbeiter-in-verkauf-spielwaren-50-emmen"
-    },
-    "sector": "",
-    "expiredAt": "2026-11-20T21:36:47.891Z",
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://positions.manor.ch/job/emmen-mitarbeiterin-verkauf-spielwaren-50/1377769755"
   },
   {
     "slug": "manor-store-manager-100-pfaffikon",
@@ -24702,138 +24529,6 @@
         "title": "Store Manager 100%"
       }
     ]
-  },
-  {
-    "slug": "manor-collaborateur-trice-supermarche-food-30-fribourg",
-    "title": "Collaborateur/trice supermarché (Food) 30%",
-    "titleByLocale": {
-      "it": "Collaborateur/trice supermarché (Food) 30%"
-    },
-    "company": "Manor AG",
-    "companyKey": "manor",
-    "location": "Fribourg",
-    "addressLocality": "Fribourg",
-    "descriptionByLocale": {
-      "fr": "ponctuel et disponible principalement le matin\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente"
-    },
-    "slugByLocale": {
-      "it": "manor-collaborateur-trice-supermarche-food-30-fribourg"
-    },
-    "sector": "",
-    "expiredAt": "2026-11-20T21:36:47.890Z",
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://positions.manor.ch/job/fribourg-collaborateurtrice-supermarch%c3%a9-%28food%29-30/1377650155"
-  },
-  {
-    "slug": "manor-junior-buyer-100-basel",
-    "title": "Junior Buyer 100%",
-    "titleByLocale": {
-      "it": "Junior Buyer 100%"
-    },
-    "company": "Manor AG",
-    "companyKey": "manor",
-    "location": "Basel",
-    "addressLocality": "Basel",
-    "descriptionByLocale": {
-      "fr": "Compétences analytiques, sens commercial et intérêt pour l'univers de la beauté. Profil organisé, proactif et rigoureux, doté d'un fort sens des responsabilités et capable de gérer ses priorités de manière autonome. Capacités de communication, approche orientée solutions.\n\n## À propos de Manor\nCe que nous promettons à nos clientes et clients vaut également pour nos collaboratrices et collaborateurs: chez Manor, chaque jour est spécial. Dans nos environnements de travail, on fait l'expérience de la diversité et de la variété, et ce dans 56 grands magasins, 21 supermarchés Manor Food, 23 restaurants Manora, 3 centrales de distribution ainsi qu'au siège principale à Bâle.\n\n## Tes avantages chez Manor\nManor doit sa réussite à l’engagement de son personnel. Nous le récompensons par des offres intéressantes.\n\n**CONDITIONS D’EMPLOI** — Nous nous engageons à offrir des bonnes conditions de travail équitables.\n- Salaire minimum de CHF 4'200\n- 5–7 semaines de congé\n- Primes de fidélité attrayantes tous les 5 ans d’ancienneté\n- Des primes intéressantes basées sur la performance (challenges de vente mensuels pour les employés, système de bonus annuels pour les cadres)\n\n**RABAIS POUR LE PERSONNEL** — Nous sommes encore plus attrayants pour nos collaborateurs.\n- 10-25 % Manor Non Food\n- 25 % restaurants Manora\n- 10 % Manor Food\n- Rabais supplémentaires sur les vêtements pour les collaborateurs de vente"
-    },
-    "slugByLocale": {
-      "it": "manor-junior-buyer-100-basel"
-    },
-    "sector": "",
-    "expiredAt": "2026-11-20T21:36:47.890Z",
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://positions.manor.ch/job/basel-junior-buyer-100/1377662955"
-  },
-  {
-    "slug": "manor-junior-buyer-health-beauty-100-basel",
-    "title": "Junior Buyer (Health & Beauty) 100%",
-    "titleByLocale": {
-      "it": "Junior Buyer (Health & Beauty) 100%"
-    },
-    "company": "Manor AG",
-    "companyKey": "manor",
-    "location": "Basel",
-    "addressLocality": "Basel",
-    "descriptionByLocale": {
-      "de": "Compétences analytiques, sens commercial et intérêt pour l'univers de la beauté. Profil organisé, proactif et rigoureux, doté d'un fort sens des responsabilités et capable de gérer ses priorités de manière autonome. Capacités de communication, approche orientée solutions.\n\n## Über Manor\nWas wir unseren Kundinnen und Kunden versprechen, gilt auch für unsere Mitarbeitenden: Bei Manor ist jeder Tag besonders. In unseren Arbeitswelten erlebt man Vielfältigkeit und Abwechslung, und dies in 56 Warenhäusern, 21 Food Märkten, 23 Restaurants, 3 Verteilzentralen sowie am Hauptsitz in Basel.\n\n## Deine Benefits bei Manor\nDen Erfolg von Manor verdanken wir dem Engagement unserer Mitarbeiterinnen und Mitarbeiter. Diesen Einsatz honorieren wir mit attraktiven Angeboten.\n\n**ANSTELLUNGSBEDINGUNGEN** — Wir setzen uns für gute und faire Arbeitsbedingungen ein.\n- Mindestlohn von CHF 4'200\n- 5–7 Wochen Ferien\n- Attraktive Treueprämien alle 5 Dienstjahre\n- Spannende leistungsbezogene Prämien (monatliche Sales Challenges für Mitarbeitende, jährliche Bonus Programme für Kader)\n\n**PERSONALRABATTE** — Für unsere Mitarbeitenden sind wir noch attraktiver.\n- 10–25% Manor Non Food\n- 25% Manora Restaurants\n- 10% Manor Food\n- Spezialrabatte auf Kleidung für Verkaufsmitarbeiter"
-    },
-    "slugByLocale": {
-      "it": "manor-junior-buyer-health-beauty-100-basel"
-    },
-    "sector": "",
-    "expiredAt": "2026-11-20T21:36:47.890Z",
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://positions.manor.ch/job/basel-junior-buyer-%28health-&-beauty%29-100/1377662855"
-  },
-  {
-    "slug": "manor-leiter-in-supermarkt-100-baden",
-    "title": "Leiter*in Supermarkt 100%",
-    "titleByLocale": {
-      "it": "Leiter*in Supermarkt 100%"
-    },
-    "company": "Manor AG",
-    "companyKey": "manor",
-    "location": "Baden",
-    "addressLocality": "Baden",
-    "descriptionByLocale": {
-      "de": "Detailhandelsfachmann/ Frau\n\n## Über Manor\nWas wir unseren Kundinnen und Kunden versprechen, gilt auch für unsere Mitarbeitenden: Bei Manor ist jeder Tag besonders. In unseren Arbeitswelten erlebt man Vielfältigkeit und Abwechslung, und dies in 56 Warenhäusern, 21 Food Märkten, 23 Restaurants, 3 Verteilzentralen sowie am Hauptsitz in Basel.\n\n## Deine Benefits bei Manor\nDen Erfolg von Manor verdanken wir dem Engagement unserer Mitarbeiterinnen und Mitarbeiter. Diesen Einsatz honorieren wir mit attraktiven Angeboten.\n\n**ANSTELLUNGSBEDINGUNGEN** — Wir setzen uns für gute und faire Arbeitsbedingungen ein.\n- Mindestlohn von CHF 4'200\n- 5–7 Wochen Ferien\n- Attraktive Treueprämien alle 5 Dienstjahre\n- Spannende leistungsbezogene Prämien (monatliche Sales Challenges für Mitarbeitende, jährliche Bonus Programme für Kader)\n\n**PERSONALRABATTE** — Für unsere Mitarbeitenden sind wir noch attraktiver.\n- 10–25% Manor Non Food\n- 25% Manora Restaurants\n- 10% Manor Food\n- Spezialrabatte auf Kleidung für Verkaufsmitarbeiter"
-    },
-    "slugByLocale": {
-      "it": "manor-leiter-in-supermarkt-100-baden"
-    },
-    "sector": "",
-    "expiredAt": "2026-11-20T21:36:47.890Z",
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://positions.manor.ch/job/baden-leiterin-supermarkt-100/1377656855"
-  },
-  {
-    "slug": "manor-logistiker-in-efz-eba-mohlin",
-    "title": "Logistiker*in EFZ / EBA",
-    "titleByLocale": {
-      "it": "Logistiker*in EFZ / EBA"
-    },
-    "company": "Manor AG",
-    "companyKey": "manor",
-    "location": "Möhlin",
-    "addressLocality": "Möhlin",
-    "descriptionByLocale": {
-      "de": "körperlich fit, motiviert\n\n## Über Manor\nWas wir unseren Kundinnen und Kunden versprechen, gilt auch für unsere Mitarbeitenden: Bei Manor ist jeder Tag besonders. In unseren Arbeitswelten erlebt man Vielfältigkeit und Abwechslung, und dies in 56 Warenhäusern, 21 Food Märkten, 23 Restaurants, 3 Verteilzentralen sowie am Hauptsitz in Basel.\n\n## Deine Benefits bei Manor\nDen Erfolg von Manor verdanken wir dem Engagement unserer Mitarbeiterinnen und Mitarbeiter. Diesen Einsatz honorieren wir mit attraktiven Angeboten.\n\n**ANSTELLUNGSBEDINGUNGEN** — Wir setzen uns für gute und faire Arbeitsbedingungen ein.\n- Mindestlohn von CHF 4'200\n- 5–7 Wochen Ferien\n- Attraktive Treueprämien alle 5 Dienstjahre\n- Spannende leistungsbezogene Prämien (monatliche Sales Challenges für Mitarbeitende, jährliche Bonus Programme für Kader)\n\n**PERSONALRABATTE** — Für unsere Mitarbeitenden sind wir noch attraktiver.\n- 10–25% Manor Non Food\n- 25% Manora Restaurants\n- 10% Manor Food\n- Spezialrabatte auf Kleidung für Verkaufsmitarbeiter"
-    },
-    "slugByLocale": {
-      "it": "manor-logistiker-in-efz-eba-mohlin"
-    },
-    "sector": "",
-    "expiredAt": "2026-11-20T21:36:47.890Z",
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://positions.manor.ch/job/m%c3%b6hlin-logistikerin-efz-eba/1364601255"
-  },
-  {
-    "slug": "manor-mitarbeiter-in-logistik-warenausgang-100-hochdorf",
-    "title": "Mitarbeiter*in Logistik Warenausgang 100%",
-    "titleByLocale": {
-      "it": "Mitarbeiter*in Logistik Warenausgang 100%"
-    },
-    "company": "Manor AG",
-    "companyKey": "manor",
-    "location": "Hochdorf",
-    "addressLocality": "Hochdorf",
-    "descriptionByLocale": {
-      "de": "körperlich fit und belastbar.\nBereitschaft für Samstagsarbeit\nDeutsch Kenntnise mind. Niveau B1\nmuss sich zutrauen Fahren von Flurförderfahrzeugen\n\n## Über Manor\nWas wir unseren Kundinnen und Kunden versprechen, gilt auch für unsere Mitarbeitenden: Bei Manor ist jeder Tag besonders. In unseren Arbeitswelten erlebt man Vielfältigkeit und Abwechslung, und dies in 56 Warenhäusern, 21 Food Märkten, 23 Restaurants, 3 Verteilzentralen sowie am Hauptsitz in Basel.\n\n## Deine Benefits bei Manor\nDen Erfolg von Manor verdanken wir dem Engagement unserer Mitarbeiterinnen und Mitarbeiter. Diesen Einsatz honorieren wir mit attraktiven Angeboten.\n\n**ANSTELLUNGSBEDINGUNGEN** — Wir setzen uns für gute und faire Arbeitsbedingungen ein.\n- Mindestlohn von CHF 4'200\n- 5–7 Wochen Ferien\n- Attraktive Treueprämien alle 5 Dienstjahre\n- Spannende leistungsbezogene Prämien (monatliche Sales Challenges für Mitarbeitende, jährliche Bonus Programme für Kader)\n\n**PERSONALRABATTE** — Für unsere Mitarbeitenden sind wir noch attraktiver.\n- 10–25% Manor Non Food\n- 25% Manora Restaurants\n- 10% Manor Food\n- Spezialrabatte auf Kleidung für Verkaufsmitarbeiter"
-    },
-    "slugByLocale": {
-      "it": "manor-mitarbeiter-in-logistik-warenausgang-100-hochdorf"
-    },
-    "sector": "",
-    "expiredAt": "2026-11-20T21:36:47.890Z",
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://positions.manor.ch/job/hochdorf-mitarbeiterin-logistik-warenausgang-100/1359358955"
   },
   {
     "slug": "manor-mitarbeiter-in-verkauf-50-emmen",
