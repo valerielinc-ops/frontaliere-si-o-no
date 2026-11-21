@@ -6755,7 +6755,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T22:00:05.158Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T22:00:05.158Z",
+      "firstSeenAt": "2026-11-19T21:41:55.204Z",
       "sourceIdentity": "url:https://live.solique.ch/ktzh/job/details/4105120",
       "retranslationAttempts": 1
     },
@@ -7290,7 +7290,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T22:00:02.255Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T22:00:02.255Z",
+      "firstSeenAt": "2026-11-19T21:41:52.236Z",
       "sourceIdentity": "url:https://live.solique.ch/ktzh/job/details/4105088"
     },
     {
@@ -10638,7 +10638,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T21:59:44.468Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:59:44.468Z",
+      "firstSeenAt": "2026-11-19T21:41:34.051Z",
       "sourceIdentity": "url:https://live.solique.ch/ktzh/job/details/4105155",
       "previousSlugsByLocale": {
         "en": [
@@ -16480,7 +16480,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-08T22:00:24.762Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-21T16:10:32.534Z"
+      "firstSeenAt": "2026-09-21T16:10:32.534Z",
+      "sourceIdentity": "url:https://live.solique.ch/ktzh/job/details/4083403"
     },
     {
       "id": "kanton-zuerich-e1bd6775ed1d",
@@ -16572,9 +16573,10 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T21:59:47.692Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:59:47.692Z",
+      "firstSeenAt": "2026-11-20T09:58:33.072Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "sourceIdentity": "url:https://live.solique.ch/ktzh/job/details/4105420"
     },
     {
       "id": "kanton-zuerich-88b3b24b18bf",
@@ -16655,7 +16657,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:59:39.698Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-08T13:51:26.443Z"
+      "firstSeenAt": "2026-09-08T13:51:26.443Z",
+      "sourceIdentity": "url:https://live.solique.ch/ktzh/job/details/4101959"
     },
     {
       "id": "kanton-zuerich-4d149115218b",
@@ -16736,7 +16739,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T21:59:30.585Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-22T09:33:37.435Z"
+      "firstSeenAt": "2026-10-22T09:33:37.435Z",
+      "sourceIdentity": "url:https://live.solique.ch/ktzh/job/details/4104606"
     },
     {
       "id": "kanton-zuerich-73b205f7754e",
@@ -16819,7 +16823,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T22:00:30.895Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T22:00:30.895Z"
+      "firstSeenAt": "2026-11-20T22:00:30.895Z",
+      "sourceIdentity": "url:https://live.solique.ch/ktzh/job/details/4105647"
     },
     {
       "id": "kanton-zuerich-9e05efe387c5",
@@ -16906,7 +16911,8 @@
       },
       "previousSlugs": [
         "technology-innovation-architect-kanton-zuerich-zurich"
-      ]
+      ],
+      "sourceIdentity": "url:https://live.solique.ch/ktzh/job/details/4105824"
     },
     {
       "id": "kanton-zuerich-dcb03e0eae48",
@@ -16989,7 +16995,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T22:00:00.380Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-16T21:40:17.805Z"
+      "firstSeenAt": "2026-10-16T21:40:17.805Z",
+      "sourceIdentity": "url:https://live.solique.ch/ktzh/job/details/4105873"
     },
     {
       "id": "kanton-zuerich-9407beaa9d0a",
@@ -17078,7 +17085,8 @@
       },
       "previousSlugs": [
         "praktikum-controlling-kanton-zuerich-zurich-altstetten"
-      ]
+      ],
+      "sourceIdentity": "url:https://live.solique.ch/ktzh/job/details/4105864"
     },
     {
       "id": "kanton-zuerich-fd945a3256ff",
@@ -17161,7 +17169,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T21:59:37.249Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:59:37.249Z"
+      "firstSeenAt": "2026-11-20T21:59:37.249Z",
+      "sourceIdentity": "url:https://live.solique.ch/ktzh/job/details/4105759"
     },
     {
       "id": "kanton-zuerich-6ecd14eabe3e",
@@ -17244,7 +17253,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:59:20.841Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-19T23:06:42.789Z"
+      "firstSeenAt": "2026-09-19T23:06:42.789Z",
+      "sourceIdentity": "url:https://live.solique.ch/ktzh/job/details/4105811"
     }
   ]
 }
