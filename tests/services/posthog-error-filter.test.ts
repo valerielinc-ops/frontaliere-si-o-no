@@ -62,6 +62,11 @@ describe('createExceptionFilter()', () => {
     expect(filter(event)).toBeNull();
   });
 
+  it('drops Firefox add-on dead-object errors (#19706)', () => {
+    const event = makeExceptionEvent("TypeError: can't access dead object");
+    expect(filter(event)).toBeNull();
+  });
+
   it('drops Safari generic "TypeError: Load failed" (transport noise — no actionable source)', () => {
     const event = makeExceptionEvent('TypeError: Load failed');
     expect(filter(event)).toBeNull();

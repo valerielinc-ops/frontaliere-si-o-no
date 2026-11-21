@@ -137,6 +137,9 @@ export const ISSUE_DENY_PATTERNS = [
   // filter drops it at source; deny residual events so the feeder cannot
   // reopen the same non-actionable issue from its trailing query window.
   /No Listener:\s*tabs:outgoing\.message\.ready\b/i,
+  // Firefox add-on DOM references become invalid after navigation; this is
+  // extension noise with no first-party call site (#19706).
+  /can't access dead object/i,
   // Firebase Auth network-request-failed — transient client connectivity (#4174).
   // MUST mirror UNIVERSAL_BENIGN_PATTERNS in services/benignErrorPatterns.ts
   // — parity-pinned by tests/error-issue-sync.test.ts ("deny-list parity").
