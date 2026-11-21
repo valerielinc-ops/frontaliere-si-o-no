@@ -50,7 +50,16 @@ const REQUEST_COUNTRY = '$workers.event.request.cf.country';
 const EVENT_TYPE = '$metadata.type';
 const LOG_MESSAGE = '$metadata.message';
 const ORIGIN_FAILURE_MESSAGE_TOKEN = '"event":"origin_failure"';
+const JOB_CANON_V2_SUCCESS_MESSAGE_TOKEN = '"event":"job_canon_v2_success"';
+const JOB_CANON_V1_FALLBACK_MESSAGE_TOKEN = '"event":"job_canon_v1_fallback"';
 const filter = (key, operation, value, type = 'string') => ({ key, operation, value, type });
+
+function buildStructuredLogFilters(messageToken) {
+  return [
+    filter(EVENT_TYPE, 'eq', 'cf-worker-log'),
+    filter(LOG_MESSAGE, 'includes', messageToken),
+  ];
+}
 
 export function buildBlockedUaFilters(ua) {
   const filters = [filter(USER_AGENT, 'includes', ua)];
@@ -60,10 +69,15 @@ export function buildBlockedUaFilters(ua) {
 }
 
 export function buildOriginFailureLogFilters() {
-  return [
-    filter(EVENT_TYPE, 'eq', 'cf-worker-log'),
-    filter(LOG_MESSAGE, 'includes', ORIGIN_FAILURE_MESSAGE_TOKEN),
-  ];
+  return buildStructuredLogFilters(ORIGIN_FAILURE_MESSAGE_TOKEN);
+}
+
+export function buildJobCanonV2SuccessLogFilters() {
+  return buildStructuredLogFilters(JOB_CANON_V2_SUCCESS_MESSAGE_TOKEN);
+}
+
+export function buildJobCanonV1FallbackLogFilters() {
+  return buildStructuredLogFilters(JOB_CANON_V1_FALLBACK_MESSAGE_TOKEN);
 }
 
 export function isOriginFailureLogEvent(event) {
@@ -78,6 +92,38 @@ const pct = (value) => `${(value * 100).toFixed(1)}%`;
 export function estimateMonthlyLogVolume({ events, avgEventBytes }) {
   const ingestGb = (events * avgEventBytes * (30 / WINDOW_DAYS)) / 1e9;
   return { ingestGb, storageGbMonth: (ingestGb / 30) * RETENTION_DAYS };
+}
+
+export function evaluateJobCanonV1Retirement(snapshot) {
+  const observedDays = [...new Set(snapshot.jobCanonV2SuccessDays ?? [])].sort();
+  const queryWindowDays = Number.isFinite(snapshot.queryWindowDays) ? snapshot.queryWindowDays : 0;
+  const windowComplete = queryWindowDays >= WINDOW_DAYS && observedDays.length >= WINDOW_DAYS;
+  const samplingComplete = snapshot.samplingRate === 1;
+  const v2SuccessLogs = Number.isFinite(snapshot.jobCanonV2SuccessLogs)
+    ? snapshot.jobCanonV2SuccessLogs
+    : 0;
+  const v1FallbackLogs = Number.isFinite(snapshot.jobCanonV1FallbackLogs)
+    ? snapshot.jobCanonV1FallbackLogs
+    : 0;
+  const blockers = [];
+  if (!windowComplete) blockers.push(`v2-days:${observedDays.length}/${WINDOW_DAYS}`);
+  if (!samplingComplete) blockers.push(`sampling:${snapshot.samplingRate ?? 'unknown'}`);
+  if (v2SuccessLogs === 0) blockers.push('v2-success:0');
+  if (v1FallbackLogs !== 0) blockers.push(`v1-fallback:${v1FallbackLogs}`);
+
+  return {
+    schemaVersion: 1,
+    windowDays: WINDOW_DAYS,
+    queryWindowDays,
+    observedV2Days: observedDays.length,
+    firstV2Day: observedDays[0] ?? null,
+    lastV2Day: observedDays.at(-1) ?? null,
+    v2SuccessLogs,
+    v1FallbackLogs,
+    samplingRate: snapshot.samplingRate ?? null,
+    ready: blockers.length === 0,
+    blockers,
+  };
 }
 
 /**
@@ -262,6 +308,17 @@ export async function collectSnapshot(now = Date.now()) {
   for (const ua of WAF_BLOCKED_UAS) blockedRequests[ua] = await count(...buildBlockedUaFilters(ua));
   let versionRequests = 0;
   for (const path of VERSION_PATHS) versionRequests += await count(filter(PATH, 'eq', path));
+  const jobCanonV2SuccessByDay = await query(
+    buildJobCanonV2SuccessLogFilters(),
+    LOG_MESSAGE,
+    WINDOW_DAYS + 2,
+  );
+  const jobCanonV2SuccessRows = jobCanonV2SuccessByDay.aggregates ?? [];
+  const jobCanonV2SuccessDays = jobCanonV2SuccessRows
+    .map((row) => typeof row.groupKey === 'string'
+      ? row.groupKey.match(/"day":"(\d{4}-\d{2}-\d{2})"/)?.[1]
+      : null)
+    .filter(Boolean);
 
   const events = await telemetry({
     queryId: 'cf-observability-audit-size',
@@ -290,6 +347,10 @@ export async function collectSnapshot(now = Date.now()) {
     // therefore measures the structured signal only; it cannot claim a 1:1
     // relationship with the independently aggregated response-status rows.
     originFailureLogs: await count(...buildOriginFailureLogFilters()),
+    jobCanonV2SuccessLogs: jobCanonV2SuccessRows.reduce((sum, row) => sum + (row.value ?? 0), 0),
+    jobCanonV2SuccessDays,
+    jobCanonV1FallbackLogs: await count(...buildJobCanonV1FallbackLogFilters()),
+    queryWindowDays: (timeframe.to - timeframe.from) / 864e5,
     internalCrawlerRequests: await count(filter(USER_AGENT, 'includes', INTERNAL_CRAWLER_UA)),
     versionRequests,
     blockedRequests,
@@ -297,7 +358,7 @@ export async function collectSnapshot(now = Date.now()) {
     googlebotTotal: await count(filter(USER_AGENT, 'includes', 'Googlebot')),
     googlebot301: await count(filter(USER_AGENT, 'includes', 'Googlebot'), filter(STATUS, 'eq', 301, 'number')),
     avgEventBytes: sizes.length ? sizes.reduce((sum, size) => sum + size, 0) / sizes.length : 0,
-    samplingRate: observability.logs?.head_sampling_rate ?? observability.head_sampling_rate ?? 1,
+    samplingRate: observability.logs?.head_sampling_rate ?? observability.head_sampling_rate ?? null,
     redactQueryString: observability.redact_query_string,
   };
 }
@@ -312,6 +373,8 @@ export async function main({ dryRun = process.argv.includes('--dry-run') || isRe
   }
   const snapshot = await collectSnapshot();
   if (snapshot.total === 0) throw new Error('no events in the window: refusing a green run without data');
+  const jobCanonReceipt = evaluateJobCanonV1Retirement(snapshot);
+  console.log(`[cf-observability-audit] receipt job-canon-v1-retirement ${JSON.stringify(jobCanonReceipt)}`);
   const checks = evaluateChecks(snapshot);
   for (const check of checks) {
     console.log(`[cf-observability-audit] ${check.failed ? 'FAIL' : 'ok  '} ${check.id}: ${check.value}`);

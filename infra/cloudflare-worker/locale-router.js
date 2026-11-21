@@ -1316,6 +1316,7 @@ function jobCanonShardKey(slug) {
 // a 970,410-byte maximum and 932,070-byte median. With 4096 buckets the live
 // maximum was 72,180 bytes and the median 58,221 bytes, inside both v2 limits.
 const JOB_CANON_V2_SHARD_COUNT = 4096;
+let jobCanonV2SuccessLogDay = null;
 
 // djb2-xor mirror of services/jobSlugShards.ts. `slug` is already normalized
 // by lowerSegment() before it reaches this helper.
@@ -1337,6 +1338,21 @@ function jobCanonMapUrl(path, buildId) {
   // Query strings are not part of the generation contract because R2 may
   // ignore them when resolving an object key.
   return new URL(`/job-canon/releases/${buildId}/${relativePath}`, CDN_BASE);
+}
+
+// Workers Logs is sampled per invocation, so logging every registry read would
+// add volume without improving the retirement proof. One success per isolate
+// and UTC day is enough for the weekly observer to prove seven distinct days
+// of valid v2 JSON while keeping the hot recovery path quiet.
+function logJobCanonV2Success() {
+  const day = new Date().toISOString().slice(0, 10);
+  if (jobCanonV2SuccessLogDay === day) return;
+  try {
+    console.info(JSON.stringify({ event: 'job_canon_v2_success', day }));
+    jobCanonV2SuccessLogDay = day;
+  } catch {
+    // Observability must not block a valid v2 recovery response.
+  }
 }
 
 // Read both Worker consumers from the same release-versioned registry path.
@@ -1371,7 +1387,9 @@ async function fetchJobCanonMap(slug, buildId) {
         return { kind: 'missing' };
       }
       if (!resp.ok) return { kind: 'unavailable' };
-      return { kind: 'map', map: await resp.json() };
+      const map = await resp.json();
+      if (version === 'v2') logJobCanonV2Success();
+      return { kind: 'map', map };
     } catch {
       return { kind: 'unavailable' };
     } finally {
