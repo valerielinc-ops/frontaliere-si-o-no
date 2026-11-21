@@ -19,6 +19,7 @@ import {
   attributionRequest,
   selectorRequest,
   templateRequest,
+  valuedSelectorRequest,
   parseTemplateRows,
 } from '../scripts/lib/cwv-attribution.mjs';
 import { ga4DateRange, weightedQuantile } from '../scripts/lib/ga4-service-account.mjs';
@@ -73,10 +74,11 @@ const TEMPLATE_ROWS = [
   row(['jobs_index', 'CLS', '215', 'desktop'], 453),
 ];
 
-type Kind = 'attribution' | 'selectors' | 'template';
+type Kind = 'attribution' | 'selectors' | 'template' | 'valuedSelectors';
 function kindOf(body: any): Kind {
   const names = body.dimensions.map((d: { name: string }) => d.name);
   if (names.includes('customEvent:page_template')) return 'template';
+  if (names.includes('customEvent:details') && names.includes('customEvent:metric_value')) return 'valuedSelectors';
   if (names.includes('customEvent:details')) return 'selectors';
   return 'attribution';
 }
@@ -164,13 +166,13 @@ describe('client <-> reader contract', () => {
 });
 
 describe('GA4 requests', () => {
-  it('runs the three requests with the listed dimensions and filters on a 7-day window lagged 2 days', async () => {
+  it('runs the four requests with the listed dimensions and filters on a 7-day window lagged 2 days', async () => {
     const { code, bodies } = await run(['--dry-run'], FULL);
     expect(code).toBe(0);
-    expect(bodies.map(kindOf)).toEqual(['attribution', 'selectors', 'template']);
+    expect(bodies.map(kindOf)).toEqual(['attribution', 'selectors', 'template', 'valuedSelectors']);
     const range = ga4DateRange(WINDOW_DAYS, LAG_DAYS, DEFAULT_NOW);
     for (const body of bodies) expect(body.dateRanges).toEqual([range]);
-    const [a, b, c] = bodies;
+    const [a, b, c, d] = bodies;
 
     const scope = {
       orGroup: { expressions: [
@@ -212,7 +214,7 @@ describe('GA4 requests', () => {
       dimensionFilter: templateFilter,
     }).dimensionFilter);
     // The exported builders are what main() sends.
-    // All three requests are whole populations read page by page from offset 0.
+    // All four requests are whole populations read page by page from offset 0.
     const paged = (request: any) => ({
       ...withAutomationFleetExclusion(request),
       orderBys: request.dimensions.map((dimension: any) => ({
@@ -225,6 +227,10 @@ describe('GA4 requests', () => {
     expect(a).toEqual(paged(attributionRequest(range)));
     expect(b).toEqual(paged(selectorRequest(range)));
     expect(c).toEqual(paged(templateRequest(range)));
+    expect(d.dimensions.map((dimension: any) => dimension.name)).toEqual([
+      'pagePath', 'customEvent:details', 'customEvent:metric_value', 'deviceCategory',
+    ]);
+    expect(d).toEqual(paged(valuedSelectorRequest(range)));
   });
 
   it('a 400 «not a valid dimension» exits 1 and names the dimension', async () => {

@@ -37,6 +37,7 @@ import {
   topClsSelectors,
   topInpSelectors,
   missingInpSelectorCount,
+  valuedInpTargets,
 } from './lib/cwv-attribution.mjs';
 
 export const WINDOW_DAYS = 7;
@@ -55,6 +56,9 @@ export const ATTRIBUTION_EMITTER_LIVE_FROM = '2026-10-04';
 export const ATTRIBUTION_GAP_MESSAGE = 'finestra post-emitter con campioni CWV non good ma senza righe di attribuzione';
 export const FAILURE_TITLE = 'CWV attribution report: dimensione GA4 non valida, contratto client/lettore divergente o evento web_vitals assente';
 export const ATTRIBUTION_GAP_FAILURE_TITLE = 'CWV attribution report: attribuzione assente dopo il rilascio dell\'emitter';
+export const VALUED_ATTRIBUTION_LIVE_FROM = '2026-11-20';
+export const VALUED_ATTRIBUTION_GAP_MESSAGE = 'finestra post-emitter con INP non good ma senza attribuzione target × valore × device';
+export const VALUED_ATTRIBUTION_GAP_FAILURE_TITLE = 'CWV attribution report: valore o device assente dall\'attribuzione INP';
 export const REPORT_HEADING = '### Attribuzione CWV dal campo';
 
 const fmtCls = (n) => (typeof n === 'number' ? n.toFixed(3) : 'n/a');
@@ -72,8 +76,12 @@ export function hasNonGoodTemplateSamples(templates) {
     || (row.metric === 'INP' && row.value > 200));
 }
 
+export function hasNonGoodInpTemplateSamples(templates) {
+  return templates.some((row) => row.metric === 'INP' && row.value > 200);
+}
+
 export function renderReport(report, { runUrl } = {}) {
-  const { window, attribution, selectors, templates, coverage = {} } = report;
+  const { window, attribution, selectors, valuedSelectors = [], templates, coverage = {} } = report;
   const lines = [
     REPORT_HEADING,
     '',
@@ -119,6 +127,21 @@ export function renderReport(report, { runUrl } = {}) {
     inpTargets.forEach((row, i) => lines.push(`| ${i + 1} | \`${cell(row.selector)}\` | ${cell(row.component)} | ${row.count} | ${fmtMean(row.ac)} | ${fmtMean(row.cc)} |`));
     lines.push('', `_Bersagli INP unknown: ${missingInp} eventi._`);
     if (coverage.selectorsTruncated) lines.push('_Attenzione: la lettura paginata dei selettori non ha raggiunto tutta la coda GA4._');
+  }
+  lines.push('', '#### p75 INP per bersaglio e device', '');
+  const valuedTargets = valuedInpTargets(valuedSelectors);
+  if (!valuedTargets.length) {
+    lines.push('_Nessun evento di attribuzione INP con valore e device nella finestra._');
+  } else {
+    lines.push('| path | device | bersaglio | component | action | INP p75 | n |', '|---|---|---|---|---|---:|---:|');
+    for (const row of valuedTargets) {
+      lines.push(`| ${cell(row.path)} | ${cell(row.device)} | \`${cell(row.selector)}\` | ${cell(row.component)} | ${cell(row.action)} | ${fmtMs(row.inpP75)} | ${row.count} |`);
+    }
+    lines.push('', '_Prima la popolazione desktop di `/cerca-lavoro-ticino/`, poi p75 decrescente; `n` resta descrittivo e non attribuisce la latenza._');
+    if (coverage.valuedSelectorsTruncated) lines.push('', '_ERRORE: la lettura paginata target × valore × device non ha raggiunto tutta la coda GA4._');
+  }
+  if (coverage.valuedInpIncompleteRows > 0) {
+    lines.push('', `_ERRORE: ${coverage.valuedInpIncompleteRows} righe INP senza valore finito o con device vuoto/unknown._`);
   }
 
   lines.push('', '#### p75 per template su `/cerca-lavoro*`', '');
@@ -210,6 +233,20 @@ export async function main({
     && isAttributionEmitterLiveWindow(report.window)
     && hasNonGoodTemplateSamples(report.templates)) {
     logError(`::error title=${ATTRIBUTION_GAP_FAILURE_TITLE}::${ATTRIBUTION_GAP_MESSAGE}`);
+    return 1;
+  }
+  if (report.coverage?.valuedSelectorsTruncated) {
+    logError(`::error title=${FAILURE_TITLE}::la lettura paginata target × valore × device non ha raggiunto tutta la coda GA4`);
+    return 1;
+  }
+  if (report.coverage?.valuedInpIncompleteRows > 0) {
+    logError(`::error title=${VALUED_ATTRIBUTION_GAP_FAILURE_TITLE}::${report.coverage.valuedInpIncompleteRows} righe INP senza valore finito o con device vuoto/unknown`);
+    return 1;
+  }
+  if (!(report.valuedSelectors || []).length
+    && String(report.window?.startDate || '') > VALUED_ATTRIBUTION_LIVE_FROM
+    && hasNonGoodInpTemplateSamples(report.templates)) {
+    logError(`::error title=${VALUED_ATTRIBUTION_GAP_FAILURE_TITLE}::${VALUED_ATTRIBUTION_GAP_MESSAGE}`);
     return 1;
   }
   if (!report.attribution.length) {
