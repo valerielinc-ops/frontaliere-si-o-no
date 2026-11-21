@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hib-broye",
-  "assembledAt": "2026-11-20T09:30:09.522Z",
-  "runId": "44707588570",
+  "assembledAt": "2026-11-21T21:17:38.009Z",
+  "runId": "44949661171",
   "jobs": [
     {
       "id": "hib-broye-4be68a574f23",
@@ -34,7 +34,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/physiotherapeute-de-80-a-100-95",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.458Z",
+      "crawledAt": "2026-11-21T21:17:01.637Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -84,9 +84,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:29:28.458Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/physiotherapeute-de-80-a-100-95"
+      "validThrough": "2026-12-28T21:17:01.637Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-df08b1d82a20",
@@ -120,7 +119,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier-ere-clinicien-ne-specialise-e-icls-80-100-94",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.456Z",
+      "crawledAt": "2026-11-21T21:17:01.635Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -173,9 +172,8 @@
       },
       "streetAddress": "Estavayer-le-Lac",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.456Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/infirmier-ere-clinicien-ne-specialise-e-icls-80-100-94"
+      "validThrough": "2026-12-21T21:17:01.635Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-5b4f9dfa4967",
@@ -208,7 +206,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/technologue-en-dispositifs-medicaux-a-100-93",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.455Z",
+      "crawledAt": "2026-11-21T21:17:01.634Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -285,9 +283,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.455Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/technologue-en-dispositifs-medicaux-a-100-93"
+      "validThrough": "2026-12-21T21:17:01.634Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-bb43b169cd8c",
@@ -320,7 +317,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/ergotherapeute-30-a-50-92",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.453Z",
+      "crawledAt": "2026-11-21T21:17:01.632Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -403,9 +400,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.453Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/ergotherapeute-30-a-50-92"
+      "validThrough": "2026-12-21T21:17:01.632Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-8d0f317cd4f0",
@@ -439,7 +435,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/aide-de-cuisine-de-90-a-100-91",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.451Z",
+      "crawledAt": "2026-11-21T21:17:01.630Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -491,9 +487,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:29:28.451Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/aide-de-cuisine-de-90-a-100-91"
+      "validThrough": "2026-12-28T21:17:01.630Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-7d7a1f957cfb",
@@ -527,7 +522,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/aide-de-cuisine-de-90-a-100-90",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.449Z",
+      "crawledAt": "2026-11-21T21:17:01.629Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -570,9 +565,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:29:28.449Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/aide-de-cuisine-de-90-a-100-90"
+      "validThrough": "2026-12-28T21:17:01.629Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-73f7ac4201c8",
@@ -605,7 +599,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assc-de-80-a-100-84",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.447Z",
+      "crawledAt": "2026-11-21T21:17:01.627Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -674,9 +668,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.447Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/assc-de-80-a-100-84"
+      "validThrough": "2026-12-21T21:17:01.627Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-f2839155105a",
@@ -709,7 +702,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/offre-spontanee-medecin-assistant.e-pour-le-centre-de-readaptation-75",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.444Z",
+      "crawledAt": "2026-11-21T21:17:01.625Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -787,9 +780,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.444Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/offre-spontanee-medecin-assistant.e-pour-le-centre-de-readaptation-75"
+      "validThrough": "2026-12-21T21:17:01.625Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-5aae6d722e40",
@@ -822,7 +814,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier.ere-specialise.e-de-80-a-100-dans-le-service-danesthesie-110",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.440Z",
+      "crawledAt": "2026-11-21T21:17:01.623Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -896,9 +888,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.440Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/infirmier.ere-specialise.e-de-80-a-100-dans-le-service-danesthesie-110"
+      "validThrough": "2026-12-21T21:17:01.623Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-0ba521d72938",
@@ -932,7 +923,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier-ere-specialise-e-de-80-a-100-pour-le-service-des-soins-intensifs-109",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.436Z",
+      "crawledAt": "2026-11-21T21:17:01.621Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1006,9 +997,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.436Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/infirmier-ere-specialise-e-de-80-a-100-pour-le-service-des-soins-intensifs-109"
+      "validThrough": "2026-12-21T21:17:01.621Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-c3cd197e1b9a",
@@ -1042,7 +1032,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier.ere-de-80-a-100-pour-le-service-de-chirurgie-108",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.432Z",
+      "crawledAt": "2026-11-21T21:17:01.619Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1122,9 +1112,8 @@
       },
       "streetAddress": "Estavayer-le-Lac",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.432Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/infirmier.ere-de-80-a-100-pour-le-service-de-chirurgie-108"
+      "validThrough": "2026-12-21T21:17:01.619Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-31010e4bcc60",
@@ -1157,7 +1146,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/chef.fe-de-clinique-ou-chef.fe-de-clinique-adjoint.e-106",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.430Z",
+      "crawledAt": "2026-11-21T21:17:01.618Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1241,9 +1230,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.430Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/chef.fe-de-clinique-ou-chef.fe-de-clinique-adjoint.e-106"
+      "validThrough": "2026-12-21T21:17:01.618Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-1be49932b903",
@@ -1276,7 +1264,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-en-gyneco-obstetrique-de-50-a-100-105",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.427Z",
+      "crawledAt": "2026-11-21T21:17:01.616Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1353,9 +1341,8 @@
       },
       "streetAddress": "Estavayer-le-Lac",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.427Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-en-gyneco-obstetrique-de-50-a-100-105"
+      "validThrough": "2026-12-21T21:17:01.616Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-58e399556269",
@@ -1388,7 +1375,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assistant.e-en-pharmacie-cdm-104",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.424Z",
+      "crawledAt": "2026-11-21T21:17:01.613Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1454,9 +1441,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.424Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/assistant.e-en-pharmacie-cdm-104"
+      "validThrough": "2026-12-21T21:17:01.613Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-18e1c2514f75",
@@ -1489,7 +1475,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/physiotherapeute-de-80-a-100-103",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.421Z",
+      "crawledAt": "2026-11-21T21:17:01.609Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1536,9 +1522,8 @@
       },
       "streetAddress": "Estavayer-le-Lac",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:29:28.421Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/physiotherapeute-de-80-a-100-103"
+      "validThrough": "2026-12-28T21:17:01.609Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-ad6702fda95f",
@@ -1571,7 +1556,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/physiotherapeute-a-100-102",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.419Z",
+      "crawledAt": "2026-11-21T21:17:01.607Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1682,9 +1667,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.419Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/physiotherapeute-a-100-102"
+      "validThrough": "2026-12-21T21:17:01.607Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-360d96a89a43",
@@ -1718,7 +1702,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-du-service-chirurgie-orthopedique-101",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.416Z",
+      "crawledAt": "2026-11-21T21:17:01.604Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1779,9 +1763,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.416Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-du-service-chirurgie-orthopedique-101"
+      "validThrough": "2026-12-21T21:17:01.604Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-d3318cc70bdc",
@@ -1814,7 +1797,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assistant.e-rh-114",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.413Z",
+      "crawledAt": "2026-11-21T21:17:01.602Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1867,9 +1850,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.413Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/assistant.e-rh-114"
+      "validThrough": "2026-12-21T21:17:01.602Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-fa703cdb6fb4",
@@ -1902,7 +1884,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assistant.e-comptable-de-60-a-80-136",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.410Z",
+      "crawledAt": "2026-11-21T21:17:01.599Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1947,9 +1929,8 @@
       },
       "streetAddress": "Estavayer-le-Lac",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.410Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/assistant.e-comptable-de-60-a-80-136"
+      "validThrough": "2026-12-21T21:17:01.599Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-aca7e09505c8",
@@ -1982,7 +1963,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier.ere-pour-le-ctr-de-50-a-100-168",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.408Z",
+      "crawledAt": "2026-11-21T21:17:01.597Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2039,9 +2020,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.408Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/infirmier.ere-pour-le-ctr-de-50-a-100-168"
+      "validThrough": "2026-12-21T21:17:01.597Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-3c82eed86fd0",
@@ -2074,7 +2054,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/codificateur-trice-medical-e-80-100-150",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.405Z",
+      "crawledAt": "2026-11-21T21:17:01.594Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2119,9 +2099,8 @@
       },
       "streetAddress": "Estavayer-le-Lac",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.405Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/codificateur-trice-medical-e-80-100-150"
+      "validThrough": "2026-12-21T21:17:01.594Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-5cbd9a66c489",
@@ -2154,7 +2133,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/aide-de-cuisine-a-80-155",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.401Z",
+      "crawledAt": "2026-11-21T21:17:01.591Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2204,9 +2183,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.401Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/aide-de-cuisine-a-80-155"
+      "validThrough": "2026-12-21T21:17:01.591Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-afcf0741a61a",
@@ -2239,7 +2217,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/cuisinier.ere-a-80-153",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.398Z",
+      "crawledAt": "2026-11-21T21:17:01.589Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2299,9 +2277,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.398Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/cuisinier.ere-a-80-153"
+      "validThrough": "2026-12-21T21:17:01.589Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-4968e546ae19",
@@ -2334,7 +2311,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/employe.e-de-nettoyage-a-80-185",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.395Z",
+      "crawledAt": "2026-11-21T21:17:01.587Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2396,9 +2373,8 @@
       },
       "streetAddress": "Estavayer-le-Lac",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:29:28.395Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/employe.e-de-nettoyage-a-80-185"
+      "validThrough": "2026-12-28T21:17:01.587Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-7115ed20c773",
@@ -2432,7 +2408,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef-fe-en-medecine-physique-et-readaptation-de-80-a-100-184",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.393Z",
+      "crawledAt": "2026-11-21T21:17:01.585Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2475,9 +2451,8 @@
       },
       "streetAddress": "Estavayer-le-Lac",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.393Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef-fe-en-medecine-physique-et-readaptation-de-80-a-100-184"
+      "validThrough": "2026-12-21T21:17:01.585Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-7560e5b3a31f",
@@ -2511,7 +2486,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/secretaire-medical.e-a-40-181",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.392Z",
+      "crawledAt": "2026-11-21T21:17:01.584Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2568,9 +2543,8 @@
       },
       "streetAddress": "Estavayer-le-Lac",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.392Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/secretaire-medical.e-a-40-181"
+      "validThrough": "2026-12-21T21:17:01.584Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-575fd4fa85fe",
@@ -2603,7 +2577,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/apprenti.e-technologue-en-dispositifs-medicaux-cfc-a-100-180",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.390Z",
+      "crawledAt": "2026-11-21T21:17:01.583Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2658,9 +2632,8 @@
       },
       "streetAddress": "Estavayer-le-Lac",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.390Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/apprenti.e-technologue-en-dispositifs-medicaux-cfc-a-100-180"
+      "validThrough": "2026-12-21T21:17:01.583Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-3d7d7f126957",
@@ -2693,7 +2666,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/trm-a-100-179",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.389Z",
+      "crawledAt": "2026-11-21T21:17:01.581Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2748,9 +2721,8 @@
       },
       "streetAddress": "Estavayer-le-Lac",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.389Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/trm-a-100-179"
+      "validThrough": "2026-12-21T21:17:01.581Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-bbb484b078c9",
@@ -2784,7 +2756,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assc-pour-le-service-de-chirurgie-de-50-a-100-167",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.387Z",
+      "crawledAt": "2026-11-21T21:17:01.580Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2827,9 +2799,8 @@
       },
       "streetAddress": "Estavayer-le-Lac",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.387Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/assc-pour-le-service-de-chirurgie-de-50-a-100-167"
+      "validThrough": "2026-12-21T21:17:01.580Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-c5ee89a7eef1",
@@ -2862,7 +2833,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-adjoint-e-en-medecine-interne-de-50-a-100-166",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.386Z",
+      "crawledAt": "2026-11-21T21:17:01.579Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2907,9 +2878,8 @@
       },
       "streetAddress": "Estavayer-le-Lac",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.386Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/medecin-adjoint-e-en-medecine-interne-de-50-a-100-166"
+      "validThrough": "2026-12-21T21:17:01.579Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-fa5ce0864616",
@@ -2942,7 +2912,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-en-geriatrie-de-50-a-100-164",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.385Z",
+      "crawledAt": "2026-11-21T21:17:01.577Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2985,9 +2955,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.385Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-en-geriatrie-de-50-a-100-164"
+      "validThrough": "2026-12-21T21:17:01.577Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-df67da55753d",
@@ -3021,7 +2990,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assistant.e-medical.e-a-100-170",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.383Z",
+      "crawledAt": "2026-11-21T21:17:01.575Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3068,9 +3037,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.383Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/assistant.e-medical.e-a-100-170"
+      "validThrough": "2026-12-21T21:17:01.575Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-b2086eec4d38",
@@ -3103,7 +3071,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/apprenti.e-logisticien.ne-cfc-a-100-176",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.381Z",
+      "crawledAt": "2026-11-21T21:17:01.573Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3160,9 +3128,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.381Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/apprenti.e-logisticien.ne-cfc-a-100-176"
+      "validThrough": "2026-12-21T21:17:01.573Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-e918eb06ff67",
@@ -3195,7 +3162,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/apprenti.e-assc-a-100-174",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.379Z",
+      "crawledAt": "2026-11-21T21:17:01.571Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3240,9 +3207,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.379Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/apprenti.e-assc-a-100-174"
+      "validThrough": "2026-12-21T21:17:01.571Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-59a574c6c09d",
@@ -3276,7 +3242,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/apprenti-e-test-173",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.375Z",
+      "crawledAt": "2026-11-21T21:17:01.568Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3319,9 +3285,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.375Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/apprenti-e-test-173"
+      "validThrough": "2026-12-21T21:17:01.568Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-fd389a4c7de0",
@@ -3354,7 +3319,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/apprenti.e-cuisinier.ere-cfc-a-100-175",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.372Z",
+      "crawledAt": "2026-11-21T21:17:01.566Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3397,9 +3362,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.372Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/apprenti.e-cuisinier.ere-cfc-a-100-175"
+      "validThrough": "2026-12-21T21:17:01.566Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-48d8a4460df1",
@@ -3432,7 +3396,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-en-radiologie-de-80-a-100-187",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.369Z",
+      "crawledAt": "2026-11-21T21:17:01.563Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3492,9 +3456,8 @@
       },
       "streetAddress": "Estavayer-le-Lac",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.369Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-en-radiologie-de-80-a-100-187"
+      "validThrough": "2026-12-21T21:17:01.563Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-800c9d9fde96",
@@ -3527,7 +3490,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/logisticien.ne-a-70-189",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.367Z",
+      "crawledAt": "2026-11-21T21:17:01.561Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3592,9 +3555,8 @@
       },
       "streetAddress": "Estavayer-le-Lac",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.367Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/logisticien.ne-a-70-189"
+      "validThrough": "2026-12-21T21:17:01.561Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-21a640d65650",
@@ -3627,7 +3589,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-du-service-en-gynecologie-obstetrique-de-80-a-100-190",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.365Z",
+      "crawledAt": "2026-11-21T21:17:01.559Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3670,9 +3632,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.365Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-du-service-en-gynecologie-obstetrique-de-80-a-100-190"
+      "validThrough": "2026-12-21T21:17:01.559Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-e858b249a7de",
@@ -3705,7 +3666,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-en-anesthesie-de-50-a-100-191",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.362Z",
+      "crawledAt": "2026-11-21T21:17:01.556Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3752,9 +3713,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.362Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-en-anesthesie-de-50-a-100-191"
+      "validThrough": "2026-12-21T21:17:01.556Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-44530b6b2f8b",
@@ -3787,7 +3747,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/secretaire-medicale-a-60-193",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.358Z",
+      "crawledAt": "2026-11-21T21:17:01.553Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3830,9 +3790,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.358Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/secretaire-medicale-a-60-193"
+      "validThrough": "2026-12-21T21:17:01.553Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-79d4a0c00864",
@@ -3865,7 +3824,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/dieteticien.ne-a-70-197",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.355Z",
+      "crawledAt": "2026-11-21T21:17:01.550Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3908,9 +3867,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:29:28.355Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/dieteticien.ne-a-70-197"
+      "validThrough": "2026-12-23T21:17:01.550Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-d8a55be0dc87",
@@ -3943,7 +3901,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/psychologue-a-60-196",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.352Z",
+      "crawledAt": "2026-11-21T21:17:01.548Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3999,9 +3957,8 @@
       },
       "streetAddress": "Estavayer-le-Lac",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:29:28.352Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/psychologue-a-60-196"
+      "validThrough": "2026-12-21T21:17:01.548Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-928f53c2a508",
@@ -4035,7 +3992,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier.ere-specialise.e-en-soins-durgence-et-smur-a-80-100-198",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.349Z",
+      "crawledAt": "2026-11-21T21:17:01.545Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4078,9 +4035,8 @@
       },
       "streetAddress": "Estavayer-le-Lac",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T09:29:28.349Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/infirmier.ere-specialise.e-en-soins-durgence-et-smur-a-80-100-198"
+      "validThrough": "2026-12-24T21:17:01.545Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-0c25aecfeb16",
@@ -4113,7 +4069,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier.ere-pour-le-service-des-urgences-de-80-a-100-199",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.346Z",
+      "crawledAt": "2026-11-21T21:17:01.543Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4162,9 +4118,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:29:28.346Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/infirmier.ere-pour-le-service-des-urgences-de-80-a-100-199"
+      "validThrough": "2027-01-18T21:17:01.543Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-3b9c9fd33d6a",
@@ -4197,7 +4152,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/gestionnaire-en-intendance-de-80-a-100-201",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.343Z",
+      "crawledAt": "2026-11-21T21:17:01.541Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4246,9 +4201,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:29:28.343Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/gestionnaire-en-intendance-de-80-a-100-201"
+      "validThrough": "2027-02-02T21:17:01.541Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-b71507302f0e",
@@ -4281,7 +4235,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/gestionnaire-en-intendance-de-80-a-100-202",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.341Z",
+      "crawledAt": "2026-11-21T21:17:01.538Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4330,9 +4284,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:29:28.341Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/gestionnaire-en-intendance-de-80-a-100-202"
+      "validThrough": "2027-02-02T21:17:01.538Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-85db2c8a11aa",
@@ -4365,7 +4318,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier-ere-s-gestionnaires-des-flux-patients-a-50-70-203",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.338Z",
+      "crawledAt": "2026-11-21T21:17:01.536Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4414,9 +4367,8 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:29:28.338Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/infirmier-ere-s-gestionnaires-des-flux-patients-a-50-70-203"
+      "validThrough": "2027-02-03T21:17:01.536Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-fb4a0ec63c1f",
@@ -4450,7 +4402,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/cuisinier.ere-en-dietetique-a-80-204",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.336Z",
+      "crawledAt": "2026-11-21T21:17:01.534Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4499,9 +4451,8 @@
       },
       "streetAddress": "Estavayer-le-Lac",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T09:29:28.336Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/cuisinier.ere-en-dietetique-a-80-204"
+      "validThrough": "2027-02-12T21:17:01.534Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-e22f15b2e2de",
@@ -4529,12 +4480,13 @@
         "de": "Dank seiner 800 Mitarbeiter ist das Broye Intercantonal Hospital (HIB) für die akute Versorgung und Rehabilitation verantwortlich. Sein Ziel ist es, eine dynamische, innovative und exzellenzorientierte Gesundheitseinrichtung zum Wohle der Bevölkerung zu sein. Um die vielen Herausforderungen zu meistern, die vor uns liegen, sucht HIB nach:\n\nMedizinischer Sekretär des RTC bei 60%\n\nDeine Mission\n\nDeine Mission Die Aufgabe des RTC Medical Secretariat ist es, das effektive administrative und organisatorische Funktionieren des RTC zu gewährleisten und eine optimale Koordination zwischen den Gesundheitsteams, Ärzten, Assistenzärzten, klinischen Direktoren, Verbindungsschwestern, Therapeuten, Patienten und anderen Krankenhausdiensten zu gewährleisten. Es ist auch mit den verschiedenen externen Interessengruppen verbunden.\n\nIhre Aktivitäten\n\n• Schreiben, korrigieren und formatieren Sie medizinische und administrative Dokumente rechtzeitig.\n\n• Administrativ überwachen Patientenakten und ihre Dokumentation.\n\n• Verwalten Sie Krankenhausabdeckung und Versicherungsverlängerungsanfragen.\n\n• Bearbeitung von Rehabilitationsanträgen und Abstimmung mit externen Institutionen.\n\n• Verwalten Sie Telefonanrufe und die Mailbox des Sekretariats.\n\n• Bereitstellung administrativer Unterstützung für Ärzte und Arzthelfer (Aufzeichnungen, Aufzeichnungen, medizinische Dokumente).\n\n• Nehmen Sie am wöchentlichen Symposium teil und informieren Sie sich über Aufenthalte.\n\n• Organisieren Sie die Aufnahme und administrative Nachverfolgung neuer medizinischer Assistenten und deren Schulung.\n\n• Verwalten von Sekretariatslieferungen und Büroautomationsgeräten.\n\n• Gewährleistung der Ersetzung des Sekretariats während der Ferienzeiten, Gewährleistung einer täglichen Präsenz und Kontinuität der Aktivitäten.\n\nIhr Vermögen\n\n• Sie haben einen SWC eines kaufmännischen Mitarbeiters, der durch die Ausbildung eines medizinischen Sekretärs, einen Abschluss eines medizinischen Sekretärs oder einen CFC eines medizinischen Assistenten ergänzt wird.\n\n• Sie haben mindestens 2 Jahre Erfahrung in einem medizinischen Sekretariat und sind mit administrativen Verfahren im Zusammenhang mit Gesundheit vertraut.\n\n• Sie beherrschen die üblichen Computer-Tools (Outlook, Word, Excel). Wissen über medizinische Software wie Opale, Soarian, Ultragenda, CamApp oder Winscribe ist ein Gewinn.\n\n• Sie haben gute Kenntnisse der medizinischen Terminologie.\n\n• Sie haben ein ausgezeichnetes Gespür für Organisation, Strenge und eine gute Fähigkeit, Prioritäten zu verwalten.\n\n• Sie fühlen sich wohl in Situationen, die Reaktivität und Stressmanagement erfordern.\n\n• Sie haben ausgezeichnete relationale und redaktionelle Fähigkeiten und können mit einer Vielzahl von Menschen kommunizieren.\n\n• Selbstständig und verantwortungsbewusst schätzen Sie Teamarbeit und üben Diskretion und absoluten Respekt vor Vertraulichkeit aus.\n\nAmtsantritt: 01.06.2027 oder noch zu vereinbaren\n\nVielen Dank, dass Sie uns Ihr vollständiges Antragsformular per Online-Bewerbung zusenden.\n\nDamit wir Ihre Bewerbung unter den bestmöglichen Bedingungen überprüfen können, möchten wir uns bei Ihnen bedanken, dass Sie uns eine vollständige Datei mit Anschreiben, Lebenslauf und Kopien Ihrer Diplome und Zeugnisse zugesandt haben. Unvollständige Bewerbungen können im Auswahlverfahren nicht berücksichtigt werden.\n\nFür weitere Fragen zu dieser Position wenden Sie sich bitte an Frau Nathalie Erismann unter 026 662 85 52.\n\nBei technischen Schwierigkeiten wenden Sie sich bitte an unsere Rekrutierungsabteilung unter 026 662 81 91.\n\nEin gewöhnlicher Strafregisterauszug und ein Blankosonderauszug von weniger als 3 Monaten sind erforderlich, bevor der Vertrag unterzeichnet wird.",
         "fr": "Grâce à ses 800 collaboratrices et collaborateurs, l’Hôpital intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d’être une institution de santé dynamique, novatrice et visant l’excellence au profit de la population broyarde. Pour relever les nombreux défis qui l’attendent, l’HIB est à la recherche d’un·e :\nSecrétaire médical-e au CTR à 60%\nVotre mission\nVotre mission Le secrétariat médical du CTR a pour mission de garantir le bon fonctionnement administratif et organisationnel du CTR, en assurant une coordination optimale entre les équipes soignantes, médecins, médecins assistants, chefs de clinique, infirmières de liaison, thérapeutes, patients, et les autres services de l’hôpital. Il fait également le lien avec les différents intervenants externes.\n\nVos activités\n\n• Rédiger, corriger et mettre en forme les documents médicaux et administratifs, dans le respect des délais.\n\n• Assurer le suivi administratif des dossiers patients et de leur documentation.\n\n• Gérer les garanties d’hospitalisation et les demandes de prolongation auprès des assurances.\n\n• Traiter les demandes d’admission en réadaptation et assurer la coordination avec les établissements externes.\n\n• Gérer les appels téléphoniques et la boîte mail du secrétariat.\n\n• Assurer le soutien administratif aux médecins et médecins assistants (prise de rendez-vous, dossiers, documents médicaux).\n\n• Participer au colloque hebdomadaire et assurer le suivi des informations relatives aux séjours.\n\n• Organiser l’accueil et le suivi administratif des nouveaux médecins assistants et de leurs formations.\n\n• Gérer les fournitures et le matériel bureautique du secrétariat.\n\n• Assurer le remplacement du secrétariat durant les périodes de vacances, en garantissant une présence quotidienne et la continuité des activités.\n\nVos atouts\n\n• Vous êtes titulaire d'un CFC d'employé·e de commerce complété par une formation de secrétaire médical·e, d'un diplôme de secrétaire médical·e ou d'un CFC d'assistant·e médical·e.\n\n• Vous bénéficiez d'au minimum 2 ans d'expérience dans un secrétariat médical et connaissez les procédures administratives liées au domaine de la santé.\n\n• Vous maîtrisez les outils informatiques usuels (Outlook, Word, Excel). La connaissance de logiciels médicaux tels qu'Opale, Soarian, Ultragenda, CamApp ou Winscribe constitue un atout.\n\n• Vous possédez de bonnes connaissances de la terminologie médicale.\n\n• Vous faites preuve d'un excellent sens de l'organisation, de rigueur et d'une bonne capacité à gérer les priorités.\n\n• Vous êtes à l'aise dans les situations exigeant réactivité et gestion du stress.\n\n• Vous disposez d'excellentes aptitudes relationnelles et rédactionnelles et communiquez avec aisance avec des interlocuteurs variés.\n\n• Autonome et responsable, vous appréciez le travail en équipe et faites preuve de discrétion et d'un respect absolu de la confidentialité.\n\nEntrée en fonction : le 01.06.2027 ou à convenir\n\nNous vous remercions de nous transmettre votre dossier de candidature complet en postulant en ligne.\n\nAfin de nous permettre d’examiner votre candidature dans les meilleures conditions, nous vous remercions de nous transmettre un dossier complet comprenant une lettre de motivation, un CV, ainsi que les copies de vos diplômes et certificats de travail.Les candidatures incomplètes pourront ne pas être prises en considération dans le processus de sélection.\n\nPour toutes questions complémentaires au sujet de ce poste, veuillez prendre contact avec Mme Nathalie Erismann, au 026 662 85 52.\n\nEn cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91.\n\nUn extrait de casier judiciaire ordinaire ainsi qu’un extrait spécial vierges de moins de 3 mois seront exigés avant la signature du contrat."
       },
+      "needsRetranslation": false,
       "location": "Estavayer-le-Lac",
       "canton": "FR",
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/responsable-du-service-de-radiologie-a-100-206",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.332Z",
+      "crawledAt": "2026-11-21T21:17:01.531Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4553,6 +4505,21 @@
       "applyUrl": "https://emploi.hopital-broye.ch/fr/nos-offres/responsable-du-service-de-radiologie-a-100-206",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "secretaire-medical-e-au-ctr-a-60-hib-broye-estavayer-le-lac"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-e-au-ctr-a-60-hib-broye-estavayer-le-lac"
+        ],
+        "en": [
+          "secretaire-medical-e-au-ctr-a-60-hib-broye-estavayer-le-lac"
+        ],
+        "de": [
+          "secretaire-medical-e-au-ctr-a-60-hib-broye-estavayer-le-lac"
+        ]
+      },
+      "firstSeenAt": "2026-11-19T10:20:06.304Z",
       "salaryMin": 41100,
       "salaryMax": 62400,
       "salarySource": "estimated",
@@ -4568,25 +4535,8 @@
       },
       "streetAddress": "Estavayer-le-Lac",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:29:28.332Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T10:20:06.304Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "secretaire-medical-e-au-ctr-a-60-hib-broye-estavayer-le-lac"
-        ],
-        "en": [
-          "secretaire-medical-e-au-ctr-a-60-hib-broye-estavayer-le-lac"
-        ],
-        "de": [
-          "secretaire-medical-e-au-ctr-a-60-hib-broye-estavayer-le-lac"
-        ]
-      },
-      "previousSlugs": [
-        "secretaire-medical-e-au-ctr-a-60-hib-broye-estavayer-le-lac"
-      ],
-      "needsRetranslation": false,
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/responsable-du-service-de-radiologie-a-100-206"
+      "validThrough": "2027-02-17T21:17:01.531Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-018078f37769",
@@ -4619,7 +4569,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/employe.e-dadministration-a-80-205",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.330Z",
+      "crawledAt": "2026-11-21T21:17:01.529Z",
       "addressLocality": "Maison médicalisée de Moudon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4638,6 +4588,18 @@
       "applyUrl": "https://emploi.hopital-broye.ch/fr/nos-offres/employe.e-dadministration-a-80-205",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistant-e-medical-e-policlnique-moudon-a-80-hib-broye-maison-medicalisee-de-moudon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-policlnique-moudon-a-80-hib-broye-maison-medicalisee-de-moudon"
+        ],
+        "de": [
+          "assistant-e-medical-e-policlnique-moudon-a-80-hib-broye-maison-medicalisee-de-moudon"
+        ]
+      },
+      "firstSeenAt": "2026-11-19T10:20:06.294Z",
       "salaryMin": 48400,
       "salaryMax": 73200,
       "salarySource": "estimated",
@@ -4653,54 +4615,42 @@
       },
       "streetAddress": "Maison médicalisée de Moudon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:29:28.330Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T10:20:06.294Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-e-medical-e-policlnique-moudon-a-80-hib-broye-maison-medicalisee-de-moudon"
-        ],
-        "de": [
-          "assistant-e-medical-e-policlnique-moudon-a-80-hib-broye-maison-medicalisee-de-moudon"
-        ]
-      },
-      "previousSlugs": [
-        "assistant-e-medical-e-policlnique-moudon-a-80-hib-broye-maison-medicalisee-de-moudon"
-      ],
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/employe.e-dadministration-a-80-205"
+      "validThrough": "2027-02-17T21:17:01.529Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hib-broye-08906ba0715e",
       "slug": "pre-hes-dell-amministrazione-del-tirocinante-all-interno-del-servizio-hr-100-hopital-intercantonal-de-la-broye-hib",
       "slugByLocale": {
-        "fr": "stagiaire-administration-pre-hes-au-sein-du-service-rh-a-100-hib-broye-payerne",
         "it": "pre-hes-dell-amministrazione-del-tirocinante-all-interno-del-servizio-hr-100-hopital-intercantonal-de-la-broye-hib",
         "en": "stagiaire-administration-pre-hes-au-sein-du-service-rh-a-100-hib-broye-payerne",
-        "de": "stagiaire-administration-pre-hes-au-sein-du-service-rh-a-100-hib-broye-payerne"
+        "de": "stagiaire-administration-pre-hes-au-sein-du-service-rh-a-100-hib-broye-payerne",
+        "fr": "stagiaire-administration-pre-hes-au-sein-du-service-rh-a-100-hib-broye-payerne"
       },
       "company": "Hôpital Intercantonal de la Broye (HIB)",
       "companyKey": "hib-broye",
       "companyDomain": "hopital-broye.ch",
       "title": "Stagiaire administration Pré-HES au sein du service RH à 100%",
       "titleByLocale": {
-        "fr": "Stagiaire administration Pré-HES au sein du service RH à 100%",
         "it": "Pre-HES dell'amministrazione del tirocinante all'interno del servizio HR 100%",
         "en": "Trainee Administration Pre-HES within the 100% HR Service",
-        "de": "Trainee Administration Pre-HES im 100% HR Service"
+        "de": "Trainee Administration Pre-HES im 100% HR Service",
+        "fr": "Stagiaire administration Pré-HES au sein du service RH à 100%"
       },
       "description": "Grâce à ses 800 collaboratrices et collaborateurs, l’Hôpital intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d’être une institution de santé dynamique, novatrice et visant l’excellence au profit de la population broyarde. Pour relever les nombreux défis qui l’attendent, l’HIB est à la recherche d’un∙e :\n\nStagiaire administration Pré-HES au sein du service RH à 100%\n\nVotre mission\n\n• Constitution et vérification du dossier administratif du collaborateur en amont de l’établissement des salaires.\n\n• Rédaction des contrats de travail et des annexes contractuelles associée.\n\n• Gestion du processus de signature des documents contractuels et administratifs.\n\n• Saisie des données et gestion administrative de l’entrée des nouveaux collaborateurs dans le système Adequasys.\n\n• Mise à jour, suivi et contrôle du tableau de suivi des activités RH.\n\n• Gestion des e-mails et des appels téléphoniques.\n\nVos atouts\n\n• Intérêt marqué pour la gestion administrative et les ressources humaines\n\n• Aisance dans la communication orale et écrite\n\n• Sens de l’organisation, rigueur et discrétion\n\n• Bonnes connaissances informatiques\n\nEntrée en fonction : 01.07.2027\n\nDurée du stage : 1 an.\n\nNous vous remercions de nous transmettre votre dossier de candidature complet en postulant en ligne.\n\nPour toute question complémentaire au sujet de ce poste, ou en cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91.\n\nUn extrait de casier judiciaire ordinaire ainsi qu’un extrait spécial vierges de moins de 3 mois seront exigés avant la signature du contrat.",
       "descriptionByLocale": {
-        "fr": "Grâce à ses 800 collaboratrices et collaborateurs, l’Hôpital intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d’être une institution de santé dynamique, novatrice et visant l’excellence au profit de la population broyarde. Pour relever les nombreux défis qui l’attendent, l’HIB est à la recherche d’un∙e :\n\nStagiaire administration Pré-HES au sein du service RH à 100%\n\nVotre mission\n\n• Constitution et vérification du dossier administratif du collaborateur en amont de l’établissement des salaires.\n\n• Rédaction des contrats de travail et des annexes contractuelles associée.\n\n• Gestion du processus de signature des documents contractuels et administratifs.\n\n• Saisie des données et gestion administrative de l’entrée des nouveaux collaborateurs dans le système Adequasys.\n\n• Mise à jour, suivi et contrôle du tableau de suivi des activités RH.\n\n• Gestion des e-mails et des appels téléphoniques.\n\nVos atouts\n\n• Intérêt marqué pour la gestion administrative et les ressources humaines\n\n• Aisance dans la communication orale et écrite\n\n• Sens de l’organisation, rigueur et discrétion\n\n• Bonnes connaissances informatiques\n\nEntrée en fonction : 01.07.2027\n\nDurée du stage : 1 an.\n\nNous vous remercions de nous transmettre votre dossier de candidature complet en postulant en ligne.\n\nPour toute question complémentaire au sujet de ce poste, ou en cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91.\n\nUn extrait de casier judiciaire ordinaire ainsi qu’un extrait spécial vierges de moins de 3 mois seront exigés avant la signature du contrat.",
         "it": "Grazie ai suoi 800 collaboratori, il Broye Intercantonal Hospital (HIB) fornisce cure acute e riabilitazione. La sua ambizione è di essere un'istituzione sanitaria dinamica, innovativa e orientata all'eccellenza a beneficio della popolazione del cortile. Per rispondere alle molte sfide che ci attendono, HIB sta cercando:\n\nPre-HES dell'amministrazione del tirocinante all'interno del servizio HR 100%\n\nLa tua missione\n\n• Istituzione e verifica del fascicolo amministrativo del dipendente prima dello stabilimento salariale.\n\n• Redazione dei contratti di lavoro e degli allegati contrattuali associati.\n\n• Gestione del processo per la firma di documenti contrattuali e amministrativi.\n\n• Entrata dei dati e gestione amministrativa dei nuovi dipendenti nel sistema Adequasys.\n\n• Aggiornamento, monitoraggio e monitoraggio della tabella di monitoraggio HR.\n\n• Gestione delle email e delle telefonate.\n\nI vostri beni\n\n• Alto interesse per la gestione amministrativa e le risorse umane\n\n• Partecipazione alla comunicazione orale e scritta\n\n• Senso organizzativo, rigore e discrezione\n\n• Buona alfabetizzazione del computer\n\nEntrata in ufficio: 01.07.2027\n\nDurata: 1 anno.\n\nGrazie per la presentazione della vostra applicazione completa applicando online.\n\nPer ulteriori domande su questa posizione, o in caso di difficoltà tecniche, si prega di contattare il nostro reparto di reclutamento a 026 662 81 91.\n\nUn estratto di record penale ordinario e un estratto bianco speciale di meno di 3 mesi saranno richiesti prima della firma del contratto.",
         "en": "Thanks to its 800 collaborators, the Broye Intercantonal Hospital (HIB) provides acute care and rehabilitation. Its ambition is to be a dynamic, innovative and excellence-oriented health institution for the benefit of the broyard population. To meet the many challenges ahead, HIB is looking for:\n\nTrainee Administration Pre-HES within the 100% HR Service\n\nYour Mission\n\n• Establishment and verification of the employee's administrative file prior to salary establishment.\n\n• Drafting of employment contracts and associated contractual annexes.\n\n• Managing the process for signing contractual and administrative documents.\n\n• Data entry and administrative management of new employees in the Adequasys system.\n\n• Updating, tracking and monitoring the HR tracking table.\n\n• Managing e-mails and phone calls.\n\nYour assets\n\n• High interest in administrative management and human resources\n\n• Attendance in oral and written communication\n\n• Organizational sense, rigour and discretion\n\n• Good computer literacy\n\nEntry into office: 01.07.2027\n\nDuration: 1 year.\n\nThank you for submitting your complete application by applying online.\n\nFor further questions about this position, or in case of technical difficulties, please contact our recruitment department at 026 662 81 91.\n\nAn ordinary criminal record extract and a special blank extract of less than 3 months will be required before the contract is signed.",
-        "de": "Dank seiner 800 Mitarbeiter bietet das Broye Intercantonal Hospital (HIB) akute Pflege und Rehabilitation. Sein Ziel ist es, eine dynamische, innovative und exzellenzorientierte Gesundheitseinrichtung zum Wohle der Bevölkerung zu sein. Um die vielen Herausforderungen zu meistern, die vor uns liegen, sucht HIB nach:\n\nTrainee Administration Pre-HES im 100% HR Service\n\nDeine Mission\n\n• Erstellung und Überprüfung der Verwaltungsakte des Arbeitnehmers vor der Feststellung des Gehalts.\n\n• Erstellung von Arbeitsverträgen und zugehörigen Vertragsanhängen.\n\n• Verwaltung des Prozesses zur Unterzeichnung von Vertrags- und Verwaltungsdokumenten.\n\n• Dateneingabe und Verwaltung neuer Mitarbeiter im Adequasys-System.\n\n• Aktualisieren, Verfolgen und Überwachen der HR-Tracking-Tabelle.\n\n• Verwaltung von E-Mails und Telefonanrufen.\n\nIhre Vermögenswerte\n\n• Hohes Interesse an Verwaltungsmanagement und Personal\n\n• Teilnahme an mündlicher und schriftlicher Kommunikation\n\n• Organisatorischer Sinn, Strenge und Diskretion\n\n• Gute Computerkenntnisse\n\nAmtsantritt: 01.07.2027\n\nDauer: 1 Jahr.\n\nVielen Dank, dass Sie Ihren vollständigen Antrag online gestellt haben.\n\nFür weitere Fragen zu dieser Position oder bei technischen Schwierigkeiten wenden Sie sich bitte an unsere Rekrutierungsabteilung unter 026 662 81 91.\n\nEin gewöhnlicher Strafregisterauszug und ein spezieller Blankoauszug von weniger als 3 Monaten sind erforderlich, bevor der Vertrag unterzeichnet wird."
+        "de": "Dank seiner 800 Mitarbeiter bietet das Broye Intercantonal Hospital (HIB) akute Pflege und Rehabilitation. Sein Ziel ist es, eine dynamische, innovative und exzellenzorientierte Gesundheitseinrichtung zum Wohle der Bevölkerung zu sein. Um die vielen Herausforderungen zu meistern, die vor uns liegen, sucht HIB nach:\n\nTrainee Administration Pre-HES im 100% HR Service\n\nDeine Mission\n\n• Erstellung und Überprüfung der Verwaltungsakte des Arbeitnehmers vor der Feststellung des Gehalts.\n\n• Erstellung von Arbeitsverträgen und zugehörigen Vertragsanhängen.\n\n• Verwaltung des Prozesses zur Unterzeichnung von Vertrags- und Verwaltungsdokumenten.\n\n• Dateneingabe und Verwaltung neuer Mitarbeiter im Adequasys-System.\n\n• Aktualisieren, Verfolgen und Überwachen der HR-Tracking-Tabelle.\n\n• Verwaltung von E-Mails und Telefonanrufen.\n\nIhre Vermögenswerte\n\n• Hohes Interesse an Verwaltungsmanagement und Personal\n\n• Teilnahme an mündlicher und schriftlicher Kommunikation\n\n• Organisatorischer Sinn, Strenge und Diskretion\n\n• Gute Computerkenntnisse\n\nAmtsantritt: 01.07.2027\n\nDauer: 1 Jahr.\n\nVielen Dank, dass Sie Ihren vollständigen Antrag online gestellt haben.\n\nFür weitere Fragen zu dieser Position oder bei technischen Schwierigkeiten wenden Sie sich bitte an unsere Rekrutierungsabteilung unter 026 662 81 91.\n\nEin gewöhnlicher Strafregisterauszug und ein spezieller Blankoauszug von weniger als 3 Monaten sind erforderlich, bevor der Vertrag unterzeichnet wird.",
+        "fr": "Grâce à ses 800 collaboratrices et collaborateurs, l’Hôpital intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d’être une institution de santé dynamique, novatrice et visant l’excellence au profit de la population broyarde. Pour relever les nombreux défis qui l’attendent, l’HIB est à la recherche d’un∙e :\nStagiaire administration Pré-HES au sein du service RH à 100%\nVotre mission\n\n• Constitution et vérification du dossier administratif du collaborateur en amont de l’établissement des salaires.\n\n• Rédaction des contrats de travail et des annexes contractuelles associée.\n\n• Gestion du processus de signature des documents contractuels et administratifs.\n\n• Saisie des données et gestion administrative de l’entrée des nouveaux collaborateurs dans le système Adequasys.\n\n• Mise à jour, suivi et contrôle du tableau de suivi des activités RH.\n\n• Gestion des e-mails et des appels téléphoniques.\n\nVos atouts\n\n• Intérêt marqué pour la gestion administrative et les ressources humaines\n\n• Aisance dans la communication orale et écrite\n\n• Sens de l’organisation, rigueur et discrétion\n\n• Bonnes connaissances informatiques\n\nEntrée en fonction : 01.07.2027\n\nDurée du stage : 1 an.\n\nNous vous remercions de nous transmettre votre dossier de candidature complet en postulant en ligne.\n\nPour toute question complémentaire au sujet de ce poste, ou en cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91.\n\nUn extrait de casier judiciaire ordinaire ainsi qu’un extrait spécial vierges de moins de 3 mois seront exigés avant la signature du contrat."
       },
+      "needsRetranslation": false,
       "location": "Payerne",
       "canton": "VD",
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-assistant.e-en-gynecologie-obstetrique-a-100-207",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:29:28.310Z",
+      "crawledAt": "2026-11-21T21:17:01.509Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4718,8 +4668,26 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-assistant.e-en-gynecologie-obstetrique-a-100-207",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "stagiaire-administration-pre-hes-au-sein-du-service-rh-a-100-hib-broye-payerne",
+        "stage-di-amministrazione-pre-hes-presso-il-servizio-rh-al-100-hopital-intercantonal-de-la-broye-hib-payerne",
+        "pre-hes-administration-internship-within-the-100-hr-department-hopital-intercantonal-de-la-broye-hib-payerne",
+        "praktikum-als-pre-hes-administrator-innerhalb-des-100-igen-hr-dienstes-hopital-intercantonal-de-la-broye-hib-payerne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-administration-pre-hes-au-sein-du-service-rh-a-100-hib-broye-payerne",
+          "stage-di-amministrazione-pre-hes-presso-il-servizio-rh-al-100-hopital-intercantonal-de-la-broye-hib-payerne",
+          "pre-hes-administration-internship-within-the-100-hr-department-hopital-intercantonal-de-la-broye-hib-payerne",
+          "praktikum-als-pre-hes-administrator-innerhalb-des-100-igen-hr-dienstes-hopital-intercantonal-de-la-broye-hib-payerne"
+        ],
+        "en": [
+          "pre-hes-administration-internship-within-the-100-hr-department-hopital-intercantonal-de-la-broye-hib-payerne"
+        ],
+        "de": [
+          "praktikum-als-pre-hes-administrator-innerhalb-des-100-igen-hr-dienstes-hopital-intercantonal-de-la-broye-hib-payerne"
+        ]
       },
       "salaryMin": 51000,
       "salaryMax": 77500,
@@ -4736,29 +4704,9 @@
       },
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:29:28.310Z",
+      "validThrough": "2027-02-19T21:17:01.509Z",
       "validThroughSource": "last-observed-window",
-      "previousSlugsByLocale": {
-        "it": [
-          "stagiaire-administration-pre-hes-au-sein-du-service-rh-a-100-hib-broye-payerne",
-          "stage-di-amministrazione-pre-hes-presso-il-servizio-rh-al-100-hopital-intercantonal-de-la-broye-hib-payerne",
-          "pre-hes-administration-internship-within-the-100-hr-department-hopital-intercantonal-de-la-broye-hib-payerne",
-          "praktikum-als-pre-hes-administrator-innerhalb-des-100-igen-hr-dienstes-hopital-intercantonal-de-la-broye-hib-payerne"
-        ],
-        "en": [
-          "pre-hes-administration-internship-within-the-100-hr-department-hopital-intercantonal-de-la-broye-hib-payerne"
-        ],
-        "de": [
-          "praktikum-als-pre-hes-administrator-innerhalb-des-100-igen-hr-dienstes-hopital-intercantonal-de-la-broye-hib-payerne"
-        ]
-      },
-      "previousSlugs": [
-        "stagiaire-administration-pre-hes-au-sein-du-service-rh-a-100-hib-broye-payerne",
-        "stage-di-amministrazione-pre-hes-presso-il-servizio-rh-al-100-hopital-intercantonal-de-la-broye-hib-payerne",
-        "pre-hes-administration-internship-within-the-100-hr-department-hopital-intercantonal-de-la-broye-hib-payerne",
-        "praktikum-als-pre-hes-administrator-innerhalb-des-100-igen-hr-dienstes-hopital-intercantonal-de-la-broye-hib-payerne"
-      ],
-      "sourceIdentity": "url:https://emploi.hopital-broye.ch/fr/nos-offres/medecin-assistant.e-en-gynecologie-obstetrique-a-100-207"
+      "firstSeenAt": "2026-11-21T21:17:01.509Z"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "oscam-castelrotto",
-  "assembledAt": "2026-11-20T09:23:56.330Z",
-  "runId": "44707588570",
+  "assembledAt": "2026-11-21T21:16:04.746Z",
+  "runId": "44949661171",
   "jobs": [
     {
       "id": "oscam-castelrotto-concorso-generale-2025-per-medici-assistenti-fb9ba0759bc6",
@@ -34,7 +34,7 @@
       "url": "https://www.oscam.ch/wp-content/uploads/2025/01/Concorso-generale-2025-per-medici-assistenti.pdf",
       "source": "OSCAM Castelrotto Dedicated Parser (WordPress HTML, PDF concorsi)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-20T09:23:47.620Z",
+      "crawledAt": "2026-11-21T21:15:55.987Z",
       "addressLocality": "Castelrotto",
       "addressRegion": "TI",
       "streetAddress": "Nucleo 30",
@@ -94,9 +94,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:23:47.620Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.oscam.ch/wp-content/uploads/2025/01/concorso-generale-2025-per-medici-assistenti.pdf"
+      "validThrough": "2027-01-11T21:15:55.987Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
