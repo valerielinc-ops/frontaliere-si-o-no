@@ -417,16 +417,18 @@ function isLinkedInCallbackContext(page: URL): boolean {
 }
 
 /**
- * True only for the opaque `Na` exception attributed to the document while a
- * Google vignette is active (#18592). WebKit can report injected ad code with
- * the page URL instead of the injected script URL, so the stack looks
- * first-party even though no application chunk is involved.
+ * True only for the opaque `Na` exception attributed to the document by
+ * Google's injected ad surface (#18592). WebKit can report injected ad code
+ * with the page URL instead of the injected script URL, so the stack looks
+ * first-party even though no application chunk is involved. The browser or
+ * SDK can also remove the transient `#google_vignette` fragment before the
+ * exception is serialized, so the document-attributed stack is the durable
+ * discriminator rather than that fragment.
  *
  * The classifier is deliberately fail-open: it requires the exact message,
- * the production first-party page and either the exact vignette hash or the
- * verified LinkedIn callback fallback context, at least one parseable stack
- * URL, every frame to point at that same document surface, and no first-party
- * asset frame. Missing or malformed context stays observable.
+ * the production first-party page, at least one parseable stack URL, every
+ * frame to point at that same document surface, and no first-party asset
+ * frame. Missing or malformed context stays observable.
  * This filters telemetry only; it does not alter ad loading or rendering.
  */
 export function isGoogleVignetteInjectedOpaqueError(
@@ -444,11 +446,7 @@ export function isGoogleVignetteInjectedOpaqueError(
     return false;
   }
   const linkedinCallback = isLinkedInCallbackContext(page);
-  if (
-    page.protocol !== 'https:'
-    || !isFirstPartySiteHost(page.hostname)
-    || (page.hash !== '#google_vignette' && !linkedinCallback)
-  ) {
+  if (page.protocol !== 'https:' || !isFirstPartySiteHost(page.hostname)) {
     return false;
   }
 
