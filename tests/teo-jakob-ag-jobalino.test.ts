@@ -99,6 +99,23 @@ describe('Teo Jakob JSON-LD arrays', () => {
     { label: 'non-object location', overrides: { jobLocation: 'Bern' }, expected: /jobLocation is unusable/i },
     { label: 'location without address', overrides: { jobLocation: { '@type': 'Place' } }, expected: /jobLocation address is unusable/i },
     { label: 'empty address array', overrides: { jobLocation: { '@type': 'Place', address: [] } }, expected: /jobLocation address is unusable/i },
+    { label: 'empty address object', overrides: { jobLocation: { '@type': 'Place', address: {} } }, expected: /jobLocation address is unusable/i },
+    {
+      label: 'blank address fields',
+      overrides: {
+        jobLocation: {
+          '@type': 'Place',
+          address: {
+            addressLocality: ' ',
+            addressRegion: '\n',
+            addressCountry: '\t',
+            postalCode: '',
+            streetAddress: '  ',
+          },
+        },
+      },
+      expected: /jobLocation address is unusable/i,
+    },
     { label: 'non-object address', overrides: { jobLocation: { '@type': 'Place', address: 'Bern' } }, expected: /jobLocation address is unusable/i },
   ])('fails closed for a present but unusable $label', async ({ overrides, expected }) => {
     stubJobalino(detailHtml(overrides));

@@ -57,6 +57,16 @@ function objectValues(value) {
   return values;
 }
 
+function hasGeographicEvidence(address = {}) {
+  return [
+    address.addressLocality,
+    address.addressRegion,
+    address.addressCountry,
+    address.postalCode,
+    address.streetAddress,
+  ].some((value) => typeof value === 'string' && normalizeSpace(value));
+}
+
 function tenantEmployer(tile = {}, posting = {}) {
   if (!hasOwn(posting, 'hiringOrganization')) {
     const listingName = normalizeSpace(tile.company || '');
@@ -93,7 +103,10 @@ function addressCandidates(posting = {}) {
     if (!locationAddresses) {
       throw new Error('Teo Jakob AG jobLocation address is unusable');
     }
-    addresses.push(...locationAddresses);
+    addresses.push(...locationAddresses.filter(hasGeographicEvidence));
+  }
+  if (addresses.length === 0) {
+    throw new Error('Teo Jakob AG jobLocation address is unusable');
   }
   return addresses;
 }
