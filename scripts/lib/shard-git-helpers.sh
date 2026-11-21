@@ -1168,7 +1168,9 @@ shard_delta_verify_prepare() {
       SHARD_VERIFY_REASON='verification output directory unavailable'
       return 1
     fi
-    if ! ( cd "$payload_root" && find . -type f -print0 | perl -0ne 's#^\./##; print "$_\0"' ) > "$out_dir/payload-files.txt"; then
+    # Perl's -0 reader keeps the NUL delimiter in $_; print the record as-is
+    # after removing ./ so the source and mapped-target streams stay one-to-one.
+    if ! ( cd "$payload_root" && find . -type f -print0 | perl -0ne 's#^\./##; print' ) > "$out_dir/payload-files.txt"; then
       SHARD_VERIFY_REASON='verification payload listing failed'
       return 1
     fi
