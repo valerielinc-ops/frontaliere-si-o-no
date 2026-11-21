@@ -351,6 +351,13 @@ describe('SEO builder noindex guards', () => {
         canonicalUrl,
         effectiveCanonicalUrl: canonicalUrl,
         hasIndexableRenderedBody: false,
+        sourceDetailWordCount: sourceDetailWordCount - 1,
+      })).toBe(false);
+
+      expect(isActiveJobLocaleIndexable(job, 'it', {
+        canonicalUrl,
+        effectiveCanonicalUrl: canonicalUrl,
+        hasIndexableRenderedBody: false,
         sourceDetailWordCount,
       })).toBe(true);
     });
