@@ -1,7 +1,7 @@
 {
   "crawlerKey": "rennbahnklinik",
-  "assembledAt": "2026-11-20T21:49:02.412Z",
-  "runId": "44819141080",
+  "assembledAt": "2026-11-21T21:37:33.578Z",
+  "runId": "44950790799",
   "jobs": [
     {
       "id": "rennbahnklinik-56d6e1ef71bf",
@@ -34,7 +34,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/assistenzarzt-aerztin-sport-orthopaedie",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:48:55.348Z",
+      "crawledAt": "2026-11-21T21:37:26.876Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -110,9 +110,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:48:55.348Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.rennbahnklinik.ch/jobs/assistenzarzt-aerztin-sport-orthopaedie"
+      "validThrough": "2026-12-21T21:37:26.876Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rennbahnklinik-6a1155962fc5",
@@ -145,7 +144,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/pflegefachperson-hf",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:48:54.323Z",
+      "crawledAt": "2026-11-21T21:37:25.845Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -194,9 +193,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-31T21:48:54.323Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.rennbahnklinik.ch/jobs/pflegefachperson-hf"
+      "validThrough": "2027-01-31T21:37:25.845Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rennbahnklinik-3d9ef18a62e5",
@@ -230,7 +228,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/technische-operationsfachkraft-toa",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:48:53.299Z",
+      "crawledAt": "2026-11-21T21:37:24.706Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -318,9 +316,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:48:53.299Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.rennbahnklinik.ch/jobs/technische-operationsfachkraft-toa"
+      "validThrough": "2026-12-21T21:37:24.706Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rennbahnklinik-2bb6a8f768ae",
@@ -354,7 +351,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/praktikum-biomechanik",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:48:52.224Z",
+      "crawledAt": "2026-11-21T21:37:23.671Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -396,9 +393,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T21:48:52.224Z",
+      "validThrough": "2027-02-19T21:37:23.671Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.rennbahnklinik.ch/jobs/praktikum-biomechanik"
+      "firstSeenAt": "2026-11-21T21:37:23.671Z"
     },
     {
       "id": "rennbahnklinik-6ec85dad4d98",
@@ -431,7 +428,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/wissenschaftliche-n-mitarbeiter-in",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:48:51.198Z",
+      "crawledAt": "2026-11-21T21:37:22.639Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -482,9 +479,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-31T21:48:51.198Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.rennbahnklinik.ch/jobs/wissenschaftliche-n-mitarbeiter-in"
+      "validThrough": "2027-01-31T21:37:22.639Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rennbahnklinik-44aacd7c7eb2",
@@ -517,7 +513,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/unterassistenz",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:48:50.181Z",
+      "crawledAt": "2026-11-21T21:37:21.553Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -578,9 +574,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:48:50.181Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.rennbahnklinik.ch/jobs/unterassistenz"
+      "validThrough": "2026-12-21T21:37:21.553Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rennbahnklinik-789220b61924",
@@ -613,7 +608,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/physiotherapeut-in",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:48:49.100Z",
+      "crawledAt": "2026-11-21T21:37:20.505Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -662,9 +657,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:48:49.100Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.rennbahnklinik.ch/jobs/physiotherapeut-in"
+      "validThrough": "2027-01-26T21:37:20.505Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rennbahnklinik-1b691dd5bebc",
@@ -698,7 +692,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/pflegepraktikum-fuer-medizinstudierende",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:48:48.066Z",
+      "crawledAt": "2026-11-21T21:37:19.383Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -753,9 +747,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:48:48.066Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.rennbahnklinik.ch/jobs/pflegepraktikum-fuer-medizinstudierende"
+      "validThrough": "2026-12-21T21:37:19.383Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rennbahnklinik-ac2b7ed23e81",
@@ -789,7 +782,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/gruppenfitnessinstruktor-in",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:48:46.995Z",
+      "crawledAt": "2026-11-21T21:37:18.316Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -838,9 +831,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T21:48:46.995Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.rennbahnklinik.ch/jobs/gruppenfitnessinstruktor-in"
+      "validThrough": "2027-02-07T21:37:18.316Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rennbahnklinik-ebecf2ba958a",
@@ -874,7 +866,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/medizinische-praxisassistent-in-efz-im-labor",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:48:45.956Z",
+      "crawledAt": "2026-11-21T21:37:17.242Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -923,9 +915,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:48:45.956Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.rennbahnklinik.ch/jobs/medizinische-praxisassistent-in-efz-im-labor"
+      "validThrough": "2027-01-26T21:37:17.242Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rennbahnklinik-52041f946dda",
@@ -959,7 +950,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/kaufmaennische-n-angestellte-n",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:48:44.919Z",
+      "crawledAt": "2026-11-21T21:37:16.355Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1008,9 +999,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-15T21:48:44.919Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.rennbahnklinik.ch/jobs/kaufmaennische-n-angestellte-n"
+      "validThrough": "2027-02-15T21:37:16.355Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

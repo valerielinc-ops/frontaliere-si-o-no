@@ -1,7 +1,7 @@
 {
   "crawlerKey": "klinik-adelheid",
-  "assembledAt": "2026-11-20T21:46:28.396Z",
-  "runId": "44819141080",
+  "assembledAt": "2026-11-21T21:40:19.785Z",
+  "runId": "44950790799",
   "jobs": [
     {
       "id": "klinik-adelheid-0a2f0e21b5e4",
@@ -34,7 +34,7 @@
       "url": "https://link.ostendis.com/publication/psychologin-psychologe/3qeph7itpvzn4tvfnjtppqymb4hx2tegof7nnf2nbrssrzh3gwr6etxt6p1yt8pc",
       "source": "Klinik Adelheid Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:46:21.911Z",
+      "crawledAt": "2026-11-21T21:40:13.670Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -83,9 +83,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T21:46:21.911Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://link.ostendis.com/publication/psychologin-psychologe/3qeph7itpvzn4tvfnjtppqymb4hx2tegof7nnf2nbrssrzh3gwr6etxt6p1yt8pc"
+      "validThrough": "2027-02-04T21:40:13.670Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-adelheid-db72af368191",
@@ -93,7 +92,7 @@
       "slugByLocale": {
         "it": "civilista-nel-settore-delle-cure-e-della-terapia-klinik-adelheid-unterageri",
         "en": "civil-service-providers-in-the-field-of-care-and-therapy-klinik-adelheid-unterageri",
-        "de": "zivildienstleistende-im-pflege-und-therapiebereich-klinik-adelheid-unterageri",
+        "de": "zivildienstleistende-im-pflege-und-therapiebereich-klinik-adelheid-unteraegeri",
         "fr": "fournisseurs-de-services-publics-dans-le-domaine-des-soins-et-de-la-therapie-klinik-adelheid-unterageri"
       },
       "company": "Klinik Adelheid",
@@ -119,7 +118,7 @@
       "url": "https://link.ostendis.com/publication/zivildienstleistende-im-pflege-und-therapiebereich/jm63m0vcmwbitrcjb33ytlskdqycc5ufynqoslx4ap63xdecec4yllgjosqbpcg4",
       "source": "Klinik Adelheid Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:46:21.495Z",
+      "crawledAt": "2026-11-21T21:40:13.235Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -139,12 +138,10 @@
       "applyUrl": "https://link.ostendis.com/publication/zivildienstleistende-im-pflege-und-therapiebereich/jm63m0vcmwbitrcjb33ytlskdqycc5ufynqoslx4ap63xdecec4yllgjosqbpcg4",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "zivildienstleistende-im-pflege-und-therapiebereich-klinik-adelheid-unteraegeri",
-        "zivildienstleistende-im-pflege-e-therapiebereich-klinik-adelheid-unterageri",
-        "zivildienstleistende-im-pflege-und-therapiebereich-klinik-adelheid-unterageri"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "zivildienstleistende-im-pflege-und-therapiebereich-klinik-adelheid-unterageri"
+        ],
         "it": [
           "zivildienstleistende-im-pflege-und-therapiebereich-klinik-adelheid-unteraegeri",
           "zivildienstleistende-im-pflege-e-therapiebereich-klinik-adelheid-unterageri"
@@ -154,11 +151,13 @@
         ],
         "fr": [
           "zivildienstleistende-im-pflege-und-therapiebereich-klinik-adelheid-unterageri"
-        ],
-        "de": [
-          "zivildienstleistende-im-pflege-und-therapiebereich-klinik-adelheid-unteraegeri"
         ]
       },
+      "previousSlugs": [
+        "zivildienstleistende-im-pflege-und-therapiebereich-klinik-adelheid-unteraegeri",
+        "zivildienstleistende-im-pflege-e-therapiebereich-klinik-adelheid-unterageri",
+        "zivildienstleistende-im-pflege-und-therapiebereich-klinik-adelheid-unterageri"
+      ],
       "firstSeenAt": "2026-05-19T13:03:35.349Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -174,9 +173,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T21:46:21.495Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://link.ostendis.com/publication/zivildienstleistende-im-pflege-und-therapiebereich/jm63m0vcmwbitrcjb33ytlskdqycc5ufynqoslx4ap63xdecec4yllgjosqbpcg4"
+      "validThrough": "2026-12-29T21:40:13.235Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-adelheid-0ae98e36414c",
@@ -210,7 +208,7 @@
       "url": "https://link.ostendis.com/publication/studium-zur-dipl-pflegefachperson-hf/poughkmwxvwzwqyhtvp22jfs7llu3emjn9qmdiw2ybz78ydv667fohq4jmmfzchh",
       "source": "Klinik Adelheid Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:46:21.075Z",
+      "crawledAt": "2026-11-21T21:40:12.811Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -261,9 +259,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T21:46:21.075Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://link.ostendis.com/publication/studium-zur-dipl-pflegefachperson-hf/poughkmwxvwzwqyhtvp22jfs7llu3emjn9qmdiw2ybz78ydv667fohq4jmmfzchh"
+      "validThrough": "2026-12-29T21:40:12.811Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-adelheid-f2faa2d6496e",
@@ -296,7 +293,7 @@
       "url": "https://link.ostendis.com/publication/dipl-pflegefachfrau-mann-hf/49r2jvk5urzcydbn3f3fx98klkqzcaypc3trz77oqsdcq2hjy6bhziwheysbt1mz",
       "source": "Klinik Adelheid Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:46:20.647Z",
+      "crawledAt": "2026-11-21T21:40:12.382Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -341,12 +338,12 @@
           "dipl-pflegefachfrau-mann-hf-60-100-klinik-adelheid-unteraegeri",
           "dipl-nurse-hf-60-100-klinik-adelheid-unterageri"
         ],
+        "de": [
+          "dipl-pflegefachfrau-mann-hf-60-100-klinik-adelheid-unteraegeri-eca4f1ca"
+        ],
         "fr": [
           "dipl-pflegefachfrau-mann-hf-60-100-klinik-adelheid-unteraegeri",
           "infirmier-infirmiere-diplome-e-hf-60-100-klinik-adelheid-unterageri"
-        ],
-        "de": [
-          "dipl-pflegefachfrau-mann-hf-60-100-klinik-adelheid-unteraegeri-eca4f1ca"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:34.053Z",
@@ -364,9 +361,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T21:46:20.647Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://link.ostendis.com/publication/dipl-pflegefachfrau-mann-hf/49r2jvk5urzcydbn3f3fx98klkqzcaypc3trz77oqsdcq2hjy6bhziwheysbt1mz"
+      "validThrough": "2026-12-29T21:40:12.382Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-adelheid-81cdbc92c9ee",
@@ -374,7 +370,7 @@
       "slugByLocale": {
         "it": "medica-dirigente-medico-dirigente-100-con-specializzazione-in-pmr-klinik-adelheid-unterageri",
         "en": "lead-doctor-lead-doctor-100-with-specialist-pmr-klinik-adelheid-unterageri",
-        "de": "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unterageri",
+        "de": "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri",
         "fr": "medecin-en-chef-medecin-en-chef-100-avec-specialiste-pmr-klinik-adelheid-unterageri"
       },
       "company": "Klinik Adelheid",
@@ -400,7 +396,7 @@
       "url": "https://link.ostendis.com/publication/leitende-aerztin-leitender-arzt-mit-facharzt-pmr/yw4oorzoto351bbx3ik0tjo643cp3bv620nw5bdeny5asre2y7skprxbybue8kld",
       "source": "Klinik Adelheid Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:46:20.203Z",
+      "crawledAt": "2026-11-21T21:40:11.963Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -420,16 +416,11 @@
       "applyUrl": "https://link.ostendis.com/publication/leitende-aerztin-leitender-arzt-mit-facharzt-pmr/yw4oorzoto351bbx3ik0tjo643cp3bv620nw5bdeny5asre2y7skprxbybue8kld",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri",
-        "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri-315faf14",
-        "medecin-en-chef-medecin-en-chef-100-avec-pmr-specialiste-klinik-adelheid-unterageri",
-        "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri-f73ede90",
-        "medica-dirigente-medico-dirigente-100-con-specializzazione-in-pmr-klinik-adelheid-unterageri-47b9f458",
-        "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri-52e3498c",
-        "lead-doctor-lead-doctor-100-with-specialist-pmr-klinik-adelheid-unterageri-7c5e42c8"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri-315faf14",
+          "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unterageri"
+        ],
         "it": [
           "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri",
           "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri-315faf14",
@@ -445,12 +436,18 @@
         "fr": [
           "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri",
           "medecin-en-chef-medecin-en-chef-100-avec-pmr-specialiste-klinik-adelheid-unterageri"
-        ],
-        "de": [
-          "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri",
-          "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri-315faf14"
         ]
       },
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri",
+        "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri-315faf14",
+        "medecin-en-chef-medecin-en-chef-100-avec-pmr-specialiste-klinik-adelheid-unterageri",
+        "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri-f73ede90",
+        "medica-dirigente-medico-dirigente-100-con-specializzazione-in-pmr-klinik-adelheid-unterageri-47b9f458",
+        "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri-52e3498c",
+        "lead-doctor-lead-doctor-100-with-specialist-pmr-klinik-adelheid-unterageri-7c5e42c8",
+        "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unterageri"
+      ],
       "firstSeenAt": "2026-11-06T09:37:06.834Z",
       "salaryMin": 117000,
       "salaryMax": 163000,
@@ -466,9 +463,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:46:20.203Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://link.ostendis.com/publication/leitende-aerztin-leitender-arzt-mit-facharzt-pmr/yw4oorzoto351bbx3ik0tjo643cp3bv620nw5bdeny5asre2y7skprxbybue8kld"
+      "validThrough": "2027-01-26T21:40:11.963Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-adelheid-c4aa45be5b2c",
@@ -476,7 +472,7 @@
       "slugByLocale": {
         "it": "sous-chef-100-klinik-adelheid-unterageri",
         "en": "sous-chef-100-klinik-adelheid-unterageri",
-        "de": "sous-chef-in-100-klinik-adelheid-unterageri",
+        "de": "sous-chef-in-100-klinik-adelheid-unteraegeri",
         "fr": "sous-chef-cheffe-a-100-klinik-adelheid-unterageri"
       },
       "company": "Klinik Adelheid",
@@ -502,7 +498,7 @@
       "url": "https://link.ostendis.com/publication/sous-chef-in/vsy1chyvd2lm0iwm35y4zisux53spisc40g3x2v0dwz7dqw0toz4mwofcvzt0jb3",
       "source": "Klinik Adelheid Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:46:19.777Z",
+      "crawledAt": "2026-11-21T21:40:11.521Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -522,18 +518,11 @@
       "applyUrl": "https://link.ostendis.com/publication/sous-chef-in/vsy1chyvd2lm0iwm35y4zisux53spisc40g3x2v0dwz7dqw0toz4mwofcvzt0jb3",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "sous-chef-in-100-klinik-adelheid-unteraegeri",
-        "sous-chef-in-100-klinik-adelheid-unteraegeri-1c68b85e",
-        "sous-chef-ne-100-klinik-adelheid-unterageri",
-        "sous-chef-in-100-klinik-adelheid-unteraegeri-2c5d905a",
-        "sous-chef-in-100-klinik-adelheid-unteraegeri-9f463fd2",
-        "sous-chef-in-100-klinik-adelheid-unteraegeri-6cb6597f",
-        "sous-chef-in-100-klinik-adelheid-unteraegeri-f8cc3579",
-        "sous-chef-in-100-klinik-adelheid-unteraegeri-8de2759f",
-        "sous-chef-100-klinik-adelheid-unterageri-c0286d75"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "sous-chef-in-100-klinik-adelheid-unteraegeri-1c68b85e",
+          "sous-chef-in-100-klinik-adelheid-unterageri"
+        ],
         "it": [
           "sous-chef-in-100-klinik-adelheid-unteraegeri",
           "sous-chef-in-100-klinik-adelheid-unteraegeri-1c68b85e",
@@ -551,12 +540,20 @@
         "fr": [
           "sous-chef-in-100-klinik-adelheid-unteraegeri",
           "sous-chef-ne-100-klinik-adelheid-unterageri"
-        ],
-        "de": [
-          "sous-chef-in-100-klinik-adelheid-unteraegeri",
-          "sous-chef-in-100-klinik-adelheid-unteraegeri-1c68b85e"
         ]
       },
+      "previousSlugs": [
+        "sous-chef-in-100-klinik-adelheid-unteraegeri",
+        "sous-chef-in-100-klinik-adelheid-unteraegeri-1c68b85e",
+        "sous-chef-ne-100-klinik-adelheid-unterageri",
+        "sous-chef-in-100-klinik-adelheid-unteraegeri-2c5d905a",
+        "sous-chef-in-100-klinik-adelheid-unteraegeri-9f463fd2",
+        "sous-chef-in-100-klinik-adelheid-unteraegeri-6cb6597f",
+        "sous-chef-in-100-klinik-adelheid-unteraegeri-f8cc3579",
+        "sous-chef-in-100-klinik-adelheid-unteraegeri-8de2759f",
+        "sous-chef-100-klinik-adelheid-unterageri-c0286d75",
+        "sous-chef-in-100-klinik-adelheid-unterageri"
+      ],
       "firstSeenAt": "2026-11-06T09:37:06.437Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -572,9 +569,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T21:46:19.777Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://link.ostendis.com/publication/sous-chef-in/vsy1chyvd2lm0iwm35y4zisux53spisc40g3x2v0dwz7dqw0toz4mwofcvzt0jb3"
+      "validThrough": "2027-01-25T21:40:11.521Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-adelheid-08075ad22594",
@@ -607,7 +603,7 @@
       "url": "https://link.ostendis.com/publication/lernende-als-koechin-koch-efz/2qejr7mat5day7b9050gwt65stslg8qcclodtx2vjossc5f367erafo2j37favik",
       "source": "Klinik Adelheid Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:46:19.369Z",
+      "crawledAt": "2026-11-21T21:40:10.544Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -658,9 +654,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T21:46:19.369Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://link.ostendis.com/publication/lernende-als-koechin-koch-efz/2qejr7mat5day7b9050gwt65stslg8qcclodtx2vjossc5f367erafo2j37favik"
+      "validThrough": "2026-12-29T21:40:10.544Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-adelheid-7f68bcbc96ea",
@@ -767,7 +762,7 @@
       "validThrough": "2026-12-28T09:48:04.937Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://link.ostendis.com/publication/servicefachangestellte/yteuhc6mrv1ccr4e0p643z0y22skzprvvdy6fhrfu7mybijppf8qa6nzee2oyzf7",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

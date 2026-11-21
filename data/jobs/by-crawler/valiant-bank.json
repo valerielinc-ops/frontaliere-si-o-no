@@ -1,7 +1,7 @@
 {
   "crawlerKey": "valiant-bank",
-  "assembledAt": "2026-11-20T21:44:55.387Z",
-  "runId": "44819141080",
+  "assembledAt": "2026-11-21T21:33:42.481Z",
+  "runId": "44950790799",
   "jobs": [
     {
       "id": "valiant-bank-22d62280bcec",
@@ -34,7 +34,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-vermoegensberatungskunden/d9fffdec-3231-4a14-99a4-aea8b98a91dd",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:44:46.136Z",
+      "crawledAt": "2026-11-21T21:33:32.726Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "St. Gallen",
@@ -79,9 +79,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:44:46.136Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.valiant.ch/offene-stellen/berater-in-vermoegensberatungskunden/d9fffdec-3231-4a14-99a4-aea8b98a91dd"
+      "validThrough": "2026-12-21T21:33:32.726Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "valiant-bank-e594269f30be",
@@ -114,7 +113,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/dd63b9f0-f6df-431a-8687-d68cb3c6b1ba",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:44:45.613Z",
+      "crawledAt": "2026-11-21T21:33:32.238Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "SG",
       "streetAddress": "Frauenfeld",
@@ -165,9 +164,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:44:45.613Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/dd63b9f0-f6df-431a-8687-d68cb3c6b1ba"
+      "validThrough": "2026-12-21T21:33:32.238Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "valiant-bank-907196196b26",
@@ -200,7 +198,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/68530eb6-558c-490d-b597-ff21bf45d3c0",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:44:45.311Z",
+      "crawledAt": "2026-11-21T21:33:32.066Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "streetAddress": "Meilen",
@@ -251,9 +249,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:44:45.311Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/68530eb6-558c-490d-b597-ff21bf45d3c0"
+      "validThrough": "2026-12-21T21:33:32.066Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "valiant-bank-2ebe2b871987",
@@ -286,7 +283,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/diverse-freie-ausbildungsplaetze-ab-1-august-2027/e511f785-7e8d-4da3-9cea-1a8a4992ecd4",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:44:45.087Z",
+      "crawledAt": "2026-11-21T21:33:31.881Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofplatz 7",
@@ -331,9 +328,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:44:45.087Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.valiant.ch/offene-stellen/diverse-freie-ausbildungsplaetze-ab-1-august-2027/e511f785-7e8d-4da3-9cea-1a8a4992ecd4"
+      "validThrough": "2026-12-21T21:33:31.881Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "valiant-bank-f4c25b47e7b7",
@@ -366,7 +362,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/6278b239-6167-4ae3-87d6-d0f20b1f79f6",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:44:44.890Z",
+      "crawledAt": "2026-11-21T21:33:31.552Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "streetAddress": "Bülach",
@@ -417,9 +413,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:44:44.890Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/6278b239-6167-4ae3-87d6-d0f20b1f79f6"
+      "validThrough": "2026-12-21T21:33:31.552Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "valiant-bank-5a47e5f5e2be",
@@ -452,7 +447,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/digitale-r-berater-in-kundencenter/d3fdc74e-5c2a-49cb-8dc0-40200848cf3c",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:44:44.721Z",
+      "crawledAt": "2026-11-21T21:33:31.378Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "streetAddress": "Gümligen",
@@ -498,9 +493,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:44:44.721Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.valiant.ch/offene-stellen/digitale-r-berater-in-kundencenter/d3fdc74e-5c2a-49cb-8dc0-40200848cf3c"
+      "validThrough": "2026-12-21T21:33:31.378Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "valiant-bank-fa9452327af2",
@@ -533,7 +527,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/conseiller-ere-numerique-centre-clientele/7ac3ceab-7d2c-4ea5-bf9f-5471ea935e44",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:44:44.551Z",
+      "crawledAt": "2026-11-21T21:33:31.186Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "streetAddress": "Gümligen",
@@ -577,9 +571,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:44:44.551Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.valiant.ch/offene-stellen/conseiller-ere-numerique-centre-clientele/7ac3ceab-7d2c-4ea5-bf9f-5471ea935e44"
+      "validThrough": "2026-12-21T21:33:31.186Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "valiant-bank-d9afe0ec7404",
@@ -612,7 +605,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-unternehmenskunden/4b91d8b9-a7d4-4809-aeda-af411fa89016",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:44:44.359Z",
+      "crawledAt": "2026-11-21T21:33:31.000Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "St. Gallen",
@@ -656,9 +649,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:44:44.359Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.valiant.ch/offene-stellen/berater-in-unternehmenskunden/4b91d8b9-a7d4-4809-aeda-af411fa89016"
+      "validThrough": "2026-12-21T21:33:31.000Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "valiant-bank-b7cc7c435a3f",
@@ -691,7 +683,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/vorsorgeberater-in-firmenkunden-mandatsleitung/612208a2-ee26-467c-9ea9-32bf5fb4d32e",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:44:44.173Z",
+      "crawledAt": "2026-11-21T21:33:30.823Z",
       "addressLocality": "Basel oder Aarau",
       "addressRegion": "AG",
       "streetAddress": "Basel oder Aarau",
@@ -741,9 +733,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:44:44.173Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.valiant.ch/offene-stellen/vorsorgeberater-in-firmenkunden-mandatsleitung/612208a2-ee26-467c-9ea9-32bf5fb4d32e"
+      "validThrough": "2026-12-21T21:33:30.823Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "valiant-bank-7da8905cb822",
@@ -776,7 +767,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/ba7136e1-6f55-498e-88ba-f141c8c750fc",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:44:43.978Z",
+      "crawledAt": "2026-11-21T21:33:30.643Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "streetAddress": "Uster",
@@ -823,9 +814,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:44:43.978Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/ba7136e1-6f55-498e-88ba-f141c8c750fc"
+      "validThrough": "2026-12-21T21:33:30.643Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "valiant-bank-e7a5389f6afc",
@@ -858,7 +848,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/9f379e13-210e-445d-8481-a37315bd050e",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:44:43.784Z",
+      "crawledAt": "2026-11-21T21:33:30.474Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "streetAddress": "Wil",
@@ -905,9 +895,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T21:44:43.784Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/9f379e13-210e-445d-8481-a37315bd050e"
+      "validThrough": "2026-12-31T21:33:30.474Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "valiant-bank-95b7b2fc95ae",
@@ -940,7 +929,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/conseiller-ere-en-planification-financiere/50be4362-dbf6-4d1a-9702-13a68021fb8a",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:44:43.605Z",
+      "crawledAt": "2026-11-21T21:33:30.277Z",
       "addressLocality": "Neuchâtel ou Fribourg",
       "addressRegion": "NE",
       "streetAddress": "Neuchâtel ou Fribourg",
@@ -967,9 +956,6 @@
         "conseiller-ere-en-planification-financiere-80-100-valiant-neuchatel-ou-fribourg"
       ],
       "previousSlugsByLocale": {
-        "fr": [
-          "conseiller-ere-en-planification-financiere-80-100-valiant-neuchatel"
-        ],
         "it": [
           "conseiller-ere-en-planification-financiere-80-100-valiant-neuchatel",
           "conseiller-ere-en-planification-financiere-80-100-valiant-neuchatel-ou-fribourg"
@@ -978,6 +964,9 @@
           "conseiller-ere-en-planification-financiere-80-100-valiant-neuchatel"
         ],
         "de": [
+          "conseiller-ere-en-planification-financiere-80-100-valiant-neuchatel"
+        ],
+        "fr": [
           "conseiller-ere-en-planification-financiere-80-100-valiant-neuchatel"
         ]
       },
@@ -996,9 +985,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T21:44:43.605Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.valiant.ch/offene-stellen/conseiller-ere-en-planification-financiere/50be4362-dbf6-4d1a-9702-13a68021fb8a"
+      "validThrough": "2027-01-10T21:33:30.277Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "valiant-bank-17bcd936a62e",
@@ -1031,7 +1019,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/fachmitarbeiter-in-front-support-team-kunde-erbschaften/c1381691-c3d7-4753-a8dd-971d764d0b51",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:44:43.390Z",
+      "crawledAt": "2026-11-21T21:33:30.090Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "streetAddress": "Gümligen",
@@ -1082,9 +1070,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:44:43.390Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.valiant.ch/offene-stellen/fachmitarbeiter-in-front-support-team-kunde-erbschaften/c1381691-c3d7-4753-a8dd-971d764d0b51"
+      "validThrough": "2027-01-14T21:33:30.090Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "valiant-bank-9e036c00a7cf",
@@ -1117,7 +1104,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/conseiller-ere-en-prevoyance-clientele-entreprises-gestion-de-mandats/41fb84a0-1750-4acd-9668-fd8e43ca75c8",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:44:43.209Z",
+      "crawledAt": "2026-11-21T21:33:29.883Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1167,9 +1154,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T21:44:43.209Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.valiant.ch/offene-stellen/conseiller-ere-en-prevoyance-clientele-entreprises-gestion-de-mandats/41fb84a0-1750-4acd-9668-fd8e43ca75c8"
+      "validThrough": "2027-01-21T21:33:29.883Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "valiant-bank-6bbf804d0913",
@@ -1202,7 +1188,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/segmentsmanager-in-privatkunden-retail/d3dfd87e-19fd-4d48-bed3-127322b89755",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:44:43.034Z",
+      "crawledAt": "2026-11-21T21:33:29.689Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "streetAddress": "Gümligen",
@@ -1258,9 +1244,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T21:44:43.034Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.valiant.ch/offene-stellen/segmentsmanager-in-privatkunden-retail/d3dfd87e-19fd-4d48-bed3-127322b89755"
+      "validThrough": "2027-01-21T21:33:29.689Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "valiant-bank-221459759798",
@@ -1293,7 +1278,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden-stv-geschaeftsstellenleiter-in/a7ac4ed0-3770-41eb-8004-75d8f0c05d25",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:44:42.841Z",
+      "crawledAt": "2026-11-21T21:33:29.489Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "streetAddress": "Burgdorf",
@@ -1346,9 +1331,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:44:42.841Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden-stv-geschaeftsstellenleiter-in/a7ac4ed0-3770-41eb-8004-75d8f0c05d25"
+      "validThrough": "2027-01-24T21:33:29.489Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "valiant-bank-2b21cb0e2020",
@@ -1381,7 +1365,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/assistent-in-unternehmenskunden/01d84347-dc3a-4ef4-b2e9-36b0c6db758d",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:44:42.655Z",
+      "crawledAt": "2026-11-21T21:33:29.313Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bundesplatz 4",
@@ -1432,9 +1416,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:44:42.655Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.valiant.ch/offene-stellen/assistent-in-unternehmenskunden/01d84347-dc3a-4ef4-b2e9-36b0c6db758d"
+      "validThrough": "2027-02-02T21:33:29.313Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "valiant-bank-f71c920a577c",
@@ -1467,7 +1450,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/fachmitarbeiter-in-regulatorische-vorgaben/baf33c7d-b819-40c8-ac76-c7a794833750",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:44:42.457Z",
+      "crawledAt": "2026-11-21T21:33:29.129Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "streetAddress": "Gümligen",
@@ -1518,9 +1501,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:44:42.457Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.valiant.ch/offene-stellen/fachmitarbeiter-in-regulatorische-vorgaben/baf33c7d-b819-40c8-ac76-c7a794833750"
+      "validThrough": "2027-02-14T21:33:29.129Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "valiant-bank-9637a7c5386c",
@@ -1553,7 +1535,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/fachspezialist-in-nachhaltigkeit/191f11df-ee12-421d-8b73-09afa5b1f8eb",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:44:42.260Z",
+      "crawledAt": "2026-11-21T21:33:28.919Z",
       "addressLocality": "Bern Bundesplatz",
       "addressRegion": "BE",
       "streetAddress": "Bern Bundesplatz",
@@ -1604,9 +1586,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:44:42.260Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.valiant.ch/offene-stellen/fachspezialist-in-nachhaltigkeit/191f11df-ee12-421d-8b73-09afa5b1f8eb"
+      "validThrough": "2027-02-15T21:33:28.919Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "gzo-wetzikon",
-  "assembledAt": "2026-11-20T21:49:35.041Z",
-  "runId": "44819141080",
+  "assembledAt": "2026-11-21T21:39:35.022Z",
+  "runId": "44950790799",
   "jobs": [
     {
       "id": "gzo-wetzikon-48fb9465d885",
@@ -35,7 +35,7 @@
       "url": "https://www.publicjobs.ch/jobs/%C3%84rzte-fach%C3%A4rzte/~job150410?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:49:27.766Z",
+      "crawledAt": "2026-11-21T21:39:27.597Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -58,7 +58,6 @@
       "pensum": "50 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "medico-a-senior-di-medicina-interna-50-100-contribuisca-con-noi-a-plasmare-la-medicina-di-domani-gzo-spital-wetzikon",
           "oberarztin-oberarzt-innere-medizin-50-100-gestalten-sie-mit-uns-die-medizin-von-morgen-gzo",
           "senior-physician-internal-medicine-50-100-design-the-medicine-of-tomorrow-with-us-gzo-spital-wetzikon-wetzikon-0ca5297c",
           "oberarztin-oberarzt-innere-medizin-50-100-gestalten-sie-mit-uns-die-medizin-von-morgen-gzo-56c64b1f",
@@ -77,7 +76,8 @@
           "senior-physician-internal-medicine-50-100-design-the-medicine-of-tomorrow-with-us-gzo-spital-wetzikon-wetzikon-c8b75756",
           "oberarztin-oberarzt-innere-medizin-50-100-gestalten-sie-mit-uns-die-medizin-von-morgen-gzo-b2d84909",
           "senior-physician-internal-medicine-50-100-design-the-medicine-of-tomorrow-with-us-gzo-spital-wetzikon-wetzikon-d4fa6dde",
-          "oberarztin-oberarzt-innere-medizin-50-100-gestalten-sie-mit-uns-die-medizin-von-morgen-gzo-6065e0e9"
+          "oberarztin-oberarzt-innere-medizin-50-100-gestalten-sie-mit-uns-die-medizin-von-morgen-gzo-6065e0e9",
+          "medico-a-senior-di-medicina-interna-50-100-contribuisca-con-noi-a-plasmare-la-medicina-di-domani-gzo-spital-wetzikon"
         ],
         "en": [
           "senior-physician-internal-medicine-50-100-design-the-medicine-of-tomorrow-with-us-gzo-spital-wetzikon-wetzikon"
@@ -161,9 +161,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:49:27.766Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/%c3%84rzte-fach%c3%a4rzte/~job150410?ext"
+      "validThrough": "2026-12-21T21:39:27.597Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-d98372f696dd",
@@ -196,7 +195,7 @@
       "url": "https://www.publicjobs.ch/jobs/klinische-sekretariate-mpa/~job167675?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:49:27.193Z",
+      "crawledAt": "2026-11-21T21:39:26.868Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -254,9 +253,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:49:27.193Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/klinische-sekretariate-mpa/~job167675?ext"
+      "validThrough": "2027-02-04T21:39:26.868Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-7eb18d646b2e",
@@ -290,7 +288,7 @@
       "url": "https://www.publicjobs.ch/jobs/med.-technische-berufe-med.-therapeutische-berufe/~job165562?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:49:26.568Z",
+      "crawledAt": "2026-11-21T21:39:26.131Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -324,12 +322,12 @@
         "en": [
           "ausbildungsplatz-als-dipl-fachperson-operationstechnik-hf-gzo-wetzikon-ch"
         ],
+        "de": [
+          "ausbildungsplatz-als-dipl-fachpersonal-operationstechnik-hf-gzo-spital-wetzikon-wetzikon"
+        ],
         "fr": [
           "ausbildungsplatz-als-dipl-fachperson-operationstechnik-hf-gzo-wetzikon-ch",
           "formation-en-tant-que-technicien-ne-en-techniques-chirurgicales-hf-gzo-spital-wetzikon-wetzikon"
-        ],
-        "de": [
-          "ausbildungsplatz-als-dipl-fachpersonal-operationstechnik-hf-gzo-spital-wetzikon-wetzikon"
         ]
       },
       "salaryMin": 91500,
@@ -348,9 +346,9 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:49:26.568Z",
+      "validThrough": "2027-02-19T21:39:26.131Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/med.-technische-berufe-med.-therapeutische-berufe/~job165562?ext"
+      "firstSeenAt": "2026-11-21T21:39:26.131Z"
     },
     {
       "id": "gzo-wetzikon-b129d7184ce6",
@@ -384,7 +382,7 @@
       "url": "https://www.publicjobs.ch/jobs/%C3%84rzte-fach%C3%A4rzte/~job167776?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:49:25.988Z",
+      "crawledAt": "2026-11-21T21:39:25.415Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -438,9 +436,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:49:25.988Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/%c3%84rzte-fach%c3%a4rzte/~job167776?ext"
+      "validThrough": "2026-12-21T21:39:25.415Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-63fdd8b13931",
@@ -473,7 +470,7 @@
       "url": "https://www.publicjobs.ch/jobs/sozialarbeit-schulsozialarbeit/~job167902?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:49:25.280Z",
+      "crawledAt": "2026-11-21T21:39:24.669Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -525,9 +522,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:49:25.280Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/sozialarbeit-schulsozialarbeit/~job167902?ext"
+      "validThrough": "2027-01-26T21:39:24.669Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-7732f92c25d1",
@@ -561,7 +557,7 @@
       "url": "https://www.publicjobs.ch/jobs/med.-technische-berufe-med.-therapeutische-berufe/~job167956?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:49:24.696Z",
+      "crawledAt": "2026-11-21T21:39:23.925Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -613,9 +609,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:49:24.696Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/med.-technische-berufe-med.-therapeutische-berufe/~job167956?ext"
+      "validThrough": "2027-01-26T21:39:23.925Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-998d88ac8f2b",
@@ -649,7 +644,7 @@
       "url": "https://www.publicjobs.ch/jobs/med.-technische-berufe-med.-therapeutische-berufe/~job167991?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:49:23.972Z",
+      "crawledAt": "2026-11-21T21:39:23.191Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -701,9 +696,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:49:23.972Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/med.-technische-berufe-med.-therapeutische-berufe/~job167991?ext"
+      "validThrough": "2027-01-26T21:39:23.191Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-f3b4baf68e56",
@@ -737,7 +731,7 @@
       "url": "https://www.publicjobs.ch/jobs/pflegefachpersonen/~job168081?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:49:23.401Z",
+      "crawledAt": "2026-11-21T21:39:22.471Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -791,9 +785,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:49:23.401Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/pflegefachpersonen/~job168081?ext"
+      "validThrough": "2027-01-27T21:39:22.471Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-16504eb6c042",
@@ -827,7 +820,7 @@
       "url": "https://www.publicjobs.ch/jobs/pflegefachpersonen-mit-zusatzausbildung-%28ips/~job168228?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:49:22.682Z",
+      "crawledAt": "2026-11-21T21:39:21.742Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -864,12 +857,12 @@
         "en": [
           "dipl-expertin-experte-intensivpflege-nds-hf-40-100-gzo-wetzikon-ch"
         ],
+        "de": [
+          "dipl-expertin-expertin-intensivpflege-nds-hf-40-100-gzo-spital-wetzikon-wetzikon"
+        ],
         "fr": [
           "dipl-expertin-experte-intensivpflege-nds-hf-40-100-gzo-wetzikon-ch",
           "specialiste-en-soins-intensifs-nds-hf-40-100-gzo-spital-wetzikon-wetzikon"
-        ],
-        "de": [
-          "dipl-expertin-expertin-intensivpflege-nds-hf-40-100-gzo-spital-wetzikon-wetzikon"
         ]
       },
       "salaryMin": 91500,
@@ -888,9 +881,9 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:49:22.682Z",
+      "validThrough": "2027-02-19T21:39:21.742Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/pflegefachpersonen-mit-zusatzausbildung-%28ips/~job168228?ext"
+      "firstSeenAt": "2026-11-21T21:39:21.742Z"
     },
     {
       "id": "gzo-wetzikon-e82fb29f5329",
@@ -923,7 +916,7 @@
       "url": "https://www.publicjobs.ch/jobs/med.-technische-berufe-med.-therapeutische-berufe/~job168247?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:49:21.873Z",
+      "crawledAt": "2026-11-21T21:39:21.033Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -975,9 +968,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:49:21.873Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/med.-technische-berufe-med.-therapeutische-berufe/~job168247?ext"
+      "validThrough": "2027-01-28T21:39:21.033Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-7ec0f0f8bfbd",
@@ -1011,7 +1003,7 @@
       "url": "https://www.publicjobs.ch/jobs/pflegefachpersonen-mit-zusatzausbildung-%28ips/~job163664?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:49:21.296Z",
+      "crawledAt": "2026-11-21T21:39:20.300Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -1075,9 +1067,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:49:21.296Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/pflegefachpersonen-mit-zusatzausbildung-%28ips/~job163664?ext"
+      "validThrough": "2026-12-21T21:39:20.300Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-ace844b94515",
@@ -1111,7 +1102,7 @@
       "url": "https://www.publicjobs.ch/jobs/%C3%84rzte-fach%C3%A4rzte/~job163751?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:49:20.725Z",
+      "crawledAt": "2026-11-21T21:39:19.584Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -1173,9 +1164,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:49:20.725Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/%c3%84rzte-fach%c3%a4rzte/~job163751?ext"
+      "validThrough": "2026-12-21T21:39:19.584Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-91433d8c0723",
@@ -1209,7 +1199,7 @@
       "url": "https://www.publicjobs.ch/jobs/%C3%84rzte-fach%C3%A4rzte/~job162810?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:49:20.023Z",
+      "crawledAt": "2026-11-21T21:39:18.847Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -1257,9 +1247,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:49:20.023Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/%c3%84rzte-fach%c3%a4rzte/~job162810?ext"
+      "validThrough": "2026-12-21T21:39:18.847Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-4a21151a022f",
@@ -1293,7 +1282,7 @@
       "url": "https://www.publicjobs.ch/jobs/pflegefachpersonen-mit-zusatzausbildung-%28ips/~job164116?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:49:19.423Z",
+      "crawledAt": "2026-11-21T21:39:18.140Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -1345,9 +1334,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:49:19.423Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/pflegefachpersonen-mit-zusatzausbildung-%28ips/~job164116?ext"
+      "validThrough": "2026-12-21T21:39:18.140Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-5033c379c35c",
@@ -1380,7 +1368,7 @@
       "url": "https://www.publicjobs.ch/jobs/gastronomie-hauswirtschaft-hotellerie/~job159865?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:49:18.291Z",
+      "crawledAt": "2026-11-21T21:39:16.698Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -1435,9 +1423,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:49:18.291Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/gastronomie-hauswirtschaft-hotellerie/~job159865?ext"
+      "validThrough": "2026-12-21T21:39:16.698Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-8982e2b56743",
@@ -1470,7 +1457,7 @@
       "url": "https://www.publicjobs.ch/jobs/%C3%84rzte-fach%C3%A4rzte/~job168750?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:49:17.716Z",
+      "crawledAt": "2026-11-21T21:39:15.989Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -1524,9 +1511,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:49:17.716Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/%c3%84rzte-fach%c3%a4rzte/~job168750?ext"
+      "validThrough": "2027-02-04T21:39:15.989Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-56f11c95c323",
@@ -1559,7 +1545,7 @@
       "url": "https://www.publicjobs.ch/jobs/gastronomie-hauswirtschaft-hotellerie/~job166538?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:49:17.001Z",
+      "crawledAt": "2026-11-21T21:39:15.260Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -1605,9 +1591,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T21:49:17.001Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/gastronomie-hauswirtschaft-hotellerie/~job166538?ext"
+      "validThrough": "2027-01-06T21:39:15.260Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-84e0fb9f3964",
@@ -1641,7 +1626,7 @@
       "url": "https://www.publicjobs.ch/jobs/pflegefachpersonen-mit-zusatzausbildung-%28ips/~job164976?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:49:16.284Z",
+      "crawledAt": "2026-11-21T21:39:14.530Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -1687,9 +1672,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:49:16.284Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/pflegefachpersonen-mit-zusatzausbildung-%28ips/~job164976?ext"
+      "validThrough": "2026-12-21T21:39:14.530Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gzo-wetzikon-dc74ef4e1434",
@@ -1723,7 +1707,7 @@
       "url": "https://www.publicjobs.ch/jobs/pflegefachpersonen/~job169728?ext",
       "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:49:15.682Z",
+      "crawledAt": "2026-11-21T21:39:13.738Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "addressCountry": "CH",
@@ -1775,99 +1759,8 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:49:15.682Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/pflegefachpersonen/~job169728?ext"
-    },
-    {
-      "id": "gzo-wetzikon-7e70a9096ef2",
-      "slug": "assistente-medico-pratico-in-mpa-pratica-di-emergenza-10-20-gzo-spital-wetzikon-wetzikon",
-      "slugByLocale": {
-        "it": "assistente-medico-pratico-in-mpa-pratica-di-emergenza-10-20-gzo-spital-wetzikon-wetzikon",
-        "en": "medical-practice-assistant-in-mpa-emergency-practice-10-20-gzo-spital-wetzikon-wetzikon",
-        "de": "medizinische-r-praxisassistent-in-mpa-notfallpraxis-10-20-gzo-wetzikon-ch",
-        "fr": "assistant-medical-de-pratique-en-mpa-pratique-d-urgence-10-20-gzo-spital-wetzikon-wetzikon"
-      },
-      "company": "GZO Spital Wetzikon",
-      "companyKey": "gzo-wetzikon",
-      "companyDomain": "gzo.ch",
-      "title": "Medizinische/-r Praxisassistent/-in (MPA) Notfallpraxis 10-20%",
-      "titleByLocale": {
-        "it": "Assistente medico/pratico (MPA) Pratica di emergenza 10-20 %",
-        "en": "Medical assistant (MPA) Emergency practice 10-20 %",
-        "de": "Medizinische/-r Praxisassistent/-in (MPA) Notfallpraxis 10-20%",
-        "fr": "Assistant médical/de pratique/en (MPA) Pratique d'urgence 10-20 %"
-      },
-      "description": "Das GZO Spital Wetzikon ist ein innovatives Akutspital im Zürcher Oberland mit 150 Betten und rund 900 Mitarbeitenden. Als Unternehmen mit hoher Kundenorientierung und wertschätzender Kommunikation engagieren wir uns täglich für unsere Patientinnen und Patienten. Das GZO befindet sich in einer Transformationsphase. Die Nachlassstundung schafft dazu die nötige Zeit für die Erarbeitung eines umfassenden Sanierungsplans. Der Betrieb läuft dabei normal weiter. Hast Du Lust uns in dieser ausserordentlichen Situation zu unterstützen und dich tatkräftig einzubringen? Zur Ergänzung unseres Teams suchen wir eine/-n engagierte/-n MPA.\n\nDas sind Deine Aufgaben\n• Selbständiges Organisieren der Notfallpraxis und Sicherstellen eines reibungslosen Ablaufes\n• Triagierieren aller eingehenden Anrufe über die Notfallnummer\n• Umfassendes Betreuen der Patienten in der Notfallpraxis\n• Vorbereiten und Mithelfen bei Wundversorgungen und kleineren septischen und aseptischen lokalen Eingriffen\n• Vorbereiten, Mitarbeiten und Nachbereiten von speziellen diagnostischen und therapeutischen Massnahmen wie diverser Laboruntersuchungen, Überwachung, EKG schreiben etc.\n• Selbständiges Durchführen von Laboranalysen\n• Anlegen von allen gebräuchlichen Orthesen und Verbänden\n• Sicherstellen des Versands der Patientenberichte\n• Verantwortung für die korrekte Leistungsdokumentation\n• Erledigen von allgemeinen administrativen Arbeiten\n• Wirtschaftlicher und korrekter Umgang mit Geräten und Material, Medikamenten, Materialbestellung Die Hausarzt-Notfallpraxis ist zu folgenden Zeiten geöffnet: Montag bis Freitag, 18.00 – 22.00 Uhr (MPA 16.30 – 22.30 Uhr) Sa/So/Feiertage, 09.30 – 22.00 Uhr (im Schichtbetrieb) Das bringst du mit\n• Du besitzt das Diplom als Medizinische/-r Praxisassistent/-in und bringst einige Jahre Berufserfahrung mit\n• Die Koordination der Sprechstunde mit Patienten bereitet Dir viel Freude\n• Du vestehst es, auf neue Situationen agil zu reagieren\n• Du führst die Dir übertragenen Aufgaben versiert durch und stellst die hohe Qualität sicher\n• Du arbeitest gerne am Patienten und bewahrst auch in hektischen Situationen den Überblick\n• Du bist eine selbständige, zuverlässige und offene Persönlichkeit, verfügst über gute MS Office Anwenderkenntnisse\n• Du beherschst die deutsche Sprache stilsicher\n• Eine sehr hohe Flexibilität bei der Einsatzplanung und kurzfristigen Anfragen für Dienstabdeckungen zeichnet Dich aus Das bieten wir Wir bieten ein sehr interessantes und vielseitiges Tätigkeitsfeld in einer fortschrittlichen, dynamischen und multiprofessionellen Arbeitsumgebung, welche von hoher Qualität, Respekt und Wertschätzung geprägt ist. Bei uns kannst Du Dich weiterentwickeln und profitierst von internen und externen Weiterbildungsmöglichkeiten. Diverse Vergünstigungen sowie interne Angebote gehören ebenso zu unseren Benefits wie ein ausgezeichnetes Personalrestaurant, eine angeschlossene KiTa und diverse Anlässe für unsere Mitarbeitenden. Weitere Benefits finden Du hier . Kontaktperson Bei Fragen steht Dir Herr Robin Flückiger, Co-Leiter Notfall, gerne zur Verfügung: 044 934 29 31. Haben wir Dein Interesse geweckt? Wir freuen uns auf Deine Bewerbung über unser Portal. Wir nehmen für diese Stelle keine Dossiers von Personalvermittlungs-Agenturen entgegen.",
-      "descriptionByLocale": {
-        "it": "Il GZO Spital Wetzikon è un innovativo ospedale acuto nell'Oberland di Zurigo con 150 letti e circa 900 dipendenti. Come azienda con un alto orientamento del cliente e una comunicazione apprezzativa, ci impegniamo quotidianamente nei nostri pazienti. Il GZO è in una fase di trasformazione. Il deferral immobiliare fornisce il tempo necessario per lo sviluppo di un piano di ristrutturazione completo. L'operazione continua normalmente. Vuoi sostenerci in questa situazione straordinaria e contribuire attivamente? Per completare il nostro team, stiamo cercando un MPA dedicato.\n\nQuesti sono i tuoi compiti\n• Organizzazione indipendente delle pratiche di emergenza e funzionamento regolare\n• Triagulazione di tutte le chiamate in arrivo tramite il numero di emergenza\n• Cura completa dei pazienti nella pratica di emergenza\n• Preparare e aiutare con la cura delle ferite e interventi settici minori e asettici locali\n• Preparazione, cooperazione e follow-up di speciali misure diagnostiche e terapeutiche come vari test di laboratorio, monitoraggio, scrittura ECG ecc.\n• Esecuzione indipendente delle analisi di laboratorio\n• Creazione di tutti gli orti e le vesti\n• Assicurare l'invio di report dei pazienti\n• Responsabilità per una corretta documentazione delle prestazioni\n• Completamento del lavoro amministrativo generale\n• Gestione economica e corretta di attrezzature e materiali, medicinali, ordine materiale La pratica di emergenza del medico di famiglia è aperta nei seguenti orari: dal lunedì al venerdì, 18.00 – 22.00 ore (MPA 16.30 – 22.30 ore) Sa/So/holiday, 09.30 – 22.00 ore (in funzionamento a turni) Lo porti con te.\n• Hai il diploma come assistente medico e portare diversi anni di esperienza professionale\n• Coordinamento delle ore di consultazione con i pazienti Hai molta gioia\n• Capisci come reagire agilemente a nuove situazioni\n• Eseguire bene le attività assegnate e garantire l'alta qualità\n• Ti piace lavorare sul paziente e tenere una panoramica anche in situazioni frenetiche\n• Sei una personalità indipendente, affidabile e aperta, hai una buona conoscenza dell'utente di MS Office\n• Puoi usare la lingua tedesca con stile\n• Molto elevata flessibilità nella pianificazione operativa e richieste a breve termine per la copertura del servizio Offriamo un campo di attività molto interessante e versatile in un ambiente di lavoro avanzato, dinamico e multi-professionale, caratterizzato da alta qualità, rispetto e apprezzamento. Con noi è possibile sviluppare ulteriormente e beneficiare di opportunità di formazione interna ed esterna. Diversi sconti e offerte interne sono altrettanto un vantaggio come un eccellente ristorante del personale, un KiTa collegato e vari eventi per i nostri dipendenti. Ulteriori vantaggi possono essere trovati qui. Se avete domande, il signor Robin Flückiger, Co-Head of Emergency, è a vostra disposizione: 044 934 29 31. Abbiamo avuto il tuo interesse? Attendiamo con ansia la vostra applicazione tramite il nostro portale.",
-        "en": "The GZO Spital Wetzikon is an innovative acute care hospital in the Zurich Oberland with 150 beds and around 900 employees. As a company with high customer orientation and appreciative communication, we are committed to our patients on a daily basis. The GZO is in a transformation phase. The estate deferral provides the necessary time for the development of a comprehensive restructuring plan. Operation continues normally. Do you want to support us in this extraordinary situation and actively contribute? To complement our team, we are looking for a dedicated MPA.\n\nThese are your tasks\n• Independent organisation of emergency practice and ensuring smooth operation\n• Triagulation of all incoming calls via the emergency number\n• Comprehensive care of patients in emergency practice\n• Preparing and helping with wound care and minor septic and aseptic local interventions\n• Preparation, cooperation and follow-up of special diagnostic and therapeutic measures such as various laboratory tests, monitoring, ECG writing etc.\n• Independent performance of laboratory analyses\n• Creation of all customary orthoses and dressings\n• Ensuring the sending of patient reports\n• Responsibility for correct performance documentation\n• Completion of general administrative work\n• Economical and correct handling of equipment and materials, medicines, material order The family doctor emergency practice is open at the following times: Monday to Friday, 18.00 – 22.00 hrs (MPA 16.30 – 22.30 hrs) Sa/So/holiday, 09.30 – 22.00 hrs (in shift operation) You bring that with you\n• You have the diploma as a medical assistant and bring several years of professional experience\n• Coordination of consultation hours with patients You have a lot of joy\n• You understand how to react agilely to new situations\n• You perform the assigned tasks well and ensure the high quality\n• You like to work on the patient and keep an overview even in hectic situations\n• You are an independent, reliable and open personality, have good MS Office user knowledge\n• You can use the German language stylishly\n• Very high flexibility in operational planning and short-term requests for service coverage We offer a very interesting and versatile field of activity in an advanced, dynamic and multi-professional working environment, which is characterized by high quality, respect and appreciation. With us you can develop further and benefit from internal and external training opportunities. Various discounts and internal offers are just as much a benefit as an excellent staff restaurant, a connected KiTa and various events for our employees. Further benefits can be found here. If you have any questions, Mr. Robin Flückiger, Co-Head of Emergency, is at your disposal: 044 934 29 31. Did we get your interest? We look forward to your application via our portal.",
-        "de": "Das GZO Spital Wetzikon ist ein innovatives Akutspital im Zürcher Oberland mit 150 Betten und rund 900 Mitarbeitenden. Als Unternehmen mit hoher Kundenorientierung und wertschätzender Kommunikation engagieren wir uns täglich für unsere Patientinnen und Patienten. Das GZO befindet sich in einer Transformationsphase. Die Nachlassstundung schafft dazu die nötige Zeit für die Erarbeitung eines umfassenden Sanierungsplans. Der Betrieb läuft dabei normal weiter. Hast Du Lust uns in dieser ausserordentlichen Situation zu unterstützen und dich tatkräftig einzubringen? Zur Ergänzung unseres Teams suchen wir eine/-n engagierte/-n MPA.\n\nDas sind Deine Aufgaben\n• Selbständiges Organisieren der Notfallpraxis und Sicherstellen eines reibungslosen Ablaufes\n• Triagierieren aller eingehenden Anrufe über die Notfallnummer\n• Umfassendes Betreuen der Patienten in der Notfallpraxis\n• Vorbereiten und Mithelfen bei Wundversorgungen und kleineren septischen und aseptischen lokalen Eingriffen\n• Vorbereiten, Mitarbeiten und Nachbereiten von speziellen diagnostischen und therapeutischen Massnahmen wie diverser Laboruntersuchungen, Überwachung, EKG schreiben etc.\n• Selbständiges Durchführen von Laboranalysen\n• Anlegen von allen gebräuchlichen Orthesen und Verbänden\n• Sicherstellen des Versands der Patientenberichte\n• Verantwortung für die korrekte Leistungsdokumentation\n• Erledigen von allgemeinen administrativen Arbeiten\n• Wirtschaftlicher und korrekter Umgang mit Geräten und Material, Medikamenten, Materialbestellung Die Hausarzt-Notfallpraxis ist zu folgenden Zeiten geöffnet: Montag bis Freitag, 18.00 – 22.00 Uhr (MPA 16.30 – 22.30 Uhr) Sa/So/Feiertage, 09.30 – 22.00 Uhr (im Schichtbetrieb) Das bringst du mit\n• Du besitzt das Diplom als Medizinische/-r Praxisassistent/-in und bringst einige Jahre Berufserfahrung mit\n• Die Koordination der Sprechstunde mit Patienten bereitet Dir viel Freude\n• Du vestehst es, auf neue Situationen agil zu reagieren\n• Du führst die Dir übertragenen Aufgaben versiert durch und stellst die hohe Qualität sicher\n• Du arbeitest gerne am Patienten und bewahrst auch in hektischen Situationen den Überblick\n• Du bist eine selbständige, zuverlässige und offene Persönlichkeit, verfügst über gute MS Office Anwenderkenntnisse\n• Du beherschst die deutsche Sprache stilsicher\n• Eine sehr hohe Flexibilität bei der Einsatzplanung und kurzfristigen Anfragen für Dienstabdeckungen zeichnet Dich aus Das bieten wir Wir bieten ein sehr interessantes und vielseitiges Tätigkeitsfeld in einer fortschrittlichen, dynamischen und multiprofessionellen Arbeitsumgebung, welche von hoher Qualität, Respekt und Wertschätzung geprägt ist. Bei uns kannst Du Dich weiterentwickeln und profitierst von internen und externen Weiterbildungsmöglichkeiten. Diverse Vergünstigungen sowie interne Angebote gehören ebenso zu unseren Benefits wie ein ausgezeichnetes Personalrestaurant, eine angeschlossene KiTa und diverse Anlässe für unsere Mitarbeitenden. Weitere Benefits finden Du hier . Kontaktperson Bei Fragen steht Dir Herr Robin Flückiger, Co-Leiter Notfall, gerne zur Verfügung: 044 934 29 31. Haben wir Dein Interesse geweckt? Wir freuen uns auf Deine Bewerbung über unser Portal. Wir nehmen für diese Stelle keine Dossiers von Personalvermittlungs-Agenturen entgegen.",
-        "fr": "Le GZO Spital Wetzikon est un hôpital de soins actifs innovant dans l'Oberland de Zurich avec 150 lits et environ 900 employés. En tant qu'entreprise avec une forte orientation client et une communication reconnaissante, nous sommes engagés auprès de nos patients sur une base quotidienne. Le GZO est en phase de transformation. Le report de la succession donne le temps nécessaire à l'élaboration d'un plan de restructuration complet. L'opération se poursuit normalement. Voulez-vous nous soutenir dans cette situation extraordinaire et contribuer activement? Pour compléter notre équipe, nous recherchons une ZPM dédiée.\n\nCe sont vos tâches\n• L'organisation indépendante des pratiques d'urgence et le bon fonctionnement\n• Triagulation de tous les appels entrants via le numéro d'urgence\n• Soins complets des patients en situation d'urgence\n• Préparation et aide aux soins des plaies et aux interventions locales mineures septiques et aseptiques\n• Préparation, coopération et suivi de mesures diagnostiques et thérapeutiques spéciales telles que divers tests de laboratoire, surveillance, rédaction d'ECG, etc.\n• Performance indépendante des analyses de laboratoire\n• Création de toutes les orthèses et habillages coutumiers\n• Assurer l'envoi de rapports de patients\n• Responsabilité de la documentation correcte sur l'exécution\n• Achèvement des travaux administratifs généraux\n• Manipulation économique et correcte des équipements et des matériaux, des médicaments, de l'ordre matériel L'exercice d'urgence du médecin de famille est ouvert aux heures suivantes : du lundi au vendredi, de 18h00 à 22h00 (MPA 16h30 à 22h30) Sa/So/Holiday, de 9h30 à 22h00 (en service) Apporte ça avec toi.\n• Vous avez le diplôme d'assistant médical et apportez plusieurs années d'expérience professionnelle\n• Coordination des heures de consultation avec les patients Vous avez beaucoup de joie\n• Vous comprenez comment réagir avec agilité aux nouvelles situations\n• Vous effectuez bien les tâches assignées et assurez la haute qualité\n• Vous aimez travailler sur le patient et garder un aperçu même dans des situations mouvementées\n• Vous êtes une personnalité indépendante, fiable et ouverte, avez une bonne connaissance utilisateur MS Office\n• Vous pouvez utiliser la langue allemande avec style\n• Très grande flexibilité dans la planification opérationnelle et les demandes de service à court terme Nous offrons un champ d'activité très intéressant et polyvalent dans un environnement de travail avancé, dynamique et multiprofessionnel, caractérisé par une qualité, un respect et une appréciation élevées. Avec nous, vous pouvez développer davantage et bénéficier des possibilités de formation interne et externe. Diverses réductions et offres internes sont tout autant un avantage qu'un excellent restaurant du personnel, un KiTa connecté et divers événements pour nos employés. D'autres avantages peuvent être trouvés ici. Si vous avez des questions, M. Robin Flückiger, cochef des urgences, est à votre disposition : 044 934 29 31. On a eu votre intérêt ? Nous attendons avec impatience votre application via notre portail."
-      },
-      "location": "Wetzikon",
-      "canton": "ZH",
-      "url": "https://www.publicjobs.ch/jobs/med.-technische-berufe-med.-therapeutische-berufe/~job160183?ext",
-      "source": "GZO Spital Wetzikon Dedicated Parser (PastaHR / publicjobs.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-18T21:26:59.237Z",
-      "addressLocality": "Wetzikon",
-      "postalCode": "8620",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.publicjobs.ch/jobs/med.-technische-berufe-med.-therapeutische-berufe/~job160183?ext",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "pensumMin": 10,
-      "pensumMax": 20,
-      "pensum": "10 - 20%",
-      "previousSlugs": [
-        "medizinische-r-praxisassistent-in-mpa-notfallpraxis-10-20-gzo-wetzikon-ch",
-        "assistente-di-studio-medico-mpa-pronto-soccorso-10-20-gzo-spital-wetzikon-wetzikon",
-        "assistente-medico-pratica-mpa-pratica-di-emergenza-10-20-gzo-spital-wetzikon-wetzikon",
-        "medical-practice-assistant-mpa-emergency-clinic-10-20-gzo-spital-wetzikon-wetzikon",
-        "assistant-e-de-pratique-medicale-mpa-urgences-10-20-gzo-spital-wetzikon-wetzikon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "medizinische-r-praxisassistent-in-mpa-notfallpraxis-10-20-gzo-wetzikon-ch",
-          "assistente-di-studio-medico-mpa-pronto-soccorso-10-20-gzo-spital-wetzikon-wetzikon",
-          "assistente-medico-pratica-mpa-pratica-di-emergenza-10-20-gzo-spital-wetzikon-wetzikon",
-          "medical-practice-assistant-mpa-emergency-clinic-10-20-gzo-spital-wetzikon-wetzikon",
-          "assistant-e-de-pratique-medicale-mpa-urgences-10-20-gzo-spital-wetzikon-wetzikon"
-        ]
-      },
-      "firstSeenAt": "2026-09-01T14:18:35.271Z",
-      "salaryMin": 18300,
-      "salaryMax": 25600,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 18300,
-          "maxValue": 25600,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH",
-      "streetAddress": "Wetzikon",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:26:59.237Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "sourceIdentity": "url:https://www.publicjobs.ch/jobs/med.-technische-berufe-med.-therapeutische-berufe/~job160183?ext"
+      "validThrough": "2027-02-15T21:39:13.738Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
