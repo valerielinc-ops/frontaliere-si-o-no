@@ -31,6 +31,7 @@ import { decontaminateJobs } from './decontaminate-prev-slugs.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 import {
   collapseDuplicateRouteEntries,
+  mergeExpiredRouteEvidence,
   mergeSourceIdentityHistory,
   normalizeExpiredEntryTitles,
   normalizeExpiredAtEntries,
@@ -279,6 +280,7 @@ function buildExpiredEntry(job) {
     company: job.company || '',
     companyKey: job.companyKey || '',
     location: job.location || '',
+    canton: job.canton || undefined,
     addressLocality: job.addressLocality || '',
     descriptionByLocale: job.descriptionByLocale || {},
     slugByLocale: job.slugByLocale || {},
@@ -317,6 +319,7 @@ function buildExpiredEntry(job) {
   if (!entry.streetAddress) delete entry.streetAddress;
   if (!entry.salaryMin) delete entry.salaryMin;
   if (!entry.salaryMax) delete entry.salaryMax;
+  if (!entry.canton) delete entry.canton;
   if (!entry.id) delete entry.id;
   if (entry.dedupArchive !== true) delete entry.dedupArchive;
   if (sourceIdentity) entry.sourceIdentity = sourceIdentity;
@@ -517,7 +520,9 @@ function archiveExpiredJobsPerCrawler(removedJobs, allJobsById, crawlerKey) {
     // Same rule as the aggregate archive above: a held job was never public.
     if (isHeldFromPublication(job)) continue;
     const entry = buildExpiredEntry(job);
-    mergeSourceIdentityHistory(entry, bySlug.get(job.slug));
+    const previous = bySlug.get(job.slug);
+    mergeExpiredRouteEvidence(entry, previous, `cleanup-jobs/slice/${crawlerKey}`);
+    mergeSourceIdentityHistory(entry, previous);
     bySlug.set(job.slug, entry);
     added++;
   }
