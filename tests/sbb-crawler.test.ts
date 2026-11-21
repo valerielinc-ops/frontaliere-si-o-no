@@ -349,6 +349,13 @@ describe('parseSbbDetailPage — body location override', () => {
     expect(resolveSbbJobLocation({
       jobPosting: currentPosting,
       html: fixture,
+      identity,
+      apiMeta: { city: 'Bern' },
+    })).toBe('Bellinzona');
+
+    expect(resolveSbbJobLocation({
+      html: fixture,
+      identity,
       apiMeta: { city: 'Bern' },
     })).toBe('Bellinzona');
   });

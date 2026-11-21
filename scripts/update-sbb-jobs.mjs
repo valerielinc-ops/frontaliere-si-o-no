@@ -1261,12 +1261,17 @@ export function resolveSbbJobLocation({
   sbbParsed = null,
   jobPosting = null,
   html = '',
+  identity = {},
   apiMeta = null,
 } = {}) {
   // Resolve rendered-detail signals separately from AEM metadata. The latter
   // is a fallback only: a stale API city must not outrank a current vacancy
   // body or JobPosting node.
-  const resolvedDetailLocation = extractLocationFromJobPosting(jobPosting, html, null);
+  // Re-select from the raw detail page whenever identity is available. This
+  // keeps callers that still hold a first-match JobPosting from bypassing the
+  // URL/title guard at the final location boundary.
+  const resolvedJobPosting = extractSbbJsonLd(html, identity) || jobPosting;
+  const resolvedDetailLocation = extractLocationFromJobPosting(resolvedJobPosting, html, null);
   const apiFallbackLocation = String(apiMeta?.city || '').trim();
   return String(
     vacancySummaryLocation ||
@@ -1496,6 +1501,7 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
     sbbParsed,
     jobPosting,
     html,
+    identity: postingIdentity,
     apiMeta,
   });
   // Canton: prefer the concrete city, else the region label's PRIMARY canton
