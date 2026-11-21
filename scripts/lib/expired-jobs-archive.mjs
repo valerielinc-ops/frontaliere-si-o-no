@@ -67,6 +67,7 @@ export function buildExpiredEntry(job) {
     company: job.company || '',
     companyKey: job.companyKey || '',
     location: job.location || '',
+    canton: job.canton || undefined,
     addressLocality: job.addressLocality || '',
     descriptionByLocale: job.descriptionByLocale || {},
     slugByLocale: job.slugByLocale || {},
@@ -101,6 +102,7 @@ export function buildExpiredEntry(job) {
   if (!entry.streetAddress) delete entry.streetAddress;
   if (!entry.salaryMin) delete entry.salaryMin;
   if (!entry.salaryMax) delete entry.salaryMax;
+  if (!entry.canton) delete entry.canton;
   if (!entry.id) delete entry.id;
   if (entry.dedupArchive !== true) delete entry.dedupArchive;
   if (!entry.sourceIdentity) delete entry.sourceIdentity;
@@ -615,6 +617,40 @@ export function mergeSourceIdentityHistory(survivor, removed) {
     sourceIdentity: survivor.sourceIdentity,
     firstSeenAt: survivor.firstSeenAt,
     sourceIdentityHistory: survivor.sourceIdentityHistory,
+  });
+  return before !== after;
+}
+
+/**
+ * Preserve route evidence when a historical archive payload is merged into a
+ * newer record for the same canonical slug. The newer payload remains the
+ * content winner, but its locale map/history must not erase routes that were
+ * actually served by the older payload. Canton is part of the public route;
+ * fill it only when the newer record has no value, never overwrite a newer
+ * explicit context.
+ *
+ * @returns {boolean} whether route evidence or context changed
+ */
+export function mergeExpiredRouteEvidence(survivor, historical, source = 'expired-route-evidence') {
+  if (!survivor || typeof survivor !== 'object' || !historical || typeof historical !== 'object') {
+    return false;
+  }
+  const before = JSON.stringify({
+    canton: survivor.canton,
+    location: survivor.location,
+    slugByLocale: survivor.slugByLocale,
+    previousSlugs: survivor.previousSlugs,
+    previousSlugsByLocale: survivor.previousSlugsByLocale,
+  });
+  if (!survivor.canton && historical.canton) survivor.canton = historical.canton;
+  if (!survivor.location && historical.location) survivor.location = historical.location;
+  transferSlugHistory(survivor, historical, source);
+  const after = JSON.stringify({
+    canton: survivor.canton,
+    location: survivor.location,
+    slugByLocale: survivor.slugByLocale,
+    previousSlugs: survivor.previousSlugs,
+    previousSlugsByLocale: survivor.previousSlugsByLocale,
   });
   return before !== after;
 }
