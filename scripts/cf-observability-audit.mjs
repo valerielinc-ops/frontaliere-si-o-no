@@ -131,7 +131,8 @@ export function evaluateJobCanonV1Retirement(snapshot) {
  * Returns only the failing ids' findings plus the list of all ids.
  */
 export function evaluateChecks(s, now = new Date()) {
-  const scale = s.samplingRate > 0 ? 1 / s.samplingRate : 1;
+  const samplingKnown = Number.isFinite(s.samplingRate) && s.samplingRate > 0;
+  const scale = samplingKnown ? 1 / s.samplingRate : 1;
   const volume = estimateMonthlyLogVolume({ events: s.total, avgEventBytes: s.avgEventBytes });
   const blocked = Object.values(s.blockedRequests).reduce((sum, n) => sum + n, 0);
   const unknownBots = s.topUserAgents.filter(
@@ -219,10 +220,11 @@ export function evaluateChecks(s, now = new Date()) {
       // then: an earlier issue would invite an autonomous fix to lower it too soon.
       failed:
         now.toISOString().slice(0, 10) >= SAMPLING_CUTOVER &&
-        (volume.ingestGb > INCLUDED_INGEST_GB ||
+        (!samplingKnown ||
+          volume.ingestGb > INCLUDED_INGEST_GB ||
           volume.storageGbMonth > INCLUDED_STORAGE_GB_MONTH ||
           s.samplingRate > 0.1),
-      value: `~${volume.ingestGb.toFixed(0)} GB/mese, ~${volume.storageGbMonth.toFixed(1)} GB-mese, sampling ${s.samplingRate}`,
+      value: `~${volume.ingestGb.toFixed(0)} GB/mese, ~${volume.storageGbMonth.toFixed(1)} GB-mese, sampling ${s.samplingRate ?? 'unknown'}`,
       target: `massimo ${INCLUDED_INGEST_GB} GB e ${INCLUDED_STORAGE_GB_MONTH} GB-mese; sampling massimo 0.1 dal ${SAMPLING_CUTOVER}`,
       fix: 'Controllare la PR del cutover del sampling, poi ridurre il traffico che genera eventi prima di abbassare ancora il rate.',
     },

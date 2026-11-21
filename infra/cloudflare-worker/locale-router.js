@@ -1388,6 +1388,7 @@ async function fetchJobCanonMap(slug, buildId) {
       }
       if (!resp.ok) return { kind: 'unavailable' };
       const map = await resp.json();
+      if (!isPlainObject(map)) return { kind: 'unavailable' };
       if (version === 'v2') logJobCanonV2Success();
       return { kind: 'map', map };
     } catch {
