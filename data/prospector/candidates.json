@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-20T15:46:28.782Z",
+  "updatedAt": "2026-11-21T06:58:37.154Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -1511214,7 +1511214,7 @@
         "title",
         "ch-signal"
       ],
-      "careersUrl": "https://my.jobalino.ch/public/job/de/6627a44879cd0/lernende-detailhandel-efz-moebel-m-w",
+      "careersUrl": "https://my.jobalino.ch/public/component/jobsfactory?company_name=teo-jakob-ag&lang=de&lang_filter=de&task=framelistjobs",
       "careersUrls": [
         "https://teojakob.ch/de/karriere/"
       ],
@@ -1511477,13 +1511477,13 @@
     },
     "teojakob.ch": {
       "key": "teojakob.ch",
-      "status": "production",
+      "status": "rejected",
       "sources": [
         "osm",
         "web"
       ],
       "firstSeenAt": "2026-09-16T08:53:47.423Z",
-      "updatedAt": "2026-10-29T14:36:38.299Z",
+      "updatedAt": "2026-11-21T06:58:37.154Z",
       "name": "Teo Jakob",
       "domain": "teojakob.ch",
       "city": "Carouge GE",
@@ -1511506,7 +1511506,7 @@
       "trailVia": [
         "known-careers-url"
       ],
-      "reason": null,
+      "reason": "retired: duplicate detail-seed crawler for the teo-jakob-ag Jobalino tenant; ownership and route history migrated to teo-jakob-ag",
       "traceRetryable": null,
       "traceRetryAt": null,
       "crawlerKey": "teo-jakob",
@@ -1511520,8 +1511520,10 @@
       "validationAnomalyIds": [],
       "detailEnrichment": false,
       "qualityScore": 1,
-      "qualityVerdict": "good",
-      "qualityProblems": [],
+      "qualityVerdict": "bad",
+      "qualityProblems": [
+        "duplicate of canonical crawler teo-jakob-ag for the same Jobalino tenant"
+      ],
       "validationHistory": [
         {
           "at": "2026-10-26T12:44:04.114Z",
@@ -1511709,7 +1511711,8 @@
       "firstCrawlerOutputAttention": false,
       "firstCrawlerOutputReason": null,
       "firstCrawlerOutputAt": "2026-10-29T09:31:43.470Z",
-      "firstCrawlerJobCount": 1
+      "firstCrawlerJobCount": 1,
+      "rejectedAt": "2026-11-21T06:58:37.154Z"
     },
     "teoxane@geneve": {
       "key": "teoxane@geneve",
