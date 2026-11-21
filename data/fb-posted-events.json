@@ -2,11 +2,6 @@
   "schemaVersion": 1,
   "posted": [
     {
-      "id": "myswitzerland:9d9f135318fb4e179725b5d1f734f8b3",
-      "viaDigest": "weekend-digest-GR-2026-11-14",
-      "postedAt": "2026-11-13T22:16:04.101Z"
-    },
-    {
       "id": "myswitzerland:a70bb99f6cbf4377a521c537ecfbe7e6",
       "viaDigest": "weekend-digest-GR-2026-11-14",
       "postedAt": "2026-11-13T22:16:04.101Z"
@@ -5048,6 +5043,23 @@
       "id": "guidle:A201490781",
       "viaDigest": "weekend-digest-BE-2026-11-21",
       "postedAt": "2026-11-20T17:23:03.404Z"
+    },
+    {
+      "id": "myswitzerland:8d264c03773c46c3abea282b2c877223",
+      "url": "https://frontaliereticino.ch/eventi/argovia/rheinfelden/",
+      "postId": "951226518080080_122132026665272498",
+      "postedAt": "2026-11-21T16:26:56.359Z",
+      "copyMode": "codex",
+      "copySlot": "event",
+      "copyPromptVersion": "frontaliere-social-copy-v5",
+      "copyPackId": "e1e656e043e06845",
+      "copyTemplateId": "fb-event-theatre",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "contesto-chiaro",
+      "copyPillarId": "vita-oltreconfine",
+      "copyAngleIntent": "searchable",
+      "copyHook": "Teatro in Ticino: una proposta da controllare prima di inserirla in agenda.",
+      "copyCta": "Scopri l'evento."
     }
   ]
 }
