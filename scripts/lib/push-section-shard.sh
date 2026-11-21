@@ -313,6 +313,7 @@ push_section_shard() {
     prev_n=0
     remote_base_sha=''
     remote_layout_fanned=0
+    delta_path_layout=canonical
     layout_migration=0
     delta_applied=0
     SECTION_TREE_LAYOUT_MOVE_COUNT=0
@@ -370,10 +371,13 @@ push_section_shard() {
       if shard_delta_clone_and_prepare \
           "$stage" "$SHARD_REPO" "$current_manifest" "$delta_sidecar" \
           "$sub" "$stage_src/dist" "$manifest_tool" "$delta_output" \
-          "$SHARD_HISTORY_CAP" "$section-$loc shard" "${SHARD_DELTA_FULL_REWRITE_THRESHOLD:-0.9}" "$sub"; then
+          "$SHARD_HISTORY_CAP" "$section-$loc shard" "${SHARD_DELTA_FULL_REWRITE_THRESHOLD:-0.9}" \
+          "$sub" "$source_path_layout"; then
         delta_snapshot="$delta_output/snapshot.jsonl"
         delta_base_sha="$(git -C "$stage" rev-parse HEAD)"
         delta_checkpoint_ref="refs/heads/shard-resume/$section-$loc-$delta_base_sha"
+        remote_layout_fanned="$SHARD_DELTA_REMOTE_LAYOUT_FANNED"
+        delta_path_layout="$SHARD_DELTA_PATH_LAYOUT"
         delta_apply_ok=1
         if [ "$SHARD_DELTA_FULL_REWRITE" = 1 ]; then
           echo "$section-$loc shard: manifest delta selected full-rewrite fast path"
@@ -384,7 +388,7 @@ push_section_shard() {
           fi
           if ! shard_delta_remove_stale_payload_paths \
               "$stage" "$sub" "$delta_output/payload-files.txt" "$delta_output/removed.txt" 1 \
-              "$delta_output/manifest-covered-files.txt"; then
+              "$delta_output/manifest-covered-files.txt" "$delta_path_layout"; then
             delta_apply_ok=0
             delta_fallback_reason="${SHARD_DELTA_REASON:-full rewrite tombstone check failed}"
           fi
@@ -399,13 +403,13 @@ push_section_shard() {
             fi
           fi
           if ! shard_delta_check_unchanged_payload_paths \
-              "$stage" "$sub" "$delta_output/unchanged-files.txt"; then
+              "$stage" "$sub" "$delta_output/unchanged-files.txt" "$delta_path_layout"; then
             delta_apply_ok=0
             delta_fallback_reason="${SHARD_DELTA_REASON:-delta unchanged payload check failed}"
           fi
           if [ "$delta_apply_ok" = 1 ] && ! shard_delta_remove_stale_payload_paths \
               "$stage" "$sub" "$delta_output/payload-files.txt" "$delta_output/removed.txt" 1 \
-              "$delta_output/manifest-covered-files.txt"; then
+              "$delta_output/manifest-covered-files.txt" "$delta_path_layout"; then
             delta_apply_ok=0
             delta_fallback_reason="${SHARD_DELTA_REASON:-delta tombstone application failed}"
           fi
@@ -414,7 +418,7 @@ push_section_shard() {
             "$stage" "$stage_src/dist/$sub" "$sub" \
             "$delta_output/changed-files.txt" \
             "$delta_output/unmanifested-files.txt" \
-            "$delta_output/payload-files.txt" "$SHARD_DELTA_FULL_REWRITE"; then
+            "$delta_output/payload-files.txt" "$SHARD_DELTA_FULL_REWRITE" "$delta_path_layout"; then
           delta_apply_ok=0
           delta_fallback_reason='delta source application failed'
         fi
@@ -431,7 +435,7 @@ push_section_shard() {
         fi
         if [ "$delta_apply_ok" = 1 ]; then
           if ! shard_assert_source_paths_indexed \
-              "$stage" "$stage_src/dist/$sub" "$sub" "$section-$loc shard"; then
+              "$stage" "$stage_src/dist/$sub" "$sub" "$section-$loc shard" "$delta_path_layout"; then
             delta_apply_ok=0
             delta_fallback_reason="${SHARD_DELTA_REASON:-delta source path integrity check failed}"
           fi

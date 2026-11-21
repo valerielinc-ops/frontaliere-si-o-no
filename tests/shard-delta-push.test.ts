@@ -79,9 +79,10 @@ function writeManifest(
   prefix = 'en',
   includeRoot = false,
   omitCountKinds: string[] = [],
-  { locale = 'en', emitterFingerprint = RENDER_V1 }: {
+  { locale = 'en', emitterFingerprint = RENDER_V1, stablePages = [] }: {
     locale?: string;
     emitterFingerprint?: Record<string, string> | null;
+    stablePages?: string[];
   } = {},
 ): void {
   mkdirSync(scenario.manifestDir, { recursive: true });
@@ -100,7 +101,7 @@ function writeManifest(
     }),
     ...manifestPages.map((page) => JSON.stringify({
       path: pagePath(page, prefix),
-      hash: hash(`${version}:${page}`),
+      hash: hash(`${stablePages.includes(page) ? 'stable' : version}:${page}`),
     })),
     JSON.stringify({
       type: 'footer',
@@ -750,44 +751,82 @@ describe('delta push degli shard', () => {
     }
   }, 30_000);
 
-  it('mantiene il full overlay e il fan-out fisico alla entrypoint dei section shard', () => {
-    const scenario = createScenario('section-lifecycle');
+  it('applica add/change/delete sul remoto hash-v1 con lo stesso payload tree del full overlay', () => {
+    const deltaScenario = createScenario('section-hash-delta');
+    const fullScenario = createScenario('section-hash-full');
+    const section = 'en/find-jobs-ticino';
     const sectionTarget = {
       script: PUSH_SECTION,
       args: (current: Scenario) => ['ticino', 'en', current.dist],
       deployKey: 'SHARD_TICINO_EN_DEPLOY_KEY',
       label: 'section',
     };
+    const initial = {
+      'pages/a': '<html>A stable</html>',
+      'pages/b': '<html>B v1</html>',
+      'pages/c': '<html>C removed</html>',
+      'assets/extra': '<html>extra v1</html>',
+      'assets/stale': '<html>stale</html>',
+    };
+    const updated = {
+      'pages/a': '<html>A stable</html>',
+      'pages/b': '<html>B v2</html>',
+      'pages/d': '<html>D added</html>',
+      'assets/extra': '<html>extra v2</html>',
+      'assets/new': '<html>new</html>',
+    };
+    const writeVersion = (scenario: Scenario, files: Record<string, string>, version: string) => {
+      writeSectionPayload(scenario, files);
+      writeManifest(
+        scenario,
+        ['pages/a', ...(version === 'v1' ? ['pages/c'] : ['pages/d'])],
+        version,
+        section,
+        false,
+        [],
+        { stablePages: ['pages/a'] },
+      );
+    };
     try {
-      writeSectionPayload(scenario, {
-        'pages/a': '<html>A</html>',
-        'pages/b': '<html>B v1</html>',
-      });
-      writeManifest(scenario, ['pages/a', 'pages/b'], 'v1', 'en/find-jobs-ticino');
-      expect(runPush(scenario, 'delta', {}, sectionTarget).status).toBe(0);
-      expect(treeFiles(scenario.remote)).toContain(ticinoPhysicalPath('en/find-jobs-ticino/pages/a/index.html'));
+      for (const scenario of [deltaScenario, fullScenario]) {
+        writeVersion(scenario, initial, 'v1');
+        expect(runPush(scenario, 'delta', {}, sectionTarget).status).toBe(0);
+        writeVersion(scenario, updated, 'v2');
+      }
+      const stableBlob = blobSha(deltaScenario.remote, ticinoPhysicalPath(`${section}/pages/a/index.html`));
 
-      writeSectionPayload(scenario, {
-        'pages/a': '<html>A</html>',
-        'pages/c': '<html>C</html>',
-      });
-      writeManifest(scenario, ['pages/a', 'pages/c'], 'v2', 'en/find-jobs-ticino');
-      const result = runPush(scenario, 'delta', {}, sectionTarget);
-      expect(result.status).toBe(0);
-      expect(result.output).toContain('using a full canonical overlay');
-      expect(treeFiles(scenario.remote)).toContain(ticinoPhysicalPath('en/find-jobs-ticino/pages/c/index.html'));
-      expect(treeFiles(scenario.remote)).not.toContain(ticinoPhysicalPath('en/find-jobs-ticino/pages/b/index.html'));
-      assertContent(scenario.remote, ticinoPhysicalPath('en/find-jobs-ticino/pages/a/index.html'), '<html>A</html>');
+      const deltaResult = runPush(deltaScenario, 'delta', {
+        SHARD_DELTA_FULL_REWRITE_THRESHOLD: '0',
+      }, sectionTarget);
+      const fullResult = runPush(fullScenario, 'full', {}, sectionTarget);
+
+      expect(deltaResult.status, deltaResult.output).toBe(0);
+      expect(fullResult.status, fullResult.output).toBe(0);
+      expect(deltaResult.output).toContain('delta indexed tree');
+      expect(deltaResult.output).not.toContain('using a full canonical overlay');
+      expect(deltaResult.output).toMatch(/changed=[1-9][0-9]*/u);
+      expect(deltaResult.output).toContain('unmanifested-overlay=4');
+      expect(deltaResult.output).toContain('removed=2');
+      expect(git(['-C', deltaScenario.remote, 'rev-parse', `main:${section}`]))
+        .toBe(git(['-C', fullScenario.remote, 'rev-parse', `main:${section}`]));
+      expect(treeFiles(deltaScenario.remote)).toContain(ticinoPhysicalPath(`${section}/pages/d/index.html`));
+      expect(treeFiles(deltaScenario.remote)).toContain(ticinoPhysicalPath(`${section}/assets/new/index.html`));
+      expect(treeFiles(deltaScenario.remote)).not.toContain(ticinoPhysicalPath(`${section}/pages/c/index.html`));
+      expect(treeFiles(deltaScenario.remote)).not.toContain(ticinoPhysicalPath(`${section}/assets/stale/index.html`));
+      expect(blobSha(deltaScenario.remote, ticinoPhysicalPath(`${section}/pages/a/index.html`))).toBe(stableBlob);
+      assertContent(deltaScenario.remote, ticinoPhysicalPath(`${section}/pages/b/index.html`), '<html>B v2</html>');
+      assertContent(deltaScenario.remote, ticinoPhysicalPath(`${section}/assets/extra/index.html`), '<html>extra v2</html>');
     } finally {
-      rmSync(scenario.root, { recursive: true, force: true });
+      rmSync(deltaScenario.root, { recursive: true, force: true });
+      rmSync(fullScenario.root, { recursive: true, force: true });
     }
-  });
+  }, 60_000);
 
   it('full-rewrite produce lo stesso tree e manifest del delta ordinario', () => {
     const ordinary = createScenario('section-full-rewrite-ordinary');
     const fast = createScenario('section-full-rewrite-fast');
-    // Hash-fanned sections intentionally force full overlay; keep this generic
-    // delta-vs-rewrite contract on the canonical section layout.
+    // Keep the generic full-rewrite fast-path contract on a canonical section;
+    // hash-v1 parity is covered independently above.
     const sectionTarget = {
       script: PUSH_SECTION,
       args: (current: Scenario) => ['svizzera', 'it', current.dist],
