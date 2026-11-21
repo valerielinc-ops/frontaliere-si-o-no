@@ -12528,9 +12528,9 @@
       "slug": "finanzplaner-in-w-m-d-raiffeisen-wallisellen",
       "slugByLocale": {
         "de": "finanzplaner-in-w-m-d-raiffeisen-wallisellen",
-        "it": "finanzplaner-in-w-m-d-raiffeisen-wallisellen",
-        "en": "finanzplaner-in-w-m-d-raiffeisen-wallisellen",
-        "fr": "finanzplaner-in-w-m-d-raiffeisen-wallisellen"
+        "it": "pianificatore-pianificatrice-finanziario-finanziaria-m-f-d-raiffeisen-wallisellen",
+        "en": "financial-planner-m-f-d-raiffeisen-wallisellen",
+        "fr": "planificateur-trice-financier-iere-h-f-d-raiffeisen-wallisellen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12595,30 +12595,24 @@
       "firstSeenAt": "2026-11-20T21:37:14.537Z",
       "previousSlugsByLocale": {
         "it": [
-          "pianificatore-pianificatrice-finanziario-a-m-f-d-raiffeisen-wallisellen",
-          "finanzplaner-in-w-m-d-raiffeisen-wallisellen",
-          "pianificatore-pianificatrice-finanziario-finanziaria-m-f-d-raiffeisen-wallisellen"
+          "pianificatore-pianificatrice-finanziario-a-m-f-d-raiffeisen-wallisellen"
         ],
         "en": [
-          "finanzplaner-in-w-m-d-raiffeisen-wallisellen",
-          "financial-planner-m-f-d-raiffeisen-wallisellen"
+          "finanzplaner-in-w-m-d-raiffeisen-wallisellen"
         ],
         "fr": [
           "planificateur-planificatrice-financier-financiere-h-f-d-raiffeisen-wallisellen",
-          "finanzplaner-in-w-m-d-raiffeisen-wallisellen",
-          "planificateur-trice-financier-iere-h-f-d-raiffeisen-wallisellen"
+          "finanzplaner-in-w-m-d-raiffeisen-wallisellen"
         ]
       },
       "previousSlugs": [
         "pianificatore-pianificatrice-finanziario-a-m-f-d-raiffeisen-wallisellen",
         "planificateur-planificatrice-financier-financiere-h-f-d-raiffeisen-wallisellen",
-        "finanzplaner-in-w-m-d-raiffeisen-wallisellen",
-        "pianificatore-pianificatrice-finanziario-finanziaria-m-f-d-raiffeisen-wallisellen",
-        "financial-planner-m-f-d-raiffeisen-wallisellen",
-        "planificateur-trice-financier-iere-h-f-d-raiffeisen-wallisellen"
+        "finanzplaner-in-w-m-d-raiffeisen-wallisellen"
       ],
       "sourceIdentity": "url:https://jobs.raiffeisen.ch/offene-stellen/finanzplaner-in-w-m-d/dcc0dfc4-1f9a-4d46-a71f-3c7f0dbd01e2",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "raiffeisen-0c1617a637ae",
@@ -12626,8 +12620,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-frontsupport-w-m-d-raiffeisen-st-gallen",
         "it": "collaboratore-trice-frontsupport-m-w-d-raiffeisen-st-gallen",
-        "en": "mitarbeiter-frontsupport-w-m-d-raiffeisen-st-gallen",
-        "fr": "mitarbeiter-frontsupport-w-m-d-raiffeisen-st-gallen"
+        "en": "employee-front-support-m-f-d-raiffeisen-st-gallen",
+        "fr": "soutien-avant-de-l-employe-h-f-d-raiffeisen-st-gallen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12678,18 +12672,14 @@
           "mitarbeiter-frontsupport-w-m-d-raiffeisen-st-gallen"
         ],
         "en": [
-          "mitarbeiter-frontsupport-w-m-d-raiffeisen-st-gallen",
-          "employee-front-support-m-f-d-raiffeisen-st-gallen"
+          "mitarbeiter-frontsupport-w-m-d-raiffeisen-st-gallen"
         ],
         "fr": [
-          "mitarbeiter-frontsupport-w-m-d-raiffeisen-st-gallen",
-          "soutien-avant-de-l-employe-h-f-d-raiffeisen-st-gallen"
+          "mitarbeiter-frontsupport-w-m-d-raiffeisen-st-gallen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-frontsupport-w-m-d-raiffeisen-st-gallen",
-        "employee-front-support-m-f-d-raiffeisen-st-gallen",
-        "soutien-avant-de-l-employe-h-f-d-raiffeisen-st-gallen"
+        "mitarbeiter-frontsupport-w-m-d-raiffeisen-st-gallen"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

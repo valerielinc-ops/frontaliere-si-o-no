@@ -2101,14 +2101,23 @@
       "streetAddress": "Herman Burchard Strasse 1",
       "contactPerson": "André Sutter",
       "contactPhone": "4022",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "sozialpadagoge-w-m-d-oder-fachperson-betreuung-w-m-d-abteilung-eltern-kind-und-jugend"
+          "sozialpadagoge-w-m-d-oder-fachperson-betreuung-w-m-d-abteilung-eltern-kind-und-jugend",
+          "social-pedagogue-m-f-d-or-specialist-care-m-f-d-department-of-parent-child-and-youth-focus-on-psychosomatics",
+          "pedagogue-social-h-f-d-ou-soins-specialises-h-f-d-departement-parents-enfants-et-jeunes-se-concentrer-sur-la"
+        ],
+        "en": [
+          "social-pedagogue-m-f-d-or-specialist-care-m-f-d-department-of-parent-child-and-youth-focus-on-psychosomatics"
+        ],
+        "fr": [
+          "pedagogue-social-h-f-d-ou-soins-specialises-h-f-d-departement-parents-enfants-et-jeunes-se-concentrer-sur-la"
         ]
       },
       "previousSlugs": [
-        "sozialpadagoge-w-m-d-oder-fachperson-betreuung-w-m-d-abteilung-eltern-kind-und-jugend"
+        "sozialpadagoge-w-m-d-oder-fachperson-betreuung-w-m-d-abteilung-eltern-kind-und-jugend",
+        "social-pedagogue-m-f-d-or-specialist-care-m-f-d-department-of-parent-child-and-youth-focus-on-psychosomatics",
+        "pedagogue-social-h-f-d-ou-soins-specialises-h-f-d-departement-parents-enfants-et-jeunes-se-concentrer-sur-la"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

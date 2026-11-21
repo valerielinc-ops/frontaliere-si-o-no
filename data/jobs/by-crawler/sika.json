@@ -3781,9 +3781,9 @@
       "slug": "produktingenieur-in-brandschutz-e-fassade-m-w-d-sika-zurich",
       "slugByLocale": {
         "de": "produktingenieur-in-brandschutz-und-fassade-m-w-d-sika-ch",
-        "it": "produktingenieur-in-brandschutz-e-fassade-m-w-d-sika-zurich",
-        "en": "produktingenieur-in-brandschutz-und-fassade-m-w-d-sika-ch",
-        "fr": "produktingenieur-in-brandschutz-und-fassade-m-w-d-sika-ch"
+        "it": "ingegnere-di-prodotto-per-la-protezione-antincendio-e-le-facciate-m-f-d-sika-zurich-zurich",
+        "en": "product-engineer-fire-protection-and-facade-m-f-d-sika-zurich-zurich",
+        "fr": "ingenieur-e-produit-en-protection-incendie-et-facades-h-f-d-sika-zurich-zurich"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -3832,28 +3832,20 @@
       "previousSlugsByLocale": {
         "it": [
           "produktingenieur-in-brandschutz-und-fassade-m-w-d-sika-ch",
-          "ingegnere-ingegnera-di-prodotto-per-la-protezione-antincendio-e-le-facciate-m-f-d-sika-zurich-zurich",
-          "produktingenieur-in-brandschutz-e-fassade-m-w-d-sika-zurich",
-          "ingegnere-di-prodotto-per-la-protezione-antincendio-e-le-facciate-m-f-d-sika-zurich-zurich"
+          "ingegnere-ingegnera-di-prodotto-per-la-protezione-antincendio-e-le-facciate-m-f-d-sika-zurich-zurich"
         ],
         "en": [
-          "produktingenieur-in-brandschutz-und-fassade-m-w-d-sika-ch",
-          "product-engineer-fire-protection-and-facade-m-f-d-sika-zurich-zurich"
+          "produktingenieur-in-brandschutz-und-fassade-m-w-d-sika-ch"
         ],
         "fr": [
           "ingenieur-e-produit-en-protection-incendie-et-facade-h-f-d-sika-zurich-zurich",
-          "produktingenieur-in-brandschutz-und-fassade-m-w-d-sika-ch",
-          "ingenieur-e-produit-en-protection-incendie-et-facades-h-f-d-sika-zurich-zurich"
+          "produktingenieur-in-brandschutz-und-fassade-m-w-d-sika-ch"
         ]
       },
       "previousSlugs": [
         "produktingenieur-in-brandschutz-und-fassade-m-w-d-sika-ch",
         "ingegnere-ingegnera-di-prodotto-per-la-protezione-antincendio-e-le-facciate-m-f-d-sika-zurich-zurich",
-        "ingenieur-e-produit-en-protection-incendie-et-facade-h-f-d-sika-zurich-zurich",
-        "produktingenieur-in-brandschutz-e-fassade-m-w-d-sika-zurich",
-        "ingegnere-di-prodotto-per-la-protezione-antincendio-e-le-facciate-m-f-d-sika-zurich-zurich",
-        "product-engineer-fire-protection-and-facade-m-f-d-sika-zurich-zurich",
-        "ingenieur-e-produit-en-protection-incendie-et-facades-h-f-d-sika-zurich-zurich"
+        "ingenieur-e-produit-en-protection-incendie-et-facade-h-f-d-sika-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3873,7 +3865,8 @@
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T21:26:20.691Z",
       "sourceIdentity": "url:https://www.sika.com/en/career/jobs/job-posting-page/jid-4f30bafc-9f15-4a91-88b7-bdc1ef8e04d0.html",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "sika-dbdb5c50be3e",

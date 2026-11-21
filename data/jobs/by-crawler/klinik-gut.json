@@ -175,8 +175,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:27:28.661Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.klinik-gut.ch/de/offene-stellen",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://www.klinik-gut.ch/de/offene-stellen"
     },
     {
       "id": "klinik-gut-1581-00c45976f0f5",
@@ -507,20 +506,16 @@
       "firstSeenAt": "2026-11-20T21:27:28.664Z",
       "previousSlugsByLocale": {
         "it": [
-          "stationsleitung-pflege-80-100-klinik-gut-flasch",
           "gestione-della-stazione-cura-80-100-klinik-gut-ag-flasch"
         ],
         "en": [
-          "stationsleitung-pflege-80-100-klinik-gut-flasch",
           "station-management-care-80-100-klinik-gut-ag-flasch"
         ],
         "fr": [
-          "stationsleitung-pflege-80-100-klinik-gut-flasch",
           "gestion-de-station-soins-80-100-klinik-gut-ag-flasch"
         ]
       },
       "previousSlugs": [
-        "stationsleitung-pflege-80-100-klinik-gut-flasch",
         "gestione-della-stazione-cura-80-100-klinik-gut-ag-flasch",
         "station-management-care-80-100-klinik-gut-ag-flasch",
         "gestion-de-station-soins-80-100-klinik-gut-ag-flasch"

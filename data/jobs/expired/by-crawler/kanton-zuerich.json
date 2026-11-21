@@ -1904,6 +1904,13 @@
     },
     "sector": "Amministrazione Pubblica",
     "expiredAt": "2026-11-13T21:51:30.829Z",
+    "previousSlugs": [
+      "abteilungsleitung-bewahrungs-e-vollzugsdienste-kantonale-verwaltung-zurich-altstetten",
+      "abteilungsleitung-bewahrungs-und-vollzugsdienste-kantonale-verwaltung-zurich-zurich-altstetten",
+      "abteilungsleitung-bewahrungs-und-vollzugsdienste-kanton-zuerich-zurich-altstetten",
+      "abteilungsleitung-bewahrungs-e-vollzugsdienste-kantonale-verwaltung-zurich-altstetten-3cb6c1f0",
+      "abteilungsleitung-bewahrungs-und-vollzugsdienste-kantonale-verwaltung-zurich-zurich-altstetten-2c138283"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "abteilungsleitung-bewahrungs-und-vollzugsdienste-kanton-zuerich-zurich-altstetten-65b58bff",
@@ -1937,14 +1944,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/ktzh/job/details/4087190",
-    "firstSeenAt": "2026-10-16T21:40:17.805Z",
-    "previousSlugs": [
-      "abteilungsleitung-bewahrungs-e-vollzugsdienste-kantonale-verwaltung-zurich-altstetten",
-      "abteilungsleitung-bewahrungs-und-vollzugsdienste-kantonale-verwaltung-zurich-zurich-altstetten",
-      "abteilungsleitung-bewahrungs-und-vollzugsdienste-kanton-zuerich-zurich-altstetten",
-      "abteilungsleitung-bewahrungs-e-vollzugsdienste-kantonale-verwaltung-zurich-altstetten-3cb6c1f0",
-      "abteilungsleitung-bewahrungs-und-vollzugsdienste-kantonale-verwaltung-zurich-zurich-altstetten-2c138283"
-    ]
+    "firstSeenAt": "2026-10-16T21:40:17.805Z"
   },
   {
     "slug": "sorvegliante-e-tutore-1-anno-a-tempo-determinato-kantonale-verwaltung-zurich-zurich",

@@ -26410,7 +26410,7 @@
       "id": "yellowshark-be16e7a4c5c2",
       "slug": "gru-girevole-superiore-operatore-gru-m-f-yellowshark-ag-zug",
       "slugByLocale": {
-        "it": "gru-girevole-superiore-operatore-gru-m-f-yellowshark-ag-zug",
+        "it": "gru-girevole-superiore-operatore-gru-m-f-yellowshark-ag-zug-6ef862064f",
         "en": "crane-operator-upper-rotary-crane-m-f-yellowshark-ag-zug",
         "de": "kranfuhrer-oberdrehkran-m-w-zug-zg-yellowshark-ch",
         "fr": "grue-rotative-superieure-operateur-de-grue-h-f-yellowshark-ag-zug"
@@ -26458,13 +26458,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kranfuhrer-oberdrehkran-m-w-zug-zg-yellowshark-ch",
-        "kranfuhrer-oberdrehkran-m-w-d-yellowshark-ag-zug",
-        "gru-girevole-superiore-operatore-gru-m-f-yellowshark-ag-zug-6ef862064f"
+        "kranfuhrer-oberdrehkran-m-w-d-yellowshark-ag-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kranfuhrer-oberdrehkran-m-w-zug-zg-yellowshark-ch",
-          "gru-girevole-superiore-operatore-gru-m-f-yellowshark-ag-zug-6ef862064f"
+          "kranfuhrer-oberdrehkran-m-w-zug-zg-yellowshark-ch"
         ],
         "en": [
           "kranfuhrer-oberdrehkran-m-w-d-yellowshark-ag-zug"
@@ -29971,14 +29969,12 @@
       "previousSlugs": [
         "bodenleger-m-w-zug-zg-yellowshark-ch",
         "bodenleger-m-w-d-yellowshark-ag-zug",
-        "strato-terra-m-f-yellowshark-ag-zug-zg",
         "strato-terra-m-f-yellowshark-ag-zug-6359bb278a"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bodenleger-m-w-zug-zg-yellowshark-ch",
           "bodenleger-m-w-d-yellowshark-ag-zug",
-          "strato-terra-m-f-yellowshark-ag-zug-zg",
           "strato-terra-m-f-yellowshark-ag-zug-6359bb278a"
         ],
         "en": [
@@ -75278,7 +75274,7 @@
       "id": "yellowshark-02cd92d12583",
       "slug": "strato-terra-m-f-yellowshark-ag-zug-zg",
       "slugByLocale": {
-        "it": "strato-terra-m-f-yellowshark-ag-zug-zg",
+        "it": "strato-terra-m-f-yellowshark-ag-zug-a68a3c884e",
         "en": "ground-layer-m-f-yellowshark-ag-zug-zg",
         "de": "bodenleger-m-w-zug-zg-yellowshark-ch",
         "fr": "couche-au-sol-h-f-yellowshark-ag-zug-zg"
@@ -75325,13 +75321,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bodenleger-m-w-zug-zg-yellowshark-ch",
-        "strato-terra-m-f-yellowshark-ag-zug-a68a3c884e"
+        "bodenleger-m-w-zug-zg-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bodenleger-m-w-zug-zg-yellowshark-ch",
-          "strato-terra-m-f-yellowshark-ag-zug-a68a3c884e"
+          "bodenleger-m-w-zug-zg-yellowshark-ch"
         ],
         "en": [
           "bodenleger-m-w-zug-zg-yellowshark-ch"
@@ -75936,14 +75930,12 @@
         "it": [
           "kranfuhrer-oberdrehkran-m-w-zug-zg-yellowshark-ch",
           "kranfuhrer-oberdrehkran-m-w-yellowshark-ag-zug-fbdb0ab524",
-          "gru-girevole-superiore-operatore-gru-m-f-yellowshark-ag-zug",
           "gru-girevole-superiore-operatore-gru-m-f-yellowshark-ag-zug-7d008a9cd5"
         ]
       },
       "previousSlugs": [
         "kranfuhrer-oberdrehkran-m-w-zug-zg-yellowshark-ch",
         "kranfuhrer-oberdrehkran-m-w-yellowshark-ag-zug-fbdb0ab524",
-        "gru-girevole-superiore-operatore-gru-m-f-yellowshark-ag-zug",
         "gru-girevole-superiore-operatore-gru-m-f-yellowshark-ag-zug-7d008a9cd5"
       ],
       "salaryMin": 69500,

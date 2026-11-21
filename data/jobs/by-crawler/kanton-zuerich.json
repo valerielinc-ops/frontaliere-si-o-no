@@ -5747,7 +5747,7 @@
       "id": "kanton-zuerich-bf73c7273a7c",
       "slug": "fiscalita-e-integrita-fiscale-kantonale-verwaltung-zurich-zurich-b4070a7801",
       "slugByLocale": {
-        "it": "fiscalita-e-integrita-fiscale-kantonale-verwaltung-zurich-zurich-b4070a7801",
+        "it": "fiscalita-e-integrita-fiscale-kantonale-verwaltung-zurich-zurich",
         "en": "tax-commissioner-inheritance-and-gift-tax-kantonale-verwaltung-zurich-zurich",
         "de": "steuerkommissar-in-erbschafts-und-schenkungssteuer-kanton-zuerich-zurich",
         "fr": "commissaire-a-l-impot-impot-sur-le-patrimoine-et-les-dons-kantonale-verwaltung-zurich-zurich"
@@ -5800,15 +5800,11 @@
       "pensum": "100%",
       "previousSlugs": [
         "steuerkommissar-in-erbschafts-und-schenkungssteuer-kanton-zuerich-zurich",
-        "steuerkommissar-in-erbschafts-und-schenkungssteuer-kantonale-verwaltung-zurich-zurich",
-        "fiscalita-e-integrita-fiscale-kantonale-verwaltung-zurich-zurich-b4070a7801",
-        "fiscalita-e-integrita-fiscale-kantonale-verwaltung-zurich-zurich"
+        "steuerkommissar-in-erbschafts-und-schenkungssteuer-kantonale-verwaltung-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "steuerkommissar-in-erbschafts-und-schenkungssteuer-kanton-zuerich-zurich",
-          "fiscalita-e-integrita-fiscale-kantonale-verwaltung-zurich-zurich-b4070a7801",
-          "fiscalita-e-integrita-fiscale-kantonale-verwaltung-zurich-zurich"
+          "steuerkommissar-in-erbschafts-und-schenkungssteuer-kanton-zuerich-zurich"
         ],
         "de": [
           "steuerkommissar-in-erbschafts-und-schenkungssteuer-kantonale-verwaltung-zurich-zurich"
@@ -6671,9 +6667,9 @@
       "slug": "abteilungsleitung-kulinarik-e-gastfreundschaft-kantonale-verwaltung-zurich",
       "slugByLocale": {
         "de": "abteilungsleitung-kulinarik-und-gastfreundschaft-kanton-zuerich-zurich",
-        "it": "abteilungsleitung-kulinarik-e-gastfreundschaft-kantonale-verwaltung-zurich",
-        "en": "abteilungsleitung-kulinarik-und-gastfreundschaft-kantonale-verwaltung-zurich-zurich",
-        "fr": "abteilungsleitung-kulinarik-und-gastfreundschaft-kantonale-verwaltung-zurich-zurich"
+        "it": "responsabile-del-reparto-gastronomia-e-ospitalita-kantonale-verwaltung-zurich-zurich",
+        "en": "head-of-department-culinary-and-hospitality-kantonale-verwaltung-zurich-zurich",
+        "fr": "chef-du-departement-culinaire-et-de-l-accueil-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -6725,26 +6721,18 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleitung-kulinarik-und-gastfreundschaft-kanton-zuerich-zurich",
-          "abteilungsleitung-kulinarik-e-gastfreundschaft-kantonale-verwaltung-zurich",
-          "responsabile-del-reparto-gastronomia-e-ospitalita-kantonale-verwaltung-zurich-zurich"
+          "abteilungsleitung-kulinarik-und-gastfreundschaft-kanton-zuerich-zurich"
         ],
         "en": [
-          "abteilungsleitung-kulinarik-und-gastfreundschaft-kantonale-verwaltung-zurich-zurich",
-          "head-of-department-culinary-and-hospitality-kantonale-verwaltung-zurich-zurich"
+          "abteilungsleitung-kulinarik-und-gastfreundschaft-kantonale-verwaltung-zurich-zurich"
         ],
         "fr": [
-          "abteilungsleitung-kulinarik-und-gastfreundschaft-kantonale-verwaltung-zurich-zurich",
-          "chef-du-departement-culinaire-et-de-l-accueil-kantonale-verwaltung-zurich-zurich"
+          "abteilungsleitung-kulinarik-und-gastfreundschaft-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
         "abteilungsleitung-kulinarik-und-gastfreundschaft-kanton-zuerich-zurich",
-        "abteilungsleitung-kulinarik-e-gastfreundschaft-kantonale-verwaltung-zurich",
-        "abteilungsleitung-kulinarik-und-gastfreundschaft-kantonale-verwaltung-zurich-zurich",
-        "responsabile-del-reparto-gastronomia-e-ospitalita-kantonale-verwaltung-zurich-zurich",
-        "head-of-department-culinary-and-hospitality-kantonale-verwaltung-zurich-zurich",
-        "chef-du-departement-culinaire-et-de-l-accueil-kantonale-verwaltung-zurich-zurich"
+        "abteilungsleitung-kulinarik-und-gastfreundschaft-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -6764,7 +6752,8 @@
       "validThrough": "2027-02-17T22:00:05.158Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T22:00:05.158Z",
-      "sourceIdentity": "url:https://live.solique.ch/ktzh/job/details/4105120"
+      "sourceIdentity": "url:https://live.solique.ch/ktzh/job/details/4105120",
+      "retranslationAttempts": 1
     },
     {
       "id": "kanton-zuerich-bddff49cc7b4",
@@ -10577,9 +10566,9 @@
       "slug": "controller-in-staatsbeitrage-kanton-zuerich-zurich",
       "slugByLocale": {
         "de": "controller-in-staatsbeitrage-kanton-zuerich-zurich",
-        "it": "controller-in-staatsbeitrage-kanton-zuerich-zurich",
-        "en": "controller-in-staatsbeitrage-kanton-zuerich-zurich",
-        "fr": "controller-in-staatsbeitrage-kanton-zuerich-zurich"
+        "it": "controller-dei-contributi-statali-kantonale-verwaltung-zurich-zurich",
+        "en": "controller-government-subsidies-kantonale-verwaltung-zurich-zurich",
+        "fr": "controleur-euse-des-subventions-publiques-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -10648,26 +10637,18 @@
       "firstSeenAt": "2026-11-20T21:59:44.468Z",
       "sourceIdentity": "url:https://live.solique.ch/ktzh/job/details/4105155",
       "previousSlugsByLocale": {
-        "it": [
-          "controller-in-staatsbeitrage-kanton-zuerich-zurich",
-          "controller-dei-contributi-statali-kantonale-verwaltung-zurich-zurich"
-        ],
         "en": [
-          "controller-in-staatsbeitrage-kanton-zuerich-zurich",
-          "controller-government-subsidies-kantonale-verwaltung-zurich-zurich"
+          "controller-in-staatsbeitrage-kanton-zuerich-zurich"
         ],
         "fr": [
-          "controller-in-staatsbeitrage-kanton-zuerich-zurich",
-          "controleur-euse-des-subventions-publiques-kantonale-verwaltung-zurich-zurich"
+          "controller-in-staatsbeitrage-kanton-zuerich-zurich"
         ]
       },
       "previousSlugs": [
-        "controller-in-staatsbeitrage-kanton-zuerich-zurich",
-        "controller-dei-contributi-statali-kantonale-verwaltung-zurich-zurich",
-        "controller-government-subsidies-kantonale-verwaltung-zurich-zurich",
-        "controleur-euse-des-subventions-publiques-kantonale-verwaltung-zurich-zurich"
+        "controller-in-staatsbeitrage-kanton-zuerich-zurich"
       ],
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "kanton-zuerich-2ced5a930811",
@@ -12645,7 +12626,6 @@
         "de": "Wir planen, projektieren, realisieren und unterhalten die Zürcher Staatsstrassen. Darüber hinaus betreiben und unterhalten wir im Auftrag des Bundesamts für Strassen ASTRA die Nationalstrassen in der Gebietseinheit VII. Eine leistungsfähige und zuverlässige Fahrzeugflotte ist die Grundlage für einen reibungslosen Strassenunterhalt. Damit unsere Fachkräfte täglich auf bestens gewartete Fahrzeuge und Maschinen zählen können, engagieren sich rund 20 Mitarbeitende in unserem Fahrzeugdienst an fünf Standorten mit Fachwissen, Einsatzbereitschaft und Leidenschaft. Zur Verstärkung unseres Werkstattteams in Wallisellen suchen wir dich als kompetente und motivierte Fachperson. Was du bei uns bewegst\n• Du führst Diagnose-, Reparatur-, Service- und Unterhaltsarbeiten an den Fahrzeugen, Maschinen und Geräten aus\n• Du stellst gemeinsam mit uns sicher, dass die Service- und Reparatur-Termine eingehalten werden\n• Du unterstützt das Werkstatt-Team Das bringst du mit\n• EFZ-Landmaschinenmechaniker/-in oder Automobil-Mechatroniker/-in (Nutzfahrzeuge)\n• Fundiertes Fachwissen sowie Begeisterung für die neuste Technik\n• Einige Jahre Berufserfahrung von Vorteil\n• Einen hohen Qualitätsanspruch an deine Arbeit sowie Termintreue bei der Auftragsabwicklung\n• Fahrausweis Kategorie C und CE von Vorteil Wie wir dich begeistern\n• Sorgfältige Einarbeitung in den Aufgabenbereich\n• Grosse Wertlegung auf die Förderung, Schulung und Weiterbildung jedes Einzelnen\n• Gegenseitige Unterstützung in einem gut eingespielten Team\n• Offene und transparente Kommunikation\n• Begegnung auf Augenhöhe Dein Kontakt Gerald Tanner Chef Werkstatt +41 43 258 78 10 Liebe Personaldienstleister! Leider können wir keine Dossiers berücksichtigen, die mit Honorarforderungen verbunden sind. Es werden ausschliesslich Direktbewerbungen beantwortet und im Auswahlverfahren berücksichtigt. Über uns Kreisel oder Lichtsignalanlage? Veloweg oder Velostreifen? Mehr Bäume und weniger Versiegelung. Busbevorzugung und sichere Fusswege. Tempo 50 oder Tempo 30? Mit solchen Themen beschäftigen wir uns tagtäglich und liefern Antworten. Beim Tiefbauamt (TBA) prägen wir das zukünftige Gesicht des Kantons Zürich. Willst du dich mit deinem Fachwissen für einen nachhaltig attraktiven Kanton Zürich einsetzen? Dabei können wir dir ein spannendes Umfeld anbieten . Wir bieten… Moderner Maschinenpark einen modernen Maschinenpark für effizientes Arbeiten Faire Gehälter einen fairen Lohn dank transparentem Lohnsystem Gutes und breites Aus- und Weiterbildungsangebot vielfältige Aus- und Weiterbildungsmöglichkeiten Team ein kollegiales Team Dienstkleider praktische und arbeitsschutzkonforme Dienstkleidung Dein Bewerbungsprozess Vorselektion Erstgespräch Schnuppertag Zweitgespräch Finaler Entscheid Weitere interessante Stellen beim Kanton Zürich Alle offenen Stellen\n\nPensum: 100%",
         "fr": "Nous planifions, projetons, mettons en œuvre et entretenons les routes de l'État de Zurich. De plus, au nom de l'Office fédéral des routes ASTRA, nous exploitons les routes nationales dans l'unité territoriale VII. Ce n'est qu'avec un parc de véhicules fonctionnant que l'on peut effectuer le travail exigeant des travailleurs qualifiés dans l'entretien des routes. Une vingtaine d'employés de cinq endroits se sont engagés à atteindre cet objectif avec une grande compétence et passion. Pour notre atelier à Wallisellen, nous vous recherchons en tant que mécanicien agricole expérimenté ou mécanicien automobile (véhicules commerciaux). Ce que tu fais de nous\n• Vous effectuerez des travaux de diagnostic, de réparation, de service et d'entretien sur des véhicules, des machines et des équipements\n• Vous soutenez l'équipe de l'atelier\n• Avec nous, assurez-vous que les dates de service et de réparation sont respectées.\n• Technicien mécatronique en mécanique agricole ou en mécanique automobile (véhicules commerciaux)\n• Une solide expertise et un enthousiasme pour les dernières technologies\n• Quelques années d'expérience professionnelle sont bénéfiques\n• Un standard de haute qualité pour votre travail et le respect des délais de traitement des commandes\n• Permis de conduire des catégories C et CE Comment nous vous inspirons\n• Connaissance attentive de la zone de travail\n• Une grande importance est accordée à la promotion, à la formation et au perfectionnement de chaque individu.\n• Soutien mutuel dans une équipe bien établie\n• Communication ouverte et transparente\n• Rencontre au niveau des yeux Votre contact Gerald Tanner Chef Werkstatt +41 43 258 78 10 Chers fournisseurs de services personnels! Malheureusement, nous ne pouvons pas tenir compte des dossiers relatifs aux redevances. Seules les demandes directes seront répondues et prises en considération dans le processus de sélection. À propos de nous gyroscope ou système de signalisation lumineuse? Veloweg ou Velostreifen ? Plus d'arbres et moins d'étanchéité. Préférence pour les bus et sentiers sûrs. Tempo 50 ou Tempo 30 ? Nous traitons de ces sujets quotidiennement et fournissons des réponses. Au Bureau du Génie Civil (TBA), nous façonnons le visage futur du canton de Zurich. Voulez-vous utiliser votre expertise pour promouvoir un canton de Zurich attrayant et durable ? Nous pouvons vous offrir un environnement passionnant. Nous offrons... Un parc de machines moderne pour un travail efficace Un salaire équitable grâce à un système de salaires transparent Une bonne formation et une formation continue diversifiées offrent des possibilités de formation et d'éducation continue Équiper une équipe collégiale service vêtements pratiques et de travail service vêtements conforme à la sécurité Votre processus de candidature Pré-sélection Première interview Journée Schnupper Deuxième interview Décision finale Plus de postes intéressants au Canton de Zurich Toutes les offres d'emploi\n\nPensum: 100%"
       },
-      "needsRetranslation": true,
       "location": "Wallisellen",
       "canton": "ZH",
       "url": "https://live.solique.ch/ktzh/job/details/4090639/",
@@ -16493,17 +16473,16 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-08T22:00:24.762Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-21T16:10:32.534Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-09-21T16:10:32.534Z"
     },
     {
       "id": "kanton-zuerich-e1bd6775ed1d",
       "slug": "verwaltungsassistent-in-klientenadministration-e-buchhaltung-kantonale-verwaltung-zurich-uitikon",
       "slugByLocale": {
         "de": "verwaltungsassistent-in-klientenadministration-und-buchhaltung-kanton-zuerich-uitikon",
-        "it": "verwaltungsassistent-in-klientenadministration-e-buchhaltung-kantonale-verwaltung-zurich-uitikon",
-        "en": "verwaltungsassistent-in-klientenadministration-und-buchhaltung-kantonale-verwaltung-zurich-uitikon",
-        "fr": "verwaltungsassistent-in-klientenadministration-und-buchhaltung-kantonale-verwaltung-zurich-uitikon"
+        "it": "assistente-amministrativo-a-per-l-amministrazione-e-la-contabilita-dei-clienti-kantonale-verwaltung-zurich-uitikon",
+        "en": "administrative-assistant-client-administration-and-accounting-kantonale-verwaltung-zurich-uitikon",
+        "fr": "assistant-e-administratif-ve-administration-et-comptabilite-des-clients-kantonale-verwaltung-zurich-uitikon"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -16554,26 +16533,18 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "verwaltungsassistent-in-klientenadministration-und-buchhaltung-kanton-zuerich-uitikon",
-          "verwaltungsassistent-in-klientenadministration-e-buchhaltung-kantonale-verwaltung-zurich-uitikon",
-          "assistente-amministrativo-a-per-l-amministrazione-e-la-contabilita-dei-clienti-kantonale-verwaltung-zurich-uitikon"
+          "verwaltungsassistent-in-klientenadministration-und-buchhaltung-kanton-zuerich-uitikon"
         ],
         "en": [
-          "verwaltungsassistent-in-klientenadministration-und-buchhaltung-kantonale-verwaltung-zurich-uitikon",
-          "administrative-assistant-client-administration-and-accounting-kantonale-verwaltung-zurich-uitikon"
+          "verwaltungsassistent-in-klientenadministration-und-buchhaltung-kantonale-verwaltung-zurich-uitikon"
         ],
         "fr": [
-          "verwaltungsassistent-in-klientenadministration-und-buchhaltung-kantonale-verwaltung-zurich-uitikon",
-          "assistant-e-administratif-ve-administration-et-comptabilite-des-clients-kantonale-verwaltung-zurich-uitikon"
+          "verwaltungsassistent-in-klientenadministration-und-buchhaltung-kantonale-verwaltung-zurich-uitikon"
         ]
       },
       "previousSlugs": [
         "verwaltungsassistent-in-klientenadministration-und-buchhaltung-kanton-zuerich-uitikon",
-        "verwaltungsassistent-in-klientenadministration-e-buchhaltung-kantonale-verwaltung-zurich-uitikon",
-        "verwaltungsassistent-in-klientenadministration-und-buchhaltung-kantonale-verwaltung-zurich-uitikon",
-        "assistente-amministrativo-a-per-l-amministrazione-e-la-contabilita-dei-clienti-kantonale-verwaltung-zurich-uitikon",
-        "administrative-assistant-client-administration-and-accounting-kantonale-verwaltung-zurich-uitikon",
-        "assistant-e-administratif-ve-administration-et-comptabilite-des-clients-kantonale-verwaltung-zurich-uitikon"
+        "verwaltungsassistent-in-klientenadministration-und-buchhaltung-kantonale-verwaltung-zurich-uitikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -16593,7 +16564,8 @@
       "validThrough": "2027-02-18T21:59:47.692Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T21:59:47.692Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "kanton-zuerich-88b3b24b18bf",
@@ -16674,8 +16646,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:59:39.698Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-08T13:51:26.443Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-09-08T13:51:26.443Z"
     },
     {
       "id": "kanton-zuerich-4d149115218b",
@@ -16756,8 +16727,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T21:59:30.585Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-22T09:33:37.435Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-10-22T09:33:37.435Z"
     },
     {
       "id": "kanton-zuerich-73b205f7754e",
@@ -16944,7 +16914,6 @@
         "en": "As part of the BVD, the Department of Implementation 2 is responsible for the implementation and support of ambulatory and inpatient measures as well as substitute measures and instruction controls. The focus is on individual support and ensuring compliance with requirements in various measures settings. By agreement, we are looking for a leader who assumes responsibility, leads an interdisciplinary team of around six employees and further develops the department Implementation of Measures 2 in terms of expertise, personnel and organisation. You do that with us.\n• Ensuring professional, effective and legally compliant implementation of ambulatory and inpatient measures\n• Further development of structures, processes and quality management as well as harmonisation of working methods\n• Close cooperation with the legal service, internal specialist departments and external working partners\n• Active participation in the cadre of probation and enforcement services as well as in projects, specialist and working groups\n• Representation of the department in complex specialist situations, if necessary also vis-à-vis courts You bring that with you\n• A bachelor’s degree in social work, law or a related field, such as psychology or criminology\n• Several years of professional experience in a comparable environment as well as proven experience in the personnel management of qualified specialist employees\n• A clear understanding of leadership and the ability to lead employees securely, appreciatively and bindingly, even in demanding situations\n• Decision-making power, assertiveness and the ability to weigh different interests, set priorities and take responsibility Your contact Still questions? Liisa Schneller Division Manager V2 +41 43 258 36 12 Birgit Eberle Recruitment & Assessment +41 43 258 50 24 About us The Probation and Enforcement Services (BVD) are one of eight main departments of JuWe. They are responsible for regulating and controlling the execution of prison sentences and court-ordered measures as well as for probation assistance and the implementation of learning programmes. With around 180 employees, they make an important contribution to crime prevention and social integration. As employees of the probation and enforcement services, we work together interdisciplinary, accompany the implementation of sanctions and measures with professionalism and commitment and support the affected persons on their way back to a responsible life. With around 1400 employees, Prison and Reintegration (JuWe) is the largest office within the Directorate of Justice and Home Affairs and is responsible for the execution of penalties and measures as well as for the execution of various types of detention. Our employees from around 40 professions support and promote the reintegration of delinquents and work effectively and progressively for a safe and just society. We offer... Lunch-Check a diverse catering offer thanks to Lunch-Check Fair salaries a fair wage with transparent wage system and allowances according to function Meaningful work Meaningful work with real added value for society Good and broad training and further education offer diverse training and further education opportunities Responsible activity the opportunity to take on responsibility and to help shape mobile work / home office flexible work - in the office, home office or where it makes sense Good social benefits (PK) an attractive pension fund with many possibilities Workplace Near station a central location with good public transport connection Your application process Pre-selection Online-Assessment Panel-Interview Assessment Center (semi-day) Final decision More interesting positions at the Canton of Zurich All vacancies",
         "fr": "Dans le cadre du BVD, le Département de la mise en œuvre 2 est chargé de la mise en œuvre et du soutien des mesures ambulatoires et en milieu hospitalier ainsi que des mesures de substitution et des contrôles d'instruction. L'accent est mis sur le soutien individuel et le respect des exigences dans divers contextes de mesures. D'un commun accord, nous cherchons un leader qui assume la responsabilité, dirige une équipe interdisciplinaire d'environ six employés et développe le département Mise en œuvre des mesures 2 en termes d'expertise, de personnel et d'organisation. Fais ça avec nous.\n• Assurer la mise en œuvre professionnelle, efficace et conforme à la loi des mesures ambulatoires et d'hospitalisation\n• Poursuite du développement des structures, des processus et de la gestion de la qualité ainsi que de l'harmonisation des méthodes de travail\n• Coopération étroite avec le service juridique, les services internes spécialisés et les partenaires extérieurs\n• Participation active aux services de probation et d ' application de la loi ainsi qu ' aux projets, aux spécialistes et aux groupes de travail\n• Représentation du département dans des situations spécialisées complexes, si nécessaire également auprès des tribunaux Apporte ça avec toi.\n• Baccalauréat en travail social, droit ou domaine connexe, comme la psychologie ou la criminologie\n• Plusieurs années d'expérience professionnelle dans un environnement comparable ainsi qu'une expérience prouvée dans la gestion du personnel des employés spécialisés qualifiés\n• Une compréhension claire du leadership et de la capacité de diriger les employés de façon sécuritaire, reconnaissante et contraignante, même dans des situations exigeantes\n• Pouvoir décisionnel, assurance et capacité de peser différents intérêts, de fixer des priorités et de prendre des responsabilités Votre contact Vous avez encore des questions? Liisa Schneller Directeur de division V2 +41 43 258 36 12 Birgit Eberle Recrutement & Évaluation +41 43 258 50 24 Qui sommes-nous ?Les Services de probation et d'exécution (BVD) sont l'un des huit principaux départements de JuWe. Ils sont responsables de la réglementation et du contrôle de l'exécution des peines d'emprisonnement et des mesures ordonnées par le tribunal, ainsi que de l'aide à la probation et de la mise en œuvre des programmes d'apprentissage. Avec environ 180 employés, ils apportent une contribution importante à la prévention du crime et à l'intégration sociale. En tant qu'employés des services de probation et d'application de la loi, nous travaillons de concert interdisciplinaire, accompagnons la mise en œuvre des sanctions et des mesures avec professionnalisme et engagement et soutenons les personnes touchées sur le chemin du retour à une vie responsable. Avec environ 1 400 employés, la prison et la réinsertion (JuWe) est le plus grand bureau de la Direction de la justice et des affaires intérieures et est responsable de l'exécution des peines et des mesures ainsi que de l'exécution de divers types de détention. Nos employés d'une quarantaine de professions soutiennent et favorisent la réinsertion des délinquants et travaillent efficacement et progressivement pour une société sûre et juste. Nous offrons... Lunch-Check une offre de restauration diversifiée grâce au Lunch-Check Fair salaires un salaire équitable avec un système de salaire transparent et des indemnités selon la fonction Travail significatif Travail significatif avec une réelle valeur ajoutée pour la société Bonne et large formation et formation continue offrent diverses possibilités de formation et de formation continue Activité responsable la possibilité d'assumer la responsabilité et d'aider à façonner le travail mobile / bureau à domicile travail flexible - dans le bureau, le bureau à domicile ou où il est logique Bons avantages sociaux (PK) un fonds de pension attrayant avec de nombreuses possibilités Milieu de travail Près de la gare un emplacement central avec une bonne connexion de transport en commun Votre processus de candidature Pré-sélection en ligne-Évaluation Panel-Interview Centre d'évaluation (semi-journée) Décision finale Plus de postes intéressants au Canton de Zurich Tous les postes vacants"
       },
-      "needsRetranslation": true,
       "location": "Zürich Altstetten",
       "canton": "ZH",
       "url": "https://live.solique.ch/ktzh/job/details/4105873/",
@@ -17103,7 +17072,6 @@
         "en": "Canton of Zurich Education Directorate Cantonal School Stadelhofen Branch Dübendorf ICT system technician/-in 80 - 100% The branch Dübendorf of the Cantonal School Stadelhofen has been running a high school, a short high school and a middle school since the school year 2026/27. In full operation, it offers space for 650 students on Empa’s campus. In the summer of 2027, another building will be opened on the IPZ site in Dübendorf - also for 650 students. For the reliable operation, support and further development of the ICT infrastructure of our branch Dübendorf we are looking for 1. January 2027 or by agreement a dedicated personality as an ICT system technician. You will start your work at Empa and will be used alternately at both locations in Dübendorf after the IPZ site has been commissioned. Their tasks\n• They ensure the reliable operation of the school ICT infrastructure and are the first point of contact for employees, teachers and learners. You provide 1st and 2nd level support and process disruptions and service requests via ServiceNow.\n• They supervise school hardware such as network printers, display monitors and AVS devices and, if necessary, coordinate further support with cantonal offices and external partners. Another focus of her work is in workplace and equipment management. They manage and manage managed devices in Windows and macOS environments, manage the mobile telephony of administrative staff and are responsible for user management, device allocation and device lifecycle management.\n• In the area of network and infrastructure, you act as an interface to external providers. They open tickets at Swisscom, coordinate changes and track network disruptions in the LAN, WLAN and VLAN environment. You also support the operation and monitoring of the building management system.\n• In the Microsoft 365 pane, you maintain user accounts, groups and permissions in Microsoft 365 and Entra ID. They manage SharePoint environments and teams groups and are responsible for entry and exit and mutations of user accounts.\n• In addition, you participate in the creation and maintenance of process and system documentation, work in ICT projects and support tests, pilot operations and acceptance of new systems and solutions. Your profile\n• You have completed training as a computer scientist or equivalent qualification and have experience in ICT support as well as in the operation of workplace and school IT infrastructures.\n• They have a good knowledge of Windows environments and Microsoft 365. Knowledge of macOS environments as well as network and infrastructure topics is an advantage.\n• They work independently, structured and service-oriented and appreciate the direct contact with teachers, learners and employees.\n• Feeling as a communicative and reliable personality You are comfortable in a lively school environment and approach tasks in a solution-oriented manner. An interesting and varied task awaits you in an unusual, dynamic environment of a cantonal middle school. In the context of digital change and the establishment of our branch Dübendorf, you can play a formative role in shaping the ongoing and upcoming changes to our IT infrastructure. Based on your previous professional activities, you can actively contribute your own ideas and experiences for the further development of the school. The Conditions of Employment are governed by the Staff Regulations of the Canton of Zurich. the activity requires a local presence; Homeoffice is not intended for this function. Holidays must be paid during school holidays. Application Have we aroused your interest? We look forward to your application. Please submit your documents by 17 December 2026 exclusively via the online tool. Applications outside the online tool are not accepted and deleted immediately. For information, Mr. Enver Kilinc, Head of IT, is at your disposal (+41 43 256 27 06). Further information about our school can be found at Cantonal School Stadelhofen – Filiale Dübendorf.\n\nPensum: 80-100 %",
         "fr": "Canton de Zurich Direction de l'éducation École cantonale Branche Stadelhofen Dübendorf Technicien/-dans 80 - 100% La filiale Dübendorf de l'école cantonale Stadelhofen dirige un lycée, un lycée et un collège depuis l'année scolaire 2026/27. En pleine opération, il offre de l'espace pour 650 étudiants sur le campus d'Empa. Au cours de l'été 2027, un autre bâtiment sera ouvert sur le site IPZ à Dübendorf - également pour 650 étudiants. Pour le fonctionnement fiable, le soutien et le développement ultérieur de l'infrastructure TIC de notre succursale Dübendorf nous recherchons 1. Janvier 2027 ou par accord une personnalité dédiée en tant que technicien du système des TIC. Vous commencerez votre travail à Empa et serez utilisé alternativement dans les deux endroits à Dübendorf après la commande du site IPZ. Leurs tâches\n• Ils assurent le fonctionnement fiable de l'infrastructure informatique de l'école et constituent le premier point de contact pour les employés, les enseignants et les apprenants. Vous fournissez du soutien de premier et deuxième niveaux et des interruptions de processus et des demandes de service via ServiceNow.\n• Ils supervisent le matériel scolaire comme les imprimantes réseau, les moniteurs d'affichage et les appareils AVS et, si nécessaire, coordonnent l'aide avec les bureaux cantonaux et les partenaires extérieurs. Un autre axe de son travail est la gestion du milieu de travail et de l'équipement. Ils gèrent et gèrent les appareils gérés dans les environnements Windows et MacOS, gèrent la téléphonie mobile du personnel administratif et sont responsables de la gestion des utilisateurs, de l'allocation des appareils et de la gestion du cycle de vie des appareils.\n• Dans le domaine du réseau et de l'infrastructure, vous agissez comme une interface avec les fournisseurs externes. Ils ouvrent des tickets chez Swisscom, coordonnent les changements et suivent les perturbations du réseau dans les environnements LAN, WLAN et VLAN. Vous soutenez également le fonctionnement et le suivi du système de gestion du bâtiment.\n• Dans le volet Microsoft 365, vous maintenez les comptes utilisateurs, les groupes et les permissions dans Microsoft 365 et Entra ID. Ils gèrent les environnements SharePoint et les groupes d'équipes et sont responsables de l'entrée et de la sortie et des mutations des comptes utilisateurs.\n• En outre, vous participez à la création et à la maintenance de la documentation des processus et des systèmes, travaillez dans des projets TIC et des tests de soutien, des opérations pilotes et l'acceptation de nouveaux systèmes et solutions. Votre profil\n• Vous avez suivi une formation en informatique ou une qualification équivalente et avez de l'expérience dans le soutien aux TIC ainsi que dans le fonctionnement des infrastructures informatiques au travail et à l'école.\n• Ils ont une bonne connaissance des environnements Windows et Microsoft 365. La connaissance des environnements macOS ainsi que des thèmes de réseau et d'infrastructure est un avantage.\n• Ils travaillent de façon indépendante, structurée et axée sur le service et apprécient le contact direct avec les enseignants, les apprenants et les employés.\n• Se sentir comme une personnalité communicative et fiable Vous êtes à l'aise dans un environnement scolaire animé et approchez les tâches de manière orientée vers la solution. Une tâche intéressante et variée vous attend dans un environnement inhabituel et dynamique d'un collège cantonal. Dans le contexte du changement numérique et de la création de notre succursale Dübendorf, vous pouvez jouer un rôle de formateur dans l'évolution en cours et à venir de notre infrastructure informatique. Sur la base de vos activités professionnelles antérieures, vous pouvez contribuer activement à vos propres idées et expériences pour le développement ultérieur de l'école. Les conditions d'emploi sont régies par le Statut du Canton de Zurich. l'activité nécessite une présence locale; le Homeoffice n'est pas destiné à cette fonction. Les vacances doivent être payées pendant les vacances scolaires. Demande Avons-nous suscité votre intérêt ? Nous attendons avec impatience votre candidature. Veuillez soumettre vos documents d'ici le 17 décembre 2026 exclusivement par l'intermédiaire de l'outil en ligne. Les applications en dehors de l'outil en ligne ne sont pas acceptées et supprimées immédiatement. Pour information, M. Enver Kilinc, Chef de l'informatique, est à votre disposition (+41 43 256 27 06). De plus amples informations sur notre école sont disponibles à l'école cantonale Stadelhofen – Filiale Dübendorf.\n\nRécipient: 80-100 %"
       },
-      "needsRetranslation": true,
       "location": "8600",
       "canton": "ZH",
       "url": "https://live.solique.ch/ktzh/job/details/4105759/",
@@ -17187,7 +17155,6 @@
         "en": "Would you like to use your experience in real estate management for an exceptional and versatile portfolio of the Canton of Zurich? In our dedicated property management team, you take on a responsible role in the management of our non-governmental properties. You have the opportunity to contribute your own impulses and to actively shape the digitalization of our management processes. Their tasks\n• You are responsible for the management of your real estate portfolio and ensure professional support for the various properties.\n• They coordinate and organize intermediate uses and accompany them from planning to implementation.\n• They create analyses and reporting for ownership and other internal bodies.\n• You accompany structural measures and renovations in your portfolio from the point of view of real estate management.\n• They assess rental rates and determine the corresponding rental conditions.\n• They create billings, for example for the additional costs. Your profile\n• You have a degree as a real estate manager with a federal certificate and have several years of professional experience in real estate management.\n• They like to take on responsibility, work independently and are a reliable contact person for different stakeholders.\n• They are characterized by a high degree of customer orientation and communicate stylishly in German.\n• You are digitally affine and experienced in dealing with MS Office; Experience with REM or Garaio REM is beneficial.\n• They bring openness to new topics and enjoy getting involved in a versatile environment. With us, you can expect something different from a classic rental and commercial portfolio: You manage a versatile real estate portfolio, which also includes special properties and uses such as agricultural leases. This makes your task varied and gives you insights into very different facets of the real estate world of the Canton of Zurich. At the same time, you benefit from a strong network within the real estate office and work closely with various specialist areas. In this way, you expand your professional horizon, contribute your experience and get to know the Canton of Zurich from a new perspective. Your contact Andreas Jost Head of Property Management +41 43 259 21 88 Samira Good Team Leader Property Management +41 43 259 21 80 Dear HR service providers! Unfortunately, we cannot take account of dossiers relating to fees. Only direct applications will be answered and considered in the selection process. The Real Estate Office (IMA) is the owner's representative for the canton's properties and responsible for the development and implementation of the real estate strategy. It also manages the numerous properties of the central and district administration, carries out all real estate business of the Canton of Zurich and advises other directorates on legal and economic issues of real estate management. If you associate a complicated, dusty administration with us, you are wrong. We work collegially, uncomplicated and performance-oriented. Flexible working hours and mobile work are just as much a matter of course for us as the opportunity to develop professionally and personally. We offer... Lunch-Check a diverse catering offer thanks to Lunch-Check Good and broad training and further education offer diverse training and further education opportunities Responsible activity the chance to take on responsibility Mobile work / Home office mobile work - in the office, home office or working from the road Near HB a central location with excellent public transport connection Your application process Pre-selection First interview (online) Second interview with practical task Final decision More interesting positions at the Canton of Zurich All vacancies\n\nPensum: 80-100 %",
         "fr": "Vous souhaitez utiliser votre expérience en gestion immobilière pour un portefeuille exceptionnel et polyvalent du canton de Zurich ? Dans notre équipe dédiée à la gestion immobilière, vous assumez un rôle responsable dans la gestion de nos biens non gouvernementaux. Vous avez la possibilité de contribuer à vos propres impulsions et de façonner activement la numérisation de nos processus de gestion. Leurs tâches\n• Vous êtes responsable de la gestion de votre portefeuille immobilier et vous assurez un soutien professionnel pour les différentes propriétés.\n• Ils coordonnent et organisent les utilisations intermédiaires et les accompagnent de la planification à la mise en œuvre.\n• Ils créent des analyses et des rapports pour la propriété et d'autres organismes internes.\n• Vous accompagnez les mesures structurelles et les rénovations dans votre portefeuille du point de vue de la gestion immobilière.\n• Ils évaluent les loyers et déterminent les conditions de location correspondantes.\n• Ils créent des factures, par exemple pour les coûts supplémentaires. Votre profil\n• Vous avez un diplôme en gestion immobilière avec un certificat fédéral et avez plusieurs années d'expérience professionnelle en gestion immobilière.\n• Ils aiment assumer leurs responsabilités, travailler de manière indépendante et être une personne de contact fiable pour les différents intervenants.\n• Ils sont caractérisés par un haut degré d'orientation client et de communication élégante en allemand.\n• Vous êtes numériquement affine et expérimenté dans le traitement avec MS Office; Expérience avec REM ou Garaio REM est bénéfique.\n• Ils apportent une ouverture sur de nouveaux sujets et aiment s'impliquer dans un environnement polyvalent. Avec nous, vous pouvez vous attendre à quelque chose de différent d'un portefeuille commercial et de location classique : Vous gérez un portefeuille immobilier polyvalent, qui comprend également des propriétés spéciales et des utilisations telles que les baux agricoles. Cela rend votre tâche variée et vous donne un aperçu des différentes facettes du monde immobilier du canton de Zurich. En même temps, vous bénéficiez d'un solide réseau au sein du bureau immobilier et travaillez en étroite collaboration avec différents domaines spécialisés. De cette façon, vous élargissez votre horizon professionnel, apportez votre expérience et apprenez à connaître le canton de Zurich dans une nouvelle perspective. Votre contact Andreas Jost Responsable de la gestion immobilière +41 43 259 21 88 Samira Good Team Leader Gestion immobilière +41 43 259 21 80 Chers fournisseurs de services RH! Malheureusement, nous ne pouvons pas tenir compte des dossiers relatifs aux taxes. Seules les demandes directes seront répondues et prises en considération dans le processus de sélection. L'Office immobilier (IMA) est le représentant du propriétaire pour les biens du canton et est responsable du développement et de la mise en œuvre de la stratégie immobilière. Elle gère également les nombreuses propriétés de l'administration centrale et de district, réalise toutes les affaires immobilières du canton de Zurich et conseille d'autres directions sur les questions juridiques et économiques de la gestion immobilière. Si vous nous associez une administration compliquée et poussiéreuse, vous avez tort. Nous travaillons de façon collégiale, simple et axée sur la performance. La flexibilité du temps de travail et le travail mobile sont autant une question bien sûr pour nous que la possibilité de se développer professionnellement et personnellement. Nous offrons... Déjeuner-Check une offre variée de restauration grâce à Lunch-Check Une bonne et large formation et une formation continue offrent diverses possibilités de formation et de formation continue Activité responsable la chance d'assumer la responsabilité Travail mobile / Bureau à domicile travail mobile - au bureau, bureau à domicile ou à partir de la route Près de HB un emplacement central avec une excellente connexion de transport en commun Votre processus de candidature Pré-sélection Première entrevue (en ligne) Deuxième entretien avec la tâche pratique Décision finale Plus de postes intéressants au Canton de Zurich Tous les postes vacants\n\nRécipient: 80-100 %"
       },
-      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://live.solique.ch/ktzh/job/details/4105811/",
