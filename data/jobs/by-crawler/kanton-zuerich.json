@@ -3561,7 +3561,7 @@
       "slugByLocale": {
         "it": "operaio-a-forestale-efz-macchinista-kantonale-verwaltung-zurich-turbenthal-0c448588c6",
         "en": "forest-worker-efz-machine-operator-kantonale-verwaltung-zurich-turbenthal",
-        "de": "forstwart-in-efz-maschinist-in-kantonale-verwaltung-zurich-turbenthal",
+        "de": "forstwart-in-efz-maschinist-in-kanton-zuerich-turbenthal",
         "fr": "forestier-bucheron-forestiere-bucheronne-cfc-machiniste-kantonale-verwaltung-zurich-turbenthal"
       },
       "company": "Kantonale Verwaltung Zürich",
@@ -3611,7 +3611,8 @@
       "pensum": "100%",
       "previousSlugs": [
         "forstwart-in-efz-maschinist-in-kanton-zuerich-turbenthal",
-        "operaio-a-forestale-efz-macchinista-kantonale-verwaltung-zurich-turbenthal"
+        "operaio-a-forestale-efz-macchinista-kantonale-verwaltung-zurich-turbenthal",
+        "forstwart-in-efz-maschinist-in-kantonale-verwaltung-zurich-turbenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3619,7 +3620,7 @@
           "operaio-a-forestale-efz-macchinista-kantonale-verwaltung-zurich-turbenthal"
         ],
         "de": [
-          "forstwart-in-efz-maschinist-in-kanton-zuerich-turbenthal"
+          "forstwart-in-efz-maschinist-in-kantonale-verwaltung-zurich-turbenthal"
         ]
       },
       "firstSeenAt": "2026-09-08T23:33:33.383Z",
@@ -5394,7 +5395,7 @@
       "slugByLocale": {
         "it": "project-manager-riparazione-stradale-kantonale-verwaltung-zurich-kleinandelfingen",
         "en": "project-manager-road-repair-kantonale-verwaltung-zurich-kleinandelfingen",
-        "de": "projektleiter-in-strasseninstandsetzung-kantonale-verwaltung-zurich-kleinandelfingen",
+        "de": "projektleiter-in-strasseninstandsetzung-kanton-zuerich-kleinandelfingen",
         "fr": "directeur-de-projet-kantonale-verwaltung-zurich-kleinandelfingen"
       },
       "company": "Kantonale Verwaltung Zürich",
@@ -5443,14 +5444,15 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "projektleiter-in-strasseninstandsetzung-kanton-zuerich-kleinandelfingen"
+        "projektleiter-in-strasseninstandsetzung-kanton-zuerich-kleinandelfingen",
+        "projektleiter-in-strasseninstandsetzung-kantonale-verwaltung-zurich-kleinandelfingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-strasseninstandsetzung-kanton-zuerich-kleinandelfingen"
         ],
         "de": [
-          "projektleiter-in-strasseninstandsetzung-kanton-zuerich-kleinandelfingen"
+          "projektleiter-in-strasseninstandsetzung-kantonale-verwaltung-zurich-kleinandelfingen"
         ]
       },
       "firstSeenAt": "2026-09-19T23:05:32.298Z",
@@ -10659,9 +10661,7 @@
       },
       "previousSlugs": [
         "controller-in-staatsbeitrage-kanton-zuerich-zurich"
-      ],
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "kanton-zuerich-2ced5a930811",
@@ -16580,8 +16580,6 @@
       "validThrough": "2027-02-18T21:59:47.692Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T09:58:33.072Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "sourceIdentity": "url:https://live.solique.ch/ktzh/job/details/4105420"
     },
     {
