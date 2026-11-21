@@ -2596,12 +2596,12 @@
     },
     {
       "id": "canton-valais-fcd3e2d9801b",
-      "slug": "jurist-in-60-100-canton-valais-ch",
+      "slug": "avvocato-60-100-canton-du-valais-sion",
       "slugByLocale": {
         "de": "jurist-in-60-100-canton-valais-ch",
-        "it": "jurist-in-60-100-canton-valais-ch",
-        "en": "jurist-in-60-100-canton-valais-ch",
-        "fr": "jurist-in-60-100-canton-valais-ch"
+        "it": "avvocato-60-100-canton-du-valais-sion",
+        "en": "lawyer-60-100-canton-du-valais-sion",
+        "fr": "avocat-60-100-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2666,30 +2666,32 @@
       "firstSeenAt": "2026-11-20T09:58:37.364Z",
       "previousSlugsByLocale": {
         "it": [
-          "giurista-60-100-canton-du-valais-sion"
+          "giurista-60-100-canton-du-valais-sion",
+          "jurist-in-60-100-canton-valais-ch"
         ],
         "en": [
-          "lawyer-60-100-canton-du-valais-sion"
+          "jurist-in-60-100-canton-valais-ch"
         ],
         "fr": [
-          "juriste-60-100-canton-du-valais-sion"
+          "juriste-60-100-canton-du-valais-sion",
+          "jurist-in-60-100-canton-valais-ch"
         ]
       },
       "previousSlugs": [
         "giurista-60-100-canton-du-valais-sion",
-        "lawyer-60-100-canton-du-valais-sion",
-        "juriste-60-100-canton-du-valais-sion"
+        "juriste-60-100-canton-du-valais-sion",
+        "jurist-in-60-100-canton-valais-ch"
       ],
       "sourceIdentity": "url:https://otb.apps.vs.ch/iapply?source=external&job=114510&publication=2647"
     },
     {
       "id": "canton-valais-66225b5dd1d9",
-      "slug": "spezialist-in-information-e-dokumentation-80-canton-du-valais-brig",
+      "slug": "specialista-in-informazione-e-documentazione-80-canton-du-valais-brig",
       "slugByLocale": {
         "de": "spezialist-in-information-und-dokumentation-80-canton-valais-ch",
-        "it": "spezialist-in-information-e-dokumentation-80-canton-du-valais-brig",
-        "en": "spezialist-in-information-und-dokumentation-80-canton-valais-ch",
-        "fr": "spezialist-in-information-und-dokumentation-80-canton-valais-ch"
+        "it": "specialista-in-informazione-e-documentazione-80-canton-du-valais-brig",
+        "en": "information-and-documentation-specialist-80-canton-du-valais-brig",
+        "fr": "specialiste-de-l-information-et-de-la-documentation-80-canton-du-valais-brig"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2737,20 +2739,20 @@
       "previousSlugsByLocale": {
         "it": [
           "spezialist-in-information-und-dokumentation-80-canton-valais-ch",
-          "specialista-in-informazione-e-documentazione-80-canton-du-valais-brig"
+          "spezialist-in-information-e-dokumentation-80-canton-du-valais-brig"
         ],
         "en": [
-          "information-and-documentation-specialist-80-canton-du-valais-brig"
+          "spezialist-in-information-und-dokumentation-80-canton-valais-ch"
         ],
         "fr": [
-          "specialiste-en-information-et-documentation-80-canton-du-valais-brig"
+          "specialiste-en-information-et-documentation-80-canton-du-valais-brig",
+          "spezialist-in-information-und-dokumentation-80-canton-valais-ch"
         ]
       },
       "previousSlugs": [
         "spezialist-in-information-und-dokumentation-80-canton-valais-ch",
-        "specialista-in-informazione-e-documentazione-80-canton-du-valais-brig",
-        "information-and-documentation-specialist-80-canton-du-valais-brig",
-        "specialiste-en-information-et-documentation-80-canton-du-valais-brig"
+        "specialiste-en-information-et-documentation-80-canton-du-valais-brig",
+        "spezialist-in-information-e-dokumentation-80-canton-du-valais-brig"
       ],
       "salaryMin": 48400,
       "salaryMax": 73200,

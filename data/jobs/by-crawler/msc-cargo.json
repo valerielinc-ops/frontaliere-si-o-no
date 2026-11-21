@@ -2072,11 +2072,11 @@
     },
     {
       "id": "msc-cargo-be2e655e00c4",
-      "slug": "finance-business-partner-commercial-msc-geneva",
+      "slug": "finanza-business-partner-commercial-msc-group-geneva",
       "slugByLocale": {
         "en": "finance-business-partner-commercial-msc-geneva",
-        "it": "finance-business-partner-commercial-msc-geneva",
-        "de": "finance-business-partner-commercial-msc-geneva",
+        "it": "finanza-business-partner-commercial-msc-group-geneva",
+        "de": "finanzen-business-partner-commercial-msc-group-geneva",
         "fr": "partenaire-d-affaires-financier-commercial-msc-group-geneva"
       },
       "company": "MSC Group",
@@ -2143,6 +2143,12 @@
       "firstSeenAt": "2026-11-20T22:09:02.374Z",
       "previousSlugsByLocale": {
         "fr": [
+          "finance-business-partner-commercial-msc-geneva"
+        ],
+        "it": [
+          "finance-business-partner-commercial-msc-geneva"
+        ],
+        "de": [
           "finance-business-partner-commercial-msc-geneva"
         ]
       },

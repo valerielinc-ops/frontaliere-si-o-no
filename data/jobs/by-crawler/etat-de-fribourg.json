@@ -8085,8 +8085,8 @@
       "slugByLocale": {
         "de": "verwaltungssachbearbeiter-in-abteilung-erbschafts-und-schenkungssteuern-etat-de-fribourg",
         "it": "verwaltungssachbearbeiter-in-abteilung-erbschafts-e-schenkungssteuern-etat-de-fribourg",
-        "en": "verwaltungssachbearbeiter-in-abteilung-erbschafts-und-schenkungssteuern-etat-de-fribourg",
-        "fr": "verwaltungssachbearbeiter-in-abteilung-erbschafts-und-schenkungssteuern-etat-de-fribourg"
+        "en": "administrative-clerk-inheritance-and-gift-taxes-department-etat-de-fribourg-fribourg",
+        "fr": "greffier-administratif-departement-des-droits-sur-les-successions-et-les-dons-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8140,10 +8140,12 @@
           "impiegato-a-amministrativo-a-reparto-imposte-di-successione-e-donazione-etat-de-fribourg-fribourg"
         ],
         "en": [
-          "administrative-clerk-inheritance-and-gift-tax-department-etat-de-fribourg-fribourg"
+          "administrative-clerk-inheritance-and-gift-tax-department-etat-de-fribourg-fribourg",
+          "verwaltungssachbearbeiter-in-abteilung-erbschafts-und-schenkungssteuern-etat-de-fribourg"
         ],
         "fr": [
-          "collaborateur-trice-administratif-ve-service-des-impots-sur-les-successions-et-les-donations-etat-de-fribourg-fribourg"
+          "collaborateur-trice-administratif-ve-service-des-impots-sur-les-successions-et-les-donations-etat-de-fribourg-fribourg",
+          "verwaltungssachbearbeiter-in-abteilung-erbschafts-und-schenkungssteuern-etat-de-fribourg"
         ]
       },
       "previousSlugs": [
@@ -8370,8 +8372,8 @@
       "slugByLocale": {
         "de": "berater-in-fur-berufliche-eingliederung-etat-de-fribourg-ch",
         "it": "berater-in-per-berufliche-eingliederung-etat-de-fribourg",
-        "en": "berater-in-fur-berufliche-eingliederung-etat-de-fribourg-ch",
-        "fr": "berater-in-fur-berufliche-eingliederung-etat-de-fribourg-ch"
+        "en": "consultant-for-professional-integration-etat-de-fribourg-fribourg",
+        "fr": "consultant-pour-l-integration-professionnelle-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8425,10 +8427,12 @@
           "consulente-per-l-integrazione-professionale-etat-de-fribourg-fribourg"
         ],
         "en": [
-          "vocational-integration-advisor-etat-de-fribourg-fribourg"
+          "vocational-integration-advisor-etat-de-fribourg-fribourg",
+          "berater-in-fur-berufliche-eingliederung-etat-de-fribourg-ch"
         ],
         "fr": [
-          "conseiller-conseillere-en-insertion-professionnelle-etat-de-fribourg-fribourg"
+          "conseiller-conseillere-en-insertion-professionnelle-etat-de-fribourg-fribourg",
+          "berater-in-fur-berufliche-eingliederung-etat-de-fribourg-ch"
         ]
       },
       "previousSlugs": [
@@ -8460,12 +8464,12 @@
     },
     {
       "id": "etat-de-fribourg-9bdf5b136bbd",
-      "slug": "revisor-in-abteilung-juristische-personen-etat-de-fribourg-ch",
+      "slug": "revisore-dipartimento-delle-entita-giuridiche-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "revisor-in-abteilung-juristische-personen-etat-de-fribourg-ch",
-        "it": "revisor-in-abteilung-juristische-personen-etat-de-fribourg-ch",
-        "en": "revisor-in-abteilung-juristische-personen-etat-de-fribourg-ch",
-        "fr": "revisor-in-abteilung-juristische-personen-etat-de-fribourg-ch"
+        "it": "revisore-dipartimento-delle-entita-giuridiche-etat-de-fribourg-fribourg",
+        "en": "auditor-department-of-legal-entities-etat-de-fribourg-fribourg",
+        "fr": "verificateur-departement-des-entites-juridiques-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8534,30 +8538,34 @@
       "firstSeenAt": "2026-11-20T09:54:16.433Z",
       "previousSlugsByLocale": {
         "it": [
-          "revisore-revisora-reparto-persone-giuridiche-etat-de-fribourg-fribourg"
+          "revisore-revisora-reparto-persone-giuridiche-etat-de-fribourg-fribourg",
+          "revisor-in-abteilung-juristische-personen-etat-de-fribourg-ch"
         ],
         "en": [
-          "auditor-legal-entities-department-etat-de-fribourg-fribourg"
+          "auditor-legal-entities-department-etat-de-fribourg-fribourg",
+          "revisor-in-abteilung-juristische-personen-etat-de-fribourg-ch"
         ],
         "fr": [
-          "reviseur-reviseuse-departement-des-personnes-morales-etat-de-fribourg-fribourg"
+          "reviseur-reviseuse-departement-des-personnes-morales-etat-de-fribourg-fribourg",
+          "revisor-in-abteilung-juristische-personen-etat-de-fribourg-ch"
         ]
       },
       "previousSlugs": [
         "revisore-revisora-reparto-persone-giuridiche-etat-de-fribourg-fribourg",
         "auditor-legal-entities-department-etat-de-fribourg-fribourg",
-        "reviseur-reviseuse-departement-des-personnes-morales-etat-de-fribourg-fribourg"
+        "reviseur-reviseuse-departement-des-personnes-morales-etat-de-fribourg-fribourg",
+        "revisor-in-abteilung-juristische-personen-etat-de-fribourg-ch"
       ],
       "sourceIdentity": "url:https://jobs.fr.ch/job/fribourg%2c-ch-revisorin%2c-abteilung-juristische-personen-saan/1377827557"
     },
     {
       "id": "etat-de-fribourg-f4f3ed39d018",
-      "slug": "friedensrichter-in-des-seebezirks-etat-de-fribourg-ch",
+      "slug": "giudice-di-pace-del-distretto-dei-laghi-etat-de-fribourg-morat",
       "slugByLocale": {
         "de": "friedensrichter-in-des-seebezirks-etat-de-fribourg-ch",
-        "it": "friedensrichter-in-des-seebezirks-etat-de-fribourg-ch",
-        "en": "friedensrichter-in-des-seebezirks-etat-de-fribourg-ch",
-        "fr": "friedensrichter-in-des-seebezirks-etat-de-fribourg-ch"
+        "it": "giudice-di-pace-del-distretto-dei-laghi-etat-de-fribourg-morat",
+        "en": "justice-of-the-peace-for-the-lake-district-etat-de-fribourg-morat",
+        "fr": "juge-de-paix-du-district-du-lac-etat-de-fribourg-morat"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8626,19 +8634,17 @@
       "firstSeenAt": "2026-07-10T12:09:37.166Z",
       "previousSlugsByLocale": {
         "it": [
-          "giudice-di-pace-del-distretto-dei-laghi-etat-de-fribourg-morat"
+          "friedensrichter-in-des-seebezirks-etat-de-fribourg-ch"
         ],
         "en": [
-          "justice-of-the-peace-for-the-lake-district-etat-de-fribourg-morat"
+          "friedensrichter-in-des-seebezirks-etat-de-fribourg-ch"
         ],
         "fr": [
-          "juge-de-paix-du-district-du-lac-etat-de-fribourg-morat"
+          "friedensrichter-in-des-seebezirks-etat-de-fribourg-ch"
         ]
       },
       "previousSlugs": [
-        "giudice-di-pace-del-distretto-dei-laghi-etat-de-fribourg-morat",
-        "justice-of-the-peace-for-the-lake-district-etat-de-fribourg-morat",
-        "juge-de-paix-du-district-du-lac-etat-de-fribourg-morat"
+        "friedensrichter-in-des-seebezirks-etat-de-fribourg-ch"
       ],
       "sourceIdentity": "url:https://jobs.fr.ch/job/morat%2c-ch-friedensrichterin-des-seebezirks-see/1377829157"
     },
@@ -8739,7 +8745,7 @@
         "fr": "assistant-e-socio-educatif-ve-auxiliaire-de-vie-scolaire-ecoles-francophones-du-canton-1h",
         "it": "assistant-e-socio-educatif-ve-auxiliaire-de-vie-scolaire-ecoles-francophones-du-canton-1h-11h-etat-de-fribourg",
         "en": "socio-educational-assistant-auxiliary-of-school-life-french-speaking-schools-in-the-canton-1h-11h-etat-de-fribourg",
-        "de": "assistant-e-socio-educatif-ve-auxiliaire-de-vie-scolaire-ecoles-francophones-du-canton-1h"
+        "de": "sozialpadagogische-r-assistent-in-schulbegleiter-in-franzosischsprachige-schulen-des-kantons-1h-11h-etat-de-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8796,7 +8802,8 @@
           "assistant-e-socio-educatif-ve-auxiliaire-de-vie-scolaire-ecoles-francophones-du-canton-1h"
         ],
         "de": [
-          "sozialpadagogische-assistenz-schulbegleitung-franzosischsprachige-schulen-des-kantons-1h-11h-etat-de-fribourg-fribourg"
+          "sozialpadagogische-assistenz-schulbegleitung-franzosischsprachige-schulen-des-kantons-1h-11h-etat-de-fribourg-fribourg",
+          "assistant-e-socio-educatif-ve-auxiliaire-de-vie-scolaire-ecoles-francophones-du-canton-1h"
         ]
       },
       "previousSlugs": [
@@ -9280,8 +9287,8 @@
       "slugByLocale": {
         "de": "leiter-in-sektion-bildung-und-mitglied-der-direktion-etat-de-fribourg-ch",
         "it": "responsabile-sektion-bildung-e-mitglied-der-direktion-etat-de-fribourg-hauterive-fr",
-        "en": "leiter-in-sektion-bildung-und-mitglied-der-direktion-etat-de-fribourg-ch",
-        "fr": "leiter-in-sektion-bildung-und-mitglied-der-direktion-etat-de-fribourg-ch"
+        "en": "head-of-the-education-section-and-member-of-the-executive-board-etat-de-fribourg-hauterive-fr",
+        "fr": "chef-de-la-section-education-et-membre-du-conseil-executif-etat-de-fribourg-hauterive-fr"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -9335,10 +9342,12 @@
           "responsabile-della-sezione-formazione-e-membro-della-direzione-etat-de-fribourg-hauterive-fr"
         ],
         "en": [
-          "head-of-the-education-section-and-member-of-the-directorate-etat-de-fribourg-hauterive-fr"
+          "head-of-the-education-section-and-member-of-the-directorate-etat-de-fribourg-hauterive-fr",
+          "leiter-in-sektion-bildung-und-mitglied-der-direktion-etat-de-fribourg-ch"
         ],
         "fr": [
-          "responsable-de-la-section-education-et-membre-de-la-direction-etat-de-fribourg-hauterive-fr"
+          "responsable-de-la-section-education-et-membre-de-la-direction-etat-de-fribourg-hauterive-fr",
+          "leiter-in-sektion-bildung-und-mitglied-der-direktion-etat-de-fribourg-ch"
         ]
       },
       "previousSlugs": [
@@ -9563,12 +9572,12 @@
     },
     {
       "id": "etat-de-fribourg-06639a7dfb33",
-      "slug": "steuereinschatzer-in-sektor-verrechnungssteuer-etat-de-fribourg-ch",
+      "slug": "valutatore-fiscale-settore-delle-ritenute-d-acconcia-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "steuereinschatzer-in-sektor-verrechnungssteuer-etat-de-fribourg-ch",
-        "it": "steuereinschatzer-in-sektor-verrechnungssteuer-etat-de-fribourg-ch",
-        "en": "steuereinschatzer-in-sektor-verrechnungssteuer-etat-de-fribourg-ch",
-        "fr": "steuereinschatzer-in-sektor-verrechnungssteuer-etat-de-fribourg-ch"
+        "it": "valutatore-fiscale-settore-delle-ritenute-d-acconcia-etat-de-fribourg-fribourg",
+        "en": "tax-assessor-withholding-tax-sector-etat-de-fribourg-fribourg",
+        "fr": "evaluateur-fiscal-secteur-de-la-retenue-a-la-source-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -9637,30 +9646,32 @@
       "firstSeenAt": "2026-11-20T09:54:05.830Z",
       "previousSlugsByLocale": {
         "it": [
-          "accertatore-trice-fiscale-settore-imposta-preventiva-etat-de-fribourg-fribourg"
+          "accertatore-trice-fiscale-settore-imposta-preventiva-etat-de-fribourg-fribourg",
+          "steuereinschatzer-in-sektor-verrechnungssteuer-etat-de-fribourg-ch"
         ],
         "en": [
-          "tax-assessor-withholding-tax-sector-etat-de-fribourg-fribourg"
+          "steuereinschatzer-in-sektor-verrechnungssteuer-etat-de-fribourg-ch"
         ],
         "fr": [
-          "taxateur-rice-secteur-de-l-impot-anticipe-etat-de-fribourg-fribourg"
+          "taxateur-rice-secteur-de-l-impot-anticipe-etat-de-fribourg-fribourg",
+          "steuereinschatzer-in-sektor-verrechnungssteuer-etat-de-fribourg-ch"
         ]
       },
       "previousSlugs": [
         "accertatore-trice-fiscale-settore-imposta-preventiva-etat-de-fribourg-fribourg",
-        "tax-assessor-withholding-tax-sector-etat-de-fribourg-fribourg",
-        "taxateur-rice-secteur-de-l-impot-anticipe-etat-de-fribourg-fribourg"
+        "taxateur-rice-secteur-de-l-impot-anticipe-etat-de-fribourg-fribourg",
+        "steuereinschatzer-in-sektor-verrechnungssteuer-etat-de-fribourg-ch"
       ],
       "sourceIdentity": "url:https://jobs.fr.ch/job/fribourg%2c-ch-steuereinsch%c3%a4tzerin%2c-sektor-verrechnungssteuer-saan/1377991757"
     },
     {
       "id": "etat-de-fribourg-947ab6c786c3",
-      "slug": "steuereinschatzer-in-abteilung-quellensteuer-etat-de-fribourg-ch",
+      "slug": "addetto-a-alla-tassazione-reparto-imposta-alla-fonte-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "steuereinschatzer-in-abteilung-quellensteuer-etat-de-fribourg-ch",
-        "it": "steuereinschatzer-in-abteilung-quellensteuer-etat-de-fribourg-ch",
-        "en": "steuereinschatzer-in-abteilung-quellensteuer-etat-de-fribourg-ch",
-        "fr": "steuereinschatzer-in-abteilung-quellensteuer-etat-de-fribourg-ch"
+        "it": "addetto-a-alla-tassazione-reparto-imposta-alla-fonte-etat-de-fribourg-fribourg",
+        "en": "tax-assessor-withholding-tax-department-etat-de-fribourg-fribourg",
+        "fr": "taxateur-trice-service-de-l-impot-a-la-source-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -9729,19 +9740,21 @@
       "firstSeenAt": "2026-08-21T09:59:11.765Z",
       "previousSlugsByLocale": {
         "it": [
-          "addetto-a-alla-tassazione-reparto-imposta-alla-fonte-etat-de-fribourg-fribourg"
+          "steuereinschatzer-in-abteilung-quellensteuer-etat-de-fribourg-ch"
         ],
         "en": [
-          "tax-assessment-officer-withholding-tax-department-etat-de-fribourg-fribourg"
+          "tax-assessment-officer-withholding-tax-department-etat-de-fribourg-fribourg",
+          "steuereinschatzer-in-abteilung-quellensteuer-etat-de-fribourg-ch"
         ],
         "fr": [
-          "taxateur-trice-section-de-l-impot-a-la-source-etat-de-fribourg-fribourg"
+          "taxateur-trice-section-de-l-impot-a-la-source-etat-de-fribourg-fribourg",
+          "steuereinschatzer-in-abteilung-quellensteuer-etat-de-fribourg-ch"
         ]
       },
       "previousSlugs": [
-        "addetto-a-alla-tassazione-reparto-imposta-alla-fonte-etat-de-fribourg-fribourg",
         "tax-assessment-officer-withholding-tax-department-etat-de-fribourg-fribourg",
-        "taxateur-trice-section-de-l-impot-a-la-source-etat-de-fribourg-fribourg"
+        "taxateur-trice-section-de-l-impot-a-la-source-etat-de-fribourg-fribourg",
+        "steuereinschatzer-in-abteilung-quellensteuer-etat-de-fribourg-ch"
       ],
       "sourceIdentity": "url:https://jobs.fr.ch/job/fribourg%2c-ch-steuereinsch%c3%a4tzerin%2c-abteilung-quellensteuer-saan/1377972757"
     },
@@ -10021,8 +10034,8 @@
       "slugByLocale": {
         "de": "wissenschaftl-mitarbeiter-in-abfallbewirtschaftung-etat-de-fribourg-ch",
         "it": "wissenschaftl-collaboratore-trice-abfallbewirtschaftung-etat-de-fribourg-givisiez",
-        "en": "wissenschaftl-mitarbeiter-in-abfallbewirtschaftung-etat-de-fribourg-ch",
-        "fr": "wissenschaftl-mitarbeiter-in-abfallbewirtschaftung-etat-de-fribourg-ch"
+        "en": "scientific-waste-management-staff-member-etat-de-fribourg-givisiez",
+        "fr": "scientifique-membre-du-personnel-de-la-gestion-des-dechets-etat-de-fribourg-givisiez"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -10076,10 +10089,12 @@
           "collaboratore-trice-scientifico-a-per-la-gestione-dei-rifiuti-etat-de-fribourg-givisiez"
         ],
         "en": [
-          "scientific-assistant-waste-management-etat-de-fribourg-givisiez"
+          "scientific-assistant-waste-management-etat-de-fribourg-givisiez",
+          "wissenschaftl-mitarbeiter-in-abfallbewirtschaftung-etat-de-fribourg-ch"
         ],
         "fr": [
-          "collaborateur-rice-scientifique-en-gestion-des-dechets-etat-de-fribourg-givisiez"
+          "collaborateur-rice-scientifique-en-gestion-des-dechets-etat-de-fribourg-givisiez",
+          "wissenschaftl-mitarbeiter-in-abfallbewirtschaftung-etat-de-fribourg-ch"
         ]
       },
       "previousSlugs": [
