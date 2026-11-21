@@ -155,6 +155,7 @@ export const CLIENT_APP_ERROR_DROP_PATTERNS = [
   /__firefox__/,
   /__gCrWeb/,
   /TrackerStorageType/,
+  /can't access dead object/i,
   /Invalid call to (?:runtime|tabs)\.sendMessage\(\)\. Tab not found\.?/i,
   /No Listener:\s*tabs:outgoing\.message\.ready\b/i,
   /\bstandardSelectors\b/,

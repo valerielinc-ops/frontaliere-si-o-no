@@ -230,6 +230,11 @@ describe('POSTHOG_INIT_CONTENT before_send (issue #3406/#3407)', () => {
     expect(beforeSend(event)).toBeNull();
   });
 
+  it('drops Firefox add-on dead-object errors on static pages (#19706)', () => {
+    const event = { event: '$exception', properties: { $exception_values: [{ type: 'TypeError', value: "can't access dead object" }] } };
+    expect(beforeSend(event)).toBeNull();
+  });
+
   it('keeps a real first-party TypeError', () => {
     const event = { event: '$exception', properties: { $exception_values: [{ type: 'TypeError', value: "Cannot read properties of undefined (reading 'foo')" }] } };
     expect(beforeSend(event)).toBe(event);
