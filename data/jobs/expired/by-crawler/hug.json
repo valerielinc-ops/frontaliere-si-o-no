@@ -13205,17 +13205,26 @@
     "expiredAt": "2026-09-01T07:21:21.141Z",
     "previousSlugs": [
       "commise-ou-commis-administratif-facturation-100-hug-geneve-37dbf2f9",
-      "commise-ou-commis-administratif-facturation-100-hug-geneve"
+      "commise-ou-commis-administratif-facturation-100-hug-geneve",
+      "fatturazione-o-impiegato-amministrativo-100-hug-geneve-8adff747",
+      "invoicing-clerk-or-administrative-clerk-100-hug-geneve-29c56c33",
+      "rechnungsschreiber-oder-verwaltungsschreiber-100-hug-geneve-309e33ae"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "commise-ou-commis-administratif-facturation-100-hug-geneve-37dbf2f9"
+        "commise-ou-commis-administratif-facturation-100-hug-geneve-37dbf2f9",
+        "fatturazione-o-impiegato-amministrativo-100-hug-geneve-8adff747"
       ],
       "en": [
-        "commise-ou-commis-administratif-facturation-100-hug-geneve"
+        "commise-ou-commis-administratif-facturation-100-hug-geneve",
+        "invoicing-clerk-or-administrative-clerk-100-hug-geneve-29c56c33"
       ],
       "de": [
-        "commise-ou-commis-administratif-facturation-100-hug-geneve"
+        "commise-ou-commis-administratif-facturation-100-hug-geneve",
+        "rechnungsschreiber-oder-verwaltungsschreiber-100-hug-geneve-309e33ae"
+      ],
+      "fr": [
+        "commise-ou-commis-administratif-facturation-100-hug-geneve-37dbf2f9"
       ]
     },
     "salaryMin": 60500,
@@ -13586,6 +13595,9 @@
         "assistant-ou-assistante-de-recherche-50-a-60-hug-geneve-9048fba2"
       ],
       "de": [
+        "assistant-ou-assistante-de-recherche-50-a-60-hug-geneve-9048fba2"
+      ],
+      "fr": [
         "assistant-ou-assistante-de-recherche-50-a-60-hug-geneve-9048fba2"
       ]
     },
@@ -14436,7 +14448,8 @@
       "psicoterapeuta-70-hug-geneve",
       "psychotherapeut-70-hug-geneve",
       "psychologue-psychotherapeute-70-hug-geneve",
-      "psicologo-50-hug-geneve"
+      "psicologo-50-hug-geneve",
+      "psicologo-20-hug-geneve-999e69c3"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -14447,7 +14460,8 @@
         "psychotherapist-70-hug-geneve-3e639210",
         "psychotherapeut-70-hug-geneve-cd870849",
         "psychologue-psychotherapeute-70-hug-geneve-2ad87b32",
-        "psicologo-50-hug-geneve-0688e254"
+        "psicologo-50-hug-geneve-0688e254",
+        "psicologo-20-hug-geneve-999e69c3"
       ],
       "en": [
         "psychologue-20-hug-geneve",
@@ -14470,7 +14484,8 @@
         "psicoterapeuta-70-hug-geneve",
         "psychotherapist-70-hug-geneve",
         "psychotherapeut-70-hug-geneve",
-        "psicologo-50-hug-geneve"
+        "psicologo-50-hug-geneve",
+        "psychologue-20-hug-geneve"
       ]
     },
     "salaryMin": 12100,
