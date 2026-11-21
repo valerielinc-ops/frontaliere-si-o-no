@@ -1,41 +1,34 @@
 /**
  * sitemap-jobs.xml crawl-budget filters (seo/sitemap-crawl-budget).
  *
- * Lightweight unit tests for the filter predicates used by the sitemap
+ * Lightweight unit tests for the shared filter predicate used by the sitemap
  * generator in `build-plugins/jobsSeoPagesPlugin.ts`. The generator itself is
- * a multi-thousand-line Vite plugin with filesystem side-effects; rather than
- * spawn a full build we inline the same predicate logic and assert it against
- * representative job records. If the predicate in the plugin drifts, update
- * both sides in lockstep.
+ * a multi-thousand-line Vite plugin with filesystem side-effects, so these
+ * fixtures exercise its eligibility contract without spawning a full build.
  *
  * The predicates under test:
  *   1. thin-content filter   — IT description must have >= 50 words
- *   2. needsRetranslation    — skip jobs flagged as pending retranslation
+ *   2. needsRetranslation    — keep the source-locale IT canonical, skip jobs
+ *                              whose IT copy is still pending translation
  *
  * Run: npx vitest run tests/jobs-sitemap-filters.test.ts
  */
-import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import { describe, it, expect } from 'vitest';
-import { SKIP_LIVE_DATA } from './helpers/live-data';
+import {
+  isActiveJobSitemapEligible,
+  type ActiveJobSitemapCandidate,
+} from '../build-plugins/shared/activeJobSitemapEligibility';
 
-interface SitemapJob {
+interface SitemapJob extends ActiveJobSitemapCandidate {
   title?: string;
   company?: string;
   location?: string;
-  description?: string;
-  descriptionByLocale?: Record<string, string>;
-  needsRetranslation?: boolean;
 }
 
-// Mirrors build-plugins/jobsSeoPagesPlugin.ts (seo/sitemap-crawl-budget).
-function isSitemapEligible(job: SitemapJob): boolean {
-  if (job.needsRetranslation === true) return false;
-  const desc = String(job.descriptionByLocale?.it || job.description || '');
-  const wordCount = desc.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
-  return wordCount >= 50;
-}
+const descriptionWithWords = (count: number): string =>
+  Array.from({ length: count }, (_, i) => `word${i}`).join(' ');
 
-const LONG_DESC = Array.from({ length: 60 }, (_, i) => `word${i}`).join(' ');
+const INDEXABLE_DESC = descriptionWithWords(50);
 
 describe('sitemap-jobs.xml eligibility filter', () => {
   it('includes a normal job with ≥50 words IT description', () => {
@@ -43,9 +36,9 @@ describe('sitemap-jobs.xml eligibility filter', () => {
       title: 'Infermiere',
       company: 'EOC',
       location: 'Bellinzona',
-      description: LONG_DESC,
+      description: INDEXABLE_DESC,
     };
-    expect(isSitemapEligible(job)).toBe(true);
+    expect(isActiveJobSitemapEligible(job)).toBe(true);
   });
 
   it('excludes jobs with thin content (<50 words) — preserves FRO-278 behaviour', () => {
@@ -53,73 +46,63 @@ describe('sitemap-jobs.xml eligibility filter', () => {
       title: 'Short',
       company: 'Acme',
       location: 'Lugano',
-      description: 'Just a few words here.',
+      description: descriptionWithWords(49),
     };
-    expect(isSitemapEligible(job)).toBe(false);
+    expect(isActiveJobSitemapEligible(job)).toBe(false);
   });
 
-  it('excludes jobs flagged needsRetranslation: true — even when content is long', () => {
+  it('excludes non-IT source jobs whose IT translation is still pending', () => {
     const job: SitemapJob = {
       title: 'Store Manager',
       company: 'Prada',
       location: 'Zurich',
-      description: LONG_DESC,
+      description: INDEXABLE_DESC,
+      needsRetranslation: true,
+      sourceLang: 'en',
+    };
+    expect(isActiveJobSitemapEligible(job)).toBe(false);
+  });
+
+  it('keeps an IT-source job when only its foreign-locale translations are pending', () => {
+    const job: SitemapJob = {
+      description: INDEXABLE_DESC,
+      needsRetranslation: true,
+      sourceLang: 'it',
+    };
+    expect(isActiveJobSitemapEligible(job)).toBe(true);
+  });
+
+  it('defaults a missing source language to IT while translations are pending', () => {
+    const job: SitemapJob = {
+      description: INDEXABLE_DESC,
       needsRetranslation: true,
     };
-    expect(isSitemapEligible(job)).toBe(false);
+    expect(isActiveJobSitemapEligible(job)).toBe(true);
   });
 
   it('keeps jobs where needsRetranslation is falsy (undefined / false)', () => {
     const jobUndef: SitemapJob = {
-      description: LONG_DESC,
+      description: INDEXABLE_DESC,
     };
     const jobFalse: SitemapJob = {
-      description: LONG_DESC,
+      description: INDEXABLE_DESC,
       needsRetranslation: false,
     };
-    expect(isSitemapEligible(jobUndef)).toBe(true);
-    expect(isSitemapEligible(jobFalse)).toBe(true);
+    expect(isActiveJobSitemapEligible(jobUndef)).toBe(true);
+    expect(isActiveJobSitemapEligible(jobFalse)).toBe(true);
   });
 
   it('prefers descriptionByLocale.it over description when both exist', () => {
     const job: SitemapJob = {
       description: 'short',
-      descriptionByLocale: { it: LONG_DESC },
+      descriptionByLocale: { it: INDEXABLE_DESC },
     };
-    expect(isSitemapEligible(job)).toBe(true);
+    expect(isActiveJobSitemapEligible(job)).toBe(true);
   });
 
   it('strips HTML tags before counting words (so HTML-heavy descriptions are judged by text density)', () => {
     const tagged = `<p><strong>Benefits</strong></p>${'<li>word</li>'.repeat(49)}<p>final</p>`;
     const job: SitemapJob = { description: tagged };
-    expect(isSitemapEligible(job)).toBe(true);
-  });
-});
-
-describe('sitemap-jobs.xml regression guard (dataset-level)', () => {
-  // legge il dataset assemblato data/jobs.json, riscritto a ogni crawl: rosso possibile senza cambi di codice
-  it.skipIf(SKIP_LIVE_DATA)('filters out needsRetranslation jobs from the live jobs.json dataset', async () => {
-    // Lightweight smoke-test on the real dataset — ensures the predicate
-    // actually prunes entries when run against the current jobs.json.
-    const fs = await import('fs');
-    const path = await import('path');
-    const jobsPath = path.resolve(__dirname, '..', 'data', 'jobs.json');
-    if (!fs.existsSync(jobsPath)) {
-      // data/jobs.json is gitignored; if the fixture isn't present (CI shallow
-      // clone, etc.) we skip without failing — the predicate is fully covered
-      // by the synthetic cases above.
-      return;
-    }
-    const jobs = readJsonFile(jobsPath) as SitemapJob[];
-    if (!Array.isArray(jobs) || jobs.length === 0) return;
-    const before = jobs.filter((j) => {
-      const desc = String(j.descriptionByLocale?.it || j.description || '');
-      return desc.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length >= 50;
-    });
-    const after = before.filter((j) => j.needsRetranslation !== true);
-    // At least one dataset guarantee: eligibility never grows after filtering.
-    expect(after.length).toBeLessThanOrEqual(before.length);
-    // And the filter must actually drop every needsRetranslation entry.
-    expect(after.some((j) => j.needsRetranslation === true)).toBe(false);
+    expect(isActiveJobSitemapEligible(job)).toBe(true);
   });
 });

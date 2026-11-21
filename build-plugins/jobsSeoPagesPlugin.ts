@@ -178,6 +178,7 @@ import {
   collectSearchLandingMatches,
 } from './shared/searchLandingMatch';
 import { registerKeywordLandingPaths } from './shared/keywordLandingPlan';
+import { isActiveJobSitemapEligible } from './shared/activeJobSitemapEligibility';
 import {
   ALTERNATE_LOCALES,
   buildExpiredSitemapClusterEntries,
@@ -4074,14 +4075,7 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  // assembled near the sitemap writer, after most hubs had already emitted
  // their cards, which let raw-corpus jobs leak noindex, redirect, or missing
  // localized targets into the internal graph.
- const isSitemapEligibleJob = (job: any): boolean => {
-  const needsRetranslation = (job as any).needsRetranslation;
-  if (needsRetranslation === true && ((job as any).sourceLang || 'it') !== 'it') return false;
-  const description = String((job as any).descriptionByLocale?.it || (job as any).description || '');
-  const wordCount = description.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
-  return wordCount >= 50;
- };
- const sitemapEligibleJobs = validJobs.filter(isSitemapEligibleJob);
+ const sitemapEligibleJobs = validJobs.filter(isActiveJobSitemapEligible);
  const sitemapEligibleJobCount = sitemapEligibleJobs.length;
  const activeJobSitemapLocs = new Set<string>();
  // URL → the single job that owns it (first claim of its (canton, locale,
@@ -4102,7 +4096,7 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
    // false-positive link target when the winner is thin or overridden.
    if (claimedActiveJobPaths.has(key)) continue;
    claimedActiveJobPaths.add(key);
-   if (!isSitemapEligibleJob(job)) continue;
+   if (!isActiveJobSitemapEligible(job)) continue;
    const localeUrl = `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, slug, jobCanton)}`;
    if (resolveCanonicalUrl(slug, localeUrl) !== localeUrl) continue;
    // The sitemap lists every locale (the IT build writes it for all four;
@@ -5811,7 +5805,7 @@ ${staticAnalyticsHtml}
  if (options.fastLaneResultFile) {
   fs.mkdirSync(np.dirname(options.fastLaneResultFile), { recursive: true });
   const fastLaneSitemapEntries = activeJobsToRender.flatMap((job) => {
-   if (!isSitemapEligibleJob(job)) return [];
+   if (!isActiveJobSitemapEligible(job)) return [];
    const canton = sharedResolveJobCanton(job as { canton?: string; location?: string });
    const paths = new Map<typeof localeList[number], string>();
    const urls = new Map<typeof localeList[number], string>();
