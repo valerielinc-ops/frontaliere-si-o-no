@@ -10,11 +10,16 @@
  *   1. thin-content filter   — IT description must have >= 50 words
  *   2. needsRetranslation    — keep the source-locale IT canonical, skip jobs
  *                              whose IT copy is still pending translation
+ *   3. locale indexability   — sitemap and HTML robots use the same localized
+ *                              source-content and self-canonical decision
  *
  * Run: npx vitest run tests/jobs-sitemap-filters.test.ts
  */
 import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'node:fs';
 import {
+  isActiveJobLocaleIndexable,
+  isActiveJobLocaleSitemapEligible,
   isActiveJobSitemapEligible,
   type ActiveJobSitemapCandidate,
 } from '../build-plugins/shared/activeJobSitemapEligibility';
@@ -29,6 +34,13 @@ const descriptionWithWords = (count: number): string =>
   Array.from({ length: count }, (_, i) => `word${i}`).join(' ');
 
 const INDEXABLE_DESC = descriptionWithWords(50);
+const CANONICAL_URL = 'https://frontaliereticino.ch/en/find-jobs-zurich/example/';
+const selfCanonicalDecision = {
+  canonicalUrl: CANONICAL_URL,
+  effectiveCanonicalUrl: CANONICAL_URL,
+  hasIndexableRenderedBody: true,
+  sourceDetailWordCount: 50,
+};
 
 describe('sitemap-jobs.xml eligibility filter', () => {
   it('includes a normal job with ≥50 words IT description', () => {
@@ -104,5 +116,133 @@ describe('sitemap-jobs.xml eligibility filter', () => {
     const tagged = `<p><strong>Benefits</strong></p>${'<li>word</li>'.repeat(49)}<p>final</p>`;
     const job: SitemapJob = { description: tagged };
     expect(isActiveJobSitemapEligible(job)).toBe(true);
+  });
+
+  it('excludes a locale that the renderer classifies as noindex even when the Italian group is eligible', () => {
+    const job: SitemapJob = {
+      descriptionByLocale: {
+        it: INDEXABLE_DESC,
+      },
+    };
+
+    expect(isActiveJobSitemapEligible(job)).toBe(true);
+    expect(isActiveJobLocaleIndexable(job, 'en', {
+      ...selfCanonicalDecision,
+      hasIndexableRenderedBody: false,
+      sourceDetailWordCount: 49,
+    })).toBe(false);
+  });
+
+  it('preserves the renderer body branch when localized content is indexable', () => {
+    const job: SitemapJob = {
+      descriptionByLocale: { it: INDEXABLE_DESC },
+    };
+
+    expect(isActiveJobLocaleIndexable(job, 'en', {
+      ...selfCanonicalDecision,
+      hasIndexableRenderedBody: true,
+      sourceDetailWordCount: 1,
+    })).toBe(true);
+  });
+
+  it('preserves indexability from complete aggregated canonical source content', () => {
+    const job: SitemapJob = {
+      descriptionByLocale: { it: INDEXABLE_DESC },
+    };
+
+    expect(isActiveJobLocaleIndexable(job, 'fr', {
+      ...selfCanonicalDecision,
+      hasIndexableRenderedBody: false,
+      sourceDetailWordCount: 50,
+    })).toBe(true);
+  });
+
+  it('keeps a fallback-only renderer page indexable without advertising an unproven locale', () => {
+    const job: SitemapJob = {
+      descriptionByLocale: { it: INDEXABLE_DESC },
+    };
+    const sourceBackedPrepass = {
+      ...selfCanonicalDecision,
+      hasIndexableRenderedBody: false,
+      sourceDetailWordCount: 49,
+    };
+    const renderedFallbackDecision = {
+      ...sourceBackedPrepass,
+      sourceDetailWordCount: 50,
+    };
+
+    expect(isActiveJobLocaleSitemapEligible(job, 'de', sourceBackedPrepass)).toBe(false);
+    expect(isActiveJobLocaleIndexable(job, 'de', renderedFallbackDecision)).toBe(true);
+  });
+
+  it('excludes a locale whose emitted detail canonical points elsewhere', () => {
+    const job: SitemapJob = {
+      descriptionByLocale: { it: INDEXABLE_DESC, en: INDEXABLE_DESC },
+    };
+
+    expect(isActiveJobLocaleIndexable(job, 'en', {
+      canonicalUrl: CANONICAL_URL,
+      effectiveCanonicalUrl: 'https://frontaliereticino.ch/en/companies/example/',
+      hasIndexableRenderedBody: true,
+      sourceDetailWordCount: 50,
+    })).toBe(false);
+  });
+
+  it('keeps the existing IT-source pending-translation policy for indexable locale pages', () => {
+    const job: SitemapJob = {
+      descriptionByLocale: {
+        it: INDEXABLE_DESC,
+        en: INDEXABLE_DESC,
+      },
+      needsRetranslation: true,
+      sourceLang: 'it',
+    };
+
+    expect(isActiveJobLocaleIndexable(job, 'it', {
+      ...selfCanonicalDecision,
+    })).toBe(true);
+    expect(isActiveJobLocaleIndexable(job, 'en', selfCanonicalDecision)).toBe(true);
+  });
+
+  it('keeps locale robots indexable when the separate Italian sitemap group is below threshold', () => {
+    const job: SitemapJob = {
+      descriptionByLocale: {
+        it: descriptionWithWords(49),
+        en: INDEXABLE_DESC,
+      },
+    };
+
+    expect(isActiveJobLocaleIndexable(job, 'en', selfCanonicalDecision)).toBe(true);
+    expect(isActiveJobLocaleSitemapEligible(job, 'en', selfCanonicalDecision)).toBe(false);
+  });
+
+  it('keeps locale robots independent when the Italian sitemap translation is pending', () => {
+    const job: SitemapJob = {
+      descriptionByLocale: {
+        it: INDEXABLE_DESC,
+        de: INDEXABLE_DESC,
+      },
+      needsRetranslation: true,
+      sourceLang: 'de',
+    };
+
+    expect(isActiveJobLocaleIndexable(job, 'de', selfCanonicalDecision)).toBe(true);
+    expect(isActiveJobLocaleSitemapEligible(job, 'de', selfCanonicalDecision)).toBe(false);
+  });
+
+  it('does not treat a keywords-only canonical record as prepass source evidence', () => {
+    const source = readFileSync(
+      new URL('../build-plugins/jobsSeoPagesPlugin.ts', import.meta.url),
+      'utf8',
+    );
+    const start = source.indexOf('const resolveSourceBackedLocaleIndexabilitySignals =');
+    const end = source.indexOf('const canonicalFallbackKeyForJobLocale =', start);
+    const resolver = source.slice(start, end);
+
+    expect(start).toBeGreaterThan(-1);
+    expect(end).toBeGreaterThan(start);
+    expect(resolver).toContain('const canonicalLocale = canonicalLocaleHasSignal(canonicalLocaleRaw)');
+    expect(resolver).toContain('cleanItems(canonicalLocale?.keywords, 8)');
+    expect(resolver).not.toContain('cleanItems(canonicalLocaleRaw?.keywords, 8)');
   });
 });

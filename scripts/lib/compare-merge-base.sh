@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Resolve a GitHub compare merge base without mistaking an API error body for a
 # revision. The local fallback is deliberately limited to GitHub's large-diff
-# 422 response and downloads no blobs.
+# 422 response and downloads neither trees nor blobs.
 
 COMPARE_MERGE_BASE_FETCH_TIMEOUT_SECONDS=60
 COMPARE_MERGE_BASE_DEEPEN_STEPS=(64 256 1024)
@@ -39,8 +39,11 @@ compare_merge_base_from_local_graph() {
 
   for deepen in "${COMPARE_MERGE_BASE_DEEPEN_STEPS[@]}"; do
     echo "::notice::${label}: deepening commit graph by ${deepen} commits (cap ${COMPARE_MERGE_BASE_MAX_DEEPEN})" >&2
+    # Merge-base walks commits only. A blobless fetch still downloads every
+    # tree object in this repository; the treeless filter keeps the fallback
+    # bounded when GitHub refuses to generate the compare diff.
     if ! run_bounded "$COMPARE_MERGE_BASE_FETCH_TIMEOUT_SECONDS" "git deepen ${label} merge base" \
-      git fetch --no-tags --filter=blob:none --deepen="$deepen" "$remote_url" \
+      git fetch --no-tags --filter=tree:0 --deepen="$deepen" "$remote_url" \
       "+${left}:refs/compare-merge-base/left" "+${right}:refs/compare-merge-base/right"; then
       echo "::error::Could not deepen merge base graph for ${label}" >&2
       return 1
