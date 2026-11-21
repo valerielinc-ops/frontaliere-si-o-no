@@ -246,6 +246,43 @@ describe('slug-history-journal', () => {
     expect(active[0].previousSlugs).toContain('associate-designer-medacta-castel-san-pietro');
   });
 
+  it('keeps explicit locale routes when a posting moves to another crawler slice', () => {
+    const postingUrl = 'https://jobs.example.test/vacancies/123';
+    const prior = [{
+      id: 'crawler-a-row',
+      companyKey: 'crawler-a',
+      url: postingUrl,
+      slug: 'old-italian-route',
+      slugByLocale: {
+        it: 'old-italian-route',
+        en: 'old-english-route',
+        de: 'old-german-route',
+      },
+      previousSlugsByLocale: { fr: ['older-french-route'] },
+    }];
+    const active: any[] = [{
+      id: 'crawler-b-row',
+      companyKey: 'crawler-b',
+      url: postingUrl,
+      slug: 'new-italian-route',
+      slugByLocale: {
+        it: 'new-italian-route',
+        en: 'new-english-route',
+        de: 'new-german-route',
+      },
+    }];
+
+    const result = trackSlugHistoryDrift(prior, active);
+
+    expect(result.driftCount).toBe(1);
+    expect(active[0].previousSlugsByLocale).toMatchObject({
+      it: expect.arrayContaining(['old-italian-route']),
+      en: expect.arrayContaining(['old-english-route']),
+      de: expect.arrayContaining(['old-german-route']),
+      fr: expect.arrayContaining(['older-french-route']),
+    });
+  });
+
   it('does not recreate incident aliases as self-bridges across writer reorder', () => {
     const cases = [
       {
