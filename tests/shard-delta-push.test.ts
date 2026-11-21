@@ -807,8 +807,8 @@ describe('delta push degli shard', () => {
       expect(deltaResult.output).toMatch(/changed=[1-9][0-9]*/u);
       expect(deltaResult.output).toContain('unmanifested-overlay=4');
       expect(deltaResult.output).toContain('removed=2');
-      expect(git(['-C', deltaScenario.remote, 'rev-parse', `main:${section}^{tree}`]))
-        .toBe(git(['-C', fullScenario.remote, 'rev-parse', `main:${section}^{tree}`]));
+      expect(git(['-C', deltaScenario.remote, 'rev-parse', `main:${section}`]))
+        .toBe(git(['-C', fullScenario.remote, 'rev-parse', `main:${section}`]));
       expect(treeFiles(deltaScenario.remote)).toContain(ticinoPhysicalPath(`${section}/pages/d/index.html`));
       expect(treeFiles(deltaScenario.remote)).toContain(ticinoPhysicalPath(`${section}/assets/new/index.html`));
       expect(treeFiles(deltaScenario.remote)).not.toContain(ticinoPhysicalPath(`${section}/pages/c/index.html`));

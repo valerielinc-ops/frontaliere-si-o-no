@@ -145,7 +145,18 @@ shard_delta_map_path_list() {
   [ -f "$input" ] || return 1
   case "$layout" in
     canonical)
-      cp "$input" "$output"
+      # Match map-paths semantics exactly: empty records are separators, not
+      # paths. Keeping one here would shift the parallel source/target streams
+      # consumed by shard_delta_apply_source_tree.
+      perl -e '
+        use strict;
+        use warnings;
+        local $/ = "\0";
+        while (defined(my $path = <STDIN>)) {
+          $path =~ s/\0\z//;
+          print "$path\0" if $path ne q{};
+        }
+      ' < "$input" > "$output"
       ;;
     ticino-hash-v1|zurigo-hash-v1)
       fanout_section="${layout%-hash-v1}"
