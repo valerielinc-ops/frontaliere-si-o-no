@@ -56,6 +56,7 @@ import {
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
+import { readAttr, scanMarkupStartTags } from './html-attr.mjs';
 
 const API_HOST = 'https://my.jobalino.ch';
 const DETAIL_DELAY_MS = 250;
@@ -169,7 +170,7 @@ export function parseJobalinoListingHtml(html = '') {
   if (!html || typeof html !== 'string') return [];
   const out = [];
   const seen = new Set();
-  // Each opening is a single <a class="reflink" href="…/job/{locale?}/{HASH}/{slug}">…</a>.
+  // Each opening is a single <a class="reflink" href="…/{public/}?job/{locale?}/{HASH}/{slug}">…</a>.
   // The href may carry a trailing query string (e.g. `?origin=joblist`) —
   // strip it so the captured URL stays canonical.
   // Jobalino appends `_NNNN` to disambiguate slugs that collide with an
@@ -177,12 +178,23 @@ export function parseJobalinoListingHtml(html = '') {
   // `[a-z0-9-]` alone drops every collision-suffixed tile, and on days
   // where most/all active openings happen to collide this silently zeroes
   // the whole listing (see #5998).
-  const tileRx = /<a\s+href="https:\/\/my\.jobalino\.ch\/job\/(?:(de|fr|it|en)\/)?([a-f0-9]+)\/([a-z0-9_-]+)(?:\?[^"]*)?"[^>]*class="reflink"[^>]*>([\s\S]*?)<\/a>/g;
-  let m;
-  while ((m = tileRx.exec(html))) {
-    const locale = m[1] || '';
-    const id = m[2];
-    const slug = m[3];
+  // The legacy JSONP listing emits /job/...; the current public component
+  // emits /public/job/de/.... Attribute order also differs between the two
+  // transports. Parse the anchor first, then read its href so both official
+  // views resolve to one canonical vacancy identity. `scanMarkupStartTags`
+  // keeps `>` inside quoted attributes inside the opening tag.
+  for (const tag of scanMarkupStartTags(html, 'a')) {
+    const closing = /<\/a\s*>/i.exec(html.slice(tag.end));
+    if (!closing) continue;
+    const body = html.slice(tag.end, tag.end + closing.index);
+    const classes = readAttr(tag.raw, 'class').toLowerCase().split(/\s+/).filter(Boolean);
+    if (!classes.includes('reflink')) continue;
+    const rawHref = decodeEntities(readAttr(tag.raw, 'href')).trim();
+    const href = rawHref.match(/^https:\/\/my\.jobalino\.ch\/(?:public\/)?job\/(?:(de|fr|it|en)\/)?([a-f0-9]+)\/([a-z0-9_-]+)(?:\?[^"']*)?$/i);
+    if (!href) continue;
+    const locale = href[1] || '';
+    const id = href[2];
+    const slug = href[3];
     // The HTML endpoint writes /job/de/...; the JSONP endpoint writes the
     // equivalent German canonical as /job/.... Keep identity stable across a
     // transport recovery, while retaining explicit non-default locales.
@@ -190,7 +202,6 @@ export function parseJobalinoListingHtml(html = '') {
     const url = `${API_HOST}/job/${localeSegment}${id}/${slug}`;
     if (seen.has(id)) continue;
     seen.add(id);
-    const body = m[4];
     const pick = (cls) => {
       const re = new RegExp(`<span\\s+[^>]*?${classAttrRx(cls)}[^>]*>([\\s\\S]*?)<\\/span>`);
       const x = body.match(re);
@@ -267,6 +278,51 @@ export async function fetchJobalinoListing({ company, additionalCompanies = '', 
   if (!obj && isJobalinoExternalListingHtml(raw)) return { html: raw, error: '' };
   if (!obj) return { html: '', error: raw.slice(0, 200) };
   return { html: String(obj.html || ''), error: String(obj.error || '') };
+}
+
+/**
+ * Fetch the current public Jobalino component used by employer career pages.
+ * Unlike the legacy JSONP endpoint, this response is direct HTML and its job
+ * links use /public/job/{locale}/...; parseJobalinoListingHtml deliberately
+ * canonicalises those links to the same /job/... identity.
+ */
+export async function fetchJobalinoComponentListing({ companyName, locale = 'de' } = {}) {
+  if (!companyName) throw new Error('fetchJobalinoComponentListing: missing company name');
+  const lang = /^(de|fr|it|en)$/.test(locale) ? locale : 'de';
+  const params = new URLSearchParams({
+    company_name: companyName,
+    lang,
+    lang_filter: lang,
+    task: 'framelistjobs',
+  });
+  const url = API_HOST + '/public/component/jobsfactory?' + params;
+  const html = await fetchText(url, 'text/html,application/xhtml+xml,*/*');
+  return { html, error: '' };
+}
+
+/** Fetch one canonical Jobalino detail page with the shared retry contract. */
+export function fetchJobalinoDetailHtml(url) {
+  return fetchText(url, 'text/html,application/xhtml+xml,*/*', {
+    fallbackUrl: url,
+    validateFallback: (html) => Boolean(extractJobalinoJobPostingJsonLd(html)),
+  });
+}
+
+/**
+ * Treat a posting as closed only when Jobalino says so explicitly. Missing or
+ * malformed validThrough is unknown, therefore it must not retire a live row.
+ */
+export function isExplicitlyInactiveJobalinoPosting(detailHtml = '', posting = null, now = new Date()) {
+  if (/(?:diese\s+stelle\s+ist\s+(?:nicht|nicht\s+mehr)\s+aktiv|this\s+job\s+is\s+no\s+longer\s+active|ce\s+poste\s+n['’]est\s+plus\s+actif|quest[oa]\s+posizione\s+non\s+[eè]\s+pi[uù]\s+attiv[oa])/iu.test(detailHtml)) {
+    return true;
+  }
+  const raw = String(posting?.validThrough || '').trim();
+  if (!raw) return false;
+  const nowDate = now instanceof Date ? now : new Date(now);
+  if (!Number.isFinite(nowDate.getTime())) return false;
+  if (/^\d{4}-\d{2}-\d{2}$/.test(raw)) return raw < nowDate.toISOString().slice(0, 10);
+  const end = Date.parse(raw);
+  return Number.isFinite(end) && end < nowDate.getTime();
 }
 
 /**
