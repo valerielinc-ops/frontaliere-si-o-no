@@ -21,13 +21,13 @@
  *
  * Exports the 4 required functions for the crawler template.
  */
-import { extractJobPostingField } from './jobposting-jsonld.mjs';
+import { extractJobPostingsLd, jobPostingAddress, selectJobPostingLd } from './jsonld-jobposting.mjs';
 import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchHtml, slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { extractReflineDetailTitle, preferRicherReflineBody } from './refline-common.mjs';
-import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { inferAnyCanton, isCantonOnlyLabel, isKnownSwissCity } from './target-swiss-locations.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -159,6 +159,34 @@ function pickLocationHints(workplace = '') {
   return { city: cleaned || DEFAULT_CITY, canton: DEFAULT_CANTON, postal: '' };
 }
 
+function cleanCaritasCity(value = '') {
+  return normalizeSpace(value)
+    .replace(/\s*,\s*(?:CH|Schweiz|Suisse|Svizzera|Switzerland)\s*$/i, '')
+    .replace(/\s*,\s*[A-Z]{2}\s*$/, '')
+    .trim();
+}
+
+/**
+ * Read a concrete workplace from the identity-matching detail JobPosting.
+ * Refline's grouped listing can retain an old regional office while the
+ * vacancy detail exposes the current workplace; an absent or ambiguous
+ * structured address remains unknown and lets the listing fallback stand.
+ */
+export function extractCaritasDetailLocation(jobPosting) {
+  const address = jobPostingAddress(jobPosting);
+  const city = cleanCaritasCity(address.addressLocality);
+  const canton = inferAnyCanton(city) || inferAnyCanton(address.addressRegion);
+  if (!city || !canton || isCantonOnlyLabel(city)) return null;
+  if (!isKnownSwissCity(city, canton, { allowOfficialLocality: true })) return null;
+  return {
+    city,
+    canton,
+    postal: address.postalCode || '',
+    addressRegion: address.addressRegion || canton,
+    streetAddress: address.streetAddress || '',
+  };
+}
+
 /* ── HTTP fetch ────────────────────────────────────────────── */
 
 async function fetchPage(url, timeoutMs = 20000) {
@@ -217,10 +245,12 @@ export function parseCaritasReflineListing(html = '') {
 
 /* ── Detail parser ─────────────────────────────────────────── */
 
-export function parseReflineDetail(html = '') {
+export function parseReflineDetail(html = '', jobPosting = null) {
   if (!html) return { title: '', description: '' };
 
-  const title = extractReflineDetailTitle(html);
+  const title = jobPosting?.title
+    ? normalizeSpace(String(jobPosting.title))
+    : extractReflineDetailTitle(html);
 
   const cleaned = stripScriptsAndStyles(html)
     .replace(/<header[\s\S]*?<\/header>/gi, '')
@@ -267,18 +297,29 @@ export async function fetchAllCaritasSchweizJobs() {
   const jobs = [];
   for (const listing of listings) {
     let detail = { title: '', description: '' };
+    let detailLocation = null;
     try {
       const detailHtml = await fetchPage(listing.url, timeoutMs);
-      detail = { ...parseReflineDetail(detailHtml), ...sourcePostingDateFields(extractJobPostingField(detailHtml, 'datePosted')) };
+      const posting = selectJobPostingLd(extractJobPostingsLd(detailHtml), {
+        title: listing.title,
+        url: listing.url,
+      });
+      detail = {
+        ...parseReflineDetail(detailHtml, posting),
+        ...sourcePostingDateFields(posting?.datePosted || ''),
+      };
+      detailLocation = extractCaritasDetailLocation(posting);
     } catch (err) {
       console.warn(`  ⚠️ Detail fetch failed for ${listing.title}: ${err?.message || err}`);
     }
 
     const title = detail.title || listing.title;
     const hints = pickLocationHints(listing.workplace);
-    const location = hints.city;
-    const canton = hints.canton;
-    const postalCode = hints.postal || DEFAULT_POSTAL;
+    const location = detailLocation?.city || hints.city;
+    const canton = detailLocation?.canton || hints.canton;
+    const postalCode = detailLocation
+      ? (detailLocation.postal || DEFAULT_POSTAL)
+      : (hints.postal || DEFAULT_POSTAL);
 
     // Only the posting's own text (issue 5253): a detail body under the common
     // 50-word floor gives no description (the shared pipeline's thin-source
@@ -311,7 +352,8 @@ export async function fetchAllCaritasSchweizJobs() {
       crawledAt: new Date().toISOString(),
 
       addressLocality: location,
-      addressRegion: canton,
+      addressRegion: detailLocation?.addressRegion || canton,
+      streetAddress: detailLocation?.streetAddress || '',
       addressCountry: 'CH',
       country: 'CH',
       postalCode,

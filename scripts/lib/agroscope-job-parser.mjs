@@ -46,6 +46,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { isTargetCanton } from './crawler-location-config.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { jobPostingAddress } from './jsonld-jobposting.mjs';
 import { sourceLangOfBody } from './source-locale-slots.mjs';
 
 function normalizeSpace(value = '') {
@@ -254,6 +255,48 @@ export function inferAgroscopeCanton(job = {}) {
   const canton = String(job.canton || '').toUpperCase();
   if (isTargetCanton(canton)) return canton;
   return resolveAgroscopeCanton({ city: job.city, region: job.region });
+}
+
+/**
+ * Read a concrete Agroscope workplace from the rendered JobPosting JSON-LD.
+ *
+ * The Prospective listing is still the discovery/source-of-identity feed, but
+ * jobs.admin.ch's detail page is the authoritative per-vacancy location. Some
+ * listings retain the station where a job was first indexed (for example
+ * Reckenholz) while the published vacancy carries the current workplace (for
+ * example Wädenswil). Generic or non-Swiss labels are rejected so a broken
+ * detail page cannot overwrite a valid API location.
+ */
+export function extractAgroscopeDetailLocation(jobPosting) {
+  const address = jobPostingAddress(jobPosting);
+  const city = cleanAgroscopeCity(address.addressLocality);
+  const canton = resolveAgroscopeCanton({ city, region: address.addressRegion });
+  if (!city || !isTargetCanton(canton)) return null;
+  const cityIsSwiss = isTargetSwissLocation(city, { includeBorderProximity: false });
+  const cityIsKnownStation = Boolean(AGROSCOPE_STATION_CANTON[String(city).toLowerCase().trim()]);
+  if (!cityIsSwiss && !cityIsKnownStation) return null;
+  return {
+    city,
+    location: city,
+    canton,
+    postalCode: address.postalCode || '',
+  };
+}
+
+/**
+ * Return the fields to merge into a crawler job after a verified detail page.
+ * Recompute the locale slugs as well as the structured location, otherwise a
+ * source-location correction would leave an old city embedded in the URL key.
+ */
+export function reconcileAgroscopeDetailLocation(job = {}, jobPosting) {
+  const detail = extractAgroscopeDetailLocation(jobPosting);
+  if (!detail) return null;
+  const localized = buildAgroscopeLocalizedContent({ ...job, ...detail });
+  return {
+    ...detail,
+    slug: localized.slugByLocale.it,
+    slugByLocale: localized.slugByLocale,
+  };
 }
 
 /**

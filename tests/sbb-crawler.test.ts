@@ -16,11 +16,13 @@ import {
   parseSbbDetailPage,
   buildJsonLdDescription,
   extractSbbBodyLocation,
+  extractSbbStrongMarkupLocation,
   extractSbbHtmlSections,
   extractSbbJsonLd,
   stripHtml,
   MIN_SBB_DESC_LENGTH,
 } from '@/scripts/lib/sbb-job-parser.mjs';
+import { resolveSbbJobLocation } from '@/scripts/update-sbb-jobs.mjs';
 
 // ─── Fixtures ─────────────────────────────────────────────────────────────────
 
@@ -321,6 +323,43 @@ describe('parseSbbDetailPage — navigation heading guard', () => {
 });
 
 describe('parseSbbDetailPage — body location override', () => {
+  it('identity-matches the current JobPosting before resolving its location', () => {
+    const detailUrl = 'https://jobs.sbb.ch/v2/offene-stellen/current';
+    const fixture = `<html><head><script type="application/ld+json">${JSON.stringify({
+      '@graph': [
+        {
+          '@type': 'JobPosting',
+          title: 'Other',
+          url: '/other',
+          jobLocation: { address: { addressLocality: 'Bern' } },
+        },
+        {
+          '@type': 'JobPosting',
+          title: 'Current',
+          url: '/current',
+          jobLocation: { address: { addressLocality: 'Bellinzona' } },
+        },
+      ],
+    })}</script></head><body><h1>Current</h1></body></html>`;
+    const identity = { title: 'Current', url: detailUrl };
+    const currentPosting = extractSbbJsonLd(fixture, identity);
+
+    expect(currentPosting?.jobLocation?.address?.addressLocality).toBe('Bellinzona');
+    expect(parseSbbDetailPage(fixture, identity).location).toBe('Bellinzona');
+    expect(resolveSbbJobLocation({
+      jobPosting: currentPosting,
+      html: fixture,
+      identity,
+      apiMeta: { city: 'Bern' },
+    })).toBe('Bellinzona');
+
+    expect(resolveSbbJobLocation({
+      html: fixture,
+      identity,
+      apiMeta: { city: 'Bern' },
+    })).toBe('Bellinzona');
+  });
+
   it('extracts the rendered workplace city from intro lines', () => {
     expect(extractSbbBodyLocation(FIXTURE_BODY_LOCATION_WINS_HTML)).toBe('Chur');
   });
@@ -328,6 +367,60 @@ describe('parseSbbDetailPage — body location override', () => {
   it('prefers the body location over generic JSON-LD headquarters', () => {
     const result = parseSbbDetailPage(FIXTURE_BODY_LOCATION_WINS_HTML);
     expect(result.location).toBe('Chur');
+  });
+
+  it('prefers the rendered detail locality over stale AEM city metadata', () => {
+    expect(resolveSbbJobLocation({
+      sbbParsed: { location: 'Aarau' },
+      apiMeta: { city: 'Ticino', region: 'Ticino (TI)' },
+    })).toBe('Aarau');
+  });
+
+  it('reads the current SBB JobPosting microdata when JSON-LD is absent', () => {
+    const fixture = '<span itemprop="jobLocation"><span itemprop="address">'
+      + '<meta itemprop="addressLocality" content="Aarau">'
+      + '<meta itemprop="addressRegion" content="Bern">'
+      + '</span></span>';
+    expect(extractSbbStrongMarkupLocation(fixture)).toBe('Aarau');
+    expect(parseSbbDetailPage(fixture).location).toBe('Aarau');
+  });
+
+  it('ignores an unscoped locality meta and keeps the JobPosting JSON-LD locality', () => {
+    const fixture = '<meta itemprop="addressLocality" content="Bern">'
+      + '<script type="application/ld+json">'
+      + JSON.stringify({
+        '@type': 'JobPosting',
+        title: 'Project Manager',
+        jobLocation: { address: { addressLocality: 'Aarau' } },
+      })
+      + '</script>';
+
+    expect(extractSbbStrongMarkupLocation(fixture)).toBe('');
+    expect(parseSbbDetailPage(fixture).location).toBe('Aarau');
+  });
+
+  it('selects the current JobPosting microdata scope when a related scope comes first', () => {
+    const fixture = '<div itemscope itemtype="https://schema.org/JobPosting">'
+      + '<h1 itemprop="title">Other vacancy</h1>'
+      + '<span itemprop="jobLocation"><span itemprop="address">'
+      + '<meta itemprop="addressLocality" content="Bern">'
+      + '</span></span></div>'
+      + '<div itemscope itemtype="https://schema.org/JobPosting">'
+      + '<h1 itemprop="title">Project Manager</h1>'
+      + '<span itemprop="jobLocation"><span itemprop="address">'
+      + '<meta itemprop="addressLocality" content="Aarau">'
+      + '</span></span></div>';
+
+    expect(extractSbbStrongMarkupLocation(fixture, { title: 'Project Manager' })).toBe('Aarau');
+  });
+
+  it('lets a verified detail JobPosting locality outrank login and AEM fallbacks', () => {
+    expect(resolveSbbJobLocation({
+      sourceLoginData: { location: 'Bern' },
+      sbbParsed: { location: 'Ticino' },
+      jobPosting: { jobLocation: { address: { addressLocality: 'Aarau' } } },
+      apiMeta: { city: 'Ticino', region: 'Ticino (TI)' },
+    })).toBe('Aarau');
   });
 
   it('extracts a city when the current metadata template splits it across sibling blocks', () => {
