@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hermes",
-  "assembledAt": "2026-11-20T21:26:04.249Z",
-  "runId": "44817363600",
+  "assembledAt": "2026-11-21T21:23:39.562Z",
+  "runId": "44949758871",
   "jobs": [
     {
       "id": "hermes-da512457b984",
@@ -34,7 +34,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/23533",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:25:57.774Z",
+      "crawledAt": "2026-11-21T21:23:30.259Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -86,9 +86,8 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T21:25:57.774Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://talents.hermes.com/en/sites/cx/job/23533"
+      "validThrough": "2027-01-18T21:23:30.259Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hermes-d9d48120d0a2",
@@ -121,7 +120,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24713",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:25:57.057Z",
+      "crawledAt": "2026-11-21T21:23:29.604Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -172,9 +171,8 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:25:57.057Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://talents.hermes.com/en/sites/cx/job/24713"
+      "validThrough": "2027-02-01T21:23:29.604Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hermes-b27da2909ac4",
@@ -207,7 +205,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24858",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:25:56.382Z",
+      "crawledAt": "2026-11-21T21:23:28.970Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -256,9 +254,8 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:25:56.382Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://talents.hermes.com/en/sites/cx/job/24858"
+      "validThrough": "2027-02-10T21:23:28.970Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hermes-e6ef73b9a7bf",
@@ -291,7 +288,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24867",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:25:55.672Z",
+      "crawledAt": "2026-11-21T21:23:28.221Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -340,9 +337,8 @@
       "postalCode": "2340",
       "streetAddress": "Le Noirmont",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:25:55.672Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://talents.hermes.com/en/sites/cx/job/24867"
+      "validThrough": "2027-02-14T21:23:28.221Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hermes-fbd6d61750c5",
@@ -375,7 +371,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24863",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:25:54.910Z",
+      "crawledAt": "2026-11-21T21:23:27.554Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -425,9 +421,8 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:25:54.910Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://talents.hermes.com/en/sites/cx/job/24863"
+      "validThrough": "2027-02-14T21:23:27.554Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hermes-e7aff9ec59f7",
@@ -509,7 +504,7 @@
       "validThrough": "2027-02-15T09:22:20.278Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://talents.hermes.com/en/sites/cx/job/24934",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

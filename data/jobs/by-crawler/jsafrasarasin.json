@@ -1,7 +1,7 @@
 {
   "crawlerKey": "jsafrasarasin",
-  "assembledAt": "2026-11-20T21:26:45.445Z",
-  "runId": "44817363600",
+  "assembledAt": "2026-11-21T21:20:56.810Z",
+  "runId": "44949758871",
   "jobs": [
     {
       "id": "jsafrasarasin-9c72c25f05c4",
@@ -34,7 +34,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/496/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T21:26:37.163Z",
+      "crawledAt": "2026-11-21T21:20:46.970Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -83,9 +83,8 @@
       "postalCode": "8001",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:26:37.163Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jsafrasarasin.umantis.com/vacancies/496/description/2"
+      "validThrough": "2026-12-21T21:20:46.970Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "jsafrasarasin-f5141b65059d",
@@ -118,7 +117,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/511/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T21:26:36.862Z",
+      "crawledAt": "2026-11-21T21:20:46.669Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -167,16 +166,15 @@
       "postalCode": "8001",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:26:36.862Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jsafrasarasin.umantis.com/vacancies/511/description/2"
+      "validThrough": "2026-12-21T21:20:46.669Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "jsafrasarasin-cf7f9af0c102",
       "slug": "crm-gestione-delle-risorse-esterne-j-safra-sarasin-basel-ch",
       "slugByLocale": {
         "it": "crm-gestione-delle-risorse-esterne-j-safra-sarasin-basel-ch",
-        "en": "crm-external-asset-manager-j-safra-sarasin-basel",
+        "en": "crm-external-asset-manager-jsafrasarasin-ch",
         "de": "crm-externer-vermogensverwalter-j-safra-sarasin-basel-ch",
         "fr": "crm-gestionnaire-externe-d-actifs-j-safra-sarasin-basel-ch"
       },
@@ -202,7 +200,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/518/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T21:26:36.560Z",
+      "crawledAt": "2026-11-21T21:20:46.367Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -220,10 +218,10 @@
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/518/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "crm-external-asset-manager-jsafrasarasin-ch"
-      ],
       "previousSlugsByLocale": {
+        "en": [
+          "crm-external-asset-manager-j-safra-sarasin-basel"
+        ],
         "it": [
           "crm-external-asset-manager-jsafrasarasin-ch"
         ],
@@ -232,11 +230,12 @@
         ],
         "fr": [
           "crm-external-asset-manager-jsafrasarasin-ch"
-        ],
-        "en": [
-          "crm-external-asset-manager-jsafrasarasin-ch"
         ]
       },
+      "previousSlugs": [
+        "crm-external-asset-manager-jsafrasarasin-ch",
+        "crm-external-asset-manager-j-safra-sarasin-basel"
+      ],
       "firstSeenAt": "2026-09-21T15:56:01.352Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -254,16 +253,15 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:26:36.560Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jsafrasarasin.umantis.com/vacancies/518/description/2"
+      "validThrough": "2026-12-21T21:20:46.367Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "jsafrasarasin-a3301ae307b4",
       "slug": "gestione-del-rischio-operativo-j-safra-sarasin-geneva-ch",
       "slugByLocale": {
         "it": "gestione-del-rischio-operativo-j-safra-sarasin-geneva-ch",
-        "en": "operational-risk-manager-j-safra-sarasin-geneva",
+        "en": "operational-risk-manager-jsafrasarasin-ch",
         "de": "betriebsrisikomanager-j-safra-sarasin-geneva-ch",
         "fr": "gestionnaire-des-risques-operationnels-j-safra-sarasin-geneva-ch"
       },
@@ -289,7 +287,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/522/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T21:26:36.259Z",
+      "crawledAt": "2026-11-21T21:20:46.066Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -307,10 +305,10 @@
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/522/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "operational-risk-manager-jsafrasarasin-ch"
-      ],
       "previousSlugsByLocale": {
+        "en": [
+          "operational-risk-manager-j-safra-sarasin-geneva"
+        ],
         "it": [
           "operational-risk-manager-jsafrasarasin-ch"
         ],
@@ -319,11 +317,12 @@
         ],
         "fr": [
           "operational-risk-manager-jsafrasarasin-ch"
-        ],
-        "en": [
-          "operational-risk-manager-jsafrasarasin-ch"
         ]
       },
+      "previousSlugs": [
+        "operational-risk-manager-jsafrasarasin-ch",
+        "operational-risk-manager-j-safra-sarasin-geneva"
+      ],
       "firstSeenAt": "2026-09-28T21:12:19.539Z",
       "salaryMin": 120000,
       "salaryMax": 162000,
@@ -341,16 +340,15 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:26:36.259Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jsafrasarasin.umantis.com/vacancies/522/description/2"
+      "validThrough": "2026-12-27T21:20:46.066Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "jsafrasarasin-f1ca17bfc4c6",
       "slug": "senior-end-user-computing-euc-sviluppatore-j-safra-sarasin-zurich",
       "slugByLocale": {
         "it": "senior-end-user-computing-euc-sviluppatore-j-safra-sarasin-zurich",
-        "en": "senior-end-user-computing-euc-developer-j-safra-sarasin-zurich",
+        "en": "senior-end-user-computing-euc-developer-jsafrasarasin-ch",
         "de": "senior-end-user-computing-euc-entwickler-j-safra-sarasin-zurich",
         "fr": "senior-end-user-computing-euc-developpeur-j-safra-sarasin-zurich"
       },
@@ -376,7 +374,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/530/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T21:26:35.957Z",
+      "crawledAt": "2026-11-21T21:20:45.765Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -394,10 +392,10 @@
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/530/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-end-user-computing-euc-developer-jsafrasarasin-ch"
-      ],
       "previousSlugsByLocale": {
+        "en": [
+          "senior-end-user-computing-euc-developer-j-safra-sarasin-zurich"
+        ],
         "it": [
           "senior-end-user-computing-euc-developer-jsafrasarasin-ch"
         ],
@@ -406,11 +404,12 @@
         ],
         "fr": [
           "senior-end-user-computing-euc-developer-jsafrasarasin-ch"
-        ],
-        "en": [
-          "senior-end-user-computing-euc-developer-jsafrasarasin-ch"
         ]
       },
+      "previousSlugs": [
+        "senior-end-user-computing-euc-developer-jsafrasarasin-ch",
+        "senior-end-user-computing-euc-developer-j-safra-sarasin-zurich"
+      ],
       "firstSeenAt": "2026-10-06T21:12:31.639Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
@@ -428,16 +427,15 @@
       "postalCode": "8001",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:26:35.957Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jsafrasarasin.umantis.com/vacancies/530/description/2"
+      "validThrough": "2027-01-04T21:20:45.765Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "jsafrasarasin-40cc3eb871b4",
       "slug": "auditore-di-piombo-j-safra-sarasin-basel-ch",
       "slugByLocale": {
         "it": "auditore-di-piombo-j-safra-sarasin-basel-ch",
-        "en": "lead-auditor-j-safra-sarasin-basel",
+        "en": "lead-auditor-jsafrasarasin-ch",
         "de": "leitender-auditor-j-safra-sarasin-basel-ch",
         "fr": "auditeur-principal-j-safra-sarasin-basel-ch"
       },
@@ -463,7 +461,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/532/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T21:26:35.656Z",
+      "crawledAt": "2026-11-21T21:20:45.463Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -481,10 +479,10 @@
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/532/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "lead-auditor-jsafrasarasin-ch"
-      ],
       "previousSlugsByLocale": {
+        "en": [
+          "lead-auditor-j-safra-sarasin-basel"
+        ],
         "it": [
           "lead-auditor-jsafrasarasin-ch"
         ],
@@ -493,11 +491,12 @@
         ],
         "fr": [
           "lead-auditor-jsafrasarasin-ch"
-        ],
-        "en": [
-          "lead-auditor-jsafrasarasin-ch"
         ]
       },
+      "previousSlugs": [
+        "lead-auditor-jsafrasarasin-ch",
+        "lead-auditor-j-safra-sarasin-basel"
+      ],
       "firstSeenAt": "2026-10-08T09:15:49.289Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -515,16 +514,15 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T21:26:35.656Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jsafrasarasin.umantis.com/vacancies/532/description/2"
+      "validThrough": "2027-01-06T21:20:45.463Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "jsafrasarasin-962fcdd39284",
       "slug": "risk-performance-specialista-j-safra-sarasin-basel-ch",
       "slugByLocale": {
         "it": "risk-performance-specialista-j-safra-sarasin-basel-ch",
-        "en": "risk-performance-specialist-j-safra-sarasin-basel",
+        "en": "risk-performance-specialist-jsafrasarasin-ch",
         "de": "risk-performance-spezialist-j-safra-sarasin-basel-ch",
         "fr": "risk-performance-specialiste-j-safra-sarasin-basel-ch"
       },
@@ -550,7 +548,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/443/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T21:26:35.354Z",
+      "crawledAt": "2026-11-21T21:20:45.161Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -568,10 +566,10 @@
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/443/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "risk-performance-specialist-jsafrasarasin-ch"
-      ],
       "previousSlugsByLocale": {
+        "en": [
+          "risk-performance-specialist-j-safra-sarasin-basel"
+        ],
         "it": [
           "risk-performance-specialist-jsafrasarasin-ch"
         ],
@@ -580,11 +578,12 @@
         ],
         "fr": [
           "risk-performance-specialist-jsafrasarasin-ch"
-        ],
-        "en": [
-          "risk-performance-specialist-jsafrasarasin-ch"
         ]
       },
+      "previousSlugs": [
+        "risk-performance-specialist-jsafrasarasin-ch",
+        "risk-performance-specialist-j-safra-sarasin-basel"
+      ],
       "firstSeenAt": "2026-10-22T21:15:29.366Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -602,16 +601,15 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T21:26:35.354Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jsafrasarasin.umantis.com/vacancies/443/description/2"
+      "validThrough": "2027-01-20T21:20:45.161Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "jsafrasarasin-34a9b2d1902a",
       "slug": "auditor-it-j-safra-sarasin-basel",
       "slugByLocale": {
         "it": "auditor-it-j-safra-sarasin-basel",
-        "en": "it-auditor-j-safra-sarasin-basel",
+        "en": "it-auditor-jsafrasarasin-ch",
         "de": "it-prufer-j-safra-sarasin-basel-ch",
         "fr": "auditeur-informatique-j-safra-sarasin-basel-ch"
       },
@@ -637,7 +635,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/542/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T21:26:35.052Z",
+      "crawledAt": "2026-11-21T21:20:44.859Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -655,17 +653,18 @@
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/542/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "it-auditor-jsafrasarasin-ch"
-      ],
       "previousSlugsByLocale": {
-        "it": [
-          "it-auditor-jsafrasarasin-ch"
-        ],
         "en": [
+          "it-auditor-j-safra-sarasin-basel"
+        ],
+        "it": [
           "it-auditor-jsafrasarasin-ch"
         ]
       },
+      "previousSlugs": [
+        "it-auditor-jsafrasarasin-ch",
+        "it-auditor-j-safra-sarasin-basel"
+      ],
       "firstSeenAt": "2026-11-03T21:27:34.177Z",
       "salaryMin": 64500,
       "salaryMax": 110000,
@@ -683,9 +682,8 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:26:35.052Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jsafrasarasin.umantis.com/vacancies/542/description/2"
+      "validThrough": "2027-02-02T21:20:44.859Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "jsafrasarasin-f73541196470",
@@ -718,7 +716,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/546/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T21:26:34.751Z",
+      "crawledAt": "2026-11-21T21:20:44.557Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -767,16 +765,15 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T21:26:34.751Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jsafrasarasin.umantis.com/vacancies/546/description/2"
+      "validThrough": "2027-02-05T21:20:44.557Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "jsafrasarasin-60657ece4291",
       "slug": "senior-devops-platform-ingegnere-j-safra-sarasin-basel",
       "slugByLocale": {
         "it": "senior-devops-platform-ingegnere-j-safra-sarasin-basel",
-        "en": "senior-devops-platform-engineer-j-safra-sarasin-basel",
+        "en": "senior-devops-platform-engineer-jsafrasarasin-ch",
         "de": "senior-devops-platform-ingenieur-j-safra-sarasin-basel",
         "fr": "senior-devops-platform-ingenieur-j-safra-sarasin-basel"
       },
@@ -802,7 +799,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/547/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T21:26:34.449Z",
+      "crawledAt": "2026-11-21T21:20:44.255Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -820,10 +817,10 @@
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/547/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-devops-platform-engineer-jsafrasarasin-ch"
-      ],
       "previousSlugsByLocale": {
+        "en": [
+          "senior-devops-platform-engineer-j-safra-sarasin-basel"
+        ],
         "it": [
           "senior-devops-platform-engineer-jsafrasarasin-ch"
         ],
@@ -832,11 +829,12 @@
         ],
         "fr": [
           "senior-devops-platform-engineer-jsafrasarasin-ch"
-        ],
-        "en": [
-          "senior-devops-platform-engineer-jsafrasarasin-ch"
         ]
       },
+      "previousSlugs": [
+        "senior-devops-platform-engineer-jsafrasarasin-ch",
+        "senior-devops-platform-engineer-j-safra-sarasin-basel"
+      ],
       "firstSeenAt": "2026-11-09T21:17:06.751Z",
       "salaryMin": 99500,
       "salaryMax": 151000,
@@ -854,16 +852,15 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:26:34.449Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jsafrasarasin.umantis.com/vacancies/547/description/2"
+      "validThrough": "2027-02-07T21:20:44.255Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "jsafrasarasin-3c9e29be6082",
       "slug": "senior-full-stack-ai-ingegnere-j-safra-sarasin-geneva",
       "slugByLocale": {
         "it": "senior-full-stack-ai-ingegnere-j-safra-sarasin-geneva",
-        "en": "senior-full-stack-ai-engineer-j-safra-sarasin-geneva",
+        "en": "senior-full-stack-ai-engineer-jsafrasarasin-ch",
         "de": "senior-full-stack-ai-ingenieur-j-safra-sarasin-geneva",
         "fr": "senior-full-stack-ai-ingenieur-j-safra-sarasin-geneva"
       },
@@ -889,7 +886,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/549/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T21:26:34.146Z",
+      "crawledAt": "2026-11-21T21:20:43.953Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -907,10 +904,10 @@
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/549/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-full-stack-ai-engineer-jsafrasarasin-ch"
-      ],
       "previousSlugsByLocale": {
+        "en": [
+          "senior-full-stack-ai-engineer-j-safra-sarasin-geneva"
+        ],
         "it": [
           "senior-full-stack-ai-engineer-jsafrasarasin-ch"
         ],
@@ -919,11 +916,12 @@
         ],
         "fr": [
           "senior-full-stack-ai-engineer-jsafrasarasin-ch"
-        ],
-        "en": [
-          "senior-full-stack-ai-engineer-jsafrasarasin-ch"
         ]
       },
+      "previousSlugs": [
+        "senior-full-stack-ai-engineer-jsafrasarasin-ch",
+        "senior-full-stack-ai-engineer-j-safra-sarasin-geneva"
+      ],
       "firstSeenAt": "2026-11-11T21:17:52.640Z",
       "salaryMin": 97500,
       "salaryMax": 148000,
@@ -941,16 +939,15 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:26:34.146Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jsafrasarasin.umantis.com/vacancies/549/description/2"
+      "validThrough": "2027-02-09T21:20:43.953Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "jsafrasarasin-826301b6eb0a",
       "slug": "qa-ingegnere-ai-powered-j-safra-sarasin-geneva-ch",
       "slugByLocale": {
         "it": "qa-ingegnere-ai-powered-j-safra-sarasin-geneva-ch",
-        "en": "qa-engineer-ai-powered-j-safra-sarasin-geneva",
+        "en": "qa-engineer-ai-powered-jsafrasarasin-ch",
         "de": "qa-ingenieur-ai-powered-j-safra-sarasin-geneva-ch",
         "fr": "qa-ingenieur-ai-powered-j-safra-sarasin-geneva"
       },
@@ -976,7 +973,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/553/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T21:26:33.844Z",
+      "crawledAt": "2026-11-21T21:20:43.651Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -994,10 +991,10 @@
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/553/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "qa-engineer-ai-powered-jsafrasarasin-ch"
-      ],
       "previousSlugsByLocale": {
+        "en": [
+          "qa-engineer-ai-powered-j-safra-sarasin-geneva"
+        ],
         "it": [
           "qa-engineer-ai-powered-jsafrasarasin-ch"
         ],
@@ -1006,11 +1003,12 @@
         ],
         "fr": [
           "qa-engineer-ai-powered-jsafrasarasin-ch"
-        ],
-        "en": [
-          "qa-engineer-ai-powered-jsafrasarasin-ch"
         ]
       },
+      "previousSlugs": [
+        "qa-engineer-ai-powered-jsafrasarasin-ch",
+        "qa-engineer-ai-powered-j-safra-sarasin-geneva"
+      ],
       "firstSeenAt": "2026-11-11T21:17:51.435Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -1028,9 +1026,8 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:26:33.844Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jsafrasarasin.umantis.com/vacancies/553/description/2"
+      "validThrough": "2027-02-09T21:20:43.651Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "jsafrasarasin-3fdccfbec1f9",
@@ -1063,7 +1060,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/515/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T21:26:33.541Z",
+      "crawledAt": "2026-11-21T21:20:43.348Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1112,9 +1109,8 @@
       "postalCode": "8001",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:26:33.541Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jsafrasarasin.umantis.com/vacancies/515/description/2"
+      "validThrough": "2026-12-21T21:20:43.348Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "jsafrasarasin-d4b84cafec3a",
@@ -1147,7 +1143,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/554/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T21:26:33.237Z",
+      "crawledAt": "2026-11-21T21:20:43.044Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1196,9 +1192,8 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:26:33.237Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jsafrasarasin.umantis.com/vacancies/554/description/2"
+      "validThrough": "2027-02-11T21:20:43.044Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "jsafrasarasin-75dbdf095efa",
@@ -1282,7 +1277,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:28:25.327Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "sourceIdentity": "url:https://jsafrasarasin.umantis.com/vacancies/555/description/2"
     }
   ]

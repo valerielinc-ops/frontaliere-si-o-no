@@ -1,7 +1,7 @@
 {
   "key": "opacc-software-ag",
   "label": "Opacc Software AG",
-  "generatedAt": "2026-11-20T21:23:31.631Z",
+  "generatedAt": "2026-11-21T21:26:11.070Z",
   "total": 8,
   "discovered": 8,
   "parsed": 8,
@@ -64,19 +64,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 42155,
-  "avgDurationMs": 42155,
+  "durationMs": 41217,
+  "avgDurationMs": 41217,
   "durationHistory": [
-    42155
+    41217
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "opacc-software-ag-185811f40078",
-      "slug": "leiterin-interne-informatik-rothenburg-opacc-software-ag-ch",
+      "slug": "responsabile-delle-scienze-informatiche-interne-opacc-software-ag-rothenburg",
       "company": "Opacc Software AG",
       "companyKey": "opacc-software-ag",
       "companyDomain": "jobs.opacc.ch",
@@ -86,7 +87,7 @@
       "url": "https://jobs.opacc.ch/fundament-ausbauen/system-manager-system-engineer.html",
       "source": "Opacc Software AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:22:44.255Z",
+      "crawledAt": "2026-11-21T21:25:24.814Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -104,9 +105,9 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.opacc.ch/fundament-ausbauen/system-manager-system-engineer.html",
-      "needsRetranslation": true,
-      "salaryMin": 69500,
-      "salaryMax": 106000,
+      "firstSeenAt": "2026-11-20T21:22:44.255Z",
+      "salaryMin": 96000,
+      "salaryMax": 146000,
       "salarySource": "estimated",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -123,19 +124,17 @@
         "checkedAt": "2026-11-09T15:44:14.359Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-18T21:22:44.255Z",
+      "validThrough": "2027-02-18T21:25:24.814Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:22:44.255Z",
-      "_qualityScore": 86,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -150,7 +149,7 @@
       "url": "https://jobs.opacc.ch/fundament-ausbauen/system-engineer-junior-professional.html",
       "source": "Opacc Software AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:22:44.256Z",
+      "crawledAt": "2026-11-21T21:25:24.815Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -187,7 +186,7 @@
         "checkedAt": "2026-11-09T15:44:14.359Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T21:22:44.256Z",
+      "validThrough": "2027-02-04T21:25:24.815Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -209,7 +208,7 @@
       "url": "https://jobs.opacc.ch/fundament-ausbauen/software-eningeer-mobile-applications-software-mit-teamleitungsfunktion.html",
       "source": "Opacc Software AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:22:44.254Z",
+      "crawledAt": "2026-11-21T21:25:24.812Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -247,7 +246,7 @@
         "checkedAt": "2026-11-09T15:44:14.359Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T21:22:44.254Z",
+      "validThrough": "2027-02-04T21:25:24.812Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -269,7 +268,7 @@
       "url": "https://jobs.opacc.ch/fundament-ausbauen/teamleiterin-support.html",
       "source": "Opacc Software AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:22:44.251Z",
+      "crawledAt": "2026-11-21T21:25:24.810Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -306,7 +305,7 @@
         "checkedAt": "2026-11-09T15:44:14.359Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T21:22:44.251Z",
+      "validThrough": "2027-02-04T21:25:24.810Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -328,7 +327,7 @@
       "url": "https://jobs.opacc.ch/kunden-bedienen/wirtschaftsinformatikerin-erp-80-100.html",
       "source": "Opacc Software AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:22:44.249Z",
+      "crawledAt": "2026-11-21T21:25:24.809Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -365,7 +364,7 @@
         "checkedAt": "2026-11-09T15:44:14.359Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T21:22:44.249Z",
+      "validThrough": "2027-02-04T21:25:24.809Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -387,7 +386,7 @@
       "url": "https://jobs.opacc.ch/kunden-bedienen/system-engineer-82.html",
       "source": "Opacc Software AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:22:44.247Z",
+      "crawledAt": "2026-11-21T21:25:24.808Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -425,7 +424,7 @@
         "checkedAt": "2026-11-09T15:44:14.359Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-09T21:22:44.247Z",
+      "validThrough": "2027-02-09T21:25:24.808Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -447,7 +446,7 @@
       "url": "https://jobs.opacc.ch/kunden-bedienen/projektleiterin-erp-junior-senior.html",
       "source": "Opacc Software AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:22:44.240Z",
+      "crawledAt": "2026-11-21T21:25:24.804Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -484,7 +483,7 @@
         "checkedAt": "2026-11-09T15:44:14.359Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T21:22:44.240Z",
+      "validThrough": "2027-02-04T21:25:24.804Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -506,7 +505,7 @@
       "url": "https://jobs.opacc.ch/kunden-bedienen/projektleiterin-erp-junior-senior-89.html",
       "source": "Opacc Software AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:22:44.235Z",
+      "crawledAt": "2026-11-21T21:25:24.802Z",
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -543,7 +542,7 @@
         "checkedAt": "2026-11-09T15:44:17.709Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T21:22:44.235Z",
+      "validThrough": "2027-02-04T21:25:24.802Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -554,5 +553,5 @@
       }
     }
   ],
-  "codeCommit": "07c2e8305c6747f1893222ba4bfdddc597008157"
+  "codeCommit": "4b92eb0854b9f965b31956a24be8b4a2b342e4b2"
 }
