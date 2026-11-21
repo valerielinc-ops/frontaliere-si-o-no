@@ -230,6 +230,19 @@ describe('POSTHOG_INIT_CONTENT before_send (issue #3406/#3407)', () => {
     expect(beforeSend(event)).toBeNull();
   });
 
+  it('drops privacy-protected Battery Status API errors (#19704)', () => {
+    const event = {
+      event: '$exception',
+      properties: {
+        $exception_values: [{
+          type: 'DOMException',
+          value: 'NotAllowedError: Battery access is blocked by privacy protection.',
+        }],
+      },
+    };
+    expect(beforeSend(event)).toBeNull();
+  });
+
   it('keeps a real first-party TypeError', () => {
     const event = { event: '$exception', properties: { $exception_values: [{ type: 'TypeError', value: "Cannot read properties of undefined (reading 'foo')" }] } };
     expect(beforeSend(event)).toBe(event);

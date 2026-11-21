@@ -178,7 +178,11 @@ import {
   collectSearchLandingMatches,
 } from './shared/searchLandingMatch';
 import { registerKeywordLandingPaths } from './shared/keywordLandingPlan';
-import { isActiveJobSitemapEligible } from './shared/activeJobSitemapEligibility';
+import {
+ isActiveJobLocaleIndexable,
+ isActiveJobLocaleSitemapEligible,
+ isActiveJobSitemapEligible,
+} from './shared/activeJobSitemapEligibility';
 import {
   ALTERNATE_LOCALES,
   buildExpiredSitemapClusterEntries,
@@ -3388,6 +3392,59 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
    ? (job.requirements as unknown[]).map((x) => String(x || '')).filter((x) => x.length > 0)
    : [],
  });
+ type ActiveJobLocaleIndexabilitySignals = {
+  hasIndexableRenderedBody: boolean;
+  sourceDetailWordCount: number;
+ };
+ const resolveSourceBackedLocaleIndexabilitySignals = (
+  job: any,
+  locale: 'it' | 'en' | 'de' | 'fr',
+ ): ActiveJobLocaleIndexabilitySignals => {
+  const localizedDescriptionRaw = stripLeadingSectionLabel(String(
+   job?.descriptionByLocale?.[locale] || job.description || '',
+  ));
+  const localizedDescription = normalizeText(localizedDescriptionRaw);
+  // Four deterministic job-specific FAQ entries make the rendered body clear
+  // the floor whenever localized source prose exists. The renderer asserts
+  // this shortcut against the actual HTML so a future template change fails
+  // closed instead of letting sitemap and robots drift.
+  if (localizedDescription.length > 0) {
+   return {
+    hasIndexableRenderedBody: true,
+    sourceDetailWordCount: 0,
+   };
+  }
+  const descriptionParagraphs = splitIntoParagraphs(localizedDescriptionRaw).slice(0, 10);
+  const rawRequirements = job?.requirementsByLocale?.[locale] || job?.requirements;
+  const requirements = firstItems(rawRequirements, 8);
+  // The sitemap prepass runs before the bounded canonical-fallback workers.
+  // Read only persisted source evidence here: materializing generated fallback
+  // content would duplicate the expensive worker path for every job × locale.
+  // A fallback-only page may remain indexable in HTML, but it is advertised
+  // only after source-backed locale evidence reaches the same 50-word floor.
+  const canonicalLocaleRaw = readCanonicalByLocale(job, locale);
+  const canonicalLocale = canonicalLocaleHasSignal(canonicalLocaleRaw)
+   ? canonicalLocaleRaw
+   : null;
+  const canonicalSections = parseCanonicalSections(canonicalLocale?.sections, 8)
+   .filter((section) => !['requirements', 'benefits', 'process'].includes(section.id));
+  const sourceDetailText = [
+   localizedDescriptionRaw,
+   ...descriptionParagraphs,
+   ...requirements,
+   ...cleanItems(canonicalLocale?.summary, 4),
+   ...cleanItems(canonicalLocale?.responsibilities, 10),
+   ...cleanItems(canonicalLocale?.requirements, 12),
+   ...cleanItems(canonicalLocale?.benefits, 10),
+   ...cleanItems(canonicalLocale?.process, 8),
+   ...cleanItems(canonicalLocale?.keywords, 8),
+   ...canonicalSections.flatMap((section) => [...section.paragraphs, ...section.bullets]),
+  ].join(' ');
+  return {
+   hasIndexableRenderedBody: false,
+   sourceDetailWordCount: countHtmlBodyWords(sourceDetailText),
+  };
+ };
  const canonicalFallbackKeyForJobLocale = (
   job: any,
   locale: 'it' | 'en' | 'de' | 'fr',
@@ -4096,9 +4153,13 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
    // false-positive link target when the winner is thin or overridden.
    if (claimedActiveJobPaths.has(key)) continue;
    claimedActiveJobPaths.add(key);
-   if (!isActiveJobSitemapEligible(job)) continue;
    const localeUrl = `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, slug, jobCanton)}`;
-   if (resolveCanonicalUrl(slug, localeUrl) !== localeUrl) continue;
+   const effectiveLocaleUrl = resolveCanonicalUrl(slug, localeUrl);
+   if (!isActiveJobLocaleSitemapEligible(job, locale, {
+    canonicalUrl: localeUrl,
+    effectiveCanonicalUrl: effectiveLocaleUrl,
+    ...resolveSourceBackedLocaleIndexabilitySignals(job, locale),
+   })) continue;
    // The sitemap lists every locale (the IT build writes it for all four;
    // the EN/DE/FR pages live on their own locale shard). Internal links stay
    // limited to the locales this build renders (#14380).
@@ -5221,23 +5282,37 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  const __jobSeed = buildSlimSeed(job, locale);
  __jobSeed.slug = perLocaleSlug[locale];
  const seedScript = `<script>window.__JOB_SEED__=${inlineScriptJson(__jobSeed)};</script>`;
- // Individual job descriptions vary widely in length (604/25,386 jobs have
- // <50-word descriptions) -- unlike the fixed-prose hub/guide pages below
- // that reuse ROBOTS_INDEX_ENHANCED unconditionally, this per-job page's
- // indexability must be gated on the actual rendered summary/description/
- // FAQ content, same pattern as jobRecencyPagesPlugin.ts's recencyRobotsTag.
- const jobBodyHtml = `${fullJobDescriptionHtml}${jobFaqHtml}`;
  const contentRobotsTag = localizedDescription
-  ? robotsMetaEnhancedForContent(jobBodyHtml)
+  ? robotsMetaEnhancedForContent(`${fullJobDescriptionHtml}${jobFaqHtml}`)
   : ROBOTS_NOINDEX_FOLLOW;
- const selfCanonicalDetail = effectiveCanonicalUrl === canonicalUrl;
- const completeCanonicalDetail = sourceDetailWordCount >= MIN_INDEXABLE_WORDS;
- // Recover only a complete, self-canonical detail. An active page whose
- // canonical resolves to an employer hub or another canton remains noindex;
- // a complete static body keeps its existing indexable behavior.
- const jobRobotsTag = selfCanonicalDetail && (
-  contentRobotsTag === ROBOTS_INDEX_ENHANCED || completeCanonicalDetail
- )
+ const renderedBodyIndexable = contentRobotsTag === ROBOTS_INDEX_ENHANCED;
+ const sourceBackedLocaleSignals = resolveSourceBackedLocaleIndexabilitySignals(job, locale);
+ if (renderedBodyIndexable !== sourceBackedLocaleSignals.hasIndexableRenderedBody) {
+  throw new Error(`[jobs-seo-pages] active locale rendered-body prepass drift: ${canonicalUrl}`);
+ }
+ const activeJobLocaleIndexable = isActiveJobLocaleIndexable(job, locale, {
+  canonicalUrl,
+  effectiveCanonicalUrl,
+  hasIndexableRenderedBody: renderedBodyIndexable,
+  sourceDetailWordCount,
+ });
+ const sourceBackedLocaleIndexable = isActiveJobLocaleIndexable(job, locale, {
+  canonicalUrl,
+  effectiveCanonicalUrl,
+  ...sourceBackedLocaleSignals,
+ });
+ // The prepass omits generated fallback arrays, while the renderer appends
+ // them to the same normalized source fields. Its decision is therefore a
+ // subset of the renderer decision: a sitemap URL may be conservatively
+ // omitted, but it can never point at a page this renderer marks noindex.
+ if (sourceBackedLocaleIndexable && !activeJobLocaleIndexable) {
+  throw new Error(`[jobs-seo-pages] active locale source-backed eligibility drift: ${canonicalUrl}`);
+ }
+ // Preserve the renderer's previous per-locale policy. The sitemap composes
+ // this same decision with its separate Italian-primary group eligibility;
+ // that job-level crawl-budget gate must never turn a valid locale page into
+ // noindex.
+ const jobRobotsTag = activeJobLocaleIndexable
   ? ROBOTS_INDEX_ENHANCED
   : ROBOTS_NOINDEX_FOLLOW;
  html = `<!doctype html>

@@ -158,6 +158,13 @@ export const UNIVERSAL_BENIGN_PATTERNS: readonly RegExp[] = [
   // environmental — the user's storage failed while reading; no code change can
   // prevent it. 9 hits / 1 session (a single user's failing drive).
   /NotReadableError: The I\/O read operation failed/i,
+
+  // ── Privacy-protected Battery Status API access — #19704 ──
+  // Browser privacy protection can reject a third-party battery probe with
+  // this exact DOMException. This app and the installed PostHog SDK do not
+  // call navigator.getBattery(); keep the phrase narrow so other permission
+  // failures remain visible.
+  /Battery access is blocked by privacy protection\.?$/i,
 ];
 
 /**
@@ -218,6 +225,72 @@ export function isIndexedDbError(error: unknown): boolean {
  * re-typing the alternation.
  */
 export const BROWSER_EXTENSION_ORIGIN_PATTERN = /(?:chrome|moz|safari)-extension:\/\//;
+
+export interface SafeErrorDetails {
+  readonly isError: boolean;
+  readonly name: string;
+  readonly message: string;
+  readonly stack: string;
+}
+
+const EMPTY_ERROR_DETAILS: SafeErrorDetails = Object.freeze({
+  isError: false,
+  name: '',
+  message: '',
+  stack: '',
+});
+
+/**
+ * Read Error properties without letting a Firefox dead wrapper throw from the
+ * telemetry listener itself. Accessing `event.error` and then `.stack` is not
+ * intrinsically safe: a privileged add-on can leave the page a wrapper whose
+ * parent document has already been destroyed.
+ */
+export function readErrorDetailsSafely(error: unknown): SafeErrorDetails {
+  try {
+    const isError = error instanceof Error
+      || Object.prototype.toString.call(error) === '[object Error]';
+    if (!isError) return EMPTY_ERROR_DETAILS;
+    const candidate = error as { name?: unknown; message?: unknown; stack?: unknown };
+    return {
+      isError: true,
+      name: typeof candidate.name === 'string' ? candidate.name : '',
+      message: typeof candidate.message === 'string' ? candidate.message : '',
+      stack: typeof candidate.stack === 'string' ? candidate.stack : '',
+    };
+  } catch {
+    return EMPTY_ERROR_DETAILS;
+  }
+}
+
+/** Safe counterpart of direct `ErrorEvent.error` access. */
+export function readErrorEventDetailsSafely(event: ErrorEvent): SafeErrorDetails {
+  try {
+    return readErrorDetailsSafely(event.error);
+  } catch {
+    return EMPTY_ERROR_DETAILS;
+  }
+}
+
+/**
+ * Firefox uses this exact wording for a privileged add-on retaining a DOM
+ * object after its document is destroyed. The message alone is not enough:
+ * callers must also prove that neither the parsed event nor the raw stack has
+ * a source before reclassifying it as third-party.
+ */
+export function isFirefoxDeadObjectFromRedactedSource({
+  message,
+  userAgent,
+  hasSource,
+}: {
+  message: string;
+  userAgent: string;
+  hasSource: boolean;
+}): boolean {
+  return /^(?:TypeError:\s*)?can't access dead object$/i.test(message.trim())
+    && /\bFirefox\/\d/i.test(userAgent)
+    && !hasSource;
+}
 
 /**
  * Minimum frame count before an all-origin-redacted stack is treated as
@@ -344,16 +417,18 @@ function isLinkedInCallbackContext(page: URL): boolean {
 }
 
 /**
- * True only for the opaque `Na` exception attributed to the document while a
- * Google vignette is active (#18592). WebKit can report injected ad code with
- * the page URL instead of the injected script URL, so the stack looks
- * first-party even though no application chunk is involved.
+ * True only for the opaque `Na` exception attributed to the document by
+ * Google's injected ad surface (#18592). WebKit can report injected ad code
+ * with the page URL instead of the injected script URL, so the stack looks
+ * first-party even though no application chunk is involved. The browser or
+ * SDK can also remove the transient `#google_vignette` fragment before the
+ * exception is serialized, so the document-attributed stack is the durable
+ * discriminator rather than that fragment.
  *
  * The classifier is deliberately fail-open: it requires the exact message,
- * the production first-party page and either the exact vignette hash or the
- * verified LinkedIn callback fallback context, at least one parseable stack
- * URL, every frame to point at that same document surface, and no first-party
- * asset frame. Missing or malformed context stays observable.
+ * the production first-party page, at least one parseable stack URL, every
+ * frame to point at that same document surface, and no first-party asset
+ * frame. Missing or malformed context stays observable.
  * This filters telemetry only; it does not alter ad loading or rendering.
  */
 export function isGoogleVignetteInjectedOpaqueError(
@@ -371,11 +446,7 @@ export function isGoogleVignetteInjectedOpaqueError(
     return false;
   }
   const linkedinCallback = isLinkedInCallbackContext(page);
-  if (
-    page.protocol !== 'https:'
-    || !isFirstPartySiteHost(page.hostname)
-    || (page.hash !== '#google_vignette' && !linkedinCallback)
-  ) {
+  if (page.protocol !== 'https:' || !isFirstPartySiteHost(page.hostname)) {
     return false;
   }
 

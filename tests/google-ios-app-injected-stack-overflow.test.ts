@@ -250,9 +250,10 @@ describe('PostHog $exception before_send drops the injected stack overflow (#877
 });
 
 describe('Google vignette opaque exception filtering (#18592)', () => {
-  it('recognises only exact `Na` document stacks on the first-party vignette URL', () => {
+  it('recognises exact `Na` document stacks with and without the vignette fragment', () => {
     expect(isGoogleVignetteInjectedOpaqueError('Na', VIGNETTE_STACK, VIGNETTE_PAGE)).toBe(true);
     expect(isGoogleVignetteInjectedOpaqueError('Error: Na', VIGNETTE_STACK, VIGNETTE_PAGE)).toBe(true);
+    expect(isGoogleVignetteInjectedOpaqueError('Na', VIGNETTE_STACK, VIGNETTE_DOCUMENT)).toBe(true);
   });
 
   it('recognises the callback fallback after OAuth loses the vignette hash', () => {
@@ -264,7 +265,6 @@ describe('Google vignette opaque exception filtering (#18592)', () => {
     const assetStack = `${VIGNETTE_STACK}\n@https://cdn.frontaliereticino.ch/assets/App.js:1:1`;
     const otherFrameStack = `${VIGNETTE_STACK}\n@https://frontaliereticino.ch/en/altro/:1:1`;
     expect(isGoogleVignetteInjectedOpaqueError('NaN', VIGNETTE_STACK, VIGNETTE_PAGE)).toBe(false);
-    expect(isGoogleVignetteInjectedOpaqueError('Na', VIGNETTE_STACK, VIGNETTE_DOCUMENT)).toBe(false);
     expect(isGoogleVignetteInjectedOpaqueError('Na', '', VIGNETTE_PAGE)).toBe(false);
     expect(isGoogleVignetteInjectedOpaqueError('Na', assetStack, VIGNETTE_PAGE)).toBe(false);
     expect(isGoogleVignetteInjectedOpaqueError('Na', otherFrameStack, VIGNETTE_PAGE)).toBe(false);
@@ -275,7 +275,7 @@ describe('Google vignette opaque exception filtering (#18592)', () => {
     expect(isGoogleVignetteInjectedOpaqueError('Na', VIGNETTE_STACK, LINKEDIN_CALLBACK_PAGE)).toBe(false);
   });
 
-  it('filters the PostHog shape but keeps the same event without the vignette marker', () => {
+  it('filters the PostHog shape after the browser strips the vignette marker', () => {
     const filter = createExceptionFilter();
     const event = {
       event: '$exception',
@@ -294,7 +294,7 @@ describe('Google vignette opaque exception filtering (#18592)', () => {
     };
     expect(filter(event)).toBeNull();
     event.properties.$current_url = VIGNETTE_DOCUMENT;
-    expect(filter(event)).toBe(event);
+    expect(filter(event)).toBeNull();
   });
 
   it('filters the callback fallback shape without filtering an invalid OAuth context', () => {

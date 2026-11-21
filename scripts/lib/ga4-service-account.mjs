@@ -297,7 +297,10 @@ export async function fetchGa4ErrorEntries({
       { name: 'customEvent:error_message' },
       { name: 'pagePath' },
     ],
-    metrics: [{ name: 'eventCount' }, { name: 'totalUsers' }],
+    // The issue body calls the second value "Distinct sessions": query that
+    // cardinality directly instead of storing GA4 totalUsers under a
+    // misleading `sessions` property.
+    metrics: [{ name: 'eventCount' }, { name: 'sessions' }],
     orderBys: [{ metric: { metricName: 'eventCount' }, desc: true }],
     limit,
   };
