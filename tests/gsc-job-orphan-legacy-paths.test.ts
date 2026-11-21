@@ -24,6 +24,10 @@ const jobSections = {
   fr: new Set(['trouver-emploi-tessin']),
 };
 
+// Temp-root plugin fixtures must not initialize the production slug index,
+// which parses the repository's full jobs dataset on the first matched slug.
+const TEST_CANTON_RESOLVER = () => 'TI';
+
 describe('GSC job-orphan paths', () => {
   it.each(['it', 'en', 'de', 'fr'] as const)('recognizes the shared legacy /lavoro route (%s)', (locale) => {
     const prefix = locale === 'it' ? '' : `/${locale}`;
@@ -288,7 +292,7 @@ describe('jobOrphanBridgePlugin — expired orphans are left to the Worker 301',
         counts: { [kind]: 1 },
         orphans: [{ locale: 'it', slug, url: `https://frontaliereticino.ch/cerca-lavoro-ticino/${slug}/`, kind }],
       }));
-      const plugin = jobOrphanBridgePlugin(rootDir);
+      const plugin = jobOrphanBridgePlugin(rootDir, { resolveCantonForSlug: TEST_CANTON_RESOLVER });
       const closeBundle = plugin.closeBundle as { handler: () => Promise<void> };
       await closeBundle.handler();
       expect(fs.existsSync(path.join(rootDir, 'dist', 'cerca-lavoro-ticino', slug, 'index.html'))).toBe(false);
@@ -321,7 +325,7 @@ describe('jobOrphanBridgePlugin — incomplete matched fallbacks are noindex', (
         }],
       }));
 
-      const plugin = jobOrphanBridgePlugin(rootDir);
+      const plugin = jobOrphanBridgePlugin(rootDir, { resolveCantonForSlug: TEST_CANTON_RESOLVER });
       const closeBundle = plugin.closeBundle as { handler: () => Promise<void> };
       await closeBundle.handler();
 
@@ -363,7 +367,7 @@ describe('jobOrphanBridgePlugin — incomplete matched fallbacks are noindex', (
       collector.add(indexTarget, activeHtml);
       collector.add(flatTarget, activeHtml);
 
-      const plugin = jobOrphanBridgePlugin(rootDir);
+      const plugin = jobOrphanBridgePlugin(rootDir, { resolveCantonForSlug: TEST_CANTON_RESOLVER });
       const closeBundle = plugin.closeBundle as { handler: () => Promise<void> };
       await closeBundle.handler();
 

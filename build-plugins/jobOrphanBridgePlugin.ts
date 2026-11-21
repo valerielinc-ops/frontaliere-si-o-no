@@ -70,7 +70,7 @@ import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { resolveCantonSection, isCompanyHubNamespaceSlug, type CantonLocale } from './shared/cantonSection';
-import { getCantonForSlug } from './shared/slugCantonIndex';
+import { getCantonForSlug as getProductionCantonForSlug } from './shared/slugCantonIndex';
 import { buildBridgeBreadcrumbLd, JOBS_SECTION_LABEL } from './shared/bridgeBreadcrumb';
 import { renderBridgePageProse } from './shared/bridgePageProse';
 import { getSafeDistPageTargets, isDistPathOverFilesystemLimits, isSafeDistPath } from './shared/distPathSafety';
@@ -85,12 +85,18 @@ const BASE_URL = 'https://frontaliereticino.ch';
 // so non-TI jobs land on their canton URL.
 const SECTION_SLUG: Record<Locale, string> = SECTION_LEGACY_TI;
 
+type SlugCantonResolver = (slug: string) => string;
+
+interface JobOrphanBridgeOptions {
+  readonly resolveCantonForSlug?: SlugCantonResolver;
+}
+
 /**
  * Resolve the job-board section for (locale, slug) using the slug→canton
  * reverse index. Falls back to TI legacy section when slug is unknown.
  */
-function sectionForSlug(locale: Locale, slug: string): string {
-  const canton = getCantonForSlug(slug);
+function sectionForSlug(locale: Locale, slug: string, resolveCantonForSlug: SlugCantonResolver): string {
+  const canton = resolveCantonForSlug(slug);
   return resolveCantonSection(locale as CantonLocale, canton);
 }
 
@@ -206,8 +212,12 @@ function buildOrphanPath(entry: OrphanEntry): string {
     ?? `${LOCALE_PREFIX[entry.locale]}/${SECTION_SLUG[entry.locale]}/${entry.slug}/`.replace(/\/+/g, '/');
 }
 
-function buildCurrentPathForMatched(locale: Locale, currentSlug: string): string {
-  const section = sectionForSlug(locale, currentSlug);
+function buildCurrentPathForMatched(
+  locale: Locale,
+  currentSlug: string,
+  resolveCantonForSlug: SlugCantonResolver,
+): string {
+  const section = sectionForSlug(locale, currentSlug, resolveCantonForSlug);
   return `${LOCALE_PREFIX[locale]}/${section}/${currentSlug}/`.replace(/\/+/g, '/');
 }
 
@@ -216,8 +226,12 @@ function buildCurrentPathForMatched(locale: Locale, currentSlug: string): string
  * canton-aware section for the orphan's known job. When absent, fall back
  * to TI legacy (byte-identical pre-cathedral behavior).
  */
-function buildSectionCanonical(locale: Locale, slugHint?: string): string {
-  const section = slugHint ? sectionForSlug(locale, slugHint) : SECTION_SLUG[locale];
+function buildSectionCanonical(
+  locale: Locale,
+  resolveCantonForSlug: SlugCantonResolver,
+  slugHint?: string,
+): string {
+  const section = slugHint ? sectionForSlug(locale, slugHint, resolveCantonForSlug) : SECTION_SLUG[locale];
   return `${BASE_URL}${LOCALE_PREFIX[locale]}/${section}/`.replace(/(?<!:)\/+/g, '/');
 }
 
@@ -245,12 +259,12 @@ export function sectionPathFromOrphan(entry: OrphanEntry): string {
 // jobsSeoPagesPlugin.ts (isCompanyHubNamespaceSlug) — sibling-pattern fix,
 // same PR. Skip emission for these rather than serve a self-contradicting
 // company-hub-namespace page; the URL falls back to the normal 404/tombstone.
-function orphanNamespaceCollides(entry: OrphanEntry): boolean {
+function orphanNamespaceCollides(entry: OrphanEntry, resolveCantonForSlug: SlugCantonResolver): boolean {
   if (entry.kind !== 'matched' || !entry.currentSlug) return false;
   if (!isCompanyHubNamespaceSlug(entry.slug, entry.locale)) return false;
   const orphanSection = sectionPathFromOrphan(entry);
   const currentSection = withLeadingTrailingSlash(
-    `${LOCALE_PREFIX[entry.locale]}/${sectionForSlug(entry.locale, entry.currentSlug)}`,
+    `${LOCALE_PREFIX[entry.locale]}/${sectionForSlug(entry.locale, entry.currentSlug, resolveCantonForSlug)}`,
   );
   return currentSection !== orphanSection;
 }
@@ -262,11 +276,15 @@ function buildMatchedRewriteScript(orphanPath: string, currentPath: string): str
   return `<script>(function(){try{if(location.pathname===${safeOrphan}){history.replaceState(null,'',${safeCurrent}+location.search+location.hash);}}catch(e){}})();</script>`;
 }
 
-function renderMatchedPage(entry: OrphanEntry, distDir: string): string {
+function renderMatchedPage(
+  entry: OrphanEntry,
+  distDir: string,
+  resolveCantonForSlug: SlugCantonResolver,
+): string {
   const locale = entry.locale;
   const copy = COPY[locale];
   const orphanPath = buildOrphanPath(entry);
-  const currentPath = buildCurrentPathForMatched(locale, entry.currentSlug!);
+  const currentPath = buildCurrentPathForMatched(locale, entry.currentSlug!, resolveCantonForSlug);
   const orphanAbsoluteUrl = `${BASE_URL}${orphanPath}`;
 
   // Reuse the real detail, including semantic content and SEO metadata, when
@@ -288,7 +306,7 @@ function renderMatchedPage(entry: OrphanEntry, distDir: string): string {
       <h1 class="s-hiC5FI">${esc(copy.matchedH1)}</h1>
     </header>
     <p class="s-cbFAda">${esc(copy.matchedLede)}</p>
-    <p class="s-elb1Sb"><a class="s-nF5mos" href="${esc(buildSectionCanonical(locale, entry.currentSlug || entry.slug))}">${esc(copy.browseAllLabel)} →</a></p>
+    <p class="s-elb1Sb"><a class="s-nF5mos" href="${esc(buildSectionCanonical(locale, resolveCantonForSlug, entry.currentSlug || entry.slug))}">${esc(copy.browseAllLabel)} →</a></p>
     ${bridgeProse}
   </main>`;
 
@@ -324,7 +342,11 @@ function renderMatchedPage(entry: OrphanEntry, distDir: string): string {
   });
 }
 
-export function jobOrphanBridgePlugin(rootDir: string): Plugin {
+export function jobOrphanBridgePlugin(
+  rootDir: string,
+  options: JobOrphanBridgeOptions = {},
+): Plugin {
+  const resolveCantonForSlug = options.resolveCantonForSlug ?? getProductionCantonForSlug;
   return {
     name: 'job-orphan-bridge',
     apply: 'build',
@@ -388,7 +410,7 @@ export function jobOrphanBridgePlugin(rootDir: string): Plugin {
         // Reserved company-hub namespace guard (issue #2976, 5th call site) —
         // must run before path/collision checks: it depends on entry.slug /
         // entry.kind, not on dist/ state.
-        if (orphanNamespaceCollides(entry)) {
+        if (orphanNamespaceCollides(entry, resolveCantonForSlug)) {
           skippedNamespaceGuard++;
           continue;
         }
@@ -420,7 +442,7 @@ export function jobOrphanBridgePlugin(rootDir: string): Plugin {
           continue;
         }
 
-        const html = renderMatchedPage(entry, distDir);
+        const html = renderMatchedPage(entry, distDir, resolveCantonForSlug);
 
         try {
           fs.mkdirSync(path.dirname(indexTarget), { recursive: true });
