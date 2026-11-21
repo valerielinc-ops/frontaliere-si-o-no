@@ -1,7 +1,7 @@
 {
   "crawlerKey": "mueller-steinmaur",
-  "assembledAt": "2026-11-20T21:30:56.201Z",
-  "runId": "44817680131",
+  "assembledAt": "2026-11-21T21:26:25.637Z",
+  "runId": "44949947622",
   "jobs": [
     {
       "id": "mueller-steinmaur-510b014742eb",
@@ -34,7 +34,7 @@
       "url": "https://www.mueller-steinmaur.ch/job/betriebsmechanikerin-landmaschinenmechanikerin-50-100/",
       "source": "mueller-steinmaur Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:30:50.024Z",
+      "crawledAt": "2026-11-21T21:26:20.570Z",
       "addressLocality": "Steinmaur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -77,9 +77,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:30:50.024Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.mueller-steinmaur.ch/job/betriebsmechanikerin-landmaschinenmechanikerin-50-100"
+      "validThrough": "2026-12-21T21:26:20.570Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
