@@ -14755,7 +14755,25 @@
       "validThrough": "2027-02-02T22:10:44.357Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-04T22:06:28.042Z",
-      "sourceIdentity": "url:https://careers.stadlerrail.com/job/steinach-bediener-cnc-fertigung-sg-s-9323/1375710155"
+      "sourceIdentity": "url:https://careers.stadlerrail.com/job/steinach-bediener-cnc-fertigung-sg-s-9323/1375710155",
+      "previousSlugs": [
+        "lavorazione-cnc-stadler-rail-steinach",
+        "operator-cnc-manufacturing-stadler-rail-steinach",
+        "operateur-fabrication-cnc-stadler-rail-steinach"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lavorazione-cnc-stadler-rail-steinach",
+          "operator-cnc-manufacturing-stadler-rail-steinach",
+          "operateur-fabrication-cnc-stadler-rail-steinach"
+        ],
+        "en": [
+          "operator-cnc-manufacturing-stadler-rail-steinach"
+        ],
+        "fr": [
+          "operateur-fabrication-cnc-stadler-rail-steinach"
+        ]
+      }
     }
   ]
 }

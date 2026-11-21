@@ -9775,7 +9775,29 @@
       "firstSeenAt": "2026-11-10T09:30:42.146Z",
       "crawledAt": "2026-11-20T21:34:53.302Z",
       "crawledAtSource": "slice-writer",
-      "sourceIdentity": "url:https://www.pemsa.ch/it/job/carpentiere-afc-m-f-d-2704541"
+      "sourceIdentity": "url:https://www.pemsa.ch/it/job/carpentiere-afc-m-f-d-2704541",
+      "previousSlugs": [
+        "carpene-afc-m-f-d-pemsa-martigny",
+        "carpeneans-afc-m-f-d-pemsa-martigny",
+        "carpeennes-afc-h-f-d-pemsa-martigny",
+        "zimmermann-afc-m-w-d-pemsa-martigny",
+        "carpentiere-afc-m-f-d-pemsa-martigny-75d01307"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "carpene-afc-m-f-d-pemsa-martigny",
+          "carpeneans-afc-m-f-d-pemsa-martigny",
+          "carpeennes-afc-h-f-d-pemsa-martigny",
+          "zimmermann-afc-m-w-d-pemsa-martigny",
+          "carpentiere-afc-m-f-d-pemsa-martigny-75d01307"
+        ],
+        "en": [
+          "carpeneans-afc-m-f-d-pemsa-martigny"
+        ],
+        "fr": [
+          "carpeennes-afc-h-f-d-pemsa-martigny"
+        ]
+      }
     },
     {
       "title": "Piastrellista",
@@ -12869,9 +12891,9 @@
       },
       "slugByLocale": {
         "it": "saldatore-tubista-pemsa-lugano-1a7cc67111",
-        "en": "saldatore-tubista-pemsa-lugano",
-        "de": "saldatore-tubista-pemsa-lugano",
-        "fr": "saldatore-tubista-pemsa-lugano"
+        "en": "saldatore-tubista-pemsa-lugano-uq96lw",
+        "de": "saldatore-tubista-pemsa-lugano-uq96lw",
+        "fr": "saldatore-tubista-pemsa-lugano-uq96lw"
       },
       "id": "pemsa-a4ed741e0c2c",
       "salaryMin": 55500,
@@ -12892,21 +12914,20 @@
       "firstSeenAt": "2026-09-08T13:41:50.002Z",
       "previousSlugsByLocale": {
         "en": [
-          "saldatore-tubista-pemsa-lugano-uq96lw"
+          "saldatore-tubista-pemsa-lugano"
         ],
         "de": [
-          "saldatore-tubista-pemsa-lugano-uq96lw"
+          "saldatore-tubista-pemsa-lugano"
         ],
         "fr": [
-          "saldatore-tubista-pemsa-lugano-uq96lw"
+          "saldatore-tubista-pemsa-lugano"
         ],
         "it": [
           "saldatore-tubista-pemsa-lugano"
         ]
       },
       "previousSlugs": [
-        "saldatore-tubista-pemsa-lugano",
-        "saldatore-tubista-pemsa-lugano-uq96lw"
+        "saldatore-tubista-pemsa-lugano"
       ],
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
@@ -23242,7 +23263,30 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-09T21:26:01.911Z",
-      "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-di-impianti-di-riscaldamento-m-f-d-100-2706062"
+      "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-di-impianti-di-riscaldamento-m-f-d-100-2706062",
+      "previousSlugs": [
+        "m-f-d-heating-system-installer-100-pemsa-saxon",
+        "m-w-d-heizsysteminstallateur-100-pemsa-saxon",
+        "installation-du-systeme-de-chauffage-h-f-d-100-pemsa-saxon",
+        "installatore-di-impianti-di-riscaldamento-m-f-d-100-pemsa-saxon-654a508f"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "m-f-d-heating-system-installer-100-pemsa-saxon",
+          "m-w-d-heizsysteminstallateur-100-pemsa-saxon",
+          "installation-du-systeme-de-chauffage-h-f-d-100-pemsa-saxon",
+          "installatore-di-impianti-di-riscaldamento-m-f-d-100-pemsa-saxon-654a508f"
+        ],
+        "en": [
+          "m-f-d-heating-system-installer-100-pemsa-saxon"
+        ],
+        "de": [
+          "m-w-d-heizsysteminstallateur-100-pemsa-saxon"
+        ],
+        "fr": [
+          "installation-du-systeme-de-chauffage-h-f-d-100-pemsa-saxon"
+        ]
+      }
     },
     {
       "title": "Installatore di impianti di riscaldamento m/f/d – 100%",
@@ -23459,7 +23503,30 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-09T21:26:01.911Z",
-      "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-elettricista-afc-2701140"
+      "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-elettricista-afc-2701140",
+      "previousSlugs": [
+        "electrical-installation-afc-pemsa-fribourg",
+        "elektrische-anlage-afc-pemsa-fribourg",
+        "installation-electrique-afc-pemsa-fribourg",
+        "installatore-elettricista-afc-pemsa-fribourg-267e9441"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "electrical-installation-afc-pemsa-fribourg",
+          "elektrische-anlage-afc-pemsa-fribourg",
+          "installation-electrique-afc-pemsa-fribourg",
+          "installatore-elettricista-afc-pemsa-fribourg-267e9441"
+        ],
+        "en": [
+          "electrical-installation-afc-pemsa-fribourg"
+        ],
+        "de": [
+          "elektrische-anlage-afc-pemsa-fribourg"
+        ],
+        "fr": [
+          "installation-electrique-afc-pemsa-fribourg"
+        ]
+      }
     },
     {
       "title": "Falegname/a di officina",
@@ -23526,7 +23593,21 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-10-03T09:25:00.674Z",
-      "sourceIdentity": "url:https://www.pemsa.ch/it/job/falegname-a-di-officina-2706302"
+      "sourceIdentity": "url:https://www.pemsa.ch/it/job/falegname-a-di-officina-2706302",
+      "previousSlugs": [
+        "workshop-carpenter-pemsa-geneve",
+        "werkstattzimmermann-pemsa-geneve",
+        "charpentier-d-atelier-pemsa-geneve",
+        "falegname-a-di-officina-pemsa-geneve-73737d39"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "workshop-carpenter-pemsa-geneve",
+          "werkstattzimmermann-pemsa-geneve",
+          "charpentier-d-atelier-pemsa-geneve",
+          "falegname-a-di-officina-pemsa-geneve-73737d39"
+        ]
+      }
     },
     {
       "title": "Falegname/a specializzato/a nella posa di arredi su misura",
@@ -23593,7 +23674,21 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-10-30T09:45:02.516Z",
-      "sourceIdentity": "url:https://www.pemsa.ch/it/job/falegname-a-specializzato-a-nella-posa-di-arredi-su-misura-2706299"
+      "sourceIdentity": "url:https://www.pemsa.ch/it/job/falegname-a-specializzato-a-nella-posa-di-arredi-su-misura-2706299",
+      "previousSlugs": [
+        "carpenter-a-specializing-in-the-installation-of-custom-furniture-pemsa-geneve",
+        "carpenter-a-spezialisiert-auf-die-installation-von-kundenspezifischen-mobeln-pemsa-geneve",
+        "charpentier-un-specialiste-de-l-installation-de-meubles-sur-mesure-pemsa-geneve",
+        "falegname-a-specializzato-a-nella-posa-di-arredi-su-misura-pemsa-geneve-3f5bb6f3"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "carpenter-a-specializing-in-the-installation-of-custom-furniture-pemsa-geneve",
+          "carpenter-a-spezialisiert-auf-die-installation-von-kundenspezifischen-mobeln-pemsa-geneve",
+          "charpentier-un-specialiste-de-l-installation-de-meubles-sur-mesure-pemsa-geneve",
+          "falegname-a-specializzato-a-nella-posa-di-arredi-su-misura-pemsa-geneve-3f5bb6f3"
+        ]
+      }
     },
     {
       "title": "Idraulico/a",
@@ -23660,7 +23755,21 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-10-30T09:45:02.516Z",
-      "sourceIdentity": "url:https://www.pemsa.ch/it/job/idraulico-a-2706296"
+      "sourceIdentity": "url:https://www.pemsa.ch/it/job/idraulico-a-2706296",
+      "previousSlugs": [
+        "hydraulic-a-pemsa-geneve",
+        "hydraulik-a-pemsa-geneve",
+        "hydraulique-a-pemsa-geneve",
+        "idraulico-a-pemsa-geneve-a3d3c3c5"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "hydraulic-a-pemsa-geneve",
+          "hydraulik-a-pemsa-geneve",
+          "hydraulique-a-pemsa-geneve",
+          "idraulico-a-pemsa-geneve-a3d3c3c5"
+        ]
+      }
     },
     {
       "title": "Installatore Idraulico",

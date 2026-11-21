@@ -2900,7 +2900,8 @@
       "previousSlugs": [
         "juristische-r-praktikant-in-confederazione-bern"
       ],
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/juristische-r-praktikant-in/cfd65ce0-b0b0-400c-a322-a9953b581c1c"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/juristische-r-praktikant-in/cfd65ce0-b0b0-400c-a322-a9953b581c1c",
+      "needsRetranslation": true
     },
     {
       "title": "Lernende Kauffrau EFZ / Lernender Kaufmann EFZ",
@@ -13278,14 +13279,19 @@
           "bereichsleiter-in-investitionscontrolling-confederazione-thun"
         ],
         "fr": [
-          "bereichsleiter-in-investitionscontrolling-confederazione-thun"
+          "bereichsleiter-in-investitionscontrolling-confederazione-thun",
+          "chef-du-controle-des-investissements-confederazione-svizzera-thun"
         ],
         "it": [
-          "bereichsleiter-in-investitionscontrolling-confederazione-thun"
+          "bereichsleiter-in-investitionscontrolling-confederazione-thun",
+          "chef-du-controle-des-investissements-confederazione-svizzera-thun",
+          "bereichsleiter-in-investitionscontrolling-confederazione-thun-752e2ee4"
         ]
       },
       "previousSlugs": [
-        "bereichsleiter-in-investitionscontrolling-confederazione-thun"
+        "bereichsleiter-in-investitionscontrolling-confederazione-thun",
+        "chef-du-controle-des-investissements-confederazione-svizzera-thun",
+        "bereichsleiter-in-investitionscontrolling-confederazione-thun-752e2ee4"
       ],
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/bereichsleiter-in-investitionscontrolling/176597f8-20f0-480a-a462-15293fa282db"
     },
@@ -18786,12 +18792,10 @@
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/devops-software-engineer-professional-level-mit-fokus-frontend/9130ab19-b13b-406f-b512-9da4817c46ea",
       "previousSlugsByLocale": {
         "fr": [
-          "devops-software-engineer-professional-level-mit-fokus-frontend-confederazione-bern",
           "ingenieur-logiciel-devops-professional-level-specialise-en-frontend-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
-        "devops-software-engineer-professional-level-mit-fokus-frontend-confederazione-bern",
         "ingenieur-logiciel-devops-professional-level-specialise-en-frontend-confederazione-svizzera-bern"
       ]
     },
@@ -18863,17 +18867,14 @@
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hr-spezialist-in/d490abe5-0976-4327-8c89-3472135cfaa8",
       "previousSlugsByLocale": {
         "it": [
-          "hr-spezialist-in-confederazione-zollikofen",
           "risorse-umane-spezialist-in-confederazione-svizzera-zollikofen",
           "specialista-hr-confederazione-svizzera-zollikofen"
         ],
         "fr": [
-          "hr-spezialist-in-confederazione-zollikofen",
           "ressources-humaines-spezialist-in-confederazione-svizzera-zollikofen"
         ]
       },
       "previousSlugs": [
-        "hr-spezialist-in-confederazione-zollikofen",
         "risorse-umane-spezialist-in-confederazione-svizzera-zollikofen",
         "specialista-hr-confederazione-svizzera-zollikofen",
         "ressources-humaines-spezialist-in-confederazione-svizzera-zollikofen"
@@ -19033,16 +19034,13 @@
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/intelligence-officer-spionageabwehr/125fabca-e4d2-4693-b29b-dcb16fa9c038",
       "previousSlugsByLocale": {
         "it": [
-          "intelligence-officer-spionageabwehr-confederazione-bern",
           "agente-dell-intelligence-counterintelligence-confederazione-svizzera-bern"
         ],
         "fr": [
-          "intelligence-officer-spionageabwehr-confederazione-bern",
           "agent-de-renseignement-contre-espionnage-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
-        "intelligence-officer-spionageabwehr-confederazione-bern",
         "agente-dell-intelligence-counterintelligence-confederazione-svizzera-bern",
         "agent-de-renseignement-contre-espionnage-confederazione-svizzera-bern"
       ]
@@ -19115,20 +19113,16 @@
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/sicherheitsverantwortliche-r-projekt-mitholz/a92bb4f1-f797-4fea-b981-3b7b57e19622",
       "previousSlugsByLocale": {
         "it": [
-          "sicherheitsverantwortliche-r-projekt-mitholz-confederazione-bern",
           "sicurezza-responsabile-r-project-mitholz-confederazione-svizzera-bern"
         ],
         "en": [
-          "sicherheitsverantwortliche-r-projekt-mitholz-confederazione-bern",
           "security-responsible-r-project-mitholz-confederazione-svizzera-bern"
         ],
         "fr": [
-          "sicherheitsverantwortliche-r-projekt-mitholz-confederazione-bern",
           "responsable-de-la-securite-r-projet-mitholz-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
-        "sicherheitsverantwortliche-r-projekt-mitholz-confederazione-bern",
         "sicurezza-responsabile-r-project-mitholz-confederazione-svizzera-bern",
         "security-responsible-r-project-mitholz-confederazione-svizzera-bern",
         "responsable-de-la-securite-r-projet-mitholz-confederazione-svizzera-bern"
@@ -19181,21 +19175,17 @@
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-bauherr-mitholz-confederazione-bern",
-          "projektleiter-in-bauherr-mitholz-confederazione-svizzera-bern",
           "responsabile-di-progetto-per-il-committente-mitholz-confederazione-svizzera-bern"
         ],
         "en": [
-          "projektleiter-in-bauherr-mitholz-confederazione-bern",
           "project-manager-client-mitholz-confederazione-svizzera-bern"
         ],
         "fr": [
-          "projektleiter-in-bauherr-mitholz-confederazione-bern",
           "chef-fe-de-projet-maitre-d-ouvrage-mitholz-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
         "projektleiter-in-bauherr-mitholz-confederazione-bern",
-        "projektleiter-in-bauherr-mitholz-confederazione-svizzera-bern",
         "responsabile-di-progetto-per-il-committente-mitholz-confederazione-svizzera-bern",
         "project-manager-client-mitholz-confederazione-svizzera-bern",
         "chef-fe-de-projet-maitre-d-ouvrage-mitholz-confederazione-svizzera-bern"
@@ -19292,20 +19282,16 @@
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/abteilungsleiter-in-praevention-nicht-uebertragbare-erkrankungen-ncd/0c54396e-f956-4614-bbe4-8e1096b615e0",
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleiter-in-pravention-nicht-ubertragbare-erkrankungen-ncd-confederazione-bern",
           "responsabile-della-divisione-prevenzione-delle-malattie-non-trasmissibili-ncd-confederazione-svizzera-bern"
         ],
         "en": [
-          "abteilungsleiter-in-pravention-nicht-ubertragbare-erkrankungen-ncd-confederazione-bern",
           "head-of-division-prevention-of-noncommunicable-diseases-ncd-confederazione-svizzera-bern"
         ],
         "fr": [
-          "abteilungsleiter-in-pravention-nicht-ubertragbare-erkrankungen-ncd-confederazione-bern",
           "responsable-de-division-prevention-des-maladies-non-transmissibles-ncd-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
-        "abteilungsleiter-in-pravention-nicht-ubertragbare-erkrankungen-ncd-confederazione-bern",
         "responsabile-della-divisione-prevenzione-delle-malattie-non-trasmissibili-ncd-confederazione-svizzera-bern",
         "head-of-division-prevention-of-noncommunicable-diseases-ncd-confederazione-svizzera-bern",
         "responsable-de-division-prevention-des-maladies-non-transmissibles-ncd-confederazione-svizzera-bern"
@@ -19380,20 +19366,16 @@
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/praktikant-in-3+1-hms/e6cf3f7a-addb-4b34-853d-f3d861108bf6",
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-3-1-hms-confederazione-payerne",
           "tirocinante-3-1-hms-confederazione-svizzera-payerne"
         ],
         "en": [
-          "praktikant-in-3-1-hms-confederazione-payerne",
           "intern-3-1-hms-confederazione-svizzera-payerne"
         ],
         "fr": [
-          "praktikant-in-3-1-hms-confederazione-payerne",
           "stagiaire-3-1-hms-confederazione-svizzera-payerne"
         ]
       },
       "previousSlugs": [
-        "praktikant-in-3-1-hms-confederazione-payerne",
         "tirocinante-3-1-hms-confederazione-svizzera-payerne",
         "intern-3-1-hms-confederazione-svizzera-payerne",
         "stagiaire-3-1-hms-confederazione-svizzera-payerne"
@@ -19444,7 +19426,6 @@
         "fr": "wissenschaftliche-r-mitarbeiter-in-biozide-risikobeurteilung-und-wirksamkeit-confederazione-bern"
       },
       "id": "confederazione-ticino-6d8b5dd4fc99",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "wissenschaftliche-r-mitarbeiter-in-biozide-risikobeurteilung-und-wirksamkeit-confederazione-bern"
@@ -19520,7 +19501,6 @@
         "fr": "ict-security-spezialist-in-senior-confederazione-bern"
       },
       "id": "confederazione-ticino-363b7862eecd",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 192000,
       "currency": "CHF",
@@ -19588,7 +19568,6 @@
         "fr": "anwendungsverantwortliche-r-fur-die-elektronische-geschaftsverwaltung-gever-confederazione-ittigen-bern"
       },
       "id": "confederazione-ticino-0c123c7905c6",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "anwendungsverantwortliche-r-fur-die-elektronische-geschaftsverwaltung-gever-confederazione-ittigen-bern"
@@ -19664,7 +19643,6 @@
         "fr": "sektionsleiter-in-bildung-und-innovation-confederazione-ittigen"
       },
       "id": "confederazione-ticino-735bcee2a5c8",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "sektionsleiter-in-bildung-und-innovation-confederazione-ittigen"
@@ -19740,7 +19718,6 @@
         "fr": "projektleiter-in-tierseuchenpravention-confederazione-bern"
       },
       "id": "confederazione-ticino-fd31510f7387",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-tierseuchenpravention-confederazione-bern"
@@ -19816,7 +19793,6 @@
         "fr": "mandatsleiter-in-baurevision-confederazione-ittigen"
       },
       "id": "confederazione-ticino-341f776c7df8",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -19884,7 +19860,6 @@
         "fr": "hochschulpraktikant-in-digitale-transformation-deza-confederazione-zollikofen"
       },
       "id": "confederazione-ticino-14fbbb1d4cca",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -19952,7 +19927,6 @@
         "fr": "projektleiter-in-projektmanagement-confederazione-thun-oder-visp"
       },
       "id": "confederazione-ticino-9fc4e2886a4c",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-projektmanagement-confederazione-thun-oder-visp"
@@ -20028,7 +20002,6 @@
         "fr": "ict-architekt-in-professional-1383-confederazione-zollikofen"
       },
       "id": "confederazione-ticino-535be31e63ad",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "currency": "CHF",
@@ -20172,7 +20145,6 @@
         "fr": "adjunkt-in-medien-kommunikation-confederazione-lausanne"
       },
       "id": "confederazione-ticino-851fc714c03c",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -20194,7 +20166,25 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-08-12T21:51:32.701Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/adjunkt-in-medien-kommunikation/a3618c86-38ac-4c8a-b03f-998c87583e8a"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/adjunkt-in-medien-kommunikation/a3618c86-38ac-4c8a-b03f-998c87583e8a",
+      "previousSlugs": [
+        "aggiuntivo-in-media-comunicazione-confederazione-svizzera-lausanne",
+        "adjunct-in-media-communication-confederazione-svizzera-lausanne",
+        "adjonction-en-medias-communication-confederazione-svizzera-lausanne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "aggiuntivo-in-media-comunicazione-confederazione-svizzera-lausanne",
+          "adjunct-in-media-communication-confederazione-svizzera-lausanne",
+          "adjonction-en-medias-communication-confederazione-svizzera-lausanne"
+        ],
+        "en": [
+          "adjunct-in-media-communication-confederazione-svizzera-lausanne"
+        ],
+        "fr": [
+          "adjonction-en-medias-communication-confederazione-svizzera-lausanne"
+        ]
+      }
     },
     {
       "title": "IT-Forensiker/-in",
@@ -20240,7 +20230,6 @@
         "fr": "it-forensiker-in-confederazione-bern"
       },
       "id": "confederazione-ticino-b825e082f892",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "it-forensiker-in-confederazione-bern"
@@ -20319,7 +20308,6 @@
         "fr": "hochschulpraktikant-in-bei-der-schweizer-mission-beim-unog-confederazione-genf"
       },
       "id": "confederazione-ticino-53d121f8d43d",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -20387,7 +20375,6 @@
         "fr": "hochschulpraktikant-in-humanitare-hilfe-deza-confederazione-zollikofen"
       },
       "id": "confederazione-ticino-7c803a134a2d",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -20522,7 +20509,6 @@
         "fr": "it-forensiker-in-confederazione-bern"
       },
       "id": "confederazione-ticino-4be7f7750d5f",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "it-forensiker-in-confederazione-bern"
@@ -20668,7 +20654,6 @@
         "fr": "lernende-r-kauffrau-kaufmann-efz-confederazione-ittigen"
       },
       "id": "confederazione-ticino-dae72824b1a2",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "currency": "CHF",
