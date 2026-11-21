@@ -14,10 +14,16 @@ export function isStrongJobFingerprint(fingerprint) {
 export function stableJobIdentityKeys(job, fingerprintOf) {
   const keys = [];
   const id = String(job?.id || '').trim();
-  if (id) keys.push(`job-id|${id}`);
   const fingerprint = typeof fingerprintOf === 'function' ? fingerprintOf(job) : '';
-  if (isStrongJobFingerprint(fingerprint)) keys.push(`job-fingerprint|${fingerprint}`);
+  const strongFingerprint = isStrongJobFingerprint(fingerprint);
+  if (strongFingerprint) keys.push(`job-fingerprint|${fingerprint}`);
   const url = String(job?.url || '').trim();
+  // A bare id is only an owner key when the same row also carries a
+  // source-backed fingerprint. Some legacy crawlers synthesize ids from
+  // mutable title/location data; matching those ids alone could move a
+  // historical locale route to the wrong posting. A URL remains an exact
+  // auxiliary key even when its fingerprint helper is unavailable.
+  if (id && strongFingerprint) keys.push(`job-id|${id}`);
   if (url) keys.push(`job-url|${url}`);
   return [...new Set(keys)];
 }

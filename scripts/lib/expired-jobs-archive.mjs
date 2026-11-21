@@ -635,6 +635,8 @@ export function mergeExpiredRouteEvidence(survivor, historical, source = 'expire
   if (!survivor || typeof survivor !== 'object' || !historical || typeof historical !== 'object') {
     return false;
   }
+  validateSlugHistoryShape(survivor, 'survivor');
+  validateSlugHistoryShape(historical, 'removed');
   const before = JSON.stringify({
     canton: survivor.canton,
     location: survivor.location,
@@ -860,7 +862,12 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
       const previousMetadata = firstSeenMetadata(prev);
       unindexRecord(prev); // the replaced record no longer owns its identities or routes
       bySlug.set(entry.slug, entry);
-      const merged = mergeSourceIdentityHistory(entry, prev);
+      const routeEvidenceMerged = mergeExpiredRouteEvidence(
+        entry,
+        prev,
+        `archive-removed-jobs-to-slice/${crawlerKey}`,
+      );
+      const merged = mergeSourceIdentityHistory(entry, prev) || routeEvidenceMerged;
       indexRecord(entry); // after the merge: it may now carry the old record's identity history
       // A newer payload may replace a legacy entry that has no metadata. The
       // merge itself is intentionally a no-op when there is only one source
@@ -869,7 +876,14 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
         || previousMetadata !== firstSeenMetadata(entry)
         || metadataChanged;
     } else {
-      metadataChanged = mergeSourceIdentityHistory(prev, entry) || metadataChanged;
+      const routeEvidenceMerged = mergeExpiredRouteEvidence(
+        prev,
+        entry,
+        `archive-removed-jobs-to-slice/${crawlerKey}`,
+      );
+      metadataChanged = mergeSourceIdentityHistory(prev, entry)
+        || routeEvidenceMerged
+        || metadataChanged;
       // `prev` may have gained identities from `entry`'s history: keep the index in step.
       for (const identity of archiveRecordSourceIdentities(prev)) {
         let records = recordsBySourceIdentity.get(identity);
@@ -977,19 +991,8 @@ export function archiveFilteredJobsToSlices(droppedRows, opts = {}) {
 
 /** Preserve every route known by `removed` on `survivor`. */
 export function transferSlugHistory(survivor, removed, source = 'reconcile-crawler-company-ownership') {
-  if (removed?.previousSlugs != null && !Array.isArray(removed.previousSlugs)) {
-    throw new TypeError('transferSlugHistory: removed.previousSlugs must be an array');
-  }
-  if (removed?.previousSlugsByLocale != null) {
-    if (typeof removed.previousSlugsByLocale !== 'object' || Array.isArray(removed.previousSlugsByLocale)) {
-      throw new TypeError('transferSlugHistory: removed.previousSlugsByLocale must be an object');
-    }
-    for (const [locale, slugs] of Object.entries(removed.previousSlugsByLocale)) {
-      if (!Array.isArray(slugs)) {
-        throw new TypeError(`transferSlugHistory: removed.previousSlugsByLocale.${locale} must be an array`);
-      }
-    }
-  }
+  validateSlugHistoryShape(survivor, 'survivor');
+  validateSlugHistoryShape(removed, 'removed');
   let transferred = 0;
   const requiredRoutes = new Map(LOCALES.map((locale) => [
     locale,
@@ -1062,6 +1065,25 @@ export function transferSlugHistory(survivor, removed, source = 'reconcile-crawl
     }
   }
   return transferred;
+}
+
+function validateSlugHistoryShape(record, label) {
+  if (!record || typeof record !== 'object' || Array.isArray(record)) {
+    throw new TypeError(`transferSlugHistory: ${label} must be an object`);
+  }
+  if (record.previousSlugs != null && !Array.isArray(record.previousSlugs)) {
+    throw new TypeError(`transferSlugHistory: ${label}.previousSlugs must be an array`);
+  }
+  if (record.previousSlugsByLocale != null) {
+    if (typeof record.previousSlugsByLocale !== 'object' || Array.isArray(record.previousSlugsByLocale)) {
+      throw new TypeError(`transferSlugHistory: ${label}.previousSlugsByLocale must be an object`);
+    }
+    for (const [locale, slugs] of Object.entries(record.previousSlugsByLocale)) {
+      if (!Array.isArray(slugs)) {
+        throw new TypeError(`transferSlugHistory: ${label}.previousSlugsByLocale.${locale} must be an array`);
+      }
+    }
+  }
 }
 
 const compareCodeUnits = (a, b) => (a < b ? -1 : a > b ? 1 : 0);

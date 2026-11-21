@@ -43,4 +43,15 @@ describe('expired route evidence', () => {
     expect(survivor.canton).toBe('TI');
     expect(survivor.previousSlugsByLocale?.de).toEqual(['old-de']);
   });
+
+  it('fails closed before mutating malformed survivor history', () => {
+    const survivor: Record<string, any> = {
+      slug: 'canonical',
+      previousSlugsByLocale: { de: 'not-an-array' },
+    };
+    const historical: Record<string, any> = { canton: 'ZH', slugByLocale: { de: 'old-de' } };
+
+    expect(() => mergeExpiredRouteEvidence(survivor, historical)).toThrow(/previousSlugsByLocale/);
+    expect(survivor.canton).toBeUndefined();
+  });
 });

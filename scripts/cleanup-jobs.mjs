@@ -31,6 +31,7 @@ import { decontaminateJobs } from './decontaminate-prev-slugs.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 import {
   collapseDuplicateRouteEntries,
+  mergeExpiredRouteEvidence,
   mergeSourceIdentityHistory,
   normalizeExpiredEntryTitles,
   normalizeExpiredAtEntries,
@@ -519,7 +520,9 @@ function archiveExpiredJobsPerCrawler(removedJobs, allJobsById, crawlerKey) {
     // Same rule as the aggregate archive above: a held job was never public.
     if (isHeldFromPublication(job)) continue;
     const entry = buildExpiredEntry(job);
-    mergeSourceIdentityHistory(entry, bySlug.get(job.slug));
+    const previous = bySlug.get(job.slug);
+    mergeExpiredRouteEvidence(entry, previous, `cleanup-jobs/slice/${crawlerKey}`);
+    mergeSourceIdentityHistory(entry, previous);
     bySlug.set(job.slug, entry);
     added++;
   }
