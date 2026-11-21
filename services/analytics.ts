@@ -114,8 +114,11 @@ import {
  isBenignErrorMessage,
  isIndexedDbError,
  isOriginRedactedThirdPartyStack,
+ isFirefoxDeadObjectFromRedactedSource,
  isGoogleVignetteInjectedOpaqueError,
  isGoogleIosAppInjectedStackOverflow,
+ readErrorDetailsSafely,
+ readErrorEventDetailsSafely,
  BROWSER_EXTENSION_ORIGIN_PATTERN,
 } from './benignErrorPatterns';
 import { safeAffiliateToken, buildAffiliatePubref, sanitizeAffiliatePubref } from '../functions/src/lib/affiliateLinks.js';
@@ -1798,7 +1801,10 @@ export const Analytics = {
  // Drop errors from browser extension scripts — they run in page context
  // but are third-party; no fix is possible on our end.
  if (event.filename && BROWSER_EXTENSION_ORIGIN_PATTERN.test(event.filename)) return;
- const errorStack = event.error?.stack || '';
+ // `event.error` itself can be a Firefox dead wrapper. Reading `.stack`
+ // directly would throw from this telemetry handler and create a second
+ // exception with the same signature.
+ const errorStack = readErrorEventDetailsSafely(event).stack;
  // Same for the scripts Chrome for iOS / the Google app inject into the
  // page: WebKit gives their frames the document URL, so they would read as
  // a first-party crash (issue #8773 — see isGoogleIosAppInjectedStackOverflow).
@@ -1812,7 +1818,12 @@ export const Analytics = {
  // (issue #4173 — see isOriginRedactedThirdPartyStack). Reported as
  // `cross_origin_script`/non-fatal rather than dropped, so the signal stays
  // observable without being triaged as a first-party crash.
- const redactedThirdParty = isOriginRedactedThirdPartyStack(errorStack);
+ const redactedThirdParty = isOriginRedactedThirdPartyStack(errorStack)
+  || isFirefoxDeadObjectFromRedactedSource({
+   message: msg,
+   userAgent: navigator.userAgent || '',
+   hasSource: Boolean(errorStack.trim() || (event.filename || '').trim() || event.lineno > 0),
+  });
  Analytics.trackAppError(redactedThirdParty ? 'cross_origin_script' : 'unhandled_error', {
  message: msg || 'Unknown error',
  stack: errorStack || `at ${event.filename}:${event.lineno}:${event.colno}`,
@@ -1824,9 +1835,12 @@ export const Analytics = {
  // Unhandled promise rejections
  window.addEventListener('unhandledrejection', (event) => {
  const reason = event.reason;
- const message = reason instanceof Error
- ? `${reason.name}: ${reason.message}`
- : String(reason || 'Unknown rejection');
+ const reasonDetails = readErrorDetailsSafely(reason);
+ let rejectionFallback = 'Unknown rejection';
+ try { rejectionFallback = String(reason || rejectionFallback); } catch { /* dead wrapper */ }
+ const message = reasonDetails.isError
+ ? `${reasonDetails.name}: ${reasonDetails.message}`
+ : rejectionFallback;
  // iOS Safari IndexedDB connection loss (WebKit bug 273827 / 277615):
  // Firebase Analytics uses IndexedDB internally for event persistence.
  // When iOS suspends/resumes the page, the IDB connection can die.
@@ -1844,7 +1858,7 @@ export const Analytics = {
  // reader). This is the bucket that was leaking thousands of events/3d before
  // the global handlers shared the reporter's list (2026-06-22 triage).
  if (isBenignErrorMessage(message)) return;
- const stack = reason instanceof Error ? reason.stack || '' : '';
+ const stack = reasonDetails.stack;
  // Drop errors from browser extensions — they run in page context but are
  // third-party; no fix is possible on our end.
  if (stack && BROWSER_EXTENSION_ORIGIN_PATTERN.test(stack)) return;
