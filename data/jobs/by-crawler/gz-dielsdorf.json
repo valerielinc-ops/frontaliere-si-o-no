@@ -1,7 +1,7 @@
 {
   "crawlerKey": "gz-dielsdorf",
-  "assembledAt": "2026-11-20T21:47:22.163Z",
-  "runId": "44819798367",
+  "assembledAt": "2026-11-21T21:40:24.242Z",
+  "runId": "44951174790",
   "jobs": [
     {
       "id": "gz-dielsdorf-4b685baadaef",
@@ -34,7 +34,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/40f16983-a20e-41f2-86c4-84680efa2218",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:47:11.515Z",
+      "crawledAt": "2026-11-21T21:40:15.430Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -85,9 +85,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:47:11.515Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/40f16983-a20e-41f2-86c4-84680efa2218"
+      "validThrough": "2026-12-23T21:40:15.430Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gz-dielsdorf-49654237aba4",
@@ -120,7 +119,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/95c4d58f-6a7a-4f58-b379-850fda14f411",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:47:11.512Z",
+      "crawledAt": "2026-11-21T21:40:15.428Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -195,9 +194,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:47:11.512Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/95c4d58f-6a7a-4f58-b379-850fda14f411"
+      "validThrough": "2026-12-21T21:40:15.428Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gz-dielsdorf-f7c2f23043e5",
@@ -231,7 +229,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/37878915-a625-4a99-835e-163765318811",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:47:11.505Z",
+      "crawledAt": "2026-11-21T21:40:15.425Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -304,9 +302,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:47:11.505Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/37878915-a625-4a99-835e-163765318811"
+      "validThrough": "2026-12-21T21:40:15.425Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gz-dielsdorf-d4b1df3e7162",
@@ -340,7 +337,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/ccff2188-a83e-467d-a774-222e2d4b4400",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:47:11.501Z",
+      "crawledAt": "2026-11-21T21:40:15.421Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -397,9 +394,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:47:11.501Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/ccff2188-a83e-467d-a774-222e2d4b4400"
+      "validThrough": "2026-12-21T21:40:15.421Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gz-dielsdorf-a53f2bf0ee39",
@@ -433,7 +429,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/e9219be9-3764-498e-9af7-cfb63d934b58",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:47:11.498Z",
+      "crawledAt": "2026-11-21T21:40:15.418Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -490,9 +486,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:47:11.498Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/e9219be9-3764-498e-9af7-cfb63d934b58"
+      "validThrough": "2026-12-21T21:40:15.418Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gz-dielsdorf-6440dae1c75b",
@@ -525,7 +520,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/64d35c69-bd5e-4994-ae19-7a4f6749f018",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:47:11.494Z",
+      "crawledAt": "2026-11-21T21:40:15.415Z",
       "addressLocality": "Dielsdorf/Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -575,9 +570,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:47:11.494Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/64d35c69-bd5e-4994-ae19-7a4f6749f018"
+      "validThrough": "2027-02-19T21:40:15.415Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gz-dielsdorf-aeab9167a250",
@@ -611,7 +605,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/98bf11f9-62ad-4a25-8ae5-620b5dc23c43",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:47:11.484Z",
+      "crawledAt": "2026-11-21T21:40:15.409Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -670,9 +664,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:47:11.484Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/98bf11f9-62ad-4a25-8ae5-620b5dc23c43"
+      "validThrough": "2026-12-21T21:40:15.409Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gz-dielsdorf-2d52f5684205",
@@ -705,7 +698,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/b634c3ff-2de5-499f-a9fa-da05f217adad",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:47:11.472Z",
+      "crawledAt": "2026-11-21T21:40:15.404Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -750,9 +743,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:47:11.472Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/b634c3ff-2de5-499f-a9fa-da05f217adad"
+      "validThrough": "2026-12-21T21:40:15.404Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gz-dielsdorf-3321edaa6457",
@@ -786,7 +778,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/172b5cc3-c67c-4508-a422-a7738fc75827",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:47:11.467Z",
+      "crawledAt": "2026-11-21T21:40:15.401Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -835,9 +827,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:47:11.467Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/172b5cc3-c67c-4508-a422-a7738fc75827"
+      "validThrough": "2027-01-26T21:40:15.401Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gz-dielsdorf-f7e4688c4e2e",
@@ -871,7 +862,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/1341696f-b6e0-4cc0-8052-91fbf3bb6ec7",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:47:11.458Z",
+      "crawledAt": "2026-11-21T21:40:15.397Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -920,9 +911,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:47:11.458Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/1341696f-b6e0-4cc0-8052-91fbf3bb6ec7"
+      "validThrough": "2027-02-01T21:40:15.397Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gz-dielsdorf-45f7022fbd72",
@@ -956,7 +946,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/656f7bbb-3978-4c4c-8d82-2325a5c548e4",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:47:11.453Z",
+      "crawledAt": "2026-11-21T21:40:15.394Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1007,9 +997,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:47:11.453Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/656f7bbb-3978-4c4c-8d82-2325a5c548e4"
+      "validThrough": "2027-02-03T21:40:15.394Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gz-dielsdorf-9044adaf5830",
@@ -1042,7 +1031,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/41ecc416-55d0-4064-bbbd-5ebc2a9609fb",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:47:11.447Z",
+      "crawledAt": "2026-11-21T21:40:15.388Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1087,9 +1076,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:47:11.447Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/41ecc416-55d0-4064-bbbd-5ebc2a9609fb"
+      "validThrough": "2027-01-12T21:40:15.388Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gz-dielsdorf-58bb13d1e1d1",
@@ -1123,7 +1111,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/a915bb96-e5ba-4a09-84ad-1e98a4dc9a3b",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:47:11.441Z",
+      "crawledAt": "2026-11-21T21:40:15.384Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1172,9 +1160,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:47:11.441Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/a915bb96-e5ba-4a09-84ad-1e98a4dc9a3b"
+      "validThrough": "2027-02-16T21:40:15.384Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gz-dielsdorf-12b148387381",
@@ -1208,7 +1195,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/41b32f60-cb8e-4dcd-8bcb-9d803aa94962",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:47:11.424Z",
+      "crawledAt": "2026-11-21T21:40:15.378Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1257,9 +1244,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:47:11.424Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/41b32f60-cb8e-4dcd-8bcb-9d803aa94962"
+      "validThrough": "2027-02-16T21:40:15.378Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "gz-dielsdorf-a5ec22751229",
@@ -1344,7 +1330,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-17T10:23:38.164Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/86f428f2-bab8-4733-b56f-239d594e5e83"
     }
   ]

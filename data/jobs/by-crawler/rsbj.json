@@ -1,7 +1,7 @@
 {
   "crawlerKey": "rsbj",
-  "assembledAt": "2026-11-20T21:40:55.722Z",
-  "runId": "44819798367",
+  "assembledAt": "2026-11-21T21:33:52.475Z",
+  "runId": "44951174790",
   "jobs": [
     {
       "id": "rsbj-97f459a61e1e",
@@ -35,7 +35,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_18026/fr/des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-interne-generale-fmh",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:40:47.732Z",
+      "crawledAt": "2026-11-21T21:33:44.934Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -84,9 +84,9 @@
       },
       "streetAddress": "Sainte-Croix",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:40:47.732Z",
+      "validThrough": "2027-02-19T21:33:44.934Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.rsbj.ch/jcms/rsbj_18026/fr/des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-interne-generale-fmh"
+      "firstSeenAt": "2026-11-21T21:33:44.934Z"
     },
     {
       "id": "rsbj-eb567f86bbdd",
@@ -120,7 +120,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_42203/fr/un-e-medecin-generaliste-/-medecin-de-famille-independant-ou-dependant-taux-a-definir",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:40:46.920Z",
+      "crawledAt": "2026-11-21T21:33:44.156Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -163,9 +163,8 @@
       },
       "streetAddress": "Sainte-Croix",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:40:46.920Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.rsbj.ch/jcms/rsbj_42203/fr/un-e-medecin-generaliste-/-medecin-de-famille-independant-ou-dependant-taux-a-definir"
+      "validThrough": "2026-12-21T21:33:44.156Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rsbj-1e0d8034c271",
@@ -198,7 +197,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_54318/fr/infirmier-ere-expert-e-en-prevention-des-infections-associees-aux-soins-epias",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:40:45.668Z",
+      "crawledAt": "2026-11-21T21:33:42.915Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -247,9 +246,8 @@
       },
       "streetAddress": "Sainte-Croix",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:40:45.668Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.rsbj.ch/jcms/rsbj_54318/fr/infirmier-ere-expert-e-en-prevention-des-infections-associees-aux-soins-epias"
+      "validThrough": "2026-12-21T21:33:42.915Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rsbj-7a6a5d607faf",
@@ -283,7 +281,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_58809/fr/ergotherapeute-entre-40-et-50",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:40:44.609Z",
+      "crawledAt": "2026-11-21T21:33:41.691Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -336,9 +334,8 @@
       },
       "streetAddress": "Sainte-Croix",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T21:40:44.609Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.rsbj.ch/jcms/rsbj_58809/fr/ergotherapeute-entre-40-et-50"
+      "validThrough": "2027-01-03T21:33:41.691Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rsbj-4672e7b20b51",
@@ -371,7 +368,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_58819/fr/assistant-e-en-soins-et-sante-communautaire-assc-cdd-de-6-mois",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:40:43.623Z",
+      "crawledAt": "2026-11-21T21:33:40.638Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -420,9 +417,8 @@
       },
       "streetAddress": "Sainte-Croix",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:40:43.623Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.rsbj.ch/jcms/rsbj_58819/fr/assistant-e-en-soins-et-sante-communautaire-assc-cdd-de-6-mois"
+      "validThrough": "2026-12-21T21:33:40.638Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rsbj-765bf766d09a",
@@ -456,7 +452,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_59109/fr/un-e-physiotherapeute-entre-60-et-80",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:40:42.551Z",
+      "crawledAt": "2026-11-21T21:33:39.254Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -507,9 +503,8 @@
       },
       "streetAddress": "Sainte-Croix",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:40:42.551Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.rsbj.ch/jcms/rsbj_59109/fr/un-e-physiotherapeute-entre-60-et-80"
+      "validThrough": "2027-01-12T21:33:39.254Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

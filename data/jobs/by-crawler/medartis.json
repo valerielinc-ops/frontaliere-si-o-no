@@ -1,7 +1,7 @@
 {
   "crawlerKey": "medartis",
-  "assembledAt": "2026-11-20T21:45:20.917Z",
-  "runId": "44819798367",
+  "assembledAt": "2026-11-21T21:40:02.861Z",
+  "runId": "44951174790",
   "jobs": [
     {
       "id": "medartis-c6bf655ea106",
@@ -35,7 +35,7 @@
       "url": "https://careers.medartis.com/job/Events-Manager/1457737633/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:45:09.449Z",
+      "crawledAt": "2026-11-21T21:39:55.338Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -81,9 +81,8 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:45:09.449Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.medartis.com/job/events-manager/1457737633"
+      "validThrough": "2027-02-14T21:39:55.338Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "medartis-2f093688beed",
@@ -117,7 +116,7 @@
       "url": "https://careers.medartis.com/job/Senior-Identity-Engineer-&-Architect/1458221833/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:45:11.835Z",
+      "crawledAt": "2026-11-21T21:39:54.798Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -163,9 +162,8 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:45:11.835Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.medartis.com/job/senior-identity-engineer-&-architect/1458221833"
+      "validThrough": "2027-02-15T21:39:54.798Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "medartis-4bb51ef9dc30",
@@ -199,7 +197,7 @@
       "url": "https://careers.medartis.com/job/Quality-Inspector-100/1456101133/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:45:08.444Z",
+      "crawledAt": "2026-11-21T21:39:54.256Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -245,9 +243,8 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:45:08.444Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.medartis.com/job/quality-inspector-100/1456101133"
+      "validThrough": "2027-02-08T21:39:54.256Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "medartis-6e8489712f89",
@@ -281,7 +278,7 @@
       "url": "https://careers.medartis.com/job/IT-Service-Delivery-Manager/1458220133/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:45:11.271Z",
+      "crawledAt": "2026-11-21T21:39:53.443Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -327,9 +324,8 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:45:11.271Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.medartis.com/job/it-service-delivery-manager/1458220133"
+      "validThrough": "2027-02-15T21:39:53.443Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "medartis-62427cab689e",
@@ -362,7 +358,7 @@
       "url": "https://careers.medartis.com/job/PLM-Support-Specialist/1428557833/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:45:10.640Z",
+      "crawledAt": "2026-11-21T21:39:52.160Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -405,9 +401,8 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:45:10.640Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.medartis.com/job/plm-support-specialist/1428557833"
+      "validThrough": "2026-12-21T21:39:52.160Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
