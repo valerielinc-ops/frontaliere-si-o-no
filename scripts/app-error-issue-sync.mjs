@@ -160,6 +160,7 @@ export const CLIENT_APP_ERROR_DROP_PATTERNS = [
   /\bstandardSelectors\b/,
   /Unexpected token ['"]?\?['"]?/i,
   /NotReadableError: The I\/O read operation failed/i,
+  /Battery access is blocked by privacy protection\.?$/i,
   /Failed to load Google Identity Services/i,
   /Failed to get document because the client is offline/i,
   /Importing a module script failed/i,

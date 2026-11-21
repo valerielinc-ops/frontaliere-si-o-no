@@ -54,6 +54,8 @@ describe('isBenignErrorMessage()', () => {
       'Unexpected token ?',
       // OS/hardware file-read failure (#4175) — user's disk/file, unfixable.
       'NotReadableError: The I/O read operation failed.',
+      // Privacy-protected Battery Status API access (#19704).
+      'NotAllowedError: Battery access is blocked by privacy protection.',
     ])('drops: %s', (msg) => {
       expect(isBenignErrorMessage(msg)).toBe(true);
     });
@@ -76,6 +78,7 @@ describe('isBenignErrorMessage()', () => {
       '[articleBody] TypeError: cancelled',
       'TypeError: cancelled while loading article body',
       'No Listener: tabs:outgoing.message.readyState',
+      'NotAllowedError: Battery access is blocked by permissions policy.',
       // Genuine app bugs
       "TypeError: Cannot read properties of undefined (reading 'trackCalculation')",
       'TypeError: Ze is not a constructor',
