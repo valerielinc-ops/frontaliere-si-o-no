@@ -1,7 +1,7 @@
 {
   "crawlerKey": "prosenectute-ti",
-  "assembledAt": "2026-11-20T21:19:56.585Z",
-  "runId": "44817037361",
+  "assembledAt": "2026-11-21T21:18:37.266Z",
+  "runId": "44949562733",
   "jobs": [
     {
       "id": "prosenectute-ti-d979e745fd71",
@@ -35,7 +35,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:8cf58760-f8fd-4d50-bdda-32a602558644/Concorso%20generale%202026_Infermieri.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-20T21:19:50.834Z",
+      "crawledAt": "2026-11-21T21:18:28.270Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -90,9 +90,8 @@
       },
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:19:50.834Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://ti.prosenectute.ch/dam/jcr:8cf58760-f8fd-4d50-bdda-32a602558644/concorso%20generale%202026_infermieri.pdf"
+      "validThrough": "2026-12-21T21:18:28.270Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "prosenectute-ti-b26d255776bf",
@@ -126,7 +125,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:a071b88f-e067-4c3d-a090-ae4e7a288402/Concorso%20generale%202026%20educatori.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-20T21:19:50.639Z",
+      "crawledAt": "2026-11-21T21:18:28.120Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -169,9 +168,8 @@
       },
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:19:50.639Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://ti.prosenectute.ch/dam/jcr:a071b88f-e067-4c3d-a090-ae4e7a288402/concorso%20generale%202026%20educatori.pdf"
+      "validThrough": "2026-12-21T21:18:28.120Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "prosenectute-ti-98bbfa6cb472",
@@ -205,7 +203,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:a5bb2937-0e37-4696-b1fe-abe3c778aa15/Concorso%20generale%202026_Assistenti%20Sociali.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-20T21:19:50.448Z",
+      "crawledAt": "2026-11-21T21:18:27.953Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -269,9 +267,8 @@
       },
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:19:50.448Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://ti.prosenectute.ch/dam/jcr:a5bb2937-0e37-4696-b1fe-abe3c778aa15/concorso%20generale%202026_assistenti%20sociali.pdf"
+      "validThrough": "2026-12-21T21:18:27.953Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "prosenectute-ti-98d132d13a00",
@@ -305,7 +302,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:23640a07-34bb-4681-90f3-c7d9ee01290a/Concorso%20generale%202026_Op.socio-assistenziali.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-20T21:19:49.909Z",
+      "crawledAt": "2026-11-21T21:18:27.653Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -348,9 +345,8 @@
       },
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:19:49.909Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://ti.prosenectute.ch/dam/jcr:23640a07-34bb-4681-90f3-c7d9ee01290a/concorso%20generale%202026_op.socio-assistenziali.pdf"
+      "validThrough": "2026-12-21T21:18:27.653Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
