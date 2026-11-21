@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ecam",
-  "assembledAt": "2026-11-20T22:05:02.428Z",
-  "runId": "44820421088",
+  "assembledAt": "2026-11-21T21:45:08.711Z",
+  "runId": "44951537783",
   "jobs": [
     {
       "id": "ecam-590be7c475e5",
@@ -34,7 +34,7 @@
       "url": "https://www.ecam.swiss/wp-content/uploads/2026/01/Concorso-generale-sito-ECAM-2026.pdf",
       "source": "ECAM Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-20T22:04:56.720Z",
+      "crawledAt": "2026-11-21T21:45:03.938Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -70,8 +70,7 @@
       },
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://www.ecam.swiss/wp-content/uploads/2026/01/concorso-generale-sito-ecam-2026.pdf"
+      "validThroughSource": "source"
     }
   ]
 }
