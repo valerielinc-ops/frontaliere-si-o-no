@@ -16,9 +16,12 @@ import {
   mergeFastJobsSitemap,
   listJobVariantShardFilenames,
   nextJobVariantShardFilename,
+  routeActiveJobSitemapRemovals,
   selectJobVariantShardFilename,
+  staleActiveJobDetailLocs,
 } from "./lib/jobs-fast-sitemap.mjs";
 import { SITEMAP_SHARD_CAP } from "./lib/sitemap-limits.mjs";
+import { isAuthoritativeJobSitemapShardFilename } from "./lib/sitemap-shard.mjs";
 import {
   acquireShardWriterLeases,
   releaseShardWriterLeases,
@@ -785,6 +788,7 @@ async function prepareSitemapUpdates(
   slugToSection,
   sectionSlugs,
   fullBuildSitemapLocs,
+  fullBuildActiveJobDetailLocs,
   liveJobsSitemapXml,
 ) {
   const sitemapDir = path.join(tempDir, "sitemap-payload");
@@ -809,18 +813,47 @@ async function prepareSitemapUpdates(
     currentLocs,
     fullBuildSitemapLocs,
   );
-  const itRemovals = oldLocs
+  const sourceBackedRemovals = staleActiveJobDetailLocs(
+    fullBuildActiveJobDetailLocs,
+    currentLocs,
+    fullBuildSitemapLocs,
+  ).map((loc) => {
+    const route = new URL(loc).pathname;
+    return { route, loc, locale: localeForRoute(route) };
+  });
+  const allRemovals = [
+    ...new Map(
+      [...oldLocs, ...sourceBackedRemovals].map((item) => [item.loc, item]),
+    ).values(),
+  ];
+  if (sourceBackedRemovals.length > 0) {
+    console.log(
+      `[jobs-fast] source-backed stale sitemap details=${sourceBackedRemovals.length}`,
+    );
+  }
+  const itRemovals = allRemovals
     .filter((item) => item.locale === "it")
     .map((item) => item.loc);
+  const unresolvedItRemovals = new Set(itRemovals);
   if (entries.length > 0 || itRemovals.length > 0) {
     const jobsXml =
       liveJobsSitemapXml ??
       (await fetchLiveText(`${BASE_URL}/sitemap-jobs.xml`));
-    updates.set(
-      "/sitemap-jobs.xml",
-      mergeFastJobsSitemap(jobsXml, entries, { removeLocs: itRemovals }),
+    const rootRemovalPlan = routeActiveJobSitemapRemovals(
+      itRemovals,
+      new Map([["/sitemap-jobs.xml", jobsXml]]),
     );
-    for (const loc of itRemovals) recordRemoval("/sitemap-jobs.xml", loc);
+    const rootRemovals = [...(rootRemovalPlan.get("/sitemap-jobs.xml") || [])];
+    if (entries.length > 0 || rootRemovals.length > 0) {
+      updates.set(
+        "/sitemap-jobs.xml",
+        mergeFastJobsSitemap(jobsXml, entries, { removeLocs: rootRemovals }),
+      );
+    }
+    for (const loc of rootRemovals) {
+      unresolvedItRemovals.delete(loc);
+      recordRemoval("/sitemap-jobs.xml", loc);
+    }
   }
 
   const variants = new Map();
@@ -831,7 +864,7 @@ async function prepareSitemapUpdates(
       variants.get(key).entries.push(variant);
     }
   }
-  for (const old of oldLocs.filter((item) => item.locale !== "it")) {
+  for (const old of allRemovals.filter((item) => item.locale !== "it")) {
     const section = sectionForRoute(old.route, slugToSection);
     const cantonSlug = sectionSlugs[section]?.it;
     if (!cantonSlug)
@@ -843,7 +876,7 @@ async function prepareSitemapUpdates(
     variants.get(key).removals.push(old.loc);
   }
 
-  if (variants.size === 0)
+  if (variants.size === 0 && unresolvedItRemovals.size === 0)
     return { ...writeSitemapPayloads(updates, sitemapDir), removalsByPath };
   let indexXml = await fetchLiveText(`${BASE_URL}/sitemap-index.xml`);
   let indexChanged = false;
@@ -866,6 +899,31 @@ async function prepareSitemapUpdates(
     return mutations.get(filename);
   };
 
+  if (unresolvedItRemovals.size > 0) {
+    const legacyFilenames = [
+      ...new Set(
+        [...String(indexXml).matchAll(/<loc>\s*https:\/\/frontaliereticino\.ch\/([^<]+?)\s*<\/loc>/gu)]
+          .map((match) => match[1].trim())
+          .filter(isAuthoritativeJobSitemapShardFilename),
+      ),
+    ].sort();
+    const legacySources = new Map();
+    for (const filename of legacyFilenames) {
+      legacySources.set(`/${filename}`, await loadFile(filename));
+    }
+    const legacyRemovalPlan = routeActiveJobSitemapRemovals(
+      unresolvedItRemovals,
+      legacySources,
+    );
+    for (const [pathname, locs] of legacyRemovalPlan) {
+      const filename = pathname.slice(1);
+      for (const loc of locs) {
+        mutation(filename).removals.add(loc);
+        recordRemoval(pathname, loc);
+      }
+    }
+  }
+
   for (const [key, shardChanges] of variants) {
     const [cantonSlug, locale] = key.split(":");
     const filenames = listJobVariantShardFilenames(
@@ -873,14 +931,19 @@ async function prepareSitemapUpdates(
       cantonSlug,
       locale,
     );
-    for (const oldLoc of shardChanges.removals) {
-      for (const filename of [...filenames].reverse()) {
-        const xml = await loadFile(filename);
-        if (extractXmlLocs(xml).has(oldLoc)) {
-          mutation(filename).removals.add(oldLoc);
-          recordRemoval(`/${filename}`, oldLoc);
-          break;
-        }
+    const variantSources = new Map();
+    for (const filename of filenames) {
+      variantSources.set(`/${filename}`, await loadFile(filename));
+    }
+    const variantRemovalPlan = routeActiveJobSitemapRemovals(
+      shardChanges.removals,
+      variantSources,
+    );
+    for (const [pathname, locs] of variantRemovalPlan) {
+      const filename = pathname.slice(1);
+      for (const loc of locs) {
+        mutation(filename).removals.add(loc);
+        recordRemoval(pathname, loc);
       }
     }
 
@@ -921,9 +984,13 @@ async function prepareSitemapUpdates(
 
   for (const [filename, changes] of mutations) {
     const liveXml = await loadFile(filename);
-    const xml = mergeFastJobVariantShard(liveXml, changes.entries, {
-      removeLocs: [...changes.removals],
-    });
+    const xml = isAuthoritativeJobSitemapShardFilename(filename)
+      ? mergeFastJobsSitemap(liveXml, [], {
+          removeLocs: [...changes.removals],
+        })
+      : mergeFastJobVariantShard(liveXml, changes.entries, {
+          removeLocs: [...changes.removals],
+        });
     updates.set(`/${filename}`, xml);
   }
   if (indexChanged) updates.set("/sitemap-index.xml", indexXml);
@@ -1473,6 +1540,12 @@ export async function runJobsFastPublish({
       resolveJobCanton: canton.resolveJobCanton,
       pathOwners: fullBuildPathOwners,
     });
+  const fullBuildActiveJobDetailLocs = new Set();
+  for (const job of validJobs) {
+    for (const route of pathsForJob(job)) {
+      fullBuildActiveJobDetailLocs.add(`${BASE_URL}${route}`);
+    }
+  }
   const discovered = await discoverFastPublishJobs(validJobs, {
     write: !dryRun,
     pathsForJob,
@@ -1829,8 +1902,10 @@ export async function runJobsFastPublish({
         slugToSection,
         sectionSlugs,
         fullBuildSitemapLocs,
+        fullBuildActiveJobDetailLocs,
         liveJobsSitemap,
       );
+      fullBuildActiveJobDetailLocs.clear();
       heartbeat.assertHealthy();
       const runnerTemp = path.join(tempDir, "runner-temp");
       fs.mkdirSync(runnerTemp, { recursive: true });
