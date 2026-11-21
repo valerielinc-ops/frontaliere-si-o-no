@@ -1,7 +1,7 @@
 {
   "crawlerKey": "cippatrasporti",
-  "assembledAt": "2026-11-20T21:37:21.963Z",
-  "runId": "44818667336",
+  "assembledAt": "2026-11-21T21:38:32.951Z",
+  "runId": "44950512766",
   "jobs": [
     {
       "id": "cippatrasporti-c38396f76831",
@@ -34,7 +34,7 @@
       "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Customer-Service-Transport-Specialist-Commerciale-Trasporti-Chiasso-672753984.htm",
       "source": "Cippà Trasporti SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-20T21:37:15.611Z",
+      "crawledAt": "2026-11-21T21:38:25.920Z",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -90,9 +90,8 @@
       },
       "streetAddress": "Via Maestri Comacini 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T21:37:15.611Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://cippatrasporti.altamiraweb.com/annunci-lavoro/customer-service-transport-specialist-commerciale-trasporti-chiasso-672753984.htm"
+      "validThrough": "2026-12-21T21:38:25.920Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cippatrasporti-6360a178ef6c",
@@ -125,7 +124,7 @@
       "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Operativo-Trasporti-Terra-Trasporti-Chiasso-693485366.htm",
       "source": "Cippà Trasporti SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-20T21:37:15.319Z",
+      "crawledAt": "2026-11-21T21:38:25.591Z",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -143,6 +142,14 @@
       "applyUrl": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Operativo-Trasporti-Terra-Trasporti-Chiasso-693485366.htm",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "it": [
+          "operativo-trasporti-terra-cippatrasporti-ch"
+        ]
+      },
+      "previousSlugs": [
+        "operativo-trasporti-terra-cippatrasporti-ch"
+      ],
       "firstSeenAt": "2026-10-02T09:23:22.191Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
@@ -171,17 +178,8 @@
       },
       "streetAddress": "Via Maestri Comacini 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-31T21:37:15.319Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://cippatrasporti.altamiraweb.com/annunci-lavoro/operativo-trasporti-terra-trasporti-chiasso-693485366.htm",
-      "previousSlugsByLocale": {
-        "it": [
-          "operativo-trasporti-terra-cippatrasporti-ch"
-        ]
-      },
-      "previousSlugs": [
-        "operativo-trasporti-terra-cippatrasporti-ch"
-      ]
+      "validThrough": "2026-12-31T21:38:25.591Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

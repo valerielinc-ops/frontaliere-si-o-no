@@ -1,7 +1,7 @@
 {
   "crawlerKey": "sanatorium-kilchberg",
-  "assembledAt": "2026-11-20T21:29:11.363Z",
-  "runId": "44818667336",
+  "assembledAt": "2026-11-21T21:37:38.488Z",
+  "runId": "44950512766",
   "jobs": [
     {
       "id": "sanatorium-kilchberg-57bc0cc78487",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/289/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:28:35.812Z",
+      "crawledAt": "2026-11-21T21:37:03.799Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -123,9 +123,8 @@
       },
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:28:35.812Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-3010.umantis.com/vacancies/289/description/1"
+      "validThrough": "2026-12-21T21:37:03.799Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-0e4e4e0f5e5d",
@@ -159,7 +158,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/344/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:28:33.800Z",
+      "crawledAt": "2026-11-21T21:37:01.810Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -227,9 +226,8 @@
       },
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:28:33.800Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-3010.umantis.com/vacancies/344/description/1"
+      "validThrough": "2026-12-21T21:37:01.810Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-9d7b5fd4744c",
@@ -263,7 +261,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/528/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:28:31.809Z",
+      "crawledAt": "2026-11-21T21:36:59.790Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -337,9 +335,8 @@
       },
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:28:31.809Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-3010.umantis.com/vacancies/528/description/1"
+      "validThrough": "2026-12-21T21:36:59.790Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-27ac27e9eae8",
@@ -372,7 +369,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/542/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:28:29.805Z",
+      "crawledAt": "2026-11-21T21:36:57.803Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -451,9 +448,8 @@
       },
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:28:29.805Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-3010.umantis.com/vacancies/542/description/1"
+      "validThrough": "2026-12-21T21:36:57.803Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-356e0f5506b1",
@@ -486,7 +482,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/587/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:28:27.815Z",
+      "crawledAt": "2026-11-21T21:36:55.795Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -561,9 +557,8 @@
       },
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:28:27.815Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-3010.umantis.com/vacancies/587/description/1"
+      "validThrough": "2026-12-21T21:36:55.795Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-7a158fff9cff",
@@ -597,7 +592,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/629/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:28:26.730Z",
+      "crawledAt": "2026-11-21T21:36:53.684Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -671,9 +666,8 @@
       },
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:28:26.730Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-3010.umantis.com/vacancies/629/description/1"
+      "validThrough": "2026-12-21T21:36:53.684Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-11a5e19f0f00",
@@ -707,7 +701,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/655/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:28:25.923Z",
+      "crawledAt": "2026-11-21T21:36:52.999Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -756,9 +750,8 @@
       },
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:28:25.923Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-3010.umantis.com/vacancies/655/description/1"
+      "validThrough": "2026-12-21T21:36:52.999Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-9a9af16c5117",
@@ -791,7 +784,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/673/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:28:25.139Z",
+      "crawledAt": "2026-11-21T21:36:52.335Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -835,9 +828,8 @@
       },
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:28:25.139Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-3010.umantis.com/vacancies/673/description/1"
+      "validThrough": "2026-12-21T21:36:52.335Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-de4d9ebaf506",
@@ -871,7 +863,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/682/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:28:24.320Z",
+      "crawledAt": "2026-11-21T21:36:51.629Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -920,9 +912,8 @@
       },
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:28:24.320Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-3010.umantis.com/vacancies/682/description/1"
+      "validThrough": "2026-12-21T21:36:51.629Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-7df7510e7b96",
@@ -955,7 +946,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/695/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:28:23.514Z",
+      "crawledAt": "2026-11-21T21:36:50.881Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1005,9 +996,8 @@
       },
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:28:23.514Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-3010.umantis.com/vacancies/695/description/1"
+      "validThrough": "2027-01-25T21:36:50.881Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-6ac5c7d708e1",
@@ -1041,7 +1031,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/702/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:28:22.704Z",
+      "crawledAt": "2026-11-21T21:36:50.158Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1138,8 +1128,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
-          "soins-professionnels-hf-fh-sanatorium-kilchberg-kilchberg-f580ce-65974d46",
           "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-ce8c14f0",
           "care-professional-hf-fh-sanatorium-kilchberg-kilchberg-f580ce-86c399d9",
           "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4x5fk4",
@@ -1157,16 +1145,18 @@
           "care-professional-hf-fh-60-90-sanatorium-kilchberg-kilchberg",
           "pflegefachkraft-hf-fh-sanatorium-kilchberg-kilchberg",
           "professionnel-de-soins-hf-fh-60-90-sanatorium-kilchberg-kilchberg",
-          "infirmier-ere-diplome-e-hf-fh-sanatorium-kilchberg-kilchberg"
+          "infirmier-ere-diplome-e-hf-fh-sanatorium-kilchberg-kilchberg",
+          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
+          "soins-professionnels-hf-fh-sanatorium-kilchberg-kilchberg-f580ce-65974d46"
         ],
         "en": [
           "care-professional-hf-fh-sanatorium-kilchberg-kilchberg"
         ],
-        "fr": [
-          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
-        ],
         "de": [
           "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4683189b"
+        ],
+        "fr": [
+          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
         ]
       },
       "firstSeenAt": "2026-07-29T11:41:38.590Z",
@@ -1185,9 +1175,8 @@
       },
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:28:22.704Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-3010.umantis.com/vacancies/702/description/1"
+      "validThrough": "2026-12-21T21:36:50.158Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-472e40510b6d",
@@ -1221,7 +1210,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/708/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:28:21.905Z",
+      "crawledAt": "2026-11-21T21:36:49.458Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1271,9 +1260,8 @@
       },
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:28:21.905Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-3010.umantis.com/vacancies/708/description/1"
+      "validThrough": "2027-02-07T21:36:49.458Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-f6e53cec8c6d",
@@ -1301,12 +1289,13 @@
         "de": "Sanatorium Kilchberg AG | online seit: 19.11.2026\n\nWir suchen ab 1. Januar 2027 oder nach Vereinbarung\n\n80 - 100%\n\nDas Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit.\n\nIhre Aufgaben:\n\n• Selbständige Tätigkeit in sämtlichen Bereichen der Küche (kalte Küche, warme Küche, Patisserie)\n• Betreuung von Menübestellsystem\n• Mitentwicklung von neuen Rezepten und Abläufen\n• Verantwortung für die Produktion einer kostformentsprechenden, gesundheitlich und hygienisch einwandfreien Verpflegung der Patienten\n• Mithilfe bei der Lehrlingsausbildung\n\nIhr Profil:\n\n• Ausbildung Koch/Köchin EFZ\n• Sie sind in der Lage Kochmethoden gezielt anzuwenden, sind strukturiert und können Prioritäten setzten\n• Erfahrungen von Kost- und Diätformen von Vorteil\n• Offene und belastbare Persönlichkeit, mit lösungsorientiertem Handeln\n• Gute Deutschkenntnisse\n\nDas Sanatorium Kilchberg ist eine der traditionsreichsten psychiatrischen Privatkliniken der Schweiz und blickt auf eine fast 160-jährige Geschichte zurück. Nur 15 Minuten von der Zürcher Innenstadt entfernt mit wunderschönem Ausblick auf den Zürichsee und die Alpen. Als Listenspital bieten wir umfassende psychiatrische Betreuung für alle Versicherten und verfügen über stationäre und ambulante Einrichtungen in Kilchberg und Zürich. Unsere rund 650 Mitarbeitenden aus über 25 Berufsgruppen sind das Herzstück der Klinik und engagieren sich für die bestmögliche Behandlung unserer Patientinnen und Patienten. Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der psychiatrischen Versorgung mit.\n\nhttp://www.fanergy.net\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "fr": "Sanatorium Kilchberg AG en ligne depuis le 19.11.2026\n\nNous cherchons à partir de 1 Janvier 2027 ou par accord\n\n80 - 100%\n\nLe Sanatorium de Kilchberg vous offre un environnement de travail satisfaisant avec des possibilités de développement passionnantes dans une équipe dynamique et reconnaissante. Apportez vos forces et façonnez l'avenir de la clinique.\n\nLeurs tâches:\n\n• Travail indépendant dans tous les domaines de la cuisine (cuisine froide, cuisine chaude, pâtisserie)\n• Gestion du système de commande de menus\n• Co-développement de nouvelles recettes et de nouveaux procédés\n• Responsabilité de la production d'aliments répondant aux exigences alimentaires, sanitaires et hygiéniques des patients\n• Aide à l'apprentissage\n\nVotre profil:\n\n• Chef de la formation/chef EFZ\n• Ils peuvent utiliser des méthodes de cuisson spécifiques, sont structurés et peuvent fixer des priorités\n• L'expérience du régime et des formes de régime est bénéfique\n• Personnalité ouverte et résistante, avec une action orientée vers la solution\n• Bonne connaissance de l'allemand\n\nLe Sanatorium de Kilchberg est l'une des cliniques privées psychiatriques les plus traditionnelles de Suisse. A seulement 15 minutes du centre-ville de Zurich avec de belles vues sur le lac de Zurich et les Alpes. En tant que Listespital, nous offrons des soins psychiatriques complets à toutes les personnes assurées et disposons d'établissements hospitaliers et ambulatoires à Kilchberg et Zurich. Nos quelque 650 employés de plus de 25 groupes professionnels sont au cœur de la clinique et sont engagés dans le meilleur traitement possible de nos patients. Faites partie de notre équipe et façonnez l'avenir des soins psychiatriques.\n\nhttp://www.fanergy.net\n\nJe suis intéressé et je voudrais m'inscrire\n\nPrécédent"
       },
+      "needsRetranslation": false,
       "location": "Kilchberg",
       "canton": "ZH",
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/709/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:28:21.117Z",
+      "crawledAt": "2026-11-21T21:36:48.786Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1326,6 +1315,21 @@
       "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/709/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "koch-kochin-sanatorium-kilchberg-kilchberg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-sanatorium-kilchberg-kilchberg"
+        ],
+        "en": [
+          "koch-kochin-sanatorium-kilchberg-kilchberg"
+        ],
+        "fr": [
+          "koch-kochin-sanatorium-kilchberg-kilchberg"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T14:37:11.948Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -1341,25 +1345,8 @@
       },
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:28:21.117Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-05-19T14:37:11.948Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "koch-kochin-sanatorium-kilchberg-kilchberg"
-        ],
-        "en": [
-          "koch-kochin-sanatorium-kilchberg-kilchberg"
-        ],
-        "fr": [
-          "koch-kochin-sanatorium-kilchberg-kilchberg"
-        ]
-      },
-      "previousSlugs": [
-        "koch-kochin-sanatorium-kilchberg-kilchberg"
-      ],
-      "needsRetranslation": false,
-      "sourceIdentity": "url:https://recruitingapp-3010.umantis.com/vacancies/709/description/1"
+      "validThrough": "2026-12-21T21:36:48.786Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-71df3392e703",
@@ -1392,7 +1379,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/714/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:28:20.313Z",
+      "crawledAt": "2026-11-21T21:36:48.101Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1442,9 +1429,8 @@
       },
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:28:20.313Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-3010.umantis.com/vacancies/714/description/1"
+      "validThrough": "2027-02-09T21:36:48.101Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-c51d24dedf45",
@@ -1477,7 +1463,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/717/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:28:19.506Z",
+      "crawledAt": "2026-11-21T21:36:47.439Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1527,9 +1513,8 @@
       },
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:28:19.506Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-3010.umantis.com/vacancies/717/description/1"
+      "validThrough": "2027-02-09T21:36:47.439Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-ad243c3b229b",
@@ -1562,7 +1547,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/724/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:28:18.712Z",
+      "crawledAt": "2026-11-21T21:36:46.645Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1612,9 +1597,8 @@
       },
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:28:18.712Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-3010.umantis.com/vacancies/724/description/1"
+      "validThrough": "2027-02-15T21:36:46.645Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sanatorium-kilchberg-c213f6aca993",
@@ -1648,7 +1632,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/726/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:28:17.899Z",
+      "crawledAt": "2026-11-21T21:36:45.873Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1698,9 +1682,8 @@
       },
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:28:17.899Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-3010.umantis.com/vacancies/726/description/1"
+      "validThrough": "2026-12-21T21:36:45.873Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

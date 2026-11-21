@@ -1,7 +1,7 @@
 {
   "crawlerKey": "klinik-sgm",
-  "assembledAt": "2026-11-20T21:24:29.942Z",
-  "runId": "44818667336",
+  "assembledAt": "2026-11-21T21:33:45.036Z",
+  "runId": "44950512766",
   "jobs": [
     {
       "id": "klinik-sgm-e069e1e25242",
@@ -34,7 +34,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/koechin-koch-efz/2ea70376-4dd3-44ab-96da-785fcc88c6cb",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:24:19.050Z",
+      "crawledAt": "2026-11-21T21:33:33.524Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -54,24 +54,6 @@
       "applyUrl": "https://k61225.coveto.de/public/bewerbung/?id=1075",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-23T23:42:36.080Z",
-      "salaryMin": 67500,
-      "salaryMax": 84500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 67500,
-          "maxValue": 84500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T21:24:19.050Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.klinik-sgm.ch/offene-stellen/koechin-koch-efz/2ea70376-4dd3-44ab-96da-785fcc88c6cb",
       "previousSlugs": [
         "cuoca-cuoco-efz-klinik-sgm-langenthal-langenthal",
         "cook-efz-klinik-sgm-langenthal-langenthal",
@@ -89,7 +71,24 @@
         "fr": [
           "cuisinier-cuisiniere-efz-klinik-sgm-langenthal-langenthal"
         ]
-      }
+      },
+      "firstSeenAt": "2026-09-23T23:42:36.080Z",
+      "salaryMin": 67500,
+      "salaryMax": 84500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 67500,
+          "maxValue": 84500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-22T21:33:33.524Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-sgm-c529a07efffa",
@@ -123,7 +122,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fuer-den-nachtdienst/b12505c9-5be8-4636-af4e-8a9c33ae631e",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:24:19.049Z",
+      "crawledAt": "2026-11-21T21:33:33.522Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -180,9 +179,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:24:19.049Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.klinik-sgm.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fuer-den-nachtdienst/b12505c9-5be8-4636-af4e-8a9c33ae631e"
+      "validThrough": "2026-12-27T21:33:33.522Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-sgm-0d4e92d0dcf8",
@@ -216,7 +214,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-psychiatrie/4f8d5c03-a013-41eb-ad7c-eec4de98fa82",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:24:19.047Z",
+      "crawledAt": "2026-11-21T21:33:33.520Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -267,9 +265,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T21:24:19.047Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.klinik-sgm.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-psychiatrie/4f8d5c03-a013-41eb-ad7c-eec4de98fa82"
+      "validThrough": "2026-12-28T21:33:33.520Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-sgm-b27a4f34392d",
@@ -302,7 +299,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/fachfrau-fachmann-gesundheit-fage-efz/0af049c7-bacf-4cf6-866d-51f79137790b",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:24:19.046Z",
+      "crawledAt": "2026-11-21T21:33:33.517Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -351,9 +348,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T21:24:19.046Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.klinik-sgm.ch/offene-stellen/fachfrau-fachmann-gesundheit-fage-efz/0af049c7-bacf-4cf6-866d-51f79137790b"
+      "validThrough": "2027-01-17T21:33:33.517Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-sgm-0b28a8152577",
@@ -387,7 +383,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/stationsleitung/f2f6d9a4-e3d9-449a-90cc-612c0ea3b65f",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:24:19.044Z",
+      "crawledAt": "2026-11-21T21:33:33.514Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -438,9 +434,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T21:24:19.044Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.klinik-sgm.ch/offene-stellen/stationsleitung/f2f6d9a4-e3d9-449a-90cc-612c0ea3b65f"
+      "validThrough": "2027-01-17T21:33:33.514Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-sgm-265847f18a2b",
@@ -474,7 +469,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-psychiatrie-abteilung-maennerinsel/8a5e5d6a-8a1c-4b76-b09a-b6bc7aa39bb5",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:24:19.042Z",
+      "crawledAt": "2026-11-21T21:33:33.511Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -519,9 +514,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:24:19.042Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.klinik-sgm.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-psychiatrie-abteilung-maennerinsel/8a5e5d6a-8a1c-4b76-b09a-b6bc7aa39bb5"
+      "validThrough": "2027-01-26T21:33:33.511Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-sgm-b32b957548de",
@@ -555,7 +549,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/oberaerztin-oberarzt-abteilungsleitung/e3eac8dc-8810-456f-8295-db0e32980ea6",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:24:19.041Z",
+      "crawledAt": "2026-11-21T21:33:33.509Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -598,9 +592,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T21:24:19.041Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.klinik-sgm.ch/offene-stellen/oberaerztin-oberarzt-abteilungsleitung/e3eac8dc-8810-456f-8295-db0e32980ea6"
+      "validThrough": "2027-02-10T21:33:33.509Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-sgm-8d5e53c61da2",
@@ -634,7 +627,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/fachaerztin-facharzt-psychiatrie-ambulatorium-bern/c11ac81b-0bd6-4fb1-a7c7-e24253e162ca",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:24:19.040Z",
+      "crawledAt": "2026-11-21T21:33:33.503Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -677,9 +670,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T21:24:19.040Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.klinik-sgm.ch/offene-stellen/fachaerztin-facharzt-psychiatrie-ambulatorium-bern/c11ac81b-0bd6-4fb1-a7c7-e24253e162ca"
+      "validThrough": "2027-02-10T21:33:33.503Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-sgm-6bef7fdd8378",
@@ -713,7 +705,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/fachaerztin-facharzt-psychiatrie-ambulatorium-meggen/d090056c-d412-48b7-b681-9effca8c41bd",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:24:19.034Z",
+      "crawledAt": "2026-11-21T21:33:33.501Z",
       "addressLocality": "Meggen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -756,9 +748,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T21:24:19.034Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.klinik-sgm.ch/offene-stellen/fachaerztin-facharzt-psychiatrie-ambulatorium-meggen/d090056c-d412-48b7-b681-9effca8c41bd"
+      "validThrough": "2027-02-10T21:33:33.501Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-sgm-c9cc05172c53",
@@ -791,7 +782,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/oberaerztin-oberarzt-psychiatrie-ambulatorium-spiez/5a9d0e9b-cc67-4b27-969b-ec87cfb66ffc",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:24:19.006Z",
+      "crawledAt": "2026-11-21T21:33:33.466Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -834,9 +825,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T21:24:19.006Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.klinik-sgm.ch/offene-stellen/oberaerztin-oberarzt-psychiatrie-ambulatorium-spiez/5a9d0e9b-cc67-4b27-969b-ec87cfb66ffc"
+      "validThrough": "2027-02-10T21:33:33.466Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-sgm-6c7637f2480d",
@@ -870,7 +860,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/oberaerztin-oberarzt-psychiatrie-ambulatorium-langenthal/55e6d3d0-76a0-47ec-853e-306254bba098",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:24:19.004Z",
+      "crawledAt": "2026-11-21T21:33:33.460Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -913,9 +903,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T21:24:19.004Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.klinik-sgm.ch/offene-stellen/oberaerztin-oberarzt-psychiatrie-ambulatorium-langenthal/55e6d3d0-76a0-47ec-853e-306254bba098"
+      "validThrough": "2027-02-10T21:33:33.460Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "klinik-sgm-91b7d0ca7ace",
@@ -949,7 +938,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/fachaerztin-facharzt-psychiatrie-ambulatorium-langenthal/54565454-f461-4fc6-9626-285d11e32e65",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:24:18.992Z",
+      "crawledAt": "2026-11-21T21:33:33.425Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -994,9 +983,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T21:24:18.992Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.klinik-sgm.ch/offene-stellen/fachaerztin-facharzt-psychiatrie-ambulatorium-langenthal/54565454-f461-4fc6-9626-285d11e32e65"
+      "validThrough": "2027-02-10T21:33:33.425Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
