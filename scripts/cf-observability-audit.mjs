@@ -403,17 +403,26 @@ export function evaluateSamplingHistory(entries, timeframe) {
     if (!kind) continue;
     const actionType = entry?.action?.type;
     const method = entry?.raw?.method;
-    const hasActionType = typeof actionType === 'string' && actionType.length > 0;
-    const hasMethod = typeof method === 'string' && method.length > 0;
-    if (!hasActionType && !hasMethod) {
-      // A recognized Worker resource without either operation classifier cannot
-      // prove that it was only a read. Do not silently omit a possible change.
+    const actionOperation = actionType === 'view'
+      ? 'read'
+      : ['create', 'update', 'delete'].includes(actionType)
+        ? 'mutation'
+        : 'unknown';
+    const methodOperation = method === 'GET'
+      ? 'read'
+      : ['POST', 'PUT', 'PATCH', 'DELETE'].includes(method)
+        ? 'mutation'
+        : 'unknown';
+    const operations = [actionOperation, methodOperation];
+    if (operations.includes('unknown')
+      || (operations.includes('read') && operations.includes('mutation'))) {
+      // The receipt may ignore only records whose two classifiers explicitly
+      // identify a read. Missing, unknown, malformed, or conflicting values
+      // can otherwise hide an unrecognized Worker mutation.
       blockers.push(`${kind}:ambiguous-operation`);
       continue;
     }
-    const isMutation = ['create', 'update', 'delete'].includes(actionType)
-      || ['POST', 'PUT', 'PATCH', 'DELETE'].includes(method);
-    if (!isMutation || entry?.action?.result === 'failure') continue;
+    if (operations.every((operation) => operation === 'read') || entry?.action?.result === 'failure') continue;
     if (entry?.action?.result !== 'success') {
       blockers.push(`${kind}:ambiguous-result`);
       continue;
@@ -468,6 +477,7 @@ export function evaluateSamplingHistory(entries, timeframe) {
 async function collectSamplingHistory(timeframe) {
   const entries = [];
   const seenCursors = new Set();
+  const pageLimit = 1000;
   let cursor = null;
   let pages = 0;
   do {
@@ -475,7 +485,7 @@ async function collectSamplingHistory(timeframe) {
       since: new Date(timeframe.auditFrom).toISOString(),
       before: new Date(timeframe.to).toISOString(),
       direction: 'asc',
-      limit: '1000',
+      limit: String(pageLimit),
       resource_id: WORKER_NAME,
       resource_product: 'workers',
     });
@@ -494,9 +504,24 @@ async function collectSamplingHistory(timeframe) {
     entries.push(...json.result);
     pages += 1;
     const resultInfo = json.result_info;
+    const rawCount = resultInfo?.count;
+    const count = typeof rawCount === 'number'
+      ? rawCount
+      : typeof rawCount === 'string' && /^\d+$/.test(rawCount)
+        ? Number(rawCount)
+        : null;
     if (!resultInfo || typeof resultInfo !== 'object'
-      || !Object.hasOwn(resultInfo, 'cursor')) {
-      throw new Error('audit-logs pagination metadata is missing its cursor');
+      || !Number.isSafeInteger(count) || count !== json.result.length) {
+      throw new Error('audit-logs pagination metadata has an invalid count');
+    }
+    if (!Object.hasOwn(resultInfo, 'cursor')) {
+      // The live terminal page omits cursor. Its count proves completeness
+      // only when fewer records than the requested page limit were returned.
+      if (count >= pageLimit) {
+        throw new Error('audit-logs page reached its limit without a cursor');
+      }
+      cursor = null;
+      continue;
     }
     const nextCursor = resultInfo.cursor;
     if (nextCursor === null) {
