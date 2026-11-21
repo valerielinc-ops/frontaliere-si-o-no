@@ -187,25 +187,32 @@
     "slugByLocale": {
       "it": "dipl-cura-professionale-hf-fh-psychiatrie-st-gallen-wil",
       "en": "dipl-care-professional-hf-fh-psychiatrie-st-gallen-wil",
-      "de": "dipl-pflegefachperson-hf-fh-psgn-wil",
+      "de": "dipl-pflegefachperson-hf-fh-psgn-wil-c768feb7",
       "fr": "dipl-soins-professionnels-hf-fh-psychiatrie-st-gallen-wil"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-11T21:15:36.153Z",
     "previousSlugs": [
+      "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil",
       "dipl-pflegefachperson-hf-fh-psgn-wil",
-      "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil"
+      "dipl-pflegefachperson-hf-fh-psgn-wil-4842c9c5"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "dipl-pflegefachperson-hf-fh-psgn-wil",
-        "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil"
+        "dipl-pflegefachperson-hf-fh-psgn-wil-4842c9c5",
+        "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil",
+        "dipl-pflegefachperson-hf-fh-psgn-wil"
       ],
       "en": [
-        "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil"
+        "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil",
+        "dipl-pflegefachperson-hf-fh-psgn-wil"
       ],
       "fr": [
-        "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil"
+        "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil",
+        "dipl-pflegefachperson-hf-fh-psgn-wil"
+      ],
+      "de": [
+        "dipl-pflegefachperson-hf-fh-psgn-wil-c768feb7"
       ]
     },
     "postalCode": "9500",
@@ -1139,13 +1146,12 @@
     "slugByLocale": {
       "it": "assistente-psicologo-assistente-psicologo-psychiatrie-st-gallen-pfafers-ad6137",
       "en": "assistant-psychologist-assistant-psychologist-psychiatrie-st-gallen-pfafers-ad6137",
-      "de": "assistenzpsychologin-assistenzpsychologe-psgn-pfafers",
+      "de": "assistenzpsychologin-assistenzpsychologe-psgn-pfafers-b7069d64",
       "fr": "assistant-psychologue-assistant-psychologue-psychiatrie-st-gallen-pfafers-ad6137"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-07T21:18:46.312Z",
     "previousSlugs": [
-      "assistenzpsychologin-assistenzpsychologe-psgn-pfafers",
       "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers",
       "assistente-psicologo-assistente-psicologo-psychiatrie-st-gallen-pfafers",
       "assistenzpsychologin-assistenzpsychologe-psgn-pfafers-22c43cbe",
@@ -1159,11 +1165,12 @@
       "assistant-psychologist-assistant-psychologist-psychiatrie-st-gallen-pfafers-f7a3ea",
       "assistant-psychologue-assistant-psychologue-psychiatrie-st-gallen-pfafers",
       "assistant-psychologue-assistant-psychologue-psychiatrie-st-gallen-pfafers-d3ff13",
-      "assistant-psychologue-assistant-psychologue-psychiatrie-st-gallen-pfafers-f7a3ea"
+      "assistant-psychologue-assistant-psychologue-psychiatrie-st-gallen-pfafers-f7a3ea",
+      "assistenzpsychologin-assistenzpsychologe-psgn-pfafers"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "assistenzpsychologin-assistenzpsychologe-psgn-pfafers",
+        "assistenzpsychologin-assistenzpsychologe-psgn-pfafers-b7069d64",
         "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers",
         "assistente-psicologo-assistente-psicologo-psychiatrie-st-gallen-pfafers",
         "assistenzpsychologin-assistenzpsychologe-psgn-pfafers-22c43cbe",
@@ -1171,24 +1178,28 @@
         "assistente-psicologo-assistente-psicologo-psychiatrie-st-gallen-pfafers-d3ff13",
         "assistenzpsychologin-assistenzpsychologe-psgn-pfafers-3",
         "assistente-psicologo-assistente-psicologo-psychiatrie-st-gallen-pfafers-f7a3ea",
-        "assistenzpsychologin-assistenzpsychologe-psgn-pfafers-2"
+        "assistenzpsychologin-assistenzpsychologe-psgn-pfafers-2",
+        "assistenzpsychologin-assistenzpsychologe-psgn-pfafers"
       ],
       "en": [
         "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers",
         "assistant-psychologist-assistant-psychologist-psychiatrie-st-gallen-pfafers",
         "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers-4bd0e538",
         "assistant-psychologist-assistant-psychologist-psychiatrie-st-gallen-pfafers-d3ff13",
-        "assistant-psychologist-assistant-psychologist-psychiatrie-st-gallen-pfafers-f7a3ea"
+        "assistant-psychologist-assistant-psychologist-psychiatrie-st-gallen-pfafers-f7a3ea",
+        "assistenzpsychologin-assistenzpsychologe-psgn-pfafers"
       ],
       "fr": [
         "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers",
         "assistant-psychologue-assistant-psychologue-psychiatrie-st-gallen-pfafers",
         "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers-4bd0e538",
         "assistant-psychologue-assistant-psychologue-psychiatrie-st-gallen-pfafers-d3ff13",
-        "assistant-psychologue-assistant-psychologue-psychiatrie-st-gallen-pfafers-f7a3ea"
+        "assistant-psychologue-assistant-psychologue-psychiatrie-st-gallen-pfafers-f7a3ea",
+        "assistenzpsychologin-assistenzpsychologe-psgn-pfafers"
       ],
       "de": [
-        "assistenzpsychologin-assistenzpsychologe-psgn-pfafers-22c43cbe"
+        "assistenzpsychologin-assistenzpsychologe-psgn-pfafers-22c43cbe",
+        "assistenzpsychologin-assistenzpsychologe-psgn-pfafers-b7069d64"
       ]
     },
     "postalCode": "7312",
@@ -1315,7 +1326,7 @@
     "slugByLocale": {
       "it": "specialista-psicologo-specialista-psicologo-psychiatrie-st-gallen-pfafers-9d75c81e16",
       "en": "specialist-psychologist-specialist-psychologist-psychiatrie-st-gallen-pfafers",
-      "de": "fachpsychologin-fachpsychologe-psgn-pfafers",
+      "de": "fachpsychologin-fachpsychologe-psgn-pfafers-b775e15a",
       "fr": "psychologue-specialise-psychologue-specialise-psychiatrie-st-gallen-pfafers"
     },
     "sector": "Sanità / Ospedali",
@@ -1354,7 +1365,8 @@
       "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-pfafers-82ebeca1",
       "fachpsychologin-fachpsychologe-psgn-pfafers-30b1566b",
       "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-pfafers-08c839fb",
-      "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-pfafers-4d386f11"
+      "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-pfafers-4d386f11",
+      "fachpsychologin-fachpsychologe-psgn-pfafers"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1393,7 +1405,8 @@
         "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-pfafers-4d386f11"
       ],
       "de": [
-        "fachpsychologin-fachpsychologe-psgn-pfafers-d91a66b7"
+        "fachpsychologin-fachpsychologe-psgn-pfafers-d91a66b7",
+        "fachpsychologin-fachpsychologe-psgn-pfafers"
       ],
       "fr": [
         "psychologue-specialise-psychologue-specialise-psychiatrie-st-gallen-pfafers-eac0b82e",
@@ -1666,27 +1679,33 @@
     "slugByLocale": {
       "it": "terapeuta-del-lavoro-psychiatrie-st-gallen-pfafers-8cdf98",
       "en": "occupational-therapist-psychiatrie-st-gallen-pfafers-8cdf98",
-      "de": "ergotherapeutin-ergotherapeut-psgn-pfafers",
+      "de": "ergotherapeutin-ergotherapeut-psgn-pfafers-cab3dfa4",
       "fr": "ergotherapeute-psychiatrie-st-gallen-pfafers-8cdf98"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-06T21:34:48.167Z",
     "previousSlugs": [
-      "ergotherapeutin-ergotherapeut-psgn-pfafers",
       "ergotherapeutin-ergotherapeut-psgn-pfafers-2",
-      "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
+      "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers",
+      "ergotherapeutin-ergotherapeut-psgn-pfafers"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "ergotherapeutin-ergotherapeut-psgn-pfafers",
+        "ergotherapeutin-ergotherapeut-psgn-pfafers-cab3dfa4",
         "ergotherapeutin-ergotherapeut-psgn-pfafers-2",
-        "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
+        "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers",
+        "ergotherapeutin-ergotherapeut-psgn-pfafers"
       ],
       "en": [
-        "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
+        "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers",
+        "ergotherapeutin-ergotherapeut-psgn-pfafers"
       ],
       "fr": [
-        "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
+        "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers",
+        "ergotherapeutin-ergotherapeut-psgn-pfafers"
+      ],
+      "de": [
+        "ergotherapeutin-ergotherapeut-psgn-pfafers-cab3dfa4"
       ]
     },
     "postalCode": "7312",
@@ -2268,6 +2287,7 @@
         "oberarztin-oberarzt-mbf-psgn-pfafers-77dc82b7",
         "medecin-principal-psychiatrie-st-gallen-pfafers-2e52536c",
         "oberarztin-oberarzt-mbf-psgn-pfafers",
+        "medecin-principal-psychiatrie-st-gallen-pfafers-2c7a616c",
         "medecin-principal-psychiatrie-st-gallen-pfafers"
       ],
       "de": [
@@ -2527,24 +2547,29 @@
     "slugByLocale": {
       "it": "infermieristico-esperto-infermieristico-apn-forensics-psychiatrie-st-gallen-pfafers",
       "en": "nursing-expert-nursing-expert-apn-forensics-psychiatrie-st-gallen-pfafers",
-      "de": "pflegeexpertin-pflegeexperte-apn-forensik-psgn-pfafers",
+      "de": "pflegeexpertin-pflegeexperte-apn-forensik-psgn-pfafers-12053bee",
       "fr": "expert-en-soins-infirmiers-expert-en-soins-infirmiers-apn-forensics-psychiatrie-st-gallen-pfafers"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-29T21:18:48.057Z",
     "previousSlugs": [
-      "pflegeexpertin-pflegeexperte-apn-forensik-psgn-pfafers",
-      "pflegeexpertin-pflegeexperte-apn-forensik-psychiatrie-st-gallen-pfafers"
+      "pflegeexpertin-pflegeexperte-apn-forensik-psychiatrie-st-gallen-pfafers",
+      "pflegeexpertin-pflegeexperte-apn-forensik-psgn-pfafers"
     ],
     "previousSlugsByLocale": {
       "it": [
+        "pflegeexpertin-pflegeexperte-apn-forensik-psgn-pfafers-12053bee",
         "pflegeexpertin-pflegeexperte-apn-forensik-psgn-pfafers"
       ],
       "en": [
-        "pflegeexpertin-pflegeexperte-apn-forensik-psychiatrie-st-gallen-pfafers"
+        "pflegeexpertin-pflegeexperte-apn-forensik-psychiatrie-st-gallen-pfafers",
+        "pflegeexpertin-pflegeexperte-apn-forensik-psgn-pfafers"
       ],
       "fr": [
         "pflegeexpertin-pflegeexperte-apn-forensik-psgn-pfafers"
+      ],
+      "de": [
+        "pflegeexpertin-pflegeexperte-apn-forensik-psgn-pfafers-12053bee"
       ]
     },
     "postalCode": "7312",
@@ -3348,7 +3373,7 @@
     "slugByLocale": {
       "it": "assistente-psicologo-assistente-psicologo-psychiatrie-st-gallen-pfafers-76ab4b",
       "en": "assistant-psychologist-assistant-psychologist-psychiatrie-st-gallen-pfafers-76ab4b",
-      "de": "assistenzpsychologin-assistenzpsychologe-psgn-pfafers",
+      "de": "assistenzpsychologin-assistenzpsychologe-psgn-pfafers-d6db6122",
       "fr": "assistant-psychologue-assistant-psychologue-psychiatrie-st-gallen-pfafers-76ab4b"
     },
     "sector": "Sanità / Ospedali",
@@ -3356,7 +3381,8 @@
     "previousSlugs": [
       "assistenzpsychologin-assistenzpsychologe-psgn-pfafers-2",
       "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers",
-      "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers-07341e1ee1"
+      "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers-07341e1ee1",
+      "assistenzpsychologin-assistenzpsychologe-psgn-pfafers"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -3369,6 +3395,9 @@
       ],
       "fr": [
         "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers"
+      ],
+      "de": [
+        "assistenzpsychologin-assistenzpsychologe-psgn-pfafers"
       ]
     },
     "postalCode": "7312",
