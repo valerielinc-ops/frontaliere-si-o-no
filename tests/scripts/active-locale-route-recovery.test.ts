@@ -98,6 +98,8 @@ describe('active locale route recovery', () => {
   it('does not use mutable slug fields as identity evidence', () => {
     expect(stableJobIdentityKeys({ slug: 'old-route', slugByLocale: { en: 'old-en' } }, () => ''))
       .toEqual([]);
+    expect(stableJobIdentityKeys({ id: 'mutable-id' }, () => 'tl|title|location|host'))
+      .toEqual([]);
     expect(plan({
       baseRows: [row({ fp: 'tl|weak', job: { slugByLocale: { en: 'old-en' } } })],
       headRows: [row({ fp: 'tl|weak', job: { slugByLocale: { en: 'new-en' } } })],

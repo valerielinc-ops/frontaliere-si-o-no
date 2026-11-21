@@ -242,18 +242,63 @@ function applyPlan(actions) {
     entries.push(entry);
     pendingByFile.set(entry.file, entries);
   }
-  const written = new Set();
-  for (const [file, entries] of pendingByFile) {
+  // Prepare every mutation before touching disk. Backups make the subsequent
+  // sequence of per-file atomic renames transactional for ordinary I/O/guard
+  // failures: a later failure restores every earlier file byte-for-byte.
+  // A multi-file POSIX transaction does not exist, so leave no intentional
+  // partial result and fail closed if rollback itself fails.
+  for (const entries of pendingByFile.values()) {
     for (const entry of entries) {
       applyActiveLocaleRouteAlias(entry.job, entry.action, {
         localeCap: DEFAULT_PREV_SLUG_CAP,
         legacyCap: LEGACY_PREV_SLUGS_CAP,
       });
     }
-    writeJsonAtomic(file, entries[0].parsed);
-    written.add(file);
   }
-  return written.size;
+
+  const backups = new Map();
+  let backupIndex = 0;
+  try {
+    for (const file of pendingByFile.keys()) {
+      const backup = `${file}.active-locale-route-recovery.${process.pid}.${backupIndex++}.bak`;
+      fs.copyFileSync(file, backup);
+      backups.set(file, backup);
+    }
+  } catch (error) {
+    for (const backup of backups.values()) {
+      try { fs.unlinkSync(backup); } catch { /* best effort */ }
+    }
+    throw error;
+  }
+
+  const written = [];
+  try {
+    for (const [file, entries] of pendingByFile) {
+      writeJsonAtomic(file, entries[0].parsed);
+      written.push(file);
+    }
+  } catch (error) {
+    const rollbackErrors = [];
+    for (const file of written.reverse()) {
+      const backup = backups.get(file);
+      try {
+        fs.renameSync(backup, file);
+      } catch (rollbackError) {
+        rollbackErrors.push(`${path.basename(file)}: ${rollbackError.message}`);
+      }
+    }
+    for (const backup of backups.values()) {
+      try { fs.unlinkSync(backup); } catch { /* already moved or best effort */ }
+    }
+    if (rollbackErrors.length > 0) {
+      throw new Error(`active locale route recovery rollback failed: ${rollbackErrors.join('; ')}`);
+    }
+    throw error;
+  }
+  for (const backup of backups.values()) {
+    try { fs.unlinkSync(backup); } catch { /* best effort cleanup */ }
+  }
+  return written.length;
 }
 
 export async function main(argv = process.argv.slice(2)) {
