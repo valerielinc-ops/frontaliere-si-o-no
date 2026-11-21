@@ -287441,11 +287441,11 @@
     },
     {
       "id": "fachkraft-077e17b3bcf7",
-      "slug": "installatore-trice-elettrico-a-in-per-installationsprojekte-fachkraft-ch-gmbh-bischofszell",
+      "slug": "installatore-trice-elettrico-a-per-progetti-di-installazione-fachkraft-ch-gmbh-bischofszell",
       "slugByLocale": {
-        "it": "installatore-trice-elettrico-a-in-per-installationsprojekte-fachkraft-ch-gmbh-bischofszell",
-        "en": "electrical-installer-for-installation-projects-fachkraft-ch-gmbh-bischofszell-thurgau",
         "de": "elektroinstallateur-in-fur-installationsprojekte-bischofszell-thurgau-fachkraft-ch",
+        "it": "installatore-trice-elettrico-a-per-progetti-di-installazione-fachkraft-ch-gmbh-bischofszell",
+        "en": "electrical-installer-for-installation-projects-fachkraft-ch-gmbh-bischofszell-thurgau",
         "fr": "electricien-ne-installateur-trice-pour-des-projets-d-installation-fachkraft-ch-gmbh-bischofszell-thurgau"
       },
       "company": "fachkraft.ch GmbH",
@@ -287475,8 +287475,6 @@
       "addressRegion": "TG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "9220",
-      "streetAddress": "Bischofszell",
       "category": "Tecnica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -287491,11 +287489,12 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
+        "it": [
+          "elektroinstallateur-in-fur-installationsprojekte-bischofszell-thurgau-fachkraft-ch",
+          "installatore-trice-elettrico-a-in-per-installationsprojekte-fachkraft-ch-gmbh-bischofszell"
+        ],
         "de": [
           "elektroinstallateur-in-fur-installationsprojekte-fachkraft-ch-gmbh-bischofszell"
-        ],
-        "it": [
-          "elektroinstallateur-in-fur-installationsprojekte-bischofszell-thurgau-fachkraft-ch"
         ],
         "en": [
           "elektroinstallateur-in-fur-installationsprojekte-fachkraft-ch-gmbh-bischofszell"
@@ -287506,9 +287505,9 @@
       },
       "previousSlugs": [
         "elektroinstallateur-in-fur-installationsprojekte-bischofszell-thurgau-fachkraft-ch",
-        "elektroinstallateur-in-fur-installationsprojekte-fachkraft-ch-gmbh-bischofszell"
+        "elektroinstallateur-in-fur-installationsprojekte-fachkraft-ch-gmbh-bischofszell",
+        "installatore-trice-elettrico-a-in-per-installationsprojekte-fachkraft-ch-gmbh-bischofszell"
       ],
-      "firstSeenAt": "2026-11-20T23:15:15.975Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -287522,9 +287521,12 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "9220",
+      "streetAddress": "Bischofszell",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T22:50:17.150Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-20T23:15:15.975Z"
     },
     {
       "id": "fachkraft-cab3607ca384",

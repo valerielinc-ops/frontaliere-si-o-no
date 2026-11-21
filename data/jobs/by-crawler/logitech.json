@@ -494,12 +494,12 @@
     },
     {
       "id": "logitech-c6c9465c7a63",
-      "slug": "owned-media-specialist-global-communications-logitech-ch",
+      "slug": "owned-media-specialista-global-communications-logitech-lausanne",
       "slugByLocale": {
         "en": "owned-media-specialist-global-communications-logitech-ch",
-        "it": "owned-media-specialist-global-communications-logitech-ch",
-        "de": "owned-media-specialist-global-communications-logitech-ch",
-        "fr": "owned-media-specialist-global-communications-logitech-ch"
+        "it": "owned-media-specialista-global-communications-logitech-lausanne",
+        "de": "owned-media-spezialist-global-communications-logitech-lausanne",
+        "fr": "owned-media-specialiste-global-communications-logitech-lausanne"
       },
       "company": "Logitech",
       "companyKey": "logitech",
@@ -562,7 +562,21 @@
       "validThrough": "2027-02-18T22:25:20.355Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T22:25:20.355Z",
-      "sourceIdentity": "url:https://logitech.wd5.myworkdayjobs.com/en/logitech/job/lausanne-switzerland/owned-media-specialist--global-communications_148818"
+      "sourceIdentity": "url:https://logitech.wd5.myworkdayjobs.com/en/logitech/job/lausanne-switzerland/owned-media-specialist--global-communications_148818",
+      "previousSlugsByLocale": {
+        "it": [
+          "owned-media-specialist-global-communications-logitech-ch"
+        ],
+        "de": [
+          "owned-media-specialist-global-communications-logitech-ch"
+        ],
+        "fr": [
+          "owned-media-specialist-global-communications-logitech-ch"
+        ]
+      },
+      "previousSlugs": [
+        "owned-media-specialist-global-communications-logitech-ch"
+      ]
     }
   ]
 }

@@ -7,9 +7,9 @@
       "id": "givaudan-7f08534581e6",
       "slug": "direttore-di-produzione-m-f-d-givaudan-dubendorf",
       "slugByLocale": {
+        "de": "produktionsleiter-m-w-d-givaudan-dubendorf",
         "it": "direttore-di-produzione-m-f-d-givaudan-dubendorf",
         "en": "production-manager-m-f-d-givaudan-dubendorf",
-        "de": "produktionsleiter-m-w-d-givaudan-ch",
         "fr": "gestionnaire-de-production-h-f-d-givaudan-dubendorf"
       },
       "company": "Givaudan",
@@ -54,10 +54,6 @@
       "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB120651EXTERNALENGLOBAL/produktionsleiter-m-w-d",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "produktionsleiter-m-w-d-givaudan-ch",
-        "produktionsleiter-m-w-d-givaudan-dubendorf"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "produktionsleiter-m-w-d-givaudan-ch",
@@ -68,9 +64,15 @@
         ],
         "fr": [
           "produktionsleiter-m-w-d-givaudan-dubendorf"
+        ],
+        "de": [
+          "produktionsleiter-m-w-d-givaudan-ch"
         ]
       },
-      "firstSeenAt": "2026-11-20T22:16:03.176Z",
+      "previousSlugs": [
+        "produktionsleiter-m-w-d-givaudan-ch",
+        "produktionsleiter-m-w-d-givaudan-dubendorf"
+      ],
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -86,7 +88,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-18T21:36:22.254Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-20T22:16:03.176Z"
     },
     {
       "id": "givaudan-b630f92bf71f",
