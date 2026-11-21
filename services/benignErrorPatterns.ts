@@ -158,6 +158,13 @@ export const UNIVERSAL_BENIGN_PATTERNS: readonly RegExp[] = [
   // environmental — the user's storage failed while reading; no code change can
   // prevent it. 9 hits / 1 session (a single user's failing drive).
   /NotReadableError: The I\/O read operation failed/i,
+
+  // ── Privacy-protected Battery Status API access — #19704 ──
+  // Browser privacy protection can reject a third-party battery probe with
+  // this exact DOMException. This app and the installed PostHog SDK do not
+  // call navigator.getBattery(); keep the phrase narrow so other permission
+  // failures remain visible.
+  /Battery access is blocked by privacy protection\.?$/i,
 ];
 
 /**
