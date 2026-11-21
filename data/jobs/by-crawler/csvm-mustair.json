@@ -1,7 +1,7 @@
 {
   "crawlerKey": "csvm-mustair",
-  "assembledAt": "2026-11-20T22:29:16.758Z",
-  "runId": "44819300030",
+  "assembledAt": "2026-11-21T21:52:32.674Z",
+  "runId": "44950883651",
   "jobs": [
     {
       "id": "csvm-mustair-00cba1f47deb",
@@ -35,7 +35,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/rettungssanitaeter-in-auf-teilzeitbasis.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:29:10.606Z",
+      "crawledAt": "2026-11-21T21:52:27.226Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -78,9 +78,8 @@
       },
       "streetAddress": "Sta",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T22:29:10.606Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.csvm.ch/de/aktuelles/rettungssanitaeter-in-auf-teilzeitbasis.html"
+      "validThrough": "2026-12-21T21:52:27.226Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "csvm-mustair-8ebb8e6491dc",
@@ -114,7 +113,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/einsatzleitung-spitex-80-100.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:29:10.458Z",
+      "crawledAt": "2026-11-21T21:52:27.044Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -157,9 +156,8 @@
       },
       "streetAddress": "Sta",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T22:29:10.458Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.csvm.ch/de/aktuelles/einsatzleitung-spitex-80-100.html"
+      "validThrough": "2026-12-21T21:52:27.044Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "csvm-mustair-a89bfd964d91",
@@ -193,7 +191,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/lehrstellen-2027.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:29:10.318Z",
+      "crawledAt": "2026-11-21T21:52:26.873Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -253,9 +251,8 @@
       },
       "streetAddress": "Sta",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T22:29:10.318Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.csvm.ch/de/aktuelles/lehrstellen-2027.html"
+      "validThrough": "2026-12-21T21:52:26.873Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "csvm-mustair-ddc5bae0b998",
@@ -288,7 +285,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/medizinische-praxisassistentin-efz-60.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:29:10.175Z",
+      "crawledAt": "2026-11-21T21:52:26.697Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -331,9 +328,8 @@
       },
       "streetAddress": "Sta",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T22:29:10.175Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.csvm.ch/de/aktuelles/medizinische-praxisassistentin-efz-60.html"
+      "validThrough": "2026-12-21T21:52:26.697Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "csvm-mustair-db35a20c6e72",
@@ -366,7 +362,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/pflegehelfer-in-srk-60-100.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:29:10.028Z",
+      "crawledAt": "2026-11-21T21:52:26.520Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -409,9 +405,8 @@
       },
       "streetAddress": "Sta",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T22:29:10.028Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.csvm.ch/de/aktuelles/pflegehelfer-in-srk-60-100.html"
+      "validThrough": "2027-01-03T21:52:26.520Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "csvm-mustair-ac2a33396920",
@@ -445,7 +440,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/dipl-pflegefachperson-hf-ab-60.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:29:09.738Z",
+      "crawledAt": "2026-11-21T21:52:26.012Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -488,9 +483,8 @@
       },
       "streetAddress": "Sta",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T22:29:09.738Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.csvm.ch/de/aktuelles/dipl-pflegefachperson-hf-ab-60.html"
+      "validThrough": "2027-01-03T21:52:26.012Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

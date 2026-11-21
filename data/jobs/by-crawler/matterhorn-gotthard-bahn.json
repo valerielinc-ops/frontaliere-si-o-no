@@ -1,7 +1,7 @@
 {
   "crawlerKey": "matterhorn-gotthard-bahn",
-  "assembledAt": "2026-11-20T22:28:21.628Z",
-  "runId": "44819300030",
+  "assembledAt": "2026-11-21T21:48:51.748Z",
+  "runId": "44950883651",
   "jobs": [
     {
       "id": "matterhorn-gotthard-bahn-8020f490f838",
@@ -34,7 +34,7 @@
       "url": "https://jobs.bvzholding.ch/Werkstattmitarbeiter-Instandhaltung-GGB-mwd-de-j732.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:28:14.401Z",
+      "crawledAt": "2026-11-21T21:48:45.402Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -108,7 +108,7 @@
       "addressRegion": "VS",
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "sourceIdentity": "url:https://jobs.bvzholding.ch/werkstattmitarbeiter-instandhaltung-ggb-mwd-de-j732.html"
+      "firstSeenAt": "2026-11-21T21:48:45.402Z"
     },
     {
       "id": "matterhorn-gotthard-bahn-a68c8f09f3d3",
@@ -141,7 +141,7 @@
       "url": "https://jobs.bvzholding.ch/Werkstattmitarbeiter-Instandhaltung-mwd-de-j728.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:28:13.402Z",
+      "crawledAt": "2026-11-21T21:48:44.461Z",
       "addressLocality": "Andermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -229,8 +229,7 @@
       },
       "addressRegion": "UR",
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://jobs.bvzholding.ch/werkstattmitarbeiter-instandhaltung-mwd-de-j728.html"
+      "validThroughSource": "source"
     },
     {
       "id": "matterhorn-gotthard-bahn-f4de21a6b0e1",
@@ -263,7 +262,7 @@
       "url": "https://jobs.bvzholding.ch/Quereinsteiger-Rangierer-Rangierlokfuehrer-mwd-80-100-de-j717.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:28:12.527Z",
+      "crawledAt": "2026-11-21T21:48:43.567Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -331,7 +330,7 @@
       "addressRegion": "VS",
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "sourceIdentity": "url:https://jobs.bvzholding.ch/quereinsteiger-rangierer-rangierlokfuehrer-mwd-80-100-de-j717.html"
+      "firstSeenAt": "2026-11-21T21:48:43.567Z"
     },
     {
       "id": "matterhorn-gotthard-bahn-5f2d552e8132",
@@ -364,7 +363,7 @@
       "url": "https://jobs.bvzholding.ch/Mitarbeiter-Kundenservice-Autoverlad-50-100-mwd-de-j736.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:28:11.520Z",
+      "crawledAt": "2026-11-21T21:48:42.596Z",
       "addressLocality": "Oberwald, Realp",
       "addressCountry": "CH",
       "country": "CH",
@@ -433,8 +432,7 @@
       },
       "addressRegion": "VS",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://jobs.bvzholding.ch/mitarbeiter-kundenservice-autoverlad-50-100-mwd-de-j736.html"
+      "validThroughSource": "source"
     },
     {
       "id": "matterhorn-gotthard-bahn-373fb3d581d4",
@@ -467,7 +465,7 @@
       "url": "https://jobs.bvzholding.ch/Mitarbeiter-Intervention-Autoverlad-50-100-mwd-de-j735.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:28:10.516Z",
+      "crawledAt": "2026-11-21T21:48:41.725Z",
       "addressLocality": "Oberwald, Realp",
       "addressCountry": "CH",
       "country": "CH",
@@ -538,8 +536,7 @@
       },
       "addressRegion": "VS",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://jobs.bvzholding.ch/mitarbeiter-intervention-autoverlad-50-100-mwd-de-j735.html"
+      "validThroughSource": "source"
     },
     {
       "id": "matterhorn-gotthard-bahn-a10c987c95d9",
@@ -572,7 +569,7 @@
       "url": "https://jobs.bvzholding.ch/Logistiker-mwd-de-j738.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:28:09.638Z",
+      "crawledAt": "2026-11-21T21:48:40.840Z",
       "addressLocality": "Glis (Glisergrund)",
       "addressCountry": "CH",
       "country": "CH",
@@ -645,8 +642,7 @@
       },
       "addressRegion": "VS",
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://jobs.bvzholding.ch/logistiker-mwd-de-j738.html"
+      "validThroughSource": "source"
     },
     {
       "id": "matterhorn-gotthard-bahn-f35332cd9cf0",
@@ -679,7 +675,7 @@
       "url": "https://jobs.bvzholding.ch/Lehrstelle-Polymechaniker-mwd-in-Andermatt-de-j719.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:28:08.740Z",
+      "crawledAt": "2026-11-21T21:48:39.946Z",
       "addressLocality": "Andermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -749,8 +745,7 @@
       },
       "addressRegion": "UR",
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://jobs.bvzholding.ch/lehrstelle-polymechaniker-mwd-in-andermatt-de-j719.html"
+      "validThroughSource": "source"
     },
     {
       "id": "matterhorn-gotthard-bahn-41586bb36b7c",
@@ -783,7 +778,7 @@
       "url": "https://jobs.bvzholding.ch/Fahrleitungsmonteur-Netzelektriker-mwd-de-j689.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:28:07.727Z",
+      "crawledAt": "2026-11-21T21:48:38.948Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -850,8 +845,7 @@
       },
       "addressRegion": "VS",
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://jobs.bvzholding.ch/fahrleitungsmonteur-netzelektriker-mwd-de-j689.html"
+      "validThroughSource": "source"
     },
     {
       "id": "matterhorn-gotthard-bahn-2f303c571cc1",
@@ -884,7 +878,7 @@
       "url": "https://jobs.bvzholding.ch/Fahrdienstleiter-mwd-de-j739.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:28:06.735Z",
+      "crawledAt": "2026-11-21T21:48:37.967Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -951,8 +945,7 @@
       },
       "addressRegion": "VS",
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://jobs.bvzholding.ch/fahrdienstleiter-mwd-de-j739.html"
+      "validThroughSource": "source"
     },
     {
       "id": "matterhorn-gotthard-bahn-5a2182b0d5c7",
@@ -985,7 +978,7 @@
       "url": "https://jobs.bvzholding.ch/Elektroinstallateur-Fachspezialist-Elektro-und-Sicherungsa-de-j737.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:28:05.737Z",
+      "crawledAt": "2026-11-21T21:48:36.988Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -1058,8 +1051,7 @@
       },
       "addressRegion": "VS",
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://jobs.bvzholding.ch/elektroinstallateur-fachspezialist-elektro-und-sicherungsa-de-j737.html"
+      "validThroughSource": "source"
     },
     {
       "id": "matterhorn-gotthard-bahn-062e2c43af0e",
@@ -1092,7 +1084,7 @@
       "url": "https://jobs.bvzholding.ch/Elektroinstallateur-Fachspezialist-Elektro-und-Sicherungsa-de-j624.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:28:04.855Z",
+      "crawledAt": "2026-11-21T21:48:36.104Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -1166,8 +1158,7 @@
       },
       "addressRegion": "VS",
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://jobs.bvzholding.ch/elektroinstallateur-fachspezialist-elektro-und-sicherungsa-de-j624.html"
+      "validThroughSource": "source"
     }
   ]
 }
