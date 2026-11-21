@@ -248,6 +248,45 @@ describe('POSTHOG_INIT_CONTENT before_send (issue #3406/#3407)', () => {
     expect(beforeSend(event)).toBe(event);
   });
 
+  it('drops the Funding Choices stack overflow with native frames (#19705)', () => {
+    const event = {
+      event: '$exception',
+      properties: {
+        $exception_values: [{ type: 'RangeError', value: 'Maximum call stack size exceeded.' }],
+        $exception_list: [{
+          type: 'RangeError',
+          value: 'Maximum call stack size exceeded.',
+          stacktrace: { frames: [
+            { filename: '[native code]' },
+            { filename: 'https://fundingchoicesmessages.google.com/f/AGSKWxVBoaDqwRKNV5lhNtsg67yDx1i0PxiXW0Qm5tWcZ_XGH3Fk-o_C-JIkMSRXg9XdQ-JFK0dL0OPMObHPl8xr_9ziA9d0saX-kDA9bnzetDaYevwhHmvvbkbYVlRanztYE_zwr5LWNw==' },
+            { filename: '[native code]' },
+            { filename: 'https://fundingchoicesmessages.google.com/f/AGSKWxUE6J8gNbcVoWFwVWk9veKRBNsJVkCVQ0Z-0xEkRkd9RpRyd3khJZGHzZUzA7rQIDf8kl65f5qzGdUhKcQnEm-dCAEbZTK95s_j4_6LhLDQ67tsh_CBenloe-APq-LKRcC6KoVChQ==' },
+          ] },
+        }],
+      },
+    };
+    expect(beforeSend(event)).toBeNull();
+  });
+
+  it('keeps a static Funding Choices stack overflow with a first-party frame (#19705)', () => {
+    const event = {
+      event: '$exception',
+      properties: {
+        $exception_values: [{ type: 'RangeError', value: 'Maximum call stack size exceeded.' }],
+        $exception_list: [{
+          type: 'RangeError',
+          value: 'Maximum call stack size exceeded.',
+          stacktrace: { frames: [
+            { filename: '[native code]' },
+            { filename: 'https://fundingchoicesmessages.google.com/f/vendor.js' },
+            { filename: 'https://frontaliereticino.ch/assets/index-entry.js' },
+          ] },
+        }],
+      },
+    };
+    expect(beforeSend(event)).toBe(event);
+  });
+
   it('drops the Google-injected stack overflow from Chrome for iOS (#8773)', () => {
     Object.defineProperty(window.navigator, 'userAgent', {
       configurable: true,

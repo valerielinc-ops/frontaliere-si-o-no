@@ -4,6 +4,7 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 
 import { buildCanonicalBridgePage, buildFlatRedirect, ROBOTS_INDEX_ENHANCED_CONTENT } from '@/build-plugins/constants';
+import { isActiveJobLocaleIndexable } from '@/build-plugins/shared/activeJobSitemapEligibility';
 import { META_DESCRIPTION_MAX_CHARS } from '@/build-plugins/shared/titleSuffix';
 import { STANDALONE_REDIRECT_STUB_MARKER } from '@/build-plugins/shared/standaloneRedirectStubMarker.mjs';
 
@@ -328,16 +329,37 @@ describe('SEO builder noindex guards', () => {
     });
 
     it('recovers only complete self-canonical job details from the noindex quality gate', () => {
-      const start = source.indexOf('const jobPostingDescriptionHtml =');
-      const end = source.indexOf('<!doctype html>', start);
-      const block = source.slice(start, end);
-      expect(start).toBeGreaterThan(-1);
-      expect(end).toBeGreaterThan(start);
-      expect(block).toContain('sourceDetailWordCount');
-      expect(block).toContain('effectiveCanonicalUrl === canonicalUrl');
-      expect(block).toContain('completeCanonicalDetail');
-      expect(block).toContain('ROBOTS_INDEX_ENHANCED');
-      expect(block).toContain('ROBOTS_NOINDEX_FOLLOW');
+      const canonicalUrl = 'https://frontaliereticino.ch/cerca-lavoro-ticino/example/';
+      const job = {};
+      const sourceDetailWordCount = 50;
+
+      expect(isActiveJobLocaleIndexable(job, 'it', {
+        canonicalUrl,
+        effectiveCanonicalUrl: 'https://frontaliereticino.ch/azienda/example/',
+        hasIndexableRenderedBody: true,
+        sourceDetailWordCount,
+      })).toBe(false);
+
+      expect(isActiveJobLocaleIndexable(job, 'it', {
+        canonicalUrl,
+        effectiveCanonicalUrl: canonicalUrl,
+        hasIndexableRenderedBody: true,
+        sourceDetailWordCount: 0,
+      })).toBe(true);
+
+      expect(isActiveJobLocaleIndexable(job, 'it', {
+        canonicalUrl,
+        effectiveCanonicalUrl: canonicalUrl,
+        hasIndexableRenderedBody: false,
+        sourceDetailWordCount: sourceDetailWordCount - 1,
+      })).toBe(false);
+
+      expect(isActiveJobLocaleIndexable(job, 'it', {
+        canonicalUrl,
+        effectiveCanonicalUrl: canonicalUrl,
+        hasIndexableRenderedBody: false,
+        sourceDetailWordCount,
+      })).toBe(true);
     });
 
     it('company slug alias pages serve full canonical content (no thin stub, no noindex)', () => {

@@ -77,12 +77,27 @@ export const THIRD_PARTY_STACK_ORIGINS: readonly RegExp[] = [
   // The library is third-party and can throw errors entirely inside its own
   // securepubads.g.doubleclick.net frames; no first-party fix is possible.
   /^https:\/\/securepubads\.g\.doubleclick\.net\//i,
+  // Google Funding Choices CMP — #19705.
+  // The reported PostHog sample is a RangeError whose resolved frames are
+  // Funding Choices
+  // runtime URLs interleaved with `[native code]`; the recursion is inside the
+  // vendor CMP, not the page. Keep the origin check narrow and fail open for
+  // any first-party frame.
+  /^https:\/\/fundingchoicesmessages\.google\.com\//i,
   // Google reCAPTCHA Enterprise — #19025.
   // The live PostHog sample was `reCAPTCHA Timeout (b)` with every resolved
   // frame in Google's gstatic reCAPTCHA release; the timeout is inside the
   // vendor client and cannot be fixed by this application.
   /^https:\/\/www\.gstatic\.com\/recaptcha\//i,
 ];
+
+/**
+ * V8/WebKit can expose native frames alongside the URL-bearing frames of a
+ * third-party runtime. They carry no ownership information, so they are
+ * neutral in the all-third-party verdict; a stack containing only native
+ * frames still fails open.
+ */
+export const NATIVE_CODE_FRAME_PATTERN = /^\[native code\]$/i;
 
 /**
  * Minimal PostHog event shape we depend on. Avoids importing posthog-js
@@ -162,15 +177,19 @@ function eventPageUrl(event: PostHogExceptionEvent): string {
 }
 
 /**
- * True when the exception has at least one resolved stack frame AND every
- * frame's origin matches a known third-party script we do not control
- * (see `THIRD_PARTY_STACK_ORIGINS`). An exception with zero frames is NOT
- * considered third-party-only (nothing to go on — fail open, keep visible).
+ * True when the exception has at least one ownership-bearing resolved stack
+ * frame AND every such frame's origin matches a known third-party script we do
+ * not control (see `THIRD_PARTY_STACK_ORIGINS`). Native frames are neutral:
+ * browsers can insert them into a vendor stack, but they do not prove
+ * first-party ownership. An exception with zero ownership-bearing frames is
+ * NOT considered third-party-only (nothing to go on — fail open, keep visible).
  */
 function isThirdPartyStackOnly(event: PostHogExceptionEvent): boolean {
   const origins = extractStackFrameOrigins(event);
   if (origins.length === 0) return false;
-  return origins.every((origin) => THIRD_PARTY_STACK_ORIGINS.some((pattern) => pattern.test(origin)));
+  const ownershipBearingOrigins = origins.filter((origin) => !NATIVE_CODE_FRAME_PATTERN.test(origin));
+  if (ownershipBearingOrigins.length === 0) return false;
+  return ownershipBearingOrigins.every((origin) => THIRD_PARTY_STACK_ORIGINS.some((pattern) => pattern.test(origin)));
 }
 
 // ──────────────────────────────────────────────────────────────────────────
