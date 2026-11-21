@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-20T23:20:37.162Z",
+  "generatedAt": "2026-11-21T00:25:56.314Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -202044,9 +202044,9 @@
     "myswitzerland:577643fb1b894cd88f548003281e6b8b::548230dc5948089b082390b6a45fbe77927c279881aad157e08f5c7cf70d6d13": {
       "id": "myswitzerland:577643fb1b894cd88f548003281e6b8b",
       "sourceDescriptionHash": "548230dc5948089b082390b6a45fbe77927c279881aad157e08f5c7cf70d6d13",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-20T21:42:23.028Z",
+      "code": "new-number",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-21T00:20:31.269Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -202081,8 +202081,8 @@
       "id": "myswitzerland:5801fe3d199747ac9d69849e2592a108",
       "sourceDescriptionHash": "c2a81d6f8a510dda251b518eec0a3edaac2e45bcc8900e47d3c3d62256f62725",
       "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-20T21:41:28.150Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-21T00:19:40.267Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -205815,9 +205815,9 @@
     "tio-agenda:64993::5f6fe8e8aa6a16ddb390fb01a01ea7c0c210084b1f0c50e59085f6cf19b1a7bc": {
       "id": "tio-agenda:64993",
       "sourceDescriptionHash": "5f6fe8e8aa6a16ddb390fb01a01ea7c0c210084b1f0c50e59085f6cf19b1a7bc",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-20T21:44:22.133Z",
+      "code": "source-ngram-8",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-21T00:21:54.832Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     }
