@@ -1,31 +1,30 @@
 {
   "key": "visionapartments",
   "label": "VISIONAPARTMENTS",
-  "generatedAt": "2026-11-20T22:16:09.144Z",
-  "total": 1,
-  "discovered": null,
-  "parsed": 1,
+  "generatedAt": "2026-11-21T21:39:57.780Z",
+  "total": 0,
+  "discovered": 0,
+  "parsed": 0,
   "lastFetchOutcome": null,
   "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 1,
+  "written": 0,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
-  "authoritativeEmptySnapshot": false,
+  "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4363,
-  "avgDurationMs": 4363,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 1147,
+  "avgDurationMs": 1147,
   "durationHistory": [
-    4363
+    1147
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "visionapartments-8ba295514d0c",
       "slug": "responsabile-di-progetto-real-estate-development-60-vision-management-services-gmbh-zurich",
@@ -64,6 +63,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-17T22:15:52.505Z",
       "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.jobs.ch/fr/offres-emplois/detail/56071e0e-15da-4919-beea-4424c39f31ef",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -73,5 +73,6 @@
       }
     }
   ],
-  "codeCommit": "07c2e8305c6747f1893222ba4bfdddc597008157"
+  "unchangedJobs": [],
+  "codeCommit": "4b92eb0854b9f965b31956a24be8b4a2b342e4b2"
 }
