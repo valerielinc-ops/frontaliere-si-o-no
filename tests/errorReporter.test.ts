@@ -251,10 +251,10 @@ describe('reportCaughtError', () => {
       expect(Analytics.trackAppError).not.toHaveBeenCalled();
     });
 
-    it('drops exact `Na` from a Google vignette document stack', async () => {
+    it('drops exact `Na` from a Google ad document stack without a vignette fragment', async () => {
       vi.stubGlobal('window', {
         location: {
-          href: 'https://frontaliereticino.ch/en/aziende/example/?utm_source=company_alert#google_vignette',
+          href: 'https://frontaliereticino.ch/en/aziende/example/',
         },
       });
       try {
