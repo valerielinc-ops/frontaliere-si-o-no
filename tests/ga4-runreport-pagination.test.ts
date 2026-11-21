@@ -198,6 +198,7 @@ describe('fetchAttribution (cwv-attribution)', () => {
       selectorsTruncated: false,
       templatesTruncated: false,
       valuedSelectorsTruncated: false,
+      valuedInpIncompleteRows: 0,
     });
     expect(report.selectors).toHaveLength(450);
     const selectorCalls = fetchImpl.mock.calls.filter(([, init]) => isSelector(JSON.parse(init.body)));
