@@ -3253,7 +3253,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T22:26:42.349Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T22:26:42.349Z",
+      "firstSeenAt": "2026-11-19T21:50:38.984Z",
       "sourceIdentity": "url:https://joinus.decathlon.ch/fr_ch/annonce/4701239-conseiller-ere-randonneeski-hf-cdd-20-a-50-granges-paccot-1763-granges-paccot",
       "previousSlugsByLocale": {
         "it": [
@@ -3530,8 +3530,9 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T22:26:41.659Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T22:26:41.659Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-11-20T09:35:04.704Z",
+      "needsRetranslation": true,
+      "sourceIdentity": "url:https://joinus.decathlon.ch/fr_ch/annonce/4701291-befristet-sport-leader-verkaufsberater-mwd-80-zurich"
     },
     {
       "id": "decathlon-ad426a421d78",
@@ -3618,7 +3619,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T22:26:44.571Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://joinus.decathlon.ch/fr_ch/annonce/4694733-sport-leader-verkaufsberater-mwd-80-hiking-und-camping-4053-basel"
     }
   ]
 }
