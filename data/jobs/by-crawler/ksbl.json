@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksbl",
-  "assembledAt": "2026-11-20T22:19:12.768Z",
+  "assembledAt": "2026-11-21T13:19:27.108Z",
   "runId": "44820100410",
   "jobs": [
     {
@@ -3468,9 +3468,9 @@
     },
     {
       "id": "ksbl-e26f60c459c8",
-      "slug": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
+      "slug": "infermiera-a-kantonsspital-baselland-ksbl-liestal-11c54b95e1",
       "slugByLocale": {
-        "it": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
+        "it": "infermiera-a-kantonsspital-baselland-ksbl-liestal-11c54b95e1",
         "en": "dipl-nurse-a-kantonsspital-baselland-ksbl-liestal",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-fapojd",
         "fr": "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal"
@@ -3520,14 +3520,16 @@
         "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
         "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal",
         "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-d9d0683b62",
-        "infermiera-a-kantonsspital-baselland-ksbl-liestal-11c54b95e1"
+        "infermiera-a-kantonsspital-baselland-ksbl-liestal-11c54b95e1",
+        "infermiera-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
           "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal",
           "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-d9d0683b62",
-          "infermiera-a-kantonsspital-baselland-ksbl-liestal-11c54b95e1"
+          "infermiera-a-kantonsspital-baselland-ksbl-liestal-11c54b95e1",
+          "infermiera-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal"
@@ -5621,9 +5623,9 @@
     },
     {
       "id": "ksbl-cd14c6154336",
-      "slug": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
+      "slug": "infermiera-a-kantonsspital-baselland-ksbl-liestal-a67061767f",
       "slugByLocale": {
-        "it": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
+        "it": "infermiera-a-kantonsspital-baselland-ksbl-liestal-a67061767f",
         "en": "dipl-nurse-a-kantonsspital-baselland-ksbl-liestal",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-tiu1kw",
         "fr": "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal"
@@ -5672,14 +5674,14 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
         "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal",
-        "infermiera-a-kantonsspital-baselland-ksbl-liestal",
-        "infermiera-a-kantonsspital-baselland-ksbl-liestal-a67061767f"
+        "infermiera-a-kantonsspital-baselland-ksbl-liestal-a67061767f",
+        "infermiera-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-          "infermiera-a-kantonsspital-baselland-ksbl-liestal",
-          "infermiera-a-kantonsspital-baselland-ksbl-liestal-a67061767f"
+          "infermiera-a-kantonsspital-baselland-ksbl-liestal-a67061767f",
+          "infermiera-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal"
@@ -9878,12 +9880,10 @@
       "firstSeenAt": "2026-10-30T21:49:22.671Z",
       "previousSlugsByLocale": {
         "it": [
-          "gestione-integrata-delle-capacita-a-kantonsspital-baselland-ksbl-liestal",
           "datenmanagerin-datenmanager-integrales-kapazitatsmanagement-a-ksbl-liestal"
         ]
       },
       "previousSlugs": [
-        "gestione-integrata-delle-capacita-a-kantonsspital-baselland-ksbl-liestal",
         "datenmanagerin-datenmanager-integrales-kapazitatsmanagement-a-ksbl-liestal"
       ],
       "sourceIdentity": "url:https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/datenmanagerin-datenmanager-integrales-kapazitaetsmanagement-a/c1ad84d8-02c8-41bc-ac04-07c95fb7ac1e"
