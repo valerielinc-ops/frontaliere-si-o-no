@@ -18,6 +18,10 @@ export const WORKER_NAME = 'frontaliere-locale-router';
 export const ISSUE_TITLE_PREFIX = 'Cloudflare observability: ';
 export const SAMPLING_CUTOVER = '2026-12-01';
 export const WINDOW_DAYS = 7;
+// The receipt needs one rate-bearing settings mutation before its seven-day
+// window to establish the state at the left boundary. Locale-router deploys
+// normally provide several such records; without one the receipt fails closed.
+export const SAMPLING_HISTORY_LOOKBACK_DAYS = 30;
 // First full window after the fixes of 2026-10-30 are live. Earlier runs only
 // print: the window still holds the old traffic, and each issue would start an
 // autonomous fix for a problem already solved.
@@ -29,6 +33,7 @@ export const DRY_RUN_COMMAND =
 const INCLUDED_INGEST_GB = 50;
 const INCLUDED_STORAGE_GB_MONTH = 10;
 const RETENTION_DAYS = 7;
+const UTC_DAY_MS = 864e5;
 
 const INTERNAL_CRAWLER_UA = 'frontaliere-bing-tree-crawler';
 export const WAF_BLOCKED_UAS = ['Baiduspider', 'CorsairBot', 'Chrome/48.0.2564.116', 'Chrome/99.0.4844.51'];
@@ -98,7 +103,49 @@ export function evaluateJobCanonV1Retirement(snapshot) {
   const observedDays = [...new Set(snapshot.jobCanonV2SuccessDays ?? [])].sort();
   const queryWindowDays = Number.isFinite(snapshot.queryWindowDays) ? snapshot.queryWindowDays : 0;
   const windowComplete = queryWindowDays >= WINDOW_DAYS && observedDays.length >= WINDOW_DAYS;
-  const samplingComplete = snapshot.samplingRate === 1;
+  const samplingHistoryBlockers = Array.isArray(snapshot.samplingHistory?.blockers)
+    ? snapshot.samplingHistory.blockers
+    : ['history:unavailable'];
+  const samplingHistoryComplete = snapshot.samplingHistory?.complete === true
+    && samplingHistoryBlockers.length === 0;
+  const v2SampleIntervals = snapshot.jobCanonV2SampleIntervals ?? [];
+  const v1SampleIntervals = snapshot.jobCanonV1SampleIntervals ?? [];
+  const signalSamplingComplete = v2SampleIntervals.length === observedDays.length
+    && v2SampleIntervals.length >= WINDOW_DAYS
+    && [...v2SampleIntervals, ...v1SampleIntervals]
+      .every((interval) => interval === 1);
+  const expectedSamplingDays = Array.isArray(snapshot.workerLogSamplingExpectedDays)
+    ? snapshot.workerLogSamplingExpectedDays
+    : [];
+  const streamSamplingBuckets = Array.isArray(snapshot.workerLogSamplingBuckets)
+    ? snapshot.workerLogSamplingBuckets
+    : [];
+  const streamSamplingBlockers = [];
+  if (expectedSamplingDays.length === 0) streamSamplingBlockers.push('coverage:unknown');
+  const bucketsByDay = new Map();
+  for (const bucket of streamSamplingBuckets) {
+    if (typeof bucket?.day !== 'string' || bucketsByDay.has(bucket.day)) {
+      streamSamplingBlockers.push('shape:duplicate-or-unknown-day');
+      continue;
+    }
+    bucketsByDay.set(bucket.day, bucket);
+  }
+  for (const day of expectedSamplingDays) {
+    const bucket = bucketsByDay.get(day);
+    if (!bucket) {
+      streamSamplingBlockers.push(`coverage:${day}:missing`);
+      continue;
+    }
+    if (bucket.rows !== 1 || !Number.isFinite(bucket.count) || bucket.count <= 0) {
+      streamSamplingBlockers.push(`coverage:${day}:empty-or-ambiguous`);
+    }
+    if (bucket.sampleInterval !== 1) {
+      streamSamplingBlockers.push(`sample-interval:${day}:${bucket.sampleInterval ?? 'unknown'}`);
+    }
+  }
+  for (const day of bucketsByDay.keys()) {
+    if (!expectedSamplingDays.includes(day)) streamSamplingBlockers.push(`coverage:${day}:unexpected`);
+  }
   const v2SuccessLogs = Number.isFinite(snapshot.jobCanonV2SuccessLogs)
     ? snapshot.jobCanonV2SuccessLogs
     : 0;
@@ -107,12 +154,23 @@ export function evaluateJobCanonV1Retirement(snapshot) {
     : 0;
   const blockers = [];
   if (!windowComplete) blockers.push(`v2-days:${observedDays.length}/${WINDOW_DAYS}`);
-  if (!samplingComplete) blockers.push(`sampling:${snapshot.samplingRate ?? 'unknown'}`);
+  if (snapshot.samplingRate !== 1) blockers.push(`sampling-current:${snapshot.samplingRate ?? 'unknown'}`);
+  for (const blocker of samplingHistoryBlockers) blockers.push(`sampling-${blocker}`);
+  if (!samplingHistoryComplete && samplingHistoryBlockers.length === 0) {
+    blockers.push('sampling-history:incomplete');
+  }
+  if (!signalSamplingComplete) {
+    const intervals = [...v2SampleIntervals, ...v1SampleIntervals];
+    blockers.push(`sampling-signal:${intervals.length
+      ? intervals.map((interval) => interval ?? 'unknown').join(',')
+      : 'missing'}`);
+  }
+  for (const blocker of streamSamplingBlockers) blockers.push(`sampling-stream:${blocker}`);
   if (v2SuccessLogs === 0) blockers.push('v2-success:0');
   if (v1FallbackLogs !== 0) blockers.push(`v1-fallback:${v1FallbackLogs}`);
 
   return {
-    schemaVersion: 1,
+    schemaVersion: 2,
     windowDays: WINDOW_DAYS,
     queryWindowDays,
     observedV2Days: observedDays.length,
@@ -121,6 +179,11 @@ export function evaluateJobCanonV1Retirement(snapshot) {
     v2SuccessLogs,
     v1FallbackLogs,
     samplingRate: snapshot.samplingRate ?? null,
+    v2SampleIntervals,
+    v1SampleIntervals,
+    workerLogSamplingExpectedDays: expectedSamplingDays,
+    workerLogSamplingBuckets: streamSamplingBuckets,
+    samplingHistory: snapshot.samplingHistory ?? null,
     ready: blockers.length === 0,
     blockers,
   };
@@ -276,11 +339,217 @@ async function telemetry(body) {
   throw new Error(`telemetry query failed: ${lastError}`);
 }
 
+function logSamplingRate(value) {
+  const rate = value?.observability?.logs?.head_sampling_rate;
+  return Number.isFinite(rate) ? rate : null;
+}
+
+function auditMutationKind(entry) {
+  const resourceType = entry?.resource?.type ?? '';
+  const uri = entry?.raw?.uri?.split('?')[0] ?? '';
+  if (resourceType === 'scripts.script-settings' || uri.endsWith(`/workers/scripts/${WORKER_NAME}/script-settings`)) {
+    return 'settings';
+  }
+  if (resourceType === 'scripts.settings' || uri.endsWith(`/workers/scripts/${WORKER_NAME}/settings`)) {
+    return 'settings';
+  }
+  if (resourceType === 'scripts.deployments' || uri.endsWith(`/workers/scripts/${WORKER_NAME}/deployments`)) {
+    return 'deployment';
+  }
+  if (resourceType === 'scripts.versions' || uri.endsWith(`/workers/scripts/${WORKER_NAME}/versions`)) {
+    return 'version';
+  }
+  return null;
+}
+
+function auditMutationTime(entry) {
+  const timestamp = Date.parse(entry?.action?.time ?? '');
+  return Number.isFinite(timestamp) ? timestamp : null;
+}
+
+function utcDaysInTimeframe(timeframe) {
+  if (!Number.isFinite(timeframe?.from) || !Number.isFinite(timeframe?.to) || timeframe.from >= timeframe.to) {
+    return [];
+  }
+  const days = [];
+  for (let cursor = Math.floor(timeframe.from / UTC_DAY_MS) * UTC_DAY_MS; cursor < timeframe.to; cursor += UTC_DAY_MS) {
+    days.push(new Date(cursor).toISOString().slice(0, 10));
+  }
+  return days;
+}
+
+function workerLogSamplingBuckets(calculation) {
+  if (!Array.isArray(calculation?.series)) return [];
+  return calculation.series.map((series) => {
+    const day = typeof series?.time === 'string'
+      ? series.time.match(/^(\d{4}-\d{2}-\d{2}) 00:00:00$/)?.[1] ?? null
+      : null;
+    const rows = Array.isArray(series?.data) ? series.data : [];
+    const row = rows.length === 1 ? rows[0] : null;
+    return {
+      day,
+      rows: rows.length,
+      count: Number.isFinite(row?.count) ? row.count : null,
+      sampleInterval: Number.isFinite(row?.sampleInterval) ? row.sampleInterval : null,
+    };
+  });
+}
+
+export function evaluateSamplingHistory(entries, timeframe) {
+  const blockers = [];
+  const mutations = [];
+  for (const entry of entries) {
+    const kind = auditMutationKind(entry);
+    if (!kind) continue;
+    const actionType = entry?.action?.type;
+    const method = entry?.raw?.method;
+    const actionOperation = actionType === 'view'
+      ? 'read'
+      : ['create', 'update', 'delete'].includes(actionType)
+        ? 'mutation'
+        : 'unknown';
+    const methodOperation = method === 'GET'
+      ? 'read'
+      : ['POST', 'PUT', 'PATCH', 'DELETE'].includes(method)
+        ? 'mutation'
+        : 'unknown';
+    const operations = [actionOperation, methodOperation];
+    if (operations.includes('unknown')
+      || (operations.includes('read') && operations.includes('mutation'))) {
+      // The receipt may ignore only records whose two classifiers explicitly
+      // identify a read. Missing, unknown, malformed, or conflicting values
+      // can otherwise hide an unrecognized Worker mutation.
+      blockers.push(`${kind}:ambiguous-operation`);
+      continue;
+    }
+    if (operations.every((operation) => operation === 'read') || entry?.action?.result === 'failure') continue;
+    if (entry?.action?.result !== 'success') {
+      blockers.push(`${kind}:ambiguous-result`);
+      continue;
+    }
+    const timestamp = auditMutationTime(entry);
+    if (timestamp === null) {
+      blockers.push(`${kind}:invalid-time`);
+      continue;
+    }
+    const rate = kind === 'settings' ? logSamplingRate(entry.resource?.response) : null;
+    mutations.push({ kind, timestamp, rate });
+  }
+
+  mutations.sort((a, b) => a.timestamp - b.timestamp);
+  const settings = mutations.filter(({ kind }) => kind === 'settings');
+  const baseline = settings.filter(({ timestamp }) => timestamp <= timeframe.from).at(-1) ?? null;
+  if (!baseline) blockers.push('history:no-baseline');
+  else if (baseline.rate !== 1) blockers.push(`history:baseline-rate:${baseline.rate ?? 'unknown'}`);
+
+  const windowSettings = settings.filter(({ timestamp }) => timestamp > timeframe.from && timestamp <= timeframe.to);
+  for (const mutation of windowSettings) {
+    if (mutation.rate !== 1) blockers.push(`history:rate:${mutation.rate ?? 'unknown'}:${new Date(mutation.timestamp).toISOString()}`);
+  }
+
+  const windowDeployments = mutations.filter(
+    ({ kind, timestamp }) => kind === 'deployment' && timestamp > timeframe.from && timestamp <= timeframe.to,
+  );
+  for (const deployment of windowDeployments) {
+    const confirmed = windowSettings.some(({ timestamp, rate }) =>
+      rate === 1 && timestamp >= deployment.timestamp && timestamp - deployment.timestamp <= 5 * 60e3,
+    );
+    if (!confirmed) blockers.push(`history:deployment-unconfirmed:${new Date(deployment.timestamp).toISOString()}`);
+  }
+
+  return {
+    schemaVersion: 1,
+    complete: blockers.length === 0,
+    queryFrom: new Date(timeframe.auditFrom).toISOString(),
+    windowFrom: new Date(timeframe.from).toISOString(),
+    windowTo: new Date(timeframe.to).toISOString(),
+    baselineAt: baseline ? new Date(baseline.timestamp).toISOString() : null,
+    baselineRate: baseline?.rate ?? null,
+    settingsMutations: windowSettings.length,
+    versionUploads: mutations.filter(
+      ({ kind, timestamp }) => kind === 'version' && timestamp > timeframe.from && timestamp <= timeframe.to,
+    ).length,
+    deployments: windowDeployments.length,
+    blockers: [...new Set(blockers)],
+  };
+}
+
+async function collectSamplingHistory(timeframe) {
+  const entries = [];
+  const seenCursors = new Set();
+  const pageLimit = 1000;
+  let cursor = null;
+  let pages = 0;
+  do {
+    const params = new URLSearchParams({
+      since: new Date(timeframe.auditFrom).toISOString(),
+      before: new Date(timeframe.to).toISOString(),
+      direction: 'asc',
+      limit: String(pageLimit),
+      resource_id: WORKER_NAME,
+      resource_product: 'workers',
+    });
+    if (cursor) params.set('cursor', cursor);
+    // Audit Logs v2 carries the request/response of script-settings mutations.
+    // The resource filters keep pagination bounded without assuming an action
+    // name, which Cloudflare may change independently of the endpoint shape.
+    const res = await fetch(
+      `https://api.cloudflare.com/client/v4/accounts/${process.env.CF_ACCOUNT_ID}/logs/audit?${params}`,
+      { headers: { Authorization: `Bearer ${process.env.CF_API_TOKEN}` } },
+    );
+    const json = await res.json();
+    if (!res.ok || json.success === false || !Array.isArray(json.result)) {
+      throw new Error(`audit-logs HTTP ${res.status} ${JSON.stringify(json.errors ?? [])}`);
+    }
+    entries.push(...json.result);
+    pages += 1;
+    const resultInfo = json.result_info;
+    const rawCount = resultInfo?.count;
+    const count = typeof rawCount === 'number'
+      ? rawCount
+      : typeof rawCount === 'string' && /^\d+$/.test(rawCount)
+        ? Number(rawCount)
+        : null;
+    if (!resultInfo || typeof resultInfo !== 'object'
+      || !Number.isSafeInteger(count) || count !== json.result.length) {
+      throw new Error('audit-logs pagination metadata has an invalid count');
+    }
+    if (!Object.hasOwn(resultInfo, 'cursor')) {
+      // The live terminal page omits cursor. Its count proves completeness
+      // only when fewer records than the requested page limit were returned.
+      if (count >= pageLimit) {
+        throw new Error('audit-logs page reached its limit without a cursor');
+      }
+      cursor = null;
+      continue;
+    }
+    const nextCursor = resultInfo.cursor;
+    if (nextCursor === null) {
+      cursor = null;
+      continue;
+    }
+    if (typeof nextCursor !== 'string' || nextCursor.length === 0) {
+      throw new Error('audit-logs pagination returned an invalid cursor');
+    }
+    if (seenCursors.has(nextCursor)) throw new Error('audit-logs pagination returned a repeated cursor');
+    seenCursors.add(nextCursor);
+    cursor = nextCursor;
+    if (pages >= 100) throw new Error('audit-logs pagination exceeded 100 pages');
+  } while (cursor);
+
+  const history = evaluateSamplingHistory(entries, timeframe);
+  return { ...history, pages, records: entries.length };
+}
+
 const STATUS = '$workers.event.response.status';
 const PATH = '$workers.event.path';
 
 export async function collectSnapshot(now = Date.now()) {
-  const timeframe = { from: now - WINDOW_DAYS * 864e5, to: now };
+  const timeframe = {
+    auditFrom: now - (WINDOW_DAYS + SAMPLING_HISTORY_LOOKBACK_DAYS) * 864e5,
+    from: now - WINDOW_DAYS * 864e5,
+    to: now,
+  };
   const service = filter('$metadata.service', 'eq', WORKER_NAME);
   let id = 0;
   const query = async (filters, groupBy, limit = 50) => {
@@ -288,7 +557,7 @@ export async function collectSnapshot(now = Date.now()) {
       queryId: `cf-observability-audit-${++id}`,
       view: 'calculations',
       limit,
-      timeframe,
+      timeframe: { from: timeframe.from, to: timeframe.to },
       parameters: {
         datasets: [],
         filters: [service, ...filters],
@@ -321,6 +590,27 @@ export async function collectSnapshot(now = Date.now()) {
       ? row.groupKey.match(/"day":"(\d{4}-\d{2}-\d{2})"/)?.[1]
       : null)
     .filter(Boolean);
+  const jobCanonV1Fallback = await query(buildJobCanonV1FallbackLogFilters());
+  const jobCanonV1FallbackRows = jobCanonV1Fallback.aggregates ?? [];
+  // Cloudflare accepts granularity as a millisecond bucket width and returns
+  // these daily series aligned to 00:00:00 UTC. The aggregate is deliberately
+  // ignored: each intersecting day must independently prove exact ingestion.
+  const workerLogSampling = await telemetry({
+    queryId: 'cf-observability-audit-worker-log-sampling',
+    view: 'calculations',
+    granularity: UTC_DAY_MS,
+    limit: 1,
+    timeframe: { from: timeframe.from, to: timeframe.to },
+    parameters: {
+      datasets: [],
+      filters: [service],
+      calculations: [{ operator: 'count' }],
+      limit: 1,
+      groupBys: [],
+    },
+  });
+  const workerLogSamplingCalculation = workerLogSampling.calculations?.[0] ?? null;
+  const samplingHistory = await collectSamplingHistory(timeframe);
 
   const events = await telemetry({
     queryId: 'cf-observability-audit-size',
@@ -351,7 +641,14 @@ export async function collectSnapshot(now = Date.now()) {
     originFailureLogs: await count(...buildOriginFailureLogFilters()),
     jobCanonV2SuccessLogs: jobCanonV2SuccessRows.reduce((sum, row) => sum + (row.value ?? 0), 0),
     jobCanonV2SuccessDays,
-    jobCanonV1FallbackLogs: await count(...buildJobCanonV1FallbackLogFilters()),
+    jobCanonV2SampleIntervals: jobCanonV2SuccessRows.map((row) => row.sampleInterval ?? null),
+    jobCanonV1FallbackLogs: jobCanonV1FallbackRows.reduce((sum, row) => sum + (row.value ?? 0), 0),
+    jobCanonV1SampleIntervals: jobCanonV1FallbackRows
+      .filter((row) => (row.value ?? 0) > 0)
+      .map((row) => row.sampleInterval ?? null),
+    workerLogSamplingExpectedDays: utcDaysInTimeframe(timeframe),
+    workerLogSamplingBuckets: workerLogSamplingBuckets(workerLogSamplingCalculation),
+    samplingHistory,
     queryWindowDays: (timeframe.to - timeframe.from) / 864e5,
     internalCrawlerRequests: await count(filter(USER_AGENT, 'includes', INTERNAL_CRAWLER_UA)),
     versionRequests,
@@ -360,7 +657,9 @@ export async function collectSnapshot(now = Date.now()) {
     googlebotTotal: await count(filter(USER_AGENT, 'includes', 'Googlebot')),
     googlebot301: await count(filter(USER_AGENT, 'includes', 'Googlebot'), filter(STATUS, 'eq', 301, 'number')),
     avgEventBytes: sizes.length ? sizes.reduce((sum, size) => sum + size, 0) / sizes.length : 0,
-    samplingRate: observability.logs?.head_sampling_rate ?? observability.head_sampling_rate ?? null,
+    samplingRate: Number.isFinite(observability.logs?.head_sampling_rate)
+      ? observability.logs.head_sampling_rate
+      : null,
     redactQueryString: observability.redact_query_string,
   };
 }
