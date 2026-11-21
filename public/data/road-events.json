@@ -1,67 +1,67 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-21T02:53:41.125Z",
+  "generatedAt": "2026-11-21T11:54:38.182Z",
   "sources": [
     {
       "id": "astra-datex2",
-      "status": "ok",
-      "count": 475,
-      "coverage": 87.2,
-      "lastSuccessAt": "2026-11-21T02:53:41.125Z"
+      "status": "error",
+      "reason": "HTTP 503",
+      "lastSuccessAt": "2026-11-21T02:53:41.125Z",
+      "carriedForward": 447
     },
     {
       "id": "ne-mobilite",
       "status": "ok",
       "count": 1,
-      "lastSuccessAt": "2026-11-21T02:53:41.125Z"
+      "lastSuccessAt": "2026-11-21T11:54:38.182Z"
     },
     {
       "id": "ne-territoire",
       "status": "ok",
       "count": 0,
-      "lastSuccessAt": "2026-11-21T02:53:41.125Z"
+      "lastSuccessAt": "2026-11-21T11:54:38.182Z"
     },
     {
       "id": "fr-mobilite",
       "status": "ok",
       "count": 2,
-      "lastSuccessAt": "2026-11-21T02:53:41.125Z"
+      "lastSuccessAt": "2026-11-21T11:54:38.182Z"
     },
     {
       "id": "fr-police",
       "status": "ok",
       "count": 2,
-      "lastSuccessAt": "2026-11-21T02:53:41.125Z"
+      "lastSuccessAt": "2026-11-21T11:54:38.182Z"
     },
     {
       "id": "ge-police",
       "status": "ok",
       "count": 3,
-      "lastSuccessAt": "2026-11-21T02:53:41.125Z"
+      "lastSuccessAt": "2026-11-21T11:54:38.182Z"
     },
     {
       "id": "ge-mobilite",
       "status": "ok",
       "count": 3,
-      "lastSuccessAt": "2026-11-21T02:53:41.125Z"
+      "lastSuccessAt": "2026-11-21T11:54:38.182Z"
     },
     {
       "id": "vd-police",
       "status": "ok",
-      "count": 1,
-      "lastSuccessAt": "2026-11-21T02:53:41.125Z"
+      "count": 2,
+      "lastSuccessAt": "2026-11-21T11:54:38.182Z"
     },
     {
       "id": "vd-mobilis",
       "status": "ok",
       "count": 0,
-      "lastSuccessAt": "2026-11-21T02:53:41.125Z"
+      "lastSuccessAt": "2026-11-21T11:54:38.182Z"
     },
     {
       "id": "basilea-bvb",
       "status": "ok",
       "count": 1,
-      "lastSuccessAt": "2026-11-21T02:53:41.125Z"
+      "lastSuccessAt": "2026-11-21T11:54:38.182Z"
     },
     {
       "id": "appenzello-polizei",
@@ -72,8 +72,8 @@
     {
       "id": "ti-polizia",
       "status": "ok",
-      "count": 0,
-      "lastSuccessAt": "2026-11-21T02:53:41.125Z"
+      "count": 1,
+      "lastSuccessAt": "2026-11-21T11:54:38.182Z"
     }
   ],
   "events": [
@@ -988,7 +988,7 @@
       "validTo": null,
       "publishedAt": "2026-11-05T07:49:54.000Z",
       "source": "basilea-bvb",
-      "observedAt": "2026-11-21T02:53:41.125Z"
+      "observedAt": "2026-11-21T11:54:38.182Z"
     },
     {
       "id": "astra-datex2:situation.668380.1",
@@ -2985,7 +2985,7 @@
       "validTo": null,
       "publishedAt": "2026-11-09T17:07:27.000Z",
       "source": "fr-mobilite",
-      "observedAt": "2026-11-21T02:53:41.125Z"
+      "observedAt": "2026-11-21T11:54:38.182Z"
     },
     {
       "id": "fr-mobilite:https://www.fr.ch/mobilite-et-transport/transports-individuels-motorises/observatoire-de-la-mobilite",
@@ -2997,7 +2997,7 @@
       "validTo": null,
       "publishedAt": "2026-11-09T15:55:21.000Z",
       "source": "fr-mobilite",
-      "observedAt": "2026-11-21T02:53:41.125Z"
+      "observedAt": "2026-11-21T11:54:38.182Z"
     },
     {
       "id": "fr-police:https://www.fr.ch/dsjs/pol/actualites/une-pietonne-decede-apres-avoir-ete-heurtee-par-des-vehicules-sur-la12-appel-a-temoins",
@@ -3009,7 +3009,7 @@
       "validTo": null,
       "publishedAt": "2026-11-02T13:58:09.000Z",
       "source": "fr-police",
-      "observedAt": "2026-11-21T02:53:41.125Z"
+      "observedAt": "2026-11-21T11:54:38.182Z"
     },
     {
       "id": "fr-police:https://www.fr.ch/dsjs/pol/actualites/quelques-incidents-et-plusieurs-accidents-de-la-circulation",
@@ -3021,7 +3021,7 @@
       "validTo": null,
       "publishedAt": "2026-11-01T09:10:00.000Z",
       "source": "fr-police",
-      "observedAt": "2026-11-21T02:53:41.125Z"
+      "observedAt": "2026-11-21T11:54:38.182Z"
     },
     {
       "id": "astra-datex2:situation.659881.1",
@@ -3181,7 +3181,7 @@
       "validTo": null,
       "publishedAt": "2026-11-19T08:53:50.000Z",
       "source": "ge-mobilite",
-      "observedAt": "2026-11-21T02:53:41.125Z"
+      "observedAt": "2026-11-21T11:54:38.182Z"
     },
     {
       "id": "ge-mobilite:https://www.ge.ch/node/45465",
@@ -3193,7 +3193,7 @@
       "validTo": null,
       "publishedAt": "2026-11-12T08:21:31.000Z",
       "source": "ge-mobilite",
-      "observedAt": "2026-11-21T02:53:41.125Z"
+      "observedAt": "2026-11-21T11:54:38.182Z"
     },
     {
       "id": "ge-mobilite:https://www.ge.ch/node/45397",
@@ -3205,7 +3205,7 @@
       "validTo": null,
       "publishedAt": "2026-11-05T08:29:18.000Z",
       "source": "ge-mobilite",
-      "observedAt": "2026-11-21T02:53:41.125Z"
+      "observedAt": "2026-11-21T11:54:38.182Z"
     },
     {
       "id": "ge-police:https://www.ge.ch/node/45507",
@@ -3217,7 +3217,7 @@
       "validTo": null,
       "publishedAt": "2026-11-13T13:20:45.000Z",
       "source": "ge-police",
-      "observedAt": "2026-11-21T02:53:41.125Z"
+      "observedAt": "2026-11-21T11:54:38.182Z"
     },
     {
       "id": "ge-police:https://www.ge.ch/node/45418",
@@ -3229,7 +3229,7 @@
       "validTo": null,
       "publishedAt": "2026-11-05T15:20:03.000Z",
       "source": "ge-police",
-      "observedAt": "2026-11-21T02:53:41.125Z"
+      "observedAt": "2026-11-21T11:54:38.182Z"
     },
     {
       "id": "ge-police:https://www.ge.ch/node/45382",
@@ -3241,7 +3241,7 @@
       "validTo": null,
       "publishedAt": "2026-10-31T18:01:57.000Z",
       "source": "ge-police",
-      "observedAt": "2026-11-21T02:53:41.125Z"
+      "observedAt": "2026-11-21T11:54:38.182Z"
     },
     {
       "id": "astra-datex2:situation.662096.1",
@@ -4103,7 +4103,7 @@
       "validTo": null,
       "publishedAt": "2026-11-16T10:18:21.000Z",
       "source": "ne-mobilite",
-      "observedAt": "2026-11-21T02:53:41.125Z"
+      "observedAt": "2026-11-21T11:54:38.182Z"
     },
     {
       "id": "astra-datex2:situation.668025.1",
@@ -5418,6 +5418,18 @@
       "observedAt": "2026-11-21T02:53:41.125Z"
     },
     {
+      "id": "ti-polizia:https://www4.ti.ch/di/pol-new/comunicazioni/comunicati-stampa-1/dettaglio/?user_polizia_pi1[newsId]=261654",
+      "canton": "TI",
+      "type": "traffico",
+      "title": "Incidente della circolazione stradale con esito letale nel Luganese",
+      "url": "https://www4.ti.ch/di/pol-new/comunicazioni/comunicati-stampa-1/dettaglio/?user_polizia_pi1[newsId]=261654",
+      "validFrom": null,
+      "validTo": null,
+      "publishedAt": "2026-11-21T11:35:01.000Z",
+      "source": "ti-polizia",
+      "observedAt": "2026-11-21T11:54:38.182Z"
+    },
+    {
       "id": "astra-datex2:situation.651545.1",
       "canton": "UR",
       "type": "chiusura",
@@ -6391,6 +6403,18 @@
       "observedAt": "2026-11-21T02:53:41.125Z"
     },
     {
+      "id": "vd-police:https://www.vd.ch/actualites/actualite/news/26822-accident-de-la-circulation-a-payerne",
+      "canton": "VD",
+      "type": "traffico",
+      "title": "Accident de la circulation à Payerne",
+      "url": "https://www.vd.ch/actualites/actualite/news/26822-accident-de-la-circulation-a-payerne",
+      "validFrom": null,
+      "validTo": null,
+      "publishedAt": "2026-11-21T08:34:00.000Z",
+      "source": "vd-police",
+      "observedAt": "2026-11-21T11:54:38.182Z"
+    },
+    {
       "id": "vd-police:https://www.vd.ch/actualites/actualite/news/26793-accident-de-la-circulation-impliquant-une-pietonne-a-moudon-appel-a-temoins",
       "canton": "VD",
       "type": "traffico",
@@ -6400,7 +6424,7 @@
       "validTo": null,
       "publishedAt": "2026-11-13T13:22:23.000Z",
       "source": "vd-police",
-      "observedAt": "2026-11-21T02:53:41.125Z"
+      "observedAt": "2026-11-21T11:54:38.182Z"
     },
     {
       "id": "astra-datex2:situation.660114.1",
