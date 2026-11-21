@@ -1,7 +1,7 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-11-20T21:18:41.279Z",
+  "generatedAt": "2026-11-21T21:17:58.694Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -13,19 +13,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5942,
-  "avgDurationMs": 5942,
+  "durationMs": 31399,
+  "avgDurationMs": 31399,
   "durationHistory": [
-    5942
+    31399
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "vaxcyte-31f5fba6f298",
-      "slug": "senior-bioprocess-engineer-proteins-vaxcyte-ch",
+      "slug": "senior-bioprocess-ingegnere-proteins-vaxcyte-visp",
       "company": "Vaxcyte",
       "companyKey": "vaxcyte",
       "companyDomain": "vaxcyte.com",
@@ -35,7 +36,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5481965008?gh_jid=5481965008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T21:18:07.286Z",
+      "crawledAt": "2026-11-21T21:17:17.109Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -58,24 +59,23 @@
         "location": "Visp"
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-19T21:15:49.698Z",
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T21:18:07.286Z",
+      "validThrough": "2027-02-17T21:17:17.109Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:18:07.286Z",
-      "_qualityScore": 83,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
-        "translation": 21,
+        "translation": 23,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -90,7 +90,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5440646008?gh_jid=5440646008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T21:18:07.309Z",
+      "crawledAt": "2026-11-21T21:17:17.119Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -118,7 +118,7 @@
       "salarySource": "estimated",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T21:18:07.309Z",
+      "validThrough": "2027-01-03T21:17:17.119Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -140,7 +140,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5464246008?gh_jid=5464246008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T21:18:07.186Z",
+      "crawledAt": "2026-11-21T21:17:17.072Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -168,7 +168,7 @@
       "salarySource": "estimated",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:18:07.186Z",
+      "validThrough": "2027-01-26T21:17:17.072Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -179,5 +179,5 @@
       }
     }
   ],
-  "codeCommit": "07c2e8305c6747f1893222ba4bfdddc597008157"
+  "codeCommit": "4b92eb0854b9f965b31956a24be8b4a2b342e4b2"
 }

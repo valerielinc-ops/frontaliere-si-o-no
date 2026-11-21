@@ -1,7 +1,7 @@
 {
   "crawlerKey": "talan",
-  "assembledAt": "2026-11-20T21:20:38.926Z",
-  "runId": "44817524642",
+  "assembledAt": "2026-11-21T21:19:10.614Z",
+  "runId": "44949854224",
   "jobs": [
     {
       "id": "talan-838cc2a04384",
@@ -35,7 +35,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126717821-developpeur-abap-s-4hana?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:20:30.683Z",
+      "crawledAt": "2026-11-21T21:19:04.589Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -79,9 +79,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:20:30.683Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000126717821-developpeur-abap-s-4hana?oga=true"
+      "validThrough": "2026-12-21T21:19:04.589Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "talan-68cff378c8b2",
@@ -115,7 +114,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:20:30.681Z",
+      "crawledAt": "2026-11-21T21:19:04.588Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -159,9 +158,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:20:30.681Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000137693459-qa-engineer-ebanking?oga=true"
+      "validThrough": "2026-12-21T21:19:04.588Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "talan-d96f65b3eb5e",
@@ -195,7 +193,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:20:30.680Z",
+      "crawledAt": "2026-11-21T21:19:04.587Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -255,9 +253,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T21:20:30.680Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true"
+      "validThrough": "2026-12-24T21:19:04.587Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "talan-3d22739aef94",
@@ -291,7 +288,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:20:30.676Z",
+      "crawledAt": "2026-11-21T21:19:04.586Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -335,9 +332,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:20:30.676Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true"
+      "validThrough": "2026-12-21T21:19:04.586Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "talan-338bfd5acd78",
@@ -370,7 +366,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:20:30.678Z",
+      "crawledAt": "2026-11-21T21:19:04.586Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -414,9 +410,90 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:20:30.678Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000144774739-business-analyste-core-banking?oga=true"
+      "validThrough": "2026-12-21T21:19:04.586Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "talan-9addce44f74f",
+      "slug": "consulente-sap-basis-talan-geneva",
+      "slugByLocale": {
+        "it": "consulente-sap-basis-talan-geneva",
+        "en": "consultant-sap-basis-talan-geneva-ge-switzerland",
+        "de": "berater-sap-basis-talan-geneva",
+        "fr": "consultant-sap-basis-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Consultant SAP Basis",
+      "titleByLocale": {
+        "it": "Consulente SAP Basis",
+        "en": "SAP Basis Consultant",
+        "de": "Berater SAP Basis",
+        "fr": "Consultant SAP Basis"
+      },
+      "description": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\n Rôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\n Compétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\n Profil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
+      "descriptionByLocale": {
+        "it": "Integrare il team di Amministrazione dei Sistemi SAP per garantire la disponibilità, le prestazioni e la sicurezza degli ambienti SAP per i nostri clienti.\nRuolo e responsabilità\n\n• Garantire l'amministrazione e la manutenzione dei sistemi SAP (principalmente On-Premise).\n\n• Gestire installazioni, aggiornamenti e patch degli ambienti SAP.\n\n• Monitorare le prestazioni e la disponibilità dei sistemi.\n\n• Partecipare alla risoluzione degli incidenti e al miglioramento continuo dei processi.\n\n• Collaborare con i team di progetto per integrazioni e migrazioni SAP.\n\n• Contribuisci alla documentazione tecnica e alle migliori pratiche.\n\nCompetenze obbligatorie\n\n• SAP BC (Componenti di Base)\n\n• Amministrazione dei Sistemi On-Premise SAP\nCompetenze complementari desiderate\n\n• SAP Cloud / RISE e Amministrazione dei Sistemi Hyperscaler\n\n• Gestione del ruolo e delle autorizzazioni SAP\n\n• Esperienza in un'azienda di servizi (ESN / SSII)\n\n• Partecipazione a progetti SAP (migrazione, aggiornamento, integrazione)\nProfilo desiderato\n\n• Esperienza comprovata o senior nell'amministrazione SAP.\n\n• Capacità di lavorare in squadra e interagire con una varietà di interlocutori (tecnici e aziendali).\n\n• Rigore, autonomia e senso del servizio clienti.\n\n• Fluente in inglese",
+        "en": "Integrate the SAP Systems Administration team to ensure the availability, performance, and security of SAP environments for our customers.\nRole & Responsibilities\n\n• Ensure the administration and maintenance of SAP systems (mainly On-Premise).\n\n• Manage installations, updates and patches of SAP environments.\n\n• Monitor the performance and availability of systems.\n\n• Participate in incident resolution and continuous process improvement.\n\n• Collaborate with project teams for SAP integrations and migrations.\n\n• Contribute to technical documentation and best practices.\n\nMandatory Skills\n\n• SAP BC (Basis Components)\n\n• SAP On-Premise Systems Administration\nDesired complementary skills\n\n• SAP Cloud / RISE & Hyperscaler Systems Administration\n\n• SAP Role and Authorization Management\n\n• Experience in a service company (ESN / SSII)\n\n• Participation in SAP projects (migration, upgrade, integration)\nDesired profile\n\n• Proven or senior experience in SAP administration.\n\n• Ability to work in a team and interact with a variety of interlocutors (technical and business).\n\n• Rigor, autonomy and sense of customer service.\n\n• Fluent in English",
+        "de": "Werden Sie Teil des SAP Systems Administration-Teams, um die Verfügbarkeit, Leistung und Sicherheit von SAP-Umgebungen für unsere Kunden sicherzustellen.\nRolle und Verantwortlichkeiten\n\n• Stellen Sie die Verwaltung und Wartung von SAP-Systemen (hauptsächlich On-Premise) sicher.\n\n• Verwalten Sie Installationen, Updates und Patches von SAP-Umgebungen.\n\n• Überwachen Sie die Systemleistung und -verfügbarkeit.\n\n• Beteiligen Sie sich an der Lösung von Vorfällen und der kontinuierlichen Prozessverbesserung.\n\n• Arbeiten Sie mit Projektteams für SAP-Integrationen und -Migrationen zusammen.\n\n• Tragen Sie zur technischen Dokumentation und zu Best Practices bei.\n\nObligatorische Fähigkeiten\n\n• SAP BC (Basiskomponenten)\n\n• SAP-On-Premise-Systemadministration\nGewünschte zusätzliche Fähigkeiten\n\n• Administration von SAP Cloud-/RISE- und Hyperscaler-Systemen\n\n• Verwaltung von SAP-Rollen und Berechtigungen\n\n• Erfahrung in einem Dienstleistungsunternehmen (ESN / SSII)\n\n• Mitarbeit bei SAP-Projekten (Migration, Upgrade, Integration)\nProfil gesucht\n\n• Nachgewiesene oder erfahrene Erfahrung in der SAP-Administration.\n\n• Fähigkeit, im Team zu arbeiten und mit einer Vielzahl von Menschen (technisch und beruflich) zu interagieren.\n\n• Strenge, Autonomie und Sinn für Kundenservice.\n\n• Fließendes Englisch",
+        "fr": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant"
+      },
+      "needsRetranslation": false,
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-21T21:19:04.585Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-02T07:38:00.377Z",
+      "postedDate": "2026-10-02T07:38:00.377Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
+      "jobReqId": "744000153113299",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "consultant-sap-basis-talan-geneva-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "consultant-sap-basis-talan-geneva-ge-switzerland"
+        ]
+      },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1266,
+      "retranslationAttempts": 3,
+      "firstSeenAt": "2026-09-04T22:55:58.545Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-31T21:19:04.585Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "talan-77288cd4a877",
@@ -449,7 +526,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:20:30.673Z",
+      "crawledAt": "2026-11-21T21:19:04.584Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -504,9 +581,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T21:20:30.673Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true"
+      "validThrough": "2026-12-31T21:19:04.584Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "talan-61c9acf4f11b",
@@ -540,7 +616,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:20:30.675Z",
+      "crawledAt": "2026-11-21T21:19:04.583Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -584,175 +660,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T21:20:30.675Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true"
-    },
-    {
-      "id": "talan-9addce44f74f",
-      "slug": "consulente-sap-basis-talan-geneva",
-      "slugByLocale": {
-        "it": "consulente-sap-basis-talan-geneva",
-        "en": "consultant-sap-basis-talan-geneva-ge-switzerland",
-        "de": "berater-sap-basis-talan-geneva",
-        "fr": "consultant-sap-basis-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Consultant SAP Basis",
-      "titleByLocale": {
-        "it": "Consulente SAP Basis",
-        "en": "SAP Basis Consultant",
-        "de": "Berater SAP Basis",
-        "fr": "Consultant SAP Basis"
-      },
-      "description": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\n Rôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\n Compétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\n Profil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant",
-      "descriptionByLocale": {
-        "it": "Integrare il team di Amministrazione dei Sistemi SAP per garantire la disponibilità, le prestazioni e la sicurezza degli ambienti SAP per i nostri clienti.\nRuolo e responsabilità\n\n• Garantire l'amministrazione e la manutenzione dei sistemi SAP (principalmente On-Premise).\n\n• Gestire installazioni, aggiornamenti e patch degli ambienti SAP.\n\n• Monitorare le prestazioni e la disponibilità dei sistemi.\n\n• Partecipare alla risoluzione degli incidenti e al miglioramento continuo dei processi.\n\n• Collaborare con i team di progetto per integrazioni e migrazioni SAP.\n\n• Contribuisci alla documentazione tecnica e alle migliori pratiche.\n\nCompetenze obbligatorie\n\n• SAP BC (Componenti di Base)\n\n• Amministrazione dei Sistemi On-Premise SAP\nCompetenze complementari desiderate\n\n• SAP Cloud / RISE e Amministrazione dei Sistemi Hyperscaler\n\n• Gestione del ruolo e delle autorizzazioni SAP\n\n• Esperienza in un'azienda di servizi (ESN / SSII)\n\n• Partecipazione a progetti SAP (migrazione, aggiornamento, integrazione)\nProfilo desiderato\n\n• Esperienza comprovata o senior nell'amministrazione SAP.\n\n• Capacità di lavorare in squadra e interagire con una varietà di interlocutori (tecnici e aziendali).\n\n• Rigore, autonomia e senso del servizio clienti.\n\n• Fluente in inglese",
-        "en": "Integrate the SAP Systems Administration team to ensure the availability, performance, and security of SAP environments for our customers.\nRole & Responsibilities\n\n• Ensure the administration and maintenance of SAP systems (mainly On-Premise).\n\n• Manage installations, updates and patches of SAP environments.\n\n• Monitor the performance and availability of systems.\n\n• Participate in incident resolution and continuous process improvement.\n\n• Collaborate with project teams for SAP integrations and migrations.\n\n• Contribute to technical documentation and best practices.\n\nMandatory Skills\n\n• SAP BC (Basis Components)\n\n• SAP On-Premise Systems Administration\nDesired complementary skills\n\n• SAP Cloud / RISE & Hyperscaler Systems Administration\n\n• SAP Role and Authorization Management\n\n• Experience in a service company (ESN / SSII)\n\n• Participation in SAP projects (migration, upgrade, integration)\nDesired profile\n\n• Proven or senior experience in SAP administration.\n\n• Ability to work in a team and interact with a variety of interlocutors (technical and business).\n\n• Rigor, autonomy and sense of customer service.\n\n• Fluent in English",
-        "de": "Werden Sie Teil des SAP Systems Administration-Teams, um die Verfügbarkeit, Leistung und Sicherheit von SAP-Umgebungen für unsere Kunden sicherzustellen.\nRolle und Verantwortlichkeiten\n\n• Stellen Sie die Verwaltung und Wartung von SAP-Systemen (hauptsächlich On-Premise) sicher.\n\n• Verwalten Sie Installationen, Updates und Patches von SAP-Umgebungen.\n\n• Überwachen Sie die Systemleistung und -verfügbarkeit.\n\n• Beteiligen Sie sich an der Lösung von Vorfällen und der kontinuierlichen Prozessverbesserung.\n\n• Arbeiten Sie mit Projektteams für SAP-Integrationen und -Migrationen zusammen.\n\n• Tragen Sie zur technischen Dokumentation und zu Best Practices bei.\n\nObligatorische Fähigkeiten\n\n• SAP BC (Basiskomponenten)\n\n• SAP-On-Premise-Systemadministration\nGewünschte zusätzliche Fähigkeiten\n\n• Administration von SAP Cloud-/RISE- und Hyperscaler-Systemen\n\n• Verwaltung von SAP-Rollen und Berechtigungen\n\n• Erfahrung in einem Dienstleistungsunternehmen (ESN / SSII)\n\n• Mitarbeit bei SAP-Projekten (Migration, Upgrade, Integration)\nProfil gesucht\n\n• Nachgewiesene oder erfahrene Erfahrung in der SAP-Administration.\n\n• Fähigkeit, im Team zu arbeiten und mit einer Vielzahl von Menschen (technisch und beruflich) zu interagieren.\n\n• Strenge, Autonomie und Sinn für Kundenservice.\n\n• Fließendes Englisch",
-        "fr": "Intégrer l’équipe Administration des systèmes SAP afin de garantir la disponibilité, la performance et la sécurité des environnements SAP pour nos clients.\nRôle & Responsabilités\n\n• Assurer l’administration et la maintenance des systèmes SAP (principalement On-Premise).\n\n• Gérer les installations, mises à jour et correctifs des environnements SAP.\n\n• Superviser la performance et la disponibilité des systèmes.\n\n• Participer à la résolution des incidents et à l’amélioration continue des processus.\n\n• Collaborer avec les équipes projet pour les intégrations et migrations SAP.\n\n• Contribuer à la documentation technique et aux bonnes pratiques.\n\nCompétences Obligatoires\n\n• SAP BC (Basis Components)\n\n• Administration de systèmes SAP On-Premise\nCompétences Complémentaires Souhaitées\n\n• Administration de systèmes SAP Cloud / RISE & Hyperscaler\n\n• Gestion des rôles et autorisations SAP\n\n• Expérience en société de services (ESN / SSII)\n\n• Participation à des projets SAP (migration, upgrade, intégration)\nProfil Recherché\n\n• Expérience confirmée ou sénior en administration SAP.\n\n• Capacité à travailler en équipe et à interagir avec des interlocuteurs variés (techniques et métiers).\n\n• Rigueur, autonomie et sens du service client.\n\n• Anglais courant"
-      },
-      "needsRetranslation": false,
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:20:30.672Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-02T07:38:00.377Z",
-      "postedDate": "2026-10-02T07:38:00.377Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
-      "jobReqId": "744000153113299",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "consultant-sap-basis-talan-geneva-ge-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "consultant-sap-basis-talan-geneva-ge-switzerland"
-        ]
-      },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1266,
-      "retranslationAttempts": 3,
-      "firstSeenAt": "2026-09-04T22:55:58.545Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T21:20:30.672Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000153113299-consultant-sap-basis?oga=true"
-    },
-    {
-      "id": "talan-dbc24b5b3f3c",
-      "slug": "fullstack-technical-manager-net-c-talan-geneve-switzerland",
-      "slugByLocale": {
-        "it": "fullstack-technical-manager-net-c-talan-geneve-switzerland",
-        "en": "tech-lead-fullstack-net-c-talan-geneve-switzerland",
-        "de": "technischer-leiter-net-c-talan-geneve-switzerland",
-        "fr": "tech-lead-fullstack-net-c-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Tech Lead Fullstack .NET / C#",
-      "titleByLocale": {
-        "it": "Responsabile tecnico Fullstack .NET / C#",
-        "en": "Fullstack Technical Manager .NET / C#",
-        "de": "Technischer Leiter.NET / C#",
-        "fr": "Tech Lead Fullstack .NET / C#"
-      },
-      "description": "Au sein de l’équipe Digital Development, vous pilotez techniquement la conception, le développement et l’évolution d’applications digitales dédiées à la gestion de fortune ( Wealth Management ).\n En tant que Tech Lead Fullstack , vous êtes le référent technique de votre périmètre. Vous intervenez sur l’ensemble de la chaîne de développement, du frontend au backend, tout en garantissant la qualité, la sécurité et la performance des applications. Vous accompagnez les développeurs, contribuez aux choix d’architecture et participez activement aux mises en production ainsi qu’au support applicatif.\n Responsabilités principales\n\n• Définir les orientations techniques et les architectures applicatives.\n\n• Participer au développement fullstack et à la résolution des problématiques techniques complexes.\n\n• Accompagner les développeurs, réaliser des revues de code et promouvoir les bonnes pratiques.\n\n• Garantir la qualité, la sécurité, la performance et la maintenabilité des applications.\n\n• Contribuer à l’industrialisation des développements, aux pipelines CI/CD et aux déploiements.\n\n• Participer aux mises en production\n Compétences techniques\n\n• Backend : C#, .NET, API REST et architectures microservices.\n\n• Frontend : Angular, React ou Vue.js.\n\n• Bases de données : Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Conteneurisation : Docker, Kubernetes, OpenShift.\n\n• Déploiement : Helm, Kustomize, Argo CD.\n\n• Infrastructure : Windows Server et IIS.\n\n• Sensibilité aux enjeux de sécurité applicative et de confidentialité des données.\n\n• Expérience confirmée en développement fullstack et solide expertise .NET / C#.\n\n• Capacité à prendre des décisions techniques, à accompagner une équipe et à travailler de manière autonome.\n\n• Excellent esprit d’analyse, pragmatisme, rigueur et sens des responsabilités.\n\n• Excellente résistance au stress , capacité à gérer les priorités, les urgences et les contraintes de délais dans un environnement exigeant.\n\n• Bon relationnel, communication constructive et capacité à collaborer avec des interlocuteurs variés.\n\n• Français et anglais courants, à l’oral comme à l’écrit.\n\n• Une expérience dans le secteur bancaire ou la banque privée constitue un atout.\n\n📍 Localisation : Résidence en Suisse souhaitée.",
-      "descriptionByLocale": {
-        "it": "All'interno del team di sviluppo digitale, si sta guidando tecnicamente il design, lo sviluppo e l'evoluzione delle applicazioni digitali dedicate alla gestione della ricchezza.\nCome Tech Lead Fullstack, sei il riferimento tecnico del tuo perimetro. Interviene in tutta la catena di sviluppo, da frontend a backend, garantendo al contempo la qualità, la sicurezza e le prestazioni delle applicazioni. Supporti gli sviluppatori, contribuisci alle scelte architettoniche e partecipi attivamente al supporto di produzione e applicazione.\nResponsabilità chiave\n\n• Definire gli orientamenti tecnici e le architetture applicative.\n\n• Partecipare allo sviluppo completo e risolvere problemi tecnici complessi.\n\n• Sostenere gli sviluppatori, condurre le recensioni dei codici e promuovere buone pratiche.\n\n• Assicurare la qualità, la sicurezza, le prestazioni e la manutenzione delle applicazioni.\n\n• Contribuire all'industrializzazione degli sviluppi, delle tubazioni CI/CD e delle distribuzioni.\n\n• Partecipazione alla produzione\nCompetenza tecnica\n\n• Backend: C#, .NET, REST API e architetture microservices.\n\n• Fronte: Angolare, React o Vue.js.\n\n• Databases: Microsoft SQL Server.\n\n• DevOps / DevSecOps: Azure DevOps, Git, SonarQube, CI/CD.\n\n• Contenitore: Docker, Kubernetes, OpenShift.\n\n• Distribuzione: Helm, Kustomize, Argo CD.\n\n• Infrastrutture: Windows Server e IIS.\n\n• Sensibilità alle questioni di sicurezza e riservatezza dei dati.\n\n• Esperienza confermata in pieno sviluppo e solida esperienza .NET / C#.\n\n• Capacità di prendere decisioni tecniche, sostenere un team e lavorare in modo indipendente.\n\n• Analisi eccellente, pragmatismo, rigore e senso di responsabilità.\n\n• Eccellente resistenza allo stress, capacità di gestire le priorità, emergenze e vincoli di tempo in un ambiente esigente.\n\n• Buona relazione, comunicazione costruttiva e capacità di collaborare con vari interlocutori.\n\n• Inglese comune e francese, sia orale che scritta.\n\n• L'esperienza nel settore bancario o bancario privato è un bene.\n\nPosizione: Residence in Svizzera.",
-        "en": "Within the Digital Development team, you are technically leading the design, development and evolution of digital applications dedicated to wealth management.\nAs Tech Lead Fullstack, you are the technical reference of your perimeter. You intervene throughout the development chain, from frontend to backend, while guaranteeing the quality, security and performance of applications. You support developers, contribute to architectural choices and actively participate in production and application support.\nKey responsibilities\n\n• Define technical orientations and application architectures.\n\n• Participate in fullstack development and solving complex technical issues.\n\n• Support developers, conduct code reviews and promote good practices.\n\n• Ensure the quality, security, performance and maintenance of applications.\n\n• Contribute to the industrialization of developments, CI/CD pipelines and deployments.\n\n• Participate in production\nTechnical expertise\n\n• Backend : C#, .NET, REST API and microservices architectures.\n\n• Frontend : Angular, React or Vue.js.\n\n• Databases: Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Container: Docker, Kubernetes, OpenShift.\n\n• Deployment: Helm, Kustomize, Argo CD.\n\n• Infrastructure: Windows Server and IIS.\n\n• Sensitivity to application security and data confidentiality issues.\n\n• Experience confirmed in fullstack development and solid .NET / C# expertise.\n\n• Ability to make technical decisions, support a team and work independently.\n\n• Excellent analysis, pragmatism, rigour and sense of responsibility.\n\n• Excellent stress resistance, ability to manage priorities, emergencies and time constraints in a demanding environment.\n\n• Good relationship, constructive communication and ability to collaborate with various interlocutors.\n\n• Common English and French, both oral and written.\n\n• Experience in banking or private banking is an asset.\n\nLocation: Residence in Switzerland.",
-        "de": "Innerhalb des Digital Development Teams leiten Sie technisch das Design, die Entwicklung und die Weiterentwicklung von digitalen Anwendungen, die sich dem Vermögensmanagement widmen.\nAls Tech Lead Fullstack sind Sie die technische Referenz Ihres Perimeters. Sie intervenieren in der gesamten Entwicklungskette, vom Frontend bis zum Backend, und garantieren gleichzeitig die Qualität, Sicherheit und Leistung von Anwendungen. Sie unterstützen Entwickler, tragen zu architektonischen Entscheidungen bei und beteiligen sich aktiv an der Produktions- und Anwendungsunterstützung.\nHauptzuständigkeiten\n\n• Definieren Sie technische Ausrichtungen und Anwendungsarchitekturen.\n\n• Beteiligen Sie sich an der Fullstack-Entwicklung und der Lösung komplexer technischer Probleme.\n\n• Unterstützen Sie Entwickler, führen Sie Code Reviews durch und fördern Sie gute Praktiken.\n\n• Gewährleistung der Qualität, Sicherheit, Leistung und Wartung von Anwendungen.\n\n• Beitrag zur Industrialisierung von Entwicklungen, CI/CD-Pipelines und Deployments.\n\n• Teilnahme an der Produktion\nTechnische Expertise\n\n• Backend: C#, .NET, REST API und Microservices-Architekturen.\n\n• Frontend: Angular, React oder Vue.js.\n\n• Datenbanken: Microsoft SQL Server.\n\n• DevOps / DevSecOps: Azure DevOps, Git, SonarQube, CI/CD.\n\n• Container: Docker, Kubernetes, OpenShift.\n\n• Einsatz: Helm, Kustomize, Argo CD.\n\n• Infrastruktur: Windows Server und IIS.\n\n• Sensitivität für die Anwendungssicherheit und Datenschutzprobleme.\n\n• Erfahrung bestätigt in Fullstack-Entwicklung und solide .NET / C# Expertise.\n\n• Fähigkeit, technische Entscheidungen zu treffen, ein Team zu unterstützen und unabhängig zu arbeiten.\n\n• Ausgezeichnete Analyse, Pragmatismus, Strenge und Verantwortungsbewusstsein.\n\n• Hervorragende Stressresistenz, Fähigkeit, Prioritäten, Notfälle und Zeitbeschränkungen in einer anspruchsvollen Umgebung zu verwalten.\n\n• Gute Beziehung, konstruktive Kommunikation und die Fähigkeit, mit verschiedenen Gesprächspartnern zusammenzuarbeiten.\n\n• Englisch und Französisch, sowohl mündlich als auch schriftlich.\n\n• Erfahrung im Banking oder Private Banking ist ein Asset.\n\nStandort: Wohnsitz in der Schweiz.",
-        "fr": "Au sein de l’équipe Digital Development, vous pilotez techniquement la conception, le développement et l’évolution d’applications digitales dédiées à la gestion de fortune ( Wealth Management ).\nEn tant que Tech Lead Fullstack , vous êtes le référent technique de votre périmètre. Vous intervenez sur l’ensemble de la chaîne de développement, du frontend au backend, tout en garantissant la qualité, la sécurité et la performance des applications. Vous accompagnez les développeurs, contribuez aux choix d’architecture et participez activement aux mises en production ainsi qu’au support applicatif.\nResponsabilités principales\n\n• Définir les orientations techniques et les architectures applicatives.\n\n• Participer au développement fullstack et à la résolution des problématiques techniques complexes.\n\n• Accompagner les développeurs, réaliser des revues de code et promouvoir les bonnes pratiques.\n\n• Garantir la qualité, la sécurité, la performance et la maintenabilité des applications.\n\n• Contribuer à l’industrialisation des développements, aux pipelines CI/CD et aux déploiements.\n\n• Participer aux mises en production\nCompétences techniques\n\n• Backend : C#, .NET, API REST et architectures microservices.\n\n• Frontend : Angular, React ou Vue.js.\n\n• Bases de données : Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Conteneurisation : Docker, Kubernetes, OpenShift.\n\n• Déploiement : Helm, Kustomize, Argo CD.\n\n• Infrastructure : Windows Server et IIS.\n\n• Sensibilité aux enjeux de sécurité applicative et de confidentialité des données.\n\n• Expérience confirmée en développement fullstack et solide expertise .NET / C#.\n\n• Capacité à prendre des décisions techniques, à accompagner une équipe et à travailler de manière autonome.\n\n• Excellent esprit d’analyse, pragmatisme, rigueur et sens des responsabilités.\n\n• Excellente résistance au stress , capacité à gérer les priorités, les urgences et les contraintes de délais dans un environnement exigeant.\n\n• Bon relationnel, communication constructive et capacité à collaborer avec des interlocuteurs variés.\n\n• Français et anglais courants, à l’oral comme à l’écrit.\n\n• Une expérience dans le secteur bancaire ou la banque privée constitue un atout.\n\n📍 Localisation : Résidence en Suisse souhaitée."
-      },
-      "needsRetranslation": false,
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:20:30.669Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-23T13:35:09.147Z",
-      "postedDate": "2026-10-23T13:35:09.147Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
-      "jobReqId": "744000157480029",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "tech-lead-fullstack-net-c-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "tech-lead-fullstack-net-c-talan-geneve-switzerland"
-        ],
-        "de": [
-          "tech-lead-fullstack-net-c-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-10-23T21:11:18.471Z",
-      "salaryMin": 97500,
-      "salaryMax": 165500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 165500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T21:20:30.669Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000157480029-tech-lead-fullstack-net-c-?oga=true"
+      "validThrough": "2026-12-31T21:19:04.583Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "talan-940057e1d2b1",
@@ -785,7 +694,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000160297119-senior-business-analyst-pricing-modelling?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:20:30.667Z",
+      "crawledAt": "2026-11-21T21:19:04.582Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -837,9 +746,90 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T21:20:30.667Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000160297119-senior-business-analyst-pricing-modelling?oga=true"
+      "validThrough": "2027-02-04T21:19:04.582Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "talan-dbc24b5b3f3c",
+      "slug": "fullstack-technical-manager-net-c-talan-geneve-switzerland",
+      "slugByLocale": {
+        "it": "fullstack-technical-manager-net-c-talan-geneve-switzerland",
+        "en": "tech-lead-fullstack-net-c-talan-geneve-switzerland",
+        "de": "technischer-leiter-net-c-talan-geneve-switzerland",
+        "fr": "tech-lead-fullstack-net-c-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Tech Lead Fullstack .NET / C#",
+      "titleByLocale": {
+        "it": "Responsabile tecnico Fullstack .NET / C#",
+        "en": "Fullstack Technical Manager .NET / C#",
+        "de": "Technischer Leiter.NET / C#",
+        "fr": "Tech Lead Fullstack .NET / C#"
+      },
+      "description": "Au sein de l’équipe Digital Development, vous pilotez techniquement la conception, le développement et l’évolution d’applications digitales dédiées à la gestion de fortune ( Wealth Management ).\n En tant que Tech Lead Fullstack , vous êtes le référent technique de votre périmètre. Vous intervenez sur l’ensemble de la chaîne de développement, du frontend au backend, tout en garantissant la qualité, la sécurité et la performance des applications. Vous accompagnez les développeurs, contribuez aux choix d’architecture et participez activement aux mises en production ainsi qu’au support applicatif.\n Responsabilités principales\n\n• Définir les orientations techniques et les architectures applicatives.\n\n• Participer au développement fullstack et à la résolution des problématiques techniques complexes.\n\n• Accompagner les développeurs, réaliser des revues de code et promouvoir les bonnes pratiques.\n\n• Garantir la qualité, la sécurité, la performance et la maintenabilité des applications.\n\n• Contribuer à l’industrialisation des développements, aux pipelines CI/CD et aux déploiements.\n\n• Participer aux mises en production\n Compétences techniques\n\n• Backend : C#, .NET, API REST et architectures microservices.\n\n• Frontend : Angular, React ou Vue.js.\n\n• Bases de données : Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Conteneurisation : Docker, Kubernetes, OpenShift.\n\n• Déploiement : Helm, Kustomize, Argo CD.\n\n• Infrastructure : Windows Server et IIS.\n\n• Sensibilité aux enjeux de sécurité applicative et de confidentialité des données.\n\n• Expérience confirmée en développement fullstack et solide expertise .NET / C#.\n\n• Capacité à prendre des décisions techniques, à accompagner une équipe et à travailler de manière autonome.\n\n• Excellent esprit d’analyse, pragmatisme, rigueur et sens des responsabilités.\n\n• Excellente résistance au stress , capacité à gérer les priorités, les urgences et les contraintes de délais dans un environnement exigeant.\n\n• Bon relationnel, communication constructive et capacité à collaborer avec des interlocuteurs variés.\n\n• Français et anglais courants, à l’oral comme à l’écrit.\n\n• Une expérience dans le secteur bancaire ou la banque privée constitue un atout.\n\n📍 Localisation : Résidence en Suisse souhaitée.",
+      "descriptionByLocale": {
+        "it": "All'interno del team di sviluppo digitale, si sta guidando tecnicamente il design, lo sviluppo e l'evoluzione delle applicazioni digitali dedicate alla gestione della ricchezza.\nCome Tech Lead Fullstack, sei il riferimento tecnico del tuo perimetro. Interviene in tutta la catena di sviluppo, da frontend a backend, garantendo al contempo la qualità, la sicurezza e le prestazioni delle applicazioni. Supporti gli sviluppatori, contribuisci alle scelte architettoniche e partecipi attivamente al supporto di produzione e applicazione.\nResponsabilità chiave\n\n• Definire gli orientamenti tecnici e le architetture applicative.\n\n• Partecipare allo sviluppo completo e risolvere problemi tecnici complessi.\n\n• Sostenere gli sviluppatori, condurre le recensioni dei codici e promuovere buone pratiche.\n\n• Assicurare la qualità, la sicurezza, le prestazioni e la manutenzione delle applicazioni.\n\n• Contribuire all'industrializzazione degli sviluppi, delle tubazioni CI/CD e delle distribuzioni.\n\n• Partecipazione alla produzione\nCompetenza tecnica\n\n• Backend: C#, .NET, REST API e architetture microservices.\n\n• Fronte: Angolare, React o Vue.js.\n\n• Databases: Microsoft SQL Server.\n\n• DevOps / DevSecOps: Azure DevOps, Git, SonarQube, CI/CD.\n\n• Contenitore: Docker, Kubernetes, OpenShift.\n\n• Distribuzione: Helm, Kustomize, Argo CD.\n\n• Infrastrutture: Windows Server e IIS.\n\n• Sensibilità alle questioni di sicurezza e riservatezza dei dati.\n\n• Esperienza confermata in pieno sviluppo e solida esperienza .NET / C#.\n\n• Capacità di prendere decisioni tecniche, sostenere un team e lavorare in modo indipendente.\n\n• Analisi eccellente, pragmatismo, rigore e senso di responsabilità.\n\n• Eccellente resistenza allo stress, capacità di gestire le priorità, emergenze e vincoli di tempo in un ambiente esigente.\n\n• Buona relazione, comunicazione costruttiva e capacità di collaborare con vari interlocutori.\n\n• Inglese comune e francese, sia orale che scritta.\n\n• L'esperienza nel settore bancario o bancario privato è un bene.\n\nPosizione: Residence in Svizzera.",
+        "en": "Within the Digital Development team, you are technically leading the design, development and evolution of digital applications dedicated to wealth management.\nAs Tech Lead Fullstack, you are the technical reference of your perimeter. You intervene throughout the development chain, from frontend to backend, while guaranteeing the quality, security and performance of applications. You support developers, contribute to architectural choices and actively participate in production and application support.\nKey responsibilities\n\n• Define technical orientations and application architectures.\n\n• Participate in fullstack development and solving complex technical issues.\n\n• Support developers, conduct code reviews and promote good practices.\n\n• Ensure the quality, security, performance and maintenance of applications.\n\n• Contribute to the industrialization of developments, CI/CD pipelines and deployments.\n\n• Participate in production\nTechnical expertise\n\n• Backend : C#, .NET, REST API and microservices architectures.\n\n• Frontend : Angular, React or Vue.js.\n\n• Databases: Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Container: Docker, Kubernetes, OpenShift.\n\n• Deployment: Helm, Kustomize, Argo CD.\n\n• Infrastructure: Windows Server and IIS.\n\n• Sensitivity to application security and data confidentiality issues.\n\n• Experience confirmed in fullstack development and solid .NET / C# expertise.\n\n• Ability to make technical decisions, support a team and work independently.\n\n• Excellent analysis, pragmatism, rigour and sense of responsibility.\n\n• Excellent stress resistance, ability to manage priorities, emergencies and time constraints in a demanding environment.\n\n• Good relationship, constructive communication and ability to collaborate with various interlocutors.\n\n• Common English and French, both oral and written.\n\n• Experience in banking or private banking is an asset.\n\nLocation: Residence in Switzerland.",
+        "de": "Innerhalb des Digital Development Teams leiten Sie technisch das Design, die Entwicklung und die Weiterentwicklung von digitalen Anwendungen, die sich dem Vermögensmanagement widmen.\nAls Tech Lead Fullstack sind Sie die technische Referenz Ihres Perimeters. Sie intervenieren in der gesamten Entwicklungskette, vom Frontend bis zum Backend, und garantieren gleichzeitig die Qualität, Sicherheit und Leistung von Anwendungen. Sie unterstützen Entwickler, tragen zu architektonischen Entscheidungen bei und beteiligen sich aktiv an der Produktions- und Anwendungsunterstützung.\nHauptzuständigkeiten\n\n• Definieren Sie technische Ausrichtungen und Anwendungsarchitekturen.\n\n• Beteiligen Sie sich an der Fullstack-Entwicklung und der Lösung komplexer technischer Probleme.\n\n• Unterstützen Sie Entwickler, führen Sie Code Reviews durch und fördern Sie gute Praktiken.\n\n• Gewährleistung der Qualität, Sicherheit, Leistung und Wartung von Anwendungen.\n\n• Beitrag zur Industrialisierung von Entwicklungen, CI/CD-Pipelines und Deployments.\n\n• Teilnahme an der Produktion\nTechnische Expertise\n\n• Backend: C#, .NET, REST API und Microservices-Architekturen.\n\n• Frontend: Angular, React oder Vue.js.\n\n• Datenbanken: Microsoft SQL Server.\n\n• DevOps / DevSecOps: Azure DevOps, Git, SonarQube, CI/CD.\n\n• Container: Docker, Kubernetes, OpenShift.\n\n• Einsatz: Helm, Kustomize, Argo CD.\n\n• Infrastruktur: Windows Server und IIS.\n\n• Sensitivität für die Anwendungssicherheit und Datenschutzprobleme.\n\n• Erfahrung bestätigt in Fullstack-Entwicklung und solide .NET / C# Expertise.\n\n• Fähigkeit, technische Entscheidungen zu treffen, ein Team zu unterstützen und unabhängig zu arbeiten.\n\n• Ausgezeichnete Analyse, Pragmatismus, Strenge und Verantwortungsbewusstsein.\n\n• Hervorragende Stressresistenz, Fähigkeit, Prioritäten, Notfälle und Zeitbeschränkungen in einer anspruchsvollen Umgebung zu verwalten.\n\n• Gute Beziehung, konstruktive Kommunikation und die Fähigkeit, mit verschiedenen Gesprächspartnern zusammenzuarbeiten.\n\n• Englisch und Französisch, sowohl mündlich als auch schriftlich.\n\n• Erfahrung im Banking oder Private Banking ist ein Asset.\n\nStandort: Wohnsitz in der Schweiz.",
+        "fr": "Au sein de l’équipe Digital Development, vous pilotez techniquement la conception, le développement et l’évolution d’applications digitales dédiées à la gestion de fortune ( Wealth Management ).\nEn tant que Tech Lead Fullstack , vous êtes le référent technique de votre périmètre. Vous intervenez sur l’ensemble de la chaîne de développement, du frontend au backend, tout en garantissant la qualité, la sécurité et la performance des applications. Vous accompagnez les développeurs, contribuez aux choix d’architecture et participez activement aux mises en production ainsi qu’au support applicatif.\nResponsabilités principales\n\n• Définir les orientations techniques et les architectures applicatives.\n\n• Participer au développement fullstack et à la résolution des problématiques techniques complexes.\n\n• Accompagner les développeurs, réaliser des revues de code et promouvoir les bonnes pratiques.\n\n• Garantir la qualité, la sécurité, la performance et la maintenabilité des applications.\n\n• Contribuer à l’industrialisation des développements, aux pipelines CI/CD et aux déploiements.\n\n• Participer aux mises en production\nCompétences techniques\n\n• Backend : C#, .NET, API REST et architectures microservices.\n\n• Frontend : Angular, React ou Vue.js.\n\n• Bases de données : Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Conteneurisation : Docker, Kubernetes, OpenShift.\n\n• Déploiement : Helm, Kustomize, Argo CD.\n\n• Infrastructure : Windows Server et IIS.\n\n• Sensibilité aux enjeux de sécurité applicative et de confidentialité des données.\n\n• Expérience confirmée en développement fullstack et solide expertise .NET / C#.\n\n• Capacité à prendre des décisions techniques, à accompagner une équipe et à travailler de manière autonome.\n\n• Excellent esprit d’analyse, pragmatisme, rigueur et sens des responsabilités.\n\n• Excellente résistance au stress , capacité à gérer les priorités, les urgences et les contraintes de délais dans un environnement exigeant.\n\n• Bon relationnel, communication constructive et capacité à collaborer avec des interlocuteurs variés.\n\n• Français et anglais courants, à l’oral comme à l’écrit.\n\n• Une expérience dans le secteur bancaire ou la banque privée constitue un atout.\n\n📍 Localisation : Résidence en Suisse souhaitée."
+      },
+      "needsRetranslation": false,
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-21T21:19:04.582Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-23T13:35:09.147Z",
+      "postedDate": "2026-10-23T13:35:09.147Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
+      "jobReqId": "744000157480029",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "tech-lead-fullstack-net-c-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "tech-lead-fullstack-net-c-talan-geneve-switzerland"
+        ],
+        "de": [
+          "tech-lead-fullstack-net-c-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-10-23T21:11:18.471Z",
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 165500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-21T21:19:04.582Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "talan-b740a61fb78b",
@@ -872,7 +862,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000160297069-technical-analyst-power-trading-systems?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:20:30.665Z",
+      "crawledAt": "2026-11-21T21:19:04.581Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -922,9 +912,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T21:20:30.665Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000160297069-technical-analyst-power-trading-systems?oga=true"
+      "validThrough": "2027-02-04T21:19:04.581Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "talan-8ff6fd31afaa",
@@ -957,7 +946,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000160297169-senior-business-analyst-orchestrade?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:20:30.662Z",
+      "crawledAt": "2026-11-21T21:19:04.580Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -1007,9 +996,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T21:20:30.662Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000160297169-senior-business-analyst-orchestrade?oga=true"
+      "validThrough": "2027-02-04T21:19:04.580Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "talan-6f87bf1f8368",
@@ -1043,7 +1031,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000161839349-sales-manager-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:20:30.652Z",
+      "crawledAt": "2026-11-21T21:19:04.577Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -1090,9 +1078,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T21:20:30.652Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000161839349-sales-manager-?oga=true"
+      "validThrough": "2027-02-14T21:19:04.577Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
