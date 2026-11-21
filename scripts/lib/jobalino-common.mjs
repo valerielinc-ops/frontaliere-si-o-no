@@ -184,7 +184,7 @@ export function parseJobalinoListingHtml(html = '') {
   const tileRx = /<a\b([^>]*\bclass=["'][^"']*\breflink\b[^"']*["'][^>]*)>([\s\S]*?)<\/a>/gi;
   let m;
   while ((m = tileRx.exec(html))) {
-    const href = m[1].match(/\bhref=["']https:\/\/my\.jobalino\.ch\/(?:public\/)?job\/(?:(de|fr|it|en)\/)?([a-f0-9]+)\/([a-z0-9_-]+)(?:\?[^"']*)?["']/i);
+    const href = m[1].match(/(?:^|\s)href\s*=\s*["']https:\/\/my\.jobalino\.ch\/(?:public\/)?job\/(?:(de|fr|it|en)\/)?([a-f0-9]+)\/([a-z0-9_-]+)(?:\?[^"']*)?["']/i);
     if (!href) continue;
     const locale = href[1] || '';
     const id = href[2];

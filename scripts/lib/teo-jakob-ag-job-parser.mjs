@@ -45,8 +45,24 @@ function normalizeSpace(value = '') {
 }
 
 function firstObject(value) {
-  if (Array.isArray(value)) return value.find((entry) => entry && typeof entry === 'object') || null;
+  if (Array.isArray(value)) {
+    if (value.length !== 1) return null;
+    const [entry] = value;
+    return entry && typeof entry === 'object' && !Array.isArray(entry) ? entry : null;
+  }
   return value && typeof value === 'object' ? value : null;
+}
+
+export function hasAmbiguousJsonLdSource(posting = {}) {
+  const locations = Array.isArray(posting.jobLocation)
+    ? posting.jobLocation
+    : [posting.jobLocation];
+  const sourceFields = [
+    posting.hiringOrganization,
+    posting.jobLocation,
+    ...locations.map((location) => location?.address),
+  ];
+  return sourceFields.some((value) => Array.isArray(value) && value.length !== 1);
 }
 
 function jsonLdAddress(posting = {}) {
@@ -186,6 +202,9 @@ export async function fetchAllTeoJakobAgJobs() {
     }
     if (!posting) {
       throw new Error('Teo Jakob AG detail has no JobPosting JSON-LD: ' + tile.url);
+    }
+    if (hasAmbiguousJsonLdSource(posting)) {
+      throw new Error('Teo Jakob AG detail has ambiguous employer or geography JSON-LD: ' + tile.url);
     }
     const employer = sourceEmployerName(tile, posting || {});
     if (!employer) {
