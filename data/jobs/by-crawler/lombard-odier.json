@@ -4758,10 +4758,10 @@
     },
     {
       "id": "lombard-odier-5dbe27921508",
-      "slug": "private-banker-assistant-lombard-odier-ch",
+      "slug": "assistente-bancario-privato-lombard-odier-lausanne",
       "slugByLocale": {
         "fr": "private-banker-assistant-lombard-odier-ch",
-        "it": "private-banker-assistant-lombard-odier-ch",
+        "it": "assistente-bancario-privato-lombard-odier-lausanne",
         "en": "private-banker-assistant-lombard-odier-ch",
         "de": "private-banker-assistant-lombard-odier-ch"
       },
@@ -4828,7 +4828,15 @@
       "validThrough": "2027-02-18T22:20:32.559Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T22:20:32.559Z",
-      "sourceIdentity": "url:https://lombardodier.wd3.myworkdayjobs.com/en-us/lombard_odier_careers/job/lausanne/private-banker-assistant_r0007807"
+      "sourceIdentity": "url:https://lombardodier.wd3.myworkdayjobs.com/en-us/lombard_odier_careers/job/lausanne/private-banker-assistant_r0007807",
+      "previousSlugsByLocale": {
+        "it": [
+          "private-banker-assistant-lombard-odier-ch"
+        ]
+      },
+      "previousSlugs": [
+        "private-banker-assistant-lombard-odier-ch"
+      ]
     }
   ]
 }

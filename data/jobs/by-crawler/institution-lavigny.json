@@ -967,10 +967,10 @@
     },
     {
       "id": "institution-lavigny-f851c143280f",
-      "slug": "assc-dans-le-domaine-de-la-neurologie-en-12h00-institution-lavigny-lausanne",
+      "slug": "assc-nel-campo-della-neurologia-in-12h00-institution-de-lavigny-lausanne",
       "slugByLocale": {
         "fr": "assc-dans-le-domaine-de-la-neurologie-en-12h00-institution-lavigny-lausanne",
-        "it": "assc-dans-le-domaine-de-la-neurologie-en-12h00-institution-lavigny-lausanne",
+        "it": "assc-nel-campo-della-neurologia-in-12h00-institution-de-lavigny-lausanne",
         "en": "assc-dans-le-domaine-de-la-neurologie-en-12h00-institution-lavigny-lausanne",
         "de": "assc-dans-le-domaine-de-la-neurologie-en-12h00-institution-lavigny-lausanne"
       },
@@ -1036,7 +1036,15 @@
       "validThrough": "2026-12-20T22:17:23.455Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-19T23:05:54.634Z",
-      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/c423650b-31f4-4adb-9505-57791a8d1df7"
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/c423650b-31f4-4adb-9505-57791a8d1df7",
+      "previousSlugsByLocale": {
+        "it": [
+          "assc-dans-le-domaine-de-la-neurologie-en-12h00-institution-lavigny-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "assc-dans-le-domaine-de-la-neurologie-en-12h00-institution-lavigny-lausanne"
+      ]
     }
   ]
 }

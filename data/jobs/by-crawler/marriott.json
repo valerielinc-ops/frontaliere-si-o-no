@@ -658,12 +658,12 @@
     },
     {
       "id": "marriott-0a1549786a1b",
-      "slug": "sales-executive-marriott-zurich",
+      "slug": "direzione-vendite-marriott-international-zurich",
       "slugByLocale": {
         "en": "sales-executive-marriott-zurich",
-        "it": "sales-executive-marriott-zurich",
+        "it": "direzione-vendite-marriott-international-zurich",
         "de": "sales-executive-marriott-zurich",
-        "fr": "sales-executive-marriott-zurich"
+        "fr": "direction-generale-des-ventes-marriott-international-zurich"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -737,10 +737,12 @@
       "firstSeenAt": "2026-11-19T21:51:22.007Z",
       "previousSlugsByLocale": {
         "it": [
-          "direzione-vendite-marriott-international-zurich"
+          "direzione-vendite-marriott-international-zurich",
+          "sales-executive-marriott-zurich"
         ],
         "fr": [
-          "direction-generale-des-ventes-marriott-international-zurich"
+          "direction-generale-des-ventes-marriott-international-zurich",
+          "sales-executive-marriott-zurich"
         ],
         "de": [
           "vertriebsleiter-marriott-international-zurich"
@@ -749,7 +751,8 @@
       "previousSlugs": [
         "direzione-vendite-marriott-international-zurich",
         "vertriebsleiter-marriott-international-zurich",
-        "direction-generale-des-ventes-marriott-international-zurich"
+        "direction-generale-des-ventes-marriott-international-zurich",
+        "sales-executive-marriott-zurich"
       ],
       "sourceIdentity": "url:https://careers.marriott.com/sales-executive/job/p1-7735748-0",
       "needsRetranslation": true

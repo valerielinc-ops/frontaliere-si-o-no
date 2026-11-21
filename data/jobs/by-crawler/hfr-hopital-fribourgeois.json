@@ -1815,10 +1815,10 @@
     },
     {
       "id": "hfr-hopital-fribourgeois-289cddd40f65",
-      "slug": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-2",
+      "slug": "segretario-medico-hopital-fribourgeois-hfr-fribourg-switzerland-d779d8",
       "slugByLocale": {
         "fr": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg",
-        "it": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-2",
+        "it": "segretario-medico-hopital-fribourgeois-hfr-fribourg-switzerland-d779d8",
         "en": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-2",
         "de": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-2"
       },
@@ -1885,14 +1885,22 @@
       "validThrough": "2027-02-18T21:42:03.723Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-12T09:58:00.862Z",
-      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1626"
+      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1626",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-2"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-2"
+      ]
     },
     {
       "id": "hfr-hopital-fribourgeois-a0ccd1999539",
-      "slug": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-3",
+      "slug": "segretario-medico-hopital-fribourgeois-hfr-fribourg-switzerland-0517a1",
       "slugByLocale": {
         "fr": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg",
-        "it": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-3",
+        "it": "segretario-medico-hopital-fribourgeois-hfr-fribourg-switzerland-0517a1",
         "en": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-3",
         "de": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-3"
       },
@@ -1959,7 +1967,15 @@
       "validThrough": "2027-02-18T21:42:02.248Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-12T09:58:00.862Z",
-      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1583"
+      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1583",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-3"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-3"
+      ]
     }
   ]
 }

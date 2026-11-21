@@ -26410,7 +26410,7 @@
       "id": "yellowshark-be16e7a4c5c2",
       "slug": "gru-girevole-superiore-operatore-gru-m-f-yellowshark-ag-zug",
       "slugByLocale": {
-        "it": "gru-girevole-superiore-operatore-gru-m-f-yellowshark-ag-zug-6ef862064f",
+        "it": "gru-girevole-superiore-operatore-gru-m-f-yellowshark-ag-zug",
         "en": "crane-operator-upper-rotary-crane-m-f-yellowshark-ag-zug",
         "de": "kranfuhrer-oberdrehkran-m-w-zug-zg-yellowshark-ch",
         "fr": "grue-rotative-superieure-operateur-de-grue-h-f-yellowshark-ag-zug"
@@ -26458,11 +26458,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kranfuhrer-oberdrehkran-m-w-zug-zg-yellowshark-ch",
-        "kranfuhrer-oberdrehkran-m-w-d-yellowshark-ag-zug"
+        "kranfuhrer-oberdrehkran-m-w-d-yellowshark-ag-zug",
+        "gru-girevole-superiore-operatore-gru-m-f-yellowshark-ag-zug-6ef862064f"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kranfuhrer-oberdrehkran-m-w-zug-zg-yellowshark-ch"
+          "kranfuhrer-oberdrehkran-m-w-zug-zg-yellowshark-ch",
+          "gru-girevole-superiore-operatore-gru-m-f-yellowshark-ag-zug-6ef862064f"
         ],
         "en": [
           "kranfuhrer-oberdrehkran-m-w-d-yellowshark-ag-zug"
@@ -75274,7 +75276,7 @@
       "id": "yellowshark-02cd92d12583",
       "slug": "strato-terra-m-f-yellowshark-ag-zug-zg",
       "slugByLocale": {
-        "it": "strato-terra-m-f-yellowshark-ag-zug-a68a3c884e",
+        "it": "strato-terra-m-f-yellowshark-ag-zug-zg",
         "en": "ground-layer-m-f-yellowshark-ag-zug-zg",
         "de": "bodenleger-m-w-zug-zg-yellowshark-ch",
         "fr": "couche-au-sol-h-f-yellowshark-ag-zug-zg"
@@ -75321,11 +75323,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bodenleger-m-w-zug-zg-yellowshark-ch"
+        "bodenleger-m-w-zug-zg-yellowshark-ch",
+        "strato-terra-m-f-yellowshark-ag-zug-a68a3c884e"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bodenleger-m-w-zug-zg-yellowshark-ch"
+          "bodenleger-m-w-zug-zg-yellowshark-ch",
+          "strato-terra-m-f-yellowshark-ag-zug-a68a3c884e"
         ],
         "en": [
           "bodenleger-m-w-zug-zg-yellowshark-ch"

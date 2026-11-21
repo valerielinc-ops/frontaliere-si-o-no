@@ -1355,7 +1355,7 @@
       "slugByLocale": {
         "it": "direttore-trice-lavori-fust-rapperswil-jona",
         "en": "construction-site-manager-fust-rapperswil-jona",
-        "de": "bauleiter-in-fust-rapperswil-jona",
+        "de": "bauleiter-in-fust-hinwil",
         "fr": "conducteur-rice-de-travaux-fust-rapperswil-jona"
       },
       "requirementsByLocale": {},
@@ -1382,7 +1382,15 @@
       },
       "salaryMin": 79000,
       "salaryMax": 120000,
-      "sourceIdentity": "url:https://jobs.fust.ch/offene-stellen/bauleiter-in/feb32e6c-27c4-4dd3-97c3-e4f9550885fc"
+      "sourceIdentity": "url:https://jobs.fust.ch/offene-stellen/bauleiter-in/feb32e6c-27c4-4dd3-97c3-e4f9550885fc",
+      "previousSlugsByLocale": {
+        "de": [
+          "bauleiter-in-fust-rapperswil-jona"
+        ]
+      },
+      "previousSlugs": [
+        "bauleiter-in-fust-rapperswil-jona"
+      ]
     },
     {
       "id": "company-veti2q",

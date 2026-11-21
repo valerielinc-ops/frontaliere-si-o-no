@@ -2552,12 +2552,12 @@
     },
     {
       "id": "accor-1bc4200c0ebb",
-      "slug": "demi-chef-de-partie-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1bc4200c",
+      "slug": "mezza-capo-del-partito-m-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1bc4200c",
       "slugByLocale": {
         "fr": "demi-chef-de-partie-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1bc4200c",
-        "it": "demi-chef-de-partie-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1bc4200c",
-        "en": "demi-chef-de-partie-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1bc4200c",
-        "de": "demi-chef-de-partie-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1bc4200c"
+        "it": "mezza-capo-del-partito-m-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1bc4200c",
+        "en": "half-chief-of-party-m-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1bc4200c",
+        "de": "halber-chef-der-partei-m-w-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1bc4200c"
       },
       "slugDisambiguator": "1bc4200c",
       "company": "Ibis Budget",
@@ -2625,19 +2625,23 @@
       "sourceIdentity": "url:https://careers.accor.com/fr/fr/job/demi-chef-de-partie-f-h-x-cdi-in-fairmont-le-montreux-palace-montreux-switzerland-jid-118190",
       "previousSlugsByLocale": {
         "it": [
-          "mezza-capo-del-partito-m-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1bc4200c"
+          "mezza-capo-del-partito-m-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1bc4200c",
+          "demi-chef-de-partie-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1bc4200c"
         ],
         "en": [
-          "half-chief-of-party-m-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1bc4200c"
+          "half-chief-of-party-m-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1bc4200c",
+          "demi-chef-de-partie-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1bc4200c"
         ],
         "de": [
-          "halber-chef-der-partei-m-w-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1bc4200c"
+          "halber-chef-der-partei-m-w-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1bc4200c",
+          "demi-chef-de-partie-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1bc4200c"
         ]
       },
       "previousSlugs": [
         "mezza-capo-del-partito-m-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1bc4200c",
         "half-chief-of-party-m-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1bc4200c",
-        "halber-chef-der-partei-m-w-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1bc4200c"
+        "halber-chef-der-partei-m-w-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1bc4200c",
+        "demi-chef-de-partie-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1bc4200c"
       ]
     },
     {
@@ -2728,12 +2732,12 @@
     },
     {
       "id": "accor-1068878ecb57",
-      "slug": "agent-de-reservation-h-f-x-ibis-budget-rotary-hotel-geneva-mgallery-collection-geneva-switzerland-1068878e",
+      "slug": "agente-di-prenotazione-m-f-x-ibis-budget-ginevra-1068878e",
       "slugByLocale": {
         "fr": "agent-de-reservation-h-f-x-ibis-budget-rotary-hotel-geneva-mgallery-collection-geneva-switzerland-1068878e",
-        "it": "agent-de-reservation-h-f-x-ibis-budget-rotary-hotel-geneva-mgallery-collection-geneva-switzerland-1068878e",
+        "it": "agente-di-prenotazione-m-f-x-ibis-budget-ginevra-1068878e",
         "en": "agent-de-reservation-h-f-x-ibis-budget-rotary-hotel-geneva-mgallery-collection-geneva-switzerland-1068878e",
-        "de": "agent-de-reservation-h-f-x-ibis-budget-rotary-hotel-geneva-mgallery-collection-geneva-switzerland-1068878e"
+        "de": "reservierung-agent-m-w-x-ibis-budget-ginevra-1068878e"
       },
       "slugDisambiguator": "1068878e",
       "company": "Ibis Budget",
@@ -2796,7 +2800,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T22:23:41.265Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T22:23:41.265Z"
+      "firstSeenAt": "2026-11-20T22:23:41.265Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "agent-de-reservation-h-f-x-ibis-budget-rotary-hotel-geneva-mgallery-collection-geneva-switzerland-1068878e"
+        ],
+        "de": [
+          "agent-de-reservation-h-f-x-ibis-budget-rotary-hotel-geneva-mgallery-collection-geneva-switzerland-1068878e"
+        ]
+      },
+      "previousSlugs": [
+        "agent-de-reservation-h-f-x-ibis-budget-rotary-hotel-geneva-mgallery-collection-geneva-switzerland-1068878e"
+      ]
     }
   ]
 }

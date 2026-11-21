@@ -21087,10 +21087,10 @@
     },
     {
       "id": "physioswiss-4b5ed36da677",
-      "slug": "physiotherapeut-in-60-90-physio-swiss-tschugg",
+      "slug": "fisioterapista-60-90-physio-swiss-rehaklinik-tschugg-wo-dein-job-reha-macht",
       "slugByLocale": {
         "de": "physiotherapeut-in-60-90-rehaklinik-tschugg-wo-dein-job-reha-macht-physioswiss-ch",
-        "it": "physiotherapeut-in-60-90-physio-swiss-tschugg",
+        "it": "fisioterapista-60-90-physio-swiss-rehaklinik-tschugg-wo-dein-job-reha-macht",
         "en": "physiotherapeut-in-60-90-physio-swiss-tschugg",
         "fr": "physiotherapeut-in-60-90-physio-swiss-tschugg"
       },
@@ -21138,11 +21138,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-60-90-rehaklinik-tschugg-wo-dein-job-reha-macht-physioswiss-ch"
+          "physiotherapeut-in-60-90-rehaklinik-tschugg-wo-dein-job-reha-macht-physioswiss-ch",
+          "physiotherapeut-in-60-90-physio-swiss-tschugg"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-60-90-rehaklinik-tschugg-wo-dein-job-reha-macht-physioswiss-ch"
+        "physiotherapeut-in-60-90-rehaklinik-tschugg-wo-dein-job-reha-macht-physioswiss-ch",
+        "physiotherapeut-in-60-90-physio-swiss-tschugg"
       ],
       "salaryMin": 61700,
       "salaryMax": 93600,
@@ -21167,12 +21169,12 @@
     },
     {
       "id": "physioswiss-00f2f6b049bb",
-      "slug": "verstarkung-40-100-9014-st-gallen-physioswiss-ch",
+      "slug": "rinforzo-40-100-physio-swiss-9014-st-gallen",
       "slugByLocale": {
         "de": "verstarkung-40-100-9014-st-gallen-physioswiss-ch",
-        "it": "verstarkung-40-100-9014-st-gallen-physioswiss-ch",
-        "en": "verstarkung-40-100-9014-st-gallen-physioswiss-ch",
-        "fr": "verstarkung-40-100-9014-st-gallen-physioswiss-ch"
+        "it": "rinforzo-40-100-physio-swiss-9014-st-gallen",
+        "en": "reinforcement-40-100-physio-swiss-9014-st-gallen",
+        "fr": "renforcement-40-100-physio-swiss-9014-st-gallen"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -21235,16 +21237,30 @@
       "validThrough": "2027-02-18T22:07:48.535Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T22:07:48.535Z",
-      "sourceIdentity": "url:https://physioswiss.ch/stelleninserate/162093/verstaerkung-40-100"
+      "sourceIdentity": "url:https://physioswiss.ch/stelleninserate/162093/verstaerkung-40-100",
+      "previousSlugsByLocale": {
+        "it": [
+          "verstarkung-40-100-9014-st-gallen-physioswiss-ch"
+        ],
+        "en": [
+          "verstarkung-40-100-9014-st-gallen-physioswiss-ch"
+        ],
+        "fr": [
+          "verstarkung-40-100-9014-st-gallen-physioswiss-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verstarkung-40-100-9014-st-gallen-physioswiss-ch"
+      ]
     },
     {
       "id": "physioswiss-4318a559ad2c",
-      "slug": "physiotherapeutin-20-100-physio-swiss-thun",
+      "slug": "fisioterapista-20-100-physio-swiss-3603-thun",
       "slugByLocale": {
         "de": "physiotherapeutin-20-100-3603-thun-physioswiss-ch",
-        "it": "physiotherapeutin-20-100-physio-swiss-thun",
-        "en": "physiotherapeutin-20-100-physio-swiss-thun",
-        "fr": "physiotherapeutin-20-100-physio-swiss-thun"
+        "it": "fisioterapista-20-100-physio-swiss-3603-thun",
+        "en": "physiotherapist-20-100-physio-swiss-3603-thun",
+        "fr": "physiotherapeute-20-100-physio-swiss-3603-thun"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -21291,11 +21307,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeutin-20-100-3603-thun-physioswiss-ch"
+          "physiotherapeutin-20-100-3603-thun-physioswiss-ch",
+          "physiotherapeutin-20-100-physio-swiss-thun"
+        ],
+        "en": [
+          "physiotherapeutin-20-100-physio-swiss-thun"
+        ],
+        "fr": [
+          "physiotherapeutin-20-100-physio-swiss-thun"
         ]
       },
       "previousSlugs": [
-        "physiotherapeutin-20-100-3603-thun-physioswiss-ch"
+        "physiotherapeutin-20-100-3603-thun-physioswiss-ch",
+        "physiotherapeutin-20-100-physio-swiss-thun"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -21323,8 +21347,8 @@
       "slugByLocale": {
         "de": "die-spezielle-stelle-50-70-in-birsfelden-4127-birsfelden-physioswiss-ch",
         "it": "la-spezielle-stelle-50-70-in-birsfelden-physio-swiss-birsfelden",
-        "en": "die-spezielle-stelle-50-70-in-birsfelden-4127-birsfelden-physioswiss-ch",
-        "fr": "die-spezielle-stelle-50-70-in-birsfelden-4127-birsfelden-physioswiss-ch"
+        "en": "the-special-location-50-70-in-birsfelden-physio-swiss-4127-birsfelden",
+        "fr": "l-emplacement-special-50-70-a-birsfelden-physio-swiss-4127-birsfelden"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -21372,6 +21396,12 @@
       "previousSlugsByLocale": {
         "it": [
           "die-spezielle-stelle-50-70-in-birsfelden-4127-birsfelden-physioswiss-ch"
+        ],
+        "en": [
+          "die-spezielle-stelle-50-70-in-birsfelden-4127-birsfelden-physioswiss-ch"
+        ],
+        "fr": [
+          "die-spezielle-stelle-50-70-in-birsfelden-4127-birsfelden-physioswiss-ch"
         ]
       },
       "previousSlugs": [
@@ -21399,12 +21429,12 @@
     },
     {
       "id": "physioswiss-918c6f5acc25",
-      "slug": "physiotherapeut-in-mit-schwerpunkt-frauengesundheit-physio-swiss-thalwil",
+      "slug": "fisioterapista-specializzato-a-in-salute-delle-donne-physio-swiss-8800-thalwil",
       "slugByLocale": {
         "de": "physiotherapeut-in-mit-schwerpunkt-frauengesundheit-8800-thalwil-physioswiss-ch",
-        "it": "physiotherapeut-in-mit-schwerpunkt-frauengesundheit-physio-swiss-thalwil",
-        "en": "physiotherapeut-in-mit-schwerpunkt-frauengesundheit-physio-swiss-thalwil",
-        "fr": "physiotherapeut-in-mit-schwerpunkt-frauengesundheit-physio-swiss-thalwil"
+        "it": "fisioterapista-specializzato-a-in-salute-delle-donne-physio-swiss-8800-thalwil",
+        "en": "physiotherapist-specializing-in-women-s-health-physio-swiss-8800-thalwil",
+        "fr": "physiotherapeute-specialise-e-en-sante-des-femmes-physio-swiss-8800-thalwil"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -21451,11 +21481,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-mit-schwerpunkt-frauengesundheit-8800-thalwil-physioswiss-ch"
+          "physiotherapeut-in-mit-schwerpunkt-frauengesundheit-8800-thalwil-physioswiss-ch",
+          "physiotherapeut-in-mit-schwerpunkt-frauengesundheit-physio-swiss-thalwil"
+        ],
+        "en": [
+          "physiotherapeut-in-mit-schwerpunkt-frauengesundheit-physio-swiss-thalwil"
+        ],
+        "fr": [
+          "physiotherapeut-in-mit-schwerpunkt-frauengesundheit-physio-swiss-thalwil"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-mit-schwerpunkt-frauengesundheit-8800-thalwil-physioswiss-ch"
+        "physiotherapeut-in-mit-schwerpunkt-frauengesundheit-8800-thalwil-physioswiss-ch",
+        "physiotherapeut-in-mit-schwerpunkt-frauengesundheit-physio-swiss-thalwil"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -21479,12 +21517,12 @@
     },
     {
       "id": "physioswiss-571aae67ad45",
-      "slug": "dipl-physiotherapeut-in-physio-swiss-aarberg",
+      "slug": "fisioterapista-diplomato-a-physio-swiss-3270-aarberg",
       "slugByLocale": {
         "de": "dipl-physiotherapeut-in-3270-aarberg-physioswiss-ch",
-        "it": "dipl-physiotherapeut-in-physio-swiss-aarberg",
-        "en": "dipl-physiotherapeut-in-physio-swiss-aarberg",
-        "fr": "dipl-physiotherapeut-in-physio-swiss-aarberg"
+        "it": "fisioterapista-diplomato-a-physio-swiss-3270-aarberg",
+        "en": "diploma-physiotherapist-physio-swiss-3270-aarberg",
+        "fr": "physiotherapeute-diplome-e-physio-swiss-3270-aarberg"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -21531,11 +21569,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-physiotherapeut-in-3270-aarberg-physioswiss-ch"
+          "dipl-physiotherapeut-in-3270-aarberg-physioswiss-ch",
+          "dipl-physiotherapeut-in-physio-swiss-aarberg"
+        ],
+        "en": [
+          "dipl-physiotherapeut-in-physio-swiss-aarberg"
+        ],
+        "fr": [
+          "dipl-physiotherapeut-in-physio-swiss-aarberg"
         ]
       },
       "previousSlugs": [
-        "dipl-physiotherapeut-in-3270-aarberg-physioswiss-ch"
+        "dipl-physiotherapeut-in-3270-aarberg-physioswiss-ch",
+        "dipl-physiotherapeut-in-physio-swiss-aarberg"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -21559,12 +21605,12 @@
     },
     {
       "id": "physioswiss-f20e62864336",
-      "slug": "physiotherapeut-in-per-befristetes-engagement-physio-swiss-kussnacht-am-rigi",
+      "slug": "fisioterapista-per-un-incarico-a-tempo-determinato-physio-swiss-6403-kussnacht-am-rigi",
       "slugByLocale": {
         "de": "physiotherapeut-in-fur-befristetes-engagement-6403-kussnacht-am-rigi-physioswiss-ch",
-        "it": "physiotherapeut-in-per-befristetes-engagement-physio-swiss-kussnacht-am-rigi",
-        "en": "physiotherapeut-in-fur-befristetes-engagement-physio-swiss-kussnacht-am-rigi",
-        "fr": "physiotherapeut-in-fur-befristetes-engagement-physio-swiss-kussnacht-am-rigi"
+        "it": "fisioterapista-per-un-incarico-a-tempo-determinato-physio-swiss-6403-kussnacht-am-rigi",
+        "en": "physiotherapist-for-a-fixed-term-engagement-physio-swiss-6403-kussnacht-am-rigi",
+        "fr": "physiotherapeute-pour-un-engagement-temporaire-physio-swiss-6403-kussnacht-am-rigi"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -21611,11 +21657,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-fur-befristetes-engagement-6403-kussnacht-am-rigi-physioswiss-ch"
+          "physiotherapeut-in-fur-befristetes-engagement-6403-kussnacht-am-rigi-physioswiss-ch",
+          "physiotherapeut-in-per-befristetes-engagement-physio-swiss-kussnacht-am-rigi"
+        ],
+        "en": [
+          "physiotherapeut-in-fur-befristetes-engagement-physio-swiss-kussnacht-am-rigi"
+        ],
+        "fr": [
+          "physiotherapeut-in-fur-befristetes-engagement-physio-swiss-kussnacht-am-rigi"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-fur-befristetes-engagement-6403-kussnacht-am-rigi-physioswiss-ch"
+        "physiotherapeut-in-fur-befristetes-engagement-6403-kussnacht-am-rigi-physioswiss-ch",
+        "physiotherapeut-in-per-befristetes-engagement-physio-swiss-kussnacht-am-rigi",
+        "physiotherapeut-in-fur-befristetes-engagement-physio-swiss-kussnacht-am-rigi"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -21717,12 +21772,12 @@
     },
     {
       "id": "physioswiss-383e2b6977b7",
-      "slug": "physiotherapeutin-physiotherapeut-w-m-d-90-100-physio-swiss-zurich",
+      "slug": "terapeuta-fisica-m-f-d-90-100-physio-swiss-8008-zurich",
       "slugByLocale": {
         "de": "physiotherapeutin-physiotherapeut-w-m-d-90-100-8008-zurich-physioswiss-ch",
-        "it": "physiotherapeutin-physiotherapeut-w-m-d-90-100-physio-swiss-zurich",
-        "en": "physiotherapeutin-physiotherapeut-w-m-d-90-100-physio-swiss-zurich",
-        "fr": "physiotherapeutin-physiotherapeut-w-m-d-90-100-physio-swiss-zurich"
+        "it": "terapeuta-fisica-m-f-d-90-100-physio-swiss-8008-zurich",
+        "en": "physical-therapist-m-f-d-90-100-physio-swiss-8008-zurich",
+        "fr": "physiotherapeute-h-f-d-90-100-physio-swiss-8008-zurich"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -21769,11 +21824,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeutin-physiotherapeut-w-m-d-90-100-8008-zurich-physioswiss-ch"
+          "physiotherapeutin-physiotherapeut-w-m-d-90-100-8008-zurich-physioswiss-ch",
+          "physiotherapeutin-physiotherapeut-w-m-d-90-100-physio-swiss-zurich"
+        ],
+        "en": [
+          "physiotherapeutin-physiotherapeut-w-m-d-90-100-physio-swiss-zurich"
+        ],
+        "fr": [
+          "physiotherapeutin-physiotherapeut-w-m-d-90-100-physio-swiss-zurich"
         ]
       },
       "previousSlugs": [
-        "physiotherapeutin-physiotherapeut-w-m-d-90-100-8008-zurich-physioswiss-ch"
+        "physiotherapeutin-physiotherapeut-w-m-d-90-100-8008-zurich-physioswiss-ch",
+        "physiotherapeutin-physiotherapeut-w-m-d-90-100-physio-swiss-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -21797,12 +21860,12 @@
     },
     {
       "id": "physioswiss-5c9dc7892865",
-      "slug": "physiotherapeut-in-orthopala-e-sport-50-100-physio-swiss-wadenswil",
+      "slug": "fisioterapista-ortopedia-e-sport-50-100-physio-swiss-8820-wadenswil",
       "slugByLocale": {
         "de": "physiotherapeut-in-orthopadie-und-sport-50-100-8820-wadenswil-physioswiss-ch",
-        "it": "physiotherapeut-in-orthopala-e-sport-50-100-physio-swiss-wadenswil",
-        "en": "physiotherapeut-in-orthopadie-und-sport-50-100-physio-swiss-wadenswil",
-        "fr": "physiotherapeut-in-orthopadie-und-sport-50-100-physio-swiss-wadenswil"
+        "it": "fisioterapista-ortopedia-e-sport-50-100-physio-swiss-8820-wadenswil",
+        "en": "physiotherapist-orthopedics-and-sports-50-100-physio-swiss-8820-wadenswil",
+        "fr": "physiotherapeute-orthopedie-et-sport-50-100-physio-swiss-8820-wadenswil"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -21849,11 +21912,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-orthopadie-und-sport-50-100-8820-wadenswil-physioswiss-ch"
+          "physiotherapeut-in-orthopadie-und-sport-50-100-8820-wadenswil-physioswiss-ch",
+          "physiotherapeut-in-orthopala-e-sport-50-100-physio-swiss-wadenswil"
+        ],
+        "en": [
+          "physiotherapeut-in-orthopadie-und-sport-50-100-physio-swiss-wadenswil"
+        ],
+        "fr": [
+          "physiotherapeut-in-orthopadie-und-sport-50-100-physio-swiss-wadenswil"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-orthopadie-und-sport-50-100-8820-wadenswil-physioswiss-ch"
+        "physiotherapeut-in-orthopadie-und-sport-50-100-8820-wadenswil-physioswiss-ch",
+        "physiotherapeut-in-orthopala-e-sport-50-100-physio-swiss-wadenswil",
+        "physiotherapeut-in-orthopadie-und-sport-50-100-physio-swiss-wadenswil"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -21877,12 +21949,12 @@
     },
     {
       "id": "physioswiss-271a16188298",
-      "slug": "dipl-physiotherapeut-in-40-80-physio-swiss-dubendorf",
+      "slug": "fisioterapista-diplomato-a-40-80-physio-swiss-8600-dubendorf",
       "slugByLocale": {
         "de": "dipl-physiotherapeut-in-40-80-8600-dubendorf-physioswiss-ch",
-        "it": "dipl-physiotherapeut-in-40-80-physio-swiss-dubendorf",
-        "en": "dipl-physiotherapeut-in-40-80-physio-swiss-dubendorf",
-        "fr": "dipl-physiotherapeut-in-40-80-physio-swiss-dubendorf"
+        "it": "fisioterapista-diplomato-a-40-80-physio-swiss-8600-dubendorf",
+        "en": "qualified-physiotherapist-40-80-physio-swiss-8600-dubendorf",
+        "fr": "physiotherapeute-diplome-e-40-80-physio-swiss-8600-dubendorf"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -21929,11 +22001,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-physiotherapeut-in-40-80-8600-dubendorf-physioswiss-ch"
+          "dipl-physiotherapeut-in-40-80-8600-dubendorf-physioswiss-ch",
+          "dipl-physiotherapeut-in-40-80-physio-swiss-dubendorf"
+        ],
+        "en": [
+          "dipl-physiotherapeut-in-40-80-physio-swiss-dubendorf"
+        ],
+        "fr": [
+          "dipl-physiotherapeut-in-40-80-physio-swiss-dubendorf"
         ]
       },
       "previousSlugs": [
-        "dipl-physiotherapeut-in-40-80-8600-dubendorf-physioswiss-ch"
+        "dipl-physiotherapeut-in-40-80-8600-dubendorf-physioswiss-ch",
+        "dipl-physiotherapeut-in-40-80-physio-swiss-dubendorf"
       ],
       "salaryMin": 58800,
       "salaryMax": 89200,
@@ -21957,12 +22037,12 @@
     },
     {
       "id": "physioswiss-26f942f5884d",
-      "slug": "physiotherepeut-in-40-80-physio-swiss-flawil",
+      "slug": "fisioterapista-40-80-physio-swiss-9230-flawil",
       "slugByLocale": {
         "de": "physiotherepeut-in-40-80-9230-flawil-physioswiss-ch",
-        "it": "physiotherepeut-in-40-80-physio-swiss-flawil",
-        "en": "physiotherepeut-in-40-80-physio-swiss-flawil",
-        "fr": "physiotherepeut-in-40-80-physio-swiss-flawil"
+        "it": "fisioterapista-40-80-physio-swiss-9230-flawil",
+        "en": "physiotherapist-40-80-physio-swiss-9230-flawil",
+        "fr": "physiotherapeute-40-80-physio-swiss-9230-flawil"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -22010,11 +22090,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "physiotherepeut-in-40-80-9230-flawil-physioswiss-ch"
+          "physiotherepeut-in-40-80-9230-flawil-physioswiss-ch",
+          "physiotherepeut-in-40-80-physio-swiss-flawil"
+        ],
+        "en": [
+          "physiotherepeut-in-40-80-physio-swiss-flawil"
+        ],
+        "fr": [
+          "physiotherepeut-in-40-80-physio-swiss-flawil"
         ]
       },
       "previousSlugs": [
-        "physiotherepeut-in-40-80-9230-flawil-physioswiss-ch"
+        "physiotherepeut-in-40-80-9230-flawil-physioswiss-ch",
+        "physiotherepeut-in-40-80-physio-swiss-flawil"
       ],
       "salaryMin": 46000,
       "salaryMax": 69600,

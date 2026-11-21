@@ -198083,7 +198083,7 @@
       "slugByLocale": {
         "it": "consulente-vendite-abbigliamento-donna-coop-genossenschaft-zurich-a7c676",
         "en": "sales-advisor-women-s-underwear-coop-genossenschaft-zurich",
-        "de": "verkaufsberater-in-damenunterbekleidung-coop-city-zurich-nqekk5",
+        "de": "verkaufsberater-in-damenunterbekleidung-coop-genossenschaft-zurich",
         "fr": "sous-vetements-pour-femmes-coop-genossenschaft-zurich"
       },
       "requirementsByLocale": {},
@@ -198118,6 +198118,9 @@
           "verkaufsberater-in-damenunterbekleidung-coop-city-zurich-nqekk5"
         ],
         "fr": [
+          "verkaufsberater-in-damenunterbekleidung-coop-city-zurich-nqekk5"
+        ],
+        "de": [
           "verkaufsberater-in-damenunterbekleidung-coop-city-zurich-nqekk5"
         ]
       },
@@ -198252,7 +198255,7 @@
       "slugByLocale": {
         "it": "vendita-prodotti-freschi-coop-genossenschaft-horw",
         "en": "seller-fresh-products-coop-genossenschaft-horw",
-        "de": "verkaufer-in-frischprodukte-coop-horw-pbssnp",
+        "de": "verkaufer-in-frischprodukte-coop-genossenschaft-horw",
         "fr": "vendeur-de-produits-frais-coop-genossenschaft-horw"
       },
       "requirementsByLocale": {
@@ -198294,6 +198297,9 @@
           "verkaufer-in-frischprodukte-coop-horw-pbssnp"
         ],
         "fr": [
+          "verkaufer-in-frischprodukte-coop-horw-pbssnp"
+        ],
+        "de": [
           "verkaufer-in-frischprodukte-coop-horw-pbssnp"
         ]
       },
@@ -202106,7 +202112,7 @@
       "slugByLocale": {
         "it": "magaziner-in-vendita-coop-reinach-rl7nc8",
         "en": "magaziner-in-sales-coop-reinach-rl7nc8",
-        "de": "magaziner-in-verkauf-coop-reinach-rl7nc8",
+        "de": "magaziner-in-verkauf-coop-genossenschaft-reinach",
         "fr": "magaziner-in-vente-coop-reinach-rl7nc8"
       },
       "requirementsByLocale": {
@@ -202147,12 +202153,16 @@
         ],
         "fr": [
           "magasinier-ere-en-vente-coop-genossenschaft-reinach"
+        ],
+        "de": [
+          "magaziner-in-verkauf-coop-reinach-rl7nc8"
         ]
       },
       "previousSlugs": [
         "addetto-a-al-magazzino-e-alla-vendita-coop-genossenschaft-reinach",
         "warehouse-employee-sales-coop-genossenschaft-reinach",
-        "magasinier-ere-en-vente-coop-genossenschaft-reinach"
+        "magasinier-ere-en-vente-coop-genossenschaft-reinach",
+        "magaziner-in-verkauf-coop-reinach-rl7nc8"
       ],
       "needsRetranslation": true,
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/magaziner-in-verkauf/b86f047c-c922-4dbe-ab90-b458b45c81bd"

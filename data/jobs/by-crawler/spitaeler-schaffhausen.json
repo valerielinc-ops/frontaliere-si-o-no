@@ -5428,8 +5428,8 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-spitaeler-schaffhausen-schaffhausen",
         "it": "oberarztin-oberarzt-kinder-e-jugendpsychiatrie-spitaler-schaffhausen",
-        "en": "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-spitaeler-schaffhausen-schaffhausen",
-        "fr": "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-spitaeler-schaffhausen-schaffhausen"
+        "en": "senior-physician-senior-physician-child-and-adolescent-psychiatry-spitaler-schaffhausen-schaffhausen",
+        "fr": "medecin-superieur-medecin-superieur-psychiatrie-des-enfants-et-des-adolescents-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -5481,10 +5481,12 @@
           "medica-dirigente-medico-dirigente-di-psichiatria-dell-infanzia-e-dell-adolescenza-spitaler-schaffhausen-schaffhausen"
         ],
         "en": [
-          "senior-physician-senior-physician-child-and-adolescent-psychiatry-spitaler-schaffhausen-schaffhausen"
+          "senior-physician-senior-physician-child-and-adolescent-psychiatry-spitaler-schaffhausen-schaffhausen",
+          "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-spitaeler-schaffhausen-schaffhausen"
         ],
         "fr": [
-          "medecin-superieur-medecin-superieur-psychiatrie-des-enfants-et-des-adolescents-spitaler-schaffhausen-schaffhausen"
+          "medecin-superieur-medecin-superieur-psychiatrie-des-enfants-et-des-adolescents-spitaler-schaffhausen-schaffhausen",
+          "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-spitaeler-schaffhausen-schaffhausen"
         ]
       },
       "previousSlugs": [
@@ -5726,12 +5728,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-c7af12ee8a68",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen-2",
+      "slug": "dipl-infermiera-infermiera-specialista-hf-spitaler-schaffhausen-schaffhausen-61b398",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen-2",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen-2",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen-2"
+        "it": "dipl-infermiera-infermiera-specialista-hf-spitaler-schaffhausen-schaffhausen-61b398",
+        "en": "dipl-nurse-nurse-specialist-hf-spitaler-schaffhausen-schaffhausen-61b398",
+        "fr": "dipl-infirmiere-infirmiere-specialiste-hf-spitaler-schaffhausen-schaffhausen-61b398"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -5794,7 +5796,21 @@
       "validThrough": "2027-02-18T21:44:30.619Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-17T07:28:05.116Z",
-      "sourceIdentity": "url:https://stellen.spitaeler-sh.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf/3ef6efd5-9c44-4f51-bd53-fedb56706856"
+      "sourceIdentity": "url:https://stellen.spitaeler-sh.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf/3ef6efd5-9c44-4f51-bd53-fedb56706856",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen-2"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen-2"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen-2"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen-2"
+      ]
     }
   ]
 }

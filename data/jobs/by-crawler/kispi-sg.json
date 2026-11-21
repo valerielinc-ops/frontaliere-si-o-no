@@ -1836,12 +1836,12 @@
     },
     {
       "id": "kispi-sg-9c8a26e51ed6",
-      "slug": "dipl-pflegefachperson-hf-fh-uberwachungspflege-padiatrie-ostschweizer-kinderspital-st-gallen",
+      "slug": "dipl-infermieristica-professionale-hf-fh-cura-di-sorveglianza-paediatrics-ostschweizer-kinderspital-st-gallen",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-uberwachungspflege-padiatrie-ostschweizer-kinderspital-st-gallen",
-        "it": "dipl-pflegefachperson-hf-fh-uberwachungspflege-padiatrie-ostschweizer-kinderspital-st-gallen",
-        "en": "dipl-pflegefachperson-hf-fh-uberwachungspflege-padiatrie-ostschweizer-kinderspital-st-gallen",
-        "fr": "dipl-pflegefachperson-hf-fh-uberwachungspflege-padiatrie-ostschweizer-kinderspital-st-gallen"
+        "it": "dipl-infermieristica-professionale-hf-fh-cura-di-sorveglianza-paediatrics-ostschweizer-kinderspital-st-gallen",
+        "en": "dipl-nursing-professional-hf-fh-surveillance-care-paediatrics-ostschweizer-kinderspital-st-gallen",
+        "fr": "dipl-soins-de-surveillance-hf-fh-professionnels-de-la-sante-pediatrique-ostschweizer-kinderspital-st-gallen"
       },
       "company": "Ostschweizer Kinderspital",
       "companyKey": "kispi-sg",
@@ -1889,13 +1889,16 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-uberwachungspflege-padiatrie-kispi-sg-st-gallen",
-          "dipl-infermieristica-professionale-hf-fh-cura-di-sorveglianza-paediatrics-ostschweizer-kinderspital-st-gallen"
+          "dipl-infermieristica-professionale-hf-fh-cura-di-sorveglianza-paediatrics-ostschweizer-kinderspital-st-gallen",
+          "dipl-pflegefachperson-hf-fh-uberwachungspflege-padiatrie-ostschweizer-kinderspital-st-gallen"
         ],
         "en": [
-          "dipl-nursing-professional-hf-fh-surveillance-care-paediatrics-ostschweizer-kinderspital-st-gallen"
+          "dipl-nursing-professional-hf-fh-surveillance-care-paediatrics-ostschweizer-kinderspital-st-gallen",
+          "dipl-pflegefachperson-hf-fh-uberwachungspflege-padiatrie-ostschweizer-kinderspital-st-gallen"
         ],
         "fr": [
-          "dipl-soins-infirmiers-professionnels-de-surveillance-hf-fh-ostschweizer-kinderspital-st-gallen"
+          "dipl-soins-infirmiers-professionnels-de-surveillance-hf-fh-ostschweizer-kinderspital-st-gallen",
+          "dipl-pflegefachperson-hf-fh-uberwachungspflege-padiatrie-ostschweizer-kinderspital-st-gallen"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-uberwachungspflege-padiatrie-kispi-sg-st-gallen"
@@ -1905,7 +1908,8 @@
         "dipl-pflegefachperson-hf-fh-uberwachungspflege-padiatrie-kispi-sg-st-gallen",
         "dipl-infermieristica-professionale-hf-fh-cura-di-sorveglianza-paediatrics-ostschweizer-kinderspital-st-gallen",
         "dipl-nursing-professional-hf-fh-surveillance-care-paediatrics-ostschweizer-kinderspital-st-gallen",
-        "dipl-soins-infirmiers-professionnels-de-surveillance-hf-fh-ostschweizer-kinderspital-st-gallen"
+        "dipl-soins-infirmiers-professionnels-de-surveillance-hf-fh-ostschweizer-kinderspital-st-gallen",
+        "dipl-pflegefachperson-hf-fh-uberwachungspflege-padiatrie-ostschweizer-kinderspital-st-gallen"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -1931,7 +1935,7 @@
       "id": "kispi-sg-2ba61031ce6b",
       "slug": "arztsekretar-in-allergologie-80-kispi-sg-st-gallen",
       "slugByLocale": {
-        "de": "arztsekretar-in-allergologie-80-kispi-sg-st-gallen",
+        "de": "arztsekretar-in-allergologie-80-ostschweizer-kinderspital-st-gallen",
         "it": "arztsekretar-in-allergologie-80-kispi-sg-st-gallen",
         "en": "arztsekretar-in-allergologie-80-kispi-sg-st-gallen",
         "fr": "arztsekretar-in-allergologie-80-kispi-sg-st-gallen"
@@ -2006,12 +2010,16 @@
         ],
         "fr": [
           "secretaire-medical-e-en-allergologie-80-ostschweizer-kinderspital-st-gallen"
+        ],
+        "de": [
+          "arztsekretar-in-allergologie-80-kispi-sg-st-gallen"
         ]
       },
       "previousSlugs": [
         "segretario-a-medico-a-in-allergologia-80-ostschweizer-kinderspital-st-gallen",
         "medical-secretary-allergology-80-ostschweizer-kinderspital-st-gallen",
-        "secretaire-medical-e-en-allergologie-80-ostschweizer-kinderspital-st-gallen"
+        "secretaire-medical-e-en-allergologie-80-ostschweizer-kinderspital-st-gallen",
+        "arztsekretar-in-allergologie-80-kispi-sg-st-gallen"
       ],
       "needsRetranslation": true,
       "sourceIdentity": "url:https://www.oks.ch/de/stellen/arztsekret%c3%a4r/in-allergologie-%2880%25%29-3072"

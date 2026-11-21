@@ -14687,12 +14687,12 @@
     },
     {
       "id": "stadler-rail-d0da2fe6619a",
-      "slug": "bediener-cnc-fertigung-stadler-rail-ch",
+      "slug": "lavorazione-cnc-stadler-rail-steinach",
       "slugByLocale": {
         "de": "bediener-cnc-fertigung-stadler-rail-ch",
-        "it": "bediener-cnc-fertigung-stadler-rail-ch",
-        "en": "bediener-cnc-fertigung-stadler-rail-ch",
-        "fr": "bediener-cnc-fertigung-stadler-rail-ch"
+        "it": "lavorazione-cnc-stadler-rail-steinach",
+        "en": "operator-cnc-manufacturing-stadler-rail-steinach",
+        "fr": "operateur-fabrication-cnc-stadler-rail-steinach"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -14759,19 +14759,23 @@
       "previousSlugs": [
         "lavorazione-cnc-stadler-rail-steinach",
         "operator-cnc-manufacturing-stadler-rail-steinach",
-        "operateur-fabrication-cnc-stadler-rail-steinach"
+        "operateur-fabrication-cnc-stadler-rail-steinach",
+        "bediener-cnc-fertigung-stadler-rail-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lavorazione-cnc-stadler-rail-steinach",
           "operator-cnc-manufacturing-stadler-rail-steinach",
-          "operateur-fabrication-cnc-stadler-rail-steinach"
+          "operateur-fabrication-cnc-stadler-rail-steinach",
+          "bediener-cnc-fertigung-stadler-rail-ch"
         ],
         "en": [
-          "operator-cnc-manufacturing-stadler-rail-steinach"
+          "operator-cnc-manufacturing-stadler-rail-steinach",
+          "bediener-cnc-fertigung-stadler-rail-ch"
         ],
         "fr": [
-          "operateur-fabrication-cnc-stadler-rail-steinach"
+          "operateur-fabrication-cnc-stadler-rail-steinach",
+          "bediener-cnc-fertigung-stadler-rail-ch"
         ]
       }
     }

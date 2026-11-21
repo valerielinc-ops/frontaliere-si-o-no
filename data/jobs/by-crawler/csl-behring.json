@@ -1086,12 +1086,12 @@
     },
     {
       "id": "csl-behring-8f4280d7538b",
-      "slug": "scientist-hematology-csl-behring-ch",
+      "slug": "ematologia-degli-scienziati-csl-behring-schlieren",
       "slugByLocale": {
         "en": "scientist-hematology-csl-behring-ch",
-        "it": "scientist-hematology-csl-behring-ch",
-        "de": "scientist-hematology-csl-behring-ch",
-        "fr": "scientist-hematology-csl-behring-ch"
+        "it": "ematologia-degli-scienziati-csl-behring-schlieren",
+        "de": "wissenschaftler-hamatologie-csl-behring-schlieren",
+        "fr": "hematologie-scientifique-csl-behring-schlieren"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -1155,16 +1155,30 @@
       "validThrough": "2027-02-18T21:44:08.294Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T21:44:08.294Z",
-      "sourceIdentity": "url:https://csl.wd1.myworkdayjobs.com/en-us/csl_external/job/emea-ch-schlieren-csl-behring/scientist-hematology_r-290849"
+      "sourceIdentity": "url:https://csl.wd1.myworkdayjobs.com/en-us/csl_external/job/emea-ch-schlieren-csl-behring/scientist-hematology_r-290849",
+      "previousSlugsByLocale": {
+        "it": [
+          "scientist-hematology-csl-behring-ch"
+        ],
+        "de": [
+          "scientist-hematology-csl-behring-ch"
+        ],
+        "fr": [
+          "scientist-hematology-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "scientist-hematology-csl-behring-ch"
+      ]
     },
     {
       "id": "csl-behring-5cfb66ad4b8c",
-      "slug": "manager-regional-regulatory-lead-eu-csl-behring-ch",
+      "slug": "manager-responsabile-regionale-degli-affari-regolatori-ue-csl-behring-opfikon",
       "slugByLocale": {
         "en": "manager-regional-regulatory-lead-eu-csl-behring-ch",
-        "it": "manager-regional-regulatory-lead-eu-csl-behring-ch",
-        "de": "manager-regional-regulatory-lead-eu-csl-behring-ch",
-        "fr": "manager-regional-regulatory-lead-eu-csl-behring-ch"
+        "it": "manager-responsabile-regionale-degli-affari-regolatori-ue-csl-behring-opfikon",
+        "de": "manager-regionaler-leiter-fur-regulierungsfragen-eu-csl-behring-opfikon",
+        "fr": "gestionnaire-responsable-regional-de-la-reglementation-ue-csl-behring-opfikon"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -1228,7 +1242,21 @@
       "validThrough": "2027-02-18T21:43:58.597Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T21:43:58.597Z",
-      "sourceIdentity": "url:https://csl.wd1.myworkdayjobs.com/en-us/csl_external/job/emea-ch-kanton-zurich-opfikon-csl-vifor/manager--regional-regulatory-lead--eu-_r-294593"
+      "sourceIdentity": "url:https://csl.wd1.myworkdayjobs.com/en-us/csl_external/job/emea-ch-kanton-zurich-opfikon-csl-vifor/manager--regional-regulatory-lead--eu-_r-294593",
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-regional-regulatory-lead-eu-csl-behring-ch"
+        ],
+        "de": [
+          "manager-regional-regulatory-lead-eu-csl-behring-ch"
+        ],
+        "fr": [
+          "manager-regional-regulatory-lead-eu-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "manager-regional-regulatory-lead-eu-csl-behring-ch"
+      ]
     },
     {
       "id": "csl-behring-cababf1bf07d",

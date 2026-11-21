@@ -1184,12 +1184,12 @@
     },
     {
       "id": "h-ju-hopital-du-jura-8a61077405b3",
-      "slug": "therapeute-en-activite-physique-adaptee-apa-therapies-porrentruy-h-ju-hopital-du-jura",
+      "slug": "adapted-physical-activity-therapist-apa-terapie-porrentruy-hopital-du-jura-h-ju-porrentruy",
       "slugByLocale": {
         "fr": "therapeute-en-activite-physique-adaptee-apa-therapies-porrentruy-h-ju-hopital-du-jura",
-        "it": "therapeute-en-activite-physique-adaptee-apa-therapies-porrentruy-h-ju-hopital-du-jura",
-        "en": "therapeute-en-activite-physique-adaptee-apa-therapies-porrentruy-h-ju-hopital-du-jura",
-        "de": "therapeute-en-activite-physique-adaptee-apa-therapies-porrentruy-h-ju-hopital-du-jura"
+        "it": "adapted-physical-activity-therapist-apa-terapie-porrentruy-hopital-du-jura-h-ju-porrentruy",
+        "en": "adapted-physical-activity-therapist-apa-therapies-porrentruy-hopital-du-jura-h-ju-porrentruy",
+        "de": "angepasster-physiotherapeut-apa-therapien-porrentruy-hopital-du-jura-h-ju-porrentruy"
       },
       "company": "Hôpital du Jura (H-JU)",
       "companyKey": "h-ju-hopital-du-jura",
@@ -1253,16 +1253,30 @@
       "validThrough": "2027-02-18T21:22:44.140Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T21:22:44.140Z",
-      "sourceIdentity": "url:https://www.h-ju.ch/fr/carrieres/emploi/emploi.html#offer-4934"
+      "sourceIdentity": "url:https://www.h-ju.ch/fr/carrieres/emploi/emploi.html#offer-4934",
+      "previousSlugsByLocale": {
+        "it": [
+          "therapeute-en-activite-physique-adaptee-apa-therapies-porrentruy-h-ju-hopital-du-jura"
+        ],
+        "en": [
+          "therapeute-en-activite-physique-adaptee-apa-therapies-porrentruy-h-ju-hopital-du-jura"
+        ],
+        "de": [
+          "therapeute-en-activite-physique-adaptee-apa-therapies-porrentruy-h-ju-hopital-du-jura"
+        ]
+      },
+      "previousSlugs": [
+        "therapeute-en-activite-physique-adaptee-apa-therapies-porrentruy-h-ju-hopital-du-jura"
+      ]
     },
     {
       "id": "h-ju-hopital-du-jura-506e0c3db63b",
-      "slug": "etudiant-e-technicien-ne-en-analyses-biomedicales-tab-es-h-ju-hopital-du-jura-delemont",
+      "slug": "tecnico-di-analisi-biomedica-degli-studenti-tab-es-hopital-du-jura-h-ju-delemont",
       "slugByLocale": {
         "fr": "etudiant-e-technicien-ne-en-analyses-biomedicales-tab-es-h-ju-hopital-du-jura-delemont",
-        "it": "etudiant-e-technicien-ne-en-analyses-biomedicales-tab-es-h-ju-hopital-du-jura-delemont",
-        "en": "etudiant-e-technicien-ne-en-analyses-biomedicales-tab-es-h-ju-hopital-du-jura-delemont",
-        "de": "etudiant-e-technicien-ne-en-analyses-biomedicales-tab-es-h-ju-hopital-du-jura-delemont"
+        "it": "tecnico-di-analisi-biomedica-degli-studenti-tab-es-hopital-du-jura-h-ju-delemont",
+        "en": "student-biomedical-analysis-technician-tab-es-hopital-du-jura-h-ju-delemont",
+        "de": "student-biomedizinische-analyse-techniker-tab-es-hopital-du-jura-h-ju-delemont"
       },
       "company": "Hôpital du Jura (H-JU)",
       "companyKey": "h-ju-hopital-du-jura",
@@ -1326,7 +1340,21 @@
       "validThrough": "2027-02-18T21:22:43.585Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T21:22:43.585Z",
-      "sourceIdentity": "url:https://www.h-ju.ch/fr/carrieres/emploi/emploi.html#offer-4839"
+      "sourceIdentity": "url:https://www.h-ju.ch/fr/carrieres/emploi/emploi.html#offer-4839",
+      "previousSlugsByLocale": {
+        "it": [
+          "etudiant-e-technicien-ne-en-analyses-biomedicales-tab-es-h-ju-hopital-du-jura-delemont"
+        ],
+        "en": [
+          "etudiant-e-technicien-ne-en-analyses-biomedicales-tab-es-h-ju-hopital-du-jura-delemont"
+        ],
+        "de": [
+          "etudiant-e-technicien-ne-en-analyses-biomedicales-tab-es-h-ju-hopital-du-jura-delemont"
+        ]
+      },
+      "previousSlugs": [
+        "etudiant-e-technicien-ne-en-analyses-biomedicales-tab-es-h-ju-hopital-du-jura-delemont"
+      ]
     }
   ]
 }

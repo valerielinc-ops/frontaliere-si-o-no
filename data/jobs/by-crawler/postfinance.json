@@ -1440,7 +1440,7 @@
       },
       "slug": "kundenberater-in-postfinance-corner-postfinance-baden",
       "slugByLocale": {
-        "de": "kundenberater-in-postfinance-corner-postfinance",
+        "de": "kundenberater-in-postfinance-corner-postfinance-baden",
         "it": "kundenberater-in-postfinance-corner-postfinance-baden",
         "en": "kundenberater-in-postfinance-corner-postfinance-baden",
         "fr": "kundenberater-in-postfinance-corner-postfinance-baden"
@@ -1477,6 +1477,9 @@
         ],
         "fr": [
           "conseiller-ere-a-la-clientele-postfinance-corner-postfinance-baden"
+        ],
+        "de": [
+          "kundenberater-in-postfinance-corner-postfinance"
         ]
       },
       "previousSlugs": [
@@ -1815,7 +1818,7 @@
         "de": "it-business-analyst-in-postfinance-app-postfinance",
         "it": "it-business-analyst-in-postfinance-app-postfinance",
         "en": "it-business-analyst-in-postfinance-app-postfinance",
-        "fr": "it-business-analyst-in-postfinance-app-postfinance"
+        "fr": "analyste-metier-it-pour-l-application-postfinance-postfinance-bern"
       },
       "sourceLang": "de",
       "department": [
@@ -1860,7 +1863,15 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T21:57:20.837Z",
-      "sourceIdentity": "url:https://jobs.postfinance.ch/job/it-business-analystin-postfinance-app/74932-de_de"
+      "sourceIdentity": "url:https://jobs.postfinance.ch/job/it-business-analystin-postfinance-app/74932-de_de",
+      "previousSlugsByLocale": {
+        "fr": [
+          "it-business-analyst-in-postfinance-app-postfinance"
+        ]
+      },
+      "previousSlugs": [
+        "it-business-analyst-in-postfinance-app-postfinance"
+      ]
     }
   ]
 }

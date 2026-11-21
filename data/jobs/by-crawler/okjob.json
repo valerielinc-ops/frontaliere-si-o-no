@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "okjob-3cfb91330f79",
-      "slug": "chauffeur-pl-multi-bennes-multi-lift-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133",
+      "slug": "driver-pl-multi-bath-multi-lift-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133",
       "slugByLocale": {
         "fr": "chauffeur-pl-multi-bennes-multi-lift-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133",
-        "it": "chauffeur-pl-multi-bennes-multi-lift-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133",
-        "en": "chauffeur-pl-multi-bennes-multi-lift-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133",
-        "de": "chauffeur-pl-multi-bennes-multi-lift-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133"
+        "it": "driver-pl-multi-bath-multi-lift-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133",
+        "en": "multi-bath-multi-lift-pl-driver-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133",
+        "de": "mehrbad-mehrhubfahrer-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133"
       },
       "slugDisambiguator": "3cfb9133",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -76,19 +76,23 @@
       "firstSeenAt": "2026-11-19T21:40:25.970Z",
       "previousSlugsByLocale": {
         "it": [
-          "driver-pl-multi-bath-multi-lift-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133"
+          "driver-pl-multi-bath-multi-lift-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133",
+          "chauffeur-pl-multi-bennes-multi-lift-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133"
         ],
         "en": [
-          "multi-bath-multi-lift-pl-driver-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133"
+          "multi-bath-multi-lift-pl-driver-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133",
+          "chauffeur-pl-multi-bennes-multi-lift-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133"
         ],
         "de": [
-          "mehrbad-mehrhubfahrer-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133"
+          "mehrbad-mehrhubfahrer-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133",
+          "chauffeur-pl-multi-bennes-multi-lift-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133"
         ]
       },
       "previousSlugs": [
         "driver-pl-multi-bath-multi-lift-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133",
         "multi-bath-multi-lift-pl-driver-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133",
-        "mehrbad-mehrhubfahrer-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133"
+        "mehrbad-mehrhubfahrer-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133",
+        "chauffeur-pl-multi-bennes-multi-lift-ok-job-sa-succursale-di-mendrisio-1201-geneve-3cfb9133"
       ],
       "sourceIdentity": "url:https://www.okjob.ch/offres-demplois/chauffeur-pl-multi-bennes-multi-lift-geneve?ref=43380"
     },
@@ -1877,12 +1881,12 @@
     },
     {
       "id": "okjob-fec37a22bce9",
-      "slug": "diatkoch-diatkochin-efz-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-fec37a22",
+      "slug": "cuoco-a-dietista-afc-100-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-fec37a22",
       "slugByLocale": {
         "de": "diatkoch-diatkochin-efz-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-fec37a22",
-        "it": "diatkoch-diatkochin-efz-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-fec37a22",
-        "en": "diatkoch-diatkochin-efz-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-fec37a22",
-        "fr": "diatkoch-diatkochin-efz-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-fec37a22"
+        "it": "cuoco-a-dietista-afc-100-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-fec37a22",
+        "en": "diet-chef-diet-chef-efz-100-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-fec37a22",
+        "fr": "chef-dietetique-chef-dietetique-efz-100-h-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-fec37a22"
       },
       "slugDisambiguator": "fec37a22",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -1946,16 +1950,30 @@
       "validThrough": "2027-02-18T21:46:54.591Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T21:46:54.591Z",
-      "sourceIdentity": "url:https://www.okjob.ch/de/jobangebote/diaetkoch-diaetkoechin-efz-100-m-w-d-basel?ref=43400"
+      "sourceIdentity": "url:https://www.okjob.ch/de/jobangebote/diaetkoch-diaetkoechin-efz-100-m-w-d-basel?ref=43400",
+      "previousSlugsByLocale": {
+        "it": [
+          "diatkoch-diatkochin-efz-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-fec37a22"
+        ],
+        "en": [
+          "diatkoch-diatkochin-efz-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-fec37a22"
+        ],
+        "fr": [
+          "diatkoch-diatkochin-efz-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-fec37a22"
+        ]
+      },
+      "previousSlugs": [
+        "diatkoch-diatkochin-efz-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-fec37a22"
+      ]
     },
     {
       "id": "okjob-517e4a9d5a70",
-      "slug": "ingenieur-systemes-logistiques-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-517e4a9d",
+      "slug": "ingegneria-dei-sistemi-logistici-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-517e4a9d",
       "slugByLocale": {
         "fr": "ingenieur-systemes-logistiques-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-517e4a9d",
-        "it": "ingenieur-systemes-logistiques-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-517e4a9d",
-        "en": "ingenieur-systemes-logistiques-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-517e4a9d",
-        "de": "ingenieur-systemes-logistiques-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-517e4a9d"
+        "it": "ingegneria-dei-sistemi-logistici-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-517e4a9d",
+        "en": "logistics-systems-engineer-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-517e4a9d",
+        "de": "logistiksystemingenieur-m-w-ok-job-sa-succursale-di-mendrisio-1400-yverdon-517e4a9d"
       },
       "slugDisambiguator": "517e4a9d",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -2019,16 +2037,30 @@
       "validThrough": "2027-02-18T21:46:54.590Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T21:46:54.590Z",
-      "sourceIdentity": "url:https://www.okjob.ch/offres-demplois/ingenieur-systemes-logistiques-h-f-yverdon-les-bains?ref=43388"
+      "sourceIdentity": "url:https://www.okjob.ch/offres-demplois/ingenieur-systemes-logistiques-h-f-yverdon-les-bains?ref=43388",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-systemes-logistiques-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-517e4a9d"
+        ],
+        "en": [
+          "ingenieur-systemes-logistiques-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-517e4a9d"
+        ],
+        "de": [
+          "ingenieur-systemes-logistiques-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-517e4a9d"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-systemes-logistiques-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-517e4a9d"
+      ]
     },
     {
       "id": "okjob-9be0e9657214",
-      "slug": "monteur-en-chauffage-installateur-sanitaire-ok-job-sa-succursale-di-mendrisio-1400-yverdon-9be0e965",
+      "slug": "riscaldamento-assemblatore-installatore-sanitario-ok-job-sa-succursale-di-mendrisio-1400-yverdon-9be0e965",
       "slugByLocale": {
         "fr": "monteur-en-chauffage-installateur-sanitaire-ok-job-sa-succursale-di-mendrisio-1400-yverdon-9be0e965",
-        "it": "monteur-en-chauffage-installateur-sanitaire-ok-job-sa-succursale-di-mendrisio-1400-yverdon-9be0e965",
-        "en": "monteur-en-chauffage-installateur-sanitaire-ok-job-sa-succursale-di-mendrisio-1400-yverdon-9be0e965",
-        "de": "monteur-en-chauffage-installateur-sanitaire-ok-job-sa-succursale-di-mendrisio-1400-yverdon-9be0e965"
+        "it": "riscaldamento-assemblatore-installatore-sanitario-ok-job-sa-succursale-di-mendrisio-1400-yverdon-9be0e965",
+        "en": "heating-assembler-sanitary-installer-ok-job-sa-succursale-di-mendrisio-1400-yverdon-9be0e965",
+        "de": "heizungsmontage-sanitarinstallateur-ok-job-sa-succursale-di-mendrisio-1400-yverdon-9be0e965"
       },
       "slugDisambiguator": "9be0e965",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -2092,16 +2124,30 @@
       "validThrough": "2027-02-18T21:46:54.549Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T21:46:54.549Z",
-      "sourceIdentity": "url:https://www.okjob.ch/offres-demplois/monteur-en-chauffage-installateur-sanitaire-yverdon-les-bains?ref=43393"
+      "sourceIdentity": "url:https://www.okjob.ch/offres-demplois/monteur-en-chauffage-installateur-sanitaire-yverdon-les-bains?ref=43393",
+      "previousSlugsByLocale": {
+        "it": [
+          "monteur-en-chauffage-installateur-sanitaire-ok-job-sa-succursale-di-mendrisio-1400-yverdon-9be0e965"
+        ],
+        "en": [
+          "monteur-en-chauffage-installateur-sanitaire-ok-job-sa-succursale-di-mendrisio-1400-yverdon-9be0e965"
+        ],
+        "de": [
+          "monteur-en-chauffage-installateur-sanitaire-ok-job-sa-succursale-di-mendrisio-1400-yverdon-9be0e965"
+        ]
+      },
+      "previousSlugs": [
+        "monteur-en-chauffage-installateur-sanitaire-ok-job-sa-succursale-di-mendrisio-1400-yverdon-9be0e965"
+      ]
     },
     {
       "id": "okjob-b54093eeef6e",
-      "slug": "constructeur-metallique-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b54093ee",
+      "slug": "costruttore-di-metallo-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b54093ee",
       "slugByLocale": {
         "fr": "constructeur-metallique-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b54093ee",
-        "it": "constructeur-metallique-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b54093ee",
-        "en": "constructeur-metallique-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b54093ee",
-        "de": "constructeur-metallique-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b54093ee"
+        "it": "costruttore-di-metallo-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b54093ee",
+        "en": "metal-constructor-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b54093ee",
+        "de": "metallbauer-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b54093ee"
       },
       "slugDisambiguator": "b54093ee",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -2165,15 +2211,29 @@
       "validThrough": "2027-02-18T21:46:54.548Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T21:46:54.548Z",
-      "sourceIdentity": "url:https://www.okjob.ch/offres-demplois/constructeur-metallique-yverdon-les-bains?ref=43392"
+      "sourceIdentity": "url:https://www.okjob.ch/offres-demplois/constructeur-metallique-yverdon-les-bains?ref=43392",
+      "previousSlugsByLocale": {
+        "it": [
+          "constructeur-metallique-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b54093ee"
+        ],
+        "en": [
+          "constructeur-metallique-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b54093ee"
+        ],
+        "de": [
+          "constructeur-metallique-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b54093ee"
+        ]
+      },
+      "previousSlugs": [
+        "constructeur-metallique-ok-job-sa-succursale-di-mendrisio-1400-yverdon-b54093ee"
+      ]
     },
     {
       "id": "okjob-8f04a71ee1cf",
-      "slug": "paysagiste-cfc-ok-job-sa-succursale-di-mendrisio-yverdon-les-bains-8f04a71e",
+      "slug": "swc-paesaggista-ok-job-sa-succursale-di-mendrisio-yverdon-les-bains-8f04a71e",
       "slugByLocale": {
         "fr": "paysagiste-cfc-ok-job-sa-succursale-di-mendrisio-yverdon-les-bains-8f04a71e",
-        "it": "paysagiste-cfc-ok-job-sa-succursale-di-mendrisio-yverdon-les-bains-8f04a71e",
-        "en": "paysagiste-cfc-ok-job-sa-succursale-di-mendrisio-yverdon-les-bains-8f04a71e",
+        "it": "swc-paesaggista-ok-job-sa-succursale-di-mendrisio-yverdon-les-bains-8f04a71e",
+        "en": "swc-landscaper-ok-job-sa-succursale-di-mendrisio-yverdon-les-bains-8f04a71e",
         "de": "paysagiste-cfc-ok-job-sa-succursale-di-mendrisio-yverdon-les-bains-8f04a71e"
       },
       "slugDisambiguator": "8f04a71e",
@@ -2238,16 +2298,27 @@
       "validThrough": "2027-02-18T21:46:54.547Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T21:46:54.547Z",
-      "sourceIdentity": "url:https://www.okjob.ch/offres-demplois/paysagiste-cfc-yverdon-les-bains?ref=43389"
+      "sourceIdentity": "url:https://www.okjob.ch/offres-demplois/paysagiste-cfc-yverdon-les-bains?ref=43389",
+      "previousSlugsByLocale": {
+        "it": [
+          "paysagiste-cfc-ok-job-sa-succursale-di-mendrisio-yverdon-les-bains-8f04a71e"
+        ],
+        "en": [
+          "paysagiste-cfc-ok-job-sa-succursale-di-mendrisio-yverdon-les-bains-8f04a71e"
+        ]
+      },
+      "previousSlugs": [
+        "paysagiste-cfc-ok-job-sa-succursale-di-mendrisio-yverdon-les-bains-8f04a71e"
+      ]
     },
     {
       "id": "okjob-218883734dc4",
-      "slug": "responsable-projets-expertise-automation-confirme-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-21888373",
+      "slug": "project-manager-expertise-automation-confermato-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-21888373",
       "slugByLocale": {
         "fr": "responsable-projets-expertise-automation-confirme-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-21888373",
-        "it": "responsable-projets-expertise-automation-confirme-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-21888373",
-        "en": "responsable-projets-expertise-automation-confirme-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-21888373",
-        "de": "responsable-projets-expertise-automation-confirme-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-21888373"
+        "it": "project-manager-expertise-automation-confermato-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-21888373",
+        "en": "project-manager-expertise-automation-confirmed-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-21888373",
+        "de": "projektmanager-expertise-automation-bestatigt-m-w-ok-job-sa-succursale-di-mendrisio-1400-yverdon-21888373"
       },
       "slugDisambiguator": "21888373",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -2311,7 +2382,21 @@
       "validThrough": "2027-02-18T21:46:54.546Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T21:46:54.546Z",
-      "sourceIdentity": "url:https://www.okjob.ch/offres-demplois/responsable-projets-expertise-automation-confirme-h-f-yverdon-les-bains?ref=43386"
+      "sourceIdentity": "url:https://www.okjob.ch/offres-demplois/responsable-projets-expertise-automation-confirme-h-f-yverdon-les-bains?ref=43386",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-projets-expertise-automation-confirme-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-21888373"
+        ],
+        "en": [
+          "responsable-projets-expertise-automation-confirme-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-21888373"
+        ],
+        "de": [
+          "responsable-projets-expertise-automation-confirme-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-21888373"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-projets-expertise-automation-confirme-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-21888373"
+      ]
     }
   ]
 }

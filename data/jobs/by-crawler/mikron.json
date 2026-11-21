@@ -505,11 +505,11 @@
       },
       "slugByLocale": {
         "en": "application-engineering-manager-m-f-d-mikron",
-        "it": "application-engineering-manager-m-f-d-mikron",
+        "it": "gestione-dell-ingegneria-dell-applicazione-m-f-d-mikron-group-boudry",
         "de": "application-engineering-manager-m-f-d-mikron",
-        "fr": "application-engineering-manager-m-f-d-mikron"
+        "fr": "gestionnaire-d-ingenierie-d-application-h-f-d-mikron-group-boudry"
       },
-      "slug": "application-engineering-manager-m-f-d-mikron",
+      "slug": "gestione-dell-ingegneria-dell-applicazione-m-f-d-mikron-group-boudry",
       "sourceLang": "en",
       "category": "technology",
       "datePosted": "",
@@ -544,7 +544,18 @@
         }
       },
       "firstSeenAt": "2026-11-20T21:40:45.978Z",
-      "sourceIdentity": "url:https://www.mikron.com/en/application-engineering-manager-mfd"
+      "sourceIdentity": "url:https://www.mikron.com/en/application-engineering-manager-mfd",
+      "previousSlugsByLocale": {
+        "it": [
+          "application-engineering-manager-m-f-d-mikron"
+        ],
+        "fr": [
+          "application-engineering-manager-m-f-d-mikron"
+        ]
+      },
+      "previousSlugs": [
+        "application-engineering-manager-m-f-d-mikron"
+      ]
     },
     {
       "url": "https://www.mikron.com/en/production-planning-analyst-mfd",
@@ -572,11 +583,11 @@
       },
       "slugByLocale": {
         "en": "production-planning-analyst-m-f-d-mikron",
-        "it": "production-planning-analyst-m-f-d-mikron",
-        "de": "production-planning-analyst-m-f-d-mikron",
-        "fr": "production-planning-analyst-m-f-d-mikron"
+        "it": "analizzatore-di-pianificazione-di-produzione-m-f-d-mikron-group-boudry",
+        "de": "produktionsplanung-analyst-m-w-d-mikron-group-boudry",
+        "fr": "analyste-de-planification-de-production-h-f-d-mikron-group-boudry"
       },
-      "slug": "production-planning-analyst-m-f-d-mikron",
+      "slug": "analizzatore-di-pianificazione-di-produzione-m-f-d-mikron-group-boudry",
       "sourceLang": "en",
       "category": "production",
       "datePosted": "",
@@ -611,7 +622,21 @@
         }
       },
       "firstSeenAt": "2026-11-20T21:40:53.738Z",
-      "sourceIdentity": "url:https://www.mikron.com/en/production-planning-analyst-mfd"
+      "sourceIdentity": "url:https://www.mikron.com/en/production-planning-analyst-mfd",
+      "previousSlugsByLocale": {
+        "it": [
+          "production-planning-analyst-m-f-d-mikron"
+        ],
+        "de": [
+          "production-planning-analyst-m-f-d-mikron"
+        ],
+        "fr": [
+          "production-planning-analyst-m-f-d-mikron"
+        ]
+      },
+      "previousSlugs": [
+        "production-planning-analyst-m-f-d-mikron"
+      ]
     }
   ]
 }

@@ -269,12 +269,12 @@
     },
     {
       "id": "fisba-38f165b06b5e",
-      "slug": "betriebsmechaniker-instandhaltungsmechaniker-m-w-st-gallen-fisba-ch",
+      "slug": "meccanico-operativo-meccanico-di-manutenzione-m-f-fisba-ag-st-gallen",
       "slugByLocale": {
         "de": "betriebsmechaniker-instandhaltungsmechaniker-m-w-st-gallen-fisba-ch",
-        "it": "betriebsmechaniker-instandhaltungsmechaniker-m-w-st-gallen-fisba-ch",
-        "en": "betriebsmechaniker-instandhaltungsmechaniker-m-w-st-gallen-fisba-ch",
-        "fr": "betriebsmechaniker-instandhaltungsmechaniker-m-w-st-gallen-fisba-ch"
+        "it": "meccanico-operativo-meccanico-di-manutenzione-m-f-fisba-ag-st-gallen",
+        "en": "operational-mechanic-maintenance-mechanic-m-f-fisba-ag-st-gallen",
+        "fr": "mecanicien-operationnel-mecanicien-d-entretien-h-f-fisba-ag-st-gallen"
       },
       "company": "FISBA AG",
       "companyKey": "fisba",
@@ -340,19 +340,23 @@
       "sourceIdentity": "url:https://fisba.com/en/jobs/betriebsmechaniker-instandhaltungsmechaniker-mw",
       "previousSlugsByLocale": {
         "it": [
-          "meccanico-operativo-meccanico-di-manutenzione-m-f-fisba-ag-st-gallen"
+          "meccanico-operativo-meccanico-di-manutenzione-m-f-fisba-ag-st-gallen",
+          "betriebsmechaniker-instandhaltungsmechaniker-m-w-st-gallen-fisba-ch"
         ],
         "en": [
-          "operational-mechanic-maintenance-mechanic-m-f-fisba-ag-st-gallen"
+          "operational-mechanic-maintenance-mechanic-m-f-fisba-ag-st-gallen",
+          "betriebsmechaniker-instandhaltungsmechaniker-m-w-st-gallen-fisba-ch"
         ],
         "fr": [
-          "mecanicien-operationnel-mecanicien-d-entretien-h-f-fisba-ag-st-gallen"
+          "mecanicien-operationnel-mecanicien-d-entretien-h-f-fisba-ag-st-gallen",
+          "betriebsmechaniker-instandhaltungsmechaniker-m-w-st-gallen-fisba-ch"
         ]
       },
       "previousSlugs": [
         "meccanico-operativo-meccanico-di-manutenzione-m-f-fisba-ag-st-gallen",
         "operational-mechanic-maintenance-mechanic-m-f-fisba-ag-st-gallen",
-        "mecanicien-operationnel-mecanicien-d-entretien-h-f-fisba-ag-st-gallen"
+        "mecanicien-operationnel-mecanicien-d-entretien-h-f-fisba-ag-st-gallen",
+        "betriebsmechaniker-instandhaltungsmechaniker-m-w-st-gallen-fisba-ch"
       ]
     },
     {
@@ -522,12 +526,12 @@
     },
     {
       "id": "fisba-ea275f5d0fd8",
-      "slug": "projektleiter-per-optische-systeme-m-w-d-fisba-ag-st-gallen",
+      "slug": "responsabile-di-progetto-per-sistemi-ottici-m-f-fisba-ag-st-gallen",
       "slugByLocale": {
         "de": "projektleiter-fur-optische-systeme-m-w-st-gallen-fisba-ch",
-        "it": "projektleiter-per-optische-systeme-m-w-d-fisba-ag-st-gallen",
-        "en": "projektleiter-fur-optische-systeme-m-w-st-gallen-fisba-ch",
-        "fr": "projektleiter-fur-optische-systeme-m-w-st-gallen-fisba-ch"
+        "it": "responsabile-di-progetto-per-sistemi-ottici-m-f-fisba-ag-st-gallen",
+        "en": "project-manager-for-optical-systems-m-f-fisba-ag-st-gallen",
+        "fr": "gestionnaire-de-projet-pour-systemes-optiques-h-f-fisba-ag-st-gallen"
       },
       "company": "FISBA AG",
       "companyKey": "fisba",
@@ -574,11 +578,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-fur-optische-systeme-m-w-st-gallen-fisba-ch",
+          "projektleiter-per-optische-systeme-m-w-d-fisba-ag-st-gallen"
+        ],
+        "en": [
+          "projektleiter-fur-optische-systeme-m-w-st-gallen-fisba-ch"
+        ],
+        "fr": [
           "projektleiter-fur-optische-systeme-m-w-st-gallen-fisba-ch"
         ]
       },
       "previousSlugs": [
-        "projektleiter-fur-optische-systeme-m-w-st-gallen-fisba-ch"
+        "projektleiter-fur-optische-systeme-m-w-st-gallen-fisba-ch",
+        "projektleiter-per-optische-systeme-m-w-d-fisba-ag-st-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

@@ -20312,12 +20312,12 @@
     },
     {
       "id": "hoch-health-328674b6d83c",
-      "slug": "pflegeassistent-in-80-hoch-health-st-gallen",
+      "slug": "assistente-di-cura-80-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "de": "pflegeassistent-in-80-hoch-health-st-gallen",
-        "it": "pflegeassistent-in-80-hoch-health-st-gallen",
-        "en": "pflegeassistent-in-80-hoch-health-st-gallen",
-        "fr": "pflegeassistent-in-80-hoch-health-st-gallen"
+        "it": "assistente-di-cura-80-hoch-health-ostschweiz-st-gallen",
+        "en": "nursing-assistant-80-hoch-health-ostschweiz-st-gallen",
+        "fr": "assistant-e-en-soins-80-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -20380,7 +20380,21 @@
       "validThrough": "2027-02-18T22:21:35.465Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T22:21:35.465Z",
-      "sourceIdentity": "url:https://jobs.h-och.ch/job/st_-gallen-pflegeassistentin-80/1459366233"
+      "sourceIdentity": "url:https://jobs.h-och.ch/job/st_-gallen-pflegeassistentin-80/1459366233",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeassistent-in-80-hoch-health-st-gallen"
+        ],
+        "en": [
+          "pflegeassistent-in-80-hoch-health-st-gallen"
+        ],
+        "fr": [
+          "pflegeassistent-in-80-hoch-health-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeassistent-in-80-hoch-health-st-gallen"
+      ]
     }
   ]
 }

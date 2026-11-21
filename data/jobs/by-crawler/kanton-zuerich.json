@@ -3561,7 +3561,7 @@
       "slugByLocale": {
         "it": "operaio-a-forestale-efz-macchinista-kantonale-verwaltung-zurich-turbenthal-0c448588c6",
         "en": "forest-worker-efz-machine-operator-kantonale-verwaltung-zurich-turbenthal",
-        "de": "forstwart-in-efz-maschinist-in-kanton-zuerich-turbenthal",
+        "de": "forstwart-in-efz-maschinist-in-kantonale-verwaltung-zurich-turbenthal",
         "fr": "forestier-bucheron-forestiere-bucheronne-cfc-machiniste-kantonale-verwaltung-zurich-turbenthal"
       },
       "company": "Kantonale Verwaltung Zürich",
@@ -3617,6 +3617,9 @@
         "it": [
           "forstwart-in-efz-maschinist-in-kanton-zuerich-turbenthal",
           "operaio-a-forestale-efz-macchinista-kantonale-verwaltung-zurich-turbenthal"
+        ],
+        "de": [
+          "forstwart-in-efz-maschinist-in-kanton-zuerich-turbenthal"
         ]
       },
       "firstSeenAt": "2026-09-08T23:33:33.383Z",
@@ -5391,7 +5394,7 @@
       "slugByLocale": {
         "it": "project-manager-riparazione-stradale-kantonale-verwaltung-zurich-kleinandelfingen",
         "en": "project-manager-road-repair-kantonale-verwaltung-zurich-kleinandelfingen",
-        "de": "projektleiter-in-strasseninstandsetzung-kanton-zuerich-kleinandelfingen",
+        "de": "projektleiter-in-strasseninstandsetzung-kantonale-verwaltung-zurich-kleinandelfingen",
         "fr": "directeur-de-projet-kantonale-verwaltung-zurich-kleinandelfingen"
       },
       "company": "Kantonale Verwaltung Zürich",
@@ -5444,6 +5447,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-strasseninstandsetzung-kanton-zuerich-kleinandelfingen"
+        ],
+        "de": [
           "projektleiter-in-strasseninstandsetzung-kanton-zuerich-kleinandelfingen"
         ]
       },

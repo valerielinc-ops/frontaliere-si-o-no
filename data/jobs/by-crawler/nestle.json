@@ -6722,12 +6722,12 @@
     },
     {
       "id": "nestle-1458799533",
-      "slug": "technicien-ne-de-maintenance-en-horaire-d-equipe-4x8-nestle-ch",
+      "slug": "tecnico-di-manutenzione-del-programma-di-squadra-4x8-nestle-romont",
       "slugByLocale": {
         "fr": "technicien-ne-de-maintenance-en-horaire-d-equipe-4x8-nestle-ch",
-        "it": "technicien-ne-de-maintenance-en-horaire-d-equipe-4x8-nestle-ch",
-        "en": "technicien-ne-de-maintenance-en-horaire-d-equipe-4x8-nestle-ch",
-        "de": "technicien-ne-de-maintenance-en-horaire-d-equipe-4x8-nestle-ch"
+        "it": "tecnico-di-manutenzione-del-programma-di-squadra-4x8-nestle-romont",
+        "en": "4x8-team-schedule-maintenance-technician-nestle-romont",
+        "de": "4x8-team-schedule-wartungstechniker-nestle-romont"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -6792,19 +6792,23 @@
       "firstSeenAt": "2026-05-25T13:33:55.578Z",
       "previousSlugsByLocale": {
         "it": [
-          "tecnico-di-manutenzione-del-programma-di-squadra-4x8-nestle-romont"
+          "tecnico-di-manutenzione-del-programma-di-squadra-4x8-nestle-romont",
+          "technicien-ne-de-maintenance-en-horaire-d-equipe-4x8-nestle-ch"
         ],
         "en": [
-          "4x8-team-schedule-maintenance-technician-nestle-romont"
+          "4x8-team-schedule-maintenance-technician-nestle-romont",
+          "technicien-ne-de-maintenance-en-horaire-d-equipe-4x8-nestle-ch"
         ],
         "de": [
-          "4x8-team-schedule-wartungstechniker-nestle-romont"
+          "4x8-team-schedule-wartungstechniker-nestle-romont",
+          "technicien-ne-de-maintenance-en-horaire-d-equipe-4x8-nestle-ch"
         ]
       },
       "previousSlugs": [
         "tecnico-di-manutenzione-del-programma-di-squadra-4x8-nestle-romont",
         "4x8-team-schedule-maintenance-technician-nestle-romont",
-        "4x8-team-schedule-wartungstechniker-nestle-romont"
+        "4x8-team-schedule-wartungstechniker-nestle-romont",
+        "technicien-ne-de-maintenance-en-horaire-d-equipe-4x8-nestle-ch"
       ],
       "sourceIdentity": "url:https://jobdetails.nestle.com/job/romont-technicien-ne-de-maintenance-en-horaire-d'%c3%a9quipe-4x8/1458799533"
     },
@@ -7133,12 +7137,12 @@
     },
     {
       "id": "nestle-1459296533",
-      "slug": "hr-generalist-in-60-nestle-ch",
+      "slug": "generalista-hr-60-nestle-konolfingen",
       "slugByLocale": {
         "de": "hr-generalist-in-60-nestle-ch",
-        "it": "hr-generalist-in-60-nestle-ch",
+        "it": "generalista-hr-60-nestle-konolfingen",
         "en": "hr-generalist-in-60-nestle-ch",
-        "fr": "hr-generalist-in-60-nestle-ch"
+        "fr": "generaliste-rh-60-nestle-konolfingen"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -7201,16 +7205,27 @@
       "validThrough": "2027-02-18T22:00:40.052Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T22:00:40.052Z",
-      "sourceIdentity": "url:https://jobdetails.nestle.com/job/konolfingen-hr-generalist-in-60/1459296533"
+      "sourceIdentity": "url:https://jobdetails.nestle.com/job/konolfingen-hr-generalist-in-60/1459296533",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-generalist-in-60-nestle-ch"
+        ],
+        "fr": [
+          "hr-generalist-in-60-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-generalist-in-60-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1459245833",
-      "slug": "global-cx-and-data-transformation-lead-nestle-ch",
+      "slug": "piombo-di-trasformazione-globale-cx-e-dati-nestle-vevey",
       "slugByLocale": {
         "en": "global-cx-and-data-transformation-lead-nestle-ch",
-        "it": "global-cx-and-data-transformation-lead-nestle-ch",
-        "de": "global-cx-and-data-transformation-lead-nestle-ch",
-        "fr": "global-cx-and-data-transformation-lead-nestle-ch"
+        "it": "piombo-di-trasformazione-globale-cx-e-dati-nestle-vevey",
+        "de": "globale-leitung-fur-cx-und-datentransformation-nestle-vevey",
+        "fr": "responsable-de-la-transformation-mondiale-des-cx-et-des-donnees-nestle-vevey"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -7273,7 +7288,21 @@
       "validThrough": "2027-02-18T21:59:33.086Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-20T21:59:33.086Z",
-      "sourceIdentity": "url:https://jobdetails.nestle.com/job/vevey-global-cx-and-data-transformation-lead/1459245833"
+      "sourceIdentity": "url:https://jobdetails.nestle.com/job/vevey-global-cx-and-data-transformation-lead/1459245833",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-cx-and-data-transformation-lead-nestle-ch"
+        ],
+        "de": [
+          "global-cx-and-data-transformation-lead-nestle-ch"
+        ],
+        "fr": [
+          "global-cx-and-data-transformation-lead-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-cx-and-data-transformation-lead-nestle-ch"
+      ]
     }
   ]
 }
