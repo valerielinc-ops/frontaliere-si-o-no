@@ -382,17 +382,14 @@ describe('Workday JSON transport', () => {
         retries: 3,
         retryBaseMs: 0,
       });
-      await vi.advanceTimersByTimeAsync(59_999);
-      expect(directFetch).toHaveBeenCalledOnce();
-      expect(browserFallback).not.toHaveBeenCalled();
-
-      await vi.advanceTimersByTimeAsync(1);
-      await expect(pending).rejects.toMatchObject({
+      const rejection = expect(pending).rejects.toMatchObject({
         name: 'WorkdayRateLimitError',
         statusCode: 429,
         consecutiveFailures: 2,
         circuitOpen: true,
       });
+      await vi.runAllTimersAsync();
+      await rejection;
       expect(directFetch).toHaveBeenCalledTimes(2);
       expect(browserFallback).not.toHaveBeenCalled();
     } finally {

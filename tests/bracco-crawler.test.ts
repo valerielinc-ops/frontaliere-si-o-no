@@ -7,11 +7,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { buildBraccoDescriptionFields, dropBraccoFabricatedText, fetchBraccoJobs } from '../scripts/update-bracco-jobs.mjs';
+import { resetWorkdayImplicitRateLimitStateForTests } from '../scripts/lib/ats-clients/workday-client.mjs';
 import { keepStoredSourceBodies } from '../scripts/lib/stored-source-body.mjs';
 
 const TEXT = fs.readFileSync(path.join(__dirname, 'fixtures', 'bracco', 'workday-description-cadempino.txt'), 'utf8').trim();
 
 afterEach(() => {
+  resetWorkdayImplicitRateLimitStateForTests();
   vi.unstubAllGlobals();
   vi.unstubAllEnvs();
   vi.useRealTimers();
@@ -19,6 +21,7 @@ afterEach(() => {
 
 describe('Bracco crawl provenance', () => {
   it('retries a transient Workday 429 before accepting the listing', async () => {
+    vi.useFakeTimers();
     vi.stubEnv('JOBS_CRAWLER_RETRIES', '1');
     vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
     let listingAttempts = 0;
@@ -46,13 +49,16 @@ describe('Bracco crawl provenance', () => {
       }), { status: 200 });
     }));
 
-    const [job] = await fetchBraccoJobs();
+    const pending = fetchBraccoJobs();
+    await vi.runAllTimersAsync();
+    const [job] = await pending;
 
     expect(listingAttempts).toBe(2);
     expect(job.url).toContain('Digital-Learning_R1');
   });
 
   it('does not hide an exhausted detail retry as a partial listing', async () => {
+    vi.useFakeTimers();
     vi.stubEnv('JOBS_CRAWLER_RETRIES', '1');
     vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
     let detailAttempts = 0;
@@ -71,10 +77,12 @@ describe('Bracco crawl provenance', () => {
       return new Response('', { status: 429 });
     }));
 
-    await expect(fetchBraccoJobs({ browserFallback: null })).rejects.toMatchObject({
+    const rejection = expect(fetchBraccoJobs({ browserFallback: null })).rejects.toMatchObject({
       retryExhausted: true,
       status: 429,
     });
+    await vi.runAllTimersAsync();
+    await rejection;
     expect(detailAttempts).toBe(2);
   });
 
@@ -104,7 +112,9 @@ describe('Bracco crawl provenance', () => {
       }), { status: 200 });
     }));
 
-    const [job] = await fetchBraccoJobs();
+    const pending = fetchBraccoJobs();
+    await vi.runAllTimersAsync();
+    const [job] = await pending;
 
     expect(job.crawledAt).toBe(observedAt.toISOString());
   });
