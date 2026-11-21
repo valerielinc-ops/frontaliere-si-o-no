@@ -132,7 +132,7 @@ function sourceGeography(tile = {}, posting = {}) {
       addressCountry,
       country: addressCountry,
       postalCode: listingPostal || candidatePostal,
-      streetAddress: normalizeSpace(tile.address || address.streetAddress || ''),
+      streetAddress: normalizeSpace(address.streetAddress || tile.address || ''),
     };
     const resolved = resolveSourceBackedSwissGeography(evidence);
     if (!resolved) continue;
