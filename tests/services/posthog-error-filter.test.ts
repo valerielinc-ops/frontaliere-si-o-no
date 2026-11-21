@@ -57,6 +57,20 @@ describe('createExceptionFilter()', () => {
     expect(filter(event)).toBeNull();
   });
 
+  it('drops privacy-protected Battery Status API errors (#19704)', () => {
+    const event = makeExceptionEvent(
+      'NotAllowedError: Battery access is blocked by privacy protection.',
+    );
+    expect(filter(event)).toBeNull();
+  });
+
+  it('keeps other Battery Status permission errors visible', () => {
+    const event = makeExceptionEvent(
+      'NotAllowedError: Battery access is blocked by permissions policy.',
+    );
+    expect(filter(event)).toBe(event);
+  });
+
   it('drops the browser-extension tab bridge no-listener error (#18593)', () => {
     const event = makeExceptionEvent('Error: No Listener: tabs:outgoing.message.ready');
     expect(filter(event)).toBeNull();

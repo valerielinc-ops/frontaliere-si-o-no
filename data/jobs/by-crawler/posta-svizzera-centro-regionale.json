@@ -12772,7 +12772,7 @@
       "postalCode": "2000",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-20T21:57:49.315Z",
+      "firstSeenAt": "2026-11-19T21:46:56.351Z",
       "sourceIdentity": "url:https://job.post.ch/default/job/engops-engineer-windows-workplace/75119-de_de"
     },
     {
@@ -12851,7 +12851,8 @@
       "streetAddress": "Zell LU",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-08-28T05:29:51.419Z"
+      "firstSeenAt": "2026-08-28T05:29:51.419Z",
+      "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75080-de_de"
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/75299-de_DE",
@@ -12929,7 +12930,8 @@
       "streetAddress": "Buchs AG",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-08-28T05:29:51.419Z"
+      "firstSeenAt": "2026-08-28T05:29:51.419Z",
+      "sourceIdentity": "url:https://job.post.ch/default/job/zustellerin-briefe-und-pakete/75299-de_de"
     }
   ]
 }
