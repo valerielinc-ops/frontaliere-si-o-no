@@ -25,6 +25,7 @@ function listingHtml(attributes = 'class="reflink" href="https://my.jobalino.ch/
   return `<a ${attributes}>`
     + `<span class="title">${TITLE}</span>`
     + '<span class="company">Teo Jakob AG</span>'
+    + '<span class="address">Gerechtigkeitsgasse 1</span>'
     + '<span class="zip">3000</span><span class="city">Bern</span>'
     + '<span class="country">Schweiz</span><span class="workload">80% - 100%</span>'
     + '</a>';
@@ -74,6 +75,37 @@ describe('Jobalino exact href attributes', () => {
 });
 
 describe('Teo Jakob JSON-LD arrays', () => {
+  it('uses listing evidence only when employer and location fields are absent', async () => {
+    stubJobalino(detailHtml({
+      hiringOrganization: undefined,
+      jobLocation: undefined,
+    }));
+
+    const jobs = await fetchAllTeoJakobAgJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({
+      company: 'Teo Jakob AG',
+      location: 'Bern',
+      postalCode: '3000',
+      streetAddress: 'Gerechtigkeitsgasse 1',
+    });
+  });
+
+  it.each([
+    { label: 'empty employer array', overrides: { hiringOrganization: [] }, expected: /hiringOrganization is unusable/i },
+    { label: 'non-object employer', overrides: { hiringOrganization: 'Teo Jakob AG' }, expected: /hiringOrganization is unusable/i },
+    { label: 'empty location array', overrides: { jobLocation: [] }, expected: /jobLocation is unusable/i },
+    { label: 'non-object location', overrides: { jobLocation: 'Bern' }, expected: /jobLocation is unusable/i },
+    { label: 'location without address', overrides: { jobLocation: { '@type': 'Place' } }, expected: /jobLocation address is unusable/i },
+    { label: 'empty address array', overrides: { jobLocation: { '@type': 'Place', address: [] } }, expected: /jobLocation address is unusable/i },
+    { label: 'non-object address', overrides: { jobLocation: { '@type': 'Place', address: 'Bern' } }, expected: /jobLocation address is unusable/i },
+  ])('fails closed for a present but unusable $label', async ({ overrides, expected }) => {
+    stubJobalino(detailHtml(overrides));
+
+    await expect(fetchAllTeoJakobAgJobs()).rejects.toThrow(expected);
+  });
+
   it.each([
     {
       organizations: [

@@ -44,20 +44,34 @@ function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
 }
 
+function hasOwn(object, key) {
+  return Object.prototype.hasOwnProperty.call(object, key);
+}
+
 function objectValues(value) {
   const values = Array.isArray(value) ? value : [value];
-  return values.filter((entry) => entry && typeof entry === 'object');
+  if (values.length === 0
+    || values.some((entry) => !entry || typeof entry !== 'object' || Array.isArray(entry))) {
+    return null;
+  }
+  return values;
 }
 
 function tenantEmployer(tile = {}, posting = {}) {
-  const organizations = objectValues(posting.hiringOrganization);
-  if (organizations.length === 0) {
+  if (!hasOwn(posting, 'hiringOrganization')) {
     const listingName = normalizeSpace(tile.company || '');
     return { name: listingName, isTenant: normalize(listingName) === SOURCE_COMPANY_NAME };
+  }
+  const organizations = objectValues(posting.hiringOrganization);
+  if (!organizations) {
+    throw new Error('Teo Jakob AG hiringOrganization is unusable');
   }
   const named = organizations
     .map((organization) => normalizeSpace(organization.name || ''))
     .filter(Boolean);
+  if (named.length !== organizations.length) {
+    throw new Error('Teo Jakob AG hiringOrganization is unusable');
+  }
   const matching = named.filter((name) => normalize(name) === SOURCE_COMPANY_NAME);
   if (matching.length > 1) {
     throw new Error('Teo Jakob AG hiringOrganization is ambiguous');
@@ -67,9 +81,19 @@ function tenantEmployer(tile = {}, posting = {}) {
 }
 
 function addressCandidates(posting = {}) {
+  if (!hasOwn(posting, 'jobLocation')) return null;
+  const locations = objectValues(posting.jobLocation);
+  if (!locations) throw new Error('Teo Jakob AG jobLocation is unusable');
   const addresses = [];
-  for (const location of objectValues(posting.jobLocation)) {
-    addresses.push(...objectValues(location.address));
+  for (const location of locations) {
+    if (!hasOwn(location, 'address')) {
+      throw new Error('Teo Jakob AG jobLocation address is unusable');
+    }
+    const locationAddresses = objectValues(location.address);
+    if (!locationAddresses) {
+      throw new Error('Teo Jakob AG jobLocation address is unusable');
+    }
+    addresses.push(...locationAddresses);
   }
   return addresses;
 }
@@ -78,7 +102,7 @@ function sourceGeography(tile = {}, posting = {}) {
   const listingCity = normalizeSpace(tile.city || '');
   const listingPostal = normalizeSpace(tile.zip || '');
   const candidates = addressCandidates(posting);
-  const sourceCandidates = candidates.length > 0 ? candidates : [{}];
+  const sourceCandidates = candidates || [{}];
   const matches = [];
 
   for (const address of sourceCandidates) {
