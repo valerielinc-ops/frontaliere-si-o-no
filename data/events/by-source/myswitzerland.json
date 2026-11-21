@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-11-20T14:46:10.416Z",
+  "assembledAt": "2026-11-21T14:08:25.326Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -4876,9 +4876,8 @@
         "de": "Schenk mir eine Geschichte - Ukrainisch",
         "fr": "Schenk mir eine Geschichte - Ukrainisch"
       },
-      "startDate": "2025-12-17",
-      "endDate": "2026-11-25",
-      "startTime": "15:30",
+      "startDate": "2026-11-25",
+      "endDate": "2027-12-22",
       "category": "Event",
       "venue": "Baden",
       "comune": "Baden",
@@ -4891,7 +4890,22 @@
         "lng": 8.3081843
       },
       "recurring": true,
-      "sourceDescriptionHash": "9a0f071124400bc9edd953b99339d39f2d86965fdea0523bcaac8a4a2bd6120b"
+      "performer": [
+        {
+          "name": "Singen"
+        },
+        {
+          "name": "Lesen"
+        }
+      ],
+      "sourceDescriptionHash": "fd811118dcdafd7ac032a9b434b348da649012070597e6dce918f68b5c8eff27",
+      "previousRoutes": [
+        {
+          "canton": "AG",
+          "comune": "Baden",
+          "slug": "schenk-mir-eine-geschichte-ukrainisch-2025-12-17"
+        }
+      ]
     },
     {
       "id": "myswitzerland:f787a4befdc84f7f8eac048ab253cd7c",
@@ -170374,21 +170388,20 @@
     },
     {
       "id": "myswitzerland:f4eb9b8b0ce14289b80131824fe1a065",
-      "title": "Summit Sounds in der Stafelbar in February 2027",
+      "title": "Summit Sounds in der Stafelbar im Januar 2027",
       "titleByLocale": {
-        "it": "Summit Sounds in der Stafelbar in February 2027",
-        "en": "Summit Sounds in der Stafelbar in February 2027",
+        "it": "Summit Sounds in der Stafelbar im Januar 2027",
+        "en": "Summit Sounds in der Stafelbar im Januar 2027",
         "de": "Summit Sounds in der Stafelbar im Januar 2027",
-        "fr": "Summit Sounds in der Stafelbar im Februar 2027"
+        "fr": "Summit Sounds in der Stafelbar im Januar 2027"
       },
       "startDate": "2027-01-31",
       "endDate": "2027-01-31",
-      "startTime": "12:00",
-      "category": "Music",
-      "venue": "3925 Grächen",
+      "category": "Event",
+      "venue": "Grächen",
       "comune": "Grächen",
       "canton": "VS",
-      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/summit-sounds-in-der-stafelbar-1/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/summit-sounds-in-der-stafelbar-3/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -170396,7 +170409,14 @@
         "lng": 7.8518251
       },
       "recurring": false,
-      "sourceDescriptionHash": "fbbcaab5ddd73a206d1183b92371ad81acce5e05acbe21b592d8b3b018a0a357"
+      "sourceDescriptionHash": "120b4f7ef187b732ed7489fef9f87fcc83f7cc3301a5e9f1ab3a99dde3874871",
+      "previousRoutes": [
+        {
+          "canton": "VS",
+          "comune": "Grächen",
+          "slug": "summit-sounds-in-der-stafelbar-in-february-2027-2027-01-31"
+        }
+      ]
     },
     {
       "id": "myswitzerland:f4b669fb1d744130b9d8a04736b55797",
@@ -279219,6 +279239,515 @@
         "name": "António Zambujo"
       },
       "sourceDescriptionHash": "3fbc1bfac02cea90ea698258112dd8986d099ce65a2a3a73388065e08daf84f1"
+    },
+    {
+      "id": "myswitzerland:fd25372bcfe649578e5779ad53a1a787",
+      "title": "Wanderung für Seniorinnen und Senioren",
+      "titleByLocale": {
+        "it": "Wanderung für Seniorinnen und Senioren",
+        "en": "Wanderung für Seniorinnen und Senioren",
+        "de": "Wanderung für Seniorinnen und Senioren",
+        "fr": "Wanderung für Seniorinnen und Senioren"
+      },
+      "startDate": "2027-01-21",
+      "endDate": "2027-01-21",
+      "category": "Event",
+      "venue": "Chur",
+      "comune": "Chur",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/wanderung-fuer-seniorinnen-und-senioren/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8550423,
+        "lng": 9.5297864
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "cf421b884832bc7b9ad434caf5621cfbec87aaf7bf7fa56e3c4f102fc867a43c"
+    },
+    {
+      "id": "myswitzerland:fc7876765a7a4100bcf849dfa3ef9d71",
+      "title": "Marché de Noël de La Pierraz",
+      "titleByLocale": {
+        "it": "Marché de Noël de La Pierraz",
+        "en": "Marché de Noël de La Pierraz",
+        "de": "Weihnachtsmarkt in La Pierraz",
+        "fr": "Marché de Noël de La Pierraz"
+      },
+      "startDate": "2026-11-28",
+      "endDate": "2026-11-29",
+      "category": "Event",
+      "venue": "Chavannes-les-Forts",
+      "comune": "Siviriez",
+      "canton": "FR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/marche-de-noel-de-la-pierraz/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.6599365,
+        "lng": 6.8959761
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "6b7ae8d16e5563068b61ade433a69b59c794694ba60fdd73d217f6ebe14aadc5"
+    },
+    {
+      "id": "myswitzerland:fc47a147812c4046ab945c542626955b",
+      "title": "Atelier pour adultes – Ted Joans. Black Flower",
+      "titleByLocale": {
+        "it": "Atelier pour adultes – Ted Joans. Black Flower",
+        "en": "Atelier pour adultes – Ted Joans. Black Flower",
+        "de": "Atelier pour adultes – Ted Joans. Black Flower",
+        "fr": "Atelier pour adultes – Ted Joans. Black Flower"
+      },
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-21",
+      "category": "Event",
+      "venue": "Lausanne",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/atelier-pour-adultes-ted-joans-black-flower/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5181147,
+        "lng": 6.6246548
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "f71c3395377ec2aac99b48d0b2ca52e3bb1d45d5e8a4f266481c91244684c51a"
+    },
+    {
+      "id": "myswitzerland:fbf2bc74449345ddabdf8b248edd9ae9",
+      "title": "Weihnachtsmarkt Dielsdorf 2026",
+      "titleByLocale": {
+        "it": "Weihnachtsmarkt Dielsdorf 2026",
+        "en": "Weihnachtsmarkt Dielsdorf 2026",
+        "de": "Weihnachtsmarkt Dielsdorf 2026",
+        "fr": "Weihnachtsmarkt Dielsdorf 2026"
+      },
+      "startDate": "2026-12-12",
+      "endDate": "2026-12-13",
+      "category": "Event",
+      "venue": "Dielsdorf",
+      "comune": "Dielsdorf",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/weihnachtsmarkt-dielsdorf-2026/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "myswitzerland",
+        "priceField": "index-content"
+      },
+      "geo": {
+        "lat": 47.481242,
+        "lng": 8.455841
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "fee38b206862742c8c848f3357d34823a393a2bcb29dd0b5929219301479ee4a"
+    },
+    {
+      "id": "myswitzerland:fbe938c039e0496ca5b931a86aa6e25a",
+      "title": "Goethes \"Faust\"",
+      "titleByLocale": {
+        "it": "Goethes \"Faust\"",
+        "en": "Goethes \"Faust\"",
+        "de": "Goethes \"Faust\"",
+        "fr": "Goethes \"Faust\""
+      },
+      "startDate": "2027-01-12",
+      "endDate": "2027-01-12",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/goethes-faust/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3882752,
+        "lng": 8.5534552
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "0c00a527461dad9d6b50cd940e49c516d4cbd09efba9d9184383767ce0ee5a21"
+    },
+    {
+      "id": "myswitzerland:fbc579a199a94cf8b58ca7d89b6781f5",
+      "title": "La noche del Tango",
+      "titleByLocale": {
+        "it": "La noche del Tango",
+        "en": "La noche del Tango",
+        "de": "La noche del Tango",
+        "fr": "La noche del Tango"
+      },
+      "startDate": "2027-11-07",
+      "endDate": "2027-11-07",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/la-noche-del-tango/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3755853,
+        "lng": 8.5271662
+      },
+      "recurring": false,
+      "performer": {
+        "@type": "PerformingGroup",
+        "name": "Hamburg Stage Ensemble"
+      },
+      "sourceDescriptionHash": "67440e4588fda86ebfd4735294176d738daaa09587457c94268df7a454f501bd"
+    },
+    {
+      "id": "myswitzerland:fb9160f5c2a74e2eb3e45f30af5208d2",
+      "title": "Concerto di Capodanno con Schäbyschigg",
+      "titleByLocale": {
+        "it": "Concerto di Capodanno con Schäbyschigg",
+        "en": "New Year's Concert with Schäbyschigg",
+        "de": "Neujahrskonzert mit Schäbyschigg",
+        "fr": "Concert du Nouvel An avec Schäbyschigg"
+      },
+      "startDate": "2027-01-01",
+      "endDate": "2027-01-01",
+      "category": "Event",
+      "venue": "Il maestoso centro curativo - Heiden",
+      "comune": "Heiden",
+      "canton": "AR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/concerto-di-capodanno-con-schaebyschigg/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4449307,
+        "lng": 9.5349717
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Klarinette"
+        },
+        {
+          "name": "Jazz"
+        },
+        {
+          "name": "Folk"
+        },
+        {
+          "name": "Trompeten"
+        },
+        {
+          "name": "Basstrompete"
+        },
+        {
+          "name": "Tuba"
+        }
+      ],
+      "sourceDescriptionHash": "624804d88b7f44d9e17d2ec3081da6b61ad5c2aaa462cede922424fe739da561"
+    },
+    {
+      "id": "myswitzerland:fb735bb56acc4f03b79f6885caddb4fb",
+      "title": "Rachmaninow: Sämtliche Werke für Violoncello und Klavier",
+      "titleByLocale": {
+        "it": "Rachmaninow: Sämtliche Werke für Violoncello und Klavier",
+        "en": "Rachmaninow: Sämtliche Werke für Violoncello und Klavier",
+        "de": "Rachmaninow: Sämtliche Werke für Violoncello und Klavier",
+        "fr": "Rachmaninow: Sämtliche Werke für Violoncello und Klavier"
+      },
+      "startDate": "2026-12-12",
+      "endDate": "2026-12-12",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/rachmaninow-saemtliche-werke-fuer-violoncello-und-klavier/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3755853,
+        "lng": 8.5271662
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "86b9ff2b2bd62dd0a2d33a9f38e79af0498a13d6823a4c6263d7524169fd15b2"
+    },
+    {
+      "id": "myswitzerland:faf34e82bed74e0f97faeb182320c6b4",
+      "title": "THE VALLEY",
+      "titleByLocale": {
+        "it": "THE VALLEY",
+        "en": "THE VALLEY",
+        "de": "THE VALLEY",
+        "fr": "THE VALLEY"
+      },
+      "startDate": "2026-11-21",
+      "endDate": "2027-01-16",
+      "category": "Event",
+      "venue": "Kemptthal",
+      "comune": "Lindau",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/the-valley-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.452366,
+        "lng": 8.704455
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "4d17cce4f6f3e72ba695589b5e37a655ebc1da5718be7a1c09acfe621c1410bd"
+    },
+    {
+      "id": "myswitzerland:faa5f2d4ee2a49c5b6a77417bb9ce0e5",
+      "title": "Tschent: \"Alls was bruchsch...\"",
+      "titleByLocale": {
+        "it": "Tschent: \"Alls was bruchsch...\"",
+        "en": "Tschent: \"Alls was bruchsch...\"",
+        "de": "Tschent: \"Alls was bruchsch...\"",
+        "fr": "Tschent: \"Alls was bruchsch...\""
+      },
+      "startDate": "2027-01-27",
+      "endDate": "2027-11-17",
+      "category": "Event",
+      "venue": "Chur",
+      "comune": "Chur",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/tschent-alls-was-bruchsch/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8570689,
+        "lng": 9.5220568
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "Handorgelmusik"
+        },
+        {
+          "name": "Kaffee"
+        },
+        {
+          "name": "Kuchen"
+        }
+      ],
+      "sourceDescriptionHash": "aa96aac474efb74cfb9ee86302c0e31b0989f6191713630291fa0b4b2eb23d74"
+    },
+    {
+      "id": "myswitzerland:fa3ad2052658497dbb96f069b18360ea",
+      "title": "BLISS Merry Blissmas",
+      "titleByLocale": {
+        "it": "BLISS Merry Blissmas",
+        "en": "BLISS Merry Blissmas",
+        "de": "BLISS Merry Blissmas",
+        "fr": "BLISS Merry Blissmas"
+      },
+      "startDate": "2026-12-16",
+      "endDate": "2026-12-16",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/bliss-merry-blissmas-3/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3755853,
+        "lng": 8.5271662
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "57077bf941b823b714ee986c3bafc3cd2491f6bcb194837eac5d8215120f6777"
+    },
+    {
+      "id": "myswitzerland:f824fe036c3345948eaa85a09836c721",
+      "title": "Altstadtführung Solothurn",
+      "titleByLocale": {
+        "it": "Altstadtführung Solothurn",
+        "en": "Old Town tour of Solothurn for individual guests",
+        "de": "Altstadtführung Solothurn",
+        "fr": "Visite guidée de la vieille ville de Soleure"
+      },
+      "startDate": "2026-11-14",
+      "endDate": "2026-12-19",
+      "category": "Event",
+      "venue": "Soletta",
+      "comune": "Solothurn",
+      "canton": "SO",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/altstadtfuehrung-solothurn/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.2083461,
+        "lng": 7.5384868
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "94b2d8ea3e6adf199fb3e2590d32fa95b2bb339c4866b90969326254b9112c3c"
+    },
+    {
+      "id": "myswitzerland:f77dae4b8267486a98991f217c143c8a",
+      "title": "Begegnungscafé",
+      "titleByLocale": {
+        "it": "Begegnungscafé",
+        "en": "Begegnungscafé",
+        "de": "Begegnungscafé",
+        "fr": "Begegnungscafé"
+      },
+      "startDate": "2027-01-19",
+      "endDate": "2027-01-19",
+      "category": "Event",
+      "venue": "Chur",
+      "comune": "Chur",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/begegnungscafe-4/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8570689,
+        "lng": 9.5220568
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "dc12fcdb81326ea494694f43277294837149114aa4aaa95b0de3ced169376a71"
+    },
+    {
+      "id": "myswitzerland:f6c5114025344585bab3f1e6904d14dc",
+      "title": "St-Nicholas' Day in Zinal",
+      "titleByLocale": {
+        "it": "St-Nicholas' Day in Zinal",
+        "en": "St-Nicholas' Day in Zinal",
+        "de": "Nikolaustag in Zinal",
+        "fr": "Saint-Nicolas à Zinal"
+      },
+      "startDate": "2026-12-06",
+      "endDate": "2026-12-06",
+      "category": "Event",
+      "venue": "Zinal",
+      "comune": "Anniviers",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/stnicholas-day-in-zinal/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.1357214,
+        "lng": 7.6257892
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "6e2902ee3a62d1a714c1074fb5456d635231646f810616ba6eb9eb85aad558ac"
+    },
+    {
+      "id": "myswitzerland:f69def6297264865b651c196cd806dd0",
+      "title": "Flohmarkt Baar",
+      "titleByLocale": {
+        "it": "Flohmarkt Baar",
+        "en": "Flohmarkt Baar",
+        "de": "Flohmarkt Baar",
+        "fr": "Flohmarkt Baar"
+      },
+      "startDate": "2027-10-16",
+      "endDate": "2027-10-16",
+      "category": "Event",
+      "venue": "Baar",
+      "comune": "Baar",
+      "canton": "ZG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/flohmarkt-baar-2/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.19529,
+        "lng": 8.527544
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "bdfec3774f5746b3a9707edad6b05ec889cd69c28c5366c58ee8788e74c56f29"
+    },
+    {
+      "id": "myswitzerland:f65c9564c06c4e9baca30ba3ac6636e4",
+      "title": "Winterkonzert",
+      "titleByLocale": {
+        "it": "Winterkonzert",
+        "en": "Winterkonzert",
+        "de": "Winterkonzert",
+        "fr": "Winterkonzert"
+      },
+      "startDate": "2026-12-06",
+      "endDate": "2026-12-06",
+      "category": "Event",
+      "venue": "Birmenstorf",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/winterkonzert-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.461855,
+        "lng": 8.248944
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "@type": "PerformingGroup",
+          "name": "Brass Band"
+        },
+        {
+          "@type": "PerformingGroup",
+          "name": "Mellingen City Band"
+        },
+        {
+          "@type": "PerformingGroup",
+          "name": "Music Association Brass Band"
+        },
+        {
+          "@type": "PerformingGroup",
+          "name": "Winterkonzert Brass Band"
+        }
+      ],
+      "sourceDescriptionHash": "b6eca831bdf2b56b8e1d7a615aea111fc806ac44dc8396b0ae1b0a18756a9739"
+    },
+    {
+      "id": "myswitzerland:f50ed863d60640648f9eed60f263277b",
+      "title": "Meisterkonzert Reinhold Friedrich, Trompete",
+      "titleByLocale": {
+        "it": "Meisterkonzert Reinhold Friedrich, Trompete",
+        "en": "Meisterkonzert Reinhold Friedrich, Trompete",
+        "de": "Meisterkonzert Reinhold Friedrich, Trompete",
+        "fr": "Meisterkonzert Reinhold Friedrich, Trompete"
+      },
+      "startDate": "2027-04-15",
+      "endDate": "2027-04-15",
+      "category": "Event",
+      "venue": "Unterseen",
+      "comune": "Unterseen",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/meisterkonzert-reinhold-friedrich-trompete/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.687652,
+        "lng": 7.8494766
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "1dd7e06f4c41b4d6ab07af49001d691d80094521fcad67db59c6e9be64edb727"
+    },
+    {
+      "id": "myswitzerland:f429d6429b934e249ef3146d33d6abe0",
+      "title": "European Outdoor Film Tour 26/27 - EOFT",
+      "titleByLocale": {
+        "it": "European Outdoor Film Tour 26/27 - EOFT",
+        "en": "European Outdoor Film Tour 26/27 - EOFT",
+        "de": "European Outdoor Film Tour 26/27 - EOFT",
+        "fr": "European Outdoor Film Tour 26/27 - EOFT"
+      },
+      "startDate": "2026-12-07",
+      "endDate": "2026-12-14",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/european-outdoor-film-tour-2627-eoft-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3755853,
+        "lng": 8.5271662
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "4aef45ac474dce72d48218cf43328f392242e5ae64fc722510bc14ef6d1ac5f1"
     }
   ]
 }

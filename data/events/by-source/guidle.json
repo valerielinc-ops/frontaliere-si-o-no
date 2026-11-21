@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-11-20T14:33:45.694Z",
+  "assembledAt": "2026-11-21T13:56:14.454Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -68885,11 +68885,11 @@
       "title": "Herzbaracke präsentiert: Chili con carne - Chilibilly Español",
       "titleByLocale": {
         "it": "Herzbaracke präsentiert: Chili con carne - Chilibilly Español",
-        "en": "Herzbaracke präsentiert: Chili con carne - Chilibilly Español",
-        "de": "Herzbaracke präsentiert: Chili con carne - Chilibilly Español",
-        "fr": "Herzbaracke präsentiert: Chili con carne - Chilibilly Español"
+        "en": "Herzbaracke presents: Chilli con carne – Chilibilly Español",
+        "de": "Herzbaracke präsentiert: Chili con Carne – Chilibilly Español",
+        "fr": "Herzbaracke présente : Chili con carne - Chilibilly Español"
       },
-      "startDate": "2026-11-06",
+      "startDate": "2027-02-27",
       "endDate": "2027-02-27",
       "startTime": "18:45",
       "category": "Rock'n'Roll",
@@ -68906,17 +68906,18 @@
         "lat": 47.3671543,
         "lng": 8.545499
       },
-      "recurring": true,
-      "organizer": {
-        "@type": "Organization",
-        "name": "Guidle",
-        "url": "https://www.guidle.com/"
-      },
+      "recurring": false,
       "performer": {
-        "@type": "Organization",
-        "name": "Theater Salon Herzbaracke"
+        "name": "Chili con carne"
       },
-      "sourceDescriptionHash": "6213b692a71a1527ed963240b73078d3450f9c55665f10c1aecbe5eca66237a4"
+      "sourceDescriptionHash": "d3533a99c8f5be46b58d8810c274bfb7735e91dd1d45b1460bbdb4c47af5a8c2",
+      "previousRoutes": [
+        {
+          "canton": "ZH",
+          "comune": "__other-events__",
+          "slug": "herzbaracke-prasentiert-chili-con-carne-2026-11-06"
+        }
+      ]
     },
     {
       "id": "guidle:ALBsRFY",
@@ -151493,9 +151494,9 @@
       "title": "Pomme (FR)",
       "titleByLocale": {
         "it": "Pomme (FR)",
-        "en": "Pomme (FR)",
-        "de": "Pomme (FR)",
-        "fr": "Pomme (FR)"
+        "en": "Apple (FR)",
+        "de": "Apple (FR)",
+        "fr": "Apple (FR)"
       },
       "startDate": "2027-03-14",
       "endDate": "2027-03-14",
@@ -151522,16 +151523,10 @@
         "lng": 8.5328258
       },
       "recurring": false,
-      "organizer": {
-        "@type": "Organization",
-        "name": "Guidle",
-        "url": "https://www.guidle.com/de"
-      },
       "performer": {
-        "@type": "Organization",
-        "name": "X-TRA"
+        "name": "Claire Pommet"
       },
-      "sourceDescriptionHash": "c5a14e4f96e9b687c9e7e18b2081a0a750ad070672484b3ebb9524a5b876bc1d"
+      "sourceDescriptionHash": "000058cbf034dcae135e2ca3e7bb9d06367e0f07cf0e9f8fa23e2219824f9a1f"
     },
     {
       "id": "guidle:AcdHYQW",
@@ -151583,9 +151578,9 @@
       "title": "Nnella - Ich wollte nie nach Berlin",
       "titleByLocale": {
         "it": "Nnella - Ich wollte nie nach Berlin",
-        "en": "Nnella - Ich wollte nie nach Berlin",
-        "de": "Nnella - Ich wollte nie nach Berlin",
-        "fr": "Nnella - Ich wollte nie nach Berlin"
+        "en": "Nnella – Ich wollte nie nach Berlin",
+        "de": "Nnella – Ich wollte nie nach Berlin",
+        "fr": "Nnella – Ich wollte nie nach Berlin"
       },
       "startDate": "2027-02-20",
       "endDate": "2027-02-20",
@@ -151611,16 +151606,7 @@
         "lng": 9.6825049
       },
       "recurring": false,
-      "organizer": {
-        "@type": "Organization",
-        "name": "Guidle",
-        "url": "https://www.guidle.com/de"
-      },
-      "performer": {
-        "@type": "Organization",
-        "name": "Kleines Zeughaus"
-      },
-      "sourceDescriptionHash": "3359773dbc4472446502fb0e02f25bd9e82deebc4bf98f1520cd4ec289055a5e"
+      "sourceDescriptionHash": "c313997bab6a99122d2428043aac234f15402e92560f05c94b89c2c96bbcfbc1"
     },
     {
       "id": "guidle:AHJH8eP",
@@ -195517,6 +195503,3983 @@
       },
       "recurring": false,
       "sourceDescriptionHash": "404352ff54620d49543b090231562f1967709b579d840f8d315acda4612ac63f"
+    },
+    {
+      "id": "guidle:AxTBQBS",
+      "title": "martignyexpo : The plus grande raclette of the world [DE]",
+      "titleByLocale": {
+        "it": "martignyexpo: La più grande raclette del mondo [IT]",
+        "en": "martignyexpo : The plus grande raclette of the world [EN]",
+        "de": "martignyexpo: Die grösste Raclette der Welt [DE]",
+        "fr": "martignyexpo : The plus grande raclette of the world"
+      },
+      "startDate": "2027-03-13",
+      "endDate": "2027-03-13",
+      "startTime": "00:00",
+      "category": "Danza giocosa",
+      "venue": "Martigny Expo",
+      "comune": "Martigny",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/events/music/martigny/martignyexpo-the-plus-grande-raclette-of-the-world-en_AxTBQBS",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Rue du Levant 91",
+        "postalCode": "1920"
+      },
+      "geo": {
+        "lat": 46.098204,
+        "lng": 7.078377
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "49013639678f87cdb31a73385764d6675db37f28a35c069856ac7eaf03748fca"
+    },
+    {
+      "id": "guidle:AgiY2PT",
+      "title": "Ashley McBryde",
+      "titleByLocale": {
+        "it": "Ashley McBryde",
+        "en": "Ashle Mc",
+        "de": "Ashle Amsterdm Mcbrm",
+        "fr": "Catherine Mc"
+      },
+      "startDate": "2027-03-07",
+      "endDate": "2027-03-07",
+      "startTime": "20:00",
+      "category": "Pop generalmente",
+      "venue": "Kaufleuten",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/ashley-mcbryde_AgiY2PT",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 59.5,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Pelikanstrasse 18",
+        "postalCode": "8001"
+      },
+      "geo": {
+        "lat": 47.3717637,
+        "lng": 8.5363913
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Ashley McBryde"
+      },
+      "sourceDescriptionHash": "d049f8bd6904aa9c89187da3a07649957a1187660f13f51c816a8bcd1d7eba31"
+    },
+    {
+      "id": "guidle:AyFD8He",
+      "title": "Freeride Festival Flims Laax",
+      "titleByLocale": {
+        "it": "Freeride Festival Flims Laax",
+        "en": "Flims Laax Freeride Festival",
+        "de": "Freeride-Festival Flims Laax",
+        "fr": "Festival Freeride Flims Laax"
+      },
+      "startDate": "2027-03-03",
+      "endDate": "2027-03-07",
+      "startTime": "09:30",
+      "category": "Festival / Incontro",
+      "venue": "Freeride Base",
+      "comune": "Flims",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/evenements/fete/flims-dorf/freeride-festival-flims-laax_AyFD8He",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Nagens",
+        "postalCode": "7017"
+      },
+      "geo": {
+        "lat": 46.86207069488846,
+        "lng": 9.233407898060783
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "Videocontest"
+        },
+        {
+          "name": "Workshops"
+        },
+        {
+          "name": "Testival"
+        }
+      ],
+      "sourceDescriptionHash": "4ddbba96616c252e118121c8319d0580100f480e3ced652fc0de61baeca2526f"
+    },
+    {
+      "id": "guidle:AtXVsaL",
+      "title": "Chicago – Il Musical",
+      "titleByLocale": {
+        "it": "Chicago – Il Musical",
+        "en": "Chicago – The Musical",
+        "de": "Chicago – Das Musical",
+        "fr": "Chicago – La comédie musicale"
+      },
+      "startDate": "2027-03-16",
+      "endDate": "2027-03-21",
+      "startTime": "20:00",
+      "category": "Musical",
+      "venue": "LAC Lugano Arte e Cultura",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/veranstaltungen/lugano/chicago-il-musical_AtXVsaL",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 2,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Piazza Bernardino Luini 6",
+        "postalCode": "6900"
+      },
+      "geo": {
+        "lat": 45.999409,
+        "lng": 8.9478873
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "bedef5efa7a60083ac74a0cac68f03d237eb3de6ebbcdff6627e46e21ad0cd19"
+    },
+    {
+      "id": "guidle:AWwjZgH",
+      "title": "Belle e la bestia – Il Musical",
+      "titleByLocale": {
+        "it": "Belle e la bestia – Il Musical",
+        "en": "Beauty and the Beast – The Musical",
+        "de": "Die Schöne und das Biest – Das Musical",
+        "fr": "La Belle et la Bête – La Comédie musicale"
+      },
+      "startDate": "2027-03-06",
+      "endDate": "2027-03-07",
+      "startTime": "18:00",
+      "category": "Musical",
+      "venue": "LAC Lugano Arte e Cultura",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/veranstaltungen/lugano/belle-e-la-bestia-il-musical_AWwjZgH",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 2,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Piazza Bernardino Luini 6",
+        "postalCode": "6900"
+      },
+      "geo": {
+        "lat": 45.999409,
+        "lng": 8.9478873
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "Lugano Arte"
+        },
+        {
+          "name": "Cultura"
+        }
+      ],
+      "sourceDescriptionHash": "024b574a46f33f46c9bcd78cde5298e4c719fb3171a947f92ce69c2acde80b95"
+    },
+    {
+      "id": "guidle:AGACmcE",
+      "title": "KlangHeimlich Überraschungskonzert",
+      "titleByLocale": {
+        "it": "KlangHeimlich Überraschungskonzert",
+        "en": "KlangHeimlich Surprise Concert",
+        "de": "KlangHeimlich-Überraschungskonzert",
+        "fr": "Concert surprise KlangHeimlich"
+      },
+      "startDate": "2027-03-11",
+      "endDate": "2027-03-11",
+      "startTime": "20:00",
+      "category": "Altri musica",
+      "venue": "Lichtspiel / Kinemathek Bern",
+      "comune": "Bern",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/bern/klangheimlich-ueberraschungskonzert_AGACmcE",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Sandrainstrasse 3",
+        "postalCode": "3007"
+      },
+      "geo": {
+        "lat": 46.9403465,
+        "lng": 7.4419118
+      },
+      "recurring": false,
+      "performer": {
+        "name": "KlangHeimlich Überraschungskonzert"
+      },
+      "sourceDescriptionHash": "1a6b957756a657a00f31b58a23358ec2f348ea13642453bbd31a05ea0c79b406"
+    },
+    {
+      "id": "guidle:ASmRCJD",
+      "title": "Accvsed - Headline Tour 2027",
+      "titleByLocale": {
+        "it": "Accvsed - Headline Tour 2027",
+        "en": "Accvsed – Headline Tour 2027",
+        "de": "Accvsed – Headline Tour 2027",
+        "fr": "Accused - Headline Tour 2027"
+      },
+      "startDate": "2027-03-11",
+      "endDate": "2027-03-11",
+      "startTime": "20:00",
+      "category": "Metal / Hardcore",
+      "venue": "X-TRA",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/accvsed-headline-tour-2027_ASmRCJD",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 33.6,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Limmatstrasse 118",
+        "postalCode": "8005"
+      },
+      "geo": {
+        "lat": 47.3839834,
+        "lng": 8.5328258
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Accvsed"
+        },
+        {
+          "name": "House of Doubt"
+        }
+      ],
+      "sourceDescriptionHash": "b1c117be4849653202d2e5e144f6505fc63f92e95d05e530cbf5ca359bdc54fb"
+    },
+    {
+      "id": "guidle:AQMSfx6",
+      "title": "Nessa Barrett",
+      "titleByLocale": {
+        "it": "Nessa Barrett",
+        "en": "Nessa Barrett",
+        "de": "Nessa Barrett",
+        "fr": "Nessa Barrett"
+      },
+      "startDate": "2027-03-14",
+      "endDate": "2027-03-14",
+      "startTime": "20:00",
+      "category": "Pop generalmente",
+      "venue": "Halle 622",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/nessa-barrett_AQMSfx6",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 132.9,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Therese-Giehse-Strasse 10",
+        "postalCode": "8050"
+      },
+      "geo": {
+        "lat": 47.4133283,
+        "lng": 8.5424027
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Nessa Barrett"
+      },
+      "sourceDescriptionHash": "1fbf6cdf6e2f6376cc6b65b47e47c87ef9b39674366953d14c7f24cbc150af86"
+    },
+    {
+      "id": "guidle:A4DuN64",
+      "title": "Marc Pircher KuhBar",
+      "titleByLocale": {
+        "it": "Marc Pircher KuhBar",
+        "en": "Marc Pircher KuhBar",
+        "de": "Marc Pircher KuhBar",
+        "fr": "Jean-Marc Pircher"
+      },
+      "startDate": "2027-02-25",
+      "endDate": "2027-02-25",
+      "startTime": "15:30",
+      "category": "Divertimento popolare",
+      "venue": "KuhBar bei der Tschuggenhütte",
+      "comune": "Arosa",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/events/music/arosa/marc-pircher-kuhbar_A4DuN64",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Tschuggenhütte",
+        "postalCode": "7050"
+      },
+      "geo": {
+        "lat": 46.7808594,
+        "lng": 9.6631263
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Akkordeon"
+        },
+        {
+          "name": "Charme"
+        }
+      ],
+      "sourceDescriptionHash": "9a2ec63687cfa18d7f5f2500ca6bd02768bd6adc313491e1fe414881bd64d70a"
+    },
+    {
+      "id": "guidle:AYsEd1v",
+      "title": "Matty Valentino KuhBar",
+      "titleByLocale": {
+        "it": "Matty Valentino KuhBar",
+        "en": "Matt Valentino",
+        "de": "Matt Acres Valentino KuhBar",
+        "fr": "Matt Valentino"
+      },
+      "startDate": "2027-02-19",
+      "endDate": "2027-03-26",
+      "startTime": "15:30",
+      "category": "Divertimento popolare",
+      "venue": "KuhBar bei der Tschuggenhütte",
+      "comune": "Arosa",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/evenements/musique/arosa/matty-valentino-kuhbar_AYsEd1v",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Tschuggenhütte",
+        "postalCode": "7050"
+      },
+      "geo": {
+        "lat": 46.7808594,
+        "lng": 9.6631263
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "66a8440f3f506c5f5e5153248a9337706af17c7663dc5776926a70f04875fc79"
+    },
+    {
+      "id": "guidle:ACuC9V7",
+      "title": "Mortimer [jm]",
+      "titleByLocale": {
+        "it": "Mortimer [jm]",
+        "en": "Mortimer [m",
+        "de": "Mortimer [graffm]",
+        "fr": "Mortimer [l"
+      },
+      "startDate": "2027-03-06",
+      "endDate": "2027-03-06",
+      "startTime": "21:00",
+      "category": "Reggae / Dancehall",
+      "venue": "Kulturzentrum Kammgarn",
+      "canton": "SH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/schaffhausen/mortimer-jm_ACuC9V7",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Baumgartenstrasse 19",
+        "postalCode": "8200"
+      },
+      "geo": {
+        "lat": 47.6944787,
+        "lng": 8.6362804
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "e0162e9b07dd0d42afe61e8f0a57f2558b371abcfb4e09cd0ca12a9d0c8a6d4a"
+    },
+    {
+      "id": "guidle:AvQwtu7",
+      "title": "Philipp Fankhauser «Playin’ With My Friends – 40 Years Tour»",
+      "titleByLocale": {
+        "it": "Philipp Fankhauser «Playin’ With My Friends – 40 Years Tour»",
+        "en": "Philipp Fankhauser «Playin’ With My Friends – 40 Years Tour»",
+        "de": "Philipp Fankhauser «Playin’ With My Friends – 40 Years Tour»",
+        "fr": "Philipp Fankhauser «Playin’ With My Friends – 40 Years Tour»"
+      },
+      "startDate": "2027-02-20",
+      "endDate": "2027-02-20",
+      "startTime": "20:00",
+      "category": "Blues",
+      "venue": "Mühle Hunziken",
+      "comune": "Rubigen",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/rubigen/philipp-fankhauser-playin-with-my-friends-40-years-tour_AvQwtu7",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Hunziken 101",
+        "postalCode": "3113"
+      },
+      "geo": {
+        "lat": 46.8907886,
+        "lng": 7.5418087
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Haus"
+        },
+        {
+          "name": "Musikern"
+        }
+      ],
+      "sourceDescriptionHash": "7060b034e2b43b255a4bba79a7622ee101586688f73f995b85fa891b7e828ce4"
+    },
+    {
+      "id": "guidle:ABeZTjp",
+      "title": "Philipp Fankhauser «Playin’ With My Friends – 40 Years Tour»",
+      "titleByLocale": {
+        "it": "Philipp Fankhauser «Playin’ With My Friends – 40 Years Tour»",
+        "en": "Philipp Fankhauser «Playin’ With My Friends – 40 Years Tour»",
+        "de": "Philipp Fankhauser «Playin’ With My Friends – 40 Years Tour»",
+        "fr": "Philipp Fankhauser «Playin’ With My Friends – 40 Years Tour»"
+      },
+      "startDate": "2027-02-19",
+      "endDate": "2027-02-19",
+      "startTime": "20:00",
+      "category": "Blues",
+      "venue": "Mühle Hunziken",
+      "comune": "Rubigen",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/rubigen/philipp-fankhauser-playin-with-my-friends-40-years-tour_ABeZTjp",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Hunziken 101",
+        "postalCode": "3113"
+      },
+      "geo": {
+        "lat": 46.8907886,
+        "lng": 7.5418087
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Haus"
+        },
+        {
+          "name": "Musikern"
+        }
+      ],
+      "sourceDescriptionHash": "7060b034e2b43b255a4bba79a7622ee101586688f73f995b85fa891b7e828ce4"
+    },
+    {
+      "id": "guidle:AgvLPbF",
+      "title": "Konzert Junior Band Viamala / Grischun Central",
+      "titleByLocale": {
+        "it": "Konzert Junior Band Viamala / Grischun Central",
+        "en": "Konzert Junior Band Viamala / Grischun Central",
+        "de": "Konzert Junior Band Viamala / Grischun Central",
+        "fr": "Konzert Junior Band Viamala / Grischun Central"
+      },
+      "startDate": "2027-02-20",
+      "endDate": "2027-02-20",
+      "startTime": "17:00",
+      "category": "Altri musica",
+      "venue": "Schulhaus Andeer",
+      "comune": "Andeer",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/eventi/musica/andeer/konzert-junior-band-viamala-grischun-central_AgvLPbF",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Veia da Scola",
+        "postalCode": "7440"
+      },
+      "geo": {
+        "lat": 46.6024772,
+        "lng": 9.4263888
+      },
+      "recurring": false,
+      "performer": {
+        "@type": "PerformingGroup",
+        "name": "Junior Band"
+      },
+      "sourceDescriptionHash": "d4b39fc1bebb30bfc77e5d11f5a73e85ee4b166e8f43a359b75cecb1c28c2b5a"
+    },
+    {
+      "id": "guidle:A45Y92g",
+      "title": "Evento per l'anniversario \"50 anni della Scuola di musica Viamala\"",
+      "titleByLocale": {
+        "it": "Evento per l'anniversario \"50 anni della Scuola di musica Viamala\"",
+        "en": "\"50 Years of the Viamala Music School\" Anniversary Celebration",
+        "de": "Jubiläumsanlass \"50 Jahre Musikschule Viamala\"",
+        "fr": "Événement commémoratif « Les 50 ans de l'école de musique de Viamala »"
+      },
+      "startDate": "2027-03-13",
+      "endDate": "2027-03-13",
+      "startTime": "16:00",
+      "category": "Altri musica",
+      "venue": "Bündner Arena",
+      "comune": "Cazis",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/evenements/musique/cazis/evenement-commemoratif-les-50-ans-de-lecole-de-musique-de-viamala-_A45Y92g",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Italienische Strasse 126",
+        "postalCode": "7408"
+      },
+      "geo": {
+        "lat": 46.752744,
+        "lng": 9.423994
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "ad3c4e2054339eeb62beef359d4b7b63fe12a635b0770e22c8f217d7a0d29738"
+    },
+    {
+      "id": "guidle:AKNWDWK",
+      "title": "Stadtkellerkonzert: The Led Farmers",
+      "titleByLocale": {
+        "it": "Stadtkellerkonzert: The Led Farmers",
+        "en": "Stadtkeller Concert: The Led Farmers",
+        "de": "Stadtkellerkonzert: The Led Farmers",
+        "fr": "Concert au Stadtkeller : The Led Farmers"
+      },
+      "startDate": "2027-03-12",
+      "endDate": "2027-03-12",
+      "startTime": "20:00",
+      "category": "Altri musica",
+      "venue": "Stadtkeller",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/evenements/musique/lucerne/concert-au-stadtkeller-the-led-farmers_AKNWDWK",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 35,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Sternenplatz 3",
+        "postalCode": "6004"
+      },
+      "geo": {
+        "lat": 47.0529729,
+        "lng": 8.307136
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "2d5dbaf057ce149972bcda45ce0546b2bb3c61730496a53e4b15e0eadb6f7610"
+    },
+    {
+      "id": "guidle:AEQr21g",
+      "title": "Stadtkellerkonzert: Nelly Patty",
+      "titleByLocale": {
+        "it": "Stadtkellerkonzert: Nelly Patty",
+        "en": "Stadtkeller Concert: Nelly Patty",
+        "de": "Stadtkellerkonzert: Nelly Patty",
+        "fr": "Concert au Stadtkeller : Nelly Patty"
+      },
+      "startDate": "2027-03-13",
+      "endDate": "2027-03-13",
+      "startTime": "20:00",
+      "category": "Pop generalmente",
+      "venue": "Stadtkeller",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/events/music/lucerne/stadtkeller-concert-nelly-patty_AEQr21g",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 48,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Sternenplatz 3",
+        "postalCode": "6004"
+      },
+      "geo": {
+        "lat": 47.0529729,
+        "lng": 8.307136
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "@type": "PerformingGroup",
+          "name": "Christoph Walter Orchestra"
+        },
+        {
+          "name": "Nuevo Amor"
+        },
+        {
+          "name": "Chanson"
+        },
+        {
+          "name": "Pop"
+        },
+        {
+          "name": "Rock"
+        }
+      ],
+      "sourceDescriptionHash": "d3850d09f4c4fad8cbd7fc45604bfba778e76066b292b235ac97704e086d77b4"
+    },
+    {
+      "id": "guidle:AHdUAaw",
+      "title": "ENSEMBLE ORION",
+      "titleByLocale": {
+        "it": "ENSEMBLE ORION",
+        "en": "ENSEMBLE ORION",
+        "de": "ENSEMBLE ORION",
+        "fr": "ENSEMBLE ORION"
+      },
+      "startDate": "2027-02-20",
+      "endDate": "2027-02-20",
+      "startTime": "17:00",
+      "category": "Altri musica",
+      "venue": "Grandhotel Giessbach",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/events/music/brienz-be/ensemble-orion_AHdUAaw",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Giessbach",
+        "postalCode": "3855"
+      },
+      "geo": {
+        "lat": 46.7102698,
+        "lng": 8.0409182
+      },
+      "recurring": false,
+      "performer": {
+        "name": "ENSEMBLE ORION"
+      },
+      "sourceDescriptionHash": "598050cb81a467d7a8bcef8c34a28a00dc6b31c3deb1ec97a06ea944d8a1c037"
+    },
+    {
+      "id": "guidle:AAhUTNs",
+      "title": "L’autre Piaf mit Sylphe",
+      "titleByLocale": {
+        "it": "L’autre Piaf mit Sylphe",
+        "en": "L’autre Piaf mit Sylphe",
+        "de": "L’autre Piaf mit Sylphe",
+        "fr": "L’autre Piaf mit Sylphe"
+      },
+      "startDate": "2027-02-26",
+      "endDate": "2027-02-26",
+      "startTime": "17:00",
+      "category": "Altri musica",
+      "venue": "Grandhotel Giessbach",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/evenements/musique/brienz-be/lautre-piaf-mit-sylphe_AAhUTNs",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Giessbach",
+        "postalCode": "3855"
+      },
+      "geo": {
+        "lat": 46.7102698,
+        "lng": 8.0409182
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "66a2b1251c9aa0dbfc625f60de74c17d04e8062e13e541d2b0f0d21cc2baab78"
+    },
+    {
+      "id": "guidle:AUvERPf",
+      "title": "Stadtkellerkonzert: ABBORN",
+      "titleByLocale": {
+        "it": "Stadtkellerkonzert: ABBORN",
+        "en": "City Cellar Concert: ABBORN",
+        "de": "Stadtkellerkonzert: ABBORN",
+        "fr": "Concert à la cave municipale : ABBORN"
+      },
+      "startDate": "2027-03-17",
+      "endDate": "2027-03-17",
+      "startTime": "20:00",
+      "category": "Pop generalmente",
+      "venue": "Stadtkeller",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/luzern/stadtkellerkonzert-abborn_AUvERPf",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 40,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Sternenplatz 3",
+        "postalCode": "6004"
+      },
+      "geo": {
+        "lat": 47.0529729,
+        "lng": 8.307136
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Bühne"
+      },
+      "sourceDescriptionHash": "e84730cca29d701e1e96008b24ad5ecb4db270e6ad0682bb5b895dcea32ef343"
+    },
+    {
+      "id": "guidle:AneeBiQ",
+      "title": "Stadtkellerkonzert: Marc Amacher",
+      "titleByLocale": {
+        "it": "Stadtkellerkonzert: Marc Amacher",
+        "en": "Stadtkeller Concert: Marc Amacher",
+        "de": "Stadtkellerkonzert: Marc Amacher",
+        "fr": "Concert au Stadtkeller : Marc Amacher"
+      },
+      "startDate": "2027-03-18",
+      "endDate": "2027-03-18",
+      "startTime": "20:00",
+      "category": "Rock generalmente",
+      "venue": "Stadtkeller",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/luzern/stadtkellerkonzert-marc-amacher_AneeBiQ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 35,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Sternenplatz 3",
+        "postalCode": "6004"
+      },
+      "geo": {
+        "lat": 47.0529729,
+        "lng": 8.307136
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Suisse"
+      },
+      "sourceDescriptionHash": "049d9281c909e5ff40ce32cde8594d090408c0748d246160a9ec62721db4449d"
+    },
+    {
+      "id": "guidle:AMHm6Kw",
+      "title": "Frühlingserwachen",
+      "titleByLocale": {
+        "it": "Frühlingserwachen",
+        "en": "Frühlingserwachen",
+        "de": "Frühlingserwachen",
+        "fr": "Frühlingserwachen"
+      },
+      "startDate": "2027-03-19",
+      "endDate": "2027-03-19",
+      "startTime": "17:00",
+      "category": "Altri musica",
+      "venue": "Grandhotel Giessbach",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/eventos/musica/brienz-be/fruehlingserwachen_AMHm6Kw",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Giessbach",
+        "postalCode": "3855"
+      },
+      "geo": {
+        "lat": 46.7102698,
+        "lng": 8.0409182
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "@type": "PerformingGroup",
+          "name": "Dante Quartett"
+        },
+        {
+          "@type": "PerformingGroup",
+          "name": "Dutch Ballet Orchestra"
+        },
+        {
+          "@type": "PerformingGroup",
+          "name": "Netherlands Chamber Orchestra"
+        }
+      ],
+      "sourceDescriptionHash": "c75ea132f3c30e2c3927eb5f0135b8724852e073722647caa8ab96578d41db3a"
+    },
+    {
+      "id": "guidle:AYcJwnu",
+      "title": "Stadtkellerkonzert: High Voltage",
+      "titleByLocale": {
+        "it": "Stadtkellerkonzert: High Voltage",
+        "en": "Stadtkeller Concert: High Voltage",
+        "de": "Stadtkellerkonzert: High Voltage",
+        "fr": "Concert au Stadtkeller : High Voltage"
+      },
+      "startDate": "2027-03-19",
+      "endDate": "2027-03-19",
+      "startTime": "20:00",
+      "category": "Rock generalmente",
+      "venue": "Stadtkeller",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/events/music/lucerne/stadtkeller-concert-high-voltage_AYcJwnu",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 32,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Sternenplatz 3",
+        "postalCode": "6004"
+      },
+      "geo": {
+        "lat": 47.0529729,
+        "lng": 8.307136
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Jailbreak"
+      },
+      "sourceDescriptionHash": "f28584f7d66450885c1923b162e825dbf59b982634c70bdb130a6dfec7486165"
+    },
+    {
+      "id": "guidle:ALdtL5r",
+      "title": "YUSTON XIII + Isïa",
+      "titleByLocale": {
+        "it": "YUSTON XIII + Isïa",
+        "en": "YUSTON XIII + Isïa",
+        "de": "YUSTON XIII + Isïa",
+        "fr": "YUSTON XIII + Isïa"
+      },
+      "startDate": "2027-02-27",
+      "endDate": "2027-02-27",
+      "startTime": "20:00",
+      "category": "Altri musica",
+      "venue": "Alhambra",
+      "canton": "GE",
+      "url": "https://www.guidle.com/it/evenements/musique/geneve/yuston-xiii_ALdtL5r",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Rue de la Rôtisserie 10",
+        "postalCode": "1204"
+      },
+      "geo": {
+        "lat": 46.2026176,
+        "lng": 6.1466775
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "ab82726a94efa9079c57747f5708d91b973d6c1bf11f7a5f64b5e2307511a168"
+    },
+    {
+      "id": "guidle:AUt2jSh",
+      "title": "Une baignoire sur scène",
+      "titleByLocale": {
+        "it": "Une baignoire sur scène",
+        "en": "Une baignoire sur scène",
+        "de": "Une baignoire sur scène",
+        "fr": "Une baignoire sur scène"
+      },
+      "startDate": "2027-03-07",
+      "endDate": "2027-03-07",
+      "startTime": "09:30",
+      "category": "Altri musica",
+      "venue": "Autre lieu",
+      "canton": "GE",
+      "url": "https://www.guidle.com/it/evenements/musique/geneve/une-baignoire-sur-scene_AUt2jSh",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Genève",
+        "postalCode": "1204"
+      },
+      "geo": {
+        "lat": 46.193878,
+        "lng": 6.145186
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Ensemble Contrechamps"
+      },
+      "sourceDescriptionHash": "31519e27a8e181c978d37433c4765550cca26eec38c9ce986746dacc06a34114"
+    },
+    {
+      "id": "guidle:A3L75D4",
+      "title": "ElKi-Singen",
+      "titleByLocale": {
+        "it": "ElKi-Singen",
+        "en": "ElKi-Singen",
+        "de": "ElKi-Singen",
+        "fr": "ElKi-Singen"
+      },
+      "startDate": "2027-03-10",
+      "endDate": "2027-03-10",
+      "startTime": "09:30",
+      "category": "Canzone",
+      "comune": "Urdorf",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/urdorf/elki-singen_A3L75D4",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "geo": {
+        "lat": 47.3818515,
+        "lng": 8.4248109
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "b19959ba7c4147af0df8fa489149e5c4215ab8a10028bccf5f840893f8c5793c"
+    },
+    {
+      "id": "guidle:A9MkWCq",
+      "title": "FEE-DANCE - Deep & Tech Music",
+      "titleByLocale": {
+        "it": "FEE-DANCE - Deep & Tech Music",
+        "en": "FEE-DANCE - Deep & Tech Music",
+        "de": "FEE-DANCE - Deep & Tech Music",
+        "fr": "FEE-DANCE - Deep & Tech Music"
+      },
+      "startDate": "2027-03-20",
+      "endDate": "2027-03-20",
+      "startTime": "13:00",
+      "category": "Open Air",
+      "venue": "Pit Stop",
+      "comune": "Saas-Fee",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/eventi/musica/saas-fee/fee-dance-deep-und-tech-music_A9MkWCq",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "postalCode": "3906"
+      },
+      "geo": {
+        "lat": 46.1091073,
+        "lng": 7.9297122
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "d3e679869cc50193179e215d6bdc4b0a440cf84b812092a8b574cff0e240c991"
+    },
+    {
+      "id": "guidle:Aum2Y3k",
+      "title": "Palaye Royale",
+      "titleByLocale": {
+        "it": "Palaye Royale",
+        "en": "Palaye Royale",
+        "de": "Palaye Royale",
+        "fr": "Palaye Royale"
+      },
+      "startDate": "2027-03-16",
+      "endDate": "2027-03-16",
+      "startTime": "20:00",
+      "category": "Rock generalmente",
+      "venue": "Volkshaus Zürich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/palaye-royale_Aum2Y3k",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Stauffacherstrasse 60",
+        "postalCode": "8004"
+      },
+      "geo": {
+        "lat": 47.3755853,
+        "lng": 8.5271662
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Live NationPalaye RoyaleThe Amsterdamage World Tour 2027Türöffnung: 19:00 UhrBeginn: 20:00 UhrEnde: ca"
+      },
+      "sourceDescriptionHash": "b877a3c6e1d19246c51c6af8e34222cf98bbcd1fffea32aac4b787c91c658485"
+    },
+    {
+      "id": "guidle:ATPJqiK",
+      "title": "The Crown Pearls - Rock- und Popsongs unplugged",
+      "titleByLocale": {
+        "it": "The Crown Pearls - Rock- und Popsongs unplugged",
+        "en": "The Crown Pearls - Rock- und Popsongs unplugged",
+        "de": "The Crown Pearls - Rock- und Popsongs unplugged",
+        "fr": "The Crown Pearls - Rock- und Popsongs unplugged"
+      },
+      "startDate": "2027-03-12",
+      "endDate": "2027-03-12",
+      "startTime": "19:30",
+      "category": "Pop generalmente",
+      "venue": "Kaffeehaus",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/st-gallen/the-crown-pearls-rock-und-popsongs-unplugged_ATPJqiK",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Linsebühlstrasse 77",
+        "postalCode": "9000"
+      },
+      "geo": {
+        "lat": 47.4251753,
+        "lng": 9.3836331
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Barbara"
+        },
+        {
+          "name": "Ecki"
+        }
+      ],
+      "sourceDescriptionHash": "e9cad33acfbc83d685bde5143a0acb36e0f20836ff9561e6ec79b5c40534ef56"
+    },
+    {
+      "id": "guidle:AJvPbra",
+      "title": "The New Roses",
+      "titleByLocale": {
+        "it": "The New Roses",
+        "en": "The New Roses",
+        "de": "The New Roses",
+        "fr": "The New Roses"
+      },
+      "startDate": "2027-03-04",
+      "endDate": "2027-03-04",
+      "startTime": "20:00",
+      "category": "Rock generalmente",
+      "venue": "Schüür",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/luzern/the-new-roses_AJvPbra",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 38,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Tribschenstrasse 1",
+        "postalCode": "6005"
+      },
+      "geo": {
+        "lat": 47.0445413,
+        "lng": 8.3113502
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "f23264ed2abc6308220aafbb0bb34a0257ea96b31c71d92c1695cb71a8cd8897"
+    },
+    {
+      "id": "guidle:A5piCFd",
+      "title": "Swiss Music Awards 2027",
+      "titleByLocale": {
+        "it": "Swiss Music Awards 2027",
+        "en": "Swiss Music Awards 2027",
+        "de": "Swiss Music Awards 2027",
+        "fr": "Swiss Music Awards 2027"
+      },
+      "startDate": "2027-03-13",
+      "endDate": "2027-03-13",
+      "startTime": "20:00",
+      "category": "Pop generalmente",
+      "venue": "Hallenstadion Zürich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/swiss-music-awards-2027_A5piCFd",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 26.4,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Wallisellenstrasse 45",
+        "postalCode": "8050"
+      },
+      "geo": {
+        "lat": 47.4113134,
+        "lng": 8.5517916
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Swiss Music Awards"
+      },
+      "sourceDescriptionHash": "7970e1836154afff20d7fe34fcd9e69ed22e207cf5be051f3909c16cf29acc60"
+    },
+    {
+      "id": "guidle:AUeDwNs",
+      "title": "Turmion Kätilöt",
+      "titleByLocale": {
+        "it": "Turmion Kätilöt",
+        "en": "Turmion Kätilöt",
+        "de": "Turmion Kätilöt",
+        "fr": "Turmion Kätilöt"
+      },
+      "startDate": "2027-02-25",
+      "endDate": "2027-02-25",
+      "startTime": "20:00",
+      "category": "Metal / Hardcore",
+      "venue": "Z7 Konzertfabrik Pratteln",
+      "comune": "Pratteln",
+      "canton": "BL",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/pratteln/turmion-kaetiloet_AUeDwNs",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 41.15,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Kraftwerkstrasse 7",
+        "postalCode": "4133"
+      },
+      "geo": {
+        "lat": 47.5272918,
+        "lng": 7.6940638
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Turmion Kätilöt"
+        },
+        {
+          "name": "Miikka"
+        },
+        {
+          "name": "Saku"
+        }
+      ],
+      "sourceDescriptionHash": "c131630a70004def7783cd983612143d1f6743c1f2540ac36c42fc5f8960a34c"
+    },
+    {
+      "id": "guidle:AhHGufX",
+      "title": "Jethro Tull",
+      "titleByLocale": {
+        "it": "Jethro Tull",
+        "en": "Jethro Tull",
+        "de": "Jethro Tull",
+        "fr": "Jethro Tull"
+      },
+      "startDate": "2027-03-12",
+      "endDate": "2027-03-12",
+      "startTime": "20:00",
+      "category": "Rock generalmente",
+      "venue": "LAC Lugano Arte e Cultura",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/lugano/jethro-tull_AhHGufX",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 2,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Piazza Bernardino Luini 6",
+        "postalCode": "6900"
+      },
+      "geo": {
+        "lat": 45.999409,
+        "lng": 8.9478873
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Jethro Tull"
+      },
+      "sourceDescriptionHash": "88dea57605c2fd45f2106de154fa69595cf7ed0b7fa85077908c5d00c1557cc3"
+    },
+    {
+      "id": "guidle:ALidmCm",
+      "title": "Ritschi & Hunzi «Tagebuech» (spettacolo extra)",
+      "titleByLocale": {
+        "it": "Ritschi & Hunzi «Tagebuech» (spettacolo extra)",
+        "en": "Ritschi & Hunzi “Tagebuech” (Bonus Show)",
+        "de": "Ritschi & Hunzi «Tagebuech» (Zusatz-Show)",
+        "fr": "Ritschi & Hunzi « Tagebuech » (spectacle supplémentaire)"
+      },
+      "startDate": "2027-02-20",
+      "endDate": "2027-02-20",
+      "startTime": "20:00",
+      "category": "Pop generalmente",
+      "venue": "TOPOFF Restaurant und Kulturzentrum",
+      "comune": "Interlaken",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/eventi/musica/interlaken/ritschi-und-hunzi-tagebuech-spettacolo-extra_ALidmCm",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 40,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Untere Bönigstrasse 35",
+        "postalCode": "3800"
+      },
+      "geo": {
+        "lat": 46.6901927,
+        "lng": 7.8759509
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "d01018827587b633dccd6a757d821770e6938223435df936afcf82eaedc8f99c"
+    },
+    {
+      "id": "guidle:AxJJGX7",
+      "title": "Moonspell",
+      "titleByLocale": {
+        "it": "Moonspell",
+        "en": "Moonspell",
+        "de": "Moonspell",
+        "fr": "Moonspell"
+      },
+      "startDate": "2027-03-17",
+      "endDate": "2027-03-17",
+      "startTime": "19:00",
+      "category": "Metal / Hardcore",
+      "venue": "Z7 Konzertfabrik Pratteln",
+      "comune": "Pratteln",
+      "canton": "BL",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/pratteln/moonspell_AxJJGX7",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 48.2,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Kraftwerkstrasse 7",
+        "postalCode": "4133"
+      },
+      "geo": {
+        "lat": 47.5272918,
+        "lng": 7.6940638
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Moonspell"
+      },
+      "sourceDescriptionHash": "3e33af2897e7b24b169f26cd2f46f1ca1dee9756352768bb847b7023ec9ebddb"
+    },
+    {
+      "id": "guidle:AuP5mFQ",
+      "title": "Groovepack | Transatlantic",
+      "titleByLocale": {
+        "it": "Groovepack | Transatlantic",
+        "en": "Groovepack | Transatlantic",
+        "de": "Groovepack | Transatlantic Band Basel",
+        "fr": "Groovepack | Transatlantic"
+      },
+      "startDate": "2027-03-06",
+      "endDate": "2027-03-06",
+      "startTime": "19:00",
+      "category": "Pop generalmente",
+      "venue": "Rockfact",
+      "comune": "Münchenstein",
+      "canton": "BL",
+      "url": "https://www.guidle.com/it/akce/hudba/muenchenstein/groovepack-transatlantic_AuP5mFQ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 20,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Tramstrasse 66",
+        "postalCode": "4142"
+      },
+      "geo": {
+        "lat": 47.509721,
+        "lng": 7.616628
+      },
+      "recurring": false,
+      "performer": {
+        "@type": "PerformingGroup",
+        "name": "Transatlantic Band"
+      },
+      "sourceDescriptionHash": "e20a698ede6f04cf02358afd6dbd3f7d276e4e9d6210219c98d8a0c6414db04e"
+    },
+    {
+      "id": "guidle:AN1Y8XQ",
+      "title": "Palomines | Twang Gang",
+      "titleByLocale": {
+        "it": "Palomines | Twang Gang",
+        "en": "Palomines | Twang Gang",
+        "de": "Palomines | Twang Gang",
+        "fr": "Palomines | Twang Gang"
+      },
+      "startDate": "2027-03-13",
+      "endDate": "2027-03-13",
+      "startTime": "19:00",
+      "category": "Rock generalmente",
+      "venue": "Rockfact",
+      "comune": "Münchenstein",
+      "canton": "BL",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/muenchenstein/palomines-twang-gang_AN1Y8XQ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 20,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Tramstrasse 66",
+        "postalCode": "4142"
+      },
+      "geo": {
+        "lat": 47.509721,
+        "lng": 7.616628
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "d27e2e237439d870b715f409789372dc50e283f47d9db60ce494cd72f424a0a5"
+    },
+    {
+      "id": "guidle:AcmiPbr",
+      "title": "La Banda Storica: BENEFIZKONZERT ZUGUNSTEN DES KLINGENDEN MUSEUMS BERN - Bühnen Bern",
+      "titleByLocale": {
+        "it": "La Banda Storica: BENEFIZKONZERT ZUGUNSTEN DES KLINGENDEN MUSEUMS BERN - Bühnen Bern",
+        "en": "La Banda Storica: BENEFIZKONZERT ZUGUNSTEN DES KLINGENDEN MUSEUMS BERN - Bühnen Bern",
+        "de": "La Banda Storica: BENEFIZKONZERT ZUGUNSTEN DES KLINGENDEN MUSEUMS BERN - Bühnen Bern",
+        "fr": "La Banda Storica: BENEFIZKONZERT ZUGUNSTEN DES KLINGENDEN MUSEUMS BERN - Bühnen Bern"
+      },
+      "startDate": "2027-03-11",
+      "endDate": "2027-03-11",
+      "startTime": "19:30",
+      "category": "Altri musica",
+      "venue": "Stadttheater Bern",
+      "comune": "Bern",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/bern/la-banda-storica-benefizkonzert-zugunsten-des-klingenden-museums-bern-buehnen-bern_AcmiPbr",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Kornhausplatz 20",
+        "postalCode": "3011"
+      },
+      "geo": {
+        "lat": 46.9493923,
+        "lng": 7.4472057
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Berner Symphonieorchesters"
+      },
+      "sourceDescriptionHash": "8ab8119b1f9745cacea3c16748237f236926d184a57cd13c3308160ed4542abc"
+    },
+    {
+      "id": "guidle:A1CUq9c",
+      "title": "Klassik Nuevo Festival Best of Klassik Nuevo",
+      "titleByLocale": {
+        "it": "Klassik Nuevo Festival Best of Klassik Nuevo",
+        "en": "Klassik Nuevo Festival Best of Klassik Nuevo",
+        "de": "Klassik Nuevo Festival Best of Klassik Nuevo",
+        "fr": "Klassik Nuevo Festival Best of Klassik Nuevo"
+      },
+      "startDate": "2027-03-12",
+      "endDate": "2027-03-12",
+      "startTime": "20:00",
+      "category": "Festival / Incontro",
+      "venue": "Hotel Schützen",
+      "comune": "Rheinfelden",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/rheinfelden/klassik-nuevo-festival-best-of-klassik-nuevo_A1CUq9c",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Bahnhofstrasse 19",
+        "postalCode": "4310"
+      },
+      "geo": {
+        "lat": 47.5530127,
+        "lng": 7.792405
+      },
+      "recurring": false,
+      "performer": {
+        "@type": "PerformingGroup",
+        "name": "Klassik Nuevo Orchestra"
+      },
+      "sourceDescriptionHash": "0d692d617458523b8bf6cdf4f95af31b92ffdb16d90383c907323ed8d244b053"
+    },
+    {
+      "id": "guidle:An4KmZU",
+      "title": "Carte blanche",
+      "titleByLocale": {
+        "it": "Carte blanche",
+        "en": "Carte blanche",
+        "de": "Carte blanche",
+        "fr": "Carte blanche"
+      },
+      "startDate": "2027-02-20",
+      "endDate": "2027-02-20",
+      "startTime": "19:30",
+      "category": "Altri musica",
+      "venue": "Les 6 toits",
+      "canton": "GE",
+      "url": "https://www.guidle.com/it/evenements/musique/geneve/carte-blanche_An4KmZU",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 5,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "43 Avenue de Châtelaine",
+        "postalCode": "1203"
+      },
+      "geo": {
+        "lat": 46.2098517,
+        "lng": 6.1172195
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "53a6ee903e0c8a63b7dde7992ea30f3da443c193bcd62360676caa2699100e80"
+    },
+    {
+      "id": "guidle:A3AEmai",
+      "title": "Referat – Prof. Dr. Hans Ulrich Gumbrecht",
+      "titleByLocale": {
+        "it": "Referat – Prof. Dr. Hans Ulrich Gumbrecht",
+        "en": "Referat – Prof. Dr. Hans Ulrich Gumbrecht",
+        "de": "Referat – Prof. Dr. Hans Ulrich Gumbrecht",
+        "fr": "Referat – Prof. Dr. Hans Ulrich Gumbrecht"
+      },
+      "startDate": "2027-03-03",
+      "endDate": "2027-03-03",
+      "startTime": "18:00",
+      "category": "Festival / Incontro",
+      "venue": "Martinskirche",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/events/music/basel/referat-prof-dr-hans-ulrich-gumbrecht_A3AEmai",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Martinskirchplatz 4",
+        "postalCode": "4051"
+      },
+      "geo": {
+        "lat": 47.5589229,
+        "lng": 7.5887646
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "fc9e9080aa5e5c1637ac393330e72c1acee82b32c55116cbad5ace6c22f4ba19"
+    },
+    {
+      "id": "guidle:Aes1KMU",
+      "title": "Rock the Beach mit Alex Dynamite & The Pyrolites",
+      "titleByLocale": {
+        "it": "Rock the Beach mit Alex Dynamite & The Pyrolites",
+        "en": "Rock the Beach mit Alex Dynamite & The Pyrolites",
+        "de": "Rock the Beach mit Alex Dynamite & The Pyrolites",
+        "fr": "Rock the Beach mit Alex Dynamite & The Pyrolites"
+      },
+      "startDate": "2027-03-13",
+      "endDate": "2027-03-13",
+      "startTime": "13:30",
+      "category": "Altri musica",
+      "venue": "James Beach Bar",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/savognin/rock-the-beach-mit-alex-dynamite-und-the-pyrolites_Aes1KMU",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "postalCode": "7460"
+      },
+      "geo": {
+        "lat": 46.5959281,
+        "lng": 9.5857544
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Alex Dynamite & The Pyrolites"
+      },
+      "sourceDescriptionHash": "12043862e49362956183e2731a885b566a65379d3b379f559f1f26379f0408ed"
+    },
+    {
+      "id": "guidle:A9Prsdh",
+      "title": "Gstrandet am Bärg!",
+      "titleByLocale": {
+        "it": "Gstrandet am Bärg!",
+        "en": "Stranded on the mountain!",
+        "de": "Gstrandet am Bärg!",
+        "fr": "Gstrandet am Bärg!"
+      },
+      "startDate": "2027-03-06",
+      "endDate": "2027-03-06",
+      "startTime": "11:00",
+      "category": "Pop generalmente",
+      "venue": "Alpstubli am Trübsee",
+      "comune": "Engelberg",
+      "canton": "OW",
+      "url": "https://www.guidle.com/it/events/music/engelberg/stranded-on-the-mountain_A9Prsdh",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Trübsee",
+        "postalCode": "6390"
+      },
+      "geo": {
+        "lat": 46.7944762,
+        "lng": 8.38993
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "7905b482917714826f336896bfd28bde06d0120f3875e2ebbe9ee1b2603dafe1"
+    },
+    {
+      "id": "guidle:ASQYHMN",
+      "title": "Chicks and Roosters",
+      "titleByLocale": {
+        "it": "Chicks and Roosters",
+        "en": "Chicks and Roosters",
+        "de": "Chicks and Roosters",
+        "fr": "Chicks and Roosters"
+      },
+      "startDate": "2027-03-19",
+      "endDate": "2027-03-19",
+      "startTime": "21:00",
+      "category": "Rock generalmente",
+      "venue": "Mahogany Hall Bern",
+      "comune": "Bern",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/bern/chicks-and-roosters_ASQYHMN",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Klösterlistutz 18",
+        "postalCode": "3013"
+      },
+      "geo": {
+        "lat": 46.9490555,
+        "lng": 7.4597239
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "ba646c4b6b3290249ed91b275cc942dc225a137e8765326c9163cd58b32ef03b"
+    },
+    {
+      "id": "guidle:A8tvCGy",
+      "title": "Lotto Musikgesellschaft Eggishorn",
+      "titleByLocale": {
+        "it": "Lotto Musikgesellschaft Eggishorn",
+        "en": "Lotto Music Society of Eggishorn",
+        "de": "Lotto Musikgesellschaft Eggishorn",
+        "fr": "Société musicale Lotto d'Eggishorn"
+      },
+      "startDate": "2027-03-06",
+      "endDate": "2027-03-06",
+      "startTime": "18:00",
+      "category": "Lotto",
+      "venue": "Haus Rondo",
+      "comune": "Fiesch",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/events/music/fiesch/lotto-music-society-of-eggishorn_A8tvCGy",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Furkastrasse 46",
+        "postalCode": "3984"
+      },
+      "geo": {
+        "lat": 46.4039314,
+        "lng": 8.1356511
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "b21ef1168b6751b83c6b6c7fcb0a265226c0dedbec42a993d3d7955f67f59c80"
+    },
+    {
+      "id": "guidle:AxpQJHV",
+      "title": "Bernard Allison",
+      "titleByLocale": {
+        "it": "Bernard Allison",
+        "en": "Bernard Allison",
+        "de": "Bernard Allison",
+        "fr": "Bernard Allison"
+      },
+      "startDate": "2027-02-20",
+      "endDate": "2027-02-20",
+      "startTime": "20:15",
+      "category": "Blues",
+      "venue": "Konservi",
+      "comune": "Seon",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/seon/bernard-allison_AxpQJHV",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 50,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Seetalstrasse 2",
+        "postalCode": "5703"
+      },
+      "geo": {
+        "lat": 47.3458221,
+        "lng": 8.1593372
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "4aed0c0fcd37957a14596c788b60c098700210dd188127cff6f263c9596c7330"
+    },
+    {
+      "id": "guidle:AXxZ5cK",
+      "title": "Theater Musikgesellschaft",
+      "titleByLocale": {
+        "it": "Theater Musikgesellschaft",
+        "en": "Theater Musikgesellschaft",
+        "de": "Theater Musikgesellschaft",
+        "fr": "Theater Musikgesellschaft"
+      },
+      "startDate": "2027-02-27",
+      "endDate": "2027-02-27",
+      "startTime": "00:00",
+      "category": "Banda di ottoni",
+      "venue": "Mehrzweckhalle Moos",
+      "comune": "St. Stephan",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/st-stephan/theater-musikgesellschaft_AXxZ5cK",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Lenkstrasse 97",
+        "postalCode": "3772"
+      },
+      "geo": {
+        "lat": 46.5066407,
+        "lng": 7.4021779
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "c41d818aa895f08f8583a5ef0c48600a1b67da7445740ac264269620e917883b"
+    },
+    {
+      "id": "guidle:APUemFc",
+      "title": "Hinterlandgang",
+      "titleByLocale": {
+        "it": "Hinterlandgang",
+        "en": "Hinterlandgang",
+        "de": "Hinterlandgang",
+        "fr": "Hinterlandgang"
+      },
+      "startDate": "2027-02-19",
+      "endDate": "2027-02-19",
+      "startTime": "20:00",
+      "category": "Rap",
+      "venue": "Kulturladen",
+      "canton": "",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/konstanz/hinterlandgang_APUemFc",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 18.6,
+        "currency": "EUR",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Joseph-Belli-Weg 5",
+        "postalCode": "78467"
+      },
+      "geo": {
+        "lat": 47.6789501,
+        "lng": 9.1632133
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "d432eb60cdf08b361b115a8f5189c3bb602d2f3c452ed05b626dfa7255c97492"
+    },
+    {
+      "id": "guidle:Awmvmms",
+      "title": "Southmade – Elvis is alive",
+      "titleByLocale": {
+        "it": "Southmade – Elvis is alive",
+        "en": "Southmade – Elvis is alive",
+        "de": "Southmade – Elvis is alive",
+        "fr": "Southmade – Elvis is alive"
+      },
+      "startDate": "2027-03-17",
+      "endDate": "2027-03-17",
+      "startTime": "19:30",
+      "category": "Rock generalmente",
+      "venue": "Hopp",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/au-sg/southmade-elvis-is-alive_Awmvmms",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Bahnhofstrasse 19",
+        "postalCode": "9434"
+      },
+      "geo": {
+        "lat": 47.4369343,
+        "lng": 9.6409374
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "a978b11c4ea734e3780b4eead3cafc052c2f06f332001d6c243ab4cb673798d1"
+    },
+    {
+      "id": "guidle:A8kcPYR",
+      "title": "VIBEZ | sigis.bar",
+      "titleByLocale": {
+        "it": "VIBEZ | sigis.bar",
+        "en": "VIBEZ | Walliserkanne Grächen",
+        "de": "VIBEZ | sigis.bar",
+        "fr": "VIBEZ | Walliserkanne Grächen"
+      },
+      "startDate": "2027-02-27",
+      "endDate": "2027-02-27",
+      "startTime": "22:00",
+      "category": "Musical",
+      "venue": "Restaurnat Walliserkanne",
+      "comune": "Grächen",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/evenements/musique/graechen/vibez-walliserkanne-graechen_A8kcPYR",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Dorfstrasse 492",
+        "postalCode": "3925"
+      },
+      "geo": {
+        "lat": 46.1957231,
+        "lng": 7.8394655
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Freundschaft"
+        },
+        {
+          "name": "Freude"
+        },
+        {
+          "name": "Leben"
+        },
+        {
+          "name": "Freiheit"
+        },
+        {
+          "name": "Essen"
+        },
+        {
+          "name": "Tanzen"
+        },
+        {
+          "name": "Musik"
+        }
+      ],
+      "sourceDescriptionHash": "6615a9ab572322fb121eaf6b07e621687fcb690673752d9bb39c0d08e065937a"
+    },
+    {
+      "id": "guidle:AAJUJyH",
+      "title": "Master Peace",
+      "titleByLocale": {
+        "it": "Master Peace",
+        "en": "Master Peace",
+        "de": "Master Peace",
+        "fr": "Master Peace"
+      },
+      "startDate": "2027-02-15",
+      "endDate": "2027-02-15",
+      "startTime": "20:00",
+      "category": "Rock generalmente",
+      "venue": "Schüür",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/luzern/master-peace_AAJUJyH",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 30,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Tribschenstrasse 1",
+        "postalCode": "6005"
+      },
+      "geo": {
+        "lat": 47.0445413,
+        "lng": 8.3113502
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Grossbritanniens"
+      },
+      "sourceDescriptionHash": "e113d89fa2b393649943895e4927af2757f798b3ee6eb7378395e7a369c16a12"
+    },
+    {
+      "id": "guidle:AsHfMEg",
+      "title": "Tanzen neu lernen oder auffri­schen – Teil 3: Walzer",
+      "titleByLocale": {
+        "it": "Tanzen neu lernen oder auffri­schen – Teil 3: Walzer",
+        "en": "Learn to Dance or Brush Up on Your Skills – Part 3: The Waltz",
+        "de": "Tanzen neu lernen oder auffri­schen – Teil 3: Walzer",
+        "fr": "Réapprendre à danser ou se remettre à niveau – Partie 3 : la valse"
+      },
+      "startDate": "2027-02-27",
+      "endDate": "2027-02-27",
+      "startTime": "18:30",
+      "category": "Danza te stesso",
+      "venue": "Bergtrotte",
+      "canton": "SH",
+      "url": "https://www.guidle.com/it/events/music/osterfingen/learn-to-dance-or-brush-up-on-your-skills-part-3-the-waltz_AsHfMEg",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Trottenweg 38",
+        "postalCode": "8218"
+      },
+      "geo": {
+        "lat": 47.6637527,
+        "lng": 8.4889166
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "0548da02614a533b901e63310b3593ed84ec57e3f22a869a2c796ced2980e82f"
+    },
+    {
+      "id": "guidle:Akn3ZDi",
+      "title": "Diner dansant",
+      "titleByLocale": {
+        "it": "Diner dansant",
+        "en": "Dinner Dance",
+        "de": "Diner dansant",
+        "fr": "Dîner dansant"
+      },
+      "startDate": "2027-03-06",
+      "endDate": "2027-03-06",
+      "startTime": "18:30",
+      "category": "Altri musica",
+      "venue": "Bergtrotte",
+      "canton": "SH",
+      "url": "https://www.guidle.com/it/events/music/osterfingen/dinner-dance_Akn3ZDi",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Trottenweg 38",
+        "postalCode": "8218"
+      },
+      "geo": {
+        "lat": 47.6637527,
+        "lng": 8.4889166
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Armin Priga"
+      },
+      "sourceDescriptionHash": "d3282eab5bc87fbbb8faea43a3550c935cc435224df62d4c2714958865ea6758"
+    },
+    {
+      "id": "guidle:ASq3brD",
+      "title": "Ski Aggu",
+      "titleByLocale": {
+        "it": "Ski Aggu",
+        "en": "Ski Aggu",
+        "de": "Ski Aggu",
+        "fr": "Ski Aggu"
+      },
+      "startDate": "2027-02-21",
+      "endDate": "2027-02-21",
+      "startTime": "20:00",
+      "category": "Rap",
+      "venue": "X-TRA",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/ski-aggu_ASq3brD",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Limmatstrasse 118",
+        "postalCode": "8005"
+      },
+      "geo": {
+        "lat": 47.3839834,
+        "lng": 8.5328258
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Live NationSki AgguINSIDER TOUR 2027Türöffnung: 19:00 UhrBeginn: 20:00 UhrEnde: ca"
+      },
+      "sourceDescriptionHash": "82d3d22b6c35f5465d8637bc410def34125cdedb6c5c96c1aa8fe29699eeafd4"
+    },
+    {
+      "id": "guidle:AEA4xGT",
+      "title": "Other Lives (US)",
+      "titleByLocale": {
+        "it": "Other Lives (US)",
+        "en": "Other Lives (US)",
+        "de": "Other Lives (US)",
+        "fr": "Other Lives (US)"
+      },
+      "startDate": "2027-03-17",
+      "endDate": "2027-03-17",
+      "startTime": "20:00",
+      "category": "Pop generalmente",
+      "venue": "Salzhaus",
+      "comune": "Winterthur",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/winterthur/other-lives-us_AEA4xGT",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 30,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Untere Vogelsangstrasse 6",
+        "postalCode": "8400"
+      },
+      "geo": {
+        "lat": 47.4975855,
+        "lng": 8.7226442
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "b3a4c297f6c101f531b84448af5db9f4111c9e8e9e0e82aedce93fdce50414f0"
+    },
+    {
+      "id": "guidle:AFwwCHU",
+      "title": "Flow mit Stimme und Körper I 27.0307",
+      "titleByLocale": {
+        "it": "Flow mit Stimme und Körper I 27.0307",
+        "en": "Flow mit Stimme und Körper I 27.0307",
+        "de": "Flow mit Stimme und Körper I 27.0307",
+        "fr": "Flow mit Stimme und Körper I 27.0307"
+      },
+      "startDate": "2027-03-14",
+      "endDate": "2027-03-14",
+      "startTime": "09:30",
+      "category": "Lezione / Workshop",
+      "venue": "Klanghaus Toggenburg",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/bildung/kurse/unterwasser/flow-mit-stimme-und-koerper-i-270307_AFwwCHU",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 105,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Vordere Schwendistrasse 61",
+        "postalCode": "9657"
+      },
+      "geo": {
+        "lat": 47.1886732,
+        "lng": 9.3296006
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Marco Scotch Gautschin"
+      },
+      "sourceDescriptionHash": "512c4f47d4012e8f0e9558dc7fe1dedcd1bbfbb983b4ceccae79407d6fa2bed9"
+    },
+    {
+      "id": "guidle:AB5NGvM",
+      "title": "Complete Vocal Technique CVT– Sicher und frei singen I 27.0308",
+      "titleByLocale": {
+        "it": "Complete Vocal Technique CVT– Sicher und frei singen I 27.0308",
+        "en": "Complete Vocal Technique CVT– Sicher und frei singen I 27.0308",
+        "de": "Complete Vocal Technique CVT– Sicher und frei singen I 27.0308",
+        "fr": "Complete Vocal Technique CVT– Sicher und frei singen I 27.0308"
+      },
+      "startDate": "2027-03-19",
+      "endDate": "2027-03-19",
+      "startTime": "18:15",
+      "category": "Canto / corale",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/unterwasser/complete-vocal-technique-cvt-sicher-und-frei-singen-i-270308_AB5NGvM",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 210,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 47.1886732,
+        "lng": 9.3296006
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Praxis"
+        },
+        {
+          "name": "Sänger"
+        }
+      ],
+      "sourceDescriptionHash": "5a36bf1ccf58cac4a6e155c967fb03105e328ff4748fcded19058c32cbc07621"
+    },
+    {
+      "id": "guidle:A35m54i",
+      "title": "Dabu Fantastic - Release Shows",
+      "titleByLocale": {
+        "it": "Dabu Fantastic - Release Shows",
+        "en": "Dabu Fantastic - Release Shows",
+        "de": "Dabu Fantastic - Release Shows",
+        "fr": "Dabu Fantastic - Release Shows"
+      },
+      "startDate": "2027-03-17",
+      "endDate": "2027-03-17",
+      "startTime": "20:00",
+      "category": "Pop generalmente",
+      "venue": "Mühle Hunziken",
+      "comune": "Rubigen",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/rubigen/dabu-fantastic-release-shows_A35m54i",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Hunziken 101",
+        "postalCode": "3113"
+      },
+      "geo": {
+        "lat": 46.8907886,
+        "lng": 7.5418087
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Dabu Fantastic"
+      },
+      "sourceDescriptionHash": "54c22c787737812e5d9514b68cb12c3f3b3bb8bc0a8a522da2bf77c8914a5dce"
+    },
+    {
+      "id": "guidle:ArZ6fwr",
+      "title": "Bergkirchli-Konzert mit S. Lobmaier & P. Berta",
+      "titleByLocale": {
+        "it": "Bergkirchli-Konzert mit S. Lobmaier & P. Berta",
+        "en": "Bergkirchli-Konzert mit S. Lobmaier & P. Berta",
+        "de": "Bergkirchli-Konzert mit S. Lobmaier & P. Berta",
+        "fr": "Bergkirchli-Konzert mit S. Lobmaier & P. Berta"
+      },
+      "startDate": "2027-02-16",
+      "endDate": "2027-02-16",
+      "startTime": "17:00",
+      "category": "Altri musica",
+      "venue": "Bergkirchli",
+      "comune": "Arosa",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/evenements/musique/arosa/bergkirchli-konzert-mit-s-lobmaier-und-p-berta_ArZ6fwr",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Kirchliweg",
+        "postalCode": "7050"
+      },
+      "geo": {
+        "lat": 46.7772287,
+        "lng": 9.6554
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Worten"
+        },
+        {
+          "name": "Nächte"
+        }
+      ],
+      "sourceDescriptionHash": "e1e0f616681ddeed6fd8bc5fc45c8b786abdda704ff2aaa5027bd199e1788c5d"
+    },
+    {
+      "id": "guidle:AxSZCp3",
+      "title": "George Michael by James Bermingham",
+      "titleByLocale": {
+        "it": "George Michael by James Bermingham",
+        "en": "George Michael by James Bermingham",
+        "de": "George Michael by James Bermingham",
+        "fr": "George Michael by James Bermingham"
+      },
+      "startDate": "2027-03-05",
+      "endDate": "2027-03-05",
+      "startTime": "19:30",
+      "category": "Pop generalmente",
+      "venue": "Theater 11",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/george-michael-by-james-bermingham_AxSZCp3",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Thurgauerstrasse 7",
+        "postalCode": "8050"
+      },
+      "geo": {
+        "lat": 47.410681,
+        "lng": 8.5496984
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "James Bermingham"
+        },
+        {
+          "name": "Sängern"
+        }
+      ],
+      "sourceDescriptionHash": "5de1568d098c91978e748f928c5908d8efd704aa67056b1369addd3fe2f6cfe5"
+    },
+    {
+      "id": "guidle:AQ2vBwT",
+      "title": "George Michael by James Bermingham",
+      "titleByLocale": {
+        "it": "George Michael by James Bermingham",
+        "en": "George Michael by James Bermingham",
+        "de": "George Michael by James Bermingham",
+        "fr": "George Michael by James Bermingham"
+      },
+      "startDate": "2027-03-06",
+      "endDate": "2027-03-06",
+      "startTime": "19:30",
+      "category": "Pop generalmente",
+      "venue": "Musical Theater Basel",
+      "comune": "Basel",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/basel/george-michael-by-james-bermingham_AQ2vBwT",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Feldbergstrasse 151",
+        "postalCode": "4057"
+      },
+      "geo": {
+        "lat": 47.5680313,
+        "lng": 7.5979887
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "James Bermingham"
+        },
+        {
+          "name": "Sängern"
+        }
+      ],
+      "sourceDescriptionHash": "5de1568d098c91978e748f928c5908d8efd704aa67056b1369addd3fe2f6cfe5"
+    },
+    {
+      "id": "guidle:ACmre7u",
+      "title": "Basement Saints / ROCK-OUT",
+      "titleByLocale": {
+        "it": "Basement Saints / ROCK-OUT",
+        "en": "Basement Saints / ROCK-OUT",
+        "de": "Basement Saints / ROCK-OUT",
+        "fr": "Basement Saints / ROCK-OUT"
+      },
+      "startDate": "2027-03-06",
+      "endDate": "2027-03-06",
+      "startTime": "20:30",
+      "category": "Rock generalmente",
+      "venue": "AHA Aeschbachhalle Aarau",
+      "comune": "Aarau",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/aarau/basement-saints-rock-out_ACmre7u",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 45,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Aeschbachweg 8",
+        "postalCode": "5000"
+      },
+      "geo": {
+        "lat": 47.3915427,
+        "lng": 8.0599934
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "e6dda2f20ff254d7ecdf858e746d36467b33349d1f6bb0984b6e4228545e3873"
+    },
+    {
+      "id": "guidle:AgqAhWE",
+      "title": "The Noise Brothers",
+      "titleByLocale": {
+        "it": "The Noise Brothers",
+        "en": "The Noise Brothers",
+        "de": "The Noise Brothers",
+        "fr": "The Noise Brothers"
+      },
+      "startDate": "2027-02-26",
+      "endDate": "2027-02-26",
+      "startTime": "20:00",
+      "category": "Altri musica",
+      "venue": "Schwanen Kino & Theater",
+      "comune": "Stein am Rhein",
+      "canton": "SH",
+      "url": "https://www.guidle.com/it/events/music/stein-am-rhein/the-noise-brothers_AgqAhWE",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Charregass 5",
+        "postalCode": "8260"
+      },
+      "geo": {
+        "lat": 47.6573086,
+        "lng": 8.8584467
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "f4208fdcf626c7329e496f091a053fa1ab248f32e9e01b2db044d8b603ae10a0"
+    },
+    {
+      "id": "guidle:AWQySGa",
+      "title": "Remo Forrer - FALLING TOUR",
+      "titleByLocale": {
+        "it": "Remo Forrer - FALLING TOUR",
+        "en": "Remo Forrer - FALLING TOUR",
+        "de": "Remo Forrer - FALLING TOUR",
+        "fr": "Remo Forrer - FALLING TOUR"
+      },
+      "startDate": "2027-03-16",
+      "endDate": "2027-03-16",
+      "startTime": "20:00",
+      "category": "Pop generalmente",
+      "venue": "Kaufleuten",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/remo-forrer-falling-tour_AWQySGa",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 40.85,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Pelikanstrasse 18",
+        "postalCode": "8001"
+      },
+      "geo": {
+        "lat": 47.371672,
+        "lng": 8.5364555
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Remo Forrer"
+        },
+        {
+          "name": "Stimme"
+        }
+      ],
+      "sourceDescriptionHash": "8e9b51abea87070aa6d1c7bc7e9dff93ac08245d2904b50ce5861273cdfe3250"
+    },
+    {
+      "id": "guidle:ANSwap3",
+      "title": "Debussy, Schoenberg, Moussorgsky",
+      "titleByLocale": {
+        "it": "Debussy, Schoenberg, Moussorgsky",
+        "en": "Debussy, Schoenberg, Moussorgsky",
+        "de": "Debussy, Schoenberg, Moussorgsky",
+        "fr": "Debussy, Schoenberg, Moussorgsky"
+      },
+      "startDate": "2027-02-26",
+      "endDate": "2027-02-26",
+      "startTime": "19:30",
+      "category": "Altri musica",
+      "venue": "Victoria Hall",
+      "canton": "GE",
+      "url": "https://www.guidle.com/it/evenements/musique/geneve/debussy-schoenberg-moussorgsky_ANSwap3",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "rue du général dufour 14",
+        "postalCode": "1204"
+      },
+      "geo": {
+        "lat": 46.2014024,
+        "lng": 6.1410618
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "99cd5011dd502a5b059d0b0a1ab876d2ba4f2b82b330445020ceb31880227ddc"
+    },
+    {
+      "id": "guidle:Acx5VU2",
+      "title": "Moccachino",
+      "titleByLocale": {
+        "it": "Moccachino",
+        "en": "Moccachino",
+        "de": "Moccachino",
+        "fr": "Moccachino"
+      },
+      "startDate": "2027-03-06",
+      "endDate": "2027-03-06",
+      "startTime": "20:00",
+      "category": "Pop generalmente",
+      "venue": "Musikbeiz Adler",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/wil-sg/moccachino_Acx5VU2",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Grabenstrasse 35",
+        "postalCode": "9500"
+      },
+      "geo": {
+        "lat": 47.4675509,
+        "lng": 9.0509465
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "ed0d12429a398b7c8563ddb9b6143413e8409674805b9e12bb26b601a35b8316"
+    },
+    {
+      "id": "guidle:Ai4NLJA",
+      "title": "Saxon - Gods of Thunder Tour",
+      "titleByLocale": {
+        "it": "Saxon - Gods of Thunder Tour",
+        "en": "Saxon - Gods of Thunder Tour",
+        "de": "Saxon - Gods of Thunder Tour",
+        "fr": "Saxon - Gods of Thunder Tour"
+      },
+      "startDate": "2027-03-17",
+      "endDate": "2027-03-17",
+      "startTime": "20:00",
+      "category": "Metal / Hardcore",
+      "venue": "Volkshaus Zürich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/saxon-gods-of-thunder-tour_Ai4NLJA",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 70.7,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Stauffacherstrasse 60",
+        "postalCode": "8004"
+      },
+      "geo": {
+        "lat": 47.3755853,
+        "lng": 8.5271662
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Metal-Szene"
+      },
+      "sourceDescriptionHash": "d0829d0e820d86a0d6e40c16dfc2392faaad7e96f77f83bd2f544b480b350c12"
+    },
+    {
+      "id": "guidle:Akafvh7",
+      "title": "L'ottobre rock negli SPRÄNGI",
+      "titleByLocale": {
+        "it": "L'ottobre rock negli SPRÄNGI",
+        "en": "Rocktober at the SPRÄNGI",
+        "de": "YELLOW TALES & BLEACH BLONDE BEACH BABES",
+        "fr": "Le mois du rock à la SPRÄNGI"
+      },
+      "startDate": "2027-03-13",
+      "endDate": "2027-03-13",
+      "startTime": "20:00",
+      "category": "Rock generalmente",
+      "venue": "SPRÄNGI",
+      "comune": "Fischenthal",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/fischenthal/yellow-tales-und-bleach-blonde-beach-babes_Akafvh7",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Schmittenbachstrasse 2",
+        "postalCode": "8497"
+      },
+      "geo": {
+        "lat": 47.342282,
+        "lng": 8.929798
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "YELLOW TALES"
+        },
+        {
+          "name": "BLEACH BLONDE BEACH BABES"
+        }
+      ],
+      "sourceDescriptionHash": "908eb08f1a301f52175ad554b3ab74274d67ee2812436e0496eadc8f99dc0b90"
+    },
+    {
+      "id": "guidle:AxrVtmN",
+      "title": "Steinza (US) - Steinza Was Here Tour",
+      "titleByLocale": {
+        "it": "Steinza (US) - Steinza Was Here Tour",
+        "en": "Steinza (US) - Steinza Was Here Tour",
+        "de": "Steinza (US) - Steinza Was Here Tour",
+        "fr": "Steinza (US) - Steinza Was Here Tour"
+      },
+      "startDate": "2027-03-04",
+      "endDate": "2027-03-04",
+      "startTime": "20:00",
+      "category": "Pop generalmente",
+      "venue": "X-TRA",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/steinza-us-steinza-was-here-tour_AxrVtmN",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 33.6,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Limmatstrasse 118",
+        "postalCode": "8005"
+      },
+      "geo": {
+        "lat": 47.3839834,
+        "lng": 8.5328258
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Steinza"
+        },
+        {
+          "name": "Beweis"
+        },
+        {
+          "name": "Stil"
+        }
+      ],
+      "sourceDescriptionHash": "9b1b38af0ad695ee1cb467acb9863f6430aab558026bcf265f8d84d0acef8665"
+    },
+    {
+      "id": "guidle:Amdmuee",
+      "title": "BUNT.",
+      "titleByLocale": {
+        "it": "BUNT.",
+        "en": "BUNT.",
+        "de": "BUNT.",
+        "fr": "BUNT."
+      },
+      "startDate": "2027-02-26",
+      "endDate": "2027-02-26",
+      "startTime": "20:00",
+      "category": "Country",
+      "venue": "Hallenstadion Zürich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/bunt_Amdmuee",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 2,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Wallisellenstrasse 45",
+        "postalCode": "8050"
+      },
+      "geo": {
+        "lat": 47.4113134,
+        "lng": 8.5517916
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "d2b0afacca779d151dda4ee90a1e8101d23de3e6c086b3fe2734d061c4306b55"
+    },
+    {
+      "id": "guidle:ATNGq2E",
+      "title": "BUNT.",
+      "titleByLocale": {
+        "it": "BUNT.",
+        "en": "BUNT.",
+        "de": "BUNT.",
+        "fr": "BUNT."
+      },
+      "startDate": "2027-02-25",
+      "endDate": "2027-02-25",
+      "startTime": "20:00",
+      "category": "Country",
+      "venue": "BERNEXPO",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/bern/bunt_ATNGq2E",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 79.8,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Papiermühlestrasse 50",
+        "postalCode": "3014"
+      },
+      "geo": {
+        "lat": 46.9602928,
+        "lng": 7.4654755
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "d2b0afacca779d151dda4ee90a1e8101d23de3e6c086b3fe2734d061c4306b55"
+    },
+    {
+      "id": "guidle:ARPyFaN",
+      "title": "\"Oldschool-Underdogs\" rocken den Hasliberg !!",
+      "titleByLocale": {
+        "it": "\"Oldschool-Underdogs\" rocken den Hasliberg !!",
+        "en": "\"Oldschool-Underdogs\" rocken den Hasliberg !!",
+        "de": "\"Oldschool-Underdogs\" rocken den Hasliberg !!",
+        "fr": "\"Oldschool-Underdogs\" rocken den Hasliberg !!"
+      },
+      "startDate": "2027-02-27",
+      "endDate": "2027-02-27",
+      "startTime": "13:00",
+      "category": "Rock generalmente",
+      "venue": "Häxächessel",
+      "comune": "Hasliberg",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/hasliberg-reuti/oldschool-underdogs-rocken-den-hasliberg-_ARPyFaN",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Bidmi",
+        "postalCode": "6086"
+      },
+      "geo": {
+        "lat": 46.74382964278284,
+        "lng": 8.218193485180677
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "712bdc8d27afa294f23e982c06752ce6ba26ce589c33b9c70a998d876d87935b"
+    },
+    {
+      "id": "guidle:AUcwknh",
+      "title": "Saint Etienne (UK)",
+      "titleByLocale": {
+        "it": "Saint Etienne (UK)",
+        "en": "Saint Etienne (UK)",
+        "de": "Saint Etienne (UK)",
+        "fr": "Saint Etienne (UK)"
+      },
+      "startDate": "2027-03-16",
+      "endDate": "2027-03-16",
+      "startTime": "19:45",
+      "category": "Pop generalmente",
+      "venue": "Salzhaus",
+      "comune": "Winterthur",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/winterthur/saint-etienne-uk_AUcwknh",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 34,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Untere Vogelsangstrasse 6",
+        "postalCode": "8400"
+      },
+      "geo": {
+        "lat": 47.4975855,
+        "lng": 8.7226442
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "7a07ea14eb0be84d62a0a6ef23fb05703c7dbe57d5a0aea6c3f86e760249c6ea"
+    },
+    {
+      "id": "guidle:Axxg7hG",
+      "title": "Rock Out & Basement Saints",
+      "titleByLocale": {
+        "it": "Rock Out & Basement Saints",
+        "en": "Rock Out & Basement Saints",
+        "de": "Rock Out & Basement Saints",
+        "fr": "Rock Out & Basement Saints"
+      },
+      "startDate": "2027-03-13",
+      "endDate": "2027-03-13",
+      "startTime": "20:00",
+      "category": "Rock generalmente",
+      "venue": "OldCapitol",
+      "comune": "Langenthal",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/langenthal/rock-out-und-basement-saints_Axxg7hG",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 43.9,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Spitalgasse 6",
+        "postalCode": "4900"
+      },
+      "geo": {
+        "lat": 47.2110391,
+        "lng": 7.7898409
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Rock-out"
+      },
+      "sourceDescriptionHash": "6375d6ac13fd2b9c1b140a91effa3a05e721b22781057d642e7b8be578e41e2c"
+    },
+    {
+      "id": "guidle:AJGYrAR",
+      "title": "Weltreise-Brunch :-)",
+      "titleByLocale": {
+        "it": "Weltreise-Brunch :-)",
+        "en": "Weltreise-Brunch :-)",
+        "de": "Weltreise-Brunch :-)",
+        "fr": "Weltreise-Brunch :-)"
+      },
+      "startDate": "2027-03-14",
+      "endDate": "2027-03-14",
+      "startTime": "10:00",
+      "category": "Festival / Incontro",
+      "venue": "Mediathek Wallis",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/evenements/musique/brig/weltreise-brunch-_AJGYrAR",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Schlossstrasse 30",
+        "postalCode": "3900"
+      },
+      "geo": {
+        "lat": 46.3155209,
+        "lng": 7.9891942
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "40fbd2d1b14ec356af84a4d7a110001fb8096055c6037f5c5625db4f0e1ba742"
+    },
+    {
+      "id": "guidle:AXaUkXh",
+      "title": "The Retro Festival – Taylor Dayne",
+      "titleByLocale": {
+        "it": "The Retro Festival – Taylor Dayne",
+        "en": "The Retro Festival – Taylor Dayne",
+        "de": "The Retro Festival – Taylor Dayne",
+        "fr": "The Retro Festival – Taylor Dayne"
+      },
+      "startDate": "2027-03-11",
+      "endDate": "2027-03-11",
+      "startTime": "21:00",
+      "category": "Dance",
+      "venue": "Hotel Schweizerhof",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/events/music/lucerne/the-retro-festival-taylor-dayne_AXaUkXh",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 99,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Schweizerhofquai 3",
+        "postalCode": "6004"
+      },
+      "geo": {
+        "lat": 47.0544669,
+        "lng": 8.3104792
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "97e49b0811013e2ab7ccd6a227a78702820cf2ad0400302a33df839d50ccce16"
+    },
+    {
+      "id": "guidle:ANqrqu3",
+      "title": "The Retro Festival – 90s-Night",
+      "titleByLocale": {
+        "it": "The Retro Festival – 90s-Night",
+        "en": "The Retro Festival – '90s Night",
+        "de": "The Retro Festival – 90s-Night",
+        "fr": "The Retro Festival – 90s-Night"
+      },
+      "startDate": "2027-03-12",
+      "endDate": "2027-03-12",
+      "startTime": "21:00",
+      "category": "Pop generalmente",
+      "venue": "Hotel Schweizerhof",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/luzern/the-retro-festival-90s-night_ANqrqu3",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 110,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Schweizerhofquai 3",
+        "postalCode": "6004"
+      },
+      "geo": {
+        "lat": 47.0544669,
+        "lng": 8.3104792
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "b9668f2deb06f91d160f0af2908ebbb93a0bc135835aad833fb87b55a0dbbe32"
+    },
+    {
+      "id": "guidle:ABphUsh",
+      "title": "The Retro Festival – Kool & the Gang",
+      "titleByLocale": {
+        "it": "The Retro Festival – Kool & the Gang",
+        "en": "The Retro Festival – Kool & the Gang",
+        "de": "The Retro Festival – Kool & the Gang",
+        "fr": "The Retro Festival – Kool & the Gang"
+      },
+      "startDate": "2027-03-13",
+      "endDate": "2027-03-13",
+      "startTime": "21:00",
+      "category": "Soul",
+      "venue": "Hotel Schweizerhof",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/luzern/the-retro-festival-kool-und-the-gang_ABphUsh",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 125,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Schweizerhofquai 3",
+        "postalCode": "6004"
+      },
+      "geo": {
+        "lat": 47.0544669,
+        "lng": 8.3104792
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Funk"
+        },
+        {
+          "name": "Soul"
+        }
+      ],
+      "sourceDescriptionHash": "7f189dbca30d6c144d3cc401d74f96aa8f0b55c2af90b1efc8f96dd622d428ab"
+    },
+    {
+      "id": "guidle:AHEbbaD",
+      "title": "Ballon Bandit",
+      "titleByLocale": {
+        "it": "Ballon Bandit",
+        "en": "Ballon Bandit",
+        "de": "Ballon Bandit",
+        "fr": "Ballon Bandit"
+      },
+      "startDate": "2027-02-16",
+      "endDate": "2027-02-19",
+      "startTime": "14:00",
+      "category": "Hip-Hop",
+      "venue": "Zeughaus Kultur",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/events/music/glis/ballon-bandit_AHEbbaD",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Gliserallee 91",
+        "postalCode": "3902"
+      },
+      "geo": {
+        "lat": 46.3131262,
+        "lng": 7.9831088
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "c31622dc0b7ff6c34a71bad08d3c9f888e6eb3a99ae97045fbad7f9bade5035f"
+    },
+    {
+      "id": "guidle:AXP6Rw4",
+      "title": "The Dead Daisies feat. Kelly Hansen",
+      "titleByLocale": {
+        "it": "The Dead Daisies feat. Kelly Hansen",
+        "en": "The Dead Daisies feat. Kelly Hansen",
+        "de": "The Dead Daisies feat. Kelly Hansen",
+        "fr": "The Dead Daisies feat. Kelly Hansen"
+      },
+      "startDate": "2027-03-14",
+      "endDate": "2027-03-14",
+      "startTime": "19:00",
+      "category": "Hardrock",
+      "venue": "Z7 Konzertfabrik Pratteln",
+      "comune": "Pratteln",
+      "canton": "BL",
+      "url": "https://www.guidle.com/it/veranstaltungen/pratteln/the-dead-daisies-feat-kelly-hansen_AXP6Rw4",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 53.9,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Kraftwerkstrasse 7",
+        "postalCode": "4133"
+      },
+      "geo": {
+        "lat": 47.5272918,
+        "lng": 7.6940638
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Doug Aldrich"
+      },
+      "sourceDescriptionHash": "ec13289692448b057e09550dc9537e93e4b0125a119388f6d47abbee22ab3a0b"
+    },
+    {
+      "id": "guidle:AxbCWGq",
+      "title": "Gio Dara",
+      "titleByLocale": {
+        "it": "Gio Dara",
+        "en": "Gio Dara",
+        "de": "Gio Dara",
+        "fr": "Gio Dara"
+      },
+      "startDate": "2027-03-14",
+      "endDate": "2027-03-14",
+      "startTime": "20:00",
+      "category": "Pop generalmente",
+      "venue": "X-TRA",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/gio-dara_AxbCWGq",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 39.9,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Limmatstrasse 118",
+        "postalCode": "8005"
+      },
+      "geo": {
+        "lat": 47.3839834,
+        "lng": 8.5328258
+      },
+      "recurring": false,
+      "performer": {
+        "name": "GIO DARA"
+      },
+      "sourceDescriptionHash": "24be077b031e116a26eac18e440a0c41f89132094fd166564dd2463fcde634f8"
+    },
+    {
+      "id": "guidle:Ae5PKwM",
+      "title": "Chrigu Blaser, CH",
+      "titleByLocale": {
+        "it": "Chrigu Blaser, CH",
+        "en": "Chrigu Blaser, CH",
+        "de": "Chrigu Blaser, CH",
+        "fr": "Chrigu Blaser, CH"
+      },
+      "startDate": "2027-02-19",
+      "endDate": "2027-02-19",
+      "startTime": "19:30",
+      "category": "Blues",
+      "venue": "Gasthaus Albisgütli",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/chrigu-blaser-ch_Ae5PKwM",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 51.1,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Uetlibergstrasse 341",
+        "postalCode": "8045"
+      },
+      "geo": {
+        "lat": 47.3518061,
+        "lng": 8.5079161
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Albisgütli Country Music Festival"
+      },
+      "sourceDescriptionHash": "b2824e4e6135bac412785affc0fee9f702918dfecf6d3c685ce661d6ba54f6fa"
+    },
+    {
+      "id": "guidle:AJp5DbS",
+      "title": "Robyn Red, UK",
+      "titleByLocale": {
+        "it": "Robyn Red, UK",
+        "en": "Robyn Red, UK",
+        "de": "Robyn Red, UK",
+        "fr": "Robyn Red, UK"
+      },
+      "startDate": "2027-02-26",
+      "endDate": "2027-02-26",
+      "startTime": "19:30",
+      "category": "Festival / Incontro",
+      "venue": "Gasthaus Albisgütli",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/robyn-red-uk_AJp5DbS",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 51.1,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Uetlibergstrasse 341",
+        "postalCode": "8045"
+      },
+      "geo": {
+        "lat": 47.3518061,
+        "lng": 8.5079161
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Albisgütli Country Music Festival"
+      },
+      "sourceDescriptionHash": "b2824e4e6135bac412785affc0fee9f702918dfecf6d3c685ce661d6ba54f6fa"
+    },
+    {
+      "id": "guidle:AhixbG9",
+      "title": "Drew Baldridge, USA",
+      "titleByLocale": {
+        "it": "Drew Baldridge, USA",
+        "en": "Drew Baldridge, USA",
+        "de": "Drew Baldridge, USA",
+        "fr": "Drew Baldridge, USA"
+      },
+      "startDate": "2027-02-20",
+      "endDate": "2027-02-20",
+      "startTime": "19:30",
+      "category": "Festival / Incontro",
+      "venue": "Gasthaus Albisgütli",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/drew-baldridge-usa_AhixbG9",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 71.7,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Uetlibergstrasse 341",
+        "postalCode": "8045"
+      },
+      "geo": {
+        "lat": 47.3518061,
+        "lng": 8.5079161
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Albisgütli Country Music Festival"
+      },
+      "sourceDescriptionHash": "b2824e4e6135bac412785affc0fee9f702918dfecf6d3c685ce661d6ba54f6fa"
+    },
+    {
+      "id": "guidle:AEUSsyF",
+      "title": "Tyler Braden, USA",
+      "titleByLocale": {
+        "it": "Tyler Braden, USA",
+        "en": "Tyler Braden, USA",
+        "de": "Tyler Braden, USA",
+        "fr": "Tyler Braden, USA"
+      },
+      "startDate": "2027-02-18",
+      "endDate": "2027-02-18",
+      "startTime": "19:30",
+      "category": "Festival / Incontro",
+      "venue": "Gasthaus Albisgütli",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/tyler-braden-usa_AEUSsyF",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 71.7,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Uetlibergstrasse 341",
+        "postalCode": "8045"
+      },
+      "geo": {
+        "lat": 47.3518061,
+        "lng": 8.5079161
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Albisgütli Country Music Festival"
+      },
+      "sourceDescriptionHash": "b2824e4e6135bac412785affc0fee9f702918dfecf6d3c685ce661d6ba54f6fa"
+    },
+    {
+      "id": "guidle:AcTe3n2",
+      "title": "Western Girls, CZ",
+      "titleByLocale": {
+        "it": "Western Girls, CZ",
+        "en": "Western Girls, CZ",
+        "de": "Western Girls, CZ",
+        "fr": "Western Girls, CZ"
+      },
+      "startDate": "2027-02-27",
+      "endDate": "2027-02-27",
+      "startTime": "19:30",
+      "category": "Festival / Incontro",
+      "venue": "Gasthaus Albisgütli",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/western-girls-cz_AcTe3n2",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 61.5,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Uetlibergstrasse 341",
+        "postalCode": "8045"
+      },
+      "geo": {
+        "lat": 47.3518061,
+        "lng": 8.5079161
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Albisgütli Country Music Festival"
+      },
+      "sourceDescriptionHash": "b2824e4e6135bac412785affc0fee9f702918dfecf6d3c685ce661d6ba54f6fa"
+    },
+    {
+      "id": "guidle:A86Y2yu",
+      "title": "Line Dance Night – MOTEL7, CH",
+      "titleByLocale": {
+        "it": "Line Dance Night – MOTEL7, CH",
+        "en": "Line Dance Night – MOTEL7, CH",
+        "de": "Line Dance Night – MOTEL7, CH",
+        "fr": "Line Dance Night – MOTEL7, CH"
+      },
+      "startDate": "2027-02-25",
+      "endDate": "2027-02-25",
+      "startTime": "18:30",
+      "category": "Line Dance",
+      "venue": "Gasthaus Albisgütli",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/line-dance-night-motel7-ch_A86Y2yu",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 15.9,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Uetlibergstrasse 341",
+        "postalCode": "8045"
+      },
+      "geo": {
+        "lat": 47.3518061,
+        "lng": 8.5079161
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Albisgütli Country Music Festival"
+      },
+      "sourceDescriptionHash": "b2824e4e6135bac412785affc0fee9f702918dfecf6d3c685ce661d6ba54f6fa"
+    },
+    {
+      "id": "guidle:AXM863w",
+      "title": "Le journal intime de Bernstein",
+      "titleByLocale": {
+        "it": "Le journal intime de Bernstein",
+        "en": "Le journal intime de Bernstein",
+        "de": "Le journal intime de Bernstein",
+        "fr": "Le journal intime de Bernstein"
+      },
+      "startDate": "2027-03-17",
+      "endDate": "2027-03-17",
+      "startTime": "19:30",
+      "category": "Altri musica",
+      "venue": "Théâtre Cité Bleue",
+      "canton": "GE",
+      "url": "https://www.guidle.com/it/evenements/musique/geneve/le-journal-intime-de-bernstein_AXM863w",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 15,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Avenue de Miremont 46",
+        "postalCode": "1206"
+      },
+      "geo": {
+        "lat": 46.1867381,
+        "lng": 6.1589184
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "c90f47a69633c2344063ed7dcca727f9c038d8380c32ccefbea6a803f2a152fa"
+    },
+    {
+      "id": "guidle:AMGFSfw",
+      "title": "MERCI-TOUR - 30 Jahre Oeschs die Dritten",
+      "titleByLocale": {
+        "it": "MERCI-TOUR - 30 Jahre Oeschs die Dritten",
+        "en": "MERCI-TOUR - 30 Jahre Oeschs die Dritten",
+        "de": "MERCI-TOUR - 30 Jahre Oeschs die Dritten",
+        "fr": "MERCI-TOUR - 30 Jahre Oeschs die Dritten"
+      },
+      "startDate": "2027-03-05",
+      "endDate": "2027-03-05",
+      "startTime": "20:00",
+      "category": "Divertimento popolare",
+      "venue": "Stadtsaal Wil",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/wil-sg/merci-tour-30-jahre-oeschs-die-dritten_AMGFSfw",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 2,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Bahnhofplatz 6",
+        "postalCode": "9500"
+      },
+      "geo": {
+        "lat": 47.4632978,
+        "lng": 9.0415824
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "a817cc2f0c589b0cf89fc349705c2ab404f570c2a6d1816a80d0e93b22edfb78"
+    },
+    {
+      "id": "guidle:ApCvgXM",
+      "title": "MERCI-TOUR - 30 Jahre Oeschs die Dritten",
+      "titleByLocale": {
+        "it": "MERCI-TOUR - 30 Jahre Oeschs die Dritten",
+        "en": "MERCI-TOUR - 30 Jahre Oeschs die Dritten",
+        "de": "MERCI-TOUR - 30 Jahre Oeschs die Dritten",
+        "fr": "MERCI-TOUR - 30 Jahre Oeschs die Dritten"
+      },
+      "startDate": "2027-02-20",
+      "endDate": "2027-02-20",
+      "startTime": "20:00",
+      "category": "Divertimento popolare",
+      "venue": "Halle des Fêtes",
+      "canton": "JU",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/bassecourt/merci-tour-30-jahre-oeschs-die-dritten_ApCvgXM",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 58.5,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Rue de la Croix 21",
+        "postalCode": "2854"
+      },
+      "geo": {
+        "lat": 47.3415117,
+        "lng": 7.2422745
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "a817cc2f0c589b0cf89fc349705c2ab404f570c2a6d1816a80d0e93b22edfb78"
+    },
+    {
+      "id": "guidle:Aw1qRwH",
+      "title": "Lo & Leduc",
+      "titleByLocale": {
+        "it": "Lo & Leduc",
+        "en": "Lo & Leduc",
+        "de": "Lo & Leduc",
+        "fr": "Lo & Leduc"
+      },
+      "startDate": "2027-03-06",
+      "endDate": "2027-03-06",
+      "startTime": "20:30",
+      "category": "Hip-Hop",
+      "venue": "Salzhaus Brugg",
+      "comune": "Brugg",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/brugg-ag/lo-und-leduc_Aw1qRwH",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 60.5,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Schulthess-Allee 25",
+        "postalCode": "5200"
+      },
+      "geo": {
+        "lat": 47.4852711,
+        "lng": 8.2084005
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "KRISE ALS CHANSON"
+        },
+        {
+          "name": "Lo"
+        },
+        {
+          "name": "Leduc"
+        }
+      ],
+      "sourceDescriptionHash": "5c2e10022e151b7f1dd229655d97b2398c8264f9387228075ae1bb4977e66493"
+    },
+    {
+      "id": "guidle:AG1VgYE",
+      "title": "Jessie & The Gents",
+      "titleByLocale": {
+        "it": "Jessie & The Gents",
+        "en": "Jessie & The Gents",
+        "de": "Jessie & The Gents",
+        "fr": "Jessie & The Gents"
+      },
+      "startDate": "2027-03-14",
+      "endDate": "2027-03-14",
+      "startTime": "10:30",
+      "category": "Country",
+      "venue": "Kulturzentrum Alts Schlachthuus",
+      "comune": "Laufen",
+      "canton": "BL",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/laufen/jessie-und-the-gents_AG1VgYE",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Seidenweg 55",
+        "postalCode": "4242"
+      },
+      "geo": {
+        "lat": 47.4221541,
+        "lng": 7.5036813
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Ausweis"
+      },
+      "sourceDescriptionHash": "6d8add03ad9c8c472104ddd127880152bdf3729c94a5b73b84d029028882016a"
+    },
+    {
+      "id": "guidle:APdxCRV",
+      "title": "The Red Hot Serenaders",
+      "titleByLocale": {
+        "it": "The Red Hot Serenaders",
+        "en": "The Red Hot Serenaders",
+        "de": "The Red Hot Serenaders",
+        "fr": "The Red Hot Serenaders"
+      },
+      "startDate": "2027-02-19",
+      "endDate": "2027-02-19",
+      "startTime": "20:00",
+      "category": "Blues",
+      "venue": "Besucherzentrum Brauquöll",
+      "canton": "AI",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/appenzell/the-red-hot-serenaders_APdxCRV",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 15,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Brauereiplatz 1",
+        "postalCode": "9050"
+      },
+      "geo": {
+        "lat": 47.3309868,
+        "lng": 9.4124588
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Tanja Wirz"
+        },
+        {
+          "name": "Rainer Wöffler"
+        }
+      ],
+      "sourceDescriptionHash": "6316a5fd24df83cc8edb67b9cd4bd69b8544d87cde311356272edb65b9fbaca4"
+    },
+    {
+      "id": "guidle:AULKGGr",
+      "title": "Luchè",
+      "titleByLocale": {
+        "it": "Luchè",
+        "en": "Luchè",
+        "de": "Luchè",
+        "fr": "Luchè"
+      },
+      "startDate": "2027-02-27",
+      "endDate": "2027-02-27",
+      "startTime": "20:30",
+      "category": "Pop generalmente",
+      "venue": "Halle 622",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/luche_AULKGGr",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 94,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Therese-Giehse-Strasse 10",
+        "postalCode": "8050"
+      },
+      "geo": {
+        "lat": 47.4133283,
+        "lng": 8.5424027
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Luchè"
+      },
+      "sourceDescriptionHash": "4865a2f788020988c740864641ce13cea1e1e1020f941fa2399e0de6cf710b0b"
+    },
+    {
+      "id": "guidle:AphKtLT",
+      "title": "Samurai Jay",
+      "titleByLocale": {
+        "it": "Samurai Jay",
+        "en": "Samurai Jay",
+        "de": "Samurai Jay",
+        "fr": "Samurai Jay"
+      },
+      "startDate": "2027-03-06",
+      "endDate": "2027-03-06",
+      "startTime": "20:30",
+      "category": "Pop generalmente",
+      "venue": "Halle 622",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/samurai-jay_AphKtLT",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 84,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Therese-Giehse-Strasse 10",
+        "postalCode": "8050"
+      },
+      "geo": {
+        "lat": 47.4133283,
+        "lng": 8.5424027
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Samurai Jay"
+        },
+        {
+          "name": "Aufstieg"
+        }
+      ],
+      "sourceDescriptionHash": "2a8c9b41f8f05a5fa3d5907f022ec5a0c8a681039e84b36f6d0360b702b5650f"
+    },
+    {
+      "id": "guidle:AcDyUep",
+      "title": "Xavier Naidoo - Live 2027",
+      "titleByLocale": {
+        "it": "Xavier Naidoo - Live 2027",
+        "en": "Xavier Naidoo - Live 2027",
+        "de": "Xavier Naidoo - Live 2027",
+        "fr": "Xavier Naidoo - Live 2027"
+      },
+      "startDate": "2027-02-27",
+      "endDate": "2027-02-27",
+      "startTime": "20:00",
+      "category": "Rock generalmente",
+      "venue": "Hallenstadion Zürich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/xavier-naidoo-live-2027_AcDyUep",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Wallisellenstrasse 45",
+        "postalCode": "8050"
+      },
+      "geo": {
+        "lat": 47.4113134,
+        "lng": 8.5517916
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Live NationXavier NaidooLive 2027Türöffnung: 18:00 UhrBeginn: 20:00 UhrEnde: ca"
+      },
+      "performer": {
+        "name": "Xavier Naidoo"
+      },
+      "sourceDescriptionHash": "3607e2c3ba6cb2592392a73d97aba9e99ca1f03da3cc5d8ab17cc9c3dc13b579"
+    },
+    {
+      "id": "guidle:ASkxXT3",
+      "title": "No Mute // Freezes Deyna",
+      "titleByLocale": {
+        "it": "No Mute // Freezes Deyna",
+        "en": "No Mute // Freezes Deyna",
+        "de": "No Mute // Freezes Deyna",
+        "fr": "No Mute // Freezes Deyna"
+      },
+      "startDate": "2027-02-20",
+      "endDate": "2027-02-20",
+      "startTime": "21:00",
+      "category": "Rock generalmente",
+      "venue": "OXIL",
+      "comune": "Zofingen",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zofingen/no-mute-freezes-deyna_ASkxXT3",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Obere Brühlstrasse 6",
+        "postalCode": "4800"
+      },
+      "geo": {
+        "lat": 47.2849382,
+        "lng": 7.9440458
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "a0c2bfd548c1109981f4c5da42536df7eab47673411bee5a06b89ecfa7b2494a"
+    },
+    {
+      "id": "guidle:AEdGNEQ",
+      "title": "Mario Biondi",
+      "titleByLocale": {
+        "it": "Mario Biondi",
+        "en": "Mario Biondi",
+        "de": "Mario Biondi",
+        "fr": "Mario Biondi"
+      },
+      "startDate": "2027-03-05",
+      "endDate": "2027-03-05",
+      "startTime": "20:00",
+      "category": "Soul",
+      "venue": "LAC Lugano Arte e Cultura",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/lugano/mario-biondi_AEdGNEQ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 2,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Piazza Bernardino Luini 6",
+        "postalCode": "6900"
+      },
+      "geo": {
+        "lat": 45.999409,
+        "lng": 8.9478873
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Mario Biondi"
+      },
+      "sourceDescriptionHash": "7278096d60e6d26a6253f70630b1fc6fe0f4ff2a03cba6d2e7949a012028ce8e"
+    },
+    {
+      "id": "guidle:AfRe9GU",
+      "title": "Adelboden Live '27",
+      "titleByLocale": {
+        "it": "Adelboden Live '27",
+        "en": "Adelboden Live '27",
+        "de": "Adelboden Live '27",
+        "fr": "Adelboden Live '27"
+      },
+      "startDate": "2027-03-19",
+      "endDate": "2027-03-20",
+      "startTime": "19:00",
+      "category": "Festival / Incontro",
+      "venue": "Marktplatz Adelboden",
+      "comune": "Adelboden",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/events/music/adelboden/adelboden-live-27_AfRe9GU",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 71.7,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "postalCode": "3715"
+      },
+      "geo": {
+        "lat": 46.4908994,
+        "lng": 7.5559338
+      },
+      "recurring": true,
+      "performer": {
+        "name": "Gotthard"
+      },
+      "sourceDescriptionHash": "83ba259f3f2190129dd3e75f01a380af58be9e9d7a4a87b4e97459c5739ea08d"
+    },
+    {
+      "id": "guidle:Ad1sxVd",
+      "title": "Tom Byrne & Michael Carey / Fell Line",
+      "titleByLocale": {
+        "it": "Tom Byrne & Michael Carey / Fell Line",
+        "en": "Tom Byrne & Michael Carey / Fell Line",
+        "de": "Tom Byrne & Michael Carey / Fell Line",
+        "fr": "Tom Byrne & Michael Carey / Fell Line"
+      },
+      "startDate": "2027-03-05",
+      "endDate": "2027-03-05",
+      "startTime": "20:30",
+      "category": "Pop generalmente",
+      "venue": "Kulturhaus Rössli",
+      "comune": "Stäfa",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/staefa/tom-byrne-und-michael-carey-fell-line_Ad1sxVd",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 36.6,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Bahnhofstrasse 1",
+        "postalCode": "8712"
+      },
+      "geo": {
+        "lat": 47.2396312,
+        "lng": 8.7186473
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Tom Byrne"
+        },
+        {
+          "name": "Of The Year"
+        },
+        {
+          "name": "Calum McIlroy"
+        },
+        {
+          "name": "Stimmen"
+        },
+        {
+          "name": "ComposerMitwirkende"
+        }
+      ],
+      "sourceDescriptionHash": "3f56a2707276cc7ac0c3a1548214397156420f8831de7c1ddf02c71bb26da01d"
+    },
+    {
+      "id": "guidle:AveEHwV",
+      "title": "Apérokonzert zur Ausstellung von Guillame Petit",
+      "titleByLocale": {
+        "it": "Apérokonzert zur Ausstellung von Guillame Petit",
+        "en": "Apérokonzert zur Ausstellung von Guillame Petit",
+        "de": "Apérokonzert zur Ausstellung von Guillame Petit",
+        "fr": "Apérokonzert zur Ausstellung von Guillame Petit"
+      },
+      "startDate": "2027-02-19",
+      "endDate": "2027-02-19",
+      "startTime": "17:30",
+      "category": "Altri musica",
+      "venue": "Kunstgalerie Sala Segantini",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/events/music/savognin/aperokonzert-zur-ausstellung-von-guillame-petit_AveEHwV",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Veia Grava",
+        "postalCode": "7460"
+      },
+      "geo": {
+        "lat": 46.5950781,
+        "lng": 9.5933614
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Viola von Scarpatetti"
+      },
+      "sourceDescriptionHash": "045daa2e0861b3f5f21e51751d1e27e11def1f4704f2a9fdf52bd97a6c208560"
+    },
+    {
+      "id": "guidle:A4KwEHX",
+      "title": "`M´- METALLICA TRIBUTE @ ITS BEST",
+      "titleByLocale": {
+        "it": "`M´- METALLICA TRIBUTE @ ITS BEST",
+        "en": "`M´- METALLICA TRIBUTE @ ITS BEST",
+        "de": "`M´- METALLICA TRIBUTE @ ITS BEST",
+        "fr": "`M´- METALLICA TRIBUTE @ ITS BEST"
+      },
+      "startDate": "2027-02-26",
+      "endDate": "2027-02-26",
+      "startTime": "20:00",
+      "category": "Metal / Hardcore",
+      "venue": "K9 Kulturzentrum",
+      "canton": "",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/konstanz/m-metallica-tribute-its-best_A4KwEHX",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 15,
+        "currency": "EUR",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Hieronymusgasse 3",
+        "postalCode": "78462"
+      },
+      "geo": {
+        "lat": 47.6599068,
+        "lng": 9.1714964
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "M"
+        },
+        {
+          "name": "Wurzeln"
+        },
+        {
+          "name": "Raum Hegau"
+        }
+      ],
+      "sourceDescriptionHash": "2e8bee52ef79a32b222315f510f4e44beafd619fb1c5118c0d04819e28d02d07"
+    },
+    {
+      "id": "guidle:AuUseWJ",
+      "title": "Shakra - Just Live Loud!",
+      "titleByLocale": {
+        "it": "Shakra - Just Live Loud!",
+        "en": "Shakra - Just Live Loud!",
+        "de": "Shakra - Just Live Loud!",
+        "fr": "Shakra - Just Live Loud!"
+      },
+      "startDate": "2027-03-12",
+      "endDate": "2027-03-12",
+      "startTime": "20:30",
+      "category": "Hardrock",
+      "venue": "Kulturhaus Rössli",
+      "comune": "Stäfa",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/staefa/shakra-just-live-loud_AuUseWJ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 41.8,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Bahnhofstrasse 1",
+        "postalCode": "8712"
+      },
+      "geo": {
+        "lat": 47.2396312,
+        "lng": 8.7186473
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Shakra"
+      },
+      "sourceDescriptionHash": "ffb02ac626e1b3bae4b741017dbf2f1d1fefc4f8c24e4d786e71a863f4054ca3"
+    },
+    {
+      "id": "guidle:Adn28hm",
+      "title": "Musig im Kulturkloster",
+      "titleByLocale": {
+        "it": "Musig im Kulturkloster",
+        "en": "Musig im Kulturkloster",
+        "de": "Musig im Kulturkloster",
+        "fr": "Musig im Kulturkloster"
+      },
+      "startDate": "2027-03-14",
+      "endDate": "2027-03-14",
+      "startTime": "00:00",
+      "category": "Altri musica",
+      "venue": "kulturkloster Altdorf",
+      "canton": "UR",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/altdorf-ur/musig-im-kulturkloster_Adn28hm",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Kapuzinerweg 22",
+        "postalCode": "6460"
+      },
+      "geo": {
+        "lat": 46.8843902,
+        "lng": 8.6438811
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Kirche"
+      },
+      "sourceDescriptionHash": "f1d87e3680b5c3d3f45127a5d719b374fe667890e864cfd8879d958ad8b30997"
+    },
+    {
+      "id": "guidle:AdeHkJ8",
+      "title": "Six4Blues",
+      "titleByLocale": {
+        "it": "Six4Blues",
+        "en": "Six4Blues",
+        "de": "Six4Blues",
+        "fr": "Six4Blues"
+      },
+      "startDate": "2027-03-05",
+      "endDate": "2027-03-05",
+      "startTime": "20:30",
+      "category": "Soul",
+      "venue": "Bogenkeller",
+      "comune": "Bühler",
+      "canton": "AR",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/buehler/six4blues_AdeHkJ8",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Rotfarb 1",
+        "postalCode": "9055"
+      },
+      "geo": {
+        "lat": 47.3730848,
+        "lng": 9.40814
+      },
+      "recurring": false,
+      "performer": {
+        "@type": "PerformingGroup",
+        "name": "Deutsche Band"
+      },
+      "sourceDescriptionHash": "e8ef3a9d8a772654406eec9960579b24a25f3baa8aeccf6111fd28be695164c1"
     }
   ]
 }
