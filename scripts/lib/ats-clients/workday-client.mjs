@@ -80,6 +80,34 @@ export class WorkdayAuthError extends WorkdayApiError {
   }
 }
 
+/**
+ * Run-level stop signal for a tenant that keeps returning HTTP 429. Continuing
+ * through more URLs on the same runner cannot change its egress and would only
+ * turn a controlled rate limit into a watchdog kill.
+ */
+export class WorkdayRateLimitError extends WorkdayApiError {
+  /**
+   * @param {string} url
+   * @param {{ consecutiveFailures: number, retryAfterMs: number, circuitOpen: boolean }} metadata
+   */
+  constructor(url, metadata) {
+    const retryAfterMs = Math.max(0, Number(metadata?.retryAfterMs) || 0);
+    const consecutiveFailures = Math.max(1, Number(metadata?.consecutiveFailures) || 1);
+    const waitLabel = retryAfterMs > 0 ? `; cooldown ${retryAfterMs}ms` : '';
+    super(
+      `Workday rate limit (HTTP 429) for ${url} after ${consecutiveFailures} consecutive response(s)${waitLabel}`,
+      429,
+      url,
+    );
+    this.name = 'WorkdayRateLimitError';
+    this.status = 429;
+    this.retryable = false;
+    this.retryAfterMs = retryAfterMs;
+    this.consecutiveFailures = consecutiveFailures;
+    this.circuitOpen = Boolean(metadata?.circuitOpen);
+  }
+}
+
 /* ── Constants ─────────────────────────────────────────────────────────── */
 
 const DEFAULT_USER_AGENT = 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/)';
@@ -297,6 +325,7 @@ async function fetchJsonWithRetry(url, options = {}) {
     retries,
     retryBaseMs,
     browserFallback = null,
+    beforeDirectAttempt,
     beforeBrowserFallback,
     onTransientFailure,
   } = options;
@@ -310,6 +339,7 @@ async function fetchJsonWithRetry(url, options = {}) {
   try {
     return await fetchWithRetry(
       async () => {
+        if (typeof beforeDirectAttempt === 'function') await beforeDirectAttempt();
         const controller = new AbortController();
         const timer = setTimeout(() => controller.abort(), timeoutMs);
         try {
@@ -374,7 +404,9 @@ async function fetchJsonWithRetry(url, options = {}) {
         // retry. Otherwise defer to the shared transient classifier (which
         // honours the `retryable` flag set above + network/timeout signals).
         isTransient: (err) =>
-          !(err instanceof WorkdayAuthError) && isTransientFetchError(err),
+          !(err instanceof WorkdayAuthError)
+          && !(err instanceof WorkdayRateLimitError)
+          && isTransientFetchError(err),
         onTransientFailure,
       },
     );
@@ -390,7 +422,8 @@ async function fetchJsonWithRetry(url, options = {}) {
     // cannot preserve Workday's POST JSON contract.
     const retryBudgetExhausted = err instanceof WorkdayApiError
       && isRetryBudgetExhaustedError(err);
-    if (browserFallback && (connectionLevelFailure || retryBudgetExhausted)) {
+    const rateLimited = Number(err?.statusCode ?? err?.status) === 429;
+    if (browserFallback && !rateLimited && (connectionLevelFailure || retryBudgetExhausted)) {
       try {
         if (typeof beforeBrowserFallback === 'function') await beforeBrowserFallback();
         return await browserFallback({ url, method, body, userAgent, timeoutMs });
@@ -426,7 +459,11 @@ async function fetchJsonWithRetry(url, options = {}) {
   }
 }
 
-const DEFAULT_RATE_LIMIT_COOLDOWN_MS = 1_000;
+const DEFAULT_RATE_LIMIT_COOLDOWN_MS = 60_000;
+// Two consecutive 429s prove that changing only the Workday URL cannot clear
+// a tenant/egress limit. With the existing two-minute Retry-After cap, this
+// keeps the worst bounded exit below five minutes (2 x 120s).
+const DEFAULT_RATE_LIMIT_CIRCUIT_THRESHOLD = 2;
 
 /**
  * Own the transport for one Workday tenant during a crawler run.
@@ -438,7 +475,7 @@ const DEFAULT_RATE_LIMIT_COOLDOWN_MS = 1_000;
  * previous request is waiting out the tenant's Retry-After window.
  *
  * @param {string} apiBase
- * @param {{ browserFallback?: Function|null, retryAfterCapMs?: number, fallbackCooldownMs?: number }} [options]
+ * @param {{ browserFallback?: Function|null, retryAfterCapMs?: number, fallbackCooldownMs?: number, rateLimitCircuitThreshold?: number }} [options]
  * @returns {{ request: (url: string, options?: object) => Promise<any>, close: () => Promise<void> }}
  */
 export function createWorkdayRequestContext(apiBase, options = {}) {
@@ -448,11 +485,19 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
     browserFallback: configuredBrowserFallback,
     retryAfterCapMs = MAX_RETRY_AFTER_MS,
     fallbackCooldownMs = DEFAULT_RATE_LIMIT_COOLDOWN_MS,
+    rateLimitCircuitThreshold = DEFAULT_RATE_LIMIT_CIRCUIT_THRESHOLD,
   } = options;
   let browserSession = null;
   let closed = false;
   let blockedUntil = 0;
+  let consecutiveRateLimits = 0;
+  let lastRateLimitUrl = apiBase;
   let queue = Promise.resolve();
+  const observedRateLimits = new WeakSet();
+  const circuitThreshold = Math.max(
+    1,
+    Number(rateLimitCircuitThreshold) || DEFAULT_RATE_LIMIT_CIRCUIT_THRESHOLD,
+  );
 
   const browserFallback = configuredBrowserFallback === undefined
     ? async (args) => {
@@ -463,7 +508,7 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
 
   const observeRateLimit = (err) => {
     const status = Number(err?.statusCode ?? err?.status);
-    if (status !== 429) return;
+    if (status !== 429) return false;
     const retryAfterMs = parseRetryAfterMs(
       err?.retryAfter ?? err?.response?.headers?.get?.('retry-after'),
       { capMs: retryAfterCapMs },
@@ -472,6 +517,12 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
       ? Math.max(0, Number(fallbackCooldownMs) || 0)
       : retryAfterMs;
     blockedUntil = Math.max(blockedUntil, Date.now() + cooldownMs);
+    lastRateLimitUrl = err?.url || lastRateLimitUrl;
+    if (!err || typeof err !== 'object' || !observedRateLimits.has(err)) {
+      consecutiveRateLimits += 1;
+      if (err && typeof err === 'object') observedRateLimits.add(err);
+    }
+    return true;
   };
 
   const waitForRateLimit = async () => {
@@ -479,22 +530,54 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
     if (waitMs > 0) await new Promise((resolve) => setTimeout(resolve, waitMs));
   };
 
+  const rateLimitError = (url) => new WorkdayRateLimitError(url || lastRateLimitUrl, {
+    consecutiveFailures: consecutiveRateLimits,
+    retryAfterMs: Math.max(0, blockedUntil - Date.now()),
+    circuitOpen: consecutiveRateLimits >= circuitThreshold,
+  });
+
+  const beforeDirectAttempt = async () => {
+    if (consecutiveRateLimits >= circuitThreshold) throw rateLimitError(lastRateLimitUrl);
+    await waitForRateLimit();
+  };
+
+  const onTransientFailure = async (err, retry) => {
+    if (!observeRateLimit(err)) return;
+    // fetchWithRetry invokes this hook before its exponential delay. Waiting
+    // here makes the no-header tenant cooldown govern this retry too. A valid
+    // Retry-After is already applied (with the same shared cap) by that loop;
+    // waiting here as well would double the vendor-requested cooldown.
+    const retryAfterMs = parseRetryAfterMs(
+      err?.retryAfter ?? err?.response?.headers?.get?.('retry-after'),
+      { capMs: retryAfterCapMs },
+    );
+    if (retryAfterMs === null
+      && consecutiveRateLimits < circuitThreshold
+      && retry.attempt < retry.maxRetries) {
+      await waitForRateLimit();
+    }
+  };
+
   const request = (url, requestOptions = {}) => {
     if (closed) return Promise.reject(new Error('Workday request context is already closed'));
 
     const run = async () => {
-      await waitForRateLimit();
       try {
-        return await fetchJsonWithRetry(url, {
+        const data = await fetchJsonWithRetry(url, {
           ...requestOptions,
           browserFallback,
+          beforeDirectAttempt,
           beforeBrowserFallback: waitForRateLimit,
-          onTransientFailure: observeRateLimit,
+          onTransientFailure,
         });
+        consecutiveRateLimits = 0;
+        return data;
       } catch (err) {
         // Browser fallback errors are outside fetchWithRetry's hook. Preserve a
         // terminal 429 there too, so the next detail remains behind Retry-After.
-        observeRateLimit(err);
+        if (err instanceof WorkdayRateLimitError) throw err;
+        if (observeRateLimit(err)) throw rateLimitError(url);
+        if (Number(err?.statusCode ?? err?.status) > 0) consecutiveRateLimits = 0;
         throw err;
       }
     };
@@ -681,7 +764,7 @@ export async function* fetchWorkdayJobs(apiBase, options = {}) {
         // Surface auth errors verbatim; for other failures on the first page,
         // re-throw so the caller knows nothing was fetched. On later pages, stop
         // gracefully (we already returned partial results).
-        if (err instanceof WorkdayAuthError) throw err;
+        if (err instanceof WorkdayAuthError || err instanceof WorkdayRateLimitError) throw err;
         if (page === 0) throw err;
         end('page-error');
         return;
@@ -891,7 +974,8 @@ export async function fetchWorkdayJobDetail(apiBase, externalPath, options = {})
       retries,
       ...transport,
     });
-  } catch {
+  } catch (err) {
+    if (err instanceof WorkdayRateLimitError) throw err;
     return null;
   } finally {
     await browserSession?.close();
@@ -997,7 +1081,10 @@ export function fetchWorkdaySidebarText(apiBase, stripHtml, options = {}) {
   if (!workdaySidebarCache.has(key)) {
     workdaySidebarCache.set(key, fetchWorkdayJobDetail(key, '/sidebar', options)
       .then((entries) => formatWorkdaySidebarText(entries, stripHtml))
-      .catch(() => ''));
+      .catch((err) => {
+        if (err instanceof WorkdayRateLimitError) throw err;
+        return '';
+      }));
   }
   return workdaySidebarCache.get(key);
 }

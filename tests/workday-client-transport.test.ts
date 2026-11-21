@@ -12,12 +12,14 @@ vi.mock('../scripts/lib/stealth-browser.mjs', () => ({
 
 import { createWorkdaySwissParser } from '../scripts/lib/workday-swiss-job-parser-common.mjs';
 import { fetchAllKsbJobs } from '../scripts/lib/ksb-job-parser.mjs';
+import { fetchAllLonzaJobs } from '../scripts/lib/lonza-job-parser.mjs';
 import {
   createWorkdayRequestContext,
   fetchWorkdayJobDetail,
   fetchWorkdayJsonWithRetry,
   fetchWorkdayJobs,
   WorkdayApiError,
+  WorkdayRateLimitError,
 } from '../scripts/lib/ats-clients/workday-client.mjs';
 
 const API_BASE = 'https://everestre.wd5.myworkdayjobs.com/wday/cxs/everestre/External';
@@ -152,7 +154,7 @@ describe('Workday JSON transport', () => {
     expect(browser.close).toHaveBeenCalledOnce();
   });
 
-  it('recovers a retry-exhausted detail through an injected browser transport', async () => {
+  it('does not send a retry-exhausted 429 through an injected browser transport', async () => {
     vi.stubEnv('JOBS_CRAWLER_RETRIES', '1');
     vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
     const directFetch = vi.fn().mockResolvedValue(new Response('', { status: 429 }));
@@ -165,20 +167,29 @@ describe('Workday JSON transport', () => {
       browserFallback,
     });
 
-    expect(detail?.jobPostingInfo?.jobDescription).toBe('<p>Recovered detail</p>');
+    expect(detail).toBeNull();
     expect(directFetch).toHaveBeenCalledTimes(2);
-    expect(browserFallback).toHaveBeenCalledOnce();
-    expect(browserFallback).toHaveBeenCalledWith(expect.objectContaining({
-      url: `${API_BASE}/job/Zurich/Swiss_R1`,
-      method: 'GET',
-      timeoutMs: 15_000,
-    }));
+    expect(browserFallback).not.toHaveBeenCalled();
   });
 
-  it('uses the lazy default browser transport for a rate-limited detail', async () => {
+  it('propagates a terminal rate limit from the Lonza listing without a partial result', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
+    const directFetch = vi.fn().mockResolvedValue(new Response('', { status: 429 }));
+    vi.stubGlobal('fetch', directFetch);
+
+    await expect(fetchAllLonzaJobs()).rejects.toMatchObject({
+      name: 'WorkdayRateLimitError',
+      statusCode: 429,
+      consecutiveFailures: 1,
+    });
+    expect(directFetch).toHaveBeenCalledOnce();
+    expect(launchStealthOrChromiumMock).not.toHaveBeenCalled();
+  });
+
+  it('uses the lazy default browser transport for a retry-exhausted 503 detail', async () => {
     vi.stubEnv('JOBS_CRAWLER_RETRIES', '1');
     vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
-    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('', { status: 429 })));
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('', { status: 503 })));
     const { page, browser } = browserTransport({
       jobPostingInfo: { jobDescription: '<p>Recovered detail</p>' },
     });
@@ -190,7 +201,7 @@ describe('Workday JSON transport', () => {
     expect(browser.close).toHaveBeenCalledOnce();
   });
 
-  it('uses one browser session to recover parser detail after Workday rate limiting', async () => {
+  it('uses one browser session to recover parser detail after transient HTTP failures', async () => {
     vi.stubEnv('JOBS_CRAWLER_RETRIES', '1');
     vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
     const detailPayload = {
@@ -215,7 +226,7 @@ describe('Workday JSON transport', () => {
           }],
         }), { status: 200 });
       }
-      return new Response('', { status: 429 });
+      return new Response('', { status: 503 });
     });
     vi.stubGlobal('fetch', directFetch);
     const { page, browser } = browserTransport(detailPayload);
@@ -226,6 +237,7 @@ describe('Workday JSON transport', () => {
       companyDomain: 'testco.com',
       tenantHost: 'testco.wd3.myworkdayjobs.com',
       sitePath: 'Test_Careers',
+      careerUrl: 'https://testco.wd3.myworkdayjobs.com/en-US/Test_Careers',
       defaultCanton: 'ZH',
       defaultCity: 'Zurich',
     });
@@ -239,68 +251,96 @@ describe('Workday JSON transport', () => {
     expect(browser.close).toHaveBeenCalledOnce();
   });
 
-  it('serializes tenant requests and carries Retry-After across rate-limited details', async () => {
+  it('does not let a shared parser swallow a terminal detail rate limit', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
+    const directFetch = vi.fn(async (url: string) => {
+      if (url.endsWith('/jobs')) {
+        return new Response(JSON.stringify({
+          total: 1,
+          jobPostings: [{
+            title: 'Swiss role',
+            externalPath: '/job/Zurich/Swiss_R1',
+            locationsText: 'Zurich, Switzerland',
+            bulletFields: ['R1'],
+          }],
+        }), { status: 200 });
+      }
+      return new Response('', { status: 429 });
+    });
+    vi.stubGlobal('fetch', directFetch);
+    const parser = createWorkdaySwissParser({
+      companyKey: 'testco',
+      companyName: 'Test Co',
+      companyDomain: 'testco.com',
+      tenantHost: 'testco.wd3.myworkdayjobs.com',
+      sitePath: 'Test_Careers',
+      careerUrl: 'https://testco.wd3.myworkdayjobs.com/en-US/Test_Careers',
+      defaultCanton: 'ZH',
+      defaultCity: 'Zurich',
+    });
+
+    await expect(parser.fetchAllJobs()).rejects.toBeInstanceOf(WorkdayRateLimitError);
+    expect(directFetch).toHaveBeenCalledTimes(2);
+    expect(launchStealthOrChromiumMock).not.toHaveBeenCalled();
+  });
+
+  it('serializes tenant requests and carries Retry-After to the next direct request', async () => {
     vi.useFakeTimers();
     vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
-    const directFetch = vi.fn().mockResolvedValue(
-      new Response('', { status: 429, headers: { 'Retry-After': '5' } }),
-    );
+    const directFetch = vi.fn()
+      .mockResolvedValueOnce(new Response('', { status: 429, headers: { 'Retry-After': '5' } }))
+      .mockResolvedValueOnce(new Response(JSON.stringify({ recovered: true }), { status: 200 }));
     vi.stubGlobal('fetch', directFetch);
-    const { page, browser } = browserTransport({
-      jobPostingInfo: { jobDescription: '<p>Recovered detail</p>' },
-    });
-    const context = createWorkdayRequestContext(API_BASE);
+    const browserFallback = vi.fn().mockResolvedValue({ browser: true });
+    const context = createWorkdayRequestContext(API_BASE, { browserFallback });
 
     try {
-      const firstPending = context.request(`${API_BASE}/job/Zurich/Swiss_R1`);
-      await vi.advanceTimersByTimeAsync(4_999);
-      expect(directFetch).toHaveBeenCalledOnce();
-      expect(page.evaluate).not.toHaveBeenCalled();
-
-      const first = await vi.advanceTimersByTimeAsync(1).then(() => firstPending);
-      expect(first?.jobPostingInfo?.jobDescription).toBe('<p>Recovered detail</p>');
-      expect(page.evaluate).toHaveBeenCalledOnce();
-
+      await expect(context.request(`${API_BASE}/job/Zurich/Swiss_R1`)).rejects.toBeInstanceOf(
+        WorkdayRateLimitError,
+      );
       const second = context.request(`${API_BASE}/job/Zurich/Swiss_R2`);
       await vi.advanceTimersByTimeAsync(4_999);
-      expect(directFetch).toHaveBeenCalledTimes(2);
-      expect(page.evaluate).toHaveBeenCalledOnce();
+      expect(directFetch).toHaveBeenCalledOnce();
 
       await vi.advanceTimersByTimeAsync(1);
-      await expect(second).resolves.toEqual({
-        jobPostingInfo: { jobDescription: '<p>Recovered detail</p>' },
-      });
+      await expect(second).resolves.toEqual({ recovered: true });
       expect(directFetch).toHaveBeenCalledTimes(2);
-      expect(page.evaluate).toHaveBeenCalledTimes(2);
-      expect(browser.close).not.toHaveBeenCalled();
+      expect(browserFallback).not.toHaveBeenCalled();
     } finally {
       await context.close();
-      expect(browser.close).toHaveBeenCalledOnce();
       vi.useRealTimers();
     }
   });
 
-  it('waits out a terminal direct rate limit before starting browser fallback', async () => {
+  it('opens a bounded circuit for 429 without Retry-After and never repeats via browser egress', async () => {
     vi.useFakeTimers();
-    vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
-    const directFetch = vi.fn().mockResolvedValue(
-      new Response('', { status: 429, headers: { 'Retry-After': '30' } }),
-    );
+    const directFetch = vi.fn().mockResolvedValue(new Response('', { status: 429 }));
     const browserFallback = vi.fn().mockResolvedValue({ recovered: true });
     vi.stubGlobal('fetch', directFetch);
-    const context = createWorkdayRequestContext(API_BASE, { browserFallback });
+    const context = createWorkdayRequestContext(API_BASE, {
+      browserFallback,
+      fallbackCooldownMs: 60_000,
+      rateLimitCircuitThreshold: 2,
+    });
 
     try {
-      const pending = context.request(`${API_BASE}/job/Zurich/Swiss_R1`);
-      await vi.advanceTimersByTimeAsync(0);
-      expect(browserFallback).not.toHaveBeenCalled();
-
-      await vi.advanceTimersByTimeAsync(29_999);
+      const pending = context.request(`${API_BASE}/job/Zurich/Swiss_R1`, {
+        retries: 3,
+        retryBaseMs: 0,
+      });
+      await vi.advanceTimersByTimeAsync(59_999);
+      expect(directFetch).toHaveBeenCalledOnce();
       expect(browserFallback).not.toHaveBeenCalled();
 
       await vi.advanceTimersByTimeAsync(1);
-      await expect(pending).resolves.toEqual({ recovered: true });
-      expect(browserFallback).toHaveBeenCalledOnce();
+      await expect(pending).rejects.toMatchObject({
+        name: 'WorkdayRateLimitError',
+        statusCode: 429,
+        consecutiveFailures: 2,
+        circuitOpen: true,
+      });
+      expect(directFetch).toHaveBeenCalledTimes(2);
+      expect(browserFallback).not.toHaveBeenCalled();
     } finally {
       await context.close();
       vi.useRealTimers();
@@ -320,7 +360,10 @@ describe('Workday JSON transport', () => {
 
     try {
       const first = context.request(`${API_BASE}/job/Zurich/Swiss_R1`);
-      await expect(first).rejects.toMatchObject({ statusCode: 429, retryAfter: '30' });
+      await expect(first).rejects.toMatchObject({
+        name: 'WorkdayRateLimitError',
+        statusCode: 429,
+      });
       expect(page.evaluate).toHaveBeenCalledOnce();
 
       const second = context.request(`${API_BASE}/job/Zurich/Swiss_R2`);
@@ -351,10 +394,10 @@ describe('Workday JSON transport', () => {
     try {
       const first = context.request(`${API_BASE}/job/Zurich/Swiss_R1`);
       await expect(first).rejects.toMatchObject({
+        name: 'WorkdayRateLimitError',
         statusCode: 429,
         status: 429,
-        retryAfter: '30',
-        retryExhausted: true,
+        retryAfterMs: 30_000,
       });
       expect(page.evaluate).toHaveBeenCalledOnce();
 
@@ -374,7 +417,7 @@ describe('Workday JSON transport', () => {
     }
   });
 
-  it('uses one browser session for two KSB detail requests after rate limiting', async () => {
+  it('uses one browser session for two KSB detail requests after transient HTTP failures', async () => {
     vi.stubEnv('JOBS_CRAWLER_RETRIES', '1');
     vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
     const vacancy = '<p>Responsibilities include coordinating cross functional projects, preparing clear documentation, supporting the local team, and improving reliable processes. The successful candidate brings relevant experience, strong communication skills, sound judgement, careful attention to detail, and fluent German. We offer a collaborative workplace, flexible working hours, professional development, meaningful ownership, and a structured application process with supportive colleagues and modern tools.</p>';
@@ -393,7 +436,7 @@ describe('Workday JSON transport', () => {
           ],
         }), { status: 200 });
       }
-      return new Response('', { status: 429 });
+      return new Response('', { status: 503 });
     });
     vi.stubGlobal('fetch', directFetch);
     const { page, browser } = browserTransport(null);
