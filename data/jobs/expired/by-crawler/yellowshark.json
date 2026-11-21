@@ -128496,25 +128496,33 @@
     "slugByLocale": {
       "it": "falegname-m-f-yellowshark-ag-luzern-lu-56c61b",
       "en": "carpenter-m-f-yellowshark-ag-luzern-lu-56c61b",
-      "de": "zimmermann-m-w-luzern-lu-yellowshark-ch",
-      "fr": "charpentier-h-f-yellowshark-ag-luzern-lu"
+      "de": "zimmermann-m-w-luzern-lu-yellowshark-ch-c539f1b6",
+      "fr": "charpentier-h-f-yellowshark-ag-luzern-lu-0e74e407"
     },
     "sector": "Altro",
     "expiredAt": "2026-10-05T22:16:12.649Z",
     "previousSlugs": [
+      "zimmermann-m-w-yellowshark-ag-luzern",
       "zimmermann-m-w-luzern-lu-yellowshark-ch",
-      "zimmermann-m-w-yellowshark-ag-luzern"
+      "charpentier-h-f-yellowshark-ag-luzern-lu"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "zimmermann-m-w-luzern-lu-yellowshark-ch",
-        "zimmermann-m-w-yellowshark-ag-luzern"
+        "zimmermann-m-w-luzern-lu-yellowshark-ch-c539f1b6",
+        "zimmermann-m-w-yellowshark-ag-luzern",
+        "zimmermann-m-w-luzern-lu-yellowshark-ch"
       ],
       "en": [
+        "zimmermann-m-w-luzern-lu-yellowshark-ch-c539f1b6",
         "zimmermann-m-w-luzern-lu-yellowshark-ch"
       ],
       "fr": [
-        "zimmermann-m-w-luzern-lu-yellowshark-ch"
+        "zimmermann-m-w-luzern-lu-yellowshark-ch-c539f1b6",
+        "zimmermann-m-w-luzern-lu-yellowshark-ch",
+        "charpentier-h-f-yellowshark-ag-luzern-lu"
+      ],
+      "de": [
+        "zimmermann-m-w-luzern-lu-yellowshark-ch-c539f1b6"
       ]
     },
     "postalCode": "6000",
@@ -131640,26 +131648,36 @@
     },
     "slugByLocale": {
       "it": "falegname-m-f-yellowshark-ag-aarau-ag",
-      "en": "zimmermann-m-f-yellowshark-ag-aarau",
-      "de": "zimmermann-m-w-aarau-ag-yellowshark-ch",
-      "fr": "zimmermann-h-f-yellowshark-ag-aarau"
+      "en": "zimmermann-m-f-yellowshark-ag-aarau-c7a3bc0f",
+      "de": "zimmermann-m-w-aarau-ag-yellowshark-ch-d000076c",
+      "fr": "zimmermann-h-f-yellowshark-ag-aarau-5e831b68"
     },
     "sector": "Altro",
     "expiredAt": "2026-10-05T09:56:22.171Z",
     "previousSlugs": [
+      "zimmermann-m-w-yellowshark-ag-aarau",
       "zimmermann-m-w-aarau-ag-yellowshark-ch",
-      "zimmermann-m-w-yellowshark-ag-aarau"
+      "zimmermann-m-f-yellowshark-ag-aarau",
+      "zimmermann-h-f-yellowshark-ag-aarau"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "zimmermann-m-w-aarau-ag-yellowshark-ch",
-        "zimmermann-m-w-yellowshark-ag-aarau"
+        "zimmermann-m-w-aarau-ag-yellowshark-ch-d000076c",
+        "zimmermann-m-w-yellowshark-ag-aarau",
+        "zimmermann-m-w-aarau-ag-yellowshark-ch"
       ],
       "en": [
-        "zimmermann-m-w-aarau-ag-yellowshark-ch"
+        "zimmermann-m-w-aarau-ag-yellowshark-ch-d000076c",
+        "zimmermann-m-w-aarau-ag-yellowshark-ch",
+        "zimmermann-m-f-yellowshark-ag-aarau"
       ],
       "fr": [
-        "zimmermann-m-w-aarau-ag-yellowshark-ch"
+        "zimmermann-m-w-aarau-ag-yellowshark-ch-d000076c",
+        "zimmermann-m-w-aarau-ag-yellowshark-ch",
+        "zimmermann-h-f-yellowshark-ag-aarau"
+      ],
+      "de": [
+        "zimmermann-m-w-aarau-ag-yellowshark-ch-d000076c"
       ]
     },
     "postalCode": "5000",

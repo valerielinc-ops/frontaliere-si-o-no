@@ -971,9 +971,6 @@
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-03T09:10:16.415Z",
     "previousSlugs": [
-      "cuisiniere-60-100-stiftung-diaconis-bern",
-      "cucina-60-100-stiftung-diaconis-bern",
-      "kochin-koch-60-stiftung-diaconis-bern",
       "kochin-koch-100-stiftung-diaconis-bern-d7d1031a",
       "cucina-100-stiftung-diaconis-bern-8dcf2a7e",
       "kochin-koch-60-100-stiftung-diaconis-bern-1639fb71",
@@ -999,12 +996,13 @@
       "cook-cook-60-100-stiftung-diaconis-bern-bcbf6896",
       "kochin-koch-60-stiftung-diaconis-bern-a4438a39",
       "cuire-cuire-100-stiftung-diaconis-bern-6bda985b",
-      "cuisiniere-60-100-stiftung-diaconis-bern-8ae98ebc"
+      "cuisiniere-60-100-stiftung-diaconis-bern-8ae98ebc",
+      "cuisiniere-60-100-stiftung-diaconis-bern",
+      "cucina-60-100-stiftung-diaconis-bern",
+      "kochin-koch-60-stiftung-diaconis-bern"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "cucina-60-100-stiftung-diaconis-bern",
-        "kochin-koch-60-stiftung-diaconis-bern",
         "kochin-koch-100-stiftung-diaconis-bern-d7d1031a",
         "cucina-100-stiftung-diaconis-bern-8dcf2a7e",
         "kochin-koch-60-100-stiftung-diaconis-bern-1639fb71",
@@ -1020,7 +1018,9 @@
         "cooking-100-stiftung-diaconis-bern-4b5f64cc",
         "cook-cook-100-stiftung-diaconis-bern-18a1e28e",
         "cuisson-100-stiftung-diaconis-bern-41064600",
-        "cuisiniere-60-100-stiftung-diaconis-bern"
+        "cuisiniere-60-100-stiftung-diaconis-bern",
+        "cucina-60-100-stiftung-diaconis-bern",
+        "kochin-koch-60-stiftung-diaconis-bern"
       ],
       "en": [
         "kochin-koch-100-stiftung-diaconis-bern-d7d1031a",
@@ -1052,7 +1052,6 @@
         "cuisiniere-60-100-stiftung-diaconis-bern"
       ],
       "fr": [
-        "cuisiniere-60-100-stiftung-diaconis-bern",
         "kochin-koch-100-stiftung-diaconis-bern-d7d1031a",
         "cuisson-100-stiftung-diaconis-bern-e2b47d58",
         "kochin-koch-60-100-stiftung-diaconis-bern-1639fb71",
@@ -1065,7 +1064,8 @@
         "cuisson-100-stiftung-diaconis-bern-adf72b8d",
         "kochin-koch-60-100-stiftung-diaconis-bern-e2aab9bb",
         "cucina-60-100-stiftung-diaconis-bern",
-        "kochin-koch-60-stiftung-diaconis-bern"
+        "kochin-koch-60-stiftung-diaconis-bern",
+        "cuisiniere-60-100-stiftung-diaconis-bern"
       ]
     },
     "postalCode": "3000",
@@ -1576,7 +1576,7 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "collaboratore-trice-pflege-dpc-60-stiftung-diaconis-bern-z8ttjt",
+    "slug": "collaboratore-trice-pflege-dpc-60-stiftung-diaconis-bern-z8ttjt-36c2f8a1",
     "title": "Mitarbeiter/in Pflege DPC 60%",
     "titleByLocale": {
       "it": "Collaboratore/trice Pflege DPC 60%",
@@ -1595,44 +1595,42 @@
       "fr": "En tant que complément à notre équipe, nous recherchons un employé/soignant DPC 60% Votre\n• Tâches avec nous Aime soin et soutien à nos résidents dans la vie quotidienne\n• Tâches et responsabilités en matière de logement et d'ordre dans les zones de vie En coopération ou en consultation avec le personnel technique, vous pouvez aborder des sujets possibles\n• Tâches Vous testez et documentez l'état de santé des résidents comme suit : avec une formation au niveau de l'assistance (assistance/en santé/social EBA, assistante infirmière/en FA) ou le cours SRK Bonne connaissance de l'allemand en paroles et en écriture (min. B2) Flexibilité et chargeabilité, méthodes de travail consciencieuses Conception active d'une équipe de soins axée sur le besoin 6 semaines de vacances plus 9 vacances garanties Temps de travail annuel flexible Milieu de travail central et moderne dans un bel emplacement de la ville de Berne Réductions et offres de sociétés partenaires 16 semaines Congé de maternité à 100% salaire, 4 semaines congé de paternité Cadeau d'âge de service tous les 5 ans (Gutschrift de 5 jours ouvrables) Apprenez à nous connaître: @Instagram / @Facebook / @Linkedin / www.diaconis.ch"
     },
     "slugByLocale": {
-      "it": "collaboratore-trice-pflege-dpc-60-stiftung-diaconis-bern-z8ttjt",
+      "it": "collaboratore-trice-pflege-dpc-60-stiftung-diaconis-bern-z8ttjt-36c2f8a1",
       "en": "employee-care-dpc-60-stiftung-diaconis-bern",
-      "de": "mitarbeiter-in-pflege-dpc-60-stiftung-diaconis-bern",
+      "de": "mitarbeiter-in-pflege-dpc-60-stiftung-diaconis-bern-1fc8519e",
       "fr": "soins-aux-employes-dpc-60-stiftung-diaconis-bern"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-07-16T22:05:29.739Z",
     "previousSlugs": [
-      "mitarbeiter-in-pflege-dpc-60-stiftung-diaconis-bern",
-      "cura-dei-dipendenti-dpc-60-stiftung-diaconis-bern",
-      "collaboratore-trice-pflege-dpc-60-stiftung-diaconis-bern",
       "collaboratore-trice-pflege-dpc-60-stiftung-diaconis-bern-z8ttjt-36c2f8a1",
       "mitarbeiter-in-pflege-dpc-60-stiftung-diaconis-bern-1fc8519e",
       "cura-dei-dipendenti-dpc-60-stiftung-diaconis-bern-834b5da2",
-      "collaboratore-trice-pflege-dpc-60-stiftung-diaconis-bern-ca24a74d"
+      "collaboratore-trice-pflege-dpc-60-stiftung-diaconis-bern-ca24a74d",
+      "cura-dei-dipendenti-dpc-60-stiftung-diaconis-bern",
+      "collaboratore-trice-pflege-dpc-60-stiftung-diaconis-bern"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "mitarbeiter-in-pflege-dpc-60-stiftung-diaconis-bern",
-        "cura-dei-dipendenti-dpc-60-stiftung-diaconis-bern",
         "collaboratore-trice-pflege-dpc-60-stiftung-diaconis-bern-z8ttjt-36c2f8a1",
         "mitarbeiter-in-pflege-dpc-60-stiftung-diaconis-bern-1fc8519e",
         "cura-dei-dipendenti-dpc-60-stiftung-diaconis-bern-834b5da2",
         "collaboratore-trice-pflege-dpc-60-stiftung-diaconis-bern-ca24a74d"
       ],
       "en": [
-        "mitarbeiter-in-pflege-dpc-60-stiftung-diaconis-bern",
         "mitarbeiter-in-pflege-dpc-60-stiftung-diaconis-bern-1fc8519e",
-        "cura-dei-dipendenti-dpc-60-stiftung-diaconis-bern"
+        "cura-dei-dipendenti-dpc-60-stiftung-diaconis-bern",
+        "collaboratore-trice-pflege-dpc-60-stiftung-diaconis-bern"
       ],
       "fr": [
-        "mitarbeiter-in-pflege-dpc-60-stiftung-diaconis-bern",
         "mitarbeiter-in-pflege-dpc-60-stiftung-diaconis-bern-1fc8519e",
-        "cura-dei-dipendenti-dpc-60-stiftung-diaconis-bern"
+        "cura-dei-dipendenti-dpc-60-stiftung-diaconis-bern",
+        "collaboratore-trice-pflege-dpc-60-stiftung-diaconis-bern"
       ],
       "de": [
         "mitarbeiter-in-pflege-dpc-60-stiftung-diaconis-bern-1fc8519e",
-        "cura-dei-dipendenti-dpc-60-stiftung-diaconis-bern"
+        "cura-dei-dipendenti-dpc-60-stiftung-diaconis-bern",
+        "collaboratore-trice-pflege-dpc-60-stiftung-diaconis-bern"
       ]
     },
     "postalCode": "3000",
@@ -1643,7 +1641,7 @@
     "dedupArchive": true
   },
   {
-    "slug": "stv-head-head-care-80-100-stiftung-diaconis-bern-uerbvd",
+    "slug": "stv-head-head-care-80-100-stiftung-diaconis-bern-uerbvd-2f7b20fa",
     "title": "Stv. Leiterin / Leiter Pflege 80 - 100 %",
     "titleByLocale": {
       "it": "Stv. Head / Head Care 80 - 100%",
@@ -1662,37 +1660,36 @@
       "fr": "Mansioni - Stv. Chef de soins 80 - 100% Vantaggi - Gli ospiti sono al centro e il tempo per l'assistenza è importante per noi - Gerarchie piatte e decisioni rapide - Posto di lavoro in posizione centrale e atmosfera familiale - Almeno 6 settimane di ferie più 9 giorni festivi garantiti Annexe - Supporto alla responsabile della cura in compiti di leadership e organizzazione della stazione e sosituzione in caso di assenza - Responsabilità nella sviluppo e promozione dell'assistenza e della qualità dell'assistenza in collaboration con l'esperto di assistenza - Promuovere e gestion la collaboration interdisciplinaire et interprofessionnelle - Participare ai processi di cambiamento - Lavoro nell'assistenza\n• Requisiti - Formazione terziaria come professionista dell'assistenza HF / FH con almeno 5 anni di espérienza - Formazione come formatore professionale è un vantaggio - Esperienza nella cura un terminus lungo - Mentità orientalata alla soluzione e pensiero connesso - Doti organizzatif Contatto - Anja Stauffer, responsabile del soggiorno e dell'assistenza, tél. 0 31 337 75 41 o Sebastian Berleth, responsabile dei servizi, tél. 031 337 77 07. Conosci diaconis.ch - @Instagram / @Facebook / @Linkedin / www.diaconis.ch"
     },
     "slugByLocale": {
-      "de": "stv-leiterin-leiter-pflege-80-100-stiftung-diaconis-bern",
-      "fr": "stv-tete-soins-de-la-tete-80-100-stiftung-diaconis-bern"
+      "de": "stv-leiterin-leiter-pflege-80-100-stiftung-diaconis-bern-5fb959b8",
+      "fr": "stv-tete-soins-de-la-tete-80-100-stiftung-diaconis-bern-9714bd4c"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-07-16T22:05:29.739Z",
     "previousSlugs": [
-      "stv-leiterin-leiter-pflege-80-100-stiftung-diaconis-bern",
-      "stv-head-head-care-80-100-stiftung-diaconis-bern",
       "stv-leiterin-leiter-pflege-80-100-stiftung-diaconis-bern-5fb959b8",
       "stv-head-head-care-80-100-stiftung-diaconis-bern-d41155d6",
       "stv-tete-soins-de-la-tete-80-100-stiftung-diaconis-bern-9714bd4c",
-      "stv-head-head-care-80-100-stiftung-diaconis-bern-uerbvd-2f7b20fa"
+      "stv-head-head-care-80-100-stiftung-diaconis-bern-uerbvd-2f7b20fa",
+      "stv-head-head-care-80-100-stiftung-diaconis-bern"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "stv-leiterin-leiter-pflege-80-100-stiftung-diaconis-bern",
         "stv-leiterin-leiter-pflege-80-100-stiftung-diaconis-bern-5fb959b8",
         "stv-head-head-care-80-100-stiftung-diaconis-bern-d41155d6",
         "stv-head-head-care-80-100-stiftung-diaconis-bern-uerbvd-2f7b20fa"
       ],
       "en": [
-        "stv-leiterin-leiter-pflege-80-100-stiftung-diaconis-bern",
-        "stv-leiterin-leiter-pflege-80-100-stiftung-diaconis-bern-5fb959b8"
+        "stv-leiterin-leiter-pflege-80-100-stiftung-diaconis-bern-5fb959b8",
+        "stv-head-head-care-80-100-stiftung-diaconis-bern"
       ],
       "fr": [
-        "stv-leiterin-leiter-pflege-80-100-stiftung-diaconis-bern",
         "stv-tete-soins-de-la-tete-80-100-stiftung-diaconis-bern-9714bd4c",
-        "stv-leiterin-leiter-pflege-80-100-stiftung-diaconis-bern-5fb959b8"
+        "stv-leiterin-leiter-pflege-80-100-stiftung-diaconis-bern-5fb959b8",
+        "stv-head-head-care-80-100-stiftung-diaconis-bern"
       ],
       "de": [
-        "stv-leiterin-leiter-pflege-80-100-stiftung-diaconis-bern-5fb959b8"
+        "stv-leiterin-leiter-pflege-80-100-stiftung-diaconis-bern-5fb959b8",
+        "stv-head-head-care-80-100-stiftung-diaconis-bern"
       ]
     },
     "postalCode": "3000",
