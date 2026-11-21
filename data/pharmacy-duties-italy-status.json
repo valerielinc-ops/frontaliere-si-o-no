@@ -5,9 +5,9 @@
     "varese-ats-2026-2027",
     "vco-asl-2026"
   ],
-  "_fetchedAt": "2026-11-20T13:31:53.846Z",
-  "_attemptedAt": "2026-11-20T13:31:53.846Z",
-  "_lastSuccessfulFetchAt": "2026-11-20T13:31:53.846Z",
+  "_fetchedAt": "2026-11-21T13:00:24.946Z",
+  "_attemptedAt": "2026-11-21T13:00:24.946Z",
+  "_lastSuccessfulFetchAt": "2026-11-21T13:00:24.946Z",
   "_timezone": "Europe/Rome",
   "_scope": {
     "country": "IT",
@@ -19,8 +19,7 @@
   },
   "_successfulProvinces": [
     "CO",
-    "VA",
-    "VB"
+    "VA"
   ],
   "_requiredProvinces": [
     "CO",
@@ -32,7 +31,7 @@
       "province": "CO",
       "sourceKey": "como-ats-2026-2027",
       "sourceUrl": "https://www.comune.merone.co.it/novita/comunicati_stampa/novita_138.html",
-      "fetchedAt": "2026-11-20T13:31:53.846Z",
+      "fetchedAt": "2026-11-21T13:00:24.946Z",
       "dutyCount": 76,
       "observedDutyCount": 76,
       "freshness": "fresh",
@@ -50,7 +49,7 @@
       "province": "VA",
       "sourceKey": "varese-ats-2026-2027",
       "sourceUrl": "https://comune.marchirolo.varese.it/Dettaglionews?IDNews=400586",
-      "fetchedAt": "2026-11-20T13:31:53.846Z",
+      "fetchedAt": "2026-11-21T13:00:24.946Z",
       "dutyCount": 92,
       "observedDutyCount": 92,
       "freshness": "fresh",
@@ -68,31 +67,33 @@
       "province": "VB",
       "sourceKey": "vco-asl-2026",
       "sourceUrl": "https://www.aslvco.it/wp-content/uploads/2025/12/2968938.pdf?x88295=",
-      "fetchedAt": "2026-11-20T13:31:53.846Z",
-      "dutyCount": 7,
-      "observedDutyCount": 7,
-      "freshness": "fresh",
-      "coverage": "covered",
-      "state": "fresh",
+      "fetchedAt": "2026-11-21T13:00:24.946Z",
+      "dutyCount": 0,
+      "observedDutyCount": 0,
+      "freshness": "unknown",
+      "coverage": "not_published",
+      "state": "not_published",
       "publication": "best-effort",
       "coverageModel": "corrections-only",
-      "observedCalendarDays": 12,
+      "observedCalendarDays": null,
       "minimumCalendarDays": null,
-      "errors": [],
+      "errors": [
+        "vco-asl-2026: fetch failed (UND_ERR_CONNECT_TIMEOUT); VCO mirror failed: HTTP 401 for https://r.jina.ai/https://www.aslvco.it/wp-content/uploads/2025/12/2968938.pdf"
+      ],
       "warnings": [],
-      "fetchedVia": "vco-mirror"
+      "fetchedVia": "unavailable"
     }
   },
   "_errors": [],
-  "_bestEffortErrors": [],
-  "_warnings": [
-    "vco-asl-2026: fetched via configured vcoMirrorUrl after official fetch failure (fetch failed (UND_ERR_CONNECT_TIMEOUT))"
+  "_bestEffortErrors": [
+    "vco-asl-2026: fetch failed (UND_ERR_CONNECT_TIMEOUT); VCO mirror failed: HTTP 401 for https://r.jina.ai/https://www.aslvco.it/wp-content/uploads/2025/12/2968938.pdf"
   ],
+  "_warnings": [],
   "_release": {
     "version": 1,
     "timezone": "Europe/Rome",
     "state": "fresh",
-    "evaluatedAt": "2026-11-20T13:31:53.846Z",
+    "evaluatedAt": "2026-11-21T13:00:24.946Z",
     "scope": {
       "country": "IT",
       "provinces": [
@@ -104,13 +105,13 @@
     "snapshots": {
       "duties": {
         "path": "data/pharmacy-duties-italy.json",
-        "sha256": "1f446b84d5480b6349e275c4e9242f4cb5334e57aa7f4687df73b28c1c9d9729",
-        "fetchedAt": "2026-11-20T13:31:53.846Z"
+        "sha256": "42d77ae938beafe95e78bf035abb1e7470b1687f19370d1cf31b66c5dfe49fd6",
+        "fetchedAt": "2026-11-21T13:00:24.946Z"
       },
       "status": {
         "path": "data/pharmacy-duties-italy-status.json",
-        "sha256": "a2f2ea886f9eb1b8a5796bb1dd61b436ed68ba5bb9e145e5c962467a9ca50a6a",
-        "fetchedAt": "2026-11-20T13:31:53.846Z"
+        "sha256": "adbe65335e91394fa86f0077c641d68587520b5e9c1d43de147b8494ab5473b5",
+        "fetchedAt": "2026-11-21T13:00:24.946Z"
       }
     },
     "provinces": {
@@ -118,7 +119,7 @@
         "province": "CO",
         "sourceKey": "como-ats-2026-2027",
         "sourceUrl": "https://www.comune.merone.co.it/novita/comunicati_stampa/novita_138.html",
-        "fetchedAt": "2026-11-20T13:31:53.846Z",
+        "fetchedAt": "2026-11-21T13:00:24.946Z",
         "dutyCount": 76,
         "observedDutyCount": 76,
         "freshness": "fresh",
@@ -136,7 +137,7 @@
         "province": "VA",
         "sourceKey": "varese-ats-2026-2027",
         "sourceUrl": "https://comune.marchirolo.varese.it/Dettaglionews?IDNews=400586",
-        "fetchedAt": "2026-11-20T13:31:53.846Z",
+        "fetchedAt": "2026-11-21T13:00:24.946Z",
         "dutyCount": 92,
         "observedDutyCount": 92,
         "freshness": "fresh",
@@ -154,21 +155,23 @@
         "province": "VB",
         "sourceKey": "vco-asl-2026",
         "sourceUrl": "https://www.aslvco.it/wp-content/uploads/2025/12/2968938.pdf?x88295=",
-        "fetchedAt": "2026-11-20T13:31:53.846Z",
-        "dutyCount": 7,
-        "observedDutyCount": 7,
-        "freshness": "fresh",
-        "coverage": "covered",
-        "state": "fresh",
+        "fetchedAt": "2026-11-21T13:00:24.946Z",
+        "dutyCount": 0,
+        "observedDutyCount": 0,
+        "freshness": "unknown",
+        "coverage": "not_published",
+        "state": "not_published",
         "publication": "best-effort",
         "coverageModel": "corrections-only",
-        "observedCalendarDays": 12,
+        "observedCalendarDays": null,
         "minimumCalendarDays": null,
-        "errors": [],
+        "errors": [
+          "vco-asl-2026: fetch failed (UND_ERR_CONNECT_TIMEOUT); VCO mirror failed: HTTP 401 for https://r.jina.ai/https://www.aslvco.it/wp-content/uploads/2025/12/2968938.pdf"
+        ],
         "warnings": [],
-        "fetchedVia": "vco-mirror"
+        "fetchedVia": "unavailable"
       }
     },
-    "releaseId": "pharmacy-italy-v1-4c2d747356afa969842f5a9c01caff4fceb4d16db3cd53b8363136f48774a525"
+    "releaseId": "pharmacy-italy-v1-f4ad9929312a442f2efa7de195a388a402475a7eabf4a9a979763dceb21de064"
   }
 }
