@@ -1885,7 +1885,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T21:42:03.723Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:58:00.862Z"
+      "firstSeenAt": "2026-11-12T09:58:00.862Z",
+      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1626"
     },
     {
       "id": "hfr-hopital-fribourgeois-a0ccd1999539",
@@ -1959,7 +1960,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T21:42:02.248Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:58:00.862Z"
+      "firstSeenAt": "2026-11-12T09:58:00.862Z",
+      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1583"
     }
   ]
 }
