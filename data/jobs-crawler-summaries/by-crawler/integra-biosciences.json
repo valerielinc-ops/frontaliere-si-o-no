@@ -1,7 +1,7 @@
 {
   "key": "integra-biosciences",
   "label": "INTEGRA Biosciences",
-  "generatedAt": "2026-11-21T21:37:07.305Z",
+  "generatedAt": "2026-11-22T09:38:51.773Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -14,16 +14,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 10762,
-  "avgDurationMs": 10762,
+  "unchangedCount": 4,
+  "durationMs": 11188,
+  "avgDurationMs": 11188,
   "durationHistory": [
-    10762
+    11188
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "integra-biosciences-5522c74ca89c",
       "slug": "responsabile-marketing-della-generazione-della-domanda-m-f-d-100-integra-biosciences-zizers",
@@ -36,7 +38,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/350/Description/2?lang=eng",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:36:51.345Z",
+      "crawledAt": "2026-11-22T09:38:36.770Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -64,7 +66,7 @@
       "salarySource": "estimated",
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T21:36:51.345Z",
+      "validThrough": "2027-02-07T09:38:36.770Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -73,10 +75,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "integra-biosciences-20ac990943c5",
       "slug": "logisticista-m-f-d-100-integra-biosciences-zizers",
@@ -89,7 +88,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/349/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:36:49.795Z",
+      "crawledAt": "2026-11-22T09:38:34.960Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -116,7 +115,7 @@
       "salarySource": "estimated",
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:36:49.795Z",
+      "validThrough": "2027-02-03T09:38:34.960Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -138,7 +137,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/347/Description/2?lang=eng",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:36:48.211Z",
+      "crawledAt": "2026-11-22T09:38:33.453Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -165,7 +164,7 @@
       "salarySource": "estimated",
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T21:36:48.211Z",
+      "validThrough": "2027-01-20T09:38:33.453Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -187,7 +186,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/345/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:36:46.475Z",
+      "crawledAt": "2026-11-22T09:38:31.752Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -214,7 +213,7 @@
       "salarySource": "estimated",
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T21:36:46.475Z",
+      "validThrough": "2026-12-30T09:38:31.752Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -225,5 +224,5 @@
       }
     }
   ],
-  "codeCommit": "4b92eb0854b9f965b31956a24be8b4a2b342e4b2"
+  "codeCommit": "193181861b8ea282b062b042b15b99e091d330e5"
 }

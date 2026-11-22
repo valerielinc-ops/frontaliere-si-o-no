@@ -1,7 +1,7 @@
 {
   "crawlerKey": "komax",
-  "assembledAt": "2026-11-21T21:35:54.568Z",
-  "runId": "44951174790",
+  "assembledAt": "2026-11-22T09:36:10.701Z",
+  "runId": "45007106415",
   "jobs": [
     {
       "id": "komax-ac5f2370de5e",
@@ -34,7 +34,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Group-Procurement-Category-Manager-Indirects-80-100-%28mwd%29-6036/1165812055/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:35:12.920Z",
+      "crawledAt": "2026-11-22T09:36:04.804Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -80,7 +80,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-15T21:35:12.920Z",
+      "validThrough": "2027-02-15T09:36:04.804Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -114,7 +114,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Team-Leader-CRM-Applications-100-%28mwd%29-6036/1165799355/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:35:12.919Z",
+      "crawledAt": "2026-11-22T09:36:04.803Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -160,7 +160,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-12T21:35:12.919Z",
+      "validThrough": "2027-02-12T09:36:04.803Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -194,7 +194,7 @@
       "url": "https://jobs.komaxgroup.com/job/Thun-Technical-Service-Support-80-100-%28mw%29-3608/1165469655/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:35:12.919Z",
+      "crawledAt": "2026-11-22T09:36:04.803Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Thun",
@@ -245,7 +245,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:35:12.919Z",
+      "validThrough": "2026-12-22T09:36:04.803Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -279,7 +279,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Specialist-Internal-Sales-Equipment-%28mwd%29-Befristet-bis-Ende-2027-6036/1165756355/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:35:12.918Z",
+      "crawledAt": "2026-11-22T09:36:04.802Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -329,7 +329,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T21:35:12.918Z",
+      "validThrough": "2027-02-05T09:36:04.802Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -363,7 +363,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Quality-Assurance-Manager-%28mwd%29-6036/1165721655/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:35:12.918Z",
+      "crawledAt": "2026-11-22T09:36:04.802Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -410,15 +410,15 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:35:12.918Z",
+      "validThrough": "2027-02-01T09:36:04.802Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "komax-83b97218b154",
       "slug": "global-supply-chain-logistica-manager-80-100-m-w-d-komax-dierikon",
       "slugByLocale": {
-        "en": "global-supply-chain-logistics-manager-80-100-m-w-d-komax-ch",
         "it": "global-supply-chain-logistica-manager-80-100-m-w-d-komax-dierikon",
+        "en": "global-supply-chain-logistics-manager-80-100-m-w-d-komax-ch",
         "de": "global-lieferkette-logistik-manager-80-100-m-w-d-komax-dierikon",
         "fr": "global-chaine-d-approvisionnement-logistique-manager-80-100-m-w-d-komax-dierikon"
       },
@@ -444,7 +444,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Global-Supply-Chain-&-Logistics-Manager-80-100-%28mwd%29-6036/1165813155/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:35:12.917Z",
+      "crawledAt": "2026-11-22T09:36:04.801Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -465,14 +465,15 @@
       "jobReqId": "1165813155",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "global-supply-chain-logistics-manager-80-100-m-w-d-komax-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "global-supply-chain-logistics-manager-80-100-m-w-d-komax-ch"
         ]
       },
-      "previousSlugs": [
-        "global-supply-chain-logistics-manager-80-100-m-w-d-komax-ch"
-      ],
+      "firstSeenAt": "2026-11-17T09:35:15.933Z",
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -487,17 +488,16 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-15T21:35:12.917Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:35:15.933Z"
+      "validThrough": "2027-02-15T09:36:04.801Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "komax-30cc15bc8b74",
       "slug": "responsabile-di-prodotto-forming-taping-komax-dierikon-7696d2d6a8",
       "slugByLocale": {
-        "de": "product-manager-forming-taping-80-100-m-w-d-komax-ch",
         "it": "responsabile-di-prodotto-forming-taping-komax-dierikon-7696d2d6a8",
         "en": "product-manager-forming-taping-komax-dierikon",
+        "de": "product-manager-forming-taping-80-100-m-w-d-komax-ch",
         "fr": "gestionnaire-de-produits-formation-et-enregistrement-komax-dierikon"
       },
       "company": "Komax",
@@ -522,7 +522,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Product-Manager-Forming-&-Taping-80-100-%28mwd%29-6036/1165800055/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:35:12.917Z",
+      "crawledAt": "2026-11-22T09:36:04.801Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -543,16 +543,18 @@
       "jobReqId": "1165800055",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "product-manager-forming-taping-80-100-m-w-d-komax-ch",
+        "responsabile-di-prodotto-forming-taping-komax-dierikon"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "product-manager-forming-taping-80-100-m-w-d-komax-ch",
           "responsabile-di-prodotto-forming-taping-komax-dierikon"
         ]
       },
-      "previousSlugs": [
-        "product-manager-forming-taping-80-100-m-w-d-komax-ch",
-        "responsabile-di-prodotto-forming-taping-komax-dierikon"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-15T09:34:57.342Z",
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -567,10 +569,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-13T21:35:12.917Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-15T09:34:57.342Z",
-      "needsRetranslation": true
+      "validThrough": "2027-02-13T09:36:04.801Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "komax-6d1ac8dacae0",
@@ -603,7 +603,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Automatikerin-Assembly-Engineer-%28mwd%29-6036/1165755255/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:35:12.917Z",
+      "crawledAt": "2026-11-22T09:36:04.801Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -653,7 +653,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T21:35:12.917Z",
+      "validThrough": "2027-02-05T09:36:04.801Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -687,7 +687,7 @@
       "url": "https://jobs.komaxgroup.com/job/Thun-Technical-Sales-Engineer-80-100-%28mw%29-3608/1165611355/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:35:12.916Z",
+      "crawledAt": "2026-11-22T09:36:04.800Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Thun",
@@ -734,7 +734,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:35:12.916Z",
+      "validThrough": "2027-01-13T09:36:04.800Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -768,7 +768,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Monteurin-Assembly-Engineer-%28mwd%29-6036/1165754455/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:35:12.916Z",
+      "crawledAt": "2026-11-22T09:36:04.800Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -815,7 +815,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T21:35:12.916Z",
+      "validThrough": "2027-02-05T09:36:04.800Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -849,7 +849,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Facility-Manager-%28wmd%29-6036/1165472855/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:35:12.915Z",
+      "crawledAt": "2026-11-22T09:36:04.799Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -913,175 +913,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-21T21:35:12.915Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "komax-b5ccc6509ef9",
-      "slug": "tecnologia-dell-azionamento-dell-ingegnere-elettrico-80-100-m-f-d-komax-dierikon",
-      "slugByLocale": {
-        "it": "tecnologia-dell-azionamento-dell-ingegnere-elettrico-80-100-m-f-d-komax-dierikon",
-        "en": "electrical-engineer-drive-technology-80-100-m-f-d-komax-dierikon",
-        "de": "elektroingenieur-antriebstechnik-80-100-m-w-d-komax-ch",
-        "fr": "technologie-d-entrainement-de-l-ingenieur-electrique-80-100-h-f-d-komax-dierikon"
-      },
-      "company": "Komax",
-      "companyKey": "komax",
-      "companyDomain": "komaxgroup.com",
-      "title": "Elektroingenieur Antriebstechnik 80-100% (m/w/d)",
-      "titleByLocale": {
-        "it": "Tecnologia dell'azionamento dell'ingegnere elettrico 80-100% (m/f/d)",
-        "en": "Electrical Engineer Drive Technology 80-100% (m/f/d)",
-        "de": "Elektroingenieur Antriebstechnik 80-100% (m/w/d)",
-        "fr": "Technologie d'entraînement de l'ingénieur électrique 80-100% (h/f/d)"
-      },
-      "description": "Die Komax Gruppe ist Pionierin sowie Markt- und Technologieführerin bei Lösungen für die automatisierte Kabelverarbeitung. Als global tätiges Schweizer Unternehmen entwickeln und produzieren wir Serienmaschinen, kundenspezifische Anlagen, Qualitätssicherungsmodule, Testgeräte, Vernetzungslösungen und Serviceleistungen für verschiedene Industrien. Zur Komax Gruppe gehören über 50 Gesellschaften auf fünf Kontinenten, rund 3500 Mitarbeitende und ein weltweites Vertriebs- und Servicenetz.\n\nIhr Aufgabengebiet\n\n•\n Sie entwickeln unsere Plattform für elektrische Antriebe mit Synchronmotoren weiter und wirken an der Weiterentwicklung unserer Schrittmotorantriebe mit.\n\n•\n Sie modellieren und parametrieren Antriebssysteme und implementieren leistungsfähige Regelungen für unterschiedliche Anwendungen.\n\n•\n Sie legen Antriebssysteme für verschiedene Maschinenlinien aus und konzipieren sowie programmieren funktionale Sicherheitssteuerungen.\n\n• Sie verantworten Entwicklungstätigkeiten ganzheitlich vom ersten Konzept bis zur Serienreife in interdisziplinären Scrum-Teams.\n\nIhr Profil\n\n•\n Sie verfügen über einen Hochschulabschluss in Elektrotechnik auf Stufe ETH/FH oder über eine vergleichbare Ausbildung.\n\n•\n Sie bringen fundierte Erfahrung in der Antriebs- und Regelungstechnik mit und / oder Begeisterung für elektrische Antriebe, Maschinen und mechatronische Systeme sowie eine grosse Lernbereitschaft und -fähigkeit.\n\n•\n Sie verfügen über Programmiererfahrung in C/C++ und idealerweise in der Simulation von Regelungssystemen und im Umgang mit EtherCAT.\n\n•\n Kenntnisse der funktionalen Sicherheit, insbesondere der Normen ISO 13849 und IEC 62061, sind von Vorteil.\n\n•\n Sie überzeugen durch Eigeninitiative, eine rasche Auffassungsgabe, eine strukturierte Arbeitsweise und kommunizieren sehr gut auf Deutsch sowie gut auf Englisch.\n\nIhre Benefits\n\nIhr neuer Arbeitsort in Dierikon ist mit modernster Technik und Arbeitsmitteln ausgestattet. Ihr Arbeitsplatz befindet sich in einem der modernen Grossraumbüros, in denen es auch inspirierende Begegnungszonen sowie eine grosse Terrasse für diverse Mitarbeiteranlässe gibt. Die Komax AG bietet ihren Mitarbeitenden flexible Arbeitszeitmodelle und Home-Office. Die Weiterbildung der Mitarbeitenden liegt der Komax AG am Herzen und bietet beispielsweise kostenfreie interne Englischkurse oder Zugang zu ausgewählten attraktiven Lernplattformen. Am Standort Dierikon gibt es auch moderne Pausenräume sowie die Möglichkeit von vergünstigtem Mittagessen in einem benachbarten Partnerrestaurant.\n\nHaben Sie Fragen?\nWir stehen Ihnen gerne für weitere Auskünfte zur Verfügung:\n\nJulian Singer, HR Business Partner,\n julian.singer@komaxgroup.com",
-      "descriptionByLocale": {
-        "it": "Il Gruppo Komax è un pioniere e leader del mercato e della tecnologia nelle soluzioni per la lavorazione dei cavi automatizzati. Come azienda svizzera attiva a livello mondiale, sviluppiamo e produciamo macchine serie, sistemi specifici per i clienti, moduli di garanzia della qualità, apparecchiature di prova, soluzioni di networking e servizi per varie industrie. Il Gruppo Komax comprende più di 50 aziende in cinque continenti, circa 3.500 dipendenti e una rete di vendita e assistenza mondiale.\n\nLe tue responsabilità\n\n•\nSviluppano ulteriormente la nostra piattaforma per azionamenti elettrici con motori sincroni e partecipano all'ulteriore sviluppo dei nostri motori stepper.\n\n•\nModellano e parametrizzano i sistemi di azionamento e implementano potenti controlli per diverse applicazioni.\n\n•\nEssi progettano sistemi di azionamento per varie linee di macchine e design e programma controlli di sicurezza funzionali.\n\n• Essi sono responsabili per le attività di sviluppo olistico dal primo concetto alla maturità di serie in team interdisciplinari Scrum.\n\nIl tuo profilo\n\n•\nHai una laurea in ingegneria elettrica a livello ETH/FH o una formazione comparabile.\n\n•\nHai una profonda esperienza nella tecnologia di guida e di controllo e / o l'entusiasmo per azionamenti elettrici, macchine e sistemi meccatronici, nonché una grande disponibilità e capacità di imparare.\n\n•\nHai esperienza di programmazione in C/C++ e idealmente nella simulazione dei sistemi di controllo e nel trattare con EtherCAT.\n\n•\nLa conoscenza della sicurezza funzionale, in particolare gli standard ISO 13849 e IEC 62061, sono vantaggiosi.\n\n•\nConvincono attraverso la propria iniziativa, una rapida comprensione, un modo strutturato di lavorare e comunicare molto bene in tedesco e in inglese.\n\nI tuoi vantaggi\n\nIl vostro nuovo luogo di lavoro a Dierikon è dotato delle più recenti tecnologie e attrezzature di lavoro. Il vostro posto di lavoro si trova in uno dei moderni uffici open-plan, dove ci sono anche le aree di incontro ispiranti e una grande terrazza per vari eventi dei dipendenti. Komax AG offre ai propri dipendenti modelli flessibili di tempo di lavoro e ufficio. L'ulteriore formazione dei dipendenti è importante per Komax AG e offre, ad esempio, corsi di inglese interni gratuiti o l'accesso a piattaforme di apprendimento attraenti selezionate. Nella posizione di Dierikon, ci sono anche moderne sale relax e la possibilità di un pranzo scontato in un ristorante partner vicino.\n\nHai delle domande?\nSiamo a vostra disposizione per ulteriori informazioni:\n\nJulian Singer, HR Business Partner,\njulian.singer@komaxgroup.com",
-        "en": "The Komax Group is a pioneer and market and technology leader in solutions for automated cable processing. As a globally active Swiss company, we develop and produce series machines, customer-specific systems, quality assurance modules, test equipment, networking solutions and services for various industries. The Komax Group comprises more than 50 companies on five continents, around 3,500 employees and a worldwide sales and service network.\n\nYour responsibilities\n\n•\nThey further develop our platform for electric drives with synchronous motors and participate in the further development of our stepper motor drives.\n\n•\nThey model and parameterize drive systems and implement powerful controls for different applications.\n\n•\nThey design drive systems for various machine lines and design and program functional safety controls.\n\n• They are responsible for development activities holistically from the first concept to series maturity in interdisciplinary Scrum teams.\n\nYour profile\n\n•\nYou have a university degree in electrical engineering at ETH/FH level or a comparable education.\n\n•\nYou have profound experience in drive and control technology and / or enthusiasm for electric drives, machines and mechatronic systems as well as a great willingness and ability to learn.\n\n•\nYou have programming experience in C/C++ and ideally in the simulation of control systems and in dealing with EtherCAT.\n\n•\nKnowledge of functional safety, in particular the standards ISO 13849 and IEC 62061, are advantageous.\n\n•\nThey convince through their own initiative, a quick understanding, a structured way of working and communicate very well in German as well as in English.\n\nYour Benefits\n\nYour new place of work in Dierikon is equipped with the latest technology and work equipment. Your workplace is located in one of the modern open-plan offices, where there are also inspiring meeting areas and a large terrace for various employee events. Komax AG offers its employees flexible working time models and home office. The further training of employees is important to Komax AG and offers, for example, free internal English courses or access to selected attractive learning platforms. At the Dierikon location, there are also modern break rooms and the possibility of a discounted lunch in a neighbouring partner restaurant.\n\nDo you have questions?\nWe are at your disposal for further information:\n\nJulian Singer, HR Business Partner,\njulian.singer@komaxgroup.com",
-        "de": "Die Komax Gruppe ist Pionierin sowie Markt- und Technologieführerin bei Lösungen für die automatisierte Kabelverarbeitung. Als global tätiges Schweizer Unternehmen entwickeln und produzieren wir Serienmaschinen, kundenspezifische Anlagen, Qualitätssicherungsmodule, Testgeräte, Vernetzungslösungen und Serviceleistungen für verschiedene Industrien. Zur Komax Gruppe gehören über 50 Gesellschaften auf fünf Kontinenten, rund 3500 Mitarbeitende und ein weltweites Vertriebs- und Servicenetz.\n\nIhr Aufgabengebiet\n\n•\n Sie entwickeln unsere Plattform für elektrische Antriebe mit Synchronmotoren weiter und wirken an der Weiterentwicklung unserer Schrittmotorantriebe mit.\n\n•\n Sie modellieren und parametrieren Antriebssysteme und implementieren leistungsfähige Regelungen für unterschiedliche Anwendungen.\n\n•\n Sie legen Antriebssysteme für verschiedene Maschinenlinien aus und konzipieren sowie programmieren funktionale Sicherheitssteuerungen.\n\n• Sie verantworten Entwicklungstätigkeiten ganzheitlich vom ersten Konzept bis zur Serienreife in interdisziplinären Scrum-Teams.\n\nIhr Profil\n\n•\n Sie verfügen über einen Hochschulabschluss in Elektrotechnik auf Stufe ETH/FH oder über eine vergleichbare Ausbildung.\n\n•\n Sie bringen fundierte Erfahrung in der Antriebs- und Regelungstechnik mit und / oder Begeisterung für elektrische Antriebe, Maschinen und mechatronische Systeme sowie eine grosse Lernbereitschaft und -fähigkeit.\n\n•\n Sie verfügen über Programmiererfahrung in C/C++ und idealerweise in der Simulation von Regelungssystemen und im Umgang mit EtherCAT.\n\n•\n Kenntnisse der funktionalen Sicherheit, insbesondere der Normen ISO 13849 und IEC 62061, sind von Vorteil.\n\n•\n Sie überzeugen durch Eigeninitiative, eine rasche Auffassungsgabe, eine strukturierte Arbeitsweise und kommunizieren sehr gut auf Deutsch sowie gut auf Englisch.\n\nIhre Benefits\n\nIhr neuer Arbeitsort in Dierikon ist mit modernster Technik und Arbeitsmitteln ausgestattet. Ihr Arbeitsplatz befindet sich in einem der modernen Grossraumbüros, in denen es auch inspirierende Begegnungszonen sowie eine grosse Terrasse für diverse Mitarbeiteranlässe gibt. Die Komax AG bietet ihren Mitarbeitenden flexible Arbeitszeitmodelle und Home-Office. Die Weiterbildung der Mitarbeitenden liegt der Komax AG am Herzen und bietet beispielsweise kostenfreie interne Englischkurse oder Zugang zu ausgewählten attraktiven Lernplattformen. Am Standort Dierikon gibt es auch moderne Pausenräume sowie die Möglichkeit von vergünstigtem Mittagessen in einem benachbarten Partnerrestaurant.\n\nHaben Sie Fragen?\nWir stehen Ihnen gerne für weitere Auskünfte zur Verfügung:\n\nJulian Singer, HR Business Partner,\n julian.singer@komaxgroup.com",
-        "fr": "Le groupe Komax est un pionnier et leader du marché et de la technologie dans les solutions pour le traitement automatisé des câbles. En tant qu'entreprise suisse mondialement active, nous développons et fabriquons des machines série, des systèmes spécifiques à la clientèle, des modules d'assurance qualité, des équipements de test, des solutions de réseautage et des services pour différentes industries. Le groupe Komax regroupe plus de 50 entreprises sur cinq continents, environ 3 500 employés et un réseau mondial de ventes et de services.\n\nVos responsabilités\n\n•\nIls développent davantage notre plateforme pour les entraînements électriques avec moteurs synchrones et participent au développement de nos entraînements pas à pas.\n\n•\nIls modélisent et paramétrent les systèmes d'entraînement et mettent en œuvre des contrôles puissants pour différentes applications.\n\n•\nIls conçoivent des systèmes d'entraînement pour différentes lignes de machines et la conception et programment des contrôles de sécurité fonctionnels.\n\n• Ils sont responsables des activités de développement holistiques, du premier concept à la maturité en série dans les équipes interdisciplinaires Scrum.\n\nVotre profil\n\n•\nVous avez un diplôme universitaire en génie électrique au niveau ETH/FH ou une formation comparable.\n\n•\nVous avez une expérience profonde dans la technologie de conduite et de contrôle et / ou l'enthousiasme pour les entraînements électriques, les machines et les systèmes mécatroniques ainsi qu'une grande volonté et l'aptitude à apprendre.\n\n•\nVous avez une expérience de programmation en C/C++ et idéalement dans la simulation des systèmes de contrôle et dans le traitement d'EtherCAT.\n\n•\nLa connaissance de la sécurité fonctionnelle, en particulier les normes ISO 13849 et CEI 62061, est avantageuse.\n\n•\nIls convainquent par leur propre initiative, une compréhension rapide, une façon structurée de travailler et de communiquer très bien en allemand ainsi qu'en anglais.\n\nVos avantages\n\nVotre nouveau lieu de travail à Dierikon est équipé des dernières technologies et équipements de travail. Votre lieu de travail est situé dans l'un des bureaux ouverts modernes, où il ya également des espaces de réunion inspirants et une grande terrasse pour divers événements des employés. Komax AG offre à ses employés des modèles flexibles de temps de travail et de bureau à domicile. La formation continue des employés est importante pour Komax AG et offre, par exemple, des cours d'anglais internes gratuits ou l'accès à certaines plates-formes d'apprentissage attrayantes. À l'emplacement de Dierikon, il ya également des salles de pause modernes et la possibilité d'un déjeuner à prix réduit dans un restaurant partenaire voisin.\n\nVous avez des questions ?\nNous sommes à votre disposition pour plus d'informations:\n\nJulian Singer, associé d'affaires RH,\njulian.singer@komaxgroup.com"
-      },
-      "location": "Dierikon",
-      "canton": "LU",
-      "url": "https://jobs.komaxgroup.com/job/Dierikon-Elektroingenieur-Antriebstechnik-80-100-%28mwd%29-6036/1165827155/",
-      "source": "Komax Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:35:12.914Z",
-      "addressLocality": "Dierikon",
-      "addressRegion": "LU",
-      "streetAddress": "Industriestrasse 6",
-      "postalCode": "6036",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Automazione",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Elektroingenieur-Antriebstechnik-80-100-%28mwd%29-6036/1165827155/",
-      "jobReqId": "1165827155",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "elektroingenieur-antriebstechnik-80-100-m-w-d-komax-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "elektroingenieur-antriebstechnik-80-100-m-w-d-komax-ch"
-        ],
-        "en": [
-          "elektroingenieur-antriebstechnik-80-100-m-w-d-komax-ch"
-        ],
-        "fr": [
-          "elektroingenieur-antriebstechnik-80-100-m-w-d-komax-ch"
-        ]
-      },
-      "firstSeenAt": "2026-11-18T21:33:18.930Z",
-      "salaryMin": 78500,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 78500,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-16T21:35:12.914Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "komax-27af13626d01",
-      "slug": "specialista-operations-planning-m-w-d-befristet-bis-ende-2027-komax-dierikon",
-      "slugByLocale": {
-        "it": "specialista-operations-planning-m-w-d-befristet-bis-ende-2027-komax-dierikon",
-        "en": "specialist-operations-planning-m-f-d-temporary-until-the-end-of-2027-komax-dierikon",
-        "de": "specialist-operations-planning-m-w-d-befristet-bis-ende-2027-komax-ch",
-        "fr": "specialiste-operations-planning-m-w-d-befristet-bis-ende-2027-komax-dierikon"
-      },
-      "company": "Komax",
-      "companyKey": "komax",
-      "companyDomain": "komaxgroup.com",
-      "title": "Specialist Operations Planning (m/w/d) - Befristet bis Ende 2027",
-      "titleByLocale": {
-        "it": "Specialista Operations Planning (m/w/d) - Befristet bis Ende 2027",
-        "en": "Specialist Operations Planning (m/f/d) - Temporary until the end of 2027",
-        "de": "Specialist Operations Planning (m/w/d) - Befristet bis Ende 2027",
-        "fr": "Spécialiste Operations Planning (m/w/d) - Befristet bis Ende 2027"
-      },
-      "description": "Deine Aufgaben\n\n• Du unterstützt die operative Produktions- und Fertigungsplanung während der SAP-Einführung und der anschliessenden Stabilisierungsphase und planst, bearbeitest und überwachst die entsprechenden Aufträge.\n\n• Du klärst Fehlteile, Materialverfügbarkeiten und Planungsabweichungen und koordinierst die notwendigen Massnahmen mit den relevanten Schnittstellen.\n\n• Du pflegst, prüfst und bereinigst Materialstammdaten, Stücklisten, Arbeitspläne sowie weitere planungsrelevante Daten.\n\n• Du unterstützt die Datenmigration von AX nach SAP und stellst durch Prüfung, Validierung und Nachbearbeitung eine zuverlässige Datenbasis sicher.\n\n• Du bearbeitest operative Störungen und Fehler in den relevanten SAP-Prozessen und begleitest notwendige Korrekturen, Tests und Nacharbeiten.\n\n• Du wirkst aktiv bei der Stabilisierung, Standardisierung und Optimierung der S&OP-Prozesse sowie bei der Aktualisierung von Prozessdokumentationen mit.\n\nDein Profil\n\n• Technische oder kaufmännisch-technische Berufslehre, idealerweise in einem produzierenden Unternehmen; eine Weiterbildung im Bereich Prozesse, Produktion oder Unternehmensprozesse ist von Vorteil.\n\n• Berufserfahrung in einem produzierenden Unternehmen, idealerweise in der Produktions- oder Fertigungsplanung, AVOR/PPS, Supply Chain oder einem vergleichbaren operativen Bereich.\n\n• Gutes Verständnis von Produktions-, Fertigungs- und Materialplanungsprozessen.\n\n• Verständnis für das Zusammenspiel von Materialstammdaten, Stücklisten, Arbeitsplänen sowie Produktions- und Fertigungsaufträgen.\n\n• Gute ERP- und MS-Office-Kenntnisse; SAP-Erfahrung ist von Vorteil.\n\n• Strukturierte und sorgfältige Arbeitsweise sowie ein gutes Verständnis für Datenqualität und Prozesszusammenhänge.\n\nDeine Benefits\n\nDein neuer Arbeitsort in Dierikon ist neu erbaut und mit modernster Technik und Arbeitsmitteln ausgestattet. Dein Arbeitsplatz befindet sich in einem der modernen Grossraumbüros, in denen es auch inspirierende Begegnungszonen sowie eine grosse Terrasse für diverse Mitarbeiteranlässe gibt. Die Komax AG bietet Ihren Mitarbeitenden flexible Arbeitszeitmodelle und Home-Office. Die Weiterbildung der Mitarbeitenden liegt der Komax AG am Herzen und bietet beispielsweise kostenfreie interne Englischkurse oder Zugang zu ausgewählten attraktiven Lernplattformen. Am Standort Dierikon gibt es auch moderne Pausenräume sowie die Möglichkeit von vergünstigtem Mittagessen in einem benachbarten Partnerrestaurant.\n\nHaben Sie Fragen?\n\nWir stehen Ihnen gerne für weitere Auskünfte zur Verfügung:\n\nMartina Bürkle",
-      "descriptionByLocale": {
-        "it": "I tuoi compiti\n\n• Supporti la produzione operativa e la pianificazione della produzione durante l'implementazione di SAP e la successiva fase di stabilizzazione e piano, elabora e monitora gli ordini corrispondenti.\n\n• Cancella parti mancanti, disponibilità dei materiali e deviazioni di pianificazione e coordina le misure necessarie con le interfacce pertinenti.\n\n• Manutenete, controllate e pulite i dati master del materiale, le liste delle parti, i piani di lavoro e altri dati rilevanti dalla pianificazione.\n\n• Supporti la migrazione dei dati da AX a SAP e garantisci un database affidabile attraverso test, convalida e post-elaborazione.\n\n• Elaborerai errori e errori operativi nei processi SAP pertinenti e accompagnerai correzioni, test e lavori di follow-up necessari.\n\n• Sei attivamente coinvolto nella stabilizzazione, nella standardizzazione e nell'ottimizzazione dei processi S&OP e nell'aggiornamento della documentazione di processo.\n\nIl tuo profilo\n\n• Apprendistato tecnico o commerciale, idealmente in un'azienda manifatturiera; un'ulteriore formazione nel settore dei processi, della produzione o dei processi aziendali è vantaggiosa.\n\n• Esperienza professionale in un'azienda manifatturiera, idealmente nella progettazione di produzione o produzione, AVOR/PPS, supply chain o un'area operativa paragonabile.\n\n• Buona comprensione dei processi di produzione, produzione e pianificazione dei materiali.\n\n• Comprendere l'interazione tra dati master materiali, liste parti, piani di lavoro e ordini di produzione e produzione.\n\n• Buone competenze ERP e MS Office; l'esperienza SAP è utile.\n\n• Metodi di lavoro strutturati e attenti, nonché una buona comprensione della qualità dei dati e dei contesti di processo.\n\nI vantaggi\n\nIl vostro nuovo luogo di lavoro a Dierikon è di nuova costruzione e dotato delle più recenti tecnologie e attrezzature di lavoro. Il vostro posto di lavoro si trova in uno dei moderni uffici open-plan, dove ci sono anche aree di incontro ispiranti e una grande terrazza per vari eventi dei dipendenti. Komax AG offre ai propri dipendenti modelli flessibili di tempo di lavoro e ufficio. L'ulteriore formazione dei dipendenti è importante per Komax AG e offre, ad esempio, corsi di inglese interni gratuiti o l'accesso a piattaforme di apprendimento attraenti selezionate. Nella posizione di Dierikon, ci sono anche moderne sale relax e la possibilità di un pranzo scontato in un ristorante partner vicino.\n\nHai delle domande?\n\nSiamo a vostra disposizione per ulteriori informazioni:\n\nMartina Bürkle",
-        "en": "Your tasks\n\n• You support operational production and production planning during the SAP implementation and the subsequent stabilization phase and plan, process and monitor the corresponding orders.\n\n• You clear missing parts, material availability and planning deviations and coordinate the necessary measures with the relevant interfaces.\n\n• You maintain, check and clean material master data, parts lists, work plans and other planning-relevant data.\n\n• You support data migration from AX to SAP and ensure a reliable database through testing, validation and post-processing.\n\n• You will process operational faults and errors in the relevant SAP processes and accompany necessary corrections, tests and follow-up work.\n\n• You are actively involved in stabilizing, standardizing and optimizing S&OP processes as well as in updating process documentation.\n\nYour profile\n\n• Technical or commercial-technical apprenticeship, ideally in a manufacturing company; further training in the area of processes, production or company processes is advantageous.\n\n• Professional experience in a manufacturing company, ideally in production or manufacturing planning, AVOR/PPS, supply chain or a comparable operational area.\n\n• Good understanding of production, manufacturing and material planning processes.\n\n• Understand the interplay between material master data, parts lists, work plans and production and manufacturing orders.\n\n• Good ERP and MS Office skills; SAP experience is beneficial.\n\n• Structured and careful working methods as well as a good understanding of data quality and process contexts.\n\nYour benefits\n\nYour new place of work in Dierikon is newly built and equipped with the latest technology and work equipment. Your workplace is located in one of the modern open-plan offices, where there are also inspiring meeting areas and a large terrace for various employee events. Komax AG offers its employees flexible working time models and home office. The further training of employees is important to Komax AG and offers, for example, free internal English courses or access to selected attractive learning platforms. At the Dierikon location, there are also modern break rooms and the possibility of a discounted lunch in a neighbouring partner restaurant.\n\nDo you have questions?\n\nWe are at your disposal for further information:\n\nMartina Bürkle",
-        "de": "Deine Aufgaben\n\n• Du unterstützt die operative Produktions- und Fertigungsplanung während der SAP-Einführung und der anschliessenden Stabilisierungsphase und planst, bearbeitest und überwachst die entsprechenden Aufträge.\n\n• Du klärst Fehlteile, Materialverfügbarkeiten und Planungsabweichungen und koordinierst die notwendigen Massnahmen mit den relevanten Schnittstellen.\n\n• Du pflegst, prüfst und bereinigst Materialstammdaten, Stücklisten, Arbeitspläne sowie weitere planungsrelevante Daten.\n\n• Du unterstützt die Datenmigration von AX nach SAP und stellst durch Prüfung, Validierung und Nachbearbeitung eine zuverlässige Datenbasis sicher.\n\n• Du bearbeitest operative Störungen und Fehler in den relevanten SAP-Prozessen und begleitest notwendige Korrekturen, Tests und Nacharbeiten.\n\n• Du wirkst aktiv bei der Stabilisierung, Standardisierung und Optimierung der S&OP-Prozesse sowie bei der Aktualisierung von Prozessdokumentationen mit.\n\nDein Profil\n\n• Technische oder kaufmännisch-technische Berufslehre, idealerweise in einem produzierenden Unternehmen; eine Weiterbildung im Bereich Prozesse, Produktion oder Unternehmensprozesse ist von Vorteil.\n\n• Berufserfahrung in einem produzierenden Unternehmen, idealerweise in der Produktions- oder Fertigungsplanung, AVOR/PPS, Supply Chain oder einem vergleichbaren operativen Bereich.\n\n• Gutes Verständnis von Produktions-, Fertigungs- und Materialplanungsprozessen.\n\n• Verständnis für das Zusammenspiel von Materialstammdaten, Stücklisten, Arbeitsplänen sowie Produktions- und Fertigungsaufträgen.\n\n• Gute ERP- und MS-Office-Kenntnisse; SAP-Erfahrung ist von Vorteil.\n\n• Strukturierte und sorgfältige Arbeitsweise sowie ein gutes Verständnis für Datenqualität und Prozesszusammenhänge.\n\nDeine Benefits\n\nDein neuer Arbeitsort in Dierikon ist neu erbaut und mit modernster Technik und Arbeitsmitteln ausgestattet. Dein Arbeitsplatz befindet sich in einem der modernen Grossraumbüros, in denen es auch inspirierende Begegnungszonen sowie eine grosse Terrasse für diverse Mitarbeiteranlässe gibt. Die Komax AG bietet Ihren Mitarbeitenden flexible Arbeitszeitmodelle und Home-Office. Die Weiterbildung der Mitarbeitenden liegt der Komax AG am Herzen und bietet beispielsweise kostenfreie interne Englischkurse oder Zugang zu ausgewählten attraktiven Lernplattformen. Am Standort Dierikon gibt es auch moderne Pausenräume sowie die Möglichkeit von vergünstigtem Mittagessen in einem benachbarten Partnerrestaurant.\n\nHaben Sie Fragen?\n\nWir stehen Ihnen gerne für weitere Auskünfte zur Verfügung:\n\nMartina Bürkle",
-        "fr": "Vos tâches\n\n• Vous soutenez la planification opérationnelle de la production et de la production pendant la mise en œuvre du SAP et la phase de stabilisation et planifiez, traitez et surveillez les commandes correspondantes.\n\n• Vous effacez les pièces manquantes, la disponibilité du matériel et les écarts de planification et coordonnez les mesures nécessaires avec les interfaces pertinentes.\n\n• Vous maintenez, vérifiez et nettoyez les données du matériel principal, les listes de pièces, les plans de travail et d'autres données pertinentes à la planification.\n\n• Vous supportez la migration des données d'AX vers SAP et assurez une base de données fiable grâce à des tests, validation et post-traitement.\n\n• Vous traiterez les défauts opérationnels et les erreurs dans les processus SAP pertinents et accompagnerez les corrections, les tests et les travaux de suivi nécessaires.\n\n• Vous participez activement à la stabilisation, à la normalisation et à l'optimisation des processus S&OP ainsi qu'à la mise à jour de la documentation du processus.\n\nVotre profil\n\n• Apprentissage technique ou commercial-technique, idéalement dans une entreprise de fabrication; une formation continue dans le domaine des procédés, de la production ou des procédés d'entreprise est avantageuse.\n\n• Expérience professionnelle dans une entreprise de fabrication, idéalement en planification de production ou de fabrication, AVOR/PPS, chaîne d'approvisionnement ou un domaine opérationnel comparable.\n\n• Bonne compréhension des processus de production, de fabrication et de planification des matériaux.\n\n• Comprendre l'interaction entre les données principales des matériaux, les listes de pièces, les plans de travail et les commandes de production et de fabrication.\n\n• Bonnes compétences ERP et MS Office; expérience SAP est bénéfique.\n\n• Méthodes de travail structurées et prudentes ainsi qu'une bonne compréhension de la qualité des données et des contextes des processus.\n\nVos avantages\n\nVotre nouveau lieu de travail à Dierikon est récemment construit et équipé des dernières technologies et équipements de travail. Votre lieu de travail est situé dans l'un des bureaux ouverts modernes, où il ya également des espaces de réunion inspirants et une grande terrasse pour divers événements des employés. Komax AG offre à ses employés des modèles flexibles de temps de travail et de bureau à domicile. La formation continue des employés est importante pour Komax AG et offre, par exemple, des cours d'anglais internes gratuits ou l'accès à certaines plates-formes d'apprentissage attrayantes. À l'emplacement de Dierikon, il ya également des salles de pause modernes et la possibilité d'un déjeuner à prix réduit dans un restaurant partenaire voisin.\n\nVous avez des questions ?\n\nNous sommes à votre disposition pour plus d'informations:\n\nMartina Bürkle"
-      },
-      "location": "Dierikon",
-      "canton": "LU",
-      "url": "https://jobs.komaxgroup.com/job/Dierikon-Specialist-Operations-Planning-%28mwd%29-Befristet-bis-Ende-2027-6036/1165756155/",
-      "source": "Komax Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:35:12.913Z",
-      "addressLocality": "Dierikon",
-      "addressRegion": "LU",
-      "streetAddress": "Industriestrasse 6",
-      "postalCode": "6036",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Automazione",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Specialist-Operations-Planning-%28mwd%29-Befristet-bis-Ende-2027-6036/1165756155/",
-      "jobReqId": "1165756155",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "specialist-operations-planning-m-w-d-befristet-bis-ende-2027-komax-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "specialist-operations-planning-m-w-d-befristet-bis-ende-2027-komax-ch"
-        ],
-        "en": [
-          "specialist-operations-planning-m-w-d-befristet-bis-ende-2027-komax-ch"
-        ],
-        "fr": [
-          "specialist-operations-planning-m-w-d-befristet-bis-ende-2027-komax-ch"
-        ]
-      },
-      "firstSeenAt": "2026-11-06T22:09:28.702Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T21:35:12.913Z",
+      "validThrough": "2026-12-22T09:36:04.799Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1115,7 +947,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Specialist-Export-&-Internal-Sales-Parts-%28mwd%29-Befristet-bis-Ende-2027-6036/1165791355/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:35:12.913Z",
+      "crawledAt": "2026-11-22T09:36:04.798Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -1167,7 +999,175 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T21:35:12.913Z",
+      "validThrough": "2027-02-11T09:36:04.798Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "komax-b5ccc6509ef9",
+      "slug": "tecnologia-dell-azionamento-dell-ingegnere-elettrico-80-100-m-f-d-komax-dierikon",
+      "slugByLocale": {
+        "it": "tecnologia-dell-azionamento-dell-ingegnere-elettrico-80-100-m-f-d-komax-dierikon",
+        "en": "electrical-engineer-drive-technology-80-100-m-f-d-komax-dierikon",
+        "de": "elektroingenieur-antriebstechnik-80-100-m-w-d-komax-ch",
+        "fr": "technologie-d-entrainement-de-l-ingenieur-electrique-80-100-h-f-d-komax-dierikon"
+      },
+      "company": "Komax",
+      "companyKey": "komax",
+      "companyDomain": "komaxgroup.com",
+      "title": "Elektroingenieur Antriebstechnik 80-100% (m/w/d)",
+      "titleByLocale": {
+        "it": "Tecnologia dell'azionamento dell'ingegnere elettrico 80-100% (m/f/d)",
+        "en": "Electrical Engineer Drive Technology 80-100% (m/f/d)",
+        "de": "Elektroingenieur Antriebstechnik 80-100% (m/w/d)",
+        "fr": "Technologie d'entraînement de l'ingénieur électrique 80-100% (h/f/d)"
+      },
+      "description": "Die Komax Gruppe ist Pionierin sowie Markt- und Technologieführerin bei Lösungen für die automatisierte Kabelverarbeitung. Als global tätiges Schweizer Unternehmen entwickeln und produzieren wir Serienmaschinen, kundenspezifische Anlagen, Qualitätssicherungsmodule, Testgeräte, Vernetzungslösungen und Serviceleistungen für verschiedene Industrien. Zur Komax Gruppe gehören über 50 Gesellschaften auf fünf Kontinenten, rund 3500 Mitarbeitende und ein weltweites Vertriebs- und Servicenetz.\n\nIhr Aufgabengebiet\n\n•\n Sie entwickeln unsere Plattform für elektrische Antriebe mit Synchronmotoren weiter und wirken an der Weiterentwicklung unserer Schrittmotorantriebe mit.\n\n•\n Sie modellieren und parametrieren Antriebssysteme und implementieren leistungsfähige Regelungen für unterschiedliche Anwendungen.\n\n•\n Sie legen Antriebssysteme für verschiedene Maschinenlinien aus und konzipieren sowie programmieren funktionale Sicherheitssteuerungen.\n\n• Sie verantworten Entwicklungstätigkeiten ganzheitlich vom ersten Konzept bis zur Serienreife in interdisziplinären Scrum-Teams.\n\nIhr Profil\n\n•\n Sie verfügen über einen Hochschulabschluss in Elektrotechnik auf Stufe ETH/FH oder über eine vergleichbare Ausbildung.\n\n•\n Sie bringen fundierte Erfahrung in der Antriebs- und Regelungstechnik mit und / oder Begeisterung für elektrische Antriebe, Maschinen und mechatronische Systeme sowie eine grosse Lernbereitschaft und -fähigkeit.\n\n•\n Sie verfügen über Programmiererfahrung in C/C++ und idealerweise in der Simulation von Regelungssystemen und im Umgang mit EtherCAT.\n\n•\n Kenntnisse der funktionalen Sicherheit, insbesondere der Normen ISO 13849 und IEC 62061, sind von Vorteil.\n\n•\n Sie überzeugen durch Eigeninitiative, eine rasche Auffassungsgabe, eine strukturierte Arbeitsweise und kommunizieren sehr gut auf Deutsch sowie gut auf Englisch.\n\nIhre Benefits\n\nIhr neuer Arbeitsort in Dierikon ist mit modernster Technik und Arbeitsmitteln ausgestattet. Ihr Arbeitsplatz befindet sich in einem der modernen Grossraumbüros, in denen es auch inspirierende Begegnungszonen sowie eine grosse Terrasse für diverse Mitarbeiteranlässe gibt. Die Komax AG bietet ihren Mitarbeitenden flexible Arbeitszeitmodelle und Home-Office. Die Weiterbildung der Mitarbeitenden liegt der Komax AG am Herzen und bietet beispielsweise kostenfreie interne Englischkurse oder Zugang zu ausgewählten attraktiven Lernplattformen. Am Standort Dierikon gibt es auch moderne Pausenräume sowie die Möglichkeit von vergünstigtem Mittagessen in einem benachbarten Partnerrestaurant.\n\nHaben Sie Fragen?\nWir stehen Ihnen gerne für weitere Auskünfte zur Verfügung:\n\nJulian Singer, HR Business Partner,\n julian.singer@komaxgroup.com",
+      "descriptionByLocale": {
+        "it": "Il Gruppo Komax è un pioniere e leader del mercato e della tecnologia nelle soluzioni per la lavorazione dei cavi automatizzati. Come azienda svizzera attiva a livello mondiale, sviluppiamo e produciamo macchine serie, sistemi specifici per i clienti, moduli di garanzia della qualità, apparecchiature di prova, soluzioni di networking e servizi per varie industrie. Il Gruppo Komax comprende più di 50 aziende in cinque continenti, circa 3.500 dipendenti e una rete di vendita e assistenza mondiale.\n\nLe tue responsabilità\n\n•\nSviluppano ulteriormente la nostra piattaforma per azionamenti elettrici con motori sincroni e partecipano all'ulteriore sviluppo dei nostri motori stepper.\n\n•\nModellano e parametrizzano i sistemi di azionamento e implementano potenti controlli per diverse applicazioni.\n\n•\nEssi progettano sistemi di azionamento per varie linee di macchine e design e programma controlli di sicurezza funzionali.\n\n• Essi sono responsabili per le attività di sviluppo olistico dal primo concetto alla maturità di serie in team interdisciplinari Scrum.\n\nIl tuo profilo\n\n•\nHai una laurea in ingegneria elettrica a livello ETH/FH o una formazione comparabile.\n\n•\nHai una profonda esperienza nella tecnologia di guida e di controllo e / o l'entusiasmo per azionamenti elettrici, macchine e sistemi meccatronici, nonché una grande disponibilità e capacità di imparare.\n\n•\nHai esperienza di programmazione in C/C++ e idealmente nella simulazione dei sistemi di controllo e nel trattare con EtherCAT.\n\n•\nLa conoscenza della sicurezza funzionale, in particolare gli standard ISO 13849 e IEC 62061, sono vantaggiosi.\n\n•\nConvincono attraverso la propria iniziativa, una rapida comprensione, un modo strutturato di lavorare e comunicare molto bene in tedesco e in inglese.\n\nI tuoi vantaggi\n\nIl vostro nuovo luogo di lavoro a Dierikon è dotato delle più recenti tecnologie e attrezzature di lavoro. Il vostro posto di lavoro si trova in uno dei moderni uffici open-plan, dove ci sono anche le aree di incontro ispiranti e una grande terrazza per vari eventi dei dipendenti. Komax AG offre ai propri dipendenti modelli flessibili di tempo di lavoro e ufficio. L'ulteriore formazione dei dipendenti è importante per Komax AG e offre, ad esempio, corsi di inglese interni gratuiti o l'accesso a piattaforme di apprendimento attraenti selezionate. Nella posizione di Dierikon, ci sono anche moderne sale relax e la possibilità di un pranzo scontato in un ristorante partner vicino.\n\nHai delle domande?\nSiamo a vostra disposizione per ulteriori informazioni:\n\nJulian Singer, HR Business Partner,\njulian.singer@komaxgroup.com",
+        "en": "The Komax Group is a pioneer and market and technology leader in solutions for automated cable processing. As a globally active Swiss company, we develop and produce series machines, customer-specific systems, quality assurance modules, test equipment, networking solutions and services for various industries. The Komax Group comprises more than 50 companies on five continents, around 3,500 employees and a worldwide sales and service network.\n\nYour responsibilities\n\n•\nThey further develop our platform for electric drives with synchronous motors and participate in the further development of our stepper motor drives.\n\n•\nThey model and parameterize drive systems and implement powerful controls for different applications.\n\n•\nThey design drive systems for various machine lines and design and program functional safety controls.\n\n• They are responsible for development activities holistically from the first concept to series maturity in interdisciplinary Scrum teams.\n\nYour profile\n\n•\nYou have a university degree in electrical engineering at ETH/FH level or a comparable education.\n\n•\nYou have profound experience in drive and control technology and / or enthusiasm for electric drives, machines and mechatronic systems as well as a great willingness and ability to learn.\n\n•\nYou have programming experience in C/C++ and ideally in the simulation of control systems and in dealing with EtherCAT.\n\n•\nKnowledge of functional safety, in particular the standards ISO 13849 and IEC 62061, are advantageous.\n\n•\nThey convince through their own initiative, a quick understanding, a structured way of working and communicate very well in German as well as in English.\n\nYour Benefits\n\nYour new place of work in Dierikon is equipped with the latest technology and work equipment. Your workplace is located in one of the modern open-plan offices, where there are also inspiring meeting areas and a large terrace for various employee events. Komax AG offers its employees flexible working time models and home office. The further training of employees is important to Komax AG and offers, for example, free internal English courses or access to selected attractive learning platforms. At the Dierikon location, there are also modern break rooms and the possibility of a discounted lunch in a neighbouring partner restaurant.\n\nDo you have questions?\nWe are at your disposal for further information:\n\nJulian Singer, HR Business Partner,\njulian.singer@komaxgroup.com",
+        "de": "Die Komax Gruppe ist Pionierin sowie Markt- und Technologieführerin bei Lösungen für die automatisierte Kabelverarbeitung. Als global tätiges Schweizer Unternehmen entwickeln und produzieren wir Serienmaschinen, kundenspezifische Anlagen, Qualitätssicherungsmodule, Testgeräte, Vernetzungslösungen und Serviceleistungen für verschiedene Industrien. Zur Komax Gruppe gehören über 50 Gesellschaften auf fünf Kontinenten, rund 3500 Mitarbeitende und ein weltweites Vertriebs- und Servicenetz.\n\nIhr Aufgabengebiet\n\n•\n Sie entwickeln unsere Plattform für elektrische Antriebe mit Synchronmotoren weiter und wirken an der Weiterentwicklung unserer Schrittmotorantriebe mit.\n\n•\n Sie modellieren und parametrieren Antriebssysteme und implementieren leistungsfähige Regelungen für unterschiedliche Anwendungen.\n\n•\n Sie legen Antriebssysteme für verschiedene Maschinenlinien aus und konzipieren sowie programmieren funktionale Sicherheitssteuerungen.\n\n• Sie verantworten Entwicklungstätigkeiten ganzheitlich vom ersten Konzept bis zur Serienreife in interdisziplinären Scrum-Teams.\n\nIhr Profil\n\n•\n Sie verfügen über einen Hochschulabschluss in Elektrotechnik auf Stufe ETH/FH oder über eine vergleichbare Ausbildung.\n\n•\n Sie bringen fundierte Erfahrung in der Antriebs- und Regelungstechnik mit und / oder Begeisterung für elektrische Antriebe, Maschinen und mechatronische Systeme sowie eine grosse Lernbereitschaft und -fähigkeit.\n\n•\n Sie verfügen über Programmiererfahrung in C/C++ und idealerweise in der Simulation von Regelungssystemen und im Umgang mit EtherCAT.\n\n•\n Kenntnisse der funktionalen Sicherheit, insbesondere der Normen ISO 13849 und IEC 62061, sind von Vorteil.\n\n•\n Sie überzeugen durch Eigeninitiative, eine rasche Auffassungsgabe, eine strukturierte Arbeitsweise und kommunizieren sehr gut auf Deutsch sowie gut auf Englisch.\n\nIhre Benefits\n\nIhr neuer Arbeitsort in Dierikon ist mit modernster Technik und Arbeitsmitteln ausgestattet. Ihr Arbeitsplatz befindet sich in einem der modernen Grossraumbüros, in denen es auch inspirierende Begegnungszonen sowie eine grosse Terrasse für diverse Mitarbeiteranlässe gibt. Die Komax AG bietet ihren Mitarbeitenden flexible Arbeitszeitmodelle und Home-Office. Die Weiterbildung der Mitarbeitenden liegt der Komax AG am Herzen und bietet beispielsweise kostenfreie interne Englischkurse oder Zugang zu ausgewählten attraktiven Lernplattformen. Am Standort Dierikon gibt es auch moderne Pausenräume sowie die Möglichkeit von vergünstigtem Mittagessen in einem benachbarten Partnerrestaurant.\n\nHaben Sie Fragen?\nWir stehen Ihnen gerne für weitere Auskünfte zur Verfügung:\n\nJulian Singer, HR Business Partner,\n julian.singer@komaxgroup.com",
+        "fr": "Le groupe Komax est un pionnier et leader du marché et de la technologie dans les solutions pour le traitement automatisé des câbles. En tant qu'entreprise suisse mondialement active, nous développons et fabriquons des machines série, des systèmes spécifiques à la clientèle, des modules d'assurance qualité, des équipements de test, des solutions de réseautage et des services pour différentes industries. Le groupe Komax regroupe plus de 50 entreprises sur cinq continents, environ 3 500 employés et un réseau mondial de ventes et de services.\n\nVos responsabilités\n\n•\nIls développent davantage notre plateforme pour les entraînements électriques avec moteurs synchrones et participent au développement de nos entraînements pas à pas.\n\n•\nIls modélisent et paramétrent les systèmes d'entraînement et mettent en œuvre des contrôles puissants pour différentes applications.\n\n•\nIls conçoivent des systèmes d'entraînement pour différentes lignes de machines et la conception et programment des contrôles de sécurité fonctionnels.\n\n• Ils sont responsables des activités de développement holistiques, du premier concept à la maturité en série dans les équipes interdisciplinaires Scrum.\n\nVotre profil\n\n•\nVous avez un diplôme universitaire en génie électrique au niveau ETH/FH ou une formation comparable.\n\n•\nVous avez une expérience profonde dans la technologie de conduite et de contrôle et / ou l'enthousiasme pour les entraînements électriques, les machines et les systèmes mécatroniques ainsi qu'une grande volonté et l'aptitude à apprendre.\n\n•\nVous avez une expérience de programmation en C/C++ et idéalement dans la simulation des systèmes de contrôle et dans le traitement d'EtherCAT.\n\n•\nLa connaissance de la sécurité fonctionnelle, en particulier les normes ISO 13849 et CEI 62061, est avantageuse.\n\n•\nIls convainquent par leur propre initiative, une compréhension rapide, une façon structurée de travailler et de communiquer très bien en allemand ainsi qu'en anglais.\n\nVos avantages\n\nVotre nouveau lieu de travail à Dierikon est équipé des dernières technologies et équipements de travail. Votre lieu de travail est situé dans l'un des bureaux ouverts modernes, où il ya également des espaces de réunion inspirants et une grande terrasse pour divers événements des employés. Komax AG offre à ses employés des modèles flexibles de temps de travail et de bureau à domicile. La formation continue des employés est importante pour Komax AG et offre, par exemple, des cours d'anglais internes gratuits ou l'accès à certaines plates-formes d'apprentissage attrayantes. À l'emplacement de Dierikon, il ya également des salles de pause modernes et la possibilité d'un déjeuner à prix réduit dans un restaurant partenaire voisin.\n\nVous avez des questions ?\nNous sommes à votre disposition pour plus d'informations:\n\nJulian Singer, associé d'affaires RH,\njulian.singer@komaxgroup.com"
+      },
+      "location": "Dierikon",
+      "canton": "LU",
+      "url": "https://jobs.komaxgroup.com/job/Dierikon-Elektroingenieur-Antriebstechnik-80-100-%28mwd%29-6036/1165827155/",
+      "source": "Komax Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-22T09:36:04.798Z",
+      "addressLocality": "Dierikon",
+      "addressRegion": "LU",
+      "streetAddress": "Industriestrasse 6",
+      "postalCode": "6036",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Automazione",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Elektroingenieur-Antriebstechnik-80-100-%28mwd%29-6036/1165827155/",
+      "jobReqId": "1165827155",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "elektroingenieur-antriebstechnik-80-100-m-w-d-komax-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "elektroingenieur-antriebstechnik-80-100-m-w-d-komax-ch"
+        ],
+        "en": [
+          "elektroingenieur-antriebstechnik-80-100-m-w-d-komax-ch"
+        ],
+        "fr": [
+          "elektroingenieur-antriebstechnik-80-100-m-w-d-komax-ch"
+        ]
+      },
+      "firstSeenAt": "2026-11-18T21:33:18.930Z",
+      "salaryMin": 78500,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 78500,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-17T09:36:04.798Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "komax-27af13626d01",
+      "slug": "specialista-operations-planning-m-w-d-befristet-bis-ende-2027-komax-dierikon",
+      "slugByLocale": {
+        "it": "specialista-operations-planning-m-w-d-befristet-bis-ende-2027-komax-dierikon",
+        "en": "specialist-operations-planning-m-f-d-temporary-until-the-end-of-2027-komax-dierikon",
+        "de": "specialist-operations-planning-m-w-d-befristet-bis-ende-2027-komax-ch",
+        "fr": "specialiste-operations-planning-m-w-d-befristet-bis-ende-2027-komax-dierikon"
+      },
+      "company": "Komax",
+      "companyKey": "komax",
+      "companyDomain": "komaxgroup.com",
+      "title": "Specialist Operations Planning (m/w/d) - Befristet bis Ende 2027",
+      "titleByLocale": {
+        "it": "Specialista Operations Planning (m/w/d) - Befristet bis Ende 2027",
+        "en": "Specialist Operations Planning (m/f/d) - Temporary until the end of 2027",
+        "de": "Specialist Operations Planning (m/w/d) - Befristet bis Ende 2027",
+        "fr": "Spécialiste Operations Planning (m/w/d) - Befristet bis Ende 2027"
+      },
+      "description": "Deine Aufgaben\n\n• Du unterstützt die operative Produktions- und Fertigungsplanung während der SAP-Einführung und der anschliessenden Stabilisierungsphase und planst, bearbeitest und überwachst die entsprechenden Aufträge.\n\n• Du klärst Fehlteile, Materialverfügbarkeiten und Planungsabweichungen und koordinierst die notwendigen Massnahmen mit den relevanten Schnittstellen.\n\n• Du pflegst, prüfst und bereinigst Materialstammdaten, Stücklisten, Arbeitspläne sowie weitere planungsrelevante Daten.\n\n• Du unterstützt die Datenmigration von AX nach SAP und stellst durch Prüfung, Validierung und Nachbearbeitung eine zuverlässige Datenbasis sicher.\n\n• Du bearbeitest operative Störungen und Fehler in den relevanten SAP-Prozessen und begleitest notwendige Korrekturen, Tests und Nacharbeiten.\n\n• Du wirkst aktiv bei der Stabilisierung, Standardisierung und Optimierung der S&OP-Prozesse sowie bei der Aktualisierung von Prozessdokumentationen mit.\n\nDein Profil\n\n• Technische oder kaufmännisch-technische Berufslehre, idealerweise in einem produzierenden Unternehmen; eine Weiterbildung im Bereich Prozesse, Produktion oder Unternehmensprozesse ist von Vorteil.\n\n• Berufserfahrung in einem produzierenden Unternehmen, idealerweise in der Produktions- oder Fertigungsplanung, AVOR/PPS, Supply Chain oder einem vergleichbaren operativen Bereich.\n\n• Gutes Verständnis von Produktions-, Fertigungs- und Materialplanungsprozessen.\n\n• Verständnis für das Zusammenspiel von Materialstammdaten, Stücklisten, Arbeitsplänen sowie Produktions- und Fertigungsaufträgen.\n\n• Gute ERP- und MS-Office-Kenntnisse; SAP-Erfahrung ist von Vorteil.\n\n• Strukturierte und sorgfältige Arbeitsweise sowie ein gutes Verständnis für Datenqualität und Prozesszusammenhänge.\n\nDeine Benefits\n\nDein neuer Arbeitsort in Dierikon ist neu erbaut und mit modernster Technik und Arbeitsmitteln ausgestattet. Dein Arbeitsplatz befindet sich in einem der modernen Grossraumbüros, in denen es auch inspirierende Begegnungszonen sowie eine grosse Terrasse für diverse Mitarbeiteranlässe gibt. Die Komax AG bietet Ihren Mitarbeitenden flexible Arbeitszeitmodelle und Home-Office. Die Weiterbildung der Mitarbeitenden liegt der Komax AG am Herzen und bietet beispielsweise kostenfreie interne Englischkurse oder Zugang zu ausgewählten attraktiven Lernplattformen. Am Standort Dierikon gibt es auch moderne Pausenräume sowie die Möglichkeit von vergünstigtem Mittagessen in einem benachbarten Partnerrestaurant.\n\nHaben Sie Fragen?\n\nWir stehen Ihnen gerne für weitere Auskünfte zur Verfügung:\n\nMartina Bürkle",
+      "descriptionByLocale": {
+        "it": "I tuoi compiti\n\n• Supporti la produzione operativa e la pianificazione della produzione durante l'implementazione di SAP e la successiva fase di stabilizzazione e piano, elabora e monitora gli ordini corrispondenti.\n\n• Cancella parti mancanti, disponibilità dei materiali e deviazioni di pianificazione e coordina le misure necessarie con le interfacce pertinenti.\n\n• Manutenete, controllate e pulite i dati master del materiale, le liste delle parti, i piani di lavoro e altri dati rilevanti dalla pianificazione.\n\n• Supporti la migrazione dei dati da AX a SAP e garantisci un database affidabile attraverso test, convalida e post-elaborazione.\n\n• Elaborerai errori e errori operativi nei processi SAP pertinenti e accompagnerai correzioni, test e lavori di follow-up necessari.\n\n• Sei attivamente coinvolto nella stabilizzazione, nella standardizzazione e nell'ottimizzazione dei processi S&OP e nell'aggiornamento della documentazione di processo.\n\nIl tuo profilo\n\n• Apprendistato tecnico o commerciale, idealmente in un'azienda manifatturiera; un'ulteriore formazione nel settore dei processi, della produzione o dei processi aziendali è vantaggiosa.\n\n• Esperienza professionale in un'azienda manifatturiera, idealmente nella progettazione di produzione o produzione, AVOR/PPS, supply chain o un'area operativa paragonabile.\n\n• Buona comprensione dei processi di produzione, produzione e pianificazione dei materiali.\n\n• Comprendere l'interazione tra dati master materiali, liste parti, piani di lavoro e ordini di produzione e produzione.\n\n• Buone competenze ERP e MS Office; l'esperienza SAP è utile.\n\n• Metodi di lavoro strutturati e attenti, nonché una buona comprensione della qualità dei dati e dei contesti di processo.\n\nI vantaggi\n\nIl vostro nuovo luogo di lavoro a Dierikon è di nuova costruzione e dotato delle più recenti tecnologie e attrezzature di lavoro. Il vostro posto di lavoro si trova in uno dei moderni uffici open-plan, dove ci sono anche aree di incontro ispiranti e una grande terrazza per vari eventi dei dipendenti. Komax AG offre ai propri dipendenti modelli flessibili di tempo di lavoro e ufficio. L'ulteriore formazione dei dipendenti è importante per Komax AG e offre, ad esempio, corsi di inglese interni gratuiti o l'accesso a piattaforme di apprendimento attraenti selezionate. Nella posizione di Dierikon, ci sono anche moderne sale relax e la possibilità di un pranzo scontato in un ristorante partner vicino.\n\nHai delle domande?\n\nSiamo a vostra disposizione per ulteriori informazioni:\n\nMartina Bürkle",
+        "en": "Your tasks\n\n• You support operational production and production planning during the SAP implementation and the subsequent stabilization phase and plan, process and monitor the corresponding orders.\n\n• You clear missing parts, material availability and planning deviations and coordinate the necessary measures with the relevant interfaces.\n\n• You maintain, check and clean material master data, parts lists, work plans and other planning-relevant data.\n\n• You support data migration from AX to SAP and ensure a reliable database through testing, validation and post-processing.\n\n• You will process operational faults and errors in the relevant SAP processes and accompany necessary corrections, tests and follow-up work.\n\n• You are actively involved in stabilizing, standardizing and optimizing S&OP processes as well as in updating process documentation.\n\nYour profile\n\n• Technical or commercial-technical apprenticeship, ideally in a manufacturing company; further training in the area of processes, production or company processes is advantageous.\n\n• Professional experience in a manufacturing company, ideally in production or manufacturing planning, AVOR/PPS, supply chain or a comparable operational area.\n\n• Good understanding of production, manufacturing and material planning processes.\n\n• Understand the interplay between material master data, parts lists, work plans and production and manufacturing orders.\n\n• Good ERP and MS Office skills; SAP experience is beneficial.\n\n• Structured and careful working methods as well as a good understanding of data quality and process contexts.\n\nYour benefits\n\nYour new place of work in Dierikon is newly built and equipped with the latest technology and work equipment. Your workplace is located in one of the modern open-plan offices, where there are also inspiring meeting areas and a large terrace for various employee events. Komax AG offers its employees flexible working time models and home office. The further training of employees is important to Komax AG and offers, for example, free internal English courses or access to selected attractive learning platforms. At the Dierikon location, there are also modern break rooms and the possibility of a discounted lunch in a neighbouring partner restaurant.\n\nDo you have questions?\n\nWe are at your disposal for further information:\n\nMartina Bürkle",
+        "de": "Deine Aufgaben\n\n• Du unterstützt die operative Produktions- und Fertigungsplanung während der SAP-Einführung und der anschliessenden Stabilisierungsphase und planst, bearbeitest und überwachst die entsprechenden Aufträge.\n\n• Du klärst Fehlteile, Materialverfügbarkeiten und Planungsabweichungen und koordinierst die notwendigen Massnahmen mit den relevanten Schnittstellen.\n\n• Du pflegst, prüfst und bereinigst Materialstammdaten, Stücklisten, Arbeitspläne sowie weitere planungsrelevante Daten.\n\n• Du unterstützt die Datenmigration von AX nach SAP und stellst durch Prüfung, Validierung und Nachbearbeitung eine zuverlässige Datenbasis sicher.\n\n• Du bearbeitest operative Störungen und Fehler in den relevanten SAP-Prozessen und begleitest notwendige Korrekturen, Tests und Nacharbeiten.\n\n• Du wirkst aktiv bei der Stabilisierung, Standardisierung und Optimierung der S&OP-Prozesse sowie bei der Aktualisierung von Prozessdokumentationen mit.\n\nDein Profil\n\n• Technische oder kaufmännisch-technische Berufslehre, idealerweise in einem produzierenden Unternehmen; eine Weiterbildung im Bereich Prozesse, Produktion oder Unternehmensprozesse ist von Vorteil.\n\n• Berufserfahrung in einem produzierenden Unternehmen, idealerweise in der Produktions- oder Fertigungsplanung, AVOR/PPS, Supply Chain oder einem vergleichbaren operativen Bereich.\n\n• Gutes Verständnis von Produktions-, Fertigungs- und Materialplanungsprozessen.\n\n• Verständnis für das Zusammenspiel von Materialstammdaten, Stücklisten, Arbeitsplänen sowie Produktions- und Fertigungsaufträgen.\n\n• Gute ERP- und MS-Office-Kenntnisse; SAP-Erfahrung ist von Vorteil.\n\n• Strukturierte und sorgfältige Arbeitsweise sowie ein gutes Verständnis für Datenqualität und Prozesszusammenhänge.\n\nDeine Benefits\n\nDein neuer Arbeitsort in Dierikon ist neu erbaut und mit modernster Technik und Arbeitsmitteln ausgestattet. Dein Arbeitsplatz befindet sich in einem der modernen Grossraumbüros, in denen es auch inspirierende Begegnungszonen sowie eine grosse Terrasse für diverse Mitarbeiteranlässe gibt. Die Komax AG bietet Ihren Mitarbeitenden flexible Arbeitszeitmodelle und Home-Office. Die Weiterbildung der Mitarbeitenden liegt der Komax AG am Herzen und bietet beispielsweise kostenfreie interne Englischkurse oder Zugang zu ausgewählten attraktiven Lernplattformen. Am Standort Dierikon gibt es auch moderne Pausenräume sowie die Möglichkeit von vergünstigtem Mittagessen in einem benachbarten Partnerrestaurant.\n\nHaben Sie Fragen?\n\nWir stehen Ihnen gerne für weitere Auskünfte zur Verfügung:\n\nMartina Bürkle",
+        "fr": "Vos tâches\n\n• Vous soutenez la planification opérationnelle de la production et de la production pendant la mise en œuvre du SAP et la phase de stabilisation et planifiez, traitez et surveillez les commandes correspondantes.\n\n• Vous effacez les pièces manquantes, la disponibilité du matériel et les écarts de planification et coordonnez les mesures nécessaires avec les interfaces pertinentes.\n\n• Vous maintenez, vérifiez et nettoyez les données du matériel principal, les listes de pièces, les plans de travail et d'autres données pertinentes à la planification.\n\n• Vous supportez la migration des données d'AX vers SAP et assurez une base de données fiable grâce à des tests, validation et post-traitement.\n\n• Vous traiterez les défauts opérationnels et les erreurs dans les processus SAP pertinents et accompagnerez les corrections, les tests et les travaux de suivi nécessaires.\n\n• Vous participez activement à la stabilisation, à la normalisation et à l'optimisation des processus S&OP ainsi qu'à la mise à jour de la documentation du processus.\n\nVotre profil\n\n• Apprentissage technique ou commercial-technique, idéalement dans une entreprise de fabrication; une formation continue dans le domaine des procédés, de la production ou des procédés d'entreprise est avantageuse.\n\n• Expérience professionnelle dans une entreprise de fabrication, idéalement en planification de production ou de fabrication, AVOR/PPS, chaîne d'approvisionnement ou un domaine opérationnel comparable.\n\n• Bonne compréhension des processus de production, de fabrication et de planification des matériaux.\n\n• Comprendre l'interaction entre les données principales des matériaux, les listes de pièces, les plans de travail et les commandes de production et de fabrication.\n\n• Bonnes compétences ERP et MS Office; expérience SAP est bénéfique.\n\n• Méthodes de travail structurées et prudentes ainsi qu'une bonne compréhension de la qualité des données et des contextes des processus.\n\nVos avantages\n\nVotre nouveau lieu de travail à Dierikon est récemment construit et équipé des dernières technologies et équipements de travail. Votre lieu de travail est situé dans l'un des bureaux ouverts modernes, où il ya également des espaces de réunion inspirants et une grande terrasse pour divers événements des employés. Komax AG offre à ses employés des modèles flexibles de temps de travail et de bureau à domicile. La formation continue des employés est importante pour Komax AG et offre, par exemple, des cours d'anglais internes gratuits ou l'accès à certaines plates-formes d'apprentissage attrayantes. À l'emplacement de Dierikon, il ya également des salles de pause modernes et la possibilité d'un déjeuner à prix réduit dans un restaurant partenaire voisin.\n\nVous avez des questions ?\n\nNous sommes à votre disposition pour plus d'informations:\n\nMartina Bürkle"
+      },
+      "location": "Dierikon",
+      "canton": "LU",
+      "url": "https://jobs.komaxgroup.com/job/Dierikon-Specialist-Operations-Planning-%28mwd%29-Befristet-bis-Ende-2027-6036/1165756155/",
+      "source": "Komax Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-22T09:36:04.797Z",
+      "addressLocality": "Dierikon",
+      "addressRegion": "LU",
+      "streetAddress": "Industriestrasse 6",
+      "postalCode": "6036",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Automazione",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Specialist-Operations-Planning-%28mwd%29-Befristet-bis-Ende-2027-6036/1165756155/",
+      "jobReqId": "1165756155",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "specialist-operations-planning-m-w-d-befristet-bis-ende-2027-komax-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "specialist-operations-planning-m-w-d-befristet-bis-ende-2027-komax-ch"
+        ],
+        "en": [
+          "specialist-operations-planning-m-w-d-befristet-bis-ende-2027-komax-ch"
+        ],
+        "fr": [
+          "specialist-operations-planning-m-w-d-befristet-bis-ende-2027-komax-ch"
+        ]
+      },
+      "firstSeenAt": "2026-11-06T22:09:28.702Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-05T09:36:04.797Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1258,190 +1258,6 @@
       "validThrough": "2027-02-15T21:45:34.177Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.komaxgroup.com/job/dierikon-global-supply-chain-&-logistics-manager-80-100-%28mwd%29-6036/1165813055",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "komax-826883aee630",
-      "slug": "servizio-it-di-gruppo-di-piombo-m-f-d-komax-dierikon",
-      "slugByLocale": {
-        "it": "servizio-it-di-gruppo-di-piombo-m-f-d-komax-dierikon",
-        "en": "lead-group-it-service-desk-w-m-d-komax-ch",
-        "de": "leitgruppe-it-service-desk-m-w-d-komax-dierikon",
-        "fr": "groupe-principal-bureau-de-service-informatique-h-f-d-komax-dierikon"
-      },
-      "company": "Komax",
-      "companyKey": "komax",
-      "companyDomain": "komaxgroup.com",
-      "title": "Lead Group IT Service Desk (w/m/d)",
-      "titleByLocale": {
-        "it": "Gruppo capofila IT Service Desk (m/f/d)",
-        "en": "Lead Group IT Service Desk (w/m/d)",
-        "de": "Leitgruppe IT Service Desk (m/w/d)",
-        "fr": "Responsable du service informatique du groupe (h/f/d)"
-      },
-      "description": "Your tasks:\n\n• Own and continuously enhance End-User Services, including IT Helpdesk, Service Desk, 1st Level Support, and End-User Computing, ensuring reliable and business-focused service delivery.\n\n• Ensure stable, secure, and efficient IT operations while delivering an outstanding end-user experience through high-quality support services and effective issue resolution.\n\n• Drive process optimization and automation initiatives to improve service efficiency, reduce costs, and implement scalable support delivery models, including nearshore, offshore, and outsourcing solutions.\n\n• Define and manage end-user workplace standards, including device lifecycle management, procurement processes, onboarding, and replacement programs in alignment with business and security requirements.\n\n• Lead, develop, and motivate a high-performing IT support team through recruitment, coaching, training, and performance development while fostering a culture of continuous improvement.\n\n• Establish and implement policies, procedures, documentation, self-service capabilities, and automation standards to improve operational effectiveness and empower both employees and support teams.\n\n• Support strategic IT initiatives and business transformation projects, including post-merger integrations, site consolidations, hypercare activities, and change management programs.\n\nYour profile:\n\n• At least 10 years of experience in IT support.\n\n• At least 5 years of experience in a leadership role.\n\n• Strong technical background and experience in the areas of ITSM Standards, IT Helpdesk, 1st Level Support, End-User Services, End-User Computing (EUC) and Modern Workplace.\n\n• Bachelor’s degree in computer science or related field.\n\n• Entrepreneurial and business-minded thinking\n\n• Languages: German and English\n\n• Ability to focus under pressure and strong communication skills.\n\n• Problem-solving skills\n\n• Willingness to travel\n\nYour benefits:\nYour new workplace in Dierikon is newly built and equipped with state-of-the-art technology and work equipment. Your workplace is located in one of the modern open-plan offices, which also have inspiring meeting zones and a large terrace for various employee events. Komax AG offers its employees flexible working time models. Komax AG is committed to the further training of its employees and offers, for example, free internal English courses or access to selected attractive learning platforms. At the Dierikon site, there are also modern break rooms and the option of discounted lunch in a neighboring partner restaurant.\n\nHaben Sie Fragen?\nWir stehen Ihnen gerne für weitere Auskünfte zur Verfügung:\n\nStefan Binder, Senior Talent Acquisition Specialist,\n\nstefan.binder@komaxgroup.com",
-      "descriptionByLocale": {
-        "it": "I vostri compiti:\n\n• Possedere e migliorare continuamente i servizi End-User, tra cui IT Helpdesk, Service Desk, 1st Level Support e End-User Computing, assicurando la consegna di servizio affidabile e orientata al business.\n\n• Assicurare operazioni IT stabili, sicure ed efficienti durante la fornitura di un'esperienza end-user eccezionale attraverso servizi di supporto di alta qualità e risoluzione efficace dei problemi.\n\n• Iniziative di ottimizzazione e automazione del processo di azionamento per migliorare l'efficienza dei servizi, ridurre i costi e implementare modelli di fornitura di supporto scalabile, tra cui soluzioni di quasi terra, offshore e outsourcing.\n\n• Definire e gestire gli standard di lavoro degli utenti finali, tra cui la gestione del ciclo di vita del dispositivo, i processi di approvvigionamento, i programmi di onboarding e di sostituzione in allineamento con i requisiti di business e sicurezza.\n\n• Guidare, sviluppare e motivare un team di supporto IT altamente performante attraverso reclutamento, coaching, formazione e sviluppo delle prestazioni, promuovendo una cultura di miglioramento continuo.\n\n• Stabilire e implementare politiche, procedure, documentazione, capacità self-service e standard di automazione per migliorare l'efficacia operativa e rafforzare sia i dipendenti che i team di supporto.\n\n• Sostenere le iniziative strategiche IT e i progetti di trasformazione aziendale, comprese le integrazioni post-merger, i consolidamenti del sito, le attività di ipercare e i programmi di gestione dei cambiamenti.\n\nIl tuo profilo:\n\n• Almeno 10 anni di esperienza nel supporto IT.\n\n• Almeno 5 anni di esperienza in un ruolo di leadership.\n\n• Forte background tecnico ed esperienza nelle aree di ITSM Standards, IT Helpdesk, 1st Level Support, End-User Services, End-User Computing (EUC) e Modern Workplace.\n\n• Corso di laurea in informatica o campo relativo.\n\n• pensiero imprenditoriale e imprenditoriale\n\n• Lingue: tedesco e inglese\n\n• Capacità di concentrarsi sotto pressione e forti capacità di comunicazione.\n\n• Capacità di problem solving\n\n• Volontà a viaggiare\n\nI vostri vantaggi:\nIl tuo nuovo posto di lavoro a Dierikon è di nuova costruzione e dotato di tecnologia all'avanguardia e attrezzature di lavoro. Il vostro posto di lavoro si trova in uno dei moderni uffici open-plan, che hanno anche zone di incontro ispiranti e una grande terrazza per vari eventi dei dipendenti. Komax AG offre ai propri dipendenti modelli di tempo di lavoro flessibili. Komax AG si impegna per l'ulteriore formazione dei propri dipendenti e offre, ad esempio, corsi di inglese interni gratuiti o l'accesso a piattaforme di apprendimento attraenti selezionate. Presso il sito Dierikon, ci sono anche moderne sale relax e la possibilità di pranzo scontato in un ristorante partner vicino.\n\nHaben Sie Fragen?\nWir stehen Ihnen gerne für weitere Auskünfte zur Verfügung:\n\nStefan Binder, Senior Talent Acquisition Specialist,\n\nstefan.binder@komaxgroup.com",
-        "en": "Your tasks:\n\n• Own and continuously enhance End-User Services, including IT Helpdesk, Service Desk, 1st Level Support, and End-User Computing, ensuring reliable and business-focused service delivery.\n\n• Ensure stable, secure, and efficient IT operations while delivering an outstanding end-user experience through high-quality support services and effective issue resolution.\n\n• Drive process optimization and automation initiatives to improve service efficiency, reduce costs, and implement scalable support delivery models, including nearshore, offshore, and outsourcing solutions.\n\n• Define and manage end-user workplace standards, including device lifecycle management, procurement processes, onboarding, and replacement programs in alignment with business and security requirements.\n\n• Lead, develop, and motivate a high-performing IT support team through recruitment, coaching, training, and performance development while fostering a culture of continuous improvement.\n\n• Establish and implement policies, procedures, documentation, self-service capabilities, and automation standards to improve operational effectiveness and empower both employees and support teams.\n\n• Support strategic IT initiatives and business transformation projects, including post-merger integrations, site consolidations, hypercare activities, and change management programs.\n\nYour profile:\n\n• At least 10 years of experience in IT support.\n\n• At least 5 years of experience in a leadership role.\n\n• Strong technical background and experience in the areas of ITSM Standards, IT Helpdesk, 1st Level Support, End-User Services, End-User Computing (EUC) and Modern Workplace.\n\n• Bachelor’s degree in computer science or related field.\n\n• Entrepreneurial and business-minded thinking\n\n• Languages: German and English\n\n• Ability to focus under pressure and strong communication skills.\n\n• Problem-solving skills\n\n• Willingness to travel\n\nYour benefits:\nYour new workplace in Dierikon is newly built and equipped with state-of-the-art technology and work equipment. Your workplace is located in one of the modern open-plan offices, which also have inspiring meeting zones and a large terrace for various employee events. Komax AG offers its employees flexible working time models. Komax AG is committed to the further training of its employees and offers, for example, free internal English courses or access to selected attractive learning platforms. At the Dierikon site, there are also modern break rooms and the option of discounted lunch in a neighboring partner restaurant.\n\nHaben Sie Fragen?\nWir stehen Ihnen gerne für weitere Auskünfte zur Verfügung:\n\nStefan Binder, Senior Talent Acquisition Specialist,\n\nstefan.binder@komaxgroup.com",
-        "de": "Ihre Aufgaben:\n\n• Eigene und kontinuierliche Verbesserung der Endbenutzerdienste, einschließlich IT Helpdesk, Service Desk, 1st Level Support und Endbenutzer-Computing, um eine zuverlässige und geschäftsorientierte Servicebereitstellung zu gewährleisten.\n\n• Gewährleistung eines stabilen, sicheren und effizienten IT-Betriebs bei gleichzeitiger Bereitstellung eines hervorragenden Endbenutzererlebnisses durch hochwertige Supportdienste und effektive Problemlösung.\n\n• Fördern Sie Prozessoptimierungs- und Automatisierungsinitiativen, um die Serviceeffizienz zu verbessern, Kosten zu senken und skalierbare Supportbereitstellungsmodelle zu implementieren, einschließlich Nearshore-, Offshore- und Outsourcing-Lösungen.\n\n• Definieren und verwalten Sie Arbeitsplatzstandards für Endbenutzer, einschließlich Gerätelebenszyklusmanagement, Beschaffungsprozesse, Onboarding und Ersatzprogramme in Übereinstimmung mit Geschäfts- und Sicherheitsanforderungen.\n\n• Führen, entwickeln und motivieren Sie ein leistungsstarkes IT-Supportteam durch Rekrutierung, Coaching, Training und Leistungsentwicklung und fördern Sie gleichzeitig eine Kultur der kontinuierlichen Verbesserung.\n\n• Etablieren und implementieren Sie Richtlinien, Verfahren, Dokumentation, Self-Service-Funktionen und Automatisierungsstandards, um die operative Effektivität zu verbessern und sowohl Mitarbeiter als auch Support-Teams zu stärken.\n\n• Unterstützen Sie strategische IT-Initiativen und Business-Transformation-Projekte, einschließlich Post-Merger-Integrationen, Standortkonsolidierungen, Hypercare-Aktivitäten und Change-Management-Programme.\n\nIhr Profil:\n\n• Mindestens 10 Jahre Erfahrung im IT-Support.\n\n• Mindestens 5 Jahre Erfahrung in einer Führungsrolle.\n\n• Starker technischer Hintergrund und Erfahrung in den Bereichen ITSM Standards, IT Helpdesk, 1st Level Support, End-User Services, End-User Computing (EUC) und Modern Workplace.\n\n• Bachelor-Abschluss in Informatik oder verwandten Bereich.\n\n• Unternehmerisches und unternehmerisches Denken\n\n• Sprachen: Deutsch und Englisch\n\n• Fähigkeit, sich unter Druck und starken Kommunikationsfähigkeiten zu konzentrieren.\n\n• Problemlösungskompetenzen\n\n• Reisebereitschaft\n\nIhre Vorteile:\nIhr neuer Arbeitsplatz in Dierikon ist neu gebaut und mit modernster Technik und Arbeitsmitteln ausgestattet. Ihr Arbeitsplatz befindet sich in einem der modernen Großraumbüros, die auch inspirierende Meetingzonen und eine große Terrasse für verschiedene Mitarbeiterveranstaltungen bieten. Die Komax AG bietet ihren Mitarbeitern flexible Arbeitszeitmodelle. Die Komax AG setzt sich für die Weiterbildung ihrer Mitarbeiter ein und bietet beispielsweise kostenlose interne Englischkurse oder den Zugang zu ausgewählten attraktiven Lernplattformen an. Auf dem Gelände von Dierikon gibt es auch moderne Pausenräume und die Möglichkeit eines ermäßigten Mittagessens in einem benachbarten Partnerrestaurant.\n\nHaben Sie Fragen?\nWir stehen Ihnen gerne für weitere Auskünfte zur Verfügung:\n\nStefan Binder, Senior Talent Acquisition Specialist,\n\nstefan.binder@komaxgroup.com",
-        "fr": "Vos tâches:\n\n• Les services de l'utilisateur final, y compris le service d'assistance informatique, le service de dépannage, le soutien de premier niveau et l'informatique de l'utilisateur final, assurent une prestation de services fiable et axée sur l'entreprise.\n\n• Assurer la stabilité, la sécurité et l'efficacité des opérations informatiques tout en offrant une expérience exceptionnelle aux utilisateurs finaux grâce à des services de soutien de haute qualité et à une résolution efficace des problèmes.\n\n• Diriger des initiatives d'optimisation des processus et d'automatisation afin d'améliorer l'efficacité des services, de réduire les coûts et de mettre en oeuvre des modèles de prestation de soutien évolutive, y compris des solutions près de la côte, offshore et d'externalisation.\n\n• Définir et gérer les normes en milieu de travail de l'utilisateur final, y compris la gestion du cycle de vie des appareils, les processus d'approvisionnement, l'embarquement et les programmes de remplacement, conformément aux exigences opérationnelles et de sécurité.\n\n• Diriger, développer et motiver une équipe de soutien informatique performante par le recrutement, l'encadrement, la formation et le perfectionnement du rendement tout en favorisant une culture d'amélioration continue.\n\n• Établir et mettre en oeuvre des politiques, des procédures, de la documentation, des capacités en libre-service et des normes d'automatisation afin d'améliorer l'efficacité opérationnelle et d'habiliter les employés et les équipes de soutien.\n\n• Appuyer les initiatives stratégiques en TI et les projets de transformation opérationnelle, y compris les intégrations post-fusion, les regroupements de sites, les activités d'hypersoins et les programmes de gestion du changement.\n\nVotre profil:\n\n• Au moins 10 ans d'expérience en soutien informatique.\n\n• Au moins 5 ans d'expérience dans un rôle de leadership.\n\n• Forte expérience technique dans les domaines des normes de l'ITSM, du service d'assistance informatique, du soutien de premier niveau, des services aux utilisateurs finaux, de l'informatique aux utilisateurs finaux (EUC) et du milieu de travail moderne.\n\n• Baccalauréat en informatique ou domaine connexe.\n\n• L'esprit d'entreprise et d'entreprise\n\n• Langues: allemand et anglais\n\n• Capacité de se concentrer sous pression et compétences en communication.\n\n• Compétences en résolution de problèmes\n\n• Volonté de voyager\n\nVos avantages:\nVotre nouveau lieu de travail à Dierikon est récemment construit et équipé d'une technologie de pointe et d'équipements de travail. Votre lieu de travail est situé dans l'un des bureaux ouverts modernes, qui ont également des zones de réunion inspirantes et une grande terrasse pour divers événements des employés. Komax AG offre à ses employés des modèles flexibles de temps de travail. Komax AG s'engage dans la formation continue de ses employés et propose, par exemple, des cours d'anglais internes gratuits ou l'accès à des plateformes d'apprentissage attrayantes sélectionnées. Sur le site de Dierikon, il ya également des salles de pause modernes et l'option de déjeuner à prix réduit dans un restaurant partenaire voisin.\n\nHaben Sie Fragen ?\nWir stehen Ihnen gerne für weitere Auskünfte zur Verfügung:\n\nStefan Binder, spécialiste principal en acquisition de talents,\n\nstefan.binder@komaxgroup.com"
-      },
-      "location": "Dierikon",
-      "canton": "LU",
-      "url": "https://jobs.komaxgroup.com/job/Dierikon-Lead-Group-IT-Service-Desk-%28wmd%29-6036/1165481055/",
-      "source": "Komax Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-20T10:00:57.817Z",
-      "addressLocality": "Dierikon",
-      "addressRegion": "LU",
-      "streetAddress": "Industriestrasse 6",
-      "postalCode": "6036",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Automazione",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Lead-Group-IT-Service-Desk-%28wmd%29-6036/1165481055/",
-      "jobReqId": "1165481055",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lead-group-it-service-desk-w-m-d-komax-ch",
-        "lead-group-it-service-desk-w-m-d-komax-ch-87446222",
-        "groupe-principal-bureau-de-service-informatique-h-f-d-komax-dierikon-f034c5cb",
-        "gruppo-capofila-it-service-desk-m-f-d-komax-dierikon",
-        "leitgruppe-it-service-desk-m-w-d-komax-dierikon-358ddd",
-        "lead-group-it-service-desk-w-m-d-komax-ch-24e04386",
-        "groupe-principal-bureau-de-service-informatique-h-f-d-komax-dierikon-4f0d03f2"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lead-group-it-service-desk-w-m-d-komax-ch",
-          "lead-group-it-service-desk-w-m-d-komax-ch-87446222",
-          "groupe-principal-bureau-de-service-informatique-h-f-d-komax-dierikon-f034c5cb",
-          "gruppo-capofila-it-service-desk-m-f-d-komax-dierikon",
-          "leitgruppe-it-service-desk-m-w-d-komax-dierikon-358ddd",
-          "lead-group-it-service-desk-w-m-d-komax-ch-24e04386",
-          "groupe-principal-bureau-de-service-informatique-h-f-d-komax-dierikon-4f0d03f2"
-        ],
-        "en": [
-          "lead-group-it-service-desk-w-m-d-komax-ch-87446222"
-        ],
-        "fr": [
-          "groupe-principal-bureau-de-service-informatique-h-f-d-komax-dierikon-f034c5cb"
-        ],
-        "de": [
-          "leitgruppe-it-service-desk-m-w-d-komax-dierikon-358ddd"
-        ]
-      },
-      "firstSeenAt": "2026-09-24T00:10:25.496Z",
-      "salaryMin": 114500,
-      "salaryMax": 195000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 114500,
-          "maxValue": 195000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-23T10:00:57.817Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.komaxgroup.com/job/dierikon-lead-group-it-service-desk-%28wmd%29-6036/1165481055",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "komax-a5adb0802102",
-      "slug": "responsabile-di-prodotto-forming-taping-komax-dierikon-0e2c6f86f1",
-      "slugByLocale": {
-        "it": "responsabile-di-prodotto-forming-taping-komax-dierikon-0e2c6f86f1",
-        "en": "product-manager-forming-taping-komax-dierikon",
-        "de": "product-manager-forming-taping-80-100-m-w-d-komax-ch",
-        "fr": "gestionnaire-de-produits-formation-et-enregistrement-komax-dierikon"
-      },
-      "company": "Komax",
-      "companyKey": "komax",
-      "companyDomain": "komaxgroup.com",
-      "title": "Product Manager Forming & Taping 80-100% (m/w/d)",
-      "titleByLocale": {
-        "it": "Responsabile di prodotto Forming & Taping",
-        "en": "Product Manager Forming & Taping",
-        "de": "Product Manager Forming & Taping 80-100% (m/w/d)",
-        "fr": "Gestionnaire de produits Formation et enregistrement"
-      },
-      "description": "The Komax group is a pioneer and market leader in the field of automated wire processing. As a globally active Swiss company, we develop and manufacture serial production machines, customer-specific systems, quality assurance modules, test systems, networking solutions, and services for various industries. The Komax group has more than 50 companies with 3500 employees across five continents and a worldwide sales and service network.\n\nIhr Aufgabengebiet:\n\n• Definition und Weiterentwicklung des Produktofferings über den gesamten Produktlebenszyklus\n\n• Analyse von Kundern-, Markt- und Wettbewerbsanforderungen\n\n• Erarbeitung von Produktkonzepten, Business Cases und Preisstrategien\n\n• Sicherstellung der Umsetzung von Kundenanforderungen sowie Identifikation von Optimierungspotenzialen bei Prozessen und Performance\n\n• Planung und Durchführung von Feldtests mit Kunden und OEM-Partnern\n\n• Verantwortung für die Produkt- und Produktionsfreigaben bis zur Serienreife\n\n• Unterstützung der Markteinführung und Marktpositionierung\n\n• Enge Zusammenarbeit mit Marketing, Vertrieb, Entwicklung und Operations\n\nIhr Profil:\n\n• Technisches Grundverständnis, betriebswirtschaftliche Weiterbildung und hohe IT-Affinität\n\n• Erfahrung im Produktmanagement, Projektmanagement oder einer vergleichbaren Funktion\n\n• Unternehmerisches Denken sowie die Fähigkeit, technische, wirtschaftliche und kundenbezogene Anforderungen zusammenzuführen\n\n• Strukturierte Arbeitsweise sowie starke Kommunikations- und Koordinationsfähigkeiten\n\n• Eigeninitiative, Durchsetzungsvermögen und Umsetzungsstärke\n\n• Sehr gute Deutsch- und Englischkenntnisse\n\nDas erwartet Sie:\n\n• Die Chance, ein neues Produkt von der Idee bis zum Markterfolg mitzugestalten\n\n• Hohe Gestaltungsfreiheit und Verantwortung\n\n• Zusammenarbeit mit internationalen Kunden und interdisziplinären Teams\n\n• Ein innovatives Umfeld, das Eigeninitiative und Unternehmertum fördert\n\nInteressiert?\nDann freuen wir uns auf Ihre Bewerbung. Für Fragen stehen Ihnen Markus Schmidig (markus.schmidig@komaxgroup.com) und Christian Infanger (christian.infanger@komaxgroup.com) gerne zur Verfügung.",
-      "descriptionByLocale": {
-        "it": "Il gruppo Komax è un pioniere e leader di mercato nel campo della lavorazione automatizzata dei fili. Come azienda svizzera attiva a livello mondiale, sviluppiamo e produciamo macchine di produzione seriale, sistemi specifici per i clienti, moduli di garanzia della qualità, sistemi di test, soluzioni di networking e servizi per varie industrie. Il gruppo Komax ha più di 50 aziende con 3500 dipendenti in cinque continenti e una rete di vendita e servizi in tutto il mondo.\n\nLa vostra area di responsabilità:\n\n• Definizione e ulteriore sviluppo dell'offerta di prodotti su tutto il ciclo di vita del prodotto\n\n• Analisi dei requisiti di cliente, mercato e concorrenza\n\n• Sviluppo di concetti di prodotto, casi di business e strategie di prezzi\n\n• Garantire l'implementazione dei requisiti del cliente e identificare il potenziale di ottimizzazione nei processi e nelle prestazioni\n\n• Pianificazione e conduzione di test sul campo con clienti e partner OEM\n\n• Responsabilità per il prodotto e la produzione fino a maturità serie\n\n• Sostegno all'assorbimento del mercato e al posizionamento del mercato\n\n• Una stretta cooperazione con il marketing, le vendite, lo sviluppo e le operazioni\n\nIl tuo profilo:\n\n• Conoscenza tecnica di base, istruzione aziendale e alta affinità IT\n\n• Esperienza nella gestione dei prodotti, nella gestione dei progetti o in una funzione paragonabile\n\n• Il pensiero imprenditoriale e la capacità di combinare requisiti tecnici, economici e legati al cliente\n\n• Capacità di lavoro strutturate e forte comunicazione e coordinamento\n\n• Forza di iniziativa, di esecuzione e di attuazione\n\n• Molto buona conoscenza del tedesco e dell'inglese\n\nQuesto è ciò che vi aspetta:\n\n• L'opportunità di contribuire a modellare un nuovo prodotto dall'idea al successo di mercato\n\n• Alta libertà di progettazione e responsabilità\n\n• Collaborazione con clienti internazionali e team interdisciplinari\n\n• Un ambiente innovativo che promuove iniziative e imprenditorialità\n\nInteressante?\nAttendiamo con ansia la vostra applicazione. Markus Schmidig (markus.schmidig@komaxgroup.com) e Christian Infanger (christian.infanger@komaxgroup.com) sono a vostra disposizione per qualsiasi domanda.",
-        "en": "The Komax group is a pioneer and market leader in the field of automated wire processing. As a globally active Swiss company, we develop and manufacture serial production machines, customer-specific systems, quality assurance modules, test systems, networking solutions, and services for various industries. The Komax group has more than 50 companies with 3500 employees across five continents and a worldwide sales and service network.\n\nYour area of responsibility:\n\n• Definition and further development of the product offering over the entire product life cycle\n\n• Analysis of customer, market and competition requirements\n\n• Development of product concepts, business cases and pricing strategies\n\n• Ensuring the implementation of customer requirements and identifying optimization potential in processes and performance\n\n• Planning and conducting field tests with customers and OEM partners\n\n• Responsibility for product and production releases up to series maturity\n\n• Support for market uptake and market positioning\n\n• Close cooperation with marketing, sales, development and operations\n\nYour profile:\n\n• Basic technical understanding, business education and high IT affinity\n\n• Experience in product management, project management or a comparable function\n\n• Entrepreneurial thinking and the ability to combine technical, economic and customer-related requirements\n\n• Structured working and strong communication and coordination skills\n\n• Own initiative, enforcement and implementation strength\n\n• Very good knowledge of German and English\n\nThis is what awaits you:\n\n• The opportunity to help shape a new product from the idea to market success\n\n• High design freedom and responsibility\n\n• Collaboration with international clients and interdisciplinary teams\n\n• An innovative environment that promotes initiative and entrepreneurship\n\nInterested?\nWe look forward to your application. Markus Schmidig (markus.schmidig@komaxgroup.com) and Christian Infanger (christian.infanger@komaxgroup.com) are at your disposal for any questions.",
-        "de": "The Komax group is a pioneer and market leader in the field of automated wire processing. As a globally active Swiss company, we develop and manufacture serial production machines, customer-specific systems, quality assurance modules, test systems, networking solutions, and services for various industries. The Komax group has more than 50 companies with 3500 employees across five continents and a worldwide sales and service network.\n\nIhr Aufgabengebiet:\n\n• Definition und Weiterentwicklung des Produktofferings über den gesamten Produktlebenszyklus\n\n• Analyse von Kundern-, Markt- und Wettbewerbsanforderungen\n\n• Erarbeitung von Produktkonzepten, Business Cases und Preisstrategien\n\n• Sicherstellung der Umsetzung von Kundenanforderungen sowie Identifikation von Optimierungspotenzialen bei Prozessen und Performance\n\n• Planung und Durchführung von Feldtests mit Kunden und OEM-Partnern\n\n• Verantwortung für die Produkt- und Produktionsfreigaben bis zur Serienreife\n\n• Unterstützung der Markteinführung und Marktpositionierung\n\n• Enge Zusammenarbeit mit Marketing, Vertrieb, Entwicklung und Operations\n\nIhr Profil:\n\n• Technisches Grundverständnis, betriebswirtschaftliche Weiterbildung und hohe IT-Affinität\n\n• Erfahrung im Produktmanagement, Projektmanagement oder einer vergleichbaren Funktion\n\n• Unternehmerisches Denken sowie die Fähigkeit, technische, wirtschaftliche und kundenbezogene Anforderungen zusammenzuführen\n\n• Strukturierte Arbeitsweise sowie starke Kommunikations- und Koordinationsfähigkeiten\n\n• Eigeninitiative, Durchsetzungsvermögen und Umsetzungsstärke\n\n• Sehr gute Deutsch- und Englischkenntnisse\n\nDas erwartet Sie:\n\n• Die Chance, ein neues Produkt von der Idee bis zum Markterfolg mitzugestalten\n\n• Hohe Gestaltungsfreiheit und Verantwortung\n\n• Zusammenarbeit mit internationalen Kunden und interdisziplinären Teams\n\n• Ein innovatives Umfeld, das Eigeninitiative und Unternehmertum fördert\n\nInteressiert?\nDann freuen wir uns auf Ihre Bewerbung. Für Fragen stehen Ihnen Markus Schmidig (markus.schmidig@komaxgroup.com) und Christian Infanger (christian.infanger@komaxgroup.com) gerne zur Verfügung.",
-        "fr": "Le groupe Komax est un pionnier et leader du marché dans le domaine du traitement automatisé des fils. En tant qu'entreprise suisse mondialement active, nous développons et fabriquons des machines de production en série, des systèmes spécifiques à la clientèle, des modules d'assurance qualité, des systèmes de test, des solutions de réseautage et des services pour diverses industries. Le groupe Komax compte plus de 50 entreprises comptant 3500 employés sur cinq continents et un réseau mondial de ventes et de services.\n\nVotre domaine de responsabilité :\n\n• Définition et développement ultérieur de l'offre de produits sur l'ensemble du cycle de vie du produit\n\n• Analyse des besoins des clients, du marché et de la concurrence\n\n• Développement de concepts de produits, d'analyses de rentabilisation et de stratégies de tarification\n\n• Assurer la mise en œuvre des exigences des clients et identifier le potentiel d'optimisation des processus et des performances\n\n• Planification et réalisation d'essais sur le terrain avec les clients et les partenaires OEM\n\n• Responsabilité pour les rejets de produits et de production jusqu'à maturité en série\n\n• Soutien à l'adoption et au positionnement du marché\n\n• Coopération étroite avec le marketing, les ventes, le développement et les opérations\n\nVotre profil:\n\n• Connaissance technique de base, éducation aux affaires et haute affinité informatique\n\n• Expérience dans la gestion de produits, la gestion de projets ou une fonction comparable\n\n• La pensée entrepreneuriale et la capacité de combiner les exigences techniques, économiques et liées au client\n\n• Travail structuré et compétences solides en communication et coordination\n\n• Capacité d ' initiative, d ' application et de mise en œuvre\n\n• Très bonne connaissance de l'allemand et de l'anglais\n\nVoilà ce qui vous attend :\n\n• La possibilité d'aider à façonner un nouveau produit de l'idée au succès du marché\n\n• Haute liberté de conception et responsabilité\n\n• Collaboration avec des clients internationaux et des équipes interdisciplinaires\n\n• Un environnement innovant qui favorise l'initiative et l'esprit d'entreprise\n\nIntéressé ?\nNous attendons avec impatience votre candidature. Markus Schmidig (markus.schmidig@komaxgroup.com) et Christian Infanger (christian.infanger@komaxgroup.com) sont à votre disposition pour toutes questions."
-      },
-      "location": "Dierikon",
-      "canton": "LU",
-      "url": "https://jobs.komaxgroup.com/job/Dierikon-Product-Manager-Forming-&-Taping-80-100-%28mwd%29-6036/1165799955/",
-      "source": "Komax Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-20T10:00:57.814Z",
-      "addressLocality": "Dierikon",
-      "addressRegion": "LU",
-      "streetAddress": "Industriestrasse 6",
-      "postalCode": "6036",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Industria / Automazione",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.komaxgroup.com/job/Dierikon-Product-Manager-Forming-&-Taping-80-100-%28mwd%29-6036/1165799955/",
-      "jobReqId": "1165799955",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "product-manager-forming-taping-80-100-m-w-d-komax-ch",
-        "responsabile-di-prodotto-forming-taping-komax-dierikon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "product-manager-forming-taping-80-100-m-w-d-komax-ch",
-          "responsabile-di-prodotto-forming-taping-komax-dierikon"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-11-15T09:34:57.342Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-13T10:00:57.814Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.komaxgroup.com/job/dierikon-product-manager-forming-&-taping-80-100-%28mwd%29-6036/1165799955",
       "crawlerMissStreak": 2
     },
     {
@@ -1522,7 +1338,7 @@
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-13T21:41:38.033Z",
       "sourceIdentity": "url:https://jobs.komaxgroup.com/job/dierikon-team-leader-crm-applications-100-%28mwd%29-6036/1165799255",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
