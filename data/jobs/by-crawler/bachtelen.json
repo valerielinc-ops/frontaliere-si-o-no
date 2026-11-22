@@ -1,7 +1,7 @@
 {
   "crawlerKey": "bachtelen",
-  "assembledAt": "2026-11-21T21:43:25.696Z",
-  "runId": "44951449920",
+  "assembledAt": "2026-11-22T09:37:01.551Z",
+  "runId": "45007371426",
   "jobs": [
     {
       "id": "bachtelen-696d214df72c",
@@ -35,7 +35,7 @@
       "url": "https://www.bachtelen.ch/stelle/sozialpaedagoge-sozialpaedagogin-fh-hf-80/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:43:18.342Z",
+      "crawledAt": "2026-11-22T09:36:48.936Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -54,20 +54,20 @@
       "applyUrl": "https://www.bachtelen.ch/stelle/sozialpaedagoge-sozialpaedagogin-fh-hf-80/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "sozialpadagog-in-fh-hf-80-stiftung-bachtelen-grenchen"
-        ],
-        "it": [
-          "sozialpadagog-in-fh-hf-80-bachtelen-grenchen",
-          "educatore-trice-sociale-sup-sss-80-stiftung-bachtelen-grenchen"
-        ]
-      },
       "previousSlugs": [
         "sozialpadagog-in-fh-hf-80-bachtelen-grenchen",
         "educatore-trice-sociale-sup-sss-80-stiftung-bachtelen-grenchen",
         "sozialpadagog-in-fh-hf-80-stiftung-bachtelen-grenchen"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialpadagog-in-fh-hf-80-bachtelen-grenchen",
+          "educatore-trice-sociale-sup-sss-80-stiftung-bachtelen-grenchen"
+        ],
+        "de": [
+          "sozialpadagog-in-fh-hf-80-stiftung-bachtelen-grenchen"
+        ]
+      },
       "firstSeenAt": "2026-09-21T16:15:14.629Z",
       "salaryMin": 58400,
       "salaryMax": 99600,
@@ -84,7 +84,7 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:43:18.342Z",
+      "validThrough": "2026-12-22T09:36:48.936Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://www.bachtelen.ch/stelle/fachangestellter-betreuung-kindheit-sozialpaedagogin-40-60/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:43:18.340Z",
+      "crawledAt": "2026-11-22T09:36:48.933Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -174,7 +174,7 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:43:18.340Z",
+      "validThrough": "2026-12-22T09:36:48.933Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -208,7 +208,7 @@
       "url": "https://www.bachtelen.ch/stelle/sozialpaedagogin-sozialpaedagoge-fh-hf-70-80/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:43:18.338Z",
+      "crawledAt": "2026-11-22T09:36:48.930Z",
       "addressLocality": "Hägendorf",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -251,7 +251,7 @@
       },
       "streetAddress": "Hägendorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:43:18.338Z",
+      "validThrough": "2026-12-22T09:36:48.930Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -285,7 +285,7 @@
       "url": "https://www.bachtelen.ch/stelle/heilpaedagogen-heilpaedagoginnen-resp-lehrpersonen-60-100/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:43:18.336Z",
+      "crawledAt": "2026-11-22T09:36:48.925Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -345,7 +345,7 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:43:18.336Z",
+      "validThrough": "2026-12-22T09:36:48.925Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -380,7 +380,7 @@
       "url": "https://www.bachtelen.ch/stelle/praktikantinnen-schulsozialpaedagogik-70/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:43:18.334Z",
+      "crawledAt": "2026-11-22T09:36:48.923Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -429,7 +429,7 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:43:18.334Z",
+      "validThrough": "2026-12-22T09:36:48.923Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -464,7 +464,7 @@
       "url": "https://www.bachtelen.ch/stelle/fruehlogopaedin-fruehlogopaede-50-70/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:43:18.333Z",
+      "crawledAt": "2026-11-22T09:36:48.920Z",
       "addressLocality": "Solothurn und Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -510,7 +510,7 @@
       },
       "streetAddress": "Solothurn und Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:43:18.333Z",
+      "validThrough": "2026-12-22T09:36:48.920Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -545,7 +545,7 @@
       "url": "https://www.bachtelen.ch/stelle/schulischer-heilpaedagogin-resp-lehrperson-einer-zyklusdurchmischten-klasse-zyklus-1-und-2/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:43:18.331Z",
+      "crawledAt": "2026-11-22T09:36:48.917Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -596,7 +596,7 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T21:43:18.331Z",
+      "validThrough": "2027-01-14T09:36:48.917Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -631,7 +631,7 @@
       "url": "https://www.bachtelen.ch/stelle/schulischer-heilpaedagogin-resp-lehrperson/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:43:18.328Z",
+      "crawledAt": "2026-11-22T09:36:48.914Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -680,7 +680,7 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T21:43:18.328Z",
+      "validThrough": "2027-01-14T09:36:48.914Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -715,7 +715,7 @@
       "url": "https://www.bachtelen.ch/stelle/sozialpaedagogin-hf-fh-oder-fachperson-betreuung-fachrichtung-kinder/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:43:18.326Z",
+      "crawledAt": "2026-11-22T09:36:48.911Z",
       "addressLocality": "Hägendorf",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -766,7 +766,7 @@
       },
       "streetAddress": "Hägendorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:43:18.326Z",
+      "validThrough": "2027-01-27T09:36:48.911Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -801,7 +801,7 @@
       "url": "https://www.bachtelen.ch/stelle/gruppenleiterin-mit-stv-der-kitaleitung-80-100/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:43:18.324Z",
+      "crawledAt": "2026-11-22T09:36:48.903Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -850,7 +850,7 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:43:18.324Z",
+      "validThrough": "2027-02-08T09:36:48.903Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -885,7 +885,7 @@
       "url": "https://www.bachtelen.ch/stelle/schulischer-heilpaedagogin-zyklus-1-34/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:43:18.323Z",
+      "crawledAt": "2026-11-22T09:36:48.901Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -928,7 +928,7 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:43:18.323Z",
+      "validThrough": "2027-02-08T09:36:48.901Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -962,7 +962,7 @@
       "url": "https://www.bachtelen.ch/stelle/schulleiterin-80-100/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:43:18.322Z",
+      "crawledAt": "2026-11-22T09:36:48.899Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1013,7 +1013,7 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:43:18.322Z",
+      "validThrough": "2027-02-10T09:36:48.899Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1047,7 +1047,7 @@
       "url": "https://www.bachtelen.ch/stelle/gruppenleiterin-80-100/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:43:18.321Z",
+      "crawledAt": "2026-11-22T09:36:48.897Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1096,7 +1096,7 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:43:18.321Z",
+      "validThrough": "2027-02-10T09:36:48.897Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1130,7 +1130,7 @@
       "url": "https://www.bachtelen.ch/stelle/paedagogische-fachperson-80-100/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:43:18.320Z",
+      "crawledAt": "2026-11-22T09:36:48.895Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1179,7 +1179,7 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:43:18.320Z",
+      "validThrough": "2027-02-10T09:36:48.895Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1213,7 +1213,7 @@
       "url": "https://www.bachtelen.ch/stelle/paedagogische-fachperson-60/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:43:18.319Z",
+      "crawledAt": "2026-11-22T09:36:48.894Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1262,7 +1262,7 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:43:18.319Z",
+      "validThrough": "2027-02-10T09:36:48.894Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1296,7 +1296,7 @@
       "url": "https://www.bachtelen.ch/stelle/miterzieherin-und-verantwortlicher-schuelertransport-40/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:43:18.318Z",
+      "crawledAt": "2026-11-22T09:36:48.891Z",
       "addressLocality": "Lommiswil",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1347,7 +1347,7 @@
       },
       "streetAddress": "Lommiswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:43:18.318Z",
+      "validThrough": "2027-02-11T09:36:48.891Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1381,7 +1381,7 @@
       "url": "https://www.bachtelen.ch/stelle/stellvertreterin-bereichsleiterin-schulen-50-80/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:43:18.308Z",
+      "crawledAt": "2026-11-22T09:36:48.850Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1430,7 +1430,7 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:43:18.308Z",
+      "validThrough": "2027-02-16T09:36:48.850Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1464,7 +1464,7 @@
       "url": "https://www.bachtelen.ch/stelle/sozialpaedagogin-zyklus-3-60-75/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:43:18.307Z",
+      "crawledAt": "2026-11-22T09:36:48.847Z",
       "addressLocality": "Dornach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1513,16 +1513,16 @@
       },
       "streetAddress": "Dornach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:43:18.307Z",
+      "validThrough": "2027-02-16T09:36:48.847Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "bachtelen-96ecb617c0c6",
       "slug": "capo-del-servizio-tecnico-al-100-stiftung-bachtelen-grenchen",
       "slugByLocale": {
-        "de": "leiter-in-technischer-dienst-100-bachtelen-grenchen",
         "it": "capo-del-servizio-tecnico-al-100-stiftung-bachtelen-grenchen",
         "en": "head-of-technical-service-100-stiftung-bachtelen-grenchen",
+        "de": "leiter-in-technischer-dienst-100-bachtelen-grenchen",
         "fr": "chef-du-service-technique-a-100-stiftung-bachtelen-grenchen"
       },
       "company": "Stiftung Bachtelen",
@@ -1530,24 +1530,24 @@
       "companyDomain": "bachtelen.ch",
       "title": "Leiter:in Technischer Dienst 100%",
       "titleByLocale": {
-        "de": "Leiter:in Technischer Dienst 100%",
         "it": "Capo del Servizio Tecnico al 100%",
         "en": "Head of Technical Service 100%",
+        "de": "Leiter:in Technischer Dienst 100%",
         "fr": "Chef du service technique à 100 %"
       },
       "description": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n Der Bereich Immobilien und Dienste umfasst die technischen, handwerklichen und ICT-bezogenen unterstützenden Dienstleistungsangebote des Bachtelen.\n Per 1. April 2027 suchen wir für den Bereich Immobilien und Dienste eine:n\n Leiter:in Technischer Dienst 100%\n\nDeine Arbeit beinhaltet:\n\n• Instandhaltung der Gebäude, Fahrzeuge und Anlagen des Bachtelen, Koordination sowie selbständige Ausführung von Aufgaben\n\n• Leitung von Projekten im Fachbereich\n\n• Begleitung von Jugendlichen bei Einsätzen im Technischen Dienst, mit der dafür notwendigen Geduld, Einfühlvermögen und Verständnis\n\n• Führung des Teams mit drei Mitarbeitenden\n\n• Aufbau und Bewirtschaftung des CAFM\n\nDas bringst du mit:\n\n• Ausbildung im Bereich Sanitär / Heizung auf Stufe EFZ und Weiterbildung zur Hauswart:in oder fundierte Erfahrung in der Haustechnik\n\n• Ausbildung zur SIBE Brandschutz von Vorteil\n\n• Führerausweis Kat. B und Bereitschaft für Einsätze an allen Standorten des Bachtelen\n\n• Hohe Sozialkompetenz und ein Flair für den Umgang mit Kindern und Jugendlichen. Idealerweise bringst du bereits die Ausbildung zur Berufsbildung mit\n\nDas bieten wir dir:\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien, kurze Entscheidungswege und ein offenes, wertschätzendes Miteinander\n\n• Beruf und Freizeit gut planbar dank frühzeitiger Dienstpläne\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n\nDu hast Fragen?\n Gerne gibt dir Christoph Mohn unter 032 654 85 20 oder christoph.mohn@bachtelen.ch Auskunft.\n\nWir freuen uns auf deine Bewerbung!\n\nKontakt\n\nChristoph\n\nMohn\n\nBereichsleiter Immobilien und Dienste\n\n032 654 85 20\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
       "descriptionByLocale": {
+        "it": "Bachtelen è coinvolto nel cantone di Solothurn con una vasta gamma di offerte per la promozione, il supporto e l'integrazione dei giovani. Questo include scuole speciali, varie offerte di alloggi, offerte terapeutiche coordinate individualmente, nonché consultazioni e centri di assistenza. Bachtelen impiega circa 550 persone.\nIl settore immobiliare e dei servizi comprende i servizi di supporto tecnico, artigianale e ICT offerti da Bachtelen.\nA partire dal 1 aprile 2027, stiamo cercando un:n\nHead:in Servizio Tecnico 100%\n\nIl tuo lavoro include:\n\n• Manutenzione di edifici, veicoli e impianti di Bachtelen, coordinamento e esecuzione indipendente dei compiti\n\n• Gestione dei progetti nel settore\n\n• Accompagnamento dei giovani in missioni di servizio tecnico, con la necessaria pazienza, empatia e comprensione\n\n• Leadership del team con tre dipendenti\n\n• Istituzione e gestione del CAFM\n\nQuesto è ciò che portate con voi:\n\n• Formazione nel campo dell'igiene/riscaldamento a livello EFZ e ulteriore formazione come domestica: esperienza approfondita o approfondita nella tecnologia dell'edilizia\n\n• La formazione per la protezione antincendio SIBE è vantaggiosa\n\n• Cat B patente di guida e disponibilità per le operazioni in tutte le sedi di Bachtelen\n\n• Un'alta competenza sociale e un'infinità per affrontare i bambini e i giovani. L'obiettivo è quello di promuovere la formazione professionale.\n\nQuesto è ciò che vi offriamo:\n\n• Un posto di lavoro attraente con un sacco di spazio per iniziativa e partecipazione\n\n• Gerarchie piatte, brevi percorsi decisionali e una cooperazione aperta e apprezzata\n\n• Carriera e tempo libero ben pianificato grazie ai primi programmi\n\n• Condizioni di lavoro contemporanee secondo gli orientamenti cantonali\n\n• Un ambiente di lavoro significativo in cui il tuo lavoro fa una vera differenza\n\n• Sostegno generoso (money and/or time) per l'ulteriore istruzione\n\nHai delle domande?\nChristoph Mohn può fornirvi informazioni su 032 654 85 20 o christoph.mohn@bachtelen.ch.\n\nAttendiamo con ansia la vostra applicazione!\n\nInformazioni di contatto\n\nChristoph\n\nPoppy\n\nResponsabile Immobili e Servizi\n\n032 654 85 20\n\nE-mail\nBachtelen Foundation — Special and Social Education Foundation nel Cantone di Solothurn.",
+        "en": "Bachtelen is involved in the canton of Solothurn with a wide range of offers for the promotion, support and integration of young people. This includes special schools, various housing offers, individually coordinated therapy offers as well as consultations and day care centers. Bachtelen employs around 550 people.\nThe real estate and services sector comprises the technical, artisanal and ICT-related support services offered by Bachtelen.\nAs of April 1, 2027, we are looking for a:n\nHead:in Technical Service 100%\n\nYour work includes:\n\n• Maintenance of buildings, vehicles and facilities of Bachtelen, coordination and independent execution of tasks\n\n• Management of projects in the field\n\n• Accompaniment of young people in technical service missions, with the necessary patience, empathy and understanding\n\n• Leadership of the team with three employees\n\n• Establishment and management of the CAFM\n\nThis is what you bring with you:\n\n• Training in the field of sanitary / heating at the EFZ level and further education as a housekeeper: in or in-depth experience in building technology\n\n• Training for SIBE fire protection is advantageous\n\n• Cat B driving licence and readiness for operations at all Bachtelen locations\n\n• High social competence and a flair for dealing with children and young people. Ideally, you already bring the training for vocational training\n\nThis is what we offer you:\n\n• An attractive workplace with plenty of room for initiative and participation\n\n• Flat hierarchies, short decision paths and an open, appreciative cooperation\n\n• Career and leisure well planned thanks to early schedules\n\n• Contemporary employment conditions according to cantonal guidelines\n\n• A meaningful work environment where your work makes a real difference\n\n• Generous support (money and/or time) for further education\n\nYou have questions?\nChristoph Mohn can provide you with information on 032 654 85 20 or christoph.mohn@bachtelen.ch.\n\nWe look forward to your application!\n\nContact details\n\nChristoph\n\nPoppy\n\nHead of Real Estate and Services\n\n032 654 85 20\n\nE-mail\nBachtelen Foundation — Special and Social Education Foundation in the Canton of Solothurn.",
         "de": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n Der Bereich Immobilien und Dienste umfasst die technischen, handwerklichen und ICT-bezogenen unterstützenden Dienstleistungsangebote des Bachtelen.\n Per 1. April 2027 suchen wir für den Bereich Immobilien und Dienste eine:n\n Leiter:in Technischer Dienst 100%\n\nDeine Arbeit beinhaltet:\n\n• Instandhaltung der Gebäude, Fahrzeuge und Anlagen des Bachtelen, Koordination sowie selbständige Ausführung von Aufgaben\n\n• Leitung von Projekten im Fachbereich\n\n• Begleitung von Jugendlichen bei Einsätzen im Technischen Dienst, mit der dafür notwendigen Geduld, Einfühlvermögen und Verständnis\n\n• Führung des Teams mit drei Mitarbeitenden\n\n• Aufbau und Bewirtschaftung des CAFM\n\nDas bringst du mit:\n\n• Ausbildung im Bereich Sanitär / Heizung auf Stufe EFZ und Weiterbildung zur Hauswart:in oder fundierte Erfahrung in der Haustechnik\n\n• Ausbildung zur SIBE Brandschutz von Vorteil\n\n• Führerausweis Kat. B und Bereitschaft für Einsätze an allen Standorten des Bachtelen\n\n• Hohe Sozialkompetenz und ein Flair für den Umgang mit Kindern und Jugendlichen. Idealerweise bringst du bereits die Ausbildung zur Berufsbildung mit\n\nDas bieten wir dir:\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien, kurze Entscheidungswege und ein offenes, wertschätzendes Miteinander\n\n• Beruf und Freizeit gut planbar dank frühzeitiger Dienstpläne\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n\nDu hast Fragen?\n Gerne gibt dir Christoph Mohn unter 032 654 85 20 oder christoph.mohn@bachtelen.ch Auskunft.\n\nWir freuen uns auf deine Bewerbung!\n\nKontakt\n\nChristoph\n\nMohn\n\nBereichsleiter Immobilien und Dienste\n\n032 654 85 20\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
-        "it": "Bachtelen è coinvolto nel cantone di Solothurn con una vasta gamma di offerte per la promozione, il supporto e l'integrazione dei giovani. Questo include scuole speciali, varie offerte di alloggi, offerte terapeutiche coordinate individualmente, nonché consultazioni e centri di assistenza. Bachtelen impiega circa 550 persone.\n Il settore immobiliare e dei servizi comprende i servizi di supporto tecnico, artigianale e ICT offerti da Bachtelen.\n A partire dal 1 aprile 2027, stiamo cercando un:n\n Head:in Servizio Tecnico 100%\n\nIl tuo lavoro include:\n\n• Manutenzione di edifici, veicoli e impianti di Bachtelen, coordinamento e esecuzione indipendente dei compiti\n\n• Gestione dei progetti nel settore\n\n• Accompagnamento dei giovani in missioni di servizio tecnico, con la necessaria pazienza, empatia e comprensione\n\n• Leadership del team con tre dipendenti\n\n• Istituzione e gestione del CAFM\n\nQuesto è ciò che portate con voi:\n\n• Formazione nel campo dell'igiene/riscaldamento a livello EFZ e ulteriore formazione come domestica: esperienza approfondita o approfondita nella tecnologia dell'edilizia\n\n• La formazione per la protezione antincendio SIBE è vantaggiosa\n\n• Cat B patente di guida e disponibilità per le operazioni in tutte le sedi di Bachtelen\n\n• Un'alta competenza sociale e un'infinità per affrontare i bambini e i giovani. L'obiettivo è quello di promuovere la formazione professionale.\n\nQuesto è ciò che vi offriamo:\n\n• Un posto di lavoro attraente con un sacco di spazio per iniziativa e partecipazione\n\n• Gerarchie piatte, brevi percorsi decisionali e una cooperazione aperta e apprezzata\n\n• Carriera e tempo libero ben pianificato grazie ai primi programmi\n\n• Condizioni di lavoro contemporanee secondo gli orientamenti cantonali\n\n• Un ambiente di lavoro significativo in cui il tuo lavoro fa una vera differenza\n\n• Sostegno generoso (money and/or time) per l'ulteriore istruzione\n\nHai delle domande?\n Christoph Mohn può fornirvi informazioni su 032 654 85 20 o christoph.mohn@bachtelen.ch.\n\nAttendiamo con ansia la vostra applicazione!\n\nInformazioni di contatto\n\nChristoph\n\nPoppy\n\nResponsabile Immobili e Servizi\n\n032 654 85 20\n\nE-mail\nBachtelen Foundation — Special and Social Education Foundation nel Cantone di Solothurn.",
-        "en": "Bachtelen is involved in the canton of Solothurn with a wide range of offers for the promotion, support and integration of young people. This includes special schools, various housing offers, individually coordinated therapy offers as well as consultations and day care centers. Bachtelen employs around 550 people.\n The real estate and services sector comprises the technical, artisanal and ICT-related support services offered by Bachtelen.\n As of April 1, 2027, we are looking for a:n\n Head:in Technical Service 100%\n\nYour work includes:\n\n• Maintenance of buildings, vehicles and facilities of Bachtelen, coordination and independent execution of tasks\n\n• Management of projects in the field\n\n• Accompaniment of young people in technical service missions, with the necessary patience, empathy and understanding\n\n• Leadership of the team with three employees\n\n• Establishment and management of the CAFM\n\nThis is what you bring with you:\n\n• Training in the field of sanitary / heating at the EFZ level and further education as a housekeeper: in or in-depth experience in building technology\n\n• Training for SIBE fire protection is advantageous\n\n• Cat B driving licence and readiness for operations at all Bachtelen locations\n\n• High social competence and a flair for dealing with children and young people. Ideally, you already bring the training for vocational training\n\nThis is what we offer you:\n\n• An attractive workplace with plenty of room for initiative and participation\n\n• Flat hierarchies, short decision paths and an open, appreciative cooperation\n\n• Career and leisure well planned thanks to early schedules\n\n• Contemporary employment conditions according to cantonal guidelines\n\n• A meaningful work environment where your work makes a real difference\n\n• Generous support (money and/or time) for further education\n\nYou have questions?\n Christoph Mohn can provide you with information on 032 654 85 20 or christoph.mohn@bachtelen.ch.\n\nWe look forward to your application!\n\nContact details\n\nChristoph\n\nPoppy\n\nHead of Real Estate and Services\n\n032 654 85 20\n\nE-mail\nBachtelen Foundation — Special and Social Education Foundation in the Canton of Solothurn.",
-        "fr": "Bachtelen est impliqué dans le canton de Soleure avec un large éventail d'offres pour la promotion, le soutien et l'intégration des jeunes. Il s'agit notamment d'écoles spéciales, de diverses offres de logement, de thérapies coordonnées individuellement ainsi que de consultations et de garderies. Bachtelen emploie environ 550 personnes.\n Le secteur de l'immobilier et des services comprend les services de soutien technique, artisanal et TIC offerts par Bachtelen.\n En date du 1er avril 2027, nous recherchons :\n Chef:dans le service technique 100%\n\nVotre travail comprend :\n\n• Entretien des bâtiments, véhicules et installations de Bachtelen, coordination et exécution indépendante des tâches\n\n• Gestion des projets sur le terrain\n\n• Accompagnement des jeunes dans les missions de service technique, avec la patience, l'empathie et la compréhension nécessaires\n\n• Leadership de l'équipe avec trois employés\n\n• Établissement et gestion du CAFM\n\nVoici ce que vous apportez avec vous :\n\n• Formation dans le domaine de l'hygiène / chauffage au niveau de l'EFZ et formation continue en tant que femme de ménage: expérience ou expérience approfondie en matière de technologie du bâtiment\n\n• La formation pour la protection contre l'incendie SIBE est avantageuse\n\n• Permis de conduire Cat B et préparation aux opérations dans tous les emplacements de Bachtelen\n\n• Une grande compétence sociale et un flair pour traiter avec les enfants et les jeunes. Idéalement, vous apportez déjà la formation pour la formation professionnelle\n\nVoici ce que nous vous proposons :\n\n• Un lieu de travail attrayant avec beaucoup de place pour l'initiative et la participation\n\n• Hiérarchies plates, chemins de décision courts et coopération ouverte et appréciée\n\n• Carrière et loisirs bien planifiés grâce aux horaires précoces\n\n• Conditions d'emploi contemporaines selon les directives cantonales\n\n• Un environnement de travail significatif où votre travail fait une vraie différence\n\n• Soutien généreux (argent et/ou temps) à la formation continue\n\nVous avez des questions ?\n Christoph Mohn peut vous fournir des informations au 032 654 85 20 ou christoph.mohn@bachtelen.ch.\n\nNous attendons avec impatience votre candidature!\n\nCoordonnées\n\nChristoph\n\nPoppy\n\nResponsable de l'immobilier et des services\n\n032 654 85 20\n\nCourriel\nFondation Bachtelen — Fondation pour l'éducation spéciale et sociale dans le canton de Soleure."
+        "fr": "Bachtelen est impliqué dans le canton de Soleure avec un large éventail d'offres pour la promotion, le soutien et l'intégration des jeunes. Il s'agit notamment d'écoles spéciales, de diverses offres de logement, de thérapies coordonnées individuellement ainsi que de consultations et de garderies. Bachtelen emploie environ 550 personnes.\nLe secteur de l'immobilier et des services comprend les services de soutien technique, artisanal et TIC offerts par Bachtelen.\nEn date du 1er avril 2027, nous recherchons :\nChef:dans le service technique 100%\n\nVotre travail comprend :\n\n• Entretien des bâtiments, véhicules et installations de Bachtelen, coordination et exécution indépendante des tâches\n\n• Gestion des projets sur le terrain\n\n• Accompagnement des jeunes dans les missions de service technique, avec la patience, l'empathie et la compréhension nécessaires\n\n• Leadership de l'équipe avec trois employés\n\n• Établissement et gestion du CAFM\n\nVoici ce que vous apportez avec vous :\n\n• Formation dans le domaine de l'hygiène / chauffage au niveau de l'EFZ et formation continue en tant que femme de ménage: expérience ou expérience approfondie en matière de technologie du bâtiment\n\n• La formation pour la protection contre l'incendie SIBE est avantageuse\n\n• Permis de conduire Cat B et préparation aux opérations dans tous les emplacements de Bachtelen\n\n• Une grande compétence sociale et un flair pour traiter avec les enfants et les jeunes. Idéalement, vous apportez déjà la formation pour la formation professionnelle\n\nVoici ce que nous vous proposons :\n\n• Un lieu de travail attrayant avec beaucoup de place pour l'initiative et la participation\n\n• Hiérarchies plates, chemins de décision courts et coopération ouverte et appréciée\n\n• Carrière et loisirs bien planifiés grâce aux horaires précoces\n\n• Conditions d'emploi contemporaines selon les directives cantonales\n\n• Un environnement de travail significatif où votre travail fait une vraie différence\n\n• Soutien généreux (argent et/ou temps) à la formation continue\n\nVous avez des questions ?\nChristoph Mohn peut vous fournir des informations au 032 654 85 20 ou christoph.mohn@bachtelen.ch.\n\nNous attendons avec impatience votre candidature!\n\nCoordonnées\n\nChristoph\n\nPoppy\n\nResponsable de l'immobilier et des services\n\n032 654 85 20\n\nCourriel\nFondation Bachtelen — Fondation pour l'éducation spéciale et sociale dans le canton de Soleure."
       },
       "location": "Grenchen",
       "canton": "SO",
       "url": "https://www.bachtelen.ch/stelle/leiterin-technischer-dienst-100/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:43:18.295Z",
+      "crawledAt": "2026-11-22T09:36:48.809Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1565,9 +1565,11 @@
       "postingDateSource": "reported",
       "applyUrl": "https://www.bachtelen.ch/stelle/leiterin-technischer-dienst-100/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "leiter-in-technischer-dienst-100-bachtelen-grenchen",
+        "responsabile-technischer-dienst-100-stiftung-bachtelen-grenchen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-technischer-dienst-100-bachtelen-grenchen",
@@ -1580,10 +1582,7 @@
           "leiter-in-technischer-dienst-100-bachtelen-grenchen"
         ]
       },
-      "previousSlugs": [
-        "leiter-in-technischer-dienst-100-bachtelen-grenchen",
-        "responsabile-technischer-dienst-100-stiftung-bachtelen-grenchen"
-      ],
+      "firstSeenAt": "2026-11-21T21:43:18.295Z",
       "salaryMin": 105500,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -1599,9 +1598,8 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T21:43:18.295Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:43:18.295Z"
+      "validThrough": "2027-02-17T09:36:48.809Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
