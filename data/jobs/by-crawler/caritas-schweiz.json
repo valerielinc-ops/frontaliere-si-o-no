@@ -1,7 +1,7 @@
 {
   "crawlerKey": "caritas-schweiz",
-  "assembledAt": "2026-11-22T09:21:44.964Z",
-  "runId": "45006141964",
+  "assembledAt": "2026-11-22T21:22:47.300Z",
+  "runId": "45070493252",
   "jobs": [
     {
       "id": "caritas-schweiz-41d37a49c14d",
@@ -35,7 +35,7 @@
       "url": "https://apply.refline.ch/126757/2397/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:20:52.235Z",
+      "crawledAt": "2026-11-22T21:21:57.097Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -87,7 +87,7 @@
       },
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:20:52.235Z",
+      "validThrough": "2027-02-16T21:21:57.097Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -122,7 +122,7 @@
       "url": "https://apply.refline.ch/126757/2396/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:20:51.818Z",
+      "crawledAt": "2026-11-22T21:21:56.676Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -176,7 +176,7 @@
       },
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:20:51.818Z",
+      "validThrough": "2027-02-11T21:21:56.676Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -211,7 +211,7 @@
       "url": "https://apply.refline.ch/126757/2395/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:20:51.395Z",
+      "crawledAt": "2026-11-22T21:21:56.255Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -263,7 +263,7 @@
       },
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:20:51.395Z",
+      "validThrough": "2027-02-10T21:21:56.255Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -298,7 +298,7 @@
       "url": "https://apply.refline.ch/126757/2389/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:20:50.974Z",
+      "crawledAt": "2026-11-22T21:21:55.832Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -350,7 +350,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:20:50.974Z",
+      "validThrough": "2027-02-02T21:21:55.832Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -385,7 +385,7 @@
       "url": "https://apply.refline.ch/126757/2379/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:20:50.540Z",
+      "crawledAt": "2026-11-22T21:21:55.405Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -437,7 +437,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:20:50.540Z",
+      "validThrough": "2027-01-12T21:21:55.405Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -472,7 +472,7 @@
       "url": "https://apply.refline.ch/126757/2020/pub/5/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:20:50.110Z",
+      "crawledAt": "2026-11-22T21:21:53.851Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -539,7 +539,7 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:50.110Z",
+      "validThrough": "2026-12-22T21:21:53.851Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -574,7 +574,7 @@
       "url": "https://apply.refline.ch/126757/2338/pub/10/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:20:49.689Z",
+      "crawledAt": "2026-11-22T21:21:53.421Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -655,7 +655,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:49.689Z",
+      "validThrough": "2026-12-22T21:21:53.421Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -690,7 +690,7 @@
       "url": "https://apply.refline.ch/126757/2394/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:20:49.263Z",
+      "crawledAt": "2026-11-22T21:21:52.997Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -742,7 +742,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:20:49.263Z",
+      "validThrough": "2027-02-10T21:21:52.997Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -777,7 +777,7 @@
       "url": "https://apply.refline.ch/126757/2393/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:20:48.840Z",
+      "crawledAt": "2026-11-22T21:21:52.567Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -831,7 +831,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:20:48.840Z",
+      "validThrough": "2027-02-10T21:21:52.567Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -866,7 +866,7 @@
       "url": "https://apply.refline.ch/126757/2390/pub/4/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:20:48.393Z",
+      "crawledAt": "2026-11-22T21:21:52.145Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -914,7 +914,7 @@
       },
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:20:48.393Z",
+      "validThrough": "2027-02-02T21:21:52.145Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -949,7 +949,7 @@
       "url": "https://apply.refline.ch/126757/2388/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:20:47.959Z",
+      "crawledAt": "2026-11-22T21:21:51.721Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1001,7 +1001,7 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:20:47.959Z",
+      "validThrough": "2027-01-31T21:21:51.721Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1036,7 +1036,7 @@
       "url": "https://apply.refline.ch/126757/2387/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:20:47.528Z",
+      "crawledAt": "2026-11-22T21:21:51.300Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1090,7 +1090,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:20:47.528Z",
+      "validThrough": "2027-01-31T21:21:51.300Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1125,7 +1125,7 @@
       "url": "https://apply.refline.ch/126757/2366/pub/6/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:20:47.106Z",
+      "crawledAt": "2026-11-22T21:21:50.875Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1179,7 +1179,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:47.106Z",
+      "validThrough": "2026-12-22T21:21:50.875Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1214,7 +1214,7 @@
       "url": "https://apply.refline.ch/126757/2370/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:20:46.668Z",
+      "crawledAt": "2026-11-22T21:21:50.443Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1260,110 +1260,8 @@
       },
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T09:20:46.668Z",
+      "validThrough": "2026-12-24T21:21:50.443Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "caritas-schweiz-43f6a37e0add",
-      "slug": "team-leader-caritas-care-accompagnatori-80-100-caritas-schweiz-bern",
-      "slugByLocale": {
-        "it": "team-leader-caritas-care-accompagnatori-80-100-caritas-schweiz-bern",
-        "en": "team-leader-caritas-care-carers-80-100-caritas-schweiz-bern",
-        "de": "teamleitung-caritas-care-pflegende-angehorige-80-100-caritas-schweiz-bern",
-        "fr": "chef-d-equipe-caritas-care-aidants-80-100-caritas-schweiz-bern"
-      },
-      "company": "Caritas Schweiz",
-      "companyKey": "caritas-schweiz",
-      "companyDomain": "caritas.ch",
-      "title": "Teamleitung Caritas Care – Pflegende Angehörige 80-100%",
-      "titleByLocale": {
-        "it": "Responsabile del team Caritas Care – familiari che prestano assistenza 80-100%",
-        "en": "Caritas Care Team Lead – Family Caregivers 80-100%",
-        "de": "Teamleitung Caritas Care – Pflegende Angehörige 80-100%",
-        "fr": "Responsable d’équipe Caritas Care – Proches aidants 80-100 %"
-      },
-      "description": "• Mit ihren Projekten und Angeboten setzt sich Caritas Bern gegen Armut und soziale Ausgrenzung ein, fördert die Integration und macht sich für Menschen stark. Zu diesem Zweck arbeitet sie mit unterschiedlichen Partnern zusammen und nimmt Mandate der öffentlichen Hand wahr. Engagieren Sie sich mit uns für ein solidarisches und respektvolles Zusammenleben als…\n\nTeamleitung Caritas Care – Pflegende Angehörige 80-100%\n\nBei uns übernehmen Sie Verantwortung in einem vielseitigen und sinnstiftenden Umfeld. Ihre Aufgaben sind nah am Menschen, abwechslungsreich und von unmittelbarer Bedeutung. Im Angebot «Angehörige pflegen» ermöglichen wir pflegebedürftigen Klientinnen und Klienten eine bestmögliche, personenzentrierte Pflege durch ihre Angehörigen. Dabei stehen die pflegenden Angehörigen nicht allein: Sie werden von unseren Pflegefachpersonen HF/FH professionell beraten, begleitet und unterstützt. Für Ihre wertvolle Arbeit werden sie honoriert und entsprechend versichert.\n\nEine Rolle – so individuell wie Sie:\n\nFür die Leitung unseres Angebots im Kanton Bern suchen wir nach Vereinbarung eine Teamleitung Pflege HF/FH. In dieser vielseitigen Funktion übernehmen Sie die fachliche und personelle Führung eines Teams von fallführenden Pflegefachpersonen HF/FH. Gleichzeitig wirken Sie als Mitglied des überkantonalen Gremiums Pflege aktiv an der Gestaltung und Weiterentwicklung des Angebots mit. Auch die direkte Arbeit mit Klientinnen und Klienten bleibt Teil Ihrer Aufgabe: Als fallführende Pflegefachperson steuern und begleiten Sie den Pflegeprozess und stellen eine hohe, personenzentrierte Pflegequalität sicher. Dabei beraten und unterstützen Sie die pflegenden Angehörigen kompetent und bedarfsgerecht.\n\nWas Sie bei uns erwartet:\n• Sinnvolle Arbeit; Sie gestalten eine solidarische Zukunft mit\n• Flexible Arbeitsmodelle; Gute Arbeit ist nicht immer an Ort und Zeit gebunden\n• Faire Bedingungen; Marktgerechte Löhne und gute Sozialleistungen\n• Attraktiver Arbeitsort; Zentral in der Länggasse in Bern\n• Wertschätzung & Vielfalt: Ein Umfeld, dass Sie und Ihre Perspektiven schätzt\n\nSie passen zu uns, wenn Sie:\n\n• gerne selbstständig arbeiten, gut organisiert sind und verantwortungsbewusst handeln\n• kommunikativ stark sind und sich sicher im Austausch mit unterschiedlichen Anspruchsgruppen bewegen; gute Französischkenntnisse sind von Vorteil\n• einen gültigen Führerausweis besitzen und über ein eigenes Auto verfügen\n\nFür diese verantwortungsvolle Aufgabe setzen wir einen HF/FH Abschluss in Pflege und Führungserfahrungen vorzugsweise in der Spitex voraus.\n\nArbeitsort: Bern\nArbeitsbeginn: per sofort oder nach Vereinbarung\n\nWir bieten Ihnen attraktive Sozialleistungen und ein offenes Arbeitsklima in einem spannenden und bewegten Umfeld.\n\nBei Caritas Bern erwarten Sie engagierte Mitarbeitende, ein offenes Arbeitsklima sowie zeitgemässe Arbeitsbedingungen. Ein interessantes Umfeld und ein spannendes Unternehmen bieten Ihnen ein attraktives Arbeitsfeld mit Entwicklungspotential.\n\nSoll Caritas Bern Ihr nächster Wirkungsort sein? Dann freuen wir uns sehr auf Ihre Unterlagen (ausschliesslich über das Onlineportal) – und darauf, Sie kennenzulernen.\n\nWir melden uns ab dem 21. September 2026 bei Ihnen.\n\nHaben Sie Fragen, dann hilft Ihnen Silja Wenk, Co-Geschäftsleiterin, unter der Nr. 031 378 60 26 gerne weiter.\n\nwww.caritas-bern.ch\n\nJetzt online bewerben\n\n•\n\nFacebook",
-      "descriptionByLocale": {
-        "it": "Descrizione\n\n- Con i suoi progetti e le sue offerte, Caritas Bern si impegna contro la povertà e l’esclusione sociale, promuove l’integrazione e si adopera a favore delle persone. A questo scopo collabora con diversi partner e svolge mandati per conto degli enti pubblici. Impegnatevi con noi per una convivenza solidale e rispettosa in qualità di…\n\nResponsabile del team Caritas Care – Familiari curanti 80-100%\n\nDa noi vi assumete responsabilità in un contesto vario e ricco di significato. Le vostre mansioni sono a diretto contatto con le persone, varie e di immediata rilevanza. Nell’offerta «Angehörige pflegen» consentiamo alle clienti e ai clienti che necessitano di cure di ricevere dai loro familiari la migliore assistenza possibile, incentrata sulla persona. I familiari curanti non sono soli: ricevono consulenza, accompagnamento e sostegno professionali dal nostro personale infermieristico HF/FH. Per il loro prezioso lavoro vengono retribuiti e assicurati di conseguenza.\n\nUn ruolo – individuale quanto voi:\n\nPer dirigere la nostra offerta nel Cantone di Berna cerchiamo, con data d’inizio da concordare, una/un responsabile del team di cure HF/FH. In questa funzione variegata assumete la responsabilità specialistica e del personale di un team di professioniste e professionisti della cura HF/FH responsabili della gestione dei casi. Allo stesso tempo, in qualità di membro dell’organo intercantonale per le cure, partecipate attivamente alla definizione e all’ulteriore sviluppo dell’offerta. Anche il lavoro diretto con le clienti e i clienti continuerà a far parte dei vostri compiti: in qualità di professionista della cura responsabile del caso, gestite e accompagnate il processo di cura e garantite un’elevata qualità dell’assistenza incentrata sulla persona. In questo contesto, fornite consulenza e sostegno ai familiari curanti in modo competente e adeguato alle loro esigenze.\n\nCosa vi aspetta da noi:\n\n- Lavoro significativo; contribuite a costruire un futuro solidale\n- Modelli di lavoro flessibili; il buon lavoro non è sempre vincolato a un luogo e a un orario\n- Condizioni eque; salari conformi al mercato e buone prestazioni sociali\n- Luogo di lavoro attrattivo; in posizione centrale nella Länggasse a Berna\n- Apprezzamento e diversità: un ambiente che valorizza voi e le vostre prospettive\n\nSiete la persona che cerchiamo se:\n\n- lavorate volentieri in autonomia, siete ben organizzati e agite con senso di responsabilità\n- avete spiccate doti comunicative e vi muovete con sicurezza nel dialogo con diversi gruppi di interesse; buone conoscenze del francese costituiscono un vantaggio\n- siete in possesso di una patente di guida valida e disponete di un’auto propria\n- per questo incarico di responsabilità, richiediamo un diploma HF/FH in cure infermieristiche e un’esperienza dirigenziale, preferibilmente nel settore Spitex.\n\nLuogo e inizio del lavoro\n\n- Luogo di lavoro: Berna\n- Inizio del lavoro: con effetto immediato o da concordare\n\nOffriamo\n\n- Vi offriamo prestazioni sociali attrattive e un clima di lavoro aperto in un contesto stimolante e dinamico.\n- Presso Caritas Bern vi aspettano collaboratrici e collaboratori impegnati, un clima di lavoro aperto e condizioni di lavoro moderne.\n- Un contesto interessante e un’azienda stimolante vi offrono un ambito di lavoro attrattivo con potenziale di sviluppo.\n\nContatto\n\nCaritas Bern potrebbe diventare il vostro prossimo luogo di lavoro? Allora saremo molto lieti di ricevere la vostra documentazione (esclusivamente tramite il portale online) e di conoscervi.\n\nVi contatteremo a partire dal 21 settembre 2026.\n\nAvete domande? Silja Wenk, co-direttrice, sarà lieta di aiutarvi al numero 031 378 60 26.\n\nwww.caritas-bern.ch\n\nCandidarsi ora online\n\n- Facebook",
-        "en": "Description\n\n- Through its projects and services, Caritas Bern combats poverty and social exclusion, promotes integration and stands up for people. To this end, it works with various partners and undertakes public-sector mandates. Join us in promoting solidarity and respectful coexistence as…\n\nTeam Lead Caritas Care – Family Caregivers 80-100%\n\nAt Caritas Bern, you will take on responsibility in a diverse and meaningful environment. Your tasks are close to people, varied and immediately impactful. Through the «Caring for Relatives» program, we enable clients in need of care to receive the best possible, person-centred care from their relatives. Family caregivers are not left alone: our nursing professionals HF/FH provide them with professional advice, guidance and support. They are compensated and appropriately insured for their valuable work.\n\nA role – as individual as you are:\n\nTo lead our program in the Canton of Bern, we are looking for a Team Lead Nursing HF/FH, starting by agreement. In this diverse role, you will be responsible for the professional and personnel management of a team of case-managing nursing professionals HF/FH. At the same time, as a member of the inter-cantonal nursing committee, you will actively contribute to shaping and further developing the program. Direct work with clients also remains part of your role: as a case-managing nursing professional, you will manage and support the care process and ensure high-quality, person-centred care. You will provide family caregivers with competent, needs-based advice and support.\n\nWhat you can expect from us:\n\n- Meaningful work; you help shape a future based on solidarity\n- Flexible working models; good work is not always tied to a particular place and time\n- Fair conditions; market-based salaries and good social benefits\n- Attractive workplace; centrally located in Länggasse in Bern\n- Appreciation & diversity: An environment that values you and your perspectives\n\nYou are a good fit for us if you:\n\n- enjoy working independently, are well organized and act responsibly\n- have strong communication skills and are confident engaging with different stakeholder groups; good French skills are an advantage\n- hold a valid driver's license and have your own car\n- For this responsible role, we require an HF/FH degree in nursing and leadership experience, preferably in Spitex.\n\nWork location and start date\n\n- Work location: Bern\n- Start date: immediately or by agreement\n\nWhat we offer\n\n- We offer you attractive social benefits and an open working atmosphere in an exciting and dynamic environment.\n- At Caritas Bern, you can expect committed employees, an open working atmosphere and modern working conditions.\n- An interesting environment and an exciting company offer you an attractive field of work with development potential.\n\nContact\n\nCould Caritas Bern be your next place of work? Then we look forward to receiving your documents (exclusively via the online portal) – and to getting to know you.\n\nWe will get back to you from September 21, 2026.\n\nIf you have any questions, Silja Wenk, Co-Managing Director, will be happy to assist you at 031 378 60 26.\n\nwww.caritas-bern.ch\n\nApply online now\n\n- Facebook",
-        "de": "• Mit ihren Projekten und Angeboten setzt sich Caritas Bern gegen Armut und soziale Ausgrenzung ein, fördert die Integration und macht sich für Menschen stark. Zu diesem Zweck arbeitet sie mit unterschiedlichen Partnern zusammen und nimmt Mandate der öffentlichen Hand wahr. Engagieren Sie sich mit uns für ein solidarisches und respektvolles Zusammenleben als…\n\nTeamleitung Caritas Care – Pflegende Angehörige 80-100%\n\nBei uns übernehmen Sie Verantwortung in einem vielseitigen und sinnstiftenden Umfeld. Ihre Aufgaben sind nah am Menschen, abwechslungsreich und von unmittelbarer Bedeutung. Im Angebot «Angehörige pflegen» ermöglichen wir pflegebedürftigen Klientinnen und Klienten eine bestmögliche, personenzentrierte Pflege durch ihre Angehörigen. Dabei stehen die pflegenden Angehörigen nicht allein: Sie werden von unseren Pflegefachpersonen HF/FH professionell beraten, begleitet und unterstützt. Für Ihre wertvolle Arbeit werden sie honoriert und entsprechend versichert.\n\nEine Rolle – so individuell wie Sie:\n\nFür die Leitung unseres Angebots im Kanton Bern suchen wir nach Vereinbarung eine Teamleitung Pflege HF/FH. In dieser vielseitigen Funktion übernehmen Sie die fachliche und personelle Führung eines Teams von fallführenden Pflegefachpersonen HF/FH. Gleichzeitig wirken Sie als Mitglied des überkantonalen Gremiums Pflege aktiv an der Gestaltung und Weiterentwicklung des Angebots mit. Auch die direkte Arbeit mit Klientinnen und Klienten bleibt Teil Ihrer Aufgabe: Als fallführende Pflegefachperson steuern und begleiten Sie den Pflegeprozess und stellen eine hohe, personenzentrierte Pflegequalität sicher. Dabei beraten und unterstützen Sie die pflegenden Angehörigen kompetent und bedarfsgerecht.\n\nWas Sie bei uns erwartet:\n• Sinnvolle Arbeit; Sie gestalten eine solidarische Zukunft mit\n• Flexible Arbeitsmodelle; Gute Arbeit ist nicht immer an Ort und Zeit gebunden\n• Faire Bedingungen; Marktgerechte Löhne und gute Sozialleistungen\n• Attraktiver Arbeitsort; Zentral in der Länggasse in Bern\n• Wertschätzung & Vielfalt: Ein Umfeld, dass Sie und Ihre Perspektiven schätzt\n\nSie passen zu uns, wenn Sie:\n\n• gerne selbstständig arbeiten, gut organisiert sind und verantwortungsbewusst handeln\n• kommunikativ stark sind und sich sicher im Austausch mit unterschiedlichen Anspruchsgruppen bewegen; gute Französischkenntnisse sind von Vorteil\n• einen gültigen Führerausweis besitzen und über ein eigenes Auto verfügen\n\nFür diese verantwortungsvolle Aufgabe setzen wir einen HF/FH Abschluss in Pflege und Führungserfahrungen vorzugsweise in der Spitex voraus.\n\nArbeitsort: Bern\nArbeitsbeginn: per sofort oder nach Vereinbarung\n\nWir bieten Ihnen attraktive Sozialleistungen und ein offenes Arbeitsklima in einem spannenden und bewegten Umfeld.\n\nBei Caritas Bern erwarten Sie engagierte Mitarbeitende, ein offenes Arbeitsklima sowie zeitgemässe Arbeitsbedingungen. Ein interessantes Umfeld und ein spannendes Unternehmen bieten Ihnen ein attraktives Arbeitsfeld mit Entwicklungspotential.\n\nSoll Caritas Bern Ihr nächster Wirkungsort sein? Dann freuen wir uns sehr auf Ihre Unterlagen (ausschliesslich über das Onlineportal) – und darauf, Sie kennenzulernen.\n\nWir melden uns ab dem 21. September 2026 bei Ihnen.\n\nHaben Sie Fragen, dann hilft Ihnen Silja Wenk, Co-Geschäftsleiterin, unter der Nr. 031 378 60 26 gerne weiter.\n\nwww.caritas-bern.ch\n\nJetzt online bewerben\n\n•\n\nFacebook",
-        "fr": "Description\n\n- Avec ses projets et offres, Caritas Bern lutte contre la pauvreté et l'exclusion sociale, promeut l'intégration et défend les personnes. À cette fin, elle collabore avec différents partenaires et assume des mandats de la part des pouvoirs publics. Engagez-vous avec nous pour une vie en communauté solidaire et respectueuse en tant que…\n\nResponsable d'équipe Caritas Care – Aidants proches 80-100%\n\nChez nous, vous assumez des responsabilités dans un environnement polyvalent et porteur de sens. Vos tâches sont proches des personnes, variées et d'une importance immédiate. Dans l'offre « Les proches s'occupent », nous permettons aux clients ayant des besoins en soins de bénéficier des meilleurs soins possibles, centrés sur la personne, par leurs proches. Les aidants proches ne sont pas seuls dans cette démarche : ils sont professionnellement conseillés, accompagnés et soutenus par nos professionnels de soins HF/FH. Pour leur travail précieux, ils sont honorés et assurés en conséquence.\n\nUn rôle aussi individuel que vous :\n\nPour la direction de notre offre dans le canton de Berne, nous recherchons, selon accord, un responsable d'équipe en soins HF/FH. Dans cette fonction polyvalente, vous assurez le leadership technique et personnel d'une équipe de professionnels de soins HF/FH responsables de cas. Simultanément, vous participez activement à la conception et au développement de l'offre en tant que membre du comité intercantonal des soins. Le travail direct avec les clients fait également partie de vos tâches : en tant que professionnel de soins responsable de cas, vous pilotez et accompagnez le processus de soins et assurez une haute qualité de soins centrée sur la personne. Vous conseillez et soutenez les aidants proches de manière compétente et adaptée à leurs besoins.\n\nCe qui vous attend chez nous :\n\n- Un travail significatif ; vous façonnez un avenir solidaire\n- Des modèles de travail flexibles ; un bon travail n'est pas toujours lié à un lieu et un moment précis\n- Des conditions équitables ; salaires conformes au marché et bonnes prestations sociales\n- Un lieu de travail attractif ; central dans la Länggasse à Berne\n- Reconnaissance et diversité : un environnement qui valorise vous et vos perspectives\n\nVous nous correspondrez si vous :\n\n- aimez travailler de manière autonome, êtes bien organisé et agissez de manière responsable\n- êtes très communicatif et vous déplacez avec aisance dans les échanges avec différents groupes d'usagers ; de bonnes connaissances en français sont un atout\n- possédez un permis de conduire valide et une voiture personnelle\n- Pour cette tâche responsable, nous exigeons un diplôme HF/FH en soins et des expériences de leadership de préférence en Spitex.\n\nLieu et début de travail\n\n- Lieu de travail : Berne\n- Début de travail : immédiatement ou selon accord\n\nNous offrons\n\n- Nous vous offrons de bonnes prestations sociales et un climat de travail ouvert dans un environnement passionnant et dynamique.\n- Chez Caritas Bern, vous trouverez des collaborateurs engagés, un climat de travail ouvert et des conditions de travail modernes.\n- Un environnement intéressant et une entreprise passionnante vous offrent un champ de travail attractif avec potentiel de développement.\n\nContact\n\nCaritas Bern devrait-elle être votre prochain lieu d'action ? Nous sommes très heureux de recevoir votre dossier (uniquement via le portail en ligne) – et de faire votre connaissance.\n\nNous vous recontacterons à partir du 21 septembre 2026.\n\nSi vous avez des questions, Silja Wenk, co-directrice, vous aidera volontiers au 031 378 60 26.\n\nwww.caritas-bern.ch\n\nPostuler en ligne maintenant\n\n- Facebook"
-      },
-      "needsRetranslation": false,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://apply.refline.ch/126757/2356/pub/3/index.html",
-      "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:26:33.943Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3004",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sociale / NGO",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-04T07:28:54.137195+00:00",
-      "postedDate": "2026-09-04T07:28:54.137195+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/126757/2356/pub/3/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "previousSlugs": [
-        "teamleitung-caritas-care-pflegende-angehorige-80-100-caritas-schweiz-bern",
-        "teamleitung-caritas-care-pflegende-angehorige-80-100-caritas-schweiz-bern-fb2e0b4d",
-        "team-leader-caritas-care-accompagnatori-80-100-caritas-schweiz-bern-ccb69eda",
-        "teamleitung-caritas-care-pflegende-angehorige-80-100-caritas-schweiz-bern-8313f595",
-        "team-leader-caritas-care-carers-80-100-caritas-schweiz-bern-06731f1f",
-        "chef-d-equipe-caritas-care-aidants-80-100-caritas-schweiz-bern-46981683"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleitung-caritas-care-pflegende-angehorige-80-100-caritas-schweiz-bern",
-          "teamleitung-caritas-care-pflegende-angehorige-80-100-caritas-schweiz-bern-fb2e0b4d",
-          "team-leader-caritas-care-accompagnatori-80-100-caritas-schweiz-bern-ccb69eda",
-          "teamleitung-caritas-care-pflegende-angehorige-80-100-caritas-schweiz-bern-8313f595",
-          "team-leader-caritas-care-carers-80-100-caritas-schweiz-bern-06731f1f",
-          "chef-d-equipe-caritas-care-aidants-80-100-caritas-schweiz-bern-46981683"
-        ],
-        "en": [
-          "teamleitung-caritas-care-pflegende-angehorige-80-100-caritas-schweiz-bern"
-        ],
-        "fr": [
-          "teamleitung-caritas-care-pflegende-angehorige-80-100-caritas-schweiz-bern"
-        ],
-        "de": [
-          "teamleitung-caritas-care-pflegende-angehorige-80-100-caritas-schweiz-bern-fb2e0b4d"
-        ]
-      },
-      "firstSeenAt": "2026-09-04T13:27:43.834Z",
-      "salaryMin": 115000,
-      "salaryMax": 160000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 115000,
-          "maxValue": 160000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Bern",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:26:33.943Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://apply.refline.ch/126757/2356/pub/3/index.html",
-      "crawlerMissStreak": 2
     }
   ]
 }

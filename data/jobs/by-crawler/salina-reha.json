@@ -1,7 +1,7 @@
 {
   "crawlerKey": "salina-reha",
-  "assembledAt": "2026-11-22T09:19:50.405Z",
-  "runId": "45006141964",
+  "assembledAt": "2026-11-22T21:19:17.531Z",
+  "runId": "45070493252",
   "jobs": [
     {
       "id": "salina-reha-282e4ea67fd3",
@@ -34,7 +34,7 @@
       "url": "https://link.ostendis.com/publication/psychotherapeut-in/busy2qktsvis75ecdf8xwhe1tpdb7bg3ejrbltowe83y40uy5nylbe38wthkei25",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:34.558Z",
+      "crawledAt": "2026-11-22T21:19:03.672Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -118,7 +118,7 @@
       },
       "streetAddress": "Rheinfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:19:34.558Z",
+      "validThrough": "2026-12-22T21:19:03.672Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -152,7 +152,7 @@
       "url": "https://link.ostendis.com/publication/mitarbeiter-in-technischer-dienst/msbpp6odv00cqa9il39bv6b9i306zzmlwnkyj4rqrizm0jisf2qded5yco2kcsb8",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:32.891Z",
+      "crawledAt": "2026-11-22T21:19:02.093Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -197,7 +197,7 @@
       },
       "streetAddress": "Rheinfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:19:32.891Z",
+      "validThrough": "2027-02-04T21:19:02.093Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -231,7 +231,7 @@
       "url": "https://link.ostendis.com/publication/facharzt-aerztin-dermatologie/ndcmis5jbkwlmmyh6nj6w25ymykch9ut7bmtvh8ezvsqm3lmdqincv7brsfqjadl",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:30.760Z",
+      "crawledAt": "2026-11-22T21:18:59.725Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -281,7 +281,7 @@
       },
       "streetAddress": "Rheinfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T09:19:30.760Z",
+      "validThrough": "2027-02-17T21:18:59.725Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -315,7 +315,7 @@
       "url": "https://link.ostendis.com/publication/physiotherapeut-in-stationaer/g6wckeprdbkl28epaic6dqysaunbxphfh42npqi06nubiz36a5o3eru4h40nujkj",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:28.850Z",
+      "crawledAt": "2026-11-22T21:18:57.859Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -365,7 +365,7 @@
       },
       "streetAddress": "Rheinfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:19:28.850Z",
+      "validThrough": "2027-01-13T21:18:57.859Z",
       "validThroughSource": "last-observed-window"
     }
   ]
