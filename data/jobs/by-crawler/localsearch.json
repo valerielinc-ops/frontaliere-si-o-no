@@ -1,7 +1,7 @@
 {
   "crawlerKey": "localsearch",
-  "assembledAt": "2026-11-22T09:29:43.382Z",
-  "runId": "45006231650",
+  "assembledAt": "2026-11-22T21:19:06.973Z",
+  "runId": "45070594018",
   "jobs": [
     {
       "id": "localsearch-6d1ddda45eca",
@@ -34,7 +34,7 @@
       "url": "https://emp.jobylon.com/jobs/360117-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:29:32.757Z",
+      "crawledAt": "2026-11-22T21:18:55.074Z",
       "addressLocality": "Graubünden, Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -77,7 +77,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-aussendienst-localsearch-ch-3",
           "verkaufsberater-in-aussendienst-localsearch-zurich",
           "verkaufsberater-aussendienst-localsearch-zurich",
           "consulenti-di-vendita-localsearch-graubunden-schweiz",
@@ -96,7 +95,8 @@
           "verkaufsberater-aussendienst-localsearch-ch",
           "verkaufsberater-aussendienst-localsearch-ch-2",
           "verkaufsberater-in-aussendienst-localsearch-ch-4",
-          "verkaufsberater-in-aussendienst-localsearch-graubunden-schweiz"
+          "verkaufsberater-in-aussendienst-localsearch-graubunden-schweiz",
+          "verkaufsberater-in-aussendienst-localsearch-ch-3"
         ],
         "en": [
           "verkaufsberater-in-aussendienst-localsearch-graubunden-schweiz"
@@ -126,7 +126,7 @@
       "addressRegion": "GR",
       "streetAddress": "Graubünden, Schweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:29:32.757Z",
+      "validThrough": "2026-12-22T21:18:55.074Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -160,7 +160,7 @@
       "url": "https://emp.jobylon.com/jobs/360110-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:29:31.765Z",
+      "crawledAt": "2026-11-22T21:18:54.738Z",
       "addressLocality": "Baselland, Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -213,7 +213,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Baselland, Schweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T09:29:31.765Z",
+      "validThrough": "2026-12-23T21:18:54.738Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -247,7 +247,7 @@
       "url": "https://emp.jobylon.com/jobs/393356-localsearch-outbound-sales-agent-60-100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:29:30.751Z",
+      "crawledAt": "2026-11-22T21:18:54.394Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -296,7 +296,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:29:30.751Z",
+      "validThrough": "2027-02-07T21:18:54.394Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -330,7 +330,7 @@
       "url": "https://emp.jobylon.com/jobs/396122-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:29:29.453Z",
+      "crawledAt": "2026-11-22T21:18:53.315Z",
       "addressLocality": "Urdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -381,7 +381,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Urdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:29:29.453Z",
+      "validThrough": "2027-02-08T21:18:53.315Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -415,7 +415,7 @@
       "url": "https://emp.jobylon.com/jobs/396167-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:29:28.409Z",
+      "crawledAt": "2026-11-22T21:18:52.150Z",
       "addressLocality": "Unterentfelden",
       "addressCountry": "CH",
       "country": "CH",
@@ -468,7 +468,7 @@
       "addressRegion": "AG",
       "streetAddress": "Unterentfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:29:28.409Z",
+      "validThrough": "2027-02-08T21:18:52.150Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -502,7 +502,7 @@
       "url": "https://emp.jobylon.com/jobs/396184-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:29:27.603Z",
+      "crawledAt": "2026-11-22T21:18:50.922Z",
       "addressLocality": "Langenthal",
       "addressCountry": "CH",
       "country": "CH",
@@ -547,7 +547,7 @@
       "addressRegion": "BE",
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:29:27.603Z",
+      "validThrough": "2027-02-08T21:18:50.922Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -581,7 +581,7 @@
       "url": "https://emp.jobylon.com/jobs/396188-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:29:26.803Z",
+      "crawledAt": "2026-11-22T21:18:49.791Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -626,7 +626,7 @@
       "addressRegion": "BS",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:29:26.803Z",
+      "validThrough": "2027-02-08T21:18:49.791Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -660,7 +660,7 @@
       "url": "https://emp.jobylon.com/jobs/396191-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:29:25.684Z",
+      "crawledAt": "2026-11-22T21:18:48.633Z",
       "addressLocality": "Muttenz",
       "addressCountry": "CH",
       "country": "CH",
@@ -705,7 +705,7 @@
       "addressRegion": "BL",
       "streetAddress": "Muttenz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:29:25.684Z",
+      "validThrough": "2027-02-08T21:18:48.633Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -739,7 +739,7 @@
       "url": "https://emp.jobylon.com/jobs/396200-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:29:24.693Z",
+      "crawledAt": "2026-11-22T21:18:47.575Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -784,7 +784,7 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:29:24.693Z",
+      "validThrough": "2027-02-08T21:18:47.575Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -818,7 +818,7 @@
       "url": "https://emp.jobylon.com/jobs/396208-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:29:23.631Z",
+      "crawledAt": "2026-11-22T21:18:46.370Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -863,7 +863,7 @@
       "addressRegion": "BE",
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:29:23.631Z",
+      "validThrough": "2027-02-08T21:18:46.370Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -897,7 +897,7 @@
       "url": "https://emp.jobylon.com/jobs/396214-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:29:22.601Z",
+      "crawledAt": "2026-11-22T21:18:45.219Z",
       "addressLocality": "Visp",
       "addressCountry": "CH",
       "country": "CH",
@@ -942,7 +942,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:29:22.601Z",
+      "validThrough": "2027-02-08T21:18:45.219Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -976,7 +976,7 @@
       "url": "https://emp.jobylon.com/jobs/396219-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:29:21.561Z",
+      "crawledAt": "2026-11-22T21:18:44.067Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1041,8 +1041,88 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:29:21.561Z",
+      "validThrough": "2027-02-08T21:18:44.067Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "localsearch-f9d8daaca263",
+      "slug": "venditore-trice-in-servizio-esterno-localsearch-zurich-73df81",
+      "slugByLocale": {
+        "de": "verkaufer-in-im-aussendienst-localsearch-ch",
+        "it": "venditore-trice-in-servizio-esterno-localsearch-zurich-73df81",
+        "en": "salesperson-in-the-field-localsearch-zurich-73df81",
+        "fr": "vendeur-vendeuse-sur-le-terrain-localsearch-zurich-73df81"
+      },
+      "company": "localsearch",
+      "companyKey": "localsearch",
+      "companyDomain": "localsearch.ch",
+      "title": "Verkäufer/in im Aussendienst",
+      "titleByLocale": {
+        "de": "Verkäufer/in im Aussendienst",
+        "it": "Verkäufer/in im Aussendienst",
+        "en": "Verkäufer/in im Aussendienst",
+        "fr": "Verkäufer/in im Aussendienst"
+      },
+      "description": "Region: Bezirk Meilen\n localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n Verkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n Wir suchen dich als   Verkaufstalent im Aussendienst\n Du besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n Skills und Anforderungen\n Das bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Selbstorganisation: Du planst deine Aufgaben eigenständig, behältst den Überblick und arbeitest strukturiert – auch wenn viel gleichzeitig passiert.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Abgeschlossene Ausbildung: Du verfügst über eine abgeschlossene Berufsausbildung (EBA/EFZ), oder ein Studium.\n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund).\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich in einem Pensum von 60–100 % möglich, jedoch frühestens ab dem zweiten Anstellungsmonat. Im ersten Anstellungsmonat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich..\n Das bieten wir dir:\n Darum willst du Teil von localsearch werden:\n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n Kontakt & Bewerbung\n Bei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Simone Conversano wenden: +41 79 941 93 25.\n Wir freuen uns darauf, dich kennenzulernen!\n Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
+      "descriptionByLocale": {
+        "de": "Region: Bezirk Meilen\n localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n Verkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n Wir suchen dich als   Verkaufstalent im Aussendienst\n Du besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n Skills und Anforderungen\n Das bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Selbstorganisation: Du planst deine Aufgaben eigenständig, behältst den Überblick und arbeitest strukturiert – auch wenn viel gleichzeitig passiert.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Abgeschlossene Ausbildung: Du verfügst über eine abgeschlossene Berufsausbildung (EBA/EFZ), oder ein Studium.\n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund).\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich in einem Pensum von 60–100 % möglich, jedoch frühestens ab dem zweiten Anstellungsmonat. Im ersten Anstellungsmonat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich..\n Das bieten wir dir:\n Darum willst du Teil von localsearch werden:\n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n Kontakt & Bewerbung\n Bei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Simone Conversano wenden: +41 79 941 93 25.\n Wir freuen uns darauf, dich kennenzulernen!\n Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
+        "it": "Region: Bezirk Meilen\n localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n Verkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n Wir suchen dich als   Verkaufstalent im Aussendienst\n Du besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n Skills und Anforderungen\n Das bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Selbstorganisation: Du planst deine Aufgaben eigenständig, behältst den Überblick und arbeitest strukturiert – auch wenn viel gleichzeitig passiert.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Abgeschlossene Ausbildung: Du verfügst über eine abgeschlossene Berufsausbildung (EBA/EFZ), oder ein Studium.\n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund).\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich in einem Pensum von 60–100 % möglich, jedoch frühestens ab dem zweiten Anstellungsmonat. Im ersten Anstellungsmonat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich..\n Das bieten wir dir:\n Darum willst du Teil von localsearch werden:\n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n Kontakt & Bewerbung\n Bei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Simone Conversano wenden: +41 79 941 93 25.\n Wir freuen uns darauf, dich kennenzulernen!\n Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
+        "en": "Region: Bezirk Meilen\n localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n Verkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n Wir suchen dich als   Verkaufstalent im Aussendienst\n Du besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n Skills und Anforderungen\n Das bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Selbstorganisation: Du planst deine Aufgaben eigenständig, behältst den Überblick und arbeitest strukturiert – auch wenn viel gleichzeitig passiert.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Abgeschlossene Ausbildung: Du verfügst über eine abgeschlossene Berufsausbildung (EBA/EFZ), oder ein Studium.\n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund).\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich in einem Pensum von 60–100 % möglich, jedoch frühestens ab dem zweiten Anstellungsmonat. Im ersten Anstellungsmonat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich..\n Das bieten wir dir:\n Darum willst du Teil von localsearch werden:\n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n Kontakt & Bewerbung\n Bei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Simone Conversano wenden: +41 79 941 93 25.\n Wir freuen uns darauf, dich kennenzulernen!\n Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
+        "fr": "Region: Bezirk Meilen\n localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n Verkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n Wir suchen dich als   Verkaufstalent im Aussendienst\n Du besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n Skills und Anforderungen\n Das bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Selbstorganisation: Du planst deine Aufgaben eigenständig, behältst den Überblick und arbeitest strukturiert – auch wenn viel gleichzeitig passiert.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Abgeschlossene Ausbildung: Du verfügst über eine abgeschlossene Berufsausbildung (EBA/EFZ), oder ein Studium.\n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund).\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich in einem Pensum von 60–100 % möglich, jedoch frühestens ab dem zweiten Anstellungsmonat. Im ersten Anstellungsmonat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich..\n Das bieten wir dir:\n Darum willst du Teil von localsearch werden:\n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n Kontakt & Bewerbung\n Bei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Simone Conversano wenden: +41 79 941 93 25.\n Wir freuen uns darauf, dich kennenzulernen!\n Zusätzliche Informationen über die Stelle und localsearch findest du hier ."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://emp.jobylon.com/jobs/396222-localsearch-verkauferin-im-aussendienst/",
+      "source": "localsearch Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-22T21:18:42.990Z",
+      "addressLocality": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Marketing digitale / Tecnologia",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-10T10:11:01+00:00",
+      "postedDate": "2026-11-10T10:11:01+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://emp.jobylon.com/jobs/396222-localsearch-verkauferin-im-aussendienst/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-im-aussendienst-localsearch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-im-aussendienst-localsearch-ch"
+      ],
+      "salaryMin": 83000,
+      "salaryMax": 127500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 127500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8001",
+      "addressRegion": "ZH",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-08T21:18:42.990Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-08-18T09:51:25.156Z"
     },
     {
       "id": "localsearch-f75b99562989",
@@ -1075,7 +1155,7 @@
       "url": "https://emp.jobylon.com/jobs/396224-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:29:19.590Z",
+      "crawledAt": "2026-11-22T21:18:41.903Z",
       "addressLocality": "Volketswil",
       "addressCountry": "CH",
       "country": "CH",
@@ -1120,7 +1200,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Volketswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:29:19.590Z",
+      "validThrough": "2027-02-08T21:18:41.903Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1154,7 +1234,7 @@
       "url": "https://emp.jobylon.com/jobs/396228-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:29:18.578Z",
+      "crawledAt": "2026-11-22T21:18:40.753Z",
       "addressLocality": "Landquart",
       "addressCountry": "CH",
       "country": "CH",
@@ -1199,7 +1279,7 @@
       "addressRegion": "GR",
       "streetAddress": "Landquart",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:29:18.578Z",
+      "validThrough": "2027-02-08T21:18:40.753Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1233,7 +1313,7 @@
       "url": "https://emp.jobylon.com/jobs/396231-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:29:17.753Z",
+      "crawledAt": "2026-11-22T21:18:39.615Z",
       "addressLocality": "Horgen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1278,7 +1358,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:29:17.753Z",
+      "validThrough": "2027-02-08T21:18:39.615Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1312,7 +1392,7 @@
       "url": "https://emp.jobylon.com/jobs/396234-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:29:16.707Z",
+      "crawledAt": "2026-11-22T21:18:38.422Z",
       "addressLocality": "Buchrain",
       "addressCountry": "CH",
       "country": "CH",
@@ -1357,7 +1437,7 @@
       "addressRegion": "LU",
       "streetAddress": "Buchrain",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:29:16.707Z",
+      "validThrough": "2027-02-08T21:18:38.422Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1391,7 +1471,7 @@
       "url": "https://emp.jobylon.com/jobs/396236-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:29:15.623Z",
+      "crawledAt": "2026-11-22T21:18:37.282Z",
       "addressLocality": "Bremgarten",
       "addressCountry": "CH",
       "country": "CH",
@@ -1435,7 +1515,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Bremgarten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:29:15.623Z",
+      "validThrough": "2027-02-08T21:18:37.282Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1469,7 +1549,7 @@
       "url": "https://emp.jobylon.com/jobs/396241-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:29:14.567Z",
+      "crawledAt": "2026-11-22T21:18:36.073Z",
       "addressLocality": "Sirnach",
       "addressCountry": "CH",
       "country": "CH",
@@ -1514,7 +1594,7 @@
       "addressRegion": "TG",
       "streetAddress": "Sirnach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:29:14.567Z",
+      "validThrough": "2027-02-08T21:18:36.073Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1548,7 +1628,7 @@
       "url": "https://emp.jobylon.com/jobs/396250-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:29:13.504Z",
+      "crawledAt": "2026-11-22T21:18:34.935Z",
       "addressLocality": "Rapperswil-Jona",
       "addressCountry": "CH",
       "country": "CH",
@@ -1599,7 +1679,7 @@
       "addressRegion": "SG",
       "streetAddress": "Rapperswil-Jona",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:29:13.504Z",
+      "validThrough": "2027-02-08T21:18:34.935Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1633,7 +1713,7 @@
       "url": "https://emp.jobylon.com/jobs/396261-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:29:12.461Z",
+      "crawledAt": "2026-11-22T21:18:33.777Z",
       "addressLocality": "Regensdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -1684,7 +1764,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Regensdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:29:12.461Z",
+      "validThrough": "2027-02-08T21:18:33.777Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1718,7 +1798,7 @@
       "url": "https://emp.jobylon.com/jobs/396272-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:29:11.405Z",
+      "crawledAt": "2026-11-22T21:18:32.609Z",
       "addressLocality": "Lyssach",
       "addressCountry": "CH",
       "country": "CH",
@@ -1769,7 +1849,7 @@
       "addressRegion": "BE",
       "streetAddress": "Lyssach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:29:11.405Z",
+      "validThrough": "2027-02-08T21:18:32.609Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1803,7 +1883,7 @@
       "url": "https://emp.jobylon.com/jobs/397439-localsearch-hr-service-partner-60-80/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:29:10.330Z",
+      "crawledAt": "2026-11-22T21:18:31.454Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1850,7 +1930,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T09:29:10.330Z",
+      "validThrough": "2027-02-14T21:18:31.454Z",
       "validThroughSource": "last-observed-window"
     }
   ]
