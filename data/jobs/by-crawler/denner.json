@@ -11602,7 +11602,7 @@
       "slugByLocale": {
         "it": "vice-responsabile-di-filiale-denner-nidau",
         "en": "deputy-branch-manager-denner-nidau",
-        "de": "stv-filialleiter-in-denner",
+        "de": "stv-filialleiter-in-denner-ci8hvj",
         "fr": "responsable-adjoint-e-de-filiale-denner-nidau"
       },
       "company": "Denner",
@@ -11656,14 +11656,11 @@
       "crawledAt": "2026-11-22T09:24:39.013Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "previousSlugs": [
-        "stv-filialleiter-in-denner",
-        "stv-filialleiter-in-denner-4",
-        "stv-filialleiter-in-denner-nidau",
-        "stv-filialleiter-in-denner-3",
-        "stv-filialleiter-in-denner-ci8hvj"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "stv-filialleiter-in-denner-nidau",
+          "stv-filialleiter-in-denner"
+        ],
         "it": [
           "stv-filialleiter-in-denner",
           "stv-filialleiter-in-denner-4",
@@ -11673,14 +11670,16 @@
         "en": [
           "stv-filialleiter-in-denner-nidau"
         ],
-        "de": [
-          "stv-filialleiter-in-denner-nidau",
-          "stv-filialleiter-in-denner-ci8hvj"
-        ],
         "fr": [
           "stv-filialleiter-in-denner-nidau"
         ]
       },
+      "previousSlugs": [
+        "stv-filialleiter-in-denner",
+        "stv-filialleiter-in-denner-4",
+        "stv-filialleiter-in-denner-nidau",
+        "stv-filialleiter-in-denner-3"
+      ],
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "salaryMin": 109000,
       "salaryMax": 167000,
@@ -25433,8 +25432,7 @@
         "stv-filialleiter-in-denner-cham",
         "stv-filialleiter-in-denner-11l56c",
         "stv-filialleiter-in-denner-cham-b334ddb645",
-        "stv-filialleiter-in-denner",
-        "vice-responsabile-di-filiale-denner-cham-e95ffcd0ef"
+        "stv-filialleiter-in-denner"
       ],
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "salaryMin": 110500,

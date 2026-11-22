@@ -40842,9 +40842,9 @@
       "id": "yellowshark-4d6c7f8de415",
       "slug": "carpenter-m-f-yellowshark-ag-chur-gr-fa230d",
       "slugByLocale": {
-        "it": "carpenter-m-f-yellowshark-ag-chur-gr-fa230d",
-        "en": "carpenter-m-f-yellowshark-ag-chur-gr",
         "de": "schreiner-monteur-m-w-chur-gr-yellowshark-ch",
+        "it": "carpenter-m-f-yellowshark-ag-chur-gr-fa230d",
+        "en": "carpenter-m-f-yellowshark-ag-chur-gr-bhxqn7",
         "fr": "charpentier-h-f-yellowshark-ag-chur-gr-fa230d"
       },
       "company": "yellowshark AG",
@@ -40888,21 +40888,6 @@
       "applyUrl": "https://jobs.yellowshark.com/job/sa057053/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "schreiner-monteur-m-w-chur-gr-yellowshark-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "schreiner-monteur-m-w-chur-gr-yellowshark-ch"
-        ],
-        "en": [
-          "schreiner-monteur-m-w-chur-gr-yellowshark-ch"
-        ],
-        "fr": [
-          "schreiner-monteur-m-w-chur-gr-yellowshark-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-28T21:58:25.545Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -40919,7 +40904,24 @@
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-29T10:00:42.240Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-09-28T21:58:25.545Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-monteur-m-w-chur-gr-yellowshark-ch"
+        ],
+        "en": [
+          "schreiner-monteur-m-w-chur-gr-yellowshark-ch",
+          "carpenter-m-f-yellowshark-ag-chur-gr"
+        ],
+        "fr": [
+          "schreiner-monteur-m-w-chur-gr-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-monteur-m-w-chur-gr-yellowshark-ch",
+        "carpenter-m-f-yellowshark-ag-chur-gr"
+      ]
     },
     {
       "id": "yellowshark-4354186a5e5e",
@@ -45133,9 +45135,9 @@
       "id": "yellowshark-3b68af5fb53c",
       "slug": "facade-fitter-m-f-yellowshark-ag-zurich-zh-c2a0ab",
       "slugByLocale": {
-        "it": "facade-fitter-m-f-yellowshark-ag-zurich-zh-c2a0ab",
-        "en": "facade-fitter-m-f-yellowshark-ag-zurich-zh",
         "de": "fassadenmonteur-m-w-zurich-zh-yellowshark-ch",
+        "it": "facade-fitter-m-f-yellowshark-ag-zurich-zh-c2a0ab",
+        "en": "facade-fitter-m-f-yellowshark-ag-zurich-zh-bgtjvw",
         "fr": "fixeur-de-facade-h-f-yellowshark-ag-zurich-zh-c2a0ab"
       },
       "company": "yellowshark AG",
@@ -45179,23 +45181,24 @@
       "applyUrl": "https://jobs.yellowshark.com/job/sa036228/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "fassadenmonteur-m-w-zurich-zh-yellowshark-ch",
-        "fassadenmonteur-m-w-yellowshark-ag-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "fassadenmonteur-m-w-zurich-zh-yellowshark-ch",
           "fassadenmonteur-m-w-yellowshark-ag-zurich"
         ],
         "en": [
-          "fassadenmonteur-m-w-yellowshark-ag-zurich"
+          "fassadenmonteur-m-w-yellowshark-ag-zurich",
+          "facade-fitter-m-f-yellowshark-ag-zurich-zh"
         ],
         "fr": [
           "fassadenmonteur-m-w-yellowshark-ag-zurich"
         ]
       },
-      "firstSeenAt": "2026-09-24T00:09:46.438Z",
+      "previousSlugs": [
+        "fassadenmonteur-m-w-zurich-zh-yellowshark-ch",
+        "fassadenmonteur-m-w-yellowshark-ag-zurich",
+        "facade-fitter-m-f-yellowshark-ag-zurich-zh"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -45212,7 +45215,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T10:00:42.207Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-09-24T00:09:46.438Z"
     },
     {
       "id": "yellowshark-bb95e2f736d4",
@@ -75294,7 +75298,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "plattenleger-m-w-st-gallen-sg-yellowshark-ch",
-        "m-f-yellowshark-ag-st-gallen-bgtlce"
+        "m-f-yellowshark-ag-st-gallen-bgtlce",
+        "m-f-yellowshark-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -75302,7 +75307,8 @@
         ],
         "en": [
           "plattenleger-m-w-st-gallen-sg-yellowshark-ch",
-          "m-f-yellowshark-ag-st-gallen-bgtlce"
+          "m-f-yellowshark-ag-st-gallen-bgtlce",
+          "m-f-yellowshark-ag-st-gallen"
         ]
       },
       "firstSeenAt": "2026-09-28T21:58:25.572Z",
