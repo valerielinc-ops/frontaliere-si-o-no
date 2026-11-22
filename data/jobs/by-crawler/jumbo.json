@@ -9235,17 +9235,50 @@
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-23T23:42:44.350Z",
       "previousSlugs": [
-        "verkaufsberater-in-deco-jumbo-chur"
+        "verkaufsberater-in-deco-jumbo-chur",
+        "consulente-di-vendita-deco-jumbo-chur-8ba1d08990",
+        "verkaufsberater-in-deco-jumbo-chur-pkl1fu",
+        "verkaufsberater-in-deco-jumbo-chur-92dacda8",
+        "consulente-di-vendita-deco-jumbo-chur",
+        "sales-consultant-deco-jumbo-chur",
+        "verkaufsberater-in-deco-jumbo-chur-t2oe1t",
+        "consultant-commercial-deco-jumbo-chur",
+        "consulente-di-vendita-deco-jumbo-chur-e4ff101d",
+        "verkaufsberater-in-deco-jumbo-chur-8ebe4cf7",
+        "sales-consultant-deco-jumbo-chur-055c7c7a",
+        "consultant-commercial-deco-jumbo-chur-2df5069e",
+        "verkaufsberater-in-deco-jumbo-chur-2",
+        "verkaufsberater-in-deco-jumbo-chur-graubunden-0nd86w",
+        "verkaufsberater-in-deco-jumbo-chur-ld390m",
+        "conseiller-conseillere-de-vente-deco-jumbo-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-deco-jumbo-chur"
+          "verkaufsberater-in-deco-jumbo-chur",
+          "consulente-di-vendita-deco-jumbo-chur-8ba1d08990",
+          "verkaufsberater-in-deco-jumbo-chur-pkl1fu",
+          "verkaufsberater-in-deco-jumbo-chur-92dacda8",
+          "consulente-di-vendita-deco-jumbo-chur",
+          "sales-consultant-deco-jumbo-chur",
+          "verkaufsberater-in-deco-jumbo-chur-t2oe1t",
+          "consultant-commercial-deco-jumbo-chur",
+          "consulente-di-vendita-deco-jumbo-chur-e4ff101d",
+          "verkaufsberater-in-deco-jumbo-chur-8ebe4cf7",
+          "sales-consultant-deco-jumbo-chur-055c7c7a",
+          "consultant-commercial-deco-jumbo-chur-2df5069e",
+          "verkaufsberater-in-deco-jumbo-chur-2",
+          "verkaufsberater-in-deco-jumbo-chur-graubunden-0nd86w"
         ],
         "en": [
           "verkaufsberater-in-deco-jumbo-chur"
         ],
         "fr": [
-          "verkaufsberater-in-deco-jumbo-chur"
+          "verkaufsberater-in-deco-jumbo-chur",
+          "conseiller-conseillere-de-vente-deco-jumbo-chur"
+        ],
+        "de": [
+          "verkaufsberater-in-deco-jumbo-chur-pkl1fu",
+          "verkaufsberater-in-deco-jumbo-chur-ld390m"
         ]
       }
     },
@@ -9626,7 +9659,9 @@
         "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau-ys1q52",
         "consulente-commerciale-do-it-jumbo-eppenberg-woschnau-ff84fb",
         "sales-consultant-do-it-jumbo-eppenberg-woschnau-ff84fb",
-        "consultant-en-ventes-do-it-jumbo-eppenberg-woschnau-ff84fb"
+        "consultant-en-ventes-do-it-jumbo-eppenberg-woschnau-ff84fb",
+        "sales-advisor-do-it-jumbo-eppenberg-woschnau-e6acd9",
+        "conseiller-ere-de-vente-do-it-jumbo-eppenberg-woschnau-e6acd9"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9640,10 +9675,14 @@
           "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau-ys1q52"
         ],
         "en": [
-          "sales-consultant-do-it-jumbo-eppenberg-woschnau-ff84fb"
+          "sales-consultant-do-it-jumbo-eppenberg-woschnau-ff84fb",
+          "sales-advisor-do-it-jumbo-eppenberg-woschnau-e6acd9",
+          "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau"
         ],
         "fr": [
-          "consultant-en-ventes-do-it-jumbo-eppenberg-woschnau-ff84fb"
+          "consultant-en-ventes-do-it-jumbo-eppenberg-woschnau-ff84fb",
+          "conseiller-ere-de-vente-do-it-jumbo-eppenberg-woschnau-e6acd9",
+          "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau"
         ]
       },
       "firstSeenAt": "2026-09-10T23:07:55.386Z",
@@ -11405,128 +11444,6 @@
       "needsRetranslation": true
     },
     {
-      "id": "jumbo-2895c90e-900",
-      "slug": "consulente-di-vendita-deco-jumbo-chur-8ba1d08990",
-      "slugByLocale": {
-        "de": "verkaufsberater-in-deco-jumbo-chur",
-        "it": "consulente-di-vendita-deco-jumbo-chur-8ba1d08990",
-        "en": "sales-advisor-deco-jumbo-chur",
-        "fr": "conseiller-conseillere-de-vente-deco-jumbo-chur"
-      },
-      "company": "JUMBO",
-      "companyKey": "jumbo",
-      "companyDomain": "jumbo.ch",
-      "title": "Verkaufsberater:in Deco",
-      "titleByLocale": {
-        "it": "Verkaufsberater:in Deco",
-        "en": "Sales advisor Deco",
-        "de": "Verkaufsberater:in Deco",
-        "fr": "Conseiller·ère de vente Deco"
-      },
-      "description": "- Stellenantritt: nach Vereinbarung\n- Fachrichtung: Verkauf Fachformate\n- Arbeitsort: Jumbo, Sommeraustrasse 9, 7000 Chur\n- Pensum: 80 - 100%\n\n## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo. bis Sa.) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Deco kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\n## Was wir bieten\n- Anstellungsbedingungen: Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n\n## Deine Ansprechperson\nSuzana Jovanovic\nHR Marketing",
-      "descriptionByLocale": {
-        "it": "- Apertura del lavoro: d'accordo\n- Specializzazione: vendite di formati specializzati\n- Luogo di lavoro: Jumbo, Sommeraustrasse 9, 7000 Chur\n- Pensum: 80 - 100%\n\n## Compiti\n- Con il vostro consiglio amichevole e competente ispirate i nostri clienti.\n- Aderisci alle linee guida interne e quindi assicurati che le merci siano presentate in modo attraente.\n- Con le merci sulla nostra zona di vendita e nel magazzino siete coscientious.\n- Se necessario, è anche possibile aiutare in altri rayons.\n- I processi di inventario, vendita e inventario-rilevanti sono parte della gestione del processo che si assume.\n\n## Requisiti\n- Vendere e consultare sono la vostra passione, soddisfazione del cliente la vostra motivazione? Perfetto.\n- Parli fluente tedesco, hai esperienza di vendita e idealmente una formazione completa di vendita: Allora sei proprio qui.\n- Naturalmente, sei flessibile durante i tempi di distribuzione (Mo. to Sa.). Ti appartiene alle vendite.\n- Conosci Deco? Così si può segnare particolarmente bene a questo punto.\n- Sempre un sorriso amichevole – questo è il tuo segreto per il successo.\n\n## Cosa offriamo\n- Condizioni di lavoro: Disposizione flessibile e attraente per il pensionamento anticipato dall'età di 58 anni. Anno di età, condizioni di lavoro attraenti\n\n## La persona di contatto\nSuzana Jovanovic\nHR Marketing",
-        "en": "- Job opening: by agreement\n- Specialization: Sales of specialist formats\n- Place of work: Jumbo, Sommeraustrasse 9, 7000 Chur\n- Pensum: 80 - 100%\n\n## Tasks\n- With your friendly and competent advice you inspire our customers.\n- You adhere to the internal guidelines and so you make sure that the goods are presented attractively.\n- With the goods on our sales area and in the warehouse you are conscientious.\n- If necessary, you can also help in other rayons.\n- Inventory, sales and inventory-relevant processes are parts of the process management that you take over.\n\n## Requirements\n- Selling and consulting are your passion, customer satisfaction your motivation? Perfect.\n- You speak fluent German, you have sales experience and ideally a completed sales training: Then you are right here.\n- Of course, you are flexible during the deployment times (Mo. to Sa.). Belongs to you in sales.\n- Are you familiar with Deco? So you can score particularly well at this point.\n- Always a friendly smile – this is your secret to success.\n\n## What we offer\n- Conditions of employment: Flexible and attractive arrangement for early retirement from the age of 58. Year of age, attractive employment conditions\n\n## Your contact person\nSuzana Jovanovic\nHR Marketing",
-        "de": "- Stellenantritt: nach Vereinbarung\n- Fachrichtung: Verkauf Fachformate\n- Arbeitsort: Jumbo, Sommeraustrasse 9, 7000 Chur\n- Pensum: 80 - 100%\n\n## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo. bis Sa.) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Deco kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\n## Was wir bieten\n- Anstellungsbedingungen: Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n\n## Deine Ansprechperson\nSuzana Jovanovic\nHR Marketing",
-        "fr": "- Ouverture d'emploi: par accord\n- Spécialisation: Vente de formats spécialisés\n- Lieu de travail: Jumbo, Sommeraustrasse 9, 7000 Chur\n- Pensum: 80 - 100%\n\n## Tâche\n- Avec votre conseil amical et compétent, vous inspirez nos clients.\n- Vous respectez les directives internes et vous assurez donc que les marchandises sont présentées de manière attrayante.\n- Avec les marchandises sur notre zone de vente et dans l'entrepôt, vous êtes consciencieux.\n- Si nécessaire, vous pouvez également aider dans d'autres rayons.\n- Les processus d'inventaire, de vente et d'inventaire font partie de la gestion des processus que vous prenez en charge.\n\n## Exigences\n- La vente et le conseil sont votre passion, la satisfaction des clients votre motivation? Parfait.\n- Vous parlez couramment allemand, vous avez une expérience de vente et idéalement une formation de vente terminée: Alors vous êtes là.\n- Bien sûr, vous êtes flexible pendant les temps de déploiement (Mo. à Sa.). Vous appartenez à la vente.\n- Vous connaissez Deco ? Donc vous pouvez marquer particulièrement bien à ce stade.\n- Toujours un sourire amical – c'est votre secret pour le succès.\n\n## Ce que nous offrons\n- Conditions d'emploi: disposition souple et attrayante pour la retraite anticipée à partir de 58 ans. Année d'âge, conditions d'emploi attrayantes\n\n## Votre personne à contacter\nSuzana Jovanovic\nMarketing des ressources humaines"
-      },
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-deco/2895c90e-9004-4492-9a5a-6e634b064a9b",
-      "source": "JUMBO Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:04.561Z",
-      "addressLocality": "Chur",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Sommeraustrasse 9",
-      "category": "Commerciale",
-      "contract": "fixed-term",
-      "employmentType": "CONTRACTOR",
-      "experienceLevel": "mid",
-      "sector": "Commercio al dettaglio",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "pensum": "80-100%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=170211",
-      "requirements": [
-        "• Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.",
-        "• Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.",
-        "• Selbstverständlich bist du bei den Einsatzzeiten (Mo. bis Sa.) flexibel. Gehört für dich im Verkauf dazu.",
-        "• Im Bereich Deco kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.",
-        "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.",
-          "• Selbstverständlich bist du bei den Einsatzzeiten (Mo. bis Sa.) flexibel. Gehört für dich im Verkauf dazu.",
-          "• Im Bereich Deco kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.",
-          "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
-        ]
-      },
-      "needsRetranslation": true,
-      "_enrichedFromDetail": true,
-      "previousSlugs": [
-        "verkaufsberater-in-deco-jumbo-chur",
-        "verkaufsberater-in-deco-jumbo-chur-pkl1fu",
-        "verkaufsberater-in-deco-jumbo-chur-92dacda8",
-        "consulente-di-vendita-deco-jumbo-chur",
-        "sales-consultant-deco-jumbo-chur",
-        "verkaufsberater-in-deco-jumbo-chur-t2oe1t",
-        "consultant-commercial-deco-jumbo-chur",
-        "consulente-di-vendita-deco-jumbo-chur-e4ff101d",
-        "verkaufsberater-in-deco-jumbo-chur-8ebe4cf7",
-        "sales-consultant-deco-jumbo-chur-055c7c7a",
-        "consultant-commercial-deco-jumbo-chur-2df5069e",
-        "verkaufsberater-in-deco-jumbo-chur-2",
-        "verkaufsberater-in-deco-jumbo-chur-graubunden-0nd86w",
-        "verkaufsberater-in-deco-jumbo-chur-ld390m"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-deco-jumbo-chur",
-          "verkaufsberater-in-deco-jumbo-chur-pkl1fu",
-          "verkaufsberater-in-deco-jumbo-chur-92dacda8",
-          "consulente-di-vendita-deco-jumbo-chur",
-          "sales-consultant-deco-jumbo-chur",
-          "verkaufsberater-in-deco-jumbo-chur-t2oe1t",
-          "consultant-commercial-deco-jumbo-chur",
-          "consulente-di-vendita-deco-jumbo-chur-e4ff101d",
-          "verkaufsberater-in-deco-jumbo-chur-8ebe4cf7",
-          "sales-consultant-deco-jumbo-chur-055c7c7a",
-          "consultant-commercial-deco-jumbo-chur-2df5069e",
-          "verkaufsberater-in-deco-jumbo-chur-2",
-          "verkaufsberater-in-deco-jumbo-chur-graubunden-0nd86w"
-        ],
-        "de": [
-          "verkaufsberater-in-deco-jumbo-chur-pkl1fu",
-          "verkaufsberater-in-deco-jumbo-chur-ld390m"
-        ]
-      },
-      "firstSeenAt": "2026-09-23T23:42:44.350Z",
-      "salaryMin": 68500,
-      "salaryMax": 105000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 105000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:19:04.561Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
       "id": "jumbo-a707b98d-e4b",
       "slug": "addetto-a-alle-casse-ai-servizi-jumbo-chur",
       "slugByLocale": {
@@ -12893,11 +12810,23 @@
       "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
-        "verkaufsberater-in-deco-jumbo-schenkon"
+        "verkaufsberater-in-deco-jumbo-schenkon",
+        "consulente-di-vendita-deco-jumbo-schenkon-c78d487d85",
+        "consulente-di-vendita-deco-jumbo-schenkon",
+        "sales-advisor-decor-jumbo-schenkon",
+        "conseiller-ere-de-vente-deco-jumbo-schenkon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-deco-jumbo-schenkon"
+          "verkaufsberater-in-deco-jumbo-schenkon",
+          "consulente-di-vendita-deco-jumbo-schenkon-c78d487d85",
+          "consulente-di-vendita-deco-jumbo-schenkon"
+        ],
+        "en": [
+          "sales-advisor-decor-jumbo-schenkon"
+        ],
+        "fr": [
+          "conseiller-ere-de-vente-deco-jumbo-schenkon"
         ]
       },
       "firstSeenAt": "2026-10-22T09:19:28.312Z",
@@ -13472,7 +13401,8 @@
         "consulente-alla-vendita-garden-jumbo-kusnacht-c3949bda",
         "vendite-advisor-garden-jumbo-kusnacht",
         "verkaufsberater-in-garden-jumbo-kusnacht-5ilynz",
-        "conseiller-en-ventes-jardin-jumbo-kusnacht"
+        "conseiller-en-ventes-jardin-jumbo-kusnacht",
+        "verkaufsberater-in-garden-jumbo-kusnacht-16fynl"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13496,7 +13426,8 @@
           "conseiller-ere-de-vente-garden-jumbo-kusnacht-6a315c90"
         ],
         "de": [
-          "verkaufsberater-in-garden-jumbo-kusnacht-1a2bfba5"
+          "verkaufsberater-in-garden-jumbo-kusnacht-1a2bfba5",
+          "verkaufsberater-in-garden-jumbo-kusnacht-16fynl"
         ]
       },
       "firstSeenAt": "2026-09-08T23:25:12.107Z",
@@ -15518,17 +15449,27 @@
       "needsRetranslation": false,
       "_enrichedFromDetail": true,
       "previousSlugs": [
-        "verkaufsberater-in-garten-jumbo-laupen"
+        "verkaufsberater-in-garten-jumbo-laupen",
+        "consulente-di-vendita-per-il-giardinaggio-jumbo-laupen",
+        "verkaufsberater-in-garten-jumbo-laupen-2",
+        "verkaufsberater-in-garten-jumbo-laupen-01fade3d89",
+        "garden-sales-consultant-jumbo-laupen-146621",
+        "conseiller-de-vente-dans-le-jardin-jumbo-laupen-146621"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-garten-jumbo-laupen"
+          "verkaufsberater-in-garten-jumbo-laupen",
+          "consulente-di-vendita-per-il-giardinaggio-jumbo-laupen",
+          "verkaufsberater-in-garten-jumbo-laupen-2",
+          "verkaufsberater-in-garten-jumbo-laupen-01fade3d89"
         ],
         "en": [
-          "verkaufsberater-in-garten-jumbo-laupen"
+          "verkaufsberater-in-garten-jumbo-laupen",
+          "garden-sales-consultant-jumbo-laupen-146621"
         ],
         "fr": [
-          "verkaufsberater-in-garten-jumbo-laupen"
+          "verkaufsberater-in-garten-jumbo-laupen",
+          "conseiller-de-vente-dans-le-jardin-jumbo-laupen-146621"
         ]
       },
       "firstSeenAt": "2026-09-11T13:41:14.078Z",
@@ -15689,211 +15630,6 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-08T09:19:04.538Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "jumbo-d9f34990-1a6",
-      "slug": "consulente-di-vendita-per-il-giardinaggio-jumbo-laupen",
-      "slugByLocale": {
-        "de": "verkaufsberater-in-garten-jumbo-laupen",
-        "it": "consulente-di-vendita-per-il-giardinaggio-jumbo-laupen",
-        "en": "garden-sales-consultant-jumbo-laupen-146621",
-        "fr": "conseiller-de-vente-dans-le-jardin-jumbo-laupen-146621"
-      },
-      "company": "JUMBO",
-      "companyKey": "jumbo",
-      "companyDomain": "jumbo.ch",
-      "title": "Verkaufsberater:in Garten",
-      "titleByLocale": {
-        "it": "Consulente di vendita per il giardinaggio",
-        "en": "Garden Sales Consultant",
-        "de": "Verkaufsberater:in Garten",
-        "fr": "Conseiller de vente :dans le jardin"
-      },
-      "description": "- Stellenantritt: per sofort oder nach Vereinbarung\n- Fachrichtung: Verkauf Fachformate\n- Arbeitsort: Jumbo, Bahnweg 2d, 3177 Laupen\n- Pensum: 60-80%\n\n## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo. bis Sa.) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Garten, Freizeit und Wohnen kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n- Arbeitszeit: 5 Wochen Ferien, flexible Arbeitszeitmodelle\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop\n- Nachhaltigkeit: Engagement für Mensch, Tier und Natur mit über 400 Taten\n- Kommunikation: interne App für Mitarbeitende\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\n## Deine Ansprechperson\nViviane Natsch-Artmann\nHR Marketing",
-      "descriptionByLocale": {
-        "it": "- Apertura del lavoro: immediatamente o per accordo\n- Specializzazione: vendite di formati specializzati\n- Ubicazione: Jumbo, ferrovia 2d, 3177 Laupen\n- Pensum: 60-80 %\n\n## Compiti\n- Con il vostro consiglio amichevole e competente ispirate i nostri clienti.\n- Aderisci alle linee guida interne e quindi assicurati che le merci siano presentate in modo attraente.\n- Con le merci sulla nostra zona di vendita e nel magazzino siete coscientious.\n- Se necessario, è anche possibile aiutare in altri rayon.\n- I processi di inventario, vendita e inventario-rilevanti sono parte della gestione del processo che si assume.\n\n## Requisiti\n- Vendita e consulenza sono la vostra passione, soddisfazione del cliente la vostra motivazione? Perfetto.\n- Parli fluente tedesco, hai esperienza di vendita e idealmente una formazione completa di vendita: Allora sei qui.\n- Naturalmente, sei flessibile nei tempi operativi (Mo. to Sa.). Ti appartiene alle vendite.\n- Conosci il giardinaggio, il tempo libero e la vita? Così si può segnare particolarmente bene a questo punto.\n- Sempre un sorriso amichevole – questo è il tuo segreto per il successo.\n- Sconti: Sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino a 20% di sconto su vari servizi assicurativi, fino a 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti più economici mobile e prepagati su Coop Mobile, Reka Card: Sconto sull'acquisto, sconto su Mobility CarSharing, sconto personale anche per i partner:in (vivere nella stessa famiglia), sconto sull'abbonamento GA, sconti sugli eventi culturali, sconti sugli eventi, sconti sugli eventi culturali, sconti sugli eventi, sconti sugli eventi, sconti sugli eventi culturali, sconti\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, Condizioni interessanti di occupazione e parità di retribuzione certificata, premi fedeltà, piano di risparmio del Fondo pensione, contratto di lavoro totale (GAV), 18 settimane di congedo di maternità retribuito e tre settimane di congedo di paternità retribuito\n- Orario di lavoro: 5 settimane vacanze, modelli di tempo di lavoro flessibili\n- Ulteriore istruzione: Più di 600 corsi di formazione interna, gestione del talento con diverse opportunità di sviluppo, formazione e ulteriori offerte di istruzione della L-GAV e Coop\n- Sostenibilità: Impegno a persone, animali e natura con oltre 400 azioni\n- Comunicazione: applicazione interna per i dipendenti\n- Salute: aggiornamento Fitness: Fr. 200.– Sconto su abbonamento annuale, partecipazione gratuita a varie piste aziendali, offerte sportive interne\n\n## La persona di contatto\nViviane Natsch-Artmann\nHR Marketing",
-        "en": "- Job opening: immediately or by agreement\n- Specialization: Sales of specialist formats\n- Location: Jumbo, railway 2d, 3177 Laupen\n- Pensum: 60-80 %\n\n## Tasks\n- With your friendly and competent advice you inspire our customers.\n- You adhere to the internal guidelines and so you make sure that the goods are presented attractively.\n- With the goods on our sales area and in the warehouse you are conscientious.\n- If necessary, you can also help in other rayons.\n- Inventory, sales and inventory-relevant processes are parts of the process management that you take over.\n\n## Requirements\n- Selling and consulting are your passion, customer satisfaction your motivation? Perfect.\n- You speak fluent German, you have sales experience and ideally a completed sales training: Then you are right here.\n- Of course, you are flexible in the operating times (Mo. to Sa.). Belongs to you in sales.\n- Are you familiar with gardening, leisure and living? So you can score particularly well at this point.\n- Always a friendly smile – this is your secret to success.\n- Discounts: Discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions on Coop Mobile, Reka Card: Discount on purchase, Discount on Mobility CarSharing, Personnel discount also for partners:in (living in the same household), Discount on GA subscription, Discounts on cultural events, Discounts for leisure activities\n- Conditions of Employment: Pension Fund: 2/3 is paid by Coop, Attractive Conditions of Employment and Certified Equal Pay, Loyalty Premiums, Pension Fund Savings Plan, Total Employment Contract (GAV), 18 weeks of paid maternity leave and three weeks of paid paternity leave\n- Working time: 5 weeks holidays, flexible working time models\n- Further education: More than 600 internal training courses, talent management with diverse development opportunities, training and further education offers of the L-GAV and Coop\n- Sustainability: Commitment to people, animals and nature with more than 400 actions\n- Communication: internal app for employees\n- Health: Update Fitness: Fr. 200.– Discount on annual subscription, free participation in various company runs, in-house sports offers\n\n## Your contact person\nViviane Natsch-Artmann\nHR Marketing",
-        "de": "- Stellenantritt: per sofort oder nach Vereinbarung\n- Fachrichtung: Verkauf Fachformate\n- Arbeitsort: Jumbo, Bahnweg 2d, 3177 Laupen\n- Pensum: 60-80%\n\n## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo. bis Sa.) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Garten, Freizeit und Wohnen kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n- Arbeitszeit: 5 Wochen Ferien, flexible Arbeitszeitmodelle\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop\n- Nachhaltigkeit: Engagement für Mensch, Tier und Natur mit über 400 Taten\n- Kommunikation: interne App für Mitarbeitende\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\n## Deine Ansprechperson\nViviane Natsch-Artmann\nHR Marketing",
-        "fr": "- Ouverture d'emploi: immédiatement ou par accord\n- Spécialisation: Vente de formats spécialisés\n- Lieu: Jumbo, chemin de fer 2d, 3177 Laupen\n- Pensum: 60-80 %\n\n## Tâches\n- Avec votre conseil amical et compétent, vous inspirez nos clients.\n- Vous respectez les directives internes et vous assurez donc que les marchandises sont présentées de façon attrayante.\n- Avec les marchandises sur notre zone de vente et dans l'entrepôt, vous êtes consciencieux.\n- Si nécessaire, vous pouvez également aider dans d'autres rayons.\n- Les processus d'inventaire, de vente et d'inventaire font partie de la gestion des processus que vous prenez en charge.\n\n## Exigences\n- Vendre et consulter sont votre passion, la satisfaction du client votre motivation? Parfait.\n- Vous parlez couramment allemand, vous avez une expérience de vente et idéalement une formation de vente terminée: Alors vous êtes là.\n- Bien sûr, vous êtes flexible dans les temps de fonctionnement (Mo. à Sa.). Vous appartenez à la vente.\n- Connaissez-vous le jardinage, les loisirs et la vie? Donc vous pouvez particulièrement bien marquer à ce stade.\n- Toujours un sourire amical – c'est votre secret pour le succès.\n- Réductions: Réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Carte Reka: Remise sur l'achat, Réduction sur la mobilité CarSharing, Réduction personnel également pour les partenaires:dans (habitant dans le même ménage), Réduction sur l'abonnement GA, Réductions sur les événements culturels, Réductions pour les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, Conditions d'emploi attrayantes et salaire égal certifié, Primes de fidélité, Régime d'épargne-retraite, Contrat d'emploi total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les salariés\n- Santé : Mise à jour de la condition physique : 200.– Réduction sur l'abonnement annuel, participation gratuite à diverses activités d'entreprise, offres de sports maison\n\n## Votre personne à contacter\nViviane Natsch-Artmann\nMarketing des ressources humaines"
-      },
-      "location": "Laupen",
-      "canton": "BE",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-garten/d9f34990-1a67-4357-a418-30f56677465d",
-      "source": "JUMBO Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:04.537Z",
-      "addressLocality": "Laupen",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3177",
-      "streetAddress": "Bahnweg 2d",
-      "category": "Commerciale",
-      "contract": "permanent",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Commercio al dettaglio",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "pensum": "60-80%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=166057",
-      "requirements": [
-        "• Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.",
-        "• Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.",
-        "• Selbstverständlich bist du bei den Einsatzzeiten (Mo. bis Sa.) flexibel. Gehört für dich im Verkauf dazu.",
-        "• Im Bereich Garten, Freizeit und Wohnen kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.",
-        "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.",
-          "• Selbstverständlich bist du bei den Einsatzzeiten (Mo. bis Sa.) flexibel. Gehört für dich im Verkauf dazu.",
-          "• Im Bereich Garten, Freizeit und Wohnen kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.",
-          "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
-        ]
-      },
-      "needsRetranslation": false,
-      "_enrichedFromDetail": true,
-      "previousSlugs": [
-        "verkaufsberater-in-garten-jumbo-laupen-2",
-        "consulente-di-vendita-per-il-giardinaggio-jumbo-laupen-78b9ab",
-        "verkaufsberater-in-garten-jumbo-laupen",
-        "verkaufsberater-in-garten-jumbo-laupen-01fade3d89",
-        "garden-sales-consultant-jumbo-laupen",
-        "conseiller-de-vente-dans-le-jardin-jumbo-laupen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-garten-jumbo-laupen-2",
-          "consulente-di-vendita-per-il-giardinaggio-jumbo-laupen-78b9ab",
-          "verkaufsberater-in-garten-jumbo-laupen",
-          "verkaufsberater-in-garten-jumbo-laupen-01fade3d89"
-        ],
-        "en": [
-          "garden-sales-consultant-jumbo-laupen",
-          "verkaufsberater-in-garten-jumbo-laupen"
-        ],
-        "fr": [
-          "conseiller-de-vente-dans-le-jardin-jumbo-laupen",
-          "verkaufsberater-in-garten-jumbo-laupen"
-        ]
-      },
-      "firstSeenAt": "2026-09-11T13:41:14.078Z",
-      "salaryMin": 77500,
-      "salaryMax": 118500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77500,
-          "maxValue": 118500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:19:04.537Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "jumbo-42d5e41d-d57",
-      "slug": "consulente-di-vendita-garden-jumbo-kusnacht",
-      "slugByLocale": {
-        "de": "verkaufsberater-in-garden-jumbo-kusnacht-16fynl",
-        "it": "consulente-di-vendita-garden-jumbo-kusnacht",
-        "en": "sales-advisor-garden-jumbo-kusnacht",
-        "fr": "conseiller-ere-de-vente-garden-jumbo-kusnacht"
-      },
-      "company": "JUMBO",
-      "companyKey": "jumbo",
-      "companyDomain": "jumbo.ch",
-      "title": "Verkaufsberater:in Garden",
-      "titleByLocale": {
-        "it": "Consulente alle vendite Garden",
-        "en": "Garden Sales Advisor",
-        "de": "Verkaufsberater:in Garden",
-        "fr": "Conseiller/ère de vente Garden"
-      },
-      "description": "- Stellenantritt: nach Vereinbarung\n- Fachrichtung: Verkauf Fachformate\n- Arbeitsort: Jumbo, Seestrasse 39, 8700 Küsnacht\n- Pensum: 8 - 20 Std./Woche\n\n## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, dass du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo bis Sa) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Garden kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nSinduja Kugasothy\nHR Marketing",
-      "descriptionByLocale": {
-        "it": "- Apertura del lavoro: d'accordo\n- Specializzazione: vendite di formati specializzati\n- Ubicazione: Jumbo, Seestrasse 39, 8700 Küsnacht\n- Pensum: 8 - 20 ore/settimana\n\n## Compiti\n- Con il vostro consiglio amichevole e competente ispirate i nostri clienti.\n- Aderisci alle linee guida interne e quindi assicurati che le merci siano presentate in modo attraente.\n- Con le merci sulla nostra zona di vendita e nel magazzino siete coscientious.\n- Se necessario, è anche possibile aiutare in altri rayons.\n- I processi di inventario, vendita e inventario-rilevanti sono parte della gestione del processo che si assume.\n\n## Requisiti\n- Vendere e consultare sono la vostra passione, soddisfazione del cliente la vostra motivazione? Perfetto.\n- Si parla fluente tedesco, hanno esperienza di vendita e idealmente una formazione completa di vendita: Allora sei proprio qui.\n- Naturalmente, sei flessibile nei tempi operativi (Mo to Sa). Ti appartiene alle vendite.\n- Conosci Garden? Così si può segnare particolarmente bene a questo punto.\n- Sempre un sorriso amichevole – questo è il tuo segreto per il successo.\n\n## Cosa offriamo\n- Sconti: Sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino a 20% di sconto su vari servizi assicurativi, fino a 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati su Coop Mobile, Reka Card: sconto sull'acquisto, sconto su Mobility CarSharing, sconto personale anche per i partner:in (vivere nella stessa famiglia), sconto su abbonamento GA\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, contratto collettivo di lavoro (GAV), 18 settimane di congedo di maternità retribuito e 4 settimane di congedo di paternità retribuito, bonus di lealtà, piano di risparmio presso il fondo pensionistico, regime flessibile e attraente per la pensione anticipata dal 58 completato. Anno di età, condizioni di lavoro attraenti\n- Ore lavorative: 5 week-end\n- Formazione: oltre 600 corsi di formazione interna, supporto per l'istruzione esterna e formazione, gestione del talento con una vasta gamma di opportunità di sviluppo\n- Salute: aggiornamento Fitness: Fr. 200.– Sconto abbonamento annuale\n\n## La persona di contatto\nSinduja Kugaso\nHR Marketing",
-        "en": "- Job opening: by agreement\n- Specialization: Sales of specialist formats\n- Location: Jumbo, Seestrasse 39, 8700 Küsnacht\n- Pensum: 8 - 20 hours/week\n\n## Tasks\n- With your friendly and competent advice you inspire our customers.\n- You adhere to the internal guidelines and so you make sure that the goods are presented attractively.\n- With the goods on our sales area and in the warehouse you are conscientious.\n- If necessary, you can also help in other rayons.\n- Inventory, sales and inventory-relevant processes are parts of the process management that you take over.\n\n## Requirements\n- Selling and consulting are your passion, customer satisfaction your motivation? Perfect.\n- You speak fluent German, have sales experience and ideally a completed sales training: Then you are right here.\n- Of course, you are flexible in the operating times (Mo to Sa). Belongs to you in sales.\n- Are you familiar with Garden? So you can score particularly well at this point.\n- Always a friendly smile – this is your secret to success.\n\n## What we offer\n- Discounts: Discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions on Coop Mobile, Reka Card: discount on purchase, discount on Mobility CarSharing, personal discount also for partners:in (living in the same household), discount on GA subscription\n- Conditions of employment: Pension fund: 2/3 is paid by Coop, collective employment contract (GAV), 18 weeks paid maternity leave and 4 weeks paid paternity leave, loyalty bonuses, savings plan at the pension fund, flexible and attractive scheme for early retirement pension from the completed 58. Year of age, attractive employment conditions\n- Working hours: 5 weeks holidays\n- Training: Over 600 internal training courses, support for external education and training, talent management with a wide range of development opportunities\n- Health: Update Fitness: Fr. 200.– Annual subscription discount\n\n## Your contact person\nSinduja Kugasothy\nHR Marketing",
-        "de": "- Stellenantritt: nach Vereinbarung\n- Fachrichtung: Verkauf Fachformate\n- Arbeitsort: Jumbo, Seestrasse 39, 8700 Küsnacht\n- Pensum: 8 - 20 Std./Woche\n\n## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, dass du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo bis Sa) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Garden kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr, attraktive Anstellungsbedingungen\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nSinduja Kugasothy\nHR Marketing",
-        "fr": "- Ouverture d'emploi: par accord\n- Spécialisation: Vente de formats spécialisés\n- Lieu: Jumbo, Seestrasse 39, 8700 Küsnacht\n- Pensum: 8 à 20 heures/semaine\n\n## Tâche\n- Avec votre conseil amical et compétent, vous inspirez nos clients.\n- Vous respectez les directives internes et vous assurez donc que les marchandises sont présentées de manière attrayante.\n- Avec les marchandises sur notre zone de vente et dans l'entrepôt, vous êtes consciencieux.\n- Si nécessaire, vous pouvez également aider dans d'autres rayons.\n- Les processus d'inventaire, de vente et d'inventaire font partie de la gestion des processus que vous prenez en charge.\n\n## Exigences\n- La vente et le conseil sont votre passion, la satisfaction des clients votre motivation? Parfait.\n- Vous parlez couramment allemand, avez une expérience de vente et idéalement une formation de vente terminée: Alors vous êtes là.\n- Bien sûr, vous êtes flexible dans les temps de fonctionnement (Mo à Sa). Vous appartenez à la vente.\n- Vous connaissez Garden ? Donc vous pouvez marquer particulièrement bien à ce stade.\n- Toujours un sourire amical – c'est votre secret pour le succès.\n\n## Ce que nous offrons\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur divers services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: réduction sur l'achat, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, régime flexible et attrayant de retraite anticipée à partir de 58. Année d'âge, conditions d'emploi attrayantes\n- Heures de travail: 5 semaines de congés\n- Formation : Plus de 600 cours de formation interne, soutien à l ' éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nSinduja Kugasothy\nMarketing des ressources humaines"
-      },
-      "location": "Küsnacht",
-      "canton": "ZH",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-garden/42d5e41d-d576-4294-a048-95ef73b11b15",
-      "source": "JUMBO Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:04.536Z",
-      "addressLocality": "Küsnacht",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8700",
-      "streetAddress": "Seestrasse 39",
-      "category": "Commerciale",
-      "contract": "permanent",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Commercio al dettaglio",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "pensum": "20-50%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=163653",
-      "requirements": [
-        "• Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.",
-        "• Du sprichst fliessend Deutsch, hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.",
-        "• Selbstverständlich bist du bei den Einsatzzeiten (Mo bis Sa) flexibel. Gehört für dich im Verkauf dazu.",
-        "• Im Bereich Garden kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.",
-        "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.",
-          "• Selbstverständlich bist du bei den Einsatzzeiten (Mo bis Sa) flexibel. Gehört für dich im Verkauf dazu.",
-          "• Im Bereich Garden kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.",
-          "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
-        ]
-      },
-      "needsRetranslation": false,
-      "_enrichedFromDetail": true,
-      "previousSlugs": [
-        "verkaufsberater-in-garden-jumbo-kusnacht"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-garden-jumbo-kusnacht"
-        ],
-        "de": [
-          "verkaufsberater-in-garden-jumbo-kusnacht"
-        ]
-      },
-      "firstSeenAt": "2026-09-08T23:25:12.107Z",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 127500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:19:04.536Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -17714,104 +17450,6 @@
       "validThroughSource": "last-observed-window"
     },
     {
-      "id": "jumbo-99a4e13c-c4d",
-      "slug": "consulente-di-vendita-do-it-jumbo-eppenberg-woschnau",
-      "slugByLocale": {
-        "de": "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau",
-        "it": "consulente-di-vendita-do-it-jumbo-eppenberg-woschnau",
-        "en": "sales-advisor-do-it-jumbo-eppenberg-woschnau-e6acd9",
-        "fr": "conseiller-ere-de-vente-do-it-jumbo-eppenberg-woschnau-e6acd9"
-      },
-      "company": "JUMBO",
-      "companyKey": "jumbo",
-      "companyDomain": "jumbo.ch",
-      "title": "Verkaufsberater:in Do-it",
-      "titleByLocale": {
-        "it": "Consulente di vendita Do-it",
-        "en": "Sales Advisor Do-it",
-        "de": "Verkaufsberater:in Do-it",
-        "fr": "Conseiller/ère de vente Do-it"
-      },
-      "description": "- Stellenantritt: nach Vereinbarung\n- Fachrichtung: Verkauf Fachformate\n- Arbeitsort: Jumbo, Industriestrasse 115, 5012 Eppenberg-Wöschnau\n- Pensum: 8 - 20 Std./Woche\n\n## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo. bis Sa.) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Do-it kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten. (Je nach Stelle andere Anforderungen (Bau, Elektro, Garten etc. etc.) – konkrete Anforderungen jeweils kommunizieren.)\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\n## Was wir bieten\n- Vergünstigungen: günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Nachhaltigkeit:\n- Kommunikation:\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nCarolina Erismann\nHR Marketing",
-      "descriptionByLocale": {
-        "it": "- Apertura del lavoro: d'accordo\n- Specializzazione: vendite di formati specializzati\n- Ubicazione: Jumbo, Industriestrasse 115, 5012 Eppenberg-Wöschnau\n- Pensum: 8 - 20 ore/settimana\n\n## Compiti\n- Con il vostro consiglio amichevole e competente ispirate i nostri clienti.\n- Aderisci alle linee guida interne e quindi assicurati che le merci siano presentate in modo attraente.\n- Con le merci sulla nostra zona di vendita e nel magazzino siete coscientious.\n- Se necessario, è anche possibile aiutare in altri rayon.\n- I processi di inventario, vendita e inventario-rilevanti sono parte della gestione del processo che si assume.\n\n## Requisiti\n- Vendita e consulenza sono la vostra passione, soddisfazione del cliente la vostra motivazione? Perfetto.\n- Parli fluente tedesco, hai esperienza di vendita e idealmente una formazione completa di vendita: Allora sei qui.\n- Naturalmente, sei flessibile nei tempi operativi (Mo. to Sa.). Ti appartiene alle vendite.\n- Conosci Do-it? Così si può segnare particolarmente bene a questo punto. (A seconda delle diverse esigenze (costruzione, elettrico, giardino ecc.) – comunicare requisiti specifici in ogni caso.)\n- Sempre un sorriso amichevole – questo è il tuo segreto per il successo.\n\n## Cosa offriamo\n- Sconti: abbonamenti mobili e prepagati più economici a Coop Mobile, Reka-Card: Sconto su abbonamento, sconto personale anche per i partner:in (vivere nella stessa famiglia)\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, Condizioni di lavoro e di parità di retribuzione certificata, Contratto di occupazione totale (GAV), 18 settimane di congedo di maternità retribuito e 4 settimane di congedo di paternità retribuito, bonus di lealtà, piano di risparmio presso il fondo pensionistico, regime flessibile e attraente per la pensione anticipata dal completato 58. Età anno\n- Ore lavorative: 5 week-end\n- Formazione: oltre 600 corsi di formazione interna, supporto per l'istruzione e la formazione esterna, gestione del talento con una vasta gamma di opportunità di sviluppo\n- Sostenibilità:\n- Comunicazione:\n- Salute: Aggiornamento Fitness: Fr. 200.– Sconto su abbonamento annuale\n\n## La persona di contatto\nCarolina Erismann\nHR Marketing",
-        "en": "- Job opening: by agreement\n- Specialization: Sales of specialist formats\n- Location: Jumbo, Industriestrasse 115, 5012 Eppenberg-Wöschnau\n- Pensum: 8 - 20 hours/week\n\n## Tasks\n- With your friendly and competent advice you inspire our customers.\n- You adhere to the internal guidelines and so you make sure that the goods are presented attractively.\n- With the goods on our sales area and in the warehouse you are conscientious.\n- If necessary, you can also help in other rayons.\n- Inventory, sales and inventory-relevant processes are parts of the process management that you take over.\n\n## Requirements\n- Selling and consulting are your passion, customer satisfaction your motivation? Perfect.\n- You speak fluent German, you have sales experience and ideally a completed sales training: Then you are right here.\n- Of course, you are flexible in the operating times (Mo. to Sa.). Belongs to you in sales.\n- Are you familiar with Do-it? So you can score particularly well at this point. (Depending on different requirements (construction, electrical, garden etc. etc.) – communicate specific requirements in each case.)\n- Always a friendly smile – this is your secret to success.\n\n## What we offer\n- Discounts: cheaper mobile and prepaid subscriptions at Coop Mobile, Reka-Card: Discount on subscription, personnel discount also for partners:in (living in the same household)\n- Conditions of Employment: Pension Fund: 2/3 is paid by Coop, Attractive Conditions of Employment and Certified Equal Pay, Total Employment Contract (GAV), 18 weeks paid maternity leave and 4 weeks paid paternity leave, loyalty bonuses, savings plan at the pension fund, Flexible and attractive scheme for early retirement pension from the completed 58. Age year\n- Working hours: 5 weeks holidays\n- Training: More than 600 internal training courses, support for external education and training, talent management with a wide range of development opportunities\n- Sustainability:\n- Communication:\n- Health: Update Fitness: Fr. 200.– Discount on annual subscription\n\n## Your contact person\nCarolina Erismann\nHR Marketing",
-        "de": "- Stellenantritt: nach Vereinbarung\n- Fachrichtung: Verkauf Fachformate\n- Arbeitsort: Jumbo, Industriestrasse 115, 5012 Eppenberg-Wöschnau\n- Pensum: 8 - 20 Std./Woche\n\n## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo. bis Sa.) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Do-it kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten. (Je nach Stelle andere Anforderungen (Bau, Elektro, Garten etc. etc.) – konkrete Anforderungen jeweils kommunizieren.)\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n\n## Was wir bieten\n- Vergünstigungen: günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Nachhaltigkeit:\n- Kommunikation:\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nCarolina Erismann\nHR Marketing",
-        "fr": "- Ouverture d'emploi: par accord\n- Spécialisation: Vente de formats spécialisés\n- Lieu: Jumbo, Industriestrasse 115, 5012 Eppenberg-Wöschnau\n- Pensum: 8 à 20 heures/semaine\n\n## Tâches\n- Avec votre conseil amical et compétent, vous inspirez nos clients.\n- Vous respectez les directives internes et vous assurez donc que les marchandises sont présentées de façon attrayante.\n- Avec les marchandises sur notre zone de vente et dans l'entrepôt, vous êtes consciencieux.\n- Si nécessaire, vous pouvez également aider dans d'autres rayons.\n- Les processus d'inventaire, de vente et d'inventaire font partie de la gestion des processus que vous prenez en charge.\n\n## Exigences\n- Vendre et consulter sont votre passion, la satisfaction du client votre motivation? Parfait.\n- Vous parlez couramment allemand, vous avez une expérience de vente et idéalement une formation de vente terminée: Alors vous êtes là.\n- Bien sûr, vous êtes flexible dans les temps de fonctionnement (Mo. à Sa.). Vous appartenez à la vente.\n- Vous connaissez Do-it ? Donc vous pouvez particulièrement bien marquer à ce stade. (Selon différentes exigences (construction, électricité, jardin, etc.) – communiquer des exigences spécifiques dans chaque cas.)\n- Toujours un sourire amical – c'est votre secret pour le succès.\n\n## Ce que nous offrons\n- Réductions: abonnements mobiles et prépayés moins chers à Coop Mobile, Reka-Card: Réduction sur l'abonnement, réduction personnel également pour les partenaires:in (habitant dans le même ménage)\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par la Coop, Conditions d'emploi attractives et Agrément de salaire égal, Contrat d'emploi total (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, Régime flexible et attrayant de pension de retraite anticipée à partir de 58. Année\n- Heures de travail: 5 semaines de congés\n- Formation: plus de 600 cours de formation interne, soutien à l'éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n- Durabilité :\n- Communication:\n- Santé : Mise à jour de la condition physique : 200.– Réduction sur abonnement annuel\n\n## Votre personne à contacter\nCaroline Erismann\nMarketing des ressources humaines"
-      },
-      "location": "Eppenberg-Wöschnau",
-      "canton": "SO",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-do-it/99a4e13c-c4dd-4bb0-b21d-27e852d85025",
-      "source": "JUMBO Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:04.524Z",
-      "addressLocality": "Eppenberg-Wöschnau",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5012",
-      "streetAddress": "Industriestrasse 115",
-      "category": "Commerciale",
-      "contract": "permanent",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Commercio al dettaglio",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "pensum": "20-50%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=171231",
-      "requirements": [
-        "• Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.",
-        "• Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.",
-        "• Selbstverständlich bist du bei den Einsatzzeiten (Mo. bis Sa.) flexibel. Gehört für dich im Verkauf dazu.",
-        "• Im Bereich Do-it kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten. (Je nach Stelle andere Anforderungen (Bau, Elektro, Garten etc. etc.) – konkrete Anforderungen jeweils kommunizieren.)",
-        "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.",
-          "• Selbstverständlich bist du bei den Einsatzzeiten (Mo. bis Sa.) flexibel. Gehört für dich im Verkauf dazu.",
-          "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
-        ]
-      },
-      "needsRetranslation": false,
-      "_enrichedFromDetail": true,
-      "previousSlugs": [
-        "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau"
-        ],
-        "en": [
-          "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau"
-        ],
-        "fr": [
-          "verkaufsberater-in-do-it-jumbo-eppenberg-woschnau"
-        ]
-      },
-      "firstSeenAt": "2026-09-10T23:07:55.386Z",
-      "salaryMin": 77500,
-      "salaryMax": 118500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77500,
-          "maxValue": 118500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:19:04.524Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
       "id": "jumbo-2e5da179-4c2",
       "slug": "addetta-addetto-alle-vendite-deco-m-f-d-jumbo-bienne-845e75209b",
       "slugByLocale": {
@@ -19507,101 +19145,6 @@
       "validThroughSource": "last-observed-window"
     },
     {
-      "id": "jumbo-1d05ac30-d81",
-      "slug": "consulente-di-vendita-deco-jumbo-schenkon-c78d487d85",
-      "slugByLocale": {
-        "de": "verkaufsberater-in-deco-jumbo-schenkon",
-        "it": "consulente-di-vendita-deco-jumbo-schenkon-c78d487d85",
-        "en": "sales-advisor-decor-jumbo-schenkon",
-        "fr": "conseiller-ere-de-vente-deco-jumbo-schenkon"
-      },
-      "company": "JUMBO",
-      "companyKey": "jumbo",
-      "companyDomain": "jumbo.ch",
-      "title": "Verkaufsberater:in Deco",
-      "titleByLocale": {
-        "it": "Consulente di vendita Deco",
-        "en": "Sales advisor, Décor",
-        "de": "Verkaufsberater:in Deco",
-        "fr": "Conseiller·ère de vente Deco"
-      },
-      "description": "- Stellenantritt: nach Vereinbarung\n- Fachrichtung: Verkauf Fachformate\n- Arbeitsort: Jumbo, Zellgut 1, 6214 Schenkon\n- Pensum: 80 - 100%\n\n## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Deco kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nYves Sanarica\nHR Marketing",
-      "descriptionByLocale": {
-        "it": "- Apertura del lavoro: d'accordo\n- Specializzazione: vendite di formati specializzati\n- Luogo di lavoro: Jumbo, Zellgut 1, 6214 Schenkon\n- Pensum: 80 - 100%\n\n## Compiti\n- Con il vostro consiglio amichevole e competente ispirate i nostri clienti.\n- Aderisci alle linee guida interne e quindi assicurati che le merci siano presentate in modo attraente.\n- Con le merci sulla nostra zona di vendita e nel magazzino siete coscientious.\n- Se necessario, è anche possibile aiutare in altri rayons.\n- I processi di inventario, vendita e inventario-rilevanti sono parte della gestione del processo che si assume.\n\n## Requisiti\n- Vendere e consultare sono la vostra passione, soddisfazione del cliente la vostra motivazione? Perfetto.\n- Parli fluente tedesco, hai esperienza di vendita e idealmente una formazione completa di vendita: Allora sei proprio qui.\n- Naturalmente, sei flessibile durante i tempi di distribuzione. Ti appartiene alle vendite.\n- Conosci Deco? Così si può segnare particolarmente bene a questo punto.\n- Sempre un sorriso amichevole – questo è il tuo segreto per il successo.\n- Sconti: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino a 20% di sconto su vari servizi assicurativi, fino a 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati a Coop Mobile, sconto personale anche per i partner:in (vivere nella stessa famiglia)\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, contratto collettivo di lavoro (GAV), 18 settimane di congedo di maternità retribuito e 4 settimane di congedo di paternità retribuito, bonus di lealtà, piano di risparmio presso il fondo pensionistico, regime flessibile e attraente per la pensione anticipata dal 58 completato. Età anno\n- Ore lavorative: 5 week-end\n- Formazione: oltre 600 corsi di formazione interna, supporto per l'istruzione esterna e formazione, gestione del talento con una vasta gamma di opportunità di sviluppo\n- Salute: aggiornamento Fitness: Fr. 200.– Sconto abbonamento annuale\n\n## La persona di contatto\nYves Sanarica\nHR Marketing",
-        "en": "- Job opening: by agreement\n- Specialization: Sales of specialist formats\n- Place of work: Jumbo, Zellgut 1, 6214 Schenkon\n- Pensum: 80 - 100%\n\n## Tasks\n- With your friendly and competent advice you inspire our customers.\n- You adhere to the internal guidelines and so you make sure that the goods are presented attractively.\n- With the goods on our sales area and in the warehouse you are conscientious.\n- If necessary, you can also help in other rayons.\n- Inventory, sales and inventory-relevant processes are parts of the process management that you take over.\n\n## Requirements\n- Selling and consulting are your passion, customer satisfaction your motivation? Perfect.\n- You speak fluent German, you have sales experience and ideally a completed sales training: Then you are right here.\n- Of course, you are flexible during the deployment times. Belongs to you in sales.\n- Are you familiar with Deco? So you can score particularly well at this point.\n- Always a friendly smile – this is your secret to success.\n- Discounts: discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions at Coop Mobile, personal discount also for partners:in (living in the same household)\n- Conditions of employment: Pension fund: 2/3 is paid by Coop, collective employment contract (GAV), 18 weeks paid maternity leave and 4 weeks paid paternity leave, loyalty bonuses, savings plan at the pension fund, flexible and attractive scheme for early retirement pension from the completed 58. Age year\n- Working hours: 5 weeks holidays\n- Training: Over 600 internal training courses, support for external education and training, talent management with a wide range of development opportunities\n- Health: Update Fitness: Fr. 200.– Annual subscription discount\n\n## Your contact person\nYves Sanarica\nHR Marketing",
-        "de": "- Stellenantritt: nach Vereinbarung\n- Fachrichtung: Verkauf Fachformate\n- Arbeitsort: Jumbo, Zellgut 1, 6214 Schenkon\n- Pensum: 80 - 100%\n\n## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Deco kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nYves Sanarica\nHR Marketing",
-        "fr": "- Ouverture d'emploi: par accord\n- Spécialisation: Vente de formats spécialisés\n- Lieu de travail: Jumbo, Zellgut 1, 6214 Schenkon\n- Pensum: 80 - 100%\n\n## Tâche\n- Avec votre conseil amical et compétent, vous inspirez nos clients.\n- Vous respectez les directives internes et vous assurez donc que les marchandises sont présentées de manière attrayante.\n- Avec les marchandises sur notre zone de vente et dans l'entrepôt, vous êtes consciencieux.\n- Si nécessaire, vous pouvez également aider dans d'autres rayons.\n- Les processus d'inventaire, de vente et d'inventaire font partie de la gestion des processus que vous prenez en charge.\n\n## Exigences\n- La vente et le conseil sont votre passion, la satisfaction des clients votre motivation? Parfait.\n- Vous parlez couramment allemand, vous avez une expérience de vente et idéalement une formation de vente terminée: Alors vous êtes là.\n- Bien sûr, vous êtes flexible pendant les temps de déploiement. Vous appartenez à la vente.\n- Vous connaissez Deco ? Donc vous pouvez marquer particulièrement bien à ce stade.\n- Toujours un sourire amical – c'est votre secret pour le succès.\n- Réductions: réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, réduction personnelle également pour les partenaires:in (habitant dans le même ménage)\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, régime flexible et attrayant de retraite anticipée à partir de 58. Année\n- Heures de travail: 5 semaines de congés\n- Formation : Plus de 600 cours de formation interne, soutien à l ' éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nYves Sanarica\nMarketing des ressources humaines"
-      },
-      "location": "Schenkon",
-      "canton": "LU",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-deco/1d05ac30-d81f-4378-9695-a5d447cf7325",
-      "source": "JUMBO Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:04.511Z",
-      "addressLocality": "Schenkon",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6214",
-      "streetAddress": "Zellgut 1",
-      "category": "Commerciale",
-      "contract": "permanent",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Commercio al dettaglio",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "pensum": "80-100%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=170698",
-      "requirements": [
-        "• Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.",
-        "• Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.",
-        "• Selbstverständlich bist du bei den Einsatzzeiten flexibel. Gehört für dich im Verkauf dazu.",
-        "• Im Bereich Deco kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.",
-        "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.",
-          "• Selbstverständlich bist du bei den Einsatzzeiten flexibel. Gehört für dich im Verkauf dazu.",
-          "• Im Bereich Deco kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.",
-          "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
-        ]
-      },
-      "needsRetranslation": false,
-      "_enrichedFromDetail": true,
-      "previousSlugs": [
-        "verkaufsberater-in-deco-jumbo-schenkon",
-        "consulente-di-vendita-deco-jumbo-schenkon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-deco-jumbo-schenkon",
-          "consulente-di-vendita-deco-jumbo-schenkon"
-        ]
-      },
-      "firstSeenAt": "2026-10-22T09:19:28.312Z",
-      "salaryMin": 79000,
-      "salaryMax": 121500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 121500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T09:19:04.511Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
       "id": "jumbo-a823e713-472",
       "slug": "venditore-kassen-servizi-jumbo-huntwangen",
       "slugByLocale": {
@@ -20589,115 +20132,6 @@
       "validThroughSource": "last-observed-window",
       "crawlerMissStreak": 1,
       "needsRetranslation": true
-    },
-    {
-      "id": "jumbo-73cc4860-877",
-      "slug": "consulente-di-vendita-deco-jumbo-chur",
-      "slugByLocale": {
-        "de": "verkaufsberater-in-deco-jumbo-chur-xnhah1",
-        "it": "consulente-di-vendita-deco-jumbo-chur",
-        "en": "sales-consultant-deco-jumbo-chur",
-        "fr": "consultant-commercial-deco-jumbo-chur"
-      },
-      "company": "JUMBO",
-      "companyKey": "jumbo",
-      "companyDomain": "jumbo.ch",
-      "title": "Verkaufsberater:in Deco",
-      "titleByLocale": {
-        "it": "Consulente alla vendita Deco",
-        "en": "Sales advisor Deco",
-        "de": "Verkaufsberater:in Deco",
-        "fr": "Conseiller/ère de vente Deco"
-      },
-      "description": "- Stellenantritt: nach Vereinbarung\n- Fachrichtung: Verkauf Fachformate\n- Arbeitsort: Jumbo, Sommeraustrasse 9, 7000 Chur\n- Pensum: 8 - 20 Std./Woche\n\n## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo. bis Sa.) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Deco kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nSuzana Jovanovic\nHR Marketing",
-      "descriptionByLocale": {
-        "it": "- Apertura del lavoro: d'accordo\n- Specializzazione: vendite di formati specializzati\n- Luogo di lavoro: Jumbo, Sommeraustrasse 9, 7000 Chur\n- Pensum: 8 - 20 ore/settimana\n\n## Compiti\n- Con il vostro consiglio amichevole e competente ispirate i nostri clienti.\n- Aderisci alle linee guida interne e quindi assicurati che le merci siano presentate in modo attraente.\n- Con le merci sulla nostra zona di vendita e nel magazzino siete coscientious.\n- Se necessario, è anche possibile aiutare in altri rayons.\n- I processi di inventario, vendita e inventario-rilevanti sono parte della gestione del processo che si assume.\n\n## Requisiti\n- Vendere e consultare sono la vostra passione, soddisfazione del cliente la vostra motivazione? Perfetto.\n- Parli fluente tedesco, hai esperienza di vendita e idealmente una formazione completa di vendita: Allora sei proprio qui.\n- Naturalmente, sei flessibile durante i tempi di distribuzione (Mo. to Sa.). Ti appartiene alle vendite.\n- Conosci Deco? Così si può segnare particolarmente bene a questo punto.\n- Sempre un sorriso amichevole – questo è il tuo segreto per il successo.\n- Sconti: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino a 20% di sconto su vari servizi assicurativi, fino a 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati a Coop Mobile, sconto personale anche per i partner:in (vivere nella stessa famiglia)\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, contratto collettivo di lavoro (GAV), 18 settimane di congedo di maternità retribuito e 4 settimane di congedo di paternità retribuito, bonus di lealtà, piano di risparmio presso il fondo pensionistico, regime flessibile e attraente per la pensione anticipata dal 58 completato. Età anno\n- Ore lavorative: 5 week-end\n- Formazione: oltre 600 corsi di formazione interna, supporto per l'istruzione esterna e formazione, gestione del talento con una vasta gamma di opportunità di sviluppo\n- Salute: aggiornamento Fitness: Fr. 200.– Sconto abbonamento annuale\n\n## La persona di contatto\nSuzana Jovanovic\nHR Marketing",
-        "en": "- Job opening: by agreement\n- Specialization: Sales of specialist formats\n- Place of work: Jumbo, Sommeraustrasse 9, 7000 Chur\n- Pensum: 8 - 20 hours/week\n\n## Tasks\n- With your friendly and competent advice you inspire our customers.\n- You adhere to the internal guidelines and so you make sure that the goods are presented attractively.\n- With the goods on our sales area and in the warehouse you are conscientious.\n- If necessary, you can also help in other rayons.\n- Inventory, sales and inventory-relevant processes are parts of the process management that you take over.\n\n## Requirements\n- Selling and consulting are your passion, customer satisfaction your motivation? Perfect.\n- You speak fluent German, you have sales experience and ideally a completed sales training: Then you are right here.\n- Of course, you are flexible during the deployment times (Mo. to Sa.). Belongs to you in sales.\n- Are you familiar with Deco? So you can score particularly well at this point.\n- Always a friendly smile – this is your secret to success.\n- Discounts: discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions at Coop Mobile, personal discount also for partners:in (living in the same household)\n- Conditions of employment: Pension fund: 2/3 is paid by Coop, collective employment contract (GAV), 18 weeks paid maternity leave and 4 weeks paid paternity leave, loyalty bonuses, savings plan at the pension fund, flexible and attractive scheme for early retirement pension from the completed 58. Age year\n- Working hours: 5 weeks holidays\n- Training: Over 600 internal training courses, support for external education and training, talent management with a wide range of development opportunities\n- Health: Update Fitness: Fr. 200.– Annual subscription discount\n\n## Your contact person\nSuzana Jovanovic\nHR Marketing",
-        "de": "- Stellenantritt: nach Vereinbarung\n- Fachrichtung: Verkauf Fachformate\n- Arbeitsort: Jumbo, Sommeraustrasse 9, 7000 Chur\n- Pensum: 8 - 20 Std./Woche\n\n## Aufgaben\n- Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft.\n- Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind.\n- Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um.\n- Wenn nötig, hilfst du gerne auch in anderen Rayons mit.\n- Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, das du übernimmst.\n\n## Anforderungen\n- Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.\n- Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.\n- Selbstverständlich bist du bei den Einsatzzeiten (Mo. bis Sa.) flexibel. Gehört für dich im Verkauf dazu.\n- Im Bereich Deco kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.\n- Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg.\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr\n- Arbeitszeit: 5 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nSuzana Jovanovic\nHR Marketing",
-        "fr": "- Ouverture d'emploi: par accord\n- Spécialisation: Vente de formats spécialisés\n- Lieu de travail: Jumbo, Sommeraustrasse 9, 7000 Chur\n- Pensum: 8 à 20 heures/semaine\n\n## Tâche\n- Avec votre conseil amical et compétent, vous inspirez nos clients.\n- Vous respectez les directives internes et vous assurez donc que les marchandises sont présentées de manière attrayante.\n- Avec les marchandises sur notre zone de vente et dans l'entrepôt, vous êtes consciencieux.\n- Si nécessaire, vous pouvez également aider dans d'autres rayons.\n- Les processus d'inventaire, de vente et d'inventaire font partie de la gestion des processus que vous prenez en charge.\n\n## Exigences\n- La vente et le conseil sont votre passion, la satisfaction des clients votre motivation? Parfait.\n- Vous parlez couramment allemand, vous avez une expérience de vente et idéalement une formation de vente terminée: Alors vous êtes là.\n- Bien sûr, vous êtes flexible pendant les temps de déploiement (Mo. à Sa.). Vous appartenez à la vente.\n- Vous connaissez Deco ? Donc vous pouvez marquer particulièrement bien à ce stade.\n- Toujours un sourire amical – c'est votre secret pour le succès.\n- Réductions: réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, réduction personnelle également pour les partenaires:in (habitant dans le même ménage)\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par Coop, contrat de travail collectif (GAV), 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé, primes de fidélité, plan d'épargne à la caisse de retraite, régime flexible et attrayant de retraite anticipée à partir de 58. Année\n- Heures de travail: 5 semaines de congés\n- Formation : Plus de 600 cours de formation interne, soutien à l ' éducation et à la formation externes, gestion des talents avec un large éventail de possibilités de développement\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nSuzana Jovanovic\nMarketing des ressources humaines"
-      },
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-deco/73cc4860-877f-48c6-897b-71311f2a6946",
-      "source": "JUMBO Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:37:41.571Z",
-      "addressLocality": "Chur",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Sommeraustrasse 9",
-      "category": "Commerciale",
-      "contract": "permanent",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Commercio al dettaglio",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "pensum": "20-50%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=167346",
-      "requirements": [
-        "• Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.",
-        "• Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig.",
-        "• Selbstverständlich bist du bei den Einsatzzeiten (Mo. bis Sa.) flexibel. Gehört für dich im Verkauf dazu.",
-        "• Im Bereich Deco kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.",
-        "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? Perfekt.",
-          "• Selbstverständlich bist du bei den Einsatzzeiten (Mo. bis Sa.) flexibel. Gehört für dich im Verkauf dazu.",
-          "• Im Bereich Deco kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten.",
-          "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
-        ]
-      },
-      "needsRetranslation": false,
-      "_enrichedFromDetail": true,
-      "previousSlugs": [
-        "verkaufsberater-in-deco-jumbo-chur",
-        "consulente-alla-vendita-deco-jumbo-chur-8a142896d7",
-        "consulente-di-vendita-deco-jumbo-chur-8ba1d08990",
-        "sales-advisor-deco-jumbo-chur",
-        "conseiller-conseillere-de-vente-deco-jumbo-chur"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-deco-jumbo-chur",
-          "consulente-alla-vendita-deco-jumbo-chur-8a142896d7",
-          "consulente-di-vendita-deco-jumbo-chur-8ba1d08990"
-        ],
-        "de": [
-          "verkaufsberater-in-deco-jumbo-chur"
-        ],
-        "en": [
-          "sales-advisor-deco-jumbo-chur"
-        ],
-        "fr": [
-          "conseiller-conseillere-de-vente-deco-jumbo-chur"
-        ]
-      },
-      "firstSeenAt": "2026-09-23T23:42:44.350Z",
-      "salaryMin": 68500,
-      "salaryMax": 105000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 105000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-23T21:37:41.571Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
     },
     {
       "id": "jumbo-ebbc1a12-42f",

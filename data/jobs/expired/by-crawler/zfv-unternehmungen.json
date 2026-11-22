@@ -847,9 +847,9 @@
       "leiter-in-catering-zfv-unternehmungen-zurich",
       "tete-dans-la-restauration-zfv-unternehmungen-zurich",
       "stv-leiter-in-catering-events-zfv-unternehmungen-winterthur-df2216f2",
+      "stv-responsabile-catering-events-zfv-unternehmungen-winterthur-1ae27a78",
       "stv-responsabile-catering-events-zfv-unternehmungen-winterthur",
-      "stv-leiter-in-catering-events-zfv-unternehmungen-winterthur",
-      "stv-responsabile-catering-events-zfv-unternehmungen-winterthur-1ae27a78"
+      "stv-leiter-in-catering-events-zfv-unternehmungen-winterthur"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -5430,7 +5430,9 @@
       "kuchenchef-in-zfv-unternehmungen-zurich-b1e44fde",
       "kochin-koch-zfv-unternehmungen-zurich-69bfdd70",
       "cook-cook-zfv-unternehmungen-zurich",
-      "cook-cook-zfv-unternehmungen-zurich-159fe114"
+      "cook-cook-zfv-unternehmungen-zurich-159fe114",
+      "chef-in-zfv-unternehmungen-zurich",
+      "chef-zfv-unternehmungen-zurich"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -7430,8 +7432,6 @@
       "service-associate-zfv-unternehmungen-bern",
       "service-mitarbeiter-in-zfv-unternehmungen-bern",
       "service-collaborateur-trice-zfv-unternehmungen-bern",
-      "service-associate-80-zfv-unternehmungen-zurich",
-      "service-collaborateur-trice-80-zfv-unternehmungen-zurich",
       "service-collaboratore-trice-30-zfv-unternehmungen-zurich",
       "service-associate-30-zfv-unternehmungen-zurich",
       "service-mitarbeiter-in-30-zfv-unternehmungen-zurich",
@@ -7445,12 +7445,16 @@
       "mitarbeiter-in-hauswirtschaft-zfv-unternehmungen-zurich-89cc6d0e",
       "collaborateur-trice-hauswirtschaft-zfv-unternehmungen-zurich-cafd4885",
       "service-mitarbeiter-in-80-zfv-unternehmungen-zurich-8fe46d80",
+      "service-collaboratore-trice-80-zfv-unternehmungen-zurich-34e52de2",
+      "service-associate-80-zfv-unternehmungen-zurich",
+      "service-collaborateur-trice-80-zfv-unternehmungen-zurich",
       "service-collaboratore-trice-80-zfv-unternehmungen-zurich",
       "service-mitarbeiter-in-80-zfv-unternehmungen-zurich",
       "collaboratore-trice-hauswirtschaft-zfv-unternehmungen-zurich",
       "mitarbeiter-in-hauswirtschaft-zfv-unternehmungen-zurich",
       "collaborateur-trice-hauswirtschaft-zfv-unternehmungen-zurich",
-      "service-collaboratore-trice-80-zfv-unternehmungen-zurich-34e52de2"
+      "service-associate-80-zfv-unternehmungen-zurich-0e765e9d",
+      "service-collaborateur-trice-80-zfv-unternehmungen-zurich-bf6b3480"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -7479,13 +7483,15 @@
       ],
       "en": [
         "service-associate-zfv-unternehmungen-bern",
-        "service-associate-80-zfv-unternehmungen-zurich",
+        "service-associate-80-zfv-unternehmungen-zurich-0e765e9d",
         "service-associate-60-zfv-unternehmungen-zurich",
         "service-mitarbeiter-in-60-zfv-unternehmungen-zurich",
         "collaboratore-trice-hauswirtschaft-zfv-unternehmungen-zurich",
         "mitarbeiter-in-hauswirtschaft-zfv-unternehmungen-zurich-89cc6d0e",
         "collaborateur-trice-hauswirtschaft-zfv-unternehmungen-zurich",
         "service-collaboratore-trice-80-zfv-unternehmungen-zurich",
+        "service-collaborateur-trice-80-zfv-unternehmungen-zurich",
+        "service-associate-80-zfv-unternehmungen-zurich",
         "service-mitarbeiter-in-80-zfv-unternehmungen-zurich"
       ],
       "de": [
@@ -7497,12 +7503,14 @@
         "collaboratore-trice-hauswirtschaft-zfv-unternehmungen-zurich",
         "collaborateur-trice-hauswirtschaft-zfv-unternehmungen-zurich",
         "service-collaboratore-trice-80-zfv-unternehmungen-zurich",
+        "service-associate-80-zfv-unternehmungen-zurich",
+        "service-collaborateur-trice-80-zfv-unternehmungen-zurich",
         "service-mitarbeiter-in-80-zfv-unternehmungen-zurich",
         "mitarbeiter-in-hauswirtschaft-zfv-unternehmungen-zurich"
       ],
       "fr": [
         "service-collaborateur-trice-zfv-unternehmungen-bern",
-        "service-collaborateur-trice-80-zfv-unternehmungen-zurich",
+        "service-collaborateur-trice-80-zfv-unternehmungen-zurich-bf6b3480",
         "service-collaborateur-trice-30-zfv-unternehmungen-zurich",
         "collaborateur-trice-hauswirtschaft-zfv-unternehmungen-zurich-cafd4885",
         "service-collaborateur-trice-60-zfv-unternehmungen-zurich",
@@ -7510,6 +7518,8 @@
         "collaboratore-trice-hauswirtschaft-zfv-unternehmungen-zurich",
         "mitarbeiter-in-hauswirtschaft-zfv-unternehmungen-zurich-89cc6d0e",
         "service-collaboratore-trice-80-zfv-unternehmungen-zurich",
+        "service-associate-80-zfv-unternehmungen-zurich",
+        "service-collaborateur-trice-80-zfv-unternehmungen-zurich",
         "service-mitarbeiter-in-80-zfv-unternehmungen-zurich",
         "collaborateur-trice-hauswirtschaft-zfv-unternehmungen-zurich"
       ]
@@ -8136,8 +8146,8 @@
     "expiredAt": "2026-09-17T19:11:24.636Z",
     "previousSlugs": [
       "chef-di-sala-zfv-unternehmungen-zurich-74c181d3",
-      "head-of-service-zfv-unternehmungen-zurich",
-      "head-of-service-zfv-unternehmungen-zurich-b1cc551e"
+      "head-of-service-zfv-unternehmungen-zurich-b1cc551e",
+      "head-of-service-zfv-unternehmungen-zurich"
     ],
     "previousSlugsByLocale": {
       "it": [

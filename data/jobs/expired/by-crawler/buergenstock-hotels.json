@@ -1457,11 +1457,11 @@
       "ottone-di-chef-de-rang-jack-100-m-f-d-burgenstock-hotels-ag-obburgen",
       "chief-of-rank-jack-s-brasserie-100-m-f-d-burgenstock-hotels-ag-obburgen",
       "chef-de-rang-jack-s-10-100-h-f-d-burgenstock-hotels-ag-obburgen",
-      "chef-de-rank-100-f-m-i-burgenstock-hotels-ag-obburgen",
-      "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen",
       "commissione-di-rango-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe",
       "commis-de-rank-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe",
-      "commission-de-grade-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe"
+      "commission-de-grade-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe",
+      "chef-de-rank-100-f-m-i-burgenstock-hotels-ag-obburgen",
+      "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -6904,13 +6904,13 @@
       "chief-clinician-anesthesiology-eoc-ente-ospedaliero-cantonale-mendrisio-41d068b0",
       "clinicien-en-chef-anesthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio-c248784c",
       "aushilfe-housekeeping-zimmerreinigung-40-80-m-w-d-stundenlohn-buergenstock-hotels-obburgen",
+      "pulizia-delle-camere-40-80-m-f-d-salario-orario-burgenstock-hotels-ag-obburgen",
+      "housekeeping-room-cleaning-40-80-m-f-d-hourly-wage-burgenstock-hotels-ag-obburgen",
+      "menage-nettoyage-de-chambre-40-80-h-f-d-salaire-horaire-burgenstock-hotels-ag-obburgen",
       "medico-capoclinica-anestesiologia-eoc-ente-ospedaliero-cantonale-mendrisio",
       "chief-clinician-anesthesiology-eoc-ente-ospedaliero-cantonale-mendrisio",
       "chefarzt-anasthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
-      "clinicien-en-chef-anesthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
-      "pulizia-delle-camere-40-80-m-f-d-salario-orario-burgenstock-hotels-ag-obburgen",
-      "housekeeping-room-cleaning-40-80-m-f-d-hourly-wage-burgenstock-hotels-ag-obburgen",
-      "menage-nettoyage-de-chambre-40-80-h-f-d-salaire-horaire-burgenstock-hotels-ag-obburgen"
+      "clinicien-en-chef-anesthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio"
     ],
     "previousSlugsByLocale": {
       "de": [
@@ -7487,11 +7487,11 @@
         "medico-capoclinica-anestesiologia-eoc-ente-ospedaliero-cantonale-mendrisio-1adbae3b",
         "aushilfe-housekeeping-zimmerreinigung-40-80-m-w-d-stundenlohn-buergenstock-hotels-obburgen-03f3b0b5",
         "aushilfe-housekeeping-zimmerreinigung-40-80-m-w-d-stundenlohn-buergenstock-hotels-obburgen",
+        "pulizia-delle-camere-40-80-m-f-d-salario-orario-burgenstock-hotels-ag-obburgen",
         "chief-clinician-anesthesiology-eoc-ente-ospedaliero-cantonale-mendrisio",
         "chefarzt-anasthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
         "clinicien-en-chef-anesthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "medico-capoclinica-anestesiologia-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "pulizia-delle-camere-40-80-m-f-d-salario-orario-burgenstock-hotels-ag-obburgen"
+        "medico-capoclinica-anestesiologia-eoc-ente-ospedaliero-cantonale-mendrisio"
       ],
       "en": [
         "chief-clinician-anesthesiology-eoc-ente-ospedaliero-cantonale-mendrisio-0463e191",
@@ -7693,8 +7693,8 @@
         "chief-clinician-anesthesiology-eoc-ente-ospedaliero-cantonale-mendrisio-41d068b0",
         "aushilfe-housekeeping-zimmerreinigung-40-80-m-w-d-stundenlohn-buergenstock-hotels-obburgen-ad4a1b3b",
         "aushilfe-housekeeping-zimmerreinigung-40-80-m-w-d-stundenlohn-buergenstock-hotels-obburgen",
-        "chief-clinician-anesthesiology-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "housekeeping-room-cleaning-40-80-m-f-d-hourly-wage-burgenstock-hotels-ag-obburgen"
+        "housekeeping-room-cleaning-40-80-m-f-d-hourly-wage-burgenstock-hotels-ag-obburgen",
+        "chief-clinician-anesthesiology-eoc-ente-ospedaliero-cantonale-mendrisio"
       ],
       "fr": [
         "clinicien-en-chef-anesthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio-c31f94da",
@@ -7896,8 +7896,8 @@
         "clinicien-en-chef-anesthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio-c248784c",
         "aushilfe-housekeeping-zimmerreinigung-40-80-m-w-d-stundenlohn-buergenstock-hotels-obburgen-ad4a1b3b",
         "aushilfe-housekeeping-zimmerreinigung-40-80-m-w-d-stundenlohn-buergenstock-hotels-obburgen",
-        "clinicien-en-chef-anesthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "menage-nettoyage-de-chambre-40-80-h-f-d-salaire-horaire-burgenstock-hotels-ag-obburgen"
+        "menage-nettoyage-de-chambre-40-80-h-f-d-salaire-horaire-burgenstock-hotels-ag-obburgen",
+        "clinicien-en-chef-anesthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio"
       ]
     },
     "postalCode": "6363",
