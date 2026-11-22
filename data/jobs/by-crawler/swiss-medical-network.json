@@ -51,11 +51,13 @@
       "sourceLang": "de",
       "previousSlugs": [
         "dipl-clinica-diurna-imc-70-100-ore-lavorative-regolari-swiss-medical-network-basel",
-        "dipl-pflegefachperson-tagesklinik-imc-70-100-geregelte-arbeitszeiten-swiss-medical-network"
+        "dipl-pflegefachperson-tagesklinik-imc-70-100-geregelte-arbeitszeiten-swiss-medical-network",
+        "dipl-clinica-diurna-imc-70-100-ore-lavorative-regolari-swiss-medical-network-basel-21679fb3c4"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-clinica-diurna-imc-70-100-ore-lavorative-regolari-swiss-medical-network-basel"
+          "dipl-clinica-diurna-imc-70-100-ore-lavorative-regolari-swiss-medical-network-basel",
+          "dipl-clinica-diurna-imc-70-100-ore-lavorative-regolari-swiss-medical-network-basel-21679fb3c4"
         ],
         "en": [
           "dipl-pflegefachperson-tagesklinik-imc-70-100-geregelte-arbeitszeiten-swiss-medical-network"
@@ -286,7 +288,6 @@
         "location": "Chiasso"
       },
       "sourceLang": "it",
-      "needsRetranslation": true,
       "streetAddress": "Chiasso",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T09:19:12.545Z",
@@ -306,9 +307,10 @@
         }
       },
       "firstSeenAt": "2026-11-19T21:25:53.861Z",
-      "retranslationAttempts": 3,
+      "retranslationAttempts": 4,
       "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 3530
+      "localeMismatchSuppressedLen": 3530,
+      "needsRetranslation": true
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000162488479-team-lead-hr-administration-payroll-it",
@@ -3775,10 +3777,9 @@
         "location": "Echandens"
       },
       "sourceLang": "fr",
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3861,
-      "retranslationAttempts": 28,
+      "retranslationAttempts": 29,
       "firstSeenAt": "2026-07-22T22:09:02.216Z",
       "streetAddress": "Echandens",
       "streetAddressSource": "to-enrich",
@@ -3797,7 +3798,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139058930-gynakologe-in-und-geburtshelfer-in",
@@ -4025,7 +4027,7 @@
       "slugByLocale": {
         "it": "specialista-in-medicina-interna-50-100-swiss-medical-network-basel",
         "en": "specialist-in-internal-medicine-50-100-swiss-medical-network-basel",
-        "de": "facharztin-facharzt-innere-medizin-50-100-swiss-medical-network",
+        "de": "specialista-in-medicina-interna-50-100-swiss-medical-network-basel",
         "fr": "specialiste-en-medecine-interne-50-100-swiss-medical-network-basel"
       },
       "slug": "facharztin-facharzt-innere-medizin-50-100-swiss-medical-network",
@@ -4045,11 +4047,11 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
-          "specialista-in-medicina-interna-50-100-swiss-medical-network-basel"
+          "facharztin-facharzt-innere-medizin-50-100-swiss-medical-network"
         ]
       },
       "previousSlugs": [
-        "specialista-in-medicina-interna-50-100-swiss-medical-network-basel"
+        "facharztin-facharzt-innere-medizin-50-100-swiss-medical-network"
       ],
       "firstSeenAt": "2026-07-02T23:06:28.617Z",
       "streetAddress": "Basel",

@@ -5190,7 +5190,6 @@
           "humorvolles-und-wertschatzendes-team-sucht-ein-passendes-teammitglied-nach-vereinbarung-20"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-29T14:41:46.544Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -5209,8 +5208,7 @@
       "streetAddress": "Altendorf",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T09:58:50.577Z",
-      "validThroughSource": "last-observed-window",
-      "retranslationAttempts": 1
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "physioswiss-2bd6d2e10a03",
