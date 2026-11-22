@@ -1,7 +1,7 @@
 {
   "crawlerKey": "faulhaber",
-  "assembledAt": "2026-11-22T09:17:36.135Z",
-  "runId": "45005886416",
+  "assembledAt": "2026-11-22T21:17:52.853Z",
+  "runId": "45070179550",
   "jobs": [
     {
       "id": "faulhaber-e099cf383828",
@@ -49,7 +49,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/52258/Production-Shift-Leader",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:17:31.214Z",
+      "crawledAt": "2026-11-22T21:17:48.303Z",
       "previousSlugs": [
         "production-shift-leader-croglio-faulhaber"
       ],
@@ -78,7 +78,7 @@
       },
       "streetAddress": "Croglio",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:17:31.214Z",
+      "validThrough": "2026-12-22T21:17:48.303Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -127,7 +127,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/58894/Mitarbeiter-in-Spedition-Lager-100",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:17:20.058Z",
+      "crawledAt": "2026-11-22T21:17:36.783Z",
       "previousSlugs": [
         "mitarbeiter-in-spedition-lager-100-croglio-faulhaber"
       ],
@@ -159,7 +159,7 @@
       },
       "streetAddress": "Croglio",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:17:20.058Z",
+      "validThrough": "2027-02-07T21:17:36.783Z",
       "validThroughSource": "last-observed-window"
     }
   ]
