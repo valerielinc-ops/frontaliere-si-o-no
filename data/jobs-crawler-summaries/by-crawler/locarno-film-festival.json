@@ -1,41 +1,106 @@
 {
   "key": "locarno-film-festival",
   "label": "Locarno Film Festival",
-  "generatedAt": "2026-11-22T09:51:40.242Z",
-  "total": 0,
-  "discovered": null,
-  "parsed": null,
-  "lastFetchOutcome": "connection_error",
+  "generatedAt": "2026-11-22T21:35:18.490Z",
+  "total": 1,
+  "discovered": 1,
+  "parsed": 1,
+  "lastFetchOutcome": null,
   "fetchReceipt": {
     "specKey": "locarno-film-festival",
     "seedUrls": [
       "https://www.locarnofestival.ch/it/about/organization/work-with-us.html"
     ],
-    "phase": "listing",
-    "pages": 1,
+    "phase": "detail",
+    "pages": 3,
     "httpStatuses": [
       {
         "status": 403,
         "url": "https://www.locarnofestival.ch/it/about/organization/work-with-us.html"
+      },
+      {
+        "status": 200,
+        "url": "https://www.locarnofestival.ch/it/about/organization/work-with-us.html",
+        "proxiedBy": "browser"
+      },
+      {
+        "status": 200,
+        "url": "https://www.locarnofestival.ch/it/dam/jcr:7f0ffc2a-4fcb-4c1d-ae58-af1f09b3acc0/LFF80%20%20-%20%20AdF%20Project%20Manager.pdf"
       }
     ],
-    "proxiedBy": [],
+    "proxiedBy": [
+      "browser"
+    ],
     "fetchOutcome": null,
-    "fetchDetail": "Prospector fetch failed for https://www.locarnofestival.ch/it/about/organization/work-with-us.html: HTTP 403"
+    "fetchDetail": null
   },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "abortKind": "connection-level-fetch",
-  "written": 0,
+  "written": 1,
+  "detailCandidates": 1,
+  "detailGone": 0,
+  "detailRejected": 0,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
+  "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
+  "unchangedCount": 1,
+  "durationMs": 29730,
+  "avgDurationMs": 29730,
+  "durationHistory": [
+    29730
+  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0,
-  "codeCommit": "193181861b8ea282b062b042b15b99e091d330e5"
+  "unchangedJobs": [
+    {
+      "id": "locarno-film-festival-60e37bf7da16",
+      "slug": "atelier-du-futur-project-manager-locarno-locarno-film-festival-ch",
+      "company": "Locarno Film Festival",
+      "companyKey": "locarno-film-festival",
+      "companyDomain": "locarnofestival.ch",
+      "title": "Atelier du Futur Project Manager",
+      "location": "Locarno",
+      "canton": "TI",
+      "url": "https://www.locarnofestival.ch/it/dam/jcr:7f0ffc2a-4fcb-4c1d-ae58-af1f09b3acc0/lff80%20%20-%20%20adf%20project%20manager.pdf",
+      "source": "Locarno Film Festival Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-11-22T21:35:01.441Z",
+      "addressLocality": "Locarno",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6600",
+      "streetAddress": "Locarno",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://form.locarnofestival.ch/forms/5dc3eb78-901b-4a95-b29a-9f2413612d6e",
+      "firstSeenAt": "2026-11-10T21:52:04.047Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "salarySource": "estimated",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-09T21:35:01.441Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 23
+      }
+    }
+  ],
+  "codeCommit": "f0ab682774893f4b809c5b75181716509e65ea60"
 }
