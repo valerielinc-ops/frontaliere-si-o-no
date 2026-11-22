@@ -1,7 +1,7 @@
 {
   "crawlerKey": "nord-anglia",
-  "assembledAt": "2026-11-21T21:28:51.920Z",
-  "runId": "44950425768",
+  "assembledAt": "2026-11-22T09:37:42.506Z",
+  "runId": "45006405396",
   "jobs": [
     {
       "id": "nord-anglia-2ddaeb9dcedc",
@@ -34,7 +34,7 @@
       "url": "https://careers.nordanglia.com/job/Villars-sur-Ollon-Boarding-Assistant-2027_2028/1452579533/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:28:45.578Z",
+      "crawledAt": "2026-11-22T09:37:31.407Z",
       "addressLocality": "Villars-sur-Ollon",
       "addressRegion": "VD",
       "streetAddress": "Villars-sur-Ollon",
@@ -84,7 +84,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:28:45.578Z",
+      "validThrough": "2027-01-27T09:37:31.407Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://careers.nordanglia.com/job/Villars-sur-Ollon-Stagiaire-MPC/1453008433/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-21T21:28:45.561Z",
+      "crawledAt": "2026-11-22T09:37:31.382Z",
       "addressLocality": "Villars-sur-Ollon",
       "addressRegion": "VD",
       "streetAddress": "Villars-sur-Ollon",
@@ -172,7 +172,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:28:45.561Z",
+      "validThrough": "2027-01-28T09:37:31.382Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -206,7 +206,7 @@
       "url": "https://careers.nordanglia.com/job/Aubonne-Learning-Support-Assistants/1079699301/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:28:45.543Z",
+      "crawledAt": "2026-11-22T09:37:31.355Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "Aubonne",
@@ -250,7 +250,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-02T21:28:45.543Z",
+      "validThrough": "2027-01-02T09:37:31.355Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -284,7 +284,7 @@
       "url": "https://careers.nordanglia.com/job/Geneva-Activity-Leader/1446011433/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:28:45.535Z",
+      "crawledAt": "2026-11-22T09:37:31.342Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Rue de l'Hôtel-de-Ville 2",
@@ -328,7 +328,85 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-21T21:28:45.535Z",
+      "validThrough": "2026-12-22T09:37:31.342Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "nord-anglia-b46acb0a1e06",
+      "slug": "insegnante-delle-tic-45-nord-anglia-education-switzerland-pully",
+      "slugByLocale": {
+        "it": "insegnante-delle-tic-45-nord-anglia-education-switzerland-pully",
+        "en": "ict-teacher-45-nord-anglia-pully",
+        "de": "ict-lehrer-45-nord-anglia-education-switzerland-pully",
+        "fr": "enseignant-en-tic-45-nord-anglia-education-switzerland-pully"
+      },
+      "company": "Nord Anglia Education Switzerland",
+      "companyKey": "nord-anglia",
+      "companyDomain": "nordangliaeducation.com",
+      "title": "ICT Teacher 45%",
+      "titleByLocale": {
+        "it": "Insegnante delle TIC 45%",
+        "en": "ICT Teacher 45%",
+        "de": "ICT Lehrer 45%",
+        "fr": "Enseignant en TIC 45 %"
+      },
+      "description": "WHO WE ARE ?\n\nCollège Champittet, a school of reference in the Lake Geneva region since 1903, offers excellent education to generations of Swiss and foreign students. Its unique spirit revolves around academic performance, multilingualism and values such as respect and trust. The school is part of the Nord Anglia Education family, the world's leading premium schools’ organisation with 89 schools in 32 countries. In this dynamic environment, both local and international, we invite you to join our Academic Team.\n\nKEY ACCOUNTABILITIES\n\n• Design and implement an ICT curriculum that aligns with educational standards and promotes criti-cal thinking and problem-solving\n\n• Deliver engaging and interactive lessons that cater to diverse learning styles and adapt teaching to the strengths and needs of each pupil, including those with high ability or with special educational needs\n\n• Create a quality teaching environment conducive to learning, fostering learner agency and imple-menting the principles of positive discipline\n\n• Act as a coach by setting learning objectives that are challenging, inspiring and motivating, within the Collège philosophy, and provide students with regular feedback, both orally and through accu-rate rating\n\n• Communicate effectively and regularly with parents about their children’s achievements and learning\n\nPROFILE AND COMPETENCIES\n\n• Bachelor’s or Master’s degree in IT\n\n• PGCE or equivalent\n\n• Proven track record of excellence in teaching with at least five years’ experience, ideally in an in-ternational environment\n\n• Native English speaker with fluent French\n\n• Valid Swiss work permit and clean criminal recor\n\nIf you are passionate about education and interested in joining our team, please apply directly online through our website.",
+      "descriptionByLocale": {
+        "it": "Chi siamo? Collège Champittet, una scuola di riferimento nella regione del lago di Ginevra dal 1903, offre un'ottima educazione a generazioni di studenti svizzeri e stranieri. Il suo spirito unico ruota intorno alle prestazioni accademiche, al multilinguismo e ai valori come il rispetto e la fiducia. La scuola fa parte della famiglia Nord Anglia Education, l’organizzazione leader mondiale delle scuole premium con 89 scuole in 32 paesi. In questo ambiente dinamico, sia locale che internazionale, vi invitiamo a partecipare al nostro team accademico. CONTI DI LAVORO\n• Progettare e implementare un curriculum ICT che si allinea agli standard educativi e promuove il pensiero critico e la risoluzione dei problemi\n• Fornire lezioni coinvolgenti e interattive che si rivolgono a stili di apprendimento diversi e adattare l'insegnamento ai punti di forza e alle esigenze di ogni allievo, compresi quelli con alta capacità o con esigenze educative speciali\n• Creare un ambiente di insegnamento di qualità che favorisca l'apprendimento, la promozione dell'agenzia di apprendimento e l'attuazione dei principi della disciplina positiva\n• Agire come allenatore impostando obiettivi di apprendimento che sono impegnativi, ispiranti e motivanti, all'interno della filosofia Collège, e fornire agli studenti un feedback regolare, sia per via orale e attraverso la valutazione accurata\n• Comunicare efficacemente e regolarmente con i genitori circa i risultati dei loro figli e imparare PROFILE E COMPETENZIONI\n• Corso di laurea o master in IT\n• PGCE o equivalente\n• Provato record di eccellenza nell’insegnamento con almeno cinque anni di esperienza, idealmente in un ambiente in-ternazionale\n• Altoparlante inglese nativo con francese fluente\n• Valido permesso di lavoro svizzero e riparo criminale pulito Se siete appassionati di istruzione e interessati ad unirsi al nostro team, si prega di applicare direttamente online attraverso il nostro sito web.",
+        "en": "WHO WE ARE ?\n\nCollège Champittet, a school of reference in the Lake Geneva region since 1903, offers excellent education to generations of Swiss and foreign students. Its unique spirit revolves around academic performance, multilingualism and values such as respect and trust. The school is part of the Nord Anglia Education family, the world's leading premium schools’ organisation with 89 schools in 32 countries. In this dynamic environment, both local and international, we invite you to join our Academic Team.\n\nKEY ACCOUNTABILITIES\n\n• Design and implement an ICT curriculum that aligns with educational standards and promotes criti-cal thinking and problem-solving\n\n• Deliver engaging and interactive lessons that cater to diverse learning styles and adapt teaching to the strengths and needs of each pupil, including those with high ability or with special educational needs\n\n• Create a quality teaching environment conducive to learning, fostering learner agency and imple-menting the principles of positive discipline\n\n• Act as a coach by setting learning objectives that are challenging, inspiring and motivating, within the Collège philosophy, and provide students with regular feedback, both orally and through accu-rate rating\n\n• Communicate effectively and regularly with parents about their children’s achievements and learning\n\nPROFILE AND COMPETENCIES\n\n• Bachelor’s or Master’s degree in IT\n\n• PGCE or equivalent\n\n• Proven track record of excellence in teaching with at least five years’ experience, ideally in an in-ternational environment\n\n• Native English speaker with fluent French\n\n• Valid Swiss work permit and clean criminal recor\n\nIf you are passionate about education and interested in joining our team, please apply directly online through our website.",
+        "de": "Wer sind wir? Collège Champittet, seit 1903 eine Referenzschule in der Genfer Seeregion, bietet Generationen von Schweizer und ausländischen Studenten eine hervorragende Ausbildung. Sein einzigartiger Geist dreht sich um akademische Leistung, Mehrsprachigkeit und Werte wie Respekt und Vertrauen. Die Schule ist Teil der Nord Anglia Education Familie, der weltweit führenden Premium-Schulorganisation mit 89 Schulen in 32 Ländern. In diesem dynamischen Umfeld, sowohl lokal als auch international, laden wir Sie ein, unserem akademischen Team beizutreten. WICHTIGKEITEN\n• Entwerfen und implementieren Sie ein ICT-Curriculum, das sich an Bildungsstandards orientiert und kritisches Denken und Problemlösung fördert\n• Liefern Sie ansprechende und interaktive Lektionen, die unterschiedlichen Lernstilen gerecht werden und den Unterricht an die Stärken und Bedürfnisse jedes Schülers anpassen, einschließlich derjenigen mit hohen Fähigkeiten oder besonderen Bildungsbedürfnissen\n• Schaffung einer qualitativ hochwertigen Lehrumgebung, die dem Lernen förderlich ist, Förderung der Lernagentur und Umsetzung der Prinzipien der positiven Disziplin\n• Handeln Sie als Coach, indem Sie Lernziele festlegen, die innerhalb der Collège-Philosophie herausfordernd, inspirierend und motivierend sind, und geben Sie den Schülern regelmäßiges Feedback, sowohl mündlich als auch durch eine genaue Bewertung.\n• Kommunizieren Sie effektiv und regelmäßig mit den Eltern über die Leistungen ihrer Kinder und das Lernprofil und die Kompetenzen\n• Bachelor oder Master in IT\n• PGCE oder gleichwertiges\n• Nachgewiesene Erfolgsbilanz in der Lehre mit mindestens fünf Jahren Erfahrung, idealerweise in einem in-ternationalen Umfeld\n• Englischer Muttersprachler mit fließendem Französisch\n• Gültige Schweizer Arbeitserlaubnis und saubere Strafvollstreckung Wenn Sie sich für Bildung interessieren und daran interessiert sind, unserem Team beizutreten, bewerben Sie sich bitte direkt online über unsere Website.",
+        "fr": "Qui sommes-nous ? Le Collège Champittet, une école de référence dans la région du Lac Léman depuis 1903, offre une excellente éducation aux générations d'étudiants suisses et étrangers. Son esprit unique s'articule autour de la performance académique, du multilinguisme et de valeurs comme le respect et la confiance. L'école fait partie de la famille Nord Anglia Education, la principale organisation mondiale d'écoles premium avec 89 écoles dans 32 pays. Dans cet environnement dynamique, local et international, nous vous invitons à rejoindre notre équipe académique. PRINCIPAUX COMPTES\n• Concevoir et mettre en œuvre un programme d ' enseignement des TIC conforme aux normes éducatives et promouvoir la pensée critique et la résolution de problèmes\n• Offrir des leçons interactives et stimulantes qui répondent aux différents styles d'apprentissage et adapter l'enseignement aux forces et aux besoins de chaque élève, y compris ceux qui ont des capacités élevées ou qui ont des besoins éducatifs spéciaux\n• Créer un environnement pédagogique de qualité propice à l'apprentissage, favoriser l'agence de l'apprenant et mettre en œuvre les principes de discipline positive\n• Agir en tant qu'entraîneur en fixant des objectifs d'apprentissage qui sont stimulants, inspirants et motivants, dans le cadre de la philosophie du Collège, et fournir aux élèves des commentaires réguliers, tant oralement qu'au moyen d'une cote d'exactitude\n• Communiquer efficacement et régulièrement avec les parents au sujet de leurs enfants et apprendre PROFIL ET COMPÉTENCES\n• Licence ou maîtrise en informatique\n• PGCE ou équivalent\n• Expérience éprouvée d'excellence dans l'enseignement avec au moins cinq ans d'expérience, idéalement dans un environnement international\n• Conférencière anglaise autochtone avec français couramment parlé\n• Permis de travail suisse valide et recyclage criminel propre Si vous êtes passionné par l'éducation et intéressé à rejoindre notre équipe, veuillez postuler directement en ligne sur notre site Web."
+      },
+      "location": "Pully",
+      "canton": "VD",
+      "url": "https://careers.nordanglia.com/job/Pully-ICT-Teacher-45/1425918433/",
+      "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-22T09:37:31.337Z",
+      "addressLocality": "Pully",
+      "addressRegion": "VD",
+      "streetAddress": "Pully",
+      "postalCode": "1009",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Istruzione",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Istruzione / Scuole internazionali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-11T02:01:00Z",
+      "postedDate": "2026-09-11T02:01:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.nordanglia.com/job/Pully-ICT-Teacher-45/1425918433/",
+      "jobReqId": "1425918433",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "ict-teacher-45-nord-anglia-pully"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-teacher-45-nord-anglia-pully"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T22:53:21.241Z",
+      "salaryMin": 23000,
+      "salaryMax": 42500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 23000,
+          "maxValue": 42500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-22T09:37:31.337Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -362,7 +440,7 @@
       "url": "https://careers.nordanglia.com/job/Pully-Teachers-Primary/1145234101/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:28:45.532Z",
+      "crawledAt": "2026-11-22T09:37:31.323Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "streetAddress": "Pully",
@@ -406,7 +484,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:28:45.532Z",
+      "validThrough": "2026-12-22T09:37:31.323Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -440,7 +518,7 @@
       "url": "https://careers.nordanglia.com/job/Pully-Enseignants-es-Primaire/1145233801/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-21T21:28:45.524Z",
+      "crawledAt": "2026-11-22T09:37:31.307Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "streetAddress": "Pully",
@@ -493,85 +571,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:28:45.524Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "nord-anglia-b46acb0a1e06",
-      "slug": "insegnante-delle-tic-45-nord-anglia-education-switzerland-pully",
-      "slugByLocale": {
-        "it": "insegnante-delle-tic-45-nord-anglia-education-switzerland-pully",
-        "en": "ict-teacher-45-nord-anglia-pully",
-        "de": "ict-lehrer-45-nord-anglia-education-switzerland-pully",
-        "fr": "enseignant-en-tic-45-nord-anglia-education-switzerland-pully"
-      },
-      "company": "Nord Anglia Education Switzerland",
-      "companyKey": "nord-anglia",
-      "companyDomain": "nordangliaeducation.com",
-      "title": "ICT Teacher 45%",
-      "titleByLocale": {
-        "it": "Insegnante delle TIC 45%",
-        "en": "ICT Teacher 45%",
-        "de": "ICT Lehrer 45%",
-        "fr": "Enseignant en TIC 45 %"
-      },
-      "description": "WHO WE ARE ?\n\nCollège Champittet, a school of reference in the Lake Geneva region since 1903, offers excellent education to generations of Swiss and foreign students. Its unique spirit revolves around academic performance, multilingualism and values such as respect and trust. The school is part of the Nord Anglia Education family, the world's leading premium schools’ organisation with 89 schools in 32 countries. In this dynamic environment, both local and international, we invite you to join our Academic Team.\n\nKEY ACCOUNTABILITIES\n\n• Design and implement an ICT curriculum that aligns with educational standards and promotes criti-cal thinking and problem-solving\n\n• Deliver engaging and interactive lessons that cater to diverse learning styles and adapt teaching to the strengths and needs of each pupil, including those with high ability or with special educational needs\n\n• Create a quality teaching environment conducive to learning, fostering learner agency and imple-menting the principles of positive discipline\n\n• Act as a coach by setting learning objectives that are challenging, inspiring and motivating, within the Collège philosophy, and provide students with regular feedback, both orally and through accu-rate rating\n\n• Communicate effectively and regularly with parents about their children’s achievements and learning\n\nPROFILE AND COMPETENCIES\n\n• Bachelor’s or Master’s degree in IT\n\n• PGCE or equivalent\n\n• Proven track record of excellence in teaching with at least five years’ experience, ideally in an in-ternational environment\n\n• Native English speaker with fluent French\n\n• Valid Swiss work permit and clean criminal recor\n\nIf you are passionate about education and interested in joining our team, please apply directly online through our website.",
-      "descriptionByLocale": {
-        "it": "Chi siamo? Collège Champittet, una scuola di riferimento nella regione del lago di Ginevra dal 1903, offre un'ottima educazione a generazioni di studenti svizzeri e stranieri. Il suo spirito unico ruota intorno alle prestazioni accademiche, al multilinguismo e ai valori come il rispetto e la fiducia. La scuola fa parte della famiglia Nord Anglia Education, l’organizzazione leader mondiale delle scuole premium con 89 scuole in 32 paesi. In questo ambiente dinamico, sia locale che internazionale, vi invitiamo a partecipare al nostro team accademico. CONTI DI LAVORO\n• Progettare e implementare un curriculum ICT che si allinea agli standard educativi e promuove il pensiero critico e la risoluzione dei problemi\n• Fornire lezioni coinvolgenti e interattive che si rivolgono a stili di apprendimento diversi e adattare l'insegnamento ai punti di forza e alle esigenze di ogni allievo, compresi quelli con alta capacità o con esigenze educative speciali\n• Creare un ambiente di insegnamento di qualità che favorisca l'apprendimento, la promozione dell'agenzia di apprendimento e l'attuazione dei principi della disciplina positiva\n• Agire come allenatore impostando obiettivi di apprendimento che sono impegnativi, ispiranti e motivanti, all'interno della filosofia Collège, e fornire agli studenti un feedback regolare, sia per via orale e attraverso la valutazione accurata\n• Comunicare efficacemente e regolarmente con i genitori circa i risultati dei loro figli e imparare PROFILE E COMPETENZIONI\n• Corso di laurea o master in IT\n• PGCE o equivalente\n• Provato record di eccellenza nell’insegnamento con almeno cinque anni di esperienza, idealmente in un ambiente in-ternazionale\n• Altoparlante inglese nativo con francese fluente\n• Valido permesso di lavoro svizzero e riparo criminale pulito Se siete appassionati di istruzione e interessati ad unirsi al nostro team, si prega di applicare direttamente online attraverso il nostro sito web.",
-        "en": "WHO WE ARE ?\n\nCollège Champittet, a school of reference in the Lake Geneva region since 1903, offers excellent education to generations of Swiss and foreign students. Its unique spirit revolves around academic performance, multilingualism and values such as respect and trust. The school is part of the Nord Anglia Education family, the world's leading premium schools’ organisation with 89 schools in 32 countries. In this dynamic environment, both local and international, we invite you to join our Academic Team.\n\nKEY ACCOUNTABILITIES\n\n• Design and implement an ICT curriculum that aligns with educational standards and promotes criti-cal thinking and problem-solving\n\n• Deliver engaging and interactive lessons that cater to diverse learning styles and adapt teaching to the strengths and needs of each pupil, including those with high ability or with special educational needs\n\n• Create a quality teaching environment conducive to learning, fostering learner agency and imple-menting the principles of positive discipline\n\n• Act as a coach by setting learning objectives that are challenging, inspiring and motivating, within the Collège philosophy, and provide students with regular feedback, both orally and through accu-rate rating\n\n• Communicate effectively and regularly with parents about their children’s achievements and learning\n\nPROFILE AND COMPETENCIES\n\n• Bachelor’s or Master’s degree in IT\n\n• PGCE or equivalent\n\n• Proven track record of excellence in teaching with at least five years’ experience, ideally in an in-ternational environment\n\n• Native English speaker with fluent French\n\n• Valid Swiss work permit and clean criminal recor\n\nIf you are passionate about education and interested in joining our team, please apply directly online through our website.",
-        "de": "Wer sind wir? Collège Champittet, seit 1903 eine Referenzschule in der Genfer Seeregion, bietet Generationen von Schweizer und ausländischen Studenten eine hervorragende Ausbildung. Sein einzigartiger Geist dreht sich um akademische Leistung, Mehrsprachigkeit und Werte wie Respekt und Vertrauen. Die Schule ist Teil der Nord Anglia Education Familie, der weltweit führenden Premium-Schulorganisation mit 89 Schulen in 32 Ländern. In diesem dynamischen Umfeld, sowohl lokal als auch international, laden wir Sie ein, unserem akademischen Team beizutreten. WICHTIGKEITEN\n• Entwerfen und implementieren Sie ein ICT-Curriculum, das sich an Bildungsstandards orientiert und kritisches Denken und Problemlösung fördert\n• Liefern Sie ansprechende und interaktive Lektionen, die unterschiedlichen Lernstilen gerecht werden und den Unterricht an die Stärken und Bedürfnisse jedes Schülers anpassen, einschließlich derjenigen mit hohen Fähigkeiten oder besonderen Bildungsbedürfnissen\n• Schaffung einer qualitativ hochwertigen Lehrumgebung, die dem Lernen förderlich ist, Förderung der Lernagentur und Umsetzung der Prinzipien der positiven Disziplin\n• Handeln Sie als Coach, indem Sie Lernziele festlegen, die innerhalb der Collège-Philosophie herausfordernd, inspirierend und motivierend sind, und geben Sie den Schülern regelmäßiges Feedback, sowohl mündlich als auch durch eine genaue Bewertung.\n• Kommunizieren Sie effektiv und regelmäßig mit den Eltern über die Leistungen ihrer Kinder und das Lernprofil und die Kompetenzen\n• Bachelor oder Master in IT\n• PGCE oder gleichwertiges\n• Nachgewiesene Erfolgsbilanz in der Lehre mit mindestens fünf Jahren Erfahrung, idealerweise in einem in-ternationalen Umfeld\n• Englischer Muttersprachler mit fließendem Französisch\n• Gültige Schweizer Arbeitserlaubnis und saubere Strafvollstreckung Wenn Sie sich für Bildung interessieren und daran interessiert sind, unserem Team beizutreten, bewerben Sie sich bitte direkt online über unsere Website.",
-        "fr": "Qui sommes-nous ? Le Collège Champittet, une école de référence dans la région du Lac Léman depuis 1903, offre une excellente éducation aux générations d'étudiants suisses et étrangers. Son esprit unique s'articule autour de la performance académique, du multilinguisme et de valeurs comme le respect et la confiance. L'école fait partie de la famille Nord Anglia Education, la principale organisation mondiale d'écoles premium avec 89 écoles dans 32 pays. Dans cet environnement dynamique, local et international, nous vous invitons à rejoindre notre équipe académique. PRINCIPAUX COMPTES\n• Concevoir et mettre en œuvre un programme d ' enseignement des TIC conforme aux normes éducatives et promouvoir la pensée critique et la résolution de problèmes\n• Offrir des leçons interactives et stimulantes qui répondent aux différents styles d'apprentissage et adapter l'enseignement aux forces et aux besoins de chaque élève, y compris ceux qui ont des capacités élevées ou qui ont des besoins éducatifs spéciaux\n• Créer un environnement pédagogique de qualité propice à l'apprentissage, favoriser l'agence de l'apprenant et mettre en œuvre les principes de discipline positive\n• Agir en tant qu'entraîneur en fixant des objectifs d'apprentissage qui sont stimulants, inspirants et motivants, dans le cadre de la philosophie du Collège, et fournir aux élèves des commentaires réguliers, tant oralement qu'au moyen d'une cote d'exactitude\n• Communiquer efficacement et régulièrement avec les parents au sujet de leurs enfants et apprendre PROFIL ET COMPÉTENCES\n• Licence ou maîtrise en informatique\n• PGCE ou équivalent\n• Expérience éprouvée d'excellence dans l'enseignement avec au moins cinq ans d'expérience, idéalement dans un environnement international\n• Conférencière anglaise autochtone avec français couramment parlé\n• Permis de travail suisse valide et recyclage criminel propre Si vous êtes passionné par l'éducation et intéressé à rejoindre notre équipe, veuillez postuler directement en ligne sur notre site Web."
-      },
-      "location": "Pully",
-      "canton": "VD",
-      "url": "https://careers.nordanglia.com/job/Pully-ICT-Teacher-45/1425918433/",
-      "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:28:45.516Z",
-      "addressLocality": "Pully",
-      "addressRegion": "VD",
-      "streetAddress": "Pully",
-      "postalCode": "1009",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Istruzione",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Istruzione / Scuole internazionali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-11T02:01:00Z",
-      "postedDate": "2026-09-11T02:01:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.nordanglia.com/job/Pully-ICT-Teacher-45/1425918433/",
-      "jobReqId": "1425918433",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "ict-teacher-45-nord-anglia-pully"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ict-teacher-45-nord-anglia-pully"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T22:53:21.241Z",
-      "salaryMin": 23000,
-      "salaryMax": 42500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 23000,
-          "maxValue": 42500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:28:45.516Z",
+      "validThrough": "2026-12-22T09:37:31.307Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -595,7 +595,7 @@
       },
       "description": "OBJECTIF PRINCIPAL DU POSTE\n\nLes assistant.e.s de classe du Préscolaire font partie intégrante de la communauté éducative et contribuent activement au bon fonctionnement de la section. Ils/elles accompagnent les enseignant.e.s dans la mise en œuvre des activités pédagogiques et éducatives, favorisent le développement et le bien-être des enfants et veillent à leur sécurité tout au long de la journée scolaire.\n\nIls/elles contribuent ainsi à créer un environnement accueillant, bienveillant, stimulant et sécurisant, propice à l'épanouissement et aux apprentissages de chaque enfant.\n\nResponsabilités\n\n• Assurer l’hygiène, la santé et la sécurité de tous les élèves\n\n• Contribuer à l’organisation quotidienne de la classe et aux tâches administratives liées au fonctionnement de la section préscolaire (listes de bus, garderie, sieste, suivi des présences, etc.)\n\n• Collaborer de manière professionnelle avec les équipes pédagogiques, les familles et les différents services de l’école\n\n• Assister les enseignant.e.s pour leur permettre de prodiguer un enseignement de qualité\n\n• Soutenir les enseignant.e.s dans la préparation et l’animation des activités pédagogiques et éducatives\n\n• Participer au maintien d’un environnement de classe positif, structuré et propice aux apprentissages\n\n• Accompagner lors des sorties éducatives si nécessaire\n\n• Remplacer les enseignant.e.s en cas d’absence de courte durée en proposant les activités conçues et préparées par ceux-ci\n\n• Remplacer les assistant.e.s si nécessaire\n\n• Assurer une surveillance active et la supervision pendant les récréations et les temps de repas\n\n• Accompagner les élèves lors des arrivées et départs en bus, en veillant à leur sécurité et à leur bien-être\n\n• Prendre soin du matériel\n\n• Prendre un rôle actif dans les initiatives de l’École, si nécessaire\n\n• Promouvoir activement les valeurs de l’école, notamment RISE, les Règles d’or et les principes de Discipline Positive.\n\nCes responsabilités ne sont pas exhaustives et peuvent évoluer en fonction des besoins de l’établissement.\n\nAPTITUDES ET COMPÉTENCES\n\nPour réussir dans ce poste, vous faites preuve de :\n\n• Attitude positive, bienveillante et professionnelle\n\n• Sens des responsabilités\n\n• Sens de l’organisation\n\n• Capacité à gérer plusieurs tâches simultanément\n\n• Intérêt marqué pour le développement et le bien-être des jeunes enfants\n\n• Esprit d’initiative\n\n• Esprit d’équipe\n\n• Flexibilité\n\n• Aisance dans la communication avec les enfants et les adultes\n\n• Intérêt à évoluer dans un environnement multiculturel\n\n• Résistance aux exigences du poste\n\n• Langue maternelle française ou anglais ou équivalent et très bonne connaissance de la seconde langue.\n\nINFORMATIONS ESSENTIELLES\nIl est important que le titulaire du poste soit toujours conscient des directives relatives à la protection de l'enfance et qu'il observe une distance professionnelle avec tous les élèves, tout en développant des relations de travail efficaces et bienveillantes.\nIl comprend et accepte l'importance de la diversité et de l'intégration et s’oppose à toute forme de discrimination. Des enquêtes sur les antécédents et des vérifications des références pour les dix dernières années seront effectuées au cours du processus de sélection.\n\nQUI SOMMES NOUS\n\nLe Collège du Léman est l'un des plus prestigieux internats et externats internationaux de Suisse, situé au bord du lac Léman, avec vue sur les Alpes suisses. Nous accueillons des enfants de 2 à 18 ans qui font partie d’une communauté internationale comptant plus de 120 nationalités différentes.\n\nNotre vision est de façonner des générations qui valorisent les différences et donnent à nos étudiants le pouvoir de changer le monde pour le meilleur.\n\nNous cultivons les forces individuelles grâce à nos excellents éducateurs et à la grande diversité des opportunités que nous offrons dans notre programme et nos activités.\n\nLe Collège du Léman fait partie de la famille Nord Anglia Education, qui compte plus de 80 écoles de qualité premium à travers le monde.\n\nLes candidatures seront étudiées par ordre d’arrivée. Nous nous réjouissons de vous lire.",
       "descriptionByLocale": {
-        "it": "OBIETTIVO PRINCIPALE DEL POST\n\nGli assistenti di classe prescolare sono parte integrante della comunità educativa e contribuiscono attivamente al corretto funzionamento della sezione. Essi accompagnano gli insegnanti nell'attuazione delle attività educative e educative, promuovono lo sviluppo e il benessere dei bambini e garantiscono la loro sicurezza durante la giornata scolastica.\n\nContribuiscono così a creare un ambiente accogliente, attento, stimolante e sicuro favorevole allo sviluppo e all'apprendimento di ogni bambino.\n\nresponsabilità\n\n• Assicurare l'igiene, la salute e la sicurezza di tutti gli studenti\n\n• Contribuire all'organizzazione quotidiana della classe e ai compiti amministrativi relativi al funzionamento della sezione prescolastica (elenco degli autobus, cura del giorno, piselli, monitoraggio delle presenze, ecc.)\n\n• Lavorare professionalmente con team educativi, famiglie e vari servizi scolastici\n\n• Assistere gli insegnanti nella formazione di qualità\n\n• Sostenere gli insegnanti nella preparazione e facilitazione delle attività educative e didattiche\n\n• Partecipare a mantenere un ambiente di classe positivo, strutturato e apprendimento\n\n• Accompagnamento durante gite educative se necessario\n\n• Sostituire gli insegnanti in caso di breve assenza offrendo attività progettate e preparate da loro\n\n• Sostituire gli assistenti se necessario\n\n• Monitoraggio attivo e supervisione durante i periodi di ricreazione e pasto\n\n• Accompagna gli studenti agli arrivi e alle partenze in autobus, garantendo la loro sicurezza e il loro benessere\n\n• Cura delle attrezzature\n\n• Prendere un ruolo attivo nelle iniziative della Scuola, se necessario\n\n• Promuovere attivamente i valori della scuola, tra cui RISE, le regole d'oro e i principi della disciplina positiva.\n\nQueste responsabilità non sono esaustive e possono evolversi secondo le esigenze dell'istituzione.\n\nATTIVITÀ\n\nPer avere successo in questa posizione, si dimostra:\n\n• atteggiamento positivo, premuroso e professionale\n\n• Responsabilità\n\n• Senso organizzativo\n\n• Capacità di gestire più attività contemporaneamente\n\n• Alto interesse per lo sviluppo e il benessere dei bambini piccoli\n\n• Iniziativa\n\n• Spirito di squadra\n\n• Flessibilità\n\n• Affluenza nella comunicazione con bambini e adulti\n\n• Interessi in un ambiente multiculturale\n\n• Resistenza ai requisiti di lavoro\n\n• Lingua madre francese o inglese o conoscenza equivalente e molto buona della seconda lingua.\n\nINFORMAZIONI ESSENTI\nÈ importante che l'incombente della posizione sia sempre consapevole delle linee guida per la protezione dei bambini e che osservi una distanza professionale con tutti gli studenti, sviluppando relazioni di lavoro efficaci e curanti.\nEsso comprende e accetta l'importanza della diversità e dell'integrazione e si oppone a qualsiasi forma di discriminazione. Nel corso del processo di selezione saranno effettuati controlli di riferimento e di sfondo per gli ultimi 10 anni.\n\nCHI SIAMO\n\nIl Collège du Léman è una delle più prestigiose scuole internazionali di imbarco ed esterni in Svizzera, situata sul lago di Ginevra, affacciata sulle Alpi svizzere. Accogliamo i bambini dai 2 ai 18 anni che fanno parte di una comunità internazionale con più di 120 nazionalità diverse.\n\nLa nostra visione è quella di modellare le generazioni che valorizzano le differenze e dare ai nostri studenti il potere di cambiare il mondo per meglio.\n\nColtiviamo i punti di forza individuali attraverso i nostri eccellenti educatori e l'ampia varietà di opportunità che offriamo nel nostro programma e attività.\n\nIl Collège du Léman fa parte della famiglia Nord Anglia Education, che ha oltre 80 scuole di qualità premium in tutto il mondo.\n\nLe domande saranno esaminate in ordine di arrivo. Non vediamo l'ora di leggerti.",
+        "it": "OBIETTIVO PRINCIPALE DEL POST\n\nGli assistenti di classe prescolare sono parte integrante della comunità educativa e contribuiscono attivamente al corretto funzionamento della sezione. Essi accompagnano gli insegnanti nell'attuazione delle attività educative e educative, promuovono lo sviluppo e il benessere dei bambini e garantiscono la loro sicurezza durante la giornata scolastica.\n\nContribuiscono così a creare un ambiente accogliente, attento, stimolante e sicuro favorevole allo sviluppo e all'apprendimento di ogni bambino.\n\nresponsabilità\n\n• Assicurare l'igiene, la salute e la sicurezza di tutti gli studenti\n\n• Contribuire all'organizzazione quotidiana della classe e ai compiti amministrativi relativi al funzionamento della sezione prescolastica (elenco degli autobus, cura del giorno, piselli, monitoraggio delle presenze, ecc.)\n\n• Lavorare professionalmente con team educativi, famiglie e vari servizi scolastici\n\n• Assistere gli insegnanti nella formazione di qualità\n\n• Sostenere gli insegnanti nella preparazione e facilitazione delle attività educative e didattiche\n\n• Partecipare a mantenere un ambiente di classe positivo, strutturato e apprendimento\n\n• Accompagnamento durante gite educative se necessario\n\n• Sostituire gli insegnanti in caso di breve assenza offrendo attività progettate e preparate da loro\n\n• Sostituire gli assistenti se necessario\n\n• Monitoraggio attivo e supervisione durante i periodi di ricreazione e pasto\n\n• Accompagna gli studenti agli arrivi e alle partenze in autobus, garantendo la loro sicurezza e il loro benessere\n\n• Cura delle attrezzature\n\n• Prendere un ruolo attivo nelle iniziative della Scuola, se necessario\n\n• Promuovere attivamente i valori della scuola, tra cui RISE, le regole d'oro e i principi della disciplina positiva.\n\nQueste responsabilità non sono esaustive e possono evolversi secondo le esigenze dell'istituzione.\n\nATTIVITÀ\n\nPer avere successo in questa posizione, si dimostra:\n\n• atteggiamento positivo, premuroso e professionale\n\n• Senso organizzativo\n\n• Capacità di gestire più attività contemporaneamente\n\n• Alto interesse per lo sviluppo e il benessere dei bambini piccoli\n\n• Iniziativa\n\n• Spirito di squadra\n\n• Flessibilità\n\n• Affluenza nella comunicazione con bambini e adulti\n\n• Interessi in un ambiente multiculturale\n\n• Resistenza ai requisiti di lavoro\n\n• Lingua madre francese o inglese o conoscenza equivalente e molto buona della seconda lingua.\n\nINFORMAZIONI ESSENTI\nÈ importante che l'incombente della posizione sia sempre consapevole delle linee guida per la protezione dei bambini e che osservi una distanza professionale con tutti gli studenti, sviluppando relazioni di lavoro efficaci e curanti.\nEsso comprende e accetta l'importanza della diversità e dell'integrazione e si oppone a qualsiasi forma di discriminazione. Nel corso del processo di selezione saranno effettuati controlli di riferimento e di sfondo per gli ultimi 10 anni.\n\nCHI SIAMO\n\nIl Collège du Léman è una delle più prestigiose scuole internazionali di imbarco ed esterni in Svizzera, situata sul lago di Ginevra, affacciata sulle Alpi svizzere. Accogliamo i bambini dai 2 ai 18 anni che fanno parte di una comunità internazionale con più di 120 nazionalità diverse.\n\nLa nostra visione è quella di modellare le generazioni che valorizzano le differenze e dare ai nostri studenti il potere di cambiare il mondo per meglio.\n\nColtiviamo i punti di forza individuali attraverso i nostri eccellenti educatori e l'ampia varietà di opportunità che offriamo nel nostro programma e attività.\n\nIl Collège du Léman fa parte della famiglia Nord Anglia Education, che ha oltre 80 scuole di qualità premium in tutto il mondo.\n\nLe domande saranno esaminate in ordine di arrivo. Non vediamo l'ora di leggerti.",
         "en": "MAIN OBJECTIVE OF THE POST\n\nPreschool class assistants are an integral part of the educational community and actively contribute to the proper functioning of the section. They accompany teachers in the implementation of educational and educational activities, promote the development and well-being of children and ensure their safety throughout the school day.\n\nThey thus contribute to creating a welcoming, caring, stimulating and secure environment conducive to the development and learning of each child.\n\nResponsibilities\n\n• Ensure hygiene, health and safety of all students\n\n• Contribute to the daily organisation of the class and administrative tasks related to the operation of the preschool section (bus lists, day care, naps, attendance monitoring, etc.)\n\n• Work professionally with educational teams, families and various school services\n\n• Assist teachers to provide quality education\n\n• Support teachers in the preparation and facilitation of educational and educational activities\n\n• Participate in maintaining a positive, structured and learning-friendly classroom environment\n\n• Accompany during educational outings if necessary\n\n• Replace teachers in case of short absence by proposing activities designed and prepared by them\n\n• Replace assistants if necessary\n\n• Active monitoring and supervision during recreation and meal times\n\n• Accompany students on arrivals and departures by bus, ensuring their safety and well-being\n\n• Care for equipment\n\n• Take an active role in School initiatives, if necessary\n\n• Actively promote school values, including RISE, Golden Rules and Positive Discipline principles.\n\nThese responsibilities are not exhaustive and may evolve according to the needs of the institution.\n\nAPTITUDES AND SKILLS\n\nTo succeed in this position, you demonstrate:\n\n• Positive, caring and professional attitude\n\n• Accountability\n\n• Organizational sense\n\n• Ability to manage multiple tasks simultaneously\n\n• High interest in the development and well-being of young children\n\n• Initiative\n\n• Team spirit\n\n• Flexibility\n\n• Experience in communicating with children and adults\n\n• Interest in a multicultural environment\n\n• Resistance to job requirements\n\n• French or English mother tongue or equivalent and very good knowledge of the second language.\n\nESSENTIAL INFORMATION\nIt is important that the incumbent of the position is always aware of the child protection guidelines and that he/she observe a professional distance with all students, while developing effective and caring working relationships.\nIt understands and accepts the importance of diversity and integration and opposes any form of discrimination. Background surveys and reference checks for the past 10 years will be conducted during the selection process.\n\nWHO ARE US\n\nThe Collège du Léman is one of Switzerland's most prestigious international boarding schools and externates, located on Lake Geneva, overlooking the Swiss Alps. We welcome children aged 2 to 18 who are part of an international community of more than 120 different nationalities.\n\nOur vision is to shape generations that value differences and give our students the power to change the world for the better.\n\nWe cultivate individual strengths through our excellent educators and the wide variety of opportunities we offer in our program and activities.\n\nThe Collège du Léman is part of the Nord Anglia Education family, which has over 80 premium quality schools around the world.\n\nApplications will be reviewed in order of arrival. We look forward to reading you.",
         "de": "WICHTIGSTES ZIEL DER POST\n\nVorschulassistenten sind ein integraler Bestandteil der Bildungsgemeinschaft und tragen aktiv zum ordnungsgemäßen Funktionieren der Sektion bei. Sie begleiten Lehrer bei der Durchführung von Bildungs- und Bildungsaktivitäten, fördern die Entwicklung und das Wohlbefinden der Kinder und gewährleisten deren Sicherheit während des gesamten Schultages.\n\nSie tragen somit dazu bei, ein einladendes, fürsorgliches, stimulierendes und sicheres Umfeld zu schaffen, das der Entwicklung und dem Lernen jedes Kindes förderlich ist.\n\nZuständigkeiten\n\n• Gewährleistung von Hygiene, Gesundheit und Sicherheit aller Schüler\n\n• Beitrag zur täglichen Organisation der Klassen- und Verwaltungsaufgaben im Zusammenhang mit dem Betrieb der Vorschulabteilung (Buslisten, Tagesbetreuung, Nickerchen, Anwesenheitsüberwachung usw.)\n\n• Professionelle Arbeit mit Bildungsteams, Familien und verschiedenen Schuldiensten\n\n• Unterstützung von Lehrern bei der Bereitstellung qualitativ hochwertiger Bildung\n\n• Unterstützung von Lehrern bei der Vorbereitung und Erleichterung von Bildungs- und Bildungsaktivitäten\n\n• Beteiligen Sie sich an der Aufrechterhaltung einer positiven, strukturierten und lernfreundlichen Klassenzimmerumgebung\n\n• Begleitung bei Bildungsausflügen bei Bedarf\n\n• Ersetzen Sie die Lehrer bei kurzer Abwesenheit durch Vorschläge für von ihnen entworfene und vorbereitete Aktivitäten\n\n• Bei Bedarf Helfer ersetzen\n\n• Aktive Überwachung und Überwachung während der Erholungs- und Mahlzeitenzeiten\n\n• Begleiten Sie Studenten bei An- und Abreise mit dem Bus, um ihre Sicherheit und ihr Wohlbefinden zu gewährleisten\n\n• Pflege von Geräten\n\n• Nehmen Sie eine aktive Rolle in Schulinitiativen, wenn nötig\n\n• Aktiv fördern Schulwerte, einschließlich RISE, Goldene Regeln und Positive Disziplin Prinzipien.\n\nDiese Zuständigkeiten sind nicht erschöpfend und können sich entsprechend den Bedürfnissen der Institution entwickeln.\n\nAPTITUDIEN UND FÄHLE\n\nUm in dieser Position erfolgreich zu sein, demonstrieren Sie:\n\n• Positive, fürsorgliche und professionelle Einstellung\n\n• Rechenschaftspflicht\n\n• Organisatorischer Sinn\n\n• Fähigkeit, mehrere Aufgaben gleichzeitig zu verwalten\n\n• Hohes Interesse an der Entwicklung und dem Wohlbefinden von Kleinkindern\n\n• Initiative\n\n• Teamgeist\n\n• Flexibilität\n\n• Erfahrung in der Kommunikation mit Kindern und Erwachsenen\n\n• Interesse an einem multikulturellen Umfeld\n\n• Widerstand gegen Arbeitsanforderungen\n\n• Französisch oder Englisch Muttersprache oder gleichwertige und sehr gute Kenntnisse der zweiten Sprache.\n\nWESENTLICHE INFORMATIONEN\nEs ist wichtig, dass der Amtsinhaber der Position immer die Kinderschutzrichtlinien kennt und dass er / sie eine berufliche Distanz zu allen Schülern einhält, während er effektive und fürsorgliche Arbeitsbeziehungen entwickelt.\nSie versteht und akzeptiert die Bedeutung von Vielfalt und Integration und lehnt jede Form von Diskriminierung ab. Hintergrunderhebungen und Referenzprüfungen der letzten 10 Jahre werden während des Auswahlprozesses durchgeführt.\n\nWer sind wir\n\nDas Collège du Léman ist eines der renommiertesten internationalen Internatsschulen der Schweiz und externiert am Genfer See mit Blick auf die Schweizer Alpen. Wir begrüßen Kinder von 2 bis 18 Jahren, die Teil einer internationalen Gemeinschaft von mehr als 120 verschiedenen Nationalitäten sind.\n\nUnsere Vision ist es, Generationen zu formen, die Unterschiede schätzen und unseren Schülern die Kraft geben, die Welt zum Besseren zu verändern.\n\nWir pflegen individuelle Stärken durch unsere hervorragenden Pädagogen und die Vielzahl von Möglichkeiten, die wir in unserem Programm und unseren Aktivitäten anbieten.\n\nDas Collège du Léman ist Teil der Nord Anglia Education Familie, die weltweit über 80 erstklassige Schulen verfügt.\n\nBewerbungen werden in der Reihenfolge der Ankunft überprüft. Wir freuen uns darauf, Sie zu lesen.",
         "fr": "OBJECTIF PRINCIPAL DU POSTE\n\nLes assistant.e.s de classe du Préscolaire font partie intégrante de la communauté éducative et contribuent activement au bon fonctionnement de la section. Ils/elles accompagnent les enseignant.e.s dans la mise en œuvre des activités pédagogiques et éducatives, favorisent le développement et le bien-être des enfants et veillent à leur sécurité tout au long de la journée scolaire.\n\nIls/elles contribuent ainsi à créer un environnement accueillant, bienveillant, stimulant et sécurisant, propice à l'épanouissement et aux apprentissages de chaque enfant.\n\nResponsabilités\n\n• Assurer l’hygiène, la santé et la sécurité de tous les élèves\n\n• Contribuer à l’organisation quotidienne de la classe et aux tâches administratives liées au fonctionnement de la section préscolaire (listes de bus, garderie, sieste, suivi des présences, etc.)\n\n• Collaborer de manière professionnelle avec les équipes pédagogiques, les familles et les différents services de l’école\n\n• Assister les enseignant.e.s pour leur permettre de prodiguer un enseignement de qualité\n\n• Soutenir les enseignant.e.s dans la préparation et l’animation des activités pédagogiques et éducatives\n\n• Participer au maintien d’un environnement de classe positif, structuré et propice aux apprentissages\n\n• Accompagner lors des sorties éducatives si nécessaire\n\n• Remplacer les enseignant.e.s en cas d’absence de courte durée en proposant les activités conçues et préparées par ceux-ci\n\n• Remplacer les assistant.e.s si nécessaire\n\n• Assurer une surveillance active et la supervision pendant les récréations et les temps de repas\n\n• Accompagner les élèves lors des arrivées et départs en bus, en veillant à leur sécurité et à leur bien-être\n\n• Prendre soin du matériel\n\n• Prendre un rôle actif dans les initiatives de l’École, si nécessaire\n\n• Promouvoir activement les valeurs de l’école, notamment RISE, les Règles d’or et les principes de Discipline Positive.\n\nCes responsabilités ne sont pas exhaustives et peuvent évoluer en fonction des besoins de l’établissement.\n\nAPTITUDES ET COMPÉTENCES\n\nPour réussir dans ce poste, vous faites preuve de :\n\n• Attitude positive, bienveillante et professionnelle\n\n• Sens des responsabilités\n\n• Sens de l’organisation\n\n• Capacité à gérer plusieurs tâches simultanément\n\n• Intérêt marqué pour le développement et le bien-être des jeunes enfants\n\n• Esprit d’initiative\n\n• Esprit d’équipe\n\n• Flexibilité\n\n• Aisance dans la communication avec les enfants et les adultes\n\n• Intérêt à évoluer dans un environnement multiculturel\n\n• Résistance aux exigences du poste\n\n• Langue maternelle française ou anglais ou équivalent et très bonne connaissance de la seconde langue.\n\nINFORMATIONS ESSENTIELLES\nIl est important que le titulaire du poste soit toujours conscient des directives relatives à la protection de l'enfance et qu'il observe une distance professionnelle avec tous les élèves, tout en développant des relations de travail efficaces et bienveillantes.\nIl comprend et accepte l'importance de la diversité et de l'intégration et s’oppose à toute forme de discrimination. Des enquêtes sur les antécédents et des vérifications des références pour les dix dernières années seront effectuées au cours du processus de sélection.\n\nQUI SOMMES NOUS\n\nLe Collège du Léman est l'un des plus prestigieux internats et externats internationaux de Suisse, situé au bord du lac Léman, avec vue sur les Alpes suisses. Nous accueillons des enfants de 2 à 18 ans qui font partie d’une communauté internationale comptant plus de 120 nationalités différentes.\n\nNotre vision est de façonner des générations qui valorisent les différences et donnent à nos étudiants le pouvoir de changer le monde pour le meilleur.\n\nNous cultivons les forces individuelles grâce à nos excellents éducateurs et à la grande diversité des opportunités que nous offrons dans notre programme et nos activités.\n\nLe Collège du Léman fait partie de la famille Nord Anglia Education, qui compte plus de 80 écoles de qualité premium à travers le monde.\n\nLes candidatures seront étudiées par ordre d’arrivée. Nous nous réjouissons de vous lire."
@@ -605,7 +605,7 @@
       "url": "https://careers.nordanglia.com/job/Geneva-Assistant_e-de-classe-Bilingue-frangl-Pr%C3%A9scolaire-%28Remplacement%29/1455950733/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-21T21:28:45.507Z",
+      "crawledAt": "2026-11-22T09:37:31.288Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Rue de l'Hôtel-de-Ville 2",
@@ -641,6 +641,7 @@
         ]
       },
       "firstSeenAt": "2026-11-10T21:25:48.393Z",
+      "needsRetranslation": true,
       "salaryMin": 51100,
       "salaryMax": 94500,
       "salarySource": "estimated",
@@ -655,7 +656,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T21:28:45.507Z",
+      "validThrough": "2027-02-09T09:37:31.288Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -689,7 +690,7 @@
       "url": "https://careers.nordanglia.com/job/Aubonne-EYFS-Teacher-80/1446865533/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:28:45.499Z",
+      "crawledAt": "2026-11-22T09:37:31.275Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "Aubonne",
@@ -739,7 +740,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T21:28:45.499Z",
+      "validThrough": "2027-01-11T09:37:31.275Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -773,7 +774,7 @@
       "url": "https://careers.nordanglia.com/job/Pully-IB-Teachers/1142314801/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:28:45.488Z",
+      "crawledAt": "2026-11-22T09:37:31.260Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "streetAddress": "Pully",
@@ -817,7 +818,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:28:45.488Z",
+      "validThrough": "2026-12-22T09:37:31.260Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -851,7 +852,7 @@
       "url": "https://careers.nordanglia.com/job/Villars-sur-Ollon-EHL-Administrative-Intern/1450843433/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:28:45.476Z",
+      "crawledAt": "2026-11-22T09:37:31.244Z",
       "addressLocality": "Villars-sur-Ollon",
       "addressRegion": "VD",
       "streetAddress": "Villars-sur-Ollon",
@@ -901,168 +902,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T21:28:45.476Z",
+      "validThrough": "2027-01-21T09:37:31.244Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "nord-anglia-586f36aeb733",
-      "slug": "moniteurs-monitrices-sci-snowboard-nord-anglia-education-switzerland-pully",
-      "slugByLocale": {
-        "it": "moniteurs-monitrices-sci-snowboard-nord-anglia-education-switzerland-pully",
-        "en": "moniteurs-monitrices-ski-snowboard-nord-anglia-pully",
-        "de": "moniteure-monitore-ski-snowboard-nord-anglia-education-switzerland-pully",
-        "fr": "moniteurs-monitrices-ski-snowboard-nord-anglia-pully"
-      },
-      "company": "Nord Anglia Education Switzerland",
-      "companyKey": "nord-anglia",
-      "companyDomain": "nordangliaeducation.com",
-      "title": "Moniteurs/Monitrices Ski/Snowboard",
-      "titleByLocale": {
-        "it": "Moniteurs/Monitrices Sci/Snowboard",
-        "en": "Ski/Snowboard Monitors",
-        "de": "Moniteure/Monitore Ski/Snowboard",
-        "fr": "Moniteurs/Monitrices Ski/Snowboard"
-      },
-      "description": "Moniteurs/Monitrices Ski/Snowboard\n\nLe Collège Champittet, école de référence dans la région lémanique depuis 1903, offre une excellente formation à des générations d’étudiants suisses et étrangers. Son esprit unique s’articule autour des performances académiques, du multilinguisme et de valeurs telles que le respect et la confiance. Le Collège fait partie de la famille d’écoles Nord Anglia Education, leader mondial des écoles internationales avec 88 écoles dans 32 pays.\n\nDans cet environnement dynamique, à la fois local et international, nous recherchons dès maintenant des moniteurs et monitrices de ski pour encadrer et accompagner nos élèves dans le cadre de notre camp de ski, qui se déroulera à Fiesch du 15 au 18 mars 2027.\n\nProfil recherché\n\n• Vous serez chargé-e d’accompagner un groupe d’enfants à ski durant la journée et de participer à certaines activités en soirée (raquettes nocturnes, ski de nuit, construction de statues, piscine, etc.) ;\n\n• Vous avez envie de vous investir pleinement dans la réussite de ce camp ;\n\n• Vous avez une très bonne maîtrise du ski et êtes à l’aise sur les pistes ;\n\n• Vous êtes idéalement au bénéfice d’une formation Jeunesse et Sport (J+S) Ski ou Snowboard ;\n\n• Vous avez une bonne maîtrise de l’anglais ;\n\n• Vous avez 18 ans ou plus ;\n\n• Vous êtes de nationalité suisse ou disposez d’un permis de travail valable en Suisse ;\n\n• Vous êtes en mesure de présenter un extrait de casier judiciaire vierge.\n\nLe logement à Fiesch et les repas seront pris en charge par le Collège Champittet pendant toute la durée du séjour.\n\nSi vous êtes passionné-e par le domaine de l’éducation et souhaitez rejoindre notre équipe, nous vous invitons à soumettre votre candidature directement en ligne via notre site internet.",
-      "descriptionByLocale": {
-        "it": "Moniteurs/Monitrices Ski/Snowboard Le Collège Champittet, école de référence dans la région lémanique depuis 1903, offre una formazione eccellente à des générations d’étudiants suisses et étrangers. Son esprit s’articule autour des performance académiques, du multilinguisme et de valeurs telles que le rispetto et la confiance. Le Collège fait partie de la famille d’écoles Nord Anglia Education, leader mondial des écoles internationales avec 88 écoles dans 32 pays. Dans cet environnement dinamique, à la fois local et international, nous recherchons dès maintenant des moniteurs et monitrices de ski pour encadrer et accompagnatoer nos élèves dans le cadre de notre camp de ski, qui se déroulera à Fiesch du 15 au 18 mars 2027. Profil recherché\n• Vous serez chargé-e d’accompagner un groupe d’enfants à ski durant la journée et de participer à certees activités en soirée (raquettes nocturnes, ski de nuit, construction de statue, piscine, ecc.) ;\n• Vous avez envie de vous investir pleinement dans la réussite de ce camp ;\n• Vous avez une très bonne maîtrise du ski et êtes à l’aise sur les piste ;\n• Vous êtes idéalement au bénéfice d’une formazione Jeunesse et Sport (J+S) Ski ou Snowboard;\n• Vous avez une bonne maîtrise de l’anglais ;\n• Vous avez 18 ans ou plus ;\n• Vous êtes de nationalité suisse ou smaltiz d’un permis de travail valable en Suisse;\n• Vous êtes en mesure de présenter un extrait de caseer judiciaire vierge. Le logement à Fiesch et les repas seront pris en charge par le Collège Champittet ciondolo toute la durée du séjour. Si vous êtes passionné-e par le domaine de l’éducation et souhaitez rejoindre notre équipe, nous vous invitons à soumettre votre candidature directement en ligne via notre site internet.",
-        "en": "Ski/Snowboard Monitors\n\nChampittet College, a reference school in the German region since 1903, offers excellent training to generations of Swiss and foreign students. Its unique spirit revolves around academic performance, multilingualism and values such as respect and trust. The College is part of the North Anglia Education family, the world leader in international schools with 88 schools in 32 countries.\n\nIn this dynamic environment, both local and international, we are now looking for ski instructors to mentor and accompany our students in our ski camp, which will take place in Fiesch from 15 to 18 March 2027.\n\nProfile sought\n\n• You will be responsible for accompanying a group of ski children during the day and participating in certain activities in the evening (night raquettes, night skiing, statue building, swimming pool, etc.);\n\n• You want to invest fully in the success of this camp;\n\n• You have a very good ski mastery and are comfortable on the slopes;\n\n• You are ideally benefiting from a Youth and Sport (J+S) Ski or Snowboard training;\n\n• You have a good command of English;\n\n• You are 18 or older;\n\n• You are a Swiss national or have a work permit valid in Switzerland;\n\n• You are able to present a blank criminal record.\n\nAccommodation in Fiesch and meals will be taken care of by the Champittet College throughout the stay.\n\nIf you are passionate about the field of education and want to join our team, we invite you to submit your application directly online via our website.",
-        "de": "Moniteurs/Monitrices Ski/Snowboard Le Collège Champittet, école de référence dans la région lémanique depuis 1903, offre une excellente formation à des générations d’étudiants suisses et étrangers. Son esprit unique s’articule autour des performances académiques, du multilinguisme et de valeurs telles que le respect et la confiance. Le Collège fait partie de la famille d’écoles Nord Anglia Education, leader mondial des écoles internationales avec 88 écoles dans 32 zahlt. Dans cet environnement dynamique, à la fois local et international, nous recherchons dès maintenant des moniteurs et monitrices de ski pour encadrer et accompagner nos élèves dans le cadre de notre camp de ski, qui se déroulera à Fiesch du 15 au 18 mars 2027. Profil recherché\n• Vous serez chargé-e d’accompagner un groupe d’enfants à ski durant la journée et de participer à certaines activités en soirée (raquettes nocturnes, ski de nuit, construction de statues, piscine usw.)\n• Vous avez envie de vous investir pleinement dans la réussite de ce camp ;\n• Vous avez une très bonne maîtrise du ski et êtes à l'aise sur les pistes ;\n• Vous êtes idéalement au bénéfice d’une formation Jeunesse et Sport (J+S) Ski ou Snowboard\n• Vous avez une bonne maîtrise de l'anglais\n• Vous avez 18 ans ou plus\n• Vous êtes de nationalité suisse ou disposez d’un permis de travail valable en Suisse ;\n• Vous êtes en mesure de présenter un extrait de casier judiciaire vierge. Le logement à Fiesch et les repas seront pris en charge par le Collège Champittet pendant toute la durée du séjour. Si vous êtes passionné-e par le domaine de l’éducation et souhaitez rejoindre notre équipe, nous vous invitons à soumettre votre candidature directement en ligne via notre site internet.",
-        "fr": "Moniteurs/Monitrices Ski/Snowboard\n\nLe Collège Champittet, école de référence dans la région lémanique depuis 1903, offre une excellente formation à des générations d’étudiants suisses et étrangers. Son esprit unique s’articule autour des performances académiques, du multilinguisme et de valeurs telles que le respect et la confiance. Le Collège fait partie de la famille d’écoles Nord Anglia Education, leader mondial des écoles internationales avec 88 écoles dans 32 pays.\n\nDans cet environnement dynamique, à la fois local et international, nous recherchons dès maintenant des moniteurs et monitrices de ski pour encadrer et accompagner nos élèves dans le cadre de notre camp de ski, qui se déroulera à Fiesch du 15 au 18 mars 2027.\n\nProfil recherché\n\n• Vous serez chargé-e d’accompagner un groupe d’enfants à ski durant la journée et de participer à certaines activités en soirée (raquettes nocturnes, ski de nuit, construction de statues, piscine, etc.) ;\n\n• Vous avez envie de vous investir pleinement dans la réussite de ce camp ;\n\n• Vous avez une très bonne maîtrise du ski et êtes à l’aise sur les pistes ;\n\n• Vous êtes idéalement au bénéfice d’une formation Jeunesse et Sport (J+S) Ski ou Snowboard ;\n\n• Vous avez une bonne maîtrise de l’anglais ;\n\n• Vous avez 18 ans ou plus ;\n\n• Vous êtes de nationalité suisse ou disposez d’un permis de travail valable en Suisse ;\n\n• Vous êtes en mesure de présenter un extrait de casier judiciaire vierge.\n\nLe logement à Fiesch et les repas seront pris en charge par le Collège Champittet pendant toute la durée du séjour.\n\nSi vous êtes passionné-e par le domaine de l’éducation et souhaitez rejoindre notre équipe, nous vous invitons à soumettre votre candidature directement en ligne via notre site internet."
-      },
-      "location": "Pully",
-      "canton": "VD",
-      "url": "https://careers.nordanglia.com/job/Pully-MoniteursMonitrices-SkiSnowboard/1443646733/",
-      "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:33:09.243Z",
-      "addressLocality": "Pully",
-      "addressRegion": "VD",
-      "streetAddress": "Pully",
-      "postalCode": "1009",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Istruzione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Istruzione / Scuole internazionali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-02T00:00:00Z",
-      "postedDate": "2026-10-02T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.nordanglia.com/job/Pully-MoniteursMonitrices-SkiSnowboard/1443646733/",
-      "jobReqId": "1443646733",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "moniteurs-monitrices-ski-snowboard-nord-anglia-pully"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "moniteurs-monitrices-ski-snowboard-nord-anglia-pully"
-        ]
-      },
-      "firstSeenAt": "2026-10-02T09:22:59.223Z",
-      "salaryMin": 51000,
-      "salaryMax": 94500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51000,
-          "maxValue": 94500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T09:33:09.243Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.nordanglia.com/job/pully-moniteursmonitrices-skisnowboard/1443646733",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "nord-anglia-5c318091275c",
-      "slug": "allenatori-di-studio-nord-anglia-education-switzerland-pully",
-      "slugByLocale": {
-        "it": "allenatori-di-studio-nord-anglia-education-switzerland-pully",
-        "en": "study-coaches-nord-anglia-pully",
-        "de": "studienlehrer-nord-anglia-education-switzerland-pully",
-        "fr": "entraineurs-d-etudes-nord-anglia-education-switzerland-pully"
-      },
-      "company": "Nord Anglia Education Switzerland",
-      "companyKey": "nord-anglia",
-      "companyDomain": "nordangliaeducation.com",
-      "title": "Study Coaches",
-      "titleByLocale": {
-        "it": "Allenatori di studio",
-        "en": "Study Coaches",
-        "de": "Studienlehrer",
-        "fr": "Entraîneurs d'études"
-      },
-      "description": "WHO WE ARE ?\n\nCollège Champittet, a school of reference in the Lake Geneva region since 1903, offers excellent education to generations of Swiss and foreign students. Its unique spirit revolves around academic performance, multilingualism and values such as respect and trust. The school is part of the Nord Anglia Education family, the world's leading premium schools’ organisation with 89 schools in 32 countries. In this dynamic environment, both local and international, we invite you to join our Boarding Team.\n\nJOB DESCRIPTION\n\nAs a Study Coach, you will support and supervise students aged 11 to 18 during evening study sessions twice a week from 6.00 pm, as well as during sports and cultural activities one weekend per month. You will play a key role in fostering a positive, structured and supportive environment that encourages both academic success and personal development.\n\nProfile and competences\n\n• An IB graduate, studying at University, EPFL or Haute Ecole, in Child & Adolescent Psychology, Sciences, Economics or Literature\n\n• Ideally with prior experience working with teenagers, understanding their needs and interests\n\n• A native speaker in French or English with a good command of the other language. Russian, Spanish, Chinese, Japanese or Arabic an asset\n\n• Enthusiastic, patient, with natural authority, motivated to impart your knowledge to young people.\n\n• Flexible, integrating easily into a team thanks to good interpersonal skills\n\n• Swiss or European nationality with a valid work permit\n\n• Clean criminal records\n\nIf you are passionate about education and interested in joining our team, please apply directly online through our website.",
-      "descriptionByLocale": {
-        "it": "Chi siamo? Collège Champittet, una scuola di riferimento nella regione del lago di Ginevra dal 1903, offre un'ottima educazione a generazioni di studenti svizzeri e stranieri. Il suo spirito unico ruota intorno alle prestazioni accademiche, al multilinguismo e ai valori come il rispetto e la fiducia. La scuola fa parte della famiglia Nord Anglia Education, l’organizzazione leader mondiale delle scuole premium con 89 scuole in 32 paesi. In questo ambiente dinamico, sia locale che internazionale, vi invitiamo a partecipare al nostro Boarding Team. DESCRIZIONE DELLA JOB Come Study Coach, supporterete e supervisionerete gli studenti di età compresa tra 11 e 18 anni durante le sessioni di studio serali due volte alla settimana dalle ore 18.00, così come durante le attività sportive e culturali un fine settimana al mese. Si svolgerà un ruolo chiave nel promuovere un ambiente positivo, strutturato e di supporto che incoraggia sia il successo accademico che lo sviluppo personale. Profilo e competenze\n• Laureato in IB, studio presso l'Università, EPFL o Haute Ecole, in Psicologia infantile e adolescente, Scienze, Economia o Letteratura\n• Idealmente con esperienza precedente di lavoro con gli adolescenti, la comprensione delle loro esigenze e interessi\n• Un madrelingua francese o inglese con un buon comando dell'altra lingua. Russo, Spagnolo, Cinese, Giapponese o Arabo\n• Espressivi, pazienti, con autorità naturale, motivati a trasmettere la vostra conoscenza ai giovani.\n• Flessibile, integrandosi facilmente in un team grazie a buone capacità interpersonali\n• Nazionalità svizzera o europea con un permesso di lavoro valido\n• Documenti criminali puliti Se siete appassionati di istruzione e interessati ad unirsi al nostro team, si prega di applicare direttamente online attraverso il nostro sito web.",
-        "en": "WHO WE ARE ?\n\nCollège Champittet, a school of reference in the Lake Geneva region since 1903, offers excellent education to generations of Swiss and foreign students. Its unique spirit revolves around academic performance, multilingualism and values such as respect and trust. The school is part of the Nord Anglia Education family, the world's leading premium schools’ organisation with 89 schools in 32 countries. In this dynamic environment, both local and international, we invite you to join our Boarding Team.\n\nJOB DESCRIPTION\n\nAs a Study Coach, you will support and supervise students aged 11 to 18 during evening study sessions twice a week from 6.00 pm, as well as during sports and cultural activities one weekend per month. You will play a key role in fostering a positive, structured and supportive environment that encourages both academic success and personal development.\n\nProfile and competences\n\n• An IB graduate, studying at University, EPFL or Haute Ecole, in Child & Adolescent Psychology, Sciences, Economics or Literature\n\n• Ideally with prior experience working with teenagers, understanding their needs and interests\n\n• A native speaker in French or English with a good command of the other language. Russian, Spanish, Chinese, Japanese or Arabic an asset\n\n• Enthusiastic, patient, with natural authority, motivated to impart your knowledge to young people.\n\n• Flexible, integrating easily into a team thanks to good interpersonal skills\n\n• Swiss or European nationality with a valid work permit\n\n• Clean criminal records\n\nIf you are passionate about education and interested in joining our team, please apply directly online through our website.",
-        "de": "Wer sind wir? Collège Champittet, seit 1903 eine Referenzschule in der Genfer Seeregion, bietet Generationen von Schweizer und ausländischen Studenten eine hervorragende Ausbildung. Sein einzigartiger Geist dreht sich um akademische Leistung, Mehrsprachigkeit und Werte wie Respekt und Vertrauen. Die Schule ist Teil der Nord Anglia Education Familie, der weltweit führenden Premium-Schulorganisation mit 89 Schulen in 32 Ländern. In diesem dynamischen Umfeld, sowohl lokal als auch international, laden wir Sie ein, sich unserem Boarding Team anzuschließen. BESCHREIBUNG Als Studiencoach unterstützen und betreuen Sie Schülerinnen und Schüler im Alter von 11 bis 18 Jahren zweimal wöchentlich ab 18 Uhr sowie an einem Wochenende im Monat bei sportlichen und kulturellen Aktivitäten. Sie werden eine Schlüsselrolle bei der Förderung eines positiven, strukturierten und unterstützenden Umfelds spielen, das sowohl den akademischen Erfolg als auch die persönliche Entwicklung fördert. Profil und Kompetenzen\n• Ein IB-Absolvent, Studium an der Universität, EPFL oder Haute Ecole, in Kinder- und Jugendpsychologie, Naturwissenschaften, Wirtschaft oder Literatur\n• Idealerweise mit vorheriger Erfahrung in der Arbeit mit Teenagern, um ihre Bedürfnisse und Interessen zu verstehen\n• Ein Muttersprachler auf Französisch oder Englisch mit guten Kenntnissen der anderen Sprache. Russische, spanische, chinesische, japanische oder arabische Vermögenswerte\n• Begeistert, geduldig, mit natürlicher Autorität, motiviert, Ihr Wissen an junge Menschen weiterzugeben.\n• Flexibel, einfache Integration in ein Team dank guter zwischenmenschlicher Fähigkeiten\n• Schweizer oder europäische Staatsangehörigkeit mit gültiger Arbeitserlaubnis\n• Reine Strafregister Wenn Sie sich für Bildung interessieren und daran interessiert sind, unserem Team beizutreten, bewerben Sie sich bitte direkt online über unsere Website.",
-        "fr": "Qui sommes-nous ? Le Collège Champittet, une école de référence dans la région du Lac Léman depuis 1903, offre une excellente éducation aux générations d'étudiants suisses et étrangers. Son esprit unique s'articule autour de la performance académique, du multilinguisme et de valeurs comme le respect et la confiance. L'école fait partie de la famille Nord Anglia Education, la principale organisation mondiale d'écoles premium avec 89 écoles dans 32 pays. Dans cet environnement dynamique, tant local qu'international, nous vous invitons à rejoindre notre équipe d'embarquement. DESCRIPTION DE L'EMPLOI En tant qu'entraîneur d'études, vous accompagnerez et superviserez les élèves âgés de 11 à 18 ans pendant les séances d'études du soir deux fois par semaine à partir de 18 heures, ainsi que pendant les activités sportives et culturelles un week-end par mois. Vous jouerez un rôle clé dans la promotion d'un environnement positif, structuré et favorable qui favorise le succès scolaire et le développement personnel. Profil et compétences\n• Diplômé d'IB, étudiant à l'Université, EPFL ou Haute Ecole, en psychologie de l'enfance et de l'adolescence, sciences, économie ou littérature\n• Idéalement avec une expérience antérieure de travail avec les adolescents, comprendre leurs besoins et leurs intérêts\n• Locuteur natif en français ou en anglais avec une bonne maîtrise de l'autre langue. Russe, espagnol, chinois, japonais ou arabe un atout\n• Enthousiaste, patient, avec autorité naturelle, motivé à transmettre vos connaissances aux jeunes.\n• Flexibilité, intégration facile dans une équipe grâce à de bonnes compétences interpersonnelles\n• Nationalité suisse ou européenne avec permis de travail valide\n• Un casier judiciaire propre Si vous êtes passionné par l'éducation et intéressé à rejoindre notre équipe, veuillez postuler directement en ligne sur notre site Web."
-      },
-      "location": "Pully",
-      "canton": "VD",
-      "url": "https://careers.nordanglia.com/job/Pully-Study-Coaches/1414160233/",
-      "source": "Nord Anglia Education Switzerland Dedicated Parser (jobs2web RSS)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:33:09.222Z",
-      "addressLocality": "Pully",
-      "addressRegion": "VD",
-      "streetAddress": "Pully",
-      "postalCode": "1009",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Istruzione / Scuole internazionali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-09T02:00:00Z",
-      "postedDate": "2026-09-09T02:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.nordanglia.com/job/Pully-Study-Coaches/1414160233/",
-      "jobReqId": "1414160233",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "study-coaches-nord-anglia-pully"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "study-coaches-nord-anglia-pully"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T22:53:13.075Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:33:09.222Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.nordanglia.com/job/pully-study-coaches/1414160233",
-      "crawlerMissStreak": 2
     }
   ]
 }
