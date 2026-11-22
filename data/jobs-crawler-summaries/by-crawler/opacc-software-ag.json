@@ -1,7 +1,7 @@
 {
   "key": "opacc-software-ag",
   "label": "Opacc Software AG",
-  "generatedAt": "2026-11-22T09:22:50.072Z",
+  "generatedAt": "2026-11-22T21:19:15.790Z",
   "total": 8,
   "discovered": 8,
   "parsed": 8,
@@ -68,10 +68,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 30967,
-  "avgDurationMs": 30967,
+  "durationMs": 47557,
+  "avgDurationMs": 47557,
   "durationHistory": [
-    30967
+    47557
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -89,7 +89,7 @@
       "url": "https://jobs.opacc.ch/fundament-ausbauen/system-manager-system-engineer.html",
       "source": "Opacc Software AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:22:19.386Z",
+      "crawledAt": "2026-11-22T21:18:21.471Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -126,7 +126,7 @@
         "checkedAt": "2026-11-09T15:44:14.359Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-19T09:22:19.386Z",
+      "validThrough": "2027-02-19T21:18:21.471Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -148,7 +148,7 @@
       "url": "https://jobs.opacc.ch/fundament-ausbauen/system-engineer-junior-professional.html",
       "source": "Opacc Software AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:22:19.386Z",
+      "crawledAt": "2026-11-22T21:18:21.471Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -185,7 +185,7 @@
         "checkedAt": "2026-11-09T15:44:14.359Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T09:22:19.386Z",
+      "validThrough": "2027-02-04T21:18:21.471Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -207,7 +207,7 @@
       "url": "https://jobs.opacc.ch/fundament-ausbauen/software-eningeer-mobile-applications-software-mit-teamleitungsfunktion.html",
       "source": "Opacc Software AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:22:19.385Z",
+      "crawledAt": "2026-11-22T21:18:21.470Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -245,71 +245,12 @@
         "checkedAt": "2026-11-09T15:44:14.359Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T09:22:19.385Z",
+      "validThrough": "2027-02-04T21:18:21.470Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
-        "completeness": 23
-      }
-    },
-    {
-      "id": "opacc-software-ag-d25f4efcc0b9",
-      "slug": "business-informatician-erp-80-100-opacc-software-ag-rothenburg",
-      "company": "Opacc Software AG",
-      "companyKey": "opacc-software-ag",
-      "companyDomain": "jobs.opacc.ch",
-      "title": "WirtschaftsinformatikerIn ERP, 80 - 100%",
-      "location": "Rothenburg",
-      "canton": "LU",
-      "url": "https://jobs.opacc.ch/kunden-bedienen/wirtschaftsinformatikerin-erp-80-100.html",
-      "source": "Opacc Software AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:22:19.384Z",
-      "addressLocality": "Rothenburg",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6023",
-      "streetAddress": "Wahligenpark 1",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.opacc.ch/kunden-bedienen/wirtschaftsinformatikerin-erp-80-100.html",
-      "firstSeenAt": "2026-11-06T09:18:48.465Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Opacc Software AG",
-        "streetAddress": "Wahligenpark 1",
-        "postalCode": "6023",
-        "registeredName": "Opacc Software AG",
-        "matchType": "exact",
-        "streetAddressSource": "zefix-registry",
-        "jobPostalCode": "6023",
-        "addressLocality": "Rothenburg",
-        "addressRegion": "LU",
-        "checkedAt": "2026-11-09T15:44:14.359Z"
-      },
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T09:22:19.384Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 23
       }
@@ -326,7 +267,7 @@
       "url": "https://jobs.opacc.ch/fundament-ausbauen/teamleiterin-support.html",
       "source": "Opacc Software AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:22:19.384Z",
+      "crawledAt": "2026-11-22T21:18:21.468Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -363,12 +304,71 @@
         "checkedAt": "2026-11-09T15:44:14.359Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T09:22:19.384Z",
+      "validThrough": "2027-02-04T21:18:21.468Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
+        "translation": 25,
+        "completeness": 23
+      }
+    },
+    {
+      "id": "opacc-software-ag-d25f4efcc0b9",
+      "slug": "business-informatician-erp-80-100-opacc-software-ag-rothenburg",
+      "company": "Opacc Software AG",
+      "companyKey": "opacc-software-ag",
+      "companyDomain": "jobs.opacc.ch",
+      "title": "WirtschaftsinformatikerIn ERP, 80 - 100%",
+      "location": "Rothenburg",
+      "canton": "LU",
+      "url": "https://jobs.opacc.ch/kunden-bedienen/wirtschaftsinformatikerin-erp-80-100.html",
+      "source": "Opacc Software AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-22T21:18:21.467Z",
+      "addressLocality": "Rothenburg",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6023",
+      "streetAddress": "Wahligenpark 1",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.opacc.ch/kunden-bedienen/wirtschaftsinformatikerin-erp-80-100.html",
+      "firstSeenAt": "2026-11-06T09:18:48.465Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Opacc Software AG",
+        "streetAddress": "Wahligenpark 1",
+        "postalCode": "6023",
+        "registeredName": "Opacc Software AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "6023",
+        "addressLocality": "Rothenburg",
+        "addressRegion": "LU",
+        "checkedAt": "2026-11-09T15:44:14.359Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-04T21:18:21.467Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 23
       }
@@ -385,7 +385,7 @@
       "url": "https://jobs.opacc.ch/kunden-bedienen/system-engineer-82.html",
       "source": "Opacc Software AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:22:19.383Z",
+      "crawledAt": "2026-11-22T21:18:21.466Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -423,7 +423,7 @@
         "checkedAt": "2026-11-09T15:44:14.359Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-09T09:22:19.383Z",
+      "validThrough": "2027-02-09T21:18:21.466Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -445,7 +445,7 @@
       "url": "https://jobs.opacc.ch/kunden-bedienen/projektleiterin-erp-junior-senior.html",
       "source": "Opacc Software AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:22:19.382Z",
+      "crawledAt": "2026-11-22T21:18:21.464Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -482,7 +482,7 @@
         "checkedAt": "2026-11-09T15:44:14.359Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T09:22:19.382Z",
+      "validThrough": "2027-02-04T21:18:21.464Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -504,7 +504,7 @@
       "url": "https://jobs.opacc.ch/kunden-bedienen/projektleiterin-erp-junior-senior-89.html",
       "source": "Opacc Software AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:22:19.380Z",
+      "crawledAt": "2026-11-22T21:18:21.463Z",
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -541,7 +541,7 @@
         "checkedAt": "2026-11-09T15:44:17.709Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T09:22:19.380Z",
+      "validThrough": "2027-02-04T21:18:21.463Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -552,5 +552,5 @@
       }
     }
   ],
-  "codeCommit": "193181861b8ea282b062b042b15b99e091d330e5"
+  "codeCommit": "f0ab682774893f4b809c5b75181716509e65ea60"
 }
