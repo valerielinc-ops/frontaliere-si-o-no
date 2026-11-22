@@ -1896,12 +1896,12 @@
     },
     {
       "id": "empa-c7530560abf9",
-      "slug": "werkstattleiter-in-a-empa-dubendorf",
+      "slug": "responsabile-dell-officina-a-empa-dubendorf",
       "slugByLocale": {
         "de": "werkstattleiter-in-a-empa-dubendorf",
-        "it": "werkstattleiter-in-a-empa-dubendorf",
-        "en": "werkstattleiter-in-a-empa-dubendorf",
-        "fr": "werkstattleiter-in-a-empa-dubendorf"
+        "it": "responsabile-dell-officina-a-empa-dubendorf",
+        "en": "workshop-manager-a-empa-dubendorf",
+        "fr": "chef-cheffe-d-atelier-a-empa-dubendorf"
       },
       "company": "Empa",
       "companyKey": "empa",
@@ -1965,7 +1965,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-18T09:34:50.165Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-22T09:34:50.165Z"
+      "firstSeenAt": "2026-11-22T09:34:50.165Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "werkstattleiter-in-a-empa-dubendorf"
+        ],
+        "en": [
+          "werkstattleiter-in-a-empa-dubendorf"
+        ],
+        "fr": [
+          "werkstattleiter-in-a-empa-dubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "werkstattleiter-in-a-empa-dubendorf"
+      ]
     }
   ]
 }

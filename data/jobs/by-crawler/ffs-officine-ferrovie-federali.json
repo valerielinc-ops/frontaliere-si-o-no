@@ -8752,9 +8752,9 @@
       "slug": "responsabile-sicurezza-qualita-e-ambiente-sqa-regione-centro-infrastruttura-ffs-officine-ferrovie-federali-infrastruttura",
       "slugByLocale": {
         "it": "responsabile-sicurezza-qualita-e-ambiente-sqa-regione-centro-infrastruttura-ffs-officine-ferrovie-federali-infrastruttura",
-        "en": "responsabile-sicurezza-qualita-e-ambiente-sqa-regione-centro-infrastruttura-ffs-officine-ferrovie-federali-infrastruttura",
+        "en": "safety-quality-and-environment-manager-sqa-centre-region-infrastructure-ffs-officine-ferrovie-federali-infrastruttura",
         "de": "verantwortlicher-sicurezza-qualita-e-ambiente-sqa-regione-centro-infrastruttura-ffs-officine-ferrovie-federali",
-        "fr": "responsabile-sicurezza-qualita-e-ambiente-sqa-regione-centro-infrastruttura-ffs-officine-ferrovie-federali-infrastruttura"
+        "fr": "gestionnaire-de-la-securite-de-la-qualite-et-de-l-environnement-qaq-region-du-centre-infrastructure-ffs-officine"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -8796,8 +8796,15 @@
       "previousSlugsByLocale": {
         "de": [
           "responsabile-sicurezza-qualita-e-ambiente-sqa-regione-centro-infrastruttura-ffs-officine-ferrovie-federali-infrastruttura"
+        ],
+        "en": [
+          "responsabile-sicurezza-qualita-e-ambiente-sqa-regione-centro-infrastruttura-ffs-officine-ferrovie-federali-infrastruttura"
+        ],
+        "fr": [
+          "responsabile-sicurezza-qualita-e-ambiente-sqa-regione-centro-infrastruttura-ffs-officine-ferrovie-federali-infrastruttura"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-11-17T09:24:48.876Z",
       "salaryMin": 79500,
       "salaryMax": 135000,
@@ -8820,7 +8827,6 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:45:25.461Z",
       "validThroughSource": "last-observed-window",
-      "needsRetranslation": true,
       "retranslationAttempts": 1
     },
     {
@@ -14499,12 +14505,12 @@
     },
     {
       "id": "sbb-7f5040edd49b",
-      "slug": "teamleiter-in-ausfuhrungsprojektierung-bahntechnik-bei-projekt-management-region-ost-ffs-officine-ferrovie-federali-ticino",
+      "slug": "leader-di-gruppo-in-fase-di-pianificazione-delle-esecuzioni-tecnologia-ferroviaria-nella-regione-di-gestione-dei",
       "slugByLocale": {
-        "it": "teamleiter-in-ausfuhrungsprojektierung-bahntechnik-bei-projekt-management-region-ost-ffs-officine-ferrovie-federali-ticino",
+        "it": "leader-di-gruppo-in-fase-di-pianificazione-delle-esecuzioni-tecnologia-ferroviaria-nella-regione-di-gestione-dei",
         "en": "team-leader-execution-planning-railway-technology-at-project-management-eastern-region-ffs-officine-ferrovie-federali",
         "de": "teamleiter-in-ausfuhrungsprojektierung-bahntechnik-bei-projekt-management-region-ost-ffs-officine-ferrovie-federali-ticino",
-        "fr": "teamleiter-in-ausfuhrungsprojektierung-bahntechnik-bei-projekt-management-region-ost-ffs-officine-ferrovie-federali-ticino"
+        "fr": "chef-d-equipe-planification-de-l-execution-technologie-ferroviaire-dans-la-region-de-gestion-de-projet-est-ffs-officine"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -14545,6 +14551,12 @@
       ],
       "previousSlugsByLocale": {
         "en": [
+          "teamleiter-in-ausfuhrungsprojektierung-bahntechnik-bei-projekt-management-region-ost-ffs-officine-ferrovie-federali-ticino"
+        ],
+        "it": [
+          "teamleiter-in-ausfuhrungsprojektierung-bahntechnik-bei-projekt-management-region-ost-ffs-officine-ferrovie-federali-ticino"
+        ],
+        "fr": [
           "teamleiter-in-ausfuhrungsprojektierung-bahntechnik-bei-projekt-management-region-ost-ffs-officine-ferrovie-federali-ticino"
         ]
       },

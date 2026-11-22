@@ -1723,7 +1723,7 @@
       "slugByLocale": {
         "it": "fisioterapista-fisioterapista-fh-integrierte-psychiatrie-winterthur-ipw-winterthur-8393577941",
         "en": "physiotherapist-physiotherapist-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "de": "physiotherapeutin-physiotherapeut-fh-ipw-winterthur",
+        "de": "physiotherapeutin-physiotherapeut-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "fr": "physiotherapeute-physiotherapeute-fh-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
@@ -1779,6 +1779,9 @@
         "it": [
           "physiotherapeutin-physiotherapeut-fh-ipw-winterthur",
           "fisioterapista-fisioterapista-fh-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        ],
+        "de": [
+          "physiotherapeutin-physiotherapeut-fh-ipw-winterthur"
         ]
       },
       "firstSeenAt": "2026-10-07T21:31:43.760Z",

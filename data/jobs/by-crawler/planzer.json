@@ -427,10 +427,10 @@
     },
     {
       "id": "planzer-f08531c9d83f",
-      "slug": "collaboratore-trice-umschlag-m-w-d-planzer-dintikon",
+      "slug": "busta-dipendenti-uqx0xqz-m-f-d-planzer-dintikon",
       "slugByLocale": {
         "de": "mitarbeiter-umschlag-m-w-d-planzer-dintikon",
-        "it": "collaboratore-trice-umschlag-m-w-d-planzer-dintikon",
+        "it": "busta-dipendenti-uqx0xqz-m-f-d-planzer-dintikon",
         "en": "mitarbeiter-umschlag-m-w-d-planzer-dintikon",
         "fr": "mitarbeiter-umschlag-m-w-d-planzer-dintikon"
       },
@@ -481,11 +481,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-umschlag-m-w-d-planzer-dintikon"
+          "mitarbeiter-umschlag-m-w-d-planzer-dintikon",
+          "collaboratore-trice-umschlag-m-w-d-planzer-dintikon"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-umschlag-m-w-d-planzer-dintikon"
+        "mitarbeiter-umschlag-m-w-d-planzer-dintikon",
+        "collaboratore-trice-umschlag-m-w-d-planzer-dintikon"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -507,10 +509,10 @@
     },
     {
       "id": "planzer-06882ceef72b",
-      "slug": "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon",
+      "slug": "it-division-manager-edi-data-integration-m-f-d-planzer-dietikon",
       "slugByLocale": {
         "de": "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon",
-        "it": "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon",
+        "it": "it-division-manager-edi-data-integration-m-f-d-planzer-dietikon",
         "en": "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon",
         "fr": "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon"
       },
@@ -575,14 +577,22 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-23T09:26:06.481Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:36:40.604Z"
+      "firstSeenAt": "2026-09-23T23:36:40.604Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon"
+        ]
+      },
+      "previousSlugs": [
+        "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon"
+      ]
     },
     {
       "id": "planzer-ddf5d76a30cb",
-      "slug": "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern",
+      "slug": "chauffeur-cat-ce-ausiliario-m-f-d-planzer-bern",
       "slugByLocale": {
         "de": "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern",
-        "it": "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern",
+        "it": "chauffeur-cat-ce-ausiliario-m-f-d-planzer-bern",
         "en": "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern",
         "fr": "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern"
       },
@@ -647,14 +657,22 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-23T09:26:05.898Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:36:39.904Z"
+      "firstSeenAt": "2026-09-23T23:36:39.904Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern"
+      ]
     },
     {
       "id": "planzer-3da1b6e8f344",
-      "slug": "chauffeur-kat-c-ce-m-w-d-planzer-villmergen",
+      "slug": "chauffeur-cat-c-ce-m-f-d-planzer-villmergen",
       "slugByLocale": {
         "de": "chauffeur-kat-c-ce-m-w-d-planzer-villmergen",
-        "it": "chauffeur-kat-c-ce-m-w-d-planzer-villmergen",
+        "it": "chauffeur-cat-c-ce-m-f-d-planzer-villmergen",
         "en": "chauffeur-kat-c-ce-m-w-d-planzer-villmergen",
         "fr": "chauffeur-kat-c-ce-m-w-d-planzer-villmergen"
       },
@@ -719,14 +737,22 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-23T09:26:05.310Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:36:38.511Z"
+      "firstSeenAt": "2026-09-23T23:36:38.511Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-c-ce-m-w-d-planzer-villmergen"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-c-ce-m-w-d-planzer-villmergen"
+      ]
     },
     {
       "id": "planzer-f39723f0f10d",
-      "slug": "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach",
+      "slug": "trainer-chauffeur-cat-be-m-f-d-planzer-kallnach",
       "slugByLocale": {
         "de": "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach",
-        "it": "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach",
+        "it": "trainer-chauffeur-cat-be-m-f-d-planzer-kallnach",
         "en": "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach",
         "fr": "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach"
       },
@@ -791,7 +817,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-23T09:26:04.569Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:36:37.809Z"
+      "firstSeenAt": "2026-09-23T23:36:37.809Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach"
+      ]
     },
     {
       "id": "planzer-5d7e25cf0aca",

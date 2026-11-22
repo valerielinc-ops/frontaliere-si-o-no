@@ -8153,7 +8153,7 @@
         "it": "responsabile-di-progetto-per-impianti-sanitari-riscaldamento-equans-switzerland-ag-st-moritz-4613630b",
         "en": "project-manager-plumbing-heating-equans-switzerland-ag-st-moritz-4613630b",
         "de": "projektleiter-in-sanitar-heizung-equans-switzerland-ag-st-moritz-4613630b",
-        "fr": "projektleiter-in-sanitar-heizung-equans-switzerland-ag-st-moritz-4613630b"
+        "fr": "chef-fe-de-projet-sanitaire-chauffage-equans-switzerland-ag-st-moritz-4613630b"
       },
       "slugDisambiguator": "4613630b",
       "company": "Equans Switzerland AG",
@@ -8201,7 +8201,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "chef-fe-de-projet-sanitaire-chauffage-equans-switzerland-ag-st-moritz-4613630b"
+          "projektleiter-in-sanitar-heizung-equans-switzerland-ag-st-moritz-4613630b"
         ],
         "it": [
           "projektleiter-in-sanitar-heizung-equans-switzerland-ag-st-moritz-4613630b",
@@ -8217,8 +8217,7 @@
         "projektleiter-in-sanitar-heizung-equans-switzerland-ag-st-moritz-4613630b",
         "responsabile-di-progetto-sanitar-heizung-equans-switzerland-ag-st-moritz",
         "responsabile-di-progetto-sanitar-heizung-equans-switzerland-ag-st-moritz-4613630b",
-        "project-manager-sanitar-heizung-equans-switzerland-ag-st-moritz-4613630b",
-        "chef-fe-de-projet-sanitaire-chauffage-equans-switzerland-ag-st-moritz-4613630b"
+        "project-manager-sanitar-heizung-equans-switzerland-ag-st-moritz-4613630b"
       ],
       "salaryMin": 92000,
       "salaryMax": 140000,
@@ -38446,9 +38445,9 @@
     },
     {
       "id": "seco-jobroom-141785a5-4c94-423d-862a-4781f7c28b89",
-      "slug": "venditore-venditore-volg-detailhandels-ag-reckingen-vs-a1a394c271",
+      "slug": "venditore-volg-detailhandels-ag-reckingen-vs",
       "slugByLocale": {
-        "it": "venditore-venditore-volg-detailhandels-ag-reckingen-vs-a1a394c271",
+        "it": "venditore-volg-detailhandels-ag-reckingen-vs",
         "en": "seller-seller-volg-detailhandels-ag-reckingen-vs-141785a5",
         "de": "verkauferin-verkaufer-volg-detailhandels-ag-reckingen-vs-141785a5",
         "fr": "vendeur-volg-detailhandels-ag-reckingen-vs-141785a5"
@@ -196908,7 +196907,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "controleur-euse-de-gestion-a-50-l-hopital-du-valais-sion-6ad817d4"
@@ -196922,7 +196920,8 @@
       },
       "previousSlugs": [
         "controleur-euse-de-gestion-a-50-l-hopital-du-valais-sion-6ad817d4"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-89687de7-a637-4257-b02a-eae825164498",
@@ -196996,7 +196995,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "controleur-euse-de-gestion-a-50-l-hopital-du-valais-sion-89687de7"
@@ -197010,7 +197008,8 @@
       },
       "previousSlugs": [
         "controleur-euse-de-gestion-a-50-l-hopital-du-valais-sion-89687de7"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-95f50e02-169e-4772-b274-3645322b9aca",
@@ -197098,7 +197097,7 @@
         "fr": "civiliste-hes-so-valais-wallis-sion-964d650a",
         "it": "avvocato-civile-hes-so-valais-wallis-sion-964d650a",
         "en": "civil-lawyer-hes-so-valais-wallis-sion-964d650a",
-        "de": "civiliste-hes-so-valais-wallis-sion-964d650a"
+        "de": "zivilrechtsanwalt-hes-so-valais-wallis-sion-964d650a"
       },
       "slugDisambiguator": "964d650a",
       "company": "HES-SO Valais-Wallis",
@@ -197147,6 +197146,9 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "civiliste-hes-so-valais-wallis-sion-964d650a"
+        ],
+        "de": [
           "civiliste-hes-so-valais-wallis-sion-964d650a"
         ]
       },
@@ -197398,7 +197400,6 @@
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "instandhaltungstechniker-80-100-hamilton-ag-bonaduz-a3b8f45f"
@@ -197412,7 +197413,8 @@
       },
       "previousSlugs": [
         "instandhaltungstechniker-80-100-hamilton-ag-bonaduz-a3b8f45f"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-b79ae97d-0206-48c0-a0d9-4494a8912600",
@@ -197565,7 +197567,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "fiscaliste-experimente-e-fiduciaire-fidag-sa-sion-e1e7f8fc"
@@ -197579,7 +197580,8 @@
       },
       "previousSlugs": [
         "fiscaliste-experimente-e-fiduciaire-fidag-sa-sion-e1e7f8fc"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-fb19031f-323a-45af-af5f-20031926e3ee",
@@ -197653,7 +197655,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "comptable-en-gerance-d-immeubles-careerplus-sa-sion-fb19031f"
@@ -197667,7 +197668,8 @@
       },
       "previousSlugs": [
         "comptable-en-gerance-d-immeubles-careerplus-sa-sion-fb19031f"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-fd9f6e87-2abb-42ab-a68a-b909c005f6bd",
@@ -197675,8 +197677,8 @@
       "slugByLocale": {
         "fr": "mission-temporaire-1-an-specialiste-rh-careerplus-sa-sion-fd9f6e87",
         "it": "missione-temporanea-1-anno-hr-specialist-careerplus-sa-sion-fd9f6e87",
-        "en": "mission-temporaire-1-an-specialiste-rh-careerplus-sa-sion-fd9f6e87",
-        "de": "mission-temporaire-1-an-specialiste-rh-careerplus-sa-sion-fd9f6e87"
+        "en": "temporary-mission-1-year-hr-specialist-careerplus-sa-sion-fd9f6e87",
+        "de": "temporare-mission-1-jahr-hr-specialist-careerplus-sa-sion-fd9f6e87"
       },
       "slugDisambiguator": "fd9f6e87",
       "company": "Careerplus SA",
@@ -197728,6 +197730,12 @@
         "it": [
           "mission-temporaire-1-an-specialiste-rh-careerplus-sa-sion-fd9f6e87",
           "mission-temporaire-1-an-specialiste-rh-careerplus-sa-sion"
+        ],
+        "en": [
+          "mission-temporaire-1-an-specialiste-rh-careerplus-sa-sion-fd9f6e87"
+        ],
+        "de": [
+          "mission-temporaire-1-an-specialiste-rh-careerplus-sa-sion-fd9f6e87"
         ]
       },
       "previousSlugs": [
@@ -197751,7 +197759,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-04376bea-088f-4deb-9a57-0a6f1034618a",
@@ -197825,7 +197833,6 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "bevolkerungsschutz-koordinator-in-kanton-graubunden-haldenstein-04376bea"
@@ -197839,7 +197846,8 @@
       },
       "previousSlugs": [
         "bevolkerungsschutz-koordinator-in-kanton-graubunden-haldenstein-04376bea"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-095d8b8e-e9f8-4b25-8b0d-d388e39e128e",
@@ -197928,7 +197936,7 @@
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-1b8b1785-3181-4578-a53f-5dfe54c7db9e",
@@ -198092,7 +198100,6 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "chef-de-partie-leukerbad-clinic-leukerbad-1bd7d946"
@@ -198106,7 +198113,8 @@
       },
       "previousSlugs": [
         "chef-de-partie-leukerbad-clinic-leukerbad-1bd7d946"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-2730dd2d-843c-4071-b95d-3874a24ebc88",
@@ -198195,7 +198203,6 @@
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "product-change-master-data-manager-80-100-w-m-d-hamilton-ag-bonaduz-2730dd2d"
@@ -198206,7 +198213,8 @@
       },
       "previousSlugs": [
         "product-change-master-data-manager-80-100-w-m-d-hamilton-ag-bonaduz-2730dd2d"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-2ee707ee-dfd1-4546-8baf-1615043b7e0d",
@@ -198280,7 +198288,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "ingenieur-hes-epf-en-genie-civil-bolliger-mabillard-ingenieurs-conseils-sa-2ee707ee"
@@ -198294,7 +198301,8 @@
       },
       "previousSlugs": [
         "ingenieur-hes-epf-en-genie-civil-bolliger-mabillard-ingenieurs-conseils-sa-2ee707ee"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-2f9ad46f-8b26-479e-b755-eda0fcde50e7",
@@ -198377,12 +198385,12 @@
     },
     {
       "id": "seco-jobroom-31e479ad-b9d7-4db5-9748-8aa77592a05c",
-      "slug": "un-e-assistant-e-social-e-a-60-centre-medico-social-martigny-regions-saxon-31e479ad",
+      "slug": "a-60-assistente-sociale-centre-medico-social-martigny-regions-saxon-31e479ad",
       "slugByLocale": {
         "fr": "un-e-assistant-e-social-e-a-60-centre-medico-social-martigny-regions-saxon-31e479ad",
-        "it": "un-e-assistant-e-social-e-a-60-centre-medico-social-martigny-regions-saxon-31e479ad",
+        "it": "a-60-assistente-sociale-centre-medico-social-martigny-regions-saxon-31e479ad",
         "en": "un-e-assistant-e-social-e-a-60-centre-medico-social-martigny-regions-saxon-31e479ad",
-        "de": "un-e-assistant-e-social-e-a-60-centre-medico-social-martigny-regions-saxon-31e479ad"
+        "de": "un-e-assistent-e-social-e-a-60-centre-medico-social-martigny-regions-saxon-31e479ad"
       },
       "slugDisambiguator": "31e479ad",
       "company": "Centre médico-social Martigny & Régions",
@@ -198447,7 +198455,18 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-assistant-e-social-e-a-60-centre-medico-social-martigny-regions-saxon-31e479ad"
+        ],
+        "de": [
+          "un-e-assistant-e-social-e-a-60-centre-medico-social-martigny-regions-saxon-31e479ad"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-assistant-e-social-e-a-60-centre-medico-social-martigny-regions-saxon-31e479ad"
+      ]
     },
     {
       "id": "seco-jobroom-31f590d2-a3e3-4073-b2b7-ebda97f3344a",
@@ -198597,7 +198616,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "controller-d-f-m-united-machining-losone-374d67b5"
@@ -198611,7 +198629,8 @@
       },
       "previousSlugs": [
         "controller-d-f-m-united-machining-losone-374d67b5"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-3a0d446b-0c63-4505-927f-12ae6663c247",
@@ -198701,7 +198720,7 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-410a39b2-8f04-46c2-898e-9a0e2ced2eee",
@@ -198775,7 +198794,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-4179dd57-d4e6-43a8-87a0-2cfb783c454b",
@@ -198849,7 +198868,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "reinigungsmitarbeiter-m-w-d-80-100-randstad-visp-4179dd57"
@@ -198863,7 +198881,8 @@
       },
       "previousSlugs": [
         "reinigungsmitarbeiter-m-w-d-80-100-randstad-visp-4179dd57"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-62314337-06ab-451a-bd2d-1f18b6ef2f1b",
@@ -198951,7 +198970,6 @@
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "machiniste-de-chantier-m6-acces-personnel-sa-martigny-62314337"
@@ -198965,7 +198983,8 @@
       },
       "previousSlugs": [
         "machiniste-de-chantier-m6-acces-personnel-sa-martigny-62314337"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-6253bda5-af2e-4256-ac95-fc43c6ddff71",
@@ -199112,7 +199131,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-77c8c6c6-04a6-44f0-8d4a-4e05cbc07c03",
@@ -199200,7 +199219,6 @@
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "cheffes-et-chefs-d-equipe-paysagistes-secteur-creation-germa-paysages-sarl-77c8c6c6"
@@ -199214,7 +199232,8 @@
       },
       "previousSlugs": [
         "cheffes-et-chefs-d-equipe-paysagistes-secteur-creation-germa-paysages-sarl-77c8c6c6"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-7fbebdae-97ac-4bea-ac73-1c045de78951",
@@ -199572,7 +199591,7 @@
       "slugByLocale": {
         "fr": "responsable-rh-payroll-flexsis-sa-martigny-sion-9b760b15",
         "it": "hr-responsabile-paghe-flexsis-sa-martigny-sion-9b760b15",
-        "en": "responsable-rh-payroll-flexsis-sa-martigny-sion-9b760b15",
+        "en": "hr-payroll-manager-flexsis-sa-martigny-sion-9b760b15",
         "de": "hr-lohnabrechnungsleiter-flexsis-sa-martigny-sion-9b760b15"
       },
       "slugDisambiguator": "9b760b15",
@@ -199621,6 +199640,9 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "responsable-rh-payroll-flexsis-sa-martigny-sion-9b760b15"
+        ],
+        "en": [
           "responsable-rh-payroll-flexsis-sa-martigny-sion-9b760b15"
         ]
       },
@@ -199809,8 +199831,8 @@
       "slugByLocale": {
         "de": "projektleiter-in-heizung-und-oder-luftung-80a100-mw-excellent-personaldienstleistungen-ag-termine-a3ec9c12",
         "it": "responsabile-di-progetto-riscaldamento-e-o-ventilazione-80-100-mw-excellent-personaldienstleistungen-ag-termine-a3ec9c12",
-        "en": "projektleiter-in-heizung-und-oder-la-ftung-80a100-mw-excellent-a3ec9c12",
-        "fr": "projektleiter-in-heizung-und-oder-la-ftung-80a100-mw-excellent-a3ec9c12"
+        "en": "project-manager-for-heating-and-or-ventilation-80-100-mw-excellent-personaldienstleistungen-ag-termine-a3ec9c12",
+        "fr": "chef-fe-de-projet-chauffage-et-ou-ventilation-80-a-100-mw-excellent-personaldienstleistungen-ag-termine-a3ec9c12"
       },
       "slugDisambiguator": "a3ec9c12",
       "company": "Excellent Personaldienstleistungen AG",
@@ -199865,6 +199887,12 @@
           "responsabile-di-progetto-heizung-e-o-la-ftung-80a100-mw-excellent-personaldienstleistungen-ag-termine"
         ],
         "de": [
+          "projektleiter-in-heizung-und-oder-la-ftung-80a100-mw-excellent-a3ec9c12"
+        ],
+        "en": [
+          "projektleiter-in-heizung-und-oder-la-ftung-80a100-mw-excellent-a3ec9c12"
+        ],
+        "fr": [
           "projektleiter-in-heizung-und-oder-la-ftung-80a100-mw-excellent-a3ec9c12"
         ]
       },
@@ -200222,7 +200250,6 @@
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "etudiants-soignants-centre-medico-social-martigny-regions-martigny-c477fecd"
@@ -200236,7 +200263,8 @@
       },
       "previousSlugs": [
         "etudiants-soignants-centre-medico-social-martigny-regions-martigny-c477fecd"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-c686c332-8905-4f48-99bd-6f20f9fe6442",
@@ -200326,7 +200354,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-eab9fec6-ac04-4451-aa10-b8658764fcc6",
@@ -200402,7 +200430,7 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-ead4b5d9-584f-46af-b472-05f41453d01d",
@@ -200551,7 +200579,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-clinicien-ne-cms-sion-herens-conthey-euseigne-ec2b9cdf"
@@ -200565,7 +200592,8 @@
       },
       "previousSlugs": [
         "infirmier-ere-clinicien-ne-cms-sion-herens-conthey-euseigne-ec2b9cdf"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-ee08999d-0467-4e9c-95b7-3750f062f2a8",
@@ -200655,7 +200683,7 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-f21d24ba-6e83-4709-a401-d28c0db3f015",
@@ -200962,7 +200990,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "tornitore-cnc-adecco-lugano-28a74b2e"
@@ -200976,7 +201003,8 @@
       },
       "previousSlugs": [
         "tornitore-cnc-adecco-lugano-28a74b2e"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-52c59cd5-0f50-4dc0-82fe-bdca14d6b055",
@@ -201136,7 +201164,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-713c2cb8-610c-419a-93e1-8d2efaf373ca",
@@ -201210,7 +201238,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-kat-b-trimmis-m-w-randstad-trimmis-713c2cb8"
@@ -201224,7 +201251,8 @@
       },
       "previousSlugs": [
         "chauffeur-kat-b-trimmis-m-w-randstad-trimmis-713c2cb8"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-772df687-66ba-4024-8c3a-a42a03a71151",
@@ -201549,8 +201577,8 @@
       "slugByLocale": {
         "de": "kundenberaterin-services-80-100-bkb-basler-kantonalbank-laura-850f8ce5",
         "it": "servizi-di-consulenza-clienti-80-100-bkb-basler-kantonalbank-laura-850f8ce5",
-        "en": "kundenberaterin-services-80-100-bkb-basler-kantonalbank-laura-850f8ce5",
-        "fr": "kundenberaterin-services-80-100-bkb-basler-kantonalbank-laura-850f8ce5"
+        "en": "customer-consultant-services-80-100-bkb-basler-kantonalbank-laura-850f8ce5",
+        "fr": "services-de-conseillers-a-la-clientele-80-100-bkb-basler-kantonalbank-laura-850f8ce5"
       },
       "slugDisambiguator": "850f8ce5",
       "company": "BKB Basler Kantonalbank",
@@ -201616,15 +201644,21 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
+          "kundenberaterin-services-80-100-bkb-basler-kantonalbank-laura-850f8ce5"
+        ],
+        "en": [
+          "kundenberaterin-services-80-100-bkb-basler-kantonalbank-laura-850f8ce5"
+        ],
+        "fr": [
           "kundenberaterin-services-80-100-bkb-basler-kantonalbank-laura-850f8ce5"
         ]
       },
       "previousSlugs": [
         "kundenberaterin-services-80-100-bkb-basler-kantonalbank-laura-850f8ce5"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-8a631bb3-0535-4677-a444-f154cb9c4584",
@@ -202393,7 +202427,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-014985d8-1237-4867-ac04-2772b11da057",
@@ -202467,7 +202501,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "assistant-rh-recrutement-h-f-new-work-human-resources-martigny-014985d8"
@@ -202475,7 +202508,8 @@
       },
       "previousSlugs": [
         "assistant-rh-recrutement-h-f-new-work-human-resources-martigny-014985d8"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-091f56b4-9d16-4758-98d1-a7f838dcf4b5",
@@ -202624,7 +202658,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-10e6e606-8eed-4a70-ae0a-eac88fd6a825",
@@ -202915,7 +202949,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "en": [
           "responsable-logistique-100-cdi-h-f-d-adecco-sion-2f671555"
@@ -202923,7 +202956,8 @@
       },
       "previousSlugs": [
         "responsable-logistique-100-cdi-h-f-d-adecco-sion-2f671555"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-3c302d37-46bd-4b10-b7d4-b4b8e4c2887a",
@@ -203078,10 +203112,10 @@
     },
     {
       "id": "seco-jobroom-3ceca782-2e57-402b-a127-36484959a79c",
-      "slug": "meccanico-operativo-manutenzione-m-w-d-80-100-muntener-thomas-personal-und-unternehmensberatung-ag-chur",
+      "slug": "meccanico-operativo-manutenzione-m-f-d-80-100-muntener-thomas-personal-und-unternehmensberatung-ag-chur-3ceca782",
       "slugByLocale": {
         "de": "betriebsmechaniker-instandhaltung-m-w-d-80-100-muntener-thomas-personal-und-3ceca782",
-        "it": "meccanico-operativo-manutenzione-m-w-d-80-100-muntener-thomas-personal-und-unternehmensberatung-ag-chur",
+        "it": "meccanico-operativo-manutenzione-m-f-d-80-100-muntener-thomas-personal-und-unternehmensberatung-ag-chur-3ceca782",
         "en": "operational-mechanic-maintenance-m-f-d-80-100-muntener-thomas-personal-und-unternehmensberatung-ag-chur-3ceca782",
         "fr": "mecanicien-operationnel-entretien-h-f-d-80-100-muntener-thomas-personal-und-unternehmensberatung-ag-chur-3ceca782"
       },
@@ -203134,7 +203168,8 @@
       "previousSlugsByLocale": {
         "it": [
           "betriebsmechaniker-instandhaltung-m-w-d-80-100-muntener-thomas-personal-und-3ceca782",
-          "betriebsmechaniker-instandhaltung-m-w-d-80-100-muntener-thomas-personal-und-unternehmensberatung-ag-chur"
+          "betriebsmechaniker-instandhaltung-m-w-d-80-100-muntener-thomas-personal-und-unternehmensberatung-ag-chur",
+          "meccanico-operativo-manutenzione-m-w-d-80-100-muntener-thomas-personal-und-unternehmensberatung-ag-chur"
         ],
         "en": [
           "betriebsmechaniker-instandhaltung-m-w-d-80-100-muntener-thomas-personal-und-3ceca782"
@@ -203145,7 +203180,8 @@
       },
       "previousSlugs": [
         "betriebsmechaniker-instandhaltung-m-w-d-80-100-muntener-thomas-personal-und-3ceca782",
-        "betriebsmechaniker-instandhaltung-m-w-d-80-100-muntener-thomas-personal-und-unternehmensberatung-ag-chur"
+        "betriebsmechaniker-instandhaltung-m-w-d-80-100-muntener-thomas-personal-und-unternehmensberatung-ag-chur",
+        "meccanico-operativo-manutenzione-m-w-d-80-100-muntener-thomas-personal-und-unternehmensberatung-ag-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -203164,7 +203200,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-4662a9ff-84a9-4320-b9c1-c5a408e0996d",
@@ -203392,7 +203428,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-67ad0bcf-1514-4497-acfe-006a4f6eba7d",
@@ -203466,7 +203502,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "fr": [
           "responsable-calculations-100-cdi-h-f-d-adecco-martigny-67ad0bcf"
@@ -203474,7 +203509,8 @@
       },
       "previousSlugs": [
         "responsable-calculations-100-cdi-h-f-d-adecco-martigny-67ad0bcf"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-6831e4e2-ce69-4489-8d81-1b643eca6b4e",
@@ -203623,7 +203659,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-73617a83-6db4-4c5e-8e90-c4d4ca9215a3",
@@ -203697,7 +203733,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-7530a4c3-041f-4821-a4d7-f94707d94834",
@@ -203771,7 +203807,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-7aae5774-d1bb-47c4-9017-f83f4a94443c",
@@ -203991,7 +204027,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "en": [
           "impiegato-a-di-logistica-afc-adecco-cadenazzo-813b47ab"
@@ -204002,7 +204037,8 @@
       },
       "previousSlugs": [
         "impiegato-a-di-logistica-afc-adecco-cadenazzo-813b47ab"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-83a21dde-2d98-4728-b2ae-3960e8e0f305",
@@ -204076,7 +204112,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-87581420-bb21-4ed8-8b9c-34a15a9a4874",
@@ -204294,7 +204330,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "chef-de-projet-senior-pharma-chimie-100-cdi-h-f-d-adecco-martigny-b13e77a6"
@@ -204305,7 +204340,8 @@
       },
       "previousSlugs": [
         "chef-de-projet-senior-pharma-chimie-100-cdi-h-f-d-adecco-martigny-b13e77a6"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-c1119b45-1efa-419c-8f67-90a471de08e5",
@@ -204466,7 +204502,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-f8053244-c64b-40e5-af65-e4a6ae40cec0",
@@ -204541,7 +204577,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "responsable-technique-gestion-de-projets-haut-valais-h-f-new-work-human-f8053244"
@@ -204552,7 +204587,8 @@
       },
       "previousSlugs": [
         "responsable-technique-gestion-de-projets-haut-valais-h-f-new-work-human-f8053244"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-f84e1926-e5be-4008-9ee8-b1166623fb8c",
@@ -204626,16 +204662,16 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-606a7d93-ae8a-41ae-8a1e-2184fbfc9aac",
-      "slug": "cqv-engineer-hays-schweiz-ag-visp-606a7d93",
+      "slug": "cqv-ingegnere-hays-schweiz-ag-visp-606a7d93",
       "slugByLocale": {
         "de": "cqv-engineer-hays-schweiz-ag-visp-606a7d93",
-        "it": "cqv-engineer-hays-schweiz-ag-visp-606a7d93",
+        "it": "cqv-ingegnere-hays-schweiz-ag-visp-606a7d93",
         "en": "cqv-engineer-hays-schweiz-ag-visp-606a7d93",
-        "fr": "cqv-engineer-hays-schweiz-ag-visp-606a7d93"
+        "fr": "cqv-ingenieur-hays-schweiz-ag-visp-606a7d93"
       },
       "slugDisambiguator": "606a7d93",
       "company": "Hays (Schweiz) AG",
@@ -204701,7 +204737,18 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldSince": "2026-11-22T09:38:43.085Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cqv-engineer-hays-schweiz-ag-visp-606a7d93"
+        ],
+        "fr": [
+          "cqv-engineer-hays-schweiz-ag-visp-606a7d93"
+        ]
+      },
+      "previousSlugs": [
+        "cqv-engineer-hays-schweiz-ag-visp-606a7d93"
+      ]
     },
     {
       "id": "seco-jobroom-e233a2a4-899a-4b0f-8c57-ace49f108ca3",
@@ -205092,7 +205139,6 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "chef-de-partie-h-f-crans-montana-food-and-beverage-sa-crans-montana-0133ca50"
@@ -205106,7 +205152,8 @@
       },
       "previousSlugs": [
         "chef-de-partie-h-f-crans-montana-food-and-beverage-sa-crans-montana-0133ca50"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-0c610497-0f99-42c0-874c-89ae8b9a07b4",
@@ -205180,7 +205227,6 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "en": [
           "gessatore-costruttore-a-secco-il-team-sa-bellinzona-0c610497"
@@ -205194,7 +205240,8 @@
       },
       "previousSlugs": [
         "gessatore-costruttore-a-secco-il-team-sa-bellinzona-0c610497"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-0da2dbf9-1718-4c32-aefc-67f6aa887034",
@@ -205280,9 +205327,9 @@
       "slug": "responsabile-di-ristorazione-hotel-eden-roc-ascona-10e11512",
       "slugByLocale": {
         "it": "responsabile-di-ristorazione-hotel-eden-roc-ascona-10e11512",
-        "en": "responsabile-di-ristorazione-hotel-eden-roc-ascona-10e11512",
-        "de": "responsabile-di-ristorazione-hotel-eden-roc-ascona-10e11512",
-        "fr": "responsabile-di-ristorazione-hotel-eden-roc-ascona-10e11512"
+        "en": "manager-di-ristorazione-hotel-eden-roc-ascona-10e11512",
+        "de": "verantwortlicher-di-ristorazione-hotel-eden-roc-ascona-10e11512",
+        "fr": "responsable-di-ristorazione-hotel-eden-roc-ascona-10e11512"
       },
       "slugDisambiguator": "10e11512",
       "company": "Hotel Eden Roc",
@@ -205346,7 +205393,21 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-22T09:35:49.086Z"
+      "firstSeenAt": "2026-11-22T09:35:49.086Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "responsabile-di-ristorazione-hotel-eden-roc-ascona-10e11512"
+        ],
+        "de": [
+          "responsabile-di-ristorazione-hotel-eden-roc-ascona-10e11512"
+        ],
+        "fr": [
+          "responsabile-di-ristorazione-hotel-eden-roc-ascona-10e11512"
+        ]
+      },
+      "previousSlugs": [
+        "responsabile-di-ristorazione-hotel-eden-roc-ascona-10e11512"
+      ]
     },
     {
       "id": "seco-jobroom-11e09fe9-0148-498d-b4d1-0df21e0d7e76",
@@ -205499,7 +205560,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-14T09:45:18.293Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-19a11617-c0fb-4f2a-8d7d-e626f4c6431a",
@@ -205573,7 +205634,7 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-19dfb2fd-f108-4cc3-bbd7-995a3871150f",
@@ -205647,7 +205708,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "reinigungsmitarbeiter-in-m-w-d-vebego-ag-zweigniederlassung-graubunden-thusis-19dfb2fd"
@@ -205661,7 +205721,8 @@
       },
       "previousSlugs": [
         "reinigungsmitarbeiter-in-m-w-d-vebego-ag-zweigniederlassung-graubunden-thusis-19dfb2fd"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-1d8a0fae-a958-4582-83c9-5c6cb831bce9",
@@ -205806,7 +205867,6 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "employe-polyvalent-crans-montana-food-and-beverage-sa-crans-montana-1ddb0222"
@@ -205820,7 +205880,8 @@
       },
       "previousSlugs": [
         "employe-polyvalent-crans-montana-food-and-beverage-sa-crans-montana-1ddb0222"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-239ecc9c-7ab0-4573-b3f4-0ab36b68f0aa",
@@ -205987,7 +206048,7 @@
         "it": "chef-de-partie-hotel-eden-roc-ascona-3a800811",
         "en": "party-leader-hotel-eden-roc-ascona-3a800811",
         "de": "parteivorsitzender-hotel-eden-roc-ascona-3a800811",
-        "fr": "chef-de-partie-hotel-eden-roc-ascona-3a800811"
+        "fr": "chef-du-parti-hotel-eden-roc-ascona-3a800811"
       },
       "slugDisambiguator": "3a800811",
       "company": "Hotel Eden Roc",
@@ -206052,27 +206113,30 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "en": [
           "chef-de-partie-hotel-eden-roc-ascona-3a800811"
         ],
         "de": [
           "chef-de-partie-hotel-eden-roc-ascona-3a800811"
+        ],
+        "fr": [
+          "chef-de-partie-hotel-eden-roc-ascona-3a800811"
         ]
       },
       "previousSlugs": [
         "chef-de-partie-hotel-eden-roc-ascona-3a800811"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-3a9e45ae-f986-4215-92d2-ef941d0f6354",
-      "slug": "cuisinier-crans-montana-food-and-beverage-sa-crans-montana-3a9e45ae",
+      "slug": "fornello-crans-montana-food-and-beverage-sa-crans-montana-3a9e45ae",
       "slugByLocale": {
         "fr": "cuisinier-crans-montana-food-and-beverage-sa-crans-montana-3a9e45ae",
-        "it": "cuisinier-crans-montana-food-and-beverage-sa-crans-montana-3a9e45ae",
-        "en": "cuisinier-crans-montana-food-and-beverage-sa-crans-montana-3a9e45ae",
-        "de": "cuisinier-crans-montana-food-and-beverage-sa-crans-montana-3a9e45ae"
+        "it": "fornello-crans-montana-food-and-beverage-sa-crans-montana-3a9e45ae",
+        "en": "cooker-crans-montana-food-and-beverage-sa-crans-montana-3a9e45ae",
+        "de": "kocher-crans-montana-food-and-beverage-sa-crans-montana-3a9e45ae"
       },
       "slugDisambiguator": "3a9e45ae",
       "company": "Crans-Montana Food and Beverage SA",
@@ -206137,7 +206201,21 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cuisinier-crans-montana-food-and-beverage-sa-crans-montana-3a9e45ae"
+        ],
+        "en": [
+          "cuisinier-crans-montana-food-and-beverage-sa-crans-montana-3a9e45ae"
+        ],
+        "de": [
+          "cuisinier-crans-montana-food-and-beverage-sa-crans-montana-3a9e45ae"
+        ]
+      },
+      "previousSlugs": [
+        "cuisinier-crans-montana-food-and-beverage-sa-crans-montana-3a9e45ae"
+      ]
     },
     {
       "id": "seco-jobroom-3fb337a4-a7e8-4c1a-972a-a8c1af314c7c",
@@ -206145,7 +206223,7 @@
       "slugByLocale": {
         "fr": "responsable-de-restaurant-h-f-crans-montana-food-and-beverage-sa-crans-montana-3fb337a4",
         "it": "responsabile-ristorante-m-f-crans-montana-food-and-beverage-sa-crans-montana-3fb337a4",
-        "en": "responsable-de-restaurant-h-f-crans-montana-food-and-beverage-sa-crans-montana-3fb337a4",
+        "en": "restaurant-manager-m-f-crans-montana-food-and-beverage-sa-crans-montana-3fb337a4",
         "de": "restaurantmanager-m-w-crans-montana-food-and-beverage-sa-crans-montana-3fb337a4"
       },
       "slugDisambiguator": "3fb337a4",
@@ -206195,6 +206273,9 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "responsable-de-restaurant-h-f-crans-montana-food-and-beverage-sa-crans-montana-3fb337a4"
+        ],
+        "en": [
           "responsable-de-restaurant-h-f-crans-montana-food-and-beverage-sa-crans-montana-3fb337a4"
         ]
       },
@@ -206290,7 +206371,6 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "technischer-sachbearbeiter-zweiradbetrieb-holzer-motos-ag-glis-4352ab53"
@@ -206304,7 +206384,8 @@
       },
       "previousSlugs": [
         "technischer-sachbearbeiter-zweiradbetrieb-holzer-motos-ag-glis-4352ab53"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-45bffb0a-fa46-4da8-9a6b-30730481bcb0",
@@ -206464,7 +206545,6 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "en": [
           "cuoco-100-maloja-palace-ag-maloja-4c8c7957"
@@ -206478,16 +206558,17 @@
       },
       "previousSlugs": [
         "cuoco-100-maloja-palace-ag-maloja-4c8c7957"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-4d9eb136-5757-4b11-a14f-86ee79f629fd",
       "slug": "impiegato-di-pulizie-all-clean-servizi-sagl-gravesano-4d9eb136",
       "slugByLocale": {
         "it": "impiegato-di-pulizie-all-clean-servizi-sagl-gravesano-4d9eb136",
-        "en": "impiegato-di-pulizie-all-clean-servizi-sagl-gravesano-4d9eb136",
-        "de": "impiegato-di-pulizie-all-clean-servizi-sagl-gravesano-4d9eb136",
-        "fr": "impiegato-di-pulizie-all-clean-servizi-sagl-gravesano-4d9eb136"
+        "en": "employee-di-pulizie-all-clean-servizi-sagl-gravesano-4d9eb136",
+        "de": "angestellter-di-pulizie-all-clean-servizi-sagl-gravesano-4d9eb136",
+        "fr": "employe-di-pulizie-all-clean-servizi-sagl-gravesano-4d9eb136"
       },
       "slugDisambiguator": "4d9eb136",
       "company": "All Clean Servizi Sagl",
@@ -206551,7 +206632,21 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-22T09:35:49.086Z"
+      "firstSeenAt": "2026-11-22T09:35:49.086Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "impiegato-di-pulizie-all-clean-servizi-sagl-gravesano-4d9eb136"
+        ],
+        "de": [
+          "impiegato-di-pulizie-all-clean-servizi-sagl-gravesano-4d9eb136"
+        ],
+        "fr": [
+          "impiegato-di-pulizie-all-clean-servizi-sagl-gravesano-4d9eb136"
+        ]
+      },
+      "previousSlugs": [
+        "impiegato-di-pulizie-all-clean-servizi-sagl-gravesano-4d9eb136"
+      ]
     },
     {
       "id": "seco-jobroom-4f48734a-4ff1-4b22-abc3-755f657473ee",
@@ -206625,7 +206720,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "produktionsmitarbeiter-anlagenfuhrer-m-w-d-woma-work-management-ag-zizers-4f48734a"
@@ -206639,7 +206733,8 @@
       },
       "previousSlugs": [
         "produktionsmitarbeiter-anlagenfuhrer-m-w-d-woma-work-management-ag-zizers-4f48734a"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-5006a82d-830e-4f44-b345-a0f963799ef8",
@@ -206713,7 +206808,6 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "chef-de-rang-crans-montana-food-and-beverage-sa-crans-montana-5006a82d"
@@ -206727,7 +206821,8 @@
       },
       "previousSlugs": [
         "chef-de-rang-crans-montana-food-and-beverage-sa-crans-montana-5006a82d"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-53df7c72-93a1-409e-815b-3ff5a1f83b81",
@@ -206801,7 +206896,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "kommissionierer-in-molkerei-samstag-aushilfe-coop-genossenschaft-chur-53df7c72"
@@ -206815,7 +206909,8 @@
       },
       "previousSlugs": [
         "kommissionierer-in-molkerei-samstag-aushilfe-coop-genossenschaft-chur-53df7c72"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-546a638a-6a86-48f5-b616-40f0431e0c72",
@@ -206889,7 +206984,6 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "en": [
           "ausiliario-industria-alimentare-coop-centrale-di-distribuzione-e-uffici-546a638a"
@@ -206903,7 +206997,8 @@
       },
       "previousSlugs": [
         "ausiliario-industria-alimentare-coop-centrale-di-distribuzione-e-uffici-546a638a"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-55cdda5c-7dd0-47cc-9bb8-ff8ab745d37d",
@@ -206977,7 +207072,6 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "en": [
           "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona-55cdda5c"
@@ -206991,7 +207085,8 @@
       },
       "previousSlugs": [
         "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona-55cdda5c"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-56d527b8-3aa3-4212-a601-fed30b075608",
@@ -207065,7 +207160,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "lagermitarbeiter-in-verlad-coop-genossenschaft-chur-56d527b8"
@@ -207079,14 +207173,15 @@
       },
       "previousSlugs": [
         "lagermitarbeiter-in-verlad-coop-genossenschaft-chur-56d527b8"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-65a80e8c-a4f4-4f7e-8ee1-067566e88353",
       "slug": "cuoco-delle-colazioni-hotel-eden-roc-ascona-65a80e8c",
       "slugByLocale": {
         "it": "cuoco-delle-colazioni-hotel-eden-roc-ascona-65a80e8c",
-        "en": "cuoco-delle-colazioni-hotel-eden-roc-ascona-65a80e8c",
+        "en": "cuoco-of-breakfasts-hotel-eden-roc-ascona-65a80e8c",
         "de": "cuoco-von-fruhstucken-hotel-eden-roc-ascona-65a80e8c",
         "fr": "cuoco-des-petits-dejeuners-hotel-eden-roc-ascona-65a80e8c"
       },
@@ -207153,18 +207248,21 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "de": [
           "cuoco-delle-colazioni-hotel-eden-roc-ascona-65a80e8c"
         ],
         "fr": [
           "cuoco-delle-colazioni-hotel-eden-roc-ascona-65a80e8c"
+        ],
+        "en": [
+          "cuoco-delle-colazioni-hotel-eden-roc-ascona-65a80e8c"
         ]
       },
       "previousSlugs": [
         "cuoco-delle-colazioni-hotel-eden-roc-ascona-65a80e8c"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-6e4b9e1b-409e-4af5-a0c2-883ba0a0688b",
@@ -207238,7 +207336,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "lagermitarbeiter-in-leergutzentrale-coop-genossenschaft-chur-6e4b9e1b"
@@ -207252,7 +207349,8 @@
       },
       "previousSlugs": [
         "lagermitarbeiter-in-leergutzentrale-coop-genossenschaft-chur-6e4b9e1b"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-76315b0b-23d0-43dc-aae9-8c13a0ce4f3d",
@@ -207413,12 +207511,12 @@
     },
     {
       "id": "seco-jobroom-78dbdb61-eeeb-46ab-8c9c-1c5b47924024",
-      "slug": "cuisinier-h-f-crans-montana-food-and-beverage-sa-crans-montana-78dbdb61",
+      "slug": "cooker-m-f-crans-montana-food-and-beverage-sa-crans-montana-78dbdb61",
       "slugByLocale": {
         "fr": "cuisinier-h-f-crans-montana-food-and-beverage-sa-crans-montana-78dbdb61",
-        "it": "cuisinier-h-f-crans-montana-food-and-beverage-sa-crans-montana-78dbdb61",
+        "it": "cooker-m-f-crans-montana-food-and-beverage-sa-crans-montana-78dbdb61",
         "en": "cuisinier-h-f-crans-montana-food-and-beverage-sa-crans-montana-78dbdb61",
-        "de": "cuisinier-h-f-crans-montana-food-and-beverage-sa-crans-montana-78dbdb61"
+        "de": "kocher-m-w-crans-montana-food-and-beverage-sa-crans-montana-78dbdb61"
       },
       "slugDisambiguator": "78dbdb61",
       "company": "Crans-Montana Food and Beverage SA",
@@ -207483,7 +207581,18 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cuisinier-h-f-crans-montana-food-and-beverage-sa-crans-montana-78dbdb61"
+        ],
+        "de": [
+          "cuisinier-h-f-crans-montana-food-and-beverage-sa-crans-montana-78dbdb61"
+        ]
+      },
+      "previousSlugs": [
+        "cuisinier-h-f-crans-montana-food-and-beverage-sa-crans-montana-78dbdb61"
+      ]
     },
     {
       "id": "seco-jobroom-78deca92-599d-4061-b5ee-87aa4fcd5dec",
@@ -207557,7 +207666,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "aide-charpentier-proman-410-eft-sa-verbier-78deca92"
@@ -207571,16 +207679,17 @@
       },
       "previousSlugs": [
         "aide-charpentier-proman-410-eft-sa-verbier-78deca92"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-7b0d03df-848e-4113-a7c0-4eb0a1754e8e",
       "slug": "casseroliere-hotel-eden-roc-ascona-7b0d03df",
       "slugByLocale": {
         "it": "casseroliere-hotel-eden-roc-ascona-7b0d03df",
-        "en": "casseroliere-hotel-eden-roc-ascona-7b0d03df",
-        "de": "casseroliere-hotel-eden-roc-ascona-7b0d03df",
-        "fr": "casseroliere-hotel-eden-roc-ascona-7b0d03df"
+        "en": "relief-hotel-eden-roc-ascona-7b0d03df",
+        "de": "entlastung-hotel-eden-roc-ascona-7b0d03df",
+        "fr": "aide-hotel-eden-roc-ascona-7b0d03df"
       },
       "slugDisambiguator": "7b0d03df",
       "company": "Hotel Eden Roc",
@@ -207645,7 +207754,21 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "casseroliere-hotel-eden-roc-ascona-7b0d03df"
+        ],
+        "de": [
+          "casseroliere-hotel-eden-roc-ascona-7b0d03df"
+        ],
+        "fr": [
+          "casseroliere-hotel-eden-roc-ascona-7b0d03df"
+        ]
+      },
+      "previousSlugs": [
+        "casseroliere-hotel-eden-roc-ascona-7b0d03df"
+      ]
     },
     {
       "id": "seco-jobroom-82a5d36d-f6ee-4553-b093-73ab338e1d7a",
@@ -207719,7 +207842,6 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "en": [
           "impiegata-di-pulizie-hotel-eden-roc-ascona-82a5d36d"
@@ -207733,7 +207855,8 @@
       },
       "previousSlugs": [
         "impiegata-di-pulizie-hotel-eden-roc-ascona-82a5d36d"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-83623a03-022b-485d-9cce-3e038c171cf0",
@@ -207807,7 +207930,6 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "employe-polyvalent-h-f9-crans-montana-food-and-beverage-sa-crans-montana-83623a03"
@@ -207821,7 +207943,8 @@
       },
       "previousSlugs": [
         "employe-polyvalent-h-f9-crans-montana-food-and-beverage-sa-crans-montana-83623a03"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-857738dd-970e-4191-946e-f1942e2aff5c",
@@ -207895,7 +208018,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "en": [
           "ausiliario-industria-orlogeria-gi-group-sa-genestrerio-857738dd"
@@ -207909,7 +208031,8 @@
       },
       "previousSlugs": [
         "ausiliario-industria-orlogeria-gi-group-sa-genestrerio-857738dd"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-85d23819-df7e-4724-86c4-3f242f0829a8",
@@ -207983,7 +208106,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "en": [
           "lavoratore-edile-edilizia-principale-job-ticino-sa-novazzano-85d23819"
@@ -207997,7 +208119,8 @@
       },
       "previousSlugs": [
         "lavoratore-edile-edilizia-principale-job-ticino-sa-novazzano-85d23819"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-876b42ce-3428-4046-8c34-c7a86d2ecf46",
@@ -208071,7 +208194,6 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "en": [
           "aiuto-cuoco-hotel-eden-roc-ascona-876b42ce"
@@ -208085,7 +208207,8 @@
       },
       "previousSlugs": [
         "aiuto-cuoco-hotel-eden-roc-ascona-876b42ce"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-8fc476c6-737b-4433-b46e-c75cdba7799d",
@@ -208094,7 +208217,7 @@
         "it": "outdoor-butler-hotel-eden-roc-ascona-8fc476c6",
         "en": "outdoor-butler-hotel-eden-roc-ascona-8fc476c6",
         "de": "au-enbutter-hotel-eden-roc-ascona-8fc476c6",
-        "fr": "outdoor-butler-hotel-eden-roc-ascona-8fc476c6"
+        "fr": "butler-exterieur-hotel-eden-roc-ascona-8fc476c6"
       },
       "slugDisambiguator": "8fc476c6",
       "company": "Hotel Eden Roc",
@@ -208163,6 +208286,9 @@
       "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "de": [
+          "outdoor-butler-hotel-eden-roc-ascona-8fc476c6"
+        ],
+        "fr": [
           "outdoor-butler-hotel-eden-roc-ascona-8fc476c6"
         ]
       },
@@ -208242,7 +208368,6 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "responsable-de-salle-h-f-crans-montana-food-and-beverage-sa-crans-montana-92beef7e"
@@ -208256,7 +208381,8 @@
       },
       "previousSlugs": [
         "responsable-de-salle-h-f-crans-montana-food-and-beverage-sa-crans-montana-92beef7e"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-93c6b55f-d5bc-471d-9493-96321fd7fe05",
@@ -208344,7 +208470,6 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "employe-de-l-expedition-h-f-d-cdi-100-sion-centre-zen-horaires-de-01-00-a-11-00-93c6b55f"
@@ -208358,14 +208483,15 @@
       },
       "previousSlugs": [
         "employe-de-l-expedition-h-f-d-cdi-100-sion-centre-zen-horaires-de-01-00-a-11-00-93c6b55f"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-9cbd84cd-ccae-4442-bc01-cad3e9dc78ad",
       "slug": "cuoco-coop-centrale-di-distribuzione-e-uffici-amministrativi-losone-9cbd84cd",
       "slugByLocale": {
         "it": "cuoco-coop-centrale-di-distribuzione-e-uffici-amministrativi-losone-9cbd84cd",
-        "en": "cuoco-coop-centrale-di-distribuzione-e-uffici-amministrativi-losone-9cbd84cd",
+        "en": "cuo-coop-centrale-di-distribuzione-e-uffici-amministrativi-losone-9cbd84cd",
         "de": "cuoco-coop-centrale-di-distribuzione-e-uffici-amministrativi-losone-9cbd84cd",
         "fr": "cuoco-coop-centrale-di-distribuzione-e-uffici-amministrativi-losone-9cbd84cd"
       },
@@ -208432,16 +208558,24 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "cuoco-coop-centrale-di-distribuzione-e-uffici-amministrativi-losone-9cbd84cd"
+        ]
+      },
+      "previousSlugs": [
+        "cuoco-coop-centrale-di-distribuzione-e-uffici-amministrativi-losone-9cbd84cd"
+      ]
     },
     {
       "id": "seco-jobroom-a33040fd-37a6-4c89-9dfe-c1c06c422e13",
       "slug": "impiegato-di-lavanderia-hotel-eden-roc-ascona-a33040fd",
       "slugByLocale": {
         "it": "impiegato-di-lavanderia-hotel-eden-roc-ascona-a33040fd",
-        "en": "impiegato-di-lavanderia-hotel-eden-roc-ascona-a33040fd",
-        "de": "impiegato-di-lavanderia-hotel-eden-roc-ascona-a33040fd",
-        "fr": "impiegato-di-lavanderia-hotel-eden-roc-ascona-a33040fd"
+        "en": "employee-di-lavanderia-hotel-eden-roc-ascona-a33040fd",
+        "de": "angestellter-di-lavanderia-hotel-eden-roc-ascona-a33040fd",
+        "fr": "employe-di-lavanderia-hotel-eden-roc-ascona-a33040fd"
       },
       "slugDisambiguator": "a33040fd",
       "company": "Hotel Eden Roc",
@@ -208505,7 +208639,21 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-22T09:35:49.086Z"
+      "firstSeenAt": "2026-11-22T09:35:49.086Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "impiegato-di-lavanderia-hotel-eden-roc-ascona-a33040fd"
+        ],
+        "de": [
+          "impiegato-di-lavanderia-hotel-eden-roc-ascona-a33040fd"
+        ],
+        "fr": [
+          "impiegato-di-lavanderia-hotel-eden-roc-ascona-a33040fd"
+        ]
+      },
+      "previousSlugs": [
+        "impiegato-di-lavanderia-hotel-eden-roc-ascona-a33040fd"
+      ]
     },
     {
       "id": "seco-jobroom-a62cacb6-26cb-4d5b-bec4-fa264d4a9c8d",
@@ -208593,7 +208741,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-aff74d84-2878-4299-bb36-85a83ca1cb46",
@@ -208667,7 +208815,6 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "en": [
           "demi-chef-de-partie-hotel-eden-roc-ascona-aff74d84"
@@ -208681,7 +208828,8 @@
       },
       "previousSlugs": [
         "demi-chef-de-partie-hotel-eden-roc-ascona-aff74d84"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-b2eae61c-c897-448b-a40d-020a28544831",
@@ -208755,7 +208903,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "cuisinier-h-f-hotelis-sa-sion-saillon-b2eae61c"
@@ -208769,7 +208916,8 @@
       },
       "previousSlugs": [
         "cuisinier-h-f-hotelis-sa-sion-saillon-b2eae61c"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-b4c902c9-3ce7-4d0c-b8de-044dd01e030c",
@@ -208843,7 +208991,6 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "chef-de-partie-h-f-crans-montana-food-and-beverage-sa-crans-montana-b4c902c9"
@@ -208857,7 +209004,8 @@
       },
       "previousSlugs": [
         "chef-de-partie-h-f-crans-montana-food-and-beverage-sa-crans-montana-b4c902c9"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-bb944f70-9ac3-4dc9-91e4-31a806e9f81e",
@@ -208945,7 +209093,6 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "en": [
           "operaio-edile-c-il-team-sa-locarno-bb944f70"
@@ -208959,7 +209106,8 @@
       },
       "previousSlugs": [
         "operaio-edile-c-il-team-sa-locarno-bb944f70"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-bc17541b-ec08-4080-8a2b-11d302badb3d",
@@ -209033,7 +209181,6 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "en": [
           "ricezionista-d-albergo-hotel-eden-roc-ascona-bc17541b"
@@ -209047,7 +209194,8 @@
       },
       "previousSlugs": [
         "ricezionista-d-albergo-hotel-eden-roc-ascona-bc17541b"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-dedcfaaa-6dd9-46fc-937d-b6b148d44be1",
@@ -209196,7 +209344,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "en": [
           "lavoratore-edile-edilizia-principale-il-team-sa-bignasco-e856d134"
@@ -209210,7 +209357,8 @@
       },
       "previousSlugs": [
         "lavoratore-edile-edilizia-principale-il-team-sa-bignasco-e856d134"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-ed38b7cb-3430-4ae1-9327-e44a580edea4",
@@ -209219,7 +209367,7 @@
         "it": "chef-de-partie-grand-hotel-locarno-locarno-ed38b7cb",
         "en": "party-leader-grand-hotel-locarno-locarno-ed38b7cb",
         "de": "parteivorsitzender-grand-hotel-locarno-locarno-ed38b7cb",
-        "fr": "chef-de-partie-grand-hotel-locarno-locarno-ed38b7cb"
+        "fr": "chef-du-parti-grand-hotel-locarno-locarno-ed38b7cb"
       },
       "slugDisambiguator": "ed38b7cb",
       "company": "Grand Hotel Locarno",
@@ -209284,27 +209432,30 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "en": [
           "chef-de-partie-grand-hotel-locarno-locarno-ed38b7cb"
         ],
         "de": [
           "chef-de-partie-grand-hotel-locarno-locarno-ed38b7cb"
+        ],
+        "fr": [
+          "chef-de-partie-grand-hotel-locarno-locarno-ed38b7cb"
         ]
       },
       "previousSlugs": [
         "chef-de-partie-grand-hotel-locarno-locarno-ed38b7cb"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-ed4917df-ac1f-405c-947b-3b13f4e88cb9",
       "slug": "impiegato-di-lavanderia-hotel-eden-roc-ascona-ed4917df",
       "slugByLocale": {
         "it": "impiegato-di-lavanderia-hotel-eden-roc-ascona-ed4917df",
-        "en": "impiegato-di-lavanderia-hotel-eden-roc-ascona-ed4917df",
-        "de": "impiegato-di-lavanderia-hotel-eden-roc-ascona-ed4917df",
-        "fr": "impiegato-di-lavanderia-hotel-eden-roc-ascona-ed4917df"
+        "en": "employee-di-lavanderia-hotel-eden-roc-ascona-ed4917df",
+        "de": "angestellter-di-lavanderia-hotel-eden-roc-ascona-ed4917df",
+        "fr": "employe-di-lavanderia-hotel-eden-roc-ascona-ed4917df"
       },
       "slugDisambiguator": "ed4917df",
       "company": "Hotel Eden Roc",
@@ -209368,7 +209519,21 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-22T09:35:49.086Z"
+      "firstSeenAt": "2026-11-22T09:35:49.086Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "impiegato-di-lavanderia-hotel-eden-roc-ascona-ed4917df"
+        ],
+        "de": [
+          "impiegato-di-lavanderia-hotel-eden-roc-ascona-ed4917df"
+        ],
+        "fr": [
+          "impiegato-di-lavanderia-hotel-eden-roc-ascona-ed4917df"
+        ]
+      },
+      "previousSlugs": [
+        "impiegato-di-lavanderia-hotel-eden-roc-ascona-ed4917df"
+      ]
     },
     {
       "id": "seco-jobroom-eef78655-6f6b-404c-8b76-b1fe290eee11",
@@ -209442,7 +209607,6 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "en": [
           "chef-de-service-hotel-eden-roc-ascona-eef78655"
@@ -209453,7 +209617,8 @@
       },
       "previousSlugs": [
         "chef-de-service-hotel-eden-roc-ascona-eef78655"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-4d39b0c8-4398-4fc6-b29b-6258470f45f4",
@@ -209532,12 +209697,12 @@
     },
     {
       "id": "seco-jobroom-d3ac0c77-2bd1-4837-9940-5dd9d562dd8b",
-      "slug": "senior-qa-specialist-hays-schweiz-ag-visp-d3ac0c77",
+      "slug": "senior-qa-specialista-hays-schweiz-ag-visp-d3ac0c77",
       "slugByLocale": {
         "de": "senior-qa-specialist-hays-schweiz-ag-visp-d3ac0c77",
-        "it": "senior-qa-specialist-hays-schweiz-ag-visp-d3ac0c77",
+        "it": "senior-qa-specialista-hays-schweiz-ag-visp-d3ac0c77",
         "en": "senior-qa-specialist-hays-schweiz-ag-visp-d3ac0c77",
-        "fr": "senior-qa-specialist-hays-schweiz-ag-visp-d3ac0c77"
+        "fr": "senior-qa-specialiste-hays-schweiz-ag-visp-d3ac0c77"
       },
       "slugDisambiguator": "d3ac0c77",
       "company": "Hays (Schweiz) AG",
@@ -209603,7 +209768,18 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldSince": "2026-11-22T09:38:43.085Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-qa-specialist-hays-schweiz-ag-visp-d3ac0c77"
+        ],
+        "fr": [
+          "senior-qa-specialist-hays-schweiz-ag-visp-d3ac0c77"
+        ]
+      },
+      "previousSlugs": [
+        "senior-qa-specialist-hays-schweiz-ag-visp-d3ac0c77"
+      ]
     },
     {
       "id": "seco-jobroom-c38f91d7-628e-4246-982d-1ea6e3848439",
@@ -209677,7 +209853,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-aussendienst-wallis-100-univerre-pro-uva-ag-muraz-sierre-c38f91d7"
@@ -209691,7 +209866,8 @@
       },
       "previousSlugs": [
         "verkaufsberater-in-aussendienst-wallis-100-univerre-pro-uva-ag-muraz-sierre-c38f91d7"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-2f7409c6-6e97-4401-ac22-da948fdcc5bf",
@@ -209773,7 +209949,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-3fdcbe1d-4bd7-49ed-bcd1-cbacd6b904bc",
@@ -209855,7 +210031,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-e602ca50-1a54-4c60-9b6a-b8ea4dc0e788",
@@ -210008,7 +210184,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "insulation-plumber-m-f-collardi-sion-7e8b3c68"
@@ -210022,7 +210197,8 @@
       },
       "previousSlugs": [
         "insulation-plumber-m-f-collardi-sion-7e8b3c68"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-83283970-4266-4fbc-a111-d45bc809764b",
@@ -210096,7 +210272,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "collaudatore-united-machining-losone-83283970"
@@ -210110,7 +210285,8 @@
       },
       "previousSlugs": [
         "collaudatore-united-machining-losone-83283970"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     },
     {
       "id": "seco-jobroom-a3205b57-f470-4747-bb67-c4d67b15a81a",
@@ -210198,7 +210374,7 @@
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T13:57:45.252Z"
     }
   ]
 }

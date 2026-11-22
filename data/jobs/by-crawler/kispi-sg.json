@@ -1819,12 +1819,12 @@
     },
     {
       "id": "kispi-sg-78f7e706c6d7",
-      "slug": "ausbildungsstelle-allergologie-e-klinische-immunologie-50-ostschweizer-kinderspital-st-gallen",
+      "slug": "posto-di-formazione-in-allergologia-e-immunologia-clinica-50-ostschweizer-kinderspital-st-gallen",
       "slugByLocale": {
         "de": "ausbildungsstelle-allergologie-und-klinische-immunologie-50-kispi-sg-st-gallen",
-        "it": "ausbildungsstelle-allergologie-e-klinische-immunologie-50-ostschweizer-kinderspital-st-gallen",
-        "en": "ausbildungsstelle-allergologie-und-klinische-immunologie-50-ostschweizer-kinderspital-st-gallen",
-        "fr": "ausbildungsstelle-allergologie-und-klinische-immunologie-50-ostschweizer-kinderspital-st-gallen"
+        "it": "posto-di-formazione-in-allergologia-e-immunologia-clinica-50-ostschweizer-kinderspital-st-gallen",
+        "en": "training-centre-for-allergology-and-clinical-immunology-50-ostschweizer-kinderspital-st-gallen",
+        "fr": "centre-de-formation-en-allergologie-et-en-immunologie-clinique-50-ostschweizer-kinderspital-st-gallen"
       },
       "company": "Ostschweizer Kinderspital",
       "companyKey": "kispi-sg",
@@ -1871,11 +1871,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "ausbildungsstelle-allergologie-und-klinische-immunologie-50-kispi-sg-st-gallen"
+          "ausbildungsstelle-allergologie-und-klinische-immunologie-50-kispi-sg-st-gallen",
+          "ausbildungsstelle-allergologie-e-klinische-immunologie-50-ostschweizer-kinderspital-st-gallen"
+        ],
+        "en": [
+          "ausbildungsstelle-allergologie-und-klinische-immunologie-50-ostschweizer-kinderspital-st-gallen"
+        ],
+        "fr": [
+          "ausbildungsstelle-allergologie-und-klinische-immunologie-50-ostschweizer-kinderspital-st-gallen"
         ]
       },
       "previousSlugs": [
-        "ausbildungsstelle-allergologie-und-klinische-immunologie-50-kispi-sg-st-gallen"
+        "ausbildungsstelle-allergologie-und-klinische-immunologie-50-kispi-sg-st-gallen",
+        "ausbildungsstelle-allergologie-e-klinische-immunologie-50-ostschweizer-kinderspital-st-gallen",
+        "ausbildungsstelle-allergologie-und-klinische-immunologie-50-ostschweizer-kinderspital-st-gallen"
       ],
       "salaryMin": 24300,
       "salaryMax": 44800,
