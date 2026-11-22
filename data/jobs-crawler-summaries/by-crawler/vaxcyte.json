@@ -1,7 +1,7 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-11-21T21:17:58.694Z",
+  "generatedAt": "2026-11-22T09:16:56.707Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -14,16 +14,68 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 31399,
-  "avgDurationMs": 31399,
+  "unchangedCount": 3,
+  "durationMs": 3305,
+  "avgDurationMs": 3305,
   "durationHistory": [
-    31399
+    3305
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "id": "vaxcyte-dfe11ab55bc0",
+      "slug": "responsabile-senior-operazioni-di-controllo-della-qualita-analisi-globale-vaxcyte-visp",
+      "company": "Vaxcyte",
+      "companyKey": "vaxcyte",
+      "companyDomain": "vaxcyte.com",
+      "title": "Senior Manager, Quality Control Operations, Global Analytics",
+      "location": "Visp",
+      "canton": "VS",
+      "url": "https://boards.greenhouse.io/vaxcyte/jobs/5440646008?gh_jid=5440646008",
+      "source": "Vaxcyte Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-22T09:16:35.449Z",
+      "addressLocality": "Visp",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "postalCode": "3930",
+      "country": "CH",
+      "category": "Produzione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Biotecnologia / Farmaceutica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-05T14:39:10-04:00",
+      "postedDate": "2026-10-05T14:39:10-04:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5440646008?gh_jid=5440646008",
+      "department": "Analytical",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Visp"
+      },
+      "firstSeenAt": "2026-10-05T21:25:46.217Z",
+      "salaryMin": 120000,
+      "salaryMax": 162000,
+      "salarySource": "estimated",
+      "streetAddress": "Visp",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-04T09:16:35.449Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
     {
       "id": "vaxcyte-31f5fba6f298",
       "slug": "senior-bioprocess-ingegnere-proteins-vaxcyte-visp",
@@ -36,7 +88,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5481965008?gh_jid=5481965008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:17:17.109Z",
+      "crawledAt": "2026-11-22T09:16:35.437Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -65,66 +117,13 @@
       "salarySource": "estimated",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T21:17:17.109Z",
+      "validThrough": "2027-02-18T09:16:35.437Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 23,
-        "completeness": 25
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "vaxcyte-dfe11ab55bc0",
-      "slug": "responsabile-senior-operazioni-di-controllo-della-qualita-analisi-globale-vaxcyte-visp",
-      "company": "Vaxcyte",
-      "companyKey": "vaxcyte",
-      "companyDomain": "vaxcyte.com",
-      "title": "Senior Manager, Quality Control Operations, Global Analytics",
-      "location": "Visp",
-      "canton": "VS",
-      "url": "https://boards.greenhouse.io/vaxcyte/jobs/5440646008?gh_jid=5440646008",
-      "source": "Vaxcyte Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:17:17.119Z",
-      "addressLocality": "Visp",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "postalCode": "3930",
-      "country": "CH",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Biotecnologia / Farmaceutica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-05T14:39:10-04:00",
-      "postedDate": "2026-10-05T14:39:10-04:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5440646008?gh_jid=5440646008",
-      "department": "Analytical",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Visp"
-      },
-      "firstSeenAt": "2026-10-05T21:25:46.217Z",
-      "salaryMin": 120000,
-      "salaryMax": 162000,
-      "salarySource": "estimated",
-      "streetAddress": "Visp",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T21:17:17.119Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
         "completeness": 25
       }
     },
@@ -140,7 +139,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5464246008?gh_jid=5464246008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:17:17.072Z",
+      "crawledAt": "2026-11-22T09:16:35.402Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -168,7 +167,7 @@
       "salarySource": "estimated",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:17:17.072Z",
+      "validThrough": "2027-01-27T09:16:35.402Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -179,5 +178,5 @@
       }
     }
   ],
-  "codeCommit": "4b92eb0854b9f965b31956a24be8b4a2b342e4b2"
+  "codeCommit": "193181861b8ea282b062b042b15b99e091d330e5"
 }
