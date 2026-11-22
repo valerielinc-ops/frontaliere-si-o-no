@@ -1,14 +1,14 @@
 {
   "crawlerKey": "deloitte",
-  "assembledAt": "2026-11-22T09:20:32.228Z",
-  "runId": "45006057310",
+  "assembledAt": "2026-11-22T21:22:28.012Z",
+  "runId": "45070386217",
   "jobs": [
     {
       "id": "deloitte-4ccdd5e82f14",
       "slug": "apprendista-m-a-transaction-services-zurich-deloitte-zurich",
       "slugByLocale": {
-        "en": "trainee-m-a-transaction-services-zurich-deloitte-zurich",
         "it": "apprendista-m-a-transaction-services-zurich-deloitte-zurich",
+        "en": "trainee-m-a-transaction-services-zurich-deloitte-zurich",
         "de": "auszubildender-m-a-transaction-services-zurich-deloitte-zurich",
         "fr": "apprenti-m-a-transaction-services-zurich-deloitte-zurich"
       },
@@ -34,7 +34,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Trainee-M-A-Transaction-Services-Zurich/25774",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.619Z",
+      "crawledAt": "2026-11-22T21:22:17.935Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -56,6 +56,21 @@
       "hiringOrganizationName": "Deloitte",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "trainee-m-a-transaction-services-zurich-deloitte-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "trainee-m-a-transaction-services-zurich-deloitte-zurich"
+        ],
+        "de": [
+          "trainee-m-a-transaction-services-zurich-deloitte-zurich"
+        ],
+        "fr": [
+          "trainee-m-a-transaction-services-zurich-deloitte-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-11-21T21:27:54.833Z",
       "salaryMin": 64500,
       "salaryMax": 102500,
       "salarySource": "estimated",
@@ -70,30 +85,15 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T09:20:04.619Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:27:54.833Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "trainee-m-a-transaction-services-zurich-deloitte-zurich"
-        ],
-        "de": [
-          "trainee-m-a-transaction-services-zurich-deloitte-zurich"
-        ],
-        "fr": [
-          "trainee-m-a-transaction-services-zurich-deloitte-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "trainee-m-a-transaction-services-zurich-deloitte-zurich"
-      ]
+      "validThrough": "2027-02-18T21:22:17.935Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "deloitte-74e6a6531f80",
       "slug": "apprendista-m-a-transaction-services-geneva-deloitte-geneva",
       "slugByLocale": {
-        "en": "trainee-m-a-transaction-services-geneva-deloitte-geneva",
         "it": "apprendista-m-a-transaction-services-geneva-deloitte-geneva",
+        "en": "trainee-m-a-transaction-services-geneva-deloitte-geneva",
         "de": "auszubildender-m-a-transaction-services-geneva-deloitte-geneva",
         "fr": "apprenti-m-a-transaction-services-geneva-deloitte-geneva"
       },
@@ -119,7 +119,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Trainee-M-A-Transaction-Services-Geneva/25773",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.618Z",
+      "crawledAt": "2026-11-22T21:22:17.933Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -141,6 +141,21 @@
       "hiringOrganizationName": "Deloitte",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "trainee-m-a-transaction-services-geneva-deloitte-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "trainee-m-a-transaction-services-geneva-deloitte-geneva"
+        ],
+        "de": [
+          "trainee-m-a-transaction-services-geneva-deloitte-geneva"
+        ],
+        "fr": [
+          "trainee-m-a-transaction-services-geneva-deloitte-geneva"
+        ]
+      },
+      "firstSeenAt": "2026-11-21T21:27:54.832Z",
       "salaryMin": 53000,
       "salaryMax": 84500,
       "salarySource": "estimated",
@@ -155,23 +170,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:20:04.618Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:27:54.832Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "trainee-m-a-transaction-services-geneva-deloitte-geneva"
-        ],
-        "de": [
-          "trainee-m-a-transaction-services-geneva-deloitte-geneva"
-        ],
-        "fr": [
-          "trainee-m-a-transaction-services-geneva-deloitte-geneva"
-        ]
-      },
-      "previousSlugs": [
-        "trainee-m-a-transaction-services-geneva-deloitte-geneva"
-      ]
+      "validThrough": "2027-02-18T21:22:17.933Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "deloitte-18d5c094b115",
@@ -204,7 +204,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Trainee-Forensic-Financial-Crime-Analytics-Technology-Zurich/25781",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.617Z",
+      "crawledAt": "2026-11-22T21:22:17.931Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -241,7 +241,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T09:20:04.617Z",
+      "validThrough": "2027-02-18T21:22:17.931Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -275,7 +275,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Trainee-Forensic-Financial-Crime-Analytics-Technology-Geneva/25780",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.616Z",
+      "crawledAt": "2026-11-22T21:22:17.930Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -312,7 +312,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:20:04.616Z",
+      "validThrough": "2027-02-18T21:22:17.930Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -346,7 +346,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Manager-Life-Insurance-Actuarial-Services-Audit-Assurance/22037",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.615Z",
+      "crawledAt": "2026-11-22T21:22:17.928Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -391,7 +391,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-24T09:20:04.615Z",
+      "validThrough": "2026-12-24T21:22:17.928Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -425,7 +425,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Manager-Director-in-Finance-Transformation-with-AI-Technology-Transformation/21426",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.614Z",
+      "crawledAt": "2026-11-22T21:22:17.927Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -473,7 +473,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:04.614Z",
+      "validThrough": "2026-12-22T21:22:17.927Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -507,7 +507,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Manager-Data-Architect-Artificial-Intelligence-Data/21721",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.612Z",
+      "crawledAt": "2026-11-22T21:22:17.925Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -544,7 +544,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:04.612Z",
+      "validThrough": "2026-12-22T21:22:17.925Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -578,7 +578,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Manager-AI-Data-AI-Strategy/21733",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.611Z",
+      "crawledAt": "2026-11-22T21:22:17.923Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -615,7 +615,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:04.611Z",
+      "validThrough": "2026-12-22T21:22:17.923Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -649,7 +649,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Consultant-Manager-Global-Trade-Service-GTS/19033",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.610Z",
+      "crawledAt": "2026-11-22T21:22:17.921Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -697,7 +697,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.610Z",
+      "validThrough": "2026-12-22T21:22:17.921Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -731,7 +731,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Consultant-Manager-Life-Sciences-Commercial-Transformation/25696",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.608Z",
+      "crawledAt": "2026-11-22T21:22:17.919Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -768,7 +768,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T09:20:04.608Z",
+      "validThrough": "2027-02-09T21:22:17.919Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -802,7 +802,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Consultant-Manager-Payroll-PM-Human-Capital-Consulting/25616",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.607Z",
+      "crawledAt": "2026-11-22T21:22:17.917Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -853,7 +853,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:20:04.607Z",
+      "validThrough": "2027-02-01T21:22:17.917Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -887,7 +887,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Consultant-Assistant-Manager-Swiss-Payroll-Advisory-Tax-Legal/24120",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.605Z",
+      "crawledAt": "2026-11-22T21:22:17.915Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -932,7 +932,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:04.605Z",
+      "validThrough": "2026-12-22T21:22:17.915Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -966,7 +966,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Consultant-Tech-M-A-Advisory/24035",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.604Z",
+      "crawledAt": "2026-11-22T21:22:17.913Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -1011,7 +1011,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T09:20:04.604Z",
+      "validThrough": "2026-12-29T21:22:17.913Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1045,7 +1045,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Consultant-Deal-Transformation-Operational-Due-Diligence-and-M-A-Value-Creation/25147",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.603Z",
+      "crawledAt": "2026-11-22T21:22:17.911Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -1090,7 +1090,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T09:20:04.603Z",
+      "validThrough": "2026-12-29T21:22:17.911Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1124,7 +1124,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Consultant-Manager-SAP-Supply-Chain-Procurement-Ariba/19038",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.601Z",
+      "crawledAt": "2026-11-22T21:22:17.908Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -1178,7 +1178,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.601Z",
+      "validThrough": "2026-12-22T21:22:17.908Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1212,7 +1212,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Consultant-Manager-SAP-Supply-Chain-Plan-to-Make/19037",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.600Z",
+      "crawledAt": "2026-11-22T21:22:17.907Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -1266,7 +1266,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.600Z",
+      "validThrough": "2026-12-22T21:22:17.907Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1300,7 +1300,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Consultant-Manager-SAP-Supply-Chain-Order-to-Cash/19039",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.599Z",
+      "crawledAt": "2026-11-22T21:22:17.903Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -1354,7 +1354,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-24T09:20:04.599Z",
+      "validThrough": "2026-12-24T21:22:17.903Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1388,7 +1388,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Consultant-Manager-SAP-SD-Sales-and-Distribution/19030",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.597Z",
+      "crawledAt": "2026-11-22T21:22:17.899Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -1425,7 +1425,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.597Z",
+      "validThrough": "2026-12-22T21:22:17.899Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1459,7 +1459,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Consultant-Manager-Financial-Consolidation-Reporting-EPM/23626",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.596Z",
+      "crawledAt": "2026-11-22T21:22:17.896Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -1496,7 +1496,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.596Z",
+      "validThrough": "2026-12-22T21:22:17.896Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1530,7 +1530,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Consultant-Manager-ServiceNow-Technology-Strategy-Transformation/24788",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.595Z",
+      "crawledAt": "2026-11-22T21:22:17.893Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -1575,7 +1575,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.595Z",
+      "validThrough": "2026-12-22T21:22:17.893Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1609,7 +1609,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Consultant-Manager-Banking-Solutions-Technology-Transformation/25692",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.593Z",
+      "crawledAt": "2026-11-22T21:22:17.890Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -1657,7 +1657,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T09:20:04.593Z",
+      "validThrough": "2027-02-07T21:22:17.890Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1691,7 +1691,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Consultant-Manager-SAP-Finance-and-Sustainability-Consulting/22541",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.592Z",
+      "crawledAt": "2026-11-22T21:22:17.886Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -1736,7 +1736,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.592Z",
+      "validThrough": "2026-12-22T21:22:17.886Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1770,7 +1770,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Consultant-Manager-Corporate-Finance-Financial-Institutions-M-A-Advisory/25067",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.591Z",
+      "crawledAt": "2026-11-22T21:22:17.884Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -1815,7 +1815,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T09:20:04.591Z",
+      "validThrough": "2026-12-29T21:22:17.884Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1849,7 +1849,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Consultant-Manager-Banking-FPSL-SAP-Consulting/19042",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.590Z",
+      "crawledAt": "2026-11-22T21:22:17.881Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -1886,7 +1886,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.590Z",
+      "validThrough": "2026-12-22T21:22:17.881Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1920,7 +1920,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Consultant-Manager-Cloud/25008",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.589Z",
+      "crawledAt": "2026-11-22T21:22:17.878Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -1957,7 +1957,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.589Z",
+      "validThrough": "2026-12-22T21:22:17.878Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1991,7 +1991,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Consultant-Manager-Technology-Risk-Advisory-Technology-Transformation/23625",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.588Z",
+      "crawledAt": "2026-11-22T21:22:17.875Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -2042,7 +2042,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.588Z",
+      "validThrough": "2026-12-22T21:22:17.875Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2076,7 +2076,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Consultant-Technical-Delivery-AI-Enabled-Solutions/25695",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.587Z",
+      "crawledAt": "2026-11-22T21:22:17.873Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -2113,7 +2113,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T09:20:04.587Z",
+      "validThrough": "2027-02-09T21:22:17.873Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2147,7 +2147,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Consultant-Risk-Audit-and-Controls/19106",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.586Z",
+      "crawledAt": "2026-11-22T21:22:17.872Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -2196,7 +2196,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:04.586Z",
+      "validThrough": "2026-12-22T21:22:17.872Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2230,7 +2230,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Consultant-Risk-and-Controls-Transformations/19099",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.584Z",
+      "crawledAt": "2026-11-22T21:22:17.870Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -2267,7 +2267,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.584Z",
+      "validThrough": "2026-12-22T21:22:17.870Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2301,7 +2301,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Consultant-Ethical-Hacker-in-Cyber-Risk-Services/19097",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.583Z",
+      "crawledAt": "2026-11-22T21:22:17.868Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -2346,7 +2346,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.583Z",
+      "validThrough": "2026-12-22T21:22:17.868Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2380,7 +2380,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Consultant-Data-Protection-Privacy-Technology-Technology-Transformation/25631",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.582Z",
+      "crawledAt": "2026-11-22T21:22:17.866Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -2428,7 +2428,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:20:04.582Z",
+      "validThrough": "2027-01-28T21:22:17.866Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2462,7 +2462,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Consultant-Human-Capital-Consulting-Change-Communication-and-Culture/25767",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.581Z",
+      "crawledAt": "2026-11-22T21:22:17.864Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -2488,13 +2488,13 @@
         "senior-consultant-human-capital-consulting-change-communication-and-culture-deloitte"
       ],
       "previousSlugsByLocale": {
-        "fr": [
-          "senior-consultant-human-capital-consulting-change-communication-and-culture-deloitte"
-        ],
         "it": [
           "senior-consultant-human-capital-consulting-change-communication-and-culture-deloitte"
         ],
         "de": [
+          "senior-consultant-human-capital-consulting-change-communication-and-culture-deloitte"
+        ],
+        "fr": [
           "senior-consultant-human-capital-consulting-change-communication-and-culture-deloitte"
         ]
       },
@@ -2513,7 +2513,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:20:04.581Z",
+      "validThrough": "2027-02-10T21:22:17.864Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2547,7 +2547,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Consultant-Artificial-Intelligence-Data-AI-Strategy/21500",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.579Z",
+      "crawledAt": "2026-11-22T21:22:17.862Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -2595,7 +2595,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:04.579Z",
+      "validThrough": "2026-12-22T21:22:17.862Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2629,7 +2629,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Consultant-Artificial-Intelligence-Data-Data-Management-Data-Platforms-focus/21720",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.578Z",
+      "crawledAt": "2026-11-22T21:22:17.860Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -2674,7 +2674,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:04.578Z",
+      "validThrough": "2026-12-22T21:22:17.860Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2708,7 +2708,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Consultant-Artificial-Intelligence-Data-AI-Insights-focus/21723",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.576Z",
+      "crawledAt": "2026-11-22T21:22:17.858Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -2765,7 +2765,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:04.576Z",
+      "validThrough": "2026-12-22T21:22:17.858Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2799,7 +2799,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Assistant-Assistant-Manager-Audit-Assurance-Insurance/19232",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.575Z",
+      "crawledAt": "2026-11-22T21:22:17.856Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -2836,7 +2836,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.575Z",
+      "validThrough": "2026-12-22T21:22:17.856Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2870,7 +2870,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Analyst-Actuarial-Advisory-Audit-Assurance/23972",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.574Z",
+      "crawledAt": "2026-11-22T21:22:17.854Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -2907,7 +2907,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.574Z",
+      "validThrough": "2026-12-22T21:22:17.854Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2941,7 +2941,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Assistant-Manager-Large-Complex-Audit-Geneva/19243",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.573Z",
+      "crawledAt": "2026-11-22T21:22:17.852Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -2986,7 +2986,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:20:04.573Z",
+      "validThrough": "2026-12-27T21:22:17.852Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3020,7 +3020,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Assistant-Manager-US-Large-Complex-Audit-Zurich/19161",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.572Z",
+      "crawledAt": "2026-11-22T21:22:17.851Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -3071,7 +3071,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:04.572Z",
+      "validThrough": "2026-12-22T21:22:17.851Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3105,7 +3105,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Assistant-Manager-Large-Complex-Audit-Zurich/19170",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.571Z",
+      "crawledAt": "2026-11-22T21:22:17.849Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -3157,7 +3157,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.571Z",
+      "validThrough": "2026-12-22T21:22:17.849Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3191,7 +3191,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/SAP-Master-Data-Governance-Lead/19027",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.569Z",
+      "crawledAt": "2026-11-22T21:22:17.846Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -3244,7 +3244,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.569Z",
+      "validThrough": "2026-12-22T21:22:17.846Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3278,7 +3278,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/SAP-Data-Migration-Specialist/19032",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.567Z",
+      "crawledAt": "2026-11-22T21:22:17.843Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -3326,15 +3326,15 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.567Z",
+      "validThrough": "2026-12-22T21:22:17.843Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "deloitte-4268ff21f89f",
       "slug": "operazioni-gestione-delle-strutture-deloitte-zurich",
       "slugByLocale": {
-        "en": "operations-facility-management-deloitte-zurich",
         "it": "operazioni-gestione-delle-strutture-deloitte-zurich",
+        "en": "operations-facility-management-deloitte-zurich",
         "de": "betrieb-facility-management-deloitte-zurich",
         "fr": "operations-gestion-des-installations-deloitte-zurich"
       },
@@ -3360,7 +3360,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Operations-Facility-Management/25762",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.566Z",
+      "crawledAt": "2026-11-22T21:22:17.840Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -3382,6 +3382,21 @@
       "hiringOrganizationName": "Deloitte",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "operations-facility-management-deloitte-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "operations-facility-management-deloitte-zurich"
+        ],
+        "de": [
+          "operations-facility-management-deloitte-zurich"
+        ],
+        "fr": [
+          "operations-facility-management-deloitte-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-11-21T21:27:54.762Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -3396,23 +3411,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-17T09:20:04.566Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:27:54.762Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "operations-facility-management-deloitte-zurich"
-        ],
-        "fr": [
-          "operations-facility-management-deloitte-zurich"
-        ],
-        "de": [
-          "operations-facility-management-deloitte-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "operations-facility-management-deloitte-zurich"
-      ]
+      "validThrough": "2027-02-17T21:22:17.840Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "deloitte-e7756a179f98",
@@ -3445,7 +3445,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Operational-Technology-OT-IIoT-Security-Manager-Technology-Transformation/25717",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.564Z",
+      "crawledAt": "2026-11-22T21:22:17.838Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -3496,7 +3496,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:20:04.564Z",
+      "validThrough": "2027-02-08T21:22:17.838Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3530,7 +3530,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Manager-Senior-Manager-Financial-Services-Audit/24446",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.562Z",
+      "crawledAt": "2026-11-22T21:22:17.834Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -3575,7 +3575,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:20:04.562Z",
+      "validThrough": "2026-12-27T21:22:17.834Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3609,7 +3609,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Manager-Tech-M-A-Advisory/24036",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.560Z",
+      "crawledAt": "2026-11-22T21:22:17.832Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -3654,7 +3654,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T09:20:04.560Z",
+      "validThrough": "2026-12-29T21:22:17.832Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3688,7 +3688,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Manager-SAP-Finance-Consulting/19028",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.559Z",
+      "crawledAt": "2026-11-22T21:22:17.829Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -3725,7 +3725,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.559Z",
+      "validThrough": "2026-12-22T21:22:17.829Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3759,7 +3759,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Manager-FSI-Deal-Transformation-and-Post-Merger-Integration-Advisory/24450",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.557Z",
+      "crawledAt": "2026-11-22T21:22:17.827Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -3821,7 +3821,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T09:20:04.557Z",
+      "validThrough": "2026-12-29T21:22:17.827Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3855,7 +3855,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Manager-Financial-Services-Audit/22585",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.556Z",
+      "crawledAt": "2026-11-22T21:22:17.825Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -3900,7 +3900,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.556Z",
+      "validThrough": "2026-12-22T21:22:17.825Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3934,7 +3934,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Manager-Deal-Transformation-Operational-Due-Diligence-M-A-Value-Creation/25148",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.555Z",
+      "crawledAt": "2026-11-22T21:22:17.824Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -3979,7 +3979,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T09:20:04.555Z",
+      "validThrough": "2026-12-29T21:22:17.824Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4013,7 +4013,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Manager-Audit-Assurance-Insurance/19692",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.554Z",
+      "crawledAt": "2026-11-22T21:22:17.822Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -4058,7 +4058,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.554Z",
+      "validThrough": "2026-12-22T21:22:17.822Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4092,7 +4092,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Manager-Large-Complex-Audit-Zurich/19220",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:20:04.553Z",
+      "crawledAt": "2026-11-22T21:22:17.820Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -4157,7 +4157,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.553Z",
+      "validThrough": "2026-12-22T21:22:17.820Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4191,7 +4191,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Manager-Swiss-Business-und-International-Tax-Tax-Legal/24117",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.551Z",
+      "crawledAt": "2026-11-22T21:22:17.818Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -4242,7 +4242,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.551Z",
+      "validThrough": "2026-12-22T21:22:17.818Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4276,7 +4276,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Manager-in-Swiss-International-Tax-Advisory-Tax-Legal/24086",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.550Z",
+      "crawledAt": "2026-11-22T21:22:17.816Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -4343,7 +4343,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:04.550Z",
+      "validThrough": "2026-12-22T21:22:17.816Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4377,7 +4377,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Manager-Treuhand-Business-Tax-Tax-Legal/22030",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:20:04.549Z",
+      "crawledAt": "2026-11-22T21:22:17.814Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -4435,7 +4435,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.549Z",
+      "validThrough": "2026-12-22T21:22:17.814Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4469,7 +4469,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Manager-Technology-Risk-Advisory-SAP-Security-and-Authorizations/25318",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.547Z",
+      "crawledAt": "2026-11-22T21:22:17.812Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -4514,7 +4514,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:20:04.547Z",
+      "validThrough": "2026-12-30T21:22:17.812Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4548,7 +4548,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Manager-IT-Infrastructure-Technology-Strategy-Transformation/24124",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.545Z",
+      "crawledAt": "2026-11-22T21:22:17.810Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -4596,7 +4596,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:04.545Z",
+      "validThrough": "2026-12-22T21:22:17.810Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4630,7 +4630,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Manager-Artificial-Intelligence-Data-AI-Strategy/21494",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.544Z",
+      "crawledAt": "2026-11-22T21:22:17.809Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -4686,7 +4686,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:04.544Z",
+      "validThrough": "2026-12-22T21:22:17.809Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4720,7 +4720,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Manager-Artificial-Intelligence-Data-Data-Management-Data-Platforms-focus/19196",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.541Z",
+      "crawledAt": "2026-11-22T21:22:17.807Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -4774,7 +4774,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:04.541Z",
+      "validThrough": "2026-12-22T21:22:17.807Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4808,7 +4808,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Manager-AI-Data-AI-Insights/21731",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.539Z",
+      "crawledAt": "2026-11-22T21:22:17.804Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -4853,7 +4853,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:04.539Z",
+      "validThrough": "2026-12-22T21:22:17.804Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4887,7 +4887,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Intern-Banking-Solutions/25644",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.537Z",
+      "crawledAt": "2026-11-22T21:22:17.803Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -4938,7 +4938,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:20:04.537Z",
+      "validThrough": "2027-01-28T21:22:17.803Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4972,7 +4972,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Intern-Business-Tax-Financial-Services-Industries-Tax-Legal/25785",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.536Z",
+      "crawledAt": "2026-11-22T21:22:17.801Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -5009,7 +5009,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-16T09:20:04.536Z",
+      "validThrough": "2027-02-16T21:22:17.801Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5043,7 +5043,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Intern-Accounting-Reporting-Assurance-February-2027-July-2027/25375",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.534Z",
+      "crawledAt": "2026-11-22T21:22:17.799Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -5088,7 +5088,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T09:20:04.534Z",
+      "validThrough": "2027-01-03T21:22:17.799Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5122,7 +5122,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Intern-Technology-Strategy-Transformation/23913",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.532Z",
+      "crawledAt": "2026-11-22T21:22:17.797Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -5264,7 +5264,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:04.532Z",
+      "validThrough": "2026-12-22T21:22:17.797Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5298,7 +5298,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Intern-Large-Complex-Audit-Zurich-Basel-Bern-October-2027-March-2028/24996",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:20:04.530Z",
+      "crawledAt": "2026-11-22T21:22:17.796Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -5351,7 +5351,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T09:20:04.530Z",
+      "validThrough": "2026-12-30T21:22:17.796Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5385,7 +5385,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Ethical-Hacker-Penetration-Tester-Cyber-Risk-Services/19125",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.528Z",
+      "crawledAt": "2026-11-22T21:22:17.793Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -5433,7 +5433,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:04.528Z",
+      "validThrough": "2026-12-22T21:22:17.793Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5467,7 +5467,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Director-SAP-Finance/19034",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.526Z",
+      "crawledAt": "2026-11-22T21:22:17.791Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -5512,7 +5512,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.526Z",
+      "validThrough": "2026-12-22T21:22:17.791Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5546,7 +5546,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Cyber-Strategy-Transformation-Manager-Technology-Transformation/25370",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.524Z",
+      "crawledAt": "2026-11-22T21:22:17.790Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -5591,7 +5591,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T09:20:04.524Z",
+      "validThrough": "2027-01-03T21:22:17.790Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5625,7 +5625,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Cyber-Detect-Respond-Advisor-Senior-Consultant-Manager/24739",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.522Z",
+      "crawledAt": "2026-11-22T21:22:17.788Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -5662,7 +5662,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.522Z",
+      "validThrough": "2026-12-22T21:22:17.788Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5696,7 +5696,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Crisis-Resilience-Manager-Cyber-Risk-Services/19091",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.521Z",
+      "crawledAt": "2026-11-22T21:22:17.785Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -5741,7 +5741,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.521Z",
+      "validThrough": "2026-12-22T21:22:17.785Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5775,7 +5775,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Consultant-Monitor-Deloitte-Strategy-Consulting/25752",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.519Z",
+      "crawledAt": "2026-11-22T21:22:17.784Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -5812,7 +5812,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T09:20:04.519Z",
+      "validThrough": "2027-02-18T21:22:17.784Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5846,7 +5846,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Consultant-Business-Tax-Financial-Services-Industries-Tax-Legal/23428",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.518Z",
+      "crawledAt": "2026-11-22T21:22:17.782Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -5891,7 +5891,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.518Z",
+      "validThrough": "2026-12-22T21:22:17.782Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -5925,7 +5925,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Career-Start-Analyst-Large-Complex-Audit-Zurich-Basel-Bern-October-2027/24995",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:20:04.517Z",
+      "crawledAt": "2026-11-22T21:22:17.780Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -5971,7 +5971,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T09:20:04.517Z",
+      "validThrough": "2026-12-30T21:22:17.780Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6005,7 +6005,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Business-Analyst-Consultant-Technology-Strategy-Transformation/23912",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.515Z",
+      "crawledAt": "2026-11-22T21:22:17.777Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -6050,7 +6050,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:04.515Z",
+      "validThrough": "2026-12-22T21:22:17.777Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6084,7 +6084,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Business-Analyst-Consultant-Insurance-Innovation-Transformation/19154",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.514Z",
+      "crawledAt": "2026-11-22T21:22:17.776Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -6129,7 +6129,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.514Z",
+      "validThrough": "2026-12-22T21:22:17.776Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6163,7 +6163,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Business-Analyst-Consultant-Artificial-Intelligence-Data-Data-Management-Data-Platforms-focus/23622",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.512Z",
+      "crawledAt": "2026-11-22T21:22:17.773Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -6208,7 +6208,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:04.512Z",
+      "validThrough": "2026-12-22T21:22:17.773Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6242,7 +6242,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Business-Analyst-in-Finance-Transformation-Technology-Transformation/25713",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.508Z",
+      "crawledAt": "2026-11-22T21:22:17.771Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -6287,7 +6287,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T09:20:04.508Z",
+      "validThrough": "2027-02-14T21:22:17.771Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6321,7 +6321,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Business-Analyst-Consultant-in-Cyber-Security-Technology-Transformation/25070",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.506Z",
+      "crawledAt": "2026-11-22T21:22:17.769Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -6366,7 +6366,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.506Z",
+      "validThrough": "2026-12-22T21:22:17.769Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6400,7 +6400,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Business-Analyst-Consultant-f-r-Cyber-Security-Technology-Transformation/25014",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:20:04.504Z",
+      "crawledAt": "2026-11-22T21:22:17.767Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -6446,7 +6446,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.504Z",
+      "validThrough": "2026-12-22T21:22:17.767Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6480,7 +6480,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Business-Analyst-Consultant-Sales-Service-Customer/25833",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.502Z",
+      "crawledAt": "2026-11-22T21:22:17.766Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -6502,15 +6502,15 @@
       "hiringOrganizationName": "Deloitte",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-11-21T21:27:54.694Z",
+      "previousSlugs": [
+        "business-analyst-consultant-sales-service-customer-deloitte-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "business-analyst-consultant-sales-service-customer-deloitte-zurich"
         ]
       },
-      "previousSlugs": [
-        "business-analyst-consultant-sales-service-customer-deloitte-zurich"
-      ],
+      "firstSeenAt": "2026-11-21T21:27:54.694Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -6525,7 +6525,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-16T09:20:04.502Z",
+      "validThrough": "2027-02-16T21:22:17.766Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6559,7 +6559,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Business-Analyst-Consultant-Artificial-Intelligence-Data-AI-Insights/23940",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.500Z",
+      "crawledAt": "2026-11-22T21:22:17.764Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -6604,7 +6604,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:04.500Z",
+      "validThrough": "2026-12-22T21:22:17.764Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6638,7 +6638,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Azure-Cloud-Engineer/24076",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.497Z",
+      "crawledAt": "2026-11-22T21:22:17.762Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -6685,7 +6685,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.497Z",
+      "validThrough": "2026-12-22T21:22:17.762Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6719,7 +6719,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Assistant-2-Senior-Assurance-Controls-Assurance/21275",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.496Z",
+      "crawledAt": "2026-11-22T21:22:17.760Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -6764,7 +6764,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:20:04.496Z",
+      "validThrough": "2026-12-27T21:22:17.760Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6798,7 +6798,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/AI-Agent-Builder-Graduate-Opportunity-in-Technology-Transformation/25655",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.495Z",
+      "crawledAt": "2026-11-22T21:22:17.759Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -6846,7 +6846,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:20:04.495Z",
+      "validThrough": "2027-01-31T21:22:17.759Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6880,7 +6880,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Manager-Swiss-Payroll-Advisory-Tax-Legal/24121",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.493Z",
+      "crawledAt": "2026-11-22T21:22:17.757Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -6925,7 +6925,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:20:04.493Z",
+      "validThrough": "2026-12-22T21:22:17.757Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -6959,7 +6959,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Manager-National-Tax-Office-Tax-Legal/25706",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.491Z",
+      "crawledAt": "2026-11-22T21:22:17.754Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -7010,7 +7010,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T09:20:04.491Z",
+      "validThrough": "2027-02-04T21:22:17.754Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7044,7 +7044,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Manager-Mehrwertsteuerberatung/19508",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:20:04.489Z",
+      "crawledAt": "2026-11-22T21:22:17.750Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -7089,7 +7089,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.489Z",
+      "validThrough": "2026-12-22T21:22:17.750Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7123,7 +7123,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Manager-Business-Tax-Advisory-Tax-Legal/25581",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.487Z",
+      "crawledAt": "2026-11-22T21:22:17.749Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -7160,7 +7160,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:20:04.487Z",
+      "validThrough": "2027-01-20T21:22:17.749Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7194,7 +7194,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Manager-SAP-Consulting/19022",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.485Z",
+      "crawledAt": "2026-11-22T21:22:17.746Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -7231,7 +7231,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.485Z",
+      "validThrough": "2026-12-22T21:22:17.746Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7265,7 +7265,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Manager-Business-Tax-Financial-Services-Industries-Tax-Legal/23429",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.484Z",
+      "crawledAt": "2026-11-22T21:22:17.744Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -7310,7 +7310,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.484Z",
+      "validThrough": "2026-12-22T21:22:17.744Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7344,7 +7344,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Consultant-IT-Architecture-Technology-Strategy-Transformation/20229",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.482Z",
+      "crawledAt": "2026-11-22T21:22:17.741Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Pfingstweidstrasse 11",
@@ -7389,7 +7389,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:20:04.482Z",
+      "validThrough": "2026-12-22T21:22:17.741Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -7423,7 +7423,7 @@
       "url": "https://apply.deloitte.ch/CHCareers/JobDetail/Senior-Consultant-Technology-Risk-Advisory-SAP-Security-and-Authorizations/25322",
       "source": "Deloitte Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T09:20:04.479Z",
+      "crawledAt": "2026-11-22T21:22:17.738Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "streetAddress": "Geneva",
@@ -7460,7 +7460,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:20:04.479Z",
+      "validThrough": "2026-12-30T21:22:17.738Z",
       "validThroughSource": "last-observed-window"
     }
   ]
