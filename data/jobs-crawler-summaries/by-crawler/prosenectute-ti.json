@@ -1,7 +1,7 @@
 {
   "key": "prosenectute-ti",
   "label": "Pro Senectute Ticino e Moesano",
-  "generatedAt": "2026-11-21T21:18:50.075Z",
+  "generatedAt": "2026-11-22T09:16:36.423Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 6123,
-  "avgDurationMs": 6123,
+  "durationMs": 4659,
+  "avgDurationMs": 4659,
   "durationHistory": [
-    6123
+    4659
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:8cf58760-f8fd-4d50-bdda-32a602558644/Concorso%20generale%202026_Infermieri.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-21T21:18:28.270Z",
+      "crawledAt": "2026-11-22T09:16:20.006Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -62,7 +62,7 @@
       "salarySource": "estimated",
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:18:28.270Z",
+      "validThrough": "2026-12-22T09:16:20.006Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -85,7 +85,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:a071b88f-e067-4c3d-a090-ae4e7a288402/Concorso%20generale%202026%20educatori.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-21T21:18:28.120Z",
+      "crawledAt": "2026-11-22T09:16:19.847Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "salarySource": "estimated",
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:18:28.120Z",
+      "validThrough": "2026-12-22T09:16:19.847Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -131,7 +131,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:a5bb2937-0e37-4696-b1fe-abe3c778aa15/Concorso%20generale%202026_Assistenti%20Sociali.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-21T21:18:27.953Z",
+      "crawledAt": "2026-11-22T09:16:19.681Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -154,7 +154,7 @@
       "salarySource": "estimated",
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:18:27.953Z",
+      "validThrough": "2026-12-22T09:16:19.681Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -177,7 +177,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:23640a07-34bb-4681-90f3-c7d9ee01290a/Concorso%20generale%202026_Op.socio-assistenziali.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-21T21:18:27.653Z",
+      "crawledAt": "2026-11-22T09:16:19.386Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -200,7 +200,7 @@
       "salarySource": "estimated",
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:18:27.653Z",
+      "validThrough": "2026-12-22T09:16:19.386Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -211,5 +211,5 @@
       }
     }
   ],
-  "codeCommit": "4b92eb0854b9f965b31956a24be8b4a2b342e4b2"
+  "codeCommit": "193181861b8ea282b062b042b15b99e091d330e5"
 }
