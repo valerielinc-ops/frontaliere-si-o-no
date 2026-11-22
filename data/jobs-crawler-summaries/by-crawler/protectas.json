@@ -1,7 +1,7 @@
 {
   "key": "protectas",
   "label": "Protectas SA",
-  "generatedAt": "2026-11-22T09:39:05.980Z",
+  "generatedAt": "2026-11-22T21:33:21.804Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4920,
-  "avgDurationMs": 4920,
+  "durationMs": 5143,
+  "avgDurationMs": 5143,
   "durationHistory": [
-    4920
+    5143
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://www.protectas.com/it-ch/carriere/offerte-di-lavoro/744000161747400/",
       "source": "Protectas SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-22T09:38:44.652Z",
+      "crawledAt": "2026-11-22T21:33:05.589Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "postalCode": "6900",
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:38:44.652Z",
+      "validThrough": "2027-02-16T21:33:05.589Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -72,5 +72,5 @@
       }
     }
   ],
-  "codeCommit": "193181861b8ea282b062b042b15b99e091d330e5"
+  "codeCommit": "f0ab682774893f4b809c5b75181716509e65ea60"
 }

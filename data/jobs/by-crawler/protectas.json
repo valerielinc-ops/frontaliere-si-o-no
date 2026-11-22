@@ -1,7 +1,7 @@
 {
   "crawlerKey": "protectas",
-  "assembledAt": "2026-11-22T09:38:52.596Z",
-  "runId": "45007009871",
+  "assembledAt": "2026-11-22T21:33:12.007Z",
+  "runId": "45071522526",
   "jobs": [
     {
       "id": "protectas-9f5e51eeddc4",
@@ -34,7 +34,7 @@
       "url": "https://www.protectas.com/it-ch/carriere/offerte-di-lavoro/744000161747400/",
       "source": "Protectas SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-22T09:38:44.652Z",
+      "crawledAt": "2026-11-22T21:33:05.589Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -115,7 +115,7 @@
       "postalCode": "6900",
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:38:44.652Z",
+      "validThrough": "2027-02-16T21:33:05.589Z",
       "validThroughSource": "last-observed-window"
     }
   ]
