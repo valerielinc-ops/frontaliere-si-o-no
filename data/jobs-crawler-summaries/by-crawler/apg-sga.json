@@ -1,7 +1,7 @@
 {
   "key": "apg-sga",
   "label": "APG|SGA",
-  "generatedAt": "2026-11-22T09:44:35.282Z",
+  "generatedAt": "2026-11-22T21:37:09.456Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -15,64 +15,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 9805,
-  "avgDurationMs": 9805,
+  "durationMs": 10052,
+  "avgDurationMs": 10052,
   "durationHistory": [
-    9805
+    10052
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "apg-sga-72bdd698c817",
-      "slug": "ict-system-ingegnere-linux-80-100-zurich-apg-sga-zurich",
-      "company": "APG|SGA",
-      "companyKey": "apg-sga",
-      "companyDomain": "apgsga.ch",
-      "title": "ICT System Engineer Linux 80-100%, Zürich",
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.apgsga.ch/publication/ict-system-engineer-linux-zuerich/dhljbvsspmii1fzf2yst7lgksh96vsy4cwwbcurwopxpl33e6v7ohypl2770brry",
-      "source": "APG|SGA Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:11.562Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Pubblicità / Media esterni",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-30",
-      "postedDate": "2026-09-30",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.apgsga.ch/publication/ict-system-engineer-linux-zuerich/dhljbvsspmii1fzf2yst7lgksh96vsy4cwwbcurwopxpl33e6v7ohypl2770brry",
-      "firstSeenAt": "2026-10-30T21:27:39.427Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:28:11.562Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "sourceIdentity": "url:https://jobs.apgsga.ch/publication/ict-system-engineer-linux-zuerich/dhljbvsspmii1fzf2yst7lgksh96vsy4cwwbcurwopxpl33e6v7ohypl2770brry",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "apg-sga-3571f2ae3eee",
@@ -86,7 +38,7 @@
       "url": "https://jobs.apgsga.ch/publication/workplace-engineer-zuerich/8otxkreaeaq5rehjtboe2lg3bmaex5nfq3d56j1bvr1ftd8ti2kbzgrnafy633z0",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:44:17.788Z",
+      "crawledAt": "2026-11-22T21:36:50.540Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -109,7 +61,7 @@
       "salarySource": "estimated",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:44:17.788Z",
+      "validThrough": "2026-12-29T21:36:50.540Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -131,7 +83,7 @@
       "url": "https://jobs.apgsga.ch/publication/sales-coordinator-airport-advertising-zuerich/kwx50lsqcs0s57kphl6u3t2orih52uw7k5pj4tjji0h62tscr18qfnt8cfyzvmky",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:44:17.299Z",
+      "crawledAt": "2026-11-22T21:36:50.048Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -155,7 +107,7 @@
       "salarySource": "estimated",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:44:17.299Z",
+      "validThrough": "2027-01-19T21:36:50.048Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -177,7 +129,7 @@
       "url": "https://jobs.apgsga.ch/publication/key-account-manager-in-zuerich/yqbyamdibr2ofdtyu4hhivzweb0vjlvst4c1j2v9hdqkhs86jpvkcplx8pcxdcy5",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:44:16.812Z",
+      "crawledAt": "2026-11-22T21:36:49.566Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -200,7 +152,7 @@
       "salarySource": "estimated",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T09:44:16.812Z",
+      "validThrough": "2027-01-19T21:36:49.566Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -222,7 +174,7 @@
       "url": "https://jobs.apgsga.ch/publication/afficheur-in-wallisellen/fs0uv9ermm41lv2ubrrtjf7kivelnkpkahyy78yp0awsn0pxfiswej30yzwy85hz",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:44:16.329Z",
+      "crawledAt": "2026-11-22T21:36:49.079Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -245,7 +197,7 @@
       "salarySource": "estimated",
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:44:16.329Z",
+      "validThrough": "2027-01-26T21:36:49.079Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -267,7 +219,7 @@
       "url": "https://jobs.apgsga.ch/publication/verkaufsberatung-aussendienst-bern/vkwavwpoo2jxbr09jpnr1wnddc5q0xq0o50iijpdpbrwkmeviovet7cwt7xzih7x",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:44:15.831Z",
+      "crawledAt": "2026-11-22T21:36:48.573Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -290,7 +242,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:44:15.831Z",
+      "validThrough": "2027-02-02T21:36:48.573Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -312,7 +264,7 @@
       "url": "https://jobs.apgsga.ch/publication/crm-manager-in-zuerich/257vd61wfejffr6hvrys2vhxobz74m5bs2hxdxcrs7bd4lymbmc52gdexvquncni",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:44:15.350Z",
+      "crawledAt": "2026-11-22T21:36:48.091Z",
       "addressLocality": "8027 Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -335,7 +287,7 @@
       "salarySource": "estimated",
       "streetAddress": "8027 Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:44:15.350Z",
+      "validThrough": "2027-02-07T21:36:48.091Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -346,5 +298,5 @@
       }
     }
   ],
-  "codeCommit": "193181861b8ea282b062b042b15b99e091d330e5"
+  "codeCommit": "f0ab682774893f4b809c5b75181716509e65ea60"
 }
