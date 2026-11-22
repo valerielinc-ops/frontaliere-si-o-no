@@ -1,7 +1,7 @@
 {
   "crawlerKey": "comuni-ticino",
-  "assembledAt": "2026-11-20T21:55:34.518Z",
-  "runId": "44820571493",
+  "assembledAt": "2026-11-22T09:38:40.369Z",
+  "runId": "45007543197",
   "jobs": [
     {
       "id": "comune-di-losone-350d5f84fa",
@@ -32,9 +32,7 @@
         "fr": "COMMUN DE MUNICY LOSONE CONCURRENCE OPÉRATEUR/ COUR SOCIALE (assistante sociale) La ville de Losone ouvre le concours pour le recrutement d'un travailleur social/femme comme travailleur social et fonctionnaire des institutions sociales pour la municipalité de Losone 100% dans les conditions prévues par le règlement organique pour les employés municipaux (ROD). Principales activités (liste non exhaustive)\n\n- prendre en charge l'action préventive et mondiale, l'aide, la coordination et\n\npromotion des actions sociales, individuelles et/ou collectives sur le territoire;\n\n- assumer la fonction d'antenne et de personne de contact actif sur le territoire municipal, constituant\n\nun point de référence pour tous ceux qui sont confrontés à des situations de malaise ou de besoin, en collaboration avec l'administration municipale et le réseau social existant;\n\n- décaissement des pratiques de l'Agence AVS, du bureau régional de LAPS et des cotisations sociales municipales.\n\nExigences de base\n\n- Baccalauréat en travail social SUP ou titre équivalent en conseil social ou\n\nexpérience pluriannuelle dans le secteur social, avec une bonne connaissance du réseau des services sociaux de la région et du canton. Exigences préférentielles\n\n- connaissance du droit suisse et de l'assurance sociale;\n\n- sensibilité aux questions sociales, de jeunesse et de promotion de la santé;\n\n- permis de conduire le chat. B.\n\n- la citoyenneté suisse ou étrangère avec un permis de séjour de C.I.;\n\n- connaissance des langues nationales, y compris une excellente connaissance de la langue italienne et une bonne\n\nconnaissance de l'allemand;\n\n- de fortes qualités relationnelles;\n\n- autonomie et capacité de grouper le travail;\n\n- flexibilité (en heures de travail mais aussi dans le type d'activité);\n\n- la créativité et le divertissement;\n\nLa liste détaillée des fonctions et activités (chapitre) peut être obtenue auprès de la Chancellerie municipale (tel. 091/785.76.00) ou peut être téléchargé à partir de www.losone.ch. Documents requis ▪ Lettre manuscrite avec indication de la durée de disponibilité ▪ Curriculum vitae ▪ Certificats d'études (avec notes) ▪ Certificats de travail ▪ Certificat individuel d'état civil ou d'acte familial* ▪ Certificat de bonne conduite * ▪ Extrait de la boîte judiciaire ▪ Questionnaire sur l'état de santé ▪ Format de passeport photographique récent.\n\n* Dispense pour domicile dans la commune.\n\nLe certificat individuel d'état civil ou d'acte familial, le certificat de bonne conduite et l'extrait de la case judiciaire doivent être délivrés pendant moins de six mois. Les demandes ou documents incomplets qui ont expiré ne seront pas examinés. Salaire annuel, 13e mois, selon l'échelle des salaires des employés municipaux:\n\n- avec titre académique: classe 9 (min. Fr. 85'558.--, max. Fr. 136'380.--),\n\n- Sans titre académique: classe 7 (min. Fr. 75.250.--, max. Fr. 118.744.--).\n\nOutre le salaire, les allocations familiales sont versées. Entrée en service: dès que possible, être couvent Première année de procès. Les demandes de recrutement, ainsi que les documents mentionnés ci-dessus, doivent être envoyées à l'hôtel de ville de Losone, dans une enveloppe fermée et avec le libellé externe \"Exploitant/travailleur social\", avant 16h00 le vendredi 4 décembre 2026. Bien qu'il ne soit pas inclus dans cet avis de concours, la réglementation organique des employés de la municipalité de Losone a été adoptée. La tâche sera décidée à la seule discrétion de l'hôtel de ville, qui se réserve déjà jusqu'à présent d'annuler le concours si les demandes ne répondent pas aux exigences. Losone, novembre 2026 LE MUNICIPIO"
       },
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "location": "Losone",
       "canton": "TI",
       "addressLocality": "Losone",
@@ -59,7 +57,22 @@
       "source": "Comune di Losone Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-20T21:51:53.133Z",
+      "crawledAt": "2026-11-22T09:35:48.636Z",
+      "previousSlugs": [
+        "per-operatore-trice-sociale-in-qualita-di-assistente-sociale-e-funzionario-a-delle-losone"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "per-operatore-trice-sociale-in-qualita-di-assistente-sociale-e-funzionario-a-delle-losone"
+        ],
+        "de": [
+          "per-operatore-trice-sociale-in-qualita-di-assistente-sociale-e-funzionario-a-delle-losone"
+        ],
+        "fr": [
+          "per-operatore-trice-sociale-in-qualita-di-assistente-sociale-e-funzionario-a-delle-losone"
+        ]
+      },
+      "firstSeenAt": "2026-11-19T21:41:01.092Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -74,23 +87,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
-      "firstSeenAt": "2026-11-19T21:41:01.092Z",
-      "sourceIdentity": "url:https://www.losone.ch/concorso-per-operatoretrice-sociale-in-qualit-di-assistente-sociale-e-funzionarioa-delle-istituzioni-sociali-bando-be91da00?i=1",
-      "previousSlugsByLocale": {
-        "en": [
-          "per-operatore-trice-sociale-in-qualita-di-assistente-sociale-e-funzionario-a-delle-losone"
-        ],
-        "de": [
-          "per-operatore-trice-sociale-in-qualita-di-assistente-sociale-e-funzionario-a-delle-losone"
-        ],
-        "fr": [
-          "per-operatore-trice-sociale-in-qualita-di-assistente-sociale-e-funzionario-a-delle-losone"
-        ]
-      },
-      "previousSlugs": [
-        "per-operatore-trice-sociale-in-qualita-di-assistente-sociale-e-funzionario-a-delle-losone"
-      ]
+      "validThroughSource": "source"
     },
     {
       "id": "comune-di-blenio-61519f1a50",
@@ -146,7 +143,7 @@
       "source": "Comune di Blenio Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-20T21:51:53.133Z",
+      "crawledAt": "2026-11-22T09:35:48.636Z",
       "previousSlugsByLocale": {
         "it": [
           "ausiliario-a-di-pulizia-blenio"
@@ -164,6 +161,7 @@
       "previousSlugs": [
         "ausiliario-a-di-pulizia-blenio"
       ],
+      "firstSeenAt": "2026-11-18T21:52:55.018Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -178,9 +176,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
-      "firstSeenAt": "2026-11-18T21:52:55.018Z",
-      "sourceIdentity": "url:https://www.comuneblenio.ch/concorso-assunzione-ausiliarioa-di-pulizia-6b556a00?i=1"
+      "validThroughSource": "source"
     },
     {
       "id": "comune-di-gambarogno-9e37e7b579",
@@ -211,9 +207,7 @@
         "fr": "AVVISO DI CONCORSO POUR L'ÉVALUATION PERSONNELLE II Gambarogno City Hall ouvre le concours pour le recrutement d'un secrétaire municipal à 100% dans les conditions de la réglementation organique des employés municipaux: L'objectif de la fonction Le secrétaire/communiste assure la gestion, la coordination et le bon fonctionnement de l'administration municipale, assure l'appui juridique, administratif et organisationnel de la mairie et la bonne application de ses décisions. Elle favorise une gestion efficace, moderne et axée sur la qualité des services, assurant la coordination des différents secteurs administratifs, l'amélioration des ressources humaines et l'amélioration continue des processus de travail. Compte tenu de l'importance et de la responsabilité de la fonction, les demandes qui répondent aux exigences et aux compétences requises par le présent avis et ses fonctions seront prises en considération. Prescriptions générales\n\n• la citoyenneté suisse, la possession et l'exercice des droits civils et des comportements exceptionnels;\n\n• constitution physique saine adaptée à la fonction et à la capacité de résistance au stress;\n\n• flexibilité et disponibilité pour effectuer des tâches même en dehors des heures normales de travail;\n\n• l'engagement en faveur de la formation continue sur la fonction;\n\n• permis de conduire le chat. B;\n\n• Langue maternelle italienne avec une bonne connaissance de l'allemand.\n\nExigences et diplômes spécifiques\n\n• Diplôme cantonal pour les directeurs exécutifs des collectivités locales (qui confère\n\nSecrétaire municipal) ou disposé à l'exécuter dans les deux ans suivant l'entrée en service;\n\n• enseignement universitaire (licence ou maîtrise) en droit, économie, sciences politiques\n\nsoit une qualification professionnelle supérieure dans le domaine administratif, ou une maturité commerciale avec une expérience professionnelle prouvée en tant que secrétaire municipal;\n\n• expérience de gestion avérée, éventuellement dans le même domaine;\n\n• connaissance des procédures administratives et du droit public en général;\n\n• expérience dans la gestion du personnel (compétences en leadership);\n\n• capacité éditoriale et synthèse;\n\n• sens de discrétion, de responsabilité, d'exactitude, de précision et de fiabilité;\n\n• compétences de gestion et d'organisation, attitude à l'égard du travail de façon indépendante, esprit\n\nd'initiative et facilite la communication;\n\n• facilité dans la communication interpersonnelle et les relations avec l'administration et\n\nautorité;\n\n• bonne connaissance des applications informatiques (mot, excel, GeCoTi, etc.).\n\nTâches Ceux indiqués dans l'emploi (chapitre des charges) qui peuvent être téléchargés depuis le site 2 Début de l'activité Dès immédiatement ou à la date à convenir. La première année d'utilisation est considérée comme une période d'essai. Les conditions prévues à l'article 36 ROD s'appliquent aux salaires; le salaire est déterminé sur la base de la formation, du respect des exigences du présent chapitre, des connaissances et de l'expérience professionnelle spécifique obtenues et prouvées dans les catégories de salaires suivantes:\n\n• Secrétaire municipal avec titre académique - classe biologique 32-36 ROD:\n\nconsidéré comme un minimum de CHF 95'867.85 et un maximum de CHF 158'767.55 brut annuel (à 100%), y compris le treizième mensuel;\n\n• Secrétaire municipal - classe biologique 31-35 ROD : considéré comme un minimum de CHF\n\n92'664,30 et un maximum de CHF 151'029,85 brut par an (à 100%), y compris le treizième mensuel.\n\n• En plus du salaire, les droits des enfants sont payés\n\nl'économie nationale. Présentation des demandes Les demandes doivent donc être envoyées dans une enveloppe fermée à la Chancellerie municipale avec le libellé externe « Secrétaire municipal du Concours », d'ici le jeudi 17 décembre 2026 à midi, accompagnée des documents suivants :\n\n• lettre de motivation;\n\n• curriculum vitae avec photographie récente;\n\n• diplômes/certificats d'études et de travail, formation professionnelle et mise à jour et\n\ntoute référence;\n\n• certificat de domicile (à l'exclusion des candidats domiciliés dans la municipalité de Gambarogno);\n\n• extrait mis à jour de la boîte judiciaire (valeur maximale de 6 mois);\n\n• certificat de solvabilité actualisé (valeur maximale de 6 mois);\n\n• Certificat SIAC à demander par courrier au Bureau juridique de la Section du Mouvement,\n\nCamorino, di-sc.legal office@ti.ch;\n\n• auto-certification de l'état de santé (cet état de santé pour l'apport de\n\nEmployés de l ' État*.\n\n• autocertification sur le statut de bonne conduite*\n\n(*) documents obtenus sur le site www.gambarogno.ch L'hôtel de ville se réserve le droit de demander d'autres documents lors de l'examen des offres et/ou au moment du recrutement, ainsi que de vérifier l'aptitude et la préparation par entrevue, y compris tout test d'aptitude. Le recrutement aura lieu insindacabile jugement de l'hôtel de ville, qui se réserve le droit d'annuler le concours si les demandes ne répondent pas aux exigences requises. Les questions tardives ou incomplètes ne seront pas prises en considération. Le MUNICIPIO Gambarogno, 16 novembre 2026 / résolution municipale n° 977/2026."
       },
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "location": "Gambarogno",
       "canton": "TI",
       "addressLocality": "Magadino",
@@ -238,7 +232,7 @@
       "source": "Comune di Gambarogno Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-20T21:51:53.133Z",
+      "crawledAt": "2026-11-22T09:35:48.636Z",
       "previousSlugsByLocale": {
         "it": [
           "segretario-a-comunale-gambarogno"
@@ -256,6 +250,7 @@
       "previousSlugs": [
         "segretario-a-comunale-gambarogno"
       ],
+      "firstSeenAt": "2026-11-19T21:41:01.092Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -270,9 +265,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
-      "firstSeenAt": "2026-11-19T21:41:01.092Z",
-      "sourceIdentity": "url:https://www.gambarogno.ch/avviso-di-concorso-per-l-assunzione-di-una-segretarioa-comunale-c1075600?i=1"
+      "validThroughSource": "source"
     },
     {
       "id": "comune-di-morbio-inferiore-351cd966a3",
@@ -328,7 +321,7 @@
       "source": "Comune di Morbio Inferiore Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-20T21:51:53.133Z",
+      "crawledAt": "2026-11-22T09:35:48.636Z",
       "previousSlugs": [
         "per-l-incarico-a-tempo-indeterminato-di-un-a-collaboratore-trice-a-tempo-morbio-inferiore"
       ],
@@ -358,8 +351,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://morbioinf.ch/concorso-per-l-incarico-a-tempo-indeterminato-di-una-collaboratoretrice-a-tempo-parziale-30-presso-l-ufficio-comunicazione-e-eventi-82629400?i=1"
+      "validThroughSource": "source"
     },
     {
       "id": "comune-di-ronco-sopra-ascona-5e72cf1140",
@@ -415,7 +407,7 @@
       "source": "Comune di Ronco sopra Ascona Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-20T21:51:53.133Z",
+      "crawledAt": "2026-11-22T09:35:48.636Z",
       "firstSeenAt": "2026-11-12T09:35:50.554Z",
       "salaryMin": 39600,
       "salaryMax": 60000,
@@ -431,8 +423,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://ronco-s-ascona.ch/wp-content/uploads/2026/11/concorso-per-la-nomina-di-un-una-segretario-segretaria-comunale-50-80.pdf"
+      "validThroughSource": "source"
     },
     {
       "id": "comune-di-massagno-3a59dad318",
@@ -488,7 +479,7 @@
       "source": "Comune di Massagno Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-20T21:51:53.133Z",
+      "crawledAt": "2026-11-22T09:35:48.636Z",
       "firstSeenAt": "2026-11-11T09:50:36.698Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -504,8 +495,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://www.massagno.ch/avviso-di-concorso-per-l-assunzione-di-una-funzionarioa-amministrativoa-presso-l-uca-82d22800?i=1"
+      "validThroughSource": "source"
     },
     {
       "id": "comune-di-minusio-df86ab08f1",
@@ -561,7 +551,7 @@
       "source": "Comune di Minusio Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-20T21:51:53.133Z",
+      "crawledAt": "2026-11-22T09:35:48.636Z",
       "firstSeenAt": "2026-11-05T21:50:58.108Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -577,8 +567,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://www.minusio.ch/concorso-assunzione-addettoa-alle-pulizie-alla-scuola-dell-infanzia-ce378600?i=1"
+      "validThroughSource": "source"
     },
     {
       "id": "comune-di-minusio-ca538f3b18",
@@ -634,7 +623,7 @@
       "source": "Comune di Minusio Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-20T21:51:53.133Z",
+      "crawledAt": "2026-11-22T09:35:48.636Z",
       "firstSeenAt": "2026-11-05T21:50:58.108Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -650,8 +639,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://www.minusio.ch/concorso-assunzione-segretarioa-per-l-istituto-scolastico-comunale-13734b00?i=1"
+      "validThroughSource": "source"
     },
     {
       "id": "comune-di-monteceneri-cf7d4d00b4",
@@ -707,7 +695,7 @@
       "source": "Comune di Monteceneri Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-20T21:51:53.133Z",
+      "crawledAt": "2026-11-22T09:35:48.636Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -723,8 +711,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://www.monteceneri.ch/s/bando-di-concorso-stagisti-52-settimane-2027-2028-ssb9.pdf"
+      "validThroughSource": "source"
     },
     {
       "id": "comune-di-morbio-inferiore-ae298715e9",
@@ -780,7 +767,7 @@
       "source": "Comune di Morbio Inferiore Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-20T21:51:53.133Z",
+      "crawledAt": "2026-11-22T09:35:48.636Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -796,8 +783,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://morbioinf.ch/assunzione-stagista-52-settimane-percorso-mp1-31-3d1ba600?i=1"
+      "validThroughSource": "source"
     },
     {
       "id": "comune-di-biasca-265abc7e1b",
@@ -852,7 +838,7 @@
       "source": "Comune di Biasca Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-20T21:51:53.133Z",
+      "crawledAt": "2026-11-22T09:35:48.636Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -868,9 +854,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T21:51:53.133Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.biasca.ch/avviso-di-pubblicazione-concorso-generale-20252026-per-l-assunzione-di-ausiliarie-di-cucina-supplenti-presso-l-istituto-scolastico-comunale-6748c800?i=1"
+      "validThrough": "2027-01-13T09:35:48.636Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "comune-di-biasca-96e3633ce9",
@@ -925,7 +910,7 @@
       "source": "Comune di Biasca Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-20T21:51:53.133Z",
+      "crawledAt": "2026-11-22T09:35:48.636Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -941,9 +926,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T21:51:53.133Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.biasca.ch/avviso-di-pubblicazione-concorso-generale-20252026-per-l-assunzione-di-ausiliarie-di-pulizia-supplenti-presso-l-istituto-scolastico-comunale-b7a2ff00?i=1"
+      "validThrough": "2027-01-13T09:35:48.636Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "comune-di-massagno-d5a4657ee9",
@@ -999,7 +983,7 @@
       "source": "Comune di Massagno Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-20T21:51:53.133Z",
+      "crawledAt": "2026-11-22T09:35:48.636Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1015,8 +999,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://www.massagno.ch/avviso-di-concorso-generale-per-l-assunzione-di-personale-per-la-casa-anziani-girasole-8ca46200?i=1"
+      "validThroughSource": "source"
     },
     {
       "id": "comune-di-chiasso-66cb0d03f4",
@@ -1072,7 +1055,7 @@
       "source": "Comune di Chiasso Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-20T21:51:53.133Z",
+      "crawledAt": "2026-11-22T09:35:48.636Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1088,8 +1071,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://cdn.cityos.chiasso.city/d67d427d1bc9b51ab2ca0e/e1b1d71c7686/1768299891217bc7f2e12dace526f060533fbafd021ea.pdf"
+      "validThroughSource": "source"
     },
     {
       "id": "comune-di-capriasca-9a03313af4",
@@ -1145,7 +1127,7 @@
       "source": "Comune di Capriasca Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-20T21:51:53.133Z",
+      "crawledAt": "2026-11-22T09:35:48.636Z",
       "previousSlugs": [
         "ausiliario-a-di-pulizia-a-tempo-parziale-per-l-istituto-scolastico-capriasca-capriasca"
       ],
@@ -1175,8 +1157,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://concorsi.capriasca.ch/downdoc.php?id_doc=34111&lng=1&rif=c195b87b37"
+      "validThroughSource": "source"
     },
     {
       "id": "comune-di-collina-d-oro-b5ae09fbd2",
@@ -1232,7 +1213,7 @@
       "source": "Comune di Collina d'Oro Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-20T21:51:53.133Z",
+      "crawledAt": "2026-11-22T09:35:48.636Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -1248,8 +1229,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThroughSource": "source",
-      "sourceIdentity": "url:https://www.collinadoro.swiss/concorso-stagista-per-il-conseguimento-della-maturit-professionale-commerciale-52-settimane-14431900?i=1"
+      "validThroughSource": "source"
     }
   ]
 }

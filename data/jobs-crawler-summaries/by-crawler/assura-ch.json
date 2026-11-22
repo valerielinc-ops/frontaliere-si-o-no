@@ -1,7 +1,7 @@
 {
   "key": "assura-ch",
   "label": "Assura, l’assicurazione malattie al suo fianco",
-  "generatedAt": "2026-11-20T21:54:24.008Z",
+  "generatedAt": "2026-11-22T09:38:29.097Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -10,22 +10,23 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 3,
-  "resurrectedJobs": 1,
+  "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 22754,
-  "avgDurationMs": 22754,
+  "durationMs": 17694,
+  "avgDurationMs": 17694,
   "durationHistory": [
-    22754
+    17694
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "assura-ch-730a949ff3a7",
-      "slug": "gestionnaire-administratif-rh-ou-gestionnaire-administrative-rh-bilingue-fr-de-80-a-100-assura-l-assicurazione-malattie-al-suo-fianco-pully",
+      "slug": "responsabile-amministrativo-hr-o-responsabile-amministrativo-bilingue-hr-fr-de-80-al-100-assura-l-assicurazione-malattie",
       "company": "Assura, l’assicurazione malattie al suo fianco",
       "companyKey": "assura-ch",
       "companyDomain": "assura.ch",
@@ -35,7 +36,7 @@
       "url": "https://www.assura.ch/fr/carriere/postes-a-pourvoir/gestionnaire-admin-pu-de-fr",
       "source": "Assura, l’assicurazione malattie al suo fianco Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:53:20.751Z",
+      "crawledAt": "2026-11-22T09:37:55.379Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -51,26 +52,24 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://www.assura.ch/fr/carriere/postes-a-pourvoir/gestionnaire-admin-pu-de-fr",
-      "needsRetranslation": true,
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "firstSeenAt": "2026-11-08T09:38:59.307Z",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
       "salarySource": "estimated",
       "postalCode": "1009",
       "streetAddress": "Pully",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T21:53:20.751Z",
+      "validThrough": "2027-02-07T09:37:55.379Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-08T09:38:59.307Z",
-      "_qualityScore": 86,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -85,7 +84,7 @@
       "url": "https://www.assura.ch/fr/carriere/postes-a-pourvoir/business-anali-lausanne",
       "source": "Assura, l’assicurazione malattie al suo fianco Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:53:20.763Z",
+      "crawledAt": "2026-11-22T09:37:55.386Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -109,7 +108,7 @@
       "postalCode": "1003",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T21:53:20.763Z",
+      "validThrough": "2027-02-07T09:37:55.386Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -131,7 +130,7 @@
       "url": "https://www.assura.ch/fr/carriere/postes-a-pourvoir/infirmier-conseil-psy-ma",
       "source": "Assura, l’assicurazione malattie al suo fianco Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:53:20.757Z",
+      "crawledAt": "2026-11-22T09:37:55.384Z",
       "addressLocality": "Le Mont-sur-Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -154,7 +153,7 @@
       "postalCode": "1052",
       "streetAddress": "Le Mont-sur-Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T21:53:20.757Z",
+      "validThrough": "2027-02-07T09:37:55.384Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -165,5 +164,5 @@
       }
     }
   ],
-  "codeCommit": "07c2e8305c6747f1893222ba4bfdddc597008157"
+  "codeCommit": "193181861b8ea282b062b042b15b99e091d330e5"
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "az-systems-ch",
-  "assembledAt": "2026-11-20T21:54:41.090Z",
-  "runId": "44820571493",
+  "assembledAt": "2026-11-22T09:36:34.390Z",
+  "runId": "45007543197",
   "jobs": [
     {
       "id": "az-systems-ch-7284f0935048",
@@ -34,7 +34,7 @@
       "url": "https://www.az-systems.ch/jobs-karriere/offene-stellen/detail/techniker-in-gebaeudeautomation-msrl-1664",
       "source": "AZ systems AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:54:25.305Z",
+      "crawledAt": "2026-11-22T09:36:27.294Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -83,9 +83,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:54:25.305Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.az-systems.ch/jobs-karriere/offene-stellen/detail/techniker-in-gebaeudeautomation-msrl-1664"
+      "validThrough": "2026-12-22T09:36:27.294Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "az-systems-ch-b20ca7f58f75",
@@ -118,7 +117,7 @@
       "url": "https://www.az-systems.ch/jobs-karriere/offene-stellen/detail/sachbearbeiter-in-administration-innendienst",
       "source": "AZ systems AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:54:25.303Z",
+      "crawledAt": "2026-11-22T09:36:27.291Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -169,9 +168,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:54:25.303Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.az-systems.ch/jobs-karriere/offene-stellen/detail/sachbearbeiter-in-administration-innendienst"
+      "validThrough": "2027-01-26T09:36:27.291Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

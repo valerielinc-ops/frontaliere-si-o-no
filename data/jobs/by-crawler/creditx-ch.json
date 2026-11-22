@@ -1,7 +1,7 @@
 {
   "crawlerKey": "creditx-ch",
-  "assembledAt": "2026-11-20T21:54:49.274Z",
-  "runId": "44820571493",
+  "assembledAt": "2026-11-22T09:38:07.336Z",
+  "runId": "45007543197",
   "jobs": [
     {
       "id": "creditx-ch-52825786a669",
@@ -34,7 +34,7 @@
       "url": "https://www.creditx.ch/careers/relationship-manager-senior-sion",
       "source": "CreditX Sàrl Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:54:29.513Z",
+      "crawledAt": "2026-11-22T09:37:56.229Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -93,9 +93,8 @@
       },
       "streetAddress": "Place de l'Aubade 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T21:54:29.513Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.creditx.ch/careers/relationship-manager-senior-sion"
+      "validThrough": "2026-12-22T09:37:56.229Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "creditx-ch-ae7f54d22ec9",
@@ -128,7 +127,7 @@
       "url": "https://www.creditx.ch/careers/relationship-manager-junior-sion",
       "source": "CreditX Sàrl Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:54:29.511Z",
+      "crawledAt": "2026-11-22T09:37:56.228Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -187,9 +186,8 @@
       },
       "streetAddress": "Place de l'Aubade 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-28T21:54:29.511Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.creditx.ch/careers/relationship-manager-junior-sion"
+      "validThrough": "2027-01-28T09:37:56.228Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "key": "skan-com",
   "label": "SKAN AG",
-  "generatedAt": "2026-11-20T21:54:09.226Z",
+  "generatedAt": "2026-11-22T09:39:07.035Z",
   "total": 4,
   "discovered": 5,
   "parsed": 5,
@@ -52,19 +52,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 14527,
-  "avgDurationMs": 14527,
+  "durationMs": 11227,
+  "avgDurationMs": 11227,
   "durationHistory": [
-    14527
+    11227
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "skan-com-27dd8ef1a842",
-      "slug": "customer-service-specialist-fixed-term-9-month-contract-allschwil-skan-com-ch",
+      "slug": "servizio-clienti-specialista-fixed-term-9-month-contract-skan-ag-allschwil",
       "company": "SKAN AG",
       "companyKey": "skan-com",
       "companyDomain": "jobs.skan.com",
@@ -74,7 +75,7 @@
       "url": "https://jobs.skan.com/job/allschwil-customer-service-specialist%2c-fixed-term%2c-9-month-contract/1366874757",
       "source": "SKAN AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T21:53:04.058Z",
+      "crawledAt": "2026-11-22T09:38:39.703Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -92,7 +93,7 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.skan.com/job/allschwil-customer-service-specialist%2c-fixed-term%2c-9-month-contract/1366874757",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-19T21:42:13.951Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -111,19 +112,17 @@
         "checkedAt": "2026-11-09T15:43:20.118Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-18T21:53:04.058Z",
+      "validThrough": "2027-02-18T09:38:39.703Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-20T21:53:04.058Z",
-      "_qualityScore": 91,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -138,7 +137,7 @@
       "url": "https://jobs.skan.com/job/allschwil-apprenticeship-in-2027-automation-engineer-efz/1365455957",
       "source": "SKAN AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T21:53:04.072Z",
+      "crawledAt": "2026-11-22T09:38:39.710Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -175,7 +174,7 @@
         "checkedAt": "2026-11-09T15:43:20.118Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-07T21:53:04.072Z",
+      "validThrough": "2027-02-08T09:38:39.710Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -197,7 +196,7 @@
       "url": "https://jobs.skan.com/job/allschwil-team-lead-ict-engineering-&-operations/1361640957",
       "source": "SKAN AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T21:53:04.071Z",
+      "crawledAt": "2026-11-22T09:38:39.707Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -234,7 +233,7 @@
         "checkedAt": "2026-11-09T15:43:20.118Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-07T21:53:04.071Z",
+      "validThrough": "2027-02-08T09:38:39.707Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -256,7 +255,7 @@
       "url": "https://jobs.skan.com/job/allschwil-senior-ict-system-engineer-technical-project-lead-%28mwd%29/1370336957",
       "source": "SKAN AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T21:53:04.066Z",
+      "crawledAt": "2026-11-22T09:38:39.706Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -293,7 +292,7 @@
         "checkedAt": "2026-11-09T15:43:20.118Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-07T21:53:04.066Z",
+      "validThrough": "2027-02-08T09:38:39.706Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -304,5 +303,5 @@
       }
     }
   ],
-  "codeCommit": "07c2e8305c6747f1893222ba4bfdddc597008157"
+  "codeCommit": "193181861b8ea282b062b042b15b99e091d330e5"
 }

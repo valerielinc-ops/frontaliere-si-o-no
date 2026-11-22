@@ -1,7 +1,7 @@
 {
   "key": "skan",
   "label": "Skan AG",
-  "generatedAt": "2026-11-20T21:56:59.758Z",
+  "generatedAt": "2026-11-22T09:37:31.093Z",
   "total": 1,
   "discovered": 5,
   "parsed": 5,
@@ -53,16 +53,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 13101,
-  "avgDurationMs": 13101,
+  "unchangedCount": 1,
+  "durationMs": 11979,
+  "avgDurationMs": 11979,
   "durationHistory": [
-    13101
+    11979
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "skan-4ebca8c52ac9",
       "slug": "process-validation-ingegnere-skan-ag-allschwil",
@@ -75,7 +77,7 @@
       "url": "https://jobs.skan.com/job/Allschwil-Process-Validation-Engineer/1348986457/",
       "source": "Skan AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-20T21:55:53.116Z",
+      "crawledAt": "2026-11-22T09:37:02.470Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -112,7 +114,7 @@
       },
       "streetAddress": "Kreuzstrasse 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-14T21:55:53.116Z",
+      "validThrough": "2027-02-15T09:37:02.470Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -123,7 +125,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "07c2e8305c6747f1893222ba4bfdddc597008157"
+  "codeCommit": "193181861b8ea282b062b042b15b99e091d330e5"
 }
