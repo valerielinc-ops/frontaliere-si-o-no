@@ -1,7 +1,7 @@
 {
   "crawlerKey": "sfs-group",
-  "assembledAt": "2026-11-21T21:32:15.212Z",
-  "runId": "44951078949",
+  "assembledAt": "2026-11-22T09:38:26.278Z",
+  "runId": "45007009871",
   "jobs": [
     {
       "id": "sfs-group-f0d4e07ab393",
@@ -34,7 +34,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/verkaufsberater-in-im-innendienst-bau-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:32:09.684Z",
+      "crawledAt": "2026-11-22T09:38:17.592Z",
       "addressLocality": "Buchs ZH",
       "addressRegion": "ZH",
       "streetAddress": "Buchs ZH",
@@ -87,7 +87,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T21:32:09.684Z",
+      "validThrough": "2027-01-10T09:38:17.592Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -121,7 +121,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/verkaufsberater-in-im-handwerkercenter-(m-f-d)-2.html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:32:09.547Z",
+      "crawledAt": "2026-11-22T09:38:17.479Z",
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
       "streetAddress": "Münchenstein",
@@ -157,6 +157,7 @@
           "verkaufsberater-in-im-handwerkercenter-m-f-d-sfs-group-munchenstein"
         ]
       },
+      "firstSeenAt": "2026-09-01T14:25:28.882Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -171,9 +172,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:32:09.547Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-01T14:25:28.882Z"
+      "validThrough": "2026-12-22T09:38:17.479Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sfs-group-f207510fa814",
@@ -206,7 +206,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/verkaufsberater-in-im-handwerkercenter-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:32:09.411Z",
+      "crawledAt": "2026-11-22T09:38:17.364Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Winterthur",
@@ -254,7 +254,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:32:09.411Z",
+      "validThrough": "2026-12-22T09:38:17.364Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -288,7 +288,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/steuerungstechniker-in-anlagentechniker-in-support-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:32:09.275Z",
+      "crawledAt": "2026-11-22T09:38:17.248Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "streetAddress": "Hallau",
@@ -335,7 +335,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:32:09.275Z",
+      "validThrough": "2026-12-26T09:38:17.248Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -369,7 +369,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/sap-modulbetreuer-pp-qm-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:32:09.135Z",
+      "crawledAt": "2026-11-22T09:38:17.129Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -420,7 +420,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T21:32:09.135Z",
+      "validThrough": "2027-01-12T09:38:17.129Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -454,7 +454,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/sachbearbeiter-debitorenbuchhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:32:08.996Z",
+      "crawledAt": "2026-11-22T09:38:17.012Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -505,7 +505,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T21:32:08.996Z",
+      "validThrough": "2027-02-05T09:38:17.012Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -530,7 +530,7 @@
       "description": "Du möchtest aktiv die Entwicklung und Marktstrategie eines innovativen Produktportfolios im Bereich der hinterlüfteten Fassaden (VHF) mitgestalten? Dann bist du bei uns genau richtig! Als Produkt Manager im Segment Fastening Systems übernimmst du eine zentrale Rolle in der strategischen und operativen Führung unseres Produktsortiments. Du bringst deine technische Expertise, dein Marktverständnis und dein unternehmerisches Denken ein, um innovative Lösungen zu entwickeln und unsere Marktführerschaft auszubauen. Your Tasks:\n• Eigenverantwortliche Betreuung und Weiterentwicklung des Produktportfolios im Bereich VHF\n• Analyse von Markt- und Kundenbedürfnissen sowie Entwicklung passender Produktlösungen\n• Unterstützung des Vertriebs bei technischen Fragestellungen und Einführung neuer Produkte\n• Zusammenarbeit mit Entwicklung, Marketing und internationalen Partnern zur Umsetzung von Projekten Your profile:\n• Abgeschlossene Ausbildung als Produktmanager/in, VHF-Spezialist/in oder Fassadenplaner/in -bauer/in\n• Kenntnisse im Bauwesen – idealerweise im Bereich der vorgehängten hinterlüfteten Fassade\n• Starke kommunikative Fähigkeiten, überzeugendes Auftreten sowie strukturierte und analytische Arbeitsweise\n• Sehr gute Deutsch- und Englischkenntnisse\n• Hohes Mass an Eigeninitiative, Teamgeist, Belastbarkeit und Lernbereitschaft We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Personalrestaurant mit attraktiven Preisen Have we sparked your interest?: Bewerbe dich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleistern.",
       "descriptionByLocale": {
         "it": "Designazione delle merci\nVuoi plasmare attivamente lo sviluppo e la strategia di mercato di un portafoglio di prodotti innovativi nel campo delle facciate ventilate posteriori (VHF)? Allora hai proprio ragione con noi! In qualità di product manager del segmento Sistemi di fissaggio, assumerai un ruolo centrale nella gestione strategica e operativa della nostra gamma di prodotti. Porti nella tua competenza tecnica, la tua comprensione del mercato e il tuo pensiero imprenditoriale per sviluppare soluzioni innovative ed espandere la nostra leadership di mercato.\n\nCompiti\nI tuoi compiti:\n- Supporto auto-responsabile e ulteriore sviluppo del portafoglio prodotti nel settore VHF\n- Analisi delle esigenze del mercato e dei clienti e sviluppo di soluzioni di prodotto adeguate\n- Sostegno alle vendite di prodotti tecnici e introduzione di nuovi prodotti\n- Cooperazione con i partner di sviluppo, marketing e internazionali per l'attuazione dei progetti\n\nRequisiti\nIl tuo profilo:\n- Formazione completa come product manager, specialista VHF o designer/costruttore di facciate\n- Conoscenza nella costruzione. idealmente nell'area della facciata frontale ventilata\n- Forte capacità comunicative, aspetto convincente e metodi di lavoro strutturati e analitici\n- Ottime abilità in tedesco e inglese\n- Alto livello di iniziativa, spirito di squadra, resilienza e disponibilità ad imparare\n\nOffriamo\nOffriamo:\n- Sei settimane di vacanze e acquisto supplementare possibile\n- Partecipazione annuale al successo\n- Fondo pensione proprio sano con piani di risparmio individuali\n- Formazione continua interna e sostegno alla formazione continua esterna\n- Ristorante personale con prezzi interessanti\n\nContatto\nAbbiamo la soia il vostro interesse?: Applica oggi tramite la nostra homepage Offerte di lavoro, Affiliazione SFS Riempiamo questa posizione senza il supporto dei fornitori di servizi del personale.",
-        "en": "Description You want to actively shape the development and market strategy of an innovative product portfolio in the field of back ventilated facades (VHF)? Then you are exactly right with us! As a product manager in the Fastening Systems segment, you take on a central role in the strategic and operational management of our product range. You bring in your technical expertise, your market understanding and your entrepreneurial thinking to develop innovative solutions and expand our market leadership.\n\nTasks Your Tasks: - Self-responsible support and further development of the product portfolio in the area of VHF - Analysis of market and customer needs as well as development of suitable product solutions - Support of sales in technical questions and introduction of new products - Cooperation with development, marketing and international partners for the implementation of projects\n\nRequirements \n• Your profile: - Completed training as product manager, VHF specialist or facade designer - in construction – ideally in the area of the front-mounted rear-ventilated facade - Strong communication skills, convincing appearance as well as structured and analytical working methods - Very good German and English skills - High level of initiative, team spirit, resilience and willingness to learn\n\nWe offer \n• We offer: - Six weeks of holidays & additional holiday purchase possible - Annual participation in success - Own healthy pension fund with individual savings plans - Internal training courses & support of external training - Staff restaurant with attractive prices\n\nContact Have we QUEWED your interest?: Apply today via our homepage Job offers,Affiliation We fill this position without the support of personnel service providers.",
+        "en": "Description You want to actively shape the development and market strategy of an innovative product portfolio in the field of back ventilated facades (VHF)? Then you are exactly right with us! As a product manager in the Fastening Systems segment, you take on a central role in the strategic and operational management of our product range. You bring in your technical expertise, your market understanding and your entrepreneurial thinking to develop innovative solutions and expand our market leadership.\n\nTasks Your Tasks: - Self-responsible support and further development of the product portfolio in the area of VHF - Analysis of market and customer needs as well as development of suitable product solutions - Support of sales in technical questions and introduction of new products - Cooperation with development, marketing and international partners for the implementation of projects\n\nRequirements\n• Your profile: - Completed training as product manager, VHF specialist or facade designer - in construction – ideally in the area of the front-mounted rear-ventilated facade - Strong communication skills, convincing appearance as well as structured and analytical working methods - Very good German and English skills - High level of initiative, team spirit, resilience and willingness to learn\n\nWe offer\n• We offer: - Six weeks of holidays & additional holiday purchase possible - Annual participation in success - Own healthy pension fund with individual savings plans - Internal training courses & support of external training - Staff restaurant with attractive prices\n\nContact Have we QUEWED your interest?: Apply today via our homepage Job offers,Affiliation We fill this position without the support of personnel service providers.",
         "de": "Du möchtest aktiv die Entwicklung und Marktstrategie eines innovativen Produktportfolios im Bereich der hinterlüfteten Fassaden (VHF) mitgestalten? Dann bist du bei uns genau richtig! Als Produkt Manager im Segment Fastening Systems übernimmst du eine zentrale Rolle in der strategischen und operativen Führung unseres Produktsortiments. Du bringst deine technische Expertise, dein Marktverständnis und dein unternehmerisches Denken ein, um innovative Lösungen zu entwickeln und unsere Marktführerschaft auszubauen. Your Tasks:\n• Eigenverantwortliche Betreuung und Weiterentwicklung des Produktportfolios im Bereich VHF\n• Analyse von Markt- und Kundenbedürfnissen sowie Entwicklung passender Produktlösungen\n• Unterstützung des Vertriebs bei technischen Fragestellungen und Einführung neuer Produkte\n• Zusammenarbeit mit Entwicklung, Marketing und internationalen Partnern zur Umsetzung von Projekten Your profile:\n• Abgeschlossene Ausbildung als Produktmanager/in, VHF-Spezialist/in oder Fassadenplaner/in -bauer/in\n• Kenntnisse im Bauwesen – idealerweise im Bereich der vorgehängten hinterlüfteten Fassade\n• Starke kommunikative Fähigkeiten, überzeugendes Auftreten sowie strukturierte und analytische Arbeitsweise\n• Sehr gute Deutsch- und Englischkenntnisse\n• Hohes Mass an Eigeninitiative, Teamgeist, Belastbarkeit und Lernbereitschaft We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Personalrestaurant mit attraktiven Preisen Have we sparked your interest?: Bewerbe dich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleistern.",
         "fr": "Désignation des marchandises\nVous souhaitez façonner activement la stratégie de développement et de marché d'un portefeuille de produits innovants dans le domaine des façades aérés (VHF)? Ensuite, vous avez raison avec nous! En tant que responsable de produit dans le segment des systèmes de fixation, vous assumez un rôle central dans la gestion stratégique et opérationnelle de notre gamme de produits. Vous apportez votre expertise technique, votre compréhension du marché et votre esprit d'entreprise pour développer des solutions innovantes et développer notre leadership sur le marché.\n\nTâches\nVos tâches :\n- Soutien auto-réponsible et développement du portefeuille de produits dans le domaine de VHF\n- Analyse des besoins du marché et des clients et développement de solutions de produits appropriées\n- Soutien aux ventes dans les questions techniques et introduction de nouveaux produits\n- Coopération avec les partenaires internationaux, en matière de développement et de commercialisation pour la mise en œuvre de projets\n\nBesoins\nVotre profil :\n- Formation terminée en tant que gestionnaire de produits, spécialiste VHF ou concepteur/constructeur de façades\n- Connaissance de la construction – idéalement dans la zone de la façade ventilée frontale\n- Des compétences communicatives fortes, une apparence convaincante et des méthodes de travail structurées et analytiques\n- Très bonne compétence en allemand et en anglais\n- Niveau élevé d'initiative, esprit d'équipe, résilience et volonté d'apprendre\n\nNous offrons\nNous proposons :\n- Six semaines de vacances et un achat de vacances supplémentaire possible\n- Participation annuelle au succès\n- Fonds de pension sain avec régime d'épargne individuel\n- Formation continue interne & soutien à la formation continue externe\n- Restaurant du personnel à prix attractifs\n\nPersonne à contacter\nAvez-vous le soja votre intérêt?: Postuler aujourd'hui via notre page d'accueil Offres d'emploi, Affiliation SFS Nous remplissons ce poste sans le soutien des fournisseurs de services de personnel."
       },
@@ -539,7 +539,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/product-manager-rainscreen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:32:08.862Z",
+      "crawledAt": "2026-11-22T09:38:16.891Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -589,7 +589,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-23T21:32:08.862Z",
+      "validThrough": "2026-12-23T09:38:16.891Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -623,7 +623,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/mechaniker-in-schleiftechnik-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:32:08.721Z",
+      "crawledAt": "2026-11-22T09:38:16.770Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -674,7 +674,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-17T21:32:08.721Z",
+      "validThrough": "2027-02-17T09:38:16.770Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -708,7 +708,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:32:08.584Z",
+      "crawledAt": "2026-11-22T09:38:16.654Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "streetAddress": "Hallau",
@@ -760,7 +760,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:32:08.584Z",
+      "validThrough": "2026-12-22T09:38:16.654Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -794,7 +794,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/hr-business-partner-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:32:08.444Z",
+      "crawledAt": "2026-11-22T09:38:16.537Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -831,7 +831,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:32:08.444Z",
+      "validThrough": "2027-02-02T09:38:16.537Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -865,7 +865,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/head-of-approval-and-testing-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:32:08.305Z",
+      "crawledAt": "2026-11-22T09:38:16.417Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -887,6 +887,7 @@
       "legalEntity": "SFS Group Schweiz AG",
       "requirements": [],
       "requirementsByLocale": {},
+      "firstSeenAt": "2026-11-21T21:32:08.305Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -901,9 +902,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-19T21:32:08.305Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:32:08.305Z"
+      "validThrough": "2027-02-20T09:38:16.417Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sfs-group-6fb435221341",
@@ -936,7 +936,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:32:08.168Z",
+      "crawledAt": "2026-11-22T09:38:16.300Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -981,7 +981,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-21T21:32:08.168Z",
+      "validThrough": "2026-12-22T09:38:16.300Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1015,7 +1015,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-oder-betriebselektriker-in-–-instandhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:32:08.030Z",
+      "crawledAt": "2026-11-22T09:38:16.183Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1062,7 +1062,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-21T21:32:08.030Z",
+      "validThrough": "2026-12-22T09:38:16.183Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1096,7 +1096,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-instandhaltung-im-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:32:07.889Z",
+      "crawledAt": "2026-11-22T09:38:16.062Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1141,7 +1141,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T21:32:07.889Z",
+      "validThrough": "2026-12-28T09:38:16.062Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1175,7 +1175,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-inbetriebsetzungstechniker-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:32:07.750Z",
+      "crawledAt": "2026-11-22T09:38:15.943Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1226,7 +1226,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:32:07.750Z",
+      "validThrough": "2027-02-04T09:38:15.943Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1260,7 +1260,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/anwendungstechniker-in-zerspanen-und-spannen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:32:07.599Z",
+      "crawledAt": "2026-11-22T09:38:15.804Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1313,96 +1313,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:32:07.599Z",
+      "validThrough": "2027-01-27T09:38:15.804Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "sfs-group-11eaf92f960a",
-      "slug": "tecnologia-di-formatura-dell-operatore-macchina-m-f-d-sfs-group-heerbrugg",
-      "slugByLocale": {
-        "it": "tecnologia-di-formatura-dell-operatore-macchina-m-f-d-sfs-group-heerbrugg",
-        "en": "machine-operator-forming-technology-m-f-d-sfs-group-heerbrugg",
-        "de": "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg",
-        "fr": "technologie-de-formage-de-la-machine-operateur-h-f-d-sfs-group-heerbrugg"
-      },
-      "company": "SFS Group",
-      "companyKey": "sfs-group",
-      "companyDomain": "sfs.com",
-      "title": "Maschinenbediener/in Umformtechnik (m/f/d)",
-      "titleByLocale": {
-        "it": "Operatore/trice macchina formatrice (m/f/d)",
-        "en": "Machine operator forming technology (m/f/d)",
-        "de": "Maschinenbediener/in Umformtechnik (m/f/d)",
-        "fr": "Opérateur/trice machine technique de formage (h/f/d)"
-      },
-      "description": "Auf ausgewählten und wachstumsstarken Endanwendungen liegt unser Fokus. Am Standort Heerbrugg werden wichtige Präzisionsformteile sowie technische Verbindungselemente und Baugruppen für die Automobilindustrie gefertigt. Wir stellen mit der Kaltmassivumformtechnologie Präzisionsformteile auf modernsten Mehrstufenpressmaschinen her. Möchtest du in diesem Bereich dein Fachwissen aktiv einbringen? Wir freuen uns auf deine Bewerbung! Your Tasks:\n• Einstellen, Bedienen und Überwachen von Mehrstufenpressmaschinen, auf welchen komplexe Kaltumformteile hergestellt werden\n• Verantwortlich für das Beheben von Prozessstörungen\n• Einbringen von Prozessoptimierungen\n• Verantwortlich für die Qualität der gefertigten Produkte\n• Messwerteingaben in das Qualitätssystem Your profile:\n• Abgeschlossene mechanische Grundbildung\n• Gutes technisches Verständnis\n• Hohe Leistungsbereitschaft, Teamfähigkeit und Verlässlichkeit\n• Positive Einstellung zum flexiblen Zweischichtbetrieb\n• Selbständigkeit und Eigeninitiative\n• Deutschkenntnisse in Wort und Schrift We offer:\n• Anstellung in einem zukunftsorientierten Unternehmen mit attraktiven Anstellungsbedingungen\n• Sechs Wochen Ferien & und zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
-      "descriptionByLocale": {
-        "it": "Il nostro focus è sulle applicazioni finali selezionate e ad alta crescita. Nel sito di Heerbrugg vengono prodotte importanti parti stampate di precisione, nonché elementi di fissaggio e assemblaggi tecnici per l'industria automobilistica. Con la tecnologia di formatura a massa fredda, produciamo parti stampate di precisione sulle più moderne presse multistadio. Vuoi contribuire attivamente alla tua esperienza in questo settore? Attendiamo con ansia la vostra applicazione! I vostri compiti:\n• Regolazione, funzionamento e monitoraggio delle presse multistadio su cui vengono prodotte complesse parti a freddo\n• Responsabile per la correzione delle interruzioni di processo\n• Introduzione delle ottimizzazioni di processo\n• Responsabile della qualità dei prodotti fabbricati\n• Input dei valori misurati nel sistema di qualità Il tuo profilo:\n• Formazione meccanica di base completa\n• Buona comprensione tecnica\n• Elevate prestazioni, lavoro di squadra e affidabilità\n• Atteggiamento positivo verso un funzionamento flessibile a due turni\n• Occupazione e iniziativa\n• Competenze tedesche in parola e scrittura Offriamo:\n• Occupazione in una società orientata al futuro con condizioni di lavoro attraenti\n• Sei settimane di vacanze e possibilità di acquisto di vacanze aggiuntive\n• Partecipazione annuale al successo\n• Ristorante personale con prezzi interessanti\n• Altri vantaggi: https://join.sfs.com/ch/de/benefits/",
-        "en": "Our focus is on selected and high-growth end applications. At the Heerbrugg site, important precision molded parts as well as technical fasteners and assemblies for the automotive industry are produced. With the cold mass forming technology, we produce precision molded parts on the most modern multi-stage press machines. Do you want to actively contribute your expertise in this area? We look forward to your application! Your Tasks:\n• Adjustment, operation and monitoring of multistage press machines on which complex cold-formed parts are produced\n• Responsible for correcting process disruptions\n• Introduction of process optimizations\n• Responsible for the quality of the manufactured products\n• Input of measured values into the quality system Your profile:\n• Completed basic mechanical formation\n• Good technical understanding\n• High performance, teamwork and reliability\n• Positive attitude towards flexible two-shift operation\n• Self-employment and initiative\n• German skills in word and writing We offer:\n• Employment in a future-oriented company with attractive employment conditions\n• Six weeks of holidays & additional holiday purchase possible\n• Annual participation in success\n• Staff restaurant with attractive prices\n• Other benefits: https://join.sfs.com/ch/de/benefits/",
-        "de": "Auf ausgewählten und wachstumsstarken Endanwendungen liegt unser Fokus. Am Standort Heerbrugg werden wichtige Präzisionsformteile sowie technische Verbindungselemente und Baugruppen für die Automobilindustrie gefertigt. Wir stellen mit der Kaltmassivumformtechnologie Präzisionsformteile auf modernsten Mehrstufenpressmaschinen her. Möchtest du in diesem Bereich dein Fachwissen aktiv einbringen? Wir freuen uns auf deine Bewerbung! Your Tasks:\n• Einstellen, Bedienen und Überwachen von Mehrstufenpressmaschinen, auf welchen komplexe Kaltumformteile hergestellt werden\n• Verantwortlich für das Beheben von Prozessstörungen\n• Einbringen von Prozessoptimierungen\n• Verantwortlich für die Qualität der gefertigten Produkte\n• Messwerteingaben in das Qualitätssystem Your profile:\n• Abgeschlossene mechanische Grundbildung\n• Gutes technisches Verständnis\n• Hohe Leistungsbereitschaft, Teamfähigkeit und Verlässlichkeit\n• Positive Einstellung zum flexiblen Zweischichtbetrieb\n• Selbständigkeit und Eigeninitiative\n• Deutschkenntnisse in Wort und Schrift We offer:\n• Anstellung in einem zukunftsorientierten Unternehmen mit attraktiven Anstellungsbedingungen\n• Sechs Wochen Ferien & und zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
-        "fr": "Nous nous concentrons sur des applications sélectionnées et à forte croissance. Sur le site de Heerbrugg, d'importantes pièces moulées de précision ainsi que des attaches techniques et des assemblages pour l'industrie automobile sont produits. Avec la technologie de formage à froid, nous produisons des pièces moulées de précision sur les machines à presse multi-étapes les plus modernes. Voulez-vous contribuer activement à votre expertise dans ce domaine? Nous nous réjouissons de votre candidature! Vos tâches :\n• Réglage, fonctionnement et surveillance des machines à presse à plusieurs étages sur lesquelles sont produites des pièces à froid complexes\n• Responsable de la correction des perturbations du processus\n• Introduction des optimisations de processus\n• Responsable de la qualité des produits manufacturés\n• Entrée des valeurs mesurées dans le système qualité Votre profil :\n• Formation mécanique de base achevée\n• Bonne compréhension technique\n• Haute performance, travail d'équipe et fiabilité\n• Attitude positive à l'égard d'un fonctionnement flexible en deux équipes\n• Travail indépendant et initiative\n• Compétences en allemand en paroles et en écriture Nous offrons :\n• L'emploi dans une entreprise orientée vers l'avenir avec des conditions d'emploi attractives\n• Six semaines de vacances et un achat de vacances supplémentaire possible\n• Participation annuelle au succès\n• Restaurant du personnel à prix attractifs\n• Autres avantages: https://join.sfs.com/ch/de/bénéfices/"
-      },
-      "location": "Heerbrugg",
-      "canton": "SG",
-      "url": "https://join.sfs.com/ch/en/vacancies/maschinenbediener-in-umformtechnik-(m-f-d).html",
-      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:47:17.204Z",
-      "addressLocality": "Heerbrugg",
-      "addressRegion": "SG",
-      "streetAddress": "Rosenbergsaustrasse 8",
-      "postalCode": "9435",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Meccanica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobapplication.sfs.com/Vacancies/3074/Application/CheckLogin/1?lang=eng",
-      "jobReqId": "3074",
-      "legalEntity": "SFS Group Schweiz AG",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg",
-        "maschinenbediener-in-umformtechnik-m-w-d-sfs-group-heerbrugg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg"
-        ],
-        "en": [
-          "maschinenbediener-in-umformtechnik-m-w-d-sfs-group-heerbrugg"
-        ],
-        "fr": [
-          "maschinenbediener-in-umformtechnik-m-w-d-sfs-group-heerbrugg"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T23:05:37.535Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T09:47:17.204Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "sourceIdentity": "url:https://join.sfs.com/ch/en/vacancies/maschinenbediener-in-umformtechnik-(m-f-d).html"
     }
   ]
 }

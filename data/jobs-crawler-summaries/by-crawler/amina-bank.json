@@ -1,7 +1,7 @@
 {
   "key": "amina-bank",
   "label": "AMINA Bank",
-  "generatedAt": "2026-11-21T21:33:55.411Z",
+  "generatedAt": "2026-11-22T09:37:21.938Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 5875,
-  "avgDurationMs": 5875,
+  "durationMs": 6494,
+  "avgDurationMs": 6494,
   "durationHistory": [
-    5875
+    6494
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://amina.jobs.personio.com/job/2840347",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:33:40.933Z",
+      "crawledAt": "2026-11-22T09:36:59.469Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -72,7 +72,7 @@
       },
       "streetAddress": "Kolinplatz 15",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-11T21:33:40.933Z",
+      "validThrough": "2027-01-12T09:36:59.469Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -94,7 +94,7 @@
       "url": "https://amina.jobs.personio.com/job/2752820",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:33:40.380Z",
+      "crawledAt": "2026-11-22T09:36:59.011Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -128,7 +128,7 @@
       },
       "streetAddress": "Kolinplatz 15",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-21T21:33:40.380Z",
+      "validThrough": "2026-12-22T09:36:59.011Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -150,7 +150,7 @@
       "url": "https://amina.jobs.personio.com/job/2558847",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:33:39.852Z",
+      "crawledAt": "2026-11-22T09:36:58.539Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -184,7 +184,7 @@
       },
       "streetAddress": "Kolinplatz 15",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-21T21:33:39.852Z",
+      "validThrough": "2026-12-22T09:36:58.539Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -195,5 +195,5 @@
       }
     }
   ],
-  "codeCommit": "4b92eb0854b9f965b31956a24be8b4a2b342e4b2"
+  "codeCommit": "193181861b8ea282b062b042b15b99e091d330e5"
 }
