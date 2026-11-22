@@ -1,7 +1,7 @@
 {
   "crawlerKey": "planzer",
-  "assembledAt": "2026-11-22T09:26:51.573Z",
-  "runId": "45005972042",
+  "assembledAt": "2026-11-22T21:23:28.475Z",
+  "runId": "45070284095",
   "jobs": [
     {
       "id": "planzer-6a0563ddf1e1",
@@ -35,7 +35,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4105999",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:26:10.373Z",
+      "crawledAt": "2026-11-22T21:22:28.734Z",
       "addressLocality": "Dällikon",
       "addressRegion": "ZH",
       "streetAddress": "Dällikon",
@@ -85,7 +85,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-19T09:26:10.373Z",
+      "validThrough": "2027-02-18T21:22:28.734Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -120,7 +120,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4103107",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:26:09.611Z",
+      "crawledAt": "2026-11-22T21:22:28.109Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "streetAddress": "Allmendstrasse 14",
@@ -170,7 +170,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T09:26:09.611Z",
+      "validThrough": "2027-01-20T21:22:28.109Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -205,7 +205,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4102852",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:26:09.022Z",
+      "crawledAt": "2026-11-22T21:22:27.521Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
       "streetAddress": "Salinenstrasse 61",
@@ -255,7 +255,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T09:26:09.022Z",
+      "validThrough": "2027-01-20T21:22:27.521Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -289,7 +289,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4103113",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:26:08.367Z",
+      "crawledAt": "2026-11-22T21:22:26.844Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Lerzenstrasse 14",
@@ -337,7 +337,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:26:08.367Z",
+      "validThrough": "2026-12-22T21:22:26.844Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -372,7 +372,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4102855",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:26:07.775Z",
+      "crawledAt": "2026-11-22T21:22:26.237Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "streetAddress": "Ebnatstrasse 165",
@@ -393,7 +393,9 @@
       "externalId": "4102855",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-22T09:15:34.803Z",
+      "previousSlugs": [
+        "chauffeur-kat-ce-springer-m-w-d-planzer-schaffhausen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-kat-ce-springer-m-w-d-planzer-schaffhausen"
@@ -405,9 +407,7 @@
           "chauffeur-kat-ce-springer-m-w-d-planzer-schaffhausen"
         ]
       },
-      "previousSlugs": [
-        "chauffeur-kat-ce-springer-m-w-d-planzer-schaffhausen"
-      ],
+      "firstSeenAt": "2026-10-22T09:15:34.803Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -422,16 +422,16 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T09:26:07.775Z",
+      "validThrough": "2027-01-20T21:22:26.237Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "planzer-f08531c9d83f",
       "slug": "busta-dipendenti-uqx0xqz-m-f-d-planzer-dintikon",
       "slugByLocale": {
-        "de": "mitarbeiter-umschlag-m-w-d-planzer-dintikon",
         "it": "busta-dipendenti-uqx0xqz-m-f-d-planzer-dintikon",
         "en": "mitarbeiter-umschlag-m-w-d-planzer-dintikon",
+        "de": "mitarbeiter-umschlag-m-w-d-planzer-dintikon",
         "fr": "mitarbeiter-umschlag-m-w-d-planzer-dintikon"
       },
       "company": "Planzer",
@@ -439,24 +439,25 @@
       "companyDomain": "planzer.ch",
       "title": "Mitarbeiter Umschlag (m/w/d)",
       "titleByLocale": {
-        "de": "Mitarbeiter Umschlag (m/w/d)",
         "it": "Busta dipendenti UQX0XQZ (m/f/d)",
         "en": "Employee envelope (m/f/d)",
+        "de": "Mitarbeiter Umschlag (m/w/d)",
         "fr": "L'enveloppe des employés (h/f/d)"
       },
       "description": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Beim Be- und Entladen von LKWs sowie beim Verladen von Bahnwagen zeigst du dein Können und arbeitest sicher und effizient\n• Ein- und Auslagerungen erledigst du souverän und behältst dabei jederzeit den Überblick.\n• Du kontrollierst Waren und Tauschgeräte sorgfältig auf Vollständigkeit und Zustand\n• Eingehende Ware nimmst du entgegen und bearbeitest sie routiniert mit dem MDE-Gerät\n• Lieferscheine und Ladepapiere bearbeitest du korrekt und zuverlässig\n• ADR- und Lagervorschriften hältst du konsequent ein – Sicherheit steht für dich an erster Stelle\n• Gabelstapler, Deichselstapler und Schnellläufer bedienst du sicher, routiniert und verantwortungsbewusst\n\nWeshalb es dir gelingt\n• Deine Arbeitszeiten sind von 05:00 bis 14:00 Uhr oder 14:00 bis ca. 23:00 Uhr (zweiwöchentlicher Wechsel)\n• Du hast bereits Erfahrung im Warenausgang und weisst, worauf es bei der Verladung ankommt\n• Du bist stolzer Besitzer eines Staplerausweises (R2 / S2) - R1 von Vorteil\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Teamarbeit liegt dir, und du bleibst auch in stressigen Momenten flexibel und gelassen\n• Körperlich bist du fit, belastbar und gehst deine Aufgaben mit Energie an\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
       "descriptionByLocale": {
-        "de": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Beim Be- und Entladen von LKWs sowie beim Verladen von Bahnwagen zeigst du dein Können und arbeitest sicher und effizient\n• Ein- und Auslagerungen erledigst du souverän und behältst dabei jederzeit den Überblick.\n• Du kontrollierst Waren und Tauschgeräte sorgfältig auf Vollständigkeit und Zustand\n• Eingehende Ware nimmst du entgegen und bearbeitest sie routiniert mit dem MDE-Gerät\n• Lieferscheine und Ladepapiere bearbeitest du korrekt und zuverlässig\n• ADR- und Lagervorschriften hältst du konsequent ein – Sicherheit steht für dich an erster Stelle\n• Gabelstapler, Deichselstapler und Schnellläufer bedienst du sicher, routiniert und verantwortungsbewusst\n\nWeshalb es dir gelingt\n• Deine Arbeitszeiten sind von 05:00 bis 14:00 Uhr oder 14:00 bis ca. 23:00 Uhr (zweiwöchentlicher Wechsel)\n• Du hast bereits Erfahrung im Warenausgang und weisst, worauf es bei der Verladung ankommt\n• Du bist stolzer Besitzer eines Staplerausweises (R2 / S2) - R1 von Vorteil\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Teamarbeit liegt dir, und du bleibst auch in stressigen Momenten flexibel und gelassen\n• Körperlich bist du fit, belastbar und gehst deine Aufgaben mit Energie an\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "it": "Il movimento è nel nostro DNA – dal 1936. Come azienda di famiglia, apprezziamo le persone che vogliono pensare, farsi coinvolgere e crescere con noi. Diventa parte della nostra famiglia e modella il futuro della logistica dei trasporti e dei magazzini con noi.\n\nChe cosa si muove\n• Quando si caricano e scaricano camion e si caricano auto treno, si mostrano le vostre abilità e lavorare in modo sicuro ed efficiente\n• Completate l'archiviazione e la rimozione sovranamente e tenete la panoramica in ogni momento.\n• Controllare attentamente le merci e scambiare attrezzature per la completezza e la condizione\n• Accetti i beni in arrivo e li tratti regolarmente con il dispositivo MDE\n• Note di consegna e documenti di carico che si elaborano correttamente e in modo affidabile\n• Conformi costantemente le normative ADR e storage – La sicurezza viene prima per voi\n• Carrelli elevatori, carrelli elevatori e veloci corridori servono in modo sicuro, di routine e responsabile\n\nPerché hai successo?\n• Le ore di lavoro sono dalle 05:00 alle 14:00 o 14:00 alle 23:00 circa (cambio di due settimane)\n• Hai già esperienza nella presa di merci e sai cosa conta quando si carica\n• Sei il proprietario orgoglioso di un pass per carrelli elevatori (R2/S2) - R1 è un vantaggio\n• Orale e scritto si può tranquillamente esprimere se stessi in tedesco\n• Il lavoro di squadra è tuo, e rimani flessibile e rilassato anche in momenti stressanti\n• Fisicamente, sei in forma, resiliente e affrontare i tuoi compiti con energia\n\nI vantaggi\n• Attraente regolamento vacanza: Con noi si inizia con 5 settimane vacanze e anche beneficiare di 6 settimane dal 5 ° anno di servizio!\n• Ulteriori opportunità di formazione e sviluppo: Con noi puoi sviluppare - promuoviamo e sfidamo i talenti\n• Allenamento introduttivo centrale: Passerete i vostri primi giorni di lavoro nell'introduzione centrale, dove sarete insegnati le basi più importanti\n• Parcheggio gratuito: Preparatevi per il parcheggio - con noi potete parcheggiare gratuitamente\n\nChi siamo\nPer noi come azienda, l'attenzione è su una cooperazione di supporto e un'atmosfera di lavoro positiva. Ecco perché apprezziamo particolarmente qualità come lo spirito di squadra, la disponibilità e la motivazione. Accogliamo anche grande importanza per la puntualità, la lealtà e l'accuratezza, in quanto questi valori costituiscono la base per un modo di lavoro affidabile e orientato al cliente.",
         "en": "Movement is in our DNA – since 1936. As a family business, we value people who want to think, get involved and grow with us. Become part of our family and shape the future of transport and warehouse logistics with us.\n\nWhat you move\n• When loading and unloading trucks and loading train cars, you show your skills and work safely and efficiently\n• You complete storage and removals sovereignly and keep the overview at all times.\n• You carefully control goods and exchange equipment for completeness and condition\n• You accept incoming goods and process them routinely with the MDE device\n• Delivery notes and loading documents you process correctly and reliably\n• You consistently comply with ADR and storage regulations – Safety comes first for you\n• Forklift trucks, drawbar trucks and fast runners you serve safely, routinely and responsibly\n\nWhy do you succeed?\n• Your working hours are from 05:00 to 14:00 or 14:00 to about 23:00 (two-weekly change)\n• You already have experience in the goods outlet and know what matters when loading\n• You are the proud owner of a forklift pass (R2/S2) - R1 is an advantage\n• Oral and written you can safely express yourself in German\n• Teamwork is yours, and you stay flexible and relaxed even in stressful moments\n• Physically, you are fit, resilient and tackle your tasks with energy\n\nYour benefits\n• Attractive holiday regulations: With us you start with 5 weeks holidays and even benefit from 6 weeks from the 5th year of service!\n• Further education and development opportunities: With us you can develop - we promote and challenge talents\n• Central introductory training: You will spend your first working days in the central introduction, where you will be taught the most important basics\n• Free parking: Get ready for parking - with us you can park for free\n\nWho we are\nFor us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
+        "de": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Beim Be- und Entladen von LKWs sowie beim Verladen von Bahnwagen zeigst du dein Können und arbeitest sicher und effizient\n• Ein- und Auslagerungen erledigst du souverän und behältst dabei jederzeit den Überblick.\n• Du kontrollierst Waren und Tauschgeräte sorgfältig auf Vollständigkeit und Zustand\n• Eingehende Ware nimmst du entgegen und bearbeitest sie routiniert mit dem MDE-Gerät\n• Lieferscheine und Ladepapiere bearbeitest du korrekt und zuverlässig\n• ADR- und Lagervorschriften hältst du konsequent ein – Sicherheit steht für dich an erster Stelle\n• Gabelstapler, Deichselstapler und Schnellläufer bedienst du sicher, routiniert und verantwortungsbewusst\n\nWeshalb es dir gelingt\n• Deine Arbeitszeiten sind von 05:00 bis 14:00 Uhr oder 14:00 bis ca. 23:00 Uhr (zweiwöchentlicher Wechsel)\n• Du hast bereits Erfahrung im Warenausgang und weisst, worauf es bei der Verladung ankommt\n• Du bist stolzer Besitzer eines Staplerausweises (R2 / S2) - R1 von Vorteil\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Teamarbeit liegt dir, und du bleibst auch in stressigen Momenten flexibel und gelassen\n• Körperlich bist du fit, belastbar und gehst deine Aufgaben mit Energie an\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "fr": "Le mouvement est dans notre ADN – depuis 1936. En tant qu'entreprise familiale, nous valorisons les gens qui veulent penser, s'impliquer et grandir avec nous. Devenez membre de notre famille et façonnez l'avenir de la logistique de transport et d'entrepôt avec nous.\n\nCe que tu bouges\n• Lorsque vous chargez et déchargez des camions et des wagons, vous montrez vos compétences et travaillez en toute sécurité et efficacement.\n• Vous complètez le stockage et les suppressions souverainement et conservez l'aperçu en tout temps.\n• Vous contrôlez soigneusement les marchandises et l'équipement d'échange pour l'exhaustivité et l'état\n• Vous acceptez les marchandises entrantes et les traitez régulièrement avec l'appareil MDE\n• Notes de livraison et documents de chargement que vous traitez correctement et de manière fiable\n• Vous respectez systématiquement les règlements ADR et de stockage – La sécurité vient en premier pour vous\n• Chariots élévateurs, chariots à timon et coureurs rapides que vous servez en toute sécurité, régulièrement et de façon responsable\n\nPourquoi tu réussis ?\n• Vos heures de travail sont de 05:00 à 14:00 ou 14:00 à environ 23:00 (changement de deux semaines)\n• Vous avez déjà de l'expérience dans la sortie des marchandises et savez ce qui compte lors du chargement\n• Vous êtes le fier propriétaire d'une passe de chariot élévateur (R2/S2) - R1 est un avantage\n• Oral et écrit vous pouvez vous exprimer en toute sécurité en allemand\n• Le travail d'équipe est à vous, et vous restez flexible et détendu même dans des moments stressants\n• Physiquement, vous êtes en forme, résilient et s'attaquez à vos tâches avec énergie\n\nVos avantages\n• Des règles de vacances attrayantes: Avec nous vous commencez par 5 semaines de vacances et même bénéficier de 6 semaines à partir de la 5ème année de service!\n• Possibilités de formation continue et de développement: Avec nous vous pouvez développer - nous promouvons et défions les talents\n• Formation d'introduction centrale: Vous passerez vos premiers jours de travail dans l'introduction centrale, où vous serez enseigné les bases les plus importantes\n• Parking gratuit: Préparez-vous pour le stationnement - avec nous vous pouvez vous garer gratuitement\n\nQui nous sommes\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération solidaire et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
       },
+      "needsRetranslation": false,
       "location": "Dintikon",
       "canton": "AG",
       "url": "https://live.solique.ch/planzer/job/details/4104005",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:26:07.136Z",
+      "crawledAt": "2026-11-22T21:22:25.653Z",
       "addressLocality": "Dintikon",
       "addressRegion": "AG",
       "streetAddress": "Silostrasse 8",
@@ -476,19 +477,26 @@
       "applyUrl": "https://live.solique.ch/planzer/job/details/4104005",
       "externalId": "4104005",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiter-umschlag-m-w-d-planzer-dintikon",
+        "collaboratore-trice-umschlag-m-w-d-planzer-dintikon",
+        "employee-envelope-m-f-d-planzer-dintikon",
+        "l-enveloppe-des-employes-h-f-d-planzer-dintikon"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-umschlag-m-w-d-planzer-dintikon",
           "collaboratore-trice-umschlag-m-w-d-planzer-dintikon"
+        ],
+        "en": [
+          "employee-envelope-m-f-d-planzer-dintikon"
+        ],
+        "fr": [
+          "l-enveloppe-des-employes-h-f-d-planzer-dintikon"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-umschlag-m-w-d-planzer-dintikon",
-        "collaboratore-trice-umschlag-m-w-d-planzer-dintikon"
-      ],
+      "firstSeenAt": "2026-09-23T23:36:42.003Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -503,17 +511,16 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-23T09:26:07.136Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:36:42.003Z"
+      "validThrough": "2026-12-23T21:22:25.653Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "planzer-06882ceef72b",
       "slug": "it-division-manager-edi-data-integration-m-f-d-planzer-dietikon",
       "slugByLocale": {
-        "de": "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon",
         "it": "it-division-manager-edi-data-integration-m-f-d-planzer-dietikon",
         "en": "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon",
+        "de": "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon",
         "fr": "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon"
       },
       "company": "Planzer",
@@ -521,16 +528,16 @@
       "companyDomain": "planzer.ch",
       "title": "IT Bereichsleiter EDI & DataIntegration (m/w/d)",
       "titleByLocale": {
-        "de": "IT Bereichsleiter EDI & DataIntegration (m/w/d)",
         "it": "IT Division Manager EDI & Data Integration (m/f/d)",
         "en": "IT Division Manager EDI & Data Integration (m/f/d)",
+        "de": "IT Bereichsleiter EDI & DataIntegration (m/w/d)",
         "fr": "Gestionnaire de division informatique EDI & Intégration des données (h/f/d)"
       },
       "description": "Das Leben ist zu kurz für schlechte Software – wir suchen kluge Köpfe! Werde Teil unseres 70-köpfigen IT-Teams voller Energie, Kreativität und Teamgeist.Unser Team besteht aus innovativen Business-Analysten, crazy Programmierern, hilfsbereiten Supportern und vielen anderen arbeitsfreudigen Mitarbeitenden. Bist du bereit, gemeinsam Neues zu bewegen? Dann bewirb dich jetzt!\n\nWas du bewegst\n• Du übernimmst die strategische und operative Gesamtverantwortung für die Low-Code-Plattform Lobster Data World und entwickelst diese gezielt weiter\n• Anspruchsvolle IT-Projekte im Bereich Data Integration initiierst, planst und steuerst du unter Einhaltung der terminlichen, qualitativen und finanziellen Vorgaben\n• Als zentrale Ansprechperson koordinierst du die beteiligten Fachstellen, entwickelst strategische Lösungskonzepte und sorgst für eine reibungslose Integration der Prozesse und Systeme\n• Projektpräsentationen und Dokumentationen erstellst du ebenso wie du Besprechungen und Workshops leitest und mit operativen sowie administrativen Systemen arbeitest\n• Interdisziplinäre Projektteams und Mitarbeitende führst du fachlich und personell mit einem kooperativen, transparenten und zielorientierten Führungsstil\n• Darüber hinaus förderst du die Entwicklung deiner Mitarbeitenden, koordinierst Personalthemen mit HR und steuerst den dir zugeordneten Bereich wirtschaftlich und verantwortungsbewusst\n\nWeshalb es dir gelingt\n• Eine abgeschlossene kaufmännische Ausbildung oder eine gleichwertige Qualifikation, beispielsweise ein Studium in Informatik oder Betriebswirtschaft, bildet deine fachliche Grundlage\n• Mehrjährige Berufserfahrung im Supply Chain Management und in der Informatik bringst du ebenso mit wie idealerweise Erfahrung mit der Lobster-Plattform\n• Dank deiner Führungserfahrung gelingt es dir, Mitarbeitende wertschätzend, klar und zielorientiert zu führen, zu fördern und weiterzuentwickeln\n• Ein ausgeprägter Servicegedanke sowie die konsequente Ausrichtung auf die Bedürfnisse interner und externer Kundinnen und Kunden zeichnen dich aus\n• Deine Arbeitsweise ist zielorientiert, sorgfältig und selbstständig. Zudem überzeugst du mit ausgeprägter Problemerfassungs-, Strukturierungs- und Lösungskompetenz\n• Kommunikationsstärke, Teamfähigkeit, Verantwortungsbewusstsein und unternehmerisches Denken sowie sehr gute Deutsch- und gute Englischkenntnisse runden dein Profil ab\n\nDeine Benefits\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Möglichkeit für Homeoffice: Wir gehen mit der Zeit - geniesse bei uns den Vorteil von Homeoffice\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
       "descriptionByLocale": {
-        "de": "Das Leben ist zu kurz für schlechte Software – wir suchen kluge Köpfe! Werde Teil unseres 70-köpfigen IT-Teams voller Energie, Kreativität und Teamgeist.Unser Team besteht aus innovativen Business-Analysten, crazy Programmierern, hilfsbereiten Supportern und vielen anderen arbeitsfreudigen Mitarbeitenden. Bist du bereit, gemeinsam Neues zu bewegen? Dann bewirb dich jetzt!\n\nWas du bewegst\n• Du übernimmst die strategische und operative Gesamtverantwortung für die Low-Code-Plattform Lobster Data World und entwickelst diese gezielt weiter\n• Anspruchsvolle IT-Projekte im Bereich Data Integration initiierst, planst und steuerst du unter Einhaltung der terminlichen, qualitativen und finanziellen Vorgaben\n• Als zentrale Ansprechperson koordinierst du die beteiligten Fachstellen, entwickelst strategische Lösungskonzepte und sorgst für eine reibungslose Integration der Prozesse und Systeme\n• Projektpräsentationen und Dokumentationen erstellst du ebenso wie du Besprechungen und Workshops leitest und mit operativen sowie administrativen Systemen arbeitest\n• Interdisziplinäre Projektteams und Mitarbeitende führst du fachlich und personell mit einem kooperativen, transparenten und zielorientierten Führungsstil\n• Darüber hinaus förderst du die Entwicklung deiner Mitarbeitenden, koordinierst Personalthemen mit HR und steuerst den dir zugeordneten Bereich wirtschaftlich und verantwortungsbewusst\n\nWeshalb es dir gelingt\n• Eine abgeschlossene kaufmännische Ausbildung oder eine gleichwertige Qualifikation, beispielsweise ein Studium in Informatik oder Betriebswirtschaft, bildet deine fachliche Grundlage\n• Mehrjährige Berufserfahrung im Supply Chain Management und in der Informatik bringst du ebenso mit wie idealerweise Erfahrung mit der Lobster-Plattform\n• Dank deiner Führungserfahrung gelingt es dir, Mitarbeitende wertschätzend, klar und zielorientiert zu führen, zu fördern und weiterzuentwickeln\n• Ein ausgeprägter Servicegedanke sowie die konsequente Ausrichtung auf die Bedürfnisse interner und externer Kundinnen und Kunden zeichnen dich aus\n• Deine Arbeitsweise ist zielorientiert, sorgfältig und selbstständig. Zudem überzeugst du mit ausgeprägter Problemerfassungs-, Strukturierungs- und Lösungskompetenz\n• Kommunikationsstärke, Teamfähigkeit, Verantwortungsbewusstsein und unternehmerisches Denken sowie sehr gute Deutsch- und gute Englischkenntnisse runden dein Profil ab\n\nDeine Benefits\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Möglichkeit für Homeoffice: Wir gehen mit der Zeit - geniesse bei uns den Vorteil von Homeoffice\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "it": "La vita è troppo breve per il software cattivo – stiamo cercando menti intelligenti! Entra a far parte del nostro team IT di 70 anni pieno di energia, creatività e spirito di squadra. Il nostro team è composto da analisti aziendali innovativi, programmatori folli, sostenitori utili e molti altri dipendenti che amano il lavoro. Siete pronti a fare la differenza insieme? Quindi applicare ora!\n\nChe cosa si muove\n• Si assume la responsabilità complessiva strategica e operativa per la piattaforma di basso codice Lobster Data World e svilupparla ulteriormente\n• I progetti IT esigenti nel settore dell'integrazione dei dati sono avviati, pianificati e controllati nel rispetto delle scadenze, dei requisiti qualitativi e finanziari\n• Come persona di contatto centrale, coordina i dipartimenti specializzati coinvolti, sviluppa concetti strategici di soluzione e garantisce un'integrazione fluida di processi e sistemi.\n• È possibile creare presentazioni e documentazione di progetto, nonché riunioni di piombo e workshop e lavorare con sistemi operativi e amministrativi\n• I team e i dipendenti del progetto interdisciplinari vi conducono professionalmente e con personale con uno stile di leadership cooperativo, trasparente e mirato\n• Inoltre, si promuove lo sviluppo dei vostri dipendenti, coordinare gli argomenti del personale con le risorse umane e gestire l'area assegnata a voi economicamente e responsabilmente.\n\nPerché hai successo?\n• Una formazione commerciale completa o una qualifica equivalente, per esempio una laurea in informatica o amministrazione aziendale, forma la vostra base professionale\n• Diversi anni di esperienza professionale nella gestione della supply chain e informatica ti portano così come l'esperienza ideale con la piattaforma Lobster\n• Grazie alla vostra esperienza di leadership, si riesce a guidare, promuovere e sviluppare i dipendenti in modo apprezzativo, chiaro e mirato.\n• Un concetto di servizio pronunciato e un focus coerente sulle esigenze dei clienti interni ed esterni ti hanno separato\n• Il vostro modo di lavorare è orientato all'obiettivo, attento e indipendente. Inoltre, convinci con una forte capacità di cattura, strutturazione e soluzione.\n• La forza di comunicazione, il lavoro di squadra, il senso di responsabilità e il pensiero imprenditoriale, così come le buone competenze tedesche e inglesi completano il tuo profilo\n\nI vantaggi\n• Ulteriori opportunità di formazione e sviluppo: Con noi puoi sviluppare - promuoviamo e sfidamo i talenti\n• Cultura familiare: Tu diventi parte della nostra cultura familiare - rispetto, fiducia e decenza sono importanti per noi\n• Attraente regolamento vacanza: Con noi si inizia con 5 settimane vacanze e anche beneficiare di 6 settimane dal 5 ° anno di servizio!\n• Opportunità per l'ufficio di casa: andiamo con i tempi - godere del vantaggio dell'ufficio di casa\n\nChi siamo\nPer noi come azienda, l'attenzione è su una cooperazione di supporto e un'atmosfera di lavoro positiva. Ecco perché apprezziamo particolarmente qualità come lo spirito di squadra, la disponibilità e la motivazione. Accogliamo anche grande importanza per la puntualità, la lealtà e l'accuratezza, in quanto questi valori costituiscono la base per un modo di lavoro affidabile e orientato al cliente.",
         "en": "Life is too short for bad software – we are looking for smart minds! Become part of our 70-strong IT team full of energy, creativity and team spirit.Our team consists of innovative business analysts, crazy programmers, helpful supporters and many other work-loving employees. Are you ready to make a difference together? Then apply now!\n\nWhat you move\n• You assume strategic and operational overall responsibility for the low-code platform Lobster Data World and develop it further\n• Demanding IT projects in the area of data integration are initiated, planned and controlled in compliance with the deadlines, qualitative and financial requirements\n• As a central contact person, you coordinate the specialist departments involved, develop strategic solution concepts and ensure smooth integration of processes and systems.\n• You create project presentations and documentation as well as lead meetings and workshops and work with operational and administrative systems\n• Interdisciplinary project teams and employees lead you professionally and personnel with a cooperative, transparent and goal-oriented leadership style\n• In addition, you promote the development of your employees, coordinate personnel topics with HR and manage the area assigned to you economically and responsibly.\n\nWhy do you succeed?\n• A completed commercial education or an equivalent qualification, for example a degree in computer science or business administration, forms your professional basis\n• Several years of professional experience in supply chain management and computer science bring you as well as ideally experience with the Lobster platform\n• Thanks to your leadership experience, you succeed in leading, promoting and developing employees in an appreciative, clear and goal-oriented manner.\n• A pronounced service concept and a consistent focus on the needs of internal and external customers set you apart\n• Your way of working is goal-oriented, careful and independent. In addition, you convince with pronounced problem capture, structuring and solution competence\n• Communication strength, teamwork, sense of responsibility and entrepreneurial thinking as well as very good German and English skills round off your profile\n\nYour benefits\n• Further education and development opportunities: With us you can develop - we promote and challenge talents\n• Family culture: You become part of our family culture - respect, trust and decency are important to us\n• Attractive holiday regulations: With us you start with 5 weeks holidays and even benefit from 6 weeks from the 5th year of service!\n• Opportunity for home office: We go with the times - enjoy the advantage of home office\n\nWho we are\nFor us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
+        "de": "Das Leben ist zu kurz für schlechte Software – wir suchen kluge Köpfe! Werde Teil unseres 70-köpfigen IT-Teams voller Energie, Kreativität und Teamgeist.Unser Team besteht aus innovativen Business-Analysten, crazy Programmierern, hilfsbereiten Supportern und vielen anderen arbeitsfreudigen Mitarbeitenden. Bist du bereit, gemeinsam Neues zu bewegen? Dann bewirb dich jetzt!\n\nWas du bewegst\n• Du übernimmst die strategische und operative Gesamtverantwortung für die Low-Code-Plattform Lobster Data World und entwickelst diese gezielt weiter\n• Anspruchsvolle IT-Projekte im Bereich Data Integration initiierst, planst und steuerst du unter Einhaltung der terminlichen, qualitativen und finanziellen Vorgaben\n• Als zentrale Ansprechperson koordinierst du die beteiligten Fachstellen, entwickelst strategische Lösungskonzepte und sorgst für eine reibungslose Integration der Prozesse und Systeme\n• Projektpräsentationen und Dokumentationen erstellst du ebenso wie du Besprechungen und Workshops leitest und mit operativen sowie administrativen Systemen arbeitest\n• Interdisziplinäre Projektteams und Mitarbeitende führst du fachlich und personell mit einem kooperativen, transparenten und zielorientierten Führungsstil\n• Darüber hinaus förderst du die Entwicklung deiner Mitarbeitenden, koordinierst Personalthemen mit HR und steuerst den dir zugeordneten Bereich wirtschaftlich und verantwortungsbewusst\n\nWeshalb es dir gelingt\n• Eine abgeschlossene kaufmännische Ausbildung oder eine gleichwertige Qualifikation, beispielsweise ein Studium in Informatik oder Betriebswirtschaft, bildet deine fachliche Grundlage\n• Mehrjährige Berufserfahrung im Supply Chain Management und in der Informatik bringst du ebenso mit wie idealerweise Erfahrung mit der Lobster-Plattform\n• Dank deiner Führungserfahrung gelingt es dir, Mitarbeitende wertschätzend, klar und zielorientiert zu führen, zu fördern und weiterzuentwickeln\n• Ein ausgeprägter Servicegedanke sowie die konsequente Ausrichtung auf die Bedürfnisse interner und externer Kundinnen und Kunden zeichnen dich aus\n• Deine Arbeitsweise ist zielorientiert, sorgfältig und selbstständig. Zudem überzeugst du mit ausgeprägter Problemerfassungs-, Strukturierungs- und Lösungskompetenz\n• Kommunikationsstärke, Teamfähigkeit, Verantwortungsbewusstsein und unternehmerisches Denken sowie sehr gute Deutsch- und gute Englischkenntnisse runden dein Profil ab\n\nDeine Benefits\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Möglichkeit für Homeoffice: Wir gehen mit der Zeit - geniesse bei uns den Vorteil von Homeoffice\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "fr": "La vie est trop courte pour les mauvais logiciels – nous cherchons des esprits intelligents! Faites partie de notre équipe informatique de 70 personnes pleine d'énergie, de créativité et d'esprit d'équipe. Notre équipe est composée d'analystes d'affaires innovants, de programmeurs fous, de supporters serviables et de nombreux autres employés épris de travail. Êtes-vous prêt à faire la différence ensemble ? Alors appliquez maintenant !\n\nCe que tu bouges\n• Vous assumez la responsabilité stratégique et opérationnelle globale de la plate-forme Lobster Data World et le développez davantage\n• Les projets de TI requis dans le domaine de l'intégration des données sont lancés, planifiés et contrôlés conformément aux échéances, aux exigences qualitatives et financières\n• En tant que personne-ressource centrale, vous coordonnez les services spécialisés concernés, développez des concepts de solutions stratégiques et assurez une intégration harmonieuse des processus et des systèmes.\n• Vous créez des présentations de projets et de la documentation ainsi que des réunions et des ateliers et travaillez avec des systèmes opérationnels et administratifs\n• Les équipes de projet interdisciplinaires et les employés vous dirigent professionnellement et avec du personnel avec un style de leadership coopératif, transparent et axé sur les objectifs\n• De plus, vous favorisez le perfectionnement de vos employés, coordonnez les sujets relatifs au personnel avec les RH et gérez la zone qui vous est assignée de façon économique et responsable.\n\nPourquoi tu réussis ?\n• Une formation commerciale ou une qualification équivalente, par exemple un diplôme en informatique ou en administration des affaires, constitue votre base professionnelle\n• Plusieurs années d'expérience professionnelle en gestion de chaîne d'approvisionnement et en informatique vous apportent ainsi qu'une expérience idéale avec la plateforme Lobster\n• Grâce à votre expérience en leadership, vous réussissez à diriger, à promouvoir et à former des employés d'une manière reconnaissante, claire et axée sur les objectifs.\n• Un concept de service prononcé et un accent constant sur les besoins des clients internes et externes vous distinguent\n• Votre façon de travailler est orientée vers l'objectif, prudente et indépendante. De plus, vous convainquez avec une compétence de capture, de structuration et de solution de problèmes prononcés\n• La force de la communication, le travail d'équipe, le sens des responsabilités et la pensée entrepreneuriale ainsi que de très bonnes compétences en allemand et en anglais complètent votre profil\n\nVos avantages\n• Possibilités de formation continue et de développement: Avec nous vous pouvez développer - nous promouvons et défions les talents\n• Culture familiale : Vous faites partie de notre culture familiale - le respect, la confiance et la décence sont importants pour nous\n• Des règles de vacances attrayantes: Avec nous vous commencez par 5 semaines de vacances et même bénéficier de 6 semaines à partir de la 5ème année de service!\n• Possibilité pour le bureau à domicile: Nous allons avec le temps - profiter de l'avantage du bureau à domicile\n\nQui nous sommes\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération solidaire et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
       },
       "location": "Dietikon",
@@ -538,7 +545,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4103486",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:26:06.481Z",
+      "crawledAt": "2026-11-22T21:22:25.067Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Lerzenstrasse 14",
@@ -558,42 +565,48 @@
       "applyUrl": "https://live.solique.ch/planzer/job/details/4103486",
       "externalId": "4103486",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon",
+        "it-division-manager-edi-data-integration-m-f-d-planzer-dietikon",
+        "gestionnaire-de-division-informatique-edi-integration-des-donnees-h-f-d-planzer-dietikon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon"
+        ],
+        "en": [
+          "it-division-manager-edi-data-integration-m-f-d-planzer-dietikon"
+        ],
+        "fr": [
+          "gestionnaire-de-division-informatique-edi-integration-des-donnees-h-f-d-planzer-dietikon"
+        ]
       },
-      "salaryMin": 79000,
-      "salaryMax": 134500,
+      "firstSeenAt": "2026-09-23T23:36:40.604Z",
+      "salaryMin": 121500,
+      "salaryMax": 206500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 134500,
+          "minValue": 121500,
+          "maxValue": 206500,
           "unitText": "YEAR"
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-23T09:26:06.481Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:36:40.604Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon"
-        ]
-      },
-      "previousSlugs": [
-        "it-bereichsleiter-edi-dataintegration-m-w-d-planzer-dietikon"
-      ]
+      "validThrough": "2026-12-23T21:22:25.067Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "planzer-ddf5d76a30cb",
       "slug": "chauffeur-cat-ce-ausiliario-m-f-d-planzer-bern",
       "slugByLocale": {
-        "de": "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern",
         "it": "chauffeur-cat-ce-ausiliario-m-f-d-planzer-bern",
         "en": "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern",
+        "de": "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern",
         "fr": "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern"
       },
       "company": "Planzer",
@@ -601,24 +614,25 @@
       "companyDomain": "planzer.ch",
       "title": "Chauffeur Kat. CE Aushilfe (m/w/d)",
       "titleByLocale": {
-        "de": "Chauffeur Kat. CE Aushilfe (m/w/d)",
         "it": "Chauffeur Cat. CE ausiliario (m/f/d)",
         "en": "Chauffeur Cat. CE auxiliary (m/f/d)",
+        "de": "Chauffeur Kat. CE Aushilfe (m/w/d)",
         "fr": "Chauffeur Cat. CE auxiliaire (h/f/d)"
       },
       "description": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Anhand der Einsatzplanung der Disposition führst du die Transportaufträge im nationalen Verkehr aus und lieferst die Ware termingerecht und professionell an unsere Kunden\n• Be- und Entladung? Kein Problem für dich - du packst mit an und sorgst dafür, dass alles sicher verstaut ist\n• Du stellst sicher, dass das Ladegut perfekt gesichert ist – nichts bleibt dem Zufall überlassen\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und stets sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n\nWeshalb es dir gelingt\n• Du hast den Führerausweis Kat. CE in der Tasche und kannst Anhängerzug fahren wie ein Profi\n• Von Vorteil bringst du bereits Erfahrungen im Stückguttransport mit und besitzt den Staplerausweis sowie den ADR-Ausweis\n• Deine Fahrerbewilligungen sind alle auf dem neusten Stand\n• In der Region kennst du dich gut aus und fühlst dich auf der Strasse zuhause\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Du bist zuverlässig, flexibel und durch deine Belastbarkeit bereit, auch in stressigen Momenten Vollgas zu geben\n\nDeine Benefits\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Strukturierte Einarbeitung: Du wirst nicht ins kalte Wasser geworfen – wir sorgen für eine klare und strukturierte Einführung\n• Mitarbeitervergünstigungen: Von Rabatten bis zu Sonderaktionen - profitiere rundum von diversen Vergünstigungen\n• Gute Verkehrsanbindung: Top Verkehrsanbindung - schneller zur Arbeit, mehr Freizeit\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
       "descriptionByLocale": {
-        "de": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Anhand der Einsatzplanung der Disposition führst du die Transportaufträge im nationalen Verkehr aus und lieferst die Ware termingerecht und professionell an unsere Kunden\n• Be- und Entladung? Kein Problem für dich - du packst mit an und sorgst dafür, dass alles sicher verstaut ist\n• Du stellst sicher, dass das Ladegut perfekt gesichert ist – nichts bleibt dem Zufall überlassen\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und stets sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n\nWeshalb es dir gelingt\n• Du hast den Führerausweis Kat. CE in der Tasche und kannst Anhängerzug fahren wie ein Profi\n• Von Vorteil bringst du bereits Erfahrungen im Stückguttransport mit und besitzt den Staplerausweis sowie den ADR-Ausweis\n• Deine Fahrerbewilligungen sind alle auf dem neusten Stand\n• In der Region kennst du dich gut aus und fühlst dich auf der Strasse zuhause\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Du bist zuverlässig, flexibel und durch deine Belastbarkeit bereit, auch in stressigen Momenten Vollgas zu geben\n\nDeine Benefits\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Strukturierte Einarbeitung: Du wirst nicht ins kalte Wasser geworfen – wir sorgen für eine klare und strukturierte Einführung\n• Mitarbeitervergünstigungen: Von Rabatten bis zu Sonderaktionen - profitiere rundum von diversen Vergünstigungen\n• Gute Verkehrsanbindung: Top Verkehrsanbindung - schneller zur Arbeit, mehr Freizeit\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "it": "Il movimento è nel nostro DNA – dal 1936. Come azienda di famiglia, apprezziamo le persone che vogliono pensare, farsi coinvolgere e crescere con noi. Diventa parte della nostra famiglia e modella il futuro della logistica dei trasporti e dei magazzini con noi.\n\nChe cosa si muove\n• Sulla base della pianificazione del programma, si effettuano gli ordini di trasporto nel trasporto nazionale e consegnare la merce in tempo e professionalmente ai nostri clienti\n• Caricamento e scarico? Nessun problema per voi - si viene coinvolti e assicurarsi che tutto è sicuro memorizzato\n• Assicurarsi che il carico sia perfettamente protetto – Nulla è lasciato al caso\n• Insieme a voi, il vostro veicolo è il più importante e sempre visibile biglietto da visita della nostra azienda – in modo da prendersi cura della sua cura e manutenzione\n\nPerché hai successo?\n• Hai la patente di guida Kat. CE nella borsa e può guidare rimorchio treno come un professionista\n• Vantaggiosamente, avete già esperienza nel trasporto di carico generale e hanno l'ID del camion e l'ID ADR.\n• I permessi del conducente sono tutti aggiornati\n• Nella regione si conosce bene e sentirsi a casa per strada\n• Orale e scritto si può tranquillamente esprimere se stessi in tedesco\n• Sei affidabile, flessibile e disposto a dare pieno vigore anche in momenti stressanti a causa della tua resilienza\n\nI vantaggi\n• Cultura familiare: Tu diventi parte della nostra cultura familiare - rispetto, fiducia e decenza sono importanti per noi\n• Conoscenze strutturate: Non sarete gettati nell'acqua fredda – garantiamo un'introduzione chiara e strutturata\n• Benefici del dipendente: Da sconti a promozioni speciali - beneficio tutto intorno a vari vantaggi\n• Buone connessioni di trasporto: collegamenti Top trasporto - più veloce al lavoro, più tempo libero\n\nChi siamo\nPer noi come azienda, l'attenzione è su una cooperazione di supporto e un'atmosfera di lavoro positiva. Ecco perché apprezziamo particolarmente qualità come lo spirito di squadra, la disponibilità e la motivazione. Accogliamo anche grande importanza per la puntualità, la lealtà e l'accuratezza, in quanto questi valori costituiscono la base per un modo di lavoro affidabile e orientato al cliente.",
         "en": "Movement is in our DNA – since 1936. As a family business, we value people who want to think, get involved and grow with us. Become part of our family and shape the future of transport and warehouse logistics with us.\n\nWhat you move\n• Based on the scheduling of the schedule, you carry out the transport orders in national transport and deliver the goods on time and professionally to our customers\n• Loading and unloading? No problem for you - you get involved and make sure that everything is safely stored\n• You make sure that the cargo is perfectly secured – Nothing is left to chance\n• Together with you, your vehicle is the most important and always visible business card of our company – so you take care of its care and maintenance\n\nWhy do you succeed?\n• You have the driver's license Kat. CE in the bag and can drive trailer train like a professional\n• Advantageously, you already have experience in general cargo transport and have the truck ID and the ADR ID.\n• Your driver permits are all up to date\n• In the region you know yourself well and feel at home on the street\n• Oral and written you can safely express yourself in German\n• You are reliable, flexible and willing to give full throttle even in stressful moments due to your resilience\n\nYour benefits\n• Family culture: You become part of our family culture - respect, trust and decency are important to us\n• Structured familiarization: You will not be thrown into the cold water – we ensure a clear and structured introduction\n• Employee benefits: From discounts to special promotions - benefit all around from various benefits\n• Good transport connections: Top transport connections - faster to work, more free time\n\nWho we are\nFor us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
+        "de": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Anhand der Einsatzplanung der Disposition führst du die Transportaufträge im nationalen Verkehr aus und lieferst die Ware termingerecht und professionell an unsere Kunden\n• Be- und Entladung? Kein Problem für dich - du packst mit an und sorgst dafür, dass alles sicher verstaut ist\n• Du stellst sicher, dass das Ladegut perfekt gesichert ist – nichts bleibt dem Zufall überlassen\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und stets sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n\nWeshalb es dir gelingt\n• Du hast den Führerausweis Kat. CE in der Tasche und kannst Anhängerzug fahren wie ein Profi\n• Von Vorteil bringst du bereits Erfahrungen im Stückguttransport mit und besitzt den Staplerausweis sowie den ADR-Ausweis\n• Deine Fahrerbewilligungen sind alle auf dem neusten Stand\n• In der Region kennst du dich gut aus und fühlst dich auf der Strasse zuhause\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Du bist zuverlässig, flexibel und durch deine Belastbarkeit bereit, auch in stressigen Momenten Vollgas zu geben\n\nDeine Benefits\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Strukturierte Einarbeitung: Du wirst nicht ins kalte Wasser geworfen – wir sorgen für eine klare und strukturierte Einführung\n• Mitarbeitervergünstigungen: Von Rabatten bis zu Sonderaktionen - profitiere rundum von diversen Vergünstigungen\n• Gute Verkehrsanbindung: Top Verkehrsanbindung - schneller zur Arbeit, mehr Freizeit\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "fr": "Le mouvement est dans notre ADN – depuis 1936. En tant qu'entreprise familiale, nous valorisons les gens qui veulent penser, s'impliquer et grandir avec nous. Devenez membre de notre famille et façonnez l'avenir de la logistique de transport et d'entrepôt avec nous.\n\nCe que tu bouges\n• Sur la base du calendrier, vous effectuez les commandes de transport dans le transport national et livrez les marchandises à temps et professionnellement à nos clients\n• Chargement et déchargement ? Aucun problème pour vous - vous vous impliquez et assurez-vous que tout est stocké en toute sécurité\n• Assurez-vous que la cargaison est parfaitement sécurisée – Rien n'est laissé au hasard\n• Avec vous, votre véhicule est la carte de visite la plus importante et la plus visible de notre entreprise.\n\nPourquoi tu réussis ?\n• Vous avez le permis de conduire Kat. CE dans le sac et peut conduire train remorque comme un professionnel\n• Avantageusement, vous avez déjà une expérience dans le transport général de marchandises et avez l'ID du camion et l'ID ADR.\n• Vos permis de conduire sont à jour\n• Dans la région, vous vous connaissez bien et vous sentez chez vous dans la rue\n• Oral et écrit vous pouvez vous exprimer en toute sécurité en allemand\n• Vous êtes fiable, flexible et prêt à donner plein de gaz même dans des moments stressants en raison de votre résilience\n\nVos avantages\n• Culture familiale : Vous faites partie de notre culture familiale - le respect, la confiance et la décence sont importants pour nous\n• Familiarisation structurée: Vous ne serez pas jeté dans l'eau froide – nous garantissons une introduction claire et structurée\n• Avantages sociaux: Des rabais aux promotions spéciales - bénéficier de divers avantages\n• Bonnes connexions de transport: Top connexions de transport - plus rapide au travail, plus de temps libre\n\nQui nous sommes\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération solidaire et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
       },
+      "needsRetranslation": false,
       "location": "Bern",
       "canton": "BE",
       "url": "https://live.solique.ch/planzer/job/details/4104002",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:26:05.898Z",
+      "crawledAt": "2026-11-22T21:22:24.457Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Murtenstrasse 85",
@@ -638,9 +652,24 @@
       "applyUrl": "https://live.solique.ch/planzer/job/details/4104002",
       "externalId": "4104002",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern",
+        "chauffeur-cat-ce-auxiliary-m-f-d-planzer-bern",
+        "chauffeur-cat-ce-auxiliaire-h-f-d-planzer-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern"
+        ],
+        "en": [
+          "chauffeur-cat-ce-auxiliary-m-f-d-planzer-bern"
+        ],
+        "fr": [
+          "chauffeur-cat-ce-auxiliaire-h-f-d-planzer-bern"
+        ]
       },
+      "firstSeenAt": "2026-09-23T23:36:39.904Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -655,25 +684,16 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-23T09:26:05.898Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:36:39.904Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern"
-        ]
-      },
-      "previousSlugs": [
-        "chauffeur-kat-ce-aushilfe-m-w-d-planzer-bern"
-      ]
+      "validThrough": "2026-12-23T21:22:24.457Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "planzer-3da1b6e8f344",
       "slug": "chauffeur-cat-c-ce-m-f-d-planzer-villmergen",
       "slugByLocale": {
-        "de": "chauffeur-kat-c-ce-m-w-d-planzer-villmergen",
         "it": "chauffeur-cat-c-ce-m-f-d-planzer-villmergen",
         "en": "chauffeur-kat-c-ce-m-w-d-planzer-villmergen",
+        "de": "chauffeur-kat-c-ce-m-w-d-planzer-villmergen",
         "fr": "chauffeur-kat-c-ce-m-w-d-planzer-villmergen"
       },
       "company": "Planzer",
@@ -681,24 +701,25 @@
       "companyDomain": "planzer.ch",
       "title": "Chauffeur Kat. C/CE (m/w/d)",
       "titleByLocale": {
-        "de": "Chauffeur Kat. C/CE (m/w/d)",
         "it": "Chauffeur Cat C/CE (m/f/d)",
         "en": "Chauffeur Cat C/CE (m/f/d)",
+        "de": "Chauffeur Kat. C/CE (m/w/d)",
         "fr": "Chauffeur Cat C/CE (h/f/d)"
       },
       "description": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Du belieferst unsere Kundschaft zuverlässig mit sauberer Palettenware im Stückgutbereich – vorwiegend in der Westschweiz\n• Dabei hältst du dich an den Tourenplan der Disposition und bist bereit, unterwegs zu übernachten\n• Termingerecht und freundlich bedienst du unsere Kundinnen und Kunden\n• Du gehst sorgfältig mit Transportpapieren um und sorgst für eine korrekte Abwicklung\n• Die Kontrolle der Tauschgeräte gehört ebenso zu deinem Verantwortungsbereich\n• Beim Ein- und Ausladen der Güter packst du mit an und sicherst die Ladung fachgerecht\n• Dein Fahrzeug hältst du sauber und in gutem Zustand – Pflege und Unterhalt übernimmst du gewissenhaft\n\nWeshalb es dir gelingt\n• Du besitzt den Führerausweis der Kategorie C oder CE und bist gerne auf Achse\n• Erfahrung im Stückguttransport ist von Vorteil und hilft dir, dich rasch zurechtzufinden\n• Gute Kenntnisse der Schweizer Geografie unterstützen dich bei der sicheren Navigation\n• Belastbarkeit, Flexibilität und Teamfähigkeit zeichnen dich aus – auch in hektischen Situationen\n• Du arbeitest speditiv, sauber und zuverlässig\n• Der sorgfältige Umgang mit Fahrzeug und Arbeitsmitteln ist für dich selbstverständlich\n• In deutscher Sprache kannst du dich gut verständigen – mündlich wie schriftlich\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualitätsbonus: Qualität wird bei uns grossgeschrieben und belohnt\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Grosszügiges Spesenreglement: Mit unserem Spesenreglement bist du gut versorgt\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
       "descriptionByLocale": {
-        "de": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Du belieferst unsere Kundschaft zuverlässig mit sauberer Palettenware im Stückgutbereich – vorwiegend in der Westschweiz\n• Dabei hältst du dich an den Tourenplan der Disposition und bist bereit, unterwegs zu übernachten\n• Termingerecht und freundlich bedienst du unsere Kundinnen und Kunden\n• Du gehst sorgfältig mit Transportpapieren um und sorgst für eine korrekte Abwicklung\n• Die Kontrolle der Tauschgeräte gehört ebenso zu deinem Verantwortungsbereich\n• Beim Ein- und Ausladen der Güter packst du mit an und sicherst die Ladung fachgerecht\n• Dein Fahrzeug hältst du sauber und in gutem Zustand – Pflege und Unterhalt übernimmst du gewissenhaft\n\nWeshalb es dir gelingt\n• Du besitzt den Führerausweis der Kategorie C oder CE und bist gerne auf Achse\n• Erfahrung im Stückguttransport ist von Vorteil und hilft dir, dich rasch zurechtzufinden\n• Gute Kenntnisse der Schweizer Geografie unterstützen dich bei der sicheren Navigation\n• Belastbarkeit, Flexibilität und Teamfähigkeit zeichnen dich aus – auch in hektischen Situationen\n• Du arbeitest speditiv, sauber und zuverlässig\n• Der sorgfältige Umgang mit Fahrzeug und Arbeitsmitteln ist für dich selbstverständlich\n• In deutscher Sprache kannst du dich gut verständigen – mündlich wie schriftlich\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualitätsbonus: Qualität wird bei uns grossgeschrieben und belohnt\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Grosszügiges Spesenreglement: Mit unserem Spesenreglement bist du gut versorgt\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "it": "Il movimento è nel nostro DNA – dal 1936. Come azienda di famiglia, apprezziamo le persone che vogliono pensare, farsi coinvolgere e crescere con noi. Diventa parte della nostra famiglia e modella il futuro della logistica dei trasporti e dei magazzini con noi.\n\nChe cosa si muove\n• Fornite i nostri clienti in modo affidabile con prodotti per pallet puliti nel settore dei carichi generali – principalmente nella Svizzera occidentale\n• In questo modo, si attenersi al programma della disposizione e sono pronti a trascorrere la notte sulla strada\n• Timely e amichevole servite i nostri clienti\n• Gestisci attentamente i documenti di trasporto e assicurati una corretta gestione\n• Il controllo dei dispositivi di scambio è anche parte della vostra responsabilità\n• Quando si carica e scarica la merce si imballa e si assicura il carico correttamente\n• Mantenere il veicolo pulito e in buone condizioni – si prende cura e manutenzione con attenzione\n\nPerché hai successo?\n• Hai la licenza di guida della categoria C o CE e come essere sull'asse\n• L'esperienza nel trasporto merci generale è un vantaggio e vi aiuta a trovare rapidamente la vostra strada\n• Buona conoscenza della geografia svizzera ti supporta nella navigazione sicura\n• Resilienza, flessibilità e lavoro di squadra ti caratterizzano – anche in situazioni frenetiche\n• Si lavora veloce, pulito e affidabile\n• La gestione attenta di veicoli e attrezzature di lavoro è una questione naturalmente per voi\n• È possibile comunicare bene in tedesco – sia verbalmente che per iscritto\n\nI vantaggi\n• Attraente regolamento vacanza: Con noi si inizia con 5 settimane vacanze e anche beneficiare di 6 settimane dal 5 ° anno di servizio!\n• Bonus di qualità: La qualità è scritta nella nostra capitale e premiata\n• Allenamento introduttivo centrale: Passerete i vostri primi giorni di lavoro nell'introduzione centrale, dove sarete insegnati le basi più importanti\n• Regole di spesa generose: Con i nostri regolamenti di spesa sei ben curato\n\nChi siamo\nPer noi come azienda, l'attenzione è su una cooperazione di supporto e un'atmosfera di lavoro positiva. Ecco perché apprezziamo particolarmente qualità come lo spirito di squadra, la disponibilità e la motivazione. Accogliamo anche grande importanza per la puntualità, la lealtà e l'accuratezza, in quanto questi valori costituiscono la base per un modo di lavoro affidabile e orientato al cliente.",
         "en": "Movement is in our DNA – since 1936. As a family business, we value people who want to think, get involved and grow with us. Become part of our family and shape the future of transport and warehouse logistics with us.\n\nWhat you move\n• You supply our customers reliably with clean pallet goods in the general cargo sector – mainly in Western Switzerland\n• In doing so, you stick to the schedule of the disposition and are ready to spend the night on the way\n• Timely and friendly you serve our customers\n• You handle transport documents carefully and ensure correct handling\n• The control of the exchange devices is also part of your responsibility\n• When loading and unloading the goods you pack and secure the load properly\n• You keep your vehicle clean and in good condition – you take care and maintenance carefully\n\nWhy do you succeed?\n• You have the driving license of category C or CE and like to be on the axle\n• Experience in general cargo transport is an advantage and helps you to find your way quickly\n• Good knowledge of Swiss geography supports you in safe navigation\n• Resilience, flexibility and teamwork characterize you – even in hectic situations\n• You work fast, clean and reliable\n• Careful handling of vehicles and work equipment is a matter of course for you\n• You can communicate well in German – both verbally and in writing\n\nYour benefits\n• Attractive holiday regulations: With us you start with 5 weeks holidays and even benefit from 6 weeks from the 5th year of service!\n• Quality bonus: Quality is written in our capital and rewarded\n• Central introductory training: You will spend your first working days in the central introduction, where you will be taught the most important basics\n• Generous expense regulations: With our expense regulations you are well taken care of\n\nWho we are\nFor us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
+        "de": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Du belieferst unsere Kundschaft zuverlässig mit sauberer Palettenware im Stückgutbereich – vorwiegend in der Westschweiz\n• Dabei hältst du dich an den Tourenplan der Disposition und bist bereit, unterwegs zu übernachten\n• Termingerecht und freundlich bedienst du unsere Kundinnen und Kunden\n• Du gehst sorgfältig mit Transportpapieren um und sorgst für eine korrekte Abwicklung\n• Die Kontrolle der Tauschgeräte gehört ebenso zu deinem Verantwortungsbereich\n• Beim Ein- und Ausladen der Güter packst du mit an und sicherst die Ladung fachgerecht\n• Dein Fahrzeug hältst du sauber und in gutem Zustand – Pflege und Unterhalt übernimmst du gewissenhaft\n\nWeshalb es dir gelingt\n• Du besitzt den Führerausweis der Kategorie C oder CE und bist gerne auf Achse\n• Erfahrung im Stückguttransport ist von Vorteil und hilft dir, dich rasch zurechtzufinden\n• Gute Kenntnisse der Schweizer Geografie unterstützen dich bei der sicheren Navigation\n• Belastbarkeit, Flexibilität und Teamfähigkeit zeichnen dich aus – auch in hektischen Situationen\n• Du arbeitest speditiv, sauber und zuverlässig\n• Der sorgfältige Umgang mit Fahrzeug und Arbeitsmitteln ist für dich selbstverständlich\n• In deutscher Sprache kannst du dich gut verständigen – mündlich wie schriftlich\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualitätsbonus: Qualität wird bei uns grossgeschrieben und belohnt\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Grosszügiges Spesenreglement: Mit unserem Spesenreglement bist du gut versorgt\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "fr": "Le mouvement est dans notre ADN – depuis 1936. En tant qu'entreprise familiale, nous valorisons les gens qui veulent penser, s'impliquer et grandir avec nous. Devenez membre de notre famille et façonnez l'avenir de la logistique de transport et d'entrepôt avec nous.\n\nCe que tu bouges\n• Vous fournissez à nos clients des palettes propres dans le secteur du fret général, principalement en Suisse occidentale.\n• Ce faisant, vous vous en tenez au calendrier de la disposition et êtes prêt à passer la nuit sur le chemin\n• Vous servez nos clients en temps opportun et amical\n• Vous manipulez soigneusement les documents de transport et vous assurez une manipulation correcte\n• Le contrôle des dispositifs d'échange fait également partie de votre responsabilité\n• Lors du chargement et du déchargement des marchandises que vous emballez et sécurisez correctement le chargement\n• Vous gardez votre véhicule propre et en bon état – vous prenez soin et l'entretien soigneusement\n\nPourquoi tu réussis ?\n• Vous avez le permis de conduire de catégorie C ou CE et aimez être sur l'essieu\n• L'expérience du transport général de marchandises est un avantage et vous aide à trouver votre chemin rapidement\n• Bonne connaissance de la géographie suisse vous accompagne dans la navigation en toute sécurité\n• La résilience, la flexibilité et le travail d'équipe vous caractérisent – même dans des situations agitées\n• Vous travaillez rapidement, propre et fiable\n• La manipulation soigneuse des véhicules et des équipements de travail est bien sûr une question pour vous\n• Vous pouvez bien communiquer en allemand – tant verbalement que par écrit\n\nVos avantages\n• Des règles de vacances attrayantes: Avec nous vous commencez par 5 semaines de vacances et même bénéficier de 6 semaines à partir de la 5ème année de service!\n• Bonus de qualité: La qualité est écrite dans notre capital et récompensée\n• Formation d'introduction centrale: Vous passerez vos premiers jours de travail dans l'introduction centrale, où vous serez enseigné les bases les plus importantes\n• Règles de dépenses généreuses: Avec nos règlements de dépenses, vous êtes bien pris en charge\n\nQui nous sommes\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération solidaire et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
       },
+      "needsRetranslation": false,
       "location": "Villmergen",
       "canton": "AG",
       "url": "https://live.solique.ch/planzer/job/details/4104008",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:26:05.310Z",
+      "crawledAt": "2026-11-22T21:22:23.867Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "streetAddress": "Allmendstrasse 14",
@@ -718,9 +739,24 @@
       "applyUrl": "https://live.solique.ch/planzer/job/details/4104008",
       "externalId": "4104008",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "chauffeur-kat-c-ce-m-w-d-planzer-villmergen",
+        "chauffeur-cat-c-ce-m-f-d-planzer-villmergen",
+        "chauffeur-cat-c-ce-h-f-d-planzer-villmergen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-c-ce-m-w-d-planzer-villmergen"
+        ],
+        "en": [
+          "chauffeur-cat-c-ce-m-f-d-planzer-villmergen"
+        ],
+        "fr": [
+          "chauffeur-cat-c-ce-h-f-d-planzer-villmergen"
+        ]
       },
+      "firstSeenAt": "2026-09-23T23:36:38.511Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -735,25 +771,16 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-23T09:26:05.310Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:36:38.511Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "chauffeur-kat-c-ce-m-w-d-planzer-villmergen"
-        ]
-      },
-      "previousSlugs": [
-        "chauffeur-kat-c-ce-m-w-d-planzer-villmergen"
-      ]
+      "validThrough": "2026-12-23T21:22:23.867Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "planzer-f39723f0f10d",
       "slug": "trainer-chauffeur-cat-be-m-f-d-planzer-kallnach",
       "slugByLocale": {
-        "de": "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach",
         "it": "trainer-chauffeur-cat-be-m-f-d-planzer-kallnach",
         "en": "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach",
+        "de": "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach",
         "fr": "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach"
       },
       "company": "Planzer",
@@ -761,24 +788,25 @@
       "companyDomain": "planzer.ch",
       "title": "Ausbildner Chauffeur Kat. BE (m/w/d)",
       "titleByLocale": {
-        "de": "Ausbildner Chauffeur Kat. BE (m/w/d)",
         "it": "Trainer Chauffeur Cat. BE (m/f/d)",
         "en": "Trainer Chauffeur Cat. BE (m/f/d)",
+        "de": "Ausbildner Chauffeur Kat. BE (m/w/d)",
         "fr": "Chauffeur-entraîneur Cat. BE (h/f/d)"
       },
       "description": "Als fest verwurzeltes Unternehmen im Seeland bieten wir umfassende Transport- und Lagerlösungen und sorgen mit unseren Abfalltransporten in über 30 Gemeinden für Sauberkeit. Unser Erfolg basiert auf motivierten Mitarbeitenden und moderner Infrastruktur. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nWas du bewegst\n• Du verteilst Stückgutsendungen gemäss Tourenplanung der Disposition in der ganzen Schweiz und sorgst für eine zuverlässige und termingerechte Auslieferung\n• Als eingefleischter Chauffeur hast du Freude daran, dein Fachwissen an Lehrlinge, Quereinsteiger und neue Fahrer weiterzugeben\n• Mit Freude begleitest du unsere Neulinge auf ihren ersten Fahrten mit Motorwagen und Anhänger und stehst ihnen mit Rat und Tat zur Seite\n• Du vermittelst praxisnah alles rund um Ladungssicherung, Anhänger, Fahrzeugaufbau, Hebebühne, sowie einen sicheren und effizienten Fahrstil\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und stets sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n\nWeshalb es dir gelingt\n• Du beherrschst das Fahren mit Anhänger der Kategorie BE und bist sicher damit unterwegs\n• Dank deiner geduldigen und wertschätzenden Art nimmst du dir Zeit Prozesse verständlich rüberzubringen\n• Du bringst eine hohe Flexibilität mit und bist bereit, deine Arbeitszeiten den täglichen Anforderungen und dem Transportvolumen anzupassen\n• Die VZV-Ausbildung ist von Vorteil, jedoch keine Voraussetzung\n• Du hast einen ADR-Ausweis? Perfekt!\n• Dein Strafregisterauszug ist einwandfrei, bei dir gibt es nicht zu beanstanden (bitte mitschicken)\n• Mündlich kannst du dich sicher in deutscher Sprache ausdrücken - Französischkenntnisse sind ein zusätzliches Plus\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualitätsbonus: Qualität wird bei uns grossgeschrieben und belohnt\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
       "descriptionByLocale": {
-        "de": "Als fest verwurzeltes Unternehmen im Seeland bieten wir umfassende Transport- und Lagerlösungen und sorgen mit unseren Abfalltransporten in über 30 Gemeinden für Sauberkeit. Unser Erfolg basiert auf motivierten Mitarbeitenden und moderner Infrastruktur. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nWas du bewegst\n• Du verteilst Stückgutsendungen gemäss Tourenplanung der Disposition in der ganzen Schweiz und sorgst für eine zuverlässige und termingerechte Auslieferung\n• Als eingefleischter Chauffeur hast du Freude daran, dein Fachwissen an Lehrlinge, Quereinsteiger und neue Fahrer weiterzugeben\n• Mit Freude begleitest du unsere Neulinge auf ihren ersten Fahrten mit Motorwagen und Anhänger und stehst ihnen mit Rat und Tat zur Seite\n• Du vermittelst praxisnah alles rund um Ladungssicherung, Anhänger, Fahrzeugaufbau, Hebebühne, sowie einen sicheren und effizienten Fahrstil\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und stets sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n\nWeshalb es dir gelingt\n• Du beherrschst das Fahren mit Anhänger der Kategorie BE und bist sicher damit unterwegs\n• Dank deiner geduldigen und wertschätzenden Art nimmst du dir Zeit Prozesse verständlich rüberzubringen\n• Du bringst eine hohe Flexibilität mit und bist bereit, deine Arbeitszeiten den täglichen Anforderungen und dem Transportvolumen anzupassen\n• Die VZV-Ausbildung ist von Vorteil, jedoch keine Voraussetzung\n• Du hast einen ADR-Ausweis? Perfekt!\n• Dein Strafregisterauszug ist einwandfrei, bei dir gibt es nicht zu beanstanden (bitte mitschicken)\n• Mündlich kannst du dich sicher in deutscher Sprache ausdrücken - Französischkenntnisse sind ein zusätzliches Plus\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualitätsbonus: Qualität wird bei uns grossgeschrieben und belohnt\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "it": "Come azienda fortemente radicata nella regione Seeland, offriamo soluzioni complete di trasporto e stoccaggio e garantire la pulizia in oltre 30 comunità con i nostri trasporti di rifiuti. Il nostro successo si basa su dipendenti motivati e infrastrutture moderne. Diventa parte del nostro team e modella il futuro della logistica!\n\nChe cosa si muove\n• Distribuisci spedizioni di carichi generali in tutta la Svizzera in conformità con la pianificazione programmata del tour e garantisci una consegna affidabile e tempestiva\n• Come autista duro, ti piace trasmettere la tua esperienza agli apprendisti, alle entranti laterali e ai nuovi piloti.\n• Con piacere si accompagnano i nostri nuovi arrivati nei loro primi viaggi con auto e rimorchi e stare da loro con consigli e azioni\n• Insegne tutto pratico su sicurezza del carico, rimorchio, corpo del veicolo, piattaforma di sollevamento, così come uno stile di guida sicuro ed efficiente\n• Insieme a voi, il vostro veicolo è il più importante e sempre visibile biglietto da visita della nostra azienda – in modo da prendersi cura della sua cura e manutenzione\n\nPerché hai successo?\n• Hai imparato la guida con i trailer della categoria BE e sei sicuro sulla strada\n• Grazie alla sua natura paziente e apprezzativa, ci vuole del tempo per comprendere i processi.\n• Portate un alto grado di flessibilità e siete pronti a regolare le vostre ore di lavoro alle esigenze quotidiane e al volume di trasporto\n• La formazione VZV è utile, ma non è un prerequisito\n• Hai una carta ADR? Perfetto!\n• Il tuo record criminale è impeccabile, non c'è nessun reclamo con te (per favore invia contemporaneamente)\n• Orally si può esprimere in modo sicuro in tedesco - la conoscenza del francese è un ulteriore vantaggio\n\nI vantaggi\n• Attraente regolamento vacanza: Con noi si inizia con 5 settimane vacanze e anche beneficiare di 6 settimane dal 5 ° anno di servizio!\n• Bonus di qualità: La qualità è scritta nella nostra capitale e premiata\n• Allenamento introduttivo centrale: Passerete i vostri primi giorni di lavoro nell'introduzione centrale, dove sarete insegnati le basi più importanti\n• Parcheggio gratuito: Preparatevi per il parcheggio - con noi potete parcheggiare gratuitamente\n\nChi siamo\nPer noi come azienda, l'attenzione è su una cooperazione di supporto e un'atmosfera di lavoro positiva. Ecco perché apprezziamo particolarmente qualità come lo spirito di squadra, la disponibilità e la motivazione. Accogliamo anche grande importanza per la puntualità, la lealtà e l'accuratezza, in quanto questi valori costituiscono la base per un modo di lavoro affidabile e orientato al cliente.",
         "en": "As a firmly rooted company in the Seeland region, we offer comprehensive transport and storage solutions and ensure cleanliness in over 30 communities with our waste transports. Our success is based on motivated employees and modern infrastructure. Become part of our team and shape the future of logistics!\n\nWhat you move\n• You distribute general cargo shipments throughout Switzerland in accordance with scheduled tour planning and ensure reliable and timely delivery\n• As a die-hard chauffeur, you enjoy passing on your expertise to apprentices, lateral entrants and new drivers.\n• With pleasure you accompany our newcomers on their first trips with motor cars and trailers and stand by them with advice and deeds\n• You teach practical everything about cargo securing, trailer, vehicle body, lifting platform, as well as a safe and efficient driving style\n• Together with you, your vehicle is the most important and always visible business card of our company – so you take care of its care and maintenance\n\nWhy do you succeed?\n• You have mastered driving with trailers of the BE category and are safely on the road\n• Thanks to your patient and appreciative nature, you take time to understand processes.\n• You bring a high degree of flexibility and are ready to adjust your working hours to the daily requirements and transport volume\n• VZV training is beneficial, but not a prerequisite\n• Do you have an ADR card? Perfect!\n• Your criminal record is impeccable, there is no complaint with you (please send along)\n• Orally you can express yourself safely in German - knowledge of French is an additional plus\n\nYour benefits\n• Attractive holiday regulations: With us you start with 5 weeks holidays and even benefit from 6 weeks from the 5th year of service!\n• Quality bonus: Quality is written in our capital and rewarded\n• Central introductory training: You will spend your first working days in the central introduction, where you will be taught the most important basics\n• Free parking: Get ready for parking - with us you can park for free\n\nWho we are\nFor us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
+        "de": "Als fest verwurzeltes Unternehmen im Seeland bieten wir umfassende Transport- und Lagerlösungen und sorgen mit unseren Abfalltransporten in über 30 Gemeinden für Sauberkeit. Unser Erfolg basiert auf motivierten Mitarbeitenden und moderner Infrastruktur. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nWas du bewegst\n• Du verteilst Stückgutsendungen gemäss Tourenplanung der Disposition in der ganzen Schweiz und sorgst für eine zuverlässige und termingerechte Auslieferung\n• Als eingefleischter Chauffeur hast du Freude daran, dein Fachwissen an Lehrlinge, Quereinsteiger und neue Fahrer weiterzugeben\n• Mit Freude begleitest du unsere Neulinge auf ihren ersten Fahrten mit Motorwagen und Anhänger und stehst ihnen mit Rat und Tat zur Seite\n• Du vermittelst praxisnah alles rund um Ladungssicherung, Anhänger, Fahrzeugaufbau, Hebebühne, sowie einen sicheren und effizienten Fahrstil\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und stets sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n\nWeshalb es dir gelingt\n• Du beherrschst das Fahren mit Anhänger der Kategorie BE und bist sicher damit unterwegs\n• Dank deiner geduldigen und wertschätzenden Art nimmst du dir Zeit Prozesse verständlich rüberzubringen\n• Du bringst eine hohe Flexibilität mit und bist bereit, deine Arbeitszeiten den täglichen Anforderungen und dem Transportvolumen anzupassen\n• Die VZV-Ausbildung ist von Vorteil, jedoch keine Voraussetzung\n• Du hast einen ADR-Ausweis? Perfekt!\n• Dein Strafregisterauszug ist einwandfrei, bei dir gibt es nicht zu beanstanden (bitte mitschicken)\n• Mündlich kannst du dich sicher in deutscher Sprache ausdrücken - Französischkenntnisse sind ein zusätzliches Plus\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualitätsbonus: Qualität wird bei uns grossgeschrieben und belohnt\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "fr": "En tant qu'entreprise solidement implantée dans la région de Seeland, nous proposons des solutions de transport et de stockage complètes et nous assurons la propreté dans plus de 30 communautés avec nos transports de déchets. Notre succès repose sur des employés motivés et une infrastructure moderne. Faites partie de notre équipe et façonnez l'avenir de la logistique!\n\nCe que tu bouges\n• Vous distribuez des cargaisons générales dans toute la Suisse conformément à la planification des visites et vous assurez une livraison fiable et rapide\n• En tant que chauffeur dur, vous aimez transmettre votre expertise aux apprentis, aux entrants latéraux et aux nouveaux conducteurs.\n• Avec plaisir, vous accompagnez nos nouveaux venus lors de leurs premiers voyages avec des voitures et des remorques et vous les tenez à l'écart avec des conseils et des actes\n• Vous enseignez tout sur la fixation du fret, remorque, carrosserie, plate-forme de levage, ainsi qu'un style de conduite sûr et efficace\n• Avec vous, votre véhicule est la carte de visite la plus importante et la plus visible de notre entreprise.\n\nPourquoi tu réussis ?\n• Vous avez maîtrisé la conduite avec des remorques de la catégorie BE et êtes en sécurité sur la route\n• Grâce à votre nature patiente et reconnaissante, vous prenez le temps de comprendre les processus.\n• Vous apportez un haut degré de flexibilité et êtes prêt à adapter vos heures de travail aux besoins quotidiens et au volume de transport\n• La formation VZV est bénéfique, mais pas une condition préalable\n• Avez-vous une carte ADR? Parfait !\n• Votre casier judiciaire est impeccable, il n'y a aucune plainte avec vous (veuillez envoyer)\n• Par voie orale vous pouvez vous exprimer en toute sécurité en allemand - la connaissance du français est un plus supplémentaire\n\nVos avantages\n• Des règles de vacances attrayantes: Avec nous vous commencez par 5 semaines de vacances et même bénéficier de 6 semaines à partir de la 5ème année de service!\n• Bonus de qualité: La qualité est écrite dans notre capital et récompensée\n• Formation d'introduction centrale: Vous passerez vos premiers jours de travail dans l'introduction centrale, où vous serez enseigné les bases les plus importantes\n• Parking gratuit: Préparez-vous pour le stationnement - avec nous vous pouvez vous garer gratuitement\n\nQui nous sommes\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération solidaire et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
       },
+      "needsRetranslation": false,
       "location": "Kallnach",
       "canton": "BE",
       "url": "https://live.solique.ch/planzer/job/details/4103492",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:26:04.569Z",
+      "crawledAt": "2026-11-22T21:22:23.166Z",
       "addressLocality": "Kallnach",
       "addressRegion": "BE",
       "streetAddress": "Brühlgasse 9",
@@ -798,9 +826,24 @@
       "applyUrl": "https://live.solique.ch/planzer/job/details/4103492",
       "externalId": "4103492",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach",
+        "trainer-chauffeur-cat-be-m-f-d-planzer-kallnach",
+        "chauffeur-entraineur-cat-be-h-f-d-planzer-kallnach"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach"
+        ],
+        "en": [
+          "trainer-chauffeur-cat-be-m-f-d-planzer-kallnach"
+        ],
+        "fr": [
+          "chauffeur-entraineur-cat-be-h-f-d-planzer-kallnach"
+        ]
       },
+      "firstSeenAt": "2026-09-23T23:36:37.809Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -815,17 +858,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-23T09:26:04.569Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:36:37.809Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach"
-        ]
-      },
-      "previousSlugs": [
-        "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach"
-      ]
+      "validThrough": "2026-12-23T21:22:23.166Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "planzer-5d7e25cf0aca",
@@ -922,7 +956,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-17T21:23:14.108Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "planzer-8f3bb559da47",
@@ -1008,7 +1042,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-18T21:23:13.524Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "planzer-726ae0b000f9",
@@ -1093,7 +1127,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-18T21:23:12.936Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "planzer-a144f4ce0ee7",
@@ -1177,7 +1211,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-18T21:23:12.336Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "planzer-5dd8baa3e83c",
@@ -1270,407 +1304,6 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-20T21:23:11.749Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "planzer-823e5d5e5b71",
-      "slug": "risorse-umane-generalist-m-wd-planzer-harkingen",
-      "slugByLocale": {
-        "it": "risorse-umane-generalist-m-wd-planzer-harkingen",
-        "en": "hr-generalist-m-wd-planzer-harkingen",
-        "de": "hr-generalist-m-wd-planzer-harkingen",
-        "fr": "ressources-humaines-generalist-m-wd-planzer-harkingen"
-      },
-      "company": "Planzer",
-      "companyKey": "planzer",
-      "companyDomain": "planzer.ch",
-      "title": "HR-Generalist (m/wd)",
-      "titleByLocale": {
-        "it": "Risorse Umane-Generalist (m/wd)",
-        "en": "HR Generalist (m/f/d)",
-        "de": "HR-Generalist (m/wd)",
-        "fr": "Ressources Humaines-Generalist (m/wd)"
-      },
-      "description": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Du sorgst dafür, dass alle Prozesse reibungslos laufen und begleitest den gesamten HR-Lifecycle\n• Recruiting und ein gelungenes Onboarding liegen dir am Herzen und du magst es aktiv mitzuwirken\n• Von der Pflege der Ausweise bis zur Organisation der Kurse – du stellst sicher, dass unsere Mitarbeiter jederzeit alle nötigen Schulungen besucht haben\n• Administration ist voll dein Ding! Personalkorrespondenz, Zeiterfassung und Pflege der Personaldossiers gehören für dich dazu\n• Du unterstützt das HR-Team und packst flexibel dort an, wo du gebraucht wirst\n\nWeshalb es dir gelingt\n• Du hast die Weiterbildung Personalassistent/in in der Tasche und bereits berufliche Erfahrung im HR gesammelt\n• Mündlich und schriftlich kannst du dich stilsicher in Deutsch ausdrücken\n• Kommunikation auf Augenhöhe ist dir wichtig und deine Hands-on-Mentalität zeichnet dich aus\n• Eine selbstständige und strukturierte Arbeitsweise rundet dein Profil ab\n• Du setzt Prioritäten, behältst den Überblick und bleibst auch bei hohem Arbeitsvolumen gelassen\n\nDeine Benefits\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Interner Personalladen: Profitiere in unserem internen Personalladen von vergünstigten Preisen\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
-      "descriptionByLocale": {
-        "it": "Il movimento è nel nostro DNA – dal 1936. Come azienda di famiglia, apprezziamo le persone che vogliono pensare, farsi coinvolgere e crescere con noi. Diventa parte della nostra famiglia e modella il futuro della logistica dei trasporti e dei magazzini con noi.\n\nChe cosa si muove\n• Assicurarsi che tutti i processi funzionino senza intoppi e accompagnino l'intero ciclo di vita HR\n• Recruiting e successo a bordo sono importanti per voi e vi piace partecipare attivamente\n• Dal mantenimento degli ID per l'organizzazione dei corsi – assicurarsi che i nostri dipendenti abbiano frequentato tutti i corsi necessari in ogni momento\n• L'amministrazione e' piena delle tue cose! La corrispondenza del personale, la registrazione del tempo e la manutenzione dei dossier del personale fanno parte di questo per voi\n• Sostiene il team HR e affronta in modo flessibile dove è necessario\n\nPerché hai successo?\n• Hai l'assistente di formazione HR in tasca e già acquisito esperienza professionale in HR\n• Orale e scritto si può esprimere con eleganza in tedesco\n• La comunicazione a livello degli occhi è importante per te e la tua mentalità hands-on ti distingue\n• Un metodo di lavoro indipendente e strutturato completa il tuo profilo\n• Impostare le priorità, mantenere una panoramica e rimanere stabile anche con volumi di lavoro elevati\n\nI tuoi vantaggi\n• Ulteriori opportunità di formazione e sviluppo: Con noi puoi sviluppare - promuoviamo e sfidamo i talenti\n• Cultura familiare: Tu diventi parte della nostra cultura familiare - rispetto, fiducia e decenza sono importanti per noi\n• Attraente regolamento vacanza: Con noi si inizia con 5 settimane vacanze e anche beneficiare di 6 settimane dal 5 ° anno di servizio!\n• Negozio personale interno: Approfitta dei prezzi scontati nel nostro negozio personale interno\n\nChi siamo\nPer noi come azienda, l'attenzione è su una cooperazione di supporto e un'atmosfera di lavoro positiva. Ecco perché apprezziamo particolarmente qualità come lo spirito di squadra, la disponibilità e la motivazione. Accogliamo anche grande importanza per la puntualità, la lealtà e l'accuratezza, in quanto questi valori costituiscono la base per un modo di lavoro affidabile e orientato al cliente.",
-        "en": "Movement is in our DNA – since 1936. As a family business, we value people who want to think, get involved and grow with us. Become part of our family and shape the future of transport and warehouse logistics with us.\n\nWhat you move\n• You ensure that all processes run smoothly and accompany the entire HR lifecycle\n• Recruiting and successful onboarding are important to you and you like to actively participate\n• From maintaining the IDs to organizing the courses – you make sure that our employees have attended all the necessary training at all times\n• Administration is full of your thing! Personnel correspondence, time recording and maintenance of personnel dossiers are part of this for you\n• You support the HR team and flexibly tackle where you are needed\n\nWhy do you succeed?\n• You have the training HR assistant in your pocket and already gained professional experience in HR\n• Oral and written you can express yourself stylishly in German\n• Communication at eye level is important to you and your hands-on mentality distinguishes you\n• An independent and structured working method rounds off your profile\n• You set priorities, keep an overview and remain stable even with high work volumes\n\nYour benefits\n• Further education and development opportunities: With us you can develop - we promote and challenge talents\n• Family culture: You become part of our family culture - respect, trust and decency are important to us\n• Attractive holiday regulations: With us you start with 5 weeks holidays and even benefit from 6 weeks from the 5th year of service!\n• Internal personal store: Benefit from discounted prices in our internal personal store\n\nWho we are\nFor us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
-        "de": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Du sorgst dafür, dass alle Prozesse reibungslos laufen und begleitest den gesamten HR-Lifecycle\n• Recruiting und ein gelungenes Onboarding liegen dir am Herzen und du magst es aktiv mitzuwirken\n• Von der Pflege der Ausweise bis zur Organisation der Kurse – du stellst sicher, dass unsere Mitarbeiter jederzeit alle nötigen Schulungen besucht haben\n• Administration ist voll dein Ding! Personalkorrespondenz, Zeiterfassung und Pflege der Personaldossiers gehören für dich dazu\n• Du unterstützt das HR-Team und packst flexibel dort an, wo du gebraucht wirst\n\nWeshalb es dir gelingt\n• Du hast die Weiterbildung Personalassistent/in in der Tasche und bereits berufliche Erfahrung im HR gesammelt\n• Mündlich und schriftlich kannst du dich stilsicher in Deutsch ausdrücken\n• Kommunikation auf Augenhöhe ist dir wichtig und deine Hands-on-Mentalität zeichnet dich aus\n• Eine selbstständige und strukturierte Arbeitsweise rundet dein Profil ab\n• Du setzt Prioritäten, behältst den Überblick und bleibst auch bei hohem Arbeitsvolumen gelassen\n\nDeine Benefits\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Interner Personalladen: Profitiere in unserem internen Personalladen von vergünstigten Preisen\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
-        "fr": "Le mouvement est dans notre ADN – depuis 1936. En tant qu'entreprise familiale, nous valorisons les gens qui veulent penser, s'impliquer et grandir avec nous. Devenez membre de notre famille et façonnez l'avenir de la logistique de transport et d'entrepôt avec nous.\n\nCe que tu bouges\n• Vous veillez à ce que tous les processus se déroulent en douceur et accompagnent l'ensemble du cycle de vie des RH\n• Le recrutement et le succès à bord sont importants pour vous et vous aimez participer activement\n• Du maintien des ID à l'organisation des cours, vous assurez que nos employés ont suivi en tout temps toutes les formations nécessaires.\n• L'administration est pleine de ton truc ! La correspondance du personnel, l'enregistrement du temps et la tenue des dossiers du personnel font partie de ce qui vous concerne.\n• Vous soutenez l'équipe RH et vous attaquez avec souplesse là où vous êtes nécessaire\n\nPourquoi tu réussis ?\n• Vous avez l'assistant de formation RH dans votre poche et avez déjà acquis une expérience professionnelle en RH\n• Oral et écrit vous pouvez vous exprimer élégamment en allemand\n• La communication au niveau des yeux est importante pour vous et votre mentalité pratique vous distingue\n• Une méthode de travail indépendante et structurée complète votre profil\n• Vous définissez des priorités, gardez un aperçu et restez stable même avec des volumes de travail élevés\n\nVos avantages\n• Possibilités de formation continue et de développement: Avec nous vous pouvez développer - nous promouvons et défions les talents\n• Culture familiale : Vous faites partie de notre culture familiale - le respect, la confiance et la décence sont importants pour nous\n• Des règles de vacances attrayantes: Avec nous vous commencez par 5 semaines de vacances et même bénéficier de 6 semaines à partir de la 5ème année de service!\n• Magasin personnel interne: Bénéficiez de prix réduits dans notre magasin personnel interne\n\nQui nous sommes\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération solidaire et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
-      },
-      "needsRetranslation": false,
-      "location": "Härkingen",
-      "canton": "SO",
-      "url": "https://live.solique.ch/planzer/job/details/4102648",
-      "source": "Planzer Dedicated Parser (Solique)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:21:28.084Z",
-      "addressLocality": "Härkingen",
-      "addressRegion": "SO",
-      "streetAddress": "Pfannenstiel 12",
-      "postalCode": "4624",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti / Logistica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://live.solique.ch/planzer/job/details/4102648",
-      "externalId": "4102648",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "hr-generalist-m-wd-planzer-harkingen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "hr-generalist-m-wd-planzer-harkingen"
-        ],
-        "fr": [
-          "hr-generalist-m-wd-planzer-harkingen"
-        ]
-      },
-      "firstSeenAt": "2026-11-16T09:21:14.714Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T21:21:28.084Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/planzer/job/details/4102648",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "planzer-fa807ad52657",
-      "slug": "consegna-del-parco-m-f-d-planzer-zurich-altstetten",
-      "slugByLocale": {
-        "it": "consegna-del-parco-m-f-d-planzer-zurich-altstetten",
-        "en": "parcel-delivery-m-f-d-planzer-zurich-altstetten",
-        "de": "paketzusteller-m-w-d-planzer-zurich-altstetten",
-        "fr": "livraison-de-colis-h-f-d-planzer-zurich-altstetten"
-      },
-      "company": "Planzer",
-      "companyKey": "planzer",
-      "companyDomain": "planzer.ch",
-      "title": "Paketzusteller (m/w/d)",
-      "titleByLocale": {
-        "it": "Consegna del parco (m/f/d)",
-        "en": "Parcel delivery (m/f/d)",
-        "de": "Paketzusteller (m/w/d)",
-        "fr": "Livraison de colis (h/f/d)"
-      },
-      "description": "Planzer Paket steht für zuverlässige und schnelle Paketzustellungen in der Schweiz. Als Teil unseres Teams trägst du aktiv dazu bei, unseren hohen Qualitätsanspruch und Service weiterzuentwickeln. Wir bieten dir eine abwechslungsreiche Tätigkeit in einem zukunftsorientierten Unternehmen, das auf nachhaltige Lösungen setzt. Werde Teil unseres Teams und gestalte die Zukunft der Paketwelt mit!\n\nWas du bewegst\n• Am Morgen übernimmst du dein fertig beladenes Fahrzeug und machst dich auf den Weg, um Pakete in deinem Zustellgebiet auszuliefern\n• Du lieferst Pakete zuverlässig an unsere geschätzten Kunden und nimmst bei Bedarf Rücksendungen entgegen\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und stets sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n\nWeshalb es dir gelingt\n• Deinen Führerausweis Kat. B besitzt du seit mindestens 3 Jahren und bist versiert im Lenken von Fahrzeugen\n• Du bist fit und packst gern mit an – Pakete bis zu 30 kg bringen dich nicht aus der Puste\n• Falls du schon Erfahrung im Paketservice hast: Jackpot! Falls nicht, lernst du schnell\n• Dein Leumund ist einwandfrei, bei dir gibt es nicht zu beanstanden\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Samstagseinsätze? Kein Problem, du bist am Start!\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualitätsbonus: Qualität wird bei uns grossgeschrieben und belohnt\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Grosszügiges Spesenreglement: Mit unserem Spesenreglement bist du gut versorgt\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
-      "descriptionByLocale": {
-        "it": "Planzer Paket sta per consegne affidabili e veloci in Svizzera. Come parte del nostro team, contribuisci attivamente a sviluppare ulteriormente i nostri elevati standard e servizi di qualità. Vi offriamo un lavoro vario in una società orientata al futuro che si concentra sulle soluzioni sostenibili. Diventa parte del nostro team e modella il futuro del mondo dei pacchetti!\n\nChe cosa si muove\n• Al mattino, prendere il vostro veicolo pronto-caricato e partire per consegnare i pacchetti nella vostra zona di consegna.\n• Consegnate i pacchetti in modo affidabile ai nostri clienti apprezzati e accettate i ritorni quando necessario\n• Insieme a voi, il vostro veicolo è il più importante e sempre visibile biglietto da visita della nostra azienda – in modo da prendersi cura della sua cura e manutenzione\n\nPerché hai successo?\n• Hai posseduto la patente Kat. B per almeno 3 anni e sono ben diversificati nei veicoli di guida\n• Sei in forma e come imballare – pacchetti fino a 30 kg non ti tirano fuori dal respiro\n• Se hai già esperienza nel servizio pacchetto: Jackpot! Se no, impari velocemente\n• La tua reputazione è impeccabile, non c'è niente di sbagliato in te.\n• Orale e scritto si può certamente esprimere in tedesco\n• Gli incarichi di sabato? Nessun problema, sei all'inizio!\n\nI tuoi vantaggi\n• Attraente regolamento vacanza: Con noi si inizia con 5 settimane vacanze e anche beneficiare di 6 settimane dal 5 ° anno di servizio!\n• Bonus di qualità: La qualità è scritta nella nostra capitale e premiata\n• Formazione introduttiva centrale: Passerete i vostri primi giorni di lavoro nell'introduzione centrale, dove sarete insegnati le basi più importanti\n• Regole di spesa generose: Con i nostri regolamenti di spesa sei ben curato\n\nChi siamo\nPer noi come azienda, l'attenzione è su una cooperazione di supporto e un'atmosfera di lavoro positiva. Ecco perché apprezziamo particolarmente qualità come lo spirito di squadra, la disponibilità e la motivazione. Accogliamo anche grande importanza per la puntualità, la lealtà e l'accuratezza, in quanto questi valori costituiscono la base per un modo di lavoro affidabile e orientato al cliente.",
-        "en": "Planzer Paket stands for reliable and fast parcel deliveries in Switzerland. As part of our team, you actively contribute to further developing our high quality standards and service. We offer you a varied job in a future-oriented company that focuses on sustainable solutions. Become part of our team and shape the future of the package world!\n\nWhat you move\n• In the morning, pick up your ready-loaded vehicle and set off to deliver packages in your delivery area.\n• You deliver packages reliably to our valued customers and accept returns when needed\n• Together with you, your vehicle is the most important and always visible business card of our company – so you take care of its care and maintenance\n\nWhy do you succeed?\n• You have owned your driver’s license Kat. B for at least 3 years and are well-versed in driving vehicles\n• You are fit and like to pack – packages up to 30 kg do not get you out of breath\n• If you already have experience in the package service: Jackpot! If not, you learn quickly\n• Your reputation is impeccable, there is nothing wrong with you.\n• Oral and written you can certainly express yourself in German\n• Saturday assignments? No problem, you are at the start!\n\nYour Benefits\n• Attractive holiday regulations: With us you start with 5 weeks holidays and even benefit from 6 weeks from the 5th year of service!\n• Quality bonus: Quality is written in our capital and rewarded\n• Central introductory training: You will spend your first working days in the central introduction, where you will be taught the most important basics\n• Generous expense regulations: With our expense regulations you are well taken care of\n\nWho we are\nFor us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
-        "de": "Planzer Paket steht für zuverlässige und schnelle Paketzustellungen in der Schweiz. Als Teil unseres Teams trägst du aktiv dazu bei, unseren hohen Qualitätsanspruch und Service weiterzuentwickeln. Wir bieten dir eine abwechslungsreiche Tätigkeit in einem zukunftsorientierten Unternehmen, das auf nachhaltige Lösungen setzt. Werde Teil unseres Teams und gestalte die Zukunft der Paketwelt mit!\n\nWas du bewegst\n• Am Morgen übernimmst du dein fertig beladenes Fahrzeug und machst dich auf den Weg, um Pakete in deinem Zustellgebiet auszuliefern\n• Du lieferst Pakete zuverlässig an unsere geschätzten Kunden und nimmst bei Bedarf Rücksendungen entgegen\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und stets sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n\nWeshalb es dir gelingt\n• Deinen Führerausweis Kat. B besitzt du seit mindestens 3 Jahren und bist versiert im Lenken von Fahrzeugen\n• Du bist fit und packst gern mit an – Pakete bis zu 30 kg bringen dich nicht aus der Puste\n• Falls du schon Erfahrung im Paketservice hast: Jackpot! Falls nicht, lernst du schnell\n• Dein Leumund ist einwandfrei, bei dir gibt es nicht zu beanstanden\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Samstagseinsätze? Kein Problem, du bist am Start!\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualitätsbonus: Qualität wird bei uns grossgeschrieben und belohnt\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Grosszügiges Spesenreglement: Mit unserem Spesenreglement bist du gut versorgt\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
-        "fr": "Planzer Paket est synonyme de livraison rapide et fiable en Suisse. Dans le cadre de notre équipe, vous contribuez activement au développement de nos normes et services de haute qualité. Nous vous proposons un travail varié dans une entreprise orientée vers l'avenir qui se concentre sur des solutions durables. Faites partie de notre équipe et façonnez l'avenir du monde des paquets !\n\nCe que tu bouges\n• Le matin, ramassez votre véhicule prêt et partez livrer des colis dans votre zone de livraison.\n• Vous livrez les paquets de manière fiable à nos clients estimés et acceptez les retours lorsque nécessaire\n• Avec vous, votre véhicule est la carte de visite la plus importante et la plus visible de notre entreprise.\n\nPourquoi tu réussis ?\n• Vous possédez votre permis de conduire Kat. B depuis au moins 3 ans et sont bien orientés dans la conduite des véhicules\n• Vous êtes en forme et aimez emballer – les paquets jusqu'à 30 kg ne vous retirent pas du souffle\n• Si vous avez déjà de l'expérience dans le service de forfait: Jackpot! Sinon, vous apprenez rapidement.\n• Votre réputation est impeccable, il n'y a rien qui cloche chez vous.\n• Oral et écrit, vous pouvez certainement vous exprimer en allemand\n• Les devoirs du samedi ? Pas de problème, vous êtes au début !\n\nVos avantages\n• Des règles de vacances attrayantes: Avec nous vous commencez par 5 semaines de vacances et même bénéficier de 6 semaines à partir de la 5ème année de service!\n• Bonus de qualité: La qualité est écrite dans notre capital et récompensée\n• Formation d'introduction centrale: Vous passerez vos premiers jours de travail dans l'introduction centrale, où vous serez enseigné les bases les plus importantes\n• Réglementations de dépenses généreuses: Avec nos règlements de dépenses, vous êtes bien pris en charge\n\nQui nous sommes\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération solidaire et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
-      },
-      "needsRetranslation": false,
-      "location": "Zürich-Altstetten",
-      "canton": "ZH",
-      "url": "https://live.solique.ch/planzer/job/details/4102337",
-      "source": "Planzer Dedicated Parser (Solique)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:21:27.388Z",
-      "addressLocality": "Zürich-Altstetten",
-      "addressRegion": "ZH",
-      "streetAddress": "Hermetschloostrasse 12",
-      "postalCode": "8001",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti / Logistica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://live.solique.ch/planzer/job/details/4102337",
-      "externalId": "4102337",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "paketzusteller-m-w-d-planzer-zurich-altstetten"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "paketzusteller-m-w-d-planzer-zurich-altstetten"
-        ],
-        "en": [
-          "paketzusteller-m-w-d-planzer-zurich-altstetten"
-        ],
-        "fr": [
-          "paketzusteller-m-w-d-planzer-zurich-altstetten"
-        ]
-      },
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T21:21:27.388Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/planzer/job/details/4102337",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "planzer-6a155737f30d",
-      "slug": "consegna-del-parco-m-f-d-planzer-schmerikon",
-      "slugByLocale": {
-        "it": "consegna-del-parco-m-f-d-planzer-schmerikon",
-        "en": "paketzusteller-m-w-d-planzer-schmerikon",
-        "de": "paketzusteller-m-w-d-planzer-schmerikon",
-        "fr": "paketzusteller-m-w-d-planzer-schmerikon"
-      },
-      "company": "Planzer",
-      "companyKey": "planzer",
-      "companyDomain": "planzer.ch",
-      "title": "Paketzusteller (m/w/d)",
-      "titleByLocale": {
-        "it": "Consegna del parco (m/f/d)",
-        "en": "Parcel delivery (m/f/d)",
-        "de": "Paketzusteller (m/w/d)",
-        "fr": "Livraison de colis (h/f/d)"
-      },
-      "description": "Planzer Paket steht für zuverlässige und schnelle Paketzustellungen in der Schweiz. Als Teil unseres Teams trägst du aktiv dazu bei, unseren hohen Qualitätsanspruch und Service weiterzuentwickeln. Wir bieten dir eine abwechslungsreiche Tätigkeit in einem zukunftsorientierten Unternehmen, das auf nachhaltige Lösungen setzt. Werde Teil unseres Teams und gestalte die Zukunft der Paketwelt mit!\n\nWas du bewegst\n• Am frühen Morgen übernimmst du dein fertig beladenes Fahrzeug und machst dich auf den Weg, um Pakete in deinem Zustellgebiet auszuliefern\n• Du lieferst Pakete zuverlässig an unsere geschätzten Kunden und nimmst bei Bedarf Rücksendungen entgegen\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und stets sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n• Du bist bereit für mehr? Dann warten spannende Zusatzaufgaben auf dich\n• Neue Filiale? Da packst du gerne mit an und beginnst bis zum Start in Schmerikon in einer umliegenden Filiale\n\nWeshalb es dir gelingt\n• Deinen Führerausweis Kat. B besitzt du seit mindestens 3 Jahren und bist versiert im Lenken von manuell geschalteten Fahrzeugen\n• Du bist fit und packst gern mit an – Pakete bis zu 30 kg bringen dich nicht aus der Puste\n• Falls du schon Erfahrung im Paketservice hast: Jackpot! Falls nicht, lernst du schnell\n• Dein Leumund ist einwandfrei, bei dir gibt es nicht zu beanstanden\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Samstagseinsätze? Kein Problem, du bist am Start!\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualitätsbonus: Qualität wird bei uns grossgeschrieben und belohnt\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Mitarbeiterevents: Liebst du coole Events? Feiern können wir!\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
-      "descriptionByLocale": {
-        "it": "Planzer Paket sta per consegne affidabili e veloci in Svizzera. Come parte del nostro team, contribuisci attivamente a sviluppare ulteriormente i nostri elevati standard e servizi di qualità. Vi offriamo un lavoro vario in una società orientata al futuro che si concentra sulle soluzioni sostenibili. Diventa parte del nostro team e modella il futuro del mondo dei pacchetti!\n\nChe cosa si muove\n• Al mattino presto, prendere il vostro veicolo pronto-caricato e partire per consegnare i pacchetti nella vostra zona di consegna.\n• Consegnate i pacchetti in modo affidabile ai nostri clienti apprezzati e accettate i ritorni quando necessario\n• Insieme a voi, il vostro veicolo è il più importante e sempre visibile biglietto da visita della nostra azienda – in modo da prendersi cura della sua cura e manutenzione\n• Sei pronto per altri? Ulteriori attività vi aspettano\n• Nuovo ramo? Ti piace partecipare e iniziare fino all'inizio di Schmerikon in un ramo vicino\n\nPerché hai successo?\n• Hai posseduto la patente Kat. B per almeno 3 anni e sono ben versi nella guida dei veicoli a commutazione manuale\n• Sei in forma e come imballare – pacchetti fino a 30 kg non ti tirano fuori dal respiro\n• Se hai già esperienza nel servizio pacchetto: Jackpot! Se no, impari velocemente\n• La tua reputazione è impeccabile, non c'è niente di sbagliato in te.\n• Orale e scritto si può certamente esprimere in tedesco\n• Gli incarichi di sabato? Nessun problema, sei all'inizio!\n\nI tuoi vantaggi\n• Attraente regolamento vacanza: Con noi si inizia con 5 settimane vacanze e anche beneficiare di 6 settimane dal 5 ° anno di servizio!\n• Bonus di qualità: La qualità è scritta nella nostra capitale e premiata\n• Formazione introduttiva centrale: Passerete i vostri primi giorni di lavoro nell'introduzione centrale, dove sarete insegnati le basi più importanti\n• Employee Eventi: Ti piacciono gli eventi cool? Possiamo festeggiare!\n\nChi siamo\nPer noi come azienda, l'attenzione è su una cooperazione di supporto e un'atmosfera di lavoro positiva. Ecco perché apprezziamo particolarmente qualità come lo spirito di squadra, la disponibilità e la motivazione. Accogliamo anche grande importanza per la puntualità, la lealtà e l'accuratezza, in quanto questi valori costituiscono la base per un modo di lavoro affidabile e orientato al cliente.",
-        "en": "Planzer Paket stands for reliable and fast parcel deliveries in Switzerland. As part of our team, you actively contribute to further developing our high quality standards and service. We offer you a varied job in a future-oriented company that focuses on sustainable solutions. Become part of our team and shape the future of the package world!\n\nWhat you move\n• Early in the morning, pick up your ready-loaded vehicle and set off to deliver packages in your delivery area.\n• You deliver packages reliably to our valued customers and accept returns when needed\n• Together with you, your vehicle is the most important and always visible business card of our company – so you take care of its care and maintenance\n• Are you ready for more? Exciting additional tasks await you\n• New branch? You like to get involved and start until the start in Schmerikon in a nearby branch\n\nWhy do you succeed?\n• You have owned your driver’s license Kat. B for at least 3 years and are well versed in driving manually switched vehicles\n• You are fit and like to pack – packages up to 30 kg do not get you out of breath\n• If you already have experience in the package service: Jackpot! If not, you learn quickly\n• Your reputation is impeccable, there is nothing wrong with you.\n• Oral and written you can certainly express yourself in German\n• Saturday assignments? No problem, you are at the start!\n\nYour Benefits\n• Attractive holiday regulations: With us you start with 5 weeks holidays and even benefit from 6 weeks from the 5th year of service!\n• Quality bonus: Quality is written in our capital and rewarded\n• Central introductory training: You will spend your first working days in the central introduction, where you will be taught the most important basics\n• Employee Events: Do you love cool events? We can celebrate!\n\nWho we are\nFor us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
-        "de": "Planzer Paket steht für zuverlässige und schnelle Paketzustellungen in der Schweiz. Als Teil unseres Teams trägst du aktiv dazu bei, unseren hohen Qualitätsanspruch und Service weiterzuentwickeln. Wir bieten dir eine abwechslungsreiche Tätigkeit in einem zukunftsorientierten Unternehmen, das auf nachhaltige Lösungen setzt. Werde Teil unseres Teams und gestalte die Zukunft der Paketwelt mit!\n\nWas du bewegst\n• Am frühen Morgen übernimmst du dein fertig beladenes Fahrzeug und machst dich auf den Weg, um Pakete in deinem Zustellgebiet auszuliefern\n• Du lieferst Pakete zuverlässig an unsere geschätzten Kunden und nimmst bei Bedarf Rücksendungen entgegen\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und stets sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n• Du bist bereit für mehr? Dann warten spannende Zusatzaufgaben auf dich\n• Neue Filiale? Da packst du gerne mit an und beginnst bis zum Start in Schmerikon in einer umliegenden Filiale\n\nWeshalb es dir gelingt\n• Deinen Führerausweis Kat. B besitzt du seit mindestens 3 Jahren und bist versiert im Lenken von manuell geschalteten Fahrzeugen\n• Du bist fit und packst gern mit an – Pakete bis zu 30 kg bringen dich nicht aus der Puste\n• Falls du schon Erfahrung im Paketservice hast: Jackpot! Falls nicht, lernst du schnell\n• Dein Leumund ist einwandfrei, bei dir gibt es nicht zu beanstanden\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Samstagseinsätze? Kein Problem, du bist am Start!\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualitätsbonus: Qualität wird bei uns grossgeschrieben und belohnt\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Mitarbeiterevents: Liebst du coole Events? Feiern können wir!\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
-        "fr": "Planzer Paket est synonyme de livraison rapide et fiable en Suisse. Dans le cadre de notre équipe, vous contribuez activement au développement de nos normes et services de haute qualité. Nous vous proposons un travail varié dans une entreprise orientée vers l'avenir qui se concentre sur des solutions durables. Faites partie de notre équipe et façonnez l'avenir du monde des paquets !\n\nCe que tu bouges\n• Tôt le matin, ramassez votre véhicule prêt et partez livrer des colis dans votre zone de livraison.\n• Vous livrez les paquets de manière fiable à nos clients estimés et acceptez les retours lorsque nécessaire\n• Avec vous, votre véhicule est la carte de visite la plus importante et la plus visible de notre entreprise.\n• Tu es prêt pour plus ? Des tâches supplémentaires passionnantes vous attendent\n• Nouvelle branche ? Vous aimez vous impliquer et commencer jusqu'au départ à Schmerikon dans une branche voisine\n\nPourquoi tu réussis ?\n• Vous possédez votre permis de conduire Kat. B pendant au moins 3 ans et sont bien renseignés dans la conduite de véhicules commutés manuellement\n• Vous êtes en forme et aimez emballer – les paquets jusqu'à 30 kg ne vous retirent pas du souffle\n• Si vous avez déjà de l'expérience dans le service de forfait: Jackpot! Sinon, vous apprenez rapidement.\n• Votre réputation est impeccable, il n'y a rien qui cloche chez vous.\n• Oral et écrit, vous pouvez certainement vous exprimer en allemand\n• Les devoirs du samedi ? Pas de problème, vous êtes au début !\n\nVos avantages\n• Des règles de vacances attrayantes: Avec nous vous commencez par 5 semaines de vacances et même bénéficier de 6 semaines à partir de la 5ème année de service!\n• Bonus de qualité: La qualité est écrite dans notre capital et récompensée\n• Formation d'introduction centrale: Vous passerez vos premiers jours de travail dans l'introduction centrale, où vous serez enseigné les bases les plus importantes\n• Événements pour les employés : aimez-vous les événements cool? On peut fêter ça !\n\nQui nous sommes\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération solidaire et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
-      },
-      "needsRetranslation": false,
-      "location": "Schmerikon",
-      "canton": "SG",
-      "url": "https://live.solique.ch/planzer/job/details/4102645",
-      "source": "Planzer Dedicated Parser (Solique)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:21:26.576Z",
-      "addressLocality": "Schmerikon",
-      "addressRegion": "SG",
-      "streetAddress": "Allmeindstrasse 23",
-      "postalCode": "8716",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti / Logistica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://live.solique.ch/planzer/job/details/4102645",
-      "externalId": "4102645",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "paketzusteller-m-w-d-planzer-schmerikon",
-        "parcel-delivery-m-f-d-planzer-schmerikon",
-        "livraison-de-colis-h-f-d-planzer-schmerikon",
-        "consegna-del-parco-m-f-d-planzer-schmerikon-29ca9278",
-        "parcel-delivery-m-f-d-planzer-schmerikon-f2867612",
-        "livraison-de-colis-h-f-d-planzer-schmerikon-ed0334f8",
-        "consegna-del-pacchetto-m-f-d-planzer-schmerikon",
-        "disponent-stuckgut-m-w-d-planzer-schmerikon-d4e102b8",
-        "traduzione-m-f-d-planzer-schmerikon",
-        "disponent-m-w-d-planzer-schmerikon",
-        "detenteur-h-f-d-planzer-schmerikon",
-        "responsabile-personale-m-f-d-planzer-schmerikon",
-        "personalverantwortlicher-m-w-d-planzer-schmerikon",
-        "m-w-d-planzer-schmerikon",
-        "responsabile-del-personale-m-f-d-planzer-schmerikon",
-        "personnel-manager-m-f-d-planzer-schmerikon",
-        "gestionnaire-du-personnel-m-f-d-planzer-schmerikon",
-        "consegna-dei-pacchi-m-f-d-planzer-schmerikon",
-        "livraison-de-colis-m-f-d-planzer-schmerikon",
-        "package-delivery-m-f-d-planzer-schmerikon",
-        "directeur-du-personnel-h-f-d-planzer-schmerikon",
-        "detenteur-m-w-d-planzer-schmerikon",
-        "paketzusteller-m-w-d-planzer-schmerikon-cedfc901",
-        "disponent-stuckgut-m-w-d-planzer-schmerikon-fbe86f2e"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "paketzusteller-m-w-d-planzer-schmerikon",
-          "consegna-del-parco-m-f-d-planzer-schmerikon-29ca9278",
-          "parcel-delivery-m-f-d-planzer-schmerikon-f2867612",
-          "livraison-de-colis-h-f-d-planzer-schmerikon-ed0334f8",
-          "consegna-del-pacchetto-m-f-d-planzer-schmerikon",
-          "disponent-stuckgut-m-w-d-planzer-schmerikon-d4e102b8",
-          "traduzione-m-f-d-planzer-schmerikon",
-          "disponent-m-w-d-planzer-schmerikon",
-          "detenteur-h-f-d-planzer-schmerikon",
-          "responsabile-personale-m-f-d-planzer-schmerikon",
-          "personalverantwortlicher-m-w-d-planzer-schmerikon",
-          "m-w-d-planzer-schmerikon",
-          "responsabile-del-personale-m-f-d-planzer-schmerikon",
-          "personnel-manager-m-f-d-planzer-schmerikon",
-          "gestionnaire-du-personnel-m-f-d-planzer-schmerikon",
-          "consegna-dei-pacchi-m-f-d-planzer-schmerikon",
-          "livraison-de-colis-m-f-d-planzer-schmerikon",
-          "package-delivery-m-f-d-planzer-schmerikon",
-          "directeur-du-personnel-h-f-d-planzer-schmerikon",
-          "detenteur-m-w-d-planzer-schmerikon"
-        ],
-        "en": [
-          "parcel-delivery-m-f-d-planzer-schmerikon"
-        ],
-        "fr": [
-          "livraison-de-colis-h-f-d-planzer-schmerikon"
-        ],
-        "de": [
-          "paketzusteller-m-w-d-planzer-schmerikon-cedfc901"
-        ]
-      },
-      "firstSeenAt": "2026-10-19T09:15:54.191Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T21:21:26.576Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/planzer/job/details/4102645",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "planzer-0492d2f08029",
-      "slug": "addetto-a-alla-logistica-m-w-d-planzer-emmen",
-      "slugByLocale": {
-        "it": "addetto-a-alla-logistica-m-w-d-planzer-emmen",
-        "en": "mitarbeiter-logistik-m-w-d-planzer-emmen",
-        "de": "mitarbeiter-logistik-m-w-d-planzer-emmen",
-        "fr": "mitarbeiter-logistik-m-w-d-planzer-emmen"
-      },
-      "company": "Planzer",
-      "companyKey": "planzer",
-      "companyDomain": "planzer.ch",
-      "title": "Mitarbeiter Logistik (m/w/d)",
-      "titleByLocale": {
-        "it": "Addetto/a alla logistica (m/w/d)",
-        "en": "Employee Logistics (m/f/d)",
-        "de": "Mitarbeiter Logistik (m/w/d)",
-        "fr": "Logistique des employés (h/f/d)"
-      },
-      "description": "Ob klein oder gross, einfach oder komplex – wir transportieren und lagern Güter. Mit motivierten Mitarbeitenden und modernen Fahrzeugen bedienen wir von Emmen nicht nur die Region, sondern auch die hintersten Winkel der Schweiz. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nWas du bewegst\n• Du kommissionierst Artikel präzise und sorgst dafür, dass Kundenbestellungen noch am selben Tag abgewickelt werden\n• Ein- sowie Auslagerungen, Verpackung und Etikettierung erledigst du zuverlässig nach Vorgaben\n• Inventuren? Da packst du mit an und sorgst für den perfekten Überblick\n• Das Lagersystem und die Betriebsmittel nutzt du sicher und effizient\n\nWeshalb es dir gelingt\n• Du verfügst über eine abgeschlossene Berufsausbildung als Logistiker EFZ oder bringst mindestens 5 Jahre Berufserfahrung in der Logistik mit\n• Du bist bereits stolzer Besitzer eines Staplerausweises\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Zuverlässigkeit, Genauigkeit und eine schnelle Anpassungsfähigkeit an neue Herausforderungen zeichnen dich aus\n• Auch wenn's mal stressig wird, bleibst du cool und behältst den Überblick\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
-      "descriptionByLocale": {
-        "it": "Che sia piccolo o grande, semplice o complesso – trasportiamo e riportiamo merci. Con dipendenti motivati e veicoli moderni, noi di Emmen non solo servire la regione, ma anche gli angoli più posteriori della Svizzera. Diventa parte del nostro team e modella il futuro della logistica!\n\nChe cosa si muove\n• Scegli gli articoli con precisione e assicurati che gli ordini del cliente siano elaborati lo stesso giorno\n• Stoccaggio, recupero, imballaggio e etichettatura sono fatti in modo affidabile secondo le specifiche\n• Inventario? Ecco a voi e prendetevi cura della panoramica perfetta\n• Si utilizza il sistema di archiviazione e le risorse in modo sicuro ed efficiente\n\nPerché hai successo?\n• Hai completato la formazione professionale come EFZ logistica o hai almeno 5 anni di esperienza professionale nella logistica\n• Sei già un orgoglioso proprietario di una cartolina\n• Orale e scritto si può certamente esprimere in tedesco\n• Affidabilità, accuratezza e rapidità di adattamento a nuove sfide\n• Anche se diventa stressante, rimani fresco e tenere traccia.\n\nI tuoi vantaggi\n• Attraente regolamento vacanza: Con noi si inizia con 5 settimane vacanze e anche beneficiare di 6 settimane dal 5 ° anno di servizio!\n• Ulteriori opportunità di formazione e sviluppo: Con noi si può sviluppare - promuoviamo e sfidare i talenti\n• Formazione introduttiva centrale: Passerete i vostri primi giorni di lavoro nell'introduzione centrale, dove sarete insegnati le basi più importanti\n• Parcheggio gratuito: Preparatevi per il parcheggio - con noi potete parcheggiare gratuitamente\n\nChi siamo\nPer noi come azienda, l'attenzione è su una cooperazione di supporto e un'atmosfera di lavoro positiva. Ecco perché apprezziamo particolarmente qualità come lo spirito di squadra, la disponibilità e la motivazione. Accogliamo anche grande importanza per la puntualità, la lealtà e l'accuratezza, in quanto questi valori costituiscono la base per un modo di lavoro affidabile e orientato al cliente.",
-        "en": "Whether small or large, simple or complex – we transport and store goods. With motivated employees and modern vehicles, we at Emmen not only serve the region, but also the rearmost corners of Switzerland. Become part of our team and shape the future of logistics!\n\nWhat you move\n• You pick items accurately and ensure that customer orders are processed on the same day\n• Storage, retrieval, packaging and labelling are done reliably according to specifications\n• Inventory? There you go and take care of the perfect overview\n• You use the storage system and resources safely and efficiently\n\nWhy do you succeed?\n• You have completed vocational training as a logistician EFZ or have at least 5 years of professional experience in logistics\n• You are already a proud owner of a forklift card\n• Oral and written you can certainly express yourself in German\n• Reliability, accuracy and rapid adaptability to new challenges set you apart\n• Even if it gets stressful, you stay cool and keep track.\n\nYour Benefits\n• Attractive holiday regulations: With us you start with 5 weeks holidays and even benefit from 6 weeks from the 5th year of service!\n• Further education and development opportunities: With us you can develop yourself - we promote and challenge talents\n• Central introductory training: You will spend your first working days in the central introduction, where you will be taught the most important basics\n• Free parking: Get ready for parking - with us you can park for free\n\nWho we are\nFor us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
-        "de": "Ob klein oder gross, einfach oder komplex – wir transportieren und lagern Güter. Mit motivierten Mitarbeitenden und modernen Fahrzeugen bedienen wir von Emmen nicht nur die Region, sondern auch die hintersten Winkel der Schweiz. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nWas du bewegst\n• Du kommissionierst Artikel präzise und sorgst dafür, dass Kundenbestellungen noch am selben Tag abgewickelt werden\n• Ein- sowie Auslagerungen, Verpackung und Etikettierung erledigst du zuverlässig nach Vorgaben\n• Inventuren? Da packst du mit an und sorgst für den perfekten Überblick\n• Das Lagersystem und die Betriebsmittel nutzt du sicher und effizient\n\nWeshalb es dir gelingt\n• Du verfügst über eine abgeschlossene Berufsausbildung als Logistiker EFZ oder bringst mindestens 5 Jahre Berufserfahrung in der Logistik mit\n• Du bist bereits stolzer Besitzer eines Staplerausweises\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Zuverlässigkeit, Genauigkeit und eine schnelle Anpassungsfähigkeit an neue Herausforderungen zeichnen dich aus\n• Auch wenn's mal stressig wird, bleibst du cool und behältst den Überblick\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
-        "fr": "Petite ou grande, simple ou complexe – nous transportons et entreposons des marchandises. Avec des employés motivés et des véhicules modernes, nous servons non seulement la région, mais aussi les coins arrière de la Suisse. Faites partie de notre équipe et façonnez l'avenir de la logistique!\n\nCe que tu bouges\n• Vous choisissez les articles avec précision et assurez-vous que les commandes des clients sont traitées le même jour\n• Le stockage, la récupération, l'emballage et l'étiquetage sont effectués de façon fiable selon les spécifications\n• Inventaire ? Voilà et prenez soin de l'aperçu parfait\n• Vous utilisez le système de stockage et les ressources en toute sécurité et efficacement\n\nPourquoi tu réussis ?\n• Vous avez suivi une formation professionnelle en tant que logisticien EFZ ou avez au moins 5 ans d'expérience professionnelle en logistique\n• Vous êtes déjà un fier propriétaire d'une carte élévateur\n• Oral et écrit, vous pouvez certainement vous exprimer en allemand\n• La fiabilité, la précision et l'adaptabilité rapide aux nouveaux défis vous distinguent\n• Même si ça devient stressant, tu restes calme et tu gardes la trace.\n\nVos avantages\n• Des règles de vacances attrayantes: Avec nous vous commencez par 5 semaines de vacances et même bénéficier de 6 semaines à partir de la 5ème année de service!\n• Possibilités d'éducation et de développement supplémentaires: Avec nous vous pouvez vous développer - nous promouvons et défions les talents\n• Formation d'introduction centrale: Vous passerez vos premiers jours de travail dans l'introduction centrale, où vous serez enseigné les bases les plus importantes\n• Parking gratuit: Préparez-vous pour le stationnement - avec nous vous pouvez garer gratuitement\n\nQui nous sommes\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération solidaire et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
-      },
-      "location": "Emmen",
-      "canton": "LU",
-      "url": "https://live.solique.ch/planzer/job/details/4099997",
-      "source": "Planzer Dedicated Parser (Solique)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:21:25.886Z",
-      "addressLocality": "Emmen",
-      "addressRegion": "LU",
-      "streetAddress": "Feldmattstrasse 31",
-      "postalCode": "6032",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti / Logistica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://live.solique.ch/planzer/job/details/4099997",
-      "externalId": "4099997",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-logistik-m-w-d-planzer-emmen",
-        "employee-logistics-m-f-d-planzer-emmen",
-        "logistique-des-employes-h-f-d-planzer-emmen",
-        "mitarbeiter-logistik-m-w-d-planzer-emmen-71a52bc1",
-        "addetto-a-alla-logistica-m-w-d-planzer-emmen-6bd20541",
-        "employee-logistics-m-f-d-planzer-emmen-d6e29d83",
-        "logistique-des-employes-h-f-d-planzer-emmen-5bb714fe"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-logistik-m-w-d-planzer-emmen",
-          "mitarbeiter-logistik-m-w-d-planzer-emmen-71a52bc1",
-          "addetto-a-alla-logistica-m-w-d-planzer-emmen-6bd20541",
-          "employee-logistics-m-f-d-planzer-emmen-d6e29d83",
-          "logistique-des-employes-h-f-d-planzer-emmen-5bb714fe"
-        ],
-        "en": [
-          "employee-logistics-m-f-d-planzer-emmen"
-        ],
-        "fr": [
-          "logistique-des-employes-h-f-d-planzer-emmen"
-        ],
-        "de": [
-          "mitarbeiter-logistik-m-w-d-planzer-emmen-71a52bc1"
-        ]
-      },
-      "firstSeenAt": "2026-10-29T09:31:39.398Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T21:21:25.886Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/planzer/job/details/4099997",
       "crawlerMissStreak": 2
     }
   ]

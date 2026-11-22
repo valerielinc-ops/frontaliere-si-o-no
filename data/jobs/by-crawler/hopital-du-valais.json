@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hopital-du-valais",
-  "assembledAt": "2026-11-22T09:20:08.565Z",
-  "runId": "45005972042",
+  "assembledAt": "2026-11-22T21:24:17.219Z",
+  "runId": "45070284095",
   "jobs": [
     {
       "id": "hopital-du-valais-0e0fba549d45",
@@ -47,7 +47,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/022404fb83d9c39417a39d20ceaad393/ATSANN0004721/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:58.200Z",
+      "crawledAt": "2026-11-22T21:24:09.120Z",
       "_hvsMeta": {
         "number": "ATSANN0004721",
         "sysId": "022404fb83d9c39417a39d20ceaad393",
@@ -87,7 +87,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:19:58.200Z",
+      "validThrough": "2026-12-22T21:24:09.120Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -134,7 +134,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4efe0cbb87918f54dbd6ebd30cbb35be/ATSANN0004722/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:57.862Z",
+      "crawledAt": "2026-11-22T21:24:08.776Z",
       "_hvsMeta": {
         "number": "ATSANN0004722",
         "sysId": "4efe0cbb87918f54dbd6ebd30cbb35be",
@@ -174,7 +174,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:19:57.862Z",
+      "validThrough": "2026-12-22T21:24:08.776Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -221,7 +221,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/470810f387d58f54dbd6ebd30cbb3533/ATSANN0004731/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:57.522Z",
+      "crawledAt": "2026-11-22T21:24:08.437Z",
       "_hvsMeta": {
         "number": "ATSANN0004731",
         "sysId": "470810f387d58f54dbd6ebd30cbb3533",
@@ -261,7 +261,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:19:57.522Z",
+      "validThrough": "2026-12-22T21:24:08.437Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -308,7 +308,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3706103387958f54dbd6ebd30cbb35f5/ATSANN0004728/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:57.161Z",
+      "crawledAt": "2026-11-22T21:24:08.097Z",
       "_hvsMeta": {
         "number": "ATSANN0004728",
         "sysId": "3706103387958f54dbd6ebd30cbb35f5",
@@ -342,7 +342,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:19:57.161Z",
+      "validThrough": "2026-12-22T21:24:08.097Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -389,7 +389,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3bc394fb87158f54dbd6ebd30cbb35f1/ATSANN0004725/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:56.824Z",
+      "crawledAt": "2026-11-22T21:24:07.748Z",
       "_hvsMeta": {
         "number": "ATSANN0004725",
         "sysId": "3bc394fb87158f54dbd6ebd30cbb35f1",
@@ -429,7 +429,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:19:56.824Z",
+      "validThrough": "2026-12-22T21:24:07.748Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -476,7 +476,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7659a0d287f20f50dbd6ebd30cbb35ab/ATSANN0004855/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:56.492Z",
+      "crawledAt": "2026-11-22T21:24:07.411Z",
       "_hvsMeta": {
         "number": "ATSANN0004855",
         "sysId": "7659a0d287f20f50dbd6ebd30cbb35ab",
@@ -510,7 +510,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:19:56.492Z",
+      "validThrough": "2026-12-22T21:24:07.411Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -557,7 +557,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/fb1bef51470f8310296bd1eb736d4347/ATSANN0004869/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:56.117Z",
+      "crawledAt": "2026-11-22T21:24:07.067Z",
       "_hvsMeta": {
         "number": "ATSANN0004869",
         "sysId": "fb1bef51470f8310296bd1eb736d4347",
@@ -594,7 +594,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:19:56.117Z",
+      "validThrough": "2026-12-22T21:24:07.067Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -641,7 +641,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dfdd86de976626501b87322f2153af9d/ATSANN0004228/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:55.781Z",
+      "crawledAt": "2026-11-22T21:24:06.719Z",
       "_hvsMeta": {
         "number": "ATSANN0004228",
         "sysId": "dfdd86de976626501b87322f2153af9d",
@@ -675,7 +675,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:19:55.781Z",
+      "validThrough": "2026-12-22T21:24:06.719Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -722,7 +722,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3925254147538354ff8065f8736d4338/ATSANN0004899/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:55.436Z",
+      "crawledAt": "2026-11-22T21:24:06.378Z",
       "_hvsMeta": {
         "number": "ATSANN0004899",
         "sysId": "3925254147538354ff8065f8736d4338",
@@ -761,7 +761,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:19:55.436Z",
+      "validThrough": "2026-12-22T21:24:06.378Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -808,7 +808,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6456fbb5479f0710ff8065f8736d4368/ATSANN0004904/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:19:55.105Z",
+      "crawledAt": "2026-11-22T21:24:06.042Z",
       "_hvsMeta": {
         "number": "ATSANN0004904",
         "sysId": "6456fbb5479f0710ff8065f8736d4368",
@@ -848,7 +848,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:19:55.105Z",
+      "validThrough": "2026-12-22T21:24:06.042Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -895,7 +895,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/facd39e6979f839012f9322f2153af5a/ATSANN0004920/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:54.766Z",
+      "crawledAt": "2026-11-22T21:24:05.700Z",
       "_hvsMeta": {
         "number": "ATSANN0004920",
         "sysId": "facd39e6979f839012f9322f2153af5a",
@@ -929,7 +929,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:19:54.766Z",
+      "validThrough": "2026-12-22T21:24:05.700Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -976,7 +976,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/17bdd6924757cb14296bd1eb736d4385/ATSANN0004919/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:54.408Z",
+      "crawledAt": "2026-11-22T21:24:05.352Z",
       "_hvsMeta": {
         "number": "ATSANN0004919",
         "sysId": "17bdd6924757cb14296bd1eb736d4385",
@@ -1016,7 +1016,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:19:54.408Z",
+      "validThrough": "2026-12-22T21:24:05.352Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1063,7 +1063,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6886e7be47570354296bd1eb736d43b3/ATSANN0004921/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:54.041Z",
+      "crawledAt": "2026-11-22T21:24:05.013Z",
       "_hvsMeta": {
         "number": "ATSANN0004921",
         "sysId": "6886e7be47570354296bd1eb736d43b3",
@@ -1097,7 +1097,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:19:54.041Z",
+      "validThrough": "2026-12-22T21:24:05.013Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1144,7 +1144,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8f38b372974e0390316bb0b71153afa1/ATSANN0004805/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:53.702Z",
+      "crawledAt": "2026-11-22T21:24:04.670Z",
       "_hvsMeta": {
         "number": "ATSANN0004805",
         "sysId": "8f38b372974e0390316bb0b71153afa1",
@@ -1184,7 +1184,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:19:53.702Z",
+      "validThrough": "2026-12-29T21:24:04.670Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1231,7 +1231,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dd66a35bc3ab0f18a043be4c05013142/ATSANN0004943/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:19:53.353Z",
+      "crawledAt": "2026-11-22T21:24:04.296Z",
       "_hvsMeta": {
         "number": "ATSANN0004943",
         "sysId": "dd66a35bc3ab0f18a043be4c05013142",
@@ -1271,7 +1271,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:19:53.353Z",
+      "validThrough": "2026-12-30T21:24:04.296Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1318,7 +1318,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/56597bad97b387941b87322f2153affa/ATSANN0004959/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:19:53.017Z",
+      "crawledAt": "2026-11-22T21:24:03.954Z",
       "_hvsMeta": {
         "number": "ATSANN0004959",
         "sysId": "56597bad97b387941b87322f2153affa",
@@ -1358,7 +1358,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:19:53.017Z",
+      "validThrough": "2027-01-06T21:24:03.954Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1405,7 +1405,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/cf1d6c8a477f8350ff8065f8736d4390/ATSANN0004961/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:19:52.637Z",
+      "crawledAt": "2026-11-22T21:24:03.568Z",
       "_hvsMeta": {
         "number": "ATSANN0004961",
         "sysId": "cf1d6c8a477f8350ff8065f8736d4390",
@@ -1447,7 +1447,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T09:19:52.637Z",
+      "validThrough": "2027-01-07T21:24:03.568Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1494,7 +1494,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c47fc994470cd790ff8065f8736d4339/ATSANN0004972/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:19:52.259Z",
+      "crawledAt": "2026-11-22T21:24:03.166Z",
       "_hvsMeta": {
         "number": "ATSANN0004972",
         "sysId": "c47fc994470cd790ff8065f8736d4339",
@@ -1534,7 +1534,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sierre",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:19:52.259Z",
+      "validThrough": "2027-01-14T21:24:03.166Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1581,7 +1581,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/984d5d11470853d0ff8065f8736d4347/ATSANN0004973/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:51.875Z",
+      "crawledAt": "2026-11-22T21:24:02.828Z",
       "_hvsMeta": {
         "number": "ATSANN0004973",
         "sysId": "984d5d11470853d0ff8065f8736d4347",
@@ -1621,7 +1621,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:19:51.875Z",
+      "validThrough": "2027-01-17T21:24:02.828Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1668,7 +1668,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/fd6bb74c47dcd750ff8065f8736d43be/ATSANN0004981/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:19:51.523Z",
+      "crawledAt": "2026-11-22T21:24:02.482Z",
       "_hvsMeta": {
         "number": "ATSANN0004981",
         "sysId": "fd6bb74c47dcd750ff8065f8736d43be",
@@ -1710,7 +1710,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:19:51.523Z",
+      "validThrough": "2027-01-26T21:24:02.482Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1757,7 +1757,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/39138054971cdb101b87322f2153af70/ATSANN0004982/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:19:51.187Z",
+      "crawledAt": "2026-11-22T21:24:02.137Z",
       "_hvsMeta": {
         "number": "ATSANN0004982",
         "sysId": "39138054971cdb101b87322f2153af70",
@@ -1799,7 +1799,7 @@
       "addressRegion": "VS",
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:19:51.187Z",
+      "validThrough": "2027-01-26T21:24:02.137Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1846,7 +1846,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/b96018e8c3d45350a043be4c05013111/ATSANN0004983/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:19:50.847Z",
+      "crawledAt": "2026-11-22T21:24:01.797Z",
       "_hvsMeta": {
         "number": "ATSANN0004983",
         "sysId": "b96018e8c3d45350a043be4c05013111",
@@ -1872,7 +1872,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:19:50.847Z",
+      "validThrough": "2027-01-27T21:24:01.797Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1919,7 +1919,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6a0a7f67c3fbcfd8a043be4c050131fb/ATSANN0004968/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:19:50.508Z",
+      "crawledAt": "2026-11-22T21:24:01.456Z",
       "_hvsMeta": {
         "number": "ATSANN0004968",
         "sysId": "6a0a7f67c3fbcfd8a043be4c050131fb",
@@ -1959,7 +1959,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:19:50.508Z",
+      "validThrough": "2027-01-12T21:24:01.456Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2006,7 +2006,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7d13df21c37fc398a043be4c05013182/ATSANN0004957/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:50.161Z",
+      "crawledAt": "2026-11-22T21:24:01.114Z",
       "_hvsMeta": {
         "number": "ATSANN0004957",
         "sysId": "7d13df21c37fc398a043be4c05013182",
@@ -2046,7 +2046,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:19:50.161Z",
+      "validThrough": "2027-01-05T21:24:01.114Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2093,7 +2093,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f73d0f828794d350dbd6ebd30cbb354c/ATSANN0004990/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:19:49.738Z",
+      "crawledAt": "2026-11-22T21:24:00.767Z",
       "_hvsMeta": {
         "number": "ATSANN0004990",
         "sysId": "f73d0f828794d350dbd6ebd30cbb354c",
@@ -2133,7 +2133,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sierre",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:19:49.738Z",
+      "validThrough": "2027-02-01T21:24:00.767Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2180,7 +2180,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6680bcc8378b69017a39d20ceaad30d/ATSANN0004378/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:49.402Z",
+      "crawledAt": "2026-11-22T21:24:00.426Z",
       "_hvsMeta": {
         "number": "ATSANN0004378",
         "sysId": "c6680bcc8378b69017a39d20ceaad30d",
@@ -2219,7 +2219,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:19:49.402Z",
+      "validThrough": "2027-02-01T21:24:00.426Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2266,7 +2266,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/cc7770038314575017a39d20ceaad34c/ATSANN0004997/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:19:49.065Z",
+      "crawledAt": "2026-11-22T21:24:00.083Z",
       "_hvsMeta": {
         "number": "ATSANN0004997",
         "sysId": "cc7770038314575017a39d20ceaad34c",
@@ -2306,7 +2306,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:19:49.065Z",
+      "validThrough": "2027-02-03T21:24:00.083Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2353,7 +2353,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/18ece4478350575017a39d20ceaad370/ATSANN0004996/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:48.721Z",
+      "crawledAt": "2026-11-22T21:23:59.734Z",
       "_hvsMeta": {
         "number": "ATSANN0004996",
         "sysId": "18ece4478350575017a39d20ceaad370",
@@ -2393,7 +2393,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:19:48.721Z",
+      "validThrough": "2027-02-03T21:23:59.734Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2440,7 +2440,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/878e0a4f839c975017a39d20ceaad3e7/ATSANN0004998/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:19:48.346Z",
+      "crawledAt": "2026-11-22T21:23:59.387Z",
       "_hvsMeta": {
         "number": "ATSANN0004998",
         "sysId": "878e0a4f839c975017a39d20ceaad3e7",
@@ -2480,7 +2480,7 @@
       "addressRegion": "VS",
       "streetAddress": "Granges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:19:48.346Z",
+      "validThrough": "2027-02-04T21:23:59.387Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2527,7 +2527,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3dede48c9724d310316bb0b71153afcc/ATSANN0004999/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:19:48.006Z",
+      "crawledAt": "2026-11-22T21:23:59.045Z",
       "_hvsMeta": {
         "number": "ATSANN0004999",
         "sysId": "3dede48c9724d310316bb0b71153afcc",
@@ -2567,7 +2567,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sierre",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:19:48.006Z",
+      "validThrough": "2027-02-07T21:23:59.045Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2614,7 +2614,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1ed985b6971cd750316bb0b71153afa4/ATSANN0004995/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:47.636Z",
+      "crawledAt": "2026-11-22T21:23:58.673Z",
       "_hvsMeta": {
         "number": "ATSANN0004995",
         "sysId": "1ed985b6971cd750316bb0b71153afa4",
@@ -2654,7 +2654,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:19:47.636Z",
+      "validThrough": "2027-02-09T21:23:58.673Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2701,7 +2701,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dbffc5c197e45b10e7ce346e2153afab/ATSANN0005005/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:47.286Z",
+      "crawledAt": "2026-11-22T21:23:58.335Z",
       "_hvsMeta": {
         "number": "ATSANN0005005",
         "sysId": "dbffc5c197e45b10e7ce346e2153afab",
@@ -2741,7 +2741,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:19:47.286Z",
+      "validThrough": "2027-02-10T21:23:58.335Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2788,7 +2788,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4f30855d47645b10339c9146736d43ad/ATSANN0005014/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:19:46.952Z",
+      "crawledAt": "2026-11-22T21:23:57.968Z",
       "_hvsMeta": {
         "number": "ATSANN0005014",
         "sysId": "4f30855d47645b10339c9146736d43ad",
@@ -2829,7 +2829,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:19:46.952Z",
+      "validThrough": "2027-02-10T21:23:57.968Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2876,7 +2876,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0d1fc59997e0db10316bb0b71153af28/ATSANN0005020/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:19:46.567Z",
+      "crawledAt": "2026-11-22T21:23:57.542Z",
       "_hvsMeta": {
         "number": "ATSANN0005020",
         "sysId": "0d1fc59997e0db10316bb0b71153af28",
@@ -2916,7 +2916,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:19:46.567Z",
+      "validThrough": "2027-02-11T21:23:57.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2963,7 +2963,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5f1bc99147685b10339c9146736d439b/ATSANN0005017/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:19:45.871Z",
+      "crawledAt": "2026-11-22T21:23:56.833Z",
       "_hvsMeta": {
         "number": "ATSANN0005017",
         "sysId": "5f1bc99147685b10339c9146736d439b",
@@ -3003,7 +3003,7 @@
       "addressRegion": "VS",
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:19:45.871Z",
+      "validThrough": "2027-02-11T21:23:56.833Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3050,7 +3050,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/19dc195e832c1f1017a39d20ceaad392/ATSANN0005029/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:45.225Z",
+      "crawledAt": "2026-11-22T21:23:56.178Z",
       "_hvsMeta": {
         "number": "ATSANN0005029",
         "sysId": "19dc195e832c1f1017a39d20ceaad392",
@@ -3092,7 +3092,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T09:19:45.225Z",
+      "validThrough": "2027-02-14T21:23:56.178Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3139,7 +3139,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9027681a8720db50dbd6ebd30cbb35af/ATSANN0004677/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:44.890Z",
+      "crawledAt": "2026-11-22T21:23:55.830Z",
       "_hvsMeta": {
         "number": "ATSANN0004677",
         "sysId": "9027681a8720db50dbd6ebd30cbb35af",
@@ -3179,7 +3179,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T09:19:44.890Z",
+      "validThrough": "2027-02-14T21:23:55.830Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3226,7 +3226,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e771404b8301cb9017a39d20ceaad319/ATSANN0004696/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:44.548Z",
+      "crawledAt": "2026-11-22T21:23:55.494Z",
       "_hvsMeta": {
         "number": "ATSANN0004696",
         "sysId": "e771404b8301cb9017a39d20ceaad319",
@@ -3260,7 +3260,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T09:19:44.548Z",
+      "validThrough": "2027-02-14T21:23:55.494Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3307,7 +3307,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9e8ded2a97a0df10e7ce346e2153af72/ATSANN0005038/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:19:44.208Z",
+      "crawledAt": "2026-11-22T21:23:55.117Z",
       "_hvsMeta": {
         "number": "ATSANN0005038",
         "sysId": "9e8ded2a97a0df10e7ce346e2153af72",
@@ -3347,7 +3347,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T09:19:44.208Z",
+      "validThrough": "2027-02-15T21:23:55.117Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3394,7 +3394,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d957e12e97ec9f10e7ce346e2153af3b/ATSANN0005032/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:19:43.853Z",
+      "crawledAt": "2026-11-22T21:23:54.763Z",
       "_hvsMeta": {
         "number": "ATSANN0005032",
         "sysId": "d957e12e97ec9f10e7ce346e2153af3b",
@@ -3434,7 +3434,7 @@
       "addressRegion": "VS",
       "streetAddress": "St-maurice",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T09:19:43.853Z",
+      "validThrough": "2027-02-15T21:23:54.763Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3481,7 +3481,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2f566e66976c1350e7ce346e2153afc2/ATSANN0005041/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:19:43.512Z",
+      "crawledAt": "2026-11-22T21:23:54.383Z",
       "_hvsMeta": {
         "number": "ATSANN0005041",
         "sysId": "2f566e66976c1350e7ce346e2153afc2",
@@ -3521,7 +3521,7 @@
       "addressRegion": "VS",
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T09:19:43.512Z",
+      "validThrough": "2027-02-15T21:23:54.383Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3568,7 +3568,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9ef2726697acdb50316bb0b71153af4d/ATSANN0005044/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:19:42.850Z",
+      "crawledAt": "2026-11-22T21:23:53.702Z",
       "_hvsMeta": {
         "number": "ATSANN0005044",
         "sysId": "9ef2726697acdb50316bb0b71153af4d",
@@ -3608,7 +3608,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T09:19:42.850Z",
+      "validThrough": "2027-02-15T21:23:53.702Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3655,7 +3655,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/bc1392ab97a09b90316bb0b71153affe/ATSANN0005047/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:19:42.475Z",
+      "crawledAt": "2026-11-22T21:23:53.350Z",
       "_hvsMeta": {
         "number": "ATSANN0005047",
         "sysId": "bc1392ab97a09b90316bb0b71153affe",
@@ -3695,550 +3695,8 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:19:42.475Z",
+      "validThrough": "2027-02-18T21:23:53.350Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "hopital-du-valais-a4a3199ebc31",
-      "slug": "infermiera-salute-80-100-pzo-day-clinic-adults-hopital-du-valais-brig",
-      "slugByLocale": {
-        "it": "infermiera-salute-80-100-pzo-day-clinic-adults-hopital-du-valais-brig",
-        "en": "nurse-health-80-100-pzo-day-clinic-adults-hopital-du-valais-brig",
-        "de": "pflegefachperson-fachperson-gesundheit-80-100-pzo-tagesklinik-erwachsene-hopital-du-valais",
-        "fr": "infirmiere-et-sante-80-100-clinique-de-jour-pzo-adultes-hopital-du-valais-brig"
-      },
-      "company": "Hôpital du Valais",
-      "companyKey": "hopital-du-valais",
-      "companyDomain": "hopitalvs.ch",
-      "title": "Pflegefachperson 80 – 100%, Erwachsenenpsychiatrie",
-      "titleByLocale": {
-        "it": "Professionista 80 – 100%, psichiatria adulta",
-        "en": "Care professional 80 – 100%, adult psychiatry",
-        "de": "Pflegefachperson 80 – 100%, Erwachsenenpsychiatrie",
-        "fr": "Professionnel de soins 80 – 100%, psychiatrie pour adultes"
-      },
-      "description": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis im Psychiatriezentrum Oberwallis (PZO) in der Abteilung Erwachsenenpsychiatrie eine:\n\nPflegefachperson 80 – 100%, Erwachsenenpsychiatrie\n\nIhre Aufgaben:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege gemeinsam mit den anderen Teammitgliedern\n\n• Sie fördern eine gute interdisziplinäre und interprofessionelle Zusammenarbeit\n\n• Eigenverantwortung und aktives Mitdenken\n\n• Begleitung und Unterstützung der Lernenden während der Ausbildung\n\nIhr Profil:\n• Abgeschlossene Ausbildung in Pflege\n\n• Berufserfahrung in der Psychiatrie und leiten von Gruppen ist von Vorteil\n\n• Wertschätzung im täglichen Umgang mit Patienten\n\n• Kommunikative, initiative und flexible Persönlichkeit\n\n• Speditive und exakte Arbeitsweise\n\n• Gute EDV-Kenntnisse\n\nWir bieten:\n• Attraktive Anstellungsbedingungen\n\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n\n• Unterstützung durch motiviertes und engagiertes Team\n\n• Möglichkeit zur Weiterbildung",
-      "descriptionByLocale": {
-        "it": "L'Ospedale Wallis sta cercando una psichiatria adulta presso il Centro Ospedaliero Oberwallis (PZO):\n\nProfessionista 80 – 100%, psichiatria adulta\n\nI loro compiti:\n• Garantire assistenza professionale e orientata al cliente insieme agli altri membri del team\n\n• Promuovano una buona cooperazione interdisciplinare e interprofessionale\n\n• Responsabilità personale e pensiero attivo\n\n• Accompagnamento e supporto agli studenti durante la formazione\n\nIl tuo profilo:\n• Formazione completa in allattamento\n\n• Esperienza professionale in psichiatria e gruppi leader è vantaggioso\n\n• Apprezzamento nei rapporti quotidiani con i pazienti\n\n• Comune, iniziativa e personalità flessibile\n\n• Metodo di lavoro fresco e preciso\n\n• Buone competenze informatiche\n\nOffriamo:\n• Condizioni di lavoro attraenti\n\n• Lavori diversi, responsabili e indipendenti\n\n• Supporto da team motivati e impegnati\n\n• Opportunità di ulteriore formazione",
-        "en": "The Wallis Hospital is looking for an adult psychiatry at the Oberwallis Hospital Center (PZO):\n\nCare professional 80 – 100%, adult psychiatry\n\nTheir tasks:\n• Ensuring professional and customer-oriented care together with the other team members\n\n• They promote good interdisciplinary and interprofessional cooperation\n\n• Personal responsibility and active thinking\n\n• Accompanying and supporting learners during training\n\nYour profile:\n• Completed training in nursing\n\n• Professional experience in psychiatry and leading groups is beneficial\n\n• Appreciation in daily dealings with patients\n\n• Communicative, initiative and flexible personality\n\n• Fresh and exact working method\n\n• Good computer skills\n\nWe offer:\n• Attractive employment conditions\n\n• Varied, responsible and independent work\n\n• Support by motivated and committed team\n\n• Opportunity for further training",
-        "de": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis im Psychiatriezentrum Oberwallis (PZO) in der Abteilung Erwachsenenpsychiatrie eine:\n\nPflegefachperson 80 – 100%, Erwachsenenpsychiatrie\n\nIhre Aufgaben:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege gemeinsam mit den anderen Teammitgliedern\n\n• Sie fördern eine gute interdisziplinäre und interprofessionelle Zusammenarbeit\n\n• Eigenverantwortung und aktives Mitdenken\n\n• Begleitung und Unterstützung der Lernenden während der Ausbildung\n\nIhr Profil:\n• Abgeschlossene Ausbildung in Pflege\n\n• Berufserfahrung in der Psychiatrie und leiten von Gruppen ist von Vorteil\n\n• Wertschätzung im täglichen Umgang mit Patienten\n\n• Kommunikative, initiative und flexible Persönlichkeit\n\n• Speditive und exakte Arbeitsweise\n\n• Gute EDV-Kenntnisse\n\nWir bieten:\n• Attraktive Anstellungsbedingungen\n\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n\n• Unterstützung durch motiviertes und engagiertes Team\n\n• Möglichkeit zur Weiterbildung",
-        "fr": "L'hôpital Wallis recherche une psychiatrie pour adultes au centre hospitalier Oberwallis (PZO):\n\nProfessionnel de soins 80 – 100%, psychiatrie pour adultes\n\nLeurs tâches:\n• Assurer des soins professionnels et axés sur le client avec les autres membres de l'équipe\n\n• Ils favorisent une bonne coopération interdisciplinaire et interprofessionnelle\n\n• Responsabilité personnelle et pensée active\n\n• Accompagner et soutenir les apprenants pendant la formation\n\nVotre profil:\n• Formation complète en soins infirmiers\n\n• L'expérience professionnelle dans la psychiatrie et les groupes leaders est bénéfique\n\n• Appréciation dans les rapports quotidiens avec les patients\n\n• Communication, initiative et personnalité flexible\n\n• Méthode de travail fraîche et exacte\n\n• Bonnes compétences en informatique\n\nNous offrons:\n• Conditions d'emploi attrayantes\n\n• Travail varié, responsable et indépendant\n\n• Soutien d'une équipe motivée et engagée\n\n• Possibilité de formation continue"
-      },
-      "location": "Brig",
-      "canton": "VS",
-      "addressLocality": "Brig",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3900",
-      "category": "healthcare-nursing",
-      "sector": "Santé / Hôpital",
-      "contract": "full-time",
-      "employmentType": "80 - 100%",
-      "featured": false,
-      "datePosted": "2026-10-19",
-      "postedDate": "2026-10-19",
-      "postingDateSource": "reported",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4cd23cbe4747cb90ff8065f8736d43a7/ATSANN0004885/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4cd23cbe4747cb90ff8065f8736d43a7/ATSANN0004885/params/language/fr",
-      "source": "HVS Dedicated Parser (ServiceNow API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:32:37.281Z",
-      "_hvsMeta": {
-        "number": "ATSANN0004885",
-        "sysId": "4cd23cbe4747cb90ff8065f8736d43a7",
-        "societe": "Spitalzentrum Oberwallis",
-        "famille": "Soins",
-        "site": "BRIG"
-      },
-      "previousSlugsByLocale": {
-        "de": [
-          "pflegefachperson-80-100-erwachsenenpsychiatrie-hopital-du-valais-brig"
-        ],
-        "it": [
-          "pflegefachperson-80-100-erwachsenenpsychiatrie-hopital-du-valais-brig"
-        ]
-      },
-      "previousSlugs": [
-        "pflegefachperson-80-100-erwachsenenpsychiatrie-hopital-du-valais-brig"
-      ],
-      "firstSeenAt": "2026-10-19T09:14:37.911Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VS",
-      "streetAddress": "Brig",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T21:32:37.281Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4cd23cbe4747cb90ff8065f8736d43a7/atsann0004885/params/language/fr",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "hopital-du-valais-cd4040017e97",
-      "slug": "terapista-in-80-100-hopital-du-valais-brig",
-      "slugByLocale": {
-        "it": "terapista-in-80-100-hopital-du-valais-brig",
-        "en": "occupational-therapist-in-80-100-hopital-du-valais-brig",
-        "de": "ergotherapeut-in-80-100-hopital-du-valais-brig",
-        "fr": "ergotherapie-en-80-100-hopital-du-valais-brig"
-      },
-      "company": "Hôpital du Valais",
-      "companyKey": "hopital-du-valais",
-      "companyDomain": "hopitalvs.ch",
-      "title": "Ergotherapeut/in 80-100%",
-      "titleByLocale": {
-        "it": "Ergoterapista 80-100%",
-        "en": "Occupational therapist 80-100%",
-        "de": "Ergotherapeut/in 80-100%",
-        "fr": "Ergothérapeute 80-100 %"
-      },
-      "description": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis für die Abteilung Somatische Ergotherapie ein/e:\n\nErgotherapeut/in 80-100%\n\nIhre Aufgaben:\n• Sicherstellen einer evidenzbasierten ergotherapeutischen Behandlung\n\n• Versorgung der stationären Patienten auf der Geriatrie und Rehabilitation (muskuloskelettal & neurologisch)\n\n• Förderung einer guten interdisziplinären und interprofessionellen Zusammenarbeit\n\n• Aktive Mitarbeit in verschiedenen Projekten\n\nIhr Profil:\n• Abgeschlossenes Bachelor- oder Masterstudium in Ergotherapie oder gleichwertiger anerkannter Abschluss (SRK-Anerkennung)\n\n• Initiative und belastbare Persönlichkeit\n\n• Patientensicherheit und Kundenorientierung sind Ihnen wichtig\n\nWir bieten:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n\n• Sorgfältige Einführung in den Aufgabenbereich\n\n• Unterstützung durch ein motiviertes und engagiertes Team\n\n• Möglichkeit zur Weiterbildung\n\n• Attraktive Anstellungsbedingungen",
-      "descriptionByLocale": {
-        "it": "L'ospedale Wallis sta cercando il centro ospedaliero Oberwallis per il dipartimento di terapia occupazionale somatica:\n\nTerapista/in 80-100 %\n\nI loro compiti:\n• Garantire un trattamento ergotherapeutic basato su prove\n\n• Cura di pazienti in geriatria e riabilitazione (musculoscheletrici e neurologiche)\n\n• Promuovere una buona cooperazione interdisciplinare e interprofessionale\n\n• Partecipazione attiva a vari progetti\n\nIl tuo profilo:\n• Corso di laurea o master in terapia professionale o grado equivalente riconosciuto (riconoscimento SRC)\n\n• Iniziativa e personalità resiliente\n\n• La sicurezza del paziente e l'orientamento del cliente sono importanti per voi\n\nOffriamo:\n• Lavori diversi, responsabili e indipendenti\n\n• Introduzione attenta alla zona di attività\n\n• Supporto da un team motivato e impegnato\n\n• Opportunità di ulteriore formazione\n\n• Condizioni di lavoro attraenti",
-        "en": "The hospital in Valais is looking for the hospital centre Oberwallis for the department Somatic Ergotherapy:\n\nOccupational therapist/in 80-100%\n\nMission:\n• Ensuring evidence-based occupational therapy\n\n• Care for inpatients on geriatrics and rehabilitation (musculoskeletal and neurological)\n\n• Promote good interdisciplinary and interprofessional cooperation\n\n• Active participation in various projects\n\nProfile:\n• Completed Bachelor's or Master's degree in occupational therapy or equivalent recognised degree (SRK recognition)\n\n• Initiative and resilient personality\n\n• Patient safety and customer orientation are important to you\n\nOffre:\n• Varied, responsible and independent activities\n\n• Careful introduction to the task area\n\n• Support by a motivated and committed team\n\n• possibility of continuing training\n\n• Attractive employment conditions",
-        "de": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis für die Abteilung Somatische Ergotherapie ein/e:\n\nErgotherapeut/in 80-100%\n\nIhre Aufgaben:\n• Sicherstellen einer evidenzbasierten ergotherapeutischen Behandlung\n\n• Versorgung der stationären Patienten auf der Geriatrie und Rehabilitation (muskuloskelettal & neurologisch)\n\n• Förderung einer guten interdisziplinären und interprofessionellen Zusammenarbeit\n\n• Aktive Mitarbeit in verschiedenen Projekten\n\nIhr Profil:\n• Abgeschlossenes Bachelor- oder Masterstudium in Ergotherapie oder gleichwertiger anerkannter Abschluss (SRK-Anerkennung)\n\n• Initiative und belastbare Persönlichkeit\n\n• Patientensicherheit und Kundenorientierung sind Ihnen wichtig\n\nWir bieten:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n\n• Sorgfältige Einführung in den Aufgabenbereich\n\n• Unterstützung durch ein motiviertes und engagiertes Team\n\n• Möglichkeit zur Weiterbildung\n\n• Attraktive Anstellungsbedingungen",
-        "fr": "L'hôpital du Valais recherche le centre hospitalier Oberwallis pour le département d'Ergothérapie Somatique :\n\nErgothérapie/dans 80-100%\n\nMission:\n• Assurer une ergothérapie fondée sur des données probantes\n\n• Soins aux malades hospitalisés en gériatrie et réadaptation (musculosquelettique et neurologique)\n\n• Promouvoir une bonne coopération interdisciplinaire et interprofessionnelle\n\n• Participation active à divers projets\n\nProfil:\n• Baccalauréat ou maîtrise en ergothérapie ou diplôme équivalent reconnu (reconnaissance de la SRK)\n\n• Initiative et personnalité résiliente\n\n• La sécurité des patients et l'orientation des clients sont importantes pour vous\n\n• activités variées, responsables et indépendantes\n\n• Introduction attentive au domaine de travail\n\n• Soutien d'une équipe motivée et engagée\n\n• possibilité de formation continue\n\n• Conditions d'emploi attrayantes"
-      },
-      "location": "Brig",
-      "canton": "VS",
-      "addressLocality": "Brig",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3900",
-      "category": "healthcare-medtech",
-      "sector": "Santé / Hôpital",
-      "contract": "full-time",
-      "employmentType": "80 - 100%",
-      "featured": false,
-      "datePosted": "2026-09-15",
-      "postedDate": "2026-09-15",
-      "postingDateSource": "reported",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/43e0edce47744394296bd1eb736d43f5/ATSANN0004672/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/43e0edce47744394296bd1eb736d43f5/ATSANN0004672/params/language/fr",
-      "source": "HVS Dedicated Parser (ServiceNow API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:32:36.495Z",
-      "_hvsMeta": {
-        "number": "ATSANN0004672",
-        "sysId": "43e0edce47744394296bd1eb736d43f5",
-        "societe": "Spitalzentrum Oberwallis",
-        "famille": "Médico-Thérapeutique",
-        "site": "BRIG"
-      },
-      "previousSlugs": [
-        "ergotherapeut-in-80-100-hopital-du-valais-brig",
-        "persona-responsabile-60-80-hopital-du-valais-brig",
-        "person-in-charge-60-80-hopital-du-valais-brig",
-        "sachbearbeiter-in-debitorenbuchhaltung-60-80-hopital-du-valais-brig",
-        "responsable-60-80-hopital-du-valais-brig"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ergotherapeut-in-80-100-hopital-du-valais-brig",
-          "persona-responsabile-60-80-hopital-du-valais-brig",
-          "person-in-charge-60-80-hopital-du-valais-brig",
-          "sachbearbeiter-in-debitorenbuchhaltung-60-80-hopital-du-valais-brig",
-          "responsable-60-80-hopital-du-valais-brig"
-        ],
-        "en": [
-          "person-in-charge-60-80-hopital-du-valais-brig"
-        ],
-        "de": [
-          "sachbearbeiter-in-debitorenbuchhaltung-60-80-hopital-du-valais-brig"
-        ],
-        "fr": [
-          "responsable-60-80-hopital-du-valais-brig"
-        ]
-      },
-      "firstSeenAt": "2026-08-19T21:39:37.121Z",
-      "salaryMin": 81000,
-      "salaryMax": 135000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81000,
-          "maxValue": 135000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VS",
-      "streetAddress": "Brig",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:32:36.495Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/43e0edce47744394296bd1eb736d43f5/atsann0004672/params/language/fr",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "hopital-du-valais-d7eaba16b24a",
-      "slug": "analisi-biomedica-technician-70-90-per-la-piattaforma-ematologia-hopital-du-valais-sion",
-      "slugByLocale": {
-        "it": "analisi-biomedica-technician-70-90-per-la-piattaforma-ematologia-hopital-du-valais-sion",
-        "en": "biomedical-analysis-technician-70-90-for-the-hematology-platform-hopital-du-valais-sion",
-        "de": "biomedizinischer-analysetechniker-70-90-fur-die-hamatologie-plattform-hopital-du-valais-sion",
-        "fr": "technicien-ne-en-analyses-biomedicales-70-90-pour-la-plateforme-d-hematologie-hopital-du"
-      },
-      "company": "Hôpital du Valais",
-      "companyKey": "hopital-du-valais",
-      "companyDomain": "hopitalvs.ch",
-      "title": "Technicien-ne en analyses biomédicales 70-90% pour la plateforme d’hématologie",
-      "titleByLocale": {
-        "it": "Analisi Biomedica Technician 70-90% per la piattaforma ematologia",
-        "en": "Biomedical Analysis Technician 70-90% for the hematology platform",
-        "de": "Biomedizinischer Analysetechniker 70-90% für die Hämatologie-Plattform",
-        "fr": "Technicien-ne en analyses biomédicales 70-90% pour la plateforme d’hématologie"
-      },
-      "description": "Dans le cadre d’un remplacement et pour une durée de 5 mois, l’Hôpital du Valais cherche pour l'Institut Central des Hôpitaux un-e\n\nTechnicien-ne en analyses biomédicales 70-90%\n\npour la plateforme d’hématologie\n\nMission:\nVous assumez les différentes activités liées au travail de routine et spécialisé (hématologie, hémostase, immuno-hématologie) du laboratoire d’hématologie et êtes amené-e à effectuer régulièrement des services de garde, de week-end et de nuit.\n\nProfil:\nVous êtes diplômé-e technicien-ne en analyses biomédicales ou possédez un diplôme jugé équivalent et avez un intérêt particulier pour l’hématologie et ses domaines (hématologie générale, hémostase, immuno-hématologie).\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
-      "descriptionByLocale": {
-        "it": "Nell'ambito di una sostituzione e per un periodo di 5 mesi, l'Ospedale Vallese sta cercando per l'Istituto Centrale di Ospedale un\n\nAnalisi Biomedica Tecnica 70-90%\n\nper la piattaforma ematologia\n\nMissione:\nSi svolgono le varie attività legate al lavoro di routine e specializzato (ematologia, emostasi, immuno-ematologia) del laboratorio di ematologia e sono tenuti a svolgere servizi regolari diurni, week-end e notturni.\n\nProfilo:\nSei un laureato tecnico in analisi biomediche o hai un diploma ritenuto equivalente e hai un interesse speciale per l'ematologia e i suoi campi (ematologia generale, emostasi, immuno-ematologia).\n\nOfferta:\nUn ambiente stimolante e diversificato con l'opportunità di sfruttare la vostra conoscenza e l'esperienza; condizioni interessanti di occupazione; opportunità di formazione continua e formazione ulteriore. Trova qui tutti i vantaggi per i nostri dipendenti.",
-        "en": "As part of a replacement and for a period of 5 months, the Valais Hospital is seeking for the Central Hospital Institute a\n\nBiomedical Analysis Technician 70-90%\n\nfor the hematology platform\n\nMission:\nYou take on the various activities related to the routine and specialized work (haematology, haemostasis, immuno-haematology) of the laboratory of haematology and are required to perform regular daycare, weekend and night services.\n\nProfile:\nYou are a technical graduate in biomedical analysis or have a diploma deemed equivalent and have a special interest in the hematology and its fields (general hematology, haemostasis, immuno-haematology).\n\nOffer:\nA stimulating and diverse environment with the opportunity to leverage your knowledge and experience; attractive conditions of employment; opportunities for continuing training and further training. Find here all the advantages for our employees.",
-        "de": "Als Ersatz und für einen Zeitraum von 5 Monaten sucht das Walliser Krankenhaus das Zentralkrankenhaus\n\nBiomedizinischer Analysetechniker 70-90%\n\nfür die Hämatologie-Plattform\n\nMission:\nSie übernehmen die verschiedenen Aktivitäten im Zusammenhang mit der Routine- und Facharbeit (Hämatologie, Hämostase, Immunhämatologie) des Labors für Hämatologie und sind verpflichtet, regelmäßige Tages-, Wochenend- und Nachtdienste durchzuführen.\n\nProfil:\nSie sind ein technischer Absolvent in biomedizinischer Analyse oder haben ein gleichwertiges Diplom und haben ein besonderes Interesse an der Hämatologie und ihren Bereichen (allgemeine Hämatologie, Hämostase, Immunhämatologie).\n\nAngebot:\nEin anregendes und vielfältiges Umfeld mit der Möglichkeit, Ihr Wissen und Ihre Erfahrung zu nutzen; attraktive Beschäftigungsbedingungen; Möglichkeiten zur Weiterbildung und Weiterbildung. Hier finden Sie alle Vorteile für unsere Mitarbeiter.",
-        "fr": "Dans le cadre d’un remplacement et pour une durée de 5 mois, l’Hôpital du Valais cherche pour l'Institut Central des Hôpitaux un-e\n\nTechnicien-ne en analyses biomédicales 70-90%\n\npour la plateforme d’hématologie\n\nMission:\nVous assumez les différentes activités liées au travail de routine et spécialisé (hématologie, hémostase, immuno-hématologie) du laboratoire d’hématologie et êtes amené-e à effectuer régulièrement des services de garde, de week-end et de nuit.\n\nProfil:\nVous êtes diplômé-e technicien-ne en analyses biomédicales ou possédez un diplôme jugé équivalent et avez un intérêt particulier pour l’hématologie et ses domaines (hématologie générale, hémostase, immuno-hématologie).\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices."
-      },
-      "location": "Sion",
-      "canton": "VS",
-      "addressLocality": "Sion",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "logistics",
-      "sector": "Santé / Hôpital",
-      "contract": "full-time",
-      "employmentType": "70 - 90%",
-      "featured": false,
-      "datePosted": "2026-10-30",
-      "postedDate": "2026-10-30",
-      "postingDateSource": "reported",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/bc4c8a3c47585710ff8065f8736d4317/ATSANN0004986/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/bc4c8a3c47585710ff8065f8736d4317/ATSANN0004986/params/language/fr",
-      "source": "HVS Dedicated Parser (ServiceNow API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:32:34.936Z",
-      "_hvsMeta": {
-        "number": "ATSANN0004986",
-        "sysId": "bc4c8a3c47585710ff8065f8736d4317",
-        "societe": "Institut central des hôpitaux",
-        "famille": "Médico-technique",
-        "site": "SION"
-      },
-      "previousSlugs": [
-        "technicien-ne-en-analyses-biomedicales-70-90-pour-la-plateforme-d-hematologie-hopital-du"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technicien-ne-en-analyses-biomedicales-70-90-pour-la-plateforme-d-hematologie-hopital-du"
-        ],
-        "en": [
-          "technicien-ne-en-analyses-biomedicales-70-90-pour-la-plateforme-d-hematologie-hopital-du"
-        ],
-        "de": [
-          "technicien-ne-en-analyses-biomedicales-70-90-pour-la-plateforme-d-hematologie-hopital-du"
-        ]
-      },
-      "firstSeenAt": "2026-10-30T21:17:40.791Z",
-      "salaryMin": 54500,
-      "salaryMax": 82400,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 54500,
-          "maxValue": 82400,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VS",
-      "streetAddress": "Sion",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:32:34.936Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/bc4c8a3c47585710ff8065f8736d4317/atsann0004986/params/language/fr",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "hopital-du-valais-fa40df7ca677",
-      "slug": "analisi-biomedica-technician-chief-fe-100-hopital-du-valais-sion",
-      "slugByLocale": {
-        "it": "analisi-biomedica-technician-chief-fe-100-hopital-du-valais-sion",
-        "en": "biomedical-analysis-technician-chief-fe-100-hopital-du-valais-sion",
-        "de": "biomedizinische-analyse-techniker-chief-fe-100-hopital-du-valais-sion",
-        "fr": "technicien-ne-en-analyses-biomedicales-chef-fe-100-hopital-du-valais-sion"
-      },
-      "company": "Hôpital du Valais",
-      "companyKey": "hopital-du-valais",
-      "companyDomain": "hopitalvs.ch",
-      "title": "Technicien-ne en analyses biomédicales Chef-fe 100 %",
-      "titleByLocale": {
-        "it": "Analisi Biomedica Technician Chief-fe 100%",
-        "en": "Biomedical Analysis Technician Chief-fe 100%",
-        "de": "Biomedizinische Analyse Techniker Chief-fe 100%",
-        "fr": "Technicien-ne en analyses biomédicales Chef-fe 100 %"
-      },
-      "description": "L’Hôpital du Valais cherche pour l'Institut Central des Hôpitaux un-e\n\nTechnicien-ne en analyses biomédicales Chef-fe 100 %\n\npour son laboratoire d’hématologie\n\nMission:\nSous la supervision du responsable délégué, vous serez en charge des missions suivantes :\n\n• Gestion et coordination de l’équipe du laboratoire (recrutement, entretiens de collaboration, allocation des ressources, etc.)\n\n• Participation à l’activité du laboratoire\n\n• Participation au développement et à l’installation des nouvelles méthodes et analyses du laboratoire\n\n• Garantir la bonne exécution des analyses et le maintien des standards de qualité\n\n• Collaboration avec les autres laboratoires de l’ICH et les services cliniques des hôpitaux.\n\nProfil:\nVous avez un diplôme de technicien-ne en analyses biomédicales ES. Vous avez une expérience professionnelle en hématologie d’au moins 3 ans. Un diplôme d’expert-e en analyses biomédicales et gestion de laboratoire est un atout. Une expérience en gestion de projets ou gestion d’équipe avec une formation en management est souhaitable. Vous êtes organisé-e, avec d’excellentes capacités analytiques et êtes orienté-e client.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
-      "descriptionByLocale": {
-        "it": "L'Ospedale Vallese sta cercando l'Istituto Centrale degli Ospedali\n\nAnalisi Biomedica Technician Chief-fe 100%\n\nper il suo laboratorio di ematologia\n\nMissione:\nSotto la supervisione della testa del delegato, sarai responsabile dei seguenti compiti:\n\n• Gestione e coordinamento del team di laboratorio (reclutamento, interviste di collaborazione, allocazione delle risorse, ecc.)\n\n• Partecipazione all'attività di laboratorio\n\n• Partecipazione allo sviluppo e all'installazione di nuovi metodi e analisi di laboratorio\n\n• Assicurare una corretta analisi e manutenzione degli standard di qualità\n\n• Collaborazione con altri laboratori ICH e servizi clinici ospedalieri.\n\nProfilo:\nHai una laurea in ES Biomedical Analysis Technician. Hai almeno 3 anni di esperienza professionale in ematologia. Una laurea specialistica nell'analisi biomedica e nella gestione del laboratorio è una risorsa. L'esperienza nella gestione del progetto o nella gestione del team con la formazione manageriale è auspicabile. Sei organizzato, con eccellenti capacità analitiche e orientamento al cliente.\n\nOfferta:\nUn ambiente stimolante e diversificato con l'opportunità di sfruttare la vostra conoscenza e l'esperienza; condizioni interessanti di occupazione; opportunità di formazione continua e formazione ulteriore. Trova qui tutti i vantaggi per i nostri dipendenti.",
-        "en": "The Valais Hospital is looking for the Central Institute of Hospitals\n\nBiomedical Analysis Technician Chief-fe 100%\n\nfor his hematology laboratory\n\nMission:\nUnder the supervision of the delegated head, you will be responsible for the following tasks:\n\n• Management and coordination of the laboratory team (recruitment, collaboration interviews, allocation of resources, etc.)\n\n• Participation in laboratory activity\n\n• Participation in the development and installation of new laboratory methods and analyses\n\n• Ensure proper analysis and maintenance of quality standards\n\n• Collaboration with other ICH laboratories and hospital clinical services.\n\nProfile:\nYou have a degree in ES Biomedical Analysis Technician. You have at least 3 years of professional experience in haematology. An expert degree in biomedical analysis and laboratory management is an asset. Experience in project management or team management with management training is desirable. You are organized, with excellent analytical capabilities and customer orientation.\n\nOffer:\nA stimulating and diverse environment with the opportunity to leverage your knowledge and experience; attractive conditions of employment; opportunities for continuing training and further training. Find here all the advantages for our employees.",
-        "de": "Das Walliser Krankenhaus sucht das Zentralinstitut der Krankenhäuser\n\nBiomedizinische Analyse Techniker Chief-fe 100%\n\nfür sein Hämatologie-Labor\n\nMission:\nUnter der Aufsicht des delegierten Leiters sind Sie für folgende Aufgaben verantwortlich:\n\n• Management und Koordination des Laborteams (Rekrutierung, Kooperationsinterviews, Ressourcenverteilung etc.)\n\n• Teilnahme an Labortätigkeiten\n\n• Teilnahme an der Entwicklung und Installation neuer Labormethoden und Analysen\n\n• Gewährleistung einer ordnungsgemäßen Analyse und Aufrechterhaltung der Qualitätsstandards\n\n• Zusammenarbeit mit anderen ICH-Labors und klinischen Krankenhausdiensten.\n\nProfil:\nSie haben einen Abschluss in ES Biomedizinische Analyse Techniker. Sie haben mindestens 3 Jahre Berufserfahrung in der Hämatologie. Ein Expertenstudium in biomedizinischer Analyse und Labormanagement ist ein Gewinn. Erfahrung im Projektmanagement oder Teammanagement mit Managementtraining ist wünschenswert. Sie sind organisiert, mit hervorragenden analytischen Fähigkeiten und Kundenorientierung.\n\nAngebot:\nEin anregendes und vielfältiges Umfeld mit der Möglichkeit, Ihr Wissen und Ihre Erfahrung zu nutzen; attraktive Beschäftigungsbedingungen; Möglichkeiten zur Weiterbildung und Weiterbildung. Hier finden Sie alle Vorteile für unsere Mitarbeiter.",
-        "fr": "L’Hôpital du Valais cherche pour l'Institut Central des Hôpitaux un-e\n\nTechnicien-ne en analyses biomédicales Chef-fe 100 %\n\npour son laboratoire d’hématologie\n\nMission:\nSous la supervision du responsable délégué, vous serez en charge des missions suivantes :\n\n• Gestion et coordination de l’équipe du laboratoire (recrutement, entretiens de collaboration, allocation des ressources, etc.)\n\n• Participation à l’activité du laboratoire\n\n• Participation au développement et à l’installation des nouvelles méthodes et analyses du laboratoire\n\n• Garantir la bonne exécution des analyses et le maintien des standards de qualité\n\n• Collaboration avec les autres laboratoires de l’ICH et les services cliniques des hôpitaux.\n\nProfil:\nVous avez un diplôme de technicien-ne en analyses biomédicales ES. Vous avez une expérience professionnelle en hématologie d’au moins 3 ans. Un diplôme d’expert-e en analyses biomédicales et gestion de laboratoire est un atout. Une expérience en gestion de projets ou gestion d’équipe avec une formation en management est souhaitable. Vous êtes organisé-e, avec d’excellentes capacités analytiques et êtes orienté-e client.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices."
-      },
-      "location": "Sion",
-      "canton": "VS",
-      "addressLocality": "Sion",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "logistics",
-      "sector": "Santé / Hôpital",
-      "contract": "full-time",
-      "employmentType": "100%",
-      "featured": false,
-      "datePosted": "2026-11-02",
-      "postedDate": "2026-11-02",
-      "postingDateSource": "reported",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4d1d61398350171017a39d20ceaad3fc/ATSANN0004988/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4d1d61398350171017a39d20ceaad3fc/ATSANN0004988/params/language/fr",
-      "source": "HVS Dedicated Parser (ServiceNow API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:32:34.158Z",
-      "_hvsMeta": {
-        "number": "ATSANN0004988",
-        "sysId": "4d1d61398350171017a39d20ceaad3fc",
-        "societe": "Institut central des hôpitaux",
-        "famille": "Médico-technique",
-        "site": "SION"
-      },
-      "previousSlugs": [
-        "technicien-ne-en-analyses-biomedicales-chef-fe-100-hopital-du-valais-sion"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technicien-ne-en-analyses-biomedicales-chef-fe-100-hopital-du-valais-sion"
-        ],
-        "en": [
-          "technicien-ne-en-analyses-biomedicales-chef-fe-100-hopital-du-valais-sion"
-        ],
-        "de": [
-          "technicien-ne-en-analyses-biomedicales-chef-fe-100-hopital-du-valais-sion"
-        ]
-      },
-      "firstSeenAt": "2026-11-02T21:26:54.368Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VS",
-      "streetAddress": "Sion",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:32:34.158Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4d1d61398350171017a39d20ceaad3fc/atsann0004988/params/language/fr",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "hopital-du-valais-b2b3c8d8d5f8",
-      "slug": "80-infermiera-per-cardiologia-e-cardiochirurgia-presso-l-ospedale-sion-hopital-du-valais-sion",
-      "slugByLocale": {
-        "it": "80-infermiera-per-cardiologia-e-cardiochirurgia-presso-l-ospedale-sion-hopital-du-valais-sion",
-        "en": "80-nurse-for-cardiology-and-cardiac-surgery-at-sion-hospital-hopital-du-valais-sion",
-        "de": "80-krankenschwester-fur-kardiologie-und-herzchirurgie-im-sion-hospital-hopital-du-valais-sion",
-        "fr": "infirmier-ere-a-80-pour-le-service-de-cardiologie-et-de-chirurgie-cardiaque-de-l-hopital"
-      },
-      "company": "Hôpital du Valais",
-      "companyKey": "hopital-du-valais",
-      "companyDomain": "hopitalvs.ch",
-      "title": "Infirmier-ère à 80 % pour le service de cardiologie et de chirurgie cardiaque de l’Hôpital de Sion.",
-      "titleByLocale": {
-        "it": "80% infermiera per cardiologia e cardiochirurgia presso l'ospedale Sion.",
-        "en": "80% nurse for Cardiology and Cardiac Surgery at Sion Hospital.",
-        "de": "80% Krankenschwester für Kardiologie und Herzchirurgie im Sion Hospital.",
-        "fr": "Infirmier-ère à 80 % pour le service de cardiologie et de chirurgie cardiaque de l’Hôpital de Sion."
-      },
-      "description": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nInfirmier-ère à 80 %\n pour le service de cardiologie et de chirurgie cardiaque de l’Hôpital de Sion.\n\nMission:\n• Garantir la prise en charge des patients dans le service selon la stratégie de l’HVS et le Modèle de Pratique Professionnelle.\n\n• Garantir le bon fonctionnement du service, la qualité et la sécurité des soins, l’intégration des besoins des patients.\n\n• Favoriser une approche interdisciplinaire des soins\n\nProfil:\n• Diplôme d’infirmier-ère HES ou jugé équivalent\n\n• Reconnaissance Croix-Rouge pour les diplômes étrangers\n\n• Expérience en cardiologie et/ou en soins intermédiaires souhaitée\n\n• Formations aux soins intermédiaires, un atout\n\n• Aptitude à promouvoir et à développer des soins de qualité\n\n• Qualités relationnelles, sens de l’écoute et de la communication\n\n• Dynamisme, flexibilité et ouverture d’esprit\n\n• Maîtrise des outils informatiques et de la bureautique générale\n\nSeules les offres répondant au profil seront traitées.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
-      "descriptionByLocale": {
-        "it": "Il primo datore di lavoro del cantone, l'Hôpital du Valais ha 6.260 dipendenti. Ogni anno vengono curati 418.800 pazienti e sono previste circa 670 300 visite ambulatoriale.\n\nL'Ospedale Vallese è alla ricerca del Centro ospedaliero romano Vallese.\n\n80%\nper il Dipartimento di Chirurgia Cardiologica e Cardiac dell'Ospedale Sion.\n\nMissione:\n• Assicurare la cura del paziente nel servizio secondo la strategia HVS e il modello di pratica professionale.\n\n• Assicurare il corretto funzionamento del servizio, la qualità e la sicurezza della cura, l'integrazione delle esigenze del paziente.\n\n• Promuovere un approccio interdisciplinare alla cura\n\nProfilo:\n• Diploma in allattamento HES o considerato equivalente\n\n• Riconoscimento Croce Rossa per gradi stranieri\n\n• Esperienza in Cardiologia e/o Intermedio\n\n• Formazione di assistenza intermedia, un asset\n\n• Capacità di promuovere e sviluppare la cura della qualità\n\n• Qualità relazionali, senso di ascolto e comunicazione\n\n• Dynamism, flessibilità e apertura\n\n• Masterizzazione degli strumenti IT e automazione generale degli uffici\n\nVerranno elaborate solo offerte che rispondono al profilo.\n\nOfferta:\nUn ambiente stimolante e diversificato con l'opportunità di sfruttare le tue conoscenze e le tue esperienze; condizioni di lavoro attraenti; opportunità di formazione continua e formazione continua. Trova qui tutti i vantaggi per i nostri dipendenti.",
-        "en": "The canton's first employer, the Hôpital du Valais has 6,260 employees. Each year, 418,800 patients are cared for, and nearly 670 300 outpatient visits are provided.\n\nThe Valais Hospital is looking for the Valais Romand Hospital Centre.\n\n80% Nurse\nfor the Cardiology and Cardiac Surgery Department of the Sion Hospital.\n\nMission:\n• Ensure patient care in the service according to the HVS strategy and the Professional Practice Model.\n\n• Ensure the proper functioning of the service, quality and safety of care, integration of patient needs.\n\n• Promoting an interdisciplinary approach to care\n\nProfile:\n• Diploma in nursing HES or deemed equivalent\n\n• Red Cross recognition for foreign degrees\n\n• Experience in Cardiology and/or Intermediate Care\n\n• Intermediate care training, an asset\n\n• Ability to promote and develop quality care\n\n• Relationship qualities, meaning of listening and communication\n\n• Dynamism, flexibility and openness\n\n• Mastery of IT tools and general office automation\n\nOnly offers responding to the profile will be processed.\n\nOffer:\nA stimulating and diverse environment with the opportunity to leverage your knowledge and experience; attractive conditions of employment; opportunities for continuing training and further training. Find here all the advantages for our employees.",
-        "de": "Der erste Arbeitgeber des Kantons, das Walliser Hôpital, beschäftigt 6.260 Mitarbeiter. Jedes Jahr werden 418.800 Patienten betreut, und es werden fast 670 300 ambulante Besuche durchgeführt.\n\nDas Walliser Krankenhaus sucht das Walliser Krankenhauszentrum Romand.\n\n80% Krankenschwester\nfür die Abteilung Kardiologie und Herzchirurgie des Sion Hospital.\n\nMission:\n• Gewährleistung der Patientenversorgung im Service gemäß der HVS-Strategie und dem Professional Practice Model.\n\n• Gewährleistung des ordnungsgemäßen Funktionierens der Dienstleistung, der Qualität und Sicherheit der Versorgung und der Integration der Bedürfnisse der Patienten.\n\n• Förderung eines interdisziplinären Pflegeansatzes\n\nProfil:\n• Diplom in Pflege HES oder als gleichwertig angesehen\n\n• Anerkennung des Roten Kreuzes für ausländische Abschlüsse\n\n• Erfahrung in Kardiologie und / oder Intermediate Care\n\n• Intermediate Care Training, ein Asset\n\n• Fähigkeit, Qualitätspflege zu fördern und zu entwickeln\n\n• Beziehungsqualitäten, Bedeutung von Zuhören und Kommunikation\n\n• Dynamik, Flexibilität und Offenheit\n\n• Beherrschung von IT-Tools und allgemeine Büroautomation\n\nNur Angebote, die auf das Profil reagieren, werden verarbeitet.\n\nAngebot:\nEin anregendes und vielfältiges Umfeld mit der Möglichkeit, Ihr Wissen und Ihre Erfahrung zu nutzen; attraktive Beschäftigungsbedingungen; Möglichkeiten zur Weiterbildung und Weiterbildung. Hier finden Sie alle Vorteile für unsere Mitarbeiter.",
-        "fr": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nInfirmier-ère à 80 %\npour le service de cardiologie et de chirurgie cardiaque de l’Hôpital de Sion.\n\nMission:\n• Garantir la prise en charge des patients dans le service selon la stratégie de l’HVS et le Modèle de Pratique Professionnelle.\n\n• Garantir le bon fonctionnement du service, la qualité et la sécurité des soins, l’intégration des besoins des patients.\n\n• Favoriser une approche interdisciplinaire des soins\n\nProfil:\n• Diplôme d’infirmier-ère HES ou jugé équivalent\n\n• Reconnaissance Croix-Rouge pour les diplômes étrangers\n\n• Expérience en cardiologie et/ou en soins intermédiaires souhaitée\n\n• Formations aux soins intermédiaires, un atout\n\n• Aptitude à promouvoir et à développer des soins de qualité\n\n• Qualités relationnelles, sens de l’écoute et de la communication\n\n• Dynamisme, flexibilité et ouverture d’esprit\n\n• Maîtrise des outils informatiques et de la bureautique générale\n\nSeules les offres répondant au profil seront traitées.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices."
-      },
-      "location": "Sion",
-      "canton": "VS",
-      "addressLocality": "Sion",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "healthcare-nursing",
-      "sector": "Santé / Hôpital",
-      "contract": "full-time",
-      "employmentType": "80%",
-      "featured": false,
-      "datePosted": "2026-11-04",
-      "postedDate": "2026-11-04",
-      "postingDateSource": "reported",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c94d379e47189f10339c9146736d43e9/ATSANN0004993/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c94d379e47189f10339c9146736d43e9/ATSANN0004993/params/language/fr",
-      "source": "HVS Dedicated Parser (ServiceNow API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:32:32.598Z",
-      "_hvsMeta": {
-        "number": "ATSANN0004993",
-        "sysId": "c94d379e47189f10339c9146736d43e9",
-        "societe": "Centre Hospitalier du Valais romand",
-        "famille": "Soins",
-        "site": "SION"
-      },
-      "previousSlugs": [
-        "infirmier-ere-a-80-pour-le-service-de-cardiologie-et-de-chirurgie-cardiaque-de-l-hopital"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-a-80-pour-le-service-de-cardiologie-et-de-chirurgie-cardiaque-de-l-hopital"
-        ],
-        "en": [
-          "infirmier-ere-a-80-pour-le-service-de-cardiologie-et-de-chirurgie-cardiaque-de-l-hopital"
-        ],
-        "de": [
-          "infirmier-ere-a-80-pour-le-service-de-cardiologie-et-de-chirurgie-cardiaque-de-l-hopital"
-        ]
-      },
-      "firstSeenAt": "2026-11-04T21:17:34.110Z",
-      "salaryMin": 69200,
-      "salaryMax": 96400,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69200,
-          "maxValue": 96400,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VS",
-      "streetAddress": "Sion",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:32:32.598Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c94d379e47189f10339c9146736d43e9/atsann0004993/params/language/fr",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "hopital-du-valais-e1cab9cb17b2",
-      "slug": "80-infermiera-per-j1-unita-cardiovascolare-unita-ictus-neurologia-medicina-nefrologia-hopital-du-valais-sion",
-      "slugByLocale": {
-        "it": "80-infermiera-per-j1-unita-cardiovascolare-unita-ictus-neurologia-medicina-nefrologia-hopital-du-valais-sion",
-        "en": "80-nurse-for-j1-cerebrovascular-unit-stroke-unit-neurology-medicine-nephrology-hopital-du-valais-sion",
-        "de": "80-krankenschwester-fur-j1-zerebrovaskulare-einheit-schlaganfalleinheit-neurologie-medizin-nephrologie-hopital-du-valais",
-        "fr": "infirmier-ere-a-80-pour-le-service-du-j1-unite-cerebrovasculaire-stroke-unit-neurologie"
-      },
-      "company": "Hôpital du Valais",
-      "companyKey": "hopital-du-valais",
-      "companyDomain": "hopitalvs.ch",
-      "title": "Infirmier-ère à 80% pour le service du J1 (unité cérébrovasculaire - stroke unit, neurologie, médecine, néphrologie)",
-      "titleByLocale": {
-        "it": "80% infermiera per J1 (unità cardiovascolare - unità ictus, neurologia, medicina, nefrologia)",
-        "en": "80% nurse for J1 (cerebrovascular unit - stroke unit, neurology, medicine, nephrology)",
-        "de": "80% Krankenschwester für J1 (zerebrovaskuläre Einheit - Schlaganfalleinheit, Neurologie, Medizin, Nephrologie)",
-        "fr": "Infirmier-ère à 80% pour le service du J1 (unité cérébrovasculaire - stroke unit, neurologie, médecine, néphrologie)"
-      },
-      "description": "1er employeur du canton, l’Hôpital du Valais compte 6’260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nInfirmier-ère à 80%\npour le service du J1 (unité cérébrovasculaire - stroke unit, neurologie, médecine, néphrologie)\n\nMission:\n• Garantir la prise en charge des patients dans le service selon la stratégie de l’HVS et le Modèle de Pratique Professionnelle.\n\n• Garantir le bon fonctionnement du service, la qualité et la sécurité des soins, l’intégration des besoins des patients.\n\n• Favoriser une approche interdisciplinaire des soins.\n\nProfil:\n• Diplôme d'infirmier-ère tertiaire (soins généraux reconnu par la Croix Rouge, HES, DNII)\n\n• Aptitude à promouvoir et à développer des soins de qualité\n\n• Qualités relationnelles, sens de l’écoute et de la communication\n\n• Maîtrise des outils informatiques et de la bureautique générale\n\n• Dynamisme, une grande flexibilité et ouverture d’esprit\n\n• Connaissance de la langue allemande serait un atout\n\nSeules les offres répondant au profil seront traitées.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
-      "descriptionByLocale": {
-        "it": "Il primo datore di lavoro del cantone, l'Hôpital du Valais, ha 6.260 dipendenti. Ogni anno vengono curati 418.800 pazienti e sono previste circa 670 300 visite ambulatoriale.\n\nL'Ospedale Vallese è alla ricerca del Centro ospedaliero romano Vallese.\n\nInfermiera all'80%\nper il servizio di J1 (unità cardiovascolare - unità ictus, neurologia, medicina, nefrologia)\n\nMissione:\n• Assicurare la cura del paziente nel servizio secondo la strategia HVS e il modello di pratica professionale.\n\n• Assicurare il corretto funzionamento del servizio, la qualità e la sicurezza della cura, l'integrazione delle esigenze del paziente.\n\n• Promuovere un approccio interdisciplinare alla cura.\n\nProfilo:\n• Diploma di Terziario Infermiera (assistenza generale riconosciuta dalla Croce Rossa, HES, DNII)\n\n• Capacità di promuovere e sviluppare la cura della qualità\n\n• Qualità relazionali, senso di ascolto e comunicazione\n\n• Masterizzazione degli strumenti IT e automazione generale degli uffici\n\n• Dynamism, grande flessibilità e apertura\n\n• La conoscenza della lingua tedesca sarebbe un bene\n\nVerranno elaborate solo offerte che rispondono al profilo.\n\nOfferta:\nUn ambiente stimolante e diversificato con l'opportunità di sfruttare le tue conoscenze e le tue esperienze; condizioni di lavoro attraenti; opportunità di formazione continua e formazione continua. Trova qui tutti i vantaggi per i nostri dipendenti.",
-        "en": "The canton's first employer, the Hôpital du Valais, has 6,260 employees. Each year, 418,800 patients are cared for, and nearly 670 300 outpatient visits are provided.\n\nThe Valais Hospital is looking for the Valais Romand Hospital Centre.\n\nNurse at 80%\nfor the service of J1 (cerebrovascular unit - stroke unit, neurology, medicine, nephrology)\n\nMission:\n• Ensure patient care in the service according to the HVS strategy and the Professional Practice Model.\n\n• Ensure the proper functioning of the service, quality and safety of care, integration of patient needs.\n\n• Promote an interdisciplinary approach to care.\n\nProfile:\n• Diploma of Tertiary Nurse (general care recognized by the Red Cross, HES, DNII)\n\n• Ability to promote and develop quality care\n\n• Relationship qualities, meaning of listening and communication\n\n• Mastery of IT tools and general office automation\n\n• Dynamism, great flexibility and openness\n\n• Knowledge of the German language would be an asset\n\nOnly offers responding to the profile will be processed.\n\nOffer:\nA stimulating and diverse environment with the opportunity to leverage your knowledge and experience; attractive conditions of employment; opportunities for continuing training and further training. Find here all the advantages for our employees.",
-        "de": "Der erste Arbeitgeber des Kantons, das Walliser Hôpital, beschäftigt 6.260 Mitarbeiter. Jedes Jahr werden 418.800 Patienten betreut, und es werden fast 670 300 ambulante Besuche durchgeführt.\n\nDas Walliser Krankenhaus sucht das Walliser Krankenhauszentrum Romand.\n\nKrankenschwester bei 80%\nfür den Dienst an J1 (zerebrovaskuläre Einheit - Schlaganfalleinheit, Neurologie, Medizin, Nephrologie)\n\nMission:\n• Gewährleistung der Patientenversorgung im Service gemäß der HVS-Strategie und dem Professional Practice Model.\n\n• Gewährleistung des ordnungsgemäßen Funktionierens der Dienstleistung, der Qualität und Sicherheit der Versorgung und der Integration der Bedürfnisse der Patienten.\n\n• Förderung eines interdisziplinären Ansatzes für die Pflege.\n\nProfil:\n• Diplom der tertiären Krankenschwester (allgemeine Pflege vom Roten Kreuz, HES, DNII anerkannt)\n\n• Fähigkeit, Qualitätspflege zu fördern und zu entwickeln\n\n• Beziehungsqualitäten, Bedeutung von Zuhören und Kommunikation\n\n• Beherrschung von IT-Tools und allgemeine Büroautomation\n\n• Dynamik, große Flexibilität und Offenheit\n\n• Deutschkenntnisse wären ein Gewinn\n\nNur Angebote, die auf das Profil reagieren, werden verarbeitet.\n\nAngebot:\nEin anregendes und vielfältiges Umfeld mit der Möglichkeit, Ihr Wissen und Ihre Erfahrung zu nutzen; attraktive Beschäftigungsbedingungen; Möglichkeiten zur Weiterbildung und Weiterbildung. Hier finden Sie alle Vorteile für unsere Mitarbeiter.",
-        "fr": "1er employeur du canton, l’Hôpital du Valais compte 6’260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nInfirmier-ère à 80%\npour le service du J1 (unité cérébrovasculaire - stroke unit, neurologie, médecine, néphrologie)\n\nMission:\n• Garantir la prise en charge des patients dans le service selon la stratégie de l’HVS et le Modèle de Pratique Professionnelle.\n\n• Garantir le bon fonctionnement du service, la qualité et la sécurité des soins, l’intégration des besoins des patients.\n\n• Favoriser une approche interdisciplinaire des soins.\n\nProfil:\n• Diplôme d'infirmier-ère tertiaire (soins généraux reconnu par la Croix Rouge, HES, DNII)\n\n• Aptitude à promouvoir et à développer des soins de qualité\n\n• Qualités relationnelles, sens de l’écoute et de la communication\n\n• Maîtrise des outils informatiques et de la bureautique générale\n\n• Dynamisme, une grande flexibilité et ouverture d’esprit\n\n• Connaissance de la langue allemande serait un atout\n\nSeules les offres répondant au profil seront traitées.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices."
-      },
-      "location": "Sion",
-      "canton": "VS",
-      "addressLocality": "Sion",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "healthcare-nursing",
-      "sector": "Santé / Hôpital",
-      "contract": "full-time",
-      "employmentType": "80%",
-      "featured": false,
-      "datePosted": "2026-11-04",
-      "postedDate": "2026-11-04",
-      "postingDateSource": "reported",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/346b33d247189f10339c9146736d4352/ATSANN0004992/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/346b33d247189f10339c9146736d4352/ATSANN0004992/params/language/fr",
-      "source": "HVS Dedicated Parser (ServiceNow API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:32:32.212Z",
-      "_hvsMeta": {
-        "number": "ATSANN0004992",
-        "sysId": "346b33d247189f10339c9146736d4352",
-        "societe": "Centre Hospitalier du Valais romand",
-        "famille": "Soins",
-        "site": "SION"
-      },
-      "previousSlugs": [
-        "infirmier-ere-a-80-pour-le-service-du-j1-unite-cerebrovasculaire-stroke-unit-neurologie"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-a-80-pour-le-service-du-j1-unite-cerebrovasculaire-stroke-unit-neurologie"
-        ],
-        "en": [
-          "infirmier-ere-a-80-pour-le-service-du-j1-unite-cerebrovasculaire-stroke-unit-neurologie"
-        ],
-        "de": [
-          "infirmier-ere-a-80-pour-le-service-du-j1-unite-cerebrovasculaire-stroke-unit-neurologie"
-        ]
-      },
-      "firstSeenAt": "2026-11-04T21:17:34.470Z",
-      "salaryMin": 69200,
-      "salaryMax": 96400,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69200,
-          "maxValue": 96400,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VS",
-      "streetAddress": "Sion",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:32:32.212Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/346b33d247189f10339c9146736d4352/atsann0004992/params/language/fr",
-      "crawlerMissStreak": 2
     }
   ]
 }

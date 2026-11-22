@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hopital-de-lavaux",
-  "assembledAt": "2026-11-22T09:20:19.125Z",
-  "runId": "45005972042",
+  "assembledAt": "2026-11-22T21:19:01.169Z",
+  "runId": "45070284095",
   "jobs": [
     {
       "id": "hopital-de-lavaux-a7255dd10142",
@@ -34,7 +34,7 @@
       "url": "https://app.beehire.com/invite/GFUnCnSo4",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:20:08.028Z",
+      "crawledAt": "2026-11-22T21:18:53.967Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
       },
       "streetAddress": "Bourg-en-Lavaux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T09:20:08.028Z",
+      "validThrough": "2027-01-06T21:18:53.967Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -116,7 +116,7 @@
       "url": "https://app.beehire.com/invite/mrL3gPPlO",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:20:08.027Z",
+      "crawledAt": "2026-11-22T21:18:53.966Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -170,7 +170,7 @@
       },
       "streetAddress": "Bourg-en-Lavaux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-20T09:20:08.027Z",
+      "validThrough": "2027-02-20T21:18:53.966Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -204,7 +204,7 @@
       "url": "https://app.beehire.com/invite/6fUTqfx6X",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:20:08.026Z",
+      "crawledAt": "2026-11-22T21:18:53.965Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -251,7 +251,7 @@
       },
       "streetAddress": "Bourg-en-Lavaux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-19T09:20:08.026Z",
+      "validThrough": "2027-02-19T21:18:53.965Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -285,7 +285,7 @@
       "url": "https://app.beehire.com/invite/A7b1Yo_iU",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:20:08.025Z",
+      "crawledAt": "2026-11-22T21:18:53.964Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -335,7 +335,7 @@
       },
       "streetAddress": "Bourg-en-Lavaux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:20:08.025Z",
+      "validThrough": "2027-02-02T21:18:53.964Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -370,7 +370,7 @@
       "url": "https://app.beehire.com/invite/kINZiCm0y",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:20:08.022Z",
+      "crawledAt": "2026-11-22T21:18:53.961Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -422,7 +422,7 @@
       },
       "streetAddress": "Bourg-en-Lavaux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:20:08.022Z",
+      "validThrough": "2026-12-28T21:18:53.961Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -457,7 +457,7 @@
       "url": "https://app.beehire.com/invite/R9yoMhkVH",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:20:08.020Z",
+      "crawledAt": "2026-11-22T21:18:53.959Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -507,7 +507,7 @@
       },
       "streetAddress": "Bourg-en-Lavaux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:20:08.020Z",
+      "validThrough": "2027-02-15T21:18:53.959Z",
       "validThroughSource": "last-observed-window"
     }
   ]
