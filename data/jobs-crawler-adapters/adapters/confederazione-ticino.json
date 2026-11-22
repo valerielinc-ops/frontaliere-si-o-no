@@ -11,7 +11,7 @@
     "https://ohws.prospective.ch/public/v1/medium/1000624/jobs?lang=it"
   ],
   "notes": "Confederazione Svizzera — CH-wide federal jobs (all 26 cantons). Fetches the unfiltered national listing from the Prospective.ch API (medium 1000624 — Stellenportal Bund / jobs.admin.ch) and keeps every job whose location resolves to a Swiss canton (inferAnyCanton); foreign \"Estero\" postings are dropped. Covers departments not handled by VTG or Agroscope crawlers: DATEC, DEFR/SECO, DFGP, TPF, etc. Includes apprenticeship and internship positions.",
-  "updatedAt": "2026-11-22T10:01:28.735Z",
+  "updatedAt": "2026-11-22T21:38:42.635Z",
   "seedMetaByUrl": {
     "https://jobs.admin.ch/posti-vacanti/product-owner-rm-plattform-betrieb-und-leistungen/467e737b-7594-45d8-bbf4-7a4e34d94b7c": {
       "location": "Bern",
@@ -1019,14 +1019,6 @@
       "company": "Confederazione Svizzera",
       "datePosted": "2026-11-10T15:33:12Z",
       "postedDate": "2026-11-10T15:33:12Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-im-bereich-forschung-und-evaluation/5389314b-21eb-4d1d-b215-7dd248d5f528": {
-      "location": "Bern",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-11-10T15:48:54Z",
-      "postedDate": "2026-11-10T15:48:54Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/chef-in-transporte/c403b99b-795b-4e69-8bb4-28c678ae3500": {
