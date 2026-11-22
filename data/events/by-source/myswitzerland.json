@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-11-21T14:08:25.326Z",
+  "assembledAt": "2026-11-22T14:01:39.511Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -143626,12 +143626,11 @@
       },
       "startDate": "2027-01-05",
       "endDate": "2027-01-05",
-      "startTime": "19:30",
       "category": "Event",
       "venue": "St. Gallen",
       "comune": "St. Gallen",
       "canton": "SG",
-      "url": "https://www.myswitzerland.com/it-ch/experiences/events/vivaldi-die-vier-jahreszeiten-8/",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/vivaldi-die-vier-jahreszeiten-8/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -143639,7 +143638,10 @@
         "lng": 9.3798803
       },
       "recurring": false,
-      "sourceDescriptionHash": "bbc07bd40b71071bbc0ef66a9ba75ffa350453d44ba204f6bbea5f36040f9776"
+      "performer": {
+        "name": "BerufsmusikerInnen"
+      },
+      "sourceDescriptionHash": "86a5132d83b7b2a14a5423ab4e4e2ab16d595bf506b070317d8831511a36ed52"
     },
     {
       "id": "myswitzerland:a56d69c768474b5f978e1de6e70e61c6",
@@ -173031,26 +173033,32 @@
       "title": "Küssnacht Klausjagen",
       "titleByLocale": {
         "it": "Küssnacht Klausjagen",
-        "en": "Ks",
-        "de": "K Cumsnacht Klaus Cumsnagen",
-        "fr": "Sk"
+        "en": "Küssnachter Klausjagen",
+        "de": "Küssnachter Klausjagen",
+        "fr": "Küssnachter Klausjagen"
       },
-      "startDate": "2026-12-05",
-      "endDate": "2026-12-05",
-      "startTime": "20:15",
+      "startDate": "2026-12-04",
+      "endDate": "2026-12-04",
       "category": "Event",
-      "venue": "Seebodenstrasse",
+      "venue": "Küssnacht am Rigi",
       "comune": "Küssnacht (SZ)",
       "canton": "SZ",
-      "url": "https://www.myswitzerland.com/en-ch/experiences/events/kuessnachter-klausjagen/",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/kuessnacht-klausjagen/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
-        "lat": 47.0833794,
-        "lng": 8.4490376
+        "lat": 47.0832666,
+        "lng": 8.4490879
       },
       "recurring": false,
-      "sourceDescriptionHash": "7cf49477f20e87374a211decd46f6785f09df2f21a67c64a2949f1f6a318214b"
+      "sourceDescriptionHash": "7cf49477f20e87374a211decd46f6785f09df2f21a67c64a2949f1f6a318214b",
+      "previousRoutes": [
+        {
+          "canton": "SZ",
+          "comune": "Küssnacht (SZ)",
+          "slug": "kussnacht-klausjagen-2026-12-05"
+        }
+      ]
     },
     {
       "id": "myswitzerland:a6048e861325475380953500218fba92",
@@ -183731,7 +183739,6 @@
       },
       "startDate": "2026-12-09",
       "endDate": "2026-12-10",
-      "startTime": "19:30",
       "category": "Event",
       "venue": "Winterthur",
       "comune": "Winterthur",
@@ -183744,6 +183751,9 @@
         "lng": 8.7313813
       },
       "recurring": true,
+      "performer": {
+        "name": "Pauken"
+      },
       "sourceDescriptionHash": "8341128614644bec4673ccc48b123877f5527ae00023a0877c705216129bf371"
     },
     {
@@ -279748,6 +279758,341 @@
       },
       "recurring": true,
       "sourceDescriptionHash": "4aef45ac474dce72d48218cf43328f392242e5ae64fc722510bc14ef6d1ac5f1"
+    },
+    {
+      "id": "myswitzerland:a8c31cb8e3d7403c810883f3a3ba6606",
+      "title": "Degustations- & Verkaufstage bei Weinbau Familie Brunner",
+      "titleByLocale": {
+        "it": "Degustations- & Verkaufstage bei Weinbau Familie Brunner",
+        "en": "Degustations- & Verkaufstage bei Weinbau Familie Brunner",
+        "de": "Degustations- & Verkaufstage bei Weinbau Familie Brunner",
+        "fr": "Degustations- & Verkaufstage bei Weinbau Familie Brunner"
+      },
+      "startDate": "2026-11-27",
+      "endDate": "2026-11-28",
+      "category": "Event",
+      "venue": "Kleinandelfingen",
+      "comune": "Kleinandelfingen",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/degustations-verkaufstage-bei-weinbau-familie-brunner/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.59778,
+        "lng": 8.684638
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "d01fa01101ac0568ea28f4367d171a058b2343fc47236e06d666157cf1095e2a"
+    },
+    {
+      "id": "myswitzerland:a897671a25e04c7192f7a2e4d35fab5e",
+      "title": "Finissage Sonderausstellung und Verabschiedung von Thomas Fuchs",
+      "titleByLocale": {
+        "it": "Finissage Sonderausstellung und Verabschiedung von Thomas Fuchs",
+        "en": "Finissage Sonderausstellung und Verabschiedung von Thomas Fuchs",
+        "de": "Finissage Sonderausstellung und Verabschiedung von Thomas Fuchs",
+        "fr": "Finissage Sonderausstellung und Verabschiedung von Thomas Fuchs"
+      },
+      "startDate": "2026-11-22",
+      "endDate": "2026-11-22",
+      "category": "Event",
+      "venue": "Herisau",
+      "comune": "Herisau",
+      "canton": "AR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/finissage-sonderausstellung-und-verabschiedung-von-thomas-fuchs/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3855446,
+        "lng": 9.2789011
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Musik"
+        },
+        {
+          "name": "Apéro"
+        }
+      ],
+      "sourceDescriptionHash": "14f7bcf3a53f4149d9537e21f74c5840652145b6463231df5d41af9ba4182a77"
+    },
+    {
+      "id": "myswitzerland:a87fa48c6a6e4a068e5c1ec009ec262a",
+      "title": "Spaziergang Kunstlandschaft Appenzell",
+      "titleByLocale": {
+        "it": "Spaziergang Kunstlandschaft Appenzell",
+        "en": "Spaziergang Kunstlandschaft Appenzell",
+        "de": "Spaziergang Kunstlandschaft Appenzell",
+        "fr": "Spaziergang Kunstlandschaft Appenzell"
+      },
+      "startDate": "2026-11-01",
+      "endDate": "2027-03-31",
+      "category": "Event",
+      "venue": "Appenzell",
+      "comune": "Appenzell",
+      "canton": "AI",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/spaziergang-kunstlandschaft-appenzell/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3315866,
+        "lng": 9.4071523
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "7f220c742098e2bbf6d0405c575f8cecd12c3a99196d7f68568deb8df7674470"
+    },
+    {
+      "id": "myswitzerland:a8646c4a5b6444d18775b0ae7e897d1d",
+      "title": "🎅🎄 Ehi… qui da noi alla Heirihütte, San Nicolao ha perso qualcosa! 🤫🎁",
+      "titleByLocale": {
+        "it": "🎅🎄 Ehi… qui da noi alla Heirihütte, San Nicolao ha perso qualcosa! 🤫🎁",
+        "en": "🎅🎄 Shhh… St. Nicholas left something behind here at the Heirihütte! 🤫🎁",
+        "de": "🎅🎄 Pssst … bei uns auf der Heirihütte hat der Samichlaus etwas verloren! 🤫🎁",
+        "fr": "🎅🎄 Chut… Saint-Nicolas a perdu quelque chose ici, à la Heirihütte ! 🤫🎁"
+      },
+      "startDate": "2026-12-06",
+      "endDate": "2026-12-06",
+      "category": "Event",
+      "venue": "Rigi",
+      "comune": "Arth",
+      "canton": "SZ",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/ehi-qui-da-noi-alla-heirihuette-san-nicolao-ha-perso-qualcosa/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0423494,
+        "lng": 8.4840906
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "22853defc8a4b1b9e5795f78ca8c752ee8763f8bf5d82be9660dea3a7ddba378"
+    },
+    {
+      "id": "myswitzerland:a78207d29d6749f28efba4d5ab9fbf04",
+      "title": "BLATTNER CHÄÄS- UND MÜSIGFESTIVAL",
+      "titleByLocale": {
+        "it": "BLATTNER CHÄÄS- UND MÜSIGFESTIVAL",
+        "en": "BLATTNER CHÄÄS- UND MÜSIGFESTIVAL",
+        "de": "BLATTNER CHÄÄS- UND MÜSIGFESTIVAL",
+        "fr": "BLATTNER CHÄÄS- UND MÜSIGFESTIVAL"
+      },
+      "startDate": "2027-08-15",
+      "endDate": "2027-08-15",
+      "category": "Event",
+      "venue": "Blatten-Belalp",
+      "comune": "Blatten",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/blattner-chaeaes-und-muesigfestival/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.358611,
+        "lng": 7.984444
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "d7777a9d909afa8cbea50bbdabe7da30799c76b8c1d1bfc57473750590052df8"
+    },
+    {
+      "id": "myswitzerland:a77164e86b754744a410010b046aadbf",
+      "title": "Opening of the winter exhibition",
+      "titleByLocale": {
+        "it": "Opening of the winter exhibition",
+        "en": "Opening of the winter exhibition",
+        "de": "Vernissage der Winterausstellung",
+        "fr": "Vernissage de l'exposition d'hiver"
+      },
+      "startDate": "2027-01-20",
+      "endDate": "2027-01-20",
+      "category": "Event",
+      "venue": "Aigle",
+      "comune": "Aigle",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/opening-of-the-winter-exhibition/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.3178761,
+        "lng": 6.9698041
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Blick"
+        },
+        {
+          "name": "Ansatz"
+        }
+      ],
+      "sourceDescriptionHash": "7c052f36b74673700c31d4bc3a6ec68a785454f8c4cca2f5997f154f651e6c9b"
+    },
+    {
+      "id": "myswitzerland:a73a789eb24645248cd62b25aabcdc0d",
+      "title": "Alles ist Circus - Eine Familie. Ein Traum. 200 Jahre Schweizer Circusgeschichte.",
+      "titleByLocale": {
+        "it": "Alles ist Circus - Eine Familie. Ein Traum. 200 Jahre Schweizer Circusgeschichte.",
+        "en": "Alles ist Circus - Eine Familie. Ein Traum. 200 Jahre Schweizer Circusgeschichte.",
+        "de": "Alles ist Circus - Eine Familie. Ein Traum. 200 Jahre Schweizer Circusgeschichte.",
+        "fr": "Alles ist Circus - Eine Familie. Ein Traum. 200 Jahre Schweizer Circusgeschichte."
+      },
+      "startDate": "2027-12-18",
+      "endDate": "2027-12-19",
+      "category": "Event",
+      "venue": "Cham",
+      "comune": "Cham",
+      "canton": "ZG",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/alles-ist-circus-eine-familie-ein-traum-200-jahre-schweizer-circusgeschichte/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.1807417,
+        "lng": 8.4594419
+      },
+      "recurring": true,
+      "performer": {
+        "name": "Künstler"
+      },
+      "sourceDescriptionHash": "fbf0635f30cc1fc0389deb498bac33d5f02b926020ecc4ba9b334145da7d374c"
+    },
+    {
+      "id": "myswitzerland:a72352dd20ee4f6cab7309a2dd8d6d38",
+      "title": "Ponte del Canto",
+      "titleByLocale": {
+        "it": "Ponte del Canto",
+        "en": "Ponte del Canto",
+        "de": "Ponte del Canto",
+        "fr": "Ponte del Canto"
+      },
+      "startDate": "2027-03-12",
+      "endDate": "2027-03-12",
+      "category": "Event",
+      "venue": "S. Vittore",
+      "comune": "San Vittore",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/ponte-del-canto/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.245415,
+        "lng": 9.099807
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "00cacbdffd86d347e1d7488926791107076e7c93f8d20d9951a8554440600b35"
+    },
+    {
+      "id": "myswitzerland:a719c2b0d20141ecae903209418e0286",
+      "title": "Bernard Allison",
+      "titleByLocale": {
+        "it": "Bernard Allison",
+        "en": "Bernard Allison",
+        "de": "Bernard Allison",
+        "fr": "Bernard Allison"
+      },
+      "startDate": "2027-02-20",
+      "endDate": "2027-02-20",
+      "category": "Event",
+      "venue": "Seon",
+      "comune": "Seon",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/bernard-allison/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3458221,
+        "lng": 8.1593372
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "4aed0c0fcd37957a14596c788b60c098700210dd188127cff6f263c9596c7330"
+    },
+    {
+      "id": "myswitzerland:a70470ce67c544c495f8088e2726c23b",
+      "title": "Night-time Storytelling Tour",
+      "titleByLocale": {
+        "it": "Night-time Storytelling Tour",
+        "en": "Night-time Storytelling Tour",
+        "de": "Nächtliche Führung mit Geschichten",
+        "fr": "Visite contée nocturne"
+      },
+      "startDate": "2026-12-12",
+      "endDate": "2026-12-12",
+      "startTime": "16:30",
+      "category": "Event",
+      "venue": "Romont",
+      "canton": "FR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/visite-contee-nocturne/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.6942151,
+        "lng": 6.9181612
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "f3d237983a3336f97ffe0d88c68c9e9cbb93dac9e1ef6a7fa1949546536926ef"
+    },
+    {
+      "id": "myswitzerland:a5fbbbb4ba8e4333ad25ea68d8910750",
+      "title": "NEUROSIS",
+      "titleByLocale": {
+        "it": "NEUROSIS",
+        "en": "NEUROSIS",
+        "de": "NEUROSIS",
+        "fr": "NEUROSIS"
+      },
+      "startDate": "2027-06-21",
+      "endDate": "2027-06-21",
+      "category": "Event",
+      "venue": "Geneva",
+      "comune": "Genève",
+      "canton": "GE",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/neurosis/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2026176,
+        "lng": 6.1466775
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Steve Von Till"
+      },
+      "sourceDescriptionHash": "2e25e24120b10692b5a751b96cb55142a8a29de0a1c2e34d7f3a2203d092e902"
+    },
+    {
+      "id": "myswitzerland:a5ae0fbfb5f545afbb424bdd7d5e6bfe",
+      "title": "World Band Festival Lucerne",
+      "titleByLocale": {
+        "it": "World Band Festival Lucerne",
+        "en": "World Band Festival Lucerne",
+        "de": "World Band Festival Luzern",
+        "fr": "World Band Festival Lucerne"
+      },
+      "startDate": "2026-09-19",
+      "endDate": "2026-09-27",
+      "category": "Event",
+      "venue": "Lucerna",
+      "comune": "Luzern",
+      "canton": "LU",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/world-band-festival-lucerne/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0507739,
+        "lng": 8.3119524
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "Welt"
+        },
+        {
+          "@type": "PerformingGroup",
+          "name": "Von Brass Band"
+        },
+        {
+          "@type": "PerformingGroup",
+          "name": "Concert Band"
+        }
+      ],
+      "sourceDescriptionHash": "1e0cba7fa2d4357521d90694df7414985c453e940b59ab2bff97d23f67e50e2f"
     }
   ]
 }
