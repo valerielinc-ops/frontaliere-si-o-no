@@ -1,7 +1,7 @@
 {
   "crawlerKey": "localsearch",
-  "assembledAt": "2026-11-21T21:28:11.562Z",
-  "runId": "44950238368",
+  "assembledAt": "2026-11-22T09:29:43.382Z",
+  "runId": "45006231650",
   "jobs": [
     {
       "id": "localsearch-6d1ddda45eca",
@@ -34,7 +34,7 @@
       "url": "https://emp.jobylon.com/jobs/360117-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:28:02.887Z",
+      "crawledAt": "2026-11-22T09:29:32.757Z",
       "addressLocality": "Graubünden, Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -77,7 +77,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-aussendienst-localsearch-graubunden-schweiz",
           "verkaufsberater-in-aussendienst-localsearch-ch-3",
           "verkaufsberater-in-aussendienst-localsearch-zurich",
           "verkaufsberater-aussendienst-localsearch-zurich",
@@ -96,7 +95,8 @@
           "verkaufsberater-in-aussendienst-localsearch-aargau-schweiz",
           "verkaufsberater-aussendienst-localsearch-ch",
           "verkaufsberater-aussendienst-localsearch-ch-2",
-          "verkaufsberater-in-aussendienst-localsearch-ch-4"
+          "verkaufsberater-in-aussendienst-localsearch-ch-4",
+          "verkaufsberater-in-aussendienst-localsearch-graubunden-schweiz"
         ],
         "en": [
           "verkaufsberater-in-aussendienst-localsearch-graubunden-schweiz"
@@ -126,7 +126,7 @@
       "addressRegion": "GR",
       "streetAddress": "Graubünden, Schweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:28:02.887Z",
+      "validThrough": "2026-12-22T09:29:32.757Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -160,7 +160,7 @@
       "url": "https://emp.jobylon.com/jobs/360110-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:28:02.561Z",
+      "crawledAt": "2026-11-22T09:29:31.765Z",
       "addressLocality": "Baselland, Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -213,7 +213,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Baselland, Schweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:28:02.561Z",
+      "validThrough": "2026-12-24T09:29:31.765Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -247,7 +247,7 @@
       "url": "https://emp.jobylon.com/jobs/393356-localsearch-outbound-sales-agent-60-100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:28:02.233Z",
+      "crawledAt": "2026-11-22T09:29:30.751Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -296,7 +296,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:28:02.233Z",
+      "validThrough": "2027-02-07T09:29:30.751Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -330,7 +330,7 @@
       "url": "https://emp.jobylon.com/jobs/396122-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:28:01.903Z",
+      "crawledAt": "2026-11-22T09:29:29.453Z",
       "addressLocality": "Urdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -381,7 +381,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Urdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:28:01.903Z",
+      "validThrough": "2027-02-08T09:29:29.453Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -415,7 +415,7 @@
       "url": "https://emp.jobylon.com/jobs/396167-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:28:01.579Z",
+      "crawledAt": "2026-11-22T09:29:28.409Z",
       "addressLocality": "Unterentfelden",
       "addressCountry": "CH",
       "country": "CH",
@@ -468,7 +468,7 @@
       "addressRegion": "AG",
       "streetAddress": "Unterentfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:28:01.579Z",
+      "validThrough": "2027-02-08T09:29:28.409Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -502,7 +502,7 @@
       "url": "https://emp.jobylon.com/jobs/396184-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:28:01.254Z",
+      "crawledAt": "2026-11-22T09:29:27.603Z",
       "addressLocality": "Langenthal",
       "addressCountry": "CH",
       "country": "CH",
@@ -547,7 +547,7 @@
       "addressRegion": "BE",
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:28:01.254Z",
+      "validThrough": "2027-02-09T09:29:27.603Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -581,7 +581,7 @@
       "url": "https://emp.jobylon.com/jobs/396188-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:28:00.929Z",
+      "crawledAt": "2026-11-22T09:29:26.803Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -626,7 +626,7 @@
       "addressRegion": "BS",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:28:00.929Z",
+      "validThrough": "2027-02-09T09:29:26.803Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -660,7 +660,7 @@
       "url": "https://emp.jobylon.com/jobs/396191-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:28:00.607Z",
+      "crawledAt": "2026-11-22T09:29:25.684Z",
       "addressLocality": "Muttenz",
       "addressCountry": "CH",
       "country": "CH",
@@ -705,7 +705,7 @@
       "addressRegion": "BL",
       "streetAddress": "Muttenz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:28:00.607Z",
+      "validThrough": "2027-02-09T09:29:25.684Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -739,7 +739,7 @@
       "url": "https://emp.jobylon.com/jobs/396200-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:28:00.284Z",
+      "crawledAt": "2026-11-22T09:29:24.693Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -784,7 +784,7 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:28:00.284Z",
+      "validThrough": "2027-02-09T09:29:24.693Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -818,7 +818,7 @@
       "url": "https://emp.jobylon.com/jobs/396208-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:27:59.961Z",
+      "crawledAt": "2026-11-22T09:29:23.631Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -863,7 +863,7 @@
       "addressRegion": "BE",
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:27:59.961Z",
+      "validThrough": "2027-02-09T09:29:23.631Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -897,7 +897,7 @@
       "url": "https://emp.jobylon.com/jobs/396214-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:27:59.642Z",
+      "crawledAt": "2026-11-22T09:29:22.601Z",
       "addressLocality": "Visp",
       "addressCountry": "CH",
       "country": "CH",
@@ -942,7 +942,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:27:59.642Z",
+      "validThrough": "2027-02-09T09:29:22.601Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -976,7 +976,7 @@
       "url": "https://emp.jobylon.com/jobs/396219-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:27:59.321Z",
+      "crawledAt": "2026-11-22T09:29:21.561Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1041,7 +1041,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:27:59.321Z",
+      "validThrough": "2027-02-09T09:29:21.561Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1075,7 +1075,7 @@
       "url": "https://emp.jobylon.com/jobs/396222-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:27:58.986Z",
+      "crawledAt": "2026-11-22T09:29:20.567Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1118,7 +1118,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:27:58.986Z",
+      "validThrough": "2027-02-09T09:29:20.567Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1152,7 +1152,7 @@
       "url": "https://emp.jobylon.com/jobs/396224-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:27:58.648Z",
+      "crawledAt": "2026-11-22T09:29:19.590Z",
       "addressLocality": "Volketswil",
       "addressCountry": "CH",
       "country": "CH",
@@ -1197,7 +1197,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Volketswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:27:58.648Z",
+      "validThrough": "2027-02-09T09:29:19.590Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1231,7 +1231,7 @@
       "url": "https://emp.jobylon.com/jobs/396228-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:27:58.307Z",
+      "crawledAt": "2026-11-22T09:29:18.578Z",
       "addressLocality": "Landquart",
       "addressCountry": "CH",
       "country": "CH",
@@ -1276,7 +1276,7 @@
       "addressRegion": "GR",
       "streetAddress": "Landquart",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:27:58.307Z",
+      "validThrough": "2027-02-09T09:29:18.578Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1310,7 +1310,7 @@
       "url": "https://emp.jobylon.com/jobs/396231-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:27:57.978Z",
+      "crawledAt": "2026-11-22T09:29:17.753Z",
       "addressLocality": "Horgen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1355,7 +1355,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:27:57.978Z",
+      "validThrough": "2027-02-09T09:29:17.753Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1389,7 +1389,7 @@
       "url": "https://emp.jobylon.com/jobs/396234-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:27:57.648Z",
+      "crawledAt": "2026-11-22T09:29:16.707Z",
       "addressLocality": "Buchrain",
       "addressCountry": "CH",
       "country": "CH",
@@ -1434,7 +1434,7 @@
       "addressRegion": "LU",
       "streetAddress": "Buchrain",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:27:57.648Z",
+      "validThrough": "2027-02-09T09:29:16.707Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1468,7 +1468,7 @@
       "url": "https://emp.jobylon.com/jobs/396236-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:27:57.324Z",
+      "crawledAt": "2026-11-22T09:29:15.623Z",
       "addressLocality": "Bremgarten",
       "addressCountry": "CH",
       "country": "CH",
@@ -1512,7 +1512,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Bremgarten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:27:57.324Z",
+      "validThrough": "2027-02-09T09:29:15.623Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1546,7 +1546,7 @@
       "url": "https://emp.jobylon.com/jobs/396241-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:27:56.990Z",
+      "crawledAt": "2026-11-22T09:29:14.567Z",
       "addressLocality": "Sirnach",
       "addressCountry": "CH",
       "country": "CH",
@@ -1591,7 +1591,7 @@
       "addressRegion": "TG",
       "streetAddress": "Sirnach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:27:56.990Z",
+      "validThrough": "2027-02-09T09:29:14.567Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1625,7 +1625,7 @@
       "url": "https://emp.jobylon.com/jobs/396250-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:27:56.649Z",
+      "crawledAt": "2026-11-22T09:29:13.504Z",
       "addressLocality": "Rapperswil-Jona",
       "addressCountry": "CH",
       "country": "CH",
@@ -1676,7 +1676,7 @@
       "addressRegion": "SG",
       "streetAddress": "Rapperswil-Jona",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:27:56.649Z",
+      "validThrough": "2027-02-09T09:29:13.504Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1710,7 +1710,7 @@
       "url": "https://emp.jobylon.com/jobs/396261-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:27:56.323Z",
+      "crawledAt": "2026-11-22T09:29:12.461Z",
       "addressLocality": "Regensdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -1761,7 +1761,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Regensdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:27:56.323Z",
+      "validThrough": "2027-02-09T09:29:12.461Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1795,7 +1795,7 @@
       "url": "https://emp.jobylon.com/jobs/396272-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:27:55.964Z",
+      "crawledAt": "2026-11-22T09:29:11.405Z",
       "addressLocality": "Lyssach",
       "addressCountry": "CH",
       "country": "CH",
@@ -1846,7 +1846,7 @@
       "addressRegion": "BE",
       "streetAddress": "Lyssach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:27:55.964Z",
+      "validThrough": "2027-02-09T09:29:11.405Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1880,7 +1880,7 @@
       "url": "https://emp.jobylon.com/jobs/397439-localsearch-hr-service-partner-60-80/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:27:55.614Z",
+      "crawledAt": "2026-11-22T09:29:10.330Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1927,7 +1927,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:27:55.614Z",
+      "validThrough": "2027-02-15T09:29:10.330Z",
       "validThroughSource": "last-observed-window"
     }
   ]

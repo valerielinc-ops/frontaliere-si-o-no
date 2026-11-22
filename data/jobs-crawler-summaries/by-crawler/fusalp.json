@@ -1,7 +1,7 @@
 {
   "key": "fusalp",
   "label": "Fusalp",
-  "generatedAt": "2026-11-21T21:32:23.273Z",
+  "generatedAt": "2026-11-22T09:34:52.412Z",
   "total": 7,
   "discovered": null,
   "parsed": 3,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 17220,
-  "avgDurationMs": 17220,
+  "durationMs": 18413,
+  "avgDurationMs": 18413,
   "durationHistory": [
-    17220
+    18413
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-english-french-fixed-term-contract-until-31-march-2027_aubonne",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:32:07.035Z",
+      "crawledAt": "2026-11-22T09:34:35.319Z",
       "addressLocality": "Aubonne",
       "addressCountry": "CH",
       "country": "CH",
@@ -61,7 +61,7 @@
       "addressRegion": "VD",
       "streetAddress": "Aubonne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T21:32:07.035Z",
+      "validThrough": "2026-12-30T09:34:35.319Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -83,7 +83,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-winter-season-80-m-w_zermatt",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:31:57.885Z",
+      "crawledAt": "2026-11-22T09:34:25.698Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -106,7 +106,7 @@
       "addressRegion": "VS",
       "streetAddress": "Zermatt",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:31:57.885Z",
+      "validThrough": "2027-02-08T09:34:25.698Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -128,7 +128,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-winter-season-80_aubonne",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:31:56.587Z",
+      "crawledAt": "2026-11-22T09:34:24.327Z",
       "addressLocality": "Aubonne",
       "addressCountry": "CH",
       "country": "CH",
@@ -151,7 +151,7 @@
       "addressRegion": "VD",
       "streetAddress": "Aubonne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:31:56.587Z",
+      "validThrough": "2027-02-09T09:34:24.327Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -199,7 +199,7 @@
       "validThrough": "2026-12-23T09:33:16.186Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-26-to-april-27-100_val-de-bagnes",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -246,7 +246,7 @@
       "validThrough": "2026-12-19T09:33:14.763Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://fusalp.welcomekit.co/jobs/store-manager-m-w-permanent-contract-100-1-november-2026_saanen",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -293,7 +293,7 @@
       "validThrough": "2026-12-19T09:33:09.640Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://fusalp.welcomekit.co/jobs/assistant-store-manager-m-w-dec-26-to-march-27-100_saanen",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -340,7 +340,7 @@
       "validThrough": "2027-02-08T09:33:02.569Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://fusalp.welcomekit.co/jobs/sales-associate-permanent-80-m-w_zurich",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -350,5 +350,5 @@
       }
     }
   ],
-  "codeCommit": "4b92eb0854b9f965b31956a24be8b4a2b342e4b2"
+  "codeCommit": "193181861b8ea282b062b042b15b99e091d330e5"
 }
