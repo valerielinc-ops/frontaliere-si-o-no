@@ -293,10 +293,6 @@
       },
       "sourceLang": "it",
       "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 3530,
-      "retranslationAttempts": 5,
-      "firstSeenAt": "2026-11-19T21:25:53.861Z",
       "streetAddress": "Chiasso",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:15:48.439Z",
@@ -314,7 +310,11 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-11-19T21:25:53.861Z",
+      "retranslationAttempts": 6,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3530
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000162488479-team-lead-hr-administration-payroll-it",
