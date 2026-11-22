@@ -1,7 +1,7 @@
 {
   "crawlerKey": "davos-klosters-bergbahnen",
-  "assembledAt": "2026-11-22T09:39:45.962Z",
-  "runId": "45006841177",
+  "assembledAt": "2026-11-22T21:30:51.818Z",
+  "runId": "45071316676",
   "jobs": [
     {
       "id": "davos-klosters-bergbahnen-4ebcfb661afd",
@@ -46,7 +46,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Service-Bar-Restaurant-Bolgen-Plaza-100_j_3958627",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:39:38.825Z",
+      "crawledAt": "2026-11-22T21:30:46.417Z",
       "previousSlugs": [
         "service-bar-restaurant-bolgen-plaza-100-davos-klosters-bergbahnen-davos"
       ],
@@ -75,7 +75,7 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:39:38.825Z",
+      "validThrough": "2026-12-27T21:30:46.417Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -121,7 +121,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Seilbahnmechatroniker-in-Parsenn-100_j_3958639",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:39:38.633Z",
+      "crawledAt": "2026-11-22T21:30:46.205Z",
       "previousSlugs": [
         "seilbahnmechatroniker-in-parsenn-100-davos-klosters-bergbahnen-davos",
         "meccatronico-funiviario-a-parsenn-100-davos-klosters-bergbahnen-ag-davos-761809",
@@ -187,7 +187,7 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:39:38.633Z",
+      "validThrough": "2026-12-22T21:30:46.205Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -233,7 +233,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Front-Office-Hotel-Bernina-100_j_3981806",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:39:38.440Z",
+      "crawledAt": "2026-11-22T21:30:45.995Z",
       "previousSlugs": [
         "front-office-hotel-bernina-100-davos-klosters-bergbahnen-davos"
       ],
@@ -265,7 +265,7 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:39:38.440Z",
+      "validThrough": "2027-01-05T21:30:45.995Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -311,7 +311,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in-Immobilienunterhalt-100_j_3958640",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:39:38.244Z",
+      "crawledAt": "2026-11-22T21:30:45.787Z",
       "previousSlugs": [
         "betriebselektriker-in-immobilienunterhalt-100-davos-klosters-bergbahnen-davos",
         "industrial-electrician-realestate-maintenance-100-davos-klosters-bergbahnen-ag-davos",
@@ -359,7 +359,7 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:39:38.244Z",
+      "validThrough": "2026-12-22T21:30:45.787Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -405,7 +405,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebs-Mechaniker-in-Parsenn-100_j_3958638",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:39:38.047Z",
+      "crawledAt": "2026-11-22T21:30:45.574Z",
       "previousSlugs": [
         "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos",
         "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos-7038e2eb",
@@ -435,7 +435,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos-6ad8755f",
           "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos-333f33e4",
           "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos-71027343",
           "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos-2dc68ed0",
@@ -454,7 +453,8 @@
           "mecanicien-d-exploitation-a-parsenn-100-davos-klosters-bergbahnen-ag-davos",
           "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos",
           "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos-7038e2eb",
-          "meccanico-a-di-stabilimento-parsenn-100-davos-klosters-bergbahnen-ag-davos"
+          "meccanico-a-di-stabilimento-parsenn-100-davos-klosters-bergbahnen-ag-davos",
+          "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos-6ad8755f"
         ],
         "en": [
           "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos",
@@ -484,7 +484,7 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:39:38.047Z",
+      "validThrough": "2026-12-22T21:30:45.574Z",
       "validThroughSource": "last-observed-window"
     }
   ]

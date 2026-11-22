@@ -1,7 +1,7 @@
 {
   "crawlerKey": "entero",
-  "assembledAt": "2026-11-22T09:41:32.083Z",
-  "runId": "45006841177",
+  "assembledAt": "2026-11-22T21:31:49.496Z",
+  "runId": "45071316676",
   "jobs": [
     {
       "id": "entero-c28ad454bf70",
@@ -34,7 +34,7 @@
       "url": "https://www.entero.ch/de/karriere/diplomierte-pflegefachperson-hf-60-100",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:41:25.312Z",
+      "crawledAt": "2026-11-22T21:31:44.361Z",
       "addressLocality": "Niederlenz",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -95,7 +95,7 @@
       },
       "streetAddress": "Niederlenz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:41:25.312Z",
+      "validThrough": "2026-12-22T21:31:44.361Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -130,7 +130,7 @@
       "url": "https://www.entero.ch/de/karriere/koechin-koch-80-100-mit-agogischer-perspektive",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:41:24.705Z",
+      "crawledAt": "2026-11-22T21:31:43.745Z",
       "addressLocality": "Egliswil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -173,7 +173,7 @@
       },
       "streetAddress": "Egliswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T09:41:24.705Z",
+      "validThrough": "2027-01-01T21:31:43.745Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -207,7 +207,7 @@
       "url": "https://www.entero.ch/de/karriere/psycholog-in-psychotherapeut-in-80",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:41:24.101Z",
+      "crawledAt": "2026-11-22T21:31:43.124Z",
       "addressLocality": "Egliswil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -264,7 +264,7 @@
       },
       "streetAddress": "Egliswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:41:24.101Z",
+      "validThrough": "2026-12-22T21:31:43.124Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -299,7 +299,7 @@
       "url": "https://www.entero.ch/de/karriere/dipl-pflegefachperson-hf-fh-fuer-den-nachtdienst-psychiatrie-sucht-60",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:41:23.500Z",
+      "crawledAt": "2026-11-22T21:31:42.506Z",
       "addressLocality": "Niederlenz",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -350,7 +350,7 @@
       },
       "streetAddress": "Niederlenz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:41:23.500Z",
+      "validThrough": "2027-01-26T21:31:42.506Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -384,7 +384,7 @@
       "url": "https://www.entero.ch/de/karriere/diplomierte-pflegfachperson-hf-psychiatrie-60-80",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:41:22.898Z",
+      "crawledAt": "2026-11-22T21:31:41.883Z",
       "addressLocality": "Neuenhof",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -433,7 +433,7 @@
       },
       "streetAddress": "Neuenhof",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T09:41:22.898Z",
+      "validThrough": "2027-01-29T21:31:41.883Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -468,7 +468,7 @@
       "url": "https://www.entero.ch/de/karriere/dauernachtwache-dipl-pflegefachperson-hf-fh-100",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T09:41:22.294Z",
+      "crawledAt": "2026-11-22T21:31:41.259Z",
       "addressLocality": "Neuenhof",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -517,7 +517,7 @@
       },
       "streetAddress": "Neuenhof",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T09:41:22.294Z",
+      "validThrough": "2027-01-29T21:31:41.259Z",
       "validThroughSource": "last-observed-window"
     }
   ]
