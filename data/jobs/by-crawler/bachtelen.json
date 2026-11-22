@@ -1518,12 +1518,12 @@
     },
     {
       "id": "bachtelen-96ecb617c0c6",
-      "slug": "responsabile-technischer-dienst-100-stiftung-bachtelen-grenchen",
+      "slug": "capo-del-servizio-tecnico-al-100-stiftung-bachtelen-grenchen",
       "slugByLocale": {
         "de": "leiter-in-technischer-dienst-100-bachtelen-grenchen",
-        "it": "responsabile-technischer-dienst-100-stiftung-bachtelen-grenchen",
-        "en": "leiter-in-technischer-dienst-100-bachtelen-grenchen",
-        "fr": "leiter-in-technischer-dienst-100-bachtelen-grenchen"
+        "it": "capo-del-servizio-tecnico-al-100-stiftung-bachtelen-grenchen",
+        "en": "head-of-technical-service-100-stiftung-bachtelen-grenchen",
+        "fr": "chef-du-service-technique-a-100-stiftung-bachtelen-grenchen"
       },
       "company": "Stiftung Bachtelen",
       "companyKey": "bachtelen",
@@ -1570,11 +1570,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-technischer-dienst-100-bachtelen-grenchen",
+          "responsabile-technischer-dienst-100-stiftung-bachtelen-grenchen"
+        ],
+        "en": [
+          "leiter-in-technischer-dienst-100-bachtelen-grenchen"
+        ],
+        "fr": [
           "leiter-in-technischer-dienst-100-bachtelen-grenchen"
         ]
       },
       "previousSlugs": [
-        "leiter-in-technischer-dienst-100-bachtelen-grenchen"
+        "leiter-in-technischer-dienst-100-bachtelen-grenchen",
+        "responsabile-technischer-dienst-100-stiftung-bachtelen-grenchen"
       ],
       "salaryMin": 105500,
       "salaryMax": 160000,

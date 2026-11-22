@@ -13759,8 +13759,8 @@
       "slugByLocale": {
         "en": "internship-electrical-technician-engineer-stadler-rail-ch",
         "it": "internship-electrical-technician-engineer-stadler-rail-ch",
-        "de": "internship-electrical-technician-engineer-stadler-rail-ch",
-        "fr": "internship-electrical-technician-engineer-stadler-rail-ch"
+        "de": "internship-electrical-techniker-ingenieur-stadler-rail-wallisellen",
+        "fr": "internship-electrical-technicien-ingenieur-stadler-rail-wallisellen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -13822,7 +13822,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-19T21:38:24.369Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:38:24.369Z"
+      "firstSeenAt": "2026-11-21T21:38:24.369Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "internship-electrical-technician-engineer-stadler-rail-ch"
+        ],
+        "fr": [
+          "internship-electrical-technician-engineer-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "internship-electrical-technician-engineer-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-84b7d0d372be",
@@ -13910,12 +13921,12 @@
     },
     {
       "id": "stadler-rail-b656f381929d",
-      "slug": "schleifer-aluminiumschlosserei-stadler-rail-ch",
+      "slug": "fabbri-di-alluminio-di-sander-stadler-rail-bussnang",
       "slugByLocale": {
         "de": "schleifer-aluminiumschlosserei-stadler-rail-ch",
-        "it": "schleifer-aluminiumschlosserei-stadler-rail-ch",
-        "en": "schleifer-aluminiumschlosserei-stadler-rail-ch",
-        "fr": "schleifer-aluminiumschlosserei-stadler-rail-ch"
+        "it": "fabbri-di-alluminio-di-sander-stadler-rail-bussnang",
+        "en": "sander-aluminum-locksmiths-stadler-rail-bussnang",
+        "fr": "serruriers-en-aluminium-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -13977,7 +13988,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-19T21:37:58.743Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-22T09:45:35.381Z"
+      "firstSeenAt": "2026-10-22T09:45:35.381Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schleifer-aluminiumschlosserei-stadler-rail-ch"
+        ],
+        "en": [
+          "schleifer-aluminiumschlosserei-stadler-rail-ch"
+        ],
+        "fr": [
+          "schleifer-aluminiumschlosserei-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schleifer-aluminiumschlosserei-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-4c6241829016",

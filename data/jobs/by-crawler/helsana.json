@@ -2636,12 +2636,12 @@
     },
     {
       "id": "helsana-eebefff73891",
-      "slug": "fachspezialistin-fallmanagement-a-60-helsana-zurich",
+      "slug": "gestione-dei-casi-specialistici-a-60-helsana-zurich",
       "slugByLocale": {
         "de": "fachspezialistin-fallmanagement-a-60-helsana-zurich",
-        "it": "fachspezialistin-fallmanagement-a-60-helsana-zurich",
-        "en": "fachspezialistin-fallmanagement-a-60-helsana-zurich",
-        "fr": "fachspezialistin-fallmanagement-a-60-helsana-zurich"
+        "it": "gestione-dei-casi-specialistici-a-60-helsana-zurich",
+        "en": "specialist-case-management-a-60-helsana-zurich",
+        "fr": "specialiste-de-la-gestion-des-cas-a-60-helsana-zurich"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2703,7 +2703,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T21:32:19.724Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:32:19.724Z"
+      "firstSeenAt": "2026-11-21T21:32:19.724Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialistin-fallmanagement-a-60-helsana-zurich"
+        ],
+        "en": [
+          "fachspezialistin-fallmanagement-a-60-helsana-zurich"
+        ],
+        "fr": [
+          "fachspezialistin-fallmanagement-a-60-helsana-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialistin-fallmanagement-a-60-helsana-zurich"
+      ]
     },
     {
       "id": "helsana-db2cbb3f3bfc",

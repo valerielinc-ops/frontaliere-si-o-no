@@ -1696,12 +1696,12 @@
     },
     {
       "id": "tl-lausanne-16fbb5f12d49",
-      "slug": "responsable-conseils-juridiques-et-assurance-tl-lausanne-lausanne",
+      "slug": "responsabile-della-consulenza-legale-e-dell-assicurazione-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
         "fr": "responsable-conseils-juridiques-et-assurance-tl-lausanne-lausanne",
-        "it": "responsable-conseils-juridiques-et-assurance-tl-lausanne-lausanne",
-        "en": "responsable-conseils-juridiques-et-assurance-tl-lausanne-lausanne",
-        "de": "responsable-conseils-juridiques-et-assurance-tl-lausanne-lausanne"
+        "it": "responsabile-della-consulenza-legale-e-dell-assicurazione-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "responsible-for-legal-advice-and-insurance-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "verantwortlich-fur-rechtsberatung-und-versicherung-tl-transports-publics-de-la-region-lausannoise-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
       "companyKey": "tl-lausanne",
@@ -1764,7 +1764,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-16T21:38:36.074Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:38:36.074Z"
+      "firstSeenAt": "2026-11-21T21:38:36.074Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-conseils-juridiques-et-assurance-tl-lausanne-lausanne"
+        ],
+        "en": [
+          "responsable-conseils-juridiques-et-assurance-tl-lausanne-lausanne"
+        ],
+        "de": [
+          "responsable-conseils-juridiques-et-assurance-tl-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-conseils-juridiques-et-assurance-tl-lausanne-lausanne"
+      ]
     },
     {
       "id": "tl-lausanne-81f45347a232",

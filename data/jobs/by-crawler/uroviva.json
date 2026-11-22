@@ -103,12 +103,12 @@
     },
     {
       "id": "uroviva-64ea8d6d9bd5",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-uroviva-bulach",
+      "slug": "dipl-tecnologia-chirurgica-specialistica-esperta-uroviva-bulach",
       "slugByLocale": {
         "de": "dipl-fachfrau-fachmann-operationstechnik-uroviva-bulach",
-        "it": "dipl-fachfrau-fachmann-operationstechnik-uroviva-bulach",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-uroviva-bulach",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-uroviva-bulach"
+        "it": "dipl-tecnologia-chirurgica-specialistica-esperta-uroviva-bulach",
+        "en": "dipl-specialist-expert-surgical-technology-uroviva-bulach",
+        "fr": "dipl-specialiste-expert-technologie-chirurgicale-uroviva-bulach"
       },
       "company": "Uroviva",
       "companyKey": "uroviva",
@@ -184,7 +184,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-18T21:27:42.866Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:27:42.866Z"
+      "firstSeenAt": "2026-11-21T21:27:42.866Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-uroviva-bulach"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-operationstechnik-uroviva-bulach"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-operationstechnik-uroviva-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-uroviva-bulach"
+      ]
     },
     {
       "id": "uroviva-30bcdffea05d",

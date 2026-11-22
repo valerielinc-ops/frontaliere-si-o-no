@@ -5,10 +5,10 @@
   "jobs": [
     {
       "id": "bcv-8800f4b231a5",
-      "slug": "experte-ou-expert-en-business-controlling-bcv-lausanne",
+      "slug": "esperto-o-esperto-in-business-controlling-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "experte-ou-expert-en-business-controlling-bcv-lausanne",
-        "it": "experte-ou-expert-en-business-controlling-bcv-lausanne",
+        "it": "esperto-o-esperto-in-business-controlling-banque-cantonale-vaudoise-lausanne",
         "en": "experte-ou-expert-en-business-controlling-bcv-lausanne",
         "de": "experte-ou-expert-en-business-controlling-bcv-lausanne"
       },
@@ -73,16 +73,24 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-19T21:28:57.912Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:28:57.912Z"
+      "firstSeenAt": "2026-11-21T21:28:57.912Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "experte-ou-expert-en-business-controlling-bcv-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "experte-ou-expert-en-business-controlling-bcv-lausanne"
+      ]
     },
     {
       "id": "bcv-adb3cd6fd5a5",
-      "slug": "conseiller-ere-ou-conseiller-fiscal-e-senior-bcv-lausanne",
+      "slug": "consigliere-fiscale-senior-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "conseiller-ere-ou-conseiller-fiscal-e-senior-bcv-lausanne",
-        "it": "conseiller-ere-ou-conseiller-fiscal-e-senior-bcv-lausanne",
-        "en": "conseiller-ere-ou-conseiller-fiscal-e-senior-bcv-lausanne",
-        "de": "conseiller-ere-ou-conseiller-fiscal-e-senior-bcv-lausanne"
+        "it": "consigliere-fiscale-senior-banque-cantonale-vaudoise-lausanne",
+        "en": "senior-tax-advisor-banque-cantonale-vaudoise-lausanne",
+        "de": "senior-steuerberater-banque-cantonale-vaudoise-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
       "companyKey": "bcv",
@@ -145,7 +153,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-19T21:28:57.290Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:28:57.290Z"
+      "firstSeenAt": "2026-11-21T21:28:57.290Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-ou-conseiller-fiscal-e-senior-bcv-lausanne"
+        ],
+        "en": [
+          "conseiller-ere-ou-conseiller-fiscal-e-senior-bcv-lausanne"
+        ],
+        "de": [
+          "conseiller-ere-ou-conseiller-fiscal-e-senior-bcv-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-ou-conseiller-fiscal-e-senior-bcv-lausanne"
+      ]
     },
     {
       "id": "bcv-0ca7ba81416e",

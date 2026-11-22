@@ -923,12 +923,12 @@
     },
     {
       "id": "nsn-medical-1bb16e2ff4dd",
-      "slug": "medizinische-r-praxisassistent-in-100-winterthur-nsn-medical-onkologie",
+      "slug": "assistente-medico-100-winterthur-nsn-medical-group-onkologie",
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-100-winterthur-nsn-medical-onkologie",
-        "it": "medizinische-r-praxisassistent-in-100-winterthur-nsn-medical-onkologie",
-        "en": "medizinische-r-praxisassistent-in-100-winterthur-nsn-medical-onkologie",
-        "fr": "medizinische-r-praxisassistent-in-100-winterthur-nsn-medical-onkologie"
+        "it": "assistente-medico-100-winterthur-nsn-medical-group-onkologie",
+        "en": "medical-practice-assistant-100-winterthur-nsn-medical-group-onkologie",
+        "fr": "assistant-en-pratique-medicale-100-winterthur-nsn-medical-group-onkologie"
       },
       "company": "NSN Medical Group",
       "companyKey": "nsn-medical",
@@ -991,7 +991,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T21:29:38.315Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:29:38.315Z"
+      "firstSeenAt": "2026-11-21T21:29:38.315Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-100-winterthur-nsn-medical-onkologie"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-100-winterthur-nsn-medical-onkologie"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-100-winterthur-nsn-medical-onkologie"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-100-winterthur-nsn-medical-onkologie"
+      ]
     }
   ]
 }

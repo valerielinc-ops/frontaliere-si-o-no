@@ -651,12 +651,12 @@
     },
     {
       "id": "spital-oberengadin-5612e96f27d7",
-      "slug": "leitende-arztin-leitender-arzt-chirurgie-schwerpunkt-allgemein-viszeralchirurgie-spital",
+      "slug": "principale-chirurgia-medica-concentrati-su-chirurgia-generale-viscerale-spital-oberengadin-samedan",
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-chirurgie-schwerpunkt-allgemein-viszeralchirurgie-spital",
-        "it": "leitende-arztin-leitender-arzt-chirurgie-schwerpunkt-allgemein-viszeralchirurgie-spital",
-        "en": "leitende-arztin-leitender-arzt-chirurgie-schwerpunkt-allgemein-viszeralchirurgie-spital",
-        "fr": "leitende-arztin-leitender-arzt-chirurgie-schwerpunkt-allgemein-viszeralchirurgie-spital"
+        "it": "principale-chirurgia-medica-concentrati-su-chirurgia-generale-viscerale-spital-oberengadin-samedan",
+        "en": "principal-physician-principal-physician-surgery-focus-on-general-visceral-surgery-spital-oberengadin-samedan",
+        "fr": "medecin-principal-medecin-principal-chirurgie-focus-sur-la-chirurgie-generale-viscerale-spital-oberengadin-samedan"
       },
       "company": "Spital Oberengadin",
       "companyKey": "spital-oberengadin",
@@ -736,16 +736,30 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-17T21:33:58.366Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:33:58.366Z"
+      "firstSeenAt": "2026-11-21T21:33:58.366Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitender-arzt-chirurgie-schwerpunkt-allgemein-viszeralchirurgie-spital"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-chirurgie-schwerpunkt-allgemein-viszeralchirurgie-spital"
+        ],
+        "fr": [
+          "leitende-arztin-leitender-arzt-chirurgie-schwerpunkt-allgemein-viszeralchirurgie-spital"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-chirurgie-schwerpunkt-allgemein-viszeralchirurgie-spital"
+      ]
     },
     {
       "id": "spital-oberengadin-5c43233ba5ac",
-      "slug": "leitende-hebamme-spital-oberengadin-samedan",
+      "slug": "ostetriche-senior-spital-oberengadin-samedan",
       "slugByLocale": {
         "de": "leitende-hebamme-spital-oberengadin-samedan",
-        "it": "leitende-hebamme-spital-oberengadin-samedan",
-        "en": "leitende-hebamme-spital-oberengadin-samedan",
-        "fr": "leitende-hebamme-spital-oberengadin-samedan"
+        "it": "ostetriche-senior-spital-oberengadin-samedan",
+        "en": "senior-midwives-spital-oberengadin-samedan",
+        "fr": "sages-femmes-agees-spital-oberengadin-samedan"
       },
       "company": "Spital Oberengadin",
       "companyKey": "spital-oberengadin",
@@ -825,16 +839,30 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-17T21:33:57.807Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:33:57.807Z"
+      "firstSeenAt": "2026-11-21T21:33:57.807Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-hebamme-spital-oberengadin-samedan"
+        ],
+        "en": [
+          "leitende-hebamme-spital-oberengadin-samedan"
+        ],
+        "fr": [
+          "leitende-hebamme-spital-oberengadin-samedan"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-hebamme-spital-oberengadin-samedan"
+      ]
     },
     {
       "id": "spital-oberengadin-024dfef6c413",
-      "slug": "dipl-pflegefachfrau-mann-hf-fh-con-imc-erfahrung-o-imc-nachdiplomstudium-befristet-spital-oberengadin-samedan",
+      "slug": "dipl-infermieristico-specialista-hf-fh-con-esperienza-imc-o-studi-post-laurea-imc-temporaneo-spital-oberengadin-samedan",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-fh-mit-imc-erfahrung-oder-imc-nachdiplomstudium-befristet",
-        "it": "dipl-pflegefachfrau-mann-hf-fh-con-imc-erfahrung-o-imc-nachdiplomstudium-befristet-spital-oberengadin-samedan",
-        "en": "dipl-pflegefachfrau-mann-hf-fh-mit-imc-erfahrung-oder-imc-nachdiplomstudium-befristet",
-        "fr": "dipl-pflegefachfrau-mann-hf-fh-mit-imc-erfahrung-oder-imc-nachdiplomstudium-befristet"
+        "it": "dipl-infermieristico-specialista-hf-fh-con-esperienza-imc-o-studi-post-laurea-imc-temporaneo-spital-oberengadin-samedan",
+        "en": "dipl-nursing-specialist-hf-fh-with-imc-experience-or-imc-postgraduate-studies-temporary-spital-oberengadin-samedan",
+        "fr": "dipl-specialiste-en-soins-infirmiers-hf-fh-avec-experience-en-imc-ou-etudes-post-universitaires-en-imc-temporaire-spital"
       },
       "company": "Spital Oberengadin",
       "companyKey": "spital-oberengadin",
@@ -885,11 +913,19 @@
       "pensum": "60 - 80%",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-hf-fh-mit-imc-erfahrung-oder-imc-nachdiplomstudium-befristet",
+          "dipl-pflegefachfrau-mann-hf-fh-con-imc-erfahrung-o-imc-nachdiplomstudium-befristet-spital-oberengadin-samedan"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-fh-mit-imc-erfahrung-oder-imc-nachdiplomstudium-befristet"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-hf-fh-mit-imc-erfahrung-oder-imc-nachdiplomstudium-befristet"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-fh-mit-imc-erfahrung-oder-imc-nachdiplomstudium-befristet"
+        "dipl-pflegefachfrau-mann-hf-fh-mit-imc-erfahrung-oder-imc-nachdiplomstudium-befristet",
+        "dipl-pflegefachfrau-mann-hf-fh-con-imc-erfahrung-o-imc-nachdiplomstudium-befristet-spital-oberengadin-samedan"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

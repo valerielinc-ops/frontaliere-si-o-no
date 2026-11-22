@@ -711,7 +711,7 @@
       "slugByLocale": {
         "de": "brand-management-intern-schweizer-biermarken-m-w-d-heineken-ch-luzern",
         "it": "brand-management-intern-schweizer-biermarken-m-w-d-heineken-ch-luzern",
-        "en": "brand-management-intern-schweizer-biermarken-m-w-d-heineken-ch-luzern",
+        "en": "brand-management-intern-swiss-beer-brands-m-f-d-heineken-switzerland-luzern",
         "fr": "brand-management-intern-schweizer-biermarken-m-w-d-heineken-ch-luzern"
       },
       "company": "Heineken Switzerland",
@@ -770,7 +770,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-19T21:44:19.996Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:44:19.996Z"
+      "firstSeenAt": "2026-11-21T21:44:19.996Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "brand-management-intern-schweizer-biermarken-m-w-d-heineken-ch-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "brand-management-intern-schweizer-biermarken-m-w-d-heineken-ch-luzern"
+      ]
     },
     {
       "id": "heineken-ch-d7d5efdbb829",

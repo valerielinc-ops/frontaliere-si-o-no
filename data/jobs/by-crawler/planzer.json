@@ -530,12 +530,12 @@
     },
     {
       "id": "planzer-4f7537924485",
-      "slug": "teamleiter-kommissionierung-m-w-d-planzer-villmergen",
+      "slug": "team-leader-nella-raccolta-m-f-d-planzer-villmergen",
       "slugByLocale": {
         "de": "teamleiter-kommissionierung-m-w-d-planzer-villmergen",
-        "it": "teamleiter-kommissionierung-m-w-d-planzer-villmergen",
-        "en": "teamleiter-kommissionierung-m-w-d-planzer-villmergen",
-        "fr": "teamleiter-kommissionierung-m-w-d-planzer-villmergen"
+        "it": "team-leader-nella-raccolta-m-f-d-planzer-villmergen",
+        "en": "team-leader-picking-m-f-d-planzer-villmergen",
+        "fr": "chef-d-equipe-selection-h-f-d-planzer-villmergen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -598,16 +598,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-20T21:23:10.509Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-22T09:15:37.458Z"
+      "firstSeenAt": "2026-10-22T09:15:37.458Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-kommissionierung-m-w-d-planzer-villmergen"
+        ],
+        "en": [
+          "teamleiter-kommissionierung-m-w-d-planzer-villmergen"
+        ],
+        "fr": [
+          "teamleiter-kommissionierung-m-w-d-planzer-villmergen"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-kommissionierung-m-w-d-planzer-villmergen"
+      ]
     },
     {
       "id": "planzer-dfe3489083e3",
-      "slug": "koch-mit-administrativer-verantwortung-m-w-d-planzer-pratteln",
+      "slug": "chef-con-responsabilita-amministrativa-m-f-d-planzer-pratteln",
       "slugByLocale": {
         "de": "koch-mit-administrativer-verantwortung-m-w-d-planzer-pratteln",
-        "it": "koch-mit-administrativer-verantwortung-m-w-d-planzer-pratteln",
-        "en": "koch-mit-administrativer-verantwortung-m-w-d-planzer-pratteln",
-        "fr": "koch-mit-administrativer-verantwortung-m-w-d-planzer-pratteln"
+        "it": "chef-con-responsabilita-amministrativa-m-f-d-planzer-pratteln",
+        "en": "cook-with-administrative-responsibility-m-f-d-planzer-pratteln",
+        "fr": "cuisson-avec-responsabilite-administrative-h-f-d-planzer-pratteln"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -670,14 +684,28 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-20T21:23:09.898Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-22T09:15:36.190Z"
+      "firstSeenAt": "2026-10-22T09:15:36.190Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-mit-administrativer-verantwortung-m-w-d-planzer-pratteln"
+        ],
+        "en": [
+          "koch-mit-administrativer-verantwortung-m-w-d-planzer-pratteln"
+        ],
+        "fr": [
+          "koch-mit-administrativer-verantwortung-m-w-d-planzer-pratteln"
+        ]
+      },
+      "previousSlugs": [
+        "koch-mit-administrativer-verantwortung-m-w-d-planzer-pratteln"
+      ]
     },
     {
       "id": "planzer-882d22e1b3aa",
-      "slug": "it-requirement-engineer-business-analyst-logistiksystem-m-w-d-planzer-dietikon",
+      "slug": "it-requirement-ingegnere-business-analista-logistiksystem-m-w-d-planzer-dietikon",
       "slugByLocale": {
         "de": "it-requirement-engineer-business-analyst-logistiksystem-m-w-d-planzer-dietikon",
-        "it": "it-requirement-engineer-business-analyst-logistiksystem-m-w-d-planzer-dietikon",
+        "it": "it-requirement-ingegnere-business-analista-logistiksystem-m-w-d-planzer-dietikon",
         "en": "it-requirement-engineer-business-analyst-logistiksystem-m-w-d-planzer-dietikon",
         "fr": "it-requirement-engineer-business-analyst-logistiksystem-m-w-d-planzer-dietikon"
       },
@@ -742,7 +770,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-21T21:23:09.306Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-22T00:06:53.528Z"
+      "firstSeenAt": "2026-09-22T00:06:53.528Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-requirement-engineer-business-analyst-logistiksystem-m-w-d-planzer-dietikon"
+        ]
+      },
+      "previousSlugs": [
+        "it-requirement-engineer-business-analyst-logistiksystem-m-w-d-planzer-dietikon"
+      ]
     },
     {
       "id": "planzer-4dfb2bc9fafe",

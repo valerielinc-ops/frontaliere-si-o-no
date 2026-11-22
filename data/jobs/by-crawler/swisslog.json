@@ -91,12 +91,12 @@
     },
     {
       "id": "swisslog-2179ac2fd5f7",
-      "slug": "instandhaltungs-techniker-m-w-d-swisslog-magenwil-switzerland",
+      "slug": "tecnico-di-manutenzione-m-f-d-swisslog-magenwil-switzerland",
       "slugByLocale": {
         "de": "instandhaltungs-techniker-m-w-d-swisslog-magenwil-switzerland",
-        "it": "instandhaltungs-techniker-m-w-d-swisslog-magenwil-switzerland",
-        "en": "instandhaltungs-techniker-m-w-d-swisslog-magenwil-switzerland",
-        "fr": "instandhaltungs-techniker-m-w-d-swisslog-magenwil-switzerland"
+        "it": "tecnico-di-manutenzione-m-f-d-swisslog-magenwil-switzerland",
+        "en": "maintenance-technician-m-f-d-swisslog-magenwil-switzerland",
+        "fr": "technicien-de-maintenance-h-f-d-swisslog-magenwil-switzerland"
       },
       "company": "Swisslog",
       "companyKey": "swisslog",
@@ -159,7 +159,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-19T21:24:42.727Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:24:42.727Z"
+      "firstSeenAt": "2026-11-21T21:24:42.727Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "instandhaltungs-techniker-m-w-d-swisslog-magenwil-switzerland"
+        ],
+        "en": [
+          "instandhaltungs-techniker-m-w-d-swisslog-magenwil-switzerland"
+        ],
+        "fr": [
+          "instandhaltungs-techniker-m-w-d-swisslog-magenwil-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "instandhaltungs-techniker-m-w-d-swisslog-magenwil-switzerland"
+      ]
     },
     {
       "id": "swisslog-0eb581e2e3de",

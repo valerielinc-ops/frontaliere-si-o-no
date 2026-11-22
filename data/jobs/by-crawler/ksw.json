@@ -3075,8 +3075,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-spezial-und-bettenreinigung-ksw-ch",
         "it": "mitarbeiterin-collaboratore-trice-spezial-e-bettenreinigung-kantonsspital-winterthur-ksw-winterthur",
-        "en": "mitarbeiterin-mitarbeiter-spezial-und-bettenreinigung-ksw-ch",
-        "fr": "mitarbeiterin-mitarbeiter-spezial-und-bettenreinigung-ksw-ch"
+        "en": "employee-special-and-bed-cleaning-staff-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "employe-personnel-special-et-de-nettoyage-de-lit-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -3124,6 +3124,12 @@
       "department": "Hauswirtschaft",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-spezial-und-bettenreinigung-ksw-ch"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-spezial-und-bettenreinigung-ksw-ch"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-spezial-und-bettenreinigung-ksw-ch"
         ]
       },

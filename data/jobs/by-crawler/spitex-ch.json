@@ -2239,12 +2239,12 @@
     },
     {
       "id": "spitex-ch-414ea87a8cc8",
-      "slug": "dipl-pflegefachperson-hf-fh-50-80-spitex-spitex-ch-winterthur",
+      "slug": "infermiera-hf-fh-50-80-spitex-spitex-stadt-winterthur-winterthur",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-50-80-spitex-spitex-ch-winterthur",
-        "it": "dipl-pflegefachperson-hf-fh-50-80-spitex-spitex-ch-winterthur",
-        "en": "dipl-pflegefachperson-hf-fh-50-80-spitex-spitex-ch-winterthur",
-        "fr": "dipl-pflegefachperson-hf-fh-50-80-spitex-spitex-ch-winterthur"
+        "it": "infermiera-hf-fh-50-80-spitex-spitex-stadt-winterthur-winterthur",
+        "en": "dipl-nurse-hf-fh-50-80-spitex-spitex-stadt-winterthur-winterthur",
+        "fr": "infirmiere-diplomee-hf-fh-50-80-spitex-spitex-stadt-winterthur-winterthur"
       },
       "company": "Spitex Stadt Winterthur",
       "companyKey": "spitex-ch",
@@ -2306,7 +2306,21 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-21T21:24:18.584Z"
+      "firstSeenAt": "2026-11-21T21:24:18.584Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-50-80-spitex-spitex-ch-winterthur"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-50-80-spitex-spitex-ch-winterthur"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-50-80-spitex-spitex-ch-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-50-80-spitex-spitex-ch-winterthur"
+      ]
     },
     {
       "id": "spitex-ch-51956068f8fa",

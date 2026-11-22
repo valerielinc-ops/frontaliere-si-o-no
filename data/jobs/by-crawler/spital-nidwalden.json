@@ -882,10 +882,10 @@
     },
     {
       "id": "spital-nidwalden-2884d646f689",
-      "slug": "fachfrau-fachmann-operationstechnik-hf-100-spital-nidwalden-stans",
+      "slug": "professional-professional-operations-engineering-hf-100-spital-nidwalden-stans",
       "slugByLocale": {
         "de": "fachfrau-fachmann-operationstechnik-hf-100-spital-nidwalden-stans",
-        "it": "fachfrau-fachmann-operationstechnik-hf-100-spital-nidwalden-stans",
+        "it": "professional-professional-operations-engineering-hf-100-spital-nidwalden-stans",
         "en": "fachfrau-fachmann-operationstechnik-hf-100-spital-nidwalden-stans",
         "fr": "fachfrau-fachmann-operationstechnik-hf-100-spital-nidwalden-stans"
       },
@@ -963,16 +963,24 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-19T21:47:33.130Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:47:33.130Z"
+      "firstSeenAt": "2026-11-21T21:47:33.130Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-operationstechnik-hf-100-spital-nidwalden-stans"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-operationstechnik-hf-100-spital-nidwalden-stans"
+      ]
     },
     {
       "id": "spital-nidwalden-5c9cf0e3f0f5",
-      "slug": "dipl-pflegefachperson-hf-endoskopie-80-spital-nidwalden-stans",
+      "slug": "dipl-caregiver-hf-endoscopia-80-spital-nidwalden-stans",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-endoskopie-80-spital-nidwalden-stans",
-        "it": "dipl-pflegefachperson-hf-endoskopie-80-spital-nidwalden-stans",
-        "en": "dipl-pflegefachperson-hf-endoskopie-80-spital-nidwalden-stans",
-        "fr": "dipl-pflegefachperson-hf-endoskopie-80-spital-nidwalden-stans"
+        "it": "dipl-caregiver-hf-endoscopia-80-spital-nidwalden-stans",
+        "en": "dipl-caregiver-hf-endoscopy-80-spital-nidwalden-stans",
+        "fr": "dipl-endoscopie-hf-du-soignant-80-spital-nidwalden-stans"
       },
       "company": "Spital Nidwalden",
       "companyKey": "spital-nidwalden",
@@ -1048,7 +1056,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-19T21:47:33.128Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:47:33.128Z"
+      "firstSeenAt": "2026-11-21T21:47:33.128Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-endoskopie-80-spital-nidwalden-stans"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-endoskopie-80-spital-nidwalden-stans"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-endoskopie-80-spital-nidwalden-stans"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-endoskopie-80-spital-nidwalden-stans"
+      ]
     },
     {
       "id": "spital-nidwalden-dd4b07499008",

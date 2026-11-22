@@ -4048,8 +4048,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-outbound-css-versicherung-luzern",
         "it": "collaboratore-trice-outbound-css-versicherung-luzern",
-        "en": "mitarbeiter-in-outbound-css-versicherung-luzern",
-        "fr": "mitarbeiter-in-outbound-css-versicherung-luzern"
+        "en": "outbound-employee-css-versicherung-luzern",
+        "fr": "employe-sortant-css-versicherung-luzern"
       },
       "company": "CSS Versicherung",
       "companyKey": "css-versicherung",
@@ -4097,6 +4097,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-outbound-css-versicherung-luzern"
+        ],
+        "en": [
+          "mitarbeiter-in-outbound-css-versicherung-luzern"
+        ],
+        "fr": [
           "mitarbeiter-in-outbound-css-versicherung-luzern"
         ]
       },

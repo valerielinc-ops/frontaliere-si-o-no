@@ -9,8 +9,8 @@
       "slugByLocale": {
         "de": "pt-0-last-child-pb-0-transition-colors-pointer-events-auto-text-current-group-hover",
         "it": "pt-0-last-child-pb-0-transition-colors-pointer-events-auto-text-current-group-hover",
-        "en": "pt-0-last-child-pb-0-transition-colors-pointer-events-auto-text-current-group-hover",
-        "fr": "pt-0-last-child-pb-0-transition-colors-pointer-events-auto-text-current-group-hover"
+        "en": "pt-0-last-child-pb-0-transition-colors-pointer-events-auto-text-current-group-hover-children-text-slate-200-hover-text",
+        "fr": "pt-0-last-child-pb-0-transition-colors-pointer-events-auto-text-current-group-hover-children-text-slate-200-hover-text"
       },
       "company": "Frutiger AG",
       "companyKey": "frutiger-com",
@@ -73,7 +73,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-19T21:45:49.037Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:45:49.037Z"
+      "firstSeenAt": "2026-11-21T21:45:49.037Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "pt-0-last-child-pb-0-transition-colors-pointer-events-auto-text-current-group-hover"
+        ],
+        "fr": [
+          "pt-0-last-child-pb-0-transition-colors-pointer-events-auto-text-current-group-hover"
+        ]
+      },
+      "previousSlugs": [
+        "pt-0-last-child-pb-0-transition-colors-pointer-events-auto-text-current-group-hover"
+      ]
     },
     {
       "id": "frutiger-com-5e07574878c2",

@@ -17023,8 +17023,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-gastronomie-a-60-befristet-hirslanden-hirslanden-salem-spital",
         "it": "mitarbeiterin-collaboratore-trice-gastronomie-a-60-befristet-hirslanden-klinik-hirslanden-salem-spital",
-        "en": "mitarbeiterin-mitarbeiter-gastronomie-a-60-befristet-hirslanden-hirslanden-salem-spital",
-        "fr": "mitarbeiterin-mitarbeiter-gastronomie-a-60-befristet-hirslanden-hirslanden-salem-spital"
+        "en": "employee-employee-gastronomy-a-60-temporary-hirslanden-klinik-hirslanden-salem-spital",
+        "fr": "gastronomie-des-employes-a-60-temporaire-hirslanden-klinik-hirslanden-salem-spital"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -17071,6 +17071,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-gastronomie-a-60-befristet-hirslanden-hirslanden-salem-spital"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-gastronomie-a-60-befristet-hirslanden-hirslanden-salem-spital"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-gastronomie-a-60-befristet-hirslanden-hirslanden-salem-spital"
         ]
       },
@@ -26358,12 +26364,12 @@
     {
       "id": "hirslanden-2eed5bf61467",
       "externalId": "1458801433",
-      "slug": "infirmier-ere-a-80-flexible-hirslanden-hirslanden-clinique-cecil",
+      "slug": "80-infermiera-flessibile-hirslanden-klinik-hirslanden-clinique-cecil",
       "slugByLocale": {
         "fr": "infirmier-ere-a-80-flexible-hirslanden-hirslanden-clinique-cecil",
-        "it": "infirmier-ere-a-80-flexible-hirslanden-hirslanden-clinique-cecil",
-        "en": "infirmier-ere-a-80-flexible-hirslanden-hirslanden-clinique-cecil",
-        "de": "infirmier-ere-a-80-flexible-hirslanden-hirslanden-clinique-cecil"
+        "it": "80-infermiera-flessibile-hirslanden-klinik-hirslanden-clinique-cecil",
+        "en": "80-flexible-nurse-hirslanden-klinik-hirslanden-clinique-cecil",
+        "de": "80-flexible-krankenschwester-hirslanden-klinik-hirslanden-clinique-cecil"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26425,17 +26431,31 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:30:26.457Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-07T09:22:24.087Z"
+      "firstSeenAt": "2026-10-07T09:22:24.087Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-a-80-flexible-hirslanden-hirslanden-clinique-cecil"
+        ],
+        "en": [
+          "infirmier-ere-a-80-flexible-hirslanden-hirslanden-clinique-cecil"
+        ],
+        "de": [
+          "infirmier-ere-a-80-flexible-hirslanden-hirslanden-clinique-cecil"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-a-80-flexible-hirslanden-hirslanden-clinique-cecil"
+      ]
     },
     {
       "id": "hirslanden-cc1285945f63",
       "externalId": "1458751033",
-      "slug": "dipl-pflegefachperson-a-100-interdisziplinare-chirurgie-viszeralchirurgie-hirslanden",
+      "slug": "dipl-infermiera-a-chirurgia-interdisciplinare-al-100-chirurgia-viscerale-hirslanden-klinik-hirslanden-klinik",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-a-100-interdisziplinare-chirurgie-viszeralchirurgie-hirslanden",
-        "it": "dipl-pflegefachperson-a-100-interdisziplinare-chirurgie-viszeralchirurgie-hirslanden",
-        "en": "dipl-pflegefachperson-a-100-interdisziplinare-chirurgie-viszeralchirurgie-hirslanden",
-        "fr": "dipl-pflegefachperson-a-100-interdisziplinare-chirurgie-viszeralchirurgie-hirslanden"
+        "it": "dipl-infermiera-a-chirurgia-interdisciplinare-al-100-chirurgia-viscerale-hirslanden-klinik-hirslanden-klinik",
+        "en": "dipl-nurse-a-100-interdisciplinary-surgery-visceral-surgery-hirslanden-klinik-hirslanden-klinik-stephanshorn",
+        "fr": "infirmiere-diplomee-a-100-chirurgie-interdisciplinaire-chirurgie-viscerale-hirslanden-klinik-hirslanden-klinik"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26497,17 +26517,31 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:30:25.548Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:30:25.548Z"
+      "firstSeenAt": "2026-11-21T21:30:25.548Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-a-100-interdisziplinare-chirurgie-viszeralchirurgie-hirslanden"
+        ],
+        "en": [
+          "dipl-pflegefachperson-a-100-interdisziplinare-chirurgie-viszeralchirurgie-hirslanden"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-a-100-interdisziplinare-chirurgie-viszeralchirurgie-hirslanden"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-a-100-interdisziplinare-chirurgie-viszeralchirurgie-hirslanden"
+      ]
     },
     {
       "id": "hirslanden-9e956e08eeb3",
       "externalId": "1458969533",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-endoskopie-a-60-hirslanden-hirslanden-klinik-aarau",
+      "slug": "dipl-infermieristica-professionale-endoscopia-a-60-hirslanden-klinik-hirslanden-klinik-aarau",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-endoskopie-a-60-hirslanden-hirslanden-klinik-aarau",
-        "it": "dipl-pflegefachfrau-pflegefachmann-endoskopie-a-60-hirslanden-hirslanden-klinik-aarau",
-        "en": "dipl-pflegefachfrau-pflegefachmann-endoskopie-a-60-hirslanden-hirslanden-klinik-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-endoskopie-a-60-hirslanden-hirslanden-klinik-aarau"
+        "it": "dipl-infermieristica-professionale-endoscopia-a-60-hirslanden-klinik-hirslanden-klinik-aarau",
+        "en": "dipl-nursing-professional-endoscopy-a-60-hirslanden-klinik-hirslanden-klinik-aarau",
+        "fr": "dipl-endoscopie-professionnelle-en-soins-infirmiers-a-60-hirslanden-klinik-hirslanden-klinik-aarau"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26569,7 +26603,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:30:24.628Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:30:24.628Z"
+      "firstSeenAt": "2026-11-21T21:30:24.628Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-endoskopie-a-60-hirslanden-hirslanden-klinik-aarau"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-endoskopie-a-60-hirslanden-hirslanden-klinik-aarau"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-endoskopie-a-60-hirslanden-hirslanden-klinik-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-endoskopie-a-60-hirslanden-hirslanden-klinik-aarau"
+      ]
     },
     {
       "id": "hirslanden-1146e80f7cc2",
@@ -27353,12 +27401,12 @@
     {
       "id": "hirslanden-dad67dff5d7c",
       "externalId": "1459130333",
-      "slug": "fachverantwortliche-r-hauswirtschaft-inkl-berufsbildner-in-80-100-hirslanden-hirslanden",
+      "slug": "capo-della-gestione-familiare-compreso-formatore-professionale-80-100-hirslanden-klinik-hirslanden-klinik-stephanshorn",
       "slugByLocale": {
         "de": "fachverantwortliche-r-hauswirtschaft-inkl-berufsbildner-in-80-100-hirslanden-hirslanden",
-        "it": "fachverantwortliche-r-hauswirtschaft-inkl-berufsbildner-in-80-100-hirslanden-hirslanden",
-        "en": "fachverantwortliche-r-hauswirtschaft-inkl-berufsbildner-in-80-100-hirslanden-hirslanden",
-        "fr": "fachverantwortliche-r-hauswirtschaft-inkl-berufsbildner-in-80-100-hirslanden-hirslanden"
+        "it": "capo-della-gestione-familiare-compreso-formatore-professionale-80-100-hirslanden-klinik-hirslanden-klinik-stephanshorn",
+        "en": "head-of-household-management-including-vocational-trainer-80-100-hirslanden-klinik-hirslanden-klinik-stephanshorn",
+        "fr": "chef-de-la-gestion-familiale-incluant-formateur-professionnel-80-100-hirslanden-klinik-hirslanden-klinik-stephanshorn"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -27420,7 +27468,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T21:30:15.522Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:30:15.522Z"
+      "firstSeenAt": "2026-11-21T21:30:15.522Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachverantwortliche-r-hauswirtschaft-inkl-berufsbildner-in-80-100-hirslanden-hirslanden"
+        ],
+        "en": [
+          "fachverantwortliche-r-hauswirtschaft-inkl-berufsbildner-in-80-100-hirslanden-hirslanden"
+        ],
+        "fr": [
+          "fachverantwortliche-r-hauswirtschaft-inkl-berufsbildner-in-80-100-hirslanden-hirslanden"
+        ]
+      },
+      "previousSlugs": [
+        "fachverantwortliche-r-hauswirtschaft-inkl-berufsbildner-in-80-100-hirslanden-hirslanden"
+      ]
     },
     {
       "id": "hirslanden-b9a12275eb48",

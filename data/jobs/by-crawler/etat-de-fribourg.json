@@ -9683,12 +9683,12 @@
     },
     {
       "id": "etat-de-fribourg-affbdf71563f",
-      "slug": "apprenti-e-agent-e-d-exploitation-etat-de-fribourg-ch",
+      "slug": "agente-operativo-apprendista-etat-de-fribourg-romont",
       "slugByLocale": {
         "fr": "apprenti-e-agent-e-d-exploitation-etat-de-fribourg-ch",
-        "it": "apprenti-e-agent-e-d-exploitation-etat-de-fribourg-ch",
-        "en": "apprenti-e-agent-e-d-exploitation-etat-de-fribourg-ch",
-        "de": "apprenti-e-agent-e-d-exploitation-etat-de-fribourg-ch"
+        "it": "agente-operativo-apprendista-etat-de-fribourg-romont",
+        "en": "apprentice-operating-agent-etat-de-fribourg-romont",
+        "de": "auszubildender-betreiber-etat-de-fribourg-romont"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -9754,16 +9754,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-19T21:32:58.642Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:32:58.642Z"
+      "firstSeenAt": "2026-11-21T21:32:58.642Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-agent-e-d-exploitation-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "apprenti-e-agent-e-d-exploitation-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "apprenti-e-agent-e-d-exploitation-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-agent-e-d-exploitation-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-a32475dfe09f",
-      "slug": "architecte-etat-de-fribourg-ch",
+      "slug": "architetto-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "architecte-etat-de-fribourg-ch",
-        "it": "architecte-etat-de-fribourg-ch",
-        "en": "architecte-etat-de-fribourg-ch",
-        "de": "architecte-etat-de-fribourg-ch"
+        "it": "architetto-etat-de-fribourg-fribourg",
+        "en": "architect-etat-de-fribourg-fribourg",
+        "de": "architekt-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -9829,7 +9843,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-19T21:32:57.934Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:32:57.934Z"
+      "firstSeenAt": "2026-11-21T21:32:57.934Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "architecte-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "architecte-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "architecte-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "architecte-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-ee89409c49e2",

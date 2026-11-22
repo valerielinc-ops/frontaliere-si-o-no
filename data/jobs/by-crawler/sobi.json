@@ -247,12 +247,12 @@
     },
     {
       "id": "sobi-344c98e979de",
-      "slug": "technical-operations-business-development-lead-sobi-basel",
+      "slug": "operazioni-tecniche-sviluppo-aziendale-lead-sobi-basel",
       "slugByLocale": {
         "en": "technical-operations-business-development-lead-sobi-basel",
-        "it": "technical-operations-business-development-lead-sobi-basel",
-        "de": "technical-operations-business-development-lead-sobi-basel",
-        "fr": "technical-operations-business-development-lead-sobi-basel"
+        "it": "operazioni-tecniche-sviluppo-aziendale-lead-sobi-basel",
+        "de": "leiter-geschaftsentwicklung-fur-technische-operationen-sobi-basel",
+        "fr": "operations-techniques-chef-de-file-du-developpement-des-entreprises-sobi-basel"
       },
       "company": "Sobi",
       "companyKey": "sobi",
@@ -315,7 +315,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:27:15.926Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:27:15.926Z"
+      "firstSeenAt": "2026-11-21T21:27:15.926Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-operations-business-development-lead-sobi-basel"
+        ],
+        "de": [
+          "technical-operations-business-development-lead-sobi-basel"
+        ],
+        "fr": [
+          "technical-operations-business-development-lead-sobi-basel"
+        ]
+      },
+      "previousSlugs": [
+        "technical-operations-business-development-lead-sobi-basel"
+      ]
     },
     {
       "id": "sobi-852ea316e8c2",

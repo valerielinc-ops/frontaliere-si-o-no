@@ -3111,10 +3111,10 @@
     },
     {
       "id": "lindenhofgruppe-5b76d9ae81f1",
-      "slug": "medizinische-r-codierer-in-lindenhofgruppe-muristalden",
+      "slug": "codificatore-medico-lindenhofgruppe-muristalden",
       "slugByLocale": {
         "de": "medizinische-r-codierer-in-lindenhofgruppe-ch",
-        "it": "medizinische-r-codierer-in-lindenhofgruppe-muristalden",
+        "it": "codificatore-medico-lindenhofgruppe-muristalden",
         "en": "medizinische-r-codierer-in-lindenhofgruppe-muristalden",
         "fr": "medizinische-r-codierer-in-lindenhofgruppe-muristalden"
       },
@@ -3164,11 +3164,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-codierer-in-lindenhofgruppe-ch"
+          "medizinische-r-codierer-in-lindenhofgruppe-ch",
+          "medizinische-r-codierer-in-lindenhofgruppe-muristalden"
         ]
       },
       "previousSlugs": [
-        "medizinische-r-codierer-in-lindenhofgruppe-ch"
+        "medizinische-r-codierer-in-lindenhofgruppe-ch",
+        "medizinische-r-codierer-in-lindenhofgruppe-muristalden"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

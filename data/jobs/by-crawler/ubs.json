@@ -2779,8 +2779,8 @@
       "slugByLocale": {
         "en": "2027-internship-marketing-design-and-digital-sales-zurich-ubs-zurich",
         "it": "2027-internship-marketing-design-and-digital-sales-zurich-ubs-zurich",
-        "de": "2027-internship-marketing-design-and-digital-sales-zurich-ubs-zurich",
-        "fr": "2027-internship-marketing-design-and-digital-sales-zurich-ubs-zurich"
+        "de": "2027-praktikum-marketing-design-und-digitaler-vertrieb-zurich-ubs-zurich",
+        "fr": "2027-stage-marketing-design-et-ventes-numeriques-zurich-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2865,7 +2865,18 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-19T21:22:23.205Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:22:23.205Z"
+      "firstSeenAt": "2026-11-21T21:22:23.205Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "2027-internship-marketing-design-and-digital-sales-zurich-ubs-zurich"
+        ],
+        "fr": [
+          "2027-internship-marketing-design-and-digital-sales-zurich-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "2027-internship-marketing-design-and-digital-sales-zurich-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-c1087089fe17",
@@ -12063,12 +12074,12 @@
     },
     {
       "id": "ubs-b1839d69803b",
-      "slug": "senior-litigation-lawyer-ubs-western-switzerland-switzerland-zurich",
+      "slug": "avvocato-di-litigazione-senior-ubs-western-switzerland-switzerland-zurich",
       "slugByLocale": {
         "en": "senior-litigation-lawyer-ubs-western-switzerland-switzerland-zurich",
-        "it": "senior-litigation-lawyer-ubs-western-switzerland-switzerland-zurich",
-        "de": "senior-litigation-lawyer-ubs-western-switzerland-switzerland-zurich",
-        "fr": "senior-litigation-lawyer-ubs-western-switzerland-switzerland-zurich"
+        "it": "avvocato-di-litigazione-senior-ubs-western-switzerland-switzerland-zurich",
+        "de": "senior-litigment-rechtsanwalt-ubs-western-switzerland-switzerland-zurich",
+        "fr": "avocat-principal-en-litige-ubs-western-switzerland-switzerland-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -12139,16 +12150,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-19T21:21:20.812Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:21:20.812Z"
+      "firstSeenAt": "2026-11-21T21:21:20.812Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-litigation-lawyer-ubs-western-switzerland-switzerland-zurich"
+        ],
+        "de": [
+          "senior-litigation-lawyer-ubs-western-switzerland-switzerland-zurich"
+        ],
+        "fr": [
+          "senior-litigation-lawyer-ubs-western-switzerland-switzerland-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-litigation-lawyer-ubs-western-switzerland-switzerland-zurich"
+      ]
     },
     {
       "id": "ubs-71e0ae5be068",
-      "slug": "litigation-lawyer-ubs-western-switzerland-switzerland-zurich",
+      "slug": "avvocato-delle-controversie-ubs-western-switzerland-switzerland-zurich",
       "slugByLocale": {
         "en": "litigation-lawyer-ubs-western-switzerland-switzerland-zurich",
-        "it": "litigation-lawyer-ubs-western-switzerland-switzerland-zurich",
-        "de": "litigation-lawyer-ubs-western-switzerland-switzerland-zurich",
-        "fr": "litigation-lawyer-ubs-western-switzerland-switzerland-zurich"
+        "it": "avvocato-delle-controversie-ubs-western-switzerland-switzerland-zurich",
+        "de": "rechtsanwaltin-ubs-western-switzerland-switzerland-zurich",
+        "fr": "avocat-en-litige-ubs-western-switzerland-switzerland-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -12219,7 +12244,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-19T21:21:20.218Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:21:20.218Z"
+      "firstSeenAt": "2026-11-21T21:21:20.218Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "litigation-lawyer-ubs-western-switzerland-switzerland-zurich"
+        ],
+        "de": [
+          "litigation-lawyer-ubs-western-switzerland-switzerland-zurich"
+        ],
+        "fr": [
+          "litigation-lawyer-ubs-western-switzerland-switzerland-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "litigation-lawyer-ubs-western-switzerland-switzerland-zurich"
+      ]
     },
     {
       "id": "ubs-e37563046302",

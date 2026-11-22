@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "seiro-b5324468aed0",
-      "slug": "hautarztin-hautarzt-dermatologie-e-asthetik-luzern-seiro-gmbh-kriens",
+      "slug": "dermatologo-dermatologo-ed-estetica-lucerna-seiro-seiro-gmbh-kriens-luzern",
       "slugByLocale": {
         "de": "hautarztin-hautarzt-dermatologie-und-asthetik-luzern-seiro-kriens-luzern-seiro-ch",
-        "it": "hautarztin-hautarzt-dermatologie-e-asthetik-luzern-seiro-gmbh-kriens",
-        "en": "hautarztin-hautarzt-dermatologie-und-asthetik-luzern-seiro-kriens-luzern-seiro-ch",
-        "fr": "hautarztin-hautarzt-dermatologie-und-asthetik-luzern-seiro-kriens-luzern-seiro-ch"
+        "it": "dermatologo-dermatologo-ed-estetica-lucerna-seiro-seiro-gmbh-kriens-luzern",
+        "en": "dermatologist-dermatologist-dermatology-and-aesthetics-lucerne-seiro-seiro-gmbh-kriens-luzern",
+        "fr": "dermatologue-dermatologue-dermatologie-et-esthetique-lucerne-seiro-gmbh-kriens-luzern"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -57,11 +57,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "hautarztin-hautarzt-dermatologie-und-asthetik-luzern-seiro-kriens-luzern-seiro-ch",
+          "hautarztin-hautarzt-dermatologie-e-asthetik-luzern-seiro-gmbh-kriens"
+        ],
+        "en": [
+          "hautarztin-hautarzt-dermatologie-und-asthetik-luzern-seiro-kriens-luzern-seiro-ch"
+        ],
+        "fr": [
           "hautarztin-hautarzt-dermatologie-und-asthetik-luzern-seiro-kriens-luzern-seiro-ch"
         ]
       },
       "previousSlugs": [
-        "hautarztin-hautarzt-dermatologie-und-asthetik-luzern-seiro-kriens-luzern-seiro-ch"
+        "hautarztin-hautarzt-dermatologie-und-asthetik-luzern-seiro-kriens-luzern-seiro-ch",
+        "hautarztin-hautarzt-dermatologie-e-asthetik-luzern-seiro-gmbh-kriens"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

@@ -607,10 +607,10 @@
     },
     {
       "id": "svar-spitalverbund-ar-e74f1a6120f9",
-      "slug": "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau",
+      "slug": "stagista-in-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau",
-        "it": "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau",
+        "it": "stagista-in-comunicazione-aziendale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "en": "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau",
         "fr": "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau"
       },
@@ -675,16 +675,24 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-21T21:26:18.722Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-10T23:04:50.660Z"
+      "firstSeenAt": "2026-09-10T23:04:50.660Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-unternehmenskommunikation-m-w-d-svar-spitalverbund-ar-herisau"
+      ]
     },
     {
       "id": "svar-spitalverbund-ar-95afc988cdca",
-      "slug": "collaboratore-trice-service-center-planung-radiologie-mpa-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slug": "impiegato-di-pianificazione-del-centro-di-servizio-in-radiologia-mpa-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "mitarbeiter-in-service-center-planung-radiologie-mpa-svar-spitalverbund-ar-herisau",
-        "it": "collaboratore-trice-service-center-planung-radiologie-mpa-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "mitarbeiter-in-service-center-planung-radiologie-mpa-svar-spitalverbund-ar-herisau",
-        "fr": "mitarbeiter-in-service-center-planung-radiologie-mpa-svar-spitalverbund-ar-herisau"
+        "it": "impiegato-di-pianificazione-del-centro-di-servizio-in-radiologia-mpa-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "service-center-planning-radiology-employee-mpa-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "employe-en-radiologie-mpa-en-planification-du-centre-de-service-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -732,11 +740,19 @@
       "externalId": "4104201",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-service-center-planung-radiologie-mpa-svar-spitalverbund-ar-herisau",
+          "collaboratore-trice-service-center-planung-radiologie-mpa-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ],
+        "en": [
+          "mitarbeiter-in-service-center-planung-radiologie-mpa-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
           "mitarbeiter-in-service-center-planung-radiologie-mpa-svar-spitalverbund-ar-herisau"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-service-center-planung-radiologie-mpa-svar-spitalverbund-ar-herisau"
+        "mitarbeiter-in-service-center-planung-radiologie-mpa-svar-spitalverbund-ar-herisau",
+        "collaboratore-trice-service-center-planung-radiologie-mpa-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "salaryMin": 81000,
       "salaryMax": 113000,
@@ -759,12 +775,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-faaa90d05853",
-      "slug": "dipl-pflegefachperson-fh-hf-per-la-geburtshilfliche-e-gynakologische-interdisziplinare-bettenstation-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slug": "dipl-infermieristica-specialista-fh-hf-per-il-reparto-interdisciplinare-ostetricico-e-ginecologico-m-f-d-spitalverbund",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare",
-        "it": "dipl-pflegefachperson-fh-hf-per-la-geburtshilfliche-e-gynakologische-interdisziplinare-bettenstation-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare",
-        "fr": "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare"
+        "it": "dipl-infermieristica-specialista-fh-hf-per-il-reparto-interdisciplinare-ostetricico-e-ginecologico-m-f-d-spitalverbund",
+        "en": "dipl-nursing-specialist-fh-hf-for-the-obstetric-and-gynecological-interdisciplinary-bed-station-m-f-d-spitalverbund",
+        "fr": "dipl-specialiste-des-soins-infirmiers-fh-hf-pour-la-station-de-lit-interdisciplinaire-obstetrique-et-gynecologique-h-f-d"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -812,11 +828,19 @@
       "externalId": "4097361",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare",
+          "dipl-pflegefachperson-fh-hf-per-la-geburtshilfliche-e-gynakologische-interdisziplinare-bettenstation-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ],
+        "en": [
+          "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare"
+        ],
+        "fr": [
           "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare"
+        "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare",
+        "dipl-pflegefachperson-fh-hf-per-la-geburtshilfliche-e-gynakologische-interdisziplinare-bettenstation-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "salaryMin": 81000,
       "salaryMax": 113000,

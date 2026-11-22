@@ -9467,12 +9467,12 @@
     },
     {
       "id": "uzh-e2974fea665e",
-      "slug": "study-nurse-w-m-d-uzh-zurich",
+      "slug": "studio-infermiera-m-f-d-universitat-zurich-zurich",
       "slugByLocale": {
         "de": "study-nurse-w-m-d-uzh-zurich",
-        "it": "study-nurse-w-m-d-uzh-zurich",
+        "it": "studio-infermiera-m-f-d-universitat-zurich-zurich",
         "en": "study-nurse-w-m-d-uzh-zurich",
-        "fr": "study-nurse-w-m-d-uzh-zurich"
+        "fr": "infirmiere-specialiste-h-f-d-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9534,7 +9534,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-18T21:21:47.083Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:21:47.083Z"
+      "firstSeenAt": "2026-11-21T21:21:47.083Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "study-nurse-w-m-d-uzh-zurich"
+        ],
+        "fr": [
+          "study-nurse-w-m-d-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "study-nurse-w-m-d-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-15381e2ec71a",

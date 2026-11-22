@@ -3730,12 +3730,12 @@
     },
     {
       "id": "gesundheitszentrum-fricktal-d492b1236e71",
-      "slug": "diplomierte-pflegefachperson-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "infermiere-certificate-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
         "de": "diplomierte-pflegefachperson-gesundheitszentrum-fricktal-rheinfelden",
-        "it": "diplomierte-pflegefachperson-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "diplomierte-pflegefachperson-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "diplomierte-pflegefachperson-gesundheitszentrum-fricktal-rheinfelden"
+        "it": "infermiere-certificate-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "certified-nurse-gesundheitszentrum-fricktal-rheinfelden",
+        "fr": "infirmiere-agreee-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -3808,7 +3808,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-19T21:25:14.169Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:25:14.169Z"
+      "firstSeenAt": "2026-11-21T21:25:14.169Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "diplomierte-pflegefachperson-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "en": [
+          "diplomierte-pflegefachperson-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "fr": [
+          "diplomierte-pflegefachperson-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "diplomierte-pflegefachperson-gesundheitszentrum-fricktal-rheinfelden"
+      ]
     }
   ]
 }

@@ -98,12 +98,12 @@
     },
     {
       "id": "teo-jakob-ag-bb7dd66081bd",
-      "slug": "lernende-detailhandel-efz-mobel-m-w-100-zurich-teo-jakob-ag-ch",
+      "slug": "learning-retail-efz-furniture-m-f-100-teo-jakob-ag-zurich",
       "slugByLocale": {
         "de": "lernende-detailhandel-efz-mobel-m-w-100-zurich-teo-jakob-ag-ch",
-        "it": "lernende-detailhandel-efz-mobel-m-w-100-zurich-teo-jakob-ag-ch",
+        "it": "learning-retail-efz-furniture-m-f-100-teo-jakob-ag-zurich",
         "en": "lernende-detailhandel-efz-mobel-m-w-100-zurich-teo-jakob-ag-ch",
-        "fr": "lernende-detailhandel-efz-mobel-m-w-100-zurich-teo-jakob-ag-ch"
+        "fr": "apprentissage-du-commerce-de-detail-efz-meubles-h-f-100-teo-jakob-ag-zurich"
       },
       "company": "Teo Jakob AG",
       "companyKey": "teo-jakob-ag",
@@ -167,7 +167,18 @@
       },
       "validThrough": "2027-02-19T21:39:32.898Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:39:32.898Z"
+      "firstSeenAt": "2026-11-21T21:39:32.898Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lernende-detailhandel-efz-mobel-m-w-100-zurich-teo-jakob-ag-ch"
+        ],
+        "fr": [
+          "lernende-detailhandel-efz-mobel-m-w-100-zurich-teo-jakob-ag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lernende-detailhandel-efz-mobel-m-w-100-zurich-teo-jakob-ag-ch"
+      ]
     },
     {
       "id": "teo-jakob-ag-0041a93cd51b",
@@ -175,8 +186,8 @@
       "slugByLocale": {
         "de": "lernender-logistiker-efz-fachrichtung-lager-100-liebefeld-teo-jakob-ag-ch",
         "it": "apprendista-logistiker-cfc-specializzazione-magazzino-100-teo-jakob-ag-liebefeld",
-        "en": "lernender-logistiker-efz-fachrichtung-lager-100-liebefeld-teo-jakob-ag-ch",
-        "fr": "lernender-logistiker-efz-fachrichtung-lager-100-liebefeld-teo-jakob-ag-ch"
+        "en": "trainee-logistician-efz-warehouse-specialization-100-teo-jakob-ag-liebefeld",
+        "fr": "stagiaire-logistique-efz-specialisation-entrepot-100-teo-jakob-ag-liebefeld"
       },
       "company": "Teo Jakob AG",
       "companyKey": "teo-jakob-ag",
@@ -227,6 +238,12 @@
       "hiringOrganizationName": "Teo Jakob AG",
       "previousSlugsByLocale": {
         "it": [
+          "lernender-logistiker-efz-fachrichtung-lager-100-liebefeld-teo-jakob-ag-ch"
+        ],
+        "en": [
+          "lernender-logistiker-efz-fachrichtung-lager-100-liebefeld-teo-jakob-ag-ch"
+        ],
+        "fr": [
           "lernender-logistiker-efz-fachrichtung-lager-100-liebefeld-teo-jakob-ag-ch"
         ]
       },

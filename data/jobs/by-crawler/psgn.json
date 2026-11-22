@@ -5,10 +5,10 @@
   "jobs": [
     {
       "id": "psgn-58ddd6f6cf29",
-      "slug": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil",
+      "slug": "dipl-cura-professionale-hf-fh-psychiatrie-st-gallen-wil",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-psgn-wil",
-        "it": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil",
+        "it": "dipl-cura-professionale-hf-fh-psychiatrie-st-gallen-wil",
         "en": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil",
         "fr": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil"
       },
@@ -57,11 +57,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-psgn-wil"
+          "dipl-pflegefachperson-hf-fh-psgn-wil",
+          "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-psgn-wil"
+        "dipl-pflegefachperson-hf-fh-psgn-wil",
+        "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -84,12 +86,12 @@
     },
     {
       "id": "psgn-b33d55335bb3",
-      "slug": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-pfafers",
+      "slug": "dipl-cura-professionale-hf-fh-psychiatrie-st-gallen-pfafers",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-psgn-pfafers",
-        "it": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-pfafers",
-        "en": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-pfafers",
-        "fr": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-pfafers"
+        "it": "dipl-cura-professionale-hf-fh-psychiatrie-st-gallen-pfafers",
+        "en": "dipl-care-professional-hf-fh-psychiatrie-st-gallen-pfafers-21097e",
+        "fr": "dipl-soins-professionnels-hf-fh-psychiatrie-st-gallen-pfafers-21097e"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -136,11 +138,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-psgn-pfafers"
+          "dipl-pflegefachperson-hf-fh-psgn-pfafers",
+          "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-pfafers"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-pfafers"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-pfafers"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-psgn-pfafers"
+        "dipl-pflegefachperson-hf-fh-psgn-pfafers",
+        "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-pfafers"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -163,12 +173,12 @@
     },
     {
       "id": "psgn-d2704c5dd4e1",
-      "slug": "pflegeexpertin-pflegeexperte-apn-forensik-psgn-pfafers",
+      "slug": "infermieristico-esperto-infermieristico-apn-forensics-psychiatrie-st-gallen-pfafers",
       "slugByLocale": {
         "de": "pflegeexpertin-pflegeexperte-apn-forensik-psgn-pfafers",
-        "it": "pflegeexpertin-pflegeexperte-apn-forensik-psgn-pfafers",
-        "en": "pflegeexpertin-pflegeexperte-apn-forensik-psgn-pfafers",
-        "fr": "pflegeexpertin-pflegeexperte-apn-forensik-psgn-pfafers"
+        "it": "infermieristico-esperto-infermieristico-apn-forensics-psychiatrie-st-gallen-pfafers",
+        "en": "nursing-expert-nursing-expert-apn-forensics-psychiatrie-st-gallen-pfafers",
+        "fr": "expert-en-soins-infirmiers-expert-en-soins-infirmiers-apn-medico-legal-psychiatrie-st-gallen-pfafers"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -230,14 +240,28 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T21:27:57.535Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-14T21:14:26.678Z"
+      "firstSeenAt": "2026-10-14T21:14:26.678Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpertin-pflegeexperte-apn-forensik-psgn-pfafers"
+        ],
+        "en": [
+          "pflegeexpertin-pflegeexperte-apn-forensik-psgn-pfafers"
+        ],
+        "fr": [
+          "pflegeexpertin-pflegeexperte-apn-forensik-psgn-pfafers"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeexpertin-pflegeexperte-apn-forensik-psgn-pfafers"
+      ]
     },
     {
       "id": "psgn-116dda2c773b",
-      "slug": "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers",
+      "slug": "assistente-psicologo-psicologo-assistito-psychiatrie-st-gallen-pfafers",
       "slugByLocale": {
         "de": "assistenzpsychologin-assistenzpsychologe-psgn-pfafers",
-        "it": "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers",
+        "it": "assistente-psicologo-psicologo-assistito-psychiatrie-st-gallen-pfafers",
         "en": "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers",
         "fr": "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers"
       },
@@ -286,11 +310,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "assistenzpsychologin-assistenzpsychologe-psgn-pfafers"
+          "assistenzpsychologin-assistenzpsychologe-psgn-pfafers",
+          "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers"
         ]
       },
       "previousSlugs": [
-        "assistenzpsychologin-assistenzpsychologe-psgn-pfafers"
+        "assistenzpsychologin-assistenzpsychologe-psgn-pfafers",
+        "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-pfafers"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -392,12 +418,12 @@
     },
     {
       "id": "psgn-9b552b5077e8",
-      "slug": "projektleiterin-projektleiter-gebaudetechnik-psychiatrie-st-gallen-pfafers",
+      "slug": "project-manager-project-manager-building-technology-psychiatrie-st-gallen-pfafers",
       "slugByLocale": {
         "de": "projektleiterin-projektleiter-gebaudetechnik-psgn-pfafers",
-        "it": "projektleiterin-projektleiter-gebaudetechnik-psychiatrie-st-gallen-pfafers",
+        "it": "project-manager-project-manager-building-technology-psychiatrie-st-gallen-pfafers",
         "en": "projektleiterin-projektleiter-gebaudetechnik-psychiatrie-st-gallen-pfafers",
-        "fr": "projektleiterin-projektleiter-gebaudetechnik-psychiatrie-st-gallen-pfafers"
+        "fr": "gestionnaire-de-projet-gestionnaire-de-projet-technologie-de-construction-psychiatrie-st-gallen-pfafers"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -444,11 +470,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "projektleiterin-projektleiter-gebaudetechnik-psgn-pfafers"
+          "projektleiterin-projektleiter-gebaudetechnik-psgn-pfafers",
+          "projektleiterin-projektleiter-gebaudetechnik-psychiatrie-st-gallen-pfafers"
+        ],
+        "fr": [
+          "projektleiterin-projektleiter-gebaudetechnik-psychiatrie-st-gallen-pfafers"
         ]
       },
       "previousSlugs": [
-        "projektleiterin-projektleiter-gebaudetechnik-psgn-pfafers"
+        "projektleiterin-projektleiter-gebaudetechnik-psgn-pfafers",
+        "projektleiterin-projektleiter-gebaudetechnik-psychiatrie-st-gallen-pfafers"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -471,10 +502,10 @@
     },
     {
       "id": "psgn-f5ae996f58b4",
-      "slug": "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers",
+      "slug": "terapeuta-del-lavoro-psychiatrie-st-gallen-pfafers",
       "slugByLocale": {
         "de": "ergotherapeutin-ergotherapeut-psgn-pfafers",
-        "it": "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers",
+        "it": "terapeuta-del-lavoro-psychiatrie-st-gallen-pfafers",
         "en": "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers",
         "fr": "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
       },
@@ -523,11 +554,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "ergotherapeutin-ergotherapeut-psgn-pfafers"
+          "ergotherapeutin-ergotherapeut-psgn-pfafers",
+          "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
         ]
       },
       "previousSlugs": [
-        "ergotherapeutin-ergotherapeut-psgn-pfafers"
+        "ergotherapeutin-ergotherapeut-psgn-pfafers",
+        "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -550,10 +583,10 @@
     },
     {
       "id": "psgn-ca8bca335149",
-      "slug": "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-pfafers",
+      "slug": "specialista-psicologo-psychiatrie-st-gallen-pfafers",
       "slugByLocale": {
         "de": "fachpsychologin-fachpsychologe-psgn-pfafers",
-        "it": "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-pfafers",
+        "it": "specialista-psicologo-psychiatrie-st-gallen-pfafers",
         "en": "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-pfafers",
         "fr": "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-pfafers"
       },
@@ -602,11 +635,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachpsychologin-fachpsychologe-psgn-pfafers"
+          "fachpsychologin-fachpsychologe-psgn-pfafers",
+          "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-pfafers"
         ]
       },
       "previousSlugs": [
-        "fachpsychologin-fachpsychologe-psgn-pfafers"
+        "fachpsychologin-fachpsychologe-psgn-pfafers",
+        "fachpsychologin-fachpsychologe-psychiatrie-st-gallen-pfafers"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -629,12 +664,12 @@
     },
     {
       "id": "psgn-af70bbe53c8b",
-      "slug": "mitarbeiterin-collaboratore-trice-sekretariat-mi-do-fr-psychiatrie-st-gallen-wil",
+      "slug": "segretariato-dei-dipendenti-mercoledi-giovedi-ven-psychiatrie-st-gallen-wil",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-sekretariat-mi-do-fr-psgn-wil",
-        "it": "mitarbeiterin-collaboratore-trice-sekretariat-mi-do-fr-psychiatrie-st-gallen-wil",
-        "en": "mitarbeiterin-mitarbeiter-sekretariat-mi-do-fr-psychiatrie-st-gallen-wil",
-        "fr": "mitarbeiterin-mitarbeiter-sekretariat-mi-do-fr-psychiatrie-st-gallen-wil"
+        "it": "segretariato-dei-dipendenti-mercoledi-giovedi-ven-psychiatrie-st-gallen-wil",
+        "en": "employee-secretariat-mi-do-fr-psychiatrie-st-gallen-wil",
+        "fr": "employe-secretariat-mi-do-fr-psychiatrie-st-gallen-wil"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -681,11 +716,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-sekretariat-mi-do-fr-psgn-wil"
+          "mitarbeiterin-mitarbeiter-sekretariat-mi-do-fr-psgn-wil",
+          "mitarbeiterin-collaboratore-trice-sekretariat-mi-do-fr-psychiatrie-st-gallen-wil"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-sekretariat-mi-do-fr-psychiatrie-st-gallen-wil"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-sekretariat-mi-do-fr-psychiatrie-st-gallen-wil"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-sekretariat-mi-do-fr-psgn-wil"
+        "mitarbeiterin-mitarbeiter-sekretariat-mi-do-fr-psgn-wil",
+        "mitarbeiterin-collaboratore-trice-sekretariat-mi-do-fr-psychiatrie-st-gallen-wil",
+        "mitarbeiterin-mitarbeiter-sekretariat-mi-do-fr-psychiatrie-st-gallen-wil"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -708,12 +752,12 @@
     },
     {
       "id": "psgn-b3d96a978dbe",
-      "slug": "mitarbeiterin-collaboratore-trice-anmeldung-e-information-psychiatrie-st-gallen-pfafers",
+      "slug": "registrazione-e-informazioni-sui-dipendenti-psychiatrie-st-gallen-pfafers",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-anmeldung-und-information-psgn-pfafers",
-        "it": "mitarbeiterin-collaboratore-trice-anmeldung-e-information-psychiatrie-st-gallen-pfafers",
-        "en": "mitarbeiterin-mitarbeiter-anmeldung-und-information-psychiatrie-st-gallen-pfafers",
-        "fr": "mitarbeiterin-mitarbeiter-anmeldung-und-information-psychiatrie-st-gallen-pfafers"
+        "it": "registrazione-e-informazioni-sui-dipendenti-psychiatrie-st-gallen-pfafers",
+        "en": "employee-registration-and-information-psychiatrie-st-gallen-pfafers",
+        "fr": "enregistrement-et-information-des-employes-psychiatrie-st-gallen-pfafers"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -760,11 +804,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-anmeldung-und-information-psgn-pfafers"
+          "mitarbeiterin-mitarbeiter-anmeldung-und-information-psgn-pfafers",
+          "mitarbeiterin-collaboratore-trice-anmeldung-e-information-psychiatrie-st-gallen-pfafers"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-anmeldung-und-information-psychiatrie-st-gallen-pfafers"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-anmeldung-und-information-psychiatrie-st-gallen-pfafers"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-anmeldung-und-information-psgn-pfafers"
+        "mitarbeiterin-mitarbeiter-anmeldung-und-information-psgn-pfafers",
+        "mitarbeiterin-collaboratore-trice-anmeldung-e-information-psychiatrie-st-gallen-pfafers",
+        "mitarbeiterin-mitarbeiter-anmeldung-und-information-psychiatrie-st-gallen-pfafers"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

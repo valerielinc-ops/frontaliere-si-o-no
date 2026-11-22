@@ -7761,12 +7761,12 @@
     },
     {
       "id": "sta-c61da3a85b2e",
-      "slug": "schreiner-in-per-service-e-fensterbau-in-nidwalden-sta-personal-ag-stans",
+      "slug": "falegname-per-servizi-e-costruzione-di-finestre-a-nidwalden-sta-personal-ag-stans-nidwalden",
       "slugByLocale": {
         "de": "schreiner-in-fur-service-und-fensterbau-in-nidwalden-stans-nidwalden-sta-ch",
-        "it": "schreiner-in-per-service-e-fensterbau-in-nidwalden-sta-personal-ag-stans",
-        "en": "schreiner-in-fur-service-und-fensterbau-in-nidwalden-stans-nidwalden-sta-ch",
-        "fr": "schreiner-in-fur-service-und-fensterbau-in-nidwalden-stans-nidwalden-sta-ch"
+        "it": "falegname-per-servizi-e-costruzione-di-finestre-a-nidwalden-sta-personal-ag-stans-nidwalden",
+        "en": "carpenter-for-service-and-window-construction-in-nidwalden-sta-personal-ag-stans-nidwalden",
+        "fr": "charpentier-pour-service-et-construction-de-fenetres-a-nidwalden-sta-personal-ag-stans-nidwalden"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -7812,11 +7812,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-fur-service-und-fensterbau-in-nidwalden-stans-nidwalden-sta-ch",
+          "schreiner-in-per-service-e-fensterbau-in-nidwalden-sta-personal-ag-stans"
+        ],
+        "en": [
+          "schreiner-in-fur-service-und-fensterbau-in-nidwalden-stans-nidwalden-sta-ch"
+        ],
+        "fr": [
           "schreiner-in-fur-service-und-fensterbau-in-nidwalden-stans-nidwalden-sta-ch"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-service-und-fensterbau-in-nidwalden-stans-nidwalden-sta-ch"
+        "schreiner-in-fur-service-und-fensterbau-in-nidwalden-stans-nidwalden-sta-ch",
+        "schreiner-in-per-service-e-fensterbau-in-nidwalden-sta-personal-ag-stans"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -7837,7 +7845,7 @@
       "validThrough": "2027-02-18T22:12:56.567Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-21T22:12:56.567Z",
-      "translationHoldSince": "2026-11-21T22:13:51.839Z"
+      "translationHoldReleasedAt": "2026-11-22T02:28:22.660Z"
     },
     {
       "id": "sta-efcd65463bbe",
@@ -80508,12 +80516,12 @@
     },
     {
       "id": "sta-eef13f809e6d",
-      "slug": "gartner-in-mit-fuhrungsverantwortung-sta-personal-ag-horgen",
+      "slug": "giardiniere-con-responsabilita-di-leadership-sta-personal-ag-horgen-zurich",
       "slugByLocale": {
         "de": "gartner-in-mit-fuhrungsverantwortung-sta-personal-ag-horgen",
-        "it": "gartner-in-mit-fuhrungsverantwortung-sta-personal-ag-horgen",
-        "en": "gartner-in-mit-fuhrungsverantwortung-sta-personal-ag-horgen",
-        "fr": "gartner-in-mit-fuhrungsverantwortung-sta-personal-ag-horgen"
+        "it": "giardiniere-con-responsabilita-di-leadership-sta-personal-ag-horgen-zurich",
+        "en": "gardener-with-leadership-responsibility-sta-personal-ag-horgen-zurich",
+        "fr": "jardinier-avec-responsabilite-de-leadership-sta-personal-ag-horgen-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -80559,14 +80567,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "gartner-in-mit-fuhrungsverantwortung-horgen-zurich-sta-ch"
+          "gartner-in-mit-fuhrungsverantwortung-horgen-zurich-sta-ch",
+          "gartner-in-mit-fuhrungsverantwortung-sta-personal-ag-horgen"
         ],
         "de": [
           "gartner-in-mit-fuhrungsverantwortung-horgen-zurich-sta-ch"
+        ],
+        "en": [
+          "gartner-in-mit-fuhrungsverantwortung-sta-personal-ag-horgen"
+        ],
+        "fr": [
+          "gartner-in-mit-fuhrungsverantwortung-sta-personal-ag-horgen"
         ]
       },
       "previousSlugs": [
-        "gartner-in-mit-fuhrungsverantwortung-horgen-zurich-sta-ch"
+        "gartner-in-mit-fuhrungsverantwortung-horgen-zurich-sta-ch",
+        "gartner-in-mit-fuhrungsverantwortung-sta-personal-ag-horgen"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -80587,7 +80603,7 @@
       "validThrough": "2027-02-18T22:12:56.356Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-21T22:12:56.356Z",
-      "translationHoldSince": "2026-11-21T22:13:51.839Z"
+      "translationHoldReleasedAt": "2026-11-22T02:28:22.660Z"
     },
     {
       "id": "sta-b35a26f7bb31",
@@ -109286,8 +109302,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-als-servicetechniker-in-zurich-zurich-sta-ch",
         "it": "installatore-trice-elettrico-a-in-come-tecnico-a-di-servizio-sta-personal-ag-zurich",
-        "en": "elektroinstallateur-in-als-servicetechniker-in-zurich-zurich-sta-ch",
-        "fr": "elektroinstallateur-in-als-servicetechniker-in-zurich-zurich-sta-ch"
+        "en": "electrician-as-service-technician-sta-personal-ag-zurich-zurich",
+        "fr": "electricien-comme-technicien-de-service-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -109352,7 +109368,8 @@
           "electrical-installer-as-a-service-technician-sta-personal-ag-zurich-zurich",
           "electrical-installer-als-service-technician-sta-personal-ag-zurich-zurich",
           "installatore-trice-elettrico-a-in-come-tecnico-a-di-servizio-sta-personal-ag-zurich",
-          "electrical-installer-als-service-technician-sta-personal-ag-zurich"
+          "electrical-installer-als-service-technician-sta-personal-ag-zurich",
+          "elektroinstallateur-in-als-servicetechniker-in-zurich-zurich-sta-ch"
         ],
         "fr": [
           "installateur-trice-electricien-ne-en-tant-que-technicien-ne-de-service-sta-personal-ag-zurich-zurich",
@@ -109360,7 +109377,8 @@
           "installateur-installateur-electricien-en-tant-que-technicien-ne-de-service-sta-personal-ag-zurich-zurich",
           "installateur-trice-electricien-ne-als-technicien-ne-de-service-sta-personal-ag-zurich-zurich",
           "installatore-trice-elettrico-a-in-come-tecnico-a-di-servizio-sta-personal-ag-zurich",
-          "installateur-trice-electricien-ne-als-technicien-ne-de-service-sta-personal-ag-zurich"
+          "installateur-trice-electricien-ne-als-technicien-ne-de-service-sta-personal-ag-zurich",
+          "elektroinstallateur-in-als-servicetechniker-in-zurich-zurich-sta-ch"
         ]
       },
       "salaryMin": 83000,
@@ -142930,12 +142948,12 @@
     },
     {
       "id": "sta-4931be4699af",
-      "slug": "polymechaniker-in-per-montage-von-baugruppen-sta-personal-ag-luzern",
+      "slug": "polimeccanicista-per-assemblare-assemblaggi-sta-personal-ag-luzern-luzern",
       "slugByLocale": {
         "de": "polymechaniker-in-fur-montage-von-baugruppen-luzern-luzern-sta-ch",
-        "it": "polymechaniker-in-per-montage-von-baugruppen-sta-personal-ag-luzern",
-        "en": "polymechaniker-in-fur-montage-von-baugruppen-luzern-luzern-sta-ch",
-        "fr": "polymechaniker-in-fur-montage-von-baugruppen-luzern-luzern-sta-ch"
+        "it": "polimeccanicista-per-assemblare-assemblaggi-sta-personal-ag-luzern-luzern",
+        "en": "polymechanist-for-assembling-assemblies-sta-personal-ag-luzern-luzern",
+        "fr": "polymecaniste-pour-assembler-des-assemblages-sta-personal-ag-luzern-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -142981,11 +142999,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "polymechaniker-in-fur-montage-von-baugruppen-luzern-luzern-sta-ch",
+          "polymechaniker-in-per-montage-von-baugruppen-sta-personal-ag-luzern"
+        ],
+        "en": [
+          "polymechaniker-in-fur-montage-von-baugruppen-luzern-luzern-sta-ch"
+        ],
+        "fr": [
           "polymechaniker-in-fur-montage-von-baugruppen-luzern-luzern-sta-ch"
         ]
       },
       "previousSlugs": [
-        "polymechaniker-in-fur-montage-von-baugruppen-luzern-luzern-sta-ch"
+        "polymechaniker-in-fur-montage-von-baugruppen-luzern-luzern-sta-ch",
+        "polymechaniker-in-per-montage-von-baugruppen-sta-personal-ag-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -143006,7 +143032,7 @@
       "validThrough": "2027-02-18T22:12:56.165Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-21T22:12:56.165Z",
-      "translationHoldSince": "2026-11-21T22:13:51.839Z"
+      "translationHoldReleasedAt": "2026-11-22T02:28:22.660Z"
     },
     {
       "id": "sta-df18c1bb2fc2",
@@ -143266,9 +143292,9 @@
     },
     {
       "id": "sta-55b7ee24e9c3",
-      "slug": "maler-in-per-umbauten-con-kundenberatung-sta-personal-ag-baden",
+      "slug": "pittore-per-ristrutturazioni-con-consulenza-clienti-sta-personal-ag-baden-aargau",
       "slugByLocale": {
-        "it": "maler-in-per-umbauten-con-kundenberatung-sta-personal-ag-baden",
+        "it": "pittore-per-ristrutturazioni-con-consulenza-clienti-sta-personal-ag-baden-aargau",
         "en": "maler-in-fur-umbauten-mit-kundenberatung-baden-aargau-sta-ch",
         "de": "maler-in-fur-umbauten-mit-kundenberatung-baden-aargau-sta-ch",
         "fr": "maler-in-fur-umbauten-mit-kundenberatung-baden-aargau-sta-ch"
@@ -143319,13 +143345,15 @@
         "pittore-trice-per-ristrutturazioni-con-consulenza-alla-clientela-sta-personal-ag-baden-aargau",
         "painter-for-renovations-with-customer-consultation-sta-personal-ag-baden-aargau",
         "peintre-pour-travaux-de-transformation-avec-conseil-a-la-clientele-sta-personal-ag-baden-aargau",
-        "imbianchino-a-per-ristrutturazioni-con-consulenza-alla-clientela-sta-personal-ag-baden-aargau"
+        "imbianchino-a-per-ristrutturazioni-con-consulenza-alla-clientela-sta-personal-ag-baden-aargau",
+        "maler-in-per-umbauten-con-kundenberatung-sta-personal-ag-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-umbauten-mit-kundenberatung-baden-aargau-sta-ch",
           "pittore-trice-per-ristrutturazioni-con-consulenza-alla-clientela-sta-personal-ag-baden-aargau",
-          "imbianchino-a-per-ristrutturazioni-con-consulenza-alla-clientela-sta-personal-ag-baden-aargau"
+          "imbianchino-a-per-ristrutturazioni-con-consulenza-alla-clientela-sta-personal-ag-baden-aargau",
+          "maler-in-per-umbauten-con-kundenberatung-sta-personal-ag-baden"
         ],
         "en": [
           "painter-for-renovations-with-customer-consultation-sta-personal-ag-baden-aargau"
@@ -143358,7 +143386,6 @@
       "validThrough": "2027-02-17T22:12:56.164Z",
       "validThroughSource": "last-observed-window",
       "translationHoldReleasedAt": "2026-11-20T05:59:14.586Z",
-      "translationHoldSince": "2026-11-20T22:24:44.386Z",
       "retranslationAttempts": 1
     },
     {
@@ -151289,12 +151316,12 @@
     },
     {
       "id": "sta-688172addb01",
-      "slug": "malerpraktiker-in-mit-kundenkontakt-aarau-aargau-sta-ch",
+      "slug": "pittore-con-contatto-con-clienti-sta-personal-ag-aarau-aargau",
       "slugByLocale": {
         "de": "malerpraktiker-in-mit-kundenkontakt-sta-personal-ag-aarau",
-        "it": "malerpraktiker-in-mit-kundenkontakt-aarau-aargau-sta-ch",
-        "en": "malerpraktiker-in-mit-kundenkontakt-aarau-aargau-sta-ch",
-        "fr": "malerpraktiker-in-mit-kundenkontakt-aarau-aargau-sta-ch"
+        "it": "pittore-con-contatto-con-clienti-sta-personal-ag-aarau-aargau",
+        "en": "painting-practitioner-with-customer-contact-sta-personal-ag-aarau-aargau",
+        "fr": "praticien-de-peinture-avec-contact-client-sta-personal-ag-aarau-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -151341,6 +151368,15 @@
       "previousSlugsByLocale": {
         "de": [
           "malerpraktiker-in-mit-kundenkontakt-aarau-aargau-sta-ch"
+        ],
+        "it": [
+          "malerpraktiker-in-mit-kundenkontakt-aarau-aargau-sta-ch"
+        ],
+        "en": [
+          "malerpraktiker-in-mit-kundenkontakt-aarau-aargau-sta-ch"
+        ],
+        "fr": [
+          "malerpraktiker-in-mit-kundenkontakt-aarau-aargau-sta-ch"
         ]
       },
       "previousSlugs": [
@@ -151365,7 +151401,7 @@
       "validThrough": "2027-02-19T22:12:56.140Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-21T22:12:56.140Z",
-      "translationHoldSince": "2026-11-21T22:13:51.839Z"
+      "translationHoldReleasedAt": "2026-11-22T02:28:22.660Z"
     },
     {
       "id": "sta-af51134e7f1c",

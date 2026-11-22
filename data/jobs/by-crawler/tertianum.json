@@ -3845,12 +3845,12 @@
     },
     {
       "id": "tertianum-fb17ce789970",
-      "slug": "teamleitung-hauswirtschaft-tertianum-uster",
+      "slug": "gestione-del-team-tertianum-uster",
       "slugByLocale": {
         "de": "teamleitung-hauswirtschaft-tertianum-uster",
-        "it": "teamleitung-hauswirtschaft-tertianum-uster",
-        "en": "teamleitung-hauswirtschaft-tertianum-uster",
-        "fr": "teamleitung-hauswirtschaft-tertianum-uster"
+        "it": "gestione-del-team-tertianum-uster",
+        "en": "team-management-housekeeping-tertianum-uster",
+        "fr": "gestion-de-l-equipe-tertianum-uster"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -3912,7 +3912,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:32:31.356Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T21:38:37.588Z"
+      "firstSeenAt": "2026-11-12T21:38:37.588Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-hauswirtschaft-tertianum-uster"
+        ],
+        "en": [
+          "teamleitung-hauswirtschaft-tertianum-uster"
+        ],
+        "fr": [
+          "teamleitung-hauswirtschaft-tertianum-uster"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-hauswirtschaft-tertianum-uster"
+      ]
     },
     {
       "id": "tertianum-a9cdbabfea72",

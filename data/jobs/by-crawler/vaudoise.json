@@ -2434,12 +2434,12 @@
     },
     {
       "id": "vaudoise-0b8e920efb2a",
-      "slug": "stagiaire-universitaire-hes-projets-strategiques-rh-h-f-x-100-vaudoise-ch",
+      "slug": "studente-hes-progetti-strategici-hr-m-f-x-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "stagiaire-universitaire-hes-projets-strategiques-rh-h-f-x-100-vaudoise-ch",
-        "it": "stagiaire-universitaire-hes-projets-strategiques-rh-h-f-x-100-vaudoise-ch",
-        "en": "stagiaire-universitaire-hes-projets-strategiques-rh-h-f-x-100-vaudoise-ch",
-        "de": "stagiaire-universitaire-hes-projets-strategiques-rh-h-f-x-100-vaudoise-ch"
+        "it": "studente-hes-progetti-strategici-hr-m-f-x-100-vaudoise-assurances-lausanne",
+        "en": "university-trainee-hes-strategic-hr-projects-m-f-x-100-vaudoise-assurances-lausanne",
+        "de": "hochschul-trainee-hes-strategische-hr-projekte-m-w-x-100-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -2502,7 +2502,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T21:30:18.691Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:30:18.691Z"
+      "firstSeenAt": "2026-11-21T21:30:18.691Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-universitaire-hes-projets-strategiques-rh-h-f-x-100-vaudoise-ch"
+        ],
+        "en": [
+          "stagiaire-universitaire-hes-projets-strategiques-rh-h-f-x-100-vaudoise-ch"
+        ],
+        "de": [
+          "stagiaire-universitaire-hes-projets-strategiques-rh-h-f-x-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-universitaire-hes-projets-strategiques-rh-h-f-x-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-ab49ce3127f6",
@@ -3078,10 +3092,10 @@
     },
     {
       "id": "vaudoise-2f55f9a5916f",
-      "slug": "expert-experte-data-analytics-bi-performances-h-f-x-100-vaudoise-ch",
+      "slug": "analisi-dei-dati-e-prestazioni-bi-esperti-esperti-m-f-x-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "expert-experte-data-analytics-bi-performances-h-f-x-100-vaudoise-ch",
-        "it": "expert-experte-data-analytics-bi-performances-h-f-x-100-vaudoise-ch",
+        "it": "analisi-dei-dati-e-prestazioni-bi-esperti-esperti-m-f-x-100-vaudoise-assurances-lausanne",
         "en": "expert-experte-data-analytics-bi-performances-h-f-x-100-vaudoise-ch",
         "de": "expert-experte-data-analytics-bi-performances-h-f-x-100-vaudoise-ch"
       },
@@ -3146,7 +3160,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:30:16.263Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:30:16.263Z"
+      "firstSeenAt": "2026-11-21T21:30:16.263Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "expert-experte-data-analytics-bi-performances-h-f-x-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "expert-experte-data-analytics-bi-performances-h-f-x-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-0caf4e113f3f",
@@ -3154,8 +3176,8 @@
       "slugByLocale": {
         "fr": "gestionnaire-service-client-et-souscription-h-f-x-80-100-vaudoise-ch",
         "it": "gestionnaire-service-client-et-souscription-m-w-d-80-100-vaudoise-assurances-lausanne",
-        "en": "gestionnaire-service-client-et-souscription-h-f-x-80-100-vaudoise-ch",
-        "de": "gestionnaire-service-client-et-souscription-h-f-x-80-100-vaudoise-ch"
+        "en": "manager-customer-service-and-subscription-m-f-x-80-100-vaudoise-assurances-lausanne",
+        "de": "manager-kundenservice-und-abonnement-m-w-x-80-100-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -3201,6 +3223,12 @@
       "jobCategory": "Vendita, commercio e servizio alla clientela",
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-service-client-et-souscription-h-f-x-80-100-vaudoise-ch"
+        ],
+        "en": [
+          "gestionnaire-service-client-et-souscription-h-f-x-80-100-vaudoise-ch"
+        ],
+        "de": [
           "gestionnaire-service-client-et-souscription-h-f-x-80-100-vaudoise-ch"
         ]
       },
@@ -3320,12 +3348,12 @@
     },
     {
       "id": "vaudoise-b97dc723f2db",
-      "slug": "specialiste-metier-prestations-accident-perte-de-gain-maladie-vaudoise-ch",
+      "slug": "specialista-professione-vantaggi-incidente-perdita-di-guadagno-di-malattia-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "specialiste-metier-prestations-accident-perte-de-gain-maladie-vaudoise-ch",
-        "it": "specialiste-metier-prestations-accident-perte-de-gain-maladie-vaudoise-ch",
-        "en": "specialiste-metier-prestations-accident-perte-de-gain-maladie-vaudoise-ch",
-        "de": "specialiste-metier-prestations-accident-perte-de-gain-maladie-vaudoise-ch"
+        "it": "specialista-professione-vantaggi-incidente-perdita-di-guadagno-di-malattia-vaudoise-assurances-lausanne",
+        "en": "specialist-profession-benefits-accident-loss-of-sickness-gain-vaudoise-assurances-lausanne",
+        "de": "spezialist-beruf-vorteile-unfall-verlust-der-krankheit-gewinn-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -3388,7 +3416,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:30:15.338Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:30:15.338Z"
+      "firstSeenAt": "2026-11-21T21:30:15.338Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-metier-prestations-accident-perte-de-gain-maladie-vaudoise-ch"
+        ],
+        "en": [
+          "specialiste-metier-prestations-accident-perte-de-gain-maladie-vaudoise-ch"
+        ],
+        "de": [
+          "specialiste-metier-prestations-accident-perte-de-gain-maladie-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-metier-prestations-accident-perte-de-gain-maladie-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-64cf76fe2e5d",

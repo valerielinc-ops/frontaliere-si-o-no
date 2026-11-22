@@ -25,12 +25,12 @@
         "en": "Company Manager IJM (m/f) 80% - temporary 4 months",
         "de": "Unternehmensleiter IJM (m/w) 80% - temporäre 4 Monate"
       },
-      "slug": "gestionnaire-entreprise-ijm-m-w-d-80-temporaire-4-mois-groupe-mutuel-lausanne",
+      "slug": "direttore-aziendale-ijm-m-f-80-temporaneo-4-mesi-groupe-mutuel-lausanne",
       "slugByLocale": {
         "fr": "gestionnaire-entreprise-ijm-h-f-80-temporaire-4-mois-groupe-mutuel",
-        "en": "gestionnaire-entreprise-ijm-h-f-80-temporaire-4-mois-groupe-mutuel",
-        "it": "gestionnaire-entreprise-ijm-m-w-d-80-temporaire-4-mois-groupe-mutuel-lausanne",
-        "de": "gestionnaire-entreprise-ijm-h-f-80-temporaire-4-mois-groupe-mutuel"
+        "en": "company-manager-ijm-m-f-80-temporary-4-months-groupe-mutuel-lausanne",
+        "it": "direttore-aziendale-ijm-m-f-80-temporaneo-4-mesi-groupe-mutuel-lausanne",
+        "de": "unternehmensleiter-ijm-m-w-80-temporare-4-monate-groupe-mutuel-lausanne"
       },
       "category": "administration",
       "crawledAt": "2026-11-21T21:28:36.653Z",
@@ -50,11 +50,19 @@
       "id": "groupe-mutuel-1f8ae9efaf09",
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-entreprise-ijm-h-f-80-temporaire-4-mois-groupe-mutuel",
+          "gestionnaire-entreprise-ijm-m-w-d-80-temporaire-4-mois-groupe-mutuel-lausanne"
+        ],
+        "en": [
+          "gestionnaire-entreprise-ijm-h-f-80-temporaire-4-mois-groupe-mutuel"
+        ],
+        "de": [
           "gestionnaire-entreprise-ijm-h-f-80-temporaire-4-mois-groupe-mutuel"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-entreprise-ijm-h-f-80-temporaire-4-mois-groupe-mutuel"
+        "gestionnaire-entreprise-ijm-h-f-80-temporaire-4-mois-groupe-mutuel",
+        "gestionnaire-entreprise-ijm-m-w-d-80-temporaire-4-mois-groupe-mutuel-lausanne"
       ],
       "salaryMin": 48400,
       "salaryMax": 73200,
@@ -101,12 +109,12 @@
         "en": "University recruitment internship (m/f) – 6 months 100%",
         "de": "Hochschulrekrutierungspraktikum (m/w) – 6 Monate 100%"
       },
-      "slug": "stage-universitaire-en-recrutement-h-f-6-mois-a-100-groupe-mutuel",
+      "slug": "stage-di-reclutamento-universitario-m-f-6-mesi-100-groupe-mutuel-lausanne",
       "slugByLocale": {
         "fr": "stage-universitaire-en-recrutement-h-f-6-mois-a-100-groupe-mutuel",
-        "en": "stage-universitaire-en-recrutement-h-f-6-mois-a-100-groupe-mutuel",
-        "it": "stage-universitaire-en-recrutement-h-f-6-mois-a-100-groupe-mutuel",
-        "de": "stage-universitaire-en-recrutement-h-f-6-mois-a-100-groupe-mutuel"
+        "en": "university-recruitment-internship-m-f-6-months-100-groupe-mutuel-lausanne",
+        "it": "stage-di-reclutamento-universitario-m-f-6-mesi-100-groupe-mutuel-lausanne",
+        "de": "hochschulrekrutierungspraktikum-m-w-6-monate-100-groupe-mutuel-lausanne"
       },
       "category": "general",
       "crawledAt": "2026-11-21T21:28:36.653Z",
@@ -145,7 +153,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T21:28:36.653Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:28:36.653Z"
+      "firstSeenAt": "2026-11-21T21:28:36.653Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-universitaire-en-recrutement-h-f-6-mois-a-100-groupe-mutuel"
+        ],
+        "en": [
+          "stage-universitaire-en-recrutement-h-f-6-mois-a-100-groupe-mutuel"
+        ],
+        "de": [
+          "stage-universitaire-en-recrutement-h-f-6-mois-a-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "stage-universitaire-en-recrutement-h-f-6-mois-a-100-groupe-mutuel"
+      ]
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4495?c=groupemutuel&lang=fr-FR",
@@ -171,8 +193,8 @@
       },
       "slug": "teamleiter-unternehmen-ktg-uvg-m-w-80-100-groupe-mutuel",
       "slugByLocale": {
-        "fr": "teamleiter-unternehmen-ktg-uvg-m-w-80-100-groupe-mutuel",
-        "en": "teamleiter-unternehmen-ktg-uvg-m-w-80-100-groupe-mutuel",
+        "fr": "entreprise-chef-d-equipe-ktg-uvg-h-f-80-100-groupe-mutuel-zurich",
+        "en": "team-leader-company-ktg-uvg-m-f-80-100-groupe-mutuel-zurich",
         "it": "teamleiter-unternehmen-ktg-uvg-m-w-80-100-groupe-mutuel",
         "de": "teamleiter-unternehmen-ktg-uvg-m-w-80-100-groupe-mutuel"
       },
@@ -213,7 +235,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:28:36.653Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:28:36.653Z"
+      "firstSeenAt": "2026-11-21T21:28:36.653Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "teamleiter-unternehmen-ktg-uvg-m-w-80-100-groupe-mutuel"
+        ],
+        "fr": [
+          "teamleiter-unternehmen-ktg-uvg-m-w-80-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-unternehmen-ktg-uvg-m-w-80-100-groupe-mutuel"
+      ]
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4492?c=groupemutuel&lang=fr-FR",
@@ -305,12 +338,12 @@
         "en": "Data & BI team manager (m/f) 80–100%",
         "de": "Daten & BI Team Manager (m/w) 80–100%"
       },
-      "slug": "responsable-d-equipe-data-bi-h-f-80-100-groupe-mutuel",
+      "slug": "data-bi-team-manager-m-f-80-100-groupe-mutuel-lausanne",
       "slugByLocale": {
         "fr": "responsable-d-equipe-data-bi-h-f-80-100-groupe-mutuel",
         "en": "responsable-d-equipe-data-bi-h-f-80-100-groupe-mutuel",
-        "it": "responsable-d-equipe-data-bi-h-f-80-100-groupe-mutuel",
-        "de": "responsable-d-equipe-data-bi-h-f-80-100-groupe-mutuel"
+        "it": "data-bi-team-manager-m-f-80-100-groupe-mutuel-lausanne",
+        "de": "daten-bi-team-manager-m-w-80-100-groupe-mutuel-lausanne"
       },
       "category": "it",
       "crawledAt": "2026-11-21T21:28:36.653Z",
@@ -349,7 +382,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:28:36.653Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:28:36.653Z"
+      "firstSeenAt": "2026-11-21T21:28:36.653Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-d-equipe-data-bi-h-f-80-100-groupe-mutuel"
+        ],
+        "de": [
+          "responsable-d-equipe-data-bi-h-f-80-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-d-equipe-data-bi-h-f-80-100-groupe-mutuel"
+      ]
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4479?c=groupemutuel&lang=fr-FR",

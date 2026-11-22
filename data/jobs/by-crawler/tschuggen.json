@@ -754,12 +754,12 @@
     },
     {
       "id": "tschuggen-e74c1204b1b6",
-      "slug": "personalkoch-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+      "slug": "staff-chef-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
       "slugByLocale": {
         "de": "personalkoch-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-        "it": "personalkoch-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-        "en": "personalkoch-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-        "fr": "personalkoch-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        "it": "staff-chef-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
+        "en": "staff-chef-m-f-d-winter-season-2026-2027-tschuggen-collection-st-moritz",
+        "fr": "chef-d-equipe-h-f-d-saison-d-hiver-2026-2027-tschuggen-collection-st-moritz"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -823,7 +823,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-19T21:29:01.875Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:29:01.875Z"
+      "firstSeenAt": "2026-11-21T21:29:01.875Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "personalkoch-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        ],
+        "en": [
+          "personalkoch-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        ],
+        "fr": [
+          "personalkoch-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "personalkoch-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+      ]
     }
   ]
 }

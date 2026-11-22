@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "okjob-5de88c72828a",
-      "slug": "zolldeklarant-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-5de88c72",
+      "slug": "dichiarazione-doganale-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-5de88c72",
       "slugByLocale": {
         "de": "zolldeklarant-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-5de88c72",
-        "it": "zolldeklarant-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-5de88c72",
-        "en": "zolldeklarant-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-5de88c72",
-        "fr": "zolldeklarant-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-5de88c72"
+        "it": "dichiarazione-doganale-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-5de88c72",
+        "en": "customs-declaration-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-5de88c72",
+        "fr": "declaration-en-douane-h-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-5de88c72"
       },
       "slugDisambiguator": "5de88c72",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -73,16 +73,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-19T21:37:15.483Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:37:15.483Z"
+      "firstSeenAt": "2026-11-21T21:37:15.483Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zolldeklarant-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-5de88c72"
+        ],
+        "en": [
+          "zolldeklarant-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-5de88c72"
+        ],
+        "fr": [
+          "zolldeklarant-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-5de88c72"
+        ]
+      },
+      "previousSlugs": [
+        "zolldeklarant-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-5de88c72"
+      ]
     },
     {
       "id": "okjob-ed55bbeec473",
-      "slug": "chef-de-projet-infrastructures-ferroviaires-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-ed55bbee",
+      "slug": "project-manager-rail-infrastructure-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-ed55bbee",
       "slugByLocale": {
         "fr": "chef-de-projet-infrastructures-ferroviaires-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-ed55bbee",
-        "it": "chef-de-projet-infrastructures-ferroviaires-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-ed55bbee",
+        "it": "project-manager-rail-infrastructure-m-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-ed55bbee",
         "en": "chef-de-projet-infrastructures-ferroviaires-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-ed55bbee",
-        "de": "chef-de-projet-infrastructures-ferroviaires-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-ed55bbee"
+        "de": "projektleiter-bahninfrastruktur-m-w-ok-job-sa-succursale-di-mendrisio-1400-yverdon-ed55bbee"
       },
       "slugDisambiguator": "ed55bbee",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -145,16 +159,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-19T21:37:15.483Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:37:15.483Z"
+      "firstSeenAt": "2026-11-21T21:37:15.483Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-projet-infrastructures-ferroviaires-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-ed55bbee"
+        ],
+        "de": [
+          "chef-de-projet-infrastructures-ferroviaires-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-ed55bbee"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-projet-infrastructures-ferroviaires-h-f-ok-job-sa-succursale-di-mendrisio-1400-yverdon-ed55bbee"
+      ]
     },
     {
       "id": "okjob-7594c01a4b31",
       "slug": "meccanico-ok-job-sa-succursale-di-mendrisio-mendrisio-7594c01a",
       "slugByLocale": {
         "it": "meccanico-ok-job-sa-succursale-di-mendrisio-mendrisio-7594c01a",
-        "en": "meccanico-ok-job-sa-succursale-di-mendrisio-mendrisio-7594c01a",
-        "de": "meccanico-ok-job-sa-succursale-di-mendrisio-mendrisio-7594c01a",
-        "fr": "meccanico-ok-job-sa-succursale-di-mendrisio-mendrisio-7594c01a"
+        "en": "mechanical-ok-job-sa-succursale-di-mendrisio-mendrisio-7594c01a",
+        "de": "mechanisch-ok-job-sa-succursale-di-mendrisio-mendrisio-7594c01a",
+        "fr": "mecanique-ok-job-sa-succursale-di-mendrisio-mendrisio-7594c01a"
       },
       "slugDisambiguator": "7594c01a",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -217,7 +242,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-19T21:37:15.482Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:37:15.482Z"
+      "firstSeenAt": "2026-11-21T21:37:15.482Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "meccanico-ok-job-sa-succursale-di-mendrisio-mendrisio-7594c01a"
+        ],
+        "de": [
+          "meccanico-ok-job-sa-succursale-di-mendrisio-mendrisio-7594c01a"
+        ],
+        "fr": [
+          "meccanico-ok-job-sa-succursale-di-mendrisio-mendrisio-7594c01a"
+        ]
+      },
+      "previousSlugs": [
+        "meccanico-ok-job-sa-succursale-di-mendrisio-mendrisio-7594c01a"
+      ]
     },
     {
       "id": "okjob-fec37a22bce9",
