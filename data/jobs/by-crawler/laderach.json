@@ -476,8 +476,7 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:24:32.710Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "laderach-7b7d7d2896f8",
@@ -568,8 +567,7 @@
       "streetAddress": "Bleiche 14",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-22T09:24:32.415Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "laderach-466d2e203293",
@@ -1069,7 +1067,6 @@
         "apprendistato-im-commercio-al-dettaglio-cfc-2027-w-m-d-laderach-schweiz-ag-zurich-9a9153f0f0",
         "apprenticeship-in-retail-efz-2027-m-f-d-laderach-schweiz-ag-zurich",
         "place-d-apprentissage-dans-le-commerce-de-detail-cfc-2027-h-f-d-laderach-schweiz-ag-zurich",
-        "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich",
         "apprendistato-nel-commercio-al-dettaglio-efz-2027-m-f-d-laderach-schweiz-ag-zurich-09c5c9481b",
         "posto-di-apprendistato-nel-commercio-al-dettaglio-afc-2027-m-f-d-laderach-schweiz-ag-zurich-90a927428a",
         "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich-3yn6pl",
@@ -1086,7 +1083,6 @@
           "apprendistato-nel-commercio-al-dettaglio-afc-2027-m-f-d-laderach-schweiz-ag-zurich-b4621f4fe7",
           "apprendistato-im-commercio-al-dettaglio-cfc-2027-w-m-d-laderach-schweiz-ag-zurich-df5b8569df",
           "apprendistato-im-commercio-al-dettaglio-cfc-2027-w-m-d-laderach-schweiz-ag-zurich-9a9153f0f0",
-          "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich",
           "apprendistato-nel-commercio-al-dettaglio-efz-2027-m-f-d-laderach-schweiz-ag-zurich-09c5c9481b",
           "posto-di-apprendistato-nel-commercio-al-dettaglio-afc-2027-m-f-d-laderach-schweiz-ag-zurich-90a927428a",
           "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich-3yn6pl",
@@ -1126,8 +1122,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:24:28.598Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "laderach-03df285b9260",
@@ -1297,8 +1292,7 @@
       "streetAddress": "Zürich-Flughafen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:24:27.898Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "laderach-9eb36eb15ad5",
@@ -1383,8 +1377,7 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:24:27.588Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
