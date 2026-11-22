@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ipw",
-  "assembledAt": "2026-11-21T21:43:43.924Z",
-  "runId": "44950332830",
+  "assembledAt": "2026-11-22T09:20:49.875Z",
+  "runId": "45006316890",
   "jobs": [
     {
       "id": "ipw-555c187af2f2",
@@ -34,7 +34,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Assistenzärztin---Assistenzarzt--4092062",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:43:06.637Z",
+      "crawledAt": "2026-11-22T09:20:42.786Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -79,6 +79,7 @@
           "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-bulach-f3edb9"
         ]
       },
+      "firstSeenAt": "2026-11-21T21:43:06.637Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -94,9 +95,8 @@
       },
       "streetAddress": "Bülach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-19T21:43:06.637Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:43:06.637Z"
+      "validThrough": "2027-02-20T09:20:42.786Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipw-01cc32c644f8",
@@ -130,7 +130,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Pflegefachfrau---Pflegefachmann-HF-oder-FH--4091620",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:43:05.930Z",
+      "crawledAt": "2026-11-22T09:20:42.212Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -179,16 +179,16 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:43:05.930Z",
+      "validThrough": "2026-12-22T09:20:42.212Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipw-fdcc221ef476",
       "slug": "infermiera-diplomata-infermiere-diplomato-per-la-formazione-professionale-centrale-integrierte-psychiatrie-winterthur-ipw-229022d3e3",
       "slugByLocale": {
-        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-fur-die-zentrale-berufsbildung-ipw-winterthur",
         "it": "infermiera-diplomata-infermiere-diplomato-per-la-formazione-professionale-centrale-integrierte-psychiatrie-winterthur-ipw-229022d3e3",
         "en": "dipl-nursing-professional-dipl-centralised-vocational-training-nurse-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-fur-die-zentrale-berufsbildung-ipw-winterthur",
         "fr": "dipl-professionnels-des-soins-infirmiers-dipl-infirmiere-en-formation-professionnelle-centralisee-integrierte"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
@@ -208,12 +208,13 @@
         "de": "Für die zentrale Berufsbildung in der Direktion Pflege und Fachdienste am Standort Winterthur suchen wir Sie Dipl. Pflegefachfrau / Dipl. Pflegefachmann für die zentrale Berufsbildung 70% Winterthur Jetzt bewerben Das sind Ihre Aufgaben\n• Professionelle Begleitung und Verantwortung in der Lernprozessgestaltung der FaGe-Lernenden im 1. Lehrjahr\n• Planung, Durchführung und Evaluation von internem Lern- und Bildungsunterricht für FaGe-Lernende\n• Enge Zusammenarbeit mit den Ausbildungsverantwortlichen, den Stationsleitungen und dem weiteren interdisziplinären Team\n• Mitwirkung im Rekrutierungsprozess Das bringen Sie mit\n• Pflegefachdiplom HF/FH mit Erfahrung im psychiatrischen Setting und einer abgeschlossenen pädagogischen Zusatzausbildung (SVEB-1 oder höher)\n• Hohe Fach- und Sozialkompetenz sowie gute kommunikative Fähigkeiten\n• Bei ausländischen Diplomen ist eine SRK - Anerkennung erforderlich Das können Sie erwarten\n• Regelmässige Arbeitszeiten von Montag bis Freitag\n• Ein interessantes und vielfältiges Arbeitsfeld\n• Kindertagesstätte in unmittelbarer Nähe des Arbeitsplatzes Eintritt Per 01.12.2026 oder nach Vereinbarung befristet bis 31.07.2027 Ihr Kontakt Bettina Huber, Leiterin Berufsbildung Pflege Bettina.Huber@ipw.ch , T +41 52 264 38 46 Bewerbung Wir berücksichtigen nur vollständige Bewerbungsunterlagen. Massgebend sind dabei die unter dem Kapitel \"Das wünschen wir uns fürs Bewerbungsdossier\" aufgeführten Unterlagen. Die ipw verlangt kein Motivationsschreiben. Dossiers von Personalvermittlern berücksichtigen wir nicht. Die ipw behandelt Menschen mit allen psychiatrischen Krankheitsbildern von der Kindheit bis ins hohe Alter. Rund 1000 Mitarbeitende sind in den ambulanten, tagesklinischen, stationären und aufsuchenden Angeboten der ipw in Winterthur, Bülach, Dielsdorf und Glattbrugg tätig. Weil es uns alle braucht. Die ipw entdecken\n• Ihre Arbeitgeberin\n\nPensum: 70%",
         "fr": "Pour la formation professionnelle centrale dans les soins de gestion et les services spécialisés à l'emplacement Winterthur nous sommes à votre recherche Dipl. Professionnels des soins infirmiers / Dipl. Professionnel infirmier pour la formation professionnelle centrale 70% Winterthur Postuler Ce sont vos tâches\n• Soutien professionnel et responsabilité dans la conception du processus d'apprentissage des apprenants FaGe au 1er siècle. Année de formation\n• Planification, mise en œuvre et évaluation de l'apprentissage interne et de l'enseignement pour les apprenants FaGe\n• Coopération étroite avec les responsables de la formation, la direction de la station et l'autre équipe interdisciplinaire\n• Participation au processus de recrutement\n• Diplôme de soins infirmiers HF/FH avec une expérience en milieu psychiatrique et une formation complémentaire (SVEB-1 ou supérieur)\n• Haute compétence technique et sociale et bonne communication\n• Pour les diplômes étrangers, un SRK - reconnaissance est nécessaire Que vous pouvez attendre\n• Heures de travail régulières du lundi au vendredi\n• Un domaine de travail intéressant et diversifié\n• Centre de garderie à proximité immédiate du lieu de travail Admission Le 01.12.2026 ou sur rendez-vous limité au 31.07.2027 Votre interlocuteur Bettina Huber, Chef de la formation professionnelle Bettina.Huber@ipw.ch , T +41 52 264 38 46 Application Nous ne prenons en compte que les documents de candidature complets. Les documents énumérés dans le chapitre \"Nous souhaitons le dossier de candidature\". L'IPW n'exige pas de lettre de motivation. Nous ne considérons pas les dossiers des agences de recrutement. L'ipw traite les personnes souffrant de toutes les affections psychiatriques de l'enfance à la vieillesse. Environ 1000 employés travaillent dans les services ambulatoires, cliniques de jour, hospitalisés et de proximité d'ipw à Winterthur, Bülach, Dielsdorf et Glattbrugg. Parce qu'il a besoin de nous tous. Découvrez l'IPW\n• Votre employeur\n\nPensum: 70%"
       },
+      "needsRetranslation": false,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://live.solique.ch/ipw/de/jobs/Dipl.-Pflegefachfrau---Dipl.-Pflegefachmann-für-die-zentrale-Berufsbildung--4103706",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:43:05.214Z",
+      "crawledAt": "2026-11-22T09:20:41.678Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -236,16 +237,17 @@
       "pensumMin": 70,
       "pensumMax": 70,
       "pensum": "70%",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-fur-die-zentrale-berufsbildung-ipw-winterthur",
+        "infermiera-diplomata-infermiere-diplomato-per-la-formazione-professionale-centrale-integrierte-psychiatrie-winterthur"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-fur-die-zentrale-berufsbildung-ipw-winterthur",
           "infermiera-diplomata-infermiere-diplomato-per-la-formazione-professionale-centrale-integrierte-psychiatrie-winterthur"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-fur-die-zentrale-berufsbildung-ipw-winterthur",
-        "infermiera-diplomata-infermiere-diplomato-per-la-formazione-professionale-centrale-integrierte-psychiatrie-winterthur"
-      ],
+      "firstSeenAt": "2026-10-22T09:19:52.806Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -261,9 +263,8 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T21:43:05.214Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-22T09:19:52.806Z"
+      "validThrough": "2027-01-20T09:20:41.678Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipw-724074fc4389",
@@ -297,7 +298,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Dipl.-Pflegefachfrau---Dipl.-Pflegfachmann-HF---FH--4094431",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:43:04.507Z",
+      "crawledAt": "2026-11-22T09:20:41.099Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -350,7 +351,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:43:04.507Z",
+      "validThrough": "2027-01-29T09:20:41.099Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -385,7 +386,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Pflegefachfrau---Pflegefachmann-HF--4101680",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:43:03.815Z",
+      "crawledAt": "2026-11-22T09:20:40.570Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -455,7 +456,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:43:03.815Z",
+      "validThrough": "2027-01-06T09:20:40.570Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -490,7 +491,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Oberärztin---Oberarzt--4089564",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:43:03.120Z",
+      "crawledAt": "2026-11-22T09:20:40.038Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -539,7 +540,7 @@
       },
       "streetAddress": "Glattbrugg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:43:03.120Z",
+      "validThrough": "2026-12-22T09:20:40.038Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -573,7 +574,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Assistenzärztin---Assistenzarzt--4102339",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:43:02.324Z",
+      "crawledAt": "2026-11-22T09:20:39.489Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -636,8 +637,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-ipw-winterthur",
-          "assistenzarztin-assistenzarzt-ipw-winterthur-0e081648",
           "assistenzarztin-assistenzarzt-ipw-winterthur-374c7e34",
           "assistenzarztin-assistenzarzt-ipw-winterthur-80092a97",
           "assistenzarztin-assistenzarzt-ipw-winterthur-a08c68fe",
@@ -655,7 +654,9 @@
           "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-glattbrugg",
           "assistant-doctor-assistant-doctor-integrierte-psychiatrie-winterthur-ipw-glattbrugg",
           "assistenzarztin-assistenzarzt-ipw-glattbrugg",
-          "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur-f7c8707a13"
+          "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur-f7c8707a13",
+          "assistenzarztin-assistenzarzt-ipw-winterthur",
+          "assistenzarztin-assistenzarzt-ipw-winterthur-0e081648"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-ipw-winterthur",
@@ -684,7 +685,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:43:02.324Z",
+      "validThrough": "2026-12-22T09:20:39.489Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -719,7 +720,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/HR-Praktikantin---HR-Praktikant--4101555",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:43:01.418Z",
+      "crawledAt": "2026-11-22T09:20:38.959Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -766,7 +767,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "intern-intern-facility-management-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "praktikantin-praktikant-facility-management-ipw-winterthur",
           "gestion-des-installations-internes-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "hr-tirocinante-80-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
@@ -785,7 +785,8 @@
           "travailleur-social-60-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "interno-hr-hr-integrierte-psychiatrie-winterthur-ipw-winterthur",
           "hr-praktikantin-hr-praktikant-ipw-winterthur",
-          "intern-intern-gestione-della-struttura-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "intern-intern-gestione-della-struttura-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "intern-intern-facility-management-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ],
         "en": [
           "hr-praktikantin-hr-praktikant-ipw-winterthur"
@@ -794,6 +795,7 @@
           "hr-praktikantin-hr-praktikant-ipw-winterthur"
         ]
       },
+      "firstSeenAt": "2026-11-21T21:43:01.418Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -809,9 +811,8 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-19T21:43:01.418Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:43:01.418Z"
+      "validThrough": "2027-02-20T09:20:38.959Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "ipw-703b06648b72",
@@ -844,7 +845,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Praktikantin---Praktikant-Kindertagesstätte--4096355",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:43:00.630Z",
+      "crawledAt": "2026-11-22T09:20:38.430Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -916,7 +917,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:43:00.630Z",
+      "validThrough": "2027-02-03T09:20:38.430Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -950,7 +951,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Assistenzärztin---Assistenzarzt-Home-Treatment--4088037",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:42:59.930Z",
+      "crawledAt": "2026-11-22T09:20:37.902Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -997,7 +998,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:42:59.930Z",
+      "validThrough": "2026-12-22T09:20:37.902Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1032,7 +1033,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Oberärztin---Oberarzt--4100873",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:42:59.221Z",
+      "crawledAt": "2026-11-22T09:20:37.375Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1097,7 +1098,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:42:59.221Z",
+      "validThrough": "2026-12-22T09:20:37.375Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1132,7 +1133,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Dipl.-Pflegefachfrau---Pflegefachmann-\r\nHF-oder-FH--4089515",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:42:58.440Z",
+      "crawledAt": "2026-11-22T09:20:36.846Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1179,7 +1180,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:42:58.440Z",
+      "validThrough": "2026-12-22T09:20:36.846Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1213,7 +1214,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Oberpsychologin---Oberpsychologe--4089311",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:42:57.717Z",
+      "crawledAt": "2026-11-22T09:20:36.197Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1268,7 +1269,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:42:57.717Z",
+      "validThrough": "2026-12-22T09:20:36.197Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1303,7 +1304,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Lernende-Fachfrau-Hotellerie--Hauswirtschaft---Lernender-Fachmann-Hotellerie----Hauswirtschaft--4089463",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:42:57.017Z",
+      "crawledAt": "2026-11-22T09:20:35.669Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1352,7 +1353,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:42:57.017Z",
+      "validThrough": "2026-12-22T09:20:35.669Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1387,7 +1388,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Fachfrau---Fachmann-Hauswirtschaft--4099121",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:42:56.290Z",
+      "crawledAt": "2026-11-22T09:20:35.032Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1491,7 +1492,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-c9d6b75b",
           "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-9184dea1",
           "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-d6c3b926",
           "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-98712724",
@@ -1510,7 +1510,8 @@
           "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-4d07fd05",
           "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-6fca8873",
           "fachfrau-fachmann-hauswirtschaft-ipw-winterthur",
-          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-090d1fda"
+          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-090d1fda",
+          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur-c9d6b75b"
         ],
         "en": [
           "fachfrau-fachmann-hauswirtschaft-ipw-winterthur"
@@ -1538,7 +1539,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:42:56.290Z",
+      "validThrough": "2026-12-22T09:20:35.032Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1572,7 +1573,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Oberneuropsychologin---Oberneuropsychologe--4100878",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:42:55.525Z",
+      "crawledAt": "2026-11-22T09:20:34.491Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1625,7 +1626,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:42:55.525Z",
+      "validThrough": "2027-01-06T09:20:34.491Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1660,7 +1661,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Kunsttherapeutin---Kunsttherapeut--4101743",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:42:54.829Z",
+      "crawledAt": "2026-11-22T09:20:33.959Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1713,7 +1714,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:42:54.829Z",
+      "validThrough": "2027-02-11T09:20:33.959Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1747,7 +1748,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Physiotherapeutin---Physiotherapeut-FH--4104641",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:42:54.132Z",
+      "crawledAt": "2026-11-22T09:20:33.416Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1796,7 +1797,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:42:54.132Z",
+      "validThrough": "2027-01-06T09:20:33.416Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1831,7 +1832,7 @@
       "url": "https://live.solique.ch/ipw/de/jobs/Pflegefachfrau---Pflegefachmann-HF---FH--4099135",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:42:53.383Z",
+      "crawledAt": "2026-11-22T09:20:32.877Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1884,7 +1885,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:42:53.383Z",
+      "validThrough": "2027-02-08T09:20:32.877Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1979,204 +1980,7 @@
       "validThrough": "2027-01-20T21:27:14.432Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://live.solique.ch/ipw/de/jobs/dipl.-pflegefachfrau---dipl.-pflegefachmann-f%c3%bcr-die-zentrale-berufsbildung--4090121",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "ipw-4fa4ace90634",
-      "slug": "fisioterapista-fisioterapista-fh-integrierte-psychiatrie-winterthur-ipw-winterthur-4564a70c58",
-      "slugByLocale": {
-        "it": "fisioterapista-fisioterapista-fh-integrierte-psychiatrie-winterthur-ipw-winterthur-4564a70c58",
-        "en": "physiotherapist-physiotherapist-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "de": "physiotherapeutin-physiotherapeut-fh-ipw-winterthur",
-        "fr": "physiotherapeute-physiotherapeute-fh-integrierte-psychiatrie-winterthur-ipw-winterthur"
-      },
-      "company": "Integrierte Psychiatrie Winterthur (ipw)",
-      "companyKey": "ipw",
-      "companyDomain": "ipw.ch",
-      "title": "Physiotherapeutin / Physiotherapeut FH",
-      "titleByLocale": {
-        "it": "Fisioterapista / Fisioterapista FH",
-        "en": "Physiotherapist / Physiotherapist FH",
-        "de": "Physiotherapeutin / Physiotherapeut FH",
-        "fr": "Physiothérapeute / Physiothérapeute FH"
-      },
-      "description": "Für den Bereich der Alterspsychiatrie am Standort Klinik Schlosstal in Winterthur suchen wir Sie Physiotherapeutin / Physiotherapeut FH 50 - 60% Winterthur Jetzt bewerben Das sind Ihre Aufgaben\n• Physiotherapeutische Abklärungen und Behandlungen bei Menschen mit psychiatrischen Störungen\n• Durchführung physiotherapeutischer Therapien im Einzel- und Gruppensetting\n• Umsetzung des Fachkonzepts der Fachgruppe Physiotherapie im interdisziplinären Team\n• Aktive Mitarbeit bei der interdisziplinären Zusammenarbeit Das bringen Sie mit\n• Abschluss in Physiotherapie FH/HF (Anerkennungsnachweis bei ausländischen Diplomen)\n• Interesse und Freude an der Arbeit mit Menschen in psychischen Krisensituationen\n• Erfahrung im akutstationären Setting und in der Arbeit ist von Vorteil\n• Teamfähige, belastbare und reflexionsfähige Persönlichkeit\n• Hohe Selbständigkeit und Flexibilität Das können Sie erwarten\n• Viel Eigenverantwortung für die physiotherapeutische Behandlung\n• Möglichkeit sein Pensum über Vertretungen in Tageskliniken zu erweitern\n• Ein kompetentes und motiviertes Team in einem interdisziplinären und kollegialen Umfeld\n• Aktive Mitwirkung in interprofessionellen und berufsspezifischen Supervisionen\n• Bedarfsspezifische Fort- und Weiterbildungen\n• Eigene Kindertagesstätte, ein Personalrestaurant und Entlohnung gemäss kantonalen Richtlinien Eintritt Per 1. Januar 2027 oder nach Vereinbarung Ihr Kontakt Beatrice Meyer, Leiterin Bewegungs-/Kunst- und Physiotherapie, T +41 52 264 35 75 Bewerbung Wir berücksichtigen nur vollständige Bewerbungsunterlagen. Massgeblich die hier aufgeführten Unterlagen. Die ipw verlangt kein Motivationsschreiben. Dossiers von Personalvermittlern berücksichtigen wir nicht. Die ipw behandelt Menschen mit allen psychiatrischen Krankheitsbildern von der Kindheit bis ins hohe Alter. Rund 1000 Mitarbeitende sind in den ambulanten, tagesklinischen, stationären und aufsuchenden Angeboten der ipw in Winterthur, Bülach, Dielsdorf und Glattbrugg tätig. Weil es uns alle braucht. Die ipw entdecken\n• Ihre Arbeitgeberin\n\nPensum: 50-60%",
-      "descriptionByLocale": {
-        "it": "Per l'area della psichiatria di vecchiaia a Klinik Schlosstal in Winterthur stiamo cercando voi Fisioterapista / Fisioterapista FH 50 - 60% Winterthur Applicare ora Questi sono i vostri compiti\n• Indagini e trattamenti fisici nelle persone con disturbi psichiatrici\n• Condurre terapie fisioterapiche in impostazione singola e di gruppo\n• Attuazione del concetto specialistico del gruppo fisioterapia in un team interdisciplinare\n• Partecipazione attiva alla cooperazione interdisciplinare\n• Laurea in Fisioterapia FH/HF (prova del riconoscimento nei diplomi stranieri)\n• Interessi e piacere nel lavorare con le persone in situazioni di crisi mentale\n• L'esperienza nella regolazione della cura acuta e il lavoro è vantaggioso\n• Personalità capace, resiliente e riflessiva\n• Alta indipendenza e flessibilità Ci si può aspettare\n• Molto personale responsabilità del trattamento fisioterapico\n• Possibilità di espandere il carico di lavoro attraverso le rappresentazioni nelle cliniche diurne\n• Un team competente e motivato in un ambiente interdisciplinare e collegiale\n• Partecipazione attiva alla supervisione interprofessionale e professionale\n• Formazione specifica del bisogno\n• Servizio diurno, ristorante personale e remunerazione secondo le linee guida cantonali Ammissione Per 1. Gennaio 2027 o su appuntamento il tuo contatto Beatrice Meyer, Responsabile del Movimento/Arte e Terapia Fisica, T +41 52 264 35 75 Applicazione Consideriamo solo documenti applicativi completi. Documenti rilevanti elencati qui. L'IPW non richiede una lettera di motivazione. Non consideriamo i dossier delle agenzie di reclutamento. L'ipw tratta le persone con tutte le condizioni psichiatriche dall'infanzia alla vecchiaia. Circa 1000 dipendenti lavorano nell'ambulatorio, nella clinica diurna, nei servizi ospedalieri e di outreach di ipw in Winterthur, Bülach, Dielsdorf e Glatttbrugg. Perche' ha bisogno di tutti noi. Scopri l'IPW\n• Il tuo datore di lavoro\n\nPenso: 50-60 %",
-        "en": "For the area of old-age psychiatry at Klinik Schlosstal in Winterthur we are looking for you Physiotherapist / Physiotherapist FH 50 - 60% Winterthur Apply now These are your tasks\n• Physiotherapeutic investigations and treatments in people with psychiatric disorders\n• Conducting physiotherapeutic therapies in single and group setting\n• Implementation of the specialist concept of the physiotherapy group in an interdisciplinary team\n• Active participation in interdisciplinary cooperation\n• Degree in Physiotherapy FH/HF (proof of recognition in foreign diplomas)\n• Interest and pleasure in working with people in mental crisis situations\n• Experience in acute care setting and work is beneficial\n• Team capable, resilient and reflective personality\n• High independence and flexibility You can expect\n• Much personal responsibility for physiotherapeutic treatment\n• Possibility to expand your workload through representations in day clinics\n• A competent and motivated team in an interdisciplinary and collegial environment\n• Active participation in interprofessional and occupational supervision\n• Need-specific training\n• Own daycare, a staff restaurant and remuneration according to cantonal guidelines Admission Per 1. January 2027 or by appointment your contact Beatrice Meyer, Head of Movement/Art and Physical Therapy, T +41 52 264 35 75 Application We only consider complete application documents. Relevant documents listed here. The IPW does not require a letter of motivation. We do not consider dossiers of recruitment agencies. The ipw treats people with all psychiatric conditions from childhood to old age. Around 1000 employees work in the outpatient, day clinic, inpatient and outreach services of ipw in Winterthur, Bülach, Dielsdorf and Glattbrugg. Because it needs us all. Discover the IPW\n• Your employer\n\nPensum: 50-60 %",
-        "de": "Für den Bereich der Alterspsychiatrie am Standort Klinik Schlosstal in Winterthur suchen wir Sie Physiotherapeutin / Physiotherapeut FH 50 - 60% Winterthur Jetzt bewerben Das sind Ihre Aufgaben\n• Physiotherapeutische Abklärungen und Behandlungen bei Menschen mit psychiatrischen Störungen\n• Durchführung physiotherapeutischer Therapien im Einzel- und Gruppensetting\n• Umsetzung des Fachkonzepts der Fachgruppe Physiotherapie im interdisziplinären Team\n• Aktive Mitarbeit bei der interdisziplinären Zusammenarbeit Das bringen Sie mit\n• Abschluss in Physiotherapie FH/HF (Anerkennungsnachweis bei ausländischen Diplomen)\n• Interesse und Freude an der Arbeit mit Menschen in psychischen Krisensituationen\n• Erfahrung im akutstationären Setting und in der Arbeit ist von Vorteil\n• Teamfähige, belastbare und reflexionsfähige Persönlichkeit\n• Hohe Selbständigkeit und Flexibilität Das können Sie erwarten\n• Viel Eigenverantwortung für die physiotherapeutische Behandlung\n• Möglichkeit sein Pensum über Vertretungen in Tageskliniken zu erweitern\n• Ein kompetentes und motiviertes Team in einem interdisziplinären und kollegialen Umfeld\n• Aktive Mitwirkung in interprofessionellen und berufsspezifischen Supervisionen\n• Bedarfsspezifische Fort- und Weiterbildungen\n• Eigene Kindertagesstätte, ein Personalrestaurant und Entlohnung gemäss kantonalen Richtlinien Eintritt Per 1. Januar 2027 oder nach Vereinbarung Ihr Kontakt Beatrice Meyer, Leiterin Bewegungs-/Kunst- und Physiotherapie, T +41 52 264 35 75 Bewerbung Wir berücksichtigen nur vollständige Bewerbungsunterlagen. Massgeblich die hier aufgeführten Unterlagen. Die ipw verlangt kein Motivationsschreiben. Dossiers von Personalvermittlern berücksichtigen wir nicht. Die ipw behandelt Menschen mit allen psychiatrischen Krankheitsbildern von der Kindheit bis ins hohe Alter. Rund 1000 Mitarbeitende sind in den ambulanten, tagesklinischen, stationären und aufsuchenden Angeboten der ipw in Winterthur, Bülach, Dielsdorf und Glattbrugg tätig. Weil es uns alle braucht. Die ipw entdecken\n• Ihre Arbeitgeberin\n\nPensum: 50-60%",
-        "fr": "Pour le domaine de la psychiatrie de vieillesse chez Klinik Schlosstal à Winterthur, nous vous recherchons Physiothérapeute / Physiothérapeute FH 50 - 60% Winterthur Postuler Voici vos tâches\n• Enquêtes et traitements physiologiques chez les personnes atteintes de troubles psychiatriques\n• Mener des thérapies physiothérapeutiques en un seul et en groupe\n• Mise en œuvre du concept de spécialiste du groupe de physiothérapie dans une équipe interdisciplinaire\n• Participation active à la coopération interdisciplinaire\n• Diplôme de physiothérapie FH/HF (preuve de reconnaissance dans les diplômes étrangers)\n• Intérêt et plaisir de travailler avec des personnes en situation de crise mentale\n• L'expérience des soins actifs et du travail est bénéfique\n• Personnalité capable, résistante et réfléchissante\n• Haute indépendance et flexibilité Vous pouvez vous attendre\n• Beaucoup de responsabilité personnelle pour le traitement physiothérapeutique\n• Possibilité d'augmenter votre charge de travail par des représentations dans les cliniques de jour\n• Une équipe compétente et motivée dans un environnement interdisciplinaire et collégial\n• Participation active à la supervision interprofessionnelle et professionnelle\n• Formation spécifique aux besoins\n• Garderie, restaurant du personnel et rémunération selon les directives cantonales Admission Per 1. Janvier 2027 ou sur rendez-vous votre contact Beatrice Meyer, Responsable Mouvement/Art et Physique, T +41 52 264 35 75 Application Nous ne considérons que les documents de demande complets. Documents pertinents énumérés ici. L'IPW n'exige pas de lettre de motivation. Nous ne considérons pas les dossiers des agences de recrutement. L'ipw traite les personnes souffrant de toutes les affections psychiatriques de l'enfance à la vieillesse. Environ 1000 employés travaillent dans les services ambulatoires, cliniques de jour, hospitalisés et de proximité d'ipw à Winterthur, Bülach, Dielsdorf et Glattbrugg. Parce qu'il a besoin de nous tous. Découvrez l'IPW\n• Votre employeur\n\nPensum: 50-60 %"
-      },
-      "location": "Winterthur",
-      "canton": "ZH",
-      "url": "https://live.solique.ch/ipw/de/jobs/Physiotherapeutin---Physiotherapeut-FH--4101652",
-      "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:29.546Z",
-      "addressLocality": "Winterthur",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8400",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://live.solique.ch/ipw/de/jobs/Physiotherapeutin---Physiotherapeut-FH--4101652",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4101652",
-      "pensumMin": 50,
-      "pensumMax": 60,
-      "pensum": "50 - 60%",
-      "previousSlugs": [
-        "physiotherapeutin-physiotherapeut-fh-ipw-winterthur",
-        "fisioterapista-fisioterapista-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "physiotherapeutin-physiotherapeut-fh-ipw-winterthur-13ef5789",
-        "physiotherapeutin-physiotherapeut-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "physiotherapeutin-physiotherapeut-fh-ipw-winterthur-ef1da99a",
-        "fisioterapista-fisioterapista-fh-integrierte-psychiatrie-winterthur-ipw-winterthur-46de130d",
-        "physiotherapeutin-physiotherapeut-fh-ipw-winterthur-95ebcfb8",
-        "physiotherapist-physiotherapist-fh-integrierte-psychiatrie-winterthur-ipw-winterthur-dcd98103",
-        "physiotherapeute-physiotherapeute-fh-integrierte-psychiatrie-winterthur-ipw-winterthur-15a52edd"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "physiotherapeutin-physiotherapeut-fh-ipw-winterthur",
-          "fisioterapista-fisioterapista-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
-          "physiotherapeutin-physiotherapeut-fh-ipw-winterthur-13ef5789",
-          "physiotherapeutin-physiotherapeut-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
-          "physiotherapeutin-physiotherapeut-fh-ipw-winterthur-ef1da99a",
-          "fisioterapista-fisioterapista-fh-integrierte-psychiatrie-winterthur-ipw-winterthur-46de130d",
-          "physiotherapeutin-physiotherapeut-fh-ipw-winterthur-95ebcfb8",
-          "physiotherapist-physiotherapist-fh-integrierte-psychiatrie-winterthur-ipw-winterthur-dcd98103",
-          "physiotherapeute-physiotherapeute-fh-integrierte-psychiatrie-winterthur-ipw-winterthur-15a52edd"
-        ],
-        "en": [
-          "physiotherapeutin-physiotherapeut-fh-ipw-winterthur"
-        ],
-        "fr": [
-          "physiotherapeutin-physiotherapeut-fh-ipw-winterthur"
-        ],
-        "de": [
-          "physiotherapeutin-physiotherapeut-fh-ipw-winterthur-13ef5789"
-        ]
-      },
-      "firstSeenAt": "2026-10-07T21:31:43.760Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Winterthur",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:28:29.546Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "sourceIdentity": "url:https://live.solique.ch/ipw/de/jobs/physiotherapeutin---physiotherapeut-fh--4101652"
-    },
-    {
-      "id": "ipw-7bc5041e6dad",
-      "slug": "intern-internship-social-work-integrierte-psychiatrie-winterthur-ipw-winterthur",
-      "slugByLocale": {
-        "it": "intern-internship-social-work-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "en": "intern-internship-social-work-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "de": "praktikantin-praktikant-sozialarbeit-ipw-winterthur",
-        "fr": "stage-stage-travail-social-integrierte-psychiatrie-winterthur-ipw-winterthur"
-      },
-      "company": "Integrierte Psychiatrie Winterthur (ipw)",
-      "companyKey": "ipw",
-      "companyDomain": "ipw.ch",
-      "title": "Praktikantin / Praktikant Sozialarbeit",
-      "titleByLocale": {
-        "it": "Intern/Internship Social Work",
-        "en": "Intern/Internship Social Work",
-        "de": "Praktikantin / Praktikant Sozialarbeit",
-        "fr": "Stage / Stage Travail social"
-      },
-      "description": "Für die Sozialberatung in der Akut-Tagesklinik sowie im Team des Job Coachings am Standort Winterthur suchen wir Sie Praktikantin / Praktikant Sozialarbeit 80% Winterthur Jetzt bewerben Das sind Ihre Aufgaben\n• Soziale Beratung und Begleitung von Erwachsenen sowie deren sozialem Umfeld\n• Beratung und Begleitung von Patientinnen und Patienten sowie deren Arbeitgebern bei der Rückkehr an den Arbeitsplatz\n• Vermitteln eines Arbeitsplatzes nach kürzlichem Stellenverlust\n• Interinstitutionelle Netzwerkarbeit (z.B. mit Behörden, Ämtern, Wohneinrichtungen und Beistän­den)\n• Vermittlungs- und Triageaufgaben sowie Angehörigenarbeit\n• Dokumentation von Beratungsprozessen sowie Übernahme administrativer Aufgaben\n• Interprofessionelle Zusammenarbeit im Behandlungsteam\n• Teilnahme an Teamsitzungen, interdisziplinären Rapporten, Supervisionen und Intervisionen Das bringen Sie mit\n• Studium an einer Fachhochschule für Soziale Arbeit, Erstpraktikum abgeschlossen\n• Interesse an der Arbeit mit Erwachsenen in schwierigen Lebenssituationen im psychiatrischen Kontext\n• Eine verantwortungsbewusste sowie selbstständige Arbeitsweise\n• Kompetenz in interprofessioneller Zusammenarbeit\n• Gute kommunikative und soziale Fähigkeiten\n• Hohe Eigenverantwortung und Fähigkeit, sich schnell in ein Arbeitsgebiet einzuarbeiten sowie eine selbständige Arbeitsweise Das können Sie erwarten\n• Einblicke in die klinische Sozialarbeit im psychiatrischen Kontext\n• Ein spannendes, vielfältiges und lehrreiches Praktikum in zwei Bereichen (Akut-Tagesklinik für Erwachsene sowie Job Coaching)\n• Eine sorgfältige Einarbeitung und Begleitung\n• Ein erfahrenes und motiviertes interprofessionelles Team\n• Raum für Eigeninitiative und persönliche Entwicklung\n• Attraktiver Arbeitsplatz in Winterthur mit guten Verbindungen an den öffentlichen Verkehr Eintritt Per Februar 2027 oder nach Vereinbarung, befristet 6 Monate Ihr Kontakt Frau Anja Nüesch, Sozialberatung und Praktikumsverantwortliche, T 052 264 34 66 Bewerbung Wir berücksichtigen nur vollständige Bewerbungsunterlagen. Massgeblich die hier aufgeführten Unterlagen. Die ipw verlangt kein Motivationsschreiben. Dossiers von Personalvermittlern berücksichtigen wir nicht. Die ipw behandelt Menschen mit allen psychiatrischen Krankheitsbildern von der Kindheit bis ins hohe Alter. Rund 1000 Mitarbeitende sind in den ambulanten, tagesklinischen, stationären und aufsuchenden Angeboten der ipw in Winterthur, Bülach, Dielsdorf und Glattbrugg tätig. Weil es uns alle braucht. Die ipw entdecken\n• Ihre Arbeitgeberin\n\nPensum: 80%",
-      "descriptionByLocale": {
-        "it": "Per la consulenza sociale nella clinica diurna acuta e nel team di allenatore di lavoro presso la posizione Winterthur stiamo cercando per voi tirocinante / tirocinante lavoro sociale 80% Winterthur Applicare ora Questi sono i vostri compiti\n• Consulenza sociale e sostegno degli adulti e del loro ambiente sociale\n• Consulenza e sostegno dei pazienti e dei loro datori di lavoro al loro ritorno al lavoro\n• Posizionamento di un lavoro dopo la recente perdita di lavoro\n• Rete interistituzionali (ad esempio con autorità, uffici, strutture residenziali e consulenti)\n• Intermediazione, triage e lavoro familiare\n• Documentazione dei processi di consultazione e assunzione di compiti amministrativi\n• Cooperazione interprofessionale nel team di trattamento\n• Partecipazione a riunioni di gruppo, relazioni interdisciplinari, supervisione e intervisioni\n• Studi presso un'università di scienze applicate per il lavoro sociale, tirocinio iniziale completato\n• Interessi nel lavorare con gli adulti in situazioni di vita difficili in un contesto psichiatrico\n• Un metodo di lavoro responsabile e indipendente\n• Competenza nella cooperazione interprofessionale\n• Buona comunicazione e competenze sociali\n• Alta responsabilità personale e capacità di familiarizzare rapidamente con un campo di lavoro così come un metodo di lavoro indipendente Si può aspettare che.\n• Indagini sul lavoro sociale clinico in un contesto psichiatrico\n• Uno stage emozionante, vario ed educativo in due aree (Acute Day Clinic for Adults and Job Coaching)\n• Allenamento attento e guida\n• Un team interprofessionale esperto e motivato\n• Spazio per iniziativa personale e sviluppo personale\n• Posto di lavoro attraente in Winterthur con buoni collegamenti ai trasporti pubblici Entrata Feb 2027 o su appuntamento, limitata a 6 mesi Il vostro contatto Sig.ra Anja Nüesch, consulente sociale e direttore di stage, T 052 264 34 66 Applicazione Prendiamo in considerazione solo i documenti applicativi completi. Documenti rilevanti elencati qui. L'IPW non richiede una lettera di motivazione. Non consideriamo i dossier delle agenzie di reclutamento. L'ipw tratta le persone con tutte le condizioni psichiatriche dall'infanzia alla vecchiaia. Circa 1000 dipendenti lavorano nell'ambulatorio, nella clinica diurna, nei servizi ospedalieri e di outreach di ipw in Winterthur, Bülach, Dielsdorf e Glatttbrugg. Perche' ha bisogno di tutti noi. Scopri l'IPW\n• Il tuo datore di lavoro\n\nPenso: 80 %",
-        "en": "For social counselling in the acute day clinic as well as in the team of job coaching at the Winterthur location we are looking for you intern / intern social work 80% Winterthur Apply now These are your tasks\n• Social counselling and support of adults and their social environment\n• Advice and support of patients and their employers on their return to work\n• Placement of a job after recent job loss\n• Interinstitutional networking (e.g. with authorities, offices, residential facilities and advisors)\n• Intermediation, triage and family work\n• Documentation of consulting processes and assumption of administrative tasks\n• Interprofessional cooperation in the treatment team\n• Participation in team meetings, interdisciplinary reports, supervision and intervisions\n• Studies at a university of applied sciences for social work, initial internship completed\n• Interest in working with adults in difficult life situations in a psychiatric context\n• A responsible and independent working method\n• Competence in interprofessional cooperation\n• Good communication and social skills\n• High personal responsibility and ability to quickly familiarize yourself with a field of work as well as an independent working method You can expect that.\n• Insights into clinical social work in a psychiatric context\n• An exciting, diverse and educational internship in two areas (Acute Day Clinic for Adults and Job Coaching)\n• Careful training and guidance\n• An experienced and motivated interprofessional team\n• Space for personal initiative and personal development\n• Attractive workplace in Winterthur with good connections to public transport Entry Feb 2027 or by appointment, limited to 6 months Your contact Ms. Anja Nüesch, social counselling and internship manager, T 052 264 34 66 Application We only take into account complete application documents. Relevant documents listed here. The IPW does not require a letter of motivation. We do not consider dossiers of recruitment agencies. The ipw treats people with all psychiatric conditions from childhood to old age. Around 1000 employees work in the outpatient, day clinic, inpatient and outreach services of ipw in Winterthur, Bülach, Dielsdorf and Glattbrugg. Because it needs us all. Discover the IPW\n• Your employer\n\nPensum: 80 %",
-        "de": "Für die Sozialberatung in der Akut-Tagesklinik sowie im Team des Job Coachings am Standort Winterthur suchen wir Sie Praktikantin / Praktikant Sozialarbeit 80% Winterthur Jetzt bewerben Das sind Ihre Aufgaben\n• Soziale Beratung und Begleitung von Erwachsenen sowie deren sozialem Umfeld\n• Beratung und Begleitung von Patientinnen und Patienten sowie deren Arbeitgebern bei der Rückkehr an den Arbeitsplatz\n• Vermitteln eines Arbeitsplatzes nach kürzlichem Stellenverlust\n• Interinstitutionelle Netzwerkarbeit (z.B. mit Behörden, Ämtern, Wohneinrichtungen und Beistän­den)\n• Vermittlungs- und Triageaufgaben sowie Angehörigenarbeit\n• Dokumentation von Beratungsprozessen sowie Übernahme administrativer Aufgaben\n• Interprofessionelle Zusammenarbeit im Behandlungsteam\n• Teilnahme an Teamsitzungen, interdisziplinären Rapporten, Supervisionen und Intervisionen Das bringen Sie mit\n• Studium an einer Fachhochschule für Soziale Arbeit, Erstpraktikum abgeschlossen\n• Interesse an der Arbeit mit Erwachsenen in schwierigen Lebenssituationen im psychiatrischen Kontext\n• Eine verantwortungsbewusste sowie selbstständige Arbeitsweise\n• Kompetenz in interprofessioneller Zusammenarbeit\n• Gute kommunikative und soziale Fähigkeiten\n• Hohe Eigenverantwortung und Fähigkeit, sich schnell in ein Arbeitsgebiet einzuarbeiten sowie eine selbständige Arbeitsweise Das können Sie erwarten\n• Einblicke in die klinische Sozialarbeit im psychiatrischen Kontext\n• Ein spannendes, vielfältiges und lehrreiches Praktikum in zwei Bereichen (Akut-Tagesklinik für Erwachsene sowie Job Coaching)\n• Eine sorgfältige Einarbeitung und Begleitung\n• Ein erfahrenes und motiviertes interprofessionelles Team\n• Raum für Eigeninitiative und persönliche Entwicklung\n• Attraktiver Arbeitsplatz in Winterthur mit guten Verbindungen an den öffentlichen Verkehr Eintritt Per Februar 2027 oder nach Vereinbarung, befristet 6 Monate Ihr Kontakt Frau Anja Nüesch, Sozialberatung und Praktikumsverantwortliche, T 052 264 34 66 Bewerbung Wir berücksichtigen nur vollständige Bewerbungsunterlagen. Massgeblich die hier aufgeführten Unterlagen. Die ipw verlangt kein Motivationsschreiben. Dossiers von Personalvermittlern berücksichtigen wir nicht. Die ipw behandelt Menschen mit allen psychiatrischen Krankheitsbildern von der Kindheit bis ins hohe Alter. Rund 1000 Mitarbeitende sind in den ambulanten, tagesklinischen, stationären und aufsuchenden Angeboten der ipw in Winterthur, Bülach, Dielsdorf und Glattbrugg tätig. Weil es uns alle braucht. Die ipw entdecken\n• Ihre Arbeitgeberin\n\nPensum: 80%",
-        "fr": "Pour le counseling social dans la clinique de jour aiguë ainsi que dans l'équipe de coaching d'emploi à l'emplacement de Winterthur nous sommes à la recherche de vous stagiaire / stagiaire travail social 80% Winterthur Postuler Ce sont vos tâches\n• Conseil et soutien sociaux des adultes et de leur environnement social\n• Conseils et soutien aux patients et à leurs employeurs à leur retour au travail\n• Placement d'un emploi après une récente perte d'emploi\n• Mise en réseau interinstitutionnelle (par exemple avec les autorités, les bureaux, les établissements résidentiels et les conseillers)\n• Intermédiation, triage et travail familial\n• Documentation des processus de consultation et des tâches administratives\n• Coopération interprofessionnelle dans l'équipe de traitement\n• Participation aux réunions d'équipe, rapports interdisciplinaires, supervision et intervisions\n• Études dans une université des sciences appliquées pour le travail social, stage initial terminé\n• Intérêt à travailler avec des adultes dans des situations de vie difficiles dans un contexte psychiatrique\n• Une méthode de travail responsable et indépendante\n• Compétence en matière de coopération interprofessionnelle\n• Bonne communication et compétences sociales\n• Haute responsabilité personnelle et capacité à se familiariser rapidement avec un domaine de travail ainsi qu'une méthode de travail indépendante Vous pouvez vous y attendre.\n• Regards sur le travail social clinique dans un contexte psychiatrique\n• Un stage passionnant, diversifié et éducatif dans deux domaines (Acute Day Clinic for Adults and Job Coaching)\n• Formation et orientation attentives\n• Une équipe interprofessionnelle expérimentée et motivée\n• Espace pour l'initiative personnelle et le développement personnel\n• Un lieu de travail attrayant à Winterthur avec de bonnes connexions aux transports en commun Entrée Février 2027 ou sur rendez-vous, limité à 6 mois Votre contact Mme Anja Nüesch, conseillère sociale et chargée de stage, T 052 264 34 66 Application Nous ne prenons en compte que les documents de candidature complets. Documents pertinents énumérés ici. L'IPW n'exige pas de lettre de motivation. Nous ne considérons pas les dossiers des agences de recrutement. L'ipw traite les personnes souffrant de toutes les affections psychiatriques de l'enfance à la vieillesse. Environ 1000 employés travaillent dans les services ambulatoires, cliniques de jour, hospitalisés et de proximité d'ipw à Winterthur, Bülach, Dielsdorf et Glattbrugg. Parce qu'il a besoin de nous tous. Découvrez l'IPW\n• Votre employeur\n\nPensum: 80 %"
-      },
-      "location": "Winterthur",
-      "canton": "ZH",
-      "url": "https://live.solique.ch/ipw/de/jobs/Praktikantin---Praktikant-Sozialarbeit--4100605",
-      "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-19T09:28:21.231Z",
-      "addressLocality": "Winterthur",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8400",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://live.solique.ch/ipw/de/jobs/Praktikantin---Praktikant-Sozialarbeit--4100605",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4100605",
-      "pensumMin": 80,
-      "pensumMax": 80,
-      "pensum": "80%",
-      "previousSlugs": [
-        "praktikantin-praktikant-sozialarbeit-ipw-winterthur"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikantin-praktikant-sozialarbeit-ipw-winterthur"
-        ],
-        "en": [
-          "praktikantin-praktikant-sozialarbeit-ipw-winterthur"
-        ],
-        "fr": [
-          "praktikantin-praktikant-sozialarbeit-ipw-winterthur"
-        ]
-      },
-      "firstSeenAt": "2026-08-27T00:55:48.399Z",
-      "salaryMin": 71000,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 71000,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Winterthur",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:28:21.231Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "sourceIdentity": "url:https://live.solique.ch/ipw/de/jobs/praktikantin---praktikant-sozialarbeit--4100605"
+      "crawlerMissStreak": 2
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "key": "fondation-domus",
   "label": "Fondation Domus",
-  "generatedAt": "2026-11-21T21:45:13.131Z",
+  "generatedAt": "2026-11-22T09:27:09.630Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -14,16 +14,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5750,
-  "avgDurationMs": 5750,
+  "unchangedCount": 1,
+  "durationMs": 5554,
+  "avgDurationMs": 5554,
   "durationHistory": [
-    5750
+    5554
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "fondation-domus-bd654b13f26b",
       "slug": "fornello-70-fondation-domus-ardon",
@@ -36,7 +38,7 @@
       "url": "https://www.jobup.ch/en/jobs/detail/cebd98e1-a150-49a5-ad6c-4858edba3422/?utm_source=relationship&utm_medium=referral&utm_campaign=wb%3Ajobup%7Ctg%3Ab2c%7Ccn%3Ach%7Clg%3A%7Cmg%3Ajob-application%2Cnonbrand%2Cjob%7Ccd%3Akombi",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-21T21:45:00.182Z",
+      "crawledAt": "2026-11-22T09:26:54.739Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -70,7 +72,7 @@
       },
       "streetAddress": "Route du Simplon 31",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-31T21:45:00.182Z",
+      "validThrough": "2027-01-31T09:26:54.739Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -81,7 +83,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "4b92eb0854b9f965b31956a24be8b4a2b342e4b2"
+  "codeCommit": "193181861b8ea282b062b042b15b99e091d330e5"
 }
