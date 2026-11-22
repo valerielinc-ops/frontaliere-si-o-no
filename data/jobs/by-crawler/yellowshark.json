@@ -69517,12 +69517,12 @@
     },
     {
       "id": "yellowshark-157cb972d42d",
-      "slug": "contabilita-80-100-yellowshark-ag-liestal-bl",
+      "slug": "contabilita-80-100-yellowshark-ag-liestal",
       "slugByLocale": {
-        "it": "contabilita-80-100-yellowshark-ag-liestal-bl",
-        "en": "accounting-80-100-yellowshark-ag-liestal-bl",
         "de": "sachbearbeitung-rechnungswesen-80-100-liestal-bl-yellowshark-ch",
-        "fr": "comptabilite-80-100-yellowshark-ag-liestal-bl"
+        "it": "contabilita-80-100-yellowshark-ag-liestal",
+        "en": "accounting-80-100-yellowshark-ag-liestal",
+        "fr": "comptabilite-80-100-yellowshark-ag-liestal"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -69565,21 +69565,6 @@
       "applyUrl": "https://jobs.yellowshark.com/job/sa069243/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "sachbearbeitung-rechnungswesen-80-100-liestal-bl-yellowshark-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeitung-rechnungswesen-80-100-liestal-bl-yellowshark-ch"
-        ],
-        "en": [
-          "sachbearbeitung-rechnungswesen-80-100-liestal-bl-yellowshark-ch"
-        ],
-        "fr": [
-          "sachbearbeitung-rechnungswesen-80-100-liestal-bl-yellowshark-ch"
-        ]
-      },
-      "firstSeenAt": "2026-11-21T22:04:01.005Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -69596,7 +69581,28 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T10:00:41.959Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-21T22:04:01.005Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeitung-rechnungswesen-80-100-liestal-bl-yellowshark-ch",
+          "contabilita-80-100-yellowshark-ag-liestal-bl"
+        ],
+        "en": [
+          "sachbearbeitung-rechnungswesen-80-100-liestal-bl-yellowshark-ch",
+          "accounting-80-100-yellowshark-ag-liestal-bl"
+        ],
+        "fr": [
+          "sachbearbeitung-rechnungswesen-80-100-liestal-bl-yellowshark-ch",
+          "comptabilite-80-100-yellowshark-ag-liestal-bl"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeitung-rechnungswesen-80-100-liestal-bl-yellowshark-ch",
+        "contabilita-80-100-yellowshark-ag-liestal-bl",
+        "accounting-80-100-yellowshark-ag-liestal-bl",
+        "comptabilite-80-100-yellowshark-ag-liestal-bl"
+      ]
     },
     {
       "id": "yellowshark-343b51e6a7cf",
@@ -70342,12 +70348,12 @@
     },
     {
       "id": "yellowshark-cccf2e1fcc0b",
-      "slug": "finanziamento-80-100-yellowshark-ag-bern-be",
+      "slug": "finanziamento-80-100-yellowshark-ag-bern",
       "slugByLocale": {
-        "it": "finanziamento-80-100-yellowshark-ag-bern-be",
-        "en": "financing-80-100-yellowshark-ag-bern-be",
         "de": "sachbearbeitung-finanzen-80-100-bern-be-yellowshark-ch",
-        "fr": "financement-80-100-yellowshark-ag-bern-be"
+        "it": "finanziamento-80-100-yellowshark-ag-bern",
+        "en": "financing-80-100-yellowshark-ag-bern",
+        "fr": "financement-80-100-yellowshark-ag-bern"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -70390,21 +70396,6 @@
       "applyUrl": "https://jobs.yellowshark.com/job/sa069246/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "sachbearbeitung-finanzen-80-100-bern-be-yellowshark-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeitung-finanzen-80-100-bern-be-yellowshark-ch"
-        ],
-        "en": [
-          "sachbearbeitung-finanzen-80-100-bern-be-yellowshark-ch"
-        ],
-        "fr": [
-          "sachbearbeitung-finanzen-80-100-bern-be-yellowshark-ch"
-        ]
-      },
-      "firstSeenAt": "2026-11-21T22:04:00.994Z",
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -70421,16 +70412,37 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-19T10:00:41.945Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-21T22:04:00.994Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeitung-finanzen-80-100-bern-be-yellowshark-ch",
+          "finanziamento-80-100-yellowshark-ag-bern-be"
+        ],
+        "en": [
+          "sachbearbeitung-finanzen-80-100-bern-be-yellowshark-ch",
+          "financing-80-100-yellowshark-ag-bern-be"
+        ],
+        "fr": [
+          "sachbearbeitung-finanzen-80-100-bern-be-yellowshark-ch",
+          "financement-80-100-yellowshark-ag-bern-be"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeitung-finanzen-80-100-bern-be-yellowshark-ch",
+        "finanziamento-80-100-yellowshark-ag-bern-be",
+        "financing-80-100-yellowshark-ag-bern-be",
+        "financement-80-100-yellowshark-ag-bern-be"
+      ]
     },
     {
       "id": "yellowshark-445f294df78a",
-      "slug": "personale-in-vendita-m-f-100-yellowshark-ag-sursee-lu",
+      "slug": "personale-in-vendita-m-f-100-yellowshark-ag-sursee",
       "slugByLocale": {
-        "it": "personale-in-vendita-m-f-100-yellowshark-ag-sursee-lu",
-        "en": "personnel-in-sales-m-f-100-yellowshark-ag-sursee-lu",
         "de": "sachbearbeiter-verkaufinnendienst-m-w-100-sursee-lu-yellowshark-ch",
-        "fr": "personnel-en-vente-m-f-100-yellowshark-ag-sursee-lu"
+        "it": "personale-in-vendita-m-f-100-yellowshark-ag-sursee",
+        "en": "personnel-in-sales-m-f-100-yellowshark-ag-sursee",
+        "fr": "personnel-en-vente-m-f-100-yellowshark-ag-sursee"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -70473,21 +70485,6 @@
       "applyUrl": "https://jobs.yellowshark.com/job/sa069235/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "sachbearbeiter-verkaufinnendienst-m-w-100-sursee-lu-yellowshark-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-verkaufinnendienst-m-w-100-sursee-lu-yellowshark-ch"
-        ],
-        "en": [
-          "sachbearbeiter-verkaufinnendienst-m-w-100-sursee-lu-yellowshark-ch"
-        ],
-        "fr": [
-          "sachbearbeiter-verkaufinnendienst-m-w-100-sursee-lu-yellowshark-ch"
-        ]
-      },
-      "firstSeenAt": "2026-11-21T22:04:00.993Z",
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
@@ -70504,7 +70501,28 @@
       "streetAddress": "Sursee",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-19T10:00:41.944Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-21T22:04:00.993Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-verkaufinnendienst-m-w-100-sursee-lu-yellowshark-ch",
+          "personale-in-vendita-m-f-100-yellowshark-ag-sursee-lu"
+        ],
+        "en": [
+          "sachbearbeiter-verkaufinnendienst-m-w-100-sursee-lu-yellowshark-ch",
+          "personnel-in-sales-m-f-100-yellowshark-ag-sursee-lu"
+        ],
+        "fr": [
+          "sachbearbeiter-verkaufinnendienst-m-w-100-sursee-lu-yellowshark-ch",
+          "personnel-en-vente-m-f-100-yellowshark-ag-sursee-lu"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-verkaufinnendienst-m-w-100-sursee-lu-yellowshark-ch",
+        "personale-in-vendita-m-f-100-yellowshark-ag-sursee-lu",
+        "personnel-in-sales-m-f-100-yellowshark-ag-sursee-lu",
+        "personnel-en-vente-m-f-100-yellowshark-ag-sursee-lu"
+      ]
     },
     {
       "id": "yellowshark-a9f3a90d6146",

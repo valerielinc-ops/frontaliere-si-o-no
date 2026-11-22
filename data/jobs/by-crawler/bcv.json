@@ -995,10 +995,10 @@
       "id": "bcv-adb3cd6fd5a5",
       "slug": "consigliere-fiscale-senior-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
+        "fr": "conseiller-ere-ou-conseiller-fiscal-e-senior-banque-cantonale-vaudoise-lausanne",
         "it": "consigliere-fiscale-senior-banque-cantonale-vaudoise-lausanne",
         "en": "senior-tax-advisor-banque-cantonale-vaudoise-lausanne",
-        "de": "senior-steuerberater-banque-cantonale-vaudoise-lausanne",
-        "fr": "conseiller-ere-ou-conseiller-fiscal-e-senior-bcv-lausanne"
+        "de": "senior-steuerberater-banque-cantonale-vaudoise-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
       "companyKey": "bcv",
@@ -1043,21 +1043,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "sfJobId": "1459359533",
-      "previousSlugs": [
-        "conseiller-ere-ou-conseiller-fiscal-e-senior-bcv-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "conseiller-ere-ou-conseiller-fiscal-e-senior-bcv-lausanne"
-        ],
-        "en": [
-          "conseiller-ere-ou-conseiller-fiscal-e-senior-bcv-lausanne"
-        ],
-        "de": [
-          "conseiller-ere-ou-conseiller-fiscal-e-senior-bcv-lausanne"
-        ]
-      },
-      "firstSeenAt": "2026-11-21T21:28:57.290Z",
       "salaryMin": 101500,
       "salaryMax": 156000,
       "salarySource": "estimated",
@@ -1073,7 +1058,25 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-20T09:30:10.653Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-21T21:28:57.290Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-ou-conseiller-fiscal-e-senior-bcv-lausanne"
+        ],
+        "en": [
+          "conseiller-ere-ou-conseiller-fiscal-e-senior-bcv-lausanne"
+        ],
+        "de": [
+          "conseiller-ere-ou-conseiller-fiscal-e-senior-bcv-lausanne"
+        ],
+        "fr": [
+          "conseiller-ere-ou-conseiller-fiscal-e-senior-bcv-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-ou-conseiller-fiscal-e-senior-bcv-lausanne"
+      ]
     },
     {
       "id": "bcv-d95eeda95728",
@@ -2984,10 +2987,10 @@
       "id": "bcv-8800f4b231a5",
       "slug": "esperto-o-esperto-in-business-controlling-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
+        "fr": "experte-ou-expert-en-business-controlling-banque-cantonale-vaudoise-lausanne",
         "it": "esperto-o-esperto-in-business-controlling-banque-cantonale-vaudoise-lausanne",
         "en": "expert-or-expert-in-business-controlling-banque-cantonale-vaudoise-lausanne",
-        "de": "experte-oder-experte-fur-business-controlling-banque-cantonale-vaudoise-lausanne",
-        "fr": "experte-ou-expert-en-business-controlling-bcv-lausanne"
+        "de": "experte-oder-experte-fur-business-controlling-banque-cantonale-vaudoise-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
       "companyKey": "bcv",
@@ -3032,21 +3035,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "sfJobId": "1459193333",
-      "previousSlugs": [
-        "experte-ou-expert-en-business-controlling-bcv-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "experte-ou-expert-en-business-controlling-bcv-lausanne"
-        ],
-        "en": [
-          "experte-ou-expert-en-business-controlling-bcv-lausanne"
-        ],
-        "de": [
-          "experte-ou-expert-en-business-controlling-bcv-lausanne"
-        ]
-      },
-      "firstSeenAt": "2026-11-21T21:28:57.912Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -3062,7 +3050,25 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-20T09:29:51.601Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-21T21:28:57.912Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "experte-ou-expert-en-business-controlling-bcv-lausanne"
+        ],
+        "en": [
+          "experte-ou-expert-en-business-controlling-bcv-lausanne"
+        ],
+        "de": [
+          "experte-ou-expert-en-business-controlling-bcv-lausanne"
+        ],
+        "fr": [
+          "experte-ou-expert-en-business-controlling-bcv-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "experte-ou-expert-en-business-controlling-bcv-lausanne"
+      ]
     },
     {
       "id": "bcv-e96d207349d9",

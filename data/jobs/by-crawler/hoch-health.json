@@ -9947,12 +9947,12 @@
     },
     {
       "id": "hoch-health-df0f5dafb931",
-      "slug": "apotheker-in-80-100-campus-apotheke-hoch-health-st-gallen-2",
+      "slug": "farmacista-80-100-farmacia-del-campus-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
-        "it": "apotheker-in-80-100-campus-apotheke-hoch-health-st-gallen-2",
-        "en": "apotheker-in-80-100-campus-apotheke-hoch-health-st-gallen-2",
+        "it": "farmacista-80-100-farmacia-del-campus-hoch-health-ostschweiz-st-gallen",
+        "en": "pharmacist-80-100-campus-pharmacy-hoch-health-ostschweiz-st-gallen",
         "de": "apotheker-in-80-100-campus-apotheke-hoch-health-st-gallen",
-        "fr": "apotheker-in-80-100-campus-apotheke-hoch-health-st-gallen-2"
+        "fr": "pharmacien-80-100-pharmacie-du-campus-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -10012,7 +10012,21 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-05T09:44:06.845Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "apotheker-in-80-100-campus-apotheke-hoch-health-st-gallen-2"
+        ],
+        "en": [
+          "apotheker-in-80-100-campus-apotheke-hoch-health-st-gallen-2"
+        ],
+        "fr": [
+          "apotheker-in-80-100-campus-apotheke-hoch-health-st-gallen-2"
+        ]
+      },
+      "previousSlugs": [
+        "apotheker-in-80-100-campus-apotheke-hoch-health-st-gallen-2"
+      ]
     },
     {
       "id": "hoch-health-c46b52cb016e",

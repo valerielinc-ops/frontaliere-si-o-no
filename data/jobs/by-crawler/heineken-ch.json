@@ -709,9 +709,9 @@
       "jobReqId": "169100",
       "slug": "brand-management-tirocinante-schweizer-biermarken-m-w-d-heineken-switzerland-luzern",
       "slugByLocale": {
+        "de": "brand-management-intern-schweizer-biermarken-m-w-d-heineken-ch-luzern",
         "it": "brand-management-tirocinante-schweizer-biermarken-m-w-d-heineken-switzerland-luzern",
         "en": "brand-management-intern-swiss-beer-brands-m-f-d-heineken-switzerland-luzern",
-        "de": "brand-management-intern-schweizer-biermarken-m-w-d-heineken-ch-luzern",
         "fr": "brand-management-stagiaire-schweizer-biermarken-m-w-d-heineken-switzerland-luzern"
       },
       "company": "Heineken Switzerland",
@@ -753,21 +753,6 @@
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
       "crawledAt": "2026-11-22T09:43:46.562Z",
-      "previousSlugs": [
-        "brand-management-intern-schweizer-biermarken-m-w-d-heineken-ch-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "en": [
-          "brand-management-intern-schweizer-biermarken-m-w-d-heineken-ch-luzern"
-        ],
-        "it": [
-          "brand-management-intern-schweizer-biermarken-m-w-d-heineken-ch-luzern"
-        ],
-        "fr": [
-          "brand-management-intern-schweizer-biermarken-m-w-d-heineken-ch-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-11-21T21:44:19.996Z",
       "salaryMin": 62000,
       "salaryMax": 95500,
       "currency": "CHF",
@@ -784,7 +769,22 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-20T09:43:46.562Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-21T21:44:19.996Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "brand-management-intern-schweizer-biermarken-m-w-d-heineken-ch-luzern"
+        ],
+        "it": [
+          "brand-management-intern-schweizer-biermarken-m-w-d-heineken-ch-luzern"
+        ],
+        "fr": [
+          "brand-management-intern-schweizer-biermarken-m-w-d-heineken-ch-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "brand-management-intern-schweizer-biermarken-m-w-d-heineken-ch-luzern"
+      ]
     }
   ]
 }
