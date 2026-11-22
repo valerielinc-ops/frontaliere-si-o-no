@@ -1,7 +1,7 @@
 {
   "key": "clinique-le-noirmont",
   "label": "Clinique Le Noirmont",
-  "generatedAt": "2026-11-22T09:47:05.085Z",
+  "generatedAt": "2026-11-22T21:53:24.637Z",
   "total": 6,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -9,10 +9,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 5783,
-  "avgDurationMs": 5783,
+  "durationMs": 6393,
+  "avgDurationMs": 6393,
   "durationHistory": [
-    5783
+    6393
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -42,7 +42,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2027-02-11T09:46:53.574Z",
+      "validThrough": "2027-02-10T21:53:11.562Z",
       "_meta": {
         "sourceIdentifier": "dl:1060"
       },
@@ -52,7 +52,7 @@
       "salaryMax": 72000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawledAt": "2026-11-22T09:46:53.574Z",
+      "crawledAt": "2026-11-22T21:53:11.562Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Le Noirmont",
       "streetAddressSource": "to-enrich",
@@ -89,7 +89,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2027-02-09T09:46:53.574Z",
+      "validThrough": "2027-02-08T21:53:11.562Z",
       "_meta": {
         "sourceIdentifier": "dl:1059"
       },
@@ -99,7 +99,7 @@
       "salaryMax": 84000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawledAt": "2026-11-22T09:46:53.574Z",
+      "crawledAt": "2026-11-22T21:53:11.562Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Le Noirmont",
       "streetAddressSource": "to-enrich",
@@ -136,7 +136,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2027-02-04T09:46:53.574Z",
+      "validThrough": "2027-02-03T21:53:11.562Z",
       "_meta": {
         "sourceIdentifier": "dl:1054"
       },
@@ -146,7 +146,7 @@
       "salaryMax": 108000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawledAt": "2026-11-22T09:46:53.574Z",
+      "crawledAt": "2026-11-22T21:53:11.562Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Le Noirmont",
       "streetAddressSource": "to-enrich",
@@ -183,7 +183,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2027-01-29T09:46:53.574Z",
+      "validThrough": "2027-01-29T21:53:11.562Z",
       "_meta": {
         "sourceIdentifier": "dl:1053"
       },
@@ -193,7 +193,7 @@
       "salaryMax": 120000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawledAt": "2026-11-22T09:46:53.574Z",
+      "crawledAt": "2026-11-22T21:53:11.562Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Le Noirmont",
       "streetAddressSource": "to-enrich",
@@ -230,7 +230,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2026-12-25T09:46:53.574Z",
+      "validThrough": "2026-12-24T21:53:11.562Z",
       "_meta": {
         "sourceIdentifier": "dl:1046"
       },
@@ -240,7 +240,7 @@
       "salaryMax": 162000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawledAt": "2026-11-22T09:46:53.574Z",
+      "crawledAt": "2026-11-22T21:53:11.562Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Le Noirmont",
       "streetAddressSource": "to-enrich",
@@ -277,7 +277,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "validThrough": "2026-12-22T09:46:53.574Z",
+      "validThrough": "2026-12-22T21:53:11.562Z",
       "_meta": {
         "sourceIdentifier": "dl:1061"
       },
@@ -287,7 +287,7 @@
       "salaryMax": 120000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawledAt": "2026-11-22T09:46:53.574Z",
+      "crawledAt": "2026-11-22T21:53:11.562Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Le Noirmont",
       "streetAddressSource": "to-enrich",
@@ -301,5 +301,5 @@
       }
     }
   ],
-  "codeCommit": "193181861b8ea282b062b042b15b99e091d330e5"
+  "codeCommit": "f0ab682774893f4b809c5b75181716509e65ea60"
 }
