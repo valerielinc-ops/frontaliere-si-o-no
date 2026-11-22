@@ -25,7 +25,6 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00050802EXTERNALENGLOBAL/Technical-Training-Manager--f-m-d--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00050875EXTERNALENGLOBAL/Experimental-Physicist--80---100---f-m-d",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00050926EXTERNALENGLOBAL/XMLNAME--80---100---Senior-Technical-Specialist",
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00051234EXTERNALENGLOBAL/Global-Lead-Engineer",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00051299EXTERNALENGLOBAL/R-D-Manager--GBL-Power-Reliability",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00051419EXTERNALENGLOBAL/R-D-Testing---Lab-Specialist--m-w-d--80--100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00051474EXTERNALENGLOBAL/Digital-Project-Engineer",
@@ -42,7 +41,7 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00053548EXTERNALENGLOBAL/Category-Specialist---Mechanics"
   ],
   "notes": "Dedicated ABB crawler seeds from the careers.abb Phenom refineSearch API (country=Switzerland, CH-wide / all cantons), then resolves canonical careers.abb job detail URLs.",
-  "updatedAt": "2026-11-21T21:24:59.674Z",
+  "updatedAt": "2026-11-22T09:20:24.108Z",
   "seedMetaByUrl": {
     "https://careers.abb/global/en/job/ABB1GLOBALJR00050875EXTERNALENGLOBAL/Experimental-Physicist--80---100---f-m-d": {
       "location": "Baden-Daettwil, Aargau, Switzerland",
@@ -255,14 +254,6 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00017046EXTERNALENGLOBAL/Sales-Specialist---French-speaking--80-100": {
       "location": "Morges, Vaud, Switzerland",
       "canton": "VD",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00051234EXTERNALENGLOBAL/Global-Lead-Engineer": {
-      "location": "Baden, Aargau, Switzerland",
-      "canton": "AG",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",
