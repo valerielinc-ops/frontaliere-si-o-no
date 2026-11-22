@@ -1,7 +1,7 @@
 {
   "crawlerKey": "fhgr",
-  "assembledAt": "2026-11-21T21:47:16.901Z",
-  "runId": "44950883651",
+  "assembledAt": "2026-11-22T09:41:50.229Z",
+  "runId": "45006841177",
   "jobs": [
     {
       "id": "fhgr-b96495651fa4",
@@ -34,7 +34,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:47:10.939Z",
+      "crawledAt": "2026-11-22T09:41:42.819Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -121,7 +121,7 @@
       },
       "streetAddress": "Pulvermühlestrasse 57",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-21T21:47:10.939Z",
+      "validThrough": "2026-12-22T09:41:42.819Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -155,7 +155,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/812/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:47:09.943Z",
+      "crawledAt": "2026-11-22T09:41:41.844Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -175,10 +175,11 @@
       "requirementsByLocale": {},
       "department": "Institut für Multimedia Production (IMP)",
       "contractDuration": "permanent",
+      "previousSlugs": [
+        "wissenschaftliche-n-projektmitarbeiter-in-fhgr-ch",
+        "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur"
-        ],
         "it": [
           "wissenschaftliche-n-projektmitarbeiter-in-fhgr-ch",
           "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur"
@@ -186,14 +187,13 @@
         "en": [
           "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur"
         ],
+        "de": [
+          "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur"
+        ],
         "fr": [
           "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur"
         ]
       },
-      "previousSlugs": [
-        "wissenschaftliche-n-projektmitarbeiter-in-fhgr-ch",
-        "wissenschaftliche-n-projektmitarbeiter-in-fachhochschule-graubunden-chur"
-      ],
       "salaryMin": 48500,
       "salaryMax": 89500,
       "salarySource": "estimated",
@@ -221,7 +221,7 @@
       },
       "streetAddress": "Pulvermühlestrasse 57",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-19T21:47:09.943Z",
+      "validThrough": "2027-02-20T09:41:41.844Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -255,7 +255,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/805/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:47:08.875Z",
+      "crawledAt": "2026-11-22T09:41:40.687Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -275,10 +275,12 @@
       "requirementsByLocale": {},
       "department": "Institut für Multimedia Production (IMP)",
       "contractDuration": "permanent",
+      "previousSlugs": [
+        "wissenschaftliche-n-projektleiter-in-technik-und-medienpraxis-fhgr-ch",
+        "wissenschaftliche-n-projektleiter-in-technik-e-medienpraxis-fachhochschule-graubunden-chur",
+        "wissenschaftliche-n-projektleiter-in-technik-und-medienpraxis-fachhochschule-graubunden-chur"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "wissenschaftliche-n-projektleiter-in-technik-und-medienpraxis-fachhochschule-graubunden-chur"
-        ],
         "it": [
           "wissenschaftliche-n-projektleiter-in-technik-und-medienpraxis-fhgr-ch",
           "wissenschaftliche-n-projektleiter-in-technik-e-medienpraxis-fachhochschule-graubunden-chur"
@@ -286,15 +288,13 @@
         "en": [
           "wissenschaftliche-n-projektleiter-in-technik-und-medienpraxis-fachhochschule-graubunden-chur"
         ],
+        "de": [
+          "wissenschaftliche-n-projektleiter-in-technik-und-medienpraxis-fachhochschule-graubunden-chur"
+        ],
         "fr": [
           "wissenschaftliche-n-projektleiter-in-technik-und-medienpraxis-fachhochschule-graubunden-chur"
         ]
       },
-      "previousSlugs": [
-        "wissenschaftliche-n-projektleiter-in-technik-und-medienpraxis-fhgr-ch",
-        "wissenschaftliche-n-projektleiter-in-technik-e-medienpraxis-fachhochschule-graubunden-chur",
-        "wissenschaftliche-n-projektleiter-in-technik-und-medienpraxis-fachhochschule-graubunden-chur"
-      ],
       "firstSeenAt": "2026-11-03T09:52:12.722Z",
       "salaryMin": 73000,
       "salaryMax": 135000,
@@ -323,7 +323,7 @@
       },
       "streetAddress": "Pulvermühlestrasse 57",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-01T21:47:08.875Z",
+      "validThrough": "2027-02-02T09:41:40.687Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -357,7 +357,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/826/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:47:07.844Z",
+      "crawledAt": "2026-11-22T09:41:39.543Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -422,7 +422,7 @@
       },
       "streetAddress": "Pulvermühlestrasse 57",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-11T21:47:07.844Z",
+      "validThrough": "2027-02-12T09:41:39.543Z",
       "validThroughSource": "last-observed-window"
     }
   ]
