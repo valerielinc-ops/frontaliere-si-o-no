@@ -1,7 +1,7 @@
 {
   "key": "somedia",
   "label": "Somedia AG",
-  "generatedAt": "2026-11-21T21:31:16.098Z",
+  "generatedAt": "2026-11-22T09:38:47.455Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -14,16 +14,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 9660,
-  "avgDurationMs": 9660,
+  "unchangedCount": 3,
+  "durationMs": 7528,
+  "avgDurationMs": 7528,
   "durationHistory": [
-    9660
+    7528
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "somedia-3d8308e75877",
       "slug": "responsabile-di-progetto-marketing-giornali-fidelizzazione-dei-clienti-50-somedia-ag-chur",
@@ -36,7 +38,7 @@
       "url": "https://jobs.somedia.ch/Projektleiterin-Marketing-Zeitungen-Kundenbindung-50-de-j434.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:30:48.289Z",
+      "crawledAt": "2026-11-22T09:38:29.023Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -73,10 +75,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "somedia-c861507800dc",
       "slug": "sales-manager-field-service-80-100-somedia-ag-glarus",
@@ -89,7 +88,7 @@
       "url": "https://jobs.somedia.ch/Sales-Managerin-Aussendienst-80-100-de-j416.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:30:47.142Z",
+      "crawledAt": "2026-11-22T09:38:27.994Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -139,7 +138,7 @@
       "url": "https://jobs.somedia.ch/Senior-Marketing-Automation-Managerin-80-100-de-j430.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:30:46.025Z",
+      "crawledAt": "2026-11-22T09:38:26.973Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -179,5 +178,5 @@
       }
     }
   ],
-  "codeCommit": "4b92eb0854b9f965b31956a24be8b4a2b342e4b2"
+  "codeCommit": "193181861b8ea282b062b042b15b99e091d330e5"
 }

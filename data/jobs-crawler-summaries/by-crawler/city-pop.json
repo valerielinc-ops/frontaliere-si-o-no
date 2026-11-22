@@ -1,7 +1,7 @@
 {
   "key": "city-pop",
   "label": "City Pop",
-  "generatedAt": "2026-11-21T21:31:10.342Z",
+  "generatedAt": "2026-11-22T09:37:23.921Z",
   "total": 3,
   "discovered": null,
   "parsed": 2,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 6131,
-  "avgDurationMs": 6131,
+  "durationMs": 4166,
+  "avgDurationMs": 4166,
   "durationHistory": [
-    6131
+    4166
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/5e424093-b70a-4bfc-9797-db08aee48ab8/",
       "source": "City Pop Dedicated Parser (jobs.ch)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:30:43.389Z",
+      "crawledAt": "2026-11-22T09:37:01.140Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "City Pop, Militärstrasse 106, 8004 Zürich",
@@ -62,7 +62,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T21:30:43.389Z",
+      "validThrough": "2027-02-12T09:37:01.140Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -84,7 +84,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/f005cb73-dad5-4cfb-b13f-f828ea5a2d9d/",
       "source": "City Pop Dedicated Parser (jobs.ch)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:30:42.937Z",
+      "crawledAt": "2026-11-22T09:37:00.619Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
@@ -108,7 +108,7 @@
       "salaryMax": 107500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:30:42.937Z",
+      "validThrough": "2027-02-08T09:37:00.619Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -157,7 +157,7 @@
       "validThrough": "2027-02-07T21:57:08.955Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.jobs.ch/en/vacancies/detail/21e69afe-9b32-4875-b679-5278ef8d2e9b",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -167,5 +167,5 @@
       }
     }
   ],
-  "codeCommit": "4b92eb0854b9f965b31956a24be8b4a2b342e4b2"
+  "codeCommit": "193181861b8ea282b062b042b15b99e091d330e5"
 }
