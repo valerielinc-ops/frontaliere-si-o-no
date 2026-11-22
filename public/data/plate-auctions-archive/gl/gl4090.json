@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "gl-1612",
+      "sourceKey": "GL",
+      "sourceRecordId": "1612",
+      "canton": "Glarona",
+      "platePrefix": "GL",
+      "plateNumber": "4090",
+      "normalizedPlate": "GL4090",
+      "listingType": "fixed-price",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "startingPriceChf": 1250,
+      "closedAt": "2026-11-19T11:47:06.211Z",
+      "officialAuctionUrl": "https://www.gl.ch/verwaltung/sicherheit-und-justiz/justiz/strassenverkehrsamt/strassenverkehr/kontrollschilder/wunschkontrollschilder.html/450",
+      "officialDetailUrl": "https://eschild.gl.ch/api/v1/plate",
+      "sourceFetchedAt": "2026-11-19T11:47:06.211Z",
+      "lastVerifiedAt": "2026-11-19T11:47:06.211Z",
+      "firstSeenAt": "2026-11-19T11:47:06.211Z",
+      "lastSeenAt": "2026-11-19T11:47:06.211Z",
+      "sourceCategory": "fixed-price-api",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "03f8804b0b4e"
+    }
+  ]
+}
