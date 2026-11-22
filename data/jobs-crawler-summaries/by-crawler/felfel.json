@@ -1,7 +1,7 @@
 {
   "key": "felfel",
   "label": "FELFEL",
-  "generatedAt": "2026-11-21T21:16:26.059Z",
+  "generatedAt": "2026-11-22T09:16:49.804Z",
   "total": 11,
   "discovered": null,
   "parsed": 10,
@@ -13,19 +13,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 12640,
-  "avgDurationMs": 12640,
+  "durationMs": 48525,
+  "avgDurationMs": 48525,
   "durationHistory": [
-    12640
+    48525
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "felfel-179387fdfd98",
-      "slug": "coffee-machine-technician-felfel-zurich",
+      "slug": "macchina-da-caffe-technician-felfel-zurich",
       "company": "FELFEL",
       "companyKey": "felfel",
       "companyDomain": "felfel.ch",
@@ -35,7 +36,7 @@
       "url": "https://felfel.jobs.personio.de/job/2898496",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:16:00.145Z",
+      "crawledAt": "2026-11-22T09:15:45.494Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -54,25 +55,24 @@
       "postingDateSource": "reported",
       "applyUrl": "https://felfel.jobs.personio.de/job/2898496",
       "jobReqId": "2898496",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-21T21:16:00.145Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T21:16:00.145Z",
+      "validThrough": "2027-02-18T09:15:45.494Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:16:00.145Z",
-      "_qualityScore": 93,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
     {
       "id": "felfel-93cc1dceb11a",
-      "slug": "business-development-representative-felfel-zurich",
+      "slug": "rappresentante-per-lo-sviluppo-delle-imprese-felfel-zurich",
       "company": "FELFEL",
       "companyKey": "felfel",
       "companyDomain": "felfel.ch",
@@ -82,7 +82,7 @@
       "url": "https://felfel.jobs.personio.de/job/2898118",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:16:00.137Z",
+      "crawledAt": "2026-11-22T09:15:45.489Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -101,24 +101,22 @@
       "postingDateSource": "reported",
       "applyUrl": "https://felfel.jobs.personio.de/job/2898118",
       "jobReqId": "2898118",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-21T21:16:00.137Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T21:16:00.137Z",
+      "validThrough": "2027-02-18T09:15:45.489Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:16:00.137Z",
-      "_qualityScore": 88,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -133,7 +131,7 @@
       "url": "https://felfel.jobs.personio.de/job/2876840",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:16:00.193Z",
+      "crawledAt": "2026-11-22T09:15:45.538Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -157,7 +155,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:16:00.193Z",
+      "validThrough": "2027-02-03T09:15:45.538Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -179,7 +177,7 @@
       "url": "https://felfel.jobs.personio.de/job/2798583",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:16:00.190Z",
+      "crawledAt": "2026-11-22T09:15:45.535Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -204,7 +202,7 @@
       "salaryMax": 127500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:16:00.190Z",
+      "validThrough": "2026-12-27T09:15:45.535Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -226,7 +224,7 @@
       "url": "https://felfel.jobs.personio.de/job/2816710",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:16:00.184Z",
+      "crawledAt": "2026-11-22T09:15:45.531Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -250,7 +248,7 @@
       "salaryMax": 127500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T21:16:00.184Z",
+      "validThrough": "2027-01-19T09:15:45.531Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -272,7 +270,7 @@
       "url": "https://felfel.jobs.personio.de/job/2842697",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:16:00.181Z",
+      "crawledAt": "2026-11-22T09:15:45.527Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -297,7 +295,7 @@
       "salaryMax": 100500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T21:16:00.181Z",
+      "validThrough": "2027-01-12T09:15:45.527Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -319,7 +317,7 @@
       "url": "https://felfel.jobs.personio.de/job/2834630",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:16:00.173Z",
+      "crawledAt": "2026-11-22T09:15:45.522Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -343,7 +341,7 @@
       "salaryMax": 134500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-06T21:16:00.173Z",
+      "validThrough": "2027-01-06T09:15:45.522Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -365,7 +363,7 @@
       "url": "https://felfel.jobs.personio.de/job/2842832",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:16:00.166Z",
+      "crawledAt": "2026-11-22T09:15:45.514Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -389,7 +387,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T21:16:00.166Z",
+      "validThrough": "2027-01-13T09:15:45.514Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -411,7 +409,7 @@
       "url": "https://felfel.jobs.personio.de/job/2829366",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-21T21:16:00.150Z",
+      "crawledAt": "2026-11-22T09:15:45.500Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
@@ -435,7 +433,7 @@
       "salaryMax": 87500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T21:16:00.150Z",
+      "validThrough": "2027-01-19T09:15:45.500Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -457,7 +455,7 @@
       "url": "https://felfel.jobs.personio.de/job/2626851",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:16:00.126Z",
+      "crawledAt": "2026-11-22T09:15:45.477Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
@@ -481,7 +479,7 @@
       "salaryMax": 156000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T21:16:00.126Z",
+      "validThrough": "2027-01-03T09:15:45.477Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -530,7 +528,7 @@
       "validThrough": "2027-01-19T09:23:48.761Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://felfel.jobs.personio.de/job/2829409",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -540,5 +538,5 @@
       }
     }
   ],
-  "codeCommit": "4b92eb0854b9f965b31956a24be8b4a2b342e4b2"
+  "codeCommit": "193181861b8ea282b062b042b15b99e091d330e5"
 }
