@@ -713,10 +713,22 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kundenbetreuerin-mutationen-antragsverarbeitung-a-80-100-helsana-dubendorf-stettbach"
+        "kundenbetreuerin-mutationen-antragsverarbeitung-a-80-100-helsana-dubendorf-stettbach",
+        "mutazioni-e-lavorazione-delle-applicazioni-a-80-100-helsana-dubendorf-stettbach",
+        "customer-caretaker-mutations-application-processing-a-80-100-helsana-dubendorf-stettbach",
+        "mutations-de-la-clientele-et-traitement-des-demandes-a-80-100-helsana-dubendorf-stettbach"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "kundenbetreuerin-mutationen-antragsverarbeitung-a-80-100-helsana-dubendorf-stettbach",
+          "mutazioni-e-lavorazione-delle-applicazioni-a-80-100-helsana-dubendorf-stettbach"
+        ],
+        "en": [
+          "customer-caretaker-mutations-application-processing-a-80-100-helsana-dubendorf-stettbach",
+          "kundenbetreuerin-mutationen-antragsverarbeitung-a-80-100-helsana-dubendorf-stettbach"
+        ],
+        "fr": [
+          "mutations-de-la-clientele-et-traitement-des-demandes-a-80-100-helsana-dubendorf-stettbach",
           "kundenbetreuerin-mutationen-antragsverarbeitung-a-80-100-helsana-dubendorf-stettbach"
         ]
       },
@@ -2888,98 +2900,6 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-24T09:39:29.621Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "helsana-3bead0b12e9e",
-      "slug": "mutazioni-e-lavorazione-delle-applicazioni-a-80-100-helsana-dubendorf-stettbach",
-      "slugByLocale": {
-        "it": "mutazioni-e-lavorazione-delle-applicazioni-a-80-100-helsana-dubendorf-stettbach",
-        "en": "customer-caretaker-mutations-application-processing-a-80-100-helsana-dubendorf-stettbach",
-        "de": "kundenbetreuerin-mutationen-antragsverarbeitung-a-80-100-helsana-dubendorf-stettbach",
-        "fr": "mutations-de-la-clientele-et-traitement-des-demandes-a-80-100-helsana-dubendorf-stettbach"
-      },
-      "company": "Helsana",
-      "companyKey": "helsana",
-      "companyDomain": "helsana.ch",
-      "title": "Kundenbetreuerin Mutationen & Antragsverarbeitung (a) 80-100%",
-      "titleByLocale": {
-        "it": "Mutazioni e lavorazione delle applicazioni (a) 80-100 %",
-        "en": "Customer Caretaker Mutations & Application Processing (a) 80-100 %",
-        "de": "Kundenbetreuerin Mutationen & Antragsverarbeitung (a) 80-100%",
-        "fr": "Mutations de la clientèle et traitement des demandes (a) 80-100 %"
-      },
-      "description": "Position: Kundenbetreuerin Mutationen & Antragsverarbeitung (a) 80-100%\n- Standort: Dübendorf-Stettbach, Kanton ZH\n- Pensum: 80-100%\n- Arbeitgeber: Helsana\n\nSchön,\n\ndass du deine Zukunft bei Helsana gestalten möchtest!\n\nWenn du das Gesundheitswesen bewegen und beruflich weiterkommen möchtest, findest du bei uns viele Möglichkeiten, deinen Karriereweg aktiv zu gestalten.\n\nWir übernehmen Verantwortung für über zwei Millionen Kundinnen und Kunden, für die Gesellschaft und für unsere Mitarbeitenden. Dabei legen wir grossen Wert auf ein Arbeitsumfeld, das von Vertrauen, Zusammenarbeit und Entwicklung geprägt ist.\n\n.\n Wir freuen uns auf deine Bewerbung!\n\nhelsana.ch/jobs",
-      "descriptionByLocale": {
-        "it": "Posizione: Customer Manager Mutazioni e lavorazione delle applicazioni (a) 80-100 %\n- Ubicazione: Dübendorf-Stettbach, Cantone di ZH\n- Penso: 80-100 %\n- Datore di lavoro: Helsana\n\nBella,\n\nche vuoi plasmare il tuo futuro a Helsana!\n\nSe vuoi spostare il settore sanitario e progredire professionalmente, troverai molte opportunità per plasmare attivamente il tuo percorso di carriera.\n\nCi assumiamo la responsabilità di più di due milioni di clienti, per la società e per i nostri dipendenti. Noi attribuiamo grande importanza a un ambiente di lavoro caratterizzato da fiducia, cooperazione e sviluppo.\n\n.\nAttendiamo con ansia la vostra applicazione!\n\nhelsana.ch/jobs",
-        "en": "Position: Customer Manager Mutations & Application Processing (a) 80-100 %\n- Location: Dübendorf-Stettbach, Canton of ZH\n- Pensum: 80-100 %\n- Employer: Helsana\n\nBeautiful,\n\nthat you want to shape your future at Helsana!\n\nIf you want to move the healthcare sector and progress professionally, you will find many opportunities to actively shape your career path.\n\nWe take responsibility for more than two million customers, for society and for our employees. We attach great importance to a working environment characterized by trust, cooperation and development.\n\n.\nWe look forward to your application!\n\nhelsana.ch/jobs",
-        "de": "Position: Kundenbetreuerin Mutationen & Antragsverarbeitung (a) 80-100%\n- Standort: Dübendorf-Stettbach, Kanton ZH\n- Pensum: 80-100%\n- Arbeitgeber: Helsana\n\nSchön,\n\ndass du deine Zukunft bei Helsana gestalten möchtest!\n\nWenn du das Gesundheitswesen bewegen und beruflich weiterkommen möchtest, findest du bei uns viele Möglichkeiten, deinen Karriereweg aktiv zu gestalten.\n\nWir übernehmen Verantwortung für über zwei Millionen Kundinnen und Kunden, für die Gesellschaft und für unsere Mitarbeitenden. Dabei legen wir grossen Wert auf ein Arbeitsumfeld, das von Vertrauen, Zusammenarbeit und Entwicklung geprägt ist.\n\n.\nWir freuen uns auf deine Bewerbung!\n\nhelsana.ch/jobs",
-        "fr": "Poste : Mutations du gestionnaire client et traitement des demandes (a) 80-100 %\n- Lieu: Dübendorf-Stettbach, Canton de ZH\n- Pensum: 80-100 %\n- Employeur: Helsana\n\nMagnifique,\n\nque vous voulez façonner votre avenir à Helsana!\n\nSi vous voulez déplacer le secteur des soins de santé et progresser professionnellement, vous trouverez de nombreuses occasions de façonner activement votre cheminement de carrière.\n\nNous assumons la responsabilité de plus de deux millions de clients, de la société et de nos employés. Nous attachons une grande importance à un environnement de travail caractérisé par la confiance, la coopération et le développement.\n\n.\nNous nous réjouissons de votre candidature!\n\nhelsana.ch/emplois"
-      },
-      "needsRetranslation": false,
-      "location": "Dübendorf-Stettbach",
-      "canton": "ZH",
-      "url": "https://careers.helsana.ch/job/D%C3%BCbendorf-Stettbach-&-Homeoff-Kundenbetreuerin-Mutationen-&-Antragsverarbeitung-%28a%29-80-100/1449240733/",
-      "source": "Helsana Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:44:21.776Z",
-      "addressLocality": "Dübendorf-Stettbach",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8600",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-20T00:00:00Z",
-      "postedDate": "2026-10-20T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.helsana.ch/talentcommunity/apply/1449240733/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "kundenbetreuerin-mutationen-antragsverarbeitung-a-80-100-helsana-dubendorf-stettbach",
-        "mutazioni-e-lavorazione-delle-applicazioni-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "customer-caretaker-mutations-application-processing-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "mutations-de-la-clientele-et-traitement-des-demandes-a-80-100-helsana-dubendorf-stettbach-homeoff"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kundenbetreuerin-mutationen-antragsverarbeitung-a-80-100-helsana-dubendorf-stettbach",
-          "mutazioni-e-lavorazione-delle-applicazioni-a-80-100-helsana-dubendorf-stettbach-homeoff"
-        ],
-        "en": [
-          "kundenbetreuerin-mutationen-antragsverarbeitung-a-80-100-helsana-dubendorf-stettbach",
-          "customer-caretaker-mutations-application-processing-a-80-100-helsana-dubendorf-stettbach-homeoff"
-        ],
-        "fr": [
-          "kundenbetreuerin-mutationen-antragsverarbeitung-a-80-100-helsana-dubendorf-stettbach",
-          "mutations-de-la-clientele-et-traitement-des-demandes-a-80-100-helsana-dubendorf-stettbach-homeoff"
-        ]
-      },
-      "firstSeenAt": "2026-09-07T15:13:19.579Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Dübendorf-Stettbach",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T21:44:21.776Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.helsana.ch/job/d%c3%bcbendorf-stettbach-&-homeoff-kundenbetreuerin-mutationen-&-antragsverarbeitung-%28a%29-80-100/1449240733",
-      "crawlerMissStreak": 2
     }
   ]
 }

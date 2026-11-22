@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swiss-life",
-  "assembledAt": "2026-11-22T13:06:01.024Z",
+  "assembledAt": "2026-11-22T13:39:45.127Z",
   "runId": "44818667336",
   "jobs": [
     {
@@ -167,7 +167,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:50:14.531Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/buchs-sg/sales-support--w-m-d--40----60--generalagentur-glarus-rheintal_r10449-1"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/buchs-sg/sales-support--w-m-d--40----60--generalagentur-glarus-rheintal_r10449-1",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-1018a191bf7b",
@@ -252,7 +253,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:50:04.155Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/lugano/consulente-immobiliare-m-f--agenzia-generale-svizzera-italiana--lugano-_r00096"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/lugano/consulente-immobiliare-m-f--agenzia-generale-svizzera-italiana--lugano-_r00096",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-4696d9486ab1",
@@ -412,7 +414,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:49:40.653Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bern/vorsorge--und-finanzberatende--w-m-d----mit-erfahrung---generalagentur-bern-ost_r08751"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bern/vorsorge--und-finanzberatende--w-m-d----mit-erfahrung---generalagentur-bern-ost_r08751",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-2f29929f10fd",
@@ -492,7 +495,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:49:29.710Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bern/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-bern-ost_r08750"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bern/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-bern-ost_r08750",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-b8b314f81d56",
@@ -572,7 +576,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:49:17.766Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/thun/vorsorge--und-finanzberatende---w-m-d----quereinsteigende-willkommen---generalagentur-thun_r08842"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/thun/vorsorge--und-finanzberatende---w-m-d----quereinsteigende-willkommen---generalagentur-thun_r08842",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-61acad470883",
@@ -652,7 +657,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:49:06.816Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/ga-baden/vorsorge--und-finanzberatende--w-m-d----im-rahmen-einer-nachfolgeregelung---generalagentur-baden_r09258"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/ga-baden/vorsorge--und-finanzberatende--w-m-d----im-rahmen-einer-nachfolgeregelung---generalagentur-baden_r09258",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-bbbcf9d2f3fb",
@@ -732,7 +738,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:48:55.990Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/ga-baden/vorsorge--und-finanzberatende--w-m-d----mit-erfahrung---generalagentur-baden_r09256"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/ga-baden/vorsorge--und-finanzberatende--w-m-d----mit-erfahrung---generalagentur-baden_r09256",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-f915a4f7f6f6",
@@ -812,7 +819,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:48:44.249Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bielbienne/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-biel-seeland_r09369"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bielbienne/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-biel-seeland_r09369",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-64c2807fdcea",
@@ -892,7 +900,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:48:33.088Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bielbienne/vorsorge--und-finanzberatende--w-m-d----spezialisierung-kollektiv---generalagentur-biel-seeland_r09379"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bielbienne/vorsorge--und-finanzberatende--w-m-d----spezialisierung-kollektiv---generalagentur-biel-seeland_r09379",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-80c4b4869d8b",
@@ -1052,7 +1061,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:48:10.995Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bielbienne/vorsorge--und-finanzberatende--w-m-d----im-rahmen-einer-nachfolgeregelung---generalagentur-biel-seeland_r09388"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bielbienne/vorsorge--und-finanzberatende--w-m-d----im-rahmen-einer-nachfolgeregelung---generalagentur-biel-seeland_r09388",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-a4559353b2c9",
@@ -1130,7 +1140,8 @@
           "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-bh9lsp"
         ],
         "de": [
-          "previdenza-e-finanzberatende-w-m-d-quereinsteigende-willkommen-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-8c007d4616"
+          "previdenza-e-finanzberatende-w-m-d-quereinsteigende-willkommen-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-8c007d4616",
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn"
         ],
         "fr": [
           "vorsorge-und-finanzberatende-m-w-d-quereinsteigende-willkommen-generalagentur-solothurn-oberaargau-swiss-life-solothurn",
@@ -1154,7 +1165,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:47:59.753Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/solothurn/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-solothurn-oberaargau_r09071"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/solothurn/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-solothurn-oberaargau_r09071",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-84dd4281bdde",
@@ -1217,7 +1229,8 @@
         "teamleiter-vendita-w-m-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-ee0051c04c",
         "chef-d-equipe-des-ventes-h-f-d-agence-generale-soleure-oberaargau-swiss-life-solothurn",
         "responsabile-del-team-vendite-m-f-d-agenzia-generale-soletta-alta-argovia-swiss-life-solothurn-9500a6d4f6",
-        "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn"
+        "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn",
+        "responsabile-del-team-vendite-m-f-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-136bc812e2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1227,7 +1240,8 @@
           "team-leader-vendite-m-f-d-agenzia-generale-soletta-oberaargau-swiss-life-solothurn-650fa76705",
           "teamleiter-vendita-w-m-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-ee0051c04c",
           "responsabile-del-team-vendite-m-f-d-agenzia-generale-soletta-alta-argovia-swiss-life-solothurn-9500a6d4f6",
-          "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn"
+          "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn",
+          "responsabile-del-team-vendite-m-f-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-136bc812e2"
         ],
         "fr": [
           "chef-d-equipe-des-ventes-h-f-d-agence-generale-soleure-oberaargau-swiss-life-solothurn"
@@ -1330,7 +1344,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:47:37.437Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bern/vorsorge--und-finanzberatende--w-m-d----mit-erfahrung---generalagentur-bern-west_r05165"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bern/vorsorge--und-finanzberatende--w-m-d----mit-erfahrung---generalagentur-bern-west_r05165",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-63e7653a3513",
@@ -1410,7 +1425,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:47:26.343Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/zrich/vorsorge--und-finanzberatende--w-m-d----mit-erfahrung---generalagentur-zrich-binz_r07044"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/zrich/vorsorge--und-finanzberatende--w-m-d----mit-erfahrung---generalagentur-zrich-binz_r07044",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-82a26860db74",
@@ -1490,7 +1506,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:47:14.907Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bern/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-bern-west_r10027"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bern/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-bern-west_r10027",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-c50bef18a097",
@@ -1730,7 +1747,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:46:29.232Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bern/immobilienberater--w-m-d----generalagentur-baden_r11964"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bern/immobilienberater--w-m-d----generalagentur-baden_r11964",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-429a29be9584",
@@ -1810,7 +1828,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:46:17.655Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/thun/vorsorge--und-finanzberatende--w-m-d----mit-erfahrung---generalagentur-thun-oberland_r07198"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/thun/vorsorge--und-finanzberatende--w-m-d----mit-erfahrung---generalagentur-thun-oberland_r07198",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-18679273ee70",
@@ -1970,7 +1989,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:45:55.186Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/baden/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-baden_r10388"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/baden/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-baden_r10388",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-1e1d2e0b2c19",
@@ -2812,7 +2832,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:43:52.810Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/schaffhausen/vorsorge--und-finanzberatende--w-m-d----spezialisierung-kollektiv---generalagentur-schaffhausen_r09259"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/schaffhausen/vorsorge--und-finanzberatende--w-m-d----spezialisierung-kollektiv---generalagentur-schaffhausen_r09259",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-9ec8361cf3e2",
@@ -2892,7 +2913,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:43:42.005Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/schaffhausen/immobilienberater--w-m-d-----generalagentur-schaffhausen--gebiet-blach-_r09266"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/schaffhausen/immobilienberater--w-m-d-----generalagentur-schaffhausen--gebiet-blach-_r09266",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-0adbc4a2282c",
@@ -3052,7 +3074,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:42:43.733Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/schaffhausen/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-schaffhausen_r07403-1"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/schaffhausen/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-schaffhausen_r07403-1",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-e34dc09f0313",
@@ -3132,7 +3155,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:42:33.008Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/winterthur/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-winterthur_r10111"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/winterthur/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-winterthur_r10111",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-1bf18fd344a7",
@@ -3292,7 +3316,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:42:10.253Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/schaffhausen/sales-support--w-m-d----100--generalagentur-schaffhausen_r11794"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/schaffhausen/sales-support--w-m-d----100--generalagentur-schaffhausen_r11794",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-0127fae00e58",
@@ -3372,7 +3397,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:41:48.462Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/wil-sg/sales-support--w-m-d---50----70---generalagentur-wil_r12127"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/wil-sg/sales-support--w-m-d---50----70---generalagentur-wil_r12127",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-8879644d2439",
@@ -3532,7 +3558,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:41:27.678Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/uster/vorsorge--und-finanzberatende--w-m-d----im-rahmen-einer-nachfolgeregelung---generalagentur--uster_r10095-1"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/uster/vorsorge--und-finanzberatende--w-m-d----im-rahmen-einer-nachfolgeregelung---generalagentur--uster_r10095-1",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-011f1a8974f2",
@@ -5029,7 +5056,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:38:12.270Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/visp/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen--generalagentur-visp-oberwallis_r08506-1"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/visp/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen--generalagentur-visp-oberwallis_r08506-1",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-989baa21e2a3",
@@ -5192,7 +5220,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:37:49.832Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/st-gallen/sales-support-40----100--generalagentur-st-gallen-appenzellerland_r11165"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/st-gallen/sales-support-40----100--generalagentur-st-gallen-appenzellerland_r11165",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-0f8667b891d3",
@@ -5512,7 +5541,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:37:00.166Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/ga-thurgau/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-thurgau_r09621"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/ga-thurgau/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-thurgau_r09621",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-4f11e2283828",
@@ -5592,7 +5622,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:36:48.958Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/ga-thurgau/vorsorge--und-finanzberatende--w-m-d----spezialisierung-kollektiv---generalagentur-thurgau_r09622"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/ga-thurgau/vorsorge--und-finanzberatende--w-m-d----spezialisierung-kollektiv---generalagentur-thurgau_r09622",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-27cf2da5d869",
@@ -5677,7 +5708,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:36:36.890Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/ga-thurgau/vorsorge--und-finanzberatende--w-m-d----spezialisierung-hypotheken-finanzierungsexperte---generalagentur-thurgau_r09623"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/ga-thurgau/vorsorge--und-finanzberatende--w-m-d----spezialisierung-hypotheken-finanzierungsexperte---generalagentur-thurgau_r09623",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-d58931049c1f",
@@ -5757,7 +5789,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:36:26.086Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/zrich/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-zrich-limmat_r09414"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/zrich/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-zrich-limmat_r09414",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-a48b882e7352",
@@ -5837,7 +5870,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:36:14.718Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/zrich/vorsorge--und-finanzberatende--w-m-d----spezialisierung-anlagethemen---generalagentur-zrich-limmat_r09420"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/zrich/vorsorge--und-finanzberatende--w-m-d----spezialisierung-anlagethemen---generalagentur-zrich-limmat_r09420",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-cd03b5e98ff9",
@@ -5917,7 +5951,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:36:03.744Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/zrich/vorsorge--und-finanzberatende--w-m-d----mit-erfahrung---generalagentur-zrich-limmat_r09418"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/zrich/vorsorge--und-finanzberatende--w-m-d----mit-erfahrung---generalagentur-zrich-limmat_r09418",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-099bcd7e12f4",
@@ -5997,7 +6032,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:35:52.882Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/zrich/vorsorge--und-finanzberatende--w-m-d----im-rahmen-einer-nachfolgeregelung---generalagentur-zrich-limmat_r09421"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/zrich/vorsorge--und-finanzberatende--w-m-d----im-rahmen-einer-nachfolgeregelung---generalagentur-zrich-limmat_r09421",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-a886a3d317b4",
@@ -6237,7 +6273,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:35:19.938Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/meilen/vorsorge--und-finanzberatende--m-w-d----quereinsteigende-willkommen---generalagentur-zrich-pfannenstiel_r11309"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/meilen/vorsorge--und-finanzberatende--m-w-d----quereinsteigende-willkommen---generalagentur-zrich-pfannenstiel_r11309",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-9892e7dc1484",
@@ -6719,7 +6756,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:34:20.524Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/steinhausen/vorsorge--und-finanzberatende--w-m-d----spezialisierung-kollektiv---generalagentur-zug_r09417"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/steinhausen/vorsorge--und-finanzberatende--w-m-d----spezialisierung-kollektiv---generalagentur-zug_r09417",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-78cbf83a135e",
@@ -6799,7 +6837,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:34:08.643Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/schwyz/vorsorge--und-finanzberatende--w-m-d----im-rahmen-einer-nachfolgeregelung---generalagentur-schwyz-urnerland---region-innerschwyz_r09415"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/schwyz/vorsorge--und-finanzberatende--w-m-d----im-rahmen-einer-nachfolgeregelung---generalagentur-schwyz-urnerland---region-innerschwyz_r09415",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-e558496b28eb",
@@ -6879,7 +6918,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:33:56.846Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/steinhausen/vorsorge--und-finanzberatende--w-m-d----im-rahmen-einer-nachfolgeregelung---generalagentur-zug_r09416"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/steinhausen/vorsorge--und-finanzberatende--w-m-d----im-rahmen-einer-nachfolgeregelung---generalagentur-zug_r09416",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-45194c6f32f7",
@@ -6959,7 +6999,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:33:56.123Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/sursee/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-sursee_r09465"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/sursee/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-sursee_r09465",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-97f85137b38a",
@@ -7199,7 +7240,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:33:43.274Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/horgen/vorsorge--und-finanzberatende--w-m-d----mit-erfahrung---generalagentur-zrich-zimmerberg_r09265"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/horgen/vorsorge--und-finanzberatende--w-m-d----mit-erfahrung---generalagentur-zrich-zimmerberg_r09265",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-311f9d60d7ea",
@@ -7439,7 +7481,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:33:20.391Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/solothurn/vorsorge--und-finanzberatende--w-m-d----im-rahmen-einer-nachfolgeregelung---generalagentur-solothurn-oberaargau_r12530"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/solothurn/vorsorge--und-finanzberatende--w-m-d----im-rahmen-einer-nachfolgeregelung---generalagentur-solothurn-oberaargau_r12530",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-c968f7017dcb",
@@ -7525,7 +7568,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:33:09.830Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/solothurn/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-solothurn-oberaargau--gebiet-langenthal-_r12529"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/solothurn/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-solothurn-oberaargau--gebiet-langenthal-_r12529",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-6480a18f7fe0",
@@ -7611,7 +7655,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:32:59.101Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/solothurn/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-solothurn-oberaargau--gebiet-olten-_r12528"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/solothurn/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-solothurn-oberaargau--gebiet-olten-_r12528",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-f9b1b75906e1",
@@ -7691,7 +7736,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:32:48.618Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/aarau/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-aarau_r12559"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/aarau/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-aarau_r12559",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-72ef68d42564",
@@ -7771,93 +7817,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:32:37.232Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/aarau/sales-support-60--generalagentur-aarau_r12557"
-    },
-    {
-      "id": "swiss-life-0516bede16b9",
-      "slug": "responsabile-del-team-vendite-m-f-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-136bc812e2",
-      "slugByLocale": {
-        "it": "responsabile-del-team-vendite-m-f-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-136bc812e2",
-        "en": "team-leader-sales-m-f-d-general-agency-solothurn-oberaargau-swiss-life-solothurn",
-        "de": "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
-        "fr": "chef-d-equipe-des-ventes-h-f-d-agence-generale-soleure-oberaargau-swiss-life-solothurn"
-      },
-      "company": "Swiss Life",
-      "companyKey": "swiss-life",
-      "companyDomain": "swisslife.ch",
-      "title": "Teamleiter Verkauf (w/m/d) Generalagentur Solothurn-Oberaargau",
-      "titleByLocale": {
-        "it": "Responsabile del team vendite (m/f/d) Agenzia generale Solothurn-Oberaargau",
-        "en": "Sales Team Leader (m/f/d) General Agency Solothurn-Oberaargau",
-        "de": "Teamleiter Verkauf (w/m/d) Generalagentur Solothurn-Oberaargau",
-        "fr": "Responsable de l’équipe de vente (h/f/d) agence générale Solothurn-Oberaargau"
-      },
-      "description": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nIhr Verantwortungsbereich\n\n• Führung und Entwicklung eines Teams im Aussendienst\n\n• Rekrutierung von neuen Vorsorgeberatenden\n\n• Festlegung von Verkaufszielen sowie Erarbeitung von Entwicklungsplänen\n\n• Aktive Unterstützung des Generalagenten in der systematischen Marktbearbeitung\n\n• Durchführung sowie Sicherstellung von umfassenden Vorsorge- und Finanzberatungen\n\n• Betreuung und Ausbau eines eigenen Kundenportfolios\n\nIhre Stärken\n\n• Abgeschlossene Ausbildung in der Versicherungsbranche (dipl. Finanzberater IAF oder Finanzplaner eidg. FA)\n\n• Leadership und hohe Motivation, Vorsorgeberatende zum Erfolg zu führen und dabei auch selbst im Verkauf als Vorbild zu agieren\n\n• Begeisterungsfähige, gewinnende Persönlichkeit mit ausgeprägten Verkaufs- und Sozialkompetenzen\n\n• Hohe Leistungsbereitschaft mit zielorientierter und gut organisierter Arbeitsweise\n\n• Kommunikationsfähigkeit gepaart mit Verhandlungsgeschick und hoher Kundenorientierung\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
-      "descriptionByLocale": {
-        "it": "Forma il futuro. La tua e la nostra.\n\nVuoi aiutare le persone a condurre una vita autodeterminata? E vuoi essere data la possibilità creativa di conciliare le tue ambizioni professionali e personali? Allora possiamo offrirvi un'emozionante prospettiva: come parte della forza vendita Swiss Life, potete organizzare la vostra giornata lavorativa indipendentemente. Raggiungerete i vostri obiettivi come vedete in forma e con il supporto di una squadra praticata.\n\nLa vostra area di responsabilità\n\n• Leadership e sviluppo di un team nel settore\n\n• Reclutamento di nuovi consulenti preventivi\n\n• Determinazione degli obiettivi di vendita e dei piani di sviluppo\n\n• Supporto attivo dell'Agente Generale nello sviluppo sistematico del mercato\n\n• Attuazione e salvaguardia della pensione completa e della consulenza finanziaria\n\n• Supporto e espansione del proprio portafoglio clienti\n\nLe loro forze\n\n• Formazione completa nel settore assicurativo (dipl. consulente finanziario IAF o pianificatore finanziario eidg. FA\n\n• Leadership e alta motivazione per condurre consulenti preventivi al successo e anche agire come modello di ruolo nelle vendite\n\n• personalità entusiasta, vincente con forti vendite e competenze sociali\n\n• Elevata disponibilità a svolgere con metodi di lavoro orientati agli obiettivi e ben organizzati\n\n• Capacità di comunicazione accoppiata con competenze di negoziazione e alto orientamento del cliente\n\nAgenzie vicino a te\n\nI tuoi vantaggi\nAiutiamo i nostri dipendenti a modellare il loro sviluppo professionale e personale al loro miglior vantaggio e in tutte le fasi della loro vita. I nostri benefici interessanti, come la formazione introduttiva certificata Cicero e la formazione continua di prima classe, contribuiscono a questo. Riceverai anche prestazioni sociali superiori alla media, tra cui l'iscrizione al fondo pensionistico e l'infortunio non contributivo e l'assicurazione di invalidità a breve termine (UVG/LTG), oltre a contributi premio generosi ai prodotti del terzo pilastro.\n\nIl tuo contatto\n\nIn caso di domande, non esitate a contattare la Forza Vendite delle Risorse Umane o l'Agente Generale della vostra Agenzia Generale.\nSaranno prese in considerazione solo le applicazioni ricevute tramite il nostro strumento di applicazione.",
-        "en": "Shape the future. Yours and ours.\n\nWould you like to help people lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organize your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nYour area of responsibility\n\n• Leadership and development of a team in the field\n\n• Recruitment of new preventive counsellors\n\n• Determination of sales targets and development plans\n\n• Active support of the General Agent in systematic market development\n\n• Implementation and safeguarding of comprehensive pension and financial advice\n\n• Support and expansion of its own customer portfolio\n\nTheir strengths\n\n• Completed training in the insurance industry (dipl. financial advisor IAF or financial planner eidg. FA\n\n• Leadership and high motivation to lead preventive consultants to success and also to act as a role model in sales\n\n• Enthusiastic, winning personality with strong sales and social skills\n\n• High willingness to perform with goal-oriented and well-organized working methods\n\n• Communication skills coupled with negotiation skills and high customer orientation\n\nAgencies near you\n\nYour benefits\nWe help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits, such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\nOnly applications received via our application tool will be considered.",
-        "de": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nIhr Verantwortungsbereich\n\n• Führung und Entwicklung eines Teams im Aussendienst\n\n• Rekrutierung von neuen Vorsorgeberatenden\n\n• Festlegung von Verkaufszielen sowie Erarbeitung von Entwicklungsplänen\n\n• Aktive Unterstützung des Generalagenten in der systematischen Marktbearbeitung\n\n• Durchführung sowie Sicherstellung von umfassenden Vorsorge- und Finanzberatungen\n\n• Betreuung und Ausbau eines eigenen Kundenportfolios\n\nIhre Stärken\n\n• Abgeschlossene Ausbildung in der Versicherungsbranche (dipl. Finanzberater IAF oder Finanzplaner eidg. FA)\n\n• Leadership und hohe Motivation, Vorsorgeberatende zum Erfolg zu führen und dabei auch selbst im Verkauf als Vorbild zu agieren\n\n• Begeisterungsfähige, gewinnende Persönlichkeit mit ausgeprägten Verkaufs- und Sozialkompetenzen\n\n• Hohe Leistungsbereitschaft mit zielorientierter und gut organisierter Arbeitsweise\n\n• Kommunikationsfähigkeit gepaart mit Verhandlungsgeschick und hoher Kundenorientierung\n\nAgencies near you\n\nYour benefits\nWe help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\nOnly applications received via our application tool will be considered.",
-        "fr": "Formez l'avenir. Le tien et le nôtre.\n\nAimeriez-vous aider les gens à mener une vie déterminée ? Et voulez-vous avoir la possibilité créative de concilier vos ambitions professionnelles et personnelles ? Ensuite, nous pouvons vous offrir une perspective passionnante: dans le cadre de la force de vente Swiss Life, vous pouvez organiser votre journée de travail indépendamment. Vous atteindrez vos cibles comme vous le pensez et avec le soutien d'une équipe pratique.\n\nVotre domaine de responsabilité\n\n• Leadership et développement d ' une équipe sur le terrain\n\n• Recrutement de nouveaux conseillers de prévention\n\n• Détermination des objectifs de vente et des plans de développement\n\n• Soutien actif de l'agent général au développement systématique du marché\n\n• Mise en œuvre et protection des conseils complets en matière de pensions et de finances\n\n• Soutien et expansion de son propre portefeuille de clients\n\nLeurs forces\n\n• Formation complète dans l'industrie de l'assurance (dipl. conseiller financier IAF ou planificateur financier eidg. FE\n\n• Leadership et grande motivation pour conduire les consultants préventifs au succès et aussi pour agir comme un modèle dans les ventes\n\n• Enthousiastique, la personnalité gagnante avec des ventes fortes et des compétences sociales\n\n• Haute volonté d ' appliquer des méthodes de travail axées sur les objectifs et bien organisées\n\n• Compétences en matière de communication associées à des compétences en matière de négociation et à une forte orientation des clients\n\nAgences près de chez vous\n\nVos avantages\nNous aidons nos employés à façonner leur développement professionnel et personnel à leur meilleur avantage et tout au long de leur vie. Nos avantages intéressants, tels que la formation introductive certifiée Cicéron et la formation continue de première classe, y contribuent. Vous recevrez également des prestations sociales supérieures à la moyenne, y compris l'affiliation à une caisse de retraite et l'assurance accidents non contributifs et invalidité de courte durée (UVG/LTG), ainsi que des cotisations généreuses aux produits du 3e pilier.\n\nVotre contact\n\nSi vous avez des questions, n'hésitez pas à contacter la Force de vente des ressources humaines ou l'Agent général de votre agence générale choisie.\nSeules les demandes reçues via notre outil d'application seront prises en considération."
-      },
-      "location": "Solothurn",
-      "canton": "SO",
-      "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Solothurn/Teamleiter-Verkauf--w-m-d--Generalagentur-Solothurn-Oberaargau_R12565",
-      "source": "Swiss Life Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:32:26.187Z",
-      "addressLocality": "Solothurn",
-      "addressRegion": "SO",
-      "streetAddress": "Hauptgasse 72",
-      "postalCode": "4500",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni / Previdenza",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-06-05",
-      "postedDate": "2026-06-05",
-      "postingDateSource": "reported",
-      "applyUrl": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Solothurn/Teamleiter-Verkauf--w-m-d--Generalagentur-Solothurn-Oberaargau_R12565",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobReqId": "R12565",
-      "hiringOrganization": "Swiss Life GA Solothurn-Oberaargau",
-      "previousSlugs": [
-        "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
-        "teamleiter-vendita-w-m-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-ee0051c04c",
-        "responsabile-del-team-vendite-m-f-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-136bc812e2",
-        "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
-          "teamleiter-vendita-w-m-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-ee0051c04c",
-          "responsabile-del-team-vendite-m-f-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-136bc812e2",
-          "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T23:01:32.876Z",
-      "salaryMin": 109000,
-      "salaryMax": 167000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 109000,
-          "maxValue": 167000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:32:26.187Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/solothurn/teamleiter-verkauf--w-m-d--generalagentur-solothurn-oberaargau_r12565"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/aarau/sales-support-60--generalagentur-aarau_r12557",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-2935f61b3521",
@@ -7929,7 +7890,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:31:51.184Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/lugano/consulente-previdenziale-e-finanziaria-o--f-m-d----anche-senza-esperienza-nel-settore---agenzia-generale-svizzera-italiana_r06653"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/lugano/consulente-previdenziale-e-finanziaria-o--f-m-d----anche-senza-esperienza-nel-settore---agenzia-generale-svizzera-italiana_r06653",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-c23c3a075d2b",
@@ -8009,7 +7971,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:31:39.834Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/baden/vorsorge--und-finanzberatende--w-m-d----spezialisierung-kollektiv---generalagentur-baden_r12793"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/baden/vorsorge--und-finanzberatende--w-m-d----spezialisierung-kollektiv---generalagentur-baden_r12793",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-7cefdb51138f",
@@ -8169,7 +8132,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:30:53.181Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/weinfelden/teamleiter-verkauf--w-m-d--generalagentur-thurgau_r13290"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/weinfelden/teamleiter-verkauf--w-m-d--generalagentur-thurgau_r13290",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-9a7ed10ce016",
@@ -8659,90 +8623,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-17T21:29:45.493Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/thun/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-thun-oberland_r13669"
-    },
-    {
-      "id": "swiss-life-e0a65671ae2f",
-      "slug": "previdenza-e-finanzberatende-w-m-d-quereinsteigende-willkommen-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-8c007d4616",
-      "slugByLocale": {
-        "it": "previdenza-e-finanzberatende-w-m-d-quereinsteigende-willkommen-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn-8c007d4616",
-        "en": "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn",
-        "de": "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn",
-        "fr": "conseillers-et-conseilleres-en-prevoyance-et-en-finance-h-f-d-personnes-en-reconversion-bienvenues-agence-generale"
-      },
-      "company": "Swiss Life",
-      "companyKey": "swiss-life",
-      "companyDomain": "swisslife.ch",
-      "title": "Vorsorge- und Finanzberatende (w/m/d) – Quereinsteigende willkommen – Generalagentur Solothurn-Oberaargau",
-      "titleByLocale": {
-        "it": "previdenza- e Finanzberatende (w/m/d) – Quereinsteigende willkommen – agenzia generale Solothurn-Oberaargau",
-        "en": "Vorsorge- und Finanzberatende (w/m/d) – Quereinsteigende willkommen – Generalagentur Solothurn-Oberaargau",
-        "de": "Vorsorge- und Finanzberatende (m/w/d) — Quereinsteigende willkommen — Generalagentur Solothurn-Oberaargau",
-        "fr": "Vorsorge- und Finanzberatende (h/f/d) – Quereinsteigende willkommen – Generalagentur Soleure-Oberaargau"
-      },
-      "description": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nJob Description For Posting\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
-      "descriptionByLocale": {
-        "it": "Forma il futuro. La tua e la nostra.\n\nVuoi aiutare le persone a condurre una vita autodeterminata? E vuoi essere data la possibilità creativa di conciliare le tue ambizioni professionali e personali? Allora possiamo offrirvi un'emozionante prospettiva: come parte della forza vendita Swiss Life, potete organizzare la vostra giornata lavorativa in modo indipendente. Raggiungerete i vostri obiettivi come vedete in forma e con il supporto di una squadra praticata.\n\nDescrizione del lavoro per la pubblicazione\n\nAgenzie vicino a te\n\nI tuoi vantaggi\nAiutiamo i nostri dipendenti a modellare il loro sviluppo professionale e personale al loro miglior vantaggio e in tutte le fasi della loro vita. I nostri benefici interessanti, come la formazione introduttiva certificata Cicero e l'istruzione continua di prima classe, contribuiscono a questo. Riceverai anche prestazioni sociali superiori alla media, tra cui l'iscrizione al fondo pensionistico e l'infortunio non contributivo e l'assicurazione di invalidità a breve termine (UVG/LTG), oltre a contributi premio generosi ai prodotti del terzo pilastro.\n\nIl tuo contatto\n\nIn caso di domande, non esitate a contattare la Forza Vendite delle Risorse Umane o l'Agente Generale della vostra Agenzia Generale.\nSaranno prese in considerazione solo le applicazioni ricevute tramite il nostro strumento di applicazione.",
-        "en": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nJob Description For Posting\n\nAgencies near you\n\nYour benefits\nWe help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\nOnly applications received via our application tool will be considered.",
-        "de": "Gestalten Sie die Zukunft. Deine und unsere.\n\nMöchten Sie Menschen helfen, ein selbstbestimmtes Leben zu führen? Und möchten Sie den kreativen Spielraum erhalten, um Ihre beruflichen und persönlichen Ambitionen in Einklang zu bringen? Dann bieten wir Ihnen eine spannende Perspektive: Als Teil des Swiss Life Sales Force können Sie Ihren Arbeitstag selbstständig gestalten. Sie werden Ihre Ziele erreichen, wie Sie es für richtig halten und mit der Unterstützung eines geübten Teams.\n\nStellenbeschreibung für die Veröffentlichung\n\nAgenturen in Ihrer Nähe\n\nIhre Vorteile\nWir helfen unseren Mitarbeitern, ihre berufliche und persönliche Entwicklung zu ihrem besten Vorteil und in allen Phasen ihres Lebens zu gestalten. Unsere attraktiven Benefits, wie Cicero-zertifizierte Einführungsschulungen und erstklassige Weiterbildungen, tragen dazu bei. Darüber hinaus erhalten Sie überdurchschnittliche Sozialleistungen, einschließlich Pensionskassenmitgliedschaft und beitragsunabhängige Unfall- und Kurzzeit-Invalidengeldversicherung (UVG/LTG) sowie großzügige Prämienbeiträge zu Produkten der 3. Säule.\n\nIhr Kontakt\n\nWenn Sie Fragen haben, zögern Sie bitte nicht, Human Resources Sales Force oder den General Agent bei Ihrer gewählten Generalagentur zu kontaktieren.\nNur über unser Bewerbungstool eingegangene Bewerbungen werden berücksichtigt.",
-        "fr": "Formez l'avenir. Le tien et le nôtre.\n\nAimeriez-vous aider les gens à mener une vie déterminée ? Et voulez-vous avoir la possibilité créative de concilier vos ambitions professionnelles et personnelles ? Ensuite, nous pouvons vous offrir une perspective passionnante: dans le cadre de la force de vente Swiss Life, vous pouvez organiser votre journée de travail indépendamment. Vous atteindrez vos cibles comme vous le pensez et avec le soutien d'une équipe pratique.\n\nDescription du travail pour l'affichage\n\nAgences près de chez vous\n\nVos avantages\nNous aidons nos employés à façonner leur développement professionnel et personnel à leur meilleur avantage et tout au long de leur vie. Nos avantages attrayants, tels que la formation introductive certifiée Cicéron et la formation continue de première classe, y contribuent. Vous recevrez également des prestations sociales supérieures à la moyenne, y compris l'affiliation à une caisse de retraite et l'assurance accidents non contributifs et invalidité de courte durée (UVG/LTG), ainsi que des cotisations généreuses aux produits du 3e pilier.\n\nVotre contact\n\nSi vous avez des questions, n'hésitez pas à contacter la Force de vente des ressources humaines ou l'Agent général de votre agence générale choisie.\nSeules les demandes reçues via notre outil d'application seront prises en considération."
-      },
-      "location": "Solothurn",
-      "canton": "SO",
-      "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Solothurn/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Solothurn-Oberaargau_R13695",
-      "source": "Swiss Life Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-20T21:29:34.246Z",
-      "addressLocality": "Solothurn",
-      "addressRegion": "SO",
-      "streetAddress": "Hauptgasse 72",
-      "postalCode": "4500",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Finanza",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni / Previdenza",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-30",
-      "postedDate": "2026-10-30",
-      "postingDateSource": "reported",
-      "applyUrl": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Solothurn/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen---Generalagentur-Solothurn-Oberaargau_R13695",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobReqId": "R13695",
-      "hiringOrganization": "Swiss Life GA Solothurn-Oberaargau",
-      "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn",
-        "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn",
-          "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-19T23:01:33.553Z",
-      "salaryMin": 105500,
-      "salaryMax": 185000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 105500,
-          "maxValue": 185000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T21:29:34.246Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/solothurn/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-solothurn-oberaargau_r13695"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/thun/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-thun-oberland_r13669",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-c3f1ba0765a3",
@@ -9238,7 +9120,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-10T21:28:25.798Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/zrich/it-process-manager--w-m-d--80-100-_r13849"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/zrich/it-process-manager--w-m-d--80-100-_r13849",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-9fa4db52937c",
@@ -9741,7 +9624,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:26:43.645Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/zrich/vorsorge--und-finanzberatende--w-m-d----deutschschweiz_r08709"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/zrich/vorsorge--und-finanzberatende--w-m-d----deutschschweiz_r08709",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-d19c34b9869e",
@@ -10039,10 +9923,10 @@
     },
     {
       "id": "swiss-life-292ab82c952d",
-      "slug": "associate-consultant-relationship-manager-w-m-d-100-swiss-life-ch",
+      "slug": "associate-consulente-relationship-manager-w-m-d-100-swiss-life-zurich",
       "slugByLocale": {
         "de": "associate-consultant-relationship-manager-w-m-d-100-swiss-life-ch",
-        "it": "associate-consultant-relationship-manager-w-m-d-100-swiss-life-ch",
+        "it": "associate-consulente-relationship-manager-w-m-d-100-swiss-life-zurich",
         "en": "associate-consultant-relationship-manager-w-m-d-100-swiss-life-ch",
         "fr": "consultant-associe-et-gestionnaire-de-relations-h-f-d-100-swiss-life-zurich"
       },
@@ -10112,6 +9996,9 @@
       "firstSeenAt": "2026-11-19T21:33:47.280Z",
       "previousSlugsByLocale": {
         "fr": [
+          "associate-consultant-relationship-manager-w-m-d-100-swiss-life-ch"
+        ],
+        "it": [
           "associate-consultant-relationship-manager-w-m-d-100-swiss-life-ch"
         ]
       },

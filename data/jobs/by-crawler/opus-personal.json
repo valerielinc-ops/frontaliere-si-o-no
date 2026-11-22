@@ -915,7 +915,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "hochbauzeichner-in-efz-region-sg-st-gallen-opus-personal-ch",
         "disegnatore-trice-edile-efz-opus-personal-ag-zweigniederlassung-altdorf-sg-st-gallen",
@@ -3055,12 +3054,12 @@
     },
     {
       "id": "opus-personal-819f9add9840",
-      "slug": "sanitarmonteur-efz-eba-m-w-sz-schwyz-opus-personal-ch",
+      "slug": "sanitarmonteur-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-sz-schwyz",
       "slugByLocale": {
         "de": "sanitarmonteur-efz-eba-m-w-sz-schwyz-opus-personal-ch",
-        "it": "sanitarmonteur-efz-eba-m-w-sz-schwyz-opus-personal-ch",
-        "en": "sanitarmonteur-efz-eba-m-w-sz-schwyz-opus-personal-ch",
-        "fr": "sanitarmonteur-efz-eba-m-w-sz-schwyz-opus-personal-ch"
+        "it": "sanitarmonteur-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-sz-schwyz",
+        "en": "sanitary-fitter-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-sz-schwyz",
+        "fr": "installation-sanitaire-efz-eba-h-f-opus-personal-ag-zweigniederlassung-altdorf-sz-schwyz"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -3120,7 +3119,8 @@
         "sanitarmonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch",
         "sanitarmonteur-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
         "sanitary-fitter-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
-        "installation-sanitaire-efz-eba-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz"
+        "installation-sanitaire-efz-eba-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
+        "sanitarmonteur-efz-eba-m-w-sz-schwyz-opus-personal-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3130,13 +3130,15 @@
           "installatore-sanitario-afc-cfp-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
           "sanitarmonteur-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-schwyz",
           "sanitarmonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch",
-          "sanitarmonteur-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz"
+          "sanitarmonteur-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
+          "sanitarmonteur-efz-eba-m-w-sz-schwyz-opus-personal-ch"
         ],
         "en": [
           "plumbing-installer-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
           "sanitary-fitter-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-schwyz",
           "sanitarmonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch",
-          "sanitary-fitter-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz"
+          "sanitary-fitter-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
+          "sanitarmonteur-efz-eba-m-w-sz-schwyz-opus-personal-ch"
         ],
         "de": [
           "sanitarmonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch"
@@ -3145,7 +3147,8 @@
           "installateur-sanitaire-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
           "installation-sanitaire-efz-eba-h-f-opus-personal-ag-zweigniederlassung-altdorf-schwyz",
           "sanitarmonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch",
-          "installation-sanitaire-efz-eba-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz"
+          "installation-sanitaire-efz-eba-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
+          "sanitarmonteur-efz-eba-m-w-sz-schwyz-opus-personal-ch"
         ]
       },
       "salaryMin": 69500,
@@ -3628,12 +3631,12 @@
     },
     {
       "id": "opus-personal-6460571eb391",
-      "slug": "spengler-efz-eba-m-w-sz-schwyz-opus-personal-ch",
+      "slug": "lattoniere-afc-afp-m-f-opus-personal-ag-zweigniederlassung-altdorf-sz-schwyz",
       "slugByLocale": {
         "de": "spengler-efz-eba-m-w-sz-schwyz-opus-personal-ch",
-        "it": "spengler-efz-eba-m-w-sz-schwyz-opus-personal-ch",
+        "it": "lattoniere-afc-afp-m-f-opus-personal-ag-zweigniederlassung-altdorf-sz-schwyz",
         "en": "spengler-efz-eba-m-w-sz-schwyz-opus-personal-ch",
-        "fr": "spengler-efz-eba-m-w-sz-schwyz-opus-personal-ch"
+        "fr": "ferblantier-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-sz-schwyz"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -3679,7 +3682,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "lattoniere-a-afc-cfp-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
         "sheet-metal-worker-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
@@ -3693,7 +3695,8 @@
         "spengler-efz-eba-m-w-region-sz-schwyz-opus-personal-ch",
         "spengler-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-sz-schwyz",
         "spengler-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
-        "spengler-efz-eba-m-w-opus-personal-ag-zweigniederlassung-altdorf-schwyz"
+        "spengler-efz-eba-m-w-opus-personal-ag-zweigniederlassung-altdorf-schwyz",
+        "spengler-efz-eba-m-w-sz-schwyz-opus-personal-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3702,7 +3705,8 @@
           "lattoniere-afc-cfp-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
           "spengler-efz-eba-m-w-region-sz-schwyz-opus-personal-ch",
           "spengler-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-sz-schwyz",
-          "spengler-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz"
+          "spengler-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
+          "spengler-efz-eba-m-w-sz-schwyz-opus-personal-ch"
         ],
         "en": [
           "sheet-metal-worker-efz-eba-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
@@ -3717,7 +3721,8 @@
           "ferblantier-ere-efz-eba-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
           "ferblantier-ere-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
           "ferblantier-cfc-afp-h-f-opus-personal-ag-zweigniederlassung-altdorf-region-sz-schwyz",
-          "spengler-efz-eba-m-w-opus-personal-ag-zweigniederlassung-altdorf-schwyz"
+          "spengler-efz-eba-m-w-opus-personal-ag-zweigniederlassung-altdorf-schwyz",
+          "spengler-efz-eba-m-w-sz-schwyz-opus-personal-ch"
         ]
       },
       "salaryMin": 69500,

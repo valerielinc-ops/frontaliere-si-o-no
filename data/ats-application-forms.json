@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-20T14:26:30.773Z",
+  "updatedAt": "2026-11-22T13:41:24.705Z",
   "snapshots": {
     "teamtailor:mks-pamp-74eaacf6a62f:773e8366508c": {
       "provider": "teamtailor",
@@ -221,117 +221,6 @@
           },
           {
             "label": "Education history",
-            "type": "textarea",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "By submitting this application, I agree that I have read the Privacy Policy and confirm that MKS PAMP store my personal details to be able to process my job application.",
-            "type": "checkbox",
-            "required": true,
-            "kind": "consent"
-          },
-          {
-            "label": "Yes, MKS PAMP can contact me directly about specific future job opportunities.",
-            "type": "checkbox",
-            "required": false,
-            "kind": "consent"
-          },
-          {
-            "label": "MKS PAMP can use my phone number for recruiting-related communication via SMS.",
-            "type": "checkbox",
-            "required": false,
-            "kind": "consent"
-          }
-        ]
-      }
-    },
-    "teamtailor:mks-pamp-94c930306b63:6e9b8bb0fb74": {
-      "provider": "teamtailor",
-      "jobId": "mks-pamp-94c930306b63",
-      "jobSlug": "tecnico-controllo-qualita-q-team-mks-pamp-castel-san-pietro",
-      "jobUrl": "https://careers.mkspamp.com/jobs/8474301-tecnico-controllo-qualita-q-team",
-      "snapshot": {
-        "provider": "teamtailor",
-        "sourceUrl": "https://careers.mkspamp.com/jobs/8474301-tecnico-controllo-qualita-q-team/applications/new",
-        "jobUrl": "https://careers.mkspamp.com/jobs/8474301-tecnico-controllo-qualita-q-team",
-        "checkedAt": "2026-11-15T20:46:40.842Z",
-        "stage": "This website uses cookies to ensure you get the best experience.",
-        "fields": [
-          {
-            "label": "Sei disponibile a lavorare su 3 turni?",
-            "type": "radio",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Yes",
-              "No"
-            ]
-          },
-          {
-            "label": "Hai esperienza nell'utilizzo di strumenti di misura come calibro, micrometro o comparatore?",
-            "type": "radio",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Yes",
-              "No"
-            ]
-          },
-          {
-            "label": "Descriviti in un minuto",
-            "type": "file",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Sei in possesso di un permesso attivo di lavoro svizzero o hai lavorato in passato in Svizzera?",
-            "type": "radio",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Yes",
-              "No"
-            ]
-          },
-          {
-            "label": "First name",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Last name",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Email",
-            "type": "email",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Phone",
-            "type": "tel",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Work history",
-            "type": "textarea",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Education history",
-            "type": "textarea",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Cover letter",
             "type": "textarea",
             "required": false,
             "kind": "question"
@@ -2814,75 +2703,6 @@
           },
           {
             "label": "CKW darf meine Telefonnummer für die Kommunikation per SMS im Zusammenhang mit der Personalbeschaffung verwenden.",
-            "type": "checkbox",
-            "required": false,
-            "kind": "consent"
-          }
-        ]
-      }
-    },
-    "lever:anybotics-36aacac5b814:efbbdf6d6310": {
-      "provider": "lever",
-      "jobId": "anybotics-36aacac5b814",
-      "jobSlug": "product-manager-ia-fisica-anybotics-zurich",
-      "jobUrl": "https://jobs.lever.co/anybotics/3b337f71-7867-45a7-9efa-ad08cbe84cd5",
-      "snapshot": {
-        "provider": "lever",
-        "sourceUrl": "https://jobs.lever.co/anybotics/3b337f71-7867-45a7-9efa-ad08cbe84cd5/apply",
-        "jobUrl": "https://jobs.lever.co/anybotics/3b337f71-7867-45a7-9efa-ad08cbe84cd5",
-        "checkedAt": "2026-11-17T14:58:42.572Z",
-        "stage": "Product Manager - Physical AI",
-        "fields": [
-          {
-            "label": "Resume/CV",
-            "type": "file",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Full name",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Email",
-            "type": "email",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Phone",
-            "type": "text",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Current location",
-            "type": "text",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Current company",
-            "type": "text",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "LinkedIn URL",
-            "type": "text",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Other website",
-            "type": "text",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Yes, ANYbotics can contact me about future job opportunities for up to 2 years",
             "type": "checkbox",
             "required": false,
             "kind": "consent"
@@ -14443,135 +14263,6 @@
           },
           {
             "label": "Yes, TSMG can contact me about future job opportunities for up to 10 yearsPrivacy policy",
-            "type": "checkbox",
-            "required": false,
-            "kind": "consent"
-          }
-        ]
-      }
-    },
-    "lever:sonarsource-fb2a523c7e03:bf2537dd1812": {
-      "provider": "lever",
-      "jobId": "sonarsource-fb2a523c7e03",
-      "jobSlug": "ricercatore-ai-post-training-sonarsource-sonar-geneva",
-      "jobUrl": "https://jobs.lever.co/sonarsource/13148e9e-7cb4-4c19-ab5d-e1f5dc352ae0",
-      "snapshot": {
-        "provider": "lever",
-        "sourceUrl": "https://jobs.lever.co/sonarsource/13148e9e-7cb4-4c19-ab5d-e1f5dc352ae0/apply",
-        "jobUrl": "https://jobs.lever.co/sonarsource/13148e9e-7cb4-4c19-ab5d-e1f5dc352ae0",
-        "checkedAt": "2026-11-17T15:00:30.712Z",
-        "stage": "AI Researcher - Post-Training",
-        "fields": [
-          {
-            "label": "Resume/CV",
-            "type": "file",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Full name",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Email",
-            "type": "email",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Phone",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Current location",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Current company",
-            "type": "text",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "LinkedIn URL",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Would you now or at any time require employer sponsorship to work in the country this role is located?",
-            "type": "select",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Select...",
-              "Yes",
-              "No"
-            ]
-          },
-          {
-            "label": "What is your current notice period?",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Additional comments surrounding your application",
-            "type": "textarea",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "If you are not currently a resident of the location in which the job is advertised, would you be willing to relocate?",
-            "type": "select",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Select...",
-              "Yes",
-              "No"
-            ]
-          },
-          {
-            "label": "What is your age range?",
-            "type": "radio",
-            "required": false,
-            "kind": "question",
-            "options": [
-              "18-20",
-              "21-29",
-              "30-39",
-              "40-49",
-              "50-59",
-              "60 or older"
-            ]
-          },
-          {
-            "label": "I identify my ethnicity asSelect all that apply",
-            "type": "checkbox",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "What gender do you identify as?",
-            "type": "radio",
-            "required": false,
-            "kind": "question",
-            "options": [
-              "Female",
-              "Male",
-              "Non-binary",
-              "Prefer not to say"
-            ]
-          },
-          {
-            "label": "Yes, Sonar can contact me about future job opportunities for up to 2 yearsPrivacy policy",
             "type": "checkbox",
             "required": false,
             "kind": "consent"
@@ -32770,6 +32461,134 @@
           }
         ]
       }
+    },
+    "workable:guess-europe-2d652c3a8d95:7a3f2a2cada6": {
+      "provider": "workable",
+      "jobId": "guess-europe-2d652c3a8d95",
+      "jobSlug": "e-commerce-b2b-servizio-clienti-support-amazon-guess-europe-sagl-bioggio",
+      "jobUrl": "https://apply.workable.com/guess-europe-sagl/j/37E3AB3E36/apply",
+      "snapshot": {
+        "provider": "workable",
+        "sourceUrl": "https://apply.workable.com/guess-europe-sagl/j/37E3AB3E36/apply/",
+        "jobUrl": "https://apply.workable.com/guess-europe-sagl/j/37E3AB3E36/apply/",
+        "checkedAt": "2026-11-22T13:41:24.532Z",
+        "stage": "",
+        "fields": [
+          {
+            "label": "First name",
+            "type": "text",
+            "required": true,
+            "kind": "question",
+            "section": "Personal information"
+          },
+          {
+            "label": "Last name",
+            "type": "text",
+            "required": true,
+            "kind": "question",
+            "section": "Personal information"
+          },
+          {
+            "label": "Email",
+            "type": "email",
+            "required": true,
+            "kind": "question",
+            "section": "Personal information"
+          },
+          {
+            "label": "Phone",
+            "type": "tel",
+            "required": true,
+            "kind": "question",
+            "section": "Personal information"
+          },
+          {
+            "label": "Resume",
+            "type": "file",
+            "required": true,
+            "kind": "question",
+            "section": "Profile"
+          },
+          {
+            "label": "Cover letter",
+            "type": "textarea",
+            "required": false,
+            "kind": "question",
+            "section": "Details"
+          }
+        ]
+      }
+    },
+    "workable:guess-europe-cf4fbddf454c:6c32444bf5af": {
+      "provider": "workable",
+      "jobId": "guess-europe-cf4fbddf454c",
+      "jobSlug": "content-production-tirocinante-guess-europe-sagl-bioggio",
+      "jobUrl": "https://apply.workable.com/guess-europe-sagl/j/981E625698/apply",
+      "snapshot": {
+        "provider": "workable",
+        "sourceUrl": "https://apply.workable.com/guess-europe-sagl/j/981E625698/apply/",
+        "jobUrl": "https://apply.workable.com/guess-europe-sagl/j/981E625698/apply/",
+        "checkedAt": "2026-11-22T13:41:24.555Z",
+        "stage": "",
+        "fields": [
+          {
+            "label": "First name",
+            "type": "text",
+            "required": true,
+            "kind": "question",
+            "section": "Personal information"
+          },
+          {
+            "label": "Last name",
+            "type": "text",
+            "required": true,
+            "kind": "question",
+            "section": "Personal information"
+          },
+          {
+            "label": "Email",
+            "type": "email",
+            "required": true,
+            "kind": "question",
+            "section": "Personal information"
+          },
+          {
+            "label": "Phone",
+            "type": "tel",
+            "required": true,
+            "kind": "question",
+            "section": "Personal information"
+          },
+          {
+            "label": "Resume",
+            "type": "file",
+            "required": true,
+            "kind": "question",
+            "section": "Profile"
+          },
+          {
+            "label": "Cover letter",
+            "type": "textarea",
+            "required": false,
+            "kind": "question",
+            "section": "Details"
+          },
+          {
+            "label": "Are you currently enrolled in a university path, master course or similar?",
+            "type": "checkbox",
+            "required": true,
+            "kind": "question",
+            "section": "Details"
+          },
+          {
+            "label": "Are you available to start in December?",
+            "type": "checkbox",
+            "required": true,
+            "kind": "question",
+            "section": "Details"
+          }
+        ]
+      }
     }
   },
   "attempts": {
@@ -32786,14 +32605,6 @@
       "jobUrl": "https://careers.mkspamp.com/jobs/8516199-vault-operations-specialist",
       "attemptedAt": "2026-11-15T20:46:37.176Z",
       "nextAttemptAt": "2026-12-15T20:46:40.842Z",
-      "attemptCount": 2,
-      "outcome": "captured"
-    },
-    "teamtailor:mks-pamp-94c930306b63:6e9b8bb0fb74": {
-      "provider": "teamtailor",
-      "jobUrl": "https://careers.mkspamp.com/jobs/8474301-tecnico-controllo-qualita-q-team",
-      "attemptedAt": "2026-11-15T20:46:40.842Z",
-      "nextAttemptAt": "2026-12-15T20:46:42.506Z",
       "attemptCount": 2,
       "outcome": "captured"
     },
@@ -32992,14 +32803,6 @@
       "attemptCount": 1,
       "outcome": "gone",
       "status": 404
-    },
-    "lever:anybotics-36aacac5b814:efbbdf6d6310": {
-      "provider": "lever",
-      "jobUrl": "https://jobs.lever.co/anybotics/3b337f71-7867-45a7-9efa-ad08cbe84cd5",
-      "attemptedAt": "2026-11-17T14:58:42.572Z",
-      "nextAttemptAt": "2026-12-17T14:58:45.101Z",
-      "attemptCount": 1,
-      "outcome": "captured"
     },
     "greenhouse:on-running-328167925f3a:979d4ccc600e": {
       "provider": "greenhouse",
@@ -33822,14 +33625,6 @@
       "jobUrl": "https://jobs.lever.co/tsmg/741da2fa-326b-4c2f-859a-a4d720598dea/apply",
       "attemptedAt": "2026-11-17T15:00:33.163Z",
       "nextAttemptAt": "2026-12-17T15:00:40.571Z",
-      "attemptCount": 1,
-      "outcome": "captured"
-    },
-    "lever:sonarsource-fb2a523c7e03:bf2537dd1812": {
-      "provider": "lever",
-      "jobUrl": "https://jobs.lever.co/sonarsource/13148e9e-7cb4-4c19-ab5d-e1f5dc352ae0",
-      "attemptedAt": "2026-11-17T15:00:30.712Z",
-      "nextAttemptAt": "2026-12-17T15:00:42.955Z",
       "attemptCount": 1,
       "outcome": "captured"
     },
@@ -35063,6 +34858,22 @@
       "jobUrl": "https://axposystemsag.teamtailor.com/jobs/8743968-netzwerk-architekt-in-w-m-d",
       "attemptedAt": "2026-11-20T14:26:29.947Z",
       "nextAttemptAt": "2026-12-20T14:26:30.763Z",
+      "attemptCount": 1,
+      "outcome": "captured"
+    },
+    "workable:guess-europe-2d652c3a8d95:7a3f2a2cada6": {
+      "provider": "workable",
+      "jobUrl": "https://apply.workable.com/guess-europe-sagl/j/37E3AB3E36/apply",
+      "attemptedAt": "2026-11-22T13:41:24.532Z",
+      "nextAttemptAt": "2026-12-22T13:41:24.701Z",
+      "attemptCount": 1,
+      "outcome": "captured"
+    },
+    "workable:guess-europe-cf4fbddf454c:6c32444bf5af": {
+      "provider": "workable",
+      "jobUrl": "https://apply.workable.com/guess-europe-sagl/j/981E625698/apply",
+      "attemptedAt": "2026-11-22T13:41:24.555Z",
+      "nextAttemptAt": "2026-12-22T13:41:24.702Z",
       "attemptCount": 1,
       "outcome": "captured"
     }

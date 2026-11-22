@@ -2202,18 +2202,24 @@
       "previousSlugs": [
         "gestionnaire-d-atelier-h-f-rolex-ch",
         "gestionnaire-d-atelier-m-w-d-rolex-geneve",
-        "workshop-manager-m-w-d-rolex-geneve"
+        "workshop-manager-m-w-d-rolex-geneve",
+        "responsabile-del-workshop-m-f-rolex-geneve",
+        "workshop-manager-m-f-rolex-geneve",
+        "workshop-manager-m-w-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-d-atelier-h-f-rolex-ch"
+          "gestionnaire-d-atelier-h-f-rolex-ch",
+          "responsabile-del-workshop-m-f-rolex-geneve"
         ],
         "en": [
-          "gestionnaire-d-atelier-m-w-d-rolex-geneve"
+          "gestionnaire-d-atelier-m-w-d-rolex-geneve",
+          "workshop-manager-m-f-rolex-geneve"
         ],
         "de": [
           "gestionnaire-d-atelier-m-w-d-rolex-geneve",
-          "workshop-manager-m-w-d-rolex-geneve"
+          "workshop-manager-m-w-d-rolex-geneve",
+          "workshop-manager-m-w-rolex-geneve"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:47.958Z",
@@ -4760,15 +4766,29 @@
       "previousSlugs": [
         "technicien-de-maintenance-h-f-rolex-ch",
         "technicien-de-maintenance-m-w-d-rolex-fribourg",
-        "wartungstechniker-m-w-d-rolex-fribourg"
+        "wartungstechniker-m-w-d-rolex-fribourg",
+        "manutenzione-tecnica-m-f-rolex-fribourg",
+        "maintenance-technician-m-f-rolex-fribourg",
+        "wartungstechniker-m-w-rolex-fribourg",
+        "technicien-de-maintenance-h-f-rolex-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-de-maintenance-h-f-rolex-ch"
+          "technicien-de-maintenance-h-f-rolex-ch",
+          "manutenzione-tecnica-m-f-rolex-fribourg"
         ],
         "de": [
           "technicien-de-maintenance-m-w-d-rolex-fribourg",
-          "wartungstechniker-m-w-d-rolex-fribourg"
+          "wartungstechniker-m-w-d-rolex-fribourg",
+          "wartungstechniker-m-w-rolex-fribourg",
+          "technicien-de-maintenance-h-f-rolex-ch"
+        ],
+        "en": [
+          "maintenance-technician-m-f-rolex-fribourg",
+          "technicien-de-maintenance-h-f-rolex-ch"
+        ],
+        "fr": [
+          "technicien-de-maintenance-h-f-rolex-fribourg"
         ]
       },
       "firstSeenAt": "2026-07-15T10:58:22.706Z",
@@ -4961,10 +4981,13 @@
           "technicien-d-exploitation-h-f-rolex-ch-wuofka"
         ],
         "en": [
-          "technicien-d-exploitation-m-w-d-rolex-geneve"
+          "technicien-d-exploitation-m-w-d-rolex-geneve",
+          "production-technician-m-f-rolex-geneve"
         ],
         "de": [
-          "technicien-d-exploitation-m-w-d-rolex-geneve"
+          "technicien-d-exploitation-m-w-d-rolex-geneve",
+          "produktionstechniker-m-w-rolex-geneve",
+          "betriebstechniker-m-w-d-rolex-geneve"
         ]
       },
       "firstSeenAt": "2026-06-24T22:40:49.255Z",
@@ -5573,12 +5596,12 @@
         "responsable-de-groupe-h-f-rolex-ch-2",
         "gruppenleiter-m-w-rolex-bienne",
         "responsable-de-groupe-h-f-rolex-ch-7c28a8f5",
-        "group-manager-m-w-d-rolex-bienne"
+        "group-manager-m-w-d-rolex-bienne",
+        "gestione-gruppo-m-f-rolex-bienne",
+        "group-manager-m-f-rolex-bienne-768749"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-de-groupe-h-f-rolex-ch-301b59df",
-          "responsable-de-groupe-h-f-rolex-ch-ab22ac95",
           "responsable-de-groupe-h-f-rolex-ch-bfa1fe31",
           "responsable-de-groupe-h-f-rolex-ch-72191ab0",
           "responsable-de-groupe-h-f-rolex-ch-2ceba6c7",
@@ -5596,15 +5619,21 @@
           "responsable-de-groupe-h-f-rolex-ch-836f6bd3",
           "responsable-de-groupe-h-f-rolex-ch",
           "responsable-de-groupe-h-f-rolex-ch-b9335b37",
-          "responsable-de-groupe-h-f-rolex-ch-e9ba67c4"
+          "responsable-de-groupe-h-f-rolex-ch-e9ba67c4",
+          "gestione-gruppo-m-f-rolex-bienne",
+          "responsable-de-groupe-h-f-rolex-ch-2",
+          "responsable-de-groupe-h-f-rolex-ch-301b59df",
+          "responsable-de-groupe-h-f-rolex-ch-ab22ac95"
         ],
         "en": [
           "responsable-de-groupe-h-f-rolex-ch",
-          "responsable-de-groupe-h-f-rolex-ch-2"
+          "responsable-de-groupe-h-f-rolex-ch-2",
+          "group-manager-m-f-rolex-bienne-768749"
         ],
         "de": [
           "responsable-de-groupe-h-f-rolex-ch",
-          "gruppenleiter-m-w-rolex-bienne"
+          "gruppenleiter-m-w-rolex-bienne",
+          "responsable-de-groupe-h-f-rolex-ch-2"
         ],
         "fr": [
           "responsable-de-groupe-h-f-rolex-ch-7c28a8f5"
@@ -8254,193 +8283,6 @@
       "validThroughSource": "last-observed-window"
     },
     {
-      "id": "rolex-f8d8500c61c4",
-      "slug": "manutenzione-tecnica-m-f-rolex-fribourg",
-      "slugByLocale": {
-        "it": "manutenzione-tecnica-m-f-rolex-fribourg",
-        "en": "maintenance-technician-m-f-rolex-fribourg",
-        "de": "wartungstechniker-m-w-rolex-fribourg",
-        "fr": "technicien-de-maintenance-h-f-rolex-ch"
-      },
-      "company": "Rolex",
-      "companyKey": "rolex",
-      "companyDomain": "rolex.com",
-      "title": "Technicien de maintenance (H/F)",
-      "titleByLocale": {
-        "it": "Manutenzione Tecnica (M/F)",
-        "en": "Maintenance Technician (M/F)",
-        "de": "Wartungstechniker (M/W)",
-        "fr": "Technicien de maintenance (H/F)"
-      },
-      "description": "Introduction\n\nDans le cadre du développement de nos activités dans le canton de Fribourg, nous constituons un vivier de talents pour accompagner le déploiement de notre nouveau site industriel à Bulle. Dans cette optique, nous rechercherons prochainement des profils de Technicien de maintenance (H/F) afin de renforcer nos équipes.\n\nResponsabilités\n\n• Assurer la maintenance corrective des équipements de production, des stocks automatiques ainsi que des robots mobiles autonomes et véhicules à guidage automatique\n\n• Appliquer les méthodologies de diagnostic, identifier les causes premières des dysfonctionnements et remettre les équipements en service dans les délais attendus\n\n• Réaliser les opérations de maintenance préventive et contribuer à l’amélioration des plans de maintenance\n\n• Préparer les interventions selon les contraintes d’exploitation, analyser l’historique des équipements et respecter les consignes de sécurité et d’environnement\n\n• Proposer et mettre en œuvre des actions de fiabilisation, des modifications techniques et des améliorations des équipements\n\n• Coordonner et accompagner les intervenants internes et externes, en assurant le suivi et la validation de leurs interventions\n\n• Partager les connaissances techniques avec les équipes et collaborer avec les partenaires internes dans le cadre de projets et de travaux transverses\n\nProfil\n\n• Formation technique dans les domaines de la mécanique, de l’automatisation, de l’électrotechnique ou équivalent\n\n• Expérience dans la maintenance d’équipements industriels automatisés, idéalement dans un environnement de production exigeant\n\n• Polyvalence technique confirmée en mécanique, électricité, pneumatique et hydraulique\n\n• Connaissances en automatisation, commandes numériques, robotique et informatique industrielle\n\n• Maîtrise des outils informatiques usuels et d’un système de gestion intégré\n\n• Connaissances de l’anglais et/ou de l’allemand de niveau intermédiaire (B1), un atout\n\n• Aisance en communication, esprit d’équipe, rigueur, autonomie et curiosité technique\n\n• Disponibilité pour des horaires flexibles, des déplacements intersites et un service d’astreinte selon les besoins\n\nConclusion\n\nNous vous offrons un environnement stimulant, d’excellentes conditions de travail, des solutions de flexibilisation du temps de travail et des prestations sociales de premier ordre.\n\nNous vous remercions d'adresser un dossier de candidature complet (CV, lettre de motivation, certificats et diplômes).",
-      "descriptionByLocale": {
-        "it": "Introduzione\n\nNell'ambito dello sviluppo delle nostre attività nel cantone di Fribourg, siamo un pool di talenti per accompagnare l'implementazione del nostro nuovo sito industriale a Bulle. A tal fine, saremo presto alla ricerca di profili tecnici di manutenzione (M/F) per rafforzare i nostri team.\n\nresponsabilità\n\n• Manutenzione correttiva delle attrezzature di produzione, inventario automatico, robot mobili autonomi e veicoli autoguida\n\n• Applicare metodologie diagnostiche, identificare le cause principali di malfunzionamenti e restituire le apparecchiature al servizio entro il tempo previsto\n\n• Condurre operazioni di manutenzione preventiva e contribuire a migliorare i piani di manutenzione\n\n• Preparare gli interventi secondo vincoli operativi, analizzare la storia delle attrezzature e seguire le istruzioni per la sicurezza e l'ambiente\n\n• Proporre e implementare azioni di affidabilità, modifiche tecniche e miglioramenti delle attrezzature\n\n• Coordinare e sostenere gli stakeholder interni ed esterni monitorando e convalidando i loro interventi\n\n• Condividere le conoscenze tecniche con i team e collaborare con i partner interni in progetti di taglio trasversale e lavoro\n\nProfilo\n\n• Formazione tecnica in meccanica, automazione, ingegneria elettrica o equivalente\n\n• Esperienza nella manutenzione di attrezzature industriali automatizzate, idealmente in un ambiente di produzione esigente\n\n• Confermata versatilità tecnica in meccanica, elettricità, pneumatica e idraulica\n\n• Conoscenza dell'automazione, dei controlli digitali, della robotica e dell'informatica industriale\n\n• Masterizzazione di strumenti IT comuni e sistema di gestione integrato\n\n• Conoscenza dell'inglese e/o del tedesco intermedio (B1), un bene\n\n• Comunicazione, spirito di squadra, rigore, autonomia e curiosità tecnica\n\n• Disponibilità di orari flessibili, viaggi intersiti e servizio periodico come richiesto\n\nConclusioni\n\nVi offriamo un ambiente stimolante, eccellenti condizioni di lavoro, soluzioni flessibili per il tempo di lavoro e migliori vantaggi sociali.\n\nGrazie per l'invio di un pacchetto completo (CV, lettera di copertura, certificati e diplomi).",
-        "en": "Introduction\n\nAs part of the development of our activities in the canton of Fribourg, we are a pool of talents to accompany the deployment of our new industrial site in Bulle. To this end, we will soon be looking for (M/F) Maintenance Technician profiles to strengthen our teams.\n\nResponsibilities\n\n• Corrective maintenance of production equipment, automatic inventory, autonomous mobile robots and self-guided vehicles\n\n• Apply diagnostic methodologies, identify the root causes of malfunctions and return equipment to service within the expected timeframe\n\n• Conduct preventive maintenance operations and help improve maintenance plans\n\n• Prepare interventions according to operational constraints, analyse equipment history and follow safety and environmental instructions\n\n• Propose and implement reliability actions, technical modifications and equipment improvements\n\n• Coordinate and support internal and external stakeholders by monitoring and validating their interventions\n\n• Share technical knowledge with teams and collaborate with internal partners in cross-cutting projects and work\n\nProfile\n\n• Technical training in mechanics, automation, electrical engineering or equivalent\n\n• Experience in maintenance of automated industrial equipment, ideally in a demanding production environment\n\n• Confirmed technical versatility in mechanics, electricity, pneumatic and hydraulics\n\n• Knowledge of automation, digital controls, robotics and industrial computing\n\n• Mastery of common IT tools and integrated management system\n\n• Knowledge of English and/or intermediate German (B1), an asset\n\n• Communication, team spirit, rigor, autonomy and technical curiosity\n\n• Availability for flexible schedules, intersite travel and periodic service as required\n\nConclusion\n\nWe offer you a stimulating environment, excellent working conditions, flexible working time solutions and top social benefits.\n\nThank you for sending a complete application package (CV, cover letter, certificates and diplomas).",
-        "de": "Einleitung\n\nIm Rahmen der Entwicklung unserer Aktivitäten im Kanton Freiburg begleiten wir als Talentpool den Aufbau unseres neuen Industriestandorts in Bulle. Zu diesem Zweck werden wir in Kürze nach (M/W) Wartungstechnikerprofilen suchen, um unsere Teams zu stärken.\n\nZuständigkeiten\n\n• Korrekte Wartung von Produktionsanlagen, automatische Inventur, autonome mobile Roboter und selbstgeführte Fahrzeuge\n\n• Anwendung von Diagnosemethoden, Ermittlung der Ursachen von Fehlfunktionen und Rückgabe der Geräte innerhalb des erwarteten Zeitrahmens\n\n• Durchführung von vorbeugenden Wartungsarbeiten und Unterstützung bei der Verbesserung von Wartungsplänen\n\n• Bereiten Sie Interventionen nach Betriebsbeschränkungen vor, analysieren Sie die Ausrüstungsgeschichte und befolgen Sie Sicherheits- und Umweltanweisungen\n\n• Vorschlag und Umsetzung von Zuverlässigkeitsmaßnahmen, technischen Änderungen und Ausrüstungsverbesserungen\n\n• Koordination und Unterstützung interner und externer Stakeholder durch Überwachung und Validierung ihrer Interventionen\n\n• Teilen Sie technisches Wissen mit Teams und arbeiten Sie mit internen Partnern in Querschnittsprojekten und -arbeiten zusammen\n\nProfil\n\n• Technische Ausbildung in Mechanik, Automatisierung, Elektrotechnik oder gleichwertigem\n\n• Erfahrung in der Wartung automatisierter Industrieanlagen, idealerweise in einer anspruchsvollen Produktionsumgebung\n\n• Bestätigte technische Vielseitigkeit in Mechanik, Elektrizität, Pneumatik und Hydraulik\n\n• Kenntnisse in Automatisierung, digitaler Steuerung, Robotik und Industrial Computing\n\n• Beherrschung gemeinsamer IT-Tools und integriertes Managementsystem\n\n• Englischkenntnisse und/oder mittleres Deutsch (B1), ein Asset\n\n• Kommunikation, Teamgeist, Strenge, Autonomie und technische Neugier\n\n• Verfügbarkeit für flexible Fahrpläne, Intersite-Reisen und periodischen Service nach Bedarf\n\nSchlussfolgerung\n\nWir bieten Ihnen ein anregendes Umfeld, hervorragende Arbeitsbedingungen, flexible Arbeitszeitlösungen und erstklassige Sozialleistungen.\n\nVielen Dank für die Zusendung eines vollständigen Bewerbungspakets (Lebenslauf, Anschreiben, Zertifikate und Diplome).",
-        "fr": "Introduction\n\nDans le cadre du développement de nos activités dans le canton de Fribourg, nous constituons un vivier de talents pour accompagner le déploiement de notre nouveau site industriel à Bulle. Dans cette optique, nous rechercherons prochainement des profils de Technicien de maintenance (H/F) afin de renforcer nos équipes.\n\nResponsabilités\n\n• Assurer la maintenance corrective des équipements de production, des stocks automatiques ainsi que des robots mobiles autonomes et véhicules à guidage automatique\n\n• Appliquer les méthodologies de diagnostic, identifier les causes premières des dysfonctionnements et remettre les équipements en service dans les délais attendus\n\n• Réaliser les opérations de maintenance préventive et contribuer à l’amélioration des plans de maintenance\n\n• Préparer les interventions selon les contraintes d’exploitation, analyser l’historique des équipements et respecter les consignes de sécurité et d’environnement\n\n• Proposer et mettre en œuvre des actions de fiabilisation, des modifications techniques et des améliorations des équipements\n\n• Coordonner et accompagner les intervenants internes et externes, en assurant le suivi et la validation de leurs interventions\n\n• Partager les connaissances techniques avec les équipes et collaborer avec les partenaires internes dans le cadre de projets et de travaux transverses\n\nProfil\n\n• Formation technique dans les domaines de la mécanique, de l’automatisation, de l’électrotechnique ou équivalent\n\n• Expérience dans la maintenance d’équipements industriels automatisés, idéalement dans un environnement de production exigeant\n\n• Polyvalence technique confirmée en mécanique, électricité, pneumatique et hydraulique\n\n• Connaissances en automatisation, commandes numériques, robotique et informatique industrielle\n\n• Maîtrise des outils informatiques usuels et d’un système de gestion intégré\n\n• Connaissances de l’anglais et/ou de l’allemand de niveau intermédiaire (B1), un atout\n\n• Aisance en communication, esprit d’équipe, rigueur, autonomie et curiosité technique\n\n• Disponibilité pour des horaires flexibles, des déplacements intersites et un service d’astreinte selon les besoins\n\nConclusion\n\nNous vous offrons un environnement stimulant, d’excellentes conditions de travail, des solutions de flexibilisation du temps de travail et des prestations sociales de premier ordre.\n\nNous vous remercions d'adresser un dossier de candidature complet (CV, lettre de motivation, certificats et diplômes)."
-      },
-      "location": "Fribourg",
-      "canton": "FR",
-      "url": "https://www.carrieres-rolex.com/Rolex/job/Fribourg-Technicien-de-maintenance-%28HF%29-Frib/1449067333/",
-      "source": "Rolex Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:27:05.412Z",
-      "addressLocality": "Fribourg",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Luxury / Watchmaking (Manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-19T00:00:00Z",
-      "postedDate": "2026-10-19T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Fribourg-Technicien-de-maintenance-%28HF%29-Frib/1449067333/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "technicien-de-maintenance-h-f-rolex-ch",
-        "technicien-de-maintenance-h-f-rolex-fribourg",
-        "tecnica-di-manutenzione-h-f-rolex-fribourg",
-        "maintenance-technician-h-f-rolex-fribourg",
-        "wartungstechniker-m-w-d-rolex-fribourg",
-        "technicien-de-maintenance-m-w-d-rolex-fribourg",
-        "instandhaltungstechniker-h-f-rolex-fribourg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technicien-de-maintenance-h-f-rolex-ch",
-          "tecnica-di-manutenzione-h-f-rolex-fribourg"
-        ],
-        "en": [
-          "technicien-de-maintenance-h-f-rolex-ch",
-          "maintenance-technician-h-f-rolex-fribourg"
-        ],
-        "de": [
-          "technicien-de-maintenance-h-f-rolex-ch",
-          "wartungstechniker-m-w-d-rolex-fribourg",
-          "technicien-de-maintenance-m-w-d-rolex-fribourg",
-          "instandhaltungstechniker-h-f-rolex-fribourg"
-        ],
-        "fr": [
-          "technicien-de-maintenance-h-f-rolex-fribourg"
-        ]
-      },
-      "firstSeenAt": "2026-07-24T11:09:30.339Z",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77000,
-          "maxValue": 116500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1700",
-      "streetAddress": "Fribourg",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:27:05.412Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "rolex-781583df431b",
-      "slug": "tecnico-di-produzione-h-f-rolex-geneve",
-      "slugByLocale": {
-        "it": "tecnico-di-produzione-h-f-rolex-geneve",
-        "en": "production-technician-m-f-rolex-geneve",
-        "de": "produktionstechniker-m-w-rolex-geneve",
-        "fr": "technicien-d-exploitation-h-f-rolex-ch"
-      },
-      "company": "Rolex",
-      "companyKey": "rolex",
-      "companyDomain": "rolex.com",
-      "title": "Technicien d'exploitation (H/F)",
-      "titleByLocale": {
-        "it": "Tecnica operativa (M/F)",
-        "en": "Operating Technician (M/F)",
-        "de": "Betriebstechniker (M/W)",
-        "fr": "Technicien d'exploitation (H/F)"
-      },
-      "description": "Introduction\n\nPour notre division Production , nous recherchons un Technicien d'exploitation (H/F) dont la mission principale sera de coordonner et superviser les différentes activités de l’atelier de production - usinage et terminaison. Associé à l'ensemble du processus de production, il est capable d'intégrer une équipe spécialisée pluridisciplinaire et de collaborer avec les services supports. Il participe de manière collégiale au pilotage et à l'animation de la performance du flux sur les axes qualité, coûts, délais. De plus, il est garant des processus de formation des collaborateurs.\n\nResponsabilités\n\n• Garantir le bon fonctionnement et la performance des moyens de production en respectant les objectifs du secteur,\n\n• Soutenir quotidiennement les métiers de l'atelier en cas de difficulté technique et qualité,\n\n• Être le répondant technique de la zone, analyser les risques, les communiquer à l'atelier et les suivre,\n\n• Gérer les outillages et les consommables,\n\n• Définir et tenir à jour les indicateurs,\n\n• Piloter et animer les différentes séances techniques,\n\n• Garantir la fiabilité des données de base de l'atelier et le respect des procédures,\n\n• Analyser les données de production et veiller à la fiabilité des saisies de notre système d’information,\n\n• Vérifier la conformité des nouveaux outils et des nouveaux procédés,\n\n• Participer à la qualification des nouveaux produits, aux actions d’amélioration continue ainsi qu’à l’optimisation des modes opératoires.\n\nProfil\n\n• Diplôme de Technicien ES ou diplôme jugé équivalent,\n\n• Première expérience dans le domaine industriel,\n\n• Connaissance d'outils qualité de résolution de problème (8D, Pareto, etc ...),\n\n• Capacité d’analyse de données importantes,\n\n• Esprit d’équipe prononcé, à l'écoute et autonome,\n\n• Excellente communication écrite et orale,\n\n• Expérience horlogère et notion de conduite de projet : un atout,\n\n• Compétences SAP : un atout.\n\nConclusion\n\nNous vous offrons un environnement stimulant, d’excellentes conditions de travail, des solutions de flexibilisation du temps de travail et des prestations sociales de premier ordre.\n\nNous vous remercions d'adresser un dossier de candidature complet (CV, lettre de motivation, certificats et diplômes).",
-      "descriptionByLocale": {
-        "it": "Introduzione\n\nPer la nostra divisione di produzione, stiamo cercando un tecnico operativo (M/F) la cui missione principale sarà quella di coordinare e supervisionare le varie attività del laboratorio di produzione - lavorazione e finitura. In combinazione con l'intero processo produttivo, è in grado di integrare un team multidisciplinare di specialisti e collaborare con i servizi di supporto. È un partecipante collegiale nella gestione e facilitazione delle prestazioni di flusso sulle linee di qualità, costo e tempo. Inoltre, è il garante dei processi di formazione dei dipendenti.\n\nresponsabilità\n\n• Garantire il corretto funzionamento e le prestazioni dei mezzi di produzione, nel rispetto degli obiettivi del settore,\n\n• Sostenere quotidianamente gli scambi del workshop in caso di difficoltà tecniche e qualità,\n\n• Essere sponsor tecnico della zona, analizzare i rischi, comunicarli al workshop e seguirli,\n\n• Gestione di strumenti e materiali di consumo,\n\n• Definire e mantenere gli indicatori,\n\n• Guidare e guidare le varie sessioni tecniche,\n\n• Garantire l'affidabilità dei dati fondamentali del workshop e il rispetto delle procedure,\n\n• Analizzare i dati di produzione e garantire l'affidabilità delle voci del nostro sistema informativo,\n\n• Verificare la conformità di nuovi strumenti e processi,\n\n• Partecipazione alla qualificazione di nuovi prodotti, azioni di miglioramento continuo e ottimizzazione delle procedure operative.\n\nProfilo\n\n• Diploma di ES Tecnico o diploma ritenuto equivalente,\n\n• Prima esperienza industriale,\n\n• Conoscenza degli strumenti di qualità di problem solving (8D, Pareto, ecc...),\n\n• Capacità di analizzare dati importanti,\n\n• Un forte spirito di squadra, ascolto e autonomia,\n\n• Ottima comunicazione scritta e orale,\n\n• Esperienza orologiera e concetto di condotta di progetto: un asset,\n\n• Competenze SAP: un bene.\n\nConclusioni\n\nVi offriamo un ambiente stimolante, eccellenti condizioni di lavoro, soluzioni flessibili per il tempo di lavoro e migliori vantaggi sociali.\n\nGrazie per l'invio di un pacchetto completo (CV, lettera di copertura, certificati e diplomi).",
-        "en": "Introduction\n\nFor our Production Division, we are looking for a (M/F) Operations Technician whose main mission will be to coordinate and supervise the various activities of the production workshop - machining and finishing. Combined with the entire production process, it is able to integrate a multidisciplinary team of specialists and collaborate with support services. He is a collegiate participant in the management and facilitation of the flow performance on the quality, cost and time lines. In addition, it is the guarantor of employee training processes.\n\nResponsibilities\n\n• Ensuring the proper functioning and performance of the means of production, while respecting the objectives of the sector,\n\n• Support daily the workshop's trades in the event of technical difficulties and quality,\n\n• Be the technical sponsor of the area, analyze the risks, communicate them to the workshop and follow them,\n\n• Managing tools and consumables,\n\n• Define and maintain indicators,\n\n• Lead and lead the various technical sessions,\n\n• Ensuring the reliability of the workshop's core data and compliance with procedures,\n\n• Analyze production data and ensure the reliability of our information system entries,\n\n• Check compliance of new tools and processes,\n\n• Participate in the qualification of new products, continuous improvement actions and optimisation of operating procedures.\n\nProfile\n\n• Diploma of ES Technician or diploma deemed equivalent,\n\n• First industrial experience,\n\n• Knowledge of problem solving quality tools (8D, Pareto, etc...),\n\n• Ability to analyse important data,\n\n• A strong team spirit, listening and autonomous,\n\n• Excellent written and oral communication,\n\n• Watchmaking experience and concept of project conduct: an asset,\n\n• SAP skills: an asset.\n\nConclusion\n\nWe offer you a stimulating environment, excellent working conditions, flexible working time solutions and top social benefits.\n\nThank you for sending a complete application package (CV, cover letter, certificates and diplomas).",
-        "de": "Einleitung\n\nFür unsere Produktionsabteilung suchen wir einen (M/W)-Betriebstechniker, dessen Hauptaufgabe darin besteht, die verschiedenen Aktivitäten der Produktionswerkstatt - Bearbeitung und Endbearbeitung - zu koordinieren und zu überwachen. In Kombination mit dem gesamten Produktionsprozess ist es in der Lage, ein multidisziplinäres Team von Spezialisten zu integrieren und mit Support-Services zusammenzuarbeiten. Er ist kollegialer Teilnehmer an der Verwaltung und Erleichterung der Flow-Performance auf den Qualitäts-, Kosten- und Zeitlinien. Darüber hinaus ist es der Garant für Mitarbeiterschulungsprozesse.\n\nZuständigkeiten\n\n• Gewährleistung des ordnungsgemäßen Funktionierens und der Leistungsfähigkeit der Produktionsmittel unter Wahrung der Ziele des Sektors;\n\n• Unterstützung täglich die Gewerke der Werkstatt im Falle von technischen Schwierigkeiten und Qualität,\n\n• Seien Sie der technische Sponsor des Bereichs, analysieren Sie die Risiken, kommunizieren Sie sie dem Workshop und folgen Sie ihnen,\n\n• Verwaltung von Werkzeugen und Verbrauchsmaterialien,\n\n• Definieren und pflegen Sie Indikatoren,\n\n• Führen und leiten Sie die verschiedenen technischen Sitzungen,\n\n• Gewährleistung der Zuverlässigkeit der Kerndaten des Workshops und Einhaltung der Verfahren,\n\n• Produktionsdaten analysieren und die Zuverlässigkeit unserer Informationssystemeinträge sicherstellen,\n\n• Überprüfung der Konformität neuer Werkzeuge und Prozesse,\n\n• Beteiligen Sie sich an der Qualifizierung neuer Produkte, kontinuierlichen Verbesserungsmaßnahmen und Optimierung der Betriebsverfahren.\n\nProfil\n\n• Diplom eines Technikers oder als gleichwertig erachtetes Diplom,\n\n• Erste industrielle Erfahrung,\n\n• Kenntnisse über Qualitätswerkzeuge zur Problemlösung (8D, Pareto, etc...),\n\n• Fähigkeit, wichtige Daten zu analysieren,\n\n• Ein starker Teamgeist, Zuhören und autonom,\n\n• Ausgezeichnete schriftliche und mündliche Kommunikation,\n\n• Uhrmachererfahrung und Konzept der Projektdurchführung: ein Vermögenswert,\n\n• SAP Skills: ein Asset.\n\nSchlussfolgerung\n\nWir bieten Ihnen ein anregendes Umfeld, hervorragende Arbeitsbedingungen, flexible Arbeitszeitlösungen und erstklassige Sozialleistungen.\n\nVielen Dank für die Zusendung eines vollständigen Bewerbungspakets (Lebenslauf, Anschreiben, Zertifikate und Diplome).",
-        "fr": "Introduction\n\nPour notre division Production , nous recherchons un Technicien d'exploitation (H/F) dont la mission principale sera de coordonner et superviser les différentes activités de l’atelier de production - usinage et terminaison. Associé à l'ensemble du processus de production, il est capable d'intégrer une équipe spécialisée pluridisciplinaire et de collaborer avec les services supports. Il participe de manière collégiale au pilotage et à l'animation de la performance du flux sur les axes qualité, coûts, délais. De plus, il est garant des processus de formation des collaborateurs.\n\nResponsabilités\n\n• Garantir le bon fonctionnement et la performance des moyens de production en respectant les objectifs du secteur,\n\n• Soutenir quotidiennement les métiers de l'atelier en cas de difficulté technique et qualité,\n\n• Être le répondant technique de la zone, analyser les risques, les communiquer à l'atelier et les suivre,\n\n• Gérer les outillages et les consommables,\n\n• Définir et tenir à jour les indicateurs,\n\n• Piloter et animer les différentes séances techniques,\n\n• Garantir la fiabilité des données de base de l'atelier et le respect des procédures,\n\n• Analyser les données de production et veiller à la fiabilité des saisies de notre système d’information,\n\n• Vérifier la conformité des nouveaux outils et des nouveaux procédés,\n\n• Participer à la qualification des nouveaux produits, aux actions d’amélioration continue ainsi qu’à l’optimisation des modes opératoires.\n\nProfil\n\n• Diplôme de Technicien ES ou diplôme jugé équivalent,\n\n• Première expérience dans le domaine industriel,\n\n• Connaissance d'outils qualité de résolution de problème (8D, Pareto, etc ...),\n\n• Capacité d’analyse de données importantes,\n\n• Esprit d’équipe prononcé, à l'écoute et autonome,\n\n• Excellente communication écrite et orale,\n\n• Expérience horlogère et notion de conduite de projet : un atout,\n\n• Compétences SAP : un atout.\n\nConclusion\n\nNous vous offrons un environnement stimulant, d’excellentes conditions de travail, des solutions de flexibilisation du temps de travail et des prestations sociales de premier ordre.\n\nNous vous remercions d'adresser un dossier de candidature complet (CV, lettre de motivation, certificats et diplômes)."
-      },
-      "location": "Genève",
-      "canton": "GE",
-      "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Technicien-d'exploitation-%28HF%29-Gen%C3%A8/1365301133/",
-      "source": "Rolex Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:27:04.879Z",
-      "addressLocality": "Genève",
-      "postalCode": "1201",
-      "addressRegion": "Genève",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Luxury / Watchmaking (Manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-19T02:00:00Z",
-      "postedDate": "2026-10-19T02:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Technicien-d'exploitation-%28HF%29-Gen%C3%A8/1365301133/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "technicien-d-exploitation-h-f-rolex-ch",
-        "technicien-d-exploitation-m-w-d-rolex-geneve",
-        "tecnico-operativo-h-f-rolex-geneve",
-        "operations-technician-m-f-rolex-geneve",
-        "betriebstechniker-m-f-rolex-geneve",
-        "betriebstechniker-m-w-d-rolex-geneve"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technicien-d-exploitation-h-f-rolex-ch",
-          "tecnico-operativo-h-f-rolex-geneve"
-        ],
-        "en": [
-          "technicien-d-exploitation-m-w-d-rolex-geneve",
-          "operations-technician-m-f-rolex-geneve"
-        ],
-        "de": [
-          "technicien-d-exploitation-m-w-d-rolex-geneve",
-          "betriebstechniker-m-f-rolex-geneve",
-          "betriebstechniker-m-w-d-rolex-geneve"
-        ]
-      },
-      "firstSeenAt": "2026-06-24T22:40:49.255Z",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 71000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Genève",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:27:04.879Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
       "id": "rolex-257593af87b8",
       "slug": "manutenzione-edificio-tecnico-m-f-rolex-fribourg",
       "slugByLocale": {
@@ -9349,88 +9191,6 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:26:59.023Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "rolex-2c3c62eae884",
-      "slug": "gestione-gruppo-m-f-rolex-bienne",
-      "slugByLocale": {
-        "it": "gestione-gruppo-m-f-rolex-bienne",
-        "en": "group-manager-m-f-rolex-bienne-768749",
-        "de": "gruppenleiter-m-w-rolex-bienne",
-        "fr": "responsable-de-groupe-h-f-rolex-ch"
-      },
-      "company": "Rolex",
-      "companyKey": "rolex",
-      "companyDomain": "rolex.com",
-      "title": "Responsable de groupe (H/F)",
-      "titleByLocale": {
-        "it": "Gestione gruppo (M/F)",
-        "en": "Group Manager (M/F)",
-        "de": "Gruppenleiter (M/W)",
-        "fr": "Responsable de groupe (H/F)"
-      },
-      "description": "Introduction\n\nPour notre secteur Ebauches, au sein d'un atelier de garnissage, nous recherchons un Responsable de groupe (H/F) dont la mission principale sera de conduire une équipe plusridisciplinaire de production.\n\nResponsabilités\n\n• Encadrer, en binôme, une équipe d’une cinquantaine de collaborateurs/trices en garnissage d'ébauches\n\n• Organiser l’activité quotidienne et garantir l’atteinte des objectifs de sécurité, qualité, coûts et délais\n\n• Planifier et répartir les activités selon les priorités de production\n\n• Veiller au respect des standards de sécurité, de qualité et de production\n\n• Accompagner les collaborateurs/trices au quotidien et contribuer au développement de leurs compétences\n\n• Participer aux projets d’amélioration continue de l’atelier\n\nProfil\n\n• Diplôme de Technicien ES en processus d'entreprise, ingénieur ou formation équivalente\n\n• Expérience en management et en animation d’équipe\n\n• Maîtrise des enjeux de gestion de production : planification, qualité, industrialisation, données de base et suivi de performance\n\n• Capacité à animer des groupes de travail et à conduire des démarches de résolution de problème\n\n• Connaissance des démarches et outils d’amélioration continue\n\n• Leadership dynamique et fédérateur, avec la capacité à motiver une équipe pluridisciplinaire et multiculturelle\n\n• Bon sens relationnel, écoute active et capacité à instaurer un climat de confiance\n\nConclusion\n\nNous vous offrons un environnement stimulant, d’excellentes conditions de travail, des solutions de flexibilisation du temps de travail et des prestations sociales de premier ordre.\n\nNous vous remercions d'adresser un dossier de candidature complet (CV, lettre de motivation, certificats et diplômes).",
-      "descriptionByLocale": {
-        "it": "Introduzione\n\nPer il nostro settore Ebauches, in un workshop di decorazione, stiamo cercando un Group Manager (M/F) la cui missione principale sarà quella di guidare un team di produzione più disciplinato.\n\nresponsabilità\n\n• Allenamento, in coppia, un team di circa cinquanta dipendenti nella decorazione di bozze\n\n• Organizzare l'attività quotidiana e garantire il raggiungimento degli obiettivi di sicurezza, qualità, costo e tempestività\n\n• Pianificare e assegnare attività secondo le priorità di produzione\n\n• Garantire il rispetto degli standard di sicurezza, qualità e produzione\n\n• Sostenere i dipendenti ogni giorno e contribuire allo sviluppo delle loro competenze\n\n• Partecipazione a progetti di miglioramento del workshop in corso\n\nProfilo\n\n• Diploma di tecnico ES nel processo aziendale, ingegnere o formazione equivalente\n\n• Esperienza nella gestione e nell'animazione del team\n\n• Problemi di gestione della produzione: pianificazione, qualità, industrializzazione, monitoraggio dei dati di base e delle prestazioni\n\n• Capacità di condurre gruppi di lavoro e approcci di problem solving\n\n• Conoscenza degli approcci e degli strumenti per un miglioramento continuo\n\n• leadership dinamica e unificante, con la capacità di motivare un team multidisciplinare e multiculturale\n\n• Buone relazioni, ascolto attivo e costruzione di fiducia\n\nConclusioni\n\nVi offriamo un ambiente stimolante, eccellenti condizioni di lavoro, soluzioni flessibili per il tempo di lavoro e migliori vantaggi sociali.\n\nGrazie per l'invio di un pacchetto completo di candidatura (CV, lettera di copertura, certificati e diplomi).",
-        "en": "Introduction\n\nFor our Ebauches sector, in a garnishing workshop, we are looking for a (M/F) Group Manager whose main mission will be to lead a more disciplined production team.\n\nResponsibilities\n\n• Coaching, in pairs, a team of about fifty employees in the garnishing of drafts\n\n• Organize daily activity and ensure the achievement of safety, quality, cost and timeliness objectives\n\n• Plan and allocate activities according to production priorities\n\n• Ensure compliance with safety, quality and production standards\n\n• Support employees on a daily basis and contribute to the development of their skills\n\n• Participate in ongoing workshop improvement projects\n\nProfile\n\n• Diploma of ES technician in business process, engineer or equivalent training\n\n• Experience in team management and animation\n\n• Controlling production management issues: planning, quality, industrialization, baseline data and performance monitoring\n\n• Ability to lead working groups and problem-solving approaches\n\n• Knowledge of approaches and tools for continuous improvement\n\n• Dynamic and unifying leadership, with the ability to motivate a multidisciplinary and multicultural team\n\n• Good relations, active listening and confidence building\n\nConclusion\n\nWe offer you a stimulating environment, excellent working conditions, flexible working time solutions and top social benefits.\n\nThank you for sending a complete application package (CV, cover letter, certificates and diplomas).",
-        "de": "Einleitung\n\nFür unseren Sektor Ebauches suchen wir in einer Garnierwerkstatt einen (M/W) Group Manager, dessen Hauptaufgabe es sein wird, ein disziplinierteres Produktionsteam zu führen.\n\nZuständigkeiten\n\n• Coaching, in Paaren, ein Team von etwa fünfzig Mitarbeitern in der Garnierung von Entwürfen\n\n• Organisation der täglichen Aktivitäten und Gewährleistung der Erreichung der Ziele für Sicherheit, Qualität, Kosten und Aktualität\n\n• Planung und Zuweisung von Aktivitäten nach Produktionsprioritäten\n\n• Gewährleistung der Einhaltung von Sicherheits-, Qualitäts- und Produktionsstandards\n\n• Mitarbeiter täglich unterstützen und zur Entwicklung ihrer Fähigkeiten beitragen\n\n• Teilnahme an laufenden Werkstattverbesserungsprojekten\n\nProfil\n\n• Diplom eines ES-Technikers in Geschäftsprozess, Ingenieur oder einer gleichwertigen Ausbildung\n\n• Erfahrung in Teammanagement und Animation\n\n• Steuerung von Produktionsmanagement-Themen: Planung, Qualität, Industrialisierung, Basisdaten und Leistungsüberwachung\n\n• Fähigkeit, Arbeitsgruppen und Problemlösungsansätze zu leiten\n\n• Kenntnis der Ansätze und Werkzeuge zur kontinuierlichen Verbesserung\n\n• Dynamische und vereinende Führung mit der Fähigkeit, ein multidisziplinäres und multikulturelles Team zu motivieren\n\n• Gute Beziehungen, aktives Zuhören und Vertrauensbildung\n\nSchlussfolgerung\n\nWir bieten Ihnen ein anregendes Umfeld, hervorragende Arbeitsbedingungen, flexible Arbeitszeitlösungen und Top-Sozialleistungen.\n\nVielen Dank für die Zusendung eines vollständigen Bewerbungspakets (Lebenslauf, Anschreiben, Zertifikate und Diplome).",
-        "fr": "Introduction\n\nPour notre secteur Ebauches, au sein d'un atelier de garnissage, nous recherchons un Responsable de groupe (H/F) dont la mission principale sera de conduire une équipe plusridisciplinaire de production.\n\nResponsabilités\n\n• Encadrer, en binôme, une équipe d’une cinquantaine de collaborateurs/trices en garnissage d'ébauches\n\n• Organiser l’activité quotidienne et garantir l’atteinte des objectifs de sécurité, qualité, coûts et délais\n\n• Planifier et répartir les activités selon les priorités de production\n\n• Veiller au respect des standards de sécurité, de qualité et de production\n\n• Accompagner les collaborateurs/trices au quotidien et contribuer au développement de leurs compétences\n\n• Participer aux projets d’amélioration continue de l’atelier\n\nProfil\n\n• Diplôme de Technicien ES en processus d'entreprise, ingénieur ou formation équivalente\n\n• Expérience en management et en animation d’équipe\n\n• Maîtrise des enjeux de gestion de production : planification, qualité, industrialisation, données de base et suivi de performance\n\n• Capacité à animer des groupes de travail et à conduire des démarches de résolution de problème\n\n• Connaissance des démarches et outils d’amélioration continue\n\n• Leadership dynamique et fédérateur, avec la capacité à motiver une équipe pluridisciplinaire et multiculturelle\n\n• Bon sens relationnel, écoute active et capacité à instaurer un climat de confiance\n\nConclusion\n\nNous vous offrons un environnement stimulant, d’excellentes conditions de travail, des solutions de flexibilisation du temps de travail et des prestations sociales de premier ordre.\n\nNous vous remercions d'adresser un dossier de candidature complet (CV, lettre de motivation, certificats et diplômes)."
-      },
-      "location": "Bienne",
-      "canton": "BE",
-      "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Responsable-de-groupe-%28HF%29-Bien/1458273674/",
-      "source": "Rolex Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:26:58.481Z",
-      "addressLocality": "Bienne",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Luxury / Watchmaking (Manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-20T00:00:00Z",
-      "postedDate": "2026-11-20T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Responsable-de-groupe-%28HF%29-Bien/1458273674/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "responsable-de-groupe-h-f-rolex-ch-2"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "responsable-de-groupe-h-f-rolex-ch-2"
-        ],
-        "en": [
-          "responsable-de-groupe-h-f-rolex-ch-2"
-        ],
-        "de": [
-          "responsable-de-groupe-h-f-rolex-ch-2"
-        ]
-      },
-      "firstSeenAt": "2026-09-26T13:57:59.272Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3001",
-      "streetAddress": "Bienne",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:26:58.481Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -12020,97 +11780,6 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:26:42.600Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "rolex-7221d7dfcafc",
-      "slug": "responsabile-del-workshop-m-f-rolex-geneve",
-      "slugByLocale": {
-        "it": "responsabile-del-workshop-m-f-rolex-geneve",
-        "en": "workshop-manager-m-f-rolex-geneve",
-        "de": "workshop-manager-m-w-rolex-geneve",
-        "fr": "gestionnaire-d-atelier-h-f-rolex-ch"
-      },
-      "company": "Rolex",
-      "companyKey": "rolex",
-      "companyDomain": "rolex.com",
-      "title": "Gestionnaire d'atelier (H/F)",
-      "titleByLocale": {
-        "it": "Responsabile del workshop (M/F)",
-        "en": "Workshop Manager (M/F)",
-        "de": "Workshop Manager (M/W)",
-        "fr": "Gestionnaire d'atelier (H/F)"
-      },
-      "description": "Introduction\n\nPour notre division Production , nous recherchons un Gestionnaire d’atelier (H/F) dont la mission principale sera de gérer l’organisation des ressources d’un atelier d’assemblage en mettant en place les actions permettant de garantir le respect des objectifs de production.\n\nResponsabilités\n\n• Organiser et coordonner les objectifs journaliers en assurant une répartition optimale de la charge de travail.\n\n• Renseigner et analyser des indicateurs de production ainsi que le suivi des objectifs court terme de l'atelier.\n\n• Garantir le lien et les contacts transversaux avec les services prestataires de la production.\n\n• Contribuer aux séances journalières en lien avec le périmètre de gestion.\n\n• Gérer l’organisation des inventaires.\n\n• Mener des analyses ponctuelles et opérationnelles pour la bonne marche du service.\n\nProfil\n\n• Niveau Bachelor HES ou HEG orienté logistique ou gestion, ou expérience confirmée dans la gestion de production.\n\n• Formation dans l'organisation et la gestion de production ou expérience jugée équivalente.\n\n• Maîtrise des outils informatiques (MS-Office, SAP et indicateurs de suivi de production).\n\n• Esprit d'analyse et de synthèse.\n\n• Nature communicative, flexible et excellent esprit d'équipe.\n\n• Capacité à prendre des initiatives.\n\nConclusion\n\nNous vous offrons un environnement stimulant, d’excellentes conditions de travail, des solutions de flexibilisation du temps de travail et des prestations sociales de premier ordre.\n\nNous vous remercions d'adresser un dossier de candidature complet (CV, lettre de motivation, certificats et diplômes).",
-      "descriptionByLocale": {
-        "it": "Introduzione\n\nPer la nostra divisione di produzione, stiamo cercando un officina manager (M/F) la cui missione principale sarà quella di gestire l'organizzazione delle risorse di un laboratorio di assemblaggio mettendo in atto le azioni per garantire che gli obiettivi di produzione siano soddisfatti.\n\nresponsabilità\n\n• Organizzare e coordinare gli obiettivi giornalieri garantendo una distribuzione ottimale del carico di lavoro.\n\n• Informare e analizzare gli indicatori di produzione e il monitoraggio degli obiettivi a breve termine del workshop.\n\n• Assicurare collegamenti incrociati e cross-linkage con servizi di produzione.\n\n• Contribuisci alle sessioni giornaliere relative allo scopo di gestione.\n\n• Gestisci l'organizzazione dell'inventario.\n\n• Condurre ad hoc e analisi operative per il corretto funzionamento del servizio.\n\nProfilo\n\n• Corso di laurea HES o HEG orientato logistica o gestione, o l'esperienza confermata nella gestione della produzione.\n\n• Formazione nell'organizzazione della produzione e nella gestione o nell'esperienza considerata equivalente.\n\n• Masterizzazione di strumenti informatici (MS-Office, SAP e indicatori di monitoraggio della produzione).\n\n• Spirito di analisi e sintesi.\n\n• Natura comunicativa, spirito di squadra flessibile ed eccellente.\n\n• Capacità di prendere iniziative.\n\nConclusioni\n\nVi offriamo un ambiente stimolante, eccellenti condizioni di lavoro, soluzioni flessibili per il tempo di lavoro e migliori vantaggi sociali.\n\nGrazie per l'invio di un pacchetto completo di candidatura (CV, lettera di copertura, certificati e diplomi).",
-        "en": "Introduction\n\nFor our Production division, we are looking for a (M/F) workshop manager whose main mission will be to manage the organization of the resources of an assembly workshop by putting in place the actions to ensure that the production objectives are met.\n\nResponsibilities\n\n• Organize and coordinate daily goals by ensuring optimal workload distribution.\n\n• To inform and analyse production indicators and the monitoring of the workshop's short-term objectives.\n\n• Ensure cross-linkage and cross-linkages with production services.\n\n• Contribute to daily sessions related to the management scope.\n\n• Manage inventory organization.\n\n• Conduct ad hoc and operational analyses for the proper operation of the service.\n\nProfile\n\n• Bachelor level HES or HEG oriented logistics or management, or experience confirmed in production management.\n\n• Training in production organization and management or experience deemed equivalent.\n\n• Mastery of computer tools (MS-Office, SAP and production monitoring indicators).\n\n• Spirit of analysis and synthesis.\n\n• Communicative nature, flexible and excellent team spirit.\n\n• Ability to take initiatives.\n\nConclusion\n\nWe offer you a stimulating environment, excellent working conditions, flexible working time solutions and top social benefits.\n\nThank you for sending a complete application package (CV, cover letter, certificates and diplomas).",
-        "de": "Einleitung\n\nFür unsere Produktionsabteilung suchen wir einen (M/W)-Workshopmanager, dessen Hauptaufgabe darin besteht, die Organisation der Ressourcen einer Montagewerkstatt zu verwalten, indem wir die Maßnahmen ergreifen, um sicherzustellen, dass die Produktionsziele erreicht werden.\n\nZuständigkeiten\n\n• Organisieren und koordinieren Sie die täglichen Ziele, indem Sie eine optimale Arbeitslastverteilung sicherstellen.\n\n• Information und Analyse der Produktionsindikatoren und Überwachung der kurzfristigen Ziele des Workshops.\n\n• Gewährleistung der Vernetzung und Vernetzung mit den Produktionsdienstleistungen.\n\n• Tragen Sie zu täglichen Sitzungen bei, die sich auf den Verwaltungsumfang beziehen.\n\n• Verwalten Sie die Inventarorganisation.\n\n• Durchführung von Ad-hoc- und Betriebsanalysen für den ordnungsgemäßen Betrieb des Dienstes.\n\nProfil\n\n• Bachelor-Level HES oder HEG orientierte Logistik oder Management, oder Erfahrung im Produktionsmanagement bestätigt.\n\n• Ausbildung in Produktionsorganisation und -management oder als gleichwertig erachtete Erfahrung.\n\n• Beherrschung von Computer-Tools (MS-Office, SAP und Produktionsüberwachung Indikatoren).\n\n• Geist der Analyse und Synthese.\n\n• Kommunikativer Charakter, flexibler und exzellenter Teamgeist.\n\n• Fähigkeit, Initiativen zu ergreifen.\n\nSchlussfolgerung\n\nWir bieten Ihnen ein anregendes Umfeld, hervorragende Arbeitsbedingungen, flexible Arbeitszeitlösungen und Top-Sozialleistungen.\n\nVielen Dank für die Zusendung eines vollständigen Bewerbungspakets (Lebenslauf, Anschreiben, Zertifikate und Diplome).",
-        "fr": "Introduction\n\nPour notre division Production , nous recherchons un Gestionnaire d’atelier (H/F) dont la mission principale sera de gérer l’organisation des ressources d’un atelier d’assemblage en mettant en place les actions permettant de garantir le respect des objectifs de production.\n\nResponsabilités\n\n• Organiser et coordonner les objectifs journaliers en assurant une répartition optimale de la charge de travail.\n\n• Renseigner et analyser des indicateurs de production ainsi que le suivi des objectifs court terme de l'atelier.\n\n• Garantir le lien et les contacts transversaux avec les services prestataires de la production.\n\n• Contribuer aux séances journalières en lien avec le périmètre de gestion.\n\n• Gérer l’organisation des inventaires.\n\n• Mener des analyses ponctuelles et opérationnelles pour la bonne marche du service.\n\nProfil\n\n• Niveau Bachelor HES ou HEG orienté logistique ou gestion, ou expérience confirmée dans la gestion de production.\n\n• Formation dans l'organisation et la gestion de production ou expérience jugée équivalente.\n\n• Maîtrise des outils informatiques (MS-Office, SAP et indicateurs de suivi de production).\n\n• Esprit d'analyse et de synthèse.\n\n• Nature communicative, flexible et excellent esprit d'équipe.\n\n• Capacité à prendre des initiatives.\n\nConclusion\n\nNous vous offrons un environnement stimulant, d’excellentes conditions de travail, des solutions de flexibilisation du temps de travail et des prestations sociales de premier ordre.\n\nNous vous remercions d'adresser un dossier de candidature complet (CV, lettre de motivation, certificats et diplômes)."
-      },
-      "location": "Genève",
-      "canton": "GE",
-      "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Gestionnaire-d'atelier-%28HF%29-Gen%C3%A8/820554301/",
-      "source": "Rolex Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:26:42.074Z",
-      "addressLocality": "Genève",
-      "postalCode": "1201",
-      "addressRegion": "Genève",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Luxury / Watchmaking (Manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-25T02:00:00Z",
-      "postedDate": "2026-09-25T02:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Gestionnaire-d'atelier-%28HF%29-Gen%C3%A8/820554301/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "gestionnaire-d-atelier-h-f-rolex-ch",
-        "responsabile-del-laboratorio-m-f-rolex-geneve",
-        "workshop-manager-h-f-rolex-geneve",
-        "gestionnaire-d-atelier-m-w-d-rolex-geneve",
-        "workshop-manager-m-w-d-rolex-geneve",
-        "werkstattleiter-m-w-rolex-geneve"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "gestionnaire-d-atelier-h-f-rolex-ch",
-          "responsabile-del-laboratorio-m-f-rolex-geneve"
-        ],
-        "en": [
-          "workshop-manager-h-f-rolex-geneve",
-          "gestionnaire-d-atelier-m-w-d-rolex-geneve"
-        ],
-        "de": [
-          "workshop-manager-m-w-d-rolex-geneve",
-          "gestionnaire-d-atelier-m-w-d-rolex-geneve",
-          "werkstattleiter-m-w-rolex-geneve"
-        ]
-      },
-      "firstSeenAt": "2026-06-24T22:41:47.958Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Genève",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T09:26:42.074Z",
       "validThroughSource": "last-observed-window"
     }
   ]
