@@ -1,42 +1,29 @@
 {
-  "generatedAt": "2026-11-15T11:48:51.348Z",
+  "generatedAt": "2026-11-22T12:20:43.624Z",
   "source": {
     "path": "data/jobs.json",
-    "jobCount": 34484
+    "jobCount": 35359
   },
-  "checked": 656,
-  "ok": 656,
-  "qualityOk": 654,
+  "checked": 693,
+  "ok": 693,
+  "qualityOk": 691,
   "broken": 0,
   "brokenJobCount": 0,
   "pendingDeploy": 0,
   "pendingDeployJobCount": 0,
   "pendingDeployUrls": [],
-  "missing": 697,
-  "missingJobCount": 1912,
+  "missing": 741,
+  "missingJobCount": 1404,
   "partial": 0,
   "partialJobCount": 0,
   "unverified": 0,
   "unverifiedJobCount": 0,
   "lowQuality": 2,
-  "lowQualityJobCount": 2,
+  "lowQualityJobCount": 6,
   "qualityUnverified": 0,
   "qualityUnverifiedJobCount": 0,
   "urls": [],
   "quality": [
-    {
-      "reference": "/images/brands/elektriker-elektromonteur-jobs-ch.ico",
-      "kind": "local",
-      "jobs": 1,
-      "companyKeys": [
-        "elektriker-elektromonteur-jobs-ch"
-      ],
-      "url": "https://cdn.frontaliereticino.ch/images/brands/elektriker-elektromonteur-jobs-ch.ico",
-      "qualityStatus": "low-quality",
-      "qualityReason": "intrinsic-dimensions-too-small",
-      "width": 32,
-      "height": 32
-    },
     {
       "reference": "/images/brands/freestarinformatik.ico",
       "kind": "local",
@@ -49,6 +36,19 @@
       "qualityReason": "intrinsic-dimensions-too-small",
       "width": 48,
       "height": 48
+    },
+    {
+      "reference": "/images/brands/ritterschumacher-com.ico",
+      "kind": "local",
+      "jobs": 5,
+      "companyKeys": [
+        "ritterschumacher-com"
+      ],
+      "url": "https://cdn.frontaliereticino.ch/images/brands/ritterschumacher-com.ico",
+      "qualityStatus": "low-quality",
+      "qualityReason": "intrinsic-dimensions-too-small",
+      "width": 32,
+      "height": 32
     }
   ]
 }
