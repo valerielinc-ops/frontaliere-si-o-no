@@ -826,7 +826,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:40:12.415Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-fed9394dc62c",
@@ -1811,7 +1812,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:40:13.324Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-9634e780d4e6",
@@ -2020,7 +2022,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:40:13.454Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-c511144680b8",
@@ -2496,7 +2499,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:40:13.828Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-e2be1ca19061",
@@ -8780,7 +8784,6 @@
           "responsabile-sicurezza-qualita-e-ambiente-sqa-regione-centro-infrastruttura-ffs-officine-ferrovie-federali-infrastruttura"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-17T09:24:48.876Z",
       "salaryMin": 79500,
       "salaryMax": 135000,
@@ -8802,7 +8805,8 @@
       "streetAddress": "Infrastruttura",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:40:18.117Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-386f6b8a52b3",
@@ -12566,7 +12570,8 @@
       "streetAddress": "Elektrofachpersonal in der Welt der technischen Bahnberufe",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:40:21.097Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-148b00592405",
@@ -12646,7 +12651,8 @@
       "streetAddress": "Netzelektriker:in im Bereich Bahnstrom",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:40:21.139Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-6232b83e076b",
@@ -15805,7 +15811,8 @@
       "validThrough": "2027-02-15T21:38:51.222Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://careers.sbb.ch/job/bern-product-manager-cloud-foundation-%28mwd%29-bern/1433831333",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-6578bd3d0123",

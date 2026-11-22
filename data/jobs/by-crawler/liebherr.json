@@ -545,7 +545,6 @@
         "spekulative-anwendung-liebherr-bulle"
       ],
       "firstSeenAt": "2026-06-10T09:03:08.375Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -826,7 +825,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:14:07.158Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -6243,7 +6241,8 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-05T21:36:07.795Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "liebherr-d0a179ea774d",

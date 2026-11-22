@@ -4956,7 +4956,8 @@
       "previousSlugs": [
         "juristische-r-praktikant-in-confederazione-bern"
       ],
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/juristische-r-praktikant-in/cfd65ce0-b0b0-400c-a322-a9953b581c1c"
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/juristische-r-praktikant-in/cfd65ce0-b0b0-400c-a322-a9953b581c1c",
+      "needsRetranslation": true
     },
     {
       "title": "Sachbearbeiter/in AFSA",
@@ -12703,12 +12704,13 @@
         "en": "real-estate-project-manager-confederazione-svizzera-bern",
         "de": "projektleiter-in-immobilien-confederazione-bern",
         "fr": "chef-fe-de-projet-immobilier-confederazione-svizzera-bern",
-        "it": "responsabile-di-progetto-nel-settore-immobiliare-confederazione-svizzera-bern"
+        "it": "projektleiter-in-immobilien-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-576bb222693c",
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-immobilien-confederazione-bern"
+          "projektleiter-in-immobilien-confederazione-bern",
+          "responsabile-di-progetto-nel-settore-immobiliare-confederazione-svizzera-bern"
         ],
         "en": [
           "projektleiter-in-immobilien-confederazione-bern"
@@ -12718,7 +12720,8 @@
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-immobilien-confederazione-bern"
+        "projektleiter-in-immobilien-confederazione-bern",
+        "responsabile-di-progetto-nel-settore-immobiliare-confederazione-svizzera-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -17220,12 +17223,13 @@
         "en": "apprentice-kauffrau-mann-efz-confederazione-svizzera-altstatten",
         "de": "lernende-r-kauffrau-mann-efz-confederazione-altstatten",
         "fr": "apprenti-e-kauffrau-mann-efz-confederazione-svizzera-altstatten",
-        "it": "apprendista-impiegato-a-di-commercio-afc-confederazione-svizzera-altstatten"
+        "it": "apprendista-kauffrau-mann-cfc-confederazione-svizzera-altstatten"
       },
       "id": "confederazione-ticino-4fb5290f45ac",
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-kauffrau-mann-efz-confederazione-altstatten"
+          "lernende-r-kauffrau-mann-efz-confederazione-altstatten",
+          "apprendista-impiegato-a-di-commercio-afc-confederazione-svizzera-altstatten"
         ],
         "en": [
           "lernende-r-kauffrau-mann-efz-confederazione-altstatten"
@@ -17235,7 +17239,8 @@
         ]
       },
       "previousSlugs": [
-        "lernende-r-kauffrau-mann-efz-confederazione-altstatten"
+        "lernende-r-kauffrau-mann-efz-confederazione-altstatten",
+        "apprendista-impiegato-a-di-commercio-afc-confederazione-svizzera-altstatten"
       ],
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -19239,7 +19244,7 @@
         "en": "apprenticeship-professional-cleaning-technology-efz-confederazione-svizzera-bern",
         "de": "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern",
         "fr": "apprentissage-professionnel-technologie-de-nettoyage-efz-confederazione-svizzera-bern",
-        "it": "apprendistato-professionale-tecnologia-di-pulizia-efz-confederazione-svizzera-bern"
+        "it": "apprendistato-fachmann-frau-reinigungstechnik-cfc-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-272d8fe2025d",
       "previousSlugsByLocale": {
@@ -19247,7 +19252,8 @@
           "apprenticeship-professional-cleaning-technology-efz-confederazione-svizzera-bern",
           "apprentissage-professionnel-technologie-de-nettoyage-efz-confederazione-svizzera-bern",
           "apprendistato-fachmann-frau-reinigungstechnik-cfc-confederazione-svizzera-bern-xd010j",
-          "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern"
+          "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern",
+          "apprendistato-professionale-tecnologia-di-pulizia-efz-confederazione-svizzera-bern"
         ],
         "en": [
           "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern"
@@ -19260,7 +19266,8 @@
         "apprenticeship-professional-cleaning-technology-efz-confederazione-svizzera-bern",
         "apprentissage-professionnel-technologie-de-nettoyage-efz-confederazione-svizzera-bern",
         "apprendistato-fachmann-frau-reinigungstechnik-cfc-confederazione-svizzera-bern-xd010j",
-        "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern"
+        "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern",
+        "apprendistato-professionale-tecnologia-di-pulizia-efz-confederazione-svizzera-bern"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -20029,16 +20036,18 @@
         "en": "apprenticeship-professional-female-maintenance-efz-confederazione-svizzera-bern",
         "de": "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern",
         "fr": "apprentissage-professionnel-female-maintenance-efz-confederazione-svizzera-bern",
-        "it": "posto-di-apprendistato-come-specialista-nella-manutenzione-aziendale-efz-confederazione-svizzera-bern"
+        "it": "apprendistato-fachmann-frau-betriebsunterhalt-cfc-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-f3aa7fcaa234",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern"
+          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern",
+          "posto-di-apprendistato-come-specialista-nella-manutenzione-aziendale-efz-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern"
+        "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern",
+        "posto-di-apprendistato-come-specialista-nella-manutenzione-aziendale-efz-confederazione-svizzera-bern"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

@@ -1462,7 +1462,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-04T10:47:03.276Z",
-      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "salarySource": "estimated",
@@ -2009,7 +2008,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:47:03.272Z",
-      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "salarySource": "estimated",
@@ -2179,8 +2177,7 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-21T21:27:54.789Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "deloitte-ab8bf3423b77",
@@ -2251,8 +2248,7 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-21T21:27:54.787Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "deloitte-157ed5808dee",
@@ -4720,7 +4716,6 @@
         "manager-artificial-intelligence-data-data-management-data-platforms-focus-deloitte-geneva"
       ],
       "firstSeenAt": "2026-07-04T10:47:03.246Z",
-      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -4800,7 +4795,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:47:03.245Z",
-      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -4886,7 +4880,6 @@
         ]
       },
       "firstSeenAt": "2026-10-30T21:14:17.812Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -5615,7 +5608,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-02T13:38:12.467Z",
-      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "salarySource": "estimated",
@@ -5767,7 +5759,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 91000,
       "salaryMax": 145000,
       "salarySource": "estimated",
