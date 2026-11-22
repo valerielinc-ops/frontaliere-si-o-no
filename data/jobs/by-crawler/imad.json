@@ -1,7 +1,7 @@
 {
   "crawlerKey": "imad",
-  "assembledAt": "2026-11-21T21:38:04.695Z",
-  "runId": "44950512766",
+  "assembledAt": "2026-11-22T09:22:59.267Z",
+  "runId": "45006490842",
   "jobs": [
     {
       "id": "imad-a4fc32c5d93a",
@@ -34,7 +34,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000154020848-civiliste-conseiller-ere-assistant-e-aux-clients-de-la-securite-a-domicile-sta-100-minimum-6-mois-",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-21T21:37:55.218Z",
+      "crawledAt": "2026-11-22T09:22:52.522Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:37:55.218Z",
+      "validThrough": "2027-01-05T09:22:52.522Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000161037380-infirmier-ere-pool-chad-dispositif-had-eiso-soins-pediatriques-et-repit-aux-familles-a-80-100-en-cdi",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-21T21:37:55.217Z",
+      "crawledAt": "2026-11-22T09:22:52.521Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -164,7 +164,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:37:55.217Z",
+      "validThrough": "2027-02-09T09:22:52.521Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -199,7 +199,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000160809498-auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-21T21:37:55.215Z",
+      "crawledAt": "2026-11-22T09:22:52.520Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -245,7 +245,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:37:55.215Z",
+      "validThrough": "2027-02-08T09:22:52.520Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -280,7 +280,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000161035976-infirmier-ere-eiso-equipe-interprofessionnelle-specialisee-en-oncologie-a-80-en-cdi",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-21T21:37:55.214Z",
+      "crawledAt": "2026-11-22T09:22:52.519Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -326,7 +326,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:37:55.214Z",
+      "validThrough": "2027-02-09T09:22:52.519Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -361,7 +361,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000161238992-assc-a-domicile-pool-centralise-longue-duree-pcld-a-80-ou-100-en-cdi",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-21T21:37:55.212Z",
+      "crawledAt": "2026-11-22T09:22:52.518Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -411,7 +411,88 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:37:55.212Z",
+      "validThrough": "2027-02-10T09:22:52.518Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "imad-a072bc70a6a7",
+      "slug": "infermiere-a-di-riferimento-a-domicilio-all-80-o-al-100-in-contratti-a-tempo-indeterminato-all-interno-del-team-centralizzato-per-66e1ef5bbd",
+      "slugByLocale": {
+        "it": "infermiere-a-di-riferimento-a-domicilio-all-80-o-al-100-in-contratti-a-tempo-indeterminato-all-interno-del-team-centralizzato-per-66e1ef5bbd",
+        "en": "nurse-referent-at-home-at-80-or-100-on-permanent-contract-within-the-centralized-team-for-long-term-replacement-missions",
+        "de": "pflegefachfrau-pflegefachmann-zu-hause-zu-80-oder-100-unbefristet-im-zentralen-team-fur-langfristige-vertretungsaufgaben",
+        "fr": "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee"
+      },
+      "company": "imad",
+      "companyKey": "imad",
+      "companyDomain": "imad-ge.ch",
+      "title": "Infirmier.ère référent.e à domicile à 80 ou 100% en CDI au sein de l’équipe centralisée pour des missions de remplacement de longue durée (de 6 à 15 mois) avec la responsabilité d’un portefeuille de dossiers patients",
+      "titleByLocale": {
+        "it": "Infermiere/a di riferimento a domicilio all'80 o al 100% in contratti a tempo indeterminato all'interno del team centralizzato per missioni di sostituzione a lungo termine (da 6 a 15 mesi) con la responsabilità di un portafoglio di cartelle cliniche dei pazienti",
+        "en": "Nurse referent at home at 80 or 100% on permanent contract within the centralized team for long-term replacement missions (from 6 to 15 months) with responsibility for a portfolio of patient records",
+        "de": "Pflegefachfrau/Pflegefachmann zu Hause zu 80 oder 100 % unbefristet im zentralen Team für langfristige Vertretungsaufgaben (6 bis 15 Monate) mit der Verantwortung für ein Portfolio von Patientenakten",
+        "fr": "Infirmier.ère référent.e à domicile à 80 ou 100% en CDI au sein de l’équipe centralisée pour des missions de remplacement de longue durée (de 6 à 15 mois) avec la responsabilité d’un portefeuille de dossiers patients"
+      },
+      "description": "Si vous recherchez un environnement dynamique où votre expertise en soins sera mise à contribution pour le bien-être des patients (voir capsule vidéo en bas de l'annonce).\n En tant que membre du PCLD, vous serez amené.e à intervenir dans l'ensemble du Canton de Genève pour des remplacements de longue durée, variant de 6 à 15 mois, au sein de nos antennes. Votre mission principale consistera à assurer la continuité du suivi des patients, en agissant en tant que référent dans la gestion de leurs dossiers et en fournissant des prestations de qualité.\n\nNous recherchons des personnes investies pour occuper un poste où vous aurez l'opportunité de :\n\n• Relever des défis stimulants et faire des expériences professionnelles enrichissantes.\n\n• Élargir vos horizons en travaillant sur une longue durée dans différents secteurs à Genève, au sein de diverses équipes et avec différents types de patients.\n\n• Acquérir une connaissance approfondie du réseau sanitaire et social de Genève, ainsi que de notre institution et du domaine de l’aide et des soins à domicile\n\n• Développer vos compétences théoriques et pratiques grâce à des formations adaptées.\n\nEn rejoignant l'équipe du PCLD, vous pourrez :\n\n• Assumer le rôle de référent dans l'évaluation des besoins des patients, conformément aux principes déontologiques de la profession infirmière, au sein du modèle d'équipe de maintien à domicile.\n\n• Dispenser des soins infirmiers personnalisés, autonomes ou sur délégation médicale, couvrant une gamme complète de services préventifs, curatifs, éducatifs et palliatifs, directement chez les patients de tous âges, à domicile.\n\n• Travailler en étroite collaboration avec les assistants.es en soins et santé communautaire ainsi que les aides pluridisciplinaires, en déléguant les soins selon les procédures établies.\n\n• Organiser les démarches médico-sociales et assurer la coordination avec tous les intervenants impliqués dans la situation d'un patient donné, en mobilisant les ressources disponibles du réseau primaire et secondaire.\n\n• Un Bachelor HES-SO en soins infirmiers ou une formation jugée équivalente, ainsi qu'une reconnaissance de la Croix-Rouge.\n\n• Une excellente capacité d'adaptation et de délégation, avec une flexibilité et une disponibilité démontrée.\n\n• Un sens des responsabilités et une orientation solution, essentiels pour relever les défis rencontrés.\n\n• Une aptitude au travail en autonomie et en interprofessionnalité au sein d'une équipe pluridisciplinaire.\n\n• Une mobilité indispensable, pouvant impliquer des déplacements à pied, à vélo en ville, en transport public (TPG) ou en voiture selon les missions.\n\n• Entrée en fonction : à convenir\n\n• Veuillez svp joindre à votre dossier :\n• un curriculum vitae à jour,\n\n• une lettre de motivation,\n\n• une copie de vos diplômes\n\n• vos certificats de travail\n\nNous considérons uniquement les dossiers de candidature complets\n Nous vous garantissons une confidentialité totale dans le traitement de votre dossier.\n Ce que nous offrons\n >> \"cliquez ici pour connaître les avantages collaboratrices et collaborateurs de l'IMAD\"\n Celles et ceux qui font l’IMAD\n >> \"cliquez ici pour rencontrer nos collaborateurs\"",
+      "descriptionByLocale": {
+        "it": "Se stai cercando un ambiente dinamico in cui le tue competenze assistenziali verranno utilizzate per il benessere dei pazienti, unisciti al nostro team all'interno del pool centralizzato a lungo termine (PCLD)!\nIn qualità di membro del PCLD, sarai tenuto a lavorare in tutto il Cantone di Ginevra per sostituzioni a lungo termine, variabili da 6 a 15 mesi, all'interno delle nostre filiali. La tua missione principale sarà garantire la continuità del monitoraggio dei pazienti, fungendo da referente nella gestione delle loro cartelle e fornendo servizi di qualità.\n\nCerchiamo persone impegnate per ricoprire una posizione in cui avrai l'opportunità di:\n\n• Affronta sfide stimolanti e vivi esperienze professionali arricchenti.\n\n• Allarga i tuoi orizzonti lavorando per un lungo periodo di tempo in diversi settori a Ginevra, all'interno di vari team e con diverse tipologie di pazienti.\n\n• Acquisisci una conoscenza approfondita della rete sanitaria e sociale di Ginevra, nonché della nostra istituzione e del settore dell'aiuto e dell'assistenza domiciliare\n\n• Sviluppa le tue competenze teoriche e pratiche attraverso una formazione adattata.\n\nUnendoti al team PCLD potrai:\n\n• Assumere il ruolo di referente nella valutazione dei bisogni del paziente, nel rispetto dei principi etici della professione infermieristica, all'interno del modello dell'équipe di assistenza domiciliare.\n\n• Fornire assistenza infermieristica personalizzata, autonoma o su delega medica, coprendo una gamma completa di servizi preventivi, curativi, educativi e palliativi, direttamente ai pazienti di tutte le età, a domicilio.\n\n• Lavorare in stretta collaborazione con gli assistenti sanitari e di comunità, nonché con gli assistenti multidisciplinari, delegando l'assistenza secondo le procedure stabilite.\n\n• Organizzare le procedure medico-sociali e garantire il coordinamento con tutte le parti interessate coinvolte nella situazione di un determinato paziente, mobilitando le risorse disponibili della rete primaria e secondaria.\n\n• Una laurea HES-SO in infermieristica o formazione ritenuta equivalente, oltre al riconoscimento della Croce Rossa.\n\n• Ottima capacità di adattamento e delega, con flessibilità e disponibilità dimostrata.\n\n• Senso di responsabilità e orientamento alla soluzione, essenziali per affrontare le sfide incontrate.\n\n• Capacità di lavorare in modo indipendente e interprofessionale all'interno di un team multidisciplinare.\n\n• Mobilità essenziale, che può comportare spostamenti a piedi, in bicicletta, con i mezzi pubblici (TPG) o in auto a seconda delle missioni.\n\n• Ingresso in carica: da concordare\n\n• Si prega di allegare al file:\n• un curriculum vitae aggiornato,\n\n• una lettera di presentazione,\n\n• una copia dei tuoi diplomi e certificati di lavoro.\n\n• Consideriamo solo i file di candidatura completi\nGarantiamo la totale riservatezza nell'elaborazione del tuo file.\nCosa offriamo\n>> \"clicca qui per scoprire i vantaggi per i dipendenti IMAD\"\nColoro che fanno IMAD\n>> \"clicca qui per incontrare i nostri colleghi\"",
+        "en": "If you are looking for a dynamic environment where your care expertise will be used for the well-being of patients, join our team within the centralized long-term pool (PCLD)!\nAs a member of the PCLD, you will be required to work throughout the Canton of Geneva for long-term replacements, varying from 6 to 15 months, within our branches. Your main mission will be to ensure continuity of patient monitoring, by acting as a referent in the management of their files and by providing quality services.\n\nWe are looking for committed people to fill a position where you will have the opportunity to:\n\n• Take on stimulating challenges and have enriching professional experiences.\n\n• Broaden your horizons by working over a long period of time in different sectors in Geneva, within various teams and with different types of patients.\n\n• Acquire in-depth knowledge of the Geneva health and social network, as well as our institution and the field of home help and care\n\n• Develop your theoretical and practical skills through adapted training.\n\nBy joining the PCLD team, you will be able to:\n\n• Assume the role of referent in assessing patient needs, in accordance with the ethical principles of the nursing profession, within the home care team model.\n\n• Provide personalized nursing care, autonomous or by medical delegation, covering a full range of preventive, curative, educational and palliative services, directly to patients of all ages, at home.\n\n• Work in close collaboration with care and community health assistants as well as multidisciplinary assistants, delegating care according to established procedures.\n\n• Organize medico-social procedures and ensure coordination with all stakeholders involved in the situation of a given patient, by mobilizing the available resources of the primary and secondary network.\n\n• An HES-SO Bachelor's degree in nursing or training deemed equivalent, as well as recognition from the Red Cross.\n\n• Excellent ability to adapt and delegate, with flexibility and demonstrated availability.\n\n• A sense of responsibility and solution orientation, essential to meet the challenges encountered.\n\n• An ability to work independently and interprofessionally within a multidisciplinary team.\n\n• Essential mobility, which may involve travel on foot, by bike, by public transport (TPG) or by car depending on the missions.\n\n• Entry into office: to be agreed\n\n• Please attach to your file:\n• an up-to-date curriculum vitae,\n\n• a cover letter,\n\n• a copy of your diplomas and work certificates.\n\n• We only consider complete application files\nWe guarantee total confidentiality in the processing of your file.\nWhat we offer\n>> \"click here to find out about the benefits for IMAD employees\"\nThose who do IMAD\n>> \"click here to meet our colleagues\"",
+        "de": "Wenn Sie auf der Suche nach einem dynamischen Umfeld sind, in dem Ihre Pflegekompetenz zum Wohl der Patienten eingesetzt wird, schließen Sie sich unserem Team im zentralen Langzeitpool (PCLD) an!\nAls Mitglied des PCLD sind Sie verpflichtet, im gesamten Kanton Genf für langfristige Vertretungen (zwischen 6 und 15 Monaten) in unseren Niederlassungen zu arbeiten. Ihre Hauptaufgabe besteht darin, die Kontinuität der Patientenüberwachung sicherzustellen, indem Sie als Referenz bei der Verwaltung ihrer Akten fungieren und qualitativ hochwertige Dienstleistungen erbringen.\n\nWir suchen engagierte Menschen zur Besetzung einer Position, in der Sie die Möglichkeit haben:\n\n• Nehmen Sie anregende Herausforderungen an und sammeln Sie bereichernde Berufserfahrungen.\n\n• Erweitern Sie Ihren Horizont, indem Sie über einen langen Zeitraum in verschiedenen Bereichen in Genf, in verschiedenen Teams und mit unterschiedlichen Patiententypen arbeiten.\n\n• Erwerben Sie fundierte Kenntnisse über das Genfer Gesundheits- und Sozialnetzwerk sowie über unsere Institution und den Bereich der häuslichen Hilfe und Pflege\n\n• Entwickeln Sie Ihre theoretischen und praktischen Fähigkeiten durch eine angepasste Ausbildung.\n\nWenn Sie dem PCLD-Team beitreten, können Sie:\n\n• Übernehmen Sie die Rolle des Referenten bei der Beurteilung der Patientenbedürfnisse gemäß den ethischen Grundsätzen des Pflegeberufs im Rahmen des häuslichen Pflegeteammodells.\n\n• Bieten Sie individuell oder durch ärztliche Delegation personalisierte Pflege an, die ein umfassendes Spektrum an präventiven, heilenden, pädagogischen und palliativen Dienstleistungen direkt für Patienten jeden Alters zu Hause abdeckt.\n\n• Arbeiten Sie eng mit Pflege- und Gemeindegesundheitsassistenten sowie multidisziplinären Assistenten zusammen und delegieren Sie die Pflege gemäß festgelegten Verfahren.\n\n• Organisieren Sie medizinisch-soziale Verfahren und stellen Sie die Koordination mit allen an der Situation eines bestimmten Patienten beteiligten Beteiligten sicher, indem Sie die verfügbaren Ressourcen des primären und sekundären Netzwerks mobilisieren.\n\n• Ein als gleichwertig anerkannter HES-SO-Bachelor-Abschluss in Krankenpflege oder Ausbildung sowie Anerkennung durch das Rote Kreuz.\n\n• Hervorragende Anpassungs- und Delegationsfähigkeit mit Flexibilität und nachgewiesener Verfügbarkeit.\n\n• Verantwortungsbewusstsein und Lösungsorientierung sind für die Bewältigung der Herausforderungen unerlässlich.\n\n• Die Fähigkeit, in einem multidisziplinären Team unabhängig und interprofessionell zu arbeiten.\n\n• Wesentliche Mobilität, die je nach Einsatz das Reisen zu Fuß, mit dem Fahrrad, mit öffentlichen Verkehrsmitteln (TPG) oder mit dem Auto umfassen kann.\n\n• Amtsantritt: nach Absprache\n\n• Bitte fügen Sie Ihrer Datei Folgendes bei:\n• ein aktueller Lebenslauf,\n\n• ein Anschreiben,\n\n• eine Kopie Ihrer Diplome und Arbeitszeugnisse.\n\n• Wir berücksichtigen ausschließlich vollständige Bewerbungsunterlagen\nWir garantieren absolute Vertraulichkeit bei der Bearbeitung Ihrer Akte.\nWas wir bieten\n>> „Klicken Sie hier, um mehr über die Vorteile für IMAD-Mitarbeiter zu erfahren“\nDiejenigen, die IMAD machen\n>> „Klicken Sie hier, um unsere Kollegen zu treffen“",
+        "fr": "Si vous recherchez un environnement dynamique où votre expertise en soins sera mise à contribution pour le bien-être des patients (voir capsule vidéo en bas de l'annonce).\nEn tant que membre du PCLD, vous serez amené.e à intervenir dans l'ensemble du Canton de Genève pour des remplacements de longue durée, variant de 6 à 15 mois, au sein de nos antennes. Votre mission principale consistera à assurer la continuité du suivi des patients, en agissant en tant que référent dans la gestion de leurs dossiers et en fournissant des prestations de qualité.\n\nNous recherchons des personnes investies pour occuper un poste où vous aurez l'opportunité de :\n\n• Relever des défis stimulants et faire des expériences professionnelles enrichissantes.\n\n• Élargir vos horizons en travaillant sur une longue durée dans différents secteurs à Genève, au sein de diverses équipes et avec différents types de patients.\n\n• Acquérir une connaissance approfondie du réseau sanitaire et social de Genève, ainsi que de notre institution et du domaine de l’aide et des soins à domicile\n\n• Développer vos compétences théoriques et pratiques grâce à des formations adaptées.\n\nEn rejoignant l'équipe du PCLD, vous pourrez :\n\n• Assumer le rôle de référent dans l'évaluation des besoins des patients, conformément aux principes déontologiques de la profession infirmière, au sein du modèle d'équipe de maintien à domicile.\n\n• Dispenser des soins infirmiers personnalisés, autonomes ou sur délégation médicale, couvrant une gamme complète de services préventifs, curatifs, éducatifs et palliatifs, directement chez les patients de tous âges, à domicile.\n\n• Travailler en étroite collaboration avec les assistants.es en soins et santé communautaire ainsi que les aides pluridisciplinaires, en déléguant les soins selon les procédures établies.\n\n• Organiser les démarches médico-sociales et assurer la coordination avec tous les intervenants impliqués dans la situation d'un patient donné, en mobilisant les ressources disponibles du réseau primaire et secondaire.\n\n• Un Bachelor HES-SO en soins infirmiers ou une formation jugée équivalente, ainsi qu'une reconnaissance de la Croix-Rouge.\n\n• Une excellente capacité d'adaptation et de délégation, avec une flexibilité et une disponibilité démontrée.\n\n• Un sens des responsabilités et une orientation solution, essentiels pour relever les défis rencontrés.\n\n• Une aptitude au travail en autonomie et en interprofessionnalité au sein d'une équipe pluridisciplinaire.\n\n• Une mobilité indispensable, pouvant impliquer des déplacements à pied, à vélo en ville, en transport public (TPG) ou en voiture selon les missions.\n\n• Entrée en fonction : à convenir\n\n• Veuillez svp joindre à votre dossier :\n• un curriculum vitae à jour,\n\n• une lettre de motivation,\n\n• une copie de vos diplômes\n\n• vos certificats de travail\n\nNous considérons uniquement les dossiers de candidature complets\nNous vous garantissons une confidentialité totale dans le traitement de votre dossier.\nCe que nous offrons\n>> \"cliquez ici pour connaître les avantages collaboratrices et collaborateurs de l'IMAD\"\nCelles et ceux qui font l’IMAD\n>> \"cliquez ici pour rencontrer nos collaborateurs\""
+      },
+      "needsRetranslation": false,
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/imad/744000161240759-infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee-pour-des-missions-de-remplacement-de-longue-duree-de-6-a-15-mois-avec-la-responsabilite-d-un-portefeuille-de-dossiers-patients",
+      "source": "imad Dedicated Parser (SmartRecruiters API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-22T09:22:52.517Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Cure a domicilio",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-12T08:41:25.050Z",
+      "postedDate": "2026-11-12T08:41:25.050Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000161240759-infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee-pour-des-missions-de-remplacement-de-longue-duree-de-6-a-15-mois-avec-la-responsabilite-d-un-portefeuille-de-dossiers-patients?oga=true",
+      "jobReqId": "744000161240759",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee",
+        "infermiere-a-di-riferimento-a-domicilio-all-80-o-al-100-in-contratti-a-tempo-indeterminato-all-interno-del-team"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee",
+          "infermiere-a-di-riferimento-a-domicilio-all-80-o-al-100-in-contratti-a-tempo-indeterminato-all-interno-del-team"
+        ]
+      },
+      "firstSeenAt": "2026-08-04T11:35:03.323Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-10T09:22:52.517Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -446,7 +527,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000161237760-infirmier-ere-referent-e-en-soins-a-domicile-a-80-ou-100-en-cdi",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-21T21:37:55.211Z",
+      "crawledAt": "2026-11-22T09:22:52.515Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -496,168 +577,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:37:55.211Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "imad-a072bc70a6a7",
-      "slug": "infermiere-a-di-riferimento-a-domicilio-all-80-o-al-100-in-contratti-a-tempo-indeterminato-all-interno-del-team-centralizzato-per-66e1ef5bbd",
-      "slugByLocale": {
-        "it": "infermiere-a-di-riferimento-a-domicilio-all-80-o-al-100-in-contratti-a-tempo-indeterminato-all-interno-del-team-centralizzato-per-66e1ef5bbd",
-        "en": "nurse-referent-at-home-at-80-or-100-on-permanent-contract-within-the-centralized-team-for-long-term-replacement-missions",
-        "de": "pflegefachfrau-pflegefachmann-zu-hause-zu-80-oder-100-unbefristet-im-zentralen-team-fur-langfristige-vertretungsaufgaben",
-        "fr": "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee"
-      },
-      "company": "imad",
-      "companyKey": "imad",
-      "companyDomain": "imad-ge.ch",
-      "title": "Infirmier.ère référent.e à domicile à 80 ou 100% en CDI au sein de l’équipe centralisée pour des missions de remplacement de longue durée (de 6 à 15 mois) avec la responsabilité d’un portefeuille de dossiers patients",
-      "titleByLocale": {
-        "it": "Infermiere/a di riferimento a domicilio all'80 o al 100% in contratti a tempo indeterminato all'interno del team centralizzato per missioni di sostituzione a lungo termine (da 6 a 15 mesi) con la responsabilità di un portafoglio di cartelle cliniche dei pazienti",
-        "en": "Nurse referent at home at 80 or 100% on permanent contract within the centralized team for long-term replacement missions (from 6 to 15 months) with responsibility for a portfolio of patient records",
-        "de": "Pflegefachfrau/Pflegefachmann zu Hause zu 80 oder 100 % unbefristet im zentralen Team für langfristige Vertretungsaufgaben (6 bis 15 Monate) mit der Verantwortung für ein Portfolio von Patientenakten",
-        "fr": "Infirmier.ère référent.e à domicile à 80 ou 100% en CDI au sein de l’équipe centralisée pour des missions de remplacement de longue durée (de 6 à 15 mois) avec la responsabilité d’un portefeuille de dossiers patients"
-      },
-      "description": "Si vous recherchez un environnement dynamique où votre expertise en soins sera mise à contribution pour le bien-être des patients (voir capsule vidéo en bas de l'annonce).\n En tant que membre du PCLD, vous serez amené.e à intervenir dans l'ensemble du Canton de Genève pour des remplacements de longue durée, variant de 6 à 15 mois, au sein de nos antennes. Votre mission principale consistera à assurer la continuité du suivi des patients, en agissant en tant que référent dans la gestion de leurs dossiers et en fournissant des prestations de qualité.\n\nNous recherchons des personnes investies pour occuper un poste où vous aurez l'opportunité de :\n\n• Relever des défis stimulants et faire des expériences professionnelles enrichissantes.\n\n• Élargir vos horizons en travaillant sur une longue durée dans différents secteurs à Genève, au sein de diverses équipes et avec différents types de patients.\n\n• Acquérir une connaissance approfondie du réseau sanitaire et social de Genève, ainsi que de notre institution et du domaine de l’aide et des soins à domicile\n\n• Développer vos compétences théoriques et pratiques grâce à des formations adaptées.\n\nEn rejoignant l'équipe du PCLD, vous pourrez :\n\n• Assumer le rôle de référent dans l'évaluation des besoins des patients, conformément aux principes déontologiques de la profession infirmière, au sein du modèle d'équipe de maintien à domicile.\n\n• Dispenser des soins infirmiers personnalisés, autonomes ou sur délégation médicale, couvrant une gamme complète de services préventifs, curatifs, éducatifs et palliatifs, directement chez les patients de tous âges, à domicile.\n\n• Travailler en étroite collaboration avec les assistants.es en soins et santé communautaire ainsi que les aides pluridisciplinaires, en déléguant les soins selon les procédures établies.\n\n• Organiser les démarches médico-sociales et assurer la coordination avec tous les intervenants impliqués dans la situation d'un patient donné, en mobilisant les ressources disponibles du réseau primaire et secondaire.\n\n• Un Bachelor HES-SO en soins infirmiers ou une formation jugée équivalente, ainsi qu'une reconnaissance de la Croix-Rouge.\n\n• Une excellente capacité d'adaptation et de délégation, avec une flexibilité et une disponibilité démontrée.\n\n• Un sens des responsabilités et une orientation solution, essentiels pour relever les défis rencontrés.\n\n• Une aptitude au travail en autonomie et en interprofessionnalité au sein d'une équipe pluridisciplinaire.\n\n• Une mobilité indispensable, pouvant impliquer des déplacements à pied, à vélo en ville, en transport public (TPG) ou en voiture selon les missions.\n\n• Entrée en fonction : à convenir\n\n• Veuillez svp joindre à votre dossier :\n• un curriculum vitae à jour,\n\n• une lettre de motivation,\n\n• une copie de vos diplômes\n\n• vos certificats de travail\n\nNous considérons uniquement les dossiers de candidature complets\n Nous vous garantissons une confidentialité totale dans le traitement de votre dossier.\n Ce que nous offrons\n >> \"cliquez ici pour connaître les avantages collaboratrices et collaborateurs de l'IMAD\"\n Celles et ceux qui font l’IMAD\n >> \"cliquez ici pour rencontrer nos collaborateurs\"",
-      "descriptionByLocale": {
-        "it": "Se stai cercando un ambiente dinamico in cui le tue competenze assistenziali verranno utilizzate per il benessere dei pazienti, unisciti al nostro team all'interno del pool centralizzato a lungo termine (PCLD)!\nIn qualità di membro del PCLD, sarai tenuto a lavorare in tutto il Cantone di Ginevra per sostituzioni a lungo termine, variabili da 6 a 15 mesi, all'interno delle nostre filiali. La tua missione principale sarà garantire la continuità del monitoraggio dei pazienti, fungendo da referente nella gestione delle loro cartelle e fornendo servizi di qualità.\n\nCerchiamo persone impegnate per ricoprire una posizione in cui avrai l'opportunità di:\n\n• Affronta sfide stimolanti e vivi esperienze professionali arricchenti.\n\n• Allarga i tuoi orizzonti lavorando per un lungo periodo di tempo in diversi settori a Ginevra, all'interno di vari team e con diverse tipologie di pazienti.\n\n• Acquisisci una conoscenza approfondita della rete sanitaria e sociale di Ginevra, nonché della nostra istituzione e del settore dell'aiuto e dell'assistenza domiciliare\n\n• Sviluppa le tue competenze teoriche e pratiche attraverso una formazione adattata.\n\nUnendoti al team PCLD potrai:\n\n• Assumere il ruolo di referente nella valutazione dei bisogni del paziente, nel rispetto dei principi etici della professione infermieristica, all'interno del modello dell'équipe di assistenza domiciliare.\n\n• Fornire assistenza infermieristica personalizzata, autonoma o su delega medica, coprendo una gamma completa di servizi preventivi, curativi, educativi e palliativi, direttamente ai pazienti di tutte le età, a domicilio.\n\n• Lavorare in stretta collaborazione con gli assistenti sanitari e di comunità, nonché con gli assistenti multidisciplinari, delegando l'assistenza secondo le procedure stabilite.\n\n• Organizzare le procedure medico-sociali e garantire il coordinamento con tutte le parti interessate coinvolte nella situazione di un determinato paziente, mobilitando le risorse disponibili della rete primaria e secondaria.\n\n• Una laurea HES-SO in infermieristica o formazione ritenuta equivalente, oltre al riconoscimento della Croce Rossa.\n\n• Ottima capacità di adattamento e delega, con flessibilità e disponibilità dimostrata.\n\n• Senso di responsabilità e orientamento alla soluzione, essenziali per affrontare le sfide incontrate.\n\n• Capacità di lavorare in modo indipendente e interprofessionale all'interno di un team multidisciplinare.\n\n• Mobilità essenziale, che può comportare spostamenti a piedi, in bicicletta, con i mezzi pubblici (TPG) o in auto a seconda delle missioni.\n\n• Ingresso in carica: da concordare\n\n• Si prega di allegare al file:\n• un curriculum vitae aggiornato,\n\n• una lettera di presentazione,\n\n• una copia dei tuoi diplomi e certificati di lavoro.\n\n• Consideriamo solo i file di candidatura completi\nGarantiamo la totale riservatezza nell'elaborazione del tuo file.\nCosa offriamo\n>> \"clicca qui per scoprire i vantaggi per i dipendenti IMAD\"\nColoro che fanno IMAD\n>> \"clicca qui per incontrare i nostri colleghi\"",
-        "en": "If you are looking for a dynamic environment where your care expertise will be used for the well-being of patients, join our team within the centralized long-term pool (PCLD)!\nAs a member of the PCLD, you will be required to work throughout the Canton of Geneva for long-term replacements, varying from 6 to 15 months, within our branches. Your main mission will be to ensure continuity of patient monitoring, by acting as a referent in the management of their files and by providing quality services.\n\nWe are looking for committed people to fill a position where you will have the opportunity to:\n\n• Take on stimulating challenges and have enriching professional experiences.\n\n• Broaden your horizons by working over a long period of time in different sectors in Geneva, within various teams and with different types of patients.\n\n• Acquire in-depth knowledge of the Geneva health and social network, as well as our institution and the field of home help and care\n\n• Develop your theoretical and practical skills through adapted training.\n\nBy joining the PCLD team, you will be able to:\n\n• Assume the role of referent in assessing patient needs, in accordance with the ethical principles of the nursing profession, within the home care team model.\n\n• Provide personalized nursing care, autonomous or by medical delegation, covering a full range of preventive, curative, educational and palliative services, directly to patients of all ages, at home.\n\n• Work in close collaboration with care and community health assistants as well as multidisciplinary assistants, delegating care according to established procedures.\n\n• Organize medico-social procedures and ensure coordination with all stakeholders involved in the situation of a given patient, by mobilizing the available resources of the primary and secondary network.\n\n• An HES-SO Bachelor's degree in nursing or training deemed equivalent, as well as recognition from the Red Cross.\n\n• Excellent ability to adapt and delegate, with flexibility and demonstrated availability.\n\n• A sense of responsibility and solution orientation, essential to meet the challenges encountered.\n\n• An ability to work independently and interprofessionally within a multidisciplinary team.\n\n• Essential mobility, which may involve travel on foot, by bike, by public transport (TPG) or by car depending on the missions.\n\n• Entry into office: to be agreed\n\n• Please attach to your file:\n• an up-to-date curriculum vitae,\n\n• a cover letter,\n\n• a copy of your diplomas and work certificates.\n\n• We only consider complete application files\nWe guarantee total confidentiality in the processing of your file.\nWhat we offer\n>> \"click here to find out about the benefits for IMAD employees\"\nThose who do IMAD\n>> \"click here to meet our colleagues\"",
-        "de": "Wenn Sie auf der Suche nach einem dynamischen Umfeld sind, in dem Ihre Pflegekompetenz zum Wohl der Patienten eingesetzt wird, schließen Sie sich unserem Team im zentralen Langzeitpool (PCLD) an!\nAls Mitglied des PCLD sind Sie verpflichtet, im gesamten Kanton Genf für langfristige Vertretungen (zwischen 6 und 15 Monaten) in unseren Niederlassungen zu arbeiten. Ihre Hauptaufgabe besteht darin, die Kontinuität der Patientenüberwachung sicherzustellen, indem Sie als Referenz bei der Verwaltung ihrer Akten fungieren und qualitativ hochwertige Dienstleistungen erbringen.\n\nWir suchen engagierte Menschen zur Besetzung einer Position, in der Sie die Möglichkeit haben:\n\n• Nehmen Sie anregende Herausforderungen an und sammeln Sie bereichernde Berufserfahrungen.\n\n• Erweitern Sie Ihren Horizont, indem Sie über einen langen Zeitraum in verschiedenen Bereichen in Genf, in verschiedenen Teams und mit unterschiedlichen Patiententypen arbeiten.\n\n• Erwerben Sie fundierte Kenntnisse über das Genfer Gesundheits- und Sozialnetzwerk sowie über unsere Institution und den Bereich der häuslichen Hilfe und Pflege\n\n• Entwickeln Sie Ihre theoretischen und praktischen Fähigkeiten durch eine angepasste Ausbildung.\n\nWenn Sie dem PCLD-Team beitreten, können Sie:\n\n• Übernehmen Sie die Rolle des Referenten bei der Beurteilung der Patientenbedürfnisse gemäß den ethischen Grundsätzen des Pflegeberufs im Rahmen des häuslichen Pflegeteammodells.\n\n• Bieten Sie individuell oder durch ärztliche Delegation personalisierte Pflege an, die ein umfassendes Spektrum an präventiven, heilenden, pädagogischen und palliativen Dienstleistungen direkt für Patienten jeden Alters zu Hause abdeckt.\n\n• Arbeiten Sie eng mit Pflege- und Gemeindegesundheitsassistenten sowie multidisziplinären Assistenten zusammen und delegieren Sie die Pflege gemäß festgelegten Verfahren.\n\n• Organisieren Sie medizinisch-soziale Verfahren und stellen Sie die Koordination mit allen an der Situation eines bestimmten Patienten beteiligten Beteiligten sicher, indem Sie die verfügbaren Ressourcen des primären und sekundären Netzwerks mobilisieren.\n\n• Ein als gleichwertig anerkannter HES-SO-Bachelor-Abschluss in Krankenpflege oder Ausbildung sowie Anerkennung durch das Rote Kreuz.\n\n• Hervorragende Anpassungs- und Delegationsfähigkeit mit Flexibilität und nachgewiesener Verfügbarkeit.\n\n• Verantwortungsbewusstsein und Lösungsorientierung sind für die Bewältigung der Herausforderungen unerlässlich.\n\n• Die Fähigkeit, in einem multidisziplinären Team unabhängig und interprofessionell zu arbeiten.\n\n• Wesentliche Mobilität, die je nach Einsatz das Reisen zu Fuß, mit dem Fahrrad, mit öffentlichen Verkehrsmitteln (TPG) oder mit dem Auto umfassen kann.\n\n• Amtsantritt: nach Absprache\n\n• Bitte fügen Sie Ihrer Datei Folgendes bei:\n• ein aktueller Lebenslauf,\n\n• ein Anschreiben,\n\n• eine Kopie Ihrer Diplome und Arbeitszeugnisse.\n\n• Wir berücksichtigen ausschließlich vollständige Bewerbungsunterlagen\nWir garantieren absolute Vertraulichkeit bei der Bearbeitung Ihrer Akte.\nWas wir bieten\n>> „Klicken Sie hier, um mehr über die Vorteile für IMAD-Mitarbeiter zu erfahren“\nDiejenigen, die IMAD machen\n>> „Klicken Sie hier, um unsere Kollegen zu treffen“",
-        "fr": "Si vous recherchez un environnement dynamique où votre expertise en soins sera mise à contribution pour le bien-être des patients (voir capsule vidéo en bas de l'annonce).\nEn tant que membre du PCLD, vous serez amené.e à intervenir dans l'ensemble du Canton de Genève pour des remplacements de longue durée, variant de 6 à 15 mois, au sein de nos antennes. Votre mission principale consistera à assurer la continuité du suivi des patients, en agissant en tant que référent dans la gestion de leurs dossiers et en fournissant des prestations de qualité.\n\nNous recherchons des personnes investies pour occuper un poste où vous aurez l'opportunité de :\n\n• Relever des défis stimulants et faire des expériences professionnelles enrichissantes.\n\n• Élargir vos horizons en travaillant sur une longue durée dans différents secteurs à Genève, au sein de diverses équipes et avec différents types de patients.\n\n• Acquérir une connaissance approfondie du réseau sanitaire et social de Genève, ainsi que de notre institution et du domaine de l’aide et des soins à domicile\n\n• Développer vos compétences théoriques et pratiques grâce à des formations adaptées.\n\nEn rejoignant l'équipe du PCLD, vous pourrez :\n\n• Assumer le rôle de référent dans l'évaluation des besoins des patients, conformément aux principes déontologiques de la profession infirmière, au sein du modèle d'équipe de maintien à domicile.\n\n• Dispenser des soins infirmiers personnalisés, autonomes ou sur délégation médicale, couvrant une gamme complète de services préventifs, curatifs, éducatifs et palliatifs, directement chez les patients de tous âges, à domicile.\n\n• Travailler en étroite collaboration avec les assistants.es en soins et santé communautaire ainsi que les aides pluridisciplinaires, en déléguant les soins selon les procédures établies.\n\n• Organiser les démarches médico-sociales et assurer la coordination avec tous les intervenants impliqués dans la situation d'un patient donné, en mobilisant les ressources disponibles du réseau primaire et secondaire.\n\n• Un Bachelor HES-SO en soins infirmiers ou une formation jugée équivalente, ainsi qu'une reconnaissance de la Croix-Rouge.\n\n• Une excellente capacité d'adaptation et de délégation, avec une flexibilité et une disponibilité démontrée.\n\n• Un sens des responsabilités et une orientation solution, essentiels pour relever les défis rencontrés.\n\n• Une aptitude au travail en autonomie et en interprofessionnalité au sein d'une équipe pluridisciplinaire.\n\n• Une mobilité indispensable, pouvant impliquer des déplacements à pied, à vélo en ville, en transport public (TPG) ou en voiture selon les missions.\n\n• Entrée en fonction : à convenir\n\n• Veuillez svp joindre à votre dossier :\n• un curriculum vitae à jour,\n\n• une lettre de motivation,\n\n• une copie de vos diplômes\n\n• vos certificats de travail\n\nNous considérons uniquement les dossiers de candidature complets\nNous vous garantissons une confidentialité totale dans le traitement de votre dossier.\nCe que nous offrons\n>> \"cliquez ici pour connaître les avantages collaboratrices et collaborateurs de l'IMAD\"\nCelles et ceux qui font l’IMAD\n>> \"cliquez ici pour rencontrer nos collaborateurs\""
-      },
-      "needsRetranslation": false,
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/imad/744000161240759-infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee-pour-des-missions-de-remplacement-de-longue-duree-de-6-a-15-mois-avec-la-responsabilite-d-un-portefeuille-de-dossiers-patients",
-      "source": "imad Dedicated Parser (SmartRecruiters API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-21T21:37:55.209Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Cure a domicilio",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-12T08:41:25.050Z",
-      "postedDate": "2026-11-12T08:41:25.050Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000161240759-infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee-pour-des-missions-de-remplacement-de-longue-duree-de-6-a-15-mois-avec-la-responsabilite-d-un-portefeuille-de-dossiers-patients?oga=true",
-      "jobReqId": "744000161240759",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee",
-        "infermiere-a-di-riferimento-a-domicilio-all-80-o-al-100-in-contratti-a-tempo-indeterminato-all-interno-del-team"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee",
-          "infermiere-a-di-riferimento-a-domicilio-all-80-o-al-100-in-contratti-a-tempo-indeterminato-all-interno-del-team"
-        ]
-      },
-      "firstSeenAt": "2026-08-04T11:35:03.323Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1204",
-      "streetAddress": "Geneva",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:37:55.209Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "imad-6c9444a38902",
-      "slug": "apprendisti-e-apprendisti-assistenza-e-assistente-per-la-salute-chs-cfc-imad-geneva-ecb069aad0",
-      "slugByLocale": {
-        "it": "apprendisti-e-apprendisti-assistenza-e-assistente-per-la-salute-chs-cfc-imad-geneva-ecb069aad0",
-        "en": "apprenticeships-and-apprentices-community-care-and-health-assistant-chs-cfc-imad-geneva",
-        "de": "lernende-fachfrauen-und-fachmanner-gesundheit-fage-efz-imad-geneva",
-        "fr": "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc"
-      },
-      "company": "imad",
-      "companyKey": "imad",
-      "companyDomain": "imad-ge.ch",
-      "title": "Apprenties et apprentis assistante et assistant en soins et santé communautaire (ASSC) - CFC",
-      "titleByLocale": {
-        "it": "Apprendisti e apprendisti Assistenza e Assistente per la Salute (CHS) - CFC",
-        "en": "Apprenticeships and Apprentices Community Care and Health Assistant (CHS) - CFC",
-        "de": "Lernende Fachfrauen und Fachmänner Gesundheit (FaGe) - EFZ",
-        "fr": "Apprenties et apprentis assistante et assistant en soins et santé communautaire (ASSC) - CFC"
-      },
-      "description": "Votre mission\n\n• Travailler dans une équipe pluridisciplinaire en collaboration avec les partenaires du réseau de soins\n\n• Contribuer aux soins du client à son domicile\n\n• Communiquer avec le client et son entourage\n\n• Participer aux prestations d’aide pratique.\n Nous vous offrons\n\n• Un travail varié et de proximité auprés des patients sur le long terme\n\n• Un encadrement de qualité durant les 3 ans d’apprentissage\n\n• L’utilisation d’outils mobiles (smartphone, tablette)\n\n• Une participation à l’abonnement Unireso.\n\n• Scolarité obligatoire achevée\n\n• Maîtrise du français (parlé-écrit) - minimum B2\n\n• Aisance dans les contacts humains\n\n• Intérêt pour les activités relatives aux soins à la personne\n\n• Capacité d’adaptation et d’autonomie\n\n• Aptitude à travailler de façon indépendante et en équipe\n\n• Un stage effectué dans le milieu socio-sanitaire est un atout\n\n• Etre en bonne condition physique\n\n• Savoir faire du vélo (et vélo électrique) est indispensable. Les déplacements en deux roues sont nécessaires et s'effectuent dans la circulation en ville.\n\nDélai de postulation: le 07.03.2027 (mais ne tardez pas pour réunir les documents nécessaires et pour postuler!)\n Entrée en fonction : rentrée scolaire 2027\n\n• Veuillez svp joindre à votre dossier (au format PDF ou WORD) :\n\n• une lettre de motivation\n\n• un CV\n\n• vos trois derniers bulletins scolaires\n\n• une copie de vos diplômes\n\n• vos certificats de stage et/ou certificats de travail\n\n• une copie de votre pièce d'identité (ainsi que votre titre de séjour valable si vous ne possédez pas la Nationalité Suisse)\n Nous vous prions de noter qu’aucun dossier papier ne sera accepté\n Nous considérons uniquement les dossiers de candidature complets\n Nous vous garantissons une confidentialité totale dans le traitement de votre dossier.",
-      "descriptionByLocale": {
-        "it": "La tua missione\n\n• Lavorare in un team multidisciplinare in collaborazione con i partner della rete di assistenza\n\n• Contribuisci alla cura del cliente a casa\n\n• Comunicare con il cliente e i loro dintorni\n\n• Partecipare a benefici pratici di assistenza.\nVi offriamo\n\n• Lavoro vario e stretto con i pazienti a lungo termine\n\n• Formazione di qualità durante 3 anni di apprendimento\n\n• Utilizzo di strumenti mobili (smartphone, tablet)\n\n• Partecipazione all'abbonamento Unireso.\n\n• Istruzione obbligatoria completata\n\n• Mastery of French (spoken) - minimo B2\n\n• Utilizzare nei contatti umani\n\n• Interessi delle attività di cura personale\n\n• Adattabilità e autonomia\n\n• Capacità di lavorare in modo indipendente e come squadra\n\n• Uno stage in ambito sanitario e sociale è un asset\n\n• Essere in buone condizioni fisiche\n\n• Sapere come pedalare (e bici elettrica) è essenziale. I movimenti a due ruote sono necessari e sono effettuati in città.\n\nTermine ultimo per l'applicazione: 07.03.2026 (ma non ritardare di raccogliere i documenti necessari e applicare!)\nEntrata in ufficio: scuola anno 2027\n\n• Si prega di allegare al file (in formato PDF o WORD):\n\n• una lettera di copertura\n\n• un CV\n\n• i tuoi ultimi tre proiettili scolastici\n\n• una copia dei vostri diplomi\n\n• certificati di tirocinio e/o certificati di lavoro\n\n• una copia del documento di identità (e il permesso di soggiorno valido se non hai la nazionalità svizzera)\nSi prega di notare che non saranno accettati file di carta\nConsideriamo solo applicazioni complete\nGarantiamo la completa riservatezza nel trattamento del tuo file.",
-        "en": "Your Mission\n\n• Work in a multidisciplinary team in collaboration with the care network partners\n\n• Contribute to client care at home\n\n• Communicate with the client and their surroundings\n\n• Participate in practical assistance benefits.\nWe offer you\n\n• Various and close work with patients over the long term\n\n• Quality coaching during 3 years of learning\n\n• Using mobile tools (smartphone, tablet)\n\n• Participation in the Unireso subscription.\n\n• Compulsory education completed\n\n• Mastery of French (spoken) - minimum B2\n\n• Use in human contacts\n\n• Interest in personal care activities\n\n• Adaptability and autonomy\n\n• Ability to work independently and as a team\n\n• An internship in the health and social environment is an asset\n\n• Being in good physical condition\n\n• Knowing how to cycle (and electric bike) is essential. Two-wheel movements are necessary and are carried out in the city.\n\nDeadline for application: 07.03.2026 (but don't delay to gather the necessary documents and apply!)\nEntry into office: school year 2027\n\n• Please attach to your file (in PDF or WORD format):\n\n• a cover letter\n\n• a CV\n\n• your last three school bulletins\n\n• a copy of your diplomas\n\n• your internship certificates and/or work certificates\n\n• a copy of your identity document (and your valid residence permit if you do not have the Swiss Nationality)\nPlease note that no paper files will be accepted\nWe only consider full applications\nWe guarantee complete confidentiality in the processing of your file.",
-        "de": "Deine Mission\n\n• Arbeiten in einem multidisziplinären Team in Zusammenarbeit mit den Pflegenetzwerkpartnern\n\n• Beitrag zur Kundenbetreuung zu Hause\n\n• Kommunizieren Sie mit dem Kunden und seiner Umgebung\n\n• Beteiligen Sie sich an praktischen Hilfsleistungen.\nWir bieten Ihnen\n\n• Vielfältige und enge Arbeit mit Patienten langfristig\n\n• Qualitätscoaching während 3 Jahren Lernen\n\n• Mit mobilen Tools (Smartphone, Tablet)\n\n• Teilnahme am Unireso Abonnement.\n\n• Schulpflicht abgeschlossen\n\n• Beherrschung von Französisch (gesprochen) - mindestens B2\n\n• Verwendung in menschlichen Kontakten\n\n• Interesse an Körperpflegeaktivitäten\n\n• Anpassungsfähigkeit und Autonomie\n\n• Fähigkeit, selbstständig und als Team zu arbeiten\n\n• Ein Praktikum im Gesundheits- und Sozialumfeld ist ein Gewinn\n\n• In guter körperlicher Verfassung\n\n• Zu wissen, wie man Rad fährt (und Elektrofahrrad) ist wichtig. Zweiradbewegungen sind notwendig und werden in der Stadt durchgeführt.\n\nBewerbungsfrist: 07.03.2026 (aber zögern Sie nicht, die notwendigen Unterlagen zu sammeln und sich zu bewerben!)\nAmtsantritt: Schuljahr 2027\n\n• Bitte fügen Sie Ihrer Datei bei (im PDF- oder WORD-Format):\n\n• ein Anschreiben\n\n• a CV\n\n• Deine letzten drei Schulbulletins\n\n• Eine Kopie Ihrer Diplome\n\n• Ihre Praktikumszeugnisse und/oder Arbeitszertifikate\n\n• eine Kopie Ihres Ausweises (und Ihres gültigen Aufenthaltstitels, wenn Sie nicht die Schweizer Staatsangehörigkeit besitzen)\nBitte beachten Sie, dass keine Papierakten akzeptiert werden\nWir berücksichtigen nur vollständige Anwendungen\nWir garantieren absolute Vertraulichkeit bei der Verarbeitung Ihrer Datei.",
-        "fr": "Votre mission\n\n• Travailler dans une équipe pluridisciplinaire en collaboration avec les partenaires du réseau de soins\n\n• Contribuer aux soins du client à son domicile\n\n• Communiquer avec le client et son entourage\n\n• Participer aux prestations d’aide pratique.\nNous vous offrons\n\n• Un travail varié et de proximité auprés des patients sur le long terme\n\n• Un encadrement de qualité durant les 3 ans d’apprentissage\n\n• L’utilisation d’outils mobiles (smartphone, tablette)\n\n• Une participation à l’abonnement Unireso.\n\n• Scolarité obligatoire achevée\n\n• Maîtrise du français (parlé-écrit) - minimum B2\n\n• Aisance dans les contacts humains\n\n• Intérêt pour les activités relatives aux soins à la personne\n\n• Capacité d’adaptation et d’autonomie\n\n• Aptitude à travailler de façon indépendante et en équipe\n\n• Un stage effectué dans le milieu socio-sanitaire est un atout\n\n• Etre en bonne condition physique\n\n• Savoir faire du vélo (et vélo électrique) est indispensable. Les déplacements en deux roues sont nécessaires et s'effectuent dans la circulation en ville.\n\nDélai de postulation: le 07.03.2027 (mais ne tardez pas pour réunir les documents nécessaires et pour postuler!)\nEntrée en fonction : rentrée scolaire 2027\n\n• Veuillez svp joindre à votre dossier (au format PDF ou WORD) :\n\n• une lettre de motivation\n\n• un CV\n\n• vos trois derniers bulletins scolaires\n\n• une copie de vos diplômes\n\n• vos certificats de stage et/ou certificats de travail\n\n• une copie de votre pièce d'identité (ainsi que votre titre de séjour valable si vous ne possédez pas la Nationalité Suisse)\nNous vous prions de noter qu’aucun dossier papier ne sera accepté\nNous considérons uniquement les dossiers de candidature complets\nNous vous garantissons une confidentialité totale dans le traitement de votre dossier."
-      },
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/imad/744000162697294-apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc",
-      "source": "imad Dedicated Parser (SmartRecruiters API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-21T21:37:55.208Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità",
-      "contract": "full-time",
-      "employmentType": "INTERN",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Cure a domicilio",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-20T10:06:52.128Z",
-      "postedDate": "2026-11-20T10:06:52.128Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000162697294-apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc?oga=true",
-      "jobReqId": "744000162697294",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc",
-        "apprendisti-e-apprendisti-assistenza-e-assistente-per-la-salute-chs-cfc-imad-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc",
-          "apprendisti-e-apprendisti-assistenza-e-assistente-per-la-salute-chs-cfc-imad-geneva"
-        ]
-      },
-      "firstSeenAt": "2026-11-19T09:59:55.600Z",
-      "salaryMin": 77500,
-      "salaryMax": 108000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77500,
-          "maxValue": 108000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1204",
-      "streetAddress": "Geneva",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:37:55.208Z",
+      "validThrough": "2027-02-10T09:22:52.515Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -691,7 +611,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000161239599-assc-en-soins-a-domicile-a-80-ou-100-en-cdi",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-21T21:37:55.204Z",
+      "crawledAt": "2026-11-22T09:22:52.515Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -741,7 +661,87 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:37:55.204Z",
+      "validThrough": "2027-02-10T09:22:52.515Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "imad-6c9444a38902",
+      "slug": "apprendisti-e-apprendisti-assistenza-e-assistente-per-la-salute-chs-cfc-imad-geneva-ecb069aad0",
+      "slugByLocale": {
+        "it": "apprendisti-e-apprendisti-assistenza-e-assistente-per-la-salute-chs-cfc-imad-geneva-ecb069aad0",
+        "en": "apprenticeships-and-apprentices-community-care-and-health-assistant-chs-cfc-imad-geneva",
+        "de": "lernende-fachfrauen-und-fachmanner-gesundheit-fage-efz-imad-geneva",
+        "fr": "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc"
+      },
+      "company": "imad",
+      "companyKey": "imad",
+      "companyDomain": "imad-ge.ch",
+      "title": "Apprenties et apprentis assistante et assistant en soins et santé communautaire (ASSC) - CFC",
+      "titleByLocale": {
+        "it": "Apprendisti e apprendisti Assistenza e Assistente per la Salute (CHS) - CFC",
+        "en": "Apprenticeships and Apprentices Community Care and Health Assistant (CHS) - CFC",
+        "de": "Lernende Fachfrauen und Fachmänner Gesundheit (FaGe) - EFZ",
+        "fr": "Apprenties et apprentis assistante et assistant en soins et santé communautaire (ASSC) - CFC"
+      },
+      "description": "Votre mission\n\n• Travailler dans une équipe pluridisciplinaire en collaboration avec les partenaires du réseau de soins\n\n• Contribuer aux soins du client à son domicile\n\n• Communiquer avec le client et son entourage\n\n• Participer aux prestations d’aide pratique.\n Nous vous offrons\n\n• Un travail varié et de proximité auprés des patients sur le long terme\n\n• Un encadrement de qualité durant les 3 ans d’apprentissage\n\n• L’utilisation d’outils mobiles (smartphone, tablette)\n\n• Une participation à l’abonnement Unireso.\n\n• Scolarité obligatoire achevée\n\n• Maîtrise du français (parlé-écrit) - minimum B2\n\n• Aisance dans les contacts humains\n\n• Intérêt pour les activités relatives aux soins à la personne\n\n• Capacité d’adaptation et d’autonomie\n\n• Aptitude à travailler de façon indépendante et en équipe\n\n• Un stage effectué dans le milieu socio-sanitaire est un atout\n\n• Etre en bonne condition physique\n\n• Savoir faire du vélo (et vélo électrique) est indispensable. Les déplacements en deux roues sont nécessaires et s'effectuent dans la circulation en ville.\n\nDélai de postulation: le 07.03.2027 (mais ne tardez pas pour réunir les documents nécessaires et pour postuler!)\n Entrée en fonction : rentrée scolaire 2027\n\n• Veuillez svp joindre à votre dossier (au format PDF ou WORD) :\n\n• une lettre de motivation\n\n• un CV\n\n• vos trois derniers bulletins scolaires\n\n• une copie de vos diplômes\n\n• vos certificats de stage et/ou certificats de travail\n\n• une copie de votre pièce d'identité (ainsi que votre titre de séjour valable si vous ne possédez pas la Nationalité Suisse)\n Nous vous prions de noter qu’aucun dossier papier ne sera accepté\n Nous considérons uniquement les dossiers de candidature complets\n Nous vous garantissons une confidentialité totale dans le traitement de votre dossier.",
+      "descriptionByLocale": {
+        "it": "La tua missione\n\n• Lavorare in un team multidisciplinare in collaborazione con i partner della rete di assistenza\n\n• Contribuisci alla cura del cliente a casa\n\n• Comunicare con il cliente e i loro dintorni\n\n• Partecipare a benefici pratici di assistenza.\nVi offriamo\n\n• Lavoro vario e stretto con i pazienti a lungo termine\n\n• Formazione di qualità durante 3 anni di apprendimento\n\n• Utilizzo di strumenti mobili (smartphone, tablet)\n\n• Partecipazione all'abbonamento Unireso.\n\n• Istruzione obbligatoria completata\n\n• Mastery of French (spoken) - minimo B2\n\n• Utilizzare nei contatti umani\n\n• Interessi delle attività di cura personale\n\n• Adattabilità e autonomia\n\n• Capacità di lavorare in modo indipendente e come squadra\n\n• Uno stage in ambito sanitario e sociale è un asset\n\n• Essere in buone condizioni fisiche\n\n• Sapere come pedalare (e bici elettrica) è essenziale. I movimenti a due ruote sono necessari e sono effettuati in città.\n\nTermine ultimo per l'applicazione: 07.03.2026 (ma non ritardare di raccogliere i documenti necessari e applicare!)\nEntrata in ufficio: scuola anno 2027\n\n• Si prega di allegare al file (in formato PDF o WORD):\n\n• una lettera di copertura\n\n• un CV\n\n• i tuoi ultimi tre proiettili scolastici\n\n• una copia dei vostri diplomi\n\n• certificati di tirocinio e/o certificati di lavoro\n\n• una copia del documento di identità (e il permesso di soggiorno valido se non hai la nazionalità svizzera)\nSi prega di notare che non saranno accettati file di carta\nConsideriamo solo applicazioni complete\nGarantiamo la completa riservatezza nel trattamento del tuo file.",
+        "en": "Your Mission\n\n• Work in a multidisciplinary team in collaboration with the care network partners\n\n• Contribute to client care at home\n\n• Communicate with the client and their surroundings\n\n• Participate in practical assistance benefits.\nWe offer you\n\n• Various and close work with patients over the long term\n\n• Quality coaching during 3 years of learning\n\n• Using mobile tools (smartphone, tablet)\n\n• Participation in the Unireso subscription.\n\n• Compulsory education completed\n\n• Mastery of French (spoken) - minimum B2\n\n• Use in human contacts\n\n• Interest in personal care activities\n\n• Adaptability and autonomy\n\n• Ability to work independently and as a team\n\n• An internship in the health and social environment is an asset\n\n• Being in good physical condition\n\n• Knowing how to cycle (and electric bike) is essential. Two-wheel movements are necessary and are carried out in the city.\n\nDeadline for application: 07.03.2026 (but don't delay to gather the necessary documents and apply!)\nEntry into office: school year 2027\n\n• Please attach to your file (in PDF or WORD format):\n\n• a cover letter\n\n• a CV\n\n• your last three school bulletins\n\n• a copy of your diplomas\n\n• your internship certificates and/or work certificates\n\n• a copy of your identity document (and your valid residence permit if you do not have the Swiss Nationality)\nPlease note that no paper files will be accepted\nWe only consider full applications\nWe guarantee complete confidentiality in the processing of your file.",
+        "de": "Deine Mission\n\n• Arbeiten in einem multidisziplinären Team in Zusammenarbeit mit den Pflegenetzwerkpartnern\n\n• Beitrag zur Kundenbetreuung zu Hause\n\n• Kommunizieren Sie mit dem Kunden und seiner Umgebung\n\n• Beteiligen Sie sich an praktischen Hilfsleistungen.\nWir bieten Ihnen\n\n• Vielfältige und enge Arbeit mit Patienten langfristig\n\n• Qualitätscoaching während 3 Jahren Lernen\n\n• Mit mobilen Tools (Smartphone, Tablet)\n\n• Teilnahme am Unireso Abonnement.\n\n• Schulpflicht abgeschlossen\n\n• Beherrschung von Französisch (gesprochen) - mindestens B2\n\n• Verwendung in menschlichen Kontakten\n\n• Interesse an Körperpflegeaktivitäten\n\n• Anpassungsfähigkeit und Autonomie\n\n• Fähigkeit, selbstständig und als Team zu arbeiten\n\n• Ein Praktikum im Gesundheits- und Sozialumfeld ist ein Gewinn\n\n• In guter körperlicher Verfassung\n\n• Zu wissen, wie man Rad fährt (und Elektrofahrrad) ist wichtig. Zweiradbewegungen sind notwendig und werden in der Stadt durchgeführt.\n\nBewerbungsfrist: 07.03.2026 (aber zögern Sie nicht, die notwendigen Unterlagen zu sammeln und sich zu bewerben!)\nAmtsantritt: Schuljahr 2027\n\n• Bitte fügen Sie Ihrer Datei bei (im PDF- oder WORD-Format):\n\n• ein Anschreiben\n\n• a CV\n\n• Deine letzten drei Schulbulletins\n\n• Eine Kopie Ihrer Diplome\n\n• Ihre Praktikumszeugnisse und/oder Arbeitszertifikate\n\n• eine Kopie Ihres Ausweises (und Ihres gültigen Aufenthaltstitels, wenn Sie nicht die Schweizer Staatsangehörigkeit besitzen)\nBitte beachten Sie, dass keine Papierakten akzeptiert werden\nWir berücksichtigen nur vollständige Anwendungen\nWir garantieren absolute Vertraulichkeit bei der Verarbeitung Ihrer Datei.",
+        "fr": "Votre mission\n\n• Travailler dans une équipe pluridisciplinaire en collaboration avec les partenaires du réseau de soins\n\n• Contribuer aux soins du client à son domicile\n\n• Communiquer avec le client et son entourage\n\n• Participer aux prestations d’aide pratique.\nNous vous offrons\n\n• Un travail varié et de proximité auprés des patients sur le long terme\n\n• Un encadrement de qualité durant les 3 ans d’apprentissage\n\n• L’utilisation d’outils mobiles (smartphone, tablette)\n\n• Une participation à l’abonnement Unireso.\n\n• Scolarité obligatoire achevée\n\n• Maîtrise du français (parlé-écrit) - minimum B2\n\n• Aisance dans les contacts humains\n\n• Intérêt pour les activités relatives aux soins à la personne\n\n• Capacité d’adaptation et d’autonomie\n\n• Aptitude à travailler de façon indépendante et en équipe\n\n• Un stage effectué dans le milieu socio-sanitaire est un atout\n\n• Etre en bonne condition physique\n\n• Savoir faire du vélo (et vélo électrique) est indispensable. Les déplacements en deux roues sont nécessaires et s'effectuent dans la circulation en ville.\n\nDélai de postulation: le 07.03.2027 (mais ne tardez pas pour réunir les documents nécessaires et pour postuler!)\nEntrée en fonction : rentrée scolaire 2027\n\n• Veuillez svp joindre à votre dossier (au format PDF ou WORD) :\n\n• une lettre de motivation\n\n• un CV\n\n• vos trois derniers bulletins scolaires\n\n• une copie de vos diplômes\n\n• vos certificats de stage et/ou certificats de travail\n\n• une copie de votre pièce d'identité (ainsi que votre titre de séjour valable si vous ne possédez pas la Nationalité Suisse)\nNous vous prions de noter qu’aucun dossier papier ne sera accepté\nNous considérons uniquement les dossiers de candidature complets\nNous vous garantissons une confidentialité totale dans le traitement de votre dossier."
+      },
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/imad/744000162697294-apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc",
+      "source": "imad Dedicated Parser (SmartRecruiters API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-22T09:22:52.512Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "full-time",
+      "employmentType": "INTERN",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Cure a domicilio",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-20T10:06:52.128Z",
+      "postedDate": "2026-11-20T10:06:52.128Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000162697294-apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc?oga=true",
+      "jobReqId": "744000162697294",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc",
+        "apprendisti-e-apprendisti-assistenza-e-assistente-per-la-salute-chs-cfc-imad-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc",
+          "apprendisti-e-apprendisti-assistenza-e-assistente-per-la-salute-chs-cfc-imad-geneva"
+        ]
+      },
+      "firstSeenAt": "2026-11-19T09:59:55.600Z",
+      "salaryMin": 77500,
+      "salaryMax": 108000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77500,
+          "maxValue": 108000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1204",
+      "streetAddress": "Geneva",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T09:22:52.512Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -828,7 +828,7 @@
       "validThrough": "2027-02-10T21:31:03.696Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000161304368-auxiliaire-de-sante-a-domicile-de-60-a-100-en-cdi",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "imad-0fbc6ba188d6",
@@ -910,180 +910,6 @@
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-02T22:04:33.949Z",
       "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000162737210-dieteticienne-clinicienne-specialisee-centre-des-pratiques-interprofessionnelles-direction-des-operations-a-100-en-cdi",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "imad-fb79b66c847c",
-      "slug": "apprendisti-e-apprendisti-assistenza-e-assistente-per-la-salute-chs-cfc-imad-geneva-5b27fdf57b",
-      "slugByLocale": {
-        "fr": "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc",
-        "it": "apprendisti-e-apprendisti-assistenza-e-assistente-per-la-salute-chs-cfc-imad-geneva-5b27fdf57b",
-        "en": "apprenticeships-and-apprentices-community-care-and-health-assistant-chs-cfc-imad-geneva",
-        "de": "lernende-fachfrauen-und-fachmanner-gesundheit-fage-efz-imad-geneva"
-      },
-      "company": "imad",
-      "companyKey": "imad",
-      "companyDomain": "imad-ge.ch",
-      "title": "Apprenties et apprentis assistante et assistant en soins et santé communautaire (ASSC) - CFC",
-      "titleByLocale": {
-        "it": "Apprendisti e apprendisti Assistenza e Assistente per la Salute (CHS) - CFC",
-        "en": "Apprenticeships and Apprentices Community Care and Health Assistant (CHS) - CFC",
-        "de": "Lernende Fachfrauen und Fachmänner Gesundheit (FaGe) - EFZ",
-        "fr": "Apprenties et apprentis assistante et assistant en soins et santé communautaire (ASSC) - CFC"
-      },
-      "description": "Votre mission\n\n• Travailler dans une équipe pluridisciplinaire en collaboration avec les partenaires du réseau de soins\n\n• Contribuer aux soins du client à son domicile\n\n• Communiquer avec le client et son entourage\n\n• Participer aux prestations d’aide pratique.\n Nous vous offrons\n\n• Un travail varié et de proximité auprés des patients sur le long terme\n\n• Un encadrement de qualité durant les 3 ans d’apprentissage\n\n• L’utilisation d’outils mobiles (smartphone, tablette)\n\n• Une participation à l’abonnement Unireso.\n\n• Scolarité obligatoire achevée\n\n• Maîtrise du français (parlé-écrit) - minimum B2\n\n• Aisance dans les contacts humains\n\n• Intérêt pour les activités relatives aux soins à la personne\n\n• Capacité d’adaptation et d’autonomie\n\n• Aptitude à travailler de façon indépendante et en équipe\n\n• Un stage effectué dans le milieu socio-sanitaire est un atout\n\n• Etre en bonne condition physique\n\n• Savoir faire du vélo (et vélo électrique) est indispensable. Les déplacements en deux roues sont nécessaires et s'effectuent dans la circulation en ville.\n\nDélai de postulation: le 07.03.2026 (mais ne tardez pas pour réunir les documents nécessaires et pour postuler!)\n Entrée en fonction : rentrée scolaire 2027\n\n• Veuillez svp joindre à votre dossier (au format PDF ou WORD) :\n\n• une lettre de motivation\n\n• un CV\n\n• vos trois derniers bulletins scolaires\n\n• une copie de vos diplômes\n\n• vos certificats de stage et/ou certificats de travail\n\n• une copie de votre pièce d'identité (ainsi que votre titre de séjour valable si vous ne possédez pas la Nationalité Suisse)\n Nous vous prions de noter qu’aucun dossier papier ne sera accepté\n Nous considérons uniquement les dossiers de candidature complets\n Nous vous garantissons une confidentialité totale dans le traitement de votre dossier.",
-      "descriptionByLocale": {
-        "it": "La tua missione\n\n• Lavorare in un team multidisciplinare in collaborazione con i partner della rete di assistenza\n\n• Contribuisci alla cura del cliente a casa\n\n• Comunicare con il cliente e i loro dintorni\n\n• Partecipare a benefici pratici di assistenza.\nVi offriamo\n\n• Lavoro vario e stretto con i pazienti a lungo termine\n\n• Formazione di qualità durante 3 anni di apprendimento\n\n• Utilizzo di strumenti mobili (smartphone, tablet)\n\n• Partecipazione all'abbonamento Unireso.\n\n• Istruzione obbligatoria completata\n\n• Mastery of French (spoken) - minimo B2\n\n• Utilizzare nei contatti umani\n\n• Interessi delle attività di cura personale\n\n• Adattabilità e autonomia\n\n• Capacità di lavorare in modo indipendente e come squadra\n\n• Uno stage in ambito sanitario e sociale è un asset\n\n• Essere in buone condizioni fisiche\n\n• Sapere come pedalare (e bici elettrica) è essenziale. I movimenti a due ruote sono necessari e sono effettuati in città.\n\nTermine ultimo per l'applicazione: 07.03.2026 (ma non ritardare di raccogliere i documenti necessari e applicare!)\nEntrata in ufficio: scuola anno 2027\n\n• Si prega di allegare al file (in formato PDF o WORD):\n\n• una lettera di copertura\n\n• un CV\n\n• i tuoi ultimi tre proiettili scolastici\n\n• una copia dei vostri diplomi\n\n• certificati di tirocinio e/o certificati di lavoro\n\n• una copia del documento di identità (e il permesso di soggiorno valido se non hai la nazionalità svizzera)\nSi prega di notare che non saranno accettati file di carta\nConsideriamo solo applicazioni complete\nGarantiamo la completa riservatezza nel trattamento del tuo file.",
-        "en": "Your Mission\n\n• Work in a multidisciplinary team in collaboration with the care network partners\n\n• Contribute to client care at home\n\n• Communicate with the client and their surroundings\n\n• Participate in practical assistance benefits.\nWe offer you\n\n• Various and close work with patients over the long term\n\n• Quality coaching during 3 years of learning\n\n• Using mobile tools (smartphone, tablet)\n\n• Participation in the Unireso subscription.\n\n• Compulsory education completed\n\n• Mastery of French (spoken) - minimum B2\n\n• Use in human contacts\n\n• Interest in personal care activities\n\n• Adaptability and autonomy\n\n• Ability to work independently and as a team\n\n• An internship in the health and social environment is an asset\n\n• Being in good physical condition\n\n• Knowing how to cycle (and electric bike) is essential. Two-wheel movements are necessary and are carried out in the city.\n\nDeadline for application: 07.03.2026 (but don't delay to gather the necessary documents and apply!)\nEntry into office: school year 2027\n\n• Please attach to your file (in PDF or WORD format):\n\n• a cover letter\n\n• a CV\n\n• your last three school bulletins\n\n• a copy of your diplomas\n\n• your internship certificates and/or work certificates\n\n• a copy of your identity document (and your valid residence permit if you do not have the Swiss Nationality)\nPlease note that no paper files will be accepted\nWe only consider full applications\nWe guarantee complete confidentiality in the processing of your file.",
-        "de": "Deine Mission\n\n• Arbeiten in einem multidisziplinären Team in Zusammenarbeit mit den Pflegenetzwerkpartnern\n\n• Beitrag zur Kundenbetreuung zu Hause\n\n• Kommunizieren Sie mit dem Kunden und seiner Umgebung\n\n• Beteiligen Sie sich an praktischen Hilfsleistungen.\nWir bieten Ihnen\n\n• Vielfältige und enge Arbeit mit Patienten langfristig\n\n• Qualitätscoaching während 3 Jahren Lernen\n\n• Mit mobilen Tools (Smartphone, Tablet)\n\n• Teilnahme am Unireso Abonnement.\n\n• Schulpflicht abgeschlossen\n\n• Beherrschung von Französisch (gesprochen) - mindestens B2\n\n• Verwendung in menschlichen Kontakten\n\n• Interesse an Körperpflegeaktivitäten\n\n• Anpassungsfähigkeit und Autonomie\n\n• Fähigkeit, selbstständig und als Team zu arbeiten\n\n• Ein Praktikum im Gesundheits- und Sozialumfeld ist ein Gewinn\n\n• In guter körperlicher Verfassung\n\n• Zu wissen, wie man Rad fährt (und Elektrofahrrad) ist wichtig. Zweiradbewegungen sind notwendig und werden in der Stadt durchgeführt.\n\nBewerbungsfrist: 07.03.2026 (aber zögern Sie nicht, die notwendigen Unterlagen zu sammeln und sich zu bewerben!)\nAmtsantritt: Schuljahr 2027\n\n• Bitte fügen Sie Ihrer Datei bei (im PDF- oder WORD-Format):\n\n• ein Anschreiben\n\n• a CV\n\n• Deine letzten drei Schulbulletins\n\n• Eine Kopie Ihrer Diplome\n\n• Ihre Praktikumszeugnisse und/oder Arbeitszertifikate\n\n• eine Kopie Ihres Ausweises (und Ihres gültigen Aufenthaltstitels, wenn Sie nicht die Schweizer Staatsangehörigkeit besitzen)\nBitte beachten Sie, dass keine Papierakten akzeptiert werden\nWir berücksichtigen nur vollständige Anwendungen\nWir garantieren absolute Vertraulichkeit bei der Verarbeitung Ihrer Datei.",
-        "fr": "Votre mission\n\n• Travailler dans une équipe pluridisciplinaire en collaboration avec les partenaires du réseau de soins\n\n• Contribuer aux soins du client à son domicile\n\n• Communiquer avec le client et son entourage\n\n• Participer aux prestations d’aide pratique.\nNous vous offrons\n\n• Un travail varié et de proximité auprés des patients sur le long terme\n\n• Un encadrement de qualité durant les 3 ans d’apprentissage\n\n• L’utilisation d’outils mobiles (smartphone, tablette)\n\n• Une participation à l’abonnement Unireso.\n\n• Scolarité obligatoire achevée\n\n• Maîtrise du français (parlé-écrit) - minimum B2\n\n• Aisance dans les contacts humains\n\n• Intérêt pour les activités relatives aux soins à la personne\n\n• Capacité d’adaptation et d’autonomie\n\n• Aptitude à travailler de façon indépendante et en équipe\n\n• Un stage effectué dans le milieu socio-sanitaire est un atout\n\n• Etre en bonne condition physique\n\n• Savoir faire du vélo (et vélo électrique) est indispensable. Les déplacements en deux roues sont nécessaires et s'effectuent dans la circulation en ville.\n\nDélai de postulation: le 07.03.2026 (mais ne tardez pas pour réunir les documents nécessaires et pour postuler!)\nEntrée en fonction : rentrée scolaire 2027\n\n• Veuillez svp joindre à votre dossier (au format PDF ou WORD) :\n\n• une lettre de motivation\n\n• un CV\n\n• vos trois derniers bulletins scolaires\n\n• une copie de vos diplômes\n\n• vos certificats de stage et/ou certificats de travail\n\n• une copie de votre pièce d'identité (ainsi que votre titre de séjour valable si vous ne possédez pas la Nationalité Suisse)\nNous vous prions de noter qu’aucun dossier papier ne sera accepté\nNous considérons uniquement les dossiers de candidature complets\nNous vous garantissons une confidentialité totale dans le traitement de votre dossier."
-      },
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/imad/744000162455769-apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc",
-      "source": "imad Dedicated Parser (SmartRecruiters API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-20T09:36:00.542Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità",
-      "contract": "full-time",
-      "employmentType": "INTERN",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Cure a domicilio",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-19T08:04:12.749Z",
-      "postedDate": "2026-11-19T08:04:12.749Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000162455769-apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc?oga=true",
-      "jobReqId": "744000162455769",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "salaryMin": 77500,
-      "salaryMax": 108000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77500,
-          "maxValue": 108000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1204",
-      "streetAddress": "Geneva",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T09:36:00.542Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T09:59:55.600Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc",
-          "apprendisti-e-apprendisti-assistenza-e-assistente-per-la-salute-chs-cfc-imad-geneva"
-        ],
-        "en": [
-          "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc"
-        ],
-        "de": [
-          "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc"
-        ]
-      },
-      "previousSlugs": [
-        "apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc",
-        "apprendisti-e-apprendisti-assistenza-e-assistente-per-la-salute-chs-cfc-imad-geneva"
-      ],
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000162455769-apprenties-et-apprentis-assistante-et-assistant-en-soins-et-sante-communautaire-assc-cfc",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "imad-1ef1acc74d2e",
-      "slug": "assc-al-uatr-cityreuse-temporary-respite-units-100-cdi-imad-geneva",
-      "slugByLocale": {
-        "it": "assc-al-uatr-cityreuse-temporary-respite-units-100-cdi-imad-geneva",
-        "en": "assc-to-the-uatr-cityreuse-temporary-respite-units-100-cdi-imad-geneva",
-        "de": "assc-zur-uatr-cityreuse-temporary-rthrough-units-100-cdi-imad-geneva",
-        "fr": "assc-aux-uatr-unites-d-accueil-temporaire-de-repit-de-villereuse-a-100-en-cdi-imad-geneva"
-      },
-      "company": "imad",
-      "companyKey": "imad",
-      "companyDomain": "imad-ge.ch",
-      "title": "ASSC aux UATR (Unités d’accueil temporaire de répit de Villereuse) / à 100% / en CDI",
-      "titleByLocale": {
-        "it": "ASSC al UATR (Cityreuse Temporary Respite Units) / 100% / CDI",
-        "en": "ASSC to the UATR (Cityreuse Temporary Respite Units) / 100% / CDI",
-        "de": "ASSC zur UATR (Cityreuse Temporary Rthrough Units) / 100% / CDI",
-        "fr": "ASSC aux UATR (Unités d’accueil temporaire de répit de Villereuse) / à 100% / en CDI"
-      },
-      "description": "Pour permettre aux proches aidants un temps de répit, les UATR proposent aux clients en âge AVS des séjours de courte durée et assurent des prestations dans la continuité de celles fournies à domicile. La prise en charge et l’accompagnement des clients s’adaptent à leur état de santé physique et psychique.\n L'ASSC travaille en interdisciplinarité sur le site de Villereuse (1207 GE) , en respectant la mission et les objectifs de l’institution et peut être amené.e à intervenir ponctuellement aussi sur le site de Mervelet (Petit-Saconnex) ou des Jumelles (Thônex).\n L’UATR étant un service ouvert 24h/24h durant toute l’année, les horaires de travail sont en 3x8h.\n Vos missions et responsabilités\n\n• Prodiguer des soins de base et des actes médicotechniques, délégués par l’infirmier référent, dans une approche globale du client\n\n• Favoriser le rétablissement de l’état de santé du client, le renforcement ou le maintien de son autonomie pour lui permettre de rétablir, poursuivre ou adapter son mode de vie afin qu’il puisse rester ou retourner à domicile\n\n• Evaluer et réévaluer les situations d’aide pratique et en assumer la référence\n\n• Réaliser des prestations d'aide pratique dans le respect des habitudes de vie du client et de son environnement\n\n• Favoriser le maintien des liens avec l’entourage et collaborer avec ce dernier en déterminant les ressources et en apportant information et soutien.\n\n• Certificat fédéral de capacité d'ASSC et autorisation de pratique dans le canton de Genève\n\n• Sens de la communication et de la relation avec autrui, qualité d’écoute\n\n• Capacité à évaluer des situations et agir de manière responsable\n\n• Résistance au stress et au travail physique\n\n• Aptitude au travail en autonomie et en interprofessionnalité au sein d’une équipe pluridisciplinaire\n\n• Mobilité indispensable (à pied / à vélo / en TPG / en voiture).\n\nDélai de postulation: 19.11.2026\n Entrée en fonction :  à convenir\n Veuillez svp joindre à votre dossier :\n\n• un curriculum vitae à jour,\n\n• une lettre de motivation,\n\n• une copie de vos diplômes et vos certificats de travail.\n\nNous considérons uniquement les dossiers de candidature complets\n Nous vous garantissons une confidentialité totale dans le traitement de votre dossier.\n Ce que nous offrons\n >> \"cliquez ici pour connaître les avantages collaboratrices et collaborateurs de l'IMAD\"\n Celles et ceux qui font l’IMAD\n >> \"cliquez ici pour rencontrer nos collaborateurs\"",
-      "descriptionByLocale": {
-        "it": "Per consentire ai badanti di famiglia un periodo di riposo, gli ARU offrono ai clienti AVS-age soggiorni brevi e forniscono servizi in continuità con quelli forniti a casa. La cura e il supporto dei clienti si adattano alla loro salute fisica e mentale.\nL'ASSC opera in un'interdisciplinarità sul sito di Villereuse (1207 GE), nel rispetto della missione e degli obiettivi dell'istituzione e può essere richiesto di intervenire su base ad hoc anche sul sito di Mervelet (Petit-Saconnex) o Les Jumelles (Thônex).\nPoiché l'UATR è un servizio di 24 ore per tutto l'anno, le ore di lavoro sono in 3x8 ore.\nLe vostre missioni e responsabilità\n\n• Fornire assistenza di base e procedure mediche, delegato dall'infermiera referente, in un approccio clienti completo\n\n• Promuovere il ripristino della salute del cliente, rafforzare o mantenere la sua autonomia per consentire a lui o a lei di ripristinare, continuare o adattare il suo stile di vita in modo che lui o lei possa rimanere o tornare a casa\n\n• Valutare e rivalutare le situazioni di aiuto pratico e prendere il comando\n\n• Assistenza pratica conforme allo stile di vita e all'ambiente del cliente\n\n• Promuovere e collaborare con la comunità identificando le risorse e fornendo informazioni e supporto.\n\n• Certificato federale di capacità ASSC e autorizzazione della pratica nel Cantone di Ginevra\n\n• Significato della comunicazione e del rapporto con gli altri, dell'ascolto della qualità\n\n• Capacità di valutare le situazioni e agire in modo responsabile\n\n• Resistenza allo stress e al lavoro fisico\n\n• Capacità di lavorare in autonomia e interprofessionalità all'interno di un team multidisciplinare\n\n• Mobilità essenziale (a piedi / bici / TPG / auto).\n\nTermine ultimo per l'applicazione: 19.11.2026\nEntrata in ufficio: da concordare\nSi prega di allegare al file:\n\n• un curriculum vitae aggiornato,\n\n• una lettera di copertura,\n\n• una copia dei vostri diplomi e certificati di lavoro.\n\nConsideriamo solo applicazioni complete\nGarantiamo la completa riservatezza nel trattamento del tuo file.\nCosa offriamo\n> \"cliccate qui per conoscere i vantaggi collaborativi di IMAD\"\nColoro che fanno IMAD\n> \"cliccate qui per incontrare i nostri dipendenti\"",
-        "en": "To allow family caregivers a period of rest, the ARUs offer AVS-age clients short stays and provide services in continuity with those provided at home. The care and support of clients adapts to their physical and mental health.\nThe ASSC works in an interdisciplinarity on the Villereuse site (1207 GE), respecting the mission and objectives of the institution and may be required to intervene on an ad hoc basis also on the site of Mervelet (Petit-Saconnex) or Les Jumelles (Thônex).\nAs the UATR is a 24-hour service throughout the year, working hours are in 3x8 hours.\nYour missions and responsibilities\n\n• Provide basic care and medical procedures, delegated by the referent nurse, in a comprehensive client approach\n\n• Promote the restoration of the client's health, strengthening or maintaining his or her autonomy to enable him or her to restore, continue or adapt his or her lifestyle so that he or she can stay or return home\n\n• Evaluate and re-evaluate practical aid situations and take the lead\n\n• Accomplish practical assistance in accordance with the customer's lifestyle and environment\n\n• Promote and collaborate with the community by identifying resources and providing information and support.\n\n• Federal certificate of ASSC capacity and authorisation of practice in the Canton of Geneva\n\n• Meaning of communication and relationship with others, listening quality\n\n• Ability to assess situations and act responsibly\n\n• Resistance to stress and physical work\n\n• Ability to work in autonomy and interprofessionality within a multidisciplinary team\n\n• Essential mobility (on foot / bike / TPG / car).\n\nDeadline for application: 19.11.2026\nEntry into office: to be agreed\nPlease attach to your file:\n\n• an updated curriculum vitae,\n\n• a cover letter,\n\n• a copy of your diplomas and work certificates.\n\nWe only consider full applications\nWe guarantee complete confidentiality in the processing of your file.\nWhat We Offer\n>> \"click here to know the collaborative benefits of IMAD\"\nThose who make IMAD\n>> \"click here to meet our employees\"",
-        "de": "Um Familienbetreuern eine Ruhezeit zu ermöglichen, bieten die ARUs Kunden im AVS-Alter kurze Aufenthalte an und bieten Dienstleistungen in Kontinuität mit denen, die zu Hause angeboten werden. Die Betreuung und Betreuung der Klienten passt sich ihrer körperlichen und geistigen Gesundheit an.\nDie ASSC arbeitet interdisziplinär auf dem Standort Villereuse (1207 GE) und respektiert die Aufgaben und Ziele der Institution und muss möglicherweise ad hoc auch auf dem Gelände von Mervelet (Petit-Saconnex) oder Les Jumelles (Thônex) intervenieren.\nDa die UATR das ganze Jahr über ein 24-Stunden-Service ist, sind die Arbeitszeiten in 3x8 Stunden.\nIhre Missionen und Verantwortlichkeiten\n\n• Grundversorgung und medizinische Verfahren, die von der referenten Krankenschwester in einem umfassenden Kundenansatz delegiert werden\n\n• Förderung der Wiederherstellung der Gesundheit des Klienten, Stärkung oder Aufrechterhaltung seiner Autonomie, damit er seinen Lebensstil wiederherstellen, fortsetzen oder anpassen kann, damit er bleiben oder nach Hause zurückkehren kann\n\n• Bewertung und Neubewertung praktischer Hilfssituationen und Übernahme der Führung\n\n• Praktische Unterstützung in Übereinstimmung mit dem Lebensstil und der Umgebung des Kunden\n\n• Förderung und Zusammenarbeit mit der Gemeinschaft durch die Identifizierung von Ressourcen und die Bereitstellung von Informationen und Unterstützung.\n\n• Bundesbescheinigung über ASSC-Kapazität und Erlaubnis zur Ausübung im Kanton Genf\n\n• Bedeutung von Kommunikation und Beziehung zu anderen, Hörqualität\n\n• Fähigkeit, Situationen zu beurteilen und verantwortungsvoll zu handeln\n\n• Widerstandsfähigkeit gegen Stress und körperliche Arbeit\n\n• Fähigkeit, autonom und interprofessionell in einem multidisziplinären Team zu arbeiten\n\n• Wesentliche Mobilität (zu Fuß / Fahrrad / TPG / Auto).\n\nBewerbungsfrist: 19.11.2026\nAmtsantritt: noch zu vereinbaren\nBitte fügen Sie Ihrer Datei bei:\n\n• einen aktualisierten Lebenslauf,\n\n• ein Anschreiben,\n\n• eine Kopie Ihrer Diplome und Arbeitszertifikate.\n\nWir berücksichtigen nur vollständige Anwendungen\nWir garantieren absolute Vertraulichkeit bei der Verarbeitung Ihrer Datei.\nWas wir anbieten\n>> \"Klicken Sie hier, um die kollaborativen Vorteile von IMAD zu erfahren\"\nDiejenigen, die imad machen.\n>> \"Klicken Sie hier, um unsere Mitarbeiter zu treffen\"",
-        "fr": "Pour permettre aux proches aidants un temps de répit, les UATR proposent aux clients en âge AVS des séjours de courte durée et assurent des prestations dans la continuité de celles fournies à domicile. La prise en charge et l’accompagnement des clients s’adaptent à leur état de santé physique et psychique.\nL'ASSC travaille en interdisciplinarité sur le site de Villereuse (1207 GE) , en respectant la mission et les objectifs de l’institution et peut être amené.e à intervenir ponctuellement aussi sur le site de Mervelet (Petit-Saconnex) ou des Jumelles (Thônex).\nL’UATR étant un service ouvert 24h/24h durant toute l’année, les horaires de travail sont en 3x8h.\nVos missions et responsabilités\n\n• Prodiguer des soins de base et des actes médicotechniques, délégués par l’infirmier référent, dans une approche globale du client\n\n• Favoriser le rétablissement de l’état de santé du client, le renforcement ou le maintien de son autonomie pour lui permettre de rétablir, poursuivre ou adapter son mode de vie afin qu’il puisse rester ou retourner à domicile\n\n• Evaluer et réévaluer les situations d’aide pratique et en assumer la référence\n\n• Réaliser des prestations d'aide pratique dans le respect des habitudes de vie du client et de son environnement\n\n• Favoriser le maintien des liens avec l’entourage et collaborer avec ce dernier en déterminant les ressources et en apportant information et soutien.\n\n• Certificat fédéral de capacité d'ASSC et autorisation de pratique dans le canton de Genève\n\n• Sens de la communication et de la relation avec autrui, qualité d’écoute\n\n• Capacité à évaluer des situations et agir de manière responsable\n\n• Résistance au stress et au travail physique\n\n• Aptitude au travail en autonomie et en interprofessionnalité au sein d’une équipe pluridisciplinaire\n\n• Mobilité indispensable (à pied / à vélo / en TPG / en voiture).\n\nDélai de postulation: 19.11.2026\nEntrée en fonction : à convenir\nVeuillez svp joindre à votre dossier :\n\n• un curriculum vitae à jour,\n\n• une lettre de motivation,\n\n• une copie de vos diplômes et vos certificats de travail.\n\nNous considérons uniquement les dossiers de candidature complets\nNous vous garantissons une confidentialité totale dans le traitement de votre dossier.\nCe que nous offrons\n>> \"cliquez ici pour connaître les avantages collaboratrices et collaborateurs de l'IMAD\"\nCelles et ceux qui font l’IMAD\n>> \"cliquez ici pour rencontrer nos collaborateurs\""
-      },
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/imad/744000159820808-assc-aux-uatr-unites-d-accueil-temporaire-de-repit-de-villereuse-a-100-en-cdi",
-      "source": "imad Dedicated Parser (SmartRecruiters API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-19T21:25:36.157Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Cure a domicilio",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-05T09:39:53.912Z",
-      "postedDate": "2026-11-05T09:39:53.912Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000159820808-assc-aux-uatr-unites-d-accueil-temporaire-de-repit-de-villereuse-a-100-en-cdi?oga=true",
-      "jobReqId": "744000159820808",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "assc-aux-uatr-unites-d-accueil-temporaire-de-repit-de-villereuse-a-100-en-cdi-imad-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assc-aux-uatr-unites-d-accueil-temporaire-de-repit-de-villereuse-a-100-en-cdi-imad-geneva"
-        ],
-        "en": [
-          "assc-aux-uatr-unites-d-accueil-temporaire-de-repit-de-villereuse-a-100-en-cdi-imad-geneva"
-        ],
-        "de": [
-          "assc-aux-uatr-unites-d-accueil-temporaire-de-repit-de-villereuse-a-100-en-cdi-imad-geneva"
-        ]
-      },
-      "firstSeenAt": "2026-11-05T21:24:31.798Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1204",
-      "streetAddress": "Geneva",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:25:36.157Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/imad/744000159820808-assc-aux-uatr-unites-d-accueil-temporaire-de-repit-de-villereuse-a-100-en-cdi",
       "crawlerMissStreak": 2
     }
   ]
