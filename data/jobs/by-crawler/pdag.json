@@ -3334,9 +3334,9 @@
       "slug": "assistente-psicologo-assistente-psicologo-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "it": "assistente-psicologo-assistente-psicologo-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "assistant-psychologist-assistant-psychologist-psychiatrische-dienste-aargau-pdag-windisch",
+        "en": "assistant-psychologist-psychiatrische-dienste-aargau-pdag-windisch",
         "de": "assistenzpsychologin-assistenzpsychologe-pdag-windisch",
-        "fr": "assistant-psychologue-assistant-psychologue-psychiatrische-dienste-aargau-pdag-windisch"
+        "fr": "assistant-psychologue-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -3385,7 +3385,9 @@
         "assistente-psicologo-assistente-psicologo-psychiatrische-dienste-aargau-pdag-windisch-8ae56d",
         "assistenzpsychologin-assistenzpsychologe-pdag-windisch-2",
         "assistant-psychologist-assistant-psychologist-psychiatrische-dienste-aargau-pdag-windisch-8ae56d",
-        "assistant-psychologue-assistant-psychologue-psychiatrische-dienste-aargau-pdag-windisch-8ae56d"
+        "assistant-psychologue-assistant-psychologue-psychiatrische-dienste-aargau-pdag-windisch-8ae56d",
+        "assistant-psychologist-assistant-psychologist-psychiatrische-dienste-aargau-pdag-windisch",
+        "assistant-psychologue-assistant-psychologue-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3396,12 +3398,14 @@
         "en": [
           "assistenzpsychologin-assistenzpsychologe-pdag-windisch",
           "assistant-psychologist-assistant-psychologist-psychiatrische-dienste-aargau-pdag-windisch-8ae56d",
-          "assistenzpsychologin-assistenzpsychologe-pdag-windisch-2"
+          "assistenzpsychologin-assistenzpsychologe-pdag-windisch-2",
+          "assistant-psychologist-assistant-psychologist-psychiatrische-dienste-aargau-pdag-windisch"
         ],
         "fr": [
           "assistenzpsychologin-assistenzpsychologe-pdag-windisch",
           "assistant-psychologue-assistant-psychologue-psychiatrische-dienste-aargau-pdag-windisch-8ae56d",
-          "assistenzpsychologin-assistenzpsychologe-pdag-windisch-2"
+          "assistenzpsychologin-assistenzpsychologe-pdag-windisch-2",
+          "assistant-psychologue-assistant-psychologue-psychiatrische-dienste-aargau-pdag-windisch"
         ]
       },
       "firstSeenAt": "2026-10-26T21:55:23.533Z",

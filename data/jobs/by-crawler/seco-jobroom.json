@@ -4537,7 +4537,7 @@
         "it": "commessa-in-un-negozio-dell-usato-di-seconda-mano-50-60-abdb-debarras-sarl-conthey-f4da13cd",
         "en": "sales-assistant-in-an-antique-shop-second-hand-store-50-60-abdb-debarras-sarl-conthey-f4da13cd",
         "de": "vendeuse-en-brocante-magasin-de-seconde-main-50-60-abdb-debarras-sarl-conthey-f4da13cd",
-        "fr": "vendeuse-en-brocante-magasin-de-seconde-main-50-60-abdb-debarras-sarl-conthey-f4da13cd"
+        "fr": "vendeur-en-brocante-magazine-d-occasion-50-60-abdb-debarras-sarl-conthey-f4da13cd"
       },
       "slugDisambiguator": "f4da13cd",
       "company": "ABDB Débarras Sàrl",
@@ -4599,6 +4599,9 @@
         "en": [
           "sales-assistant-in-a-flea-market-second-hand-shop-50-60-abdb-debarras-sarl-conthey-f4da13cd",
           "vendeuse-en-brocante-magasin-de-seconde-main-50-60-abdb-debarras-sarl-conthey-f4da13cd"
+        ],
+        "fr": [
+          "vendeuse-en-brocante-magasin-de-seconde-main-50-60-abdb-debarras-sarl-conthey-f4da13cd"
         ]
       },
       "firstSeenAt": "2026-11-19T21:41:00.028Z",
@@ -4617,7 +4620,7 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-11-20T21:56:47.023Z"
+      "translationHoldReleasedAt": "2026-11-22T18:06:10.420Z"
     },
     {
       "id": "seco-jobroom-0a881977-e047-4026-94db-0536d429399a",
@@ -10865,7 +10868,7 @@
       "slugByLocale": {
         "it": "linea-di-ricarica-m-f-d-volg-detailhandels-ag-untervaz-0afd26e9",
         "en": "deputy-charging-line-m-f-d-volg-detailhandels-ag-untervaz-0afd26e9",
-        "de": "stellvertretende-ladenleitung-w-m-d-volg-detailhandels-ag-untervaz-0afd26e9",
+        "de": "stellvertretende-ladenleitung-m-w-d-volg-detailhandels-ag-untervaz",
         "fr": "ligne-de-charge-adjointe-h-f-d-volg-detailhandels-ag-untervaz-0afd26e9"
       },
       "slugDisambiguator": "0afd26e9",
@@ -10940,7 +10943,8 @@
           "stellvertretende-ladenleitung-w-m-d-volg-detailhandels-ag-untervaz-846fc9d0"
         ],
         "de": [
-          "stellvertretende-ladenleitung-w-m-d-volg-detailhandels-ag-untervaz-846fc9d0"
+          "stellvertretende-ladenleitung-w-m-d-volg-detailhandels-ag-untervaz-846fc9d0",
+          "stellvertretende-ladenleitung-w-m-d-volg-detailhandels-ag-untervaz-0afd26e9"
         ]
       },
       "firstSeenAt": "2026-11-16T09:42:11.541Z",
@@ -14393,7 +14397,7 @@
         "de": "vendeur-vendeuse-a-l-heure-denner-sa-martigny-6775671e",
         "it": "venditore-venditrice-a-ore-denner-sa-martigny-6775671e",
         "en": "hourly-salesperson-denner-sa-martigny-6775671e",
-        "fr": "vendeur-vendeuse-a-l-heure-denner-sa-martigny-6775671e"
+        "fr": "vendeur-horaire-denner-sa-martigny-6775671e"
       },
       "slugDisambiguator": "6775671e",
       "company": "Denner SA",
@@ -14448,6 +14452,9 @@
         ],
         "en": [
           "vendeur-vendeuse-a-l-heure-denner-sa-martigny-6775671e"
+        ],
+        "fr": [
+          "vendeur-vendeuse-a-l-heure-denner-sa-martigny-6775671e"
         ]
       },
       "previousSlugs": [
@@ -14471,9 +14478,9 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-19T21:41:00.028Z",
-      "translationHoldSince": "2026-11-20T21:56:47.023Z",
       "sourceIdentity": "url:https://www.job-room.ch/job-search/6775671e-5aa9-4c3f-abae-bbbfbc8357a1",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "translationHoldReleasedAt": "2026-11-22T18:06:10.420Z"
     },
     {
       "id": "seco-jobroom-68b01d91-df5f-4f9c-8d58-6112506bff8d",
@@ -16823,7 +16830,7 @@
         "it": "conseiller-de-vente-sanitaire-100-cdi-h-f-d-adecco-sion-c7ccba21",
         "en": "conseiller-de-vente-sanitaire-100-cdi-h-f-d-adecco-sion-c7ccba21",
         "de": "conseiller-de-vente-sanitaire-100-cdi-h-f-d-adecco-sion-c7ccba21",
-        "fr": "conseiller-de-vente-sanitaire-100-cdi-h-f-d-adecco-sion-c7ccba21"
+        "fr": "conseiller-en-ventes-sanitaires-avec-contrat-a-100-permanent-h-f-d-adecco-sion-c7ccba21"
       },
       "slugDisambiguator": "c7ccba21",
       "company": "Adecco",
@@ -16886,7 +16893,15 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldSince": "2026-11-20T21:56:47.023Z"
+      "translationHoldReleasedAt": "2026-11-22T18:06:10.420Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "conseiller-de-vente-sanitaire-100-cdi-h-f-d-adecco-sion-c7ccba21"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-de-vente-sanitaire-100-cdi-h-f-d-adecco-sion-c7ccba21"
+      ]
     },
     {
       "id": "seco-jobroom-ce1f97c6-8014-4fd2-8a81-418e2346e3e0",
@@ -30100,7 +30115,7 @@
         "it": "cashier-m-f-crans-montana-food-and-beverage-sa-crans-montana-335791ee",
         "en": "caissier-h-f-crans-montana-food-and-beverage-sa-crans-montana-335791ee",
         "de": "kassier-m-w-crans-montana-food-and-beverage-sa-crans-montana-335791ee",
-        "fr": "caissier-h-f-crans-montana-food-and-beverage-sa-crans-montana-335791ee"
+        "fr": "caissier-m-w-d-crans-montana-food-and-beverage-sa-crans-montana"
       },
       "slugDisambiguator": "335791ee",
       "company": "Crans-Montana Food and Beverage SA",
@@ -30171,7 +30186,8 @@
           "caissier-m-w-d-crans-montana-food-and-beverage-sa-crans-montana"
         ],
         "fr": [
-          "caissier-h-f-crans-montana-food-and-beverage-sa-crans-montana-97c4ee6b"
+          "caissier-h-f-crans-montana-food-and-beverage-sa-crans-montana-97c4ee6b",
+          "caissier-h-f-crans-montana-food-and-beverage-sa-crans-montana-335791ee"
         ]
       },
       "firstSeenAt": "2026-11-13T21:49:25.964Z",
@@ -35612,9 +35628,9 @@
     },
     {
       "id": "seco-jobroom-16ef9975-bf71-42d3-ae7e-3096f1a82a15",
-      "slug": "venditore-venditore-volg-detailhandels-ag-bettmeralp-3faf33ccdd",
+      "slug": "venditore-volg-detailhandels-ag-bettmeralp",
       "slugByLocale": {
-        "it": "venditore-venditore-volg-detailhandels-ag-bettmeralp-3faf33ccdd",
+        "it": "venditore-volg-detailhandels-ag-bettmeralp",
         "en": "seller-seller-volg-detailhandels-ag-bettmeralp-16ef9975",
         "de": "verkauferin-verkaufer-volg-detailhandels-ag-bettmeralp-16ef9975",
         "fr": "vendeur-volg-detailhandels-ag-bettmeralp-16ef9975"
@@ -35671,7 +35687,7 @@
         "verkauferin-verkaufer-volg-detailhandels-ag-bettmeralp-9a1b2662",
         "seller-seller-volg-detailhandels-ag-bettmeralp-9a1b2662",
         "vendeur-volg-detailhandels-ag-bettmeralp-9a1b2662",
-        "venditore-volg-detailhandels-ag-bettmeralp"
+        "venditore-venditore-volg-detailhandels-ag-bettmeralp-3faf33ccdd"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -35680,7 +35696,7 @@
           "venditore-venditore-volg-detailhandels-ag-bettmeralp-16ef9975",
           "venditore-venditore-volg-detailhandels-ag-bettmeralp-63d3002221",
           "verkauferin-verkaufer-volg-detailhandels-ag-bettmeralp-9a1b2662",
-          "venditore-volg-detailhandels-ag-bettmeralp"
+          "venditore-venditore-volg-detailhandels-ag-bettmeralp-3faf33ccdd"
         ],
         "en": [
           "verkauferin-verkaufer-volg-detailhandels-ag-bettmeralp-16ef9975",
@@ -78424,7 +78440,7 @@
         "it": "manutenzione-technician-charged-client-acces-personnel-sa-martigny-9163fd5b",
         "en": "maintenance-technician-charged-client-acces-personnel-sa-martigny-9163fd5b",
         "de": "wartungstechniker-belasteter-kunde-acces-personnel-sa-martigny-9163fd5b",
-        "fr": "technicien-de-maintenance-charge-client-acces-personnel-sa-martigny-9163fd5b"
+        "fr": "technicien-de-maintenance-charge-client-acces-personnel-sa-martigny"
       },
       "slugDisambiguator": "9163fd5b",
       "company": "Accès Personnel SA",
@@ -78496,7 +78512,8 @@
           "technicien-de-maintenance-charge-client-acces-personnel-sa-martigny"
         ],
         "fr": [
-          "technicien-de-maintenance-charge-client-acces-personnel-sa-martigny-979670ce"
+          "technicien-de-maintenance-charge-client-acces-personnel-sa-martigny-979670ce",
+          "technicien-de-maintenance-charge-client-acces-personnel-sa-martigny-9163fd5b"
         ]
       },
       "firstSeenAt": "2026-11-05T21:50:58.633Z",
@@ -78782,7 +78799,7 @@
         "it": "carpenter-acces-personnel-sa-martigny-9facf653",
         "en": "carpenter-acces-personnel-sa-martigny-9facf653",
         "de": "zimmermann-acces-personnel-sa-martigny-9facf653",
-        "fr": "charpentier-acces-personnel-sa-martigny-9facf653"
+        "fr": "charpentier-acces-personnel-sa-martigny"
       },
       "slugDisambiguator": "9facf653",
       "company": "Accès Personnel SA",
@@ -78853,7 +78870,8 @@
           "charpentier-acces-personnel-sa-martigny"
         ],
         "fr": [
-          "charpentier-acces-personnel-sa-martigny-8abb505c"
+          "charpentier-acces-personnel-sa-martigny-8abb505c",
+          "charpentier-acces-personnel-sa-martigny-9facf653"
         ]
       },
       "firstSeenAt": "2026-11-05T21:50:58.633Z",
@@ -82701,7 +82719,7 @@
       "slugByLocale": {
         "it": "collaboratore-trice-roomservice-klinik-waldhaus-psychiatrische-dienste-graubunden-chur-3f6883bc",
         "en": "room-service-employee-klinik-waldhaus-psychiatrische-dienste-graubunden-chur-3f6883bc",
-        "de": "mitarbeiter-in-roomservice-klinik-waldhaus-psychiatrische-dienste-graubunden-3f6883bc",
+        "de": "mitarbeiter-in-roomservice-klinik-waldhaus-psychiatrische-dienste-graubunden-chur",
         "fr": "employe-e-du-room-service-klinik-waldhaus-psychiatrische-dienste-graubunden-chur-3f6883bc"
       },
       "slugDisambiguator": "3f6883bc",
@@ -82772,7 +82790,8 @@
           "mitarbeiter-in-roomservice-klinik-waldhaus-psychiatrische-dienste-graubunden-chur"
         ],
         "de": [
-          "mitarbeiter-in-roomservice-klinik-waldhaus-psychiatrische-dienste-graubunden-66c899f4"
+          "mitarbeiter-in-roomservice-klinik-waldhaus-psychiatrische-dienste-graubunden-66c899f4",
+          "mitarbeiter-in-roomservice-klinik-waldhaus-psychiatrische-dienste-graubunden-3f6883bc"
         ],
         "fr": [
           "mitarbeiter-in-roomservice-klinik-waldhaus-psychiatrische-dienste-graubunden-3f6883bc",
@@ -113388,7 +113407,7 @@
         "it": "aiuti-alla-salute-valjob-sion-13d74507",
         "en": "health-aid-valjob-sion-13d74507",
         "de": "gesundheitsbeihilfen-valjob-sion-13d74507",
-        "fr": "aide-sanitaire-valjob-sion-13d74507"
+        "fr": "aide-sanitaire-valjob-sion"
       },
       "slugDisambiguator": "13d74507",
       "company": "Valjob",
@@ -113461,7 +113480,8 @@
           "aide-sanitaire-valjob-sion-13d74507"
         ],
         "fr": [
-          "aide-sanitaire-valjob-sion-bb5462ac"
+          "aide-sanitaire-valjob-sion-bb5462ac",
+          "aide-sanitaire-valjob-sion-13d74507"
         ]
       },
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
@@ -129312,7 +129332,7 @@
       "slugByLocale": {
         "it": "infermiera-internursing-holding-group-sa-paradiso-360d7ef2",
         "en": "nurse-internursing-holding-group-sa-paradiso-360d7ef2",
-        "de": "infermiere-internursing-holding-group-sa-paradiso-360d7ef2",
+        "de": "infermiere-internursing-holding-group-sa-paradiso",
         "fr": "infirmier-internursing-holding-group-sa-paradiso-360d7ef2"
       },
       "slugDisambiguator": "360d7ef2",
@@ -129390,7 +129410,8 @@
         ],
         "de": [
           "infermiere-internursing-holding-group-sa-paradiso-61236641",
-          "infermiere-internursing-holding-group-sa-paradiso-fb6eade3"
+          "infermiere-internursing-holding-group-sa-paradiso-fb6eade3",
+          "infermiere-internursing-holding-group-sa-paradiso-360d7ef2"
         ],
         "fr": [
           "infermiere-internursing-holding-group-sa-paradiso-360d7ef2",
@@ -184021,7 +184042,7 @@
       "id": "seco-jobroom-1bd7d946-63d3-4a71-b79f-c5ec4520c36e",
       "slug": "capo-del-partito-leukerbad-clinic-leukerbad-1bd7d946",
       "slugByLocale": {
-        "fr": "chef-de-partie-leukerbad-clinic-leukerbad-1bd7d946",
+        "fr": "chef-de-partie-leukerbad-clinic-leukerbad",
         "it": "capo-del-partito-leukerbad-clinic-leukerbad-1bd7d946",
         "en": "head-of-party-leukerbad-clinic-leukerbad-1bd7d946",
         "de": "parteichef-leukerbad-clinic-leukerbad-1bd7d946"
@@ -184130,7 +184151,8 @@
         "fr": [
           "chef-de-partie-leukerbad-clinic-leukerbad-2bbd0087",
           "chef-de-partie-leukerbad-clinic-leukerbad-f727b92d",
-          "chef-de-partie-leukerbad-clinic-leukerbad-89419634"
+          "chef-de-partie-leukerbad-clinic-leukerbad-89419634",
+          "chef-de-partie-leukerbad-clinic-leukerbad-1bd7d946"
         ]
       },
       "previousSlugs": [
@@ -184551,7 +184573,7 @@
         "de": "responsable-d-exploitation-100-cdi-h-f-d-adecco-monthey-31f590d2",
         "it": "responsable-d-exploitation-100-cdi-h-f-d-adecco-monthey-31f590d2",
         "en": "responsable-d-exploitation-100-cdi-h-f-d-adecco-monthey-31f590d2",
-        "fr": "responsable-d-exploitation-100-cdi-h-f-d-adecco-monthey-31f590d2"
+        "fr": "directeur-des-operations-a-100-contrat-permanent-h-f-d-adecco-monthey-31f590d2"
       },
       "slugDisambiguator": "31f590d2",
       "company": "Adecco",
@@ -184616,7 +184638,15 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T18:06:10.420Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "responsable-d-exploitation-100-cdi-h-f-d-adecco-monthey-31f590d2"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-d-exploitation-100-cdi-h-f-d-adecco-monthey-31f590d2"
+      ]
     },
     {
       "id": "seco-jobroom-374d67b5-70bd-4466-a9f6-77b99a873c31",
@@ -184963,7 +184993,7 @@
       "id": "seco-jobroom-62314337-06ab-451a-bd2d-1f18b6ef2f1b",
       "slug": "macchinista-dell-edificio-m6-acces-personnel-sa-martigny-62314337",
       "slugByLocale": {
-        "fr": "machiniste-de-chantier-m6-acces-personnel-sa-martigny-62314337",
+        "fr": "machiniste-de-chantier-m6-acces-personnel-sa-martigny",
         "it": "macchinista-dell-edificio-m6-acces-personnel-sa-martigny-62314337",
         "en": "machinist-of-building-m6-acces-personnel-sa-martigny-62314337",
         "de": "maschinist-von-gebaude-m6-acces-personnel-sa-martigny-62314337"
@@ -185081,7 +185111,8 @@
           "machiniste-de-chantier-m6-acces-personnel-sa-martigny-004c24a3",
           "machiniste-de-chantier-m6-acces-personnel-sa-martigny-c5e04f43",
           "machiniste-de-chantier-m6-acces-personnel-sa-martigny-fb1fc3ce",
-          "machiniste-de-chantier-m6-acces-personnel-sa-martigny-cb3b9137"
+          "machiniste-de-chantier-m6-acces-personnel-sa-martigny-cb3b9137",
+          "machiniste-de-chantier-m6-acces-personnel-sa-martigny-62314337"
         ]
       },
       "previousSlugs": [
@@ -186309,7 +186340,7 @@
       "id": "seco-jobroom-c477fecd-bc6d-48b3-8ff0-dd4aef0d85ca",
       "slug": "studenti-di-carriera-centre-medico-social-martigny-regions-martigny-c477fecd",
       "slugByLocale": {
-        "fr": "etudiants-soignants-centre-medico-social-martigny-regions-martigny-c477fecd",
+        "fr": "etudiants-soignants-centre-medico-social-martigny-regions-martigny",
         "it": "studenti-di-carriera-centre-medico-social-martigny-regions-martigny-c477fecd",
         "en": "caregiver-students-centre-medico-social-martigny-regions-martigny-c477fecd",
         "de": "caregiver-studenten-centre-medico-social-martigny-regions-martigny-c477fecd"
@@ -186431,7 +186462,8 @@
           "etudiants-soignants-centre-medico-social-martigny-regions-martigny-2dd69539",
           "etudiants-soignants-centre-medico-social-martigny-regions-martigny-9c853433",
           "etudiants-soignants-centre-medico-social-martigny-regions-martigny-03b4ff68",
-          "etudiants-soignants-centre-medico-social-martigny-regions-martigny-75b3bf1c"
+          "etudiants-soignants-centre-medico-social-martigny-regions-martigny-75b3bf1c",
+          "etudiants-soignants-centre-medico-social-martigny-regions-martigny-c477fecd"
         ]
       },
       "previousSlugs": [
@@ -187151,7 +187183,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "en": [
           "tester-settore-elettronico-adecco-bellinzona-1136a37b"
@@ -187159,7 +187190,8 @@
       },
       "previousSlugs": [
         "tester-settore-elettronico-adecco-bellinzona-1136a37b"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T18:06:10.420Z"
     },
     {
       "id": "seco-jobroom-28a74b2e-931c-4413-b961-370a59c84ec3",
@@ -188019,7 +188051,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T18:06:10.420Z"
     },
     {
       "id": "seco-jobroom-917190db-0454-44ae-a498-2a42c8f5b29c",
@@ -188268,7 +188300,6 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "responsable-des-services-generaux-des-infrastructures-et-des-projets-70-94101e21"
@@ -188279,7 +188310,8 @@
       },
       "previousSlugs": [
         "responsable-des-services-generaux-des-infrastructures-et-des-projets-70-94101e21"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T18:06:10.420Z"
     },
     {
       "id": "seco-jobroom-a3dfd59d-1900-4785-b120-a87fce010000",
@@ -188985,7 +189017,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T18:06:10.420Z"
     },
     {
       "id": "seco-jobroom-0d4b9335-9dd8-4f5e-b9e0-d5bf4e0ab43f",
@@ -189309,7 +189341,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T18:06:10.420Z"
     },
     {
       "id": "seco-jobroom-2f671555-743e-4069-ba34-22720fd1f984",
@@ -189955,7 +189987,7 @@
         "de": "technicien-en-menuiserie-100-cdi-h-f-d-adecco-sierre-6831e4e2",
         "it": "technicien-en-menuiserie-100-cdi-h-f-d-adecco-sierre-6831e4e2",
         "en": "technicien-en-menuiserie-100-cdi-h-f-d-adecco-sierre-6831e4e2",
-        "fr": "technicien-en-menuiserie-100-cdi-h-f-d-adecco-sierre-6831e4e2"
+        "fr": "techniciens-dans-une-serie-de-menuiserie-a-contrat-a-100-permanent-h-f-d-adecco-sierre-6831e4e2"
       },
       "slugDisambiguator": "6831e4e2",
       "company": "Adecco",
@@ -190020,7 +190052,15 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T18:06:10.420Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "technicien-en-menuiserie-100-cdi-h-f-d-adecco-sierre-6831e4e2"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-en-menuiserie-100-cdi-h-f-d-adecco-sierre-6831e4e2"
+      ]
     },
     {
       "id": "seco-jobroom-72ceae3a-447b-43d7-9ad8-6664e31eea83",
@@ -190679,7 +190719,7 @@
         "de": "chef-de-projets-100-cdi-h-f-d-adecco-sion-87c13ac2",
         "it": "chef-de-projets-100-cdi-h-f-d-adecco-sion-87c13ac2",
         "en": "chef-de-projets-100-cdi-h-f-d-adecco-sion-87c13ac2",
-        "fr": "chef-de-projets-100-cdi-h-f-d-adecco-sion-87c13ac2"
+        "fr": "chef-de-projet-100-contrat-permanent-h-f-d-adecco-sion-87c13ac2"
       },
       "slugDisambiguator": "87c13ac2",
       "company": "Adecco",
@@ -190742,7 +190782,15 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z"
+      "translationHoldReleasedAt": "2026-11-22T18:06:10.420Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "chef-de-projets-100-cdi-h-f-d-adecco-sion-87c13ac2"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-projets-100-cdi-h-f-d-adecco-sion-87c13ac2"
+      ]
     },
     {
       "id": "seco-jobroom-b13e77a6-2eed-4ebe-a18f-3d93750bca9c",
@@ -190836,7 +190884,7 @@
         "de": "chef-de-projet-projeteur-sanitaire-100-cdi-h-f-d-adecco-martigny-c1119b45",
         "it": "capo-progetto-progettista-impianti-sanitari-100-cdi-m-f-d-adecco-martigny-c1119b45",
         "en": "project-manager-sanitary-project-designer-full-time-permanent-contract-m-f-d-adecco-martigny-c1119b45",
-        "fr": "chef-de-projet-projeteur-sanitaire-100-cdi-h-f-d-adecco-martigny-c1119b45"
+        "fr": "chef-de-projet-concepteur-sanitaire-a-100-sous-contrat-permanent-h-f-d-adecco-martigny-c1119b45"
       },
       "slugDisambiguator": "c1119b45",
       "company": "Adecco",
@@ -190901,18 +190949,21 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "chef-de-projet-projeteur-sanitaire-100-cdi-h-f-d-adecco-martigny-c1119b45"
         ],
         "en": [
           "chef-de-projet-projeteur-sanitaire-100-cdi-h-f-d-adecco-martigny-c1119b45"
+        ],
+        "fr": [
+          "chef-de-projet-projeteur-sanitaire-100-cdi-h-f-d-adecco-martigny-c1119b45"
         ]
       },
       "previousSlugs": [
         "chef-de-projet-projeteur-sanitaire-100-cdi-h-f-d-adecco-martigny-c1119b45"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T18:06:10.420Z"
     },
     {
       "id": "seco-jobroom-c3aa16da-05a9-4745-bed9-aef52b42b87c",
@@ -192940,7 +192991,7 @@
       "slugByLocale": {
         "de": "kommissionierer-in-coop-genossenschaft-chur-45bffb0a",
         "it": "addetto-a-al-picking-coop-genossenschaft-chur-45bffb0a",
-        "en": "kommissionierer-in-coop-genossenschaft-chur-45bffb0a",
+        "en": "order-picker-coop-genossenschaft-chur-45bffb0a",
         "fr": "preparateur-preparatrice-de-commandes-coop-genossenschaft-chur-45bffb0a"
       },
       "slugDisambiguator": "45bffb0a",
@@ -193006,18 +193057,21 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-22T09:35:49.086Z",
-      "translationHoldSince": "2026-11-22T09:38:43.085Z",
       "previousSlugsByLocale": {
         "it": [
           "kommissionierer-in-coop-genossenschaft-chur-45bffb0a"
         ],
         "fr": [
           "kommissionierer-in-coop-genossenschaft-chur-45bffb0a"
+        ],
+        "en": [
+          "kommissionierer-in-coop-genossenschaft-chur-45bffb0a"
         ]
       },
       "previousSlugs": [
         "kommissionierer-in-coop-genossenschaft-chur-45bffb0a"
-      ]
+      ],
+      "translationHoldReleasedAt": "2026-11-22T18:06:10.420Z"
     },
     {
       "id": "seco-jobroom-4c8c7957-9f5e-4b85-9d3f-970abd9a113c",

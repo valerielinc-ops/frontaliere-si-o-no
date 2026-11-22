@@ -681,7 +681,7 @@
       "slugByLocale": {
         "it": "segretariato-dei-dipendenti-mercoledi-giovedi-ven-psychiatrie-st-gallen-wil",
         "en": "employee-secretariat-mi-do-fr-psychiatrie-st-gallen-wil",
-        "de": "mitarbeiterin-mitarbeiter-sekretariat-mi-do-fr-psgn-wil",
+        "de": "mitarbeiterin-mitarbeiter-sekretariat-mi-do-fr-psychiatrie-st-gallen-wil",
         "fr": "employe-secretariat-mi-do-fr-psychiatrie-st-gallen-wil"
       },
       "company": "Psychiatrie St.Gallen",
@@ -741,6 +741,9 @@
         ],
         "fr": [
           "mitarbeiterin-mitarbeiter-sekretariat-mi-do-fr-psychiatrie-st-gallen-wil"
+        ],
+        "de": [
+          "mitarbeiterin-mitarbeiter-sekretariat-mi-do-fr-psgn-wil"
         ]
       },
       "firstSeenAt": "2026-11-21T21:27:53.871Z",
@@ -768,7 +771,7 @@
       "slugByLocale": {
         "it": "registrazione-e-informazioni-sui-dipendenti-psychiatrie-st-gallen-pfafers",
         "en": "employee-registration-and-information-psychiatrie-st-gallen-pfafers",
-        "de": "mitarbeiterin-mitarbeiter-anmeldung-und-information-psgn-pfafers",
+        "de": "mitarbeiterin-mitarbeiter-anmeldung-und-information-psychiatrie-st-gallen-pfafers",
         "fr": "enregistrement-et-information-des-employes-psychiatrie-st-gallen-pfafers"
       },
       "company": "Psychiatrie St.Gallen",
@@ -828,6 +831,9 @@
         ],
         "fr": [
           "mitarbeiterin-mitarbeiter-anmeldung-und-information-psychiatrie-st-gallen-pfafers"
+        ],
+        "de": [
+          "mitarbeiterin-mitarbeiter-anmeldung-und-information-psgn-pfafers"
         ]
       },
       "firstSeenAt": "2026-11-21T21:27:53.221Z",
@@ -1574,7 +1580,7 @@
       "slugByLocale": {
         "it": "dipl-infermiera-hf-fh-servizio-notturno-psychiatrie-st-gallen-pfafers",
         "en": "dipl-nurse-hf-fh-night-service-psychiatrie-st-gallen-pfafers",
-        "de": "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-pfafers",
+        "de": "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-pfafers",
         "fr": "dipl-infirmiere-hf-service-de-nuit-fh-psychiatrie-st-gallen-pfafers"
       },
       "company": "Psychiatrie St.Gallen",
@@ -1644,6 +1650,9 @@
         "fr": [
           "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-pfafers",
           "dipl-infirmiere-hf-service-de-nuit-fh-psychiatrie-st-gallen-pfafers-10ddc1"
+        ],
+        "de": [
+          "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-pfafers"
         ]
       },
       "firstSeenAt": "2026-11-05T21:15:15.819Z",
