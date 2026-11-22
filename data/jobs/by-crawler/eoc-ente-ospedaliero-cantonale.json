@@ -1,6 +1,6 @@
 {
   "crawlerKey": "eoc-ente-ospedaliero-cantonale",
-  "assembledAt": "2026-11-22T09:48:04.311Z",
+  "assembledAt": "2026-11-22T13:16:39.820Z",
   "runId": "45006841177",
   "jobs": [
     {
@@ -194,7 +194,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1353/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1353/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-feezsa",
@@ -285,7 +286,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1372/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1372/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333gx",
@@ -476,7 +478,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1010/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1010/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-fef0d3",
@@ -762,7 +765,8 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefpqm",
@@ -843,7 +847,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikzkn",
@@ -1179,7 +1184,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil175",
@@ -1548,7 +1554,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikz1p",
@@ -1749,7 +1756,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikzko",
@@ -1842,7 +1850,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-x29n9b",
@@ -1928,7 +1937,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-x29n8p",
@@ -2022,7 +2032,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikz1r",
@@ -2146,7 +2157,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikzlc",
@@ -2633,7 +2645,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilm13",
@@ -2717,7 +2730,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilmk0",
@@ -2822,7 +2836,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil4vw",
@@ -2922,7 +2937,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil0c5",
@@ -3013,7 +3029,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilmk2",
@@ -3093,7 +3110,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilm14",
@@ -3181,7 +3199,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilmk7",
@@ -3461,7 +3480,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikznx",
@@ -3545,7 +3565,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikz1s",
@@ -3630,7 +3651,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikzlg",
@@ -4218,7 +4240,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uillxs",
@@ -4668,7 +4691,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil2r4",
@@ -4768,7 +4792,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilmkv",
@@ -4956,7 +4981,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil1yo",
@@ -5045,7 +5071,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil1yp",
@@ -5363,7 +5390,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil1yq",
@@ -5567,7 +5595,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil5mc",
@@ -5703,7 +5732,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilnas",
@@ -5799,7 +5829,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilo8e",
@@ -5907,7 +5938,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uillxu",
@@ -5995,7 +6027,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil1ug",
@@ -6185,7 +6218,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilngs",
@@ -6280,7 +6314,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikytv",
@@ -6777,7 +6812,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uillyh",
@@ -6866,7 +6902,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqc7",
@@ -7235,7 +7272,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/937/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/937/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333hq",
@@ -7537,7 +7575,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/957/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/957/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333fc",
@@ -7649,7 +7688,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/962/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/962/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-feey97",
@@ -7821,7 +7861,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil1ud",
@@ -7918,7 +7959,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil1tg",
@@ -8094,7 +8136,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil2mt",
@@ -8207,7 +8250,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqca",
@@ -8290,7 +8334,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-18T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2818/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2818/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqcz",
@@ -8623,7 +8668,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilm12",
@@ -8711,7 +8757,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqd1",
@@ -9128,7 +9175,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1094/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1094/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil1zn",
@@ -9217,7 +9265,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uillzl",
@@ -9301,7 +9350,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefpqr",
@@ -9403,7 +9453,8 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uiloz2",
@@ -9611,7 +9662,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilmk6",
@@ -9706,7 +9758,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilngr",
@@ -10104,7 +10157,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-feeyzw",
@@ -10389,7 +10443,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqd4",
@@ -10482,7 +10537,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2827/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2827/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqd5",
@@ -10917,7 +10973,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil1ys",
@@ -11216,7 +11273,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikzn5",
@@ -11587,7 +11645,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikzlh",
@@ -11672,7 +11731,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikzlj",
@@ -11781,7 +11841,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikzli",
@@ -11869,7 +11930,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uikzn6",
@@ -12336,7 +12398,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uillyk",
@@ -12452,7 +12515,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil2ns",
@@ -12537,7 +12601,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqdv",
@@ -13002,7 +13067,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/933/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/933/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqdu",
@@ -13085,7 +13151,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-24T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2832/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2832/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqdw",
@@ -13255,7 +13322,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2837/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2837/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqe1",
@@ -13338,7 +13406,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2839/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2839/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqen",
@@ -13506,7 +13575,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uil4ya",
@@ -13602,7 +13672,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilmpb",
@@ -13830,7 +13901,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-28T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2836/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2836/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefppq",
@@ -14074,7 +14146,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-11T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2843/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2843/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqer",
@@ -14170,7 +14243,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2844/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2844/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilo2b",
@@ -14341,7 +14415,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefpqp",
@@ -14438,7 +14513,8 @@
           "krankenschwester-in-der-allgemeinen-pflege-eoc-ente-ospedaliero-cantonale-lugano",
           "infirmiere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-lugano"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-fefp1q",
@@ -14714,7 +14790,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/932/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/932/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-fef1x1",
@@ -14796,7 +14873,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1636/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1636/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-fef1bd",
@@ -14897,7 +14975,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1591/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1591/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-fef0d4",
@@ -15057,7 +15136,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1360/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1360/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-feezrj",
@@ -15327,7 +15407,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1373/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1373/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333hr",
@@ -15414,7 +15495,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/938/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/938/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333gz",
@@ -15861,7 +15943,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/958/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/958/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333g0",
@@ -15946,7 +16029,8 @@
         "it": [
           "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-4333g0"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-4333fe",
@@ -16031,7 +16115,8 @@
         "it": [
           "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-4333fe"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-4333fd",
@@ -16169,7 +16254,8 @@
           "fisioterapista-diplomato-a-eoc-novaggio-x29n6q",
           "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n6r"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-4333fb",
@@ -16265,7 +16351,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/963/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/963/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333fa",
@@ -16360,7 +16447,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/964/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/964/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-4333f9",
@@ -16444,7 +16532,8 @@
           "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-4333f9",
           "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona-4333f9"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-4333f8",
@@ -16549,7 +16638,8 @@
           "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
           "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-43343a",
@@ -16708,7 +16798,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1154/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1154/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqc3",
@@ -16791,7 +16882,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2811/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2811/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilmrt",
@@ -16890,7 +16982,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-uilmru",
@@ -17067,7 +17160,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2846/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2846/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-x29n3h",
@@ -17339,7 +17433,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1009/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/1009/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqeu",
@@ -17439,7 +17534,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2847/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2847/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqev",
@@ -17533,7 +17629,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T09:47:13.215Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2848/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2848/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqc4",
@@ -17627,7 +17724,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-06T09:33:28.919Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2812/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2812/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqd3",
@@ -18127,7 +18225,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-06T21:56:13.617Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2798/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2798/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqc2",
@@ -18377,7 +18476,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-11-30T21:48:45.923Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2796/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2796/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefpsc",
@@ -18469,7 +18569,8 @@
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-11-30T21:48:45.923Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqbc",
@@ -18554,7 +18655,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-11-30T21:48:45.923Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2805/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2805/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefpsi",
@@ -18646,7 +18748,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T21:45:58.453Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2799/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2799/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefpsg",
@@ -18905,7 +19008,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-11-24T21:36:44.040Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2808/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2808/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqbg",
@@ -19168,7 +19272,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-11-24T21:36:44.040Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2814/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2814/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqba",
@@ -19253,7 +19358,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-02T21:24:55.463Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2803/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2803/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefqb7",
@@ -19431,7 +19537,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-02T21:27:52.068Z",
       "validThroughSource": "build-clock-fallback",
-      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2801/description/4"
+      "sourceIdentity": "url:https://recruitingapp-2761.umantis.com/vacancies/2801/description/4",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefpse",
@@ -19522,7 +19629,8 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-29T09:35:43.196Z",
-      "validThroughSource": "build-clock-fallback"
+      "validThroughSource": "build-clock-fallback",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefpsb",
@@ -19685,7 +19793,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-19T21:25:07.091Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefpsd",
@@ -19846,7 +19955,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-07T21:28:22.978Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefprl",
@@ -20118,7 +20228,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-25T21:57:16.436Z",
-      "validThroughSource": "build-clock-fallback"
+      "validThroughSource": "build-clock-fallback",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefppo",
@@ -20446,7 +20557,8 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T21:57:16.436Z",
-      "validThroughSource": "build-clock-fallback"
+      "validThroughSource": "build-clock-fallback",
+      "needsRetranslation": true
     },
     {
       "id": "company-fefprg",

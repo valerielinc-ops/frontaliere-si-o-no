@@ -1,6 +1,6 @@
 {
   "crawlerKey": "migros-ticino",
-  "assembledAt": "2026-11-22T13:04:24.607Z",
+  "assembledAt": "2026-11-22T13:29:05.812Z",
   "runId": "45007106415",
   "jobs": [
     {
@@ -112,7 +112,8 @@
       "validThrough": "2027-02-19T09:41:36.920Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-vuobiq",
@@ -1045,7 +1046,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-vaud/caissiere-hfd/0c84e80d-cd37-4e74-a989-87f78dcd417e",
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-k593yb",
@@ -1172,7 +1174,7 @@
     },
     {
       "id": "company-syqi9w",
-      "slug": "vendeur-caissier-m-w-d-societe-cooperative-migros-valais-sierre",
+      "slug": "addetto-a-alle-vendite-cassiere-m-w-d-societe-cooperative-migros-valais-sierre",
       "company": "Société coopérative Migros Valais",
       "title": "Vendeur-caissier - (f/h/d)",
       "location": "Sierre",
@@ -1239,7 +1241,7 @@
         "de": "Die Société coopérative Migros Wallis mit ihren knapp 1'200 Mitarbeitern setzt sich dafür ein, ein anregendes und leistungsorientiertes Arbeitsumfeld zu schaffen, um mit großer Begeisterung und Aufmerksamkeit unsere traditionellen Werte wie Frische und Qualität zu einem fairen Preis zu gewährleisten.\n\n**Luogo di Lavoro:** Migros Wallis Cooperative Society, Migros Sierre Shopping Centre, Avenue Général Guisan, 3960 Sierre\n\n## Wichtige Anmerkungen\nAlle Bewerbungen sind willkommen, aber wir können nur Online-Bewerbungen berücksichtigen. Anträge per Post werden aus datenschutzrechtlichen Gründen eliminiert und nicht zurückgeschickt.\n\n## Mansioni\n- Begrüßung, Beratung und Bindung von Kunden\n- Versorgung und Überwachung der Strahlung\n- Produktaufmachung\n- Qualität und Datenkontrolle\n- Fondsunterstützung\n- Polyvalenz im gesamten Shop\n\n## Anforderungen\n- Erfahrung: im Bereich Sales und im Bereich Food & Non Food\n- Keine anfängliche / kontinuierliche Schulung erforderlich: SWC Retail Manager oder AFP Retail Trade Gewünscht\n- Guter Geschmack für Gastfreundschaft und Kundenservice\n- Flexibilität und Autonomie\n- Vielseitig und kooperativ\n- Fokus auf Qualität, Genauigkeit und Integrität\n- Zuverlässig und streng\n- Französisch (sehr gute Kenntnisse)\n\n## Cosa offeriamo\n- Mutterschafts-/Vaterschaftsurlaub: Dauer des Mutterschafts-/Vaterschaftsurlaubs über dem gesetzlichen Mindestbetrag / Recht auf Adoptionsurlaub\n- Mobiles Abonnement: Mobiles Abonnement mit Vorzugstarif\n- Betriebsrente: Vorruhestand ab 58 Jahren / Leistungen über dem betrieblichen Rentenrecht\n- Sozialleistungen: überdurchschnittliche Sozialleistungen\n- Cumulus Points: Zusätzliche Cumulus Points auf einer Vielzahl von Produkten\n- Migros Bank: Vorzugsbedingungen bei der Migros Bank\n- Angebote für Mitarbeiter: Gutscheinhefte für die Migros Wallis\n- Urlaub: 5 Wochen Urlaub / Ab 20 Dienstjahre oder 50 Jahre: 6 Wochen / Ab 30 Dienstjahre oder 60 Jahre: 7 Wochen\n- Migros Club School: Erstattung von Kursen in Migros Club Schools\n- Freizeit- und Kulturangebot: Rabatte auf viele Angebote in den Bereichen Kultur, Freizeit und Sport\n- Gezielte Promotion: Interessante Entwicklungsperspektiven bis zu Ihrem Talent\n- Individuelle Weiterbildung: Schulung zum Erwerb und zur Entwicklung von Fähigkeiten\n- Sozial- und Personalrat: Beratung des Sozialberatungsdienstes in beruflichen oder persönlichen Angelegenheiten\n\n## Contatto\n**Kandidat und Kontakt**\nSandra Dayer-Peterus\n\n**Hinweis für Personaldienstleister**\nFür diese Position betrachten wir nur direkte Anwendungen.\n\n**Grado di occupazione: ** 80-100%"
       },
       "slugByLocale": {
-        "it": "vendeur-caissier-m-w-d-societe-cooperative-migros-valais-sierre",
+        "it": "addetto-a-alle-vendite-cassiere-m-w-d-societe-cooperative-migros-valais-sierre",
         "en": "cashier-seller-m-f-d-societe-cooperative-migros-valais-sierre",
         "de": "kassierer-m-w-d-societe-cooperative-migros-valais-sierre",
         "fr": "vendeur-caissier-m-w-d-societe-cooperative-migros-valais-sierre-syqi9w"
@@ -1261,7 +1263,8 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-caissier-m-w-d-societe-cooperative-migros-valais-sierre-syqi9w"
+          "vendeur-caissier-m-w-d-societe-cooperative-migros-valais-sierre-syqi9w",
+          "vendeur-caissier-m-w-d-societe-cooperative-migros-valais-sierre"
         ],
         "en": [
           "vendeur-caissier-m-w-d-societe-cooperative-migros-valais-sierre-syqi9w"
@@ -1271,7 +1274,8 @@
         ]
       },
       "previousSlugs": [
-        "vendeur-caissier-m-w-d-societe-cooperative-migros-valais-sierre-syqi9w"
+        "vendeur-caissier-m-w-d-societe-cooperative-migros-valais-sierre-syqi9w",
+        "vendeur-caissier-m-w-d-societe-cooperative-migros-valais-sierre"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -1849,7 +1853,7 @@
       "slugByLocale": {
         "it": "project-portfolio-manager-risk-finanza-alle-migros-bank-zurich-m33qmq",
         "en": "project-portfolio-manager-risk-finance-alle-migros-bank-zurich-m33qmq",
-        "de": "project-portfolio-manager-risk-finanzen-alle-migros-bank-zurich-m33qmq",
+        "de": "project-portfolio-manager-risk-finance-alle-migros-bank-zurich",
         "fr": "gestionnaire-de-portefeuille-de-projet-risque-et-finances-tous-migros-bank-zurich"
       },
       "requirementsByLocale": {
@@ -1874,11 +1878,15 @@
         ],
         "fr": [
           "project-portfolio-manager-risk-finance-alle-migros-bank-zurich-m33qmq"
+        ],
+        "de": [
+          "project-portfolio-manager-risk-finanzen-alle-migros-bank-zurich-m33qmq"
         ]
       },
       "previousSlugs": [
         "project-portfolio-manager-risk-finance-alle-migros-bank-zurich",
-        "project-portfolio-manager-risk-finance-alle-migros-bank-zurich-m33qmq"
+        "project-portfolio-manager-risk-finance-alle-migros-bank-zurich-m33qmq",
+        "project-portfolio-manager-risk-finanzen-alle-migros-bank-zurich-m33qmq"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -2757,7 +2765,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-basel/mitarbeiterin-kasse-migros-drachen/208db147-212f-4ee2-a63f-01c4f3bf8ff9",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-rzsh8u",
@@ -3005,7 +3014,8 @@
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/mitarbeiterin-kasse/4f922ddb-f66a-4b1a-8e85-7ed0fee2188d",
       "firstSeenAt": "2026-11-21T21:40:09.867Z",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-ohukew",
@@ -3130,7 +3140,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-restaurant/mitarbeiterin-restaurant-im-stundenlohn/7d38ff1f-0cd3-4033-8712-5936941dc220",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-xjbggo",
@@ -4861,7 +4872,8 @@
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-aare/allrounderin-supermarkt/bef4b67f-5b40-4955-9aee-471fccda2cb4",
       "firstSeenAt": "2026-07-03T23:14:35.303Z",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-gf3uk6",
@@ -5239,7 +5251,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-vaud/responsable-de-rayon-pcp-hfd/c62b2b1a-8f65-4e2a-9ee3-30154cc82a89",
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-mm6fxs",
@@ -5722,7 +5735,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/it/le-nostre-imprese/job/scuola-club-migros/insegnante-cucina-etnica-fmd-scuola-club-lugano/d1e09735-f424-45e8-a1df-ea0960961353",
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "needsRetranslation": true
     },
     {
       "id": "company-5br57j",
@@ -5961,7 +5975,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/delica-ag/teamleiter-marketing-sales-international-wmd/89d2df77-6abb-43b3-a434-2a802bd60fdd",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-h2ay9o",
@@ -6082,7 +6097,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/kaimug/wok-kochkochin/c7316110-0188-440c-9c2b-c167b49d9756",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-a4a1gh",
@@ -6201,7 +6217,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-restaurant/kochkochin/af52bca6-71c7-4487-bb67-9c969df8d3b3",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-b4xgga",
@@ -6434,7 +6451,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/activ-fitness/springerin-kinderparadies/dc8b6703-ee23-4a03-afcd-6fc96252943e",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-u9a05",
@@ -7026,7 +7044,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-valais/responsable-de-cuisine-fhd/e618e56d-052e-42a8-958e-345a33c3c96e",
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-5swk7o",
@@ -7384,7 +7403,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/ecole-club-migros/enseignant-de-sculpture-sur-bois-fhd-ecole-club-de-lausanne/2bff04cd-9844-409f-b8b0-5869afd85498",
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-x32o1j",
@@ -7747,7 +7767,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/klubschule-migros/lehrperson-erste-hilfe-fur-deinen-hund-wmd-klubschule-basel/f6554ec9-6e28-4122-9d28-3c67b7c2870c",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-ewn64",
@@ -7980,7 +8001,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/galaxus/digital-media-designer-wmd/6c347630-c7fb-468d-85a6-f0709f12861a",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-q0gipt",
@@ -8980,7 +9002,8 @@
         ]
       },
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-23wf97",
@@ -9216,7 +9239,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-industrie-ag/senior-manager-lebensmittelsicherheit-wmd/a899b9ec-9a36-41a5-b3ba-08258aa0a526",
       "salaryMin": 101500,
-      "salaryMax": 154000
+      "salaryMax": 154000,
+      "needsRetranslation": true
     },
     {
       "id": "company-lvhoae",
@@ -9288,7 +9312,7 @@
       "slugByLocale": {
         "it": "senior-manager-qualita-eccellenza-trasformazione-m-f-d-migros-industrie-ag-zurich",
         "en": "senior-manager-quality-excellence-transformation-m-w-d-migros-industrie-ag-zurich-lvhoae",
-        "de": "senior-manager-qualitat-excellence-transformation-m-w-d-migros-industrie-ag-zurich-lvhoae",
+        "de": "senior-manager-quality-excellence-transformation-w-m-d-migros-industrie-ag-zurich",
         "fr": "senior-manager-qualite-excellence-transformation-m-w-d-migros-industrie-ag-zurich-lvhoae"
       },
       "requirementsByLocale": {
@@ -9306,11 +9330,15 @@
         "it": [
           "senior-manager-quality-excellence-transformation-m-w-d-migros-industrie-ag-zurich",
           "senior-manager-quality-excellence-transformation-m-w-d-migros-industrie-ag-zurich-lvhoae"
+        ],
+        "de": [
+          "senior-manager-qualitat-excellence-transformation-m-w-d-migros-industrie-ag-zurich-lvhoae"
         ]
       },
       "previousSlugs": [
         "senior-manager-quality-excellence-transformation-m-w-d-migros-industrie-ag-zurich",
-        "senior-manager-quality-excellence-transformation-m-w-d-migros-industrie-ag-zurich-lvhoae"
+        "senior-manager-quality-excellence-transformation-m-w-d-migros-industrie-ag-zurich-lvhoae",
+        "senior-manager-qualitat-excellence-transformation-m-w-d-migros-industrie-ag-zurich-lvhoae"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -10569,7 +10597,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/klubschule-migros/lehrperson-pilates-reformer-wmd-klubschule-bern/3ea1f6ab-a3d2-46af-9713-58ee4c3dcd33",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-nqf3hd",
@@ -10928,7 +10957,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-restaurant/kochkochin/34154c16-8932-43a9-9325-612547b1e54a",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-ka0sby",
@@ -12340,7 +12370,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/groupe-micarna/assistante-de-securite/b8f0b052-5e2c-4b41-860c-6fb81bff52ab",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-1rodjh",
@@ -12785,7 +12816,8 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fitness-instructor-m-w-d-activ-fitness-schwyz"
+          "fitness-instructor-m-w-d-activ-fitness-schwyz",
+          "istruttore-di-fitness-m-f-d-activ-fitness-schwyz"
         ],
         "fr": [
           "instructeur-de-fitness-m-w-d-activ-fitness-schwyz-t1qoyy"
@@ -12793,7 +12825,8 @@
       },
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-schwyz",
-        "instructeur-de-fitness-m-w-d-activ-fitness-schwyz-t1qoyy"
+        "instructeur-de-fitness-m-w-d-activ-fitness-schwyz-t1qoyy",
+        "istruttore-di-fitness-m-f-d-activ-fitness-schwyz"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -13891,7 +13924,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-neuchatel-fribourg/decorateurtrice-cdd/73063df9-2f98-4015-851e-301991a27fcb",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-pwm1lt",
@@ -14115,7 +14149,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/pizzeria-ristorante-molino/chef-de-service-hfd-en-cdi-90-la-praille/2fa0fa71-d379-4c48-bd2d-b508b07a33a7",
       "salaryMin": 54500,
-      "salaryMax": 82400
+      "salaryMax": 82400,
+      "needsRetranslation": true
     },
     {
       "id": "company-9ecrry",
@@ -14219,7 +14254,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-geneve/2-vendeuses-restaurant-fhd/299f6343-d2cf-48bf-8648-21153b874b27",
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-dsx6lj",
@@ -14340,7 +14376,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-luzern/mitarbeiterin-filiallogistik/41aff637-20db-445d-926b-4b9d4f28c860",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-7u433r",
@@ -14583,7 +14620,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/pizzeria-ristorante-molino/pizzaiolo-hfd-en-cdi-90-la-praille/64379efd-edad-42ea-8c86-f942644eb979",
       "salaryMin": 54500,
-      "salaryMax": 82400
+      "salaryMax": 82400,
+      "needsRetranslation": true
     },
     {
       "id": "company-visi9v",
@@ -18042,7 +18080,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/voi/stellvertreterin-geschaftsleitung/bf0be094-1ddb-4c07-87b7-2e0bc80a1493",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-xggsqn",
@@ -18953,7 +18992,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/la-federation-des-cooperatives-migros/chef-de-projet-senior-representation-du-maitre-douvrage-construction-et-infrastructures-fmd/72cd7778-2dd4-4714-8d74-f7311e6f2a14",
       "salaryMin": 113500,
-      "salaryMax": 172000
+      "salaryMax": 172000,
+      "needsRetranslation": true
     },
     {
       "id": "company-jjhw6n",
@@ -19654,7 +19694,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/migros-restaurant/employee-gastronomie-hfd/30282ece-b6c3-43f3-a0df-2e3deac7dde4",
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-epg5aa",
@@ -20005,7 +20046,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-geneve/3-remplisseuses-fhd/4034b1b5-dbc0-4edf-9345-609c56a2b068",
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-pxocxm",
@@ -21336,7 +21378,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/pizzeria-ristorante-molino/chef-de-rang-hfd-en-cdi-60-80-molino-balexert/9b42e79a-8235-4754-bf7f-2a48b1cd07c4",
       "salaryMin": 48400,
-      "salaryMax": 73200
+      "salaryMax": 73200,
+      "needsRetranslation": true
     },
     {
       "id": "company-1sq262",
@@ -21456,7 +21499,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-valais/etudiant-fhd/6934399c-2c60-430a-872d-81f40c0f7099",
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-wrqg41",
@@ -21838,7 +21882,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/verkauferin/764a3940-1287-4689-8e15-d303c7a01554",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-oksp5y",
@@ -22420,7 +22465,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/fitnesspark/medizinischer-masseurin/4c204a75-0dc7-46b4-9eb9-3869ce2fb2d4",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-sphcn",
@@ -23257,7 +23303,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-wallis/verkauferin-kassiererin/0591f23e-dca9-4dfc-a656-a5c2b5da21ec",
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-70v9mu",
@@ -24416,7 +24463,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-vaud/gestionnaire-de-vente-food-hfd/f4169245-4251-4dfb-92eb-d4c703dbebc8",
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-8ic3ci",
@@ -25146,7 +25194,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-industrie-ag/sap-consultant-fi-wmd/872c8cc0-74cb-4679-a63a-484b99c8b8e3",
       "salaryMin": 113000,
-      "salaryMax": 198500
+      "salaryMax": 198500,
+      "needsRetranslation": true
     },
     {
       "id": "company-rly4ao",
@@ -25379,7 +25428,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-basel/fachleiterin-food-non-food-migros-ziegelei-allschwil/0d150edd-2861-4f7d-a471-9ce9670fc6e1",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-1opga9",
@@ -25490,7 +25540,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/verkauferin/32323e78-539d-4c33-b27a-3a005e4d74d6",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-cmkaxz",
@@ -26891,7 +26942,8 @@
       },
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migrol-ag/key-account-manager-migrolcard-mwd/5ccb567e-bf54-471d-af94-499efc112217",
       "salaryMin": 189000,
-      "salaryMax": 331500
+      "salaryMax": 331500,
+      "needsRetranslation": true
     },
     {
       "id": "company-2cmwmv",
@@ -27257,7 +27309,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-vaud/gestionnaire-de-vente-fruits-legumes-food-hfd/ffaa7ccb-1e59-4cfe-ae8a-bec07fb7f5cf",
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-ftqlvg",
@@ -27368,7 +27421,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-geneve/product-manager-disposition-fruits-et-legumesfhd/f7c30eda-34e3-4bf7-9cf6-2f247256c744",
       "salaryMin": 83500,
-      "salaryMax": 126500
+      "salaryMax": 126500,
+      "needsRetranslation": true
     },
     {
       "id": "company-vty0za",
@@ -27597,7 +27651,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-geneve/2-remplisseuses-fhd/2a8abfcf-5754-4901-bc0b-de4f778a7417",
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-vjgpwq",
@@ -27715,7 +27770,8 @@
         ]
       },
       "salaryMin": 79000,
-      "salaryMax": 134500
+      "salaryMax": 134500,
+      "needsRetranslation": true
     },
     {
       "id": "company-39p7t1",
@@ -28651,7 +28707,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/activ-fitness/manager-fitness-club-mwd/0d25c5fc-827b-43e1-9ca3-7329ceb9458e",
       "salaryMin": 79000,
-      "salaryMax": 120000
+      "salaryMax": 120000,
+      "needsRetranslation": true
     },
     {
       "id": "company-dwui90",
@@ -29588,7 +29645,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-vaud/responsable-de-rayon-pcp-hfd/19afabf9-22da-4980-b52e-e2826ffce347",
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-j6qxqj",
@@ -29941,7 +29999,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-luzern/mitarbeiterin-kinderparadies/649b8c99-5b5f-46d4-83c1-650d65045b90",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-4h6nu0",
@@ -31543,7 +31602,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-logistics/haustechnikerin-hlkkse/b6b90b20-0214-41c4-85ea-d4097292aecf",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-nlqjw8",
@@ -31937,7 +31997,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-take-away/mitarbeiterin-office/d3e1691f-c4e6-4ffe-86c8-7c57eefe4162",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-qe5oyy",
@@ -32287,7 +32348,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/migros-logistics/specialiste-it-logistique-application/78e1f795-a290-41e1-b7b2-83c6533652ea",
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-itfxw7",
@@ -33080,7 +33142,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/activ-fitness/manager-fitness-club-mwd/61920a28-87f5-423d-99b6-d7a286cd4616",
       "salaryMin": 101500,
-      "salaryMax": 154000
+      "salaryMax": 154000,
+      "needsRetranslation": true
     },
     {
       "id": "company-dbgnso",
@@ -34395,7 +34458,8 @@
       },
       "firstSeenAt": "2026-11-21T21:40:09.867Z",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-d964dg",
@@ -35835,7 +35899,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-zurich/mitarbeiterin-kasse-samstagsaushilfe/6a7f00b9-276b-42f1-aabb-33917b7fcf69",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-mwuizo",
@@ -36561,7 +36626,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/activ-fitness/allrounder-facility-management-mwd-region-zh/31a06597-d88d-4616-9f72-9fb5b9a6ca2c",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-sztnps",
@@ -36683,7 +36749,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-aare/mitarbeiterin-frische/ce1fcc6e-e06e-4b29-a38a-67b16694d691",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-vdzhx0",
@@ -37436,7 +37503,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-luzern/betriebselektrikerin/122b1361-5ac7-4b26-be1d-bd7828c350c4",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-ab2l90",
@@ -38144,11 +38212,12 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-basel/mitarbeiterin-gastrobarista-take-away-migros-bahnhof-sbb-basel/a443aee7-42dc-44c4-87da-094037edee5b",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-5wx9f",
-      "slug": "adjoint-gerant-m-w-d-societe-cooperative-migros-vaud-lausanne",
+      "slug": "adjoint-gerant-f-m-d-societe-cooperative-migros-vaud-lausanne-6e1c244dd3",
       "company": "Société coopérative Migros Vaud",
       "title": "Adjoint Gérant (H/F/D)",
       "location": "Lausanne",
@@ -38195,7 +38264,7 @@
       "crawledAt": "2026-11-22T09:41:36.920Z",
       "firstSeenAt": "2026-09-09T14:10:30.652Z",
       "slugByLocale": {
-        "it": "adjoint-gerant-m-w-d-societe-cooperative-migros-vaud-lausanne",
+        "it": "adjoint-gerant-f-m-d-societe-cooperative-migros-vaud-lausanne-6e1c244dd3",
         "en": "assistant-manager-m-f-d-societe-cooperative-migros-vaud-lausanne",
         "de": "assistant-manager-m-w-d-societe-cooperative-migros-vaud-lausanne",
         "fr": "adjoint-gerant-m-w-d-societe-cooperative-migros-vaud-lausanne-05wx9f"
@@ -38249,7 +38318,8 @@
       "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
-          "adjoint-gerant-f-m-d-societe-cooperative-migros-vaud-lausanne-6e1c244dd3"
+          "adjoint-gerant-f-m-d-societe-cooperative-migros-vaud-lausanne-6e1c244dd3",
+          "adjoint-gerant-m-w-d-societe-cooperative-migros-vaud-lausanne"
         ],
         "de": [
           "stellvertretender-leiter-m-w-d-societe-cooperative-migros-vaud-lausanne"
@@ -38257,11 +38327,13 @@
       },
       "previousSlugs": [
         "stellvertretender-leiter-m-w-d-societe-cooperative-migros-vaud-lausanne",
-        "adjoint-gerant-f-m-d-societe-cooperative-migros-vaud-lausanne-6e1c244dd3"
+        "adjoint-gerant-f-m-d-societe-cooperative-migros-vaud-lausanne-6e1c244dd3",
+        "adjoint-gerant-m-w-d-societe-cooperative-migros-vaud-lausanne"
       ],
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-vaud/adjoint-gerant-hfd/687a7ea7-b836-4d0d-b2fc-ae2b046112f2",
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-z7upty",
@@ -38692,6 +38764,7 @@
           "adjoint-gerant-m-w-d-societe-cooperative-migros-vaud-lausanne-ay33qy",
           "adjoint-gerant-f-m-d-societe-cooperative-migros-vaud-lausanne-6e1c244dd3",
           "adjoint-gerant-m-w-d-societe-cooperative-migros-vaud-lausanne-2",
+          "adjoint-gerant-f-m-d-societe-cooperative-migros-vaud-lausanne-04dfa48fb5",
           "adjoint-gerant-m-w-d-societe-cooperative-migros-vaud-lausanne"
         ],
         "en": [
@@ -38709,6 +38782,7 @@
         "assistant-manager-m-f-d-societe-cooperative-migros-vaud-lausanne",
         "assistant-manager-m-w-d-societe-cooperative-migros-vaud-lausanne",
         "adjoint-gerant-m-w-d-societe-cooperative-migros-vaud-lausanne-2",
+        "adjoint-gerant-f-m-d-societe-cooperative-migros-vaud-lausanne-04dfa48fb5",
         "adjoint-gerant-m-w-d-societe-cooperative-migros-vaud-lausanne"
       ],
       "salarySource": "estimated",
@@ -38732,7 +38806,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-vaud/adjoint-gerant-hfd/e8bcd1cd-6287-4ea5-9a0c-65ed7f284566",
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-hs7and",
@@ -38959,7 +39034,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-basel/magazinerin-migros-drachen/63118025-f543-443c-8332-b95d8f45e87c",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-ot1bhs",
@@ -39676,7 +39752,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/galaxus/quality-analyst-wmd/259e0d84-f3f2-4425-a423-3fb729d3a85b",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-gro1j8",
@@ -40535,7 +40612,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/activ-fitness/mitarbeiterin-kinderparadies/943c95f2-5f44-439c-81af-82f6851d9e22",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-yqblr4",
@@ -40989,7 +41067,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/fresh-food-beverage-group/responsable-de-secteur-de-production-hfd/7dbee3a5-8b12-46f3-9f63-c021650cc2f5",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-jzlbph",
@@ -41112,7 +41191,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-vaud/gestionnaire-de-vente-ultra-frais-hfd/63beb627-4453-42b5-85b3-864dbd730369",
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-4ja4l9",
@@ -42530,7 +42610,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/elsa-group/approvisionneur-neuse/48b4754b-e197-4853-bd64-f5cf66131e7c",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-e0m88e",
@@ -42767,7 +42848,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-geneve/gestionnaire-de-commercialisation-immobiliere-fhd/ca56f02e-f309-4e04-91f1-3add921b94a6",
       "salaryMin": 72000,
-      "salaryMax": 111000
+      "salaryMax": 111000,
+      "needsRetranslation": true
     },
     {
       "id": "company-z0o1j2",
@@ -44564,7 +44646,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/klubschule-migros/lehrperson-norwegisch-wmd-klubschule-bern/f0e87098-1a46-4665-9e47-ec73324f4ecc",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-x272zj",
@@ -44691,7 +44774,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-restaurant/mitarbeiterin-restaurantbuffetkasse/57a485c3-4c70-4711-8cb6-bf291ef2ceed",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-ktlfnq",
@@ -45777,7 +45861,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-aare/mitarbeiterin-food/574f2868-5c99-4698-b3bb-ca0be7648231",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-w0tgf8",
@@ -47614,7 +47699,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/bernaqua/seifenburstenmasseurin/f297ba22-22be-4736-84dc-d1f642482d7c",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-3yhjfa",
@@ -47731,7 +47817,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/activ-fitness/mitarbeiterin-kinderparadies/7b7a9d43-79ea-4843-9eb4-ddece0ccb7eb",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-8kxgzb",
@@ -48723,7 +48810,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/klubschule-migros/lehrperson-kochspass-mit-den-mimigs-wmd-klubschule-basel/2b65e0d3-60f4-4427-9867-bd6b7ea3296e",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-874bxj",
@@ -49171,7 +49259,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/wepractice/psychotherapeutin-fur-online-therapie/2a42fdfb-69ad-4d1c-a248-3c107240d70e",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-82lh82",
@@ -49746,7 +49835,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/catering-services-migros/kochkochin/782193f4-14ab-46ba-9d71-0273c83d2b24",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-x2d7rx",
@@ -50141,7 +50231,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/wepractice/psychotherapeutin-fur-online-therapie/abc56b8c-c273-4669-95fc-862785c9dca3",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-j8gplt",
@@ -50252,7 +50343,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/wepractice/psychotherapeutin-fur-online-therapie/5a7d58cc-3ddc-4efc-99a1-0f0c48c54117",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-hzlk8f",
@@ -51199,7 +51291,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/wepractice/psychotherapeutin/aee3f2db-0698-4589-a48f-e3ca2ddcb07c",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-63gjjh",
@@ -51866,7 +51959,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-aare/mitarbeiterin-frische/b6c181cf-510c-4420-a1aa-039e5f270ab4",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-7vr8im",
@@ -52343,7 +52437,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/fitnesspark/medizinischer-masseurin/06728cda-a629-4475-9253-5c8e83cad256",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-i4t832",
@@ -53211,7 +53306,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-vaud/collaborateur-halte-jeux-hfd/236a17ee-0e41-4e34-9629-c96de133d4e0",
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-kbsj30",
@@ -53321,7 +53417,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/fresh-food-beverage-group/mitarbeiterin-hausbackerei/91421247-d1d3-4b94-8730-67ffa3039d50",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-eq3vvi",
@@ -53446,7 +53543,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/fresh-food-beverage-group/mitarbeiterin-hausbackerei/d41a0bf1-90fb-4278-ab71-1cd34996f6e1",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-gijq64",
@@ -53571,7 +53669,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/fresh-food-beverage-group/mitarbeiterin-hausbackerei/2f02edb7-fe08-481c-aa5e-8152496817ad",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-pyycs0",
@@ -53789,7 +53888,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/fresh-food-beverage-group/mitarbeiterin-hausbackerei/99ece4c7-01ac-4d6a-91a6-2de60c2e59fe",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-6xgy0h",
@@ -53914,7 +54014,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/fresh-food-beverage-group/mitarbeiterin-hausbackerei/e34e2656-5175-489a-9a34-a10ce5bbc904",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-s0oq8k",
@@ -54897,7 +54998,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/klubschule-migros/lehrperson-pilates-reformer-wmd-klubschule-olten/582327d2-9d96-475d-811d-1fcc53242cd5",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-h57f81",
@@ -55888,7 +55990,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-bank/spezialistin-competence-center-wertschriften-alle/17491b2a-2dca-4e1e-a45e-a9943780ae48",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-5jffbi",
@@ -56365,7 +56468,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-zurich/technischer-hauswartin/571cf439-bc92-4bff-bba7-9ff8a0d4fbcb",
       "salaryMin": 65000,
-      "salaryMax": 98500
+      "salaryMax": 98500,
+      "needsRetranslation": true
     },
     {
       "id": "company-n2hffo",
@@ -56703,7 +56807,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-basel/magazinerin-migros-sissach/71ca35ec-2915-4d3f-b2ae-c11439abe7fe",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-a6xqsw",
@@ -58061,7 +58166,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-zurich/verkauferin-offenverkauf-kase-fleisch-fisch/bcac8b58-20d1-4105-86c6-1e688ab1fd84",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-lr5kxb",
@@ -59675,7 +59781,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-restaurant/mitarbeiterin-buffetkasse/c921bd75-75f8-4446-8b3a-2f308bbc0510",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-dwov27",
@@ -60157,7 +60264,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-vaud/gerant-hfd/1e479c2f-bfdc-41df-9d99-8d2a16e8a674",
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-49d8t0",
@@ -61198,7 +61306,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/kaimug/mitarbeiterin-kuchenoffice/823341cc-1d33-45d9-a781-29dd1db05052",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-vcb94z",
@@ -62317,7 +62426,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/galaxus/senior-accountant-mit-kenntnissen-data-science-wmd/a41f4ceb-0f68-4e0b-83f8-20d49ab3a647",
       "salaryMin": 189000,
-      "salaryMax": 331500
+      "salaryMax": 331500,
+      "needsRetranslation": true
     },
     {
       "id": "company-k2q605",
@@ -63900,7 +64010,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-vaud/gestionnaire-de-vente-produits-carnes-et-poissons-au-plot/ffcd6e9d-6893-4c2e-ab55-610e7a5e2282",
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-e1dwca",
@@ -64016,7 +64127,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/aproz-sources-minerales-sa/collaborateur-specialise-gestion-des-eaux-hfd/96a4aaef-6abe-450c-a8fc-f35109c0225d",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-465kcx",
@@ -64888,7 +65000,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/ecole-club-migros/enseignant-dallemand-et-examinateur-telc-fhd-ecole-club-de-geneve/ed5ccc6d-4a10-4849-aa9e-9c60b6e3c86e",
       "salaryMin": 60500,
-      "salaryMax": 91500
+      "salaryMax": 91500,
+      "needsRetranslation": true
     },
     {
       "id": "company-63lwwb",
@@ -65624,7 +65737,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-aare/mitarbeiterin-backwaren-convenience/c0bac320-a61b-4d68-8f11-f9d58e25e81e",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-p58j48",
@@ -65729,7 +65843,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/activ-fitness/group-fitness-instructor-wmd-diverse-stilrichtungen/a55a08f2-2f77-4e23-a921-6af0880bfdf9",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-3mm4tj",
@@ -66638,7 +66753,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/activ-fitness/fitness-instructor-aushilfe-wmd/b6f4081a-f216-4fa4-8da1-a21c622626db",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-8nbeuf",
@@ -67402,7 +67518,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-luzern/verkauferin-foodfiliallogistik/85379dd8-ab3e-4822-87b9-35bf0c1c5792",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-k1olez",
@@ -67874,7 +67991,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-luzern/allrounderin-verkauf-im-stundenlohn/5385518e-fcb1-47ef-a939-f05d96b1308f",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-f4bnzz",
@@ -68268,7 +68386,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/quereinstieg-abteilungsleiterin-fleischfisch/d3eb2b6f-a4b1-4f77-bb11-4d2789345331",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-5a2o5x",
@@ -68620,7 +68739,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/micarna-gruppe/linienfuhrerin/8a537ac5-d40d-4746-9a19-4ee9d1970254",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-wolvtv",
@@ -68971,7 +69091,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/delica-ag/stv-leiter-kuche-personalrestaurant-wmd/6eb1ce09-ba5c-4901-ac4f-505478aad7e1",
       "salaryMin": 85500,
-      "salaryMax": 129500
+      "salaryMax": 129500,
+      "needsRetranslation": true
     },
     {
       "id": "company-p8ztjx",
@@ -71400,7 +71521,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/fresh-food-beverage-group/backer-konditor-hausbackerei-koniz-mwd/1f242fef-accf-4abb-bf8f-1c352ed4478e",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-wc6ly9",
@@ -71504,7 +71626,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/galaxus/fullstack-software-architect-wmd/94109a59-cd6d-4bd2-8512-21a2f9b5edaa",
       "salaryMin": 79000,
-      "salaryMax": 134500
+      "salaryMax": 134500,
+      "needsRetranslation": true
     },
     {
       "id": "company-idiszm",
@@ -71773,7 +71896,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/bernaqua/bademeisterin/644bf15d-c842-4cef-87cc-9f68435e39e6",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-rv21lf",
@@ -72137,7 +72261,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/klubschule-migros/lehrperson-orientalischer-tanz-wmd-klubschule-luzern/b40824c2-1bb8-4aba-91f7-368bd7f203c0",
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "needsRetranslation": true
     },
     {
       "id": "company-c2wba2",
@@ -72392,7 +72517,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/lastwagenfuhrerin-kat-ce/38b38149-02e7-43b8-a848-12f21522a5fa",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-dlf4oh",
@@ -73399,7 +73525,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/fresh-food-beverage-group/projektleiterin-infrabau/2f0c3cb8-bdc3-49d6-aeb7-7ebef2cad593",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-nhv8cl",
@@ -73912,7 +74039,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/activ-fitness/group-fitness-instructor-bodypump-wmd/ea16ca11-b085-4253-807e-79007456883e",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-x1t4jq",
@@ -74617,7 +74745,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/activ-fitness/masseurin-physiotherapeutin-osteopathin/cfa3560b-5496-4c27-a752-7653a8532449",
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "needsRetranslation": true
     },
     {
       "id": "company-p25jqw",
@@ -74978,7 +75107,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/activ-fitness/masseurin-physiotherapeutin-osteopathin/0db2b3bf-18c7-49d2-b25a-e2702fcc9002",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-knbfpq",
@@ -76417,7 +76547,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/fitnesspark/medizinischer-masseurin/76b8c623-84ae-4b70-bf83-b1797cdfecf0",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-ovjc5i",
@@ -76527,7 +76658,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/lehrperson-tai-chi-chuan-im-stundenlohn/f0ab9cd4-d110-47ae-8c34-0bb5e008f59c",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-mxnr45",
@@ -77454,7 +77586,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/lehrperson-tai-chi-chuan-im-stundenlohn/8cfc2f19-c876-41aa-8fb2-abcbfe8ef7ef",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-9b0sza",
@@ -78168,7 +78301,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/activ-fitness/group-fitness-instructor-freestyle-lesmills-fhd/476312c2-976f-446d-a3b4-779b04b67d1d",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-40nt2q",
@@ -78283,7 +78417,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/abteilungsleiterin-non-food/a41b572b-19c0-4c82-b7b3-882a696d93ed",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-epqine",
@@ -79351,7 +79486,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/verkauferin/bc9e2b78-2d67-4395-a32a-330fd47f9b6d",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-atiz7f",
@@ -79495,7 +79631,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-aare/allrounderin-supermarkt/4e29d23a-8378-40e9-8887-a40f5d7dea51",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-hse4q9",
@@ -80103,7 +80240,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/abteilungsleiterin-fleischfisch/d4dd11a4-60da-4cdf-bd86-142ca02d5dbf",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-y0rj6h",
@@ -81294,7 +81432,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-logistics/mitarbeiterin-mehrwertlogistik/d2229ac1-62c6-4511-ba05-bd834247c6c5",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-ja9qel",
@@ -82474,7 +82613,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-aare/mitarbeiterin-frische/09f2067b-4665-4f5d-b29f-5aa2591e6949",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-nbotjs",
@@ -84733,7 +84873,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/mitarbeiterin-catering-service-servicekuchelogistik/18ea111e-d957-4680-a10a-74e4f7238ba6",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-66hgvv",
@@ -85415,7 +85556,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/activ-fitness/group-fitness-instructor-wmd-diverse-stilrichtungen/1f291747-07f8-4f94-8963-a7bae8a5e0c0",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-qqo3qd",
@@ -85531,7 +85673,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-luzern/fachleiterin-food/cf839fa9-effc-49e5-a5fd-26f050f97caa",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-gsyt3h",
@@ -85764,7 +85907,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/catering-services-migros/kochkochin-im-stundenlohn/debc9555-68ec-41df-b5b8-766fedfe1d77",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-wvf9wk",
@@ -86610,7 +86754,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/movemi-ag/immobilienbewirtschafterin-gewerbeportfolio/e2247f8f-82c8-4f71-baaf-79cc3998273d",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-e82lhz",
@@ -88178,7 +88323,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-restaurant/kochkochin/a326b1aa-f684-4c13-882c-2f3cfac99cb6",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-sps8zq",
@@ -88424,7 +88570,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-take-away/kuchenchefinteamleiterin-kuche-take-away/1577b855-d1e7-448e-930d-27e1463e541a",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-hxcpk9",
@@ -88804,7 +88951,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-aare/studentenaushilfe-supermarkt/d9814456-de71-4b0c-bb0d-9071cbc4482c",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-9tumhb",
@@ -89277,7 +89425,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-take-away/teamleiterin-take-away/8f237f27-9f21-4a5e-800a-adf0b1096cec",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-8v1tp9",
@@ -89405,7 +89554,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/hitzberger/hitzberger-studentische-aushilfe-zurich-hb/23c6ea5e-afa6-4626-a0ae-e169def5c713",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-hssg2d",
@@ -89664,7 +89814,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/hitzberger/hitzberger-studentische-aushilfe-migros-city/25bcf5db-fe38-4fb2-a56b-06d6d2144b81",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-b7yqce",
@@ -89788,7 +89939,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-restaurant/kochkochin/4a7fa46d-604d-472a-91ab-eeb9c8d64058",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-ae4a43",
@@ -89912,7 +90064,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-restaurant/kochkochin/386bea61-4eb1-4fae-9705-c588dc2d7650",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-qqgd2s",
@@ -90254,7 +90407,8 @@
         ]
       },
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-4s55oo",
@@ -90755,7 +90909,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-bank/spezialist-kreditcenter-firmenkunden-alle/556f0a24-698c-4561-8732-71198f1c427a",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-isdotd",
@@ -90866,7 +91021,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-restaurant/mitarbeiterin-restaurant/2f11c82d-fd0b-4c3b-87df-32b5304443e9",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-su4gu8",
@@ -93786,7 +93942,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/delica-ag/teamleiter-mechanik-instandhaltung-wmd-birsfelden/63952bbe-c03f-49c2-bec1-c7bd138e48a0",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-o9v9bg",
@@ -94284,7 +94441,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/quereinstieg-abteilungsleiterin-fleischfisch/90336e8b-7910-4951-9207-65d502e5378c",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-7xij6y",
@@ -95273,7 +95431,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-zurich/leiterin-instandhaltung-betriebsmittel-und-infrastruktur/618c870f-f7df-4b5f-be8a-cb2b7353f882",
       "salaryMin": 101500,
-      "salaryMax": 154000
+      "salaryMax": 154000,
+      "needsRetranslation": true
     },
     {
       "id": "company-8g6o4g",
@@ -96015,7 +96174,8 @@
         ]
       },
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-attvmc",
@@ -96393,7 +96553,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-aare/nachwuchsprogramm-marktleiterin-supermarkt/b0723381-d509-4b73-a91c-80cbe6ded696",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-1cnlpc",
@@ -99959,7 +100120,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/kaimug/kaimug-glatt-wok-kochkochin/145dd8e8-c72e-4b74-a0a9-b14a8ec38555",
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-8ylton",
@@ -103074,7 +103236,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-basel/mitarbeiterin-gastro-take-away-migros-paradies/9da91696-a9bf-4738-8423-4814a2f42f87",
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-z0ao1d",
@@ -103321,7 +103484,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-aare/mitarbeitende-springerpool-supermarkt/ecc2876c-eda1-4aba-8d59-f48c40410477",
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "needsRetranslation": true
     },
     {
       "id": "company-8jrw0b",
@@ -103574,7 +103738,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-luzern/verkauferin-blumen/03f533bd-c02a-49b0-924c-56c20423fd55",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-1gtr9b",
@@ -106291,7 +106456,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/hitzberger/hitzberger-studentische-aushilfe-glatt/281b04eb-4af2-426a-9ac3-fbc6fb0a75e4",
       "salaryMin": 29400,
-      "salaryMax": 44600
+      "salaryMax": 44600,
+      "needsRetranslation": true
     },
     {
       "id": "company-trg7op",
@@ -106772,7 +106938,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-restaurant/kochkochin/764d567a-2b1d-4e66-9bdc-5d7af0291c93",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-o807it",
@@ -107755,7 +107922,8 @@
       "validThroughSource": "last-observed-window",
       "salaryMin": 68500,
       "salaryMax": 104000,
-      "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/luchingerschmid/fachmitarbeiterin-logistik-fur-den-standortaufbau-von-ls-oberbuchsiten/caa4be27-5c3c-40f4-ae77-8727bb5bf574"
+      "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/luchingerschmid/fachmitarbeiterin-logistik-fur-den-standortaufbau-von-ls-oberbuchsiten/caa4be27-5c3c-40f4-ae77-8727bb5bf574",
+      "needsRetranslation": true
     },
     {
       "id": "company-9xrul7",
@@ -108382,7 +108550,8 @@
       "validThroughSource": "last-observed-window",
       "salaryMin": 62000,
       "salaryMax": 94000,
-      "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-restaurant/kochkochin/f06ac200-fdb9-4b2b-af71-1c5cc91dd01c"
+      "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-restaurant/kochkochin/f06ac200-fdb9-4b2b-af71-1c5cc91dd01c",
+      "needsRetranslation": true
     },
     {
       "id": "company-3cefg1",
@@ -108503,7 +108672,8 @@
       "validThroughSource": "last-observed-window",
       "salaryMin": 69500,
       "salaryMax": 106000,
-      "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-luzern/mitarbeiterin-filiallogistik/5bfabaeb-5f2c-4ada-9dce-b2186467c9d5"
+      "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-luzern/mitarbeiterin-filiallogistik/5bfabaeb-5f2c-4ada-9dce-b2186467c9d5",
+      "needsRetranslation": true
     },
     {
       "id": "company-fwg2e3",
@@ -108619,7 +108789,8 @@
       "validThroughSource": "last-observed-window",
       "salaryMin": 68500,
       "salaryMax": 104000,
-      "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-restaurant/kochkochin/597109ea-dfbd-4009-b7fa-c3edc94fa8ae"
+      "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-restaurant/kochkochin/597109ea-dfbd-4009-b7fa-c3edc94fa8ae",
+      "needsRetranslation": true
     },
     {
       "id": "company-wyp2ru",
@@ -108997,7 +109168,8 @@
       "validThroughSource": "last-observed-window",
       "salaryMin": 68500,
       "salaryMax": 104000,
-      "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-aare/mitarbeiterin-frische/ead961de-8064-4325-973c-50cba6be0e1c"
+      "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-aare/mitarbeiterin-frische/ead961de-8064-4325-973c-50cba6be0e1c",
+      "needsRetranslation": true
     },
     {
       "id": "company-s98wsn",
@@ -109580,7 +109752,8 @@
       "validThroughSource": "last-observed-window",
       "salaryMin": 79000,
       "salaryMax": 120000,
-      "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/activ-fitness/manager-fitness-club-mwd/ff9bf267-e968-4479-940d-b9176351e975"
+      "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/activ-fitness/manager-fitness-club-mwd/ff9bf267-e968-4479-940d-b9176351e975",
+      "needsRetranslation": true
     },
     {
       "id": "company-ivj1km",
@@ -109702,7 +109875,8 @@
       "validThroughSource": "last-observed-window",
       "salaryMin": 62000,
       "salaryMax": 94000,
-      "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-pensionskasse/vollamtlicher-hauswartin-stadt-basel/f7a8bfc0-7200-47af-885a-1e35e42e0bc4"
+      "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-pensionskasse/vollamtlicher-hauswartin-stadt-basel/f7a8bfc0-7200-47af-885a-1e35e42e0bc4",
+      "needsRetranslation": true
     },
     {
       "id": "company-3ngsy4",
@@ -109818,7 +109992,8 @@
       "validThroughSource": "last-observed-window",
       "salaryMin": 57500,
       "salaryMax": 87000,
-      "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/mitarbeiterin-cafe-take-away/ce327e24-4ac8-422c-bc7e-b66ab8e155e4"
+      "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/mitarbeiterin-cafe-take-away/ce327e24-4ac8-422c-bc7e-b66ab8e155e4",
+      "needsRetranslation": true
     },
     {
       "id": "company-80ko7o",
@@ -110429,7 +110604,8 @@
       "validThroughSource": "last-observed-window",
       "salaryMin": 60500,
       "salaryMax": 91500,
-      "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-vaud/gestionnaire-de-vente-food-non-food-hfd/8c000c4d-3cc9-4cdc-a259-177b7c91907e"
+      "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-vaud/gestionnaire-de-vente-food-non-food-hfd/8c000c4d-3cc9-4cdc-a259-177b7c91907e",
+      "needsRetranslation": true
     },
     {
       "id": "company-4ov4lj",
@@ -111000,7 +111176,8 @@
       "validThroughSource": "last-observed-window",
       "salaryMin": 62000,
       "salaryMax": 94000,
-      "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-restaurant/kochkochin/6ccc8bb5-c186-4a58-8c08-cdd7cb604474"
+      "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-restaurant/kochkochin/6ccc8bb5-c186-4a58-8c08-cdd7cb604474",
+      "needsRetranslation": true
     },
     {
       "id": "company-jr4ccq",
@@ -111116,7 +111293,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-10T09:44:27.010Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.migros.ch/en/our-companies/job/galaxus/workflow-specialist-fmd/79f47438-009b-446a-a35e-10137d7d207a"
+      "sourceIdentity": "url:https://jobs.migros.ch/en/our-companies/job/galaxus/workflow-specialist-fmd/79f47438-009b-446a-a35e-10137d7d207a",
+      "needsRetranslation": true
     },
     {
       "id": "company-puw386",
@@ -111606,7 +111784,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T22:05:05.543Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/groupe-micarna/specialiste-planification-et-performance-filiere-avicole/7242dde6-5a0c-45c0-854c-67eeb89b5090"
+      "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/groupe-micarna/specialiste-planification-et-performance-filiere-avicole/7242dde6-5a0c-45c0-854c-67eeb89b5090",
+      "needsRetranslation": true
     },
     {
       "id": "company-wnug04",
@@ -111705,7 +111884,7 @@
     },
     {
       "id": "company-eaj2wl",
-      "slug": "aushilfe-im-stundenlohn-catering-service-betriebszentrale-munchenstein-catering-services-migros-munchenstein-eaj2wl",
+      "slug": "assistenza-nel-servizio-di-catering-a-pagamento-orario-monaco-di-baviera-centro-operazioni-catering-services-migros",
       "company": "Catering Services Migros",
       "title": "Aushilfe im Stundenlohn Catering Service Betriebszentrale Münchenstein",
       "location": "Münchenstein",
@@ -111762,10 +111941,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "aushilfe-im-stundenlohn-catering-service-betriebszentrale-munchenstein-catering-services-migros-munchenstein-eaj2wl",
-        "en": "aushilfe-im-stundenlohn-catering-service-betriebszentrale-munchenstein-catering-services-migros-munchenstein-eaj2wl",
+        "it": "assistenza-nel-servizio-di-catering-a-pagamento-orario-monaco-di-baviera-centro-operazioni-catering-services-migros",
+        "en": "assistance-in-the-hourly-pay-catering-service-munichstein-operations-centre-catering-services-migros-munchenstein",
         "de": "aushilfe-im-stundenlohn-catering-service-betriebszentrale-munchenstein-catering-services-migros-munchenstein-eaj2wl",
-        "fr": "aushilfe-im-stundenlohn-catering-service-betriebszentrale-munchenstein-catering-services-migros-munchenstein-eaj2wl"
+        "fr": "employe-temporaire-remunere-a-l-heure-service-de-restauration-centre-d-exploitation-de-munchenstein-catering-services"
       },
       "requirementsByLocale": {
         "it": [],
@@ -111784,11 +111963,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "aushilfe-im-stundenlohn-catering-service-betriebszentrale-munchenstein-catering-services-migros-munchenstein"
+          "aushilfe-im-stundenlohn-catering-service-betriebszentrale-munchenstein-catering-services-migros-munchenstein",
+          "aushilfe-im-stundenlohn-catering-service-betriebszentrale-munchenstein-catering-services-migros-munchenstein-eaj2wl"
+        ],
+        "en": [
+          "aushilfe-im-stundenlohn-catering-service-betriebszentrale-munchenstein-catering-services-migros-munchenstein-eaj2wl"
+        ],
+        "fr": [
+          "aushilfe-im-stundenlohn-catering-service-betriebszentrale-munchenstein-catering-services-migros-munchenstein-eaj2wl"
         ]
       },
       "previousSlugs": [
-        "aushilfe-im-stundenlohn-catering-service-betriebszentrale-munchenstein-catering-services-migros-munchenstein"
+        "aushilfe-im-stundenlohn-catering-service-betriebszentrale-munchenstein-catering-services-migros-munchenstein",
+        "aushilfe-im-stundenlohn-catering-service-betriebszentrale-munchenstein-catering-services-migros-munchenstein-eaj2wl"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

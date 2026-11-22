@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadtspital-zuerich",
-  "assembledAt": "2026-11-22T09:50:48.661Z",
+  "assembledAt": "2026-11-22T13:38:25.703Z",
   "runId": "45007283921",
   "jobs": [
     {
@@ -97,7 +97,7 @@
       "slugByLocale": {
         "it": "specialista-della-manutenzione-elettrica-stadtspital-zurich-zurich",
         "en": "electrical-maintenance-specialist-stadtspital-zurich-zurich",
-        "de": "fachspezialist-in-elektrischer-unterhalt-stadtspital-zuerich-52087",
+        "de": "fachspezialist-in-elektrischer-unterhalt-stadtspital-zurich-zurich",
         "fr": "specialiste-de-la-maintenance-electrique-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -146,8 +146,7 @@
       "unit": "Stadtspital Zürich",
       "referenceNumber": "52087",
       "previousSlugs": [
-        "fachspezialist-in-elektrischer-unterhalt-stadtspital-zuerich-52087",
-        "fachspezialist-in-elektrischer-unterhalt-stadtspital-zurich-zurich"
+        "fachspezialist-in-elektrischer-unterhalt-stadtspital-zuerich-52087"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -157,7 +156,7 @@
           "fachspezialist-in-elektrischer-unterhalt-stadtspital-zuerich-52087"
         ],
         "de": [
-          "fachspezialist-in-elektrischer-unterhalt-stadtspital-zurich-zurich"
+          "fachspezialist-in-elektrischer-unterhalt-stadtspital-zuerich-52087"
         ],
         "fr": [
           "fachspezialist-in-elektrischer-unterhalt-stadtspital-zuerich-52087"
@@ -187,7 +186,7 @@
       "slugByLocale": {
         "it": "segretario-a-medico-a-di-cardiochirurgia-stadtspital-zurich-zurich",
         "en": "medical-secretary-cardiac-surgery-stadtspital-zurich-zurich",
-        "de": "arztsekretar-in-herzchirurgie-stadtspital-zuerich-52089",
+        "de": "arztsekretar-in-herzchirurgie-stadtspital-zurich-zurich",
         "fr": "secretaire-medical-e-en-chirurgie-cardiaque-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -236,8 +235,7 @@
       "unit": "Stadtspital Zürich",
       "referenceNumber": "52089",
       "previousSlugs": [
-        "arztsekretar-in-herzchirurgie-stadtspital-zuerich-52089",
-        "arztsekretar-in-herzchirurgie-stadtspital-zurich-zurich"
+        "arztsekretar-in-herzchirurgie-stadtspital-zuerich-52089"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -247,7 +245,7 @@
           "arztsekretar-in-herzchirurgie-stadtspital-zuerich-52089"
         ],
         "de": [
-          "arztsekretar-in-herzchirurgie-stadtspital-zurich-zurich"
+          "arztsekretar-in-herzchirurgie-stadtspital-zuerich-52089"
         ],
         "fr": [
           "arztsekretar-in-herzchirurgie-stadtspital-zuerich-52089"
@@ -269,7 +267,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-27T09:50:32.532Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-ed2426fd2dc1",
@@ -277,7 +276,7 @@
       "slugByLocale": {
         "it": "dipl-infermieristica-professionale-stadtspital-zurich-zurich",
         "en": "dipl-nursing-professional-stadtspital-zurich-zurich",
-        "de": "dipl-pflegefachperson-stadtspital-zuerich-52090",
+        "de": "dipl-pflegefachperson-stadtspital-zurich-zurich",
         "fr": "dipl-professionnels-des-soins-infirmiers-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -338,7 +337,7 @@
           "dipl-pflegefachperson-stadtspital-zurich-zurich"
         ],
         "de": [
-          "dipl-pflegefachperson-stadtspital-zurich-zurich"
+          "dipl-pflegefachperson-stadtspital-zuerich-52090"
         ],
         "fr": [
           "dipl-pflegefachperson-stadtspital-zurich-zurich"
@@ -451,7 +450,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-28T09:50:32.532Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-84e13e9f16f1",
@@ -711,7 +711,7 @@
       "slugByLocale": {
         "it": "coordinatore-dello-studio-stadtspital-zurich-zurich",
         "en": "study-coordinator-stadtspital-zurich-zurich",
-        "de": "studienkoordinator-in-stadtspital-zuerich-52065",
+        "de": "studienkoordinator-in-stadtspital-zurich-zurich",
         "fr": "coordinatrice-coordinatrice-d-etudes-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -780,8 +780,8 @@
           "studienkoordinator-in-stadtspital-zurich-zurich"
         ],
         "de": [
-          "studienkoordinator-in-stadtspital-zurich-zurich",
-          "studienkoordinator-in-stadtspital-zuerich-50896"
+          "studienkoordinator-in-stadtspital-zuerich-50896",
+          "studienkoordinator-in-stadtspital-zuerich-52065"
         ],
         "fr": [
           "studienkoordinator-in-stadtspital-zurich-zurich",
@@ -978,7 +978,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-24T09:50:32.532Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-8e67e39bc4da",
@@ -1064,7 +1065,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-24T09:50:32.532Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-39d62de0a403",
@@ -1245,7 +1247,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-25T09:50:32.532Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-111a1716205b",
@@ -1325,7 +1328,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-25T09:50:32.532Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-80df2938fe08",
@@ -1333,7 +1337,7 @@
       "slugByLocale": {
         "it": "assistente-di-studio-medico-mpa-afc-cardiologia-50-stadtspital-zurich-zurich",
         "en": "medical-practice-assistant-mpa-efz-cardiology-50-stadtspital-zurich-zurich",
-        "de": "medizinische-r-praxisassistent-in-mpa-efz-kardiologie-50-stadtspital-zuerich-52212",
+        "de": "medizinische-r-praxisassistent-in-mpa-efz-kardiologie-50-stadtspital-zurich-zurich",
         "fr": "assistant-e-en-medecine-mpa-cfc-cardiologie-50-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -1394,7 +1398,7 @@
           "medizinische-r-praxisassistent-in-mpa-efz-kardiologie-50-stadtspital-zurich-zurich"
         ],
         "de": [
-          "medizinische-r-praxisassistent-in-mpa-efz-kardiologie-50-stadtspital-zurich-zurich"
+          "medizinische-r-praxisassistent-in-mpa-efz-kardiologie-50-stadtspital-zuerich-52212"
         ],
         "fr": [
           "medizinische-r-praxisassistent-in-mpa-efz-kardiologie-50-stadtspital-zurich-zurich"
@@ -1608,7 +1612,7 @@
       "slugByLocale": {
         "it": "cucina-stadtspital-zurich-zurich",
         "en": "cook-stadtspital-zurich-zurich",
-        "de": "kochin-koch-stadtspital-zuerich-52192",
+        "de": "kochin-koch-stadtspital-zurich-zurich",
         "fr": "cuire-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -1657,8 +1661,7 @@
       "unit": "Stadtspital Zürich",
       "referenceNumber": "52192",
       "previousSlugs": [
-        "kochin-koch-stadtspital-zuerich-52192",
-        "kochin-koch-stadtspital-zurich-zurich"
+        "kochin-koch-stadtspital-zuerich-52192"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1668,7 +1671,7 @@
           "kochin-koch-stadtspital-zuerich-52192"
         ],
         "de": [
-          "kochin-koch-stadtspital-zurich-zurich"
+          "kochin-koch-stadtspital-zuerich-52192"
         ],
         "fr": [
           "kochin-koch-stadtspital-zuerich-52192"
@@ -1869,7 +1872,7 @@
       "slugByLocale": {
         "it": "specialista-in-farmacia-assistente-di-farmacia-per-la-gestione-delle-scorte-di-reparto-stadtspital-zurich-zurich",
         "en": "pharmacy-specialist-pharmacy-assistant-for-ward-management-stadtspital-zurich-zurich",
-        "de": "fachperson-apotheke-pharmaassistent-in-fur-stationsbewirtschaftung-stadtspital-zuerich",
+        "de": "fachperson-apotheke-pharmaassistent-in-fur-stationsbewirtschaftung-stadtspital-zurich-zurich",
         "fr": "specialiste-en-pharmacie-assistant-e-en-pharmacie-pour-la-gestion-des-unites-de-soins-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -1931,7 +1934,7 @@
           "fachperson-apotheke-pharmaassistent-in-fur-stationsbewirtschaftung-stadtspital-zurich-zurich"
         ],
         "de": [
-          "fachperson-apotheke-pharmaassistent-in-fur-stationsbewirtschaftung-stadtspital-zurich-zurich"
+          "fachperson-apotheke-pharmaassistent-in-fur-stationsbewirtschaftung-stadtspital-zuerich"
         ],
         "fr": [
           "fachperson-apotheke-pharmaassistent-in-fur-stationsbewirtschaftung-stadtspital-zurich-zurich"
@@ -1961,7 +1964,7 @@
       "slugByLocale": {
         "it": "specialista-sanitario-medicina-interna-stadtspital-zurich-zurich",
         "en": "health-specialist-internal-medicine-stadtspital-zurich-zurich",
-        "de": "fachperson-gesundheit-innere-medizin-stadtspital-zuerich-52183",
+        "de": "fachperson-gesundheit-innere-medizin-stadtspital-zurich-zurich",
         "fr": "specialiste-de-la-sante-medecine-interne-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -2010,8 +2013,7 @@
       "unit": "Stadtspital Zürich",
       "referenceNumber": "52183",
       "previousSlugs": [
-        "fachperson-gesundheit-innere-medizin-stadtspital-zuerich-52183",
-        "fachperson-gesundheit-innere-medizin-stadtspital-zurich-zurich"
+        "fachperson-gesundheit-innere-medizin-stadtspital-zuerich-52183"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2021,7 +2023,7 @@
           "fachperson-gesundheit-innere-medizin-stadtspital-zuerich-52183"
         ],
         "de": [
-          "fachperson-gesundheit-innere-medizin-stadtspital-zurich-zurich"
+          "fachperson-gesundheit-innere-medizin-stadtspital-zuerich-52183"
         ],
         "fr": [
           "fachperson-gesundheit-innere-medizin-stadtspital-zuerich-52183"
@@ -2137,7 +2139,7 @@
       "slugByLocale": {
         "it": "tirocinante-in-segreteria-medica-stadtspital-zurich-zurich",
         "en": "medical-secretary-intern-stadtspital-zurich-zurich",
-        "de": "praktikant-in-arztsekretariat-stadtspital-zuerich-52150",
+        "de": "praktikant-in-arztsekretariat-stadtspital-zurich-zurich",
         "fr": "stagiaire-en-secretariat-medical-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -2198,7 +2200,7 @@
           "praktikant-in-arztsekretariat-stadtspital-zurich-zurich"
         ],
         "de": [
-          "praktikant-in-arztsekretariat-stadtspital-zurich-zurich"
+          "praktikant-in-arztsekretariat-stadtspital-zuerich-52150"
         ],
         "fr": [
           "praktikant-in-arztsekretariat-stadtspital-zurich-zurich"
@@ -2228,7 +2230,7 @@
       "slugByLocale": {
         "it": "tirocinante-in-gestione-it-e-organizzazione-stadtspital-zurich-zurich",
         "en": "it-management-and-organization-intern-stadtspital-zurich-zurich",
-        "de": "praktikant-in-it-management-und-organisation-stadtspital-zuerich-52146",
+        "de": "praktikant-in-it-management-und-organisation-stadtspital-zurich-zurich",
         "fr": "stagiaire-en-gestion-et-organisation-informatiques-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -2278,8 +2280,7 @@
       "referenceNumber": "52146",
       "previousSlugs": [
         "praktikant-in-it-management-und-organisation-stadtspital-zuerich-52146",
-        "praktikant-in-it-management-e-organisation-stadtspital-zurich",
-        "praktikant-in-it-management-und-organisation-stadtspital-zurich-zurich"
+        "praktikant-in-it-management-e-organisation-stadtspital-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2290,7 +2291,7 @@
           "praktikant-in-it-management-und-organisation-stadtspital-zuerich-52146"
         ],
         "de": [
-          "praktikant-in-it-management-und-organisation-stadtspital-zurich-zurich"
+          "praktikant-in-it-management-und-organisation-stadtspital-zuerich-52146"
         ],
         "fr": [
           "praktikant-in-it-management-und-organisation-stadtspital-zuerich-52146"
@@ -2320,7 +2321,7 @@
       "slugByLocale": {
         "it": "stagista-nello-sviluppo-it-stadtspital-zurich-zurich",
         "en": "it-development-intern-stadtspital-zurich-zurich",
-        "de": "praktikant-in-it-entwicklung-stadtspital-zuerich-52147",
+        "de": "praktikant-in-it-entwicklung-stadtspital-zurich-zurich",
         "fr": "stagiaire-en-developpement-informatique-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -2369,8 +2370,7 @@
       "unit": "Stadtspital Zürich",
       "referenceNumber": "52147",
       "previousSlugs": [
-        "praktikant-in-it-entwicklung-stadtspital-zuerich-52147",
-        "praktikant-in-it-entwicklung-stadtspital-zurich-zurich"
+        "praktikant-in-it-entwicklung-stadtspital-zuerich-52147"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2380,7 +2380,7 @@
           "praktikant-in-it-entwicklung-stadtspital-zuerich-52147"
         ],
         "de": [
-          "praktikant-in-it-entwicklung-stadtspital-zurich-zurich"
+          "praktikant-in-it-entwicklung-stadtspital-zuerich-52147"
         ],
         "fr": [
           "praktikant-in-it-entwicklung-stadtspital-zuerich-52147"
@@ -2781,7 +2781,7 @@
       "slugByLocale": {
         "it": "responsabile-del-team-di-contabilita-aziendale-stadtspital-zurich-zurich",
         "en": "team-leader-operational-accounting-stadtspital-zurich-zurich",
-        "de": "teamleiter-in-betriebsbuchhaltung-stadtspital-zuerich-52119",
+        "de": "teamleiter-in-betriebsbuchhaltung-stadtspital-zurich-zurich",
         "fr": "responsable-d-equipe-de-la-comptabilite-d-exploitation-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -2842,7 +2842,7 @@
           "teamleiter-in-betriebsbuchhaltung-stadtspital-zurich-zurich"
         ],
         "de": [
-          "teamleiter-in-betriebsbuchhaltung-stadtspital-zurich-zurich"
+          "teamleiter-in-betriebsbuchhaltung-stadtspital-zuerich-52119"
         ],
         "fr": [
           "teamleiter-in-betriebsbuchhaltung-stadtspital-zurich-zurich"
@@ -2952,7 +2952,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:50:32.531Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-e604e9e1208c",
@@ -3046,7 +3047,7 @@
       "slugByLocale": {
         "it": "assistente-di-pratica-medica-mpa-long-covid-consultazione-stadtspital-zurich-zurich",
         "en": "medical-practice-assistant-mpa-long-covid-consultation-stadtspital-zurich-zurich",
-        "de": "medizinische-praxisassistentin-mpa-long-covid-sprechstunde-stadtspital-zuerich-52234",
+        "de": "medizinische-praxisassistentin-mpa-long-covid-sprechstunde-stadtspital-zurich-zurich",
         "fr": "assistant-a-la-pratique-medicale-mpa-long-covid-consultation-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -3107,7 +3108,7 @@
           "medizinische-praxisassistentin-mpa-long-covid-sprechstunde-stadtspital-zurich-zurich"
         ],
         "de": [
-          "medizinische-praxisassistentin-mpa-long-covid-sprechstunde-stadtspital-zurich-zurich"
+          "medizinische-praxisassistentin-mpa-long-covid-sprechstunde-stadtspital-zuerich-52234"
         ],
         "fr": [
           "medizinische-praxisassistentin-mpa-long-covid-sprechstunde-stadtspital-zurich-zurich"
@@ -3129,7 +3130,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T09:50:32.530Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-81802d7f89e9",
@@ -3836,7 +3838,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:50:32.530Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-f9c8259ab925",
@@ -4301,7 +4304,7 @@
       "slugByLocale": {
         "it": "cucina-dietetica-cucina-dietetica-stadtspital-zurich-zurich",
         "en": "dietetic-cook-diet-cook-stadtspital-zurich-zurich",
-        "de": "diatkochin-diatkoch-stadtspital-zuerich-52200",
+        "de": "diatkochin-diatkoch-stadtspital-zurich-zurich",
         "fr": "cuisiniere-dietetique-cuisiniere-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -4350,8 +4353,7 @@
       "unit": "Stadtspital Zürich",
       "referenceNumber": "52200",
       "previousSlugs": [
-        "diatkochin-diatkoch-stadtspital-zuerich-52200",
-        "diatkochin-diatkoch-stadtspital-zurich-zurich"
+        "diatkochin-diatkoch-stadtspital-zuerich-52200"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4361,7 +4363,7 @@
           "diatkochin-diatkoch-stadtspital-zuerich-52200"
         ],
         "de": [
-          "diatkochin-diatkoch-stadtspital-zurich-zurich"
+          "diatkochin-diatkoch-stadtspital-zuerich-52200"
         ],
         "fr": [
           "diatkochin-diatkoch-stadtspital-zuerich-52200"
@@ -4383,7 +4385,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-13T09:50:32.530Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-00e4913c72c6",
@@ -4391,7 +4394,7 @@
       "slugByLocale": {
         "it": "ergoterapista-della-mano-in-bsc-stadtspital-zurich-zurich",
         "en": "hand-occupational-therapist-bsc-stadtspital-zurich-zurich",
-        "de": "hand-ergotherapeut-in-bsc-stadtspital-zuerich-52202",
+        "de": "hand-ergotherapeut-in-bsc-stadtspital-zurich-zurich",
         "fr": "ergotherapie-manuelle-en-bsc-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -4440,8 +4443,7 @@
       "unit": "Stadtspital Zürich",
       "referenceNumber": "52202",
       "previousSlugs": [
-        "hand-ergotherapeut-in-bsc-stadtspital-zuerich-52202",
-        "hand-ergotherapeut-in-bsc-stadtspital-zurich-zurich"
+        "hand-ergotherapeut-in-bsc-stadtspital-zuerich-52202"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4451,7 +4453,7 @@
           "hand-ergotherapeut-in-bsc-stadtspital-zuerich-52202"
         ],
         "de": [
-          "hand-ergotherapeut-in-bsc-stadtspital-zurich-zurich"
+          "hand-ergotherapeut-in-bsc-stadtspital-zuerich-52202"
         ],
         "fr": [
           "hand-ergotherapeut-in-bsc-stadtspital-zuerich-52202"
@@ -4831,7 +4833,7 @@
       "slugByLocale": {
         "it": "segretario-a-medico-a-servizi-di-radiologia-stadtspital-zurich-zurich",
         "en": "medical-secretary-radiology-services-stadtspital-zurich-zurich",
-        "de": "arztsekretar-in-radiologie-services-stadtspital-zuerich-52276",
+        "de": "arztsekretar-in-radiologie-services-stadtspital-zurich-zurich",
         "fr": "secretaire-medical-e-radiologie-services-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -4880,8 +4882,7 @@
       "unit": "Stadtspital Zürich",
       "referenceNumber": "52276",
       "previousSlugs": [
-        "arztsekretar-in-radiologie-services-stadtspital-zuerich-52276",
-        "arztsekretar-in-radiologie-services-stadtspital-zurich-zurich"
+        "arztsekretar-in-radiologie-services-stadtspital-zuerich-52276"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4891,7 +4892,7 @@
           "arztsekretar-in-radiologie-services-stadtspital-zuerich-52276"
         ],
         "de": [
-          "arztsekretar-in-radiologie-services-stadtspital-zurich-zurich"
+          "arztsekretar-in-radiologie-services-stadtspital-zuerich-52276"
         ],
         "fr": [
           "arztsekretar-in-radiologie-services-stadtspital-zuerich-52276"
@@ -4913,7 +4914,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-12T09:50:32.529Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-e5395de0cde0",
@@ -5002,7 +5004,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:50:32.529Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-82b7258c43e5",
@@ -5099,7 +5102,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:50:32.529Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-63f441df8a8e",
@@ -5107,7 +5111,7 @@
       "slugByLocale": {
         "it": "dipl-clinica-diurna-europaallee-temporanea-stadtspital-zurich-zurich",
         "en": "dipl-nurse-day-clinic-europaallee-temporary-stadtspital-zurich-zurich",
-        "de": "dipl-pflegefachperson-tagesklinik-europaallee-befristet-stadtspital-zuerich-52270",
+        "de": "dipl-pflegefachperson-tagesklinik-europaallee-befristet-stadtspital-zurich-zurich",
         "fr": "dipl-infirmiere-clinique-europaallee-temporaire-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -5169,7 +5173,7 @@
           "dipl-pflegefachperson-tagesklinik-europaallee-befristet-stadtspital-zurich-zurich"
         ],
         "de": [
-          "dipl-pflegefachperson-tagesklinik-europaallee-befristet-stadtspital-zurich-zurich"
+          "dipl-pflegefachperson-tagesklinik-europaallee-befristet-stadtspital-zuerich-52270"
         ],
         "fr": [
           "dipl-pflegefachperson-tagesklinik-europaallee-befristet-stadtspital-zurich-zurich"
@@ -5191,7 +5195,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-11T09:50:32.529Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-274479f1701d",
@@ -5533,7 +5538,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:50:32.529Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-46454e50df26",
@@ -5785,7 +5791,7 @@
       "slugByLocale": {
         "it": "primario-per-la-memory-clinic-stadtspital-zurich-zurich",
         "en": "senior-physician-for-the-memory-clinic-stadtspital-zurich-zurich",
-        "de": "oberarztin-oberarzt-fur-die-memory-clinic-stadtspital-zuerich-52244",
+        "de": "oberarztin-oberarzt-fur-die-memory-clinic-stadtspital-zurich-zurich",
         "fr": "medecin-principal-pour-la-clinique-memoire-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -5835,8 +5841,7 @@
       "referenceNumber": "52244",
       "previousSlugs": [
         "oberarztin-oberarzt-fur-die-memory-clinic-stadtspital-zuerich-52244",
-        "oberarztin-oberarzt-per-la-memory-clinic-stadtspital-zurich",
-        "oberarztin-oberarzt-fur-die-memory-clinic-stadtspital-zurich-zurich"
+        "oberarztin-oberarzt-per-la-memory-clinic-stadtspital-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5847,7 +5852,7 @@
           "oberarztin-oberarzt-fur-die-memory-clinic-stadtspital-zuerich-52244"
         ],
         "de": [
-          "oberarztin-oberarzt-fur-die-memory-clinic-stadtspital-zurich-zurich"
+          "oberarztin-oberarzt-fur-die-memory-clinic-stadtspital-zuerich-52244"
         ],
         "fr": [
           "oberarztin-oberarzt-fur-die-memory-clinic-stadtspital-zuerich-52244"
@@ -6135,7 +6140,7 @@
       "slugByLocale": {
         "it": "tecnologo-del-dispositivo-medico-tecnologia-del-dispositivo-medico-stadtspital-zurich-zurich",
         "en": "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich-zurich",
-        "de": "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zuerich-52323",
+        "de": "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich-zurich",
         "fr": "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -6209,7 +6214,8 @@
         ],
         "de": [
           "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zuerich-50203",
-          "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich"
+          "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich",
+          "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zuerich-52323"
         ],
         "fr": [
           "technologue-des-instruments-medicaux-technologie-des-instruments-medicaux-stadtspital-zurich-zurich"
@@ -6231,7 +6237,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:50:32.528Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-1ad35ce545a5",
@@ -6319,7 +6326,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-17T09:50:32.528Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-5d6104d67298",
@@ -6417,7 +6425,7 @@
       "slugByLocale": {
         "it": "specialista-dei-programmi-di-qualita-vtg-stadtspital-zurich-zurich",
         "en": "quality-programs-specialist-vtg-stadtspital-zurich-zurich",
-        "de": "fachspezialist-in-qualitatsprogramme-vtg-stadtspital-zuerich-52300",
+        "de": "fachspezialist-in-qualitatsprogramme-vtg-stadtspital-zurich-zurich",
         "fr": "specialiste-des-programmes-qualite-vtg-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -6479,6 +6487,9 @@
         ],
         "fr": [
           "fachspezialist-in-qualitatsprogramme-vtg-stadtspital-zurich-zurich"
+        ],
+        "de": [
+          "fachspezialist-in-qualitatsprogramme-vtg-stadtspital-zuerich-52300"
         ]
       },
       "firstSeenAt": "2026-11-17T21:55:18.474Z",
@@ -6680,7 +6691,7 @@
       "slugByLocale": {
         "it": "addetto-a-al-trasporto-delle-merci-e-allo-smaltimento-stadtspital-zurich-zurich",
         "en": "goods-transport-and-waste-disposal-employee-stadtspital-zurich-zurich",
-        "de": "mitarbeiter-in-warentransport-und-entsorgung-stadtspital-zuerich-52283",
+        "de": "mitarbeiter-in-warentransport-und-entsorgung-stadtspital-zurich-zurich",
         "fr": "collaborateur-rice-au-transport-de-marchandises-et-a-l-elimination-des-dechets-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -6743,6 +6754,9 @@
         ],
         "fr": [
           "mitarbeiter-in-warentransport-und-entsorgung-stadtspital-zurich-zurich"
+        ],
+        "de": [
+          "mitarbeiter-in-warentransport-und-entsorgung-stadtspital-zuerich-52283"
         ]
       },
       "firstSeenAt": "2026-11-17T09:57:48.452Z",
@@ -6841,7 +6855,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:50:32.528Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-34c474c1887e",
@@ -7359,7 +7374,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-20T09:50:32.527Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-888d00f94f66",
@@ -7367,7 +7383,7 @@
       "slugByLocale": {
         "it": "dipl-infermiera-hf-fh-stroke-unit-cardiologia-stadtspital-zurich-zurich",
         "en": "dipl-nurse-hf-fh-stroke-unit-cardiology-stadtspital-zurich-zurich",
-        "de": "dipl-pflegefachperson-hf-fh-stroke-unit-kardiologie-stadtspital-zuerich-52356",
+        "de": "dipl-pflegefachperson-hf-fh-stroke-unit-kardiologie-stadtspital-zurich-zurich",
         "fr": "dipl-infirmiere-hf-fh-unite-d-avc-cardiologie-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -7429,6 +7445,9 @@
         ],
         "fr": [
           "dipl-pflegefachperson-hf-fh-stroke-unit-kardiologie-stadtspital-zurich-zurich"
+        ],
+        "de": [
+          "dipl-pflegefachperson-hf-fh-stroke-unit-kardiologie-stadtspital-zuerich-52356"
         ]
       },
       "firstSeenAt": "2026-11-21T21:49:59.293Z",
@@ -7447,7 +7466,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-20T09:50:32.527Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-371f53fdcb1a",
@@ -7538,7 +7558,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:50:32.527Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-068f5d8006f4",
@@ -7891,7 +7912,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-23T09:50:32.527Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-263de7bdc3d1",
@@ -8069,7 +8091,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-23T09:50:32.527Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-ca035abe7016",
@@ -8077,7 +8100,7 @@
       "slugByLocale": {
         "it": "tirocinante-al-pronto-soccorso-e-all-accettazione-dei-pazienti-stadtspital-zurich-zurich",
         "en": "intern-emergency-and-patient-admissions-stadtspital-zurich-zurich",
-        "de": "praktikant-in-notfall-und-patientenaufnahme-stadtspital-zuerich-52350",
+        "de": "praktikant-in-notfall-und-patientenaufnahme-stadtspital-zurich-zurich",
         "fr": "stagiaire-aux-urgences-et-a-l-admission-des-patients-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -8140,6 +8163,9 @@
         ],
         "fr": [
           "praktikant-in-notfall-und-patientenaufnahme-stadtspital-zurich-zurich"
+        ],
+        "de": [
+          "praktikant-in-notfall-und-patientenaufnahme-stadtspital-zuerich-52350"
         ]
       },
       "firstSeenAt": "2026-11-20T22:32:00.587Z",
@@ -8166,7 +8192,7 @@
       "slugByLocale": {
         "it": "praktikant-in-arztsekretariat-institut-per-notfallmedizin-stadtspital-zurich",
         "en": "praktikant-in-arztsekretariat-institut-fur-notfallmedizin-stadtspital-zurich-zurich",
-        "de": "praktikant-in-arztsekretariat-institut-fur-notfallmedizin-stadtspital-zuerich-52349",
+        "de": "praktikant-in-arztsekretariat-institut-fur-notfallmedizin-stadtspital-zurich-zurich",
         "fr": "praktikant-in-arztsekretariat-institut-fur-notfallmedizin-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -8235,7 +8261,8 @@
           "internship-in-medical-secretariat-institute-for-emergency-medicine-stadtspital-zurich-zurich"
         ],
         "de": [
-          "praktikant-in-arztsekretariat-institut-fur-notfallmedizin-stadtspital-zuerich-51347"
+          "praktikant-in-arztsekretariat-institut-fur-notfallmedizin-stadtspital-zuerich-51347",
+          "praktikant-in-arztsekretariat-institut-fur-notfallmedizin-stadtspital-zuerich-52349"
         ],
         "fr": [
           "stage-au-secretariat-medical-institut-de-medecine-d-urgence-stadtspital-zurich-zurich"
@@ -8501,7 +8528,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:50:32.527Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-33621da7e923",
@@ -8588,7 +8616,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:50:32.526Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-82b3f43be1f0",
@@ -8668,7 +8697,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:50:32.526Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-7e8aa920ac6b",
@@ -8936,7 +8966,7 @@
       "slugByLocale": {
         "it": "ricovero-e-assicurazione-della-qualita-per-pazienti-interni-stadtspital-zurich-zurich",
         "en": "intern-patient-admission-quality-assurance-stadtspital-zurich-zurich",
-        "de": "praktikant-in-patientenaufnahme-qualitatssicherung-stadtspital-zuerich-52351",
+        "de": "praktikant-in-patientenaufnahme-qualitatssicherung-stadtspital-zurich-zurich",
         "fr": "admission-admission-et-assurance-qualite-des-internes-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -8998,6 +9028,9 @@
         ],
         "fr": [
           "praktikant-in-patientenaufnahme-qualitatssicherung-stadtspital-zurich-zurich"
+        ],
+        "de": [
+          "praktikant-in-patientenaufnahme-qualitatssicherung-stadtspital-zuerich-52351"
         ]
       },
       "firstSeenAt": "2026-11-21T21:49:59.293Z",
@@ -9024,7 +9057,7 @@
       "slugByLocale": {
         "it": "specialista-sanitario-per-cardiologia-stadtspital-zurich-zurich",
         "en": "cardiology-health-professional-stadtspital-zurich-zurich",
-        "de": "fachperson-gesundheit-fur-die-kardiologie-stadtspital-zuerich-52354",
+        "de": "fachperson-gesundheit-fur-die-kardiologie-stadtspital-zurich-zurich",
         "fr": "cardiologie-professionnels-de-la-sante-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -9085,6 +9118,9 @@
           "fachperson-gesundheit-fur-die-kardiologie-stadtspital-zuerich-52354"
         ],
         "fr": [
+          "fachperson-gesundheit-fur-die-kardiologie-stadtspital-zuerich-52354"
+        ],
+        "de": [
           "fachperson-gesundheit-fur-die-kardiologie-stadtspital-zuerich-52354"
         ]
       },
@@ -9184,7 +9220,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:50:32.525Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-7550a128782b",
@@ -9264,7 +9301,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:50:32.525Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-8eb63497521c",

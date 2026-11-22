@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-11-22T09:40:27.144Z",
+  "assembledAt": "2026-11-22T13:14:09.521Z",
   "runId": "45007371426",
   "jobs": [
     {
@@ -528,7 +528,8 @@
       "applyUrl": "https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking-ref-1109",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:40:06.922Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "corner-banca-daef49bb75ec",
@@ -649,7 +650,8 @@
       "applyUrl": "https://jobs.corner.ch/o/fi-administration-business-support-100-ref-111611361138",
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-15T09:40:06.921Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "corner-banca-72b82d085ee9",
@@ -753,7 +755,8 @@
       "applyUrl": "https://jobs.corner.ch/o/senior-devops-engineer-ref-1114",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:40:06.920Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "corner-banca-b9c65289862a",
@@ -854,7 +857,8 @@
       "applyUrl": "https://jobs.corner.ch/o/tax-consultant-private-banking-ref-1117",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:40:06.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "corner-banca-d340d5737202",
@@ -946,7 +950,8 @@
       "applyUrl": "https://jobs.corner.ch/o/online-campaign-manager-ref-1102",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:40:06.917Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "corner-banca-e13869b20e59",
@@ -1237,7 +1242,8 @@
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:40:06.915Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "corner-banca-626d48511569",
@@ -1254,7 +1260,7 @@
       "title": "Specialista Corporate Actions  - ref. 1132",
       "titleByLocale": {
         "it": "Specialista Corporate Actions - rif. 1132",
-        "en": "Corporate Actions Specialist - ref. 1132",
+        "en": "Specialista Corporate Actions  - ref. 1132",
         "de": "Unternehmensaktionen Spezialist - Ref. 1132",
         "fr": "Actions d'entreprise - réf. 1132"
       },
@@ -1437,7 +1443,8 @@
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:40:06.913Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "corner-banca-9e0217f08292",
@@ -1525,7 +1532,8 @@
       "applyUrl": "https://jobs.corner.ch/o/customer-advisor-100-team-lugano-ref-1142",
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T09:40:06.912Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "corner-banca-ee753601a92f",
@@ -1728,7 +1736,8 @@
           "customer-consulente-evening-and-weekend-40-ref-1014-corner-banca-wallisellen-ade283b617",
           "customer-advisor-evening-and-weekend-40-ref-1014-corner-banca-wallisellen"
         ]
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }

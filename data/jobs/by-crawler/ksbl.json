@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksbl",
-  "assembledAt": "2026-11-22T09:38:59.092Z",
+  "assembledAt": "2026-11-22T13:26:01.289Z",
   "runId": "45007283921",
   "jobs": [
     {
@@ -117,7 +117,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:38:11.680Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-461de2f9be97",
@@ -204,7 +205,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:38:10.576Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-f6744a816954",
@@ -281,7 +283,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:38:09.510Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-7cb88693e024",
@@ -358,7 +361,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:38:08.525Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-c7be511e2713",
@@ -460,7 +464,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:38:07.490Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-20e1c631cea0",
@@ -577,7 +582,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:38:06.510Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-e0722529a275",
@@ -664,7 +670,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:38:05.539Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-824c6c56113f",
@@ -747,7 +754,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:38:04.539Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-5692a258e70a",
@@ -858,7 +866,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:38:03.922Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-f37cd000eb10",
@@ -960,7 +969,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:38:02.881Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-2783d9c24e6f",
@@ -1108,7 +1118,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:38:01.871Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-9866a57a26d8",
@@ -1199,7 +1210,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:38:00.840Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-0625469afb58",
@@ -1545,7 +1557,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:37:56.836Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-5c79a64a318f",
@@ -1637,7 +1650,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:37:55.864Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-1289cd8c48cb",
@@ -2031,7 +2045,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:37:51.892Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-808361269566",
@@ -2227,7 +2242,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:37:49.695Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-995ef65c57e8",
@@ -2319,7 +2335,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:37:48.590Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-e109b21d8b46",
@@ -2829,7 +2846,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:37:44.550Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-3123969891f9",
@@ -3529,7 +3547,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:37:38.526Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-4c6d447f0fcd",
@@ -3701,7 +3720,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:37:36.582Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-36d6db495086",
@@ -4086,7 +4106,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:37:32.201Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-37f4efa57ed3",
@@ -4352,7 +4373,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:37:29.106Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-fd8a76d938a8",
@@ -4429,7 +4451,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:37:28.151Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-75e37ed851b3",
@@ -4512,7 +4535,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:37:27.181Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-a8a6d327b59a",
@@ -4589,7 +4613,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:37:26.125Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-27583b38b05b",
@@ -4705,7 +4730,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:37:25.140Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-973fdbd46646",
@@ -5567,7 +5593,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:37:14.532Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-ceaa9727b08f",
@@ -5821,7 +5848,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-23T09:37:11.443Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-9a4a0fb09e8b",
@@ -6354,7 +6382,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:37:05.292Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-1c77ddc35d5b",
@@ -6519,7 +6548,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T09:37:03.171Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-89c1c1070584",
@@ -7205,7 +7235,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:36:55.551Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-fb0c0c6f4612",
@@ -7358,7 +7389,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:36:53.484Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-a9ff0b8938e0",
@@ -7441,7 +7473,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:36:52.472Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-d22dfafe933f",
@@ -7894,7 +7927,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T09:36:47.302Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-cbba59b832bc",
@@ -8233,7 +8267,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:36:43.127Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-53cf4e3f96f6",
@@ -8400,7 +8435,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:36:40.010Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-dd6e5cb4a89a",
@@ -9610,7 +9646,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:36:28.899Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-1b6c1c8d1761",
@@ -9618,7 +9655,7 @@
       "slugByLocale": {
         "it": "fage-a-ksbl-liestal",
         "en": "fage-a-ksbl-liestal",
-        "de": "fage-a-ksbl-liestal",
+        "de": "fage-a-kantonsspital-baselland-ksbl-liestal",
         "fr": "fage-a-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
@@ -9680,7 +9717,15 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:36:28.297Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "de": [
+          "fage-a-ksbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "fage-a-ksbl-liestal"
+      ]
     },
     {
       "id": "ksbl-4843c4a30994",
@@ -9763,7 +9808,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:36:27.688Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "ksbl-0e9ef0df0b91",
@@ -9855,7 +9901,7 @@
       "slugByLocale": {
         "it": "operatore-trice-sociosanitario-a-a-kantonsspital-baselland-ksbl-liestal",
         "en": "fage-a-ksbl-liestal-2",
-        "de": "fage-a-ksbl-liestal",
+        "de": "fage-a-kantonsspital-baselland-ksbl-liestal",
         "fr": "fage-a-ksbl-liestal-2"
       },
       "company": "Kantonsspital Baselland (KSBL)",
@@ -9902,7 +9948,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "fage-a-ksbl-liestal-f908ii"
+          "fage-a-ksbl-liestal-f908ii",
+          "fage-a-ksbl-liestal"
         ],
         "it": [
           "fage-a-ksbl-liestal-2"
@@ -9910,7 +9957,8 @@
       },
       "previousSlugs": [
         "fage-a-ksbl-liestal-2",
-        "fage-a-ksbl-liestal-f908ii"
+        "fage-a-ksbl-liestal-f908ii",
+        "fage-a-ksbl-liestal"
       ],
       "firstSeenAt": "2026-05-19T10:23:52.062Z",
       "salaryMin": 88000,

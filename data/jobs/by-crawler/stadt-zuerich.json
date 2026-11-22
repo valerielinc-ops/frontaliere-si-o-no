@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadt-zuerich",
-  "assembledAt": "2026-11-22T09:57:41.978Z",
+  "assembledAt": "2026-11-22T13:38:16.834Z",
   "runId": "45007371426",
   "jobs": [
     {
@@ -91,9 +91,9 @@
     },
     {
       "id": "stadt-zuerich-5d78276707f5",
-      "slug": "giurista-stadt-zurich-zurich",
+      "slug": "giurista-stadt-zurich-zurich-8652fa7829",
       "slugByLocale": {
-        "it": "giurista-stadt-zurich-zurich",
+        "it": "giurista-stadt-zurich-zurich-8652fa7829",
         "en": "lawyer-stadt-zurich-zurich",
         "de": "jurist-in-stadt-zuerich-zurigo-52059",
         "fr": "juriste-stadt-zurich-zurich"
@@ -154,7 +154,8 @@
         "jurist-in-stadt-zuerich-zurigo-52243",
         "lawyer-stadt-zurich-zurich-080b18",
         "jurist-in-stadt-zurich-zurich",
-        "juriste-stadt-zurich-zurich-080b18"
+        "juriste-stadt-zurich-zurich-080b18",
+        "giurista-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -162,7 +163,8 @@
           "avvocato-stadt-zurich-zurich",
           "jurist-in-stadt-zuerich-zurigo-51605",
           "avvocato-a-stadt-zurich-zurich",
-          "jurist-in-stadt-zuerich-zurigo-52243"
+          "jurist-in-stadt-zuerich-zurigo-52243",
+          "giurista-stadt-zurich-zurich"
         ],
         "en": [
           "jurist-in-stadt-zuerich-zurigo-52059",
@@ -366,7 +368,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.402Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-690738f6cef5",
@@ -615,7 +618,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.402Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-40ce212b98e1",
@@ -879,7 +883,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.402Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-3af1085c6ba3",
@@ -961,7 +966,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.402Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-cd8057ac0550",
@@ -1043,7 +1049,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.402Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-b397c8dc8359",
@@ -1403,7 +1410,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.401Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-2a4fa70e575d",
@@ -1578,7 +1586,7 @@
       "slugByLocale": {
         "it": "cuoco-a-sede-di-selnau-fino-a-meta-marzo-2027-stadt-zurich-zurich",
         "en": "chef-selnau-location-temporary-until-mid-march-2027-stadt-zurich-zurich",
-        "de": "koch-in-standort-selnau-befristet-bis-mitte-marz-2027-stadt-zuerich-zurigo-52070",
+        "de": "koch-in-standort-selnau-befristet-bis-mitte-marz-2027-stadt-zurich-zurich",
         "fr": "cuisinier-ere-site-de-selnau-limite-dans-le-temps-jusqu-a-la-mi-mars-2027-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -1628,8 +1636,7 @@
       "referenceNumber": "52070",
       "previousSlugs": [
         "koch-in-standort-selnau-befristet-bis-mitte-marz-2027-stadt-zuerich-zurigo-52070",
-        "koch-in-standort-selnau-befristet-bis-mitte-marz-2027-stadt-zurich",
-        "koch-in-standort-selnau-befristet-bis-mitte-marz-2027-stadt-zurich-zurich"
+        "koch-in-standort-selnau-befristet-bis-mitte-marz-2027-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1640,7 +1647,7 @@
           "koch-in-standort-selnau-befristet-bis-mitte-marz-2027-stadt-zuerich-zurigo-52070"
         ],
         "de": [
-          "koch-in-standort-selnau-befristet-bis-mitte-marz-2027-stadt-zurich-zurich"
+          "koch-in-standort-selnau-befristet-bis-mitte-marz-2027-stadt-zuerich-zurigo-52070"
         ],
         "fr": [
           "koch-in-standort-selnau-befristet-bis-mitte-marz-2027-stadt-zuerich-zurigo-52070"
@@ -2098,7 +2105,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.401Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-bf97b1cf4fd8",
@@ -2272,7 +2280,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.401Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-7fbfffba9e11",
@@ -2664,7 +2673,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.401Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-ca652a5d88a2",
@@ -3005,7 +3015,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-27T09:56:44.400Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-e8c08766b0aa",
@@ -3348,7 +3359,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-23T09:56:44.400Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-f327bfbed31b",
@@ -3435,7 +3447,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.400Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-36e52c4831c8",
@@ -3518,7 +3531,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-28T09:56:44.400Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-a369fd03e303",
@@ -3661,7 +3675,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.400Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-7aadf973320c",
@@ -3764,7 +3779,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.400Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-e25b917ad8e9",
@@ -3866,7 +3882,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.400Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-acb5576b08d6",
@@ -4011,11 +4028,17 @@
       "unit": "Liegenschaften Stadt Zürich",
       "referenceNumber": "52086",
       "previousSlugs": [
-        "immobilienbewirtschafter-in-stadt-zuerich-zurigo-52086"
+        "immobilienbewirtschafter-in-stadt-zuerich-zurigo-52086",
+        "responsabile-della-gestione-immobiliare-stadt-zurich-zurich",
+        "property-manager-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "immobilienbewirtschafter-in-stadt-zuerich-zurigo-52086"
+          "immobilienbewirtschafter-in-stadt-zuerich-zurigo-52086",
+          "responsabile-della-gestione-immobiliare-stadt-zurich-zurich"
+        ],
+        "en": [
+          "property-manager-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-01T14:26:21.610Z",
@@ -4507,7 +4530,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.399Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-fda74a2abf96",
@@ -5008,7 +5032,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-27T09:56:44.399Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-c52bada36802",
@@ -5270,7 +5295,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-30T09:56:44.398Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-3f81c02555c9",
@@ -5627,7 +5653,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.398Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-738bca364331",
@@ -5751,7 +5778,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.398Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-bb1f318107f7",
@@ -6202,14 +6230,15 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.398Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-a30ed1790a73",
       "slug": "tirocinante-universitario-a-in-risorse-umane-100-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "tirocinante-universitario-a-in-risorse-umane-100-stadt-zurich-zurich",
-        "en": "hochschulpraktikant-in-human-resources-100-stadt-zurich-zurich",
+        "en": "university-intern-human-resources-100-stadt-zurich-zurich",
         "de": "hochschulpraktikant-in-human-resources-100-stadt-zuerich-zurigo-52099",
         "fr": "stagiaireuniversitaireen-ressources-humaines-100-stadt-zurich-zurich"
       },
@@ -6268,6 +6297,9 @@
           "hochschulpraktikant-in-recruiting-employer-branding-100-stadt-zuerich-zurigo-52099"
         ],
         "fr": [
+          "hochschulpraktikant-in-human-resources-100-stadt-zurich-zurich"
+        ],
+        "en": [
           "hochschulpraktikant-in-human-resources-100-stadt-zurich-zurich"
         ]
       },
@@ -6487,7 +6519,7 @@
       "slugByLocale": {
         "it": "responsabile-della-pianificazione-del-personale-viaggiante-stadt-zurich-zurich",
         "en": "driving-staff-dispatcher-stadt-zurich-zurich",
-        "de": "disponent-in-fahrpersonal-stadt-zuerich-zurigo-52108",
+        "de": "disponent-in-fahrpersonal-stadt-zurich-zurich",
         "fr": "gestionnaire-du-personnel-de-conduite-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -6548,6 +6580,9 @@
           "disponent-in-fahrpersonal-stadt-zuerich-zurigo-52108"
         ],
         "fr": [
+          "disponent-in-fahrpersonal-stadt-zuerich-zurigo-52108"
+        ],
+        "de": [
           "disponent-in-fahrpersonal-stadt-zuerich-zurigo-52108"
         ]
       },
@@ -6922,7 +6957,7 @@
       "slugByLocale": {
         "it": "responsabilita-specialistica-banchetto-e-gestione-muraltengut-stadt-zurich-zurich",
         "en": "responsibility-for-banqueting-and-operation-muraltengut-stadt-zurich-zurich",
-        "de": "fachverantwortung-bankett-und-betrieb-muraltengut-stadt-zuerich-zurigo-52118",
+        "de": "fachverantwortung-bankett-und-betrieb-muraltengut-stadt-zurich-zurich",
         "fr": "responsabilite-du-banquet-et-de-l-operation-muraltengut-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -6986,7 +7021,7 @@
           "fachverantwortung-bankett-und-betrieb-muraltengut-stadt-zurich-zurich"
         ],
         "de": [
-          "fachverantwortung-bankett-und-betrieb-muraltengut-stadt-zurich-zurich"
+          "fachverantwortung-bankett-und-betrieb-muraltengut-stadt-zuerich-zurigo-52118"
         ],
         "fr": [
           "fachverantwortung-bankett-und-betrieb-muraltengut-stadt-zurich-zurich"
@@ -7599,7 +7634,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.397Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-672f8640b677",
@@ -7689,7 +7725,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.397Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-a8630678b187",
@@ -7827,7 +7864,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.397Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-402967858127",
@@ -7998,7 +8036,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.396Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-b4afebbdae1f",
@@ -8081,7 +8120,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.396Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-1599ff081fb6",
@@ -8769,7 +8809,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-30T09:56:44.396Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-fffa6d446439",
@@ -8865,7 +8906,7 @@
       "slugByLocale": {
         "it": "giardiniere-a-in-giardinaggio-e-paesaggistica-stadt-zurich-zurich-9bd482",
         "en": "gardener-m-f-x0a-gardening-and-landscaping-stadt-zurich-zurich-9bd482",
-        "de": "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52128",
+        "de": "gartner-in-garten-und-landschaftsbau-stadt-zurich-zurich",
         "fr": "jardinier-ereen-horticulture-et-amenagement-paysager-stadt-zurich-zurich-9bd482"
       },
       "company": "Stadt Zürich",
@@ -8931,8 +8972,7 @@
         "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-4e6db35ff3",
         "gardener-garden-and-landscape-construction-stadt-zurich-zurich",
         "gartner-in-garten-und-landschaftsbau-stadt-zurich",
-        "jardinier-ere-en-horticulture-et-amenagement-paysager-stadt-zurich-zurich",
-        "gartner-in-garten-und-landschaftsbau-stadt-zurich-zurich"
+        "jardinier-ere-en-horticulture-et-amenagement-paysager-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8961,7 +9001,7 @@
           "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52151",
           "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51868",
           "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51886",
-          "gartner-in-garten-und-landschaftsbau-stadt-zurich-zurich"
+          "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52128"
         ],
         "fr": [
           "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52128",
@@ -9177,7 +9217,7 @@
       "slugByLocale": {
         "it": "assistente-sociale-assistenza-sociale-protezione-degli-adulti-stadt-zurich-zurich",
         "en": "social-worker-social-assistance-adult-protection-stadt-zurich-zurich-7ddedc",
-        "de": "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zuerich-zurigo-52139",
+        "de": "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich",
         "fr": "assistant-e-social-e-en-aide-sociale-protection-de-l-adulte-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -9239,6 +9279,9 @@
         ],
         "fr": [
           "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich"
+        ],
+        "de": [
+          "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zuerich-zurigo-52139"
         ]
       },
       "firstSeenAt": "2026-09-19T23:10:09.897Z",
@@ -9265,7 +9308,7 @@
       "slugByLocale": {
         "it": "insegnanti-di-classe-per-un-1-sec-16-28-wl-stadt-zurich-zurich",
         "en": "class-teachers-for-a-1-sek-16-28-wl-stadt-zurich-zurich",
-        "de": "klassenlehrpersonen-fur-eine-1-sek-16-28-wl-stadt-zuerich-zurigo-52149",
+        "de": "klassenlehrpersonen-fur-eine-1-sek-16-28-wl-stadt-zurich-zurich",
         "fr": "enseignants-de-classe-pour-un-1-sek-16-28-wl-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -9327,7 +9370,7 @@
           "klassenlehrpersonen-fur-eine-1-sek-16-28-wl-stadt-zurich-zurich"
         ],
         "de": [
-          "klassenlehrpersonen-fur-eine-1-sek-16-28-wl-stadt-zurich-zurich"
+          "klassenlehrpersonen-fur-eine-1-sek-16-28-wl-stadt-zuerich-zurigo-52149"
         ],
         "fr": [
           "klassenlehrpersonen-fur-eine-1-sek-16-28-wl-stadt-zurich-zurich"
@@ -9821,7 +9864,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.395Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-e9172bd0e353",
@@ -9901,7 +9945,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.395Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-499ffd8cab29",
@@ -10224,7 +10269,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.395Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-c9199997e6e3",
@@ -10232,7 +10278,7 @@
       "slugByLocale": {
         "it": "schulsozialpadagog-in-schule-kungenmatt-stadt-zurich-zurich",
         "en": "schulsozialpadagog-in-schule-kungenmatt-stadt-zurich-zurich",
-        "de": "schulsozialpadagog-in-schule-kungenmatt-stadt-zuerich-zurigo-52158",
+        "de": "schulsozialpadagog-in-schule-kungenmatt-stadt-zurich-zurich",
         "fr": "schulsozialpadagog-in-schule-kungenmatt-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -10286,6 +10332,9 @@
       "previousSlugsByLocale": {
         "it": [
           "schulsozialpadagog-in-schule-kungenmatt-stadt-zuerich-zurigo-52158"
+        ],
+        "de": [
+          "schulsozialpadagog-in-schule-kungenmatt-stadt-zuerich-zurigo-52158"
         ]
       },
       "needsRetranslation": true,
@@ -10313,7 +10362,7 @@
       "slugByLocale": {
         "it": "assistente-scolastico-scuola-normale-orario-di-lavoro-annuale-scuola-mattenhof-stadt-zurich-zurich",
         "en": "school-management-assistant-regular-school-annual-working-hours-school-mattenhof-stadt-zurich-zurich",
-        "de": "schulleitungsassistenz-regelschule-jahresarbeitszeit-schule-mattenhof-stadt-zuerich-zurigo",
+        "de": "schulleitungsassistenz-regelschule-jahresarbeitszeit-schule-mattenhof-stadt-zurich-zurich",
         "fr": "assistant-de-gestion-scolaire-ecole-ordinaire-heures-de-travail-annuelles-ecole-mattenhof-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -10374,7 +10423,7 @@
           "schulleitungsassistenz-regelschule-jahresarbeitszeit-schule-mattenhof-stadt-zurich-zurich"
         ],
         "de": [
-          "schulleitungsassistenz-regelschule-jahresarbeitszeit-schule-mattenhof-stadt-zurich-zurich"
+          "schulleitungsassistenz-regelschule-jahresarbeitszeit-schule-mattenhof-stadt-zuerich-zurigo"
         ],
         "fr": [
           "schulleitungsassistenz-regelschule-jahresarbeitszeit-schule-mattenhof-stadt-zurich-zurich"
@@ -10396,7 +10445,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T09:56:44.394Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-9ea09ab75e6e",
@@ -10404,7 +10454,7 @@
       "slugByLocale": {
         "it": "educatore-trice-sociale-a-per-l-organizzazione-quotidiana-della-scuola-materna-80-90-stadt-zurich-zurich",
         "en": "social-pedagogue-for-the-day-to-day-organisation-of-the-nursery-80-90-stadt-zurich-zurich",
-        "de": "sozialpadagoge-in-fur-die-tagesorganisation-des-hortbetriebs-80-90-stadt-zuerich-zurigo",
+        "de": "sozialpadagoge-in-fur-die-tagesorganisation-des-hortbetriebs-80-90-stadt-zurich-zurich",
         "fr": "pedagogue-sociale-pour-l-organisation-quotidienne-de-la-creche-80-90-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -10466,7 +10516,7 @@
           "sozialpadagoge-in-fur-die-tagesorganisation-des-hortbetriebs-80-90-stadt-zurich-zurich"
         ],
         "de": [
-          "sozialpadagoge-in-fur-die-tagesorganisation-des-hortbetriebs-80-90-stadt-zurich-zurich"
+          "sozialpadagoge-in-fur-die-tagesorganisation-des-hortbetriebs-80-90-stadt-zuerich-zurigo"
         ],
         "fr": [
           "sozialpadagoge-in-fur-die-tagesorganisation-des-hortbetriebs-80-90-stadt-zurich-zurich"
@@ -10496,7 +10546,7 @@
       "slugByLocale": {
         "it": "specialista-in-psichiatria-sss-con-gestione-dei-casi-60-stadt-zurich-zurich",
         "en": "dipl-psychiatry-specialist-hf-with-case-management-60-stadt-zurich-zurich",
-        "de": "dipl-psychiatriefachperson-hf-mit-fallfuhrung-60-stadt-zuerich-zurigo-52101",
+        "de": "dipl-psychiatriefachperson-hf-mit-fallfuhrung-60-stadt-zurich-zurich",
         "fr": "dipl-specialiste-en-psychiatrie-hf-avec-gestion-de-cas-60-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -10557,7 +10607,7 @@
           "dipl-psychiatriefachperson-hf-mit-fallfuhrung-60-stadt-zurich-zurich"
         ],
         "de": [
-          "dipl-psychiatriefachperson-hf-mit-fallfuhrung-60-stadt-zurich-zurich"
+          "dipl-psychiatriefachperson-hf-mit-fallfuhrung-60-stadt-zuerich-zurigo-52101"
         ],
         "fr": [
           "dipl-psychiatriefachperson-hf-mit-fallfuhrung-60-stadt-zurich-zurich"
@@ -10587,7 +10637,7 @@
       "slugByLocale": {
         "it": "responsabile-tecnico-perigon-e-supporto-it-spitex-40-stadt-zurich-zurich",
         "en": "specialist-responsible-for-perigon-and-it-support-spitex-40-stadt-zurich-zurich",
-        "de": "fachverantwortliche-r-perigon-und-it-support-spitex-40-stadt-zuerich-zurigo-52073",
+        "de": "fachverantwortliche-r-perigon-und-it-support-spitex-40-stadt-zurich-zurich",
         "fr": "responsablespecialiseperigon-et-support-informatique-spitex-40-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -10649,7 +10699,7 @@
           "fachverantwortliche-r-perigon-und-it-support-spitex-40-stadt-zurich-zurich"
         ],
         "de": [
-          "fachverantwortliche-r-perigon-und-it-support-spitex-40-stadt-zurich-zurich"
+          "fachverantwortliche-r-perigon-und-it-support-spitex-40-stadt-zuerich-zurigo-52073"
         ],
         "fr": [
           "fachverantwortliche-r-perigon-und-it-support-spitex-40-stadt-zurich-zurich"
@@ -10751,7 +10801,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.394Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-5bd95aec5ae0",
@@ -10911,7 +10962,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.394Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-a4c48a16bd57",
@@ -10993,7 +11045,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.394Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-e2d9b07743f6",
@@ -11268,7 +11321,7 @@
       "slugByLocale": {
         "it": "giardiniere-a-paesaggista-stadt-zurich-zurich",
         "en": "gardener-horticulture-and-landscaping-stadt-zurich-zurich",
-        "de": "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52151",
+        "de": "gartner-in-garten-und-landschaftsbau-stadt-zurich-zurich",
         "fr": "jardinier-ere-en-amenagement-paysager-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -11331,6 +11384,9 @@
           "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52151"
         ],
         "fr": [
+          "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52151"
+        ],
+        "de": [
           "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52151"
         ]
       },
@@ -11446,7 +11502,7 @@
       "slugByLocale": {
         "it": "responsabile-del-team-di-assistenza-sociale-e-protezione-dei-minori-stadt-zurich-zurich",
         "en": "social-assistance-child-protection-team-leader-stadt-zurich-zurich",
-        "de": "teamleiter-in-sozialhilfe-kindesschutz-stadt-zuerich-zurigo-52167",
+        "de": "teamleiter-in-sozialhilfe-kindesschutz-stadt-zurich-zurich",
         "fr": "chef-d-equipe-de-l-aide-sociale-et-de-la-protection-de-l-enfant-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -11495,8 +11551,7 @@
       "unit": "Soziale Dienste",
       "referenceNumber": "52167",
       "previousSlugs": [
-        "teamleiter-in-sozialhilfe-kindesschutz-stadt-zuerich-zurigo-52167",
-        "teamleiter-in-sozialhilfe-kindesschutz-stadt-zurich-zurich"
+        "teamleiter-in-sozialhilfe-kindesschutz-stadt-zuerich-zurigo-52167"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11506,7 +11561,7 @@
           "teamleiter-in-sozialhilfe-kindesschutz-stadt-zuerich-zurigo-52167"
         ],
         "de": [
-          "teamleiter-in-sozialhilfe-kindesschutz-stadt-zurich-zurich"
+          "teamleiter-in-sozialhilfe-kindesschutz-stadt-zuerich-zurigo-52167"
         ],
         "fr": [
           "teamleiter-in-sozialhilfe-kindesschutz-stadt-zuerich-zurigo-52167"
@@ -11536,7 +11591,7 @@
       "slugByLocale": {
         "it": "pedagoga-sociale-80-stadt-zurich-zurich",
         "en": "social-pedagogue-80-stadt-zurich-zurich",
-        "de": "sozialpadagoge-in-80-stadt-zuerich-zurigo-52172",
+        "de": "sozialpadagoge-in-80-stadt-zurich-zurich",
         "fr": "pedagogue-sociale-80-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -11585,8 +11640,7 @@
       "unit": "Kreisschulbehörde Letzi",
       "referenceNumber": "52172",
       "previousSlugs": [
-        "sozialpadagoge-in-80-stadt-zuerich-zurigo-52172",
-        "sozialpadagoge-in-80-stadt-zurich-zurich"
+        "sozialpadagoge-in-80-stadt-zuerich-zurigo-52172"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11596,7 +11650,7 @@
           "sozialpadagoge-in-80-stadt-zuerich-zurigo-52172"
         ],
         "de": [
-          "sozialpadagoge-in-80-stadt-zurich-zurich"
+          "sozialpadagoge-in-80-stadt-zuerich-zurigo-52172"
         ],
         "fr": [
           "sozialpadagoge-in-80-stadt-zuerich-zurigo-52172"
@@ -11618,7 +11672,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T09:56:44.393Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-2b48ac4c0fba",
@@ -11626,7 +11681,7 @@
       "slugByLocale": {
         "it": "insegnante-di-asilo-infantile-scuola-kolbenacker-stadt-zurich-zurich",
         "en": "kindergarten-teacher-school-kolbenacker-stadt-zurich-zurich",
-        "de": "kindergartenlehrperson-schule-kolbenacker-stadt-zuerich-zurigo-52175",
+        "de": "kindergartenlehrperson-schule-kolbenacker-stadt-zurich-zurich",
         "fr": "professeur-de-maternelle-ecole-kolbenacker-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -11687,7 +11742,7 @@
           "kindergartenlehrperson-schule-kolbenacker-stadt-zurich-zurich"
         ],
         "de": [
-          "kindergartenlehrperson-schule-kolbenacker-stadt-zurich-zurich"
+          "kindergartenlehrperson-schule-kolbenacker-stadt-zuerich-zurigo-52175"
         ],
         "fr": [
           "kindergartenlehrperson-schule-kolbenacker-stadt-zurich-zurich"
@@ -11709,7 +11764,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T09:56:44.393Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-a236bee94100",
@@ -11717,7 +11773,7 @@
       "slugByLocale": {
         "it": "responsabile-architettura-stadt-zurich-zurich",
         "en": "headof-architecture-stadt-zurich-zurich",
-        "de": "leiter-in-architektur-stadt-zuerich-zurigo-52176",
+        "de": "leiter-in-architektur-stadt-zurich-zurich",
         "fr": "responsable-architecture-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -11767,8 +11823,7 @@
       "referenceNumber": "52176",
       "previousSlugs": [
         "leiter-in-architektur-stadt-zuerich-zurigo-52176",
-        "leiter-in-architektur-stadt-zurich",
-        "leiter-in-architektur-stadt-zurich-zurich"
+        "leiter-in-architektur-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11779,7 +11834,7 @@
           "leiter-in-architektur-stadt-zuerich-zurigo-52176"
         ],
         "de": [
-          "leiter-in-architektur-stadt-zurich-zurich"
+          "leiter-in-architektur-stadt-zuerich-zurigo-52176"
         ],
         "fr": [
           "leiter-in-architektur-stadt-zuerich-zurigo-52176"
@@ -11809,7 +11864,7 @@
       "slugByLocale": {
         "it": "dipl-infermiera-hf-fh-triemlipark-2-sito-stadt-zurich-zurich",
         "en": "dipl-nurse-hf-fh-triemlipark-2-site-stadt-zurich-zurich",
-        "de": "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zuerich-zurigo-52180",
+        "de": "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zurich-zurich",
         "fr": "dipl-infirmiere-hf-fh-triemlipark-2-site-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -11870,7 +11925,7 @@
           "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zurich-zurich"
         ],
         "de": [
-          "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zurich-zurich"
+          "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zuerich-zurigo-52180"
         ],
         "fr": [
           "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zurich-zurich"
@@ -12247,7 +12302,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-04T09:56:44.393Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-a1e957c1c726",
@@ -12425,7 +12481,7 @@
       "slugByLocale": {
         "it": "stage-pedagogico-in-classe-presso-la-scuola-looren-stadt-zurich-zurich",
         "en": "pedagogical-internship-in-class-at-the-looren-school-stadt-zurich-zurich",
-        "de": "padagogisches-praktikum-im-unterricht-in-der-schule-looren-stadt-zuerich-zurigo-52154",
+        "de": "padagogisches-praktikum-im-unterricht-in-der-schule-looren-stadt-zurich-zurich",
         "fr": "stage-pedagogique-en-classe-a-l-ecole-looren-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -12474,8 +12530,7 @@
       "unit": "Kreisschulbehörde Zürichberg",
       "referenceNumber": "52154",
       "previousSlugs": [
-        "padagogisches-praktikum-im-unterricht-in-der-schule-looren-stadt-zuerich-zurigo-52154",
-        "padagogisches-praktikum-im-unterricht-in-der-schule-looren-stadt-zurich-zurich"
+        "padagogisches-praktikum-im-unterricht-in-der-schule-looren-stadt-zuerich-zurigo-52154"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12485,7 +12540,7 @@
           "padagogisches-praktikum-im-unterricht-in-der-schule-looren-stadt-zuerich-zurigo-52154"
         ],
         "de": [
-          "padagogisches-praktikum-im-unterricht-in-der-schule-looren-stadt-zurich-zurich"
+          "padagogisches-praktikum-im-unterricht-in-der-schule-looren-stadt-zuerich-zurigo-52154"
         ],
         "fr": [
           "padagogisches-praktikum-im-unterricht-in-der-schule-looren-stadt-zuerich-zurigo-52154"
@@ -13371,7 +13426,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T09:56:44.392Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-a0a42b5e3b7b",
@@ -13379,7 +13435,7 @@
       "slugByLocale": {
         "it": "professionista-della-salute-sito-bombach-stadt-zurich-zurich",
         "en": "health-professional-bombach-site-stadt-zurich-zurich",
-        "de": "fachperson-gesundheit-standort-bombach-stadt-zuerich-zurigo-52143",
+        "de": "fachperson-gesundheit-standort-bombach-stadt-zurich-zurich",
         "fr": "professionnels-de-la-sante-site-de-bombach-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -13429,7 +13485,6 @@
       "referenceNumber": "52143",
       "previousSlugs": [
         "fachperson-gesundheit-standort-bombach-stadt-zuerich-zurigo-52143",
-        "fachperson-gesundheit-standort-bombach-stadt-zurich-zurich",
         "fachperson-gesundheit-standort-bombach-stadt-zuerich-zurigo-49751",
         "professionista-della-salute-sito-bombach-stadt-zurich-zurich-7c10f1d7",
         "health-professional-bombach-site-stadt-zurich-zurich-cf9fd9b7",
@@ -13444,8 +13499,8 @@
           "professionnels-de-la-sante-site-de-bombach-stadt-zurich-zurich-d72167ef"
         ],
         "de": [
-          "fachperson-gesundheit-standort-bombach-stadt-zurich-zurich",
-          "fachperson-gesundheit-standort-bombach-stadt-zuerich-zurigo-49751"
+          "fachperson-gesundheit-standort-bombach-stadt-zuerich-zurigo-49751",
+          "fachperson-gesundheit-standort-bombach-stadt-zuerich-zurigo-52143"
         ]
       },
       "firstSeenAt": "2026-09-01T16:12:36.160Z",
@@ -13560,7 +13615,7 @@
       "slugByLocale": {
         "it": "infermiere-diplomato-sss-sup-come-guardia-permanente-stadt-zurich-zurich",
         "en": "dipl-nurse-hf-fh-as-a-permanent-night-watch-stadt-zurich-zurich",
-        "de": "dipl-pflegefachperson-hf-fh-als-dauernachtwache-stadt-zuerich-zurigo-52170",
+        "de": "dipl-pflegefachperson-hf-fh-als-dauernachtwache-stadt-zurich-zurich",
         "fr": "dipl-infirmiere-hf-fh-comme-veille-de-nuit-permanente-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -13622,7 +13677,7 @@
           "dipl-pflegefachperson-hf-fh-als-dauernachtwache-stadt-zurich-zurich"
         ],
         "de": [
-          "dipl-pflegefachperson-hf-fh-als-dauernachtwache-stadt-zurich-zurich"
+          "dipl-pflegefachperson-hf-fh-als-dauernachtwache-stadt-zuerich-zurigo-52170"
         ],
         "fr": [
           "dipl-pflegefachperson-hf-fh-als-dauernachtwache-stadt-zurich-zurich"
@@ -13827,7 +13882,7 @@
       "slugByLocale": {
         "it": "specialista-nella-messa-in-servizio-del-tram-stadt-zurich-zurich",
         "en": "tram-commissioning-specialist-stadt-zurich-zurich",
-        "de": "fachspezialist-in-inbetriebsetzung-tram-stadt-zuerich-zurigo-48038",
+        "de": "fachspezialist-in-inbetriebsetzung-tram-stadt-zurich-zurich",
         "fr": "specialiste-de-la-mise-en-service-du-tram-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -13888,7 +13943,7 @@
           "fachspezialist-in-inbetriebsetzung-tram-stadt-zurich-zurich"
         ],
         "de": [
-          "fachspezialist-in-inbetriebsetzung-tram-stadt-zurich-zurich"
+          "fachspezialist-in-inbetriebsetzung-tram-stadt-zuerich-zurigo-48038"
         ],
         "fr": [
           "fachspezialist-in-inbetriebsetzung-tram-stadt-zurich-zurich"
@@ -13998,7 +14053,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.391Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-bdd576930be8",
@@ -14183,7 +14239,7 @@
       "slugByLocale": {
         "it": "assistente-sociale-nel-profilo-e-centro-sociale-albisriederhaus-stadt-zurich-zurich",
         "en": "socialworker-e-profile-social-centre-albisriederhaus-stadt-zurich-zurich",
-        "de": "sozialarbeiter-in-e-profil-sozialzentrum-albisriederhaus-stadt-zuerich-zurigo-52157",
+        "de": "sozialarbeiter-in-e-profil-sozialzentrum-albisriederhaus-stadt-zurich-zurich",
         "fr": "travailleur-social-profil-e-centre-social-albisriederhaus-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -14244,7 +14300,7 @@
           "sozialarbeiter-in-e-profil-sozialzentrum-albisriederhaus-stadt-zurich-zurich"
         ],
         "de": [
-          "sozialarbeiter-in-e-profil-sozialzentrum-albisriederhaus-stadt-zurich-zurich"
+          "sozialarbeiter-in-e-profil-sozialzentrum-albisriederhaus-stadt-zuerich-zurigo-52157"
         ],
         "fr": [
           "sozialarbeiter-in-e-profil-sozialzentrum-albisriederhaus-stadt-zurich-zurich"
@@ -14274,7 +14330,7 @@
       "slugByLocale": {
         "it": "tirocinante-universitario-a-in-archivio-di-storia-dell-edilizia-stadt-zurich-zurich",
         "en": "universitytrainee-building-history-archive-stadt-zurich-zurich",
-        "de": "hochschulpraktikant-in-baugeschichtliches-archiv-stadt-zuerich-zurigo-52142",
+        "de": "hochschulpraktikant-in-baugeschichtliches-archiv-stadt-zurich-zurich",
         "fr": "stagiaire-universitaire-en-archives-d-histoire-de-la-construction-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -14335,7 +14391,7 @@
           "hochschulpraktikant-in-baugeschichtliches-archiv-stadt-zurich-zurich"
         ],
         "de": [
-          "hochschulpraktikant-in-baugeschichtliches-archiv-stadt-zurich-zurich"
+          "hochschulpraktikant-in-baugeschichtliches-archiv-stadt-zuerich-zurigo-52142"
         ],
         "fr": [
           "hochschulpraktikant-in-baugeschichtliches-archiv-stadt-zurich-zurich"
@@ -14365,7 +14421,7 @@
       "slugByLocale": {
         "it": "tirocinante-universitario-in-area-urbana-stadt-zurich-zurich",
         "en": "university-intern-in-urban-area-stadt-zurich-zurich",
-        "de": "hochschulpraktikant-in-stadtraum-stadt-zuerich-zurigo-52140",
+        "de": "hochschulpraktikant-in-stadtraum-stadt-zurich-zurich",
         "fr": "stagiaire-universitaire-en-milieu-urbain-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -14426,7 +14482,7 @@
           "hochschulpraktikant-in-stadtraum-stadt-zurich-zurich"
         ],
         "de": [
-          "hochschulpraktikant-in-stadtraum-stadt-zurich-zurich"
+          "hochschulpraktikant-in-stadtraum-stadt-zuerich-zurigo-52140"
         ],
         "fr": [
           "hochschulpraktikant-in-stadtraum-stadt-zurich-zurich"
@@ -14456,7 +14512,7 @@
       "slugByLocale": {
         "it": "tecnico-a-di-eventi-con-specializzazione-in-illuminazione-stadt-zurich-zurich",
         "en": "event-technician-with-a-focus-on-lighting-stadt-zurich-zurich",
-        "de": "veranstaltungstechniker-in-mit-schwerpunkt-beleuchtung-stadt-zuerich-zurigo-52105",
+        "de": "veranstaltungstechniker-in-mit-schwerpunkt-beleuchtung-stadt-zurich-zurich",
         "fr": "technicien-ne-evenementiel-ne-specialise-e-en-eclairage-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -14517,7 +14573,7 @@
           "veranstaltungstechniker-in-mit-schwerpunkt-beleuchtung-stadt-zurich-zurich"
         ],
         "de": [
-          "veranstaltungstechniker-in-mit-schwerpunkt-beleuchtung-stadt-zurich-zurich"
+          "veranstaltungstechniker-in-mit-schwerpunkt-beleuchtung-stadt-zuerich-zurigo-52105"
         ],
         "fr": [
           "veranstaltungstechniker-in-mit-schwerpunkt-beleuchtung-stadt-zurich-zurich"
@@ -14547,7 +14603,7 @@
       "slugByLocale": {
         "it": "capo-dei-vigili-del-fuoco-di-milizia-e-protezione-civile-compagnia-est-stadt-zurich-zurich",
         "en": "chief-of-militia-fire-civil-defence-east-company-stadt-zurich-zurich",
-        "de": "chef-in-milizfeuerwehr-zivilschutz-kompanie-ost-stadt-zuerich-zurigo-52195",
+        "de": "chef-in-milizfeuerwehr-zivilschutz-kompanie-ost-stadt-zurich-zurich",
         "fr": "chef-des-sapeurs-pompiers-de-milice-et-de-la-protection-civile-compagnie-est-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -14596,8 +14652,7 @@
       "unit": "Schutz & Rettung",
       "referenceNumber": "52195",
       "previousSlugs": [
-        "chef-in-milizfeuerwehr-zivilschutz-kompanie-ost-stadt-zuerich-zurigo-52195",
-        "chef-in-milizfeuerwehr-zivilschutz-kompanie-ost-stadt-zurich-zurich"
+        "chef-in-milizfeuerwehr-zivilschutz-kompanie-ost-stadt-zuerich-zurigo-52195"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14607,7 +14662,7 @@
           "chef-in-milizfeuerwehr-zivilschutz-kompanie-ost-stadt-zuerich-zurigo-52195"
         ],
         "de": [
-          "chef-in-milizfeuerwehr-zivilschutz-kompanie-ost-stadt-zurich-zurich"
+          "chef-in-milizfeuerwehr-zivilschutz-kompanie-ost-stadt-zuerich-zurigo-52195"
         ],
         "fr": [
           "chef-in-milizfeuerwehr-zivilschutz-kompanie-ost-stadt-zuerich-zurigo-52195"
@@ -14637,7 +14692,7 @@
       "slugByLocale": {
         "it": "tirocinante-universitario-a-in-architettura-stadt-zurich-zurich",
         "en": "universitytrainee-architecture-stadt-zurich-zurich",
-        "de": "hochschulpraktikant-in-architektur-stadt-zuerich-zurigo-52178",
+        "de": "hochschulpraktikant-in-architektur-stadt-zurich-zurich",
         "fr": "stagiaireuniversitaireen-architecture-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -14698,7 +14753,7 @@
           "hochschulpraktikant-in-architektur-stadt-zurich-zurich"
         ],
         "de": [
-          "hochschulpraktikant-in-architektur-stadt-zurich-zurich"
+          "hochschulpraktikant-in-architektur-stadt-zuerich-zurigo-52178"
         ],
         "fr": [
           "hochschulpraktikant-in-architektur-stadt-zurich-zurich"
@@ -14728,7 +14783,7 @@
       "slugByLocale": {
         "it": "gestore-di-immobili-in-immobili-commerciali-stadt-zurich-zurich",
         "en": "propertymanager-commercial-properties-stadt-zurich-zurich",
-        "de": "immobilienbewirtschafter-in-gewerbeobjekte-stadt-zuerich-zurigo-52187",
+        "de": "immobilienbewirtschafter-in-gewerbeobjekte-stadt-zurich-zurich",
         "fr": "gerant-e-immobilier-e-dans-des-immeubles-commerciaux-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -14789,7 +14844,7 @@
           "immobilienbewirtschafter-in-gewerbeobjekte-stadt-zurich-zurich"
         ],
         "de": [
-          "immobilienbewirtschafter-in-gewerbeobjekte-stadt-zurich-zurich"
+          "immobilienbewirtschafter-in-gewerbeobjekte-stadt-zuerich-zurigo-52187"
         ],
         "fr": [
           "immobilienbewirtschafter-in-gewerbeobjekte-stadt-zurich-zurich"
@@ -14819,7 +14874,7 @@
       "slugByLocale": {
         "it": "scuola-di-specializzazione-schauenberg-stadt-zurich-zurich",
         "en": "specialist-care-school-schauenberg-stadt-zurich-zurich",
-        "de": "fachperson-betreuung-schule-schauenberg-stadt-zuerich-zurigo-52189",
+        "de": "fachperson-betreuung-schule-schauenberg-stadt-zurich-zurich",
         "fr": "ecole-de-soins-specialises-schauenberg-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -14868,8 +14923,7 @@
       "unit": "Kreisschulbehörde Glattal",
       "referenceNumber": "52189",
       "previousSlugs": [
-        "fachperson-betreuung-schule-schauenberg-stadt-zuerich-zurigo-52189",
-        "fachperson-betreuung-schule-schauenberg-stadt-zurich-zurich"
+        "fachperson-betreuung-schule-schauenberg-stadt-zuerich-zurigo-52189"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14879,7 +14933,7 @@
           "fachperson-betreuung-schule-schauenberg-stadt-zuerich-zurigo-52189"
         ],
         "de": [
-          "fachperson-betreuung-schule-schauenberg-stadt-zurich-zurich"
+          "fachperson-betreuung-schule-schauenberg-stadt-zuerich-zurigo-52189"
         ],
         "fr": [
           "fachperson-betreuung-schule-schauenberg-stadt-zuerich-zurigo-52189"
@@ -14910,7 +14964,7 @@
       "slugByLocale": {
         "it": "gestione-dell-assistenza-48-e-gestione-dell-istruzione-secondaria-12-stadt-zurich-zurich",
         "en": "supervision-management-48-daycare-management-12-stadt-zurich-zurich",
-        "de": "leitung-betreuung-48-hortleitung-12-stadt-zuerich-zurigo-52190",
+        "de": "leitung-betreuung-48-hortleitung-12-stadt-zurich-zurich",
         "fr": "direction-de-la-prise-en-charge-48-et-de-la-garde-12-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -14959,8 +15013,7 @@
       "unit": "Kreisschulbehörde Limmattal",
       "referenceNumber": "52190",
       "previousSlugs": [
-        "leitung-betreuung-48-hortleitung-12-stadt-zuerich-zurigo-52190",
-        "leitung-betreuung-48-hortleitung-12-stadt-zurich-zurich"
+        "leitung-betreuung-48-hortleitung-12-stadt-zuerich-zurigo-52190"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14970,7 +15023,7 @@
           "leitung-betreuung-48-hortleitung-12-stadt-zuerich-zurigo-52190"
         ],
         "de": [
-          "leitung-betreuung-48-hortleitung-12-stadt-zurich-zurich"
+          "leitung-betreuung-48-hortleitung-12-stadt-zuerich-zurigo-52190"
         ],
         "fr": [
           "leitung-betreuung-48-hortleitung-12-stadt-zuerich-zurigo-52190"
@@ -15000,7 +15053,7 @@
       "slugByLocale": {
         "it": "responsabile-di-reparto-nella-fatturazione-dei-servizi-stadt-zurich-zurich",
         "en": "departmentmanagerservice-allocation-stadt-zurich-zurich",
-        "de": "abteilungsleiter-in-dienstleistungsverrechnung-stadt-zuerich-zurigo-52191",
+        "de": "abteilungsleiter-in-dienstleistungsverrechnung-stadt-zurich-zurich",
         "fr": "responsable-du-departementdela-facturation-des-services-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -15061,7 +15114,7 @@
           "abteilungsleiter-in-dienstleistungsverrechnung-stadt-zurich-zurich"
         ],
         "de": [
-          "abteilungsleiter-in-dienstleistungsverrechnung-stadt-zurich-zurich"
+          "abteilungsleiter-in-dienstleistungsverrechnung-stadt-zuerich-zurigo-52191"
         ],
         "fr": [
           "abteilungsleiter-in-dienstleistungsverrechnung-stadt-zurich-zurich"
@@ -15182,7 +15235,7 @@
       "slugByLocale": {
         "it": "assistente-sociale-in-assistenza-sociale-e-protezione-dell-infanzia-stadt-zurich-zurich",
         "en": "social-workersocial-assistance-and-child-protection-stadt-zurich-zurich",
-        "de": "sozialarbeiter-in-sozialhilfe-und-kindesschutz-stadt-zuerich-zurigo-52215",
+        "de": "sozialarbeiter-in-sozialhilfe-und-kindesschutz-stadt-zurich-zurich",
         "fr": "travailleur-e-social-le-de-l-aide-sociale-et-de-la-protection-de-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -15232,8 +15285,7 @@
       "referenceNumber": "52215",
       "previousSlugs": [
         "sozialarbeiter-in-sozialhilfe-und-kindesschutz-stadt-zuerich-zurigo-52215",
-        "sozialarbeiter-in-sozialhilfe-e-kindesschutz-stadt-zurich",
-        "sozialarbeiter-in-sozialhilfe-und-kindesschutz-stadt-zurich-zurich"
+        "sozialarbeiter-in-sozialhilfe-e-kindesschutz-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15244,7 +15296,7 @@
           "sozialarbeiter-in-sozialhilfe-und-kindesschutz-stadt-zuerich-zurigo-52215"
         ],
         "de": [
-          "sozialarbeiter-in-sozialhilfe-und-kindesschutz-stadt-zurich-zurich"
+          "sozialarbeiter-in-sozialhilfe-und-kindesschutz-stadt-zuerich-zurigo-52215"
         ],
         "fr": [
           "sozialarbeiter-in-sozialhilfe-und-kindesschutz-stadt-zuerich-zurigo-52215"
@@ -15274,7 +15326,7 @@
       "slugByLocale": {
         "it": "investigatore-trice-servizio-investigazioni-finanziarie-stadt-zurich-zurich",
         "en": "investigatorspecialist-service-financial-investigations-stadt-zurich-zurich",
-        "de": "ermittler-in-fachdienst-finanzermittlungen-stadt-zuerich-zurigo-51917",
+        "de": "ermittler-in-fachdienst-finanzermittlungen-stadt-zurich-zurich",
         "fr": "enqueteur-trice-service-specialise-enquetes-financieres-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -15335,7 +15387,7 @@
           "ermittler-in-fachdienst-finanzermittlungen-stadt-zurich-zurich"
         ],
         "de": [
-          "ermittler-in-fachdienst-finanzermittlungen-stadt-zurich-zurich"
+          "ermittler-in-fachdienst-finanzermittlungen-stadt-zuerich-zurigo-51917"
         ],
         "fr": [
           "ermittler-in-fachdienst-finanzermittlungen-stadt-zurich-zurich"
@@ -15364,7 +15416,7 @@
       "slugByLocale": {
         "it": "capo-degli-archivi-stadt-zurich-zurich",
         "en": "deputy-head-of-archiving-stadt-zurich-zurich",
-        "de": "stellvertretende-bereichsleitung-archivierung-stadt-zuerich-zurigo-52211",
+        "de": "stellvertretende-bereichsleitung-archivierung-stadt-zurich-zurich",
         "fr": "chef-adjoint-des-archives-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -15425,7 +15477,7 @@
           "stellvertretende-bereichsleitung-archivierung-stadt-zurich-zurich"
         ],
         "de": [
-          "stellvertretende-bereichsleitung-archivierung-stadt-zurich-zurich"
+          "stellvertretende-bereichsleitung-archivierung-stadt-zuerich-zurigo-52211"
         ],
         "fr": [
           "stellvertretende-bereichsleitung-archivierung-stadt-zurich-zurich"
@@ -15455,7 +15507,7 @@
       "slugByLocale": {
         "it": "meccanico-per-autobus-nel-team-di-manutenzione-hardau-stadt-zurich-zurich",
         "en": "busmechanic-maintenance-team-hardau-stadt-zurich-zurich",
-        "de": "busmechaniker-in-wartungsteam-hardau-stadt-zuerich-zurigo-52173",
+        "de": "busmechaniker-in-wartungsteam-hardau-stadt-zurich-zurich",
         "fr": "mecanicien-de-bus-equipe-de-maintenance-hardau-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -15504,8 +15556,7 @@
       "unit": "Verkehrsbetriebe",
       "referenceNumber": "52173",
       "previousSlugs": [
-        "busmechaniker-in-wartungsteam-hardau-stadt-zuerich-zurigo-52173",
-        "busmechaniker-in-wartungsteam-hardau-stadt-zurich-zurich"
+        "busmechaniker-in-wartungsteam-hardau-stadt-zuerich-zurigo-52173"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15515,7 +15566,7 @@
           "busmechaniker-in-wartungsteam-hardau-stadt-zuerich-zurigo-52173"
         ],
         "de": [
-          "busmechaniker-in-wartungsteam-hardau-stadt-zurich-zurich"
+          "busmechaniker-in-wartungsteam-hardau-stadt-zuerich-zurigo-52173"
         ],
         "fr": [
           "busmechaniker-in-wartungsteam-hardau-stadt-zuerich-zurigo-52173"
@@ -15626,7 +15677,7 @@
       "slugByLocale": {
         "it": "specialista-assistenza-afc-scuola-buchlern-stadt-zurich-zurich",
         "en": "specialist-support-efz-school-bookers-stadt-zurich-zurich",
-        "de": "fachperson-betreuung-efz-schule-buchlern-stadt-zuerich-zurigo-52199",
+        "de": "fachperson-betreuung-efz-schule-buchlern-stadt-zurich-zurich",
         "fr": "soutien-specialise-efz-school-bookers-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -15675,8 +15726,7 @@
       "unit": "Kreisschulbehörde Letzi",
       "referenceNumber": "52199",
       "previousSlugs": [
-        "fachperson-betreuung-efz-schule-buchlern-stadt-zuerich-zurigo-52199",
-        "fachperson-betreuung-efz-schule-buchlern-stadt-zurich-zurich"
+        "fachperson-betreuung-efz-schule-buchlern-stadt-zuerich-zurigo-52199"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15686,7 +15736,7 @@
           "fachperson-betreuung-efz-schule-buchlern-stadt-zuerich-zurigo-52199"
         ],
         "de": [
-          "fachperson-betreuung-efz-schule-buchlern-stadt-zurich-zurich"
+          "fachperson-betreuung-efz-schule-buchlern-stadt-zuerich-zurigo-52199"
         ],
         "fr": [
           "fachperson-betreuung-efz-schule-buchlern-stadt-zuerich-zurigo-52199"
@@ -15716,7 +15766,7 @@
       "slugByLocale": {
         "it": "addetto-aalla-polizia-commerciale-stadt-zurich-zurich",
         "en": "commercialpolice-clerk-stadt-zurich-zurich",
-        "de": "sachbearbeiter-in-gewerbepolizei-stadt-zuerich-zurigo-52207",
+        "de": "sachbearbeiter-in-gewerbepolizei-stadt-zurich-zurich",
         "fr": "charge-e-de-mission-police-du-travail-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -15777,7 +15827,7 @@
           "sachbearbeiter-in-gewerbepolizei-stadt-zurich-zurich"
         ],
         "de": [
-          "sachbearbeiter-in-gewerbepolizei-stadt-zurich-zurich"
+          "sachbearbeiter-in-gewerbepolizei-stadt-zuerich-zurigo-52207"
         ],
         "fr": [
           "sachbearbeiter-in-gewerbepolizei-stadt-zurich-zurich"
@@ -15895,7 +15945,7 @@
       "slugByLocale": {
         "it": "collaboratore-trice-scientifico-a-responsabile-dati-stadt-zurich-zurich",
         "en": "researchassociate-datamanager-stadt-zurich-zurich",
-        "de": "wissenschaftliche-r-mitarbeiter-in-datenmanager-in-stadt-zuerich-zurigo-52209",
+        "de": "wissenschaftliche-r-mitarbeiter-in-datenmanager-in-stadt-zurich-zurich",
         "fr": "collaborateur-trice-scientifique-gestionnairede-donnees-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -15957,7 +16007,7 @@
           "wissenschaftliche-r-mitarbeiter-in-datenmanager-in-stadt-zurich-zurich"
         ],
         "de": [
-          "wissenschaftliche-r-mitarbeiter-in-datenmanager-in-stadt-zurich-zurich"
+          "wissenschaftliche-r-mitarbeiter-in-datenmanager-in-stadt-zuerich-zurigo-52209"
         ],
         "fr": [
           "wissenschaftliche-r-mitarbeiter-in-datenmanager-in-stadt-zurich-zurich"
@@ -15987,7 +16037,7 @@
       "slugByLocale": {
         "it": "supervisione-specialistica-isr-day-school-neubuhl-stadt-zurich-zurich",
         "en": "specialist-supervision-isr-day-school-neubuhl-stadt-zurich-zurich",
-        "de": "fachperson-betreuung-isr-tagesschule-neubuhl-stadt-zuerich-zurigo-52210",
+        "de": "fachperson-betreuung-isr-tagesschule-neubuhl-stadt-zurich-zurich",
         "fr": "supervision-specialisee-isr-day-school-neubuhl-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -16036,8 +16086,7 @@
       "unit": "Kreisschulbehörde Uto",
       "referenceNumber": "52210",
       "previousSlugs": [
-        "fachperson-betreuung-isr-tagesschule-neubuhl-stadt-zuerich-zurigo-52210",
-        "fachperson-betreuung-isr-tagesschule-neubuhl-stadt-zurich-zurich"
+        "fachperson-betreuung-isr-tagesschule-neubuhl-stadt-zuerich-zurigo-52210"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16047,7 +16096,7 @@
           "fachperson-betreuung-isr-tagesschule-neubuhl-stadt-zuerich-zurigo-52210"
         ],
         "de": [
-          "fachperson-betreuung-isr-tagesschule-neubuhl-stadt-zurich-zurich"
+          "fachperson-betreuung-isr-tagesschule-neubuhl-stadt-zuerich-zurigo-52210"
         ],
         "fr": [
           "fachperson-betreuung-isr-tagesschule-neubuhl-stadt-zuerich-zurigo-52210"
@@ -16329,7 +16378,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.389Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-41543670e80d",
@@ -17032,7 +17082,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.389Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-1e8f77f7dbee",
@@ -17114,7 +17165,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.389Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-1d0f5a03960f",
@@ -17198,7 +17250,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.389Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-c96311261391",
@@ -17452,7 +17505,7 @@
       "slugByLocale": {
         "it": "pedagogista-sociale-per-la-pedagogia-sociale-inclusiva-e-la-gestione-dell-asilo-nido-stadt-zurich-zurich",
         "en": "socialpedagoguefor-integrative-social-pedagogy-and-daycare-management-stadt-zurich-zurich",
-        "de": "sozialpadagog-in-fur-die-integrative-sozialpadagogik-und-hortleitung-stadt-zuerich-zurigo",
+        "de": "sozialpadagog-in-fur-die-integrative-sozialpadagogik-und-hortleitung-stadt-zurich-zurich",
         "fr": "pedagogie-sociale-pour-la-pedagogie-sociale-integrative-et-la-supervision-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -17514,7 +17567,7 @@
           "sozialpadagog-in-fur-die-integrative-sozialpadagogik-und-hortleitung-stadt-zurich-zurich"
         ],
         "de": [
-          "sozialpadagog-in-fur-die-integrative-sozialpadagogik-und-hortleitung-stadt-zurich-zurich"
+          "sozialpadagog-in-fur-die-integrative-sozialpadagogik-und-hortleitung-stadt-zuerich-zurigo"
         ],
         "fr": [
           "sozialpadagog-in-fur-die-integrative-sozialpadagogik-und-hortleitung-stadt-zurich-zurich"
@@ -17618,7 +17671,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.388Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-401feb6999da",
@@ -17788,7 +17842,7 @@
       "slugByLocale": {
         "it": "responsabiledi-dipartimento-e-vice-responsabile-di-area-negli-impianti-di-balneazione-e-di-ghiaccio-stadt-zurich-zurich",
         "en": "headof-department-and-deputy-areamanager-for-bathing-and-ice-facilities-stadt-zurich-zurich",
-        "de": "fachbereichsleiter-in-und-stv-bereichsleiter-in-bade-und-eisanlagen-stadt-zuerich-zurigo",
+        "de": "fachbereichsleiter-in-und-stv-bereichsleiter-in-bade-und-eisanlagen-stadt-zurich-zurich",
         "fr": "responsablede-service-et-suppleant-responsable-de-secteur-dans-les-installations-de-baignade-et-de-glace-stadt-zurich"
       },
       "company": "Stadt Zürich",
@@ -17850,7 +17904,7 @@
           "fachbereichsleiter-in-und-stv-bereichsleiter-in-bade-und-eisanlagen-stadt-zurich-zurich"
         ],
         "de": [
-          "fachbereichsleiter-in-und-stv-bereichsleiter-in-bade-und-eisanlagen-stadt-zurich-zurich"
+          "fachbereichsleiter-in-und-stv-bereichsleiter-in-bade-und-eisanlagen-stadt-zuerich-zurigo"
         ],
         "fr": [
           "fachbereichsleiter-in-und-stv-bereichsleiter-in-bade-und-eisanlagen-stadt-zurich-zurich"
@@ -17880,7 +17934,7 @@
       "slugByLocale": {
         "it": "professionista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich",
         "en": "specialist-child-care-efz-stadt-zurich-zurich-981a07",
-        "de": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-52231",
+        "de": "fachperson-betreuung-kinder-efz-stadt-zurich-zurich",
         "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-981a07"
       },
       "company": "Stadt Zürich",
@@ -17940,6 +17994,9 @@
         ],
         "fr": [
           "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-52231"
+        ],
+        "de": [
+          "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-52231"
         ]
       },
       "needsRetranslation": true,
@@ -17967,7 +18024,7 @@
       "slugByLocale": {
         "it": "reinigungsmitarbeiter-in-schulhaus-milchbuck-stadt-zurich-zurich",
         "en": "reinigungsmitarbeiter-in-schulhaus-milchbuck-stadt-zurich-zurich",
-        "de": "reinigungsmitarbeiter-in-schulhaus-milchbuck-stadt-zuerich-zurigo-52233",
+        "de": "reinigungsmitarbeiter-in-schulhaus-milchbuck-stadt-zurich-zurich",
         "fr": "reinigungsmitarbeiter-in-schulhaus-milchbuck-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -18021,6 +18078,9 @@
       "previousSlugsByLocale": {
         "it": [
           "reinigungsmitarbeiter-in-schulhaus-milchbuck-stadt-zuerich-zurigo-52233"
+        ],
+        "de": [
+          "reinigungsmitarbeiter-in-schulhaus-milchbuck-stadt-zuerich-zurigo-52233"
         ]
       },
       "needsRetranslation": true,
@@ -18047,7 +18107,7 @@
       "slugByLocale": {
         "it": "praktikant-in-betreuung-schule-im-herrlig-stadt-zuerich-zurigo-52225",
         "en": "praktikant-in-betreuung-schule-im-herrlig-stadt-zuerich-zurigo-52225",
-        "de": "praktikant-in-betreuung-schule-im-herrlig-stadt-zuerich-zurigo-52225",
+        "de": "praktikant-in-betreuung-schule-im-herrlig-stadt-zurich-zurich",
         "fr": "praktikant-in-betreuung-schule-im-herrlig-stadt-zuerich-zurigo-52225"
       },
       "company": "Stadt Zürich",
@@ -18096,11 +18156,11 @@
       "unit": "Kreisschulbehörde Letzi",
       "referenceNumber": "52225",
       "previousSlugs": [
-        "praktikant-in-betreuung-schule-im-herrlig-stadt-zurich-zurich"
+        "praktikant-in-betreuung-schule-im-herrlig-stadt-zuerich-zurigo-52225"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "praktikant-in-betreuung-schule-im-herrlig-stadt-zurich-zurich"
+          "praktikant-in-betreuung-schule-im-herrlig-stadt-zuerich-zurigo-52225"
         ]
       },
       "needsRetranslation": true,
@@ -18128,7 +18188,7 @@
       "slugByLocale": {
         "it": "consulente-alla-clientela-presso-l-ufficio-anagrafe-stadt-zurich-zurich",
         "en": "client-advisorpersonnel-registration-office-stadt-zurich-zurich",
-        "de": "kundenberater-in-personenmeldeamt-stadt-zuerich-zurigo-52205",
+        "de": "kundenberater-in-personenmeldeamt-stadt-zurich-zurich",
         "fr": "conseiller-ere-a-la-clientele-bureau-d-enregistrement-des-personnes-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -18189,7 +18249,7 @@
           "kundenberater-in-personenmeldeamt-stadt-zurich-zurich"
         ],
         "de": [
-          "kundenberater-in-personenmeldeamt-stadt-zurich-zurich"
+          "kundenberater-in-personenmeldeamt-stadt-zuerich-zurigo-52205"
         ],
         "fr": [
           "kundenberater-in-personenmeldeamt-stadt-zurich-zurich"
@@ -18307,7 +18367,7 @@
       "slugByLocale": {
         "it": "direzione-delle-applicazioni-specialistiche-hr-it-stadt-zurich-zurich",
         "en": "head-of-hr-it-specialist-applications-stadt-zurich-zurich",
-        "de": "leitung-hr-it-fachapplikationen-stadt-zuerich-zurigo-52232",
+        "de": "leitung-hr-it-fachapplikationen-stadt-zurich-zurich",
         "fr": "direction-des-applications-metier-rh-it-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -18368,7 +18428,7 @@
           "leitung-hr-it-fachapplikationen-stadt-zurich-zurich"
         ],
         "de": [
-          "leitung-hr-it-fachapplikationen-stadt-zurich-zurich"
+          "leitung-hr-it-fachapplikationen-stadt-zuerich-zurigo-52232"
         ],
         "fr": [
           "leitung-hr-it-fachapplikationen-stadt-zurich-zurich"
@@ -18398,7 +18458,7 @@
       "slugByLocale": {
         "it": "direzione-scolastica-90-100-o-co-direzione-scolastica-40-60-stadt-zurich-zurich",
         "en": "school-management-90-100-or-a-co-school-management-40-60-stadt-zurich-zurich",
-        "de": "schulleitung-90-100-oder-eine-co-schulleitung-40-60-stadt-zuerich-zurigo-52219",
+        "de": "schulleitung-90-100-oder-eine-co-schulleitung-40-60-stadt-zurich-zurich",
         "fr": "gestion-scolaire-90-100-ou-cogestion-scolaire-40-60-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -18448,8 +18508,7 @@
       "referenceNumber": "52219",
       "previousSlugs": [
         "schulleitung-90-100-oder-eine-co-schulleitung-40-60-stadt-zuerich-zurigo-52219",
-        "schulleitung-90-100-o-eine-co-schulleitung-40-60-stadt-zurich",
-        "schulleitung-90-100-oder-eine-co-schulleitung-40-60-stadt-zurich-zurich"
+        "schulleitung-90-100-o-eine-co-schulleitung-40-60-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -18460,7 +18519,7 @@
           "schulleitung-90-100-oder-eine-co-schulleitung-40-60-stadt-zuerich-zurigo-52219"
         ],
         "de": [
-          "schulleitung-90-100-oder-eine-co-schulleitung-40-60-stadt-zurich-zurich"
+          "schulleitung-90-100-oder-eine-co-schulleitung-40-60-stadt-zuerich-zurigo-52219"
         ],
         "fr": [
           "schulleitung-90-100-oder-eine-co-schulleitung-40-60-stadt-zuerich-zurigo-52219"
@@ -18664,7 +18723,7 @@
       "slugByLocale": {
         "it": "ufficiale-di-conservazione-stadt-zurich-zurich",
         "en": "preservation-officer-stadt-zurich-zurich",
-        "de": "pfandungsbeamtin-pfandungsbeamter-stadt-zuerich-zurigo-52230",
+        "de": "pfandungsbeamtin-pfandungsbeamter-stadt-zurich-zurich",
         "fr": "specialiste-de-la-preservation-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -18725,7 +18784,7 @@
           "pfandungsbeamtin-pfandungsbeamter-stadt-zurich-zurich"
         ],
         "de": [
-          "pfandungsbeamtin-pfandungsbeamter-stadt-zurich-zurich"
+          "pfandungsbeamtin-pfandungsbeamter-stadt-zuerich-zurigo-52230"
         ],
         "fr": [
           "pfandungsbeamtin-pfandungsbeamter-stadt-zurich-zurich"
@@ -18755,7 +18814,7 @@
       "slugByLocale": {
         "it": "direttore-della-scuola-altstetterstrasse-stadt-zurich-zurich",
         "en": "director-at-the-school-altstetterstrasse-stadt-zurich-zurich",
-        "de": "hortleitung-in-der-tagesschule-altstetterstrasse-stadt-zuerich-zurigo-52240",
+        "de": "hortleitung-in-der-tagesschule-altstetterstrasse-stadt-zurich-zurich",
         "fr": "directeur-a-l-ecole-altstetterstrasse-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -18806,8 +18865,7 @@
       "previousSlugs": [
         "hortleitung-in-der-schule-altstetterstrasse-stadt-zuerich-zurigo-52240",
         "hortleitung-in-der-schule-altstetterstrasse-stadt-zurich-zurich",
-        "hortleitung-in-der-tagesschule-altstetterstrasse-stadt-zuerich-zurigo-52240",
-        "hortleitung-in-der-tagesschule-altstetterstrasse-stadt-zurich-zurich"
+        "hortleitung-in-der-tagesschule-altstetterstrasse-stadt-zuerich-zurigo-52240"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -18820,7 +18878,7 @@
         ],
         "de": [
           "hortleitung-in-der-schule-altstetterstrasse-stadt-zuerich-zurigo-52240",
-          "hortleitung-in-der-tagesschule-altstetterstrasse-stadt-zurich-zurich"
+          "hortleitung-in-der-tagesschule-altstetterstrasse-stadt-zuerich-zurigo-52240"
         ],
         "fr": [
           "hortleitung-in-der-schule-altstetterstrasse-stadt-zurich-zurich"
@@ -18850,7 +18908,7 @@
       "slugByLocale": {
         "it": "direzione-dell-asilo-nido-o-personale-specializzato-assistenza-scuola-untermoos-stadt-zurich-zurich",
         "en": "daycare-supervisor-or-specialist-untermoos-school-stadt-zurich-zurich",
-        "de": "hortleitung-oder-fachperson-betreuung-schule-untermoos-stadt-zuerich-zurigo-52248",
+        "de": "hortleitung-oder-fachperson-betreuung-schule-untermoos-stadt-zurich-zurich",
         "fr": "maitrise-ou-specialiste-de-la-prise-en-charge-ecole-untermoos-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -18901,7 +18959,6 @@
       "previousSlugs": [
         "hortleitung-oder-fachperson-betreuung-schule-untermoos-stadt-zuerich-zurigo-52248",
         "hortleitung-o-fachperson-betreuung-schule-untermoos-stadt-zurich",
-        "hortleitung-oder-fachperson-betreuung-schule-untermoos-stadt-zurich-zurich",
         "hortleitung-or-specialist-care-school-untermoos-stadt-zurich-zurich",
         "hortleitung-oder-fachperson-betreuung-schule-untermoos-stadt-zuerich-zurigo-51385",
         "hortleitung-ou-soins-specialises-ecole-untermoos-stadt-zurich-zurich",
@@ -18921,8 +18978,8 @@
           "hortleitung-or-specialist-care-school-untermoos-stadt-zurich-zurich"
         ],
         "de": [
-          "hortleitung-oder-fachperson-betreuung-schule-untermoos-stadt-zurich-zurich",
-          "hortleitung-oder-fachperson-betreuung-schule-untermoos-stadt-zuerich-zurigo-51385"
+          "hortleitung-oder-fachperson-betreuung-schule-untermoos-stadt-zuerich-zurigo-51385",
+          "hortleitung-oder-fachperson-betreuung-schule-untermoos-stadt-zuerich-zurigo-52248"
         ],
         "fr": [
           "hortleitung-oder-fachperson-betreuung-schule-untermoos-stadt-zuerich-zurigo-52248",
@@ -18953,7 +19010,7 @@
       "slugByLocale": {
         "it": "allenatore-job-plus-ep-stadt-zurich-zurich",
         "en": "coach-job-plus-ep-stadt-zuerich-zurigo-52247",
-        "de": "coach-job-plus-ep-stadt-zuerich-zurigo-52247",
+        "de": "coach-job-plus-ep-stadt-zurich-zurich",
         "fr": "coach-job-plus-ep-stadt-zuerich-zurigo-52247"
       },
       "company": "Stadt Zürich",
@@ -19002,15 +19059,14 @@
       "unit": "Soziale Einrichtungen und Betriebe",
       "referenceNumber": "52247",
       "previousSlugs": [
-        "coach-job-plus-ep-stadt-zuerich-zurigo-52247",
-        "coach-job-plus-ep-stadt-zurich-zurich"
+        "coach-job-plus-ep-stadt-zuerich-zurigo-52247"
       ],
       "previousSlugsByLocale": {
         "it": [
           "coach-job-plus-ep-stadt-zuerich-zurigo-52247"
         ],
         "de": [
-          "coach-job-plus-ep-stadt-zurich-zurich"
+          "coach-job-plus-ep-stadt-zuerich-zurigo-52247"
         ]
       },
       "needsRetranslation": true,
@@ -19038,7 +19094,7 @@
       "slugByLocale": {
         "it": "assistente-sociale-presso-il-centrodi-informazione-sulle-droghe-diz-stadt-zurich-zurich",
         "en": "social-worker-drug-information-centre-diz-stadt-zurich-zurich",
-        "de": "sozialarbeiter-in-drogeninformationszentrum-diz-stadt-zuerich-zurigo-52193",
+        "de": "sozialarbeiter-in-drogeninformationszentrum-diz-stadt-zurich-zurich",
         "fr": "travailleur-social-au-centre-d-information-sur-les-drogues-diz-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -19106,8 +19162,8 @@
           "social-worker-in-the-drug-information-center-diz-stadt-zurich-zurich"
         ],
         "de": [
-          "sozialarbeiter-in-drogeninformationszentrum-diz-stadt-zurich-zurich",
-          "sozialarbeiter-in-drogeninformationszentrum-diz-stadt-zuerich-zurigo-50823"
+          "sozialarbeiter-in-drogeninformationszentrum-diz-stadt-zuerich-zurigo-50823",
+          "sozialarbeiter-in-drogeninformationszentrum-diz-stadt-zuerich-zurigo-52193"
         ],
         "fr": [
           "sozialarbeiter-in-drogeninformationszentrum-diz-stadt-zurich-zurich"
@@ -19137,7 +19193,7 @@
       "slugByLocale": {
         "it": "dipendenti-nella-gestione-degli-edifici-stadt-zurich-zurich",
         "en": "building-management-associate-stadt-zurich-zurich",
-        "de": "mitarbeiter-in-gebaudemanagement-stadt-zuerich-zurigo-52206",
+        "de": "mitarbeiter-in-gebaudemanagement-stadt-zurich-zurich",
         "fr": "employe-e-de-gestion-des-batiments-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -19199,7 +19255,7 @@
           "mitarbeiter-in-gebaudemanagement-stadt-zurich-zurich"
         ],
         "de": [
-          "mitarbeiter-in-gebaudemanagement-stadt-zurich-zurich"
+          "mitarbeiter-in-gebaudemanagement-stadt-zuerich-zurigo-52206"
         ],
         "fr": [
           "mitarbeiter-in-gebaudemanagement-stadt-zurich-zurich"
@@ -19229,7 +19285,7 @@
       "slugByLocale": {
         "it": "dipartimento-dell-istruzione-stadt-zurich-zurich",
         "en": "department-of-education-stadt-zurich-zurich",
-        "de": "fachbereichsleitung-unterricht-stadt-zuerich-zurigo-52102",
+        "de": "fachbereichsleitung-unterricht-stadt-zurich-zurich",
         "fr": "ministere-de-l-education-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -19291,6 +19347,9 @@
         ],
         "fr": [
           "fachbereichsleitung-unterricht-stadt-zurich-zurich"
+        ],
+        "de": [
+          "fachbereichsleitung-unterricht-stadt-zuerich-zurigo-52102"
         ]
       },
       "firstSeenAt": "2026-11-17T09:51:11.165Z",
@@ -19317,7 +19376,7 @@
       "slugByLocale": {
         "it": "controller-hr-stadt-zurich-zurich",
         "en": "hr-controller-stadt-zurich-zurich",
-        "de": "hr-controller-in-stadt-zuerich-zurigo-52235",
+        "de": "hr-controller-in-stadt-zurich-zurich",
         "fr": "controleur-rh-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -19366,8 +19425,7 @@
       "unit": "Immobilien Stadt Zürich",
       "referenceNumber": "52235",
       "previousSlugs": [
-        "hr-controller-in-stadt-zuerich-zurigo-52235",
-        "hr-controller-in-stadt-zurich-zurich"
+        "hr-controller-in-stadt-zuerich-zurigo-52235"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -19377,7 +19435,7 @@
           "hr-controller-in-stadt-zuerich-zurigo-52235"
         ],
         "de": [
-          "hr-controller-in-stadt-zurich-zurich"
+          "hr-controller-in-stadt-zuerich-zurigo-52235"
         ]
       },
       "firstSeenAt": "2026-11-10T21:56:46.026Z",
@@ -19487,7 +19545,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T09:56:44.387Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-078afdfef451",
@@ -19495,7 +19554,7 @@
       "slugByLocale": {
         "it": "collaboratore-trice-presso-il-centro-di-raccolta-dei-rifiuti-speciali-80-100-stadt-zurich-zurich",
         "en": "special-waste-collection-point-employee-80-100-stadt-zurich-zurich",
-        "de": "mitarbeiter-in-sonderabfallsammelstelle-80-100-stadt-zuerich-zurigo-52238",
+        "de": "mitarbeiter-in-sonderabfallsammelstelle-80-100-stadt-zurich-zurich",
         "fr": "collaborateur-rice-au-point-de-collecte-des-dechets-speciaux-80-100-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -19558,6 +19617,9 @@
         ],
         "fr": [
           "mitarbeiter-in-sonderabfallsammelstelle-80-100-stadt-zurich-zurich"
+        ],
+        "de": [
+          "mitarbeiter-in-sonderabfallsammelstelle-80-100-stadt-zuerich-zurigo-52238"
         ]
       },
       "firstSeenAt": "2026-11-17T09:51:11.165Z",
@@ -19584,7 +19646,7 @@
       "slugByLocale": {
         "it": "guida-stadt-zurich-zurich",
         "en": "guidance-stadt-zurich-zurich",
-        "de": "hortleitung-stadt-zuerich-zurigo-52239",
+        "de": "hortleitung-stadt-zurich-zurich",
         "fr": "orientation-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -19634,7 +19696,6 @@
       "referenceNumber": "52239",
       "previousSlugs": [
         "hortleitung-stadt-zuerich-zurigo-52239",
-        "hortleitung-stadt-zurich-zurich",
         "hortleitung-stadt-zuerich-zurigo-51324",
         "hortleitung-stadt-zurich",
         "guida-stadt-zurich-zurich-ef10a3",
@@ -19674,8 +19735,8 @@
           "hortleitung-stadt-zuerich-zurigo-52239"
         ],
         "de": [
-          "hortleitung-stadt-zurich-zurich",
-          "hortleitung-stadt-zuerich-zurigo-51324"
+          "hortleitung-stadt-zuerich-zurigo-51324",
+          "hortleitung-stadt-zuerich-zurigo-52239"
         ],
         "fr": [
           "hortleitung-stadt-zuerich-zurigo-52239"
@@ -19705,7 +19766,7 @@
       "slugByLocale": {
         "it": "specialista-in-violenza-domestica-stadt-zurich-zurich",
         "en": "domestic-violence-specialist-stadt-zurich-zurich",
-        "de": "fachspezialist-in-hausliche-gewalt-stadt-zuerich-zurigo-52242",
+        "de": "fachspezialist-in-hausliche-gewalt-stadt-zurich-zurich",
         "fr": "specialiste-violence-domestique-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -19754,8 +19815,7 @@
       "unit": "Stadtpolizei",
       "referenceNumber": "52242",
       "previousSlugs": [
-        "fachspezialist-in-hausliche-gewalt-stadt-zuerich-zurigo-52242",
-        "fachspezialist-in-hausliche-gewalt-stadt-zurich-zurich"
+        "fachspezialist-in-hausliche-gewalt-stadt-zuerich-zurigo-52242"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -19765,7 +19825,7 @@
           "fachspezialist-in-hausliche-gewalt-stadt-zuerich-zurigo-52242"
         ],
         "de": [
-          "fachspezialist-in-hausliche-gewalt-stadt-zurich-zurich"
+          "fachspezialist-in-hausliche-gewalt-stadt-zuerich-zurigo-52242"
         ],
         "fr": [
           "fachspezialist-in-hausliche-gewalt-stadt-zuerich-zurigo-52242"
@@ -19791,11 +19851,11 @@
     },
     {
       "id": "stadt-zuerich-22710f587dd7",
-      "slug": "giurista-stadt-zurich-zurich-080b18",
+      "slug": "giurista-stadt-zurich-zurich-6fe415bbcb",
       "slugByLocale": {
-        "it": "giurista-stadt-zurich-zurich-080b18",
+        "it": "giurista-stadt-zurich-zurich-6fe415bbcb",
         "en": "lawyer-stadt-zurich-zurich-080b18",
-        "de": "jurist-in-stadt-zuerich-zurigo-52243",
+        "de": "jurist-in-stadt-zurich-zurich",
         "fr": "juriste-stadt-zurich-zurich-080b18"
       },
       "company": "Stadt Zürich",
@@ -19844,16 +19904,23 @@
       "unit": "Tiefbauamt",
       "referenceNumber": "52243",
       "previousSlugs": [
-        "jurist-in-stadt-zuerich-zurigo-52243"
+        "jurist-in-stadt-zuerich-zurigo-52243",
+        "giurista-stadt-zurich-zurich-080b18",
+        "giurista-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "jurist-in-stadt-zuerich-zurigo-52243"
+          "jurist-in-stadt-zuerich-zurigo-52243",
+          "giurista-stadt-zurich-zurich-080b18",
+          "giurista-stadt-zurich-zurich"
         ],
         "en": [
           "jurist-in-stadt-zuerich-zurigo-52243"
         ],
         "fr": [
+          "jurist-in-stadt-zuerich-zurigo-52243"
+        ],
+        "de": [
           "jurist-in-stadt-zuerich-zurigo-52243"
         ]
       },
@@ -19881,7 +19948,7 @@
       "slugByLocale": {
         "it": "gestione-della-scuola-scuola-buhn-stadt-zurich-zurich",
         "en": "school-management-school-buhn-stadt-zurich-zurich",
-        "de": "schulleitung-schule-buhn-stadt-zuerich-zurigo-52245",
+        "de": "schulleitung-schule-buhn-stadt-zurich-zurich",
         "fr": "gestion-scolaire-ecole-buhn-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -19930,8 +19997,7 @@
       "unit": "Kreisschulbehörde Glattal",
       "referenceNumber": "52245",
       "previousSlugs": [
-        "schulleitung-schule-buhn-stadt-zuerich-zurigo-52245",
-        "schulleitung-schule-buhn-stadt-zurich-zurich"
+        "schulleitung-schule-buhn-stadt-zuerich-zurigo-52245"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -19941,7 +20007,7 @@
           "schulleitung-schule-buhn-stadt-zuerich-zurigo-52245"
         ],
         "de": [
-          "schulleitung-schule-buhn-stadt-zurich-zurich"
+          "schulleitung-schule-buhn-stadt-zuerich-zurigo-52245"
         ],
         "fr": [
           "schulleitung-schule-buhn-stadt-zuerich-zurigo-52245"
@@ -20134,7 +20200,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-11T09:56:44.386Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-830a6502b4f8",
@@ -20222,7 +20289,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-20T09:56:44.386Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-411054acc613",
@@ -20230,7 +20298,7 @@
       "slugByLocale": {
         "it": "incaricato-a-del-caso-stadt-zurich-zurich",
         "en": "case-handler-stadt-zurich-zurich",
-        "de": "fallbezogene-r-sachbearbeiter-in-stadt-zuerich-zurigo-52254",
+        "de": "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich",
         "fr": "gestionnaire-de-dossier-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -20291,7 +20359,7 @@
           "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich"
         ],
         "de": [
-          "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich"
+          "fallbezogene-r-sachbearbeiter-in-stadt-zuerich-zurigo-52254"
         ],
         "fr": [
           "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich"
@@ -20321,7 +20389,7 @@
       "slugByLocale": {
         "it": "educatore-educatrice-socio-pedagogico-a-isr-stadt-zurich-zurich",
         "en": "social-pedagogue-isr-stadt-zurich-zurich",
-        "de": "sozialpadagog-in-isr-stadt-zuerich-zurigo-52258",
+        "de": "sozialpadagog-in-isr-stadt-zurich-zurich",
         "fr": "educateur-educatrice-social-e-isr-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -20370,8 +20438,7 @@
       "unit": "Kreisschulbehörde Limmattal",
       "referenceNumber": "52258",
       "previousSlugs": [
-        "sozialpadagog-in-isr-stadt-zuerich-zurigo-52258",
-        "sozialpadagog-in-isr-stadt-zurich-zurich"
+        "sozialpadagog-in-isr-stadt-zuerich-zurigo-52258"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -20381,7 +20448,7 @@
           "sozialpadagog-in-isr-stadt-zuerich-zurigo-52258"
         ],
         "de": [
-          "sozialpadagog-in-isr-stadt-zurich-zurich"
+          "sozialpadagog-in-isr-stadt-zuerich-zurigo-52258"
         ],
         "fr": [
           "sozialpadagog-in-isr-stadt-zuerich-zurigo-52258"
@@ -20411,7 +20478,7 @@
       "slugByLocale": {
         "it": "educatore-educatrice-sociale-scuola-diurna-riedenhalden-stadt-zurich-zurich",
         "en": "socialpedagogue-riedenhalden-day-school-stadt-zurich-zurich",
-        "de": "sozialpadagog-in-tagesschule-riedenhalden-stadt-zuerich-zurigo-52251",
+        "de": "sozialpadagog-in-tagesschule-riedenhalden-stadt-zurich-zurich",
         "fr": "pedagogue-social-ecole-a-journee-continue-de-riedenhalden-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -20460,15 +20527,14 @@
       "unit": "Kreisschulbehörde Glattal",
       "referenceNumber": "52251",
       "previousSlugs": [
-        "sozialpadagog-in-tagesschule-riedenhalden-stadt-zuerich-zurigo-52251",
-        "sozialpadagog-in-tagesschule-riedenhalden-stadt-zurich-zurich"
+        "sozialpadagog-in-tagesschule-riedenhalden-stadt-zuerich-zurigo-52251"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sozialpadagog-in-tagesschule-riedenhalden-stadt-zuerich-zurigo-52251"
         ],
         "de": [
-          "sozialpadagog-in-tagesschule-riedenhalden-stadt-zurich-zurich"
+          "sozialpadagog-in-tagesschule-riedenhalden-stadt-zuerich-zurigo-52251"
         ]
       },
       "firstSeenAt": "2026-11-11T09:53:23.250Z",
@@ -20487,7 +20553,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T09:56:44.386Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-556b0c2a5a5d",
@@ -20495,7 +20562,7 @@
       "slugByLocale": {
         "it": "specialista-in-eventi-complessi-stadt-zurich-zurich",
         "en": "specialist-in-complex-events-stadt-zurich-zurich",
-        "de": "fachspezialist-in-komplexe-veranstaltungen-stadt-zuerich-zurigo-52253",
+        "de": "fachspezialist-in-komplexe-veranstaltungen-stadt-zurich-zurich",
         "fr": "specialiste-des-evenements-complexes-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -20556,7 +20623,7 @@
           "fachspezialist-in-komplexe-veranstaltungen-stadt-zurich-zurich"
         ],
         "de": [
-          "fachspezialist-in-komplexe-veranstaltungen-stadt-zurich-zurich"
+          "fachspezialist-in-komplexe-veranstaltungen-stadt-zuerich-zurigo-52253"
         ],
         "fr": [
           "fachspezialist-in-komplexe-veranstaltungen-stadt-zurich-zurich"
@@ -20585,7 +20652,7 @@
       "slugByLocale": {
         "it": "addetto-a-agli-acquisti-nel-settore-degli-appalti-pubblici-stadt-zurich-zurich",
         "en": "public-procurement-buyer-stadt-zurich-zurich",
-        "de": "einkaufer-in-offentliches-beschaffungswesen-stadt-zuerich-zurigo-52218",
+        "de": "einkaufer-in-offentliches-beschaffungswesen-stadt-zurich-zurich",
         "fr": "acheteur-euse-dans-le-domaine-des-marches-publics-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -20646,7 +20713,7 @@
           "einkaufer-in-offentliches-beschaffungswesen-stadt-zurich-zurich"
         ],
         "de": [
-          "einkaufer-in-offentliches-beschaffungswesen-stadt-zurich-zurich"
+          "einkaufer-in-offentliches-beschaffungswesen-stadt-zuerich-zurigo-52218"
         ],
         "fr": [
           "einkaufer-in-offentliches-beschaffungswesen-stadt-zurich-zurich"
@@ -21377,7 +21444,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.385Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-da7628e37d72",
@@ -21732,7 +21800,7 @@
       "slugByLocale": {
         "it": "supervisione-nella-scuola-diurna-altstetterstrasse-stadt-zurich-zurich",
         "en": "supervision-in-the-day-school-altstetterstrasse-stadt-zurich-zurich",
-        "de": "leitung-betreuung-in-der-tagesschule-altstetterstrasse-stadt-zuerich-zurigo-52266",
+        "de": "leitung-betreuung-in-der-tagesschule-altstetterstrasse-stadt-zurich-zurich",
         "fr": "supervision-dans-l-ecole-de-jour-altstetterstrasse-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -21793,7 +21861,7 @@
           "leitung-betreuung-in-der-tagesschule-altstetterstrasse-stadt-zurich-zurich"
         ],
         "de": [
-          "leitung-betreuung-in-der-tagesschule-altstetterstrasse-stadt-zurich-zurich"
+          "leitung-betreuung-in-der-tagesschule-altstetterstrasse-stadt-zuerich-zurigo-52266"
         ],
         "fr": [
           "leitung-betreuung-in-der-tagesschule-altstetterstrasse-stadt-zurich-zurich"
@@ -21823,7 +21891,7 @@
       "slugByLocale": {
         "it": "assistenza-scolastica-nella-zona-isr-scuola-nordstern-stadt-zurich-zurich",
         "en": "school-assistance-in-the-area-isr-school-nordstern-stadt-zurich-zurich",
-        "de": "schulassistenz-im-bereich-isr-schule-nordstern-stadt-zuerich-zurigo-52259",
+        "de": "schulassistenz-im-bereich-isr-schule-nordstern-stadt-zurich-zurich",
         "fr": "aide-scolaire-dans-la-region-isr-ecole-nordstern-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -21872,8 +21940,7 @@
       "unit": "Kreisschulbehörde Glattal",
       "referenceNumber": "52259",
       "previousSlugs": [
-        "schulassistenz-im-bereich-isr-schule-nordstern-stadt-zuerich-zurigo-52259",
-        "schulassistenz-im-bereich-isr-schule-nordstern-stadt-zurich-zurich"
+        "schulassistenz-im-bereich-isr-schule-nordstern-stadt-zuerich-zurigo-52259"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -21883,7 +21950,7 @@
           "schulassistenz-im-bereich-isr-schule-nordstern-stadt-zuerich-zurigo-52259"
         ],
         "de": [
-          "schulassistenz-im-bereich-isr-schule-nordstern-stadt-zurich-zurich"
+          "schulassistenz-im-bereich-isr-schule-nordstern-stadt-zuerich-zurigo-52259"
         ],
         "fr": [
           "schulassistenz-im-bereich-isr-schule-nordstern-stadt-zuerich-zurigo-52259"
@@ -21913,7 +21980,7 @@
       "slugByLocale": {
         "it": "schulleitungsassistenz-regelschule-luchswiesen-sar-stadt-zurich-zurich",
         "en": "school-management-assistant-regular-school-luchswiesen-sar-stadt-zurich-zurich",
-        "de": "schulleitungsassistenz-regelschule-luchswiesen-sar-stadt-zuerich-zurigo-52263",
+        "de": "schulleitungsassistenz-regelschule-luchswiesen-sar-stadt-zurich-zurich",
         "fr": "schulleitungsassistenz-regelschule-luchswiesen-sar-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -21967,6 +22034,9 @@
       "previousSlugsByLocale": {
         "it": [
           "schulleitungsassistenz-regelschule-luchswiesen-sar-stadt-zuerich-zurigo-52263"
+        ],
+        "de": [
+          "schulleitungsassistenz-regelschule-luchswiesen-sar-stadt-zuerich-zurigo-52263"
         ]
       },
       "needsRetranslation": true,
@@ -21994,7 +22064,7 @@
       "slugByLocale": {
         "it": "insegnante-di-classe-1-primario-libri-scolastici-stadt-zurich-zurich",
         "en": "class-teacher-1st-primary-school-book-meadows-stadt-zurich-zurich",
-        "de": "klassenlehrperson-1-primar-schule-buchwiesen-stadt-zuerich-zurigo-52264",
+        "de": "klassenlehrperson-1-primar-schule-buchwiesen-stadt-zurich-zurich",
         "fr": "enseignant-de-classe-1er-primaire-livre-scolaire-meadows-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -22055,7 +22125,7 @@
           "klassenlehrperson-1-primar-schule-buchwiesen-stadt-zurich-zurich"
         ],
         "de": [
-          "klassenlehrperson-1-primar-schule-buchwiesen-stadt-zurich-zurich"
+          "klassenlehrperson-1-primar-schule-buchwiesen-stadt-zuerich-zurigo-52264"
         ],
         "fr": [
           "klassenlehrperson-1-primar-schule-buchwiesen-stadt-zurich-zurich"
@@ -22085,7 +22155,7 @@
       "slugByLocale": {
         "it": "specialista-del-settore-dello-sviluppo-scolastico-stadt-zurich-zurich",
         "en": "specialist-school-development-department-stadt-zurich-zurich",
-        "de": "fachspezialist-in-fachbereich-schulentwicklung-stadt-zuerich-zurigo-52267",
+        "de": "fachspezialist-in-fachbereich-schulentwicklung-stadt-zurich-zurich",
         "fr": "specialiste-du-domaine-du-developpement-scolaire-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -22146,7 +22216,7 @@
           "fachspezialist-in-fachbereich-schulentwicklung-stadt-zurich-zurich"
         ],
         "de": [
-          "fachspezialist-in-fachbereich-schulentwicklung-stadt-zurich-zurich"
+          "fachspezialist-in-fachbereich-schulentwicklung-stadt-zuerich-zurigo-52267"
         ],
         "fr": [
           "fachspezialist-in-fachbereich-schulentwicklung-stadt-zurich-zurich"
@@ -22176,7 +22246,7 @@
       "slugByLocale": {
         "it": "pretirocinante-in-fisioterapia-sede-mattenhof-80-100-stadt-zurich-zurich",
         "en": "physiotherapy-pre-intern-mattenhof-location-80-100-stadt-zurich-zurich",
-        "de": "vorpraktikant-in-physiotherapie-standort-mattenhof-80-100-stadt-zuerich-zurigo-52261",
+        "de": "vorpraktikant-in-physiotherapie-standort-mattenhof-80-100-stadt-zurich-zurich",
         "fr": "stagiaire-preprofessionnel-le-en-physiotherapie-site-de-mattenhof-80-100-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -22225,8 +22295,7 @@
       "unit": "Gesundheitszentren für das Alter",
       "referenceNumber": "52261",
       "previousSlugs": [
-        "vorpraktikant-in-physiotherapie-standort-mattenhof-80-100-stadt-zuerich-zurigo-52261",
-        "vorpraktikant-in-physiotherapie-standort-mattenhof-80-100-stadt-zurich-zurich"
+        "vorpraktikant-in-physiotherapie-standort-mattenhof-80-100-stadt-zuerich-zurigo-52261"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -22236,7 +22305,7 @@
           "vorpraktikant-in-physiotherapie-standort-mattenhof-80-100-stadt-zuerich-zurigo-52261"
         ],
         "de": [
-          "vorpraktikant-in-physiotherapie-standort-mattenhof-80-100-stadt-zurich-zurich"
+          "vorpraktikant-in-physiotherapie-standort-mattenhof-80-100-stadt-zuerich-zurigo-52261"
         ],
         "fr": [
           "vorpraktikant-in-physiotherapie-standort-mattenhof-80-100-stadt-zuerich-zurigo-52261"
@@ -22433,7 +22502,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-12T09:56:44.385Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-0f8d83ddaafe",
@@ -22800,7 +22870,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.384Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-40e99d7f88af",
@@ -22975,7 +23046,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.384Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-64e4211d5e59",
@@ -23236,7 +23308,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.384Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-48ab8f010741",
@@ -23244,7 +23317,7 @@
       "slugByLocale": {
         "it": "responsabile-del-team-del-servizio-di-trasferimento-stadt-zurich-zurich",
         "en": "transfer-service-team-leader-stadt-zurich-zurich",
-        "de": "teamleiter-in-verlegungsdienst-stadt-zuerich-zurigo-52274",
+        "de": "teamleiter-in-verlegungsdienst-stadt-zurich-zurich",
         "fr": "responsable-d-equipe-du-service-de-transfert-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -23305,7 +23378,7 @@
           "teamleiter-in-verlegungsdienst-stadt-zurich-zurich"
         ],
         "de": [
-          "teamleiter-in-verlegungsdienst-stadt-zurich-zurich"
+          "teamleiter-in-verlegungsdienst-stadt-zuerich-zurigo-52274"
         ],
         "fr": [
           "teamleiter-in-verlegungsdienst-stadt-zurich-zurich"
@@ -23335,7 +23408,7 @@
       "slugByLocale": {
         "it": "addetto-a-alla-rappresentanza-stadt-zurich-zurich",
         "en": "representation-officer-stadt-zurich-zurich",
-        "de": "sachbearbeiter-in-reprasentation-stadt-zuerich-zurigo-52265",
+        "de": "sachbearbeiter-in-reprasentation-stadt-zurich-zurich",
         "fr": "collaborateur-trice-specialise-e-en-representation-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -23396,7 +23469,7 @@
           "sachbearbeiter-in-reprasentation-stadt-zurich-zurich"
         ],
         "de": [
-          "sachbearbeiter-in-reprasentation-stadt-zurich-zurich"
+          "sachbearbeiter-in-reprasentation-stadt-zuerich-zurigo-52265"
         ],
         "fr": [
           "sachbearbeiter-in-reprasentation-stadt-zurich-zurich"
@@ -23774,7 +23847,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.383Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-d39e9a04b110",
@@ -24130,7 +24204,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.383Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-79115d2f3c18",
@@ -24221,7 +24296,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.383Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-817eab40c0fc",
@@ -24301,7 +24377,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.383Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-5e5184a05778",
@@ -24668,7 +24745,7 @@
       "slugByLocale": {
         "it": "giardiniere-a-con-compiti-ampliati-stadt-zurich-zurich",
         "en": "gardener-with-extended-responsibilities-stadt-zurich-zurich",
-        "de": "gartner-in-mit-erweiterten-aufgaben-stadt-zuerich-zurigo-52309",
+        "de": "gartner-in-mit-erweiterten-aufgaben-stadt-zurich-zurich",
         "fr": "jardinier-jardiniere-avec-des-taches-etendues-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -24728,6 +24805,9 @@
         ],
         "fr": [
           "gartner-in-mit-erweiterten-aufgaben-stadt-zuerich-zurigo-52309"
+        ],
+        "de": [
+          "gartner-in-mit-erweiterten-aufgaben-stadt-zuerich-zurigo-52309"
         ]
       },
       "firstSeenAt": "2026-11-18T10:08:18.944Z",
@@ -24754,7 +24834,7 @@
       "slugByLocale": {
         "it": "responsabile-del-team-supporto-hfrb-stadt-zurich-zurich",
         "en": "hfrb-support-team-leader-stadt-zurich-zurich",
-        "de": "teamleiter-in-support-hfrb-stadt-zuerich-zurigo-52310",
+        "de": "teamleiter-in-support-hfrb-stadt-zurich-zurich",
         "fr": "chef-cheffe-d-equipe-support-hfrb-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -24813,6 +24893,9 @@
           "teamleiter-in-support-hfrb-stadt-zuerich-zurigo-52310"
         ],
         "fr": [
+          "teamleiter-in-support-hfrb-stadt-zuerich-zurigo-52310"
+        ],
+        "de": [
           "teamleiter-in-support-hfrb-stadt-zuerich-zurigo-52310"
         ]
       },
@@ -25358,7 +25441,7 @@
       "slugByLocale": {
         "it": "insegnante-di-classe-ii-sek-b-scuola-diurna-riedenhalden-stadt-zurich-zurich",
         "en": "class-teacher-2nd-sek-b-day-school-riedenhalden-stadt-zurich-zurich",
-        "de": "klassenlehrperson-2-sek-b-tagesschule-riedenhalden-stadt-zuerich-zurigo-52285",
+        "de": "klassenlehrperson-2-sek-b-tagesschule-riedenhalden-stadt-zurich-zurich",
         "fr": "professeur-2eme-sek-b-ecole-de-jour-riedenhalden-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -25420,6 +25503,9 @@
         ],
         "fr": [
           "klassenlehrperson-2-sek-b-tagesschule-riedenhalden-stadt-zurich-zurich"
+        ],
+        "de": [
+          "klassenlehrperson-2-sek-b-tagesschule-riedenhalden-stadt-zuerich-zurigo-52285"
         ]
       },
       "needsRetranslation": true,
@@ -25447,7 +25533,7 @@
       "slugByLocale": {
         "it": "praticante-universitario-a-asset-management-per-12-mesi-stadt-zurich-zurich",
         "en": "university-intern-asset-management-for-12-months-stadt-zurich-zurich",
-        "de": "hochschulpraktikant-in-asset-management-fur-12-monate-stadt-zuerich-zurigo-52288",
+        "de": "hochschulpraktikant-in-asset-management-fur-12-monate-stadt-zurich-zurich",
         "fr": "stagiaire-universitaire-en-gestion-d-actifs-pour-12-mois-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -25510,6 +25596,9 @@
         ],
         "fr": [
           "hochschulpraktikant-in-asset-management-fur-12-monate-stadt-zurich-zurich"
+        ],
+        "de": [
+          "hochschulpraktikant-in-asset-management-fur-12-monate-stadt-zuerich-zurigo-52288"
         ]
       },
       "firstSeenAt": "2026-11-17T09:51:11.159Z",
@@ -26038,7 +26127,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.382Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-6beb9f052535",
@@ -26319,7 +26409,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-18T09:56:44.381Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-d0b60de05653",
@@ -26327,7 +26418,7 @@
       "slugByLocale": {
         "it": "specialista-della-salute-demenza-specializzata-sito-mattenhof-stadt-zurich-zurich",
         "en": "health-specialist-specialized-dementia-mattenhof-site-stadt-zurich-zurich",
-        "de": "fachperson-gesundheit-spezialisierte-demenz-standort-mattenhof-stadt-zuerich-zurigo-52249",
+        "de": "fachperson-gesundheit-spezialisierte-demenz-standort-mattenhof-stadt-zurich-zurich",
         "fr": "specialiste-de-la-sante-demence-specialisee-site-de-mattenhof-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -26387,6 +26478,9 @@
         ],
         "fr": [
           "fachperson-gesundheit-spezialisierte-demenz-standort-mattenhof-stadt-zuerich-zurigo-52249"
+        ],
+        "de": [
+          "fachperson-gesundheit-spezialisierte-demenz-standort-mattenhof-stadt-zuerich-zurigo-52249"
         ]
       },
       "firstSeenAt": "2026-11-18T10:08:18.943Z",
@@ -26413,7 +26507,7 @@
       "slugByLocale": {
         "it": "sachbearbeiter-in-behordenabteilung-kesb-stadt-zurich-zurich",
         "en": "sachbearbeiter-in-behordenabteilung-kesb-stadt-zurich-zurich",
-        "de": "sachbearbeiter-in-behordenabteilung-kesb-stadt-zuerich-zurigo-52295",
+        "de": "sachbearbeiter-in-behordenabteilung-kesb-stadt-zurich-zurich",
         "fr": "sachbearbeiter-in-behordenabteilung-kesb-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -26467,6 +26561,9 @@
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-behordenabteilung-kesb-stadt-zuerich-zurigo-52295"
+        ],
+        "de": [
+          "sachbearbeiter-in-behordenabteilung-kesb-stadt-zuerich-zurigo-52295"
         ]
       },
       "firstSeenAt": "2026-09-29T21:42:14.305Z",
@@ -26493,7 +26590,7 @@
       "slugByLocale": {
         "it": "insegnante-di-classe-vicariat-nell-anno-di-preparazione-professionale-stadt-zurich-zurich",
         "en": "vicariat-class-teacher-in-the-vocational-preparation-year-stadt-zurich-zurich",
-        "de": "vikariat-klassenlehrperson-im-berufsvorbereitungsjahr-stadt-zuerich-zurigo-52303",
+        "de": "vikariat-klassenlehrperson-im-berufsvorbereitungsjahr-stadt-zurich-zurich",
         "fr": "professeur-de-cours-de-vicariat-a-l-annee-de-preparation-professionnelle-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -26555,6 +26652,9 @@
         ],
         "fr": [
           "vikariat-klassenlehrperson-im-berufsvorbereitungsjahr-stadt-zurich-zurich"
+        ],
+        "de": [
+          "vikariat-klassenlehrperson-im-berufsvorbereitungsjahr-stadt-zuerich-zurigo-52303"
         ]
       },
       "firstSeenAt": "2026-11-18T10:08:18.944Z",
@@ -26581,7 +26681,7 @@
       "slugByLocale": {
         "it": "docente-specializzato-vicariato-nell-anno-di-preparazione-professionale-stadt-zurich-zurich",
         "en": "vicariate-specialist-teacher-in-the-vocational-preparation-year-stadt-zurich-zurich",
-        "de": "vikariat-fachlehrperson-im-berufsvorbereitungsjahr-stadt-zuerich-zurigo-52304",
+        "de": "vikariat-fachlehrperson-im-berufsvorbereitungsjahr-stadt-zurich-zurich",
         "fr": "professeur-specialiste-vicariat-a-l-annee-de-preparation-professionnelle-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -26643,6 +26743,9 @@
         ],
         "fr": [
           "vikariat-fachlehrperson-im-berufsvorbereitungsjahr-stadt-zurich-zurich"
+        ],
+        "de": [
+          "vikariat-fachlehrperson-im-berufsvorbereitungsjahr-stadt-zuerich-zurigo-52304"
         ]
       },
       "firstSeenAt": "2026-11-18T10:08:18.944Z",
@@ -26669,7 +26772,7 @@
       "slugByLocale": {
         "it": "giardiniere-a-giardinaggio-e-paesaggistica-stadt-zurich-zurich",
         "en": "gardener-m-f-gardening-and-landscaping-stadt-zurich-zurich",
-        "de": "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52307",
+        "de": "gartner-in-garten-und-landschaftsbau-stadt-zurich-zurich",
         "fr": "horticulteur-horticultrice-en-amenagement-paysager-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -26733,6 +26836,9 @@
         ],
         "fr": [
           "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52307"
+        ],
+        "de": [
+          "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52307"
         ]
       },
       "firstSeenAt": "2026-10-05T21:59:00.869Z",
@@ -26759,7 +26865,7 @@
       "slugByLocale": {
         "it": "insegnante-curativo-scolastico-45-stadt-zurich-zurich",
         "en": "school-curative-teacher-45-stadt-zurich-zurich",
-        "de": "schulische-n-heilpadagoge-in-45-stadt-zuerich-zurigo-52287",
+        "de": "schulische-n-heilpadagoge-in-45-stadt-zurich-zurich",
         "fr": "professeur-a-l-ecole-45-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -26819,6 +26925,9 @@
         ],
         "fr": [
           "schulische-n-heilpadagoge-in-45-stadt-zuerich-zurigo-52287"
+        ],
+        "de": [
+          "schulische-n-heilpadagoge-in-45-stadt-zuerich-zurigo-52287"
         ]
       },
       "firstSeenAt": "2026-11-17T09:51:11.157Z",
@@ -26845,7 +26954,7 @@
       "slugByLocale": {
         "it": "addetto-a-al-servizio-clienti-e-all-amministrazione-stadt-zurich-zurich",
         "en": "customer-service-and-administration-clerk-stadt-zurich-zurich",
-        "de": "sachbearbeiter-in-kundenservice-und-administration-stadt-zuerich-zurigo-52292",
+        "de": "sachbearbeiter-in-kundenservice-und-administration-stadt-zurich-zurich",
         "fr": "gestionnaire-du-service-client-et-de-l-administration-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -26908,6 +27017,9 @@
         ],
         "fr": [
           "sachbearbeiter-in-kundenservice-und-administration-stadt-zurich-zurich"
+        ],
+        "de": [
+          "sachbearbeiter-in-kundenservice-und-administration-stadt-zuerich-zurigo-52292"
         ]
       },
       "firstSeenAt": "2026-11-18T10:08:18.944Z",
@@ -26934,7 +27046,7 @@
       "slugByLocale": {
         "it": "specialista-in-gestione-e-processi-formativi-stadt-zurich-zurich",
         "en": "specialist-in-educational-management-and-processes-stadt-zurich-zurich",
-        "de": "fachexpert-in-bildungsmanagement-und-prozesse-stadt-zuerich-zurigo-52296",
+        "de": "fachexpert-in-bildungsmanagement-und-prozesse-stadt-zurich-zurich",
         "fr": "expert-e-en-gestion-de-la-formation-et-des-processus-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -26997,6 +27109,9 @@
         ],
         "fr": [
           "fachexpert-in-bildungsmanagement-und-prozesse-stadt-zurich-zurich"
+        ],
+        "de": [
+          "fachexpert-in-bildungsmanagement-und-prozesse-stadt-zuerich-zurigo-52296"
         ]
       },
       "firstSeenAt": "2026-11-18T10:08:18.944Z",
@@ -27023,7 +27138,7 @@
       "slugByLocale": {
         "it": "specialista-di-pulizia-sito-selnau-stadt-zurich-zurich",
         "en": "housekeeping-specialist-selnau-site-stadt-zurich-zurich",
-        "de": "fachperson-hauswirtschaft-standort-selnau-stadt-zuerich-zurigo-52299",
+        "de": "fachperson-hauswirtschaft-standort-selnau-stadt-zurich-zurich",
         "fr": "specialiste-du-menage-site-de-selnau-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -27083,6 +27198,9 @@
         ],
         "fr": [
           "fachperson-hauswirtschaft-standort-selnau-stadt-zuerich-zurigo-52299"
+        ],
+        "de": [
+          "fachperson-hauswirtschaft-standort-selnau-stadt-zuerich-zurigo-52299"
         ]
       },
       "firstSeenAt": "2026-11-18T10:08:18.944Z",
@@ -27109,7 +27227,7 @@
       "slugByLocale": {
         "it": "assistenza-specialistica-limitata-a-31-08-2027-stadt-zurich-zurich",
         "en": "specialist-care-limited-to-31-08-2027-stadt-zurich-zurich",
-        "de": "fachperson-betreuung-befristet-bis-31-08-2027-stadt-zuerich-zurigo-52301",
+        "de": "fachperson-betreuung-befristet-bis-31-08-2027-stadt-zurich-zurich",
         "fr": "soins-specialises-limites-a-31-08-2027-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -27171,6 +27289,9 @@
         ],
         "fr": [
           "fachperson-betreuung-befristet-bis-31-08-2027-stadt-zuerich-zurigo-52301"
+        ],
+        "de": [
+          "fachperson-betreuung-befristet-bis-31-08-2027-stadt-zuerich-zurigo-52301"
         ]
       },
       "firstSeenAt": "2026-11-18T10:08:18.944Z",
@@ -27197,7 +27318,7 @@
       "slugByLocale": {
         "it": "assunzione-a-tempo-determinato-come-addetto-a-alle-pulizie-stadt-zurich-zurich",
         "en": "fixed-term-position-as-a-cleaning-operative-stadt-zurich-zurich",
-        "de": "befristete-anstellung-als-reinigungsmitarbeiter-in-stadt-zuerich-zurigo-52306",
+        "de": "befristete-anstellung-als-reinigungsmitarbeiter-in-stadt-zurich-zurich",
         "fr": "emploi-a-duree-determinee-en-tant-qu-agent-e-de-nettoyage-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -27260,6 +27381,9 @@
         ],
         "fr": [
           "befristete-anstellung-als-reinigungsmitarbeiter-in-stadt-zurich-zurich"
+        ],
+        "de": [
+          "befristete-anstellung-als-reinigungsmitarbeiter-in-stadt-zuerich-zurigo-52306"
         ]
       },
       "firstSeenAt": "2026-11-18T10:08:18.944Z",
@@ -27358,7 +27482,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.380Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-b85c94566a7a",
@@ -27444,7 +27569,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.380Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-0deeed989ed2",
@@ -27729,7 +27855,7 @@
       "slugByLocale": {
         "it": "tirocinante-universitario-a-in-diagnostica-stadt-zurich-zurich",
         "en": "university-trainee-in-diagnostics-stadt-zurich-zurich",
-        "de": "hochschulpraktikant-in-diagnostik-stadt-zuerich-zurigo-52314",
+        "de": "hochschulpraktikant-in-diagnostik-stadt-zurich-zurich",
         "fr": "stagiaire-universitaire-en-diagnostic-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -27791,6 +27917,9 @@
         ],
         "fr": [
           "hochschulpraktikant-in-diagnostik-stadt-zurich-zurich"
+        ],
+        "de": [
+          "hochschulpraktikant-in-diagnostik-stadt-zuerich-zurigo-52314"
         ]
       },
       "needsRetranslation": true,
@@ -27818,7 +27947,7 @@
       "slugByLocale": {
         "it": "addetto-alle-spese-mediche-stadt-zurich-zurich",
         "en": "medical-expenses-clerk-stadt-zurich-zurich",
-        "de": "sachbearbeiter-in-krankheitskosten-stadt-zuerich-zurigo-52229",
+        "de": "sachbearbeiter-in-krankheitskosten-stadt-zurich-zurich",
         "fr": "commis-aux-frais-medicaux-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -27880,6 +28009,9 @@
         ],
         "fr": [
           "sachbearbeiter-in-krankheitskosten-stadt-zurich-zurich"
+        ],
+        "de": [
+          "sachbearbeiter-in-krankheitskosten-stadt-zuerich-zurigo-52229"
         ]
       },
       "firstSeenAt": "2026-11-21T21:59:40.722Z",
@@ -27906,7 +28038,7 @@
       "slugByLocale": {
         "it": "gestione-delle-risorse-per-tirocinanti-universitari-stadt-zurich-zurich",
         "en": "university-intern-resource-management-stadt-zurich-zurich",
-        "de": "hochschulpraktikant-in-ressourcenmanagement-stadt-zuerich-zurigo-52319",
+        "de": "hochschulpraktikant-in-ressourcenmanagement-stadt-zurich-zurich",
         "fr": "gestion-des-ressources-pour-les-stagiaires-universitaires-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -27968,6 +28100,9 @@
         ],
         "fr": [
           "hochschulpraktikant-in-ressourcenmanagement-stadt-zurich-zurich"
+        ],
+        "de": [
+          "hochschulpraktikant-in-ressourcenmanagement-stadt-zuerich-zurigo-52319"
         ]
       },
       "firstSeenAt": "2026-11-21T21:59:40.722Z",
@@ -27994,7 +28129,7 @@
       "slugByLocale": {
         "it": "co-preside-stadt-zurich-zurich",
         "en": "co-principal-stadt-zurich-zurich",
-        "de": "co-schulleiter-in-stadt-zuerich-zurigo-52316",
+        "de": "co-schulleiter-in-stadt-zurich-zurich",
         "fr": "co-principal-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -28054,6 +28189,9 @@
         ],
         "fr": [
           "co-schulleiter-in-stadt-zuerich-zurigo-52316"
+        ],
+        "de": [
+          "co-schulleiter-in-stadt-zuerich-zurigo-52316"
         ]
       },
       "firstSeenAt": "2026-11-21T21:59:40.722Z",
@@ -28072,7 +28210,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-20T09:56:44.380Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-424ac70743bd",
@@ -28080,7 +28219,7 @@
       "slugByLocale": {
         "it": "impiegato-del-centro-informazioni-60-limitato-fino-al-30-11-2027-stadt-zurich-zurich",
         "en": "information-center-clerk-60-limited-until-30-11-2027-stadt-zurich-zurich",
-        "de": "sachbearbeiter-in-informationszentrum-60-befristet-bis-30-11-2027-stadt-zuerich-zurigo",
+        "de": "sachbearbeiter-in-informationszentrum-60-befristet-bis-30-11-2027-stadt-zurich-zurich",
         "fr": "employe-du-centre-d-information-60-limite-jusqu-au-30-11-2027-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -28143,6 +28282,9 @@
         ],
         "fr": [
           "sachbearbeiter-in-informationszentrum-60-befristet-bis-30-11-2027-stadt-zurich-zurich"
+        ],
+        "de": [
+          "sachbearbeiter-in-informationszentrum-60-befristet-bis-30-11-2027-stadt-zuerich-zurigo"
         ]
       },
       "firstSeenAt": "2026-11-21T21:59:40.722Z",
@@ -28169,7 +28311,7 @@
       "slugByLocale": {
         "it": "specialista-medico-60-stadt-zurich-zurich",
         "en": "medical-specialist-60-stadt-zurich-zurich",
-        "de": "medizinische-n-fachspezialist-in-60-stadt-zuerich-zurigo-52318",
+        "de": "medizinische-n-fachspezialist-in-60-stadt-zurich-zurich",
         "fr": "specialiste-medical-60-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -28228,6 +28370,9 @@
           "medizinische-n-fachspezialist-in-60-stadt-zuerich-zurigo-52318"
         ],
         "fr": [
+          "medizinische-n-fachspezialist-in-60-stadt-zuerich-zurigo-52318"
+        ],
+        "de": [
           "medizinische-n-fachspezialist-in-60-stadt-zuerich-zurigo-52318"
         ]
       },
@@ -28333,7 +28478,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.380Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-f9988a5fc9ee",
@@ -28432,8 +28578,8 @@
       "slug": "area-manager-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "area-manager-stadt-zurich-zurich",
-        "en": "gebietsverantwortliche-r-stadt-zurich-zurich",
-        "de": "gebietsverantwortliche-r-stadt-zuerich-zurigo-51975",
+        "en": "area-manager-stadt-zurich-zurich",
+        "de": "gebietsverantwortliche-r-stadt-zurich-zurich",
         "fr": "responsable-regional-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -28492,6 +28638,12 @@
         ],
         "fr": [
           "gebietsverantwortliche-r-stadt-zurich-zurich"
+        ],
+        "en": [
+          "gebietsverantwortliche-r-stadt-zurich-zurich"
+        ],
+        "de": [
+          "gebietsverantwortliche-r-stadt-zuerich-zurigo-51975"
         ]
       },
       "firstSeenAt": "2026-11-21T21:59:40.721Z",
@@ -28510,15 +28662,16 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-20T09:56:44.379Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-b27574b34bad",
       "slug": "customer-advisor-de-fr-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "customer-advisor-de-fr-stadt-zurich-zurich",
-        "en": "kundenberater-in-de-fr-stadt-zurich-zurich",
-        "de": "kundenberater-in-de-fr-stadt-zuerich-zurigo-52336",
+        "en": "customer-advisor-de-fr-stadt-zurich-zurich",
+        "de": "kundenberater-in-de-fr-stadt-zurich-zurich",
         "fr": "conseiller-client-de-fr-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -28577,6 +28730,12 @@
         ],
         "fr": [
           "kundenberater-in-de-fr-stadt-zurich-zurich"
+        ],
+        "en": [
+          "kundenberater-in-de-fr-stadt-zurich-zurich"
+        ],
+        "de": [
+          "kundenberater-in-de-fr-stadt-zuerich-zurigo-52336"
         ]
       },
       "firstSeenAt": "2026-11-21T21:59:40.721Z",
@@ -28595,7 +28754,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-20T09:56:44.379Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-7e2b1bcf8289",
@@ -28603,7 +28763,7 @@
       "slugByLocale": {
         "it": "insegnante-specializzato-francese-scuola-diurna-riedenhalden-22-33-stadt-zurich-zurich",
         "en": "specialist-teacher-french-day-school-riedenhalden-22-33-stadt-zurich-zurich",
-        "de": "fachlehrperson-franzosisch-tagesschule-riedenhalden-22-33-stadt-zuerich-zurigo-52337",
+        "de": "fachlehrperson-franzosisch-tagesschule-riedenhalden-22-33-stadt-zurich-zurich",
         "fr": "professeur-specialise-francais-ecole-de-jour-riedenhalden-22-33-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -28663,6 +28823,9 @@
         ],
         "fr": [
           "fachlehrperson-franzosisch-tagesschule-riedenhalden-22-33-stadt-zuerich-zurigo-52337"
+        ],
+        "de": [
+          "fachlehrperson-franzosisch-tagesschule-riedenhalden-22-33-stadt-zuerich-zurigo-52337"
         ]
       },
       "firstSeenAt": "2026-11-21T21:59:40.721Z",
@@ -28689,7 +28852,7 @@
       "slugByLocale": {
         "it": "tecnico-di-manutenzione-hvac-stadt-zurich-zurich",
         "en": "instandhaltungstechniker-in-hlk-stadt-zurich-zurich",
-        "de": "instandhaltungstechniker-in-hlk-stadt-zuerich-zurigo-52325",
+        "de": "instandhaltungstechniker-in-hlk-stadt-zurich-zurich",
         "fr": "instandhaltungstechniker-in-hlk-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -28745,6 +28908,9 @@
         "it": [
           "instandhaltungstechniker-in-hlk-stadt-zuerich-zurigo-52325",
           "instandhaltungstechniker-in-hlk-stadt-zurich-zurich"
+        ],
+        "de": [
+          "instandhaltungstechniker-in-hlk-stadt-zuerich-zurigo-52325"
         ]
       },
       "firstSeenAt": "2026-09-01T16:12:36.174Z",
@@ -28771,7 +28937,7 @@
       "slugByLocale": {
         "it": "pflegefachperson-hf-fh-stadt-zurich-zurich",
         "en": "pflegefachperson-hf-fh-stadt-zurich-zurich",
-        "de": "pflegefachperson-hf-fh-stadt-zuerich-zurigo-52335",
+        "de": "pflegefachperson-hf-fh-stadt-zurich-zurich",
         "fr": "pflegefachperson-hf-fh-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -28825,6 +28991,9 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-hf-fh-stadt-zuerich-zurigo-52335"
+        ],
+        "de": [
+          "pflegefachperson-hf-fh-stadt-zuerich-zurigo-52335"
         ]
       },
       "firstSeenAt": "2026-11-21T21:59:40.721Z",
@@ -28851,7 +29020,7 @@
       "slugByLocale": {
         "it": "pedagogia-sociale-gestione-dell-assistenza-dopo-scuola-o-specialista-dell-assistenza-presso-la-loogarten-school-stadt",
         "en": "social-pedagogue-after-school-care-management-or-care-specialist-at-loogarten-school-stadt-zurich-zurich",
-        "de": "sozialpadagog-in-hortleitung-oder-fachperson-betreuung-schule-loogarten-stadt-zuerich",
+        "de": "sozialpadagog-in-hortleitung-oder-fachperson-betreuung-schule-loogarten-stadt-zurich-zurich",
         "fr": "pedagogue-social-gestion-des-soins-periscolaires-ou-specialiste-de-l-accueil-a-loogarten-school-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -28913,6 +29082,9 @@
         ],
         "fr": [
           "sozialpadagog-in-hortleitung-oder-fachperson-betreuung-schule-loogarten-stadt-zuerich"
+        ],
+        "de": [
+          "sozialpadagog-in-hortleitung-oder-fachperson-betreuung-schule-loogarten-stadt-zuerich"
         ]
       },
       "firstSeenAt": "2026-11-21T21:59:40.721Z",
@@ -28939,7 +29111,7 @@
       "slugByLocale": {
         "it": "team-leader-housekeeping-immobiliare-commerciale-stadt-zurich-zurich",
         "en": "team-leader-housekeeping-commercial-real-estate-stadt-zurich-zurich",
-        "de": "teamleiter-in-hauswartung-gewerbeimmobilien-stadt-zuerich-zurigo-52290",
+        "de": "teamleiter-in-hauswartung-gewerbeimmobilien-stadt-zurich-zurich",
         "fr": "chef-d-equipe-entretien-menager-immobilier-commercial-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -29001,6 +29173,9 @@
         ],
         "fr": [
           "teamleiter-in-hauswartung-gewerbeimmobilien-stadt-zurich-zurich"
+        ],
+        "de": [
+          "teamleiter-in-hauswartung-gewerbeimmobilien-stadt-zuerich-zurigo-52290"
         ]
       },
       "firstSeenAt": "2026-11-21T21:59:40.721Z",
@@ -29027,7 +29202,7 @@
       "slugByLocale": {
         "it": "capo-squadra-per-la-ritenuta-d-acconto-stadt-zurich-zurich",
         "en": "team-leader-for-withholding-tax-stadt-zurich-zurich",
-        "de": "teamleiter-in-quellensteuer-stadt-zuerich-zurigo-52343",
+        "de": "teamleiter-in-quellensteuer-stadt-zurich-zurich",
         "fr": "chef-d-equipe-pour-la-retenue-a-la-source-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -29087,6 +29262,9 @@
         ],
         "fr": [
           "teamleiter-in-quellensteuer-stadt-zuerich-zurigo-52343"
+        ],
+        "de": [
+          "teamleiter-in-quellensteuer-stadt-zuerich-zurigo-52343"
         ]
       },
       "firstSeenAt": "2026-11-21T21:59:40.721Z",
@@ -29113,7 +29291,7 @@
       "slugByLocale": {
         "it": "assistente-scolastico-nella-sede-isr-langmatt-stadt-zurich-zurich",
         "en": "school-assistant-in-the-isr-setting-langmatt-stadt-zurich-zurich",
-        "de": "schulassistenz-im-isr-setting-langmatt-stadt-zuerich-zurigo-52344",
+        "de": "schulassistenz-im-isr-setting-langmatt-stadt-zurich-zurich",
         "fr": "assistant-d-ecole-dans-le-cadre-de-l-isr-langmatt-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -29173,6 +29351,9 @@
         ],
         "fr": [
           "schulassistenz-im-isr-setting-langmatt-stadt-zuerich-zurigo-52344"
+        ],
+        "de": [
+          "schulassistenz-im-isr-setting-langmatt-stadt-zuerich-zurigo-52344"
         ]
       },
       "firstSeenAt": "2026-11-21T21:59:40.721Z",
@@ -29191,7 +29372,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-20T09:56:44.379Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-a25e1adef952",
@@ -29199,7 +29381,7 @@
       "slugByLocale": {
         "it": "gestione-dell-assistenza-doposcuola-scuola-untermoos-stadt-zurich-zurich",
         "en": "after-school-care-management-untermoos-school-stadt-zurich-zurich",
-        "de": "hortleitung-schule-untermoos-stadt-zuerich-zurigo-52347",
+        "de": "hortleitung-schule-untermoos-stadt-zurich-zurich",
         "fr": "gestion-des-garderies-periscolaires-ecole-untermoos-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -29258,6 +29440,9 @@
           "hortleitung-schule-untermoos-stadt-zuerich-zurigo-52347"
         ],
         "fr": [
+          "hortleitung-schule-untermoos-stadt-zuerich-zurigo-52347"
+        ],
+        "de": [
           "hortleitung-schule-untermoos-stadt-zuerich-zurigo-52347"
         ]
       },
@@ -29807,7 +29992,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.378Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-8f9e073f5ab2",
@@ -30199,7 +30385,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-23T09:56:44.378Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-357bdf44b407",
@@ -30319,7 +30506,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.378Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-98e603af1eec",
@@ -30403,7 +30591,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.378Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-81843a5273ea",
@@ -30661,7 +30850,7 @@
       "slugByLocale": {
         "it": "specialista-insegnante-ttg-non-tessile-day-school-riedenhalden-51-stadt-zurich-zurich",
         "en": "specialist-teacher-ttg-not-textile-day-school-riedenhalden-51-stadt-zurich-zurich",
-        "de": "fachlehrperson-ttg-nicht-textil-tagesschule-riedenhalden-51-stadt-zuerich-zurigo-52331",
+        "de": "fachlehrperson-ttg-nicht-textil-tagesschule-riedenhalden-51-stadt-zurich-zurich",
         "fr": "professeur-specialise-ttg-pas-textile-ecole-de-jour-riedenhalden-51-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -30721,6 +30910,9 @@
         ],
         "fr": [
           "fachlehrperson-ttg-nicht-textil-tagesschule-riedenhalden-51-stadt-zuerich-zurigo-52331"
+        ],
+        "de": [
+          "fachlehrperson-ttg-nicht-textil-tagesschule-riedenhalden-51-stadt-zuerich-zurigo-52331"
         ]
       },
       "firstSeenAt": "2026-11-21T21:59:40.721Z",
@@ -30747,7 +30939,7 @@
       "slugByLocale": {
         "it": "specialista-nella-protezione-degli-alberi-stadt-zurich-zurich",
         "en": "specialist-in-tree-protection-stadt-zurich-zurich",
-        "de": "fachbearbeiter-in-baumschutz-stadt-zuerich-zurigo-52346",
+        "de": "fachbearbeiter-in-baumschutz-stadt-zurich-zurich",
         "fr": "specialiste-en-protection-des-arbres-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -30806,6 +30998,9 @@
           "fachbearbeiter-in-baumschutz-stadt-zuerich-zurigo-52346"
         ],
         "fr": [
+          "fachbearbeiter-in-baumschutz-stadt-zuerich-zurigo-52346"
+        ],
+        "de": [
           "fachbearbeiter-in-baumschutz-stadt-zuerich-zurigo-52346"
         ]
       },
@@ -30915,7 +31110,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-20T09:56:44.377Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-01838dbfeff6",
@@ -31095,7 +31291,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-18T09:56:44.377Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-bda8a44022d0",
@@ -32334,7 +32531,7 @@
       "slugByLocale": {
         "it": "software-developer-stadt-zurich-zurich",
         "en": "software-developer-stadt-zurich-zurich",
-        "de": "software-entwickler-in-stadt-zuerich-zurigo-52203",
+        "de": "software-entwickler-in-stadt-zurich-zurich",
         "fr": "developpeur-logiciel-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -32394,6 +32591,9 @@
         ],
         "en": [
           "software-entwickler-in-stadt-zuerich-zurigo-52203"
+        ],
+        "de": [
+          "software-entwickler-in-stadt-zuerich-zurigo-52203"
         ]
       },
       "firstSeenAt": "2026-11-21T21:59:40.719Z",
@@ -32412,7 +32612,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-20T09:56:44.376Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-686ccf8e613a",
@@ -32420,7 +32621,7 @@
       "slugByLocale": {
         "it": "ufficiale-di-conservazione-stadt-zurich-zurich-464007",
         "en": "preservation-officer-stadt-zurich-zurich-464007",
-        "de": "pfandungsbeamter-pfandungsbeamtin-stadt-zuerich-zurigo-52330",
+        "de": "pfandungsbeamter-pfandungsbeamtin-stadt-zurich-zurich",
         "fr": "specialiste-de-la-preservation-stadt-zurich-zurich-464007"
       },
       "company": "Stadt Zürich",
@@ -32482,6 +32683,9 @@
         ],
         "fr": [
           "pfandungsbeamter-pfandungsbeamtin-stadt-zurich-zurich"
+        ],
+        "de": [
+          "pfandungsbeamter-pfandungsbeamtin-stadt-zuerich-zurigo-52330"
         ]
       },
       "firstSeenAt": "2026-09-09T14:03:53.336Z",
@@ -32508,7 +32712,7 @@
       "slugByLocale": {
         "it": "junior-project-manager-stadt-zurich-zurich",
         "en": "junior-project-manager-stadt-zurich-zurich",
-        "de": "junior-projektleiter-in-stadt-zuerich-zurigo-52341",
+        "de": "junior-projektleiter-in-stadt-zurich-zurich",
         "fr": "chef-de-projet-junior-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -32570,6 +32774,9 @@
         ],
         "en": [
           "junior-projektleiter-in-stadt-zuerich-zurigo-52341"
+        ],
+        "de": [
+          "junior-projektleiter-in-stadt-zuerich-zurigo-52341"
         ]
       },
       "firstSeenAt": "2026-11-21T21:59:40.720Z",
@@ -32588,7 +32795,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-20T09:56:44.376Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-43ca001eb247",
@@ -32984,7 +33192,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-22T09:56:44.375Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-c28043e4d848",
@@ -32992,7 +33201,7 @@
       "slugByLocale": {
         "it": "tirocinio-in-educazione-aziendale-post-baccalaureato-pwa-stadt-zurich-zurich",
         "en": "intern-post-baccalaureate-business-education-pwa-stadt-zurich-zurich",
-        "de": "praktikant-in-postmaturitare-wirtschaftsausbildung-pwa-stadt-zuerich-zurigo-52329",
+        "de": "praktikant-in-postmaturitare-wirtschaftsausbildung-pwa-stadt-zurich-zurich",
         "fr": "stage-en-education-aux-affaires-post-baccalaureat-pwa-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -33054,6 +33263,9 @@
         ],
         "fr": [
           "praktikant-in-postmaturitare-wirtschaftsausbildung-pwa-stadt-zurich-zurich"
+        ],
+        "de": [
+          "praktikant-in-postmaturitare-wirtschaftsausbildung-pwa-stadt-zuerich-zurigo-52329"
         ]
       },
       "firstSeenAt": "2026-11-21T21:59:40.718Z",
@@ -33080,7 +33292,7 @@
       "slugByLocale": {
         "it": "assistente-sociale-amministrazione-studentesca-educazione-speciale-stadt-zurich-zurich",
         "en": "caseworker-student-administration-special-education-stadt-zurich-zurich",
-        "de": "sachbearbeiter-in-schuleradministration-sonderpadagogik-stadt-zuerich-zurigo-52324",
+        "de": "sachbearbeiter-in-schuleradministration-sonderpadagogik-stadt-zurich-zurich",
         "fr": "assistant-social-administration-des-etudiants-education-specialisee-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -33142,6 +33354,9 @@
         ],
         "fr": [
           "sachbearbeiter-in-schuleradministration-sonderpadagogik-stadt-zurich-zurich"
+        ],
+        "de": [
+          "sachbearbeiter-in-schuleradministration-sonderpadagogik-stadt-zuerich-zurigo-52324"
         ]
       },
       "firstSeenAt": "2026-11-21T21:59:40.718Z",
@@ -33168,7 +33383,7 @@
       "slugByLocale": {
         "it": "ufficio-gestione-dei-progetti-per-tirocinanti-universitari-stadt-zurich-zurich",
         "en": "university-intern-project-management-office-stadt-zurich-zurich",
-        "de": "hochschulpraktikant-in-projekt-management-office-stadt-zuerich-zurigo-52353",
+        "de": "hochschulpraktikant-in-projekt-management-office-stadt-zurich-zurich",
         "fr": "bureau-de-gestion-de-projet-des-stagiaires-universitaires-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -33230,6 +33445,9 @@
         ],
         "fr": [
           "hochschulpraktikant-in-projekt-management-office-stadt-zurich-zurich"
+        ],
+        "de": [
+          "hochschulpraktikant-in-projekt-management-office-stadt-zuerich-zurigo-52353"
         ]
       },
       "firstSeenAt": "2026-11-21T21:59:40.718Z",
@@ -33341,7 +33559,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.374Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-46feb067c099",
@@ -33508,7 +33727,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-22T09:56:44.374Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-1f39cd35c7ef",
@@ -33857,7 +34077,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-24T09:56:44.374Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-df32afdc5059",
@@ -34278,7 +34499,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-25T09:56:44.372Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-6b4814160387",
@@ -34783,11 +35005,15 @@
       "unit": "Immobilien Stadt Zürich",
       "referenceNumber": "51973",
       "previousSlugs": [
-        "objektverantwortliche-r-stadt-zuerich-zurigo-51973"
+        "objektverantwortliche-r-stadt-zuerich-zurigo-51973",
+        "property-manager-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "objektverantwortliche-r-stadt-zuerich-zurigo-51973"
+        ],
+        "en": [
+          "property-manager-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-28T09:57:44.383Z",
@@ -34981,7 +35207,8 @@
       "validThrough": "2026-12-18T10:08:18.958Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.stadt-zuerich.ch/job/vorarbeiterin/1371070557",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-4e328108212e",
@@ -35077,7 +35304,7 @@
       "slugByLocale": {
         "it": "gestione-dell-assistenza-51-e-gestione-dell-istruzione-secondaria-32-stadt-zurich-zurich",
         "en": "supervision-management-51-daycare-management-32-stadt-zurich-zurich",
-        "de": "leitung-betreuung-51-hortleitung-32-stadt-zuerich-zurigo-52152",
+        "de": "leitung-betreuung-51-hortleitung-32-stadt-zurich-zurich",
         "fr": "direction-de-la-prise-en-charge-51-et-de-la-garde-32-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -35126,8 +35353,7 @@
       "unit": "Kreisschulbehörde Limmattal",
       "referenceNumber": "52152",
       "previousSlugs": [
-        "leitung-betreuung-51-hortleitung-32-stadt-zuerich-zurigo-52152",
-        "leitung-betreuung-51-hortleitung-32-stadt-zurich-zurich"
+        "leitung-betreuung-51-hortleitung-32-stadt-zuerich-zurigo-52152"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -35137,7 +35363,7 @@
           "leitung-betreuung-51-hortleitung-32-stadt-zuerich-zurigo-52152"
         ],
         "de": [
-          "leitung-betreuung-51-hortleitung-32-stadt-zurich-zurich"
+          "leitung-betreuung-51-hortleitung-32-stadt-zuerich-zurigo-52152"
         ],
         "fr": [
           "leitung-betreuung-51-hortleitung-32-stadt-zuerich-zurigo-52152"
@@ -35169,7 +35395,7 @@
       "slugByLocale": {
         "it": "insegnante-di-pedagogia-sociale-o-specialista-in-assistenza-scuola-gubel-stadt-zurich-zurich",
         "en": "social-pedagogue-or-childcare-specialist-gubel-school-stadt-zurich-zurich",
-        "de": "sozialpadagog-in-oder-fachperson-betreuung-schule-gubel-stadt-zuerich-zurigo-52179",
+        "de": "sozialpadagog-in-oder-fachperson-betreuung-schule-gubel-stadt-zurich-zurich",
         "fr": "pedagogue-social-ou-specialiste-de-l-encadrement-ecole-gubel-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -35219,8 +35445,7 @@
       "referenceNumber": "52179",
       "previousSlugs": [
         "sozialpadagog-in-oder-fachperson-betreuung-schule-gubel-stadt-zuerich-zurigo-52179",
-        "sozialpadagog-in-o-fachperson-betreuung-schule-gubel-stadt-zurich",
-        "sozialpadagog-in-oder-fachperson-betreuung-schule-gubel-stadt-zurich-zurich"
+        "sozialpadagog-in-o-fachperson-betreuung-schule-gubel-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -35231,7 +35456,7 @@
           "sozialpadagog-in-oder-fachperson-betreuung-schule-gubel-stadt-zuerich-zurigo-52179"
         ],
         "de": [
-          "sozialpadagog-in-oder-fachperson-betreuung-schule-gubel-stadt-zurich-zurich"
+          "sozialpadagog-in-oder-fachperson-betreuung-schule-gubel-stadt-zuerich-zurigo-52179"
         ],
         "fr": [
           "sozialpadagog-in-oder-fachperson-betreuung-schule-gubel-stadt-zuerich-zurigo-52179"
@@ -35532,7 +35757,8 @@
       "validThrough": "2026-12-18T10:08:18.953Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.stadt-zuerich.ch/job/pflegehelferin-srk%2c-standorte-witikon-und-riesbach%2c-befristet-3-4-monate/1371545157",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-ce27b72283e0",
@@ -35801,7 +36027,8 @@
       "validThrough": "2027-01-10T10:08:18.949Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.stadt-zuerich.ch/job/assistentin-gesundheit-und-soziales%2c-standort-dorflinde/1374542957",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-f10b9bc5e251",
@@ -36073,7 +36300,7 @@
       "slugByLocale": {
         "it": "sviluppatore-sviluppatrice-del-personale-e-dell-organizzazione-stadt-zurich-zurich",
         "en": "personnel-organizational-development-specialist-stadt-zurich-zurich",
-        "de": "personal-organisationsentwickler-in-stadt-zuerich-zurigo-52257",
+        "de": "personal-organisationsentwickler-in-stadt-zurich-zurich",
         "fr": "developpeur-euse-du-personnel-et-de-l-organisation-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -36134,7 +36361,7 @@
           "personal-organisationsentwickler-in-stadt-zurich-zurich"
         ],
         "de": [
-          "personal-organisationsentwickler-in-stadt-zurich-zurich"
+          "personal-organisationsentwickler-in-stadt-zuerich-zurigo-52257"
         ],
         "fr": [
           "personal-organisationsentwickler-in-stadt-zurich-zurich"
@@ -36354,7 +36581,7 @@
       "id": "stadt-zuerich-c6b8fc4b468f",
       "slug": "assistenza-scolastica-stadt-zurich-zurich",
       "slugByLocale": {
-        "de": "schulassistenz-stadt-zuerich-zurigo-52313",
+        "de": "schulassistenz-stadt-zurich-zurich",
         "it": "assistenza-scolastica-stadt-zurich-zurich",
         "en": "school-assistance-stadt-zurich-zurich",
         "fr": "aide-scolaire-stadt-zurich-zurich"
@@ -36439,7 +36666,7 @@
           "schulassistenz-stadt-zuerich-zurigo-52313"
         ],
         "de": [
-          "schulassistenz-stadt-zurich-zurich"
+          "schulassistenz-stadt-zuerich-zurigo-52313"
         ]
       },
       "previousSlugs": [
@@ -36771,7 +36998,8 @@
       "validThrough": "2026-12-18T10:08:18.943Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.stadt-zuerich.ch/job/kindheitsp%c3%a4dagogin-hf/1364869057",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }

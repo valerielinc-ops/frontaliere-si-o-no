@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sanatorium-kilchberg",
-  "assembledAt": "2026-11-22T09:22:54.443Z",
+  "assembledAt": "2026-11-22T13:35:01.123Z",
   "runId": "45006490842",
   "jobs": [
     {
@@ -124,7 +124,8 @@
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:22:24.324Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sanatorium-kilchberg-0e4e4e0f5e5d",
@@ -449,7 +450,8 @@
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:22:18.353Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sanatorium-kilchberg-356e0f5506b1",
@@ -558,7 +560,8 @@
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:22:16.352Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sanatorium-kilchberg-7a158fff9cff",
@@ -829,7 +832,8 @@
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:22:13.763Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sanatorium-kilchberg-de4d9ebaf506",
@@ -997,13 +1001,14 @@
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:22:12.218Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sanatorium-kilchberg-6ac5c7d708e1",
-      "slug": "professionista-hf-fh-sanatorium-kilchberg-kilchberg",
+      "slug": "professionista-hf-fh-sanatorium-kilchberg-kilchberg-f145f8a645",
       "slugByLocale": {
-        "it": "professionista-hf-fh-sanatorium-kilchberg-kilchberg",
+        "it": "professionista-hf-fh-sanatorium-kilchberg-kilchberg-f145f8a645",
         "en": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
         "de": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
         "fr": "soins-professionnels-hf-fh-sanatorium-kilchberg-kilchberg"
@@ -1124,7 +1129,8 @@
         "professionista-hf-fh-sanatorium-kilchberg-kilchberg-f580ce-7264e601",
         "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-1ad1fff4",
         "professionista-hf-fh-sanatorium-kilchberg-kilchberg-f580ce-69011a7b",
-        "care-professional-hf-fh-sanatorium-kilchberg-kilchberg-f580ce-796c1397"
+        "care-professional-hf-fh-sanatorium-kilchberg-kilchberg-f580ce-796c1397",
+        "professionista-hf-fh-sanatorium-kilchberg-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1147,7 +1153,8 @@
           "infirmier-ere-diplome-e-hf-fh-sanatorium-kilchberg-kilchberg",
           "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
           "soins-professionnels-hf-fh-sanatorium-kilchberg-kilchberg-f580ce-65974d46",
-          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-ce8c14f0"
+          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-ce8c14f0",
+          "professionista-hf-fh-sanatorium-kilchberg-kilchberg"
         ],
         "en": [
           "care-professional-hf-fh-sanatorium-kilchberg-kilchberg"
@@ -1430,7 +1437,8 @@
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:22:08.921Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sanatorium-kilchberg-c51d24dedf45",
@@ -1514,7 +1522,8 @@
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:22:08.088Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sanatorium-kilchberg-ad243c3b229b",
@@ -1598,13 +1607,14 @@
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:22:07.266Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sanatorium-kilchberg-c213f6aca993",
-      "slug": "professionista-hf-fh-sanatorium-kilchberg-kilchberg-89dd4e",
+      "slug": "professionista-hf-fh-sanatorium-kilchberg-kilchberg-973d62ded9",
       "slugByLocale": {
-        "it": "professionista-hf-fh-sanatorium-kilchberg-kilchberg-89dd4e",
+        "it": "professionista-hf-fh-sanatorium-kilchberg-kilchberg-973d62ded9",
         "en": "care-professional-hf-fh-sanatorium-kilchberg-kilchberg",
         "de": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
         "fr": "soins-professionnels-hf-fh-sanatorium-kilchberg-kilchberg-89dd4e"
@@ -1653,11 +1663,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-2"
+        "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-2",
+        "professionista-hf-fh-sanatorium-kilchberg-kilchberg-89dd4e",
+        "professionista-hf-fh-sanatorium-kilchberg-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-2"
+          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-2",
+          "professionista-hf-fh-sanatorium-kilchberg-kilchberg-89dd4e",
+          "professionista-hf-fh-sanatorium-kilchberg-kilchberg"
         ],
         "en": [
           "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-2"

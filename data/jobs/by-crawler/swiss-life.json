@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swiss-life",
-  "assembledAt": "2026-11-22T13:06:01.024Z",
+  "assembledAt": "2026-11-22T13:39:45.127Z",
   "runId": "44818667336",
   "jobs": [
     {
@@ -167,7 +167,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:50:14.531Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/buchs-sg/sales-support--w-m-d--40----60--generalagentur-glarus-rheintal_r10449-1"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/buchs-sg/sales-support--w-m-d--40----60--generalagentur-glarus-rheintal_r10449-1",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-1018a191bf7b",
@@ -252,7 +253,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:50:04.155Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/lugano/consulente-immobiliare-m-f--agenzia-generale-svizzera-italiana--lugano-_r00096"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/lugano/consulente-immobiliare-m-f--agenzia-generale-svizzera-italiana--lugano-_r00096",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-4696d9486ab1",
@@ -412,7 +414,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:49:40.653Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bern/vorsorge--und-finanzberatende--w-m-d----mit-erfahrung---generalagentur-bern-ost_r08751"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bern/vorsorge--und-finanzberatende--w-m-d----mit-erfahrung---generalagentur-bern-ost_r08751",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-2f29929f10fd",
@@ -492,7 +495,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:49:29.710Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bern/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-bern-ost_r08750"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bern/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-bern-ost_r08750",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-b8b314f81d56",
@@ -572,7 +576,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:49:17.766Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/thun/vorsorge--und-finanzberatende---w-m-d----quereinsteigende-willkommen---generalagentur-thun_r08842"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/thun/vorsorge--und-finanzberatende---w-m-d----quereinsteigende-willkommen---generalagentur-thun_r08842",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-61acad470883",
@@ -652,7 +657,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:49:06.816Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/ga-baden/vorsorge--und-finanzberatende--w-m-d----im-rahmen-einer-nachfolgeregelung---generalagentur-baden_r09258"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/ga-baden/vorsorge--und-finanzberatende--w-m-d----im-rahmen-einer-nachfolgeregelung---generalagentur-baden_r09258",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-bbbcf9d2f3fb",
@@ -732,7 +738,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:48:55.990Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/ga-baden/vorsorge--und-finanzberatende--w-m-d----mit-erfahrung---generalagentur-baden_r09256"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/ga-baden/vorsorge--und-finanzberatende--w-m-d----mit-erfahrung---generalagentur-baden_r09256",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-f915a4f7f6f6",
@@ -812,7 +819,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:48:44.249Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bielbienne/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-biel-seeland_r09369"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bielbienne/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-biel-seeland_r09369",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-64c2807fdcea",
@@ -892,7 +900,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:48:33.088Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bielbienne/vorsorge--und-finanzberatende--w-m-d----spezialisierung-kollektiv---generalagentur-biel-seeland_r09379"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bielbienne/vorsorge--und-finanzberatende--w-m-d----spezialisierung-kollektiv---generalagentur-biel-seeland_r09379",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-80c4b4869d8b",
@@ -1052,7 +1061,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:48:10.995Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bielbienne/vorsorge--und-finanzberatende--w-m-d----im-rahmen-einer-nachfolgeregelung---generalagentur-biel-seeland_r09388"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bielbienne/vorsorge--und-finanzberatende--w-m-d----im-rahmen-einer-nachfolgeregelung---generalagentur-biel-seeland_r09388",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-a4559353b2c9",
@@ -1154,7 +1164,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:47:59.753Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/solothurn/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-solothurn-oberaargau_r09071"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/solothurn/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-solothurn-oberaargau_r09071",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-84dd4281bdde",
@@ -1330,7 +1341,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:47:37.437Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bern/vorsorge--und-finanzberatende--w-m-d----mit-erfahrung---generalagentur-bern-west_r05165"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bern/vorsorge--und-finanzberatende--w-m-d----mit-erfahrung---generalagentur-bern-west_r05165",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-63e7653a3513",
@@ -1410,7 +1422,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:47:26.343Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/zrich/vorsorge--und-finanzberatende--w-m-d----mit-erfahrung---generalagentur-zrich-binz_r07044"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/zrich/vorsorge--und-finanzberatende--w-m-d----mit-erfahrung---generalagentur-zrich-binz_r07044",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-82a26860db74",
@@ -1490,7 +1503,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:47:14.907Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bern/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-bern-west_r10027"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bern/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-bern-west_r10027",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-c50bef18a097",
@@ -1730,7 +1744,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:46:29.232Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bern/immobilienberater--w-m-d----generalagentur-baden_r11964"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/bern/immobilienberater--w-m-d----generalagentur-baden_r11964",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-429a29be9584",
@@ -1810,7 +1825,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:46:17.655Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/thun/vorsorge--und-finanzberatende--w-m-d----mit-erfahrung---generalagentur-thun-oberland_r07198"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/thun/vorsorge--und-finanzberatende--w-m-d----mit-erfahrung---generalagentur-thun-oberland_r07198",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-18679273ee70",
@@ -1970,7 +1986,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:45:55.186Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/baden/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-baden_r10388"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/baden/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-baden_r10388",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-1e1d2e0b2c19",
@@ -2812,7 +2829,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:43:52.810Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/schaffhausen/vorsorge--und-finanzberatende--w-m-d----spezialisierung-kollektiv---generalagentur-schaffhausen_r09259"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/schaffhausen/vorsorge--und-finanzberatende--w-m-d----spezialisierung-kollektiv---generalagentur-schaffhausen_r09259",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-9ec8361cf3e2",
@@ -2892,7 +2910,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:43:42.005Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/schaffhausen/immobilienberater--w-m-d-----generalagentur-schaffhausen--gebiet-blach-_r09266"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/schaffhausen/immobilienberater--w-m-d-----generalagentur-schaffhausen--gebiet-blach-_r09266",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-0adbc4a2282c",
@@ -3052,7 +3071,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:42:43.733Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/schaffhausen/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-schaffhausen_r07403-1"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/schaffhausen/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-schaffhausen_r07403-1",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-e34dc09f0313",
@@ -3132,7 +3152,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:42:33.008Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/winterthur/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-winterthur_r10111"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/winterthur/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-winterthur_r10111",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-1bf18fd344a7",
@@ -3292,7 +3313,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:42:10.253Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/schaffhausen/sales-support--w-m-d----100--generalagentur-schaffhausen_r11794"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/schaffhausen/sales-support--w-m-d----100--generalagentur-schaffhausen_r11794",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-0127fae00e58",
@@ -3372,7 +3394,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:41:48.462Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/wil-sg/sales-support--w-m-d---50----70---generalagentur-wil_r12127"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/wil-sg/sales-support--w-m-d---50----70---generalagentur-wil_r12127",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-8879644d2439",
@@ -3532,7 +3555,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:41:27.678Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/uster/vorsorge--und-finanzberatende--w-m-d----im-rahmen-einer-nachfolgeregelung---generalagentur--uster_r10095-1"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/uster/vorsorge--und-finanzberatende--w-m-d----im-rahmen-einer-nachfolgeregelung---generalagentur--uster_r10095-1",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-011f1a8974f2",
@@ -5029,7 +5053,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:38:12.270Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/visp/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen--generalagentur-visp-oberwallis_r08506-1"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/visp/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen--generalagentur-visp-oberwallis_r08506-1",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-989baa21e2a3",
@@ -5192,7 +5217,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:37:49.832Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/st-gallen/sales-support-40----100--generalagentur-st-gallen-appenzellerland_r11165"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/st-gallen/sales-support-40----100--generalagentur-st-gallen-appenzellerland_r11165",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-0f8667b891d3",
@@ -5512,7 +5538,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:37:00.166Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/ga-thurgau/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-thurgau_r09621"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/ga-thurgau/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-thurgau_r09621",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-4f11e2283828",
@@ -5592,7 +5619,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:36:48.958Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/ga-thurgau/vorsorge--und-finanzberatende--w-m-d----spezialisierung-kollektiv---generalagentur-thurgau_r09622"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/ga-thurgau/vorsorge--und-finanzberatende--w-m-d----spezialisierung-kollektiv---generalagentur-thurgau_r09622",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-27cf2da5d869",
@@ -5677,7 +5705,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:36:36.890Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/ga-thurgau/vorsorge--und-finanzberatende--w-m-d----spezialisierung-hypotheken-finanzierungsexperte---generalagentur-thurgau_r09623"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/ga-thurgau/vorsorge--und-finanzberatende--w-m-d----spezialisierung-hypotheken-finanzierungsexperte---generalagentur-thurgau_r09623",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-d58931049c1f",
@@ -5757,7 +5786,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:36:26.086Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/zrich/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-zrich-limmat_r09414"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/zrich/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-zrich-limmat_r09414",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-a48b882e7352",
@@ -5837,7 +5867,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:36:14.718Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/zrich/vorsorge--und-finanzberatende--w-m-d----spezialisierung-anlagethemen---generalagentur-zrich-limmat_r09420"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/zrich/vorsorge--und-finanzberatende--w-m-d----spezialisierung-anlagethemen---generalagentur-zrich-limmat_r09420",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-cd03b5e98ff9",
@@ -5917,7 +5948,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:36:03.744Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/zrich/vorsorge--und-finanzberatende--w-m-d----mit-erfahrung---generalagentur-zrich-limmat_r09418"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/zrich/vorsorge--und-finanzberatende--w-m-d----mit-erfahrung---generalagentur-zrich-limmat_r09418",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-099bcd7e12f4",
@@ -5997,7 +6029,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:35:52.882Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/zrich/vorsorge--und-finanzberatende--w-m-d----im-rahmen-einer-nachfolgeregelung---generalagentur-zrich-limmat_r09421"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/zrich/vorsorge--und-finanzberatende--w-m-d----im-rahmen-einer-nachfolgeregelung---generalagentur-zrich-limmat_r09421",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-a886a3d317b4",
@@ -6237,7 +6270,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:35:19.938Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/meilen/vorsorge--und-finanzberatende--m-w-d----quereinsteigende-willkommen---generalagentur-zrich-pfannenstiel_r11309"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/meilen/vorsorge--und-finanzberatende--m-w-d----quereinsteigende-willkommen---generalagentur-zrich-pfannenstiel_r11309",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-9892e7dc1484",
@@ -6719,7 +6753,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:34:20.524Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/steinhausen/vorsorge--und-finanzberatende--w-m-d----spezialisierung-kollektiv---generalagentur-zug_r09417"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/steinhausen/vorsorge--und-finanzberatende--w-m-d----spezialisierung-kollektiv---generalagentur-zug_r09417",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-78cbf83a135e",
@@ -6799,7 +6834,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:34:08.643Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/schwyz/vorsorge--und-finanzberatende--w-m-d----im-rahmen-einer-nachfolgeregelung---generalagentur-schwyz-urnerland---region-innerschwyz_r09415"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/schwyz/vorsorge--und-finanzberatende--w-m-d----im-rahmen-einer-nachfolgeregelung---generalagentur-schwyz-urnerland---region-innerschwyz_r09415",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-e558496b28eb",
@@ -6879,7 +6915,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:33:56.846Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/steinhausen/vorsorge--und-finanzberatende--w-m-d----im-rahmen-einer-nachfolgeregelung---generalagentur-zug_r09416"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/steinhausen/vorsorge--und-finanzberatende--w-m-d----im-rahmen-einer-nachfolgeregelung---generalagentur-zug_r09416",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-45194c6f32f7",
@@ -6959,7 +6996,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:33:56.123Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/sursee/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-sursee_r09465"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/sursee/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-sursee_r09465",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-97f85137b38a",
@@ -7199,7 +7237,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:33:43.274Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/horgen/vorsorge--und-finanzberatende--w-m-d----mit-erfahrung---generalagentur-zrich-zimmerberg_r09265"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/horgen/vorsorge--und-finanzberatende--w-m-d----mit-erfahrung---generalagentur-zrich-zimmerberg_r09265",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-311f9d60d7ea",
@@ -7439,7 +7478,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:33:20.391Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/solothurn/vorsorge--und-finanzberatende--w-m-d----im-rahmen-einer-nachfolgeregelung---generalagentur-solothurn-oberaargau_r12530"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/solothurn/vorsorge--und-finanzberatende--w-m-d----im-rahmen-einer-nachfolgeregelung---generalagentur-solothurn-oberaargau_r12530",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-c968f7017dcb",
@@ -7525,7 +7565,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:33:09.830Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/solothurn/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-solothurn-oberaargau--gebiet-langenthal-_r12529"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/solothurn/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-solothurn-oberaargau--gebiet-langenthal-_r12529",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-6480a18f7fe0",
@@ -7611,7 +7652,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:32:59.101Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/solothurn/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-solothurn-oberaargau--gebiet-olten-_r12528"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/solothurn/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-solothurn-oberaargau--gebiet-olten-_r12528",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-f9b1b75906e1",
@@ -7691,7 +7733,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:32:48.618Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/aarau/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-aarau_r12559"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/aarau/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-aarau_r12559",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-72ef68d42564",
@@ -7771,7 +7814,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:32:37.232Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/aarau/sales-support-60--generalagentur-aarau_r12557"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/aarau/sales-support-60--generalagentur-aarau_r12557",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-0516bede16b9",
@@ -7929,7 +7973,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:31:51.184Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/lugano/consulente-previdenziale-e-finanziaria-o--f-m-d----anche-senza-esperienza-nel-settore---agenzia-generale-svizzera-italiana_r06653"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/lugano/consulente-previdenziale-e-finanziaria-o--f-m-d----anche-senza-esperienza-nel-settore---agenzia-generale-svizzera-italiana_r06653",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-c23c3a075d2b",
@@ -8009,7 +8054,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:31:39.834Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/baden/vorsorge--und-finanzberatende--w-m-d----spezialisierung-kollektiv---generalagentur-baden_r12793"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/baden/vorsorge--und-finanzberatende--w-m-d----spezialisierung-kollektiv---generalagentur-baden_r12793",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-7cefdb51138f",
@@ -8169,7 +8215,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:30:53.181Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/weinfelden/teamleiter-verkauf--w-m-d--generalagentur-thurgau_r13290"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/weinfelden/teamleiter-verkauf--w-m-d--generalagentur-thurgau_r13290",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-9a7ed10ce016",
@@ -8659,7 +8706,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-17T21:29:45.493Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/thun/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-thun-oberland_r13669"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/thun/vorsorge--und-finanzberatende--w-m-d----quereinsteigende-willkommen---generalagentur-thun-oberland_r13669",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-e0a65671ae2f",
@@ -9238,7 +9286,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-10T21:28:25.798Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/zrich/it-process-manager--w-m-d--80-100-_r13849"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/zrich/it-process-manager--w-m-d--80-100-_r13849",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-9fa4db52937c",
@@ -9741,7 +9790,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-20T21:26:43.645Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/zrich/vorsorge--und-finanzberatende--w-m-d----deutschschweiz_r08709"
+      "sourceIdentity": "url:https://swisslife.wd3.myworkdayjobs.com/en-us/swiss_life_career_site/job/zrich/vorsorge--und-finanzberatende--w-m-d----deutschschweiz_r08709",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-d19c34b9869e",
@@ -10039,10 +10089,10 @@
     },
     {
       "id": "swiss-life-292ab82c952d",
-      "slug": "associate-consultant-relationship-manager-w-m-d-100-swiss-life-ch",
+      "slug": "associate-consulente-relationship-manager-w-m-d-100-swiss-life-zurich",
       "slugByLocale": {
         "de": "associate-consultant-relationship-manager-w-m-d-100-swiss-life-ch",
-        "it": "associate-consultant-relationship-manager-w-m-d-100-swiss-life-ch",
+        "it": "associate-consulente-relationship-manager-w-m-d-100-swiss-life-zurich",
         "en": "associate-consultant-relationship-manager-w-m-d-100-swiss-life-ch",
         "fr": "consultant-associe-et-gestionnaire-de-relations-h-f-d-100-swiss-life-zurich"
       },
@@ -10112,6 +10162,9 @@
       "firstSeenAt": "2026-11-19T21:33:47.280Z",
       "previousSlugsByLocale": {
         "fr": [
+          "associate-consultant-relationship-manager-w-m-d-100-swiss-life-ch"
+        ],
+        "it": [
           "associate-consultant-relationship-manager-w-m-d-100-swiss-life-ch"
         ]
       },
