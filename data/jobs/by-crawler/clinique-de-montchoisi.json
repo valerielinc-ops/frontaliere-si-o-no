@@ -1,7 +1,7 @@
 {
   "crawlerKey": "clinique-de-montchoisi",
-  "assembledAt": "2026-11-21T21:49:47.839Z",
-  "runId": "44950978030",
+  "assembledAt": "2026-11-22T09:34:37.288Z",
+  "runId": "45006925894",
   "jobs": [
     {
       "id": "clinique-de-montchoisi-c6d7c0904ffd",
@@ -36,7 +36,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000159395219-infirmier-ere-instrumentiste",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-21T21:49:40.087Z",
+      "crawledAt": "2026-11-22T09:34:31.239Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:49:40.087Z",
+      "validThrough": "2027-02-02T09:34:31.239Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000161095099-cm-assc",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-21T21:49:40.086Z",
+      "crawledAt": "2026-11-22T09:34:31.238Z",
       "addressLocality": "lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -160,7 +160,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:49:40.086Z",
+      "validThrough": "2027-02-10T09:34:31.238Z",
       "validThroughSource": "last-observed-window"
     }
   ]

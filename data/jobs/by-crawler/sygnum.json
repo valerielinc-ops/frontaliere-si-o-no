@@ -1,7 +1,7 @@
 {
   "crawlerKey": "sygnum",
-  "assembledAt": "2026-11-21T21:48:28.750Z",
-  "runId": "44950978030",
+  "assembledAt": "2026-11-22T09:33:06.044Z",
+  "runId": "45006925894",
   "jobs": [
     {
       "id": "sygnum-8bd22c417d4f",
@@ -34,7 +34,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN288",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:48:17.831Z",
+      "crawledAt": "2026-11-22T09:32:57.849Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -78,7 +78,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T21:48:17.831Z",
+      "validThrough": "2026-12-30T09:32:57.849Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -112,7 +112,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN305",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:48:17.187Z",
+      "crawledAt": "2026-11-22T09:32:57.343Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -156,7 +156,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T21:48:17.187Z",
+      "validThrough": "2027-01-28T09:32:57.343Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -190,7 +190,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN240",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:48:15.882Z",
+      "crawledAt": "2026-11-22T09:32:56.409Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -234,7 +234,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-21T21:48:15.882Z",
+      "validThrough": "2026-12-22T09:32:56.409Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -268,7 +268,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN233",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:48:15.265Z",
+      "crawledAt": "2026-11-22T09:32:55.961Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -304,7 +304,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-21T21:48:15.265Z",
+      "validThrough": "2026-12-22T09:32:55.961Z",
       "validThroughSource": "last-observed-window"
     }
   ]
