@@ -1,7 +1,7 @@
 {
   "crawlerKey": "jsafrasarasin",
-  "assembledAt": "2026-11-21T21:20:56.810Z",
-  "runId": "44949758871",
+  "assembledAt": "2026-11-22T09:19:49.681Z",
+  "runId": "45005796659",
   "jobs": [
     {
       "id": "jsafrasarasin-9c72c25f05c4",
@@ -34,7 +34,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/496/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:20:46.970Z",
+      "crawledAt": "2026-11-22T09:19:43.362Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
       "postalCode": "8001",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:20:46.970Z",
+      "validThrough": "2026-12-22T09:19:43.362Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -117,7 +117,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/511/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:20:46.669Z",
+      "crawledAt": "2026-11-22T09:19:43.061Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -166,7 +166,7 @@
       "postalCode": "8001",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:20:46.669Z",
+      "validThrough": "2026-12-22T09:19:43.061Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -200,7 +200,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/518/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:20:46.367Z",
+      "crawledAt": "2026-11-22T09:19:42.759Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -218,12 +218,16 @@
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/518/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "crm-external-asset-manager-jsafrasarasin-ch",
+        "crm-external-asset-manager-j-safra-sarasin-basel"
+      ],
       "previousSlugsByLocale": {
-        "en": [
-          "crm-external-asset-manager-j-safra-sarasin-basel"
-        ],
         "it": [
           "crm-external-asset-manager-jsafrasarasin-ch"
+        ],
+        "en": [
+          "crm-external-asset-manager-j-safra-sarasin-basel"
         ],
         "de": [
           "crm-external-asset-manager-jsafrasarasin-ch"
@@ -232,10 +236,6 @@
           "crm-external-asset-manager-jsafrasarasin-ch"
         ]
       },
-      "previousSlugs": [
-        "crm-external-asset-manager-jsafrasarasin-ch",
-        "crm-external-asset-manager-j-safra-sarasin-basel"
-      ],
       "firstSeenAt": "2026-09-21T15:56:01.352Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -253,7 +253,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:20:46.367Z",
+      "validThrough": "2026-12-22T09:19:42.759Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -287,7 +287,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/522/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:20:46.066Z",
+      "crawledAt": "2026-11-22T09:19:42.458Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -305,12 +305,16 @@
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/522/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "operational-risk-manager-jsafrasarasin-ch",
+        "operational-risk-manager-j-safra-sarasin-geneva"
+      ],
       "previousSlugsByLocale": {
-        "en": [
-          "operational-risk-manager-j-safra-sarasin-geneva"
-        ],
         "it": [
           "operational-risk-manager-jsafrasarasin-ch"
+        ],
+        "en": [
+          "operational-risk-manager-j-safra-sarasin-geneva"
         ],
         "de": [
           "operational-risk-manager-jsafrasarasin-ch"
@@ -319,10 +323,6 @@
           "operational-risk-manager-jsafrasarasin-ch"
         ]
       },
-      "previousSlugs": [
-        "operational-risk-manager-jsafrasarasin-ch",
-        "operational-risk-manager-j-safra-sarasin-geneva"
-      ],
       "firstSeenAt": "2026-09-28T21:12:19.539Z",
       "salaryMin": 120000,
       "salaryMax": 162000,
@@ -340,7 +340,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:20:46.066Z",
+      "validThrough": "2026-12-28T09:19:42.458Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -374,7 +374,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/530/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:20:45.765Z",
+      "crawledAt": "2026-11-22T09:19:42.157Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -392,12 +392,16 @@
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/530/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-end-user-computing-euc-developer-jsafrasarasin-ch",
+        "senior-end-user-computing-euc-developer-j-safra-sarasin-zurich"
+      ],
       "previousSlugsByLocale": {
-        "en": [
-          "senior-end-user-computing-euc-developer-j-safra-sarasin-zurich"
-        ],
         "it": [
           "senior-end-user-computing-euc-developer-jsafrasarasin-ch"
+        ],
+        "en": [
+          "senior-end-user-computing-euc-developer-j-safra-sarasin-zurich"
         ],
         "de": [
           "senior-end-user-computing-euc-developer-jsafrasarasin-ch"
@@ -406,10 +410,6 @@
           "senior-end-user-computing-euc-developer-jsafrasarasin-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-end-user-computing-euc-developer-jsafrasarasin-ch",
-        "senior-end-user-computing-euc-developer-j-safra-sarasin-zurich"
-      ],
       "firstSeenAt": "2026-10-06T21:12:31.639Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
@@ -427,7 +427,7 @@
       "postalCode": "8001",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:20:45.765Z",
+      "validThrough": "2027-01-05T09:19:42.157Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -461,7 +461,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/532/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:20:45.463Z",
+      "crawledAt": "2026-11-22T09:19:41.856Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -479,12 +479,16 @@
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/532/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "lead-auditor-jsafrasarasin-ch",
+        "lead-auditor-j-safra-sarasin-basel"
+      ],
       "previousSlugsByLocale": {
-        "en": [
-          "lead-auditor-j-safra-sarasin-basel"
-        ],
         "it": [
           "lead-auditor-jsafrasarasin-ch"
+        ],
+        "en": [
+          "lead-auditor-j-safra-sarasin-basel"
         ],
         "de": [
           "lead-auditor-jsafrasarasin-ch"
@@ -493,10 +497,6 @@
           "lead-auditor-jsafrasarasin-ch"
         ]
       },
-      "previousSlugs": [
-        "lead-auditor-jsafrasarasin-ch",
-        "lead-auditor-j-safra-sarasin-basel"
-      ],
       "firstSeenAt": "2026-10-08T09:15:49.289Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -514,7 +514,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T21:20:45.463Z",
+      "validThrough": "2027-01-06T09:19:41.856Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -548,7 +548,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/443/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:20:45.161Z",
+      "crawledAt": "2026-11-22T09:19:41.555Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -566,12 +566,16 @@
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/443/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "risk-performance-specialist-jsafrasarasin-ch",
+        "risk-performance-specialist-j-safra-sarasin-basel"
+      ],
       "previousSlugsByLocale": {
-        "en": [
-          "risk-performance-specialist-j-safra-sarasin-basel"
-        ],
         "it": [
           "risk-performance-specialist-jsafrasarasin-ch"
+        ],
+        "en": [
+          "risk-performance-specialist-j-safra-sarasin-basel"
         ],
         "de": [
           "risk-performance-specialist-jsafrasarasin-ch"
@@ -580,10 +584,6 @@
           "risk-performance-specialist-jsafrasarasin-ch"
         ]
       },
-      "previousSlugs": [
-        "risk-performance-specialist-jsafrasarasin-ch",
-        "risk-performance-specialist-j-safra-sarasin-basel"
-      ],
       "firstSeenAt": "2026-10-22T21:15:29.366Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -601,7 +601,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T21:20:45.161Z",
+      "validThrough": "2027-01-21T09:19:41.555Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -635,7 +635,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/542/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:20:44.859Z",
+      "crawledAt": "2026-11-22T09:19:41.253Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -653,18 +653,18 @@
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/542/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "en": [
-          "it-auditor-j-safra-sarasin-basel"
-        ],
-        "it": [
-          "it-auditor-jsafrasarasin-ch"
-        ]
-      },
       "previousSlugs": [
         "it-auditor-jsafrasarasin-ch",
         "it-auditor-j-safra-sarasin-basel"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "it-auditor-jsafrasarasin-ch"
+        ],
+        "en": [
+          "it-auditor-j-safra-sarasin-basel"
+        ]
+      },
       "firstSeenAt": "2026-11-03T21:27:34.177Z",
       "salaryMin": 64500,
       "salaryMax": 110000,
@@ -682,7 +682,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:20:44.859Z",
+      "validThrough": "2027-02-02T09:19:41.253Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -716,7 +716,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/546/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:20:44.557Z",
+      "crawledAt": "2026-11-22T09:19:40.952Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -765,7 +765,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T21:20:44.557Z",
+      "validThrough": "2027-02-05T09:19:40.952Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -799,7 +799,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/547/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:20:44.255Z",
+      "crawledAt": "2026-11-22T09:19:40.650Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -817,12 +817,16 @@
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/547/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-devops-platform-engineer-jsafrasarasin-ch",
+        "senior-devops-platform-engineer-j-safra-sarasin-basel"
+      ],
       "previousSlugsByLocale": {
-        "en": [
-          "senior-devops-platform-engineer-j-safra-sarasin-basel"
-        ],
         "it": [
           "senior-devops-platform-engineer-jsafrasarasin-ch"
+        ],
+        "en": [
+          "senior-devops-platform-engineer-j-safra-sarasin-basel"
         ],
         "de": [
           "senior-devops-platform-engineer-jsafrasarasin-ch"
@@ -831,10 +835,6 @@
           "senior-devops-platform-engineer-jsafrasarasin-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-devops-platform-engineer-jsafrasarasin-ch",
-        "senior-devops-platform-engineer-j-safra-sarasin-basel"
-      ],
       "firstSeenAt": "2026-11-09T21:17:06.751Z",
       "salaryMin": 99500,
       "salaryMax": 151000,
@@ -852,7 +852,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:20:44.255Z",
+      "validThrough": "2027-02-08T09:19:40.650Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -886,7 +886,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/549/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:20:43.953Z",
+      "crawledAt": "2026-11-22T09:19:40.349Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -904,12 +904,16 @@
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/549/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-full-stack-ai-engineer-jsafrasarasin-ch",
+        "senior-full-stack-ai-engineer-j-safra-sarasin-geneva"
+      ],
       "previousSlugsByLocale": {
-        "en": [
-          "senior-full-stack-ai-engineer-j-safra-sarasin-geneva"
-        ],
         "it": [
           "senior-full-stack-ai-engineer-jsafrasarasin-ch"
+        ],
+        "en": [
+          "senior-full-stack-ai-engineer-j-safra-sarasin-geneva"
         ],
         "de": [
           "senior-full-stack-ai-engineer-jsafrasarasin-ch"
@@ -918,10 +922,6 @@
           "senior-full-stack-ai-engineer-jsafrasarasin-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-full-stack-ai-engineer-jsafrasarasin-ch",
-        "senior-full-stack-ai-engineer-j-safra-sarasin-geneva"
-      ],
       "firstSeenAt": "2026-11-11T21:17:52.640Z",
       "salaryMin": 97500,
       "salaryMax": 148000,
@@ -939,7 +939,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:20:43.953Z",
+      "validThrough": "2027-02-10T09:19:40.349Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -973,7 +973,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/553/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:20:43.651Z",
+      "crawledAt": "2026-11-22T09:19:40.047Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -991,12 +991,16 @@
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/553/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "qa-engineer-ai-powered-jsafrasarasin-ch",
+        "qa-engineer-ai-powered-j-safra-sarasin-geneva"
+      ],
       "previousSlugsByLocale": {
-        "en": [
-          "qa-engineer-ai-powered-j-safra-sarasin-geneva"
-        ],
         "it": [
           "qa-engineer-ai-powered-jsafrasarasin-ch"
+        ],
+        "en": [
+          "qa-engineer-ai-powered-j-safra-sarasin-geneva"
         ],
         "de": [
           "qa-engineer-ai-powered-jsafrasarasin-ch"
@@ -1005,10 +1009,6 @@
           "qa-engineer-ai-powered-jsafrasarasin-ch"
         ]
       },
-      "previousSlugs": [
-        "qa-engineer-ai-powered-jsafrasarasin-ch",
-        "qa-engineer-ai-powered-j-safra-sarasin-geneva"
-      ],
       "firstSeenAt": "2026-11-11T21:17:51.435Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -1026,7 +1026,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:20:43.651Z",
+      "validThrough": "2027-02-10T09:19:40.047Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1060,7 +1060,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/515/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:20:43.348Z",
+      "crawledAt": "2026-11-22T09:19:39.745Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1109,7 +1109,7 @@
       "postalCode": "8001",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-21T21:20:43.348Z",
+      "validThrough": "2026-12-22T09:19:39.745Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1143,7 +1143,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/554/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-21T21:20:43.044Z",
+      "crawledAt": "2026-11-22T09:19:39.442Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1192,93 +1192,8 @@
       "postalCode": "4001",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:20:43.044Z",
+      "validThrough": "2027-02-12T09:19:39.442Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "jsafrasarasin-75dbdf095efa",
-      "slug": "credit-analista-junior-portfolio-manager-j-safra-sarasin-basel",
-      "slugByLocale": {
-        "it": "credit-analista-junior-portfolio-manager-j-safra-sarasin-basel",
-        "en": "credit-analyst-junior-portfolio-manager-jsafrasarasin-ch",
-        "de": "credit-ansager-junior-portfolio-manager-j-safra-sarasin-basel",
-        "fr": "credit-analyste-junior-portfolio-manager-j-safra-sarasin-basel"
-      },
-      "company": "J. Safra Sarasin",
-      "companyKey": "jsafrasarasin",
-      "companyDomain": "jsafrasarasin.umantis.com",
-      "title": "Credit Analyst / Junior Portfolio Manager",
-      "titleByLocale": {
-        "it": "Credit Analista / Junior Portfolio Manager",
-        "en": "Credit Analyst / Junior Portfolio Manager",
-        "de": "Credit-Ansager / Junior Portfolio Manager",
-        "fr": "Credit Analyste / Junior Portfolio Manager"
-      },
-      "description": "Credit Analyst / Junior Portfolio Manager\n•\nBasel, CH; Zurich, CH\n•\nFull-time\n•\nUnlimited\nYour Role\nAs Credit Analyst / Junior Portfolio Manager at Bank J. Safra Sarasin you are a curious and ambitious individual with 2–4 years of experience in credit analysis of bank and financials, seeking to contribute to the success of our fixed income team and to develop toward portfolio management over time. You work closely with the senior portfolio managers and you provide investment recommendation for banks across the full capital stack. You support in portfolio management tasks and help in creating marketing materials, including reports, articles and pitch books. As your views mature and your ownership grows, portfolio management is a natural career path for you.\nYour Responsibilities\n• Provide investment recommendations for banks and financials, monitoring the market and portfolio holdings to identify investment and trade opportunities\n• Contribute to investment discussions, sharing your insights and views across the broader team\n• Support the portfolio managers in daily management tasks including trade preparation, cash flow management and portfolio analytics\n• Act as portfolio deputy to build your portfolio management skills\n• Prepare performance reports, marketing materials and investment content for internal and external circulation\nYour Profile\n• Higher education (university / FH) in finance, business or a related field; CFA or CAIA certifications are a plus\n• 2 - 4 years of practical experience in bank / financials credit analysis, ideally in a practical investment orientated role; coverage of European banks is a strong plus\n• Excellent Microsoft Office skills and experience with Bloomberg\n• Strong analytical and problem solving skills, with the ability to weigh problems and set priorities\n• Ability to work with various stakeholders; excellent interpersonal, communication and presentation skills\n• Capability to work independently, with a hands-on mentality and willingness to take responsibility\n• Fluency in English; fluency in German is a plus\nYour Benefits\n•\nEntrepreneurial spirit in a family owned bank\n•\nCentral city office locations across Switzerland\n•\nAbove average insurance coverage fully borne by the bank\n•\nContribution to health insurance and meal allowance\n•\nGlobal growth strategy and stable environment\n•\nCompetitive offering\nAbout us\nAs a leading sustainable private bank, we offer dynamic and personalized services in investment advisory and asset management for private and institutional clients.\nOur success depends on the enthusiasm and commitment of our employees and we value each person with their unique technical expertise, professional qualifications and social skills.\nWe are successfully operating for more than 180 years across 30 locations worldwide and offer our employees the chance to be a part of our success.\nOur employees are our most valuable asset, we are proud of our unique culture that fosters entrepreneurship and is fueled by a high team spirit and\nthe positive attitude of each individual. Join our international team and be part of the next chapter of the J. Safra Sarasin Group.\nApply\n•\nNot the perfect fit?\nDiscover more career opportunities in one of our Swiss locations that match your profile.\nAll Vacancies\n•\nNot the right time?\nStay informed about our latest opportunities and upcoming job openings that match your interests and skills.\nJob Subscription\nShare this role with someone who might be interested\nShare\n•\nSend with WhatsApp\n•\nShare on LinkedIn\n•\nShare on Xing\n•\nSend as Email\n•\nCopy Link",
-      "descriptionByLocale": {
-        "it": "Analista di Credito / Gestione Portfolio Junior\n•\nBasilea, CH; Zurigo, CH\n•\nA tempo pieno\n•\nIllimitata\nIl tuo ruolo\nCome Credit Analyst / Junior Portfolio Manager presso Bank J. Safra Sarasin sei un individuo curioso e ambizioso con 2-4 anni di esperienza nell'analisi del credito delle banche e dei finanziamenti, cercando di contribuire al successo del nostro team di reddito fisso e di sviluppare verso la gestione del portafoglio nel tempo. Si lavora a stretto contatto con i senior portfolio manager e si fornisce la raccomandazione di investimento per le banche in tutto il capitale stack completo. L'utente supporta le attività di gestione del portafoglio e aiuta a creare materiali di marketing, inclusi report, articoli e libri di pitch. Man mano che le vostre opinioni maturano e la vostra proprietà cresce, la gestione del portafoglio è un percorso di carriera naturale per voi.\nLe tue responsabilità\n• Fornire raccomandazioni di investimento per banche e finanziarie, monitorare il mercato e le partecipazioni di portafoglio per identificare le opportunità di investimento e di commercio\n• Contribuisci alle discussioni sugli investimenti, condividendo le tue idee e opinioni in tutto il team più ampio\n• Sostenere i responsabili del portafoglio in attività di gestione quotidiana, tra cui preparazione commerciale, gestione del flusso di cassa e analisi del portafoglio\n• Agire come sostituto del portafoglio per costruire le tue competenze di gestione del portafoglio\n• Preparare report sulle prestazioni, materiali di marketing e contenuti di investimento per la circolazione interna ed esterna\nIl tuo profilo\n• Istruzione superiore (università / FH) in finanza, business o un campo correlato; le certificazioni CFA o CAIA sono un plus\n• 2 - 4 anni di esperienza pratica nell'analisi del credito bancario / finanziario, idealmente in un ruolo pratico di investimento orientato; la copertura delle banche europee è un forte plus\n• Eccellente Microsoft Office competenze e esperienza con Bloomberg\n• Forte capacità analitiche e di problem solving, con la capacità di pesare problemi e impostare priorità\n• Capacità di lavorare con vari stakeholder; eccellenti capacità interpersonali, di comunicazione e di presentazione\n• Capacità di lavorare in modo indipendente, con una mentalità pratica e la volontà di assumersi la responsabilità\n• Fluency in inglese; fluency in tedesco è un plus\nI tuoi vantaggi\n•\nSpirito imprenditoriale in una banca di proprietà familiare\n•\nSede centrale per uffici in Svizzera\n•\nOltre la copertura assicurativa media a carico della banca\n•\nContributo all'assicurazione malattia e all'indennità di pasto\n•\nStrategia di crescita globale e ambiente stabile\n•\nOfferta competitiva\nInformazioni su di noi\nCome banca privata sostenibile leader, offriamo servizi dinamici e personalizzati in consulenza di investimento e gestione patrimoniale per clienti privati e istituzionali.\nIl nostro successo dipende dall'entusiasmo e dall'impegno dei nostri dipendenti e apprezziamo ogni persona con la loro competenza tecnica unica, le qualifiche professionali e le competenze sociali.\nLavoriamo con successo per oltre 180 anni in 30 sedi in tutto il mondo e offriamo ai nostri dipendenti la possibilità di partecipare al nostro successo.\nI nostri dipendenti sono il nostro patrimonio più prezioso, siamo orgogliosi della nostra cultura unica che promuove l'imprenditorialità ed è alimentato da un alto spirito di squadra e\nl'atteggiamento positivo di ogni individuo. Partecipa al nostro team internazionale e partecipa al prossimo capitolo del Gruppo J. Safra Sarasin.\nApplicare\n•\nNon e' la soluzione perfetta?\nScopri altre opportunità di carriera in una delle nostre sedi svizzere che corrispondono al tuo profilo.\nTutte le offerte\n•\nNon e' il momento giusto?\nResta informato sulle nostre ultime opportunità e sulle prossime aperture di lavoro che corrispondono ai tuoi interessi e competenze.\nAbbonamento di lavoro\nCondividi questo ruolo con qualcuno che potrebbe essere interessato\nCondividi\n•\nInviare con WhatsApp\n•\nCondividi su LinkedIn\n•\nCondividi su Xing\n•\nInvia come email\n•\nCopia Link",
-        "en": "Credit Analyst / Junior Portfolio Manager\n•\nBasel, CH; Zurich, CH\n•\nFull-time\n•\nUnlimited\nYour Role\nAs Credit Analyst / Junior Portfolio Manager at Bank J. Safra Sarasin you are a curious and ambitious individual with 2–4 years of experience in credit analysis of bank and financials, seeking to contribute to the success of our fixed income team and to develop toward portfolio management over time. You work closely with the senior portfolio managers and you provide investment recommendation for banks across the full capital stack. You support in portfolio management tasks and help in creating marketing materials, including reports, articles and pitch books. As your views mature and your ownership grows, portfolio management is a natural career path for you.\nYour Responsibilities\n• Provide investment recommendations for banks and financials, monitoring the market and portfolio holdings to identify investment and trade opportunities\n• Contribute to investment discussions, sharing your insights and views across the broader team\n• Support the portfolio managers in daily management tasks including trade preparation, cash flow management and portfolio analytics\n• Act as portfolio deputy to build your portfolio management skills\n• Prepare performance reports, marketing materials and investment content for internal and external circulation\nYour Profile\n• Higher education (university / FH) in finance, business or a related field; CFA or CAIA certifications are a plus\n• 2 - 4 years of practical experience in bank / financials credit analysis, ideally in a practical investment orientated role; coverage of European banks is a strong plus\n• Excellent Microsoft Office skills and experience with Bloomberg\n• Strong analytical and problem solving skills, with the ability to weigh problems and set priorities\n• Ability to work with various stakeholders; excellent interpersonal, communication and presentation skills\n• Capability to work independently, with a hands-on mentality and willingness to take responsibility\n• Fluency in English; fluency in German is a plus\nYour Benefits\n•\nEntrepreneurial spirit in a family owned bank\n•\nCentral city office locations across Switzerland\n•\nAbove average insurance coverage fully borne by the bank\n•\nContribution to health insurance and meal allowance\n•\nGlobal growth strategy and stable environment\n•\nCompetitive offering\nAbout us\nAs a leading sustainable private bank, we offer dynamic and personalized services in investment advisory and asset management for private and institutional clients.\nOur success depends on the enthusiasm and commitment of our employees and we value each person with their unique technical expertise, professional qualifications and social skills.\nWe are successfully operating for more than 180 years across 30 locations worldwide and offer our employees the chance to be a part of our success.\nOur employees are our most valuable asset, we are proud of our unique culture that fosters entrepreneurship and is fueled by a high team spirit and\nthe positive attitude of each individual. Join our international team and be part of the next chapter of the J. Safra Sarasin Group.\nApply\n•\nNot the perfect fit?\nDiscover more career opportunities in one of our Swiss locations that match your profile.\nAll Vacancies\n•\nNot the right time?\nStay informed about our latest opportunities and upcoming job openings that match your interests and skills.\nJob Subscription\nShare this role with someone who might be interested\nShare\n•\nSend with WhatsApp\n•\nShare on LinkedIn\n•\nShare on Xing\n•\nSend as Email\n•\nCopy Link",
-        "de": "Credit Analyst / Junior Portfolio Manager\n•\nBasel, CH; Zürich, CH\n•\nVollzeit\n•\nUnbegrenzt\nDeine Rolle\nAls Credit Analyst / Junior Portfolio Manager bei Bank J. Safra Sarasin sind Sie eine neugierige und ehrgeizige Person mit 2-4 Jahren Erfahrung in der Kreditanalyse von Banken und Finanzen, die zum Erfolg unseres Fixed-Income-Teams beitragen und sich im Laufe der Zeit in Richtung Portfoliomanagement entwickeln möchte. Sie arbeiten eng mit den leitenden Portfoliomanagern zusammen und bieten Anlageempfehlungen für Banken über den gesamten Kapitalstapel. Sie unterstützen bei Portfoliomanagement-Aufgaben und helfen bei der Erstellung von Marketingmaterialien, einschließlich Berichten, Artikeln und Pitchbüchern. Wenn Ihre Ansichten reifer werden und Ihr Eigentum wächst, ist das Portfoliomanagement ein natürlicher Karriereweg für Sie.\nIhre Aufgaben\n• Bereitstellung von Anlageempfehlungen für Banken und Finanzen, Überwachung der Markt- und Portfoliobestände zur Identifizierung von Anlage- und Handelsmöglichkeiten\n• Tragen Sie zu Anlagediskussionen bei und teilen Sie Ihre Erkenntnisse und Ansichten im gesamten Team\n• Unterstützen Sie Portfoliomanager bei täglichen Managementaufgaben wie Handelsvorbereitung, Cashflow-Management und Portfolioanalyse\n• Handeln Sie als Portfolio-Abgeordneter, um Ihre Portfolio-Management-Fähigkeiten aufzubauen\n• Bereiten Sie Leistungsberichte, Marketingmaterialien und Anlageinhalte für den internen und externen Umlauf vor\nIhr Profil\n• Hochschulbildung (Universität / FH) in Finanzen, Wirtschaft oder einem verwandten Bereich; CFA oder CAIA Zertifizierungen sind ein Plus\n• 2 - 4 Jahre praktische Erfahrung in der Banken- / Finanzkreditanalyse, idealerweise in einer praktischen anlageorientierten Rolle; Abdeckung europäischer Banken ist ein starkes Plus\n• Hervorragende Microsoft Office Fähigkeiten und Erfahrungen mit Bloomberg\n• Starke analytische und Problemlösungsfähigkeiten mit der Fähigkeit, Probleme abzuwägen und Prioritäten zu setzen\n• Fähigkeit, mit verschiedenen Stakeholdern zu arbeiten; ausgezeichnete zwischenmenschliche, Kommunikations- und Präsentationsfähigkeiten\n• Fähigkeit, unabhängig zu arbeiten, mit einer praktischen Mentalität und Bereitschaft, Verantwortung zu übernehmen\n• Fließend in Englisch; fließend in Deutsch ist ein Plus\nIhre Vorteile\n•\nUnternehmergeist in einer Familienbank\n•\nZentrale Stadtbüros in der ganzen Schweiz\n•\nÜberdurchschnittlicher Versicherungsschutz vollständig von der Bank getragen\n•\nBeitrag zur Krankenversicherung und Mahlzeitenzulage\n•\nGlobale Wachstumsstrategie und stabiles Umfeld\n•\nWettbewerbsfähiges Angebot\nÜber uns\nAls führende nachhaltige Privatbank bieten wir dynamische und personalisierte Dienstleistungen in der Anlageberatung und Vermögensverwaltung für private und institutionelle Kunden.\nUnser Erfolg hängt von der Begeisterung und dem Engagement unserer Mitarbeiter ab und wir schätzen jede Person mit ihrer einzigartigen technischen Kompetenz, beruflichen Qualifikationen und sozialen Fähigkeiten.\nWir sind seit mehr als 180 Jahren erfolgreich an 30 Standorten weltweit tätig und bieten unseren Mitarbeitern die Chance, Teil unseres Erfolgs zu sein.\nUnsere Mitarbeiter sind unser wertvollstes Kapital, wir sind stolz auf unsere einzigartige Kultur, die das Unternehmertum fördert und von einem hohen Teamgeist angetrieben wird.\ndie positive Einstellung jedes Einzelnen. Treten Sie unserem internationalen Team bei und werden Sie Teil des nächsten Kapitels der J. Safra Sarasin Group.\nBeantragen\n•\nNicht die perfekte Passform?\nEntdecken Sie mehr Karrieremöglichkeiten an einem unserer Schweizer Standorte, die zu Ihrem Profil passen.\nAlle offenen Stellen\n•\nNicht der richtige Zeitpunkt?\nBleiben Sie auf dem Laufenden über unsere neuesten Möglichkeiten und bevorstehenden Stellenangebote, die Ihren Interessen und Fähigkeiten entsprechen.\nJob Subscription\nTeilen Sie diese Rolle mit jemandem, der interessiert sein könnte\nAnteil\n•\nSenden mit WhatsApp\n•\nTeilen auf LinkedIn\n•\nAktien auf Xing\n•\nSenden als E-Mail\n•\nCopy Link",
-        "fr": "Analyste du crédit / Gestionnaire de portefeuille junior\n•\nBâle, CH; Zurich, CH\n•\nTemps plein\n•\nIllimité\nVotre rôle\nEn tant qu'analyste de crédit / Directeur de portefeuille junior à la Banque J. Safra Sarasin, vous êtes un individu curieux et ambitieux avec 2 à 4 ans d'expérience dans l'analyse de crédit des banques et des finances, cherchant à contribuer au succès de notre équipe à revenu fixe et à se développer vers la gestion de portefeuille au fil du temps. Vous travaillez en étroite collaboration avec les gestionnaires principaux de portefeuille et vous fournissez des recommandations d'investissement aux banques dans l'ensemble de la pile de capital. Vous accompagnez dans les tâches de gestion de portefeuille et aidez à la création de matériel de marketing, y compris des rapports, des articles et des livres de terrain. À mesure que vos points de vue mûrissent et que votre propriété augmente, la gestion de portefeuille est un parcours de carrière naturel pour vous.\nVos responsabilités\n• Formuler des recommandations en matière d'investissement à l'intention des banques et des financiers, surveiller le marché et les portefeuilles afin d'identifier les possibilités d'investissement et de commerce\n• Contribuer aux discussions sur l'investissement, partager vos points de vue et vos points de vue dans l'ensemble de l'équipe\n• Soutenir les gestionnaires de portefeuille dans les tâches quotidiennes de gestion, y compris la préparation du commerce, la gestion des flux de trésorerie et l'analyse de portefeuille\n• Agir en tant que délégué de portefeuille pour développer vos compétences en gestion de portefeuille\n• Préparer des rapports de performance, du matériel de marketing et du contenu d'investissement pour la circulation interne et externe\nVotre profil\n• Enseignement supérieur (universitaire / FH) en finance, en affaires ou dans un domaine connexe; les certifications CFA ou CAIA sont un plus\n• 2 - 4 ans d'expérience pratique dans l'analyse du crédit bancaire / financier, idéalement dans un rôle pratique orienté vers l'investissement; la couverture des banques européennes est un plus fort\n• Excellentes compétences et expérience de Microsoft Office avec Bloomberg\n• Fortes compétences d'analyse et de résolution de problèmes, avec la capacité de peser les problèmes et de fixer des priorités\n• Capacité de travailler avec divers intervenants; excellentes aptitudes interpersonnelles, en communication et en présentation\n• Capacité de travailler de manière indépendante, avec une mentalité pratique et une volonté de prendre des responsabilités\n• Connaissance de l'anglais; maîtrise de l'allemand est un plus\nVos avantages\n•\nEsprit d'entreprise dans une banque familiale\n•\nBureaux de la ville centrale en Suisse\n•\nCouverture d'assurance supérieure à la moyenne entièrement supportée par la banque\n•\nContribution à l'assurance maladie et à l'indemnité de repas\n•\nStratégie de croissance mondiale et environnement stable\n•\nOffre concurrentielle\nSur nous\nEn tant que banque privée durable leader, nous offrons des services dynamiques et personnalisés en conseil en investissement et gestion d'actifs pour les clients privés et institutionnels.\nNotre succès dépend de l'enthousiasme et de l'engagement de nos employés et nous valorisons chaque personne avec son expertise technique unique, ses qualifications professionnelles et ses compétences sociales.\nNous travaillons avec succès depuis plus de 180 ans sur 30 sites dans le monde entier et offrons à nos employés la chance de participer à notre succès.\nNos employés sont notre atout le plus précieux, nous sommes fiers de notre culture unique qui favorise l'entrepreneuriat et est alimenté par un esprit d'équipe élevé et\nl'attitude positive de chaque individu. Rejoignez notre équipe internationale et faites partie du prochain chapitre du groupe J. Safra Sarasin.\nAppliquer\n•\nPas la forme parfaite ?\nDécouvrez d'autres opportunités de carrière dans un de nos sites suisses qui correspondent à votre profil.\nTous postes vacants\n•\nPas le bon moment ?\nRestez informé de nos dernières opportunités et des prochaines offres d'emploi qui correspondent à vos intérêts et compétences.\nAbonnement emploi\nPartagez ce rôle avec quelqu'un qui pourrait être intéressé\nPartager\n•\nEnvoyer avec WhatsApp\n•\nPartager sur LinkedIn\n•\nPartager sur Xing\n•\nEnvoyer comme courriel\n•\nCopier le lien"
-      },
-      "location": "Basel, CH",
-      "canton": "BS",
-      "url": "https://jsafrasarasin.umantis.com/Vacancies/555/Description/2",
-      "source": "J. Safra Sarasin Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-19T09:28:25.327Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "junior",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/555/Description/2",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "credit-analyst-junior-portfolio-manager-jsafrasarasin-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "credit-analyst-junior-portfolio-manager-jsafrasarasin-ch"
-        ],
-        "de": [
-          "credit-analyst-junior-portfolio-manager-jsafrasarasin-ch"
-        ],
-        "fr": [
-          "credit-analyst-junior-portfolio-manager-jsafrasarasin-ch"
-        ]
-      },
-      "firstSeenAt": "2026-11-16T21:18:19.175Z",
-      "salaryMin": 52000,
-      "salaryMax": 78500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 52000,
-          "maxValue": 78500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "4001",
-      "streetAddress": "Basel",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T09:28:25.327Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "sourceIdentity": "url:https://jsafrasarasin.umantis.com/vacancies/555/description/2"
     }
   ]
 }
