@@ -42497,9 +42497,9 @@
       "id": "yellowshark-c9ca70854338",
       "slug": "roofing-piano-tetto-ripido-m-f-yellowshark-ag-zurich",
       "slugByLocale": {
+        "de": "dachdecker-flach-steildach-m-w-d-yellowshark-ag-zurich",
         "it": "roofing-piano-tetto-ripido-m-f-yellowshark-ag-zurich",
         "en": "roofing-flat-steep-roof-m-f-yellowshark-ag-zurich",
-        "de": "dachdecker-flach-steildach-m-w-zurich-zh-yellowshark-ch",
         "fr": "toit-plat-toit-escarpe-h-f-yellowshark-ag-zurich"
       },
       "company": "yellowshark AG",
@@ -42543,18 +42543,24 @@
       "applyUrl": "https://jobs.yellowshark.com/job/sa036299/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dachdecker-flach-steildach-m-w-zurich-zh-yellowshark-ch",
-        "roofing-piano-tetto-ripido-m-f-yellowshark-ag-zurich-zh",
-        "roofing-piano-tetto-ripido-m-f-yellowshark-ag-zurich-zh-2",
-        "dachdecker-flach-steildach-m-w-d-yellowshark-ag-zurich",
-        "roofing-piano-tetto-ripido-m-f-yellowshark-ag-zurich-7263c71c8e",
-        "roofing-flat-steep-roof-m-f-yellowshark-ag-zurich-zh",
-        "toit-plat-toit-escarpe-h-f-yellowshark-ag-zurich-zh",
-        "roofing-piano-tetto-ripido-m-f-yellowshark-ag-zurich-zh-b75561",
-        "roofing-flat-steep-roof-m-f-yellowshark-ag-zurich-zh-b75561",
-        "toit-plat-toit-escarpe-h-f-yellowshark-ag-zurich-zh-b75561"
-      ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-29T22:02:13.043Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-09-28T21:58:25.555Z",
       "previousSlugsByLocale": {
         "it": [
           "dachdecker-flach-steildach-m-w-zurich-zh-yellowshark-ch",
@@ -42573,27 +42579,24 @@
           "dachdecker-flach-steildach-m-w-zurich-zh-yellowshark-ch",
           "toit-plat-toit-escarpe-h-f-yellowshark-ag-zurich-zh",
           "toit-plat-toit-escarpe-h-f-yellowshark-ag-zurich-zh-b75561"
+        ],
+        "de": [
+          "dachdecker-flach-steildach-m-w-zurich-zh-yellowshark-ch"
         ]
       },
-      "firstSeenAt": "2026-09-28T21:58:25.555Z",
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T22:02:13.043Z",
-      "validThroughSource": "last-observed-window"
+      "previousSlugs": [
+        "dachdecker-flach-steildach-m-w-zurich-zh-yellowshark-ch",
+        "roofing-piano-tetto-ripido-m-f-yellowshark-ag-zurich-zh",
+        "roofing-piano-tetto-ripido-m-f-yellowshark-ag-zurich-zh-2",
+        "dachdecker-flach-steildach-m-w-d-yellowshark-ag-zurich",
+        "roofing-piano-tetto-ripido-m-f-yellowshark-ag-zurich-7263c71c8e",
+        "roofing-flat-steep-roof-m-f-yellowshark-ag-zurich-zh",
+        "toit-plat-toit-escarpe-h-f-yellowshark-ag-zurich-zh",
+        "roofing-piano-tetto-ripido-m-f-yellowshark-ag-zurich-zh-b75561",
+        "roofing-flat-steep-roof-m-f-yellowshark-ag-zurich-zh-b75561",
+        "toit-plat-toit-escarpe-h-f-yellowshark-ag-zurich-zh-b75561"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "yellowshark-f429cc919814",
