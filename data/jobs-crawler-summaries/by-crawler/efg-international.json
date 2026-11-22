@@ -1,16 +1,16 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-11-22T09:21:45.199Z",
+  "generatedAt": "2026-11-22T21:20:06.526Z",
   "total": 21,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 21,
-  "durationMs": 15390,
-  "avgDurationMs": 15390,
+  "durationMs": 14674,
+  "avgDurationMs": 14674,
   "durationHistory": [
-    15390
+    14674
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -53,7 +53,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-22T09:21:27.042Z",
+      "crawledAt": "2026-11-22T21:19:53.141Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 63000,
@@ -64,7 +64,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:21:27.042Z",
+      "validThrough": "2027-02-03T21:19:53.141Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-05T21:13:58.262Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6560",
@@ -113,7 +113,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-22T09:21:27.037Z",
+      "crawledAt": "2026-11-22T21:19:53.136Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 174500,
@@ -124,7 +124,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:21:27.037Z",
+      "validThrough": "2027-02-01T21:19:53.136Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-03T21:28:28.747Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6549",
@@ -173,7 +173,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-22T09:21:27.031Z",
+      "crawledAt": "2026-11-22T21:19:53.131Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 104500,
@@ -184,7 +184,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:21:27.031Z",
+      "validThrough": "2027-02-01T21:19:53.131Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-03T21:28:28.740Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6548",
@@ -230,7 +230,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-22T09:21:27.025Z",
+      "crawledAt": "2026-11-22T21:19:53.127Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-09-14T14:56:06+00:00",
@@ -246,7 +246,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:21:27.025Z",
+      "validThrough": "2026-12-22T21:19:53.127Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -372,7 +372,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-22T09:21:27.018Z",
+      "crawledAt": "2026-11-22T21:19:53.122Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-09-16T14:22:35+00:00",
@@ -388,7 +388,7 @@
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6436",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:21:27.018Z",
+      "validThrough": "2026-12-22T21:19:53.122Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -435,7 +435,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-22T09:21:26.982Z",
+      "crawledAt": "2026-11-22T21:19:53.093Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "salaryMin": 85500,
@@ -457,7 +457,7 @@
         "checkedAt": "2026-10-31T20:48:45.577Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-18T09:21:26.982Z",
+      "validThrough": "2027-01-17T21:19:53.093Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6221",
       "_qualityScore": 99,
@@ -572,7 +572,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-22T09:21:26.979Z",
+      "crawledAt": "2026-11-22T21:19:53.091Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19T13:28:38+00:00",
@@ -589,7 +589,7 @@
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6066",
       "postingDateSource": "reported",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T09:21:26.979Z",
+      "validThrough": "2026-12-22T21:19:53.091Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -633,7 +633,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-22T09:21:26.975Z",
+      "crawledAt": "2026-11-22T21:19:53.087Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-07-20T07:37:07+00:00",
@@ -650,7 +650,7 @@
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6039",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:21:26.975Z",
+      "validThrough": "2026-12-22T21:19:53.087Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -767,7 +767,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-22T09:21:26.953Z",
+      "crawledAt": "2026-11-22T21:19:53.068Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -795,7 +795,7 @@
         "checkedAt": "2026-10-31T20:48:45.577Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-22T09:21:26.953Z",
+      "validThrough": "2026-12-22T21:19:53.068Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -842,7 +842,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-22T09:21:26.946Z",
+      "crawledAt": "2026-11-22T21:19:53.063Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "needsRetranslation": true,
@@ -865,7 +865,7 @@
       },
       "streetAddress": "Bleicherweg 8",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T09:21:26.946Z",
+      "validThrough": "2026-12-25T21:19:53.063Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-10T22:20:59.183Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6550",
@@ -914,7 +914,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-22T09:21:26.941Z",
+      "crawledAt": "2026-11-22T21:19:53.058Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "needsRetranslation": true,
@@ -926,7 +926,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T09:21:26.941Z",
+      "validThrough": "2027-02-11T21:19:53.058Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-14T09:15:44.870Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6515",
@@ -975,7 +975,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-22T09:21:26.931Z",
+      "crawledAt": "2026-11-22T21:19:53.051Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "needsRetranslation": true,
@@ -987,7 +987,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-19T09:21:26.931Z",
+      "validThrough": "2027-02-18T21:19:53.051Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-21T21:19:37.019Z",
       "_qualityScore": 99,
@@ -1930,5 +1930,5 @@
       }
     }
   ],
-  "codeCommit": "193181861b8ea282b062b042b15b99e091d330e5"
+  "codeCommit": "f0ab682774893f4b809c5b75181716509e65ea60"
 }
