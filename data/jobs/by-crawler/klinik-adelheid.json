@@ -1,7 +1,7 @@
 {
   "crawlerKey": "klinik-adelheid",
-  "assembledAt": "2026-11-21T21:40:19.785Z",
-  "runId": "44950790799",
+  "assembledAt": "2026-11-22T09:46:56.918Z",
+  "runId": "45006754842",
   "jobs": [
     {
       "id": "klinik-adelheid-0a2f0e21b5e4",
@@ -34,7 +34,7 @@
       "url": "https://link.ostendis.com/publication/psychologin-psychologe/3qeph7itpvzn4tvfnjtppqymb4hx2tegof7nnf2nbrssrzh3gwr6etxt6p1yt8pc",
       "source": "Klinik Adelheid Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:40:13.670Z",
+      "crawledAt": "2026-11-22T09:46:50.843Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T21:40:13.670Z",
+      "validThrough": "2027-02-04T09:46:50.843Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://link.ostendis.com/publication/zivildienstleistende-im-pflege-und-therapiebereich/jm63m0vcmwbitrcjb33ytlskdqycc5ufynqoslx4ap63xdecec4yllgjosqbpcg4",
       "source": "Klinik Adelheid Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:40:13.235Z",
+      "crawledAt": "2026-11-22T09:46:50.410Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -138,10 +138,12 @@
       "applyUrl": "https://link.ostendis.com/publication/zivildienstleistende-im-pflege-und-therapiebereich/jm63m0vcmwbitrcjb33ytlskdqycc5ufynqoslx4ap63xdecec4yllgjosqbpcg4",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "zivildienstleistende-im-pflege-und-therapiebereich-klinik-adelheid-unteraegeri",
+        "zivildienstleistende-im-pflege-e-therapiebereich-klinik-adelheid-unterageri",
+        "zivildienstleistende-im-pflege-und-therapiebereich-klinik-adelheid-unterageri"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "zivildienstleistende-im-pflege-und-therapiebereich-klinik-adelheid-unterageri"
-        ],
         "it": [
           "zivildienstleistende-im-pflege-und-therapiebereich-klinik-adelheid-unteraegeri",
           "zivildienstleistende-im-pflege-e-therapiebereich-klinik-adelheid-unterageri"
@@ -149,15 +151,13 @@
         "en": [
           "zivildienstleistende-im-pflege-und-therapiebereich-klinik-adelheid-unterageri"
         ],
+        "de": [
+          "zivildienstleistende-im-pflege-und-therapiebereich-klinik-adelheid-unterageri"
+        ],
         "fr": [
           "zivildienstleistende-im-pflege-und-therapiebereich-klinik-adelheid-unterageri"
         ]
       },
-      "previousSlugs": [
-        "zivildienstleistende-im-pflege-und-therapiebereich-klinik-adelheid-unteraegeri",
-        "zivildienstleistende-im-pflege-e-therapiebereich-klinik-adelheid-unterageri",
-        "zivildienstleistende-im-pflege-und-therapiebereich-klinik-adelheid-unterageri"
-      ],
       "firstSeenAt": "2026-05-19T13:03:35.349Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -173,7 +173,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T21:40:13.235Z",
+      "validThrough": "2026-12-29T09:46:50.410Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -208,7 +208,7 @@
       "url": "https://link.ostendis.com/publication/studium-zur-dipl-pflegefachperson-hf/poughkmwxvwzwqyhtvp22jfs7llu3emjn9qmdiw2ybz78ydv667fohq4jmmfzchh",
       "source": "Klinik Adelheid Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:40:12.811Z",
+      "crawledAt": "2026-11-22T09:46:49.971Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -259,7 +259,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T21:40:12.811Z",
+      "validThrough": "2026-12-29T09:46:49.971Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -293,7 +293,7 @@
       "url": "https://link.ostendis.com/publication/dipl-pflegefachfrau-mann-hf/49r2jvk5urzcydbn3f3fx98klkqzcaypc3trz77oqsdcq2hjy6bhziwheysbt1mz",
       "source": "Klinik Adelheid Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:40:12.382Z",
+      "crawledAt": "2026-11-22T09:46:49.540Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -361,7 +361,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T21:40:12.382Z",
+      "validThrough": "2026-12-29T09:46:49.540Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -396,7 +396,7 @@
       "url": "https://link.ostendis.com/publication/leitende-aerztin-leitender-arzt-mit-facharzt-pmr/yw4oorzoto351bbx3ik0tjo643cp3bv620nw5bdeny5asre2y7skprxbybue8kld",
       "source": "Klinik Adelheid Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:40:11.963Z",
+      "crawledAt": "2026-11-22T09:46:49.113Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -416,11 +416,17 @@
       "applyUrl": "https://link.ostendis.com/publication/leitende-aerztin-leitender-arzt-mit-facharzt-pmr/yw4oorzoto351bbx3ik0tjo643cp3bv620nw5bdeny5asre2y7skprxbybue8kld",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri",
+        "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri-315faf14",
+        "medecin-en-chef-medecin-en-chef-100-avec-pmr-specialiste-klinik-adelheid-unterageri",
+        "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri-f73ede90",
+        "medica-dirigente-medico-dirigente-100-con-specializzazione-in-pmr-klinik-adelheid-unterageri-47b9f458",
+        "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri-52e3498c",
+        "lead-doctor-lead-doctor-100-with-specialist-pmr-klinik-adelheid-unterageri-7c5e42c8",
+        "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unterageri"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri-315faf14",
-          "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unterageri"
-        ],
         "it": [
           "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri",
           "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri-315faf14",
@@ -433,21 +439,15 @@
         "en": [
           "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri"
         ],
+        "de": [
+          "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri-315faf14",
+          "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unterageri"
+        ],
         "fr": [
           "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri",
           "medecin-en-chef-medecin-en-chef-100-avec-pmr-specialiste-klinik-adelheid-unterageri"
         ]
       },
-      "previousSlugs": [
-        "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri",
-        "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri-315faf14",
-        "medecin-en-chef-medecin-en-chef-100-avec-pmr-specialiste-klinik-adelheid-unterageri",
-        "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri-f73ede90",
-        "medica-dirigente-medico-dirigente-100-con-specializzazione-in-pmr-klinik-adelheid-unterageri-47b9f458",
-        "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unteraegeri-52e3498c",
-        "lead-doctor-lead-doctor-100-with-specialist-pmr-klinik-adelheid-unterageri-7c5e42c8",
-        "leitende-arztin-leitender-arzt-100-mit-facharzt-pmr-klinik-adelheid-unterageri"
-      ],
       "firstSeenAt": "2026-11-06T09:37:06.834Z",
       "salaryMin": 117000,
       "salaryMax": 163000,
@@ -463,7 +463,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:40:11.963Z",
+      "validThrough": "2027-01-26T09:46:49.113Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -498,7 +498,7 @@
       "url": "https://link.ostendis.com/publication/sous-chef-in/vsy1chyvd2lm0iwm35y4zisux53spisc40g3x2v0dwz7dqw0toz4mwofcvzt0jb3",
       "source": "Klinik Adelheid Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:40:11.521Z",
+      "crawledAt": "2026-11-22T09:46:48.673Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -518,11 +518,19 @@
       "applyUrl": "https://link.ostendis.com/publication/sous-chef-in/vsy1chyvd2lm0iwm35y4zisux53spisc40g3x2v0dwz7dqw0toz4mwofcvzt0jb3",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "sous-chef-in-100-klinik-adelheid-unteraegeri",
+        "sous-chef-in-100-klinik-adelheid-unteraegeri-1c68b85e",
+        "sous-chef-ne-100-klinik-adelheid-unterageri",
+        "sous-chef-in-100-klinik-adelheid-unteraegeri-2c5d905a",
+        "sous-chef-in-100-klinik-adelheid-unteraegeri-9f463fd2",
+        "sous-chef-in-100-klinik-adelheid-unteraegeri-6cb6597f",
+        "sous-chef-in-100-klinik-adelheid-unteraegeri-f8cc3579",
+        "sous-chef-in-100-klinik-adelheid-unteraegeri-8de2759f",
+        "sous-chef-100-klinik-adelheid-unterageri-c0286d75",
+        "sous-chef-in-100-klinik-adelheid-unterageri"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "sous-chef-in-100-klinik-adelheid-unteraegeri-1c68b85e",
-          "sous-chef-in-100-klinik-adelheid-unterageri"
-        ],
         "it": [
           "sous-chef-in-100-klinik-adelheid-unteraegeri",
           "sous-chef-in-100-klinik-adelheid-unteraegeri-1c68b85e",
@@ -537,23 +545,15 @@
         "en": [
           "sous-chef-in-100-klinik-adelheid-unteraegeri"
         ],
+        "de": [
+          "sous-chef-in-100-klinik-adelheid-unteraegeri-1c68b85e",
+          "sous-chef-in-100-klinik-adelheid-unterageri"
+        ],
         "fr": [
           "sous-chef-in-100-klinik-adelheid-unteraegeri",
           "sous-chef-ne-100-klinik-adelheid-unterageri"
         ]
       },
-      "previousSlugs": [
-        "sous-chef-in-100-klinik-adelheid-unteraegeri",
-        "sous-chef-in-100-klinik-adelheid-unteraegeri-1c68b85e",
-        "sous-chef-ne-100-klinik-adelheid-unterageri",
-        "sous-chef-in-100-klinik-adelheid-unteraegeri-2c5d905a",
-        "sous-chef-in-100-klinik-adelheid-unteraegeri-9f463fd2",
-        "sous-chef-in-100-klinik-adelheid-unteraegeri-6cb6597f",
-        "sous-chef-in-100-klinik-adelheid-unteraegeri-f8cc3579",
-        "sous-chef-in-100-klinik-adelheid-unteraegeri-8de2759f",
-        "sous-chef-100-klinik-adelheid-unterageri-c0286d75",
-        "sous-chef-in-100-klinik-adelheid-unterageri"
-      ],
       "firstSeenAt": "2026-11-06T09:37:06.437Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -569,7 +569,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T21:40:11.521Z",
+      "validThrough": "2027-01-25T09:46:48.673Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -603,7 +603,7 @@
       "url": "https://link.ostendis.com/publication/lernende-als-koechin-koch-efz/2qejr7mat5day7b9050gwt65stslg8qcclodtx2vjossc5f367erafo2j37favik",
       "source": "Klinik Adelheid Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-21T21:40:10.544Z",
+      "crawledAt": "2026-11-22T09:46:48.244Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -654,115 +654,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T21:40:10.544Z",
+      "validThrough": "2026-12-29T09:46:48.244Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "klinik-adelheid-7f68bcbc96ea",
-      "slug": "specialisti-r-80-100-klinik-adelheid-unterageri",
-      "slugByLocale": {
-        "it": "specialisti-r-80-100-klinik-adelheid-unterageri",
-        "en": "service-specialists-r-80-100-klinik-adelheid-unterageri",
-        "de": "servicefachangestellte-r-80-100-klinik-adelheid-unteraegeri",
-        "fr": "specialistes-des-services-r-80-100-klinik-adelheid-unterageri"
-      },
-      "company": "Klinik Adelheid",
-      "companyKey": "klinik-adelheid",
-      "companyDomain": "klinik-adelheid.ch",
-      "title": "Servicefachangestellte/r 80 - 100%",
-      "titleByLocale": {
-        "it": "Specialisti/r 80 - 100%",
-        "en": "Service specialists/r 80 - 100%",
-        "de": "Servicefachangestellte/r 80 - 100%",
-        "fr": "Spécialistes des services/r 80 - 100%"
-      },
-      "description": "Die Klinik Adelheid mit 140 Betten steht als führendes Rehazentrum der Zentralschweiz für höchste Qualität in der Patientenbetreuung. Das Leistungsangebot umfasst die stationäre Rehabilitation von muskuloskelettalen, neurologischen, internistisch-onkologischen und geriatrischen Patientinnen und Patienten. Die Klinik liegt an traumhafter Lage oberhalb des Ägerisees und ist ein Unternehmen der Gemeinnützigen Gesellschaft Zug.\nZur Verstärkung unseres Teams suchen wir nach Vereinbarung eine / einen\n Servicefachangestellte/r 80 - 100%\n Sie sind verantwortlich für den Zimmerservice bei den Patientinnen und Patienten. Ebenfalls bedienen Sie die Patientinnen und Patienten im Speisesaal während den Essenszeiten oder unsere Gäste im à la carte Restaurant.\n Unser Wunschprofil\n\n• langjährige Berufserfahrung oder abgeschlossene Ausbildung als Restaurationsfachperson\n• sehr gute Deutschkenntnisse in Wort und Schrift\n• dienstleistungsorientiert, belastbar und eigenverantwortlich\n• gepflegtes, freundliches und angenehmes Auftreten\n• flexibel im Arbeitseinsatz\n Ihr neuer Arbeitsplatz\n Wir bieten Ihnen ein interessantes, vielseitiges Aufgabengebiet in einem engagierten und motivierten Team. Es erwartet Sie eine innovative und zukunftsgerichtete Rehabilitationsklinik mit attraktiven Anstellungsbedingungen (z.B. 27 Tage Ferien, hervorragende Sozialleistungen, preiswerte Verpflegung).\n Frau R. Rogenmoser, Leitung Hotellerie, Telefon 041 754 35 17, erteilt Ihnen gerne weitere Auskünfte. Wir freuen uns, Sie persönlich kennen zu lernen.\n Wir freuen uns auf Ihre Bewerbung.\n Jetzt bewerben\n Klinik Adelheid AG - Höhenweg 71 - 6314 Unterägeri",
-      "descriptionByLocale": {
-        "it": "La clinica Adelheid con 140 posti letto è il principale centro di riabilitazione della Svizzera centrale per la massima qualità nella cura dei pazienti. La gamma di servizi comprende la riabilitazione ospedaliera di pazienti muscoloschelettrici, neurologici, internistic-oncologici e geriatrici. La clinica si trova in una posizione onirica sopra il lago Ägerise ed è una società della società senza scopo di lucro Zug.\nPer rafforzare il nostro team, stiamo cercando un accordo\nSpecialisti/r 80 - 100%\nSei responsabile del servizio in camera per i pazienti. Potrete anche servire i pazienti in sala da pranzo durante i pasti o i nostri ospiti nel ristorante à la carte.\nIl nostro profilo desiderato\n\n• molti anni di esperienza professionale o formazione completa come specialista di restauro\n• conoscenza molto buona del tedesco in parola e scrittura\n• Service-oriented, resiliente e responsabile\n• È ben curato, amichevole e piacevole.\n• Flessibile in uso\nIl tuo nuovo lavoro\nVi offriamo un'area di responsabilità interessante e versatile in un team impegnato e motivato. Una clinica di riabilitazione innovativa e orientata al futuro con interessanti condizioni di lavoro vi aspetta (ad esempio, 27 giorni festivi, benefici sociali eccezionali, cibo economico).\nMrs. R. Rogenmoser, Hotel Management, telefono 041 754 35 17, sarà lieto di fornirvi ulteriori informazioni. Non vediamo l'ora di incontrarti personalmente.\nAttendiamo con ansia la vostra applicazione.\nApplicare ora\nKlinik Adelheid AG - Höhenweg 71 - 6314 Unterägeri - personal@klinik-adelheid.ch",
-        "en": "The clinic Adelheid with 140 beds stands as the leading rehabilitation center of Central Switzerland for the highest quality in patient care. The range of services includes the inpatient rehabilitation of musculoskeletal, neurological, internistic-oncological and geriatric patients. The clinic is located in a dreamlike location above Lake Ägerise and is a company of the non-profit company Zug.\nTo strengthen our team, we are looking for an agreement\nService specialists/r 80 - 100%\nYou are responsible for the room service for patients. You can also serve the patients in the dining room during meal times or our guests in the à la carte restaurant.\nOur desired profile\n\n• many years of professional experience or completed training as a restoration specialist\n• very good knowledge of German in word and writing\n• Service-oriented, resilient and responsible\n• It is well-groomed, friendly and pleasant.\n• Flexible in use\nYour new job\nWe offer you an interesting, versatile area of responsibility in a committed and motivated team. An innovative and future-oriented rehabilitation clinic with attractive employment conditions awaits you (e.g. 27 days holidays, outstanding social benefits, inexpensive food).\nMrs. R. Rogenmoser, Hotel Management, telephone 041 754 35 17, will be happy to provide you with further information. We look forward to meeting you personally.\nWe look forward to your application.\nApply now\nKlinik Adelheid AG - Höhenweg 71 - 6314 Unterägeri - personal@klinik-adelheid.ch",
-        "de": "Die Klinik Adelheid mit 140 Betten steht als führendes Rehazentrum der Zentralschweiz für höchste Qualität in der Patientenbetreuung. Das Leistungsangebot umfasst die stationäre Rehabilitation von muskuloskelettalen, neurologischen, internistisch-onkologischen und geriatrischen Patientinnen und Patienten. Die Klinik liegt an traumhafter Lage oberhalb des Ägerisees und ist ein Unternehmen der Gemeinnützigen Gesellschaft Zug.\nZur Verstärkung unseres Teams suchen wir nach Vereinbarung eine / einen\nServicefachangestellte/r 80 - 100%\nSie sind verantwortlich für den Zimmerservice bei den Patientinnen und Patienten. Ebenfalls bedienen Sie die Patientinnen und Patienten im Speisesaal während den Essenszeiten oder unsere Gäste im à la carte Restaurant.\nUnser Wunschprofil\n\n• langjährige Berufserfahrung oder abgeschlossene Ausbildung als Restaurationsfachperson\n• sehr gute Deutschkenntnisse in Wort und Schrift\n• dienstleistungsorientiert, belastbar und eigenverantwortlich\n• gepflegtes, freundliches und angenehmes Auftreten\n• flexibel im Arbeitseinsatz\nIhr neuer Arbeitsplatz\nWir bieten Ihnen ein interessantes, vielseitiges Aufgabengebiet in einem engagierten und motivierten Team. Es erwartet Sie eine innovative und zukunftsgerichtete Rehabilitationsklinik mit attraktiven Anstellungsbedingungen (z.B. 27 Tage Ferien, hervorragende Sozialleistungen, preiswerte Verpflegung).\nFrau R. Rogenmoser, Leitung Hotellerie, Telefon 041 754 35 17, erteilt Ihnen gerne weitere Auskünfte. Wir freuen uns, Sie persönlich kennen zu lernen.\nWir freuen uns auf Ihre Bewerbung.\nJetzt bewerben\nKlinik Adelheid AG - Höhenweg 71 - 6314 Unterägeri",
-        "fr": "La clinique Adelheid avec 140 lits est le premier centre de réadaptation de Suisse centrale pour la plus haute qualité dans les soins aux patients. L'éventail des services comprend la réadaptation des patients hospitalisés, musculosquelettiques, neurologiques, oncologiques et gériatriques. La clinique est située dans un emplacement de rêve au-dessus du lac Ägerise et est une compagnie de la société à but non lucratif Zug.\nPour renforcer notre équipe, nous cherchons un accord\nSpécialistes des services/r 80 - 100%\nVous êtes responsable du service d'étage pour les patients. Vous pouvez également servir les patients dans la salle à manger pendant les repas ou nos invités dans le restaurant à la carte.\nNotre profil souhaité\n\n• de nombreuses années d'expérience professionnelle ou une formation complète en tant que spécialiste de la restauration\n• très bonne connaissance de l'allemand en paroles et en écriture\n• Service orienté, résilient et responsable\n• Il est bien groomé, amical et agréable.\n• Flexible en utilisation\nVotre nouveau travail\nNous vous offrons une zone de responsabilité intéressante et polyvalente dans une équipe engagée et motivée. Une clinique de réadaptation innovante et orientée vers l'avenir avec des conditions d'emploi attrayantes vous attend (p. ex. 27 jours de vacances, avantages sociaux exceptionnels, nourriture bon marché).\nMme R. Rogenmoser, Direction de l'hôtel, téléphone 041 754 35 17, vous fournira volontiers de plus amples renseignements. Nous avons hâte de vous rencontrer personnellement.\nNous attendons avec impatience votre candidature.\nAppliquer maintenant\nKlinik Adelheid AG - Höhenweg 71 - 6314 Unterägeri - personal@klinik-adelheid.ch"
-      },
-      "needsRetranslation": false,
-      "location": "Unterägeri",
-      "canton": "ZG",
-      "url": "https://link.ostendis.com/publication/servicefachangestellte/yteuhc6mrv1ccr4e0p643z0y22skzprvvdy6fhrfu7mybijppf8qa6nzee2oyzf7",
-      "source": "Klinik Adelheid Dedicated Parser (Ostendis JobPublisher)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:48:04.937Z",
-      "addressLocality": "Unterägeri",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6314",
-      "streetAddress": "Höhenweg 71",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-29",
-      "postedDate": "2026-09-29",
-      "postingDateSource": "reported",
-      "applyUrl": "https://link.ostendis.com/publication/servicefachangestellte/yteuhc6mrv1ccr4e0p643z0y22skzprvvdy6fhrfu7mybijppf8qa6nzee2oyzf7",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "servicefachangestellte-r-80-100-klinik-adelheid-unteraegeri",
-        "servicefachangestellte-r-80-100-klinik-adelheid-unterageri",
-        "servicefachangestellte-r-80-100-klinik-adelheid-unteraegeri-c24344a5",
-        "servicefachangestellte-r-80-100-klinik-adelheid-unterageri-bbc1e995",
-        "servicefachangestellte-r-80-100-klinik-adelheid-unteraegeri-16828b0d",
-        "specialisti-r-80-100-klinik-adelheid-unterageri-da472a5e",
-        "servicefachangestellte-r-80-100-klinik-adelheid-unterageri-77ff4ae9",
-        "servicefachangestellte-r-80-100-klinik-adelheid-unteraegeri-1f7823db",
-        "service-specialists-r-80-100-klinik-adelheid-unterageri-425db506",
-        "specialistes-des-services-r-80-100-klinik-adelheid-unterageri-cf4f7ad7"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "servicefachangestellte-r-80-100-klinik-adelheid-unteraegeri",
-          "servicefachangestellte-r-80-100-klinik-adelheid-unterageri",
-          "servicefachangestellte-r-80-100-klinik-adelheid-unteraegeri-c24344a5",
-          "servicefachangestellte-r-80-100-klinik-adelheid-unterageri-bbc1e995",
-          "servicefachangestellte-r-80-100-klinik-adelheid-unteraegeri-16828b0d",
-          "specialisti-r-80-100-klinik-adelheid-unterageri-da472a5e",
-          "servicefachangestellte-r-80-100-klinik-adelheid-unterageri-77ff4ae9",
-          "servicefachangestellte-r-80-100-klinik-adelheid-unteraegeri-1f7823db",
-          "service-specialists-r-80-100-klinik-adelheid-unterageri-425db506",
-          "specialistes-des-services-r-80-100-klinik-adelheid-unterageri-cf4f7ad7"
-        ],
-        "en": [
-          "servicefachangestellte-r-80-100-klinik-adelheid-unterageri"
-        ],
-        "fr": [
-          "servicefachangestellte-r-80-100-klinik-adelheid-unterageri"
-        ],
-        "de": [
-          "servicefachangestellte-r-80-100-klinik-adelheid-unteraegeri-c24344a5"
-        ]
-      },
-      "firstSeenAt": "2026-09-17T07:00:14.469Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:48:04.937Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://link.ostendis.com/publication/servicefachangestellte/yteuhc6mrv1ccr4e0p643z0y22skzprvvdy6fhrfu7mybijppf8qa6nzee2oyzf7",
-      "crawlerMissStreak": 2
     }
   ]
 }
