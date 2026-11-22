@@ -261,7 +261,7 @@
     "https://team.lidl.ch/it/jobs/ch_vice-responsabile-di-filiale-m-f-d-80-100-minusio-771532"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), drained through count-bound language partitions whose totals equal the national CH-wide feed; per-job canton inferred from source-backed city/postal signals, with unresolved CH locations failing closed.",
-  "updatedAt": "2026-11-21T21:46:03.735Z",
+  "updatedAt": "2026-11-22T09:55:51.434Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-1-sierre-707576": {
       "location": "Sierre",

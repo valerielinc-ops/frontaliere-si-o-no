@@ -11,7 +11,7 @@
     "https://ohws.prospective.ch/public/v1/medium/1000624/jobs?lang=it"
   ],
   "notes": "Confederazione Svizzera — CH-wide federal jobs (all 26 cantons). Fetches the unfiltered national listing from the Prospective.ch API (medium 1000624 — Stellenportal Bund / jobs.admin.ch) and keeps every job whose location resolves to a Swiss canton (inferAnyCanton); foreign \"Estero\" postings are dropped. Covers departments not handled by VTG or Agroscope crawlers: DATEC, DEFR/SECO, DFGP, TPF, etc. Includes apprenticeship and internship positions.",
-  "updatedAt": "2026-11-21T21:50:30.691Z",
+  "updatedAt": "2026-11-22T10:01:28.735Z",
   "seedMetaByUrl": {
     "https://jobs.admin.ch/posti-vacanti/product-owner-rm-plattform-betrieb-und-leistungen/467e737b-7594-45d8-bbf4-7a4e34d94b7c": {
       "location": "Bern",
@@ -1891,14 +1891,6 @@
       "company": "Confederazione Svizzera",
       "datePosted": "2026-10-23T09:15:41Z",
       "postedDate": "2026-10-23T09:15:41Z",
-      "postingDateSource": "reported"
-    },
-    "https://jobs.admin.ch/posti-vacanti/ict-system-specialist-devsecops-platform-engineer/0c8916d3-fd03-450a-8bf7-cbae4c667e9e": {
-      "location": "Bern. Schweiz",
-      "canton": "BE",
-      "company": "Confederazione Svizzera",
-      "datePosted": "2026-10-23T08:12:36Z",
-      "postedDate": "2026-10-23T08:12:36Z",
       "postingDateSource": "reported"
     },
     "https://jobs.admin.ch/posti-vacanti/sachbearbeiter-in-avor-persoenliche-ausruestung-retablierung/38ccc5c2-f937-4187-868f-73f3f14db81a": {
