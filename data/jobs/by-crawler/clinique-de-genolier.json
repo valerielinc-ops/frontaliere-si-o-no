@@ -1,7 +1,7 @@
 {
   "crawlerKey": "clinique-de-genolier",
-  "assembledAt": "2026-11-22T09:39:00.005Z",
-  "runId": "45006671339",
+  "assembledAt": "2026-11-22T21:23:17.850Z",
+  "runId": "45071114267",
   "jobs": [
     {
       "id": "clinique-de-genolier-44d9c6b77b72",
@@ -36,7 +36,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000151035234-infirmier-ere-expert-e-en-soins-intermediaires-soins-intensifs-soins-d-urgence-soins-d-anesthesie",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:38:25.718Z",
+      "crawledAt": "2026-11-22T21:22:21.854Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -89,7 +89,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T09:38:25.718Z",
+      "validThrough": "2026-12-22T21:22:21.854Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -124,7 +124,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000158515578-infirmiere-hpci",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:38:25.717Z",
+      "crawledAt": "2026-11-22T21:22:21.853Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -211,7 +211,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-medecine-oncologie-clinique-de-genolier-88eea477",
           "infirmier-ere-medecine-oncologie-clinique-de-genolier-ba1a938b",
           "infirmier-ere-medecine-oncologie-clinique-de-genolier-4121057b",
           "infirmier-ere-medecine-oncologie-clinique-de-genolier-ea871f36",
@@ -230,7 +229,8 @@
           "nurse-hpci-clinique-de-genolier-genolier-e7f27fce",
           "infirmiere-hpci-clinique-de-genolier",
           "infirmier-ere-medecine-oncologie-clinique-de-genolier-c06af084",
-          "infirmier-ere-medecine-oncologie-clinique-de-genolier-a291db3b"
+          "infirmier-ere-medecine-oncologie-clinique-de-genolier-a291db3b",
+          "infirmier-ere-medecine-oncologie-clinique-de-genolier-88eea477"
         ],
         "en": [
           "infirmiere-hpci-clinique-de-genolier"
@@ -257,7 +257,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:38:25.717Z",
+      "validThrough": "2027-01-27T21:22:21.853Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -292,7 +292,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000161758639-secretaire-medical-e-en-radiologie",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:38:25.716Z",
+      "crawledAt": "2026-11-22T21:22:21.851Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -393,7 +393,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-medical-e-swiss-medical-network-eec48652",
           "assistant-e-medical-e-swiss-medical-network-f8e638dd",
           "assistant-e-medical-e-swiss-medical-network-02ae4227",
           "assistant-e-medical-e-swiss-medical-network-d7f8c922",
@@ -412,7 +411,8 @@
           "assistant-e-medical-e-swiss-medical-network-42c800e1",
           "secretaire-medical-e-en-radiologie-clinique-de-genolier",
           "assistant-e-medical-e-swiss-medical-network-9b0e4f93",
-          "assistant-e-medical-e-swiss-medical-network-122275ed"
+          "assistant-e-medical-e-swiss-medical-network-122275ed",
+          "assistant-e-medical-e-swiss-medical-network-eec48652"
         ],
         "en": [
           "medical-secretary-in-radiology-clinique-de-genolier-genolier",
@@ -441,7 +441,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T09:38:25.716Z",
+      "validThrough": "2027-02-14T21:22:21.851Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -477,7 +477,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000161237939-infirmier-ere-medecine-oncologie",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:38:25.716Z",
+      "crawledAt": "2026-11-22T21:22:21.850Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -524,7 +524,89 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:38:25.716Z",
+      "validThrough": "2027-02-10T21:22:21.850Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "clinique-de-genolier-b713cb919a05",
+      "slug": "100-segretaria-medica-clinique-de-genolier-genolier",
+      "slugByLocale": {
+        "it": "100-segretaria-medica-clinique-de-genolier-genolier",
+        "en": "100-medical-secretary-clinique-de-genolier-genolier",
+        "de": "100-medizinischer-sekretar-clinique-de-genolier-genolier",
+        "fr": "secretaire-medical-e-a-100-clinique-de-genolier"
+      },
+      "company": "Clinique de Genolier",
+      "companyKey": "clinique-de-genolier",
+      "companyDomain": "swissmedical.net",
+      "title": "Secrétaire médical(e) à 100%",
+      "titleByLocale": {
+        "it": "100% segretaria medica",
+        "en": "100% medical secretary",
+        "de": "100% medizinischer Sekretär",
+        "fr": "Secrétaire médical(e) à 100%"
+      },
+      "description": "• Assurer un accueil et une prise en charge de qualité des patients\n\n• Planifier les rendez-vous\n\n• Préparation des consultations\n\n• Rédiger et corriger les courriers\n\n• Saisie des rapports médicaux\n\n• Classer les dossiers et documents\n\n• Numérisation des dossiers\n\n• Gestion des archives\n\n• Diplôme de secrétaire médicale\n\n• Expérience minimum d’un an dans un secrétariat médical\n\n• Anglais obligatoire\n\n• Parfaite maitrise des outils informatiques (word, excel, outlook,…)\n\n• Parfaite capacité de rédaction et connaissances orthographiques, terminologie médicale\n\n• Polyvalence, organisation et autonomie dans l’exécution des tâches\n\n• Dynamisme, réactivité, proactivité et rapidité d’exécution\n\n• Sens du contact\n\n• Très bonne gestion du stress et capacité à travailler en équipe\n\n• Flexibilité\n\n• Excellente présentation\n\n• L’opportunité de rejoindre une clinique de grande renommée à la pointe du développement\n\n• Une activité motivante dans un cadre de travail agréable\n\n• Une culture d’entreprise tournée vers l’excellence et la qualité des relations humaines\n\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nFort d'une solide expertise, la Clinique de Genolier se distingue par son équipe expérimentée et qualifiée et son équipement médical à la pointe de la technologie.\n\nLa clinique de Genolier propose une palette de services étendue couvrant la cardiologie, la neurologie, l'oncologie, la chirurgie orthopédique et la chirurgie plastique. Par ailleurs, la clinique met à disposition de ses patients une vaste gamme de prestations axées sur la prévention et la rééducation, pour favoriser leur santé et leur bien-être.\n\nLa renommée de la Clinique de Genolier repose sur ses infrastructures médicales d'excellence et ses technologies avant-gardistes. Parmi elles, un centre de diagnostic ultramoderne, une unité de soins intensifs performante et une salle d'opération équipée des instruments et appareils dernière génération pour assurer des soins de qualité optimale.",
+      "descriptionByLocale": {
+        "it": "• Garantire la cura e la cura dei pazienti di qualità\n\n• Orari appuntamenti\n\n• Preparazione delle consultazioni\n\n• Scrivere e correggere la posta\n\n• Seduta di rapporti medici\n\n• Ordinare cartelle e documenti\n\n• Scansione dei file\n\n• Gestione archivi\n\n• Diploma di segretaria medica\n\n• Esperienza minima di un anno in un segretariato medico\n\n• Inglese obbligatorio\n\n• Strumenti per computer di masterizzazione perfetti (parola, eccellere, Outlook,...)\n\n• Capacità di scrittura perfetta e conoscenza di ortografia, terminologia medica\n\n• Flessibilità, organizzazione e autonomia nell'esecuzione dei compiti\n\n• Dinamica, reattività, proattività e velocità di esecuzione\n\n• Significato del contatto\n\n• Ottima gestione dello stress e capacità di lavorare come team\n\n• Flessibilità\n\n• Ottima presentazione\n\n• L'opportunità di unire una rinomata clinica all'avanguardia nello sviluppo\n\n• Attività stimolante in un ambiente di lavoro piacevole\n\n• Una cultura aziendale focalizzata sull'eccellenza e sulla qualità delle relazioni umane\n\nPrestiamo grande attenzione alla diversità dei percorsi di vita dei nostri collaboratori. Le nostre posizioni sono aperte sia alle donne che agli uomini.\n\nCon una forte competenza, la Clinica Genolier si distingue per il suo team esperto e qualificato e per le sue attrezzature mediche all'avanguardia.\n\nLa Clinica Genolier offre una vasta gamma di servizi che coprono cardiologia, neurologia, oncologia, chirurgia ortopedica e chirurgia plastica. Inoltre, la clinica fornisce ai suoi pazienti una vasta gamma di servizi di prevenzione e riabilitazione per promuovere la loro salute e il benessere.\n\nLa reputazione della Clinica Genolier si basa sulla sua eccellente infrastruttura medica e tecnologie all'avanguardia. Questi includono un centro diagnostico all'avanguardia, un'unità di assistenza intensiva ad alte prestazioni e una sala operatoria dotata di strumenti e dispositivi di ultima generazione per garantire una cura ottimale della qualità.",
+        "en": "• Ensuring quality patient care and care\n\n• Schedule appointments\n\n• Preparation of consultations\n\n• Write and correct mail\n\n• Seizing medical reports\n\n• Sort folders and documents\n\n• Scanning of files\n\n• Archives management\n\n• Diploma of medical secretary\n\n• Minimum one year experience in a medical secretariat\n\n• Mandatory English\n\n• Perfect mastering computer tools (word, excel, outlook,...)\n\n• Perfect writing capacity and spelling knowledge, medical terminology\n\n• Flexibility, organization and autonomy in the performance of tasks\n\n• Dynamics, responsiveness, proactivity and speed of execution\n\n• Meaning of contact\n\n• Very good stress management and ability to work as a team\n\n• Flexibility\n\n• Excellent presentation\n\n• The opportunity to join a renowned clinic at the cutting edge of development\n\n• Motivating activity in a pleasant work environment\n\n• A corporate culture focused on excellence and the quality of human relations\n\nWe pay great attention to the diversity of life paths of our collaborators. Our positions are open to both women and men.\n\nWith strong expertise, the Genolier Clinic is distinguished by its experienced and qualified team and its state-of-the-art medical equipment.\n\nThe Genolier Clinic offers a wide range of services covering cardiology, neurology, oncology, orthopaedic surgery and plastic surgery. In addition, the clinic provides its patients with a wide range of prevention and rehabilitation services to promote their health and well-being.\n\nThe reputation of the Genolier Clinic is based on its excellent medical infrastructure and cutting-edge technologies. These include a state-of-the-art diagnostic centre, a high-performance intensive care unit and an operating room equipped with the latest generation instruments and devices to ensure optimal quality care.",
+        "de": "• Gewährleistung einer qualitativ hochwertigen Patientenversorgung und -pflege\n\n• Termine\n\n• Vorbereitung der Konsultationen\n\n• Schreiben und korrekte Mail\n\n• Beschlagnahme medizinischer Berichte\n\n• Sortieren von Ordnern und Dokumenten\n\n• Scannen von Dateien\n\n• Archivverwaltung\n\n• Diplom der medizinischen Sekretärin\n\n• Mindestens ein Jahr Erfahrung in einem medizinischen Sekretariat\n\n• Obligatorisch Englisch\n\n• Perfektes Mastering Computer-Tools (Wort, Excel, Outlook, ...)\n\n• Perfekte Schreibfähigkeit und Rechtschreibkenntnisse, medizinische Terminologie\n\n• Flexibilität, Organisation und Autonomie bei der Durchführung von Aufgaben\n\n• Dynamik, Reaktionsschnelligkeit, Proaktivität und Ausführungsgeschwindigkeit\n\n• Bedeutung des Kontakts\n\n• Sehr gutes Stressmanagement und Fähigkeit, als Team zu arbeiten\n\n• Flexibilität\n\n• Hervorragende Präsentation\n\n• Die Möglichkeit, einer renommierten Klinik an der Spitze der Entwicklung beizutreten\n\n• Motivierende Aktivität in einem angenehmen Arbeitsumfeld\n\n• Eine Unternehmenskultur, die sich auf Exzellenz und die Qualität menschlicher Beziehungen konzentriert\n\nWir achten sehr auf die Vielfalt der Lebenswege unserer Mitarbeiter. Unsere Positionen stehen sowohl Frauen als auch Männern offen.\n\nDie Genolier Klinik zeichnet sich durch ihr erfahrenes und qualifiziertes Team und ihre hochmoderne medizinische Ausstattung aus.\n\nDie Genolier Klinik bietet eine breite Palette von Dienstleistungen für Kardiologie, Neurologie, Onkologie, orthopädische Chirurgie und plastische Chirurgie. Darüber hinaus bietet die Klinik ihren Patienten eine breite Palette von Präventions- und Rehabilitationsdiensten, um ihre Gesundheit und ihr Wohlbefinden zu fördern.\n\nDer Ruf der Klinik Genolier basiert auf ihrer hervorragenden medizinischen Infrastruktur und modernsten Technologien. Dazu gehören ein hochmodernes Diagnosezentrum, eine leistungsstarke Intensivstation und ein Operationssaal, der mit den neuesten Instrumenten und Geräten ausgestattet ist, um eine optimale Versorgung zu gewährleisten.",
+        "fr": "• Assurer un accueil et une prise en charge de qualité des patients\n\n• Planifier les rendez-vous\n\n• Préparation des consultations\n\n• Rédiger et corriger les courriers\n\n• Saisie des rapports médicaux\n\n• Classer les dossiers et documents\n\n• Numérisation des dossiers\n\n• Gestion des archives\n\n• Diplôme de secrétaire médicale\n\n• Expérience minimum d’un an dans un secrétariat médical\n\n• Anglais obligatoire\n\n• Parfaite maitrise des outils informatiques (word, excel, outlook,…)\n\n• Parfaite capacité de rédaction et connaissances orthographiques, terminologie médicale\n\n• Polyvalence, organisation et autonomie dans l’exécution des tâches\n\n• Dynamisme, réactivité, proactivité et rapidité d’exécution\n\n• Sens du contact\n\n• Très bonne gestion du stress et capacité à travailler en équipe\n\n• Flexibilité\n\n• Excellente présentation\n\n• L’opportunité de rejoindre une clinique de grande renommée à la pointe du développement\n\n• Une activité motivante dans un cadre de travail agréable\n\n• Une culture d’entreprise tournée vers l’excellence et la qualité des relations humaines\n\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nFort d'une solide expertise, la Clinique de Genolier se distingue par son équipe expérimentée et qualifiée et son équipement médical à la pointe de la technologie.\n\nLa clinique de Genolier propose une palette de services étendue couvrant la cardiologie, la neurologie, l'oncologie, la chirurgie orthopédique et la chirurgie plastique. Par ailleurs, la clinique met à disposition de ses patients une vaste gamme de prestations axées sur la prévention et la rééducation, pour favoriser leur santé et leur bien-être.\n\nLa renommée de la Clinique de Genolier repose sur ses infrastructures médicales d'excellence et ses technologies avant-gardistes. Parmi elles, un centre de diagnostic ultramoderne, une unité de soins intensifs performante et une salle d'opération équipée des instruments et appareils dernière génération pour assurer des soins de qualité optimale."
+      },
+      "location": "Genolier",
+      "canton": "VD",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000162071643-secretaire-medical-e-a-100-",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000162071643-secretaire-medical-e-a-100-",
+      "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-22T21:22:21.848Z",
+      "addressLocality": "Genolier",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1272",
+      "streetAddress": "Route du Muids 3, 1272 Genolier",
+      "category": "Sanità / Ospedali",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-17T12:58:21.752Z",
+      "postedDate": "2026-11-17T12:58:21.752Z",
+      "postingDateSource": "reported",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "secretaire-medical-e-a-100-clinique-de-genolier"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-e-a-100-clinique-de-genolier"
+        ],
+        "en": [
+          "secretaire-medical-e-a-100-clinique-de-genolier"
+        ],
+        "de": [
+          "secretaire-medical-e-a-100-clinique-de-genolier"
+        ]
+      },
+      "firstSeenAt": "2026-11-17T21:23:42.347Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-15T21:22:21.848Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -560,7 +642,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000158511079-chef-fe-de-partie",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:38:25.715Z",
+      "crawledAt": "2026-11-22T21:22:21.845Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -640,89 +722,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:38:25.715Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "clinique-de-genolier-b713cb919a05",
-      "slug": "100-segretaria-medica-clinique-de-genolier-genolier",
-      "slugByLocale": {
-        "it": "100-segretaria-medica-clinique-de-genolier-genolier",
-        "en": "100-medical-secretary-clinique-de-genolier-genolier",
-        "de": "100-medizinischer-sekretar-clinique-de-genolier-genolier",
-        "fr": "secretaire-medical-e-a-100-clinique-de-genolier"
-      },
-      "company": "Clinique de Genolier",
-      "companyKey": "clinique-de-genolier",
-      "companyDomain": "swissmedical.net",
-      "title": "Secrétaire médical(e) à 100%",
-      "titleByLocale": {
-        "it": "100% segretaria medica",
-        "en": "100% medical secretary",
-        "de": "100% medizinischer Sekretär",
-        "fr": "Secrétaire médical(e) à 100%"
-      },
-      "description": "• Assurer un accueil et une prise en charge de qualité des patients\n\n• Planifier les rendez-vous\n\n• Préparation des consultations\n\n• Rédiger et corriger les courriers\n\n• Saisie des rapports médicaux\n\n• Classer les dossiers et documents\n\n• Numérisation des dossiers\n\n• Gestion des archives\n\n• Diplôme de secrétaire médicale\n\n• Expérience minimum d’un an dans un secrétariat médical\n\n• Anglais obligatoire\n\n• Parfaite maitrise des outils informatiques (word, excel, outlook,…)\n\n• Parfaite capacité de rédaction et connaissances orthographiques, terminologie médicale\n\n• Polyvalence, organisation et autonomie dans l’exécution des tâches\n\n• Dynamisme, réactivité, proactivité et rapidité d’exécution\n\n• Sens du contact\n\n• Très bonne gestion du stress et capacité à travailler en équipe\n\n• Flexibilité\n\n• Excellente présentation\n\n• L’opportunité de rejoindre une clinique de grande renommée à la pointe du développement\n\n• Une activité motivante dans un cadre de travail agréable\n\n• Une culture d’entreprise tournée vers l’excellence et la qualité des relations humaines\n\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nFort d'une solide expertise, la Clinique de Genolier se distingue par son équipe expérimentée et qualifiée et son équipement médical à la pointe de la technologie.\n\nLa clinique de Genolier propose une palette de services étendue couvrant la cardiologie, la neurologie, l'oncologie, la chirurgie orthopédique et la chirurgie plastique. Par ailleurs, la clinique met à disposition de ses patients une vaste gamme de prestations axées sur la prévention et la rééducation, pour favoriser leur santé et leur bien-être.\n\nLa renommée de la Clinique de Genolier repose sur ses infrastructures médicales d'excellence et ses technologies avant-gardistes. Parmi elles, un centre de diagnostic ultramoderne, une unité de soins intensifs performante et une salle d'opération équipée des instruments et appareils dernière génération pour assurer des soins de qualité optimale.",
-      "descriptionByLocale": {
-        "it": "• Garantire la cura e la cura dei pazienti di qualità\n\n• Orari appuntamenti\n\n• Preparazione delle consultazioni\n\n• Scrivere e correggere la posta\n\n• Seduta di rapporti medici\n\n• Ordinare cartelle e documenti\n\n• Scansione dei file\n\n• Gestione archivi\n\n• Diploma di segretaria medica\n\n• Esperienza minima di un anno in un segretariato medico\n\n• Inglese obbligatorio\n\n• Strumenti per computer di masterizzazione perfetti (parola, eccellere, Outlook,...)\n\n• Capacità di scrittura perfetta e conoscenza di ortografia, terminologia medica\n\n• Flessibilità, organizzazione e autonomia nell'esecuzione dei compiti\n\n• Dinamica, reattività, proattività e velocità di esecuzione\n\n• Significato del contatto\n\n• Ottima gestione dello stress e capacità di lavorare come team\n\n• Flessibilità\n\n• Ottima presentazione\n\n• L'opportunità di unire una rinomata clinica all'avanguardia nello sviluppo\n\n• Attività stimolante in un ambiente di lavoro piacevole\n\n• Una cultura aziendale focalizzata sull'eccellenza e sulla qualità delle relazioni umane\n\nPrestiamo grande attenzione alla diversità dei percorsi di vita dei nostri collaboratori. Le nostre posizioni sono aperte sia alle donne che agli uomini.\n\nCon una forte competenza, la Clinica Genolier si distingue per il suo team esperto e qualificato e per le sue attrezzature mediche all'avanguardia.\n\nLa Clinica Genolier offre una vasta gamma di servizi che coprono cardiologia, neurologia, oncologia, chirurgia ortopedica e chirurgia plastica. Inoltre, la clinica fornisce ai suoi pazienti una vasta gamma di servizi di prevenzione e riabilitazione per promuovere la loro salute e il benessere.\n\nLa reputazione della Clinica Genolier si basa sulla sua eccellente infrastruttura medica e tecnologie all'avanguardia. Questi includono un centro diagnostico all'avanguardia, un'unità di assistenza intensiva ad alte prestazioni e una sala operatoria dotata di strumenti e dispositivi di ultima generazione per garantire una cura ottimale della qualità.",
-        "en": "• Ensuring quality patient care and care\n\n• Schedule appointments\n\n• Preparation of consultations\n\n• Write and correct mail\n\n• Seizing medical reports\n\n• Sort folders and documents\n\n• Scanning of files\n\n• Archives management\n\n• Diploma of medical secretary\n\n• Minimum one year experience in a medical secretariat\n\n• Mandatory English\n\n• Perfect mastering computer tools (word, excel, outlook,...)\n\n• Perfect writing capacity and spelling knowledge, medical terminology\n\n• Flexibility, organization and autonomy in the performance of tasks\n\n• Dynamics, responsiveness, proactivity and speed of execution\n\n• Meaning of contact\n\n• Very good stress management and ability to work as a team\n\n• Flexibility\n\n• Excellent presentation\n\n• The opportunity to join a renowned clinic at the cutting edge of development\n\n• Motivating activity in a pleasant work environment\n\n• A corporate culture focused on excellence and the quality of human relations\n\nWe pay great attention to the diversity of life paths of our collaborators. Our positions are open to both women and men.\n\nWith strong expertise, the Genolier Clinic is distinguished by its experienced and qualified team and its state-of-the-art medical equipment.\n\nThe Genolier Clinic offers a wide range of services covering cardiology, neurology, oncology, orthopaedic surgery and plastic surgery. In addition, the clinic provides its patients with a wide range of prevention and rehabilitation services to promote their health and well-being.\n\nThe reputation of the Genolier Clinic is based on its excellent medical infrastructure and cutting-edge technologies. These include a state-of-the-art diagnostic centre, a high-performance intensive care unit and an operating room equipped with the latest generation instruments and devices to ensure optimal quality care.",
-        "de": "• Gewährleistung einer qualitativ hochwertigen Patientenversorgung und -pflege\n\n• Termine\n\n• Vorbereitung der Konsultationen\n\n• Schreiben und korrekte Mail\n\n• Beschlagnahme medizinischer Berichte\n\n• Sortieren von Ordnern und Dokumenten\n\n• Scannen von Dateien\n\n• Archivverwaltung\n\n• Diplom der medizinischen Sekretärin\n\n• Mindestens ein Jahr Erfahrung in einem medizinischen Sekretariat\n\n• Obligatorisch Englisch\n\n• Perfektes Mastering Computer-Tools (Wort, Excel, Outlook, ...)\n\n• Perfekte Schreibfähigkeit und Rechtschreibkenntnisse, medizinische Terminologie\n\n• Flexibilität, Organisation und Autonomie bei der Durchführung von Aufgaben\n\n• Dynamik, Reaktionsschnelligkeit, Proaktivität und Ausführungsgeschwindigkeit\n\n• Bedeutung des Kontakts\n\n• Sehr gutes Stressmanagement und Fähigkeit, als Team zu arbeiten\n\n• Flexibilität\n\n• Hervorragende Präsentation\n\n• Die Möglichkeit, einer renommierten Klinik an der Spitze der Entwicklung beizutreten\n\n• Motivierende Aktivität in einem angenehmen Arbeitsumfeld\n\n• Eine Unternehmenskultur, die sich auf Exzellenz und die Qualität menschlicher Beziehungen konzentriert\n\nWir achten sehr auf die Vielfalt der Lebenswege unserer Mitarbeiter. Unsere Positionen stehen sowohl Frauen als auch Männern offen.\n\nDie Genolier Klinik zeichnet sich durch ihr erfahrenes und qualifiziertes Team und ihre hochmoderne medizinische Ausstattung aus.\n\nDie Genolier Klinik bietet eine breite Palette von Dienstleistungen für Kardiologie, Neurologie, Onkologie, orthopädische Chirurgie und plastische Chirurgie. Darüber hinaus bietet die Klinik ihren Patienten eine breite Palette von Präventions- und Rehabilitationsdiensten, um ihre Gesundheit und ihr Wohlbefinden zu fördern.\n\nDer Ruf der Klinik Genolier basiert auf ihrer hervorragenden medizinischen Infrastruktur und modernsten Technologien. Dazu gehören ein hochmodernes Diagnosezentrum, eine leistungsstarke Intensivstation und ein Operationssaal, der mit den neuesten Instrumenten und Geräten ausgestattet ist, um eine optimale Versorgung zu gewährleisten.",
-        "fr": "• Assurer un accueil et une prise en charge de qualité des patients\n\n• Planifier les rendez-vous\n\n• Préparation des consultations\n\n• Rédiger et corriger les courriers\n\n• Saisie des rapports médicaux\n\n• Classer les dossiers et documents\n\n• Numérisation des dossiers\n\n• Gestion des archives\n\n• Diplôme de secrétaire médicale\n\n• Expérience minimum d’un an dans un secrétariat médical\n\n• Anglais obligatoire\n\n• Parfaite maitrise des outils informatiques (word, excel, outlook,…)\n\n• Parfaite capacité de rédaction et connaissances orthographiques, terminologie médicale\n\n• Polyvalence, organisation et autonomie dans l’exécution des tâches\n\n• Dynamisme, réactivité, proactivité et rapidité d’exécution\n\n• Sens du contact\n\n• Très bonne gestion du stress et capacité à travailler en équipe\n\n• Flexibilité\n\n• Excellente présentation\n\n• L’opportunité de rejoindre une clinique de grande renommée à la pointe du développement\n\n• Une activité motivante dans un cadre de travail agréable\n\n• Une culture d’entreprise tournée vers l’excellence et la qualité des relations humaines\n\nNous accordons une grande attention à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts tant aux femmes qu'aux hommes.\n\nFort d'une solide expertise, la Clinique de Genolier se distingue par son équipe expérimentée et qualifiée et son équipement médical à la pointe de la technologie.\n\nLa clinique de Genolier propose une palette de services étendue couvrant la cardiologie, la neurologie, l'oncologie, la chirurgie orthopédique et la chirurgie plastique. Par ailleurs, la clinique met à disposition de ses patients une vaste gamme de prestations axées sur la prévention et la rééducation, pour favoriser leur santé et leur bien-être.\n\nLa renommée de la Clinique de Genolier repose sur ses infrastructures médicales d'excellence et ses technologies avant-gardistes. Parmi elles, un centre de diagnostic ultramoderne, une unité de soins intensifs performante et une salle d'opération équipée des instruments et appareils dernière génération pour assurer des soins de qualité optimale."
-      },
-      "location": "Genolier",
-      "canton": "VD",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000162071643-secretaire-medical-e-a-100-",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000162071643-secretaire-medical-e-a-100-",
-      "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-22T09:38:25.714Z",
-      "addressLocality": "Genolier",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1272",
-      "streetAddress": "Route du Muids 3, 1272 Genolier",
-      "category": "Sanità / Ospedali",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-17T12:58:21.752Z",
-      "postedDate": "2026-11-17T12:58:21.752Z",
-      "postingDateSource": "reported",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "secretaire-medical-e-a-100-clinique-de-genolier"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "secretaire-medical-e-a-100-clinique-de-genolier"
-        ],
-        "en": [
-          "secretaire-medical-e-a-100-clinique-de-genolier"
-        ],
-        "de": [
-          "secretaire-medical-e-a-100-clinique-de-genolier"
-        ]
-      },
-      "firstSeenAt": "2026-11-17T21:23:42.347Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-16T09:38:25.714Z",
+      "validThrough": "2027-01-27T21:22:21.845Z",
       "validThroughSource": "last-observed-window"
     }
   ]
