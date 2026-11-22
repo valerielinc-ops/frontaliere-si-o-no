@@ -7,106 +7,106 @@
       "matureAt": "2026-07-31",
       "state": "failing",
       "lastValue": {
-        "rate": 0.012584704743465635,
-        "created": 52,
-        "shown": 4132,
+        "rate": 0.015030303030303031,
+        "created": 62,
+        "shown": 4125,
         "ctaSurfaceNotSetShare": 0,
         "surfaceBreakdown": [
           {
             "surface": "inline_card",
-            "shown": 1897,
-            "click": 27,
-            "authHandoff": 1,
-            "skipped": 2,
+            "shown": 1938,
+            "click": 25,
+            "authHandoff": 0,
+            "skipped": 1,
             "created": 13,
-            "rate": 0.006852925672113864
+            "rate": 0.006707946336429308
           },
           {
             "surface": "job_detail_button",
-            "shown": 209,
+            "shown": 94,
             "click": 0,
             "authHandoff": 0,
-            "skipped": 22,
+            "skipped": 23,
             "created": 0,
             "rate": 0
           },
           {
             "surface": "job_detail_prompt",
-            "shown": 1527,
-            "click": 1086,
+            "shown": 1587,
+            "click": 1144,
             "authHandoff": 0,
-            "skipped": 69,
-            "created": 26,
-            "rate": 0.017026850032743943
+            "skipped": 108,
+            "created": 31,
+            "rate": 0.019533711405166982
           },
           {
             "surface": "job_board_filters",
-            "shown": 2053,
-            "click": 16,
+            "shown": 1918,
+            "click": 17,
             "authHandoff": 10,
-            "skipped": 17,
+            "skipped": 28,
             "created": 9,
-            "rate": 0.00438382854359474
+            "rate": 0.0046923879040667365
           },
           {
             "surface": "job_match_pill",
-            "shown": 623,
-            "click": 7,
+            "shown": 560,
+            "click": 8,
             "authHandoff": 0,
             "skipped": 0,
             "created": 8,
-            "rate": 0.012841091492776886
+            "rate": 0.014285714285714285
           },
           {
             "surface": "sticky_banner",
-            "shown": 493,
-            "click": 60,
-            "authHandoff": 0,
-            "skipped": 19,
-            "created": 0,
-            "rate": 0
+            "shown": 469,
+            "click": 46,
+            "authHandoff": 2,
+            "skipped": 27,
+            "created": 2,
+            "rate": 0.0042643923240938165
           },
           {
             "surface": "end_card",
-            "shown": 704,
-            "click": 4,
+            "shown": 739,
+            "click": 6,
             "authHandoff": 0,
-            "skipped": 14,
-            "created": 1,
-            "rate": 0.0014204545454545455
+            "skipped": 22,
+            "created": 3,
+            "rate": 0.0040595399188092015
           }
         ],
         "dropPointBreakdown": [
           {
             "surface": "inline_card",
-            "shown": 1897,
-            "click": 27,
-            "authHandoff": 1,
-            "skipped": 2,
+            "shown": 1938,
+            "click": 25,
+            "authHandoff": 0,
+            "skipped": 1,
             "created": 13,
-            "rate": 0.006852925672113864,
+            "rate": 0.006707946336429308,
             "clickErrorUsers": 0,
             "replayStartedUsers": null,
             "replaySucceededUsers": null,
             "replayFailedUsers": null,
             "createdReplayUsers": null,
             "clickActions": {
-              "open": 23,
-              "accept": 13,
+              "open": 17,
+              "accept": 15,
               "success": 12
             },
             "authStages": null,
             "skipReasons": {
-              "get_alerts_failed": 2
+              "get_alerts_failed": 1
             },
             "authPaths": null
           },
           {
             "surface": "job_detail_button",
-            "shown": 209,
+            "shown": 94,
             "click": 0,
             "authHandoff": 0,
-            "skipped": 22,
+            "skipped": 23,
             "created": 0,
             "rate": 0,
             "clickErrorUsers": 0,
@@ -117,45 +117,45 @@
             "clickActions": {},
             "authStages": null,
             "skipReasons": {
-              "already_subscribed": 22
+              "already_subscribed": 23
             },
             "authPaths": null
           },
           {
             "surface": "job_detail_prompt",
-            "shown": 1527,
-            "click": 1086,
+            "shown": 1587,
+            "click": 1144,
             "authHandoff": 0,
-            "skipped": 69,
-            "created": 26,
-            "rate": 0.017026850032743943,
+            "skipped": 108,
+            "created": 31,
+            "rate": 0.019533711405166982,
             "clickErrorUsers": 1,
             "replayStartedUsers": null,
             "replaySucceededUsers": null,
             "replayFailedUsers": null,
             "createdReplayUsers": null,
             "clickActions": {
-              "dismiss": 1062,
-              "accept": 26,
+              "dismiss": 1116,
+              "accept": 31,
               "error": 1
             },
             "authStages": null,
             "skipReasons": {
-              "already_subscribed": 63,
-              "gating_capped": 4,
-              "no_auth": 4,
+              "already_subscribed": 59,
+              "no_auth": 44,
+              "gating_capped": 6,
               "quota_full": 1
             },
             "authPaths": null
           },
           {
             "surface": "job_board_filters",
-            "shown": 2053,
-            "click": 16,
+            "shown": 1918,
+            "click": 17,
             "authHandoff": 10,
-            "skipped": 17,
+            "skipped": 28,
             "created": 9,
-            "rate": 0.00438382854359474,
+            "rate": 0.0046923879040667365,
             "clickErrorUsers": 0,
             "replayStartedUsers": null,
             "replaySucceededUsers": null,
@@ -163,32 +163,32 @@
             "createdReplayUsers": null,
             "clickActions": {
               "open": 10,
-              "success": 8,
-              "accept": 6
+              "success": 9,
+              "accept": 7
             },
             "authStages": null,
             "skipReasons": {
-              "already_subscribed": 17,
+              "already_subscribed": 28,
               "quota_full": 1
             },
             "authPaths": null
           },
           {
             "surface": "job_match_pill",
-            "shown": 623,
-            "click": 7,
+            "shown": 560,
+            "click": 8,
             "authHandoff": 0,
             "skipped": 0,
             "created": 8,
-            "rate": 0.012841091492776886,
+            "rate": 0.014285714285714285,
             "clickErrorUsers": 0,
             "replayStartedUsers": null,
             "replaySucceededUsers": null,
             "replayFailedUsers": null,
             "createdReplayUsers": null,
             "clickActions": {
-              "accept": 7,
-              "success": 7
+              "accept": 8,
+              "success": 8
             },
             "authStages": null,
             "skipReasons": {},
@@ -196,49 +196,51 @@
           },
           {
             "surface": "sticky_banner",
-            "shown": 493,
-            "click": 60,
-            "authHandoff": 0,
-            "skipped": 19,
-            "created": 0,
-            "rate": 0,
+            "shown": 469,
+            "click": 46,
+            "authHandoff": 2,
+            "skipped": 27,
+            "created": 2,
+            "rate": 0.0042643923240938165,
             "clickErrorUsers": 0,
             "replayStartedUsers": null,
             "replaySucceededUsers": null,
             "replayFailedUsers": null,
             "createdReplayUsers": null,
             "clickActions": {
-              "dismiss": 60
+              "dismiss": 44,
+              "open": 2,
+              "success": 2
             },
             "authStages": null,
             "skipReasons": {
-              "already_subscribed": 17,
-              "get_alerts_failed": 2
+              "already_subscribed": 26,
+              "get_alerts_failed": 1
             },
             "authPaths": null
           },
           {
             "surface": "end_card",
-            "shown": 704,
-            "click": 4,
+            "shown": 739,
+            "click": 6,
             "authHandoff": 0,
-            "skipped": 14,
-            "created": 1,
-            "rate": 0.0014204545454545455,
+            "skipped": 22,
+            "created": 3,
+            "rate": 0.0040595399188092015,
             "clickErrorUsers": 0,
             "replayStartedUsers": null,
             "replaySucceededUsers": null,
             "replayFailedUsers": null,
             "createdReplayUsers": null,
             "clickActions": {
-              "open": 4,
-              "accept": 1,
-              "success": 1
+              "open": 6,
+              "accept": 3,
+              "success": 3
             },
             "authStages": null,
             "skipReasons": {
-              "already_subscribed": 12,
-              "get_alerts_failed": 2
+              "already_subscribed": 21,
+              "get_alerts_failed": 1
             },
             "authPaths": null
           }
@@ -260,9 +262,9 @@
           }
         }
       },
-      "detail": "52/4132 utenti = 1.26%, cta_surface (not set) 0.00% [GA4]\n\nLe righe per superficie possono sovrapporsi; l’aggregato è calcolato separatamente.\n\n| cta_surface | shown users | created users | rate |\n| --- | ---: | ---: | ---: |\n| aggregate | 4132 | 52 | 1.26% |\n| inline_card | 1897 | 13 | 0.69% |\n| job_detail_button | 209 | 0 | 0.00% |\n| job_detail_prompt | 1527 | 26 | 1.70% |\n| job_board_filters | 2053 | 9 | 0.44% |\n| job_match_pill | 623 | 8 | 1.28% |\n| sticky_banner | 493 | 0 | 0.00% |\n| end_card | 704 | 1 | 0.14% |\n\nDiagnostica drop-point GA4 per utenti; le righe per superficie possono sovrapporsi.\n\n| cta_surface | click | auth handoff | skip | click error | replay start | replay ok | replay fail | created replay |\n| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |\n| inline_card | 27 | 1 | 2 | 0 | n/a | n/a | n/a | n/a |\n| job_detail_button | 0 | 0 | 22 | 0 | n/a | n/a | n/a | n/a |\n| job_detail_prompt | 1086 | 0 | 69 | 1 | n/a | n/a | n/a | n/a |\n| job_board_filters | 16 | 10 | 17 | 0 | n/a | n/a | n/a | n/a |\n| job_match_pill | 7 | 0 | 0 | 0 | n/a | n/a | n/a | n/a |\n| sticky_banner | 60 | 0 | 19 | 0 | n/a | n/a | n/a | n/a |\n| end_card | 4 | 0 | 14 | 0 | n/a | n/a | n/a | n/a |\n\nDettagli delle categorie diagnostiche GA4; anche queste popolazioni possono sovrapporsi.\n\n| cta_surface | click actions | auth stages | skip reasons | create auth path |\n| --- | --- | --- | --- | --- |\n| inline_card | accept=13, open=23, success=12 | n/a | get_alerts_failed=2 | n/a |\n| job_detail_button | 0 | n/a | already_subscribed=22 | n/a |\n| job_detail_prompt | accept=26, dismiss=1062, error=1 | n/a | already_subscribed=63, gating_capped=4, no_auth=4, quota_full=1 | n/a |\n| job_board_filters | accept=6, open=10, success=8 | n/a | already_subscribed=17, quota_full=1 | n/a |\n| job_match_pill | accept=7, success=7 | n/a | 0 | n/a |\n| sticky_banner | dismiss=60 | n/a | already_subscribed=17, get_alerts_failed=2 | n/a |\n| end_card | accept=1, open=4, success=1 | n/a | already_subscribed=12, get_alerts_failed=2 | n/a |\n\nDimensioni diagnostiche GA4 non disponibili: authStages: dimensione customEvent:auth_stage non registrata; authPaths: dimensione customEvent:alert_auth_path non registrata",
+      "detail": "62/4125 utenti = 1.50%, cta_surface (not set) 0.00% [GA4]\n\nLe righe per superficie possono sovrapporsi; l’aggregato è calcolato separatamente.\n\n| cta_surface | shown users | created users | rate |\n| --- | ---: | ---: | ---: |\n| aggregate | 4125 | 62 | 1.50% |\n| inline_card | 1938 | 13 | 0.67% |\n| job_detail_button | 94 | 0 | 0.00% |\n| job_detail_prompt | 1587 | 31 | 1.95% |\n| job_board_filters | 1918 | 9 | 0.47% |\n| job_match_pill | 560 | 8 | 1.43% |\n| sticky_banner | 469 | 2 | 0.43% |\n| end_card | 739 | 3 | 0.41% |\n\nDiagnostica drop-point GA4 per utenti; le righe per superficie possono sovrapporsi.\n\n| cta_surface | click | auth handoff | skip | click error | replay start | replay ok | replay fail | created replay |\n| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |\n| inline_card | 25 | 0 | 1 | 0 | n/a | n/a | n/a | n/a |\n| job_detail_button | 0 | 0 | 23 | 0 | n/a | n/a | n/a | n/a |\n| job_detail_prompt | 1144 | 0 | 108 | 1 | n/a | n/a | n/a | n/a |\n| job_board_filters | 17 | 10 | 28 | 0 | n/a | n/a | n/a | n/a |\n| job_match_pill | 8 | 0 | 0 | 0 | n/a | n/a | n/a | n/a |\n| sticky_banner | 46 | 2 | 27 | 0 | n/a | n/a | n/a | n/a |\n| end_card | 6 | 0 | 22 | 0 | n/a | n/a | n/a | n/a |\n\nDettagli delle categorie diagnostiche GA4; anche queste popolazioni possono sovrapporsi.\n\n| cta_surface | click actions | auth stages | skip reasons | create auth path |\n| --- | --- | --- | --- | --- |\n| inline_card | accept=15, open=17, success=12 | n/a | get_alerts_failed=1 | n/a |\n| job_detail_button | 0 | n/a | already_subscribed=23 | n/a |\n| job_detail_prompt | accept=31, dismiss=1116, error=1 | n/a | already_subscribed=59, gating_capped=6, no_auth=44, quota_full=1 | n/a |\n| job_board_filters | accept=7, open=10, success=9 | n/a | already_subscribed=28, quota_full=1 | n/a |\n| job_match_pill | accept=8, success=8 | n/a | 0 | n/a |\n| sticky_banner | dismiss=44, open=2, success=2 | n/a | already_subscribed=26, get_alerts_failed=1 | n/a |\n| end_card | accept=3, open=6, success=3 | n/a | already_subscribed=21, get_alerts_failed=1 | n/a |\n\nDimensioni diagnostiche GA4 non disponibili: authStages: dimensione customEvent:auth_stage non registrata; authPaths: dimensione customEvent:alert_auth_path non registrata",
       "targetDescription": ">= 5% (utenti job_alert_created / utenti job_alert_cta_shown, 14gg, GA4)",
-      "lastCheckAt": "2026-11-15T12:58:50.334Z",
+      "lastCheckAt": "2026-11-22T13:36:27.287Z",
       "note": "sorgente non misurabile: posthog ingested < 500 events/day on 9 of 14 complete day(s) in the 14d window: 2026-08-21 (10), 2026-08-22 (15), 2026-08-23 (14), 2026-08-24 (29), 2026-08-25 (26), 2026-08-26 (21), 2026-08-27 (11), 2026-08-28 (12), 2026-08-29 (11)"
     },
     "dead_clicks_reduction": {
@@ -276,7 +278,7 @@
       },
       "detail": "0 $dead_click (14gg)",
       "targetDescription": "< 5991 $dead_click events (14gg, -50% su baseline riproporzionata da 25.675/30gg)",
-      "lastCheckAt": "2026-11-15T12:58:50.334Z",
+      "lastCheckAt": "2026-11-22T13:36:27.287Z",
       "passedAt": "2026-08-09T06:13:33.259Z",
       "note": "nessun equivalente GA4 — sorgente PostHog ritirata dai monitor (decisione H9 2026-10-05): $dead_click e' autocapture nativo PostHog; il dead_click custom in GA4 e' un'altra metrica"
     },
@@ -303,7 +305,7 @@
       "issueRef": "#4307",
       "matureAt": "2026-08-16",
       "state": "unmeasurable",
-      "lastCheckAt": "2026-11-15T12:58:50.334Z",
+      "lastCheckAt": "2026-11-22T13:36:27.287Z",
       "note": "nessun equivalente GA4 — sorgente PostHog ritirata dai monitor (decisione H9 2026-10-05): funnel per sessione senza dimensione session id in GA4 (dimensioni EVENT piene, decisione H4)"
     },
     "canton_hub_positions": {
@@ -384,6 +386,6 @@
       "passedAt": "2026-10-18T09:53:19.235Z"
     }
   },
-  "generatedAt": "2026-11-15T12:58:50.334Z",
+  "generatedAt": "2026-11-22T13:36:27.287Z",
   "campaignStart": "2026-07-17"
 }
