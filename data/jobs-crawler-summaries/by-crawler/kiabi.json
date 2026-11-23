@@ -1,10 +1,10 @@
 {
   "key": "kiabi",
   "label": "Kiabi Suisse",
-  "generatedAt": "2026-11-23T09:23:09.934Z",
+  "generatedAt": "2026-11-23T21:23:30.234Z",
   "total": 3,
   "discovered": null,
-  "parsed": 3,
+  "parsed": 2,
   "lastFetchOutcome": null,
   "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 9252,
-  "avgDurationMs": 9252,
+  "durationMs": 10010,
+  "avgDurationMs": 10010,
   "durationHistory": [
-    9252
+    10010
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://jobs.smartrecruiters.com/KIABI/744000153728909-conseiller-de-vente-en-renfort-d-equipe-contrat-sur-appel-cdi-etudiant-e-temps-partiel-h-f-nb-kiabi-fribourg?oga=true",
       "source": "Kiabi Suisse Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:22:53.253Z",
+      "crawledAt": "2026-11-23T21:23:12.613Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -62,7 +62,7 @@
       "salaryMax": 118500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:22:53.253Z",
+      "validThrough": "2026-12-23T21:23:12.613Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -84,7 +84,7 @@
       "url": "https://jobs.smartrecruiters.com/KIABI/744000162350620-directeur-magasin-h-f-nb-kiabi-aigle?oga=true",
       "source": "Kiabi Suisse Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:22:53.252Z",
+      "crawledAt": "2026-11-23T21:23:12.611Z",
       "addressLocality": "AIGLE",
       "addressRegion": "VD",
       "streetAddress": "AIGLE",
@@ -108,7 +108,7 @@
       "salaryMax": 306000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T09:22:53.252Z",
+      "validThrough": "2027-02-16T21:23:12.611Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -156,6 +156,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:22:53.224Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -165,5 +166,5 @@
       }
     }
   ],
-  "codeCommit": "7474b74d22ad2d97637dc94f08d243f12f0ba1c7"
+  "codeCommit": "7b684909df7304f91c3a19b75aa2a6088ce7630a"
 }
