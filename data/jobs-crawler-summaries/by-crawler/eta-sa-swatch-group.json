@@ -1,17 +1,17 @@
 {
   "key": "eta-sa-swatch-group",
   "label": "eta-sa-swatch-group",
-  "generatedAt": "2026-11-23T09:31:02.882Z",
+  "generatedAt": "2026-11-23T21:34:53.125Z",
   "total": 24,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 22,
-  "durationMs": 395077,
-  "avgDurationMs": 395077,
+  "unchangedCount": 23,
+  "durationMs": 500926,
+  "avgDurationMs": 500926,
   "durationHistory": [
-    395077
+    500926
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -50,6 +50,7 @@
       "validThrough": "2026-12-23T09:29:16.844Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.eta.ch/en/jobs-careers/vacancies/detail/3804",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -57,12 +58,15 @@
         "translation": 25,
         "completeness": 23
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "id": "company-eszdv",
-      "slug": "polymechaniker-in-im-bereich-erosion-80-100-in-loco-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-2540",
+      "id": "company-esyt6",
+      "slug": "addetto-a-al-trattamento-delle-acque-smaltimento-w01-w02-in-loco-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group",
       "company": "ETA SA (Swatch Group)",
-      "title": "POLYMECHANIKER/IN IM BEREICH EROSION 80-100%, vor Ort | Manufacture Horlogère Suisse | ETA SA",
+      "title": "Mitarbeiter/in Wasseraufbereitung/Entsorgung W01/W02 - vor Ort | Manufacture Horlogère Suisse | ETA SA",
       "location": "2540 Grenchen",
       "canton": "SO",
       "category": "admin",
@@ -72,14 +76,13 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "url": "https://www.eta.ch/en/jobs-careers/vacancies/detail/3787",
-      "applyUrl": "https://www.eta.ch/en/jobs-careers/vacancies/detail/3787",
+      "url": "https://www.eta.ch/en/jobs-careers/vacancies/detail/3818",
+      "applyUrl": "https://www.eta.ch/en/jobs-careers/vacancies/detail/3818",
       "source": "Company Careers Crawler",
       "companyKey": "eta-sa-swatch-group",
       "companyDomain": "eta.ch",
-      "crawledAt": "2026-11-23T09:29:16.844Z",
-      "firstSeenAt": "2026-09-28T21:22:42.869Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-11-23T21:33:20.467Z",
+      "firstSeenAt": "2026-11-18T21:28:58.020Z",
       "sourceLang": "de",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -90,19 +93,17 @@
       "addressRegion": "SO",
       "streetAddress": "2540 Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:29:16.844Z",
+      "validThrough": "2027-02-16T21:33:20.467Z",
       "validThroughSource": "last-observed-window",
-      "_qualityScore": 82,
+      "sourceIdentity": "url:https://www.eta.ch/en/jobs-careers/vacancies/detail/3818",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "company-esyu8",
       "slug": "responsabile-della-superficie-orario-flessibile-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-2540-grenchen",
@@ -137,6 +138,7 @@
       "validThrough": "2027-01-26T09:29:16.844Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.eta.ch/en/jobs-careers/vacancies/detail/3801",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -179,6 +181,7 @@
       "validThrough": "2026-12-28T09:29:16.844Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.eta.ch/en/jobs-careers/vacancies/detail/3786",
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -221,6 +224,7 @@
       "validThrough": "2026-12-28T09:29:16.844Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.eta.ch/en/jobs-careers/vacancies/detail/3785",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -263,6 +267,7 @@
       "validThrough": "2027-01-13T09:29:16.844Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.eta.ch/en/jobs-careers/vacancies/detail/3790",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -305,6 +310,7 @@
       "validThrough": "2026-12-23T09:29:16.844Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.eta.ch/en/jobs-careers/vacancies/detail/3800",
+      "crawlerMissStreak": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -347,6 +353,7 @@
       "validThrough": "2026-12-23T09:29:16.844Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.eta.ch/en/jobs-careers/vacancies/detail/3798",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -389,6 +396,7 @@
       "validThrough": "2026-12-23T09:29:16.844Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.eta.ch/en/jobs-careers/vacancies/detail/3802",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -431,6 +439,7 @@
       "validThrough": "2027-01-26T09:29:16.844Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.eta.ch/en/jobs-careers/vacancies/detail/3803",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -473,6 +482,7 @@
       "validThrough": "2027-01-26T09:29:16.844Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.eta.ch/en/jobs-careers/vacancies/detail/3805",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -515,6 +525,7 @@
       "validThrough": "2026-12-25T09:29:16.844Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.eta.ch/en/jobs-careers/vacancies/detail/3814",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -557,6 +568,7 @@
       "validThrough": "2026-12-25T09:29:16.844Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.eta.ch/en/jobs-careers/vacancies/detail/3815",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -599,6 +611,7 @@
       "validThrough": "2026-12-25T09:29:16.844Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.eta.ch/en/jobs-careers/vacancies/detail/3816",
+      "crawlerMissStreak": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -641,6 +654,7 @@
       "validThrough": "2027-02-02T09:29:16.844Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.eta.ch/en/jobs-careers/vacancies/detail/3806",
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -683,6 +697,7 @@
       "validThrough": "2026-12-23T09:29:16.844Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.eta.ch/en/jobs-careers/vacancies/detail/3807",
+      "crawlerMissStreak": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -725,6 +740,7 @@
       "validThrough": "2026-12-25T09:29:16.844Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.eta.ch/en/jobs-careers/vacancies/detail/3811",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -767,6 +783,7 @@
       "validThrough": "2027-02-08T09:29:16.844Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.eta.ch/en/jobs-careers/vacancies/detail/3812",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -810,6 +827,7 @@
       "validThrough": "2027-02-08T09:29:16.844Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.eta.ch/en/jobs-careers/vacancies/detail/3813",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -852,6 +870,7 @@
       "validThrough": "2027-02-08T09:29:16.844Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.eta.ch/en/jobs-careers/vacancies/detail/3810",
+      "crawlerMissStreak": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -894,6 +913,7 @@
       "validThrough": "2026-12-27T09:29:16.844Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.eta.ch/en/jobs-careers/vacancies/detail/3817",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -936,6 +956,7 @@
       "validThrough": "2027-01-05T09:29:16.844Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.eta.ch/en/jobs-careers/vacancies/detail/3819",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -978,6 +999,7 @@
       "validThrough": "2027-01-05T09:29:16.844Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.eta.ch/en/jobs-careers/vacancies/detail/3820",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -987,10 +1009,10 @@
       }
     },
     {
-      "id": "company-esyt6",
-      "slug": "addetto-a-al-trattamento-delle-acque-smaltimento-w01-w02-in-loco-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group",
+      "id": "company-eszdv",
+      "slug": "polymechaniker-in-im-bereich-erosion-80-100-in-loco-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-2540",
       "company": "ETA SA (Swatch Group)",
-      "title": "Mitarbeiter/in Wasseraufbereitung/Entsorgung W01/W02 - vor Ort | Manufacture Horlogère Suisse | ETA SA",
+      "title": "POLYMECHANIKER/IN IM BEREICH EROSION 80-100%, vor Ort | Manufacture Horlogère Suisse | ETA SA",
       "location": "2540 Grenchen",
       "canton": "SO",
       "category": "admin",
@@ -1000,13 +1022,13 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "url": "https://www.eta.ch/en/jobs-careers/vacancies/detail/3818",
-      "applyUrl": "https://www.eta.ch/en/jobs-careers/vacancies/detail/3818",
+      "url": "https://www.eta.ch/en/jobs-careers/vacancies/detail/3787",
+      "applyUrl": "https://www.eta.ch/en/jobs-careers/vacancies/detail/3787",
       "source": "Company Careers Crawler",
       "companyKey": "eta-sa-swatch-group",
       "companyDomain": "eta.ch",
-      "crawledAt": "2026-11-22T21:21:27.718Z",
-      "firstSeenAt": "2026-11-18T21:28:58.020Z",
+      "crawledAt": "2026-11-23T09:29:16.844Z",
+      "firstSeenAt": "2026-09-28T21:22:42.869Z",
       "sourceLang": "de",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1017,9 +1039,8 @@
       "addressRegion": "SO",
       "streetAddress": "2540 Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T21:21:27.718Z",
+      "validThrough": "2026-12-28T09:29:16.844Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.eta.ch/en/jobs-careers/vacancies/detail/3818",
       "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -1030,5 +1051,5 @@
       }
     }
   ],
-  "codeCommit": "7474b74d22ad2d97637dc94f08d243f12f0ba1c7"
+  "codeCommit": "7b684909df7304f91c3a19b75aa2a6088ce7630a"
 }
