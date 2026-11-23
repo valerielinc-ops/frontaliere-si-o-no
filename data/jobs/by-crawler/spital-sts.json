@@ -1,7 +1,7 @@
 {
   "crawlerKey": "spital-sts",
-  "assembledAt": "2026-11-22T21:20:50.576Z",
-  "runId": "45070594018",
+  "assembledAt": "2026-11-23T09:17:21.710Z",
+  "runId": "45144664419",
   "jobs": [
     {
       "id": "spital-sts-ee37d7bd09b9",
@@ -35,7 +35,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/43f4cef6-299d-4922-a968-3fd843f3a012/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.639Z",
+      "crawledAt": "2026-11-23T09:16:41.797Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -100,7 +100,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T21:20:12.639Z",
+      "validThrough": "2027-02-05T09:16:41.797Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -134,7 +134,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/531dde33-b953-483d-8419-1fa5a60bbc05/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.638Z",
+      "crawledAt": "2026-11-23T09:16:41.796Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -197,7 +197,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T21:20:12.638Z",
+      "validThrough": "2027-02-05T09:16:41.796Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -232,7 +232,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/b37b60da-f65b-4f9f-9a91-49ce0b76c63b/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.637Z",
+      "crawledAt": "2026-11-23T09:16:41.795Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -283,7 +283,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T21:20:12.637Z",
+      "validThrough": "2027-02-05T09:16:41.795Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -317,7 +317,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/378060bb-b4c1-483a-801f-a3711725abef/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.637Z",
+      "crawledAt": "2026-11-23T09:16:41.795Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -380,7 +380,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T21:20:12.637Z",
+      "validThrough": "2027-02-05T09:16:41.795Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -414,7 +414,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/e22e1546-8c72-48ce-afe8-bc23580d8427/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.636Z",
+      "crawledAt": "2026-11-23T09:16:41.793Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -463,7 +463,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T21:20:12.636Z",
+      "validThrough": "2027-02-05T09:16:41.793Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -498,7 +498,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/4a0297de-91aa-441d-a87e-01612de5acdb/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.634Z",
+      "crawledAt": "2026-11-23T09:16:41.791Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -547,7 +547,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T21:20:12.634Z",
+      "validThrough": "2027-02-05T09:16:41.791Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -582,7 +582,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/49c2a281-7ae0-41a5-9261-323eeeaa711e/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.634Z",
+      "crawledAt": "2026-11-23T09:16:41.791Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -645,7 +645,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T21:20:12.634Z",
+      "validThrough": "2027-02-05T09:16:41.791Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -680,7 +680,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/82c8ec39-41da-4195-ae6d-5001412b5370/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.632Z",
+      "crawledAt": "2026-11-23T09:16:41.789Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -737,7 +737,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T21:20:12.632Z",
+      "validThrough": "2027-02-05T09:16:41.789Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -772,7 +772,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/076eda00-354b-44e7-b82b-2914f17ddbf6/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.631Z",
+      "crawledAt": "2026-11-23T09:16:41.788Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -821,7 +821,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T21:20:12.631Z",
+      "validThrough": "2027-02-05T09:16:41.788Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -856,7 +856,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/81ea82a8-c1e2-4457-b2f0-df42b3380f38/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.630Z",
+      "crawledAt": "2026-11-23T09:16:41.787Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -919,7 +919,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T21:20:12.630Z",
+      "validThrough": "2027-02-05T09:16:41.787Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -954,7 +954,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/880b1759-8120-49f5-9263-e953dfabb93a/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.629Z",
+      "crawledAt": "2026-11-23T09:16:41.786Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1017,7 +1017,99 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T21:20:12.629Z",
+      "validThrough": "2027-02-05T09:16:41.786Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "spital-sts-ad910e222786",
+      "slug": "assistente-tecnico-alla-sterilizzazione-tecnico-dei-dispositivi-medici-efz-spital-sts-thun",
+      "slugByLocale": {
+        "it": "assistente-tecnico-alla-sterilizzazione-tecnico-dei-dispositivi-medici-efz-spital-sts-thun",
+        "en": "technical-sterilization-assistant-medical-device-technologist-efz-spital-sts-thun",
+        "de": "technische-r-sterilisationsassistent-in-medizinproduktetechnologe-in-efz-spital-sts-thun",
+        "fr": "assistant-e-technique-de-sterilisation-technologue-en-dispositifs-medicaux-cfc-spital-sts-thun"
+      },
+      "company": "Spital STS",
+      "companyKey": "spital-sts",
+      "companyDomain": "spitalstsag.ch",
+      "title": "Technische:r Sterilisationsassistent:in / Medizinproduktetechnologe:in EFZ",
+      "titleByLocale": {
+        "it": "Assistente Tecnico alla Sterilizzazione / Tecnico dei Dispositivi Medici EFZ",
+        "en": "Technical sterilization assistant /medical device technologist EFZ",
+        "de": "Technische:r Sterilisationsassistent:in / Medizinproduktetechnologe:in EFZ",
+        "fr": "Assistant (e) technique de stérilisation/technologue en dispositifs médicaux CFC"
+      },
+      "description": "<ul><li>Anspruchsvolles, vielfältiges Tätigkeitsfeld</li><li>Interdisziplinäre Zusammenarbeit mit anderen Fachbereichen des OPS-Services</li><li>Sorgfältige, gezielte Einarbeitung</li><li>Erfahrenes Team</li><li>Moderne prozessorientierte Infrastruktur</li><li>Interessantes, lebhaftes Wirkungsfeld</li><li>Flexibel wählbares Ferien- und Pensionskassenmodell</li><li>Attraktive Freizeitmöglichkeiten in See- und Bergregion</li></ul>\n\nAufgaben:\nNach einer sorgfältigen Einführung arbeiten Sie im Tagesgeschäft mit und sind verantwortlich für die fach- und sachgerechte Aufbereitung wiederverwendbarer Medizinprodukte. Dazu gehören alle Aufbereitungsschritte wie Annahme, Reinigung, visuelle Kontrolle betreffend Sauberkeit und Funktionalität. Dabei bedienen Sie verschiedene spezifische Geräte in einer Zentralsterilisation und das Instrumentenmanagementprogramm (MARIO).\n\nEintritt per sofort oder nach Vereinbarung.\n\nAnforderungen:\n• Abgeschlossene Fachkundeausbildung Technische:r Sterilisationsassistent:in I mit Erfahrung oder Abschluss Medizinproduktetechnologe:in EFZ\n\n• Absolvierte Weiterbildung zur Aufbereitung von flexiblen, thermolabilen Endoskopen oder die Bereitschaft, diese zu absoliveren\n\n• Versierte MS-Office-Anwendung\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Gute körperliche Fitness\n\n• Bereitschaft zu Schicht- und Wochenenddienst\n\nEin Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.",
+      "descriptionByLocale": {
+        "it": "<ul><li>Campo di attività impegnativo e diversificato </li><li>Collaborazione interdisciplinare con altri settori specialistici del servizio OPS </li><li>Formazione attenta e mirata </li><li>Team di esperti </li><li>Infrastruttura moderna orientata ai processi </li><li>Campo di attività interessante e vivace </li><li>Modello flessibile per vacanze e cassa pensioni </li><li>Opportunità di svago attraenti nelle regioni lacustri e montane </li></ul>\n\nCompiti:\nDopo un'accurata introduzione, lavorerai nell'attività quotidiana e sarai responsabile del trattamento professionale e appropriato dei dispositivi medici riutilizzabili. Ciò include tutte le fasi di lavorazione come accettazione, pulizia, ispezione visiva relativa alla pulizia e alla funzionalità. Gestite vari dispositivi specifici in una sterilizzazione centrale e nel programma di gestione degli strumenti (MARIO).\n\nIngresso immediato o su appuntamento.\n\nRequisiti:\n• Formazione specialistica completata come assistente tecnico alla sterilizzazione I con esperienza o laurea in tecnologia dei dispositivi medici EFZ\n\n• Completamento della formazione ulteriore sulla lavorazione di endoscopi flessibili e termolabili o disponibilità a completarli\n\n• Applicazione MS Office competente\n\n• Ottima conoscenza del tedesco parlato e scritto\n\n• Buona forma fisica\n\n• Disponibilità a lavorare su turni e nei fine settimana\n\nUn lavoro con prospettive: oltre alle infrastrutture più moderne e alle molteplici attività in un ambiente familiare, l'Ospedale di Thun vi offre anche la possibilità di trascorrere il tempo libero in modo flessibile nella circostante regione naturale e lacustre. Cerchi qualcosa di sensato ma anche giusto? Allora sei nel posto giusto.",
+        "en": "<ul><li>Demanding, diverse field of activity</li><li>Interdisciplinary cooperation with other specialist areas of the OPS service</li><li>Careful, targeted training</li><li>Experienced team</li><li>Modern process-oriented infrastructure</li><li>Interesting, lively field of activity</li><li>Flexibly selectable holiday and pension fund model</li><li>Attractive leisure opportunities in the sea and mountain region</li></ul>\n\nTasks:\nAfter a careful introduction, you work in daily business and are responsible for the professional and appropriate preparation of reusable medical products. This includes all processing steps such as acceptance, cleaning, visual control regarding cleanliness and functionality. You operate various specific devices in a central sterilization and the instrument management program (MARIO).\n\nEntry immediately or by arrangement.\n\nRequirements\n• Completed specialist training Technical:r sterilization assistant:in I with experience or medical device technologist:in EFZ\n\n• Completed further development for the preparation of flexible, thermolabile endoscopes or the readiness to make them more absolute\n\n• Experienced MS-Office application\n\n• Very good knowledge of German in word and writing\n\n• Good physical fitness\n\n• Readiness for shift and weekend service\n\nA job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking meaningful, but also fair? Then you're right here.",
+        "de": "<ul><li>Anspruchsvolles, vielfältiges Tätigkeitsfeld</li><li>Interdisziplinäre Zusammenarbeit mit anderen Fachbereichen des OPS-Services</li><li>Sorgfältige, gezielte Einarbeitung</li><li>Erfahrenes Team</li><li>Moderne prozessorientierte Infrastruktur</li><li>Interessantes, lebhaftes Wirkungsfeld</li><li>Flexibel wählbares Ferien- und Pensionskassenmodell</li><li>Attraktive Freizeitmöglichkeiten in See- und Bergregion</li></ul>\n\nAufgaben:\nNach einer sorgfältigen Einführung arbeiten Sie im Tagesgeschäft mit und sind verantwortlich für die fach- und sachgerechte Aufbereitung wiederverwendbarer Medizinprodukte. Dazu gehören alle Aufbereitungsschritte wie Annahme, Reinigung, visuelle Kontrolle betreffend Sauberkeit und Funktionalität. Dabei bedienen Sie verschiedene spezifische Geräte in einer Zentralsterilisation und das Instrumentenmanagementprogramm (MARIO).\n\nEintritt per sofort oder nach Vereinbarung.\n\nAnforderungen:\n• Abgeschlossene Fachkundeausbildung Technische:r Sterilisationsassistent:in I mit Erfahrung oder Abschluss Medizinproduktetechnologe:in EFZ\n\n• Absolvierte Weiterbildung zur Aufbereitung von flexiblen, thermolabilen Endoskopen oder die Bereitschaft, diese zu absoliveren\n\n• Versierte MS-Office-Anwendung\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Gute körperliche Fitness\n\n• Bereitschaft zu Schicht- und Wochenenddienst\n\nEin Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.",
+        "fr": "<ul><li>Démandation, domaine d'activité diversifié</li><li>Coopération interdisciplinaire avec d'autres secteurs spécialisés du service OPS</li><li>Formation soignée et ciblée</li><li>Équipe expérimentée</li><li>Infrastructure moderne axée sur les processus</li><li>Champ d'activité intéressant et animé</li><li>Modèle de fonds de vacances et de retraite facilement sélectionnable</li><li>Profits de loisirs attrayants dans la région de la mer et de la montagne</li></li></ul>\n\nTâches :\nAprès une introduction attentive, vous travaillez dans les affaires quotidiennes et êtes responsable de la préparation professionnelle et appropriée des produits médicaux réutilisables. Cela comprend toutes les étapes de traitement telles que l'acceptation, le nettoyage, le contrôle visuel concernant la propreté et la fonctionnalité. Vous utilisez différents appareils spécifiques dans une stérilisation centrale et le programme de gestion des instruments (MARIO).\n\nEntrée immédiate ou par arrangement.\n\nExigences\n• Formation spécialisée complète Assistant technique:r stérilisation:in I avec expérience ou technologue de dispositifs médicaux:in EFZ\n\n• Achèvement du développement de la préparation d'endoscopes flexibles et thermolabiles ou de la volonté de les rendre plus absolus\n\n• Application MS-Office expérimentée\n\n• Très bonne connaissance de l'allemand en paroles et en écriture\n\n• Bonne condition physique\n\n• Préparation au travail posté et au service du week-end\n\nUn emploi avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Avez-vous l'air significatif, mais aussi juste? Alors vous êtes là."
+      },
+      "needsRetranslation": false,
+      "location": "Thun",
+      "canton": "BE",
+      "url": "https://ohws.prospective.ch/public/v1/redirect/95252b5f-58ac-4425-9874-5c790799e825/ats/",
+      "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-23T09:16:41.785Z",
+      "addressLocality": "Thun",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3600",
+      "streetAddress": "Krankenhausstrasse 12",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://ohws.prospective.ch/public/v1/redirect/95252b5f-58ac-4425-9874-5c790799e825/ats/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "technische-r-sterilisationsassistent-in-medizinproduktetechnologe-in-efz-spital-sts-thun"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "technische-r-sterilisationsassistent-in-medizinproduktetechnologe-in-efz-spital-sts-thun"
+        ]
+      },
+      "firstSeenAt": "2026-11-06T21:30:46.392Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital STS",
+        "streetAddress": "Krankenhausstrasse 12",
+        "postalCode": "3600",
+        "registeredName": "Spital STS AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "3600",
+        "addressLocality": "Thun",
+        "addressRegion": "BE",
+        "checkedAt": "2026-11-09T15:42:50.739Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-05T09:16:41.785Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1052,7 +1144,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/380b908c-a076-443d-8a65-fed84c0ee2f2/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.628Z",
+      "crawledAt": "2026-11-23T09:16:41.785Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1115,99 +1207,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T21:20:12.628Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "spital-sts-ad910e222786",
-      "slug": "assistente-tecnico-alla-sterilizzazione-tecnico-dei-dispositivi-medici-efz-spital-sts-thun",
-      "slugByLocale": {
-        "it": "assistente-tecnico-alla-sterilizzazione-tecnico-dei-dispositivi-medici-efz-spital-sts-thun",
-        "en": "technical-sterilization-assistant-medical-device-technologist-efz-spital-sts-thun",
-        "de": "technische-r-sterilisationsassistent-in-medizinproduktetechnologe-in-efz-spital-sts-thun",
-        "fr": "assistant-e-technique-de-sterilisation-technologue-en-dispositifs-medicaux-cfc-spital-sts-thun"
-      },
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Technische:r Sterilisationsassistent:in / Medizinproduktetechnologe:in EFZ",
-      "titleByLocale": {
-        "it": "Assistente Tecnico alla Sterilizzazione / Tecnico dei Dispositivi Medici EFZ",
-        "en": "Technical sterilization assistant /medical device technologist EFZ",
-        "de": "Technische:r Sterilisationsassistent:in / Medizinproduktetechnologe:in EFZ",
-        "fr": "Assistant (e) technique de stérilisation/technologue en dispositifs médicaux CFC"
-      },
-      "description": "<ul><li>Anspruchsvolles, vielfältiges Tätigkeitsfeld</li><li>Interdisziplinäre Zusammenarbeit mit anderen Fachbereichen des OPS-Services</li><li>Sorgfältige, gezielte Einarbeitung</li><li>Erfahrenes Team</li><li>Moderne prozessorientierte Infrastruktur</li><li>Interessantes, lebhaftes Wirkungsfeld</li><li>Flexibel wählbares Ferien- und Pensionskassenmodell</li><li>Attraktive Freizeitmöglichkeiten in See- und Bergregion</li></ul>\n\nAufgaben:\nNach einer sorgfältigen Einführung arbeiten Sie im Tagesgeschäft mit und sind verantwortlich für die fach- und sachgerechte Aufbereitung wiederverwendbarer Medizinprodukte. Dazu gehören alle Aufbereitungsschritte wie Annahme, Reinigung, visuelle Kontrolle betreffend Sauberkeit und Funktionalität. Dabei bedienen Sie verschiedene spezifische Geräte in einer Zentralsterilisation und das Instrumentenmanagementprogramm (MARIO).\n\nEintritt per sofort oder nach Vereinbarung.\n\nAnforderungen:\n• Abgeschlossene Fachkundeausbildung Technische:r Sterilisationsassistent:in I mit Erfahrung oder Abschluss Medizinproduktetechnologe:in EFZ\n\n• Absolvierte Weiterbildung zur Aufbereitung von flexiblen, thermolabilen Endoskopen oder die Bereitschaft, diese zu absoliveren\n\n• Versierte MS-Office-Anwendung\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Gute körperliche Fitness\n\n• Bereitschaft zu Schicht- und Wochenenddienst\n\nEin Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.",
-      "descriptionByLocale": {
-        "it": "<ul><li>Campo di attività impegnativo e diversificato </li><li>Collaborazione interdisciplinare con altri settori specialistici del servizio OPS </li><li>Formazione attenta e mirata </li><li>Team di esperti </li><li>Infrastruttura moderna orientata ai processi </li><li>Campo di attività interessante e vivace </li><li>Modello flessibile per vacanze e cassa pensioni </li><li>Opportunità di svago attraenti nelle regioni lacustri e montane </li></ul>\n\nCompiti:\nDopo un'accurata introduzione, lavorerai nell'attività quotidiana e sarai responsabile del trattamento professionale e appropriato dei dispositivi medici riutilizzabili. Ciò include tutte le fasi di lavorazione come accettazione, pulizia, ispezione visiva relativa alla pulizia e alla funzionalità. Gestite vari dispositivi specifici in una sterilizzazione centrale e nel programma di gestione degli strumenti (MARIO).\n\nIngresso immediato o su appuntamento.\n\nRequisiti:\n• Formazione specialistica completata come assistente tecnico alla sterilizzazione I con esperienza o laurea in tecnologia dei dispositivi medici EFZ\n\n• Completamento della formazione ulteriore sulla lavorazione di endoscopi flessibili e termolabili o disponibilità a completarli\n\n• Applicazione MS Office competente\n\n• Ottima conoscenza del tedesco parlato e scritto\n\n• Buona forma fisica\n\n• Disponibilità a lavorare su turni e nei fine settimana\n\nUn lavoro con prospettive: oltre alle infrastrutture più moderne e alle molteplici attività in un ambiente familiare, l'Ospedale di Thun vi offre anche la possibilità di trascorrere il tempo libero in modo flessibile nella circostante regione naturale e lacustre. Cerchi qualcosa di sensato ma anche giusto? Allora sei nel posto giusto.",
-        "en": "<ul><li>Demanding, diverse field of activity</li><li>Interdisciplinary cooperation with other specialist areas of the OPS service</li><li>Careful, targeted training</li><li>Experienced team</li><li>Modern process-oriented infrastructure</li><li>Interesting, lively field of activity</li><li>Flexibly selectable holiday and pension fund model</li><li>Attractive leisure opportunities in the sea and mountain region</li></ul>\n\nTasks:\nAfter a careful introduction, you work in daily business and are responsible for the professional and appropriate preparation of reusable medical products. This includes all processing steps such as acceptance, cleaning, visual control regarding cleanliness and functionality. You operate various specific devices in a central sterilization and the instrument management program (MARIO).\n\nEntry immediately or by arrangement.\n\nRequirements\n• Completed specialist training Technical:r sterilization assistant:in I with experience or medical device technologist:in EFZ\n\n• Completed further development for the preparation of flexible, thermolabile endoscopes or the readiness to make them more absolute\n\n• Experienced MS-Office application\n\n• Very good knowledge of German in word and writing\n\n• Good physical fitness\n\n• Readiness for shift and weekend service\n\nA job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking meaningful, but also fair? Then you're right here.",
-        "de": "<ul><li>Anspruchsvolles, vielfältiges Tätigkeitsfeld</li><li>Interdisziplinäre Zusammenarbeit mit anderen Fachbereichen des OPS-Services</li><li>Sorgfältige, gezielte Einarbeitung</li><li>Erfahrenes Team</li><li>Moderne prozessorientierte Infrastruktur</li><li>Interessantes, lebhaftes Wirkungsfeld</li><li>Flexibel wählbares Ferien- und Pensionskassenmodell</li><li>Attraktive Freizeitmöglichkeiten in See- und Bergregion</li></ul>\n\nAufgaben:\nNach einer sorgfältigen Einführung arbeiten Sie im Tagesgeschäft mit und sind verantwortlich für die fach- und sachgerechte Aufbereitung wiederverwendbarer Medizinprodukte. Dazu gehören alle Aufbereitungsschritte wie Annahme, Reinigung, visuelle Kontrolle betreffend Sauberkeit und Funktionalität. Dabei bedienen Sie verschiedene spezifische Geräte in einer Zentralsterilisation und das Instrumentenmanagementprogramm (MARIO).\n\nEintritt per sofort oder nach Vereinbarung.\n\nAnforderungen:\n• Abgeschlossene Fachkundeausbildung Technische:r Sterilisationsassistent:in I mit Erfahrung oder Abschluss Medizinproduktetechnologe:in EFZ\n\n• Absolvierte Weiterbildung zur Aufbereitung von flexiblen, thermolabilen Endoskopen oder die Bereitschaft, diese zu absoliveren\n\n• Versierte MS-Office-Anwendung\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Gute körperliche Fitness\n\n• Bereitschaft zu Schicht- und Wochenenddienst\n\nEin Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.",
-        "fr": "<ul><li>Démandation, domaine d'activité diversifié</li><li>Coopération interdisciplinaire avec d'autres secteurs spécialisés du service OPS</li><li>Formation soignée et ciblée</li><li>Équipe expérimentée</li><li>Infrastructure moderne axée sur les processus</li><li>Champ d'activité intéressant et animé</li><li>Modèle de fonds de vacances et de retraite facilement sélectionnable</li><li>Profits de loisirs attrayants dans la région de la mer et de la montagne</li></li></ul>\n\nTâches :\nAprès une introduction attentive, vous travaillez dans les affaires quotidiennes et êtes responsable de la préparation professionnelle et appropriée des produits médicaux réutilisables. Cela comprend toutes les étapes de traitement telles que l'acceptation, le nettoyage, le contrôle visuel concernant la propreté et la fonctionnalité. Vous utilisez différents appareils spécifiques dans une stérilisation centrale et le programme de gestion des instruments (MARIO).\n\nEntrée immédiate ou par arrangement.\n\nExigences\n• Formation spécialisée complète Assistant technique:r stérilisation:in I avec expérience ou technologue de dispositifs médicaux:in EFZ\n\n• Achèvement du développement de la préparation d'endoscopes flexibles et thermolabiles ou de la volonté de les rendre plus absolus\n\n• Application MS-Office expérimentée\n\n• Très bonne connaissance de l'allemand en paroles et en écriture\n\n• Bonne condition physique\n\n• Préparation au travail posté et au service du week-end\n\nUn emploi avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Avez-vous l'air significatif, mais aussi juste? Alors vous êtes là."
-      },
-      "needsRetranslation": false,
-      "location": "Thun",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/95252b5f-58ac-4425-9874-5c790799e825/ats/",
-      "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.627Z",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3600",
-      "streetAddress": "Krankenhausstrasse 12",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://ohws.prospective.ch/public/v1/redirect/95252b5f-58ac-4425-9874-5c790799e825/ats/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "technische-r-sterilisationsassistent-in-medizinproduktetechnologe-in-efz-spital-sts-thun"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technische-r-sterilisationsassistent-in-medizinproduktetechnologe-in-efz-spital-sts-thun"
-        ]
-      },
-      "firstSeenAt": "2026-11-06T21:30:46.392Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Spital STS",
-        "streetAddress": "Krankenhausstrasse 12",
-        "postalCode": "3600",
-        "registeredName": "Spital STS AG",
-        "matchType": "exact",
-        "streetAddressSource": "zefix-registry",
-        "jobPostalCode": "3600",
-        "addressLocality": "Thun",
-        "addressRegion": "BE",
-        "checkedAt": "2026-11-09T15:42:50.739Z"
-      },
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T21:20:12.627Z",
+      "validThrough": "2027-02-05T09:16:41.785Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1242,7 +1242,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/00b786b8-0467-484f-9a29-33c720ac94d7/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.626Z",
+      "crawledAt": "2026-11-23T09:16:41.784Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1291,7 +1291,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T21:20:12.626Z",
+      "validThrough": "2027-02-05T09:16:41.784Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1325,7 +1325,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/c489bcc3-de44-4c9b-b870-5b04c922ca6a/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.625Z",
+      "crawledAt": "2026-11-23T09:16:41.782Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1376,7 +1376,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T21:20:12.625Z",
+      "validThrough": "2027-02-05T09:16:41.782Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1411,7 +1411,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/467a56f5-cfc8-4b8f-90d3-621e8f0dd9ff/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.624Z",
+      "crawledAt": "2026-11-23T09:16:41.781Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1474,7 +1474,99 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T21:20:12.624Z",
+      "validThrough": "2027-02-05T09:16:41.781Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "spital-sts-f75193e156a3",
+      "slug": "esperto-a-di-terapia-intensiva-nds-hf-spital-sts-thun",
+      "slugByLocale": {
+        "it": "esperto-a-di-terapia-intensiva-nds-hf-spital-sts-thun",
+        "en": "expert-expert-intensive-care-nds-hf-spital-sts-thun",
+        "de": "experte-expertin-intensivpflege-nds-hf-spital-sts-thun",
+        "fr": "expert-en-soins-intensifs-nds-hf-spital-sts-thun"
+      },
+      "company": "Spital STS",
+      "companyKey": "spital-sts",
+      "companyDomain": "spitalstsag.ch",
+      "title": "Experte / Expertin Intensivpflege NDS HF",
+      "titleByLocale": {
+        "it": "Expert / Expert Intensive Care NDS HF",
+        "en": "Expert / Expert Intensive Care NDS HF",
+        "de": "Experte / Expertin Intensivpflege NDS HF",
+        "fr": "Expert / Expert Soins intensifs NDS HF"
+      },
+      "description": "<ul><li>Ein spannendes und abwechslungsreiches Arbeitsumfeld</li><li>Top moderne Infrastruktur</li><li>Ein aufgestelltes und unterstützendes Team</li><li>Eine wertschätzende Arbeitsatmosphäre</li><li>Zusammenarbeit mit unterschiedlichen Disziplinen</li></ul>\n\nAufgaben:\nUnterstütze unser aufgestelltes und engagiertes Team während einem befristen Zeitraum und sei dabei wenn wir uns mit Leidenschaft und Fachkompetenz der Betreuung unserer Patientinnen und Patienten widmen. Dich erwartet eine topmoderne Umgebung mit neuester technischer Infrastruktur. Unsere interdisziplinäre Intensivstation betreibt acht Behandlungsplätze, die mit modernsten medizintechnischen Geräten ausgestattet sind. Ein modernes Patientendatenmanagementsystem (PDMS) mit Integration ins spitaleigene Klinikinformationssystem komplettiert das Angebot.\n\nEintritt per 1. Januar 2027 oder nach Vereinbarung\n\nAnforderungen:\n• Mehrjährige Berufserfahrung als Expertin / Experte Intensivpflege NDS HF\n\n• Flexibilität, Teamfähigkeit und selbständige Arbeitsweise\n\n• Physische und psychische Belastbarkeit\n\n• Bereitschaft Ideen und Erfahrung einzubringen\n\nEin Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.",
+      "descriptionByLocale": {
+        "it": "<ul><li>Un ambiente di lavoro stimolante e vario </li><li>Infrastrutture moderne e all'avanguardia </li><li>Un team ben posizionato e di supporto </li><li>Un'atmosfera di lavoro apprezzata </li><li>Collaborazione con diverse discipline </li></ul>\n\nCompiti:\nSostieni il nostro team consolidato e impegnato per un periodo di tempo limitato e sii presente mentre ci dedichiamo alla cura dei nostri pazienti con passione e competenza. Puoi aspettarti un ambiente all'avanguardia con l'infrastruttura tecnica più recente. La nostra unità di terapia intensiva interdisciplinare gestisce otto centri di trattamento dotati delle più moderne attrezzature mediche. Un moderno sistema di gestione dei dati dei pazienti (PDMS) con integrazione nel sistema informativo clinico dell'ospedale completa l'offerta.\n\nIngresso il 1 gennaio 2027 o su appuntamento\n\nRequisiti:\n• Diversi anni di esperienza professionale come esperto in terapia intensiva NDS HF\n\n• Flessibilità, capacità di lavorare in gruppo e stile di lavoro indipendente\n\n• Resilienza fisica e psicologica\n\n• Disponibilità a contribuire con idee ed esperienze\n\nUn lavoro con prospettive: oltre alle infrastrutture più moderne e alle molteplici attività in un ambiente familiare, l'Ospedale di Thun vi offre anche la possibilità di trascorrere il tempo libero in modo flessibile nella circostante regione naturale e lacustre. Cerchi qualcosa di sensato ma anche giusto? Allora sei nel posto giusto.",
+        "en": "<ul><li>An exciting and varied working environment</li><li>Top modern infrastructure</li><li>A set up and supportive team</li><li>An appreciative working atmosphere</li><li>Cooperation with different disciplines</li></ul>\n\nTasks:\nSupport our established and committed team for a limited period of time and be there when we dedicate ourselves with passion and expertise to the care of our patients. You can expect a state-of-the-art environment with the latest technical infrastructure. Our interdisciplinary intensive care unit operates eight treatment stations equipped with the latest medical equipment. A modern patient data management system (PDMS) with integration into the hospital’s own hospital information system completes the offer.\n\nEntry as of 1 January 2027 or by agreement\n\nRequirements\n• Several years of professional experience as an expert / expert intensive care NDS HF\n\n• Flexibility, teamwork and independent working methods\n\n• Physical and psychological resilience\n\n• Willingness to contribute ideas and experience\n\nA job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking meaningful, but also fair? Then you're right here.",
+        "de": "<ul><li>Ein spannendes und abwechslungsreiches Arbeitsumfeld</li><li>Top moderne Infrastruktur</li><li>Ein aufgestelltes und unterstützendes Team</li><li>Eine wertschätzende Arbeitsatmosphäre</li><li>Zusammenarbeit mit unterschiedlichen Disziplinen</li></ul>\n\nAufgaben:\nUnterstütze unser aufgestelltes und engagiertes Team während einem befristen Zeitraum und sei dabei wenn wir uns mit Leidenschaft und Fachkompetenz der Betreuung unserer Patientinnen und Patienten widmen. Dich erwartet eine topmoderne Umgebung mit neuester technischer Infrastruktur. Unsere interdisziplinäre Intensivstation betreibt acht Behandlungsplätze, die mit modernsten medizintechnischen Geräten ausgestattet sind. Ein modernes Patientendatenmanagementsystem (PDMS) mit Integration ins spitaleigene Klinikinformationssystem komplettiert das Angebot.\n\nEintritt per 1. Januar 2027 oder nach Vereinbarung\n\nAnforderungen:\n• Mehrjährige Berufserfahrung als Expertin / Experte Intensivpflege NDS HF\n\n• Flexibilität, Teamfähigkeit und selbständige Arbeitsweise\n\n• Physische und psychische Belastbarkeit\n\n• Bereitschaft Ideen und Erfahrung einzubringen\n\nEin Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.",
+        "fr": "<ul><li>Un environnement de travail passionnant et varié</li><li>Une infrastructure moderne de pointe</li><li>Une équipe de soutien</li><li>Une atmosphère de travail appréciatrice</li><li>Coopération avec différentes disciplines</li></ul>\n\nTâches :\nSoutenez notre équipe établie et engagée pour une période limitée et soyez là quand nous nous consacrons avec passion et expertise aux soins de nos patients. Vous pouvez vous attendre à un environnement de pointe avec la dernière infrastructure technique. Notre unité interdisciplinaire de soins intensifs exploite huit stations de traitement équipées des équipements médicaux les plus récents. Un système moderne de gestion des données des patients (PDMS) avec intégration dans le propre système d'information hospitalier complète l'offre.\n\nEntrée au 1er janvier 2027 ou par accord\n\nExigences\n• Plusieurs années d'expérience professionnelle en tant qu'expert / expert en soins intensifs NDS HF\n\n• Flexibilité, travail d'équipe et méthodes de travail indépendantes\n\n• Résistance physique et psychologique\n\n• Volonté de contribuer aux idées et à l'expérience\n\nUn emploi avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Avez-vous l'air significatif, mais aussi juste? Alors vous êtes là."
+      },
+      "needsRetranslation": false,
+      "location": "Thun",
+      "canton": "BE",
+      "url": "https://ohws.prospective.ch/public/v1/redirect/b69b1a5d-bd15-4fa8-8ba3-779fe662c0d8/ats/",
+      "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-23T09:16:41.780Z",
+      "addressLocality": "Thun",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3600",
+      "streetAddress": "Krankenhausstrasse 12",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://ohws.prospective.ch/public/v1/redirect/b69b1a5d-bd15-4fa8-8ba3-779fe662c0d8/ats/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "experte-expertin-intensivpflege-nds-hf-spital-sts-thun"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "experte-expertin-intensivpflege-nds-hf-spital-sts-thun"
+        ]
+      },
+      "firstSeenAt": "2026-11-21T21:29:27.754Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital STS",
+        "streetAddress": "Krankenhausstrasse 12",
+        "postalCode": "3600",
+        "registeredName": "Spital STS AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "3600",
+        "addressLocality": "Thun",
+        "addressRegion": "BE",
+        "checkedAt": "2026-11-09T15:42:50.739Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-20T09:16:41.780Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1509,7 +1601,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7af25d74-121c-4534-9677-cab6a836fef8/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.623Z",
+      "crawledAt": "2026-11-23T09:16:41.779Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1576,48 +1668,48 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-20T21:20:12.623Z",
+      "validThrough": "2027-02-20T09:16:41.779Z",
       "validThroughSource": "last-observed-window"
     },
     {
-      "id": "spital-sts-f75193e156a3",
-      "slug": "esperto-a-di-terapia-intensiva-nds-hf-spital-sts-thun",
+      "id": "spital-sts-69f6cb995fca",
+      "slug": "assistenza-sanitaria-professionale-due-semplici-spital-sts-zweisimmen",
       "slugByLocale": {
-        "it": "esperto-a-di-terapia-intensiva-nds-hf-spital-sts-thun",
-        "en": "expert-expert-intensive-care-nds-hf-spital-sts-thun",
-        "de": "experte-expertin-intensivpflege-nds-hf-spital-sts-thun",
-        "fr": "expert-en-soins-intensifs-nds-hf-spital-sts-thun"
+        "it": "assistenza-sanitaria-professionale-due-semplici-spital-sts-zweisimmen",
+        "en": "professional-health-care-two-simples-spital-sts-zweisimmen",
+        "de": "fachfrau-mann-gesundheit-pflege-zweisimmen-spital-sts-zweisimmen",
+        "fr": "soins-de-sante-professionnels-deux-simples-spital-sts-zweisimmen"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
       "companyDomain": "spitalstsag.ch",
-      "title": "Experte / Expertin Intensivpflege NDS HF",
+      "title": "Fachfrau/-mann Gesundheit Pflege Zweisimmen",
       "titleByLocale": {
-        "it": "Expert / Expert Intensive Care NDS HF",
-        "en": "Expert / Expert Intensive Care NDS HF",
-        "de": "Experte / Expertin Intensivpflege NDS HF",
-        "fr": "Expert / Expert Soins intensifs NDS HF"
+        "it": "Specialista in assistenza sanitaria Zweisimmen",
+        "en": "Specialist/-man health care Zweisimmen",
+        "de": "Fachfrau/-mann Gesundheit Pflege Zweisimmen",
+        "fr": "Spécialiste en soins de santé Zweisimmen"
       },
-      "description": "<ul><li>Ein spannendes und abwechslungsreiches Arbeitsumfeld</li><li>Top moderne Infrastruktur</li><li>Ein aufgestelltes und unterstützendes Team</li><li>Eine wertschätzende Arbeitsatmosphäre</li><li>Zusammenarbeit mit unterschiedlichen Disziplinen</li></ul>\n\nAufgaben:\nUnterstütze unser aufgestelltes und engagiertes Team während einem befristen Zeitraum und sei dabei wenn wir uns mit Leidenschaft und Fachkompetenz der Betreuung unserer Patientinnen und Patienten widmen. Dich erwartet eine topmoderne Umgebung mit neuester technischer Infrastruktur. Unsere interdisziplinäre Intensivstation betreibt acht Behandlungsplätze, die mit modernsten medizintechnischen Geräten ausgestattet sind. Ein modernes Patientendatenmanagementsystem (PDMS) mit Integration ins spitaleigene Klinikinformationssystem komplettiert das Angebot.\n\nEintritt per 1. Januar 2027 oder nach Vereinbarung\n\nAnforderungen:\n• Mehrjährige Berufserfahrung als Expertin / Experte Intensivpflege NDS HF\n\n• Flexibilität, Teamfähigkeit und selbständige Arbeitsweise\n\n• Physische und psychische Belastbarkeit\n\n• Bereitschaft Ideen und Erfahrung einzubringen\n\nEin Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.",
+      "description": "<ul><li>Abwechslungsreiche Tätigkeit auf einer lebhaften interdisziplinären Bettenabteilung</li><li>Mitverantwortung in der Pflege und Betreuung von Patientinnen und Patienten unterschiedlichster Fachrichtungen</li><li>Enge Zusammenarbeit mit diplomiertem Pflegepersonal und interdisziplinären Berufsgruppen</li><li>Möglichkeit, deine Fachkompetenz aktiv einzubringen und Verantwortung im Pflegeprozess zu übernehmen</li><li>Anwendung und Weiterentwicklung deiner fachlichen Kompetenzen</li><li>Eindrückliche Bergregion mit hoher Lebensqualität</li><li>Freizeit- und Naturerlebnisse in nächster Umgebung</li></ul>\n\nAufgaben:\nFühlst du dich in einem interdisziplinären Team wohl und schätzt den Austausch auf Augenhöhe?\n\nMit der familiären Atmosphäre unseres kleinen Spitals, unserem aufgestellten, humorvollen Team und der herrlichen Lage in den Bergen gewinnen wir immer wieder Mitarbeitende für uns – so hoffentlich auch dich! Es erwartet dich ein abwechslungsreiches und anspruchsvolles Arbeitsumfeld auf einer interdisziplinären Bettenabteilung.\n\nAls Fachfrau/Fachmann Gesundheit EFZ unterstützt du unser diplomiertes Pflegepersonal in der Betreuung und Überwachung unserer Patientinnen und Patienten. Du trägst mit deinem Engagement wesentlich zu einer individuellen und kundenorientierten Pflege bei. Dabei bringst du deine Fachkompetenz ein und entwickelst dich fachlich wie persönlich weiter.\n\nEintritt per sofort oder nach Vereinbarung\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ\n\n• Freude an der Arbeit auf einer interdisziplinären Bettenabteilung\n\n• Verantwortungsbewusste, selbständige und strukturierte Arbeitsweise\n\n• Teamgeist sowie wertschätzende Kommunikation auf Augenhöhe\n\n• Engagement, Flexibilität und Interesse an fachlicher Weiterentwicklung\n\n• Gute Deutschkenntnisse in Wort und Schrift (weitere Sprachen von Vorteil)\n\nEin Job mit Aussichten: Im Spital Zweisimmen erwartet dich nebst einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Bergregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.",
       "descriptionByLocale": {
-        "it": "<ul><li>Un ambiente di lavoro stimolante e vario </li><li>Infrastrutture moderne e all'avanguardia </li><li>Un team ben posizionato e di supporto </li><li>Un'atmosfera di lavoro apprezzata </li><li>Collaborazione con diverse discipline </li></ul>\n\nCompiti:\nSostieni il nostro team consolidato e impegnato per un periodo di tempo limitato e sii presente mentre ci dedichiamo alla cura dei nostri pazienti con passione e competenza. Puoi aspettarti un ambiente all'avanguardia con l'infrastruttura tecnica più recente. La nostra unità di terapia intensiva interdisciplinare gestisce otto centri di trattamento dotati delle più moderne attrezzature mediche. Un moderno sistema di gestione dei dati dei pazienti (PDMS) con integrazione nel sistema informativo clinico dell'ospedale completa l'offerta.\n\nIngresso il 1 gennaio 2027 o su appuntamento\n\nRequisiti:\n• Diversi anni di esperienza professionale come esperto in terapia intensiva NDS HF\n\n• Flessibilità, capacità di lavorare in gruppo e stile di lavoro indipendente\n\n• Resilienza fisica e psicologica\n\n• Disponibilità a contribuire con idee ed esperienze\n\nUn lavoro con prospettive: oltre alle infrastrutture più moderne e alle molteplici attività in un ambiente familiare, l'Ospedale di Thun vi offre anche la possibilità di trascorrere il tempo libero in modo flessibile nella circostante regione naturale e lacustre. Cerchi qualcosa di sensato ma anche giusto? Allora sei nel posto giusto.",
-        "en": "<ul><li>An exciting and varied working environment</li><li>Top modern infrastructure</li><li>A set up and supportive team</li><li>An appreciative working atmosphere</li><li>Cooperation with different disciplines</li></ul>\n\nTasks:\nSupport our established and committed team for a limited period of time and be there when we dedicate ourselves with passion and expertise to the care of our patients. You can expect a state-of-the-art environment with the latest technical infrastructure. Our interdisciplinary intensive care unit operates eight treatment stations equipped with the latest medical equipment. A modern patient data management system (PDMS) with integration into the hospital’s own hospital information system completes the offer.\n\nEntry as of 1 January 2027 or by agreement\n\nRequirements\n• Several years of professional experience as an expert / expert intensive care NDS HF\n\n• Flexibility, teamwork and independent working methods\n\n• Physical and psychological resilience\n\n• Willingness to contribute ideas and experience\n\nA job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking meaningful, but also fair? Then you're right here.",
-        "de": "<ul><li>Ein spannendes und abwechslungsreiches Arbeitsumfeld</li><li>Top moderne Infrastruktur</li><li>Ein aufgestelltes und unterstützendes Team</li><li>Eine wertschätzende Arbeitsatmosphäre</li><li>Zusammenarbeit mit unterschiedlichen Disziplinen</li></ul>\n\nAufgaben:\nUnterstütze unser aufgestelltes und engagiertes Team während einem befristen Zeitraum und sei dabei wenn wir uns mit Leidenschaft und Fachkompetenz der Betreuung unserer Patientinnen und Patienten widmen. Dich erwartet eine topmoderne Umgebung mit neuester technischer Infrastruktur. Unsere interdisziplinäre Intensivstation betreibt acht Behandlungsplätze, die mit modernsten medizintechnischen Geräten ausgestattet sind. Ein modernes Patientendatenmanagementsystem (PDMS) mit Integration ins spitaleigene Klinikinformationssystem komplettiert das Angebot.\n\nEintritt per 1. Januar 2027 oder nach Vereinbarung\n\nAnforderungen:\n• Mehrjährige Berufserfahrung als Expertin / Experte Intensivpflege NDS HF\n\n• Flexibilität, Teamfähigkeit und selbständige Arbeitsweise\n\n• Physische und psychische Belastbarkeit\n\n• Bereitschaft Ideen und Erfahrung einzubringen\n\nEin Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.",
-        "fr": "<ul><li>Un environnement de travail passionnant et varié</li><li>Une infrastructure moderne de pointe</li><li>Une équipe de soutien</li><li>Une atmosphère de travail appréciatrice</li><li>Coopération avec différentes disciplines</li></ul>\n\nTâches :\nSoutenez notre équipe établie et engagée pour une période limitée et soyez là quand nous nous consacrons avec passion et expertise aux soins de nos patients. Vous pouvez vous attendre à un environnement de pointe avec la dernière infrastructure technique. Notre unité interdisciplinaire de soins intensifs exploite huit stations de traitement équipées des équipements médicaux les plus récents. Un système moderne de gestion des données des patients (PDMS) avec intégration dans le propre système d'information hospitalier complète l'offre.\n\nEntrée au 1er janvier 2027 ou par accord\n\nExigences\n• Plusieurs années d'expérience professionnelle en tant qu'expert / expert en soins intensifs NDS HF\n\n• Flexibilité, travail d'équipe et méthodes de travail indépendantes\n\n• Résistance physique et psychologique\n\n• Volonté de contribuer aux idées et à l'expérience\n\nUn emploi avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Avez-vous l'air significatif, mais aussi juste? Alors vous êtes là."
+        "it": "<ul><li>Lavoro vario in un reparto letto vivace e interdisciplinare </li><li>Responsabilità condivisa nella cura e nel sostegno di pazienti provenienti da una vasta gamma di discipline </li><li>Stretta collaborazione con personale infermieristico qualificato e gruppi professionali interdisciplinari </li><li>Opportunità di contribuire attivamente con le vostre competenze specialistiche e assumervi la responsabilità nel processo infermieristico </li><li>Applicazione e ulteriore sviluppo delle vostre capacità professionali </li><li>Impressionante regione montana con un'elevata qualità dei servizi life</li><li>Esperienze per il tempo libero e la natura nelle immediate vicinanze </li></ul>\n\nCompiti:\nTi senti a tuo agio in un team interdisciplinare e apprezzi lo scambio a livello visivo?\n\nCon l'atmosfera familiare del nostro piccolo ospedale, il nostro team ben posizionato e divertente e la meravigliosa posizione in montagna, continuiamo ad attirare da noi dipendenti - speriamo anche voi! Un ambiente di lavoro vario ed esigente ti aspetta in un reparto letto interdisciplinare.\n\nIn qualità di specialista sanitario dell'EFZ, supporterai il nostro personale infermieristico qualificato nella cura e nel monitoraggio dei nostri pazienti. Con il vostro impegno contribuite in modo significativo all'assistenza individuale e orientata al cliente. In tal modo, contribuirai con la tua esperienza e svilupperai sia professionalmente che personalmente.\n\nIngresso immediato o su appuntamento\n\nRequisiti:\n• Completamento della formazione come specialista sanitario EFZ\n\n• Piacere di lavorare in un reparto interdisciplinare\n\n• Modo di lavorare responsabile, indipendente e strutturato\n\n• Spirito di squadra e comunicazione riconoscente a livello degli occhi\n\n• Impegno, flessibilità e interesse per lo sviluppo professionale\n\n• Buona conoscenza del tedesco parlato e scritto (altre lingue costituiscono titolo preferenziale)\n\nUn lavoro con prospettive: all'Ospedale Zweisimmen vi aspetta una vasta gamma di attività in un ambiente familiare e l'opportunità di trascorrere tempo libero flessibile nella circostante regione naturale e montana. Cerchi qualcosa di sensato ma anche giusto? Allora sei nel posto giusto.",
+        "en": "<ul><li>Various work on a lively interdisciplinary bed department</li><li>Co-responsibility in the care and care of patients of different disciplines</li><li>Close cooperation with qualified nursing staff and interdisciplinary professional groups</li><li>Possibility to actively contribute your professional competence and take responsibility in the care process</li><li>Application and further development of your professional competence</li><li>Impressive mountain region with high quality of life</li><li>Recreation and nature experiences in the immediate vicinity</li></ul>\n\nTasks:\nDo you feel comfortable in an interdisciplinary team and appreciate the exchange at eye level?\n\nWith the family atmosphere of our small hospital, our established, humorous team and the wonderful location in the mountains, we always win employees for us – hopefully also you! A varied and demanding working environment awaits you on an interdisciplinary bed department.\n\nAs a health care specialist you support our qualified nursing staff in the care and monitoring of our patients. With your commitment, you contribute significantly to individual and customer-oriented care. You bring your expertise to bear and develop both professionally and personally.\n\nEntry by immediate or by agreement\n\nRequirements\n• Completed training as a specialist Health EFZ\n\n• Enjoyment at work in an interdisciplinary bed department\n\n• Responsible, independent and structured working methods\n\n• Team spirit and appreciative communication at eye level\n\n• Commitment, flexibility and interest in professional development\n\n• Good knowledge of German in word and writing (other languages are advantageous)\n\nA job with prospects: In addition to a versatile work in the family environment, the Hospital Zweisimmen also offers you the opportunity for flexible leisure in the surrounding nature and mountain region. Are you looking meaningful, but also fair? Then you're right here.",
+        "de": "<ul><li>Abwechslungsreiche Tätigkeit auf einer lebhaften interdisziplinären Bettenabteilung</li><li>Mitverantwortung in der Pflege und Betreuung von Patientinnen und Patienten unterschiedlichster Fachrichtungen</li><li>Enge Zusammenarbeit mit diplomiertem Pflegepersonal und interdisziplinären Berufsgruppen</li><li>Möglichkeit, deine Fachkompetenz aktiv einzubringen und Verantwortung im Pflegeprozess zu übernehmen</li><li>Anwendung und Weiterentwicklung deiner fachlichen Kompetenzen</li><li>Eindrückliche Bergregion mit hoher Lebensqualität</li><li>Freizeit- und Naturerlebnisse in nächster Umgebung</li></ul>\n\nAufgaben:\nFühlst du dich in einem interdisziplinären Team wohl und schätzt den Austausch auf Augenhöhe?\n\nMit der familiären Atmosphäre unseres kleinen Spitals, unserem aufgestellten, humorvollen Team und der herrlichen Lage in den Bergen gewinnen wir immer wieder Mitarbeitende für uns – so hoffentlich auch dich! Es erwartet dich ein abwechslungsreiches und anspruchsvolles Arbeitsumfeld auf einer interdisziplinären Bettenabteilung.\n\nAls Fachfrau/Fachmann Gesundheit EFZ unterstützt du unser diplomiertes Pflegepersonal in der Betreuung und Überwachung unserer Patientinnen und Patienten. Du trägst mit deinem Engagement wesentlich zu einer individuellen und kundenorientierten Pflege bei. Dabei bringst du deine Fachkompetenz ein und entwickelst dich fachlich wie persönlich weiter.\n\nEintritt per sofort oder nach Vereinbarung\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ\n\n• Freude an der Arbeit auf einer interdisziplinären Bettenabteilung\n\n• Verantwortungsbewusste, selbständige und strukturierte Arbeitsweise\n\n• Teamgeist sowie wertschätzende Kommunikation auf Augenhöhe\n\n• Engagement, Flexibilität und Interesse an fachlicher Weiterentwicklung\n\n• Gute Deutschkenntnisse in Wort und Schrift (weitere Sprachen von Vorteil)\n\nEin Job mit Aussichten: Im Spital Zweisimmen erwartet dich nebst einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Bergregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.",
+        "fr": "<ul><li>Travaux divers sur un service de lit interdisciplinaire vivant</li><li>Coresponsabilité dans les soins et les soins aux patients de différentes disciplines</li><li> Collaboration étroite avec le personnel infirmier qualifié et des groupes professionnels interdisciplinaires</li><li>Possibilité de contribuer activement à votre compétence professionnelle et d'assumer vos responsabilités dans le processus de soins</li><li>Application et perfectionnement de vos compétences professionnelles</li><li>Région montagneuse impressionnante de haute qualité de vie</li><li>Recréation et expériences de nature dans les environs immédiats</li></ul>\n\nTâches :\nVous sentez-vous à l'aise dans une équipe interdisciplinaire et appréciez l'échange au niveau des yeux?\n\nAvec l'atmosphère familiale de notre petit hôpital, notre équipe établie, humoristique et l'emplacement merveilleux dans les montagnes, nous gagnons toujours des employés pour nous – espérons-vous aussi! Un environnement de travail varié et exigeant vous attend dans un service de lit interdisciplinaire.\n\nEn tant que spécialiste des soins de santé, vous aidez notre personnel infirmier qualifié dans les soins et le suivi de nos patients. Avec votre engagement, vous contribuez de manière significative aux soins individuels et axés sur le client. Vous apportez votre expertise et développez à la fois professionnellement et personnellement.\n\nEntrée immédiate ou par accord\n\nExigences\n• Formation complétée en tant que spécialiste de la santé EFZ\n\n• Profitez du travail dans un service de lit interdisciplinaire\n\n• Méthodes de travail responsables, indépendantes et structurées\n\n• Esprit d'équipe et communication appréciée au niveau des yeux\n\n• Engagement, flexibilité et intérêt pour le perfectionnement professionnel\n\n• Bonne connaissance de l'allemand en paroles et en écriture (d'autres langues sont avantageuses)\n\nUn travail avec des perspectives: En plus d'un travail polyvalent dans l'environnement familial, l'Hôpital Zweisimmen vous offre également la possibilité de loisirs flexibles dans la nature environnante et la région montagneuse. Avez-vous l'air significatif, mais aussi juste? Alors vous êtes là."
       },
       "needsRetranslation": false,
-      "location": "Thun",
+      "location": "Zweisimmen",
       "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/b69b1a5d-bd15-4fa8-8ba3-779fe662c0d8/ats/",
+      "url": "https://ohws.prospective.ch/public/v1/redirect/07785e64-e98f-4d56-8999-bec611240880/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.623Z",
-      "addressLocality": "Thun",
+      "crawledAt": "2026-11-23T09:16:41.778Z",
+      "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "3600",
-      "streetAddress": "Krankenhausstrasse 12",
+      "postalCode": "3770",
+      "streetAddress": "Zweisimmen",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -1628,18 +1720,24 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "applyUrl": "https://ohws.prospective.ch/public/v1/redirect/b69b1a5d-bd15-4fa8-8ba3-779fe662c0d8/ats/",
+      "applyUrl": "https://ohws.prospective.ch/public/v1/redirect/07785e64-e98f-4d56-8999-bec611240880/ats/",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "experte-expertin-intensivpflege-nds-hf-spital-sts-thun"
+        "fachfrau-mann-gesundheit-pflege-zweisimmen-spital-sts-zweisimmen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "experte-expertin-intensivpflege-nds-hf-spital-sts-thun"
+          "fachfrau-mann-gesundheit-pflege-zweisimmen-spital-sts-zweisimmen"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-pflege-zweisimmen-spital-sts-zweisimmen"
+        ],
+        "fr": [
+          "fachfrau-mann-gesundheit-pflege-zweisimmen-spital-sts-zweisimmen"
         ]
       },
-      "firstSeenAt": "2026-11-21T21:29:27.754Z",
+      "firstSeenAt": "2026-11-21T21:29:27.752Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1653,22 +1751,8 @@
           "unitText": "YEAR"
         }
       },
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Spital STS",
-        "streetAddress": "Krankenhausstrasse 12",
-        "postalCode": "3600",
-        "registeredName": "Spital STS AG",
-        "matchType": "exact",
-        "streetAddressSource": "zefix-registry",
-        "jobPostalCode": "3600",
-        "addressLocality": "Thun",
-        "addressRegion": "BE",
-        "checkedAt": "2026-11-09T15:42:50.739Z"
-      },
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-20T21:20:12.623Z",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-20T09:16:41.778Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1702,7 +1786,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/1953d39c-d8f1-45c3-9cd2-ad7010521204/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.622Z",
+      "crawledAt": "2026-11-23T09:16:41.778Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1759,91 +1843,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T21:20:12.622Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "spital-sts-69f6cb995fca",
-      "slug": "assistenza-sanitaria-professionale-due-semplici-spital-sts-zweisimmen",
-      "slugByLocale": {
-        "it": "assistenza-sanitaria-professionale-due-semplici-spital-sts-zweisimmen",
-        "en": "professional-health-care-two-simples-spital-sts-zweisimmen",
-        "de": "fachfrau-mann-gesundheit-pflege-zweisimmen-spital-sts-zweisimmen",
-        "fr": "soins-de-sante-professionnels-deux-simples-spital-sts-zweisimmen"
-      },
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Fachfrau/-mann Gesundheit Pflege Zweisimmen",
-      "titleByLocale": {
-        "it": "Specialista in assistenza sanitaria Zweisimmen",
-        "en": "Specialist/-man health care Zweisimmen",
-        "de": "Fachfrau/-mann Gesundheit Pflege Zweisimmen",
-        "fr": "Spécialiste en soins de santé Zweisimmen"
-      },
-      "description": "<ul><li>Abwechslungsreiche Tätigkeit auf einer lebhaften interdisziplinären Bettenabteilung</li><li>Mitverantwortung in der Pflege und Betreuung von Patientinnen und Patienten unterschiedlichster Fachrichtungen</li><li>Enge Zusammenarbeit mit diplomiertem Pflegepersonal und interdisziplinären Berufsgruppen</li><li>Möglichkeit, deine Fachkompetenz aktiv einzubringen und Verantwortung im Pflegeprozess zu übernehmen</li><li>Anwendung und Weiterentwicklung deiner fachlichen Kompetenzen</li><li>Eindrückliche Bergregion mit hoher Lebensqualität</li><li>Freizeit- und Naturerlebnisse in nächster Umgebung</li></ul>\n\nAufgaben:\nFühlst du dich in einem interdisziplinären Team wohl und schätzt den Austausch auf Augenhöhe?\n\nMit der familiären Atmosphäre unseres kleinen Spitals, unserem aufgestellten, humorvollen Team und der herrlichen Lage in den Bergen gewinnen wir immer wieder Mitarbeitende für uns – so hoffentlich auch dich! Es erwartet dich ein abwechslungsreiches und anspruchsvolles Arbeitsumfeld auf einer interdisziplinären Bettenabteilung.\n\nAls Fachfrau/Fachmann Gesundheit EFZ unterstützt du unser diplomiertes Pflegepersonal in der Betreuung und Überwachung unserer Patientinnen und Patienten. Du trägst mit deinem Engagement wesentlich zu einer individuellen und kundenorientierten Pflege bei. Dabei bringst du deine Fachkompetenz ein und entwickelst dich fachlich wie persönlich weiter.\n\nEintritt per sofort oder nach Vereinbarung\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ\n\n• Freude an der Arbeit auf einer interdisziplinären Bettenabteilung\n\n• Verantwortungsbewusste, selbständige und strukturierte Arbeitsweise\n\n• Teamgeist sowie wertschätzende Kommunikation auf Augenhöhe\n\n• Engagement, Flexibilität und Interesse an fachlicher Weiterentwicklung\n\n• Gute Deutschkenntnisse in Wort und Schrift (weitere Sprachen von Vorteil)\n\nEin Job mit Aussichten: Im Spital Zweisimmen erwartet dich nebst einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Bergregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.",
-      "descriptionByLocale": {
-        "it": "<ul><li>Lavoro vario in un reparto letto vivace e interdisciplinare </li><li>Responsabilità condivisa nella cura e nel sostegno di pazienti provenienti da una vasta gamma di discipline </li><li>Stretta collaborazione con personale infermieristico qualificato e gruppi professionali interdisciplinari </li><li>Opportunità di contribuire attivamente con le vostre competenze specialistiche e assumervi la responsabilità nel processo infermieristico </li><li>Applicazione e ulteriore sviluppo delle vostre capacità professionali </li><li>Impressionante regione montana con un'elevata qualità dei servizi life</li><li>Esperienze per il tempo libero e la natura nelle immediate vicinanze </li></ul>\n\nCompiti:\nTi senti a tuo agio in un team interdisciplinare e apprezzi lo scambio a livello visivo?\n\nCon l'atmosfera familiare del nostro piccolo ospedale, il nostro team ben posizionato e divertente e la meravigliosa posizione in montagna, continuiamo ad attirare da noi dipendenti - speriamo anche voi! Un ambiente di lavoro vario ed esigente ti aspetta in un reparto letto interdisciplinare.\n\nIn qualità di specialista sanitario dell'EFZ, supporterai il nostro personale infermieristico qualificato nella cura e nel monitoraggio dei nostri pazienti. Con il vostro impegno contribuite in modo significativo all'assistenza individuale e orientata al cliente. In tal modo, contribuirai con la tua esperienza e svilupperai sia professionalmente che personalmente.\n\nIngresso immediato o su appuntamento\n\nRequisiti:\n• Completamento della formazione come specialista sanitario EFZ\n\n• Piacere di lavorare in un reparto interdisciplinare\n\n• Modo di lavorare responsabile, indipendente e strutturato\n\n• Spirito di squadra e comunicazione riconoscente a livello degli occhi\n\n• Impegno, flessibilità e interesse per lo sviluppo professionale\n\n• Buona conoscenza del tedesco parlato e scritto (altre lingue costituiscono titolo preferenziale)\n\nUn lavoro con prospettive: all'Ospedale Zweisimmen vi aspetta una vasta gamma di attività in un ambiente familiare e l'opportunità di trascorrere tempo libero flessibile nella circostante regione naturale e montana. Cerchi qualcosa di sensato ma anche giusto? Allora sei nel posto giusto.",
-        "en": "<ul><li>Various work on a lively interdisciplinary bed department</li><li>Co-responsibility in the care and care of patients of different disciplines</li><li>Close cooperation with qualified nursing staff and interdisciplinary professional groups</li><li>Possibility to actively contribute your professional competence and take responsibility in the care process</li><li>Application and further development of your professional competence</li><li>Impressive mountain region with high quality of life</li><li>Recreation and nature experiences in the immediate vicinity</li></ul>\n\nTasks:\nDo you feel comfortable in an interdisciplinary team and appreciate the exchange at eye level?\n\nWith the family atmosphere of our small hospital, our established, humorous team and the wonderful location in the mountains, we always win employees for us – hopefully also you! A varied and demanding working environment awaits you on an interdisciplinary bed department.\n\nAs a health care specialist you support our qualified nursing staff in the care and monitoring of our patients. With your commitment, you contribute significantly to individual and customer-oriented care. You bring your expertise to bear and develop both professionally and personally.\n\nEntry by immediate or by agreement\n\nRequirements\n• Completed training as a specialist Health EFZ\n\n• Enjoyment at work in an interdisciplinary bed department\n\n• Responsible, independent and structured working methods\n\n• Team spirit and appreciative communication at eye level\n\n• Commitment, flexibility and interest in professional development\n\n• Good knowledge of German in word and writing (other languages are advantageous)\n\nA job with prospects: In addition to a versatile work in the family environment, the Hospital Zweisimmen also offers you the opportunity for flexible leisure in the surrounding nature and mountain region. Are you looking meaningful, but also fair? Then you're right here.",
-        "de": "<ul><li>Abwechslungsreiche Tätigkeit auf einer lebhaften interdisziplinären Bettenabteilung</li><li>Mitverantwortung in der Pflege und Betreuung von Patientinnen und Patienten unterschiedlichster Fachrichtungen</li><li>Enge Zusammenarbeit mit diplomiertem Pflegepersonal und interdisziplinären Berufsgruppen</li><li>Möglichkeit, deine Fachkompetenz aktiv einzubringen und Verantwortung im Pflegeprozess zu übernehmen</li><li>Anwendung und Weiterentwicklung deiner fachlichen Kompetenzen</li><li>Eindrückliche Bergregion mit hoher Lebensqualität</li><li>Freizeit- und Naturerlebnisse in nächster Umgebung</li></ul>\n\nAufgaben:\nFühlst du dich in einem interdisziplinären Team wohl und schätzt den Austausch auf Augenhöhe?\n\nMit der familiären Atmosphäre unseres kleinen Spitals, unserem aufgestellten, humorvollen Team und der herrlichen Lage in den Bergen gewinnen wir immer wieder Mitarbeitende für uns – so hoffentlich auch dich! Es erwartet dich ein abwechslungsreiches und anspruchsvolles Arbeitsumfeld auf einer interdisziplinären Bettenabteilung.\n\nAls Fachfrau/Fachmann Gesundheit EFZ unterstützt du unser diplomiertes Pflegepersonal in der Betreuung und Überwachung unserer Patientinnen und Patienten. Du trägst mit deinem Engagement wesentlich zu einer individuellen und kundenorientierten Pflege bei. Dabei bringst du deine Fachkompetenz ein und entwickelst dich fachlich wie persönlich weiter.\n\nEintritt per sofort oder nach Vereinbarung\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ\n\n• Freude an der Arbeit auf einer interdisziplinären Bettenabteilung\n\n• Verantwortungsbewusste, selbständige und strukturierte Arbeitsweise\n\n• Teamgeist sowie wertschätzende Kommunikation auf Augenhöhe\n\n• Engagement, Flexibilität und Interesse an fachlicher Weiterentwicklung\n\n• Gute Deutschkenntnisse in Wort und Schrift (weitere Sprachen von Vorteil)\n\nEin Job mit Aussichten: Im Spital Zweisimmen erwartet dich nebst einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Bergregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.",
-        "fr": "<ul><li>Travaux divers sur un service de lit interdisciplinaire vivant</li><li>Coresponsabilité dans les soins et les soins aux patients de différentes disciplines</li><li> Collaboration étroite avec le personnel infirmier qualifié et des groupes professionnels interdisciplinaires</li><li>Possibilité de contribuer activement à votre compétence professionnelle et d'assumer vos responsabilités dans le processus de soins</li><li>Application et perfectionnement de vos compétences professionnelles</li><li>Région montagneuse impressionnante de haute qualité de vie</li><li>Recréation et expériences de nature dans les environs immédiats</li></ul>\n\nTâches :\nVous sentez-vous à l'aise dans une équipe interdisciplinaire et appréciez l'échange au niveau des yeux?\n\nAvec l'atmosphère familiale de notre petit hôpital, notre équipe établie, humoristique et l'emplacement merveilleux dans les montagnes, nous gagnons toujours des employés pour nous – espérons-vous aussi! Un environnement de travail varié et exigeant vous attend dans un service de lit interdisciplinaire.\n\nEn tant que spécialiste des soins de santé, vous aidez notre personnel infirmier qualifié dans les soins et le suivi de nos patients. Avec votre engagement, vous contribuez de manière significative aux soins individuels et axés sur le client. Vous apportez votre expertise et développez à la fois professionnellement et personnellement.\n\nEntrée immédiate ou par accord\n\nExigences\n• Formation complétée en tant que spécialiste de la santé EFZ\n\n• Profitez du travail dans un service de lit interdisciplinaire\n\n• Méthodes de travail responsables, indépendantes et structurées\n\n• Esprit d'équipe et communication appréciée au niveau des yeux\n\n• Engagement, flexibilité et intérêt pour le perfectionnement professionnel\n\n• Bonne connaissance de l'allemand en paroles et en écriture (d'autres langues sont avantageuses)\n\nUn travail avec des perspectives: En plus d'un travail polyvalent dans l'environnement familial, l'Hôpital Zweisimmen vous offre également la possibilité de loisirs flexibles dans la nature environnante et la région montagneuse. Avez-vous l'air significatif, mais aussi juste? Alors vous êtes là."
-      },
-      "needsRetranslation": false,
-      "location": "Zweisimmen",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/07785e64-e98f-4d56-8999-bec611240880/ats/",
-      "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.621Z",
-      "addressLocality": "Zweisimmen",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3770",
-      "streetAddress": "Zweisimmen",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://ohws.prospective.ch/public/v1/redirect/07785e64-e98f-4d56-8999-bec611240880/ats/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachfrau-mann-gesundheit-pflege-zweisimmen-spital-sts-zweisimmen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-mann-gesundheit-pflege-zweisimmen-spital-sts-zweisimmen"
-        ],
-        "en": [
-          "fachfrau-mann-gesundheit-pflege-zweisimmen-spital-sts-zweisimmen"
-        ],
-        "fr": [
-          "fachfrau-mann-gesundheit-pflege-zweisimmen-spital-sts-zweisimmen"
-        ]
-      },
-      "firstSeenAt": "2026-11-21T21:29:27.752Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-20T21:20:12.621Z",
+      "validThrough": "2027-02-05T09:16:41.778Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1877,7 +1877,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/92b6b8f4-f853-4391-87cb-c4902774cb5f/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.619Z",
+      "crawledAt": "2026-11-23T09:16:41.776Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1936,7 +1936,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-20T21:20:12.619Z",
+      "validThrough": "2027-02-21T09:16:41.776Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1971,7 +1971,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/4833763b-5802-496b-b347-b665d08a2efe/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.618Z",
+      "crawledAt": "2026-11-23T09:16:41.775Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2028,7 +2028,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-20T21:20:12.618Z",
+      "validThrough": "2027-02-20T09:16:41.775Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2063,7 +2063,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/3d5168e5-f274-4305-9009-bbbd126b8833/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.617Z",
+      "crawledAt": "2026-11-23T09:16:41.774Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2136,7 +2136,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-20T21:20:12.617Z",
+      "validThrough": "2027-02-20T09:16:41.774Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2171,7 +2171,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/03724723-1150-4ddd-80c4-0d433565a74e/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.613Z",
+      "crawledAt": "2026-11-23T09:16:41.771Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2237,7 +2237,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-20T21:20:12.613Z",
+      "validThrough": "2027-02-20T09:16:41.771Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2271,7 +2271,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/8ceb3598-123e-4a0f-8ef3-8dbfc9c20299/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.613Z",
+      "crawledAt": "2026-11-23T09:16:41.771Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2331,7 +2331,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-20T21:20:12.613Z",
+      "validThrough": "2027-02-20T09:16:41.771Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2366,7 +2366,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/dd98eeeb-12e0-4b44-9f9e-4ace58014df9/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.612Z",
+      "crawledAt": "2026-11-23T09:16:41.770Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2415,7 +2415,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-specialiste-des-soins-infirmiers-hf-fh-oncologie-spital-sts-thun-57fe96d1",
           "radiologiefachfrau-radiologiefachmann-hf-spital-sts-zweisimmen-c3140a48",
           "dipl-radiology-specialist-radiology-specialist-hf-spital-sts-thun-402d141d",
           "dipl-specialiste-en-radiologie-specialiste-en-radiologie-hf-spital-sts-thun-862ba5aa",
@@ -2434,7 +2433,8 @@
           "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
           "dipl-specialista-hf-fh-oncologia-spital-sts-thun-9e0f2b53",
           "dipl-nursing-specialist-hf-fh-oncology-spital-sts-thun-f98f6d5f",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun-cdb150c2"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun-cdb150c2",
+          "dipl-specialiste-des-soins-infirmiers-hf-fh-oncologie-spital-sts-thun-57fe96d1"
         ],
         "en": [
           "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun"
@@ -2472,90 +2472,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-09T21:20:12.612Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "spital-sts-383c1c35c376",
-      "slug": "medico-di-servizio-medicina-di-servizio-spital-sts-zweisimmen",
-      "slugByLocale": {
-        "it": "medico-di-servizio-medicina-di-servizio-spital-sts-zweisimmen",
-        "en": "service-doctor-service-doctor-medicine-spital-sts-zweisimmen",
-        "de": "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen",
-        "fr": "medecin-de-service-medecin-de-service-medecine-spital-sts-zweisimmen"
-      },
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Dienstärztin / Dienstarzt Medizin",
-      "titleByLocale": {
-        "it": "medico di servizio / medicina di servizio",
-        "en": "Service doctor / Service doctor Medicine",
-        "de": "Dienstärztin / Dienstarzt Medizin",
-        "fr": "Médecin de service / Médecin de service Médecine"
-      },
-      "description": "In der Funktion als Dienstärztin / Dienstarzt sind Sie für die Betreuung der stationären Patientinnen und Patienten zuständig und für die Ersteinschätzung der Patientinnen und Patienten in unserem topmodernen Notfall innerhalb des Leistungsangebotes (Basispaket/Grundversorgung) in der Nacht und an definierten Wochenend-Tagen.<br/>Sie verantworten die Ersteinschätzung und Anbehandlung von internistischen als auch chirurgischen Patienten in Zusammenarbeit mit dem internistischen Kaderarztteam Zweisimmen bzw. den chirurgischen Kollegen am Spitalstandort Thun. Die enge Verzahnung von Notfall-, stationärer und konsiliarischer Medizin gewährleistet eine kontinuierliche, hochwertige Versorgung des gesamten Behandlungspfads.<br/><br/>Angepasst an Ihre persönlichen Vorstellungen und Ihre individuellen Lebenssituation bieten wir äusserst flexible Arbeitszeitmodelle und Einsatzmöglichkeiten. Bei der fachlichen Weiterentwicklung stehen die erfahrenen Kaderärzte selbstverständlich zur Seite. Die Teilnahme an den gut vergüteten fachärztlichen Hintergrunddiensten (Rufbereitschaft) wird vorausgesetzt.<br/><br/>Eintritt nach Vereinbarung\n\nAufgaben:\n•\tFamiliäres Team mit interdisziplinärer Zusammenarbeit\n•\tKollegiale Arbeitsatmosphäre mit flachen Hierarchien\n•\tEigenverantwortung in definiertem Bereich\n•\tEnge Zusammenarbeit mit zuweisenden Ärzten und Spitälern\n•\tAnwendung verschiedener Sprachkenntnisse\n•\tFreizeit- und Naturerlebnisse in direkter Umgebung\n\nAnforderungen:\n•\tSchweizer Diplom oder anerkanntes Äquivalent als Ärztin/Arzt (Anerkennung durch das Bundesamt für Gesundheit\nrespektive Medizinalberufekommission MEBEKO)\n•\tFacharzttitel für Allgemeine Innere Medizin (Schweiz oder EU/EFTA) mit Erfahrung in klinischer Notfallmedizin,\ninterdisziplinärer Schwerpunkt \"Klinische Notfallmedizin SGNOR\" wünschenswert\n•\tFreude und Interesse an einer vielseitigen Tätigkeit in einem breiten Behandlungsspektrum\n•\tKlinische Erfahrung in der Notfallbehandlung akuter und subakuter medizinischer und chirurgischer Ereignisse\n•\tHohe Sozialkompetenz, Teamfähigkeit und ein professionelles Auftreten\n•\tSehr gute Deutschkenntnisse in Wort und Schrift (mind. C1), Fremdsprachenkenntnisse sind von Vorteil\n\nEin Job mit Aussichten: Im Spital Zweisimmen erwartet Sie nebst einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Bergregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig.",
-      "descriptionByLocale": {
-        "it": "Nella funzione di medico di servizio è responsabile per la cura degli inpatici e per la valutazione iniziale dei pazienti nella nostra emergenza all'avanguardia nell'offerta di servizio (pacchetto base / assistenza di base) di notte e nei giorni di fine settimana definiti. Lei è responsabile per la valutazione iniziale e il trattamento di internisti e pazienti chirurgici in collaborazione con il team medico internista cadre Zweisimmen o i colleghi chirurgici presso la sede ospedaliera Thun. La stretta integrazione dell'emergenza, dell'inpatia e della medicina consiliare assicura la cura continua e di alta qualità dell'intero percorso di trattamento. > > Adattato alle vostre idee personali e alla vostra situazione di vita individuale, offriamo modelli di tempo di lavoro estremamente flessibili e possibilità di applicazione. Nello sviluppo professionale, i medici di cadre esperti sono ovviamente al fianco. È richiesta la partecipazione ai servizi di fondo specializzati ben pagati (pronta di chiamata). > > Ammissione per accordo\n\nCompiti:\n• Gruppo familiare con cooperazione interdisciplinare\n• Atmosfera funzionale con gerarchie piatte\n• Responsabilità personale in un settore definito\n• Una stretta collaborazione con medici e ospedali di riferimento\n• Applicazione delle diverse competenze linguistiche\n• Esperienze di svago e natura nelle immediate vicinanze\n\nRequisiti\n• Diploma svizzero o equivalente riconosciuto come medico (riconoscimento da parte dell'Ufficio federale della sanità)\no Medical Profession Commission MEBEKO\n• Titolo specialistico per la medicina interna generale (Svizzera o UE/EFTA) con esperienza in medicina di emergenza clinica,\nfocus interdisciplinare \"Clinical Emergency Medicine SGNOR\" auspicabile\n• Gioia e interesse per un'attività versatile in una vasta gamma di trattamenti\n• Esperienza clinica nel trattamento di emergenza di eventi medici e chirurgici acuti e subacuti\n• Alta abilità sociali, abilità di lavoro di squadra e un aspetto professionale\n• Molto buone competenze tedesche nella parola e nella scrittura (minimo C1), le competenze linguistiche straniere sono un vantaggio\n\nUn lavoro con prospettive: Oltre ad un lavoro versatile nell'ambiente familiare, l'Ospedale Zweisimmen offre anche la possibilità di svago flessibile nella natura circostante e nella regione montana. Siete alla ricerca di significato, ma anche di correttezza? Allora sei qui.",
-        "en": "In the function as a service doctor you are responsible for the care of the inpatients and for the initial assessment of the patients in our state-of-the-art emergency within the service offer (basic package / basic care) at night and on defined weekend days.<br/>You are responsible for the initial assessment and treatment of internist as well as surgical patients in cooperation with the internist cadre doctor team Zweisimmen or the surgical colleagues at the hospital location Thun. The close integration of emergency, inpatient and consiliary medicine ensures continuous, high-quality care of the entire treatment pathway. <br/><br/>Adapted to your personal ideas and your individual life situation, we offer extremely flexible working time models and application possibilities. In the professional development, the experienced cadre doctors are of course at the side. Participation in the well-paid specialist background services (readiness to call) is required. <br/><br/>Admission by agreement\n\nTasks:\n• Family team with interdisciplinary cooperation\n• Collegial working atmosphere with flat hierarchies\n• Personal responsibility in a defined area\n• Close cooperation with referring doctors and hospitals\n• Application of different language skills\n• Leisure and nature experiences in the immediate vicinity\n\nRequirements\n• Swiss diploma or recognised equivalent as a doctor (recognition by the Federal Office of Health)\nor Medical Profession Commission MEBEKO\n• Specialist title for General Internal Medicine (Switzerland or EU/EFTA) with experience in clinical emergency medicine,\ninterdisciplinary focus \"Clinical Emergency Medicine SGNOR\" desirable\n• Joy and interest in a versatile activity in a wide range of treatments\n• Clinical experience in emergency treatment of acute and subacute medical and surgical events\n• High social skills, teamwork skills and a professional appearance\n• Very good German skills in word and writing (minimum C1), foreign language skills are an advantage\n\nA job with prospects: In addition to a versatile work in the family environment, the Hospital Zweisimmen also offers you the opportunity for flexible leisure in the surrounding nature and mountain region. Are you looking for meaningfulness, but also fairness? Then you are right here.",
-        "de": "In der Funktion als Dienstärztin / Dienstarzt sind Sie für die Betreuung der stationären Patientinnen und Patienten zuständig und für die Ersteinschätzung der Patientinnen und Patienten in unserem topmodernen Notfall innerhalb des Leistungsangebotes (Basispaket/Grundversorgung) in der Nacht und an definierten Wochenend-Tagen.<br/>Sie verantworten die Ersteinschätzung und Anbehandlung von internistischen als auch chirurgischen Patienten in Zusammenarbeit mit dem internistischen Kaderarztteam Zweisimmen bzw. den chirurgischen Kollegen am Spitalstandort Thun. Die enge Verzahnung von Notfall-, stationärer und konsiliarischer Medizin gewährleistet eine kontinuierliche, hochwertige Versorgung des gesamten Behandlungspfads.<br/><br/>Angepasst an Ihre persönlichen Vorstellungen und Ihre individuellen Lebenssituation bieten wir äusserst flexible Arbeitszeitmodelle und Einsatzmöglichkeiten. Bei der fachlichen Weiterentwicklung stehen die erfahrenen Kaderärzte selbstverständlich zur Seite. Die Teilnahme an den gut vergüteten fachärztlichen Hintergrunddiensten (Rufbereitschaft) wird vorausgesetzt.<br/><br/>Eintritt nach Vereinbarung\n\nAufgaben:\n• Familiäres Team mit interdisziplinärer Zusammenarbeit\n• Kollegiale Arbeitsatmosphäre mit flachen Hierarchien\n• Eigenverantwortung in definiertem Bereich\n• Enge Zusammenarbeit mit zuweisenden Ärzten und Spitälern\n• Anwendung verschiedener Sprachkenntnisse\n• Freizeit- und Naturerlebnisse in direkter Umgebung\n\nAnforderungen:\n• Schweizer Diplom oder anerkanntes Äquivalent als Ärztin/Arzt (Anerkennung durch das Bundesamt für Gesundheit\nrespektive Medizinalberufekommission MEBEKO)\n• Facharzttitel für Allgemeine Innere Medizin (Schweiz oder EU/EFTA) mit Erfahrung in klinischer Notfallmedizin,\ninterdisziplinärer Schwerpunkt \"Klinische Notfallmedizin SGNOR\" wünschenswert\n• Freude und Interesse an einer vielseitigen Tätigkeit in einem breiten Behandlungsspektrum\n• Klinische Erfahrung in der Notfallbehandlung akuter und subakuter medizinischer und chirurgischer Ereignisse\n• Hohe Sozialkompetenz, Teamfähigkeit und ein professionelles Auftreten\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mind. C1), Fremdsprachenkenntnisse sind von Vorteil\n\nEin Job mit Aussichten: Im Spital Zweisimmen erwartet Sie nebst einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Bergregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig.",
-        "fr": "En tant que médecin de service, vous êtes responsable de la prise en charge des patients hospitalisés et de l'évaluation initiale des patients en situation d'urgence de pointe dans l'offre de service (paquet de base / soins de base) la nuit et les jours de fin de semaine définis.<br/> Vous êtes responsable de l'évaluation initiale et du traitement des patients internés ainsi que des patients chirurgicaux en collaboration avec l'équipe de médecin cadre interniste Zweisimmen ou les collègues chirurgicaux de l'hôpital de Thun. L'intégration étroite de la médecine d'urgence, des malades hospitalisés et de la médecine consiliaire assure des soins continus et de haute qualité sur l'ensemble de la voie de traitement. <br/><br/> Adapté à vos idées personnelles et à votre situation personnelle, nous offrons des modèles de temps de travail extrêmement flexibles et des possibilités d'application. Dans le développement professionnel, les médecins cadres expérimentés sont bien sûr à côté. Il est nécessaire de participer aux services de formation spécialisés bien rémunérés (préparation à l'appel). <br/><br/> Admission par accord\n\nTâches :\n• Équipe familiale avec coopération interdisciplinaire\n• Ambiance de travail collégiale avec hiérarchies plates\n• Responsabilité personnelle dans un domaine défini\n• Coopération étroite avec les médecins et les hôpitaux de référence\n• Application de différentes compétences linguistiques\n• Loisirs et expériences nature dans les environs immédiats\n\nExigences\n• Diplôme suisse ou équivalent reconnu comme médecin (reconnaissance par l'Office fédéral de la santé)\nou de la Commission de la profession médicale MEBEKO\n• Titre de spécialiste en médecine interne générale (Suisse ou UE/AELE) ayant une expérience en médecine clinique d'urgence,\nfocalisation interdisciplinaire \"Médecine clinique d'urgence SGNOR\" souhaitable\n• Joy et intérêt pour une activité polyvalente dans un large éventail de traitements\n• Expérience clinique dans le traitement d'urgence d'événements médicaux et chirurgicaux aigus et subaigus\n• Hautes compétences sociales, esprit d'équipe et apparence professionnelle\n• Très bonnes compétences en allemand en paroles et en écriture (minimum C1), compétences en langues étrangères sont un avantage\n\nUn travail avec des perspectives: En plus d'un travail polyvalent dans l'environnement familial, l'Hôpital Zweisimmen vous offre également la possibilité de loisirs flexibles dans la nature environnante et la région montagneuse. Cherchez-vous le sens, mais aussi l'équité? Alors vous êtes là."
-      },
-      "location": "Zweisimmen",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/45ab28a8-55ed-4e1f-b55c-d66a4e6476cc/ats/",
-      "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.611Z",
-      "addressLocality": "Zweisimmen",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3770",
-      "streetAddress": "Zweisimmen",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://ohws.prospective.ch/public/v1/redirect/45ab28a8-55ed-4e1f-b55c-d66a4e6476cc/ats/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen"
-        ],
-        "en": [
-          "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen"
-        ],
-        "fr": [
-          "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen"
-        ]
-      },
-      "firstSeenAt": "2026-09-08T13:40:05.508Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T21:20:12.611Z",
+      "validThrough": "2027-02-10T09:16:41.770Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2590,7 +2507,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/e3b9ec4f-9c75-49f9-a2ae-95eed3456ca7/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.611Z",
+      "crawledAt": "2026-11-23T09:16:41.769Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2653,7 +2570,90 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-22T21:20:12.611Z",
+      "validThrough": "2026-12-23T09:16:41.769Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "spital-sts-383c1c35c376",
+      "slug": "medico-di-servizio-medicina-di-servizio-spital-sts-zweisimmen",
+      "slugByLocale": {
+        "it": "medico-di-servizio-medicina-di-servizio-spital-sts-zweisimmen",
+        "en": "service-doctor-service-doctor-medicine-spital-sts-zweisimmen",
+        "de": "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen",
+        "fr": "medecin-de-service-medecin-de-service-medecine-spital-sts-zweisimmen"
+      },
+      "company": "Spital STS",
+      "companyKey": "spital-sts",
+      "companyDomain": "spitalstsag.ch",
+      "title": "Dienstärztin / Dienstarzt Medizin",
+      "titleByLocale": {
+        "it": "medico di servizio / medicina di servizio",
+        "en": "Service doctor / Service doctor Medicine",
+        "de": "Dienstärztin / Dienstarzt Medizin",
+        "fr": "Médecin de service / Médecin de service Médecine"
+      },
+      "description": "In der Funktion als Dienstärztin / Dienstarzt sind Sie für die Betreuung der stationären Patientinnen und Patienten zuständig und für die Ersteinschätzung der Patientinnen und Patienten in unserem topmodernen Notfall innerhalb des Leistungsangebotes (Basispaket/Grundversorgung) in der Nacht und an definierten Wochenend-Tagen.<br/>Sie verantworten die Ersteinschätzung und Anbehandlung von internistischen als auch chirurgischen Patienten in Zusammenarbeit mit dem internistischen Kaderarztteam Zweisimmen bzw. den chirurgischen Kollegen am Spitalstandort Thun. Die enge Verzahnung von Notfall-, stationärer und konsiliarischer Medizin gewährleistet eine kontinuierliche, hochwertige Versorgung des gesamten Behandlungspfads.<br/><br/>Angepasst an Ihre persönlichen Vorstellungen und Ihre individuellen Lebenssituation bieten wir äusserst flexible Arbeitszeitmodelle und Einsatzmöglichkeiten. Bei der fachlichen Weiterentwicklung stehen die erfahrenen Kaderärzte selbstverständlich zur Seite. Die Teilnahme an den gut vergüteten fachärztlichen Hintergrunddiensten (Rufbereitschaft) wird vorausgesetzt.<br/><br/>Eintritt nach Vereinbarung\n\nAufgaben:\n•\tFamiliäres Team mit interdisziplinärer Zusammenarbeit\n•\tKollegiale Arbeitsatmosphäre mit flachen Hierarchien\n•\tEigenverantwortung in definiertem Bereich\n•\tEnge Zusammenarbeit mit zuweisenden Ärzten und Spitälern\n•\tAnwendung verschiedener Sprachkenntnisse\n•\tFreizeit- und Naturerlebnisse in direkter Umgebung\n\nAnforderungen:\n•\tSchweizer Diplom oder anerkanntes Äquivalent als Ärztin/Arzt (Anerkennung durch das Bundesamt für Gesundheit\nrespektive Medizinalberufekommission MEBEKO)\n•\tFacharzttitel für Allgemeine Innere Medizin (Schweiz oder EU/EFTA) mit Erfahrung in klinischer Notfallmedizin,\ninterdisziplinärer Schwerpunkt \"Klinische Notfallmedizin SGNOR\" wünschenswert\n•\tFreude und Interesse an einer vielseitigen Tätigkeit in einem breiten Behandlungsspektrum\n•\tKlinische Erfahrung in der Notfallbehandlung akuter und subakuter medizinischer und chirurgischer Ereignisse\n•\tHohe Sozialkompetenz, Teamfähigkeit und ein professionelles Auftreten\n•\tSehr gute Deutschkenntnisse in Wort und Schrift (mind. C1), Fremdsprachenkenntnisse sind von Vorteil\n\nEin Job mit Aussichten: Im Spital Zweisimmen erwartet Sie nebst einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Bergregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig.",
+      "descriptionByLocale": {
+        "it": "Nella funzione di medico di servizio è responsabile per la cura degli inpatici e per la valutazione iniziale dei pazienti nella nostra emergenza all'avanguardia nell'offerta di servizio (pacchetto base / assistenza di base) di notte e nei giorni di fine settimana definiti. Lei è responsabile per la valutazione iniziale e il trattamento di internisti e pazienti chirurgici in collaborazione con il team medico internista cadre Zweisimmen o i colleghi chirurgici presso la sede ospedaliera Thun. La stretta integrazione dell'emergenza, dell'inpatia e della medicina consiliare assicura la cura continua e di alta qualità dell'intero percorso di trattamento. > > Adattato alle vostre idee personali e alla vostra situazione di vita individuale, offriamo modelli di tempo di lavoro estremamente flessibili e possibilità di applicazione. Nello sviluppo professionale, i medici di cadre esperti sono ovviamente al fianco. È richiesta la partecipazione ai servizi di fondo specializzati ben pagati (pronta di chiamata). > > Ammissione per accordo\n\nCompiti:\n• Gruppo familiare con cooperazione interdisciplinare\n• Atmosfera funzionale con gerarchie piatte\n• Responsabilità personale in un settore definito\n• Una stretta collaborazione con medici e ospedali di riferimento\n• Applicazione delle diverse competenze linguistiche\n• Esperienze di svago e natura nelle immediate vicinanze\n\nRequisiti\n• Diploma svizzero o equivalente riconosciuto come medico (riconoscimento da parte dell'Ufficio federale della sanità)\no Medical Profession Commission MEBEKO\n• Titolo specialistico per la medicina interna generale (Svizzera o UE/EFTA) con esperienza in medicina di emergenza clinica,\nfocus interdisciplinare \"Clinical Emergency Medicine SGNOR\" auspicabile\n• Gioia e interesse per un'attività versatile in una vasta gamma di trattamenti\n• Esperienza clinica nel trattamento di emergenza di eventi medici e chirurgici acuti e subacuti\n• Alta abilità sociali, abilità di lavoro di squadra e un aspetto professionale\n• Molto buone competenze tedesche nella parola e nella scrittura (minimo C1), le competenze linguistiche straniere sono un vantaggio\n\nUn lavoro con prospettive: Oltre ad un lavoro versatile nell'ambiente familiare, l'Ospedale Zweisimmen offre anche la possibilità di svago flessibile nella natura circostante e nella regione montana. Siete alla ricerca di significato, ma anche di correttezza? Allora sei qui.",
+        "en": "In the function as a service doctor you are responsible for the care of the inpatients and for the initial assessment of the patients in our state-of-the-art emergency within the service offer (basic package / basic care) at night and on defined weekend days.<br/>You are responsible for the initial assessment and treatment of internist as well as surgical patients in cooperation with the internist cadre doctor team Zweisimmen or the surgical colleagues at the hospital location Thun. The close integration of emergency, inpatient and consiliary medicine ensures continuous, high-quality care of the entire treatment pathway. <br/><br/>Adapted to your personal ideas and your individual life situation, we offer extremely flexible working time models and application possibilities. In the professional development, the experienced cadre doctors are of course at the side. Participation in the well-paid specialist background services (readiness to call) is required. <br/><br/>Admission by agreement\n\nTasks:\n• Family team with interdisciplinary cooperation\n• Collegial working atmosphere with flat hierarchies\n• Personal responsibility in a defined area\n• Close cooperation with referring doctors and hospitals\n• Application of different language skills\n• Leisure and nature experiences in the immediate vicinity\n\nRequirements\n• Swiss diploma or recognised equivalent as a doctor (recognition by the Federal Office of Health)\nor Medical Profession Commission MEBEKO\n• Specialist title for General Internal Medicine (Switzerland or EU/EFTA) with experience in clinical emergency medicine,\ninterdisciplinary focus \"Clinical Emergency Medicine SGNOR\" desirable\n• Joy and interest in a versatile activity in a wide range of treatments\n• Clinical experience in emergency treatment of acute and subacute medical and surgical events\n• High social skills, teamwork skills and a professional appearance\n• Very good German skills in word and writing (minimum C1), foreign language skills are an advantage\n\nA job with prospects: In addition to a versatile work in the family environment, the Hospital Zweisimmen also offers you the opportunity for flexible leisure in the surrounding nature and mountain region. Are you looking for meaningfulness, but also fairness? Then you are right here.",
+        "de": "In der Funktion als Dienstärztin / Dienstarzt sind Sie für die Betreuung der stationären Patientinnen und Patienten zuständig und für die Ersteinschätzung der Patientinnen und Patienten in unserem topmodernen Notfall innerhalb des Leistungsangebotes (Basispaket/Grundversorgung) in der Nacht und an definierten Wochenend-Tagen.<br/>Sie verantworten die Ersteinschätzung und Anbehandlung von internistischen als auch chirurgischen Patienten in Zusammenarbeit mit dem internistischen Kaderarztteam Zweisimmen bzw. den chirurgischen Kollegen am Spitalstandort Thun. Die enge Verzahnung von Notfall-, stationärer und konsiliarischer Medizin gewährleistet eine kontinuierliche, hochwertige Versorgung des gesamten Behandlungspfads.<br/><br/>Angepasst an Ihre persönlichen Vorstellungen und Ihre individuellen Lebenssituation bieten wir äusserst flexible Arbeitszeitmodelle und Einsatzmöglichkeiten. Bei der fachlichen Weiterentwicklung stehen die erfahrenen Kaderärzte selbstverständlich zur Seite. Die Teilnahme an den gut vergüteten fachärztlichen Hintergrunddiensten (Rufbereitschaft) wird vorausgesetzt.<br/><br/>Eintritt nach Vereinbarung\n\nAufgaben:\n• Familiäres Team mit interdisziplinärer Zusammenarbeit\n• Kollegiale Arbeitsatmosphäre mit flachen Hierarchien\n• Eigenverantwortung in definiertem Bereich\n• Enge Zusammenarbeit mit zuweisenden Ärzten und Spitälern\n• Anwendung verschiedener Sprachkenntnisse\n• Freizeit- und Naturerlebnisse in direkter Umgebung\n\nAnforderungen:\n• Schweizer Diplom oder anerkanntes Äquivalent als Ärztin/Arzt (Anerkennung durch das Bundesamt für Gesundheit\nrespektive Medizinalberufekommission MEBEKO)\n• Facharzttitel für Allgemeine Innere Medizin (Schweiz oder EU/EFTA) mit Erfahrung in klinischer Notfallmedizin,\ninterdisziplinärer Schwerpunkt \"Klinische Notfallmedizin SGNOR\" wünschenswert\n• Freude und Interesse an einer vielseitigen Tätigkeit in einem breiten Behandlungsspektrum\n• Klinische Erfahrung in der Notfallbehandlung akuter und subakuter medizinischer und chirurgischer Ereignisse\n• Hohe Sozialkompetenz, Teamfähigkeit und ein professionelles Auftreten\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mind. C1), Fremdsprachenkenntnisse sind von Vorteil\n\nEin Job mit Aussichten: Im Spital Zweisimmen erwartet Sie nebst einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Bergregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig.",
+        "fr": "En tant que médecin de service, vous êtes responsable de la prise en charge des patients hospitalisés et de l'évaluation initiale des patients en situation d'urgence de pointe dans l'offre de service (paquet de base / soins de base) la nuit et les jours de fin de semaine définis.<br/> Vous êtes responsable de l'évaluation initiale et du traitement des patients internés ainsi que des patients chirurgicaux en collaboration avec l'équipe de médecin cadre interniste Zweisimmen ou les collègues chirurgicaux de l'hôpital de Thun. L'intégration étroite de la médecine d'urgence, des malades hospitalisés et de la médecine consiliaire assure des soins continus et de haute qualité sur l'ensemble de la voie de traitement. <br/><br/> Adapté à vos idées personnelles et à votre situation personnelle, nous offrons des modèles de temps de travail extrêmement flexibles et des possibilités d'application. Dans le développement professionnel, les médecins cadres expérimentés sont bien sûr à côté. Il est nécessaire de participer aux services de formation spécialisés bien rémunérés (préparation à l'appel). <br/><br/> Admission par accord\n\nTâches :\n• Équipe familiale avec coopération interdisciplinaire\n• Ambiance de travail collégiale avec hiérarchies plates\n• Responsabilité personnelle dans un domaine défini\n• Coopération étroite avec les médecins et les hôpitaux de référence\n• Application de différentes compétences linguistiques\n• Loisirs et expériences nature dans les environs immédiats\n\nExigences\n• Diplôme suisse ou équivalent reconnu comme médecin (reconnaissance par l'Office fédéral de la santé)\nou de la Commission de la profession médicale MEBEKO\n• Titre de spécialiste en médecine interne générale (Suisse ou UE/AELE) ayant une expérience en médecine clinique d'urgence,\nfocalisation interdisciplinaire \"Médecine clinique d'urgence SGNOR\" souhaitable\n• Joy et intérêt pour une activité polyvalente dans un large éventail de traitements\n• Expérience clinique dans le traitement d'urgence d'événements médicaux et chirurgicaux aigus et subaigus\n• Hautes compétences sociales, esprit d'équipe et apparence professionnelle\n• Très bonnes compétences en allemand en paroles et en écriture (minimum C1), compétences en langues étrangères sont un avantage\n\nUn travail avec des perspectives: En plus d'un travail polyvalent dans l'environnement familial, l'Hôpital Zweisimmen vous offre également la possibilité de loisirs flexibles dans la nature environnante et la région montagneuse. Cherchez-vous le sens, mais aussi l'équité? Alors vous êtes là."
+      },
+      "location": "Zweisimmen",
+      "canton": "BE",
+      "url": "https://ohws.prospective.ch/public/v1/redirect/45ab28a8-55ed-4e1f-b55c-d66a4e6476cc/ats/",
+      "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-23T09:16:41.768Z",
+      "addressLocality": "Zweisimmen",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3770",
+      "streetAddress": "Zweisimmen",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://ohws.prospective.ch/public/v1/redirect/45ab28a8-55ed-4e1f-b55c-d66a4e6476cc/ats/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen"
+        ],
+        "en": [
+          "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen"
+        ],
+        "fr": [
+          "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen"
+        ]
+      },
+      "firstSeenAt": "2026-09-08T13:40:05.508Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-23T09:16:41.768Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2687,7 +2687,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/b0c03a03-b14d-4f8f-9b06-c1891cfefebe/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.610Z",
+      "crawledAt": "2026-11-23T09:16:41.766Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2744,7 +2744,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-22T21:20:12.610Z",
+      "validThrough": "2026-12-23T09:16:41.766Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2779,7 +2779,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/1f53cea8-175e-41d0-96f6-a3b33cc59cb5/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.609Z",
+      "crawledAt": "2026-11-23T09:16:41.765Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2842,7 +2842,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-23T21:20:12.609Z",
+      "validThrough": "2026-12-23T09:16:41.765Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2877,7 +2877,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/2425bdbe-06b6-4676-9124-a101e1c624ea/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.608Z",
+      "crawledAt": "2026-11-23T09:16:41.764Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2948,7 +2948,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-22T21:20:12.608Z",
+      "validThrough": "2026-12-23T09:16:41.764Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2982,7 +2982,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/16756454-c7a4-4597-95b1-07a55ff3bd39/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.607Z",
+      "crawledAt": "2026-11-23T09:16:41.763Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3046,7 +3046,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-20T21:20:12.607Z",
+      "validThrough": "2027-02-21T09:16:41.763Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3081,7 +3081,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7c5e571c-823b-467d-8386-a2a8e2947e3e/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.607Z",
+      "crawledAt": "2026-11-23T09:16:41.763Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3138,7 +3138,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-04T21:20:12.607Z",
+      "validThrough": "2027-01-05T09:16:41.763Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3173,7 +3173,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/2d87aba8-03a5-4d9e-a9ac-09488ee5f8bc/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.606Z",
+      "crawledAt": "2026-11-23T09:16:41.762Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3236,104 +3236,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-13T21:20:12.606Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "spital-sts-30d34fd0ee30",
-      "slug": "assistente-di-studio-medico-in-chirurgia-della-colonna-vertebrale-spital-sts-thun",
-      "slugByLocale": {
-        "it": "assistente-di-studio-medico-in-chirurgia-della-colonna-vertebrale-spital-sts-thun",
-        "en": "medical-practice-assistant-spinal-surgery-spital-sts-thun",
-        "de": "med-praxisassistent-in-wirbelsaulenchirurgie-spital-sts-thun",
-        "fr": "assistant-e-medical-e-en-chirurgie-de-la-colonne-vertebrale-spital-sts-thun"
-      },
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Med. Praxisassistent:in Wirbelsäulenchirurgie",
-      "titleByLocale": {
-        "it": "Assistente di studio medico in chirurgia della colonna vertebrale",
-        "en": "Medical practice assistant, spinal surgery",
-        "de": "Med. Praxisassistent:in Wirbelsäulenchirurgie",
-        "fr": "Assistant·e médical·e en chirurgie de la colonne vertébrale"
-      },
-      "description": "Zu deinen Hauptaufgaben gehören die Durchführung und die Organisation der Sprechstunden, Sprechstundenvorbereitung, die Bedienung des Telefons, Vereinbarung von Terminen, Schreiben von Berichten ab Diktafon, Assistenz bei den Infiltrationen sowie gelegentlich Blutentnahmen und Fadenentfernungen.<br/><br/>Eintritt per 01.01.2027 oder nach Vereinbarung.\n\nAufgaben:\n• Lebhafter Praxisbetrieb\n\n• Arbeit an der Front mit Patient:innenkontakt\n\n• Kollegialer Umgang im Ärzte-/MPA-Team\n\n• Eine interessante und spannende Tätigkeit an wechselnden Arbeitsplätzen\n\n• Selbständiges Arbeiten in einem motivierten, jungen Team\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Medizinische:r Praxisassistent:in oder vergleichbare Ausbildung\n\n• Erfahrung in der Orthopädie von Vorteil\n\n• Stilsichere Deutschkenntnisse in Wort und Schrift\n\n• Organisationstalent mit guten PC-Kenntnissen\n\n• Sorgfältige und speditive Arbeitsweise\n\nEin Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.",
-      "descriptionByLocale": {
-        "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche la possibilità di svago flessibile nella regione naturale e lacustre circostante. Hai un aspetto significativo, ma anche giusto? Allora sei qui.\n\nI vostri compiti principali includono la conduzione e l'organizzazione delle ore di consultazione, la preparazione delle ore di consultazione, il funzionamento del telefono, gli appuntamenti, i rapporti di scrittura da Diktafon, l'assistenza con le infiltrazioni, e occasionali estrazioni di sangue e la rimozione dei fili.\n\nIngresso al 01.01.2027 o d'accordo.\n\nQuesto ti aspetta\n\n• Pratica dal vivo\n\n• Lavorare sul davanti con il paziente: contatto interno\n\n• L'approccio Collegiale nel team medico/MPA\n\n• Un'attività interessante ed emozionante nel cambiamento dei luoghi di lavoro\n\n• Lavorare in modo indipendente in un team motivato e giovane\n\n• Modello flessibile per le vacanze e i fondi pensione\n\nDiventa parte del nostro team\n\n• Formazione completa come assistente medico:r pratica:in o formazione comparabile\n\n• L'esperienza nell'ortopedia è utile\n\n• Conoscenza di stile-confidente del tedesco nelle parole e nella scrittura\n\n• talento organizzativo con buona conoscenza del PC\n\n• Metodi di lavoro attenti e avanti",
-        "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking meaningful, but also fair? Then you're right here.\n\nYour main tasks include conducting and organizing the consultation hours, preparation of the consultation hours, operation of the telephone, appointments, writing reports from Diktafon, assistance with the infiltrations, and occasional blood draws and thread removals.\n\nEntry as of 01.01.2027 or by agreement.\n\nThis is waiting for you\n\n• Lively practice\n\n• Work on the front with the patient: internal contact\n\n• Collegial approach in the medical/MPA team\n\n• An interesting and exciting activity in changing workplaces\n\n• Working independently in a motivated, young team\n\n• Flexibly selectable holiday and pension fund model\n\nBecome part of our team\n\n• Completed training as medical:r practice assistant:in or comparable training\n\n• Experience in orthopaedics is beneficial\n\n• Style-confident knowledge of German in words and writing\n\n• Organizational talent with good PC knowledge\n\n• Careful and forward working methods",
-        "de": "Zu deinen Hauptaufgaben gehören die Durchführung und die Organisation der Sprechstunden, Sprechstundenvorbereitung, die Bedienung des Telefons, Vereinbarung von Terminen, Schreiben von Berichten ab Diktafon, Assistenz bei den Infiltrationen sowie gelegentlich Blutentnahmen und Fadenentfernungen.<br/><br/>Eintritt per 01.01.2027 oder nach Vereinbarung.\n\nAufgaben:\n• Lebhafter Praxisbetrieb\n\n• Arbeit an der Front mit Patient:innenkontakt\n\n• Kollegialer Umgang im Ärzte-/MPA-Team\n\n• Eine interessante und spannende Tätigkeit an wechselnden Arbeitsplätzen\n\n• Selbständiges Arbeiten in einem motivierten, jungen Team\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Medizinische:r Praxisassistent:in oder vergleichbare Ausbildung\n\n• Erfahrung in der Orthopädie von Vorteil\n\n• Stilsichere Deutschkenntnisse in Wort und Schrift\n\n• Organisationstalent mit guten PC-Kenntnissen\n\n• Sorgfältige und speditive Arbeitsweise\n\nEin Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.",
-        "fr": "Un emploi avec des perspectives : En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Avez-vous l'air significatif, mais aussi juste? Alors vous êtes là.\n\nVos tâches principales comprennent la tenue et l'organisation des heures de consultation, la préparation des heures de consultation, le fonctionnement du téléphone, les rendez-vous, la rédaction de rapports de Diktafon, l'aide aux infiltrations, et les prélèvements de sang et les enlèvements occasionnels de fils.\n\nEntrée au 01.01.2027 ou par convention.\n\nÇa vous attend.\n\n• Pratique vivante\n\n• Travail sur le front avec le patient: contact interne\n\n• Approche collégiale dans l'équipe médicale/MPA\n\n• Une activité intéressante et passionnante dans les milieux de travail en évolution\n\n• Travailler de façon indépendante dans une jeune équipe motivée\n\n• Modèle flexible de caisse de vacances et de retraite\n\nDevenez membre de notre équipe\n\n• Achevé la formation en tant qu'assistant de pratique médicale: en formation ou formation comparable\n\n• L'expérience en orthopédie est bénéfique\n\n• Style-confident connaissance de l'allemand dans les mots et l'écriture\n\n• Le talent organisationnel avec de bonnes connaissances PC\n\n• Méthodes de travail prudentes et avancées"
-      },
-      "location": "Thun",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/43b3d697-4c2f-4060-9aaf-c973a4a2d803/ats/",
-      "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.605Z",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3600",
-      "streetAddress": "Krankenhausstrasse 12",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://ohws.prospective.ch/public/v1/redirect/43b3d697-4c2f-4060-9aaf-c973a4a2d803/ats/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "med-praxisassistent-in-wirbelsaulenchirurgie-spital-sts-thun"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "med-praxisassistent-in-wirbelsaulenchirurgie-spital-sts-thun"
-        ],
-        "en": [
-          "med-praxisassistent-in-wirbelsaulenchirurgie-spital-sts-thun"
-        ],
-        "fr": [
-          "med-praxisassistent-in-wirbelsaulenchirurgie-spital-sts-thun"
-        ]
-      },
-      "firstSeenAt": "2026-10-29T14:55:43.918Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Spital STS",
-        "streetAddress": "Krankenhausstrasse 12",
-        "postalCode": "3600",
-        "registeredName": "Spital STS AG",
-        "matchType": "exact",
-        "streetAddressSource": "zefix-registry",
-        "jobPostalCode": "3600",
-        "addressLocality": "Thun",
-        "addressRegion": "BE",
-        "checkedAt": "2026-11-09T15:42:50.739Z"
-      },
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-27T21:20:12.605Z",
+      "validThrough": "2027-01-13T09:16:41.762Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3368,7 +3271,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/933e431f-6eef-4f55-9c1f-32a157b02780/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.605Z",
+      "crawledAt": "2026-11-23T09:16:41.761Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3433,7 +3336,104 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-17T21:20:12.605Z",
+      "validThrough": "2027-01-18T09:16:41.761Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "spital-sts-30d34fd0ee30",
+      "slug": "assistente-di-studio-medico-in-chirurgia-della-colonna-vertebrale-spital-sts-thun",
+      "slugByLocale": {
+        "it": "assistente-di-studio-medico-in-chirurgia-della-colonna-vertebrale-spital-sts-thun",
+        "en": "medical-practice-assistant-spinal-surgery-spital-sts-thun",
+        "de": "med-praxisassistent-in-wirbelsaulenchirurgie-spital-sts-thun",
+        "fr": "assistant-e-medical-e-en-chirurgie-de-la-colonne-vertebrale-spital-sts-thun"
+      },
+      "company": "Spital STS",
+      "companyKey": "spital-sts",
+      "companyDomain": "spitalstsag.ch",
+      "title": "Med. Praxisassistent:in Wirbelsäulenchirurgie",
+      "titleByLocale": {
+        "it": "Assistente di studio medico in chirurgia della colonna vertebrale",
+        "en": "Medical practice assistant, spinal surgery",
+        "de": "Med. Praxisassistent:in Wirbelsäulenchirurgie",
+        "fr": "Assistant·e médical·e en chirurgie de la colonne vertébrale"
+      },
+      "description": "Zu deinen Hauptaufgaben gehören die Durchführung und die Organisation der Sprechstunden, Sprechstundenvorbereitung, die Bedienung des Telefons, Vereinbarung von Terminen, Schreiben von Berichten ab Diktafon, Assistenz bei den Infiltrationen sowie gelegentlich Blutentnahmen und Fadenentfernungen.<br/><br/>Eintritt per 01.01.2027 oder nach Vereinbarung.\n\nAufgaben:\n• Lebhafter Praxisbetrieb\n\n• Arbeit an der Front mit Patient:innenkontakt\n\n• Kollegialer Umgang im Ärzte-/MPA-Team\n\n• Eine interessante und spannende Tätigkeit an wechselnden Arbeitsplätzen\n\n• Selbständiges Arbeiten in einem motivierten, jungen Team\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Medizinische:r Praxisassistent:in oder vergleichbare Ausbildung\n\n• Erfahrung in der Orthopädie von Vorteil\n\n• Stilsichere Deutschkenntnisse in Wort und Schrift\n\n• Organisationstalent mit guten PC-Kenntnissen\n\n• Sorgfältige und speditive Arbeitsweise\n\nEin Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.",
+      "descriptionByLocale": {
+        "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche la possibilità di svago flessibile nella regione naturale e lacustre circostante. Hai un aspetto significativo, ma anche giusto? Allora sei qui.\n\nI vostri compiti principali includono la conduzione e l'organizzazione delle ore di consultazione, la preparazione delle ore di consultazione, il funzionamento del telefono, gli appuntamenti, i rapporti di scrittura da Diktafon, l'assistenza con le infiltrazioni, e occasionali estrazioni di sangue e la rimozione dei fili.\n\nIngresso al 01.01.2027 o d'accordo.\n\nQuesto ti aspetta\n\n• Pratica dal vivo\n\n• Lavorare sul davanti con il paziente: contatto interno\n\n• L'approccio Collegiale nel team medico/MPA\n\n• Un'attività interessante ed emozionante nel cambiamento dei luoghi di lavoro\n\n• Lavorare in modo indipendente in un team motivato e giovane\n\n• Modello flessibile per le vacanze e i fondi pensione\n\nDiventa parte del nostro team\n\n• Formazione completa come assistente medico:r pratica:in o formazione comparabile\n\n• L'esperienza nell'ortopedia è utile\n\n• Conoscenza di stile-confidente del tedesco nelle parole e nella scrittura\n\n• talento organizzativo con buona conoscenza del PC\n\n• Metodi di lavoro attenti e avanti",
+        "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking meaningful, but also fair? Then you're right here.\n\nYour main tasks include conducting and organizing the consultation hours, preparation of the consultation hours, operation of the telephone, appointments, writing reports from Diktafon, assistance with the infiltrations, and occasional blood draws and thread removals.\n\nEntry as of 01.01.2027 or by agreement.\n\nThis is waiting for you\n\n• Lively practice\n\n• Work on the front with the patient: internal contact\n\n• Collegial approach in the medical/MPA team\n\n• An interesting and exciting activity in changing workplaces\n\n• Working independently in a motivated, young team\n\n• Flexibly selectable holiday and pension fund model\n\nBecome part of our team\n\n• Completed training as medical:r practice assistant:in or comparable training\n\n• Experience in orthopaedics is beneficial\n\n• Style-confident knowledge of German in words and writing\n\n• Organizational talent with good PC knowledge\n\n• Careful and forward working methods",
+        "de": "Zu deinen Hauptaufgaben gehören die Durchführung und die Organisation der Sprechstunden, Sprechstundenvorbereitung, die Bedienung des Telefons, Vereinbarung von Terminen, Schreiben von Berichten ab Diktafon, Assistenz bei den Infiltrationen sowie gelegentlich Blutentnahmen und Fadenentfernungen.<br/><br/>Eintritt per 01.01.2027 oder nach Vereinbarung.\n\nAufgaben:\n• Lebhafter Praxisbetrieb\n\n• Arbeit an der Front mit Patient:innenkontakt\n\n• Kollegialer Umgang im Ärzte-/MPA-Team\n\n• Eine interessante und spannende Tätigkeit an wechselnden Arbeitsplätzen\n\n• Selbständiges Arbeiten in einem motivierten, jungen Team\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Medizinische:r Praxisassistent:in oder vergleichbare Ausbildung\n\n• Erfahrung in der Orthopädie von Vorteil\n\n• Stilsichere Deutschkenntnisse in Wort und Schrift\n\n• Organisationstalent mit guten PC-Kenntnissen\n\n• Sorgfältige und speditive Arbeitsweise\n\nEin Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.",
+        "fr": "Un emploi avec des perspectives : En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Avez-vous l'air significatif, mais aussi juste? Alors vous êtes là.\n\nVos tâches principales comprennent la tenue et l'organisation des heures de consultation, la préparation des heures de consultation, le fonctionnement du téléphone, les rendez-vous, la rédaction de rapports de Diktafon, l'aide aux infiltrations, et les prélèvements de sang et les enlèvements occasionnels de fils.\n\nEntrée au 01.01.2027 ou par convention.\n\nÇa vous attend.\n\n• Pratique vivante\n\n• Travail sur le front avec le patient: contact interne\n\n• Approche collégiale dans l'équipe médicale/MPA\n\n• Une activité intéressante et passionnante dans les milieux de travail en évolution\n\n• Travailler de façon indépendante dans une jeune équipe motivée\n\n• Modèle flexible de caisse de vacances et de retraite\n\nDevenez membre de notre équipe\n\n• Achevé la formation en tant qu'assistant de pratique médicale: en formation ou formation comparable\n\n• L'expérience en orthopédie est bénéfique\n\n• Style-confident connaissance de l'allemand dans les mots et l'écriture\n\n• Le talent organisationnel avec de bonnes connaissances PC\n\n• Méthodes de travail prudentes et avancées"
+      },
+      "location": "Thun",
+      "canton": "BE",
+      "url": "https://ohws.prospective.ch/public/v1/redirect/43b3d697-4c2f-4060-9aaf-c973a4a2d803/ats/",
+      "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-23T09:16:41.759Z",
+      "addressLocality": "Thun",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3600",
+      "streetAddress": "Krankenhausstrasse 12",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://ohws.prospective.ch/public/v1/redirect/43b3d697-4c2f-4060-9aaf-c973a4a2d803/ats/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "med-praxisassistent-in-wirbelsaulenchirurgie-spital-sts-thun"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "med-praxisassistent-in-wirbelsaulenchirurgie-spital-sts-thun"
+        ],
+        "en": [
+          "med-praxisassistent-in-wirbelsaulenchirurgie-spital-sts-thun"
+        ],
+        "fr": [
+          "med-praxisassistent-in-wirbelsaulenchirurgie-spital-sts-thun"
+        ]
+      },
+      "firstSeenAt": "2026-10-29T14:55:43.918Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Spital STS",
+        "streetAddress": "Krankenhausstrasse 12",
+        "postalCode": "3600",
+        "registeredName": "Spital STS AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "3600",
+        "addressLocality": "Thun",
+        "addressRegion": "BE",
+        "checkedAt": "2026-11-09T15:42:50.739Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-28T09:16:41.759Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3467,7 +3467,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/638e9494-b415-4d01-b752-274c1b5cda01/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.604Z",
+      "crawledAt": "2026-11-23T09:16:41.758Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3527,7 +3527,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-01T21:20:12.604Z",
+      "validThrough": "2027-02-01T09:16:41.758Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3562,7 +3562,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/f405c1bd-ce9f-4c06-aebf-032a1f91fc40/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.603Z",
+      "crawledAt": "2026-11-23T09:16:41.756Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3627,7 +3627,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T21:20:12.603Z",
+      "validThrough": "2027-02-05T09:16:41.756Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3662,7 +3662,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/d9a7c7ad-6764-4856-a9fe-f62f01afd001/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.602Z",
+      "crawledAt": "2026-11-23T09:16:41.755Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3727,7 +3727,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-04T21:20:12.602Z",
+      "validThrough": "2027-01-04T09:16:41.755Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3762,7 +3762,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/6dd6f871-9209-4418-9e0f-2a804fa5041c/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.600Z",
+      "crawledAt": "2026-11-23T09:16:41.753Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3827,7 +3827,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T21:20:12.600Z",
+      "validThrough": "2027-02-05T09:16:41.753Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3862,7 +3862,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/66d66fe3-f709-43bc-b56d-5982c1a09302/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.599Z",
+      "crawledAt": "2026-11-23T09:16:41.752Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3944,7 +3944,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T21:20:12.599Z",
+      "validThrough": "2027-02-05T09:16:41.752Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3978,7 +3978,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/e884d933-ea9c-4c93-a4b6-2bb8fef58318/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.598Z",
+      "crawledAt": "2026-11-23T09:16:41.751Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4035,7 +4035,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T21:20:12.598Z",
+      "validThrough": "2027-02-05T09:16:41.751Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4070,7 +4070,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/0b66dafa-3433-43c8-9f28-a37bea06401e/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.597Z",
+      "crawledAt": "2026-11-23T09:16:41.750Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4127,7 +4127,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-07T21:20:12.597Z",
+      "validThrough": "2027-02-08T09:16:41.750Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4162,7 +4162,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/e7d0152a-618d-4573-a4eb-f99042334eb7/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.596Z",
+      "crawledAt": "2026-11-23T09:16:41.748Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4208,7 +4208,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-en-radiologie-spital-sts-thun",
           "dipl-specialista-hf-fh-oncologia-spital-sts-thun",
           "dipl-nursing-specialist-hf-fh-oncology-spital-sts-thun",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun",
@@ -4227,7 +4226,8 @@
           "radiologiefachfrau-radiologiefachmann-hf-spital-sts-zweisimmen",
           "dipl-specialiste-de-radiologie-hf-spital-sts-thun",
           "specialist-in-radiology-spital-sts-thun",
-          "specialista-in-radiologia-spital-sts-thun"
+          "specialista-in-radiologia-spital-sts-thun",
+          "specialiste-en-radiologie-spital-sts-thun"
         ],
         "en": [
           "radiologiefachfrau-radiologiefachmann-hf-spital-sts-zweisimmen"
@@ -4254,7 +4254,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T21:20:12.596Z",
+      "validThrough": "2027-02-05T09:16:41.748Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4288,7 +4288,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/e49d81a4-9f11-426c-a9fe-bb813be6af3a/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.590Z",
+      "crawledAt": "2026-11-23T09:16:41.740Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4351,7 +4351,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-11T21:20:12.590Z",
+      "validThrough": "2027-02-11T09:16:41.740Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4386,7 +4386,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/767b9a10-8616-4b56-ab2a-044396780cf0/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.589Z",
+      "crawledAt": "2026-11-23T09:16:41.739Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4462,7 +4462,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T21:20:12.589Z",
+      "validThrough": "2027-02-05T09:16:41.739Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4497,7 +4497,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/bcb3d7dd-8a8f-427f-97de-259c9132657f/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.588Z",
+      "crawledAt": "2026-11-23T09:16:41.736Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4560,7 +4560,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-15T21:20:12.588Z",
+      "validThrough": "2027-02-15T09:16:41.736Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4594,7 +4594,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/77263077-8c86-4c11-8496-5d1bedbcc0f3/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.586Z",
+      "crawledAt": "2026-11-23T09:16:41.734Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4657,7 +4657,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-16T21:20:12.586Z",
+      "validThrough": "2027-02-16T09:16:41.734Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4692,7 +4692,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/76ad42b8-6e62-4cff-9a0b-3e514ef1b418/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.584Z",
+      "crawledAt": "2026-11-23T09:16:41.733Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4755,7 +4755,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-16T21:20:12.584Z",
+      "validThrough": "2027-02-16T09:16:41.733Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4789,7 +4789,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/0a356152-135a-4299-ab73-0a05775d032c/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.582Z",
+      "crawledAt": "2026-11-23T09:16:41.731Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4854,7 +4854,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-16T21:20:12.582Z",
+      "validThrough": "2027-02-17T09:16:41.731Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4888,7 +4888,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/11c6262b-4378-42c2-9586-4b9d98e25d8d/ats/",
       "source": "Spital STS Dedicated Parser (Prospective medium 1000717)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:12.580Z",
+      "crawledAt": "2026-11-23T09:16:41.728Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4947,7 +4947,7 @@
         "checkedAt": "2026-11-09T15:42:50.739Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-22T21:20:12.580Z",
+      "validThrough": "2026-12-23T09:16:41.728Z",
       "validThroughSource": "last-observed-window"
     }
   ]

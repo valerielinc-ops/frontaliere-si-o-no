@@ -1,7 +1,7 @@
 {
   "key": "benu",
   "label": "benu",
-  "generatedAt": "2026-11-22T21:20:24.398Z",
+  "generatedAt": "2026-11-23T09:18:28.683Z",
   "total": 3,
   "discovered": 3,
   "parsed": 2,
@@ -48,10 +48,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 9909,
-  "avgDurationMs": 9909,
+  "durationMs": 7519,
+  "avgDurationMs": 7519,
   "durationHistory": [
-    9909
+    7519
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -69,7 +69,7 @@
       "url": "https://job.benu.ch/de/jobs/8505815-pharma-assistent-springer-w-m-60-80-benu-deutschschweiz",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:04.482Z",
+      "crawledAt": "2026-11-23T09:18:09.644Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -92,7 +92,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:20:04.482Z",
+      "validThrough": "2027-01-05T09:18:09.644Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -114,7 +114,7 @@
       "url": "https://job.benu.ch/de/jobs/8673824-pharma-assistent-w-m-60-benu-schwerzenbach",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:20:04.478Z",
+      "crawledAt": "2026-11-23T09:18:09.641Z",
       "addressLocality": "Schwerzenbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -137,7 +137,7 @@
       "salaryMax": 66900,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:20:04.478Z",
+      "validThrough": "2027-02-04T09:18:09.641Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -185,7 +185,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T09:34:34.593Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -195,5 +195,5 @@
       }
     }
   ],
-  "codeCommit": "f0ab682774893f4b809c5b75181716509e65ea60"
+  "codeCommit": "7474b74d22ad2d97637dc94f08d243f12f0ba1c7"
 }

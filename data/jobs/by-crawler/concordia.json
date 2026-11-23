@@ -1,7 +1,7 @@
 {
   "crawlerKey": "concordia",
-  "assembledAt": "2026-11-22T21:21:59.547Z",
-  "runId": "45070594018",
+  "assembledAt": "2026-11-23T09:19:34.990Z",
+  "runId": "45144664419",
   "jobs": [
     {
       "id": "concordia-f7160c0ae228",
@@ -35,7 +35,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/agenturleiter-in-in-kloten/a3ca201a-1f61-47cc-922e-e3956184555d",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:51.328Z",
+      "crawledAt": "2026-11-23T09:19:24.568Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T21:21:51.328Z",
+      "validThrough": "2027-01-25T09:19:24.568Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/leistungsspezialist-in-leistungspruefung-mit-franzoesisch-oder-italienischkenntnissen/9d6abfd0-f01b-491e-b8da-e745ab42256a",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:50.865Z",
+      "crawledAt": "2026-11-23T09:19:24.155Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -168,7 +168,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:21:50.865Z",
+      "validThrough": "2027-01-26T09:19:24.155Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -203,7 +203,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-80-in-chur/8ca2f2ba-ecbe-4df5-9ba8-9a71887f2b09",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:50.434Z",
+      "crawledAt": "2026-11-23T09:19:23.757Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -262,7 +262,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:21:50.434Z",
+      "validThrough": "2027-01-26T09:19:23.757Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -297,7 +297,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-in-frick/513ee04b-08ba-4e30-adb6-fc22c424133f",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:49.993Z",
+      "crawledAt": "2026-11-23T09:19:23.340Z",
       "addressLocality": "Frick",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -354,7 +354,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:21:49.993Z",
+      "validThrough": "2027-01-26T09:19:23.340Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -389,7 +389,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/versicherungsberater-in-in-lenzburg/8402b5df-8764-434b-b0b1-22fd6ebb4fbc",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:49.565Z",
+      "crawledAt": "2026-11-23T09:19:22.950Z",
       "addressLocality": "Lenzburg",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -490,7 +490,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg-940d2c10",
           "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg-82a59a7c",
           "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg-9e62e28a",
           "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg-272f2014",
@@ -509,7 +508,8 @@
           "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg",
           "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg-73da5985",
           "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg-c48467b2",
-          "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg-d5ddf044"
+          "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg-d5ddf044",
+          "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg-940d2c10"
         ],
         "en": [
           "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg",
@@ -540,7 +540,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:21:49.565Z",
+      "validThrough": "2027-01-26T09:19:22.950Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -575,7 +575,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/it-application-manager-in-80/7843dc8c-5a49-4252-97b9-3491d511f62b",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:49.134Z",
+      "crawledAt": "2026-11-23T09:19:22.535Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -621,7 +621,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:21:49.134Z",
+      "validThrough": "2027-01-26T09:19:22.535Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -656,7 +656,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/teamleiter-in-kundenberatung-in-aarau/5e068d2d-cecc-4b8d-95be-f918dceb2e65",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:48.664Z",
+      "crawledAt": "2026-11-23T09:19:22.120Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -705,7 +705,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T21:21:48.664Z",
+      "validThrough": "2027-01-28T09:19:22.120Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -740,7 +740,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-geschaeftsstelle-in-alpnach/4ac6d3ae-9e91-401a-b101-0152c955ede4",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:48.232Z",
+      "crawledAt": "2026-11-23T09:19:21.734Z",
       "addressLocality": "Alpnach",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -799,7 +799,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-29T21:21:48.232Z",
+      "validThrough": "2027-01-29T09:19:21.734Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -833,7 +833,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-90-in-hitzkirch/c289df54-d0e7-4f6f-988a-aaa689fa70a6",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:47.802Z",
+      "crawledAt": "2026-11-23T09:19:21.343Z",
       "addressLocality": "Hitzkirch",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -876,7 +876,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-29T21:21:47.802Z",
+      "validThrough": "2027-01-29T09:19:21.343Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -910,7 +910,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/versicherungsberater-in-in-luzern/a1e88c06-179c-4718-bb46-80973ade3052",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:47.373Z",
+      "crawledAt": "2026-11-23T09:19:20.918Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -977,7 +977,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-29T21:21:47.373Z",
+      "validThrough": "2027-01-29T09:19:20.918Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1012,7 +1012,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-geschaeftsstelle-in-eich/88b61566-1fd3-4cef-b756-bbafd560238c",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:46.936Z",
+      "crawledAt": "2026-11-23T09:19:20.534Z",
       "addressLocality": "Eich",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1061,7 +1061,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-31T21:21:46.936Z",
+      "validThrough": "2027-01-31T09:19:20.534Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1096,7 +1096,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/product-owner-in-lifeware-leben-60/d9a5bec2-dab6-4c4e-9558-24b656745a91",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:46.499Z",
+      "crawledAt": "2026-11-23T09:19:20.126Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1131,7 +1131,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:21:46.499Z",
+      "validThrough": "2027-02-01T09:19:20.126Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1166,7 +1166,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-60-in-olten/73195597-6297-47aa-95cf-27a7bb3aaccb",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:46.058Z",
+      "crawledAt": "2026-11-23T09:19:19.769Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1215,7 +1215,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:21:46.058Z",
+      "validThrough": "2027-02-02T09:19:19.769Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1250,7 +1250,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/drg-tarifspezialist-in-mit-schwerpunkt-digitale-entwicklung-80/0c123394-9d62-4ea7-b947-770ef1bae624",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:45.627Z",
+      "crawledAt": "2026-11-23T09:19:19.376Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1299,7 +1299,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:21:45.627Z",
+      "validThrough": "2027-02-02T09:19:19.376Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1334,7 +1334,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/versicherungsberater-in-in-visp/16200504-306b-4132-abc4-6e0b7e2defe6",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:45.161Z",
+      "crawledAt": "2026-11-23T09:19:19.006Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1383,7 +1383,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:21:45.161Z",
+      "validThrough": "2027-02-02T09:19:19.006Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1418,7 +1418,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-80-in-pfaeffikon-und-einsiedeln/45b3603a-0cda-48d1-b8b6-2a484d986d61",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:44.715Z",
+      "crawledAt": "2026-11-23T09:19:18.607Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1469,7 +1469,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:21:44.715Z",
+      "validThrough": "2027-02-02T09:19:18.607Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1504,7 +1504,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-80-in-buchs-sg/c6d34796-6953-4732-aead-761c834a5c24",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:44.290Z",
+      "crawledAt": "2026-11-23T09:19:18.218Z",
       "addressLocality": "Buchs 1",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1547,7 +1547,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:21:44.290Z",
+      "validThrough": "2027-02-03T09:19:18.218Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1582,7 +1582,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/gesundheitsberater-in-telemedizin-dipl-pflegefachperson-hf-60-bei-monvia/c8a4990d-2a50-4568-8253-48b8e6e5a045",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:43.850Z",
+      "crawledAt": "2026-11-23T09:19:17.811Z",
       "addressLocality": "Olten",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1625,7 +1625,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:21:43.850Z",
+      "validThrough": "2027-02-03T09:19:17.811Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1660,7 +1660,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/versicherungsberater-in-in-rapperswil/c6bfa10e-b94e-4a7b-9f91-1a5047ce2fb6",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:43.417Z",
+      "crawledAt": "2026-11-23T09:19:17.444Z",
       "addressLocality": "Rapperswil-Jona",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1709,7 +1709,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T21:21:43.417Z",
+      "validThrough": "2027-02-04T09:19:17.444Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1743,7 +1743,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/mitarbeiter-in-helpdesk-de-fr-80/fe6b9b56-b089-42d4-aea4-190216b3eafe",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:42.981Z",
+      "crawledAt": "2026-11-23T09:19:17.049Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1792,7 +1792,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T21:21:42.981Z",
+      "validThrough": "2027-02-07T09:19:17.049Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1827,7 +1827,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/leistungsspezialist-in-leistungspruefung-im-service-center-zuerich/0ccb7e0f-e6f6-4ddb-9361-ef2f8f4951df",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:42.559Z",
+      "crawledAt": "2026-11-23T09:19:16.681Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1870,7 +1870,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T21:21:42.559Z",
+      "validThrough": "2027-02-08T09:19:16.681Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1905,7 +1905,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitspruefung-bvm-80/d2a47326-f754-40f7-a4e3-afa90b5c9d97",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:42.122Z",
+      "crawledAt": "2026-11-23T09:19:16.315Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2006,7 +2006,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia-11cebe5a",
           "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia-9dd1f32d",
           "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia-02e7dff9",
           "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia-80228e5f",
@@ -2025,7 +2024,8 @@
           "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia",
           "teamleiter-in-leistungscontrolling-e-wirtschaftlichkeitsprufung-bvm-80-100-concordia-luzern",
           "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia-18fc3960",
-          "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia-04c8db4a"
+          "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia-04c8db4a",
+          "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia-11cebe5a"
         ],
         "en": [
           "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia",
@@ -2054,7 +2054,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T21:21:42.122Z",
+      "validThrough": "2027-02-08T09:19:16.315Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2089,7 +2089,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/versicherungsberater-in-80-in-bern/c396c830-fc16-41f7-b307-35054677a24a",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:41.728Z",
+      "crawledAt": "2026-11-23T09:19:15.922Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2138,7 +2138,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T21:21:41.728Z",
+      "validThrough": "2027-02-08T09:19:15.922Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2173,7 +2173,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/versicherungsberater-in-in-baar/7d9fba25-5bef-4b2b-b4a5-ed01c5c48961",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:41.317Z",
+      "crawledAt": "2026-11-23T09:19:15.527Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2218,7 +2218,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:21:41.317Z",
+      "validThrough": "2027-02-09T09:19:15.527Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2253,7 +2253,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-in-sursee/d57915db-8324-4a5c-97de-2565d27e489d",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:40.887Z",
+      "crawledAt": "2026-11-23T09:19:15.148Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2302,7 +2302,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:21:40.887Z",
+      "validThrough": "2027-02-09T09:19:15.148Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2337,7 +2337,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-geschaeftsstelle-ca-in-grosswangen/7f07c222-9b43-4ec0-98c5-be1c7aad304e",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:40.441Z",
+      "crawledAt": "2026-11-23T09:19:14.736Z",
       "addressLocality": "Grosswangen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2383,7 +2383,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:21:40.441Z",
+      "validThrough": "2027-02-09T09:19:14.736Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2418,7 +2418,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-in-zuerich/dcf9bb67-8589-4db6-b753-c4767bbd6109",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:40.016Z",
+      "crawledAt": "2026-11-23T09:19:14.329Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2467,7 +2467,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:21:40.016Z",
+      "validThrough": "2027-02-09T09:19:14.329Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2501,7 +2501,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/software-tester-in-fach/10405250-2943-41b8-ad93-b65ad87f2dbe",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:39.606Z",
+      "crawledAt": "2026-11-23T09:19:13.947Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2544,7 +2544,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:21:39.606Z",
+      "validThrough": "2027-02-09T09:19:13.947Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2579,7 +2579,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-60-in-langenthal/afaf509a-4c92-4294-b30b-b064c85fa526",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:39.173Z",
+      "crawledAt": "2026-11-23T09:19:13.575Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2624,7 +2624,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T21:21:39.173Z",
+      "validThrough": "2027-02-11T09:19:13.575Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2659,7 +2659,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-temporaer-in-affoltern-am-albis/044b6221-0297-413d-9a23-241f29150358",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:38.760Z",
+      "crawledAt": "2026-11-23T09:19:13.170Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2704,7 +2704,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-12T21:21:38.760Z",
+      "validThrough": "2027-02-12T09:19:13.170Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2739,7 +2739,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/projektleiter-in-versicherungstechnik-60/b1ffc79d-0c3b-4cd2-ae44-b40029d311dd",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:38.335Z",
+      "crawledAt": "2026-11-23T09:19:12.750Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2788,7 +2788,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T21:21:38.335Z",
+      "validThrough": "2027-02-14T09:19:12.750Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2823,7 +2823,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/agenturleiter-in-in-biel/76d5edaa-7481-4031-bf55-4f38832c43cc",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:37.909Z",
+      "crawledAt": "2026-11-23T09:19:12.369Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2866,7 +2866,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-15T21:21:37.909Z",
+      "validThrough": "2027-02-15T09:19:12.369Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2901,7 +2901,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/teamleiter-in-logistik-und-dienste-80/89748302-eee7-41a5-a085-e62a6f9fefb3",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:37.467Z",
+      "crawledAt": "2026-11-23T09:19:11.974Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2950,7 +2950,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-15T21:21:37.467Z",
+      "validThrough": "2027-02-15T09:19:11.974Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2985,7 +2985,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/versicherungsberater-in-in-littau-reussbuehl/8613b7ee-6daf-4bc0-a13c-c4b1119932f6",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:37.080Z",
+      "crawledAt": "2026-11-23T09:19:11.600Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3030,7 +3030,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-16T21:21:37.080Z",
+      "validThrough": "2027-02-16T09:19:11.600Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3065,7 +3065,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-in-rapperswil/ac4b486c-b0bb-4e14-981e-4f1826306165",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:36.653Z",
+      "crawledAt": "2026-11-23T09:19:11.218Z",
       "addressLocality": "Rapperswil-Jona",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -3114,7 +3114,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-17T21:21:36.653Z",
+      "validThrough": "2027-02-17T09:19:11.218Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3148,7 +3148,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/apprentissage-d-employe-de-commerce-f-h-nb-avec-cfc-d-assurances-maladie-et-sociale-agence-de-geneve/9738c7b1-09c6-4f7b-a6b8-25efcb55aae6",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:21:36.213Z",
+      "crawledAt": "2026-11-23T09:19:10.839Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3199,7 +3199,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-17T21:21:36.213Z",
+      "validThrough": "2027-02-17T09:19:10.839Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3234,7 +3234,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/product-owner-in-system-team-ci-cd-software-development-80/9c636fd3-26cc-4640-91a8-b8983923087a",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:35.820Z",
+      "crawledAt": "2026-11-23T09:19:10.479Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3291,7 +3291,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T21:21:35.820Z",
+      "validThrough": "2027-02-18T09:19:10.479Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3326,7 +3326,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/senior-client-engineer-w-m-d/67c25af3-178f-4f40-bf76-d35bf6e39d2c",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:35.412Z",
+      "crawledAt": "2026-11-23T09:19:10.098Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3380,7 +3380,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T21:21:35.412Z",
+      "validThrough": "2027-02-18T09:19:10.098Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3415,7 +3415,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/versichrungsberater-in-in-horw/f37c7475-dceb-423a-a6ea-f40ec03c1a65",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:34.978Z",
+      "crawledAt": "2026-11-23T09:19:09.690Z",
       "addressLocality": "Horw",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3464,7 +3464,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T21:21:34.978Z",
+      "validThrough": "2027-02-18T09:19:09.690Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3499,7 +3499,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/it-application-manager-in-crm-80/58089528-d71d-416a-bf32-c839c8fa9fca",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:34.552Z",
+      "crawledAt": "2026-11-23T09:19:09.287Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3551,7 +3551,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-19T21:21:34.552Z",
+      "validThrough": "2027-02-19T09:19:09.287Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3586,7 +3586,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/senior-sql-dwh-engineer-w-m-d-80/7e997ffd-a665-42d0-b782-c4bf0ffb0239",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:34.137Z",
+      "crawledAt": "2026-11-23T09:19:08.904Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3631,7 +3631,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-19T21:21:34.137Z",
+      "validThrough": "2027-02-19T09:19:08.904Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3666,7 +3666,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/senior-database-engineer-oracle-postgresql-80/8669dc70-6b4e-4133-9ec7-5541efe6b044",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:33.707Z",
+      "crawledAt": "2026-11-23T09:19:08.489Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3723,7 +3723,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-19T21:21:33.707Z",
+      "validThrough": "2027-02-19T09:19:08.489Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3758,7 +3758,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-geschaeftsstelle-in-laufen/7f342859-1bd8-4742-ae74-e265d95d5752",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:33.248Z",
+      "crawledAt": "2026-11-23T09:19:08.101Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3821,7 +3821,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-19T21:21:33.248Z",
+      "validThrough": "2027-02-19T09:19:08.101Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3856,7 +3856,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/versicherungsberater-in-in-zug/29a4c52c-c9a7-4592-a931-ead98dda9b64",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:32.809Z",
+      "crawledAt": "2026-11-23T09:19:07.686Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3923,8 +3923,224 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-19T21:21:32.809Z",
+      "validThrough": "2027-02-19T09:19:07.686Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "concordia-a8ff82fa3505",
+      "slug": "senior-ai-engineer-architect-w-m-d-80-100-concordia-luzern",
+      "slugByLocale": {
+        "de": "senior-ai-engineer-architect-w-m-d-80-100-concordia-luzern",
+        "it": "senior-ai-engineer-architect-w-m-d-80-100-concordia-luzern",
+        "en": "senior-ai-engineer-architect-w-m-d-80-100-concordia-luzern",
+        "fr": "senior-ai-engineer-architect-w-m-d-80-100-concordia-luzern"
+      },
+      "company": "Concordia",
+      "companyKey": "concordia",
+      "companyDomain": "concordia.ch",
+      "title": "Senior AI Engineer / Architect (w/m/d), 80–100 %",
+      "titleByLocale": {
+        "de": "Senior AI Engineer / Architect (w/m/d), 80–100 %",
+        "it": "Senior AI Ingegnere / Architetto (w/m/d), 80–100 %",
+        "en": "Senior AI Engineer / Architect (w/m/d), 80–100 %",
+        "fr": "Senior AI Ingénieur / Architecte (w/m/d), 80–100 %"
+      },
+      "description": "Ehrliche Zusammenarbeit: 100 % gesund\nTribschenstrasse, 6005 Luzern\nBist du ein erfahrener Softwareentwickler und möchtest im KI-Bereich arbeiten?Dann bewirb dich bei der CONCORDIA und übernehme eine zentrale Rolle in unserem wachsenden KI-Team. Unser Team entwickelt KI-Anwendungen, die direkten Mehrwert in den operativen Prozessen der CONCORDIA bringen – beispielsweise in der Dokumentverarbeitung, der Rechnungsprüfung oder im Underwriting.\n\n## Das erwartet dich\n• Du entwickelst produktionsreife KI-Anwendungen und integrierst sie in unsere bestehende IT-Landschaft.\n• Du behältst architektonische Best Practices im Blick und stellst sicher, dass unsere KI-Anwendungen skalierbar, sicher und wartbar sind.\n• Du nimmst eine zentrale Rolle in unserem KI-Team ein und trägst Verantwortung für inhaltliche und technische Fragestellungen.\n• Gemeinsam mit dem Team erarbeitest du KI-Lösungen für verschiedene Bereiche der CONCORDIA. Unsere Lösungen reichen von Chatbots bis zum Einsatz von KI in operativen Prozessen.\n• Du arbeitest in KI-Vorhaben eng mit anderen IT-Teams und Business Units zusammen, um massgeschneiderte Lösungen zu finden.\n\n## Das bringst du mit\n• Du verfügst über mehrjährige Erfahrung in der Softwareentwicklung und gute Python Kenntnisse.\n• Du bist in der Lage, produktionsreife Anwendungen zu entwickeln und zu containerisieren. Gängige Technologien und Best Practices wie FastAPI, Docker, Kubernetes, Infrastructure as Code und CI/CD sind dir vertraut.\n• Du bringst Erfahrung in der Entwicklung von LLM-basierten Anwendungen mit. Erfahrung mit klassischen Machine Learning Modellen ist ein Plus.\n• Du bist mit gängigen Cloud-Plattformen vertraut. Erfahrung mit Azure und Azure AI Services ist ein grosser Vorteil.\n• Idealerweise hast du bereits AI-Lösungen von der Konzeption bis zur Umsetzung verantwortet und bringst Erfahrung in der Architektur und Integration von AI-Systemen mit.\n• Du hast Freude an der Zusammenarbeit mit Stakeholdern in IT und Fach. Zudem kannst du deine Ideen klar auf Deutsch kommunizieren.\nDein Arbeitsort\n\n## Darum CONCORDIA\nAls Expertin für Gesundheit setzt sich die CONCORDIA für ein Arbeitsumfeld ein, in dem sich Mitarbeitende wohlfühlen und verwirklichen können. Es ist geprägt von abwechslungsreichen Aufgaben, vielseitigen Teams und einem familiären Umgang. Zudem motivieren wir unsere Mitarbeitenden, sich weiterzuentwickeln und voranzukommen. Menschen, die Spass an der Arbeit haben und beruflich vorwärtskommen wollen, finden bei uns, was sie suchen: Jobs, die zu 100 % gesund sind.\nDarum CONCORDIA\n\n## Deine Vorteile\nArbeitszeit\nDu hast eine 41-Stunden-Woche und kannst Teilzeit oder flexibel arbeiten. Für ausgewählte Tätigkeiten kannst du regelmässig von zu Hause aus arbeiten.\nPensionskasse\nWir bieten dir eine äusserst attraktive, sichere Pensionskasse mit überdurchschnittlichen Arbeitgeberbeiträgen und grosszügigen Leistungen.\nBeteiligung Krankenversicherungsprämie\nDu und deine Familie profitieren von reduzierten Krankenversicherungsprämien.\nMitarbeitende werben Mitarbeitende\nDu erhältst eine Provision, wenn du neue Mitarbeitende für die CONCORDIA gewinnst.\nFerien\nDeine Erholung ist uns wichtig: Geniesse mindestens fünf Wochen Ferien pro Jahr.\nDienstaltersgeschenk\nWir schätzen langjährige Zusammenarbeit. Ab fünf Dienstjahren erhältst du regelmässig ein Dienstaltersgeschenk: Ferien oder einen Bonus.\nAusgezeichnet von den Mitarbeitenden\nBereits 2016 und 2018 brillierte die CONCORDIA beim Swiss Arbeitgeber Award mit hervorragenden Ergebnissen. Im Jahr 2020 holten wir uns dann sogar den ersten Platz in der Kategorie für grosse Unternehmen mit mehr als 1000 Mitarbeitenden und im Jahr 2022 wurden wir mit dem zweiten Platz ausgezeichnet. Auch im Jahr 2025 dürfen wir mit gutem Recht festhalten, dass wir zu den allerbesten Arbeitgeberinnen der Schweiz gehören.",
+      "descriptionByLocale": {
+        "de": "Ehrliche Zusammenarbeit: 100 % gesund\nTribschenstrasse, 6005 Luzern\nBist du ein erfahrener Softwareentwickler und möchtest im KI-Bereich arbeiten?Dann bewirb dich bei der CONCORDIA und übernehme eine zentrale Rolle in unserem wachsenden KI-Team. Unser Team entwickelt KI-Anwendungen, die direkten Mehrwert in den operativen Prozessen der CONCORDIA bringen – beispielsweise in der Dokumentverarbeitung, der Rechnungsprüfung oder im Underwriting.\n\n## Das erwartet dich\n• Du entwickelst produktionsreife KI-Anwendungen und integrierst sie in unsere bestehende IT-Landschaft.\n• Du behältst architektonische Best Practices im Blick und stellst sicher, dass unsere KI-Anwendungen skalierbar, sicher und wartbar sind.\n• Du nimmst eine zentrale Rolle in unserem KI-Team ein und trägst Verantwortung für inhaltliche und technische Fragestellungen.\n• Gemeinsam mit dem Team erarbeitest du KI-Lösungen für verschiedene Bereiche der CONCORDIA. Unsere Lösungen reichen von Chatbots bis zum Einsatz von KI in operativen Prozessen.\n• Du arbeitest in KI-Vorhaben eng mit anderen IT-Teams und Business Units zusammen, um massgeschneiderte Lösungen zu finden.\n\n## Das bringst du mit\n• Du verfügst über mehrjährige Erfahrung in der Softwareentwicklung und gute Python Kenntnisse.\n• Du bist in der Lage, produktionsreife Anwendungen zu entwickeln und zu containerisieren. Gängige Technologien und Best Practices wie FastAPI, Docker, Kubernetes, Infrastructure as Code und CI/CD sind dir vertraut.\n• Du bringst Erfahrung in der Entwicklung von LLM-basierten Anwendungen mit. Erfahrung mit klassischen Machine Learning Modellen ist ein Plus.\n• Du bist mit gängigen Cloud-Plattformen vertraut. Erfahrung mit Azure und Azure AI Services ist ein grosser Vorteil.\n• Idealerweise hast du bereits AI-Lösungen von der Konzeption bis zur Umsetzung verantwortet und bringst Erfahrung in der Architektur und Integration von AI-Systemen mit.\n• Du hast Freude an der Zusammenarbeit mit Stakeholdern in IT und Fach. Zudem kannst du deine Ideen klar auf Deutsch kommunizieren.\nDein Arbeitsort\n\n## Darum CONCORDIA\nAls Expertin für Gesundheit setzt sich die CONCORDIA für ein Arbeitsumfeld ein, in dem sich Mitarbeitende wohlfühlen und verwirklichen können. Es ist geprägt von abwechslungsreichen Aufgaben, vielseitigen Teams und einem familiären Umgang. Zudem motivieren wir unsere Mitarbeitenden, sich weiterzuentwickeln und voranzukommen. Menschen, die Spass an der Arbeit haben und beruflich vorwärtskommen wollen, finden bei uns, was sie suchen: Jobs, die zu 100 % gesund sind.\nDarum CONCORDIA\n\n## Deine Vorteile\nArbeitszeit\nDu hast eine 41-Stunden-Woche und kannst Teilzeit oder flexibel arbeiten. Für ausgewählte Tätigkeiten kannst du regelmässig von zu Hause aus arbeiten.\nPensionskasse\nWir bieten dir eine äusserst attraktive, sichere Pensionskasse mit überdurchschnittlichen Arbeitgeberbeiträgen und grosszügigen Leistungen.\nBeteiligung Krankenversicherungsprämie\nDu und deine Familie profitieren von reduzierten Krankenversicherungsprämien.\nMitarbeitende werben Mitarbeitende\nDu erhältst eine Provision, wenn du neue Mitarbeitende für die CONCORDIA gewinnst.\nFerien\nDeine Erholung ist uns wichtig: Geniesse mindestens fünf Wochen Ferien pro Jahr.\nDienstaltersgeschenk\nWir schätzen langjährige Zusammenarbeit. Ab fünf Dienstjahren erhältst du regelmässig ein Dienstaltersgeschenk: Ferien oder einen Bonus.\nAusgezeichnet von den Mitarbeitenden\nBereits 2016 und 2018 brillierte die CONCORDIA beim Swiss Arbeitgeber Award mit hervorragenden Ergebnissen. Im Jahr 2020 holten wir uns dann sogar den ersten Platz in der Kategorie für grosse Unternehmen mit mehr als 1000 Mitarbeitenden und im Jahr 2022 wurden wir mit dem zweiten Platz ausgezeichnet. Auch im Jahr 2025 dürfen wir mit gutem Recht festhalten, dass wir zu den allerbesten Arbeitgeberinnen der Schweiz gehören.",
+        "it": "Ehrliche Zusammenarbeit: 100 % gesund\nTribschenstrasse, 6005 Luzern\nBist du ein erfahrener Softwareentwickler und möchtest im KI-Bereich arbeiten?Dann bewirb dich bei der CONCORDIA und übernehme eine zentrale Rolle in unserem wachsenden KI-Team. Unser Team entwickelt KI-Anwendungen, die direkten Mehrwert in den operativen Prozessen der CONCORDIA bringen – beispielsweise in der Dokumentverarbeitung, der Rechnungsprüfung oder im Underwriting.\n\n## Das erwartet dich\n• Du entwickelst produktionsreife KI-Anwendungen und integrierst sie in unsere bestehende IT-Landschaft.\n• Du behältst architektonische Best Practices im Blick und stellst sicher, dass unsere KI-Anwendungen skalierbar, sicher und wartbar sind.\n• Du nimmst eine zentrale Rolle in unserem KI-Team ein und trägst Verantwortung für inhaltliche und technische Fragestellungen.\n• Gemeinsam mit dem Team erarbeitest du KI-Lösungen für verschiedene Bereiche der CONCORDIA. Unsere Lösungen reichen von Chatbots bis zum Einsatz von KI in operativen Prozessen.\n• Du arbeitest in KI-Vorhaben eng mit anderen IT-Teams und Business Units zusammen, um massgeschneiderte Lösungen zu finden.\n\n## Das bringst du mit\n• Du verfügst über mehrjährige Erfahrung in der Softwareentwicklung und gute Python Kenntnisse.\n• Du bist in der Lage, produktionsreife Anwendungen zu entwickeln und zu containerisieren. Gängige Technologien und Best Practices wie FastAPI, Docker, Kubernetes, Infrastructure as Code und CI/CD sind dir vertraut.\n• Du bringst Erfahrung in der Entwicklung von LLM-basierten Anwendungen mit. Erfahrung mit klassischen Machine Learning Modellen ist ein Plus.\n• Du bist mit gängigen Cloud-Plattformen vertraut. Erfahrung mit Azure und Azure AI Services ist ein grosser Vorteil.\n• Idealerweise hast du bereits AI-Lösungen von der Konzeption bis zur Umsetzung verantwortet und bringst Erfahrung in der Architektur und Integration von AI-Systemen mit.\n• Du hast Freude an der Zusammenarbeit mit Stakeholdern in IT und Fach. Zudem kannst du deine Ideen klar auf Deutsch kommunizieren.\nDein Arbeitsort\n\n## Darum CONCORDIA\nAls Expertin für Gesundheit setzt sich die CONCORDIA für ein Arbeitsumfeld ein, in dem sich Mitarbeitende wohlfühlen und verwirklichen können. Es ist geprägt von abwechslungsreichen Aufgaben, vielseitigen Teams und einem familiären Umgang. Zudem motivieren wir unsere Mitarbeitenden, sich weiterzuentwickeln und voranzukommen. Menschen, die Spass an der Arbeit haben und beruflich vorwärtskommen wollen, finden bei uns, was sie suchen: Jobs, die zu 100 % gesund sind.\nDarum CONCORDIA\n\n## Deine Vorteile\nArbeitszeit\nDu hast eine 41-Stunden-Woche und kannst Teilzeit oder flexibel arbeiten. Für ausgewählte Tätigkeiten kannst du regelmässig von zu Hause aus arbeiten.\nPensionskasse\nWir bieten dir eine äusserst attraktive, sichere Pensionskasse mit überdurchschnittlichen Arbeitgeberbeiträgen und grosszügigen Leistungen.\nBeteiligung Krankenversicherungsprämie\nDu und deine Familie profitieren von reduzierten Krankenversicherungsprämien.\nMitarbeitende werben Mitarbeitende\nDu erhältst eine Provision, wenn du neue Mitarbeitende für die CONCORDIA gewinnst.\nFerien\nDeine Erholung ist uns wichtig: Geniesse mindestens fünf Wochen Ferien pro Jahr.\nDienstaltersgeschenk\nWir schätzen langjährige Zusammenarbeit. Ab fünf Dienstjahren erhältst du regelmässig ein Dienstaltersgeschenk: Ferien oder einen Bonus.\nAusgezeichnet von den Mitarbeitenden\nBereits 2016 und 2018 brillierte die CONCORDIA beim Swiss Arbeitgeber Award mit hervorragenden Ergebnissen. Im Jahr 2020 holten wir uns dann sogar den ersten Platz in der Kategorie für grosse Unternehmen mit mehr als 1000 Mitarbeitenden und im Jahr 2022 wurden wir mit dem zweiten Platz ausgezeichnet. Auch im Jahr 2025 dürfen wir mit gutem Recht festhalten, dass wir zu den allerbesten Arbeitgeberinnen der Schweiz gehören.",
+        "en": "Ehrliche Zusammenarbeit: 100 % gesund\nTribschenstrasse, 6005 Luzern\nBist du ein erfahrener Softwareentwickler und möchtest im KI-Bereich arbeiten?Dann bewirb dich bei der CONCORDIA und übernehme eine zentrale Rolle in unserem wachsenden KI-Team. Unser Team entwickelt KI-Anwendungen, die direkten Mehrwert in den operativen Prozessen der CONCORDIA bringen – beispielsweise in der Dokumentverarbeitung, der Rechnungsprüfung oder im Underwriting.\n\n## Das erwartet dich\n• Du entwickelst produktionsreife KI-Anwendungen und integrierst sie in unsere bestehende IT-Landschaft.\n• Du behältst architektonische Best Practices im Blick und stellst sicher, dass unsere KI-Anwendungen skalierbar, sicher und wartbar sind.\n• Du nimmst eine zentrale Rolle in unserem KI-Team ein und trägst Verantwortung für inhaltliche und technische Fragestellungen.\n• Gemeinsam mit dem Team erarbeitest du KI-Lösungen für verschiedene Bereiche der CONCORDIA. Unsere Lösungen reichen von Chatbots bis zum Einsatz von KI in operativen Prozessen.\n• Du arbeitest in KI-Vorhaben eng mit anderen IT-Teams und Business Units zusammen, um massgeschneiderte Lösungen zu finden.\n\n## Das bringst du mit\n• Du verfügst über mehrjährige Erfahrung in der Softwareentwicklung und gute Python Kenntnisse.\n• Du bist in der Lage, produktionsreife Anwendungen zu entwickeln und zu containerisieren. Gängige Technologien und Best Practices wie FastAPI, Docker, Kubernetes, Infrastructure as Code und CI/CD sind dir vertraut.\n• Du bringst Erfahrung in der Entwicklung von LLM-basierten Anwendungen mit. Erfahrung mit klassischen Machine Learning Modellen ist ein Plus.\n• Du bist mit gängigen Cloud-Plattformen vertraut. Erfahrung mit Azure und Azure AI Services ist ein grosser Vorteil.\n• Idealerweise hast du bereits AI-Lösungen von der Konzeption bis zur Umsetzung verantwortet und bringst Erfahrung in der Architektur und Integration von AI-Systemen mit.\n• Du hast Freude an der Zusammenarbeit mit Stakeholdern in IT und Fach. Zudem kannst du deine Ideen klar auf Deutsch kommunizieren.\nDein Arbeitsort\n\n## Darum CONCORDIA\nAls Expertin für Gesundheit setzt sich die CONCORDIA für ein Arbeitsumfeld ein, in dem sich Mitarbeitende wohlfühlen und verwirklichen können. Es ist geprägt von abwechslungsreichen Aufgaben, vielseitigen Teams und einem familiären Umgang. Zudem motivieren wir unsere Mitarbeitenden, sich weiterzuentwickeln und voranzukommen. Menschen, die Spass an der Arbeit haben und beruflich vorwärtskommen wollen, finden bei uns, was sie suchen: Jobs, die zu 100 % gesund sind.\nDarum CONCORDIA\n\n## Deine Vorteile\nArbeitszeit\nDu hast eine 41-Stunden-Woche und kannst Teilzeit oder flexibel arbeiten. Für ausgewählte Tätigkeiten kannst du regelmässig von zu Hause aus arbeiten.\nPensionskasse\nWir bieten dir eine äusserst attraktive, sichere Pensionskasse mit überdurchschnittlichen Arbeitgeberbeiträgen und grosszügigen Leistungen.\nBeteiligung Krankenversicherungsprämie\nDu und deine Familie profitieren von reduzierten Krankenversicherungsprämien.\nMitarbeitende werben Mitarbeitende\nDu erhältst eine Provision, wenn du neue Mitarbeitende für die CONCORDIA gewinnst.\nFerien\nDeine Erholung ist uns wichtig: Geniesse mindestens fünf Wochen Ferien pro Jahr.\nDienstaltersgeschenk\nWir schätzen langjährige Zusammenarbeit. Ab fünf Dienstjahren erhältst du regelmässig ein Dienstaltersgeschenk: Ferien oder einen Bonus.\nAusgezeichnet von den Mitarbeitenden\nBereits 2016 und 2018 brillierte die CONCORDIA beim Swiss Arbeitgeber Award mit hervorragenden Ergebnissen. Im Jahr 2020 holten wir uns dann sogar den ersten Platz in der Kategorie für grosse Unternehmen mit mehr als 1000 Mitarbeitenden und im Jahr 2022 wurden wir mit dem zweiten Platz ausgezeichnet. Auch im Jahr 2025 dürfen wir mit gutem Recht festhalten, dass wir zu den allerbesten Arbeitgeberinnen der Schweiz gehören.",
+        "fr": "Ehrliche Zusammenarbeit: 100 % gesund\nTribschenstrasse, 6005 Luzern\nBist du ein erfahrener Softwareentwickler und möchtest im KI-Bereich arbeiten?Dann bewirb dich bei der CONCORDIA und übernehme eine zentrale Rolle in unserem wachsenden KI-Team. Unser Team entwickelt KI-Anwendungen, die direkten Mehrwert in den operativen Prozessen der CONCORDIA bringen – beispielsweise in der Dokumentverarbeitung, der Rechnungsprüfung oder im Underwriting.\n\n## Das erwartet dich\n• Du entwickelst produktionsreife KI-Anwendungen und integrierst sie in unsere bestehende IT-Landschaft.\n• Du behältst architektonische Best Practices im Blick und stellst sicher, dass unsere KI-Anwendungen skalierbar, sicher und wartbar sind.\n• Du nimmst eine zentrale Rolle in unserem KI-Team ein und trägst Verantwortung für inhaltliche und technische Fragestellungen.\n• Gemeinsam mit dem Team erarbeitest du KI-Lösungen für verschiedene Bereiche der CONCORDIA. Unsere Lösungen reichen von Chatbots bis zum Einsatz von KI in operativen Prozessen.\n• Du arbeitest in KI-Vorhaben eng mit anderen IT-Teams und Business Units zusammen, um massgeschneiderte Lösungen zu finden.\n\n## Das bringst du mit\n• Du verfügst über mehrjährige Erfahrung in der Softwareentwicklung und gute Python Kenntnisse.\n• Du bist in der Lage, produktionsreife Anwendungen zu entwickeln und zu containerisieren. Gängige Technologien und Best Practices wie FastAPI, Docker, Kubernetes, Infrastructure as Code und CI/CD sind dir vertraut.\n• Du bringst Erfahrung in der Entwicklung von LLM-basierten Anwendungen mit. Erfahrung mit klassischen Machine Learning Modellen ist ein Plus.\n• Du bist mit gängigen Cloud-Plattformen vertraut. Erfahrung mit Azure und Azure AI Services ist ein grosser Vorteil.\n• Idealerweise hast du bereits AI-Lösungen von der Konzeption bis zur Umsetzung verantwortet und bringst Erfahrung in der Architektur und Integration von AI-Systemen mit.\n• Du hast Freude an der Zusammenarbeit mit Stakeholdern in IT und Fach. Zudem kannst du deine Ideen klar auf Deutsch kommunizieren.\nDein Arbeitsort\n\n## Darum CONCORDIA\nAls Expertin für Gesundheit setzt sich die CONCORDIA für ein Arbeitsumfeld ein, in dem sich Mitarbeitende wohlfühlen und verwirklichen können. Es ist geprägt von abwechslungsreichen Aufgaben, vielseitigen Teams und einem familiären Umgang. Zudem motivieren wir unsere Mitarbeitenden, sich weiterzuentwickeln und voranzukommen. Menschen, die Spass an der Arbeit haben und beruflich vorwärtskommen wollen, finden bei uns, was sie suchen: Jobs, die zu 100 % gesund sind.\nDarum CONCORDIA\n\n## Deine Vorteile\nArbeitszeit\nDu hast eine 41-Stunden-Woche und kannst Teilzeit oder flexibel arbeiten. Für ausgewählte Tätigkeiten kannst du regelmässig von zu Hause aus arbeiten.\nPensionskasse\nWir bieten dir eine äusserst attraktive, sichere Pensionskasse mit überdurchschnittlichen Arbeitgeberbeiträgen und grosszügigen Leistungen.\nBeteiligung Krankenversicherungsprämie\nDu und deine Familie profitieren von reduzierten Krankenversicherungsprämien.\nMitarbeitende werben Mitarbeitende\nDu erhältst eine Provision, wenn du neue Mitarbeitende für die CONCORDIA gewinnst.\nFerien\nDeine Erholung ist uns wichtig: Geniesse mindestens fünf Wochen Ferien pro Jahr.\nDienstaltersgeschenk\nWir schätzen langjährige Zusammenarbeit. Ab fünf Dienstjahren erhältst du regelmässig ein Dienstaltersgeschenk: Ferien oder einen Bonus.\nAusgezeichnet von den Mitarbeitenden\nBereits 2016 und 2018 brillierte die CONCORDIA beim Swiss Arbeitgeber Award mit hervorragenden Ergebnissen. Im Jahr 2020 holten wir uns dann sogar den ersten Platz in der Kategorie für grosse Unternehmen mit mehr als 1000 Mitarbeitenden und im Jahr 2022 wurden wir mit dem zweiten Platz ausgezeichnet. Auch im Jahr 2025 dürfen wir mit gutem Recht festhalten, dass wir zu den allerbesten Arbeitgeberinnen der Schweiz gehören."
+      },
+      "needsRetranslation": true,
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://jobs.concordia.ch/offene-stellen/senior-ai-engineer-architect-w-m-d-80/cb3e8760-006a-4470-9602-f7f33c6894b2",
+      "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-23T09:19:07.237Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6003",
+      "streetAddress": "Tribschenstrasse",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-23",
+      "postedDate": "2026-11-23",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.concordia.ch/offene-stellen/senior-ai-engineer-architect-w-m-d-80/cb3e8760-006a-4470-9602-f7f33c6894b2",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 114500,
+      "salaryMax": 195000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 114500,
+          "maxValue": 195000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-21T09:19:07.237Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-23T09:19:07.237Z"
+    },
+    {
+      "id": "concordia-c4def38f98d2",
+      "slug": "ai-engineer-w-m-d-80-100-concordia-luzern",
+      "slugByLocale": {
+        "de": "ai-engineer-w-m-d-80-100-concordia-luzern",
+        "it": "ai-engineer-w-m-d-80-100-concordia-luzern",
+        "en": "ai-engineer-w-m-d-80-100-concordia-luzern",
+        "fr": "ai-engineer-w-m-d-80-100-concordia-luzern"
+      },
+      "company": "Concordia",
+      "companyKey": "concordia",
+      "companyDomain": "concordia.ch",
+      "title": "AI Engineer (w/m/d), 80–100 %",
+      "titleByLocale": {
+        "de": "AI Engineer (w/m/d), 80–100 %",
+        "it": "AI Ingegnere (w/m/d), 80–100 %",
+        "en": "AI Engineer (w/m/d), 80–100 %",
+        "fr": "AI Ingénieur (w/m/d), 80–100 %"
+      },
+      "description": "Ehrliche Zusammenarbeit: 100 % gesund\nTribschenstrasse, 6005 Luzern\nMöchtest du deine Erfahrung in der Softwareentwicklung einsetzen, um fachliche Herausforderungen mit KI zu lösen? Dann bewirb dich bei der CONCORDIA und werde Teil unseres wachsenden KI-Teams. Unser Team entwickelt KI-Anwendungen, die direkten Mehrwert in den operativen Prozessen der CONCORDIA bringen – beispielsweise in der Dokumentverarbeitung, der Rechnungsprüfung oder im Underwriting.\n\n## Das erwartet dich\n• Du entwickelst gemeinsam mit dem Team KI-Anwendungen und begleitest sie von der ersten Idee bis zum produktiven Einsatz.\n• Du arbeitest dich in die Fragestellungen und Prozesse unserer Fachbereiche ein. Im Austausch mit den Fachpersonen klärst du Anforderungen und übersetzt sie in konkrete KI-Lösungen.\n• Du erprobst unterschiedliche Lösungsansätze und prüfst anhand konkreter Anwendungsfälle, ob die Ergebnisse fachlich korrekt und im Alltag hilfreich sind.\n• Du arbeitest eng mit erfahrenen Kolleginnen und Kollegen, anderen IT-Teams und Business Units zusammen und vertiefst dabei deine fachlichen und technischen Kenntnisse\n\n## Das bringst du mit\n• Du hast ein Studium an einer Universität oder Fachhochschule mit sehr guten Leistungen abgeschlossen, beispielsweise in Informatik, Statistik, Data Science oder einem verwandten Gebiet.\n• Du beherrschst Python, bist mit Docker vertraut und hast bereits anspruchsvolle Softwareprojekte umgesetzt. Du schreibst strukturierten, wartbaren Code und bist mit Tests, Versionsverwaltung und gängigen Prinzipien der Softwareentwicklung vertraut.\n• Du erschliesst dir neue Themen rasch, stellst gezielte Fragen und kannst komplexe fachliche Zusammenhänge in strukturierte Lösungsansätze übersetzen.\n• Du interessierst dich für die Entwicklung von KI-Anwendungen und möchtest dein Wissen in der Praxis vertiefen. Vertiefte Erfahrungen mit LLMs, Machine Learning oder Cloud-Technologien sind ein Plus.\n• Du hast Freude am Austausch mit Fachpersonen und IT-Teams, hinterfragst Ergebnisse kritisch und kannst deine Überlegungen klar auf Deutsch vermitteln.\nDein Arbeitsort\n\n## Darum CONCORDIA\nAls Expertin für Gesundheit setzt sich die CONCORDIA für ein Arbeitsumfeld ein, in dem sich Mitarbeitende wohlfühlen und verwirklichen können. Es ist geprägt von abwechslungsreichen Aufgaben, vielseitigen Teams und einem familiären Umgang. Zudem motivieren wir unsere Mitarbeitenden, sich weiterzuentwickeln und voranzukommen. Menschen, die Spass an der Arbeit haben und beruflich vorwärtskommen wollen, finden bei uns, was sie suchen: Jobs, die zu 100 % gesund sind.\nDarum CONCORDIA\n\n## Deine Vorteile\nArbeitszeit\nDu hast eine 41-Stunden-Woche und kannst Teilzeit oder flexibel arbeiten. Für ausgewählte Tätigkeiten kannst du regelmässig von zu Hause aus arbeiten.\nPensionskasse\nWir bieten dir eine äusserst attraktive, sichere Pensionskasse mit überdurchschnittlichen Arbeitgeberbeiträgen und grosszügigen Leistungen.\nBeteiligung Krankenversicherungsprämie\nDu und deine Familie profitieren von reduzierten Krankenversicherungsprämien.\nMitarbeitende werben Mitarbeitende\nDu erhältst eine Provision, wenn du neue Mitarbeitende für die CONCORDIA gewinnst.\nFerien\nDeine Erholung ist uns wichtig: Geniesse mindestens fünf Wochen Ferien pro Jahr.\nDienstaltersgeschenk\nWir schätzen langjährige Zusammenarbeit. Ab fünf Dienstjahren erhältst du regelmässig ein Dienstaltersgeschenk: Ferien oder einen Bonus.\nAusgezeichnet von den Mitarbeitenden\nBereits 2016 und 2018 brillierte die CONCORDIA beim Swiss Arbeitgeber Award mit hervorragenden Ergebnissen. Im Jahr 2020 holten wir uns dann sogar den ersten Platz in der Kategorie für grosse Unternehmen mit mehr als 1000 Mitarbeitenden und im Jahr 2022 wurden wir mit dem zweiten Platz ausgezeichnet. Auch im Jahr 2025 dürfen wir mit gutem Recht festhalten, dass wir zu den allerbesten Arbeitgeberinnen der Schweiz gehören.",
+      "descriptionByLocale": {
+        "de": "Ehrliche Zusammenarbeit: 100 % gesund\nTribschenstrasse, 6005 Luzern\nMöchtest du deine Erfahrung in der Softwareentwicklung einsetzen, um fachliche Herausforderungen mit KI zu lösen? Dann bewirb dich bei der CONCORDIA und werde Teil unseres wachsenden KI-Teams. Unser Team entwickelt KI-Anwendungen, die direkten Mehrwert in den operativen Prozessen der CONCORDIA bringen – beispielsweise in der Dokumentverarbeitung, der Rechnungsprüfung oder im Underwriting.\n\n## Das erwartet dich\n• Du entwickelst gemeinsam mit dem Team KI-Anwendungen und begleitest sie von der ersten Idee bis zum produktiven Einsatz.\n• Du arbeitest dich in die Fragestellungen und Prozesse unserer Fachbereiche ein. Im Austausch mit den Fachpersonen klärst du Anforderungen und übersetzt sie in konkrete KI-Lösungen.\n• Du erprobst unterschiedliche Lösungsansätze und prüfst anhand konkreter Anwendungsfälle, ob die Ergebnisse fachlich korrekt und im Alltag hilfreich sind.\n• Du arbeitest eng mit erfahrenen Kolleginnen und Kollegen, anderen IT-Teams und Business Units zusammen und vertiefst dabei deine fachlichen und technischen Kenntnisse\n\n## Das bringst du mit\n• Du hast ein Studium an einer Universität oder Fachhochschule mit sehr guten Leistungen abgeschlossen, beispielsweise in Informatik, Statistik, Data Science oder einem verwandten Gebiet.\n• Du beherrschst Python, bist mit Docker vertraut und hast bereits anspruchsvolle Softwareprojekte umgesetzt. Du schreibst strukturierten, wartbaren Code und bist mit Tests, Versionsverwaltung und gängigen Prinzipien der Softwareentwicklung vertraut.\n• Du erschliesst dir neue Themen rasch, stellst gezielte Fragen und kannst komplexe fachliche Zusammenhänge in strukturierte Lösungsansätze übersetzen.\n• Du interessierst dich für die Entwicklung von KI-Anwendungen und möchtest dein Wissen in der Praxis vertiefen. Vertiefte Erfahrungen mit LLMs, Machine Learning oder Cloud-Technologien sind ein Plus.\n• Du hast Freude am Austausch mit Fachpersonen und IT-Teams, hinterfragst Ergebnisse kritisch und kannst deine Überlegungen klar auf Deutsch vermitteln.\nDein Arbeitsort\n\n## Darum CONCORDIA\nAls Expertin für Gesundheit setzt sich die CONCORDIA für ein Arbeitsumfeld ein, in dem sich Mitarbeitende wohlfühlen und verwirklichen können. Es ist geprägt von abwechslungsreichen Aufgaben, vielseitigen Teams und einem familiären Umgang. Zudem motivieren wir unsere Mitarbeitenden, sich weiterzuentwickeln und voranzukommen. Menschen, die Spass an der Arbeit haben und beruflich vorwärtskommen wollen, finden bei uns, was sie suchen: Jobs, die zu 100 % gesund sind.\nDarum CONCORDIA\n\n## Deine Vorteile\nArbeitszeit\nDu hast eine 41-Stunden-Woche und kannst Teilzeit oder flexibel arbeiten. Für ausgewählte Tätigkeiten kannst du regelmässig von zu Hause aus arbeiten.\nPensionskasse\nWir bieten dir eine äusserst attraktive, sichere Pensionskasse mit überdurchschnittlichen Arbeitgeberbeiträgen und grosszügigen Leistungen.\nBeteiligung Krankenversicherungsprämie\nDu und deine Familie profitieren von reduzierten Krankenversicherungsprämien.\nMitarbeitende werben Mitarbeitende\nDu erhältst eine Provision, wenn du neue Mitarbeitende für die CONCORDIA gewinnst.\nFerien\nDeine Erholung ist uns wichtig: Geniesse mindestens fünf Wochen Ferien pro Jahr.\nDienstaltersgeschenk\nWir schätzen langjährige Zusammenarbeit. Ab fünf Dienstjahren erhältst du regelmässig ein Dienstaltersgeschenk: Ferien oder einen Bonus.\nAusgezeichnet von den Mitarbeitenden\nBereits 2016 und 2018 brillierte die CONCORDIA beim Swiss Arbeitgeber Award mit hervorragenden Ergebnissen. Im Jahr 2020 holten wir uns dann sogar den ersten Platz in der Kategorie für grosse Unternehmen mit mehr als 1000 Mitarbeitenden und im Jahr 2022 wurden wir mit dem zweiten Platz ausgezeichnet. Auch im Jahr 2025 dürfen wir mit gutem Recht festhalten, dass wir zu den allerbesten Arbeitgeberinnen der Schweiz gehören.",
+        "it": "Ehrliche Zusammenarbeit: 100 % gesund\nTribschenstrasse, 6005 Luzern\nMöchtest du deine Erfahrung in der Softwareentwicklung einsetzen, um fachliche Herausforderungen mit KI zu lösen? Dann bewirb dich bei der CONCORDIA und werde Teil unseres wachsenden KI-Teams. Unser Team entwickelt KI-Anwendungen, die direkten Mehrwert in den operativen Prozessen der CONCORDIA bringen – beispielsweise in der Dokumentverarbeitung, der Rechnungsprüfung oder im Underwriting.\n\n## Das erwartet dich\n• Du entwickelst gemeinsam mit dem Team KI-Anwendungen und begleitest sie von der ersten Idee bis zum produktiven Einsatz.\n• Du arbeitest dich in die Fragestellungen und Prozesse unserer Fachbereiche ein. Im Austausch mit den Fachpersonen klärst du Anforderungen und übersetzt sie in konkrete KI-Lösungen.\n• Du erprobst unterschiedliche Lösungsansätze und prüfst anhand konkreter Anwendungsfälle, ob die Ergebnisse fachlich korrekt und im Alltag hilfreich sind.\n• Du arbeitest eng mit erfahrenen Kolleginnen und Kollegen, anderen IT-Teams und Business Units zusammen und vertiefst dabei deine fachlichen und technischen Kenntnisse\n\n## Das bringst du mit\n• Du hast ein Studium an einer Universität oder Fachhochschule mit sehr guten Leistungen abgeschlossen, beispielsweise in Informatik, Statistik, Data Science oder einem verwandten Gebiet.\n• Du beherrschst Python, bist mit Docker vertraut und hast bereits anspruchsvolle Softwareprojekte umgesetzt. Du schreibst strukturierten, wartbaren Code und bist mit Tests, Versionsverwaltung und gängigen Prinzipien der Softwareentwicklung vertraut.\n• Du erschliesst dir neue Themen rasch, stellst gezielte Fragen und kannst komplexe fachliche Zusammenhänge in strukturierte Lösungsansätze übersetzen.\n• Du interessierst dich für die Entwicklung von KI-Anwendungen und möchtest dein Wissen in der Praxis vertiefen. Vertiefte Erfahrungen mit LLMs, Machine Learning oder Cloud-Technologien sind ein Plus.\n• Du hast Freude am Austausch mit Fachpersonen und IT-Teams, hinterfragst Ergebnisse kritisch und kannst deine Überlegungen klar auf Deutsch vermitteln.\nDein Arbeitsort\n\n## Darum CONCORDIA\nAls Expertin für Gesundheit setzt sich die CONCORDIA für ein Arbeitsumfeld ein, in dem sich Mitarbeitende wohlfühlen und verwirklichen können. Es ist geprägt von abwechslungsreichen Aufgaben, vielseitigen Teams und einem familiären Umgang. Zudem motivieren wir unsere Mitarbeitenden, sich weiterzuentwickeln und voranzukommen. Menschen, die Spass an der Arbeit haben und beruflich vorwärtskommen wollen, finden bei uns, was sie suchen: Jobs, die zu 100 % gesund sind.\nDarum CONCORDIA\n\n## Deine Vorteile\nArbeitszeit\nDu hast eine 41-Stunden-Woche und kannst Teilzeit oder flexibel arbeiten. Für ausgewählte Tätigkeiten kannst du regelmässig von zu Hause aus arbeiten.\nPensionskasse\nWir bieten dir eine äusserst attraktive, sichere Pensionskasse mit überdurchschnittlichen Arbeitgeberbeiträgen und grosszügigen Leistungen.\nBeteiligung Krankenversicherungsprämie\nDu und deine Familie profitieren von reduzierten Krankenversicherungsprämien.\nMitarbeitende werben Mitarbeitende\nDu erhältst eine Provision, wenn du neue Mitarbeitende für die CONCORDIA gewinnst.\nFerien\nDeine Erholung ist uns wichtig: Geniesse mindestens fünf Wochen Ferien pro Jahr.\nDienstaltersgeschenk\nWir schätzen langjährige Zusammenarbeit. Ab fünf Dienstjahren erhältst du regelmässig ein Dienstaltersgeschenk: Ferien oder einen Bonus.\nAusgezeichnet von den Mitarbeitenden\nBereits 2016 und 2018 brillierte die CONCORDIA beim Swiss Arbeitgeber Award mit hervorragenden Ergebnissen. Im Jahr 2020 holten wir uns dann sogar den ersten Platz in der Kategorie für grosse Unternehmen mit mehr als 1000 Mitarbeitenden und im Jahr 2022 wurden wir mit dem zweiten Platz ausgezeichnet. Auch im Jahr 2025 dürfen wir mit gutem Recht festhalten, dass wir zu den allerbesten Arbeitgeberinnen der Schweiz gehören.",
+        "en": "Ehrliche Zusammenarbeit: 100 % gesund\nTribschenstrasse, 6005 Luzern\nMöchtest du deine Erfahrung in der Softwareentwicklung einsetzen, um fachliche Herausforderungen mit KI zu lösen? Dann bewirb dich bei der CONCORDIA und werde Teil unseres wachsenden KI-Teams. Unser Team entwickelt KI-Anwendungen, die direkten Mehrwert in den operativen Prozessen der CONCORDIA bringen – beispielsweise in der Dokumentverarbeitung, der Rechnungsprüfung oder im Underwriting.\n\n## Das erwartet dich\n• Du entwickelst gemeinsam mit dem Team KI-Anwendungen und begleitest sie von der ersten Idee bis zum produktiven Einsatz.\n• Du arbeitest dich in die Fragestellungen und Prozesse unserer Fachbereiche ein. Im Austausch mit den Fachpersonen klärst du Anforderungen und übersetzt sie in konkrete KI-Lösungen.\n• Du erprobst unterschiedliche Lösungsansätze und prüfst anhand konkreter Anwendungsfälle, ob die Ergebnisse fachlich korrekt und im Alltag hilfreich sind.\n• Du arbeitest eng mit erfahrenen Kolleginnen und Kollegen, anderen IT-Teams und Business Units zusammen und vertiefst dabei deine fachlichen und technischen Kenntnisse\n\n## Das bringst du mit\n• Du hast ein Studium an einer Universität oder Fachhochschule mit sehr guten Leistungen abgeschlossen, beispielsweise in Informatik, Statistik, Data Science oder einem verwandten Gebiet.\n• Du beherrschst Python, bist mit Docker vertraut und hast bereits anspruchsvolle Softwareprojekte umgesetzt. Du schreibst strukturierten, wartbaren Code und bist mit Tests, Versionsverwaltung und gängigen Prinzipien der Softwareentwicklung vertraut.\n• Du erschliesst dir neue Themen rasch, stellst gezielte Fragen und kannst komplexe fachliche Zusammenhänge in strukturierte Lösungsansätze übersetzen.\n• Du interessierst dich für die Entwicklung von KI-Anwendungen und möchtest dein Wissen in der Praxis vertiefen. Vertiefte Erfahrungen mit LLMs, Machine Learning oder Cloud-Technologien sind ein Plus.\n• Du hast Freude am Austausch mit Fachpersonen und IT-Teams, hinterfragst Ergebnisse kritisch und kannst deine Überlegungen klar auf Deutsch vermitteln.\nDein Arbeitsort\n\n## Darum CONCORDIA\nAls Expertin für Gesundheit setzt sich die CONCORDIA für ein Arbeitsumfeld ein, in dem sich Mitarbeitende wohlfühlen und verwirklichen können. Es ist geprägt von abwechslungsreichen Aufgaben, vielseitigen Teams und einem familiären Umgang. Zudem motivieren wir unsere Mitarbeitenden, sich weiterzuentwickeln und voranzukommen. Menschen, die Spass an der Arbeit haben und beruflich vorwärtskommen wollen, finden bei uns, was sie suchen: Jobs, die zu 100 % gesund sind.\nDarum CONCORDIA\n\n## Deine Vorteile\nArbeitszeit\nDu hast eine 41-Stunden-Woche und kannst Teilzeit oder flexibel arbeiten. Für ausgewählte Tätigkeiten kannst du regelmässig von zu Hause aus arbeiten.\nPensionskasse\nWir bieten dir eine äusserst attraktive, sichere Pensionskasse mit überdurchschnittlichen Arbeitgeberbeiträgen und grosszügigen Leistungen.\nBeteiligung Krankenversicherungsprämie\nDu und deine Familie profitieren von reduzierten Krankenversicherungsprämien.\nMitarbeitende werben Mitarbeitende\nDu erhältst eine Provision, wenn du neue Mitarbeitende für die CONCORDIA gewinnst.\nFerien\nDeine Erholung ist uns wichtig: Geniesse mindestens fünf Wochen Ferien pro Jahr.\nDienstaltersgeschenk\nWir schätzen langjährige Zusammenarbeit. Ab fünf Dienstjahren erhältst du regelmässig ein Dienstaltersgeschenk: Ferien oder einen Bonus.\nAusgezeichnet von den Mitarbeitenden\nBereits 2016 und 2018 brillierte die CONCORDIA beim Swiss Arbeitgeber Award mit hervorragenden Ergebnissen. Im Jahr 2020 holten wir uns dann sogar den ersten Platz in der Kategorie für grosse Unternehmen mit mehr als 1000 Mitarbeitenden und im Jahr 2022 wurden wir mit dem zweiten Platz ausgezeichnet. Auch im Jahr 2025 dürfen wir mit gutem Recht festhalten, dass wir zu den allerbesten Arbeitgeberinnen der Schweiz gehören.",
+        "fr": "Ehrliche Zusammenarbeit: 100 % gesund\nTribschenstrasse, 6005 Luzern\nMöchtest du deine Erfahrung in der Softwareentwicklung einsetzen, um fachliche Herausforderungen mit KI zu lösen? Dann bewirb dich bei der CONCORDIA und werde Teil unseres wachsenden KI-Teams. Unser Team entwickelt KI-Anwendungen, die direkten Mehrwert in den operativen Prozessen der CONCORDIA bringen – beispielsweise in der Dokumentverarbeitung, der Rechnungsprüfung oder im Underwriting.\n\n## Das erwartet dich\n• Du entwickelst gemeinsam mit dem Team KI-Anwendungen und begleitest sie von der ersten Idee bis zum produktiven Einsatz.\n• Du arbeitest dich in die Fragestellungen und Prozesse unserer Fachbereiche ein. Im Austausch mit den Fachpersonen klärst du Anforderungen und übersetzt sie in konkrete KI-Lösungen.\n• Du erprobst unterschiedliche Lösungsansätze und prüfst anhand konkreter Anwendungsfälle, ob die Ergebnisse fachlich korrekt und im Alltag hilfreich sind.\n• Du arbeitest eng mit erfahrenen Kolleginnen und Kollegen, anderen IT-Teams und Business Units zusammen und vertiefst dabei deine fachlichen und technischen Kenntnisse\n\n## Das bringst du mit\n• Du hast ein Studium an einer Universität oder Fachhochschule mit sehr guten Leistungen abgeschlossen, beispielsweise in Informatik, Statistik, Data Science oder einem verwandten Gebiet.\n• Du beherrschst Python, bist mit Docker vertraut und hast bereits anspruchsvolle Softwareprojekte umgesetzt. Du schreibst strukturierten, wartbaren Code und bist mit Tests, Versionsverwaltung und gängigen Prinzipien der Softwareentwicklung vertraut.\n• Du erschliesst dir neue Themen rasch, stellst gezielte Fragen und kannst komplexe fachliche Zusammenhänge in strukturierte Lösungsansätze übersetzen.\n• Du interessierst dich für die Entwicklung von KI-Anwendungen und möchtest dein Wissen in der Praxis vertiefen. Vertiefte Erfahrungen mit LLMs, Machine Learning oder Cloud-Technologien sind ein Plus.\n• Du hast Freude am Austausch mit Fachpersonen und IT-Teams, hinterfragst Ergebnisse kritisch und kannst deine Überlegungen klar auf Deutsch vermitteln.\nDein Arbeitsort\n\n## Darum CONCORDIA\nAls Expertin für Gesundheit setzt sich die CONCORDIA für ein Arbeitsumfeld ein, in dem sich Mitarbeitende wohlfühlen und verwirklichen können. Es ist geprägt von abwechslungsreichen Aufgaben, vielseitigen Teams und einem familiären Umgang. Zudem motivieren wir unsere Mitarbeitenden, sich weiterzuentwickeln und voranzukommen. Menschen, die Spass an der Arbeit haben und beruflich vorwärtskommen wollen, finden bei uns, was sie suchen: Jobs, die zu 100 % gesund sind.\nDarum CONCORDIA\n\n## Deine Vorteile\nArbeitszeit\nDu hast eine 41-Stunden-Woche und kannst Teilzeit oder flexibel arbeiten. Für ausgewählte Tätigkeiten kannst du regelmässig von zu Hause aus arbeiten.\nPensionskasse\nWir bieten dir eine äusserst attraktive, sichere Pensionskasse mit überdurchschnittlichen Arbeitgeberbeiträgen und grosszügigen Leistungen.\nBeteiligung Krankenversicherungsprämie\nDu und deine Familie profitieren von reduzierten Krankenversicherungsprämien.\nMitarbeitende werben Mitarbeitende\nDu erhältst eine Provision, wenn du neue Mitarbeitende für die CONCORDIA gewinnst.\nFerien\nDeine Erholung ist uns wichtig: Geniesse mindestens fünf Wochen Ferien pro Jahr.\nDienstaltersgeschenk\nWir schätzen langjährige Zusammenarbeit. Ab fünf Dienstjahren erhältst du regelmässig ein Dienstaltersgeschenk: Ferien oder einen Bonus.\nAusgezeichnet von den Mitarbeitenden\nBereits 2016 und 2018 brillierte die CONCORDIA beim Swiss Arbeitgeber Award mit hervorragenden Ergebnissen. Im Jahr 2020 holten wir uns dann sogar den ersten Platz in der Kategorie für grosse Unternehmen mit mehr als 1000 Mitarbeitenden und im Jahr 2022 wurden wir mit dem zweiten Platz ausgezeichnet. Auch im Jahr 2025 dürfen wir mit gutem Recht festhalten, dass wir zu den allerbesten Arbeitgeberinnen der Schweiz gehören."
+      },
+      "needsRetranslation": true,
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://jobs.concordia.ch/offene-stellen/ai-engineer-w-m-d-80/6be31a8a-054e-4f44-b6b7-3a980a2b6478",
+      "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-23T09:19:06.820Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6003",
+      "streetAddress": "Tribschenstrasse",
+      "category": "IT",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-23",
+      "postedDate": "2026-11-23",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.concordia.ch/offene-stellen/ai-engineer-w-m-d-80/6be31a8a-054e-4f44-b6b7-3a980a2b6478",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 74500,
+      "salaryMax": 127000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 74500,
+          "maxValue": 127000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-21T09:19:06.820Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-23T09:19:06.820Z"
+    },
+    {
+      "id": "concordia-0e26a8c63847",
+      "slug": "devops-client-engineer-w-m-d-80-100-concordia-luzern",
+      "slugByLocale": {
+        "de": "devops-client-engineer-w-m-d-80-100-concordia-luzern",
+        "it": "devops-client-engineer-w-m-d-80-100-concordia-luzern",
+        "en": "devops-client-engineer-w-m-d-80-100-concordia-luzern",
+        "fr": "devops-client-engineer-w-m-d-80-100-concordia-luzern"
+      },
+      "company": "Concordia",
+      "companyKey": "concordia",
+      "companyDomain": "concordia.ch",
+      "title": "DevOps Client Engineer (w/m/d), 80–100 %",
+      "titleByLocale": {
+        "de": "DevOps Client Engineer (w/m/d), 80–100 %",
+        "it": "DevOps Client Ingegnere (w/m/d), 80–100 %",
+        "en": "DevOps Client Engineer (w/m/d), 80–100 %",
+        "fr": "DevOps Client Ingénieur (w/m/d), 80–100 %"
+      },
+      "description": "Ehrliche Zusammenarbeit: 100 % gesund\nTribschenstrasse 4, 6005 Luzern\nZu faul für Routinearbeiten? Gut so!\nDu automatisierst lieber wiederkehrende Aufgaben, statt sie jeden Tag von Hand zu erledigen? Du reizt die Möglichkeiten von PowerShell gerne aus, Error Handling liegt dir im Blut und Pipelines brauchst du nicht für den Transport von Flüssigkeiten?\nGleichzeitig weisst du, dass nicht jedes Problem mit einem Skript gelöst werden muss. Du kennst dich mit modernen Microsoft-Workplace-Technologien aus, entwickelst gerne neue Lösungen und hast Freude daran, diese auch selbst zum Laufen zu bringen.\nDann sollten wir uns kennenlernen!\nWir suchen eine erfahrene Engineering-Persönlichkeit, die unseren Digital Workplace aktiv weiterentwickelt, neue Technologien vorantreibt und Automatisierung dort einsetzt, wo sie echten Mehrwert schafft.\n\n## Das erwartet dich\n• Du gestaltest die Weiterentwicklung unseres Digital Workplace aktiv mit und übernimmst Verantwortung für das Engineering und den Betrieb unserer modernen Client-Plattform.\n• Du konzipierst, evaluierst und implementierst neue Workplace-Lösungen auf Basis moderner Microsoft-Technologien und entwickelst bestehende Services kontinuierlich weiter.\n• Du erkennst Automatisierungspotenziale, hinterfragst bestehende Abläufe und entwickelst mit PowerShell, Git und CI/CD-Pipelines nachhaltige Lösungen.\n• Du sorgst mit deinem technischen Know-how dafür, dass unsere Workplace-Services zuverlässig, sicher und effizient funktionieren – ob durch Automatisierung oder klassische Administration.\n• Du übernimmst bei anspruchsvollen technischen Themen eine tragende Rolle, bringst eigene Ideen ein und treibst deren Umsetzung gemeinsam mit deinem Team voran.\n• Du verfolgst technologische Entwicklungen, probierst neue Möglichkeiten aus und hilfst mit, unsere Engineering-Methoden und Arbeitsweisen kontinuierlich zu verbessern.\n\n## Das bringst du mit\n• Du bringst umfassende Erfahrung in der Konzeption, Implementierung und im Betrieb moderner Microsoft-Workplace-Technologien mit – insbesondere Microsoft Intune, M365 Services, Client Management sowie Applikationsmanagement.\n• Du besitzt sehr gute PowerShell-Kenntnisse und setzt Scripting gezielt zur Automatisierung und Vereinfachung technischer Abläufe ein.\n• Du hast bereits Erfahrung mit Git, CI/CD-Pipelines und der Entwicklung von PowerShell-Modulen oder möchtest deine Kenntnisse in diesen Bereichen vertiefen.\n• Du erkennst technische Zusammenhänge, denkst lösungsorientiert und findest eine gute Balance zwischen pragmatischen Lösungen und nachhaltigem Engineering.\n• Du bist neugierig, verfolgst die Entwicklung moderner Microsoft-Technologien und hast Freude daran, neue Möglichkeiten auszuprobieren.\n• Du übernimmst gerne Verantwortung, arbeitest selbstständig und teilst dein Wissen mit anderen.\n• Du kommunizierst sicher auf Deutsch und kannst englische technische Dokumentationen problemlos lesen.\n• Du verfügst über einen Informatik-Fachhochschulabschluss oder gleichwertige praktische Erfahrung.\nDein Arbeitsort\n\n## Darum CONCORDIA\nAls Expertin für Gesundheit setzt sich die CONCORDIA für ein Arbeitsumfeld ein, in dem sich Mitarbeitende wohlfühlen und verwirklichen können. Es ist geprägt von abwechslungsreichen Aufgaben, vielseitigen Teams und einem familiären Umgang. Zudem motivieren wir unsere Mitarbeitenden, sich weiterzuentwickeln und voranzukommen. Menschen, die Spass an der Arbeit haben und beruflich vorwärtskommen wollen, finden bei uns, was sie suchen: Jobs, die zu 100 % gesund sind.\nDarum CONCORDIA\n\n## Deine Vorteile\nArbeitszeit\nDu hast eine 41-Stunden-Woche und kannst Teilzeit oder flexibel arbeiten. Für ausgewählte Tätigkeiten kannst du regelmässig von zu Hause aus arbeiten.\nFamilienfreundlich\nVoller Lohn während 14 Mutterschaftswochen. Zusatzbeiträge zu Kinder- und Ausbildungszulagen. Bis zu 90 % Kostenübernahme für die Fremdbetreuung deiner Kinder.\nAus- und Weiterbildung\nDie CONCORDIA unterstützt interne und externe Weiterbildungen. Bei deiner Karriereplanung begleiten wir dich individuell.\nPensionskasse\nWir bieten dir eine äusserst attraktive, sichere Pensionskasse mit überdurchschnittlichen Arbeitgeberbeiträgen und grosszügigen Leistungen.\nBeteiligung Krankenversicherungsprämie\nDu und deine Familie profitieren von reduzierten Krankenversicherungsprämien.\nWertschätzung\nIn der CONCORDIA-Familie erlebst du Wertschätzung und Teamgeist.\nAusgezeichnet von den Mitarbeitenden\nBereits 2016 und 2018 brillierte die CONCORDIA beim Swiss Arbeitgeber Award mit hervorragenden Ergebnissen. Im Jahr 2020 holten wir uns dann sogar den ersten Platz in der Kategorie für grosse Unternehmen mit mehr als 1000 Mitarbeitenden und im Jahr 2022 wurden wir mit dem zweiten Platz ausgezeichnet. Auch im Jahr 2025 dürfen wir mit gutem Recht festhalten, dass wir zu den allerbesten Arbeitgeberinnen der Schweiz gehören.",
+      "descriptionByLocale": {
+        "de": "Ehrliche Zusammenarbeit: 100 % gesund\nTribschenstrasse 4, 6005 Luzern\nZu faul für Routinearbeiten? Gut so!\nDu automatisierst lieber wiederkehrende Aufgaben, statt sie jeden Tag von Hand zu erledigen? Du reizt die Möglichkeiten von PowerShell gerne aus, Error Handling liegt dir im Blut und Pipelines brauchst du nicht für den Transport von Flüssigkeiten?\nGleichzeitig weisst du, dass nicht jedes Problem mit einem Skript gelöst werden muss. Du kennst dich mit modernen Microsoft-Workplace-Technologien aus, entwickelst gerne neue Lösungen und hast Freude daran, diese auch selbst zum Laufen zu bringen.\nDann sollten wir uns kennenlernen!\nWir suchen eine erfahrene Engineering-Persönlichkeit, die unseren Digital Workplace aktiv weiterentwickelt, neue Technologien vorantreibt und Automatisierung dort einsetzt, wo sie echten Mehrwert schafft.\n\n## Das erwartet dich\n• Du gestaltest die Weiterentwicklung unseres Digital Workplace aktiv mit und übernimmst Verantwortung für das Engineering und den Betrieb unserer modernen Client-Plattform.\n• Du konzipierst, evaluierst und implementierst neue Workplace-Lösungen auf Basis moderner Microsoft-Technologien und entwickelst bestehende Services kontinuierlich weiter.\n• Du erkennst Automatisierungspotenziale, hinterfragst bestehende Abläufe und entwickelst mit PowerShell, Git und CI/CD-Pipelines nachhaltige Lösungen.\n• Du sorgst mit deinem technischen Know-how dafür, dass unsere Workplace-Services zuverlässig, sicher und effizient funktionieren – ob durch Automatisierung oder klassische Administration.\n• Du übernimmst bei anspruchsvollen technischen Themen eine tragende Rolle, bringst eigene Ideen ein und treibst deren Umsetzung gemeinsam mit deinem Team voran.\n• Du verfolgst technologische Entwicklungen, probierst neue Möglichkeiten aus und hilfst mit, unsere Engineering-Methoden und Arbeitsweisen kontinuierlich zu verbessern.\n\n## Das bringst du mit\n• Du bringst umfassende Erfahrung in der Konzeption, Implementierung und im Betrieb moderner Microsoft-Workplace-Technologien mit – insbesondere Microsoft Intune, M365 Services, Client Management sowie Applikationsmanagement.\n• Du besitzt sehr gute PowerShell-Kenntnisse und setzt Scripting gezielt zur Automatisierung und Vereinfachung technischer Abläufe ein.\n• Du hast bereits Erfahrung mit Git, CI/CD-Pipelines und der Entwicklung von PowerShell-Modulen oder möchtest deine Kenntnisse in diesen Bereichen vertiefen.\n• Du erkennst technische Zusammenhänge, denkst lösungsorientiert und findest eine gute Balance zwischen pragmatischen Lösungen und nachhaltigem Engineering.\n• Du bist neugierig, verfolgst die Entwicklung moderner Microsoft-Technologien und hast Freude daran, neue Möglichkeiten auszuprobieren.\n• Du übernimmst gerne Verantwortung, arbeitest selbstständig und teilst dein Wissen mit anderen.\n• Du kommunizierst sicher auf Deutsch und kannst englische technische Dokumentationen problemlos lesen.\n• Du verfügst über einen Informatik-Fachhochschulabschluss oder gleichwertige praktische Erfahrung.\nDein Arbeitsort\n\n## Darum CONCORDIA\nAls Expertin für Gesundheit setzt sich die CONCORDIA für ein Arbeitsumfeld ein, in dem sich Mitarbeitende wohlfühlen und verwirklichen können. Es ist geprägt von abwechslungsreichen Aufgaben, vielseitigen Teams und einem familiären Umgang. Zudem motivieren wir unsere Mitarbeitenden, sich weiterzuentwickeln und voranzukommen. Menschen, die Spass an der Arbeit haben und beruflich vorwärtskommen wollen, finden bei uns, was sie suchen: Jobs, die zu 100 % gesund sind.\nDarum CONCORDIA\n\n## Deine Vorteile\nArbeitszeit\nDu hast eine 41-Stunden-Woche und kannst Teilzeit oder flexibel arbeiten. Für ausgewählte Tätigkeiten kannst du regelmässig von zu Hause aus arbeiten.\nFamilienfreundlich\nVoller Lohn während 14 Mutterschaftswochen. Zusatzbeiträge zu Kinder- und Ausbildungszulagen. Bis zu 90 % Kostenübernahme für die Fremdbetreuung deiner Kinder.\nAus- und Weiterbildung\nDie CONCORDIA unterstützt interne und externe Weiterbildungen. Bei deiner Karriereplanung begleiten wir dich individuell.\nPensionskasse\nWir bieten dir eine äusserst attraktive, sichere Pensionskasse mit überdurchschnittlichen Arbeitgeberbeiträgen und grosszügigen Leistungen.\nBeteiligung Krankenversicherungsprämie\nDu und deine Familie profitieren von reduzierten Krankenversicherungsprämien.\nWertschätzung\nIn der CONCORDIA-Familie erlebst du Wertschätzung und Teamgeist.\nAusgezeichnet von den Mitarbeitenden\nBereits 2016 und 2018 brillierte die CONCORDIA beim Swiss Arbeitgeber Award mit hervorragenden Ergebnissen. Im Jahr 2020 holten wir uns dann sogar den ersten Platz in der Kategorie für grosse Unternehmen mit mehr als 1000 Mitarbeitenden und im Jahr 2022 wurden wir mit dem zweiten Platz ausgezeichnet. Auch im Jahr 2025 dürfen wir mit gutem Recht festhalten, dass wir zu den allerbesten Arbeitgeberinnen der Schweiz gehören.",
+        "it": "Ehrliche Zusammenarbeit: 100 % gesund\nTribschenstrasse 4, 6005 Luzern\nZu faul für Routinearbeiten? Gut so!\nDu automatisierst lieber wiederkehrende Aufgaben, statt sie jeden Tag von Hand zu erledigen? Du reizt die Möglichkeiten von PowerShell gerne aus, Error Handling liegt dir im Blut und Pipelines brauchst du nicht für den Transport von Flüssigkeiten?\nGleichzeitig weisst du, dass nicht jedes Problem mit einem Skript gelöst werden muss. Du kennst dich mit modernen Microsoft-Workplace-Technologien aus, entwickelst gerne neue Lösungen und hast Freude daran, diese auch selbst zum Laufen zu bringen.\nDann sollten wir uns kennenlernen!\nWir suchen eine erfahrene Engineering-Persönlichkeit, die unseren Digital Workplace aktiv weiterentwickelt, neue Technologien vorantreibt und Automatisierung dort einsetzt, wo sie echten Mehrwert schafft.\n\n## Das erwartet dich\n• Du gestaltest die Weiterentwicklung unseres Digital Workplace aktiv mit und übernimmst Verantwortung für das Engineering und den Betrieb unserer modernen Client-Plattform.\n• Du konzipierst, evaluierst und implementierst neue Workplace-Lösungen auf Basis moderner Microsoft-Technologien und entwickelst bestehende Services kontinuierlich weiter.\n• Du erkennst Automatisierungspotenziale, hinterfragst bestehende Abläufe und entwickelst mit PowerShell, Git und CI/CD-Pipelines nachhaltige Lösungen.\n• Du sorgst mit deinem technischen Know-how dafür, dass unsere Workplace-Services zuverlässig, sicher und effizient funktionieren – ob durch Automatisierung oder klassische Administration.\n• Du übernimmst bei anspruchsvollen technischen Themen eine tragende Rolle, bringst eigene Ideen ein und treibst deren Umsetzung gemeinsam mit deinem Team voran.\n• Du verfolgst technologische Entwicklungen, probierst neue Möglichkeiten aus und hilfst mit, unsere Engineering-Methoden und Arbeitsweisen kontinuierlich zu verbessern.\n\n## Das bringst du mit\n• Du bringst umfassende Erfahrung in der Konzeption, Implementierung und im Betrieb moderner Microsoft-Workplace-Technologien mit – insbesondere Microsoft Intune, M365 Services, Client Management sowie Applikationsmanagement.\n• Du besitzt sehr gute PowerShell-Kenntnisse und setzt Scripting gezielt zur Automatisierung und Vereinfachung technischer Abläufe ein.\n• Du hast bereits Erfahrung mit Git, CI/CD-Pipelines und der Entwicklung von PowerShell-Modulen oder möchtest deine Kenntnisse in diesen Bereichen vertiefen.\n• Du erkennst technische Zusammenhänge, denkst lösungsorientiert und findest eine gute Balance zwischen pragmatischen Lösungen und nachhaltigem Engineering.\n• Du bist neugierig, verfolgst die Entwicklung moderner Microsoft-Technologien und hast Freude daran, neue Möglichkeiten auszuprobieren.\n• Du übernimmst gerne Verantwortung, arbeitest selbstständig und teilst dein Wissen mit anderen.\n• Du kommunizierst sicher auf Deutsch und kannst englische technische Dokumentationen problemlos lesen.\n• Du verfügst über einen Informatik-Fachhochschulabschluss oder gleichwertige praktische Erfahrung.\nDein Arbeitsort\n\n## Darum CONCORDIA\nAls Expertin für Gesundheit setzt sich die CONCORDIA für ein Arbeitsumfeld ein, in dem sich Mitarbeitende wohlfühlen und verwirklichen können. Es ist geprägt von abwechslungsreichen Aufgaben, vielseitigen Teams und einem familiären Umgang. Zudem motivieren wir unsere Mitarbeitenden, sich weiterzuentwickeln und voranzukommen. Menschen, die Spass an der Arbeit haben und beruflich vorwärtskommen wollen, finden bei uns, was sie suchen: Jobs, die zu 100 % gesund sind.\nDarum CONCORDIA\n\n## Deine Vorteile\nArbeitszeit\nDu hast eine 41-Stunden-Woche und kannst Teilzeit oder flexibel arbeiten. Für ausgewählte Tätigkeiten kannst du regelmässig von zu Hause aus arbeiten.\nFamilienfreundlich\nVoller Lohn während 14 Mutterschaftswochen. Zusatzbeiträge zu Kinder- und Ausbildungszulagen. Bis zu 90 % Kostenübernahme für die Fremdbetreuung deiner Kinder.\nAus- und Weiterbildung\nDie CONCORDIA unterstützt interne und externe Weiterbildungen. Bei deiner Karriereplanung begleiten wir dich individuell.\nPensionskasse\nWir bieten dir eine äusserst attraktive, sichere Pensionskasse mit überdurchschnittlichen Arbeitgeberbeiträgen und grosszügigen Leistungen.\nBeteiligung Krankenversicherungsprämie\nDu und deine Familie profitieren von reduzierten Krankenversicherungsprämien.\nWertschätzung\nIn der CONCORDIA-Familie erlebst du Wertschätzung und Teamgeist.\nAusgezeichnet von den Mitarbeitenden\nBereits 2016 und 2018 brillierte die CONCORDIA beim Swiss Arbeitgeber Award mit hervorragenden Ergebnissen. Im Jahr 2020 holten wir uns dann sogar den ersten Platz in der Kategorie für grosse Unternehmen mit mehr als 1000 Mitarbeitenden und im Jahr 2022 wurden wir mit dem zweiten Platz ausgezeichnet. Auch im Jahr 2025 dürfen wir mit gutem Recht festhalten, dass wir zu den allerbesten Arbeitgeberinnen der Schweiz gehören.",
+        "en": "Ehrliche Zusammenarbeit: 100 % gesund\nTribschenstrasse 4, 6005 Luzern\nZu faul für Routinearbeiten? Gut so!\nDu automatisierst lieber wiederkehrende Aufgaben, statt sie jeden Tag von Hand zu erledigen? Du reizt die Möglichkeiten von PowerShell gerne aus, Error Handling liegt dir im Blut und Pipelines brauchst du nicht für den Transport von Flüssigkeiten?\nGleichzeitig weisst du, dass nicht jedes Problem mit einem Skript gelöst werden muss. Du kennst dich mit modernen Microsoft-Workplace-Technologien aus, entwickelst gerne neue Lösungen und hast Freude daran, diese auch selbst zum Laufen zu bringen.\nDann sollten wir uns kennenlernen!\nWir suchen eine erfahrene Engineering-Persönlichkeit, die unseren Digital Workplace aktiv weiterentwickelt, neue Technologien vorantreibt und Automatisierung dort einsetzt, wo sie echten Mehrwert schafft.\n\n## Das erwartet dich\n• Du gestaltest die Weiterentwicklung unseres Digital Workplace aktiv mit und übernimmst Verantwortung für das Engineering und den Betrieb unserer modernen Client-Plattform.\n• Du konzipierst, evaluierst und implementierst neue Workplace-Lösungen auf Basis moderner Microsoft-Technologien und entwickelst bestehende Services kontinuierlich weiter.\n• Du erkennst Automatisierungspotenziale, hinterfragst bestehende Abläufe und entwickelst mit PowerShell, Git und CI/CD-Pipelines nachhaltige Lösungen.\n• Du sorgst mit deinem technischen Know-how dafür, dass unsere Workplace-Services zuverlässig, sicher und effizient funktionieren – ob durch Automatisierung oder klassische Administration.\n• Du übernimmst bei anspruchsvollen technischen Themen eine tragende Rolle, bringst eigene Ideen ein und treibst deren Umsetzung gemeinsam mit deinem Team voran.\n• Du verfolgst technologische Entwicklungen, probierst neue Möglichkeiten aus und hilfst mit, unsere Engineering-Methoden und Arbeitsweisen kontinuierlich zu verbessern.\n\n## Das bringst du mit\n• Du bringst umfassende Erfahrung in der Konzeption, Implementierung und im Betrieb moderner Microsoft-Workplace-Technologien mit – insbesondere Microsoft Intune, M365 Services, Client Management sowie Applikationsmanagement.\n• Du besitzt sehr gute PowerShell-Kenntnisse und setzt Scripting gezielt zur Automatisierung und Vereinfachung technischer Abläufe ein.\n• Du hast bereits Erfahrung mit Git, CI/CD-Pipelines und der Entwicklung von PowerShell-Modulen oder möchtest deine Kenntnisse in diesen Bereichen vertiefen.\n• Du erkennst technische Zusammenhänge, denkst lösungsorientiert und findest eine gute Balance zwischen pragmatischen Lösungen und nachhaltigem Engineering.\n• Du bist neugierig, verfolgst die Entwicklung moderner Microsoft-Technologien und hast Freude daran, neue Möglichkeiten auszuprobieren.\n• Du übernimmst gerne Verantwortung, arbeitest selbstständig und teilst dein Wissen mit anderen.\n• Du kommunizierst sicher auf Deutsch und kannst englische technische Dokumentationen problemlos lesen.\n• Du verfügst über einen Informatik-Fachhochschulabschluss oder gleichwertige praktische Erfahrung.\nDein Arbeitsort\n\n## Darum CONCORDIA\nAls Expertin für Gesundheit setzt sich die CONCORDIA für ein Arbeitsumfeld ein, in dem sich Mitarbeitende wohlfühlen und verwirklichen können. Es ist geprägt von abwechslungsreichen Aufgaben, vielseitigen Teams und einem familiären Umgang. Zudem motivieren wir unsere Mitarbeitenden, sich weiterzuentwickeln und voranzukommen. Menschen, die Spass an der Arbeit haben und beruflich vorwärtskommen wollen, finden bei uns, was sie suchen: Jobs, die zu 100 % gesund sind.\nDarum CONCORDIA\n\n## Deine Vorteile\nArbeitszeit\nDu hast eine 41-Stunden-Woche und kannst Teilzeit oder flexibel arbeiten. Für ausgewählte Tätigkeiten kannst du regelmässig von zu Hause aus arbeiten.\nFamilienfreundlich\nVoller Lohn während 14 Mutterschaftswochen. Zusatzbeiträge zu Kinder- und Ausbildungszulagen. Bis zu 90 % Kostenübernahme für die Fremdbetreuung deiner Kinder.\nAus- und Weiterbildung\nDie CONCORDIA unterstützt interne und externe Weiterbildungen. Bei deiner Karriereplanung begleiten wir dich individuell.\nPensionskasse\nWir bieten dir eine äusserst attraktive, sichere Pensionskasse mit überdurchschnittlichen Arbeitgeberbeiträgen und grosszügigen Leistungen.\nBeteiligung Krankenversicherungsprämie\nDu und deine Familie profitieren von reduzierten Krankenversicherungsprämien.\nWertschätzung\nIn der CONCORDIA-Familie erlebst du Wertschätzung und Teamgeist.\nAusgezeichnet von den Mitarbeitenden\nBereits 2016 und 2018 brillierte die CONCORDIA beim Swiss Arbeitgeber Award mit hervorragenden Ergebnissen. Im Jahr 2020 holten wir uns dann sogar den ersten Platz in der Kategorie für grosse Unternehmen mit mehr als 1000 Mitarbeitenden und im Jahr 2022 wurden wir mit dem zweiten Platz ausgezeichnet. Auch im Jahr 2025 dürfen wir mit gutem Recht festhalten, dass wir zu den allerbesten Arbeitgeberinnen der Schweiz gehören.",
+        "fr": "Ehrliche Zusammenarbeit: 100 % gesund\nTribschenstrasse 4, 6005 Luzern\nZu faul für Routinearbeiten? Gut so!\nDu automatisierst lieber wiederkehrende Aufgaben, statt sie jeden Tag von Hand zu erledigen? Du reizt die Möglichkeiten von PowerShell gerne aus, Error Handling liegt dir im Blut und Pipelines brauchst du nicht für den Transport von Flüssigkeiten?\nGleichzeitig weisst du, dass nicht jedes Problem mit einem Skript gelöst werden muss. Du kennst dich mit modernen Microsoft-Workplace-Technologien aus, entwickelst gerne neue Lösungen und hast Freude daran, diese auch selbst zum Laufen zu bringen.\nDann sollten wir uns kennenlernen!\nWir suchen eine erfahrene Engineering-Persönlichkeit, die unseren Digital Workplace aktiv weiterentwickelt, neue Technologien vorantreibt und Automatisierung dort einsetzt, wo sie echten Mehrwert schafft.\n\n## Das erwartet dich\n• Du gestaltest die Weiterentwicklung unseres Digital Workplace aktiv mit und übernimmst Verantwortung für das Engineering und den Betrieb unserer modernen Client-Plattform.\n• Du konzipierst, evaluierst und implementierst neue Workplace-Lösungen auf Basis moderner Microsoft-Technologien und entwickelst bestehende Services kontinuierlich weiter.\n• Du erkennst Automatisierungspotenziale, hinterfragst bestehende Abläufe und entwickelst mit PowerShell, Git und CI/CD-Pipelines nachhaltige Lösungen.\n• Du sorgst mit deinem technischen Know-how dafür, dass unsere Workplace-Services zuverlässig, sicher und effizient funktionieren – ob durch Automatisierung oder klassische Administration.\n• Du übernimmst bei anspruchsvollen technischen Themen eine tragende Rolle, bringst eigene Ideen ein und treibst deren Umsetzung gemeinsam mit deinem Team voran.\n• Du verfolgst technologische Entwicklungen, probierst neue Möglichkeiten aus und hilfst mit, unsere Engineering-Methoden und Arbeitsweisen kontinuierlich zu verbessern.\n\n## Das bringst du mit\n• Du bringst umfassende Erfahrung in der Konzeption, Implementierung und im Betrieb moderner Microsoft-Workplace-Technologien mit – insbesondere Microsoft Intune, M365 Services, Client Management sowie Applikationsmanagement.\n• Du besitzt sehr gute PowerShell-Kenntnisse und setzt Scripting gezielt zur Automatisierung und Vereinfachung technischer Abläufe ein.\n• Du hast bereits Erfahrung mit Git, CI/CD-Pipelines und der Entwicklung von PowerShell-Modulen oder möchtest deine Kenntnisse in diesen Bereichen vertiefen.\n• Du erkennst technische Zusammenhänge, denkst lösungsorientiert und findest eine gute Balance zwischen pragmatischen Lösungen und nachhaltigem Engineering.\n• Du bist neugierig, verfolgst die Entwicklung moderner Microsoft-Technologien und hast Freude daran, neue Möglichkeiten auszuprobieren.\n• Du übernimmst gerne Verantwortung, arbeitest selbstständig und teilst dein Wissen mit anderen.\n• Du kommunizierst sicher auf Deutsch und kannst englische technische Dokumentationen problemlos lesen.\n• Du verfügst über einen Informatik-Fachhochschulabschluss oder gleichwertige praktische Erfahrung.\nDein Arbeitsort\n\n## Darum CONCORDIA\nAls Expertin für Gesundheit setzt sich die CONCORDIA für ein Arbeitsumfeld ein, in dem sich Mitarbeitende wohlfühlen und verwirklichen können. Es ist geprägt von abwechslungsreichen Aufgaben, vielseitigen Teams und einem familiären Umgang. Zudem motivieren wir unsere Mitarbeitenden, sich weiterzuentwickeln und voranzukommen. Menschen, die Spass an der Arbeit haben und beruflich vorwärtskommen wollen, finden bei uns, was sie suchen: Jobs, die zu 100 % gesund sind.\nDarum CONCORDIA\n\n## Deine Vorteile\nArbeitszeit\nDu hast eine 41-Stunden-Woche und kannst Teilzeit oder flexibel arbeiten. Für ausgewählte Tätigkeiten kannst du regelmässig von zu Hause aus arbeiten.\nFamilienfreundlich\nVoller Lohn während 14 Mutterschaftswochen. Zusatzbeiträge zu Kinder- und Ausbildungszulagen. Bis zu 90 % Kostenübernahme für die Fremdbetreuung deiner Kinder.\nAus- und Weiterbildung\nDie CONCORDIA unterstützt interne und externe Weiterbildungen. Bei deiner Karriereplanung begleiten wir dich individuell.\nPensionskasse\nWir bieten dir eine äusserst attraktive, sichere Pensionskasse mit überdurchschnittlichen Arbeitgeberbeiträgen und grosszügigen Leistungen.\nBeteiligung Krankenversicherungsprämie\nDu und deine Familie profitieren von reduzierten Krankenversicherungsprämien.\nWertschätzung\nIn der CONCORDIA-Familie erlebst du Wertschätzung und Teamgeist.\nAusgezeichnet von den Mitarbeitenden\nBereits 2016 und 2018 brillierte die CONCORDIA beim Swiss Arbeitgeber Award mit hervorragenden Ergebnissen. Im Jahr 2020 holten wir uns dann sogar den ersten Platz in der Kategorie für grosse Unternehmen mit mehr als 1000 Mitarbeitenden und im Jahr 2022 wurden wir mit dem zweiten Platz ausgezeichnet. Auch im Jahr 2025 dürfen wir mit gutem Recht festhalten, dass wir zu den allerbesten Arbeitgeberinnen der Schweiz gehören."
+      },
+      "needsRetranslation": true,
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://jobs.concordia.ch/offene-stellen/devops-client-engineer-w-m-d-80/e1363863-c28a-45e0-b5f7-dd36574c3098",
+      "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-23T09:19:06.403Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6003",
+      "streetAddress": "Tribschenstrasse 4",
+      "category": "IT",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-23",
+      "postedDate": "2026-11-23",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.concordia.ch/offene-stellen/devops-client-engineer-w-m-d-80/e1363863-c28a-45e0-b5f7-dd36574c3098",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 74500,
+      "salaryMax": 127000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 74500,
+          "maxValue": 127000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-21T09:19:06.403Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-23T09:19:06.403Z"
     }
   ]
 }
