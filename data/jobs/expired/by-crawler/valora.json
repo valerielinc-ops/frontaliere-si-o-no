@@ -843,16 +843,14 @@
     "slugByLocale": {
       "it": "venditore-venditore-k-kiosk-8-ore-valora-group-bern",
       "en": "seller-seller-k-kiosk-8-hours-valora-group-bern",
-      "de": "verkauferin-verkaufer-k-kiosk-8-std-valora-bern",
+      "de": "verkauferin-verkaufer-k-kiosk-8-std-valora-bern-14b1010a",
       "fr": "vendeur-vendeur-k-kiosque-8-heures-valora-group-bern"
     },
     "sector": "Retail / Foodvenience",
     "expiredAt": "2026-11-08T09:15:40.740Z",
-    "previousSlugs": [
-      "verkauferin-verkaufer-k-kiosk-8-std-valora-bern"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "verkauferin-verkaufer-k-kiosk-8-std-valora-bern-14b1010a",
         "verkauferin-verkaufer-k-kiosk-8-std-valora-bern"
       ],
       "en": [
@@ -860,6 +858,9 @@
       ],
       "fr": [
         "verkauferin-verkaufer-k-kiosk-8-std-valora-bern"
+      ],
+      "de": [
+        "verkauferin-verkaufer-k-kiosk-8-std-valora-bern-14b1010a"
       ]
     },
     "postalCode": "3004",
@@ -881,6 +882,9 @@
         "firstSeenAt": "2026-09-16T23:44:47.487Z",
         "title": "Verkäuferin / Verkäufer k kiosk 8 Std."
       }
+    ],
+    "previousSlugs": [
+      "verkauferin-verkaufer-k-kiosk-8-std-valora-bern"
     ]
   },
   {
