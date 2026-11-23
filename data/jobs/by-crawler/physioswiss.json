@@ -1470,7 +1470,7 @@
       "companyDomain": "physioswiss.ch",
       "title": "Physiotherapeut:in gesucht in Gossau SG und/ oder Oberuzwil 40 – 100%",
       "titleByLocale": {
-        "it": "Cerchiamo un/a fisioterapista a Gossau SG e/o Oberuzwil 40 – 100%",
+        "it": "Fisioterapista/in ricercato in Gossau SG e/o Oberuzwil 40. 100%",
         "en": "Physiotherapist/in wanted in Gossau SG and/or Oberuzwil 40 – 100%",
         "de": "Physiotherapeut:in gesucht in Gossau SG und/ oder Oberuzwil 40 – 100%",
         "fr": "Physiothérapeute/en recherche dans Gossau SG et/ou Oberuzwil 40 – 100%"
@@ -1519,7 +1519,6 @@
           "physiotherapeut-in-gesucht-in-gossau-sg-und-oder-oberuzwil-40-100-physio-weber-gossau"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-29T14:41:46.613Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1539,7 +1538,10 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T09:55:28.175Z",
       "validThroughSource": "last-observed-window",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 5950,
+      "needsRetranslation": true
     },
     {
       "id": "physioswiss-ab5fcfb8c852",

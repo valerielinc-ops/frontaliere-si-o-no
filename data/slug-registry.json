@@ -172916,7 +172916,10 @@
     "canonicalSlug": "pflegefachperson-hf-60-80-in-engelberg-spitex-ch-sarnen",
     "canton": "OW",
     "createdAt": "2026-05-29",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "pflegefachperson-hf-50-100-in-sarnen-o-engelberg-spitex-obwalden-sarnen",
+      "de": "pflegefachperson-hf-50-100-in-sarnen-oder-engelberg-spitex-ch-sarnen"
+    }
   },
   "id|spitexjobs.ch|j978059": {
     "canonicalSlug": "infermiere-infermiera-professionale-efz-60-90-spitex-region-bulach-bulach",
@@ -1023455,7 +1023458,9 @@
     "canonicalSlug": "konstrukteur-in-technische-r-disegnatore-trice-opus-personal-ag-zweigniederlassung-altdorf-luzern",
     "slugByLocale": {
       "de": "konstrukteur-in-technische-r-zeichner-in-region-lu-luzern-opus-personal-ch",
-      "it": "konstrukteur-in-technische-r-disegnatore-trice-opus-personal-ag-zweigniederlassung-altdorf-luzern"
+      "it": "konstrukteur-in-technische-r-disegnatore-trice-opus-personal-ag-zweigniederlassung-altdorf-luzern",
+      "en": "konstrukteur-in-technische-r-disegnatore-trice-opus-personal-ag-zweigniederlassung-altdorf-luzern",
+      "fr": "konstrukteur-in-technische-r-disegnatore-trice-opus-personal-ag-zweigniederlassung-altdorf-luzern"
     },
     "createdAt": "2026-11-14",
     "canton": "LU"
@@ -1042473,7 +1042478,10 @@
   "url|https://careers.msccruises.com/gb/en/job/mctmcugb17778externalengb": {
     "canonicalSlug": "hr-director-msc-geneva",
     "slugByLocale": {
-      "en": "hr-director-msc-geneva"
+      "en": "hr-director-msc-geneva",
+      "it": "risorse-umane-direttore-msc-group-geneva",
+      "de": "personalwesen-direktor-msc-group-geneva",
+      "fr": "ressources-humaines-directeur-msc-group-geneva"
     },
     "createdAt": "2026-11-15",
     "canton": "GE"
@@ -1042494,7 +1042502,8 @@
     "slugByLocale": {
       "it": "consumer-communications-direttore-msc-group-geneva",
       "en": "consumer-communications-director-msc-geneva",
-      "de": "consumer-communications-direktor-msc-group-geneva"
+      "de": "consumer-communications-direktor-msc-group-geneva",
+      "fr": "consumer-communications-direttore-msc-group-geneva"
     },
     "createdAt": "2026-11-15",
     "canton": "GE"
@@ -1042515,7 +1042524,8 @@
     "slugByLocale": {
       "it": "responsabile-del-visual-merchandising-msc-group-geneva",
       "en": "visual-merchandising-manager-msc-geneva",
-      "fr": "gestionnaire-de-marchandises-visuelles-msc-group-geneva"
+      "fr": "gestionnaire-de-marchandises-visuelles-msc-group-geneva",
+      "de": "responsabile-del-visual-merchandising-msc-group-geneva"
     },
     "createdAt": "2026-11-15",
     "canton": "GE"
@@ -1042531,7 +1042541,10 @@
   "url|https://careers.msccruises.com/gb/en/job/mctmcugb17943externalengb": {
     "canonicalSlug": "head-of-customer-journey-data-strategy-msc-geneva",
     "slugByLocale": {
-      "en": "head-of-customer-journey-data-strategy-msc-geneva"
+      "en": "head-of-customer-journey-data-strategy-msc-geneva",
+      "it": "responsabile-customer-journey-data-strategy-msc-group-geneva",
+      "de": "leiter-customer-journey-data-strategy-msc-group-geneva",
+      "fr": "responsable-customer-journey-data-strategy-msc-group-geneva"
     },
     "createdAt": "2026-11-15",
     "canton": "GE"
@@ -1042810,7 +1042823,8 @@
     "slugByLocale": {
       "it": "finanza-transformation-tirocinante-msc-group-geneva",
       "en": "finance-transformation-intern-msc-geneva",
-      "de": "finanzen-transformation-praktikant-msc-group-geneva"
+      "de": "finanzen-transformation-praktikant-msc-group-geneva",
+      "fr": "finanza-transformation-tirocinante-msc-group-geneva"
     },
     "createdAt": "2026-11-15",
     "canton": "GE"
@@ -1075234,7 +1075248,10 @@
   "id|six-group.com|1458466333": {
     "canonicalSlug": "specialist-operations-projects-six-group-zurich",
     "slugByLocale": {
-      "de": "specialist-operations-projects-six-group-zurich"
+      "de": "specialist-operations-projects-six-group-zurich",
+      "it": "specialist-operations-projects-60-six-group-zurich",
+      "en": "specialist-operations-projects-60-six-group-zurich",
+      "fr": "specialist-operations-projects-60-six-group-zurich"
     },
     "createdAt": "2026-11-19",
     "canton": "ZH"
@@ -1100214,5 +1100231,615 @@
     },
     "createdAt": "2026-11-23",
     "canton": "VS"
+  },
+  "url|https://physioswiss.ch/stelleninserate/162130/%f0%9f%94%b5-blue-physio-recrute-une-physiotherapeute-a-domicile40-100": {
+    "canonicalSlug": "blue-physio-recrute-un-e-physiotherapeute-a-domicile-40-100-physio-swiss-monthey",
+    "slugByLocale": {
+      "fr": "blue-physio-recrute-un-e-physiotherapeute-a-domicile-40-100-1870-monthey-physioswiss-ch",
+      "it": "blue-physio-recrute-un-e-physiotherapeute-a-domicile-40-100-physio-swiss-monthey",
+      "en": "blue-physio-recrute-un-e-physiotherapeute-a-domicile-40-100-physio-swiss-monthey"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "VS"
+  },
+  "id|nestle.com|1451672233": {
+    "canonicalSlug": "group-leader-bioinformatics-data-analytics-nestle-ch",
+    "slugByLocale": {
+      "en": "group-leader-bioinformatics-data-analytics-nestle-ch"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "VD"
+  },
+  "url|https://www.alpiq.com/career/open-jobs/your-application/399": {
+    "canonicalSlug": "head-of-bess-asset-trading-alpiq-lausanne",
+    "slugByLocale": {
+      "en": "head-of-bess-asset-trading-alpiq-lausanne"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "VD"
+  },
+  "id|axa.com|31094": {
+    "canonicalSlug": "consulente-assicurativo-agenzia-principale-mendrisio-axa-svizzera-mendrisio",
+    "slugByLocale": {
+      "it": "consulente-assicurativo-agenzia-principale-mendrisio-axa-svizzera-mendrisio",
+      "en": "consulente-assicurativo-agenzia-principale-mendrisio-axa-mendrisio-3zeqy5",
+      "de": "consulente-assicurativo-agenzia-principale-mendrisio-axa-mendrisio-3zeqy5",
+      "fr": "consulente-assicurativo-agenzia-principale-mendrisio-axa-mendrisio-3zeqy5"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "TI"
+  },
+  "id|axa.com|30652": {
+    "canonicalSlug": "service-delivery-lead-business-automation-axa-winterthur-3ze8ba",
+    "slugByLocale": {
+      "de": "service-delivery-lead-business-automation-axa-svizzera-winterthur",
+      "it": "service-delivery-lead-business-automation-axa-winterthur-3ze8ba",
+      "en": "service-delivery-lead-business-automation-axa-winterthur-3ze8ba",
+      "fr": "service-delivery-lead-business-automation-axa-winterthur-3ze8ba"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "ZH"
+  },
+  "url|https://www.coopers.ch/en/jobs/detail.php?refcode=r73ek8": {
+    "canonicalSlug": "quality-master-m-w-d-coopers-bern",
+    "slugByLocale": {
+      "de": "quality-master-m-w-d-coopers-bern"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "BE"
+  },
+  "id|ag.ch|700aa189-6a4a-43fd-a53c-109640b4ee35": {
+    "canonicalSlug": "juristin-jurist-rechtsdienst-kantonales-steueramt-60-80-kanton-aargau-ch",
+    "slugByLocale": {
+      "de": "juristin-jurist-rechtsdienst-kantonales-steueramt-60-80-kanton-aargau-ch"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "AG"
+  },
+  "id|ag.ch|f0b4774c-2787-4939-8a69-5873781694e1": {
+    "canonicalSlug": "hochschulpraktikantin-hochschulpraktikant-in-der-abteilung-finanzen-80-100-kanton-aargau",
+    "slugByLocale": {
+      "de": "hochschulpraktikantin-hochschulpraktikant-in-der-abteilung-finanzen-80-100-kanton-aargau"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "AG"
+  },
+  "id|ag.ch|cebaf59e-c032-496a-ac38-1d0d54e49f19": {
+    "canonicalSlug": "mittelschullehrperson-padagogik-e-psychologie-40-50-kanton-aargau-stein",
+    "slugByLocale": {
+      "de": "mittelschullehrperson-padagogik-und-psychologie-40-50-kanton-aargau-ch",
+      "it": "mittelschullehrperson-padagogik-e-psychologie-40-50-kanton-aargau-stein"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "AG"
+  },
+  "id|ag.ch|ca95514e-d67f-48a5-becd-697a048741f4": {
+    "canonicalSlug": "leitung-schulpsychologischer-dienst-kanton-aargau-80-100-kanton-aargau-ch",
+    "slugByLocale": {
+      "de": "leitung-schulpsychologischer-dienst-kanton-aargau-80-100-kanton-aargau-ch"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "AG"
+  },
+  "url|https://opus-personal.ch/aktuelle-jobs/job.aspx/v-105876/f-op": {
+    "canonicalSlug": "schreiner-efz-eba-m-w-lu-luzern-opus-personal-ch",
+    "slugByLocale": {
+      "de": "schreiner-efz-eba-m-w-lu-luzern-opus-personal-ch"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "LU"
+  },
+  "url|https://opus-personal.ch/aktuelle-jobs/job.aspx/v-185704/f-op": {
+    "canonicalSlug": "automatiker-a-80-100-be-bern-opus-personal-ch",
+    "slugByLocale": {
+      "de": "automatiker-a-80-100-be-bern-opus-personal-ch"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "BE"
+  },
+  "url|https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-tecnicoa-test-pcba": {
+    "canonicalSlug": "tecnico-a-test-pcba-agie-charmilles-losone",
+    "slugByLocale": {
+      "it": "tecnico-a-test-pcba-agie-charmilles-losone"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "TI"
+  },
+  "url|https://jobs.senevita.ch/fachfrau-mann-gesundheit-efz-60-100-de-j5048.html": {
+    "canonicalSlug": "fachfrau-mann-gesundheit-cfc-60-100-senevita-sg-abtwil",
+    "slugByLocale": {
+      "de": "fachfrau-mann-gesundheit-efz-60-100-senevita-sg-abtwil",
+      "it": "fachfrau-mann-gesundheit-cfc-60-100-senevita-sg-abtwil"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "AG"
+  },
+  "id|epfl.ch|1458280574": {
+    "canonicalSlug": "phd-student-in-biosensing-nanolab-epfl-epfl-lausanne",
+    "slugByLocale": {
+      "en": "phd-student-in-biosensing-nanolab-epfl-epfl-lausanne"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "VD"
+  },
+  "url|https://anker-swiss.ch/stellen/recyclist-1635362": {
+    "canonicalSlug": "recyclist-100-anker-swiss-ticino-ag-greng-bb4e3b0a",
+    "slugByLocale": {
+      "de": "recyclist-100-anker-swiss-ticino-ag-greng-bb4e3b0a"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "FR"
+  },
+  "url|https://anker-swiss.ch/stellen/wirtschaftsinformatiker-1635371": {
+    "canonicalSlug": "wirtschaftsinformatiker-100-anker-swiss-ticino-ag-bern-f470ffc7",
+    "slugByLocale": {
+      "de": "wirtschaftsinformatiker-100-anker-swiss-ticino-ag-bern-f470ffc7"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "BE"
+  },
+  "url|https://anker-swiss.ch/stellen/bauleiter-hochbau-1635387": {
+    "canonicalSlug": "bauleiter-hochbau-100-anker-swiss-ticino-ag-zofingen",
+    "slugByLocale": {
+      "de": "bauleiter-hochbau-100-anker-swiss-ticino-ag-zofingen-6279dfee",
+      "it": "bauleiter-hochbau-100-anker-swiss-ticino-ag-zofingen"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "AG"
+  },
+  "id|stadtluzern.ch|bfb5c797-61a1-4066-a39c-8004cf54e01a": {
+    "canonicalSlug": "co-schulleitung-volksschule-stadt-luzern-schulhaus-st-karli-zyklus-1-65-75-stadt-luzern",
+    "slugByLocale": {
+      "de": "co-schulleitung-volksschule-stadt-luzern-schulhaus-st-karli-zyklus-1-65-75-stadt-luzern"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "LU"
+  },
+  "url|https://career.bellfoodgroup.com/de/stelle/chauffeur-chauffeuse-brueterei-60-brueterei-6143-ohmstal-5528": {
+    "canonicalSlug": "chauffeur-chauffeuse-brueterei-60-brueterei-6143-ohmstal-hilcona-zell",
+    "slugByLocale": {
+      "de": "chauffeur-chauffeuse-brueterei-60-brueterei-6143-ohmstal-hilcona-zell"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "LU"
+  },
+  "url|https://www.google.com/about/careers/applications/jobs/results/135167583962702534-staff-data-scientist-tech-lead-manager-youtube-trust-and-safety": {
+    "canonicalSlug": "staff-data-scientist-tech-lead-manager-youtube-trust-and-safety-google-switzerland-zurich",
+    "slugByLocale": {
+      "en": "staff-data-scientist-tech-lead-manager-youtube-trust-and-safety-google-switzerland-zurich"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "ZH"
+  },
+  "url|https://careers.msccruises.com/gb/en/job/mctmcugb18095externalengb": {
+    "canonicalSlug": "finance-business-partner-commercial-msc-geneva",
+    "slugByLocale": {
+      "en": "finance-business-partner-commercial-msc-geneva"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "GE"
+  },
+  "url|https://careers.msccruises.com/gb/en/job/mctmcugb18115externalengb": {
+    "canonicalSlug": "ocean-wellness-operations-and-personnel-coordinator-msc-geneva",
+    "slugByLocale": {
+      "en": "ocean-wellness-operations-and-personnel-coordinator-msc-geneva"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "GE"
+  },
+  "url|https://careers.msccruises.com/gb/en/job/mctmcugb17948externalengb": {
+    "canonicalSlug": "senior-manager-catering-newbuilding-msc-geneva",
+    "slugByLocale": {
+      "en": "senior-manager-catering-newbuilding-msc-geneva"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "GE"
+  },
+  "id|raiffeisen.ch|b87ec9e2-c89b-4063-850a-2adc3183c91c": {
+    "canonicalSlug": "servizio-clienti-banca-m-f-d-raiffeisen-bern",
+    "slugByLocale": {
+      "de": "kundenberater-bank-w-m-d-raiffeisen-bern",
+      "it": "servizio-clienti-banca-m-f-d-raiffeisen-bern",
+      "en": "customer-service-bank-m-f-d-raiffeisen-bern",
+      "fr": "banque-de-service-a-la-clientele-h-f-d-raiffeisen-bern"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "BE"
+  },
+  "id|raiffeisen.ch|bdf4007b-47dc-47d9-8196-13a2d031721c": {
+    "canonicalSlug": "kundenberater-basisprodukte-w-m-d-raiffeisen-volketswil",
+    "slugByLocale": {
+      "de": "kundenberater-basisprodukte-w-m-d-raiffeisen-volketswil"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "ZH"
+  },
+  "url|https://www.clienia.ch/de/jobs-karriere/jobs/oberaerztin-oberarzt-m-w-d-31390634072344": {
+    "canonicalSlug": "medico-senior-m-f-d-60-100-clienia-ag-pfaffikon",
+    "slugByLocale": {
+      "de": "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich",
+      "it": "medico-senior-m-f-d-60-100-clienia-ag-pfaffikon",
+      "en": "senior-physician-m-f-d-60-100-clienia-ag-pfaffikon",
+      "fr": "medecin-principal-h-f-d-60-100-clienia-ag-pfaffikon"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "ZH"
+  },
+  "id|endress.com|1457192833": {
+    "canonicalSlug": "assistant-to-the-managing-director-60-80-m-f-d-endress-hauser-reinach",
+    "slugByLocale": {
+      "en": "assistant-to-the-managing-director-60-80-m-f-d-endress-hauser-reinach"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "BL"
+  },
+  "id|buhlergroup.com|1a9c7cd0-b9b3-4881-a602-881580a9e039": {
+    "canonicalSlug": "process-engineer-wheat-amp-rye-buehler-uzwil",
+    "slugByLocale": {
+      "de": "process-engineer-wheat-amp-rye-buehler-uzwil"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "SG"
+  },
+  "id|buhlergroup.com|f1862e52-897d-4b6f-9b7c-fb44b3b701cc": {
+    "canonicalSlug": "process-commissioning-engineer-wheat-amp-rye-buehler-uzwil",
+    "slugByLocale": {
+      "de": "process-commissioning-engineer-wheat-amp-rye-buehler-uzwil"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "SG"
+  },
+  "id|solique.ch|4105968": {
+    "canonicalSlug": "sachbearbeiter-in-zuweisung-e-unterbringung-kantonale-verwaltung-zurich-8005-zurich",
+    "slugByLocale": {
+      "de": "sachbearbeiter-in-zuweisung-und-unterbringung-kanton-zuerich-8005-zurich",
+      "it": "sachbearbeiter-in-zuweisung-e-unterbringung-kantonale-verwaltung-zurich-8005-zurich",
+      "en": "sachbearbeiter-in-zuweisung-und-unterbringung-kantonale-verwaltung-zurich-8005-zurich",
+      "fr": "sachbearbeiter-in-zuweisung-und-unterbringung-kantonale-verwaltung-zurich-8005-zurich"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4105994": {
+    "canonicalSlug": "aufseher-in-betreuer-in-kanton-zuerich-horgen",
+    "slugByLocale": {
+      "de": "aufseher-in-betreuer-in-kanton-zuerich-horgen"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "ZH"
+  },
+  "id|szb-chb.ch|4773": {
+    "canonicalSlug": "administrative-sachbearbeiter-in-patientenaufnahme-80-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+    "slugByLocale": {
+      "de": "administrative-sachbearbeiter-in-patientenaufnahme-80-szb-chb-biel-bienne",
+      "it": "administrative-sachbearbeiter-in-patientenaufnahme-80-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "en": "administrative-sachbearbeiter-in-patientenaufnahme-80-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "fr": "administrative-sachbearbeiter-in-patientenaufnahme-80-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "BE"
+  },
+  "url|https://jobs.smartrecruiters.com/talan/744000163154284-expert-e-atlassian?oga=true": {
+    "canonicalSlug": "expert-e-atlassian-talan-geneva-ge-switzerland",
+    "slugByLocale": {
+      "en": "expert-e-atlassian-talan-geneva-ge-switzerland"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "GE"
+  },
+  "id|solique.ch|4105992": {
+    "canonicalSlug": "responsabile-strassenregion-kantonale-verwaltung-zurich-glattbrugg",
+    "slugByLocale": {
+      "de": "leiter-in-strassenregion-kanton-zuerich-glattbrugg",
+      "it": "responsabile-strassenregion-kantonale-verwaltung-zurich-glattbrugg"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4105465": {
+    "canonicalSlug": "abteilungsleitung-gewerbliche-berufsschule-wetzikon-kantonale-verwaltung-zurich-wetzikon",
+    "slugByLocale": {
+      "de": "abteilungsleitung-gewerbliche-berufsschule-wetzikon-kanton-zuerich-wetzikon",
+      "it": "abteilungsleitung-gewerbliche-berufsschule-wetzikon-kantonale-verwaltung-zurich-wetzikon",
+      "en": "abteilungsleitung-gewerbliche-berufsschule-wetzikon-kantonale-verwaltung-zurich-wetzikon",
+      "fr": "abteilungsleitung-gewerbliche-berufsschule-wetzikon-kantonale-verwaltung-zurich-wetzikon"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "ZH"
+  },
+  "id|migros.ch|396f1f6a-c1d1-46bb-bad9-f7e1ba1e76f2": {
+    "canonicalSlug": "vendeur-vendeuse-a-l-heure-denner-sion",
+    "slugByLocale": {
+      "fr": "vendeur-vendeuse-a-l-heure-denner",
+      "it": "vendeur-vendeuse-a-l-heure-denner-sion"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "VS"
+  },
+  "id|migros.ch|cec6fefb-9991-491c-9a8e-0ff1999b1a64": {
+    "canonicalSlug": "assistent-in-einkauf-food-denner",
+    "slugByLocale": {
+      "de": "assistent-in-einkauf-food-denner"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "ZH"
+  },
+  "id|migros.ch|efa67671-6113-4e0b-9ab0-9d3ea9c24b0a": {
+    "canonicalSlug": "verkaufer-in-denner-gossau-sg",
+    "slugByLocale": {
+      "de": "verkaufer-in-denner",
+      "it": "verkaufer-in-denner-gossau-sg",
+      "en": "verkaufer-in-denner-gossau-sg",
+      "fr": "verkaufer-in-denner-gossau-sg"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "SG"
+  },
+  "id|vermoegenszentrum.ch|91cfc130-6589-462d-9b9c-3dac3eb23479": {
+    "canonicalSlug": "senior-accountant-vz-vermogenszentrum-zurich",
+    "slugByLocale": {
+      "de": "senior-accountant-vz-vermoegenszentrum-ch",
+      "it": "senior-accountant-vz-vermogenszentrum-zurich",
+      "en": "senior-accountant-vz-vermogenszentrum-zurich",
+      "fr": "senior-accountant-vz-vermogenszentrum-zurich"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "ZH"
+  },
+  "id|vermoegenszentrum.ch|4535eb22-f586-4c46-bec9-a80d518e38e3": {
+    "canonicalSlug": "junior-hr-recruiting-manager-vz-vermogenszentrum-zurich",
+    "slugByLocale": {
+      "de": "junior-hr-recruiting-manager-vz-vermoegenszentrum-ch",
+      "it": "junior-hr-recruiting-manager-vz-vermogenszentrum-zurich",
+      "en": "junior-hr-recruiting-manager-vz-vermogenszentrum-zurich",
+      "fr": "junior-hr-recruiting-manager-vz-vermogenszentrum-zurich"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "ZH"
+  },
+  "id|resortragaz.ch|ef7541ea-96d7-4804-b4d2-a49649299f3a": {
+    "canonicalSlug": "guest-experience-coordinator-50-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+    "slugByLocale": {
+      "de": "guest-experience-coordinator-50-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "SG"
+  },
+  "id|spitexjobs.ch|j999866": {
+    "canonicalSlug": "fachfrau-mann-gesundheit-fage-demenz-40-100-a-spitex-zurich-ag-zurich",
+    "slugByLocale": {
+      "de": "fachfrau-mann-gesundheit-fage-demenz-40-100-a-spitex-ch-zurich",
+      "it": "fachfrau-mann-gesundheit-fage-demenz-40-100-a-spitex-zurich-ag-zurich"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "ZH"
+  },
+  "id|spitexjobs.ch|j999867": {
+    "canonicalSlug": "dipl-pflegefachfrau-mann-con-fallfuhrung-demenz-60-100-a-spitex-zurich-ag-zurich",
+    "slugByLocale": {
+      "de": "dipl-pflegefachfrau-mann-mit-fallfuhrung-demenz-60-100-a-spitex-ch-zurich",
+      "it": "dipl-pflegefachfrau-mann-con-fallfuhrung-demenz-60-100-a-spitex-zurich-ag-zurich"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "ZH"
+  },
+  "id|spitexjobs.ch|j999871": {
+    "canonicalSlug": "collaboratore-trice-in-hauswirtschaft-e-betreuung-40-60-spitex-stafa",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-hauswirtschaft-und-betreuung-40-60-spitex-ch-stafa",
+      "it": "collaboratore-trice-in-hauswirtschaft-e-betreuung-40-60-spitex-stafa"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "ZH"
+  },
+  "id|luks.ch|855e4f7a-491f-4936-b661-5cb29dde35a5": {
+    "canonicalSlug": "pflegefachfrau-pflegefachmann-hf-fh-per-das-ambulatorium-hamatologie-e-medizinische-onkologie-60-100-luzerner-kantonsspital-luks-luzern",
+    "slugByLocale": {
+      "de": "pflegefachfrau-pflegefachmann-hf-fh-fur-das-ambulatorium-hamatologie-und-medizinische",
+      "it": "pflegefachfrau-pflegefachmann-hf-fh-per-das-ambulatorium-hamatologie-e-medizinische-onkologie-60-100-luzerner-kantonsspital-luks-luzern"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "LU"
+  },
+  "url|https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000163144649-apn-nurse-practitioner-40-60-arztezentrum-ittigen": {
+    "canonicalSlug": "apn-nurse-practitioner-40-60-arztezentrum-ittigen-swiss-medical-network",
+    "slugByLocale": {
+      "de": "apn-nurse-practitioner-40-60-arztezentrum-ittigen-swiss-medical-network"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "BE"
+  },
+  "url|https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000163153353-dipl-pflegefachperson-als-dauernachtwache": {
+    "canonicalSlug": "dipl-pflegefachperson-als-dauernachtwache-swiss-medical-network",
+    "slugByLocale": {
+      "de": "dipl-pflegefachperson-als-dauernachtwache-swiss-medical-network"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "SG"
+  },
+  "url|https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000163158556-cuisinier-ere-": {
+    "canonicalSlug": "cuisinier-ere-swiss-medical-network",
+    "slugByLocale": {
+      "fr": "cuisinier-ere-swiss-medical-network"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "VD"
+  },
+  "id|coopjobs.ch|fb70d48b-f600-4ef8-8c75-868d325140e0": {
+    "canonicalSlug": "vendita-cassa-servizi-jumbo-emmen-8f457dbebb",
+    "slugByLocale": {
+      "de": "verkaufer-in-kassen-services-jumbo-emmen",
+      "it": "vendita-cassa-servizi-jumbo-emmen-8f457dbebb",
+      "en": "seller-cash-register-services-jumbo-emmen",
+      "fr": "caisse-enregistreuse-services-du-vendeur-jumbo-emmen"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "LU"
+  },
+  "id|coopjobs.ch|6c1955f2-75c7-4911-badc-2fd893eef6b8": {
+    "canonicalSlug": "addetto-a-alla-logistica-jumbo-schwyz",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-logistik-jumbo-schwyz",
+      "it": "addetto-a-alla-logistica-jumbo-schwyz",
+      "en": "associate-logistik-jumbo-schwyz",
+      "fr": "collaborateur-trice-logistik-jumbo-schwyz"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "SZ"
+  },
+  "id|coopjobs.ch|c92d8e0e-cc6a-49f9-aff0-3392cc66668a": {
+    "canonicalSlug": "rayon-conduttore-deco-jumbo-glarus-0c96be454c",
+    "slugByLocale": {
+      "de": "rayonleiter-in-deco-jumbo-glarus",
+      "it": "rayon-conduttore-deco-jumbo-glarus-0c96be454c",
+      "en": "rayon-conductor-deco-jumbo-glarus",
+      "fr": "rayon-conducteur-deco-jumbo-glarus"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "GL"
+  },
+  "url|https://climeworks.recruitee.com/o/development-specialist-sorbent-structures-80-100": {
+    "canonicalSlug": "development-specialist-sorbent-structures-80-100-climeworks-zurich",
+    "slugByLocale": {
+      "en": "development-specialist-sorbent-structures-80-100-climeworks-zurich"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "ZH"
+  },
+  "id|bkw.com|374ea85e-102d-4f68-84df-ce075c881e81": {
+    "canonicalSlug": "hochschulpraktikant-in-communication-culture-alle-bkw-ch",
+    "slugByLocale": {
+      "de": "hochschulpraktikant-in-communication-culture-alle-bkw-ch"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "BE"
+  },
+  "url|https://apply.refline.ch/486538/0579/pub/9/index.html": {
+    "canonicalSlug": "dipl-rettungssanitater-in-hf-per-unsere-notfallstation-40-70-spital-limmattal-schlieren",
+    "slugByLocale": {
+      "de": "dipl-rettungssanitater-in-hf-fur-unsere-notfallstation-40-70-spital-limmattal-ch",
+      "it": "dipl-rettungssanitater-in-hf-per-unsere-notfallstation-40-70-spital-limmattal-schlieren"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "ZH"
+  },
+  "id|stadtluzern.ch|4217639a-8687-4d38-8a2c-3f15f8367e7e": {
+    "canonicalSlug": "stv-lehrperson-per-integrative-begabungs-e-begabtenforderung-3-6-klasse-schulhaus-grenzhof-volksschule-stadt-luzern",
+    "slugByLocale": {
+      "de": "stv-lehrperson-fur-integrative-begabungs-und-begabtenforderung-3-6-klasse-schulhaus",
+      "it": "stv-lehrperson-per-integrative-begabungs-e-begabtenforderung-3-6-klasse-schulhaus-grenzhof-volksschule-stadt-luzern"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "LU"
+  },
+  "id|stadtluzern.ch|34645f48-5dc7-4468-bbc1-b83c7bf0d178": {
+    "canonicalSlug": "co-schulleitung-volksschule-stadt-luzern-schulhaus-st-karli-zyklus-1-65-75-volksschule",
+    "slugByLocale": {
+      "de": "co-schulleitung-volksschule-stadt-luzern-schulhaus-st-karli-zyklus-1-65-75-volksschule"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "LU"
+  },
+  "id|uzh.ch|b6dbef4a-25e2-42b3-8d9d-0acad26ede53": {
+    "canonicalSlug": "phd-position-empirical-legal-studies-soft-law-amp-financial-insurance-regulation-uzh",
+    "slugByLocale": {
+      "en": "phd-position-empirical-legal-studies-soft-law-amp-financial-insurance-regulation-uzh"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "ZH"
+  },
+  "id|concordia.ch|cb3e8760-006a-4470-9602-f7f33c6894b2": {
+    "canonicalSlug": "senior-ai-engineer-architect-w-m-d-80-100-concordia-luzern",
+    "slugByLocale": {
+      "de": "senior-ai-engineer-architect-w-m-d-80-100-concordia-luzern"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "LU"
+  },
+  "id|concordia.ch|6be31a8a-054e-4f44-b6b7-3a980a2b6478": {
+    "canonicalSlug": "ai-engineer-w-m-d-80-100-concordia-luzern",
+    "slugByLocale": {
+      "de": "ai-engineer-w-m-d-80-100-concordia-luzern"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "LU"
+  },
+  "id|concordia.ch|e1363863-c28a-45e0-b5f7-dd36574c3098": {
+    "canonicalSlug": "devops-client-engineer-w-m-d-80-100-concordia-luzern",
+    "slugByLocale": {
+      "de": "devops-client-engineer-w-m-d-80-100-concordia-luzern"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "LU"
+  },
+  "id|galenica.com|3153969": {
+    "canonicalSlug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-ebikon",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-galenica-ebikon",
+      "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-galenica-ebikon",
+      "de": "galenica-galenica-pharma-assistent-pharma-assistentin-w-m-d-ebikon",
+      "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-galenica-ebikon"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "LU"
+  },
+  "id|galenica.com|3154106": {
+    "canonicalSlug": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-langenthal",
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-langenthal",
+      "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-langenthal",
+      "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-langenthal",
+      "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-langenthal"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "BE"
+  },
+  "id|galenica.com|3155039": {
+    "canonicalSlug": "farmacista-farmacista-m-f-d-galenica-galenica-st-gallen",
+    "slugByLocale": {
+      "it": "farmacista-farmacista-m-f-d-galenica-galenica-st-gallen",
+      "en": "pharmacist-pharmacist-m-f-d-galenica-galenica-st-gallen",
+      "de": "galenica-galenica-apotheker-apothekerin-w-m-d-st-gallen",
+      "fr": "pharmacienne-pharmacienne-h-f-d-galenica-galenica-st-gallen"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "SG"
+  },
+  "id|mediclinic.com|1459599133": {
+    "canonicalSlug": "dipl-pflegefachfrau-pflegefachmann-a-100-chirurgie-hirslanden-hirslanden-klinik-linde",
+    "slugByLocale": {
+      "de": "dipl-pflegefachfrau-pflegefachmann-a-100-chirurgie-hirslanden-hirslanden-klinik-linde"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "BE"
+  },
+  "id|mediclinic.com|1459595633": {
+    "canonicalSlug": "pharma-assistentin-pharma-assistent-per-la-spitalapotheke-a-40-60-hirslanden-klinik-linde",
+    "slugByLocale": {
+      "de": "pharma-assistentin-pharma-assistent-fur-die-spitalapotheke-a-40-60-hirslanden-hirslanden",
+      "it": "pharma-assistentin-pharma-assistent-per-la-spitalapotheke-a-40-60-hirslanden-klinik-linde"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "BE"
+  },
+  "id|mediclinic.com|1459590333": {
+    "canonicalSlug": "collaboratore-trice-in-reception-a-50-hirslanden-klinik-linde",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-reception-a-50-hirslanden-hirslanden-klinik-linde",
+      "it": "collaboratore-trice-in-reception-a-50-hirslanden-klinik-linde"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "BE"
+  },
+  "id|microsoft.com|1970393557006846": {
+    "canonicalSlug": "gestione-account-microsoft-switzerland",
+    "slugByLocale": {
+      "it": "gestione-account-microsoft-switzerland",
+      "en": "services-account-management-microsoft-switzerland",
+      "de": "dienstleistungen-account-management-microsoft-switzerland",
+      "fr": "gestion-des-comptes-de-services-microsoft-switzerland"
+    },
+    "createdAt": "2026-11-23",
+    "canton": "ZH"
   }
 }
