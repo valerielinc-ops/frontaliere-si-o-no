@@ -1,7 +1,7 @@
 {
   "key": "medics-labor",
   "label": "Medics Labor AG",
-  "generatedAt": "2026-11-23T09:35:09.159Z",
+  "generatedAt": "2026-11-23T21:41:46.012Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -13,30 +13,31 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 6245,
-  "avgDurationMs": 6245,
+  "durationMs": 5421,
+  "avgDurationMs": 5421,
   "durationHistory": [
-    6245
+    5421
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "medics-labor-586233e3475e",
-      "slug": "leitende-r-biomedizinische-r-analytiker-in-klin-immunologie-medics-labor-bern",
+      "slug": "analista-biomedico-principale-clinico-immunologia-medics-labor-ag-bern",
       "company": "Medics Labor AG",
       "companyKey": "medics-labor",
       "companyDomain": "medics.ch",
       "title": "Leitende:r Biomedizinische:r Analytiker:in Klin. Immunologie",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Bern",
       "canton": "BE",
       "url": "https://app.reflinejobs.io/1474/0156/pub/113/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:34:50.902Z",
+      "crawledAt": "2026-11-23T21:41:22.635Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -54,24 +55,23 @@
       "postingDateSource": "reported",
       "applyUrl": "https://app.reflinejobs.io/1474/0156/pub/113/index.html",
       "externalId": "0156",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
+      "firstSeenAt": "2026-11-23T09:34:50.902Z",
+      "salaryMin": 115000,
+      "salaryMax": 160000,
       "salarySource": "estimated",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T09:34:50.902Z",
+      "validThrough": "2027-02-21T21:41:22.635Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:34:50.902Z",
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -87,7 +87,7 @@
       "url": "https://app.reflinejobs.io/1474/0153/pub/111/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:34:50.328Z",
+      "crawledAt": "2026-11-23T21:41:22.108Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:34:50.328Z",
+      "validThrough": "2027-02-15T21:41:22.108Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -134,7 +134,7 @@
       "url": "https://app.reflinejobs.io/1474/0147/pub/109/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:34:49.740Z",
+      "crawledAt": "2026-11-23T21:41:21.562Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -158,7 +158,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:34:49.740Z",
+      "validThrough": "2027-02-03T21:41:21.562Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -169,5 +169,5 @@
       }
     }
   ],
-  "codeCommit": "7474b74d22ad2d97637dc94f08d243f12f0ba1c7"
+  "codeCommit": "7b684909df7304f91c3a19b75aa2a6088ce7630a"
 }
