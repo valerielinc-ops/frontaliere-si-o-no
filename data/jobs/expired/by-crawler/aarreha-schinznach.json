@@ -1287,16 +1287,23 @@
     "slugByLocale": {
       "it": "addetto-addetta-alle-pulizie-aarreha-schinznach-schinznach-bad",
       "en": "cleaning-staff-aarreha-schinznach-schinznach-bad",
-      "de": "mitarbeiterin-mitarbeiter-reinigung-aarreha-schinznach-schinznach-bad",
+      "de": "mitarbeiterin-mitarbeiter-reinigung-aarreha-schinznach-schinznach-bad-aa42874c",
       "fr": "collaboratrice-collaborateur-nettoyage-aarreha-schinznach-schinznach-bad"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-06-01T13:27:17.909Z",
-    "previousSlugs": [
-      "mitarbeiterin-mitarbeiter-reinigung-aarreha-schinznach-schinznach-bad"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "mitarbeiterin-mitarbeiter-reinigung-aarreha-schinznach-schinznach-bad-aa42874c",
+        "mitarbeiterin-mitarbeiter-reinigung-aarreha-schinznach-schinznach-bad"
+      ],
+      "en": [
+        "mitarbeiterin-mitarbeiter-reinigung-aarreha-schinznach-schinznach-bad"
+      ],
+      "de": [
+        "mitarbeiterin-mitarbeiter-reinigung-aarreha-schinznach-schinznach-bad-aa42874c"
+      ],
+      "fr": [
         "mitarbeiterin-mitarbeiter-reinigung-aarreha-schinznach-schinznach-bad"
       ]
     },
@@ -1306,7 +1313,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://aarreha-bewerber.talent-soft.com/stelle/stelle-mitarbeiterin-mitarbeiter-reinigung_529.aspx",
-    "firstSeenAt": "2026-05-19T20:45:47.604Z"
+    "firstSeenAt": "2026-05-19T20:45:47.604Z",
+    "previousSlugs": [
+      "mitarbeiterin-mitarbeiter-reinigung-aarreha-schinznach-schinznach-bad"
+    ]
   },
   {
     "slug": "apprendistato-2026-come-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-aarreha-schinznach-schinznach-bad",

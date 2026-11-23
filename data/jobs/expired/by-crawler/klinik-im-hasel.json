@@ -173,16 +173,14 @@
     "slugByLocale": {
       "it": "segretario-m-f-d-80-klinik-im-hasel-gontenschwil",
       "en": "secretary-m-f-d-80-klinik-im-hasel-gontenschwil",
-      "de": "sekretar-in-w-m-d-80-klinik-im-hasel-gontenschwil",
+      "de": "sekretar-in-w-m-d-80-klinik-im-hasel-gontenschwil-600a8db0",
       "fr": "secretaire-h-f-d-80-klinik-im-hasel-gontenschwil"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-27T21:22:12.049Z",
-    "previousSlugs": [
-      "sekretar-in-w-m-d-80-klinik-im-hasel-gontenschwil"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "sekretar-in-w-m-d-80-klinik-im-hasel-gontenschwil-600a8db0",
         "sekretar-in-w-m-d-80-klinik-im-hasel-gontenschwil"
       ],
       "en": [
@@ -190,6 +188,9 @@
       ],
       "fr": [
         "sekretar-in-w-m-d-80-klinik-im-hasel-gontenschwil"
+      ],
+      "de": [
+        "sekretar-in-w-m-d-80-klinik-im-hasel-gontenschwil-600a8db0"
       ]
     },
     "postalCode": "5728",
@@ -198,7 +199,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2912.umantis.com/vacancies/484/description/1",
-    "firstSeenAt": "2026-09-23T23:38:00.138Z"
+    "firstSeenAt": "2026-09-23T23:38:00.138Z",
+    "previousSlugs": [
+      "sekretar-in-w-m-d-80-klinik-im-hasel-gontenschwil"
+    ]
   },
   {
     "slug": "interno-nel-lavoro-sociale-f-m-d-80-klinik-im-hasel-gontenschwil",
