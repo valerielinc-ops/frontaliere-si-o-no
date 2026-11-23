@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ermenegildo-zegna-logistica",
-  "assembledAt": "2026-11-23T09:20:53.208Z",
-  "runId": "45144664419",
+  "assembledAt": "2026-11-23T21:18:41.499Z",
+  "runId": "45267123041",
   "jobs": [
     {
       "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=275981362&Team=231361275",
@@ -49,7 +49,7 @@
         "location": "Stabio"
       },
       "sourceLang": "en",
-      "crawledAt": "2026-11-23T09:20:44.868Z",
+      "crawledAt": "2026-11-23T21:18:05.290Z",
       "id": "ermenegildo-zegna-logistica-0293238593f2",
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -86,7 +86,7 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-23T09:20:44.868Z",
+      "validThrough": "2026-12-23T21:18:05.290Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -126,7 +126,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-23T09:20:41.792Z",
+      "crawledAt": "2026-11-23T21:18:02.029Z",
       "source": "zegna-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -171,7 +171,7 @@
         "group-control-specialist-zegna"
       ],
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T09:20:41.792Z",
+      "validThrough": "2027-01-21T21:18:02.029Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://careers.zegnagroup.com/jobs/job-details?jobid=278031009&team=231361275"
     },
@@ -212,7 +212,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-23T09:20:40.327Z",
+      "crawledAt": "2026-11-23T21:18:00.598Z",
       "source": "zegna-careers-crawler",
       "employmentType": "INTERN",
       "experienceLevel": "",
@@ -257,7 +257,7 @@
         "zegna-brand-hq-controlling-intern-zegna"
       ],
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-23T09:20:40.327Z",
+      "validThrough": "2026-12-23T21:18:00.598Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://careers.zegnagroup.com/jobs/job-details?jobid=278658815&team=242459886"
     },
@@ -298,7 +298,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-23T09:20:38.642Z",
+      "crawledAt": "2026-11-23T21:17:58.704Z",
       "source": "zegna-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -328,7 +328,7 @@
       "streetAddress": "Via Lugano 13",
       "postalCode": "6855",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-21T09:20:38.642Z",
+      "validThrough": "2027-02-20T21:17:58.704Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-22T09:32:22.950Z",
       "previousSlugsByLocale": {
@@ -345,6 +345,86 @@
       "previousSlugs": [
         "business-continuity-it-sd-specialist-zegna"
       ]
+    },
+    {
+      "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=280476573&Team=231361275",
+      "applyUrl": "https://careers.zegnagroup.com/jobs/job-details?JobID=280476573&Team=231361275",
+      "title": "IT MDM Specialist",
+      "company": "Ermenegildo Zegna Group",
+      "companyKey": "ermenegildo-zegna-logistica",
+      "location": "Stabio",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Stabio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "description": "ABOUT ERMENEGILDO ZEGNA GROUP Founded in 1910 in Trivero, Italy, the Ermenegildo Zegna Group (NYSE:ZGN) is a global luxury company with a leading position in the high-end menswear business. Through its three complementary brands, the Group reaches a wide range of communities and market segments across the high-end fashion industry, from ZEGNA’s timeless luxury to the modern tailoring of Thom Browne, to luxury glamour with TOM FORD FASHION. The Ermenegildo Zegna Group is internationally recognized for its unique Filiera, owned and controlled by the Group, which is made up of the finest Italian textile producers fully integrated with unique luxury manufacturing capabilities, ensuring superior excellence, quality, and innovation. YOUR MISSION IN THIS ROLE As an IT MDM Specialist, you will join the Master Data Governance and Brand Team within the IT function, and play a key role in supporting Zegna's global transformation program based on SAP S/4. In this role, you will act as a key point of reference for Master Data Management initiatives, partnering with business stakeholders to gather requirements, perform functional analysis, coordinate data migration activities, and support the implementation of MDM solutions. You will help ensure data quality and consistency across systems and business processes, contributing to the evolution of our global SAP landscape and enabling effective business operations. More specifically you will: Conduct functional analysis and prepare structured documentation defining models, processes, and procedures for MDM/MDG initiatives Support and execute MDM/MDG platform implementation activities, including demonstrations, system configuration, and customization Contribute to integration analysis across systems, processes, and data flows Drive data migration and data conversion activities, ensuring accuracy, consistency, and alignment with project requirements Lead and perform solution testing, from defining test scenarios and selecting test cases to supporting users and validating final results Develop and deliver training materials and sessions related to MDM solutions Coordinate and support internal teams and external partners to ensure effective project execution Work closely with business units and process experts to identify, analyze, and resolve master data issues WHO YOU ARE You have gained 5 years of experience in MDM/MM functional and technical analysis, with the ability to support complex transformation initiatives. You are a highly motivated and proactive professional, eager to contribute to a technical transformation program within a dynamic environment. You are skilled in: SAP Master Data Management, with a focus on MDM and MM processes MDM/MM functional and technical analysis Design of processes, tasks, data flows, and dependencies SAP customizing, data migration, and data conversion Material data model and business partner master data, including vendor and customer domains SAP MDG and leading MDM platforms, including Informatica Riversand, Stibo Systems, Semarchy, Reltio, and Ataccama Delivery methodologies, including Waterfall, Agile, and Scrum Certified Data Management Professional certification is considered a plus Program debugging and tool development skills are considered a plus You’re known for: Problem-solving mindset with a strong focus on results Ability to work effectively under pressure Strong analytical skills, with attention to detail and technical accuracy Ability to engage effectively with business leadership and collaborate within large, diverse teams Excellent organizational and technical skills Strong interpersonal and communication skills, reflected in the way you collaborate with others. Excellent written and verbal communication skills in English. WHAT WE OFFER This position is based in Stabio, Switzerland. Remuneration is determined on objective criteria, regardless of gender. Within the base salary range, individual pay is determined by knowledge, skills, experience, tenure and relevant education or training. JOINING ERMENEGILDO ZEGNA GROUP Joining us means becoming part of a Group rooted in a rich heritage and guided by a long-term vision. Our people are central to this journey, contributing every day to a culture where craftsmanship, innovation, and responsibility come together to shape sustainable growth and enduring value. We are committed to fostering an inclusive and diverse workplace and are proud to be an equal opportunity employer. We welcome applications from all individuals regardless of gender, age, nationality, ethnicity, sexual orientation, disability, or any other personal characteristic.",
+      "descriptionByLocale": {
+        "en": "ABOUT ERMENEGILDO ZEGNA GROUP Founded in 1910 in Trivero, Italy, the Ermenegildo Zegna Group (NYSE:ZGN) is a global luxury company with a leading position in the high-end menswear business. Through its three complementary brands, the Group reaches a wide range of communities and market segments across the high-end fashion industry, from ZEGNA’s timeless luxury to the modern tailoring of Thom Browne, to luxury glamour with TOM FORD FASHION. The Ermenegildo Zegna Group is internationally recognized for its unique Filiera, owned and controlled by the Group, which is made up of the finest Italian textile producers fully integrated with unique luxury manufacturing capabilities, ensuring superior excellence, quality, and innovation. YOUR MISSION IN THIS ROLE As an IT MDM Specialist, you will join the Master Data Governance and Brand Team within the IT function, and play a key role in supporting Zegna's global transformation program based on SAP S/4. In this role, you will act as a key point of reference for Master Data Management initiatives, partnering with business stakeholders to gather requirements, perform functional analysis, coordinate data migration activities, and support the implementation of MDM solutions. You will help ensure data quality and consistency across systems and business processes, contributing to the evolution of our global SAP landscape and enabling effective business operations. More specifically you will: Conduct functional analysis and prepare structured documentation defining models, processes, and procedures for MDM/MDG initiatives Support and execute MDM/MDG platform implementation activities, including demonstrations, system configuration, and customization Contribute to integration analysis across systems, processes, and data flows Drive data migration and data conversion activities, ensuring accuracy, consistency, and alignment with project requirements Lead and perform solution testing, from defining test scenarios and selecting test cases to supporting users and validating final results Develop and deliver training materials and sessions related to MDM solutions Coordinate and support internal teams and external partners to ensure effective project execution Work closely with business units and process experts to identify, analyze, and resolve master data issues WHO YOU ARE You have gained 5 years of experience in MDM/MM functional and technical analysis, with the ability to support complex transformation initiatives. You are a highly motivated and proactive professional, eager to contribute to a technical transformation program within a dynamic environment. You are skilled in: SAP Master Data Management, with a focus on MDM and MM processes MDM/MM functional and technical analysis Design of processes, tasks, data flows, and dependencies SAP customizing, data migration, and data conversion Material data model and business partner master data, including vendor and customer domains SAP MDG and leading MDM platforms, including Informatica Riversand, Stibo Systems, Semarchy, Reltio, and Ataccama Delivery methodologies, including Waterfall, Agile, and Scrum Certified Data Management Professional certification is considered a plus Program debugging and tool development skills are considered a plus You’re known for: Problem-solving mindset with a strong focus on results Ability to work effectively under pressure Strong analytical skills, with attention to detail and technical accuracy Ability to engage effectively with business leadership and collaborate within large, diverse teams Excellent organizational and technical skills Strong interpersonal and communication skills, reflected in the way you collaborate with others. Excellent written and verbal communication skills in English. WHAT WE OFFER This position is based in Stabio, Switzerland. Remuneration is determined on objective criteria, regardless of gender. Within the base salary range, individual pay is determined by knowledge, skills, experience, tenure and relevant education or training. JOINING ERMENEGILDO ZEGNA GROUP Joining us means becoming part of a Group rooted in a rich heritage and guided by a long-term vision. Our people are central to this journey, contributing every day to a culture where craftsmanship, innovation, and responsibility come together to shape sustainable growth and enduring value. We are committed to fostering an inclusive and diverse workplace and are proud to be an equal opportunity employer. We welcome applications from all individuals regardless of gender, age, nationality, ethnicity, sexual orientation, disability, or any other personal characteristic.",
+        "it": "ABOUT ERMENEGILDO ZEGNA GROUP Founded in 1910 in Trivero, Italy, the Ermenegildo Zegna Group (NYSE:ZGN) is a global luxury company with a leading position in the high-end menswear business. Through its three complementary brands, the Group reaches a wide range of communities and market segments across the high-end fashion industry, from ZEGNA’s timeless luxury to the modern tailoring of Thom Browne, to luxury glamour with TOM FORD FASHION. The Ermenegildo Zegna Group is internationally recognized for its unique Filiera, owned and controlled by the Group, which is made up of the finest Italian textile producers fully integrated with unique luxury manufacturing capabilities, ensuring superior excellence, quality, and innovation. YOUR MISSION IN THIS ROLE As an IT MDM Specialist, you will join the Master Data Governance and Brand Team within the IT function, and play a key role in supporting Zegna's global transformation program based on SAP S/4. In this role, you will act as a key point of reference for Master Data Management initiatives, partnering with business stakeholders to gather requirements, perform functional analysis, coordinate data migration activities, and support the implementation of MDM solutions. You will help ensure data quality and consistency across systems and business processes, contributing to the evolution of our global SAP landscape and enabling effective business operations. More specifically you will: Conduct functional analysis and prepare structured documentation defining models, processes, and procedures for MDM/MDG initiatives Support and execute MDM/MDG platform implementation activities, including demonstrations, system configuration, and customization Contribute to integration analysis across systems, processes, and data flows Drive data migration and data conversion activities, ensuring accuracy, consistency, and alignment with project requirements Lead and perform solution testing, from defining test scenarios and selecting test cases to supporting users and validating final results Develop and deliver training materials and sessions related to MDM solutions Coordinate and support internal teams and external partners to ensure effective project execution Work closely with business units and process experts to identify, analyze, and resolve master data issues WHO YOU ARE You have gained 5 years of experience in MDM/MM functional and technical analysis, with the ability to support complex transformation initiatives. You are a highly motivated and proactive professional, eager to contribute to a technical transformation program within a dynamic environment. You are skilled in: SAP Master Data Management, with a focus on MDM and MM processes MDM/MM functional and technical analysis Design of processes, tasks, data flows, and dependencies SAP customizing, data migration, and data conversion Material data model and business partner master data, including vendor and customer domains SAP MDG and leading MDM platforms, including Informatica Riversand, Stibo Systems, Semarchy, Reltio, and Ataccama Delivery methodologies, including Waterfall, Agile, and Scrum Certified Data Management Professional certification is considered a plus Program debugging and tool development skills are considered a plus You’re known for: Problem-solving mindset with a strong focus on results Ability to work effectively under pressure Strong analytical skills, with attention to detail and technical accuracy Ability to engage effectively with business leadership and collaborate within large, diverse teams Excellent organizational and technical skills Strong interpersonal and communication skills, reflected in the way you collaborate with others. Excellent written and verbal communication skills in English. WHAT WE OFFER This position is based in Stabio, Switzerland. Remuneration is determined on objective criteria, regardless of gender. Within the base salary range, individual pay is determined by knowledge, skills, experience, tenure and relevant education or training. JOINING ERMENEGILDO ZEGNA GROUP Joining us means becoming part of a Group rooted in a rich heritage and guided by a long-term vision. Our people are central to this journey, contributing every day to a culture where craftsmanship, innovation, and responsibility come together to shape sustainable growth and enduring value. We are committed to fostering an inclusive and diverse workplace and are proud to be an equal opportunity employer. We welcome applications from all individuals regardless of gender, age, nationality, ethnicity, sexual orientation, disability, or any other personal characteristic.",
+        "de": "ABOUT ERMENEGILDO ZEGNA GROUP Founded in 1910 in Trivero, Italy, the Ermenegildo Zegna Group (NYSE:ZGN) is a global luxury company with a leading position in the high-end menswear business. Through its three complementary brands, the Group reaches a wide range of communities and market segments across the high-end fashion industry, from ZEGNA’s timeless luxury to the modern tailoring of Thom Browne, to luxury glamour with TOM FORD FASHION. The Ermenegildo Zegna Group is internationally recognized for its unique Filiera, owned and controlled by the Group, which is made up of the finest Italian textile producers fully integrated with unique luxury manufacturing capabilities, ensuring superior excellence, quality, and innovation. YOUR MISSION IN THIS ROLE As an IT MDM Specialist, you will join the Master Data Governance and Brand Team within the IT function, and play a key role in supporting Zegna's global transformation program based on SAP S/4. In this role, you will act as a key point of reference for Master Data Management initiatives, partnering with business stakeholders to gather requirements, perform functional analysis, coordinate data migration activities, and support the implementation of MDM solutions. You will help ensure data quality and consistency across systems and business processes, contributing to the evolution of our global SAP landscape and enabling effective business operations. More specifically you will: Conduct functional analysis and prepare structured documentation defining models, processes, and procedures for MDM/MDG initiatives Support and execute MDM/MDG platform implementation activities, including demonstrations, system configuration, and customization Contribute to integration analysis across systems, processes, and data flows Drive data migration and data conversion activities, ensuring accuracy, consistency, and alignment with project requirements Lead and perform solution testing, from defining test scenarios and selecting test cases to supporting users and validating final results Develop and deliver training materials and sessions related to MDM solutions Coordinate and support internal teams and external partners to ensure effective project execution Work closely with business units and process experts to identify, analyze, and resolve master data issues WHO YOU ARE You have gained 5 years of experience in MDM/MM functional and technical analysis, with the ability to support complex transformation initiatives. You are a highly motivated and proactive professional, eager to contribute to a technical transformation program within a dynamic environment. You are skilled in: SAP Master Data Management, with a focus on MDM and MM processes MDM/MM functional and technical analysis Design of processes, tasks, data flows, and dependencies SAP customizing, data migration, and data conversion Material data model and business partner master data, including vendor and customer domains SAP MDG and leading MDM platforms, including Informatica Riversand, Stibo Systems, Semarchy, Reltio, and Ataccama Delivery methodologies, including Waterfall, Agile, and Scrum Certified Data Management Professional certification is considered a plus Program debugging and tool development skills are considered a plus You’re known for: Problem-solving mindset with a strong focus on results Ability to work effectively under pressure Strong analytical skills, with attention to detail and technical accuracy Ability to engage effectively with business leadership and collaborate within large, diverse teams Excellent organizational and technical skills Strong interpersonal and communication skills, reflected in the way you collaborate with others. Excellent written and verbal communication skills in English. WHAT WE OFFER This position is based in Stabio, Switzerland. Remuneration is determined on objective criteria, regardless of gender. Within the base salary range, individual pay is determined by knowledge, skills, experience, tenure and relevant education or training. JOINING ERMENEGILDO ZEGNA GROUP Joining us means becoming part of a Group rooted in a rich heritage and guided by a long-term vision. Our people are central to this journey, contributing every day to a culture where craftsmanship, innovation, and responsibility come together to shape sustainable growth and enduring value. We are committed to fostering an inclusive and diverse workplace and are proud to be an equal opportunity employer. We welcome applications from all individuals regardless of gender, age, nationality, ethnicity, sexual orientation, disability, or any other personal characteristic.",
+        "fr": "ABOUT ERMENEGILDO ZEGNA GROUP Founded in 1910 in Trivero, Italy, the Ermenegildo Zegna Group (NYSE:ZGN) is a global luxury company with a leading position in the high-end menswear business. Through its three complementary brands, the Group reaches a wide range of communities and market segments across the high-end fashion industry, from ZEGNA’s timeless luxury to the modern tailoring of Thom Browne, to luxury glamour with TOM FORD FASHION. The Ermenegildo Zegna Group is internationally recognized for its unique Filiera, owned and controlled by the Group, which is made up of the finest Italian textile producers fully integrated with unique luxury manufacturing capabilities, ensuring superior excellence, quality, and innovation. YOUR MISSION IN THIS ROLE As an IT MDM Specialist, you will join the Master Data Governance and Brand Team within the IT function, and play a key role in supporting Zegna's global transformation program based on SAP S/4. In this role, you will act as a key point of reference for Master Data Management initiatives, partnering with business stakeholders to gather requirements, perform functional analysis, coordinate data migration activities, and support the implementation of MDM solutions. You will help ensure data quality and consistency across systems and business processes, contributing to the evolution of our global SAP landscape and enabling effective business operations. More specifically you will: Conduct functional analysis and prepare structured documentation defining models, processes, and procedures for MDM/MDG initiatives Support and execute MDM/MDG platform implementation activities, including demonstrations, system configuration, and customization Contribute to integration analysis across systems, processes, and data flows Drive data migration and data conversion activities, ensuring accuracy, consistency, and alignment with project requirements Lead and perform solution testing, from defining test scenarios and selecting test cases to supporting users and validating final results Develop and deliver training materials and sessions related to MDM solutions Coordinate and support internal teams and external partners to ensure effective project execution Work closely with business units and process experts to identify, analyze, and resolve master data issues WHO YOU ARE You have gained 5 years of experience in MDM/MM functional and technical analysis, with the ability to support complex transformation initiatives. You are a highly motivated and proactive professional, eager to contribute to a technical transformation program within a dynamic environment. You are skilled in: SAP Master Data Management, with a focus on MDM and MM processes MDM/MM functional and technical analysis Design of processes, tasks, data flows, and dependencies SAP customizing, data migration, and data conversion Material data model and business partner master data, including vendor and customer domains SAP MDG and leading MDM platforms, including Informatica Riversand, Stibo Systems, Semarchy, Reltio, and Ataccama Delivery methodologies, including Waterfall, Agile, and Scrum Certified Data Management Professional certification is considered a plus Program debugging and tool development skills are considered a plus You’re known for: Problem-solving mindset with a strong focus on results Ability to work effectively under pressure Strong analytical skills, with attention to detail and technical accuracy Ability to engage effectively with business leadership and collaborate within large, diverse teams Excellent organizational and technical skills Strong interpersonal and communication skills, reflected in the way you collaborate with others. Excellent written and verbal communication skills in English. WHAT WE OFFER This position is based in Stabio, Switzerland. Remuneration is determined on objective criteria, regardless of gender. Within the base salary range, individual pay is determined by knowledge, skills, experience, tenure and relevant education or training. JOINING ERMENEGILDO ZEGNA GROUP Joining us means becoming part of a Group rooted in a rich heritage and guided by a long-term vision. Our people are central to this journey, contributing every day to a culture where craftsmanship, innovation, and responsibility come together to shape sustainable growth and enduring value. We are committed to fostering an inclusive and diverse workplace and are proud to be an equal opportunity employer. We welcome applications from all individuals regardless of gender, age, nationality, ethnicity, sexual orientation, disability, or any other personal characteristic."
+      },
+      "titleByLocale": {
+        "en": "IT MDM Specialist",
+        "it": "IT MDM Specialista",
+        "de": "IT MDM Spezialist",
+        "fr": "IT MDM Spécialiste"
+      },
+      "slug": "it-mdm-specialist-zegna",
+      "slugByLocale": {
+        "en": "it-mdm-specialist-ermenegildo-zegna-group-stabio",
+        "it": "it-mdm-specialist-zegna",
+        "de": "it-mdm-specialist-zegna",
+        "fr": "it-mdm-specialist-zegna"
+      },
+      "department": "Corporate and Staff Functions/Information Technology",
+      "category": "Corporate and Staff Functions/Information Technology",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-23T21:17:56.973Z",
+      "source": "zegna-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "IT",
+      "brand": "Zegna",
+      "contractType": "Permanent Job",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Stabio"
+      },
+      "sourceLang": "en",
+      "needsRetranslation": true,
+      "id": "ermenegildo-zegna-logistica-8a7241cc6f7a",
+      "previousSlugsByLocale": {
+        "en": [
+          "it-mdm-specialist-zegna"
+        ]
+      },
+      "previousSlugs": [
+        "it-mdm-specialist-zegna"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Lugano 13",
+      "postalCode": "6855",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-21T21:17:56.973Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-23T21:17:56.973Z"
     }
   ]
 }
