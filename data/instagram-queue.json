@@ -190,6 +190,59 @@
       ],
       "createdAt": "2026-11-22T16:21:22.368Z",
       "expiresAt": "2026-11-24T04:21:22.368Z"
+    },
+    {
+      "id": "border-2026-11-16",
+      "channel": "instagram",
+      "kind": "border",
+      "day": "2026-11-16",
+      "caption": "Mobilità oltreconfine: il passaggio da condividere prima di partire\n\n1. Biegno Indemini — 0 min\n2. Bizzarone Novazzano — 0 min\n3. Camedo (Re-Centovalli) — 0 min\n4. Campione d'Italia Bissone — 0 min\n5. Chiasso Centro — 0 min\n\nCondividi il passaggio con chi si sta organizzando.\n\n🔎 Per dettagli e fonti: link in bio.\n\n#frontalieri #ticino #svizzera #italia #lavoro",
+      "imageUrls": [
+        "https://cdn.frontaliereticino.ch/images/social/instagram/border-2026-11-16-0.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/instagram/border-2026-11-16-1.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/instagram/border-2026-11-16-2.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/instagram/border-2026-11-16-3.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/instagram/border-2026-11-16-4.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/instagram/border-2026-11-16-5.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/instagram/border-2026-11-16-6.jpg"
+      ],
+      "ledgerEntries": [
+        {
+          "id": "2026-11-16",
+          "kind": "border",
+          "url": "/traffico-dogane/biegno-indemini/oggi/",
+          "day": "2026-11-16",
+          "creativeId": "proof",
+          "creativeBaseId": "proof",
+          "creativeVariant": "baseline",
+          "creativeLabel": "Dato verificabile",
+          "creativeObjective": "share",
+          "primaryMetric": "shares",
+          "engagementMechanic": "direct-share",
+          "hookType": "data-proof",
+          "attentionMechanic": "single-source-number",
+          "engagementLoop": "share-with-utility",
+          "followUpFormat": "story-poll",
+          "backgroundExperimentId": "instagram-carousel-background-v1",
+          "backgroundVariant": "paper-amber",
+          "backgroundLabel": "Carta calda",
+          "safeAreaVersion": "safe-area-v2",
+          "copyMode": "codex",
+          "copySlot": "border",
+          "copyPromptVersion": "frontaliere-social-copy-v5",
+          "copyPackId": "e1e656e043e06845",
+          "copyTemplateId": "ig-border-share-practical",
+          "copyAssignmentMode": "deterministic",
+          "copyObjective": "share",
+          "copyAngleId": "passo-pratico",
+          "copyPillarId": "opportunita-concrete",
+          "copyAngleIntent": "both",
+          "copyHook": "Mobilità oltreconfine: il passaggio da condividere prima di partire",
+          "copyCta": "Condividi il passaggio con chi si sta organizzando."
+        }
+      ],
+      "createdAt": "2026-11-23T19:11:47.067Z",
+      "expiresAt": "2026-11-30T19:11:47.067Z"
     }
   ]
 }
