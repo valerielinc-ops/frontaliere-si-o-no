@@ -1,7 +1,7 @@
 {
   "crawlerKey": "sfs-group",
-  "assembledAt": "2026-11-23T09:29:09.264Z",
-  "runId": "45146087273",
+  "assembledAt": "2026-11-23T21:37:26.312Z",
+  "runId": "45268786726",
   "jobs": [
     {
       "id": "sfs-group-f0d4e07ab393",
@@ -34,7 +34,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/verkaufsberater-in-im-innendienst-bau-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:29:04.028Z",
+      "crawledAt": "2026-11-23T21:37:17.525Z",
       "addressLocality": "Buchs ZH",
       "addressRegion": "ZH",
       "streetAddress": "Buchs ZH",
@@ -87,7 +87,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:29:04.028Z",
+      "validThrough": "2027-01-10T21:37:17.525Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -121,7 +121,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/verkaufsberater-in-im-handwerkercenter-(m-f-d)-2.html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:29:03.871Z",
+      "crawledAt": "2026-11-23T21:37:17.416Z",
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
       "streetAddress": "Münchenstein",
@@ -172,7 +172,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:29:03.871Z",
+      "validThrough": "2026-12-23T21:37:17.416Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -206,7 +206,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/verkaufsberater-in-im-handwerkercenter-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:29:03.715Z",
+      "crawledAt": "2026-11-23T21:37:17.297Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Winterthur",
@@ -254,7 +254,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:29:03.715Z",
+      "validThrough": "2026-12-23T21:37:17.297Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -288,7 +288,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/steuerungstechniker-in-anlagentechniker-in-support-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:29:03.557Z",
+      "crawledAt": "2026-11-23T21:37:17.185Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "streetAddress": "Hallau",
@@ -335,7 +335,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:29:03.557Z",
+      "validThrough": "2026-12-25T21:37:17.185Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -369,7 +369,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/sap-modulbetreuer-pp-qm-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:29:03.401Z",
+      "crawledAt": "2026-11-23T21:37:17.069Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -420,7 +420,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:29:03.401Z",
+      "validThrough": "2027-01-11T21:37:17.069Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -454,7 +454,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/sachbearbeiter-debitorenbuchhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:29:03.243Z",
+      "crawledAt": "2026-11-23T21:37:16.952Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -505,7 +505,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T09:29:03.243Z",
+      "validThrough": "2027-02-04T21:37:16.952Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -539,7 +539,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/product-manager-rainscreen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:29:03.084Z",
+      "crawledAt": "2026-11-23T21:37:16.838Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -589,8 +589,90 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-23T09:29:03.084Z",
+      "validThrough": "2026-12-23T21:37:16.838Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "sfs-group-35b5f929ced5",
+      "slug": "meccanico-a-di-rulli-m-f-d-sfs-group-heerbrugg",
+      "slugByLocale": {
+        "de": "mechaniker-in-walzen-m-f-d-sfs-group-heerbrugg",
+        "it": "meccanico-a-di-rulli-m-f-d-sfs-group-heerbrugg",
+        "en": "mechanic-for-rollers-m-f-d-sfs-group-heerbrugg",
+        "fr": "mecanicien-ne-de-rouleaux-h-f-d-sfs-group-heerbrugg"
+      },
+      "company": "SFS Group",
+      "companyKey": "sfs-group",
+      "companyDomain": "sfs.com",
+      "title": "Mechaniker/in Walzen (m/f/d)",
+      "titleByLocale": {
+        "de": "Mechaniker/in Walzen (m/f/d)",
+        "it": "Mechaniker/in Walzen (m/f/d)",
+        "en": "Mechaniker/in Walzen (m/f/d)",
+        "fr": "Mechaniker/in Walzen (m/f/d)"
+      },
+      "description": "Im Segment Engineered Components in der Business Unit Industrial werden qualitativ hochwertige Produkte für verschiedene Industriebereiche hergestellt. Für die anspruchsvolle Produktion von Präzisionsformteilen und Sonderschrauben im Bereich Luftfahrt suchen wir für diese spannende Tätigkeit zum sofortigen Eintritt ein/e Mechaniker/in Walzen. Your Tasks:\n• Maschinen und Anlagen einrichten, bedienen und überwachen\n• Technische Zeichnungen und Fertigungsunterlagen lesen und umsetzen\n• Aufträge termingerecht und effizient bearbeiten\n• Qualitätskontrollen durchführen und Messwerte im Qualitätssystem erfassen\n• Produktionsdaten in SAP pflegen und Maschinenunterhalt sicherstellen\n• Prozesse und Werkzeuge laufend überprüfen und Verbesserungspotenziale erkennen Your profile:\n• Abgeschlossene mechanische Grundbildung\n• Erfahrung im industriellen Produktionsumfeld\n• Gutes technisches Verständnis\n• Interesse an der Bearbeitung von Miniaturteilen\n• Bereitschaft zum 2-Schichtbetrieb (Früh- und Spätschicht)\n• Gute Deutschkenntnisse in Wort und Schrift We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/ Have we sparked your interest?: Registrieren und bewerben dich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleistern.",
+      "descriptionByLocale": {
+        "de": "Im Segment Engineered Components in der Business Unit Industrial werden qualitativ hochwertige Produkte für verschiedene Industriebereiche hergestellt. Für die anspruchsvolle Produktion von Präzisionsformteilen und Sonderschrauben im Bereich Luftfahrt suchen wir für diese spannende Tätigkeit zum sofortigen Eintritt ein/e Mechaniker/in Walzen. Your Tasks:\n• Maschinen und Anlagen einrichten, bedienen und überwachen\n• Technische Zeichnungen und Fertigungsunterlagen lesen und umsetzen\n• Aufträge termingerecht und effizient bearbeiten\n• Qualitätskontrollen durchführen und Messwerte im Qualitätssystem erfassen\n• Produktionsdaten in SAP pflegen und Maschinenunterhalt sicherstellen\n• Prozesse und Werkzeuge laufend überprüfen und Verbesserungspotenziale erkennen Your profile:\n• Abgeschlossene mechanische Grundbildung\n• Erfahrung im industriellen Produktionsumfeld\n• Gutes technisches Verständnis\n• Interesse an der Bearbeitung von Miniaturteilen\n• Bereitschaft zum 2-Schichtbetrieb (Früh- und Spätschicht)\n• Gute Deutschkenntnisse in Wort und Schrift We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/ Have we sparked your interest?: Registrieren und bewerben dich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleistern.",
+        "it": "Im Segment Engineered Components in der Business Unit Industrial werden qualitativ hochwertige Produkte für verschiedene Industriebereiche hergestellt. Für die anspruchsvolle Produktion von Präzisionsformteilen und Sonderschrauben im Bereich Luftfahrt suchen wir für diese spannende Tätigkeit zum sofortigen Eintritt ein/e Mechaniker/in Walzen. Your Tasks:\n• Maschinen und Anlagen einrichten, bedienen und überwachen\n• Technische Zeichnungen und Fertigungsunterlagen lesen und umsetzen\n• Aufträge termingerecht und effizient bearbeiten\n• Qualitätskontrollen durchführen und Messwerte im Qualitätssystem erfassen\n• Produktionsdaten in SAP pflegen und Maschinenunterhalt sicherstellen\n• Prozesse und Werkzeuge laufend überprüfen und Verbesserungspotenziale erkennen Your profile:\n• Abgeschlossene mechanische Grundbildung\n• Erfahrung im industriellen Produktionsumfeld\n• Gutes technisches Verständnis\n• Interesse an der Bearbeitung von Miniaturteilen\n• Bereitschaft zum 2-Schichtbetrieb (Früh- und Spätschicht)\n• Gute Deutschkenntnisse in Wort und Schrift We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/ Have we sparked your interest?: Registrieren und bewerben dich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleistern.",
+        "en": "Im Segment Engineered Components in der Business Unit Industrial werden qualitativ hochwertige Produkte für verschiedene Industriebereiche hergestellt. Für die anspruchsvolle Produktion von Präzisionsformteilen und Sonderschrauben im Bereich Luftfahrt suchen wir für diese spannende Tätigkeit zum sofortigen Eintritt ein/e Mechaniker/in Walzen. Your Tasks:\n• Maschinen und Anlagen einrichten, bedienen und überwachen\n• Technische Zeichnungen und Fertigungsunterlagen lesen und umsetzen\n• Aufträge termingerecht und effizient bearbeiten\n• Qualitätskontrollen durchführen und Messwerte im Qualitätssystem erfassen\n• Produktionsdaten in SAP pflegen und Maschinenunterhalt sicherstellen\n• Prozesse und Werkzeuge laufend überprüfen und Verbesserungspotenziale erkennen Your profile:\n• Abgeschlossene mechanische Grundbildung\n• Erfahrung im industriellen Produktionsumfeld\n• Gutes technisches Verständnis\n• Interesse an der Bearbeitung von Miniaturteilen\n• Bereitschaft zum 2-Schichtbetrieb (Früh- und Spätschicht)\n• Gute Deutschkenntnisse in Wort und Schrift We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/ Have we sparked your interest?: Registrieren und bewerben dich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleistern.",
+        "fr": "Im Segment Engineered Components in der Business Unit Industrial werden qualitativ hochwertige Produkte für verschiedene Industriebereiche hergestellt. Für die anspruchsvolle Produktion von Präzisionsformteilen und Sonderschrauben im Bereich Luftfahrt suchen wir für diese spannende Tätigkeit zum sofortigen Eintritt ein/e Mechaniker/in Walzen. Your Tasks:\n• Maschinen und Anlagen einrichten, bedienen und überwachen\n• Technische Zeichnungen und Fertigungsunterlagen lesen und umsetzen\n• Aufträge termingerecht und effizient bearbeiten\n• Qualitätskontrollen durchführen und Messwerte im Qualitätssystem erfassen\n• Produktionsdaten in SAP pflegen und Maschinenunterhalt sicherstellen\n• Prozesse und Werkzeuge laufend überprüfen und Verbesserungspotenziale erkennen Your profile:\n• Abgeschlossene mechanische Grundbildung\n• Erfahrung im industriellen Produktionsumfeld\n• Gutes technisches Verständnis\n• Interesse an der Bearbeitung von Miniaturteilen\n• Bereitschaft zum 2-Schichtbetrieb (Früh- und Spätschicht)\n• Gute Deutschkenntnisse in Wort und Schrift We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/ Have we sparked your interest?: Registrieren und bewerben dich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleistern."
+      },
+      "location": "Heerbrugg",
+      "canton": "SG",
+      "url": "https://join.sfs.com/ch/en/vacancies/mechaniker-in-walzen-(m-f-d).html",
+      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-23T21:37:16.722Z",
+      "addressLocality": "Heerbrugg",
+      "addressRegion": "SG",
+      "streetAddress": "Rosenbergsaustrasse 8",
+      "postalCode": "9435",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Meccanica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobapplication.sfs.com/Vacancies/3090/Application/CheckLogin/1?lang=eng",
+      "jobReqId": "3090",
+      "legalEntity": "SFS Group Schweiz AG",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "mechaniker-in-walzen-m-f-d-sfs-group-heerbrugg"
+        ]
+      },
+      "previousSlugs": [
+        "mechaniker-in-walzen-m-f-d-sfs-group-heerbrugg"
+      ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-03T21:37:16.722Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-10-05T21:36:44.768Z"
     },
     {
       "id": "sfs-group-e8a13e770722",
@@ -623,7 +705,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/mechaniker-in-schleiftechnik-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:29:02.925Z",
+      "crawledAt": "2026-11-23T21:37:16.606Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -674,7 +756,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-17T09:29:02.925Z",
+      "validThrough": "2027-02-17T21:37:16.606Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -708,7 +790,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:29:02.767Z",
+      "crawledAt": "2026-11-23T21:37:16.486Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "streetAddress": "Hallau",
@@ -760,7 +842,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:29:02.767Z",
+      "validThrough": "2026-12-23T21:37:16.486Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -794,7 +876,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/hr-business-partner-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-23T09:29:02.611Z",
+      "crawledAt": "2026-11-23T21:37:16.371Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -831,7 +913,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T09:29:02.611Z",
+      "validThrough": "2027-02-02T21:37:16.371Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -865,7 +947,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/head-of-approval-and-testing-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:29:02.453Z",
+      "crawledAt": "2026-11-23T21:37:16.256Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -902,7 +984,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-20T09:29:02.453Z",
+      "validThrough": "2027-02-19T21:37:16.256Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -936,7 +1018,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:29:02.294Z",
+      "crawledAt": "2026-11-23T21:37:16.139Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -981,7 +1063,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-23T09:29:02.294Z",
+      "validThrough": "2026-12-23T21:37:16.139Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1015,7 +1097,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-oder-betriebselektriker-in-–-instandhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:29:02.134Z",
+      "crawledAt": "2026-11-23T21:37:16.021Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1062,7 +1144,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-23T09:29:02.134Z",
+      "validThrough": "2026-12-23T21:37:16.021Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1096,7 +1178,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-instandhaltung-im-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:29:01.975Z",
+      "crawledAt": "2026-11-23T21:37:15.904Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1141,7 +1223,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-28T09:29:01.975Z",
+      "validThrough": "2026-12-28T21:37:15.904Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1175,7 +1257,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-inbetriebsetzungstechniker-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:29:01.817Z",
+      "crawledAt": "2026-11-23T21:37:15.783Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1226,7 +1308,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T09:29:01.817Z",
+      "validThrough": "2027-02-03T21:37:15.783Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1260,7 +1342,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/anwendungstechniker-in-zerspanen-und-spannen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:29:01.648Z",
+      "crawledAt": "2026-11-23T21:37:15.637Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1313,7 +1395,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T09:29:01.648Z",
+      "validThrough": "2027-01-26T21:37:15.637Z",
       "validThroughSource": "last-observed-window"
     }
   ]
