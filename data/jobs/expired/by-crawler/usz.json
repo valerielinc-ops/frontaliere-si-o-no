@@ -73,16 +73,14 @@
     "slugByLocale": {
       "it": "disponent-in-per-la-ambulante-patientendisposition-50-mo-fr-halbtags-universitatsspital-zurich-usz-zurich",
       "en": "disposal-for-outpatient-disposition-50-mo-fr-half-day-universitatsspital-zurich-usz-zurich",
-      "de": "disponent-in-fur-die-ambulante-patientendisposition-50-mo-fr-halbtags-usz-ch",
+      "de": "disponent-in-fur-die-ambulante-patientendisposition-50-mo-fr-halbtags-usz-ch-d5b00811",
       "fr": "elimination-pour-les-consultations-externes-50-mo-fr-demi-journee-universitatsspital-zurich-usz-zurich"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-22T09:26:07.801Z",
-    "previousSlugs": [
-      "disponent-in-fur-die-ambulante-patientendisposition-50-mo-fr-halbtags-usz-ch"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "disponent-in-fur-die-ambulante-patientendisposition-50-mo-fr-halbtags-usz-ch-d5b00811",
         "disponent-in-fur-die-ambulante-patientendisposition-50-mo-fr-halbtags-usz-ch"
       ],
       "en": [
@@ -90,6 +88,9 @@
       ],
       "fr": [
         "disponent-in-fur-die-ambulante-patientendisposition-50-mo-fr-halbtags-usz-ch"
+      ],
+      "de": [
+        "disponent-in-fur-die-ambulante-patientendisposition-50-mo-fr-halbtags-usz-ch-d5b00811"
       ]
     },
     "postalCode": "8001",
@@ -99,7 +100,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.usz.ch/offene-stellen/disponent-in-fuer-die-ambulante-patientendisposition-mo-fr-halbtags/d5cc9fae-258a-4bc6-861b-08dfd5ecc60d",
-    "firstSeenAt": "2026-09-23T19:49:54.924Z"
+    "firstSeenAt": "2026-09-23T19:49:54.924Z",
+    "previousSlugs": [
+      "disponent-in-fur-die-ambulante-patientendisposition-50-mo-fr-halbtags-usz-ch"
+    ]
   },
   {
     "id": "usz-bf40a9d30c7b",

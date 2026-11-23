@@ -1,7 +1,7 @@
 {
   "crawlerKey": "caritas-schweiz",
-  "assembledAt": "2026-11-22T21:22:47.300Z",
-  "runId": "45070493252",
+  "assembledAt": "2026-11-23T09:23:18.084Z",
+  "runId": "45144500188",
   "jobs": [
     {
       "id": "caritas-schweiz-41d37a49c14d",
@@ -35,7 +35,7 @@
       "url": "https://apply.refline.ch/126757/2397/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:57.097Z",
+      "crawledAt": "2026-11-23T09:22:33.359Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -87,7 +87,7 @@
       },
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:21:57.097Z",
+      "validThrough": "2027-02-16T09:22:33.359Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -122,7 +122,7 @@
       "url": "https://apply.refline.ch/126757/2396/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:56.676Z",
+      "crawledAt": "2026-11-23T09:22:32.881Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -176,7 +176,7 @@
       },
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:21:56.676Z",
+      "validThrough": "2027-02-11T09:22:32.881Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -211,7 +211,7 @@
       "url": "https://apply.refline.ch/126757/2395/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:56.255Z",
+      "crawledAt": "2026-11-23T09:22:32.387Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -263,7 +263,7 @@
       },
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:21:56.255Z",
+      "validThrough": "2027-02-11T09:22:32.387Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -298,7 +298,7 @@
       "url": "https://apply.refline.ch/126757/2389/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:55.832Z",
+      "crawledAt": "2026-11-23T09:22:31.901Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -350,7 +350,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:21:55.832Z",
+      "validThrough": "2027-02-03T09:22:31.901Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -385,7 +385,7 @@
       "url": "https://apply.refline.ch/126757/2379/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:55.405Z",
+      "crawledAt": "2026-11-23T09:22:31.416Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -437,7 +437,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:21:55.405Z",
+      "validThrough": "2027-01-12T09:22:31.416Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -472,7 +472,7 @@
       "url": "https://apply.refline.ch/126757/2020/pub/5/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:53.851Z",
+      "crawledAt": "2026-11-23T09:22:30.935Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -539,8 +539,91 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T21:21:53.851Z",
+      "validThrough": "2026-12-23T09:22:30.935Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "caritas-schweiz-11e6571f8614",
+      "slug": "collaboratore-trice-sortierwerk-60-m-w-d-caritas-schweiz-waldibrucke-emmen",
+      "slugByLocale": {
+        "de": "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-waldibrucke-emmen",
+        "it": "collaboratore-trice-sortierwerk-60-m-w-d-caritas-schweiz-waldibrucke-emmen",
+        "en": "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-waldibrucke-emmen",
+        "fr": "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-waldibrucke-emmen"
+      },
+      "company": "Caritas Schweiz",
+      "companyKey": "caritas-schweiz",
+      "companyDomain": "caritas.ch",
+      "title": "Mitarbeiter/in Sortierwerk 60% (m/w/d)",
+      "titleByLocale": {
+        "de": "Mitarbeiter/in Sortierwerk 60% (m/w/d)",
+        "it": "Collaboratore/trice Sortierwerk 60% (m/w/d)",
+        "en": "Mitarbeiter/in Sortierwerk 60% (m/w/d)",
+        "fr": "Mitarbeiter/in Sortierwerk 60% (m/w/d)"
+      },
+      "description": "Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\nDie Kleiderzentrale sammelt und sortiert jährlich rund 600 Tonnen Gebrauchtkleider und Schuhe für eine sinnvolle und gezielte Weiterverwendung im In- und Ausland. Ein wichtiger Teil der gesammelten Kleider geht in den Verkauf in der Schweiz. Der Betrieb umfasst das Sortierwerk, die Lagerhallen, zwei Textil-Verkaufsläden und die Administration.\nIhre Aufgaben\n• Fachliche und organisatorische Führung sowie Begleitung von Mitarbeitenden aus unterschiedlichen Gruppen\n• Sortierung von neuer sowie gebrauchter (Secondhand-) Kleidung und Schuhen\n• Einteilung und Kategorisierung der Waren nach Grösse, Geschlecht, Saison und Qualitätsstandards\n• Prüfung eingehender Kleiderspenden hinsichtlich Vollständigkeit, Sauberkeit und Zustand\n• Vorbereitung der Waren für die Weitergabe, Lagerung oder den Verkauf in den Shops: Waschen, Etikettieren, Zusammenlegen, Verpacken\n• Förderung der Arbeitsintegration sowie Unterstützung bei der Einarbeitung und Entwicklung der Mitarbeitenden\n• Sicherstellung eines effizienten, qualitativ hochwertigen und reibungslosen Arbeitsablaufs im Bereich Textilsortierung und Warenaufbereitung\n• Mitverantwortung für Ordnung, Sauberkeit und Arbeitssicherheit im gesamten Arbeitsbereich\nUnsere Anforderungen\n• Abgeschlossene Ausbildung im Textilbereich oder vergleichbare Ausbildung und Erfahrung\n• Erfahrung in Lager, Sortierung oder Verkauf von Bekleidung / Modewissen von Vorteil\n• Körperliche Belastbarkeit\n• Teamfähigkeit und Zuverlässigkeit\n• Übernahme von Verantwortung für Teilbereiche\n• Verantwortungsbewusstsein\n• Geduld und Sozialkompetenz im Umgang mit Freiwilligen, Schulklassen, Asylsuchenden und Teilnehmenden der gemeinnützigen Arbeit\n• Gute Deutschkenntnisse von Vorteil\n• Interesse an Nachhaltigkeit und Wiederverwertung von Textilien und Schuhen\n• Grundkenntnisse in Warenkunde, Sortierprozessen sowie Weiterbildung im Bereich Recycling und Nachhaltigkeit von Vorteil\nArbeitsort ist Waldibrücke, Emmen.\nArbeitsbeginn: per sofort oder nach Vereinbarung.\nCaritas bietet attraktive Anstellungsbedingungen und ein offenes Arbeitsklima am Puls gesellschaftlicher Themen. Für die Transformation hin zu rollenbasierter Arbeit zählen wir auf Mitarbeitende mit einem digitalen und agilen Mindset, die gerne an Veränderungsprozessen partizipieren und Verantwortung übernehmen.\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Frau Drazenka Anicic, Telefon +41 41 269 00 30.\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung über das Online-Portal.\nCaritas Schweiz, Adligenswilerstrasse 15, 6002 Luzern\nwww.caritas.ch",
+      "descriptionByLocale": {
+        "de": "Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\nDie Kleiderzentrale sammelt und sortiert jährlich rund 600 Tonnen Gebrauchtkleider und Schuhe für eine sinnvolle und gezielte Weiterverwendung im In- und Ausland. Ein wichtiger Teil der gesammelten Kleider geht in den Verkauf in der Schweiz. Der Betrieb umfasst das Sortierwerk, die Lagerhallen, zwei Textil-Verkaufsläden und die Administration.\nIhre Aufgaben\n• Fachliche und organisatorische Führung sowie Begleitung von Mitarbeitenden aus unterschiedlichen Gruppen\n• Sortierung von neuer sowie gebrauchter (Secondhand-) Kleidung und Schuhen\n• Einteilung und Kategorisierung der Waren nach Grösse, Geschlecht, Saison und Qualitätsstandards\n• Prüfung eingehender Kleiderspenden hinsichtlich Vollständigkeit, Sauberkeit und Zustand\n• Vorbereitung der Waren für die Weitergabe, Lagerung oder den Verkauf in den Shops: Waschen, Etikettieren, Zusammenlegen, Verpacken\n• Förderung der Arbeitsintegration sowie Unterstützung bei der Einarbeitung und Entwicklung der Mitarbeitenden\n• Sicherstellung eines effizienten, qualitativ hochwertigen und reibungslosen Arbeitsablaufs im Bereich Textilsortierung und Warenaufbereitung\n• Mitverantwortung für Ordnung, Sauberkeit und Arbeitssicherheit im gesamten Arbeitsbereich\nUnsere Anforderungen\n• Abgeschlossene Ausbildung im Textilbereich oder vergleichbare Ausbildung und Erfahrung\n• Erfahrung in Lager, Sortierung oder Verkauf von Bekleidung / Modewissen von Vorteil\n• Körperliche Belastbarkeit\n• Teamfähigkeit und Zuverlässigkeit\n• Übernahme von Verantwortung für Teilbereiche\n• Verantwortungsbewusstsein\n• Geduld und Sozialkompetenz im Umgang mit Freiwilligen, Schulklassen, Asylsuchenden und Teilnehmenden der gemeinnützigen Arbeit\n• Gute Deutschkenntnisse von Vorteil\n• Interesse an Nachhaltigkeit und Wiederverwertung von Textilien und Schuhen\n• Grundkenntnisse in Warenkunde, Sortierprozessen sowie Weiterbildung im Bereich Recycling und Nachhaltigkeit von Vorteil\nArbeitsort ist Waldibrücke, Emmen.\nArbeitsbeginn: per sofort oder nach Vereinbarung.\nCaritas bietet attraktive Anstellungsbedingungen und ein offenes Arbeitsklima am Puls gesellschaftlicher Themen. Für die Transformation hin zu rollenbasierter Arbeit zählen wir auf Mitarbeitende mit einem digitalen und agilen Mindset, die gerne an Veränderungsprozessen partizipieren und Verantwortung übernehmen.\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Frau Drazenka Anicic, Telefon +41 41 269 00 30.\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung über das Online-Portal.\nCaritas Schweiz, Adligenswilerstrasse 15, 6002 Luzern\nwww.caritas.ch",
+        "it": "Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\nDie Kleiderzentrale sammelt und sortiert jährlich rund 600 Tonnen Gebrauchtkleider und Schuhe für eine sinnvolle und gezielte Weiterverwendung im In- und Ausland. Ein wichtiger Teil der gesammelten Kleider geht in den Verkauf in der Schweiz. Der Betrieb umfasst das Sortierwerk, die Lagerhallen, zwei Textil-Verkaufsläden und die Administration.\nIhre Aufgaben\n• Fachliche und organisatorische Führung sowie Begleitung von Mitarbeitenden aus unterschiedlichen Gruppen\n• Sortierung von neuer sowie gebrauchter (Secondhand-) Kleidung und Schuhen\n• Einteilung und Kategorisierung der Waren nach Grösse, Geschlecht, Saison und Qualitätsstandards\n• Prüfung eingehender Kleiderspenden hinsichtlich Vollständigkeit, Sauberkeit und Zustand\n• Vorbereitung der Waren für die Weitergabe, Lagerung oder den Verkauf in den Shops: Waschen, Etikettieren, Zusammenlegen, Verpacken\n• Förderung der Arbeitsintegration sowie Unterstützung bei der Einarbeitung und Entwicklung der Mitarbeitenden\n• Sicherstellung eines effizienten, qualitativ hochwertigen und reibungslosen Arbeitsablaufs im Bereich Textilsortierung und Warenaufbereitung\n• Mitverantwortung für Ordnung, Sauberkeit und Arbeitssicherheit im gesamten Arbeitsbereich\nUnsere Anforderungen\n• Abgeschlossene Ausbildung im Textilbereich oder vergleichbare Ausbildung und Erfahrung\n• Erfahrung in Lager, Sortierung oder Verkauf von Bekleidung / Modewissen von Vorteil\n• Körperliche Belastbarkeit\n• Teamfähigkeit und Zuverlässigkeit\n• Übernahme von Verantwortung für Teilbereiche\n• Verantwortungsbewusstsein\n• Geduld und Sozialkompetenz im Umgang mit Freiwilligen, Schulklassen, Asylsuchenden und Teilnehmenden der gemeinnützigen Arbeit\n• Gute Deutschkenntnisse von Vorteil\n• Interesse an Nachhaltigkeit und Wiederverwertung von Textilien und Schuhen\n• Grundkenntnisse in Warenkunde, Sortierprozessen sowie Weiterbildung im Bereich Recycling und Nachhaltigkeit von Vorteil\nArbeitsort ist Waldibrücke, Emmen.\nArbeitsbeginn: per sofort oder nach Vereinbarung.\nCaritas bietet attraktive Anstellungsbedingungen und ein offenes Arbeitsklima am Puls gesellschaftlicher Themen. Für die Transformation hin zu rollenbasierter Arbeit zählen wir auf Mitarbeitende mit einem digitalen und agilen Mindset, die gerne an Veränderungsprozessen partizipieren und Verantwortung übernehmen.\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Frau Drazenka Anicic, Telefon +41 41 269 00 30.\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung über das Online-Portal.\nCaritas Schweiz, Adligenswilerstrasse 15, 6002 Luzern\nwww.caritas.ch",
+        "en": "Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\nDie Kleiderzentrale sammelt und sortiert jährlich rund 600 Tonnen Gebrauchtkleider und Schuhe für eine sinnvolle und gezielte Weiterverwendung im In- und Ausland. Ein wichtiger Teil der gesammelten Kleider geht in den Verkauf in der Schweiz. Der Betrieb umfasst das Sortierwerk, die Lagerhallen, zwei Textil-Verkaufsläden und die Administration.\nIhre Aufgaben\n• Fachliche und organisatorische Führung sowie Begleitung von Mitarbeitenden aus unterschiedlichen Gruppen\n• Sortierung von neuer sowie gebrauchter (Secondhand-) Kleidung und Schuhen\n• Einteilung und Kategorisierung der Waren nach Grösse, Geschlecht, Saison und Qualitätsstandards\n• Prüfung eingehender Kleiderspenden hinsichtlich Vollständigkeit, Sauberkeit und Zustand\n• Vorbereitung der Waren für die Weitergabe, Lagerung oder den Verkauf in den Shops: Waschen, Etikettieren, Zusammenlegen, Verpacken\n• Förderung der Arbeitsintegration sowie Unterstützung bei der Einarbeitung und Entwicklung der Mitarbeitenden\n• Sicherstellung eines effizienten, qualitativ hochwertigen und reibungslosen Arbeitsablaufs im Bereich Textilsortierung und Warenaufbereitung\n• Mitverantwortung für Ordnung, Sauberkeit und Arbeitssicherheit im gesamten Arbeitsbereich\nUnsere Anforderungen\n• Abgeschlossene Ausbildung im Textilbereich oder vergleichbare Ausbildung und Erfahrung\n• Erfahrung in Lager, Sortierung oder Verkauf von Bekleidung / Modewissen von Vorteil\n• Körperliche Belastbarkeit\n• Teamfähigkeit und Zuverlässigkeit\n• Übernahme von Verantwortung für Teilbereiche\n• Verantwortungsbewusstsein\n• Geduld und Sozialkompetenz im Umgang mit Freiwilligen, Schulklassen, Asylsuchenden und Teilnehmenden der gemeinnützigen Arbeit\n• Gute Deutschkenntnisse von Vorteil\n• Interesse an Nachhaltigkeit und Wiederverwertung von Textilien und Schuhen\n• Grundkenntnisse in Warenkunde, Sortierprozessen sowie Weiterbildung im Bereich Recycling und Nachhaltigkeit von Vorteil\nArbeitsort ist Waldibrücke, Emmen.\nArbeitsbeginn: per sofort oder nach Vereinbarung.\nCaritas bietet attraktive Anstellungsbedingungen und ein offenes Arbeitsklima am Puls gesellschaftlicher Themen. Für die Transformation hin zu rollenbasierter Arbeit zählen wir auf Mitarbeitende mit einem digitalen und agilen Mindset, die gerne an Veränderungsprozessen partizipieren und Verantwortung übernehmen.\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Frau Drazenka Anicic, Telefon +41 41 269 00 30.\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung über das Online-Portal.\nCaritas Schweiz, Adligenswilerstrasse 15, 6002 Luzern\nwww.caritas.ch",
+        "fr": "Das Richtige tun. In der Schweiz und in rund 20 Ländern auf vier Kontinenten. Engagieren Sie sich mit uns für die Vision einer solidarischen Gesellschaft, als\nDie Kleiderzentrale sammelt und sortiert jährlich rund 600 Tonnen Gebrauchtkleider und Schuhe für eine sinnvolle und gezielte Weiterverwendung im In- und Ausland. Ein wichtiger Teil der gesammelten Kleider geht in den Verkauf in der Schweiz. Der Betrieb umfasst das Sortierwerk, die Lagerhallen, zwei Textil-Verkaufsläden und die Administration.\nIhre Aufgaben\n• Fachliche und organisatorische Führung sowie Begleitung von Mitarbeitenden aus unterschiedlichen Gruppen\n• Sortierung von neuer sowie gebrauchter (Secondhand-) Kleidung und Schuhen\n• Einteilung und Kategorisierung der Waren nach Grösse, Geschlecht, Saison und Qualitätsstandards\n• Prüfung eingehender Kleiderspenden hinsichtlich Vollständigkeit, Sauberkeit und Zustand\n• Vorbereitung der Waren für die Weitergabe, Lagerung oder den Verkauf in den Shops: Waschen, Etikettieren, Zusammenlegen, Verpacken\n• Förderung der Arbeitsintegration sowie Unterstützung bei der Einarbeitung und Entwicklung der Mitarbeitenden\n• Sicherstellung eines effizienten, qualitativ hochwertigen und reibungslosen Arbeitsablaufs im Bereich Textilsortierung und Warenaufbereitung\n• Mitverantwortung für Ordnung, Sauberkeit und Arbeitssicherheit im gesamten Arbeitsbereich\nUnsere Anforderungen\n• Abgeschlossene Ausbildung im Textilbereich oder vergleichbare Ausbildung und Erfahrung\n• Erfahrung in Lager, Sortierung oder Verkauf von Bekleidung / Modewissen von Vorteil\n• Körperliche Belastbarkeit\n• Teamfähigkeit und Zuverlässigkeit\n• Übernahme von Verantwortung für Teilbereiche\n• Verantwortungsbewusstsein\n• Geduld und Sozialkompetenz im Umgang mit Freiwilligen, Schulklassen, Asylsuchenden und Teilnehmenden der gemeinnützigen Arbeit\n• Gute Deutschkenntnisse von Vorteil\n• Interesse an Nachhaltigkeit und Wiederverwertung von Textilien und Schuhen\n• Grundkenntnisse in Warenkunde, Sortierprozessen sowie Weiterbildung im Bereich Recycling und Nachhaltigkeit von Vorteil\nArbeitsort ist Waldibrücke, Emmen.\nArbeitsbeginn: per sofort oder nach Vereinbarung.\nCaritas bietet attraktive Anstellungsbedingungen und ein offenes Arbeitsklima am Puls gesellschaftlicher Themen. Für die Transformation hin zu rollenbasierter Arbeit zählen wir auf Mitarbeitende mit einem digitalen und agilen Mindset, die gerne an Veränderungsprozessen partizipieren und Verantwortung übernehmen.\nAuskünfte zu dieser Stelle erteilt Ihnen gerne Frau Drazenka Anicic, Telefon +41 41 269 00 30.\nWir danken Ihnen für das Interesse und freuen uns auf Ihre Bewerbung über das Online-Portal.\nCaritas Schweiz, Adligenswilerstrasse 15, 6002 Luzern\nwww.caritas.ch"
+      },
+      "needsRetranslation": true,
+      "location": "Waldibrücke, Emmen",
+      "canton": "LU",
+      "url": "https://apply.refline.ch/126757/2398/pub/1/index.html",
+      "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-23T09:22:30.451Z",
+      "addressLocality": "Waldibrücke, Emmen",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6032",
+      "category": "Sociale / Educazione",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sociale / NGO",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-23T06:54:53.228955+00:00",
+      "postedDate": "2026-11-23T06:54:53.228955+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.refline.ch/126757/2398/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "pensumMin": 60,
+      "pensumMax": 60,
+      "pensum": "60%",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-waldibrucke-emmen"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-waldibrucke-emmen"
+      ],
+      "salaryMin": 35700,
+      "salaryMax": 66000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 35700,
+          "maxValue": 66000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Waldibrücke, Emmen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-21T09:22:30.451Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-23T09:22:30.451Z"
     },
     {
       "id": "caritas-schweiz-6dc00984e5ad",
@@ -574,7 +657,7 @@
       "url": "https://apply.refline.ch/126757/2338/pub/10/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:53.421Z",
+      "crawledAt": "2026-11-23T09:22:29.969Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -655,7 +738,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T21:21:53.421Z",
+      "validThrough": "2026-12-23T09:22:29.969Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -690,7 +773,7 @@
       "url": "https://apply.refline.ch/126757/2394/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:52.997Z",
+      "crawledAt": "2026-11-23T09:22:29.482Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -742,7 +825,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:21:52.997Z",
+      "validThrough": "2027-02-11T09:22:29.482Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -777,7 +860,7 @@
       "url": "https://apply.refline.ch/126757/2393/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:52.567Z",
+      "crawledAt": "2026-11-23T09:22:28.991Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -831,7 +914,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:21:52.567Z",
+      "validThrough": "2027-02-10T09:22:28.991Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -866,7 +949,7 @@
       "url": "https://apply.refline.ch/126757/2390/pub/4/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:52.145Z",
+      "crawledAt": "2026-11-23T09:22:28.506Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -914,7 +997,7 @@
       },
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:21:52.145Z",
+      "validThrough": "2027-02-03T09:22:28.506Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -949,7 +1032,7 @@
       "url": "https://apply.refline.ch/126757/2388/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:51.721Z",
+      "crawledAt": "2026-11-23T09:22:28.019Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1001,7 +1084,7 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:21:51.721Z",
+      "validThrough": "2027-02-01T09:22:28.019Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1036,7 +1119,7 @@
       "url": "https://apply.refline.ch/126757/2387/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:51.300Z",
+      "crawledAt": "2026-11-23T09:22:27.539Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1090,7 +1173,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:21:51.300Z",
+      "validThrough": "2027-02-01T09:22:27.539Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1125,7 +1208,7 @@
       "url": "https://apply.refline.ch/126757/2366/pub/6/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:50.875Z",
+      "crawledAt": "2026-11-23T09:22:27.058Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1179,7 +1262,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T21:21:50.875Z",
+      "validThrough": "2026-12-23T09:22:27.058Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1214,7 +1297,7 @@
       "url": "https://apply.refline.ch/126757/2370/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:50.443Z",
+      "crawledAt": "2026-11-23T09:22:26.572Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1260,7 +1343,7 @@
       },
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T21:21:50.443Z",
+      "validThrough": "2026-12-25T09:22:26.572Z",
       "validThroughSource": "last-observed-window"
     }
   ]
