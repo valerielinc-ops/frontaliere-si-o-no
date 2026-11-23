@@ -286,6 +286,56 @@
       ],
       "createdAt": "2026-11-22T16:31:45.213Z",
       "expiresAt": "2026-11-24T04:31:45.213Z"
+    },
+    {
+      "id": "border-2026-11-16",
+      "channel": "tiktok",
+      "kind": "border",
+      "day": "2026-11-16",
+      "caption": "Lavoro in Ticino: il contesto da rivedere\n\nLa classifica delle dogane più veloci del Ticino nella settimana 2026-11-16 – 2026-11-22.\n\n1) Biegno Indemini — 0 min\n2) Bizzarone Novazzano — 0 min\n3) Camedo (Re-Centovalli) — 0 min\n4) Campione d'Italia Bissone — 0 min\n5) Chiasso Centro — 0 min\n\nAscolta il video dal link in bio.\n\n#frontalieri #ticino #dogane #confine #svizzera #traffico",
+      "imageUrls": [
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-11-16-0.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-11-16-1.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-11-16-2.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-11-16-3.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-11-16-4.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-11-16-5.jpg"
+      ],
+      "video": {
+        "url": "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-11-16.mp4",
+        "bytes": 293000,
+        "sha256": "a65ab0c2e7299d4b41e5fdc9a742d7869ef26624a591f1ddfa8aa085c64d7070",
+        "durationMs": 22767,
+        "width": 1080,
+        "height": 1920,
+        "creativeVariant": "carousel-crossfade-v1"
+      },
+      "ledgerEntries": [
+        {
+          "id": "2026-11-16",
+          "kind": "border",
+          "url": "/traffico-dogane/biegno-indemini/oggi/",
+          "day": "2026-11-16",
+          "copyMode": "codex",
+          "copySlot": "video",
+          "copyPromptVersion": "frontaliere-social-copy-v5",
+          "copyPackId": "e1e656e043e06845",
+          "copyTemplateId": "tt-video-context",
+          "copyAssignmentMode": "deterministic",
+          "copyAngleId": "contesto-chiaro",
+          "copyPillarId": "vita-oltreconfine",
+          "copyAngleIntent": "searchable",
+          "copyHook": "Lavoro in Ticino: il contesto da rivedere",
+          "copyCta": "Ascolta il video dal link in bio.",
+          "creativeBaseId": "tiktok-video",
+          "creativeVariant": "carousel-crossfade-v1",
+          "creativeLabel": "Slide con dissolvenza",
+          "creativeFormat": "video",
+          "creativeObjective": "attention-retention"
+        }
+      ],
+      "createdAt": "2026-11-23T19:22:09.552Z",
+      "expiresAt": "2026-11-30T19:22:09.552Z"
     }
   ]
 }
