@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hpjob-ch",
-  "assembledAt": "2026-11-22T21:23:13.094Z",
-  "runId": "45070284095",
+  "assembledAt": "2026-11-23T09:22:11.757Z",
+  "runId": "45144189687",
   "jobs": [
     {
       "id": "hpjob-ch-bf42cde9591a",
@@ -34,7 +34,7 @@
       "url": "https://hpjob.ch/jobs/cnc-maschinist-holz-stababbund-gossau-bb200",
       "source": "HP Job GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:23:03.574Z",
+      "crawledAt": "2026-11-23T09:22:05.586Z",
       "addressLocality": "Gossau",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T21:23:03.574Z",
+      "validThrough": "2027-02-17T09:22:05.586Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -117,7 +117,7 @@
       "url": "https://hpjob.ch/jobs/anlagenfuehrer-holzproduktion-gossau-86f9f",
       "source": "HP Job GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:23:03.570Z",
+      "crawledAt": "2026-11-23T09:22:05.585Z",
       "addressLocality": "Gossau",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -170,7 +170,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T21:23:03.570Z",
+      "validThrough": "2027-02-17T09:22:05.585Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -204,7 +204,7 @@
       "url": "https://hpjob.ch/jobs/sales-manager-vertriebsentwickler-schweiz-heerbrugg-be040",
       "source": "HP Job GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:23:03.569Z",
+      "crawledAt": "2026-11-23T09:22:05.584Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -255,7 +255,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T21:23:03.569Z",
+      "validThrough": "2027-02-17T09:22:05.584Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -289,7 +289,7 @@
       "url": "https://hpjob.ch/jobs/biomediziner-medizintechniker-fuer-klinische-forschung-heerbrugg-35357",
       "source": "HP Job GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:23:03.567Z",
+      "crawledAt": "2026-11-23T09:22:05.583Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -344,7 +344,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T21:23:03.567Z",
+      "validThrough": "2027-02-17T09:22:05.583Z",
       "validThroughSource": "last-observed-window"
     }
   ]

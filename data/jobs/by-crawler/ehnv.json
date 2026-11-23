@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ehnv",
-  "assembledAt": "2026-11-22T21:16:44.413Z",
-  "runId": "45070284095",
+  "assembledAt": "2026-11-23T09:24:29.918Z",
+  "runId": "45144189687",
   "jobs": [
     {
       "id": "ehnv-0bb13e86b14a",
@@ -35,7 +35,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4094/une-medecin-agreee-ou-associe-interniste-bariatrique-a-100-min-60",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:16:35.250Z",
+      "crawledAt": "2026-11-23T09:24:22.067Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -96,7 +96,7 @@
       },
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T21:16:35.250Z",
+      "validThrough": "2026-12-23T09:24:22.067Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -131,7 +131,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4458/une-cadre-de-proximite-a-80",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:16:34.739Z",
+      "crawledAt": "2026-11-23T09:24:21.483Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -190,7 +190,7 @@
       },
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T21:16:34.739Z",
+      "validThrough": "2026-12-23T09:24:21.483Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -224,7 +224,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4672/une-assistante-en-soins-et-sante-communautaire-assc-a-80-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:16:34.197Z",
+      "crawledAt": "2026-11-23T09:24:20.901Z",
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -268,7 +268,7 @@
       },
       "streetAddress": "Orbe",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T21:16:34.197Z",
+      "validThrough": "2026-12-31T09:24:20.901Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -302,7 +302,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4747/une-infirmierere-a-80-100-ref-11-089",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:16:33.605Z",
+      "crawledAt": "2026-11-23T09:24:20.277Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -368,7 +368,7 @@
       },
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:16:33.605Z",
+      "validThrough": "2027-01-12T09:24:20.277Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -403,7 +403,7 @@
       "url": "https://www.ehnv.ch/emplois#offer/4786/une-medecin-cheffe-a-80-100",
       "source": "eHnv Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:16:33.081Z",
+      "crawledAt": "2026-11-23T09:24:19.678Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -453,8 +453,334 @@
       },
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T21:16:33.081Z",
+      "validThrough": "2027-01-20T09:24:19.678Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "ehnv-4d190c1f77bf",
+      "slug": "70-100-terapista-professionale-etab-hospitaliers-du-nord-vaudois-ehnv-orbe-et-yverdon",
+      "slugByLocale": {
+        "it": "70-100-terapista-professionale-etab-hospitaliers-du-nord-vaudois-ehnv-orbe-et-yverdon",
+        "en": "70-100-occupational-therapist-etab-hospitaliers-du-nord-vaudois-ehnv-orbe-et-yverdon",
+        "de": "70-100-ergotherapeut-etab-hospitaliers-du-nord-vaudois-ehnv-orbe-et-yverdon",
+        "fr": "un-e-ergotherapeute-a-70-100-ehnv-orbe-et-yverdon"
+      },
+      "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
+      "companyKey": "ehnv",
+      "companyDomain": "ehnv.ch",
+      "title": "Un.e ergothérapeute à 70-100 %",
+      "titleByLocale": {
+        "it": "70-100% terapista professionale",
+        "en": "70-100% occupational therapist",
+        "de": "70-100% Ergotherapeut",
+        "fr": "Un.e ergothérapeute à 70-100 %"
+      },
+      "description": "LE SERVICE D’ERGOTHERAPIE DE L’HÔPITAL D’ORBE ET YVERDON RECHERCHE\n\nMISSION PRINCIPALE\n\nPoste d’ergothérapeute dans le secteur de réadaptation d’Yverdon et d’Orbe ainsi que les soins palliatifs\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Être titulaire du diplôme suisse d’ergothérapeute ou reconnu CRS\n\n• Posséder une expérience dans le domaine de la gériatrie\n\n• Faire preuve d’autonomie et d’initiative\n\n• Avoir le sens des priorités et bonne communication\n\n• Savoir travailler avec une équipe interdisciplinaire\n\nNOUS OFFRONS\n\n• Une activité variée dans un environnement favorisant la mise en valeur de vos compétences\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : DE SUITE OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de M. R. Garrido Cañas, cadre de proximité de physiothérapie et d’ergothérapie, T. +41 24 442 60 16\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels (lettre de motivation, CV, diplômes et certificats de travail) sont à transmettre d’ici le 30 novembre 2026.",
+      "descriptionByLocale": {
+        "it": "IL SERVIZIO ERGOTHERAPY DELLA D'ORBE HOSPITALE E DELLA RICERCA YVERDON\n\nMISSIONE PRIMA\n\nPosizione del terapeuta occupazionale nel settore riabilitazione di Yverdon e Orb e cura palliativa\n\nSKILLS – PRESCRIZIONI\n\n• Titolare del diploma di terapista professionale svizzero o riconosciuto CRS\n\n• Esperienza in geriatria\n\n• Dimostrare autonomia e iniziativa\n\n• Un senso di priorità e di buona comunicazione\n\n• Sapere come lavorare con un team interdisciplinare\n\nUFFICIO\n\n• Una variegata attività in un ambiente che promuove lo sviluppo delle tue competenze\n\n• Opportunità di formazione continua\n\n• Uno stipendio secondo la scala della Federazione Ospedaliera Vaudiana (FHV)\n\n• Vantaggi sociali eccellenti\n\nDICHIARAZIONE:\n\nUlteriori informazioni possono essere ottenute dal Sig. R. Garrido Cañas, una fisioterapia e una comunità di terapia occupazionale, T. +41 24 442 60 16\n\nSei interessato?\n\nLe offerte con documenti abituali (lettera di motivazione, CV, diplomi e certificati di lavoro) devono essere presentate entro il 30 novembre 2026.",
+        "en": "THE ERGOTHERAPY SERVICE OF THE HOSPITAL D'ORBE AND YVERDON RESEARCH\n\nMAIN MISSION\n\nOccupational therapist position in the rehabilitation sector of Yverdon and Orb and palliative care\n\nSKILLS – REQUIREMENTS REQUIRED\n\n• Holder of the Swiss occupational therapist degree or recognized CRS\n\n• Experience in geriatrics\n\n• Demonstrate autonomy and initiative\n\n• A sense of priority and good communication\n\n• Know how to work with an interdisciplinary team\n\nWE OFFER\n\n• A varied activity in an environment that promotes the development of your skills\n\n• Opportunities for continuing training\n\n• A salary according to the scale of the Vaudian Hospital Federation (FHV)\n\n• Excellent social benefits\n\nDATE OF COMMENCEMENT:\n\nFurther information can be obtained from Mr. R. Garrido Cañas, a physiotherapy and occupational therapy community setting, T. +41 24 442 60 16\n\nAre you interested?\n\nOffers with usual documents (motivation letter, CV, diplomas and certificates of employment) are to be submitted by 30 November 2026.",
+        "de": "DIE ERGOTHERAPIEDIENSTLEISTUNG DES HOSPITAL D'ORBE UND YVERDON FORSCHUNG\n\nWICHTIGKEIT\n\nErgotherapeut Position im Rehabilitationssektor von Yverdon und Orb und Palliativmedizin\n\nFÄHLE — ERFORDERLICHE ANFORDERUNGEN\n\n• Inhaber des Schweizer Ergotherapeutenabschlusses oder anerkannten CRS\n\n• Erfahrung in der Geriatrie\n\n• Demonstrieren Sie Autonomie und Initiative\n\n• Ein Gefühl der Priorität und gute Kommunikation\n\n• Wissen, wie man mit einem interdisziplinären Team arbeitet\n\nWIR ANGEBOT\n\n• Eine abwechslungsreiche Aktivität in einem Umfeld, das die Entwicklung Ihrer Fähigkeiten fördert\n\n• Weiterbildungsmöglichkeiten\n\n• Ein Gehalt nach der Skala des Vaudian Hospital Federation (FHV)\n\n• Hervorragende Sozialleistungen\n\nDATUM DER VERPFLICHTUNG:\n\nWeitere Informationen erhalten Sie bei Herrn R. Garrido Cañas, einer Physiotherapie- und Beschäftigungstherapiegemeinschaft, T. +41 24 442 60 16\n\nSind Sie interessiert?\n\nAngebote mit üblichen Unterlagen (Motivationsschreiben, Lebenslauf, Diplome und Arbeitsbescheinigungen) sind bis zum 30. November 2026 einzureichen.",
+        "fr": "LE SERVICE D’ERGOTHERAPIE DE L’HÔPITAL D’ORBE ET YVERDON RECHERCHE\n\nMISSION PRINCIPALE\n\nPoste d’ergothérapeute dans le secteur de réadaptation d’Yverdon et d’Orbe ainsi que les soins palliatifs\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Être titulaire du diplôme suisse d’ergothérapeute ou reconnu CRS\n\n• Posséder une expérience dans le domaine de la gériatrie\n\n• Faire preuve d’autonomie et d’initiative\n\n• Avoir le sens des priorités et bonne communication\n\n• Savoir travailler avec une équipe interdisciplinaire\n\nNOUS OFFRONS\n\n• Une activité variée dans un environnement favorisant la mise en valeur de vos compétences\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : DE SUITE OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de M. R. Garrido Cañas, cadre de proximité de physiothérapie et d’ergothérapie, T. +41 24 442 60 16\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels (lettre de motivation, CV, diplômes et certificats de travail) sont à transmettre d’ici le 30 novembre 2026."
+      },
+      "location": "Orbe et Yverdon",
+      "canton": "VD",
+      "url": "https://www.ehnv.ch/emplois#offer/4825/une-ergotherapeute-a-70-100",
+      "source": "eHnv Dedicated Parser (Johdi Suite)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-23T09:24:19.076Z",
+      "addressLocality": "Orbe et Yverdon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1350",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-29",
+      "postedDate": "2026-10-29",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.ehnv.ch/emplois#offer/4825/une-ergotherapeute-a-70-100",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "4825",
+      "previousSlugs": [
+        "un-e-ergotherapeute-a-70-100-ehnv-orbe-et-yverdon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-ergotherapeute-a-70-100-ehnv-orbe-et-yverdon"
+        ],
+        "en": [
+          "un-e-ergotherapeute-a-70-100-ehnv-orbe-et-yverdon"
+        ],
+        "de": [
+          "un-e-ergotherapeute-a-70-100-ehnv-orbe-et-yverdon"
+        ]
+      },
+      "firstSeenAt": "2026-10-29T09:30:01.174Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Orbe et Yverdon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:24:19.076Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "ehnv-6c230a55580e",
+      "slug": "una-segretaria-medica-del-30-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
+      "slugByLocale": {
+        "it": "una-segretaria-medica-del-30-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
+        "en": "a-30-medical-secretary-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
+        "de": "eine-30-medizinische-sekretarin-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
+        "fr": "un-e-secretaire-medical-e-a-30-ehnv-yverdon-les-bains"
+      },
+      "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
+      "companyKey": "ehnv",
+      "companyDomain": "ehnv.ch",
+      "title": "Un.e secrétaire médical.e à 30 %",
+      "titleByLocale": {
+        "it": "Una segretaria medica del 30%",
+        "en": "A 30% medical secretary",
+        "de": "Eine 30% medizinische Sekretärin",
+        "fr": "Un.e secrétaire médical.e à 30 %"
+      },
+      "description": "LE SERVICE DE GASTROENTEROLOGIE DES EHNV RECHERCHE\n\nACTIVITES PRINCIPALES\n\n• Accueil des patients et admissions\n\n• Gestion des appels téléphoniques et des mails\n\n• Gestion de l’agenda\n\n• Planification et organisation des endoscopies\n\n• Préparation et suivi des consultations\n\n• Suivi des demandes des médecins et des patients\n\n• Mise en page, relecture et envoi des rapports médicaux\n\n• Présence souhaitée le vendredi et un mardi sur deux\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• CFC d’employé.e de commerce ou titre jugé équivalent\n\n• Diplôme de secrétaire médical.e exigé\n\n• Minimum 3 ans d’expérience dans un poste similaire\n\n• Maîtrise des outils informatiques usuels et spécialisés (Opale – Soarian- Ultragenda)\n\n• Connaissance en gastroentérologie (un atout)\n\n• Maîtrise de la terminologie médicale\n\n• Sens de l’accueil et de la communication\n\n• Capacité à travailler en équipe pluridisciplinaire\n\n• Collaboration avec le corps médical\n\n• Autonomie, sens de l’organisation et capacité à établir des priorités\n\n• Résistance au stress\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er JANVIER 2027 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme M. Correvon, responsable du secrétariat de la policlinique, T +41 24 424 42 19.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 27 novembre 2026.",
+      "descriptionByLocale": {
+        "it": "LA SERVIZIO DI RICERCA EHNV\n\nATTIVITÀ PRINCIPALI\n\n• Ricevimento e ammissioni dei pazienti\n\n• Gestione del telefono e della posta\n\n• Gestione dell'ordine\n\n• Pianificazione endoscopia e organizzazione\n\n• Preparazione e follow-up delle consultazioni\n\n• Seguire le richieste di medico e paziente\n\n• Layout, revisione e spedizione di relazioni mediche\n\n• Presenza desiderata il venerdì e ogni martedì\n\nSKILLS – PRESCRIZIONI\n\n• SWC o equivalente\n\n• Diploma di segretaria medica richiesto\n\n• Minimo 3 anni di esperienza in una posizione simile\n\n• Mastery degli strumenti informatici abituali e specializzati (Opale – Soarian- Ultragenda)\n\n• Conoscenza della gastroenterologia (un bene)\n\n• Masterizzazione della terminologia medica\n\n• Significato di ricezione e comunicazione\n\n• Capacità di lavorare in un team multidisciplinare\n\n• Collaborazione con la professione medica\n\n• Autonomia, senso organizzativo e capacità di fissare priorità\n\n• Resistenza allo stress\n\nUFFICIO\n\n• Una variegata attività\n\n• Opportunità di formazione continua\n\n• Uno stipendio secondo la scala della Federazione Ospedaliera Vaudiana (FHV)\n\n• Vantaggi sociali eccellenti\n\nDATA DI ENTRY: 1 GENNAIO 2027 O DA CONVENERE\n\nUlteriori informazioni possono essere ottenute dalla sig.ra M. Correvon, Capo della Segreteria di Policlinic, T +41 24 424 42 19.\n\nSei interessato?\n\nLe offerte con documenti abituali devono essere inviate entro il 27 novembre 2026.",
+        "en": "THE GASTROENTEROLOGY SERVICE OF EHNV RESEARCH\n\nMAIN ACTIVITIES\n\n• Patient reception and admissions\n\n• Telephone and mail management\n\n• Agenda Management\n\n• Endoscopy planning and organization\n\n• Preparation and follow-up of consultations\n\n• Follow-up of physician and patient requests\n\n• Layout, review and dispatch of medical reports\n\n• Desired presence on Friday and every other Tuesday\n\nSKILLS – REQUIREMENTS REQUIRED\n\n• SWC or equivalent\n\n• Diploma of medical secretary required\n\n• Minimum 3 years of experience in a similar position\n\n• Mastery of the usual and specialized computer tools (Opale – Soarian- Ultragenda)\n\n• Knowledge of gastroenterology (an asset)\n\n• Mastery of medical terminology\n\n• Meaning of reception and communication\n\n• Ability to work in a multidisciplinary team\n\n• Collaboration with the medical profession\n\n• Autonomy, organizational sense and ability to set priorities\n\n• Stress resistance\n\nWE OFFER\n\n• A varied activity\n\n• Opportunities for continuing training\n\n• A salary according to the scale of the Vaudian Hospital Federation (FHV)\n\n• Excellent social benefits\n\nDATE OF ENTRY: 1 JANUARY 2027 OR TO BE AGREED\n\nFurther information may be obtained from Ms. M. Correvon, Head of the Secretariat of Policlinic, T +41 24 424 42 19.\n\nAre you interested?\n\nOffers with usual documents should be sent by 27 November 2026.",
+        "de": "DIE GASTROENTEROLOGIE DER EHNV-FORSCHUNG\n\nWICHTIGKEITEN\n\n• Aufnahme und Aufnahme von Patienten\n\n• Telefon- und Postverwaltung\n\n• Agendamanagement\n\n• Endoskopie Planung und Organisation\n\n• Vorbereitung und Weiterverfolgung der Konsultationen\n\n• Follow-up von Arzt- und Patientenanfragen\n\n• Layout, Überprüfung und Versand von medizinischen Berichten\n\n• Gewünschte Anwesenheit am Freitag und jeden zweiten Dienstag\n\nFÄHLE — ERFORDERLICHE ANFORDERUNGEN\n\n• SWC oder gleichwertig\n\n• Diplom des medizinischen Sekretärs erforderlich\n\n• Mindestens 3 Jahre Erfahrung in einer ähnlichen Position\n\n• Beherrschung der üblichen und spezialisierten Computer-Tools (Opale – Soarian- Ultragenda)\n\n• Kenntnisse der Gastroenterologie (ein Asset)\n\n• Beherrschung der medizinischen Terminologie\n\n• Bedeutung von Empfang und Kommunikation\n\n• Fähigkeit, in einem multidisziplinären Team zu arbeiten\n\n• Zusammenarbeit mit der Ärzteschaft\n\n• Autonomie, Organisationssinn und Fähigkeit, Prioritäten zu setzen\n\n• Stressresistenz\n\nWIR ANGEBOT\n\n• Eine abwechslungsreiche Aktivität\n\n• Weiterbildungsmöglichkeiten\n\n• Ein Gehalt nach der Skala des Vaudian Hospital Federation (FHV)\n\n• Hervorragende Sozialleistungen\n\nEINFUHRDATUM: 1. JANUAR 2027 ODER ZU VEREINBAREN\n\nWeitere Informationen erhalten Sie bei Frau M. Correvon, Leiterin des Sekretariats der Policlinic, T +41 24 424 42 19.\n\nSind Sie interessiert?\n\nAngebote mit üblichen Unterlagen sollten bis zum 27. November 2026 übermittelt werden.",
+        "fr": "LE SERVICE DE GASTROENTEROLOGIE DES EHNV RECHERCHE\n\nACTIVITES PRINCIPALES\n\n• Accueil des patients et admissions\n\n• Gestion des appels téléphoniques et des mails\n\n• Gestion de l’agenda\n\n• Planification et organisation des endoscopies\n\n• Préparation et suivi des consultations\n\n• Suivi des demandes des médecins et des patients\n\n• Mise en page, relecture et envoi des rapports médicaux\n\n• Présence souhaitée le vendredi et un mardi sur deux\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• CFC d’employé.e de commerce ou titre jugé équivalent\n\n• Diplôme de secrétaire médical.e exigé\n\n• Minimum 3 ans d’expérience dans un poste similaire\n\n• Maîtrise des outils informatiques usuels et spécialisés (Opale – Soarian- Ultragenda)\n\n• Connaissance en gastroentérologie (un atout)\n\n• Maîtrise de la terminologie médicale\n\n• Sens de l’accueil et de la communication\n\n• Capacité à travailler en équipe pluridisciplinaire\n\n• Collaboration avec le corps médical\n\n• Autonomie, sens de l’organisation et capacité à établir des priorités\n\n• Résistance au stress\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er JANVIER 2027 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme M. Correvon, responsable du secrétariat de la policlinique, T +41 24 424 42 19.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 27 novembre 2026."
+      },
+      "location": "Yverdon-les-Bains",
+      "canton": "VD",
+      "url": "https://www.ehnv.ch/emplois#offer/4862/une-secretaire-medicale-a-30",
+      "source": "eHnv Dedicated Parser (Johdi Suite)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-23T09:24:18.454Z",
+      "addressLocality": "Yverdon-les-Bains",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1400",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-06",
+      "postedDate": "2026-11-06",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.ehnv.ch/emplois#offer/4862/une-secretaire-medicale-a-30",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "4862",
+      "previousSlugs": [
+        "un-e-secretaire-medical-e-a-30-ehnv-yverdon-les-bains"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-secretaire-medical-e-a-30-ehnv-yverdon-les-bains"
+        ],
+        "en": [
+          "un-e-secretaire-medical-e-a-30-ehnv-yverdon-les-bains"
+        ],
+        "de": [
+          "un-e-secretaire-medical-e-a-30-ehnv-yverdon-les-bains"
+        ]
+      },
+      "firstSeenAt": "2026-11-06T09:21:12.073Z",
+      "salaryMin": 26000,
+      "salaryMax": 36200,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 26000,
+          "maxValue": 36200,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Yverdon-les-Bains",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-04T09:24:18.454Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "ehnv-9c5985452e40",
+      "slug": "un-candidato-per-la-formazione-del-tecnico-nella-sala-operatoria-tso-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les",
+      "slugByLocale": {
+        "it": "un-candidato-per-la-formazione-del-tecnico-nella-sala-operatoria-tso-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les",
+        "en": "a-candidate-for-the-training-of-technician-in-the-operating-room-tso-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les",
+        "de": "ein-kandidat-fur-die-ausbildung-des-technikers-im-operationssaal-tso-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les",
+        "fr": "un-e-candidat-e-pour-la-formation-de-technicien-ne-en-salle-d-operation-tso-ehnv-yverdon"
+      },
+      "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
+      "companyKey": "ehnv",
+      "companyDomain": "ehnv.ch",
+      "title": "Un.e candidat.e pour la formation de Technicien.ne en salle d’opération (TSO)",
+      "titleByLocale": {
+        "it": "Un candidato per la formazione del tecnico nella sala operatoria (TSO)",
+        "en": "A candidate for the training of Technician in the operating room (TSO)",
+        "de": "Ein Kandidat für die Ausbildung des Technikers im Operationssaal (TSO)",
+        "fr": "Un.e candidat.e pour la formation de Technicien.ne en salle d’opération (TSO)"
+      },
+      "description": "LES BLOCS OPERATOIRES DES EHNV RECHERCHENT\n\nLa direction des EHNV soutient la formation en cours d’emploi.\n\nCe soutien se manifeste par l’ouverture de places pour une formation en cours d’emploi et par sa prise en charge financière (frais d’inscription et financement des jours de cours).\n Pour la période de formation débutant en 2027 (et pendant 3 ans)\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Être au bénéfice d’un CFC ou d’un titre jugé équivalent\n\n• Bénéficier d’une première expérience professionnelle idéalement dans le domaine des soins\n\n• Faire preuve d’initiatives et de sens des responsabilités\n\n• Faire preuve de capacité relationnelle, d’adaptation et d’autonomie\n\n• Maitriser la langue française et les mathématiques de base (tests d’aptitude effectués par l’école pour la formation)\n\nNOUS OFFRONS\n\n• Un cursus de formation varié\n\n• Un encadrement pédagogique soutenu assuré par des professionnels motivés\n\nDATE D’ENTREE : 1er MAI 2027 OU A CONVENIR\n DATE DEBUT DE FORMATION : AOUT 2027\n\nLe stage d’une semaine requis pour l’inscription à la formation sera à effectuer avant l'inscription au concours de l'école de TSO de Lausanne.\n Des renseignements complémentaires peuvent être obtenus auprès de Mme Valérie Marchet, Responsable unité des blocs opératoires, T. 024 424 41 41.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels (lettre de motivation, CV, diplômes et certificats de travail) sont à transmette d’ici le 31 décembre 2026.",
+      "descriptionByLocale": {
+        "it": "RICERCA EHNV OPERATORIA\n\nLa gestione NVH supporta la formazione sul lavoro.\n\nQuesto sostegno si riflette nell'apertura di posti per la formazione sul lavoro e il suo sostegno finanziario (tasse di registrazione e finanziamento, ovviamente).\nPer il periodo di formazione a partire dal 2027 (e per 3 anni)\n\nSKILLS – PRESCRIZIONI\n\n• Essere idonei per un EFA o equivalente\n\n• Approfitta della prima esperienza professionale idealmente nel campo della cura\n\n• Dimostrare leadership e responsabilità\n\n• Dimostrare capacità relazionali, adattamento e autonomia\n\n• Mastering della lingua francese e matematica di base (test di attitudine scolastica per la formazione)\n\nUFFICIO\n\n• Una varietà di corsi di formazione\n\n• Guida pedagogica sostenuta da professionisti motivati\n\nDATA DI COMUNICAZIONE: 1 MAGGIO 2027 O DA CONVENERE\nDATA DI FORMAZIONE: AGOSTO 2027\n\nIl corso di una settimana richiesto per l'iscrizione nel corso di formazione sarà completato prima dell'iscrizione nella competizione scolastica TSO a Losanna.\nUlteriori informazioni possono essere ottenute dalla sig.ra Valérie Marchet, Unit Manager, Operational Units, T. 024 424 41 41.\n\nSei interessato?\n\nLe offerte con documenti abituali (lettera di motivazione, CV, diplomi e certificati di lavoro) devono essere presentate entro il 31 dicembre 2026.",
+        "en": "EHNV OPERATORY BLOCKS SEARCH\n\nThe NVH management supports on-the-job training.\n\nThis support is reflected in the opening of places for on-the-job training and its financial support (registration fees and funding of course days).\nFor the training period beginning in 2027 (and for 3 years)\n\nSKILLS – REQUIREMENTS REQUIRED\n\n• Be eligible for an EFA or equivalent\n\n• Benefit from first professional experience ideally in the field of care\n\n• Demonstrate leadership and accountability\n\n• Demonstrate relational capacity, adaptation and autonomy\n\n• Mastering the French language and basic mathematics (school aptitude tests for training)\n\nWE OFFER\n\n• A variety of training courses\n\n• Supported pedagogical guidance by motivated professionals\n\nDATE OF COMING: 1 MAY 2027 OR TO BE AGREED\nDATE OF TRAINING: AUGUST 2027\n\nThe one-week course required for enrolment in the training course will be completed before enrolment in the TSO school competition in Lausanne.\nFurther information may be obtained from Ms. Valérie Marchet, Unit Manager, Operational Units, T. 024 424 41 41.\n\nAre you interested?\n\nOffers with usual documents (motivation letter, CV, diplomas and certificates of employment) are to be submitted by 31 December 2026.",
+        "de": "EHNV-OPERATORENSUCHE\n\nDas NVH-Management unterstützt On-the-Job-Training.\n\nDiese Unterstützung spiegelt sich in der Eröffnung von Ausbildungsplätzen am Arbeitsplatz und ihrer finanziellen Unterstützung (Anmeldegebühren und Finanzierung von Kurstagen) wider.\nFür den Ausbildungszeitraum ab 2027 (und für 3 Jahre)\n\nFÄHLE — ERFORDERLICHE ANFORDERUNGEN\n\n• Für eine EFA oder ein gleichwertiges Unternehmen in Betracht kommen\n\n• Profitieren Sie von erster Berufserfahrung ideal im Pflegebereich\n\n• Demonstrieren Sie Führung und Rechenschaftspflicht\n\n• Demonstrieren Sie Beziehungsfähigkeit, Anpassung und Autonomie\n\n• Beherrschung der französischen Sprache und Grundmathematik (Schule Eignungstests für die Ausbildung)\n\nWIR ANGEBOT\n\n• Eine Vielzahl von Schulungen\n\n• Unterstützte pädagogische Beratung durch motivierte Fachkräfte\n\nKOMMENDES DATUM: 1. MAI 2027 ODER ZU VEREINBAREN\nAUSBILDUNGSDATUM: AUGUST 2027\n\nDer für die Einschreibung in die Ausbildung erforderliche einwöchige Kurs wird vor der Einschreibung in den TSO-Schulwettbewerb in Lausanne abgeschlossen.\nWeitere Informationen sind erhältlich bei Frau Valérie Marchet, Unit Manager, Operational Units, T. 024 424 41 41.\n\nSind Sie interessiert?\n\nAngebote mit üblichen Unterlagen (Motivationsschreiben, Lebenslauf, Diplome und Arbeitsbescheinigungen) sind bis zum 31. Dezember 2026 einzureichen.",
+        "fr": "LES BLOCS OPERATOIRES DES EHNV RECHERCHENT\n\nLa direction des EHNV soutient la formation en cours d’emploi.\n\nCe soutien se manifeste par l’ouverture de places pour une formation en cours d’emploi et par sa prise en charge financière (frais d’inscription et financement des jours de cours).\nPour la période de formation débutant en 2027 (et pendant 3 ans)\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Être au bénéfice d’un CFC ou d’un titre jugé équivalent\n\n• Bénéficier d’une première expérience professionnelle idéalement dans le domaine des soins\n\n• Faire preuve d’initiatives et de sens des responsabilités\n\n• Faire preuve de capacité relationnelle, d’adaptation et d’autonomie\n\n• Maitriser la langue française et les mathématiques de base (tests d’aptitude effectués par l’école pour la formation)\n\nNOUS OFFRONS\n\n• Un cursus de formation varié\n\n• Un encadrement pédagogique soutenu assuré par des professionnels motivés\n\nDATE D’ENTREE : 1er MAI 2027 OU A CONVENIR\nDATE DEBUT DE FORMATION : AOUT 2027\n\nLe stage d’une semaine requis pour l’inscription à la formation sera à effectuer avant l'inscription au concours de l'école de TSO de Lausanne.\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Valérie Marchet, Responsable unité des blocs opératoires, T. 024 424 41 41.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels (lettre de motivation, CV, diplômes et certificats de travail) sont à transmette d’ici le 31 décembre 2026."
+      },
+      "needsRetranslation": false,
+      "location": "Yverdon-les-Bains",
+      "canton": "VD",
+      "url": "https://www.ehnv.ch/emplois#offer/4861/une-candidate-pour-la-formation-de-technicienne-en-salle-doperation-tso",
+      "source": "eHnv Dedicated Parser (Johdi Suite)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-23T09:24:17.857Z",
+      "addressLocality": "Yverdon-les-Bains",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1400",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-06",
+      "postedDate": "2026-11-06",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.ehnv.ch/emplois#offer/4861/une-candidate-pour-la-formation-de-technicienne-en-salle-doperation-tso",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "4861",
+      "previousSlugs": [
+        "un-e-candidat-e-pour-la-formation-de-technicien-ne-en-salle-d-operation-tso-ehnv-yverdon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-candidat-e-pour-la-formation-de-technicien-ne-en-salle-d-operation-tso-ehnv-yverdon"
+        ],
+        "en": [
+          "un-e-candidat-e-pour-la-formation-de-technicien-ne-en-salle-d-operation-tso-ehnv-yverdon"
+        ],
+        "de": [
+          "un-e-candidat-e-pour-la-formation-de-technicien-ne-en-salle-d-operation-tso-ehnv-yverdon"
+        ]
+      },
+      "firstSeenAt": "2026-11-06T09:21:11.522Z",
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Yverdon-les-Bains",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-04T09:24:17.857Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "ehnv-0ba5729c48b1",
+      "slug": "un-e-aide-infirmier-ere-a-70-100-ehnv-orbe",
+      "slugByLocale": {
+        "fr": "un-e-aide-infirmier-ere-a-70-100-ehnv-orbe",
+        "it": "un-e-aide-infirmier-ere-a-70-100-ehnv-orbe",
+        "en": "un-e-aide-infirmier-ere-a-70-100-ehnv-orbe",
+        "de": "un-e-aide-infirmier-ere-a-70-100-ehnv-orbe"
+      },
+      "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
+      "companyKey": "ehnv",
+      "companyDomain": "ehnv.ch",
+      "title": "Un.e aide infirmier.ère à 70-100 %",
+      "titleByLocale": {
+        "fr": "Un.e aide infirmier.ère à 70-100 %",
+        "it": "Un.e aide infirmier.ère à 70-100 %",
+        "en": "Un.e aide infirmier.ère à 70-100 %",
+        "de": "Un.e aide infirmier.ère à 70-100 %"
+      },
+      "description": "LE CENTRE DE TRAITEMENT ET DE READAPTATION D’ORBE RECHERCHE\n\nMISSIONS PRINCIPALES\n\n• Réadaptation gériatrique\n\n• Suite de traitement\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Être en possession du cours Croix-Rouge (120 heures)\n\n• Expérience en gériatrie, réadaptation ou psychogériatrie\n\n• Sens de l’organisation et des priorités, autonomie\n\n• Capacité d’adaptation et ouverture aux changements\n\n• Collaboration interdisciplinaire et esprit d’équipe\n\n• Sens de la communication\n\n• Personnalité dynamique et résistance au stress\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : DE SUITE OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Raphaëlle Meylan, cadre de proximité, T +41 24 442 60 60.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 4 décembre 2026.",
+      "descriptionByLocale": {
+        "fr": "LE CENTRE DE TRAITEMENT ET DE READAPTATION D’ORBE RECHERCHE\n\nMISSIONS PRINCIPALES\n\n• Réadaptation gériatrique\n\n• Suite de traitement\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Être en possession du cours Croix-Rouge (120 heures)\n\n• Expérience en gériatrie, réadaptation ou psychogériatrie\n\n• Sens de l’organisation et des priorités, autonomie\n\n• Capacité d’adaptation et ouverture aux changements\n\n• Collaboration interdisciplinaire et esprit d’équipe\n\n• Sens de la communication\n\n• Personnalité dynamique et résistance au stress\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : DE SUITE OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Raphaëlle Meylan, cadre de proximité, T +41 24 442 60 60.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 4 décembre 2026.",
+        "it": "LE CENTRE DE TRAITEMENT ET DE READAPTATION D’ORBE RECHERCHE\n\nMISSIONS PRINCIPALES\n\n• Réadaptation gériatrique\n\n• Suite de traitement\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Être en possession du cours Croix-Rouge (120 heures)\n\n• Expérience en gériatrie, réadaptation ou psychogériatrie\n\n• Sens de l’organisation et des priorités, autonomie\n\n• Capacité d’adaptation et ouverture aux changements\n\n• Collaboration interdisciplinaire et esprit d’équipe\n\n• Sens de la communication\n\n• Personnalité dynamique et résistance au stress\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : DE SUITE OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Raphaëlle Meylan, cadre de proximité, T +41 24 442 60 60.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 4 décembre 2026.",
+        "en": "LE CENTRE DE TRAITEMENT ET DE READAPTATION D’ORBE RECHERCHE\n\nMISSIONS PRINCIPALES\n\n• Réadaptation gériatrique\n\n• Suite de traitement\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Être en possession du cours Croix-Rouge (120 heures)\n\n• Expérience en gériatrie, réadaptation ou psychogériatrie\n\n• Sens de l’organisation et des priorités, autonomie\n\n• Capacité d’adaptation et ouverture aux changements\n\n• Collaboration interdisciplinaire et esprit d’équipe\n\n• Sens de la communication\n\n• Personnalité dynamique et résistance au stress\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : DE SUITE OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Raphaëlle Meylan, cadre de proximité, T +41 24 442 60 60.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 4 décembre 2026.",
+        "de": "LE CENTRE DE TRAITEMENT ET DE READAPTATION D’ORBE RECHERCHE\n\nMISSIONS PRINCIPALES\n\n• Réadaptation gériatrique\n\n• Suite de traitement\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Être en possession du cours Croix-Rouge (120 heures)\n\n• Expérience en gériatrie, réadaptation ou psychogériatrie\n\n• Sens de l’organisation et des priorités, autonomie\n\n• Capacité d’adaptation et ouverture aux changements\n\n• Collaboration interdisciplinaire et esprit d’équipe\n\n• Sens de la communication\n\n• Personnalité dynamique et résistance au stress\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : DE SUITE OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Raphaëlle Meylan, cadre de proximité, T +41 24 442 60 60.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 4 décembre 2026."
+      },
+      "needsRetranslation": true,
+      "location": "Orbe",
+      "canton": "VD",
+      "url": "https://www.ehnv.ch/emplois#offer/4941/une-aide-infirmierere-a-70-100",
+      "source": "eHnv Dedicated Parser (Johdi Suite)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-23T09:24:17.272Z",
+      "addressLocality": "Orbe",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1350",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-23",
+      "postedDate": "2026-11-23",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.ehnv.ch/emplois#offer/4941/une-aide-infirmierere-a-70-100",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "externalId": "4941",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Orbe",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-21T09:24:17.272Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-23T09:24:17.272Z"
     },
     {
       "id": "ehnv-a5aa2c8b2658",
@@ -535,260 +861,8 @@
       "streetAddress": "Yverdon-les-Bains",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T21:16:32.540Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "ehnv-4d190c1f77bf",
-      "slug": "70-100-terapista-professionale-etab-hospitaliers-du-nord-vaudois-ehnv-orbe-et-yverdon",
-      "slugByLocale": {
-        "it": "70-100-terapista-professionale-etab-hospitaliers-du-nord-vaudois-ehnv-orbe-et-yverdon",
-        "en": "70-100-occupational-therapist-etab-hospitaliers-du-nord-vaudois-ehnv-orbe-et-yverdon",
-        "de": "70-100-ergotherapeut-etab-hospitaliers-du-nord-vaudois-ehnv-orbe-et-yverdon",
-        "fr": "un-e-ergotherapeute-a-70-100-ehnv-orbe-et-yverdon"
-      },
-      "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
-      "companyKey": "ehnv",
-      "companyDomain": "ehnv.ch",
-      "title": "Un.e ergothérapeute à 70-100 %",
-      "titleByLocale": {
-        "it": "70-100% terapista professionale",
-        "en": "70-100% occupational therapist",
-        "de": "70-100% Ergotherapeut",
-        "fr": "Un.e ergothérapeute à 70-100 %"
-      },
-      "description": "LE SERVICE D’ERGOTHERAPIE DE L’HÔPITAL D’ORBE ET YVERDON RECHERCHE\n\nMISSION PRINCIPALE\n\nPoste d’ergothérapeute dans le secteur de réadaptation d’Yverdon et d’Orbe ainsi que les soins palliatifs\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Être titulaire du diplôme suisse d’ergothérapeute ou reconnu CRS\n\n• Posséder une expérience dans le domaine de la gériatrie\n\n• Faire preuve d’autonomie et d’initiative\n\n• Avoir le sens des priorités et bonne communication\n\n• Savoir travailler avec une équipe interdisciplinaire\n\nNOUS OFFRONS\n\n• Une activité variée dans un environnement favorisant la mise en valeur de vos compétences\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : DE SUITE OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de M. R. Garrido Cañas, cadre de proximité de physiothérapie et d’ergothérapie, T. +41 24 442 60 16\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels (lettre de motivation, CV, diplômes et certificats de travail) sont à transmettre d’ici le 30 novembre 2026.",
-      "descriptionByLocale": {
-        "it": "IL SERVIZIO ERGOTHERAPY DELLA D'ORBE HOSPITALE E DELLA RICERCA YVERDON\n\nMISSIONE PRIMA\n\nPosizione del terapeuta occupazionale nel settore riabilitazione di Yverdon e Orb e cura palliativa\n\nSKILLS – PRESCRIZIONI\n\n• Titolare del diploma di terapista professionale svizzero o riconosciuto CRS\n\n• Esperienza in geriatria\n\n• Dimostrare autonomia e iniziativa\n\n• Un senso di priorità e di buona comunicazione\n\n• Sapere come lavorare con un team interdisciplinare\n\nUFFICIO\n\n• Una variegata attività in un ambiente che promuove lo sviluppo delle tue competenze\n\n• Opportunità di formazione continua\n\n• Uno stipendio secondo la scala della Federazione Ospedaliera Vaudiana (FHV)\n\n• Vantaggi sociali eccellenti\n\nDICHIARAZIONE:\n\nUlteriori informazioni possono essere ottenute dal Sig. R. Garrido Cañas, una fisioterapia e una comunità di terapia occupazionale, T. +41 24 442 60 16\n\nSei interessato?\n\nLe offerte con documenti abituali (lettera di motivazione, CV, diplomi e certificati di lavoro) devono essere presentate entro il 30 novembre 2026.",
-        "en": "THE ERGOTHERAPY SERVICE OF THE HOSPITAL D'ORBE AND YVERDON RESEARCH\n\nMAIN MISSION\n\nOccupational therapist position in the rehabilitation sector of Yverdon and Orb and palliative care\n\nSKILLS – REQUIREMENTS REQUIRED\n\n• Holder of the Swiss occupational therapist degree or recognized CRS\n\n• Experience in geriatrics\n\n• Demonstrate autonomy and initiative\n\n• A sense of priority and good communication\n\n• Know how to work with an interdisciplinary team\n\nWE OFFER\n\n• A varied activity in an environment that promotes the development of your skills\n\n• Opportunities for continuing training\n\n• A salary according to the scale of the Vaudian Hospital Federation (FHV)\n\n• Excellent social benefits\n\nDATE OF COMMENCEMENT:\n\nFurther information can be obtained from Mr. R. Garrido Cañas, a physiotherapy and occupational therapy community setting, T. +41 24 442 60 16\n\nAre you interested?\n\nOffers with usual documents (motivation letter, CV, diplomas and certificates of employment) are to be submitted by 30 November 2026.",
-        "de": "DIE ERGOTHERAPIEDIENSTLEISTUNG DES HOSPITAL D'ORBE UND YVERDON FORSCHUNG\n\nWICHTIGKEIT\n\nErgotherapeut Position im Rehabilitationssektor von Yverdon und Orb und Palliativmedizin\n\nFÄHLE — ERFORDERLICHE ANFORDERUNGEN\n\n• Inhaber des Schweizer Ergotherapeutenabschlusses oder anerkannten CRS\n\n• Erfahrung in der Geriatrie\n\n• Demonstrieren Sie Autonomie und Initiative\n\n• Ein Gefühl der Priorität und gute Kommunikation\n\n• Wissen, wie man mit einem interdisziplinären Team arbeitet\n\nWIR ANGEBOT\n\n• Eine abwechslungsreiche Aktivität in einem Umfeld, das die Entwicklung Ihrer Fähigkeiten fördert\n\n• Weiterbildungsmöglichkeiten\n\n• Ein Gehalt nach der Skala des Vaudian Hospital Federation (FHV)\n\n• Hervorragende Sozialleistungen\n\nDATUM DER VERPFLICHTUNG:\n\nWeitere Informationen erhalten Sie bei Herrn R. Garrido Cañas, einer Physiotherapie- und Beschäftigungstherapiegemeinschaft, T. +41 24 442 60 16\n\nSind Sie interessiert?\n\nAngebote mit üblichen Unterlagen (Motivationsschreiben, Lebenslauf, Diplome und Arbeitsbescheinigungen) sind bis zum 30. November 2026 einzureichen.",
-        "fr": "LE SERVICE D’ERGOTHERAPIE DE L’HÔPITAL D’ORBE ET YVERDON RECHERCHE\n\nMISSION PRINCIPALE\n\nPoste d’ergothérapeute dans le secteur de réadaptation d’Yverdon et d’Orbe ainsi que les soins palliatifs\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Être titulaire du diplôme suisse d’ergothérapeute ou reconnu CRS\n\n• Posséder une expérience dans le domaine de la gériatrie\n\n• Faire preuve d’autonomie et d’initiative\n\n• Avoir le sens des priorités et bonne communication\n\n• Savoir travailler avec une équipe interdisciplinaire\n\nNOUS OFFRONS\n\n• Une activité variée dans un environnement favorisant la mise en valeur de vos compétences\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : DE SUITE OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de M. R. Garrido Cañas, cadre de proximité de physiothérapie et d’ergothérapie, T. +41 24 442 60 16\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels (lettre de motivation, CV, diplômes et certificats de travail) sont à transmettre d’ici le 30 novembre 2026."
-      },
-      "location": "Orbe et Yverdon",
-      "canton": "VD",
-      "url": "https://www.ehnv.ch/emplois#offer/4825/une-ergotherapeute-a-70-100",
-      "source": "eHnv Dedicated Parser (Johdi Suite)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:16:31.992Z",
-      "addressLocality": "Orbe et Yverdon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1350",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-29",
-      "postedDate": "2026-10-29",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.ehnv.ch/emplois#offer/4825/une-ergotherapeute-a-70-100",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4825",
-      "previousSlugs": [
-        "un-e-ergotherapeute-a-70-100-ehnv-orbe-et-yverdon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "un-e-ergotherapeute-a-70-100-ehnv-orbe-et-yverdon"
-        ],
-        "en": [
-          "un-e-ergotherapeute-a-70-100-ehnv-orbe-et-yverdon"
-        ],
-        "de": [
-          "un-e-ergotherapeute-a-70-100-ehnv-orbe-et-yverdon"
-        ]
-      },
-      "firstSeenAt": "2026-10-29T09:30:01.174Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Orbe et Yverdon",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:16:31.992Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "ehnv-6c230a55580e",
-      "slug": "una-segretaria-medica-del-30-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
-      "slugByLocale": {
-        "it": "una-segretaria-medica-del-30-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
-        "en": "a-30-medical-secretary-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
-        "de": "eine-30-medizinische-sekretarin-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
-        "fr": "un-e-secretaire-medical-e-a-30-ehnv-yverdon-les-bains"
-      },
-      "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
-      "companyKey": "ehnv",
-      "companyDomain": "ehnv.ch",
-      "title": "Un.e secrétaire médical.e à 30 %",
-      "titleByLocale": {
-        "it": "Una segretaria medica del 30%",
-        "en": "A 30% medical secretary",
-        "de": "Eine 30% medizinische Sekretärin",
-        "fr": "Un.e secrétaire médical.e à 30 %"
-      },
-      "description": "LE SERVICE DE GASTROENTEROLOGIE DES EHNV RECHERCHE\n\nACTIVITES PRINCIPALES\n\n• Accueil des patients et admissions\n\n• Gestion des appels téléphoniques et des mails\n\n• Gestion de l’agenda\n\n• Planification et organisation des endoscopies\n\n• Préparation et suivi des consultations\n\n• Suivi des demandes des médecins et des patients\n\n• Mise en page, relecture et envoi des rapports médicaux\n\n• Présence souhaitée le vendredi et un mardi sur deux\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• CFC d’employé.e de commerce ou titre jugé équivalent\n\n• Diplôme de secrétaire médical.e exigé\n\n• Minimum 3 ans d’expérience dans un poste similaire\n\n• Maîtrise des outils informatiques usuels et spécialisés (Opale – Soarian- Ultragenda)\n\n• Connaissance en gastroentérologie (un atout)\n\n• Maîtrise de la terminologie médicale\n\n• Sens de l’accueil et de la communication\n\n• Capacité à travailler en équipe pluridisciplinaire\n\n• Collaboration avec le corps médical\n\n• Autonomie, sens de l’organisation et capacité à établir des priorités\n\n• Résistance au stress\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er JANVIER 2027 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme M. Correvon, responsable du secrétariat de la policlinique, T +41 24 424 42 19.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 27 novembre 2026.",
-      "descriptionByLocale": {
-        "it": "LA SERVIZIO DI RICERCA EHNV\n\nATTIVITÀ PRINCIPALI\n\n• Ricevimento e ammissioni dei pazienti\n\n• Gestione del telefono e della posta\n\n• Gestione dell'ordine\n\n• Pianificazione endoscopia e organizzazione\n\n• Preparazione e follow-up delle consultazioni\n\n• Seguire le richieste di medico e paziente\n\n• Layout, revisione e spedizione di relazioni mediche\n\n• Presenza desiderata il venerdì e ogni martedì\n\nSKILLS – PRESCRIZIONI\n\n• SWC o equivalente\n\n• Diploma di segretaria medica richiesto\n\n• Minimo 3 anni di esperienza in una posizione simile\n\n• Mastery degli strumenti informatici abituali e specializzati (Opale – Soarian- Ultragenda)\n\n• Conoscenza della gastroenterologia (un bene)\n\n• Masterizzazione della terminologia medica\n\n• Significato di ricezione e comunicazione\n\n• Capacità di lavorare in un team multidisciplinare\n\n• Collaborazione con la professione medica\n\n• Autonomia, senso organizzativo e capacità di fissare priorità\n\n• Resistenza allo stress\n\nUFFICIO\n\n• Una variegata attività\n\n• Opportunità di formazione continua\n\n• Uno stipendio secondo la scala della Federazione Ospedaliera Vaudiana (FHV)\n\n• Vantaggi sociali eccellenti\n\nDATA DI ENTRY: 1 GENNAIO 2027 O DA CONVENERE\n\nUlteriori informazioni possono essere ottenute dalla sig.ra M. Correvon, Capo della Segreteria di Policlinic, T +41 24 424 42 19.\n\nSei interessato?\n\nLe offerte con documenti abituali devono essere inviate entro il 27 novembre 2026.",
-        "en": "THE GASTROENTEROLOGY SERVICE OF EHNV RESEARCH\n\nMAIN ACTIVITIES\n\n• Patient reception and admissions\n\n• Telephone and mail management\n\n• Agenda Management\n\n• Endoscopy planning and organization\n\n• Preparation and follow-up of consultations\n\n• Follow-up of physician and patient requests\n\n• Layout, review and dispatch of medical reports\n\n• Desired presence on Friday and every other Tuesday\n\nSKILLS – REQUIREMENTS REQUIRED\n\n• SWC or equivalent\n\n• Diploma of medical secretary required\n\n• Minimum 3 years of experience in a similar position\n\n• Mastery of the usual and specialized computer tools (Opale – Soarian- Ultragenda)\n\n• Knowledge of gastroenterology (an asset)\n\n• Mastery of medical terminology\n\n• Meaning of reception and communication\n\n• Ability to work in a multidisciplinary team\n\n• Collaboration with the medical profession\n\n• Autonomy, organizational sense and ability to set priorities\n\n• Stress resistance\n\nWE OFFER\n\n• A varied activity\n\n• Opportunities for continuing training\n\n• A salary according to the scale of the Vaudian Hospital Federation (FHV)\n\n• Excellent social benefits\n\nDATE OF ENTRY: 1 JANUARY 2027 OR TO BE AGREED\n\nFurther information may be obtained from Ms. M. Correvon, Head of the Secretariat of Policlinic, T +41 24 424 42 19.\n\nAre you interested?\n\nOffers with usual documents should be sent by 27 November 2026.",
-        "de": "DIE GASTROENTEROLOGIE DER EHNV-FORSCHUNG\n\nWICHTIGKEITEN\n\n• Aufnahme und Aufnahme von Patienten\n\n• Telefon- und Postverwaltung\n\n• Agendamanagement\n\n• Endoskopie Planung und Organisation\n\n• Vorbereitung und Weiterverfolgung der Konsultationen\n\n• Follow-up von Arzt- und Patientenanfragen\n\n• Layout, Überprüfung und Versand von medizinischen Berichten\n\n• Gewünschte Anwesenheit am Freitag und jeden zweiten Dienstag\n\nFÄHLE — ERFORDERLICHE ANFORDERUNGEN\n\n• SWC oder gleichwertig\n\n• Diplom des medizinischen Sekretärs erforderlich\n\n• Mindestens 3 Jahre Erfahrung in einer ähnlichen Position\n\n• Beherrschung der üblichen und spezialisierten Computer-Tools (Opale – Soarian- Ultragenda)\n\n• Kenntnisse der Gastroenterologie (ein Asset)\n\n• Beherrschung der medizinischen Terminologie\n\n• Bedeutung von Empfang und Kommunikation\n\n• Fähigkeit, in einem multidisziplinären Team zu arbeiten\n\n• Zusammenarbeit mit der Ärzteschaft\n\n• Autonomie, Organisationssinn und Fähigkeit, Prioritäten zu setzen\n\n• Stressresistenz\n\nWIR ANGEBOT\n\n• Eine abwechslungsreiche Aktivität\n\n• Weiterbildungsmöglichkeiten\n\n• Ein Gehalt nach der Skala des Vaudian Hospital Federation (FHV)\n\n• Hervorragende Sozialleistungen\n\nEINFUHRDATUM: 1. JANUAR 2027 ODER ZU VEREINBAREN\n\nWeitere Informationen erhalten Sie bei Frau M. Correvon, Leiterin des Sekretariats der Policlinic, T +41 24 424 42 19.\n\nSind Sie interessiert?\n\nAngebote mit üblichen Unterlagen sollten bis zum 27. November 2026 übermittelt werden.",
-        "fr": "LE SERVICE DE GASTROENTEROLOGIE DES EHNV RECHERCHE\n\nACTIVITES PRINCIPALES\n\n• Accueil des patients et admissions\n\n• Gestion des appels téléphoniques et des mails\n\n• Gestion de l’agenda\n\n• Planification et organisation des endoscopies\n\n• Préparation et suivi des consultations\n\n• Suivi des demandes des médecins et des patients\n\n• Mise en page, relecture et envoi des rapports médicaux\n\n• Présence souhaitée le vendredi et un mardi sur deux\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• CFC d’employé.e de commerce ou titre jugé équivalent\n\n• Diplôme de secrétaire médical.e exigé\n\n• Minimum 3 ans d’expérience dans un poste similaire\n\n• Maîtrise des outils informatiques usuels et spécialisés (Opale – Soarian- Ultragenda)\n\n• Connaissance en gastroentérologie (un atout)\n\n• Maîtrise de la terminologie médicale\n\n• Sens de l’accueil et de la communication\n\n• Capacité à travailler en équipe pluridisciplinaire\n\n• Collaboration avec le corps médical\n\n• Autonomie, sens de l’organisation et capacité à établir des priorités\n\n• Résistance au stress\n\nNOUS OFFRONS\n\n• Une activité variée\n\n• Des possibilités de formation continue\n\n• Un salaire selon le barème de la Fédération des Hôpitaux Vaudois (FHV)\n\n• D’excellentes prestations sociales\n\nDATE D’ENTRÉE : 1er JANVIER 2027 OU A CONVENIR\n\nDes renseignements complémentaires peuvent être obtenus auprès de Mme M. Correvon, responsable du secrétariat de la policlinique, T +41 24 424 42 19.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels sont à adresser d’ici au 27 novembre 2026."
-      },
-      "location": "Yverdon-les-Bains",
-      "canton": "VD",
-      "url": "https://www.ehnv.ch/emplois#offer/4862/une-secretaire-medicale-a-30",
-      "source": "eHnv Dedicated Parser (Johdi Suite)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:16:31.473Z",
-      "addressLocality": "Yverdon-les-Bains",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1400",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-06",
-      "postedDate": "2026-11-06",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.ehnv.ch/emplois#offer/4862/une-secretaire-medicale-a-30",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4862",
-      "previousSlugs": [
-        "un-e-secretaire-medical-e-a-30-ehnv-yverdon-les-bains"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "un-e-secretaire-medical-e-a-30-ehnv-yverdon-les-bains"
-        ],
-        "en": [
-          "un-e-secretaire-medical-e-a-30-ehnv-yverdon-les-bains"
-        ],
-        "de": [
-          "un-e-secretaire-medical-e-a-30-ehnv-yverdon-les-bains"
-        ]
-      },
-      "firstSeenAt": "2026-11-06T09:21:12.073Z",
-      "salaryMin": 26000,
-      "salaryMax": 36200,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 26000,
-          "maxValue": 36200,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Yverdon-les-Bains",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:16:31.473Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "ehnv-9c5985452e40",
-      "slug": "un-candidato-per-la-formazione-del-tecnico-nella-sala-operatoria-tso-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les",
-      "slugByLocale": {
-        "it": "un-candidato-per-la-formazione-del-tecnico-nella-sala-operatoria-tso-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les",
-        "en": "a-candidate-for-the-training-of-technician-in-the-operating-room-tso-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les",
-        "de": "ein-kandidat-fur-die-ausbildung-des-technikers-im-operationssaal-tso-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les",
-        "fr": "un-e-candidat-e-pour-la-formation-de-technicien-ne-en-salle-d-operation-tso-ehnv-yverdon"
-      },
-      "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
-      "companyKey": "ehnv",
-      "companyDomain": "ehnv.ch",
-      "title": "Un.e candidat.e pour la formation de Technicien.ne en salle d’opération (TSO)",
-      "titleByLocale": {
-        "it": "Un candidato per la formazione del tecnico nella sala operatoria (TSO)",
-        "en": "A candidate for the training of Technician in the operating room (TSO)",
-        "de": "Ein Kandidat für die Ausbildung des Technikers im Operationssaal (TSO)",
-        "fr": "Un.e candidat.e pour la formation de Technicien.ne en salle d’opération (TSO)"
-      },
-      "description": "LES BLOCS OPERATOIRES DES EHNV RECHERCHENT\n\nLa direction des EHNV soutient la formation en cours d’emploi.\n\nCe soutien se manifeste par l’ouverture de places pour une formation en cours d’emploi et par sa prise en charge financière (frais d’inscription et financement des jours de cours).\n Pour la période de formation débutant en 2027 (et pendant 3 ans)\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Être au bénéfice d’un CFC ou d’un titre jugé équivalent\n\n• Bénéficier d’une première expérience professionnelle idéalement dans le domaine des soins\n\n• Faire preuve d’initiatives et de sens des responsabilités\n\n• Faire preuve de capacité relationnelle, d’adaptation et d’autonomie\n\n• Maitriser la langue française et les mathématiques de base (tests d’aptitude effectués par l’école pour la formation)\n\nNOUS OFFRONS\n\n• Un cursus de formation varié\n\n• Un encadrement pédagogique soutenu assuré par des professionnels motivés\n\nDATE D’ENTREE : 1er MAI 2027 OU A CONVENIR\n DATE DEBUT DE FORMATION : AOUT 2027\n\nLe stage d’une semaine requis pour l’inscription à la formation sera à effectuer avant l'inscription au concours de l'école de TSO de Lausanne.\n Des renseignements complémentaires peuvent être obtenus auprès de Mme Valérie Marchet, Responsable unité des blocs opératoires, T. 024 424 41 41.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels (lettre de motivation, CV, diplômes et certificats de travail) sont à transmette d’ici le 31 décembre 2026.",
-      "descriptionByLocale": {
-        "it": "RICERCA EHNV OPERATORIA\n\nLa gestione NVH supporta la formazione sul lavoro.\n\nQuesto sostegno si riflette nell'apertura di posti per la formazione sul lavoro e il suo sostegno finanziario (tasse di registrazione e finanziamento, ovviamente).\nPer il periodo di formazione a partire dal 2027 (e per 3 anni)\n\nSKILLS – PRESCRIZIONI\n\n• Essere idonei per un EFA o equivalente\n\n• Approfitta della prima esperienza professionale idealmente nel campo della cura\n\n• Dimostrare leadership e responsabilità\n\n• Dimostrare capacità relazionali, adattamento e autonomia\n\n• Mastering della lingua francese e matematica di base (test di attitudine scolastica per la formazione)\n\nUFFICIO\n\n• Una varietà di corsi di formazione\n\n• Guida pedagogica sostenuta da professionisti motivati\n\nDATA DI COMUNICAZIONE: 1 MAGGIO 2027 O DA CONVENERE\nDATA DI FORMAZIONE: AGOSTO 2027\n\nIl corso di una settimana richiesto per l'iscrizione nel corso di formazione sarà completato prima dell'iscrizione nella competizione scolastica TSO a Losanna.\nUlteriori informazioni possono essere ottenute dalla sig.ra Valérie Marchet, Unit Manager, Operational Units, T. 024 424 41 41.\n\nSei interessato?\n\nLe offerte con documenti abituali (lettera di motivazione, CV, diplomi e certificati di lavoro) devono essere presentate entro il 31 dicembre 2026.",
-        "en": "EHNV OPERATORY BLOCKS SEARCH\n\nThe NVH management supports on-the-job training.\n\nThis support is reflected in the opening of places for on-the-job training and its financial support (registration fees and funding of course days).\nFor the training period beginning in 2027 (and for 3 years)\n\nSKILLS – REQUIREMENTS REQUIRED\n\n• Be eligible for an EFA or equivalent\n\n• Benefit from first professional experience ideally in the field of care\n\n• Demonstrate leadership and accountability\n\n• Demonstrate relational capacity, adaptation and autonomy\n\n• Mastering the French language and basic mathematics (school aptitude tests for training)\n\nWE OFFER\n\n• A variety of training courses\n\n• Supported pedagogical guidance by motivated professionals\n\nDATE OF COMING: 1 MAY 2027 OR TO BE AGREED\nDATE OF TRAINING: AUGUST 2027\n\nThe one-week course required for enrolment in the training course will be completed before enrolment in the TSO school competition in Lausanne.\nFurther information may be obtained from Ms. Valérie Marchet, Unit Manager, Operational Units, T. 024 424 41 41.\n\nAre you interested?\n\nOffers with usual documents (motivation letter, CV, diplomas and certificates of employment) are to be submitted by 31 December 2026.",
-        "de": "EHNV-OPERATORENSUCHE\n\nDas NVH-Management unterstützt On-the-Job-Training.\n\nDiese Unterstützung spiegelt sich in der Eröffnung von Ausbildungsplätzen am Arbeitsplatz und ihrer finanziellen Unterstützung (Anmeldegebühren und Finanzierung von Kurstagen) wider.\nFür den Ausbildungszeitraum ab 2027 (und für 3 Jahre)\n\nFÄHLE — ERFORDERLICHE ANFORDERUNGEN\n\n• Für eine EFA oder ein gleichwertiges Unternehmen in Betracht kommen\n\n• Profitieren Sie von erster Berufserfahrung ideal im Pflegebereich\n\n• Demonstrieren Sie Führung und Rechenschaftspflicht\n\n• Demonstrieren Sie Beziehungsfähigkeit, Anpassung und Autonomie\n\n• Beherrschung der französischen Sprache und Grundmathematik (Schule Eignungstests für die Ausbildung)\n\nWIR ANGEBOT\n\n• Eine Vielzahl von Schulungen\n\n• Unterstützte pädagogische Beratung durch motivierte Fachkräfte\n\nKOMMENDES DATUM: 1. MAI 2027 ODER ZU VEREINBAREN\nAUSBILDUNGSDATUM: AUGUST 2027\n\nDer für die Einschreibung in die Ausbildung erforderliche einwöchige Kurs wird vor der Einschreibung in den TSO-Schulwettbewerb in Lausanne abgeschlossen.\nWeitere Informationen sind erhältlich bei Frau Valérie Marchet, Unit Manager, Operational Units, T. 024 424 41 41.\n\nSind Sie interessiert?\n\nAngebote mit üblichen Unterlagen (Motivationsschreiben, Lebenslauf, Diplome und Arbeitsbescheinigungen) sind bis zum 31. Dezember 2026 einzureichen.",
-        "fr": "LES BLOCS OPERATOIRES DES EHNV RECHERCHENT\n\nLa direction des EHNV soutient la formation en cours d’emploi.\n\nCe soutien se manifeste par l’ouverture de places pour une formation en cours d’emploi et par sa prise en charge financière (frais d’inscription et financement des jours de cours).\nPour la période de formation débutant en 2027 (et pendant 3 ans)\n\nCOMPÉTENCES – EXIGENCES REQUISES\n\n• Être au bénéfice d’un CFC ou d’un titre jugé équivalent\n\n• Bénéficier d’une première expérience professionnelle idéalement dans le domaine des soins\n\n• Faire preuve d’initiatives et de sens des responsabilités\n\n• Faire preuve de capacité relationnelle, d’adaptation et d’autonomie\n\n• Maitriser la langue française et les mathématiques de base (tests d’aptitude effectués par l’école pour la formation)\n\nNOUS OFFRONS\n\n• Un cursus de formation varié\n\n• Un encadrement pédagogique soutenu assuré par des professionnels motivés\n\nDATE D’ENTREE : 1er MAI 2027 OU A CONVENIR\nDATE DEBUT DE FORMATION : AOUT 2027\n\nLe stage d’une semaine requis pour l’inscription à la formation sera à effectuer avant l'inscription au concours de l'école de TSO de Lausanne.\nDes renseignements complémentaires peuvent être obtenus auprès de Mme Valérie Marchet, Responsable unité des blocs opératoires, T. 024 424 41 41.\n\nVOUS ÊTES INTÉRESSÉ.E ?\n\nLes offres avec documents usuels (lettre de motivation, CV, diplômes et certificats de travail) sont à transmette d’ici le 31 décembre 2026."
-      },
-      "needsRetranslation": false,
-      "location": "Yverdon-les-Bains",
-      "canton": "VD",
-      "url": "https://www.ehnv.ch/emplois#offer/4861/une-candidate-pour-la-formation-de-technicienne-en-salle-doperation-tso",
-      "source": "eHnv Dedicated Parser (Johdi Suite)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:16:30.944Z",
-      "addressLocality": "Yverdon-les-Bains",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1400",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-06",
-      "postedDate": "2026-11-06",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.ehnv.ch/emplois#offer/4861/une-candidate-pour-la-formation-de-technicienne-en-salle-doperation-tso",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4861",
-      "previousSlugs": [
-        "un-e-candidat-e-pour-la-formation-de-technicien-ne-en-salle-d-operation-tso-ehnv-yverdon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "un-e-candidat-e-pour-la-formation-de-technicien-ne-en-salle-d-operation-tso-ehnv-yverdon"
-        ],
-        "en": [
-          "un-e-candidat-e-pour-la-formation-de-technicien-ne-en-salle-d-operation-tso-ehnv-yverdon"
-        ],
-        "de": [
-          "un-e-candidat-e-pour-la-formation-de-technicien-ne-en-salle-d-operation-tso-ehnv-yverdon"
-        ]
-      },
-      "firstSeenAt": "2026-11-06T09:21:11.522Z",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 71000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Yverdon-les-Bains",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:16:30.944Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     }
   ]
 }

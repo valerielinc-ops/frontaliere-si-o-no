@@ -1,7 +1,7 @@
 {
   "crawlerKey": "comadur-swatch-group",
-  "assembledAt": "2026-11-22T21:22:25.841Z",
-  "runId": "45070284095",
+  "assembledAt": "2026-11-23T09:29:56.718Z",
+  "runId": "45144189687",
   "jobs": [
     {
       "id": "company-7ucp6a",
@@ -24,7 +24,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "comadur-swatch-group",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-11-22T09:27:10.501Z",
+      "crawledAt": "2026-11-23T09:29:16.844Z",
       "firstSeenAt": "2026-11-18T21:28:58.020Z",
       "titleByLocale": {
         "it": "Ispettore di qualità,-in",
@@ -86,10 +86,9 @@
       "addressRegion": "BE",
       "streetAddress": "Gwatt",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T09:27:10.501Z",
+      "validThrough": "2027-02-17T09:29:16.844Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.swatchgroup.com/fr/job/34406",
-      "crawlerMissStreak": 1
+      "sourceIdentity": "url:https://www.swatchgroup.com/fr/job/34406"
     },
     {
       "id": "company-7ucp65",
@@ -112,7 +111,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "comadur-swatch-group",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-11-22T09:27:10.501Z",
+      "crawledAt": "2026-11-23T09:29:16.844Z",
       "firstSeenAt": "2026-11-18T21:28:58.020Z",
       "titleByLocale": {
         "it": "Dipendenti di produzione/autotesters(M/F) Mech-/Industria",
@@ -169,10 +168,9 @@
       "addressRegion": "BE",
       "streetAddress": "Gwatt",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T09:27:10.501Z",
+      "validThrough": "2027-02-17T09:29:16.844Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.swatchgroup.com/fr/job/34401",
-      "crawlerMissStreak": 1
+      "sourceIdentity": "url:https://www.swatchgroup.com/fr/job/34401"
     }
   ]
 }
