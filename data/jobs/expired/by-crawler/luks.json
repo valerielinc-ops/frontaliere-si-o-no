@@ -9623,16 +9623,14 @@
     "slugByLocale": {
       "it": "pflegefachfrau-pflegefachmann-hf-fh-per-das-ambulatorium-hamatologie-e-medizinische-onkologie-60-100-luzerner-kantonsspital-luks-luzern",
       "en": "nursing-specialist-hf-fh-for-the-ambulatorium-hematology-and-medical-oncology-60-100-luzerner-kantonsspital-luks-luzern",
-      "de": "pflegefachfrau-pflegefachmann-hf-fh-fur-das-ambulatorium-hamatologie-und-medizinische",
+      "de": "pflegefachfrau-pflegefachmann-hf-fh-fur-das-ambulatorium-hamatologie-und-medizinische-e513221d",
       "fr": "specialiste-des-soins-infirmiers-hf-fh-pour-l-hematologie-ambulatoire-et-l-oncologie-medicale-60-100-luzerner"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-09-25T14:48:23.590Z",
-    "previousSlugs": [
-      "pflegefachfrau-pflegefachmann-hf-fh-fur-das-ambulatorium-hamatologie-und-medizinische"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "pflegefachfrau-pflegefachmann-hf-fh-fur-das-ambulatorium-hamatologie-und-medizinische-e513221d",
         "pflegefachfrau-pflegefachmann-hf-fh-fur-das-ambulatorium-hamatologie-und-medizinische"
       ],
       "en": [
@@ -9640,6 +9638,9 @@
       ],
       "fr": [
         "pflegefachfrau-pflegefachmann-hf-fh-fur-das-ambulatorium-hamatologie-und-medizinische"
+      ],
+      "de": [
+        "pflegefachfrau-pflegefachmann-hf-fh-fur-das-ambulatorium-hamatologie-und-medizinische-e513221d"
       ]
     },
     "postalCode": "6004",
@@ -9649,7 +9650,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.luks.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh-fuer-das-ambulatorium-haematologie-und-medizinische-onkologie/1ddc61c9-5f0f-45c4-b511-87d1f8a351e9",
-    "firstSeenAt": "2026-07-08T11:22:18.890Z"
+    "firstSeenAt": "2026-07-08T11:22:18.890Z",
+    "previousSlugs": [
+      "pflegefachfrau-pflegefachmann-hf-fh-fur-das-ambulatorium-hamatologie-und-medizinische"
+    ]
   },
   {
     "slug": "responsabile-applicazioni-aree-speciali-80-100-luzerner-kantonsspital-luks-luzern",
