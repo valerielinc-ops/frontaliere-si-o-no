@@ -1,7 +1,7 @@
 {
   "crawlerKey": "mcm-group",
-  "assembledAt": "2026-11-22T21:18:26.870Z",
-  "runId": "45069855965",
+  "assembledAt": "2026-11-23T09:20:48.512Z",
+  "runId": "45143579603",
   "jobs": [
     {
       "id": "mcm-group-f97b21c3a139",
@@ -34,7 +34,7 @@
       "url": "https://mcm-group.ch/jobs/med-praxisassistent-in-mpa-80-100-allg-medizin-1-2",
       "source": "Medizinisches Center Bonaduz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:18:20.900Z",
+      "crawledAt": "2026-11-23T09:20:41.499Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
       "postalCode": "7000",
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:18:20.900Z",
+      "validThrough": "2027-02-08T09:20:41.499Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -117,7 +117,7 @@
       "url": "https://mcm-group.ch/jobs/med-praxisassistent-in-mpa-80-100-allg-medizin-1-1",
       "source": "Medizinisches Center Bonaduz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:18:20.899Z",
+      "crawledAt": "2026-11-23T09:20:41.496Z",
       "addressLocality": "Malans",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -168,7 +168,7 @@
       "postalCode": "7208",
       "streetAddress": "Malans",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:18:20.899Z",
+      "validThrough": "2027-02-08T09:20:41.496Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -202,7 +202,7 @@
       "url": "https://mcm-group.ch/jobs/med-praxisassistent-in-mpa-80-100-allg-medizin-1",
       "source": "Medizinisches Center Bonaduz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:18:20.898Z",
+      "crawledAt": "2026-11-23T09:20:41.496Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -261,7 +261,7 @@
       "postalCode": "7000",
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T21:18:20.898Z",
+      "validThrough": "2026-12-23T09:20:41.496Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -295,7 +295,7 @@
       "url": "https://mcm-group.ch/jobs/hausaerztin-hausarzt-50-100-1",
       "source": "Medizinisches Center Bonaduz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:18:20.897Z",
+      "crawledAt": "2026-11-23T09:20:41.495Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -351,7 +351,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T21:18:20.897Z",
+      "validThrough": "2026-12-23T09:20:41.495Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -385,7 +385,7 @@
       "url": "https://mcm-group.ch/jobs/hausarzt-hausaerztin",
       "source": "Medizinisches Center Bonaduz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:18:20.895Z",
+      "crawledAt": "2026-11-23T09:20:41.492Z",
       "addressLocality": "Bonaduz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -436,7 +436,7 @@
       "postalCode": "7402",
       "streetAddress": "Bonaduz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T21:18:20.895Z",
+      "validThrough": "2026-12-23T09:20:41.492Z",
       "validThroughSource": "last-observed-window"
     }
   ]
