@@ -1,7 +1,7 @@
 {
   "key": "livit",
   "label": "Livit AG",
-  "generatedAt": "2026-11-23T09:53:09.219Z",
+  "generatedAt": "2026-11-23T21:40:13.329Z",
   "total": 25,
   "discovered": null,
   "parsed": 23,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 25,
-  "durationMs": 37335,
-  "avgDurationMs": 37335,
+  "durationMs": 44942,
+  "avgDurationMs": 44942,
   "durationHistory": [
-    37335
+    44942
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "url": "https://jobs.livit.ch/postes-vacantes/gerant-e-d-immeubles/a850f04f-6101-47bc-83ff-cedab2bedf1f",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:52:18.251Z",
+      "crawledAt": "2026-11-23T21:39:10.872Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -62,7 +62,7 @@
       "salaryMax": 162500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:52:18.251Z",
+      "validThrough": "2027-01-26T21:39:10.872Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -85,7 +85,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/senior-vermarkter-in/8406e2e1-9474-49d3-a150-9ef314a23004",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:52:18.249Z",
+      "crawledAt": "2026-11-23T21:39:10.870Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -119,7 +119,7 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-27T09:52:18.249Z",
+      "validThrough": "2027-01-27T21:39:10.870Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -142,7 +142,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/abteilungsleiter-in-technology-enabling-services/ba89e88c-76ba-421a-b806-96c703932397",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:52:18.247Z",
+      "crawledAt": "2026-11-23T21:39:10.868Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -165,7 +165,7 @@
       "salaryMax": 173000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-31T09:52:18.247Z",
+      "validThrough": "2027-01-31T21:39:10.868Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -188,7 +188,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/immobilienbewirtschafter-in/b2a3b952-adf3-401c-9a8d-c4e4642a6746",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:52:18.245Z",
+      "crawledAt": "2026-11-23T21:39:10.866Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -211,7 +211,7 @@
       "salaryMax": 160000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:52:18.245Z",
+      "validThrough": "2027-01-31T21:39:10.866Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -234,7 +234,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/senior-immobilienbewirtschafter-in-geschaeftsflaechen/498ac2a3-a26d-48d7-a183-d219a7e4f9ec",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:52:18.244Z",
+      "crawledAt": "2026-11-23T21:39:10.865Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -268,7 +268,7 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-31T09:52:18.244Z",
+      "validThrough": "2027-01-31T21:39:10.865Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -291,7 +291,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/immobilienbewirtschafter-in/f8e13c5c-89a3-4d63-a6cd-15210cf39761",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:52:18.242Z",
+      "crawledAt": "2026-11-23T21:39:10.863Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -314,7 +314,7 @@
       "salaryMax": 173000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:52:18.242Z",
+      "validThrough": "2027-02-01T21:39:10.863Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -337,7 +337,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/teamleiter-in-administration-bewirtschaftung-geschaeftsflaechen/d4d115d1-0ad4-4b14-9fba-e4756d21f8c5",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:52:18.240Z",
+      "crawledAt": "2026-11-23T21:39:10.860Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -360,7 +360,7 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T09:52:18.240Z",
+      "validThrough": "2027-02-02T21:39:10.860Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -382,7 +382,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/juniorbewirtschafter/a6511e29-56ab-44e0-8ae9-30b0403a291b",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:52:18.238Z",
+      "crawledAt": "2026-11-23T21:39:10.858Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -416,7 +416,7 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T09:52:18.238Z",
+      "validThrough": "2027-02-02T21:39:10.858Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -439,7 +439,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/projektleiter-in-baumanagement-bauherrenvertretung/32353116-f4c0-44d0-a4bb-169b761d4e05",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:52:18.236Z",
+      "crawledAt": "2026-11-23T21:39:10.856Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -473,7 +473,7 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T09:52:18.236Z",
+      "validThrough": "2027-02-04T21:39:10.856Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -496,7 +496,7 @@
       "url": "https://jobs.livit.ch/postes-vacantes/gerant-e-d-immeubles-commerciaux/d87c163c-ad31-44d4-bd31-1f8a95feac0d",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:52:18.234Z",
+      "crawledAt": "2026-11-23T21:39:10.853Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -519,7 +519,7 @@
       "salaryMax": 162500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:52:18.234Z",
+      "validThrough": "2027-02-07T21:39:10.853Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -542,7 +542,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/immobilienbewirtschafter-in/1a199e75-141a-49ab-89c5-2473e8fdf858",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:52:18.230Z",
+      "crawledAt": "2026-11-23T21:39:10.849Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -565,7 +565,7 @@
       "salaryMax": 123000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:52:18.230Z",
+      "validThrough": "2027-02-08T21:39:10.849Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -588,7 +588,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/mitarbeiter-in-gebaeudeservice-glatt/8dfb6728-3a7f-47b3-b92b-cc07ed052de6",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:52:18.228Z",
+      "crawledAt": "2026-11-23T21:39:10.843Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -611,7 +611,7 @@
       "salaryMax": 128000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:52:18.228Z",
+      "validThrough": "2027-02-09T21:39:10.843Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -634,7 +634,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/immobilienbewirtschafter-in/fc3df783-e661-4d2e-a67b-5a3d586c6eaf",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:52:18.222Z",
+      "crawledAt": "2026-11-23T21:39:10.836Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -668,7 +668,7 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-10T09:52:18.222Z",
+      "validThrough": "2027-02-10T21:39:10.836Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -690,7 +690,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/kaufmann-frau-efz-immobilien-august-2027/fd4320bc-81c1-484b-a346-04ce490058c9",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:52:18.220Z",
+      "crawledAt": "2026-11-23T21:39:10.834Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -724,7 +724,7 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-10T09:52:18.220Z",
+      "validThrough": "2027-02-10T21:39:10.834Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -747,7 +747,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/teamleiter-in-bewirtschaftung-geschaeftsliegenschaften-mit-regionalverantwortung/271cc56b-d180-4291-a93b-24b2620f705e",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:52:18.218Z",
+      "crawledAt": "2026-11-23T21:39:10.831Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -770,7 +770,7 @@
       "salaryMax": 173000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:52:18.218Z",
+      "validThrough": "2027-02-10T21:39:10.831Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -793,7 +793,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/kaufmaennisches-praktikum-ab-sommer-2027-wms-oder-hms/350564d1-7bdc-48ef-b61d-2c2c996d79fd",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:52:18.216Z",
+      "crawledAt": "2026-11-23T21:39:10.829Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -816,7 +816,7 @@
       "salaryMax": 98500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:52:18.216Z",
+      "validThrough": "2027-02-10T21:39:10.829Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -839,7 +839,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/werkstudent-in-ict-support-hardware-management-befristet-auf-1-jahr/c02509a8-7b15-4515-9d18-dd93be8cb8bb",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:52:18.213Z",
+      "crawledAt": "2026-11-23T21:39:10.826Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -862,7 +862,7 @@
       "salaryMax": 116500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T09:52:18.213Z",
+      "validThrough": "2027-01-27T21:39:10.826Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -885,7 +885,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/mitarbeiter-in-kunden-und-service-center/a119b25e-5577-4db8-8b17-d8bb952e4b5d",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:52:18.211Z",
+      "crawledAt": "2026-11-23T21:39:10.824Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -908,7 +908,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T09:52:18.211Z",
+      "validThrough": "2027-02-11T21:39:10.824Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -931,7 +931,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/sachbearbeiter-in-team-bewirtschaftung/87e3f6bd-b4d5-4ab4-9aee-81db2c46c6fa",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:52:18.201Z",
+      "crawledAt": "2026-11-23T21:39:10.812Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -954,7 +954,7 @@
       "salaryMax": 75200,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:52:18.201Z",
+      "validThrough": "2027-02-11T21:39:10.812Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -977,7 +977,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/technische-r-objektmanager-in/e9cf25bb-586e-4e41-97f4-8c75caccb87c",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:52:18.200Z",
+      "crawledAt": "2026-11-23T21:39:10.811Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1000,7 +1000,7 @@
       "salaryMax": 172000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T09:52:18.200Z",
+      "validThrough": "2027-02-14T21:39:10.811Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1023,7 +1023,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/junior-bewirtschafter-in/18840a5b-6e05-4dd5-aedf-a63870405bfe",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:52:18.188Z",
+      "crawledAt": "2026-11-23T21:39:10.795Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1057,7 +1057,7 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-14T09:52:18.188Z",
+      "validThrough": "2027-02-14T21:39:10.795Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1079,7 +1079,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/kaufmann-frau-efz-immobilien-august-2027/d4fd910e-2980-4c69-a88a-e0e5210f6f60",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:52:18.178Z",
+      "crawledAt": "2026-11-23T21:39:10.783Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1102,7 +1102,7 @@
       "salaryMax": 108500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T09:52:18.178Z",
+      "validThrough": "2027-02-15T21:39:10.783Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1125,7 +1125,7 @@
       "url": "https://jobs.livit.ch/offene-stellen/immobilienbewirtschafter-in/8c07c745-f6b2-4331-b53b-f2cc81a425b3",
       "source": "Livit AG Dedicated Parser (Prospective medium 1006570)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:52:18.170Z",
+      "crawledAt": "2026-11-23T21:39:10.773Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1159,7 +1159,7 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-16T09:52:18.170Z",
+      "validThrough": "2027-02-16T21:39:10.773Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1218,7 +1218,7 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-26T21:41:31.002Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1264,7 +1264,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-31T21:41:30.990Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1274,5 +1274,5 @@
       }
     }
   ],
-  "codeCommit": "7474b74d22ad2d97637dc94f08d243f12f0ba1c7"
+  "codeCommit": "7b684909df7304f91c3a19b75aa2a6088ce7630a"
 }
