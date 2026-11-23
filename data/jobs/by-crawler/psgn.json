@@ -1,7 +1,7 @@
 {
   "crawlerKey": "psgn",
-  "assembledAt": "2026-11-23T09:18:18.763Z",
-  "runId": "45144346566",
+  "assembledAt": "2026-11-23T21:15:23.709Z",
+  "runId": "45266755646",
   "jobs": [
     {
       "id": "psgn-58ddd6f6cf29",
@@ -35,7 +35,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh/e988fbcd-2155-440a-b6d2-fe793d8666a6",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:11.913Z",
+      "crawledAt": "2026-11-23T21:15:14.212Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       },
       "streetAddress": "Wil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:18:11.913Z",
+      "validThrough": "2027-01-11T21:15:14.212Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -115,7 +115,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh/ef3cdf52-aab8-4ae6-ab31-2f6a15d862f4",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:11.442Z",
+      "crawledAt": "2026-11-23T21:15:13.716Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -134,10 +134,11 @@
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh/ef3cdf52-aab8-4ae6-ab31-2f6a15d862f4",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-psgn-pfafers",
+        "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-pfafers"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-pfafers"
-        ],
         "it": [
           "dipl-pflegefachperson-hf-fh-psgn-pfafers",
           "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-pfafers"
@@ -145,14 +146,13 @@
         "en": [
           "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-pfafers"
         ],
+        "de": [
+          "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-pfafers"
+        ],
         "fr": [
           "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-pfafers"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-psgn-pfafers",
-        "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-pfafers"
-      ],
       "firstSeenAt": "2026-09-21T15:58:38.959Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -169,7 +169,7 @@
       },
       "streetAddress": "Pfäfers",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:18:11.442Z",
+      "validThrough": "2026-12-23T21:15:13.716Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -203,7 +203,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/pflegeexpertin-pflegeexperte-apn-forensik/2f674361-db80-40cb-bd43-cf7c4893cd70",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:10.954Z",
+      "crawledAt": "2026-11-23T21:15:13.256Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -252,7 +252,7 @@
       },
       "streetAddress": "Pfäfers",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T09:18:10.954Z",
+      "validThrough": "2027-01-12T21:15:13.256Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -286,7 +286,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzpsychologin-assistenzpsychologe/ae95c72f-36b5-42bb-905c-37004bdf417f",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:10.472Z",
+      "crawledAt": "2026-11-23T21:15:12.808Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -331,7 +331,7 @@
       },
       "streetAddress": "Pfäfers",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:18:10.472Z",
+      "validThrough": "2027-01-11T21:15:12.808Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -366,7 +366,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt/288f90dd-711d-4387-8fd1-2d5d220b7e4b",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:09.858Z",
+      "crawledAt": "2026-11-23T21:15:12.245Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -385,11 +385,19 @@
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt/288f90dd-711d-4387-8fd1-2d5d220b7e4b",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "oberarztin-oberarzt-psgn-pfafers",
+        "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers",
+        "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers-dc8d0de2f1",
+        "oberarztin-oberarzt-psgn-pfafers-a473379d",
+        "oberarztin-oberarzt-psgn-pfafers-ca98183a",
+        "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers-0d791ce7",
+        "oberarztin-oberarzt-psgn-pfafers-f0315f31",
+        "senior-physician-senior-physician-psychiatrie-st-gallen-pfafers-6fd6e53a",
+        "medecin-superieur-medecin-superieur-psychiatrie-st-gallen-pfafers-3ef8346a",
+        "oberarztin-oberarzt-psychiatrie-st-gallen-pfafers"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "oberarztin-oberarzt-psgn-pfafers-a473379d",
-          "oberarztin-oberarzt-psychiatrie-st-gallen-pfafers"
-        ],
         "it": [
           "oberarztin-oberarzt-psgn-pfafers",
           "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers",
@@ -404,22 +412,14 @@
         "en": [
           "oberarztin-oberarzt-psgn-pfafers"
         ],
+        "de": [
+          "oberarztin-oberarzt-psgn-pfafers-a473379d",
+          "oberarztin-oberarzt-psychiatrie-st-gallen-pfafers"
+        ],
         "fr": [
           "oberarztin-oberarzt-psgn-pfafers"
         ]
       },
-      "previousSlugs": [
-        "oberarztin-oberarzt-psgn-pfafers",
-        "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers",
-        "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers-dc8d0de2f1",
-        "oberarztin-oberarzt-psgn-pfafers-a473379d",
-        "oberarztin-oberarzt-psgn-pfafers-ca98183a",
-        "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers-0d791ce7",
-        "oberarztin-oberarzt-psgn-pfafers-f0315f31",
-        "senior-physician-senior-physician-psychiatrie-st-gallen-pfafers-6fd6e53a",
-        "medecin-superieur-medecin-superieur-psychiatrie-st-gallen-pfafers-3ef8346a",
-        "oberarztin-oberarzt-psychiatrie-st-gallen-pfafers"
-      ],
       "firstSeenAt": "2026-10-29T09:23:02.355Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
@@ -436,7 +436,7 @@
       },
       "streetAddress": "Pfäfers",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:18:09.858Z",
+      "validThrough": "2027-01-27T21:15:12.245Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -470,7 +470,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/projektleiterin-projektleiter-gebaeudetechnik/1b50fe4a-a7d7-4136-a386-8679e3624b92",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:09.282Z",
+      "crawledAt": "2026-11-23T21:15:11.623Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -518,7 +518,7 @@
       },
       "streetAddress": "Pfäfers",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-20T09:18:09.282Z",
+      "validThrough": "2027-02-20T21:15:11.623Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -552,7 +552,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/ergotherapeutin-ergotherapeut/fed1bb85-65c9-4a53-b1ba-0d7904a4c768",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:08.706Z",
+      "crawledAt": "2026-11-23T21:15:11.077Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -597,7 +597,7 @@
       },
       "streetAddress": "Pfäfers",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:18:08.706Z",
+      "validThrough": "2027-01-17T21:15:11.077Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -632,7 +632,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/fachpsychologin-fachpsychologe/9eabbcee-1cf0-46f5-bc90-1fe41216aa8c",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:08.114Z",
+      "crawledAt": "2026-11-23T21:15:10.439Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -677,7 +677,7 @@
       },
       "streetAddress": "Pfäfers",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:18:08.114Z",
+      "validThrough": "2027-01-17T21:15:10.439Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -712,7 +712,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/mitarbeiterin-mitarbeiter-sekretariat-mi-do-fr/219c2f11-624c-4e29-93f3-fcf285b834dc",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:07.507Z",
+      "crawledAt": "2026-11-23T21:15:09.807Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -767,7 +767,7 @@
       },
       "streetAddress": "Wil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-20T09:18:07.507Z",
+      "validThrough": "2027-02-20T21:15:09.807Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -802,7 +802,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/mitarbeiterin-mitarbeiter-anmeldung-und-information/87115e5c-5119-41a6-b7ea-aba08228c850",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:06.924Z",
+      "crawledAt": "2026-11-23T21:15:09.202Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -857,7 +857,7 @@
       },
       "streetAddress": "Pfäfers",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-20T09:18:06.924Z",
+      "validThrough": "2027-02-20T21:15:09.202Z",
       "validThroughSource": "last-observed-window"
     }
   ]

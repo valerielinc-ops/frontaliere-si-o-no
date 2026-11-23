@@ -1,7 +1,7 @@
 {
   "crawlerKey": "vaudoise",
-  "assembledAt": "2026-11-23T09:15:55.259Z",
-  "runId": "45144346566",
+  "assembledAt": "2026-11-23T21:16:12.000Z",
+  "runId": "45266755646",
   "jobs": [
     {
       "id": "vaudoise-eb27d4796bf5",
@@ -34,7 +34,7 @@
       "url": "https://vaudoise.softgarden.io/job/68327528/Mitarbeiter-in-Schaden-m-w-d-80-?jobDbPVId=288766573&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:15:49.622Z",
+      "crawledAt": "2026-11-23T21:16:02.185Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -78,7 +78,7 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:15:49.622Z",
+      "validThrough": "2027-01-24T21:16:02.185Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -112,7 +112,7 @@
       "url": "https://vaudoise.softgarden.io/job/66314843/Gestionnaire-prestations-perte-de-gain-maladie-h-f-x-80-100-?jobDbPVId=288798978&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:49.354Z",
+      "crawledAt": "2026-11-23T21:16:01.901Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -175,7 +175,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:15:49.354Z",
+      "validThrough": "2026-12-25T21:16:01.901Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -209,7 +209,7 @@
       "url": "https://vaudoise.softgarden.io/job/68286153/Stagiaire-universitaire-HES-Data-Engineer-h-f-x-%E2%80%93-80-100-?jobDbPVId=288857823&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:49.080Z",
+      "crawledAt": "2026-11-23T21:16:01.612Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -253,7 +253,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T09:15:49.080Z",
+      "validThrough": "2027-01-21T21:16:01.612Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -287,7 +287,7 @@
       "url": "https://vaudoise.softgarden.io/job/53100444/Sachbearbeiter-in-Leistungen-Animalia-Hunde-und-Katzenversicherungen-m-w-d-80-100-?jobDbPVId=289176757&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:15:48.808Z",
+      "crawledAt": "2026-11-23T21:16:01.340Z",
       "addressLocality": "Suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -338,7 +338,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:15:48.808Z",
+      "validThrough": "2026-12-27T21:16:01.340Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -372,7 +372,7 @@
       "url": "https://vaudoise.softgarden.io/job/67087090/Apprenti-employ%C3%A9-de-commerce-en-assurances-priv%C3%A9es-h-f-x-pour-notre-Agence-de-la-Broye-%C3%A0-Payerne?jobDbPVId=289392562&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:48.538Z",
+      "crawledAt": "2026-11-23T21:16:01.064Z",
       "addressLocality": "Payerne",
       "addressCountry": "CH",
       "country": "CH",
@@ -422,7 +422,7 @@
       "addressRegion": "VD",
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T09:15:48.538Z",
+      "validThrough": "2026-12-30T21:16:01.064Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -456,7 +456,7 @@
       "url": "https://vaudoise.softgarden.io/job/67822787/Mitarbeiter-in-Kundensupport-m-w-d-80-?jobDbPVId=289392587&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:15:48.260Z",
+      "crawledAt": "2026-11-23T21:16:00.771Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -510,7 +510,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T09:15:48.260Z",
+      "validThrough": "2026-12-30T21:16:00.771Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -544,7 +544,7 @@
       "url": "https://vaudoise.softgarden.io/job/67600117/Gruppenleiter-in-Leistungen-Krankentaggeld-m-w-d-80-100-?jobDbPVId=289392632&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:15:47.980Z",
+      "crawledAt": "2026-11-23T21:16:00.486Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -594,7 +594,7 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T09:15:47.980Z",
+      "validThrough": "2026-12-30T21:16:00.486Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -628,7 +628,7 @@
       "url": "https://vaudoise.softgarden.io/job/67854862/Business-Analyst-Senior-h-f-x-80-100-?jobDbPVId=289596857&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:47.708Z",
+      "crawledAt": "2026-11-23T21:16:00.202Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -672,7 +672,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T09:15:47.708Z",
+      "validThrough": "2026-12-31T21:16:00.202Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -706,7 +706,7 @@
       "url": "https://vaudoise.softgarden.io/job/63140024/Sp%C3%A9cialiste-prestations-cas-complexes-LAA-fran%C3%A7ais-allemand-h-f-x-80-?jobDbPVId=289716547&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:47.379Z",
+      "crawledAt": "2026-11-23T21:15:59.915Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -750,7 +750,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T09:15:47.379Z",
+      "validThrough": "2027-01-02T21:15:59.915Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -784,7 +784,7 @@
       "url": "https://vaudoise.softgarden.io/job/53667621/Gestionnaire-Prestations-Animalia-charg%C3%A9-des-assurances-pour-chiens-et-chats-h-f-x-80-100-?jobDbPVId=289716562&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:47.100Z",
+      "crawledAt": "2026-11-23T21:15:59.636Z",
       "addressLocality": "Suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -830,7 +830,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T09:15:47.100Z",
+      "validThrough": "2027-01-02T21:15:59.636Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -864,7 +864,7 @@
       "url": "https://vaudoise.softgarden.io/job/68560962/Ing%C3%A9nieur-Ing%C3%A9nieure-IAM-IGA-h-f-x-80-100-?jobDbPVId=289742692&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:46.818Z",
+      "crawledAt": "2026-11-23T21:15:59.323Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -914,7 +914,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:15:46.818Z",
+      "validThrough": "2027-02-03T21:15:59.323Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -948,7 +948,7 @@
       "url": "https://vaudoise.softgarden.io/job/68560997/Comptable-h-f-x-80-100-?jobDbPVId=289742712&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:46.535Z",
+      "crawledAt": "2026-11-23T21:15:58.824Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -998,7 +998,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:15:46.535Z",
+      "validThrough": "2027-02-03T21:15:58.824Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1032,7 +1032,7 @@
       "url": "https://vaudoise.softgarden.io/job/68569462/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=289770767&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:46.234Z",
+      "crawledAt": "2026-11-23T21:15:58.543Z",
       "addressLocality": "Morges",
       "addressCountry": "CH",
       "country": "CH",
@@ -1082,7 +1082,7 @@
       "addressRegion": "VD",
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:15:46.234Z",
+      "validThrough": "2027-02-03T21:15:58.543Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1116,7 +1116,7 @@
       "url": "https://vaudoise.softgarden.io/job/67898452/Senior-Full-Stack-Engineer-Technical-Lead-.NET-Angular-Azure-h-f-x-80-100-?jobDbPVId=289943038&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:45.965Z",
+      "crawledAt": "2026-11-23T21:15:58.266Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1164,7 +1164,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:15:45.965Z",
+      "validThrough": "2027-01-04T21:15:58.266Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1198,7 +1198,7 @@
       "url": "https://vaudoise.softgarden.io/job/67925417/Apprenti-Apprentie-logisticien-logisticienne-h-f-x-%C3%A0-100-pour-notre-Centre-Logistique-Ev%C3%A9nementiel-%C3%A0-Cheseaux-sur-Lausanne-?jobDbPVId=289980418&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:45.683Z",
+      "crawledAt": "2026-11-23T21:15:57.966Z",
       "addressLocality": "Cheseaux-sur-Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1248,7 +1248,7 @@
       "addressRegion": "VD",
       "streetAddress": "Cheseaux-sur-Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:15:45.683Z",
+      "validThrough": "2027-01-05T21:15:57.966Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1282,7 +1282,7 @@
       "url": "https://vaudoise.softgarden.io/job/67925067/Apprenti-apprentie-agent-relation-client-CFC-h-f-x-?jobDbPVId=289980433&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:45.404Z",
+      "crawledAt": "2026-11-23T21:15:57.680Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1332,7 +1332,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:15:45.404Z",
+      "validThrough": "2027-01-05T21:15:57.680Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1366,7 +1366,7 @@
       "url": "https://vaudoise.softgarden.io/job/67925002/Apprenti-e-op%C3%A9rateur-trice-en-informatique-CFC-h-f-x-?jobDbPVId=289980478&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:45.103Z",
+      "crawledAt": "2026-11-23T21:15:57.392Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1416,7 +1416,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:15:45.103Z",
+      "validThrough": "2027-01-05T21:15:57.392Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1450,7 +1450,7 @@
       "url": "https://vaudoise.softgarden.io/job/65923194/Senior-Sachbearbeiter-in-Leistungen-Unfall-m-w-d-80%E2%80%93100-?jobDbPVId=290135418&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:15:44.826Z",
+      "crawledAt": "2026-11-23T21:15:57.109Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1500,7 +1500,7 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:15:44.826Z",
+      "validThrough": "2026-12-23T21:15:57.109Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1534,7 +1534,7 @@
       "url": "https://vaudoise.softgarden.io/job/56620544/Versicherungs-und-Vorsorgeberater-in-m-w-d-100-?jobDbPVId=290135413&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:15:44.555Z",
+      "crawledAt": "2026-11-23T21:15:56.824Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1580,7 +1580,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:15:44.555Z",
+      "validThrough": "2026-12-23T21:15:56.824Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1614,7 +1614,7 @@
       "url": "https://vaudoise.softgarden.io/job/68663223/Apprenti-employ%C3%A9-de-commerce-Service-Administration-h-f-x-?jobDbPVId=290252713&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:44.290Z",
+      "crawledAt": "2026-11-23T21:15:56.554Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1664,7 +1664,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:15:44.290Z",
+      "validThrough": "2027-02-08T21:15:56.554Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1698,7 +1698,7 @@
       "url": "https://vaudoise.softgarden.io/job/68679793/Conseiller-aux-courtiers-h-f-x-100-?jobDbPVId=290313363&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:44.008Z",
+      "crawledAt": "2026-11-23T21:15:56.270Z",
       "addressLocality": "Sion,",
       "addressCountry": "CH",
       "country": "CH",
@@ -1748,7 +1748,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion,",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:15:44.008Z",
+      "validThrough": "2027-02-09T21:15:56.270Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1782,7 +1782,7 @@
       "url": "https://vaudoise.softgarden.io/job/61638467/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=290365743&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:43.736Z",
+      "crawledAt": "2026-11-23T21:15:55.992Z",
       "addressLocality": "Fribourg",
       "addressCountry": "CH",
       "country": "CH",
@@ -1834,7 +1834,7 @@
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:15:43.736Z",
+      "validThrough": "2026-12-23T21:15:55.992Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1868,7 +1868,7 @@
       "url": "https://vaudoise.softgarden.io/job/62293159/Business-Analyst-h-f-x-80-100-?jobDbPVId=290485543&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:43.470Z",
+      "crawledAt": "2026-11-23T21:15:55.708Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1924,7 +1924,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:15:43.470Z",
+      "validThrough": "2027-01-10T21:15:55.708Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1958,7 +1958,7 @@
       "url": "https://vaudoise.softgarden.io/job/68723928/Product-Manager-P-C-h-f-x-%E2%80%93-80-100-?jobDbPVId=290526233&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:43.202Z",
+      "crawledAt": "2026-11-23T21:15:55.415Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2005,7 +2005,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:15:43.202Z",
+      "validThrough": "2027-02-11T21:15:55.415Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2039,7 +2039,7 @@
       "url": "https://vaudoise.softgarden.io/job/68723983/Soutien-client%C3%A8le-h-f-x-100-?jobDbPVId=290526593&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:42.906Z",
+      "crawledAt": "2026-11-23T21:15:55.129Z",
       "addressLocality": "Delémont",
       "addressCountry": "CH",
       "country": "CH",
@@ -2089,7 +2089,7 @@
       "addressRegion": "JU",
       "streetAddress": "Delémont",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:15:42.906Z",
+      "validThrough": "2027-02-11T21:15:55.129Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2123,7 +2123,7 @@
       "url": "https://vaudoise.softgarden.io/job/68737458/Soutien-client%C3%A8le-sp%C3%A9cialis%C3%A9-Entreprise-h-f-x-90-?jobDbPVId=290573348&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:42.614Z",
+      "crawledAt": "2026-11-23T21:15:54.843Z",
       "addressLocality": "Morges",
       "addressCountry": "CH",
       "country": "CH",
@@ -2173,7 +2173,7 @@
       "addressRegion": "VD",
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T09:15:42.614Z",
+      "validThrough": "2027-02-11T21:15:54.843Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2207,7 +2207,7 @@
       "url": "https://vaudoise.softgarden.io/job/64831661/Gruppenleiter-in-autoexpert-in-Deutschschweiz-m-w-d-80-100-?jobDbPVId=290642960&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:15:42.345Z",
+      "crawledAt": "2026-11-23T21:15:54.557Z",
       "addressLocality": "Suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -2257,7 +2257,7 @@
       "addressRegion": "VD",
       "streetAddress": "Suisse",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:15:42.345Z",
+      "validThrough": "2026-12-23T21:15:54.557Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2291,7 +2291,7 @@
       "url": "https://vaudoise.softgarden.io/job/67348490/Chef-Cheffe-de-groupe-Souscription-Choses-Assurances-Techniques-FR-DE-h-f-x-100-?jobDbPVId=290678110&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:42.059Z",
+      "crawledAt": "2026-11-23T21:15:54.231Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2343,7 +2343,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:15:42.059Z",
+      "validThrough": "2026-12-23T21:15:54.231Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2377,7 +2377,7 @@
       "url": "https://vaudoise.softgarden.io/job/68764920/Stagiaire-universitaire-HES-Projets-strat%C3%A9giques-RH-h-f-x-%E2%80%93100-?jobDbPVId=290757425&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:41.792Z",
+      "crawledAt": "2026-11-23T21:15:53.945Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2427,7 +2427,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T09:15:41.792Z",
+      "validThrough": "2027-02-14T21:15:53.945Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2461,7 +2461,7 @@
       "url": "https://vaudoise.softgarden.io/job/68541807/Chef-Cheffe-de-groupe-Assurance-animali%C3%A8re-h-f-x-FR-DE-80-100-?jobDbPVId=290841935&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:41.519Z",
+      "crawledAt": "2026-11-23T21:15:53.653Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2511,7 +2511,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:15:41.519Z",
+      "validThrough": "2027-02-02T21:15:53.653Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2545,7 +2545,7 @@
       "url": "https://vaudoise.softgarden.io/job/67419112/Gruppenleiter-in-Underwriting-Sach-und-Technische-Versicherungen-FR-DE-m-w-d-100-?jobDbPVId=290841985&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:15:41.245Z",
+      "crawledAt": "2026-11-23T21:15:53.372Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2595,7 +2595,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:15:41.245Z",
+      "validThrough": "2026-12-23T21:15:53.372Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2629,7 +2629,7 @@
       "url": "https://vaudoise.softgarden.io/job/68667023/Data-engineer-confirm%C3%A9-h-f-x-100-?jobDbPVId=290844065&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:40.971Z",
+      "crawledAt": "2026-11-23T21:15:53.089Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2679,7 +2679,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:15:40.971Z",
+      "validThrough": "2027-02-08T21:15:53.089Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2713,7 +2713,7 @@
       "url": "https://vaudoise.softgarden.io/job/68561077/Ing%C3%A9nieur-Ing%C3%A9nieure-Syst%C3%A8me-h-f-x-80-100-?jobDbPVId=290846935&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:40.702Z",
+      "crawledAt": "2026-11-23T21:15:52.802Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2763,7 +2763,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:15:40.702Z",
+      "validThrough": "2027-02-03T21:15:52.802Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2797,7 +2797,7 @@
       "url": "https://vaudoise.softgarden.io/job/46867204/Chef-Cheffe-de-groupe-des-Architectes-Solutions-IT-h-f-x-80-100-?jobDbPVId=290847040&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:40.428Z",
+      "crawledAt": "2026-11-23T21:15:52.517Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2843,7 +2843,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:15:40.428Z",
+      "validThrough": "2026-12-27T21:15:52.517Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2877,7 +2877,7 @@
       "url": "https://vaudoise.softgarden.io/job/68148426/Responsable-LBA-Legal-Counsel-senior-h-f-x-80-100-?jobDbPVId=290886590&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:40.157Z",
+      "crawledAt": "2026-11-23T21:15:52.230Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2929,7 +2929,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-15T09:15:40.157Z",
+      "validThrough": "2027-01-14T21:15:52.230Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2963,7 +2963,7 @@
       "url": "https://vaudoise.softgarden.io/job/67493747/HR-Business-Partner-Senior-h-f-x-%E2%80%93-80-100-?jobDbPVId=290909510&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:39.887Z",
+      "crawledAt": "2026-11-23T21:15:51.942Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2999,7 +2999,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:15:39.887Z",
+      "validThrough": "2026-12-23T21:15:51.942Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3033,7 +3033,7 @@
       "url": "https://vaudoise.softgarden.io/job/68798110/Expert-Experte-Data-Analytics-BI-Performances-h-f-x-100-?jobDbPVId=290922955&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:39.611Z",
+      "crawledAt": "2026-11-23T21:15:51.657Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3083,7 +3083,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:15:39.611Z",
+      "validThrough": "2027-02-15T21:15:51.657Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3117,7 +3117,7 @@
       "url": "https://vaudoise.softgarden.io/job/68799170/Gestionnaire-Service-Client-et-Souscription-h-f-x-80-100-?jobDbPVId=290926170&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:39.341Z",
+      "crawledAt": "2026-11-23T21:15:51.361Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3166,7 +3166,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:15:39.341Z",
+      "validThrough": "2027-02-15T21:15:51.361Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3200,7 +3200,7 @@
       "url": "https://vaudoise.softgarden.io/job/68682468/Gestionnaire-prestations-vie-individuelle-FR-DE-h-f-x-%E2%80%93-60-80-?jobDbPVId=291036400&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:39.071Z",
+      "crawledAt": "2026-11-23T21:15:51.072Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3257,7 +3257,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:15:39.071Z",
+      "validThrough": "2027-02-09T21:15:51.072Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3291,7 +3291,7 @@
       "url": "https://vaudoise.softgarden.io/job/68834320/Sp%C3%A9cialiste-M%C3%A9tier-Prestations-Accident-Perte-de-gain-maladie?jobDbPVId=291051400&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:38.797Z",
+      "crawledAt": "2026-11-23T21:15:50.791Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3341,7 +3341,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T09:15:38.797Z",
+      "validThrough": "2027-02-17T21:15:50.791Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3375,7 +3375,7 @@
       "url": "https://vaudoise.softgarden.io/job/64140823/Sp%C3%A9cialiste-Prestations-Accident-h-f-x-80-100-?jobDbPVId=291128855&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:38.522Z",
+      "crawledAt": "2026-11-23T21:15:50.502Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3419,7 +3419,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:15:38.522Z",
+      "validThrough": "2026-12-23T21:15:50.502Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3453,7 +3453,7 @@
       "url": "https://vaudoise.softgarden.io/job/67528837/Dienststellenleiter-in-Deutschschweiz-Leistungen-Unfall-m-w-d-80-100-?jobDbPVId=291128880&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:15:38.246Z",
+      "crawledAt": "2026-11-23T21:15:50.207Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -3503,7 +3503,7 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:15:38.246Z",
+      "validThrough": "2026-12-23T21:15:50.207Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3537,7 +3537,7 @@
       "url": "https://vaudoise.softgarden.io/job/67853347/Responsable-Portfolio-Management-Office-h-f-x-80-100-?jobDbPVId=291224405&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:37.973Z",
+      "crawledAt": "2026-11-23T21:15:49.916Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3581,7 +3581,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-19T09:15:37.973Z",
+      "validThrough": "2027-02-18T21:15:49.916Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3615,7 +3615,7 @@
       "url": "https://vaudoise.softgarden.io/job/68201501/Spezialist-in-Leistungen-Krankentaggeld-m-w-d-80-100-?jobDbPVId=291235695&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:15:37.698Z",
+      "crawledAt": "2026-11-23T21:15:49.633Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -3665,7 +3665,7 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:15:37.698Z",
+      "validThrough": "2027-01-18T21:15:49.633Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3699,7 +3699,7 @@
       "url": "https://vaudoise.softgarden.io/job/67561682/Gestionnaire-de-cas-complexes-LAA-bilingue-fran%C3%A7ais-italien-80-100-h-f-x-?jobDbPVId=291319801&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:15:37.426Z",
+      "crawledAt": "2026-11-23T21:15:49.341Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3751,7 +3751,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:15:37.426Z",
+      "validThrough": "2026-12-23T21:15:49.341Z",
       "validThroughSource": "last-observed-window"
     }
   ]

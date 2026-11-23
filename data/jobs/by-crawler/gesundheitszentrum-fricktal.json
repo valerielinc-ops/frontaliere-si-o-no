@@ -1,7 +1,7 @@
 {
   "crawlerKey": "gesundheitszentrum-fricktal",
-  "assembledAt": "2026-11-23T15:41:28.239Z",
-  "runId": "45144346566",
+  "assembledAt": "2026-11-23T21:17:40.576Z",
+  "runId": "45266755646",
   "jobs": [
     {
       "id": "gesundheitszentrum-fricktal-b5c0a92280ad",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/857/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:19:34.998Z",
+      "crawledAt": "2026-11-23T21:17:32.229Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -88,7 +88,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-29T09:19:34.998Z",
+      "validThrough": "2026-12-29T21:17:32.229Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -123,7 +123,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2222/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:19:33.014Z",
+      "crawledAt": "2026-11-23T21:17:30.214Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -180,7 +180,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-29T09:19:33.014Z",
+      "validThrough": "2026-12-29T21:17:30.214Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -215,7 +215,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/1790/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:19:31.028Z",
+      "crawledAt": "2026-11-23T21:17:28.232Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -282,7 +282,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-20T09:19:31.028Z",
+      "validThrough": "2027-02-20T21:17:28.232Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -317,7 +317,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2291/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:19:29.023Z",
+      "crawledAt": "2026-11-23T21:17:26.229Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -337,7 +337,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden-89ua1q",
         "dipl-soins-professionnels-hf-h-f-d-gesundheitszentrum-fricktal-rheinfelden-ed6af0",
         "infermiera-hf-m-f-gesundheitszentrum-fricktal-rheinfelden",
         "dipl-pflegefachperson-hf-m-w-gesundheitszentrum-fricktal-rheinfelden",
@@ -366,11 +365,11 @@
         "dipl-cura-professionale-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden-ed6af0",
         "dipl-care-professional-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden-ed6af0",
         "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "dipl-pflegefachperson-hf-w-m-d-gesundheitszentrum-fricktal-rheinfelden-9a7eb887"
+        "dipl-pflegefachperson-hf-w-m-d-gesundheitszentrum-fricktal-rheinfelden-9a7eb887",
+        "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden-89ua1q"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden-89ua1q",
           "diplome-en-soins-infirmiers-hf-h-f-x-gesundheitszentrum-fricktal-rheinfelden",
           "dipl-nurse-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
           "diplomato-a-in-assistenza-infermieristica-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
@@ -389,7 +388,8 @@
           "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
           "dipl-pflegefachperson-hf-w-m-d-gesundheitszentrum-fricktal-rheinfelden-9a7eb887",
           "infermiere-diplomata-hf-u-m-d-gesundheitszentrum-fricktal-rheinfelden",
-          "dipl-pflegefachperson-hf-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
+          "dipl-pflegefachperson-hf-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
+          "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden-89ua1q"
         ],
         "en": [
           "dipl-care-professional-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
@@ -428,7 +428,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-23T09:19:29.023Z",
+      "validThrough": "2026-12-23T21:17:26.229Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -463,7 +463,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2315/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:19:27.017Z",
+      "crawledAt": "2026-11-23T21:17:24.239Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -530,7 +530,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-30T09:19:27.017Z",
+      "validThrough": "2026-12-29T21:17:24.239Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -565,7 +565,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2073/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:19:25.032Z",
+      "crawledAt": "2026-11-23T21:17:22.233Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -632,7 +632,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-29T09:19:25.032Z",
+      "validThrough": "2026-12-29T21:17:22.233Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -667,7 +667,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2341/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:19:23.027Z",
+      "crawledAt": "2026-11-23T21:17:20.232Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -734,7 +734,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-20T09:19:23.027Z",
+      "validThrough": "2027-02-20T21:17:20.232Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -769,7 +769,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2219/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:19:21.022Z",
+      "crawledAt": "2026-11-23T21:17:18.214Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -830,7 +830,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-20T09:19:21.022Z",
+      "validThrough": "2027-02-20T21:17:18.214Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -865,7 +865,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2134/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:19:19.017Z",
+      "crawledAt": "2026-11-23T21:17:16.236Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -931,7 +931,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-20T09:19:19.017Z",
+      "validThrough": "2027-02-20T21:17:16.236Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -965,7 +965,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2120/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:19:17.019Z",
+      "crawledAt": "2026-11-23T21:17:14.228Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1031,7 +1031,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-20T09:19:17.019Z",
+      "validThrough": "2027-02-20T21:17:14.228Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1065,7 +1065,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2329/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:19:14.934Z",
+      "crawledAt": "2026-11-23T21:17:12.114Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1119,7 +1119,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-23T09:19:14.934Z",
+      "validThrough": "2026-12-23T21:17:12.114Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1153,7 +1153,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2369/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:19:14.022Z",
+      "crawledAt": "2026-11-23T21:17:11.230Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1238,7 +1238,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-23T09:19:14.022Z",
+      "validThrough": "2026-12-23T21:17:11.230Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1272,7 +1272,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2437/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:19:12.022Z",
+      "crawledAt": "2026-11-23T21:17:09.227Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1326,7 +1326,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-30T09:19:12.022Z",
+      "validThrough": "2026-12-29T21:17:09.227Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1361,7 +1361,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2247/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:19:10.007Z",
+      "crawledAt": "2026-11-23T21:17:07.229Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1428,7 +1428,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-29T09:19:10.007Z",
+      "validThrough": "2026-12-29T21:17:07.229Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1463,7 +1463,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2418/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:19:08.021Z",
+      "crawledAt": "2026-11-23T21:17:05.226Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1483,8 +1483,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-89uami",
-        "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden-89uami",
         "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden-2",
         "assistente-ambulatoriale-medico-mpa-afc-m-f-d-gesundheitszentrum-fricktal-rheinfelden-686009",
@@ -1503,12 +1501,12 @@
         "medical-practice-assistant-mpa-efz-m-f-d-gesundheitszentrum-fricktal-rheinfelden-1d156a",
         "assistant-e-medical-e-am-cfc-h-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "assistente-ambulatoriale-medico-mpa-afc-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
-        "assistant-e-medical-e-au-cabinet-medical-mpa-cfc-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
+        "assistant-e-medical-e-au-cabinet-medical-mpa-cfc-h-f-d-gesundheitszentrum-fricktal-rheinfelden",
+        "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-89uami",
+        "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden-89uami"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-89uami",
-          "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden-89uami",
           "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
           "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden-2",
           "assistente-ambulatoriale-medico-mpa-afc-m-f-d-gesundheitszentrum-fricktal-rheinfelden-686009",
@@ -1524,7 +1522,9 @@
           "assistant-medical-r-in-mpa-efz-h-f-d-gesundheitszentrum-fricktal-rheinfelden",
           "assistant-de-pratique-medicale-mpa-efz-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
           "assistente-di-studio-medico-mpa-efz-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
-          "assistente-ambulatoriale-medico-mpa-afc-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
+          "assistente-ambulatoriale-medico-mpa-afc-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+          "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-89uami",
+          "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden-89uami"
         ],
         "en": [
           "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden-2",
@@ -1569,7 +1569,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-23T09:19:08.021Z",
+      "validThrough": "2026-12-23T21:17:05.226Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1604,7 +1604,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2278/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:19:06.021Z",
+      "crawledAt": "2026-11-23T21:17:03.211Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1684,7 +1684,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-23T09:19:06.021Z",
+      "validThrough": "2026-12-23T21:17:03.211Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1719,7 +1719,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2393/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:19:04.027Z",
+      "crawledAt": "2026-11-23T21:17:01.207Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1780,7 +1780,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-23T09:19:04.027Z",
+      "validThrough": "2026-12-23T21:17:01.207Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1815,7 +1815,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2442/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:19:02.021Z",
+      "crawledAt": "2026-11-23T21:16:59.228Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1878,7 +1878,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-08T09:19:02.021Z",
+      "validThrough": "2027-01-07T21:16:59.228Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1912,7 +1912,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2466/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:19:00.038Z",
+      "crawledAt": "2026-11-23T21:16:57.209Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1972,7 +1972,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-13T09:19:00.038Z",
+      "validThrough": "2027-01-12T21:16:57.209Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2007,7 +2007,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2452/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:58.032Z",
+      "crawledAt": "2026-11-23T21:16:55.230Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2067,7 +2067,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-13T09:18:58.032Z",
+      "validThrough": "2027-01-13T21:16:55.230Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2101,7 +2101,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2443/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:56.035Z",
+      "crawledAt": "2026-11-23T21:16:53.133Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2162,7 +2162,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-15T09:18:56.035Z",
+      "validThrough": "2027-01-15T21:16:53.133Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2197,7 +2197,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/1861/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:54.034Z",
+      "crawledAt": "2026-11-23T21:16:51.131Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2252,7 +2252,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-29T09:18:54.034Z",
+      "validThrough": "2026-12-29T21:16:51.131Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2287,7 +2287,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2148/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:52.024Z",
+      "crawledAt": "2026-11-23T21:16:49.227Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2341,7 +2341,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-23T09:18:52.024Z",
+      "validThrough": "2026-12-23T21:16:49.227Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2376,7 +2376,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2392/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:50.005Z",
+      "crawledAt": "2026-11-23T21:16:47.227Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2432,7 +2432,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-23T09:18:50.005Z",
+      "validThrough": "2026-12-23T21:16:47.227Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2466,7 +2466,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2483/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:48.019Z",
+      "crawledAt": "2026-11-23T21:16:45.228Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2526,7 +2526,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-28T09:18:48.019Z",
+      "validThrough": "2027-01-27T21:16:45.228Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2561,7 +2561,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2446/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:46.957Z",
+      "crawledAt": "2026-11-23T21:16:43.660Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2623,7 +2623,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-27T09:18:46.957Z",
+      "validThrough": "2027-01-26T21:16:43.660Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2658,7 +2658,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2410/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:46.025Z",
+      "crawledAt": "2026-11-23T21:16:42.892Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2712,7 +2712,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-25T09:18:46.025Z",
+      "validThrough": "2026-12-24T21:16:42.892Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2747,7 +2747,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2451/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:45.095Z",
+      "crawledAt": "2026-11-23T21:16:42.090Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2807,7 +2807,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-25T09:18:45.095Z",
+      "validThrough": "2027-01-25T21:16:42.090Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2836,12 +2836,13 @@
         "de": "Gesundheitszentrum Fricktal AG | online seit : 03.11.2026\n\nArbeitsort : GZF Rheinfelden\n\nUnser herzliches, rund 28‑köpfiges Pflegeteam gibt jeden Tag sein Bestes für eine optimale perioperative Versorgung – und vielleicht bald mit dir an unserer Seite. Du schätzt die Zusammenarbeit über Fachgrenzen hinweg, denkst gerne vernetzt und fühlst dich dort wohl, wo an zwei modernen Standorten mit topaktueller Infrastruktur echte Abwechslung entsteht? Dann könnten wir perfekt zueinander passen. Wir freuen uns sehr darauf, dich kennenzulernen und gemeinsam weiterzuwachsen.\n\n• Du führst Anästhesien (Regional- & Vollnarkosen) eigenständig durch bzw. überwachst diese\n• Du betreust Patientinnen und Patienten kompetent während des gesamten perioperativen Prozesses\n• Du assistierst bei ärztlich geleiteten Anästhesien und setzt medizinische Verordnungen sicher um\n• Du bereitest Materialien, Geräte und Medikamente fachgerecht vor und stellst deren Funktionsfähigkeit sicher\n• Du stellst einen reibungslosen Ablauf des OP-Programms sicher und hältst Qualitätsstandards ein\n\n• Du hast die Ausbildung zur Dipl. Expertin / zum Dipl. Experten Anästhesiepflege NDS HF (CH Anerkennung vorausgesetzt)\n• Du verfügst über aktuelles Fachwissen und idealerweise Erfahrung in verschiedenen anästhesiologischen Bereichen\n• Du arbeitest selbstständig, verantwortungsbewusst, exakt und behältst in anspruchsvollen Situationen die Ruhe\n• Du bist belastbar, flexibel und schätzt die interdisziplinäre Zusammenarbeit\n• Du gehst einfühlsam und professionell mit Patientinnen und Patienten um und kommunizierst klar im Team\n• Du bringst Engagement sowie eine strukturierte, vorausschauende Arbeitsweise mit\n\nhttp://www.gzf.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "fr": "Centre de santé Fricktal AG en ligne depuis : 03.11.2026\n\nLieu de travail: GZF Rheinfelden\n\nNotre équipe de soins sincères d'environ 28 membres fait de son mieux chaque jour pour des soins périopératoires optimaux – et peut-être bientôt avec vous à nos côtés. Vous appréciez la coopération au-delà des frontières techniques, comme penser réseau et se sentir à l'aise là où la vraie variété est créée dans deux lieux modernes avec une infrastructure de pointe? Alors on pourrait s'adapter parfaitement ensemble. Nous sommes impatients de vous rencontrer et de grandir ensemble.\n\n• Vous effectuez des anesthésies (anesthésie régionale et générale) indépendamment ou vous les surveillez\n• Vous fournissez aux patients des soins compétents tout au long du processus périopératoire\n• Aider à des anesthésies guidées par des soins médicaux et à mettre en œuvre des prescriptions médicales en toute sécurité\n• Vous préparez des matériaux, des appareils et des médicaments de manière professionnelle et assurez leur fonctionnalité\n• Vous veillez à ce que le programme d'exploitation fonctionne bien et maintient les normes de qualité\n\n• Vous avez la formation pour Dipl. Expert / Dipl. Expert anesthésie soins NDS HF (CH reconnaissance requise)\n• Vous avez une expertise actuelle et une expérience idéale dans divers domaines anesthésiologiques\n• Vous travaillez de manière indépendante, responsable, précise et calme dans des situations exigeantes\n• Vous êtes résilient, flexible et appréciez la coopération interdisciplinaire\n• Vous êtes sensible et professionnel avec les patients et communiquez clairement dans l'équipe\n• Vous apportez de l'engagement et une façon de travailler structurée et tournée vers l'avenir\n\nhttp://www.gzf.ch\n\nJe suis intéressé et je voudrais m'inscrire\n\nPrécédent"
       },
+      "needsRetranslation": false,
       "location": "Rheinfelden",
       "canton": "AG",
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2193/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:44.160Z",
+      "crawledAt": "2026-11-23T21:16:41.383Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2895,7 +2896,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-23T09:18:44.160Z",
+      "validThrough": "2026-12-23T21:16:41.383Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2929,7 +2930,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2457/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:43.233Z",
+      "crawledAt": "2026-11-23T21:16:40.453Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2989,7 +2990,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-22T09:18:43.233Z",
+      "validThrough": "2027-01-21T21:16:40.453Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3023,7 +3024,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2444/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:42.300Z",
+      "crawledAt": "2026-11-23T21:16:39.515Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3083,7 +3084,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-12T09:18:42.300Z",
+      "validThrough": "2027-01-12T21:16:39.515Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3118,7 +3119,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2394/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:41.401Z",
+      "crawledAt": "2026-11-23T21:16:38.607Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3181,7 +3182,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-12T09:18:41.401Z",
+      "validThrough": "2027-01-12T21:16:38.607Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3216,7 +3217,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2495/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:40.478Z",
+      "crawledAt": "2026-11-23T21:16:37.701Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3270,7 +3271,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-23T09:18:40.478Z",
+      "validThrough": "2026-12-23T21:16:37.701Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3305,7 +3306,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2480/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:39.530Z",
+      "crawledAt": "2026-11-23T21:16:36.717Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3367,7 +3368,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-08T09:18:39.530Z",
+      "validThrough": "2027-02-08T21:16:36.717Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3402,7 +3403,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2478/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:38.598Z",
+      "crawledAt": "2026-11-23T21:16:35.742Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3457,7 +3458,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-29T09:18:38.598Z",
+      "validThrough": "2026-12-29T21:16:35.742Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3492,7 +3493,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2454/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:37.622Z",
+      "crawledAt": "2026-11-23T21:16:34.828Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3539,7 +3540,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-12T09:18:37.622Z",
+      "validThrough": "2027-01-12T21:16:34.828Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3574,7 +3575,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2447/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:36.690Z",
+      "crawledAt": "2026-11-23T21:16:33.914Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3634,7 +3635,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-13T09:18:36.690Z",
+      "validThrough": "2027-01-12T21:16:33.914Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3668,7 +3669,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2511/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:35.761Z",
+      "crawledAt": "2026-11-23T21:16:32.982Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3728,7 +3729,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-20T09:18:35.761Z",
+      "validThrough": "2027-02-20T21:16:32.982Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3763,7 +3764,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2426/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:18:35.111Z",
+      "crawledAt": "2026-11-23T21:16:32.342Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3821,7 +3822,7 @@
       },
       "streetAddress": "Riburgerstrasse 12",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-23T09:18:35.111Z",
+      "validThrough": "2026-12-23T21:16:32.342Z",
       "validThroughSource": "last-observed-window"
     }
   ]
