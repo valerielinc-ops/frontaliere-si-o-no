@@ -1,11 +1,11 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-11-22T21:39:05.184Z",
-  "runId": "45071629024",
+  "assembledAt": "2026-11-23T09:47:51.254Z",
+  "runId": "45146259158",
   "jobs": [
     {
       "id": "alpiq-f05066085344",
-      "slug": "trader-senior-del-gas-per-conto-proprio-alpiq-olten",
+      "slug": "senior-gas-prop-trader-alpiq-olten",
       "slugByLocale": {
         "it": "trader-senior-del-gas-per-conto-proprio-alpiq-olten",
         "en": "senior-gas-prop-trader-alpiq-olten",
@@ -50,7 +50,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=281&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T21:38:57.260Z",
+      "crawledAt": "2026-11-23T09:47:46.725Z",
       "firstSeenAt": "2026-10-30T09:47:47.856Z",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -64,7 +64,7 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-28T21:38:57.260Z",
+      "validThrough": "2027-01-29T09:47:46.725Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 130000,
       "salaryMax": 198000,
@@ -78,19 +78,11 @@
           "maxValue": 198000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-gas-prop-trader-alpiq-olten"
-        ]
-      },
-      "previousSlugs": [
-        "senior-gas-prop-trader-alpiq-olten"
-      ]
+      }
     },
     {
       "id": "alpiq-e2526cd82bc9",
-      "slug": "ingegnere-di-rete-e-sistema-ot-alpiq-lausanne",
+      "slug": "ot-network-system-engineer-alpiq-switzerland",
       "slugByLocale": {
         "it": "ingegnere-di-rete-e-sistema-ot-alpiq-lausanne",
         "en": "ot-network-system-engineer-alpiq-switzerland",
@@ -135,10 +127,10 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=283&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T21:38:57.265Z",
+      "crawledAt": "2026-11-23T09:47:46.727Z",
       "firstSeenAt": "2026-10-30T21:41:25.278Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-29T21:38:57.265Z",
+      "validThrough": "2027-01-29T09:47:46.727Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 83000,
       "salaryMax": 127000,
@@ -152,19 +144,11 @@
           "maxValue": 127000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "ot-network-system-engineer-alpiq-switzerland"
-        ]
-      },
-      "previousSlugs": [
-        "ot-network-system-engineer-alpiq-switzerland"
-      ]
+      }
     },
     {
       "id": "alpiq-722140b8ffd5",
-      "slug": "addetto-a-tecnico-a-all-esercizio-della-centrale-idroelettrica-di-gosgen-alpiq-niedergosgen",
+      "slug": "technische-r-betriebsmitarbeiter-in-wasserkraftwerk-gosgen-alpiq-niedergosgen",
       "slugByLocale": {
         "it": "addetto-a-tecnico-a-all-esercizio-della-centrale-idroelettrica-di-gosgen-alpiq-niedergosgen",
         "en": "technical-operations-employee-at-gosgen-hydroelectric-power-plant-alpiq-niedergosgen",
@@ -209,14 +193,14 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=311&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:38:57.273Z",
+      "crawledAt": "2026-11-23T09:47:46.730Z",
       "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3103,
       "retranslationAttempts": 27,
       "firstSeenAt": "2026-09-25T15:00:06.553Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T21:38:57.273Z",
+      "validThrough": "2026-12-25T09:47:46.730Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 92000,
       "salaryMax": 140000,
@@ -230,19 +214,11 @@
           "maxValue": 140000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "technische-r-betriebsmitarbeiter-in-wasserkraftwerk-gosgen-alpiq-niedergosgen"
-        ]
-      },
-      "previousSlugs": [
-        "technische-r-betriebsmitarbeiter-in-wasserkraftwerk-gosgen-alpiq-niedergosgen"
-      ]
+      }
     },
     {
       "id": "alpiq-0d54e1b2a0a9",
-      "slug": "interno-dipendente-commerciale-alpiq-suisse",
+      "slug": "stagiaire-employee-de-commerce-alpiq-suisse",
       "slugByLocale": {
         "it": "interno-dipendente-commerciale-alpiq-suisse",
         "en": "intern-commercial-employee-alpiq-suisse",
@@ -287,10 +263,10 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=320&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:38:57.280Z",
+      "crawledAt": "2026-11-23T09:47:46.732Z",
       "firstSeenAt": "2026-11-04T22:03:16.706Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:38:57.280Z",
+      "validThrough": "2027-02-03T09:47:46.732Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 74000,
       "salaryMax": 113000,
@@ -304,19 +280,11 @@
           "maxValue": 113000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "stagiaire-employee-de-commerce-alpiq-suisse"
-        ]
-      },
-      "previousSlugs": [
-        "stagiaire-employee-de-commerce-alpiq-suisse"
-      ]
+      }
     },
     {
       "id": "alpiq-cafc6ebc9931",
-      "slug": "mba-stagista-green-power-business-development-alpiq-lausanne-710655c677",
+      "slug": "mba-intern-green-power-business-development-alpiq-switzerland",
       "slugByLocale": {
         "it": "mba-stagista-green-power-business-development-alpiq-lausanne-710655c677",
         "en": "mba-intern-green-power-business-development-alpiq-switzerland",
@@ -361,10 +329,10 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=328&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T21:38:57.281Z",
+      "crawledAt": "2026-11-23T09:47:46.733Z",
       "firstSeenAt": "2026-11-03T21:39:53.841Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:38:57.281Z",
+      "validThrough": "2027-02-02T09:47:46.733Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 74000,
       "salaryMax": 113000,
@@ -378,15 +346,67 @@
           "maxValue": 113000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "alpiq-fb57e3fc766f",
+      "slug": "head-of-bess-asset-trading-alpiq-lausanne",
+      "slugByLocale": {
+        "en": "head-of-bess-asset-trading-alpiq-lausanne"
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "mba-intern-green-power-business-development-alpiq-switzerland"
-        ]
+      "company": "Alpiq",
+      "companyKey": "alpiq",
+      "companyDomain": "alpiq.com",
+      "title": "Head of BESS Asset Trading",
+      "titleByLocale": {
+        "en": "Head of BESS Asset Trading"
       },
-      "previousSlugs": [
-        "mba-intern-green-power-business-development-alpiq-switzerland"
-      ]
+      "description": "Mission\n\nThe Head of BESS Asset Trading serves as a strategic architect of Alpiq’s flexibility portfolio, shaping how Battery Energy Storage Systems are positioned to capture value in increasingly volatile and decarbonized energy markets. By steering the commercial strategy for these critical assets, the role ensures that Alpiq leverages its storage capabilities to strengthen market influence, enhance portfolio resilience, and secure long-term profitability across multiple time horizons.\n\nYour main responsibilities\n\nPortfolio Optimization & Development :\n\n• Maximize the commercial value of Alpiq’s Battery Energy Storage Systems (BESS) by strategically optimizing their deployment across wholesale markets, ensuring operational efficiency, market responsiveness, and sustained profitability.\n\n• Lead and contribute to asset valuation and investment assessment initiatives, working closely with quantitative teams and the analysis desk to deliver rigorous valuations and well-supported trading recommendations that guide strategic decision-making.\n\n• Ensure a scalable and future-proof setup within Alpiq’s trading systems, enabling seamless integration of new assets, enhanced automation, and robust operational workflows that support long-term portfolio growth\nTeam Leadership :\n\n• Direct and empower high-performing trading desks, analysts, and asset optimization teams.\n\n• Foster a culture of high performance, collaboration, and continuous improvement to achieve aggressive P&L targets.\nStrategy Development :\n\n• Translate market fundamentals and emerging trends into actionable, data-driven trading strategies.\n\n• Develop and implement innovative quantitative algorithmic bidding techniques that leverage market conditions for optimal returns.\nRisk & Governance :\n\n• Operate within and enhance the company’s risk management frameworks and regulatory compliance.\n\n• Proactively identify, assess, and manage risks associated with trading activities to safeguard company assets and ensure long-term sustainability.\nCross-Functional Collaboration :\n\n• Coordinate efforts with Asset Division, Asset Optimization, Risk, Middle Office, Analysis and Origination teams to ensure seamless commercial performance of assets.\n\n• Enhance communication flows and data sharing across departments to support decision-making processes that benefit asset performance.\nPerformance Metrics & Reporting :\n\n• Establish and monitor key performance indicators (PnL) related to trading, portfolio performance, and overall market position.\n\n• Provide strategic insights and data-driven recommendations to senior leadership on optimizing trading approaches and improving profitability.\n\nYour profile\n\n• Bachelor's degree in finance, Economics, Engineering, or a related field; an MBA or advanced degree is preferred.\n\n• Proven experience (> 10 years) in trading within the energy sector, with a strong grasp of market dynamics and asset optimization strategies.\n\n• Exceptional analytical skills, with proficiency in quantitative analysis and algorithmic trading.\n\n• Strong leadership capabilities with a track record of building and managing high-performing teams.\n\n• Excellent communication, negotiation, and relationship management skills.",
+      "descriptionByLocale": {
+        "en": "Mission\n\nThe Head of BESS Asset Trading serves as a strategic architect of Alpiq’s flexibility portfolio, shaping how Battery Energy Storage Systems are positioned to capture value in increasingly volatile and decarbonized energy markets. By steering the commercial strategy for these critical assets, the role ensures that Alpiq leverages its storage capabilities to strengthen market influence, enhance portfolio resilience, and secure long-term profitability across multiple time horizons.\n\nYour main responsibilities\n\nPortfolio Optimization & Development :\n\n• Maximize the commercial value of Alpiq’s Battery Energy Storage Systems (BESS) by strategically optimizing their deployment across wholesale markets, ensuring operational efficiency, market responsiveness, and sustained profitability.\n\n• Lead and contribute to asset valuation and investment assessment initiatives, working closely with quantitative teams and the analysis desk to deliver rigorous valuations and well-supported trading recommendations that guide strategic decision-making.\n\n• Ensure a scalable and future-proof setup within Alpiq’s trading systems, enabling seamless integration of new assets, enhanced automation, and robust operational workflows that support long-term portfolio growth\nTeam Leadership :\n\n• Direct and empower high-performing trading desks, analysts, and asset optimization teams.\n\n• Foster a culture of high performance, collaboration, and continuous improvement to achieve aggressive P&L targets.\nStrategy Development :\n\n• Translate market fundamentals and emerging trends into actionable, data-driven trading strategies.\n\n• Develop and implement innovative quantitative algorithmic bidding techniques that leverage market conditions for optimal returns.\nRisk & Governance :\n\n• Operate within and enhance the company’s risk management frameworks and regulatory compliance.\n\n• Proactively identify, assess, and manage risks associated with trading activities to safeguard company assets and ensure long-term sustainability.\nCross-Functional Collaboration :\n\n• Coordinate efforts with Asset Division, Asset Optimization, Risk, Middle Office, Analysis and Origination teams to ensure seamless commercial performance of assets.\n\n• Enhance communication flows and data sharing across departments to support decision-making processes that benefit asset performance.\nPerformance Metrics & Reporting :\n\n• Establish and monitor key performance indicators (PnL) related to trading, portfolio performance, and overall market position.\n\n• Provide strategic insights and data-driven recommendations to senior leadership on optimizing trading approaches and improving profitability.\n\nYour profile\n\n• Bachelor's degree in finance, Economics, Engineering, or a related field; an MBA or advanced degree is preferred.\n\n• Proven experience (> 10 years) in trading within the energy sector, with a strong grasp of market dynamics and asset optimization strategies.\n\n• Exceptional analytical skills, with proficiency in quantitative analysis and algorithmic trading.\n\n• Strong leadership capabilities with a track record of building and managing high-performing teams.\n\n• Excellent communication, negotiation, and relationship management skills."
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "postalCode": "1003",
+      "streetAddress": "Lausanne",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "energy",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/399",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=399&lang=en_GB",
+      "source": "Alpiq Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-23T09:47:46.733Z",
+      "needsRetranslation": true,
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-21T09:47:46.733Z",
+      "validThroughSource": "last-observed-window",
+      "salaryMin": 117500,
+      "salaryMax": 179500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 117500,
+          "maxValue": 179500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-11-23T09:47:46.733Z"
     }
   ]
 }

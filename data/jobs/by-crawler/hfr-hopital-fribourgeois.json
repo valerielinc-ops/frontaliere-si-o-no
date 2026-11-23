@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hfr-hopital-fribourgeois",
-  "assembledAt": "2026-11-22T21:44:00.718Z",
-  "runId": "45071629024",
+  "assembledAt": "2026-11-23T09:43:21.245Z",
+  "runId": "45146259158",
   "jobs": [
     {
       "id": "hfr-hopital-fribourgeois-533bf9597390",
@@ -34,7 +34,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1538",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:43:51.937Z",
+      "crawledAt": "2026-11-23T09:43:14.555Z",
       "addressLocality": "Tafers",
       "addressRegion": "FR",
       "streetAddress": "Tafers",
@@ -82,7 +82,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:43:51.937Z",
+      "validThrough": "2027-01-28T09:43:14.555Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -116,7 +116,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1523",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:43:51.179Z",
+      "crawledAt": "2026-11-23T09:43:13.993Z",
       "addressLocality": "Riaz",
       "addressRegion": "FR",
       "streetAddress": "Riaz",
@@ -169,7 +169,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:43:51.179Z",
+      "validThrough": "2027-01-28T09:43:13.993Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -204,7 +204,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1508",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:43:50.637Z",
+      "crawledAt": "2026-11-23T09:43:13.436Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -255,7 +255,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:43:50.637Z",
+      "validThrough": "2027-01-28T09:43:13.436Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -290,7 +290,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1511",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:43:50.050Z",
+      "crawledAt": "2026-11-23T09:43:12.887Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -351,7 +351,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:43:50.050Z",
+      "validThrough": "2027-01-28T09:43:12.887Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -385,7 +385,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1477",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:43:49.490Z",
+      "crawledAt": "2026-11-23T09:43:12.312Z",
       "addressLocality": "Meyriez",
       "addressRegion": "FR",
       "streetAddress": "Meyriez",
@@ -433,7 +433,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:43:49.490Z",
+      "validThrough": "2027-01-28T09:43:12.312Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -448,12 +448,12 @@
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
       "companyDomain": "h-fr.ch",
-      "title": "Chef-fe de clinique adjoint-e",
+      "title": "Médecin assistant-e ou chef-fe de clinique-adjoint-e",
       "titleByLocale": {
         "it": "Capo della clinica aggiunto",
         "en": "Deputy Head of Clinic",
         "de": "Stellvertretender Leiter der Klinik",
-        "fr": "Chef-fe de clinique adjoint-e"
+        "fr": "Médecin assistant-e ou chef-fe de clinique-adjoint-e"
       },
       "description": "L’Unité d’infectiologie est reconnue par l’ISFM comme établissement de formation postgraduée de catégorie B en infectiologie. Rattachée au Département de médecine et spécialités, elle exerce son activité principalement à HFR Fribourg – Hôpital cantonal, auprès de patients complexes (unités d’isolement pour les traitements onco-hématologiques, soins intensifs) et assure une consultance téléphonique pour les 3 sites périphériques de l’hôpital. Elle propose une consultation ambulatoire (VIH, Hépatite, infectiologie générale) pour la population fribourgeoise. L’infectiologie dédie une partie de ses activités à la supervision de l’Unité de prévention et contrôle de l’infection.\n L’unité d’infectiologie de l’hôpital fribourgeois recherche un-e :\n\n• Vous assurez en horaire de journée les demandes de consultations provenant des différentes spécialités hospitalières et ambulatoires notamment en infectiologie générale, orthopédie septique, infections chirurgicales et pour des patients immunosupprimés.\n\n• Sous la supervision des médecins cadres, vous assurez la prise en charge infectiologique et le suivi des patients qui vous sont confiés dans l’ensemble de l’institution.\n\n• Vous participez au rapport quotidien du laboratoire de microbiologie.\n\n• Vous participez à la formation postgraduée.\n\n• Vous participez à la supervision des assistants en tournus de médecine interne\n\nVous souhaitez vous orienter vers un titre de spécialiste en infectiologie et avez effectué une partie ou l’entier de votre formation en médecine interne. Nous vous offrons la possibilité de rejoindre l’unité d’infectiologie pour une durée maximale de 18 mois .\n Exigences :\n\n• Diplôme fédéral de médecin ou diplôme reconnu équivalent par la Commission des professions médicales (MEBEKO)\n\n• Formation en médecine interne dont au moins 2 ans d’expérience en milieu hospitalier.\n\n• Souhait d’obtenir le titre de spécialiste en Infectiologie.\n\n• Expérience préalable en infectiologie clinique constitue un atout.\n\n• Sens de la coopération dans une équipe et en multidisciplinaire, engagement et disponibilité.\n\n• Maitrise de la langue française, et très bonne capacité d’expression écrite et orale.",
       "descriptionByLocale": {
@@ -462,13 +462,13 @@
         "de": "Die Abteilung für Infektiologie wird von der ISFM als postgraduale Ausbildungseinrichtung der Kategorie B in Infektiologie anerkannt. Es befindet sich in der Abteilung für Medizin und Spezialgebiete und ist hauptsächlich im HFR-Krankenhaus Freiburg mit komplexen Patienten (Isolationseinheiten für onkohämatologische Behandlungen, Intensivstation) tätig und bietet eine telefonische Beratung für die drei peripheren Standorte des Krankenhauses. Es schlägt eine ambulante Konsultation (HIV, Hepatitis, allgemeine Infektionskrankheit) für die Freiburger Bevölkerung vor. Die Infektiologie widmet einen Teil ihrer Aktivitäten der Überwachung der Infection Prevention and Control Unit.\nDie Infektiologieabteilung des Freiburger Krankenhauses sucht eine:\n\n• Sie stellen tagsüber die Anfragen nach Konsultationen von den verschiedenen Krankenhaus- und ambulanten Fachgebieten sicher, einschließlich allgemeiner Infektiologie, septischer Orthopädie, chirurgischer Infektionen und immunsupprimierter Patienten.\n\n• Unter der Aufsicht der leitenden Ärzte, stellen Sie die Infektionsmanagement und Nachsorge der Ihnen anvertrauten Patienten in der gesamten Einrichtung.\n\n• Sie nehmen am täglichen Bericht des Mikrobiologielabors teil.\n\n• Sie nehmen an einer postgradualen Ausbildung teil.\n\n• Sie beteiligen sich an der Betreuung von Assistenten in der inneren Medizin dreht\n\nSie möchten zu einem gewissen Grad als Infektionsspezialist zu bewegen und haben einige oder alle Ihre Ausbildung in der inneren Medizin abgeschlossen. Wir bieten Ihnen die Möglichkeit, sich der Infektionseinheit für maximal 18 Monate anzuschließen.\nAnforderungen:\n\n• Bundesarztdiplom oder Diplom anerkannt gleichwertig von der Medical Professions Commission (MEBEKO)\n\n• Ausbildung in der inneren Medizin einschließlich mindestens 2 Jahre Erfahrung im Krankenhaus.\n\n• Will den Titel eines Spezialisten für Infektionskrankheiten bekommen.\n\n• Vorerfahrung in der klinischen Infektion ist ein Vorteil.\n\n• Bedeutung der Zusammenarbeit im Team und in multidisziplinärer, Engagement und Verfügbarkeit.\n\n• Beherrschung der französischen Sprache und sehr gute Fähigkeit zum schriftlichen und mündlichen Ausdruck.",
         "fr": "L’Unité d’infectiologie est reconnue par l’ISFM comme établissement de formation postgraduée de catégorie B en infectiologie. Rattachée au Département de médecine et spécialités, elle exerce son activité principalement à HFR Fribourg – Hôpital cantonal, auprès de patients complexes (unités d’isolement pour les traitements onco-hématologiques, soins intensifs) et assure une consultance téléphonique pour les 3 sites périphériques de l’hôpital. Elle propose une consultation ambulatoire (VIH, Hépatite, infectiologie générale) pour la population fribourgeoise. L’infectiologie dédie une partie de ses activités à la supervision de l’Unité de prévention et contrôle de l’infection.\nL’unité d’infectiologie de l’hôpital fribourgeois recherche un-e :\n\n• Vous assurez en horaire de journée les demandes de consultations provenant des différentes spécialités hospitalières et ambulatoires notamment en infectiologie générale, orthopédie septique, infections chirurgicales et pour des patients immunosupprimés.\n\n• Sous la supervision des médecins cadres, vous assurez la prise en charge infectiologique et le suivi des patients qui vous sont confiés dans l’ensemble de l’institution.\n\n• Vous participez au rapport quotidien du laboratoire de microbiologie.\n\n• Vous participez à la formation postgraduée.\n\n• Vous participez à la supervision des assistants en tournus de médecine interne\n\nVous souhaitez vous orienter vers un titre de spécialiste en infectiologie et avez effectué une partie ou l’entier de votre formation en médecine interne. Nous vous offrons la possibilité de rejoindre l’unité d’infectiologie pour une durée maximale de 18 mois .\nExigences :\n\n• Diplôme fédéral de médecin ou diplôme reconnu équivalent par la Commission des professions médicales (MEBEKO)\n\n• Formation en médecine interne dont au moins 2 ans d’expérience en milieu hospitalier.\n\n• Souhait d’obtenir le titre de spécialiste en Infectiologie.\n\n• Expérience préalable en infectiologie clinique constitue un atout.\n\n• Sens de la coopération dans une équipe et en multidisciplinaire, engagement et disponibilité.\n\n• Maitrise de la langue française, et très bonne capacité d’expression écrite et orale."
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Fribourg, Switzerland",
       "canton": "FR",
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1421",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:43:48.711Z",
+      "crawledAt": "2026-11-23T09:43:11.424Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -478,7 +478,7 @@
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "OTHER",
-      "experienceLevel": "senior",
+      "experienceLevel": "junior",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
@@ -492,12 +492,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "chef-fe-de-clinique-adjoint-e-hfr-hopital-fribourgeois-fribourg",
-        "chef-fe-de-clinique-adjoint-e-hopital-fribourgeois-hfr-fribourg"
+        "chef-fe-de-clinique-adjoint-e-hopital-fribourgeois-hfr-fribourg",
+        "medecin-assistant-e-ou-chef-fe-de-clinique-adjoint-e-hfr-hopital-fribourgeois-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-fe-de-clinique-adjoint-e-hfr-hopital-fribourgeois-fribourg",
-          "chef-fe-de-clinique-adjoint-e-hopital-fribourgeois-hfr-fribourg"
+          "chef-fe-de-clinique-adjoint-e-hopital-fribourgeois-hfr-fribourg",
+          "medecin-assistant-e-ou-chef-fe-de-clinique-adjoint-e-hfr-hopital-fribourgeois-fribourg"
         ],
         "en": [
           "chef-fe-de-clinique-adjoint-e-hfr-hopital-fribourgeois-fribourg"
@@ -521,41 +523,42 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:43:48.711Z",
+      "validThrough": "2027-01-28T09:43:11.424Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-a4787cd8f211",
       "slug": "capo-della-clinica-hopital-fribourgeois-hfr-fribourg-switzerland-2634be",
       "slugByLocale": {
-        "fr": "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg",
         "it": "capo-della-clinica-hopital-fribourgeois-hfr-fribourg-switzerland-2634be",
         "en": "head-of-clinic-hopital-fribourgeois-hfr-fribourg-switzerland-2634be",
-        "de": "leiter-der-klinik-hopital-fribourgeois-hfr-fribourg-switzerland-2634be"
+        "de": "leiter-der-klinik-hopital-fribourgeois-hfr-fribourg-switzerland-2634be",
+        "fr": "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
       "companyDomain": "h-fr.ch",
       "title": "Chef-fe de clinique",
       "titleByLocale": {
-        "fr": "Chef-fe de clinique",
         "it": "Capo della clinica",
         "en": "Head of clinic",
-        "de": "Leiter der Klinik"
+        "de": "Leiter der Klinik",
+        "fr": "Chef-fe de clinique"
       },
       "description": "Afin de compléter son équipe, la Direction médicale de l’hôpital fribourgeois recherche pour le centre métabolique de l’HFR Fribourg – Hôpital cantonal un-e\n\n• Activité variée dans les domaines métabolique (patients en situation d’obésité)\n\n• Assurer la supervision des médecins-assistant-e-s du service\n\n• Collaborer au sein d'une équipe expérimentée et motivée, composée de médecins, de personnel infirmier, diététicien-ne-s et psychologues\n\n• Possibilité de se familiariser avec la nutrition clinique\n\n• Possibilité d’effectuer des ultrasons supervisés (POCUS)\n\n• Diplôme fédéral de médecin ou équivalent\n\n• Plusieurs années d’expérience en tant que médecin-assistant-e en médecine interne\n\n• Capacité d’écoute de suivi de malades chroniques\n\n• Une expérience dans les domaines du métabolisme, obésité, diabétologie et éventuellement en endocrinologie serait un avantage\n\n• Possibilité de reconnaissance d’une année de formation de médecine interne catégorie A\n\n• Personnalité ouverte et collégiale, désireuse de s’intégrer dans les habitudes du service et avec l’équipe en place ainsi que de collaborer activement avec les médecins des autres services de l’hôpital\n\n• Maîtrise de la langue française",
       "descriptionByLocale": {
-        "fr": "Afin de compléter son équipe, la Direction médicale de l’hôpital fribourgeois recherche pour le centre métabolique de l’HFR Fribourg – Hôpital cantonal un-e\n\n• Activité variée dans les domaines métabolique (patients en situation d’obésité)\n\n• Assurer la supervision des médecins-assistant-e-s du service\n\n• Collaborer au sein d'une équipe expérimentée et motivée, composée de médecins, de personnel infirmier, diététicien-ne-s et psychologues\n\n• Possibilité de se familiariser avec la nutrition clinique\n\n• Possibilité d’effectuer des ultrasons supervisés (POCUS)\n\n• Diplôme fédéral de médecin ou équivalent\n\n• Plusieurs années d’expérience en tant que médecin-assistant-e en médecine interne\n\n• Capacité d’écoute de suivi de malades chroniques\n\n• Une expérience dans les domaines du métabolisme, obésité, diabétologie et éventuellement en endocrinologie serait un avantage\n\n• Possibilité de reconnaissance d’une année de formation de médecine interne catégorie A\n\n• Personnalité ouverte et collégiale, désireuse de s’intégrer dans les habitudes du service et avec l’équipe en place ainsi que de collaborer activement avec les médecins des autres services de l’hôpital\n\n• Maîtrise de la langue française",
         "it": "Per completare il suo team, la Direzione Medica dell'Ospedale di Friburgo sta cercando il centro metabolico della HFR Freiburg – Ospedale cantonale\n\n• Variazione dell'attività metabolica (pazienti di obesità)\n\n• Supervisione degli assistenti medici del dipartimento\n\n• Collabora con un team esperto e motivato di medici, infermieri, dietisti e psicologi\n\n• Possibilità di conoscere la nutrizione clinica\n\n• Capacità di eseguire ultrasuoni supervisionati (POCUS)\n\n• Grado federale di dottore o equivalente\n\n• Diversi anni di esperienza come medico assistente nella medicina interna\n\n• Capacità di ascoltare i pazienti cronici\n\n• L'esperienza nelle aree di metabolismo, obesità, diabete e possibilmente endocrinologia sarebbe un vantaggio.\n\n• Possibilità di riconoscimento di un anno di formazione medica interna categoria A\n\n• Personalità aperta e collegiale, che desidera integrare nelle abitudini di servizio e con il team esistente, nonché collaborare attivamente con i medici in altri servizi ospedalieri\n\n• Mastery della lingua francese",
         "en": "In order to complete its team, the Medical Directorate of the Freiburg Hospital is looking for the metabolic center of the HFR Freiburg – Cantonal Hospital\n\n• Varied metabolic activity (obesity patients)\n\n• Supervising the medical assistants in the department\n\n• Collaborate on an experienced and motivated team of doctors, nurses, dieticians and psychologists\n\n• Possibility to become familiar with clinical nutrition\n\n• Ability to perform supervised ultrasound (POCUS)\n\n• Federal degree of doctor or equivalent\n\n• Several years of experience as an assistant physician in internal medicine\n\n• Ability to listen to chronic patients\n\n• Experience in the areas of metabolism, obesity, diabetes and possibly endocrinology would be an advantage.\n\n• Possibility of recognition of one year of internal medicine training category A\n\n• Open and collegial personality, wishing to integrate into service habits and with the existing team as well as to actively collaborate with doctors in other hospital services\n\n• Mastery of the French language",
-        "de": "Um sein Team zu vervollständigen, sucht die Ärztliche Direktion des Krankenhauses Freiburg das Stoffwechselzentrum der HFR Freiburg – Kantonalklinik\n\n• Variierte metabolische Aktivität (Adipositas-Patienten)\n\n• Beaufsichtigung der medizinischen Assistenten in der Abteilung\n\n• Zusammenarbeit mit einem erfahrenen und motivierten Team von Ärzten, Krankenschwestern, Diätassistenten und Psychologen\n\n• Möglichkeit, sich mit der klinischen Ernährung vertraut zu machen\n\n• Fähigkeit, überwachten Ultraschall (POCUS) durchzuführen\n\n• Bundesarztgrad oder gleichwertig\n\n• Mehrjährige Erfahrung als Assistenzarzt in der Inneren Medizin\n\n• Fähigkeit, chronischen Patienten zuzuhören\n\n• Erfahrungen in den Bereichen Stoffwechsel, Fettleibigkeit, Diabetes und möglicherweise Endokrinologie wären von Vorteil.\n\n• Möglichkeit der Anerkennung eines Jahres der Ausbildung für Innere Medizin Kategorie A\n\n• Offene und kollegiale Persönlichkeit, die sich in Servicegewohnheiten und mit dem bestehenden Team integrieren und aktiv mit Ärzten in anderen Krankenhausdiensten zusammenarbeiten möchte\n\n• Beherrschung der französischen Sprache"
+        "de": "Um sein Team zu vervollständigen, sucht die Ärztliche Direktion des Krankenhauses Freiburg das Stoffwechselzentrum der HFR Freiburg – Kantonalklinik\n\n• Variierte metabolische Aktivität (Adipositas-Patienten)\n\n• Beaufsichtigung der medizinischen Assistenten in der Abteilung\n\n• Zusammenarbeit mit einem erfahrenen und motivierten Team von Ärzten, Krankenschwestern, Diätassistenten und Psychologen\n\n• Möglichkeit, sich mit der klinischen Ernährung vertraut zu machen\n\n• Fähigkeit, überwachten Ultraschall (POCUS) durchzuführen\n\n• Bundesarztgrad oder gleichwertig\n\n• Mehrjährige Erfahrung als Assistenzarzt in der Inneren Medizin\n\n• Fähigkeit, chronischen Patienten zuzuhören\n\n• Erfahrungen in den Bereichen Stoffwechsel, Fettleibigkeit, Diabetes und möglicherweise Endokrinologie wären von Vorteil.\n\n• Möglichkeit der Anerkennung eines Jahres der Ausbildung für Innere Medizin Kategorie A\n\n• Offene und kollegiale Persönlichkeit, die sich in Servicegewohnheiten und mit dem bestehenden Team integrieren und aktiv mit Ärzten in anderen Krankenhausdiensten zusammenarbeiten möchte\n\n• Beherrschung der französischen Sprache",
+        "fr": "Afin de compléter son équipe, la Direction médicale de l’hôpital fribourgeois recherche pour le centre métabolique de l’HFR Fribourg – Hôpital cantonal un-e\n\n• Activité variée dans les domaines métabolique (patients en situation d’obésité)\n\n• Assurer la supervision des médecins-assistant-e-s du service\n\n• Collaborer au sein d'une équipe expérimentée et motivée, composée de médecins, de personnel infirmier, diététicien-ne-s et psychologues\n\n• Possibilité de se familiariser avec la nutrition clinique\n\n• Possibilité d’effectuer des ultrasons supervisés (POCUS)\n\n• Diplôme fédéral de médecin ou équivalent\n\n• Plusieurs années d’expérience en tant que médecin-assistant-e en médecine interne\n\n• Capacité d’écoute de suivi de malades chroniques\n\n• Une expérience dans les domaines du métabolisme, obésité, diabétologie et éventuellement en endocrinologie serait un avantage\n\n• Possibilité de reconnaissance d’une année de formation de médecine interne catégorie A\n\n• Personnalité ouverte et collégiale, désireuse de s’intégrer dans les habitudes du service et avec l’équipe en place ainsi que de collaborer activement avec les médecins des autres services de l’hôpital\n\n• Maîtrise de la langue française"
       },
+      "needsRetranslation": false,
       "location": "Fribourg, Switzerland",
       "canton": "FR",
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1420",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:43:47.902Z",
+      "crawledAt": "2026-11-23T09:43:10.847Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -576,26 +579,10 @@
       "jobReqId": "1420",
       "externalId": "1420",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:43:47.902Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T22:04:58.243Z",
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-2"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-2"
@@ -607,42 +594,57 @@
           "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-2"
         ]
       },
-      "previousSlugs": [
-        "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-2"
-      ]
+      "firstSeenAt": "2026-11-06T22:04:58.243Z",
+      "salaryMin": 115000,
+      "salaryMax": 160000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 115000,
+          "maxValue": 160000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:43:10.847Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-392144471367",
       "slug": "capo-della-clinica-hopital-fribourgeois-hfr-fribourg-switzerland-cea670",
       "slugByLocale": {
-        "fr": "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg",
         "it": "capo-della-clinica-hopital-fribourgeois-hfr-fribourg-switzerland-cea670",
         "en": "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-3",
-        "de": "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-3"
+        "de": "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-3",
+        "fr": "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
       "companyDomain": "h-fr.ch",
       "title": "Chef-fe de clinique",
       "titleByLocale": {
-        "fr": "Chef-fe de clinique",
         "it": "Capo della clinica",
         "en": "Head of clinic",
-        "de": "Leiter der Klinik"
+        "de": "Leiter der Klinik",
+        "fr": "Chef-fe de clinique"
       },
       "description": "Dans le but d’assurer la qualité des soins ambulatoires et hospitaliers et d’assurer la participation à la formation pré- et post-grade en neurologie (clinique C), la direction médicale de l’hôpital fribourgeois recherche pour le service de neurologie de l’HFR Fribourg – Hôpital cantonal, un-e\n\n• participer à une prise en charge de qualité des patient-e-s dans la stroke unit et les unités d’hospitalisation\n\n• participer aux consultations ambulatoires\n\n• soutenir dans la mesure du possible l’activité neurophysiologique (en particulier Doppler et/ou ENMG) de la consultation hospitalière et ambulatoire\n\n• participer au service de piquet\n\n• superviser les médecins-assistant-e-s et participer à leur formation\n\n• participer aux études cliniques multicentriques ou développées localement\n\n• participer à l’enseignement des étudiants de l’Université de Fribourg\n\n• titulaire FMH de spécialiste en neurologie (ou équivalent) ou en dernière année de formation en tant que neurologue\n\n• au moins 3 années d’expérience en neurologie dans une clinique A\n\n• idéalement certificat SSNC ou équivalent pour Doppler, ENMG, et/ou EEG\n\n• maîtrise de la langue française (écrite et orale) et allemande (orale)\n\n• personnalité dynamique, ouverte et collégiale\n\n• intérêt pour la neurologie générale, l’enseignement et la recherche clinique",
       "descriptionByLocale": {
-        "fr": "Dans le but d’assurer la qualité des soins ambulatoires et hospitaliers et d’assurer la participation à la formation pré- et post-grade en neurologie (clinique C), la direction médicale de l’hôpital fribourgeois recherche pour le service de neurologie de l’HFR Fribourg – Hôpital cantonal, un-e\n\n• participer à une prise en charge de qualité des patient-e-s dans la stroke unit et les unités d’hospitalisation\n\n• participer aux consultations ambulatoires\n\n• soutenir dans la mesure du possible l’activité neurophysiologique (en particulier Doppler et/ou ENMG) de la consultation hospitalière et ambulatoire\n\n• participer au service de piquet\n\n• superviser les médecins-assistant-e-s et participer à leur formation\n\n• participer aux études cliniques multicentriques ou développées localement\n\n• participer à l’enseignement des étudiants de l’Université de Fribourg\n\n• titulaire FMH de spécialiste en neurologie (ou équivalent) ou en dernière année de formation en tant que neurologue\n\n• au moins 3 années d’expérience en neurologie dans une clinique A\n\n• idéalement certificat SSNC ou équivalent pour Doppler, ENMG, et/ou EEG\n\n• maîtrise de la langue française (écrite et orale) et allemande (orale)\n\n• personnalité dynamique, ouverte et collégiale\n\n• intérêt pour la neurologie générale, l’enseignement et la recherche clinique",
         "it": "Al fine di garantire la qualità delle cure ospedaliere e ospedaliere e garantire la partecipazione alla formazione pre- e post-grada in neurologia (Clinique C), la gestione medica della ricerca ospedaliera di Friburgo per il servizio neurologico dell'Ospedale cantonale di HFR Freiburg,\n\n• partecipare alla gestione della qualità dei pazienti nell'unità di ictus e unità ospedaliere\n\n• partecipare a consultazioni ambulatoriale\n\n• supporto nella misura possibile attività neurofisiologica (in particolare Doppler e/o ENMG) di consultazione ospedaliera e ambulatorio\n\n• partecipare al servizio picket\n\n• supervisionare e partecipare alla formazione del medico\n\n• partecipare a studi clinici multicentri o localmente sviluppati\n\n• partecipare all'insegnamento degli studenti dell'Università di Friburgo\n\n• titolare FMH di neurologia specialista (o equivalente) o anno finale di formazione come neurologo\n\n• almeno 3 anni di esperienza in neurologia in una clinica A\n\n• certificato SSNC o equivalente per Doppler, ENMG e/o EEG\n\n• padronanza delle lingue francese (scritta e orale) e tedesca (orale)\n\n• personalità dinamica, aperta e collegiale\n\n• interesse per la neurologia generale, l'insegnamento e la ricerca clinica",
         "en": "In order to ensure the quality of outpatient and hospital care and to ensure the participation in pre- and post-grade training in neurology (Clinique C), the medical management of the Freiburg hospital research for the neurology service of the HFR Freiburg – Cantonal Hospital, a\n\n• participate in quality management of patients in the stroke unit and hospital units\n\n• participate in outpatient consultations\n\n• support to the extent possible neurophysiological activity (in particular Doppler and/or ENMG) of hospital and outpatient consultation\n\n• participating in the picket service\n\n• supervise and participate in physician training\n\n• participate in multicentre or locally developed clinical studies\n\n• participate in the teaching of students of the University of Fribourg\n\n• FMH holder of neurology specialist (or equivalent) or final year of training as a neurologist\n\n• at least 3 years of experience in neurology in a clinic A\n\n• ideally SSNC certificate or equivalent for Doppler, ENMG, and/or EEG\n\n• mastery of the French (written and oral) and German (oral) languages\n\n• dynamic, open and collegial personality\n\n• interest in general neurology, teaching and clinical research",
-        "de": "Um die Qualität der ambulanten und Krankenhausversorgung zu gewährleisten und die Teilnahme an der Vor- und Nachschulung in Neurologie (Clinique C) sicherzustellen, wird die medizinische Leitung der Freiburger Krankenhausforschung für den Neurologiedienst des HFR Freiburg – Kantonalspitals, ein\n\n• Beteiligung am Qualitätsmanagement der Patienten in der Schlaganfall- und Krankenhauseinheit\n\n• Teilnahme an ambulanten Konsultationen\n\n• Unterstützung der neurophysiologischen Aktivität (insbesondere Doppler und/oder ENMG) im Rahmen der Krankenhaus- und Ambulanzberatung\n\n• Teilnahme am Streikpostendienst\n\n• Beaufsichtigung und Teilnahme an der Ausbildung von Ärzten\n\n• Teilnahme an multizentrischen oder lokal entwickelten klinischen Studien\n\n• Teilnahme an der Lehre von Studenten der Universität Freiburg\n\n• FMH Inhaber von Neurologie-Spezialist (oder gleichwertig) oder letztes Jahr der Ausbildung als Neurologe\n\n• mindestens 3 Jahre Erfahrung in der Neurologie in einer Klinik A\n\n• Idealerweise SSNC-Zertifikat oder gleichwertig für Doppler, ENMG und / oder EEG\n\n• Beherrschung der französischen (schriftlichen und mündlichen) und deutschen (mündlichen) Sprachen\n\n• dynamische, offene und kollegiale Persönlichkeit\n\n• Interesse an allgemeiner Neurologie, Lehre und klinischer Forschung"
+        "de": "Um die Qualität der ambulanten und Krankenhausversorgung zu gewährleisten und die Teilnahme an der Vor- und Nachschulung in Neurologie (Clinique C) sicherzustellen, wird die medizinische Leitung der Freiburger Krankenhausforschung für den Neurologiedienst des HFR Freiburg – Kantonalspitals, ein\n\n• Beteiligung am Qualitätsmanagement der Patienten in der Schlaganfall- und Krankenhauseinheit\n\n• Teilnahme an ambulanten Konsultationen\n\n• Unterstützung der neurophysiologischen Aktivität (insbesondere Doppler und/oder ENMG) im Rahmen der Krankenhaus- und Ambulanzberatung\n\n• Teilnahme am Streikpostendienst\n\n• Beaufsichtigung und Teilnahme an der Ausbildung von Ärzten\n\n• Teilnahme an multizentrischen oder lokal entwickelten klinischen Studien\n\n• Teilnahme an der Lehre von Studenten der Universität Freiburg\n\n• FMH Inhaber von Neurologie-Spezialist (oder gleichwertig) oder letztes Jahr der Ausbildung als Neurologe\n\n• mindestens 3 Jahre Erfahrung in der Neurologie in einer Klinik A\n\n• Idealerweise SSNC-Zertifikat oder gleichwertig für Doppler, ENMG und / oder EEG\n\n• Beherrschung der französischen (schriftlichen und mündlichen) und deutschen (mündlichen) Sprachen\n\n• dynamische, offene und kollegiale Persönlichkeit\n\n• Interesse an allgemeiner Neurologie, Lehre und klinischer Forschung",
+        "fr": "Dans le but d’assurer la qualité des soins ambulatoires et hospitaliers et d’assurer la participation à la formation pré- et post-grade en neurologie (clinique C), la direction médicale de l’hôpital fribourgeois recherche pour le service de neurologie de l’HFR Fribourg – Hôpital cantonal, un-e\n\n• participer à une prise en charge de qualité des patient-e-s dans la stroke unit et les unités d’hospitalisation\n\n• participer aux consultations ambulatoires\n\n• soutenir dans la mesure du possible l’activité neurophysiologique (en particulier Doppler et/ou ENMG) de la consultation hospitalière et ambulatoire\n\n• participer au service de piquet\n\n• superviser les médecins-assistant-e-s et participer à leur formation\n\n• participer aux études cliniques multicentriques ou développées localement\n\n• participer à l’enseignement des étudiants de l’Université de Fribourg\n\n• titulaire FMH de spécialiste en neurologie (ou équivalent) ou en dernière année de formation en tant que neurologue\n\n• au moins 3 années d’expérience en neurologie dans une clinique A\n\n• idéalement certificat SSNC ou équivalent pour Doppler, ENMG, et/ou EEG\n\n• maîtrise de la langue française (écrite et orale) et allemande (orale)\n\n• personnalité dynamique, ouverte et collégiale\n\n• intérêt pour la neurologie générale, l’enseignement et la recherche clinique"
       },
+      "needsRetranslation": false,
       "location": "Fribourg, Switzerland",
       "canton": "FR",
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1397",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:43:47.393Z",
+      "crawledAt": "2026-11-23T09:43:10.271Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -663,34 +665,32 @@
       "jobReqId": "1397",
       "externalId": "1397",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-3"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-3"
+        ]
       },
-      "salaryMin": 85000,
-      "salaryMax": 119000,
+      "firstSeenAt": "2026-11-06T22:04:58.243Z",
+      "salaryMin": 115000,
+      "salaryMax": 160000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
+          "minValue": 115000,
+          "maxValue": 160000,
           "unitText": "YEAR"
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:43:47.393Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T22:04:58.243Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-3"
-        ]
-      },
-      "previousSlugs": [
-        "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-3"
-      ]
+      "validThrough": "2027-01-27T09:43:10.271Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-0fc4713bc8fd",
@@ -723,7 +723,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1605",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:43:46.854Z",
+      "crawledAt": "2026-11-23T09:43:09.704Z",
       "addressLocality": "Tafers",
       "addressRegion": "FR",
       "streetAddress": "Tafers",
@@ -771,7 +771,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:43:46.854Z",
+      "validThrough": "2027-02-03T09:43:09.704Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -805,7 +805,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1604",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:43:46.343Z",
+      "crawledAt": "2026-11-23T09:43:09.138Z",
       "addressLocality": "Tafers",
       "addressRegion": "FR",
       "streetAddress": "Tafers",
@@ -856,7 +856,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:43:46.343Z",
+      "validThrough": "2027-02-03T09:43:09.138Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -891,7 +891,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1601",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:43:45.814Z",
+      "crawledAt": "2026-11-23T09:43:08.535Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -942,7 +942,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:43:45.814Z",
+      "validThrough": "2027-02-03T09:43:08.535Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -976,7 +976,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1599",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:43:45.317Z",
+      "crawledAt": "2026-11-23T09:43:07.956Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1024,7 +1024,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:43:45.317Z",
+      "validThrough": "2027-02-03T09:43:07.956Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1059,7 +1059,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1537",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:43:44.569Z",
+      "crawledAt": "2026-11-23T09:43:07.057Z",
       "addressLocality": "Tafers",
       "addressRegion": "FR",
       "streetAddress": "Tafers",
@@ -1110,7 +1110,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:43:44.569Z",
+      "validThrough": "2027-02-04T09:43:07.057Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1144,7 +1144,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1493",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:43:43.828Z",
+      "crawledAt": "2026-11-23T09:43:06.420Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1195,7 +1195,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:43:43.828Z",
+      "validThrough": "2027-02-04T09:43:06.420Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1230,7 +1230,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1591",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:43:43.319Z",
+      "crawledAt": "2026-11-23T09:43:05.840Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1281,7 +1281,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:43:43.319Z",
+      "validThrough": "2027-02-07T09:43:05.840Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1316,7 +1316,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1476",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:43:42.563Z",
+      "crawledAt": "2026-11-23T09:43:05.268Z",
       "addressLocality": "Meyriez",
       "addressRegion": "FR",
       "streetAddress": "Meyriez",
@@ -1367,7 +1367,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:43:42.563Z",
+      "validThrough": "2027-02-09T09:43:05.268Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1401,7 +1401,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1419",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:43:41.803Z",
+      "crawledAt": "2026-11-23T09:43:04.715Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1458,7 +1458,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:43:41.803Z",
+      "validThrough": "2027-02-10T09:43:04.715Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1492,7 +1492,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1627",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:43:41.008Z",
+      "crawledAt": "2026-11-23T09:43:04.149Z",
       "addressLocality": "Riaz",
       "addressRegion": "FR",
       "streetAddress": "Riaz",
@@ -1543,7 +1543,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:43:41.008Z",
+      "validThrough": "2027-02-12T09:43:04.149Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1578,7 +1578,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1480",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:43:40.248Z",
+      "crawledAt": "2026-11-23T09:43:03.562Z",
       "addressLocality": "Riaz",
       "addressRegion": "FR",
       "streetAddress": "Riaz",
@@ -1639,41 +1639,42 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:43:40.248Z",
+      "validThrough": "2027-02-12T09:43:03.562Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-b15f20fbf03b",
       "slug": "capo-della-clinica-hopital-fribourgeois-hfr-riaz-switzerland-ac9b51",
       "slugByLocale": {
-        "fr": "chef-fe-de-clinique-hfr-hopital-fribourgeois-riaz",
         "it": "capo-della-clinica-hopital-fribourgeois-hfr-riaz-switzerland-ac9b51",
         "en": "chef-fe-de-clinique-hfr-hopital-fribourgeois-riaz-2",
-        "de": "chef-fe-de-clinique-hfr-hopital-fribourgeois-riaz-2"
+        "de": "chef-fe-de-clinique-hfr-hopital-fribourgeois-riaz-2",
+        "fr": "chef-fe-de-clinique-hfr-hopital-fribourgeois-riaz"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
       "companyDomain": "h-fr.ch",
       "title": "Chef-fe de clinique",
       "titleByLocale": {
-        "fr": "Chef-fe de clinique",
         "it": "Capo della clinica",
         "en": "Head of clinic",
-        "de": "Leiter der Klinik"
+        "de": "Leiter der Klinik",
+        "fr": "Chef-fe de clinique"
       },
       "description": "Afin de compléter son équipe, la direction médicale recherche pour l’unité de la Permanence médicale de l ’HFR Riaz , un-e\n\n• Garantir une prise en charge de qualité des patients-es.\n\n• Participer à la formation et superviser étroitement les médecins-assistant-e-s et étudiant-e-s en médecine.\n\n• Contribuer au développement et à l'amélioration continue de la permanence.\n\n• Diplôme fédéral de médecin ou équivalent.\n\n• Titulaire d'un titre de spécialiste en médecine interne générale (ou en voie de l’obtenir) ou équivalent avec un intérêt marqué pour la médecine de premier recours.\n\n• Personnalité dynamique, ouverte et collégiale, avec un esprit d'initiative.\n\n• Idéalement plusieurs années d’expérience en médecine interne générale\ndans une clinique A.\n\n• Maîtrise du français.",
       "descriptionByLocale": {
-        "fr": "Afin de compléter son équipe, la direction médicale recherche pour l’unité de la Permanence médicale de l ’HFR Riaz , un-e\n\n• Garantir une prise en charge de qualité des patients-es.\n\n• Participer à la formation et superviser étroitement les médecins-assistant-e-s et étudiant-e-s en médecine.\n\n• Contribuer au développement et à l'amélioration continue de la permanence.\n\n• Diplôme fédéral de médecin ou équivalent.\n\n• Titulaire d'un titre de spécialiste en médecine interne générale (ou en voie de l’obtenir) ou équivalent avec un intérêt marqué pour la médecine de premier recours.\n\n• Personnalité dynamique, ouverte et collégiale, avec un esprit d'initiative.\n\n• Idéalement plusieurs années d’expérience en médecine interne générale\ndans une clinique A.\n\n• Maîtrise du français.",
         "it": "Per completare il suo team, la Direzione Medica sta cercando l'Unità di Permanenza Medica dell'HFR Riaz, un\n\n• Assicurare la cura del paziente di qualità.\n\n• Partecipare alla formazione e supervisionare attentamente gli assistenti medici e gli studenti medici.\n\n• Contribuire allo sviluppo e al miglioramento continuo della permanenza.\n\n• Grado federale di dottore o equivalente.\n\n• Titolare di un generale (o nel processo di ottenimento) o equivalente grado di specialista in medicina interna generale con un forte interesse nel primo ricorso medicina.\n\n• Personalità dinamica, aperta e collegiale, con spirito di iniziativa.\n\n• Idealmente diversi anni di esperienza nella medicina interna generale\nin una clinica A.\n\n• Mastery of French.",
         "en": "In order to complete its team, the Medical Directorate is looking for the Medical Permanence Unit of the HFR Riaz, a\n\n• Ensure quality patient care.\n\n• Participate in training and closely supervise medical assistants and medical students.\n\n• Contribute to the development and continuous improvement of permanence.\n\n• Federal degree of doctor or equivalent.\n\n• Holder of a general (or in the process of obtaining) or equivalent degree of specialist in general internal medicine with a strong interest in first resort medicine.\n\n• Dynamic, open and collegial personality, with a spirit of initiative.\n\n• Ideally several years of experience in general internal medicine\nin a clinic A.\n\n• Mastery of French.",
-        "de": "Um sein Team zu vervollständigen, sucht die Medizinische Direktion die Medical Permanence Unit der HFR Riaz, eine\n\n• Gewährleistung einer qualitativ hochwertigen Patientenversorgung.\n\n• Nehmen Sie an der Ausbildung teil und betreuen Sie medizinische Assistenten und Medizinstudenten.\n\n• Beitrag zur Entwicklung und kontinuierlichen Verbesserung der Permanenz.\n\n• Federal Degree of Doctor oder gleichwertig.\n\n• Inhaber eines allgemeinen (oder im Prozess der Erlangung) oder gleichwertigen Grades von Spezialisten in der allgemeinen inneren Medizin mit einem starken Interesse an der ersten Kurmedizin.\n\n• Dynamisch, offen und kollegial, mit Initiativesgeist.\n\n• Idealerweise mehrere Jahre Erfahrung in der allgemeinen inneren Medizin\nin einer Klinik A.\n\n• Französisch beherrschen."
+        "de": "Um sein Team zu vervollständigen, sucht die Medizinische Direktion die Medical Permanence Unit der HFR Riaz, eine\n\n• Gewährleistung einer qualitativ hochwertigen Patientenversorgung.\n\n• Nehmen Sie an der Ausbildung teil und betreuen Sie medizinische Assistenten und Medizinstudenten.\n\n• Beitrag zur Entwicklung und kontinuierlichen Verbesserung der Permanenz.\n\n• Federal Degree of Doctor oder gleichwertig.\n\n• Inhaber eines allgemeinen (oder im Prozess der Erlangung) oder gleichwertigen Grades von Spezialisten in der allgemeinen inneren Medizin mit einem starken Interesse an der ersten Kurmedizin.\n\n• Dynamisch, offen und kollegial, mit Initiativesgeist.\n\n• Idealerweise mehrere Jahre Erfahrung in der allgemeinen inneren Medizin\nin einer Klinik A.\n\n• Französisch beherrschen.",
+        "fr": "Afin de compléter son équipe, la direction médicale recherche pour l’unité de la Permanence médicale de l ’HFR Riaz , un-e\n\n• Garantir une prise en charge de qualité des patients-es.\n\n• Participer à la formation et superviser étroitement les médecins-assistant-e-s et étudiant-e-s en médecine.\n\n• Contribuer au développement et à l'amélioration continue de la permanence.\n\n• Diplôme fédéral de médecin ou équivalent.\n\n• Titulaire d'un titre de spécialiste en médecine interne générale (ou en voie de l’obtenir) ou équivalent avec un intérêt marqué pour la médecine de premier recours.\n\n• Personnalité dynamique, ouverte et collégiale, avec un esprit d'initiative.\n\n• Idéalement plusieurs années d’expérience en médecine interne générale\ndans une clinique A.\n\n• Maîtrise du français."
       },
+      "needsRetranslation": false,
       "location": "Riaz, Switzerland",
       "canton": "FR",
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1646",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:43:39.388Z",
+      "crawledAt": "2026-11-23T09:43:02.991Z",
       "addressLocality": "Riaz",
       "addressRegion": "FR",
       "streetAddress": "Riaz",
@@ -1694,34 +1695,32 @@
       "jobReqId": "1646",
       "externalId": "1646",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "chef-fe-de-clinique-hfr-hopital-fribourgeois-riaz-2"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-clinique-hfr-hopital-fribourgeois-riaz-2"
+        ]
       },
-      "salaryMin": 85000,
-      "salaryMax": 119000,
+      "firstSeenAt": "2026-11-13T21:42:58.586Z",
+      "salaryMin": 115000,
+      "salaryMax": 160000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
+          "minValue": 115000,
+          "maxValue": 160000,
           "unitText": "YEAR"
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:43:39.388Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:42:58.586Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "chef-fe-de-clinique-hfr-hopital-fribourgeois-riaz-2"
-        ]
-      },
-      "previousSlugs": [
-        "chef-fe-de-clinique-hfr-hopital-fribourgeois-riaz-2"
-      ]
+      "validThrough": "2027-02-16T09:43:02.991Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-d91d574aa15b",
@@ -1754,7 +1753,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1575",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:43:38.857Z",
+      "crawledAt": "2026-11-23T09:43:02.399Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1802,41 +1801,41 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:43:38.857Z",
+      "validThrough": "2027-02-17T09:43:02.399Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-289cddd40f65",
       "slug": "segretario-medico-hopital-fribourgeois-hfr-fribourg-switzerland-d779d8",
       "slugByLocale": {
-        "fr": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg",
         "it": "segretario-medico-hopital-fribourgeois-hfr-fribourg-switzerland-d779d8",
         "en": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-2",
-        "de": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-2"
+        "de": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-2",
+        "fr": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
       "companyDomain": "h-fr.ch",
       "title": "Secrétaire médical-e",
       "titleByLocale": {
-        "fr": "Secrétaire médical-e",
         "it": "Segretario medico",
         "en": "Medical Secretary",
-        "de": "Medizinische Sekretärin"
+        "de": "Medizinische Sekretärin",
+        "fr": "Secrétaire médical-e"
       },
       "description": "Poste de secrétaire médical-e en chirurgie orthopédique.\n\n• accueillir les patient-e-s à la consultation du service\n\n• gérer les prises de rendez-vous et appels externes\n\n• rédiger et mettre en forme des courriers et rapports médicaux\n\n• contrôler la saisie des prestations du service\n\n• effectuer divers travaux administratifs\n\n• CFC d’employé-e de commerce ou diplôme équivalent, avec un diplôme complémentaire de secrétaire médical-e souhaité\n\n• connaissances avérées du milieu médical et/ou hospitalier\n\n• excellente maîtrise du française ou de l’allemand, avec de bonnes connaissances de l’autre langue, à l’oral comme à l’écrit\n\n• excellente maîtrise des outils informatiques (MS Office)\n\n• excellente gestion du stress, sens de l’organisation, flexibilité, aisance relationnelle et fiabilité",
       "descriptionByLocale": {
-        "fr": "Poste de secrétaire médical-e en chirurgie orthopédique.\n\n• accueillir les patient-e-s à la consultation du service\n\n• gérer les prises de rendez-vous et appels externes\n\n• rédiger et mettre en forme des courriers et rapports médicaux\n\n• contrôler la saisie des prestations du service\n\n• effectuer divers travaux administratifs\n\n• CFC d’employé-e de commerce ou diplôme équivalent, avec un diplôme complémentaire de secrétaire médical-e souhaité\n\n• connaissances avérées du milieu médical et/ou hospitalier\n\n• excellente maîtrise du française ou de l’allemand, avec de bonnes connaissances de l’autre langue, à l’oral comme à l’écrit\n\n• excellente maîtrise des outils informatiques (MS Office)\n\n• excellente gestion du stress, sens de l’organisation, flexibilité, aisance relationnelle et fiabilité",
         "it": "Posto del segretario medico in chirurgia ortopedia.\n\n• accogliere i pazienti alla consultazione del servizio\n\n• gestire appuntamenti e chiamate esterne\n\n• redazione e formattazione corrispondenza medica e report\n\n• controllare il sequestro dei servizi\n\n• svolgere vari lavori amministrativi\n\n• SWC dipendente aziendale o grado equivalente, con un grado di segreteria medica complementare desiderato\n\n• comprovata conoscenza dell'ambiente medico e/o ospedaliero\n\n• ottimo comando di francese o tedesco, con buona conoscenza dell'altra lingua, sia orale che scritta\n\n• strumenti informatici eccellenti (MS Office)\n\n• eccellente gestione dello stress, senso organizzativo, flessibilità, facilità di relazione e affidabilità",
         "en": "Medical secretary post in orthopaedic surgery.\n\n• welcome patients to the service consultation\n\n• manage appointments and external calls\n\n• drafting and formatting medical correspondence and reports\n\n• control the seizure of services\n\n• carry out various administrative work\n\n• SWC business employee or equivalent degree, with a desired complementary medical secretary degree\n\n• proven knowledge of the medical and/or hospital environment\n\n• excellent command of French or German, with good knowledge of the other language, both oral and written\n\n• excellent computer tools (MS Office)\n\n• excellent stress management, organizational sense, flexibility, relationship ease and reliability",
-        "de": "Medizinische Sekretärin in orthopädischer Chirurgie.\n\n• Begrüßung der Patienten zur Serviceberatung\n\n• Termine und externe Anrufe verwalten\n\n• Erstellung und Formatierung von medizinischer Korrespondenz und Berichten\n\n• Kontrolle der Beschlagnahme von Dienstleistungen\n\n• verschiedene administrative Arbeiten durchführen\n\n• SWC Geschäftsangestellter oder gleichwertiger Abschluss, mit einem gewünschten komplementären medizinischen Sekretariatsabschluss\n\n• nachgewiesene Kenntnisse des medizinischen und/oder Krankenhausumfelds\n\n• ausgezeichnete Beherrschung von Französisch oder Deutsch, mit guten Kenntnissen der anderen Sprache, sowohl mündlich als auch schriftlich\n\n• Ausgezeichnete Computer-Tools (MS Office)\n\n• exzellentes Stressmanagement, Organisationssinn, Flexibilität, Beziehungsleichtigkeit und Zuverlässigkeit"
+        "de": "Medizinische Sekretärin in orthopädischer Chirurgie.\n\n• Begrüßung der Patienten zur Serviceberatung\n\n• Termine und externe Anrufe verwalten\n\n• Erstellung und Formatierung von medizinischer Korrespondenz und Berichten\n\n• Kontrolle der Beschlagnahme von Dienstleistungen\n\n• verschiedene administrative Arbeiten durchführen\n\n• SWC Geschäftsangestellter oder gleichwertiger Abschluss, mit einem gewünschten komplementären medizinischen Sekretariatsabschluss\n\n• nachgewiesene Kenntnisse des medizinischen und/oder Krankenhausumfelds\n\n• ausgezeichnete Beherrschung von Französisch oder Deutsch, mit guten Kenntnissen der anderen Sprache, sowohl mündlich als auch schriftlich\n\n• Ausgezeichnete Computer-Tools (MS Office)\n\n• exzellentes Stressmanagement, Organisationssinn, Flexibilität, Beziehungsleichtigkeit und Zuverlässigkeit",
+        "fr": "Poste de secrétaire médical-e en chirurgie orthopédique.\n\n• accueillir les patient-e-s à la consultation du service\n\n• gérer les prises de rendez-vous et appels externes\n\n• rédiger et mettre en forme des courriers et rapports médicaux\n\n• contrôler la saisie des prestations du service\n\n• effectuer divers travaux administratifs\n\n• CFC d’employé-e de commerce ou diplôme équivalent, avec un diplôme complémentaire de secrétaire médical-e souhaité\n\n• connaissances avérées du milieu médical et/ou hospitalier\n\n• excellente maîtrise du française ou de l’allemand, avec de bonnes connaissances de l’autre langue, à l’oral comme à l’écrit\n\n• excellente maîtrise des outils informatiques (MS Office)\n\n• excellente gestion du stress, sens de l’organisation, flexibilité, aisance relationnelle et fiabilité"
       },
       "location": "Fribourg, Switzerland",
       "canton": "FR",
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1626",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:43:38.083Z",
+      "crawledAt": "2026-11-23T09:43:01.496Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1857,9 +1856,16 @@
       "jobReqId": "1626",
       "externalId": "1626",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-2"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-2"
+        ]
       },
+      "firstSeenAt": "2026-11-12T09:58:00.862Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1874,50 +1880,41 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:43:38.083Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:58:00.862Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-2"
-        ]
-      },
-      "previousSlugs": [
-        "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-2"
-      ]
+      "validThrough": "2027-02-19T09:43:01.496Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-a0ccd1999539",
       "slug": "segretario-medico-hopital-fribourgeois-hfr-fribourg-switzerland-0517a1",
       "slugByLocale": {
-        "fr": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg",
         "it": "segretario-medico-hopital-fribourgeois-hfr-fribourg-switzerland-0517a1",
         "en": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-3",
-        "de": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-3"
+        "de": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-3",
+        "fr": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
       "companyDomain": "h-fr.ch",
       "title": "Secrétaire médical-e",
       "titleByLocale": {
-        "fr": "Secrétaire médical-e",
         "it": "Segretario medico",
         "en": "Medical Secretary",
-        "de": "Medizinische Sekretärin"
+        "de": "Medizinische Sekretärin",
+        "fr": "Secrétaire médical-e"
       },
       "description": "• accueillir les patient-e-s à la consultation du service\n\n• gérer les prises de rendez-vous et appels externes\n\n• rédiger et mettre en forme des courriers et rapports médicaux\n\n• contrôler la saisie des prestations du service\n\n• effectuer divers travaux administratifs\n\n• CFC d’employé-e de commerce ou diplôme équivalent, avec un diplôme complémentaire de secrétaire médical-e souhaité\n\n• connaissances avérées du milieu médical et/ou hospitalier\n\n• excellente maîtrise du française ou de l’allemand, avec de bonnes connaissances de l’autre langue, à l’oral comme à l’écrit\n\n• excellente maîtrise des outils informatiques (MS Office)\n\n• excellente gestion du stress, sens de l’organisation, flexibilité, aisance relationnelle et fiabilité",
       "descriptionByLocale": {
-        "fr": "• accueillir les patient-e-s à la consultation du service\n\n• gérer les prises de rendez-vous et appels externes\n\n• rédiger et mettre en forme des courriers et rapports médicaux\n\n• contrôler la saisie des prestations du service\n\n• effectuer divers travaux administratifs\n\n• CFC d’employé-e de commerce ou diplôme équivalent, avec un diplôme complémentaire de secrétaire médical-e souhaité\n\n• connaissances avérées du milieu médical et/ou hospitalier\n\n• excellente maîtrise du française ou de l’allemand, avec de bonnes connaissances de l’autre langue, à l’oral comme à l’écrit\n\n• excellente maîtrise des outils informatiques (MS Office)\n\n• excellente gestion du stress, sens de l’organisation, flexibilité, aisance relationnelle et fiabilité",
         "it": "• accogliere i pazienti alla consultazione del servizio\n\n• gestire appuntamenti e chiamate esterne\n\n• redazione e formattazione corrispondenza medica e report\n\n• controllare il sequestro dei servizi\n\n• svolgere vari lavori amministrativi\n\n• SWC dipendente aziendale o grado equivalente, con un grado di segreteria medica complementare desiderato\n\n• comprovata conoscenza dell'ambiente medico e/o ospedaliero\n\n• ottimo comando di francese o tedesco, con buona conoscenza dell'altra lingua, sia orale che scritta\n\n• strumenti informatici eccellenti (MS Office)\n\n• eccellente gestione dello stress, senso organizzativo, flessibilità, facilità di relazione e affidabilità",
         "en": "• welcome patients to the service consultation\n\n• manage appointments and external calls\n\n• drafting and formatting medical correspondence and reports\n\n• control the seizure of services\n\n• carry out various administrative work\n\n• SWC business employee or equivalent degree, with a desired complementary medical secretary degree\n\n• proven knowledge of the medical and/or hospital environment\n\n• excellent command of French or German, with good knowledge of the other language, both oral and written\n\n• excellent computer tools (MS Office)\n\n• excellent stress management, organizational sense, flexibility, relationship ease and reliability",
-        "de": "• Begrüßung der Patienten zur Serviceberatung\n\n• Termine und externe Anrufe verwalten\n\n• Erstellung und Formatierung von medizinischer Korrespondenz und Berichten\n\n• Kontrolle der Beschlagnahme von Dienstleistungen\n\n• verschiedene administrative Arbeiten durchführen\n\n• SWC Geschäftsangestellter oder gleichwertiger Abschluss, mit einem gewünschten komplementären medizinischen Sekretariatsabschluss\n\n• nachgewiesene Kenntnisse des medizinischen und/oder Krankenhausumfelds\n\n• ausgezeichnete Beherrschung von Französisch oder Deutsch, mit guten Kenntnissen der anderen Sprache, sowohl mündlich als auch schriftlich\n\n• Ausgezeichnete Computer-Tools (MS Office)\n\n• exzellentes Stressmanagement, Organisationssinn, Flexibilität, Beziehungsleichtigkeit und Zuverlässigkeit"
+        "de": "• Begrüßung der Patienten zur Serviceberatung\n\n• Termine und externe Anrufe verwalten\n\n• Erstellung und Formatierung von medizinischer Korrespondenz und Berichten\n\n• Kontrolle der Beschlagnahme von Dienstleistungen\n\n• verschiedene administrative Arbeiten durchführen\n\n• SWC Geschäftsangestellter oder gleichwertiger Abschluss, mit einem gewünschten komplementären medizinischen Sekretariatsabschluss\n\n• nachgewiesene Kenntnisse des medizinischen und/oder Krankenhausumfelds\n\n• ausgezeichnete Beherrschung von Französisch oder Deutsch, mit guten Kenntnissen der anderen Sprache, sowohl mündlich als auch schriftlich\n\n• Ausgezeichnete Computer-Tools (MS Office)\n\n• exzellentes Stressmanagement, Organisationssinn, Flexibilität, Beziehungsleichtigkeit und Zuverlässigkeit",
+        "fr": "• accueillir les patient-e-s à la consultation du service\n\n• gérer les prises de rendez-vous et appels externes\n\n• rédiger et mettre en forme des courriers et rapports médicaux\n\n• contrôler la saisie des prestations du service\n\n• effectuer divers travaux administratifs\n\n• CFC d’employé-e de commerce ou diplôme équivalent, avec un diplôme complémentaire de secrétaire médical-e souhaité\n\n• connaissances avérées du milieu médical et/ou hospitalier\n\n• excellente maîtrise du française ou de l’allemand, avec de bonnes connaissances de l’autre langue, à l’oral comme à l’écrit\n\n• excellente maîtrise des outils informatiques (MS Office)\n\n• excellente gestion du stress, sens de l’organisation, flexibilité, aisance relationnelle et fiabilité"
       },
       "location": "Fribourg, Switzerland",
       "canton": "FR",
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1583",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:43:37.535Z",
+      "crawledAt": "2026-11-23T09:43:00.608Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1938,9 +1935,16 @@
       "jobReqId": "1583",
       "externalId": "1583",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-3"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-3"
+        ]
       },
+      "firstSeenAt": "2026-11-12T09:58:00.862Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1955,17 +1959,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:43:37.535Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:58:00.862Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-3"
-        ]
-      },
-      "previousSlugs": [
-        "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-3"
-      ]
+      "validThrough": "2027-02-19T09:43:00.608Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
