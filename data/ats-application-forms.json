@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-22T13:41:24.705Z",
+  "updatedAt": "2026-11-23T16:33:49.438Z",
   "snapshots": {
     "teamtailor:mks-pamp-74eaacf6a62f:773e8366508c": {
       "provider": "teamtailor",
@@ -2913,117 +2913,6 @@
         "jobUrl": "https://app.ncoreplat.com/jobposition/814898/quality-assistant-mep-ch/csc-costruzioni-sa"
       }
     },
-    "recruitee:climeworks-9c53454e8971:32a508421822": {
-      "provider": "recruitee",
-      "jobId": "climeworks-9c53454e8971",
-      "jobSlug": "intern-in-sorbent-structures-80-100-climeworks-zurich",
-      "jobUrl": "https://climeworks.recruitee.com/o/intern-in-sorbent-structures-80-100-104",
-      "snapshot": {
-        "provider": "recruitee",
-        "sourceUrl": "https://climeworks.recruitee.com/o/intern-in-sorbent-structures-80-100-104",
-        "jobUrl": "https://climeworks.recruitee.com/o/intern-in-sorbent-structures-80-100-104",
-        "checkedAt": "2026-11-17T14:58:45.183Z",
-        "stage": "",
-        "fields": [
-          {
-            "label": "Full name",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Email",
-            "type": "email",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "CV",
-            "type": "file",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Cover letter",
-            "type": "file",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Phone",
-            "type": "tel",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "We’re very keen to learn more about your motivation. Why would you like to join Climeworks and what sparked your interest to apply for this position?",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Why do you think you are a good fit for this position?",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "As of when are you available / What is your notice period?",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "What is your highest educational qualification and when did you graduate? (Please indicate month and year)",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "In which time zone is your place of residence located? (UTC+-?) In case we are looking for an interview date, this information will make our planning process easier.",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Transcript of Records, Degrees and Certificates",
-            "type": "file",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Further documents (cover letter, work certificates, etc.)",
-            "type": "file",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Citizens of EU and EFTA states are granted easier access to a Swiss work permit. Are you a) citizen of an EU / EFTA country or b) do you already have a Swiss work permit?",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "If you answered the previous question with \"b\" and already have a Swiss work permit, we kindly ask you to attach a copy.",
-            "type": "file",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Our salaries during BSc & MSc are CHF 2,000 per month and after completion of MSc CHF 2,500 per month. Please confirm that you have taken note of this.",
-            "type": "checkbox",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "I confirm to have read the Privacy Notice.",
-            "type": "checkbox",
-            "required": true,
-            "kind": "consent"
-          }
-        ]
-      }
-    },
     "teamtailor:axpo-group-36d3d23b48f2:788d068fd09f": {
       "provider": "teamtailor",
       "jobId": "axpo-group-36d3d23b48f2",
@@ -4983,158 +4872,6 @@
             "type": "checkbox",
             "required": false,
             "kind": "consent"
-          }
-        ]
-      }
-    },
-    "greenhouse:on-running-6691abfcf8aa:2f47355d3214": {
-      "provider": "greenhouse",
-      "jobId": "on-running-6691abfcf8aa",
-      "jobSlug": "lead-senior-portfolio-globale-e-prezzi-on-running-zurich",
-      "jobUrl": "https://boards.greenhouse.io/onrunning/jobs/8074415",
-      "snapshot": {
-        "provider": "greenhouse",
-        "sourceUrl": "https://boards.greenhouse.io/onrunning/jobs/8074415",
-        "jobUrl": "https://boards.greenhouse.io/onrunning/jobs/8074415",
-        "checkedAt": "2026-11-17T14:58:55.581Z",
-        "stage": "Senior Lead - Global Portfolio & Pricing",
-        "fields": [
-          {
-            "label": "First Name",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Last Name",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Email",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Phone",
-            "type": "text",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Resume/CV",
-            "type": "file",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Resume/CV",
-            "type": "textarea",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "LinkedIn Profile or Website",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "How did you hear about this job?",
-            "type": "select",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Facebook",
-              "LinkedIn",
-              "Stack Overflow",
-              "On Career Site",
-              "Events",
-              "Jobboards (University)",
-              "Other"
-            ]
-          },
-          {
-            "label": "Your Nationality",
-            "type": "multiselect",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Afghan",
-              "Albanian",
-              "Algerian",
-              "American",
-              "Andorran",
-              "Angolan",
-              "Antiguans",
-              "Argentinean",
-              "Armenian",
-              "Australian",
-              "Austrian",
-              "Azerbaijani",
-              "Bahamian",
-              "Bahraini",
-              "Bangladeshi",
-              "Barbadian",
-              "Barbudans",
-              "Batswana",
-              "Belarusian",
-              "Belgian",
-              "Belizean",
-              "Beninese",
-              "Bhutanese",
-              "Bolivian",
-              "Bosnian",
-              "Brazilian",
-              "British",
-              "Bruneian",
-              "Bulgarian",
-              "Burkinabe",
-              "Burmese",
-              "Burundian",
-              "Cambodian",
-              "Cameroonian",
-              "Canadian",
-              "Cape Verdean",
-              "Central African",
-              "Chadian",
-              "Chilean",
-              "Chinese"
-            ]
-          },
-          {
-            "label": "Would On need to apply for a working permit or visa on your behalf?",
-            "type": "select",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Yes",
-              "No"
-            ]
-          },
-          {
-            "label": "Your Pronouns",
-            "type": "select",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Prefer not to answer",
-              "She/Her/Hers",
-              "He/Him/His",
-              "They/Them/Their",
-              "Another option not listed"
-            ]
-          },
-          {
-            "label": "Data Transfer",
-            "type": "multiselect",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "By continuing, you acknowledge that you have read our Privacy Policy above."
-            ]
           }
         ]
       }
@@ -32589,6 +32326,130 @@
           }
         ]
       }
+    },
+    "recruitee:climeworks-1d5d4c093735:84b7901809f4": {
+      "provider": "recruitee",
+      "jobId": "climeworks-1d5d4c093735",
+      "jobSlug": "development-specialist-sorbent-structures-80-100-climeworks-zurich",
+      "jobUrl": "https://climeworks.recruitee.com/o/development-specialist-sorbent-structures-80-100",
+      "snapshot": {
+        "provider": "recruitee",
+        "sourceUrl": "https://climeworks.recruitee.com/o/development-specialist-sorbent-structures-80-100",
+        "jobUrl": "https://climeworks.recruitee.com/o/development-specialist-sorbent-structures-80-100",
+        "checkedAt": "2026-11-23T16:33:49.114Z",
+        "stage": "",
+        "fields": [
+          {
+            "label": "Full name",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Email",
+            "type": "email",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "CV",
+            "type": "file",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Cover letter",
+            "type": "file",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Phone",
+            "type": "tel",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "We’re very keen to learn more about your motivation. Why would you like to join Climeworks and what sparked your interest to apply for this position?",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Why do you think you are a good fit for this position?",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "As of when are you available / What is your notice period?",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "What would be your salary expectations for this position?",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "In which time zone is your place of residence located? (UTC+-?) In case we are looking for an interview date, this information will make our planning process easier.",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Degrees and Certificates",
+            "type": "file",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Further documents (cover letter, work certificates, etc.)",
+            "type": "file",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Citizens of EU and EFTA states are granted easier access to a Swiss work permit. Are you a) citizen of an EU / EFTA country or b) do you already have a Swiss work permit?",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "If you answered the previous question with \"b\" and already have a Swiss work permit, we kindly ask you to attach a copy.",
+            "type": "file",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Through which channel did you first learn about our job opportunity?",
+            "type": "select",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Company website (climeworks.com)",
+              "LinkedIn",
+              "Google",
+              "Indeed",
+              "Jobs.ch",
+              "Jobscout",
+              "Stepstone",
+              "Job fair or similar",
+              "Referral",
+              "Your network",
+              "Other"
+            ]
+          },
+          {
+            "label": "I confirm to have read the Privacy Notice.",
+            "type": "checkbox",
+            "required": true,
+            "kind": "consent"
+          }
+        ]
+      }
     }
   },
   "attempts": {
@@ -32820,14 +32681,6 @@
       "attemptCount": 1,
       "outcome": "captured"
     },
-    "recruitee:climeworks-9c53454e8971:32a508421822": {
-      "provider": "recruitee",
-      "jobUrl": "https://climeworks.recruitee.com/o/intern-in-sorbent-structures-80-100-104",
-      "attemptedAt": "2026-11-17T14:58:45.183Z",
-      "nextAttemptAt": "2026-12-17T14:58:45.195Z",
-      "attemptCount": 1,
-      "outcome": "captured"
-    },
     "teamtailor:axpo-group-36d3d23b48f2:788d068fd09f": {
       "provider": "teamtailor",
       "jobUrl": "https://ckw.teamtailor.com/jobs/8567622-leitende-r-monteur-in-anlagen-uw-us-w-m-d",
@@ -32977,14 +32830,6 @@
       "jobUrl": "https://jobs.lever.co/anybotics/d5ae4dd1-c48d-41da-ba50-60ce3b44ceb0",
       "attemptedAt": "2026-11-17T14:58:45.300Z",
       "nextAttemptAt": "2026-12-17T14:58:55.581Z",
-      "attemptCount": 1,
-      "outcome": "captured"
-    },
-    "greenhouse:on-running-6691abfcf8aa:2f47355d3214": {
-      "provider": "greenhouse",
-      "jobUrl": "https://boards.greenhouse.io/onrunning/jobs/8074415",
-      "attemptedAt": "2026-11-17T14:58:55.581Z",
-      "nextAttemptAt": "2026-12-17T14:58:55.723Z",
       "attemptCount": 1,
       "outcome": "captured"
     },
@@ -34874,6 +34719,14 @@
       "jobUrl": "https://apply.workable.com/guess-europe-sagl/j/981E625698/apply",
       "attemptedAt": "2026-11-22T13:41:24.555Z",
       "nextAttemptAt": "2026-12-22T13:41:24.702Z",
+      "attemptCount": 1,
+      "outcome": "captured"
+    },
+    "recruitee:climeworks-1d5d4c093735:84b7901809f4": {
+      "provider": "recruitee",
+      "jobUrl": "https://climeworks.recruitee.com/o/development-specialist-sorbent-structures-80-100",
+      "attemptedAt": "2026-11-23T16:33:49.114Z",
+      "nextAttemptAt": "2026-12-23T16:33:49.435Z",
       "attemptCount": 1,
       "outcome": "captured"
     }
