@@ -1,7 +1,7 @@
 {
   "key": "blatters-hotel",
   "label": "Blatter",
-  "generatedAt": "2026-11-23T09:25:07.180Z",
+  "generatedAt": "2026-11-23T21:22:03.360Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -48,19 +48,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 39748,
-  "avgDurationMs": 39748,
+  "durationMs": 24102,
+  "avgDurationMs": 24102,
   "durationHistory": [
-    39748
+    24102
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "blatters-hotel-07c54e69f949",
-      "slug": "2-haustechniker-jahresvertrag-o-saisonvertag-unterkunft-vorhanden-eintritt-nach-absprache-blatter-arosa",
+      "slug": "2-tecnico-edilizio-contratto-annuale-o-stagionale-alloggio-disponibile-ingresso-su-accordo-blatter-arosa",
       "company": "Blatter",
       "companyKey": "blatters-hotel",
       "companyDomain": "hotelcareer.ch",
@@ -70,7 +71,7 @@
       "url": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/2-haustechniker-jahresvertrag-oder-4057345?rltr=comp",
       "source": "Blatter's Arosa Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:24:47.865Z",
+      "crawledAt": "2026-11-23T21:21:46.751Z",
       "addressLocality": "Arosa",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -86,27 +87,25 @@
       "postedDate": "2026-11-23",
       "postingDateSource": "reported",
       "applyUrl": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/2-haustechniker-jahresvertrag-oder-4057345?rltr=comp",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-23T09:24:47.865Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
       "postalCode": "7050",
       "streetAddress": "Arosa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T09:24:47.865Z",
+      "validThrough": "2027-02-21T21:21:46.751Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:24:47.865Z",
-      "_qualityScore": 91,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "7474b74d22ad2d97637dc94f08d243f12f0ba1c7"
+  "codeCommit": "7b684909df7304f91c3a19b75aa2a6088ce7630a"
 }
