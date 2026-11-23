@@ -3419,10 +3419,10 @@
     },
     {
       "id": "ksbl-e26f60c459c8",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-d9d0683b62",
+      "slug": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-fapojd",
-        "it": "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-d9d0683b62",
+        "it": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
         "en": "dipl-nurse-a-kantonsspital-baselland-ksbl-liestal",
         "fr": "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal"
       },
@@ -3472,7 +3472,7 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-          "infermiera-a-kantonsspital-baselland-ksbl-liestal"
+          "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-d9d0683b62"
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal"
@@ -3480,7 +3480,8 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "infermiera-a-kantonsspital-baselland-ksbl-liestal"
+        "infermiera-a-kantonsspital-baselland-ksbl-liestal",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-d9d0683b62"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -5452,10 +5453,10 @@
     },
     {
       "id": "ksbl-cd14c6154336",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-c49e1ca61f",
+      "slug": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-tiu1kw",
-        "it": "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-c49e1ca61f",
+        "it": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
         "en": "dipl-nurse-a-kantonsspital-baselland-ksbl-liestal",
         "fr": "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal"
       },
@@ -5505,7 +5506,7 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-          "infermiera-a-kantonsspital-baselland-ksbl-liestal"
+          "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-c49e1ca61f"
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal"
@@ -5513,7 +5514,8 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "infermiera-a-kantonsspital-baselland-ksbl-liestal"
+        "infermiera-a-kantonsspital-baselland-ksbl-liestal",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-c49e1ca61f"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -7002,12 +7004,12 @@
     },
     {
       "id": "ksbl-a04d7db0a9c5",
-      "slug": "dipl-radiologiefachfrau-radiologiefachmann-hf-a-ksbl-liestal-2",
+      "slug": "dipl-specialista-di-radiologia-hf-a-kantonsspital-baselland-ksbl-liestal-24a8c5",
       "slugByLocale": {
         "de": "dipl-radiologiefachfrau-radiologiefachmann-hf-a-ksbl-liestal",
-        "it": "dipl-radiologiefachfrau-radiologiefachmann-hf-a-ksbl-liestal-2",
-        "en": "dipl-radiologiefachfrau-radiologiefachmann-hf-a-ksbl-liestal-2",
-        "fr": "dipl-radiologiefachfrau-radiologiefachmann-hf-a-ksbl-liestal-2"
+        "it": "dipl-specialista-di-radiologia-hf-a-kantonsspital-baselland-ksbl-liestal-24a8c5",
+        "en": "dipl-radiology-specialist-hf-a-kantonsspital-baselland-ksbl-liestal-24a8c5",
+        "fr": "specialiste-de-radiologie-hf-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -7069,7 +7071,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-25T21:39:40.305Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-27T21:38:45.124Z"
+      "firstSeenAt": "2026-10-27T21:38:45.124Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-radiologiefachfrau-radiologiefachmann-hf-a-ksbl-liestal-2"
+        ],
+        "en": [
+          "dipl-radiologiefachfrau-radiologiefachmann-hf-a-ksbl-liestal-2"
+        ],
+        "fr": [
+          "dipl-radiologiefachfrau-radiologiefachmann-hf-a-ksbl-liestal-2"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-radiologiefachfrau-radiologiefachmann-hf-a-ksbl-liestal-2"
+      ]
     },
     {
       "id": "ksbl-0e8cfd428a67",
@@ -7244,8 +7260,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
         "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "en": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal"
+        "en": "dipl-nurse-a-kantonsspital-baselland-ksbl-liestal-de0c89",
+        "fr": "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal-de0c89"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -7307,7 +7323,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T21:39:38.595Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-05-19T10:23:51.599Z"
+      "firstSeenAt": "2026-05-19T10:23:51.599Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal"
+      ]
     },
     {
       "id": "ksbl-a9ff0b8938e0",
@@ -8777,12 +8804,12 @@
     },
     {
       "id": "ksbl-7bdc6613fda7",
-      "slug": "fage-privatstation-a-ksbl-liestal",
+      "slug": "fage-stazione-privata-a-kantonsspital-baselland-ksbl-liestal-9e1d96",
       "slugByLocale": {
         "de": "fage-privatstation-a-ksbl-liestal",
-        "it": "fage-privatstation-a-ksbl-liestal",
-        "en": "fage-privatstation-a-ksbl-liestal",
-        "fr": "fage-privatstation-a-ksbl-liestal"
+        "it": "fage-stazione-privata-a-kantonsspital-baselland-ksbl-liestal-9e1d96",
+        "en": "fage-private-station-a-kantonsspital-baselland-ksbl-liestal-9e1d96",
+        "fr": "station-privee-fage-a-kantonsspital-baselland-ksbl-liestal-9e1d96"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -8844,7 +8871,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-30T21:39:27.640Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-01T09:29:18.927Z"
+      "firstSeenAt": "2026-10-01T09:29:18.927Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fage-privatstation-a-ksbl-liestal"
+        ],
+        "en": [
+          "fage-privatstation-a-ksbl-liestal"
+        ],
+        "fr": [
+          "fage-privatstation-a-ksbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "fage-privatstation-a-ksbl-liestal"
+      ]
     },
     {
       "id": "ksbl-7e106bd58e73",
@@ -9788,10 +9829,10 @@
     },
     {
       "id": "ksbl-0e8cee3df5ef",
-      "slug": "fage-a-ksbl-liestal-2",
+      "slug": "ass-soc-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "fage-a-ksbl-liestal-f908ii",
-        "it": "fage-a-ksbl-liestal-2",
+        "it": "ass-soc-a-kantonsspital-baselland-ksbl-liestal",
         "en": "fage-a-ksbl-liestal-2",
         "fr": "fage-a-ksbl-liestal-2"
       },
@@ -9859,10 +9900,14 @@
       "previousSlugsByLocale": {
         "de": [
           "fage-a-ksbl-liestal"
+        ],
+        "it": [
+          "fage-a-ksbl-liestal-2"
         ]
       },
       "previousSlugs": [
-        "fage-a-ksbl-liestal"
+        "fage-a-ksbl-liestal",
+        "fage-a-ksbl-liestal-2"
       ]
     },
     {

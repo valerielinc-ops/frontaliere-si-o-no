@@ -897,12 +897,12 @@
     },
     {
       "id": "kispi-zurich-1a58604068df",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-2",
+      "slug": "dipl-infermieristica-professionale-dipl-cura-professionale-80-100-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-2",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-2",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-2"
+        "it": "dipl-infermieristica-professionale-dipl-cura-professionale-80-100-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "dipl-nursing-professional-dipl-care-professional-80-100-universitats-kinderspital-zurich-kispi-zurich",
+        "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-80-100-universitats-kinderspital-zurich-kispi"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -964,7 +964,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T21:16:42.589Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-28T21:11:53.814Z"
+      "firstSeenAt": "2026-09-28T21:11:53.814Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-2"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-2"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-2"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-2"
+      ]
     },
     {
       "id": "kispi-zurich-10f82b565fd5",
@@ -1321,12 +1335,12 @@
     },
     {
       "id": "kispi-zurich-bfeea9f00238",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-2",
+      "slug": "dipl-infermieristica-professionale-dipl-cura-professionale-60-100-universitats-kinderspital-zurich-kispi-zurich-b290d1",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich",
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-2",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-2",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-2"
+        "it": "dipl-infermieristica-professionale-dipl-cura-professionale-60-100-universitats-kinderspital-zurich-kispi-zurich-b290d1",
+        "en": "dipl-nursing-professional-dipl-care-professional-60-100-universitats-kinderspital-zurich-kispi-zurich",
+        "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-de-soins-60-100-universitats-kinderspital-zurich-kispi"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -1392,12 +1406,20 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-universitats-kinderspital-zurich-ttslt7",
-          "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-ttslt7"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-ttslt7",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-2"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-2"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-2"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-universitats-kinderspital-zurich-ttslt7",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-ttslt7"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-ttslt7",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-2"
       ]
     },
     {
@@ -2151,12 +2173,12 @@
     },
     {
       "id": "kispi-zurich-0c19b1269ab9",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-3",
+      "slug": "dipl-infermieristica-professionale-dipl-cura-professionale-80-100-universitats-kinderspital-zurich-kispi-zurich-fad1cf",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-3",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-3",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-3"
+        "it": "dipl-infermieristica-professionale-dipl-cura-professionale-80-100-universitats-kinderspital-zurich-kispi-zurich-fad1cf",
+        "en": "dipl-nursing-professional-dipl-care-professional-80-100-universitats-kinderspital-zurich-kispi-zurich-fad1cf",
+        "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-80-100-universitats-kinderspital-zurich-fad1cf"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -2218,7 +2240,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T21:16:11.583Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-28T21:11:53.814Z"
+      "firstSeenAt": "2026-09-28T21:11:53.814Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-3"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-3"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-3"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-3"
+      ]
     },
     {
       "id": "kispi-zurich-9bde70c0823e",
@@ -2391,12 +2427,12 @@
     },
     {
       "id": "kispi-zurich-fb9e32d758b0",
-      "slug": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich-2",
+      "slug": "formazione-professionale-m-f-universitats-kinderspital-zurich-kispi-zurich-539a0e",
       "slugByLocale": {
         "de": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
-        "it": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich-2",
-        "en": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich-2",
-        "fr": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich-2"
+        "it": "formazione-professionale-m-f-universitats-kinderspital-zurich-kispi-zurich-539a0e",
+        "en": "vocational-trainer-care-m-f-universitats-kinderspital-zurich-kispi-zurich-539a0e",
+        "fr": "soins-aux-formateurs-professionnels-h-f-universitats-kinderspital-zurich-kispi-zurich-539a0e"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -2458,16 +2494,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T21:16:05.584Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-18T23:11:57.218Z"
+      "firstSeenAt": "2026-09-18T23:11:57.218Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildnerin-pflege-m-w-kispi-zurich-zurich-2"
+        ],
+        "en": [
+          "berufsbildnerin-pflege-m-w-kispi-zurich-zurich-2"
+        ],
+        "fr": [
+          "berufsbildnerin-pflege-m-w-kispi-zurich-zurich-2"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildnerin-pflege-m-w-kispi-zurich-zurich-2"
+      ]
     },
     {
       "id": "kispi-zurich-b0ad3a2d569a",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-4",
+      "slug": "dipl-infermieristica-professionale-dipl-professionista-di-cura-80-100-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-4",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-4",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-4"
+        "it": "dipl-infermieristica-professionale-dipl-professionista-di-cura-80-100-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "dipl-nursing-professional-dipl-care-professional-80-100-universitats-kinderspital-zurich-kispi-zurich-1a4b4c",
+        "fr": "dipl-soins-infirmiers-professionnels-dipl-professionnel-de-soins-80-100-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -2529,16 +2579,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T21:16:03.576Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-28T21:11:53.814Z"
+      "firstSeenAt": "2026-09-28T21:11:53.814Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-4"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-4"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-4"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-4"
+      ]
     },
     {
       "id": "kispi-zurich-49eac8548186",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-3",
+      "slug": "dipl-infermieristica-professionale-dipl-cura-professionale-60-100-universitats-kinderspital-zurich-kispi-zurich-e50982",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich",
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-3",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-3",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-3"
+        "it": "dipl-infermieristica-professionale-dipl-cura-professionale-60-100-universitats-kinderspital-zurich-kispi-zurich-e50982",
+        "en": "dipl-nursing-professional-dipl-care-professional-60-100-universitats-kinderspital-zurich-kispi-zurich-e50982",
+        "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-de-soins-60-100-universitats-kinderspital-zurich-e50982"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -2603,14 +2667,22 @@
       "firstSeenAt": "2026-09-29T21:17:09.354Z",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-ttsj2a"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-ttsj2a",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-3"
         ],
         "de": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-ttsj2a"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-3"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-3"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-ttsj2a"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-ttsj2a",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-3"
       ]
     },
     {

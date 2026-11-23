@@ -3173,12 +3173,12 @@
     },
     {
       "id": "ksw-86fe8153642a",
-      "slug": "pflegefachfrau-pflegefachmann-ksw-ch-2",
+      "slug": "infermiera-nurse-professionale-kantonsspital-winterthur-ksw-winterthur-ed989b",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-ksw-ch",
-        "it": "pflegefachfrau-pflegefachmann-ksw-ch-2",
-        "en": "pflegefachfrau-pflegefachmann-ksw-ch-2",
-        "fr": "pflegefachfrau-pflegefachmann-ksw-ch-2"
+        "it": "infermiera-nurse-professionale-kantonsspital-winterthur-ksw-winterthur-ed989b",
+        "en": "nurse-nurse-professional-kantonsspital-winterthur-ksw-winterthur-ed989b",
+        "fr": "infirmiere-infirmiere-professionnelle-kantonsspital-winterthur-ksw-winterthur-ed989b"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -3241,16 +3241,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T21:17:32.246Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-07T15:01:29.118Z"
+      "firstSeenAt": "2026-09-07T15:01:29.118Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-ksw-ch-2"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-ksw-ch-2"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-ksw-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-ksw-ch-2"
+      ]
     },
     {
       "id": "ksw-5207924f535a",
-      "slug": "pflegefachfrau-pflegefachmann-ksw-ch-3",
+      "slug": "infermiera-nurse-professionale-kantonsspital-winterthur-ksw-winterthur-553464",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-ksw-ch",
-        "it": "pflegefachfrau-pflegefachmann-ksw-ch-3",
-        "en": "pflegefachfrau-pflegefachmann-ksw-ch-3",
-        "fr": "pflegefachfrau-pflegefachmann-ksw-ch-3"
+        "it": "infermiera-nurse-professionale-kantonsspital-winterthur-ksw-winterthur-553464",
+        "en": "nurse-nurse-professional-kantonsspital-winterthur-ksw-winterthur-553464",
+        "fr": "infirmiere-infirmiere-professionnelle-kantonsspital-winterthur-ksw-winterthur-553464"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -3317,10 +3331,20 @@
       "previousSlugsByLocale": {
         "de": [
           "pflegefachfrau-pflegefachmann-ksw-ch-b6wxjs"
+        ],
+        "it": [
+          "pflegefachfrau-pflegefachmann-ksw-ch-3"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-ksw-ch-3"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-ksw-ch-3"
         ]
       },
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-ksw-ch-b6wxjs"
+        "pflegefachfrau-pflegefachmann-ksw-ch-b6wxjs",
+        "pflegefachfrau-pflegefachmann-ksw-ch-3"
       ]
     },
     {
@@ -5852,12 +5876,12 @@
     },
     {
       "id": "ksw-c88f6e658a66",
-      "slug": "fachfrau-fachmann-gesundheit-notfallbettenstation-ksw-ch",
+      "slug": "specialista-stazione-di-emergenza-sanitaria-kantonsspital-winterthur-ksw-winterthur-f9ff8d",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-notfallbettenstation-ksw-ch",
-        "it": "fachfrau-fachmann-gesundheit-notfallbettenstation-ksw-ch",
-        "en": "fachfrau-fachmann-gesundheit-notfallbettenstation-ksw-ch",
-        "fr": "fachfrau-fachmann-gesundheit-notfallbettenstation-ksw-ch"
+        "it": "specialista-stazione-di-emergenza-sanitaria-kantonsspital-winterthur-ksw-winterthur-f9ff8d",
+        "en": "specialist-health-emergency-bed-station-kantonsspital-winterthur-ksw-winterthur-f9ff8d",
+        "fr": "specialiste-station-de-lits-d-urgence-sante-kantonsspital-winterthur-ksw-winterthur-f9ff8d"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -5920,7 +5944,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-18T21:17:32.238Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-20T21:15:12.599Z"
+      "firstSeenAt": "2026-10-20T21:15:12.599Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-notfallbettenstation-ksw-ch"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-notfallbettenstation-ksw-ch"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-notfallbettenstation-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-notfallbettenstation-ksw-ch"
+      ]
     },
     {
       "id": "ksw-c1ec037863d3",

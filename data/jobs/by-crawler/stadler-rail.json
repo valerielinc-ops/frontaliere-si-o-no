@@ -1996,12 +1996,12 @@
     },
     {
       "id": "stadler-rail-a18f1adc3f9b",
-      "slug": "qehs-specialist-stadler-rail-ch-2",
+      "slug": "qehs-specialista-stadler-rail-wallisellen-2413c0",
       "slugByLocale": {
         "en": "qehs-specialist-stadler-rail-ch",
-        "it": "qehs-specialist-stadler-rail-ch-2",
-        "de": "qehs-specialist-stadler-rail-ch-2",
-        "fr": "qehs-specialist-stadler-rail-ch-2"
+        "it": "qehs-specialista-stadler-rail-wallisellen-2413c0",
+        "de": "qehs-spezialist-stadler-rail-wallisellen-2413c0",
+        "fr": "qehs-specialiste-stadler-rail-wallisellen-2413c0"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -2063,7 +2063,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T22:11:18.365Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-30T21:45:13.219Z"
+      "firstSeenAt": "2026-10-30T21:45:13.219Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "qehs-specialist-stadler-rail-ch-2"
+        ],
+        "de": [
+          "qehs-specialist-stadler-rail-ch-2"
+        ],
+        "fr": [
+          "qehs-specialist-stadler-rail-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "qehs-specialist-stadler-rail-ch-2"
+      ]
     },
     {
       "id": "stadler-rail-7e6e0e2bf06c",

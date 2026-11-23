@@ -3386,9 +3386,9 @@
     },
     {
       "id": "stadt-zuerich-bf97b1cf4fd8",
-      "slug": "professionista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-56fcad8f9a",
+      "slug": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "professionista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-56fcad8f9a",
+        "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
         "en": "specialist-child-care-efz-stadt-zurich-zurich-c7fa8a",
         "de": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51123",
         "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-c7fa8a"
@@ -3458,7 +3458,8 @@
         "specialista-assistenza-bambini-afc-stadt-zurich-zurich",
         "specialist-child-care-efz-stadt-zurich-zurich",
         "soins-specialises-pour-enfants-efz-stadt-zurich-zurich",
-        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
+        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
+        "professionista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-56fcad8f9a"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3474,7 +3475,8 @@
           "specialista-assistenza-bambini-afc-stadt-zurich-zurich-411899935a",
           "specialista-assistenza-bambini-afc-stadt-zurich-zurich-562bc7edc9",
           "specialista-assistenza-bambini-afc-stadt-zurich-zurich",
-          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
+          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
+          "professionista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-56fcad8f9a"
         ],
         "en": [
           "specialist-child-care-efz-stadt-zurich-zurich-f06c10",
@@ -3692,12 +3694,12 @@
     },
     {
       "id": "stadt-zuerich-7fbfffba9e11",
-      "slug": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507",
+      "slug": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
         "en": "specialist-child-care-efz-stadt-zurich-zurich-f06c10",
         "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-f06c10",
-        "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507"
+        "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -3750,12 +3752,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
-          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
+          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507"
         ]
       },
       "previousSlugs": [
         "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
-        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
+        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -11753,12 +11755,12 @@
     },
     {
       "id": "stadt-zuerich-8fc405b9d080",
-      "slug": "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich",
+      "slug": "assistente-sociale-assistenza-sociale-e-protezione-degli-adulti-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zuerich-zurigo-52139",
-        "it": "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich",
-        "en": "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich",
-        "fr": "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich"
+        "it": "assistente-sociale-assistenza-sociale-e-protezione-degli-adulti-stadt-zurich-zurich",
+        "en": "social-worker-social-assistance-adult-protection-stadt-zurich-zurich-7ddedc",
+        "fr": "assistant-social-assistance-sociale-et-protection-des-adultes-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -11809,11 +11811,19 @@
       "referenceNumber": "52139",
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zuerich-zurigo-52139"
+          "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zuerich-zurigo-52139",
+          "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich"
+        ],
+        "en": [
+          "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zuerich-zurigo-52139"
+        "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zuerich-zurigo-52139",
+        "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -12021,12 +12031,12 @@
     },
     {
       "id": "stadt-zuerich-905f85fb86d4",
-      "slug": "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-baa4cff2b6",
+      "slug": "giardiniere-nel-giardinaggio-e-nel-paesaggisme-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52151",
-        "it": "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-baa4cff2b6",
-        "en": "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52151",
-        "fr": "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52151"
+        "it": "giardiniere-nel-giardinaggio-e-nel-paesaggisme-stadt-zurich-zurich",
+        "en": "gardener-in-gardening-and-landscaping-stadt-zurich-zurich-ba94cb",
+        "fr": "jardinier-en-jardinage-et-amenagement-paysager-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -12078,12 +12088,20 @@
       "previousSlugsByLocale": {
         "it": [
           "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52151",
-          "gartner-in-garten-e-landschaftsbau-stadt-zurich"
+          "gartner-in-garten-e-landschaftsbau-stadt-zurich",
+          "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-baa4cff2b6"
+        ],
+        "en": [
+          "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52151"
+        ],
+        "fr": [
+          "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52151"
         ]
       },
       "previousSlugs": [
         "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52151",
-        "gartner-in-garten-e-landschaftsbau-stadt-zurich"
+        "gartner-in-garten-e-landschaftsbau-stadt-zurich",
+        "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-baa4cff2b6"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -14127,10 +14145,10 @@
     },
     {
       "id": "stadt-zuerich-538bb2f40006",
-      "slug": "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-4e6db35ff3",
+      "slug": "gartner-in-garten-e-landschaftsbau-stadt-zurich",
       "slugByLocale": {
         "de": "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51886",
-        "it": "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-4e6db35ff3",
+        "it": "gartner-in-garten-e-landschaftsbau-stadt-zurich",
         "en": "gardener-garden-and-landscape-construction-stadt-zurich-zurich",
         "fr": "jardinier-ere-en-horticulture-et-amenagement-paysager-stadt-zurich-zurich"
       },
@@ -14186,13 +14204,13 @@
         "it": [
           "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51886",
           "gartner-in-garten-e-landschaftsbau-stadt-zurich-ureedo",
-          "gartner-in-garten-e-landschaftsbau-stadt-zurich"
+          "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-4e6db35ff3"
         ]
       },
       "previousSlugs": [
         "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51886",
         "gartner-in-garten-e-landschaftsbau-stadt-zurich-ureedo",
-        "gartner-in-garten-e-landschaftsbau-stadt-zurich"
+        "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-4e6db35ff3"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -15522,12 +15540,12 @@
     },
     {
       "id": "stadt-zuerich-376dc51a71dd",
-      "slug": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-52231",
+      "slug": "efz-specialista-in-assistenza-all-infanzia-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-52231",
-        "it": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-52231",
-        "en": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-52231",
-        "fr": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-52231"
+        "it": "efz-specialista-in-assistenza-all-infanzia-stadt-zurich-zurich",
+        "en": "specialist-child-care-efz-stadt-zurich-zurich-981a07",
+        "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-981a07"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -15593,7 +15611,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-23T21:53:59.506Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-24T00:09:01.758Z"
+      "firstSeenAt": "2026-09-24T00:09:01.758Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-52231"
+        ],
+        "en": [
+          "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-52231"
+        ],
+        "fr": [
+          "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-52231"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-52231"
+      ]
     },
     {
       "id": "stadt-zuerich-ad13ff867193",
@@ -19552,12 +19584,12 @@
     },
     {
       "id": "stadt-zuerich-22710f587dd7",
-      "slug": "jurist-in-stadt-zuerich-zurigo-52243",
+      "slug": "avvocato-stadt-zurich-zurich-080b18",
       "slugByLocale": {
         "de": "jurist-in-stadt-zuerich-zurigo-52243",
-        "it": "jurist-in-stadt-zuerich-zurigo-52243",
-        "en": "jurist-in-stadt-zuerich-zurigo-52243",
-        "fr": "jurist-in-stadt-zuerich-zurigo-52243"
+        "it": "avvocato-stadt-zurich-zurich-080b18",
+        "en": "lawyer-stadt-zurich-zurich-080b18",
+        "fr": "avocat-stadt-zurich-zurich-080b18"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -19622,7 +19654,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-24T21:53:59.505Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-26T21:53:48.302Z"
+      "firstSeenAt": "2026-10-26T21:53:48.302Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "jurist-in-stadt-zuerich-zurigo-52243"
+        ],
+        "en": [
+          "jurist-in-stadt-zuerich-zurigo-52243"
+        ],
+        "fr": [
+          "jurist-in-stadt-zuerich-zurigo-52243"
+        ]
+      },
+      "previousSlugs": [
+        "jurist-in-stadt-zuerich-zurigo-52243"
+      ]
     },
     {
       "id": "stadt-zuerich-40c8be0d3b22",
@@ -27735,12 +27781,12 @@
     },
     {
       "id": "stadt-zuerich-03f71d5c3543",
-      "slug": "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-f3c8f51ef9",
+      "slug": "giardiniere-nel-giardinaggio-e-nel-paesaggisme-stadt-zurich-zurich-12e22d",
       "slugByLocale": {
         "de": "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52307",
-        "it": "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-f3c8f51ef9",
-        "en": "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52307",
-        "fr": "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52307"
+        "it": "giardiniere-nel-giardinaggio-e-nel-paesaggisme-stadt-zurich-zurich-12e22d",
+        "en": "gardener-in-gardening-and-landscaping-stadt-zurich-zurich-12e22d",
+        "fr": "jardinier-en-jardinage-et-amenagement-paysager-stadt-zurich-zurich-12e22d"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -27792,12 +27838,20 @@
       "previousSlugsByLocale": {
         "it": [
           "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52307",
-          "gartner-in-garten-e-landschaftsbau-stadt-zurich"
+          "gartner-in-garten-e-landschaftsbau-stadt-zurich",
+          "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-f3c8f51ef9"
+        ],
+        "en": [
+          "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52307"
+        ],
+        "fr": [
+          "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52307"
         ]
       },
       "previousSlugs": [
         "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52307",
-        "gartner-in-garten-e-landschaftsbau-stadt-zurich"
+        "gartner-in-garten-e-landschaftsbau-stadt-zurich",
+        "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-f3c8f51ef9"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,

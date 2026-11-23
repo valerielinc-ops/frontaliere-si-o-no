@@ -4450,12 +4450,12 @@
     },
     {
       "id": "pdag-10152eacf03b",
-      "slug": "oberarztin-oberarzt-pdag-windisch-2",
+      "slug": "medico-senior-medico-senior-psychiatrische-dienste-aargau-pdag-windisch-56a0e2",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-pdag-windisch",
-        "it": "oberarztin-oberarzt-pdag-windisch-2",
-        "en": "oberarztin-oberarzt-pdag-windisch-2",
-        "fr": "oberarztin-oberarzt-pdag-windisch-2"
+        "it": "medico-senior-medico-senior-psychiatrische-dienste-aargau-pdag-windisch-56a0e2",
+        "en": "senior-physician-senior-physician-psychiatrische-dienste-aargau-pdag-windisch-56a0e2",
+        "fr": "medecin-superieur-medecin-superieur-psychiatrische-dienste-aargau-pdag-windisch-56a0e2"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -4517,7 +4517,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:47:01.248Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-06-11T11:20:03.561Z"
+      "firstSeenAt": "2026-06-11T11:20:03.561Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-pdag-windisch-2"
+        ],
+        "en": [
+          "oberarztin-oberarzt-pdag-windisch-2"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-pdag-windisch-2"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-pdag-windisch-2"
+      ]
     },
     {
       "id": "pdag-315b200a9c20",
@@ -4607,12 +4621,12 @@
     },
     {
       "id": "pdag-d5013f08ac6e",
-      "slug": "assistenzpsychologin-assistenzpsychologe-pdag-windisch-2",
+      "slug": "assistente-psicologo-assistente-psicologo-psychiatrische-dienste-aargau-pdag-windisch-8ae56d",
       "slugByLocale": {
         "de": "assistenzpsychologin-assistenzpsychologe-pdag-windisch",
-        "it": "assistenzpsychologin-assistenzpsychologe-pdag-windisch-2",
-        "en": "assistenzpsychologin-assistenzpsychologe-pdag-windisch-2",
-        "fr": "assistenzpsychologin-assistenzpsychologe-pdag-windisch-2"
+        "it": "assistente-psicologo-assistente-psicologo-psychiatrische-dienste-aargau-pdag-windisch-8ae56d",
+        "en": "assistant-psychologist-assistant-psychologist-psychiatrische-dienste-aargau-pdag-windisch",
+        "fr": "assistant-psychologue-assistant-psychologue-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -4674,7 +4688,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-08T21:47:01.245Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-26T21:55:23.533Z"
+      "firstSeenAt": "2026-10-26T21:55:23.533Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzpsychologin-assistenzpsychologe-pdag-windisch-2"
+        ],
+        "en": [
+          "assistenzpsychologin-assistenzpsychologe-pdag-windisch-2"
+        ],
+        "fr": [
+          "assistenzpsychologin-assistenzpsychologe-pdag-windisch-2"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzpsychologin-assistenzpsychologe-pdag-windisch-2"
+      ]
     },
     {
       "id": "pdag-693daf83279b",
@@ -5097,12 +5125,12 @@
     },
     {
       "id": "pdag-23c1b9c196ff",
-      "slug": "ergotherapeutin-ergotherapeut-pdag-windisch-2",
+      "slug": "terapeuta-del-lavoro-psychiatrische-dienste-aargau-pdag-windisch-fcd8e4",
       "slugByLocale": {
         "de": "ergotherapeutin-ergotherapeut-pdag-windisch",
-        "it": "ergotherapeutin-ergotherapeut-pdag-windisch-2",
+        "it": "terapeuta-del-lavoro-psychiatrische-dienste-aargau-pdag-windisch-fcd8e4",
         "en": "ergotherapeutin-ergotherapeut-pdag-windisch-2",
-        "fr": "ergotherapeutin-ergotherapeut-pdag-windisch-2"
+        "fr": "ergotherapeute-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -5164,7 +5192,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T21:47:01.239Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-06-11T13:15:23.507Z"
+      "firstSeenAt": "2026-06-11T13:15:23.507Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeutin-ergotherapeut-pdag-windisch-2"
+        ],
+        "fr": [
+          "ergotherapeutin-ergotherapeut-pdag-windisch-2"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeutin-ergotherapeut-pdag-windisch-2"
+      ]
     },
     {
       "id": "pdag-59a90dbccf3f",
@@ -6016,10 +6055,10 @@
     },
     {
       "id": "pdag-b38ae6b4afe7",
-      "slug": "fachpsychologin-fachpsychologe-o-assistenzpsychologin-assistenzpsychologe-psychiatrische-dienste-aargau-pdag-windisch",
+      "slug": "psicologo-a-specialista-o-psicologo-a-assistente-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "de": "fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe-pdag-windisch",
-        "it": "fachpsychologin-fachpsychologe-o-assistenzpsychologin-assistenzpsychologe-psychiatrische-dienste-aargau-pdag-windisch",
+        "it": "psicologo-a-specialista-o-psicologo-a-assistente-psychiatrische-dienste-aargau-pdag-windisch",
         "en": "fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe-pdag-windisch-2",
         "fr": "fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe-pdag-windisch-2"
       },
@@ -6069,11 +6108,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe-pdag-windisch-2"
+          "fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe-pdag-windisch-2",
+          "fachpsychologin-fachpsychologe-o-assistenzpsychologin-assistenzpsychologe-psychiatrische-dienste-aargau-pdag-windisch"
         ]
       },
       "previousSlugs": [
-        "fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe-pdag-windisch-2"
+        "fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe-pdag-windisch-2",
+        "fachpsychologin-fachpsychologe-o-assistenzpsychologin-assistenzpsychologe-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,

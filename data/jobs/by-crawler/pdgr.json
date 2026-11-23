@@ -3837,12 +3837,12 @@
     },
     {
       "id": "pdgr-4e69f437387b",
-      "slug": "oberarztin-oberarzt-pdgr-ch-2",
+      "slug": "medico-senior-medico-senior-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-pdgr-ch",
-        "it": "oberarztin-oberarzt-pdgr-ch-2",
-        "en": "oberarztin-oberarzt-pdgr-ch-2",
-        "fr": "oberarztin-oberarzt-pdgr-ch-2"
+        "it": "medico-senior-medico-senior-psychiatrische-dienste-graubunden-chur",
+        "en": "senior-physician-senior-physician-psychiatrische-dienste-graubunden-chur",
+        "fr": "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -3920,7 +3920,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-10T21:24:19.792Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-04-14T10:28:30.371Z"
+      "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-pdgr-ch-2"
+        ],
+        "en": [
+          "oberarztin-oberarzt-pdgr-ch-2"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-pdgr-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-pdgr-ch-2"
+      ]
     },
     {
       "id": "pdgr-4b268df8a15d",

@@ -3459,9 +3459,9 @@
     },
     {
       "id": "eth-zurich-4b19754f5081",
-      "slug": "responsabile-di-progetto-m-f-d-committenza-eth-zurich-zurich-6fdbc85028",
+      "slug": "responsabile-di-progetto-m-w-d-bauherrschaft-eth-zurich",
       "slugByLocale": {
-        "it": "responsabile-di-progetto-m-f-d-committenza-eth-zurich-zurich-6fdbc85028",
+        "it": "responsabile-di-progetto-m-w-d-bauherrschaft-eth-zurich",
         "en": "project-manager-m-f-d-client-eth-zurich-zurich",
         "de": "projektleiter-in-m-w-d-bauherrschaft-eth-zurich-ch",
         "fr": "chef-fe-de-projet-h-f-d-maitrise-d-ouvrage-eth-zurich-zurich"
@@ -3528,7 +3528,8 @@
         "project-manager-m-w-d-bauherrschaft-eth-zurich-zurich",
         "responsabile-di-progetto-m-f-d-committente-eth-zurich-zurich",
         "responsabile-di-progetto-m-w-d-bauherrschaft-eth-zurich-zurich-9e7a36f19e",
-        "responsabile-di-progetto-m-w-d-bauherrschaft-eth-zurich"
+        "responsabile-di-progetto-m-w-d-bauherrschaft-eth-zurich",
+        "responsabile-di-progetto-m-f-d-committenza-eth-zurich-zurich-6fdbc85028"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3553,7 +3554,8 @@
           "project-manager-teilprojektleiter-in-m-w-d-bauherrschaft-gebaudetechnik-eth-zurich-zurich",
           "responsabile-di-progetto-m-w-d-bauherrschaft-eth-zurich",
           "projektleiter-in-teilprojektleiter-in-m-w-d-bauherrschaft-gebaudetechnik-eth-zurich-ch",
-          "chef-de-projet-teilprojektleiter-in-m-w-d-bauherrschaft-gebaudetechnik-eth-zurich-zurich"
+          "chef-de-projet-teilprojektleiter-in-m-w-d-bauherrschaft-gebaudetechnik-eth-zurich-zurich",
+          "responsabile-di-progetto-m-f-d-committenza-eth-zurich-zurich-6fdbc85028"
         ],
         "en": [
           "projektleiter-in-m-w-d-bauherrschaft-eth-zurich-ch",
@@ -9478,10 +9480,10 @@
     },
     {
       "id": "eth-zurich-e68bf0bacafc",
-      "slug": "responsabile-di-progetto-m-w-d-bauherrschaft-eth-zurich-zurich-9e7a36f19e",
+      "slug": "responsabile-di-progetto-m-f-d-committente-eth-zurich-zurich",
       "slugByLocale": {
         "de": "projektleiter-in-m-w-d-bauherrschaft-eth-zurich-ch",
-        "it": "responsabile-di-progetto-m-w-d-bauherrschaft-eth-zurich-zurich-9e7a36f19e",
+        "it": "responsabile-di-progetto-m-f-d-committente-eth-zurich-zurich",
         "en": "projektleiter-in-m-w-d-bauherrschaft-eth-zurich-ch",
         "fr": "projektleiter-in-m-w-d-bauherrschaft-eth-zurich-ch"
       },
@@ -9529,12 +9531,14 @@
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-m-w-d-bauherrschaft-eth-zurich-ch",
-          "responsabile-di-progetto-m-w-d-bauherrschaft-eth-zurich"
+          "responsabile-di-progetto-m-w-d-bauherrschaft-eth-zurich",
+          "responsabile-di-progetto-m-w-d-bauherrschaft-eth-zurich-zurich-9e7a36f19e"
         ]
       },
       "previousSlugs": [
         "projektleiter-in-m-w-d-bauherrschaft-eth-zurich-ch",
-        "responsabile-di-progetto-m-w-d-bauherrschaft-eth-zurich"
+        "responsabile-di-progetto-m-w-d-bauherrschaft-eth-zurich",
+        "responsabile-di-progetto-m-w-d-bauherrschaft-eth-zurich-zurich-9e7a36f19e"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,

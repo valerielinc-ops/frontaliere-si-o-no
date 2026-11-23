@@ -526,12 +526,12 @@
     },
     {
       "id": "hfr-hopital-fribourgeois-a4787cd8f211",
-      "slug": "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-2",
+      "slug": "capo-della-clinica-hopital-fribourgeois-hfr-fribourg-switzerland-2634be",
       "slugByLocale": {
         "fr": "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg",
-        "it": "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-2",
-        "en": "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-2",
-        "de": "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-2"
+        "it": "capo-della-clinica-hopital-fribourgeois-hfr-fribourg-switzerland-2634be",
+        "en": "head-of-clinic-hopital-fribourgeois-hfr-fribourg-switzerland-2634be",
+        "de": "leiter-der-klinik-hopital-fribourgeois-hfr-fribourg-switzerland-2634be"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
@@ -595,14 +595,28 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T21:43:47.902Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T22:04:58.243Z"
+      "firstSeenAt": "2026-11-06T22:04:58.243Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-2"
+        ],
+        "en": [
+          "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-2"
+        ],
+        "de": [
+          "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-2"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-2"
+      ]
     },
     {
       "id": "hfr-hopital-fribourgeois-392144471367",
-      "slug": "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-3",
+      "slug": "capo-della-clinica-hopital-fribourgeois-hfr-fribourg-switzerland-cea670",
       "slugByLocale": {
         "fr": "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg",
-        "it": "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-3",
+        "it": "capo-della-clinica-hopital-fribourgeois-hfr-fribourg-switzerland-cea670",
         "en": "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-3",
         "de": "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-3"
       },
@@ -668,7 +682,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T21:43:47.393Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T22:04:58.243Z"
+      "firstSeenAt": "2026-11-06T22:04:58.243Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-3"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-clinique-hfr-hopital-fribourgeois-fribourg-3"
+      ]
     },
     {
       "id": "hfr-hopital-fribourgeois-0fc4713bc8fd",
@@ -1622,10 +1644,10 @@
     },
     {
       "id": "hfr-hopital-fribourgeois-b15f20fbf03b",
-      "slug": "chef-fe-de-clinique-hfr-hopital-fribourgeois-riaz-2",
+      "slug": "capo-della-clinica-hopital-fribourgeois-hfr-riaz-switzerland-ac9b51",
       "slugByLocale": {
         "fr": "chef-fe-de-clinique-hfr-hopital-fribourgeois-riaz",
-        "it": "chef-fe-de-clinique-hfr-hopital-fribourgeois-riaz-2",
+        "it": "capo-della-clinica-hopital-fribourgeois-hfr-riaz-switzerland-ac9b51",
         "en": "chef-fe-de-clinique-hfr-hopital-fribourgeois-riaz-2",
         "de": "chef-fe-de-clinique-hfr-hopital-fribourgeois-riaz-2"
       },
@@ -1691,7 +1713,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:43:39.388Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:42:58.586Z"
+      "firstSeenAt": "2026-11-13T21:42:58.586Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-clinique-hfr-hopital-fribourgeois-riaz-2"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-clinique-hfr-hopital-fribourgeois-riaz-2"
+      ]
     },
     {
       "id": "hfr-hopital-fribourgeois-d91d574aa15b",
@@ -1777,10 +1807,10 @@
     },
     {
       "id": "hfr-hopital-fribourgeois-289cddd40f65",
-      "slug": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-2",
+      "slug": "segretario-medico-hopital-fribourgeois-hfr-fribourg-switzerland-d779d8",
       "slugByLocale": {
         "fr": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg",
-        "it": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-2",
+        "it": "segretario-medico-hopital-fribourgeois-hfr-fribourg-switzerland-d779d8",
         "en": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-2",
         "de": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-2"
       },
@@ -1846,14 +1876,22 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T21:43:38.083Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:58:00.862Z"
+      "firstSeenAt": "2026-11-12T09:58:00.862Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-2"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-2"
+      ]
     },
     {
       "id": "hfr-hopital-fribourgeois-a0ccd1999539",
-      "slug": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-3",
+      "slug": "segretario-medico-hopital-fribourgeois-hfr-fribourg-switzerland-0517a1",
       "slugByLocale": {
         "fr": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg",
-        "it": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-3",
+        "it": "segretario-medico-hopital-fribourgeois-hfr-fribourg-switzerland-0517a1",
         "en": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-3",
         "de": "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-3"
       },
@@ -1919,7 +1957,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T21:43:37.535Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-12T09:58:00.862Z"
+      "firstSeenAt": "2026-11-12T09:58:00.862Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-3"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-e-hfr-hopital-fribourgeois-fribourg-3"
+      ]
     }
   ]
 }

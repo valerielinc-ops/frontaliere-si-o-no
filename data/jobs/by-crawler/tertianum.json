@@ -13217,11 +13217,11 @@
     },
     {
       "id": "tertianum-d0f34b54f7be",
-      "slug": "assistante-assistant-en-soins-et-sante-communautaire-cfc-80-100-tertianum-nendaz",
+      "slug": "assistente-per-la-salute-e-la-cura-della-comunita-swc-80-100-tertianum-nendaz",
       "slugByLocale": {
         "fr": "assistante-assistant-en-soins-et-sante-communautaire-cfc-80-100-tertianum-nendaz",
         "en": "community-health-assistant-swc-80-100-tertianum-nendaz",
-        "it": "assistante-assistant-en-soins-et-sante-communautaire-cfc-80-100-tertianum-nendaz",
+        "it": "assistente-per-la-salute-e-la-cura-della-comunita-swc-80-100-tertianum-nendaz",
         "de": "assistante-assistant-en-soins-et-sante-communautaire-cfc-80-100-tertianum-nendaz"
       },
       "company": "Tertianum",
@@ -13284,7 +13284,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T21:33:08.134Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-05-19T12:21:28.091Z"
+      "firstSeenAt": "2026-05-19T12:21:28.091Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistante-assistant-en-soins-et-sante-communautaire-cfc-80-100-tertianum-nendaz"
+        ]
+      },
+      "previousSlugs": [
+        "assistante-assistant-en-soins-et-sante-communautaire-cfc-80-100-tertianum-nendaz"
+      ]
     },
     {
       "id": "tertianum-9d1895324504",

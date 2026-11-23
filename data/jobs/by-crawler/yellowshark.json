@@ -54740,7 +54740,8 @@
         "schreiner-m-w-chur-gr-yellowshark-ch",
         "schreiner-m-w-yellowshark-ag-chur-021aa76bcb",
         "carpenter-m-f-yellowshark-ag-chur-09f90e8313",
-        "carpenter-m-f-yellowshark-ag-chur"
+        "carpenter-m-f-yellowshark-ag-chur",
+        "carpenter-m-f-yellowshark-ag-chur-bgtjv1"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -54749,7 +54750,8 @@
           "carpenter-m-f-yellowshark-ag-chur-09f90e8313"
         ],
         "en": [
-          "carpenter-m-f-yellowshark-ag-chur"
+          "carpenter-m-f-yellowshark-ag-chur",
+          "carpenter-m-f-yellowshark-ag-chur-bgtjv1"
         ]
       },
       "firstSeenAt": "2026-09-24T00:09:46.446Z",
@@ -71539,12 +71541,12 @@
     },
     {
       "id": "yellowshark-54ff4990ae97",
-      "slug": "wir-brauchen-sie-come-servicetechniker-per-landmaschinen-100-yellowshark-ag-dielsdorf",
+      "slug": "abbiamo-bisogno-di-te-come-tecnico-dell-assistenza-per-macchine-agricole-100-yellowshark-ag-dielsdorf-zh",
       "slugByLocale": {
         "de": "wir-brauchen-sie-als-servicetechniker-fur-landmaschinen-100-dielsdorf-zh-yellowshark-ch",
-        "it": "wir-brauchen-sie-come-servicetechniker-per-landmaschinen-100-yellowshark-ag-dielsdorf",
-        "en": "wir-brauchen-sie-als-servicetechniker-fur-landmaschinen-100-dielsdorf-zh-yellowshark-ch",
-        "fr": "wir-brauchen-sie-als-servicetechniker-fur-landmaschinen-100-dielsdorf-zh-yellowshark-ch"
+        "it": "abbiamo-bisogno-di-te-come-tecnico-dell-assistenza-per-macchine-agricole-100-yellowshark-ag-dielsdorf-zh",
+        "en": "we-need-you-as-a-service-technician-for-agricultural-machinery-100-yellowshark-ag-dielsdorf-zh",
+        "fr": "nous-avons-besoin-de-vous-en-tant-que-technicien-de-service-pour-les-machines-agricoles-100-yellowshark-ag-dielsdorf-zh"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -71591,11 +71593,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "wir-brauchen-sie-als-servicetechniker-fur-landmaschinen-100-dielsdorf-zh-yellowshark-ch",
+          "wir-brauchen-sie-come-servicetechniker-per-landmaschinen-100-yellowshark-ag-dielsdorf"
+        ],
+        "en": [
+          "wir-brauchen-sie-als-servicetechniker-fur-landmaschinen-100-dielsdorf-zh-yellowshark-ch"
+        ],
+        "fr": [
           "wir-brauchen-sie-als-servicetechniker-fur-landmaschinen-100-dielsdorf-zh-yellowshark-ch"
         ]
       },
       "previousSlugs": [
-        "wir-brauchen-sie-als-servicetechniker-fur-landmaschinen-100-dielsdorf-zh-yellowshark-ch"
+        "wir-brauchen-sie-als-servicetechniker-fur-landmaschinen-100-dielsdorf-zh-yellowshark-ch",
+        "wir-brauchen-sie-come-servicetechniker-per-landmaschinen-100-yellowshark-ag-dielsdorf"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

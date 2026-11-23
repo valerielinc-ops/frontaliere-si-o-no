@@ -1226,12 +1226,12 @@
     },
     {
       "id": "spital-emmental-3c703e067d08",
-      "slug": "dipl-pflegefachperson-a-spital-emmental-burgdorf-2",
+      "slug": "infermiera-a-spital-emmental-burgdorf-a6de8c",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "it": "dipl-pflegefachperson-a-spital-emmental-burgdorf-2",
+        "it": "infermiera-a-spital-emmental-burgdorf-a6de8c",
         "en": "dipl-pflegefachperson-a-spital-emmental-burgdorf-2",
-        "fr": "dipl-pflegefachperson-a-spital-emmental-burgdorf-2"
+        "fr": "dipl-infirmiere-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -1313,16 +1313,27 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-22T21:19:19.514Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-07T15:03:15.193Z"
+      "firstSeenAt": "2026-09-07T15:03:15.193Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf-2"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf-2"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-a-spital-emmental-burgdorf-2"
+      ]
     },
     {
       "id": "spital-emmental-2af6f75bc207",
-      "slug": "dipl-pflegefachperson-a-spital-emmental-burgdorf-3",
+      "slug": "infermiera-a-spital-emmental-burgdorf-e7fba2",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "it": "dipl-pflegefachperson-a-spital-emmental-burgdorf-3",
+        "it": "infermiera-a-spital-emmental-burgdorf-e7fba2",
         "en": "dipl-pflegefachperson-a-spital-emmental-burgdorf-3",
-        "fr": "dipl-pflegefachperson-a-spital-emmental-burgdorf-3"
+        "fr": "dipl-infirmiere-a-spital-emmental-burgdorf-e7fba2"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -1404,16 +1415,27 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-22T21:19:18.849Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-07T15:03:15.193Z"
+      "firstSeenAt": "2026-09-07T15:03:15.193Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf-3"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf-3"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-a-spital-emmental-burgdorf-3"
+      ]
     },
     {
       "id": "spital-emmental-6889f5a03181",
-      "slug": "dipl-pflegefachperson-a-spital-emmental-langnau-2",
+      "slug": "infermiera-a-spital-emmental-langnau",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-a-spital-emmental-langnau",
-        "it": "dipl-pflegefachperson-a-spital-emmental-langnau-2",
-        "en": "dipl-pflegefachperson-a-spital-emmental-langnau-2",
-        "fr": "dipl-pflegefachperson-a-spital-emmental-langnau-2"
+        "it": "infermiera-a-spital-emmental-langnau",
+        "en": "dipl-nurse-a-spital-emmental-langnau",
+        "fr": "dipl-infirmiere-a-spital-emmental-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -1481,7 +1503,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-01T21:19:18.277Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-03T09:10:14.957Z"
+      "firstSeenAt": "2026-10-03T09:10:14.957Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-a-spital-emmental-langnau-2"
+        ],
+        "en": [
+          "dipl-pflegefachperson-a-spital-emmental-langnau-2"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-a-spital-emmental-langnau-2"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-a-spital-emmental-langnau-2"
+      ]
     },
     {
       "id": "spital-emmental-c239877f04e9",
@@ -1768,12 +1804,12 @@
     },
     {
       "id": "spital-emmental-38786c3632be",
-      "slug": "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf-2",
+      "slug": "dipl-professionista-infermieristica-con-responsabilita-di-infermieristica-opzionale-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf",
-        "it": "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf-2",
-        "en": "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf-2",
-        "fr": "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf-2"
+        "it": "dipl-professionista-infermieristica-con-responsabilita-di-infermieristica-opzionale-a-spital-emmental-burgdorf",
+        "en": "dipl-nurse-with-option-professional-responsibility-nursing-a-spital-emmental-burgdorf",
+        "fr": "oui-infirmiere-avec-option-responsabilite-professionnelle-infirmiere-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -1855,7 +1891,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-22T21:19:15.623Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-07T15:03:15.193Z"
+      "firstSeenAt": "2026-09-07T15:03:15.193Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf-2"
+        ],
+        "en": [
+          "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf-2"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf-2"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-burgdorf-2"
+      ]
     },
     {
       "id": "spital-emmental-b491f4dbf5fe",
@@ -1953,12 +2003,12 @@
     },
     {
       "id": "spital-emmental-aaac30e2dbfb",
-      "slug": "dipl-pflegefachperson-a-spital-emmental-burgdorf-4",
+      "slug": "infermiera-a-spital-emmental-burgdorf-0238c4",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "it": "dipl-pflegefachperson-a-spital-emmental-burgdorf-4",
-        "en": "dipl-pflegefachperson-a-spital-emmental-burgdorf-4",
-        "fr": "dipl-pflegefachperson-a-spital-emmental-burgdorf-4"
+        "it": "infermiera-a-spital-emmental-burgdorf-0238c4",
+        "en": "dipl-nurse-a-spital-emmental-burgdorf-0238c4",
+        "fr": "dipl-infirmiere-a-spital-emmental-burgdorf-0238c4"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -2040,7 +2090,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-22T21:19:14.265Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-07T15:03:15.193Z"
+      "firstSeenAt": "2026-09-07T15:03:15.193Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf-4"
+        ],
+        "en": [
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf-4"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf-4"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-a-spital-emmental-burgdorf-4"
+      ]
     },
     {
       "id": "spital-emmental-510284770336",
@@ -3828,12 +3892,12 @@
     },
     {
       "id": "spital-emmental-5736f9bafc85",
-      "slug": "medizinische-n-praxisassistent-in-o-fachperson-gesundheit-a-spital-emmental-burgdorf",
+      "slug": "assistente-medico-o-professionista-sanitario-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "medizinische-n-praxisassistent-in-oder-fachperson-gesundheit-a-spital-emmental-burgdorf",
-        "it": "medizinische-n-praxisassistent-in-o-fachperson-gesundheit-a-spital-emmental-burgdorf",
-        "en": "medizinische-n-praxisassistent-in-oder-fachperson-gesundheit-a-spital-emmental-burgdorf-2",
-        "fr": "medizinische-n-praxisassistent-in-oder-fachperson-gesundheit-a-spital-emmental-burgdorf-2"
+        "it": "assistente-medico-o-professionista-sanitario-a-spital-emmental-burgdorf",
+        "en": "medical-practice-assistant-or-health-professional-a-spital-emmental-burgdorf",
+        "fr": "assistant-de-pratique-medicale-ou-professionnel-de-sante-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3886,11 +3950,19 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
+          "medizinische-n-praxisassistent-in-oder-fachperson-gesundheit-a-spital-emmental-burgdorf-2",
+          "medizinische-n-praxisassistent-in-o-fachperson-gesundheit-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "medizinische-n-praxisassistent-in-oder-fachperson-gesundheit-a-spital-emmental-burgdorf-2"
+        ],
+        "fr": [
           "medizinische-n-praxisassistent-in-oder-fachperson-gesundheit-a-spital-emmental-burgdorf-2"
         ]
       },
       "previousSlugs": [
-        "medizinische-n-praxisassistent-in-oder-fachperson-gesundheit-a-spital-emmental-burgdorf-2"
+        "medizinische-n-praxisassistent-in-oder-fachperson-gesundheit-a-spital-emmental-burgdorf-2",
+        "medizinische-n-praxisassistent-in-o-fachperson-gesundheit-a-spital-emmental-burgdorf"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -3927,12 +3999,12 @@
     },
     {
       "id": "spital-emmental-b13c32ec88a9",
-      "slug": "dipl-pflegefachperson-a-spital-emmental-burgdorf-5",
+      "slug": "infermiera-a-spital-emmental-burgdorf-1ed2e9",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "it": "dipl-pflegefachperson-a-spital-emmental-burgdorf-5",
-        "en": "dipl-pflegefachperson-a-spital-emmental-burgdorf-5",
-        "fr": "dipl-pflegefachperson-a-spital-emmental-burgdorf-5"
+        "it": "infermiera-a-spital-emmental-burgdorf-1ed2e9",
+        "en": "dipl-nurse-a-spital-emmental-burgdorf-1ed2e9",
+        "fr": "dipl-infirmiere-a-spital-emmental-burgdorf-1ed2e9"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4014,7 +4086,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-22T21:19:04.023Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-07T15:03:15.193Z"
+      "firstSeenAt": "2026-09-07T15:03:15.193Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf-5"
+        ],
+        "en": [
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf-5"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf-5"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-a-spital-emmental-burgdorf-5"
+      ]
     },
     {
       "id": "spital-emmental-8eebc5496ef6",
@@ -4346,12 +4432,12 @@
     },
     {
       "id": "spital-emmental-6e851f4a96de",
-      "slug": "dipl-pflegefachperson-a-spital-emmental-burgdorf-6",
+      "slug": "infermiera-a-spital-emmental-burgdorf-d8710b",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "it": "dipl-pflegefachperson-a-spital-emmental-burgdorf-6",
-        "en": "dipl-pflegefachperson-a-spital-emmental-burgdorf-6",
-        "fr": "dipl-pflegefachperson-a-spital-emmental-burgdorf-6"
+        "it": "infermiera-a-spital-emmental-burgdorf-d8710b",
+        "en": "dipl-nurse-a-spital-emmental-burgdorf-d8710b",
+        "fr": "dipl-infirmiere-a-spital-emmental-burgdorf-d8710b"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4433,7 +4519,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-22T21:19:01.662Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-07T15:03:15.193Z"
+      "firstSeenAt": "2026-09-07T15:03:15.193Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf-6"
+        ],
+        "en": [
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf-6"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf-6"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-a-spital-emmental-burgdorf-6"
+      ]
     },
     {
       "id": "spital-emmental-facfc67084cc",

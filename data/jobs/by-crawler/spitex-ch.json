@@ -2117,8 +2117,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-mit-oder-ohne-fallfuhrung-40-100-a-spitex-ch-meilen",
         "it": "dipl-pflegefachperson-hf-fh-con-o-ohne-fallfuhrung-40-100-a-spitex-zurichsee-meilen",
-        "en": "dipl-pflegefachperson-hf-fh-mit-oder-ohne-fallfuhrung-40-100-a-spitex-ch-meilen",
-        "fr": "dipl-pflegefachperson-hf-fh-mit-oder-ohne-fallfuhrung-40-100-a-spitex-ch-meilen"
+        "en": "dipl-nurse-hf-fh-with-or-without-drop-management-40-100-a-spitex-zurichsee-meilen",
+        "fr": "dipl-infirmiere-hf-fh-avec-ou-sans-prise-en-charge-des-gouttes-40-100-a-spitex-zurichsee-meilen"
       },
       "company": "Spitex Zürichsee",
       "companyKey": "spitex-ch",
@@ -2166,6 +2166,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-fh-mit-oder-ohne-fallfuhrung-40-100-a-spitex-ch-meilen"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-mit-oder-ohne-fallfuhrung-40-100-a-spitex-ch-meilen"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-fh-mit-oder-ohne-fallfuhrung-40-100-a-spitex-ch-meilen"
         ]
       },

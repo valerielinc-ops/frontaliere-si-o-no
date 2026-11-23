@@ -104737,8 +104737,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-fur-industrie-und-gewerbeinstallationen-zurich-zurich-sta-ch",
         "it": "installatore-trice-elettrico-a-in-per-industrie-e-gewerbeinstallationen-sta-personal-ag-zurich",
-        "en": "elektroinstallateur-in-fur-industrie-und-gewerbeinstallationen-zurich-zurich-sta-ch",
-        "fr": "elektroinstallateur-in-fur-industrie-und-gewerbeinstallationen-zurich-zurich-sta-ch"
+        "en": "electrical-installer-for-industrial-and-commercial-installations-sta-personal-ag-zurich-zurich",
+        "fr": "installateur-electrique-pour-installations-industrielles-et-commerciales-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -104790,7 +104790,6 @@
         "installateur-trice-electricien-ne-pour-les-installations-industrielles-et-commerciales-sta-personal-ag-zurich-zurich",
         "elektroinstallateur-in-fur-industrie-und-gewerbeinstallationen-zurich-zurich-sta-ch",
         "installateur-electricien-pour-les-installations-industrielles-et-commerciales-sta-personal-ag-zurich-zurich",
-        "electrical-installer-for-industrial-and-commercial-installations-sta-personal-ag-zurich-zurich",
         "electricien-ne-pour-installations-industrielles-et-commerciales-sta-personal-ag-zurich-zurich",
         "electrical-installer-fur-industrie-und-gewerbeinstallationen-sta-personal-ag-zurich-zurich",
         "installateur-trice-electricien-ne-fur-industrie-und-gewerbeinstallationen-sta-personal-ag-zurich-zurich",
@@ -104805,10 +104804,10 @@
         ],
         "en": [
           "industrial-and-commercial-electrical-installers-sta-personal-ag-zurich-zurich",
-          "electrical-installer-for-industrial-and-commercial-installations-sta-personal-ag-zurich-zurich",
           "electrical-installer-fur-industrie-und-gewerbeinstallationen-sta-personal-ag-zurich-zurich",
           "electrical-installer-for-industrial-and-commercial-installations-sta-personal-ag-zurich",
-          "elektroinstallateur-in-fur-industrie-und-gewerbeinstallationen-sta-personal-ag-zurich"
+          "elektroinstallateur-in-fur-industrie-und-gewerbeinstallationen-sta-personal-ag-zurich",
+          "elektroinstallateur-in-fur-industrie-und-gewerbeinstallationen-zurich-zurich-sta-ch"
         ],
         "fr": [
           "installateur-trice-electricien-ne-fur-industrie-und-gewerbeinstallationen-sta-personal-ag-zurich",
@@ -104820,7 +104819,8 @@
           "installateur-trice-electricien-ne-fur-industrie-und-gewerbeinstallationen-sta-personal-ag-zurich-zurich",
           "installateur-installatrice-electrique-pour-les-installations-industrielles-et-commerciales-sta-personal-ag-zurich-zurich",
           "installateur-installatrice-electrique-pour-les-installations-industrielles-et-commerciales-sta-personal-ag-zurich",
-          "elektroinstallateur-in-fur-industrie-und-gewerbeinstallationen-sta-personal-ag-zurich"
+          "elektroinstallateur-in-fur-industrie-und-gewerbeinstallationen-sta-personal-ag-zurich",
+          "elektroinstallateur-in-fur-industrie-und-gewerbeinstallationen-zurich-zurich-sta-ch"
         ]
       },
       "salaryMin": 83000,
@@ -121644,12 +121644,12 @@
     },
     {
       "id": "sta-c8014f85cc1a",
-      "slug": "anlagen-e-apparatebauer-in-con-tig-e-orbitalschweissen-sta-personal-ag-zurich",
+      "slug": "costruttore-di-impianti-e-apparecchi-con-tig-e-saldatura-orbitale-sta-personal-ag-zurich-zurich",
       "slugByLocale": {
         "de": "anlagen-und-apparatebauer-in-mit-tig-und-orbitalschweissen-zurich-zurich-sta-ch",
-        "it": "anlagen-e-apparatebauer-in-con-tig-e-orbitalschweissen-sta-personal-ag-zurich",
-        "en": "anlagen-und-apparatebauer-in-mit-tig-und-orbitalschweissen-zurich-zurich-sta-ch",
-        "fr": "anlagen-und-apparatebauer-in-mit-tig-und-orbitalschweissen-zurich-zurich-sta-ch"
+        "it": "costruttore-di-impianti-e-apparecchi-con-tig-e-saldatura-orbitale-sta-personal-ag-zurich-zurich",
+        "en": "plant-and-apparatus-builder-with-tig-and-orbital-welding-sta-personal-ag-zurich-zurich",
+        "fr": "constructeur-d-installations-et-d-appareils-avec-soudage-tig-et-orbital-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -121703,24 +121703,28 @@
         "constructeur-rice-d-installations-et-d-appareils-avec-soudage-tig-et-orbital-sta-personal-ag-zurich-zurich",
         "costruttore-di-impianti-e-apparecchiature-con-saldatura-tig-e-orbitale-sta-personal-ag-zurich-zurich",
         "plant-and-equipment-builder-with-tig-and-orbital-welding-sta-personal-ag-zurich-zurich",
-        "constructeur-constructrice-d-installations-et-d-appareils-avec-soudage-tig-et-orbital-sta-personal-ag-zurich-zurich"
+        "constructeur-constructrice-d-installations-et-d-appareils-avec-soudage-tig-et-orbital-sta-personal-ag-zurich-zurich",
+        "anlagen-e-apparatebauer-in-con-tig-e-orbitalschweissen-sta-personal-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ingegnere-di-impianti-e-apparecchi-con-tig-e-saldatura-orbitale-sta-personal-ag-zurich-zurich",
           "costruttore-trice-di-impianti-e-apparecchi-con-saldatura-tig-e-orbitale-sta-personal-ag-zurich-zurich",
           "costruttore-di-impianti-e-apparecchiature-con-saldatura-tig-e-orbitale-sta-personal-ag-zurich-zurich",
-          "anlagen-und-apparatebauer-in-mit-tig-und-orbitalschweissen-zurich-zurich-sta-ch"
+          "anlagen-und-apparatebauer-in-mit-tig-und-orbitalschweissen-zurich-zurich-sta-ch",
+          "anlagen-e-apparatebauer-in-con-tig-e-orbitalschweissen-sta-personal-ag-zurich"
         ],
         "en": [
           "plant-and-apparatus-engineer-with-tig-and-orbital-welding-sta-personal-ag-zurich-zurich",
           "plant-and-apparatus-fabricator-with-tig-and-orbital-welding-sta-personal-ag-zurich-zurich",
-          "plant-and-equipment-builder-with-tig-and-orbital-welding-sta-personal-ag-zurich-zurich"
+          "plant-and-equipment-builder-with-tig-and-orbital-welding-sta-personal-ag-zurich-zurich",
+          "anlagen-und-apparatebauer-in-mit-tig-und-orbitalschweissen-zurich-zurich-sta-ch"
         ],
         "fr": [
           "ingenieur-d-usine-et-d-appareils-avec-tig-et-soudure-orbitale-sta-personal-ag-zurich-zurich",
           "constructeur-rice-d-installations-et-d-appareils-avec-soudage-tig-et-orbital-sta-personal-ag-zurich-zurich",
-          "constructeur-constructrice-d-installations-et-d-appareils-avec-soudage-tig-et-orbital-sta-personal-ag-zurich-zurich"
+          "constructeur-constructrice-d-installations-et-d-appareils-avec-soudage-tig-et-orbital-sta-personal-ag-zurich-zurich",
+          "anlagen-und-apparatebauer-in-mit-tig-und-orbitalschweissen-zurich-zurich-sta-ch"
         ]
       },
       "salaryMin": 73500,

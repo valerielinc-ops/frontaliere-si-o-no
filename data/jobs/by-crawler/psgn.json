@@ -89,7 +89,7 @@
       "slugByLocale": {
         "it": "dipl-cura-professionale-hf-fh-psychiatrie-st-gallen-pfafers",
         "en": "dipl-care-professional-hf-fh-psychiatrie-st-gallen-pfafers-21097e",
-        "de": "dipl-pflegefachperson-hf-fh-psgn-pfafers",
+        "de": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-pfafers",
         "fr": "dipl-soins-professionnels-hf-fh-psychiatrie-st-gallen-pfafers-21097e"
       },
       "company": "Psychiatrie St.Gallen",
@@ -148,6 +148,9 @@
         ],
         "fr": [
           "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-pfafers"
+        ],
+        "de": [
+          "dipl-pflegefachperson-hf-fh-psgn-pfafers"
         ]
       },
       "firstSeenAt": "2026-09-21T15:58:38.959Z",
@@ -337,7 +340,7 @@
       "slugByLocale": {
         "it": "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers-67252562b6",
         "en": "senior-physician-senior-physician-psychiatrie-st-gallen-pfafers",
-        "de": "oberarztin-oberarzt-psgn-pfafers",
+        "de": "oberarztin-oberarzt-psychiatrie-st-gallen-pfafers",
         "fr": "medecin-superieur-medecin-superieur-psychiatrie-st-gallen-pfafers"
       },
       "company": "Psychiatrie St.Gallen",
@@ -409,7 +412,8 @@
           "oberarztin-oberarzt-psgn-pfafers"
         ],
         "de": [
-          "oberarztin-oberarzt-psgn-pfafers-a473379d"
+          "oberarztin-oberarzt-psgn-pfafers-a473379d",
+          "oberarztin-oberarzt-psgn-pfafers"
         ],
         "fr": [
           "oberarztin-oberarzt-psgn-pfafers"

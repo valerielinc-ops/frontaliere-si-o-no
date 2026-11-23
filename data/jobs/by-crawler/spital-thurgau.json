@@ -11983,12 +11983,12 @@
     },
     {
       "id": "spital-thurgau-71a33cd89134",
-      "slug": "fachmann-frau-gesundheit-spital-thurgau-stgag-kantonsspital-munsterlingen",
+      "slug": "operatore-operatrice-sanitario-a-spital-thurgau-stgag-kantonsspital-munsterlingen",
       "slugByLocale": {
         "de": "fachmann-frau-gesundheit-stgag-ch",
-        "it": "fachmann-frau-gesundheit-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "en": "fachmann-frau-gesundheit-stgag-ch",
-        "fr": "fachmann-frau-gesundheit-stgag-ch"
+        "it": "operatore-operatrice-sanitario-a-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "en": "health-specialist-efz-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "fr": "specialiste-de-la-sante-spital-thurgau-stgag-kantonsspital-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -12037,11 +12037,19 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
+          "fachmann-frau-gesundheit-stgag-ch",
+          "fachmann-frau-gesundheit-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        ],
+        "en": [
+          "fachmann-frau-gesundheit-stgag-ch"
+        ],
+        "fr": [
           "fachmann-frau-gesundheit-stgag-ch"
         ]
       },
       "previousSlugs": [
-        "fachmann-frau-gesundheit-stgag-ch"
+        "fachmann-frau-gesundheit-stgag-ch",
+        "fachmann-frau-gesundheit-spital-thurgau-stgag-kantonsspital-munsterlingen"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -14248,12 +14256,12 @@
     },
     {
       "id": "spital-thurgau-c22e229f70f1",
-      "slug": "dipl-pflegefachmann-frau-hf-fh-drogenentzug-therapie-spital-thurgau-stgag-munsterlingen",
+      "slug": "infermiere-a-diplomato-a-hf-fh-disintossicazione-da-sostanze-stupefacenti-e-terapia-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "de": "dipl-pflegefachmann-frau-hf-fh-drogenentzug-therapie-stgag-ch",
-        "it": "dipl-pflegefachmann-frau-hf-fh-drogenentzug-therapie-spital-thurgau-stgag-munsterlingen",
-        "en": "dipl-pflegefachmann-frau-hf-fh-drogenentzug-therapie-stgag-ch",
-        "fr": "dipl-pflegefachmann-frau-hf-fh-drogenentzug-therapie-stgag-ch"
+        "it": "infermiere-a-diplomato-a-hf-fh-disintossicazione-da-sostanze-stupefacenti-e-terapia-spital-thurgau-stgag-munsterlingen",
+        "en": "qualified-nurse-hf-fh-drug-withdrawal-therapy-spital-thurgau-stgag-munsterlingen",
+        "fr": "infirmier-infirmiere-diplome-e-hes-fh-sevrage-et-therapie-des-addictions-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -14302,11 +14310,19 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachmann-frau-hf-fh-drogenentzug-therapie-stgag-ch",
+          "dipl-pflegefachmann-frau-hf-fh-drogenentzug-therapie-spital-thurgau-stgag-munsterlingen"
+        ],
+        "en": [
+          "dipl-pflegefachmann-frau-hf-fh-drogenentzug-therapie-stgag-ch"
+        ],
+        "fr": [
           "dipl-pflegefachmann-frau-hf-fh-drogenentzug-therapie-stgag-ch"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachmann-frau-hf-fh-drogenentzug-therapie-stgag-ch"
+        "dipl-pflegefachmann-frau-hf-fh-drogenentzug-therapie-stgag-ch",
+        "dipl-pflegefachmann-frau-hf-fh-drogenentzug-therapie-spital-thurgau-stgag-munsterlingen"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

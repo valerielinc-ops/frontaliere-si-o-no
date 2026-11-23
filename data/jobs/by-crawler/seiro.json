@@ -595,10 +595,10 @@
     },
     {
       "id": "seiro-21307175a1e8",
-      "slug": "oberarztin-oberarzt-radiologie-brustbildgebung-zurich-seiro-zurich-zurich-seiro-ch",
+      "slug": "medico-senior-radiology-breast-imaging-zurich-seiro-seiro-gmbh-zurich-zurich",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-radiologie-brustbildgebung-zurich-seiro-zurich-zurich-seiro-ch",
-        "it": "oberarztin-oberarzt-radiologie-brustbildgebung-zurich-seiro-zurich-zurich-seiro-ch",
+        "it": "medico-senior-radiology-breast-imaging-zurich-seiro-seiro-gmbh-zurich-zurich",
         "en": "oberarztin-oberarzt-radiologie-brustbildgebung-zurich-seiro-zurich-zurich-seiro-ch",
         "fr": "oberarztin-oberarzt-radiologie-brustbildgebung-zurich-seiro-zurich-zurich-seiro-ch"
       },
@@ -662,7 +662,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:23:44.653Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:55:35.004Z"
+      "firstSeenAt": "2026-11-06T21:55:35.004Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-radiologie-brustbildgebung-zurich-seiro-zurich-zurich-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-radiologie-brustbildgebung-zurich-seiro-zurich-zurich-seiro-ch"
+      ]
     },
     {
       "id": "seiro-c55ba6208b38",

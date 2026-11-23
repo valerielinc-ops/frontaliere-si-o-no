@@ -8618,12 +8618,12 @@
     },
     {
       "id": "rolex-f8d8500c61c4",
-      "slug": "technicien-de-maintenance-h-f-rolex-ch",
+      "slug": "manutenzione-tecnica-m-f-rolex-fribourg",
       "slugByLocale": {
         "fr": "technicien-de-maintenance-h-f-rolex-ch",
-        "it": "technicien-de-maintenance-h-f-rolex-ch",
-        "en": "technicien-de-maintenance-h-f-rolex-ch",
-        "de": "technicien-de-maintenance-h-f-rolex-ch"
+        "it": "manutenzione-tecnica-m-f-rolex-fribourg",
+        "en": "maintenance-technician-m-f-rolex-fribourg",
+        "de": "wartungstechniker-m-w-rolex-fribourg"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -8684,7 +8684,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:20:46.351Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-07-24T11:09:30.339Z"
+      "firstSeenAt": "2026-07-24T11:09:30.339Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-de-maintenance-h-f-rolex-ch"
+        ],
+        "en": [
+          "technicien-de-maintenance-h-f-rolex-ch"
+        ],
+        "de": [
+          "technicien-de-maintenance-h-f-rolex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-de-maintenance-h-f-rolex-ch"
+      ]
     },
     {
       "id": "rolex-781583df431b",
@@ -9344,12 +9358,12 @@
     },
     {
       "id": "rolex-2c3c62eae884",
-      "slug": "responsable-de-groupe-h-f-rolex-ch-2",
+      "slug": "gestione-gruppo-m-f-rolex-bienne",
       "slugByLocale": {
         "fr": "responsable-de-groupe-h-f-rolex-ch",
-        "it": "responsable-de-groupe-h-f-rolex-ch-2",
-        "en": "responsable-de-groupe-h-f-rolex-ch-2",
-        "de": "responsable-de-groupe-h-f-rolex-ch-2"
+        "it": "gestione-gruppo-m-f-rolex-bienne",
+        "en": "group-manager-m-f-rolex-bienne-768749",
+        "de": "gruppenleiter-m-w-rolex-bienne"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -9410,7 +9424,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T21:20:41.490Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-26T13:57:59.272Z"
+      "firstSeenAt": "2026-09-26T13:57:59.272Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-de-groupe-h-f-rolex-ch-2"
+        ],
+        "en": [
+          "responsable-de-groupe-h-f-rolex-ch-2"
+        ],
+        "de": [
+          "responsable-de-groupe-h-f-rolex-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-de-groupe-h-f-rolex-ch-2"
+      ]
     },
     {
       "id": "rolex-5964177cf8ea",
