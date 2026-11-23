@@ -731,9 +731,9 @@
       "id": "ch-5c3429efc794",
       "slug": "consulente-clienti-previdenza-e-piani-di-risparmio-personale-esterno-global-sana-convit-central-gmbh-dietikon",
       "slugByLocale": {
+        "de": "kundenberater-vorsorge-sparplane-quereinsteiger-global-sana-dietikon",
         "it": "consulente-clienti-previdenza-e-piani-di-risparmio-personale-esterno-global-sana-convit-central-gmbh-dietikon",
         "en": "customer-advisor-precaution-savings-plans-cross-entrants-global-sana-convit-central-gmbh-dietikon-switzerland",
-        "de": "kundenberater-vorsorge-amp-sparplane-quereinsteiger-convit-central-gmbh-dietikon",
         "fr": "regimes-de-precaution-et-d-epargne-des-conseillers-a-la-clientele-participants-croises-global-sana-convit-central-gmbh"
       },
       "company": "Global Sana",
@@ -776,11 +776,6 @@
       "applyUrl": "https://ch.talent.com/view?id=643709345494929387&trigger_from=related_jobs",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "kundenberater-vorsorge-amp-sparplane-quereinsteiger-convit-central-gmbh-dietikon",
-        "kundenberater-previdenza-sparplane-candidato-a-in-riqualificazione-global-sana-dietikon",
-        "kundenberater-vorsorge-sparplane-quereinsteiger-global-sana-dietikon"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-vorsorge-amp-sparplane-quereinsteiger-convit-central-gmbh-dietikon",
@@ -791,9 +786,16 @@
         ],
         "fr": [
           "kundenberater-vorsorge-sparplane-quereinsteiger-global-sana-dietikon"
+        ],
+        "de": [
+          "kundenberater-vorsorge-amp-sparplane-quereinsteiger-convit-central-gmbh-dietikon"
         ]
       },
-      "firstSeenAt": "2026-11-22T21:23:04.740Z",
+      "previousSlugs": [
+        "kundenberater-vorsorge-amp-sparplane-quereinsteiger-convit-central-gmbh-dietikon",
+        "kundenberater-previdenza-sparplane-candidato-a-in-riqualificazione-global-sana-dietikon",
+        "kundenberater-vorsorge-sparplane-quereinsteiger-global-sana-dietikon"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -811,7 +813,8 @@
       "streetAddress": "Dietikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-20T21:26:35.393Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-22T21:23:04.740Z"
     },
     {
       "id": "ch-c1b3cea01b95",

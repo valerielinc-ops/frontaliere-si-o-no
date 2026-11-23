@@ -3409,10 +3409,10 @@
     },
     {
       "id": "ksbl-e26f60c459c8",
-      "slug": "infermiera-a-kantonsspital-baselland-ksbl-liestal-11c54b95e1",
+      "slug": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-fapojd",
-        "it": "infermiera-a-kantonsspital-baselland-ksbl-liestal-11c54b95e1",
+        "it": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
         "en": "dipl-nurse-a-kantonsspital-baselland-ksbl-liestal",
         "fr": "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal"
       },
@@ -3461,7 +3461,8 @@
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
           "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-d9d0683b62",
-          "infermiera-a-kantonsspital-baselland-ksbl-liestal"
+          "infermiera-a-kantonsspital-baselland-ksbl-liestal",
+          "infermiera-a-kantonsspital-baselland-ksbl-liestal-11c54b95e1"
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal"
@@ -3470,7 +3471,8 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
         "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-d9d0683b62",
-        "infermiera-a-kantonsspital-baselland-ksbl-liestal"
+        "infermiera-a-kantonsspital-baselland-ksbl-liestal",
+        "infermiera-a-kantonsspital-baselland-ksbl-liestal-11c54b95e1"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -5442,9 +5444,9 @@
     },
     {
       "id": "ksbl-cd14c6154336",
-      "slug": "infermiera-a-kantonsspital-baselland-ksbl-liestal-a67061767f",
+      "slug": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
-        "it": "infermiera-a-kantonsspital-baselland-ksbl-liestal-a67061767f",
+        "it": "infermiera-a-kantonsspital-baselland-ksbl-liestal",
         "en": "dipl-nurse-a-kantonsspital-baselland-ksbl-liestal",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-tiu1kw",
         "fr": "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal"
@@ -5494,7 +5496,8 @@
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
           "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-c49e1ca61f",
-          "infermiera-a-kantonsspital-baselland-ksbl-liestal"
+          "infermiera-a-kantonsspital-baselland-ksbl-liestal",
+          "infermiera-a-kantonsspital-baselland-ksbl-liestal-a67061767f"
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal"
@@ -5503,7 +5506,8 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
         "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-c49e1ca61f",
-        "infermiera-a-kantonsspital-baselland-ksbl-liestal"
+        "infermiera-a-kantonsspital-baselland-ksbl-liestal",
+        "infermiera-a-kantonsspital-baselland-ksbl-liestal-a67061767f"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -6555,9 +6559,9 @@
     },
     {
       "id": "ksbl-e6be6263ada4",
-      "slug": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-a-kantonsspital-baselland-ksbl-liestal",
+      "slug": "assistente-di-ricerca-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
-        "it": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-a-kantonsspital-baselland-ksbl-liestal",
+        "it": "assistente-di-ricerca-a-kantonsspital-baselland-ksbl-liestal",
         "en": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-a-ksbl-liestal",
         "de": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-a-ksbl-liestal",
         "fr": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-a-ksbl-liestal"
@@ -6604,11 +6608,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-a-ksbl-liestal"
+        "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-a-ksbl-liestal",
+        "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-a-ksbl-liestal"
+          "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-a-ksbl-liestal",
+          "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-a-kantonsspital-baselland-ksbl-liestal"
         ]
       },
       "firstSeenAt": "2026-10-15T21:37:10.396Z",

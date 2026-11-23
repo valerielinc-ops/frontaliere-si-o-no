@@ -4465,9 +4465,9 @@
       "id": "ksa-6bed510181d9",
       "slug": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
       "slugByLocale": {
+        "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
-        "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
         "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -4512,10 +4512,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Pilot ohne Motivationsbrief",
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
@@ -4527,7 +4523,10 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
         ]
       },
-      "firstSeenAt": "2026-09-01T10:13:55.101Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -4544,7 +4543,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T21:24:05.167Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-09-01T10:13:55.101Z"
     },
     {
       "id": "ksa-d4cac2401a08",
