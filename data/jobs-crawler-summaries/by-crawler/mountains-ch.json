@@ -1,10 +1,10 @@
 {
   "key": "mountains-ch",
   "label": "Engadin St. Moritz Mountains AG",
-  "generatedAt": "2026-11-23T09:45:50.047Z",
+  "generatedAt": "2026-11-23T21:48:27.009Z",
   "total": 5,
-  "discovered": 5,
-  "parsed": 5,
+  "discovered": 4,
+  "parsed": 4,
   "lastFetchOutcome": null,
   "fetchReceipt": {
     "specKey": "mountains-ch",
@@ -12,7 +12,7 @@
       "https://www.mountains.ch/de/offene-stellen"
     ],
     "phase": "detail",
-    "pages": 9,
+    "pages": 8,
     "httpStatuses": [
       {
         "status": 200,
@@ -25,10 +25,6 @@
       {
         "status": 200,
         "url": "https://www.mountains.ch/de/impressum"
-      },
-      {
-        "status": 200,
-        "url": "https://www.mountains.ch/de/offene-stellen/leiter-corporate-services-cfo"
       },
       {
         "status": 200,
@@ -54,7 +50,7 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 5,
-  "detailCandidates": 5,
+  "detailCandidates": 4,
   "detailGone": 0,
   "detailRejected": 0,
   "resurrectedJobs": 0,
@@ -64,10 +60,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 16210,
-  "avgDurationMs": 16210,
+  "durationMs": 15658,
+  "avgDurationMs": 15658,
   "durationHistory": [
-    16210
+    15658
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -85,7 +81,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/mitarbeiterin-human-ressources",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:45:18.050Z",
+      "crawledAt": "2026-11-23T21:48:01.201Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -122,7 +118,7 @@
         "checkedAt": "2026-11-16T15:23:08.822Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T09:45:18.050Z",
+      "validThrough": "2027-02-03T21:48:01.201Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -144,7 +140,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/schnupperlehre-seilbahnmechatronikerin-efz",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:45:18.049Z",
+      "crawledAt": "2026-11-23T21:48:01.200Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -181,7 +177,7 @@
         "checkedAt": "2026-11-16T15:23:08.822Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T09:45:18.049Z",
+      "validThrough": "2027-02-03T21:48:01.200Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -203,7 +199,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/receptionist",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:45:18.045Z",
+      "crawledAt": "2026-11-23T21:48:01.199Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -240,7 +236,7 @@
         "checkedAt": "2026-11-16T15:23:08.822Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T09:45:18.045Z",
+      "validThrough": "2027-02-05T21:48:01.199Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -262,7 +258,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/leitung-rezeption-und-bankette",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:45:18.044Z",
+      "crawledAt": "2026-11-23T21:48:01.191Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -299,7 +295,7 @@
         "checkedAt": "2026-11-16T15:23:08.822Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T09:45:18.044Z",
+      "validThrough": "2027-02-03T21:48:01.191Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -360,6 +356,7 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-03T09:45:18.037Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -369,5 +366,5 @@
       }
     }
   ],
-  "codeCommit": "7474b74d22ad2d97637dc94f08d243f12f0ba1c7"
+  "codeCommit": "7b684909df7304f91c3a19b75aa2a6088ce7630a"
 }

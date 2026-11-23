@@ -1,10 +1,10 @@
 {
   "key": "skan-com",
   "label": "SKAN AG",
-  "generatedAt": "2026-11-23T09:45:04.431Z",
+  "generatedAt": "2026-11-23T21:50:43.903Z",
   "total": 4,
-  "discovered": 5,
-  "parsed": 5,
+  "discovered": 6,
+  "parsed": 6,
   "lastFetchOutcome": null,
   "fetchReceipt": {
     "specKey": "skan-com",
@@ -12,7 +12,7 @@
       "https://jobs.skan.com/go/Jobs-in-Allschwil-%28Switzerland%29/9780357/"
     ],
     "phase": "detail",
-    "pages": 6,
+    "pages": 7,
     "httpStatuses": [
       {
         "status": 200,
@@ -32,6 +32,10 @@
       },
       {
         "status": 200,
+        "url": "https://jobs.skan.com/job/Allschwil-Commissioning-&-Qualification-Engineer-%28inhouse-&-onsite%29/1369906157/"
+      },
+      {
+        "status": 200,
         "url": "https://jobs.skan.com/job/Allschwil-Apprenticeship-in-2027-Automation-Engineer-EFZ/1365455957/"
       },
       {
@@ -46,20 +50,20 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 4,
-  "detailCandidates": 5,
+  "detailCandidates": 6,
   "detailGone": 0,
   "detailRejected": 0,
-  "resurrectedJobs": 0,
+  "resurrectedJobs": 1,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 11002,
-  "avgDurationMs": 11002,
+  "durationMs": 10383,
+  "avgDurationMs": 10383,
   "durationHistory": [
-    11002
+    10383
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -77,7 +81,7 @@
       "url": "https://jobs.skan.com/job/allschwil-apprenticeship-in-2027-automation-engineer-efz/1365455957",
       "source": "SKAN AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-23T09:44:44.158Z",
+      "crawledAt": "2026-11-23T21:50:26.583Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -114,7 +118,7 @@
         "checkedAt": "2026-11-09T15:43:20.118Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-08T09:44:44.158Z",
+      "validThrough": "2027-02-07T21:50:26.583Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -136,7 +140,7 @@
       "url": "https://jobs.skan.com/job/allschwil-team-lead-ict-engineering-&-operations/1361640957",
       "source": "SKAN AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-23T09:44:44.157Z",
+      "crawledAt": "2026-11-23T21:50:26.582Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -173,7 +177,7 @@
         "checkedAt": "2026-11-09T15:43:20.118Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-08T09:44:44.157Z",
+      "validThrough": "2027-02-07T21:50:26.582Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -195,7 +199,7 @@
       "url": "https://jobs.skan.com/job/allschwil-senior-ict-system-engineer-technical-project-lead-%28mwd%29/1370336957",
       "source": "SKAN AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-23T09:44:44.154Z",
+      "crawledAt": "2026-11-23T21:50:26.579Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -232,7 +236,7 @@
         "checkedAt": "2026-11-09T15:43:20.118Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-08T09:44:44.154Z",
+      "validThrough": "2027-02-07T21:50:26.579Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -254,7 +258,7 @@
       "url": "https://jobs.skan.com/job/allschwil-customer-service-specialist%2c-fixed-term%2c-9-month-contract/1366874757",
       "source": "SKAN AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-23T09:44:44.149Z",
+      "crawledAt": "2026-11-23T21:50:26.577Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -291,7 +295,7 @@
         "checkedAt": "2026-11-09T15:43:20.118Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-18T09:44:44.149Z",
+      "validThrough": "2027-02-17T21:50:26.577Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -302,5 +306,5 @@
       }
     }
   ],
-  "codeCommit": "7474b74d22ad2d97637dc94f08d243f12f0ba1c7"
+  "codeCommit": "7b684909df7304f91c3a19b75aa2a6088ce7630a"
 }
