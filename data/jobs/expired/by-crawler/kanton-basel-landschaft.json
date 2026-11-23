@@ -3535,16 +3535,14 @@
     "slugByLocale": {
       "it": "sequestri-del-direttore-procedurale-direttore-tecnico-kantonale-verwaltung-basel-landschaft-liestal",
       "en": "procedural-director-procedural-director-seizures-kantonale-verwaltung-basel-landschaft-liestal",
-      "de": "verfahrensleiterin-verfahrensleiter-pfandungen-kanton-basel-landschaft-liestal",
+      "de": "verfahrensleiterin-verfahrensleiter-pfandungen-kanton-basel-landschaft-liestal-0a5fd7ec",
       "fr": "saisie-du-directeur-de-la-procedure-directeur-de-la-procedure-kantonale-verwaltung-basel-landschaft-liestal"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-03T21:31:41.352Z",
-    "previousSlugs": [
-      "verfahrensleiterin-verfahrensleiter-pfandungen-kanton-basel-landschaft-liestal"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "verfahrensleiterin-verfahrensleiter-pfandungen-kanton-basel-landschaft-liestal-0a5fd7ec",
         "verfahrensleiterin-verfahrensleiter-pfandungen-kanton-basel-landschaft-liestal"
       ],
       "en": [
@@ -3552,6 +3550,9 @@
       ],
       "fr": [
         "verfahrensleiterin-verfahrensleiter-pfandungen-kanton-basel-landschaft-liestal"
+      ],
+      "de": [
+        "verfahrensleiterin-verfahrensleiter-pfandungen-kanton-basel-landschaft-liestal-0a5fd7ec"
       ]
     },
     "postalCode": "4410",
@@ -3561,7 +3562,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.baselland.ch/offene-stellen/verfahrensleiterin-verfahrensleiter-pfaendungen/82d276fa-dd80-411c-9ba1-aae8ba031289",
-    "firstSeenAt": "2026-10-08T09:15:37.513Z"
+    "firstSeenAt": "2026-10-08T09:15:37.513Z",
+    "previousSlugs": [
+      "verfahrensleiterin-verfahrensleiter-pfandungen-kanton-basel-landschaft-liestal"
+    ]
   },
   {
     "slug": "tessili-per-la-progettazione-degli-insegnanti-kantonale-verwaltung-basel-landschaft-reinach",

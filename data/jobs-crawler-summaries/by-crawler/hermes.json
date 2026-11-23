@@ -1,7 +1,7 @@
 {
   "key": "hermes",
   "label": "Hermès",
-  "generatedAt": "2026-11-23T09:24:45.397Z",
+  "generatedAt": "2026-11-23T21:21:50.066Z",
   "total": 6,
   "discovered": null,
   "parsed": 7,
@@ -13,19 +13,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 19183,
-  "avgDurationMs": 19183,
+  "durationMs": 23786,
+  "avgDurationMs": 23786,
   "durationHistory": [
-    19183
+    23786
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "hermes-67e5225af957",
-      "slug": "cdd-controleur-euse-interne-geneve-f-h-hermes-ch",
+      "slug": "csd-controller-interno-ginevra-m-f-hermes-geneve-geneva-switzerland",
       "company": "Hermès",
       "companyKey": "hermes",
       "companyDomain": "hermes.com",
@@ -35,7 +36,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24851",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:24:22.260Z",
+      "crawledAt": "2026-11-23T21:21:29.390Z",
       "addressLocality": "Geneve",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -52,25 +53,23 @@
       "postedDate": "2026-11-23",
       "postingDateSource": "reported",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/job/24851",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-23T09:24:22.260Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T09:24:22.260Z",
+      "validThrough": "2027-02-21T21:21:29.390Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:24:22.260Z",
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -85,7 +84,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/23533",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:24:26.469Z",
+      "crawledAt": "2026-11-23T21:21:33.218Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -107,7 +106,7 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:24:26.469Z",
+      "validThrough": "2027-01-18T21:21:33.218Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -129,7 +128,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24713",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:24:25.750Z",
+      "crawledAt": "2026-11-23T21:21:32.559Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -152,7 +151,7 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:24:25.750Z",
+      "validThrough": "2027-02-01T21:21:32.559Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -174,7 +173,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24858",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:24:25.055Z",
+      "crawledAt": "2026-11-23T21:21:31.951Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -197,7 +196,7 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:24:25.055Z",
+      "validThrough": "2027-02-10T21:21:31.951Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -219,7 +218,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24867",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:24:24.285Z",
+      "crawledAt": "2026-11-23T21:21:31.342Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -242,7 +241,7 @@
       "postalCode": "2340",
       "streetAddress": "Le Noirmont",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T09:24:24.285Z",
+      "validThrough": "2027-02-14T21:21:31.342Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -264,7 +263,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24863",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:24:23.588Z",
+      "crawledAt": "2026-11-23T21:21:30.725Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -288,7 +287,7 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T09:24:23.588Z",
+      "validThrough": "2027-02-14T21:21:30.725Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -299,5 +298,5 @@
       }
     }
   ],
-  "codeCommit": "7474b74d22ad2d97637dc94f08d243f12f0ba1c7"
+  "codeCommit": "7b684909df7304f91c3a19b75aa2a6088ce7630a"
 }
