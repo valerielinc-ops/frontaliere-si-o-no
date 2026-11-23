@@ -1,5 +1,27 @@
 [
   {
+    "slug": "software-engineer-digital-assets-w-m-d-postfinance",
+    "title": "Software Engineer Digital Assets (w/m/d)",
+    "titleByLocale": {
+      "de": "Software Engineer Digital Assets (w/m/d)"
+    },
+    "company": "PostFinance",
+    "companyKey": "postfinance",
+    "location": "Bern",
+    "addressLocality": "",
+    "descriptionByLocale": {
+      "de": "Im Delivery Team von PostFinance entwickelst du Lösungen im Bereich Digital Assets und verbindest unsere neue Verwahrungslösung mit internen Bankensystemen. Du stellst sicher, dass Datenflüsse zuverlässig funktionieren und Transaktionen mit digitalen Vermögenswerten sicher verarbeitet werden. Mit deinem technischen Know-how schaffst du die Basis für innovative Finanzlösungen. So trägst du dazu bei, die Zukunft von PostFinance aktiv mitzugestalten.\n\nDas kannst du bewirken\n\n- Du entwickelst Backend-Komponenten mit Java und Spring Boot und setzt abgestimmte Entwicklungs-Stories in wartbaren, versionierten Code um\n\n- Du integrierst externe Systeme über APIs und Webhooks und realisierst Schnittstellen zu verschiedenen Systemen\n\n- Du implementierst Datenmapping, Validierungen und Bestandsabgleiche zur Prüfung von Quell- und Zieladressen sowie freigegebenen Adresslisten\n\n- Du stellst eine zuverlässige Verarbeitung durch Fehlerbehandlung, Timeouts, Wiederholungsmechanismen und Schutz vor doppelter Verarbeitung sicher\n\n- Du entwickelst automatisierte Tests, beteiligst dich an Code Reviews und Integrationstests und dokumentierst technische Lösungen und Schnittstellen\n\n- Du unterstützt CI/CD und Deployments auf Kubernetes mit Helm sowie Monitoring und Audit Logging und arbeitest dabei eng mit Architektur, Business Analyse, Security und Betrieb zusammen\n\nDas bringst du mit\n\n- Mehrjährige Praxiserfahrung in der Backend-Entwicklung mit Java und Spring Boot sowie abgeschlossene Informatikausbildung oder gleichwertige Berufserfahrung\n\n- Erfahrung in der Arbeit mit REST-APIs, Webhooks, asynchroner Verarbeitung und Integration verteilter Systeme\n\n- Praxis im Umgang mit Git, CI/CD, automatisierten Tests und containerisierten Anwendungen sowie Kenntnisse in Kubernetes und Helm\n\n- Verständnis für sichere Softwareentwicklung, Authentifizierung, Berechtigungen und den sorgfältigen Umgang mit Secrets und sensiblen Daten\n\n- Strukturierte und eigenverantwortliche Arbeitsweise sowie Fähigkeit zur verständlichen Vermittlung technischer Themen in Deutsch und Englisch"
+    },
+    "slugByLocale": {
+      "de": "software-engineer-digital-assets-w-m-d-postfinance"
+    },
+    "sector": "IT",
+    "expiredAt": "2026-11-23T21:43:51.395Z",
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.postfinance.ch/job/software-engineer-digital-assets-%28wmd%29/75024-de_de"
+  },
+  {
     "slug": "architecture-owner-w-m-d-postfinance",
     "title": "Architecture Owner (w/m/d)",
     "titleByLocale": {

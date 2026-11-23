@@ -1,24 +1,24 @@
 {
   "key": "hugo-boss",
   "label": "Hugo Boss",
-  "generatedAt": "2026-11-23T09:57:52.929Z",
+  "generatedAt": "2026-11-23T21:46:23.437Z",
   "total": 2,
-  "discovered": 755,
+  "discovered": 760,
   "parsed": 1,
   "written": 2,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 9408,
-  "avgDurationMs": 9408,
+  "durationMs": 8722,
+  "avgDurationMs": 8722,
   "durationHistory": [
-    9408
+    8722
   ],
   "coverage": "complete",
   "terminationReason": null,
-  "sourceRecordsSeen": 755,
-  "sourceTotalHits": 755,
+  "sourceRecordsSeen": 760,
+  "sourceTotalHits": 760,
   "authoritativeSnapshotVerified": true,
   "newJobs": [],
   "updatedJobs": [
@@ -47,10 +47,10 @@
       "experienceLevel": "SENIOR",
       "sector": "Moda / Lusso",
       "firstSeenAt": "2026-10-17T09:51:52.899Z",
-      "crawledAt": "2026-11-23T09:57:30.283Z",
+      "crawledAt": "2026-11-23T21:46:13.644Z",
       "crawledAtSource": "slice-writer",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-15T09:57:30.283Z",
+      "validThrough": "2027-01-15T21:46:13.644Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 96000,
       "salaryMax": 147500,
@@ -101,7 +101,7 @@
       "salaryMax": 90500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -111,5 +111,5 @@
       }
     }
   ],
-  "codeCommit": "7474b74d22ad2d97637dc94f08d243f12f0ba1c7"
+  "codeCommit": "7b684909df7304f91c3a19b75aa2a6088ce7630a"
 }

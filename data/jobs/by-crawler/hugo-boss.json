@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hugo-boss",
-  "assembledAt": "2026-11-23T09:57:36.096Z",
-  "runId": "45146906292",
+  "assembledAt": "2026-11-23T21:46:16.284Z",
+  "runId": "45269712796",
   "jobs": [
     {
       "url": "https://careers.hugoboss.com/global/en/job/HUBOGLOBAL144951EXTERNALENGLOBAL/assistant-store-manager-boss-outlet-w-m-d",
@@ -26,7 +26,7 @@
       },
       "slugByLocale": {
         "it": "vice-responsabile-del-punto-vendita-boss-outlet-m-f-d-hugo-boss-landquart",
-        "en": "deputy-branch-manager-boss-outlet-m-f-d-hugo-boss-landquart",
+        "en": "assistant-store-manager-boss-outlet-w-m-d-hugo-boss-landquart",
         "de": "stellvertretende-r-filialleiter-in-boss-outlet-m-w-d-hugo-boss-landquart",
         "fr": "adjoint-au-responsable-de-magasin-boss-outlet-h-f-d-hugo-boss-landquart"
       },
@@ -48,17 +48,17 @@
       "sector": "Moda / Lusso",
       "previousSlugsByLocale": {
         "en": [
-          "assistant-store-manager-boss-outlet-w-m-d-hugo-boss-landquart"
+          "deputy-branch-manager-boss-outlet-m-f-d-hugo-boss-landquart"
         ]
       },
       "previousSlugs": [
-        "assistant-store-manager-boss-outlet-w-m-d-hugo-boss-landquart"
+        "deputy-branch-manager-boss-outlet-m-f-d-hugo-boss-landquart"
       ],
       "firstSeenAt": "2026-10-17T09:51:52.899Z",
-      "crawledAt": "2026-11-23T09:57:30.283Z",
+      "crawledAt": "2026-11-23T21:46:13.644Z",
       "crawledAtSource": "slice-writer",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-15T09:57:30.283Z",
+      "validThrough": "2027-01-15T21:46:13.644Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 96000,
       "salaryMax": 147500,
@@ -138,7 +138,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
