@@ -15110,26 +15110,12 @@
       "crawledAt": "2026-11-23T09:24:10.347Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "previousSlugs": [
-        "verkaufer-in-denner",
-        "verkaufer-in-denner-12",
-        "verkaufer-in-denner-worb",
-        "verkaufer-in-denner-worb-bcab585387",
-        "verkaufer-in-denner-10",
-        "verkaufer-in-denner-9",
-        "verkaufer-in-denner-8",
-        "verkaufer-in-denner-7",
-        "verkaufer-in-denner-6",
-        "verkaufer-in-denner-5",
-        "verkaufer-in-denner-2",
-        "venditore-trice-denner-worb",
-        "shop-assistant-denner-worb",
-        "salesperson-denner-worb-675a07",
-        "vendeur-euse-denner-worb-675a07",
-        "verkaufer-in-denner-9d0cuj",
-        "verkaufer-in-denner-k5mgo5"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "verkaufer-in-denner-worb",
+          "verkaufer-in-denner-9d0cuj",
+          "verkaufer-in-denner-k5mgo5"
+        ],
         "it": [
           "verkaufer-in-denner",
           "verkaufer-in-denner-12",
@@ -15149,16 +15135,30 @@
           "shop-assistant-denner-worb",
           "salesperson-denner-worb-675a07"
         ],
-        "de": [
-          "verkaufer-in-denner-worb",
-          "verkaufer-in-denner-9d0cuj",
-          "verkaufer-in-denner-k5mgo5"
-        ],
         "fr": [
           "verkaufer-in-denner-worb",
           "vendeur-euse-denner-worb-675a07"
         ]
       },
+      "previousSlugs": [
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-12",
+        "verkaufer-in-denner-worb",
+        "verkaufer-in-denner-worb-bcab585387",
+        "verkaufer-in-denner-10",
+        "verkaufer-in-denner-9",
+        "verkaufer-in-denner-8",
+        "verkaufer-in-denner-7",
+        "verkaufer-in-denner-6",
+        "verkaufer-in-denner-5",
+        "verkaufer-in-denner-2",
+        "venditore-trice-denner-worb",
+        "shop-assistant-denner-worb",
+        "salesperson-denner-worb-675a07",
+        "vendeur-euse-denner-worb-675a07",
+        "verkaufer-in-denner-9d0cuj",
+        "verkaufer-in-denner-k5mgo5"
+      ],
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
       "salaryMin": 77500,
       "salaryMax": 118500,

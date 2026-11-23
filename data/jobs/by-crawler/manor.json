@@ -14518,9 +14518,9 @@
       "slug": "head-of-retail-media-100-manor-ag-basel-a1284369e4",
       "slugByLocale": {
         "it": "head-of-retail-media-100-manor-ag-basel-a1284369e4",
-        "en": "manor-head-of-retail-media-100-basel",
-        "de": "manor-head-of-retail-media-100-basel",
-        "fr": "manor-head-of-retail-media-100-basel"
+        "en": "manor-head-of-retail-media-100-basel-0r202q",
+        "de": "manor-head-of-retail-media-100-basel-0r202q",
+        "fr": "manor-head-of-retail-media-100-basel-0r202q"
       },
       "titleByLocale": {
         "it": "Responsabile Retail Media 100%",
@@ -14530,26 +14530,6 @@
       },
       "sourceLang": "de",
       "id": "manor-058539e1dc91",
-      "previousSlugs": [
-        "manor-head-of-retail-media-100-basel-0r202q",
-        "manor-head-of-retail-media-100-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-head-of-retail-media-100-basel"
-        ],
-        "en": [
-          "manor-head-of-retail-media-100-basel-0r202q"
-        ],
-        "de": [
-          "manor-head-of-retail-media-100-basel-0r202q"
-        ],
-        "fr": [
-          "manor-head-of-retail-media-100-basel-0r202q"
-        ]
-      },
-      "firstSeenAt": "2026-09-04T13:38:05.738Z",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 159500,
       "currency": "CHF",
@@ -14567,7 +14547,26 @@
       "applyUrl": "https://positions.manor.ch/job/Basel-Head-of-Retail-Media-100/1355566055/",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-23T09:36:59.488Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-09-04T13:38:05.738Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "manor-head-of-retail-media-100-basel"
+        ],
+        "de": [
+          "manor-head-of-retail-media-100-basel"
+        ],
+        "fr": [
+          "manor-head-of-retail-media-100-basel"
+        ],
+        "it": [
+          "manor-head-of-retail-media-100-basel"
+        ]
+      },
+      "previousSlugs": [
+        "manor-head-of-retail-media-100-basel"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Collaborateur/trice vente (Confection Dames) 30%",

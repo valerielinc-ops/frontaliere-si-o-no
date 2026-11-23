@@ -1110,7 +1110,8 @@
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-sw546p",
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-9p2nll",
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-fapojd",
-          "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-tiu1kw"
+          "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-tiu1kw",
+          "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal"
         ],
         "fr": [
           "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal",
@@ -3417,9 +3418,9 @@
       "id": "ksbl-e26f60c459c8",
       "slug": "infermiera-a-kantonsspital-baselland-ksbl-liestal-11c54b95e1",
       "slugByLocale": {
+        "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
         "it": "infermiera-a-kantonsspital-baselland-ksbl-liestal-11c54b95e1",
         "en": "dipl-nurse-a-kantonsspital-baselland-ksbl-liestal",
-        "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
         "fr": "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
@@ -3463,12 +3464,6 @@
       "applyUrl": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-a/9c4567ad-4375-43f2-bfa0-040fda7adc34",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-d9d0683b62",
-        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-fapojd",
-        "infermiera-a-kantonsspital-baselland-ksbl-liestal"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
@@ -3479,7 +3474,12 @@
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-fapojd"
         ]
       },
-      "firstSeenAt": "2026-05-19T10:23:51.599Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-d9d0683b62",
+        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-fapojd",
+        "infermiera-a-kantonsspital-baselland-ksbl-liestal"
+      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -3496,7 +3496,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-23T09:45:25.727Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-05-19T10:23:51.599Z"
     },
     {
       "id": "ksbl-4c6d447f0fcd",
@@ -5497,12 +5498,6 @@
       "applyUrl": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-a/28dc23e7-e705-4a3e-aea9-882468bde609",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-c49e1ca61f",
-        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-tiu1kw",
-        "infermiera-a-kantonsspital-baselland-ksbl-liestal"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
@@ -5513,7 +5508,12 @@
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-tiu1kw"
         ]
       },
-      "firstSeenAt": "2026-05-19T10:23:51.599Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-c49e1ca61f",
+        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-tiu1kw",
+        "infermiera-a-kantonsspital-baselland-ksbl-liestal"
+      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -5530,7 +5530,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-23T09:45:01.470Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-05-19T10:23:51.599Z"
     },
     {
       "id": "ksbl-ceaa9727b08f",

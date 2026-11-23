@@ -7,10 +7,10 @@
       "id": "stadt-zuerich-7fbfffba9e11",
       "slug": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507",
       "slugByLocale": {
-        "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507",
-        "en": "specialist-child-care-efz-stadt-zurich-zurich-f06c10",
         "de": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
-        "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-f06c10"
+        "en": "specialist-child-care-efz-stadt-zurich-zurich-f06c10",
+        "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-f06c10",
+        "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -57,11 +57,7 @@
       "department": "Sozialdepartement",
       "unit": "Soziale Einrichtungen und Betriebe",
       "referenceNumber": "51137",
-      "previousSlugs": [
-        "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
-        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507",
-        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
@@ -69,8 +65,11 @@
           "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-24T00:09:01.758Z",
+      "previousSlugs": [
+        "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
+        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507",
+        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
+      ],
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -86,7 +85,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-23T10:09:34.982Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-09-24T00:09:01.758Z"
     },
     {
       "id": "stadt-zuerich-aee7f5910495",
@@ -8928,25 +8928,12 @@
       "department": "Tiefbau- und Entsorgungsdepartement",
       "unit": "Grün Stadt Zürich",
       "referenceNumber": "51263",
-      "previousSlugs": [
-        "gartner-in-stadt-zuerich-zurigo-51263",
-        "giardiniere-stadt-zurich-zurich-46e0c2",
-        "gartner-in-stadt-zuerich-zurigo-51724",
-        "gartner-in-stadt-zurich",
-        "gartner-in-stadt-zurich-zurich-07b0b3b36a",
-        "giardiniere-stadt-zurich-zurich-5bc8ab",
-        "gartner-in-stadt-zuerich-zurigo-51726",
-        "gardeners-stadt-zurich-zurich",
-        "jardiniers-stadt-zurich-zurich",
-        "giardinieri-stadt-zurich-zurich",
-        "gardener-stadt-zurich-zurich-46e0c2",
-        "gardener-stadt-zurich-zurich-5bc8ab",
-        "jardinier-stadt-zurich-zurich-46e0c2",
-        "jardinier-stadt-zurich-zurich-5bc8ab",
-        "giardinieri-stadt-zurich-zurich-e9vufj",
-        "giardinieri-stadt-zurich-zurich-e9z5tc"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "gartner-in-stadt-zuerich-zurigo-51724",
+          "gartner-in-stadt-zuerich-zurigo-51726",
+          "gartner-in-stadt-zurich"
+        ],
         "it": [
           "gartner-in-stadt-zuerich-zurigo-51263",
           "giardiniere-stadt-zurich-zurich-46e0c2",
@@ -8967,11 +8954,6 @@
           "gardener-stadt-zurich-zurich-5bc8ab",
           "gardeners-stadt-zurich-zurich"
         ],
-        "de": [
-          "gartner-in-stadt-zuerich-zurigo-51724",
-          "gartner-in-stadt-zuerich-zurigo-51726",
-          "gartner-in-stadt-zurich"
-        ],
         "fr": [
           "jardinier-stadt-zurich-zurich-46e0c2",
           "gartner-in-stadt-zurich",
@@ -8979,6 +8961,24 @@
           "jardiniers-stadt-zurich-zurich"
         ]
       },
+      "previousSlugs": [
+        "gartner-in-stadt-zuerich-zurigo-51263",
+        "giardiniere-stadt-zurich-zurich-46e0c2",
+        "gartner-in-stadt-zuerich-zurigo-51724",
+        "gartner-in-stadt-zurich",
+        "gartner-in-stadt-zurich-zurich-07b0b3b36a",
+        "giardiniere-stadt-zurich-zurich-5bc8ab",
+        "gartner-in-stadt-zuerich-zurigo-51726",
+        "gardeners-stadt-zurich-zurich",
+        "jardiniers-stadt-zurich-zurich",
+        "giardinieri-stadt-zurich-zurich",
+        "gardener-stadt-zurich-zurich-46e0c2",
+        "gardener-stadt-zurich-zurich-5bc8ab",
+        "jardinier-stadt-zurich-zurich-46e0c2",
+        "jardinier-stadt-zurich-zurich-5bc8ab",
+        "giardinieri-stadt-zurich-zurich-e9vufj",
+        "giardinieri-stadt-zurich-zurich-e9z5tc"
+      ],
       "firstSeenAt": "2026-09-01T16:12:36.174Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -9836,40 +9836,14 @@
       "department": "Tiefbau- und Entsorgungsdepartement",
       "unit": "Grün Stadt Zürich",
       "referenceNumber": "52128",
-      "previousSlugs": [
-        "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52128",
-        "gartner-in-garten-e-landschaftsbau-stadt-zurich",
-        "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-b23cdf42bc",
-        "giardiniere-a-in-giardinaggio-e-paesaggistica-stadt-zurich-zurich",
-        "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52151",
-        "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-baa4cff2b6",
-        "gardener-m-f-x0a-gardening-and-landscaping-stadt-zurich-zurich",
-        "jardinier-ereen-horticulture-et-amenagement-paysager-stadt-zurich-zurich",
-        "giardiniere-a-nel-settore-del-giardinaggio-e-della-paesaggistica-stadt-zurich-zurich",
-        "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51868",
-        "giardiniere-a-nel-settore-del-giardinaggio-e-della-paesaggistica-stadt-zurich-zurich-3a20c00f02",
-        "gardener-in-gardening-and-landscaping-stadt-zurich-zurich",
-        "jardinier-iere-en-horticulture-et-amenagement-paysager-stadt-zurich-zurich",
-        "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51886",
-        "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-4e6db35ff3",
-        "gardener-garden-and-landscape-construction-stadt-zurich-zurich",
-        "gartner-in-garten-und-landschaftsbau-stadt-zurich",
-        "jardinier-ere-en-horticulture-et-amenagement-paysager-stadt-zurich-zurich",
-        "giardiniere-a-paesaggista-stadt-zurich-zurich",
-        "gardener-horticulture-and-landscaping-stadt-zurich-zurich",
-        "jardinier-ere-en-amenagement-paysager-stadt-zurich-zurich",
-        "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-61f6c3a74a",
-        "giardiniere-a-paesaggista-stadt-zurich-zurich-2880b15d85",
-        "giardiniere-a-giardinaggio-e-paesaggistica-stadt-zurich-zurich",
-        "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52307",
-        "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-f3c8f51ef9",
-        "gardener-m-f-gardening-and-landscaping-stadt-zurich-zurich",
-        "horticulteur-horticultrice-en-amenagement-paysager-stadt-zurich-zurich",
-        "gartner-in-garten-und-landschaftsbau-stadt-zurich-zurich",
-        "gartner-in-garten-e-landschaftsbau-stadt-zurich-tg02rw",
-        "gartner-in-garten-e-landschaftsbau-stadt-zurich-ureedo"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52151",
+          "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51868",
+          "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51886",
+          "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52307",
+          "gartner-in-garten-und-landschaftsbau-stadt-zurich-zurich"
+        ],
         "it": [
           "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52128",
           "gartner-in-garten-e-landschaftsbau-stadt-zurich",
@@ -9903,13 +9877,6 @@
           "gardener-m-f-gardening-and-landscaping-stadt-zurich-zurich",
           "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52307"
         ],
-        "de": [
-          "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52151",
-          "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51868",
-          "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51886",
-          "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52307",
-          "gartner-in-garten-und-landschaftsbau-stadt-zurich-zurich"
-        ],
         "fr": [
           "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52128",
           "jardinier-ereen-horticulture-et-amenagement-paysager-stadt-zurich-zurich",
@@ -9923,6 +9890,39 @@
           "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52307"
         ]
       },
+      "previousSlugs": [
+        "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52128",
+        "gartner-in-garten-e-landschaftsbau-stadt-zurich",
+        "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-b23cdf42bc",
+        "giardiniere-a-in-giardinaggio-e-paesaggistica-stadt-zurich-zurich",
+        "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52151",
+        "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-baa4cff2b6",
+        "gardener-m-f-x0a-gardening-and-landscaping-stadt-zurich-zurich",
+        "jardinier-ereen-horticulture-et-amenagement-paysager-stadt-zurich-zurich",
+        "giardiniere-a-nel-settore-del-giardinaggio-e-della-paesaggistica-stadt-zurich-zurich",
+        "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51868",
+        "giardiniere-a-nel-settore-del-giardinaggio-e-della-paesaggistica-stadt-zurich-zurich-3a20c00f02",
+        "gardener-in-gardening-and-landscaping-stadt-zurich-zurich",
+        "jardinier-iere-en-horticulture-et-amenagement-paysager-stadt-zurich-zurich",
+        "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51886",
+        "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-4e6db35ff3",
+        "gardener-garden-and-landscape-construction-stadt-zurich-zurich",
+        "gartner-in-garten-und-landschaftsbau-stadt-zurich",
+        "jardinier-ere-en-horticulture-et-amenagement-paysager-stadt-zurich-zurich",
+        "giardiniere-a-paesaggista-stadt-zurich-zurich",
+        "gardener-horticulture-and-landscaping-stadt-zurich-zurich",
+        "jardinier-ere-en-amenagement-paysager-stadt-zurich-zurich",
+        "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-61f6c3a74a",
+        "giardiniere-a-paesaggista-stadt-zurich-zurich-2880b15d85",
+        "giardiniere-a-giardinaggio-e-paesaggistica-stadt-zurich-zurich",
+        "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52307",
+        "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-f3c8f51ef9",
+        "gardener-m-f-gardening-and-landscaping-stadt-zurich-zurich",
+        "horticulteur-horticultrice-en-amenagement-paysager-stadt-zurich-zurich",
+        "gartner-in-garten-und-landschaftsbau-stadt-zurich-zurich",
+        "gartner-in-garten-e-landschaftsbau-stadt-zurich-tg02rw",
+        "gartner-in-garten-e-landschaftsbau-stadt-zurich-ureedo"
+      ],
       "firstSeenAt": "2026-10-05T21:59:00.869Z",
       "salaryMin": 83000,
       "salaryMax": 126000,

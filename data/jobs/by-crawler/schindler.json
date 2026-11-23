@@ -10037,7 +10037,7 @@
       "slug": "responsabile-del-consenso-ai-cookie-schindler-sion",
       "slugByLocale": {
         "it": "responsabile-del-consenso-ai-cookie-schindler-sion",
-        "en": "cookie-consent-manager-schindler-sion",
+        "en": "cookie-consent-manager-schindler-sion-qcokaf",
         "de": "cookie-einwilligungsmanager-schindler-sion",
         "fr": "gestionnaire-de-consentements-pour-les-cookies-schindler-sion"
       },
@@ -10097,7 +10097,7 @@
           "montatore-polimeccanico-cfc-elevatore-per-2027-schindler-sion"
         ],
         "en": [
-          "cookie-consent-manager-schindler-sion-qcokaf"
+          "cookie-consent-manager-schindler-sion"
         ]
       },
       "previousSlugs": [
@@ -10109,7 +10109,7 @@
         "polymechanisches-cfc-elevator-mounter-learning-fur-2027-schindler-sion",
         "polymechanische-fckw-aufzugshalterung-fur-2027-schindler-sion",
         "montatore-polimeccanico-cfc-elevatore-per-2027-schindler-sion",
-        "cookie-consent-manager-schindler-sion-qcokaf"
+        "cookie-consent-manager-schindler-sion"
       ],
       "firstSeenAt": "2026-08-24T21:32:06.358Z",
       "salaryMin": 72000,
@@ -10591,10 +10591,10 @@
       "id": "schindler-7807a9a8ea51",
       "slug": "responsabile-del-consenso-ai-cookie-schindler-bussigny",
       "slugByLocale": {
-        "fr": "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny",
         "it": "responsabile-del-consenso-ai-cookie-schindler-bussigny",
-        "en": "cookie-consent-manager-schindler-bussigny",
-        "de": "cookie-einwilligungsmanager-schindler-bussigny"
+        "en": "cookie-consent-manager-schindler-bussigny-qcnbsr",
+        "de": "cookie-einwilligungsmanager-schindler-bussigny",
+        "fr": "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -10637,23 +10637,6 @@
       "jobReqId": "1410236633",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "fr": [
-          "apprentissage-de-constructeur-d-appareils-industriels-cfc-monteur-d-ascenseurs-schindler",
-          "apprentissage-de-constructeur-d-appareils-industriels-cfc-monteur-d-ascenseurs-schindler-bussigny"
-        ],
-        "it": [
-          "apprentissage-de-constructeur-d-appareils-industriels-cfc-monteur-d-ascenseurs-schindler",
-          "apprentissage-d-employe-e-de-commerce-cfc-pour-2027-schindler-bussigny",
-          "swc-trade-employee-learning-for-2027-schindler-bussigny",
-          "swc-trade-employee-learning-fur-2027-schindler-bussigny",
-          "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny",
-          "swc-trade-apprendimento-dei-dipendenti-per-2027-schindler-bussigny"
-        ],
-        "en": [
-          "cookie-consent-manager-schindler-bussigny-qcnbsr"
-        ]
-      },
       "previousSlugs": [
         "apprentissage-de-constructeur-d-appareils-industriels-cfc-monteur-d-ascenseurs-schindler",
         "apprentissage-d-employe-e-de-commerce-cfc-pour-2027-schindler-bussigny",
@@ -10662,8 +10645,25 @@
         "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny",
         "swc-trade-apprendimento-dei-dipendenti-per-2027-schindler-bussigny",
         "apprentissage-de-constructeur-d-appareils-industriels-cfc-monteur-d-ascenseurs-schindler-bussigny",
-        "cookie-consent-manager-schindler-bussigny-qcnbsr"
+        "cookie-consent-manager-schindler-bussigny"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-de-constructeur-d-appareils-industriels-cfc-monteur-d-ascenseurs-schindler",
+          "apprentissage-d-employe-e-de-commerce-cfc-pour-2027-schindler-bussigny",
+          "swc-trade-employee-learning-for-2027-schindler-bussigny",
+          "swc-trade-employee-learning-fur-2027-schindler-bussigny",
+          "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny",
+          "swc-trade-apprendimento-dei-dipendenti-per-2027-schindler-bussigny"
+        ],
+        "fr": [
+          "apprentissage-de-constructeur-d-appareils-industriels-cfc-monteur-d-ascenseurs-schindler",
+          "apprentissage-de-constructeur-d-appareils-industriels-cfc-monteur-d-ascenseurs-schindler-bussigny"
+        ],
+        "en": [
+          "cookie-consent-manager-schindler-bussigny"
+        ]
+      },
       "firstSeenAt": "2026-08-24T21:32:05.582Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
