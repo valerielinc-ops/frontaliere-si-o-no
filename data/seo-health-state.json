@@ -1,448 +1,48 @@
 {
   "schemaVersion": 1,
-  "lastRunAt": "2026-11-22T12:40:37.453Z",
+  "lastRunAt": "2026-11-23T14:46:35.645Z",
   "findings": {
-    "sitemap-noindex|https://frontaliereticino.ch/de/jobs-im-aargau/specialist-specialist-health-service-central-detention-entry-50-100-kanton-aargau-lenzburg-9ab92085/": {
-      "code": "sitemap-noindex",
-      "url": "https://frontaliereticino.ch/de/jobs-im-aargau/specialist-specialist-health-service-central-detention-entry-50-100-kanton-aargau-lenzburg-9ab92085/",
-      "consecutiveRuns": 2,
-      "firstSeenAt": "2026-11-21T12:44:44.512Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "jobposting-missing|https://frontaliereticino.ch/de/jobs-im-aargau/specialist-specialist-health-service-central-detention-entry-50-100-kanton-aargau-lenzburg-9ab92085/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/de/jobs-im-aargau/specialist-specialist-health-service-central-detention-entry-50-100-kanton-aargau-lenzburg-9ab92085/",
-      "consecutiveRuns": 2,
-      "firstSeenAt": "2026-11-21T12:44:44.512Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "sitemap-noindex|https://frontaliereticino.ch/de/jobs-in-basel/marketing-assistant-dekoboutique-festtage-m-w-d-coop-basel-b7hc7x-b43e24d6/": {
-      "code": "sitemap-noindex",
-      "url": "https://frontaliereticino.ch/de/jobs-in-basel/marketing-assistant-dekoboutique-festtage-m-w-d-coop-basel-b7hc7x-b43e24d6/",
-      "consecutiveRuns": 2,
-      "firstSeenAt": "2026-11-21T12:44:44.512Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "jobposting-missing|https://frontaliereticino.ch/de/jobs-in-basel/marketing-assistant-dekoboutique-festtage-m-w-d-coop-basel-b7hc7x-b43e24d6/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/de/jobs-in-basel/marketing-assistant-dekoboutique-festtage-m-w-d-coop-basel-b7hc7x-b43e24d6/",
-      "consecutiveRuns": 2,
-      "firstSeenAt": "2026-11-21T12:44:44.512Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "sitemap-noindex|https://frontaliereticino.ch/de/jobs-in-basel/pflegeprofi-per-flexible-einsatze-a-spitex-basel-1b352e91/": {
-      "code": "sitemap-noindex",
-      "url": "https://frontaliereticino.ch/de/jobs-in-basel/pflegeprofi-per-flexible-einsatze-a-spitex-basel-1b352e91/",
-      "consecutiveRuns": 5,
-      "firstSeenAt": "2026-11-18T13:09:07.971Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "jobposting-missing|https://frontaliereticino.ch/de/jobs-in-basel/pflegeprofi-per-flexible-einsatze-a-spitex-basel-1b352e91/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/de/jobs-in-basel/pflegeprofi-per-flexible-einsatze-a-spitex-basel-1b352e91/",
-      "consecutiveRuns": 5,
-      "firstSeenAt": "2026-11-18T13:09:07.971Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "sitemap-noindex|https://frontaliereticino.ch/de/jobs-in-bern/caisses-enregistreuses-services-du-vendeur-coop-genossenschaft-madiswil-bc7c5110/": {
-      "code": "sitemap-noindex",
-      "url": "https://frontaliereticino.ch/de/jobs-in-bern/caisses-enregistreuses-services-du-vendeur-coop-genossenschaft-madiswil-bc7c5110/",
-      "consecutiveRuns": 2,
-      "firstSeenAt": "2026-11-21T12:44:44.512Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "jobposting-missing|https://frontaliereticino.ch/de/jobs-in-bern/caisses-enregistreuses-services-du-vendeur-coop-genossenschaft-madiswil-bc7c5110/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/de/jobs-in-bern/caisses-enregistreuses-services-du-vendeur-coop-genossenschaft-madiswil-bc7c5110/",
-      "consecutiveRuns": 2,
-      "firstSeenAt": "2026-11-21T12:44:44.512Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "sitemap-noindex|https://frontaliereticino.ch/de/jobs-in-bern/ict-supporter-in-service-desk-80-90-bern-be-yellowshark-ch-4997a3e7/": {
-      "code": "sitemap-noindex",
-      "url": "https://frontaliereticino.ch/de/jobs-in-bern/ict-supporter-in-service-desk-80-90-bern-be-yellowshark-ch-4997a3e7/",
-      "consecutiveRuns": 5,
-      "firstSeenAt": "2026-11-18T13:09:07.971Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "jobposting-missing|https://frontaliereticino.ch/de/jobs-in-bern/ict-supporter-in-service-desk-80-90-bern-be-yellowshark-ch-4997a3e7/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/de/jobs-in-bern/ict-supporter-in-service-desk-80-90-bern-be-yellowshark-ch-4997a3e7/",
-      "consecutiveRuns": 5,
-      "firstSeenAt": "2026-11-18T13:09:07.971Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "sitemap-noindex|https://frontaliereticino.ch/de/jobs-in-bern/mitarbeiter-in-restaurant-buffet-kasse-migros-restaurant-thun-811007c9/": {
-      "code": "sitemap-noindex",
-      "url": "https://frontaliereticino.ch/de/jobs-in-bern/mitarbeiter-in-restaurant-buffet-kasse-migros-restaurant-thun-811007c9/",
-      "consecutiveRuns": 4,
-      "firstSeenAt": "2026-11-19T13:17:25.898Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "jobposting-missing|https://frontaliereticino.ch/de/jobs-in-bern/mitarbeiter-in-restaurant-buffet-kasse-migros-restaurant-thun-811007c9/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/de/jobs-in-bern/mitarbeiter-in-restaurant-buffet-kasse-migros-restaurant-thun-811007c9/",
-      "consecutiveRuns": 4,
-      "firstSeenAt": "2026-11-19T13:17:25.898Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "sitemap-noindex|https://frontaliereticino.ch/de/jobs-in-bern/responsable-du-developpement-de-produits-swissinfo-srg-ssr-bern/": {
-      "code": "sitemap-noindex",
-      "url": "https://frontaliereticino.ch/de/jobs-in-bern/responsable-du-developpement-de-produits-swissinfo-srg-ssr-bern/",
-      "consecutiveRuns": 2,
-      "firstSeenAt": "2026-11-21T12:44:44.512Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "jobposting-missing|https://frontaliereticino.ch/de/jobs-in-bern/responsable-du-developpement-de-produits-swissinfo-srg-ssr-bern/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/de/jobs-in-bern/responsable-du-developpement-de-produits-swissinfo-srg-ssr-bern/",
-      "consecutiveRuns": 2,
-      "firstSeenAt": "2026-11-21T12:44:44.512Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "sitemap-noindex|https://frontaliereticino.ch/de/jobs-in-luzern/maler-in-per-fassadenarbeiten-stellentreff-ag-luzern-ad683d96/": {
-      "code": "sitemap-noindex",
-      "url": "https://frontaliereticino.ch/de/jobs-in-luzern/maler-in-per-fassadenarbeiten-stellentreff-ag-luzern-ad683d96/",
-      "consecutiveRuns": 2,
-      "firstSeenAt": "2026-11-21T12:44:44.512Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "jobposting-missing|https://frontaliereticino.ch/de/jobs-in-luzern/maler-in-per-fassadenarbeiten-stellentreff-ag-luzern-ad683d96/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/de/jobs-in-luzern/maler-in-per-fassadenarbeiten-stellentreff-ag-luzern-ad683d96/",
-      "consecutiveRuns": 2,
-      "firstSeenAt": "2026-11-21T12:44:44.512Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "sitemap-noindex|https://frontaliereticino.ch/de/jobs-in-luzern/montage-elektriker-in-fur-steuerungs-und-schaltanlagen-sursee-luzern-fachkraft-ch-bd595b3d/": {
-      "code": "sitemap-noindex",
-      "url": "https://frontaliereticino.ch/de/jobs-in-luzern/montage-elektriker-in-fur-steuerungs-und-schaltanlagen-sursee-luzern-fachkraft-ch-bd595b3d/",
-      "consecutiveRuns": 2,
-      "firstSeenAt": "2026-11-21T12:44:44.512Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "jobposting-missing|https://frontaliereticino.ch/de/jobs-in-luzern/montage-elektriker-in-fur-steuerungs-und-schaltanlagen-sursee-luzern-fachkraft-ch-bd595b3d/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/de/jobs-in-luzern/montage-elektriker-in-fur-steuerungs-und-schaltanlagen-sursee-luzern-fachkraft-ch-bd595b3d/",
-      "consecutiveRuns": 2,
-      "firstSeenAt": "2026-11-21T12:44:44.512Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "sitemap-noindex|https://frontaliereticino.ch/de/jobs-in-zurich/polymechanic-cnc-manufacturing-with-cam-programming-fachkraft-ch-gmbh-wil-sg-st-gallen-6d9453d8/": {
-      "code": "sitemap-noindex",
-      "url": "https://frontaliereticino.ch/de/jobs-in-zurich/polymechanic-cnc-manufacturing-with-cam-programming-fachkraft-ch-gmbh-wil-sg-st-gallen-6d9453d8/",
-      "consecutiveRuns": 4,
-      "firstSeenAt": "2026-11-19T13:17:25.898Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "jobposting-missing|https://frontaliereticino.ch/de/jobs-in-zurich/polymechanic-cnc-manufacturing-with-cam-programming-fachkraft-ch-gmbh-wil-sg-st-gallen-6d9453d8/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/de/jobs-in-zurich/polymechanic-cnc-manufacturing-with-cam-programming-fachkraft-ch-gmbh-wil-sg-st-gallen-6d9453d8/",
-      "consecutiveRuns": 4,
-      "firstSeenAt": "2026-11-19T13:17:25.898Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "sitemap-noindex|https://frontaliereticino.ch/de/jobs-in-zurich/rayonleiter-in-grundnahrungsmittel-coop-herrliberg-8e66cad4/": {
-      "code": "sitemap-noindex",
-      "url": "https://frontaliereticino.ch/de/jobs-in-zurich/rayonleiter-in-grundnahrungsmittel-coop-herrliberg-8e66cad4/",
-      "consecutiveRuns": 2,
-      "firstSeenAt": "2026-11-21T12:44:44.512Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "jobposting-missing|https://frontaliereticino.ch/de/jobs-in-zurich/rayonleiter-in-grundnahrungsmittel-coop-herrliberg-8e66cad4/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/de/jobs-in-zurich/rayonleiter-in-grundnahrungsmittel-coop-herrliberg-8e66cad4/",
-      "consecutiveRuns": 2,
-      "firstSeenAt": "2026-11-21T12:44:44.512Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "sitemap-noindex|https://frontaliereticino.ch/en/find-jobs-lucerne/lackierassistent-in-fur-spritz-und-lackierarbeiten-fachkraft-ch-gmbh-sursee/": {
-      "code": "sitemap-noindex",
-      "url": "https://frontaliereticino.ch/en/find-jobs-lucerne/lackierassistent-in-fur-spritz-und-lackierarbeiten-fachkraft-ch-gmbh-sursee/",
-      "consecutiveRuns": 2,
-      "firstSeenAt": "2026-11-21T12:44:44.512Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "jobposting-missing|https://frontaliereticino.ch/en/find-jobs-lucerne/lackierassistent-in-fur-spritz-und-lackierarbeiten-fachkraft-ch-gmbh-sursee/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/en/find-jobs-lucerne/lackierassistent-in-fur-spritz-und-lackierarbeiten-fachkraft-ch-gmbh-sursee/",
-      "consecutiveRuns": 2,
-      "firstSeenAt": "2026-11-21T12:44:44.512Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "sitemap-noindex|https://frontaliereticino.ch/en/find-jobs-st-gallen/progettista-elettrico-a-region-sevelen-ipersonal-ag-sevelen/": {
-      "code": "sitemap-noindex",
-      "url": "https://frontaliereticino.ch/en/find-jobs-st-gallen/progettista-elettrico-a-region-sevelen-ipersonal-ag-sevelen/",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-22T12:40:37.453Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "jobposting-missing|https://frontaliereticino.ch/en/find-jobs-st-gallen/progettista-elettrico-a-region-sevelen-ipersonal-ag-sevelen/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/en/find-jobs-st-gallen/progettista-elettrico-a-region-sevelen-ipersonal-ag-sevelen/",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-22T12:40:37.453Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "sitemap-noindex|https://frontaliereticino.ch/en/find-jobs-vaud/100-dpi-nurse-reference-hirslanden-klinik-hirslanden-clinique-cecil/": {
-      "code": "sitemap-noindex",
-      "url": "https://frontaliereticino.ch/en/find-jobs-vaud/100-dpi-nurse-reference-hirslanden-klinik-hirslanden-clinique-cecil/",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-22T12:40:37.453Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "jobposting-missing|https://frontaliereticino.ch/en/find-jobs-vaud/100-dpi-nurse-reference-hirslanden-klinik-hirslanden-clinique-cecil/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/en/find-jobs-vaud/100-dpi-nurse-reference-hirslanden-klinik-hirslanden-clinique-cecil/",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-22T12:40:37.453Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "sitemap-noindex|https://frontaliereticino.ch/en/find-jobs-zurich/elektroinstallateur-in-fur-toranlagen-und-antriebssysteme-winterthur-zurich-fachkraft-ch/": {
-      "code": "sitemap-noindex",
-      "url": "https://frontaliereticino.ch/en/find-jobs-zurich/elektroinstallateur-in-fur-toranlagen-und-antriebssysteme-winterthur-zurich-fachkraft-ch/",
-      "consecutiveRuns": 4,
-      "firstSeenAt": "2026-11-19T13:17:25.898Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "jobposting-missing|https://frontaliereticino.ch/en/find-jobs-zurich/elektroinstallateur-in-fur-toranlagen-und-antriebssysteme-winterthur-zurich-fachkraft-ch/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/en/find-jobs-zurich/elektroinstallateur-in-fur-toranlagen-und-antriebssysteme-winterthur-zurich-fachkraft-ch/",
-      "consecutiveRuns": 4,
-      "firstSeenAt": "2026-11-19T13:17:25.898Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "sitemap-noindex|https://frontaliereticino.ch/en/find-jobs-zurich/medecin-superieur-medecin-superieur-en-soins-intensifs-et-ou-anesthesie-60-100-gzo-spital-wetzikon-wetzikon-fda135c8/": {
-      "code": "sitemap-noindex",
-      "url": "https://frontaliereticino.ch/en/find-jobs-zurich/medecin-superieur-medecin-superieur-en-soins-intensifs-et-ou-anesthesie-60-100-gzo-spital-wetzikon-wetzikon-fda135c8/",
-      "consecutiveRuns": 5,
-      "firstSeenAt": "2026-11-18T13:09:07.971Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "jobposting-missing|https://frontaliereticino.ch/en/find-jobs-zurich/medecin-superieur-medecin-superieur-en-soins-intensifs-et-ou-anesthesie-60-100-gzo-spital-wetzikon-wetzikon-fda135c8/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/en/find-jobs-zurich/medecin-superieur-medecin-superieur-en-soins-intensifs-et-ou-anesthesie-60-100-gzo-spital-wetzikon-wetzikon-fda135c8/",
-      "consecutiveRuns": 5,
-      "firstSeenAt": "2026-11-18T13:09:07.971Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "sitemap-noindex|https://frontaliereticino.ch/en/find-jobs-zurich/physician-associate-kantonsspital-winterthur-ksw-winterthur/": {
-      "code": "sitemap-noindex",
-      "url": "https://frontaliereticino.ch/en/find-jobs-zurich/physician-associate-kantonsspital-winterthur-ksw-winterthur/",
-      "consecutiveRuns": 4,
-      "firstSeenAt": "2026-11-19T13:17:25.898Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "jobposting-missing|https://frontaliereticino.ch/en/find-jobs-zurich/physician-associate-kantonsspital-winterthur-ksw-winterthur/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/en/find-jobs-zurich/physician-associate-kantonsspital-winterthur-ksw-winterthur/",
-      "consecutiveRuns": 4,
-      "firstSeenAt": "2026-11-19T13:17:25.898Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "sitemap-noindex|https://frontaliereticino.ch/fr/trouver-emploi-geneve/prozesslebensdauer-h-f-patek-philippe-plan-les-ouates/": {
-      "code": "sitemap-noindex",
-      "url": "https://frontaliereticino.ch/fr/trouver-emploi-geneve/prozesslebensdauer-h-f-patek-philippe-plan-les-ouates/",
-      "consecutiveRuns": 5,
-      "firstSeenAt": "2026-11-18T13:09:07.971Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "jobposting-missing|https://frontaliereticino.ch/fr/trouver-emploi-geneve/prozesslebensdauer-h-f-patek-philippe-plan-les-ouates/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/fr/trouver-emploi-geneve/prozesslebensdauer-h-f-patek-philippe-plan-les-ouates/",
-      "consecutiveRuns": 5,
-      "firstSeenAt": "2026-11-18T13:09:07.971Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "sitemap-noindex|https://frontaliereticino.ch/fr/trouver-emploi-tessin/collaboratore-trice-gastronomie-coop-genossenschaft-biel-2a511091/": {
-      "code": "sitemap-noindex",
-      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/collaboratore-trice-gastronomie-coop-genossenschaft-biel-2a511091/",
-      "consecutiveRuns": 4,
-      "firstSeenAt": "2026-11-19T13:17:25.898Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "jobposting-missing|https://frontaliereticino.ch/fr/trouver-emploi-tessin/collaboratore-trice-gastronomie-coop-genossenschaft-biel-2a511091/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/fr/trouver-emploi-tessin/collaboratore-trice-gastronomie-coop-genossenschaft-biel-2a511091/",
-      "consecutiveRuns": 4,
-      "firstSeenAt": "2026-11-19T13:17:25.898Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "sitemap-noindex|https://frontaliereticino.ch/fr/trouver-emploi-thurgovie/polymechaniker-in-8211-montage-mit-eigenverantwortlichem-arbeiten-arbon-thurgau-fachkraft/": {
-      "code": "sitemap-noindex",
-      "url": "https://frontaliereticino.ch/fr/trouver-emploi-thurgovie/polymechaniker-in-8211-montage-mit-eigenverantwortlichem-arbeiten-arbon-thurgau-fachkraft/",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-22T12:40:37.453Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "jobposting-missing|https://frontaliereticino.ch/fr/trouver-emploi-thurgovie/polymechaniker-in-8211-montage-mit-eigenverantwortlichem-arbeiten-arbon-thurgau-fachkraft/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/fr/trouver-emploi-thurgovie/polymechaniker-in-8211-montage-mit-eigenverantwortlichem-arbeiten-arbon-thurgau-fachkraft/",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-22T12:40:37.453Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "sitemap-noindex|https://frontaliereticino.ch/fr/trouver-emploi-zurich/maler-in-con-betreuung-von-lernenden-sta-personal-ag-dielsdorf-94446440/": {
-      "code": "sitemap-noindex",
-      "url": "https://frontaliereticino.ch/fr/trouver-emploi-zurich/maler-in-con-betreuung-von-lernenden-sta-personal-ag-dielsdorf-94446440/",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-22T12:40:37.453Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "jobposting-missing|https://frontaliereticino.ch/fr/trouver-emploi-zurich/maler-in-con-betreuung-von-lernenden-sta-personal-ag-dielsdorf-94446440/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/fr/trouver-emploi-zurich/maler-in-con-betreuung-von-lernenden-sta-personal-ag-dielsdorf-94446440/",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-22T12:40:37.453Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "sitemap-noindex|https://frontaliereticino.ch/fr/trouver-emploi-zurich/plant-manager-deputy-vice-president-operations-m-w-d-dormakaba-ch/": {
-      "code": "sitemap-noindex",
-      "url": "https://frontaliereticino.ch/fr/trouver-emploi-zurich/plant-manager-deputy-vice-president-operations-m-w-d-dormakaba-ch/",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-22T12:40:37.453Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "jobposting-missing|https://frontaliereticino.ch/fr/trouver-emploi-zurich/plant-manager-deputy-vice-president-operations-m-w-d-dormakaba-ch/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/fr/trouver-emploi-zurich/plant-manager-deputy-vice-president-operations-m-w-d-dormakaba-ch/",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-22T12:40:37.453Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "sitemap-noindex|https://frontaliereticino.ch/fr/trouver-emploi-zurich/senior-physician-senior-physician-intensive-care-medicine-and-or-anesthesia-60-100-gzo-spital-wetzikon-wetzikon-369ec580/": {
-      "code": "sitemap-noindex",
-      "url": "https://frontaliereticino.ch/fr/trouver-emploi-zurich/senior-physician-senior-physician-intensive-care-medicine-and-or-anesthesia-60-100-gzo-spital-wetzikon-wetzikon-369ec580/",
-      "consecutiveRuns": 5,
-      "firstSeenAt": "2026-11-18T13:09:07.971Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "jobposting-missing|https://frontaliereticino.ch/fr/trouver-emploi-zurich/senior-physician-senior-physician-intensive-care-medicine-and-or-anesthesia-60-100-gzo-spital-wetzikon-wetzikon-369ec580/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/fr/trouver-emploi-zurich/senior-physician-senior-physician-intensive-care-medicine-and-or-anesthesia-60-100-gzo-spital-wetzikon-wetzikon-369ec580/",
-      "consecutiveRuns": 5,
-      "firstSeenAt": "2026-11-18T13:09:07.971Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "sitemap-noindex|https://frontaliereticino.ch/fr/trouver-emploi-zurich/specialiste-en-psychiatrie-et-psychotherapie-pour-adultes-m-f-d-40-100-clienia-ag-pfaffikon-zh-eca90644/": {
-      "code": "sitemap-noindex",
-      "url": "https://frontaliereticino.ch/fr/trouver-emploi-zurich/specialiste-en-psychiatrie-et-psychotherapie-pour-adultes-m-f-d-40-100-clienia-ag-pfaffikon-zh-eca90644/",
-      "consecutiveRuns": 4,
-      "firstSeenAt": "2026-11-19T13:17:25.898Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "jobposting-missing|https://frontaliereticino.ch/fr/trouver-emploi-zurich/specialiste-en-psychiatrie-et-psychotherapie-pour-adultes-m-f-d-40-100-clienia-ag-pfaffikon-zh-eca90644/": {
-      "code": "jobposting-missing",
-      "url": "https://frontaliereticino.ch/fr/trouver-emploi-zurich/specialiste-en-psychiatrie-et-psychotherapie-pour-adultes-m-f-d-40-100-clienia-ag-pfaffikon-zh-eca90644/",
-      "consecutiveRuns": 4,
-      "firstSeenAt": "2026-11-19T13:17:25.898Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": null
-    },
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch/fr/trouver-emploi-zurich/assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-winterthur-827cab01/": {
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-zurich/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-feuerthalen-c5acbd21/": {
       "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch/fr/trouver-emploi-zurich/assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-winterthur-827cab01/",
+      "url": "https://frontaliereticino.ch/en/find-jobs-zurich/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-feuerthalen-c5acbd21/",
       "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-22T12:40:37.453Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": "edge=503 count=13 live=503 surface=worker-shard"
+      "firstSeenAt": "2026-11-23T14:46:35.645Z",
+      "lastSeenAt": "2026-11-23T14:46:35.645Z",
+      "detail": "edge=503 count=20 live=503 surface=worker-shard"
     },
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch/fr/trouver-emploi-zurich/vendeur-de-produits-frais-coop-genossenschaft-volketswil-717f81a8/": {
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-lucerne/apprendistato-impiegata-impiegato-in-logistica-01-08-2027-31-07-2030-ikea-itingen/": {
       "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch/fr/trouver-emploi-zurich/vendeur-de-produits-frais-coop-genossenschaft-volketswil-717f81a8/",
+      "url": "https://frontaliereticino.ch/en/find-jobs-lucerne/apprendistato-impiegata-impiegato-in-logistica-01-08-2027-31-07-2030-ikea-itingen/",
       "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-22T12:40:37.453Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": "edge=503 count=12 live=503 surface=worker-shard"
+      "firstSeenAt": "2026-11-23T14:46:35.645Z",
+      "lastSeenAt": "2026-11-23T14:46:35.645Z",
+      "detail": "edge=503 count=20 live=503 surface=worker-shard"
     },
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-grigioni/apprendistato-montage-elektriker-in-cfc-alle-bkw-landquart/": {
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-lucerne/verkaufer-in-kassen-services-coop-genossenschaft-root-f69c4b4b/": {
       "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch/cerca-lavoro-grigioni/apprendistato-montage-elektriker-in-cfc-alle-bkw-landquart/",
+      "url": "https://frontaliereticino.ch/en/find-jobs-lucerne/verkaufer-in-kassen-services-coop-genossenschaft-root-f69c4b4b/",
       "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-22T12:40:37.453Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": "edge=503 count=7 live=503 surface=apex-pages"
+      "firstSeenAt": "2026-11-23T14:46:35.645Z",
+      "lastSeenAt": "2026-11-23T14:46:35.645Z",
+      "detail": "edge=503 count=10 live=503 surface=worker-shard"
     },
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-grigioni/assistente-sanitaria-e-sociale-assistente-infermieristico-srk-o-assistente-sociale-50-90-center-da-sanadad-e7304df2/": {
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-lucerne/erp-business-analyst-tax-management-roche-ch/": {
       "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch/cerca-lavoro-grigioni/assistente-sanitaria-e-sociale-assistente-infermieristico-srk-o-assistente-sociale-50-90-center-da-sanadad-e7304df2/",
+      "url": "https://frontaliereticino.ch/en/find-jobs-lucerne/erp-business-analyst-tax-management-roche-ch/",
       "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-22T12:40:37.453Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": "edge=503 count=4 live=503 surface=apex-pages"
-    },
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-grigioni/assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-580b4220/": {
-      "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch/cerca-lavoro-grigioni/assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-580b4220/",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-22T12:40:37.453Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": "edge=503 count=4 live=503 surface=apex-pages"
-    },
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-grigioni/night-service-nursing-assistant-m-f-or-nursing-assistant-willing-to-complete-the-src-course-center-da-sanadad-savognin/": {
-      "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch/cerca-lavoro-grigioni/night-service-nursing-assistant-m-f-or-nursing-assistant-willing-to-complete-the-src-course-center-da-sanadad-savognin/",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-22T12:40:37.453Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": "edge=503 count=4 live=503 surface=apex-pages"
+      "firstSeenAt": "2026-11-23T14:46:35.645Z",
+      "lastSeenAt": "2026-11-23T14:46:35.645Z",
+      "detail": "edge=503 count=10 live=503 surface=worker-shard"
     },
     "cloudflare-5xx-unverified|source:cloudflare-5xx-unverified": {
       "code": "cloudflare-5xx-unverified",
       "url": "source:cloudflare-5xx-unverified",
-      "consecutiveRuns": 10,
+      "consecutiveRuns": 11,
       "firstSeenAt": "2026-11-13T12:18:45.545Z",
-      "lastSeenAt": "2026-11-22T12:40:37.453Z",
-      "detail": "count=29780 sampled-out-or-unprobed; no live recovery asserted"
+      "lastSeenAt": "2026-11-23T14:46:35.645Z",
+      "detail": "count=25812 sampled-out-or-unprobed; no live recovery asserted"
     }
   },
   "cleanRuns": 0,
-  "lastActionable": true
+  "lastActionable": false
 }
