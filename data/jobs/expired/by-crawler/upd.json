@@ -2444,16 +2444,14 @@
     "slugByLocale": {
       "it": "dipl-specialista-di-cura-stazione-schwartzlin-universitare-psychiatrische-dienste-bern-upd-bern",
       "en": "dipl-care-specialist-station-schwartzlin-universitare-psychiatrische-dienste-bern-upd-bern",
-      "de": "dipl-pflegefachperson-station-schwartzlin-upd-bern",
+      "de": "dipl-pflegefachperson-station-schwartzlin-upd-bern-3b662d37",
       "fr": "dipl-specialiste-des-soins-station-schwartzlin-universitare-psychiatrische-dienste-bern-upd-bern"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-23T21:20:26.868Z",
-    "previousSlugs": [
-      "dipl-pflegefachperson-station-schwartzlin-upd-bern"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "dipl-pflegefachperson-station-schwartzlin-upd-bern-3b662d37",
         "dipl-pflegefachperson-station-schwartzlin-upd-bern"
       ],
       "en": [
@@ -2461,6 +2459,9 @@
       ],
       "fr": [
         "dipl-pflegefachperson-station-schwartzlin-upd-bern"
+      ],
+      "de": [
+        "dipl-pflegefachperson-station-schwartzlin-upd-bern-3b662d37"
       ]
     },
     "postalCode": "3004",
@@ -2470,7 +2471,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/jobs/607c9e73-7ac2-4b81-9a6d-e288f275e9cb",
-    "firstSeenAt": "2026-09-29T21:25:33.620Z"
+    "firstSeenAt": "2026-09-29T21:25:33.620Z",
+    "previousSlugs": [
+      "dipl-pflegefachperson-station-schwartzlin-upd-bern"
+    ]
   },
   {
     "slug": "hostess-host-servizio-alberghiero-universitare-psychiatrische-dienste-bern-upd-munsingen",
