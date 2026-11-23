@@ -4375,20 +4375,11 @@
         ]
       },
       "remote": false,
-      "previousSlugs": [
-        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
-        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-cm7y1g",
-        "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates-cm7y1g",
-        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates-337c422c70",
-        "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates-94889aa124",
-        "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
           "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-cm7y1g",
           "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates-337c422c70",
-          "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates-94889aa124",
           "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates"
         ],
         "de": [
@@ -4398,7 +4389,13 @@
           "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates-cm7y1g"
         ]
       },
-      "firstSeenAt": "2026-08-13T10:28:16.254Z",
+      "previousSlugs": [
+        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
+        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-cm7y1g",
+        "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates-cm7y1g",
+        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates-337c422c70",
+        "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates"
+      ],
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -4417,7 +4414,8 @@
       "streetAddress": "Plan-les-Ouates",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-23T21:26:52.540Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-08-13T10:28:16.254Z"
     },
     {
       "id": "reboot-monkey-82b75718ba1a",
