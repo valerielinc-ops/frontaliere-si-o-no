@@ -1,7 +1,7 @@
 {
   "key": "le-team",
   "label": "le team sa",
-  "generatedAt": "2026-11-23T09:34:20.707Z",
+  "generatedAt": "2026-11-23T21:25:29.650Z",
   "total": 2,
   "discovered": 2,
   "parsed": 2,
@@ -49,10 +49,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 30470,
-  "avgDurationMs": 30470,
+  "durationMs": 27845,
+  "avgDurationMs": 27845,
   "durationHistory": [
-    30470
+    27845
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -71,7 +71,7 @@
       "url": "https://team.jobs/fr/offres-demplois/betonwerker-betonbauer/macon-b-h-f-d/Hagz1kmEzkUfZnEz9JwcJO",
       "source": "le team sa Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:33:46.728Z",
+      "crawledAt": "2026-11-23T21:24:54.822Z",
       "addressLocality": "Porrentruy",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -93,7 +93,7 @@
       "postalCode": "2900",
       "streetAddress": "Porrentruy",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:33:46.728Z",
+      "validThrough": "2027-01-14T21:24:54.822Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -116,7 +116,7 @@
       "url": "https://team.jobs/fr/offres-demplois/betonwerker-betonbauer/macon-experimente-h-f-d/GObuebFyPhOinsEV7B97yu",
       "source": "le team sa Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:33:46.727Z",
+      "crawledAt": "2026-11-23T21:24:54.821Z",
       "addressLocality": "Porrentruy",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "postalCode": "2900",
       "streetAddress": "Porrentruy",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-19T09:33:46.727Z",
+      "validThrough": "2027-02-19T21:24:54.821Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -149,5 +149,5 @@
       }
     }
   ],
-  "codeCommit": "7474b74d22ad2d97637dc94f08d243f12f0ba1c7"
+  "codeCommit": "7b684909df7304f91c3a19b75aa2a6088ce7630a"
 }
