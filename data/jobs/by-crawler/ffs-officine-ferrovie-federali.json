@@ -197,7 +197,6 @@
       "url": "https://careers.sbb.ch/job/Basel-Polizistin-Transportpolizei-Base/1407842233",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:33:53.237Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-ticino"
@@ -283,7 +282,6 @@
       "url": "https://careers.sbb.ch/job/Basel-Quereinstieg-Lokf%C3%BChrerin-Rangier-Base/1408888433",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:33:53.248Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-ticino"
@@ -846,7 +844,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:33:53.759Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-3bbd9c0b3214",
@@ -1137,7 +1136,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Fachspezialistin-Einsatzleitzentrale-der-Transportpolizei/1454308333",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:33:54.044Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-in-einsatzleitzentrale-der-transportpolizei-ffs-officine-ferrovie-federali-ticino"
@@ -1988,13 +1986,14 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:33:54.780Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-9634e780d4e6",
       "slug": "linux-system-e-automation-ingegnere-m-w-d-ffs-officine-ferrovie-federali-ticino-df3d4d3eea",
       "slugByLocale": {
-        "it": "linux-system-e-automation-ingegnere-m-w-d-ffs-officine-ferrovie-federali-ticino-df3d4d3eea",
+        "it": "linux-system-e-automation-ingegnere-m-w-d-ffs-officine-ferrovie-federali-ticino",
         "en": "linux-system-und-automation-engineer-m-w-d-ffs-officine-ferrovie-federali-ticino",
         "de": "linux-system-und-automation-engineer-m-w-d-ffs-officine-ferrovie-federali-ticino",
         "fr": "ingenieur-systemes-linux-et-automatisation-h-f-d-ffs-officine-ferrovie-federali-ticino"
@@ -2035,14 +2034,12 @@
       "crawledAt": "2026-11-22T21:33:54.821Z",
       "previousSlugs": [
         "linux-system-und-automation-engineer-m-w-d-ffs-officine-ferrovie-federali-ticino",
-        "linux-system-and-automation-engineer-m-w-d-ffs-officine-ferrovie-federali-ticino",
-        "linux-system-e-automation-ingegnere-m-w-d-ffs-officine-ferrovie-federali-ticino"
+        "linux-system-and-automation-engineer-m-w-d-ffs-officine-ferrovie-federali-ticino"
       ],
       "previousSlugsByLocale": {
         "it": [
           "linux-system-und-automation-engineer-m-w-d-ffs-officine-ferrovie-federali-ticino",
-          "linux-system-and-automation-engineer-m-w-d-ffs-officine-ferrovie-federali-ticino",
-          "linux-system-e-automation-ingegnere-m-w-d-ffs-officine-ferrovie-federali-ticino"
+          "linux-system-and-automation-engineer-m-w-d-ffs-officine-ferrovie-federali-ticino"
         ],
         "en": [
           "linux-system-and-automation-engineer-m-w-d-ffs-officine-ferrovie-federali-ticino"
@@ -2552,7 +2549,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:33:55.201Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-e2be1ca19061",
@@ -2684,7 +2682,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Quereinstieg-Rangierspezialistin-Bern/1369690433",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:33:55.298Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-rangierspezialist-in-ffs-officine-ferrovie-federali-ticino"
@@ -3558,7 +3555,6 @@
       "url": "https://careers.sbb.ch/job/BielBienne-Fachtechnikerin-Industrie-Biel/1432783533",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:33:55.968Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-ticino"
@@ -3648,7 +3644,6 @@
       "url": "https://careers.sbb.ch/job/BielBienne-Fachtechnikerin-Industrie/1454292933",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:33:55.979Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-ticino"
@@ -4076,7 +4071,6 @@
       "url": "https://careers.sbb.ch/job/BielBienne-Quereinstieg-Lokf%C3%BChrerin-Rangier-Biel/1423662833",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:33:56.300Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-ticino"
@@ -4242,7 +4236,6 @@
       "url": "https://careers.sbb.ch/job/Birsfelden-Hafen-Quereinstieg-Rangierspezialistin-Birs/1441451333",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:33:56.417Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-rangierspezialist-in-ffs-officine-ferrovie-federali-ticino"
@@ -4648,7 +4641,6 @@
       "url": "https://careers.sbb.ch/job/Brig-Quereinstieg-Lokf%C3%BChrerin-Rangier-Brig/1423661433",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:33:56.685Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-ticino"
@@ -4814,7 +4806,6 @@
       "url": "https://careers.sbb.ch/job/Chur-Quereinstieg-in-den-Polizeiberuf-Ausbildung-als-Polizistin-der-SBB-Transportpolizei/1451722533",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:33:56.764Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-in-den-polizeiberuf-ausbildung-als-polizist-in-der-sbb-transportpolizei-ffs-officine-ferrovie-federali-ticino"
@@ -5380,7 +5371,6 @@
       "url": "https://careers.sbb.ch/job/Erstfeld-Quereinstieg-Lokf%C3%BChrerin-Bauzug-mit-handwerklicher-Erfahrung-Erst/1400661533",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:33:57.265Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-ticino"
@@ -6203,7 +6193,6 @@
       "url": "https://careers.sbb.ch/job/Langenthal-Quereinstieg-Lokf%C3%BChrerin-Bauzug-mit-handwerklicher-Erfahrung/1457950033",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:33:57.797Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-ticino"
@@ -6775,7 +6764,6 @@
       "url": "https://careers.sbb.ch/job/Lenzburg-Quereinstieg-Lokf%C3%BChrerin-Bauzug-mit-handwerklicher-Erfahrung-Lenz/1276777501",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:33:58.187Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-ticino"
@@ -6861,7 +6849,6 @@
       "url": "https://careers.sbb.ch/job/Luzern-Elektrikerin%2C-Automatikerin-f%C3%BCr-den-Einstieg-in-den-Bereich-Bahnsicherungsanlagen-Luze/1425574933",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:33:58.324Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "elektriker-in-automatiker-in-fur-den-einstieg-in-den-bereich-bahnsicherungsanlagen-ffs-officine-ferrovie-federali-ticino"
@@ -6947,7 +6934,6 @@
       "url": "https://careers.sbb.ch/job/Luzern-Polierin-Gleisbau/1456840433",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:33:58.350Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "polier-in-gleisbau-ffs-officine-ferrovie-federali-ticino"
@@ -7033,7 +7019,6 @@
       "url": "https://careers.sbb.ch/job/Luzern-Quereinstieg-Lokf%C3%BChrerin-Personenverkehr-032027-Luze/1392853833",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:33:58.417Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-lokfuhrer-in-personenverkehr-03-2027-ffs-officine-ferrovie-federali-ticino"
@@ -7119,7 +7104,6 @@
       "url": "https://careers.sbb.ch/job/Luzern-Quereinstieg-Kundenbegleiterin-f%C3%BCr-Frequenzerfassung-Luze/1429935933",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:33:58.426Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-kundenbegleiter-in-fur-frequenzerfassung-ffs-officine-ferrovie-federali-ticino"
@@ -7205,7 +7189,6 @@
       "url": "https://careers.sbb.ch/job/Luzern-Quereinstieg-Lokf%C3%BChrerin-Rangier-Luze/1433970433",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:33:58.479Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-ticino"
@@ -7694,7 +7677,6 @@
       "url": "https://careers.sbb.ch/job/Muttenz-Quereinstieg-Zugverkehrsleiterin-Mutt/1407757433",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:33:58.825Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-zugverkehrsleiter-in-ffs-officine-ferrovie-federali-ticino"
@@ -8666,7 +8648,6 @@
       "url": "https://careers.sbb.ch/job/Olten-Polizistin-Transportpolizei-Olte/1288330001",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:33:59.516Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-ticino"
@@ -8840,7 +8821,6 @@
       "url": "https://careers.sbb.ch/job/Olten-Quereinstieg-Lokf%C3%BChrerin-Bauzug-mit-handwerklicher-Erfahrung-Olte/1369536633",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:33:59.708Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-ticino"
@@ -8926,7 +8906,6 @@
       "url": "https://careers.sbb.ch/job/Olten-Quereinstieg-Zugverkehrsleiterin-Olte/1407749233",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:33:59.744Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-zugverkehrsleiter-in-ffs-officine-ferrovie-federali-ticino"
@@ -9577,7 +9556,6 @@
       "url": "https://careers.sbb.ch/job/Ostermundigen-Quereinstieg-Sicherheitsw%C3%A4rterin-Sicherheitschefin/1455612433",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:34:00.173Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-ticino"
@@ -9889,7 +9867,6 @@
       "url": "https://careers.sbb.ch/job/Rapperswil-%28SG%29-Quereinstieg-Lokf%C3%BChrerin-Personenverkehr-062027-Rapp/1434271433",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:34:00.478Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-lokfuhrer-in-personenverkehr-06-2027-ffs-officine-ferrovie-federali-ticino"
@@ -9975,7 +9952,6 @@
       "url": "https://careers.sbb.ch/job/Rapperswil-%28SG%29-Quereinstieg-Lokf%C3%BChrerin-Rangier-Rapp/1430052733",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:34:00.501Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-ticino"
@@ -10061,7 +10037,6 @@
       "url": "https://careers.sbb.ch/job/Rapperswil-%28SG%29-Quereinstieg-Sicherheitsw%C3%A4rterin-Sicherheitschefin-Infr/1455693333",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:34:00.511Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-ticino"
@@ -10868,7 +10843,6 @@
       "url": "https://careers.sbb.ch/job/Romanshorn-Quereinstieg-Lokf%C3%BChrerin-Rangier-Roma/1430161433",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:34:01.182Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-ticino"
@@ -11034,7 +11008,6 @@
       "url": "https://careers.sbb.ch/job/Rothenburg-Vorarbeiterin-Gleisbau-Infr/1456018233",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:34:01.217Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-ticino"
@@ -11120,7 +11093,6 @@
       "url": "https://careers.sbb.ch/job/Rotkreuz-Quereinstieg-Rangierspezialistin-Rotk/1440041633",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:34:01.246Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-rangierspezialist-in-ffs-officine-ferrovie-federali-ticino"
@@ -11700,7 +11672,6 @@
       "url": "https://careers.sbb.ch/job/St_-Gallen-Polizistin-Transportpolizei-St_/1185992801",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:34:01.739Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-ticino"
@@ -11786,7 +11757,6 @@
       "url": "https://careers.sbb.ch/job/St_-Gallen-Quereinstieg-in-den-Polizeiberuf-Ausbildung-als-Polizistin-der-SBB-Transportpolizei/1451723133",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:34:01.843Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-in-den-polizeiberuf-ausbildung-als-polizist-in-der-sbb-transportpolizei-ffs-officine-ferrovie-federali-ticino"
@@ -12032,7 +12002,6 @@
       "url": "https://careers.sbb.ch/job/Winterthur-Polizistin-Transportpolizei-Wint/1165756801",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:34:01.916Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "polizist-in-transportpolizei-ffs-officine-ferrovie-federali-ticino"
@@ -12118,7 +12087,6 @@
       "url": "https://careers.sbb.ch/job/Winterthur-Quereinstieg-Sicherheitsw%C3%A4rterin-Sicherheitschefin-Wint/1378291233",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-22T21:34:01.939Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-ticino"
@@ -14919,7 +14887,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:34:04.072Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-dec58ea4269b",

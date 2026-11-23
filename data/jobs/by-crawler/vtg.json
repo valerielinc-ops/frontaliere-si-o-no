@@ -86,7 +86,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.admin.ch/offene-stellen/ict-change-und-release-manager-in-senior/eb043ee3-b94d-4c1e-a32f-066e118dc180",
       "salaryMin": 175000,
-      "salaryMax": 307500
+      "salaryMax": 307500,
+      "needsRetranslation": true
     },
     {
       "id": "company-q1r8cq",
@@ -6598,7 +6599,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.admin.ch/offene-stellen/chef-in-computer-security-incident-response-team-csirt-stv-c-cyber-fusion-center/f1899f55-5bf4-433b-94c8-f29cc4bc0fd8",
       "salaryMin": 73000,
-      "salaryMax": 124500
+      "salaryMax": 124500,
+      "needsRetranslation": true
     },
     {
       "id": "company-9e7syr",
@@ -10216,7 +10218,17 @@
       "employmentType": "FULL_TIME",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T21:44:23.791Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugs": [
+        "lernende-r-elektroniker-in-efz-confederazione-payerne",
+        "apprendista-elektroniker-in-cfc-confederazione-svizzera-payerne-a8596868c9"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lernende-r-elektroniker-in-efz-confederazione-payerne",
+          "apprendista-elektroniker-in-cfc-confederazione-svizzera-payerne-a8596868c9"
+        ]
+      }
     },
     {
       "id": "company-r2ylxp",

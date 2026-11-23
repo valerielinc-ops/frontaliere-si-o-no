@@ -1547,7 +1547,7 @@
       "companyDomain": "physioswiss.ch",
       "title": "Physiotherapeut:in gesucht in Gossau SG und/ oder Oberuzwil 40 – 100%",
       "titleByLocale": {
-        "it": "Physiotherapeut:in gesucht in Gossau SG e/ o Oberuzwil 40 – 100%",
+        "it": "Fisioterapeuta procurado em Gossau SG e/ou Oberuzwil 40 – 100%",
         "en": "Physiotherapist wanted in Gossau SG and/or Oberuzwil 40 – 100%",
         "de": "Physiotherapeut:in gesucht in Gossau SG und/ oder Oberuzwil 40 – 100%",
         "fr": "Physiothérapeute recherché à Gossau SG et/ou Oberuzwil 40 – 100%"
@@ -1615,7 +1615,8 @@
       "streetAddress": "Gossau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T21:45:59.310Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "retranslationAttempts": 1
     },
     {
       "id": "physioswiss-554422f176f0",
@@ -20224,7 +20225,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "sportphysiotherapeut-in-20-40-mit-samstagseinsatz-zurich-altstetten-8048-zurich"

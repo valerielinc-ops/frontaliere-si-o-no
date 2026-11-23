@@ -1164,7 +1164,6 @@
         "fr": "Douleur/Patisserie"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "manor-pain-patisserie-marin-epagnier-2"
@@ -6059,7 +6058,6 @@
         "fr": "Collaborateur/trice caisse (Food) 50%"
       },
       "sourceLang": "fr",
-      "needsRetranslation": true,
       "id": "manor-4950c958f61a",
       "salaryMin": 36000,
       "salaryMax": 55500,
@@ -9764,7 +9762,6 @@
         "fr": "Employé à la caisse 60 %"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-kasse-60-zurich-2"
@@ -13366,7 +13363,6 @@
         "fr": "Salarié à la caisse 30 %"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-kasse-30-winterthur-2"
@@ -13506,7 +13502,6 @@
         "fr": "Employé logistique à 100 %"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "id": "manor-cd18620ab6f0",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -19144,8 +19139,8 @@
       "slug": "gestione-del-negozio-100-manor-ag-pfaffikon",
       "slugByLocale": {
         "it": "gestione-del-negozio-100-manor-ag-pfaffikon",
-        "en": "manor-store-manager-100-pfaffikon",
-        "de": "manor-store-manager-100-pfaffikon",
+        "en": "manor-store-manager-100-pfaffikon-ho3j48",
+        "de": "manor-store-manager-100-pfaffikon-ho3j48",
         "fr": "gestionnaire-de-magasins-100-manor-ag-pfaffikon-2c34e8"
       },
       "titleByLocale": {
@@ -19173,6 +19168,12 @@
         "fr": [
           "manor-store-manager-100-pfaffikon",
           "gestionnaire-de-magasins-100-manor-ag-pfaffikon"
+        ],
+        "en": [
+          "manor-store-manager-100-pfaffikon"
+        ],
+        "de": [
+          "manor-store-manager-100-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-11-20T09:41:57.285Z",
@@ -19476,7 +19477,6 @@
         "fr": "Employé commercial 50 %"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-verkauf-50-emmen-2"
@@ -20602,7 +20602,6 @@
         "fr": "Employé du supermarché 20 %"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "id": "manor-22fd056ddfdb",
       "salaryMin": 13700,
       "salaryMax": 21000,
