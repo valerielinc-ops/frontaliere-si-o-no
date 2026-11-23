@@ -1,31 +1,30 @@
 {
   "key": "gavi",
   "label": "Gavi, the Vaccine Alliance",
-  "generatedAt": "2026-11-22T21:17:39.970Z",
-  "total": 1,
-  "discovered": null,
-  "parsed": 1,
+  "generatedAt": "2026-11-23T09:23:06.984Z",
+  "total": 0,
+  "discovered": 0,
+  "parsed": 0,
   "lastFetchOutcome": null,
   "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 1,
+  "written": 0,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
-  "authoritativeEmptySnapshot": false,
+  "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3654,
-  "avgDurationMs": 3654,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 1386,
+  "avgDurationMs": 1386,
   "durationHistory": [
-    3654
+    1386
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "gavi-1e54ecdaacf6",
       "slug": "senior-manager-innovative-finanza-gavi-the-vaccine-alliance-le-grand-saconnex",
@@ -74,5 +73,6 @@
       }
     }
   ],
-  "codeCommit": "f0ab682774893f4b809c5b75181716509e65ea60"
+  "unchangedJobs": [],
+  "codeCommit": "7474b74d22ad2d97637dc94f08d243f12f0ba1c7"
 }
