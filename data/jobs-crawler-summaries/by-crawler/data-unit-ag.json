@@ -1,7 +1,7 @@
 {
   "key": "data-unit-ag",
   "label": "DATA UNIT AG",
-  "generatedAt": "2026-11-22T21:43:52.643Z",
+  "generatedAt": "2026-11-23T09:46:35.304Z",
   "total": 3,
   "discovered": 3,
   "parsed": 3,
@@ -60,10 +60,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 18873,
-  "avgDurationMs": 18873,
+  "durationMs": 23876,
+  "avgDurationMs": 23876,
   "durationHistory": [
-    18873
+    23876
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -81,7 +81,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2422130?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:43:01.920Z",
+      "crawledAt": "2026-11-23T09:46:13.059Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -118,7 +118,7 @@
         "checkedAt": "2026-11-16T15:22:34.121Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-09T21:43:01.920Z",
+      "validThrough": "2027-02-09T09:46:13.059Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -140,7 +140,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2550441?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:43:01.919Z",
+      "crawledAt": "2026-11-23T09:46:13.055Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -163,7 +163,7 @@
       "salaryMax": 76000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:43:01.919Z",
+      "validThrough": "2027-02-09T09:46:13.055Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -185,7 +185,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2319938?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:43:01.914Z",
+      "crawledAt": "2026-11-23T09:46:13.054Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -222,7 +222,7 @@
         "checkedAt": "2026-11-16T15:22:34.121Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-09T21:43:01.914Z",
+      "validThrough": "2027-02-09T09:46:13.054Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -233,5 +233,5 @@
       }
     }
   ],
-  "codeCommit": "f0ab682774893f4b809c5b75181716509e65ea60"
+  "codeCommit": "7474b74d22ad2d97637dc94f08d243f12f0ba1c7"
 }

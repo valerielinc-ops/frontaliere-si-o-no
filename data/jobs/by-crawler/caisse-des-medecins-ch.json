@@ -1,7 +1,7 @@
 {
   "crawlerKey": "caisse-des-medecins-ch",
-  "assembledAt": "2026-11-22T21:43:21.956Z",
-  "runId": "45072121504",
+  "assembledAt": "2026-11-23T09:45:27.103Z",
+  "runId": "45147069390",
   "jobs": [
     {
       "id": "caisse-des-medecins-ch-646eae5f77b9",
@@ -34,7 +34,7 @@
       "url": "https://caisse-des-medecins.ch/job/test-automation-engineer-m-f/",
       "source": "Caisse des médecins Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T21:43:05.376Z",
+      "crawledAt": "2026-11-23T09:45:16.267Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
       "postalCode": "8902",
       "streetAddress": "Urdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:43:05.376Z",
+      "validThrough": "2027-02-03T09:45:16.267Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -117,7 +117,7 @@
       "url": "https://caisse-des-medecins.ch/job/senior-software-engineer-m-w-100/",
       "source": "Caisse des médecins Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T21:43:05.374Z",
+      "crawledAt": "2026-11-23T09:45:16.266Z",
       "addressLocality": "Thônex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -166,7 +166,7 @@
       "postalCode": "1226",
       "streetAddress": "Thônex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:43:05.374Z",
+      "validThrough": "2027-02-03T09:45:16.266Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -200,7 +200,7 @@
       "url": "https://caisse-des-medecins.ch/job/it-operations-support-h-f-a-100/",
       "source": "Caisse des médecins Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:43:05.373Z",
+      "crawledAt": "2026-11-23T09:45:16.263Z",
       "addressLocality": "Thônex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -235,7 +235,7 @@
       "postalCode": "1226",
       "streetAddress": "Thônex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:43:05.373Z",
+      "validThrough": "2027-02-03T09:45:16.263Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -269,7 +269,7 @@
       "url": "https://caisse-des-medecins.ch/job/dba-sybase-ms-sql-h-f-a-100/",
       "source": "Caisse des médecins Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:43:05.369Z",
+      "crawledAt": "2026-11-23T09:45:16.262Z",
       "addressLocality": "Thônex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -304,7 +304,7 @@
       "postalCode": "1226",
       "streetAddress": "Thônex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:43:05.369Z",
+      "validThrough": "2027-02-03T09:45:16.262Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -338,7 +338,7 @@
       "url": "https://caisse-des-medecins.ch/job/dba-postgresql-exploitation-h-f-100/",
       "source": "Caisse des médecins Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:43:05.366Z",
+      "crawledAt": "2026-11-23T09:45:16.260Z",
       "addressLocality": "Thônex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -387,7 +387,7 @@
       "postalCode": "1226",
       "streetAddress": "Thônex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:43:05.366Z",
+      "validThrough": "2027-02-03T09:45:16.260Z",
       "validThroughSource": "last-observed-window"
     }
   ]
