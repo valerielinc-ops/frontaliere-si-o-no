@@ -65,7 +65,6 @@
     "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-duebendorf-755625",
     "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-luzern-773162",
     "https://team.lidl.ch/de/jobs/kundenbetreuer-kundenbetreuerin-self-checkout-stans-693686",
-    "https://team.lidl.ch/de/jobs/lagermitarbeiter-lagermitarbeiterin-m-w-d-40-80-derendingen-773574",
     "https://team.lidl.ch/de/jobs/lehre-detailhandel-eba-oder-efz-beginn-2027-brig-769146",
     "https://team.lidl.ch/de/jobs/lehre-detailhandel-eba-oder-efz-beginn-2027-duedingen-725876",
     "https://team.lidl.ch/de/jobs/lehre-detailhandel-eba-oder-efz-beginn-2027-lyss-726032",
@@ -245,7 +244,7 @@
     "https://team.lidl.ch/fr/jobs/vendeur-polyvalent-vendeuse-polyvalente-h-f-d-40-matran-696138",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-20-40-bevaix-757426",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-20-60-neuchatel-760912",
-    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-20-80-reconvilier-770353",
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-20-80-renens-773249",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-bulle-768283",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-courgevaux-764812",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-etoy-763548",
@@ -257,11 +256,10 @@
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-80-neuchatel-758613",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-80-renens-773099",
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-giubiasco-727553",
-    "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-riazzino-738062",
-    "https://team.lidl.ch/it/jobs/ch_vice-responsabile-di-filiale-m-f-d-80-100-minusio-771532"
+    "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-riazzino-738062"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), drained through count-bound language partitions whose totals equal the national CH-wide feed; per-job canton inferred from source-backed city/postal signals, with unresolved CH locations failing closed.",
-  "updatedAt": "2026-11-22T21:41:13.064Z",
+  "updatedAt": "2026-11-23T09:55:17.938Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-1-sierre-707576": {
       "location": "Sierre",
@@ -1045,15 +1043,6 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
-    },
-    "https://team.lidl.ch/de/jobs/lagermitarbeiter-lagermitarbeiterin-m-w-d-40-80-derendingen-773574": {
-      "location": "Derendingen",
-      "addressLocality": "Derendingen",
-      "canton": "SO",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
     },
     "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-perlen-763040": {
       "location": "Perlen",
@@ -2306,16 +2295,16 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/fr/jobs/job-etudiant-etudiante-vente-h-f-d-20-bulle-768295": {
-      "location": "Bulle",
-      "addressLocality": "Bulle",
-      "canton": "FR",
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-20-80-renens-773249": {
+      "location": "Renens",
+      "addressLocality": "Renens",
+      "canton": "VD",
       "country": "CH",
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/fr/jobs/agent-agente-de-nettoyage-h-f-d-20-bulle-768299": {
+    "https://team.lidl.ch/fr/jobs/job-etudiant-etudiante-vente-h-f-d-20-bulle-768295": {
       "location": "Bulle",
       "addressLocality": "Bulle",
       "canton": "FR",
@@ -2334,6 +2323,15 @@
       "contract": "Part-time"
     },
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-bulle-768283": {
+      "location": "Bulle",
+      "addressLocality": "Bulle",
+      "canton": "FR",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/fr/jobs/agent-agente-de-nettoyage-h-f-d-20-bulle-768299": {
       "location": "Bulle",
       "addressLocality": "Bulle",
       "canton": "FR",
@@ -2477,15 +2475,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
     },
-    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-20-80-reconvilier-770353": {
-      "location": "Reconvilier",
-      "addressLocality": "Reconvilier",
-      "canton": "BE",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
-    },
     "https://team.lidl.ch/fr/jobs/trainee-area-manager-h-f-d-80-100-1-weinfelden-754292": {
       "location": "Weinfelden",
       "addressLocality": "Weinfelden",
@@ -2494,15 +2483,6 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Full-time"
-    },
-    "https://team.lidl.ch/it/jobs/ch_vice-responsabile-di-filiale-m-f-d-80-100-minusio-771532": {
-      "location": "Minusio",
-      "addressLocality": "Minusio",
-      "canton": "TI",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
     }
   }
 }
