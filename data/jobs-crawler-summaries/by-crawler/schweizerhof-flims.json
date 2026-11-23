@@ -1,7 +1,7 @@
 {
   "key": "schweizerhof-flims",
   "label": "Schweizerhof",
-  "generatedAt": "2026-11-22T21:19:13.836Z",
+  "generatedAt": "2026-11-23T09:16:41.886Z",
   "total": 1,
   "discovered": 28,
   "parsed": 1,
@@ -17,6 +17,14 @@
       {
         "status": 200,
         "url": "https://romantikhotels.hcm4all.de/list/?l=de"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/16251"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/19369"
       },
       {
         "status": 200,
@@ -41,10 +49,6 @@
       {
         "status": 200,
         "url": "https://romantikhotels.hcm4all.de/list/16248"
-      },
-      {
-        "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/19369"
       },
       {
         "status": 200,
@@ -116,7 +120,7 @@
       },
       {
         "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/2085"
+        "url": "https://romantikhotels.hcm4all.de/list/2083"
       },
       {
         "status": 200,
@@ -124,11 +128,7 @@
       },
       {
         "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/2050"
-      },
-      {
-        "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/2086"
+        "url": "https://romantikhotels.hcm4all.de/list/2087"
       }
     ],
     "proxiedBy": [],
@@ -146,64 +146,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 50091,
-  "avgDurationMs": 50091,
+  "durationMs": 69198,
+  "avgDurationMs": 69198,
   "durationHistory": [
-    50091
+    69198
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "schweizerhof-flims-f2f02441a96d",
-      "slug": "housekeeping-collaboratore-trice-m-w-d-schweizerhof-flims",
-      "company": "Schweizerhof",
-      "companyKey": "schweizerhof-flims",
-      "companyDomain": "romantikhotels.hcm4all.de",
-      "title": "Housekeeping-Mitarbeiter/in (m/w/d)",
-      "location": "Flims, Graubünden",
-      "canton": "GR",
-      "url": "https://romantikhotels.hcm4all.de/list/18877",
-      "source": "Schweizerhof Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:26:00.782Z",
-      "addressLocality": "Flims",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7017",
-      "streetAddress": "Rudi Dadens 1",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-20",
-      "postedDate": "2026-08-20",
-      "postingDateSource": "reported",
-      "applyUrl": "https://romantikhotels.hcm4all.de/list/18877",
-      "firstSeenAt": "2026-09-29T21:15:02.870Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:26:00.782Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://romantikhotels.hcm4all.de/list/18877",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "schweizerhof-flims-eb0413bcceba",
@@ -217,7 +169,7 @@
       "url": "https://romantikhotels.hcm4all.de/list/19839",
       "source": "Schweizerhof Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:18:47.226Z",
+      "crawledAt": "2026-11-23T09:15:49.400Z",
       "addressLocality": "Flims",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -240,7 +192,7 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T21:18:47.226Z",
+      "validThrough": "2026-12-23T09:15:49.400Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -251,5 +203,5 @@
       }
     }
   ],
-  "codeCommit": "f0ab682774893f4b809c5b75181716509e65ea60"
+  "codeCommit": "7474b74d22ad2d97637dc94f08d243f12f0ba1c7"
 }
