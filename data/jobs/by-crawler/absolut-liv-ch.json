@@ -1,7 +1,7 @@
 {
   "crawlerKey": "absolut-liv-ch",
-  "assembledAt": "2026-11-22T21:34:16.209Z",
-  "runId": "45071731241",
+  "assembledAt": "2026-11-23T09:34:01.459Z",
+  "runId": "45146421732",
   "jobs": [
     {
       "id": "absolut-liv-ch-d45914b4b63c",
@@ -34,7 +34,7 @@
       "url": "https://absolut-liv.ch/jobs/2240-100181-4-1",
       "source": "absolutLIV AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:34:09.786Z",
+      "crawledAt": "2026-11-23T09:33:55.234Z",
       "addressLocality": "Wohlen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -48,8 +48,8 @@
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-10-20",
-      "postedDate": "2026-10-20",
+      "datePosted": "1840-12-31",
+      "postedDate": "1840-12-31",
       "postingDateSource": "reported",
       "applyUrl": "https://absolut-liv.ch/jobs/2240-100181-4-1",
       "requirements": [],
@@ -138,7 +138,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T21:34:09.786Z",
+      "validThrough": "2026-12-23T09:33:55.234Z",
       "validThroughSource": "last-observed-window"
     }
   ]
