@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-11-22T14:01:39.511Z",
+  "assembledAt": "2026-11-23T16:54:14.249Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -76478,7 +76478,6 @@
       },
       "startDate": "2026-12-15",
       "endDate": "2026-12-15",
-      "startTime": "19:00",
       "category": "Event",
       "venue": "Winterthur",
       "comune": "Winterthur",
@@ -76491,6 +76490,9 @@
         "lng": 8.7313813
       },
       "recurring": false,
+      "performer": {
+        "name": "Chacony"
+      },
       "sourceDescriptionHash": "cdfc66a12c128cabcc1351e5f2a74381528670b2c68da291fc6305bfca8c34cd"
     },
     {
@@ -82017,7 +82019,6 @@
       },
       "startDate": "2026-11-24",
       "endDate": "2026-11-24",
-      "startTime": "19:00",
       "category": "Event",
       "venue": "Winterthur",
       "comune": "Winterthur",
@@ -82030,6 +82031,22 @@
         "lng": 8.7313813
       },
       "recurring": false,
+      "performer": [
+        {
+          "name": "Flamenco-Tänzer David Romero"
+        },
+        {
+          "name": "Ginesa OrtegaFlamenco-Tanz"
+        },
+        {
+          "@type": "PerformingGroup",
+          "name": "Swiss Orchestra"
+        },
+        {
+          "@type": "PerformingGroup",
+          "name": "Aargauer Symphonie Orchester"
+        }
+      ],
       "sourceDescriptionHash": "9c4faafe90700e66c432388316845b7bdb144162c33bc554d43c1bf3de68247d"
     },
     {
@@ -94060,12 +94077,11 @@
       },
       "startDate": "2026-11-28",
       "endDate": "2026-11-29",
-      "startTime": "13:00",
       "category": "Event",
-      "venue": "Schulhaus Oey",
+      "venue": "Oey-Diemtigen",
       "comune": "Diemtigen",
       "canton": "BE",
-      "url": "https://www.myswitzerland.com/en-ch/experiences/events/christmas-exhibition-oey/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/christmas-exhibition-oey/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -94073,7 +94089,10 @@
         "lng": 7.5758022
       },
       "recurring": true,
-      "sourceDescriptionHash": "51c62e80265f4877889e50e577a8fbd8a67daa023ec6e1e82db0d738bb3748a7"
+      "performer": {
+        "name": "Künstler"
+      },
+      "sourceDescriptionHash": "79b32963bc7e96aa0a0fbca8db0e3084a1c8c536b3cd5b027bb6b518a5e1ae1a"
     },
     {
       "id": "myswitzerland:388e343b61364ade9745a1a6b0252d0c",
@@ -177797,7 +177816,6 @@
       },
       "startDate": "2026-12-15",
       "endDate": "2026-12-15",
-      "startTime": "19:30",
       "category": "Event",
       "venue": "Schaffhausen",
       "comune": "Schaffhausen",
@@ -256941,44 +256959,28 @@
         "de": "Ein Sommer-nachtstraum",
         "fr": "Ein Sommer-nachtstraum"
       },
-      "startDate": "2026-10-11",
+      "startDate": "2027-06-19",
       "endDate": "2027-07-03",
-      "startTime": "18:00",
       "category": "Event",
-      "venue": "Opernhaus",
+      "venue": "Zurich",
       "comune": "Zürich",
       "canton": "ZH",
-      "url": "https://www.myswitzerland.com/en-ch/experiences/events/ein-sommer-nachtstraum/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/ein-sommer-nachtstraum/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
-      "price": {
-        "availability": "http://schema.org/InStock",
-        "url": "https://www.myswitzerland.com/en-ch/experiences/events/ein-sommer-nachtstraum/www.zurichticket.ch/ohz.webshop/webticket/shop"
-      },
-      "address": {
-        "street": "Falkenstrasse 1",
-        "postalCode": "8008",
-        "locality": "Zürich"
-      },
       "geo": {
         "lat": 47.3654459,
         "lng": 8.5472918
       },
       "recurring": true,
-      "organizer": {
-        "@type": "Organization",
-        "name": "Opernhaus",
-        "url": "https://www.myswitzerland.com/en-ch/experiences/events/ein-sommer-nachtstraum/"
-      },
-      "performer": [
+      "sourceDescriptionHash": "da6f9feb0ad963d7e800ca8ea6402a7496d38afcff1a2f708be0e783a9a62d73",
+      "previousRoutes": [
         {
-          "name": "Swiss chocolate, cheese"
-        },
-        {
-          "name": "Kambly Biscuits"
+          "canton": "ZH",
+          "comune": "Zürich",
+          "slug": "ein-sommer-nachtstraum-2026-10-11"
         }
-      ],
-      "sourceDescriptionHash": "da6f9feb0ad963d7e800ca8ea6402a7496d38afcff1a2f708be0e783a9a62d73"
+      ]
     },
     {
       "id": "myswitzerland:38df0ff856904541bac80f877419d7cd",
@@ -280093,6 +280095,373 @@
         }
       ],
       "sourceDescriptionHash": "1e0cba7fa2d4357521d90694df7414985c453e940b59ab2bff97d23f67e50e2f"
+    },
+    {
+      "id": "myswitzerland:3efb9d8684054f3a807f8b4f9a34efdf",
+      "title": "Concerto Gospel",
+      "titleByLocale": {
+        "it": "Concerto Gospel",
+        "en": "Gospel Concert",
+        "de": "Gospelkonzert",
+        "fr": "Concert Gospel"
+      },
+      "startDate": "2026-12-20",
+      "endDate": "2026-12-20",
+      "category": "Event",
+      "venue": "Locarno",
+      "comune": "Locarno",
+      "canton": "TI",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/concerto-gospel-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.1695766,
+        "lng": 8.7990768
+      },
+      "recurring": false,
+      "italianFrontierComuni": [
+        "Tronzano Lago Maggiore",
+        "Maccagno con Pino e Veddasca",
+        "Curiglia con Monteviasco",
+        "Cannobio"
+      ],
+      "sourceDescriptionHash": "10aade536c3d8a167b6dffcccaf5302ba28d75fdbff1b9a5f0027dab96f9f7cb"
+    },
+    {
+      "id": "myswitzerland:3eaf38c0b96f468db8416db3dfee2e7f",
+      "title": "Broken Arrow",
+      "titleByLocale": {
+        "it": "Broken Arrow",
+        "en": "Broken Arrow",
+        "de": "Broken Arrow",
+        "fr": "Broken Arrow"
+      },
+      "startDate": "2026-12-10",
+      "endDate": "2026-12-10",
+      "category": "Event",
+      "venue": "Lausanne",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/broken-arrow/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5184353,
+        "lng": 6.6356516
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "2fa1acd0e20c96ca3521e91f6c57dc3629fe22c01358a08c94ed68370a50f1e1"
+    },
+    {
+      "id": "myswitzerland:3db6fcb05b1146aa85f27198ae716eb7",
+      "title": "Marché de Noël artisanal à Orsonnens",
+      "titleByLocale": {
+        "it": "Marché de Noël artisanal à Orsonnens",
+        "en": "Marché de Noël artisanal à Orsonnens",
+        "de": "Marché de Noël artisanal à Orsonnens",
+        "fr": "Marché de Noël d’Orsonnens"
+      },
+      "startDate": "2026-11-29",
+      "endDate": "2026-11-29",
+      "category": "Event",
+      "venue": "Orsonnens",
+      "comune": "Villorsonnens",
+      "canton": "FR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/marche-de-noel-artisanal-a-orsonnens/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.7173802,
+        "lng": 6.9937775
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "4e3fe9be535f2341db81ac6c86857d235d484f845a5e62465d28d327c6bb0a70"
+    },
+    {
+      "id": "myswitzerland:3cd693cfc5fb4339aea377e5ce558a09",
+      "title": "Raiffeisen Kids Ski Day - Campra",
+      "titleByLocale": {
+        "it": "Raiffeisen Kids Ski Day - Campra",
+        "en": "Raiffeisen Kids Ski Day - Campra",
+        "de": "Raiffeisen Kids Ski Day - Campra",
+        "fr": "Raiffeisen Kids Ski Day - Campra"
+      },
+      "startDate": "2026-12-30",
+      "endDate": "2026-12-30",
+      "category": "Event",
+      "venue": "Olivone Campra",
+      "canton": "TI",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/raiffeisen-kids-ski-day-campra/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5297148,
+        "lng": 8.9415455
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "dec543dd7bd67b4fcab32e172dff11836b895dda8911785b62bfc7b4c5b66d84"
+    },
+    {
+      "id": "myswitzerland:3ca49e6e5875484782eb42be4776e50c",
+      "title": "Begleitete Wanderung durch den Lichterweg im Pischewald",
+      "titleByLocale": {
+        "it": "Begleitete Wanderung durch den Lichterweg im Pischewald",
+        "en": "Begleitete Wanderung durch den Lichterweg im Pischewald",
+        "de": "Begleitete Wanderung durch den Lichterweg im Pischewald",
+        "fr": "Begleitete Wanderung durch den Lichterweg im Pischewald"
+      },
+      "startDate": "2026-12-27",
+      "endDate": "2027-01-03",
+      "category": "Event",
+      "venue": "Oberwald",
+      "comune": "Obergoms",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/begleitete-wanderung-durch-den-lichterweg-im-pischewald/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5333828,
+        "lng": 8.3507424
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "8a6b5c383d6b96d312da4bc4f5e64ddd66624d9cf4e386e11dd83919dfa7251a"
+    },
+    {
+      "id": "myswitzerland:3bdb39d267284076bbfc64112e8daa6a",
+      "title": "RSSK Kleider + Spielzeugbörse für Gross und Klein",
+      "titleByLocale": {
+        "it": "RSSK Kleider + Spielzeugbörse für Gross und Klein",
+        "en": "RSSK Kleider + Spielzeugbörse für Gross und Klein",
+        "de": "RSSK Kleider + Spielzeugbörse für Gross und Klein",
+        "fr": "RSSK Kleider + Spielzeugbörse für Gross und Klein"
+      },
+      "startDate": "2027-03-06",
+      "endDate": "2027-03-06",
+      "category": "Event",
+      "venue": "Kreuzlingen",
+      "comune": "Kreuzlingen",
+      "canton": "TG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/rssk-kleider-spielzeugboerse-fuer-gross-und-klein-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.6517152,
+        "lng": 9.1711736
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Begegnens"
+        },
+        {
+          "name": "Teilens"
+        }
+      ],
+      "sourceDescriptionHash": "cde39aefa88604fb1f8017066ea1980ea16795d765587ab2435eb219890c7091"
+    },
+    {
+      "id": "myswitzerland:3bc4c262a247435da1822fe460a54440",
+      "title": "Signierstunde mit Samantha Kaempf",
+      "titleByLocale": {
+        "it": "Signierstunde mit Samantha Kaempf",
+        "en": "Signierstunde mit Samantha Kaempf",
+        "de": "Signierstunde mit Samantha Kaempf",
+        "fr": "Signierstunde mit Samantha Kaempf"
+      },
+      "startDate": "2026-11-25",
+      "endDate": "2026-11-25",
+      "category": "Event",
+      "venue": "Ibach",
+      "comune": "Schwyz",
+      "canton": "SZ",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/signierstunde-mit-samantha-kaempf/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.015453,
+        "lng": 8.6475044
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Sensibilität"
+        },
+        {
+          "name": "Wärme"
+        },
+        {
+          "name": "Authentzität"
+        }
+      ],
+      "sourceDescriptionHash": "a3eab9a18a2f8ff0bfd4254f76a5c4673647f1bf904812858c50b30db5846432"
+    },
+    {
+      "id": "myswitzerland:3bb1e519910e4ffc8bbf1cdfcaf909d3",
+      "title": "Weihnachtsmarkt auf dem Biohof Obereichi",
+      "titleByLocale": {
+        "it": "Weihnachtsmarkt auf dem Biohof Obereichi",
+        "en": "Weihnachtsmarkt auf dem Biohof Obereichi",
+        "de": "Weihnachtsmarkt auf dem Biohof Obereichi",
+        "fr": "Weihnachtsmarkt auf dem Biohof Obereichi"
+      },
+      "startDate": "2026-12-12",
+      "endDate": "2026-12-12",
+      "category": "Event",
+      "venue": "Lanzenhäusern",
+      "comune": "Schwarzenburg",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/weihnachtsmarkt-auf-dem-biohof-obereichi/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8362133,
+        "lng": 7.3537563
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "424897890c7f64a9f46c96de84cd434234c66c7bbc81b730a0b962881afe505a"
+    },
+    {
+      "id": "myswitzerland:398a53773e2947e79ac5839090921848",
+      "title": "LA TEMPERATURA - 15",
+      "titleByLocale": {
+        "it": "LA TEMPERATURA - 15",
+        "en": "LA TEMPERATURA - 15",
+        "de": "LA TEMPERATURA - 15",
+        "fr": "LA TEMPERATURA - 15"
+      },
+      "startDate": "2026-11-28",
+      "endDate": "2026-11-28",
+      "category": "Event",
+      "venue": "Lausanne",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/la-temperatura-15/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5200725,
+        "lng": 6.6315445
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Reggaeton"
+        },
+        {
+          "name": "Shatta"
+        },
+        {
+          "name": "Baile Funk"
+        },
+        {
+          "name": "Afro-Musik"
+        }
+      ],
+      "sourceDescriptionHash": "eb1b4188fd0912ca7a381d93b94f39de8ecba58911711d3c8b73090909dcc116"
+    },
+    {
+      "id": "myswitzerland:36ff586d83144f62832e9e1ae14cd95d",
+      "title": "Scambiastorie",
+      "titleByLocale": {
+        "it": "Scambiastorie",
+        "en": "Scambiastorie",
+        "de": "Scambiastorie",
+        "fr": "Scambiastorie"
+      },
+      "startDate": "2026-12-02",
+      "endDate": "2026-12-02",
+      "category": "Event",
+      "venue": "Poschiavo",
+      "comune": "Poschiavo",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/scambiastorie/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.325256,
+        "lng": 10.057343
+      },
+      "recurring": false,
+      "italianFrontierComuni": [
+        "Tirano",
+        "Villa di Tirano"
+      ],
+      "sourceDescriptionHash": "46a49347e21b7b268b3675917d885a5c4fa90545af2115dbe1a2a3d669392673"
+    },
+    {
+      "id": "myswitzerland:3533c30f051a49299ad3616b76f4dc5e",
+      "title": "Curling: Luzerner Cup",
+      "titleByLocale": {
+        "it": "Curling: Luzerner Cup",
+        "en": "Curling: Luzerner Cup",
+        "de": "Curling: Luzerner Open Air Cup",
+        "fr": "Curling: Luzerner Cup"
+      },
+      "startDate": "2027-01-15",
+      "endDate": "2027-01-17",
+      "category": "Event",
+      "venue": "Mürren",
+      "comune": "Lauterbrunnen",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/curling-luzerner-cup/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5625455,
+        "lng": 7.8956461
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "5eb7e206af9cb5682cfba9fa8c97cc20ec3a9645e283f9163fefdeebf5c672fd"
+    },
+    {
+      "id": "myswitzerland:34b51ef20e87442187d1c66e28da66ed",
+      "title": "Lilly das Weltwunder",
+      "titleByLocale": {
+        "it": "Lilly das Weltwunder",
+        "en": "Lilly das Weltwunder",
+        "de": "Lilly das Weltwunder",
+        "fr": "Lilly das Weltwunder"
+      },
+      "startDate": "2027-08-29",
+      "endDate": "2027-08-29",
+      "category": "Event",
+      "venue": "Davos",
+      "comune": "Davos",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/lilly-das-weltwunder/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.7967781,
+        "lng": 9.8223277
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "020ca6e12ce45c5c88187bdab8eff9d5f62fae458dfad0dad794c3d63e383039"
+    },
+    {
+      "id": "myswitzerland:34908dc39d09412fb8345cf6d5a1ffe4",
+      "title": "The 2026 Christmas Market",
+      "titleByLocale": {
+        "it": "The 2026 Christmas Market",
+        "en": "The 2026 Christmas Market",
+        "de": "Der Weihnachtsmarkt 2026",
+        "fr": "Le marché de Noël 2026"
+      },
+      "startDate": "2026-12-05",
+      "endDate": "2026-12-05",
+      "category": "Event",
+      "venue": "Zermatt",
+      "comune": "Zermatt",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/the-2026-christmas-market/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.0220091594396,
+        "lng": 7.74806264470522
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "a3f447bf4759ac20a2728cc1e7d8012347cb2beb9b702aea5e43054af691d801"
     }
   ]
 }
