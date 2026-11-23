@@ -1,7 +1,7 @@
 {
   "key": "bankslm",
   "label": "Bank SLM AG",
-  "generatedAt": "2026-11-23T09:31:57.703Z",
+  "generatedAt": "2026-11-23T21:24:23.600Z",
   "total": 3,
   "discovered": 3,
   "parsed": 3,
@@ -48,10 +48,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 8226,
-  "avgDurationMs": 8226,
+  "durationMs": 6362,
+  "avgDurationMs": 6362,
   "durationHistory": [
-    8226
+    6362
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -69,7 +69,7 @@
       "url": "https://karriere.bankslm.ch/jobs/7019430-privatkundenberater-in-basis-60",
       "source": "Bank SLM AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:31:44.181Z",
+      "crawledAt": "2026-11-23T21:24:04.757Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -92,7 +92,7 @@
       "salaryMax": 62400,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-23T09:31:44.181Z",
+      "validThrough": "2026-12-23T21:24:04.757Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -114,7 +114,7 @@
       "url": "https://karriere.bankslm.ch/jobs/8690206-finanzplanungsspezialist-in-vorsorgekunden-60-80",
       "source": "Bank SLM AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:31:44.180Z",
+      "crawledAt": "2026-11-23T21:24:04.756Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -137,7 +137,7 @@
       "salaryMax": 148000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T09:31:44.180Z",
+      "validThrough": "2027-02-07T21:24:04.756Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -159,7 +159,7 @@
       "url": "https://karriere.bankslm.ch/jobs/8690578-sachbearbeiter-in-risiko-compliance-40-50",
       "source": "Bank SLM AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:31:44.178Z",
+      "crawledAt": "2026-11-23T21:24:04.755Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -182,7 +182,7 @@
       "salaryMax": 52000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T09:31:44.178Z",
+      "validThrough": "2027-02-07T21:24:04.755Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -193,5 +193,5 @@
       }
     }
   ],
-  "codeCommit": "7474b74d22ad2d97637dc94f08d243f12f0ba1c7"
+  "codeCommit": "7b684909df7304f91c3a19b75aa2a6088ce7630a"
 }
