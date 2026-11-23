@@ -565,9 +565,10 @@
       "lastAttemptAt": "2026-10-08T09:20:53.340Z"
     },
     "stadler-rail-1c70f2c73470|fr|en": {
-      "attempts": 4,
-      "lastAttemptAt": "2026-10-27T14:26:23.527Z",
-      "source": "0b46dcae5c8a"
+      "attempts": 5,
+      "lastAttemptAt": "2026-11-23T00:59:16.596Z",
+      "source": "0b46dcae5c8a",
+      "rung": "unserved"
     },
     "stadler-rail-38dada227e6c|de|en": {
       "attempts": 6,
@@ -1548,8 +1549,8 @@
       "rung": "myMemory"
     },
     "stadler-rail-bfa214fd04b1|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-09T08:16:31.605Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:33.056Z",
       "source": "693bf6cbf6cc",
       "rung": "myMemory"
     },
@@ -3515,10 +3516,10 @@
       "lastAttemptAt": "2026-09-23T11:34:30.132Z"
     },
     "company-9ku1xw|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T12:09:45.058Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:00:56.114Z",
       "source": "ee71ba8141c2",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "roche-c68fd6b68e6e|en|de": {
       "attempts": 1,
@@ -7073,10 +7074,10 @@
       "lastAttemptAt": "2026-09-25T16:38:19.851Z"
     },
     "spital-thurgau-284923941835|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:07:10.775Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:57.104Z",
       "source": "c190d339c043",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "spital-thurgau-408602d5a9b7|de|en": {
       "attempts": 2,
@@ -7383,10 +7384,10 @@
       "lastAttemptAt": "2026-09-25T16:41:37.361Z"
     },
     "company-dekc9a|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T12:09:45.058Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:56.105Z",
       "source": "ee71ba8141c2",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sika-a2ef14aa1c26|fr|de": {
       "attempts": 1,
@@ -7749,10 +7750,10 @@
       "lastAttemptAt": "2026-10-08T14:42:35.670Z"
     },
     "spital-thurgau-a1f294f4637b|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:04:55.209Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:22.056Z",
       "source": "95766221ff35",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "swiss-re-70845f49863f|de|en": {
       "attempts": 1,
@@ -7824,16 +7825,16 @@
       "lastAttemptAt": "2026-10-08T14:43:42.056Z"
     },
     "lindenhofgruppe-f1a78639ecdf|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:31.016Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:37.104Z",
       "source": "431e8f370b6e",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "lindenhofgruppe-62cd2aa90bdf|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:31.016Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:37.105Z",
       "source": "431e8f370b6e",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "buergenstock-hotels-eb923773c6b8|de|it": {
       "attempts": 1,
@@ -8614,10 +8615,10 @@
       "lastAttemptAt": "2026-10-08T19:18:34.474Z"
     },
     "lindenhofgruppe-b5ca0eed52fa|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:57.456Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:17.073Z",
       "source": "431e8f370b6e",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "company-kh5xlh|de|en": {
       "attempts": 1,
@@ -8688,10 +8689,10 @@
       "lastAttemptAt": "2026-10-08T19:19:08.706Z"
     },
     "spital-thurgau-422f0cc4c8e3|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:06:41.916Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:58:46.576Z",
       "source": "c0793b9990c4",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "anker-swiss-023cf099d3fd|de|it": {
       "attempts": 2,
@@ -8835,10 +8836,10 @@
       "lastAttemptAt": "2026-09-25T17:26:31.406Z"
     },
     "spital-thurgau-fa24798045c6|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:03:52.219Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:58:39.226Z",
       "source": "6a38098b9796",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "coopers-999df646fd91|de|en": {
       "attempts": 3,
@@ -9762,10 +9763,10 @@
       "lastAttemptAt": "2026-09-25T18:01:55.710Z"
     },
     "hoch-health-fc46e0bfa9c9|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:30.312Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:29.152Z",
       "source": "1c5cc6fd099f",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "oerlikon-3963ed1d4346|de|en": {
       "attempts": 3,
@@ -10540,20 +10541,28 @@
       "lastAttemptAt": "2026-10-09T02:41:27.793Z"
     },
     "reboot-monkey-addda36996cb|en|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-10-09T02:41:27.794Z"
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:29.761Z",
+      "source": "f54150e7ce72",
+      "rung": "myMemory"
     },
     "reboot-monkey-e545ac82fef3|en|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-10-09T02:41:27.794Z"
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:30.755Z",
+      "source": "02d8ae8136e9",
+      "rung": "myMemory"
     },
     "reboot-monkey-1381b4a27f04|en|it": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-01T00:47:10.458Z"
+      "lastAttemptAt": "2026-11-23T00:58:31.609Z",
+      "source": "3615fe2351c1",
+      "rung": "myMemory"
     },
     "reboot-monkey-927aecb710d5|en|it": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-01T00:47:10.685Z"
+      "lastAttemptAt": "2026-11-23T00:58:32.625Z",
+      "source": "64cc8421fc89",
+      "rung": "myMemory"
     },
     "reboot-monkey-3ab7ec264eac|en|it": {
       "attempts": 1,
@@ -11708,16 +11717,16 @@
       "lastAttemptAt": "2026-10-08T09:16:34.257Z"
     },
     "spital-thurgau-fa24798045c6|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:04:22.860Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:58:37.584Z",
       "source": "6a38098b9796",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "spital-thurgau-fa24798045c6|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:04:17.092Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:58:39.598Z",
       "source": "6a38098b9796",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "burkhalter-group-644cf52fbb62|de|fr": {
       "attempts": 2,
@@ -12151,22 +12160,22 @@
       "lastAttemptAt": "2026-10-03T22:58:22.014Z"
     },
     "denner-beea6c5dbbd2|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T00:04:47.379Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:10.817Z",
       "source": "f006d26239e5",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "denner-beea6c5dbbd2|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T00:04:35.066Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:12.025Z",
       "source": "f006d26239e5",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "denner-beea6c5dbbd2|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T00:04:38.519Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:12.825Z",
       "source": "f006d26239e5",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "denner-4f4e16a03415|de|en": {
       "attempts": 2,
@@ -13074,16 +13083,16 @@
       "source": "3da2f939cc93"
     },
     "spital-thurgau-a1f294f4637b|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:04:51.779Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:20.009Z",
       "source": "95766221ff35",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "spital-thurgau-a1f294f4637b|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:04:46.466Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:21.322Z",
       "source": "95766221ff35",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "apple-retail-switzerland-86f997e905a7|en|it": {
       "attempts": 1,
@@ -13494,16 +13503,16 @@
       "lastAttemptAt": "2026-10-09T02:43:26.232Z"
     },
     "hoch-health-fc46e0bfa9c9|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:02.260Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:27.034Z",
       "source": "1c5cc6fd099f",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "hoch-health-fc46e0bfa9c9|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:12.869Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:28.334Z",
       "source": "1c5cc6fd099f",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "denner-512bff1914c9|de|en": {
       "attempts": 1,
@@ -14061,22 +14070,22 @@
       "lastAttemptAt": "2026-10-03T23:12:09.670Z"
     },
     "lindenhofgruppe-f6b643b447c5|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:11.783Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:37.105Z",
       "source": "431e8f370b6e",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "lindenhofgruppe-f6b643b447c5|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:12.871Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:37.105Z",
       "source": "431e8f370b6e",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "lindenhofgruppe-f6b643b447c5|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:31.016Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:37.105Z",
       "source": "431e8f370b6e",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "confederazione-ticino-1aba1050aa64|de|en": {
       "attempts": 1,
@@ -14624,22 +14633,22 @@
       "lastAttemptAt": "2026-10-04T07:59:31.870Z"
     },
     "hoch-health-e53c18ae0435|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:30.293Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:41.118Z",
       "source": "2df877a673e7",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "hoch-health-e53c18ae0435|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:35.412Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:42.108Z",
       "source": "2df877a673e7",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "hoch-health-e53c18ae0435|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:35.753Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:43.104Z",
       "source": "2df877a673e7",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "imad-8de0bd97dbca|fr|de": {
       "attempts": 1,
@@ -14852,22 +14861,22 @@
       "lastAttemptAt": "2026-10-08T14:50:13.322Z"
     },
     "hoch-health-bf08f711b247|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:50.686Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:44.135Z",
       "source": "305f4b13ec5c",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "hoch-health-bf08f711b247|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:57.450Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:45.116Z",
       "source": "305f4b13ec5c",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "hoch-health-bf08f711b247|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:06:01.934Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:46.115Z",
       "source": "305f4b13ec5c",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "hoch-health-ccbf9d1239eb|de|en": {
       "attempts": 1,
@@ -15064,16 +15073,22 @@
       "lastAttemptAt": "2026-10-08T19:14:59.642Z"
     },
     "hoch-health-88881f8b48bb|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-10-09T02:44:24.484Z"
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:59:48.094Z",
+      "source": "7a17af079255",
+      "rung": "myMemory"
     },
     "hoch-health-88881f8b48bb|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-10-09T02:44:24.484Z"
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:59:48.094Z",
+      "source": "7a17af079255",
+      "rung": "myMemory"
     },
     "hoch-health-88881f8b48bb|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-10-09T02:44:24.484Z"
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:59:48.094Z",
+      "source": "7a17af079255",
+      "rung": "myMemory"
     },
     "emmi-6afc4a9e8764|de|en": {
       "attempts": 2,
@@ -16543,22 +16558,22 @@
       "lastAttemptAt": "2026-10-11T22:55:35.542Z"
     },
     "denner-59fc18d5cea3|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:44.639Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:18.299Z",
       "source": "3da2f939cc93",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "denner-59fc18d5cea3|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:44.639Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:18.299Z",
       "source": "3da2f939cc93",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "denner-59fc18d5cea3|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:44.639Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:18.302Z",
       "source": "3da2f939cc93",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "denner-929c86552da9|de|en": {
       "attempts": 1,
@@ -16681,16 +16696,16 @@
       "lastAttemptAt": "2026-10-04T11:58:31.005Z"
     },
     "company-dekc9a|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T12:09:50.567Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:57.086Z",
       "source": "ee71ba8141c2",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "company-dekc9a|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T12:09:39.327Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:58.075Z",
       "source": "ee71ba8141c2",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "fachkraft-2ec1d9b8912b|de|en": {
       "attempts": 3,
@@ -26682,40 +26697,40 @@
       "lastAttemptAt": "2026-10-08T19:17:32.623Z"
     },
     "lindenhofgruppe-f1a78639ecdf|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:11.783Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:35.071Z",
       "source": "431e8f370b6e",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "lindenhofgruppe-f1a78639ecdf|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:12.871Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:36.253Z",
       "source": "431e8f370b6e",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "lindenhofgruppe-62cd2aa90bdf|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:11.783Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:36.253Z",
       "source": "431e8f370b6e",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "lindenhofgruppe-62cd2aa90bdf|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:12.871Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:36.254Z",
       "source": "431e8f370b6e",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "lindenhofgruppe-b5ca0eed52fa|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:57.454Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:17.073Z",
       "source": "431e8f370b6e",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "lindenhofgruppe-b5ca0eed52fa|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:57.456Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:17.073Z",
       "source": "431e8f370b6e",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "ksb-81d924e4294f|de|it": {
       "attempts": 1,
@@ -28956,22 +28971,22 @@
       "lastAttemptAt": "2026-10-04T16:52:55.255Z"
     },
     "company-3qgkbn|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T12:09:45.058Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:16.396Z",
       "source": "0da31c432f97",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "company-3qgkbn|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T12:09:50.567Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:16.396Z",
       "source": "0da31c432f97",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "company-3qgkbn|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T12:09:39.327Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:16.396Z",
       "source": "0da31c432f97",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "company-3qj4qz|de|en": {
       "attempts": 1,
@@ -28992,40 +29007,40 @@
       "rung": "myMemory"
     },
     "company-38k0y3|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T12:09:45.058Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:18.298Z",
       "source": "0da31c432f97",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "company-38k0y3|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T12:09:50.568Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:18.299Z",
       "source": "0da31c432f97",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "company-38k0y3|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T12:09:39.327Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:18.299Z",
       "source": "0da31c432f97",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "company-3on4el|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T12:09:45.058Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:16.396Z",
       "source": "0da31c432f97",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "company-3on4el|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T12:09:50.567Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:16.396Z",
       "source": "0da31c432f97",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "company-3on4el|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T12:09:39.327Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:16.396Z",
       "source": "0da31c432f97",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "stadt-bern-0205b581ea48|de|en": {
       "attempts": 1,
@@ -30225,22 +30240,22 @@
       "lastAttemptAt": "2026-10-04T16:58:11.414Z"
     },
     "company-dblk9v|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T12:09:45.058Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:34.106Z",
       "source": "0da31c432f97",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "company-dblk9v|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T12:09:50.568Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:34.106Z",
       "source": "0da31c432f97",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "company-dblk9v|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T12:09:39.331Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:34.106Z",
       "source": "0da31c432f97",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "company-82atlo|de|en": {
       "attempts": 1,
@@ -30267,16 +30282,16 @@
       "lastAttemptAt": "2026-10-04T16:58:23.395Z"
     },
     "company-q0tv2|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T12:09:39.328Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:32.093Z",
       "source": "f5c6f5749f61",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "company-q0tv2|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T12:09:39.328Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:33.084Z",
       "source": "f5c6f5749f61",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "fachkraft-0f14f305cd6d|de|en": {
       "attempts": 1,
@@ -31771,16 +31786,16 @@
       "lastAttemptAt": "2026-10-04T17:11:28.447Z"
     },
     "gesundheitszentrum-fricktal-c250bb95783f|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:06:41.916Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:38.108Z",
       "source": "2663518e30be",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "gesundheitszentrum-fricktal-c250bb95783f|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:06:55.394Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:39.144Z",
       "source": "2663518e30be",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "gesundheitszentrum-fricktal-c250bb95783f|de|it": {
       "attempts": 4,
@@ -33714,16 +33729,16 @@
       "lastAttemptAt": "2026-10-08T19:20:11.633Z"
     },
     "spital-thurgau-284923941835|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:07:07.513Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:55.117Z",
       "source": "c190d339c043",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "spital-thurgau-284923941835|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:06:54.677Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:56.110Z",
       "source": "c190d339c043",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "denner-f782f5141ecc|de|en": {
       "attempts": 1,
@@ -33850,16 +33865,16 @@
       "lastAttemptAt": "2026-10-08T19:20:11.634Z"
     },
     "company-9ku1xw|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T12:09:50.567Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:00:56.114Z",
       "source": "ee71ba8141c2",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "company-9ku1xw|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T12:09:45.059Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:00:56.114Z",
       "source": "ee71ba8141c2",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "company-ae4a43|de|en": {
       "attempts": 1,
@@ -36060,16 +36075,22 @@
       "lastAttemptAt": "2026-10-08T16:37:14.299Z"
     },
     "bkw-86c53cdc02d4|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-10-11T22:58:39.845Z"
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T01:00:10.116Z",
+      "source": "a3ea96d03605",
+      "rung": "mozhiDdg"
     },
     "bkw-86c53cdc02d4|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-10-11T22:58:50.792Z"
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T01:00:11.114Z",
+      "source": "a3ea96d03605",
+      "rung": "mozhiDdg"
     },
     "bkw-86c53cdc02d4|de|it": {
-      "attempts": 6,
-      "lastAttemptAt": "2026-10-11T22:58:43.887Z"
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T01:00:12.096Z",
+      "source": "a3ea96d03605",
+      "rung": "mozhiDdg"
     },
     "company-53tkov|de|en": {
       "attempts": 4,
@@ -37724,16 +37745,16 @@
       "lastAttemptAt": "2026-10-04T23:14:04.340Z"
     },
     "gesundheitszentrum-fricktal-f233a1a05822|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:07:39.430Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:23.149Z",
       "source": "3e35dcf37ab8",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "gesundheitszentrum-fricktal-f233a1a05822|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:07:52.979Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:23.149Z",
       "source": "3e35dcf37ab8",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "gesundheitszentrum-fricktal-7066cac2481f|de|en": {
       "attempts": 2,
@@ -43113,20 +43134,20 @@
       "lastAttemptAt": "2026-10-05T08:13:32.151Z"
     },
     "company-d9f3bf|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-09T08:17:30.470Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:23.038Z",
       "source": "c100cf74b171",
       "rung": "myMemory"
     },
     "company-d9f3bf|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-09T08:17:31.720Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:24.284Z",
       "source": "c100cf74b171",
       "rung": "myMemory"
     },
     "company-d9f3bf|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-09T08:17:32.588Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:25.088Z",
       "source": "c100cf74b171",
       "rung": "myMemory"
     },
@@ -44381,22 +44402,22 @@
       "lastAttemptAt": "2026-10-08T19:18:12.489Z"
     },
     "company-h6d8up|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T12:09:45.058Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:18.299Z",
       "source": "0da31c432f97",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "company-h6d8up|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T12:09:50.568Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:18.299Z",
       "source": "0da31c432f97",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "company-h6d8up|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T12:09:39.328Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:18.299Z",
       "source": "0da31c432f97",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "fachkraft-88352921ee1f|de|en": {
       "attempts": 1,
@@ -44630,16 +44651,16 @@
       "lastAttemptAt": "2026-10-05T12:01:46.214Z"
     },
     "fincons-group-64e5f117ffa3|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:07:07.514Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:06.122Z",
       "source": "a42ddd6ac4f6",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "fincons-group-64e5f117ffa3|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:07:34.739Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:07.121Z",
       "source": "a42ddd6ac4f6",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "fincons-group-64e5f117ffa3|de|it": {
       "attempts": 4,
@@ -44716,22 +44737,22 @@
       "lastAttemptAt": "2026-10-05T12:02:07.379Z"
     },
     "confederazione-ticino-8cef95574ccd|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T08:22:01.449Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:19.072Z",
       "source": "2bf946df4ac1",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "confederazione-ticino-8cef95574ccd|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T08:21:45.297Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:20.180Z",
       "source": "2bf946df4ac1",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "confederazione-ticino-8cef95574ccd|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T08:21:55.760Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:21.092Z",
       "source": "2bf946df4ac1",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "mcdonald-s-switzerland-1317ed8ceaa1|fr|de": {
       "attempts": 5,
@@ -44881,22 +44902,22 @@
       "lastAttemptAt": "2026-10-05T12:02:56.865Z"
     },
     "interdiscount-3b0b2b8a-766|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:07:39.430Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:53.089Z",
       "source": "5c0a8b2051c5",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "interdiscount-3b0b2b8a-766|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:08:07.462Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:54.095Z",
       "source": "5c0a8b2051c5",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "interdiscount-3b0b2b8a-766|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:07:46.766Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:55.085Z",
       "source": "5c0a8b2051c5",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "interdiscount-287fed13-777|de|en": {
       "attempts": 1,
@@ -65442,22 +65463,22 @@
       "lastAttemptAt": "2026-10-06T02:35:36.676Z"
     },
     "hoch-health-4a0a03dea105|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:30.292Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:39.500Z",
       "source": "70b52662c757",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "hoch-health-4a0a03dea105|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:25.298Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:39.500Z",
       "source": "70b52662c757",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "hoch-health-4a0a03dea105|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:35.753Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:39.500Z",
       "source": "70b52662c757",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "lhm-luzerner-hohenklinik-montana-98567d01b9d0|fr|it": {
       "attempts": 1,
@@ -65680,22 +65701,22 @@
       "lastAttemptAt": "2026-10-06T02:37:06.370Z"
     },
     "company-rfj5lc|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T12:09:45.058Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:18.298Z",
       "source": "0da31c432f97",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "company-rfj5lc|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T12:09:50.568Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:18.298Z",
       "source": "0da31c432f97",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "company-rfj5lc|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T12:09:39.327Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:18.298Z",
       "source": "0da31c432f97",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "posta-svizzera-centro-regionale-d5882d13279d|de|en": {
       "attempts": 1,
@@ -66814,10 +66835,10 @@
       "lastAttemptAt": "2026-10-06T02:44:19.943Z"
     },
     "company-4nry3j|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T12:09:52.910Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:01.114Z",
       "source": "621cddd5f386",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "company-bwc82l|de|en": {
       "attempts": 1,
@@ -67513,22 +67534,22 @@
       "lastAttemptAt": "2026-10-06T02:48:00.699Z"
     },
     "stadt-zuerich-3d42e7247e0e|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:08:28.761Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:01:59.432Z",
       "source": "dc1a6770a2a5",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "stadt-zuerich-3d42e7247e0e|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:08:41.081Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:00.199Z",
       "source": "dc1a6770a2a5",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "stadt-zuerich-3d42e7247e0e|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:08:49.227Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:01.137Z",
       "source": "dc1a6770a2a5",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "stadt-zuerich-851e264405f8|de|en": {
       "attempts": 1,
@@ -67689,16 +67710,16 @@
       "lastAttemptAt": "2026-10-06T02:48:43.333Z"
     },
     "sta-58663bfcb5e5|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-11T02:18:34.229Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:01:35.106Z",
       "source": "519359ade393",
-      "rung": "myMemory"
+      "rung": "mozhiDdg"
     },
     "sta-58663bfcb5e5|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-11T02:18:35.482Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:01:36.109Z",
       "source": "519359ade393",
-      "rung": "myMemory"
+      "rung": "mozhiDdg"
     },
     "sta-4ea21c9de59e|de|en": {
       "attempts": 1,
@@ -68909,16 +68930,16 @@
       "lastAttemptAt": "2026-10-06T02:54:01.662Z"
     },
     "fachkraft-3cea4725ce3f|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-15T15:20:13.967Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:01:36.109Z",
       "source": "519359ade393",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "fachkraft-3cea4725ce3f|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-15T15:20:09.909Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:01:36.109Z",
       "source": "519359ade393",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "fachkraft-acf2cd2b1fc7|de|en": {
       "attempts": 1,
@@ -75108,22 +75129,22 @@
       "lastAttemptAt": "2026-10-06T12:47:11.839Z"
     },
     "hoch-health-4de0221389cc|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:30.293Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:39.497Z",
       "source": "70b52662c757",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "hoch-health-4de0221389cc|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:25.298Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:39.497Z",
       "source": "70b52662c757",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "hoch-health-4de0221389cc|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:35.753Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:39.497Z",
       "source": "70b52662c757",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "kanton-basel-landschaft-94c3f864300b|de|en": {
       "attempts": 1,
@@ -75951,11 +75972,15 @@
     },
     "fachkraft-4dbd438771ab|de|en": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-06T15:49:42.659Z"
+      "lastAttemptAt": "2026-11-23T01:01:26.090Z",
+      "source": "31eb63ba4eb0",
+      "rung": "mozhiDdg"
     },
     "fachkraft-4dbd438771ab|de|fr": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-06T15:49:43.843Z"
+      "lastAttemptAt": "2026-11-23T01:01:27.112Z",
+      "source": "31eb63ba4eb0",
+      "rung": "mozhiDdg"
     },
     "stellenpartner-93c08d27fd1b|de|en": {
       "attempts": 1,
@@ -76028,16 +76053,16 @@
       "lastAttemptAt": "2026-10-06T15:50:08.174Z"
     },
     "manor-8be94ca1881a|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:07:39.430Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:29.073Z",
       "source": "ea90403f41a1",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "manor-8be94ca1881a|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:08:07.462Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:30.117Z",
       "source": "ea90403f41a1",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "stellenpartner-0f9ac865ae9d|de|en": {
       "attempts": 1,
@@ -78661,22 +78686,22 @@
       "lastAttemptAt": "2026-10-06T16:07:14.353Z"
     },
     "manor-4950c958f61a|fr|de": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:07:58.633Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:46.110Z",
       "source": "6fbd8e6eb4a1",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "manor-4950c958f61a|fr|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:08:06.104Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:47.089Z",
       "source": "6fbd8e6eb4a1",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "manor-4950c958f61a|fr|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:08:11.264Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:48.130Z",
       "source": "6fbd8e6eb4a1",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "manor-c7ef7d8969a3|fr|de": {
       "attempts": 6,
@@ -82458,19 +82483,22 @@
       "rung": "codex"
     },
     "stadt-zuerich-357bdf44b407|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-10-26T06:52:27.772Z",
-      "source": "1f2ad50fbc3f"
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:00:16.098Z",
+      "source": "1f2ad50fbc3f",
+      "rung": "mozhiDdg"
     },
     "stadt-zuerich-357bdf44b407|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-10-26T06:52:23.967Z",
-      "source": "1f2ad50fbc3f"
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:00:17.073Z",
+      "source": "1f2ad50fbc3f",
+      "rung": "mozhiDdg"
     },
     "stadt-zuerich-357bdf44b407|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-10-26T06:52:26.606Z",
-      "source": "1f2ad50fbc3f"
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:00:18.084Z",
+      "source": "1f2ad50fbc3f",
+      "rung": "mozhiDdg"
     },
     "stadt-zuerich-98e603af1eec|de|en": {
       "attempts": 4,
@@ -83293,16 +83321,16 @@
       "lastAttemptAt": "2026-10-06T17:49:34.932Z"
     },
     "company-mvdbaz|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T08:22:08.196Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:01:32.127Z",
       "source": "0c3f508a4d5d",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "company-mvdbaz|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T08:22:14.425Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:01:33.158Z",
       "source": "0c3f508a4d5d",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "mcdonald-s-switzerland-ea795fb4af39|fr|en": {
       "attempts": 1,
@@ -84873,13 +84901,15 @@
     },
     "tertianum-82c247b4fef0|de|it": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-06T19:12:30.565Z"
+      "lastAttemptAt": "2026-11-23T00:58:52.693Z",
+      "source": "c73c5ed8a375",
+      "rung": "myMemory"
     },
     "tertianum-997310fd4add|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T00:04:47.083Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:58:53.734Z",
       "source": "862d59b27f72",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "claraspital-ff4a0be932ce|de|it": {
       "attempts": 1,
@@ -84890,16 +84920,16 @@
       "lastAttemptAt": "2026-10-06T19:12:33.644Z"
     },
     "lups-3670d71dceae|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:04:47.083Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:58:54.685Z",
       "source": "b67939098c51",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "sanatorium-kilchberg-9a9af16c5117|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:04:47.084Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T00:58:55.681Z",
       "source": "5c2a1bffb176",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "concara-9eed920a9598|de|it": {
       "attempts": 1,
@@ -85072,10 +85102,10 @@
       "lastAttemptAt": "2026-10-06T19:13:18.429Z"
     },
     "hirslanden-b9a12275eb48|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:04:38.519Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:08.860Z",
       "source": "3d451797a635",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "hirslanden-d4f738913301|de|it": {
       "attempts": 1,
@@ -86898,10 +86928,10 @@
       "lastAttemptAt": "2026-10-06T19:23:51.358Z"
     },
     "usz-f5a449224bdc|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:06:01.935Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:04.183Z",
       "source": "87427ddb49d3",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "posta-svizzera-centro-regionale-99475def900d|de|it": {
       "attempts": 3,
@@ -92455,16 +92485,22 @@
       "lastAttemptAt": "2026-10-09T07:19:46.461Z"
     },
     "stadt-zuerich-77c3411d803d|de|en": {
-      "attempts": 14,
-      "lastAttemptAt": "2026-10-10T13:43:36.178Z"
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T01:00:13.183Z",
+      "source": "5a9f115f948a",
+      "rung": "mozhiDdg"
     },
     "stadt-zuerich-77c3411d803d|de|fr": {
-      "attempts": 14,
-      "lastAttemptAt": "2026-10-10T13:43:38.212Z"
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T01:00:14.130Z",
+      "source": "5a9f115f948a",
+      "rung": "mozhiDdg"
     },
     "stadt-zuerich-77c3411d803d|de|it": {
-      "attempts": 14,
-      "lastAttemptAt": "2026-10-10T13:43:45.725Z"
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T01:00:15.131Z",
+      "source": "5a9f115f948a",
+      "rung": "mozhiDdg"
     },
     "stadt-zuerich-c09d3079b3b7|de|en": {
       "attempts": 4,
@@ -94439,10 +94475,10 @@
       "rung": "codex"
     },
     "company-q0tv2|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T12:09:39.328Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:34.105Z",
       "source": "f5c6f5749f61",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "stadt-luzern-3f83ac69c5b7|de|en": {
       "attempts": 5,
@@ -97533,10 +97569,10 @@
       "lastAttemptAt": "2026-10-07T02:49:51.985Z"
     },
     "stadtspital-zuerich-5a2b061390bf|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:07:22.806Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:01:14.225Z",
       "source": "3864186a881f",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "unibe-fc9c6f4f8abb|de|it": {
       "attempts": 7,
@@ -97971,10 +98007,10 @@
       "lastAttemptAt": "2026-10-07T02:51:37.239Z"
     },
     "gesundheitszentrum-fricktal-f233a1a05822|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:07:46.766Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:24.142Z",
       "source": "3e35dcf37ab8",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "gesundheitszentrum-fricktal-7066cac2481f|de|it": {
       "attempts": 2,
@@ -103610,7 +103646,9 @@
     },
     "fachkraft-4dbd438771ab|de|it": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-07T03:08:55.726Z"
+      "lastAttemptAt": "2026-11-23T01:01:28.128Z",
+      "source": "31eb63ba4eb0",
+      "rung": "mozhiDdg"
     },
     "fachkraft-12c3551076fd|de|it": {
       "attempts": 1,
@@ -111965,10 +112003,10 @@
       "lastAttemptAt": "2026-10-07T12:16:16.066Z"
     },
     "manor-8be94ca1881a|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:07:46.766Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:31.089Z",
       "source": "ea90403f41a1",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "tertianum-e13967ebaca0|de|en": {
       "attempts": 1,
@@ -113718,10 +113756,10 @@
       "lastAttemptAt": "2026-10-07T12:24:04.995Z"
     },
     "company-4nry3j|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T12:10:06.200Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:02.096Z",
       "source": "621cddd5f386",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "company-4nry3j|de|it": {
       "attempts": 4,
@@ -114193,10 +114231,10 @@
       "lastAttemptAt": "2026-10-07T12:26:03.286Z"
     },
     "sta-58663bfcb5e5|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-11T02:18:36.300Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:01:37.110Z",
       "source": "519359ade393",
-      "rung": "myMemory"
+      "rung": "mozhiDdg"
     },
     "sta-4e36bb54fc03|de|en": {
       "attempts": 1,
@@ -114795,10 +114833,10 @@
       "lastAttemptAt": "2026-10-07T12:28:11.715Z"
     },
     "fachkraft-3cea4725ce3f|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-15T15:20:42.463Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:01:37.111Z",
       "source": "519359ade393",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "fachkraft-acf2cd2b1fc7|de|it": {
       "attempts": 1,
@@ -120387,9 +120425,10 @@
       "lastAttemptAt": "2026-10-07T21:06:17.029Z"
     },
     "ksml-055c12db69ca|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-10-21T07:00:52.241Z",
-      "source": "f27c6c82cf8e"
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:01:49.274Z",
+      "source": "f27c6c82cf8e",
+      "rung": "mozhiDdg"
     },
     "company-b4icvi|fr|it": {
       "attempts": 1,
@@ -121007,10 +121046,10 @@
       "lastAttemptAt": "2026-10-07T21:09:17.427Z"
     },
     "company-mvdbaz|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T08:22:15.519Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:01:34.126Z",
       "source": "0c3f508a4d5d",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "kanton-zuerich-a014451f7326|de|it": {
       "attempts": 1,
@@ -121590,10 +121629,10 @@
       "lastAttemptAt": "2026-10-08T00:31:52.614Z"
     },
     "groupe-e-dba8406967b5|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:08:14.790Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:45.160Z",
       "source": "35ed789a4015",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "usz-92beaf48c1e5|de|it": {
       "attempts": 1,
@@ -156184,11 +156223,15 @@
     },
     "manor-cd18620ab6f0|de|it": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-08T11:58:08.213Z"
+      "lastAttemptAt": "2026-11-23T01:00:07.102Z",
+      "source": "99bc42608ae7",
+      "rung": "mozhiDdg"
     },
     "manor-cd18620ab6f0|de|fr": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-08T11:58:13.587Z"
+      "lastAttemptAt": "2026-11-23T01:00:06.091Z",
+      "source": "99bc42608ae7",
+      "rung": "mozhiDdg"
     },
     "manor-e8d73f59c54b|de|fr": {
       "attempts": 1,
@@ -156244,7 +156287,9 @@
     },
     "manor-cd18620ab6f0|de|en": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-08T11:58:18.778Z"
+      "lastAttemptAt": "2026-11-23T01:00:05.119Z",
+      "source": "99bc42608ae7",
+      "rung": "mozhiDdg"
     },
     "manor-e8d73f59c54b|de|en": {
       "attempts": 1,
@@ -159956,10 +160001,10 @@
       "lastAttemptAt": "2026-10-09T02:31:01.003Z"
     },
     "hoch-health-487442032ac1|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:04:17.098Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:04.839Z",
       "source": "7a17af079255",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "galenica-dd51a8881f1e|de|en": {
       "attempts": 2,
@@ -159970,10 +160015,10 @@
       "lastAttemptAt": "2026-10-09T02:31:02.800Z"
     },
     "hoch-health-487442032ac1|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:04:22.859Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:04.055Z",
       "source": "7a17af079255",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "emmi-3aa5a158f07b|de|en": {
       "attempts": 2,
@@ -160044,10 +160089,10 @@
       "lastAttemptAt": "2026-10-09T02:31:07.399Z"
     },
     "hoch-health-487442032ac1|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:04:17.098Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:04.055Z",
       "source": "7a17af079255",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "emmi-3aa5a158f07b|de|fr": {
       "attempts": 2,
@@ -161821,10 +161866,10 @@
       "lastAttemptAt": "2026-10-09T02:34:30.354Z"
     },
     "gesundheitszentrum-fricktal-faf89d617985|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:07:39.430Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:22.101Z",
       "source": "3e35dcf37ab8",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "brefispersonal-4e3066c425b5|de|en": {
       "attempts": 1,
@@ -161839,10 +161884,10 @@
       "lastAttemptAt": "2026-10-09T02:34:35.039Z"
     },
     "gesundheitszentrum-fricktal-faf89d617985|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:07:46.765Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:24.142Z",
       "source": "3e35dcf37ab8",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "fachkraft-8a26f91e784c|de|it": {
       "attempts": 1,
@@ -161874,10 +161919,10 @@
       "lastAttemptAt": "2026-10-09T02:34:38.777Z"
     },
     "gesundheitszentrum-fricktal-faf89d617985|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:07:52.979Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:23.148Z",
       "source": "3e35dcf37ab8",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "brefispersonal-4e3066c425b5|de|fr": {
       "attempts": 1,
@@ -169295,10 +169340,10 @@
       "rung": "codex"
     },
     "stadt-zuerich-4c1268109a4a|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T00:08:29.708Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:01:54.212Z",
       "source": "ba82212a9dbc",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "uzh-47eb7a36400e|de|fr": {
       "attempts": 1,
@@ -169345,10 +169390,10 @@
       "rung": "codex"
     },
     "stadt-zuerich-4c1268109a4a|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T00:08:01.491Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:01:53.083Z",
       "source": "ba82212a9dbc",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "uzh-47eb7a36400e|de|en": {
       "attempts": 1,
@@ -169389,10 +169434,10 @@
       "rung": "codex"
     },
     "stadt-zuerich-4c1268109a4a|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T00:08:14.790Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:01:55.114Z",
       "source": "ba82212a9dbc",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "okjob-6efdd38d17ef|de|it": {
       "attempts": 1,
@@ -171451,16 +171496,16 @@
       "source": "81218cf34797"
     },
     "laderach-b632c366aa12|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:06:16.710Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:22.110Z",
       "source": "511ea2b04810",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "laderach-418e501d68ff|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:06:16.710Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:23.120Z",
       "source": "511ea2b04810",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "bkw-650cb0e4e9e4|de|en": {
       "attempts": 1,
@@ -171471,16 +171516,16 @@
       "lastAttemptAt": "2026-10-11T22:59:43.217Z"
     },
     "laderach-b632c366aa12|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:06:20.723Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:23.120Z",
       "source": "511ea2b04810",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "laderach-418e501d68ff|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:06:20.723Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:23.120Z",
       "source": "511ea2b04810",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "bkw-650cb0e4e9e4|de|fr": {
       "attempts": 1,
@@ -171499,16 +171544,16 @@
       "lastAttemptAt": "2026-10-11T11:30:27.835Z"
     },
     "laderach-b632c366aa12|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:06:30.563Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:24.115Z",
       "source": "511ea2b04810",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "laderach-418e501d68ff|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:06:30.564Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:24.116Z",
       "source": "511ea2b04810",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "kanton-gr-cd36d6659b58|de|it": {
       "attempts": 1,
@@ -171916,8 +171961,8 @@
       "source": "572df96ed34e"
     },
     "denner-c7ed142be0ae|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T00:11:34.729Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:18.302Z",
       "source": "3da2f939cc93",
       "rung": "myMemory"
     },
@@ -171926,8 +171971,8 @@
       "lastAttemptAt": "2026-10-11T22:54:41.673Z"
     },
     "denner-c7ed142be0ae|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T00:11:34.728Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:18.302Z",
       "source": "3da2f939cc93",
       "rung": "myMemory"
     },
@@ -171936,8 +171981,8 @@
       "lastAttemptAt": "2026-10-11T22:54:46.405Z"
     },
     "denner-c7ed142be0ae|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T00:11:34.729Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:18.302Z",
       "source": "3da2f939cc93",
       "rung": "myMemory"
     },
@@ -171946,10 +171991,10 @@
       "lastAttemptAt": "2026-10-11T22:54:46.792Z"
     },
     "posta-svizzera-centro-regionale-9371c781658b|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-20T07:33:20.532Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:03.145Z",
       "source": "ce9860fa771e",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "posta-svizzera-centro-regionale-ba1c32e0695b|de|fr": {
       "attempts": 1,
@@ -172084,10 +172129,10 @@
       "rung": "codex"
     },
     "posta-svizzera-centro-regionale-9371c781658b|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-20T07:33:30.707Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:02.150Z",
       "source": "ce9860fa771e",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "posta-svizzera-centro-regionale-ba1c32e0695b|de|en": {
       "attempts": 1,
@@ -172188,10 +172233,10 @@
       "lastAttemptAt": "2026-10-12T12:08:59.961Z"
     },
     "sika-ead6360560ba|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:12.870Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:31.248Z",
       "source": "7e4a12596e0f",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "clinique-generale-beaulieu-68278b541382|fr|de": {
       "attempts": 1,
@@ -172296,10 +172341,10 @@
       "lastAttemptAt": "2026-10-12T12:09:22.247Z"
     },
     "sika-ead6360560ba|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:30.313Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:32.091Z",
       "source": "7e4a12596e0f",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "bkw-22d7bac907c1|de|it": {
       "attempts": 2,
@@ -175938,10 +175983,10 @@
       "lastAttemptAt": "2026-10-12T22:25:02.417Z"
     },
     "spital-thurgau-7881c7b4305e|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:03:52.219Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:58:41.988Z",
       "source": "8a2ee1781573",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "claraspital-0437ea8346d4|de|fr": {
       "attempts": 1,
@@ -175976,10 +176021,10 @@
       "lastAttemptAt": "2026-10-13T01:15:48.174Z"
     },
     "spital-thurgau-7881c7b4305e|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:04:30.392Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:58:40.680Z",
       "source": "8a2ee1781573",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "claraspital-0437ea8346d4|de|en": {
       "attempts": 1,
@@ -176106,10 +176151,10 @@
       "lastAttemptAt": "2026-10-13T01:16:12.049Z"
     },
     "spital-thurgau-7881c7b4305e|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:04:17.093Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:58:42.719Z",
       "source": "8a2ee1781573",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "spital-thurgau-5745970b3753|de|it": {
       "attempts": 1,
@@ -177405,10 +177450,10 @@
       "lastAttemptAt": "2026-10-13T12:19:50.613Z"
     },
     "posta-svizzera-centro-regionale-6088fd1372f5|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-15T08:10:42.980Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:00:03.146Z",
       "source": "ce9860fa771e",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "equans-7dd490d03322|de|fr": {
       "attempts": 1,
@@ -177454,10 +177499,10 @@
       "lastAttemptAt": "2026-10-13T12:19:57.464Z"
     },
     "posta-svizzera-centro-regionale-6088fd1372f5|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-15T08:10:39.496Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:00:02.150Z",
       "source": "ce9860fa771e",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "equans-7dd490d03322|de|en": {
       "attempts": 1,
@@ -178464,10 +178509,10 @@
       "source": "3da2f939cc93"
     },
     "ksa-7c0bbde0f88d|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:50.686Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:47.130Z",
       "source": "8afa543d9ed6",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "denner-9d62289d2c97|de|it": {
       "attempts": 1,
@@ -178489,10 +178534,10 @@
       "source": "3da2f939cc93"
     },
     "ksa-7c0bbde0f88d|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:06:01.935Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:49.115Z",
       "source": "8afa543d9ed6",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "lindt-spruengli-46cd98431810|de|it": {
       "attempts": 1,
@@ -178517,10 +178562,10 @@
       "lastAttemptAt": "2026-10-14T00:58:43.295Z"
     },
     "ksa-7c0bbde0f88d|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:57.451Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:48.093Z",
       "source": "8afa543d9ed6",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "lindt-spruengli-46cd98431810|de|fr": {
       "attempts": 1,
@@ -185969,10 +186014,10 @@
       "source": "ca3e89adcdf7"
     },
     "opus-personal-9cab3c003744|de|it": {
-      "attempts": 5,
-      "lastAttemptAt": "2026-11-02T17:30:52.335Z",
+      "attempts": 6,
+      "lastAttemptAt": "2026-11-23T01:01:56.127Z",
       "source": "ca3e89adcdf7",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "opus-personal-d891edf10935|de|it": {
       "attempts": 6,
@@ -186552,10 +186597,10 @@
       "source": "131a2935023a"
     },
     "epfl-d3fbf1d979eb|en|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:04:22.968Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T00:58:37.299Z",
       "source": "3f8b3f401d5b",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "epfl-6cb17011636b|en|fr": {
       "attempts": 1,
@@ -186584,9 +186629,10 @@
       "source": "ab950ddaccd1"
     },
     "company-ap1akv|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-10-14T12:58:38.938Z",
-      "source": "0da31c432f97"
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:15.265Z",
+      "source": "0da31c432f97",
+      "rung": "myMemory"
     },
     "company-to9qs|de|fr": {
       "attempts": 1,
@@ -186615,9 +186661,10 @@
       "source": "87bba61d3c91"
     },
     "company-ap1akv|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-10-14T12:58:43.833Z",
-      "source": "0da31c432f97"
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:13.863Z",
+      "source": "0da31c432f97",
+      "rung": "myMemory"
     },
     "company-to9qs|de|en": {
       "attempts": 1,
@@ -186650,9 +186697,10 @@
       "source": "ab950ddaccd1"
     },
     "company-ap1akv|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-10-14T12:58:47.719Z",
-      "source": "0da31c432f97"
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:16.396Z",
+      "source": "0da31c432f97",
+      "rung": "myMemory"
     },
     "company-to9qs|de|it": {
       "attempts": 1,
@@ -197046,10 +197094,10 @@
       "source": "d5790088ed21"
     },
     "hoch-health-8a7ad088bbe0|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:08:14.789Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:44.151Z",
       "source": "64edb341a3ba",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "company-g2jhu8|de|it": {
       "attempts": 1,
@@ -197077,10 +197125,10 @@
       "source": "9238a0d0dc78"
     },
     "hoch-health-8a7ad088bbe0|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:08:01.490Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:42.104Z",
       "source": "64edb341a3ba",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "company-g2jhu8|de|en": {
       "attempts": 1,
@@ -197110,10 +197158,10 @@
       "rung": "myMemory"
     },
     "hoch-health-8a7ad088bbe0|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:08:07.462Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:43.134Z",
       "source": "64edb341a3ba",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "company-g2jhu8|de|fr": {
       "attempts": 1,
@@ -199515,10 +199563,10 @@
       "source": "991787d19cbc"
     },
     "manor-d92a35ed28e9|fr|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:08:29.335Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:03.531Z",
       "source": "5be921143c2f",
-      "rung": "myMemory"
+      "rung": "unserved"
     },
     "manor-3eb1d1ea96dd|fr|en": {
       "attempts": 1,
@@ -206972,9 +207020,10 @@
       "source": "936fd1bba2f4"
     },
     "upd-ab157255d2a6|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-10-26T06:52:51.904Z",
-      "source": "a3415bba405d"
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:01:41.138Z",
+      "source": "a3415bba405d",
+      "rung": "mozhiDdg"
     },
     "stellenpartner-fce06b236ce6|de|it": {
       "attempts": 1,
@@ -220394,10 +220443,10 @@
       "source": "12fc0ced4181"
     },
     "company-6ptr37|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T12:11:30.488Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:02:54.150Z",
       "source": "3bd647fbad07",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "company-yec1qw|fr|it": {
       "attempts": 2,
@@ -220431,10 +220480,10 @@
       "source": "12fc0ced4181"
     },
     "company-6ptr37|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T12:11:32.240Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:02:55.151Z",
       "source": "3bd647fbad07",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "stellentreff-aaa1be3abbeb|de|fr": {
       "attempts": 1,
@@ -220538,10 +220587,10 @@
       "source": "12fc0ced4181"
     },
     "company-6ptr37|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T12:11:24.856Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:56.114Z",
       "source": "3bd647fbad07",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "stellentreff-aaa1be3abbeb|de|it": {
       "attempts": 1,
@@ -220900,9 +220949,9 @@
     },
     "ksml-77dae20d66cf|de|it": {
       "attempts": 1,
-      "lastAttemptAt": "2026-11-12T01:02:40.898Z",
-      "source": "c6d06f18cc22",
-      "rung": "myMemory"
+      "lastAttemptAt": "2026-11-23T01:04:17.284Z",
+      "source": "206c420a1ce5",
+      "rung": "mozhiDdg"
     },
     "hoch-health-eebe16b67b65|de|it": {
       "attempts": 1,
@@ -224158,10 +224207,10 @@
       "source": "a882b4124084"
     },
     "mobiliar-8114b4369fb4|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-18T04:13:46.748Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:02.203Z",
       "source": "505b3c227d96",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "mobiliar-2e0fc3f5be63|de|it": {
       "attempts": 2,
@@ -226213,22 +226262,22 @@
       "rung": "codex"
     },
     "tertianum-9ceb1b9e0c5c|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T00:12:58.628Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:26.168Z",
       "source": "a20a9cb45736",
-      "rung": "myMemory"
+      "rung": "mozhiDdg"
     },
     "tertianum-b20459e0ca68|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:06:40.276Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:26.168Z",
       "source": "a20a9cb45736",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "tertianum-c72253ec29ba|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:06:40.274Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:00:26.169Z",
       "source": "a20a9cb45736",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "company-w4g4qu|fr|de": {
       "attempts": 1,
@@ -228125,10 +228174,10 @@
       "source": "1086dd058ccd"
     },
     "spital-emmental-38786c3632be|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:06:40.273Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:00:25.174Z",
       "source": "7e2efc665ced",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "concordia-ee60bdb4e217|de|it": {
       "attempts": 2,
@@ -235285,9 +235334,10 @@
       "source": "650748a580dd"
     },
     "stadt-zuerich-947af1d152c6|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-10-26T06:52:41.794Z",
-      "source": "c9a76ef72e43"
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:25.095Z",
+      "source": "c9a76ef72e43",
+      "rung": "mozhiDdg"
     },
     "stadt-zuerich-09b61be46483|de|it": {
       "attempts": 1,
@@ -244103,9 +244153,10 @@
       "source": "039693633bb7"
     },
     "company-xeujnc|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-10-26T15:02:25.810Z",
-      "source": "f5c6f5749f61"
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:00:33.084Z",
+      "source": "f5c6f5749f61",
+      "rung": "mozhiDdg"
     },
     "company-3yhjfa|de|fr": {
       "attempts": 1,
@@ -244133,9 +244184,10 @@
       "source": "039693633bb7"
     },
     "company-xeujnc|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-10-26T15:02:33.240Z",
-      "source": "f5c6f5749f61"
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:00:34.106Z",
+      "source": "f5c6f5749f61",
+      "rung": "mozhiDdg"
     },
     "company-3yhjfa|de|it": {
       "attempts": 1,
@@ -244163,9 +244215,10 @@
       "source": "039693633bb7"
     },
     "company-xeujnc|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-10-26T15:02:33.677Z",
-      "source": "f5c6f5749f61"
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:00:33.084Z",
+      "source": "f5c6f5749f61",
+      "rung": "mozhiDdg"
     },
     "company-3yhjfa|de|en": {
       "attempts": 1,
@@ -244739,10 +244792,10 @@
       "rung": "myMemory"
     },
     "tertianum-aa9a622ca3a6|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:08:49.227Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:02:04.206Z",
       "source": "b9241a8c8ba7",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "stadt-zuerich-b066f40e1466|de|en": {
       "attempts": 1,
@@ -248362,10 +248415,10 @@
       "source": "9ae64529be35"
     },
     "company-kj6xbu|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T12:10:52.507Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:08.109Z",
       "source": "cb2f94c7bff9",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "stellentreff-43e11ef677a2|de|en": {
       "attempts": 1,
@@ -248448,10 +248501,10 @@
       "source": "9ae64529be35"
     },
     "company-kj6xbu|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T12:11:05.657Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:10.127Z",
       "source": "cb2f94c7bff9",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "company-rlh8uo|de|it": {
       "attempts": 1,
@@ -248469,10 +248522,10 @@
       "source": "9ae64529be35"
     },
     "company-kj6xbu|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T12:11:05.476Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:09.129Z",
       "source": "cb2f94c7bff9",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "company-rlh8uo|de|fr": {
       "attempts": 1,
@@ -249267,10 +249320,10 @@
       "source": "b6377d612956"
     },
     "posta-svizzera-centro-regionale-ae408c5d54c3|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-13T13:48:40.933Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:00:09.161Z",
       "source": "41c904618814",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "posta-svizzera-centro-regionale-48721a52e191|de|fr": {
       "attempts": 4,
@@ -249339,10 +249392,10 @@
       "source": "b6377d612956"
     },
     "posta-svizzera-centro-regionale-ae408c5d54c3|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-13T13:48:55.435Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:00:08.153Z",
       "source": "41c904618814",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "posta-svizzera-centro-regionale-48721a52e191|de|en": {
       "attempts": 4,
@@ -256872,10 +256925,10 @@
       "source": "3da2f939cc93"
     },
     "denner-3e1b5c117c06|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:04:56.238Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T00:59:28.335Z",
       "source": "3da2f939cc93",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "denner-58a2e10ddbca|de|it": {
       "attempts": 1,
@@ -256898,10 +256951,10 @@
       "source": "3da2f939cc93"
     },
     "denner-3e1b5c117c06|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:04:56.238Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T00:59:28.335Z",
       "source": "3da2f939cc93",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "denner-58a2e10ddbca|de|fr": {
       "attempts": 1,
@@ -256969,10 +257022,10 @@
       "source": "3da2f939cc93"
     },
     "denner-3e1b5c117c06|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:04:56.237Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T00:59:28.334Z",
       "source": "3da2f939cc93",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "denner-58a2e10ddbca|de|en": {
       "attempts": 1,
@@ -267240,10 +267293,10 @@
       "rung": "codex"
     },
     "hoch-health-f3e5b5542613|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:04:17.097Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T00:59:04.055Z",
       "source": "7a17af079255",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "bkw-f6dedf895468|de|fr": {
       "attempts": 1,
@@ -267288,10 +267341,10 @@
       "rung": "codex"
     },
     "hoch-health-f3e5b5542613|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:04:17.097Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T00:59:04.838Z",
       "source": "7a17af079255",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "bossard-7905df7fdafc|de|it": {
       "attempts": 1,
@@ -267324,10 +267377,10 @@
       "rung": "codex"
     },
     "hoch-health-f3e5b5542613|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:04:22.859Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T00:59:02.679Z",
       "source": "7a17af079255",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "abraxas-e67ed6220a41|de|en": {
       "attempts": 1,
@@ -273282,10 +273335,10 @@
       "rung": "myMemory"
     },
     "etat-de-fribourg-56ec4d0deeb7|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:08:51.886Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:14.113Z",
       "source": "251044fcf11d",
-      "rung": "myMemory"
+      "rung": "mozhiDdg"
     },
     "etat-de-fribourg-5bd7fdfb2e44|de|en": {
       "attempts": 1,
@@ -275262,10 +275315,10 @@
       "rung": "codex"
     },
     "pdgr-0a446d3e0fd5|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:04:17.092Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T00:58:36.134Z",
       "source": "453a7fdd32b8",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "denner-09c2e784015f|de|it": {
       "attempts": 1,
@@ -275298,16 +275351,16 @@
       "rung": "codex"
     },
     "denner-3b18c0226574|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:04:56.238Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T00:59:28.335Z",
       "source": "3da2f939cc93",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "denner-1a3b5ab2ede6|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:04:56.238Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T00:59:28.335Z",
       "source": "3da2f939cc93",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "zfv-unternehmungen-d0866d41739d|de|it": {
       "attempts": 1,
@@ -275352,16 +275405,16 @@
       "rung": "codex"
     },
     "denner-3b18c0226574|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:04:56.238Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T00:59:28.335Z",
       "source": "3da2f939cc93",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "denner-1a3b5ab2ede6|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:04:56.238Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T00:59:28.335Z",
       "source": "3da2f939cc93",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "zfv-unternehmungen-d0866d41739d|de|en": {
       "attempts": 1,
@@ -275430,16 +275483,16 @@
       "rung": "codex"
     },
     "denner-3b18c0226574|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:04:56.238Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T00:59:28.335Z",
       "source": "3da2f939cc93",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "denner-1a3b5ab2ede6|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:04:56.238Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T00:59:28.335Z",
       "source": "3da2f939cc93",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "zfv-unternehmungen-d0866d41739d|de|fr": {
       "attempts": 1,
@@ -280668,10 +280721,10 @@
       "rung": "codex"
     },
     "seco-jobroom-3b0b7d5c-5321-43bc-ad3f-63f73cfffbe1|fr|de": {
-      "attempts": 4,
-      "lastAttemptAt": "2026-11-07T18:41:00.859Z",
+      "attempts": 5,
+      "lastAttemptAt": "2026-11-23T01:02:15.223Z",
       "source": "b0240a97cd53",
-      "rung": "myMemory"
+      "rung": "mozhiDdg"
     },
     "seco-jobroom-334efb13-ab07-4f1d-8f1a-b52f9cfbc6fc|de|en": {
       "attempts": 5,
@@ -280812,10 +280865,10 @@
       "rung": "azure"
     },
     "seco-jobroom-5a0b803c-1219-43b0-b0c5-c6de83c7bb19|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:09:07.066Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:17.200Z",
       "source": "77d0d02d0743",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "seco-jobroom-5a7e5782-dbb7-44b4-bb62-8ee9fce977df|de|it": {
       "attempts": 1,
@@ -280866,10 +280919,10 @@
       "rung": "codex"
     },
     "seco-jobroom-5a0b803c-1219-43b0-b0c5-c6de83c7bb19|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:09:01.521Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:16.131Z",
       "source": "77d0d02d0743",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "seco-jobroom-5a55fdf4-3e86-4d6e-b323-724f1c6c85c6|de|en": {
       "attempts": 1,
@@ -286740,22 +286793,22 @@
       "rung": "azure"
     },
     "seco-jobroom-4263d0eb-5d8f-46d2-9799-5f39667db5b5|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:09:01.521Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:18.123Z",
       "source": "b9abbd617430",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "seco-jobroom-4263d0eb-5d8f-46d2-9799-5f39667db5b5|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:09:05.070Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:19.138Z",
       "source": "b9abbd617430",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "seco-jobroom-4263d0eb-5d8f-46d2-9799-5f39667db5b5|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:09:07.066Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:20.224Z",
       "source": "b9abbd617430",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "seco-jobroom-427fa17b-81f7-4d17-ae04-a03aaad9501a|de|en": {
       "attempts": 1,
@@ -286872,22 +286925,22 @@
       "rung": "azure"
     },
     "seco-jobroom-94d72384-2ed5-439e-b9f2-0f3181ecf550|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:09:01.522Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:19.138Z",
       "source": "b9abbd617430",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "seco-jobroom-94d72384-2ed5-439e-b9f2-0f3181ecf550|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:09:05.070Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:19.139Z",
       "source": "b9abbd617430",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "seco-jobroom-94d72384-2ed5-439e-b9f2-0f3181ecf550|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:09:07.066Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:20.224Z",
       "source": "b9abbd617430",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "seco-jobroom-9a412251-42b3-4f84-b306-107f07895492|de|en": {
       "attempts": 1,
@@ -310002,10 +310055,10 @@
       "rung": "codex"
     },
     "company-gro1j8|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-03T01:29:18.138Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:12.825Z",
       "source": "99f9222f09f1",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "csl-behring-5ac270a9386f|en|it": {
       "attempts": 1,
@@ -310092,10 +310145,10 @@
       "rung": "codex"
     },
     "company-gro1j8|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-03T01:29:24.359Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:12.825Z",
       "source": "99f9222f09f1",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "fachkraft-b1a398dbdebe|de|en": {
       "attempts": 2,
@@ -310122,16 +310175,16 @@
       "rung": "codex"
     },
     "stadt-zuerich-8fc405b9d080|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:07:34.739Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:01:12.081Z",
       "source": "b3d45ff1ae63",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "stadt-zuerich-8fc405b9d080|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:07:18.493Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:01:11.103Z",
       "source": "b3d45ff1ae63",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "fachkraft-54e9b31ac385|de|en": {
       "attempts": 1,
@@ -310152,10 +310205,10 @@
       "rung": "codex"
     },
     "company-gro1j8|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-03T01:29:36.473Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:12.825Z",
       "source": "99f9222f09f1",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "fachkraft-b1a398dbdebe|de|it": {
       "attempts": 2,
@@ -310176,10 +310229,10 @@
       "rung": "azure"
     },
     "stadt-zuerich-8fc405b9d080|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:07:22.806Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:01:13.100Z",
       "source": "b3d45ff1ae63",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "livit-4e459d6a70b8|de|en": {
       "attempts": 1,
@@ -310296,10 +310349,10 @@
       "rung": "codex"
     },
     "stadt-zuerich-905f85fb86d4|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:08:14.790Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:01:55.114Z",
       "source": "ba82212a9dbc",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "stadt-zuerich-e5cb3c7acf9f|de|it": {
       "attempts": 2,
@@ -310320,10 +310373,10 @@
       "rung": "codex"
     },
     "stadt-zuerich-905f85fb86d4|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:08:01.490Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:01:54.212Z",
       "source": "ba82212a9dbc",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "stadt-zuerich-e5cb3c7acf9f|de|en": {
       "attempts": 2,
@@ -310362,10 +310415,10 @@
       "rung": "codex"
     },
     "stadt-zuerich-905f85fb86d4|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:08:29.707Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:01:54.213Z",
       "source": "ba82212a9dbc",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "stadt-zuerich-e5cb3c7acf9f|de|fr": {
       "attempts": 2,
@@ -315036,10 +315089,10 @@
       "rung": "codex"
     },
     "denner-bb05c7fc17df|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:04:35.066Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T00:59:07.120Z",
       "source": "3da2f939cc93",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "denner-9cba484ff63c|de|fr": {
       "attempts": 1,
@@ -315102,10 +315155,10 @@
       "rung": "codex"
     },
     "denner-bb05c7fc17df|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:04:30.392Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T00:59:05.383Z",
       "source": "3da2f939cc93",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "denner-9cba484ff63c|de|en": {
       "attempts": 1,
@@ -315186,10 +315239,10 @@
       "rung": "codex"
     },
     "denner-bb05c7fc17df|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:04:38.519Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T00:59:08.144Z",
       "source": "3da2f939cc93",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "denner-9cba484ff63c|de|it": {
       "attempts": 1,
@@ -318762,10 +318815,10 @@
       "rung": "codex"
     },
     "kanton-zuerich-fad1e5b652e9|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:09:21.912Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:27.136Z",
       "source": "912ebe8bef2f",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "tertianum-e77615fcf668|de|en": {
       "attempts": 1,
@@ -318798,10 +318851,10 @@
       "rung": "codex"
     },
     "kanton-zuerich-bddff49cc7b4|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T00:09:21.912Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:02:30.129Z",
       "source": "4e4094c0ed1a",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "kanton-zuerich-c41f9e9ae1ba|de|en": {
       "attempts": 1,
@@ -318810,10 +318863,10 @@
       "rung": "codex"
     },
     "kanton-zuerich-fad1e5b652e9|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:09:11.213Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:29.137Z",
       "source": "912ebe8bef2f",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "tertianum-349adb06d8e9|de|it": {
       "attempts": 1,
@@ -318852,10 +318905,10 @@
       "rung": "unserved"
     },
     "kanton-zuerich-fad1e5b652e9|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:09:57.767Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:28.146Z",
       "source": "912ebe8bef2f",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "tertianum-e77615fcf668|de|fr": {
       "attempts": 1,
@@ -318888,10 +318941,10 @@
       "rung": "codex"
     },
     "kanton-zuerich-bddff49cc7b4|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T00:09:57.767Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:02:31.146Z",
       "source": "4e4094c0ed1a",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "kanton-zuerich-c41f9e9ae1ba|de|fr": {
       "attempts": 1,
@@ -318906,10 +318959,10 @@
       "rung": "codex"
     },
     "kanton-zuerich-bddff49cc7b4|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T00:10:59.681Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:02:32.125Z",
       "source": "4e4094c0ed1a",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "kanton-zuerich-c41f9e9ae1ba|de|it": {
       "attempts": 1,
@@ -319656,8 +319709,8 @@
       "rung": "codex"
     },
     "kulm-hotel-f8e381be0294|en|de": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-09T00:15:21.721Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:04:16.402Z",
       "source": "086750bbb76e",
       "rung": "mozhiYandex"
     },
@@ -322488,10 +322541,10 @@
       "rung": "codex"
     },
     "seco-jobroom-66c899f4-237b-45a7-9974-ace1575653e5|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:09:21.913Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:33.147Z",
       "source": "daeee7ad3a60",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "seco-jobroom-754f2e04-4b6b-4350-afb2-86fde8111a78|de|en": {
       "attempts": 1,
@@ -322554,10 +322607,10 @@
       "rung": "codex"
     },
     "seco-jobroom-66c899f4-237b-45a7-9974-ace1575653e5|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:09:57.770Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:34.127Z",
       "source": "daeee7ad3a60",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "seco-jobroom-754f2e04-4b6b-4350-afb2-86fde8111a78|de|fr": {
       "attempts": 1,
@@ -331908,10 +331961,10 @@
       "rung": "codex"
     },
     "spital-thurgau-71a33cd89134|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:04:35.065Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T00:58:44.819Z",
       "source": "2866859c5ac7",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "axa-svizzera-4e1f009060a4|de|fr": {
       "attempts": 1,
@@ -331944,10 +331997,10 @@
       "rung": "codex"
     },
     "spital-thurgau-71a33cd89134|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:04:30.392Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T00:58:43.565Z",
       "source": "2866859c5ac7",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "axa-svizzera-4e1f009060a4|de|en": {
       "attempts": 1,
@@ -332016,10 +332069,10 @@
       "rung": "codex"
     },
     "spital-thurgau-71a33cd89134|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:04:17.094Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T00:58:45.625Z",
       "source": "2866859c5ac7",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "triaplus-ac658b9cb04f|de|it": {
       "attempts": 1,
@@ -332034,10 +332087,10 @@
       "rung": "codex"
     },
     "klinik-lengg-ce94eb544e7e|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:05:31.016Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T00:59:34.110Z",
       "source": "e6604e0856ce",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "flury-stiftung-b3fa2849fdd9|de|it": {
       "attempts": 1,
@@ -332166,10 +332219,10 @@
       "rung": "myMemory"
     },
     "hoch-health-05de158f4682|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:09:11.213Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:26.162Z",
       "source": "19f96e7f5682",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "hoch-health-02d7e681b413|de|en": {
       "attempts": 3,
@@ -332184,10 +332237,10 @@
       "rung": "codex"
     },
     "hoch-health-05de158f4682|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:09:01.522Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:24.106Z",
       "source": "19f96e7f5682",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "kanton-zuerich-fc42cafd1d3d|de|en": {
       "attempts": 1,
@@ -332196,10 +332249,10 @@
       "rung": "codex"
     },
     "spital-emmental-5736f9bafc85|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:09:21.915Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:35.123Z",
       "source": "1ac08fdd89a1",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "hoch-health-02d7e681b413|de|fr": {
       "attempts": 3,
@@ -332214,10 +332267,10 @@
       "rung": "codex"
     },
     "hoch-health-05de158f4682|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:09:05.071Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:25.154Z",
       "source": "19f96e7f5682",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "kanton-zuerich-fc42cafd1d3d|de|fr": {
       "attempts": 1,
@@ -332226,10 +332279,10 @@
       "rung": "codex"
     },
     "spital-emmental-5736f9bafc85|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:09:57.770Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:36.159Z",
       "source": "1ac08fdd89a1",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "felfel-8ecc66e478e9|de|en": {
       "attempts": 1,
@@ -332268,10 +332321,10 @@
       "rung": "codex"
     },
     "spital-emmental-5736f9bafc85|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:10:59.681Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:37.228Z",
       "source": "1ac08fdd89a1",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "felfel-8ecc66e478e9|de|it": {
       "attempts": 1,
@@ -335376,10 +335429,10 @@
       "rung": "codex"
     },
     "spitaeler-schaffhausen-08c58d4785d9|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T12:09:39.331Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:00:56.110Z",
       "source": "863239a4b302",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "fachkraft-f74be2a2fb7f|de|fr": {
       "attempts": 1,
@@ -335400,10 +335453,10 @@
       "rung": "codex"
     },
     "spitaeler-schaffhausen-08c58d4785d9|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T12:09:39.331Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:00:56.110Z",
       "source": "863239a4b302",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "confederazione-ticino-8d1930f0b202|de|en": {
       "attempts": 1,
@@ -335442,10 +335495,10 @@
       "rung": "codex"
     },
     "spitaeler-schaffhausen-08c58d4785d9|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T12:09:39.331Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:00:56.110Z",
       "source": "863239a4b302",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "fachkraft-f74be2a2fb7f|de|en": {
       "attempts": 1,
@@ -336000,10 +336053,10 @@
       "rung": "codex"
     },
     "company-257ofk|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T12:11:32.240Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:39.202Z",
       "source": "561611f66fae",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "physioswiss-8cf92952a1a9|de|it": {
       "attempts": 1,
@@ -336048,10 +336101,10 @@
       "rung": "codex"
     },
     "company-257ofk|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T12:11:25.461Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:38.118Z",
       "source": "561611f66fae",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "company-20wbp1|de|en": {
       "attempts": 1,
@@ -338316,10 +338369,10 @@
       "rung": "codex"
     },
     "10253484|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T12:09:50.567Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T00:58:34.778Z",
       "source": "7644ffa3215b",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "klinik-adelheid-f2faa2d6496e|de|fr": {
       "attempts": 1,
@@ -338346,10 +338399,10 @@
       "rung": "codex"
     },
     "company-94aota|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-06T12:22:21.842Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:00:50.101Z",
       "source": "e452048ad084",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "kanton-solothurn-cb9308a3c019|de|fr": {
       "attempts": 1,
@@ -338364,10 +338417,10 @@
       "rung": "codex"
     },
     "company-94aota|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-06T12:22:28.687Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:00:51.087Z",
       "source": "e452048ad084",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "klinik-adelheid-2fdfbc7255cb|de|it": {
       "attempts": 1,
@@ -338400,10 +338453,10 @@
       "rung": "myMemory"
     },
     "10253484|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T12:09:45.058Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T00:58:33.249Z",
       "source": "7644ffa3215b",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "klinik-adelheid-f2faa2d6496e|de|en": {
       "attempts": 1,
@@ -338430,10 +338483,10 @@
       "rung": "codex"
     },
     "company-94aota|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-06T12:22:54.394Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:00:49.094Z",
       "source": "e452048ad084",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "kanton-solothurn-cb9308a3c019|de|en": {
       "attempts": 1,
@@ -341136,22 +341189,22 @@
       "rung": "myMemory"
     },
     "sta-c8014f85cc1a|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-19T05:31:16.369Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:02:21.133Z",
       "source": "78920d4bbee4",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sta-c8014f85cc1a|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-19T05:31:52.014Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:02:22.188Z",
       "source": "78920d4bbee4",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sta-c8014f85cc1a|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-19T05:31:49.227Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:02:23.258Z",
       "source": "78920d4bbee4",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "ete-9d77545a14c0|de|en": {
       "attempts": 1,
@@ -344286,22 +344339,22 @@
       "rung": "myMemory"
     },
     "company-iy0xwf|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-07T08:23:42.189Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:02:40.120Z",
       "source": "e58727d2892c",
-      "rung": "myMemory"
+      "rung": "mozhiDdg"
     },
     "company-iy0xwf|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-07T08:23:43.371Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:02:41.147Z",
       "source": "e58727d2892c",
-      "rung": "myMemory"
+      "rung": "mozhiDdg"
     },
     "company-iy0xwf|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-07T08:23:44.132Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:02:42.126Z",
       "source": "e58727d2892c",
-      "rung": "myMemory"
+      "rung": "mozhiDdg"
     },
     "company-55w578|de|en": {
       "attempts": 1,
@@ -346866,22 +346919,22 @@
       "rung": "codex"
     },
     "seco-jobroom-402b4b75-4859-4535-a322-2333bb96a9e4|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-07T13:20:47.950Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:04:01.876Z",
       "source": "fa79799c30d8",
-      "rung": "myMemory"
+      "rung": "mozhiDdg"
     },
     "seco-jobroom-402b4b75-4859-4535-a322-2333bb96a9e4|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-07T13:20:48.858Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:04:02.955Z",
       "source": "fa79799c30d8",
-      "rung": "myMemory"
+      "rung": "mozhiDdg"
     },
     "seco-jobroom-402b4b75-4859-4535-a322-2333bb96a9e4|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-07T13:20:49.705Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:04:03.931Z",
       "source": "fa79799c30d8",
-      "rung": "myMemory"
+      "rung": "mozhiDdg"
     },
     "seco-jobroom-4ccbbd3a-7a42-4487-a0f0-b783172f9778|de|it": {
       "attempts": 1,
@@ -351810,22 +351863,22 @@
       "rung": "myMemory"
     },
     "kanton-zuerich-5f4c0cd666ed|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:09:21.916Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:46.115Z",
       "source": "e1664872e0a9",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "kanton-zuerich-5f4c0cd666ed|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:09:44.327Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:47.150Z",
       "source": "e1664872e0a9",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "kanton-zuerich-5f4c0cd666ed|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-16T00:09:58.119Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:48.151Z",
       "source": "e1664872e0a9",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "swiss-education-company-ch-10e0bd2c81e3|de|en": {
       "attempts": 1,
@@ -352284,22 +352337,22 @@
       "rung": "myMemory"
     },
     "hoch-health-04ea51a8370c|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:04:30.392Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:58:56.794Z",
       "source": "18bb085e3176",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "hoch-health-04ea51a8370c|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:04:35.065Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:58:58.006Z",
       "source": "18bb085e3176",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "hoch-health-04ea51a8370c|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:04:47.084Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:58:58.806Z",
       "source": "18bb085e3176",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "hoch-health-812e6d83809d|de|en": {
       "attempts": 2,
@@ -352374,10 +352427,10 @@
       "rung": "codex"
     },
     "usz-9cf31220ccef|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:30.312Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:30.303Z",
       "source": "fd12394043a5",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "hoch-health-428febe14f48|de|en": {
       "attempts": 1,
@@ -352452,82 +352505,82 @@
       "rung": "codex"
     },
     "spital-thurgau-422f0cc4c8e3|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:06:55.395Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:58:47.917Z",
       "source": "c0793b9990c4",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "spital-thurgau-422f0cc4c8e3|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:06:40.277Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:58:48.608Z",
       "source": "c0793b9990c4",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "unispital-basel-4dc57c6d2315|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-17T10:21:27.468Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:40.098Z",
       "source": "4d5a2bd5cf96",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "unispital-basel-4dc57c6d2315|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-17T10:21:42.264Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:41.089Z",
       "source": "4d5a2bd5cf96",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "unispital-basel-260c44549ad0|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-17T10:21:27.468Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:41.089Z",
       "source": "4d5a2bd5cf96",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "unispital-basel-260c44549ad0|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-17T10:21:42.264Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:41.089Z",
       "source": "4d5a2bd5cf96",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "unispital-basel-4dc57c6d2315|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-17T10:21:16.296Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:42.077Z",
       "source": "4d5a2bd5cf96",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "unispital-basel-260c44549ad0|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-17T10:21:16.296Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:42.078Z",
       "source": "4d5a2bd5cf96",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "denner-491b0418c963|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:07:18.493Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:16.080Z",
       "source": "ed705cbf67ea",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "denner-491b0418c963|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:07:52.979Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:17.054Z",
       "source": "ed705cbf67ea",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "denner-491b0418c963|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:07:22.806Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:18.181Z",
       "source": "ed705cbf67ea",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "jumbo-2895c90e-900|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:07:39.430Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:24.142Z",
       "source": "35468b835b42",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "jumbo-2895c90e-900|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:07:52.979Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:24.143Z",
       "source": "35468b835b42",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "jumbo-2895c90e-900|de|it": {
       "attempts": 4,
@@ -352836,16 +352889,16 @@
       "rung": "myMemory"
     },
     "posta-svizzera-centro-regionale-3368717cab01|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-15T15:19:51.204Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:09.161Z",
       "source": "41c904618814",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "posta-svizzera-centro-regionale-3368717cab01|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-15T15:20:16.486Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:08.153Z",
       "source": "41c904618814",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "posta-svizzera-centro-regionale-ef4d4b59e69e|de|en": {
       "attempts": 1,
@@ -352890,22 +352943,22 @@
       "rung": "myMemory"
     },
     "company-vmkgcd|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T12:09:52.910Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:58.102Z",
       "source": "6fc035ce26f0",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "company-vmkgcd|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T12:10:00.856Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:59.074Z",
       "source": "6fc035ce26f0",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "company-vmkgcd|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T12:10:04.383Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:00.097Z",
       "source": "6fc035ce26f0",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "fachkraft-721ec92077b8|de|en": {
       "attempts": 1,
@@ -353214,22 +353267,22 @@
       "rung": "myMemory"
     },
     "lindenhofgruppe-0054633c9421|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:11.783Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:37.105Z",
       "source": "431e8f370b6e",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "lindenhofgruppe-0054633c9421|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:12.871Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:37.105Z",
       "source": "431e8f370b6e",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "lindenhofgruppe-0054633c9421|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:31.016Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:37.105Z",
       "source": "431e8f370b6e",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "company-2ylcgy|de|en": {
       "attempts": 1,
@@ -353526,22 +353579,22 @@
       "rung": "myMemory"
     },
     "stadt-zuerich-b53a52d274e4|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:08:50.934Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:02:05.108Z",
       "source": "d2527e22a3f6",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "stadt-zuerich-b53a52d274e4|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:08:54.218Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:02:06.132Z",
       "source": "d2527e22a3f6",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "stadt-zuerich-b53a52d274e4|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:09:07.065Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:02:07.113Z",
       "source": "d2527e22a3f6",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "seco-jobroom-1fa254a4-e83c-435a-9bb2-e3d76a8662aa|de|it": {
       "attempts": 1,
@@ -353952,22 +354005,22 @@
       "rung": "myMemory"
     },
     "manor-c2c982b76449|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:09:09.214Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:02:43.110Z",
       "source": "d8761e3dcc07",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "manor-c2c982b76449|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:09:09.214Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:02:44.155Z",
       "source": "d8761e3dcc07",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "manor-c2c982b76449|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:09:09.214Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:02:45.141Z",
       "source": "d8761e3dcc07",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "manor-acf2a51210ea|de|en": {
       "attempts": 1,
@@ -354504,16 +354557,16 @@
       "rung": "myMemory"
     },
     "company-fem8di|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T12:11:25.461Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:02:47.151Z",
       "source": "561611f66fae",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "company-fem8di|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T12:11:32.240Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:02:47.151Z",
       "source": "561611f66fae",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "company-cmkaxz|de|it": {
       "attempts": 1,
@@ -354522,10 +354575,10 @@
       "rung": "myMemory"
     },
     "company-fem8di|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T12:11:24.856Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:02:49.143Z",
       "source": "561611f66fae",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "confederazione-ticino-71447078d170|de|en": {
       "attempts": 1,
@@ -356250,16 +356303,16 @@
       "rung": "myMemory"
     },
     "migrolino-0fb7b8e8c905|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:06:07.271Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:50.148Z",
       "source": "7b29ebbc55da",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "migrolino-0fb7b8e8c905|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:57.452Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:51.109Z",
       "source": "7b29ebbc55da",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "migrolino-329add6dd624|de|it": {
       "attempts": 1,
@@ -356268,10 +356321,10 @@
       "rung": "myMemory"
     },
     "migrolino-0fb7b8e8c905|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:06:01.935Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:52.108Z",
       "source": "7b29ebbc55da",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "equans-5385068c2dc6|de|en": {
       "attempts": 1,
@@ -360180,10 +360233,10 @@
       "rung": "myMemory"
     },
     "stadt-zuerich-376dc51a71dd|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:08:41.009Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:25.094Z",
       "source": "c9a76ef72e43",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "stadt-zuerich-42b3c1f68ca6|de|en": {
       "attempts": 4,
@@ -361884,22 +361937,22 @@
       "rung": "myMemory"
     },
     "manor-22fd056ddfdb|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:06:41.915Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:35.094Z",
       "source": "7889cd054bde",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "manor-22fd056ddfdb|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:06:55.394Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:36.083Z",
       "source": "7889cd054bde",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "manor-22fd056ddfdb|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:06:40.276Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:37.075Z",
       "source": "7889cd054bde",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "concordia-e176f712f754|de|en": {
       "attempts": 1,
@@ -361932,16 +361985,16 @@
       "rung": "codex"
     },
     "jumbo-d9f34990-1a6|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-10T13:12:05.227Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:00:43.080Z",
       "source": "80b2c3146063",
-      "rung": "myMemory"
+      "rung": "mozhiDdg"
     },
     "jumbo-d9f34990-1a6|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-10T13:12:05.227Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:00:44.095Z",
       "source": "80b2c3146063",
-      "rung": "myMemory"
+      "rung": "mozhiDdg"
     },
     "jumbo-bb730da8-f7e|de|it": {
       "attempts": 4,
@@ -361950,10 +362003,10 @@
       "rung": "codex"
     },
     "jumbo-d9f34990-1a6|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-12T17:25:31.854Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:00:45.085Z",
       "source": "80b2c3146063",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "kanton-zuerich-a7855af7ff54|de|en": {
       "attempts": 1,
@@ -364140,22 +364193,22 @@
       "rung": "myMemory"
     },
     "localsearch-f9d8daaca263|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:06:07.271Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:59.087Z",
       "source": "dc258510749d",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "localsearch-f9d8daaca263|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:05:57.452Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:00.092Z",
       "source": "dc258510749d",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "localsearch-f9d8daaca263|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:06:01.935Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:01.092Z",
       "source": "dc258510749d",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "fachkraft-018d58b992b2|de|en": {
       "attempts": 1,
@@ -366366,22 +366419,22 @@
       "rung": "myMemory"
     },
     "stadt-zuerich-22710f587dd7|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:08:50.934Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:02:06.132Z",
       "source": "d2527e22a3f6",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "stadt-zuerich-22710f587dd7|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:08:54.218Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:02:06.132Z",
       "source": "d2527e22a3f6",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "stadt-zuerich-22710f587dd7|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:09:07.065Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:02:07.113Z",
       "source": "d2527e22a3f6",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "stadt-zuerich-83c4ae374010|de|en": {
       "attempts": 3,
@@ -366498,16 +366551,16 @@
       "rung": "myMemory"
     },
     "sta-5ece2ea4093d|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-20T07:35:37.033Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:27.103Z",
       "source": "5766d2c3575c",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sta-5ece2ea4093d|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-20T07:35:22.978Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:28.091Z",
       "source": "5766d2c3575c",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sta-e9b26aae432a|de|it": {
       "attempts": 1,
@@ -366666,22 +366719,22 @@
       "rung": "codex"
     },
     "seco-jobroom-8d8ec852-e41b-4ae6-a8e7-a1882ebe45ac|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:10:27.313Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:02:58.144Z",
       "source": "a3407664abc4",
-      "rung": "myMemory"
+      "rung": "mozhiDdg"
     },
     "seco-jobroom-9afcbe4b-4b57-40e8-8cec-b6a9c952574e|it|de": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:10:18.499Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:02:50.146Z",
       "source": "139928418e3a",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "seco-jobroom-9afcbe4b-4b57-40e8-8cec-b6a9c952574e|it|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-13T13:50:59.598Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:02:51.108Z",
       "source": "139928418e3a",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "seco-jobroom-9afcbe4b-4b57-40e8-8cec-b6a9c952574e|it|fr": {
       "attempts": 4,
@@ -366690,10 +366743,10 @@
       "rung": "myMemory"
     },
     "seco-jobroom-8d8ec852-e41b-4ae6-a8e7-a1882ebe45ac|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:10:11.302Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:02:57.154Z",
       "source": "a3407664abc4",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "seco-jobroom-aaa3db9f-4d55-4dc0-a5b7-5bcfa733b4ad|it|de": {
       "attempts": 1,
@@ -369642,16 +369695,16 @@
       "rung": "myMemory"
     },
     "denner-5c0d83687252|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:04:30.393Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:07.121Z",
       "source": "3da2f939cc93",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "denner-5c0d83687252|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:04:35.066Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:07.121Z",
       "source": "3da2f939cc93",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "denner-5e5dce6a469d|de|it": {
       "attempts": 1,
@@ -369660,10 +369713,10 @@
       "rung": "myMemory"
     },
     "denner-5c0d83687252|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:04:38.519Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T00:59:08.145Z",
       "source": "3da2f939cc93",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "axa-svizzera-87c184d8e24f|de|en": {
       "attempts": 1,
@@ -371395,9 +371448,9 @@
     },
     "ksml-77dae20d66cf|de|en": {
       "attempts": 1,
-      "lastAttemptAt": "2026-11-12T00:56:54.637Z",
-      "source": "c6d06f18cc22",
-      "rung": "myMemory"
+      "lastAttemptAt": "2026-11-23T01:04:16.439Z",
+      "source": "206c420a1ce5",
+      "rung": "mozhiDdg"
     },
     "posta-svizzera-centro-regionale-e658515c20be|de|en": {
       "attempts": 1,
@@ -376278,10 +376331,10 @@
       "rung": "codex"
     },
     "solina-66ce0d6fa064|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:10:36.126Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:08.094Z",
       "source": "52f08d7a9306",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "spital-sts-473dcc58ad70|de|en": {
       "attempts": 1,
@@ -376326,10 +376379,10 @@
       "rung": "codex"
     },
     "solina-66ce0d6fa064|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:10:35.227Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:09.097Z",
       "source": "52f08d7a9306",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "spital-sts-473dcc58ad70|de|fr": {
       "attempts": 1,
@@ -376386,10 +376439,10 @@
       "rung": "codex"
     },
     "solina-66ce0d6fa064|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:10:30.527Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:10.435Z",
       "source": "52f08d7a9306",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "spital-sts-13fe63a96ec4|de|it": {
       "attempts": 1,
@@ -378522,10 +378575,10 @@
       "rung": "codex"
     },
     "etat-de-fribourg-b89e1231afb4|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:06:54.677Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:47.195Z",
       "source": "10070972ffa2",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "company-3rf2f|de|fr": {
       "attempts": 3,
@@ -378582,10 +378635,10 @@
       "rung": "myMemory"
     },
     "etat-de-fribourg-b89e1231afb4|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:07:07.513Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:46.090Z",
       "source": "10070972ffa2",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "company-3rf2f|de|en": {
       "attempts": 3,
@@ -378672,10 +378725,10 @@
       "rung": "codex"
     },
     "etat-de-fribourg-b89e1231afb4|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:07:10.772Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:00:48.108Z",
       "source": "10070972ffa2",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "volg-fenaco-a891cd355f78|de|en": {
       "attempts": 1,
@@ -380964,10 +381017,10 @@
       "rung": "codex"
     },
     "hoch-health-f5cd1d775a34|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:09:07.066Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:02:13.145Z",
       "source": "ab007309cbde",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "confederazione-ticino-d171eeca91f0|de|it": {
       "attempts": 1,
@@ -380988,10 +381041,10 @@
       "rung": "codex"
     },
     "hoch-health-f5cd1d775a34|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:08:50.934Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:02:11.135Z",
       "source": "ab007309cbde",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "confederazione-ticino-d171eeca91f0|de|en": {
       "attempts": 1,
@@ -381036,10 +381089,10 @@
       "rung": "codex"
     },
     "hoch-health-f5cd1d775a34|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-16T00:08:54.218Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:02:12.231Z",
       "source": "ab007309cbde",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "confederazione-ticino-d171eeca91f0|de|fr": {
       "attempts": 1,
@@ -382434,16 +382487,16 @@
       "rung": "codex"
     },
     "mcdonald-s-switzerland-1084d0916a55|fr|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-18T13:14:38.843Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:04:14.621Z",
       "source": "5d285367ec5d",
       "rung": "unserved"
     },
     "mcdonald-s-switzerland-1084d0916a55|fr|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-18T13:14:38.843Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:04:10.217Z",
       "source": "5d285367ec5d",
-      "rung": "mozhiGoogle"
+      "rung": "mozhiDdg"
     },
     "company-f3kz5o|de|en": {
       "attempts": 1,
@@ -382560,10 +382613,10 @@
       "rung": "unserved"
     },
     "mcdonald-s-switzerland-1084d0916a55|fr|de": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-18T13:14:38.843Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:04:07.884Z",
       "source": "5d285367ec5d",
-      "rung": "unserved"
+      "rung": "mozhiDdg"
     },
     "company-12crl3|de|it": {
       "attempts": 1,
@@ -393930,28 +393983,28 @@
       "rung": "codex"
     },
     "hoch-health-1d965909dd2b|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T00:03:52.209Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:04.839Z",
       "source": "7a17af079255",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "hoch-health-0b8395c9afde|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T00:03:52.212Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:39.496Z",
       "source": "278b0751cda5",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "jumbo-42d5e41d-d57|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T00:03:52.217Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:00:30.102Z",
       "source": "65ab4dcd0aab",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "fincons-group-a99907e24127|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T00:03:52.218Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:01:04.112Z",
       "source": "7b76942b3091",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "absolut-liv-ch-5c213c0361b0|de|fr": {
       "attempts": 1,
@@ -393960,10 +394013,10 @@
       "rung": "codex"
     },
     "hoch-health-1d965909dd2b|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T00:04:06.723Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:04.839Z",
       "source": "7a17af079255",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "lonza-2fa31316f515|de|it": {
       "attempts": 1,
@@ -393972,46 +394025,46 @@
       "rung": "codex"
     },
     "hoch-health-0b8395c9afde|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T00:04:06.724Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:40.174Z",
       "source": "278b0751cda5",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "jumbo-42d5e41d-d57|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T00:04:06.726Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:00:31.081Z",
       "source": "65ab4dcd0aab",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "fincons-group-a99907e24127|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T00:04:06.726Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:01:05.106Z",
       "source": "7b76942b3091",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "hoch-health-1d965909dd2b|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T00:04:22.858Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:04.839Z",
       "source": "7a17af079255",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "hoch-health-0b8395c9afde|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T00:04:22.859Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:38.887Z",
       "source": "278b0751cda5",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "jumbo-42d5e41d-d57|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T00:04:22.859Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:00:29.094Z",
       "source": "65ab4dcd0aab",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "fincons-group-a99907e24127|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T00:04:22.859Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:01:03.111Z",
       "source": "7b76942b3091",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "absolut-liv-ch-5c213c0361b0|de|en": {
       "attempts": 1,
@@ -394020,10 +394073,10 @@
       "rung": "codex"
     },
     "seco-jobroom-c237c243-2b95-4ec4-b557-fc1425d503ea|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T00:04:22.910Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:02:53.159Z",
       "source": "968e05a7ae81",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "absolut-liv-ch-5c213c0361b0|de|it": {
       "attempts": 1,
@@ -394062,10 +394115,10 @@
       "rung": "myMemory"
     },
     "posta-svizzera-centro-regionale-e3008c8f7ec3|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T08:21:26.808Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:00:53.125Z",
       "source": "3c7f527732c8",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "fachkraft-df10bc55dbb6|de|fr": {
       "attempts": 1,
@@ -394086,10 +394139,10 @@
       "rung": "codex"
     },
     "posta-svizzera-centro-regionale-e3008c8f7ec3|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T08:22:02.644Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:00:52.130Z",
       "source": "3c7f527732c8",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "fachkraft-df10bc55dbb6|de|en": {
       "attempts": 1,
@@ -394110,10 +394163,10 @@
       "rung": "codex"
     },
     "posta-svizzera-centro-regionale-e3008c8f7ec3|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T08:22:10.159Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:00:54.107Z",
       "source": "3c7f527732c8",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "fachkraft-df10bc55dbb6|de|it": {
       "attempts": 1,
@@ -394152,10 +394205,10 @@
       "rung": "codex"
     },
     "company-miw0p7|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T12:05:57.363Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:18.298Z",
       "source": "e82292b37721",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "senevita-48f5ad816b0a|de|fr": {
       "attempts": 1,
@@ -394212,10 +394265,10 @@
       "rung": "codex"
     },
     "company-miw0p7|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T12:06:12.665Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:17.108Z",
       "source": "e82292b37721",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "senevita-48f5ad816b0a|de|en": {
       "attempts": 1,
@@ -394254,10 +394307,10 @@
       "rung": "codex"
     },
     "spitaeler-schaffhausen-178cc0a1732a|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T12:06:12.666Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:00:56.111Z",
       "source": "863239a4b302",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "emil-frey-6560d0b4fc95|de|it": {
       "attempts": 1,
@@ -394272,10 +394325,10 @@
       "rung": "codex"
     },
     "company-miw0p7|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T12:06:16.181Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:19.088Z",
       "source": "e82292b37721",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "senevita-48f5ad816b0a|de|it": {
       "attempts": 1,
@@ -394302,10 +394355,10 @@
       "rung": "codex"
     },
     "spitaeler-schaffhausen-178cc0a1732a|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T12:06:18.209Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:00:56.113Z",
       "source": "863239a4b302",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "usz-d76408cd4031|de|fr": {
       "attempts": 1,
@@ -394386,10 +394439,10 @@
       "rung": "codex"
     },
     "spitaeler-schaffhausen-178cc0a1732a|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-16T12:06:55.431Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:00:56.113Z",
       "source": "863239a4b302",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "sro-10e9072cd0d0|de|it": {
       "attempts": 1,
@@ -394464,10 +394517,10 @@
       "rung": "codex"
     },
     "sunrise-sede-ticino-6d9ea011a80c|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-18T21:49:46.255Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:03:06.561Z",
       "source": "7fbcf1a3676d",
-      "rung": "myMemory"
+      "rung": "mozhiDdg"
     },
     "bkw-56bc74228f32|de|fr": {
       "attempts": 1,
@@ -394482,16 +394535,16 @@
       "rung": "codex"
     },
     "sunrise-sede-ticino-6d9ea011a80c|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-18T21:49:44.010Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:03:06.190Z",
       "source": "7fbcf1a3676d",
-      "rung": "myMemory"
+      "rung": "unserved"
     },
     "sunrise-sede-ticino-b44d74629758|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-18T21:49:43.188Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:03:04.970Z",
       "source": "7762ccad9124",
-      "rung": "myMemory"
+      "rung": "unserved"
     },
     "usz-1dc72b67f851|de|en": {
       "attempts": 1,
@@ -394848,10 +394901,10 @@
       "rung": "codex"
     },
     "sunrise-sede-ticino-6d9ea011a80c|de|it": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-18T21:49:40.536Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:03:06.951Z",
       "source": "7fbcf1a3676d",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "buehler-d26522851e7d|en|de": {
       "attempts": 1,
@@ -394866,10 +394919,10 @@
       "rung": "codex"
     },
     "bosch-thermotechnik-ag-77048a9b43c9|de|en": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-18T21:49:41.961Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:03:07.922Z",
       "source": "ccb40c2f1e11",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "senevita-dbe4f7f6bc18|de|en": {
       "attempts": 1,
@@ -395142,10 +395195,10 @@
       "rung": "codex"
     },
     "seco-jobroom-3a6f89a6-4005-4857-a780-19485aabe52a|de|fr": {
-      "attempts": 3,
-      "lastAttemptAt": "2026-11-18T21:49:47.310Z",
+      "attempts": 4,
+      "lastAttemptAt": "2026-11-23T01:03:08.991Z",
       "source": "babe2fd02174",
-      "rung": "myMemory"
+      "rung": "mozhiDdg"
     },
     "denner-2be46d364f85|de|fr": {
       "attempts": 1,
@@ -395424,10 +395477,10 @@
       "rung": "codex"
     },
     "seco-jobroom-35eecc81-46be-474e-b7a3-66ceb3e4e776|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T02:54:08.538Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:58.968Z",
       "source": "cbd5abec3293",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "seco-jobroom-7daf056b-8d96-4ab4-a130-4c22fa5e2793|de|fr": {
       "attempts": 3,
@@ -395508,10 +395561,10 @@
       "rung": "codex"
     },
     "seco-jobroom-35eecc81-46be-474e-b7a3-66ceb3e4e776|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T02:54:32.791Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:57.930Z",
       "source": "cbd5abec3293",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "seco-jobroom-7daf056b-8d96-4ab4-a130-4c22fa5e2793|de|en": {
       "attempts": 3,
@@ -395580,10 +395633,10 @@
       "rung": "codex"
     },
     "seco-jobroom-35eecc81-46be-474e-b7a3-66ceb3e4e776|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T02:54:52.146Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:59.939Z",
       "source": "cbd5abec3293",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "seco-jobroom-7daf056b-8d96-4ab4-a130-4c22fa5e2793|de|it": {
       "attempts": 3,
@@ -396588,10 +396641,10 @@
       "rung": "codex"
     },
     "sbb-fcc6f3cc7df6|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:14:38.724Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:27.901Z",
       "source": "bea604e807a0",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-006a63580dc7|de|en": {
       "attempts": 1,
@@ -396606,10 +396659,10 @@
       "rung": "codex"
     },
     "sbb-fcc6f3cc7df6|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:14:52.324Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:28.877Z",
       "source": "bea604e807a0",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-006a63580dc7|de|fr": {
       "attempts": 1,
@@ -396678,10 +396731,10 @@
       "rung": "codex"
     },
     "sbb-fcc6f3cc7df6|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:14:56.342Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:29.904Z",
       "source": "bea604e807a0",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-006a63580dc7|de|it": {
       "attempts": 1,
@@ -396714,10 +396767,10 @@
       "rung": "codex"
     },
     "sbb-6f5c2d63d1fa|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:15:04.596Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:30.904Z",
       "source": "de061aa493f3",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-97a6a7da5c49|de|it": {
       "attempts": 1,
@@ -396744,10 +396797,10 @@
       "rung": "codex"
     },
     "sbb-6f5c2d63d1fa|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:15:07.508Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:32.895Z",
       "source": "de061aa493f3",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-92f069e259f7|de|fr": {
       "attempts": 1,
@@ -396762,10 +396815,10 @@
       "rung": "codex"
     },
     "sbb-6f5c2d63d1fa|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:15:09.468Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:31.963Z",
       "source": "de061aa493f3",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-65fab49b998e|de|fr": {
       "attempts": 1,
@@ -396870,10 +396923,10 @@
       "rung": "codex"
     },
     "sbb-1633369a4ace|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:15:21.151Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:13.972Z",
       "source": "864eb1c01164",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-57b844c162ff|de|en": {
       "attempts": 3,
@@ -396894,10 +396947,10 @@
       "rung": "codex"
     },
     "sbb-1633369a4ace|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:15:36.865Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:14.991Z",
       "source": "864eb1c01164",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-8e8fe5e97858|de|it": {
       "attempts": 1,
@@ -396930,10 +396983,10 @@
       "rung": "codex"
     },
     "sbb-1633369a4ace|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:15:40.485Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:12.933Z",
       "source": "864eb1c01164",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-8e8fe5e97858|de|en": {
       "attempts": 1,
@@ -397032,10 +397085,10 @@
       "rung": "codex"
     },
     "sbb-b97bb0a9f397|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:15:58.652Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:37.897Z",
       "source": "998be7e90214",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-83d72263a26c|de|fr": {
       "attempts": 1,
@@ -397104,40 +397157,40 @@
       "rung": "codex"
     },
     "sbb-9b727530e265|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:16:11.199Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:09.932Z",
       "source": "6d4eb4ad0689",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-fe8dff979294|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:16:11.199Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:10.975Z",
       "source": "6d4eb4ad0689",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-a44139e19edd|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:16:11.200Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:31.964Z",
       "source": "de061aa493f3",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-a44139e19edd|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:16:11.200Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:31.964Z",
       "source": "de061aa493f3",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-a44139e19edd|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:16:11.201Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:32.895Z",
       "source": "de061aa493f3",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-ef93de85b2d4|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:16:11.201Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:37.897Z",
       "source": "998be7e90214",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-6578bd3d0123|de|en": {
       "attempts": 1,
@@ -397152,16 +397205,16 @@
       "rung": "codex"
     },
     "sbb-b97bb0a9f397|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:16:13.011Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:36.897Z",
       "source": "998be7e90214",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-ef93de85b2d4|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:16:13.014Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:37.897Z",
       "source": "998be7e90214",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-83d72263a26c|de|en": {
       "attempts": 1,
@@ -397200,22 +397253,22 @@
       "rung": "codex"
     },
     "sbb-fab44d5a5168|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:16:22.852Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:32.895Z",
       "source": "de061aa493f3",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-fab44d5a5168|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:16:22.852Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:32.895Z",
       "source": "de061aa493f3",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-fab44d5a5168|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:16:22.853Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:32.898Z",
       "source": "de061aa493f3",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-537493fc7843|de|it": {
       "attempts": 1,
@@ -397236,16 +397289,16 @@
       "rung": "codex"
     },
     "sbb-9b727530e265|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:16:25.713Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:11.974Z",
       "source": "6d4eb4ad0689",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-fe8dff979294|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:16:25.713Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:11.974Z",
       "source": "6d4eb4ad0689",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-b2651b631601|de|en": {
       "attempts": 1,
@@ -397278,16 +397331,16 @@
       "rung": "codex"
     },
     "sbb-9b727530e265|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:16:33.812Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:10.975Z",
       "source": "6d4eb4ad0689",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-fe8dff979294|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:16:33.812Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:10.975Z",
       "source": "6d4eb4ad0689",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-b2651b631601|de|fr": {
       "attempts": 1,
@@ -397326,16 +397379,16 @@
       "rung": "codex"
     },
     "sbb-b97bb0a9f397|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:16:40.219Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:38.888Z",
       "source": "998be7e90214",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-ef93de85b2d4|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:16:40.219Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:38.888Z",
       "source": "998be7e90214",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-83d72263a26c|de|it": {
       "attempts": 1,
@@ -397482,16 +397535,16 @@
       "rung": "codex"
     },
     "sbb-fb4feed245b9|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:17:11.769Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:34.952Z",
       "source": "9710553b58ce",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-defd653d3bc6|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:17:11.769Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:35.885Z",
       "source": "9710553b58ce",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-3a6106ddc3b2|de|fr": {
       "attempts": 1,
@@ -397512,16 +397565,16 @@
       "rung": "codex"
     },
     "sbb-fb4feed245b9|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:17:22.118Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:33.911Z",
       "source": "9710553b58ce",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-defd653d3bc6|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:17:22.118Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:35.884Z",
       "source": "9710553b58ce",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-3a6106ddc3b2|de|en": {
       "attempts": 1,
@@ -397542,22 +397595,22 @@
       "rung": "codex"
     },
     "sbb-32fd43379cfb|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:17:22.119Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:32.898Z",
       "source": "de061aa493f3",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-32fd43379cfb|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:17:22.119Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:32.899Z",
       "source": "de061aa493f3",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-32fd43379cfb|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:17:22.120Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:32.899Z",
       "source": "de061aa493f3",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-d54f307b93fa|de|fr": {
       "attempts": 1,
@@ -397572,10 +397625,10 @@
       "rung": "codex"
     },
     "sbb-6ce9772c637b|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:17:26.200Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:19.969Z",
       "source": "d046ab3254c6",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-b607b4974c6e|de|fr": {
       "attempts": 1,
@@ -397590,16 +397643,16 @@
       "rung": "codex"
     },
     "sbb-fb4feed245b9|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:17:36.196Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:35.884Z",
       "source": "9710553b58ce",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-defd653d3bc6|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:17:36.196Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:35.885Z",
       "source": "9710553b58ce",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-3a6106ddc3b2|de|it": {
       "attempts": 1,
@@ -397626,10 +397679,10 @@
       "rung": "codex"
     },
     "sbb-6ce9772c637b|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:17:39.703Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:20.992Z",
       "source": "d046ab3254c6",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-b607b4974c6e|de|it": {
       "attempts": 1,
@@ -397638,16 +397691,16 @@
       "rung": "codex"
     },
     "sbb-9f3108eb12c9|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:17:39.704Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:26.934Z",
       "source": "2f5d87d01473",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-fe5cded571f1|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:17:39.704Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:17.948Z",
       "source": "2042caa2db5a",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-78e4a0ca53ee|de|en": {
       "attempts": 1,
@@ -397668,22 +397721,22 @@
       "rung": "codex"
     },
     "sbb-856f630a71b8|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:17:39.709Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:28.877Z",
       "source": "bea604e807a0",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-856f630a71b8|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:17:39.709Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:28.877Z",
       "source": "bea604e807a0",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-856f630a71b8|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:17:39.709Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:29.904Z",
       "source": "bea604e807a0",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-c44376e36c6e|de|en": {
       "attempts": 1,
@@ -397710,10 +397763,10 @@
       "rung": "codex"
     },
     "sbb-6ce9772c637b|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:17:42.627Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:18.948Z",
       "source": "d046ab3254c6",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-b607b4974c6e|de|en": {
       "attempts": 1,
@@ -397722,16 +397775,16 @@
       "rung": "codex"
     },
     "sbb-9f3108eb12c9|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:17:42.627Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:24.982Z",
       "source": "2f5d87d01473",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-fe5cded571f1|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:17:42.627Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:15.902Z",
       "source": "2042caa2db5a",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-0d784b345f66|de|en": {
       "attempts": 1,
@@ -397752,10 +397805,10 @@
       "rung": "codex"
     },
     "sbb-b47f33a4460e|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:17:56.941Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:50.899Z",
       "source": "dd0970586913",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-d29e153c4fad|de|it": {
       "attempts": 1,
@@ -397770,16 +397823,16 @@
       "rung": "codex"
     },
     "sbb-dd5a1236c8cb|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:17:56.942Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:23.924Z",
       "source": "d289b1ceafec",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-6ded42751134|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:17:56.942Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:23.924Z",
       "source": "d289b1ceafec",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-116ce24125cb|de|it": {
       "attempts": 1,
@@ -397788,10 +397841,10 @@
       "rung": "codex"
     },
     "sbb-b47f33a4460e|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:03.586Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:48.929Z",
       "source": "dd0970586913",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-d29e153c4fad|de|en": {
       "attempts": 1,
@@ -397806,16 +397859,16 @@
       "rung": "codex"
     },
     "sbb-dd5a1236c8cb|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:03.589Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:21.913Z",
       "source": "d289b1ceafec",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-6ded42751134|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:03.589Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:22.912Z",
       "source": "d289b1ceafec",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-116ce24125cb|de|en": {
       "attempts": 1,
@@ -397926,52 +397979,52 @@
       "rung": "codex"
     },
     "sbb-46f3e22bf526|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:38.142Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:40.943Z",
       "source": "cfd2e47dc66e",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-8863596d4be2|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:38.142Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:32.899Z",
       "source": "de061aa493f3",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-8863596d4be2|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:38.143Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:32.899Z",
       "source": "de061aa493f3",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-8863596d4be2|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:38.143Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:32.899Z",
       "source": "de061aa493f3",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-4167a6eed301|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:38.143Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:40.944Z",
       "source": "cfd2e47dc66e",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-d3e0c31b360d|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:38.143Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:32.899Z",
       "source": "de061aa493f3",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-d3e0c31b360d|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:38.143Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:32.899Z",
       "source": "de061aa493f3",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-d3e0c31b360d|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:38.144Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:32.899Z",
       "source": "de061aa493f3",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-e6463c990d9c|de|en": {
       "attempts": 1,
@@ -397980,16 +398033,16 @@
       "rung": "codex"
     },
     "sbb-46f3e22bf526|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:44.690Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:39.900Z",
       "source": "cfd2e47dc66e",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-4167a6eed301|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:44.691Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:40.944Z",
       "source": "cfd2e47dc66e",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-ec570d3722d0|de|en": {
       "attempts": 1,
@@ -398004,22 +398057,22 @@
       "rung": "codex"
     },
     "sbb-a3797372e48b|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:44.692Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:38.888Z",
       "source": "998be7e90214",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-a3797372e48b|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:44.692Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:38.888Z",
       "source": "998be7e90214",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-a3797372e48b|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:44.692Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:38.889Z",
       "source": "998be7e90214",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-600462dd9db8|de|en": {
       "attempts": 1,
@@ -398070,16 +398123,16 @@
       "rung": "codex"
     },
     "sbb-46f3e22bf526|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:49.117Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:41.943Z",
       "source": "cfd2e47dc66e",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-4167a6eed301|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:49.117Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:41.944Z",
       "source": "cfd2e47dc66e",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-ec570d3722d0|de|it": {
       "attempts": 1,
@@ -398088,22 +398141,22 @@
       "rung": "codex"
     },
     "sbb-db00559e4dc0|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:49.118Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:29.904Z",
       "source": "bea604e807a0",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-db00559e4dc0|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:49.121Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:29.904Z",
       "source": "bea604e807a0",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-db00559e4dc0|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:49.121Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:29.905Z",
       "source": "bea604e807a0",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-7b24b6adbd14|de|en": {
       "attempts": 1,
@@ -398124,16 +398177,16 @@
       "rung": "codex"
     },
     "sbb-9f3108eb12c9|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:53.240Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:25.927Z",
       "source": "2f5d87d01473",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-fe5cded571f1|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:53.241Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:16.943Z",
       "source": "2042caa2db5a",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-0d784b345f66|de|fr": {
       "attempts": 1,
@@ -398142,10 +398195,10 @@
       "rung": "codex"
     },
     "sbb-b47f33a4460e|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:53.241Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:49.969Z",
       "source": "dd0970586913",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-d29e153c4fad|de|fr": {
       "attempts": 1,
@@ -398160,16 +398213,16 @@
       "rung": "codex"
     },
     "sbb-dd5a1236c8cb|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:53.242Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:22.912Z",
       "source": "d289b1ceafec",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-6ded42751134|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:53.242Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:22.913Z",
       "source": "d289b1ceafec",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-116ce24125cb|de|fr": {
       "attempts": 1,
@@ -398178,40 +398231,40 @@
       "rung": "codex"
     },
     "sbb-1c31fd14eefd|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:53.246Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:29.905Z",
       "source": "bea604e807a0",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-1c31fd14eefd|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:53.246Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:29.905Z",
       "source": "bea604e807a0",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-1c31fd14eefd|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:53.246Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:29.908Z",
       "source": "bea604e807a0",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-633a66f7208e|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:53.246Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:41.944Z",
       "source": "cfd2e47dc66e",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-633a66f7208e|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:53.247Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:41.944Z",
       "source": "cfd2e47dc66e",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-633a66f7208e|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:53.247Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:41.944Z",
       "source": "cfd2e47dc66e",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-ec570d3722d0|de|fr": {
       "attempts": 1,
@@ -398232,10 +398285,10 @@
       "rung": "codex"
     },
     "sbb-76d33d85f467|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:18:59.241Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:43.914Z",
       "source": "8cc5c144964f",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-79445546e7fc|de|it": {
       "attempts": 1,
@@ -398244,10 +398297,10 @@
       "rung": "codex"
     },
     "sbb-76d33d85f467|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:19:00.199Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:44.943Z",
       "source": "8cc5c144964f",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-f1e295a1aa7f|de|it": {
       "attempts": 1,
@@ -398256,10 +398309,10 @@
       "rung": "codex"
     },
     "sbb-44e79587bc9b|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:19:00.200Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:47.881Z",
       "source": "acf369a22662",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-5c8499668a35|de|en": {
       "attempts": 1,
@@ -398268,10 +398321,10 @@
       "rung": "codex"
     },
     "sbb-76d33d85f467|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:19:06.142Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:42.942Z",
       "source": "8cc5c144964f",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-f1e295a1aa7f|de|en": {
       "attempts": 1,
@@ -398280,10 +398333,10 @@
       "rung": "codex"
     },
     "sbb-44e79587bc9b|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:19:06.142Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:45.921Z",
       "source": "acf369a22662",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-d74b7e539356|de|en": {
       "attempts": 1,
@@ -398298,10 +398351,10 @@
       "rung": "codex"
     },
     "sbb-44e79587bc9b|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T10:19:18.912Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:46.931Z",
       "source": "acf369a22662",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-d74b7e539356|de|fr": {
       "attempts": 1,
@@ -399192,22 +399245,22 @@
       "rung": "codex"
     },
     "hoch-health-00cc7cf07a2d|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-18T00:42:43.124Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:04.839Z",
       "source": "7a17af079255",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "hoch-health-2551d81499ed|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-18T00:42:43.124Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:04.842Z",
       "source": "7a17af079255",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "hoch-health-5106bcd900c8|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-18T00:42:43.124Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:04.842Z",
       "source": "7a17af079255",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "denner-1ceccba9ed6f|de|en": {
       "attempts": 1,
@@ -399282,22 +399335,22 @@
       "rung": "codex"
     },
     "hoch-health-00cc7cf07a2d|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-18T00:43:02.887Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:04.839Z",
       "source": "7a17af079255",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "hoch-health-2551d81499ed|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-18T00:43:02.888Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:04.842Z",
       "source": "7a17af079255",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "hoch-health-5106bcd900c8|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-18T00:43:02.888Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:04.842Z",
       "source": "7a17af079255",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "denner-1ceccba9ed6f|de|fr": {
       "attempts": 1,
@@ -399534,22 +399587,22 @@
       "rung": "codex"
     },
     "hoch-health-00cc7cf07a2d|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-18T00:44:07.226Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:04.839Z",
       "source": "7a17af079255",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "hoch-health-2551d81499ed|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-18T00:44:07.227Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:04.842Z",
       "source": "7a17af079255",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "hoch-health-5106bcd900c8|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-18T00:44:07.227Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:04.842Z",
       "source": "7a17af079255",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "denner-1ceccba9ed6f|de|it": {
       "attempts": 1,
@@ -399924,10 +399977,10 @@
       "rung": "codex"
     },
     "tertianum-627f0148dc08|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-18T00:45:22.548Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:02:03.176Z",
       "source": "ca97c7179ee9",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "ksml-2c9beb5c9915|de|it": {
       "attempts": 1,
@@ -400080,16 +400133,16 @@
       "rung": "codex"
     },
     "sbb-8247f5ccb151|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-18T00:45:50.585Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:35.884Z",
       "source": "9710553b58ce",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-7aea89126d26|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-18T00:45:50.585Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:35.885Z",
       "source": "9710553b58ce",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "averecura-holding-ag-5d0ad46bd7f5|de|en": {
       "attempts": 1,
@@ -400104,16 +400157,16 @@
       "rung": "codex"
     },
     "sbb-8247f5ccb151|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-18T00:46:01.275Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:34.953Z",
       "source": "9710553b58ce",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-7aea89126d26|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-18T00:46:01.275Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:35.885Z",
       "source": "9710553b58ce",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "siemens-a2a2216ac72b|de|en": {
       "attempts": 1,
@@ -400140,16 +400193,16 @@
       "rung": "codex"
     },
     "sbb-8247f5ccb151|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-18T00:46:08.270Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:34.953Z",
       "source": "9710553b58ce",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "sbb-7aea89126d26|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-18T00:46:08.271Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:35.885Z",
       "source": "9710553b58ce",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "siemens-a2a2216ac72b|de|fr": {
       "attempts": 1,
@@ -401400,10 +401453,10 @@
       "rung": "codex"
     },
     "seco-jobroom-e262029f-511d-4f20-873d-ccaa6800ffe4|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-18T00:51:38.330Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:52.907Z",
       "source": "9f3c76305001",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "seco-jobroom-6ee7a164-a06a-4dcd-8674-b7f7a2a43e9d|de|fr": {
       "attempts": 1,
@@ -401466,10 +401519,10 @@
       "rung": "codex"
     },
     "seco-jobroom-e262029f-511d-4f20-873d-ccaa6800ffe4|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-18T00:51:47.518Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:51.887Z",
       "source": "9f3c76305001",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "seco-jobroom-6ee7a164-a06a-4dcd-8674-b7f7a2a43e9d|de|en": {
       "attempts": 1,
@@ -401514,10 +401567,10 @@
       "rung": "codex"
     },
     "seco-jobroom-e262029f-511d-4f20-873d-ccaa6800ffe4|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-18T00:51:49.691Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:53.912Z",
       "source": "9f3c76305001",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "seco-jobroom-6ee7a164-a06a-4dcd-8674-b7f7a2a43e9d|de|it": {
       "attempts": 3,
@@ -407454,14 +407507,14 @@
       "rung": "codex"
     },
     "ksa-e281407517fc|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-18T13:05:31.270Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:26.102Z",
       "source": "01e470638747",
       "rung": "myMemory"
     },
     "eth-zurich-e68bf0bacafc|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-18T13:05:32.028Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:00.973Z",
       "source": "613eefc15225",
       "rung": "myMemory"
     },
@@ -407508,8 +407561,8 @@
       "rung": "myMemory"
     },
     "eth-zurich-e68bf0bacafc|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-18T13:05:40.344Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:59:01.690Z",
       "source": "613eefc15225",
       "rung": "myMemory"
     },
@@ -407574,8 +407627,8 @@
       "rung": "myMemory"
     },
     "eth-zurich-e68bf0bacafc|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-18T13:05:52.286Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:58:59.742Z",
       "source": "613eefc15225",
       "rung": "myMemory"
     },
@@ -408072,22 +408125,22 @@
       "rung": "myMemory"
     },
     "stadt-zuerich-03f71d5c3543|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-18T13:06:53.326Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:01:55.114Z",
       "source": "ba82212a9dbc",
-      "rung": "myMemory"
+      "rung": "mozhiDdg"
     },
     "stadt-zuerich-03f71d5c3543|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-18T13:06:55.213Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:01:55.115Z",
       "source": "ba82212a9dbc",
-      "rung": "myMemory"
+      "rung": "mozhiDdg"
     },
     "stadt-zuerich-03f71d5c3543|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-18T13:06:55.500Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:01:55.114Z",
       "source": "ba82212a9dbc",
-      "rung": "myMemory"
+      "rung": "mozhiDdg"
     },
     "company-1yesiy|de|en": {
       "attempts": 1,
@@ -408930,16 +408983,16 @@
       "rung": "myMemory"
     },
     "seco-jobroom-ab6e4e61-c156-41a4-96f0-963dcf722377|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-18T13:09:10.620Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:54.877Z",
       "source": "8f6e08e6abc7",
-      "rung": "myMemory"
+      "rung": "mozhiDdg"
     },
     "seco-jobroom-ab6e4e61-c156-41a4-96f0-963dcf722377|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-18T13:09:10.620Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:03:55.914Z",
       "source": "8f6e08e6abc7",
-      "rung": "myMemory"
+      "rung": "mozhiDdg"
     },
     "seco-jobroom-9c1145aa-de29-4c80-a8a0-fe7c6fa957d1|de|it": {
       "attempts": 1,
@@ -420648,10 +420701,10 @@
       "rung": "codex"
     },
     "fachkraft-dba5bb1f452e|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-20T03:23:08.518Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:00:19.109Z",
       "source": "e4cd651829a5",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "fachkraft-81a2bd8aaefe|de|it": {
       "attempts": 2,
@@ -420672,10 +420725,10 @@
       "rung": "codex"
     },
     "fachkraft-dba5bb1f452e|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-20T03:23:15.615Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:00:21.101Z",
       "source": "e4cd651829a5",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "company-mm6fxs|de|it": {
       "attempts": 3,
@@ -420702,10 +420755,10 @@
       "rung": "codex"
     },
     "fachkraft-dba5bb1f452e|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-20T03:23:17.555Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:00:20.103Z",
       "source": "e4cd651829a5",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "company-mm6fxs|de|fr": {
       "attempts": 3,
@@ -421038,10 +421091,10 @@
       "rung": "codex"
     },
     "manor-6ef4c01396b3|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-20T13:58:30.287Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:52.177Z",
       "source": "4888770f8417",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "fachkraft-1f79a8575e10|de|it": {
       "attempts": 2,
@@ -421050,10 +421103,10 @@
       "rung": "codex"
     },
     "opus-personal-bd9ab8913690|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-20T13:59:15.335Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:57.093Z",
       "source": "4ef25aa154c3",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "fachkraft-ffb519983e6c|de|en": {
       "attempts": 2,
@@ -421074,10 +421127,10 @@
       "rung": "codex"
     },
     "manor-6ef4c01396b3|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-20T13:58:33.352Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:50.083Z",
       "source": "4888770f8417",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "fachkraft-1f79a8575e10|de|en": {
       "attempts": 2,
@@ -421110,10 +421163,10 @@
       "rung": "googleCloud"
     },
     "stellentreff-e34f486c4888|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-20T03:24:32.606Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:02:03.177Z",
       "source": "f3dacee8aead",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "fachkraft-bcff94cf39ea|de|en": {
       "attempts": 2,
@@ -421158,10 +421211,10 @@
       "rung": "googleCloud"
     },
     "stellentreff-e34f486c4888|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-20T03:24:44.728Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:02:03.177Z",
       "source": "f3dacee8aead",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "fachkraft-bcff94cf39ea|de|it": {
       "attempts": 2,
@@ -421194,10 +421247,10 @@
       "rung": "myMemory"
     },
     "stellentreff-e34f486c4888|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-20T03:24:45.731Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:02:03.177Z",
       "source": "f3dacee8aead",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "fachkraft-bcff94cf39ea|de|fr": {
       "attempts": 2,
@@ -421230,10 +421283,10 @@
       "rung": "myMemory"
     },
     "manor-6ef4c01396b3|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-20T13:58:46.026Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:01:51.085Z",
       "source": "4888770f8417",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "fachkraft-1f79a8575e10|de|fr": {
       "attempts": 2,
@@ -422292,10 +422345,10 @@
       "rung": "codex"
     },
     "seco-jobroom-a9df6562-87aa-4943-9aac-cd596f3c1483|fr|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-20T14:01:22.705Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-23T01:03:56.917Z",
       "source": "cd260af6f113",
-      "rung": "myMemory"
+      "rung": "mozhiDdg"
     },
     "sbb-e0dea8ef2c96|de|en": {
       "attempts": 2,
@@ -430896,16 +430949,16 @@
       "rung": "mozhiDdg"
     },
     "ksbl-1b6c1c8d1761|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-21T09:41:33.164Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:58:51.104Z",
       "source": "5cad12466e05",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "ksbl-0e8cee3df5ef|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-21T09:41:33.167Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:58:51.104Z",
       "source": "5cad12466e05",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "hoch-health-36948a908175|de|fr": {
       "attempts": 1,
@@ -430956,16 +431009,16 @@
       "rung": "codex"
     },
     "ksbl-1b6c1c8d1761|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-21T09:41:47.124Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:58:52.065Z",
       "source": "5cad12466e05",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "ksbl-0e8cee3df5ef|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-21T09:41:47.125Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:58:52.065Z",
       "source": "5cad12466e05",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "csd-engineers-48b3d7f51126|de|it": {
       "attempts": 1,
@@ -431034,16 +431087,16 @@
       "rung": "codex"
     },
     "ksbl-1b6c1c8d1761|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-21T09:41:57.432Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:58:49.965Z",
       "source": "5cad12466e05",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "ksbl-0e8cee3df5ef|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-21T09:41:57.432Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T00:58:51.104Z",
       "source": "5cad12466e05",
-      "rung": "codex"
+      "rung": "myMemory"
     },
     "hoch-health-36948a908175|de|en": {
       "attempts": 1,
@@ -431106,10 +431159,10 @@
       "rung": "codex"
     },
     "fachkraft-1624dc8a399f|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-21T09:42:02.543Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:01:38.094Z",
       "source": "f3dacee8aead",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "ksbl-c72d8af31c0b|de|en": {
       "attempts": 1,
@@ -431124,10 +431177,10 @@
       "rung": "codex"
     },
     "fachkraft-1624dc8a399f|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-21T09:42:07.248Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:01:39.149Z",
       "source": "f3dacee8aead",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "physioswiss-4b5ed36da677|de|fr": {
       "attempts": 1,
@@ -431148,10 +431201,10 @@
       "rung": "codex"
     },
     "fachkraft-1624dc8a399f|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-21T09:42:12.688Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:01:40.228Z",
       "source": "f3dacee8aead",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "ksbl-e6be6263ada4|de|it": {
       "attempts": 2,
@@ -431682,10 +431735,10 @@
       "rung": "mozhiDdg"
     },
     "confederazione-ticino-b825e082f892|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-21T09:43:57.739Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:04:04.901Z",
       "source": "850f9ca8947c",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "confederazione-ticino-4be7f7750d5f|de|en": {
       "attempts": 1,
@@ -431796,10 +431849,10 @@
       "rung": "codex"
     },
     "confederazione-ticino-b825e082f892|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-21T09:44:35.816Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:04:06.915Z",
       "source": "850f9ca8947c",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "confederazione-ticino-4be7f7750d5f|de|it": {
       "attempts": 1,
@@ -431832,10 +431885,10 @@
       "rung": "codex"
     },
     "confederazione-ticino-b825e082f892|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-21T09:44:36.284Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:04:05.990Z",
       "source": "850f9ca8947c",
-      "rung": "codex"
+      "rung": "mozhiDdg"
     },
     "confederazione-ticino-4be7f7750d5f|de|fr": {
       "attempts": 1,
@@ -437688,8 +437741,8 @@
       "rung": "google"
     },
     "seco-jobroom-17ebd2aa-8799-4483-9689-8105d4c99a15|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-22T12:20:57.915Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:04:00.997Z",
       "source": "8cd8014b5b16",
       "rung": "mozhiDdg"
     },
@@ -437748,10 +437801,10 @@
       "rung": "myMemory"
     },
     "pdag-55bd5826bf67|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-22T12:21:07.091Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:01:15.175Z",
       "source": "42db8e893d72",
-      "rung": "myMemory"
+      "rung": "mozhiDdg"
     },
     "seco-jobroom-8a397e12-da09-404e-b416-42954bb59ee2|de|en": {
       "attempts": 2,
@@ -437934,10 +437987,10 @@
       "rung": "mozhiDdg"
     },
     "seco-jobroom-49971f88-a42c-404a-ba8c-6d20c0a01d53|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-22T12:21:44.544Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-23T01:02:52.157Z",
       "source": "ec6845798211",
-      "rung": "myMemory"
+      "rung": "mozhiDdg"
     },
     "seco-jobroom-6831e4e2-ce69-4489-8d81-1b643eca6b4e|de|fr": {
       "attempts": 2,
@@ -438339,6 +438392,318 @@
       "attempts": 1,
       "lastAttemptAt": "2026-11-22T16:31:57.827Z",
       "source": "9729c9b5180d",
+      "rung": "myMemory"
+    },
+    "company-hf3t5c|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:57:41.467Z",
+      "source": "99f9222f09f1",
+      "rung": "myMemory"
+    },
+    "totalenergies-2859dbaf7615|en|de": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:57:41.929Z",
+      "source": "b40178bbe59b",
+      "rung": "myMemory"
+    },
+    "fachkraft-794677178c78|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:57:42.782Z",
+      "source": "c80112417324",
+      "rung": "myMemory"
+    },
+    "jumbo-99a4e13c-c4d|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:57:43.943Z",
+      "source": "7497f5d963f9",
+      "rung": "myMemory"
+    },
+    "spital-thurgau-c22e229f70f1|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:57:44.998Z",
+      "source": "d4724c7e3f2a",
+      "rung": "myMemory"
+    },
+    "sbb-58c57c5cb67d|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:57:45.693Z",
+      "source": "72550afb1c5f",
+      "rung": "myMemory"
+    },
+    "jumbo-1d05ac30-d81|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:57:46.603Z",
+      "source": "35468b835b42",
+      "rung": "myMemory"
+    },
+    "sbb-22906ce03e00|it|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:57:47.646Z",
+      "source": "e63ec7ad26cc",
+      "rung": "myMemory"
+    },
+    "hoch-health-d4cd237d9273|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:57:48.718Z",
+      "source": "70b52662c757",
+      "rung": "myMemory"
+    },
+    "company-hf3t5c|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:57:49.729Z",
+      "source": "99f9222f09f1",
+      "rung": "myMemory"
+    },
+    "jumbo-99a4e13c-c4d|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:57:50.667Z",
+      "source": "7497f5d963f9",
+      "rung": "myMemory"
+    },
+    "spital-thurgau-c22e229f70f1|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:57:51.796Z",
+      "source": "d4724c7e3f2a",
+      "rung": "myMemory"
+    },
+    "spitaeler-schaffhausen-d683b541da01|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:57:52.690Z",
+      "source": "863239a4b302",
+      "rung": "myMemory"
+    },
+    "fachkraft-794677178c78|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:57:54.022Z",
+      "source": "c80112417324",
+      "rung": "myMemory"
+    },
+    "spitaeler-schaffhausen-d683b541da01|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:57:55.850Z",
+      "source": "863239a4b302",
+      "rung": "myMemory"
+    },
+    "sbb-58c57c5cb67d|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:57:57.000Z",
+      "source": "72550afb1c5f",
+      "rung": "myMemory"
+    },
+    "hoch-health-d4cd237d9273|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:57:57.913Z",
+      "source": "70b52662c757",
+      "rung": "myMemory"
+    },
+    "pdag-b38ae6b4afe7|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:57:58.625Z",
+      "source": "b1f1910c613e",
+      "rung": "myMemory"
+    },
+    "jumbo-1d05ac30-d81|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:57:59.760Z",
+      "source": "35468b835b42",
+      "rung": "myMemory"
+    },
+    "endress-hauser-741942cae4fa|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:00.673Z",
+      "source": "f1bbb09c489e",
+      "rung": "myMemory"
+    },
+    "etat-de-fribourg-336f7c47a9eb|fr|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:00.739Z",
+      "source": "bebf19783fe4",
+      "rung": "unserved"
+    },
+    "hoch-health-d4cd237d9273|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:01.631Z",
+      "source": "70b52662c757",
+      "rung": "myMemory"
+    },
+    "company-hf3t5c|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:02.670Z",
+      "source": "99f9222f09f1",
+      "rung": "myMemory"
+    },
+    "jumbo-99a4e13c-c4d|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:03.673Z",
+      "source": "7497f5d963f9",
+      "rung": "myMemory"
+    },
+    "spital-thurgau-c22e229f70f1|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:04.622Z",
+      "source": "d4724c7e3f2a",
+      "rung": "myMemory"
+    },
+    "spitaeler-schaffhausen-d683b541da01|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:05.790Z",
+      "source": "863239a4b302",
+      "rung": "myMemory"
+    },
+    "manor-a6dec7a5e129|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:06.660Z",
+      "source": "0daee5111dcf",
+      "rung": "myMemory"
+    },
+    "jumbo-1d05ac30-d81|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:07.563Z",
+      "source": "35468b835b42",
+      "rung": "myMemory"
+    },
+    "fachkraft-794677178c78|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:08.673Z",
+      "source": "c80112417324",
+      "rung": "myMemory"
+    },
+    "sbb-58c57c5cb67d|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:09.728Z",
+      "source": "72550afb1c5f",
+      "rung": "myMemory"
+    },
+    "sbb-c4a8bbf33ce6|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:09.729Z",
+      "source": "72550afb1c5f",
+      "rung": "myMemory"
+    },
+    "sbb-c4a8bbf33ce6|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:09.732Z",
+      "source": "72550afb1c5f",
+      "rung": "myMemory"
+    },
+    "sbb-c4a8bbf33ce6|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:09.733Z",
+      "source": "72550afb1c5f",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-54bbd33b-e377-4651-aa27-79c489fb148b|fr|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:11.154Z",
+      "source": "c1b03be0609a",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-54bbd33b-e377-4651-aa27-79c489fb148b|fr|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:12.052Z",
+      "source": "c1b03be0609a",
+      "rung": "myMemory"
+    },
+    "sbb-3199fd007c97|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:12.825Z",
+      "source": "e88cc093a3fb",
+      "rung": "myMemory"
+    },
+    "sbb-3199fd007c97|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:14.099Z",
+      "source": "e88cc093a3fb",
+      "rung": "myMemory"
+    },
+    "stadt-zuerich-eeccc142ea6f|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:14.529Z",
+      "source": "86a29981c0f6",
+      "rung": "myMemory"
+    },
+    "stadt-zuerich-eeccc142ea6f|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:15.811Z",
+      "source": "86a29981c0f6",
+      "rung": "myMemory"
+    },
+    "stadt-zuerich-eeccc142ea6f|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:16.593Z",
+      "source": "86a29981c0f6",
+      "rung": "myMemory"
+    },
+    "interdiscount-7fa11dc1-fc2|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:17.501Z",
+      "source": "4599638f726f",
+      "rung": "myMemory"
+    },
+    "interdiscount-7fa11dc1-fc2|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:18.791Z",
+      "source": "4599638f726f",
+      "rung": "myMemory"
+    },
+    "interdiscount-7fa11dc1-fc2|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:19.575Z",
+      "source": "4599638f726f",
+      "rung": "myMemory"
+    },
+    "spitex-ch-036adf8e8166|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:20.786Z",
+      "source": "1aadb6a9136f",
+      "rung": "myMemory"
+    },
+    "ch-5c3429efc794|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:21.707Z",
+      "source": "1e7cb2e70a22",
+      "rung": "myMemory"
+    },
+    "kantonsspital-uri-7f3dd8c1eb8a|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:22.655Z",
+      "source": "f1d46327da71",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-02e83b83-7716-4117-8dcd-40e3187086a9|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:23.590Z",
+      "source": "2cbe0a117974",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-02e83b83-7716-4117-8dcd-40e3187086a9|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:24.876Z",
+      "source": "2cbe0a117974",
+      "rung": "myMemory"
+    },
+    "seco-jobroom-02e83b83-7716-4117-8dcd-40e3187086a9|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:25.608Z",
+      "source": "2cbe0a117974",
+      "rung": "myMemory"
+    },
+    "physioswiss-7c34eeebc2b3|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:26.785Z",
+      "source": "511516cbc08a",
+      "rung": "myMemory"
+    },
+    "physioswiss-7c34eeebc2b3|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:27.633Z",
+      "source": "511516cbc08a",
+      "rung": "myMemory"
+    },
+    "yellowshark-54ff4990ae97|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-23T00:58:28.795Z",
+      "source": "96aaa53b742a",
       "rung": "myMemory"
     }
   }
