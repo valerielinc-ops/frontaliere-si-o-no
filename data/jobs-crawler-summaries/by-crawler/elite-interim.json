@@ -1,7 +1,7 @@
 {
   "key": "elite-interim",
   "label": "Elite Interim SA",
-  "generatedAt": "2026-11-22T21:37:31.636Z",
+  "generatedAt": "2026-11-23T09:32:33.510Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5235,
-  "avgDurationMs": 5235,
+  "durationMs": 4629,
+  "avgDurationMs": 4629,
   "durationHistory": [
-    5235
+    4629
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "applyUrl": "https://eliteinterim.ch/installateur-electricien-cfc-h-f/",
       "source": "Elite Interim Dedicated Parser (official WordPress detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:37:13.098Z",
+      "crawledAt": "2026-11-23T09:32:20.541Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -62,7 +62,7 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:37:13.098Z",
+      "validThrough": "2027-02-16T09:32:20.541Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -86,7 +86,7 @@
       "applyUrl": "https://eliteinterim.ch/electricien-de-montage-cfc-h-f/",
       "source": "Elite Interim Dedicated Parser (official WordPress detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:37:13.098Z",
+      "crawledAt": "2026-11-23T09:32:20.541Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:37:13.098Z",
+      "validThrough": "2027-02-16T09:32:20.541Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -120,5 +120,5 @@
       }
     }
   ],
-  "codeCommit": "f0ab682774893f4b809c5b75181716509e65ea60"
+  "codeCommit": "7474b74d22ad2d97637dc94f08d243f12f0ba1c7"
 }
