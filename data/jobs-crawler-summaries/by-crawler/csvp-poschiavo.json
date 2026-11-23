@@ -1,7 +1,7 @@
 {
   "key": "csvp-poschiavo",
   "label": "Centro Sanitario Valposchiavo (CSVP)",
-  "generatedAt": "2026-11-23T09:24:25.124Z",
+  "generatedAt": "2026-11-23T21:19:15.497Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4838,
-  "avgDurationMs": 4838,
+  "durationMs": 4513,
+  "avgDurationMs": 4513,
   "durationHistory": [
-    4838
+    4513
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/941-medico-di-famiglia-specialista-fmh-in-medicina-interna-generale",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-23T09:24:00.785Z",
+      "crawledAt": "2026-11-23T21:19:03.287Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -62,7 +62,7 @@
       "salarySource": "estimated",
       "streetAddress": "Poschiavo",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:24:00.785Z",
+      "validThrough": "2027-01-05T21:19:03.287Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -84,7 +84,7 @@
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/948-addetto-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-23T09:24:00.477Z",
+      "crawledAt": "2026-11-23T21:19:03.078Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "salarySource": "estimated",
       "streetAddress": "Poschiavo",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-20T09:24:00.477Z",
+      "validThrough": "2027-02-20T21:19:03.078Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -118,5 +118,5 @@
       }
     }
   ],
-  "codeCommit": "7474b74d22ad2d97637dc94f08d243f12f0ba1c7"
+  "codeCommit": "7b684909df7304f91c3a19b75aa2a6088ce7630a"
 }
