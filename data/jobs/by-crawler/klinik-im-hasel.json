@@ -598,10 +598,10 @@
     },
     {
       "id": "klinik-im-hasel-9c52616088c5",
-      "slug": "sekretar-in-w-m-d-80-klinik-im-hasel-gontenschwil",
+      "slug": "segretario-a-m-f-d-80-klinik-im-hasel-gontenschwil",
       "slugByLocale": {
         "de": "sekretar-in-w-m-d-80-klinik-im-hasel-gontenschwil",
-        "it": "sekretar-in-w-m-d-80-klinik-im-hasel-gontenschwil",
+        "it": "segretario-a-m-f-d-80-klinik-im-hasel-gontenschwil",
         "en": "sekretar-in-w-m-d-80-klinik-im-hasel-gontenschwil",
         "fr": "sekretar-in-w-m-d-80-klinik-im-hasel-gontenschwil"
       },
@@ -676,7 +676,15 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-23T09:27:33.954Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:38:00.138Z"
+      "firstSeenAt": "2026-09-23T23:38:00.138Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sekretar-in-w-m-d-80-klinik-im-hasel-gontenschwil"
+        ]
+      },
+      "previousSlugs": [
+        "sekretar-in-w-m-d-80-klinik-im-hasel-gontenschwil"
+      ]
     }
   ]
 }

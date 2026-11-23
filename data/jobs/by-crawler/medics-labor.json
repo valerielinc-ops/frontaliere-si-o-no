@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "medics-labor-586233e3475e",
-      "slug": "leitende-r-biomedizinische-r-analytiker-in-klin-immunologie-medics-labor-bern",
+      "slug": "analista-biomedico-principale-clinico-immunologia-medics-labor-ag-bern",
       "slugByLocale": {
         "de": "leitende-r-biomedizinische-r-analytiker-in-klin-immunologie-medics-labor-bern",
-        "it": "leitende-r-biomedizinische-r-analytiker-in-klin-immunologie-medics-labor-bern",
-        "en": "leitende-r-biomedizinische-r-analytiker-in-klin-immunologie-medics-labor-bern",
-        "fr": "leitende-r-biomedizinische-r-analytiker-in-klin-immunologie-medics-labor-bern"
+        "it": "analista-biomedico-principale-clinico-immunologia-medics-labor-ag-bern",
+        "en": "lead-biomedical-analyst-clinical-immunology-medics-labor-ag-bern",
+        "fr": "analyste-biomedical-principal-clinique-immunologie-medics-labor-ag-bern"
       },
       "company": "Medics Labor AG",
       "companyKey": "medics-labor",
@@ -73,7 +73,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:34:50.902Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:34:50.902Z"
+      "firstSeenAt": "2026-11-23T09:34:50.902Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-r-biomedizinische-r-analytiker-in-klin-immunologie-medics-labor-bern"
+        ],
+        "en": [
+          "leitende-r-biomedizinische-r-analytiker-in-klin-immunologie-medics-labor-bern"
+        ],
+        "fr": [
+          "leitende-r-biomedizinische-r-analytiker-in-klin-immunologie-medics-labor-bern"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-r-biomedizinische-r-analytiker-in-klin-immunologie-medics-labor-bern"
+      ]
     },
     {
       "id": "medics-labor-a5e240ae8d9b",

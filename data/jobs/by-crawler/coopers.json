@@ -4159,12 +4159,12 @@
     },
     {
       "id": "coopers-25656111a153",
-      "slug": "quality-master-m-w-d-coopers-bern",
+      "slug": "qualita-master-m-f-d-coopers-group-ag-bern",
       "slugByLocale": {
         "de": "quality-master-m-w-d-coopers-bern",
-        "it": "quality-master-m-w-d-coopers-bern",
+        "it": "qualita-master-m-f-d-coopers-group-ag-bern",
         "en": "quality-master-m-w-d-coopers-bern",
-        "fr": "quality-master-m-w-d-coopers-bern"
+        "fr": "qualite-master-m-w-d-coopers-group-ag-bern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -4240,7 +4240,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-22T09:34:50.707Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:34:50.707Z"
+      "firstSeenAt": "2026-11-23T09:34:50.707Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-master-m-w-d-coopers-bern"
+        ],
+        "fr": [
+          "quality-master-m-w-d-coopers-bern"
+        ]
+      },
+      "previousSlugs": [
+        "quality-master-m-w-d-coopers-bern"
+      ]
     },
     {
       "id": "coopers-5c9f654319e9",

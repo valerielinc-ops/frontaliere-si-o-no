@@ -548,8 +548,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-waldibrucke-emmen",
         "it": "collaboratore-trice-sortierwerk-60-m-w-d-caritas-schweiz-waldibrucke-emmen",
-        "en": "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-waldibrucke-emmen",
-        "fr": "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-waldibrucke-emmen"
+        "en": "sorting-plant-employee-60-m-f-d-caritas-schweiz-waldibrucke-emmen",
+        "fr": "employe-de-l-usine-de-tri-60-h-f-d-caritas-schweiz-waldibrucke-emmen"
       },
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -599,6 +599,12 @@
       "pensum": "60%",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-waldibrucke-emmen"
+        ],
+        "en": [
+          "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-waldibrucke-emmen"
+        ],
+        "fr": [
           "mitarbeiter-in-sortierwerk-60-m-w-d-caritas-schweiz-waldibrucke-emmen"
         ]
       },

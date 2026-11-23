@@ -426,12 +426,12 @@
     },
     {
       "id": "hermes-67e5225af957",
-      "slug": "cdd-controleur-euse-interne-geneve-f-h-hermes-ch",
+      "slug": "csd-controller-interno-ginevra-m-f-hermes-geneve-geneva-switzerland",
       "slugByLocale": {
         "fr": "cdd-controleur-euse-interne-geneve-f-h-hermes-ch",
-        "it": "cdd-controleur-euse-interne-geneve-f-h-hermes-ch",
-        "en": "cdd-controleur-euse-interne-geneve-f-h-hermes-ch",
-        "de": "cdd-controleur-euse-interne-geneve-f-h-hermes-ch"
+        "it": "csd-controller-interno-ginevra-m-f-hermes-geneve-geneva-switzerland",
+        "en": "csd-internal-controller-geneva-m-f-hermes-geneve-geneva-switzerland",
+        "de": "csd-interner-controller-genf-m-w-hermes-geneve-geneva-switzerland"
       },
       "company": "Hermès",
       "companyKey": "hermes",
@@ -493,7 +493,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:24:22.260Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:24:22.260Z"
+      "firstSeenAt": "2026-11-23T09:24:22.260Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cdd-controleur-euse-interne-geneve-f-h-hermes-ch"
+        ],
+        "en": [
+          "cdd-controleur-euse-interne-geneve-f-h-hermes-ch"
+        ],
+        "de": [
+          "cdd-controleur-euse-interne-geneve-f-h-hermes-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cdd-controleur-euse-interne-geneve-f-h-hermes-ch"
+      ]
     }
   ]
 }

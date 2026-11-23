@@ -18214,8 +18214,8 @@
       "slugByLocale": {
         "de": "disponent-in-fur-die-ambulante-patientendisposition-50-mo-fr-halbtags-usz-ch",
         "it": "disponent-in-per-la-ambulante-patientendisposition-50-mo-fr-halbtags-universitatsspital-zurich-usz-zurich",
-        "en": "disponent-in-fur-die-ambulante-patientendisposition-50-mo-fr-halbtags-usz-ch",
-        "fr": "disponent-in-fur-die-ambulante-patientendisposition-50-mo-fr-halbtags-usz-ch"
+        "en": "outpatient-scheduling-coordinator-50-mon-fri-half-day-universitatsspital-zurich-usz-zurich",
+        "fr": "agent-e-de-planification-pour-la-planification-des-patients-ambulatoires-50-du-lundi-au-vendredi-demi-journee"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -18263,6 +18263,12 @@
       "previousSlugsByLocale": {
         "it": [
           "disponent-in-fur-die-ambulante-patientendisposition-50-mo-fr-halbtags-usz-ch"
+        ],
+        "en": [
+          "disponent-in-fur-die-ambulante-patientendisposition-50-mo-fr-halbtags-usz-ch"
+        ],
+        "fr": [
+          "disponent-in-fur-die-ambulante-patientendisposition-50-mo-fr-halbtags-usz-ch"
         ]
       },
       "previousSlugs": [
@@ -18294,7 +18300,7 @@
         "de": "ict-spezialist-uc-amp-telefonie-80-100-usz-ch",
         "it": "ict-spezialist-uc-amp-telefonie-80-100-usz-ch",
         "en": "ict-spezialist-uc-amp-telefonie-80-100-usz-ch",
-        "fr": "ict-spezialist-uc-amp-telefonie-80-100-usz-ch"
+        "fr": "specialiste-des-tic-uc-telefonie-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -18356,16 +18362,24 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:23:20.707Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:23:20.707Z"
+      "firstSeenAt": "2026-11-23T09:23:20.707Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "ict-spezialist-uc-amp-telefonie-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ict-spezialist-uc-amp-telefonie-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-ed43487ab861",
-      "slug": "it-techniker-in-im-client-support-80-100-usz-ch",
+      "slug": "tecnico-it-nell-assistenza-clienti-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "it-techniker-in-im-client-support-80-100-usz-ch",
-        "it": "it-techniker-in-im-client-support-80-100-usz-ch",
+        "it": "tecnico-it-nell-assistenza-clienti-80-100-universitatsspital-zurich-usz-zurich",
         "en": "it-techniker-in-im-client-support-80-100-usz-ch",
-        "fr": "it-techniker-in-im-client-support-80-100-usz-ch"
+        "fr": "technicien-informatique-au-service-client-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -18427,16 +18441,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:23:20.706Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:23:20.706Z"
+      "firstSeenAt": "2026-11-23T09:23:20.706Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-techniker-in-im-client-support-80-100-usz-ch"
+        ],
+        "fr": [
+          "it-techniker-in-im-client-support-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "it-techniker-in-im-client-support-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-ef1d09a94262",
-      "slug": "sachbearbeiter-in-fakturierung-40-universitatsspital-zurich-usz-zurich",
+      "slug": "fatturazione-per-assistenti-sociali-40-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "sachbearbeiter-in-fakturierung-40-usz-ch",
-        "it": "sachbearbeiter-in-fakturierung-40-universitatsspital-zurich-usz-zurich",
-        "en": "sachbearbeiter-in-fakturierung-40-universitatsspital-zurich-usz-zurich",
-        "fr": "sachbearbeiter-in-fakturierung-40-universitatsspital-zurich-usz-zurich"
+        "it": "fatturazione-per-assistenti-sociali-40-universitatsspital-zurich-usz-zurich",
+        "en": "caseworker-invoicing-40-universitatsspital-zurich-usz-zurich",
+        "fr": "facturation-des-travailleurs-sociaux-40-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -18483,11 +18508,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-fakturierung-40-usz-ch"
+          "sachbearbeiter-in-fakturierung-40-usz-ch",
+          "sachbearbeiter-in-fakturierung-40-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "sachbearbeiter-in-fakturierung-40-universitatsspital-zurich-usz-zurich"
+        ],
+        "fr": [
+          "sachbearbeiter-in-fakturierung-40-universitatsspital-zurich-usz-zurich"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-fakturierung-40-usz-ch"
+        "sachbearbeiter-in-fakturierung-40-usz-ch",
+        "sachbearbeiter-in-fakturierung-40-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 29400,
       "salaryMax": 44600,
@@ -18510,12 +18543,12 @@
     },
     {
       "id": "usz-80025d721f48",
-      "slug": "applikationsmanager-in-projektmitarbeiter-in-hr-suite-integration-80-100-usz-ch",
+      "slug": "integrazione-della-suite-hr-per-gestori-applicazioni-dipendenti-di-progetto-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "applikationsmanager-in-projektmitarbeiter-in-hr-suite-integration-80-100-usz-ch",
-        "it": "applikationsmanager-in-projektmitarbeiter-in-hr-suite-integration-80-100-usz-ch",
-        "en": "applikationsmanager-in-projektmitarbeiter-in-hr-suite-integration-80-100-usz-ch",
-        "fr": "applikationsmanager-in-projektmitarbeiter-in-hr-suite-integration-80-100-usz-ch"
+        "it": "integrazione-della-suite-hr-per-gestori-applicazioni-dipendenti-di-progetto-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "application-manager-project-employee-hr-suite-integration-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "integration-de-la-suite-rh-manager-employe-de-projet-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -18577,16 +18610,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:23:20.704Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:23:20.704Z"
+      "firstSeenAt": "2026-11-23T09:23:20.704Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "applikationsmanager-in-projektmitarbeiter-in-hr-suite-integration-80-100-usz-ch"
+        ],
+        "en": [
+          "applikationsmanager-in-projektmitarbeiter-in-hr-suite-integration-80-100-usz-ch"
+        ],
+        "fr": [
+          "applikationsmanager-in-projektmitarbeiter-in-hr-suite-integration-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "applikationsmanager-in-projektmitarbeiter-in-hr-suite-integration-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-060c4aa528d7",
-      "slug": "clinical-fellowship-in-robotic-lymphatic-microsurgery-amp-lymphatic-biology-80-100-usz-ch",
+      "slug": "fellowship-clinica-in-microchirurgia-linfatica-robotica-e-biologia-lymfatica-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "en": "clinical-fellowship-in-robotic-lymphatic-microsurgery-amp-lymphatic-biology-80-100-usz-ch",
-        "it": "clinical-fellowship-in-robotic-lymphatic-microsurgery-amp-lymphatic-biology-80-100-usz-ch",
+        "it": "fellowship-clinica-in-microchirurgia-linfatica-robotica-e-biologia-lymfatica-80-100-universitatsspital-zurich-usz-zurich",
         "de": "clinical-fellowship-in-robotic-lymphatic-microsurgery-amp-lymphatic-biology-80-100-usz-ch",
-        "fr": "clinical-fellowship-in-robotic-lymphatic-microsurgery-amp-lymphatic-biology-80-100-usz-ch"
+        "fr": "bourse-clinique-en-microchirurgie-lymphatique-robotique-et-biologie-lymphatique-80-100-universitatsspital-zurich-usz"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -18648,7 +18695,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:23:20.703Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T19:49:54.947Z"
+      "firstSeenAt": "2026-09-23T19:49:54.947Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "clinical-fellowship-in-robotic-lymphatic-microsurgery-amp-lymphatic-biology-80-100-usz-ch"
+        ],
+        "fr": [
+          "clinical-fellowship-in-robotic-lymphatic-microsurgery-amp-lymphatic-biology-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "clinical-fellowship-in-robotic-lymphatic-microsurgery-amp-lymphatic-biology-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-da35777a8ef3",
@@ -19232,9 +19290,9 @@
     },
     {
       "id": "usz-a4a4908b427c",
-      "slug": "infermieristica-specialistica-mba-nella-formazione-professionale-universitatsspital-zurich-usz-zurich-aeb8869f66",
+      "slug": "infermieristica-specialistica-mba-nella-formazione-professionale-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
-        "it": "infermieristica-specialistica-mba-nella-formazione-professionale-universitatsspital-zurich-usz-zurich-aeb8869f66",
+        "it": "infermieristica-specialistica-mba-nella-formazione-professionale-universitatsspital-zurich-usz-zurich",
         "en": "nursing-specialist-mba-in-vocational-training-care-bed-station-nephrology-angiology-60-100-universitatsspital-zurich-usz",
         "de": "pflegefachperson-mba-in-der-berufsbildung-pflege-bettenstation-nephrologie-angiologie-60",
         "fr": "specialiste-des-soins-infirmiers-en-formation-professionnelle-universitatsspital-zurich-usz-zurich"
@@ -19282,12 +19340,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachperson-mba-in-der-berufsbildung-pflege-bettenstation-nephrologie-angiologie-60",
-        "infermieristica-specialistica-mba-nella-formazione-professionale-universitatsspital-zurich-usz-zurich"
+        "infermieristica-specialistica-mba-nella-formazione-professionale-universitatsspital-zurich-usz-zurich-aeb8869f66"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-mba-in-der-berufsbildung-pflege-bettenstation-nephrologie-angiologie-60",
-          "infermieristica-specialistica-mba-nella-formazione-professionale-universitatsspital-zurich-usz-zurich"
+          "infermieristica-specialistica-mba-nella-formazione-professionale-universitatsspital-zurich-usz-zurich-aeb8869f66"
         ]
       },
       "firstSeenAt": "2026-09-23T19:49:54.933Z",
@@ -19312,9 +19370,9 @@
     },
     {
       "id": "usz-d58a65dc27be",
-      "slug": "infermiere-specializzato-in-oncologia-e-radio-oncologia-40-100-universitatsspital-zurich-usz-zurich-43601cd31b",
+      "slug": "infermiere-specializzato-in-oncologia-e-radio-oncologia-40-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
-        "it": "infermiere-specializzato-in-oncologia-e-radio-oncologia-40-100-universitatsspital-zurich-usz-zurich-43601cd31b",
+        "it": "infermiere-specializzato-in-oncologia-e-radio-oncologia-40-100-universitatsspital-zurich-usz-zurich",
         "en": "care-specialist-oncology-and-radiooncology-40-100-universitatsspital-zurich-usz-zurich",
         "de": "pflegefachperson-onkologie-und-radioonkologie-40-100-usz-ch",
         "fr": "specialiste-en-oncologie-et-radiooncologie-40-100-universitatsspital-zurich-usz-zurich"
@@ -19362,12 +19420,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachperson-onkologie-und-radioonkologie-40-100-usz-ch",
-        "infermiere-specializzato-in-oncologia-e-radio-oncologia-40-100-universitatsspital-zurich-usz-zurich"
+        "infermiere-specializzato-in-oncologia-e-radio-oncologia-40-100-universitatsspital-zurich-usz-zurich-43601cd31b"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-onkologie-und-radioonkologie-40-100-usz-ch",
-          "infermiere-specializzato-in-oncologia-e-radio-oncologia-40-100-universitatsspital-zurich-usz-zurich"
+          "infermiere-specializzato-in-oncologia-e-radio-oncologia-40-100-universitatsspital-zurich-usz-zurich-43601cd31b"
         ]
       },
       "needsRetranslation": true,

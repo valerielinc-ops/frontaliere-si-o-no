@@ -8124,12 +8124,12 @@
     },
     {
       "id": "schindler-dec1b0e88212",
-      "slug": "berufsbildner-in-polymechaniker-in-efz-cnc-frasen-schindler-ebikon",
+      "slug": "formatore-professionale-polimeccanico-efz-fresatura-cnc-schindler-ebikon",
       "slugByLocale": {
         "de": "berufsbildner-in-polymechaniker-in-efz-cnc-frasen-schindler-ebikon",
-        "it": "berufsbildner-in-polymechaniker-in-efz-cnc-frasen-schindler-ebikon",
-        "en": "berufsbildner-in-polymechaniker-in-efz-cnc-frasen-schindler-ebikon",
-        "fr": "berufsbildner-in-polymechaniker-in-efz-cnc-frasen-schindler-ebikon"
+        "it": "formatore-professionale-polimeccanico-efz-fresatura-cnc-schindler-ebikon",
+        "en": "vocational-trainer-polymechanic-efz-cnc-milling-schindler-ebikon",
+        "fr": "formateur-professionnel-en-polymecanique-efz-fraisage-cnc-schindler-ebikon"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -8192,7 +8192,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:22:31.908Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:22:31.908Z"
+      "firstSeenAt": "2026-11-23T09:22:31.908Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildner-in-polymechaniker-in-efz-cnc-frasen-schindler-ebikon"
+        ],
+        "en": [
+          "berufsbildner-in-polymechaniker-in-efz-cnc-frasen-schindler-ebikon"
+        ],
+        "fr": [
+          "berufsbildner-in-polymechaniker-in-efz-cnc-frasen-schindler-ebikon"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildner-in-polymechaniker-in-efz-cnc-frasen-schindler-ebikon"
+      ]
     },
     {
       "id": "schindler-09690b27570a",
@@ -10032,7 +10046,7 @@
       "slug": "responsabile-del-consenso-ai-cookie-schindler-sion",
       "slugByLocale": {
         "it": "responsabile-del-consenso-ai-cookie-schindler-sion",
-        "en": "cookie-consent-manager-schindler-sion-qcokaf",
+        "en": "cookie-consent-manager-schindler-sion",
         "de": "cookie-einwilligungsmanager-schindler-sion",
         "fr": "gestionnaire-de-consentements-pour-les-cookies-schindler-sion"
       },
@@ -10092,7 +10106,7 @@
           "montatore-polimeccanico-cfc-elevatore-per-2027-schindler-sion"
         ],
         "en": [
-          "cookie-consent-manager-schindler-sion"
+          "cookie-consent-manager-schindler-sion-qcokaf"
         ]
       },
       "previousSlugs": [
@@ -10104,7 +10118,7 @@
         "polymechanisches-cfc-elevator-mounter-learning-fur-2027-schindler-sion",
         "polymechanische-fckw-aufzugshalterung-fur-2027-schindler-sion",
         "montatore-polimeccanico-cfc-elevatore-per-2027-schindler-sion",
-        "cookie-consent-manager-schindler-sion"
+        "cookie-consent-manager-schindler-sion-qcokaf"
       ],
       "firstSeenAt": "2026-08-24T21:32:06.358Z",
       "salaryMin": 72000,
@@ -10587,7 +10601,7 @@
       "slug": "responsabile-del-consenso-ai-cookie-schindler-bussigny",
       "slugByLocale": {
         "it": "responsabile-del-consenso-ai-cookie-schindler-bussigny",
-        "en": "cookie-consent-manager-schindler-bussigny-qcnbsr",
+        "en": "cookie-consent-manager-schindler-bussigny",
         "de": "cookie-einwilligungsmanager-schindler-bussigny",
         "fr": "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny"
       },
@@ -10640,7 +10654,7 @@
         "gestionnaire-de-consentements-pour-les-cookies-schindler-bussigny",
         "swc-trade-apprendimento-dei-dipendenti-per-2027-schindler-bussigny",
         "apprentissage-de-constructeur-d-appareils-industriels-cfc-monteur-d-ascenseurs-schindler-bussigny",
-        "cookie-consent-manager-schindler-bussigny"
+        "cookie-consent-manager-schindler-bussigny-qcnbsr"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10656,7 +10670,7 @@
           "apprentissage-de-constructeur-d-appareils-industriels-cfc-monteur-d-ascenseurs-schindler-bussigny"
         ],
         "en": [
-          "cookie-consent-manager-schindler-bussigny"
+          "cookie-consent-manager-schindler-bussigny-qcnbsr"
         ]
       },
       "firstSeenAt": "2026-08-24T21:32:05.582Z",

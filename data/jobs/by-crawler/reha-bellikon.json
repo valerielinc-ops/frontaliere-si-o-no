@@ -934,12 +934,12 @@
     },
     {
       "id": "reha-bellikon-32258376d880",
-      "slug": "praktikantin-praktikant-leistungsdiagnostik-rehaklinik-bellikon-bellikon",
+      "slug": "diagnostica-intern-internship-rehaklinik-bellikon-bellikon",
       "slugByLocale": {
         "de": "praktikantin-praktikant-leistungsdiagnostik-reha-bellikon-bellikon",
-        "it": "praktikantin-praktikant-leistungsdiagnostik-rehaklinik-bellikon-bellikon",
-        "en": "praktikantin-praktikant-leistungsdiagnostik-rehaklinik-bellikon-bellikon",
-        "fr": "praktikantin-praktikant-leistungsdiagnostik-rehaklinik-bellikon-bellikon"
+        "it": "diagnostica-intern-internship-rehaklinik-bellikon-bellikon",
+        "en": "intern-internship-diagnostics-rehaklinik-bellikon-bellikon",
+        "fr": "diagnostic-interne-interne-rehaklinik-bellikon-bellikon"
       },
       "company": "Rehaklinik Bellikon",
       "companyKey": "reha-bellikon",
@@ -991,11 +991,19 @@
       "contractDuration": "temporary",
       "previousSlugsByLocale": {
         "it": [
-          "praktikantin-praktikant-leistungsdiagnostik-reha-bellikon-bellikon"
+          "praktikantin-praktikant-leistungsdiagnostik-reha-bellikon-bellikon",
+          "praktikantin-praktikant-leistungsdiagnostik-rehaklinik-bellikon-bellikon"
+        ],
+        "en": [
+          "praktikantin-praktikant-leistungsdiagnostik-rehaklinik-bellikon-bellikon"
+        ],
+        "fr": [
+          "praktikantin-praktikant-leistungsdiagnostik-rehaklinik-bellikon-bellikon"
         ]
       },
       "previousSlugs": [
-        "praktikantin-praktikant-leistungsdiagnostik-reha-bellikon-bellikon"
+        "praktikantin-praktikant-leistungsdiagnostik-reha-bellikon-bellikon",
+        "praktikantin-praktikant-leistungsdiagnostik-rehaklinik-bellikon-bellikon"
       ],
       "salaryMin": 79000,
       "salaryMax": 110500,

@@ -3439,12 +3439,12 @@
     },
     {
       "id": "hopital-du-valais-054e7b37e461",
-      "slug": "medecin-chef-fe-de-clinique-pour-formation-approfondie-en-neuroradiologie-a-100-hopital-du",
+      "slug": "responsabile-medico-clinico-per-una-formazione-approfondita-in-neuroradiologia-100-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "medecin-chef-fe-de-clinique-pour-formation-approfondie-en-neuroradiologie-a-100-hopital-du",
-        "it": "medecin-chef-fe-de-clinique-pour-formation-approfondie-en-neuroradiologie-a-100-hopital-du",
-        "en": "medecin-chef-fe-de-clinique-pour-formation-approfondie-en-neuroradiologie-a-100-hopital-du",
-        "de": "medecin-chef-fe-de-clinique-pour-formation-approfondie-en-neuroradiologie-a-100-hopital-du"
+        "it": "responsabile-medico-clinico-per-una-formazione-approfondita-in-neuroradiologia-100-hopital-du-valais-sion",
+        "en": "chief-clinical-physician-for-in-depth-training-in-neuroradiology-100-hopital-du-valais-sion",
+        "de": "chefarzt-fur-vertiefte-ausbildung-in-neuroradiologie-100-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3508,16 +3508,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-20T09:26:07.095Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:26:07.095Z"
+      "firstSeenAt": "2026-11-23T09:26:07.095Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-chef-fe-de-clinique-pour-formation-approfondie-en-neuroradiologie-a-100-hopital-du"
+        ],
+        "en": [
+          "medecin-chef-fe-de-clinique-pour-formation-approfondie-en-neuroradiologie-a-100-hopital-du"
+        ],
+        "de": [
+          "medecin-chef-fe-de-clinique-pour-formation-approfondie-en-neuroradiologie-a-100-hopital-du"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-chef-fe-de-clinique-pour-formation-approfondie-en-neuroradiologie-a-100-hopital-du"
+      ]
     },
     {
       "id": "hopital-du-valais-0c728d50d598",
-      "slug": "infirmier-ere-clinicien-ne-a-30-pour-le-service-de-pediatrie-secteur-hospitalisation",
+      "slug": "infermiere-cliniche-al-30-per-il-servizio-pediatrico-settore-ospedaliero-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "infirmier-ere-clinicien-ne-a-30-pour-le-service-de-pediatrie-secteur-hospitalisation",
-        "it": "infirmier-ere-clinicien-ne-a-30-pour-le-service-de-pediatrie-secteur-hospitalisation",
-        "en": "infirmier-ere-clinicien-ne-a-30-pour-le-service-de-pediatrie-secteur-hospitalisation",
-        "de": "infirmier-ere-clinicien-ne-a-30-pour-le-service-de-pediatrie-secteur-hospitalisation"
+        "it": "infermiere-cliniche-al-30-per-il-servizio-pediatrico-settore-ospedaliero-hopital-du-valais-sion",
+        "en": "clinician-nurse-at-30-for-the-paediatric-service-hospitalisation-sector-hopital-du-valais-sion",
+        "de": "kliniker-krankenschwester-bei-30-fur-den-padiatrischen-dienst-krankenhausaufenthalt-sektor-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3581,7 +3595,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-20T09:26:06.679Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:26:06.679Z"
+      "firstSeenAt": "2026-11-23T09:26:06.679Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-clinicien-ne-a-30-pour-le-service-de-pediatrie-secteur-hospitalisation"
+        ],
+        "en": [
+          "infirmier-ere-clinicien-ne-a-30-pour-le-service-de-pediatrie-secteur-hospitalisation"
+        ],
+        "de": [
+          "infirmier-ere-clinicien-ne-a-30-pour-le-service-de-pediatrie-secteur-hospitalisation"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-clinicien-ne-a-30-pour-le-service-de-pediatrie-secteur-hospitalisation"
+      ]
     },
     {
       "id": "hopital-du-valais-3d771e4a0ef0",

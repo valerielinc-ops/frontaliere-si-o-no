@@ -2721,12 +2721,12 @@
     },
     {
       "id": "stadt-luzern-8d110317daab",
-      "slug": "co-schulleitung-volksschule-stadt-luzern-schulhaus-st-karli-zyklus-1-65-75-stadt-luzern",
+      "slug": "co-direzione-scuola-primaria-citta-di-lucerna-scuola-casa-st-karli-ciclo-1-65-75-stadt-luzern-luzern",
       "slugByLocale": {
         "de": "co-schulleitung-volksschule-stadt-luzern-schulhaus-st-karli-zyklus-1-65-75-stadt-luzern",
-        "it": "co-schulleitung-volksschule-stadt-luzern-schulhaus-st-karli-zyklus-1-65-75-stadt-luzern",
-        "en": "co-schulleitung-volksschule-stadt-luzern-schulhaus-st-karli-zyklus-1-65-75-stadt-luzern",
-        "fr": "co-schulleitung-volksschule-stadt-luzern-schulhaus-st-karli-zyklus-1-65-75-stadt-luzern"
+        "it": "co-direzione-scuola-primaria-citta-di-lucerna-scuola-casa-st-karli-ciclo-1-65-75-stadt-luzern-luzern",
+        "en": "co-direction-primary-school-city-of-lucerne-school-house-st-karli-cycle-1-65-75-stadt-luzern-luzern",
+        "fr": "codirection-ecole-primaire-ville-de-lucerne-school-house-st-karli-cycle-1-65-75-stadt-luzern-luzern"
       },
       "company": "Stadt Luzern",
       "companyKey": "stadt-luzern",
@@ -2788,7 +2788,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-21T09:28:46.054Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:28:46.054Z"
+      "firstSeenAt": "2026-11-23T09:28:46.054Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "co-schulleitung-volksschule-stadt-luzern-schulhaus-st-karli-zyklus-1-65-75-stadt-luzern"
+        ],
+        "en": [
+          "co-schulleitung-volksschule-stadt-luzern-schulhaus-st-karli-zyklus-1-65-75-stadt-luzern"
+        ],
+        "fr": [
+          "co-schulleitung-volksschule-stadt-luzern-schulhaus-st-karli-zyklus-1-65-75-stadt-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "co-schulleitung-volksschule-stadt-luzern-schulhaus-st-karli-zyklus-1-65-75-stadt-luzern"
+      ]
     }
   ]
 }

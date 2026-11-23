@@ -215,12 +215,12 @@
     },
     {
       "id": "sbb-e668bbfc35ac",
-      "slug": "junior-controller-in-finanzen-daten-e-reporting-ffs-officine-ferrovie-federali-bern",
+      "slug": "junior-controller-finanza-dati-e-reporting-ffs-officine-ferrovie-federali-bern",
       "slugByLocale": {
-        "it": "junior-controller-in-finanzen-daten-e-reporting-ffs-officine-ferrovie-federali-bern",
-        "en": "junior-controller-in-finanzen-daten-e-reporting-ffs-officine-ferrovie-federali-bern",
+        "it": "junior-controller-finanza-dati-e-reporting-ffs-officine-ferrovie-federali-bern",
+        "en": "junior-controller-finance-data-reporting-ffs-officine-ferrovie-federali-bern",
         "de": "junior-controller-in-finanzen-daten-e-reporting-ffs-officine-ferrovie-federali-bern",
-        "fr": "junior-controller-in-finanzen-daten-e-reporting-ffs-officine-ferrovie-federali-bern"
+        "fr": "controleur-junior-finance-donnees-et-reporting-ffs-officine-ferrovie-federali-bern"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -317,16 +317,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:30:49.666Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:30:49.666Z"
+      "firstSeenAt": "2026-11-23T09:30:49.666Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-controller-in-finanzen-daten-e-reporting-ffs-officine-ferrovie-federali-bern"
+        ],
+        "en": [
+          "junior-controller-in-finanzen-daten-e-reporting-ffs-officine-ferrovie-federali-bern"
+        ],
+        "fr": [
+          "junior-controller-in-finanzen-daten-e-reporting-ffs-officine-ferrovie-federali-bern"
+        ]
+      },
+      "previousSlugs": [
+        "junior-controller-in-finanzen-daten-e-reporting-ffs-officine-ferrovie-federali-bern"
+      ]
     },
     {
       "id": "sbb-a60af1999565",
-      "slug": "mechaniker-in-per-trieb-e-gliederzuge-ffs-officine-ferrovie-federali-olten",
+      "slug": "meccanico-per-treni-motorizzati-e-articolati-ffs-officine-ferrovie-federali-olten",
       "slugByLocale": {
-        "it": "mechaniker-in-per-trieb-e-gliederzuge-ffs-officine-ferrovie-federali-olten",
-        "en": "mechaniker-in-fur-trieb-und-gliederzuge-ffs-officine-ferrovie-federali-olten",
+        "it": "meccanico-per-treni-motorizzati-e-articolati-ffs-officine-ferrovie-federali-olten",
+        "en": "mechanic-for-powered-and-articulated-trains-ffs-officine-ferrovie-federali-olten",
         "de": "mechaniker-in-fur-trieb-und-gliederzuge-ffs-officine-ferrovie-federali-olten",
-        "fr": "mechaniker-in-fur-trieb-und-gliederzuge-ffs-officine-ferrovie-federali-olten"
+        "fr": "mecanicien-pour-trains-motorises-et-articules-ffs-officine-ferrovie-federali-olten"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -399,11 +413,19 @@
       "crawledAt": "2026-11-23T09:30:58.160Z",
       "previousSlugsByLocale": {
         "it": [
+          "mechaniker-in-fur-trieb-und-gliederzuge-ffs-officine-ferrovie-federali-olten",
+          "mechaniker-in-per-trieb-e-gliederzuge-ffs-officine-ferrovie-federali-olten"
+        ],
+        "en": [
+          "mechaniker-in-fur-trieb-und-gliederzuge-ffs-officine-ferrovie-federali-olten"
+        ],
+        "fr": [
           "mechaniker-in-fur-trieb-und-gliederzuge-ffs-officine-ferrovie-federali-olten"
         ]
       },
       "previousSlugs": [
-        "mechaniker-in-fur-trieb-und-gliederzuge-ffs-officine-ferrovie-federali-olten"
+        "mechaniker-in-fur-trieb-und-gliederzuge-ffs-officine-ferrovie-federali-olten",
+        "mechaniker-in-per-trieb-e-gliederzuge-ffs-officine-ferrovie-federali-olten"
       ],
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -430,11 +452,11 @@
     },
     {
       "id": "sbb-874634ecf51a",
-      "slug": "specialiste-hr-service-desk-externe-h-f-d-ffs-officine-ferrovie-federali-berne",
+      "slug": "specialista-esterno-hr-service-desk-m-f-d-ffs-officine-ferrovie-federali-berne",
       "slugByLocale": {
-        "it": "specialiste-hr-service-desk-externe-h-f-d-ffs-officine-ferrovie-federali-berne",
-        "en": "specialiste-hr-service-desk-externe-h-f-d-ffs-officine-ferrovie-federali-berne",
-        "de": "specialiste-hr-service-desk-externe-h-f-d-ffs-officine-ferrovie-federali-berne",
+        "it": "specialista-esterno-hr-service-desk-m-f-d-ffs-officine-ferrovie-federali-berne",
+        "en": "specialist-hr-service-desk-external-m-f-d-ffs-officine-ferrovie-federali-berne",
+        "de": "externer-hr-servicedesk-spezialist-m-w-d-ffs-officine-ferrovie-federali-berne",
         "fr": "specialiste-hr-service-desk-externe-h-f-d-ffs-officine-ferrovie-federali-berne"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -522,14 +544,28 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-19T09:31:51.190Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:31:51.190Z"
+      "firstSeenAt": "2026-11-23T09:31:51.190Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-hr-service-desk-externe-h-f-d-ffs-officine-ferrovie-federali-berne"
+        ],
+        "en": [
+          "specialiste-hr-service-desk-externe-h-f-d-ffs-officine-ferrovie-federali-berne"
+        ],
+        "de": [
+          "specialiste-hr-service-desk-externe-h-f-d-ffs-officine-ferrovie-federali-berne"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-hr-service-desk-externe-h-f-d-ffs-officine-ferrovie-federali-berne"
+      ]
     },
     {
       "id": "sbb-3bccf6e700bf",
-      "slug": "hr-spezialist-in-service-desk-externe-ffs-officine-ferrovie-federali-bern",
+      "slug": "hr-specialist-service-desk-esterno-ffs-officine-ferrovie-federali-bern",
       "slugByLocale": {
-        "it": "hr-spezialist-in-service-desk-externe-ffs-officine-ferrovie-federali-bern",
-        "en": "hr-spezialist-in-service-desk-externe-ffs-officine-ferrovie-federali-bern",
+        "it": "hr-specialist-service-desk-esterno-ffs-officine-ferrovie-federali-bern",
+        "en": "hr-specialist-service-desk-external-ffs-officine-ferrovie-federali-bern",
         "de": "hr-spezialist-in-service-desk-externe-ffs-officine-ferrovie-federali-bern",
         "fr": "hr-spezialist-in-service-desk-externe-ffs-officine-ferrovie-federali-bern"
       },
@@ -618,16 +654,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-19T09:30:48.670Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:30:48.670Z"
+      "firstSeenAt": "2026-11-23T09:30:48.670Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-spezialist-in-service-desk-externe-ffs-officine-ferrovie-federali-bern"
+        ],
+        "en": [
+          "hr-spezialist-in-service-desk-externe-ffs-officine-ferrovie-federali-bern"
+        ]
+      },
+      "previousSlugs": [
+        "hr-spezialist-in-service-desk-externe-ffs-officine-ferrovie-federali-bern"
+      ]
     },
     {
       "id": "sbb-5f50cfea98cd",
-      "slug": "automatiker-in-80-100-ffs-officine-ferrovie-federali-3860-meiringen",
+      "slug": "tecnico-di-automazione-80-100-ffs-officine-ferrovie-federali-3860-meiringen",
       "slugByLocale": {
-        "it": "automatiker-in-80-100-ffs-officine-ferrovie-federali-3860-meiringen",
-        "en": "automatiker-in-80-100-ffs-officine-ferrovie-federali-3860-meiringen",
+        "it": "tecnico-di-automazione-80-100-ffs-officine-ferrovie-federali-3860-meiringen",
+        "en": "automation-technician-80-100-ffs-officine-ferrovie-federali-3860-meiringen",
         "de": "automatiker-in-80-100-ffs-officine-ferrovie-federali-3860-meiringen",
-        "fr": "automatiker-in-80-100-ffs-officine-ferrovie-federali-3860-meiringen"
+        "fr": "technicien-en-automatisation-80-100-ffs-officine-ferrovie-federali-3860-meiringen"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -729,13 +776,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T09:30:27.157Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:30:27.157Z"
+      "firstSeenAt": "2026-11-23T09:30:27.157Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-in-80-100-ffs-officine-ferrovie-federali-3860-meiringen"
+        ],
+        "en": [
+          "automatiker-in-80-100-ffs-officine-ferrovie-federali-3860-meiringen"
+        ],
+        "fr": [
+          "automatiker-in-80-100-ffs-officine-ferrovie-federali-3860-meiringen"
+        ]
+      },
+      "previousSlugs": [
+        "automatiker-in-80-100-ffs-officine-ferrovie-federali-3860-meiringen"
+      ]
     },
     {
       "id": "sbb-a831ef652930",
-      "slug": "diagnostiker-in-storungssuche-inbetriebsetzer-in-ffs-officine-ferrovie-federali-winterthur",
+      "slug": "diagnosta-ricerca-guasti-tecnico-di-messa-in-servizio-ffs-officine-ferrovie-federali-winterthur",
       "slugByLocale": {
-        "it": "diagnostiker-in-storungssuche-inbetriebsetzer-in-ffs-officine-ferrovie-federali-winterthur",
+        "it": "diagnosta-ricerca-guasti-tecnico-di-messa-in-servizio-ffs-officine-ferrovie-federali-winterthur",
         "en": "diagnostiker-in-storungssuche-inbetriebsetzer-in-ffs-officine-ferrovie-federali-winterthur",
         "de": "diagnostiker-in-storungssuche-inbetriebsetzer-in-ffs-officine-ferrovie-federali-winterthur",
         "fr": "diagnostiker-in-storungssuche-inbetriebsetzer-in-ffs-officine-ferrovie-federali-winterthur"
@@ -830,16 +891,24 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T09:30:36.662Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-25T15:01:23.999Z"
+      "firstSeenAt": "2026-09-25T15:01:23.999Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "diagnostiker-in-storungssuche-inbetriebsetzer-in-ffs-officine-ferrovie-federali-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "diagnostiker-in-storungssuche-inbetriebsetzer-in-ffs-officine-ferrovie-federali-winterthur"
+      ]
     },
     {
       "id": "sbb-da45d497e97b",
-      "slug": "spezialist-in-grundstuck-e-landerwerb-bahninfrastruktur-ffs-officine-ferrovie-federali-zurich-altstetten",
+      "slug": "specialista-in-terreni-e-acquisizioni-di-terreni-per-infrastrutture-ferroviarie-ffs-officine-ferrovie-federali-zurich",
       "slugByLocale": {
-        "it": "spezialist-in-grundstuck-e-landerwerb-bahninfrastruktur-ffs-officine-ferrovie-federali-zurich-altstetten",
-        "en": "spezialist-in-grundstuck-und-landerwerb-bahninfrastruktur-ffs-officine-ferrovie-federali-zurich-altstetten",
+        "it": "specialista-in-terreni-e-acquisizioni-di-terreni-per-infrastrutture-ferroviarie-ffs-officine-ferrovie-federali-zurich",
+        "en": "specialist-in-land-and-land-acquisition-railway-infrastructure-ffs-officine-ferrovie-federali-zurich-altstetten",
         "de": "spezialist-in-grundstuck-und-landerwerb-bahninfrastruktur-ffs-officine-ferrovie-federali-zurich-altstetten",
-        "fr": "spezialist-in-grundstuck-und-landerwerb-bahninfrastruktur-ffs-officine-ferrovie-federali-zurich-altstetten"
+        "fr": "specialiste-des-infrastructures-ferroviaires-et-de-l-acquisition-de-terrains-ffs-officine-ferrovie-federali-zurich"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -917,11 +986,19 @@
       "crawledAt": "2026-11-23T09:31:51.684Z",
       "previousSlugsByLocale": {
         "it": [
+          "spezialist-in-grundstuck-und-landerwerb-bahninfrastruktur-ffs-officine-ferrovie-federali-zurich-altstetten",
+          "spezialist-in-grundstuck-e-landerwerb-bahninfrastruktur-ffs-officine-ferrovie-federali-zurich-altstetten"
+        ],
+        "en": [
+          "spezialist-in-grundstuck-und-landerwerb-bahninfrastruktur-ffs-officine-ferrovie-federali-zurich-altstetten"
+        ],
+        "fr": [
           "spezialist-in-grundstuck-und-landerwerb-bahninfrastruktur-ffs-officine-ferrovie-federali-zurich-altstetten"
         ]
       },
       "previousSlugs": [
-        "spezialist-in-grundstuck-und-landerwerb-bahninfrastruktur-ffs-officine-ferrovie-federali-zurich-altstetten"
+        "spezialist-in-grundstuck-und-landerwerb-bahninfrastruktur-ffs-officine-ferrovie-federali-zurich-altstetten",
+        "spezialist-in-grundstuck-e-landerwerb-bahninfrastruktur-ffs-officine-ferrovie-federali-zurich-altstetten"
       ],
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -948,12 +1025,12 @@
     },
     {
       "id": "sbb-f2eb4c0edc95",
-      "slug": "fachexperte-in-engineering-ffs-officine-ferrovie-federali-zurich",
+      "slug": "esperto-di-ingegneria-ffs-officine-ferrovie-federali-zurich",
       "slugByLocale": {
-        "it": "fachexperte-in-engineering-ffs-officine-ferrovie-federali-zurich",
-        "en": "fachexperte-in-engineering-ffs-officine-ferrovie-federali-zurich",
+        "it": "esperto-di-ingegneria-ffs-officine-ferrovie-federali-zurich",
+        "en": "engineering-expert-ffs-officine-ferrovie-federali-zurich",
         "de": "fachexperte-in-engineering-ffs-officine-ferrovie-federali-zurich",
-        "fr": "fachexperte-in-engineering-ffs-officine-ferrovie-federali-zurich"
+        "fr": "expert-en-ingenierie-ffs-officine-ferrovie-federali-zurich"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -1050,15 +1127,29 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T09:30:40.182Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:30:40.182Z"
+      "firstSeenAt": "2026-11-23T09:30:40.182Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachexperte-in-engineering-ffs-officine-ferrovie-federali-zurich"
+        ],
+        "en": [
+          "fachexperte-in-engineering-ffs-officine-ferrovie-federali-zurich"
+        ],
+        "fr": [
+          "fachexperte-in-engineering-ffs-officine-ferrovie-federali-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "fachexperte-in-engineering-ffs-officine-ferrovie-federali-zurich"
+      ]
     },
     {
       "id": "sbb-592517eb3965",
-      "slug": "pilote-de-locomotive-cat-b100-deja-forme-h-f-d-ffs-officine-ferrovie-federali-biel-bienne",
+      "slug": "gatto-macchinista-di-locomotiva-b100-gia-addestrata-m-f-d-ffs-officine-ferrovie-federali-biel-bienne",
       "slugByLocale": {
-        "it": "pilote-de-locomotive-cat-b100-deja-forme-h-f-d-ffs-officine-ferrovie-federali-biel-bienne",
-        "en": "pilote-de-locomotive-cat-b100-deja-forme-h-f-d-ffs-officine-ferrovie-federali-biel-bienne",
-        "de": "pilote-de-locomotive-cat-b100-deja-forme-h-f-d-ffs-officine-ferrovie-federali-biel-bienne",
+        "it": "gatto-macchinista-di-locomotiva-b100-gia-addestrata-m-f-d-ffs-officine-ferrovie-federali-biel-bienne",
+        "en": "cat-locomotive-pilot-b100-already-formed-m-f-d-ffs-officine-ferrovie-federali-biel-bienne",
+        "de": "katzenlokomotivpilot-b100-bereits-gebildet-m-w-d-ffs-officine-ferrovie-federali-biel-bienne",
         "fr": "pilote-de-locomotive-cat-b100-deja-forme-h-f-d-ffs-officine-ferrovie-federali-biel-bienne"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -1146,16 +1237,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:31:02.666Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:31:02.666Z"
+      "firstSeenAt": "2026-11-23T09:31:02.666Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pilote-de-locomotive-cat-b100-deja-forme-h-f-d-ffs-officine-ferrovie-federali-biel-bienne"
+        ],
+        "en": [
+          "pilote-de-locomotive-cat-b100-deja-forme-h-f-d-ffs-officine-ferrovie-federali-biel-bienne"
+        ],
+        "de": [
+          "pilote-de-locomotive-cat-b100-deja-forme-h-f-d-ffs-officine-ferrovie-federali-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "pilote-de-locomotive-cat-b100-deja-forme-h-f-d-ffs-officine-ferrovie-federali-biel-bienne"
+      ]
     },
     {
       "id": "sbb-122eb67550a0",
-      "slug": "ausgebildete-lokfuhrer-in-kat-b100-ffs-officine-ferrovie-federali-biel-bienne",
+      "slug": "conducenti-di-treni-formati-cat-b100-ffs-officine-ferrovie-federali-biel-bienne",
       "slugByLocale": {
-        "it": "ausgebildete-lokfuhrer-in-kat-b100-ffs-officine-ferrovie-federali-biel-bienne",
-        "en": "ausgebildete-lokfuhrer-in-kat-b100-ffs-officine-ferrovie-federali-biel-bienne",
+        "it": "conducenti-di-treni-formati-cat-b100-ffs-officine-ferrovie-federali-biel-bienne",
+        "en": "trained-train-drivers-cat-b100-ffs-officine-ferrovie-federali-biel-bienne",
         "de": "ausgebildete-lokfuhrer-in-kat-b100-ffs-officine-ferrovie-federali-biel-bienne",
-        "fr": "ausgebildete-lokfuhrer-in-kat-b100-ffs-officine-ferrovie-federali-biel-bienne"
+        "fr": "conducteurs-de-train-formes-cat-b100-ffs-officine-ferrovie-federali-biel-bienne"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -1242,13 +1347,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:30:28.183Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:30:28.183Z"
+      "firstSeenAt": "2026-11-23T09:30:28.183Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ausgebildete-lokfuhrer-in-kat-b100-ffs-officine-ferrovie-federali-biel-bienne"
+        ],
+        "en": [
+          "ausgebildete-lokfuhrer-in-kat-b100-ffs-officine-ferrovie-federali-biel-bienne"
+        ],
+        "fr": [
+          "ausgebildete-lokfuhrer-in-kat-b100-ffs-officine-ferrovie-federali-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "ausgebildete-lokfuhrer-in-kat-b100-ffs-officine-ferrovie-federali-biel-bienne"
+      ]
     },
     {
       "id": "sbb-1e513f1b4873",
-      "slug": "netzleiter-in-spezialist-in-bahnverkehr-ffs-officine-ferrovie-federali-bern",
+      "slug": "operatore-di-rete-specialista-nel-trasporto-ferroviario-ffs-officine-ferrovie-federali-bern",
       "slugByLocale": {
-        "it": "netzleiter-in-spezialist-in-bahnverkehr-ffs-officine-ferrovie-federali-bern",
+        "it": "operatore-di-rete-specialista-nel-trasporto-ferroviario-ffs-officine-ferrovie-federali-bern",
         "en": "netzleiter-in-spezialist-in-bahnverkehr-ffs-officine-ferrovie-federali-bern",
         "de": "netzleiter-in-spezialist-in-bahnverkehr-ffs-officine-ferrovie-federali-bern",
         "fr": "netzleiter-in-spezialist-in-bahnverkehr-ffs-officine-ferrovie-federali-bern"
@@ -1343,16 +1462,24 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:31:01.179Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-28T21:29:17.947Z"
+      "firstSeenAt": "2026-10-28T21:29:17.947Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "netzleiter-in-spezialist-in-bahnverkehr-ffs-officine-ferrovie-federali-bern"
+        ]
+      },
+      "previousSlugs": [
+        "netzleiter-in-spezialist-in-bahnverkehr-ffs-officine-ferrovie-federali-bern"
+      ]
     },
     {
       "id": "sbb-a3a574171b4d",
-      "slug": "quereinstieg-lokfuhrer-in-kategorie-b100-cargo-ffs-officine-ferrovie-federali-brig",
+      "slug": "ingresso-incrociato-per-macchinista-nella-categoria-b100-merci-ffs-officine-ferrovie-federali-brig",
       "slugByLocale": {
-        "it": "quereinstieg-lokfuhrer-in-kategorie-b100-cargo-ffs-officine-ferrovie-federali-brig",
+        "it": "ingresso-incrociato-per-macchinista-nella-categoria-b100-merci-ffs-officine-ferrovie-federali-brig",
         "en": "quereinstieg-lokfuhrer-in-kategorie-b100-cargo-ffs-officine-ferrovie-federali-brig",
         "de": "quereinstieg-lokfuhrer-in-kategorie-b100-cargo-ffs-officine-ferrovie-federali-brig",
-        "fr": "quereinstieg-lokfuhrer-in-kategorie-b100-cargo-ffs-officine-ferrovie-federali-brig"
+        "fr": "entree-croisee-pour-conducteur-de-train-dans-la-categorie-b100-fret-ffs-officine-ferrovie-federali-brig"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -1450,15 +1577,26 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:31:19.663Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:31:19.663Z"
+      "firstSeenAt": "2026-11-23T09:31:19.663Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quereinstieg-lokfuhrer-in-kategorie-b100-cargo-ffs-officine-ferrovie-federali-brig"
+        ],
+        "fr": [
+          "quereinstieg-lokfuhrer-in-kategorie-b100-cargo-ffs-officine-ferrovie-federali-brig"
+        ]
+      },
+      "previousSlugs": [
+        "quereinstieg-lokfuhrer-in-kategorie-b100-cargo-ffs-officine-ferrovie-federali-brig"
+      ]
     },
     {
       "id": "sbb-4122dc288ac1",
-      "slug": "specialiste-de-man-uvre-ai40-deja-forme-ffs-officine-ferrovie-federali-biel-bienne",
+      "slug": "ai40-specialista-di-manovra-gia-addestrato-ffs-officine-ferrovie-federali-biel-bienne",
       "slugByLocale": {
-        "it": "specialiste-de-man-uvre-ai40-deja-forme-ffs-officine-ferrovie-federali-biel-bienne",
-        "en": "specialiste-de-man-uvre-ai40-deja-forme-ffs-officine-ferrovie-federali-biel-bienne",
-        "de": "specialiste-de-man-uvre-ai40-deja-forme-ffs-officine-ferrovie-federali-biel-bienne",
+        "it": "ai40-specialista-di-manovra-gia-addestrato-ffs-officine-ferrovie-federali-biel-bienne",
+        "en": "ai40-manoeuvre-specialist-already-trained-ffs-officine-ferrovie-federali-biel-bienne",
+        "de": "ai40-manover-spezialist-bereits-ausgebildet-ffs-officine-ferrovie-federali-biel-bienne",
         "fr": "specialiste-de-man-uvre-ai40-deja-forme-ffs-officine-ferrovie-federali-biel-bienne"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -1556,16 +1694,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:31:50.683Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:31:50.683Z"
+      "firstSeenAt": "2026-11-23T09:31:50.683Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-de-man-uvre-ai40-deja-forme-ffs-officine-ferrovie-federali-biel-bienne"
+        ],
+        "en": [
+          "specialiste-de-man-uvre-ai40-deja-forme-ffs-officine-ferrovie-federali-biel-bienne"
+        ],
+        "de": [
+          "specialiste-de-man-uvre-ai40-deja-forme-ffs-officine-ferrovie-federali-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-de-man-uvre-ai40-deja-forme-ffs-officine-ferrovie-federali-biel-bienne"
+      ]
     },
     {
       "id": "sbb-4a4ceadee79f",
-      "slug": "chef-in-stutzpunkt-ffs-officine-ferrovie-federali-zurich",
+      "slug": "capo-del-centro-di-formazione-ffs-officine-ferrovie-federali-zurich",
       "slugByLocale": {
-        "it": "chef-in-stutzpunkt-ffs-officine-ferrovie-federali-zurich",
-        "en": "chef-in-stutzpunkt-ffs-officine-ferrovie-federali-zurich",
+        "it": "capo-del-centro-di-formazione-ffs-officine-ferrovie-federali-zurich",
+        "en": "head-of-training-center-ffs-officine-ferrovie-federali-zurich",
         "de": "chef-in-stutzpunkt-ffs-officine-ferrovie-federali-zurich",
-        "fr": "chef-in-stutzpunkt-ffs-officine-ferrovie-federali-zurich"
+        "fr": "chef-du-centre-de-formation-ffs-officine-ferrovie-federali-zurich"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -1662,7 +1814,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:30:32.667Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:30:32.667Z"
+      "firstSeenAt": "2026-11-23T09:30:32.667Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-in-stutzpunkt-ffs-officine-ferrovie-federali-zurich"
+        ],
+        "en": [
+          "chef-in-stutzpunkt-ffs-officine-ferrovie-federali-zurich"
+        ],
+        "fr": [
+          "chef-in-stutzpunkt-ffs-officine-ferrovie-federali-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "chef-in-stutzpunkt-ffs-officine-ferrovie-federali-zurich"
+      ]
     },
     {
       "id": "sbb-6b05afd57339",
@@ -1671,7 +1837,7 @@
         "it": "linux-system-e-automation-ingegnere-m-w-d-ffs-officine-ferrovie-federali-bern",
         "en": "linux-system-und-automation-engineer-m-w-d-ffs-officine-ferrovie-federali-bern",
         "de": "linux-system-und-automation-engineer-m-w-d-ffs-officine-ferrovie-federali-bern",
-        "fr": "linux-system-und-automation-engineer-m-w-d-ffs-officine-ferrovie-federali-bern"
+        "fr": "ingenieur-systeme-et-automatisation-linux-h-f-d-ffs-officine-ferrovie-federali-bern"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -1751,6 +1917,9 @@
       "previousSlugsByLocale": {
         "it": [
           "linux-system-und-automation-engineer-m-w-d-ffs-officine-ferrovie-federali-bern"
+        ],
+        "fr": [
+          "linux-system-und-automation-engineer-m-w-d-ffs-officine-ferrovie-federali-bern"
         ]
       },
       "previousSlugs": [
@@ -1781,12 +1950,12 @@
     },
     {
       "id": "sbb-52a9d5d4ffe1",
-      "slug": "fuhrungsunterstutzung-leitung-kommunikation-m-w-d-ffs-officine-ferrovie-federali-bern",
+      "slug": "capo-della-comunicazione-m-f-d-ffs-officine-ferrovie-federali-bern",
       "slugByLocale": {
-        "it": "fuhrungsunterstutzung-leitung-kommunikation-m-w-d-ffs-officine-ferrovie-federali-bern",
-        "en": "fuhrungsunterstutzung-leitung-kommunikation-m-w-d-ffs-officine-ferrovie-federali-bern",
+        "it": "capo-della-comunicazione-m-f-d-ffs-officine-ferrovie-federali-bern",
+        "en": "leadership-support-head-of-communication-m-f-d-ffs-officine-ferrovie-federali-bern",
         "de": "fuhrungsunterstutzung-leitung-kommunikation-m-w-d-ffs-officine-ferrovie-federali-bern",
-        "fr": "fuhrungsunterstutzung-leitung-kommunikation-m-w-d-ffs-officine-ferrovie-federali-bern"
+        "fr": "leadership-support-chef-de-la-communication-h-f-d-ffs-officine-ferrovie-federali-bern"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -1883,16 +2052,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:30:47.176Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:30:47.176Z"
+      "firstSeenAt": "2026-11-23T09:30:47.176Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fuhrungsunterstutzung-leitung-kommunikation-m-w-d-ffs-officine-ferrovie-federali-bern"
+        ],
+        "en": [
+          "fuhrungsunterstutzung-leitung-kommunikation-m-w-d-ffs-officine-ferrovie-federali-bern"
+        ],
+        "fr": [
+          "fuhrungsunterstutzung-leitung-kommunikation-m-w-d-ffs-officine-ferrovie-federali-bern"
+        ]
+      },
+      "previousSlugs": [
+        "fuhrungsunterstutzung-leitung-kommunikation-m-w-d-ffs-officine-ferrovie-federali-bern"
+      ]
     },
     {
       "id": "sbb-a209e178422e",
-      "slug": "fachspezialist-in-human-and-organisational-factors-in-der-bahnproduktion-ffs-officine-ferrovie-federali-bern",
+      "slug": "specialista-in-fattori-umani-e-organizzativi-nella-produzione-ferroviaria-ffs-officine-ferrovie-federali-bern",
       "slugByLocale": {
-        "it": "fachspezialist-in-human-and-organisational-factors-in-der-bahnproduktion-ffs-officine-ferrovie-federali-bern",
-        "en": "fachspezialist-in-human-and-organisational-factors-in-der-bahnproduktion-ffs-officine-ferrovie-federali-bern",
+        "it": "specialista-in-fattori-umani-e-organizzativi-nella-produzione-ferroviaria-ffs-officine-ferrovie-federali-bern",
+        "en": "specialist-in-human-and-organisational-factors-in-railway-production-ffs-officine-ferrovie-federali-bern",
         "de": "fachspezialist-in-human-and-organisational-factors-in-der-bahnproduktion-ffs-officine-ferrovie-federali-bern",
-        "fr": "fachspezialist-in-human-and-organisational-factors-in-der-bahnproduktion-ffs-officine-ferrovie-federali-bern"
+        "fr": "specialiste-des-facteurs-humains-et-organisationnels-dans-la-production-ferroviaire-ffs-officine-ferrovie-federali-bern"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -1989,15 +2172,29 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:30:42.672Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:30:42.672Z"
+      "firstSeenAt": "2026-11-23T09:30:42.672Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-human-and-organisational-factors-in-der-bahnproduktion-ffs-officine-ferrovie-federali-bern"
+        ],
+        "en": [
+          "fachspezialist-in-human-and-organisational-factors-in-der-bahnproduktion-ffs-officine-ferrovie-federali-bern"
+        ],
+        "fr": [
+          "fachspezialist-in-human-and-organisational-factors-in-der-bahnproduktion-ffs-officine-ferrovie-federali-bern"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-human-and-organisational-factors-in-der-bahnproduktion-ffs-officine-ferrovie-federali-bern"
+      ]
     },
     {
       "id": "sbb-2964385db8d8",
-      "slug": "logisticien-ne-ffs-officine-ferrovie-federali-yverdon-les-bains",
+      "slug": "logisticista-ffs-officine-ferrovie-federali-yverdon-les-bains",
       "slugByLocale": {
-        "it": "logisticien-ne-ffs-officine-ferrovie-federali-yverdon-les-bains",
-        "en": "logisticien-ne-ffs-officine-ferrovie-federali-yverdon-les-bains",
-        "de": "logisticien-ne-ffs-officine-ferrovie-federali-yverdon-les-bains",
+        "it": "logisticista-ffs-officine-ferrovie-federali-yverdon-les-bains",
+        "en": "logistician-ffs-officine-ferrovie-federali-yverdon-les-bains",
+        "de": "logistiker-ffs-officine-ferrovie-federali-yverdon-les-bains",
         "fr": "logisticien-ne-ffs-officine-ferrovie-federali-yverdon-les-bains"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -2095,16 +2292,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:30:54.191Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:30:54.191Z"
+      "firstSeenAt": "2026-11-23T09:30:54.191Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "logisticien-ne-ffs-officine-ferrovie-federali-yverdon-les-bains"
+        ],
+        "en": [
+          "logisticien-ne-ffs-officine-ferrovie-federali-yverdon-les-bains"
+        ],
+        "de": [
+          "logisticien-ne-ffs-officine-ferrovie-federali-yverdon-les-bains"
+        ]
+      },
+      "previousSlugs": [
+        "logisticien-ne-ffs-officine-ferrovie-federali-yverdon-les-bains"
+      ]
     },
     {
       "id": "sbb-5d032bf671ba",
-      "slug": "candidato-a-in-riqualificazione-come-sicherheitswarter-in-sicherheitschef-in-baustellen-ffs-officine-ferrovie-federali-solothurn",
+      "slug": "cambio-di-carriera-come-guardia-di-sicurezza-responsabile-della-sicurezza-nei-cantieri-edili-ffs-officine-ferrovie",
       "slugByLocale": {
-        "it": "candidato-a-in-riqualificazione-come-sicherheitswarter-in-sicherheitschef-in-baustellen-ffs-officine-ferrovie-federali-solothurn",
-        "en": "quereinsteiger-in-als-sicherheitswarter-in-sicherheitschef-in-baustellen-ffs-officine-ferrovie-federali-solothurn",
+        "it": "cambio-di-carriera-come-guardia-di-sicurezza-responsabile-della-sicurezza-nei-cantieri-edili-ffs-officine-ferrovie",
+        "en": "career-changer-as-security-guard-security-manager-at-construction-sites-ffs-officine-ferrovie-federali-solothurn",
         "de": "quereinsteiger-in-als-sicherheitswarter-in-sicherheitschef-in-baustellen-ffs-officine-ferrovie-federali-solothurn",
-        "fr": "quereinsteiger-in-als-sicherheitswarter-in-sicherheitschef-in-baustellen-ffs-officine-ferrovie-federali-solothurn"
+        "fr": "changement-de-carriere-en-tant-que-gardien-de-securite-responsable-de-la-securite-sur-des-chantiers-de-construction-ffs"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -2182,11 +2393,19 @@
       "crawledAt": "2026-11-23T09:31:12.675Z",
       "previousSlugsByLocale": {
         "it": [
+          "quereinsteiger-in-als-sicherheitswarter-in-sicherheitschef-in-baustellen-ffs-officine-ferrovie-federali-solothurn",
+          "candidato-a-in-riqualificazione-come-sicherheitswarter-in-sicherheitschef-in-baustellen-ffs-officine-ferrovie-federali-solothurn"
+        ],
+        "en": [
+          "quereinsteiger-in-als-sicherheitswarter-in-sicherheitschef-in-baustellen-ffs-officine-ferrovie-federali-solothurn"
+        ],
+        "fr": [
           "quereinsteiger-in-als-sicherheitswarter-in-sicherheitschef-in-baustellen-ffs-officine-ferrovie-federali-solothurn"
         ]
       },
       "previousSlugs": [
-        "quereinsteiger-in-als-sicherheitswarter-in-sicherheitschef-in-baustellen-ffs-officine-ferrovie-federali-solothurn"
+        "quereinsteiger-in-als-sicherheitswarter-in-sicherheitschef-in-baustellen-ffs-officine-ferrovie-federali-solothurn",
+        "candidato-a-in-riqualificazione-come-sicherheitswarter-in-sicherheitschef-in-baustellen-ffs-officine-ferrovie-federali-solothurn"
       ],
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -2213,12 +2432,12 @@
     },
     {
       "id": "sbb-55a6017abdb8",
-      "slug": "product-manager-m-w-d-plattform-e-technologien-ffs-officine-ferrovie-federali-bern",
+      "slug": "product-manager-m-f-d-piattaforma-e-tecnologie-ffs-officine-ferrovie-federali-bern",
       "slugByLocale": {
-        "it": "product-manager-m-w-d-plattform-e-technologien-ffs-officine-ferrovie-federali-bern",
-        "en": "product-manager-m-w-d-plattform-und-technologien-ffs-officine-ferrovie-federali-bern",
+        "it": "product-manager-m-f-d-piattaforma-e-tecnologie-ffs-officine-ferrovie-federali-bern",
+        "en": "product-manager-m-f-d-platform-and-technologies-ffs-officine-ferrovie-federali-bern",
         "de": "product-manager-m-w-d-plattform-und-technologien-ffs-officine-ferrovie-federali-bern",
-        "fr": "product-manager-m-w-d-plattform-und-technologien-ffs-officine-ferrovie-federali-bern"
+        "fr": "gestionnaire-de-produits-h-f-d-plateforme-et-technologies-ffs-officine-ferrovie-federali-bern"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -2296,11 +2515,19 @@
       "crawledAt": "2026-11-23T09:31:10.171Z",
       "previousSlugsByLocale": {
         "it": [
+          "product-manager-m-w-d-plattform-und-technologien-ffs-officine-ferrovie-federali-bern",
+          "product-manager-m-w-d-plattform-e-technologien-ffs-officine-ferrovie-federali-bern"
+        ],
+        "en": [
+          "product-manager-m-w-d-plattform-und-technologien-ffs-officine-ferrovie-federali-bern"
+        ],
+        "fr": [
           "product-manager-m-w-d-plattform-und-technologien-ffs-officine-ferrovie-federali-bern"
         ]
       },
       "previousSlugs": [
-        "product-manager-m-w-d-plattform-und-technologien-ffs-officine-ferrovie-federali-bern"
+        "product-manager-m-w-d-plattform-und-technologien-ffs-officine-ferrovie-federali-bern",
+        "product-manager-m-w-d-plattform-e-technologien-ffs-officine-ferrovie-federali-bern"
       ],
       "salaryMin": 113000,
       "salaryMax": 192000,
@@ -2433,11 +2660,11 @@
     },
     {
       "id": "sbb-2b44a4b4c80a",
-      "slug": "responsable-des-partenariats-affaires-internationales-h-f-d-ffs-officine-ferrovie-federali-bern",
+      "slug": "responsabile-delle-partnership-affari-internazionali-m-f-d-ffs-officine-ferrovie-federali-bern",
       "slugByLocale": {
-        "it": "responsable-des-partenariats-affaires-internationales-h-f-d-ffs-officine-ferrovie-federali-bern",
-        "en": "responsable-des-partenariats-affaires-internationales-h-f-d-ffs-officine-ferrovie-federali-bern",
-        "de": "responsable-des-partenariats-affaires-internationales-h-f-d-ffs-officine-ferrovie-federali-bern",
+        "it": "responsabile-delle-partnership-affari-internazionali-m-f-d-ffs-officine-ferrovie-federali-bern",
+        "en": "head-of-partnerships-international-affairs-m-f-d-ffs-officine-ferrovie-federali-bern",
+        "de": "head-of-partnerships-internationale-angelegenheiten-m-w-d-ffs-officine-ferrovie-federali-bern",
         "fr": "responsable-des-partenariats-affaires-internationales-h-f-d-ffs-officine-ferrovie-federali-bern"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -2535,16 +2762,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:31:48.193Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:31:48.193Z"
+      "firstSeenAt": "2026-11-23T09:31:48.193Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-des-partenariats-affaires-internationales-h-f-d-ffs-officine-ferrovie-federali-bern"
+        ],
+        "en": [
+          "responsable-des-partenariats-affaires-internationales-h-f-d-ffs-officine-ferrovie-federali-bern"
+        ],
+        "de": [
+          "responsable-des-partenariats-affaires-internationales-h-f-d-ffs-officine-ferrovie-federali-bern"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-des-partenariats-affaires-internationales-h-f-d-ffs-officine-ferrovie-federali-bern"
+      ]
     },
     {
       "id": "sbb-6d0d455a74b1",
-      "slug": "partnermanager-in-international-affairs-ffs-officine-ferrovie-federali-bern",
+      "slug": "partner-manager-affari-internazionali-ffs-officine-ferrovie-federali-bern",
       "slugByLocale": {
-        "it": "partnermanager-in-international-affairs-ffs-officine-ferrovie-federali-bern",
-        "en": "partnermanager-in-international-affairs-ffs-officine-ferrovie-federali-bern",
+        "it": "partner-manager-affari-internazionali-ffs-officine-ferrovie-federali-bern",
+        "en": "partner-manager-international-affairs-ffs-officine-ferrovie-federali-bern",
         "de": "partnermanager-in-international-affairs-ffs-officine-ferrovie-federali-bern",
-        "fr": "partnermanager-in-international-affairs-ffs-officine-ferrovie-federali-bern"
+        "fr": "responsable-des-relations-internationales-ffs-officine-ferrovie-federali-bern"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -2641,7 +2882,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:31:02.196Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:31:02.196Z"
+      "firstSeenAt": "2026-11-23T09:31:02.196Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "partnermanager-in-international-affairs-ffs-officine-ferrovie-federali-bern"
+        ],
+        "en": [
+          "partnermanager-in-international-affairs-ffs-officine-ferrovie-federali-bern"
+        ],
+        "fr": [
+          "partnermanager-in-international-affairs-ffs-officine-ferrovie-federali-bern"
+        ]
+      },
+      "previousSlugs": [
+        "partnermanager-in-international-affairs-ffs-officine-ferrovie-federali-bern"
+      ]
     },
     {
       "id": "sbb-4410f629b16e",
@@ -2751,9 +3006,9 @@
     },
     {
       "id": "sbb-f10ab0919ebd",
-      "slug": "offizier-in-ffs-officine-ferrovie-federali-st-gallen",
+      "slug": "ufficiale-ffs-officine-ferrovie-federali-st-gallen",
       "slugByLocale": {
-        "it": "offizier-in-ffs-officine-ferrovie-federali-st-gallen",
+        "it": "ufficiale-ffs-officine-ferrovie-federali-st-gallen",
         "en": "offizier-in-ffs-officine-ferrovie-federali-st-gallen",
         "de": "offizier-in-ffs-officine-ferrovie-federali-st-gallen",
         "fr": "offizier-in-ffs-officine-ferrovie-federali-st-gallen"
@@ -2853,15 +3108,23 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:31:01.684Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-15T09:30:58.310Z"
+      "firstSeenAt": "2026-10-15T09:30:58.310Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "offizier-in-ffs-officine-ferrovie-federali-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "offizier-in-ffs-officine-ferrovie-federali-st-gallen"
+      ]
     },
     {
       "id": "sbb-4d12f7867aa3",
-      "slug": "remplacant-e-chef-fe-de-team-ffs-officine-ferrovie-federali-yverdon-les-bains",
+      "slug": "capo-di-ricambio-del-team-ffs-officine-ferrovie-federali-yverdon-les-bains",
       "slugByLocale": {
-        "it": "remplacant-e-chef-fe-de-team-ffs-officine-ferrovie-federali-yverdon-les-bains",
-        "en": "remplacant-e-chef-fe-de-team-ffs-officine-ferrovie-federali-yverdon-les-bains",
-        "de": "remplacant-e-chef-fe-de-team-ffs-officine-ferrovie-federali-yverdon-les-bains",
+        "it": "capo-di-ricambio-del-team-ffs-officine-ferrovie-federali-yverdon-les-bains",
+        "en": "replacement-head-of-team-ffs-officine-ferrovie-federali-yverdon-les-bains",
+        "de": "ersatzteamleiter-ffs-officine-ferrovie-federali-yverdon-les-bains",
         "fr": "remplacant-e-chef-fe-de-team-ffs-officine-ferrovie-federali-yverdon-les-bains"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -2959,13 +3222,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:31:45.673Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:31:45.673Z"
+      "firstSeenAt": "2026-11-23T09:31:45.673Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "remplacant-e-chef-fe-de-team-ffs-officine-ferrovie-federali-yverdon-les-bains"
+        ],
+        "en": [
+          "remplacant-e-chef-fe-de-team-ffs-officine-ferrovie-federali-yverdon-les-bains"
+        ],
+        "de": [
+          "remplacant-e-chef-fe-de-team-ffs-officine-ferrovie-federali-yverdon-les-bains"
+        ]
+      },
+      "previousSlugs": [
+        "remplacant-e-chef-fe-de-team-ffs-officine-ferrovie-federali-yverdon-les-bains"
+      ]
     },
     {
       "id": "sbb-1a9de750fe6b",
-      "slug": "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne-c20181e514",
+      "slug": "tecnico-specializzato-a-nel-settore-industriale-ffs-officine-ferrovie-federali-biel-bienne",
       "slugByLocale": {
-        "it": "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne-c20181e514",
+        "it": "tecnico-specializzato-a-nel-settore-industriale-ffs-officine-ferrovie-federali-biel-bienne",
         "en": "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne",
         "de": "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne",
         "fr": "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne"
@@ -3057,22 +3334,24 @@
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-02T13:50:44.705Z",
       "previousSlugs": [
-        "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne"
+        "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne",
+        "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne-c20181e514"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne"
+          "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne",
+          "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne-c20181e514"
         ]
       }
     },
     {
       "id": "sbb-83bf51b5797d",
-      "slug": "mechaniker-in-per-triebzuge-ffs-officine-ferrovie-federali-olten",
+      "slug": "meccanico-per-unita-multiple-ffs-officine-ferrovie-federali-olten",
       "slugByLocale": {
-        "it": "mechaniker-in-per-triebzuge-ffs-officine-ferrovie-federali-olten",
-        "en": "mechaniker-in-fur-triebzuge-ffs-officine-ferrovie-federali-olten",
+        "it": "meccanico-per-unita-multiple-ffs-officine-ferrovie-federali-olten",
+        "en": "mechanic-for-multiple-units-ffs-officine-ferrovie-federali-olten",
         "de": "mechaniker-in-fur-triebzuge-ffs-officine-ferrovie-federali-olten",
-        "fr": "mechaniker-in-fur-triebzuge-ffs-officine-ferrovie-federali-olten"
+        "fr": "mecanique-pour-unites-multiples-ffs-officine-ferrovie-federali-olten"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -3150,11 +3429,19 @@
       "crawledAt": "2026-11-23T09:30:58.696Z",
       "previousSlugsByLocale": {
         "it": [
+          "mechaniker-in-fur-triebzuge-ffs-officine-ferrovie-federali-olten",
+          "mechaniker-in-per-triebzuge-ffs-officine-ferrovie-federali-olten"
+        ],
+        "en": [
+          "mechaniker-in-fur-triebzuge-ffs-officine-ferrovie-federali-olten"
+        ],
+        "fr": [
           "mechaniker-in-fur-triebzuge-ffs-officine-ferrovie-federali-olten"
         ]
       },
       "previousSlugs": [
-        "mechaniker-in-fur-triebzuge-ffs-officine-ferrovie-federali-olten"
+        "mechaniker-in-fur-triebzuge-ffs-officine-ferrovie-federali-olten",
+        "mechaniker-in-per-triebzuge-ffs-officine-ferrovie-federali-olten"
       ],
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -3184,9 +3471,9 @@
       "slug": "responsabile-del-team-2nd-level-impianti-di-sicurezza-regioni-ovest-sud-ffs-officine-ferrovie-federali-renens-o-pollegio",
       "slugByLocale": {
         "it": "responsabile-del-team-2nd-level-impianti-di-sicurezza-regioni-ovest-sud-ffs-officine-ferrovie-federali-renens-o-pollegio",
-        "en": "responsabile-del-team-2nd-level-impianti-di-sicurezza-regioni-ovest-sud-ffs-officine-ferrovie-federali-renens-o-pollegio",
-        "de": "responsabile-del-team-2nd-level-impianti-di-sicurezza-regioni-ovest-sud-ffs-officine-ferrovie-federali-renens-o-pollegio",
-        "fr": "responsabile-del-team-2nd-level-impianti-di-sicurezza-regioni-ovest-sud-ffs-officine-ferrovie-federali-renens-o-pollegio"
+        "en": "head-of-the-2nd-level-security-systems-team-west-south-regions-ffs-officine-ferrovie-federali-renens-o-pollegio",
+        "de": "leiter-des-sicherheitssystems-der-2-ebene-west-sud-regionen-ffs-officine-ferrovie-federali-renens-o-pollegio",
+        "fr": "chef-de-l-equipe-des-systemes-de-securite-de-2e-niveau-regions-ouest-sud-ffs-officine-ferrovie-federali-renens-o"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -3283,15 +3570,29 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:31:47.170Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:31:47.170Z"
+      "firstSeenAt": "2026-11-23T09:31:47.170Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "responsabile-del-team-2nd-level-impianti-di-sicurezza-regioni-ovest-sud-ffs-officine-ferrovie-federali-renens-o-pollegio"
+        ],
+        "de": [
+          "responsabile-del-team-2nd-level-impianti-di-sicurezza-regioni-ovest-sud-ffs-officine-ferrovie-federali-renens-o-pollegio"
+        ],
+        "fr": [
+          "responsabile-del-team-2nd-level-impianti-di-sicurezza-regioni-ovest-sud-ffs-officine-ferrovie-federali-renens-o-pollegio"
+        ]
+      },
+      "previousSlugs": [
+        "responsabile-del-team-2nd-level-impianti-di-sicurezza-regioni-ovest-sud-ffs-officine-ferrovie-federali-renens-o-pollegio"
+      ]
     },
     {
       "id": "sbb-e5e6e6076421",
-      "slug": "responsable-d-equipe-2nd-level-installations-de-securite-regions-ouest-sud-ffs-officine-ferrovie-federali-renens-ou-pollegio",
+      "slug": "team-leader-2nd-level-security-facilities-regioni-occidentali-sud-ffs-officine-ferrovie-federali-renens-ou-pollegio",
       "slugByLocale": {
-        "it": "responsable-d-equipe-2nd-level-installations-de-securite-regions-ouest-sud-ffs-officine-ferrovie-federali-renens-ou-pollegio",
-        "en": "responsable-d-equipe-2nd-level-installations-de-securite-regions-ouest-sud-ffs-officine-ferrovie-federali-renens-ou-pollegio",
-        "de": "responsable-d-equipe-2nd-level-installations-de-securite-regions-ouest-sud-ffs-officine-ferrovie-federali-renens-ou-pollegio",
+        "it": "team-leader-2nd-level-security-facilities-regioni-occidentali-sud-ffs-officine-ferrovie-federali-renens-ou-pollegio",
+        "en": "team-leader-2nd-level-security-facilities-west-south-regions-ffs-officine-ferrovie-federali-renens-ou-pollegio",
+        "de": "team-leader-2nd-level-security-facilities-west-sud-regionen-ffs-officine-ferrovie-federali-renens-ou-pollegio",
         "fr": "responsable-d-equipe-2nd-level-installations-de-securite-regions-ouest-sud-ffs-officine-ferrovie-federali-renens-ou-pollegio"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -3389,16 +3690,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:31:47.786Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:31:47.786Z"
+      "firstSeenAt": "2026-11-23T09:31:47.786Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-d-equipe-2nd-level-installations-de-securite-regions-ouest-sud-ffs-officine-ferrovie-federali-renens-ou-pollegio"
+        ],
+        "en": [
+          "responsable-d-equipe-2nd-level-installations-de-securite-regions-ouest-sud-ffs-officine-ferrovie-federali-renens-ou-pollegio"
+        ],
+        "de": [
+          "responsable-d-equipe-2nd-level-installations-de-securite-regions-ouest-sud-ffs-officine-ferrovie-federali-renens-ou-pollegio"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-d-equipe-2nd-level-installations-de-securite-regions-ouest-sud-ffs-officine-ferrovie-federali-renens-ou-pollegio"
+      ]
     },
     {
       "id": "sbb-a52009394e30",
-      "slug": "teamleiter-in-2nd-level-sicherungsanlagen-region-west-sud-ffs-officine-ferrovie-federali-renens-oder-pollegio",
+      "slug": "team-leader-sistemi-di-protezione-di-2-livello-regione-ovest-sud-ffs-officine-ferrovie-federali-renens-oder-pollegio",
       "slugByLocale": {
-        "it": "teamleiter-in-2nd-level-sicherungsanlagen-region-west-sud-ffs-officine-ferrovie-federali-renens-oder-pollegio",
-        "en": "teamleiter-in-2nd-level-sicherungsanlagen-region-west-sud-ffs-officine-ferrovie-federali-renens-oder-pollegio",
+        "it": "team-leader-sistemi-di-protezione-di-2-livello-regione-ovest-sud-ffs-officine-ferrovie-federali-renens-oder-pollegio",
+        "en": "team-leader-2nd-level-protection-systems-west-south-region-ffs-officine-ferrovie-federali-renens-oder-pollegio",
         "de": "teamleiter-in-2nd-level-sicherungsanlagen-region-west-sud-ffs-officine-ferrovie-federali-renens-oder-pollegio",
-        "fr": "teamleiter-in-2nd-level-sicherungsanlagen-region-west-sud-ffs-officine-ferrovie-federali-renens-oder-pollegio"
+        "fr": "chef-d-equipe-systemes-de-protection-de-2e-niveau-region-ouest-sud-ffs-officine-ferrovie-federali-renens-oder-pollegio"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -3495,16 +3810,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:31:54.686Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:31:54.686Z"
+      "firstSeenAt": "2026-11-23T09:31:54.686Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-2nd-level-sicherungsanlagen-region-west-sud-ffs-officine-ferrovie-federali-renens-oder-pollegio"
+        ],
+        "en": [
+          "teamleiter-in-2nd-level-sicherungsanlagen-region-west-sud-ffs-officine-ferrovie-federali-renens-oder-pollegio"
+        ],
+        "fr": [
+          "teamleiter-in-2nd-level-sicherungsanlagen-region-west-sud-ffs-officine-ferrovie-federali-renens-oder-pollegio"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-2nd-level-sicherungsanlagen-region-west-sud-ffs-officine-ferrovie-federali-renens-oder-pollegio"
+      ]
     },
     {
       "id": "sbb-11e539eab523",
-      "slug": "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-langenthal",
+      "slug": "riqualificazione-professionale-come-macchinista-di-treno-cantiere-con-esperienza-nel-settore-artigianale-ffs-officine",
       "slugByLocale": {
-        "it": "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-langenthal",
-        "en": "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-langenthal",
+        "it": "riqualificazione-professionale-come-macchinista-di-treno-cantiere-con-esperienza-nel-settore-artigianale-ffs-officine",
+        "en": "career-change-to-train-driver-construction-train-with-practical-experience-ffs-officine-ferrovie-federali-langenthal",
         "de": "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-langenthal",
-        "fr": "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-langenthal"
+        "fr": "reconversion-professionnelle-conducteur-conductrice-de-train-train-de-chantier-avec-experience-dans-le-domaine-de-l"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -3601,15 +3930,29 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:31:18.689Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:31:18.689Z"
+      "firstSeenAt": "2026-11-23T09:31:18.689Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-langenthal"
+        ],
+        "en": [
+          "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-langenthal"
+        ],
+        "fr": [
+          "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-langenthal"
+      ]
     },
     {
       "id": "sbb-1ede1b8087c0",
-      "slug": "chef-fe-de-projet-genie-civil-ffs-officine-ferrovie-federali-valais-renens-vd",
+      "slug": "leader-del-progetto-di-ingegneria-civile-ffs-officine-ferrovie-federali-valais-renens-vd",
       "slugByLocale": {
-        "it": "chef-fe-de-projet-genie-civil-ffs-officine-ferrovie-federali-valais-renens-vd",
-        "en": "chef-fe-de-projet-genie-civil-ffs-officine-ferrovie-federali-valais-renens-vd",
-        "de": "chef-fe-de-projet-genie-civil-ffs-officine-ferrovie-federali-valais-renens-vd",
+        "it": "leader-del-progetto-di-ingegneria-civile-ffs-officine-ferrovie-federali-valais-renens-vd",
+        "en": "civil-engineering-project-leader-ffs-officine-ferrovie-federali-valais-renens-vd",
+        "de": "projektleiter-bauingenieurwesen-ffs-officine-ferrovie-federali-valais-renens-vd",
         "fr": "chef-fe-de-projet-genie-civil-ffs-officine-ferrovie-federali-valais-renens-vd"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -3702,16 +4045,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:30:33.178Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:30:33.178Z"
+      "firstSeenAt": "2026-11-23T09:30:33.178Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-projet-genie-civil-ffs-officine-ferrovie-federali-valais-renens-vd"
+        ],
+        "en": [
+          "chef-fe-de-projet-genie-civil-ffs-officine-ferrovie-federali-valais-renens-vd"
+        ],
+        "de": [
+          "chef-fe-de-projet-genie-civil-ffs-officine-ferrovie-federali-valais-renens-vd"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-projet-genie-civil-ffs-officine-ferrovie-federali-valais-renens-vd"
+      ]
     },
     {
       "id": "sbb-2a96a2ae73c9",
-      "slug": "responsabile-di-progetto-bauingenieurwesen-ffs-officine-ferrovie-federali-wallis-renens-vd",
+      "slug": "project-manager-ingegneria-civile-ffs-officine-ferrovie-federali-wallis-renens-vd",
       "slugByLocale": {
-        "it": "responsabile-di-progetto-bauingenieurwesen-ffs-officine-ferrovie-federali-wallis-renens-vd",
-        "en": "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-wallis-renens-vd",
+        "it": "project-manager-ingegneria-civile-ffs-officine-ferrovie-federali-wallis-renens-vd",
+        "en": "project-manager-civil-engineering-ffs-officine-ferrovie-federali-wallis-renens-vd",
         "de": "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-wallis-renens-vd",
-        "fr": "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-wallis-renens-vd"
+        "fr": "chef-de-projet-genie-civil-ffs-officine-ferrovie-federali-wallis-renens-vd"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -3784,11 +4141,19 @@
       "crawledAt": "2026-11-23T09:31:10.662Z",
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-wallis-renens-vd",
+          "responsabile-di-progetto-bauingenieurwesen-ffs-officine-ferrovie-federali-wallis-renens-vd"
+        ],
+        "en": [
+          "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-wallis-renens-vd"
+        ],
+        "fr": [
           "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-wallis-renens-vd"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-wallis-renens-vd"
+        "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-wallis-renens-vd",
+        "responsabile-di-progetto-bauingenieurwesen-ffs-officine-ferrovie-federali-wallis-renens-vd"
       ],
       "salaryMin": 97500,
       "salaryMax": 165500,
@@ -3818,9 +4183,9 @@
       "slug": "responsabile-di-progetto-fachspezialist-in-programm-bzu-umsetzung-behig-ffs-officine-ferrovie-federali-bern",
       "slugByLocale": {
         "it": "responsabile-di-progetto-fachspezialist-in-programm-bzu-umsetzung-behig-ffs-officine-ferrovie-federali-bern",
-        "en": "projektleiter-in-fachspezialist-in-programm-bzu-umsetzung-behig-ffs-officine-ferrovie-federali-bern",
+        "en": "project-manager-specialist-in-the-bzu-program-implementation-of-behig-ffs-officine-ferrovie-federali-bern",
         "de": "projektleiter-in-fachspezialist-in-programm-bzu-umsetzung-behig-ffs-officine-ferrovie-federali-bern",
-        "fr": "projektleiter-in-fachspezialist-in-programm-bzu-umsetzung-behig-ffs-officine-ferrovie-federali-bern"
+        "fr": "chef-de-projet-specialiste-dans-le-programme-bzu-mise-en-uvre-de-behig-ffs-officine-ferrovie-federali-bern"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -3889,6 +4254,12 @@
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-fachspezialist-in-programm-bzu-umsetzung-behig-ffs-officine-ferrovie-federali-bern"
+        ],
+        "en": [
+          "projektleiter-in-fachspezialist-in-programm-bzu-umsetzung-behig-ffs-officine-ferrovie-federali-bern"
+        ],
+        "fr": [
+          "projektleiter-in-fachspezialist-in-programm-bzu-umsetzung-behig-ffs-officine-ferrovie-federali-bern"
         ]
       },
       "previousSlugs": [
@@ -3921,9 +4292,9 @@
       "slug": "responsabile-di-progetto-ingegneria-civile-ffs-officine-ferrovie-federali-arth-goldau-oder-erstfeld",
       "slugByLocale": {
         "it": "responsabile-di-progetto-ingegneria-civile-ffs-officine-ferrovie-federali-arth-goldau-oder-erstfeld",
-        "en": "projektleiter-in-ingenieurbau-ffs-officine-ferrovie-federali-arth-goldau-oder-erstfeld",
+        "en": "civil-engineering-project-manager-ffs-officine-ferrovie-federali-arth-goldau-oder-erstfeld",
         "de": "projektleiter-in-ingenieurbau-ffs-officine-ferrovie-federali-arth-goldau-oder-erstfeld",
-        "fr": "projektleiter-in-ingenieurbau-ffs-officine-ferrovie-federali-arth-goldau-oder-erstfeld"
+        "fr": "chef-fe-de-projet-en-genie-civil-ffs-officine-ferrovie-federali-arth-goldau-oder-erstfeld"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -3993,6 +4364,12 @@
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-ingenieurbau-ffs-officine-ferrovie-federali-arth-goldau-oder-erstfeld"
+        ],
+        "en": [
+          "projektleiter-in-ingenieurbau-ffs-officine-ferrovie-federali-arth-goldau-oder-erstfeld"
+        ],
+        "fr": [
+          "projektleiter-in-ingenieurbau-ffs-officine-ferrovie-federali-arth-goldau-oder-erstfeld"
         ]
       },
       "previousSlugs": [
@@ -4023,12 +4400,12 @@
     },
     {
       "id": "sbb-1210a43355e9",
-      "slug": "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-olten",
+      "slug": "riqualificazione-professionale-come-macchinista-di-treno-cantiere-con-esperienza-nel-settore-artigianale-ffs-0fc0b0",
       "slugByLocale": {
-        "it": "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-olten",
-        "en": "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-olten",
+        "it": "riqualificazione-professionale-come-macchinista-di-treno-cantiere-con-esperienza-nel-settore-artigianale-ffs-0fc0b0",
+        "en": "career-change-to-train-driver-construction-train-with-practical-experience-ffs-officine-ferrovie-federali-olten",
         "de": "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-olten",
-        "fr": "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-olten"
+        "fr": "reconversion-professionnelle-conducteur-conductrice-de-train-train-de-chantier-avec-experience-dans-le-domaine-de-0fc0b0"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -4125,13 +4502,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:31:17.186Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-06-10T23:31:55.026Z"
+      "firstSeenAt": "2026-06-10T23:31:55.026Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-olten"
+        ],
+        "en": [
+          "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-olten"
+        ],
+        "fr": [
+          "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-olten"
+        ]
+      },
+      "previousSlugs": [
+        "quereinstieg-lokfuhrer-in-bauzug-mit-handwerklicher-erfahrung-ffs-officine-ferrovie-federali-olten"
+      ]
     },
     {
       "id": "sbb-1d845ffdfec6",
-      "slug": "quereinstieg-rangierlokfuhrer-in-e-rangierleiter-in-kat-a40-ffs-officine-ferrovie-federali-hagendorf",
+      "slug": "inserimento-professionale-come-macchinista-di-manovra-e-capo-manovra-cat-a40-ffs-officine-ferrovie-federali-hagendorf",
       "slugByLocale": {
-        "it": "quereinstieg-rangierlokfuhrer-in-e-rangierleiter-in-kat-a40-ffs-officine-ferrovie-federali-hagendorf",
+        "it": "inserimento-professionale-come-macchinista-di-manovra-e-capo-manovra-cat-a40-ffs-officine-ferrovie-federali-hagendorf",
         "en": "quereinstieg-rangierlokfuhrer-in-e-rangierleiter-in-kat-a40-ffs-officine-ferrovie-federali-hagendorf",
         "de": "quereinstieg-rangierlokfuhrer-in-e-rangierleiter-in-kat-a40-ffs-officine-ferrovie-federali-hagendorf",
         "fr": "quereinstieg-rangierlokfuhrer-in-e-rangierleiter-in-kat-a40-ffs-officine-ferrovie-federali-hagendorf"
@@ -4226,15 +4617,23 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:31:25.661Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-06-12T12:53:03.071Z"
+      "firstSeenAt": "2026-06-12T12:53:03.071Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quereinstieg-rangierlokfuhrer-in-e-rangierleiter-in-kat-a40-ffs-officine-ferrovie-federali-hagendorf"
+        ]
+      },
+      "previousSlugs": [
+        "quereinstieg-rangierlokfuhrer-in-e-rangierleiter-in-kat-a40-ffs-officine-ferrovie-federali-hagendorf"
+      ]
     },
     {
       "id": "sbb-5d6ca28594fe",
-      "slug": "specialiste-chef-de-projet-dans-le-cadre-du-programme-bzu-mise-en-uvre-de-la-lhand-h-f-d-ffs-officine-ferrovie-federali-bern",
+      "slug": "specialista-project-manager-nell-ambito-del-programma-bzu-implementazione-del-lh-e-m-f-d-ffs-officine-ferrovie-federali",
       "slugByLocale": {
-        "it": "specialiste-chef-de-projet-dans-le-cadre-du-programme-bzu-mise-en-uvre-de-la-lhand-h-f-d-ffs-officine-ferrovie-federali-bern",
-        "en": "specialiste-chef-de-projet-dans-le-cadre-du-programme-bzu-mise-en-uvre-de-la-lhand-h-f-d-ffs-officine-ferrovie-federali-bern",
-        "de": "specialiste-chef-de-projet-dans-le-cadre-du-programme-bzu-mise-en-uvre-de-la-lhand-h-f-d-ffs-officine-ferrovie-federali-bern",
+        "it": "specialista-project-manager-nell-ambito-del-programma-bzu-implementazione-del-lh-e-m-f-d-ffs-officine-ferrovie-federali",
+        "en": "specialist-project-leader-under-the-bzu-programme-lhand-implementation-m-f-d-ffs-officine-ferrovie-federali-bern",
+        "de": "spezialist-projektleiter-im-rahmen-des-bzu-programms-lhand-umsetzung-m-w-d-ffs-officine-ferrovie-federali-bern",
         "fr": "specialiste-chef-de-projet-dans-le-cadre-du-programme-bzu-mise-en-uvre-de-la-lhand-h-f-d-ffs-officine-ferrovie-federali-bern"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -4321,16 +4720,30 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:31:50.169Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-chef-de-projet-dans-le-cadre-du-programme-bzu-mise-en-uvre-de-la-lhand-h-f-d-ffs-officine-ferrovie-federali-bern"
+        ],
+        "en": [
+          "specialiste-chef-de-projet-dans-le-cadre-du-programme-bzu-mise-en-uvre-de-la-lhand-h-f-d-ffs-officine-ferrovie-federali-bern"
+        ],
+        "de": [
+          "specialiste-chef-de-projet-dans-le-cadre-du-programme-bzu-mise-en-uvre-de-la-lhand-h-f-d-ffs-officine-ferrovie-federali-bern"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-chef-de-projet-dans-le-cadre-du-programme-bzu-mise-en-uvre-de-la-lhand-h-f-d-ffs-officine-ferrovie-federali-bern"
+      ]
     },
     {
       "id": "sbb-279fadfd40fc",
-      "slug": "management-assistant-m-w-d-ffs-officine-ferrovie-federali-zurich",
+      "slug": "assistente-di-gestione-m-f-d-ffs-officine-ferrovie-federali-zurich",
       "slugByLocale": {
-        "it": "management-assistant-m-w-d-ffs-officine-ferrovie-federali-zurich",
+        "it": "assistente-di-gestione-m-f-d-ffs-officine-ferrovie-federali-zurich",
         "en": "management-assistant-m-w-d-ffs-officine-ferrovie-federali-zurich",
         "de": "management-assistant-m-w-d-ffs-officine-ferrovie-federali-zurich",
-        "fr": "management-assistant-m-w-d-ffs-officine-ferrovie-federali-zurich"
+        "fr": "assistant-de-gestion-h-f-d-ffs-officine-ferrovie-federali-zurich"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -4427,7 +4840,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:30:56.666Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:30:56.666Z"
+      "firstSeenAt": "2026-11-23T09:30:56.666Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "management-assistant-m-w-d-ffs-officine-ferrovie-federali-zurich"
+        ],
+        "fr": [
+          "management-assistant-m-w-d-ffs-officine-ferrovie-federali-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "management-assistant-m-w-d-ffs-officine-ferrovie-federali-zurich"
+      ]
     },
     {
       "id": "sbb-00781050af8d",
@@ -4537,12 +4961,12 @@
     },
     {
       "id": "sbb-9d9690e0c415",
-      "slug": "sachbearbeiter-in-projekt-e-anlagenbuchhaltung-ffs-officine-ferrovie-federali-bern",
+      "slug": "responsabile-della-contabilita-dei-progetti-e-degli-asset-ffs-officine-ferrovie-federali-bern",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-projekt-e-anlagenbuchhaltung-ffs-officine-ferrovie-federali-bern",
-        "en": "sachbearbeiter-in-projekt-und-anlagenbuchhaltung-ffs-officine-ferrovie-federali-bern",
+        "it": "responsabile-della-contabilita-dei-progetti-e-degli-asset-ffs-officine-ferrovie-federali-bern",
+        "en": "project-and-asset-accounting-officer-ffs-officine-ferrovie-federali-bern",
         "de": "sachbearbeiter-in-projekt-und-anlagenbuchhaltung-ffs-officine-ferrovie-federali-bern",
-        "fr": "sachbearbeiter-in-projekt-und-anlagenbuchhaltung-ffs-officine-ferrovie-federali-bern"
+        "fr": "responsable-de-la-comptabilite-des-projets-et-des-actifs-ffs-officine-ferrovie-federali-bern"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -4620,11 +5044,19 @@
       "crawledAt": "2026-11-23T09:31:48.662Z",
       "previousSlugsByLocale": {
         "it": [
+          "sachbearbeiter-in-projekt-und-anlagenbuchhaltung-ffs-officine-ferrovie-federali-bern",
+          "sachbearbeiter-in-projekt-e-anlagenbuchhaltung-ffs-officine-ferrovie-federali-bern"
+        ],
+        "en": [
+          "sachbearbeiter-in-projekt-und-anlagenbuchhaltung-ffs-officine-ferrovie-federali-bern"
+        ],
+        "fr": [
           "sachbearbeiter-in-projekt-und-anlagenbuchhaltung-ffs-officine-ferrovie-federali-bern"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-projekt-und-anlagenbuchhaltung-ffs-officine-ferrovie-federali-bern"
+        "sachbearbeiter-in-projekt-und-anlagenbuchhaltung-ffs-officine-ferrovie-federali-bern",
+        "sachbearbeiter-in-projekt-e-anlagenbuchhaltung-ffs-officine-ferrovie-federali-bern"
       ],
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -4651,12 +5083,12 @@
     },
     {
       "id": "sbb-597fe94d3510",
-      "slug": "berufsbildner-in-automation-ffs-officine-ferrovie-federali-spiez",
+      "slug": "formatore-professionale-in-automazione-ffs-officine-ferrovie-federali-spiez",
       "slugByLocale": {
-        "it": "berufsbildner-in-automation-ffs-officine-ferrovie-federali-spiez",
-        "en": "berufsbildner-in-automation-ffs-officine-ferrovie-federali-spiez",
+        "it": "formatore-professionale-in-automazione-ffs-officine-ferrovie-federali-spiez",
+        "en": "vocational-trainer-in-automation-ffs-officine-ferrovie-federali-spiez",
         "de": "berufsbildner-in-automation-ffs-officine-ferrovie-federali-spiez",
-        "fr": "berufsbildner-in-automation-ffs-officine-ferrovie-federali-spiez"
+        "fr": "formateur-professionnel-en-automatisation-ffs-officine-ferrovie-federali-spiez"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -4753,15 +5185,29 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:30:29.644Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:30:29.644Z"
+      "firstSeenAt": "2026-11-23T09:30:29.644Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildner-in-automation-ffs-officine-ferrovie-federali-spiez"
+        ],
+        "en": [
+          "berufsbildner-in-automation-ffs-officine-ferrovie-federali-spiez"
+        ],
+        "fr": [
+          "berufsbildner-in-automation-ffs-officine-ferrovie-federali-spiez"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildner-in-automation-ffs-officine-ferrovie-federali-spiez"
+      ]
     },
     {
       "id": "sbb-d4ad254c3da0",
-      "slug": "pilote-de-locomotive-cat-b100-deja-forme-e-m-f-d-ffs-officine-ferrovie-federali-denges",
+      "slug": "cat-locomotiva-pilota-b100-gia-formato-m-f-d-ffs-officine-ferrovie-federali-denges",
       "slugByLocale": {
-        "it": "pilote-de-locomotive-cat-b100-deja-forme-e-m-f-d-ffs-officine-ferrovie-federali-denges",
-        "en": "pilote-de-locomotive-cat-b100-deja-forme-e-m-f-d-ffs-officine-ferrovie-federali-denges",
-        "de": "pilote-de-locomotive-cat-b100-deja-forme-e-m-f-d-ffs-officine-ferrovie-federali-denges",
+        "it": "cat-locomotiva-pilota-b100-gia-formato-m-f-d-ffs-officine-ferrovie-federali-denges",
+        "en": "cat-locomotive-pilot-b100-already-formed-m-f-d-ffs-officine-ferrovie-federali-denges",
+        "de": "katzenlokomotivpilot-b100-bereits-gebildet-m-w-d-ffs-officine-ferrovie-federali-denges",
         "fr": "pilote-de-locomotive-cat-b100-deja-forme-e-m-f-d-ffs-officine-ferrovie-federali-denges"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -4859,16 +5305,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:31:03.193Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:31:03.193Z"
+      "firstSeenAt": "2026-11-23T09:31:03.193Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pilote-de-locomotive-cat-b100-deja-forme-e-m-f-d-ffs-officine-ferrovie-federali-denges"
+        ],
+        "en": [
+          "pilote-de-locomotive-cat-b100-deja-forme-e-m-f-d-ffs-officine-ferrovie-federali-denges"
+        ],
+        "de": [
+          "pilote-de-locomotive-cat-b100-deja-forme-e-m-f-d-ffs-officine-ferrovie-federali-denges"
+        ]
+      },
+      "previousSlugs": [
+        "pilote-de-locomotive-cat-b100-deja-forme-e-m-f-d-ffs-officine-ferrovie-federali-denges"
+      ]
     },
     {
       "id": "sbb-475d2957364a",
-      "slug": "spezialist-in-storungsdiagnosen-e-instandhaltung-von-schienenfahrzeugen-ffs-officine-ferrovie-federali-zurich",
+      "slug": "specialista-nella-diagnosi-e-manutenzione-dei-guasti-dei-veicoli-ferroviari-ffs-officine-ferrovie-federali-zurich",
       "slugByLocale": {
-        "it": "spezialist-in-storungsdiagnosen-e-instandhaltung-von-schienenfahrzeugen-ffs-officine-ferrovie-federali-zurich",
-        "en": "spezialist-in-storungsdiagnosen-und-instandhaltung-von-schienenfahrzeugen-ffs-officine-ferrovie-federali-zurich",
+        "it": "specialista-nella-diagnosi-e-manutenzione-dei-guasti-dei-veicoli-ferroviari-ffs-officine-ferrovie-federali-zurich",
+        "en": "specialist-in-fault-diagnosis-and-maintenance-of-rail-vehicles-ffs-officine-ferrovie-federali-zurich",
         "de": "spezialist-in-storungsdiagnosen-und-instandhaltung-von-schienenfahrzeugen-ffs-officine-ferrovie-federali-zurich",
-        "fr": "spezialist-in-storungsdiagnosen-und-instandhaltung-von-schienenfahrzeugen-ffs-officine-ferrovie-federali-zurich"
+        "fr": "specialiste-du-diagnostic-et-de-la-maintenance-des-pannes-de-vehicules-ferroviaires-ffs-officine-ferrovie-federali"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -4941,11 +5401,19 @@
       "crawledAt": "2026-11-23T09:31:52.178Z",
       "previousSlugsByLocale": {
         "it": [
+          "spezialist-in-storungsdiagnosen-und-instandhaltung-von-schienenfahrzeugen-ffs-officine-ferrovie-federali-zurich",
+          "spezialist-in-storungsdiagnosen-e-instandhaltung-von-schienenfahrzeugen-ffs-officine-ferrovie-federali-zurich"
+        ],
+        "en": [
+          "spezialist-in-storungsdiagnosen-und-instandhaltung-von-schienenfahrzeugen-ffs-officine-ferrovie-federali-zurich"
+        ],
+        "fr": [
           "spezialist-in-storungsdiagnosen-und-instandhaltung-von-schienenfahrzeugen-ffs-officine-ferrovie-federali-zurich"
         ]
       },
       "previousSlugs": [
-        "spezialist-in-storungsdiagnosen-und-instandhaltung-von-schienenfahrzeugen-ffs-officine-ferrovie-federali-zurich"
+        "spezialist-in-storungsdiagnosen-und-instandhaltung-von-schienenfahrzeugen-ffs-officine-ferrovie-federali-zurich",
+        "spezialist-in-storungsdiagnosen-e-instandhaltung-von-schienenfahrzeugen-ffs-officine-ferrovie-federali-zurich"
       ],
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -4972,12 +5440,12 @@
     },
     {
       "id": "sbb-23ac93f13a68",
-      "slug": "polier-in-gleisbau-ffs-officine-ferrovie-federali-luzern",
+      "slug": "lucidatrice-per-costruzione-di-binari-ffs-officine-ferrovie-federali-luzern",
       "slugByLocale": {
-        "it": "polier-in-gleisbau-ffs-officine-ferrovie-federali-luzern",
-        "en": "polier-in-gleisbau-ffs-officine-ferrovie-federali-luzern",
+        "it": "lucidatrice-per-costruzione-di-binari-ffs-officine-ferrovie-federali-luzern",
+        "en": "track-construction-polisher-ffs-officine-ferrovie-federali-luzern",
         "de": "polier-in-gleisbau-ffs-officine-ferrovie-federali-luzern",
-        "fr": "polier-in-gleisbau-ffs-officine-ferrovie-federali-luzern"
+        "fr": "polisseur-de-construction-de-chenilles-ffs-officine-ferrovie-federali-luzern"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -5069,16 +5537,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:31:06.692Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:31:06.692Z"
+      "firstSeenAt": "2026-11-23T09:31:06.692Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "polier-in-gleisbau-ffs-officine-ferrovie-federali-luzern"
+        ],
+        "en": [
+          "polier-in-gleisbau-ffs-officine-ferrovie-federali-luzern"
+        ],
+        "fr": [
+          "polier-in-gleisbau-ffs-officine-ferrovie-federali-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "polier-in-gleisbau-ffs-officine-ferrovie-federali-luzern"
+      ]
     },
     {
       "id": "sbb-21e5c16e5c7a",
-      "slug": "planer-in-instandhaltung-schienenfahrzeuge-ffs-officine-ferrovie-federali-bern",
+      "slug": "pianificatore-per-la-manutenzione-dei-veicoli-ferroviari-ffs-officine-ferrovie-federali-bern",
       "slugByLocale": {
-        "it": "planer-in-instandhaltung-schienenfahrzeuge-ffs-officine-ferrovie-federali-bern",
-        "en": "planer-in-instandhaltung-schienenfahrzeuge-ffs-officine-ferrovie-federali-bern",
+        "it": "pianificatore-per-la-manutenzione-dei-veicoli-ferroviari-ffs-officine-ferrovie-federali-bern",
+        "en": "planner-for-rail-vehicle-maintenance-ffs-officine-ferrovie-federali-bern",
         "de": "planer-in-instandhaltung-schienenfahrzeuge-ffs-officine-ferrovie-federali-bern",
-        "fr": "planer-in-instandhaltung-schienenfahrzeuge-ffs-officine-ferrovie-federali-bern"
+        "fr": "planificateur-pour-la-maintenance-des-vehicules-ferroviaires-ffs-officine-ferrovie-federali-bern"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -5170,13 +5652,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:31:04.187Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:31:04.187Z"
+      "firstSeenAt": "2026-11-23T09:31:04.187Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "planer-in-instandhaltung-schienenfahrzeuge-ffs-officine-ferrovie-federali-bern"
+        ],
+        "en": [
+          "planer-in-instandhaltung-schienenfahrzeuge-ffs-officine-ferrovie-federali-bern"
+        ],
+        "fr": [
+          "planer-in-instandhaltung-schienenfahrzeuge-ffs-officine-ferrovie-federali-bern"
+        ]
+      },
+      "previousSlugs": [
+        "planer-in-instandhaltung-schienenfahrzeuge-ffs-officine-ferrovie-federali-bern"
+      ]
     },
     {
       "id": "sbb-07ad1fc50b4c",
-      "slug": "diagnosticien-e-ffs-officine-ferrovie-federali-biel-bienne",
+      "slug": "diagnostica-ffs-officine-ferrovie-federali-biel-bienne",
       "slugByLocale": {
-        "it": "diagnosticien-e-ffs-officine-ferrovie-federali-biel-bienne",
+        "it": "diagnostica-ffs-officine-ferrovie-federali-biel-bienne",
         "en": "diagnosticien-e-ffs-officine-ferrovie-federali-biel-bienne",
         "de": "diagnosticien-e-ffs-officine-ferrovie-federali-biel-bienne",
         "fr": "diagnosticien-e-ffs-officine-ferrovie-federali-biel-bienne"
@@ -5270,13 +5766,21 @@
       "streetAddress": "Biel/Bienne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:30:36.181Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "diagnosticien-e-ffs-officine-ferrovie-federali-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "diagnosticien-e-ffs-officine-ferrovie-federali-biel-bienne"
+      ]
     },
     {
       "id": "sbb-bc82a806b2c8",
-      "slug": "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne-d7097997cc",
+      "slug": "tecnico-specializzato-a-nel-settore-industriale-ffs-officine-ferrovie-federali-biel-bienne-aa9409",
       "slugByLocale": {
-        "it": "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne-d7097997cc",
+        "it": "tecnico-specializzato-a-nel-settore-industriale-ffs-officine-ferrovie-federali-biel-bienne-aa9409",
         "en": "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne",
         "de": "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne",
         "fr": "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne"
@@ -5373,19 +5877,21 @@
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-02T13:50:44.705Z",
       "previousSlugs": [
-        "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne"
+        "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne",
+        "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne-d7097997cc"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne"
+          "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne",
+          "fachtechniker-in-industrie-ffs-officine-ferrovie-federali-biel-bienne-d7097997cc"
         ]
       }
     },
     {
       "id": "sbb-0d39fa6626f8",
-      "slug": "fahrzeugdiagnostiker-in-schienenfahrzeuge-ffs-officine-ferrovie-federali-biel-bienne",
+      "slug": "diagnostico-a-di-veicoli-ferroviari-ffs-officine-ferrovie-federali-biel-bienne",
       "slugByLocale": {
-        "it": "fahrzeugdiagnostiker-in-schienenfahrzeuge-ffs-officine-ferrovie-federali-biel-bienne",
+        "it": "diagnostico-a-di-veicoli-ferroviari-ffs-officine-ferrovie-federali-biel-bienne",
         "en": "fahrzeugdiagnostiker-in-schienenfahrzeuge-ffs-officine-ferrovie-federali-biel-bienne",
         "de": "fahrzeugdiagnostiker-in-schienenfahrzeuge-ffs-officine-ferrovie-federali-biel-bienne",
         "fr": "fahrzeugdiagnostiker-in-schienenfahrzeuge-ffs-officine-ferrovie-federali-biel-bienne"
@@ -5480,16 +5986,24 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:30:46.174Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-24T14:27:48.300Z"
+      "firstSeenAt": "2026-09-24T14:27:48.300Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fahrzeugdiagnostiker-in-schienenfahrzeuge-ffs-officine-ferrovie-federali-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "fahrzeugdiagnostiker-in-schienenfahrzeuge-ffs-officine-ferrovie-federali-biel-bienne"
+      ]
     },
     {
       "id": "sbb-0ff313a71be4",
-      "slug": "instandhaltungstechniker-in-quereinstieg-moglich-ffs-officine-ferrovie-federali-zurich",
+      "slug": "tecnico-di-manutenzione-ingresso-laterale-possibile-ffs-officine-ferrovie-federali-zurich",
       "slugByLocale": {
-        "it": "instandhaltungstechniker-in-quereinstieg-moglich-ffs-officine-ferrovie-federali-zurich",
-        "en": "instandhaltungstechniker-in-quereinstieg-moglich-ffs-officine-ferrovie-federali-zurich",
+        "it": "tecnico-di-manutenzione-ingresso-laterale-possibile-ffs-officine-ferrovie-federali-zurich",
+        "en": "maintenance-technician-lateral-entry-possible-ffs-officine-ferrovie-federali-zurich",
         "de": "instandhaltungstechniker-in-quereinstieg-moglich-ffs-officine-ferrovie-federali-zurich",
-        "fr": "instandhaltungstechniker-in-quereinstieg-moglich-ffs-officine-ferrovie-federali-zurich"
+        "fr": "technicien-de-maintenance-entree-laterale-possible-ffs-officine-ferrovie-federali-zurich"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -5576,16 +6090,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:30:49.179Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:30:49.179Z"
+      "firstSeenAt": "2026-11-23T09:30:49.179Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "instandhaltungstechniker-in-quereinstieg-moglich-ffs-officine-ferrovie-federali-zurich"
+        ],
+        "en": [
+          "instandhaltungstechniker-in-quereinstieg-moglich-ffs-officine-ferrovie-federali-zurich"
+        ],
+        "fr": [
+          "instandhaltungstechniker-in-quereinstieg-moglich-ffs-officine-ferrovie-federali-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "instandhaltungstechniker-in-quereinstieg-moglich-ffs-officine-ferrovie-federali-zurich"
+      ]
     },
     {
       "id": "sbb-c1781f549161",
       "slug": "responsabile-transportpolizei-region-ost-ffs-officine-ferrovie-federali-zurich",
       "slugByLocale": {
         "it": "responsabile-transportpolizei-region-ost-ffs-officine-ferrovie-federali-zurich",
-        "en": "leiter-in-transportpolizei-region-ost-ffs-officine-ferrovie-federali-zurich",
+        "en": "head-of-transport-police-east-region-ffs-officine-ferrovie-federali-zurich",
         "de": "leiter-in-transportpolizei-region-ost-ffs-officine-ferrovie-federali-zurich",
-        "fr": "leiter-in-transportpolizei-region-ost-ffs-officine-ferrovie-federali-zurich"
+        "fr": "chef-de-la-police-des-transports-de-la-region-est-ffs-officine-ferrovie-federali-zurich"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -5664,6 +6192,12 @@
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-transportpolizei-region-ost-ffs-officine-ferrovie-federali-zurich"
+        ],
+        "en": [
+          "leiter-in-transportpolizei-region-ost-ffs-officine-ferrovie-federali-zurich"
+        ],
+        "fr": [
+          "leiter-in-transportpolizei-region-ost-ffs-officine-ferrovie-federali-zurich"
         ]
       },
       "previousSlugs": [
@@ -5694,12 +6228,12 @@
     },
     {
       "id": "sbb-4a4065ffb025",
-      "slug": "sap-berechtigungsexpert-in-ffs-officine-ferrovie-federali-bern",
+      "slug": "esperto-di-autorizzazioni-sap-ffs-officine-ferrovie-federali-bern",
       "slugByLocale": {
-        "it": "sap-berechtigungsexpert-in-ffs-officine-ferrovie-federali-bern",
-        "en": "sap-berechtigungsexpert-in-ffs-officine-ferrovie-federali-bern",
+        "it": "esperto-di-autorizzazioni-sap-ffs-officine-ferrovie-federali-bern",
+        "en": "sap-permission-expert-ffs-officine-ferrovie-federali-bern",
         "de": "sap-berechtigungsexpert-in-ffs-officine-ferrovie-federali-bern",
-        "fr": "sap-berechtigungsexpert-in-ffs-officine-ferrovie-federali-bern"
+        "fr": "expert-en-permissions-sap-ffs-officine-ferrovie-federali-bern"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -5796,16 +6330,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T09:31:49.174Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:31:49.174Z"
+      "firstSeenAt": "2026-11-23T09:31:49.174Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sap-berechtigungsexpert-in-ffs-officine-ferrovie-federali-bern"
+        ],
+        "en": [
+          "sap-berechtigungsexpert-in-ffs-officine-ferrovie-federali-bern"
+        ],
+        "fr": [
+          "sap-berechtigungsexpert-in-ffs-officine-ferrovie-federali-bern"
+        ]
+      },
+      "previousSlugs": [
+        "sap-berechtigungsexpert-in-ffs-officine-ferrovie-federali-bern"
+      ]
     },
     {
       "id": "sbb-c1abdec3fdbb",
-      "slug": "quereinstieg-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-zurich",
+      "slug": "guardia-di-sicurezza-a-ingresso-incrociato-capo-della-sicurezza-ffs-officine-ferrovie-federali-zurich",
       "slugByLocale": {
-        "it": "quereinstieg-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-zurich",
-        "en": "quereinstieg-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-zurich",
+        "it": "guardia-di-sicurezza-a-ingresso-incrociato-capo-della-sicurezza-ffs-officine-ferrovie-federali-zurich",
+        "en": "cross-entry-security-guard-head-of-security-ffs-officine-ferrovie-federali-zurich",
         "de": "quereinstieg-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-zurich",
-        "fr": "quereinstieg-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-zurich"
+        "fr": "garde-de-securite-a-entree-transversale-chef-de-la-securite-ffs-officine-ferrovie-federali-zurich"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -5902,16 +6450,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T09:31:38.181Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:31:38.181Z"
+      "firstSeenAt": "2026-11-23T09:31:38.181Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quereinstieg-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-zurich"
+        ],
+        "en": [
+          "quereinstieg-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-zurich"
+        ],
+        "fr": [
+          "quereinstieg-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "quereinstieg-sicherheitswarter-in-sicherheitschef-in-ffs-officine-ferrovie-federali-zurich"
+      ]
     },
     {
       "id": "sbb-a495677c32d8",
       "slug": "responsabile-di-progetto-infrastruktur-80-100-in-stansstad-ffs-officine-ferrovie-federali-stansstad",
       "slugByLocale": {
         "it": "responsabile-di-progetto-infrastruktur-80-100-in-stansstad-ffs-officine-ferrovie-federali-stansstad",
-        "en": "projektleiter-in-infrastruktur-80-100-in-stansstad-ffs-officine-ferrovie-federali-stansstad",
+        "en": "project-manager-infrastruktur-80-100-in-stansstad-ffs-officine-ferrovie-federali-stansstad",
         "de": "projektleiter-in-infrastruktur-80-100-in-stansstad-ffs-officine-ferrovie-federali-stansstad",
-        "fr": "projektleiter-in-infrastruktur-80-100-in-stansstad-ffs-officine-ferrovie-federali-stansstad"
+        "fr": "chef-de-projet-infrastruktur-80-100-in-stansstad-ffs-officine-ferrovie-federali-stansstad"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -5994,6 +6556,12 @@
       "crawledAt": "2026-11-23T09:31:11.648Z",
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-infrastruktur-80-100-in-stansstad-ffs-officine-ferrovie-federali-stansstad"
+        ],
+        "en": [
+          "projektleiter-in-infrastruktur-80-100-in-stansstad-ffs-officine-ferrovie-federali-stansstad"
+        ],
+        "fr": [
           "projektleiter-in-infrastruktur-80-100-in-stansstad-ffs-officine-ferrovie-federali-stansstad"
         ]
       },

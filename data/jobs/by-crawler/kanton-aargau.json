@@ -5113,12 +5113,12 @@
     },
     {
       "id": "kanton-aargau-6898182c18e4",
-      "slug": "juristin-jurist-rechtsdienst-kantonales-steueramt-60-80-kanton-aargau-ch",
+      "slug": "avvocato-servizio-giuridico-ufficio-fiscale-cantonale-60-80-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "juristin-jurist-rechtsdienst-kantonales-steueramt-60-80-kanton-aargau-ch",
-        "it": "juristin-jurist-rechtsdienst-kantonales-steueramt-60-80-kanton-aargau-ch",
-        "en": "juristin-jurist-rechtsdienst-kantonales-steueramt-60-80-kanton-aargau-ch",
-        "fr": "juristin-jurist-rechtsdienst-kantonales-steueramt-60-80-kanton-aargau-ch"
+        "it": "avvocato-servizio-giuridico-ufficio-fiscale-cantonale-60-80-kanton-aargau-aarau",
+        "en": "lawyer-legal-service-cantonal-tax-office-60-80-kanton-aargau-aarau",
+        "fr": "avocat-service-juridique-bureau-cantonal-des-impots-60-80-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -5181,16 +5181,30 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-23T09:34:45.971Z"
+      "firstSeenAt": "2026-11-23T09:34:45.971Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "juristin-jurist-rechtsdienst-kantonales-steueramt-60-80-kanton-aargau-ch"
+        ],
+        "en": [
+          "juristin-jurist-rechtsdienst-kantonales-steueramt-60-80-kanton-aargau-ch"
+        ],
+        "fr": [
+          "juristin-jurist-rechtsdienst-kantonales-steueramt-60-80-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "juristin-jurist-rechtsdienst-kantonales-steueramt-60-80-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-1e933d84e6cf",
-      "slug": "hochschulpraktikantin-hochschulpraktikant-in-der-abteilung-finanzen-80-100-kanton-aargau",
+      "slug": "stage-universitario-tirocinante-universitario-nel-dipartimento-di-finanza-80-100-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "hochschulpraktikantin-hochschulpraktikant-in-der-abteilung-finanzen-80-100-kanton-aargau",
-        "it": "hochschulpraktikantin-hochschulpraktikant-in-der-abteilung-finanzen-80-100-kanton-aargau",
-        "en": "hochschulpraktikantin-hochschulpraktikant-in-der-abteilung-finanzen-80-100-kanton-aargau",
-        "fr": "hochschulpraktikantin-hochschulpraktikant-in-der-abteilung-finanzen-80-100-kanton-aargau"
+        "it": "stage-universitario-tirocinante-universitario-nel-dipartimento-di-finanza-80-100-kanton-aargau-aarau",
+        "en": "university-intern-university-intern-in-the-department-of-finance-80-100-kanton-aargau-aarau",
+        "fr": "stagiaire-universitaire-stagiaire-universitaire-au-departement-des-finances-80-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -5253,7 +5267,21 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-23T09:34:45.075Z"
+      "firstSeenAt": "2026-11-23T09:34:45.075Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hochschulpraktikantin-hochschulpraktikant-in-der-abteilung-finanzen-80-100-kanton-aargau"
+        ],
+        "en": [
+          "hochschulpraktikantin-hochschulpraktikant-in-der-abteilung-finanzen-80-100-kanton-aargau"
+        ],
+        "fr": [
+          "hochschulpraktikantin-hochschulpraktikant-in-der-abteilung-finanzen-80-100-kanton-aargau"
+        ]
+      },
+      "previousSlugs": [
+        "hochschulpraktikantin-hochschulpraktikant-in-der-abteilung-finanzen-80-100-kanton-aargau"
+      ]
     },
     {
       "id": "kanton-aargau-20560c25dd50",
@@ -5665,8 +5693,8 @@
       "slugByLocale": {
         "de": "mittelschullehrperson-padagogik-und-psychologie-40-50-kanton-aargau-ch",
         "it": "mittelschullehrperson-padagogik-e-psychologie-40-50-kanton-aargau-stein",
-        "en": "mittelschullehrperson-padagogik-und-psychologie-40-50-kanton-aargau-ch",
-        "fr": "mittelschullehrperson-padagogik-und-psychologie-40-50-kanton-aargau-ch"
+        "en": "secondary-school-teacher-pedagogy-and-psychology-40-50-kanton-aargau-stein",
+        "fr": "enseignement-secondaire-pedagogie-et-psychologie-40-50-kanton-aargau-stein"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -5716,6 +5744,12 @@
       "department": "Abteilung Berufsbildung und Mittelschule",
       "previousSlugsByLocale": {
         "it": [
+          "mittelschullehrperson-padagogik-und-psychologie-40-50-kanton-aargau-ch"
+        ],
+        "en": [
+          "mittelschullehrperson-padagogik-und-psychologie-40-50-kanton-aargau-ch"
+        ],
+        "fr": [
           "mittelschullehrperson-padagogik-und-psychologie-40-50-kanton-aargau-ch"
         ]
       },
@@ -5995,12 +6029,12 @@
     },
     {
       "id": "kanton-aargau-1c5206078bdf",
-      "slug": "leitung-schulpsychologischer-dienst-kanton-aargau-80-100-kanton-aargau-ch",
+      "slug": "capo-della-scuola-servizio-psicologico-canton-aargau-80-100-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "leitung-schulpsychologischer-dienst-kanton-aargau-80-100-kanton-aargau-ch",
-        "it": "leitung-schulpsychologischer-dienst-kanton-aargau-80-100-kanton-aargau-ch",
-        "en": "leitung-schulpsychologischer-dienst-kanton-aargau-80-100-kanton-aargau-ch",
-        "fr": "leitung-schulpsychologischer-dienst-kanton-aargau-80-100-kanton-aargau-ch"
+        "it": "capo-della-scuola-servizio-psicologico-canton-aargau-80-100-kanton-aargau-aarau",
+        "en": "head-of-school-psychological-service-canton-aargau-80-100-kanton-aargau-aarau",
+        "fr": "chef-de-service-psychologique-scolaire-canton-argovie-80-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -6064,7 +6098,21 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-23T09:34:38.586Z"
+      "firstSeenAt": "2026-11-23T09:34:38.586Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-schulpsychologischer-dienst-kanton-aargau-80-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "leitung-schulpsychologischer-dienst-kanton-aargau-80-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "leitung-schulpsychologischer-dienst-kanton-aargau-80-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-schulpsychologischer-dienst-kanton-aargau-80-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-35f22742274a",

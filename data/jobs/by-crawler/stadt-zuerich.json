@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "stadt-zuerich-7fbfffba9e11",
-      "slug": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507",
+      "slug": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
         "en": "specialist-child-care-efz-stadt-zurich-zurich-f06c10",
         "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-f06c10",
-        "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507"
+        "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -61,12 +61,14 @@
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
-          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
+          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
+          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507"
         ]
       },
       "previousSlugs": [
         "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
-        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
+        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
+        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -2057,9 +2059,9 @@
     },
     {
       "id": "stadt-zuerich-bf97b1cf4fd8",
-      "slug": "professionista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-56fcad8f9a",
+      "slug": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "professionista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-56fcad8f9a",
+        "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
         "en": "specialist-child-care-efz-stadt-zurich-zurich-c7fa8a",
         "de": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51123",
         "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-c7fa8a"
@@ -2129,7 +2131,8 @@
         "specialista-assistenza-bambini-afc-stadt-zurich-zurich",
         "specialist-child-care-efz-stadt-zurich-zurich",
         "soins-specialises-pour-enfants-efz-stadt-zurich-zurich",
-        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
+        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
+        "professionista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-56fcad8f9a"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2145,7 +2148,8 @@
           "specialista-assistenza-bambini-afc-stadt-zurich-zurich-411899935a",
           "specialista-assistenza-bambini-afc-stadt-zurich-zurich-562bc7edc9",
           "specialista-assistenza-bambini-afc-stadt-zurich-zurich",
-          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
+          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
+          "professionista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich-56fcad8f9a"
         ],
         "en": [
           "specialist-child-care-efz-stadt-zurich-zurich-f06c10",
@@ -18917,10 +18921,10 @@
     },
     {
       "id": "stadt-zuerich-2a3a8e4b61ee",
-      "slug": "reinigungsmitarbeiter-in-schule-im-birch-stadt-zurich-zurich",
+      "slug": "personale-delle-pulizie-scuola-a-birch-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "reinigungsmitarbeiter-in-schule-im-birch-stadt-zuerich-zurigo-52250",
-        "it": "reinigungsmitarbeiter-in-schule-im-birch-stadt-zurich-zurich",
+        "it": "personale-delle-pulizie-scuola-a-birch-stadt-zurich-zurich",
         "en": "reinigungsmitarbeiter-in-schule-im-birch-stadt-zurich-zurich",
         "fr": "reinigungsmitarbeiter-in-schule-im-birch-stadt-zurich-zurich"
       },
@@ -18973,11 +18977,13 @@
       "referenceNumber": "52250",
       "previousSlugsByLocale": {
         "it": [
-          "reinigungsmitarbeiter-in-schule-im-birch-stadt-zuerich-zurigo-52250"
+          "reinigungsmitarbeiter-in-schule-im-birch-stadt-zuerich-zurigo-52250",
+          "reinigungsmitarbeiter-in-schule-im-birch-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "reinigungsmitarbeiter-in-schule-im-birch-stadt-zuerich-zurigo-52250"
+        "reinigungsmitarbeiter-in-schule-im-birch-stadt-zuerich-zurigo-52250",
+        "reinigungsmitarbeiter-in-schule-im-birch-stadt-zurich-zurich"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -33135,12 +33141,12 @@
     },
     {
       "id": "stadt-zuerich-cd747ca233ce",
-      "slug": "fachperson-begabungs-e-begabtenforderung-bbf-tagesschule-nordstern-stadt-zurich",
+      "slug": "specialista-in-supporto-ai-dotati-e-ai-dotati-bbf-nordstern-day-school-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachperson-begabungs-und-begabtenforderung-bbf-tagesschule-nordstern-stadt-zuerich-zurigo",
-        "it": "fachperson-begabungs-e-begabtenforderung-bbf-tagesschule-nordstern-stadt-zurich",
-        "en": "fachperson-begabungs-und-begabtenforderung-bbf-tagesschule-nordstern-stadt-zurich-zurich",
-        "fr": "fachperson-begabungs-und-begabtenforderung-bbf-tagesschule-nordstern-stadt-zurich-zurich"
+        "it": "specialista-in-supporto-ai-dotati-e-ai-dotati-bbf-nordstern-day-school-stadt-zurich-zurich",
+        "en": "specialist-for-talented-and-gifted-promotion-bbf-day-school-nordstern-stadt-zurich-zurich",
+        "fr": "specialiste-de-la-promotion-talentueuse-et-douee-bbf-ecole-de-jour-nordstern-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -33191,11 +33197,20 @@
       "referenceNumber": "52357",
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-begabungs-und-begabtenforderung-bbf-tagesschule-nordstern-stadt-zuerich-zurigo"
+          "fachperson-begabungs-und-begabtenforderung-bbf-tagesschule-nordstern-stadt-zuerich-zurigo",
+          "fachperson-begabungs-e-begabtenforderung-bbf-tagesschule-nordstern-stadt-zurich"
+        ],
+        "en": [
+          "fachperson-begabungs-und-begabtenforderung-bbf-tagesschule-nordstern-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "fachperson-begabungs-und-begabtenforderung-bbf-tagesschule-nordstern-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "fachperson-begabungs-und-begabtenforderung-bbf-tagesschule-nordstern-stadt-zuerich-zurigo"
+        "fachperson-begabungs-und-begabtenforderung-bbf-tagesschule-nordstern-stadt-zuerich-zurigo",
+        "fachperson-begabungs-e-begabtenforderung-bbf-tagesschule-nordstern-stadt-zurich",
+        "fachperson-begabungs-und-begabtenforderung-bbf-tagesschule-nordstern-stadt-zurich-zurich"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -33222,7 +33237,7 @@
         "de": "account-manager-in-stadt-zuerich-zurigo-52297",
         "it": "account-manager-in-stadt-zuerich-zurigo-52297",
         "en": "account-manager-in-stadt-zuerich-zurigo-52297",
-        "fr": "account-manager-in-stadt-zuerich-zurigo-52297"
+        "fr": "gestionnaire-de-compte-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -33287,16 +33302,24 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-21T10:09:34.958Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T10:09:34.958Z"
+      "firstSeenAt": "2026-11-23T10:09:34.958Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "account-manager-in-stadt-zuerich-zurigo-52297"
+        ]
+      },
+      "previousSlugs": [
+        "account-manager-in-stadt-zuerich-zurigo-52297"
+      ]
     },
     {
       "id": "stadt-zuerich-b6302d8a6ff8",
-      "slug": "fachlehrperson-unterstufe-4-wl-1-ilz-aufgabenstunde-stadt-zuerich-zurigo-52358",
+      "slug": "insegnante-specializzato-sublevel-4-wl-1-ora-del-compito-ilz-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachlehrperson-unterstufe-4-wl-1-ilz-aufgabenstunde-stadt-zuerich-zurigo-52358",
-        "it": "fachlehrperson-unterstufe-4-wl-1-ilz-aufgabenstunde-stadt-zuerich-zurigo-52358",
-        "en": "fachlehrperson-unterstufe-4-wl-1-ilz-aufgabenstunde-stadt-zuerich-zurigo-52358",
-        "fr": "fachlehrperson-unterstufe-4-wl-1-ilz-aufgabenstunde-stadt-zuerich-zurigo-52358"
+        "it": "insegnante-specializzato-sublevel-4-wl-1-ora-del-compito-ilz-stadt-zurich-zurich",
+        "en": "specialist-teacher-sub-level-4-wl-1-ilz-task-hour-stadt-zurich-zurich",
+        "fr": "professeur-specialise-sous-niveau-4-wl-1-heure-de-travail-ilz-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -33361,7 +33384,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-21T10:09:34.958Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T10:09:34.958Z"
+      "firstSeenAt": "2026-11-23T10:09:34.958Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachlehrperson-unterstufe-4-wl-1-ilz-aufgabenstunde-stadt-zuerich-zurigo-52358"
+        ],
+        "en": [
+          "fachlehrperson-unterstufe-4-wl-1-ilz-aufgabenstunde-stadt-zuerich-zurigo-52358"
+        ],
+        "fr": [
+          "fachlehrperson-unterstufe-4-wl-1-ilz-aufgabenstunde-stadt-zuerich-zurigo-52358"
+        ]
+      },
+      "previousSlugs": [
+        "fachlehrperson-unterstufe-4-wl-1-ilz-aufgabenstunde-stadt-zuerich-zurigo-52358"
+      ]
     },
     {
       "id": "stadt-zuerich-2aaa828a4a95",

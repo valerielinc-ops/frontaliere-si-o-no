@@ -3094,12 +3094,12 @@
     },
     {
       "id": "stadt-bern-b7bad85e0344",
-      "slug": "controller-in-verwaltungsvermogen-stadt-bern-bern",
+      "slug": "controllore-dei-beni-amministrativi-stadt-bern-bern",
       "slugByLocale": {
         "de": "controller-in-verwaltungsvermogen-stadt-bern-bern",
-        "it": "controller-in-verwaltungsvermogen-stadt-bern-bern",
-        "en": "controller-in-verwaltungsvermogen-stadt-bern-bern",
-        "fr": "controller-in-verwaltungsvermogen-stadt-bern-bern"
+        "it": "controllore-dei-beni-amministrativi-stadt-bern-bern",
+        "en": "controller-of-administrative-assets-stadt-bern-bern",
+        "fr": "controleur-des-biens-administratifs-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -3161,7 +3161,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-21T09:19:53.075Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:19:53.075Z"
+      "firstSeenAt": "2026-11-23T09:19:53.075Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "controller-in-verwaltungsvermogen-stadt-bern-bern"
+        ],
+        "en": [
+          "controller-in-verwaltungsvermogen-stadt-bern-bern"
+        ],
+        "fr": [
+          "controller-in-verwaltungsvermogen-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "controller-in-verwaltungsvermogen-stadt-bern-bern"
+      ]
     },
     {
       "id": "stadt-bern-bed60a38f3f0",

@@ -7161,12 +7161,12 @@
     },
     {
       "id": "epfl-120bf78eb1d3",
-      "slug": "phd-student-in-biosensing-nanolab-epfl-epfl-lausanne",
+      "slug": "dottorato-di-ricerca-in-biosensing-nanolab-epfl-epfl-lausanne",
       "slugByLocale": {
         "en": "phd-student-in-biosensing-nanolab-epfl-epfl-lausanne",
-        "it": "phd-student-in-biosensing-nanolab-epfl-epfl-lausanne",
-        "de": "phd-student-in-biosensing-nanolab-epfl-epfl-lausanne",
-        "fr": "phd-student-in-biosensing-nanolab-epfl-epfl-lausanne"
+        "it": "dottorato-di-ricerca-in-biosensing-nanolab-epfl-epfl-lausanne",
+        "de": "doktorand-in-biosensorik-nanolab-epfl-epfl-lausanne",
+        "fr": "doctorant-en-biosension-nanolab-epfl-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -7231,7 +7231,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:30:29.810Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:30:29.810Z"
+      "firstSeenAt": "2026-11-23T09:30:29.810Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-student-in-biosensing-nanolab-epfl-epfl-lausanne"
+        ],
+        "de": [
+          "phd-student-in-biosensing-nanolab-epfl-epfl-lausanne"
+        ],
+        "fr": [
+          "phd-student-in-biosensing-nanolab-epfl-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "phd-student-in-biosensing-nanolab-epfl-epfl-lausanne"
+      ]
     }
   ]
 }

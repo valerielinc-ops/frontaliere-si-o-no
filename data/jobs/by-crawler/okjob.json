@@ -80,9 +80,9 @@
       "slug": "operaio-tecnica-della-costruzione-impermeabilizzatore-trasfertista-ok-job-sa-succursale-di-mendrisio-6850-26ad9684",
       "slugByLocale": {
         "it": "operaio-tecnica-della-costruzione-impermeabilizzatore-trasfertista-ok-job-sa-succursale-di-mendrisio-6850-26ad9684",
-        "en": "operaio-tecnica-della-costruzione-impermeabilizzatore-trasfertista-ok-job-sa-succursale-di-mendrisio-6850-26ad9684",
-        "de": "operaio-tecnica-della-costruzione-impermeabilizzatore-trasfertista-ok-job-sa-succursale-di-mendrisio-6850-26ad9684",
-        "fr": "operaio-tecnica-della-costruzione-impermeabilizzatore-trasfertista-ok-job-sa-succursale-di-mendrisio-6850-26ad9684"
+        "en": "technical-operation-of-construction-impermeablization-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-26ad9684",
+        "de": "technischer-baubetrieb-impermeablization-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-26ad9684",
+        "fr": "fonctionnement-technique-de-la-construction-impermeablisation-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-26ad9684"
       },
       "slugDisambiguator": "26ad9684",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -145,16 +145,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:44:51.297Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:44:51.297Z"
+      "firstSeenAt": "2026-11-23T09:44:51.297Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "operaio-tecnica-della-costruzione-impermeabilizzatore-trasfertista-ok-job-sa-succursale-di-mendrisio-6850-26ad9684"
+        ],
+        "de": [
+          "operaio-tecnica-della-costruzione-impermeabilizzatore-trasfertista-ok-job-sa-succursale-di-mendrisio-6850-26ad9684"
+        ],
+        "fr": [
+          "operaio-tecnica-della-costruzione-impermeabilizzatore-trasfertista-ok-job-sa-succursale-di-mendrisio-6850-26ad9684"
+        ]
+      },
+      "previousSlugs": [
+        "operaio-tecnica-della-costruzione-impermeabilizzatore-trasfertista-ok-job-sa-succursale-di-mendrisio-6850-26ad9684"
+      ]
     },
     {
       "id": "okjob-11938f479b3b",
       "slug": "operatore-controlli-dimensionali-e-non-distruttivi-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-11938f47",
       "slugByLocale": {
         "it": "operatore-controlli-dimensionali-e-non-distruttivi-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-11938f47",
-        "en": "operatore-controlli-dimensionali-e-non-distruttivi-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-11938f47",
-        "de": "operatore-controlli-dimensionali-e-non-distruttivi-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-11938f47",
-        "fr": "operatore-controlli-dimensionali-e-non-distruttivi-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-11938f47"
+        "en": "dimensional-and-not-distructor-controls-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-11938f47",
+        "de": "dimensionale-und-nicht-verbraucherkontrollen-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-11938f47",
+        "fr": "controles-dimensionnels-et-non-distructeurs-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-11938f47"
       },
       "slugDisambiguator": "11938f47",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -217,7 +231,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:44:51.295Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:44:51.295Z"
+      "firstSeenAt": "2026-11-23T09:44:51.295Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "operatore-controlli-dimensionali-e-non-distruttivi-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-11938f47"
+        ],
+        "de": [
+          "operatore-controlli-dimensionali-e-non-distruttivi-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-11938f47"
+        ],
+        "fr": [
+          "operatore-controlli-dimensionali-e-non-distruttivi-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-11938f47"
+        ]
+      },
+      "previousSlugs": [
+        "operatore-controlli-dimensionali-e-non-distruttivi-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-11938f47"
+      ]
     },
     {
       "id": "okjob-872225db8bf8",

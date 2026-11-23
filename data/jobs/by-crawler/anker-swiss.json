@@ -23454,12 +23454,12 @@
     },
     {
       "id": "anker-swiss-bb4e3b0a07ec",
-      "slug": "recyclist-100-anker-swiss-ticino-ag-greng-bb4e3b0a",
+      "slug": "riciclatore-al-100-anker-swiss-ticino-ag-greng-bb4e3b0a",
       "slugByLocale": {
         "de": "recyclist-100-anker-swiss-ticino-ag-greng-bb4e3b0a",
-        "it": "recyclist-100-anker-swiss-ticino-ag-greng-bb4e3b0a",
-        "en": "recyclist-100-anker-swiss-ticino-ag-greng-bb4e3b0a",
-        "fr": "recyclist-100-anker-swiss-ticino-ag-greng-bb4e3b0a"
+        "it": "riciclatore-al-100-anker-swiss-ticino-ag-greng-bb4e3b0a",
+        "en": "recycler-100-anker-swiss-ticino-ag-greng-bb4e3b0a",
+        "fr": "recycliste-100-anker-swiss-ticino-ag-greng-bb4e3b0a"
       },
       "slugDisambiguator": "bb4e3b0a",
       "company": "Anker Swiss Ticino AG",
@@ -23522,16 +23522,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:29:02.546Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:29:02.546Z"
+      "firstSeenAt": "2026-11-23T09:29:02.546Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "recyclist-100-anker-swiss-ticino-ag-greng-bb4e3b0a"
+        ],
+        "en": [
+          "recyclist-100-anker-swiss-ticino-ag-greng-bb4e3b0a"
+        ],
+        "fr": [
+          "recyclist-100-anker-swiss-ticino-ag-greng-bb4e3b0a"
+        ]
+      },
+      "previousSlugs": [
+        "recyclist-100-anker-swiss-ticino-ag-greng-bb4e3b0a"
+      ]
     },
     {
       "id": "anker-swiss-f470ffc735f3",
-      "slug": "wirtschaftsinformatiker-100-anker-swiss-ticino-ag-bern-f470ffc7",
+      "slug": "specialista-di-informatica-aziendale-100-anker-swiss-ticino-ag-bern-f470ffc7",
       "slugByLocale": {
         "de": "wirtschaftsinformatiker-100-anker-swiss-ticino-ag-bern-f470ffc7",
-        "it": "wirtschaftsinformatiker-100-anker-swiss-ticino-ag-bern-f470ffc7",
-        "en": "wirtschaftsinformatiker-100-anker-swiss-ticino-ag-bern-f470ffc7",
-        "fr": "wirtschaftsinformatiker-100-anker-swiss-ticino-ag-bern-f470ffc7"
+        "it": "specialista-di-informatica-aziendale-100-anker-swiss-ticino-ag-bern-f470ffc7",
+        "en": "business-informatics-specialist-100-anker-swiss-ticino-ag-bern-f470ffc7",
+        "fr": "specialiste-en-informatique-d-affaires-100-anker-swiss-ticino-ag-bern-f470ffc7"
       },
       "slugDisambiguator": "f470ffc7",
       "company": "Anker Swiss Ticino AG",
@@ -23594,7 +23608,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:29:02.545Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:29:02.545Z"
+      "firstSeenAt": "2026-11-23T09:29:02.545Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "wirtschaftsinformatiker-100-anker-swiss-ticino-ag-bern-f470ffc7"
+        ],
+        "en": [
+          "wirtschaftsinformatiker-100-anker-swiss-ticino-ag-bern-f470ffc7"
+        ],
+        "fr": [
+          "wirtschaftsinformatiker-100-anker-swiss-ticino-ag-bern-f470ffc7"
+        ]
+      },
+      "previousSlugs": [
+        "wirtschaftsinformatiker-100-anker-swiss-ticino-ag-bern-f470ffc7"
+      ]
     },
     {
       "id": "anker-swiss-6279dfee10b1",
@@ -23602,8 +23630,8 @@
       "slugByLocale": {
         "de": "bauleiter-hochbau-100-anker-swiss-ticino-ag-zofingen-6279dfee",
         "it": "bauleiter-hochbau-100-anker-swiss-ticino-ag-zofingen",
-        "en": "bauleiter-hochbau-100-anker-swiss-ticino-ag-zofingen-6279dfee",
-        "fr": "bauleiter-hochbau-100-anker-swiss-ticino-ag-zofingen-6279dfee"
+        "en": "construction-manager-building-construction-100-anker-swiss-ticino-ag-zofingen-6279dfee",
+        "fr": "chef-de-la-construction-construction-de-batiments-100-anker-swiss-ticino-ag-zofingen-6279dfee"
       },
       "slugDisambiguator": "6279dfee",
       "company": "Anker Swiss Ticino AG",
@@ -23652,6 +23680,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "bauleiter-hochbau-100-anker-swiss-ticino-ag-zofingen-6279dfee"
+        ],
+        "en": [
+          "bauleiter-hochbau-100-anker-swiss-ticino-ag-zofingen-6279dfee"
+        ],
+        "fr": [
           "bauleiter-hochbau-100-anker-swiss-ticino-ag-zofingen-6279dfee"
         ]
       },

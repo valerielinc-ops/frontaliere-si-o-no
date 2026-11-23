@@ -438,12 +438,12 @@
     },
     {
       "id": "medimeo-bbd38d288277",
-      "slug": "facharztin-facharzt-psychiatrie-40-100-selbstandigkeit-come-infrastrukturnutzer-in-medimeo-ag-zurich",
+      "slug": "specialista-in-psichiatria-40-100-indipendenza-come-utente-dell-infrastruttura-medimeo-ag-region-zurich",
       "slugByLocale": {
         "de": "facharztin-facharzt-psychiatrie-40-100-selbstandigkeit-als-infrastrukturnutzer-in-region",
-        "it": "facharztin-facharzt-psychiatrie-40-100-selbstandigkeit-come-infrastrukturnutzer-in-medimeo-ag-zurich",
-        "en": "facharztin-facharzt-psychiatrie-40-100-selbstandigkeit-als-infrastrukturnutzer-in-medimeo-ag-zurich",
-        "fr": "facharztin-facharzt-psychiatrie-40-100-selbstandigkeit-als-infrastrukturnutzer-in-medimeo-ag-zurich"
+        "it": "specialista-in-psichiatria-40-100-indipendenza-come-utente-dell-infrastruttura-medimeo-ag-region-zurich",
+        "en": "specialist-in-psychiatry-40-100-independence-as-an-infrastructure-user-medimeo-ag-region-zurich",
+        "fr": "specialiste-en-psychiatrie-40-100-independance-en-tant-qu-utilisateur-d-infrastructure-medimeo-ag-region-zurich"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -489,11 +489,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-psychiatrie-40-100-selbstandigkeit-als-infrastrukturnutzer-in-region"
+          "facharztin-facharzt-psychiatrie-40-100-selbstandigkeit-als-infrastrukturnutzer-in-region",
+          "facharztin-facharzt-psychiatrie-40-100-selbstandigkeit-come-infrastrukturnutzer-in-medimeo-ag-zurich"
+        ],
+        "en": [
+          "facharztin-facharzt-psychiatrie-40-100-selbstandigkeit-als-infrastrukturnutzer-in-medimeo-ag-zurich"
+        ],
+        "fr": [
+          "facharztin-facharzt-psychiatrie-40-100-selbstandigkeit-als-infrastrukturnutzer-in-medimeo-ag-zurich"
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-psychiatrie-40-100-selbstandigkeit-als-infrastrukturnutzer-in-region"
+        "facharztin-facharzt-psychiatrie-40-100-selbstandigkeit-als-infrastrukturnutzer-in-region",
+        "facharztin-facharzt-psychiatrie-40-100-selbstandigkeit-come-infrastrukturnutzer-in-medimeo-ag-zurich",
+        "facharztin-facharzt-psychiatrie-40-100-selbstandigkeit-als-infrastrukturnutzer-in-medimeo-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -517,10 +526,10 @@
     },
     {
       "id": "medimeo-cee72e382c80",
-      "slug": "hausarzt-hausarztin-40-80-moderne-praxis-region-zurich-medimeo-ch",
+      "slug": "medico-familiare-40-80-pratica-moderna-medimeo-ag-region-zurich",
       "slugByLocale": {
         "de": "hausarzt-hausarztin-40-80-moderne-praxis-region-zurich-medimeo-ch",
-        "it": "hausarzt-hausarztin-40-80-moderne-praxis-region-zurich-medimeo-ch",
+        "it": "medico-familiare-40-80-pratica-moderna-medimeo-ag-region-zurich",
         "en": "hausarzt-hausarztin-40-80-moderne-praxis-region-zurich-medimeo-ch",
         "fr": "hausarzt-hausarztin-40-80-moderne-praxis-region-zurich-medimeo-ch"
       },
@@ -584,16 +593,24 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-20T09:29:26.774Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-21T09:16:27.261Z"
+      "firstSeenAt": "2026-10-21T09:16:27.261Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hausarzt-hausarztin-40-80-moderne-praxis-region-zurich-medimeo-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hausarzt-hausarztin-40-80-moderne-praxis-region-zurich-medimeo-ch"
+      ]
     },
     {
       "id": "medimeo-1eaa12bbd082",
-      "slug": "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-e-uber-chf-200-000-erwirtschaften-medimeo-ag-olten",
+      "slug": "pratica-generale-per-le-acquisizioni-sii-il-tuo-capo-e-guadagna-oltre-chf-200-000-medimeo-ag-olten-aargau",
       "slugByLocale": {
         "de": "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-und-uber-chf-200-000-erwirtschaften",
-        "it": "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-e-uber-chf-200-000-erwirtschaften-medimeo-ag-olten",
-        "en": "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-und-uber-chf-200-000-erwirtschaften",
-        "fr": "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-und-uber-chf-200-000-erwirtschaften"
+        "it": "pratica-generale-per-le-acquisizioni-sii-il-tuo-capo-e-guadagna-oltre-chf-200-000-medimeo-ag-olten-aargau",
+        "en": "family-practice-for-takeover-be-your-own-boss-and-earn-over-chf-200-000-medimeo-ag-olten-aargau",
+        "fr": "pratique-familiale-pour-la-reprise-soyez-votre-propre-patron-et-gagnez-plus-de-chf-200-000-medimeo-ag-olten-aargau"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -639,11 +656,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-und-uber-chf-200-000-erwirtschaften",
+          "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-e-uber-chf-200-000-erwirtschaften-medimeo-ag-olten"
+        ],
+        "en": [
+          "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-und-uber-chf-200-000-erwirtschaften"
+        ],
+        "fr": [
           "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-und-uber-chf-200-000-erwirtschaften"
         ]
       },
       "previousSlugs": [
-        "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-und-uber-chf-200-000-erwirtschaften"
+        "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-und-uber-chf-200-000-erwirtschaften",
+        "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-e-uber-chf-200-000-erwirtschaften-medimeo-ag-olten"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

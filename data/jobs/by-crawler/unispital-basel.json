@@ -10127,12 +10127,12 @@
     },
     {
       "id": "unispital-basel-7ceeed7aa5bf",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-kardiologie-unispital-basel-ch",
+      "slug": "dipl-infermieristica-professionale-hf-fh-cardiologia-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-kardiologie-unispital-basel-ch",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-kardiologie-unispital-basel-ch",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-kardiologie-unispital-basel-ch",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-kardiologie-unispital-basel-ch"
+        "it": "dipl-infermieristica-professionale-hf-fh-cardiologia-universitatsspital-basel-basel",
+        "en": "dipl-nursing-professional-hf-fh-cardiology-universitatsspital-basel-basel",
+        "fr": "dipl-professionnels-des-soins-infirmiers-hf-fh-cardiologie-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10194,7 +10194,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:29:09.962Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:29:09.962Z"
+      "firstSeenAt": "2026-11-23T09:29:09.962Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-kardiologie-unispital-basel-ch"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-kardiologie-unispital-basel-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-kardiologie-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-kardiologie-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-d08a283e9e5d",

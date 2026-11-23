@@ -2793,7 +2793,7 @@
       "slugByLocale": {
         "en": "assistant-to-the-managing-director-60-80-m-f-d-endress-hauser-reinach",
         "it": "assistant-to-the-managing-director-60-80-m-f-d-endress-hauser-reinach",
-        "de": "assistant-to-the-managing-director-60-80-m-f-d-endress-hauser-reinach",
+        "de": "assistent-to-the-managing-direktor-60-80-m-f-d-endress-hauser-reinach",
         "fr": "assistant-to-the-managing-director-60-80-m-f-d-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
@@ -2857,7 +2857,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:26:20.812Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:26:20.812Z"
+      "firstSeenAt": "2026-11-23T09:26:20.812Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "assistant-to-the-managing-director-60-80-m-f-d-endress-hauser-reinach"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-to-the-managing-director-60-80-m-f-d-endress-hauser-reinach"
+      ]
     },
     {
       "id": "endress-hauser-bc0e59c7f66b",

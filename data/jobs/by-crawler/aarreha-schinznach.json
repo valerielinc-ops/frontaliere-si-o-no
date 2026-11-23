@@ -1154,12 +1154,12 @@
     },
     {
       "id": "aarreha-schinznach-52bcda5d2eea",
-      "slug": "mitarbeiterin-collaboratore-trice-reinigung-aarreha-schinznach-bad",
+      "slug": "addetto-a-alle-pulizie-aarreha-schinznach-schinznach-bad",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-reinigung-aarreha-schinznach-schinznach-bad",
-        "it": "mitarbeiterin-collaboratore-trice-reinigung-aarreha-schinznach-bad",
-        "en": "mitarbeiterin-mitarbeiter-reinigung-aarreha-schinznach-schinznach-bad",
-        "fr": "mitarbeiterin-mitarbeiter-reinigung-aarreha-schinznach-schinznach-bad"
+        "it": "addetto-a-alle-pulizie-aarreha-schinznach-schinznach-bad",
+        "en": "employee-employee-cleaning-aarreha-schinznach-schinznach-bad",
+        "fr": "nettoyage-des-employes-aarreha-schinznach-schinznach-bad"
       },
       "company": "aarReha Schinznach",
       "companyKey": "aarreha-schinznach",
@@ -1206,11 +1206,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-reinigung-aarreha-schinznach-schinznach-bad",
+          "mitarbeiterin-collaboratore-trice-reinigung-aarreha-schinznach-bad"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-reinigung-aarreha-schinznach-schinznach-bad"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-reinigung-aarreha-schinznach-schinznach-bad"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-reinigung-aarreha-schinznach-schinznach-bad"
+        "mitarbeiterin-mitarbeiter-reinigung-aarreha-schinznach-schinznach-bad",
+        "mitarbeiterin-collaboratore-trice-reinigung-aarreha-schinznach-bad"
       ],
       "salaryMin": 67500,
       "salaryMax": 84500,

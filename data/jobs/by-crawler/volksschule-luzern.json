@@ -2643,8 +2643,8 @@
       "slugByLocale": {
         "de": "stv-lehrperson-fur-integrative-begabungs-und-begabtenforderung-3-6-klasse-schulhaus",
         "it": "stv-lehrperson-per-integrative-begabungs-e-begabtenforderung-3-6-klasse-schulhaus-grenzhof-volksschule-stadt-luzern",
-        "en": "stv-lehrperson-fur-integrative-begabungs-und-begabtenforderung-3-6-klasse-schulhaus",
-        "fr": "stv-lehrperson-fur-integrative-begabungs-und-begabtenforderung-3-6-klasse-schulhaus"
+        "en": "stv-teacher-for-integrative-gift-and-gifted-development-3rd-6th-class-schulhaus-grenzhof-volksschule-stadt-luzern-luzern",
+        "fr": "professeur-de-stv-pour-le-don-integratif-et-le-developpement-doue-3eme-6eme-classe-schulhaus-grenzhof-volksschule-stadt"
       },
       "company": "Volksschule Stadt Luzern",
       "companyKey": "volksschule-luzern",
@@ -2694,6 +2694,12 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-lehrperson-fur-integrative-begabungs-und-begabtenforderung-3-6-klasse-schulhaus"
+        ],
+        "en": [
+          "stv-lehrperson-fur-integrative-begabungs-und-begabtenforderung-3-6-klasse-schulhaus"
+        ],
+        "fr": [
+          "stv-lehrperson-fur-integrative-begabungs-und-begabtenforderung-3-6-klasse-schulhaus"
         ]
       },
       "previousSlugs": [
@@ -2719,12 +2725,12 @@
     },
     {
       "id": "volksschule-luzern-3118c3c4c8ba",
-      "slug": "co-schulleitung-volksschule-stadt-luzern-schulhaus-st-karli-zyklus-1-65-75-volksschule",
+      "slug": "co-direzione-scuola-primaria-citta-di-lucerna-scuola-casa-st-karli-ciclo-1-65-75-volksschule-stadt-luzern-luzern",
       "slugByLocale": {
         "de": "co-schulleitung-volksschule-stadt-luzern-schulhaus-st-karli-zyklus-1-65-75-volksschule",
-        "it": "co-schulleitung-volksschule-stadt-luzern-schulhaus-st-karli-zyklus-1-65-75-volksschule",
-        "en": "co-schulleitung-volksschule-stadt-luzern-schulhaus-st-karli-zyklus-1-65-75-volksschule",
-        "fr": "co-schulleitung-volksschule-stadt-luzern-schulhaus-st-karli-zyklus-1-65-75-volksschule"
+        "it": "co-direzione-scuola-primaria-citta-di-lucerna-scuola-casa-st-karli-ciclo-1-65-75-volksschule-stadt-luzern-luzern",
+        "en": "co-direction-primary-school-city-of-lucerne-school-house-st-karli-cycle-1-65-75-volksschule-stadt-luzern-luzern",
+        "fr": "codirection-ecole-primaire-ville-de-lucerne-school-house-st-karli-cycle-1-65-75-volksschule-stadt-luzern-luzern"
       },
       "company": "Volksschule Stadt Luzern",
       "companyKey": "volksschule-luzern",
@@ -2786,7 +2792,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-21T09:20:27.896Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:20:27.896Z"
+      "firstSeenAt": "2026-11-23T09:20:27.896Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "co-schulleitung-volksschule-stadt-luzern-schulhaus-st-karli-zyklus-1-65-75-volksschule"
+        ],
+        "en": [
+          "co-schulleitung-volksschule-stadt-luzern-schulhaus-st-karli-zyklus-1-65-75-volksschule"
+        ],
+        "fr": [
+          "co-schulleitung-volksschule-stadt-luzern-schulhaus-st-karli-zyklus-1-65-75-volksschule"
+        ]
+      },
+      "previousSlugs": [
+        "co-schulleitung-volksschule-stadt-luzern-schulhaus-st-karli-zyklus-1-65-75-volksschule"
+      ]
     }
   ]
 }

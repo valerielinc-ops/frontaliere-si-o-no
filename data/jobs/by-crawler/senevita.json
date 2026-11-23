@@ -5337,8 +5337,8 @@
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-efz-60-100-senevita-sg-abtwil",
         "it": "fachfrau-mann-gesundheit-cfc-60-100-senevita-sg-abtwil",
-        "en": "fachfrau-mann-gesundheit-efz-60-100-senevita-sg-abtwil",
-        "fr": "fachfrau-mann-gesundheit-efz-60-100-senevita-sg-abtwil"
+        "en": "health-specialist-efz-60-100-senevita-sg-abtwil",
+        "fr": "specialiste-de-la-sante-efz-60-100-senevita-sg-abtwil"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -5386,6 +5386,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-efz-60-100-senevita-sg-abtwil"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-efz-60-100-senevita-sg-abtwil"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-efz-60-100-senevita-sg-abtwil"
         ]
       },

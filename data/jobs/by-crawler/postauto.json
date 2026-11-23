@@ -703,12 +703,12 @@
     },
     {
       "id": "postauto-3fd5df3f5448",
-      "slug": "fachspezialist-in-umsetzung-branchenstandards-kundeninformation-postauto-bern",
+      "slug": "specialista-nell-implementazione-di-standard-di-settore-informazioni-al-cliente-postauto-ag-bern",
       "slugByLocale": {
         "de": "fachspezialist-in-umsetzung-branchenstandards-kundeninformation-postauto-bern",
-        "it": "fachspezialist-in-umsetzung-branchenstandards-kundeninformation-postauto-bern",
-        "en": "fachspezialist-in-umsetzung-branchenstandards-kundeninformation-postauto-bern",
-        "fr": "fachspezialist-in-umsetzung-branchenstandards-kundeninformation-postauto-bern"
+        "it": "specialista-nell-implementazione-di-standard-di-settore-informazioni-al-cliente-postauto-ag-bern",
+        "en": "specialist-in-implementing-industry-standards-customer-information-postauto-ag-bern",
+        "fr": "specialiste-dans-la-mise-en-uvre-des-normes-industrielles-informations-client-postauto-ag-bern"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -772,14 +772,28 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-23T09:51:42.424Z"
+      "firstSeenAt": "2026-11-23T09:51:42.424Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-umsetzung-branchenstandards-kundeninformation-postauto-bern"
+        ],
+        "en": [
+          "fachspezialist-in-umsetzung-branchenstandards-kundeninformation-postauto-bern"
+        ],
+        "fr": [
+          "fachspezialist-in-umsetzung-branchenstandards-kundeninformation-postauto-bern"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-umsetzung-branchenstandards-kundeninformation-postauto-bern"
+      ]
     },
     {
       "id": "postauto-802eb2f68ba8",
-      "slug": "postauto-fahrer-in-postauto-hausen-am-albis",
+      "slug": "postauto-driver-postauto-ag-hausen-am-albis",
       "slugByLocale": {
         "de": "postauto-fahrer-in-postauto-hausen-am-albis",
-        "it": "postauto-fahrer-in-postauto-hausen-am-albis",
+        "it": "postauto-driver-postauto-ag-hausen-am-albis",
         "en": "postauto-fahrer-in-postauto-hausen-am-albis",
         "fr": "postauto-fahrer-in-postauto-hausen-am-albis"
       },
@@ -845,7 +859,15 @@
       },
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-23T09:51:41.579Z"
+      "firstSeenAt": "2026-11-23T09:51:41.579Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postauto-fahrer-in-postauto-hausen-am-albis"
+        ]
+      },
+      "previousSlugs": [
+        "postauto-fahrer-in-postauto-hausen-am-albis"
+      ]
     }
   ]
 }

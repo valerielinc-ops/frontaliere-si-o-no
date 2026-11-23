@@ -5,10 +5,10 @@
   "jobs": [
     {
       "id": "hilcona-c519170b2106",
-      "slug": "chauffeur-chauffeuse-brueterei-60-brueterei-6143-ohmstal-hilcona-zell",
+      "slug": "chauffeur-chaffeuse-hatchery-60-hatchery-6143-ohmstal-bell-schweiz-ag-zell",
       "slugByLocale": {
         "de": "chauffeur-chauffeuse-brueterei-60-brueterei-6143-ohmstal-hilcona-zell",
-        "it": "chauffeur-chauffeuse-brueterei-60-brueterei-6143-ohmstal-hilcona-zell",
+        "it": "chauffeur-chaffeuse-hatchery-60-hatchery-6143-ohmstal-bell-schweiz-ag-zell",
         "en": "chauffeur-chauffeuse-brueterei-60-brueterei-6143-ohmstal-hilcona-zell",
         "fr": "chauffeur-chauffeuse-brueterei-60-brueterei-6143-ohmstal-hilcona-zell"
       },
@@ -69,7 +69,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:28:45.987Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:28:45.987Z"
+      "firstSeenAt": "2026-11-23T09:28:45.987Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-chauffeuse-brueterei-60-brueterei-6143-ohmstal-hilcona-zell"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-chauffeuse-brueterei-60-brueterei-6143-ohmstal-hilcona-zell"
+      ]
     },
     {
       "id": "hilcona-a44d7989c0a9",

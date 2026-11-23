@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "ottos-a1ea114afeac",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-dietlikon",
+      "slug": "impiegato-commerciale-con-funzionalita-a-tutto-tondo-otto-s-ag-dietlikon",
       "slugByLocale": {
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-dietlikon",
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-dietlikon",
-        "en": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-dietlikon",
-        "fr": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-dietlikon"
+        "it": "impiegato-commerciale-con-funzionalita-a-tutto-tondo-otto-s-ag-dietlikon",
+        "en": "sales-employee-with-all-round-functionality-otto-s-ag-dietlikon",
+        "fr": "employe-commercial-avec-fonctionnalites-polyvalentes-otto-s-ag-dietlikon"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -62,11 +62,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-dietlikon"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-dietlikon",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-dietlikon"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-dietlikon"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-dietlikon"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-dietlikon"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-dietlikon",
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-dietlikon"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -4398,12 +4406,12 @@
     },
     {
       "id": "ottos-643530204bc2",
-      "slug": "vendeur-food-non-food-h-f-otto-s-ag-lausanne-2b53bbcb72",
+      "slug": "alimentare-non-alimentare-venditore-m-f-otto-s-ag-lausanne",
       "slugByLocale": {
         "fr": "vendeur-food-non-food-h-f-ottos-lausanne",
-        "it": "vendeur-food-non-food-h-f-otto-s-ag-lausanne-2b53bbcb72",
-        "en": "vendeur-food-non-food-h-f-ottos-lausanne",
-        "de": "vendeur-food-non-food-h-f-ottos-lausanne"
+        "it": "alimentare-non-alimentare-venditore-m-f-otto-s-ag-lausanne",
+        "en": "food-non-food-seller-m-f-otto-s-ag-lausanne",
+        "de": "lebensmittel-nichtlebensmittelverkaufer-m-w-otto-s-ag-lausanne"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -4456,12 +4464,20 @@
       "previousSlugsByLocale": {
         "it": [
           "vendeur-food-non-food-h-f-ottos-lausanne",
-          "vendeur-food-non-food-m-w-d-otto-s-ag-lausanne"
+          "vendeur-food-non-food-m-w-d-otto-s-ag-lausanne",
+          "vendeur-food-non-food-h-f-otto-s-ag-lausanne-2b53bbcb72"
+        ],
+        "en": [
+          "vendeur-food-non-food-h-f-ottos-lausanne"
+        ],
+        "de": [
+          "vendeur-food-non-food-h-f-ottos-lausanne"
         ]
       },
       "previousSlugs": [
         "vendeur-food-non-food-h-f-ottos-lausanne",
-        "vendeur-food-non-food-m-w-d-otto-s-ag-lausanne"
+        "vendeur-food-non-food-m-w-d-otto-s-ag-lausanne",
+        "vendeur-food-non-food-h-f-otto-s-ag-lausanne-2b53bbcb72"
       ],
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -4970,12 +4986,12 @@
     },
     {
       "id": "ottos-98178834bc06",
-      "slug": "gerant-m-w-d-otto-s-ag-lausanne",
+      "slug": "manager-m-f-otto-s-ag-lausanne",
       "slugByLocale": {
         "fr": "gerant-h-f-ottos-lausanne",
-        "it": "gerant-m-w-d-otto-s-ag-lausanne",
+        "it": "manager-m-f-otto-s-ag-lausanne",
         "en": "gerant-h-f-ottos-lausanne",
-        "de": "gerant-h-f-ottos-lausanne"
+        "de": "manager-m-w-otto-s-ag-lausanne"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -5027,11 +5043,16 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
+          "gerant-h-f-ottos-lausanne",
+          "gerant-m-w-d-otto-s-ag-lausanne"
+        ],
+        "de": [
           "gerant-h-f-ottos-lausanne"
         ]
       },
       "previousSlugs": [
-        "gerant-h-f-ottos-lausanne"
+        "gerant-h-f-ottos-lausanne",
+        "gerant-m-w-d-otto-s-ag-lausanne"
       ],
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -6858,12 +6879,12 @@
     },
     {
       "id": "ottos-eec8defde501",
-      "slug": "kassierer-in-ottos-cham",
+      "slug": "tesoriere-otto-s-ag-cham",
       "slugByLocale": {
         "de": "kassierer-in-ottos-cham",
-        "it": "kassierer-in-ottos-cham",
-        "en": "kassierer-in-ottos-cham",
-        "fr": "kassierer-in-ottos-cham"
+        "it": "tesoriere-otto-s-ag-cham",
+        "en": "treasurer-otto-s-ag-cham",
+        "fr": "tresorier-otto-s-ag-cham"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -6930,7 +6951,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:30:20.897Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:30:20.897Z"
+      "firstSeenAt": "2026-11-23T09:30:20.897Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kassierer-in-ottos-cham"
+        ],
+        "en": [
+          "kassierer-in-ottos-cham"
+        ],
+        "fr": [
+          "kassierer-in-ottos-cham"
+        ]
+      },
+      "previousSlugs": [
+        "kassierer-in-ottos-cham"
+      ]
     },
     {
       "id": "ottos-d52d574bce0b",
@@ -9325,12 +9360,12 @@
     },
     {
       "id": "ottos-dfbe8611d79f",
-      "slug": "vendeur-food-non-food-h-f-otto-s-ag-lausanne-3073218817",
+      "slug": "alimentare-non-alimentare-venditore-m-f-otto-s-ag-lausanne-10cb3b",
       "slugByLocale": {
         "fr": "vendeur-food-non-food-h-f-ottos-lausanne",
-        "it": "vendeur-food-non-food-h-f-otto-s-ag-lausanne-3073218817",
-        "en": "vendeur-food-non-food-h-f-ottos-lausanne-2",
-        "de": "vendeur-food-non-food-h-f-ottos-lausanne-2"
+        "it": "alimentare-non-alimentare-venditore-m-f-otto-s-ag-lausanne-10cb3b",
+        "en": "food-non-food-seller-m-f-otto-s-ag-lausanne-10cb3b",
+        "de": "lebensmittel-nichtlebensmittelverkaufer-m-w-otto-s-ag-lausanne-10cb3b"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -9383,12 +9418,20 @@
       "previousSlugsByLocale": {
         "it": [
           "vendeur-food-non-food-h-f-ottos-lausanne-2",
-          "vendeur-food-non-food-m-w-d-otto-s-ag-lausanne"
+          "vendeur-food-non-food-m-w-d-otto-s-ag-lausanne",
+          "vendeur-food-non-food-h-f-otto-s-ag-lausanne-3073218817"
+        ],
+        "en": [
+          "vendeur-food-non-food-h-f-ottos-lausanne-2"
+        ],
+        "de": [
+          "vendeur-food-non-food-h-f-ottos-lausanne-2"
         ]
       },
       "previousSlugs": [
         "vendeur-food-non-food-h-f-ottos-lausanne-2",
-        "vendeur-food-non-food-m-w-d-otto-s-ag-lausanne"
+        "vendeur-food-non-food-m-w-d-otto-s-ag-lausanne",
+        "vendeur-food-non-food-h-f-otto-s-ag-lausanne-3073218817"
       ],
       "salaryMin": 72000,
       "salaryMax": 111000,

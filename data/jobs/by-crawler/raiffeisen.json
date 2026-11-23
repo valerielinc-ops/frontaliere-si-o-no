@@ -11549,12 +11549,12 @@
     },
     {
       "id": "raiffeisen-5fe5cdd00696",
-      "slug": "kundenberater-basisprodukte-w-m-d-raiffeisen-volketswil",
+      "slug": "servizio-clienti-prodotti-di-base-m-f-d-raiffeisen-volketswil",
       "slugByLocale": {
         "de": "kundenberater-basisprodukte-w-m-d-raiffeisen-volketswil",
-        "it": "kundenberater-basisprodukte-w-m-d-raiffeisen-volketswil",
-        "en": "kundenberater-basisprodukte-w-m-d-raiffeisen-volketswil",
-        "fr": "kundenberater-basisprodukte-w-m-d-raiffeisen-volketswil"
+        "it": "servizio-clienti-prodotti-di-base-m-f-d-raiffeisen-volketswil",
+        "en": "customer-service-basic-products-m-f-d-raiffeisen-volketswil",
+        "fr": "service-a-la-clientele-produits-de-base-h-f-d-raiffeisen-volketswil"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11616,7 +11616,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-21T09:27:13.427Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:27:13.427Z"
+      "firstSeenAt": "2026-11-23T09:27:13.427Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-basisprodukte-w-m-d-raiffeisen-volketswil"
+        ],
+        "en": [
+          "kundenberater-basisprodukte-w-m-d-raiffeisen-volketswil"
+        ],
+        "fr": [
+          "kundenberater-basisprodukte-w-m-d-raiffeisen-volketswil"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-basisprodukte-w-m-d-raiffeisen-volketswil"
+      ]
     },
     {
       "id": "raiffeisen-fd282c919766",

@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "blatters-hotel-07c54e69f949",
-      "slug": "2-haustechniker-jahresvertrag-o-saisonvertag-unterkunft-vorhanden-eintritt-nach-absprache-blatter-arosa",
+      "slug": "2-tecnico-edilizio-contratto-annuale-o-stagionale-alloggio-disponibile-ingresso-su-accordo-blatter-arosa",
       "slugByLocale": {
         "de": "2-haustechniker-jahresvertrag-oder-saisonvertag-unterkunft-vorhanden-eintritt-nach",
-        "it": "2-haustechniker-jahresvertrag-o-saisonvertag-unterkunft-vorhanden-eintritt-nach-absprache-blatter-arosa",
-        "en": "2-haustechniker-jahresvertrag-oder-saisonvertag-unterkunft-vorhanden-eintritt-nach",
-        "fr": "2-haustechniker-jahresvertrag-oder-saisonvertag-unterkunft-vorhanden-eintritt-nach"
+        "it": "2-tecnico-edilizio-contratto-annuale-o-stagionale-alloggio-disponibile-ingresso-su-accordo-blatter-arosa",
+        "en": "2-house-technician-annual-contract-or-seasonal-contract-accommodation-available-admission-by-arrangement-blatter-arosa",
+        "fr": "2-technicien-de-la-maison-contrat-annuel-ou-saisonnier-logement-disponible-admission-par-arrangement-blatter-arosa"
       },
       "company": "Blatter",
       "companyKey": "blatters-hotel",
@@ -56,11 +56,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "2-haustechniker-jahresvertrag-oder-saisonvertag-unterkunft-vorhanden-eintritt-nach",
+          "2-haustechniker-jahresvertrag-o-saisonvertag-unterkunft-vorhanden-eintritt-nach-absprache-blatter-arosa"
+        ],
+        "en": [
+          "2-haustechniker-jahresvertrag-oder-saisonvertag-unterkunft-vorhanden-eintritt-nach"
+        ],
+        "fr": [
           "2-haustechniker-jahresvertrag-oder-saisonvertag-unterkunft-vorhanden-eintritt-nach"
         ]
       },
       "previousSlugs": [
-        "2-haustechniker-jahresvertrag-oder-saisonvertag-unterkunft-vorhanden-eintritt-nach"
+        "2-haustechniker-jahresvertrag-oder-saisonvertag-unterkunft-vorhanden-eintritt-nach",
+        "2-haustechniker-jahresvertrag-o-saisonvertag-unterkunft-vorhanden-eintritt-nach-absprache-blatter-arosa"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

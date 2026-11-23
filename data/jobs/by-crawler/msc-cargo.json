@@ -10,7 +10,7 @@
         "en": "finance-business-partner-commercial-msc-geneva",
         "it": "finance-business-partner-commercial-msc-geneva",
         "de": "finance-business-partner-commercial-msc-geneva",
-        "fr": "finance-business-partner-commercial-msc-geneva"
+        "fr": "partenaire-d-affaires-financier-commercial-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -82,13 +82,13 @@
           "finanzen-business-partner-commercial-msc-group-geneva"
         ],
         "fr": [
-          "partenaire-d-affaires-financier-commercial-msc-group-geneva"
+          "finance-business-partner-commercial-msc-geneva"
         ]
       },
       "previousSlugs": [
         "finanza-business-partner-commercial-msc-group-geneva",
         "finanzen-business-partner-commercial-msc-group-geneva",
-        "partenaire-d-affaires-financier-commercial-msc-group-geneva"
+        "finance-business-partner-commercial-msc-geneva"
       ]
     },
     {
@@ -277,7 +277,7 @@
         "en": "senior-manager-catering-newbuilding-msc-geneva",
         "it": "senior-manager-catering-newbuilding-msc-geneva",
         "de": "senior-manager-catering-newbuilding-msc-geneva",
-        "fr": "senior-manager-catering-newbuilding-msc-geneva"
+        "fr": "directeur-principal-restauration-newbuilding-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -343,7 +343,7 @@
       "firstSeenAt": "2026-11-18T21:22:53.397Z",
       "previousSlugsByLocale": {
         "fr": [
-          "directeur-principal-restauration-newbuilding-msc-group-geneva"
+          "senior-manager-catering-newbuilding-msc-geneva"
         ],
         "it": [
           "senior-manager-catering-per-nuove-costruzioni-msc-group-geneva",
@@ -354,9 +354,9 @@
         ]
       },
       "previousSlugs": [
-        "directeur-principal-restauration-newbuilding-msc-group-geneva",
         "senior-manager-catering-per-nuove-costruzioni-msc-group-geneva",
-        "senior-manager-catering-neubau-msc-group-geneva"
+        "senior-manager-catering-neubau-msc-group-geneva",
+        "senior-manager-catering-newbuilding-msc-geneva"
       ]
     },
     {
@@ -643,12 +643,12 @@
     },
     {
       "id": "msc-cargo-bf32d3dcad46",
-      "slug": "destinations-experience-senior-manager-msc-geneva",
+      "slug": "destinazioni-esperienza-senior-manager-msc-group-geneva",
       "slugByLocale": {
         "en": "destinations-experience-senior-manager-msc-geneva",
-        "it": "destinations-experience-senior-manager-msc-geneva",
-        "de": "destinations-experience-senior-manager-msc-geneva",
-        "fr": "destinations-experience-senior-manager-msc-geneva"
+        "it": "destinazioni-esperienza-senior-manager-msc-group-geneva",
+        "de": "destinationen-erfahrung-senior-manager-msc-group-geneva",
+        "fr": "destinations-experience-gestionnaire-principal-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -714,29 +714,27 @@
       "firstSeenAt": "2026-10-06T21:17:29.732Z",
       "previousSlugsByLocale": {
         "it": [
-          "destinazioni-esperienza-senior-manager-msc-group-geneva",
           "destinazioni-esperienza-senior-manager-river-msc-group-geneva",
           "destinationen-erfahrung-senior-manager-river-msc-group-geneva",
           "experience-des-destinations-gestionnaire-principal-river-msc-group-geneva",
-          "destinations-experience-senior-manager-river-msc-geneva"
+          "destinations-experience-senior-manager-river-msc-geneva",
+          "destinations-experience-senior-manager-msc-geneva"
         ],
         "de": [
-          "destinationen-erfahrung-senior-manager-msc-group-geneva",
-          "destinationen-erfahrung-senior-manager-river-msc-group-geneva"
+          "destinationen-erfahrung-senior-manager-river-msc-group-geneva",
+          "destinations-experience-senior-manager-msc-geneva"
         ],
         "fr": [
-          "destinations-experience-gestionnaire-principal-msc-group-geneva",
-          "experience-des-destinations-gestionnaire-principal-river-msc-group-geneva"
+          "experience-des-destinations-gestionnaire-principal-river-msc-group-geneva",
+          "destinations-experience-senior-manager-msc-geneva"
         ]
       },
       "previousSlugs": [
-        "destinazioni-esperienza-senior-manager-msc-group-geneva",
-        "destinationen-erfahrung-senior-manager-msc-group-geneva",
-        "destinations-experience-gestionnaire-principal-msc-group-geneva",
         "destinazioni-esperienza-senior-manager-river-msc-group-geneva",
         "destinationen-erfahrung-senior-manager-river-msc-group-geneva",
         "experience-des-destinations-gestionnaire-principal-river-msc-group-geneva",
-        "destinations-experience-senior-manager-river-msc-geneva"
+        "destinations-experience-senior-manager-river-msc-geneva",
+        "destinations-experience-senior-manager-msc-geneva"
       ]
     },
     {
@@ -1370,12 +1368,12 @@
     },
     {
       "id": "msc-cargo-1271772d19b8",
-      "slug": "retail-business-analytics-manager-msc-geneva",
+      "slug": "responsabile-analisi-aziendale-retail-msc-group-geneva",
       "slugByLocale": {
         "en": "retail-business-analytics-manager-msc-geneva",
-        "it": "retail-business-analytics-manager-msc-geneva",
+        "it": "responsabile-analisi-aziendale-retail-msc-group-geneva",
         "de": "retail-business-analytics-manager-msc-geneva",
-        "fr": "retail-business-analytics-manager-msc-geneva"
+        "fr": "gestionnaire-d-analyses-commerciales-de-detail-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -1441,15 +1439,15 @@
       "firstSeenAt": "2026-09-11T10:02:55.628Z",
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-analisi-aziendale-retail-msc-group-geneva",
           "manager-fur-business-analytics-im-einzelhandel-msc-group-geneva",
           "manager-fur-einzelhandelsgeschaftsanalysen-msc-group-geneva",
           "directeur-de-l-analyse-commerciale-de-detail-msc-group-geneva",
-          "gestionnaire-d-analyses-commerciales-de-detail-msc-group-geneva"
+          "gestionnaire-d-analyses-commerciales-de-detail-msc-group-geneva",
+          "retail-business-analytics-manager-msc-geneva"
         ],
         "fr": [
-          "gestionnaire-d-analyses-commerciales-de-detail-msc-group-geneva",
-          "directeur-de-l-analyse-commerciale-de-detail-msc-group-geneva"
+          "directeur-de-l-analyse-commerciale-de-detail-msc-group-geneva",
+          "retail-business-analytics-manager-msc-geneva"
         ],
         "de": [
           "manager-fur-business-analytics-im-einzelhandel-msc-group-geneva",
@@ -1457,11 +1455,11 @@
         ]
       },
       "previousSlugs": [
-        "responsabile-analisi-aziendale-retail-msc-group-geneva",
         "gestionnaire-d-analyses-commerciales-de-detail-msc-group-geneva",
         "manager-fur-business-analytics-im-einzelhandel-msc-group-geneva",
         "manager-fur-einzelhandelsgeschaftsanalysen-msc-group-geneva",
-        "directeur-de-l-analyse-commerciale-de-detail-msc-group-geneva"
+        "directeur-de-l-analyse-commerciale-de-detail-msc-group-geneva",
+        "retail-business-analytics-manager-msc-geneva"
       ]
     },
     {

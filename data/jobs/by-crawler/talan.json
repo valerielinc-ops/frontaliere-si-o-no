@@ -1083,11 +1083,11 @@
     },
     {
       "id": "talan-85f888f93a9c",
-      "slug": "expert-e-atlassian-talan-geneva-ge-switzerland",
+      "slug": "esperto-e-atlante-talan-geneva-ge-switzerland",
       "slugByLocale": {
         "en": "expert-e-atlassian-talan-geneva-ge-switzerland",
-        "it": "expert-e-atlassian-talan-geneva-ge-switzerland",
-        "de": "expert-e-atlassian-talan-geneva-ge-switzerland",
+        "it": "esperto-e-atlante-talan-geneva-ge-switzerland",
+        "de": "experte-n-atlassian-talan-geneva-ge-switzerland",
         "fr": "expert-e-atlassian-talan-geneva-ge-switzerland"
       },
       "company": "Talan",
@@ -1152,7 +1152,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-21T09:25:03.791Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:25:03.791Z"
+      "firstSeenAt": "2026-11-23T09:25:03.791Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "expert-e-atlassian-talan-geneva-ge-switzerland"
+        ],
+        "de": [
+          "expert-e-atlassian-talan-geneva-ge-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "expert-e-atlassian-talan-geneva-ge-switzerland"
+      ]
     }
   ]
 }

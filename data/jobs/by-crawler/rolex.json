@@ -10340,12 +10340,12 @@
     },
     {
       "id": "rolex-1ad1db620193",
-      "slug": "planificateur-nouveaux-produits-h-f-rolex-ch",
+      "slug": "nuovi-prodotti-planner-m-f-rolex-geneve",
       "slugByLocale": {
         "fr": "planificateur-nouveaux-produits-h-f-rolex-ch",
-        "it": "planificateur-nouveaux-produits-h-f-rolex-ch",
-        "en": "planificateur-nouveaux-produits-h-f-rolex-ch",
-        "de": "planificateur-nouveaux-produits-h-f-rolex-ch"
+        "it": "nuovi-prodotti-planner-m-f-rolex-geneve",
+        "en": "planner-new-products-m-f-rolex-geneve",
+        "de": "planer-neue-produkte-m-w-rolex-geneve"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -10406,7 +10406,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:24:55.516Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-08-05T22:40:15.318Z"
+      "firstSeenAt": "2026-08-05T22:40:15.318Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "planificateur-nouveaux-produits-h-f-rolex-ch"
+        ],
+        "en": [
+          "planificateur-nouveaux-produits-h-f-rolex-ch"
+        ],
+        "de": [
+          "planificateur-nouveaux-produits-h-f-rolex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "planificateur-nouveaux-produits-h-f-rolex-ch"
+      ]
     },
     {
       "id": "rolex-2907f1b5bd75",

@@ -3333,12 +3333,12 @@
     },
     {
       "id": "decathlon-7a3a36ac354c",
-      "slug": "sport-leader-sportberater-teamsport-m-w-d-50-stundenlohnvertrag-decathlon-ch",
+      "slug": "leader-sportivo-consulente-sportivo-teamsport-m-f-d-50-contratto-salariale-orario-decathlon-spreitenbach",
       "slugByLocale": {
         "de": "sport-leader-sportberater-teamsport-m-w-d-50-stundenlohnvertrag-decathlon-ch",
-        "it": "sport-leader-sportberater-teamsport-m-w-d-50-stundenlohnvertrag-decathlon-ch",
-        "en": "sport-leader-sportberater-teamsport-m-w-d-50-stundenlohnvertrag-decathlon-ch",
-        "fr": "sport-leader-sportberater-teamsport-m-w-d-50-stundenlohnvertrag-decathlon-ch"
+        "it": "leader-sportivo-consulente-sportivo-teamsport-m-f-d-50-contratto-salariale-orario-decathlon-spreitenbach",
+        "en": "sport-leader-sports-consultant-teamsport-m-f-d-50-hourly-wage-contract-decathlon-spreitenbach",
+        "fr": "leader-sportif-consultant-sportif-teamsport-h-f-d-50-salaire-horaire-decathlon-spreitenbach"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3400,16 +3400,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:30:41.932Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:30:41.932Z"
+      "firstSeenAt": "2026-11-23T09:30:41.932Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sport-leader-sportberater-teamsport-m-w-d-50-stundenlohnvertrag-decathlon-ch"
+        ],
+        "en": [
+          "sport-leader-sportberater-teamsport-m-w-d-50-stundenlohnvertrag-decathlon-ch"
+        ],
+        "fr": [
+          "sport-leader-sportberater-teamsport-m-w-d-50-stundenlohnvertrag-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sport-leader-sportberater-teamsport-m-w-d-50-stundenlohnvertrag-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-67404fae90f9",
-      "slug": "sport-leader-verkaufsberater-m-w-d-80-100-decathlon-ch",
+      "slug": "leader-sportivo-sales-advisor-m-f-d-80-100-decathlon-spreitenbach",
       "slugByLocale": {
         "de": "sport-leader-verkaufsberater-m-w-d-80-100-decathlon-ch",
-        "it": "sport-leader-verkaufsberater-m-w-d-80-100-decathlon-ch",
+        "it": "leader-sportivo-sales-advisor-m-f-d-80-100-decathlon-spreitenbach",
         "en": "sport-leader-verkaufsberater-m-w-d-80-100-decathlon-ch",
-        "fr": "sport-leader-verkaufsberater-m-w-d-80-100-decathlon-ch"
+        "fr": "leader-sportif-conseiller-commercial-h-f-d-80-100-decathlon-spreitenbach"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3470,16 +3484,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:30:41.139Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:30:41.139Z"
+      "firstSeenAt": "2026-11-23T09:30:41.139Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sport-leader-verkaufsberater-m-w-d-80-100-decathlon-ch"
+        ],
+        "fr": [
+          "sport-leader-verkaufsberater-m-w-d-80-100-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sport-leader-verkaufsberater-m-w-d-80-100-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-358b109fad4e",
-      "slug": "sports-leader-verkaufsberater-m-w-d-50-stundenlohnvertrag-decathlon-ch",
+      "slug": "leader-sportivo-consulente-commerciale-m-f-d-50-contratto-salariale-orario-decathlon-spreitenbach",
       "slugByLocale": {
         "de": "sports-leader-verkaufsberater-m-w-d-50-stundenlohnvertrag-decathlon-ch",
-        "it": "sports-leader-verkaufsberater-m-w-d-50-stundenlohnvertrag-decathlon-ch",
-        "en": "sports-leader-verkaufsberater-m-w-d-50-stundenlohnvertrag-decathlon-ch",
-        "fr": "sports-leader-verkaufsberater-m-w-d-50-stundenlohnvertrag-decathlon-ch"
+        "it": "leader-sportivo-consulente-commerciale-m-f-d-50-contratto-salariale-orario-decathlon-spreitenbach",
+        "en": "sports-leader-sales-consultant-m-f-d-50-hourly-wage-contract-decathlon-spreitenbach",
+        "fr": "leader-sportif-consultant-en-ventes-h-f-d-50-contrat-de-salaire-horaire-decathlon-spreitenbach"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3541,7 +3566,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:30:40.126Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:30:40.126Z"
+      "firstSeenAt": "2026-11-23T09:30:40.126Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sports-leader-verkaufsberater-m-w-d-50-stundenlohnvertrag-decathlon-ch"
+        ],
+        "en": [
+          "sports-leader-verkaufsberater-m-w-d-50-stundenlohnvertrag-decathlon-ch"
+        ],
+        "fr": [
+          "sports-leader-verkaufsberater-m-w-d-50-stundenlohnvertrag-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sports-leader-verkaufsberater-m-w-d-50-stundenlohnvertrag-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-5d86eda7554a",

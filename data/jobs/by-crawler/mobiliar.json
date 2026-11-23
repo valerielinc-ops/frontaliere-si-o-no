@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "mobiliar-66c9ff7c6230",
-      "slug": "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-oberwallis-die-mobiliar-brig",
+      "slug": "personale-di-supporto-alle-vendite-m-f-d-agenzia-generale-dell-alto-vallese-die-mobiliar-brig",
       "slugByLocale": {
         "de": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-oberwallis-mobiliar-ch",
-        "it": "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-oberwallis-die-mobiliar-brig",
-        "en": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-oberwallis-mobiliar-ch",
-        "fr": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-oberwallis-mobiliar-ch"
+        "it": "personale-di-supporto-alle-vendite-m-f-d-agenzia-generale-dell-alto-vallese-die-mobiliar-brig",
+        "en": "employee-sales-support-m-f-d-general-agency-oberwallis-die-mobiliar-brig",
+        "fr": "soutien-aux-ventes-des-employes-h-f-d-agence-generale-oberwallis-die-mobiliar-brig"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -57,11 +57,19 @@
       "sfJobId": "1458281974",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-verkaufssupport-w-m-d-generalagentur-oberwallis-mobiliar-ch",
+          "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-oberwallis-die-mobiliar-brig"
+        ],
+        "en": [
+          "mitarbeiter-verkaufssupport-w-m-d-generalagentur-oberwallis-mobiliar-ch"
+        ],
+        "fr": [
           "mitarbeiter-verkaufssupport-w-m-d-generalagentur-oberwallis-mobiliar-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-verkaufssupport-w-m-d-generalagentur-oberwallis-mobiliar-ch"
+        "mitarbeiter-verkaufssupport-w-m-d-generalagentur-oberwallis-mobiliar-ch",
+        "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-oberwallis-die-mobiliar-brig"
       ],
       "salaryMin": 72000,
       "salaryMax": 111000,

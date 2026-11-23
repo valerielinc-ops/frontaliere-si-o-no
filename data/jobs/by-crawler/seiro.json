@@ -88,12 +88,12 @@
     },
     {
       "id": "seiro-f8cf87b18f09",
-      "slug": "oberarztin-oberarzt-konsiliar-e-liaisonpsychiatrie-winterthur-seiro-gmbh-winterthur",
+      "slug": "medico-senior-consulente-medico-senior-e-psichiatria-di-collegamento-winterthur-seiro-seiro-gmbh-winterthur-zurich",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-konsiliar-und-liaisonpsychiatrie-winterthur-seiro-winterthur-zurich",
-        "it": "oberarztin-oberarzt-konsiliar-e-liaisonpsychiatrie-winterthur-seiro-gmbh-winterthur",
-        "en": "oberarztin-oberarzt-konsiliar-und-liaisonpsychiatrie-winterthur-seiro-seiro-gmbh-winterthur",
-        "fr": "oberarztin-oberarzt-konsiliar-und-liaisonpsychiatrie-winterthur-seiro-seiro-gmbh-winterthur"
+        "it": "medico-senior-consulente-medico-senior-e-psichiatria-di-collegamento-winterthur-seiro-seiro-gmbh-winterthur-zurich",
+        "en": "senior-physician-senior-physician-consultant-and-liaison-psychiatry-winterthur-seiro-seiro-gmbh-winterthur-zurich",
+        "fr": "medecin-principal-medecin-conseil-principal-et-psychiatrie-de-liaison-winterthur-seiro-gmbh-winterthur-zurich"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -140,11 +140,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-konsiliar-und-liaisonpsychiatrie-winterthur-seiro-winterthur-zurich"
+          "oberarztin-oberarzt-konsiliar-und-liaisonpsychiatrie-winterthur-seiro-winterthur-zurich",
+          "oberarztin-oberarzt-konsiliar-e-liaisonpsychiatrie-winterthur-seiro-gmbh-winterthur"
+        ],
+        "en": [
+          "oberarztin-oberarzt-konsiliar-und-liaisonpsychiatrie-winterthur-seiro-seiro-gmbh-winterthur"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-konsiliar-und-liaisonpsychiatrie-winterthur-seiro-seiro-gmbh-winterthur"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-konsiliar-und-liaisonpsychiatrie-winterthur-seiro-winterthur-zurich"
+        "oberarztin-oberarzt-konsiliar-und-liaisonpsychiatrie-winterthur-seiro-winterthur-zurich",
+        "oberarztin-oberarzt-konsiliar-e-liaisonpsychiatrie-winterthur-seiro-gmbh-winterthur",
+        "oberarztin-oberarzt-konsiliar-und-liaisonpsychiatrie-winterthur-seiro-seiro-gmbh-winterthur"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -342,12 +351,12 @@
     },
     {
       "id": "seiro-8ebc338011fa",
-      "slug": "leitende-arztin-leitender-arzt-angiologie-davos-gr-seiro-davos-graubunden-seiro-ch",
+      "slug": "medico-senior-senior-medico-angiology-davos-gr-seiro-seiro-gmbh-davos-graubunden",
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-angiologie-davos-gr-seiro-davos-graubunden-seiro-ch",
-        "it": "leitende-arztin-leitender-arzt-angiologie-davos-gr-seiro-davos-graubunden-seiro-ch",
-        "en": "leitende-arztin-leitender-arzt-angiologie-davos-gr-seiro-davos-graubunden-seiro-ch",
-        "fr": "leitende-arztin-leitender-arzt-angiologie-davos-gr-seiro-davos-graubunden-seiro-ch"
+        "it": "medico-senior-senior-medico-angiology-davos-gr-seiro-seiro-gmbh-davos-graubunden",
+        "en": "senior-physician-senior-physician-angiology-davos-gr-seiro-seiro-gmbh-davos-graubunden",
+        "fr": "medecin-superieur-medecin-superieur-angiologie-davos-gr-seiro-seiro-gmbh-davos-graubunden"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -409,7 +418,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:33:10.446Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-19T21:46:08.506Z"
+      "firstSeenAt": "2026-11-19T21:46:08.506Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitender-arzt-angiologie-davos-gr-seiro-davos-graubunden-seiro-ch"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-angiologie-davos-gr-seiro-davos-graubunden-seiro-ch"
+        ],
+        "fr": [
+          "leitende-arztin-leitender-arzt-angiologie-davos-gr-seiro-davos-graubunden-seiro-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-angiologie-davos-gr-seiro-davos-graubunden-seiro-ch"
+      ]
     },
     {
       "id": "seiro-0b96b9c45eb2",

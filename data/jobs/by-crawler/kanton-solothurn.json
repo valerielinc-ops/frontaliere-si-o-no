@@ -1646,12 +1646,12 @@
     },
     {
       "id": "kanton-solothurn-c9a3898947a0",
-      "slug": "praktikant-in-80-kanton-solothurn-solothurn",
+      "slug": "stagista-80-kanton-solothurn-solothurn",
       "slugByLocale": {
         "de": "praktikant-in-80-kanton-solothurn-solothurn",
-        "it": "praktikant-in-80-kanton-solothurn-solothurn",
-        "en": "praktikant-in-80-kanton-solothurn-solothurn",
-        "fr": "praktikant-in-80-kanton-solothurn-solothurn"
+        "it": "stagista-80-kanton-solothurn-solothurn",
+        "en": "intern-80-kanton-solothurn-solothurn",
+        "fr": "stagiaire-80-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -1713,7 +1713,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:35:45.623Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:35:45.623Z"
+      "firstSeenAt": "2026-11-23T09:35:45.623Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-80-kanton-solothurn-solothurn"
+        ],
+        "en": [
+          "praktikant-in-80-kanton-solothurn-solothurn"
+        ],
+        "fr": [
+          "praktikant-in-80-kanton-solothurn-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-80-kanton-solothurn-solothurn"
+      ]
     }
   ]
 }

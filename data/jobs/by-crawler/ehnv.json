@@ -711,12 +711,12 @@
     },
     {
       "id": "ehnv-0ba5729c48b1",
-      "slug": "un-e-aide-infirmier-ere-a-70-100-ehnv-orbe",
+      "slug": "70-100-assistente-di-allattamento-etab-hospitaliers-du-nord-vaudois-ehnv-orbe",
       "slugByLocale": {
         "fr": "un-e-aide-infirmier-ere-a-70-100-ehnv-orbe",
-        "it": "un-e-aide-infirmier-ere-a-70-100-ehnv-orbe",
-        "en": "un-e-aide-infirmier-ere-a-70-100-ehnv-orbe",
-        "de": "un-e-aide-infirmier-ere-a-70-100-ehnv-orbe"
+        "it": "70-100-assistente-di-allattamento-etab-hospitaliers-du-nord-vaudois-ehnv-orbe",
+        "en": "70-100-nursing-assistant-etab-hospitaliers-du-nord-vaudois-ehnv-orbe",
+        "de": "70-100-pflegehelferin-etab-hospitaliers-du-nord-vaudois-ehnv-orbe"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
       "companyKey": "ehnv",
@@ -779,7 +779,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:24:17.272Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:24:17.272Z"
+      "firstSeenAt": "2026-11-23T09:24:17.272Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-aide-infirmier-ere-a-70-100-ehnv-orbe"
+        ],
+        "en": [
+          "un-e-aide-infirmier-ere-a-70-100-ehnv-orbe"
+        ],
+        "de": [
+          "un-e-aide-infirmier-ere-a-70-100-ehnv-orbe"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-aide-infirmier-ere-a-70-100-ehnv-orbe"
+      ]
     },
     {
       "id": "ehnv-a5aa2c8b2658",

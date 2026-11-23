@@ -330,12 +330,12 @@
     },
     {
       "id": "privatklinik-wyss-af63da3550fa",
-      "slug": "collaboratore-trice-hauswirtschaft-m-w-d-privatklinik-wyss-munchenbuchsee",
+      "slug": "gestione-delle-pulizie-per-i-dipendenti-m-f-d-privatklinik-wyss-munchenbuchsee",
       "slugByLocale": {
         "de": "mitarbeiter-in-hauswirtschaft-m-w-d-privatklinik-wyss-ch",
-        "it": "collaboratore-trice-hauswirtschaft-m-w-d-privatklinik-wyss-munchenbuchsee",
-        "en": "mitarbeiter-in-hauswirtschaft-m-w-d-privatklinik-wyss-ch",
-        "fr": "mitarbeiter-in-hauswirtschaft-m-w-d-privatklinik-wyss-ch"
+        "it": "gestione-delle-pulizie-per-i-dipendenti-m-f-d-privatklinik-wyss-munchenbuchsee",
+        "en": "employee-housekeeping-m-f-d-privatklinik-wyss-munchenbuchsee",
+        "fr": "entretien-menager-des-employes-h-f-d-privatklinik-wyss-munchenbuchsee"
       },
       "company": "Privatklinik Wyss",
       "companyKey": "privatklinik-wyss",
@@ -384,11 +384,19 @@
       "pensum": "70%",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-hauswirtschaft-m-w-d-privatklinik-wyss-ch",
+          "collaboratore-trice-hauswirtschaft-m-w-d-privatklinik-wyss-munchenbuchsee"
+        ],
+        "en": [
+          "mitarbeiter-in-hauswirtschaft-m-w-d-privatklinik-wyss-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-hauswirtschaft-m-w-d-privatklinik-wyss-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-hauswirtschaft-m-w-d-privatklinik-wyss-ch"
+        "mitarbeiter-in-hauswirtschaft-m-w-d-privatklinik-wyss-ch",
+        "collaboratore-trice-hauswirtschaft-m-w-d-privatklinik-wyss-munchenbuchsee"
       ],
       "salaryMin": 67500,
       "salaryMax": 84500,

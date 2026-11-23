@@ -609,12 +609,12 @@
     },
     {
       "id": "spitex-zuerich-72057de14666",
-      "slug": "fachfrau-mann-gesundheit-fage-demenz-40-100-a-spitex-zurich",
+      "slug": "specialista-sanitario-fage-demenza-40-100-a-spitex-zurich-zurich",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-fage-demenz-40-100-a-spitex-zuerich-zurich",
-        "it": "fachfrau-mann-gesundheit-fage-demenz-40-100-a-spitex-zurich",
-        "en": "fachfrau-mann-gesundheit-fage-demenz-40-100-a-spitex-zuerich-zurich",
-        "fr": "fachfrau-mann-gesundheit-fage-demenz-40-100-a-spitex-zuerich-zurich"
+        "it": "specialista-sanitario-fage-demenza-40-100-a-spitex-zurich-zurich",
+        "en": "health-specialist-fage-dementia-40-100-a-spitex-zurich-zurich",
+        "fr": "specialiste-de-la-sante-fage-demence-40-100-a-spitex-zurich-zurich"
       },
       "company": "Spitex Zürich",
       "companyKey": "spitex-zuerich",
@@ -661,11 +661,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-fage-demenz-40-100-a-spitex-zuerich-zurich",
+          "fachfrau-mann-gesundheit-fage-demenz-40-100-a-spitex-zurich"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-fage-demenz-40-100-a-spitex-zuerich-zurich"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-fage-demenz-40-100-a-spitex-zuerich-zurich"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-fage-demenz-40-100-a-spitex-zuerich-zurich"
+        "fachfrau-mann-gesundheit-fage-demenz-40-100-a-spitex-zuerich-zurich",
+        "fachfrau-mann-gesundheit-fage-demenz-40-100-a-spitex-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -767,10 +775,10 @@
     },
     {
       "id": "spitex-zuerich-f43b449766e9",
-      "slug": "fachfrau-mann-gesundheit-fage-region-nord-40-100-a-spitex-zurich",
+      "slug": "specialista-in-salute-fage-regione-nord-40-100-a-spitex-zurich-zurich",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-fage-region-nord-40-100-a-spitex-zuerich-zurich",
-        "it": "fachfrau-mann-gesundheit-fage-region-nord-40-100-a-spitex-zurich",
+        "it": "specialista-in-salute-fage-regione-nord-40-100-a-spitex-zurich-zurich",
         "en": "fachfrau-mann-gesundheit-fage-region-nord-40-100-a-spitex-zuerich-zurich",
         "fr": "fachfrau-mann-gesundheit-fage-region-nord-40-100-a-spitex-zuerich-zurich"
       },
@@ -819,11 +827,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-fage-region-nord-40-100-a-spitex-zuerich-zurich"
+          "fachfrau-mann-gesundheit-fage-region-nord-40-100-a-spitex-zuerich-zurich",
+          "fachfrau-mann-gesundheit-fage-region-nord-40-100-a-spitex-zurich"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-fage-region-nord-40-100-a-spitex-zuerich-zurich"
+        "fachfrau-mann-gesundheit-fage-region-nord-40-100-a-spitex-zuerich-zurich",
+        "fachfrau-mann-gesundheit-fage-region-nord-40-100-a-spitex-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

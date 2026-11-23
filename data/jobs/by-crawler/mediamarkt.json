@@ -1879,10 +1879,10 @@
     },
     {
       "id": "mediamarkt-101406",
-      "slug": "collaboratore-trice-in-kasse-kundendienst-60-100-mediamarkt-st-gallen",
+      "slug": "dipendente-al-checkout-e-assistenza-clienti-60-100-mediamarkt-st-gallen",
       "slugByLocale": {
         "de": "mitarbeiter-in-kasse-kundendienst-60-100-mediamarkt-st-gallen-ch",
-        "it": "collaboratore-trice-in-kasse-kundendienst-60-100-mediamarkt-st-gallen",
+        "it": "dipendente-al-checkout-e-assistenza-clienti-60-100-mediamarkt-st-gallen",
         "en": "mitarbeiter-in-kasse-kundendienst-60-100-mediamarkt-st-gallen-ch",
         "fr": "mitarbeiter-in-kasse-kundendienst-60-100-mediamarkt-st-gallen-ch"
       },
@@ -1934,11 +1934,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-kasse-kundendienst-60-100-mediamarkt-st-gallen-ch"
+          "mitarbeiter-in-kasse-kundendienst-60-100-mediamarkt-st-gallen-ch",
+          "collaboratore-trice-in-kasse-kundendienst-60-100-mediamarkt-st-gallen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-kasse-kundendienst-60-100-mediamarkt-st-gallen-ch"
+        "mitarbeiter-in-kasse-kundendienst-60-100-mediamarkt-st-gallen-ch",
+        "collaboratore-trice-in-kasse-kundendienst-60-100-mediamarkt-st-gallen"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -1960,12 +1962,12 @@
     },
     {
       "id": "mediamarkt-101407",
-      "slug": "logistikmitarbeiter-in-70-mediamarkt-st-gallen-ch",
+      "slug": "impiegato-logistico-70-mediamarkt-st-gallen",
       "slugByLocale": {
         "de": "logistikmitarbeiter-in-70-mediamarkt-st-gallen-ch",
-        "it": "logistikmitarbeiter-in-70-mediamarkt-st-gallen-ch",
-        "en": "logistikmitarbeiter-in-70-mediamarkt-st-gallen-ch",
-        "fr": "logistikmitarbeiter-in-70-mediamarkt-st-gallen-ch"
+        "it": "impiegato-logistico-70-mediamarkt-st-gallen",
+        "en": "logistics-employee-70-mediamarkt-st-gallen",
+        "fr": "employe-logistique-70-mediamarkt-st-gallen"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -2029,7 +2031,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-21T09:56:36.226Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:56:36.226Z"
+      "firstSeenAt": "2026-11-23T09:56:36.226Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "logistikmitarbeiter-in-70-mediamarkt-st-gallen-ch"
+        ],
+        "en": [
+          "logistikmitarbeiter-in-70-mediamarkt-st-gallen-ch"
+        ],
+        "fr": [
+          "logistikmitarbeiter-in-70-mediamarkt-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "logistikmitarbeiter-in-70-mediamarkt-st-gallen-ch"
+      ]
     },
     {
       "id": "mediamarkt-101268",

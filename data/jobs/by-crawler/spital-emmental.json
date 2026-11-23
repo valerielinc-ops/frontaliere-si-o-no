@@ -5218,10 +5218,10 @@
     },
     {
       "id": "spital-emmental-9b4066c02a4e",
-      "slug": "oberarztin-oberarzt-gastroenterologie-a-spital-emmental-burgdorf",
+      "slug": "medico-senior-gastroenterologia-medico-senior-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-gastroenterologie-a-spital-emmental-burgdorf",
-        "it": "oberarztin-oberarzt-gastroenterologie-a-spital-emmental-burgdorf",
+        "it": "medico-senior-gastroenterologia-medico-senior-a-spital-emmental-burgdorf",
         "en": "oberarztin-oberarzt-gastroenterologie-a-spital-emmental-burgdorf",
         "fr": "oberarztin-oberarzt-gastroenterologie-a-spital-emmental-burgdorf"
       },
@@ -5305,14 +5305,22 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-23T09:14:18.690Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:39:09.472Z"
+      "firstSeenAt": "2026-09-23T23:39:09.472Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-gastroenterologie-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-gastroenterologie-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-3440f1c90d43",
-      "slug": "arztsekretar-in-a-spital-emmental-langnau-2",
+      "slug": "segretario-medico-a-spital-emmental-langnau-23b6e3",
       "slugByLocale": {
         "de": "arztsekretar-in-a-spital-emmental-langnau",
-        "it": "arztsekretar-in-a-spital-emmental-langnau-2",
+        "it": "segretario-medico-a-spital-emmental-langnau-23b6e3",
         "en": "arztsekretar-in-a-spital-emmental-langnau-2",
         "fr": "arztsekretar-in-a-spital-emmental-langnau-2"
       },
@@ -5382,7 +5390,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:14:17.971Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-22T21:18:58.036Z"
+      "firstSeenAt": "2026-11-22T21:18:58.036Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-a-spital-emmental-langnau-2"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-a-spital-emmental-langnau-2"
+      ]
     },
     {
       "id": "spital-emmental-a9363638244c",

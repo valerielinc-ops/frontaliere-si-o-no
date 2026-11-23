@@ -28845,12 +28845,12 @@
     {
       "id": "hirslanden-de33f4e506d1",
       "externalId": "1459599133",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-a-100-chirurgie-hirslanden-hirslanden-klinik-linde",
+      "slug": "dipl-nursing-professional-a-100-chirurgia-hirslanden-klinik-hirslanden-klinik-linde",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-a-100-chirurgie-hirslanden-hirslanden-klinik-linde",
-        "it": "dipl-pflegefachfrau-pflegefachmann-a-100-chirurgie-hirslanden-hirslanden-klinik-linde",
-        "en": "dipl-pflegefachfrau-pflegefachmann-a-100-chirurgie-hirslanden-hirslanden-klinik-linde",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-a-100-chirurgie-hirslanden-hirslanden-klinik-linde"
+        "it": "dipl-nursing-professional-a-100-chirurgia-hirslanden-klinik-hirslanden-klinik-linde",
+        "en": "dipl-nursing-professional-a-100-surgery-hirslanden-klinik-hirslanden-klinik-linde",
+        "fr": "dipl-professionnel-des-soins-infirmiers-a-100-chirurgie-hirslanden-klinik-hirslanden-klinik-linde"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -28912,7 +28912,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:16:58.399Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:16:58.399Z"
+      "firstSeenAt": "2026-11-23T09:16:58.399Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-a-100-chirurgie-hirslanden-hirslanden-klinik-linde"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-a-100-chirurgie-hirslanden-hirslanden-klinik-linde"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-a-100-chirurgie-hirslanden-hirslanden-klinik-linde"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-a-100-chirurgie-hirslanden-hirslanden-klinik-linde"
+      ]
     },
     {
       "id": "hirslanden-74e7afae0f22",
@@ -28921,8 +28935,8 @@
       "slugByLocale": {
         "de": "pharma-assistentin-pharma-assistent-fur-die-spitalapotheke-a-40-60-hirslanden-hirslanden",
         "it": "pharma-assistentin-pharma-assistent-per-la-spitalapotheke-a-40-60-hirslanden-klinik-linde",
-        "en": "pharma-assistentin-pharma-assistent-fur-die-spitalapotheke-a-40-60-hirslanden-hirslanden",
-        "fr": "pharma-assistentin-pharma-assistent-fur-die-spitalapotheke-a-40-60-hirslanden-hirslanden"
+        "en": "pharmaceutical-assistant-for-the-hospital-pharmacy-a-40-60-hirslanden-klinik-hirslanden-klinik-linde",
+        "fr": "assistant-pharmaceutique-pour-la-pharmacie-hospitaliere-a-40-60-hirslanden-klinik-hirslanden-klinik-linde"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -28970,6 +28984,12 @@
       "previousSlugsByLocale": {
         "it": [
           "pharma-assistentin-pharma-assistent-fur-die-spitalapotheke-a-40-60-hirslanden-hirslanden"
+        ],
+        "en": [
+          "pharma-assistentin-pharma-assistent-fur-die-spitalapotheke-a-40-60-hirslanden-hirslanden"
+        ],
+        "fr": [
+          "pharma-assistentin-pharma-assistent-fur-die-spitalapotheke-a-40-60-hirslanden-hirslanden"
         ]
       },
       "previousSlugs": [
@@ -29001,8 +29021,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-reception-a-50-hirslanden-hirslanden-klinik-linde",
         "it": "collaboratore-trice-in-reception-a-50-hirslanden-klinik-linde",
-        "en": "mitarbeiter-in-reception-a-50-hirslanden-hirslanden-klinik-linde",
-        "fr": "mitarbeiter-in-reception-a-50-hirslanden-hirslanden-klinik-linde"
+        "en": "reception-staff-a-50-hirslanden-klinik-hirslanden-klinik-linde",
+        "fr": "personnel-d-accueil-a-50-hirslanden-klinik-hirslanden-klinik-linde"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -29049,6 +29069,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-reception-a-50-hirslanden-hirslanden-klinik-linde"
+        ],
+        "en": [
+          "mitarbeiter-in-reception-a-50-hirslanden-hirslanden-klinik-linde"
+        ],
+        "fr": [
           "mitarbeiter-in-reception-a-50-hirslanden-hirslanden-klinik-linde"
         ]
       },

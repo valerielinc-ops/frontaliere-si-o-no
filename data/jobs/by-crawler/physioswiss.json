@@ -19832,12 +19832,12 @@
     },
     {
       "id": "physioswiss-c4270205a0d4",
-      "slug": "blue-physio-recrute-un-e-physiotherapeute-a-domicile-40-100-physio-swiss-monthey",
+      "slug": "blue-physio-recluta-un-fisioterapista-a-casa-40-100-physio-swiss-1870-monthey",
       "slugByLocale": {
         "fr": "blue-physio-recrute-un-e-physiotherapeute-a-domicile-40-100-1870-monthey-physioswiss-ch",
-        "it": "blue-physio-recrute-un-e-physiotherapeute-a-domicile-40-100-physio-swiss-monthey",
-        "en": "blue-physio-recrute-un-e-physiotherapeute-a-domicile-40-100-physio-swiss-monthey",
-        "de": "blue-physio-recrute-un-e-physiotherapeute-a-domicile-40-100-1870-monthey-physioswiss-ch"
+        "it": "blue-physio-recluta-un-fisioterapista-a-casa-40-100-physio-swiss-1870-monthey",
+        "en": "blue-physio-recruits-a-physiotherapist-at-home-40-100-physio-swiss-1870-monthey",
+        "de": "blue-physio-rekrutiert-einen-physiotherapeuten-zu-hause-40-100-physio-swiss-1870-monthey"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -19884,11 +19884,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "blue-physio-recrute-un-e-physiotherapeute-a-domicile-40-100-1870-monthey-physioswiss-ch",
+          "blue-physio-recrute-un-e-physiotherapeute-a-domicile-40-100-physio-swiss-monthey"
+        ],
+        "en": [
+          "blue-physio-recrute-un-e-physiotherapeute-a-domicile-40-100-physio-swiss-monthey"
+        ],
+        "de": [
           "blue-physio-recrute-un-e-physiotherapeute-a-domicile-40-100-1870-monthey-physioswiss-ch"
         ]
       },
       "previousSlugs": [
-        "blue-physio-recrute-un-e-physiotherapeute-a-domicile-40-100-1870-monthey-physioswiss-ch"
+        "blue-physio-recrute-un-e-physiotherapeute-a-domicile-40-100-1870-monthey-physioswiss-ch",
+        "blue-physio-recrute-un-e-physiotherapeute-a-domicile-40-100-physio-swiss-monthey"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
