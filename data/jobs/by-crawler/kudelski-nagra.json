@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kudelski-nagra",
-  "assembledAt": "2026-11-23T09:50:06.682Z",
-  "runId": "45146742720",
+  "assembledAt": "2026-11-23T21:41:24.731Z",
+  "runId": "45269532171",
   "jobs": [
     {
       "id": "kudelski-nagra-61d77bbe9be2",
@@ -34,7 +34,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15882",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:49:58.280Z",
+      "crawledAt": "2026-11-23T21:41:16.955Z",
       "addressLocality": "Cheseaux-sur-Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Place de la Palud 2",
@@ -83,7 +83,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T09:49:58.280Z",
+      "validThrough": "2027-02-07T21:41:16.955Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -117,7 +117,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15881",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:49:57.518Z",
+      "crawledAt": "2026-11-23T21:41:16.080Z",
       "addressLocality": "Cheseaux-sur-Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Place de la Palud 2",
@@ -166,7 +166,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T09:49:57.518Z",
+      "validThrough": "2027-02-07T21:41:16.080Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -251,7 +251,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:35:01.660Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "kudelski-nagra-642b278be90e",
@@ -335,7 +335,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-07T21:35:00.841Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
