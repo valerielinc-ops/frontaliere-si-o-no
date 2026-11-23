@@ -1,7 +1,7 @@
 {
   "crawlerKey": "elettra-1938",
-  "assembledAt": "2026-11-22T21:24:25.268Z",
-  "runId": "45071421693",
+  "assembledAt": "2026-11-23T21:27:40.980Z",
+  "runId": "45268603935",
   "jobs": [
     {
       "id": "elettra-1938-b734b498aa38",
@@ -34,7 +34,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/hw-engineer-740162/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-22T21:24:19.938Z",
+      "crawledAt": "2026-11-23T21:27:35.259Z",
       "addressLocality": "Sede Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
       },
       "streetAddress": "Sede Stabio Svizzera",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:24:19.938Z",
+      "validThrough": "2027-02-15T21:27:35.259Z",
       "validThroughSource": "last-observed-window"
     }
   ]

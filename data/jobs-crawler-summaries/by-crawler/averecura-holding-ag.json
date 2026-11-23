@@ -1,7 +1,7 @@
 {
   "key": "averecura-holding-ag",
   "label": "averecura holding ag",
-  "generatedAt": "2026-11-22T21:27:16.178Z",
+  "generatedAt": "2026-11-23T21:26:47.911Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -36,10 +36,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3658,
-  "avgDurationMs": 3658,
+  "durationMs": 3302,
+  "avgDurationMs": 3302,
   "durationHistory": [
-    3658
+    3302
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -57,7 +57,7 @@
       "url": "https://app.reflinejobs.io/3034/0108/index.html",
       "source": "averecura holding ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:27:00.176Z",
+      "crawledAt": "2026-11-23T21:26:30.199Z",
       "addressLocality": "Hombrechtikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T21:27:00.176Z",
+      "validThrough": "2026-12-23T21:26:30.199Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -91,5 +91,5 @@
       }
     }
   ],
-  "codeCommit": "f0ab682774893f4b809c5b75181716509e65ea60"
+  "codeCommit": "7b684909df7304f91c3a19b75aa2a6088ce7630a"
 }

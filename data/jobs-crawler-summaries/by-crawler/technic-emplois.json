@@ -1,7 +1,7 @@
 {
   "key": "technic-emplois",
   "label": "Technic Emplois SA",
-  "generatedAt": "2026-11-22T21:26:17.232Z",
+  "generatedAt": "2026-11-23T21:26:52.387Z",
   "total": 2,
   "discovered": 2,
   "parsed": 2,
@@ -17,10 +17,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 45056,
-  "avgDurationMs": 45056,
+  "durationMs": 34100,
+  "avgDurationMs": 34100,
   "durationHistory": [
-    45056
+    34100
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -40,7 +40,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/f6400f9f-bd2d-4834-bd35-53c7d8663f65/",
       "source": "Technic Emplois SA (Jobup employer search)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:25:24.746Z",
+      "crawledAt": "2026-11-23T21:26:12.236Z",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -61,7 +61,7 @@
       "postalCode": "1201",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T21:25:24.746Z",
+      "validThrough": "2027-02-17T21:26:12.236Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -87,7 +87,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/94117ad9-d70e-4924-950a-0df571e46b5c/",
       "source": "Technic Emplois SA (Jobup employer search)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:25:23.745Z",
+      "crawledAt": "2026-11-23T21:26:11.293Z",
       "category": "Tecnica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -107,7 +107,7 @@
       "postalCode": "1003",
       "streetAddress": "Vaud",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T21:25:23.745Z",
+      "validThrough": "2027-02-17T21:26:11.293Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -120,5 +120,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "f0ab682774893f4b809c5b75181716509e65ea60"
+  "codeCommit": "7b684909df7304f91c3a19b75aa2a6088ce7630a"
 }
