@@ -1,7 +1,7 @@
 {
   "key": "kuehne-nagel",
   "label": "Kuehne+Nagel",
-  "generatedAt": "2026-11-22T21:21:46.132Z",
+  "generatedAt": "2026-11-23T09:28:43.985Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 7267,
-  "avgDurationMs": 7267,
+  "durationMs": 8050,
+  "avgDurationMs": 8050,
   "durationHistory": [
-    7267
+    8050
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL16638EXTERNALENGLOBAL/blue-yonder-wms-specialist-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T21:21:30.935Z",
+      "crawledAt": "2026-11-23T09:28:31.494Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "postalCode": "8424",
@@ -62,7 +62,7 @@
       "salaryMax": 134500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T21:21:30.935Z",
+      "validThrough": "2026-12-23T09:28:31.494Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 83,
       "_qualityBreakdown": {
@@ -84,7 +84,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL7329EXTERNALENGLOBAL/servicetechniker-logistik-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:30.509Z",
+      "crawledAt": "2026-11-23T09:28:30.366Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "postalCode": "8424",
@@ -109,7 +109,7 @@
       "salaryMax": 126000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T21:21:30.509Z",
+      "validThrough": "2026-12-23T09:28:30.366Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 83,
       "_qualityBreakdown": {
@@ -131,7 +131,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL20382EXTERNALENGLOBAL/sales-representative-m-f-d-air-sea-logistics",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T21:21:30.069Z",
+      "crawledAt": "2026-11-23T09:28:29.862Z",
       "addressLocality": "Ge Chatelaine",
       "addressRegion": "GE",
       "postalCode": "1219",
@@ -156,7 +156,7 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T21:21:30.069Z",
+      "validThrough": "2027-02-12T09:28:29.862Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 83,
       "_qualityBreakdown": {
@@ -178,7 +178,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL18158EXTERNALENGLOBAL/road-logistics-specialist-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-22T21:21:29.587Z",
+      "crawledAt": "2026-11-23T09:28:29.307Z",
       "addressLocality": "Thayngen",
       "addressRegion": "SH",
       "postalCode": "8240",
@@ -203,7 +203,7 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:21:29.587Z",
+      "validThrough": "2027-02-16T09:28:29.307Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -225,7 +225,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL17233EXTERNALENGLOBAL/senior-internal-auditor",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-22T21:21:29.251Z",
+      "crawledAt": "2026-11-23T09:28:28.866Z",
       "addressLocality": "Schindellegi",
       "addressRegion": "SZ",
       "postalCode": "8834",
@@ -249,7 +249,7 @@
       "salaryMax": 146000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-22T21:21:29.251Z",
+      "validThrough": "2026-12-23T09:28:28.866Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 83,
       "_qualityBreakdown": {
@@ -260,5 +260,5 @@
       }
     }
   ],
-  "codeCommit": "f0ab682774893f4b809c5b75181716509e65ea60"
+  "codeCommit": "7474b74d22ad2d97637dc94f08d243f12f0ba1c7"
 }
