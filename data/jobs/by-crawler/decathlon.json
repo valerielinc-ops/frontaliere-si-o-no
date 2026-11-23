@@ -1,7 +1,7 @@
 {
   "crawlerKey": "decathlon",
-  "assembledAt": "2026-11-23T09:31:28.336Z",
-  "runId": "45145768350",
+  "assembledAt": "2026-11-23T21:37:09.842Z",
+  "runId": "45268419941",
   "jobs": [
     {
       "id": "decathlon-00b691867916",
@@ -34,7 +34,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/3885171-store-leader-incubation-mwd-ost-und-zentralschweiz-zurich",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:31:15.411Z",
+      "crawledAt": "2026-11-23T21:36:26.690Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -93,7 +93,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:31:15.411Z",
+      "validThrough": "2026-12-23T21:36:26.690Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -127,7 +127,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4067317-sports-leader-verkaufsberater-mwd-50-70-decathlon-spreitenbach-8957-spreitenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:31:14.654Z",
+      "crawledAt": "2026-11-23T21:36:26.043Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -184,7 +184,7 @@
       },
       "streetAddress": "Spreitenbach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:31:14.654Z",
+      "validThrough": "2026-12-23T21:36:26.043Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -218,7 +218,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4278405-store-leader-incubation-mwd-nord-und-westschweiz-bern",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:31:13.787Z",
+      "crawledAt": "2026-11-23T21:36:25.293Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressRegion": "BE",
@@ -275,7 +275,7 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:31:13.787Z",
+      "validThrough": "2026-12-23T21:36:25.293Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -309,7 +309,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4505065-conseiller-ere-sportif-futur-team-leader-velo-routegravel-hf-cdi-80-avry-matran",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:31:12.887Z",
+      "crawledAt": "2026-11-23T21:36:24.670Z",
       "addressLocality": "Matran",
       "postalCode": "1753",
       "addressRegion": "FR",
@@ -351,7 +351,7 @@
       },
       "streetAddress": "Matran",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:31:12.887Z",
+      "validThrough": "2026-12-23T21:36:24.670Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -385,7 +385,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4522013-befristet-sport-leader-verkaufsberater-mwd-50-auf-stundenlohnbasis-3800-interlaken",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:31:09.584Z",
+      "crawledAt": "2026-11-23T21:36:23.928Z",
       "addressLocality": "Interlaken",
       "postalCode": "3800",
       "addressRegion": "BE",
@@ -486,7 +486,7 @@
       },
       "streetAddress": "Interlaken",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:31:09.584Z",
+      "validThrough": "2026-12-23T21:36:23.928Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -520,7 +520,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4542241-conseiller-ere-sportif-montagne-ski-hf-cdi-30-yverdon-1442-montagny-pres-yverdon",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:31:08.463Z",
+      "crawledAt": "2026-11-23T21:36:23.225Z",
       "addressLocality": "Montagny-près-Yverdon",
       "postalCode": "1442",
       "addressRegion": "VD",
@@ -562,7 +562,7 @@
       },
       "streetAddress": "Montagny-près-Yverdon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:31:08.463Z",
+      "validThrough": "2026-12-23T21:36:23.225Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -596,7 +596,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4550115-stagiaire-cycle-atelier-location-hf-stage-6-mois-martigny-1920-martigny",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:31:07.627Z",
+      "crawledAt": "2026-11-23T21:36:22.576Z",
       "addressLocality": "Martigny",
       "postalCode": "1920",
       "addressRegion": "VS",
@@ -671,7 +671,7 @@
       },
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:31:07.627Z",
+      "validThrough": "2026-12-23T21:36:22.576Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -705,7 +705,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4557787-conseiller-ere-glisse-hf-cdd-80-conthey-novembre-a-janvier-1964-conthey",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:31:06.987Z",
+      "crawledAt": "2026-11-23T21:36:21.904Z",
       "addressLocality": "Conthey",
       "postalCode": "1964",
       "addressRegion": "VS",
@@ -755,7 +755,7 @@
       },
       "streetAddress": "Conthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:31:06.987Z",
+      "validThrough": "2026-12-23T21:36:21.904Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -789,7 +789,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4557833-conseiller-ere-location-hf-cdd-60-conthey-1964-conthey",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:31:06.266Z",
+      "crawledAt": "2026-11-23T21:36:21.222Z",
       "addressLocality": "Conthey",
       "postalCode": "1964",
       "addressRegion": "VS",
@@ -831,7 +831,7 @@
       },
       "streetAddress": "Conthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:31:06.266Z",
+      "validThrough": "2026-12-23T21:36:21.222Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -865,7 +865,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4577437-sport-leader-verkaufsberater-mwd-befristet-50-wintersport-heimberg-3627-heimberg",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:31:05.534Z",
+      "crawledAt": "2026-11-23T21:36:20.475Z",
       "addressLocality": "Heimberg",
       "postalCode": "3627",
       "addressRegion": "BE",
@@ -909,7 +909,7 @@
       },
       "streetAddress": "Heimberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:31:05.534Z",
+      "validThrough": "2026-12-23T21:36:20.475Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -943,7 +943,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4577465-sport-leader-verkaufsberater-mwd-befristet-40-outdoorsport-heimberg-3627-heimberg",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:31:04.811Z",
+      "crawledAt": "2026-11-23T21:36:19.744Z",
       "addressLocality": "Heimberg",
       "postalCode": "3627",
       "addressRegion": "BE",
@@ -987,7 +987,7 @@
       },
       "streetAddress": "Heimberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:31:04.811Z",
+      "validThrough": "2026-12-23T21:36:19.744Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1021,7 +1021,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4507567-team-leader-abteilungsleiter-mwd-100-fahrrad-und-workshop-3627-heimberg",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:31:04.089Z",
+      "crawledAt": "2026-11-23T21:36:19.002Z",
       "addressLocality": "Heimberg",
       "postalCode": "3627",
       "addressRegion": "BE",
@@ -1065,7 +1065,7 @@
       },
       "streetAddress": "Heimberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:31:04.089Z",
+      "validThrough": "2026-12-23T21:36:19.002Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1099,7 +1099,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4599639-verkaufsberaterin-ski-20-40-befristet-bern-shoppyland-3321-urtenen-schonbuhl",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:31:03.131Z",
+      "crawledAt": "2026-11-23T21:36:18.348Z",
       "addressLocality": "Urtenen-Schönbühl",
       "postalCode": "3322",
       "addressRegion": "BE",
@@ -1154,7 +1154,7 @@
       },
       "streetAddress": "Urtenen-Schönbühl",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:31:03.131Z",
+      "validThrough": "2026-12-23T21:36:18.348Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1188,7 +1188,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4603695-sport-leader-verkaufsberater-mwd-40-decathlon-rickenbach-befristet-9532-rickenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:31:02.378Z",
+      "crawledAt": "2026-11-23T21:36:17.716Z",
       "addressLocality": "Rickenbach",
       "postalCode": "9532",
       "addressRegion": "GE",
@@ -1232,7 +1232,7 @@
       },
       "streetAddress": "Rickenbach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:31:02.378Z",
+      "validThrough": "2026-12-23T21:36:17.716Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1266,7 +1266,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4527715-mecanicien-ne-technicien-ne-cycle-et-sports-hf-cdi-80-100-1763-granges-paccot",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:31:01.758Z",
+      "crawledAt": "2026-11-23T21:36:17.081Z",
       "addressLocality": "Granges-Paccot",
       "postalCode": "1763",
       "addressRegion": "FR",
@@ -1322,7 +1322,7 @@
       },
       "streetAddress": "Granges-Paccot",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:31:01.758Z",
+      "validThrough": "2026-12-23T21:36:17.081Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1356,7 +1356,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4617405-candidature-spontanee-stage-sport-leader-1204-geneve",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:31:00.965Z",
+      "crawledAt": "2026-11-23T21:36:16.408Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "GE",
@@ -1398,7 +1398,7 @@
       },
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T09:31:00.965Z",
+      "validThrough": "2026-12-24T21:36:16.408Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1432,7 +1432,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4630203-retail-it-specialist-deeng-mwd-100-1425-onnens",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-23T09:31:00.289Z",
+      "crawledAt": "2026-11-23T21:36:15.770Z",
       "addressLocality": "Onnens",
       "postalCode": "1425",
       "addressRegion": "GE",
@@ -1476,7 +1476,7 @@
       },
       "streetAddress": "Onnens",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T09:31:00.289Z",
+      "validThrough": "2027-01-03T21:36:15.770Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1510,7 +1510,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4650551-team-leader-abteilungsleiter-mwd-100-outdoor-wasser-zurich",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:30:59.652Z",
+      "crawledAt": "2026-11-23T21:36:15.128Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -1558,7 +1558,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:30:59.652Z",
+      "validThrough": "2027-01-14T21:36:15.128Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1592,7 +1592,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4654991-sport-leader-verkaufsberater-mwd-befristet-80-brig-3902-brig-glis",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:30:58.972Z",
+      "crawledAt": "2026-11-23T21:36:14.465Z",
       "addressLocality": "Brig-Glis",
       "postalCode": "3902",
       "addressRegion": "VS",
@@ -1642,7 +1642,7 @@
       },
       "streetAddress": "Brig-Glis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:30:58.972Z",
+      "validThrough": "2027-01-18T21:36:14.465Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1676,7 +1676,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4665031-sport-leader-verkaufsberater-efz-mwd-100-6004-luzern",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:30:58.282Z",
+      "crawledAt": "2026-11-23T21:36:13.819Z",
       "addressLocality": "Luzern",
       "postalCode": "6003",
       "addressRegion": "LU",
@@ -1721,7 +1721,7 @@
       },
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:30:58.282Z",
+      "validThrough": "2027-01-25T21:36:13.819Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1755,7 +1755,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4669909-sport-leader-verkaufsberater-mwd-fitness-outdoor-80-3627-heimberg",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:30:57.590Z",
+      "crawledAt": "2026-11-23T21:36:13.215Z",
       "addressLocality": "Heimberg",
       "postalCode": "3627",
       "addressRegion": "BE",
@@ -1800,7 +1800,7 @@
       },
       "streetAddress": "Heimberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:30:57.590Z",
+      "validThrough": "2027-01-27T21:36:13.215Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1834,7 +1834,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4670115-befristet-sport-leader-verkaufsberater-mwd-werkstatt-velo-ski-80-3627-heimberg",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:30:56.657Z",
+      "crawledAt": "2026-11-23T21:36:12.601Z",
       "addressLocality": "Heimberg",
       "postalCode": "3627",
       "addressRegion": "BE",
@@ -1884,7 +1884,7 @@
       },
       "streetAddress": "Heimberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:30:56.657Z",
+      "validThrough": "2027-01-27T21:36:12.601Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1918,7 +1918,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4674097-team-leader-abteilungsleiter-mwd-100-4053-basel",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:30:55.930Z",
+      "crawledAt": "2026-11-23T21:36:11.878Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "addressRegion": "BS",
@@ -1966,7 +1966,7 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:30:55.930Z",
+      "validThrough": "2027-01-31T21:36:11.878Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2000,7 +2000,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4640281-sport-leader-verkaufsberater-mwd-80-decathlon-altstetten-zurich",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:30:55.097Z",
+      "crawledAt": "2026-11-23T21:36:11.235Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -2045,7 +2045,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T09:30:55.097Z",
+      "validThrough": "2027-01-07T21:36:11.235Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2079,7 +2079,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4675683-sport-leader-verkaufsberater-mit-efz-mwd-100-decathlon-kreuzlingen-8280-kreuzlingen",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:30:54.122Z",
+      "crawledAt": "2026-11-23T21:36:10.502Z",
       "addressLocality": "Kreuzlingen",
       "postalCode": "8280",
       "addressRegion": "TG",
@@ -2127,7 +2127,7 @@
       },
       "streetAddress": "Kreuzlingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:30:54.122Z",
+      "validThrough": "2027-02-01T21:36:10.502Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2161,7 +2161,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4577101-conseiller-ere-sportif-avec-cfc-glisse-etehiver-hf-cdi-100-bussigny-1030-bussigny",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:30:53.318Z",
+      "crawledAt": "2026-11-23T21:36:09.840Z",
       "addressLocality": "Bussigny",
       "postalCode": "1030",
       "addressRegion": "VD",
@@ -2209,7 +2209,7 @@
       },
       "streetAddress": "Bussigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:30:53.318Z",
+      "validThrough": "2026-12-23T21:36:09.840Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2243,7 +2243,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4689679-velo-und-werkstattmechanikerin-mwd-100-6340-baar",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:30:52.468Z",
+      "crawledAt": "2026-11-23T21:36:09.186Z",
       "addressLocality": "Baar",
       "postalCode": "6340",
       "addressRegion": "ZG",
@@ -2293,7 +2293,7 @@
       },
       "streetAddress": "Baar",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:30:52.468Z",
+      "validThrough": "2027-02-10T21:36:09.186Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2327,7 +2327,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4690595-sport-leader-verkaufsberater-mwd-befristet-20-st-gallen-9015-st-gallen",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:30:51.302Z",
+      "crawledAt": "2026-11-23T21:36:08.543Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "addressRegion": "SG",
@@ -2377,7 +2377,7 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:30:51.302Z",
+      "validThrough": "2027-02-10T21:36:08.543Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2411,7 +2411,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4690653-sport-leader-verkaufsberater-mwd-befristet-40-60-st-gallen-9015-st-gallen",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:30:50.096Z",
+      "crawledAt": "2026-11-23T21:36:07.844Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "addressRegion": "SG",
@@ -2468,7 +2468,7 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:30:50.096Z",
+      "validThrough": "2027-02-10T21:36:07.844Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2502,7 +2502,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4692367-hr-specialist-personaladministration-mwd-100-befristet-bis-august-2027-8957-spreitenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:30:48.985Z",
+      "crawledAt": "2026-11-23T21:36:07.127Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -2550,7 +2550,7 @@
       },
       "streetAddress": "Spreitenbach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:30:48.985Z",
+      "validThrough": "2027-02-11T21:36:07.127Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2584,7 +2584,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4521591-mecanicien-ne-technicien-ne-cycle-et-sports-hf-cdi-80-100-bienne-2504-biel",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:30:48.314Z",
+      "crawledAt": "2026-11-23T21:36:06.477Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "addressRegion": "BE",
@@ -2659,7 +2659,7 @@
       },
       "streetAddress": "Biel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:30:48.314Z",
+      "validThrough": "2026-12-23T21:36:06.477Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2693,7 +2693,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4692843-velo-und-werkstattmechanikerin-mwd-60-unbefristet-hinwil-8340-hinwil",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:30:47.659Z",
+      "crawledAt": "2026-11-23T21:36:05.816Z",
       "addressLocality": "Hinwil",
       "postalCode": "8340",
       "addressRegion": "ZH",
@@ -2743,7 +2743,7 @@
       },
       "streetAddress": "Hinwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:30:47.659Z",
+      "validThrough": "2027-02-11T21:36:05.816Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2777,7 +2777,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4692897-sport-leader-verkaufsberater-mwd-60-80-decathlon-winterthur-8404-winterthur",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:30:46.926Z",
+      "crawledAt": "2026-11-23T21:36:05.135Z",
       "addressLocality": "Winterthur",
       "postalCode": "8400",
       "addressRegion": "ZH",
@@ -2822,7 +2822,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:30:46.926Z",
+      "validThrough": "2027-02-11T21:36:05.135Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2856,7 +2856,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4694733-sport-leader-verkaufsberater-mwd-80-hiking-und-camping-4053-basel",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:30:46.250Z",
+      "crawledAt": "2026-11-23T21:36:04.462Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "addressRegion": "BS",
@@ -2908,7 +2908,7 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T09:30:46.250Z",
+      "validThrough": "2027-02-14T21:36:04.462Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2942,7 +2942,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4695453-conseiller-ere-cycle-hf-cdd-70-lausanne-bussigny-1030-bussigny",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:30:45.523Z",
+      "crawledAt": "2026-11-23T21:36:03.738Z",
       "addressLocality": "Bussigny",
       "postalCode": "1030",
       "addressRegion": "VD",
@@ -2990,7 +2990,7 @@
       },
       "streetAddress": "Bussigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T09:30:45.523Z",
+      "validThrough": "2027-02-14T21:36:03.738Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3024,7 +3024,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4695571-hote-esse-de-caisse-conseiller-ere-rando-ski-hf-cdd-40-villeneuve-1844-villeneuve",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:30:44.833Z",
+      "crawledAt": "2026-11-23T21:36:03.063Z",
       "addressLocality": "Villeneuve",
       "postalCode": "1844",
       "addressRegion": "VD",
@@ -3072,7 +3072,7 @@
       },
       "streetAddress": "Villeneuve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T09:30:44.833Z",
+      "validThrough": "2027-02-14T21:36:03.063Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3106,7 +3106,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4699007-conseiller-ere-sportif-runningtrail-hf-cdi-50-70-decathlon-avry-matran",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:30:44.075Z",
+      "crawledAt": "2026-11-23T21:36:02.404Z",
       "addressLocality": "Matran",
       "postalCode": "1753",
       "addressRegion": "FR",
@@ -3154,7 +3154,7 @@
       },
       "streetAddress": "Matran",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:30:44.075Z",
+      "validThrough": "2027-02-16T21:36:02.404Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3188,7 +3188,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4701239-conseiller-ere-randonneeski-hf-cdd-20-a-50-granges-paccot-1763-granges-paccot",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:30:43.358Z",
+      "crawledAt": "2026-11-23T21:36:01.652Z",
       "addressLocality": "Granges-Paccot",
       "postalCode": "1763",
       "addressRegion": "FR",
@@ -3242,7 +3242,7 @@
       },
       "streetAddress": "Granges-Paccot",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T09:30:43.358Z",
+      "validThrough": "2027-02-17T21:36:01.652Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3250,7 +3250,7 @@
       "slug": "temporary-sport-leader-sales-advisor-m-f-d-80-decathlon-zurich",
       "slugByLocale": {
         "it": "temporary-sport-leader-sales-advisor-m-f-d-80-decathlon-zurich",
-        "en": "befristet-sport-leader-verkaufsberater-m-w-d-80-decathlon-ch",
+        "en": "temporary-sport-leader-sales-advisor-m-f-d-80-decathlon-zurich",
         "de": "befristet-sport-leader-velomechaniker-m-w-d-80-decathlon-ch",
         "fr": "temporaire-leader-sportif-conseiller-en-ventes-h-f-d-80-decathlon-zurich"
       },
@@ -3276,7 +3276,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4701291-befristet-sport-leader-velomechaniker-mwd-80-zurich",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:30:42.658Z",
+      "crawledAt": "2026-11-23T21:36:00.973Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -3310,6 +3310,9 @@
         ],
         "fr": [
           "befristet-sport-leader-verkaufsberater-m-w-d-80-decathlon-ch"
+        ],
+        "en": [
+          "befristet-sport-leader-verkaufsberater-m-w-d-80-decathlon-ch"
         ]
       },
       "firstSeenAt": "2026-11-20T09:35:04.704Z",
@@ -3328,41 +3331,41 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T09:30:42.658Z",
+      "validThrough": "2027-02-17T21:36:00.973Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "decathlon-7a3a36ac354c",
       "slug": "leader-sportivo-consulente-sportivo-teamsport-m-f-d-50-contratto-salariale-orario-decathlon-spreitenbach",
       "slugByLocale": {
-        "de": "sport-leader-sportberater-teamsport-m-w-d-50-stundenlohnvertrag-decathlon-ch",
         "it": "leader-sportivo-consulente-sportivo-teamsport-m-f-d-50-contratto-salariale-orario-decathlon-spreitenbach",
         "en": "sport-leader-sports-consultant-teamsport-m-f-d-50-hourly-wage-contract-decathlon-spreitenbach",
+        "de": "sport-leader-sportberater-teamsport-m-w-d-50-stundenlohnvertrag-decathlon-ch",
         "fr": "leader-sportif-consultant-sportif-teamsport-h-f-d-50-salaire-horaire-decathlon-spreitenbach"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
       "companyDomain": "decathlon.ch",
-      "title": "Sport Leader/ Sportberater - Teamsport (m/w/d) - 50% - Stundenlohnvertrag",
+      "title": "Sport Leader/ Sportberater (m/w/d) Teamsport 50% - Stundenlohnvertrag",
       "titleByLocale": {
-        "de": "Sport Leader/ Sportberater - Teamsport (m/w/d) - 50% - Stundenlohnvertrag",
         "it": "Leader sportivo / Consulente sportivo - Teamsport (m/f/d) - 50% - contratto salariale orario",
         "en": "Sport Leader / Sports Consultant - Teamsport (m/f/d) - 50% - hourly wage contract",
+        "de": "Sport Leader/ Sportberater (m/w/d) Teamsport 50% - Stundenlohnvertrag",
         "fr": "Leader sportif / Consultant sportif - Teamsport (h/f/d) - 50% - salaire horaire"
       },
       "description": "Mission Dein zukünftiges Spielfeld Du wirst Teil unseres Stores in Spreitenbach, Aargau. Direkt im Shoppi Tivoli gelegen, erwartet dich hier der grösste Decathlon Erlebnisstore der Schweiz mit 5'500 m² Verkaufsfläche, hoher Kundenfrequenz sowie einem umfassenden Service- und Werkstattangebot. Dein Teamsport -Bereich steht im Mittelpunkt unserer lokalen Strategie. Gemeinsam sorgen wir jeden Tag dafür, dass Einsteiger:innen wie auch ambitionierte Athlet:innen aus der ganzen Region Limmattal und Aargau die optimale Ausrüstung und Beratung finden. Und nun zu deinem Job: Suchst du einen dynamischen Job, bei dem kein Tag dem anderen gleicht? Möchtest du deine Leidenschaft für den Sport teilen und jedem/jeder Kund:in, der/die den Store betritt, ein unvergessliches Erlebnis bieten? Du liebst Action, den Einsatz auf der Verkaufsfläche und Teamarbeit? Dann ist die Stelle als Sportberater:in im Verkauf genau das Richtige für dich. Warum?\n• Du bist mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche statt. Du bist das Gesicht von Decathlon. Egal, ob du Anfänger:innen begrüsst oder Expert:innen berätst, du teilst deine Leidenschaft und baust eine Verbindung auf.\n• Du gestaltest den Handel von morgen aktiv mit: Du begnügst dich nicht damit, ein Produkt im Regal zu verkaufen. Du bietest ein nachhaltiges Omnichannel-Erlebnis an: digitale Bestellungen, Materialvermietung, Rückkauf von alten Produkten (Second Life)... Du gehst auf alle Bedürfnisse ein.\n• Du hast Eigenverantwortung und Einfluss: Du bist der/die Garant:in für deinen Sport! Du sorgst dafür, dass deine Abteilung ansprechend aussieht, verwaltest deine Bestände und organisierst deine Verkaufsaktionen. Deine Effizienz zeigt sich direkt in der Zufriedenheit deiner Kund:innen. Was du täglich machen wirst: Deine Aufgaben\n• Omnichannel-Beratung und -Verkauf: Du begrüsst deine Kundschaft wie Gäste. Du berätst sie, schliesst Verkäufe ab (physisch oder über unsere digitalen Tools), bietest unser Treueprogramm an und übernimmst das Kassieren.\n• Kommerzielle Dynamik / Merchandising: Du platzierst die Produkte gemäss den Jahreszeiten und Merchandising-Vorgaben, kümmerst dich um das \"Facing\", damit deine Abteilung immer tadellos ist, und hebst die Bestseller sowie die Neuheiten der Saison hervor.\n• Verfügbarkeit und Logistik: Du packst mit an! Von der Annahme der Lieferung bis zur Einräumung in die Regale stellst du die Richtigkeit deiner Bestände und die schnelle Verfügbarkeit deiner Produkte sicher. Du bereitest auch die Web-Bestellungen vor.\n• Kreislaufwirtschaft und Services: Du bist Botschafter:in unserer neuen Modelle: Du verwaltest den Rückkauf von Gebrauchtwaren und bewirbst unsere Mietlösungen, um die Lebensdauer unserer Produkte zu verlängern.\n• Punktuelle Einsätze: Je nach deinen Interessen und deiner Entwicklung kannst du Aufgaben als Ansprechpartner:in für ein bestimmtes Thema übernehmen, als Trainer:in für deine Kolleg:innen agieren oder sogar bei der Schichtleitung des Stores aushelfen. Dieser Job ist NICHTS für dich, wenn...\n• Du lieber den ganzen Tag in Ruhe hinter einem Bildschirm sitzt.\n• Du nicht gerne spontan auf andere zugehst.\n• Du denkst, dass Paletten auspacken, Regale einräumen und Waren bearbeiten \"nicht dein Problem\" sind.\n• Du nicht bereit bist, am Ende des Tages 10'000 Schritte auf deiner Uhr zu sehen.\n• Du feste, routinierte Arbeitszeiten suchst: Hier leben wir im Rhythmus des Sports und unsere Dienstpläne passen sich der Aktivität an.\n• Du samstags nicht arbeiten möchtest. Profil Was wir von dir erwarten:\n• Du verfügst über ausgezeichnete zwischenmenschliche Fähigkeiten. Die Kundenzufriedenheit ist dein Kompass.\n• Du bist mutig, neugierig und hast immer Lust, dazuzulernen.\n• Du bist organisiert, effizient und weisst, wie du in einem schnelllebigen Umfeld Prioritäten setzt.\n• Du bist eine sportbegeisterte und aktive Person: Das ist die DNA des Unternehmens!\n• Du beherrschst Deutsch perfekt. Gute Englisch-/Französischkenntnisse sind ein echtes Plus. Was wir dir bieten:\n• Ein flexibler und sicherer Stundenlohnvertrag: Wie der Name schon sagt, wirst du nach Stunden bezahlt. Mit anderen Worten: Je mehr du arbeitest, desto höher ist dein Gehalt! Um dir Sicherheit zu geben, garantieren wir dir in jedem Fall ein monatliches Minimum (im Vertrag vereinbartes Pensum, das zwischen 20 % und 50 % variiert). In Spitzenzeiten können wir dir anbieten, zusätzliche Stunden zu leisten. Keine Panik bezüglich deiner Planung: Wir sagen dir immer mindestens 48 Stunden im Voraus Bescheid, und dies geschieht nur, wenn deine Verfügbarkeit es zulässt!\n• Stundenlohn: Der Lohn beträgt 25 CHF brutto pro Stunde. Hinzu kommen Entschädigungen für Feiertage, Ferien sowie der 13. Monatslohn (sofern du einen unbefristeten Stundenlohnvertrag hast). Jeweils am 15. des Monats wirst du auf Basis der im Vormonat geleisteten Stunden (zwischen dem 16. des Vormonats und dem 15. des laufenden Monats) bezahlt.\n• Mitarbeiteraktien : Einmal im Jahr kannst du Aktionär:in des Unternehmens werden. Das ist eine hervorragende Anlage, da der Wert der Aktie seit der Gründung von Decathlon vor 50 Jahren nie negativ war!\n• Leidenschaft für den Sport: Wir unterstützen deine sportliche Aktivität! Profitiere nach 1 Monat Betriebszugehörigkeit von 25 % Rabatt auf deine Decathlon-Einkäufe.\n• Weiterbildung: Du nimmst an Schulungen teil, um dein technisches Wissen über Produkte, deine Verkaufstechniken oder deine zwischenmenschliche Kommunikation zu verbessern. Deine Karriere: Bei uns ist Weiterentwicklung kein Mythos Du startest bei uns im Store? Du fängst als Verkäufer:in an? Du kannst dich zur Abteilungsleitung weiterentwickeln, als Operations Manager:in die Führung übernehmen und sogar Store Manager:in werden! Wir haben Dutzende Geschichten wie seine. Der Bewerbungsprozess: Wie lernen wir uns kennen?\n• Deine Bewerbung: Lebenslauf + Antworten auf den kurzen Fragebogen (kein Motivationsschreiben nötig!).\n• Das Assessment: Ein kurzer AssessFirst-Test, um dein Potenzial zu entdecken und uns dabei zu helfen, besser zu verstehen, wer du \"über deinen Lebenslauf hinaus\" bist.\n• Das Interview: Ein konkreter Austausch mit deinem/deiner zukünftigen Manager:in, um zu sehen, ob es \"matcht\".",
       "descriptionByLocale": {
-        "de": "Mission Dein zukünftiges Spielfeld Du wirst Teil unseres Stores in Spreitenbach, Aargau. Direkt im Shoppi Tivoli gelegen, erwartet dich hier der grösste Decathlon Erlebnisstore der Schweiz mit 5'500 m² Verkaufsfläche, hoher Kundenfrequenz sowie einem umfassenden Service- und Werkstattangebot. Dein Teamsport -Bereich steht im Mittelpunkt unserer lokalen Strategie. Gemeinsam sorgen wir jeden Tag dafür, dass Einsteiger:innen wie auch ambitionierte Athlet:innen aus der ganzen Region Limmattal und Aargau die optimale Ausrüstung und Beratung finden. Und nun zu deinem Job: Suchst du einen dynamischen Job, bei dem kein Tag dem anderen gleicht? Möchtest du deine Leidenschaft für den Sport teilen und jedem/jeder Kund:in, der/die den Store betritt, ein unvergessliches Erlebnis bieten? Du liebst Action, den Einsatz auf der Verkaufsfläche und Teamarbeit? Dann ist die Stelle als Sportberater:in im Verkauf genau das Richtige für dich. Warum?\n• Du bist mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche statt. Du bist das Gesicht von Decathlon. Egal, ob du Anfänger:innen begrüsst oder Expert:innen berätst, du teilst deine Leidenschaft und baust eine Verbindung auf.\n• Du gestaltest den Handel von morgen aktiv mit: Du begnügst dich nicht damit, ein Produkt im Regal zu verkaufen. Du bietest ein nachhaltiges Omnichannel-Erlebnis an: digitale Bestellungen, Materialvermietung, Rückkauf von alten Produkten (Second Life)... Du gehst auf alle Bedürfnisse ein.\n• Du hast Eigenverantwortung und Einfluss: Du bist der/die Garant:in für deinen Sport! Du sorgst dafür, dass deine Abteilung ansprechend aussieht, verwaltest deine Bestände und organisierst deine Verkaufsaktionen. Deine Effizienz zeigt sich direkt in der Zufriedenheit deiner Kund:innen. Was du täglich machen wirst: Deine Aufgaben\n• Omnichannel-Beratung und -Verkauf: Du begrüsst deine Kundschaft wie Gäste. Du berätst sie, schliesst Verkäufe ab (physisch oder über unsere digitalen Tools), bietest unser Treueprogramm an und übernimmst das Kassieren.\n• Kommerzielle Dynamik / Merchandising: Du platzierst die Produkte gemäss den Jahreszeiten und Merchandising-Vorgaben, kümmerst dich um das \"Facing\", damit deine Abteilung immer tadellos ist, und hebst die Bestseller sowie die Neuheiten der Saison hervor.\n• Verfügbarkeit und Logistik: Du packst mit an! Von der Annahme der Lieferung bis zur Einräumung in die Regale stellst du die Richtigkeit deiner Bestände und die schnelle Verfügbarkeit deiner Produkte sicher. Du bereitest auch die Web-Bestellungen vor.\n• Kreislaufwirtschaft und Services: Du bist Botschafter:in unserer neuen Modelle: Du verwaltest den Rückkauf von Gebrauchtwaren und bewirbst unsere Mietlösungen, um die Lebensdauer unserer Produkte zu verlängern.\n• Punktuelle Einsätze: Je nach deinen Interessen und deiner Entwicklung kannst du Aufgaben als Ansprechpartner:in für ein bestimmtes Thema übernehmen, als Trainer:in für deine Kolleg:innen agieren oder sogar bei der Schichtleitung des Stores aushelfen. Dieser Job ist NICHTS für dich, wenn...\n• Du lieber den ganzen Tag in Ruhe hinter einem Bildschirm sitzt.\n• Du nicht gerne spontan auf andere zugehst.\n• Du denkst, dass Paletten auspacken, Regale einräumen und Waren bearbeiten \"nicht dein Problem\" sind.\n• Du nicht bereit bist, am Ende des Tages 10'000 Schritte auf deiner Uhr zu sehen.\n• Du feste, routinierte Arbeitszeiten suchst: Hier leben wir im Rhythmus des Sports und unsere Dienstpläne passen sich der Aktivität an.\n• Du samstags nicht arbeiten möchtest. Profil Was wir von dir erwarten:\n• Du verfügst über ausgezeichnete zwischenmenschliche Fähigkeiten. Die Kundenzufriedenheit ist dein Kompass.\n• Du bist mutig, neugierig und hast immer Lust, dazuzulernen.\n• Du bist organisiert, effizient und weisst, wie du in einem schnelllebigen Umfeld Prioritäten setzt.\n• Du bist eine sportbegeisterte und aktive Person: Das ist die DNA des Unternehmens!\n• Du beherrschst Deutsch perfekt. Gute Englisch-/Französischkenntnisse sind ein echtes Plus. Was wir dir bieten:\n• Ein flexibler und sicherer Stundenlohnvertrag: Wie der Name schon sagt, wirst du nach Stunden bezahlt. Mit anderen Worten: Je mehr du arbeitest, desto höher ist dein Gehalt! Um dir Sicherheit zu geben, garantieren wir dir in jedem Fall ein monatliches Minimum (im Vertrag vereinbartes Pensum, das zwischen 20 % und 50 % variiert). In Spitzenzeiten können wir dir anbieten, zusätzliche Stunden zu leisten. Keine Panik bezüglich deiner Planung: Wir sagen dir immer mindestens 48 Stunden im Voraus Bescheid, und dies geschieht nur, wenn deine Verfügbarkeit es zulässt!\n• Stundenlohn: Der Lohn beträgt 25 CHF brutto pro Stunde. Hinzu kommen Entschädigungen für Feiertage, Ferien sowie der 13. Monatslohn (sofern du einen unbefristeten Stundenlohnvertrag hast). Jeweils am 15. des Monats wirst du auf Basis der im Vormonat geleisteten Stunden (zwischen dem 16. des Vormonats und dem 15. des laufenden Monats) bezahlt.\n• Mitarbeiteraktien : Einmal im Jahr kannst du Aktionär:in des Unternehmens werden. Das ist eine hervorragende Anlage, da der Wert der Aktie seit der Gründung von Decathlon vor 50 Jahren nie negativ war!\n• Leidenschaft für den Sport: Wir unterstützen deine sportliche Aktivität! Profitiere nach 1 Monat Betriebszugehörigkeit von 25 % Rabatt auf deine Decathlon-Einkäufe.\n• Weiterbildung: Du nimmst an Schulungen teil, um dein technisches Wissen über Produkte, deine Verkaufstechniken oder deine zwischenmenschliche Kommunikation zu verbessern. Deine Karriere: Bei uns ist Weiterentwicklung kein Mythos Du startest bei uns im Store? Du fängst als Verkäufer:in an? Du kannst dich zur Abteilungsleitung weiterentwickeln, als Operations Manager:in die Führung übernehmen und sogar Store Manager:in werden! Wir haben Dutzende Geschichten wie seine. Der Bewerbungsprozess: Wie lernen wir uns kennen?\n• Deine Bewerbung: Lebenslauf + Antworten auf den kurzen Fragebogen (kein Motivationsschreiben nötig!).\n• Das Assessment: Ein kurzer AssessFirst-Test, um dein Potenzial zu entdecken und uns dabei zu helfen, besser zu verstehen, wer du \"über deinen Lebenslauf hinaus\" bist.\n• Das Interview: Ein konkreter Austausch mit deinem/deiner zukünftigen Manager:in, um zu sehen, ob es \"matcht\".",
         "it": "Mission Dein zukünftiges Spielfeld Du wirst Teil unseres Stores in Spreitenbach, Aargau. Direkt im Shoppi Tivoli gelegen, erwartet dich hier der grösste Decathlon Erlebnisstore der Schweiz mit 5'500 m² Verkaufsfläche, hoher Kundenfrequenz sowie einem umfassenden Service- und Werkstattangebot. Dein Teamsport -Bereich steht im Mittelpunkt unserer lokalen Strategie. Gemeinsam sorgen wir jeden Tag dafür, dass Einsteiger:innen wie auch ambitionierte Athlet:innen aus der ganzen Region Limmattal und Aargau die optimale Ausrüstung und Beratung finden. Und nun zu deinem Job: Suchst du einen dynamischen Job, bei dem kein Tag dem anderen gleicht? Möchtest du deine Leidenschaft für den Sport teilen und jedem/jeder Kund:in, der/die den Store betritt, ein unvergessliches Erlebnis bieten? Du liebst Action, den Einsatz auf der Verkaufsfläche und Teamarbeit? Dann ist die Stelle als Sportberater:in im Verkauf genau das Richtige für dich. Warum?\n• Du bist mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche statt. Du bist das Gesicht von Decathlon. Egal, ob du Anfänger:innen begrüsst oder Expert:innen berätst, du teilst deine Leidenschaft und baust eine Verbindung auf.\n• Du gestaltest den Handel von morgen aktiv mit: Du begnügst dich nicht damit, ein Produkt im Regal zu verkaufen. Du bietest ein nachhaltiges Omnichannel-Erlebnis an: digitale Bestellungen, Materialvermietung, Rückkauf von alten Produkten (Second Life)... Du gehst auf alle Bedürfnisse ein.\n• Du hast Eigenverantwortung und Einfluss: Du bist der/die Garant:in für deinen Sport! Du sorgst dafür, dass deine Abteilung ansprechend aussieht, verwaltest deine Bestände und organisierst deine Verkaufsaktionen. Deine Effizienz zeigt sich direkt in der Zufriedenheit deiner Kund:innen. Was du täglich machen wirst: Deine Aufgaben\n• Omnichannel-Beratung und -Verkauf: Du begrüsst deine Kundschaft wie Gäste. Du berätst sie, schliesst Verkäufe ab (physisch oder über unsere digitalen Tools), bietest unser Treueprogramm an und übernimmst das Kassieren.\n• Kommerzielle Dynamik / Merchandising: Du platzierst die Produkte gemäss den Jahreszeiten und Merchandising-Vorgaben, kümmerst dich um das \"Facing\", damit deine Abteilung immer tadellos ist, und hebst die Bestseller sowie die Neuheiten der Saison hervor.\n• Verfügbarkeit und Logistik: Du packst mit an! Von der Annahme der Lieferung bis zur Einräumung in die Regale stellst du die Richtigkeit deiner Bestände und die schnelle Verfügbarkeit deiner Produkte sicher. Du bereitest auch die Web-Bestellungen vor.\n• Kreislaufwirtschaft und Services: Du bist Botschafter:in unserer neuen Modelle: Du verwaltest den Rückkauf von Gebrauchtwaren und bewirbst unsere Mietlösungen, um die Lebensdauer unserer Produkte zu verlängern.\n• Punktuelle Einsätze: Je nach deinen Interessen und deiner Entwicklung kannst du Aufgaben als Ansprechpartner:in für ein bestimmtes Thema übernehmen, als Trainer:in für deine Kolleg:innen agieren oder sogar bei der Schichtleitung des Stores aushelfen. Dieser Job ist NICHTS für dich, wenn...\n• Du lieber den ganzen Tag in Ruhe hinter einem Bildschirm sitzt.\n• Du nicht gerne spontan auf andere zugehst.\n• Du denkst, dass Paletten auspacken, Regale einräumen und Waren bearbeiten \"nicht dein Problem\" sind.\n• Du nicht bereit bist, am Ende des Tages 10'000 Schritte auf deiner Uhr zu sehen.\n• Du feste, routinierte Arbeitszeiten suchst: Hier leben wir im Rhythmus des Sports und unsere Dienstpläne passen sich der Aktivität an.\n• Du samstags nicht arbeiten möchtest. Profil Was wir von dir erwarten:\n• Du verfügst über ausgezeichnete zwischenmenschliche Fähigkeiten. Die Kundenzufriedenheit ist dein Kompass.\n• Du bist mutig, neugierig und hast immer Lust, dazuzulernen.\n• Du bist organisiert, effizient und weisst, wie du in einem schnelllebigen Umfeld Prioritäten setzt.\n• Du bist eine sportbegeisterte und aktive Person: Das ist die DNA des Unternehmens!\n• Du beherrschst Deutsch perfekt. Gute Englisch-/Französischkenntnisse sind ein echtes Plus. Was wir dir bieten:\n• Ein flexibler und sicherer Stundenlohnvertrag: Wie der Name schon sagt, wirst du nach Stunden bezahlt. Mit anderen Worten: Je mehr du arbeitest, desto höher ist dein Gehalt! Um dir Sicherheit zu geben, garantieren wir dir in jedem Fall ein monatliches Minimum (im Vertrag vereinbartes Pensum, das zwischen 20 % und 50 % variiert). In Spitzenzeiten können wir dir anbieten, zusätzliche Stunden zu leisten. Keine Panik bezüglich deiner Planung: Wir sagen dir immer mindestens 48 Stunden im Voraus Bescheid, und dies geschieht nur, wenn deine Verfügbarkeit es zulässt!\n• Stundenlohn: Der Lohn beträgt 25 CHF brutto pro Stunde. Hinzu kommen Entschädigungen für Feiertage, Ferien sowie der 13. Monatslohn (sofern du einen unbefristeten Stundenlohnvertrag hast). Jeweils am 15. des Monats wirst du auf Basis der im Vormonat geleisteten Stunden (zwischen dem 16. des Vormonats und dem 15. des laufenden Monats) bezahlt.\n• Mitarbeiteraktien : Einmal im Jahr kannst du Aktionär:in des Unternehmens werden. Das ist eine hervorragende Anlage, da der Wert der Aktie seit der Gründung von Decathlon vor 50 Jahren nie negativ war!\n• Leidenschaft für den Sport: Wir unterstützen deine sportliche Aktivität! Profitiere nach 1 Monat Betriebszugehörigkeit von 25 % Rabatt auf deine Decathlon-Einkäufe.\n• Weiterbildung: Du nimmst an Schulungen teil, um dein technisches Wissen über Produkte, deine Verkaufstechniken oder deine zwischenmenschliche Kommunikation zu verbessern. Deine Karriere: Bei uns ist Weiterentwicklung kein Mythos Du startest bei uns im Store? Du fängst als Verkäufer:in an? Du kannst dich zur Abteilungsleitung weiterentwickeln, als Operations Manager:in die Führung übernehmen und sogar Store Manager:in werden! Wir haben Dutzende Geschichten wie seine. Der Bewerbungsprozess: Wie lernen wir uns kennen?\n• Deine Bewerbung: Lebenslauf + Antworten auf den kurzen Fragebogen (kein Motivationsschreiben nötig!).\n• Das Assessment: Ein kurzer AssessFirst-Test, um dein Potenzial zu entdecken und uns dabei zu helfen, besser zu verstehen, wer du \"über deinen Lebenslauf hinaus\" bist.\n• Das Interview: Ein konkreter Austausch mit deinem/deiner zukünftigen Manager:in, um zu sehen, ob es \"matcht\".",
         "en": "Mission Dein zukünftiges Spielfeld Du wirst Teil unseres Stores in Spreitenbach, Aargau. Direkt im Shoppi Tivoli gelegen, erwartet dich hier der grösste Decathlon Erlebnisstore der Schweiz mit 5'500 m² Verkaufsfläche, hoher Kundenfrequenz sowie einem umfassenden Service- und Werkstattangebot. Dein Teamsport -Bereich steht im Mittelpunkt unserer lokalen Strategie. Gemeinsam sorgen wir jeden Tag dafür, dass Einsteiger:innen wie auch ambitionierte Athlet:innen aus der ganzen Region Limmattal und Aargau die optimale Ausrüstung und Beratung finden. Und nun zu deinem Job: Suchst du einen dynamischen Job, bei dem kein Tag dem anderen gleicht? Möchtest du deine Leidenschaft für den Sport teilen und jedem/jeder Kund:in, der/die den Store betritt, ein unvergessliches Erlebnis bieten? Du liebst Action, den Einsatz auf der Verkaufsfläche und Teamarbeit? Dann ist die Stelle als Sportberater:in im Verkauf genau das Richtige für dich. Warum?\n• Du bist mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche statt. Du bist das Gesicht von Decathlon. Egal, ob du Anfänger:innen begrüsst oder Expert:innen berätst, du teilst deine Leidenschaft und baust eine Verbindung auf.\n• Du gestaltest den Handel von morgen aktiv mit: Du begnügst dich nicht damit, ein Produkt im Regal zu verkaufen. Du bietest ein nachhaltiges Omnichannel-Erlebnis an: digitale Bestellungen, Materialvermietung, Rückkauf von alten Produkten (Second Life)... Du gehst auf alle Bedürfnisse ein.\n• Du hast Eigenverantwortung und Einfluss: Du bist der/die Garant:in für deinen Sport! Du sorgst dafür, dass deine Abteilung ansprechend aussieht, verwaltest deine Bestände und organisierst deine Verkaufsaktionen. Deine Effizienz zeigt sich direkt in der Zufriedenheit deiner Kund:innen. Was du täglich machen wirst: Deine Aufgaben\n• Omnichannel-Beratung und -Verkauf: Du begrüsst deine Kundschaft wie Gäste. Du berätst sie, schliesst Verkäufe ab (physisch oder über unsere digitalen Tools), bietest unser Treueprogramm an und übernimmst das Kassieren.\n• Kommerzielle Dynamik / Merchandising: Du platzierst die Produkte gemäss den Jahreszeiten und Merchandising-Vorgaben, kümmerst dich um das \"Facing\", damit deine Abteilung immer tadellos ist, und hebst die Bestseller sowie die Neuheiten der Saison hervor.\n• Verfügbarkeit und Logistik: Du packst mit an! Von der Annahme der Lieferung bis zur Einräumung in die Regale stellst du die Richtigkeit deiner Bestände und die schnelle Verfügbarkeit deiner Produkte sicher. Du bereitest auch die Web-Bestellungen vor.\n• Kreislaufwirtschaft und Services: Du bist Botschafter:in unserer neuen Modelle: Du verwaltest den Rückkauf von Gebrauchtwaren und bewirbst unsere Mietlösungen, um die Lebensdauer unserer Produkte zu verlängern.\n• Punktuelle Einsätze: Je nach deinen Interessen und deiner Entwicklung kannst du Aufgaben als Ansprechpartner:in für ein bestimmtes Thema übernehmen, als Trainer:in für deine Kolleg:innen agieren oder sogar bei der Schichtleitung des Stores aushelfen. Dieser Job ist NICHTS für dich, wenn...\n• Du lieber den ganzen Tag in Ruhe hinter einem Bildschirm sitzt.\n• Du nicht gerne spontan auf andere zugehst.\n• Du denkst, dass Paletten auspacken, Regale einräumen und Waren bearbeiten \"nicht dein Problem\" sind.\n• Du nicht bereit bist, am Ende des Tages 10'000 Schritte auf deiner Uhr zu sehen.\n• Du feste, routinierte Arbeitszeiten suchst: Hier leben wir im Rhythmus des Sports und unsere Dienstpläne passen sich der Aktivität an.\n• Du samstags nicht arbeiten möchtest. Profil Was wir von dir erwarten:\n• Du verfügst über ausgezeichnete zwischenmenschliche Fähigkeiten. Die Kundenzufriedenheit ist dein Kompass.\n• Du bist mutig, neugierig und hast immer Lust, dazuzulernen.\n• Du bist organisiert, effizient und weisst, wie du in einem schnelllebigen Umfeld Prioritäten setzt.\n• Du bist eine sportbegeisterte und aktive Person: Das ist die DNA des Unternehmens!\n• Du beherrschst Deutsch perfekt. Gute Englisch-/Französischkenntnisse sind ein echtes Plus. Was wir dir bieten:\n• Ein flexibler und sicherer Stundenlohnvertrag: Wie der Name schon sagt, wirst du nach Stunden bezahlt. Mit anderen Worten: Je mehr du arbeitest, desto höher ist dein Gehalt! Um dir Sicherheit zu geben, garantieren wir dir in jedem Fall ein monatliches Minimum (im Vertrag vereinbartes Pensum, das zwischen 20 % und 50 % variiert). In Spitzenzeiten können wir dir anbieten, zusätzliche Stunden zu leisten. Keine Panik bezüglich deiner Planung: Wir sagen dir immer mindestens 48 Stunden im Voraus Bescheid, und dies geschieht nur, wenn deine Verfügbarkeit es zulässt!\n• Stundenlohn: Der Lohn beträgt 25 CHF brutto pro Stunde. Hinzu kommen Entschädigungen für Feiertage, Ferien sowie der 13. Monatslohn (sofern du einen unbefristeten Stundenlohnvertrag hast). Jeweils am 15. des Monats wirst du auf Basis der im Vormonat geleisteten Stunden (zwischen dem 16. des Vormonats und dem 15. des laufenden Monats) bezahlt.\n• Mitarbeiteraktien : Einmal im Jahr kannst du Aktionär:in des Unternehmens werden. Das ist eine hervorragende Anlage, da der Wert der Aktie seit der Gründung von Decathlon vor 50 Jahren nie negativ war!\n• Leidenschaft für den Sport: Wir unterstützen deine sportliche Aktivität! Profitiere nach 1 Monat Betriebszugehörigkeit von 25 % Rabatt auf deine Decathlon-Einkäufe.\n• Weiterbildung: Du nimmst an Schulungen teil, um dein technisches Wissen über Produkte, deine Verkaufstechniken oder deine zwischenmenschliche Kommunikation zu verbessern. Deine Karriere: Bei uns ist Weiterentwicklung kein Mythos Du startest bei uns im Store? Du fängst als Verkäufer:in an? Du kannst dich zur Abteilungsleitung weiterentwickeln, als Operations Manager:in die Führung übernehmen und sogar Store Manager:in werden! Wir haben Dutzende Geschichten wie seine. Der Bewerbungsprozess: Wie lernen wir uns kennen?\n• Deine Bewerbung: Lebenslauf + Antworten auf den kurzen Fragebogen (kein Motivationsschreiben nötig!).\n• Das Assessment: Ein kurzer AssessFirst-Test, um dein Potenzial zu entdecken und uns dabei zu helfen, besser zu verstehen, wer du \"über deinen Lebenslauf hinaus\" bist.\n• Das Interview: Ein konkreter Austausch mit deinem/deiner zukünftigen Manager:in, um zu sehen, ob es \"matcht\".",
+        "de": "Mission Dein zukünftiges Spielfeld Du wirst Teil unseres Stores in Spreitenbach, Aargau. Direkt im Shoppi Tivoli gelegen, erwartet dich hier der grösste Decathlon Erlebnisstore der Schweiz mit 5'500 m² Verkaufsfläche, hoher Kundenfrequenz sowie einem umfassenden Service- und Werkstattangebot. Dein Teamsport -Bereich steht im Mittelpunkt unserer lokalen Strategie. Gemeinsam sorgen wir jeden Tag dafür, dass Einsteiger:innen wie auch ambitionierte Athlet:innen aus der ganzen Region Limmattal und Aargau die optimale Ausrüstung und Beratung finden. Und nun zu deinem Job: Suchst du einen dynamischen Job, bei dem kein Tag dem anderen gleicht? Möchtest du deine Leidenschaft für den Sport teilen und jedem/jeder Kund:in, der/die den Store betritt, ein unvergessliches Erlebnis bieten? Du liebst Action, den Einsatz auf der Verkaufsfläche und Teamarbeit? Dann ist die Stelle als Sportberater:in im Verkauf genau das Richtige für dich. Warum?\n• Du bist mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche statt. Du bist das Gesicht von Decathlon. Egal, ob du Anfänger:innen begrüsst oder Expert:innen berätst, du teilst deine Leidenschaft und baust eine Verbindung auf.\n• Du gestaltest den Handel von morgen aktiv mit: Du begnügst dich nicht damit, ein Produkt im Regal zu verkaufen. Du bietest ein nachhaltiges Omnichannel-Erlebnis an: digitale Bestellungen, Materialvermietung, Rückkauf von alten Produkten (Second Life)... Du gehst auf alle Bedürfnisse ein.\n• Du hast Eigenverantwortung und Einfluss: Du bist der/die Garant:in für deinen Sport! Du sorgst dafür, dass deine Abteilung ansprechend aussieht, verwaltest deine Bestände und organisierst deine Verkaufsaktionen. Deine Effizienz zeigt sich direkt in der Zufriedenheit deiner Kund:innen. Was du täglich machen wirst: Deine Aufgaben\n• Omnichannel-Beratung und -Verkauf: Du begrüsst deine Kundschaft wie Gäste. Du berätst sie, schliesst Verkäufe ab (physisch oder über unsere digitalen Tools), bietest unser Treueprogramm an und übernimmst das Kassieren.\n• Kommerzielle Dynamik / Merchandising: Du platzierst die Produkte gemäss den Jahreszeiten und Merchandising-Vorgaben, kümmerst dich um das \"Facing\", damit deine Abteilung immer tadellos ist, und hebst die Bestseller sowie die Neuheiten der Saison hervor.\n• Verfügbarkeit und Logistik: Du packst mit an! Von der Annahme der Lieferung bis zur Einräumung in die Regale stellst du die Richtigkeit deiner Bestände und die schnelle Verfügbarkeit deiner Produkte sicher. Du bereitest auch die Web-Bestellungen vor.\n• Kreislaufwirtschaft und Services: Du bist Botschafter:in unserer neuen Modelle: Du verwaltest den Rückkauf von Gebrauchtwaren und bewirbst unsere Mietlösungen, um die Lebensdauer unserer Produkte zu verlängern.\n• Punktuelle Einsätze: Je nach deinen Interessen und deiner Entwicklung kannst du Aufgaben als Ansprechpartner:in für ein bestimmtes Thema übernehmen, als Trainer:in für deine Kolleg:innen agieren oder sogar bei der Schichtleitung des Stores aushelfen. Dieser Job ist NICHTS für dich, wenn...\n• Du lieber den ganzen Tag in Ruhe hinter einem Bildschirm sitzt.\n• Du nicht gerne spontan auf andere zugehst.\n• Du denkst, dass Paletten auspacken, Regale einräumen und Waren bearbeiten \"nicht dein Problem\" sind.\n• Du nicht bereit bist, am Ende des Tages 10'000 Schritte auf deiner Uhr zu sehen.\n• Du feste, routinierte Arbeitszeiten suchst: Hier leben wir im Rhythmus des Sports und unsere Dienstpläne passen sich der Aktivität an.\n• Du samstags nicht arbeiten möchtest. Profil Was wir von dir erwarten:\n• Du verfügst über ausgezeichnete zwischenmenschliche Fähigkeiten. Die Kundenzufriedenheit ist dein Kompass.\n• Du bist mutig, neugierig und hast immer Lust, dazuzulernen.\n• Du bist organisiert, effizient und weisst, wie du in einem schnelllebigen Umfeld Prioritäten setzt.\n• Du bist eine sportbegeisterte und aktive Person: Das ist die DNA des Unternehmens!\n• Du beherrschst Deutsch perfekt. Gute Englisch-/Französischkenntnisse sind ein echtes Plus. Was wir dir bieten:\n• Ein flexibler und sicherer Stundenlohnvertrag: Wie der Name schon sagt, wirst du nach Stunden bezahlt. Mit anderen Worten: Je mehr du arbeitest, desto höher ist dein Gehalt! Um dir Sicherheit zu geben, garantieren wir dir in jedem Fall ein monatliches Minimum (im Vertrag vereinbartes Pensum, das zwischen 20 % und 50 % variiert). In Spitzenzeiten können wir dir anbieten, zusätzliche Stunden zu leisten. Keine Panik bezüglich deiner Planung: Wir sagen dir immer mindestens 48 Stunden im Voraus Bescheid, und dies geschieht nur, wenn deine Verfügbarkeit es zulässt!\n• Stundenlohn: Der Lohn beträgt 25 CHF brutto pro Stunde. Hinzu kommen Entschädigungen für Feiertage, Ferien sowie der 13. Monatslohn (sofern du einen unbefristeten Stundenlohnvertrag hast). Jeweils am 15. des Monats wirst du auf Basis der im Vormonat geleisteten Stunden (zwischen dem 16. des Vormonats und dem 15. des laufenden Monats) bezahlt.\n• Mitarbeiteraktien : Einmal im Jahr kannst du Aktionär:in des Unternehmens werden. Das ist eine hervorragende Anlage, da der Wert der Aktie seit der Gründung von Decathlon vor 50 Jahren nie negativ war!\n• Leidenschaft für den Sport: Wir unterstützen deine sportliche Aktivität! Profitiere nach 1 Monat Betriebszugehörigkeit von 25 % Rabatt auf deine Decathlon-Einkäufe.\n• Weiterbildung: Du nimmst an Schulungen teil, um dein technisches Wissen über Produkte, deine Verkaufstechniken oder deine zwischenmenschliche Kommunikation zu verbessern. Deine Karriere: Bei uns ist Weiterentwicklung kein Mythos Du startest bei uns im Store? Du fängst als Verkäufer:in an? Du kannst dich zur Abteilungsleitung weiterentwickeln, als Operations Manager:in die Führung übernehmen und sogar Store Manager:in werden! Wir haben Dutzende Geschichten wie seine. Der Bewerbungsprozess: Wie lernen wir uns kennen?\n• Deine Bewerbung: Lebenslauf + Antworten auf den kurzen Fragebogen (kein Motivationsschreiben nötig!).\n• Das Assessment: Ein kurzer AssessFirst-Test, um dein Potenzial zu entdecken und uns dabei zu helfen, besser zu verstehen, wer du \"über deinen Lebenslauf hinaus\" bist.\n• Das Interview: Ein konkreter Austausch mit deinem/deiner zukünftigen Manager:in, um zu sehen, ob es \"matcht\".",
         "fr": "Mission Dein zukünftiges Spielfeld Du wirst Teil unseres Stores in Spreitenbach, Aargau. Direkt im Shoppi Tivoli gelegen, erwartet dich hier der grösste Decathlon Erlebnisstore der Schweiz mit 5'500 m² Verkaufsfläche, hoher Kundenfrequenz sowie einem umfassenden Service- und Werkstattangebot. Dein Teamsport -Bereich steht im Mittelpunkt unserer lokalen Strategie. Gemeinsam sorgen wir jeden Tag dafür, dass Einsteiger:innen wie auch ambitionierte Athlet:innen aus der ganzen Region Limmattal und Aargau die optimale Ausrüstung und Beratung finden. Und nun zu deinem Job: Suchst du einen dynamischen Job, bei dem kein Tag dem anderen gleicht? Möchtest du deine Leidenschaft für den Sport teilen und jedem/jeder Kund:in, der/die den Store betritt, ein unvergessliches Erlebnis bieten? Du liebst Action, den Einsatz auf der Verkaufsfläche und Teamarbeit? Dann ist die Stelle als Sportberater:in im Verkauf genau das Richtige für dich. Warum?\n• Du bist mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche statt. Du bist das Gesicht von Decathlon. Egal, ob du Anfänger:innen begrüsst oder Expert:innen berätst, du teilst deine Leidenschaft und baust eine Verbindung auf.\n• Du gestaltest den Handel von morgen aktiv mit: Du begnügst dich nicht damit, ein Produkt im Regal zu verkaufen. Du bietest ein nachhaltiges Omnichannel-Erlebnis an: digitale Bestellungen, Materialvermietung, Rückkauf von alten Produkten (Second Life)... Du gehst auf alle Bedürfnisse ein.\n• Du hast Eigenverantwortung und Einfluss: Du bist der/die Garant:in für deinen Sport! Du sorgst dafür, dass deine Abteilung ansprechend aussieht, verwaltest deine Bestände und organisierst deine Verkaufsaktionen. Deine Effizienz zeigt sich direkt in der Zufriedenheit deiner Kund:innen. Was du täglich machen wirst: Deine Aufgaben\n• Omnichannel-Beratung und -Verkauf: Du begrüsst deine Kundschaft wie Gäste. Du berätst sie, schliesst Verkäufe ab (physisch oder über unsere digitalen Tools), bietest unser Treueprogramm an und übernimmst das Kassieren.\n• Kommerzielle Dynamik / Merchandising: Du platzierst die Produkte gemäss den Jahreszeiten und Merchandising-Vorgaben, kümmerst dich um das \"Facing\", damit deine Abteilung immer tadellos ist, und hebst die Bestseller sowie die Neuheiten der Saison hervor.\n• Verfügbarkeit und Logistik: Du packst mit an! Von der Annahme der Lieferung bis zur Einräumung in die Regale stellst du die Richtigkeit deiner Bestände und die schnelle Verfügbarkeit deiner Produkte sicher. Du bereitest auch die Web-Bestellungen vor.\n• Kreislaufwirtschaft und Services: Du bist Botschafter:in unserer neuen Modelle: Du verwaltest den Rückkauf von Gebrauchtwaren und bewirbst unsere Mietlösungen, um die Lebensdauer unserer Produkte zu verlängern.\n• Punktuelle Einsätze: Je nach deinen Interessen und deiner Entwicklung kannst du Aufgaben als Ansprechpartner:in für ein bestimmtes Thema übernehmen, als Trainer:in für deine Kolleg:innen agieren oder sogar bei der Schichtleitung des Stores aushelfen. Dieser Job ist NICHTS für dich, wenn...\n• Du lieber den ganzen Tag in Ruhe hinter einem Bildschirm sitzt.\n• Du nicht gerne spontan auf andere zugehst.\n• Du denkst, dass Paletten auspacken, Regale einräumen und Waren bearbeiten \"nicht dein Problem\" sind.\n• Du nicht bereit bist, am Ende des Tages 10'000 Schritte auf deiner Uhr zu sehen.\n• Du feste, routinierte Arbeitszeiten suchst: Hier leben wir im Rhythmus des Sports und unsere Dienstpläne passen sich der Aktivität an.\n• Du samstags nicht arbeiten möchtest. Profil Was wir von dir erwarten:\n• Du verfügst über ausgezeichnete zwischenmenschliche Fähigkeiten. Die Kundenzufriedenheit ist dein Kompass.\n• Du bist mutig, neugierig und hast immer Lust, dazuzulernen.\n• Du bist organisiert, effizient und weisst, wie du in einem schnelllebigen Umfeld Prioritäten setzt.\n• Du bist eine sportbegeisterte und aktive Person: Das ist die DNA des Unternehmens!\n• Du beherrschst Deutsch perfekt. Gute Englisch-/Französischkenntnisse sind ein echtes Plus. Was wir dir bieten:\n• Ein flexibler und sicherer Stundenlohnvertrag: Wie der Name schon sagt, wirst du nach Stunden bezahlt. Mit anderen Worten: Je mehr du arbeitest, desto höher ist dein Gehalt! Um dir Sicherheit zu geben, garantieren wir dir in jedem Fall ein monatliches Minimum (im Vertrag vereinbartes Pensum, das zwischen 20 % und 50 % variiert). In Spitzenzeiten können wir dir anbieten, zusätzliche Stunden zu leisten. Keine Panik bezüglich deiner Planung: Wir sagen dir immer mindestens 48 Stunden im Voraus Bescheid, und dies geschieht nur, wenn deine Verfügbarkeit es zulässt!\n• Stundenlohn: Der Lohn beträgt 25 CHF brutto pro Stunde. Hinzu kommen Entschädigungen für Feiertage, Ferien sowie der 13. Monatslohn (sofern du einen unbefristeten Stundenlohnvertrag hast). Jeweils am 15. des Monats wirst du auf Basis der im Vormonat geleisteten Stunden (zwischen dem 16. des Vormonats und dem 15. des laufenden Monats) bezahlt.\n• Mitarbeiteraktien : Einmal im Jahr kannst du Aktionär:in des Unternehmens werden. Das ist eine hervorragende Anlage, da der Wert der Aktie seit der Gründung von Decathlon vor 50 Jahren nie negativ war!\n• Leidenschaft für den Sport: Wir unterstützen deine sportliche Aktivität! Profitiere nach 1 Monat Betriebszugehörigkeit von 25 % Rabatt auf deine Decathlon-Einkäufe.\n• Weiterbildung: Du nimmst an Schulungen teil, um dein technisches Wissen über Produkte, deine Verkaufstechniken oder deine zwischenmenschliche Kommunikation zu verbessern. Deine Karriere: Bei uns ist Weiterentwicklung kein Mythos Du startest bei uns im Store? Du fängst als Verkäufer:in an? Du kannst dich zur Abteilungsleitung weiterentwickeln, als Operations Manager:in die Führung übernehmen und sogar Store Manager:in werden! Wir haben Dutzende Geschichten wie seine. Der Bewerbungsprozess: Wie lernen wir uns kennen?\n• Deine Bewerbung: Lebenslauf + Antworten auf den kurzen Fragebogen (kein Motivationsschreiben nötig!).\n• Das Assessment: Ein kurzer AssessFirst-Test, um dein Potenzial zu entdecken und uns dabei zu helfen, besser zu verstehen, wer du \"über deinen Lebenslauf hinaus\" bist.\n• Das Interview: Ein konkreter Austausch mit deinem/deiner zukünftigen Manager:in, um zu sehen, ob es \"matcht\"."
       },
       "location": "Spreitenbach",
       "canton": "AG",
-      "url": "https://joinus.decathlon.ch/fr_CH/annonce/4704157-sport-leader-sportberater-teamsport-mwd-50-stundenlohnvertrag-8957-spreitenbach",
+      "url": "https://joinus.decathlon.ch/fr_CH/annonce/4704157-sport-leader-sportberater-mwd-teamsport-50-stundenlohnvertrag-8957-spreitenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:30:41.932Z",
+      "crawledAt": "2026-11-23T21:36:00.195Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -3377,12 +3380,27 @@
       "datePosted": "2026-11-23",
       "postedDate": "2026-11-23",
       "postingDateSource": "reported",
-      "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4704157-sport-leader-sportberater-teamsport-mwd-50-stundenlohnvertrag-8957-spreitenbach",
+      "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4704157-sport-leader-sportberater-mwd-teamsport-50-stundenlohnvertrag-8957-spreitenbach",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sport-leader-sportberater-teamsport-m-w-d-50-stundenlohnvertrag-decathlon-ch",
+        "sport-leader-sportberater-m-w-d-teamsport-50-stundenlohnvertrag-decathlon-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sport-leader-sportberater-teamsport-m-w-d-50-stundenlohnvertrag-decathlon-ch",
+          "sport-leader-sportberater-m-w-d-teamsport-50-stundenlohnvertrag-decathlon-ch"
+        ],
+        "en": [
+          "sport-leader-sportberater-teamsport-m-w-d-50-stundenlohnvertrag-decathlon-ch"
+        ],
+        "fr": [
+          "sport-leader-sportberater-teamsport-m-w-d-50-stundenlohnvertrag-decathlon-ch"
+        ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-23T09:30:41.932Z",
       "salaryMin": 31000,
       "salaryMax": 47000,
       "salarySource": "estimated",
@@ -3398,56 +3416,41 @@
       },
       "streetAddress": "Spreitenbach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T09:30:41.932Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:30:41.932Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "sport-leader-sportberater-teamsport-m-w-d-50-stundenlohnvertrag-decathlon-ch"
-        ],
-        "en": [
-          "sport-leader-sportberater-teamsport-m-w-d-50-stundenlohnvertrag-decathlon-ch"
-        ],
-        "fr": [
-          "sport-leader-sportberater-teamsport-m-w-d-50-stundenlohnvertrag-decathlon-ch"
-        ]
-      },
-      "previousSlugs": [
-        "sport-leader-sportberater-teamsport-m-w-d-50-stundenlohnvertrag-decathlon-ch"
-      ]
+      "validThrough": "2027-02-21T21:36:00.195Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "decathlon-67404fae90f9",
       "slug": "leader-sportivo-sales-advisor-m-f-d-80-100-decathlon-spreitenbach",
       "slugByLocale": {
-        "de": "sport-leader-verkaufsberater-m-w-d-80-100-decathlon-ch",
         "it": "leader-sportivo-sales-advisor-m-f-d-80-100-decathlon-spreitenbach",
-        "en": "sport-leader-verkaufsberater-m-w-d-80-100-decathlon-ch",
+        "en": "sport-leader-sales-advisor-m-f-d-80-100-decathlon-spreitenbach",
+        "de": "sport-leader-verkaufsberater-m-w-d-80-100-decathlon-ch",
         "fr": "leader-sportif-conseiller-commercial-h-f-d-80-100-decathlon-spreitenbach"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
       "companyDomain": "decathlon.ch",
-      "title": "Sport Leader / Verkaufsberater (m/w/d) - 80%-100%",
+      "title": "Sport Leader / Verkaufsberater (m/w/d) Winter-Wassersport 80%-100%",
       "titleByLocale": {
-        "de": "Sport Leader / Verkaufsberater (m/w/d) - 80%-100%",
         "it": "Leader sportivo / Sales Advisor (m/f/d) - 80%-100 %",
         "en": "Sport Leader / Sales Advisor (m/f/d) - 80%-100 %",
+        "de": "Sport Leader / Verkaufsberater (m/w/d) Winter-Wassersport 80%-100%",
         "fr": "Leader sportif / conseiller commercial (h/f/d) - 80%-100 %"
       },
       "description": "Mission Werde Teil einer Schweizer Erfolgsgeschichte Decathlon Schweiz wächst rasant: Seit dem Start 2017 in Neuchâtel haben wir unser Netz auf mittlerweile rund 53 Verkaufsstellen ausgebaut. Und wir expandieren weiter – besonders in der Deutschschweiz. Für dich bedeutet das: Ein krisensicherer Arbeitsplatz mit echten, landesweiten Karrieremöglichkeiten. Warum dieser Job perfekt zu dir passt Du suchst keinen klassischen 08/15-Job, sondern willst deine Sportleidenschaft von morgens bis abends teilen? Du liebst die Action auf der Verkaufsfläche und willst sehen, wie deine Kundschaft mit einem Lächeln aufbricht? Deine 3 grössten Vorteile bei uns:\n• Mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche in Spreitenbach, Aarau statt. Du bist das Gesicht von Decathlon, berätst Einsteiger:innen wie Profis und baust eine echte lokale Community auf.\n• Handel neu gedacht: Du \"verkaufst\" nicht nur. Du treibst nachhaltige Kreislaufmodelle voran – von der Materialvermietung über den Rückkauf von Gebrauchtwaren ( Second Life ) bis hin zu smarten digitalen Bestellungen.\n• Dein eigenes Reich: Du verwaltest deine Bestände eigenverantwortlich, setzt saisonale Highlights (z. B. Wandern/Biken im Sommer, Ski/Snowboard im Winter) und siehst den Erfolg deiner Aktionen sofort. Deine tägliche Action: Die Aufgaben\n• Begeisternde Beratung: Du hörst zu, analysierst die Bedürfnisse und findest das perfekte Equipment – direkt im Store oder über unsere digitalen Tools.\n• Ein Store zum Wohlfühlen: Du sorgst für eine lückenlose Warenpräsentation (\"Facing\") und gestaltest deine Abteilung dynamisch und saisonal attraktiv.\n• Effizientes Warenmanagement: Vom Wareneingang bis zur Platzierung im Regal packst du tatkräftig mit an und bereitest auch Online-Bestellungen (*Click & Collect*) blitzschnell vor.\n• Kreislaufwirtschaft leben: Du begeisterst Kund:innen für unsere Miet- und Second-Life-Angebote. Dieser Job ist NICHTS für dich, wenn...\n• Du am liebsten den ganzen Tag still hinter einem Bildschirm sitzt.\n• Es dir schwerfällt, offen und aktiv auf Menschen zuzugehen.\n• Du denkst, dass Paletten auspacken und Regale einräumen \"nicht dein Job\" sind.\n• Du samstags grundsätzlich lieber frei haben möchtest.\n• Du starre, unveränderliche Arbeitszeiten suchst (wir planen deine Einsätze zwar sehr faire 6 Wochen im Voraus, arbeiten aber im flexiblen Rhythmus des Sport-Einzelhandels). Profil Das bringst du mit\n• Sportler-DNA: Du bist selbst aktiv und brennst für den Sport.\n• Macher-Mentalität: Du bist mutig, neugierig und hast Lust, täglich Neues zu lernen.\n• Kundenfokus: Ausgezeichnete Umgangsformen und ein echtes Gespür für Service zeichnen dich aus.\n• Sprachkompetenz: Du sprichst perfekt Deutsch (lokalen Dialekt zu verstehen ist ein grosses Plus). Gute Englisch- oder Französischkennnisse sind ein toller Bonus. Das bieten wir dir (bei 100% Pensum)\n• Attraktiver Lohn & Bonus: Ein festes Bruttogehalt zwischen CHF 4'100 und CHF 5'000 (ausgezahlt in 13 Monatslöhnen) plus ein monatlicher Teambonus (bis zu 10% des Gehalts) sowie eine jährliche Gewinnbeteiligung.\n• Dein Sport-Budget: Wir schenken dir CHF 225 pro Jahr für dein Sport- oder Fitnessabo und du erhältst 25% Rabatt auf alle Decathlon-Produkte (sogar zusätzliche 25% auf nachhaltige Mobilität für deinen Arbeitsweg).\n• Erholung: 5 Wochen bezahlte Ferien pro Jahr.\n• Erfolgsbeteiligung: Die Möglichkeit, einmal im Jahr in stark performende Decathlon-Mitarbeiteraktien zu investieren.\n• Echte Karriere: Interne Weiterentwicklung wird bei uns gelebt – viele unserer heutigen Führungskräfte haben selbst auf der Verkaufsfläche gestartet! Der Bewerbungsprozess: Schnell & unkompliziert\n• Bewerbung: Kein langes Motivationsschreiben nötig! Schicke uns einfach deinen CV und beantworte ein paar kurze Fragen.\n• Personality-Check: Du erhältst einen Link zu einem 30-minütigen Kennenlern-Fragebogen ( AssessFirst ). Keine Sorge: Bei uns filtert keine KI aus – wir lesen jede Bewerbung persönlich! Deine Ergebnisse kriegst du sofort als cooles Feedback für dich selbst.\n• Gespräch in [Stadt]: Wir treffen uns direkt im Store [Standort/Shoppingcenter], um über dein zukünftiges Spielfeld zu sprechen und zu sehen, ob die Chemie stimmt. Praktische Infos:\n• Stellenantritt: Per sofort oder nach Vereinbarung\n• Arbeitsort: Spreitenbach, Aarau Bereit für die Herausforderung? Dann klicke auf \"Jetzt bewerben\" und werde Teil unseres Teams!",
       "descriptionByLocale": {
-        "de": "Mission Werde Teil einer Schweizer Erfolgsgeschichte Decathlon Schweiz wächst rasant: Seit dem Start 2017 in Neuchâtel haben wir unser Netz auf mittlerweile rund 53 Verkaufsstellen ausgebaut. Und wir expandieren weiter – besonders in der Deutschschweiz. Für dich bedeutet das: Ein krisensicherer Arbeitsplatz mit echten, landesweiten Karrieremöglichkeiten. Warum dieser Job perfekt zu dir passt Du suchst keinen klassischen 08/15-Job, sondern willst deine Sportleidenschaft von morgens bis abends teilen? Du liebst die Action auf der Verkaufsfläche und willst sehen, wie deine Kundschaft mit einem Lächeln aufbricht? Deine 3 grössten Vorteile bei uns:\n• Mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche in Spreitenbach, Aarau statt. Du bist das Gesicht von Decathlon, berätst Einsteiger:innen wie Profis und baust eine echte lokale Community auf.\n• Handel neu gedacht: Du \"verkaufst\" nicht nur. Du treibst nachhaltige Kreislaufmodelle voran – von der Materialvermietung über den Rückkauf von Gebrauchtwaren ( Second Life ) bis hin zu smarten digitalen Bestellungen.\n• Dein eigenes Reich: Du verwaltest deine Bestände eigenverantwortlich, setzt saisonale Highlights (z. B. Wandern/Biken im Sommer, Ski/Snowboard im Winter) und siehst den Erfolg deiner Aktionen sofort. Deine tägliche Action: Die Aufgaben\n• Begeisternde Beratung: Du hörst zu, analysierst die Bedürfnisse und findest das perfekte Equipment – direkt im Store oder über unsere digitalen Tools.\n• Ein Store zum Wohlfühlen: Du sorgst für eine lückenlose Warenpräsentation (\"Facing\") und gestaltest deine Abteilung dynamisch und saisonal attraktiv.\n• Effizientes Warenmanagement: Vom Wareneingang bis zur Platzierung im Regal packst du tatkräftig mit an und bereitest auch Online-Bestellungen (*Click & Collect*) blitzschnell vor.\n• Kreislaufwirtschaft leben: Du begeisterst Kund:innen für unsere Miet- und Second-Life-Angebote. Dieser Job ist NICHTS für dich, wenn...\n• Du am liebsten den ganzen Tag still hinter einem Bildschirm sitzt.\n• Es dir schwerfällt, offen und aktiv auf Menschen zuzugehen.\n• Du denkst, dass Paletten auspacken und Regale einräumen \"nicht dein Job\" sind.\n• Du samstags grundsätzlich lieber frei haben möchtest.\n• Du starre, unveränderliche Arbeitszeiten suchst (wir planen deine Einsätze zwar sehr faire 6 Wochen im Voraus, arbeiten aber im flexiblen Rhythmus des Sport-Einzelhandels). Profil Das bringst du mit\n• Sportler-DNA: Du bist selbst aktiv und brennst für den Sport.\n• Macher-Mentalität: Du bist mutig, neugierig und hast Lust, täglich Neues zu lernen.\n• Kundenfokus: Ausgezeichnete Umgangsformen und ein echtes Gespür für Service zeichnen dich aus.\n• Sprachkompetenz: Du sprichst perfekt Deutsch (lokalen Dialekt zu verstehen ist ein grosses Plus). Gute Englisch- oder Französischkennnisse sind ein toller Bonus. Das bieten wir dir (bei 100% Pensum)\n• Attraktiver Lohn & Bonus: Ein festes Bruttogehalt zwischen CHF 4'100 und CHF 5'000 (ausgezahlt in 13 Monatslöhnen) plus ein monatlicher Teambonus (bis zu 10% des Gehalts) sowie eine jährliche Gewinnbeteiligung.\n• Dein Sport-Budget: Wir schenken dir CHF 225 pro Jahr für dein Sport- oder Fitnessabo und du erhältst 25% Rabatt auf alle Decathlon-Produkte (sogar zusätzliche 25% auf nachhaltige Mobilität für deinen Arbeitsweg).\n• Erholung: 5 Wochen bezahlte Ferien pro Jahr.\n• Erfolgsbeteiligung: Die Möglichkeit, einmal im Jahr in stark performende Decathlon-Mitarbeiteraktien zu investieren.\n• Echte Karriere: Interne Weiterentwicklung wird bei uns gelebt – viele unserer heutigen Führungskräfte haben selbst auf der Verkaufsfläche gestartet! Der Bewerbungsprozess: Schnell & unkompliziert\n• Bewerbung: Kein langes Motivationsschreiben nötig! Schicke uns einfach deinen CV und beantworte ein paar kurze Fragen.\n• Personality-Check: Du erhältst einen Link zu einem 30-minütigen Kennenlern-Fragebogen ( AssessFirst ). Keine Sorge: Bei uns filtert keine KI aus – wir lesen jede Bewerbung persönlich! Deine Ergebnisse kriegst du sofort als cooles Feedback für dich selbst.\n• Gespräch in [Stadt]: Wir treffen uns direkt im Store [Standort/Shoppingcenter], um über dein zukünftiges Spielfeld zu sprechen und zu sehen, ob die Chemie stimmt. Praktische Infos:\n• Stellenantritt: Per sofort oder nach Vereinbarung\n• Arbeitsort: Spreitenbach, Aarau Bereit für die Herausforderung? Dann klicke auf \"Jetzt bewerben\" und werde Teil unseres Teams!",
         "it": "Mission Diventa parte di una storia di successo svizzera Decathlon Svizzera sta crescendo rapidamente: dall'inizio del 2017 a Neuchâtel, abbiamo ampliato la nostra rete a circa 53 punti vendita. E continuiamo ad espanderci – soprattutto in Svizzera tedesca. Per voi, questo significa un posto di lavoro a prova di crisi con reali opportunità di carriera a livello nazionale. Perché questo lavoro è perfetto per te Non stai cercando un classico 08/15 lavoro, ma vuoi condividere la tua passione per lo sport da mattina a sera? Ti piace l'azione sul piano vendite e vuoi vedere la tua clientela rompere con un sorriso? I tuoi 3 maggiori vantaggi con noi:\n• Nel mezzo dell'azione: La vostra vita quotidiana si svolge al 100% sulla zona di vendita a Spreitenbach, Aarau. Sei il volto di Decathlon, consigliando principianti e professionisti e la costruzione di una vera comunità locale.\n• Trading ripensamento: Non solo “sell”. Si guida modelli circolari sostenibili – dal noleggio materiale all'acquisto di beni di seconda mano (Second Life) agli ordini digitali intelligenti.\n• Il vostro regno: gestite le vostre aziende in modo indipendente, impostate i punti salienti stagionali (ad esempio escursioni/biking in estate, sci/snowboard in inverno) e vedere il successo delle vostre azioni immediatamente. La vostra azione quotidiana: I compiti\n• Consigli entusiasti: Ascolti, analizza le esigenze e trova l'attrezzatura perfetta – direttamente nel negozio o tramite i nostri strumenti digitali.\n• Un negozio per sentirsi bene: Lei fornisce una presentazione completa di merci (\"facciare\") e rendere il vostro reparto dinamico e stagionale attraente.\n• Efficiente gestione della merce: dalla merce in entrata al posizionamento sullo scaffale, è possibile partecipare attivamente e preparare gli ordini online (*Click & Collect*) in un flash.\n• Economia circolare: Ispiri i clienti per le nostre offerte di noleggio e di seconda vita. Questo lavoro non è per voi se...\n• Si preferisce sedersi tranquillamente dietro uno schermo tutto il giorno.\n• È difficile per voi avvicinare le persone apertamente e attivamente.\n• Pensi che disfare pallet e mettere ripiani è “non il tuo lavoro”.\n• Preferiresti avere il sabato libero.\n• Siete alla ricerca di ore di lavoro rigide e non mutevoli (pianiamo le vostre scommesse molto belle 6 settimane in anticipo, ma lavorano nel ritmo flessibile della vendita al dettaglio di sport). Profilo che porti con te\n• DNA atletico: sei attivo e brucia per lo sport.\n• mentalità dei creatori: Siete coraggiosi, curiosi e desiderosi di imparare cose nuove ogni giorno.\n• Concentrazione del cliente: ottime maniere e un vero senso di servizio vi separano.\n• Competenza linguistica: Si parla tedesco perfetto (in piedi dialetto locale è un grande plus). Buone abilità inglesi o francesi sono un grande bonus. Questo è ciò che vi offriamo (al 100% Pensum)\n• Scommessa attraente & bonus: Uno stipendio lordo fisso tra CHF 4'100 e CHF 5'000 (pagato in 13 stipendi mensili) più un bonus mensile di squadra (fino al 10% dello stipendio) e una quota di profitto annuale.\n• Il tuo budget sportivo: ti diamo CHF 225 all'anno per il tuo abbonamento sportivo o fitness e ottieni il 25% di sconto su tutti i prodotti Decathlon (anche un ulteriore 25% di mobilità sostenibile per il tuo pendolarismo).\n• Recupero: 5 settimane di vacanza a pagamento all'anno.\n• Condivisione di successo: L'opportunità di investire una volta all'anno in azioni di dipendenti Decathlon ad alto rendimento.\n• Real carriere: Lo sviluppo interno è vissuto con noi – molti dei nostri attuali manager hanno iniziato sul piano di vendita stessi! Il processo di applicazione: Veloce e semplice\n• Applicazione: Non è necessaria una lunga lettera di motivazione! Mandaci il tuo CV e rispondi a qualche breve domanda.\n• Personality Check: riceverete un link a un questionario di incontro di 30 minuti (AssessFirst). Non preoccuparti: non filtriamo l'IA – leggiamo personalmente ogni applicazione! Si ottiene i risultati immediatamente come feedback fresco per voi stessi.\n• Conversazione in [città]: Ci incontriamo direttamente nel negozio [location/shopping center] per parlare del tuo futuro campo di gioco e vedere se la chimica è giusta. Informazioni pratiche:\n• Lavoro: immediata o di accordo\n• Posizione: Spreitenbach, Aarau Pronto per la sfida? Quindi fare clic su \"Applica ora\" e diventare parte del nostro team!",
         "en": "Mission Become part of a Swiss success story Decathlon Switzerland is growing rapidly: Since the start of 2017 in Neuchâtel, we have expanded our network to around 53 sales outlets. And we continue to expand – especially in German-speaking Switzerland. For you, this means a crisis-proof workplace with real, nationwide career opportunities. Why this job is perfect for you You are not looking for a classic 08/15 job, but want to share your passion for sports from morning to evening? You love the action on the sales floor and want to see your clientele break up with a smile? Your 3 biggest advantages with us:\n• In the middle of the action: Your everyday life takes place 100% on the sales area in Spreitenbach, Aarau. You are the face of Decathlon, advising beginners as well as professionals and building a real local community.\n• Trading rethought: You don’t just “sell.” You drive sustainable circular models – from material rental to the buy-back of second-hand goods (Second Life) to smart digital orders.\n• Your own realm: You manage your holdings independently, set seasonal highlights (e.g. hiking/biking in summer, skiing/snowboarding in winter) and see the success of your actions immediately. Your daily action: The tasks\n• Enthusiastic advice: You listen, analyze the needs and find the perfect equipment – directly in the store or via our digital tools.\n• A store to feel good: You provide a complete presentation of goods (\"facing\") and make your department dynamically and seasonally attractive.\n• Efficient merchandise management: From incoming merchandise to placement on the shelf, you can actively participate and prepare online orders (*Click & Collect*) in a flash.\n• Circular economy: You inspire customers for our rental and second-life offers. This job is NOTHING for you if...\n• You prefer to sit quietly behind a screen all day.\n• It is difficult for you to approach people openly and actively.\n• You think unpacking pallets and putting up shelves is “not your job.”\n• You would rather have free Saturdays.\n• You are looking for rigid, unchanging working hours (we plan your bets very fair 6 weeks in advance, but work in the flexible rhythm of sports retail). Profile that you bring with you\n• Athlete DNA: You are active yourself and burn for the sport.\n• Maker mentality: You are courageous, curious and eager to learn new things every day.\n• Customer focus: Excellent manners and a real sense of service set you apart.\n• Language competence: You speak perfect German (understanding local dialect is a big plus). Good English or French skills are a great bonus. This is what we offer you (at 100% Pensum)\n• Attractive wage & bonus: A fixed gross salary between CHF 4'100 and CHF 5'000 (paid out in 13 monthly wages) plus a monthly team bonus (up to 10% of the salary) and an annual profit share.\n• Your sports budget: We give you CHF 225 per year for your sports or fitness subscription and you get 25% off all Decathlon products (even an additional 25% off sustainable mobility for your commute).\n• Recovery: 5 weeks of paid vacation per year.\n• Success Sharing: The opportunity to invest once a year in high-performing Decathlon employee stocks.\n• Real career: Internal development is lived with us – many of our current managers have started on the sales floor themselves! The application process: Fast & uncomplicated\n• Application: No long letter of motivation needed! Just send us your CV and answer a few short questions.\n• Personality Check: You will receive a link to a 30-minute meeting questionnaire (AssessFirst). Don’t worry: we don’t filter out AI – we read every application personally! You get your results immediately as cool feedback for yourself.\n• Conversation in [city]: We meet directly in the store [location/shopping center] to talk about your future playing field and see if the chemistry is right. Practical information:\n• Job: By immediate or by agreement\n• Location: Spreitenbach, Aarau Ready for the challenge? Then click on \"Apply now\" and become part of our team!",
+        "de": "Mission Werde Teil einer Schweizer Erfolgsgeschichte Decathlon Schweiz wächst rasant: Seit dem Start 2017 in Neuchâtel haben wir unser Netz auf mittlerweile rund 53 Verkaufsstellen ausgebaut. Und wir expandieren weiter – besonders in der Deutschschweiz. Für dich bedeutet das: Ein krisensicherer Arbeitsplatz mit echten, landesweiten Karrieremöglichkeiten. Warum dieser Job perfekt zu dir passt Du suchst keinen klassischen 08/15-Job, sondern willst deine Sportleidenschaft von morgens bis abends teilen? Du liebst die Action auf der Verkaufsfläche und willst sehen, wie deine Kundschaft mit einem Lächeln aufbricht? Deine 3 grössten Vorteile bei uns:\n• Mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche in Spreitenbach, Aarau statt. Du bist das Gesicht von Decathlon, berätst Einsteiger:innen wie Profis und baust eine echte lokale Community auf.\n• Handel neu gedacht: Du \"verkaufst\" nicht nur. Du treibst nachhaltige Kreislaufmodelle voran – von der Materialvermietung über den Rückkauf von Gebrauchtwaren ( Second Life ) bis hin zu smarten digitalen Bestellungen.\n• Dein eigenes Reich: Du verwaltest deine Bestände eigenverantwortlich, setzt saisonale Highlights (z. B. Wandern/Biken im Sommer, Ski/Snowboard im Winter) und siehst den Erfolg deiner Aktionen sofort. Deine tägliche Action: Die Aufgaben\n• Begeisternde Beratung: Du hörst zu, analysierst die Bedürfnisse und findest das perfekte Equipment – direkt im Store oder über unsere digitalen Tools.\n• Ein Store zum Wohlfühlen: Du sorgst für eine lückenlose Warenpräsentation (\"Facing\") und gestaltest deine Abteilung dynamisch und saisonal attraktiv.\n• Effizientes Warenmanagement: Vom Wareneingang bis zur Platzierung im Regal packst du tatkräftig mit an und bereitest auch Online-Bestellungen (*Click & Collect*) blitzschnell vor.\n• Kreislaufwirtschaft leben: Du begeisterst Kund:innen für unsere Miet- und Second-Life-Angebote. Dieser Job ist NICHTS für dich, wenn...\n• Du am liebsten den ganzen Tag still hinter einem Bildschirm sitzt.\n• Es dir schwerfällt, offen und aktiv auf Menschen zuzugehen.\n• Du denkst, dass Paletten auspacken und Regale einräumen \"nicht dein Job\" sind.\n• Du samstags grundsätzlich lieber frei haben möchtest.\n• Du starre, unveränderliche Arbeitszeiten suchst (wir planen deine Einsätze zwar sehr faire 6 Wochen im Voraus, arbeiten aber im flexiblen Rhythmus des Sport-Einzelhandels). Profil Das bringst du mit\n• Sportler-DNA: Du bist selbst aktiv und brennst für den Sport.\n• Macher-Mentalität: Du bist mutig, neugierig und hast Lust, täglich Neues zu lernen.\n• Kundenfokus: Ausgezeichnete Umgangsformen und ein echtes Gespür für Service zeichnen dich aus.\n• Sprachkompetenz: Du sprichst perfekt Deutsch (lokalen Dialekt zu verstehen ist ein grosses Plus). Gute Englisch- oder Französischkennnisse sind ein toller Bonus. Das bieten wir dir (bei 100% Pensum)\n• Attraktiver Lohn & Bonus: Ein festes Bruttogehalt zwischen CHF 4'100 und CHF 5'000 (ausgezahlt in 13 Monatslöhnen) plus ein monatlicher Teambonus (bis zu 10% des Gehalts) sowie eine jährliche Gewinnbeteiligung.\n• Dein Sport-Budget: Wir schenken dir CHF 225 pro Jahr für dein Sport- oder Fitnessabo und du erhältst 25% Rabatt auf alle Decathlon-Produkte (sogar zusätzliche 25% auf nachhaltige Mobilität für deinen Arbeitsweg).\n• Erholung: 5 Wochen bezahlte Ferien pro Jahr.\n• Erfolgsbeteiligung: Die Möglichkeit, einmal im Jahr in stark performende Decathlon-Mitarbeiteraktien zu investieren.\n• Echte Karriere: Interne Weiterentwicklung wird bei uns gelebt – viele unserer heutigen Führungskräfte haben selbst auf der Verkaufsfläche gestartet! Der Bewerbungsprozess: Schnell & unkompliziert\n• Bewerbung: Kein langes Motivationsschreiben nötig! Schicke uns einfach deinen CV und beantworte ein paar kurze Fragen.\n• Personality-Check: Du erhältst einen Link zu einem 30-minütigen Kennenlern-Fragebogen ( AssessFirst ). Keine Sorge: Bei uns filtert keine KI aus – wir lesen jede Bewerbung persönlich! Deine Ergebnisse kriegst du sofort als cooles Feedback für dich selbst.\n• Gespräch in [Stadt]: Wir treffen uns direkt im Store [Standort/Shoppingcenter], um über dein zukünftiges Spielfeld zu sprechen und zu sehen, ob die Chemie stimmt. Praktische Infos:\n• Stellenantritt: Per sofort oder nach Vereinbarung\n• Arbeitsort: Spreitenbach, Aarau Bereit für die Herausforderung? Dann klicke auf \"Jetzt bewerben\" und werde Teil unseres Teams!",
         "fr": "Mission Devenez membre d'un success story suisse Decathlon Suisse connaît une croissance rapide : depuis le début de 2017 à Neuchâtel, nous avons étendu notre réseau à environ 53 points de vente. Et nous continuons à nous développer, surtout en Suisse germanophone. Pour vous, cela signifie un lieu de travail résistant aux crises avec de réelles possibilités de carrière à l'échelle nationale. Pourquoi ce travail est parfait pour vous Vous ne cherchez pas un travail classique 08/15, mais voulez partager votre passion pour le sport du matin au soir? Vous aimez l'action sur le plancher des ventes et voulez voir votre clientèle rompre avec un sourire ? Vos 3 plus grands avantages avec nous:\n• Au milieu de l'action: Votre vie quotidienne se déroule à 100% sur la zone de vente à Spreitenbach, Aarau. Vous êtes le visage de Decathlon, conseiller les débutants ainsi que les professionnels et construire une vraie communauté locale.\n• Trading repensed: Vous ne faites pas que vendre. Vous conduisez des modèles circulaires durables – de la location de matériel au rachat de biens d'occasion (Second Life) aux commandes numériques intelligentes.\n• Votre propre domaine : vous gérez vos avoirs de façon indépendante, vous établissez des points forts saisonniers (p. ex. randonnée/biking en été, ski/snowboard en hiver) et vous voyez le succès de vos actions immédiatement. Votre action quotidienne : Les tâches\n• Conseils enthousiastes : Vous écoutez, analysez les besoins et trouvez l'équipement parfait – directement dans le magasin ou via nos outils numériques.\n• Un magasin pour se sentir bien: Vous fournissez une présentation complète des marchandises (« face ») et rendre votre département dynamiquement et saisonnièrement attrayant.\n• Gestion efficace des marchandises: De la marchandise entrante au placement sur l'étagère, vous pouvez participer activement et préparer des commandes en ligne (*Click & Collect*) en un éclair.\n• Économie circulaire: Vous inspirez les clients pour nos offres de location et de seconde vie. Ce travail n'est rien pour vous si...\n• Tu préfères rester tranquille derrière un écran toute la journée.\n• Il est difficile pour vous d'approcher les gens ouvertement et activement.\n• Vous pensez que déballer des palettes et mettre des étagères n'est pas votre travail.\n• Vous préféreriez avoir des samedis libres.\n• Vous êtes à la recherche d'heures de travail rigides et immuables (nous planifions vos paris très justes 6 semaines à l'avance, mais travailler dans le rythme flexible de la vente de sport). Profil que vous apportez avec vous\n• ADN d'athlète : Vous êtes actif et vous brûlez pour le sport.\n• La mentalité créatrice : Vous êtes courageux, curieux et désireux d'apprendre de nouvelles choses chaque jour.\n• Focus client: Excellentes manières et un vrai sens du service vous distinguent.\n• Compétence linguistique : Vous parlez l'allemand parfait (comprendre le dialecte local est un grand plus). De bonnes compétences en anglais ou en français sont un excellent bonus. C'est ce que nous vous offrons (à 100% Pensum)\n• Salaire et bonus attractifs: Un salaire brut fixe entre CHF 4'100 et CHF 5'000 (payé en 13 salaires mensuels) plus une prime mensuelle de l'équipe (jusqu'à 10% du salaire) et une part de bénéfice annuelle.\n• Votre budget sportif: Nous vous donnons CHF 225 par an pour votre abonnement sport ou fitness et vous obtenez 25% de réduction sur tous les produits Decathlon (même 25% de réduction supplémentaire sur la mobilité durable pour votre trajet).\n• Recouvrement : 5 semaines de vacances payées par année.\n• Partage de la réussite : L'occasion d'investir une fois par an dans des stocks d'employés de décathlon à rendement élevé.\n• Carrière réelle: Le développement interne est vécu avec nous – beaucoup de nos managers actuels ont commencé sur le plancher des ventes eux-mêmes! Le processus de candidature: Rapide & simple\n• Application: Pas de longue lettre de motivation nécessaire! Envoyez-nous votre CV et répondez à quelques petites questions.\n• Vérification de la personnalité : Vous recevrez un lien vers un questionnaire de réunion de 30 minutes (AssessFirst). Ne vous inquiétez pas: nous ne filtrant pas l'IA – nous lisons chaque application personnellement! Vous obtenez vos résultats immédiatement comme la rétroaction cool pour vous-même.\n• Conversation dans [ville]: Nous nous rencontrons directement dans le magasin [lieu/centre de magasinage] pour parler de votre futur terrain de jeu et voir si la chimie est juste. Informations pratiques:\n• Emploi: Par accord immédiat ou par accord\n• Lieu: Spreitenbach, Aarau Prêt pour le défi? Puis cliquez sur \"Appliquer maintenant\" et devenez membre de notre équipe!"
       },
       "location": "Spreitenbach",
       "canton": "AG",
-      "url": "https://joinus.decathlon.ch/fr_CH/annonce/4704201-sport-leader-verkaufsberater-mwd-80-100-8957-spreitenbach",
+      "url": "https://joinus.decathlon.ch/fr_CH/annonce/4704201-sport-leader-verkaufsberater-mwd-winter-wassersport-80-100-8957-spreitenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:30:41.139Z",
+      "crawledAt": "2026-11-23T21:35:59.165Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -3462,11 +3465,27 @@
       "datePosted": "2026-11-23",
       "postedDate": "2026-11-23",
       "postingDateSource": "reported",
-      "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4704201-sport-leader-verkaufsberater-mwd-80-100-8957-spreitenbach",
+      "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4704201-sport-leader-verkaufsberater-mwd-winter-wassersport-80-100-8957-spreitenbach",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sport-leader-verkaufsberater-m-w-d-80-100-decathlon-ch",
+        "sport-leader-verkaufsberater-m-w-d-winter-wassersport-80-100-decathlon-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sport-leader-verkaufsberater-m-w-d-80-100-decathlon-ch",
+          "sport-leader-verkaufsberater-m-w-d-winter-wassersport-80-100-decathlon-ch"
+        ],
+        "fr": [
+          "sport-leader-verkaufsberater-m-w-d-80-100-decathlon-ch"
+        ],
+        "en": [
+          "sport-leader-verkaufsberater-m-w-d-80-100-decathlon-ch"
+        ]
       },
+      "firstSeenAt": "2026-11-23T09:30:41.139Z",
+      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -3482,28 +3501,16 @@
       },
       "streetAddress": "Spreitenbach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T09:30:41.139Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:30:41.139Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "sport-leader-verkaufsberater-m-w-d-80-100-decathlon-ch"
-        ],
-        "fr": [
-          "sport-leader-verkaufsberater-m-w-d-80-100-decathlon-ch"
-        ]
-      },
-      "previousSlugs": [
-        "sport-leader-verkaufsberater-m-w-d-80-100-decathlon-ch"
-      ]
+      "validThrough": "2027-02-21T21:35:59.165Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "decathlon-358b109fad4e",
       "slug": "leader-sportivo-consulente-commerciale-m-f-d-50-contratto-salariale-orario-decathlon-spreitenbach",
       "slugByLocale": {
-        "de": "sports-leader-verkaufsberater-m-w-d-50-stundenlohnvertrag-decathlon-ch",
         "it": "leader-sportivo-consulente-commerciale-m-f-d-50-contratto-salariale-orario-decathlon-spreitenbach",
         "en": "sports-leader-sales-consultant-m-f-d-50-hourly-wage-contract-decathlon-spreitenbach",
+        "de": "sports-leader-verkaufsberater-m-w-d-50-stundenlohnvertrag-decathlon-ch",
         "fr": "leader-sportif-consultant-en-ventes-h-f-d-50-contrat-de-salaire-horaire-decathlon-spreitenbach"
       },
       "company": "Decathlon",
@@ -3511,16 +3518,16 @@
       "companyDomain": "decathlon.ch",
       "title": "Sports Leader/ Verkaufsberater (m/w/d) 50% - Stundenlohnvertrag",
       "titleByLocale": {
-        "de": "Sports Leader/ Verkaufsberater (m/w/d) 50% - Stundenlohnvertrag",
         "it": "Leader sportivo / Consulente commerciale (m/f/d) 50% - contratto salariale orario",
         "en": "Sports Leader / Sales consultant (m/f/d) 50% - hourly wage contract",
+        "de": "Sports Leader/ Verkaufsberater (m/w/d) 50% - Stundenlohnvertrag",
         "fr": "Leader sportif / consultant en ventes (h/f/d) 50% - contrat de salaire horaire"
       },
       "description": "Mission Und nun zu deinem Job: Suchst du einen dynamischen Job, bei dem kein Tag dem anderen gleicht? Möchtest du deine Leidenschaft für den Sport teilen und jedem/jeder Kund:in, der/die den Store betritt, ein unvergessliches Erlebnis bieten? Du liebst Action, den Einsatz auf der Verkaufsfläche und Teamarbeit? Dann ist die Stelle als Sportberater:in im Verkauf genau das Richtige für dich. Warum?\n• Du bist mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche statt. Du bist das Gesicht von Decathlon. Egal, ob du Anfänger:innen begrüsst oder Expert:innen berätst, du teilst deine Leidenschaft und baust eine Verbindung auf.\n• Du gestaltest den Handel von morgen aktiv mit: Du begnügst dich nicht damit, ein Produkt im Regal zu verkaufen. Du bietest ein nachhaltiges Omnichannel-Erlebnis an: digitale Bestellungen, Materialvermietung, Rückkauf von alten Produkten (Second Life)... Du gehst auf alle Bedürfnisse ein.\n• Du hast Eigenverantwortung und Einfluss: Du bist der/die Garant:in für deinen Sport! Du sorgst dafür, dass deine Abteilung ansprechend aussieht, verwaltest deine Bestände und organisierst deine Verkaufsaktionen. Deine Effizienz zeigt sich direkt in der Zufriedenheit deiner Kund:innen. Was du täglich machen wirst: Deine Aufgaben\n• Omnichannel-Beratung und -Verkauf: Du begrüsst deine Kundschaft wie Gäste. Du berätst sie, schliesst Verkäufe ab (physisch oder über unsere digitalen Tools), bietest unser Treueprogramm an und übernimmst das Kassieren.\n• Kommerzielle Dynamik / Merchandising: Du platzierst die Produkte gemäss den Jahreszeiten und Merchandising-Vorgaben, kümmerst dich um das \"Facing\", damit deine Abteilung immer tadellos ist, und hebst die Bestseller sowie die Neuheiten der Saison hervor.\n• Verfügbarkeit und Logistik: Du packst mit an! Von der Annahme der Lieferung bis zur Einräumung in die Regale stellst du die Richtigkeit deiner Bestände und die schnelle Verfügbarkeit deiner Produkte sicher. Du bereitest auch die Web-Bestellungen vor.\n• Kreislaufwirtschaft und Services: Du bist Botschafter:in unserer neuen Modelle: Du verwaltest den Rückkauf von Gebrauchtwaren und bewirbst unsere Mietlösungen, um die Lebensdauer unserer Produkte zu verlängern.\n• Punktuelle Einsätze: Je nach deinen Interessen und deiner Entwicklung kannst du Aufgaben als Ansprechpartner:in für ein bestimmtes Thema übernehmen, als Trainer:in für deine Kolleg:innen agieren oder sogar bei der Schichtleitung des Stores aushelfen. Dieser Job ist NICHTS für dich, wenn...\n• Du lieber den ganzen Tag in Ruhe hinter einem Bildschirm sitzt.\n• Du nicht gerne spontan auf andere zugehst.\n• Du denkst, dass Paletten auspacken, Regale einräumen und Waren bearbeiten \"nicht dein Problem\" sind.\n• Du nicht bereit bist, am Ende des Tages 10'000 Schritte auf deiner Uhr zu sehen.\n• Du feste, routinierte Arbeitszeiten suchst: Hier leben wir im Rhythmus des Sports und unsere Dienstpläne passen sich der Aktivität an.\n• Du samstags nicht arbeiten möchtest. Profil Was wir von dir erwarten:\n• Du verfügst über ausgezeichnete zwischenmenschliche Fähigkeiten. Die Kundenzufriedenheit ist dein Kompass.\n• Du bist mutig, neugierig und hast immer Lust, dazuzulernen.\n• Du bist organisiert, effizient und weisst, wie du in einem schnelllebigen Umfeld Prioritäten setzt.\n• Du bist eine sportbegeisterte und aktive Person: Das ist die DNA des Unternehmens!\n• Du beherrschst Deutsch perfekt. Gute Englisch-/Französischkenntnisse sind ein echtes Plus. Was wir dir bieten:\n• Ein flexibler und sicherer Stundenlohnvertrag: Wie der Name schon sagt, wirst du nach Stunden bezahlt. Mit anderen Worten: Je mehr du arbeitest, desto höher ist dein Gehalt! Um dir Sicherheit zu geben, garantieren wir dir in jedem Fall ein monatliches Minimum (im Vertrag vereinbartes Pensum, das zwischen 20 % und 50 % variiert). In Spitzenzeiten können wir dir anbieten, zusätzliche Stunden zu leisten. Keine Panik bezüglich deiner Planung: Wir sagen dir immer mindestens 48 Stunden im Voraus Bescheid, und dies geschieht nur, wenn deine Verfügbarkeit es zulässt!\n• Stundenlohn: Der Lohn beträgt 25 CHF brutto pro Stunde. Hinzu kommen Entschädigungen für Feiertage, Ferien sowie der 13. Monatslohn (sofern du einen unbefristeten Stundenlohnvertrag hast). Jeweils am 15. des Monats wirst du auf Basis der im Vormonat geleisteten Stunden (zwischen dem 16. des Vormonats und dem 15. des laufenden Monats) bezahlt.\n• Mitarbeiteraktien : Einmal im Jahr kannst du Aktionär:in des Unternehmens werden. Das ist eine hervorragende Anlage, da der Wert der Aktie seit der Gründung von Decathlon vor 50 Jahren nie negativ war!\n• Leidenschaft für den Sport: Wir unterstützen deine sportliche Aktivität! Profitiere nach 1 Monat Betriebszugehörigkeit von 25 % Rabatt auf deine Decathlon-Einkäufe.\n• Weiterbildung: Du nimmst an Schulungen teil, um dein technisches Wissen über Produkte, deine Verkaufstechniken oder deine zwischenmenschliche Kommunikation zu verbessern. Deine Karriere: Bei uns ist Weiterentwicklung kein Mythos Du startest bei uns im Store? Du fängst als Verkäufer:in an? Du kannst dich zur Abteilungsleitung weiterentwickeln, als Operations Manager:in die Führung übernehmen und sogar Store Manager:in werden! Wir haben Dutzende Geschichten wie seine. Der Bewerbungsprozess: Wie lernen wir uns kennen?\n• Deine Bewerbung: Lebenslauf + Antworten auf den kurzen Fragebogen (kein Motivationsschreiben nötig!).\n• Das Assessment: Ein kurzer AssessFirst-Test, um dein Potenzial zu entdecken und uns dabei zu helfen, besser zu verstehen, wer du \"über deinen Lebenslauf hinaus\" bist.\n• Das Interview: Ein konkreter Austausch mit deinem/deiner zukünftigen Manager:in, um zu sehen, ob es \"matcht\".",
       "descriptionByLocale": {
-        "de": "Mission Und nun zu deinem Job: Suchst du einen dynamischen Job, bei dem kein Tag dem anderen gleicht? Möchtest du deine Leidenschaft für den Sport teilen und jedem/jeder Kund:in, der/die den Store betritt, ein unvergessliches Erlebnis bieten? Du liebst Action, den Einsatz auf der Verkaufsfläche und Teamarbeit? Dann ist die Stelle als Sportberater:in im Verkauf genau das Richtige für dich. Warum?\n• Du bist mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche statt. Du bist das Gesicht von Decathlon. Egal, ob du Anfänger:innen begrüsst oder Expert:innen berätst, du teilst deine Leidenschaft und baust eine Verbindung auf.\n• Du gestaltest den Handel von morgen aktiv mit: Du begnügst dich nicht damit, ein Produkt im Regal zu verkaufen. Du bietest ein nachhaltiges Omnichannel-Erlebnis an: digitale Bestellungen, Materialvermietung, Rückkauf von alten Produkten (Second Life)... Du gehst auf alle Bedürfnisse ein.\n• Du hast Eigenverantwortung und Einfluss: Du bist der/die Garant:in für deinen Sport! Du sorgst dafür, dass deine Abteilung ansprechend aussieht, verwaltest deine Bestände und organisierst deine Verkaufsaktionen. Deine Effizienz zeigt sich direkt in der Zufriedenheit deiner Kund:innen. Was du täglich machen wirst: Deine Aufgaben\n• Omnichannel-Beratung und -Verkauf: Du begrüsst deine Kundschaft wie Gäste. Du berätst sie, schliesst Verkäufe ab (physisch oder über unsere digitalen Tools), bietest unser Treueprogramm an und übernimmst das Kassieren.\n• Kommerzielle Dynamik / Merchandising: Du platzierst die Produkte gemäss den Jahreszeiten und Merchandising-Vorgaben, kümmerst dich um das \"Facing\", damit deine Abteilung immer tadellos ist, und hebst die Bestseller sowie die Neuheiten der Saison hervor.\n• Verfügbarkeit und Logistik: Du packst mit an! Von der Annahme der Lieferung bis zur Einräumung in die Regale stellst du die Richtigkeit deiner Bestände und die schnelle Verfügbarkeit deiner Produkte sicher. Du bereitest auch die Web-Bestellungen vor.\n• Kreislaufwirtschaft und Services: Du bist Botschafter:in unserer neuen Modelle: Du verwaltest den Rückkauf von Gebrauchtwaren und bewirbst unsere Mietlösungen, um die Lebensdauer unserer Produkte zu verlängern.\n• Punktuelle Einsätze: Je nach deinen Interessen und deiner Entwicklung kannst du Aufgaben als Ansprechpartner:in für ein bestimmtes Thema übernehmen, als Trainer:in für deine Kolleg:innen agieren oder sogar bei der Schichtleitung des Stores aushelfen. Dieser Job ist NICHTS für dich, wenn...\n• Du lieber den ganzen Tag in Ruhe hinter einem Bildschirm sitzt.\n• Du nicht gerne spontan auf andere zugehst.\n• Du denkst, dass Paletten auspacken, Regale einräumen und Waren bearbeiten \"nicht dein Problem\" sind.\n• Du nicht bereit bist, am Ende des Tages 10'000 Schritte auf deiner Uhr zu sehen.\n• Du feste, routinierte Arbeitszeiten suchst: Hier leben wir im Rhythmus des Sports und unsere Dienstpläne passen sich der Aktivität an.\n• Du samstags nicht arbeiten möchtest. Profil Was wir von dir erwarten:\n• Du verfügst über ausgezeichnete zwischenmenschliche Fähigkeiten. Die Kundenzufriedenheit ist dein Kompass.\n• Du bist mutig, neugierig und hast immer Lust, dazuzulernen.\n• Du bist organisiert, effizient und weisst, wie du in einem schnelllebigen Umfeld Prioritäten setzt.\n• Du bist eine sportbegeisterte und aktive Person: Das ist die DNA des Unternehmens!\n• Du beherrschst Deutsch perfekt. Gute Englisch-/Französischkenntnisse sind ein echtes Plus. Was wir dir bieten:\n• Ein flexibler und sicherer Stundenlohnvertrag: Wie der Name schon sagt, wirst du nach Stunden bezahlt. Mit anderen Worten: Je mehr du arbeitest, desto höher ist dein Gehalt! Um dir Sicherheit zu geben, garantieren wir dir in jedem Fall ein monatliches Minimum (im Vertrag vereinbartes Pensum, das zwischen 20 % und 50 % variiert). In Spitzenzeiten können wir dir anbieten, zusätzliche Stunden zu leisten. Keine Panik bezüglich deiner Planung: Wir sagen dir immer mindestens 48 Stunden im Voraus Bescheid, und dies geschieht nur, wenn deine Verfügbarkeit es zulässt!\n• Stundenlohn: Der Lohn beträgt 25 CHF brutto pro Stunde. Hinzu kommen Entschädigungen für Feiertage, Ferien sowie der 13. Monatslohn (sofern du einen unbefristeten Stundenlohnvertrag hast). Jeweils am 15. des Monats wirst du auf Basis der im Vormonat geleisteten Stunden (zwischen dem 16. des Vormonats und dem 15. des laufenden Monats) bezahlt.\n• Mitarbeiteraktien : Einmal im Jahr kannst du Aktionär:in des Unternehmens werden. Das ist eine hervorragende Anlage, da der Wert der Aktie seit der Gründung von Decathlon vor 50 Jahren nie negativ war!\n• Leidenschaft für den Sport: Wir unterstützen deine sportliche Aktivität! Profitiere nach 1 Monat Betriebszugehörigkeit von 25 % Rabatt auf deine Decathlon-Einkäufe.\n• Weiterbildung: Du nimmst an Schulungen teil, um dein technisches Wissen über Produkte, deine Verkaufstechniken oder deine zwischenmenschliche Kommunikation zu verbessern. Deine Karriere: Bei uns ist Weiterentwicklung kein Mythos Du startest bei uns im Store? Du fängst als Verkäufer:in an? Du kannst dich zur Abteilungsleitung weiterentwickeln, als Operations Manager:in die Führung übernehmen und sogar Store Manager:in werden! Wir haben Dutzende Geschichten wie seine. Der Bewerbungsprozess: Wie lernen wir uns kennen?\n• Deine Bewerbung: Lebenslauf + Antworten auf den kurzen Fragebogen (kein Motivationsschreiben nötig!).\n• Das Assessment: Ein kurzer AssessFirst-Test, um dein Potenzial zu entdecken und uns dabei zu helfen, besser zu verstehen, wer du \"über deinen Lebenslauf hinaus\" bist.\n• Das Interview: Ein konkreter Austausch mit deinem/deiner zukünftigen Manager:in, um zu sehen, ob es \"matcht\".",
         "it": "Mission Und nun zu deinem Job: Suchst du einen dynamischen Job, bei dem kein Tag dem anderen gleicht? Möchtest du deine Leidenschaft für den Sport teilen und jedem/jeder Kund:in, der/die den Store betritt, ein unvergessliches Erlebnis bieten? Du liebst Action, den Einsatz auf der Verkaufsfläche und Teamarbeit? Dann ist die Stelle als Sportberater:in im Verkauf genau das Richtige für dich. Warum?\n• Du bist mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche statt. Du bist das Gesicht von Decathlon. Egal, ob du Anfänger:innen begrüsst oder Expert:innen berätst, du teilst deine Leidenschaft und baust eine Verbindung auf.\n• Du gestaltest den Handel von morgen aktiv mit: Du begnügst dich nicht damit, ein Produkt im Regal zu verkaufen. Du bietest ein nachhaltiges Omnichannel-Erlebnis an: digitale Bestellungen, Materialvermietung, Rückkauf von alten Produkten (Second Life)... Du gehst auf alle Bedürfnisse ein.\n• Du hast Eigenverantwortung und Einfluss: Du bist der/die Garant:in für deinen Sport! Du sorgst dafür, dass deine Abteilung ansprechend aussieht, verwaltest deine Bestände und organisierst deine Verkaufsaktionen. Deine Effizienz zeigt sich direkt in der Zufriedenheit deiner Kund:innen. Was du täglich machen wirst: Deine Aufgaben\n• Omnichannel-Beratung und -Verkauf: Du begrüsst deine Kundschaft wie Gäste. Du berätst sie, schliesst Verkäufe ab (physisch oder über unsere digitalen Tools), bietest unser Treueprogramm an und übernimmst das Kassieren.\n• Kommerzielle Dynamik / Merchandising: Du platzierst die Produkte gemäss den Jahreszeiten und Merchandising-Vorgaben, kümmerst dich um das \"Facing\", damit deine Abteilung immer tadellos ist, und hebst die Bestseller sowie die Neuheiten der Saison hervor.\n• Verfügbarkeit und Logistik: Du packst mit an! Von der Annahme der Lieferung bis zur Einräumung in die Regale stellst du die Richtigkeit deiner Bestände und die schnelle Verfügbarkeit deiner Produkte sicher. Du bereitest auch die Web-Bestellungen vor.\n• Kreislaufwirtschaft und Services: Du bist Botschafter:in unserer neuen Modelle: Du verwaltest den Rückkauf von Gebrauchtwaren und bewirbst unsere Mietlösungen, um die Lebensdauer unserer Produkte zu verlängern.\n• Punktuelle Einsätze: Je nach deinen Interessen und deiner Entwicklung kannst du Aufgaben als Ansprechpartner:in für ein bestimmtes Thema übernehmen, als Trainer:in für deine Kolleg:innen agieren oder sogar bei der Schichtleitung des Stores aushelfen. Dieser Job ist NICHTS für dich, wenn...\n• Du lieber den ganzen Tag in Ruhe hinter einem Bildschirm sitzt.\n• Du nicht gerne spontan auf andere zugehst.\n• Du denkst, dass Paletten auspacken, Regale einräumen und Waren bearbeiten \"nicht dein Problem\" sind.\n• Du nicht bereit bist, am Ende des Tages 10'000 Schritte auf deiner Uhr zu sehen.\n• Du feste, routinierte Arbeitszeiten suchst: Hier leben wir im Rhythmus des Sports und unsere Dienstpläne passen sich der Aktivität an.\n• Du samstags nicht arbeiten möchtest. Profil Was wir von dir erwarten:\n• Du verfügst über ausgezeichnete zwischenmenschliche Fähigkeiten. Die Kundenzufriedenheit ist dein Kompass.\n• Du bist mutig, neugierig und hast immer Lust, dazuzulernen.\n• Du bist organisiert, effizient und weisst, wie du in einem schnelllebigen Umfeld Prioritäten setzt.\n• Du bist eine sportbegeisterte und aktive Person: Das ist die DNA des Unternehmens!\n• Du beherrschst Deutsch perfekt. Gute Englisch-/Französischkenntnisse sind ein echtes Plus. Was wir dir bieten:\n• Ein flexibler und sicherer Stundenlohnvertrag: Wie der Name schon sagt, wirst du nach Stunden bezahlt. Mit anderen Worten: Je mehr du arbeitest, desto höher ist dein Gehalt! Um dir Sicherheit zu geben, garantieren wir dir in jedem Fall ein monatliches Minimum (im Vertrag vereinbartes Pensum, das zwischen 20 % und 50 % variiert). In Spitzenzeiten können wir dir anbieten, zusätzliche Stunden zu leisten. Keine Panik bezüglich deiner Planung: Wir sagen dir immer mindestens 48 Stunden im Voraus Bescheid, und dies geschieht nur, wenn deine Verfügbarkeit es zulässt!\n• Stundenlohn: Der Lohn beträgt 25 CHF brutto pro Stunde. Hinzu kommen Entschädigungen für Feiertage, Ferien sowie der 13. Monatslohn (sofern du einen unbefristeten Stundenlohnvertrag hast). Jeweils am 15. des Monats wirst du auf Basis der im Vormonat geleisteten Stunden (zwischen dem 16. des Vormonats und dem 15. des laufenden Monats) bezahlt.\n• Mitarbeiteraktien : Einmal im Jahr kannst du Aktionär:in des Unternehmens werden. Das ist eine hervorragende Anlage, da der Wert der Aktie seit der Gründung von Decathlon vor 50 Jahren nie negativ war!\n• Leidenschaft für den Sport: Wir unterstützen deine sportliche Aktivität! Profitiere nach 1 Monat Betriebszugehörigkeit von 25 % Rabatt auf deine Decathlon-Einkäufe.\n• Weiterbildung: Du nimmst an Schulungen teil, um dein technisches Wissen über Produkte, deine Verkaufstechniken oder deine zwischenmenschliche Kommunikation zu verbessern. Deine Karriere: Bei uns ist Weiterentwicklung kein Mythos Du startest bei uns im Store? Du fängst als Verkäufer:in an? Du kannst dich zur Abteilungsleitung weiterentwickeln, als Operations Manager:in die Führung übernehmen und sogar Store Manager:in werden! Wir haben Dutzende Geschichten wie seine. Der Bewerbungsprozess: Wie lernen wir uns kennen?\n• Deine Bewerbung: Lebenslauf + Antworten auf den kurzen Fragebogen (kein Motivationsschreiben nötig!).\n• Das Assessment: Ein kurzer AssessFirst-Test, um dein Potenzial zu entdecken und uns dabei zu helfen, besser zu verstehen, wer du \"über deinen Lebenslauf hinaus\" bist.\n• Das Interview: Ein konkreter Austausch mit deinem/deiner zukünftigen Manager:in, um zu sehen, ob es \"matcht\".",
         "en": "Mission Und nun zu deinem Job: Suchst du einen dynamischen Job, bei dem kein Tag dem anderen gleicht? Möchtest du deine Leidenschaft für den Sport teilen und jedem/jeder Kund:in, der/die den Store betritt, ein unvergessliches Erlebnis bieten? Du liebst Action, den Einsatz auf der Verkaufsfläche und Teamarbeit? Dann ist die Stelle als Sportberater:in im Verkauf genau das Richtige für dich. Warum?\n• Du bist mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche statt. Du bist das Gesicht von Decathlon. Egal, ob du Anfänger:innen begrüsst oder Expert:innen berätst, du teilst deine Leidenschaft und baust eine Verbindung auf.\n• Du gestaltest den Handel von morgen aktiv mit: Du begnügst dich nicht damit, ein Produkt im Regal zu verkaufen. Du bietest ein nachhaltiges Omnichannel-Erlebnis an: digitale Bestellungen, Materialvermietung, Rückkauf von alten Produkten (Second Life)... Du gehst auf alle Bedürfnisse ein.\n• Du hast Eigenverantwortung und Einfluss: Du bist der/die Garant:in für deinen Sport! Du sorgst dafür, dass deine Abteilung ansprechend aussieht, verwaltest deine Bestände und organisierst deine Verkaufsaktionen. Deine Effizienz zeigt sich direkt in der Zufriedenheit deiner Kund:innen. Was du täglich machen wirst: Deine Aufgaben\n• Omnichannel-Beratung und -Verkauf: Du begrüsst deine Kundschaft wie Gäste. Du berätst sie, schliesst Verkäufe ab (physisch oder über unsere digitalen Tools), bietest unser Treueprogramm an und übernimmst das Kassieren.\n• Kommerzielle Dynamik / Merchandising: Du platzierst die Produkte gemäss den Jahreszeiten und Merchandising-Vorgaben, kümmerst dich um das \"Facing\", damit deine Abteilung immer tadellos ist, und hebst die Bestseller sowie die Neuheiten der Saison hervor.\n• Verfügbarkeit und Logistik: Du packst mit an! Von der Annahme der Lieferung bis zur Einräumung in die Regale stellst du die Richtigkeit deiner Bestände und die schnelle Verfügbarkeit deiner Produkte sicher. Du bereitest auch die Web-Bestellungen vor.\n• Kreislaufwirtschaft und Services: Du bist Botschafter:in unserer neuen Modelle: Du verwaltest den Rückkauf von Gebrauchtwaren und bewirbst unsere Mietlösungen, um die Lebensdauer unserer Produkte zu verlängern.\n• Punktuelle Einsätze: Je nach deinen Interessen und deiner Entwicklung kannst du Aufgaben als Ansprechpartner:in für ein bestimmtes Thema übernehmen, als Trainer:in für deine Kolleg:innen agieren oder sogar bei der Schichtleitung des Stores aushelfen. Dieser Job ist NICHTS für dich, wenn...\n• Du lieber den ganzen Tag in Ruhe hinter einem Bildschirm sitzt.\n• Du nicht gerne spontan auf andere zugehst.\n• Du denkst, dass Paletten auspacken, Regale einräumen und Waren bearbeiten \"nicht dein Problem\" sind.\n• Du nicht bereit bist, am Ende des Tages 10'000 Schritte auf deiner Uhr zu sehen.\n• Du feste, routinierte Arbeitszeiten suchst: Hier leben wir im Rhythmus des Sports und unsere Dienstpläne passen sich der Aktivität an.\n• Du samstags nicht arbeiten möchtest. Profil Was wir von dir erwarten:\n• Du verfügst über ausgezeichnete zwischenmenschliche Fähigkeiten. Die Kundenzufriedenheit ist dein Kompass.\n• Du bist mutig, neugierig und hast immer Lust, dazuzulernen.\n• Du bist organisiert, effizient und weisst, wie du in einem schnelllebigen Umfeld Prioritäten setzt.\n• Du bist eine sportbegeisterte und aktive Person: Das ist die DNA des Unternehmens!\n• Du beherrschst Deutsch perfekt. Gute Englisch-/Französischkenntnisse sind ein echtes Plus. Was wir dir bieten:\n• Ein flexibler und sicherer Stundenlohnvertrag: Wie der Name schon sagt, wirst du nach Stunden bezahlt. Mit anderen Worten: Je mehr du arbeitest, desto höher ist dein Gehalt! Um dir Sicherheit zu geben, garantieren wir dir in jedem Fall ein monatliches Minimum (im Vertrag vereinbartes Pensum, das zwischen 20 % und 50 % variiert). In Spitzenzeiten können wir dir anbieten, zusätzliche Stunden zu leisten. Keine Panik bezüglich deiner Planung: Wir sagen dir immer mindestens 48 Stunden im Voraus Bescheid, und dies geschieht nur, wenn deine Verfügbarkeit es zulässt!\n• Stundenlohn: Der Lohn beträgt 25 CHF brutto pro Stunde. Hinzu kommen Entschädigungen für Feiertage, Ferien sowie der 13. Monatslohn (sofern du einen unbefristeten Stundenlohnvertrag hast). Jeweils am 15. des Monats wirst du auf Basis der im Vormonat geleisteten Stunden (zwischen dem 16. des Vormonats und dem 15. des laufenden Monats) bezahlt.\n• Mitarbeiteraktien : Einmal im Jahr kannst du Aktionär:in des Unternehmens werden. Das ist eine hervorragende Anlage, da der Wert der Aktie seit der Gründung von Decathlon vor 50 Jahren nie negativ war!\n• Leidenschaft für den Sport: Wir unterstützen deine sportliche Aktivität! Profitiere nach 1 Monat Betriebszugehörigkeit von 25 % Rabatt auf deine Decathlon-Einkäufe.\n• Weiterbildung: Du nimmst an Schulungen teil, um dein technisches Wissen über Produkte, deine Verkaufstechniken oder deine zwischenmenschliche Kommunikation zu verbessern. Deine Karriere: Bei uns ist Weiterentwicklung kein Mythos Du startest bei uns im Store? Du fängst als Verkäufer:in an? Du kannst dich zur Abteilungsleitung weiterentwickeln, als Operations Manager:in die Führung übernehmen und sogar Store Manager:in werden! Wir haben Dutzende Geschichten wie seine. Der Bewerbungsprozess: Wie lernen wir uns kennen?\n• Deine Bewerbung: Lebenslauf + Antworten auf den kurzen Fragebogen (kein Motivationsschreiben nötig!).\n• Das Assessment: Ein kurzer AssessFirst-Test, um dein Potenzial zu entdecken und uns dabei zu helfen, besser zu verstehen, wer du \"über deinen Lebenslauf hinaus\" bist.\n• Das Interview: Ein konkreter Austausch mit deinem/deiner zukünftigen Manager:in, um zu sehen, ob es \"matcht\".",
+        "de": "Mission Und nun zu deinem Job: Suchst du einen dynamischen Job, bei dem kein Tag dem anderen gleicht? Möchtest du deine Leidenschaft für den Sport teilen und jedem/jeder Kund:in, der/die den Store betritt, ein unvergessliches Erlebnis bieten? Du liebst Action, den Einsatz auf der Verkaufsfläche und Teamarbeit? Dann ist die Stelle als Sportberater:in im Verkauf genau das Richtige für dich. Warum?\n• Du bist mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche statt. Du bist das Gesicht von Decathlon. Egal, ob du Anfänger:innen begrüsst oder Expert:innen berätst, du teilst deine Leidenschaft und baust eine Verbindung auf.\n• Du gestaltest den Handel von morgen aktiv mit: Du begnügst dich nicht damit, ein Produkt im Regal zu verkaufen. Du bietest ein nachhaltiges Omnichannel-Erlebnis an: digitale Bestellungen, Materialvermietung, Rückkauf von alten Produkten (Second Life)... Du gehst auf alle Bedürfnisse ein.\n• Du hast Eigenverantwortung und Einfluss: Du bist der/die Garant:in für deinen Sport! Du sorgst dafür, dass deine Abteilung ansprechend aussieht, verwaltest deine Bestände und organisierst deine Verkaufsaktionen. Deine Effizienz zeigt sich direkt in der Zufriedenheit deiner Kund:innen. Was du täglich machen wirst: Deine Aufgaben\n• Omnichannel-Beratung und -Verkauf: Du begrüsst deine Kundschaft wie Gäste. Du berätst sie, schliesst Verkäufe ab (physisch oder über unsere digitalen Tools), bietest unser Treueprogramm an und übernimmst das Kassieren.\n• Kommerzielle Dynamik / Merchandising: Du platzierst die Produkte gemäss den Jahreszeiten und Merchandising-Vorgaben, kümmerst dich um das \"Facing\", damit deine Abteilung immer tadellos ist, und hebst die Bestseller sowie die Neuheiten der Saison hervor.\n• Verfügbarkeit und Logistik: Du packst mit an! Von der Annahme der Lieferung bis zur Einräumung in die Regale stellst du die Richtigkeit deiner Bestände und die schnelle Verfügbarkeit deiner Produkte sicher. Du bereitest auch die Web-Bestellungen vor.\n• Kreislaufwirtschaft und Services: Du bist Botschafter:in unserer neuen Modelle: Du verwaltest den Rückkauf von Gebrauchtwaren und bewirbst unsere Mietlösungen, um die Lebensdauer unserer Produkte zu verlängern.\n• Punktuelle Einsätze: Je nach deinen Interessen und deiner Entwicklung kannst du Aufgaben als Ansprechpartner:in für ein bestimmtes Thema übernehmen, als Trainer:in für deine Kolleg:innen agieren oder sogar bei der Schichtleitung des Stores aushelfen. Dieser Job ist NICHTS für dich, wenn...\n• Du lieber den ganzen Tag in Ruhe hinter einem Bildschirm sitzt.\n• Du nicht gerne spontan auf andere zugehst.\n• Du denkst, dass Paletten auspacken, Regale einräumen und Waren bearbeiten \"nicht dein Problem\" sind.\n• Du nicht bereit bist, am Ende des Tages 10'000 Schritte auf deiner Uhr zu sehen.\n• Du feste, routinierte Arbeitszeiten suchst: Hier leben wir im Rhythmus des Sports und unsere Dienstpläne passen sich der Aktivität an.\n• Du samstags nicht arbeiten möchtest. Profil Was wir von dir erwarten:\n• Du verfügst über ausgezeichnete zwischenmenschliche Fähigkeiten. Die Kundenzufriedenheit ist dein Kompass.\n• Du bist mutig, neugierig und hast immer Lust, dazuzulernen.\n• Du bist organisiert, effizient und weisst, wie du in einem schnelllebigen Umfeld Prioritäten setzt.\n• Du bist eine sportbegeisterte und aktive Person: Das ist die DNA des Unternehmens!\n• Du beherrschst Deutsch perfekt. Gute Englisch-/Französischkenntnisse sind ein echtes Plus. Was wir dir bieten:\n• Ein flexibler und sicherer Stundenlohnvertrag: Wie der Name schon sagt, wirst du nach Stunden bezahlt. Mit anderen Worten: Je mehr du arbeitest, desto höher ist dein Gehalt! Um dir Sicherheit zu geben, garantieren wir dir in jedem Fall ein monatliches Minimum (im Vertrag vereinbartes Pensum, das zwischen 20 % und 50 % variiert). In Spitzenzeiten können wir dir anbieten, zusätzliche Stunden zu leisten. Keine Panik bezüglich deiner Planung: Wir sagen dir immer mindestens 48 Stunden im Voraus Bescheid, und dies geschieht nur, wenn deine Verfügbarkeit es zulässt!\n• Stundenlohn: Der Lohn beträgt 25 CHF brutto pro Stunde. Hinzu kommen Entschädigungen für Feiertage, Ferien sowie der 13. Monatslohn (sofern du einen unbefristeten Stundenlohnvertrag hast). Jeweils am 15. des Monats wirst du auf Basis der im Vormonat geleisteten Stunden (zwischen dem 16. des Vormonats und dem 15. des laufenden Monats) bezahlt.\n• Mitarbeiteraktien : Einmal im Jahr kannst du Aktionär:in des Unternehmens werden. Das ist eine hervorragende Anlage, da der Wert der Aktie seit der Gründung von Decathlon vor 50 Jahren nie negativ war!\n• Leidenschaft für den Sport: Wir unterstützen deine sportliche Aktivität! Profitiere nach 1 Monat Betriebszugehörigkeit von 25 % Rabatt auf deine Decathlon-Einkäufe.\n• Weiterbildung: Du nimmst an Schulungen teil, um dein technisches Wissen über Produkte, deine Verkaufstechniken oder deine zwischenmenschliche Kommunikation zu verbessern. Deine Karriere: Bei uns ist Weiterentwicklung kein Mythos Du startest bei uns im Store? Du fängst als Verkäufer:in an? Du kannst dich zur Abteilungsleitung weiterentwickeln, als Operations Manager:in die Führung übernehmen und sogar Store Manager:in werden! Wir haben Dutzende Geschichten wie seine. Der Bewerbungsprozess: Wie lernen wir uns kennen?\n• Deine Bewerbung: Lebenslauf + Antworten auf den kurzen Fragebogen (kein Motivationsschreiben nötig!).\n• Das Assessment: Ein kurzer AssessFirst-Test, um dein Potenzial zu entdecken und uns dabei zu helfen, besser zu verstehen, wer du \"über deinen Lebenslauf hinaus\" bist.\n• Das Interview: Ein konkreter Austausch mit deinem/deiner zukünftigen Manager:in, um zu sehen, ob es \"matcht\".",
         "fr": "Mission Und nun zu deinem Job: Suchst du einen dynamischen Job, bei dem kein Tag dem anderen gleicht? Möchtest du deine Leidenschaft für den Sport teilen und jedem/jeder Kund:in, der/die den Store betritt, ein unvergessliches Erlebnis bieten? Du liebst Action, den Einsatz auf der Verkaufsfläche und Teamarbeit? Dann ist die Stelle als Sportberater:in im Verkauf genau das Richtige für dich. Warum?\n• Du bist mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche statt. Du bist das Gesicht von Decathlon. Egal, ob du Anfänger:innen begrüsst oder Expert:innen berätst, du teilst deine Leidenschaft und baust eine Verbindung auf.\n• Du gestaltest den Handel von morgen aktiv mit: Du begnügst dich nicht damit, ein Produkt im Regal zu verkaufen. Du bietest ein nachhaltiges Omnichannel-Erlebnis an: digitale Bestellungen, Materialvermietung, Rückkauf von alten Produkten (Second Life)... Du gehst auf alle Bedürfnisse ein.\n• Du hast Eigenverantwortung und Einfluss: Du bist der/die Garant:in für deinen Sport! Du sorgst dafür, dass deine Abteilung ansprechend aussieht, verwaltest deine Bestände und organisierst deine Verkaufsaktionen. Deine Effizienz zeigt sich direkt in der Zufriedenheit deiner Kund:innen. Was du täglich machen wirst: Deine Aufgaben\n• Omnichannel-Beratung und -Verkauf: Du begrüsst deine Kundschaft wie Gäste. Du berätst sie, schliesst Verkäufe ab (physisch oder über unsere digitalen Tools), bietest unser Treueprogramm an und übernimmst das Kassieren.\n• Kommerzielle Dynamik / Merchandising: Du platzierst die Produkte gemäss den Jahreszeiten und Merchandising-Vorgaben, kümmerst dich um das \"Facing\", damit deine Abteilung immer tadellos ist, und hebst die Bestseller sowie die Neuheiten der Saison hervor.\n• Verfügbarkeit und Logistik: Du packst mit an! Von der Annahme der Lieferung bis zur Einräumung in die Regale stellst du die Richtigkeit deiner Bestände und die schnelle Verfügbarkeit deiner Produkte sicher. Du bereitest auch die Web-Bestellungen vor.\n• Kreislaufwirtschaft und Services: Du bist Botschafter:in unserer neuen Modelle: Du verwaltest den Rückkauf von Gebrauchtwaren und bewirbst unsere Mietlösungen, um die Lebensdauer unserer Produkte zu verlängern.\n• Punktuelle Einsätze: Je nach deinen Interessen und deiner Entwicklung kannst du Aufgaben als Ansprechpartner:in für ein bestimmtes Thema übernehmen, als Trainer:in für deine Kolleg:innen agieren oder sogar bei der Schichtleitung des Stores aushelfen. Dieser Job ist NICHTS für dich, wenn...\n• Du lieber den ganzen Tag in Ruhe hinter einem Bildschirm sitzt.\n• Du nicht gerne spontan auf andere zugehst.\n• Du denkst, dass Paletten auspacken, Regale einräumen und Waren bearbeiten \"nicht dein Problem\" sind.\n• Du nicht bereit bist, am Ende des Tages 10'000 Schritte auf deiner Uhr zu sehen.\n• Du feste, routinierte Arbeitszeiten suchst: Hier leben wir im Rhythmus des Sports und unsere Dienstpläne passen sich der Aktivität an.\n• Du samstags nicht arbeiten möchtest. Profil Was wir von dir erwarten:\n• Du verfügst über ausgezeichnete zwischenmenschliche Fähigkeiten. Die Kundenzufriedenheit ist dein Kompass.\n• Du bist mutig, neugierig und hast immer Lust, dazuzulernen.\n• Du bist organisiert, effizient und weisst, wie du in einem schnelllebigen Umfeld Prioritäten setzt.\n• Du bist eine sportbegeisterte und aktive Person: Das ist die DNA des Unternehmens!\n• Du beherrschst Deutsch perfekt. Gute Englisch-/Französischkenntnisse sind ein echtes Plus. Was wir dir bieten:\n• Ein flexibler und sicherer Stundenlohnvertrag: Wie der Name schon sagt, wirst du nach Stunden bezahlt. Mit anderen Worten: Je mehr du arbeitest, desto höher ist dein Gehalt! Um dir Sicherheit zu geben, garantieren wir dir in jedem Fall ein monatliches Minimum (im Vertrag vereinbartes Pensum, das zwischen 20 % und 50 % variiert). In Spitzenzeiten können wir dir anbieten, zusätzliche Stunden zu leisten. Keine Panik bezüglich deiner Planung: Wir sagen dir immer mindestens 48 Stunden im Voraus Bescheid, und dies geschieht nur, wenn deine Verfügbarkeit es zulässt!\n• Stundenlohn: Der Lohn beträgt 25 CHF brutto pro Stunde. Hinzu kommen Entschädigungen für Feiertage, Ferien sowie der 13. Monatslohn (sofern du einen unbefristeten Stundenlohnvertrag hast). Jeweils am 15. des Monats wirst du auf Basis der im Vormonat geleisteten Stunden (zwischen dem 16. des Vormonats und dem 15. des laufenden Monats) bezahlt.\n• Mitarbeiteraktien : Einmal im Jahr kannst du Aktionär:in des Unternehmens werden. Das ist eine hervorragende Anlage, da der Wert der Aktie seit der Gründung von Decathlon vor 50 Jahren nie negativ war!\n• Leidenschaft für den Sport: Wir unterstützen deine sportliche Aktivität! Profitiere nach 1 Monat Betriebszugehörigkeit von 25 % Rabatt auf deine Decathlon-Einkäufe.\n• Weiterbildung: Du nimmst an Schulungen teil, um dein technisches Wissen über Produkte, deine Verkaufstechniken oder deine zwischenmenschliche Kommunikation zu verbessern. Deine Karriere: Bei uns ist Weiterentwicklung kein Mythos Du startest bei uns im Store? Du fängst als Verkäufer:in an? Du kannst dich zur Abteilungsleitung weiterentwickeln, als Operations Manager:in die Führung übernehmen und sogar Store Manager:in werden! Wir haben Dutzende Geschichten wie seine. Der Bewerbungsprozess: Wie lernen wir uns kennen?\n• Deine Bewerbung: Lebenslauf + Antworten auf den kurzen Fragebogen (kein Motivationsschreiben nötig!).\n• Das Assessment: Ein kurzer AssessFirst-Test, um dein Potenzial zu entdecken und uns dabei zu helfen, besser zu verstehen, wer du \"über deinen Lebenslauf hinaus\" bist.\n• Das Interview: Ein konkreter Austausch mit deinem/deiner zukünftigen Manager:in, um zu sehen, ob es \"matcht\"."
       },
       "location": "Spreitenbach",
@@ -3528,7 +3535,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4704219-sports-leader-verkaufsberater-mwd-50-stundenlohnvertrag-8957-spreitenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:30:40.126Z",
+      "crawledAt": "2026-11-23T21:35:58.431Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -3544,6 +3551,89 @@
       "postedDate": "2026-11-23",
       "postingDateSource": "reported",
       "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4704219-sports-leader-verkaufsberater-mwd-50-stundenlohnvertrag-8957-spreitenbach",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sports-leader-verkaufsberater-m-w-d-50-stundenlohnvertrag-decathlon-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sports-leader-verkaufsberater-m-w-d-50-stundenlohnvertrag-decathlon-ch"
+        ],
+        "en": [
+          "sports-leader-verkaufsberater-m-w-d-50-stundenlohnvertrag-decathlon-ch"
+        ],
+        "fr": [
+          "sports-leader-verkaufsberater-m-w-d-50-stundenlohnvertrag-decathlon-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-23T09:30:40.126Z",
+      "salaryMin": 37000,
+      "salaryMax": 56800,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 37000,
+          "maxValue": 56800,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Spreitenbach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-21T21:35:58.431Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "decathlon-3d7241808b55",
+      "slug": "sports-leader-verkaufsberater-m-w-d-fitness-running-50-stundenlohnvertrag-decathlon-ch",
+      "slugByLocale": {
+        "de": "sports-leader-verkaufsberater-m-w-d-fitness-running-50-stundenlohnvertrag-decathlon-ch",
+        "it": "sports-leader-verkaufsberater-m-w-d-fitness-running-50-stundenlohnvertrag-decathlon-ch",
+        "en": "sports-leader-verkaufsberater-m-w-d-fitness-running-50-stundenlohnvertrag-decathlon-ch",
+        "fr": "sports-leader-verkaufsberater-m-w-d-fitness-running-50-stundenlohnvertrag-decathlon-ch"
+      },
+      "company": "Decathlon",
+      "companyKey": "decathlon",
+      "companyDomain": "decathlon.ch",
+      "title": "Sports Leader/ Verkaufsberater (m/w/d) Fitness/Running 50% - Stundenlohnvertrag",
+      "titleByLocale": {
+        "de": "Sports Leader/ Verkaufsberater (m/w/d) Fitness/Running 50% - Stundenlohnvertrag",
+        "it": "Sports Leader/ Verkaufsberater (m/w/d) Fitness/Running 50% - Stundenlohnvertrag",
+        "en": "Sports Leader/ Verkaufsberater (m/w/d) Fitness/Running 50% - Stundenlohnvertrag",
+        "fr": "Sports Leader/ Verkaufsberater (m/w/d) Fitness/Running 50% - Stundenlohnvertrag"
+      },
+      "description": "Mission Suchst du einen dynamischen Job, bei dem kein Tag dem anderen gleicht? Möchtest du deine Leidenschaft für den Sport teilen und jedem/jeder Kund:in, der/die den Store betritt, ein unvergessliches Erlebnis bieten? Du liebst Action, den Einsatz auf der Verkaufsfläche und Teamarbeit? Dann ist die Stelle als Sportberater:in im Verkauf genau das Richtige für dich. Warum?\n• Du bist mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche statt. Du bist das Gesicht von Decathlon. Egal, ob du Anfänger:innen begrüsst oder Expert:innen berätst, du teilst deine Leidenschaft und baust eine Verbindung auf.\n• Du gestaltest den Handel von morgen aktiv mit: Du begnügst dich nicht damit, ein Produkt im Regal zu verkaufen. Du bietest ein nachhaltiges Omnichannel-Erlebnis an: digitale Bestellungen, Materialvermietung, Rückkauf von alten Produkten (Second Life)... Du gehst auf alle Bedürfnisse ein.\n• Du hast Eigenverantwortung und Einfluss: Du bist der/die Garant:in für deinen Sport! Du sorgst dafür, dass deine Abteilung ansprechend aussieht, verwaltest deine Bestände und organisierst deine Verkaufsaktionen. Deine Effizienz zeigt sich direkt in der Zufriedenheit deiner Kund:innen. Was du täglich machen wirst: Deine Aufgaben\n• Omnichannel-Beratung und -Verkauf: Du begrüsst deine Kundschaft wie Gäste. Du berätst sie, schliesst Verkäufe ab (physisch oder über unsere digitalen Tools), bietest unser Treueprogramm an und übernimmst das Kassieren.\n• Kommerzielle Dynamik / Merchandising: Du platzierst die Produkte gemäss den Jahreszeiten und Merchandising-Vorgaben, kümmerst dich um das \"Facing\", damit deine Abteilung immer tadellos ist, und hebst die Bestseller sowie die Neuheiten der Saison hervor.\n• Verfügbarkeit und Logistik: Du packst mit an! Von der Annahme der Lieferung bis zur Einräumung in die Regale stellst du die Richtigkeit deiner Bestände und die schnelle Verfügbarkeit deiner Produkte sicher. Du bereitest auch die Web-Bestellungen vor.\n• Kreislaufwirtschaft und Services: Du bist Botschafter:in unserer neuen Modelle: Du verwaltest den Rückkauf von Gebrauchtwaren und bewirbst unsere Mietlösungen, um die Lebensdauer unserer Produkte zu verlängern.\n• Punktuelle Einsätze: Je nach deinen Interessen und deiner Entwicklung kannst du Aufgaben als Ansprechpartner:in für ein bestimmtes Thema übernehmen, als Trainer:in für deine Kolleg:innen agieren oder sogar bei der Schichtleitung des Stores aushelfen. Dieser Job ist NICHTS für dich, wenn...\n• Du lieber den ganzen Tag in Ruhe hinter einem Bildschirm sitzt.\n• Du nicht gerne spontan auf andere zugehst.\n• Du denkst, dass Paletten auspacken, Regale einräumen und Waren bearbeiten \"nicht dein Problem\" sind.\n• Du nicht bereit bist, am Ende des Tages 10'000 Schritte auf deiner Uhr zu sehen.\n• Du feste, routinierte Arbeitszeiten suchst: Hier leben wir im Rhythmus des Sports und unsere Dienstpläne passen sich der Aktivität an.\n• Du samstags nicht arbeiten möchtest. Profil Was wir von dir erwarten:\n• Du verfügst über ausgezeichnete zwischenmenschliche Fähigkeiten. Die Kundenzufriedenheit ist dein Kompass.\n• Du bist mutig, neugierig und hast immer Lust, dazuzulernen.\n• Du bist organisiert, effizient und weisst, wie du in einem schnelllebigen Umfeld Prioritäten setzt.\n• Du bist eine sportbegeisterte und aktive Person: Das ist die DNA des Unternehmens!\n• Du beherrschst Deutsch perfekt. Gute Englisch-/Französischkenntnisse sind ein echtes Plus. Was wir dir bieten:\n• Ein flexibler und sicherer Stundenlohnvertrag: Wie der Name schon sagt, wirst du nach Stunden bezahlt. Mit anderen Worten: Je mehr du arbeitest, desto höher ist dein Gehalt! Um dir Sicherheit zu geben, garantieren wir dir in jedem Fall ein monatliches Minimum (im Vertrag vereinbartes Pensum, das zwischen 20 % und 50 % variiert). In Spitzenzeiten können wir dir anbieten, zusätzliche Stunden zu leisten. Keine Panik bezüglich deiner Planung: Wir sagen dir immer mindestens 48 Stunden im Voraus Bescheid, und dies geschieht nur, wenn deine Verfügbarkeit es zulässt!\n• Stundenlohn: Der Lohn beträgt 25 CHF brutto pro Stunde. Hinzu kommen Entschädigungen für Feiertage, Ferien sowie der 13. Monatslohn (sofern du einen unbefristeten Stundenlohnvertrag hast). Jeweils am 15. des Monats wirst du auf Basis der im Vormonat geleisteten Stunden (zwischen dem 16. des Vormonats und dem 15. des laufenden Monats) bezahlt.\n• Mitarbeiteraktien : Einmal im Jahr kannst du Aktionär:in des Unternehmens werden. Das ist eine hervorragende Anlage, da der Wert der Aktie seit der Gründung von Decathlon vor 50 Jahren nie negativ war!\n• Leidenschaft für den Sport: Wir unterstützen deine sportliche Aktivität! Profitiere nach 1 Monat Betriebszugehörigkeit von 25 % Rabatt auf deine Decathlon-Einkäufe.\n• Weiterbildung: Du nimmst an Schulungen teil, um dein technisches Wissen über Produkte, deine Verkaufstechniken oder deine zwischenmenschliche Kommunikation zu verbessern. Deine Karriere: Bei uns ist Weiterentwicklung kein Mythos Du startest bei uns im Store? Du fängst als Verkäufer:in an? Du kannst dich zur Abteilungsleitung weiterentwickeln, als Operations Manager:in die Führung übernehmen und sogar Store Manager:in werden! Wir haben Dutzende Geschichten wie seine. Der Bewerbungsprozess: Wie lernen wir uns kennen?\n• Deine Bewerbung: Lebenslauf + Antworten auf den kurzen Fragebogen (kein Motivationsschreiben nötig!).\n• Das Assessment: Ein kurzer AssessFirst-Test, um dein Potenzial zu entdecken und uns dabei zu helfen, besser zu verstehen, wer du \"über deinen Lebenslauf hinaus\" bist.\n• Das Interview: Ein konkreter Austausch mit deinem/deiner zukünftigen Manager:in, um zu sehen, ob es \"matcht\".",
+      "descriptionByLocale": {
+        "de": "Mission Suchst du einen dynamischen Job, bei dem kein Tag dem anderen gleicht? Möchtest du deine Leidenschaft für den Sport teilen und jedem/jeder Kund:in, der/die den Store betritt, ein unvergessliches Erlebnis bieten? Du liebst Action, den Einsatz auf der Verkaufsfläche und Teamarbeit? Dann ist die Stelle als Sportberater:in im Verkauf genau das Richtige für dich. Warum?\n• Du bist mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche statt. Du bist das Gesicht von Decathlon. Egal, ob du Anfänger:innen begrüsst oder Expert:innen berätst, du teilst deine Leidenschaft und baust eine Verbindung auf.\n• Du gestaltest den Handel von morgen aktiv mit: Du begnügst dich nicht damit, ein Produkt im Regal zu verkaufen. Du bietest ein nachhaltiges Omnichannel-Erlebnis an: digitale Bestellungen, Materialvermietung, Rückkauf von alten Produkten (Second Life)... Du gehst auf alle Bedürfnisse ein.\n• Du hast Eigenverantwortung und Einfluss: Du bist der/die Garant:in für deinen Sport! Du sorgst dafür, dass deine Abteilung ansprechend aussieht, verwaltest deine Bestände und organisierst deine Verkaufsaktionen. Deine Effizienz zeigt sich direkt in der Zufriedenheit deiner Kund:innen. Was du täglich machen wirst: Deine Aufgaben\n• Omnichannel-Beratung und -Verkauf: Du begrüsst deine Kundschaft wie Gäste. Du berätst sie, schliesst Verkäufe ab (physisch oder über unsere digitalen Tools), bietest unser Treueprogramm an und übernimmst das Kassieren.\n• Kommerzielle Dynamik / Merchandising: Du platzierst die Produkte gemäss den Jahreszeiten und Merchandising-Vorgaben, kümmerst dich um das \"Facing\", damit deine Abteilung immer tadellos ist, und hebst die Bestseller sowie die Neuheiten der Saison hervor.\n• Verfügbarkeit und Logistik: Du packst mit an! Von der Annahme der Lieferung bis zur Einräumung in die Regale stellst du die Richtigkeit deiner Bestände und die schnelle Verfügbarkeit deiner Produkte sicher. Du bereitest auch die Web-Bestellungen vor.\n• Kreislaufwirtschaft und Services: Du bist Botschafter:in unserer neuen Modelle: Du verwaltest den Rückkauf von Gebrauchtwaren und bewirbst unsere Mietlösungen, um die Lebensdauer unserer Produkte zu verlängern.\n• Punktuelle Einsätze: Je nach deinen Interessen und deiner Entwicklung kannst du Aufgaben als Ansprechpartner:in für ein bestimmtes Thema übernehmen, als Trainer:in für deine Kolleg:innen agieren oder sogar bei der Schichtleitung des Stores aushelfen. Dieser Job ist NICHTS für dich, wenn...\n• Du lieber den ganzen Tag in Ruhe hinter einem Bildschirm sitzt.\n• Du nicht gerne spontan auf andere zugehst.\n• Du denkst, dass Paletten auspacken, Regale einräumen und Waren bearbeiten \"nicht dein Problem\" sind.\n• Du nicht bereit bist, am Ende des Tages 10'000 Schritte auf deiner Uhr zu sehen.\n• Du feste, routinierte Arbeitszeiten suchst: Hier leben wir im Rhythmus des Sports und unsere Dienstpläne passen sich der Aktivität an.\n• Du samstags nicht arbeiten möchtest. Profil Was wir von dir erwarten:\n• Du verfügst über ausgezeichnete zwischenmenschliche Fähigkeiten. Die Kundenzufriedenheit ist dein Kompass.\n• Du bist mutig, neugierig und hast immer Lust, dazuzulernen.\n• Du bist organisiert, effizient und weisst, wie du in einem schnelllebigen Umfeld Prioritäten setzt.\n• Du bist eine sportbegeisterte und aktive Person: Das ist die DNA des Unternehmens!\n• Du beherrschst Deutsch perfekt. Gute Englisch-/Französischkenntnisse sind ein echtes Plus. Was wir dir bieten:\n• Ein flexibler und sicherer Stundenlohnvertrag: Wie der Name schon sagt, wirst du nach Stunden bezahlt. Mit anderen Worten: Je mehr du arbeitest, desto höher ist dein Gehalt! Um dir Sicherheit zu geben, garantieren wir dir in jedem Fall ein monatliches Minimum (im Vertrag vereinbartes Pensum, das zwischen 20 % und 50 % variiert). In Spitzenzeiten können wir dir anbieten, zusätzliche Stunden zu leisten. Keine Panik bezüglich deiner Planung: Wir sagen dir immer mindestens 48 Stunden im Voraus Bescheid, und dies geschieht nur, wenn deine Verfügbarkeit es zulässt!\n• Stundenlohn: Der Lohn beträgt 25 CHF brutto pro Stunde. Hinzu kommen Entschädigungen für Feiertage, Ferien sowie der 13. Monatslohn (sofern du einen unbefristeten Stundenlohnvertrag hast). Jeweils am 15. des Monats wirst du auf Basis der im Vormonat geleisteten Stunden (zwischen dem 16. des Vormonats und dem 15. des laufenden Monats) bezahlt.\n• Mitarbeiteraktien : Einmal im Jahr kannst du Aktionär:in des Unternehmens werden. Das ist eine hervorragende Anlage, da der Wert der Aktie seit der Gründung von Decathlon vor 50 Jahren nie negativ war!\n• Leidenschaft für den Sport: Wir unterstützen deine sportliche Aktivität! Profitiere nach 1 Monat Betriebszugehörigkeit von 25 % Rabatt auf deine Decathlon-Einkäufe.\n• Weiterbildung: Du nimmst an Schulungen teil, um dein technisches Wissen über Produkte, deine Verkaufstechniken oder deine zwischenmenschliche Kommunikation zu verbessern. Deine Karriere: Bei uns ist Weiterentwicklung kein Mythos Du startest bei uns im Store? Du fängst als Verkäufer:in an? Du kannst dich zur Abteilungsleitung weiterentwickeln, als Operations Manager:in die Führung übernehmen und sogar Store Manager:in werden! Wir haben Dutzende Geschichten wie seine. Der Bewerbungsprozess: Wie lernen wir uns kennen?\n• Deine Bewerbung: Lebenslauf + Antworten auf den kurzen Fragebogen (kein Motivationsschreiben nötig!).\n• Das Assessment: Ein kurzer AssessFirst-Test, um dein Potenzial zu entdecken und uns dabei zu helfen, besser zu verstehen, wer du \"über deinen Lebenslauf hinaus\" bist.\n• Das Interview: Ein konkreter Austausch mit deinem/deiner zukünftigen Manager:in, um zu sehen, ob es \"matcht\".",
+        "it": "Mission Suchst du einen dynamischen Job, bei dem kein Tag dem anderen gleicht? Möchtest du deine Leidenschaft für den Sport teilen und jedem/jeder Kund:in, der/die den Store betritt, ein unvergessliches Erlebnis bieten? Du liebst Action, den Einsatz auf der Verkaufsfläche und Teamarbeit? Dann ist die Stelle als Sportberater:in im Verkauf genau das Richtige für dich. Warum?\n• Du bist mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche statt. Du bist das Gesicht von Decathlon. Egal, ob du Anfänger:innen begrüsst oder Expert:innen berätst, du teilst deine Leidenschaft und baust eine Verbindung auf.\n• Du gestaltest den Handel von morgen aktiv mit: Du begnügst dich nicht damit, ein Produkt im Regal zu verkaufen. Du bietest ein nachhaltiges Omnichannel-Erlebnis an: digitale Bestellungen, Materialvermietung, Rückkauf von alten Produkten (Second Life)... Du gehst auf alle Bedürfnisse ein.\n• Du hast Eigenverantwortung und Einfluss: Du bist der/die Garant:in für deinen Sport! Du sorgst dafür, dass deine Abteilung ansprechend aussieht, verwaltest deine Bestände und organisierst deine Verkaufsaktionen. Deine Effizienz zeigt sich direkt in der Zufriedenheit deiner Kund:innen. Was du täglich machen wirst: Deine Aufgaben\n• Omnichannel-Beratung und -Verkauf: Du begrüsst deine Kundschaft wie Gäste. Du berätst sie, schliesst Verkäufe ab (physisch oder über unsere digitalen Tools), bietest unser Treueprogramm an und übernimmst das Kassieren.\n• Kommerzielle Dynamik / Merchandising: Du platzierst die Produkte gemäss den Jahreszeiten und Merchandising-Vorgaben, kümmerst dich um das \"Facing\", damit deine Abteilung immer tadellos ist, und hebst die Bestseller sowie die Neuheiten der Saison hervor.\n• Verfügbarkeit und Logistik: Du packst mit an! Von der Annahme der Lieferung bis zur Einräumung in die Regale stellst du die Richtigkeit deiner Bestände und die schnelle Verfügbarkeit deiner Produkte sicher. Du bereitest auch die Web-Bestellungen vor.\n• Kreislaufwirtschaft und Services: Du bist Botschafter:in unserer neuen Modelle: Du verwaltest den Rückkauf von Gebrauchtwaren und bewirbst unsere Mietlösungen, um die Lebensdauer unserer Produkte zu verlängern.\n• Punktuelle Einsätze: Je nach deinen Interessen und deiner Entwicklung kannst du Aufgaben als Ansprechpartner:in für ein bestimmtes Thema übernehmen, als Trainer:in für deine Kolleg:innen agieren oder sogar bei der Schichtleitung des Stores aushelfen. Dieser Job ist NICHTS für dich, wenn...\n• Du lieber den ganzen Tag in Ruhe hinter einem Bildschirm sitzt.\n• Du nicht gerne spontan auf andere zugehst.\n• Du denkst, dass Paletten auspacken, Regale einräumen und Waren bearbeiten \"nicht dein Problem\" sind.\n• Du nicht bereit bist, am Ende des Tages 10'000 Schritte auf deiner Uhr zu sehen.\n• Du feste, routinierte Arbeitszeiten suchst: Hier leben wir im Rhythmus des Sports und unsere Dienstpläne passen sich der Aktivität an.\n• Du samstags nicht arbeiten möchtest. Profil Was wir von dir erwarten:\n• Du verfügst über ausgezeichnete zwischenmenschliche Fähigkeiten. Die Kundenzufriedenheit ist dein Kompass.\n• Du bist mutig, neugierig und hast immer Lust, dazuzulernen.\n• Du bist organisiert, effizient und weisst, wie du in einem schnelllebigen Umfeld Prioritäten setzt.\n• Du bist eine sportbegeisterte und aktive Person: Das ist die DNA des Unternehmens!\n• Du beherrschst Deutsch perfekt. Gute Englisch-/Französischkenntnisse sind ein echtes Plus. Was wir dir bieten:\n• Ein flexibler und sicherer Stundenlohnvertrag: Wie der Name schon sagt, wirst du nach Stunden bezahlt. Mit anderen Worten: Je mehr du arbeitest, desto höher ist dein Gehalt! Um dir Sicherheit zu geben, garantieren wir dir in jedem Fall ein monatliches Minimum (im Vertrag vereinbartes Pensum, das zwischen 20 % und 50 % variiert). In Spitzenzeiten können wir dir anbieten, zusätzliche Stunden zu leisten. Keine Panik bezüglich deiner Planung: Wir sagen dir immer mindestens 48 Stunden im Voraus Bescheid, und dies geschieht nur, wenn deine Verfügbarkeit es zulässt!\n• Stundenlohn: Der Lohn beträgt 25 CHF brutto pro Stunde. Hinzu kommen Entschädigungen für Feiertage, Ferien sowie der 13. Monatslohn (sofern du einen unbefristeten Stundenlohnvertrag hast). Jeweils am 15. des Monats wirst du auf Basis der im Vormonat geleisteten Stunden (zwischen dem 16. des Vormonats und dem 15. des laufenden Monats) bezahlt.\n• Mitarbeiteraktien : Einmal im Jahr kannst du Aktionär:in des Unternehmens werden. Das ist eine hervorragende Anlage, da der Wert der Aktie seit der Gründung von Decathlon vor 50 Jahren nie negativ war!\n• Leidenschaft für den Sport: Wir unterstützen deine sportliche Aktivität! Profitiere nach 1 Monat Betriebszugehörigkeit von 25 % Rabatt auf deine Decathlon-Einkäufe.\n• Weiterbildung: Du nimmst an Schulungen teil, um dein technisches Wissen über Produkte, deine Verkaufstechniken oder deine zwischenmenschliche Kommunikation zu verbessern. Deine Karriere: Bei uns ist Weiterentwicklung kein Mythos Du startest bei uns im Store? Du fängst als Verkäufer:in an? Du kannst dich zur Abteilungsleitung weiterentwickeln, als Operations Manager:in die Führung übernehmen und sogar Store Manager:in werden! Wir haben Dutzende Geschichten wie seine. Der Bewerbungsprozess: Wie lernen wir uns kennen?\n• Deine Bewerbung: Lebenslauf + Antworten auf den kurzen Fragebogen (kein Motivationsschreiben nötig!).\n• Das Assessment: Ein kurzer AssessFirst-Test, um dein Potenzial zu entdecken und uns dabei zu helfen, besser zu verstehen, wer du \"über deinen Lebenslauf hinaus\" bist.\n• Das Interview: Ein konkreter Austausch mit deinem/deiner zukünftigen Manager:in, um zu sehen, ob es \"matcht\".",
+        "en": "Mission Suchst du einen dynamischen Job, bei dem kein Tag dem anderen gleicht? Möchtest du deine Leidenschaft für den Sport teilen und jedem/jeder Kund:in, der/die den Store betritt, ein unvergessliches Erlebnis bieten? Du liebst Action, den Einsatz auf der Verkaufsfläche und Teamarbeit? Dann ist die Stelle als Sportberater:in im Verkauf genau das Richtige für dich. Warum?\n• Du bist mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche statt. Du bist das Gesicht von Decathlon. Egal, ob du Anfänger:innen begrüsst oder Expert:innen berätst, du teilst deine Leidenschaft und baust eine Verbindung auf.\n• Du gestaltest den Handel von morgen aktiv mit: Du begnügst dich nicht damit, ein Produkt im Regal zu verkaufen. Du bietest ein nachhaltiges Omnichannel-Erlebnis an: digitale Bestellungen, Materialvermietung, Rückkauf von alten Produkten (Second Life)... Du gehst auf alle Bedürfnisse ein.\n• Du hast Eigenverantwortung und Einfluss: Du bist der/die Garant:in für deinen Sport! Du sorgst dafür, dass deine Abteilung ansprechend aussieht, verwaltest deine Bestände und organisierst deine Verkaufsaktionen. Deine Effizienz zeigt sich direkt in der Zufriedenheit deiner Kund:innen. Was du täglich machen wirst: Deine Aufgaben\n• Omnichannel-Beratung und -Verkauf: Du begrüsst deine Kundschaft wie Gäste. Du berätst sie, schliesst Verkäufe ab (physisch oder über unsere digitalen Tools), bietest unser Treueprogramm an und übernimmst das Kassieren.\n• Kommerzielle Dynamik / Merchandising: Du platzierst die Produkte gemäss den Jahreszeiten und Merchandising-Vorgaben, kümmerst dich um das \"Facing\", damit deine Abteilung immer tadellos ist, und hebst die Bestseller sowie die Neuheiten der Saison hervor.\n• Verfügbarkeit und Logistik: Du packst mit an! Von der Annahme der Lieferung bis zur Einräumung in die Regale stellst du die Richtigkeit deiner Bestände und die schnelle Verfügbarkeit deiner Produkte sicher. Du bereitest auch die Web-Bestellungen vor.\n• Kreislaufwirtschaft und Services: Du bist Botschafter:in unserer neuen Modelle: Du verwaltest den Rückkauf von Gebrauchtwaren und bewirbst unsere Mietlösungen, um die Lebensdauer unserer Produkte zu verlängern.\n• Punktuelle Einsätze: Je nach deinen Interessen und deiner Entwicklung kannst du Aufgaben als Ansprechpartner:in für ein bestimmtes Thema übernehmen, als Trainer:in für deine Kolleg:innen agieren oder sogar bei der Schichtleitung des Stores aushelfen. Dieser Job ist NICHTS für dich, wenn...\n• Du lieber den ganzen Tag in Ruhe hinter einem Bildschirm sitzt.\n• Du nicht gerne spontan auf andere zugehst.\n• Du denkst, dass Paletten auspacken, Regale einräumen und Waren bearbeiten \"nicht dein Problem\" sind.\n• Du nicht bereit bist, am Ende des Tages 10'000 Schritte auf deiner Uhr zu sehen.\n• Du feste, routinierte Arbeitszeiten suchst: Hier leben wir im Rhythmus des Sports und unsere Dienstpläne passen sich der Aktivität an.\n• Du samstags nicht arbeiten möchtest. Profil Was wir von dir erwarten:\n• Du verfügst über ausgezeichnete zwischenmenschliche Fähigkeiten. Die Kundenzufriedenheit ist dein Kompass.\n• Du bist mutig, neugierig und hast immer Lust, dazuzulernen.\n• Du bist organisiert, effizient und weisst, wie du in einem schnelllebigen Umfeld Prioritäten setzt.\n• Du bist eine sportbegeisterte und aktive Person: Das ist die DNA des Unternehmens!\n• Du beherrschst Deutsch perfekt. Gute Englisch-/Französischkenntnisse sind ein echtes Plus. Was wir dir bieten:\n• Ein flexibler und sicherer Stundenlohnvertrag: Wie der Name schon sagt, wirst du nach Stunden bezahlt. Mit anderen Worten: Je mehr du arbeitest, desto höher ist dein Gehalt! Um dir Sicherheit zu geben, garantieren wir dir in jedem Fall ein monatliches Minimum (im Vertrag vereinbartes Pensum, das zwischen 20 % und 50 % variiert). In Spitzenzeiten können wir dir anbieten, zusätzliche Stunden zu leisten. Keine Panik bezüglich deiner Planung: Wir sagen dir immer mindestens 48 Stunden im Voraus Bescheid, und dies geschieht nur, wenn deine Verfügbarkeit es zulässt!\n• Stundenlohn: Der Lohn beträgt 25 CHF brutto pro Stunde. Hinzu kommen Entschädigungen für Feiertage, Ferien sowie der 13. Monatslohn (sofern du einen unbefristeten Stundenlohnvertrag hast). Jeweils am 15. des Monats wirst du auf Basis der im Vormonat geleisteten Stunden (zwischen dem 16. des Vormonats und dem 15. des laufenden Monats) bezahlt.\n• Mitarbeiteraktien : Einmal im Jahr kannst du Aktionär:in des Unternehmens werden. Das ist eine hervorragende Anlage, da der Wert der Aktie seit der Gründung von Decathlon vor 50 Jahren nie negativ war!\n• Leidenschaft für den Sport: Wir unterstützen deine sportliche Aktivität! Profitiere nach 1 Monat Betriebszugehörigkeit von 25 % Rabatt auf deine Decathlon-Einkäufe.\n• Weiterbildung: Du nimmst an Schulungen teil, um dein technisches Wissen über Produkte, deine Verkaufstechniken oder deine zwischenmenschliche Kommunikation zu verbessern. Deine Karriere: Bei uns ist Weiterentwicklung kein Mythos Du startest bei uns im Store? Du fängst als Verkäufer:in an? Du kannst dich zur Abteilungsleitung weiterentwickeln, als Operations Manager:in die Führung übernehmen und sogar Store Manager:in werden! Wir haben Dutzende Geschichten wie seine. Der Bewerbungsprozess: Wie lernen wir uns kennen?\n• Deine Bewerbung: Lebenslauf + Antworten auf den kurzen Fragebogen (kein Motivationsschreiben nötig!).\n• Das Assessment: Ein kurzer AssessFirst-Test, um dein Potenzial zu entdecken und uns dabei zu helfen, besser zu verstehen, wer du \"über deinen Lebenslauf hinaus\" bist.\n• Das Interview: Ein konkreter Austausch mit deinem/deiner zukünftigen Manager:in, um zu sehen, ob es \"matcht\".",
+        "fr": "Mission Suchst du einen dynamischen Job, bei dem kein Tag dem anderen gleicht? Möchtest du deine Leidenschaft für den Sport teilen und jedem/jeder Kund:in, der/die den Store betritt, ein unvergessliches Erlebnis bieten? Du liebst Action, den Einsatz auf der Verkaufsfläche und Teamarbeit? Dann ist die Stelle als Sportberater:in im Verkauf genau das Richtige für dich. Warum?\n• Du bist mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche statt. Du bist das Gesicht von Decathlon. Egal, ob du Anfänger:innen begrüsst oder Expert:innen berätst, du teilst deine Leidenschaft und baust eine Verbindung auf.\n• Du gestaltest den Handel von morgen aktiv mit: Du begnügst dich nicht damit, ein Produkt im Regal zu verkaufen. Du bietest ein nachhaltiges Omnichannel-Erlebnis an: digitale Bestellungen, Materialvermietung, Rückkauf von alten Produkten (Second Life)... Du gehst auf alle Bedürfnisse ein.\n• Du hast Eigenverantwortung und Einfluss: Du bist der/die Garant:in für deinen Sport! Du sorgst dafür, dass deine Abteilung ansprechend aussieht, verwaltest deine Bestände und organisierst deine Verkaufsaktionen. Deine Effizienz zeigt sich direkt in der Zufriedenheit deiner Kund:innen. Was du täglich machen wirst: Deine Aufgaben\n• Omnichannel-Beratung und -Verkauf: Du begrüsst deine Kundschaft wie Gäste. Du berätst sie, schliesst Verkäufe ab (physisch oder über unsere digitalen Tools), bietest unser Treueprogramm an und übernimmst das Kassieren.\n• Kommerzielle Dynamik / Merchandising: Du platzierst die Produkte gemäss den Jahreszeiten und Merchandising-Vorgaben, kümmerst dich um das \"Facing\", damit deine Abteilung immer tadellos ist, und hebst die Bestseller sowie die Neuheiten der Saison hervor.\n• Verfügbarkeit und Logistik: Du packst mit an! Von der Annahme der Lieferung bis zur Einräumung in die Regale stellst du die Richtigkeit deiner Bestände und die schnelle Verfügbarkeit deiner Produkte sicher. Du bereitest auch die Web-Bestellungen vor.\n• Kreislaufwirtschaft und Services: Du bist Botschafter:in unserer neuen Modelle: Du verwaltest den Rückkauf von Gebrauchtwaren und bewirbst unsere Mietlösungen, um die Lebensdauer unserer Produkte zu verlängern.\n• Punktuelle Einsätze: Je nach deinen Interessen und deiner Entwicklung kannst du Aufgaben als Ansprechpartner:in für ein bestimmtes Thema übernehmen, als Trainer:in für deine Kolleg:innen agieren oder sogar bei der Schichtleitung des Stores aushelfen. Dieser Job ist NICHTS für dich, wenn...\n• Du lieber den ganzen Tag in Ruhe hinter einem Bildschirm sitzt.\n• Du nicht gerne spontan auf andere zugehst.\n• Du denkst, dass Paletten auspacken, Regale einräumen und Waren bearbeiten \"nicht dein Problem\" sind.\n• Du nicht bereit bist, am Ende des Tages 10'000 Schritte auf deiner Uhr zu sehen.\n• Du feste, routinierte Arbeitszeiten suchst: Hier leben wir im Rhythmus des Sports und unsere Dienstpläne passen sich der Aktivität an.\n• Du samstags nicht arbeiten möchtest. Profil Was wir von dir erwarten:\n• Du verfügst über ausgezeichnete zwischenmenschliche Fähigkeiten. Die Kundenzufriedenheit ist dein Kompass.\n• Du bist mutig, neugierig und hast immer Lust, dazuzulernen.\n• Du bist organisiert, effizient und weisst, wie du in einem schnelllebigen Umfeld Prioritäten setzt.\n• Du bist eine sportbegeisterte und aktive Person: Das ist die DNA des Unternehmens!\n• Du beherrschst Deutsch perfekt. Gute Englisch-/Französischkenntnisse sind ein echtes Plus. Was wir dir bieten:\n• Ein flexibler und sicherer Stundenlohnvertrag: Wie der Name schon sagt, wirst du nach Stunden bezahlt. Mit anderen Worten: Je mehr du arbeitest, desto höher ist dein Gehalt! Um dir Sicherheit zu geben, garantieren wir dir in jedem Fall ein monatliches Minimum (im Vertrag vereinbartes Pensum, das zwischen 20 % und 50 % variiert). In Spitzenzeiten können wir dir anbieten, zusätzliche Stunden zu leisten. Keine Panik bezüglich deiner Planung: Wir sagen dir immer mindestens 48 Stunden im Voraus Bescheid, und dies geschieht nur, wenn deine Verfügbarkeit es zulässt!\n• Stundenlohn: Der Lohn beträgt 25 CHF brutto pro Stunde. Hinzu kommen Entschädigungen für Feiertage, Ferien sowie der 13. Monatslohn (sofern du einen unbefristeten Stundenlohnvertrag hast). Jeweils am 15. des Monats wirst du auf Basis der im Vormonat geleisteten Stunden (zwischen dem 16. des Vormonats und dem 15. des laufenden Monats) bezahlt.\n• Mitarbeiteraktien : Einmal im Jahr kannst du Aktionär:in des Unternehmens werden. Das ist eine hervorragende Anlage, da der Wert der Aktie seit der Gründung von Decathlon vor 50 Jahren nie negativ war!\n• Leidenschaft für den Sport: Wir unterstützen deine sportliche Aktivität! Profitiere nach 1 Monat Betriebszugehörigkeit von 25 % Rabatt auf deine Decathlon-Einkäufe.\n• Weiterbildung: Du nimmst an Schulungen teil, um dein technisches Wissen über Produkte, deine Verkaufstechniken oder deine zwischenmenschliche Kommunikation zu verbessern. Deine Karriere: Bei uns ist Weiterentwicklung kein Mythos Du startest bei uns im Store? Du fängst als Verkäufer:in an? Du kannst dich zur Abteilungsleitung weiterentwickeln, als Operations Manager:in die Führung übernehmen und sogar Store Manager:in werden! Wir haben Dutzende Geschichten wie seine. Der Bewerbungsprozess: Wie lernen wir uns kennen?\n• Deine Bewerbung: Lebenslauf + Antworten auf den kurzen Fragebogen (kein Motivationsschreiben nötig!).\n• Das Assessment: Ein kurzer AssessFirst-Test, um dein Potenzial zu entdecken und uns dabei zu helfen, besser zu verstehen, wer du \"über deinen Lebenslauf hinaus\" bist.\n• Das Interview: Ein konkreter Austausch mit deinem/deiner zukünftigen Manager:in, um zu sehen, ob es \"matcht\"."
+      },
+      "location": "Spreitenbach",
+      "canton": "AG",
+      "url": "https://joinus.decathlon.ch/fr_CH/annonce/4704235-sports-leader-verkaufsberater-mwd-fitnessrunning-50-stundenlohnvertrag-8957-spreitenbach",
+      "source": "Decathlon Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-23T21:35:57.707Z",
+      "addressLocality": "Spreitenbach",
+      "postalCode": "8957",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "retail",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-23",
+      "postedDate": "2026-11-23",
+      "postingDateSource": "reported",
+      "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4704235-sports-leader-verkaufsberater-mwd-fitnessrunning-50-stundenlohnvertrag-8957-spreitenbach",
       "requirements": [],
       "requirementsByLocale": {
         "de": []
@@ -3564,23 +3654,80 @@
       },
       "streetAddress": "Spreitenbach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T09:30:40.126Z",
+      "validThrough": "2027-02-21T21:35:57.707Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:30:40.126Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "sports-leader-verkaufsberater-m-w-d-50-stundenlohnvertrag-decathlon-ch"
-        ],
-        "en": [
-          "sports-leader-verkaufsberater-m-w-d-50-stundenlohnvertrag-decathlon-ch"
-        ],
-        "fr": [
-          "sports-leader-verkaufsberater-m-w-d-50-stundenlohnvertrag-decathlon-ch"
-        ]
+      "firstSeenAt": "2026-11-23T21:35:57.707Z"
+    },
+    {
+      "id": "decathlon-48c296923c6b",
+      "slug": "sport-leader-verkaufsberater-bike-m-w-d-50-decathlon-basel-am-dreispitz-decathlon-ch",
+      "slugByLocale": {
+        "de": "sport-leader-verkaufsberater-bike-m-w-d-50-decathlon-basel-am-dreispitz-decathlon-ch",
+        "it": "sport-leader-verkaufsberater-bike-m-w-d-50-decathlon-basel-am-dreispitz-decathlon-ch",
+        "en": "sport-leader-verkaufsberater-bike-m-w-d-50-decathlon-basel-am-dreispitz-decathlon-ch",
+        "fr": "sport-leader-verkaufsberater-bike-m-w-d-50-decathlon-basel-am-dreispitz-decathlon-ch"
       },
-      "previousSlugs": [
-        "sports-leader-verkaufsberater-m-w-d-50-stundenlohnvertrag-decathlon-ch"
-      ]
+      "company": "Decathlon",
+      "companyKey": "decathlon",
+      "companyDomain": "decathlon.ch",
+      "title": "Sport Leader / Verkaufsberater Bike (m/w/d) - 50% -Decathlon Basel am Dreispitz",
+      "titleByLocale": {
+        "de": "Sport Leader / Verkaufsberater Bike (m/w/d) - 50% -Decathlon Basel am Dreispitz",
+        "it": "Sport Leader / Verkaufsberater Bike (m/w/d) - 50% -Decathlon Basel am Dreispitz",
+        "en": "Sport Leader / Verkaufsberater Bike (m/w/d) - 50% -Decathlon Basel am Dreispitz",
+        "fr": "Sport Leader / Verkaufsberater Bike (m/w/d) - 50% -Decathlon Basel am Dreispitz"
+      },
+      "description": "Mission Dein zukünftiges Spielfeld: Decathlon Basel Du wirst Teil unseres eingespielten Teams im Decathlon Store in Basel am Dreispitz. Direkt vor unserer Haustür liegt der Gempen, zahlreiche Strassenrouten und das Birstal – genau dort, wo unsere Kundinnen und Kunden ihre Outdoor-Abenteuer erleben. Deine Abteilung bildet das Herzstück unserer lokalen Strategie in Basel. Hier triffst du auf ein hochmotiviertes Team aus leidenschaftlichen Sportler:innen, die täglich Locals sowie Tourist:innen mit der perfekten Ausrüstung ausstatten. Werde Teil einer Schweizer Erfolgsgeschichte Decathlon Schweiz wächst rasant: Seit dem Start 2017 in Neuchâtel haben wir unser Netz auf mittlerweile rund 53 Verkaufsstellen ausgebaut. Und wir expandieren weiter – besonders in der Deutschschweiz. Für dich bedeutet das: Ein krisensicherer Arbeitsplatz mit echten, landesweiten Karrieremöglichkeiten. Warum dieser Job perfekt zu dir passt Du suchst keinen klassischen 08/15-Job, sondern willst deine Sportleidenschaft von morgens bis abends teilen? Du liebst die Action auf der Verkaufsfläche und willst sehen, wie deine Kundschaft mit einem Lächeln aufbricht? Deine 3 grössten Vorteile bei uns:\n• Mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche in [Stadt] statt. Du bist das Gesicht von Decathlon, berätst Einsteiger:innen wie Profis und baust eine echte lokale Community auf.\n• Handel neu gedacht: Du \"verkaufst\" nicht nur. Du treibst nachhaltige Kreislaufmodelle voran – von der Materialvermietung über den Rückkauf von Gebrauchtwaren ( Second Life ) bis hin zu smarten digitalen Bestellungen.\n• Dein eigenes Reich: Du verwaltest deine Bestände eigenverantwortlich, setzt saisonale Highlights (z. B. Wandern/Biken im Sommer, Ski/Snowboard im Winter) und siehst den Erfolg deiner Aktionen sofort. Deine tägliche Action: Die Aufgaben\n• Begeisternde Beratung: Du hörst zu, analysierst die Bedürfnisse und findest das perfekte Equipment – direkt im Store oder über unsere digitalen Tools.\n• Ein Store zum Wohlfühlen: Du sorgst für eine lückenlose Warenpräsentation (\"Facing\") und gestaltest deine Abteilung dynamisch und saisonal attraktiv.\n• Effizientes Warenmanagement: Vom Wareneingang bis zur Platzierung im Regal packst du tatkräftig mit an und bereitest auch Online-Bestellungen (*Click & Collect*) blitzschnell vor.\n• Kreislaufwirtschaft leben: Du begeisterst Kund:innen für unsere Miet- und Second-Life-Angebote. Dieser Job ist NICHTS für dich, wenn...\n• Du am liebsten den ganzen Tag still hinter einem Bildschirm sitzt.\n• Es dir schwerfällt, offen und aktiv auf Menschen zuzugehen.\n• Du denkst, dass Paletten auspacken und Regale einräumen \"nicht dein Job\" sind.\n• Du samstags grundsätzlich lieber frei haben möchtest.\n• Du starre, unveränderliche Arbeitszeiten suchst (wir planen deine Einsätze zwar sehr faire 6 Wochen im Voraus, arbeiten aber im flexiblen Rhythmus des Sport-Einzelhandels). Profil Das bringst du mit\n• Sportler-DNA: Du bist selbst aktiv und brennst für den Sport.\n• Macher-Mentalität: Du bist mutig, neugierig und hast Lust, täglich Neues zu lernen.\n• Kundenfokus: Ausgezeichnete Umgangsformen und ein echtes Gespür für Service zeichnen dich aus.\n• Sprachkompetenz: Du sprichst perfekt Deutsch (lokalen Dialekt zu verstehen ist ein grosses Plus). Gute Englisch- oder Französischkennnisse sind ein toller Bonus. Das bieten wir dir (bei 100% Pensum)\n• Attraktiver Lohn & Bonus: Ein festes Bruttogehalt zwischen CHF 4'100 und CHF 5'000 (ausgezahlt in 13 Monatslöhnen) plus ein monatlicher Teambonus (bis zu 10% des Gehalts) sowie eine jährliche Gewinnbeteiligung.\n• Dein Sport-Budget: Wir schenken dir CHF 225 pro Jahr für dein Sport- oder Fitnessabo und du erhältst 25% Rabatt auf alle Decathlon-Produkte (sogar zusätzliche 25% auf nachhaltige Mobilität für deinen Arbeitsweg).\n• Erholung: 5 Wochen bezahlte Ferien pro Jahr.\n• Erfolgsbeteiligung: Die Möglichkeit, einmal im Jahr in stark performende Decathlon-Mitarbeiteraktien zu investieren.\n• Echte Karriere: Interne Weiterentwicklung wird bei uns gelebt – viele unserer heutigen Führungskräfte haben selbst auf der Verkaufsfläche gestartet! Der Bewerbungsprozess: Schnell & unkompliziert\n• Bewerbung: Kein langes Motivationsschreiben nötig! Schicke uns einfach deinen CV und beantworte ein paar kurze Fragen.\n• Personality-Check: Du erhältst einen Link zu einem 30-minütigen Kennenlern-Fragebogen ( AssessFirst ). Keine Sorge: Bei uns filtert keine KI aus – wir lesen jede Bewerbung persönlich! Deine Ergebnisse kriegst du sofort als cooles Feedback für dich selbst.\n• Gespräch in [Stadt]: Wir treffen uns direkt im Store [Standort/Shoppingcenter], um über dein zukünftiges Spielfeld zu sprechen und zu sehen, ob die Chemie stimmt. Praktische Infos:\n• Stellenantritt: Per sofort oder nach Vereinbarung\n• Arbeitsort: [Stadt] ([Kürzel Kanton]) Bereit für die Herausforderung? Dann klicke auf \"Jetzt bewerben\" und werde Teil unseres Teams in Basel !",
+      "descriptionByLocale": {
+        "de": "Mission Dein zukünftiges Spielfeld: Decathlon Basel Du wirst Teil unseres eingespielten Teams im Decathlon Store in Basel am Dreispitz. Direkt vor unserer Haustür liegt der Gempen, zahlreiche Strassenrouten und das Birstal – genau dort, wo unsere Kundinnen und Kunden ihre Outdoor-Abenteuer erleben. Deine Abteilung bildet das Herzstück unserer lokalen Strategie in Basel. Hier triffst du auf ein hochmotiviertes Team aus leidenschaftlichen Sportler:innen, die täglich Locals sowie Tourist:innen mit der perfekten Ausrüstung ausstatten. Werde Teil einer Schweizer Erfolgsgeschichte Decathlon Schweiz wächst rasant: Seit dem Start 2017 in Neuchâtel haben wir unser Netz auf mittlerweile rund 53 Verkaufsstellen ausgebaut. Und wir expandieren weiter – besonders in der Deutschschweiz. Für dich bedeutet das: Ein krisensicherer Arbeitsplatz mit echten, landesweiten Karrieremöglichkeiten. Warum dieser Job perfekt zu dir passt Du suchst keinen klassischen 08/15-Job, sondern willst deine Sportleidenschaft von morgens bis abends teilen? Du liebst die Action auf der Verkaufsfläche und willst sehen, wie deine Kundschaft mit einem Lächeln aufbricht? Deine 3 grössten Vorteile bei uns:\n• Mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche in [Stadt] statt. Du bist das Gesicht von Decathlon, berätst Einsteiger:innen wie Profis und baust eine echte lokale Community auf.\n• Handel neu gedacht: Du \"verkaufst\" nicht nur. Du treibst nachhaltige Kreislaufmodelle voran – von der Materialvermietung über den Rückkauf von Gebrauchtwaren ( Second Life ) bis hin zu smarten digitalen Bestellungen.\n• Dein eigenes Reich: Du verwaltest deine Bestände eigenverantwortlich, setzt saisonale Highlights (z. B. Wandern/Biken im Sommer, Ski/Snowboard im Winter) und siehst den Erfolg deiner Aktionen sofort. Deine tägliche Action: Die Aufgaben\n• Begeisternde Beratung: Du hörst zu, analysierst die Bedürfnisse und findest das perfekte Equipment – direkt im Store oder über unsere digitalen Tools.\n• Ein Store zum Wohlfühlen: Du sorgst für eine lückenlose Warenpräsentation (\"Facing\") und gestaltest deine Abteilung dynamisch und saisonal attraktiv.\n• Effizientes Warenmanagement: Vom Wareneingang bis zur Platzierung im Regal packst du tatkräftig mit an und bereitest auch Online-Bestellungen (*Click & Collect*) blitzschnell vor.\n• Kreislaufwirtschaft leben: Du begeisterst Kund:innen für unsere Miet- und Second-Life-Angebote. Dieser Job ist NICHTS für dich, wenn...\n• Du am liebsten den ganzen Tag still hinter einem Bildschirm sitzt.\n• Es dir schwerfällt, offen und aktiv auf Menschen zuzugehen.\n• Du denkst, dass Paletten auspacken und Regale einräumen \"nicht dein Job\" sind.\n• Du samstags grundsätzlich lieber frei haben möchtest.\n• Du starre, unveränderliche Arbeitszeiten suchst (wir planen deine Einsätze zwar sehr faire 6 Wochen im Voraus, arbeiten aber im flexiblen Rhythmus des Sport-Einzelhandels). Profil Das bringst du mit\n• Sportler-DNA: Du bist selbst aktiv und brennst für den Sport.\n• Macher-Mentalität: Du bist mutig, neugierig und hast Lust, täglich Neues zu lernen.\n• Kundenfokus: Ausgezeichnete Umgangsformen und ein echtes Gespür für Service zeichnen dich aus.\n• Sprachkompetenz: Du sprichst perfekt Deutsch (lokalen Dialekt zu verstehen ist ein grosses Plus). Gute Englisch- oder Französischkennnisse sind ein toller Bonus. Das bieten wir dir (bei 100% Pensum)\n• Attraktiver Lohn & Bonus: Ein festes Bruttogehalt zwischen CHF 4'100 und CHF 5'000 (ausgezahlt in 13 Monatslöhnen) plus ein monatlicher Teambonus (bis zu 10% des Gehalts) sowie eine jährliche Gewinnbeteiligung.\n• Dein Sport-Budget: Wir schenken dir CHF 225 pro Jahr für dein Sport- oder Fitnessabo und du erhältst 25% Rabatt auf alle Decathlon-Produkte (sogar zusätzliche 25% auf nachhaltige Mobilität für deinen Arbeitsweg).\n• Erholung: 5 Wochen bezahlte Ferien pro Jahr.\n• Erfolgsbeteiligung: Die Möglichkeit, einmal im Jahr in stark performende Decathlon-Mitarbeiteraktien zu investieren.\n• Echte Karriere: Interne Weiterentwicklung wird bei uns gelebt – viele unserer heutigen Führungskräfte haben selbst auf der Verkaufsfläche gestartet! Der Bewerbungsprozess: Schnell & unkompliziert\n• Bewerbung: Kein langes Motivationsschreiben nötig! Schicke uns einfach deinen CV und beantworte ein paar kurze Fragen.\n• Personality-Check: Du erhältst einen Link zu einem 30-minütigen Kennenlern-Fragebogen ( AssessFirst ). Keine Sorge: Bei uns filtert keine KI aus – wir lesen jede Bewerbung persönlich! Deine Ergebnisse kriegst du sofort als cooles Feedback für dich selbst.\n• Gespräch in [Stadt]: Wir treffen uns direkt im Store [Standort/Shoppingcenter], um über dein zukünftiges Spielfeld zu sprechen und zu sehen, ob die Chemie stimmt. Praktische Infos:\n• Stellenantritt: Per sofort oder nach Vereinbarung\n• Arbeitsort: [Stadt] ([Kürzel Kanton]) Bereit für die Herausforderung? Dann klicke auf \"Jetzt bewerben\" und werde Teil unseres Teams in Basel !",
+        "it": "Mission Dein zukünftiges Spielfeld: Decathlon Basel Du wirst Teil unseres eingespielten Teams im Decathlon Store in Basel am Dreispitz. Direkt vor unserer Haustür liegt der Gempen, zahlreiche Strassenrouten und das Birstal – genau dort, wo unsere Kundinnen und Kunden ihre Outdoor-Abenteuer erleben. Deine Abteilung bildet das Herzstück unserer lokalen Strategie in Basel. Hier triffst du auf ein hochmotiviertes Team aus leidenschaftlichen Sportler:innen, die täglich Locals sowie Tourist:innen mit der perfekten Ausrüstung ausstatten. Werde Teil einer Schweizer Erfolgsgeschichte Decathlon Schweiz wächst rasant: Seit dem Start 2017 in Neuchâtel haben wir unser Netz auf mittlerweile rund 53 Verkaufsstellen ausgebaut. Und wir expandieren weiter – besonders in der Deutschschweiz. Für dich bedeutet das: Ein krisensicherer Arbeitsplatz mit echten, landesweiten Karrieremöglichkeiten. Warum dieser Job perfekt zu dir passt Du suchst keinen klassischen 08/15-Job, sondern willst deine Sportleidenschaft von morgens bis abends teilen? Du liebst die Action auf der Verkaufsfläche und willst sehen, wie deine Kundschaft mit einem Lächeln aufbricht? Deine 3 grössten Vorteile bei uns:\n• Mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche in [Stadt] statt. Du bist das Gesicht von Decathlon, berätst Einsteiger:innen wie Profis und baust eine echte lokale Community auf.\n• Handel neu gedacht: Du \"verkaufst\" nicht nur. Du treibst nachhaltige Kreislaufmodelle voran – von der Materialvermietung über den Rückkauf von Gebrauchtwaren ( Second Life ) bis hin zu smarten digitalen Bestellungen.\n• Dein eigenes Reich: Du verwaltest deine Bestände eigenverantwortlich, setzt saisonale Highlights (z. B. Wandern/Biken im Sommer, Ski/Snowboard im Winter) und siehst den Erfolg deiner Aktionen sofort. Deine tägliche Action: Die Aufgaben\n• Begeisternde Beratung: Du hörst zu, analysierst die Bedürfnisse und findest das perfekte Equipment – direkt im Store oder über unsere digitalen Tools.\n• Ein Store zum Wohlfühlen: Du sorgst für eine lückenlose Warenpräsentation (\"Facing\") und gestaltest deine Abteilung dynamisch und saisonal attraktiv.\n• Effizientes Warenmanagement: Vom Wareneingang bis zur Platzierung im Regal packst du tatkräftig mit an und bereitest auch Online-Bestellungen (*Click & Collect*) blitzschnell vor.\n• Kreislaufwirtschaft leben: Du begeisterst Kund:innen für unsere Miet- und Second-Life-Angebote. Dieser Job ist NICHTS für dich, wenn...\n• Du am liebsten den ganzen Tag still hinter einem Bildschirm sitzt.\n• Es dir schwerfällt, offen und aktiv auf Menschen zuzugehen.\n• Du denkst, dass Paletten auspacken und Regale einräumen \"nicht dein Job\" sind.\n• Du samstags grundsätzlich lieber frei haben möchtest.\n• Du starre, unveränderliche Arbeitszeiten suchst (wir planen deine Einsätze zwar sehr faire 6 Wochen im Voraus, arbeiten aber im flexiblen Rhythmus des Sport-Einzelhandels). Profil Das bringst du mit\n• Sportler-DNA: Du bist selbst aktiv und brennst für den Sport.\n• Macher-Mentalität: Du bist mutig, neugierig und hast Lust, täglich Neues zu lernen.\n• Kundenfokus: Ausgezeichnete Umgangsformen und ein echtes Gespür für Service zeichnen dich aus.\n• Sprachkompetenz: Du sprichst perfekt Deutsch (lokalen Dialekt zu verstehen ist ein grosses Plus). Gute Englisch- oder Französischkennnisse sind ein toller Bonus. Das bieten wir dir (bei 100% Pensum)\n• Attraktiver Lohn & Bonus: Ein festes Bruttogehalt zwischen CHF 4'100 und CHF 5'000 (ausgezahlt in 13 Monatslöhnen) plus ein monatlicher Teambonus (bis zu 10% des Gehalts) sowie eine jährliche Gewinnbeteiligung.\n• Dein Sport-Budget: Wir schenken dir CHF 225 pro Jahr für dein Sport- oder Fitnessabo und du erhältst 25% Rabatt auf alle Decathlon-Produkte (sogar zusätzliche 25% auf nachhaltige Mobilität für deinen Arbeitsweg).\n• Erholung: 5 Wochen bezahlte Ferien pro Jahr.\n• Erfolgsbeteiligung: Die Möglichkeit, einmal im Jahr in stark performende Decathlon-Mitarbeiteraktien zu investieren.\n• Echte Karriere: Interne Weiterentwicklung wird bei uns gelebt – viele unserer heutigen Führungskräfte haben selbst auf der Verkaufsfläche gestartet! Der Bewerbungsprozess: Schnell & unkompliziert\n• Bewerbung: Kein langes Motivationsschreiben nötig! Schicke uns einfach deinen CV und beantworte ein paar kurze Fragen.\n• Personality-Check: Du erhältst einen Link zu einem 30-minütigen Kennenlern-Fragebogen ( AssessFirst ). Keine Sorge: Bei uns filtert keine KI aus – wir lesen jede Bewerbung persönlich! Deine Ergebnisse kriegst du sofort als cooles Feedback für dich selbst.\n• Gespräch in [Stadt]: Wir treffen uns direkt im Store [Standort/Shoppingcenter], um über dein zukünftiges Spielfeld zu sprechen und zu sehen, ob die Chemie stimmt. Praktische Infos:\n• Stellenantritt: Per sofort oder nach Vereinbarung\n• Arbeitsort: [Stadt] ([Kürzel Kanton]) Bereit für die Herausforderung? Dann klicke auf \"Jetzt bewerben\" und werde Teil unseres Teams in Basel !",
+        "en": "Mission Dein zukünftiges Spielfeld: Decathlon Basel Du wirst Teil unseres eingespielten Teams im Decathlon Store in Basel am Dreispitz. Direkt vor unserer Haustür liegt der Gempen, zahlreiche Strassenrouten und das Birstal – genau dort, wo unsere Kundinnen und Kunden ihre Outdoor-Abenteuer erleben. Deine Abteilung bildet das Herzstück unserer lokalen Strategie in Basel. Hier triffst du auf ein hochmotiviertes Team aus leidenschaftlichen Sportler:innen, die täglich Locals sowie Tourist:innen mit der perfekten Ausrüstung ausstatten. Werde Teil einer Schweizer Erfolgsgeschichte Decathlon Schweiz wächst rasant: Seit dem Start 2017 in Neuchâtel haben wir unser Netz auf mittlerweile rund 53 Verkaufsstellen ausgebaut. Und wir expandieren weiter – besonders in der Deutschschweiz. Für dich bedeutet das: Ein krisensicherer Arbeitsplatz mit echten, landesweiten Karrieremöglichkeiten. Warum dieser Job perfekt zu dir passt Du suchst keinen klassischen 08/15-Job, sondern willst deine Sportleidenschaft von morgens bis abends teilen? Du liebst die Action auf der Verkaufsfläche und willst sehen, wie deine Kundschaft mit einem Lächeln aufbricht? Deine 3 grössten Vorteile bei uns:\n• Mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche in [Stadt] statt. Du bist das Gesicht von Decathlon, berätst Einsteiger:innen wie Profis und baust eine echte lokale Community auf.\n• Handel neu gedacht: Du \"verkaufst\" nicht nur. Du treibst nachhaltige Kreislaufmodelle voran – von der Materialvermietung über den Rückkauf von Gebrauchtwaren ( Second Life ) bis hin zu smarten digitalen Bestellungen.\n• Dein eigenes Reich: Du verwaltest deine Bestände eigenverantwortlich, setzt saisonale Highlights (z. B. Wandern/Biken im Sommer, Ski/Snowboard im Winter) und siehst den Erfolg deiner Aktionen sofort. Deine tägliche Action: Die Aufgaben\n• Begeisternde Beratung: Du hörst zu, analysierst die Bedürfnisse und findest das perfekte Equipment – direkt im Store oder über unsere digitalen Tools.\n• Ein Store zum Wohlfühlen: Du sorgst für eine lückenlose Warenpräsentation (\"Facing\") und gestaltest deine Abteilung dynamisch und saisonal attraktiv.\n• Effizientes Warenmanagement: Vom Wareneingang bis zur Platzierung im Regal packst du tatkräftig mit an und bereitest auch Online-Bestellungen (*Click & Collect*) blitzschnell vor.\n• Kreislaufwirtschaft leben: Du begeisterst Kund:innen für unsere Miet- und Second-Life-Angebote. Dieser Job ist NICHTS für dich, wenn...\n• Du am liebsten den ganzen Tag still hinter einem Bildschirm sitzt.\n• Es dir schwerfällt, offen und aktiv auf Menschen zuzugehen.\n• Du denkst, dass Paletten auspacken und Regale einräumen \"nicht dein Job\" sind.\n• Du samstags grundsätzlich lieber frei haben möchtest.\n• Du starre, unveränderliche Arbeitszeiten suchst (wir planen deine Einsätze zwar sehr faire 6 Wochen im Voraus, arbeiten aber im flexiblen Rhythmus des Sport-Einzelhandels). Profil Das bringst du mit\n• Sportler-DNA: Du bist selbst aktiv und brennst für den Sport.\n• Macher-Mentalität: Du bist mutig, neugierig und hast Lust, täglich Neues zu lernen.\n• Kundenfokus: Ausgezeichnete Umgangsformen und ein echtes Gespür für Service zeichnen dich aus.\n• Sprachkompetenz: Du sprichst perfekt Deutsch (lokalen Dialekt zu verstehen ist ein grosses Plus). Gute Englisch- oder Französischkennnisse sind ein toller Bonus. Das bieten wir dir (bei 100% Pensum)\n• Attraktiver Lohn & Bonus: Ein festes Bruttogehalt zwischen CHF 4'100 und CHF 5'000 (ausgezahlt in 13 Monatslöhnen) plus ein monatlicher Teambonus (bis zu 10% des Gehalts) sowie eine jährliche Gewinnbeteiligung.\n• Dein Sport-Budget: Wir schenken dir CHF 225 pro Jahr für dein Sport- oder Fitnessabo und du erhältst 25% Rabatt auf alle Decathlon-Produkte (sogar zusätzliche 25% auf nachhaltige Mobilität für deinen Arbeitsweg).\n• Erholung: 5 Wochen bezahlte Ferien pro Jahr.\n• Erfolgsbeteiligung: Die Möglichkeit, einmal im Jahr in stark performende Decathlon-Mitarbeiteraktien zu investieren.\n• Echte Karriere: Interne Weiterentwicklung wird bei uns gelebt – viele unserer heutigen Führungskräfte haben selbst auf der Verkaufsfläche gestartet! Der Bewerbungsprozess: Schnell & unkompliziert\n• Bewerbung: Kein langes Motivationsschreiben nötig! Schicke uns einfach deinen CV und beantworte ein paar kurze Fragen.\n• Personality-Check: Du erhältst einen Link zu einem 30-minütigen Kennenlern-Fragebogen ( AssessFirst ). Keine Sorge: Bei uns filtert keine KI aus – wir lesen jede Bewerbung persönlich! Deine Ergebnisse kriegst du sofort als cooles Feedback für dich selbst.\n• Gespräch in [Stadt]: Wir treffen uns direkt im Store [Standort/Shoppingcenter], um über dein zukünftiges Spielfeld zu sprechen und zu sehen, ob die Chemie stimmt. Praktische Infos:\n• Stellenantritt: Per sofort oder nach Vereinbarung\n• Arbeitsort: [Stadt] ([Kürzel Kanton]) Bereit für die Herausforderung? Dann klicke auf \"Jetzt bewerben\" und werde Teil unseres Teams in Basel !",
+        "fr": "Mission Dein zukünftiges Spielfeld: Decathlon Basel Du wirst Teil unseres eingespielten Teams im Decathlon Store in Basel am Dreispitz. Direkt vor unserer Haustür liegt der Gempen, zahlreiche Strassenrouten und das Birstal – genau dort, wo unsere Kundinnen und Kunden ihre Outdoor-Abenteuer erleben. Deine Abteilung bildet das Herzstück unserer lokalen Strategie in Basel. Hier triffst du auf ein hochmotiviertes Team aus leidenschaftlichen Sportler:innen, die täglich Locals sowie Tourist:innen mit der perfekten Ausrüstung ausstatten. Werde Teil einer Schweizer Erfolgsgeschichte Decathlon Schweiz wächst rasant: Seit dem Start 2017 in Neuchâtel haben wir unser Netz auf mittlerweile rund 53 Verkaufsstellen ausgebaut. Und wir expandieren weiter – besonders in der Deutschschweiz. Für dich bedeutet das: Ein krisensicherer Arbeitsplatz mit echten, landesweiten Karrieremöglichkeiten. Warum dieser Job perfekt zu dir passt Du suchst keinen klassischen 08/15-Job, sondern willst deine Sportleidenschaft von morgens bis abends teilen? Du liebst die Action auf der Verkaufsfläche und willst sehen, wie deine Kundschaft mit einem Lächeln aufbricht? Deine 3 grössten Vorteile bei uns:\n• Mitten im Geschehen: Dein Alltag findet zu 100% auf der Verkaufsfläche in [Stadt] statt. Du bist das Gesicht von Decathlon, berätst Einsteiger:innen wie Profis und baust eine echte lokale Community auf.\n• Handel neu gedacht: Du \"verkaufst\" nicht nur. Du treibst nachhaltige Kreislaufmodelle voran – von der Materialvermietung über den Rückkauf von Gebrauchtwaren ( Second Life ) bis hin zu smarten digitalen Bestellungen.\n• Dein eigenes Reich: Du verwaltest deine Bestände eigenverantwortlich, setzt saisonale Highlights (z. B. Wandern/Biken im Sommer, Ski/Snowboard im Winter) und siehst den Erfolg deiner Aktionen sofort. Deine tägliche Action: Die Aufgaben\n• Begeisternde Beratung: Du hörst zu, analysierst die Bedürfnisse und findest das perfekte Equipment – direkt im Store oder über unsere digitalen Tools.\n• Ein Store zum Wohlfühlen: Du sorgst für eine lückenlose Warenpräsentation (\"Facing\") und gestaltest deine Abteilung dynamisch und saisonal attraktiv.\n• Effizientes Warenmanagement: Vom Wareneingang bis zur Platzierung im Regal packst du tatkräftig mit an und bereitest auch Online-Bestellungen (*Click & Collect*) blitzschnell vor.\n• Kreislaufwirtschaft leben: Du begeisterst Kund:innen für unsere Miet- und Second-Life-Angebote. Dieser Job ist NICHTS für dich, wenn...\n• Du am liebsten den ganzen Tag still hinter einem Bildschirm sitzt.\n• Es dir schwerfällt, offen und aktiv auf Menschen zuzugehen.\n• Du denkst, dass Paletten auspacken und Regale einräumen \"nicht dein Job\" sind.\n• Du samstags grundsätzlich lieber frei haben möchtest.\n• Du starre, unveränderliche Arbeitszeiten suchst (wir planen deine Einsätze zwar sehr faire 6 Wochen im Voraus, arbeiten aber im flexiblen Rhythmus des Sport-Einzelhandels). Profil Das bringst du mit\n• Sportler-DNA: Du bist selbst aktiv und brennst für den Sport.\n• Macher-Mentalität: Du bist mutig, neugierig und hast Lust, täglich Neues zu lernen.\n• Kundenfokus: Ausgezeichnete Umgangsformen und ein echtes Gespür für Service zeichnen dich aus.\n• Sprachkompetenz: Du sprichst perfekt Deutsch (lokalen Dialekt zu verstehen ist ein grosses Plus). Gute Englisch- oder Französischkennnisse sind ein toller Bonus. Das bieten wir dir (bei 100% Pensum)\n• Attraktiver Lohn & Bonus: Ein festes Bruttogehalt zwischen CHF 4'100 und CHF 5'000 (ausgezahlt in 13 Monatslöhnen) plus ein monatlicher Teambonus (bis zu 10% des Gehalts) sowie eine jährliche Gewinnbeteiligung.\n• Dein Sport-Budget: Wir schenken dir CHF 225 pro Jahr für dein Sport- oder Fitnessabo und du erhältst 25% Rabatt auf alle Decathlon-Produkte (sogar zusätzliche 25% auf nachhaltige Mobilität für deinen Arbeitsweg).\n• Erholung: 5 Wochen bezahlte Ferien pro Jahr.\n• Erfolgsbeteiligung: Die Möglichkeit, einmal im Jahr in stark performende Decathlon-Mitarbeiteraktien zu investieren.\n• Echte Karriere: Interne Weiterentwicklung wird bei uns gelebt – viele unserer heutigen Führungskräfte haben selbst auf der Verkaufsfläche gestartet! Der Bewerbungsprozess: Schnell & unkompliziert\n• Bewerbung: Kein langes Motivationsschreiben nötig! Schicke uns einfach deinen CV und beantworte ein paar kurze Fragen.\n• Personality-Check: Du erhältst einen Link zu einem 30-minütigen Kennenlern-Fragebogen ( AssessFirst ). Keine Sorge: Bei uns filtert keine KI aus – wir lesen jede Bewerbung persönlich! Deine Ergebnisse kriegst du sofort als cooles Feedback für dich selbst.\n• Gespräch in [Stadt]: Wir treffen uns direkt im Store [Standort/Shoppingcenter], um über dein zukünftiges Spielfeld zu sprechen und zu sehen, ob die Chemie stimmt. Praktische Infos:\n• Stellenantritt: Per sofort oder nach Vereinbarung\n• Arbeitsort: [Stadt] ([Kürzel Kanton]) Bereit für die Herausforderung? Dann klicke auf \"Jetzt bewerben\" und werde Teil unseres Teams in Basel !"
+      },
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://joinus.decathlon.ch/fr_CH/annonce/4704403-sport-leader-verkaufsberater-bike-mwd-50-decathlon-basel-am-dreispitz-4053-basel",
+      "source": "Decathlon Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-23T21:35:56.942Z",
+      "addressLocality": "Basel",
+      "postalCode": "4001",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "retail",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-23",
+      "postedDate": "2026-11-23",
+      "postingDateSource": "reported",
+      "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4704403-sport-leader-verkaufsberater-bike-mwd-50-decathlon-basel-am-dreispitz-4053-basel",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 37000,
+      "salaryMax": 56800,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 37000,
+          "maxValue": 56800,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-21T21:35:56.942Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-23T21:35:56.942Z"
     },
     {
       "id": "decathlon-5d86eda7554a",
@@ -3665,7 +3812,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:29:07.581Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

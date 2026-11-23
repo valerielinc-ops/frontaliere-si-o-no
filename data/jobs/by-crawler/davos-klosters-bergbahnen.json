@@ -1,7 +1,7 @@
 {
   "crawlerKey": "davos-klosters-bergbahnen",
-  "assembledAt": "2026-11-23T09:33:56.958Z",
-  "runId": "45145768350",
+  "assembledAt": "2026-11-23T21:37:27.983Z",
+  "runId": "45268419941",
   "jobs": [
     {
       "id": "davos-klosters-bergbahnen-4ebcfb661afd",
@@ -46,7 +46,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Service-Bar-Restaurant-Bolgen-Plaza-100_j_3958627",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:33:50.461Z",
+      "crawledAt": "2026-11-23T21:37:19.037Z",
       "previousSlugs": [
         "service-bar-restaurant-bolgen-plaza-100-davos-klosters-bergbahnen-davos"
       ],
@@ -75,7 +75,7 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:33:50.461Z",
+      "validThrough": "2026-12-26T21:37:19.037Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -121,7 +121,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Seilbahnmechatroniker-in-Parsenn-100_j_3958639",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:33:50.234Z",
+      "crawledAt": "2026-11-23T21:37:18.808Z",
       "previousSlugs": [
         "seilbahnmechatroniker-in-parsenn-100-davos-klosters-bergbahnen-davos",
         "meccatronico-funiviario-a-parsenn-100-davos-klosters-bergbahnen-ag-davos-761809",
@@ -187,8 +187,77 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:33:50.234Z",
+      "validThrough": "2026-12-23T21:37:18.808Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "davos-klosters-bergbahnen-9cb9dd2e6945",
+      "slug": "masseur-in-mountain-plaza-hotel-100-davos-klosters-bergbahnen-davos",
+      "slugByLocale": {
+        "de": "masseur-in-mountain-plaza-hotel-100-davos-klosters-bergbahnen-davos",
+        "it": "masseur-in-mountain-plaza-hotel-100-davos-klosters-bergbahnen-davos",
+        "en": "masseur-in-mountain-plaza-hotel-100-davos-klosters-bergbahnen-davos",
+        "fr": "masseur-in-mountain-plaza-hotel-100-davos-klosters-bergbahnen-davos"
+      },
+      "company": "Davos Klosters Bergbahnen AG",
+      "companyKey": "davos-klosters-bergbahnen-ag",
+      "companyDomain": "davosklosters.ch",
+      "title": "Masseur:in Mountain Plaza Hotel - 100%",
+      "titleByLocale": {
+        "de": "Masseur:in Mountain Plaza Hotel - 100%",
+        "it": "Masseur:in Mountain Plaza Hotel - 100%",
+        "en": "Masseur:in Mountain Plaza Hotel - 100%",
+        "fr": "Masseur:in Mountain Plaza Hotel - 100%"
+      },
+      "description": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den Bergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und Resorts über 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior Hotel.\nUm das Video anzusehen, müssen Sie die Cookies akzeptieren!\nCookies akzeptieren\nPer sofort oder nach Vereinbarung suchen wir eine Person als:\nMasseur:in Mountain Plaza Hotel - 100%\nAufgaben\n• Beratung der Gäste über das Spa- und Massagen-Angebot\n• Zusammenstellung der individuellen Wellnessprogramme für die Gäste\n• Durchführung diverser Spa Behandlungen wie Massagen und Kosmetikanwendungen\n• Gewährleistung der allgemeinen Ordnung, Sicherheit, Sauberkeit und Hygiene im gesamten Wellnessbereich\n• Kleinere Reinigungsarbeiten im Fachbereich sowie Produktberatung und -verkauf\nProfil\n• Ausbildung: Du besitzt eine abgeschlossene Berufsausbildung im Bereich Kosmetik, Wellness und Massage sowie erste Berufserfahrungen\n• Arbeitsweise: Du hast ein verkäuferisches und organisatorisches Talent verbunden mit herzlichem Charme und einer flexiblen Arbeitseinstellung\n• Team: Du bist aufgeschlossen und arbeitest gerne im Team\n• Umgang: Du besitzt exzellente Umgangsformen und gepflegtes Äusseres, sowie eine positive Ausstrahlung\n• Sprache: Du hast gute Kenntnisse in deutscher und englischer Sprache\nWir bieten\n• Aufgestelltes Team mit flexiblem und positivem Arbeitsklima\n• Zeitgemässe Anstellungsbedingungen mit fairer und angemessener Entlöhnung\n• Vermittlung von Personalunterkunft in Gehdistanz zum Spezialpreis\n• Teilnahme an Mitarbeiterevents\n• Spezialkonditionen für Übernachtungen in den Mountain Hotels und Resorts sowie Rabatte für Skivermietung und Ausrüstung bei Partnershops\nJetzt bewerben\nSo finden Sie uns\nAdresse\nDavos Klosters Bergbahnen AG\nBrämabüelstrasse 11\nCH - 7270 Davos Platz\nKontakt\n• +41 81 417 62 22\n• mountains@davosklosters.ch",
+      "descriptionByLocale": {
+        "de": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den Bergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und Resorts über 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior Hotel.\nUm das Video anzusehen, müssen Sie die Cookies akzeptieren!\nCookies akzeptieren\nPer sofort oder nach Vereinbarung suchen wir eine Person als:\nMasseur:in Mountain Plaza Hotel - 100%\nAufgaben\n• Beratung der Gäste über das Spa- und Massagen-Angebot\n• Zusammenstellung der individuellen Wellnessprogramme für die Gäste\n• Durchführung diverser Spa Behandlungen wie Massagen und Kosmetikanwendungen\n• Gewährleistung der allgemeinen Ordnung, Sicherheit, Sauberkeit und Hygiene im gesamten Wellnessbereich\n• Kleinere Reinigungsarbeiten im Fachbereich sowie Produktberatung und -verkauf\nProfil\n• Ausbildung: Du besitzt eine abgeschlossene Berufsausbildung im Bereich Kosmetik, Wellness und Massage sowie erste Berufserfahrungen\n• Arbeitsweise: Du hast ein verkäuferisches und organisatorisches Talent verbunden mit herzlichem Charme und einer flexiblen Arbeitseinstellung\n• Team: Du bist aufgeschlossen und arbeitest gerne im Team\n• Umgang: Du besitzt exzellente Umgangsformen und gepflegtes Äusseres, sowie eine positive Ausstrahlung\n• Sprache: Du hast gute Kenntnisse in deutscher und englischer Sprache\nWir bieten\n• Aufgestelltes Team mit flexiblem und positivem Arbeitsklima\n• Zeitgemässe Anstellungsbedingungen mit fairer und angemessener Entlöhnung\n• Vermittlung von Personalunterkunft in Gehdistanz zum Spezialpreis\n• Teilnahme an Mitarbeiterevents\n• Spezialkonditionen für Übernachtungen in den Mountain Hotels und Resorts sowie Rabatte für Skivermietung und Ausrüstung bei Partnershops\nJetzt bewerben\nSo finden Sie uns\nAdresse\nDavos Klosters Bergbahnen AG\nBrämabüelstrasse 11\nCH - 7270 Davos Platz\nKontakt\n• +41 81 417 62 22\n• mountains@davosklosters.ch",
+        "it": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den Bergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und Resorts über 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior Hotel.\nUm das Video anzusehen, müssen Sie die Cookies akzeptieren!\nCookies akzeptieren\nPer sofort oder nach Vereinbarung suchen wir eine Person als:\nMasseur:in Mountain Plaza Hotel - 100%\nAufgaben\n• Beratung der Gäste über das Spa- und Massagen-Angebot\n• Zusammenstellung der individuellen Wellnessprogramme für die Gäste\n• Durchführung diverser Spa Behandlungen wie Massagen und Kosmetikanwendungen\n• Gewährleistung der allgemeinen Ordnung, Sicherheit, Sauberkeit und Hygiene im gesamten Wellnessbereich\n• Kleinere Reinigungsarbeiten im Fachbereich sowie Produktberatung und -verkauf\nProfil\n• Ausbildung: Du besitzt eine abgeschlossene Berufsausbildung im Bereich Kosmetik, Wellness und Massage sowie erste Berufserfahrungen\n• Arbeitsweise: Du hast ein verkäuferisches und organisatorisches Talent verbunden mit herzlichem Charme und einer flexiblen Arbeitseinstellung\n• Team: Du bist aufgeschlossen und arbeitest gerne im Team\n• Umgang: Du besitzt exzellente Umgangsformen und gepflegtes Äusseres, sowie eine positive Ausstrahlung\n• Sprache: Du hast gute Kenntnisse in deutscher und englischer Sprache\nWir bieten\n• Aufgestelltes Team mit flexiblem und positivem Arbeitsklima\n• Zeitgemässe Anstellungsbedingungen mit fairer und angemessener Entlöhnung\n• Vermittlung von Personalunterkunft in Gehdistanz zum Spezialpreis\n• Teilnahme an Mitarbeiterevents\n• Spezialkonditionen für Übernachtungen in den Mountain Hotels und Resorts sowie Rabatte für Skivermietung und Ausrüstung bei Partnershops\nJetzt bewerben\nSo finden Sie uns\nAdresse\nDavos Klosters Bergbahnen AG\nBrämabüelstrasse 11\nCH - 7270 Davos Platz\nKontakt\n• +41 81 417 62 22\n• mountains@davosklosters.ch",
+        "en": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den Bergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und Resorts über 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior Hotel.\nUm das Video anzusehen, müssen Sie die Cookies akzeptieren!\nCookies akzeptieren\nPer sofort oder nach Vereinbarung suchen wir eine Person als:\nMasseur:in Mountain Plaza Hotel - 100%\nAufgaben\n• Beratung der Gäste über das Spa- und Massagen-Angebot\n• Zusammenstellung der individuellen Wellnessprogramme für die Gäste\n• Durchführung diverser Spa Behandlungen wie Massagen und Kosmetikanwendungen\n• Gewährleistung der allgemeinen Ordnung, Sicherheit, Sauberkeit und Hygiene im gesamten Wellnessbereich\n• Kleinere Reinigungsarbeiten im Fachbereich sowie Produktberatung und -verkauf\nProfil\n• Ausbildung: Du besitzt eine abgeschlossene Berufsausbildung im Bereich Kosmetik, Wellness und Massage sowie erste Berufserfahrungen\n• Arbeitsweise: Du hast ein verkäuferisches und organisatorisches Talent verbunden mit herzlichem Charme und einer flexiblen Arbeitseinstellung\n• Team: Du bist aufgeschlossen und arbeitest gerne im Team\n• Umgang: Du besitzt exzellente Umgangsformen und gepflegtes Äusseres, sowie eine positive Ausstrahlung\n• Sprache: Du hast gute Kenntnisse in deutscher und englischer Sprache\nWir bieten\n• Aufgestelltes Team mit flexiblem und positivem Arbeitsklima\n• Zeitgemässe Anstellungsbedingungen mit fairer und angemessener Entlöhnung\n• Vermittlung von Personalunterkunft in Gehdistanz zum Spezialpreis\n• Teilnahme an Mitarbeiterevents\n• Spezialkonditionen für Übernachtungen in den Mountain Hotels und Resorts sowie Rabatte für Skivermietung und Ausrüstung bei Partnershops\nJetzt bewerben\nSo finden Sie uns\nAdresse\nDavos Klosters Bergbahnen AG\nBrämabüelstrasse 11\nCH - 7270 Davos Platz\nKontakt\n• +41 81 417 62 22\n• mountains@davosklosters.ch",
+        "fr": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den Bergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und Resorts über 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior Hotel.\nUm das Video anzusehen, müssen Sie die Cookies akzeptieren!\nCookies akzeptieren\nPer sofort oder nach Vereinbarung suchen wir eine Person als:\nMasseur:in Mountain Plaza Hotel - 100%\nAufgaben\n• Beratung der Gäste über das Spa- und Massagen-Angebot\n• Zusammenstellung der individuellen Wellnessprogramme für die Gäste\n• Durchführung diverser Spa Behandlungen wie Massagen und Kosmetikanwendungen\n• Gewährleistung der allgemeinen Ordnung, Sicherheit, Sauberkeit und Hygiene im gesamten Wellnessbereich\n• Kleinere Reinigungsarbeiten im Fachbereich sowie Produktberatung und -verkauf\nProfil\n• Ausbildung: Du besitzt eine abgeschlossene Berufsausbildung im Bereich Kosmetik, Wellness und Massage sowie erste Berufserfahrungen\n• Arbeitsweise: Du hast ein verkäuferisches und organisatorisches Talent verbunden mit herzlichem Charme und einer flexiblen Arbeitseinstellung\n• Team: Du bist aufgeschlossen und arbeitest gerne im Team\n• Umgang: Du besitzt exzellente Umgangsformen und gepflegtes Äusseres, sowie eine positive Ausstrahlung\n• Sprache: Du hast gute Kenntnisse in deutscher und englischer Sprache\nWir bieten\n• Aufgestelltes Team mit flexiblem und positivem Arbeitsklima\n• Zeitgemässe Anstellungsbedingungen mit fairer und angemessener Entlöhnung\n• Vermittlung von Personalunterkunft in Gehdistanz zum Spezialpreis\n• Teilnahme an Mitarbeiterevents\n• Spezialkonditionen für Übernachtungen in den Mountain Hotels und Resorts sowie Rabatte für Skivermietung und Ausrüstung bei Partnershops\nJetzt bewerben\nSo finden Sie uns\nAdresse\nDavos Klosters Bergbahnen AG\nBrämabüelstrasse 11\nCH - 7270 Davos Platz\nKontakt\n• +41 81 417 62 22\n• mountains@davosklosters.ch"
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "addressLocality": "Davos",
+      "addressCountry": "CH",
+      "category": "tourism",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Masseur-in-Mountain-Plaza-Hotel-100_j_3987090",
+      "source": "Davos Klosters Bergbahnen Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-23T21:37:18.580Z",
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 78000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "7270",
+      "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Masseur-in-Mountain-Plaza-Hotel-100_j_3987090",
+      "addressRegion": "GR",
+      "streetAddress": "Davos",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-21T21:37:18.580Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-23T21:37:18.580Z"
     },
     {
       "id": "davos-klosters-bergbahnen-848315af8423",
@@ -233,7 +302,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Front-Office-Hotel-Bernina-100_j_3981806",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:33:50.002Z",
+      "crawledAt": "2026-11-23T21:37:18.345Z",
       "previousSlugs": [
         "front-office-hotel-bernina-100-davos-klosters-bergbahnen-davos"
       ],
@@ -265,7 +334,7 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:33:50.002Z",
+      "validThrough": "2027-01-05T21:37:18.345Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -311,7 +380,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in-Immobilienunterhalt-100_j_3958640",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:33:49.772Z",
+      "crawledAt": "2026-11-23T21:37:18.117Z",
       "previousSlugs": [
         "betriebselektriker-in-immobilienunterhalt-100-davos-klosters-bergbahnen-davos",
         "industrial-electrician-realestate-maintenance-100-davos-klosters-bergbahnen-ag-davos",
@@ -359,7 +428,7 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:33:49.772Z",
+      "validThrough": "2026-12-23T21:37:18.117Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -405,7 +474,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebs-Mechaniker-in-Parsenn-100_j_3958638",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:33:49.544Z",
+      "crawledAt": "2026-11-23T21:37:17.883Z",
       "previousSlugs": [
         "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos",
         "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos-7038e2eb",
@@ -435,7 +504,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos-71027343",
           "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos-2dc68ed0",
           "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos-d32b06cc",
           "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos-4900a5fb",
@@ -454,7 +522,8 @@
           "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos-7038e2eb",
           "meccanico-a-di-stabilimento-parsenn-100-davos-klosters-bergbahnen-ag-davos",
           "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos-6ad8755f",
-          "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos-333f33e4"
+          "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos-333f33e4",
+          "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos-71027343"
         ],
         "en": [
           "betriebs-mechaniker-in-parsenn-100-davos-klosters-bergbahnen-davos",
@@ -484,7 +553,7 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:33:49.544Z",
+      "validThrough": "2026-12-23T21:37:17.883Z",
       "validThroughSource": "last-observed-window"
     }
   ]
