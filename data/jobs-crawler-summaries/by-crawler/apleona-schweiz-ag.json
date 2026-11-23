@@ -4,7 +4,7 @@
   "detailRejected": 2,
   "key": "apleona-schweiz-ag",
   "label": "Apleona Schweiz AG",
-  "generatedAt": "2026-11-22T21:35:56.966Z",
+  "generatedAt": "2026-11-23T09:26:02.848Z",
   "total": 0,
   "discovered": 10,
   "parsed": 0,
@@ -20,6 +20,10 @@
       {
         "status": 200,
         "url": "https://recruitingapp-2765.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
+      },
+      {
+        "status": 200,
+        "url": "https://recruitingapp-2765.umantis.com/Vacancies/2606/Description/1"
       },
       {
         "status": 200,
@@ -56,10 +60,6 @@
       {
         "status": 200,
         "url": "https://recruitingapp-2765.umantis.com/Vacancies/2600/Description/1"
-      },
-      {
-        "status": 200,
-        "url": "https://recruitingapp-2765.umantis.com/Vacancies/2598/Description/1"
       }
     ],
     "proxiedBy": [],
@@ -80,5 +80,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "f0ab682774893f4b809c5b75181716509e65ea60"
+  "codeCommit": "7474b74d22ad2d97637dc94f08d243f12f0ba1c7"
 }
