@@ -1,7 +1,7 @@
 {
   "crawlerKey": "klinik-adelheid",
-  "assembledAt": "2026-11-24T09:24:21.358Z",
-  "runId": "45363754392",
+  "assembledAt": "2026-11-24T21:23:15.304Z",
+  "runId": "45489483881",
   "jobs": [
     {
       "id": "klinik-adelheid-0a2f0e21b5e4",
@@ -34,7 +34,7 @@
       "url": "https://link.ostendis.com/publication/psychologin-psychologe/3qeph7itpvzn4tvfnjtppqymb4hx2tegof7nnf2nbrssrzh3gwr6etxt6p1yt8pc",
       "source": "Klinik Adelheid Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T09:24:13.766Z",
+      "crawledAt": "2026-11-24T21:23:07.799Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T09:24:13.766Z",
+      "validThrough": "2027-02-04T21:23:07.799Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://link.ostendis.com/publication/zivildienstleistende-im-pflege-und-therapiebereich/jm63m0vcmwbitrcjb33ytlskdqycc5ufynqoslx4ap63xdecec4yllgjosqbpcg4",
       "source": "Klinik Adelheid Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T09:24:13.333Z",
+      "crawledAt": "2026-11-24T21:23:07.409Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -173,7 +173,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T09:24:13.333Z",
+      "validThrough": "2026-12-29T21:23:07.409Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -208,7 +208,7 @@
       "url": "https://link.ostendis.com/publication/studium-zur-dipl-pflegefachperson-hf/poughkmwxvwzwqyhtvp22jfs7llu3emjn9qmdiw2ybz78ydv667fohq4jmmfzchh",
       "source": "Klinik Adelheid Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T09:24:12.902Z",
+      "crawledAt": "2026-11-24T21:23:07.031Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -259,7 +259,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-29T09:24:12.902Z",
+      "validThrough": "2026-12-29T21:23:07.031Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -294,7 +294,7 @@
       "url": "https://link.ostendis.com/publication/leitende-aerztin-leitender-arzt-mit-facharzt-pmr/yw4oorzoto351bbx3ik0tjo643cp3bv620nw5bdeny5asre2y7skprxbybue8kld",
       "source": "Klinik Adelheid Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T09:24:12.469Z",
+      "crawledAt": "2026-11-24T21:23:06.640Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -361,7 +361,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T09:24:12.469Z",
+      "validThrough": "2027-01-26T21:23:06.640Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -396,7 +396,7 @@
       "url": "https://link.ostendis.com/publication/sous-chef-in/vsy1chyvd2lm0iwm35y4zisux53spisc40g3x2v0dwz7dqw0toz4mwofcvzt0jb3",
       "source": "Klinik Adelheid Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T09:24:12.036Z",
+      "crawledAt": "2026-11-24T21:23:06.238Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -467,7 +467,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:24:12.036Z",
+      "validThrough": "2027-01-25T21:23:06.238Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -571,7 +571,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-29T21:26:32.395Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "klinik-adelheid-08075ad22594",
@@ -657,7 +657,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-29T21:26:31.215Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
