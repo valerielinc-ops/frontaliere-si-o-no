@@ -1,5 +1,60 @@
 [
   {
+    "id": "stellenpartner-17d6068ff3db",
+    "slug": "operatore-di-gru-per-sotto-rivoltatrice-stellenpartner-ag-wil-sg",
+    "title": "Kranführer/in für Unterdreher",
+    "titleByLocale": {
+      "de": "Kranführer/in für Unterdreher",
+      "it": "Operatore di gru per sotto-rivoltatrice",
+      "en": "Crane operator for under-turner",
+      "fr": "Opérateur de grue pour retourneur"
+    },
+    "company": "Stellenpartner AG",
+    "companyKey": "stellenpartner",
+    "location": "Wil SG, St. Gallen",
+    "addressLocality": "Wil SG",
+    "descriptionByLocale": {
+      "de": "Du bedienst den Unterdreher und unterstützt das Team auf der Baustelle. Der Betrieb bietet dir eine vielseitige Aufgabe mit zusätzlicher Mithilfe. Im Auftrag unseres Kunden suchen wir eine/n\nTätigkeiten\n- Bedienung Unterdreher\n- Maschinenarbeiten\n- Mithilfe auf der Baustelle\nAnforderungen\n- Kranführerschein Kat. B\n- Einige Jahre Berufserfahrung als Kranführer\n- Sie können auch bei anderen Tätigkeiten mithelfen\nAngebot\nFreuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn.",
+      "it": "Serve la rotazione inferiore e supporta il team sul cantiere. L'azienda vi offre un compito versatile con ulteriore aiuto. A nome del nostro cliente stiamo cercando un\nAttività\n- Funzionamento a bassa velocità\n- Macchine\n- Assistenza sul cantiere\nRequisiti\n- Patente di guida per gru Cat. B\n- Diversi anni di esperienza professionale come operatore di gru\n- Puoi anche aiutare con altre attività\nOfferta\nAttendere con impazienza un'attività versatile e impegnativa. Essi godono di un ottimo salario orario.",
+      "en": "You serve the lower spin and support the team on the construction site. The company offers you a versatile task with additional help. On behalf of our client we are looking for a\nActivities\n- Low-speed operation\n- Machinery\n- Assistance on the construction site\nRequirements\n- Crane driving licence Cat. B\n- Several years of professional experience as a crane operator\n- You can also help with other activities\nOffer\nLook forward to a versatile and challenging activity. They enjoy a very good hourly wage.",
+      "fr": "Vous servez la partie inférieure et soutenez l'équipe sur le chantier. L'entreprise vous offre une tâche polyvalente avec une aide supplémentaire. Au nom de notre client, nous cherchons\nActivités\n- Fonctionnement à basse vitesse\n- Machines\n- Assistance sur le chantier\nExigences\n- Permis de conduire de grue Cat. B\n- Plusieurs années d'expérience professionnelle comme opérateur de grue\n- Vous pouvez également aider à d'autres activités\nOffre\nNous nous réjouissons d'une activité polyvalente et stimulante. Ils bénéficient d'un très bon salaire horaire."
+    },
+    "slugByLocale": {
+      "de": "kranfuhrer-in-fur-unterdreher-wil-sg-st-gallen-stellenpartner-ch",
+      "it": "operatore-di-gru-per-sotto-rivoltatrice-stellenpartner-ag-wil-sg",
+      "en": "crane-operator-for-under-turner-stellenpartner-ag-wil-sg-st-gallen",
+      "fr": "operateur-de-grue-pour-retourneur-stellenpartner-ag-wil-sg-st-gallen"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-11-24T09:49:35.133Z",
+    "previousSlugs": [
+      "kranfuhrer-in-fur-unterdreher-wil-sg-st-gallen-stellenpartner-ch",
+      "kranfuhrer-in-per-unterdreher-stellenpartner-ag-wil-sg",
+      "operatore-di-gru-per-sotto-rivoltatrice-stellenpartner-ag-wil-sg-st-gallen"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "kranfuhrer-in-fur-unterdreher-wil-sg-st-gallen-stellenpartner-ch",
+        "kranfuhrer-in-per-unterdreher-stellenpartner-ag-wil-sg",
+        "operatore-di-gru-per-sotto-rivoltatrice-stellenpartner-ag-wil-sg-st-gallen"
+      ],
+      "en": [
+        "kranfuhrer-in-fur-unterdreher-wil-sg-st-gallen-stellenpartner-ch"
+      ],
+      "fr": [
+        "kranfuhrer-in-fur-unterdreher-wil-sg-st-gallen-stellenpartner-ch"
+      ]
+    },
+    "postalCode": "9000",
+    "streetAddress": "Wil SG",
+    "salaryMin": 57500,
+    "salaryMax": 87000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://www.stellenpartner.ch/stellen/kranfuehrer-in-wil-sg-dauerstelle-113199",
+    "firstSeenAt": "2026-11-23T09:42:17.696Z"
+  },
+  {
     "id": "stellenpartner-8c19a2b4e48c",
     "slug": "polimeccanico-a-produzione-cnc-con-programmazione-heidenhain-e-fanuc-stellenpartner-ag-winterthur-zurich",
     "title": "Polymechaniker/in - CNC Fertigung mit Heidenhain- und Fanuc-Programmierung",
@@ -356,27 +411,33 @@
     },
     "slugByLocale": {
       "it": "metalmeccanico-a-per-prodotti-di-carpenteria-metallica-complessi-stellenpartner-ag-wil-sg-st-gallen",
-      "en": "metalworker-for-complex-metal-construction-products-stellenpartner-ag-wil-sg-st-gallen",
+      "en": "metalworker-for-complex-metal-construction-products-stellenpartner-ag-wil-sg-st-gallen-94373d09",
       "de": "metallbauer-in-fur-komplexe-metallbauprodukte-wil-sg-st-gallen-stellenpartner-ch-43af5122",
       "fr": "constructeur-constructrice-de-metaux-pour-les-produits-de-construction-metalliques-complexes-stellenpartner-ag-wil-sg-st"
     },
     "sector": "Altro",
     "expiredAt": "2026-11-21T13:21:50.649Z",
-    "previousSlugs": [
-      "metallbauer-in-per-komplexe-metallbauprodukte-stellenpartner-ag-wil-sg",
-      "metallbauer-in-fur-komplexe-metallbauprodukte-wil-sg-st-gallen-stellenpartner-ch"
-    ],
     "previousSlugsByLocale": {
       "it": [
         "metallbauer-in-fur-komplexe-metallbauprodukte-wil-sg-st-gallen-stellenpartner-ch-43af5122",
+        "metallbauer-in-per-komplexe-metallbauprodukte-stellenpartner-ag-wil-sg-6359fe5b",
         "metallbauer-in-per-komplexe-metallbauprodukte-stellenpartner-ag-wil-sg",
         "metallbauer-in-fur-komplexe-metallbauprodukte-wil-sg-st-gallen-stellenpartner-ch"
       ],
       "en": [
-        "metallbauer-in-fur-komplexe-metallbauprodukte-wil-sg-st-gallen-stellenpartner-ch"
+        "metallbauer-in-fur-komplexe-metallbauprodukte-wil-sg-st-gallen-stellenpartner-ch-43af5122",
+        "metallbauer-in-per-komplexe-metallbauprodukte-stellenpartner-ag-wil-sg",
+        "metallbauer-in-fur-komplexe-metallbauprodukte-wil-sg-st-gallen-stellenpartner-ch",
+        "metalworker-for-complex-metal-construction-products-stellenpartner-ag-wil-sg-st-gallen"
       ],
       "fr": [
+        "metallbauer-in-fur-komplexe-metallbauprodukte-wil-sg-st-gallen-stellenpartner-ch-43af5122",
+        "metallbauer-in-per-komplexe-metallbauprodukte-stellenpartner-ag-wil-sg",
         "metallbauer-in-fur-komplexe-metallbauprodukte-wil-sg-st-gallen-stellenpartner-ch"
+      ],
+      "de": [
+        "metallbauer-in-per-komplexe-metallbauprodukte-stellenpartner-ag-wil-sg",
+        "metallbauer-in-fur-komplexe-metallbauprodukte-wil-sg-st-gallen-stellenpartner-ch-43af5122"
       ]
     },
     "postalCode": "9000",
@@ -386,7 +447,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.stellenpartner.ch/stellen/metallbauer-in-wil-sg-dauerstelle-112254",
-    "firstSeenAt": "2026-11-07T09:48:06.744Z"
+    "firstSeenAt": "2026-11-07T09:48:06.744Z",
+    "previousSlugs": [
+      "metallbauer-in-per-komplexe-metallbauprodukte-stellenpartner-ag-wil-sg",
+      "metallbauer-in-fur-komplexe-metallbauprodukte-wil-sg-st-gallen-stellenpartner-ch",
+      "metallbauer-in-per-komplexe-metallbauprodukte-stellenpartner-ag-wil-sg-6359fe5b",
+      "metalworker-for-complex-metal-construction-products-stellenpartner-ag-wil-sg-st-gallen"
+    ]
   },
   {
     "id": "stellenpartner-89dceac0a54f",
@@ -962,21 +1029,26 @@
     },
     "sector": "Altro",
     "expiredAt": "2026-11-19T14:33:14.639Z",
-    "previousSlugs": [
-      "schreiner-in-responsabile-di-progetto-per-system-e-akustikdecken-stellenpartner-ag-dietikon",
-      "schreiner-in-projektleiter-in-fur-system-und-akustikdecken-dietikon-zurich-stellenpartner"
-    ],
     "previousSlugsByLocale": {
       "it": [
         "schreiner-in-projektleiter-in-fur-system-und-akustikdecken-dietikon-zurich-stellenpartner-5500bb83",
+        "schreiner-in-responsabile-di-progetto-per-system-e-akustikdecken-stellenpartner-ag-dietikon-066993fb",
         "schreiner-in-responsabile-di-progetto-per-system-e-akustikdecken-stellenpartner-ag-dietikon",
         "schreiner-in-projektleiter-in-fur-system-und-akustikdecken-dietikon-zurich-stellenpartner"
       ],
       "en": [
+        "schreiner-in-projektleiter-in-fur-system-und-akustikdecken-dietikon-zurich-stellenpartner-5500bb83",
+        "schreiner-in-responsabile-di-progetto-per-system-e-akustikdecken-stellenpartner-ag-dietikon",
         "schreiner-in-projektleiter-in-fur-system-und-akustikdecken-dietikon-zurich-stellenpartner"
       ],
       "fr": [
+        "schreiner-in-projektleiter-in-fur-system-und-akustikdecken-dietikon-zurich-stellenpartner-5500bb83",
+        "schreiner-in-responsabile-di-progetto-per-system-e-akustikdecken-stellenpartner-ag-dietikon",
         "schreiner-in-projektleiter-in-fur-system-und-akustikdecken-dietikon-zurich-stellenpartner"
+      ],
+      "de": [
+        "schreiner-in-responsabile-di-progetto-per-system-e-akustikdecken-stellenpartner-ag-dietikon",
+        "schreiner-in-projektleiter-in-fur-system-und-akustikdecken-dietikon-zurich-stellenpartner-5500bb83"
       ]
     },
     "postalCode": "8953",
@@ -986,7 +1058,12 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.stellenpartner.ch/stellen/schreiner-in-projektleiter-in-dietikon-dauerstelle-109592",
-    "firstSeenAt": "2026-10-02T09:36:17.534Z"
+    "firstSeenAt": "2026-10-02T09:36:17.534Z",
+    "previousSlugs": [
+      "schreiner-in-responsabile-di-progetto-per-system-e-akustikdecken-stellenpartner-ag-dietikon",
+      "schreiner-in-projektleiter-in-fur-system-und-akustikdecken-dietikon-zurich-stellenpartner",
+      "schreiner-in-responsabile-di-progetto-per-system-e-akustikdecken-stellenpartner-ag-dietikon-066993fb"
+    ]
   },
   {
     "slug": "giardiniere-a-efz-per-giardinaggio-e-nuove-realizzazioni-stellenpartner-ag-dielsdorf-zurich",
@@ -8339,10 +8416,15 @@
         "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-dietikon-zurich-stellenpartner-ch"
       ],
       "en": [
+        "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-dietikon-zurich-stellenpartner-ch-9767366c",
         "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-dietikon-zurich-stellenpartner-ch"
       ],
       "fr": [
+        "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-dietikon-zurich-stellenpartner-ch-9767366c",
         "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-dietikon-zurich-stellenpartner-ch"
+      ],
+      "de": [
+        "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-dietikon-zurich-stellenpartner-ch-c40a1ed8"
       ]
     },
     "postalCode": "8953",
@@ -8371,8 +8453,9 @@
       }
     ],
     "previousSlugs": [
+      "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-dietikon-zurich-stellenpartner-ch-0a415641",
       "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-dietikon-zurich-stellenpartner-ch",
-      "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-dietikon-zurich-stellenpartner-ch-0a415641"
+      "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-dietikon-zurich-stellenpartner-ch-9767366c"
     ]
   },
   {
@@ -13525,27 +13608,33 @@
     },
     "slugByLocale": {
       "it": "meccanico-di-macchine-agricole-per-la-manutenzione-e-la-riparazione-stellenpartner-ag-wil-sg-st-gallen",
-      "en": "agricultural-machinery-mechanic-for-maintenance-and-repair-stellenpartner-ag-wil-sg-st-gallen",
+      "en": "agricultural-machinery-mechanic-for-maintenance-and-repair-stellenpartner-ag-wil-sg-st-gallen-602c88a0",
       "de": "landmaschinenmechaniker-in-fur-wartung-und-reparatur-wil-sg-st-gallen-stellenpartner-ch-dee5f99e",
       "fr": "mecanicien-des-machines-agricoles-pour-l-entretien-et-la-reparation-stellenpartner-ag-wil-sg-st-gallen"
     },
     "sector": "Altro",
     "expiredAt": "2026-11-15T01:10:56.432Z",
-    "previousSlugs": [
-      "landmaschinenmechaniker-in-per-wartung-e-reparatur-stellenpartner-ag-wil-sg",
-      "landmaschinenmechaniker-in-fur-wartung-und-reparatur-wil-sg-st-gallen-stellenpartner-ch"
-    ],
     "previousSlugsByLocale": {
       "it": [
         "landmaschinenmechaniker-in-fur-wartung-und-reparatur-wil-sg-st-gallen-stellenpartner-ch-dee5f99e",
+        "landmaschinenmechaniker-in-per-wartung-e-reparatur-stellenpartner-ag-wil-sg-af75582e",
         "landmaschinenmechaniker-in-per-wartung-e-reparatur-stellenpartner-ag-wil-sg",
         "landmaschinenmechaniker-in-fur-wartung-und-reparatur-wil-sg-st-gallen-stellenpartner-ch"
       ],
       "en": [
-        "landmaschinenmechaniker-in-fur-wartung-und-reparatur-wil-sg-st-gallen-stellenpartner-ch"
+        "landmaschinenmechaniker-in-fur-wartung-und-reparatur-wil-sg-st-gallen-stellenpartner-ch-dee5f99e",
+        "landmaschinenmechaniker-in-per-wartung-e-reparatur-stellenpartner-ag-wil-sg",
+        "landmaschinenmechaniker-in-fur-wartung-und-reparatur-wil-sg-st-gallen-stellenpartner-ch",
+        "agricultural-machinery-mechanic-for-maintenance-and-repair-stellenpartner-ag-wil-sg-st-gallen"
       ],
       "fr": [
+        "landmaschinenmechaniker-in-fur-wartung-und-reparatur-wil-sg-st-gallen-stellenpartner-ch-dee5f99e",
+        "landmaschinenmechaniker-in-per-wartung-e-reparatur-stellenpartner-ag-wil-sg",
         "landmaschinenmechaniker-in-fur-wartung-und-reparatur-wil-sg-st-gallen-stellenpartner-ch"
+      ],
+      "de": [
+        "landmaschinenmechaniker-in-per-wartung-e-reparatur-stellenpartner-ag-wil-sg",
+        "landmaschinenmechaniker-in-fur-wartung-und-reparatur-wil-sg-st-gallen-stellenpartner-ch-dee5f99e"
       ]
     },
     "postalCode": "9000",
@@ -13555,7 +13644,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.stellenpartner.ch/stellen/landmaschinenmechaniker-in-wil-sg-dauerstelle-107256",
-    "firstSeenAt": "2026-09-08T13:58:12.336Z"
+    "firstSeenAt": "2026-09-08T13:58:12.336Z",
+    "previousSlugs": [
+      "landmaschinenmechaniker-in-per-wartung-e-reparatur-stellenpartner-ag-wil-sg",
+      "landmaschinenmechaniker-in-fur-wartung-und-reparatur-wil-sg-st-gallen-stellenpartner-ch",
+      "landmaschinenmechaniker-in-per-wartung-e-reparatur-stellenpartner-ag-wil-sg-af75582e",
+      "agricultural-machinery-mechanic-for-maintenance-and-repair-stellenpartner-ag-wil-sg-st-gallen"
+    ]
   },
   {
     "slug": "meccanico-per-la-riparazione-e-il-servizio-di-macchinari-innovativi-stellenpartner-ag-frauenfeld-thurgau",
@@ -15047,21 +15142,26 @@
     },
     "sector": "Altro",
     "expiredAt": "2026-11-15T01:10:56.431Z",
-    "previousSlugs": [
-      "schreiner-in-per-holzkonstruktionen-stellenpartner-ag-zofingen",
-      "schreiner-in-fur-holzkonstruktionen-zofingen-aargau-stellenpartner-ch"
-    ],
     "previousSlugsByLocale": {
       "it": [
         "schreiner-in-fur-holzkonstruktionen-zofingen-aargau-stellenpartner-ch-0e7dc999",
+        "schreiner-in-per-holzkonstruktionen-stellenpartner-ag-zofingen-2620104e",
         "schreiner-in-per-holzkonstruktionen-stellenpartner-ag-zofingen",
         "schreiner-in-fur-holzkonstruktionen-zofingen-aargau-stellenpartner-ch"
       ],
       "en": [
+        "schreiner-in-fur-holzkonstruktionen-zofingen-aargau-stellenpartner-ch-0e7dc999",
+        "schreiner-in-per-holzkonstruktionen-stellenpartner-ag-zofingen",
         "schreiner-in-fur-holzkonstruktionen-zofingen-aargau-stellenpartner-ch"
       ],
       "fr": [
+        "schreiner-in-fur-holzkonstruktionen-zofingen-aargau-stellenpartner-ch-0e7dc999",
+        "schreiner-in-per-holzkonstruktionen-stellenpartner-ag-zofingen",
         "schreiner-in-fur-holzkonstruktionen-zofingen-aargau-stellenpartner-ch"
+      ],
+      "de": [
+        "schreiner-in-per-holzkonstruktionen-stellenpartner-ag-zofingen",
+        "schreiner-in-fur-holzkonstruktionen-zofingen-aargau-stellenpartner-ch-0e7dc999"
       ]
     },
     "postalCode": "4800",
@@ -15071,7 +15171,12 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.stellenpartner.ch/stellen/schreiner-in-zofingen-dauerstelle-106665",
-    "firstSeenAt": "2026-09-08T13:58:12.477Z"
+    "firstSeenAt": "2026-09-08T13:58:12.477Z",
+    "previousSlugs": [
+      "schreiner-in-per-holzkonstruktionen-stellenpartner-ag-zofingen",
+      "schreiner-in-fur-holzkonstruktionen-zofingen-aargau-stellenpartner-ch",
+      "schreiner-in-per-holzkonstruktionen-stellenpartner-ag-zofingen-2620104e"
+    ]
   },
   {
     "slug": "carpentiere-a-metalmeccanico-a-per-strutture-in-acciaio-e-porte-tagliafuoco-stellenpartner-ag-kulm-aargau",
@@ -15956,21 +16061,26 @@
     },
     "sector": "Altro",
     "expiredAt": "2026-11-15T01:10:56.431Z",
-    "previousSlugs": [
-      "schreiner-in-per-innenausbau-stellenpartner-ag-luzern",
-      "schreiner-in-fur-innenausbau-luzern-luzern-stellenpartner-ch"
-    ],
     "previousSlugsByLocale": {
       "it": [
         "schreiner-in-fur-innenausbau-luzern-luzern-stellenpartner-ch-68a78148",
+        "schreiner-in-per-innenausbau-stellenpartner-ag-luzern-fc3f9e07",
         "schreiner-in-per-innenausbau-stellenpartner-ag-luzern",
         "schreiner-in-fur-innenausbau-luzern-luzern-stellenpartner-ch"
       ],
       "en": [
+        "schreiner-in-fur-innenausbau-luzern-luzern-stellenpartner-ch-68a78148",
+        "schreiner-in-per-innenausbau-stellenpartner-ag-luzern",
         "schreiner-in-fur-innenausbau-luzern-luzern-stellenpartner-ch"
       ],
       "fr": [
+        "schreiner-in-fur-innenausbau-luzern-luzern-stellenpartner-ch-68a78148",
+        "schreiner-in-per-innenausbau-stellenpartner-ag-luzern",
         "schreiner-in-fur-innenausbau-luzern-luzern-stellenpartner-ch"
+      ],
+      "de": [
+        "schreiner-in-per-innenausbau-stellenpartner-ag-luzern",
+        "schreiner-in-fur-innenausbau-luzern-luzern-stellenpartner-ch-68a78148"
       ]
     },
     "postalCode": "6003",
@@ -15980,7 +16090,12 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.stellenpartner.ch/stellen/schreiner-in-luzern-temporaer-109756",
-    "firstSeenAt": "2026-10-05T09:34:24.171Z"
+    "firstSeenAt": "2026-10-05T09:34:24.171Z",
+    "previousSlugs": [
+      "schreiner-in-per-innenausbau-stellenpartner-ag-luzern",
+      "schreiner-in-fur-innenausbau-luzern-luzern-stellenpartner-ch",
+      "schreiner-in-per-innenausbau-stellenpartner-ag-luzern-fc3f9e07"
+    ]
   },
   {
     "slug": "falegname-falegname-per-mobili-e-negozi-stellenpartner-ag-zug-zug",
@@ -19431,31 +19546,43 @@
       "it": "pittore-per-pitture-interne-ed-esterne-stellenpartner-ag-baden-aargau",
       "en": "interior-and-exterior-painter-stellenpartner-ag-baden-aargau",
       "de": "maler-in-fur-innen-und-aussenanstriche-baden-aargau-stellenpartner-ch-512e3efb",
-      "fr": "peintre-pour-peintures-interieures-et-exterieures-stellenpartner-ag-baden-aargau"
+      "fr": "peintre-pour-peintures-interieures-et-exterieures-stellenpartner-ag-baden-aargau-11a5f5de"
     },
     "sector": "Altro",
     "expiredAt": "2026-11-14T12:02:03.936Z",
     "previousSlugs": [
-      "maler-in-per-innen-e-aussenanstriche-stellenpartner-ag-baden",
       "pittore-trice-per-tinteggiature-interne-ed-esterne-stellenpartner-ag-baden-aargau",
       "painter-for-interior-and-exterior-painting-stellenpartner-ag-baden-aargau",
       "peintre-pour-les-travaux-de-peinture-interieurs-et-exterieurs-stellenpartner-ag-baden-aargau",
-      "maler-in-fur-innen-und-aussenanstriche-baden-aargau-stellenpartner-ch"
+      "maler-in-per-innen-e-aussenanstriche-stellenpartner-ag-baden",
+      "maler-in-fur-innen-und-aussenanstriche-baden-aargau-stellenpartner-ch",
+      "maler-in-per-innen-e-aussenanstriche-stellenpartner-ag-baden-1c167562",
+      "peintre-pour-peintures-interieures-et-exterieures-stellenpartner-ag-baden-aargau"
     ],
     "previousSlugsByLocale": {
       "it": [
         "maler-in-fur-innen-und-aussenanstriche-baden-aargau-stellenpartner-ch-512e3efb",
-        "maler-in-per-innen-e-aussenanstriche-stellenpartner-ag-baden",
+        "maler-in-per-innen-e-aussenanstriche-stellenpartner-ag-baden-1c167562",
         "pittore-trice-per-tinteggiature-interne-ed-esterne-stellenpartner-ag-baden-aargau",
+        "maler-in-per-innen-e-aussenanstriche-stellenpartner-ag-baden",
         "maler-in-fur-innen-und-aussenanstriche-baden-aargau-stellenpartner-ch"
       ],
       "en": [
-        "maler-in-fur-innen-und-aussenanstriche-baden-aargau-stellenpartner-ch",
-        "painter-for-interior-and-exterior-painting-stellenpartner-ag-baden-aargau"
+        "maler-in-fur-innen-und-aussenanstriche-baden-aargau-stellenpartner-ch-512e3efb",
+        "painter-for-interior-and-exterior-painting-stellenpartner-ag-baden-aargau",
+        "maler-in-per-innen-e-aussenanstriche-stellenpartner-ag-baden",
+        "maler-in-fur-innen-und-aussenanstriche-baden-aargau-stellenpartner-ch"
       ],
       "fr": [
+        "maler-in-fur-innen-und-aussenanstriche-baden-aargau-stellenpartner-ch-512e3efb",
+        "peintre-pour-les-travaux-de-peinture-interieurs-et-exterieurs-stellenpartner-ag-baden-aargau",
+        "maler-in-per-innen-e-aussenanstriche-stellenpartner-ag-baden",
         "maler-in-fur-innen-und-aussenanstriche-baden-aargau-stellenpartner-ch",
-        "peintre-pour-les-travaux-de-peinture-interieurs-et-exterieurs-stellenpartner-ag-baden-aargau"
+        "peintre-pour-peintures-interieures-et-exterieures-stellenpartner-ag-baden-aargau"
+      ],
+      "de": [
+        "maler-in-per-innen-e-aussenanstriche-stellenpartner-ag-baden",
+        "maler-in-fur-innen-und-aussenanstriche-baden-aargau-stellenpartner-ch-512e3efb"
       ]
     },
     "postalCode": "5400",
@@ -25228,23 +25355,33 @@
       "metal-worker-unskilled-worker-for-glass-roofs-and-conservatories-stellenpartner-ag-baden-aargau",
       "metallurgiste-ouvrier-non-qualifie-pour-toits-en-verre-et-verandas-stellenpartner-ag-baden-aargau",
       "metallbauer-in-hilfsarbeiter-in-per-glasdacher-e-wintergarten-stellenpartner-ag-baden",
-      "metallbauer-in-hilfsarbeiter-in-fur-glasdacher-und-wintergarten-baden-aargau"
+      "metallbauer-in-hilfsarbeiter-in-fur-glasdacher-und-wintergarten-baden-aargau",
+      "metallbauer-in-hilfsarbeiter-in-per-glasdacher-e-wintergarten-stellenpartner-ag-baden-ee7e57fe"
     ],
     "previousSlugsByLocale": {
       "it": [
         "metallbauer-in-hilfsarbeiter-in-fur-glasdacher-und-wintergarten-baden-aargau-bd20ff5d",
         "metal-worker-unskilled-worker-for-glass-roofs-and-conservatories-stellenpartner-ag-baden-aargau",
         "metallurgiste-ouvrier-non-qualifie-pour-toits-en-verre-et-verandas-stellenpartner-ag-baden-aargau",
+        "metallbauer-in-hilfsarbeiter-in-per-glasdacher-e-wintergarten-stellenpartner-ag-baden-ee7e57fe",
         "metallbauer-in-hilfsarbeiter-in-per-glasdacher-e-wintergarten-stellenpartner-ag-baden",
         "metallbauer-in-hilfsarbeiter-in-fur-glasdacher-und-wintergarten-baden-aargau"
       ],
       "en": [
         "metal-worker-unskilled-worker-for-glass-roofs-and-conservatories-stellenpartner-ag-baden-aargau",
+        "metallbauer-in-hilfsarbeiter-in-fur-glasdacher-und-wintergarten-baden-aargau-bd20ff5d",
+        "metallbauer-in-hilfsarbeiter-in-per-glasdacher-e-wintergarten-stellenpartner-ag-baden",
         "metallbauer-in-hilfsarbeiter-in-fur-glasdacher-und-wintergarten-baden-aargau"
       ],
       "fr": [
         "metallurgiste-ouvrier-non-qualifie-pour-toits-en-verre-et-verandas-stellenpartner-ag-baden-aargau",
+        "metallbauer-in-hilfsarbeiter-in-fur-glasdacher-und-wintergarten-baden-aargau-bd20ff5d",
+        "metallbauer-in-hilfsarbeiter-in-per-glasdacher-e-wintergarten-stellenpartner-ag-baden",
         "metallbauer-in-hilfsarbeiter-in-fur-glasdacher-und-wintergarten-baden-aargau"
+      ],
+      "de": [
+        "metallbauer-in-hilfsarbeiter-in-per-glasdacher-e-wintergarten-stellenpartner-ag-baden",
+        "metallbauer-in-hilfsarbeiter-in-fur-glasdacher-und-wintergarten-baden-aargau-bd20ff5d"
       ]
     },
     "postalCode": "5400",
@@ -33798,21 +33935,26 @@
     },
     "sector": "Altro",
     "expiredAt": "2026-11-04T09:32:28.748Z",
-    "previousSlugs": [
-      "gipser-in-per-neu-e-umbauten-stellenpartner-ag-schaffhausen",
-      "gipser-in-fur-neu-und-umbauten-schaffhausen-schaffhausen-stellenpartner-ch"
-    ],
     "previousSlugsByLocale": {
       "it": [
         "gipser-in-fur-neu-und-umbauten-schaffhausen-schaffhausen-stellenpartner-ch-a838e07c",
+        "gipser-in-per-neu-e-umbauten-stellenpartner-ag-schaffhausen-22df731d",
         "gipser-in-per-neu-e-umbauten-stellenpartner-ag-schaffhausen",
         "gipser-in-fur-neu-und-umbauten-schaffhausen-schaffhausen-stellenpartner-ch"
       ],
       "en": [
+        "gipser-in-fur-neu-und-umbauten-schaffhausen-schaffhausen-stellenpartner-ch-a838e07c",
+        "gipser-in-per-neu-e-umbauten-stellenpartner-ag-schaffhausen",
         "gipser-in-fur-neu-und-umbauten-schaffhausen-schaffhausen-stellenpartner-ch"
       ],
       "fr": [
+        "gipser-in-fur-neu-und-umbauten-schaffhausen-schaffhausen-stellenpartner-ch-a838e07c",
+        "gipser-in-per-neu-e-umbauten-stellenpartner-ag-schaffhausen",
         "gipser-in-fur-neu-und-umbauten-schaffhausen-schaffhausen-stellenpartner-ch"
+      ],
+      "de": [
+        "gipser-in-per-neu-e-umbauten-stellenpartner-ag-schaffhausen",
+        "gipser-in-fur-neu-und-umbauten-schaffhausen-schaffhausen-stellenpartner-ch-a838e07c"
       ]
     },
     "postalCode": "8200",
@@ -33821,7 +33963,12 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.stellenpartner.ch/stellen/gipser-in-schaffhausen-dauerstelle-109584",
-    "firstSeenAt": "2026-10-02T09:36:17.396Z"
+    "firstSeenAt": "2026-10-02T09:36:17.396Z",
+    "previousSlugs": [
+      "gipser-in-per-neu-e-umbauten-stellenpartner-ag-schaffhausen",
+      "gipser-in-fur-neu-und-umbauten-schaffhausen-schaffhausen-stellenpartner-ch",
+      "gipser-in-per-neu-e-umbauten-stellenpartner-ag-schaffhausen-22df731d"
+    ]
   },
   {
     "slug": "polimeccanico-a-montaggio-ad-alta-responsabilita-stellenpartner-ag-muri-ag-aargau",
@@ -42965,9 +43112,7 @@
     "sector": "Altro",
     "expiredAt": "2026-10-27T10:23:01.522Z",
     "previousSlugs": [
-      "gartner-in-garten-e-landschaftsbau-per-natursteinarbeiten-stellenpartner-ag-winterthur",
       "giardiniere-a-giardinaggio-e-paesaggistica-per-lavori-in-pietra-naturale-stellenpartner-ag-winterthur",
-      "gartner-in-garten-und-landschaftsbau-fur-natursteinarbeiten-stellenpartner-ag-winterthur",
       "giardinieri-giardinaggio-e-paesaggistica-per-il-lavoro-in-pietra-naturale-stellenpartner-ag-winterthur-zurich",
       "gartner-in-8211-garten-und-landschaftsbau-fur-natursteinarbeiten-winterthur-zurich",
       "giardinieri-giardinaggio-e-paesaggistica-per-giardini-naturali-e-pareti-asciutte-stellenpartner-ag-winterthur-zurich",
@@ -42977,12 +43122,16 @@
       "gartner-in-garten-e-landschaftsbau-per-naturgarten-e-trockenmauern-stellenpartner-ag-winterthur",
       "gardeners-gardening-and-landscaping-for-natural-stone-work-stellenpartner-ag-winterthur-zurich",
       "jardiniers-jardinage-et-amenagement-paysager-pour-les-travaux-de-pierre-naturelle-stellenpartner-ag-winterthur-zurich",
-      "gartner-in-garten-und-landschaftsbau-fur-natursteinarbeiten-winterthur-zurich"
+      "gartner-in-garten-e-landschaftsbau-per-natursteinarbeiten-stellenpartner-ag-winterthur",
+      "gartner-in-garten-und-landschaftsbau-fur-natursteinarbeiten-stellenpartner-ag-winterthur",
+      "gartner-in-garten-und-landschaftsbau-fur-natursteinarbeiten-winterthur-zurich",
+      "gartner-in-garten-e-landschaftsbau-per-natursteinarbeiten-stellenpartner-ag-winterthur-04c5d6a6",
+      "gartner-in-garten-und-landschaftsbau-fur-natursteinarbeiten-stellenpartner-ag-winterthur-5ecd50fd"
     ],
     "previousSlugsByLocale": {
       "it": [
         "gartner-in-garten-und-landschaftsbau-fur-natursteinarbeiten-winterthur-zurich-91f58b89",
-        "gartner-in-garten-e-landschaftsbau-per-natursteinarbeiten-stellenpartner-ag-winterthur",
+        "gartner-in-garten-e-landschaftsbau-per-natursteinarbeiten-stellenpartner-ag-winterthur-04c5d6a6",
         "giardiniere-a-giardinaggio-e-paesaggistica-per-lavori-in-pietra-naturale-stellenpartner-ag-winterthur",
         "giardinieri-giardinaggio-e-paesaggistica-per-il-lavoro-in-pietra-naturale-stellenpartner-ag-winterthur-zurich",
         "gartner-in-8211-garten-und-landschaftsbau-fur-natursteinarbeiten-winterthur-zurich",
@@ -42991,26 +43140,35 @@
         "gartner-in-8211-garten-und-landschaftsbau-fur-naturgarten-und-trockenmauern-winterthur",
         "jardiniers-jardinage-et-amenagement-paysager-pour-jardins-naturels-et-murs-secs-stellenpartner-ag-winterthur-zurich",
         "gartner-in-garten-e-landschaftsbau-per-naturgarten-e-trockenmauern-stellenpartner-ag-winterthur",
+        "gartner-in-garten-und-landschaftsbau-fur-natursteinarbeiten-stellenpartner-ag-winterthur",
+        "gartner-in-garten-e-landschaftsbau-per-natursteinarbeiten-stellenpartner-ag-winterthur",
         "gartner-in-garten-und-landschaftsbau-fur-natursteinarbeiten-winterthur-zurich"
       ],
       "en": [
-        "gartner-in-garten-und-landschaftsbau-fur-natursteinarbeiten-stellenpartner-ag-winterthur",
+        "gartner-in-garten-und-landschaftsbau-fur-natursteinarbeiten-stellenpartner-ag-winterthur-5ecd50fd",
         "gardeners-gardening-and-landscaping-for-natural-stone-work-stellenpartner-ag-winterthur-zurich",
         "gardeners-gardening-and-landscaping-for-natural-gardens-and-dry-walls-stellenpartner-ag-winterthur-zurich",
         "gartner-in-8211-garten-und-landschaftsbau-fur-naturgarten-und-trockenmauern-winterthur",
-        "gartner-in-garten-und-landschaftsbau-fur-natursteinarbeiten-winterthur-zurich"
+        "gartner-in-garten-und-landschaftsbau-fur-natursteinarbeiten-winterthur-zurich",
+        "gartner-in-garten-e-landschaftsbau-per-natursteinarbeiten-stellenpartner-ag-winterthur",
+        "gartner-in-garten-und-landschaftsbau-fur-natursteinarbeiten-stellenpartner-ag-winterthur"
       ],
       "de": [
-        "gartner-in-garten-und-landschaftsbau-fur-natursteinarbeiten-stellenpartner-ag-winterthur",
+        "gartner-in-garten-und-landschaftsbau-fur-natursteinarbeiten-stellenpartner-ag-winterthur-5ecd50fd",
         "gartner-in-8211-garten-und-landschaftsbau-fur-natursteinarbeiten-winterthur-zurich",
-        "gartner-in-8211-garten-und-landschaftsbau-fur-naturgarten-und-trockenmauern-winterthur"
+        "gartner-in-8211-garten-und-landschaftsbau-fur-naturgarten-und-trockenmauern-winterthur",
+        "gartner-in-garten-e-landschaftsbau-per-natursteinarbeiten-stellenpartner-ag-winterthur",
+        "gartner-in-garten-und-landschaftsbau-fur-natursteinarbeiten-winterthur-zurich-91f58b89",
+        "gartner-in-garten-und-landschaftsbau-fur-natursteinarbeiten-stellenpartner-ag-winterthur"
       ],
       "fr": [
-        "gartner-in-garten-und-landschaftsbau-fur-natursteinarbeiten-stellenpartner-ag-winterthur",
+        "gartner-in-garten-und-landschaftsbau-fur-natursteinarbeiten-stellenpartner-ag-winterthur-5ecd50fd",
         "jardiniers-jardinage-et-amenagement-paysager-pour-les-travaux-de-pierre-naturelle-stellenpartner-ag-winterthur-zurich",
         "jardiniers-jardinage-et-amenagement-paysager-pour-jardins-naturels-et-murs-secs-stellenpartner-ag-winterthur-zurich",
         "gartner-in-8211-garten-und-landschaftsbau-fur-naturgarten-und-trockenmauern-winterthur",
-        "gartner-in-garten-und-landschaftsbau-fur-natursteinarbeiten-winterthur-zurich"
+        "gartner-in-garten-und-landschaftsbau-fur-natursteinarbeiten-winterthur-zurich",
+        "gartner-in-garten-e-landschaftsbau-per-natursteinarbeiten-stellenpartner-ag-winterthur",
+        "gartner-in-garten-und-landschaftsbau-fur-natursteinarbeiten-stellenpartner-ag-winterthur"
       ]
     },
     "postalCode": "8400",
@@ -45255,25 +45413,29 @@
     "slugByLocale": {
       "it": "giardiniere-a-giardinaggio-e-paesaggistica-per-giardini-naturali-stellenpartner-ag-winterthur-zurich",
       "en": "gardener-gardening-and-landscaping-for-natural-gardens-stellenpartner-ag-winterthur-zurich",
-      "de": "gartner-in-garten-und-landschaftsbau-fur-naturgarten-winterthur-zurich-stellenpartner-ch",
+      "de": "gartner-in-garten-und-landschaftsbau-fur-naturgarten-winterthur-zurich-stellenpartner-ch-14ee29cc",
       "fr": "jardinier-ere-jardinage-et-amenagement-paysager-pour-jardins-naturels-stellenpartner-ag-winterthur-zurich"
     },
     "sector": "Altro",
     "expiredAt": "2026-10-27T09:56:46.651Z",
     "previousSlugs": [
-      "gartner-in-garten-und-landschaftsbau-fur-naturgarten-winterthur-zurich-stellenpartner-ch",
-      "gartner-in-garten-e-landschaftsbau-per-naturgarten-stellenpartner-ag-winterthur"
+      "gartner-in-garten-e-landschaftsbau-per-naturgarten-stellenpartner-ag-winterthur",
+      "gartner-in-garten-und-landschaftsbau-fur-naturgarten-winterthur-zurich-stellenpartner-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "gartner-in-garten-und-landschaftsbau-fur-naturgarten-winterthur-zurich-stellenpartner-ch",
-        "gartner-in-garten-e-landschaftsbau-per-naturgarten-stellenpartner-ag-winterthur"
+        "gartner-in-garten-und-landschaftsbau-fur-naturgarten-winterthur-zurich-stellenpartner-ch-14ee29cc",
+        "gartner-in-garten-e-landschaftsbau-per-naturgarten-stellenpartner-ag-winterthur",
+        "gartner-in-garten-und-landschaftsbau-fur-naturgarten-winterthur-zurich-stellenpartner-ch"
       ],
       "en": [
         "gartner-in-garten-und-landschaftsbau-fur-naturgarten-winterthur-zurich-stellenpartner-ch"
       ],
       "fr": [
         "gartner-in-garten-und-landschaftsbau-fur-naturgarten-winterthur-zurich-stellenpartner-ch"
+      ],
+      "de": [
+        "gartner-in-garten-und-landschaftsbau-fur-naturgarten-winterthur-zurich-stellenpartner-ch-14ee29cc"
       ]
     },
     "postalCode": "8400",
@@ -55918,7 +56080,7 @@
     },
     "slugByLocale": {
       "it": "polimeccanico-a-produzione-cnc-con-programmazione-cam-stellenpartner-ag-dietikon-zurich-1e27b6bd",
-      "en": "polymechanic-cnc-manufacturing-with-cam-programming-stellenpartner-ag-dietikon-zurich",
+      "en": "polymechanic-cnc-manufacturing-with-cam-programming-stellenpartner-ag-dietikon-zurich-fb47be28",
       "de": "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-dietikon-zurich-stellenpartner-ch-9767366c",
       "fr": "polymecanique-fabrication-cnc-avec-programmation-fao-stellenpartner-ag-dietikon-zurich"
     },
@@ -56044,7 +56206,8 @@
       "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-dietikon-zurich-stellenpartner-ch-7675c662",
       "polimeccanico-a-produzione-cnc-con-programmazione-cam-stellenpartner-ag-dietikon-33ebde8c",
       "polimeccanico-a-produzione-cnc-con-programmazione-cam-stellenpartner-ag-dietikon-7f9e8a3f",
-      "polimeccanico-a-produzione-cnc-con-programmazione-cam-stellenpartner-ag-dietikon"
+      "polimeccanico-a-produzione-cnc-con-programmazione-cam-stellenpartner-ag-dietikon",
+      "polymechanic-cnc-manufacturing-with-cam-programming-stellenpartner-ag-dietikon-zurich"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -56169,7 +56332,8 @@
         "polimeccanico-a-produzione-cnc-con-programmazione-cam-stellenpartner-ag-dietikon-7f9e8a3f"
       ],
       "en": [
-        "polimeccanico-a-produzione-cnc-con-programmazione-cam-stellenpartner-ag-dietikon"
+        "polimeccanico-a-produzione-cnc-con-programmazione-cam-stellenpartner-ag-dietikon",
+        "polymechanic-cnc-manufacturing-with-cam-programming-stellenpartner-ag-dietikon-zurich"
       ],
       "de": [
         "polimeccanico-a-produzione-cnc-con-programmazione-cam-stellenpartner-ag-dietikon"
@@ -56377,37 +56541,39 @@
     "slugByLocale": {
       "it": "elettricista-di-montaggio-per-installazioni-di-corrente-forte-e-debole-stellenpartner-ag-horgen",
       "en": "assembly-electrician-for-high-and-low-voltage-installations-stellenpartner-ag-horgen",
-      "de": "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-horgen-zurich",
+      "de": "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-horgen-zurich-171d2b42",
       "fr": "electricien-ne-de-montage-pour-des-installations-a-courant-fort-et-a-courant-faible-stellenpartner-ag-horgen"
     },
     "sector": "Altro",
     "expiredAt": "2026-10-20T09:37:01.735Z",
     "previousSlugs": [
-      "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-horgen-zurich",
       "apparecchi-elettrici-per-impianti-ad-alta-e-bassa-corrente-stellenpartner-ag-horgen-zurich",
       "montage-elektriker-in-per-stark-e-schwachstrominstallationen-stellenpartner-ag-horgen",
       "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-horgen-zurich-171d2b42",
       "assembly-electricians-for-high-and-low-current-installations-stellenpartner-ag-horgen-zurich",
       "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-stellenpartner-ag-horgen",
-      "electriciens-d-assemblage-pour-installations-a-haut-et-a-bas-courant-stellenpartner-ag-horgen-zurich"
+      "electriciens-d-assemblage-pour-installations-a-haut-et-a-bas-courant-stellenpartner-ag-horgen-zurich",
+      "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-horgen-zurich"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-horgen-zurich",
         "apparecchi-elettrici-per-impianti-ad-alta-e-bassa-corrente-stellenpartner-ag-horgen-zurich",
         "montage-elektriker-in-per-stark-e-schwachstrominstallationen-stellenpartner-ag-horgen",
-        "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-horgen-zurich-171d2b42"
+        "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-horgen-zurich-171d2b42",
+        "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-horgen-zurich"
       ],
       "en": [
         "assembly-electricians-for-high-and-low-current-installations-stellenpartner-ag-horgen-zurich",
-        "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-stellenpartner-ag-horgen"
+        "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-stellenpartner-ag-horgen",
+        "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-horgen-zurich"
       ],
       "de": [
         "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-horgen-zurich-171d2b42"
       ],
       "fr": [
         "electriciens-d-assemblage-pour-installations-a-haut-et-a-bas-courant-stellenpartner-ag-horgen-zurich",
-        "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-stellenpartner-ag-horgen"
+        "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-stellenpartner-ag-horgen",
+        "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-horgen-zurich"
       ]
     },
     "postalCode": "8810",
@@ -67921,27 +68087,33 @@
     },
     "slugByLocale": {
       "it": "pittore-pittrice-per-lavori-di-pittura-versatili-stellenpartner-ag-baden-aargau",
-      "en": "painter-for-versatile-painting-work-stellenpartner-ag-baden-aargau",
+      "en": "painter-for-versatile-painting-work-stellenpartner-ag-baden-aargau-ef6a32a6",
       "de": "maler-in-fur-vielseitige-malerarbeiten-baden-aargau-stellenpartner-ch-5da8774e",
       "fr": "peintre-pour-des-travaux-de-peinture-polyvalents-stellenpartner-ag-baden-aargau"
     },
     "sector": "Altro",
     "expiredAt": "2026-10-13T21:51:00.984Z",
-    "previousSlugs": [
-      "maler-in-per-vielseitige-malerarbeiten-stellenpartner-ag-baden",
-      "maler-in-fur-vielseitige-malerarbeiten-baden-aargau-stellenpartner-ch"
-    ],
     "previousSlugsByLocale": {
       "it": [
         "maler-in-fur-vielseitige-malerarbeiten-baden-aargau-stellenpartner-ch-5da8774e",
+        "maler-in-per-vielseitige-malerarbeiten-stellenpartner-ag-baden-8a96cc0e",
         "maler-in-per-vielseitige-malerarbeiten-stellenpartner-ag-baden",
         "maler-in-fur-vielseitige-malerarbeiten-baden-aargau-stellenpartner-ch"
       ],
       "en": [
-        "maler-in-fur-vielseitige-malerarbeiten-baden-aargau-stellenpartner-ch"
+        "maler-in-fur-vielseitige-malerarbeiten-baden-aargau-stellenpartner-ch-5da8774e",
+        "maler-in-per-vielseitige-malerarbeiten-stellenpartner-ag-baden",
+        "maler-in-fur-vielseitige-malerarbeiten-baden-aargau-stellenpartner-ch",
+        "painter-for-versatile-painting-work-stellenpartner-ag-baden-aargau"
       ],
       "fr": [
+        "maler-in-fur-vielseitige-malerarbeiten-baden-aargau-stellenpartner-ch-5da8774e",
+        "maler-in-per-vielseitige-malerarbeiten-stellenpartner-ag-baden",
         "maler-in-fur-vielseitige-malerarbeiten-baden-aargau-stellenpartner-ch"
+      ],
+      "de": [
+        "maler-in-per-vielseitige-malerarbeiten-stellenpartner-ag-baden",
+        "maler-in-fur-vielseitige-malerarbeiten-baden-aargau-stellenpartner-ch-5da8774e"
       ]
     },
     "postalCode": "5400",
@@ -67950,7 +68122,13 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.stellenpartner.ch/stellen/maler-in-baden-temporaer-109351",
-    "firstSeenAt": "2026-09-30T23:51:36.192Z"
+    "firstSeenAt": "2026-09-30T23:51:36.192Z",
+    "previousSlugs": [
+      "maler-in-per-vielseitige-malerarbeiten-stellenpartner-ag-baden",
+      "maler-in-fur-vielseitige-malerarbeiten-baden-aargau-stellenpartner-ch",
+      "maler-in-per-vielseitige-malerarbeiten-stellenpartner-ag-baden-8a96cc0e",
+      "painter-for-versatile-painting-work-stellenpartner-ag-baden-aargau"
+    ]
   },
   {
     "slug": "falegname-per-allestimenti-fieristici-ed-eventi-stellenpartner-ag-bulach-zurich",
@@ -74795,7 +74973,12 @@
       "montage-elektriker-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch",
       "assembly-electrician-for-new-construction-and-renovations-stellenpartner-ag-zug-zug",
       "elettricista-di-montaggio-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-zug-zug",
-      "electricien-ne-de-montage-pour-les-nouvelles-constructions-et-les-renovations-stellenpartner-ag-zug-zug"
+      "electricien-ne-de-montage-pour-les-nouvelles-constructions-et-les-renovations-stellenpartner-ag-zug-zug",
+      "montage-elektriker-in-per-neubau-e-sanierungen-stellenpartner-ag-zug-b239b7a4",
+      "elettricista-di-montaggio-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-zug-zug-4a317120",
+      "assembly-electrician-for-new-construction-and-renovations-stellenpartner-ag-zug-zug-a6dc49fc",
+      "montage-elektriker-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch-46c54641",
+      "electricien-ne-de-montage-pour-les-nouvelles-constructions-et-les-renovations-stellenpartner-ag-zug-zug-a95f0b47"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -74918,8 +75101,12 @@
         "montage-elektriker-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch-881d4515",
         "montage-elektriker-in-per-neubau-e-sanierungen-stellenpartner-ag-zug-63e39265",
         "montage-elektriker-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch-2189b01f",
-        "montage-elektriker-in-per-neubau-e-sanierungen-stellenpartner-ag-zug",
+        "montage-elektriker-in-per-neubau-e-sanierungen-stellenpartner-ag-zug-b239b7a4",
         "montage-elektriker-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch",
+        "elettricista-di-montaggio-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-zug-zug-4a317120",
+        "assembly-electrician-for-new-construction-and-renovations-stellenpartner-ag-zug-zug",
+        "electricien-ne-de-montage-pour-les-nouvelles-constructions-et-les-renovations-stellenpartner-ag-zug-zug",
+        "montage-elektriker-in-per-neubau-e-sanierungen-stellenpartner-ag-zug",
         "elettricista-di-montaggio-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-zug-zug"
       ],
       "en": [
@@ -74981,16 +75168,30 @@
         "assembly-electrician-for-new-construction-and-renovations-stellenpartner-ag-zug-zug-182b128b",
         "assembly-electrician-for-new-construction-and-renovations-stellenpartner-ag-zug-zug-7960001e",
         "assembly-electrician-for-new-construction-and-renovations-stellenpartner-ag-zug-zug-747f79c0",
+        "assembly-electrician-for-new-construction-and-renovations-stellenpartner-ag-zug-zug-a6dc49fc",
+        "montage-elektriker-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch-46c54641",
+        "montage-elektriker-in-per-neubau-e-sanierungen-stellenpartner-ag-zug",
+        "elettricista-di-montaggio-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-zug-zug",
+        "electricien-ne-de-montage-pour-les-nouvelles-constructions-et-les-renovations-stellenpartner-ag-zug-zug",
         "assembly-electrician-for-new-construction-and-renovations-stellenpartner-ag-zug-zug",
         "montage-elektriker-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch"
       ],
       "fr": [
         "montage-elektriker-in-fur-neubau-und-sanierungen-stellenpartner-ag-zug",
+        "electricien-ne-de-montage-pour-les-nouvelles-constructions-et-les-renovations-stellenpartner-ag-zug-zug-a95f0b47",
+        "montage-elektriker-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch-46c54641",
+        "montage-elektriker-in-per-neubau-e-sanierungen-stellenpartner-ag-zug",
+        "elettricista-di-montaggio-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-zug-zug",
+        "assembly-electrician-for-new-construction-and-renovations-stellenpartner-ag-zug-zug",
         "electricien-ne-de-montage-pour-les-nouvelles-constructions-et-les-renovations-stellenpartner-ag-zug-zug",
         "montage-elektriker-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch"
       ],
       "de": [
-        "montage-elektriker-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch"
+        "montage-elektriker-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch",
+        "montage-elektriker-in-per-neubau-e-sanierungen-stellenpartner-ag-zug",
+        "elettricista-di-montaggio-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-zug-zug",
+        "assembly-electrician-for-new-construction-and-renovations-stellenpartner-ag-zug-zug",
+        "electricien-ne-de-montage-pour-les-nouvelles-constructions-et-les-renovations-stellenpartner-ag-zug-zug"
       ]
     },
     "postalCode": "6300",
@@ -75624,9 +75825,11 @@
       "montage-elektriker-in-per-neubau-e-sanierungen-stellenpartner-ag-zug-63e39265",
       "montage-elektriker-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch-2189b01f",
       "assembly-electrician-for-new-construction-and-renovations-stellenpartner-ag-zug-zug-747f79c0",
-      "montage-elektriker-in-per-neubau-e-sanierungen-stellenpartner-ag-zug",
       "montage-elektriker-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch",
-      "assembly-electrician-for-new-construction-and-renovations-stellenpartner-ag-zug-zug"
+      "montage-elektriker-in-per-neubau-e-sanierungen-stellenpartner-ag-zug",
+      "assembly-electrician-for-new-construction-and-renovations-stellenpartner-ag-zug-zug",
+      "montage-elektriker-in-per-neubau-e-sanierungen-stellenpartner-ag-zug-89546473",
+      "assembly-electrician-for-new-construction-and-renovations-stellenpartner-ag-zug-zug-6a9e0b9e"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -75749,8 +75952,10 @@
         "montage-elektriker-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch-881d4515",
         "montage-elektriker-in-per-neubau-e-sanierungen-stellenpartner-ag-zug-63e39265",
         "montage-elektriker-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch-2189b01f",
-        "montage-elektriker-in-per-neubau-e-sanierungen-stellenpartner-ag-zug",
-        "montage-elektriker-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch"
+        "montage-elektriker-in-per-neubau-e-sanierungen-stellenpartner-ag-zug-89546473",
+        "montage-elektriker-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch",
+        "assembly-electrician-for-new-construction-and-renovations-stellenpartner-ag-zug-zug",
+        "montage-elektriker-in-per-neubau-e-sanierungen-stellenpartner-ag-zug"
       ],
       "en": [
         "montage-elektriker-in-fur-neubau-und-sanierungen-stellenpartner-ag-zug",
@@ -75811,10 +76016,18 @@
         "assembly-electrician-for-new-construction-and-renovations-stellenpartner-ag-zug-zug-182b128b",
         "assembly-electrician-for-new-construction-and-renovations-stellenpartner-ag-zug-zug-7960001e",
         "assembly-electrician-for-new-construction-and-renovations-stellenpartner-ag-zug-zug-747f79c0",
+        "assembly-electrician-for-new-construction-and-renovations-stellenpartner-ag-zug-zug-6a9e0b9e",
+        "montage-elektriker-in-per-neubau-e-sanierungen-stellenpartner-ag-zug",
         "assembly-electrician-for-new-construction-and-renovations-stellenpartner-ag-zug-zug"
       ],
       "fr": [
-        "montage-elektriker-in-fur-neubau-und-sanierungen-stellenpartner-ag-zug"
+        "montage-elektriker-in-fur-neubau-und-sanierungen-stellenpartner-ag-zug",
+        "montage-elektriker-in-per-neubau-e-sanierungen-stellenpartner-ag-zug",
+        "assembly-electrician-for-new-construction-and-renovations-stellenpartner-ag-zug-zug"
+      ],
+      "de": [
+        "montage-elektriker-in-per-neubau-e-sanierungen-stellenpartner-ag-zug",
+        "assembly-electrician-for-new-construction-and-renovations-stellenpartner-ag-zug-zug"
       ]
     },
     "postalCode": "6300",
@@ -76355,7 +76568,10 @@
       "elektroinstallateur-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch",
       "elettricista-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-zug-zug",
       "installateur-electricien-pour-les-nouvelles-constructions-et-les-renovations-stellenpartner-ag-zug-zug",
-      "electrical-installer-for-new-construction-and-renovations-stellenpartner-ag-zug-zug"
+      "electrical-installer-for-new-construction-and-renovations-stellenpartner-ag-zug-zug",
+      "elettricista-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-zug-zug-37736834",
+      "installateur-electricien-pour-les-nouvelles-constructions-et-les-renovations-stellenpartner-ag-zug-zug-ae4dec78",
+      "electrical-installer-for-new-construction-and-renovations-stellenpartner-ag-zug-zug-54f78dd6"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -76458,8 +76674,11 @@
         "elektroinstallateur-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch-0a83395f",
         "installatore-trice-elettrico-a-in-per-neubau-e-sanierungen-stellenpartner-ag-zug-b71b61dd",
         "elektroinstallateur-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch-66ff145c",
-        "installatore-trice-elettrico-a-in-per-neubau-e-sanierungen-stellenpartner-ag-zug",
         "elektroinstallateur-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch",
+        "elettricista-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-zug-zug-37736834",
+        "electrical-installer-for-new-construction-and-renovations-stellenpartner-ag-zug-zug",
+        "installateur-electricien-pour-les-nouvelles-constructions-et-les-renovations-stellenpartner-ag-zug-zug",
+        "installatore-trice-elettrico-a-in-per-neubau-e-sanierungen-stellenpartner-ag-zug",
         "elettricista-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-zug-zug"
       ],
       "fr": [
@@ -76509,6 +76728,9 @@
         "elektroinstallateur-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch-4bcffbf1",
         "elektroinstallateur-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch-79f66d3e",
         "elektroinstallateur-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch-b967a991",
+        "installateur-electricien-pour-les-nouvelles-constructions-et-les-renovations-stellenpartner-ag-zug-zug-ae4dec78",
+        "elettricista-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-zug-zug",
+        "electrical-installer-for-new-construction-and-renovations-stellenpartner-ag-zug-zug",
         "elektroinstallateur-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch",
         "installateur-electricien-pour-les-nouvelles-constructions-et-les-renovations-stellenpartner-ag-zug-zug"
       ],
@@ -76558,6 +76780,9 @@
         "elektroinstallateur-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch-4bcffbf1",
         "elektroinstallateur-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch-79f66d3e",
         "elektroinstallateur-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch-b967a991",
+        "electrical-installer-for-new-construction-and-renovations-stellenpartner-ag-zug-zug-54f78dd6",
+        "elettricista-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-zug-zug",
+        "installateur-electricien-pour-les-nouvelles-constructions-et-les-renovations-stellenpartner-ag-zug-zug",
         "elektroinstallateur-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch",
         "electrical-installer-for-new-construction-and-renovations-stellenpartner-ag-zug-zug"
       ],
@@ -76607,7 +76832,10 @@
         "elektroinstallateur-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch-79f66d3e",
         "elektroinstallateur-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch-b967a991",
         "elektroinstallateur-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch-ed5dc60d",
-        "elektroinstallateur-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch"
+        "elektroinstallateur-in-fur-neubau-und-sanierungen-zug-zug-stellenpartner-ch",
+        "elettricista-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-zug-zug",
+        "electrical-installer-for-new-construction-and-renovations-stellenpartner-ag-zug-zug",
+        "installateur-electricien-pour-les-nouvelles-constructions-et-les-renovations-stellenpartner-ag-zug-zug"
       ]
     },
     "postalCode": "6300",
@@ -97088,10 +97316,15 @@
         "gipser-in-fur-neu-und-umbauten-frauenfeld-thurgau-stellenpartner-ch"
       ],
       "en": [
+        "gipser-in-fur-neu-und-umbauten-frauenfeld-thurgau-stellenpartner-ch-efe16b6c",
         "gipser-in-fur-neu-und-umbauten-frauenfeld-thurgau-stellenpartner-ch"
       ],
       "fr": [
+        "gipser-in-fur-neu-und-umbauten-frauenfeld-thurgau-stellenpartner-ch-efe16b6c",
         "gipser-in-fur-neu-und-umbauten-frauenfeld-thurgau-stellenpartner-ch"
+      ],
+      "de": [
+        "gipser-in-fur-neu-und-umbauten-frauenfeld-thurgau-stellenpartner-ch-efe16b6c"
       ]
     },
     "salaryMin": 57500,
@@ -105252,10 +105485,15 @@
         "schweisser-in-fur-vielseitige-metallmontagen-wil-sg-st-gallen-stellenpartner-ch"
       ],
       "en": [
+        "schweisser-in-fur-vielseitige-metallmontagen-wil-sg-st-gallen-stellenpartner-ch-c6a2af58",
         "schweisser-in-fur-vielseitige-metallmontagen-wil-sg-st-gallen-stellenpartner-ch"
       ],
       "fr": [
+        "schweisser-in-fur-vielseitige-metallmontagen-wil-sg-st-gallen-stellenpartner-ch-c6a2af58",
         "schweisser-in-fur-vielseitige-metallmontagen-wil-sg-st-gallen-stellenpartner-ch"
+      ],
+      "de": [
+        "schweisser-in-fur-vielseitige-metallmontagen-wil-sg-st-gallen-stellenpartner-ch-c6a2af58"
       ]
     },
     "salaryMin": 57500,
@@ -113691,21 +113929,26 @@
     },
     "sector": "Altro",
     "expiredAt": "2026-09-23T23:48:38.235Z",
-    "previousSlugs": [
-      "maurer-in-per-neu-e-umbauten-stellenpartner-ag-winterthur",
-      "maurer-in-fur-neu-und-umbauten-winterthur-zurich-stellenpartner-ch"
-    ],
     "previousSlugsByLocale": {
       "it": [
         "maurer-in-fur-neu-und-umbauten-winterthur-zurich-stellenpartner-ch-ef5e5fb1",
+        "maurer-in-per-neu-e-umbauten-stellenpartner-ag-winterthur-9f4730af",
         "maurer-in-per-neu-e-umbauten-stellenpartner-ag-winterthur",
         "maurer-in-fur-neu-und-umbauten-winterthur-zurich-stellenpartner-ch"
       ],
       "en": [
+        "maurer-in-fur-neu-und-umbauten-winterthur-zurich-stellenpartner-ch-ef5e5fb1",
+        "maurer-in-per-neu-e-umbauten-stellenpartner-ag-winterthur",
         "maurer-in-fur-neu-und-umbauten-winterthur-zurich-stellenpartner-ch"
       ],
       "fr": [
+        "maurer-in-fur-neu-und-umbauten-winterthur-zurich-stellenpartner-ch-ef5e5fb1",
+        "maurer-in-per-neu-e-umbauten-stellenpartner-ag-winterthur",
         "maurer-in-fur-neu-und-umbauten-winterthur-zurich-stellenpartner-ch"
+      ],
+      "de": [
+        "maurer-in-per-neu-e-umbauten-stellenpartner-ag-winterthur",
+        "maurer-in-fur-neu-und-umbauten-winterthur-zurich-stellenpartner-ch-ef5e5fb1"
       ]
     },
     "salaryMin": 73500,
@@ -113713,7 +113956,12 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.stellenpartner.ch/stellen/maurer-in-winterthur-dauerstelle-106042",
-    "firstSeenAt": "2026-09-08T13:58:12.366Z"
+    "firstSeenAt": "2026-09-08T13:58:12.366Z",
+    "previousSlugs": [
+      "maurer-in-per-neu-e-umbauten-stellenpartner-ag-winterthur",
+      "maurer-in-fur-neu-und-umbauten-winterthur-zurich-stellenpartner-ch",
+      "maurer-in-per-neu-e-umbauten-stellenpartner-ag-winterthur-9f4730af"
+    ]
   },
   {
     "slug": "maurer-con-responsabilita-del-progetto-e-lavoro-di-squadra-stellenpartner-ag-wil-sg-st-gallen",
@@ -114504,27 +114752,42 @@
     },
     "sector": "Altro",
     "expiredAt": "2026-09-23T23:48:38.235Z",
-    "previousSlugs": [
-      "maler-in-fur-renovations-und-neubauprojekte-zug-zug-stellenpartner-ch",
-      "maler-in-per-renovations-e-neubauprojekte-stellenpartner-ag-zug",
-      "pittore-trice-per-progetti-di-ristrutturazione-e-nuove-costruzioni-stellenpartner-ag-zug-zug",
-      "pittore-trice-per-progetti-di-ristrutturazione-e-nuove-costruzioni-stellenpartner-ag-zug",
-      "painter-for-renovation-and-new-build-projects-stellenpartner-ag-zug-zug",
-      "peintre-pour-projets-de-renovation-et-de-construction-neuve-stellenpartner-ag-zug-zug"
-    ],
     "previousSlugsByLocale": {
       "it": [
         "maler-in-fur-renovations-und-neubauprojekte-zug-zug-stellenpartner-ch",
+        "maler-in-per-renovations-e-neubauprojekte-stellenpartner-ag-zug-01c547f1",
+        "pittore-trice-per-progetti-di-ristrutturazione-e-nuove-costruzioni-stellenpartner-ag-zug-zug-0f071756",
+        "pittore-trice-per-progetti-di-ristrutturazione-e-nuove-costruzioni-stellenpartner-ag-zug-75f3f105",
+        "painter-for-renovation-and-new-build-projects-stellenpartner-ag-zug-zug",
+        "peintre-pour-projets-de-renovation-et-de-construction-neuve-stellenpartner-ag-zug-zug",
         "maler-in-per-renovations-e-neubauprojekte-stellenpartner-ag-zug",
         "pittore-trice-per-progetti-di-ristrutturazione-e-nuove-costruzioni-stellenpartner-ag-zug-zug",
         "pittore-trice-per-progetti-di-ristrutturazione-e-nuove-costruzioni-stellenpartner-ag-zug"
       ],
       "en": [
-        "maler-in-fur-renovations-und-neubauprojekte-zug-zug-stellenpartner-ch",
+        "maler-in-fur-renovations-und-neubauprojekte-zug-zug-stellenpartner-ch-7a602e18",
+        "painter-for-renovation-and-new-build-projects-stellenpartner-ag-zug-zug-c13890a3",
+        "maler-in-per-renovations-e-neubauprojekte-stellenpartner-ag-zug",
+        "pittore-trice-per-progetti-di-ristrutturazione-e-nuove-costruzioni-stellenpartner-ag-zug-zug",
+        "pittore-trice-per-progetti-di-ristrutturazione-e-nuove-costruzioni-stellenpartner-ag-zug",
+        "peintre-pour-projets-de-renovation-et-de-construction-neuve-stellenpartner-ag-zug-zug",
         "painter-for-renovation-and-new-build-projects-stellenpartner-ag-zug-zug"
       ],
       "fr": [
+        "maler-in-fur-renovations-und-neubauprojekte-zug-zug-stellenpartner-ch-7a602e18",
+        "peintre-pour-projets-de-renovation-et-de-construction-neuve-stellenpartner-ag-zug-zug-09637ac0",
+        "maler-in-per-renovations-e-neubauprojekte-stellenpartner-ag-zug",
+        "pittore-trice-per-progetti-di-ristrutturazione-e-nuove-costruzioni-stellenpartner-ag-zug-zug",
+        "pittore-trice-per-progetti-di-ristrutturazione-e-nuove-costruzioni-stellenpartner-ag-zug",
+        "painter-for-renovation-and-new-build-projects-stellenpartner-ag-zug-zug",
+        "peintre-pour-projets-de-renovation-et-de-construction-neuve-stellenpartner-ag-zug-zug"
+      ],
+      "de": [
+        "maler-in-per-renovations-e-neubauprojekte-stellenpartner-ag-zug",
+        "pittore-trice-per-progetti-di-ristrutturazione-e-nuove-costruzioni-stellenpartner-ag-zug-zug",
+        "pittore-trice-per-progetti-di-ristrutturazione-e-nuove-costruzioni-stellenpartner-ag-zug",
         "maler-in-fur-renovations-und-neubauprojekte-zug-zug-stellenpartner-ch",
+        "painter-for-renovation-and-new-build-projects-stellenpartner-ag-zug-zug",
         "peintre-pour-projets-de-renovation-et-de-construction-neuve-stellenpartner-ag-zug-zug"
       ]
     },
@@ -114545,6 +114808,19 @@
         "firstSeenAt": "2026-09-08T13:58:12.354Z",
         "title": "Maler/in für Renovations- und Neubauprojekte"
       }
+    ],
+    "previousSlugs": [
+      "maler-in-per-renovations-e-neubauprojekte-stellenpartner-ag-zug",
+      "pittore-trice-per-progetti-di-ristrutturazione-e-nuove-costruzioni-stellenpartner-ag-zug-zug",
+      "pittore-trice-per-progetti-di-ristrutturazione-e-nuove-costruzioni-stellenpartner-ag-zug",
+      "painter-for-renovation-and-new-build-projects-stellenpartner-ag-zug-zug",
+      "peintre-pour-projets-de-renovation-et-de-construction-neuve-stellenpartner-ag-zug-zug",
+      "maler-in-per-renovations-e-neubauprojekte-stellenpartner-ag-zug-01c547f1",
+      "pittore-trice-per-progetti-di-ristrutturazione-e-nuove-costruzioni-stellenpartner-ag-zug-zug-0f071756",
+      "pittore-trice-per-progetti-di-ristrutturazione-e-nuove-costruzioni-stellenpartner-ag-zug-75f3f105",
+      "maler-in-fur-renovations-und-neubauprojekte-zug-zug-stellenpartner-ch-7a602e18",
+      "painter-for-renovation-and-new-build-projects-stellenpartner-ag-zug-zug-c13890a3",
+      "peintre-pour-projets-de-renovation-et-de-construction-neuve-stellenpartner-ag-zug-zug-09637ac0"
     ]
   },
   {
