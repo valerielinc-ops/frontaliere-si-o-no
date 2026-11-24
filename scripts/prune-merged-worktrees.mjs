@@ -106,6 +106,7 @@ import {
   writeFileSync,
 } from 'node:fs';
 import { basename, isAbsolute, join, relative, resolve, sep } from 'node:path';
+import { isCodexAgentWorktreePath } from './lib/worktree-locations.mjs';
 import { homedir, hostname } from 'node:os';
 
 import {
@@ -707,7 +708,9 @@ if (!fetchRun.acquired) {
 
 // Opera SOLO su worktree dentro le dir di isolamento canoniche (AGENTS.md):
 // `.claude/worktrees`, `.codex/worktrees`, `.gemini/worktrees`, `.worktrees`,
-// `.wt` o nella cartella sorella `<repo>.worktrees` di Copilot CLI. Il
+// `.wt`, nella cartella sorella `<repo>.worktrees` di Copilot CLI, e nelle
+// posizioni degli agenti Codex (`~/.codex-worktrees`, sorelle
+// `<repo>-worktree-*`: scripts/lib/worktree-locations.mjs). Il
 // checkout principale (`main`) vive fuori da queste e non va MAI toccato. Nota:
 // `git rev-parse --show-toplevel` da dentro un worktree dà il path del worktree
 // stesso, non del repo principale → non si può identificare main per uguaglianza.
@@ -1616,24 +1619,11 @@ function isCopilotWorktreePath(pathname) {
   const pathFromRoot = relative(COPILOT_WORKTREES_ROOT, canonicalPath(pathname));
   return pathFromRoot !== '' && isWithinPath(COPILOT_WORKTREES_ROOT, pathname);
 }
-// Dove gli strumenti Codex creano i worktree fuori dalle cartelle canoniche:
-// `~/.codex-worktrees/<nome>` e le cartelle sorelle `<checkout>-worktree-<nome>`
-// (accanto al checkout principale o nella cartella padre del workspace). Fino al
-// 2026-11-24 restavano fuori dallo scope e non venivano mai potati: 18 worktree
-// in `~/.codex-worktrees` fermi dal 16/11 sul Mac agenti, 30
-// `frontaliere-si-o-no-worktree-*` dal 29/10 sul Mac principale (quattro da
-// 5,5 GiB senza sparse). Valgono le stesse prove e guardie degli altri worktree;
-// il checkout principale non ha il suffisso `-worktree-` e resta escluso.
-const CODEX_WORKTREES_RE = /[/\\]\.codex-worktrees[/\\][^/\\]+/;
-const SIBLING_WORKTREE_PREFIX = `${basename(canonicalPath(mainWorktreeRoot))}-worktree-`;
-function isCodexWorktreePath(pathname) {
-  const canonical = canonicalPath(pathname);
-  if (canonical === canonicalPath(mainWorktreeRoot)) return false;
-  return CODEX_WORKTREES_RE.test(canonical)
-    || (basename(canonical).startsWith(SIBLING_WORKTREE_PREFIX) && basename(canonical).length > SIBLING_WORKTREE_PREFIX.length);
-}
+// Worktree degli agenti Codex fuori dalle cartelle canoniche: regola condivisa
+// col reclaimer in scripts/lib/worktree-locations.mjs.
 function isSupportedWorktreePath(pathname) {
-  return ISOLATION_RE.test(pathname) || isCopilotWorktreePath(pathname) || isCodexWorktreePath(pathname);
+  return ISOLATION_RE.test(pathname) || isCopilotWorktreePath(pathname)
+    || isCodexAgentWorktreePath(pathname, mainWorktreeRoot);
 }
 
 const removeWt = []; // {path, branch}

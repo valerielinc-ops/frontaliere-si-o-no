@@ -17,6 +17,7 @@ import {
 import { basename, join, relative, resolve, sep } from 'node:path';
 
 import { classifyRealChanges } from './worktree-dirty.mjs';
+import { isCodexAgentWorktreePath } from './worktree-locations.mjs';
 
 export const DEFAULT_RECLAIM_IDLE_MINUTES = 60;
 export const DEFAULT_RECLAIM_FREE_BYTES = 10 * 1024 ** 3;
@@ -401,8 +402,9 @@ function collectCandidates({ repoPath, mainBranch, only, idleMs, now }) {
   const candidates = [];
   const reports = [];
 
+  const mainWorktreeRoot = records[0]?.path;
   for (const entry of records) {
-    if (!isIsolationPath(entry.path)) continue;
+    if (!isIsolationPath(entry.path) && !isCodexAgentWorktreePath(entry.path, mainWorktreeRoot)) continue;
     if (!selected(only, entry)) continue;
     const report = (reason) => reports.push({ ...entry, reason });
     const path = canonical(entry.path);

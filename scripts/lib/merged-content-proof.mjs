@@ -110,8 +110,9 @@ export function makeContentProver({ git, mainRef, limits = {}, noLazyGitInvocati
   // i pack per stabilire se l'oggetto è promesso. L'assenza è memoizzata per
   // evitare di ripetere quel probe nello stesso sweep; dopo un fetch chiamare
   // hasCommit(rev, { refresh: true }) per rileggere l'object database. Git
-  // <2.44 non offre una sonda garantita senza rete, quindi l'OID resta
-  // sconosciuto/assente e il chiamante può solo tentare il fetch esplicito.
+  // <2.44 non offre una sonda garantita senza rete: in un clone PARZIALE l'OID
+  // resta sconosciuto/assente e il chiamante può solo tentare il fetch
+  // esplicito; in un clone completo (nessun promisor) basta la sonda semplice.
   const present = new Set();
   const absent = new Set();
   let partialClone;
@@ -122,7 +123,8 @@ export function makeContentProver({ git, mainRef, limits = {}, noLazyGitInvocati
         const [key, value = ''] = line.trim().split(/\s+/, 2);
         if (!key) return false;
         if (key.toLowerCase() === 'extensions.partialclone') return value !== '';
-        return value.toLowerCase() === 'true';
+        // Git booleans: a bare key, true/yes/on, or a non-zero integer.
+        return value === '' || /^(?:true|yes|on)$/i.test(value) || /^-?[1-9]\d*$/.test(value);
       });
     }
     return partialClone;

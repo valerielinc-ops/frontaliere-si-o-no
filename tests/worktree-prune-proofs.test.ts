@@ -511,6 +511,10 @@ describe('fatti letti da git', () => {
     expect(partial.calls.some((args) => args.includes('cat-file'))).toBe(false);
     const notPromisor = run('remote.origin.promisor false\n');
     expect(notPromisor.found).toBe(true);
+    // Booleani Git: yes/on/1 e la chiave senza valore valgono true.
+    for (const value of ['remote.origin.promisor yes\n', 'remote.origin.promisor on\n', 'remote.origin.promisor 1\n', 'remote.origin.promisor\n', 'extensions.partialclone origin\n']) {
+      expect(run(value).found, value).toBe(false);
+    }
   });
 
   it('il probe di presenza evita lazy fetch, memorizza l’assenza e la rivaluta dopo un fetch', () => {
