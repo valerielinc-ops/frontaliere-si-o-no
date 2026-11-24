@@ -106,6 +106,7 @@ import {
   writeFileSync,
 } from 'node:fs';
 import { basename, isAbsolute, join, relative, resolve, sep } from 'node:path';
+import { isCodexAgentWorktreePath } from './lib/worktree-locations.mjs';
 import { homedir, hostname } from 'node:os';
 
 import {
@@ -707,7 +708,9 @@ if (!fetchRun.acquired) {
 
 // Opera SOLO su worktree dentro le dir di isolamento canoniche (AGENTS.md):
 // `.claude/worktrees`, `.codex/worktrees`, `.gemini/worktrees`, `.worktrees`,
-// `.wt` o nella cartella sorella `<repo>.worktrees` di Copilot CLI. Il
+// `.wt`, nella cartella sorella `<repo>.worktrees` di Copilot CLI, e nelle
+// posizioni degli agenti Codex (`~/.codex-worktrees`, sorelle
+// `<repo>-worktree-*`: scripts/lib/worktree-locations.mjs). Il
 // checkout principale (`main`) vive fuori da queste e non va MAI toccato. Nota:
 // `git rev-parse --show-toplevel` da dentro un worktree dà il path del worktree
 // stesso, non del repo principale → non si può identificare main per uguaglianza.
@@ -1616,8 +1619,11 @@ function isCopilotWorktreePath(pathname) {
   const pathFromRoot = relative(COPILOT_WORKTREES_ROOT, canonicalPath(pathname));
   return pathFromRoot !== '' && isWithinPath(COPILOT_WORKTREES_ROOT, pathname);
 }
+// Worktree degli agenti Codex fuori dalle cartelle canoniche: regola condivisa
+// col reclaimer in scripts/lib/worktree-locations.mjs.
 function isSupportedWorktreePath(pathname) {
-  return ISOLATION_RE.test(pathname) || isCopilotWorktreePath(pathname);
+  return ISOLATION_RE.test(pathname) || isCopilotWorktreePath(pathname)
+    || isCodexAgentWorktreePath(pathname, mainWorktreeRoot);
 }
 
 const removeWt = []; // {path, branch}

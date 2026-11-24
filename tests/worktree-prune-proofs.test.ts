@@ -480,11 +480,41 @@ describe('fatti letti da git', () => {
     g('checkout', '-q', 'main');
   });
 
-  it('un HEAD è verificabile solo quando Git supporta una sonda no-lazy-fetch', () => {
+  it('in un clone completo un HEAD è sempre verificabile, con o senza sonda no-lazy-fetch', () => {
     const missing = 'f'.repeat(40);
     expect(prover.hasCommit(missing)).toBe(false);
     const head = g('rev-parse', 'HEAD');
-    expect(prover.hasCommit(head)).toBe(Boolean(noLazyGitInvocation(['cat-file', '-e', `${head}^{commit}`])));
+    expect(prover.hasCommit(head)).toBe(true);
+  });
+
+  it('senza sonda no-lazy-fetch: clone completo usa cat-file, clone parziale risponde assente senza sonde', () => {
+    const sha = 'd'.repeat(40);
+    const run = (config: string | null) => {
+      const calls: string[][] = [];
+      const isolated = makeContentProver({
+        mainRef: 'origin/main',
+        git: (args: string[]) => {
+          calls.push(args);
+          if (args[0] === 'config') return config;
+          if (args[0] === 'cat-file') return '';
+          return null;
+        },
+        noLazyGitInvocation: () => null,
+      });
+      return { found: isolated.hasCommit(sha), calls };
+    };
+    const full = run(null);
+    expect(full.found).toBe(true);
+    expect(full.calls).toContainEqual(['cat-file', '-e', `${sha}^{commit}`]);
+    const partial = run('remote.origin.promisor true\n');
+    expect(partial.found).toBe(false);
+    expect(partial.calls.some((args) => args.includes('cat-file'))).toBe(false);
+    const notPromisor = run('remote.origin.promisor false\n');
+    expect(notPromisor.found).toBe(true);
+    // Booleani Git: yes/on/1 e la chiave senza valore valgono true.
+    for (const value of ['remote.origin.promisor yes\n', 'remote.origin.promisor on\n', 'remote.origin.promisor 1\n', 'remote.origin.promisor\n', 'extensions.partialclone origin\n']) {
+      expect(run(value).found, value).toBe(false);
+    }
   });
 
   it('il probe di presenza evita lazy fetch, memorizza l’assenza e la rivaluta dopo un fetch', () => {
