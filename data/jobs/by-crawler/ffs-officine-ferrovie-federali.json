@@ -1647,7 +1647,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:24:39.192Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-52a9d5d4ffe1",
@@ -5659,7 +5660,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:24:38.664Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-497bafee26b9",
@@ -6001,7 +6003,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:24:24.180Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-a8a82df876ad",
@@ -7332,7 +7335,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:24:45.657Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-6eb1004dd0e5",
@@ -7448,7 +7452,7 @@
       "slugByLocale": {
         "it": "creatore-di-decisione-del-ciclo-di-vita-ib-ffs-officine-ferrovie-federali-bellinzona",
         "en": "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona-lqr57y",
-        "de": "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona",
+        "de": "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona-lqr57y",
         "fr": "decideur-du-cycle-de-vie-ib-ffs-officine-ferrovie-federali-bellinzona-00cef5"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -7518,8 +7522,7 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-23T21:24:38.170Z",
       "previousSlugs": [
-        "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona",
-        "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona-lqr57y"
+        "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7529,7 +7532,7 @@
           "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona"
         ],
         "de": [
-          "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona-lqr57y"
+          "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona"
         ],
         "fr": [
           "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona"
@@ -9833,7 +9836,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T21:25:05.702Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-09d681dc8204",
@@ -11866,7 +11870,8 @@
       "streetAddress": "Sarnen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-23T21:25:49.748Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-83c61f0a4674",
@@ -17475,7 +17480,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:33:53.759Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-3bbd9c0b3214",
@@ -18563,7 +18569,8 @@
       "validThrough": "2027-02-16T21:33:54.672Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-18T21:27:22.227Z",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-beb64dd74712",
@@ -18630,7 +18637,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:33:54.780Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-9634e780d4e6",
@@ -19201,7 +19209,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:33:55.201Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-e2be1ca19061",
@@ -32370,7 +32379,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/transportlogistiker-in/14d59c0c-6c34-48c4-b375-97e6c819d9cd",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-23T21:25:47.157Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -32477,7 +32485,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/responsabile-della-contabilita-finanziaria-m-f-d/fc1fe8a9-e622-4bef-986b-4c40cceef192",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-23T21:25:31.677Z",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 192000,
       "salarySource": "estimated",
@@ -32690,7 +32697,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/teamleiter-in-finanzbuchhaltung/20ae3ce9-01eb-4228-bb6f-b1b5f1f477ec",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-23T21:25:41.160Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -32893,7 +32899,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/gestionnaire-de-produit-installations-de-lignes-aeriennes-h-f-d/bc345c69-db35-42df-8b0e-1d8d9fd7838a",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-23T21:24:32.205Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-de-produit-installations-de-lignes-aeriennes-h-f-d-ffs-officine-ferrovie-federali-bern"
@@ -33003,7 +33008,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/produktmanager-in-freileitungen/6318d621-fc33-4a75-9252-826cb8be3fd7",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-23T21:25:06.657Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -33105,7 +33109,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/gestionnaire-des-demandes-d-exploitation-h-f-d/127ca1cc-5470-4821-b078-139dff728df6",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-23T21:24:32.673Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-des-demandes-d-exploitation-h-f-d-ffs-officine-ferrovie-federali-yverdon-les-bains"
