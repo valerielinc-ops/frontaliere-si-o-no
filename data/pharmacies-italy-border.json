@@ -6,7 +6,9 @@
   "_asOf": "2026-11-24",
   "_userAgent": "FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/bot)",
   "_pharmacyCount": 544,
-  "_errors": [],
+  "_errors": [
+    "Italian pharmacy catalogue refresh was not published after transient source failure: Failed to fetch https://www.dati.salute.gov.it/it/dataset/farmacie/ (timeout): fetch failed"
+  ],
   "_warnings": [],
   "_scope": {
     "country": "IT",
@@ -27538,5 +27540,6 @@
         "services": "not_published"
       }
     }
-  ]
+  ],
+  "_preserved": true
 }
