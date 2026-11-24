@@ -1,7 +1,7 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-11-24T09:38:56.595Z",
-  "runId": "45364436564",
+  "assembledAt": "2026-11-24T21:38:24.243Z",
+  "runId": "45490222548",
   "jobs": [
     {
       "id": "alpiq-f05066085344",
@@ -50,7 +50,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=281&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-24T09:38:16.280Z",
+      "crawledAt": "2026-11-24T21:37:48.196Z",
       "firstSeenAt": "2026-10-30T09:47:47.856Z",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -64,7 +64,7 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-29T09:38:16.280Z",
+      "validThrough": "2027-01-28T21:37:48.196Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 130000,
       "salaryMax": 198000,
@@ -127,10 +127,10 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=283&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-24T09:38:16.284Z",
+      "crawledAt": "2026-11-24T21:37:48.199Z",
       "firstSeenAt": "2026-10-30T21:41:25.278Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-29T09:38:16.284Z",
+      "validThrough": "2027-01-29T21:37:48.199Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 83000,
       "salaryMax": 127000,
@@ -193,13 +193,13 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=311&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T09:38:16.289Z",
+      "crawledAt": "2026-11-24T21:37:48.204Z",
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3103,
       "retranslationAttempts": 32,
       "firstSeenAt": "2026-09-25T15:00:06.553Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T09:38:16.289Z",
+      "validThrough": "2026-12-24T21:37:48.204Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 92000,
       "salaryMax": 140000,
@@ -263,10 +263,10 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=320&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-24T09:38:16.292Z",
+      "crawledAt": "2026-11-24T21:37:48.210Z",
       "firstSeenAt": "2026-11-04T22:03:16.706Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:38:16.292Z",
+      "validThrough": "2027-02-03T21:37:48.210Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 74000,
       "salaryMax": 113000,
@@ -346,7 +346,8 @@
           "maxValue": 113000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "alpiq-d4b7d5a85b98",
@@ -359,21 +360,19 @@
       "companyDomain": "alpiq.com",
       "title": "Senior Option Trader",
       "titleByLocale": {
-        "en": "Senior Option Trader",
         "it": "Commercio di opzione senior",
+        "en": "Senior Option Trader",
         "fr": "Opérateur principal"
       },
       "description": "Mission\n\nJoin us in shaping the future of our Trading Division as a Senior Option Trader, where you'll play a pivotal role in driving transformation and realizing our ambitious goals. We're seeking a dynamic individual to lead the enhancement of skills and capabilities within our asset trading perimeter, particularly in the domain of options trading.\n\nYour main responsibilities\n\n• Drive the development and implementation of option trading strategies to effectively manage risk and optimize revenue from our diverse portfolio, including hydropower and gas-fired units, in close collaboration with our quantitative analytics, risk and trading teams.\n\n• Contribute to our trading transformation by establishing a consolidated and efficient framework for risk representation, management, asset optimization, and asset-backed trading.\n\n• Ensure the performance, risk tracking, and reporting of option trading strategies, utilizing benchmarking, backtesting, and stress testing to identify sensitivities and risks accurately.\n\n• Drive the development of coherent risk representation for our asset portfolio, supporting the creation of corresponding risk and valuation models.\n\n• Provide guidance, direction, and coaching to the asset trading team, facilitating the rollout of advanced option trading strategies and acting as a strategic value creator.\n\n• Execute and trade option trading strategies within our Asset Trading domain.\n\nYour profile\n\n• A strong team player with a proactive and results-driven attitude.\n\n• Highly collaborative, with the ability to build trust and relationships in a complex and diverse environment.\n\n• Demonstrated expertise in trading commodities futures and real options within an asset-backed environment.\n\n• Minimum 7 years of experience in trading European Gas & Power markets.\n\n• Ability to provide expert thought leadership and drive improvements with minimal direction.\n\n• Solid understanding and hands-on experience in building and maintaining robust models and scalable infrastructure in the energy trading sector.\n\n• Master’s degree in Economics, Engineering, Physics, Mathematics, or similar field.\n\n• Proficiency in English; knowledge of additional languages is advantageous.",
       "descriptionByLocale": {
-        "en": "Mission\n\nJoin us in shaping the future of our Trading Division as a Senior Option Trader, where you'll play a pivotal role in driving transformation and realizing our ambitious goals. We're seeking a dynamic individual to lead the enhancement of skills and capabilities within our asset trading perimeter, particularly in the domain of options trading.\n\nYour main responsibilities\n\n• Drive the development and implementation of option trading strategies to effectively manage risk and optimize revenue from our diverse portfolio, including hydropower and gas-fired units, in close collaboration with our quantitative analytics, risk and trading teams.\n\n• Contribute to our trading transformation by establishing a consolidated and efficient framework for risk representation, management, asset optimization, and asset-backed trading.\n\n• Ensure the performance, risk tracking, and reporting of option trading strategies, utilizing benchmarking, backtesting, and stress testing to identify sensitivities and risks accurately.\n\n• Drive the development of coherent risk representation for our asset portfolio, supporting the creation of corresponding risk and valuation models.\n\n• Provide guidance, direction, and coaching to the asset trading team, facilitating the rollout of advanced option trading strategies and acting as a strategic value creator.\n\n• Execute and trade option trading strategies within our Asset Trading domain.\n\nYour profile\n\n• A strong team player with a proactive and results-driven attitude.\n\n• Highly collaborative, with the ability to build trust and relationships in a complex and diverse environment.\n\n• Demonstrated expertise in trading commodities futures and real options within an asset-backed environment.\n\n• Minimum 7 years of experience in trading European Gas & Power markets.\n\n• Ability to provide expert thought leadership and drive improvements with minimal direction.\n\n• Solid understanding and hands-on experience in building and maintaining robust models and scalable infrastructure in the energy trading sector.\n\n• Master’s degree in Economics, Engineering, Physics, Mathematics, or similar field.\n\n• Proficiency in English; knowledge of additional languages is advantageous.",
         "it": "Missione\n\nUnisciti a noi nel plasmare il futuro della nostra Divisione Trading come Senior Option Trader, dove giocherai un ruolo fondamentale nella trasformazione della guida e nella realizzazione dei nostri obiettivi ambiziosi. Stiamo cercando un individuo dinamico per portare il miglioramento delle competenze e delle capacità all'interno del nostro perimetro di asset trading, in particolare nel settore del trading di opzioni.\n\nLe tue principali responsabilità\n\n• Guida lo sviluppo e l'implementazione di strategie di trading opzioni per gestire efficacemente i rischi e ottimizzare i ricavi dal nostro portafoglio diversificato, tra cui unità idroelettriche e a gas, in stretta collaborazione con i nostri team di analisi, rischio e trading quantitativi.\n\n• Contribuisci alla nostra trasformazione di trading stabilendo un quadro consolidato ed efficiente per la rappresentazione del rischio, la gestione, l'ottimizzazione degli asset e il trading di asset-backed.\n\n• Assicurare le prestazioni, il monitoraggio dei rischi e la segnalazione delle strategie di trading delle opzioni, utilizzando benchmarking, backtesting e test di stress per identificare le sensibilità e i rischi con precisione.\n\n• Guidare lo sviluppo di una rappresentazione coerente dei rischi per il nostro portafoglio di asset, supportando la creazione di modelli di rischio e valutazione corrispondenti.\n\n• Fornire guida, direzione e coaching al team di asset trading, facilitando il rollout di strategie di trading opzioni avanzate e agendo come un creatore di valore strategico.\n\n• Eseguire e scambiare le strategie di trading delle opzioni all'interno del nostro dominio Asset Trading.\n\nIl tuo profilo\n\n• Un giocatore di squadra forte con un atteggiamento proattivo e guidato dai risultati.\n\n• Altamente collaborativo, con la capacità di costruire fiducia e relazioni in un ambiente complesso e diversificato.\n\n• Dimostrata esperienza nel trading futures delle materie prime e opzioni reali all'interno di un ambiente sostenuto dagli asset.\n\n• Minimo 7 anni di esperienza nel commercio dei mercati europei del gas e del potere.\n\n• Capacità di fornire la leadership di pensiero esperto e guidare miglioramenti con direzione minima.\n\n• Solida comprensione e esperienza pratica nella costruzione e nel mantenimento di modelli robusti e infrastrutture scalabili nel settore del trading energetico.\n\n• Laurea magistrale in Economia, Ingegneria, Fisica, Matematica, o campo simile.\n\n• La competenza in inglese; la conoscenza delle lingue aggiuntive è vantaggiosa.",
+        "en": "Mission\n\nJoin us in shaping the future of our Trading Division as a Senior Option Trader, where you'll play a pivotal role in driving transformation and realizing our ambitious goals. We're seeking a dynamic individual to lead the enhancement of skills and capabilities within our asset trading perimeter, particularly in the domain of options trading.\n\nYour main responsibilities\n\n• Drive the development and implementation of option trading strategies to effectively manage risk and optimize revenue from our diverse portfolio, including hydropower and gas-fired units, in close collaboration with our quantitative analytics, risk and trading teams.\n\n• Contribute to our trading transformation by establishing a consolidated and efficient framework for risk representation, management, asset optimization, and asset-backed trading.\n\n• Ensure the performance, risk tracking, and reporting of option trading strategies, utilizing benchmarking, backtesting, and stress testing to identify sensitivities and risks accurately.\n\n• Drive the development of coherent risk representation for our asset portfolio, supporting the creation of corresponding risk and valuation models.\n\n• Provide guidance, direction, and coaching to the asset trading team, facilitating the rollout of advanced option trading strategies and acting as a strategic value creator.\n\n• Execute and trade option trading strategies within our Asset Trading domain.\n\nYour profile\n\n• A strong team player with a proactive and results-driven attitude.\n\n• Highly collaborative, with the ability to build trust and relationships in a complex and diverse environment.\n\n• Demonstrated expertise in trading commodities futures and real options within an asset-backed environment.\n\n• Minimum 7 years of experience in trading European Gas & Power markets.\n\n• Ability to provide expert thought leadership and drive improvements with minimal direction.\n\n• Solid understanding and hands-on experience in building and maintaining robust models and scalable infrastructure in the energy trading sector.\n\n• Master’s degree in Economics, Engineering, Physics, Mathematics, or similar field.\n\n• Proficiency in English; knowledge of additional languages is advantageous.",
         "de": "Mission\n\nBegleiten Sie uns bei der Gestaltung der Zukunft unserer Trading Division als Senior Option Trader, wo Sie eine entscheidende Rolle bei der Förderung der Transformation und der Verwirklichung unserer ehrgeizigen Ziele spielen werden. Wir suchen eine dynamische Person, um die Verbesserung der Fähigkeiten und Fähigkeiten in unserem Asset Trading Perimeter, insbesondere im Bereich des Optionshandels, zu führen.\n\nIhre Hauptaufgaben\n\n• Betreiben Sie die Entwicklung und Umsetzung von Optionshandelsstrategien, um das Risiko effektiv zu managen und den Umsatz aus unserem vielfältigen Portfolio, einschließlich Wasserkraft- und Gasanlagen, in enger Zusammenarbeit mit unseren quantitativen Analyse-, Risiko- und Handelsteams zu optimieren.\n\n• Tragen Sie zu unserer Handelstransformation bei, indem Sie einen konsolidierten und effizienten Rahmen für Risikorepräsentation, Management, Vermögensoptimierung und Asset-Backed Trading schaffen.\n\n• Stellen Sie die Performance, Risikoverfolgung und Berichterstattung von Optionshandelsstrategien sicher und nutzen Sie Benchmarking, Backtesting und Stresstests, um Sensitivitäten und Risiken genau zu identifizieren.\n\n• Förderung der Entwicklung einer kohärenten Risikorepräsentation für unser Anlageportfolio und Unterstützung der Erstellung entsprechender Risiko- und Bewertungsmodelle.\n\n• Geben Sie Anleitung, Richtung und Coaching für das Asset-Trading-Team, erleichtern Sie die Einführung von fortgeschrittenen Optionshandelsstrategien und agieren Sie als strategischer Wertschöpfer.\n\n• Ausführen und Handel Option Trading-Strategien innerhalb unserer Asset Trading Domain.\n\nDein Profil\n\n• Ein starker Teamplayer mit einer proaktiven und ergebnisorientierten Einstellung.\n\n• Sehr kooperativ, mit der Fähigkeit, Vertrauen und Beziehungen in einer komplexen und vielfältigen Umgebung aufzubauen.\n\n• Demonstrierte Expertise im Handel mit Rohstoff-Futures und realen Optionen in einer Asset-Backed-Umgebung.\n\n• Mindestens 7 Jahre Erfahrung im Handel mit europäischen Gas & Power Märkten.\n\n• Fähigkeit, Expertenführung zu bieten und Verbesserungen mit minimaler Richtung voranzutreiben.\n\n• Solides Verständnis und praktische Erfahrung beim Aufbau und der Pflege robuster Modelle und skalierbarer Infrastruktur im Energiehandelssektor.\n\n• Master-Abschluss in Wirtschaft, Ingenieurwesen, Physik, Mathematik oder ähnlichem Bereich.\n\n• Englischkenntnisse; Kenntnisse in zusätzlichen Sprachen sind vorteilhaft.",
         "fr": "Mission\n\nRejoignez-nous pour façonner l'avenir de notre division Trading en tant que trader d'option senior, où vous jouerez un rôle central dans la transformation et la réalisation de nos objectifs ambitieux. Nous cherchons une personne dynamique pour diriger l'amélioration des compétences et des capacités dans notre périmètre de négociation d'actifs, en particulier dans le domaine du trading d'options.\n\nVos principales responsabilités\n\n• Diriger l'élaboration et la mise en oeuvre de stratégies de négociation d'options pour gérer efficacement les risques et optimiser les revenus de notre portefeuille diversifié, y compris les unités hydroélectriques et alimentées au gaz, en étroite collaboration avec nos équipes d'analyse quantitative, de risque et de négociation.\n\n• Contribuer à notre transformation commerciale en établissant un cadre consolidé et efficace pour la représentation des risques, la gestion, l'optimisation des actifs et la négociation adossée aux actifs.\n\n• Assurer le rendement, le suivi des risques et la présentation de rapports sur les stratégies d'échange d'options, en utilisant l'analyse comparative, les tests de contre-essais et les tests de stress pour déterminer avec précision les sensibilités et les risques.\n\n• Favoriser le développement d'une représentation cohérente des risques pour notre portefeuille d'actifs, en soutenant la création de modèles de risque et d'évaluation correspondants.\n\n• Fournir des conseils, une orientation et un encadrement à l'équipe de négociation d'actifs, faciliter le déploiement de stratégies de négociation d'options avancées et agir comme créateur de valeur stratégique.\n\n• Exécuter et trader des stratégies de trading d'options dans notre domaine Asset Trading.\n\nVotre profil\n\n• Un solide joueur d'équipe avec une attitude proactive et axée sur les résultats.\n\n• Très collaborative, capable de bâtir la confiance et les relations dans un environnement complexe et diversifié.\n\n• Expertise démontrée dans le commerce des produits de base à terme et des options réelles dans un environnement soutenu par des actifs.\n\n• Au moins 7 ans d'expérience dans le commerce des marchés européens du gaz et de l'électricité.\n\n• Capacité de fournir un leadership éclairé et d'encourager les améliorations avec une orientation minimale.\n\n• Compréhension solide et expérience pratique dans la construction et le maintien de modèles robustes et d'infrastructures évolutives dans le secteur du commerce de l'énergie.\n\n• Maîtrise en économie, ingénierie, physique, mathématiques ou domaine similaire.\n\n• Connaissance de l'anglais; la connaissance de langues supplémentaires est avantageuse."
       },
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "location": "Lausanne",
       "canton": "VD",
       "postalCode": "1003",
@@ -393,10 +392,11 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=379&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-24T09:38:16.296Z",
+      "crawledAt": "2026-11-24T21:37:48.211Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-24T09:38:16.296Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T09:38:16.296Z",
+      "validThrough": "2027-02-22T21:37:48.211Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 117500,
       "salaryMax": 179500,
@@ -410,8 +410,7 @@
           "maxValue": 179500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-11-24T09:38:16.296Z"
+      }
     },
     {
       "id": "alpiq-fb57e3fc766f",
@@ -460,10 +459,10 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=399&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-24T09:38:16.297Z",
+      "crawledAt": "2026-11-24T21:37:48.212Z",
       "firstSeenAt": "2026-11-23T09:47:46.733Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T09:38:16.297Z",
+      "validThrough": "2027-02-21T21:37:48.212Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 117500,
       "salaryMax": 179500,
@@ -521,11 +520,11 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=401&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-24T09:38:16.298Z",
+      "crawledAt": "2026-11-24T21:37:48.213Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-11-23T21:46:17.450Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-22T09:38:16.298Z",
+      "validThrough": "2027-02-22T21:37:48.213Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 83000,
       "salaryMax": 127000,
