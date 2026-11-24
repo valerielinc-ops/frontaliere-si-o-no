@@ -6,6 +6,12 @@ import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 
 const ROOT = path.resolve(__dirname, '..');
+// The git the fixture stubs delegate to: the binary of the git on PATH, taken
+// from its exec-path so wrappers (the workspace shim) are bypassed. Hardcoding
+// /usr/bin/git picked Apple Git 2.39 on macOS, which lacks the
+// `merge-tree --merge-base` the reconciler uses (git >= 2.40), so three
+// reconcile cases failed only on developer Macs while CI stayed green.
+const REAL_GIT = path.join(execFileSync('git', ['--exec-path'], { encoding: 'utf8' }).trim(), 'git');
 const directories: string[] = [];
 const identity = {
   GIT_AUTHOR_NAME: 'frontaliere-automation[bot]',
@@ -125,9 +131,9 @@ function fixture() {
     '    esac',
     '  done',
     '  if [ "${REFRESH_FIXTURE_ORPHAN_RESET_RACE:-0}" = 1 ]; then',
-    '    /usr/bin/git --git-dir="$REFRESH_FIXTURE_REMOTE" update-ref "refs/heads/chore/refresh" "$REFRESH_FIXTURE_ORPHAN_RESET_RACE_HEAD"',
+    `    '${REAL_GIT}' --git-dir="$REFRESH_FIXTURE_REMOTE" update-ref "refs/heads/chore/refresh" "$REFRESH_FIXTURE_ORPHAN_RESET_RACE_HEAD"`,
     '  fi',
-    '  /usr/bin/git --git-dir="$REFRESH_FIXTURE_REMOTE" update-ref "refs/heads/chore/refresh" "$cas_after" "$cas_before" || exit 1',
+    `  '${REAL_GIT}' --git-dir="$REFRESH_FIXTURE_REMOTE" update-ref "refs/heads/chore/refresh" "$cas_after" "$cas_before" || exit 1`,
     '  if [ -n "${REFRESH_FIXTURE_PATCH_MARKER:-}" ]; then touch "$REFRESH_FIXTURE_PATCH_MARKER"; fi',
     '  if [ -n "${REFRESH_FIXTURE_PATCH_LOG:-}" ]; then printf "%s\\n" "$cas_before->$cas_after" >> "$REFRESH_FIXTURE_PATCH_LOG"; fi',
     '  echo "$cas_after"',
@@ -145,11 +151,11 @@ function fixture() {
     '    esac',
     '  done',
     '  if [ "${REFRESH_FIXTURE_ORPHAN_RESET_RACE:-0}" = 1 ] && [ "$patch_force" = false ]; then',
-    '    /usr/bin/git --git-dir="$REFRESH_FIXTURE_REMOTE" update-ref "refs/heads/$patch_ref" "$REFRESH_FIXTURE_ORPHAN_RESET_RACE_HEAD"',
+    `    '${REAL_GIT}' --git-dir="$REFRESH_FIXTURE_REMOTE" update-ref "refs/heads/$patch_ref" "$REFRESH_FIXTURE_ORPHAN_RESET_RACE_HEAD"`,
     '    exit 1',
     '  fi',
     '  if [ -n "${REFRESH_FIXTURE_PATCH_MARKER:-}" ]; then touch "$REFRESH_FIXTURE_PATCH_MARKER"; fi',
-    '  /usr/bin/git --git-dir="$REFRESH_FIXTURE_REMOTE" update-ref "refs/heads/$patch_ref" "$patch_sha"',
+    `  '${REAL_GIT}' --git-dir="$REFRESH_FIXTURE_REMOTE" update-ref "refs/heads/$patch_ref" "$patch_sha"`,
     '  echo "$patch_sha"',
     '  exit 0',
     'fi',
@@ -185,7 +191,7 @@ function fixture() {
     '    exit 77',
     '  fi',
     'fi',
-    'exec /usr/bin/git "$@"',
+    `exec '${REAL_GIT}' "$@"`,
     '',
   ].join('\n'));
   fs.chmodSync(gitWrapper, 0o755);
