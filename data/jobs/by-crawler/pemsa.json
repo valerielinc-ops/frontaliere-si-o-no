@@ -1,7 +1,7 @@
 {
   "crawlerKey": "pemsa",
-  "assembledAt": "2026-11-23T21:28:55.656Z",
-  "runId": "45266192655",
+  "assembledAt": "2026-11-24T09:32:01.338Z",
+  "runId": "45361853498",
   "jobs": [
     {
       "title": "Tecnico superiore in elettronica (M/F/D)",
@@ -42,9 +42,9 @@
       },
       "slugByLocale": {
         "it": "tecnico-superiore-in-elettronica-m-f-d-pemsa-geneve",
-        "en": "tecnico-superiore-in-elettronica-m-f-d-pemsa-geneve",
-        "de": "tecnico-superiore-in-elettronica-m-f-d-pemsa-geneve",
-        "fr": "tecnico-superiore-in-elettronica-m-f-d-pemsa-geneve"
+        "en": "technician-superiore-in-elettronica-m-f-d-pemsa-geneve",
+        "de": "techniker-superiore-in-elettronica-m-f-d-pemsa-geneve",
+        "fr": "technicien-superiore-in-elettronica-m-f-d-pemsa-geneve"
       },
       "id": "pemsa-75387d73213b",
       "salaryMin": 74500,
@@ -62,12 +62,26 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-23T21:28:52.618Z"
+      "firstSeenAt": "2026-11-23T21:28:52.618Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "tecnico-superiore-in-elettronica-m-f-d-pemsa-geneve"
+        ],
+        "de": [
+          "tecnico-superiore-in-elettronica-m-f-d-pemsa-geneve"
+        ],
+        "fr": [
+          "tecnico-superiore-in-elettronica-m-f-d-pemsa-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "tecnico-superiore-in-elettronica-m-f-d-pemsa-geneve"
+      ]
     },
     {
       "title": "Falegname/a di officina (M/F/D) – Realizzazione di infissi su misura",
@@ -128,7 +142,7 @@
         }
       },
       "postalCode": "1868",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Collombey",
       "streetAddressSource": "to-enrich",
@@ -208,7 +222,7 @@
         }
       },
       "postalCode": "1920",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -299,7 +313,7 @@
         }
       },
       "postalCode": "1868",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Collombey",
       "streetAddressSource": "to-enrich",
@@ -379,7 +393,7 @@
         }
       },
       "postalCode": "1950",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
@@ -459,7 +473,7 @@
         }
       },
       "postalCode": "1870",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
@@ -539,7 +553,7 @@
         }
       },
       "postalCode": "1868",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Collombey",
       "streetAddressSource": "to-enrich",
@@ -619,7 +633,7 @@
         }
       },
       "postalCode": "1920",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -710,7 +724,7 @@
         }
       },
       "postalCode": "1950",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
@@ -790,7 +804,7 @@
         }
       },
       "postalCode": "1870",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
@@ -870,7 +884,7 @@
         }
       },
       "postalCode": "1920",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -947,7 +961,7 @@
         }
       },
       "postalCode": "1950",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
@@ -1027,7 +1041,7 @@
         }
       },
       "postalCode": "1920",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -1118,7 +1132,7 @@
         }
       },
       "postalCode": "1870",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
@@ -1198,7 +1212,7 @@
         }
       },
       "postalCode": "1920",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -1289,7 +1303,7 @@
         }
       },
       "postalCode": "1950",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
@@ -1349,9 +1363,9 @@
       },
       "slugByLocale": {
         "it": "tecnico-es-del-settore-del-legno-m-f-d-modellazione-e-monitoraggio-della-produzione-pemsa-monthey",
-        "en": "tecnico-es-del-settore-del-legno-m-f-d-modellazione-e-monitoraggio-della-produzione-pemsa-monthey",
-        "de": "tecnico-es-del-settore-del-legno-m-f-d-modellazione-e-monitoraggio-della-produzione-pemsa-monthey",
-        "fr": "tecnico-es-del-settore-del-legno-m-f-d-modellazione-e-monitoraggio-della-produzione-pemsa-monthey"
+        "en": "technician-es-del-settore-del-legno-m-f-d-modellazione-e-monitoraggio-della-production-pemsa-monthey",
+        "de": "techniker-es-del-settore-del-legno-m-f-d-modellazione-e-monitoraggio-della-produktion-pemsa-monthey",
+        "fr": "technicien-es-del-settore-del-legno-m-f-d-modellazione-e-monitoraggio-della-production-pemsa-monthey"
       },
       "id": "pemsa-be06dd76d5b9",
       "salaryMin": 74500,
@@ -1369,12 +1383,26 @@
         }
       },
       "postalCode": "1870",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-23T21:28:52.618Z"
+      "firstSeenAt": "2026-11-23T21:28:52.618Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "tecnico-es-del-settore-del-legno-m-f-d-modellazione-e-monitoraggio-della-produzione-pemsa-monthey"
+        ],
+        "de": [
+          "tecnico-es-del-settore-del-legno-m-f-d-modellazione-e-monitoraggio-della-produzione-pemsa-monthey"
+        ],
+        "fr": [
+          "tecnico-es-del-settore-del-legno-m-f-d-modellazione-e-monitoraggio-della-produzione-pemsa-monthey"
+        ]
+      },
+      "previousSlugs": [
+        "tecnico-es-del-settore-del-legno-m-f-d-modellazione-e-monitoraggio-della-produzione-pemsa-monthey"
+      ]
     },
     {
       "title": "Tecnico ES del legno M/F/D – Organizzazione tecnica di progetti nel settore del legno",
@@ -1435,7 +1463,7 @@
         }
       },
       "postalCode": "1920",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -1492,9 +1520,9 @@
       },
       "slugByLocale": {
         "it": "tecnico-es-del-settore-del-legno-m-f-d-progettazione-e-monitoraggio-della-produzione-pemsa-sion",
-        "en": "tecnico-es-del-settore-del-legno-m-f-d-progettazione-e-monitoraggio-della-produzione-pemsa-sion",
-        "de": "tecnico-es-del-settore-del-legno-m-f-d-progettazione-e-monitoraggio-della-produzione-pemsa-sion",
-        "fr": "tecnico-es-del-settore-del-legno-m-f-d-progettazione-e-monitoraggio-della-produzione-pemsa-sion"
+        "en": "technician-es-del-settore-del-legno-m-f-d-progettazione-e-monitoraggio-della-production-pemsa-sion",
+        "de": "techniker-es-del-settore-del-legno-m-f-d-progettazione-e-monitoraggio-della-produktion-pemsa-sion",
+        "fr": "technicien-es-del-settore-del-legno-m-f-d-progettazione-e-monitoraggio-della-production-pemsa-sion"
       },
       "id": "pemsa-e9d3ad02230e",
       "salaryMin": 74500,
@@ -1512,12 +1540,26 @@
         }
       },
       "postalCode": "1950",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-23T21:28:52.618Z"
+      "firstSeenAt": "2026-11-23T21:28:52.618Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "tecnico-es-del-settore-del-legno-m-f-d-progettazione-e-monitoraggio-della-produzione-pemsa-sion"
+        ],
+        "de": [
+          "tecnico-es-del-settore-del-legno-m-f-d-progettazione-e-monitoraggio-della-produzione-pemsa-sion"
+        ],
+        "fr": [
+          "tecnico-es-del-settore-del-legno-m-f-d-progettazione-e-monitoraggio-della-produzione-pemsa-sion"
+        ]
+      },
+      "previousSlugs": [
+        "tecnico-es-del-settore-del-legno-m-f-d-progettazione-e-monitoraggio-della-produzione-pemsa-sion"
+      ]
     },
     {
       "title": "Falegname/a di officina",
@@ -1578,7 +1620,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -1668,7 +1710,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -1758,7 +1800,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -1848,7 +1890,7 @@
         }
       },
       "postalCode": "6855",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Stabio",
       "streetAddressSource": "to-enrich",
@@ -1929,7 +1971,7 @@
         }
       },
       "postalCode": "6850",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
@@ -1996,7 +2038,7 @@
         }
       },
       "postalCode": "6900",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
@@ -2077,7 +2119,7 @@
         }
       },
       "postalCode": "6900",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Paradiso",
       "streetAddressSource": "to-enrich",
@@ -2158,7 +2200,7 @@
         }
       },
       "postalCode": "6942",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Savosa",
       "streetAddressSource": "to-enrich",
@@ -2248,7 +2290,7 @@
         }
       },
       "postalCode": "1003",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "St-Sulpice VD",
       "streetAddressSource": "to-enrich",
@@ -2331,7 +2373,7 @@
         }
       },
       "postalCode": "1003",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
@@ -2414,7 +2456,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -2497,7 +2539,7 @@
         }
       },
       "postalCode": "1920",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -2591,7 +2633,7 @@
         }
       },
       "postalCode": "1907",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Saxon",
       "streetAddressSource": "to-enrich",
@@ -2681,7 +2723,7 @@
         }
       },
       "postalCode": "1963",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Vétroz",
       "streetAddressSource": "to-enrich",
@@ -2764,7 +2806,7 @@
         }
       },
       "postalCode": "1950",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
@@ -2847,7 +2889,7 @@
         }
       },
       "postalCode": "1920",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -2941,7 +2983,7 @@
         }
       },
       "postalCode": "1964",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Conthey",
       "streetAddressSource": "to-enrich",
@@ -3024,7 +3066,7 @@
         }
       },
       "postalCode": "1950",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
@@ -3111,7 +3153,7 @@
         }
       },
       "postalCode": "1950",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
@@ -3194,7 +3236,7 @@
         }
       },
       "postalCode": "1907",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Saxon",
       "streetAddressSource": "to-enrich",
@@ -3284,7 +3326,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -3367,7 +3409,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -3450,7 +3492,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -3533,7 +3575,7 @@
         }
       },
       "postalCode": "6802",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Rivera",
       "streetAddressSource": "to-enrich",
@@ -3614,7 +3656,7 @@
         }
       },
       "postalCode": "1003",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Villeneuve VD",
       "streetAddressSource": "to-enrich",
@@ -3695,7 +3737,7 @@
         }
       },
       "postalCode": "1820",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Montreux",
       "streetAddressSource": "to-enrich",
@@ -3776,7 +3818,7 @@
         }
       },
       "postalCode": "1170",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Aubonne",
       "streetAddressSource": "to-enrich",
@@ -3857,7 +3899,7 @@
         }
       },
       "postalCode": "1040",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Echallens",
       "streetAddressSource": "to-enrich",
@@ -3938,7 +3980,7 @@
         }
       },
       "postalCode": "1180",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Rolle",
       "streetAddressSource": "to-enrich",
@@ -4019,7 +4061,7 @@
         }
       },
       "postalCode": "1800",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Vevey",
       "streetAddressSource": "to-enrich",
@@ -4100,7 +4142,7 @@
         }
       },
       "postalCode": "1196",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Gland",
       "streetAddressSource": "to-enrich",
@@ -4181,7 +4223,7 @@
         }
       },
       "postalCode": "1110",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
@@ -4262,7 +4304,7 @@
         }
       },
       "postalCode": "1023",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Crissier",
       "streetAddressSource": "to-enrich",
@@ -4343,7 +4385,7 @@
         }
       },
       "postalCode": "1003",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
@@ -4364,73 +4406,6 @@
         "operaio-specializzato-in-palanche-perforazione-vibrante-pemsa-lausanne"
       ],
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/operaio-specializzato-in-palanche-perforazione-vibrante-2705960"
-    },
-    {
-      "title": "Responsabile officina Macchine da cantiere e piattaforme aeree (M/F/D)",
-      "slug": "responsabile-officina-macchine-da-cantiere-e-piattaforme-aeree-m-f-d-pemsa-lausanne",
-      "url": "https://www.pemsa.ch/it/job/responsabile-officina-macchine-da-cantiere-e-piattaforme-aeree-m-f-d-2705957/",
-      "applyUrl": "https://www.pemsa.ch/it/job/responsabile-officina-macchine-da-cantiere-e-piattaforme-aeree-m-f-d-2705957/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Lausanne",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "canton": "VD",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "datePosted": "2026-11-18T08:30:00+01:00",
-      "postedDate": "2026-11-18T08:30:00+01:00",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-12-31T23:59:59.999Z",
-      "description": "Edilizia & Genio civile - Mécanicien en machines de chantier\nResponsabile officina Macchine da cantiere e piattaforme aeree (M/F/D)\nA tempo pieno Posto fisso\nCandidarsi\nCandidarsi per questo lavoro\nResponsabile officina Macchine da cantiere e piattaforme aeree (M/F/D)\n* indica i campi obbligatori\nVuoi la libertà del lavoro temporaneo e la sicurezza di un impiego fisso?\nDa 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti.\nNon ti mentiremo però: siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Responsabile officina Macchine da cantiere e piattaforme aeree (M/F/D)\nIl tuo incarico:\nGestione e organizzazione\n- Supervisionare e coordinare le attività dell’officina (5 persone da gestire, 4 meccanici e 1 assistente amministrativo)\n- Pianificare gli interventi, le riparazioni e la manutenzione preventiva\n- Garantire la qualità dei servizi forniti dal tuo team\n- Ottimizzare i processi di manutenzione e l’organizzazione operativa\n- Partecipare attivamente allo sviluppo delle competenze dei collaboratori\nCompetenze tecniche\n- Diagnosticare i guasti meccanici, idraulici, elettrici ed elettronici\n- Eseguire interventi di riparazione direttamente presso i clienti o in cantiere\n- Eseguire le operazioni di manutenzione e riparazione delle attrezzature\n- Garantire la disponibilità e l’affidabilità del parco macchine\nGestione amministrativa e relazioni con i clienti\n- Redigere preventivi, fatture e ordini di ricambi\n- Fornire consulenza ai clienti e garantire un servizio di assistenza di qualità\n- Sviluppare le relazioni commerciali esistenti e individuare nuove opportunità\n- Partecipare attivamente alla fidelizzazione e alla soddisfazione della clientela\nE ora parliamo di te?\n- Formazione tecnica completata in meccanica, preferibilmente nei settori delle macchine agricole, dei macchinari da cantiere o delle attrezzature per la movimentazione\n- Buone conoscenze di idraulica, elettricità ed elettronica\n- Comprovata esperienza nella manutenzione e nella riparazione di attrezzature mobili\n- Esperienza con le piattaforme aeree mobili per il personale (PEMP)\n- Conoscenza del settore del noleggio o dei servizi tecnici\n- Esperienza di successo nella gestione di un’officina o di un team tecnico\n- Ottimo senso dell’organizzazione e delle priorità\n- Vera leadership sul campo e facilità nella comunicazione\n- Padronanza degli strumenti informatici\n- Patente di guida valida\n- Buona conoscenza del tessuto economico della Svizzera romanda (Vaud, Ginevra e Friburgo)\nIl tuo referente:\nIl tuo referente per questa posizione è Matthieu. Con oltre 15 anni di esperienza nel settore del reclutamento, saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponda alla descrizione richiesta.\nLuogo di lavoro\nLausanne\nTipo di lavoro\nA tempo pieno - Posto fisso",
-      "titleByLocale": {
-        "it": "Responsabile officina Macchine da cantiere e piattaforme aeree (M/F/D)",
-        "en": "Manager officina Macchine da cantiere e piattaforme aeree (M/F/D)",
-        "de": "Verantwortlicher officina Macchine da cantiere e piattaforme aeree (M/F/D)",
-        "fr": "Responsable officina Macchine da cantiere e piattaforme aeree (M/F/D)"
-      },
-      "descriptionByLocale": {
-        "it": "Edilizia & Genio civile - Mécanicien en machines de chantier\nResponsabile officina Macchine da cantiere e piattaforme aeree (M/F/D)\nA tempo pieno Posto fisso\nCandidarsi\nCandidarsi per questo lavoro\nResponsabile officina Macchine da cantiere e piattaforme aeree (M/F/D)\n* indica i campi obbligatori\nVuoi la libertà del lavoro temporaneo e la sicurezza di un impiego fisso?\nDa 30 anni affianchiamo centinaia di aziende nei settori tecnici dell’edilizia, delle costruzioni e dell’industria in tutta la Svizzera, proponendo loro i migliori talenti.\nNon ti mentiremo però: siamo esigenti. Quindi, se sei una persona motivata ed estremamente entusiasta, unisciti al nostro team per la posizione di Responsabile officina Macchine da cantiere e piattaforme aeree (M/F/D)\nIl tuo incarico:\nGestione e organizzazione\n- Supervisionare e coordinare le attività dell’officina (5 persone da gestire, 4 meccanici e 1 assistente amministrativo)\n- Pianificare gli interventi, le riparazioni e la manutenzione preventiva\n- Garantire la qualità dei servizi forniti dal tuo team\n- Ottimizzare i processi di manutenzione e l’organizzazione operativa\n- Partecipare attivamente allo sviluppo delle competenze dei collaboratori\nCompetenze tecniche\n- Diagnosticare i guasti meccanici, idraulici, elettrici ed elettronici\n- Eseguire interventi di riparazione direttamente presso i clienti o in cantiere\n- Eseguire le operazioni di manutenzione e riparazione delle attrezzature\n- Garantire la disponibilità e l’affidabilità del parco macchine\nGestione amministrativa e relazioni con i clienti\n- Redigere preventivi, fatture e ordini di ricambi\n- Fornire consulenza ai clienti e garantire un servizio di assistenza di qualità\n- Sviluppare le relazioni commerciali esistenti e individuare nuove opportunità\n- Partecipare attivamente alla fidelizzazione e alla soddisfazione della clientela\nE ora parliamo di te?\n- Formazione tecnica completata in meccanica, preferibilmente nei settori delle macchine agricole, dei macchinari da cantiere o delle attrezzature per la movimentazione\n- Buone conoscenze di idraulica, elettricità ed elettronica\n- Comprovata esperienza nella manutenzione e nella riparazione di attrezzature mobili\n- Esperienza con le piattaforme aeree mobili per il personale (PEMP)\n- Conoscenza del settore del noleggio o dei servizi tecnici\n- Esperienza di successo nella gestione di un’officina o di un team tecnico\n- Ottimo senso dell’organizzazione e delle priorità\n- Vera leadership sul campo e facilità nella comunicazione\n- Padronanza degli strumenti informatici\n- Patente di guida valida\n- Buona conoscenza del tessuto economico della Svizzera romanda (Vaud, Ginevra e Friburgo)\nIl tuo referente:\nIl tuo referente per questa posizione è Matthieu. Con oltre 15 anni di esperienza nel settore del reclutamento, saprà accompagnarti, consigliarti e rispondere a tutte le tue domande relative alla posizione.\nQuesta posizione non corrisponde esattamente a ciò che stai cercando, ma i nostri valori ti interessano? Non esitare a inviarci la tua candidatura spontanea!\nRisponderemo solo alle candidature il cui profilo corrisponda alla descrizione richiesta.\nLuogo di lavoro\nLausanne\nTipo di lavoro\nA tempo pieno - Posto fisso",
-        "en": "Construction & Civilian - Mécanicien en machines de chantier\nWorkshop Manager Construction Machines and Air Platforms (M/F/D)\nFull time Fixed place\nCandidate\nApply for this job\nWorkshop Manager Construction Machines and Air Platforms (M/F/D)\n* indicates mandatory fields\nDo you want the freedom of temporary work and the safety of a fixed employment?\nFor 30 years, we have been supporting hundreds of companies in the technical sectors of construction, construction and industry throughout Switzerland, offering them the best talents.\nWe will not lie to you, but we are demanding. So, if you are a motivated and extremely enthusiastic person, join our team to position workshop manager (M/F/D)\nYour assignment:\nManagement and organization\n- Supervision and coordination of workshop activities (5 people to manage, 4 mechanics and 1 administrative assistant)\n- Plan interventions, repairs and preventive maintenance\n- Ensure the quality of the services provided by your team\n- Optimize maintenance processes and operational organization\n- Actively participate in the development of the skills of employees\nTechnical skills\n- Diagnosing mechanical, hydraulic, electrical and electronic faults\n- Perform repair operations directly to customers or on site\n- Perform maintenance and repair of equipment\n- Ensure availability and reliability of the car park\nAdministrative management and customer relations\n- Create quotes, invoices and spare parts orders\n- Provide customer advice and ensure quality service\n- Develop existing business relationships and identify new opportunities\n- Actively participate in customer loyalty and satisfaction\nAnd now we're talking about you?\n- Technical training completed in mechanics, preferably in agricultural machinery, construction machinery or handling equipment\n- Good knowledge of hydraulics, electricity and electronics\n- Experience in maintenance and repair of mobile equipment\n- Experience with mobile air platforms for staff (PEMP)\n- Knowledge of the rental sector or technical services\n- Successful experience in managing a workshop or technical team\n- Great sense of organization and priorities\n- True field leadership and ease in communication\n- Mastery of computer tools\n- Valid driving licence\n- Good knowledge of the economic fabric of Romania (Vaud, Geneva and Freiburg)\nYour contact person:\nYour contact person for this location is Matthieu. With over 15 years of recruitment experience, it will accompany you, advise you and answer all your questions about the location.\nThis position does not match exactly what you are looking for, but do our values interest you? Do not hesitate to send us your spontaneous application!\nWe will only respond to applications whose profile corresponds to the required description.\nPlace of work\nLausanne\nType of work\nFull time - Fixed place",
-        "de": "Construction & Civilian - Mécanicien en machines de chantier\nWerkstattleiter Baumaschinen und Luftplattformen (M/W/D)\nVollzeit Festplatz\nKandidat\nBewerben Sie sich für diesen Job\nWerkstattleiter Baumaschinen und Luftplattformen (M/W/D)\n* Angabe von Pflichtfeldern\nWollen Sie die Freiheit der Zeitarbeit und die Sicherheit einer festen Beschäftigung?\nSeit 30 Jahren unterstützen wir hunderte von Unternehmen aus den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente.\nWir werden euch nicht belügen, aber wir fordern. Wenn Sie also eine motivierte und äußerst enthusiastische Person sind, schließen Sie sich unserem Team an, um den Workshop-Manager (M/W/D) zu positionieren\nIhr Auftrag:\nManagement und Organisation\n- Überwachung und Koordination der Workshop-Aktivitäten (5 Personen zu verwalten, 4 Mechaniker und 1 Verwaltungsassistent)\n- Planen Sie Interventionen, Reparaturen und vorbeugende Wartung\n- Sicherstellen der Qualität der von Ihrem Team bereitgestellten Dienste\n- Optimierung von Wartungsprozessen und Betriebsorganisation\n- Aktiv an der Entwicklung der Fähigkeiten der Mitarbeiter teilnehmen\nTechnische Fähigkeiten\n- Diagnose mechanischer, hydraulischer, elektrischer und elektronischer Fehler\n- Durchführung von Reparaturarbeiten direkt beim Kunden oder vor Ort\n- Durchführung von Wartung und Reparatur von Geräten\n- Gewährleistung der Verfügbarkeit und Zuverlässigkeit des Parkplatzes\nVerwaltungsmanagement und Kundenbeziehungen\n- Erstellen von Angeboten, Rechnungen und Ersatzteilbestellungen\n- Bieten Sie Kundenberatung und gewährleisten Sie einen qualitativ hochwertigen Service\n- Bestehende Geschäftsbeziehungen ausbauen und neue Chancen identifizieren\n- Aktiv an der Kundenbindung und -zufriedenheit teilnehmen\nUnd jetzt reden wir über dich?\n- Technische Ausbildung in Mechanikern, vorzugsweise in Landmaschinen, Baumaschinen oder Handhabungsgeräten\n- Gute Kenntnisse in Hydraulik, Elektrizität und Elektronik\n- Erfahrung in der Wartung und Reparatur von mobilen Geräten\n- Erfahrung mit mobilen Luftplattformen für Mitarbeiter (PEMP)\n- Kenntnisse des Mietsektors oder der technischen Dienste\n- Erfolgreiche Erfahrung im Management eines Workshops oder technischen Teams\n- Großer Sinn für Organisation und Prioritäten\n- Echte Feldführung und einfache Kommunikation\n- Beherrschung von Computer-Tools\n- Gültiger Führerschein\n- Gute Kenntnisse des Wirtschaftsgefüges Rumäniens (Vaud, Genf und Freiburg)\nIhre Kontaktperson:\nIhr Ansprechpartner für diesen Standort ist Matthieu. Mit über 15 Jahren Rekrutierungserfahrung wird es Sie begleiten, beraten und alle Ihre Fragen zum Standort beantworten.\nDiese Position passt nicht genau zu dem, was Sie suchen, aber interessieren Sie sich für unsere Werte? Zögern Sie nicht, uns Ihre spontane Bewerbung zu schicken!\nWir werden nur auf Bewerbungen antworten, deren Profil der geforderten Beschreibung entspricht.\nArbeitsort\nLausanne\nArt der Arbeit\nVollzeit - Fester Ort",
-        "fr": "Construction & Civil - Mécanicien en machines de chantier\nWorkshop Manager Machines de construction et plates-formes d'air (H/F/D)\nTemps plein Lieu fixe\nCandidat\nPostulez à ce poste\nWorkshop Manager Machines de construction et plates-formes d'air (H/F/D)\n* indique les champs obligatoires\nVoulez-vous la liberté du travail temporaire et la sécurité d'un emploi fixe?\nDepuis 30 ans, nous soutenons des centaines d'entreprises dans les secteurs techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents.\nNous ne vous mentirons pas, mais nous exigeons. Donc, si vous êtes une personne motivée et extrêmement enthousiaste, rejoignez notre équipe pour occuper le poste de gestionnaire d'atelier (H/F/D)\nVotre mission:\nGestion et organisation\n- Supervision et coordination des activités des ateliers (5 personnes à gérer, 4 mécaniciens et 1 assistant administratif)\n- Interventions, réparations et entretien préventif\n- Assurer la qualité des services fournis par votre équipe\n- Optimiser les processus de maintenance et l'organisation opérationnelle\n- Participation active au développement des compétences des salariés\nCompétences techniques\n- Diagnostic des défauts mécaniques, hydrauliques, électriques et électroniques\n- Effectuer des opérations de réparation directement aux clients ou sur place\n- Entretien et réparation du matériel\n- Assurer la disponibilité et la fiabilité du parking\nGestion administrative et relations avec la clientèle\n- Créer des devis, factures et commandes de pièces détachées\n- Fournir des conseils aux clients et assurer un service de qualité\n- Développer les relations d'affaires existantes et identifier de nouvelles possibilités\n- Participer activement à la loyauté et à la satisfaction des clients\nEt maintenant, on parle de toi?\n- Formation technique en mécanique, de préférence en machines agricoles, en machines de construction ou en équipements de manutention\n- Bonne connaissance de l'hydraulique, de l'électricité et de l'électronique\n- Expérience dans l'entretien et la réparation du matériel mobile\n- Expérience des plates-formes aériennes mobiles pour le personnel (PEMP)\n- Connaissance du secteur locatif ou des services techniques\n- Expérience réussie dans la gestion d'un atelier ou d'une équipe technique\n- Grand sens de l'organisation et des priorités\n- Leadership sur le terrain et facilité de communication\n- Maîtrise des outils informatiques\n- Permis de conduire valide\n- Bonne connaissance du tissu économique de la Roumanie (Vaud, Genève et Fribourg)\nVotre personne-ressource:\nVotre contact pour cet endroit est Matthieu. Avec plus de 15 ans d'expérience en recrutement, il vous accompagnera, vous conseillera et répondra à toutes vos questions sur l'emplacement.\nCette position ne correspond pas exactement à ce que vous recherchez, mais nos valeurs vous intéressent-elles? N'hésitez pas à nous envoyer votre candidature spontanée!\nNous ne répondrons qu'aux demandes dont le profil correspond à la description requise.\nLieu de travail\nLausanne\nType de travail\nTemps plein - Lieu fixe"
-      },
-      "slugByLocale": {
-        "it": "responsabile-officina-macchine-da-cantiere-e-piattaforme-aeree-m-f-d-pemsa-lausanne",
-        "en": "responsabile-officina-macchine-da-cantiere-e-piattaforme-aeree-m-f-d-pemsa-lausanne",
-        "de": "responsabile-officina-macchine-da-cantiere-e-piattaforme-aeree-m-f-d-pemsa-lausanne",
-        "fr": "responsabile-officina-macchine-da-cantiere-e-piattaforme-aeree-m-f-d-pemsa-lausanne"
-      },
-      "id": "pemsa-5d4aa914fcd6",
-      "salaryMin": 100000,
-      "salaryMax": 126500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 100000,
-          "maxValue": 126500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1003",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
-      "crawledAtSource": "slice-writer",
-      "streetAddress": "Lausanne",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "source",
-      "firstSeenAt": "2026-11-18T21:30:15.288Z",
-      "sourceIdentity": "url:https://www.pemsa.ch/it/job/responsabile-officina-macchine-da-cantiere-e-piattaforme-aeree-m-f-d-2705957"
     },
     {
       "title": "Tecnico della sicurezza elettronica (M/F/D)",
@@ -4491,7 +4466,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -4572,7 +4547,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -4639,7 +4614,7 @@
         }
       },
       "postalCode": "6987",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Caslano",
       "streetAddressSource": "to-enrich",
@@ -4720,7 +4695,7 @@
         }
       },
       "postalCode": "6805",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Mezzovico",
       "streetAddressSource": "to-enrich",
@@ -4801,7 +4776,7 @@
         }
       },
       "postalCode": "6818",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Melano",
       "streetAddressSource": "to-enrich",
@@ -4882,7 +4857,7 @@
         }
       },
       "postalCode": "6900",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
@@ -4957,7 +4932,7 @@
         }
       },
       "postalCode": "6850",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
@@ -5053,7 +5028,7 @@
         }
       },
       "postalCode": "6900",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
@@ -5153,7 +5128,7 @@
         }
       },
       "postalCode": "6982",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Agno",
       "streetAddressSource": "to-enrich",
@@ -5234,7 +5209,7 @@
         }
       },
       "postalCode": "1630",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
@@ -5301,7 +5276,7 @@
         }
       },
       "postalCode": "6900",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
@@ -5382,7 +5357,7 @@
         }
       },
       "postalCode": "6500",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Bellinzona",
       "streetAddressSource": "to-enrich",
@@ -5465,7 +5440,7 @@
         }
       },
       "postalCode": "3979",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Grône",
       "streetAddressSource": "to-enrich",
@@ -5547,7 +5522,7 @@
         }
       },
       "postalCode": "1950",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
@@ -5630,7 +5605,7 @@
         }
       },
       "postalCode": "4132",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Muttenz",
       "streetAddressSource": "to-enrich",
@@ -5711,7 +5686,7 @@
         }
       },
       "postalCode": "1920",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -5802,7 +5777,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Aesch BL",
       "streetAddressSource": "to-enrich",
@@ -5882,7 +5857,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Reinach BL",
       "streetAddressSource": "to-enrich",
@@ -5963,7 +5938,7 @@
         }
       },
       "postalCode": "4001",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
@@ -6046,7 +6021,7 @@
         }
       },
       "postalCode": "6600",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -6148,7 +6123,7 @@
         }
       },
       "postalCode": "6600",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -6251,7 +6226,7 @@
         }
       },
       "postalCode": "6600",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -6345,7 +6320,7 @@
         }
       },
       "postalCode": "6600",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -6450,7 +6425,7 @@
         }
       },
       "postalCode": "6600",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -6543,7 +6518,7 @@
         }
       },
       "postalCode": "6600",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -6637,7 +6612,7 @@
         }
       },
       "postalCode": "6500",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Bellinzona",
       "streetAddressSource": "to-enrich",
@@ -6720,7 +6695,7 @@
         }
       },
       "postalCode": "2502",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -6798,7 +6773,7 @@
         }
       },
       "postalCode": "2502",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -6876,7 +6851,7 @@
         }
       },
       "postalCode": "4001",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
@@ -6943,7 +6918,7 @@
         }
       },
       "postalCode": "4001",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
@@ -7010,7 +6985,7 @@
         }
       },
       "postalCode": "4001",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
@@ -7077,7 +7052,7 @@
         }
       },
       "postalCode": "4001",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
@@ -7144,7 +7119,7 @@
         }
       },
       "postalCode": "4001",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
@@ -7211,7 +7186,7 @@
         }
       },
       "postalCode": "4001",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
@@ -7294,7 +7269,7 @@
         }
       },
       "postalCode": "4001",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
@@ -7361,7 +7336,7 @@
         }
       },
       "postalCode": "4001",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
@@ -7444,7 +7419,7 @@
         }
       },
       "postalCode": "4001",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
@@ -7527,7 +7502,7 @@
         }
       },
       "postalCode": "4132",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Muttenz",
       "streetAddressSource": "to-enrich",
@@ -7594,7 +7569,7 @@
         }
       },
       "postalCode": "6500",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Bellinzona",
       "streetAddressSource": "to-enrich",
@@ -7690,7 +7665,7 @@
         }
       },
       "postalCode": "6500",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Bellinzona",
       "streetAddressSource": "to-enrich",
@@ -7757,7 +7732,7 @@
         }
       },
       "postalCode": "6900",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
@@ -7840,7 +7815,7 @@
         }
       },
       "postalCode": "6500",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Bellinzona",
       "streetAddressSource": "to-enrich",
@@ -7923,7 +7898,7 @@
         }
       },
       "postalCode": "6900",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
@@ -7990,7 +7965,7 @@
         }
       },
       "postalCode": "6500",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Bellinzona",
       "streetAddressSource": "to-enrich",
@@ -8057,7 +8032,7 @@
         }
       },
       "postalCode": "6900",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
@@ -8124,7 +8099,7 @@
         }
       },
       "postalCode": "6850",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
@@ -8191,7 +8166,7 @@
         }
       },
       "postalCode": "6900",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
@@ -8274,7 +8249,7 @@
         }
       },
       "postalCode": "6830",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Chiasso",
       "streetAddressSource": "to-enrich",
@@ -8357,7 +8332,7 @@
         }
       },
       "postalCode": "6900",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
@@ -8440,7 +8415,7 @@
         }
       },
       "postalCode": "1700",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
@@ -8507,7 +8482,7 @@
         }
       },
       "postalCode": "1700",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
@@ -8574,7 +8549,7 @@
         }
       },
       "postalCode": "1700",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
@@ -8641,7 +8616,7 @@
         }
       },
       "postalCode": "1700",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
@@ -8708,7 +8683,7 @@
         }
       },
       "postalCode": "1700",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
@@ -8775,7 +8750,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -8858,7 +8833,7 @@
         }
       },
       "postalCode": "6850",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
@@ -8925,7 +8900,7 @@
         }
       },
       "postalCode": "1630",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
@@ -9008,7 +8983,7 @@
         }
       },
       "postalCode": "6900",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
@@ -9075,7 +9050,7 @@
         }
       },
       "postalCode": "6900",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
@@ -9142,7 +9117,7 @@
         }
       },
       "postalCode": "6815",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Melide",
       "streetAddressSource": "to-enrich",
@@ -9209,7 +9184,7 @@
         }
       },
       "postalCode": "6982",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Agno",
       "streetAddressSource": "to-enrich",
@@ -9276,7 +9251,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -9343,7 +9318,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -9410,7 +9385,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -9493,7 +9468,7 @@
         }
       },
       "postalCode": "6943",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Vezia",
       "streetAddressSource": "to-enrich",
@@ -9560,7 +9535,7 @@
         }
       },
       "postalCode": "6814",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -9638,7 +9613,7 @@
         }
       },
       "postalCode": "2740",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Moutier",
       "streetAddressSource": "to-enrich",
@@ -9705,7 +9680,7 @@
         }
       },
       "postalCode": "6830",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Chiasso",
       "streetAddressSource": "to-enrich",
@@ -9772,7 +9747,7 @@
         }
       },
       "postalCode": "6500",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Bellinzona",
       "streetAddressSource": "to-enrich",
@@ -9839,7 +9814,7 @@
         }
       },
       "postalCode": "6710",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Biasca",
       "streetAddressSource": "to-enrich",
@@ -9906,7 +9881,7 @@
         }
       },
       "postalCode": "6500",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Bellinzona",
       "streetAddressSource": "to-enrich",
@@ -9973,7 +9948,7 @@
         }
       },
       "postalCode": "6500",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Bellinzona",
       "streetAddressSource": "to-enrich",
@@ -10040,7 +10015,7 @@
         }
       },
       "postalCode": "6500",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Bellinzona",
       "streetAddressSource": "to-enrich",
@@ -10107,7 +10082,7 @@
         }
       },
       "postalCode": "1700",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
@@ -10174,7 +10149,7 @@
         }
       },
       "postalCode": "2502",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -10252,7 +10227,7 @@
         }
       },
       "postalCode": "2502",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -10330,7 +10305,7 @@
         }
       },
       "postalCode": "6900",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
@@ -10397,7 +10372,7 @@
         }
       },
       "postalCode": "6808",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Torricella",
       "streetAddressSource": "to-enrich",
@@ -10464,7 +10439,7 @@
         }
       },
       "postalCode": "6982",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Agno",
       "streetAddressSource": "to-enrich",
@@ -10531,7 +10506,7 @@
         }
       },
       "postalCode": "6815",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Melide",
       "streetAddressSource": "to-enrich",
@@ -10598,7 +10573,7 @@
         }
       },
       "postalCode": "6850",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
@@ -10665,7 +10640,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -10732,7 +10707,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -10799,7 +10774,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -10866,7 +10841,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -10933,7 +10908,7 @@
         }
       },
       "postalCode": "2000",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Neuchâtel",
       "streetAddressSource": "to-enrich",
@@ -11000,7 +10975,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -11067,7 +11042,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -11134,7 +11109,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -11201,7 +11176,7 @@
         }
       },
       "postalCode": "2000",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Neuchâtel",
       "streetAddressSource": "to-enrich",
@@ -11268,7 +11243,7 @@
         }
       },
       "postalCode": "2502",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -11346,7 +11321,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -11413,7 +11388,7 @@
         }
       },
       "postalCode": "2502",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -11491,7 +11466,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -11558,7 +11533,7 @@
         }
       },
       "postalCode": "1201",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
@@ -11640,7 +11615,7 @@
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "source",
       "firstSeenAt": "2026-10-14T21:28:33.642Z",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/pittore-2704667"
     },
@@ -11707,7 +11682,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-10T09:30:42.146Z",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/montatore-di-pannelli-solari-2704654"
     },
@@ -11774,7 +11749,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-10T09:30:42.146Z",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/carpentiere-metallico-2704636"
     },
@@ -11841,7 +11816,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-10T09:30:42.146Z",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/pasticcere-m-f-specialita-portoghesi-2704578"
     },
@@ -11908,7 +11883,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-10T09:30:42.146Z",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/piastrellista-2704509"
     },
@@ -11975,7 +11950,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-09T21:26:01.911Z",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/costruttore-stradale-2704492"
     },
@@ -12038,7 +12013,7 @@
         }
       },
       "postalCode": "1908",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Riddes",
       "streetAddressSource": "to-enrich",
@@ -12109,7 +12084,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-09T21:26:01.911Z",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/copritetto-in-legno-2704456"
     },
@@ -12176,7 +12151,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-09T21:26:01.911Z",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/macchinista-2704450"
     },
@@ -12243,7 +12218,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-09T21:26:01.911Z",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/operatore-macchina-m7-perforatrice-2704453"
     },
@@ -12310,7 +12285,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-10-23T21:34:02.689Z",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-idraulico-2704417"
     },
@@ -12377,7 +12352,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-06T21:38:03.790Z",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/saldatore-135-certificato-bw-2704237"
     },
@@ -12444,7 +12419,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-09-04T13:36:36.597Z",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/idraulico-impianti-sanitari-2704174"
     },
@@ -12511,7 +12486,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-06T21:38:03.790Z",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/saldatore-tubista-2704171"
     },
@@ -12578,7 +12553,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-06T21:38:03.790Z",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-frigorista-e-climatizzazione-2704165"
     },
@@ -12645,7 +12620,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-09-23T23:48:15.835Z",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/idraulico-con-esperienza-2704162"
     },
@@ -12712,7 +12687,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-05T21:38:42.818Z",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/tecnico-disegnatore-di-quadri-elettrici-m-f-2704070"
     },
@@ -12779,7 +12754,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-09-19T23:01:40.902Z",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/lattoniere-m-f-2704056"
     },
@@ -12846,7 +12821,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-05T21:38:42.818Z",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/impermeabilizzatore-2704053"
     },
@@ -12913,7 +12888,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-04T21:36:10.669Z",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/operatore-addetto-alla-sonda-e-alla-carotatura-m-f-2703896"
     },
@@ -12980,7 +12955,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-04T21:36:10.669Z",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-di-impianti-di-riscaldamento-afc-2703822"
     },
@@ -13047,7 +13022,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-10-03T09:25:00.674Z",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-di-impianti-idraulici-afc-uomo-donna-2703819"
     },
@@ -13114,7 +13089,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-04T21:36:10.669Z",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/falegname-afc-2703816"
     },
@@ -13181,7 +13156,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-04T21:36:10.669Z",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/muratore-specializzato-in-finiture-2703813"
     },
@@ -13248,7 +13223,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-09T21:26:01.911Z",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-elettricista-afc-2703810"
     },
@@ -13315,7 +13290,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-09T21:26:01.911Z",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-elettricista-afc-2703792"
     },
@@ -13382,7 +13357,7 @@
       "streetAddress": "Mezzovico",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/saldatore-tubista-in-cantiere-2703193"
     },
@@ -13449,7 +13424,7 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-idraulico-afc-2703190"
     },
@@ -13516,7 +13491,7 @@
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-idraulico-2703181"
     },
@@ -13583,7 +13558,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/montatori-di-strutture-in-legno-m-f-2703112"
     },
@@ -13650,7 +13625,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/operatore-di-carrello-elevatore-laterale-r3-m-f-2702912"
     },
@@ -13717,7 +13692,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/falegname-specializzato-nella-posa-di-elementi-in-legno-m-f-2702564"
     },
@@ -13784,7 +13759,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/falegname-di-officina-m-f-2702561"
     },
@@ -13851,7 +13826,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/falegname-m-f-2702558"
     },
@@ -13918,7 +13893,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/fabbro-m-f-2702555"
     },
@@ -13993,7 +13968,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/imbianchino-m-f-2702428"
     },
@@ -14068,7 +14043,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/stuccatore-m-f-2702425"
     },
@@ -14135,7 +14110,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-di-cartongesso-m-f-2702422"
     },
@@ -14202,7 +14177,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/intonacatore-m-f-2702419"
     },
@@ -14269,7 +14244,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/specialista-in-facciate-installatore-di-isolamento-perimetrale-m-f-2702416"
     },
@@ -14312,9 +14287,9 @@
       },
       "slugByLocale": {
         "it": "saldatore-tubista-pemsa-lugano-1a7cc67111",
-        "en": "saldatore-tubista-pemsa-lugano-uq96lw",
-        "de": "saldatore-tubista-pemsa-lugano-uq96lw",
-        "fr": "saldatore-tubista-pemsa-lugano-uq96lw"
+        "en": "saldatore-tubista-pemsa-lugano",
+        "de": "saldatore-tubista-pemsa-lugano",
+        "fr": "saldatore-tubista-pemsa-lugano"
       },
       "id": "pemsa-a4ed741e0c2c",
       "salaryMin": 55500,
@@ -14335,25 +14310,26 @@
       "firstSeenAt": "2026-09-08T13:41:50.002Z",
       "previousSlugsByLocale": {
         "en": [
-          "saldatore-tubista-pemsa-lugano"
+          "saldatore-tubista-pemsa-lugano-uq96lw"
         ],
         "de": [
-          "saldatore-tubista-pemsa-lugano"
+          "saldatore-tubista-pemsa-lugano-uq96lw"
         ],
         "fr": [
-          "saldatore-tubista-pemsa-lugano"
+          "saldatore-tubista-pemsa-lugano-uq96lw"
         ],
         "it": [
           "saldatore-tubista-pemsa-lugano"
         ]
       },
       "previousSlugs": [
-        "saldatore-tubista-pemsa-lugano"
+        "saldatore-tubista-pemsa-lugano",
+        "saldatore-tubista-pemsa-lugano-uq96lw"
       ],
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/saldatore-tubista-2702308"
     },
@@ -14420,7 +14396,7 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-impianti-ventilazione-2702022"
     },
@@ -14487,7 +14463,7 @@
       "firstSeenAt": "2026-10-23T09:31:05.623Z",
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/idraulico-imp-sanitari-2702009"
     },
@@ -14554,7 +14530,7 @@
       "streetAddress": "Rivera",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-impianti-sprinkler-2701999"
     },
@@ -14629,7 +14605,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/operatore-di-piallatrice-stradale-2701734"
     },
@@ -14696,7 +14672,7 @@
       "streetAddress": "Lamone",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/idraulico-impianti-sanitari-2701699"
     },
@@ -14763,7 +14739,7 @@
       "streetAddress": "Massagno",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-idraulico-2701696"
     },
@@ -14830,7 +14806,7 @@
       "streetAddress": "Grund b",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/falegname-esperto-2701553"
     },
@@ -14897,7 +14873,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/operatore-ecoscandaglio-m-f-2701225"
     },
@@ -14964,7 +14940,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/tecnico-di-lavori-in-quota-su-falesia-m-f-2701215"
     },
@@ -15031,7 +15007,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/responsabile-di-officina-per-quadri-elettrici-2701200"
     },
@@ -15098,7 +15074,7 @@
       "streetAddress": "Rossens FR",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/elettricista-qualificato-e-autonomo-2701195"
     },
@@ -15165,7 +15141,7 @@
       "streetAddress": "Estavayer-le-Lac",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-di-quadri-elettrici-2701192"
     },
@@ -15232,7 +15208,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/capocantiere-elettricista-2701189"
     },
@@ -15299,7 +15275,7 @@
       "streetAddress": "Romont FR",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/elettricista-afc-2701184"
     },
@@ -15366,7 +15342,7 @@
       "streetAddress": "Romont FR",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/elettricista-con-comprovata-esperienza-2701181"
     },
@@ -15441,7 +15417,7 @@
       "previousSlugs": [
         "installatore-elettricista-afc-pemsa-bulle-4a31e96ef4"
       ],
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-elettricista-afc-2701172"
     },
@@ -15508,7 +15484,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/elettricista-afc-quadri-elettrici-m-f-2701168"
     },
@@ -15575,7 +15551,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/progettista-di-impianti-elettrici-2701161"
     },
@@ -15642,7 +15618,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/elettricista-con-attestato-federale-di-capacita-afc-dall80-al-100-2701153"
     },
@@ -15709,7 +15685,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/elettricista-esperto-2701143"
     },
@@ -15772,7 +15748,7 @@
         }
       },
       "postalCode": "1700",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
@@ -15872,7 +15848,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/tecnico-di-automazione-afc-2701135"
     },
@@ -15939,7 +15915,7 @@
       "streetAddress": "Lamone",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/idraulico-con-esperienza-2700857"
     },
@@ -16006,7 +15982,7 @@
       "streetAddress": "Stabio",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/idraulico-impianti-sanitari-e-o-riscaldamento-2699952"
     },
@@ -16073,7 +16049,7 @@
       "streetAddress": "Grancia",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/idraulico-con-esperienza-2699939"
     },
@@ -16140,7 +16116,7 @@
       "streetAddress": "Givisiez",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/verniciatore-industriale-2699465"
     },
@@ -16207,7 +16183,7 @@
       "streetAddress": "Givisiez",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/montatore-di-strutture-metalliche-2699461"
     },
@@ -16274,7 +16250,7 @@
       "streetAddress": "Givisiez",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/caposquadra-montaggio-strutture-metalliche-2699458"
     },
@@ -16341,7 +16317,7 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/tecnico-di-automazione-mcr-m-f-d-2699361"
     },
@@ -16408,7 +16384,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/tornitore-convenzionale-2699248"
     },
@@ -16475,7 +16451,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/meccanico-di-macchine-da-cantiere-e-veicoli-industriali-2699057"
     },
@@ -16542,7 +16518,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-di-impianti-di-ventilazione-con-attestato-cfc-m-f-2698912"
     },
@@ -16609,7 +16585,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-di-impianti-di-riscaldamento-afc-m-f-2698908"
     },
@@ -16676,7 +16652,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/servizio-di-pronto-intervento-idraulico-riscaldamento-2698671"
     },
@@ -16743,7 +16719,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/operatore-di-centrale-di-betonaggio-2698565"
     },
@@ -16810,7 +16786,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/muratore-edile-m-f-2698189"
     },
@@ -16877,7 +16853,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/operatore-gru-a-terra-m-f-2698168"
     },
@@ -16944,7 +16920,7 @@
       "streetAddress": "Vevey",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/tecnico-di-officina-elettronica-elettronista-2697794"
     },
@@ -17027,7 +17003,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/capocantiere-elettricista-2697767"
     },
@@ -17094,7 +17070,7 @@
       "streetAddress": "Rossens FR",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-cablatore-di-quadri-elettrici-2697759"
     },
@@ -17161,7 +17137,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/responsabile-di-progetto-per-il-riscaldamento-80-100-2696732"
     },
@@ -17228,7 +17204,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/fabbro-passerelle-per-cavi-elettrici-2695358"
     },
@@ -17295,7 +17271,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/autista-ampliroll-m-f-2695093"
     },
@@ -17362,7 +17338,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/autista-spl-ce-m-f-2695089"
     },
@@ -17429,7 +17405,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/autista-di-autocarro-con-cassone-ribaltabile-m-f-2695081"
     },
@@ -17496,7 +17472,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/progettista-edile-m-f-2694200"
     },
@@ -17563,7 +17539,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/caposquadra-per-linstallazione-di-cavi-elettrici-2694114"
     },
@@ -17630,7 +17606,7 @@
       "streetAddress": "Echandens",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/operatore-m7-centro-di-smistamento-escavatore-con-benna-a-pinza-2694007"
     },
@@ -17713,7 +17689,7 @@
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/macchinista-m6-2694004"
     },
@@ -17796,7 +17772,7 @@
       "streetAddress": "Gland",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/macchinista-m5-2693998"
     },
@@ -17879,7 +17855,7 @@
       "streetAddress": "Montreux",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/macchinista-m3-2693995"
     },
@@ -17962,7 +17938,7 @@
       "streetAddress": "Morges",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/macchinista-m2-2693988"
     },
@@ -18029,7 +18005,7 @@
       "streetAddress": "Vevey",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/macchinista-m1-2693982"
     },
@@ -18096,7 +18072,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/operatore-gru-su-camion-patente-suva-a-m-f-2693568"
     },
@@ -18163,7 +18139,7 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/coordinatore-sps-progettazione-realizzazione-m-f-d-2692732"
     },
@@ -18230,7 +18206,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/tecnico-senior-di-manutenzione-hvac-m-f-2692536"
     },
@@ -18305,7 +18281,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-di-isolanti-termici-installatore-di-sistemi-antincendio-m-f-2692532"
     },
@@ -18380,7 +18356,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/muratore-specializzato-in-finiture-m-f-2692529"
     },
@@ -18447,7 +18423,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-di-condutture-tecnico-di-posa-condutture-m-f-2692526"
     },
@@ -18530,7 +18506,7 @@
         "costruttore-di-strade-m-w-d-pemsa-fribourg",
         "constructeur-de-routes-m-w-d-pemsa-fribourg"
       ],
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/costruttore-di-strade-m-f-2692521"
     },
@@ -18597,7 +18573,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/caposquadra-per-il-montaggio-di-strutture-metalliche-m-f-2692518"
     },
@@ -18664,7 +18640,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/montatore-montatrice-di-strutture-metalliche-2692515"
     },
@@ -18731,7 +18707,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/saldatore-121-m-f-2692512"
     },
@@ -18798,7 +18774,7 @@
       "streetAddress": "Estavayer-le-Lac",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/operatore-operatrice-addetto-a-alla-levigatura-2692509"
     },
@@ -18865,7 +18841,7 @@
       "streetAddress": "Payerne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/aiuto-piastrellista-m-f-2692505"
     },
@@ -18932,7 +18908,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/assistente-montatore-di-impianti-di-ventilazione-2692502"
     },
@@ -18999,7 +18975,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/operai-metallurgici-afc-2692499"
     },
@@ -19066,7 +19042,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/operatore-m3-caricatrice-m-f-2692496"
     },
@@ -19133,7 +19109,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/operaio-edile-ausiliario-edile-m-f-2692489"
     },
@@ -19200,7 +19176,7 @@
       "streetAddress": "Estavayer-le-Lac",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/operatore-operatrice-addetto-a-alla-piegatura-della-lamiera-2691194"
     },
@@ -19267,7 +19243,7 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-di-linee-elettriche-da-38-m-f-d-2690852"
     },
@@ -19334,7 +19310,7 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/tecnico-specializzato-in-serramenti-e-strutture-metalliche-m-f-d-2690838"
     },
@@ -19401,7 +19377,7 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/tecnico-hvac-infrastrutture-edilizie-m-f-d-2690812"
     },
@@ -19468,7 +19444,7 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/tecnico-di-manutenzione-industriale-m-f-d-2690805"
     },
@@ -19535,7 +19511,7 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/tecnico-dei-metodi-di-manutenzione-m-f-d-2690799"
     },
@@ -19602,7 +19578,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/paesaggista-2690255"
     },
@@ -19669,7 +19645,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-di-tapparelle-installatore-di-finestre-2690252"
     },
@@ -19736,7 +19712,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/capocantiere-2690247"
     },
@@ -19803,7 +19779,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/operatore-di-gru-a-terra-licenza-suva-b-2690244"
     },
@@ -19870,7 +19846,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/caposquadra-nel-settore-edile-2690241"
     },
@@ -19937,7 +19913,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/echolodista-assistente-ecolodista-2690236"
     },
@@ -20004,7 +19980,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/caldaista-installatore-di-tubazioni-2690226"
     },
@@ -20071,7 +20047,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/tecnico-di-manutenzione-manutenzione-industriale-elettromeccanica-2690223"
     },
@@ -20138,7 +20114,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/operatore-cnc-tornitore-fresatore-cnc-2690220"
     },
@@ -20205,7 +20181,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/saldatore-tig-mig-mag-acciaio-inossidabile-alluminio-2690214"
     },
@@ -20280,7 +20256,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/applicatore-di-resina-2686521"
     },
@@ -20343,7 +20319,7 @@
         }
       },
       "postalCode": "6900",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
@@ -20414,7 +20390,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/costruttore-di-casseforme-2685526"
     },
@@ -20489,7 +20465,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-di-impianti-di-ventilazione-2685523"
     },
@@ -20556,7 +20532,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/carpentiere-con-grande-esperienza-2685503"
     },
@@ -20623,7 +20599,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/progettista-di-strutture-metalliche-2685498"
     },
@@ -20691,7 +20667,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/cofra-hussor-2685380"
     },
@@ -20758,7 +20734,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/montatore-di-ponteggi-2685374"
     },
@@ -20825,7 +20801,7 @@
       "streetAddress": "Vaulruz",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/muratore-casseriere-e-carpentiere-2685317"
     },
@@ -20892,7 +20868,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/muratore-ingegneria-civile-2685314"
     },
@@ -20975,7 +20951,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/responsabile-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-2685306"
     },
@@ -21042,7 +21018,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/muratore-afc-2685293"
     },
@@ -21109,7 +21085,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-montatore-elettricista-afc-2685202"
     },
@@ -21194,7 +21170,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/responsabile-di-progetto-nel-settore-elettrico-e-richiesto-il-diploma-federale-di-esperto-2685196"
     },
@@ -21261,7 +21237,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/lattoniere-afc-2685189"
     },
@@ -21328,7 +21304,7 @@
       "streetAddress": "Aigle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-di-impianti-idraulici-afc-2685186"
     },
@@ -21395,7 +21371,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/piastrellista-qualificato-2685179"
     },
@@ -21462,7 +21438,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-elettricista-afc-riparazioni-assistenza-post-vendita-2685174"
     },
@@ -21537,7 +21513,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/tecnico-elettromeccanico-polivalente-macchine-agricole-e-macchine-per-la-cura-del-verde-2685170"
     },
@@ -21620,7 +21596,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/responsabile-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-2685167"
     },
@@ -21695,7 +21671,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/operatore-gruista-suva-a-2685085"
     },
@@ -21774,7 +21750,7 @@
       "streetAddress": "Montreux",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/elettricista-industriale-2685073"
     },
@@ -21841,7 +21817,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/posatore-di-pavimentazione-2684912"
     },
@@ -21924,7 +21900,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/operario-addetto-alla-gru-a-torre-2684772"
     },
@@ -21991,7 +21967,7 @@
       "streetAddress": "Romont FR",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/elettricista-lavori-di-integrazione-e-impianti-elettrici-2684734"
     },
@@ -22074,7 +22050,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/lattoniere-copritetto-2684728"
     },
@@ -22141,7 +22117,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-di-impianti-sanitari-afc-2684720"
     },
@@ -22208,7 +22184,7 @@
       "streetAddress": "Vaulruz",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/muratori-a-e-b-cantiere-di-calcestruzzo-2684407"
     },
@@ -22275,7 +22251,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/aiuto-muratore-cat-c-2684159"
     },
@@ -22342,7 +22318,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/muratore-cat-b-2684156"
     },
@@ -22409,7 +22385,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/muratore-cat-a-2684146"
     },
@@ -22476,7 +22452,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/aiuto-carpentiere-2684143"
     },
@@ -22543,7 +22519,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatori-di-binari-di-alimentazione-strutture-metalliche-2684136"
     },
@@ -22610,7 +22586,7 @@
       "streetAddress": "Bulle",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/rottamatore-2683963"
     },
@@ -22677,7 +22653,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/manovra-della-nave-2683944"
     },
@@ -22752,7 +22728,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/pavimentista-posatore-di-pavimenti-2683694"
     },
@@ -22842,7 +22818,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/pittore-con-esperienza-2683686"
     },
@@ -22909,7 +22885,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-di-impianti-di-riscaldamento-con-attestato-cfc-o-con-vasta-esperienza-2683515"
     },
@@ -22976,7 +22952,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/tettoio-2683332"
     },
@@ -23043,7 +23019,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/operatore-m1-piccole-macchine-2683236"
     },
@@ -23110,7 +23086,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/macchinista-m2-2683233"
     },
@@ -23187,7 +23163,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/subacqueo-esperto-2683001"
     },
@@ -23266,7 +23242,7 @@
       "streetAddress": "Tafers",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/lattoniere-2682978"
     },
@@ -23333,7 +23309,7 @@
       "streetAddress": "Marly",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/assistente-installatore-di-impianti-idraulici-2682968"
     },
@@ -23400,7 +23376,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/progettista-elettricista-afc-2682593"
     },
@@ -23467,7 +23443,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/installatore-di-impianti-sanitari-afc-2682590"
     },
@@ -23534,7 +23510,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/caposquadra-montatore-di-ponteggi-2682583"
     },
@@ -23609,7 +23585,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/tecnico-specializzato-in-impermeabilizzazione-con-bitume-2682580"
     },
@@ -23676,7 +23652,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/segatrice-per-calcestruzzo-carotaggio-2681507"
     },
@@ -23743,7 +23719,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/capocantiere-elettricista-2681256"
     },
@@ -23834,7 +23810,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/macchinista-m1-m2-m3-m6-m7-2680814"
     },
@@ -23901,7 +23877,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/operatore-suva-2680780"
     },
@@ -23968,7 +23944,7 @@
       "streetAddress": "Oron-la-Ville",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/60-preparatore-di-vetri-2675689"
     },
@@ -24035,7 +24011,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/nacellista-ingegneria-civile-2675672"
     },
@@ -24060,7 +24036,7 @@
       "postedDate": "2026-04-07T11:26:44+02:00",
       "employmentType": "full-time",
       "contractType": "temporary",
-      "validThrough": "2026-12-23T21:28:52.618Z",
+      "validThrough": "2026-12-24T09:31:57.320Z",
       "description": "Impianti elettrici - Installatore elettrico\nMontatore elettrico – CFC\nA tempo pieno Interinale\nCandidarsi\nCandidarsi per questo lavoro\nMontatore elettrico – CFC\n* indica i campi obbligatori\nVolete la libertà del temporaneo e la sicurezza del fisso?\nDa 30 anni sosteniamo centinaia di aziende del settore tecnico, edile e industriale in tutta la Svizzera offrendo loro i migliori talenti.\nMa non vi mentiremo: siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, unisciti a noi per il lavoro di Montatore elettrico – CFC\nIl tuo ruolo:\n- Intervenire in cantieri sia di nuova costruzione che di ristrutturazione, dall’installazione alla messa in funzione di apparecchiature elettriche.\n- Posizionare e fissare condotti e guaine prima di versare lastre e installare tramezzi.\n- Tirare e organizzare i cavi con metodo e precisione.\n- Collegare prese, interruttori, quadri elettrici e altre apparecchiature terminali.\n- Installare e collegare apparecchi elettrici, sistemi di sicurezza e dispositivi di controllo e telecomando.\nAssicurare la stretta osservanza degli standard tecnici, dei regolamenti NIBT e delle norme di sicurezza in vigore.\n- Eseguire controlli, test e messa in servizio degli impianti.\n- Diagnosticare i guasti ed eseguire le riparazioni necessarie. Parliamo di te?\n- Titolare di un CFC in installazione elettrica o di una formazione equivalente riconosciuta in Svizzera.\n- Con almeno due anni di esperienza in Svizzera in un ruolo simile.\n- Autonomo, rigoroso e buon giocatore di squadra.\nForte senso di responsabilità e ottime capacità organizzative.\n- Ottima padronanza della lettura e dell’interpretazione di piani e schemi elettrici.\n- A proprio agio con gli strumenti informatici per il monitoraggio del lavoro e la stesura di rapporti.\n- È richiesta la patente di guida.\nIl candidato prescelto sarà in grado di lavorare in un ambiente di squadra\nSei interessato?\nAmi e padroneggi il tuo lavoro e vuoi mettere le tue competenze al servizio di progetti davvero importanti?\nAllora questo è il lavoro che fa per te.\nCon noi, la tua esperienza fa la differenza e contribuisce direttamente al successo dei nostri progetti.\nCosa offriamo:\n- Vari incarichi\n- Un’atmosfera motivante\n- Un team professionale e di supporto\n- Opportunità di formazione continua per sviluppare la tua carriera\n- Se questo lavoro corrisponde alle tue capacità e aspirazioni, inviaci il tuo CV oggi stesso.\n- E anche se questa posizione è occupata o non corrisponde perfettamente al tuo profilo, possiamo sempre offrirti altre opportunità.\nIl tuo contatto per questa posizione è Nunzio Munafò. Sarà in grado di supportarti, consigliarti e rispondere a qualsiasi domanda tu possa avere sul lavoro.\nRisponderemo solo alle candidature il cui profilo corrisponde alla descrizione richiesta.\nLuogo di lavoro\nLausanne\nTipo di lavoro\nA tempo pieno - Interinale",
       "titleByLocale": {
         "it": "Montatore elettrico – CFC",
@@ -24102,7 +24078,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/montatore-elettrico-cfc-2669236"
     },
@@ -24169,7 +24145,7 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/operai-addetti-alla-produzione-di-elementi-in-calcestruzzo-2658719"
     },
@@ -24236,7 +24212,7 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/addetto-alla-movimentazione-di-pannelli-luminosi-fr-ger-2658441"
     },
@@ -24303,7 +24279,7 @@
       "streetAddress": "Gruyères",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/falegname-in-officina-pvc-legno-legno-metallo-2652913"
     },
@@ -24330,7 +24306,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "temporary",
-      "validThrough": "2026-12-23T21:28:52.618Z",
+      "validThrough": "2026-12-24T09:31:57.320Z",
       "description": "Candidatura spontanea - Settore Giardini\nCandidatura spontanea – Giardini\nA tempo pieno Interinale\nCandidarsi\nCandidarsi per questo lavoro\nCandidatura spontanea – Giardini\n* indica i campi obbligatori\nVuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente?\nDa 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti.\nNon ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Candidatura spontanea – Giardini\nSiamo alla ricerca di :\nNell’ambito della nostra espansione, stiamo lanciando un invito a presentare candidature spontanee per posizioni nei seguenti settori:\n- Progettazione del paesaggio\n- Progettazione paesaggistica\n- Manutenzione e cura dei giardini\n- Orticoltura e arboricoltura\n- Muratura del paesaggio\n- Gestione di progetti paesaggistici\n- Potatura e abbattimento\n- Costruzione di terrazze e camminamenti\n- Irrigazione e gestione dell’acqua\nProfilo :\n- Diploma in ambito giardinaggio, orticoltura o discipline affini.\n- Esperienza professionale nel settore della paesaggistica (un’esperienza significativa costituisce un vantaggio).\n- Conoscenza delle tecniche e degli strumenti di giardinaggio e paesaggistica.\n- Capacità di lavorare in gruppo e di coordinarsi con i diversi mestieri.\n- Senso estetico, creatività e attenzione ai dettagli.\n- Ottime capacità di comunicazione e di risoluzione dei problemi.\n- Adattabilità e capacità di lavorare in un ambiente esterno dinamico.\nCome posso candidarmi?\nSe siete appassionati del settore edile e volete unirvi al nostro team, saremo lieti di sentirvi.\nLuogo di lavoro\nCadempino\nTipo di lavoro\nA tempo pieno - Interinale",
       "titleByLocale": {
         "it": "Candidatura spontanea – Giardini",
@@ -24381,7 +24357,7 @@
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-10T09:30:42.146Z",
-      "crawledAt": "2026-11-23T21:28:52.618Z",
+      "crawledAt": "2026-11-24T09:31:57.320Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://www.pemsa.ch/it/job/candidatura-spontanea-giardini-2481143"
     }
