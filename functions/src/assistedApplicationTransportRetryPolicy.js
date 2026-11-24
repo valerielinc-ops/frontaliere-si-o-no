@@ -1,10 +1,21 @@
 /** Retry only a definite infrastructure failure, never an uncertain send or a hard rejection. */
+import { isCodexUsageLimitError } from './assistedApplicationDraftRetryPolicy.js';
 import { isUnconfirmedSubmission } from './assistedApplicationSubmissionGuard.js';
 
 const CHROME_ERROR_PAGE = /(?:^|[\s"'(])chrome-error:\/\//i;
 const NAVIGATION_FAILURE = /ERR_NAME_NOT_RESOLVED|ERR_CONNECTION_[A-Z0-9_]+|ERR_(?:ADDRESS_UNREACHABLE|NETWORK_ACCESS_DENIED|NETWORK_CHANGED|INTERNET_DISCONNECTED|TIMED_OUT)|\b(?:ENETUNREACH|EHOSTUNREACH|ENOTFOUND|EAI_AGAIN|ECONNRESET|ECONNREFUSED|ETIMEDOUT)\b|page\.goto:[\s\S]*?Timeout/i;
 const PERMANENT_EMAIL_FAILURE = /invalid.{0,25}(?:recipient|email|address)|(?:recipient|address).{0,25}(?:invalid|suppressed|blocked)|suppression|complaint|hard.bounce/i;
 const TRANSIENT_EMAIL_FAILURE = /(?:maileroo|resend)\s+(?:408|425|429|5\d\d)\b|quota exhausted|cooling down|not configured|no (?:email )?providers configured/i;
+const CODEX_BROKER_FAILURE = /codex\s+auth\s+broker\b/i;
+
+/** Classify a Codex CLI / auth broker failure into a transport stop reason, or null. */
+export function codexBrokerInfrastructureFailure(error) {
+  const text = String(error || '');
+  if (!text) return null;
+  if (isCodexUsageLimitError(text)) return 'codex_usage_limit';
+  if (CODEX_BROKER_FAILURE.test(text)) return 'codex_broker_unavailable';
+  return null;
+}
 
 export function emailInfrastructureFailure(failure) {
   if (failure?.ambiguousDelivery) return false;
@@ -39,6 +50,10 @@ export function legacyTransportHoldReason({ flow, submission = {}, draft }) {
   if (holds.length !== 1) return null;
   if (holds[0] === 'email_failed' && record.channel === 'email' && record.reason === 'email_failed') return 'email_provider_unavailable';
   if (record.channel === 'portal' && navigationInfrastructureFailure(holds[0]) && navigationInfrastructureFailure(record.reason)) return 'navigation_unavailable';
+  if (record.channel === 'portal' && record.confirmedNotSent === true) {
+    const codexReason = codexBrokerInfrastructureFailure(record.reason) || codexBrokerInfrastructureFailure(holds[0]);
+    if (codexReason) return codexReason;
+  }
   // Held before the regional notice was known to follow the runner's IP: the
   // run stopped on the posting page, before any form, and released its claim.
   if (record.channel === 'portal' && holds[0] === 'portal:application_region_unsupported'

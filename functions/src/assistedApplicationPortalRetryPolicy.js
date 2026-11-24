@@ -7,6 +7,7 @@ export { PORTAL_STOP_CLASSES, portalStopContract };
 export const PORTAL_AUTO_RETRY_DELAYS_MS = Object.freeze([6 * 60 * 60 * 1000, 24 * 60 * 60 * 1000]);
 export const PORTAL_FINAL_REVIEW_AMBIGUOUS_RECOVERY_VERSION = 'portal-final-review-ambiguous-v1';
 export const TRANSPORT_AUTO_RETRY_DELAYS_MS = Object.freeze([5 * 60 * 1000, 30 * 60 * 1000, 2 * 60 * 60 * 1000]);
+export const USAGE_LIMIT_AUTO_RETRY_DELAYS_MS = Object.freeze([2 * 60 * 60 * 1000, 6 * 60 * 60 * 1000, 24 * 60 * 60 * 1000]);
 // SHA-256 of "assisted-application:swiss-egress-network-recovery:v1". Bump the suffix when this one-shot repair changes.
 export const SWISS_EGRESS_NETWORK_RECOVERY_VERSION = '0c6b24bcb58d7e92fed5d94f37f8f918449a57a1428ea10eb342bb0fca47cbf1';
 /** CAPTCHA holds belong to the owner and never enter automatic retry or candidate handoff. */
@@ -24,7 +25,12 @@ export function isInfrastructureRetryHold(flow) {
   return (flow?.heldBy || []).some(reason => portalStopContract(reason).retryLane === 'transport');
 }
 
+export function isCodexUsageLimitRetryHold(flow) {
+  return (flow?.heldBy || []).some(reason => portalStopContract(reason).code === 'codex_usage_limit');
+}
+
 export function autoRetryDelaysForFlow(flow) {
+  if (isCodexUsageLimitRetryHold(flow)) return USAGE_LIMIT_AUTO_RETRY_DELAYS_MS;
   return isInfrastructureRetryHold(flow)
     ? TRANSPORT_AUTO_RETRY_DELAYS_MS : PORTAL_AUTO_RETRY_DELAYS_MS;
 }

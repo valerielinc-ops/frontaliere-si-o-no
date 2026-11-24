@@ -188,7 +188,7 @@ describe('questions the platform answers (labels from the census)', () => {
       order: { orderId: 'synthetic-order', applicantName: 'Candidato Prova', ...extra }, draft: { ...draft, profile }, flow, locale,
     }).platformFacts;
 
-    expect(PLATFORM_DEFAULTS_VERSION).toBe('platform-defaults-v14');
+    expect(PLATFORM_DEFAULTS_VERSION).toBe('platform-defaults-v15');
 
     const swissJob = { kind: 'job', role: 'Cloud engineer', employer: 'Example SA', location: 'Lugano', start: '2021', end: 'oggi' };
     const permitProfile = { location: 'Como (CO)', experience: [swissJob] };
@@ -623,5 +623,64 @@ describe('CV locations as real CVs write them (census 2026-11-10: 38 of 44 towns
 
   it('never takes another word of the text for a town', () => {
     expect(at('Zona industriale, Nessunluogo').postalCode).toBe('');
+  });
+});
+
+describe('birth-year fallback from experience and category B driving licence deduction', () => {
+  it('estimates birth year from work experience when education lacks dates, unblocking civil-status deduction', () => {
+    const facts = platformCandidateFacts({
+      profile: {
+        education: [{ degree: 'Laurea Magistrale in Pedagogia', institution: 'Università', start: '', end: '' }],
+        experience: [
+          { role: 'Titolare negozio', start: '2017', end: '07/2024' },
+          { role: 'Insegnante supplente', start: '2001', end: '2003' },
+        ],
+      },
+      nowMs: NOW,
+      locale: 'it',
+    });
+    expect(facts.dateOfBirth).toBe('1983-01-01');
+    expect(facts.dateOfBirthEstimated).toBe(true);
+    expect(facts.civilStatus).toBe('married');
+
+    const maritalQuestion = {
+      id: 'portal_what_is_your_marital_status',
+      source: 'portal',
+      type: 'choice',
+      question: 'Qual è il tuo stato civile?*',
+      applicationQuestion: 'What is your Marital Status?*',
+      options: ['Celibe/nubile (Svizzera)', 'Sposato/a (Svizzera)', 'Divorziato/a (Svizzera)'],
+    };
+    expect(platformQuestionTopic(maritalQuestion)).toBe('civil_status');
+    expect(platformDefaultAnswer(maritalQuestion, facts, { locale: 'it' })?.value).toBe('Sposato/a (Svizzera)');
+  });
+
+  it('deduces category B driving licence from own-car answer or verified decision, while respecting an explicit No', () => {
+    const ownCarQ = { id: 'own_car', source: 'match', type: 'yes_no', question: 'Sei automunito/a?', options: ['Sì', 'No'] };
+    const licenceBQ = { id: 'driving_licence_b', source: 'match', type: 'yes_no', question: 'Possiedi una licenza di condurre di categoria B?', options: ['Sì', 'No'] };
+    const licenceCQ = { id: 'driving_licence_c', source: 'match', type: 'yes_no', question: 'Possiedi la patente di categoria C?', options: ['Sì', 'No'] };
+
+    expect(platformQuestionTopic(licenceBQ)).toBe('driving_licence_b');
+    expect(platformQuestionTopic(licenceCQ)).toBeNull();
+
+    const fromDecision = platformCandidateFacts({
+      questions: [ownCarQ, licenceBQ],
+      answers: {},
+      decisionAnswers: { own_car: { value: 'Sì', principle: 'application_success' } },
+      nowMs: NOW,
+      locale: 'it',
+    });
+    expect(fromDecision.drivingLicenceB).toBe(true);
+    expect(platformDefaultAnswer(licenceBQ, fromDecision, { locale: 'it' })?.value).toBe('Sì');
+
+    const explicitNo = platformCandidateFacts({
+      questions: [ownCarQ, licenceBQ],
+      answers: { own_car: 'No' },
+      decisionAnswers: { own_car: { value: 'Sì', principle: 'application_success' } },
+      nowMs: NOW,
+      locale: 'it',
+    });
+    expect(explicitNo.drivingLicenceB).toBe(false);
+    expect(platformDefaultAnswer(licenceBQ, explicitNo, { locale: 'it' })).toBeNull();
   });
 });

@@ -30,7 +30,7 @@ export async function reconcileTransportHolds({ db, apply = false, nowMs = Date.
           || ['pending', 'succeeded', 'refunded'].includes(order.refundStatus)) return false;
         const reason = legacyTransportHoldReason({ flow, draft, submission: submissionDoc.data() });
         if (!reason || draft?.status !== 'ready' || Number(draft.round) !== Number(flow.round || 1) || !roundWasSent(flow)) return false;
-        const heldBy = [`${reason === 'email_provider_unavailable' ? 'transport' : 'portal'}:${reason}`];
+        const heldBy = [`${reason === 'email_provider_unavailable' || reason.startsWith('codex_') ? 'transport' : 'portal'}:${reason}`];
         const attempts = Number(flow.transportAutoRetryCount) || 0;
         if (!Number.isSafeInteger(attempts) || attempts < 0) return false;
         if (apply) {

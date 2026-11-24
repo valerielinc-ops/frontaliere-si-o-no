@@ -3624,7 +3624,12 @@ export const sweepAssistedApplicationAutomation = onSchedule(
   { region: 'europe-west6', schedule: 'every 5 minutes', timeZone: 'Europe/Zurich', memory: '256MiB', timeoutSeconds: 120 },
   async () => {
     try {
-      const summary = await runAutomationSweep({ db: getAdminDb(), runEffect: (context) => runAutomationEffect(context), postingClosed: postingClosureForOrder });
+      const summary = await runAutomationSweep({
+        db: getAdminDb(),
+        runEffect: (context) => runAutomationEffect(context),
+        postingClosed: postingClosureForOrder,
+        extractCandidateReply: (request) => codexStructured(request),
+      });
       if (summary.ticks || summary.redispatched || summary.portalRetries || summary.timedOut || summary.failed || summary.refunds || summary.receiptsReconciled || summary.employerWithdrawals) {
         console.log('[sweepAssistedApplicationAutomation]', summary);
       }

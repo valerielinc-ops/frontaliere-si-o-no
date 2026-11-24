@@ -10,12 +10,14 @@ import {
   DRAFT_CANDIDATE_EMAIL_MISSING_CODE,
   DRAFT_CANDIDATE_EMAIL_RECOVERY_VERSION,
   draftAutoRetryCountValue,
+  isCodexUsageLimitError,
 } from '../../functions/src/assistedApplicationDraftRetryPolicy.js';
 import { AUTOMATION_FLAG_KEY, parseAutomationFlag } from '../../functions/src/assistedApplicationAutomationFlag.js';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET } from '../../functions/src/assistedApplicationCvCheck.js';
 import { recoverCandidateDocumentEmail } from '../../functions/src/assistedApplicationCandidateDocumentEmailRecovery.js';
 
 export const DRAFT_RECOVERY_VERSION = 'draft-recovery-v1';
+export const DRAFT_CODEX_USAGE_LIMIT_RECOVERY_VERSION = 'draft-recovery-codex-usage-limit-v1';
 
 export function isFirestoreIndexUnavailableError(error) {
   const code = error?.code;
@@ -69,6 +71,7 @@ export async function reconcileDraftFailures({ db, apply = false, nowMs = Date.n
         const attempts = draftAutoRetryCountValue(flow);
         const recoveryClockSet = Number(flow.draftAutoRetryAt) > 0;
         let candidateEmailRecovery = false;
+        let codexUsageLimitRecovery = false;
         if (attempts !== null && attempts >= DRAFT_AUTO_RETRY_MAX_ATTEMPTS
           && flow.draftCandidateEmailRecoveryVersion !== DRAFT_CANDIDATE_EMAIL_RECOVERY_VERSION) {
           const failedEvents = await transaction.get(doc.ref.collection('automation_events')
@@ -76,6 +79,15 @@ export async function reconcileDraftFailures({ db, apply = false, nowMs = Date.n
           candidateEmailRecovery = failedEvents.docs.some(eventDoc => {
             const event = eventDoc.data() || {};
             return event.type === 'draft_failed' && Number(event.round) === round;
+          });
+        }
+        if (!candidateEmailRecovery && attempts !== null
+          && flow.draftCodexUsageLimitRecoveryVersion !== DRAFT_CODEX_USAGE_LIMIT_RECOVERY_VERSION) {
+          const failedEvents = await transaction.get(doc.ref.collection('automation_events')
+            .where('type', '==', 'draft_failed'));
+          codexUsageLimitRecovery = failedEvents.docs.some(eventDoc => {
+            const event = eventDoc.data() || {};
+            return Number(event.round) === round && isCodexUsageLimitError(event.error);
           });
         }
         const activeOrder = order.paymentStatus === 'paid'
@@ -86,25 +98,33 @@ export async function reconcileDraftFailures({ db, apply = false, nowMs = Date.n
         const noSendEvidence = !draft.sent && !draft.sentAttempt
           && !hasUncertainSend(currentSend) && !Object.values(submission).some(hasUncertainSend);
         if (!activeOrder || !failedDraft || !draftMissing || !draftDispatch || attempts === null
-          || (attempts >= DRAFT_AUTO_RETRY_MAX_ATTEMPTS && !candidateEmailRecovery) || recoveryClockSet || !noSendEvidence
+          || (attempts >= DRAFT_AUTO_RETRY_MAX_ATTEMPTS && !candidateEmailRecovery && !codexUsageLimitRecovery)
+          || recoveryClockSet || !noSendEvidence
           || flow.postingExpiredAt) return false;
         if (apply) {
           const dueAt = nowMs + DRAFT_AUTO_RETRY_DELAY_MS;
+          const version = candidateEmailRecovery
+            ? DRAFT_CANDIDATE_EMAIL_RECOVERY_VERSION
+            : codexUsageLimitRecovery
+              ? DRAFT_CODEX_USAGE_LIMIT_RECOVERY_VERSION
+              : DRAFT_RECOVERY_VERSION;
           transaction.set(flowRef, {
-            // The dedicated, versioned recovery grants exactly one fresh run
-            // for existing candidate-email failures whose regular retry was
-            // already consumed. The normal state transition increments it.
-            draftAutoRetryCount: candidateEmailRecovery ? 0 : attempts,
+            // The dedicated, versioned recovery grants a fresh run
+            // for existing candidate-email or Codex usage-limit failures whose
+            // regular retry was already consumed (or burned in transient retries).
+            draftAutoRetryCount: (candidateEmailRecovery || codexUsageLimitRecovery) ? 0 : attempts,
             draftAutoRetryAt: dueAt,
+            ...(codexUsageLimitRecovery ? { draftFailureKind: 'codex_usage_limit' } : {}),
             ...(candidateEmailRecovery
               ? { draftCandidateEmailRecoveryVersion: DRAFT_CANDIDATE_EMAIL_RECOVERY_VERSION }
-              : { draftRecoveryVersion: DRAFT_RECOVERY_VERSION }),
+              : codexUsageLimitRecovery
+                ? { draftCodexUsageLimitRecoveryVersion: DRAFT_CODEX_USAGE_LIMIT_RECOVERY_VERSION }
+                : { draftRecoveryVersion: DRAFT_RECOVERY_VERSION }),
             updatedAt: nowMs,
           }, { merge: true });
           transaction.set(doc.ref, { automationDueAt: dueAt, automationUpdatedAt: new Date(nowMs) }, { merge: true });
           transaction.set(doc.ref.collection('events').doc(), {
-            type: 'draft_recovery_scheduled', actor: 'system', at: nowMs,
-            version: candidateEmailRecovery ? DRAFT_CANDIDATE_EMAIL_RECOVERY_VERSION : DRAFT_RECOVERY_VERSION,
+            type: 'draft_recovery_scheduled', actor: 'system', at: nowMs, version,
           });
         }
         return true;

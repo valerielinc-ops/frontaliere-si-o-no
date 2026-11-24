@@ -33,6 +33,7 @@ import { FieldValue } from 'firebase-admin/firestore';
 import { ASSISTED_APPLICATIONS_COLLECTION, ASSISTED_APPLICATION_AUDIT_SUBCOLLECTION } from './assistedApplicationConstants.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { CANDIDATE_PASSPORTS } from './assistedApplicationPlatformDefaults.js';
+import { isCodexUsageLimitError } from './assistedApplicationDraftRetryPolicy.js';
 import { PERMIT_STATUSES, nationalityLabelOf, nationalityOf, permitMentions, permitOptionCode, permitStatusOf } from './lib/permitStatus.js';
 import { languageCodesIn } from './lib/languageFacts.js';
 import { zurichToday } from './lib/assistedApplicationQuestionConstraints.js';
@@ -40,7 +41,15 @@ import { zurichToday } from './lib/assistedApplicationQuestionConstraints.js';
 export const CANDIDATE_REPLIES_SUBCOLLECTION = 'candidate_replies';
 export const CANDIDATE_REPLY_VERSION = 'candidate-reply-v2';
 export const CANDIDATE_REPLY_MAX_ATTEMPTS = 3;
+export const CANDIDATE_REPLY_RECOVERY_MAX_ATTEMPTS = 3;
 const PROCESSING_STALE_MS = 10 * 60_000;
+const RETRYABLE_REPLY_ERROR_RE = /codex_http_(?:408|425|429|5\d\d)|codex_auth_expired|codex_not_object|timed[ _]?out|timeout|econnreset|econnrefused|etimedout|aborterror/i;
+
+/** True when a candidate-reply extraction failure reflects transient Codex quota/availability. */
+export function isRetryableCandidateReplyError(error) {
+  const text = String(error || '');
+  return Boolean(text) && (isCodexUsageLimitError(text) || RETRYABLE_REPLY_ERROR_RE.test(text));
+}
 const MAX_LANGUAGES = 12;
 // The review-page fields (assistedApplicationCandidateEdits.js EDITABLE_FIELDS) a reply can restate.
 const OVERRIDE_KEYS = {
@@ -388,14 +397,22 @@ export function shouldRegenerate(flow) {
  * @param {{db, orderId:string, replyId:string, extract:Function, regenerate?:Function, start?:Function, nowMs?:number}} deps
  *   regenerate({db, orderId, nowMs}): the owner_regenerate event; start({db, orderId, nowMs}): startAutomation
  */
-export async function processAssistedApplicationCandidateReply({ db, orderId, replyId, extract, regenerate = null, start = null, nowMs = Date.now() }) {
+export async function processAssistedApplicationCandidateReply({ db, orderId, replyId, extract, regenerate = null, start = null, allowFailedRetry = false, nowMs = Date.now() }) {
   const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
   const ref = orderRef.collection(CANDIDATE_REPLIES_SUBCOLLECTION).doc(replyId);
   let claimed = null;
   await db.runTransaction(async (transaction) => {
     claimed = null; // reset on every retry of the transaction
     const current = (await transaction.get(ref)).data();
-    if (!current || current.processedAt || current.status === 'failed') return;
+    if (!current || current.processedAt) return;
+    if (current.status === 'failed') {
+      const recoveryAttempts = Number(current.recoveryAttempts) || 0;
+      if (!allowFailedRetry || !isRetryableCandidateReplyError(current.lastError)
+        || recoveryAttempts >= CANDIDATE_REPLY_RECOVERY_MAX_ATTEMPTS) return;
+      transaction.set(ref, { status: 'processing', processingSince: nowMs, recoveryAttempts: recoveryAttempts + 1 }, { merge: true });
+      claimed = current;
+      return;
+    }
     if (current.status === 'processing' && nowMs - Number(current.processingSince || 0) < PROCESSING_STALE_MS) return;
     transaction.set(ref, { status: 'processing', processingSince: nowMs }, { merge: true });
     claimed = current;
@@ -420,7 +437,7 @@ export async function processAssistedApplicationCandidateReply({ db, orderId, re
   } catch (error) {
     const attempts = Number(claimed.attempts || 0) + 1;
     const lastError = (error instanceof Error ? error.message : String(error)).slice(0, 120);
-    const failed = attempts >= CANDIDATE_REPLY_MAX_ATTEMPTS;
+    const failed = allowFailedRetry || attempts >= CANDIDATE_REPLY_MAX_ATTEMPTS;
     await ref.set({ status: failed ? 'failed' : 'received', attempts, lastError, ...(failed ? { failedAt: nowMs } : {}) }, { merge: true });
     // Back to `received`: the trigger's retry reads it again; after the last attempt it stays `failed`, visible.
     if (!failed) throw error;
@@ -473,4 +490,28 @@ export async function processAssistedApplicationCandidateReply({ db, orderId, re
   }
   if (restarted) await ref.set({ restarted }, { merge: true });
   return { ok: true, applied: outcome.applied, restarted };
+}
+
+/**
+ * Re-extract failed candidate replies whose failure was a transient Codex quota/HTTP error
+ * before a scheduled draft regeneration runs, within a bounded per-reply recovery cap.
+ */
+export async function recoverFailedCandidateRepliesForOrder({ db, orderId, extract, regenerate = null, start = null, nowMs = Date.now() }) {
+  if (typeof extract !== 'function') return { recovered: 0 };
+  const snapshot = await db.collection(ASSISTED_APPLICATIONS_COLLECTION)
+    .doc(String(orderId))
+    .collection(CANDIDATE_REPLIES_SUBCOLLECTION)
+    .where('status', '==', 'failed')
+    .get();
+  let recovered = 0;
+  for (const doc of snapshot.docs || []) {
+    const data = doc.data() || {};
+    if (!isRetryableCandidateReplyError(data.lastError)) continue;
+    if ((Number(data.recoveryAttempts) || 0) >= CANDIDATE_REPLY_RECOVERY_MAX_ATTEMPTS) continue;
+    const result = await processAssistedApplicationCandidateReply({
+      db, orderId, replyId: doc.id, extract, regenerate, start, allowFailedRetry: true, nowMs,
+    });
+    if (result?.ok && !result.skipped) recovered += 1;
+  }
+  return { recovered };
 }

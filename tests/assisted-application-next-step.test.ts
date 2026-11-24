@@ -73,6 +73,13 @@ describe('next step of an assisted-application order', () => {
       expect(check.detail).toContain('Controlla se il datore l’ha ricevuta');
     }
     expect(step({ state: 'owner_takeover', heldBy: ['draft_failed'] })).toMatchObject({ group: 'owner', code: 'regenerate', label: 'Da rigenerare' });
+    expect(step({
+      state: 'owner_takeover',
+      heldBy: ['draft_failed'],
+      draftFailureKind: 'codex_usage_limit',
+      draftAutoRetryCount: 0,
+      draftAutoRetryAt: NOW + HOUR,
+    })).toMatchObject({ group: 'robot', code: 'portal_auto_retry', label: 'Nuovo tentativo programmato' });
     expect(step({ state: 'owner_takeover', heldBy: ['max_rounds'] })).toMatchObject({ group: 'owner', code: 'contact_candidate' });
     expect(step({ state: 'owner_takeover', heldBy: ['email_failed'] })).toMatchObject({ group: 'owner', code: 'retry_or_complete' });
     expect(step(null, { hasCv: true })).toMatchObject({ group: 'owner', code: 'start', label: 'Da avviare' });

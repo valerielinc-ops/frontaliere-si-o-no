@@ -153,6 +153,9 @@ export interface AssistedApplicationAutomationView {
     deadlineAt: number | null;
     reminderAt: number | null;
     portalAutoRetryAt?: number | null;
+    draftAutoRetryAt?: number | null;
+    draftAutoRetryCount?: number | null;
+    draftFailureKind?: string | null;
     heldBy: string[];
     /** `posting_withdrawn_by_employer` when the employer withdrew the posting (no refund, Terms 6.5). */
     withdrawnReason?: string | null;

@@ -145,6 +145,9 @@ describe('portal account pages', () => {
     for (const label of ['Resend verification code', 'Neuen Code senden', 'Renvoyer un nouveau code', 'Inviare un nuovo codice']) {
       expect(RESEND_VERIFICATION_RE.test(label), label).toBe(true);
     }
+    for (const label of ['Erstellen Sie ein Konto,', 'Erstellen Sie ein Konto', 'Legen Sie sich ein Konto an', 'Registrieren Sie sich hier', 'Konto anlegen']) {
+      expect(CREATE_ACCOUNT_RE.test(label), label).toBe(true);
+    }
   });
 
   it('tells an application form that asks for its own password from a login or a registration page', () => {

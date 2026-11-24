@@ -16,6 +16,7 @@ import {
 } from './assistedApplicationAiDraftCore.js';
 import { randomUUID } from 'node:crypto';
 import { portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
+import { draftAutoRetryCountValue, draftRetryDueAt } from './assistedApplicationDraftRetryPolicy.js';
 import { rebuildLetterPdf } from './assistedApplicationLetterPdf.js';
 import { isPlausibleEmail } from './assistedApplicationAiJob.js';
 import { candidateWithEdits, factSourcesNow, formAnswersWithEdits, questionsForCandidate } from './assistedApplicationCandidateEdits.js';
@@ -204,6 +205,9 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       deadlineAt: flow.deadlineAt || null,
       reminderAt: flow.reminderAt || null,
       portalAutoRetryAt: portalRetryDueAt(flow),
+      draftAutoRetryAt: draftRetryDueAt(flow),
+      draftAutoRetryCount: draftAutoRetryCountValue(flow),
+      draftFailureKind: flow.draftFailureKind || null,
       heldBy: flow.heldBy || [],
       // Why a withdrawn order was withdrawn (assistedApplicationEmployerWithdrawal.js), and the posting's proof.
       withdrawnReason: flow.withdrawnReason || null,
