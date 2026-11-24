@@ -3219,7 +3219,6 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -3399,7 +3398,6 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "senior-produktmanager-in-digital-workplace-srg-ssr-zurich",
@@ -3595,7 +3593,6 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -3819,7 +3816,7 @@
       "id": "srg-ssr-9726f4105ba4",
       "slug": "senior-responsabile-di-prodotto-digital-workplace-srg-ssr-zurich-8d92a7103e",
       "slugByLocale": {
-        "it": "senior-responsabile-di-prodotto-digital-workplace-srg-ssr-zurich-8d92a7103e",
+        "it": "senior-responsabile-di-prodotto-digital-workplace-srg-ssr-zurich",
         "en": "senior-product-manager-digital-workplace-srg-ssr-zurich-s0w6pm",
         "de": "senior-produktmanager-in-digital-workplace-srg-ssr-zurich",
         "fr": "senior-responsable-produit-environnement-de-travail-numerique-srg-ssr-zurich"
@@ -3882,13 +3879,11 @@
       },
       "previousSlugs": [
         "senior-produktmanager-in-digital-workplace-srg-ssr-zurich",
-        "senior-product-manager-digital-workplace-srg-ssr-zurich",
-        "senior-responsabile-di-prodotto-digital-workplace-srg-ssr-zurich"
+        "senior-product-manager-digital-workplace-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-produktmanager-in-digital-workplace-srg-ssr-zurich",
-          "senior-responsabile-di-prodotto-digital-workplace-srg-ssr-zurich"
+          "senior-produktmanager-in-digital-workplace-srg-ssr-zurich"
         ],
         "en": [
           "senior-produktmanager-in-digital-workplace-srg-ssr-zurich",
@@ -3919,7 +3914,7 @@
       "id": "srg-ssr-c58a90ccf029",
       "slug": "senior-product-manager-ambiente-digitale-m-f-d-srg-ssr-zurich-bb13d36b0f",
       "slugByLocale": {
-        "it": "senior-product-manager-ambiente-digitale-m-f-d-srg-ssr-zurich-bb13d36b0f",
+        "it": "senior-product-manager-ambiente-digitale-m-f-d-srg-ssr-zurich",
         "en": "senior-product-manager-digital-workplace-f-m-d-srg-ssr-zurich",
         "de": "senior-product-manager-digital-workplace-f-m-d-srg-ssr-zurich",
         "fr": "senior-product-manager-digital-workplace-f-m-d-srg-ssr-zurich"
@@ -3981,13 +3976,11 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "senior-product-manager-digital-workplace-f-m-d-srg-ssr-zurich",
-        "senior-product-manager-ambiente-digitale-m-f-d-srg-ssr-zurich"
+        "senior-product-manager-digital-workplace-f-m-d-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-product-manager-digital-workplace-f-m-d-srg-ssr-zurich",
-          "senior-product-manager-ambiente-digitale-m-f-d-srg-ssr-zurich"
+          "senior-product-manager-digital-workplace-f-m-d-srg-ssr-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -4009,13 +4002,14 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-11T09:21:12.862Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "retranslationAttempts": 1
     },
     {
       "id": "srg-ssr-bd198b41c079",
       "slug": "senior-product-manager-digital-workplace-srg-ssr-zurich-81f94b3ef5",
       "slugByLocale": {
-        "it": "senior-product-manager-digital-workplace-srg-ssr-zurich-81f94b3ef5",
+        "it": "senior-product-manager-digital-workplace-srg-ssr-zurich",
         "en": "senior-product-manager-digital-workplace-srg-ssr-zurich",
         "de": "senior-produktmanager-digital-workplace-srg-ssr-zurich",
         "fr": "aine-gestionnaire-de-produits-milieu-de-travail-numerique-srg-ssr-zurich"
@@ -4096,14 +4090,7 @@
       "validThrough": "2027-02-11T09:21:12.137Z",
       "validThroughSource": "last-observed-window",
       "crawlerMissStreak": 1,
-      "previousSlugs": [
-        "senior-product-manager-digital-workplace-srg-ssr-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-product-manager-digital-workplace-srg-ssr-zurich"
-        ]
-      }
+      "retranslationAttempts": 1
     },
     {
       "id": "srg-ssr-aa61ed38c2f0",
