@@ -1,201 +1,19 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-11-23T21:18:04.992Z",
+  "generatedAt": "2026-11-24T09:16:59.552Z",
   "total": 22,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 19,
-  "durationMs": 17156,
-  "avgDurationMs": 17156,
+  "unchangedCount": 22,
+  "durationMs": 19752,
+  "avgDurationMs": 19752,
   "durationHistory": [
-    17156
+    19752
   ],
-  "newJobs": [
-    {
-      "id": "efg-6349",
-      "slug": "configuration-manager-efg-geneve",
-      "company": "EFG International AG",
-      "title": "Configuration Manager",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-23T16:19:21+00:00",
-      "postedDate": "2026-11-23T16:19:21+00:00",
-      "postingDateSource": "reported",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6349",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>IT Configuration Manager</strong></span></p><p><span><strong>General Info</strong></span></p><p><span>· Department: IT & Digital</span></p><p><span>· Work time Percentage: 100%</span></p><p><span>· Location: Geneva </span></p><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future. We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span>We are looking for an <strong>IT Configuration Manager</strong> to maintain reliable information about IT assets and services. You will work with IT colleagues and other stakeholders to improve data quality, provide information for reporting and audits, and contribute to effective IT service management.</span></p><p><span>Configuration management is the primary focus of the role. You will also provide backup for change management and contribute to incident resolution and root cause analysis when needed. </span></p><p><span><strong>Key Responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Maintain</strong> accurate and complete configuration records throughout the lifecycle of IT assets, working with IT colleagues to document changes. </span></li><li><span><strong>Review</strong> configuration data, resolve inconsistencies and identify opportunities to improve data quality. </span></li><li><span><strong>Develop and maintain</strong> configuration management documentation and standards, and help IT colleagues understand and apply them. </span></li><li><span><strong>Provide</strong> configuration information and reports to support internal and external audits and compliance requirements. </span></li><li><span><strong>Collaborate</strong> with IT service management colleagues to ensure configuration information supports change, incident and problem management. </span></li><li><span><strong>Provide</strong> backup for change management and contribute to incident resolution and root cause analysis when needed. </span></li><li><span><strong>Track</strong> configuration data quality and prepare reports to inform stakeholders and support improvements. </span></li></ul><p><span><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Education:</strong> No minimum or preferred formal educational qualification is specified.</span></li><li><span><strong>Professional experience:</strong> At least six years’ experience in IT change and configuration management. Experience in banking or financial services is preferred. </span></li><li><span><strong>Technical and functional knowledge:</strong> Strong understanding of IT service management practices, including ITIL; experience managing configuration data, improving data quality and producing reports; and the ability to coordinate with technical stakeholders. ITIL certification is a strong asset. </span></li><li><span><strong>Languages:</strong> Fluent spoken and written French and English. </span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><p><span>· Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span>· Hands-on: Being proactive to rapidly deliver high-quality results</span></p><p><span>· Passionate: Being committed and striving for excellence</span></p><p><span>· Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span>· Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p><p> </p><p><span>Please ensure to attach a cover letter to your CV when filling the application.</span></p><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-11-23T21:17:47.178Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "needsRetranslation": true,
-      "salaryMin": 97500,
-      "salaryMax": 165500,
-      "salarySource": "estimated",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "postalCode": "1201",
-      "streetAddress": "Geneve",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T21:17:47.178Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:17:47.178Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 16,
-        "completeness": 25
-      }
-    }
-  ],
-  "updatedJobs": [
-    {
-      "id": "efg-6562",
-      "slug": "global-head-of-identity-governance-access-control-efg-geneve",
-      "company": "EFG International AG",
-      "title": "Global IT head of Identity Governance & Access Control",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-20T16:01:28+00:00",
-      "postedDate": "2026-11-20T16:01:28+00:00",
-      "postingDateSource": "reported",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6562",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>General Info</strong></span></p><p><span>· Department: IT & Digital</span></p><p><span>· Work time Percentage: 100%</span></p><p><span>· Location: Geneva</span></p><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future. We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p> </p><p><span><strong>Job Description</strong></span></p><p><span>We are looking for a Global Head of Identity Governance & Access Control to lead EFG’s global User Access Management (UAM) and Identity Governance function.</span></p><p><span>In this role, you will be responsible for defining and executing the bank’s strategy for identity lifecycle and access governance, ensuring secure, accurate and compliant access to systems and data across entities and business lines.</span></p><p><span>Reporting to the Global Head of IT Support, you will manage a global team and oversee the end‑to‑end access lifecycle, including access provisioning and deprovisioning, periodic access reviews and recertifications, and the design and maintenance of role‑based access models.</span></p><p><span>You will drive the implementation and continuous enhancement of the bank’s identity governance framework and tools, working closely with IT, Information Security, Architecture, Business and HR stakeholders.</span></p><p><span>You will act as the primary point of contact for internal and external audits on identity and access topics, ensuring robust controls, clear documentation and effective remediation of findings.</span></p><p><span>The role combines strategic leadership, operational excellence and strong stakeholder management in a highly regulated, control‑intensive environment.</span></p><p><span>For this IT / technology‑focused role, we keep the description of tools and platforms at a high level in the job ad. More detailed information on the technology stack and specific solutions can be shared with shortlisted candidates at a later stage of the recruitment process. No confidential or security‑sensitive details about EFG’s internal security architecture or processes are disclosed externally.</span></p><p> </p><p><span><strong>Key Responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Lead and develop the global User Access Management and Identity Governance function, providing strategic direction, coaching and day‑to‑day leadership to a team and additional indirect reports.</span></li><li><span>Oversee end‑to‑end identity and access lifecycle processes (joiners, movers, leavers), ensuring timely, accurate and compliant access provisioning and deprovisioning across systems and applications, while keeping external communications free of sensitive security configurations or architectures.</span></li><li><span>Design, maintain and continuously improve the bank’s role‑based access and business role models, including the management of deviations and segregation‑of‑duties considerations, in close collaboration with Business, IT, Information Security, Risk, Compliance and HR stakeholders.</span></li><li><span>Plan and run periodic access review and recertification campaigns, ensuring that access rights remain appropriate, well‑controlled and aligned with regulatory and internal policy requirements.</span></li><li><span>Lead the bank’s identity governance programme, defining the roadmap, onboarding applications to the central governance platform, and simplifying and standardising access‑related processes in partnership with IT, Security, Architecture, Business and HR.</span></li><li><span>Act as primary point of contact for internal and external auditors on identity and access topics, preparing and presenting evidence, reports and remediation plans, while ensuring that externally shared information remains high‑level and does not reveal sensitive security details.</span></li><li><span>Establish and monitor key performance and risk indicators for identity and access management, driving continuous improvement initiatives to enhance control effectiveness, operational efficiency and user experience.</span></li><li><span>Manage the relationship and service delivery with external providers supporting identity and access services, including performance oversight and budget responsibility for both run‑the‑bank and change‑the‑bank activities.</span></li><li><span>Represent the UAM/IGA function in steering committees, governance forums and senior management meetings, providing clear, business‑oriented updates on key initiatives, risks and issues related to identity and access.</span></li></ul><p> </p><p><span><strong>Requirements and Qualifications</strong></span></p><p><span><strong>Education</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Master’s degree (or equivalent) in Computer Science, Information Systems, Information Security, Engineering or a related field (minimum requirement).</span></li><li><span>Additional business or management education (for example an MBA) is an asset.</span></li><li><span>Relevant security or identity & access management certifications (for example in information security or audit) are a strong advantage.</span></li><li><p><span>Project or programme management certifications are considered an advantage.</span></p><p> </p></li></ul><p><span><strong>Professional Experience</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>At least 5 years of experience in Identity & Access Management / Identity Governance, including several years in a senior leadership role with responsibility for teams and complex environments.</span></li><li><span>Proven track record in implementing and operating identity governance solutions and role‑based access models in a large, regulated organisation.</span></li><li><span>Experience in banking or another highly regulated, control‑intensive industry (for example financial services, luxury, pharmaceuticals).</span></li><li><p><span>Demonstrated experience managing complex, multi‑stakeholder programmes and interacting with internal and external auditors and senior management.</span></p><p> </p></li></ul><p><span><strong>Technical and Functional Knowledge</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Deep understanding of identity and access management concepts, including identity lifecycle, provisioning and deprovisioning, access recertification, role‑based access control and segregation of duties.</span></li><li><span>Strong knowledge of access control models and business role design, with the ability to define pragmatic, scalable solutions that balance control and usability.</span></li><li><span>Familiarity with information security standards and control frameworks and with regulatory expectations in the financial sector.</span></li><li><span>Good understanding of application architectures and integration patterns (on‑premise, cloud, SaaS) relevant to access management, without disclosing internal security architecture or specific configurations in external materials.</span></li><li><p><span>Ability to translate technical identity and access topics into clear, business‑oriented language and governance decisions for senior stakeholders.</span></p><p> </p></li></ul><p><span><strong>Languages and Personal Skills</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Fluency in English and French (spoken and written) is required; additional languages are an advantage.</span></li><li><span>Strong analytical and problem‑solving skills, with a rigorous risk and control mindset and a focus on continuous improvement.</span></li><li><span>Mature leadership capabilities, with the ability to coach and develop a senior team and to influence stakeholders across Business, IT, Security and senior management.</span></li><li><p><span>High level of integrity, accountability and professionalism, aligned with EFG’s values and culture.</span></p><p> </p></li></ul><p><span><strong>Our Values</strong></span></p><p><span>· Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span>· Hands-on: Being proactive to rapidly deliver high-quality results</span></p><p><span>· Passionate: Being committed and striving for excellence</span></p><p><span>· Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span>· Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 6
-          }
-        }
-      },
-      "crawledAt": "2026-11-23T21:17:47.191Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "needsRetranslation": true,
-      "salaryMin": 97500,
-      "salaryMax": 165500,
-      "salarySource": "estimated",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "postalCode": "1201",
-      "streetAddress": "Geneve",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:17:47.191Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-21T21:19:37.019Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6541",
-      "slug": "amministratore-di-backup-commvault-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "IT Backup Specialist",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-13T11:18:50+00:00",
-      "postedDate": "2026-11-13T11:18:50+00:00",
-      "postingDateSource": "reported",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6541",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>General Info</strong></span></p><p><span>· Department: IT & Digital – Infrastructure & Platforms</span><br><span>· Work time Percentage: 100%</span><br><span>· Location: Switzerland / Geneva</span></p><p><span><strong>Our Company</strong></span></p><p><span>EFG Private Bank is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future. We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span>As a Commvault Backup Administrator, you will be responsible for the administration, operation, availability, security and continuous improvement of EFG’s enterprise Commvault Backup & Recovery platform. You will ensure that backup and restore services are reliable, timely and compliant with agreed RPO/RTO, security, audit and regulatory requirements across on‑premises and cloud environments. Leveraging your knowledge of SAN storage technologies (particularly HPE Alletra and Hitachi Vantara HDS VSP), you will help safeguard the bank’s critical data and support the resilience of our infrastructure. This is an individual contributor role with significant technical ownership and close collaboration with infrastructure, application and security stakeholders.</span></p><p><span><strong>Key Responsibilities</strong></span></p><p><span>· Administer, operate and maintain the Commvault Backup & Recovery platform across on‑premises and cloud environments, ensuring high availability and performance.</span><br><span>· Monitor daily backup operations, analyse failed or degraded jobs, perform root‑cause analysis and implement permanent corrective actions to meet agreed SLAs.</span><br><span>· Execute, validate and document restores for files, virtual machines, databases and Microsoft workloads (including Active Directory, Exchange, SharePoint and Microsoft 365), ensuring reliable end‑to‑end recovery.</span><br><span>· Define, create and maintain backup plans, schedules, retention rules, Storage Policies and protection requirements in line with business, security, audit and regulatory needs.</span><br><span>· Administer Commvault CommServe components, Media Agents (Windows and Linux), HyperScale X, disk libraries and object‑storage targets, including connectivity and capacity management.</span><br><span>· Manage Commvault agents, clients, subclients, access permissions, alerts, dashboards and operational reporting, providing Level 2/3 expertise for backup and recovery incidents.</span><br><span>· Plan, test and implement Commvault upgrades, feature releases, security updates and hotfixes under formal change‑management procedures, in coordination with Infrastructure, Security and Risk stakeholders.</span><br><span>· Apply and continuously improve backup‑security controls (encryption, immutability, privileged access, data isolation and ransomware‑resilience measures) in collaboration with Information Security and Compliance.</span><br><span>· Lead or participate in recovery tests, disaster‑recovery exercises and cyber‑recovery scenarios, documenting results, remediation actions and audit evidence for internal and external auditors.</span><br><span>· Provide operational support for SAN‑backed backup infrastructure and coordinate activities involving HPE Alletra and Hitachi Vantara HDS VSP (capacity, performance, provisioning, zoning and connectivity).</span><br><span>· Participate in a 24/7 on‑call duty rotation and support critical incidents, including planned maintenance and recovery activities outside normal business hours.</span></p><p><span><strong>Requirements and Qualifications</strong></span></p><p><span><strong>Education</strong></span><br><span>· Minimum: Bachelor’s degree in Computer Science, Information Technology or a closely related field, or an equivalent combination of education and professional experience.</span><br><span>· Preferred: Commvault Professional‑level certification; HPE or Hitachi storage certifications are considered strong assets.</span></p><p><span><strong>Professional Experience</strong></span><br><span>· At least 3 years of hands‑on experience as a Commvault administrator in a complex enterprise environment.</span><br><span>· Experience in a regulated or banking environment is an advantage.</span><br><span>· Proven track record managing backup operations, resolving failures, tuning performance, managing capacity and conducting reliable end‑to‑end restorations.</span><br><span>· Experience participating in disaster‑recovery and cyber‑recovery exercises and supporting 24/7 on‑call operations is preferred.</span></p><p><span><strong>Technical and Functional Knowledge</strong></span><br><span>· Solid knowledge of Commvault Backup & Recovery, including core components such as CommServe, Command Center, Media Agents, clients, subclients, plans and Storage Policies.</span><br><span>· Experience protecting and restoring key enterprise workloads (for example Windows, Linux, VMware, Active Directory, Exchange, SharePoint, Microsoft 365 and major databases).</span><br><span>· Understanding of Commvault upgrades, security hardening, role‑based access, encryption and immutability, with the ability to apply these in line with security and audit requirements.</span><br><span>· Ability to define and maintain backup policies, retention standards, recovery procedures, operational dashboards and RPO/RTO reporting.</span><br><span>· Good understanding of SAN and storage concepts; exposure to HPE Alletra and Hitachi Vantara HDS VSP or similar enterprise storage platforms is an advantage.</span><br><span>· Familiarity with basic automation or scripting for monitoring, reporting and recurring administrative tasks is an advantage.</span><br><span>· Strong analytical, troubleshooting and documentation skills, with the ability to prioritise operational work and respond effectively to critical incidents.</span><br><span>· Strong collaboration and communication skills when working with technical teams, application owners, Information Security, Risk, auditors and external vendors.</span></p><p><span><strong>Languages</strong></span><br><span>· Fluent in French and English (spoken and written).</span></p><p><span><strong>Our Values</strong></span></p><p><span>· Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span>· Hands-on: Being proactive to rapidly deliver high-quality results</span></p><p><span>· Passionate: Being committed and striving for excellence</span></p><p><span>· Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span>· Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 5
-          }
-        }
-      },
-      "crawledAt": "2026-11-23T21:17:47.185Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "postalCode": "1201",
-      "streetAddress": "Geneve",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:17:47.185Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T09:15:44.873Z",
-      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6541",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "newJobs": [],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -235,7 +53,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-23T21:17:47.295Z",
+      "crawledAt": "2026-11-24T09:16:45.493Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 63000,
@@ -246,7 +64,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:17:47.295Z",
+      "validThrough": "2027-02-04T09:16:45.493Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-05T21:13:58.262Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6560",
@@ -295,7 +113,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-23T21:17:47.291Z",
+      "crawledAt": "2026-11-24T09:16:45.486Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 174500,
@@ -306,7 +124,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:17:47.291Z",
+      "validThrough": "2027-02-02T09:16:45.486Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-03T21:28:28.747Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6549",
@@ -355,7 +173,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-23T21:17:47.286Z",
+      "crawledAt": "2026-11-24T09:16:45.479Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 104500,
@@ -366,7 +184,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:17:47.286Z",
+      "validThrough": "2027-02-02T09:16:45.479Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-03T21:28:28.740Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6548",
@@ -412,7 +230,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-23T21:17:47.281Z",
+      "crawledAt": "2026-11-24T09:16:45.473Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-09-14T14:56:06+00:00",
@@ -428,7 +246,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:17:47.281Z",
+      "validThrough": "2026-12-24T09:16:45.473Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -554,7 +372,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-23T21:17:47.276Z",
+      "crawledAt": "2026-11-24T09:16:45.466Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-09-16T14:22:35+00:00",
@@ -570,7 +388,7 @@
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6436",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-23T21:17:47.276Z",
+      "validThrough": "2026-12-24T09:16:45.466Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -617,7 +435,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-23T21:17:47.240Z",
+      "crawledAt": "2026-11-24T09:16:45.424Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "salaryMin": 85500,
@@ -639,7 +457,7 @@
         "checkedAt": "2026-10-31T20:48:45.577Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-17T21:17:47.240Z",
+      "validThrough": "2027-01-18T09:16:45.424Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6221",
       "_qualityScore": 99,
@@ -754,7 +572,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-23T21:17:47.237Z",
+      "crawledAt": "2026-11-24T09:16:45.419Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19T13:28:38+00:00",
@@ -771,7 +589,7 @@
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6066",
       "postingDateSource": "reported",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:17:47.237Z",
+      "validThrough": "2026-12-24T09:16:45.419Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -815,7 +633,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-23T21:17:47.232Z",
+      "crawledAt": "2026-11-24T09:16:45.415Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-07-20T07:37:07+00:00",
@@ -832,7 +650,7 @@
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6039",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-23T21:17:47.232Z",
+      "validThrough": "2026-12-24T09:16:45.415Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -949,7 +767,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-23T21:17:47.210Z",
+      "crawledAt": "2026-11-24T09:16:45.372Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -977,7 +795,7 @@
         "checkedAt": "2026-10-31T20:48:45.577Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-23T21:17:47.210Z",
+      "validThrough": "2026-12-24T09:16:45.372Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -1024,7 +842,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-23T21:17:47.202Z",
+      "crawledAt": "2026-11-24T09:16:45.355Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "needsRetranslation": true,
@@ -1047,7 +865,7 @@
       },
       "streetAddress": "Bleicherweg 8",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-25T21:17:47.202Z",
+      "validThrough": "2026-12-26T09:16:45.355Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-10T22:20:59.183Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6550",
@@ -1096,7 +914,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-23T21:17:47.197Z",
+      "crawledAt": "2026-11-24T09:16:45.350Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "needsRetranslation": true,
@@ -1108,7 +926,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:17:47.197Z",
+      "validThrough": "2027-02-12T09:16:45.350Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-14T09:15:44.870Z",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6515",
@@ -1116,6 +934,185 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6562",
+      "slug": "global-head-of-identity-governance-access-control-efg-geneve",
+      "company": "EFG International AG",
+      "title": "Global IT head of Identity Governance & Access Control",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "tech",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-20T16:01:28+00:00",
+      "postedDate": "2026-11-20T16:01:28+00:00",
+      "postingDateSource": "reported",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6562",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>General Info</strong></span></p><p><span>· Department: IT & Digital</span></p><p><span>· Work time Percentage: 100%</span></p><p><span>· Location: Geneva</span></p><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future. We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p> </p><p><span><strong>Job Description</strong></span></p><p><span>We are looking for a Global Head of Identity Governance & Access Control to lead EFG’s global User Access Management (UAM) and Identity Governance function.</span></p><p><span>In this role, you will be responsible for defining and executing the bank’s strategy for identity lifecycle and access governance, ensuring secure, accurate and compliant access to systems and data across entities and business lines.</span></p><p><span>Reporting to the Global Head of IT Support, you will manage a global team and oversee the end‑to‑end access lifecycle, including access provisioning and deprovisioning, periodic access reviews and recertifications, and the design and maintenance of role‑based access models.</span></p><p><span>You will drive the implementation and continuous enhancement of the bank’s identity governance framework and tools, working closely with IT, Information Security, Architecture, Business and HR stakeholders.</span></p><p><span>You will act as the primary point of contact for internal and external audits on identity and access topics, ensuring robust controls, clear documentation and effective remediation of findings.</span></p><p><span>The role combines strategic leadership, operational excellence and strong stakeholder management in a highly regulated, control‑intensive environment.</span></p><p><span>For this IT / technology‑focused role, we keep the description of tools and platforms at a high level in the job ad. More detailed information on the technology stack and specific solutions can be shared with shortlisted candidates at a later stage of the recruitment process. No confidential or security‑sensitive details about EFG’s internal security architecture or processes are disclosed externally.</span></p><p> </p><p><span><strong>Key Responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Lead and develop the global User Access Management and Identity Governance function, providing strategic direction, coaching and day‑to‑day leadership to a team and additional indirect reports.</span></li><li><span>Oversee end‑to‑end identity and access lifecycle processes (joiners, movers, leavers), ensuring timely, accurate and compliant access provisioning and deprovisioning across systems and applications, while keeping external communications free of sensitive security configurations or architectures.</span></li><li><span>Design, maintain and continuously improve the bank’s role‑based access and business role models, including the management of deviations and segregation‑of‑duties considerations, in close collaboration with Business, IT, Information Security, Risk, Compliance and HR stakeholders.</span></li><li><span>Plan and run periodic access review and recertification campaigns, ensuring that access rights remain appropriate, well‑controlled and aligned with regulatory and internal policy requirements.</span></li><li><span>Lead the bank’s identity governance programme, defining the roadmap, onboarding applications to the central governance platform, and simplifying and standardising access‑related processes in partnership with IT, Security, Architecture, Business and HR.</span></li><li><span>Act as primary point of contact for internal and external auditors on identity and access topics, preparing and presenting evidence, reports and remediation plans, while ensuring that externally shared information remains high‑level and does not reveal sensitive security details.</span></li><li><span>Establish and monitor key performance and risk indicators for identity and access management, driving continuous improvement initiatives to enhance control effectiveness, operational efficiency and user experience.</span></li><li><span>Manage the relationship and service delivery with external providers supporting identity and access services, including performance oversight and budget responsibility for both run‑the‑bank and change‑the‑bank activities.</span></li><li><span>Represent the UAM/IGA function in steering committees, governance forums and senior management meetings, providing clear, business‑oriented updates on key initiatives, risks and issues related to identity and access.</span></li></ul><p> </p><p><span><strong>Requirements and Qualifications</strong></span></p><p><span><strong>Education</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Master’s degree (or equivalent) in Computer Science, Information Systems, Information Security, Engineering or a related field (minimum requirement).</span></li><li><span>Additional business or management education (for example an MBA) is an asset.</span></li><li><span>Relevant security or identity & access management certifications (for example in information security or audit) are a strong advantage.</span></li><li><p><span>Project or programme management certifications are considered an advantage.</span></p><p> </p></li></ul><p><span><strong>Professional Experience</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>At least 5 years of experience in Identity & Access Management / Identity Governance, including several years in a senior leadership role with responsibility for teams and complex environments.</span></li><li><span>Proven track record in implementing and operating identity governance solutions and role‑based access models in a large, regulated organisation.</span></li><li><span>Experience in banking or another highly regulated, control‑intensive industry (for example financial services, luxury, pharmaceuticals).</span></li><li><p><span>Demonstrated experience managing complex, multi‑stakeholder programmes and interacting with internal and external auditors and senior management.</span></p><p> </p></li></ul><p><span><strong>Technical and Functional Knowledge</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Deep understanding of identity and access management concepts, including identity lifecycle, provisioning and deprovisioning, access recertification, role‑based access control and segregation of duties.</span></li><li><span>Strong knowledge of access control models and business role design, with the ability to define pragmatic, scalable solutions that balance control and usability.</span></li><li><span>Familiarity with information security standards and control frameworks and with regulatory expectations in the financial sector.</span></li><li><span>Good understanding of application architectures and integration patterns (on‑premise, cloud, SaaS) relevant to access management, without disclosing internal security architecture or specific configurations in external materials.</span></li><li><p><span>Ability to translate technical identity and access topics into clear, business‑oriented language and governance decisions for senior stakeholders.</span></p><p> </p></li></ul><p><span><strong>Languages and Personal Skills</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Fluency in English and French (spoken and written) is required; additional languages are an advantage.</span></li><li><span>Strong analytical and problem‑solving skills, with a rigorous risk and control mindset and a focus on continuous improvement.</span></li><li><span>Mature leadership capabilities, with the ability to coach and develop a senior team and to influence stakeholders across Business, IT, Security and senior management.</span></li><li><p><span>High level of integrity, accountability and professionalism, aligned with EFG’s values and culture.</span></p><p> </p></li></ul><p><span><strong>Our Values</strong></span></p><p><span>· Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span>· Hands-on: Being proactive to rapidly deliver high-quality results</span></p><p><span>· Passionate: Being committed and striving for excellence</span></p><p><span>· Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span>· Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 6
+          }
+        }
+      },
+      "crawledAt": "2026-11-24T09:16:45.344Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "needsRetranslation": true,
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "salarySource": "estimated",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "postalCode": "1201",
+      "streetAddress": "Geneve",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-19T09:16:45.344Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-21T21:19:37.019Z",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6541",
+      "slug": "amministratore-di-backup-commvault-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "IT Backup Specialist",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "tech",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-13T11:18:50+00:00",
+      "postedDate": "2026-11-13T11:18:50+00:00",
+      "postingDateSource": "reported",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6541",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>General Info</strong></span></p><p><span>· Department: IT & Digital – Infrastructure & Platforms</span><br><span>· Work time Percentage: 100%</span><br><span>· Location: Switzerland / Geneva</span></p><p><span><strong>Our Company</strong></span></p><p><span>EFG Private Bank is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future. We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span>As a Commvault Backup Administrator, you will be responsible for the administration, operation, availability, security and continuous improvement of EFG’s enterprise Commvault Backup & Recovery platform. You will ensure that backup and restore services are reliable, timely and compliant with agreed RPO/RTO, security, audit and regulatory requirements across on‑premises and cloud environments. Leveraging your knowledge of SAN storage technologies (particularly HPE Alletra and Hitachi Vantara HDS VSP), you will help safeguard the bank’s critical data and support the resilience of our infrastructure. This is an individual contributor role with significant technical ownership and close collaboration with infrastructure, application and security stakeholders.</span></p><p><span><strong>Key Responsibilities</strong></span></p><p><span>· Administer, operate and maintain the Commvault Backup & Recovery platform across on‑premises and cloud environments, ensuring high availability and performance.</span><br><span>· Monitor daily backup operations, analyse failed or degraded jobs, perform root‑cause analysis and implement permanent corrective actions to meet agreed SLAs.</span><br><span>· Execute, validate and document restores for files, virtual machines, databases and Microsoft workloads (including Active Directory, Exchange, SharePoint and Microsoft 365), ensuring reliable end‑to‑end recovery.</span><br><span>· Define, create and maintain backup plans, schedules, retention rules, Storage Policies and protection requirements in line with business, security, audit and regulatory needs.</span><br><span>· Administer Commvault CommServe components, Media Agents (Windows and Linux), HyperScale X, disk libraries and object‑storage targets, including connectivity and capacity management.</span><br><span>· Manage Commvault agents, clients, subclients, access permissions, alerts, dashboards and operational reporting, providing Level 2/3 expertise for backup and recovery incidents.</span><br><span>· Plan, test and implement Commvault upgrades, feature releases, security updates and hotfixes under formal change‑management procedures, in coordination with Infrastructure, Security and Risk stakeholders.</span><br><span>· Apply and continuously improve backup‑security controls (encryption, immutability, privileged access, data isolation and ransomware‑resilience measures) in collaboration with Information Security and Compliance.</span><br><span>· Lead or participate in recovery tests, disaster‑recovery exercises and cyber‑recovery scenarios, documenting results, remediation actions and audit evidence for internal and external auditors.</span><br><span>· Provide operational support for SAN‑backed backup infrastructure and coordinate activities involving HPE Alletra and Hitachi Vantara HDS VSP (capacity, performance, provisioning, zoning and connectivity).</span><br><span>· Participate in a 24/7 on‑call duty rotation and support critical incidents, including planned maintenance and recovery activities outside normal business hours.</span></p><p><span><strong>Requirements and Qualifications</strong></span></p><p><span><strong>Education</strong></span><br><span>· Minimum: Bachelor’s degree in Computer Science, Information Technology or a closely related field, or an equivalent combination of education and professional experience.</span><br><span>· Preferred: Commvault Professional‑level certification; HPE or Hitachi storage certifications are considered strong assets.</span></p><p><span><strong>Professional Experience</strong></span><br><span>· At least 3 years of hands‑on experience as a Commvault administrator in a complex enterprise environment.</span><br><span>· Experience in a regulated or banking environment is an advantage.</span><br><span>· Proven track record managing backup operations, resolving failures, tuning performance, managing capacity and conducting reliable end‑to‑end restorations.</span><br><span>· Experience participating in disaster‑recovery and cyber‑recovery exercises and supporting 24/7 on‑call operations is preferred.</span></p><p><span><strong>Technical and Functional Knowledge</strong></span><br><span>· Solid knowledge of Commvault Backup & Recovery, including core components such as CommServe, Command Center, Media Agents, clients, subclients, plans and Storage Policies.</span><br><span>· Experience protecting and restoring key enterprise workloads (for example Windows, Linux, VMware, Active Directory, Exchange, SharePoint, Microsoft 365 and major databases).</span><br><span>· Understanding of Commvault upgrades, security hardening, role‑based access, encryption and immutability, with the ability to apply these in line with security and audit requirements.</span><br><span>· Ability to define and maintain backup policies, retention standards, recovery procedures, operational dashboards and RPO/RTO reporting.</span><br><span>· Good understanding of SAN and storage concepts; exposure to HPE Alletra and Hitachi Vantara HDS VSP or similar enterprise storage platforms is an advantage.</span><br><span>· Familiarity with basic automation or scripting for monitoring, reporting and recurring administrative tasks is an advantage.</span><br><span>· Strong analytical, troubleshooting and documentation skills, with the ability to prioritise operational work and respond effectively to critical incidents.</span><br><span>· Strong collaboration and communication skills when working with technical teams, application owners, Information Security, Risk, auditors and external vendors.</span></p><p><span><strong>Languages</strong></span><br><span>· Fluent in French and English (spoken and written).</span></p><p><span><strong>Our Values</strong></span></p><p><span>· Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span>· Hands-on: Being proactive to rapidly deliver high-quality results</span></p><p><span>· Passionate: Being committed and striving for excellence</span></p><p><span>· Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span>· Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 5
+          }
+        }
+      },
+      "crawledAt": "2026-11-24T09:16:45.339Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "postalCode": "1201",
+      "streetAddress": "Geneve",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-12T09:16:45.339Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-14T09:15:44.873Z",
+      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6541",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6349",
+      "slug": "gestione-configurazione-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Configuration Manager",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "tech",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-23T16:19:21+00:00",
+      "postedDate": "2026-11-23T16:19:21+00:00",
+      "postingDateSource": "reported",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6349",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>IT Configuration Manager</strong></span></p><p><span><strong>General Info</strong></span></p><p><span>· Department: IT & Digital</span></p><p><span>· Work time Percentage: 100%</span></p><p><span>· Location: Geneva </span></p><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future. We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span>We are looking for an <strong>IT Configuration Manager</strong> to maintain reliable information about IT assets and services. You will work with IT colleagues and other stakeholders to improve data quality, provide information for reporting and audits, and contribute to effective IT service management.</span></p><p><span>Configuration management is the primary focus of the role. You will also provide backup for change management and contribute to incident resolution and root cause analysis when needed. </span></p><p><span><strong>Key Responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Maintain</strong> accurate and complete configuration records throughout the lifecycle of IT assets, working with IT colleagues to document changes. </span></li><li><span><strong>Review</strong> configuration data, resolve inconsistencies and identify opportunities to improve data quality. </span></li><li><span><strong>Develop and maintain</strong> configuration management documentation and standards, and help IT colleagues understand and apply them. </span></li><li><span><strong>Provide</strong> configuration information and reports to support internal and external audits and compliance requirements. </span></li><li><span><strong>Collaborate</strong> with IT service management colleagues to ensure configuration information supports change, incident and problem management. </span></li><li><span><strong>Provide</strong> backup for change management and contribute to incident resolution and root cause analysis when needed. </span></li><li><span><strong>Track</strong> configuration data quality and prepare reports to inform stakeholders and support improvements. </span></li></ul><p><span><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span><strong>Education:</strong> No minimum or preferred formal educational qualification is specified.</span></li><li><span><strong>Professional experience:</strong> At least six years’ experience in IT change and configuration management. Experience in banking or financial services is preferred. </span></li><li><span><strong>Technical and functional knowledge:</strong> Strong understanding of IT service management practices, including ITIL; experience managing configuration data, improving data quality and producing reports; and the ability to coordinate with technical stakeholders. ITIL certification is a strong asset. </span></li><li><span><strong>Languages:</strong> Fluent spoken and written French and English. </span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><p><span>· Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span>· Hands-on: Being proactive to rapidly deliver high-quality results</span></p><p><span>· Passionate: Being committed and striving for excellence</span></p><p><span>· Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span>· Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p><p> </p><p><span>Please ensure to attach a cover letter to your CV when filling the application.</span></p><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-11-24T09:16:45.330Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "salarySource": "estimated",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "postalCode": "1201",
+      "streetAddress": "Geneve",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-22T09:16:45.330Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-23T21:17:47.178Z",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -1992,5 +1989,5 @@
       }
     }
   ],
-  "codeCommit": "7b684909df7304f91c3a19b75aa2a6088ce7630a"
+  "codeCommit": "ad4d13f2bbfca567e72148b3349ab6c6b8a5dd5d"
 }
