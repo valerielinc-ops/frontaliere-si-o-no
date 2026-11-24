@@ -1,7 +1,7 @@
 {
   "crawlerKey": "heineken-ch",
-  "assembledAt": "2026-11-24T09:46:03.327Z",
-  "runId": "45364963326",
+  "assembledAt": "2026-11-24T21:49:30.663Z",
+  "runId": "45490769393",
   "jobs": [
     {
       "id": "heineken-ch-a716028f91b3",
@@ -51,7 +51,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=149312&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T09:45:57.769Z",
+      "crawledAt": "2026-11-24T21:49:24.233Z",
       "previousSlugs": [
         "chauffeur-c-e-heineken-ch-fahrweid",
         "c-c-e-heineken-switzerland-fahrweid",
@@ -86,7 +86,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-20T09:45:57.769Z",
+      "validThrough": "2027-02-19T21:49:24.233Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -137,7 +137,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=156187&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T09:45:50.050Z",
+      "crawledAt": "2026-11-24T21:49:15.777Z",
       "previousSlugs": [
         "chauffeur-kat-c-e-heineken-ch-luzern",
         "chauffeur-kat-c-e-heineken-switzerland-luzern"
@@ -164,7 +164,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:45:50.050Z",
+      "validThrough": "2027-01-06T21:49:15.777Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -215,7 +215,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164368&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T09:45:41.772Z",
+      "crawledAt": "2026-11-24T21:49:08.345Z",
       "previousSlugs": [
         "sales-market-analyst-w-m-d-heineken-ch-luzern"
       ],
@@ -240,7 +240,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T09:45:41.772Z",
+      "validThrough": "2026-12-24T21:49:08.345Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -291,7 +291,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164840&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T09:45:33.618Z",
+      "crawledAt": "2026-11-24T21:48:59.646Z",
       "previousSlugsByLocale": {
         "de": [
           "specialist-warehouse-m-w-d-heineken-ch-belp"
@@ -327,7 +327,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T09:45:33.618Z",
+      "validThrough": "2026-12-24T21:48:59.646Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -378,14 +378,13 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=127858&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T09:45:24.988Z",
+      "crawledAt": "2026-11-24T21:48:52.125Z",
       "previousSlugsByLocale": {
         "de": [
           "chauffeur-kat-c-e-heineken-ch-luzern",
           "chauffeur-tankwagenfahrer-ce-gastronomie-events-m-w-d-100-heineken-ch-luzern"
         ],
         "it": [
-          "driver-c-e-heineken-switzerland-warum-zu-uns",
           "driver-c-e-heineken-switzerland-luzern",
           "driver-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
           "title-chauffeur-kat-c-e-heineken-ch-warum-zu-uns",
@@ -404,7 +403,8 @@
           "autista-c-e-heineken-switzerland-warum-zu-uns",
           "chauffeur-c-e-orion-heineken-ch-luzern",
           "chauffeur-tankwagenfahrer-ce-gastronomie-events-m-w-d-100-heineken-ch-luzern",
-          "bezeichnung-chauffeur-c-e-heineken-ch-content-width-device-width"
+          "bezeichnung-chauffeur-c-e-heineken-ch-content-width-device-width",
+          "driver-c-e-heineken-switzerland-warum-zu-uns"
         ],
         "en": [
           "driver-cat-c-e-heineken-switzerland-luzern"
@@ -458,7 +458,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T09:45:24.988Z",
+      "validThrough": "2026-12-24T21:48:52.125Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -509,7 +509,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164139&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T09:45:17.201Z",
+      "crawledAt": "2026-11-24T21:48:44.450Z",
       "previousSlugsByLocale": {
         "de": [
           "chauffeur-kat-c1-c-wintersaison-2026-27-chur-arosa-heineken-ch-arosa"
@@ -537,7 +537,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:45:17.201Z",
+      "validThrough": "2027-02-07T21:48:44.450Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -588,7 +588,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=168001&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T09:45:09.388Z",
+      "crawledAt": "2026-11-24T21:48:36.166Z",
       "previousSlugsByLocale": {
         "de": [
           "event-material-specialist-m-w-d-100-heineken-ch-luzern"
@@ -621,7 +621,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:45:09.388Z",
+      "validThrough": "2027-01-27T21:48:36.166Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -672,7 +672,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=169100&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T09:45:01.288Z",
+      "crawledAt": "2026-11-24T21:48:28.296Z",
       "previousSlugs": [
         "brand-management-intern-schweizer-biermarken-m-w-d-heineken-ch-luzern",
         "praktikum-brand-management-schweizer-biermarken-m-w-d-heineken-ch-luzern"
@@ -709,8 +709,77 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-20T09:45:01.288Z",
+      "validThrough": "2027-02-19T21:48:28.296Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "heineken-ch-af33e6e31ab8",
+      "jobReqId": "169211",
+      "slug": "junior-key-account-manager-retail-w-m-d-heineken-ch-luzern",
+      "slugByLocale": {
+        "de": "junior-key-account-manager-retail-w-m-d-heineken-ch-luzern",
+        "it": "junior-key-account-manager-retail-w-m-d-heineken-ch-luzern",
+        "en": "junior-key-account-manager-retail-w-m-d-heineken-ch-luzern",
+        "fr": "junior-key-account-manager-retail-w-m-d-heineken-ch-luzern"
+      },
+      "company": "Heineken Switzerland",
+      "companyKey": "heineken-ch",
+      "companyDomain": "theheinekencompany.com",
+      "title": "Junior Key Account Manager Retail (w/m/d)",
+      "titleByLocale": {
+        "de": "Junior Key Account Manager Retail (w/m/d)",
+        "it": "Junior Key Account Manager Retail (w/m/d)",
+        "en": "Junior Key Account Manager Retail (w/m/d)",
+        "fr": "Junior Key Account Manager Retail (w/m/d)"
+      },
+      "description": "Arbeitsort: Luzern Vertragsart: Unbefristet Arbeitspensum: Vollzeit Respekt, Genuss und Qualität aus Leidenschaft gehören zu unseren Kernwerten. Als Bierproduzent mit Brauereistandorten in Chur und Luzern sind wir ein Unternehmen von nationaler Bedeutung. Wir setzen auf einen Mix aus Tradition, Innovation und Kundennähe. Mit unseren Markenbieren tragen wir zur vielfältigen Schweizer Bierkultur bei. Du möchtest Kundenbeziehungen im Retail aktiv mitgestalten und dein kommerzielles Know-how einbringen? In dieser Rolle unterstützt du das Key Account Management bei der professionellen Betreuung nationaler Retail-Kunden. Gleichzeitig betreust du ein definiertes Kundenportfolio und setzt die vorgegebene Kunden- und Kanalstrategie im Tagesgeschäft um. Innerhalb klarer Verantwortungs- und Entscheidungsspielräume trägst du dazu bei, unsere Absatz-, Umsatz- und Rentabilitätsziele zu erreichen. Was dich erwartet Du arbeitest eng mit unseren Key Account Managern bei der professionellen Betreuung und Weiterentwicklung unserer wichtigsten nationalen Retail-Kunden zusammen. Du betreust dein zugewiesenes Kundenportfolio operativ und kommerziell und setzt die definierten Kunden- und Kanalpläne um. Du behältst Absatz, Umsatz, Rentabilität sowie die Kunden- und Promotion-Performance im Blick und erkennst Chancen und Abweichungen frühzeitig. Du steuerst die Umsetzung der Kundenpläne aus kommerzieller Sicht und stellst die Einhaltung vereinbarter Konditionen sicher. Du wirkst an umsetzbaren, wirtschaftlich tragfähigen Kundenvereinbarungen innerhalb der definierten kommerziellen Leitplanken mit. Du setzt vereinbarte Massnahmen konsequent um und eskalierst wesentliche Abweichungen rechtzeitig. Du koordinierst die Umsetzung mit Key Account Management, Trade Marketing, Category Management, Marketing, Sales Operations und Supply Chain – im Einklang mit den übergeordneten Brand-, Kunden- und Kanalstrategien. Was du mitbringst Du hast eine kaufmännische oder vergleichbare Berufsausbildung abgeschlossen und bringst 1–3 Jahre Berufserfahrung im Verkauf, Key Account Management oder einer vergleichbaren kommerziellen Funktion mit – idealerweise im FMCG- oder Retail-Umfeld. Eine Weiterbildung in Verkauf oder Marketing ist von Vorteil, eine höhere Fachausbildung in Verkauf oder Betriebswirtschaft wünschenswert. Du verfügst über gute betriebswirtschaftliche und kommerzielle Kenntnisse rund um Volumen, Preise, Kosten und Rentabilität sowie ausgeprägte analytische Fähigkeiten. Du gehst sicher mit MS Office um, insbesondere mit Excel und PowerPoint. Kenntnisse in SAP und Markt- und Kundendatentools wie AC Nielsen sind von Vorteil. Du kommunizierst überzeugend, bringst gute Verhandlungsfähigkeiten mit und arbeitest selbständig innerhalb definierter kommerzieller Leitplanken. Du verfügst über sehr gute Deutschkenntnisse und gute Englischkenntnisse. Französisch ist von Vorteil, Italienischkenntnisse sind wünschenswert. Was wir dir bieten Flexibilität & Work-Life-Balance: Flexible Arbeitszeiten und hybrides Arbeiten Lernen & Entwicklung: Interne und externe Weiterbildungsangebote, z. B. Sprachtrainings oder unsere Beer Academy Teamspirit & Kultur: Regelmässige Mitarbeitendenanlässe, monatliche Firmenapéros und gemeinsame Feiern Vergünstigungen & Extras: Attraktive Vergünstigungen, z. B. in unserem Getränkeshop oder bei ausgewählten Freizeit- und Kulturangeboten Events & Erlebnisse: Regelmässige Verlosungen von Tickets für Festivals, Konzerte und weitere Events Gesundheit & Wohlbefinden: Gesundheits- und Unterstützungsangebote für verschiedene Lebenssituationen",
+      "descriptionByLocale": {
+        "de": "Arbeitsort: Luzern Vertragsart: Unbefristet Arbeitspensum: Vollzeit Respekt, Genuss und Qualität aus Leidenschaft gehören zu unseren Kernwerten. Als Bierproduzent mit Brauereistandorten in Chur und Luzern sind wir ein Unternehmen von nationaler Bedeutung. Wir setzen auf einen Mix aus Tradition, Innovation und Kundennähe. Mit unseren Markenbieren tragen wir zur vielfältigen Schweizer Bierkultur bei. Du möchtest Kundenbeziehungen im Retail aktiv mitgestalten und dein kommerzielles Know-how einbringen? In dieser Rolle unterstützt du das Key Account Management bei der professionellen Betreuung nationaler Retail-Kunden. Gleichzeitig betreust du ein definiertes Kundenportfolio und setzt die vorgegebene Kunden- und Kanalstrategie im Tagesgeschäft um. Innerhalb klarer Verantwortungs- und Entscheidungsspielräume trägst du dazu bei, unsere Absatz-, Umsatz- und Rentabilitätsziele zu erreichen. Was dich erwartet Du arbeitest eng mit unseren Key Account Managern bei der professionellen Betreuung und Weiterentwicklung unserer wichtigsten nationalen Retail-Kunden zusammen. Du betreust dein zugewiesenes Kundenportfolio operativ und kommerziell und setzt die definierten Kunden- und Kanalpläne um. Du behältst Absatz, Umsatz, Rentabilität sowie die Kunden- und Promotion-Performance im Blick und erkennst Chancen und Abweichungen frühzeitig. Du steuerst die Umsetzung der Kundenpläne aus kommerzieller Sicht und stellst die Einhaltung vereinbarter Konditionen sicher. Du wirkst an umsetzbaren, wirtschaftlich tragfähigen Kundenvereinbarungen innerhalb der definierten kommerziellen Leitplanken mit. Du setzt vereinbarte Massnahmen konsequent um und eskalierst wesentliche Abweichungen rechtzeitig. Du koordinierst die Umsetzung mit Key Account Management, Trade Marketing, Category Management, Marketing, Sales Operations und Supply Chain – im Einklang mit den übergeordneten Brand-, Kunden- und Kanalstrategien. Was du mitbringst Du hast eine kaufmännische oder vergleichbare Berufsausbildung abgeschlossen und bringst 1–3 Jahre Berufserfahrung im Verkauf, Key Account Management oder einer vergleichbaren kommerziellen Funktion mit – idealerweise im FMCG- oder Retail-Umfeld. Eine Weiterbildung in Verkauf oder Marketing ist von Vorteil, eine höhere Fachausbildung in Verkauf oder Betriebswirtschaft wünschenswert. Du verfügst über gute betriebswirtschaftliche und kommerzielle Kenntnisse rund um Volumen, Preise, Kosten und Rentabilität sowie ausgeprägte analytische Fähigkeiten. Du gehst sicher mit MS Office um, insbesondere mit Excel und PowerPoint. Kenntnisse in SAP und Markt- und Kundendatentools wie AC Nielsen sind von Vorteil. Du kommunizierst überzeugend, bringst gute Verhandlungsfähigkeiten mit und arbeitest selbständig innerhalb definierter kommerzieller Leitplanken. Du verfügst über sehr gute Deutschkenntnisse und gute Englischkenntnisse. Französisch ist von Vorteil, Italienischkenntnisse sind wünschenswert. Was wir dir bieten Flexibilität & Work-Life-Balance: Flexible Arbeitszeiten und hybrides Arbeiten Lernen & Entwicklung: Interne und externe Weiterbildungsangebote, z. B. Sprachtrainings oder unsere Beer Academy Teamspirit & Kultur: Regelmässige Mitarbeitendenanlässe, monatliche Firmenapéros und gemeinsame Feiern Vergünstigungen & Extras: Attraktive Vergünstigungen, z. B. in unserem Getränkeshop oder bei ausgewählten Freizeit- und Kulturangeboten Events & Erlebnisse: Regelmässige Verlosungen von Tickets für Festivals, Konzerte und weitere Events Gesundheit & Wohlbefinden: Gesundheits- und Unterstützungsangebote für verschiedene Lebenssituationen",
+        "it": "Arbeitsort: Luzern Vertragsart: Unbefristet Arbeitspensum: Vollzeit Respekt, Genuss und Qualität aus Leidenschaft gehören zu unseren Kernwerten. Als Bierproduzent mit Brauereistandorten in Chur und Luzern sind wir ein Unternehmen von nationaler Bedeutung. Wir setzen auf einen Mix aus Tradition, Innovation und Kundennähe. Mit unseren Markenbieren tragen wir zur vielfältigen Schweizer Bierkultur bei. Du möchtest Kundenbeziehungen im Retail aktiv mitgestalten und dein kommerzielles Know-how einbringen? In dieser Rolle unterstützt du das Key Account Management bei der professionellen Betreuung nationaler Retail-Kunden. Gleichzeitig betreust du ein definiertes Kundenportfolio und setzt die vorgegebene Kunden- und Kanalstrategie im Tagesgeschäft um. Innerhalb klarer Verantwortungs- und Entscheidungsspielräume trägst du dazu bei, unsere Absatz-, Umsatz- und Rentabilitätsziele zu erreichen. Was dich erwartet Du arbeitest eng mit unseren Key Account Managern bei der professionellen Betreuung und Weiterentwicklung unserer wichtigsten nationalen Retail-Kunden zusammen. Du betreust dein zugewiesenes Kundenportfolio operativ und kommerziell und setzt die definierten Kunden- und Kanalpläne um. Du behältst Absatz, Umsatz, Rentabilität sowie die Kunden- und Promotion-Performance im Blick und erkennst Chancen und Abweichungen frühzeitig. Du steuerst die Umsetzung der Kundenpläne aus kommerzieller Sicht und stellst die Einhaltung vereinbarter Konditionen sicher. Du wirkst an umsetzbaren, wirtschaftlich tragfähigen Kundenvereinbarungen innerhalb der definierten kommerziellen Leitplanken mit. Du setzt vereinbarte Massnahmen konsequent um und eskalierst wesentliche Abweichungen rechtzeitig. Du koordinierst die Umsetzung mit Key Account Management, Trade Marketing, Category Management, Marketing, Sales Operations und Supply Chain – im Einklang mit den übergeordneten Brand-, Kunden- und Kanalstrategien. Was du mitbringst Du hast eine kaufmännische oder vergleichbare Berufsausbildung abgeschlossen und bringst 1–3 Jahre Berufserfahrung im Verkauf, Key Account Management oder einer vergleichbaren kommerziellen Funktion mit – idealerweise im FMCG- oder Retail-Umfeld. Eine Weiterbildung in Verkauf oder Marketing ist von Vorteil, eine höhere Fachausbildung in Verkauf oder Betriebswirtschaft wünschenswert. Du verfügst über gute betriebswirtschaftliche und kommerzielle Kenntnisse rund um Volumen, Preise, Kosten und Rentabilität sowie ausgeprägte analytische Fähigkeiten. Du gehst sicher mit MS Office um, insbesondere mit Excel und PowerPoint. Kenntnisse in SAP und Markt- und Kundendatentools wie AC Nielsen sind von Vorteil. Du kommunizierst überzeugend, bringst gute Verhandlungsfähigkeiten mit und arbeitest selbständig innerhalb definierter kommerzieller Leitplanken. Du verfügst über sehr gute Deutschkenntnisse und gute Englischkenntnisse. Französisch ist von Vorteil, Italienischkenntnisse sind wünschenswert. Was wir dir bieten Flexibilität & Work-Life-Balance: Flexible Arbeitszeiten und hybrides Arbeiten Lernen & Entwicklung: Interne und externe Weiterbildungsangebote, z. B. Sprachtrainings oder unsere Beer Academy Teamspirit & Kultur: Regelmässige Mitarbeitendenanlässe, monatliche Firmenapéros und gemeinsame Feiern Vergünstigungen & Extras: Attraktive Vergünstigungen, z. B. in unserem Getränkeshop oder bei ausgewählten Freizeit- und Kulturangeboten Events & Erlebnisse: Regelmässige Verlosungen von Tickets für Festivals, Konzerte und weitere Events Gesundheit & Wohlbefinden: Gesundheits- und Unterstützungsangebote für verschiedene Lebenssituationen",
+        "en": "Arbeitsort: Luzern Vertragsart: Unbefristet Arbeitspensum: Vollzeit Respekt, Genuss und Qualität aus Leidenschaft gehören zu unseren Kernwerten. Als Bierproduzent mit Brauereistandorten in Chur und Luzern sind wir ein Unternehmen von nationaler Bedeutung. Wir setzen auf einen Mix aus Tradition, Innovation und Kundennähe. Mit unseren Markenbieren tragen wir zur vielfältigen Schweizer Bierkultur bei. Du möchtest Kundenbeziehungen im Retail aktiv mitgestalten und dein kommerzielles Know-how einbringen? In dieser Rolle unterstützt du das Key Account Management bei der professionellen Betreuung nationaler Retail-Kunden. Gleichzeitig betreust du ein definiertes Kundenportfolio und setzt die vorgegebene Kunden- und Kanalstrategie im Tagesgeschäft um. Innerhalb klarer Verantwortungs- und Entscheidungsspielräume trägst du dazu bei, unsere Absatz-, Umsatz- und Rentabilitätsziele zu erreichen. Was dich erwartet Du arbeitest eng mit unseren Key Account Managern bei der professionellen Betreuung und Weiterentwicklung unserer wichtigsten nationalen Retail-Kunden zusammen. Du betreust dein zugewiesenes Kundenportfolio operativ und kommerziell und setzt die definierten Kunden- und Kanalpläne um. Du behältst Absatz, Umsatz, Rentabilität sowie die Kunden- und Promotion-Performance im Blick und erkennst Chancen und Abweichungen frühzeitig. Du steuerst die Umsetzung der Kundenpläne aus kommerzieller Sicht und stellst die Einhaltung vereinbarter Konditionen sicher. Du wirkst an umsetzbaren, wirtschaftlich tragfähigen Kundenvereinbarungen innerhalb der definierten kommerziellen Leitplanken mit. Du setzt vereinbarte Massnahmen konsequent um und eskalierst wesentliche Abweichungen rechtzeitig. Du koordinierst die Umsetzung mit Key Account Management, Trade Marketing, Category Management, Marketing, Sales Operations und Supply Chain – im Einklang mit den übergeordneten Brand-, Kunden- und Kanalstrategien. Was du mitbringst Du hast eine kaufmännische oder vergleichbare Berufsausbildung abgeschlossen und bringst 1–3 Jahre Berufserfahrung im Verkauf, Key Account Management oder einer vergleichbaren kommerziellen Funktion mit – idealerweise im FMCG- oder Retail-Umfeld. Eine Weiterbildung in Verkauf oder Marketing ist von Vorteil, eine höhere Fachausbildung in Verkauf oder Betriebswirtschaft wünschenswert. Du verfügst über gute betriebswirtschaftliche und kommerzielle Kenntnisse rund um Volumen, Preise, Kosten und Rentabilität sowie ausgeprägte analytische Fähigkeiten. Du gehst sicher mit MS Office um, insbesondere mit Excel und PowerPoint. Kenntnisse in SAP und Markt- und Kundendatentools wie AC Nielsen sind von Vorteil. Du kommunizierst überzeugend, bringst gute Verhandlungsfähigkeiten mit und arbeitest selbständig innerhalb definierter kommerzieller Leitplanken. Du verfügst über sehr gute Deutschkenntnisse und gute Englischkenntnisse. Französisch ist von Vorteil, Italienischkenntnisse sind wünschenswert. Was wir dir bieten Flexibilität & Work-Life-Balance: Flexible Arbeitszeiten und hybrides Arbeiten Lernen & Entwicklung: Interne und externe Weiterbildungsangebote, z. B. Sprachtrainings oder unsere Beer Academy Teamspirit & Kultur: Regelmässige Mitarbeitendenanlässe, monatliche Firmenapéros und gemeinsame Feiern Vergünstigungen & Extras: Attraktive Vergünstigungen, z. B. in unserem Getränkeshop oder bei ausgewählten Freizeit- und Kulturangeboten Events & Erlebnisse: Regelmässige Verlosungen von Tickets für Festivals, Konzerte und weitere Events Gesundheit & Wohlbefinden: Gesundheits- und Unterstützungsangebote für verschiedene Lebenssituationen",
+        "fr": "Arbeitsort: Luzern Vertragsart: Unbefristet Arbeitspensum: Vollzeit Respekt, Genuss und Qualität aus Leidenschaft gehören zu unseren Kernwerten. Als Bierproduzent mit Brauereistandorten in Chur und Luzern sind wir ein Unternehmen von nationaler Bedeutung. Wir setzen auf einen Mix aus Tradition, Innovation und Kundennähe. Mit unseren Markenbieren tragen wir zur vielfältigen Schweizer Bierkultur bei. Du möchtest Kundenbeziehungen im Retail aktiv mitgestalten und dein kommerzielles Know-how einbringen? In dieser Rolle unterstützt du das Key Account Management bei der professionellen Betreuung nationaler Retail-Kunden. Gleichzeitig betreust du ein definiertes Kundenportfolio und setzt die vorgegebene Kunden- und Kanalstrategie im Tagesgeschäft um. Innerhalb klarer Verantwortungs- und Entscheidungsspielräume trägst du dazu bei, unsere Absatz-, Umsatz- und Rentabilitätsziele zu erreichen. Was dich erwartet Du arbeitest eng mit unseren Key Account Managern bei der professionellen Betreuung und Weiterentwicklung unserer wichtigsten nationalen Retail-Kunden zusammen. Du betreust dein zugewiesenes Kundenportfolio operativ und kommerziell und setzt die definierten Kunden- und Kanalpläne um. Du behältst Absatz, Umsatz, Rentabilität sowie die Kunden- und Promotion-Performance im Blick und erkennst Chancen und Abweichungen frühzeitig. Du steuerst die Umsetzung der Kundenpläne aus kommerzieller Sicht und stellst die Einhaltung vereinbarter Konditionen sicher. Du wirkst an umsetzbaren, wirtschaftlich tragfähigen Kundenvereinbarungen innerhalb der definierten kommerziellen Leitplanken mit. Du setzt vereinbarte Massnahmen konsequent um und eskalierst wesentliche Abweichungen rechtzeitig. Du koordinierst die Umsetzung mit Key Account Management, Trade Marketing, Category Management, Marketing, Sales Operations und Supply Chain – im Einklang mit den übergeordneten Brand-, Kunden- und Kanalstrategien. Was du mitbringst Du hast eine kaufmännische oder vergleichbare Berufsausbildung abgeschlossen und bringst 1–3 Jahre Berufserfahrung im Verkauf, Key Account Management oder einer vergleichbaren kommerziellen Funktion mit – idealerweise im FMCG- oder Retail-Umfeld. Eine Weiterbildung in Verkauf oder Marketing ist von Vorteil, eine höhere Fachausbildung in Verkauf oder Betriebswirtschaft wünschenswert. Du verfügst über gute betriebswirtschaftliche und kommerzielle Kenntnisse rund um Volumen, Preise, Kosten und Rentabilität sowie ausgeprägte analytische Fähigkeiten. Du gehst sicher mit MS Office um, insbesondere mit Excel und PowerPoint. Kenntnisse in SAP und Markt- und Kundendatentools wie AC Nielsen sind von Vorteil. Du kommunizierst überzeugend, bringst gute Verhandlungsfähigkeiten mit und arbeitest selbständig innerhalb definierter kommerzieller Leitplanken. Du verfügst über sehr gute Deutschkenntnisse und gute Englischkenntnisse. Französisch ist von Vorteil, Italienischkenntnisse sind wünschenswert. Was wir dir bieten Flexibilität & Work-Life-Balance: Flexible Arbeitszeiten und hybrides Arbeiten Lernen & Entwicklung: Interne und externe Weiterbildungsangebote, z. B. Sprachtrainings oder unsere Beer Academy Teamspirit & Kultur: Regelmässige Mitarbeitendenanlässe, monatliche Firmenapéros und gemeinsame Feiern Vergünstigungen & Extras: Attraktive Vergünstigungen, z. B. in unserem Getränkeshop oder bei ausgewählten Freizeit- und Kulturangeboten Events & Erlebnisse: Regelmässige Verlosungen von Tickets für Festivals, Konzerte und weitere Events Gesundheit & Wohlbefinden: Gesundheits- und Unterstützungsangebote für verschiedene Lebenssituationen"
+      },
+      "location": "Luzern",
+      "canton": "LU",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6003",
+      "streetAddress": "Luzern, LU",
+      "category": "Commerciale",
+      "sector": "Industria / Alimentare",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "junior",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/junior-key-account-manager-retail-wmd?jobid=169211",
+      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=169211&career_ns=job_application",
+      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-24T21:48:19.727Z",
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 95500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 95500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-22T21:48:19.727Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-24T21:48:19.727Z"
     }
   ]
 }

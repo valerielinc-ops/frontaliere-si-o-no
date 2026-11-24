@@ -1,7 +1,7 @@
 {
   "key": "clinica-holistica-engiadina",
   "label": "Clinica Holistica Engiadina",
-  "generatedAt": "2026-11-24T09:38:08.957Z",
+  "generatedAt": "2026-11-24T21:52:05.411Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 21645,
-  "avgDurationMs": 21645,
+  "durationMs": 18197,
+  "avgDurationMs": 18197,
   "durationHistory": [
-    21645
+    18197
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -54,7 +54,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/oberaerztin-oder-oberarzt-mit-facharzttitel-psychiatrie-und-psychotherapie-80-100-bei",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T09:37:56.136Z",
+      "crawledAt": "2026-11-24T21:51:47.156Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-05-20T05:16:31.365Z",
       "salaryMin": 110500,
@@ -62,7 +62,7 @@
       "salarySource": "estimated",
       "streetAddress": "Susch",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T09:37:56.136Z",
+      "validThrough": "2026-12-24T21:51:47.156Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -100,7 +100,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/node/293",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T09:37:53.558Z",
+      "crawledAt": "2026-11-24T21:51:44.655Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-05-20T05:16:26.552Z",
       "salaryMin": 81500,
@@ -108,7 +108,7 @@
       "salarySource": "estimated",
       "streetAddress": "Susch",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T09:37:53.558Z",
+      "validThrough": "2026-12-24T21:51:44.655Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -146,7 +146,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/hilfskoch-kuechenhilfe-mwd",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T09:37:51.153Z",
+      "crawledAt": "2026-11-24T21:51:42.428Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-05-20T05:16:24.218Z",
       "salaryMin": 62000,
@@ -154,7 +154,7 @@
       "salarySource": "estimated",
       "streetAddress": "Susch",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T09:37:51.153Z",
+      "validThrough": "2026-12-24T21:51:42.428Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -192,7 +192,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/tanz-und-bewegungstherapeutin",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T09:37:48.564Z",
+      "crawledAt": "2026-11-24T21:51:40.104Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-24T14:43:36.062Z",
       "salaryMin": 81500,
@@ -200,7 +200,7 @@
       "salarySource": "estimated",
       "streetAddress": "Susch",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T09:37:48.564Z",
+      "validThrough": "2026-12-24T21:51:40.104Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -238,7 +238,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/leiterin-kunsttherapie",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T09:37:45.894Z",
+      "crawledAt": "2026-11-24T21:51:37.693Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-08-03T13:10:25.665Z",
       "salaryMin": 110500,
@@ -246,7 +246,7 @@
       "salarySource": "estimated",
       "streetAddress": "Susch",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T09:37:45.894Z",
+      "validThrough": "2026-12-24T21:51:37.693Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -257,5 +257,5 @@
       }
     }
   ],
-  "codeCommit": "ad4d13f2bbfca567e72148b3349ab6c6b8a5dd5d"
+  "codeCommit": "af6487cf18de54664a2dd36f8f16e17f8a69b92f"
 }
