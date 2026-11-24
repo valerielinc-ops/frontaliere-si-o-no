@@ -1,7 +1,7 @@
 {
   "crawlerKey": "rehaklinik-hasliberg",
-  "assembledAt": "2026-11-23T21:32:52.806Z",
-  "runId": "45268419941",
+  "assembledAt": "2026-11-24T09:22:11.624Z",
+  "runId": "45363929187",
   "jobs": [
     {
       "id": "rehaklinik-hasliberg-743239bda29f",
@@ -34,7 +34,7 @@
       "url": "https://my.jobalino.ch/job/53ff50726a1e24bc7c44745ab07a30a4/assistenzaerztin-assistenzarzt-psychosomatische-medizin-muskuloskelettale-rehabilitation-oder-innere-medizin",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T21:32:44.955Z",
+      "crawledAt": "2026-11-24T09:22:03.525Z",
       "addressLocality": "Hasliberg Hohfluh",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -85,7 +85,101 @@
       },
       "streetAddress": "Hasliberg Hohfluh",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:32:44.955Z",
+      "validThrough": "2026-12-24T09:22:03.525Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "rehaklinik-hasliberg-f829e5b8243f",
+      "slug": "apprendistato-estivo-2027-assistente-sanitario-efz-tecnico-sanitario-efz-reparto-riabilitazione-100-rehaklinik-hasliberg",
+      "slugByLocale": {
+        "it": "apprendistato-estivo-2027-assistente-sanitario-efz-tecnico-sanitario-efz-reparto-riabilitazione-100-rehaklinik-hasliberg",
+        "en": "summer-2027-healthcare-assistant-efz-healthcare-specialist-efz-rehabilitation-department-100-rehaklinik-hasliberg",
+        "de": "sommer-2027-lehrstelle-fachperson-gesundheit-efz-versorgungsbereich-rehabilitation-100",
+        "fr": "ete-2027-apprentissage-sante-professionnelle-efz-sante-professionnelle-efz-soins-de-readaptation-100-rehaklinik"
+      },
+      "company": "Rehaklinik Hasliberg",
+      "companyKey": "rehaklinik-hasliberg",
+      "companyDomain": "rehaklinik-hasliberg.ch",
+      "title": "Sommer 2027: Lehrstelle Fachperson Gesundheit EFZ (Versorgungsbereich Rehabilitation) / 100%",
+      "titleByLocale": {
+        "it": "Apprendistato Estivo 2027: Assistente Sanitario EFZ / Tecnico Sanitario EFZ (Reparto Riabilitazione) / 100%",
+        "en": "Summer 2027: Healthcare Assistant EFZ / Healthcare Specialist EFZ (Rehabilitation Department) / 100%",
+        "de": "Sommer 2027: Lehrstelle Fachperson Gesundheit EFZ (Versorgungsbereich Rehabilitation) / 100%",
+        "fr": "Étudiant d'été 2027 : Assistant en soins et santé EFZ / Spécialiste en soins et santé EFZ (Service de réadaptation) / 100%"
+      },
+      "description": "Die Rehaklinik Hasliberg ist eine renommierte Schweizer Klinik im Bereich der internistisch-onkologischen, psychosomatischen und muskuloskelettalen Rehabilitation. Die Klinik verfügt über 83 Betten und befindet sich auf den Spitallisten der Kantone Bern, Luzern, Solothurn, Nidwalden und Uri. Das ISO-zertifizierte Unternehmen arbeitet prozessorientiert und interdisziplinär, basierend auf dem Leitbild der „REHA-Kompetenz“ mit den Eigenschaften: Respekt, Effizienz, Herzlichkeit, Aufmerksamkeit und Kompetenz.\n\nIhre Aufgaben\n Als Fachfrau Gesundheit / Fachmann Gesundheit EFZ begleiten, unterstützen und pflegen Sie Menschen. Zudem übernehmen Sie hauswirtschaftliche und administrativ-logistische sowie medizinaltechnische Aufgaben.\n\nUnsere Erwartungen\n\n• Freude am Umgang mit verschiedensten Menschen\n\n• Sehr gute Kenntnisse der deutschen Sprache in Wort und Schrift\n\nUnser Angebot\n Wir bieten Ihnen eine umfassende, abwechslungsreiche Ausbildung durch ein kompetentes Bildungsteam in einem interessanten Arbeitsgebiet. Zudem erhalten Sie wertvolle Einblicke in die vielfältigen Bereiche unserer Institution in Form von Kurzpraktika. Mit dem erfolgreichen Abschluss dieser Ausbildung steht Ihnen ein vielseitiges Berufsfeld offen. Unter anderem haben Sie die Möglichkeit, an einer Höheren Fachschule den Abschluss zur Dipl. Pflegefachfrau HF / zum Dipl. Pflegefachmann HF zu erlangen.",
+      "descriptionByLocale": {
+        "it": "La clinica Hasliberg Clinic è una rinomata clinica svizzera nel campo della riabilitazione muscolo-oncologica, psicosomatica e psico-scheletrica. La clinica dispone di 83 posti letto ed è situata sulle liste ospedaliere dei 325ni di Berna, Lucerna, Soletta, Nidwalden e Uri. L'azienda certificata ISO lavora process-oriented e interdisciplinare, sulla base del principio guida della \"competenza REHA,\" con le caratteristiche: rispetto, efficienza, coscienza, attenzione e competenza.\n\nAttività Come specialista di assistenza sanitaria, EFZ supporta, supporta e cura le persone. Inoltre, si prende in mano domestico e amministrativo-logistico e compiti medico-tecnici. Vi offriamo una formazione completa e varia attraverso un team di formazione competente in un interessante campo di lavoro. Inoltre, si ottiene preziose informazioni sulle diverse aree della nostra istituzione sotto forma di brevi tirocini. Con il completamento di questa formazione, si dispone di un campo di carriera di versatile aperto a voi.\n\nTra l'altro, avete la possibilità di ottenere una laurea in materia di HF / HF.\n\nAspettative\n\n• Divertirsi a trattare con una vasta varietà di persone\n\n• Salute fisica e mentale\n\n• Conoscenza molto buona della lingua tedesca in parole e scrittura",
+        "en": "The Hasliberg Rehabilitation Clinic is a renowned Swiss clinic in the field of internistic-oncological, psychosomatic and musculoskeletal rehabilitation. The clinic has 83 beds and is located on the hospital lists of the cantons of Bern, Lucerne, Solothurn, Nidwalden and Uri. The ISO-certified company works process-oriented and interdisciplinary, based on the guiding principle of \"REHA competence\", with the characteristics: respect, efficiency, cordiality, attention and competence.\n\nTasks As a specialist health care specialist, EFZ supports, supports and cares for people. In addition, you take over domestic and administrative-logistical as well as medical-technical tasks. We offer you a comprehensive, varied training through a competent educational team in an interesting field of work. In addition, you get valuable insights into the diverse areas of our institution in the form of short internships. With the successful completion of this training, you have a versatile career field open to you.\n\nAmong other things, you have the opportunity to obtain a degree in the subject of HF / of HF.\n\nExpectations\n\n• Enjoying dealing with a wide variety of people\n\n• Physical and mental health\n\n• Very good knowledge of the German language in word and writing",
+        "de": "Die Rehaklinik Hasliberg ist eine renommierte Schweizer Klinik im Bereich der internistisch-onkologischen, psychosomatischen und muskuloskelettalen Rehabilitation. Die Klinik verfügt über 83 Betten und befindet sich auf den Spitallisten der Kantone Bern, Luzern, Solothurn, Nidwalden und Uri. Das ISO-zertifizierte Unternehmen arbeitet prozessorientiert und interdisziplinär, basierend auf dem Leitbild der „REHA-Kompetenz“ mit den Eigenschaften: Respekt, Effizienz, Herzlichkeit, Aufmerksamkeit und Kompetenz.\n\nIhre Aufgaben\nAls Fachfrau Gesundheit / Fachmann Gesundheit EFZ begleiten, unterstützen und pflegen Sie Menschen. Zudem übernehmen Sie hauswirtschaftliche und administrativ-logistische sowie medizinaltechnische Aufgaben.\n\nUnsere Erwartungen\n\n• Freude am Umgang mit verschiedensten Menschen\n\n• Sehr gute Kenntnisse der deutschen Sprache in Wort und Schrift\n\nUnser Angebot\nWir bieten Ihnen eine umfassende, abwechslungsreiche Ausbildung durch ein kompetentes Bildungsteam in einem interessanten Arbeitsgebiet. Zudem erhalten Sie wertvolle Einblicke in die vielfältigen Bereiche unserer Institution in Form von Kurzpraktika. Mit dem erfolgreichen Abschluss dieser Ausbildung steht Ihnen ein vielseitiges Berufsfeld offen. Unter anderem haben Sie die Möglichkeit, an einer Höheren Fachschule den Abschluss zur Dipl. Pflegefachfrau HF / zum Dipl. Pflegefachmann HF zu erlangen.",
+        "fr": "La clinique de réadaptation Hasliberg est une clinique suisse de renom dans le domaine de la réadaptation inter-oncologique, psychosomatique et musculosquelettique. La clinique dispose de 83 lits et est située sur les listes hospitalières des cantons de Berne, Lucerne, Solothurn, Nidwalden et Uri. La société certifiée ISO travaille sur processus et interdisciplinaire, sur la base du principe directeur de la « compétence REHA », avec les caractéristiques: respect, efficacité, cordialité, attention et compétence.\n\nTâches En tant que spécialiste de la santé, EFZ soutient, soutient et soigne les personnes. En outre, vous prenez en charge des tâches domestiques et administratives-logistiques ainsi que des tâches médicales-techniques. Nous vous offrons une formation complète et variée par l'intermédiaire d'une équipe éducative compétente dans un domaine de travail intéressant. De plus, vous obtenez des informations précieuses dans les différents domaines de notre institution sous la forme de courts stages.\n\nEntre autres, vous avez la possibilité d'obtenir un diplôme dans le domaine de la HF / de la HF.\n\nAttentes\n\n• Profitez de la rencontre avec une grande variété de personnes\n\n• Santé physique et mentale\n\n• Très bonne connaissance de la langue allemande en paroles et en écriture"
+      },
+      "location": "Hasliberg Hohfluh",
+      "canton": "BE",
+      "url": "https://my.jobalino.ch/job/ed48f951d00e4632c942a146cff54532/sommer-2027-lehrstelle-fachperson-gesundheit-efz-versorgungsbereich-rehabilitation",
+      "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-24T09:22:03.147Z",
+      "addressLocality": "Hasliberg Hohfluh",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6083",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-05-21",
+      "postedDate": "2026-05-21",
+      "postingDateSource": "reported",
+      "applyUrl": "https://my.jobalino.ch/job/ed48f951d00e4632c942a146cff54532/sommer-2027-lehrstelle-fachperson-gesundheit-efz-versorgungsbereich-rehabilitation",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "ed48f951d00e4632c942a146cff54532",
+      "department": "Lehrstellen / Ausbildung",
+      "previousSlugs": [
+        "sommer-2027-lehrstelle-fachfrau-gesundheit-efz-fachmann-gesundheit-efz-versorgungsbereich",
+        "sommer-2027-lehrstelle-fachperson-gesundheit-efz-versorgungsbereich-rehabilitation-100",
+        "sommer-2027-apprendistato-fachfrau-gesundheit-cfc-fachmann-gesundheit-cfc-versorgungsbereich-rehabilitation-100-rehaklinik-hasliberg-hohfluh",
+        "summer-2027-apprenticeship-professional-health-efz-professional-health-efz-rehabilitation-care-100-rehaklinik-hasliberg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sommer-2027-lehrstelle-fachfrau-gesundheit-efz-fachmann-gesundheit-efz-versorgungsbereich",
+          "sommer-2027-lehrstelle-fachperson-gesundheit-efz-versorgungsbereich-rehabilitation-100",
+          "sommer-2027-apprendistato-fachfrau-gesundheit-cfc-fachmann-gesundheit-cfc-versorgungsbereich-rehabilitation-100-rehaklinik-hasliberg-hohfluh"
+        ],
+        "en": [
+          "sommer-2027-lehrstelle-fachfrau-gesundheit-efz-fachmann-gesundheit-efz-versorgungsbereich",
+          "summer-2027-apprenticeship-professional-health-efz-professional-health-efz-rehabilitation-care-100-rehaklinik-hasliberg"
+        ],
+        "de": [
+          "sommer-2027-lehrstelle-fachfrau-gesundheit-efz-fachmann-gesundheit-efz-versorgungsbereich"
+        ],
+        "fr": [
+          "sommer-2027-lehrstelle-fachfrau-gesundheit-efz-fachmann-gesundheit-efz-versorgungsbereich"
+        ]
+      },
+      "firstSeenAt": "2026-05-21T13:04:55.614Z",
+      "salaryMin": 76000,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 76000,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Hasliberg Hohfluh",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-24T09:22:03.147Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -120,7 +214,7 @@
       "url": "https://my.jobalino.ch/job/0798fc0f23c3efe03549d0b768bf7c59/fachaerztin-facharzt-allgemeine-innere-medizin-mit-schwerpunkt-psychosomatische-und-psychosoziale-medizin-fuer-das-zentr",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T21:32:44.518Z",
+      "crawledAt": "2026-11-24T09:22:02.769Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -181,7 +275,7 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:32:44.518Z",
+      "validThrough": "2026-12-24T09:22:02.769Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -216,7 +310,7 @@
       "url": "https://my.jobalino.ch/job/94c876ec822c2a7b70de4943e26ad1c0/fachaerztin-facharzt-psychiatrie-und-psychotherapie-mit-schwerpunkt-psychosomatische-und-psychosoziale-medizin-fuer-das-",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T21:32:43.919Z",
+      "crawledAt": "2026-11-24T09:22:02.296Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -293,101 +387,7 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:32:43.919Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "rehaklinik-hasliberg-f829e5b8243f",
-      "slug": "apprendistato-estivo-2027-assistente-sanitario-efz-tecnico-sanitario-efz-reparto-riabilitazione-100-rehaklinik-hasliberg",
-      "slugByLocale": {
-        "it": "apprendistato-estivo-2027-assistente-sanitario-efz-tecnico-sanitario-efz-reparto-riabilitazione-100-rehaklinik-hasliberg",
-        "en": "summer-2027-healthcare-assistant-efz-healthcare-specialist-efz-rehabilitation-department-100-rehaklinik-hasliberg",
-        "de": "sommer-2027-lehrstelle-fachperson-gesundheit-efz-versorgungsbereich-rehabilitation-100",
-        "fr": "ete-2027-apprentissage-sante-professionnelle-efz-sante-professionnelle-efz-soins-de-readaptation-100-rehaklinik"
-      },
-      "company": "Rehaklinik Hasliberg",
-      "companyKey": "rehaklinik-hasliberg",
-      "companyDomain": "rehaklinik-hasliberg.ch",
-      "title": "Sommer 2027: Lehrstelle Fachperson Gesundheit EFZ (Versorgungsbereich Rehabilitation) / 100%",
-      "titleByLocale": {
-        "it": "Apprendistato Estivo 2027: Assistente Sanitario EFZ / Tecnico Sanitario EFZ (Reparto Riabilitazione) / 100%",
-        "en": "Summer 2027: Healthcare Assistant EFZ / Healthcare Specialist EFZ (Rehabilitation Department) / 100%",
-        "de": "Sommer 2027: Lehrstelle Fachperson Gesundheit EFZ (Versorgungsbereich Rehabilitation) / 100%",
-        "fr": "Étudiant d'été 2027 : Assistant en soins et santé EFZ / Spécialiste en soins et santé EFZ (Service de réadaptation) / 100%"
-      },
-      "description": "Die Rehaklinik Hasliberg ist eine renommierte Schweizer Klinik im Bereich der internistisch-onkologischen, psychosomatischen und muskuloskelettalen Rehabilitation. Die Klinik verfügt über 83 Betten und befindet sich auf den Spitallisten der Kantone Bern, Luzern, Solothurn, Nidwalden und Uri. Das ISO-zertifizierte Unternehmen arbeitet prozessorientiert und interdisziplinär, basierend auf dem Leitbild der „REHA-Kompetenz“ mit den Eigenschaften: Respekt, Effizienz, Herzlichkeit, Aufmerksamkeit und Kompetenz.\n\nIhre Aufgaben\n Als Fachfrau Gesundheit / Fachmann Gesundheit EFZ begleiten, unterstützen und pflegen Sie Menschen. Zudem übernehmen Sie hauswirtschaftliche und administrativ-logistische sowie medizinaltechnische Aufgaben.\n\nUnsere Erwartungen\n\n• Freude am Umgang mit verschiedensten Menschen\n\n• Sehr gute Kenntnisse der deutschen Sprache in Wort und Schrift\n\nUnser Angebot\n Wir bieten Ihnen eine umfassende, abwechslungsreiche Ausbildung durch ein kompetentes Bildungsteam in einem interessanten Arbeitsgebiet. Zudem erhalten Sie wertvolle Einblicke in die vielfältigen Bereiche unserer Institution in Form von Kurzpraktika. Mit dem erfolgreichen Abschluss dieser Ausbildung steht Ihnen ein vielseitiges Berufsfeld offen. Unter anderem haben Sie die Möglichkeit, an einer Höheren Fachschule den Abschluss zur Dipl. Pflegefachfrau HF / zum Dipl. Pflegefachmann HF zu erlangen.",
-      "descriptionByLocale": {
-        "it": "La clinica Hasliberg Clinic è una rinomata clinica svizzera nel campo della riabilitazione muscolo-oncologica, psicosomatica e psico-scheletrica. La clinica dispone di 83 posti letto ed è situata sulle liste ospedaliere dei 325ni di Berna, Lucerna, Soletta, Nidwalden e Uri. L'azienda certificata ISO lavora process-oriented e interdisciplinare, sulla base del principio guida della \"competenza REHA,\" con le caratteristiche: rispetto, efficienza, coscienza, attenzione e competenza.\n\nAttività Come specialista di assistenza sanitaria, EFZ supporta, supporta e cura le persone. Inoltre, si prende in mano domestico e amministrativo-logistico e compiti medico-tecnici. Vi offriamo una formazione completa e varia attraverso un team di formazione competente in un interessante campo di lavoro. Inoltre, si ottiene preziose informazioni sulle diverse aree della nostra istituzione sotto forma di brevi tirocini. Con il completamento di questa formazione, si dispone di un campo di carriera di versatile aperto a voi.\n\nTra l'altro, avete la possibilità di ottenere una laurea in materia di HF / HF.\n\nAspettative\n\n• Divertirsi a trattare con una vasta varietà di persone\n\n• Salute fisica e mentale\n\n• Conoscenza molto buona della lingua tedesca in parole e scrittura",
-        "en": "The Hasliberg Rehabilitation Clinic is a renowned Swiss clinic in the field of internistic-oncological, psychosomatic and musculoskeletal rehabilitation. The clinic has 83 beds and is located on the hospital lists of the cantons of Bern, Lucerne, Solothurn, Nidwalden and Uri. The ISO-certified company works process-oriented and interdisciplinary, based on the guiding principle of \"REHA competence\", with the characteristics: respect, efficiency, cordiality, attention and competence.\n\nTasks As a specialist health care specialist, EFZ supports, supports and cares for people. In addition, you take over domestic and administrative-logistical as well as medical-technical tasks. We offer you a comprehensive, varied training through a competent educational team in an interesting field of work. In addition, you get valuable insights into the diverse areas of our institution in the form of short internships. With the successful completion of this training, you have a versatile career field open to you.\n\nAmong other things, you have the opportunity to obtain a degree in the subject of HF / of HF.\n\nExpectations\n\n• Enjoying dealing with a wide variety of people\n\n• Physical and mental health\n\n• Very good knowledge of the German language in word and writing",
-        "de": "Die Rehaklinik Hasliberg ist eine renommierte Schweizer Klinik im Bereich der internistisch-onkologischen, psychosomatischen und muskuloskelettalen Rehabilitation. Die Klinik verfügt über 83 Betten und befindet sich auf den Spitallisten der Kantone Bern, Luzern, Solothurn, Nidwalden und Uri. Das ISO-zertifizierte Unternehmen arbeitet prozessorientiert und interdisziplinär, basierend auf dem Leitbild der „REHA-Kompetenz“ mit den Eigenschaften: Respekt, Effizienz, Herzlichkeit, Aufmerksamkeit und Kompetenz.\n\nIhre Aufgaben\nAls Fachfrau Gesundheit / Fachmann Gesundheit EFZ begleiten, unterstützen und pflegen Sie Menschen. Zudem übernehmen Sie hauswirtschaftliche und administrativ-logistische sowie medizinaltechnische Aufgaben.\n\nUnsere Erwartungen\n\n• Freude am Umgang mit verschiedensten Menschen\n\n• Sehr gute Kenntnisse der deutschen Sprache in Wort und Schrift\n\nUnser Angebot\nWir bieten Ihnen eine umfassende, abwechslungsreiche Ausbildung durch ein kompetentes Bildungsteam in einem interessanten Arbeitsgebiet. Zudem erhalten Sie wertvolle Einblicke in die vielfältigen Bereiche unserer Institution in Form von Kurzpraktika. Mit dem erfolgreichen Abschluss dieser Ausbildung steht Ihnen ein vielseitiges Berufsfeld offen. Unter anderem haben Sie die Möglichkeit, an einer Höheren Fachschule den Abschluss zur Dipl. Pflegefachfrau HF / zum Dipl. Pflegefachmann HF zu erlangen.",
-        "fr": "La clinique de réadaptation Hasliberg est une clinique suisse de renom dans le domaine de la réadaptation inter-oncologique, psychosomatique et musculosquelettique. La clinique dispose de 83 lits et est située sur les listes hospitalières des cantons de Berne, Lucerne, Solothurn, Nidwalden et Uri. La société certifiée ISO travaille sur processus et interdisciplinaire, sur la base du principe directeur de la « compétence REHA », avec les caractéristiques: respect, efficacité, cordialité, attention et compétence.\n\nTâches En tant que spécialiste de la santé, EFZ soutient, soutient et soigne les personnes. En outre, vous prenez en charge des tâches domestiques et administratives-logistiques ainsi que des tâches médicales-techniques. Nous vous offrons une formation complète et variée par l'intermédiaire d'une équipe éducative compétente dans un domaine de travail intéressant. De plus, vous obtenez des informations précieuses dans les différents domaines de notre institution sous la forme de courts stages.\n\nEntre autres, vous avez la possibilité d'obtenir un diplôme dans le domaine de la HF / de la HF.\n\nAttentes\n\n• Profitez de la rencontre avec une grande variété de personnes\n\n• Santé physique et mentale\n\n• Très bonne connaissance de la langue allemande en paroles et en écriture"
-      },
-      "location": "Hasliberg Hohfluh",
-      "canton": "BE",
-      "url": "https://my.jobalino.ch/job/ed48f951d00e4632c942a146cff54532/sommer-2027-lehrstelle-fachperson-gesundheit-efz-versorgungsbereich-rehabilitation",
-      "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-23T21:32:43.321Z",
-      "addressLocality": "Hasliberg Hohfluh",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6083",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-05-21",
-      "postedDate": "2026-05-21",
-      "postingDateSource": "reported",
-      "applyUrl": "https://my.jobalino.ch/job/ed48f951d00e4632c942a146cff54532/sommer-2027-lehrstelle-fachperson-gesundheit-efz-versorgungsbereich-rehabilitation",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "ed48f951d00e4632c942a146cff54532",
-      "department": "Lehrstellen / Ausbildung",
-      "previousSlugs": [
-        "sommer-2027-lehrstelle-fachfrau-gesundheit-efz-fachmann-gesundheit-efz-versorgungsbereich",
-        "sommer-2027-lehrstelle-fachperson-gesundheit-efz-versorgungsbereich-rehabilitation-100",
-        "sommer-2027-apprendistato-fachfrau-gesundheit-cfc-fachmann-gesundheit-cfc-versorgungsbereich-rehabilitation-100-rehaklinik-hasliberg-hohfluh",
-        "summer-2027-apprenticeship-professional-health-efz-professional-health-efz-rehabilitation-care-100-rehaklinik-hasliberg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sommer-2027-lehrstelle-fachfrau-gesundheit-efz-fachmann-gesundheit-efz-versorgungsbereich",
-          "sommer-2027-lehrstelle-fachperson-gesundheit-efz-versorgungsbereich-rehabilitation-100",
-          "sommer-2027-apprendistato-fachfrau-gesundheit-cfc-fachmann-gesundheit-cfc-versorgungsbereich-rehabilitation-100-rehaklinik-hasliberg-hohfluh"
-        ],
-        "en": [
-          "sommer-2027-lehrstelle-fachfrau-gesundheit-efz-fachmann-gesundheit-efz-versorgungsbereich",
-          "summer-2027-apprenticeship-professional-health-efz-professional-health-efz-rehabilitation-care-100-rehaklinik-hasliberg"
-        ],
-        "de": [
-          "sommer-2027-lehrstelle-fachfrau-gesundheit-efz-fachmann-gesundheit-efz-versorgungsbereich"
-        ],
-        "fr": [
-          "sommer-2027-lehrstelle-fachfrau-gesundheit-efz-fachmann-gesundheit-efz-versorgungsbereich"
-        ]
-      },
-      "firstSeenAt": "2026-05-21T13:04:55.614Z",
-      "salaryMin": 76000,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 76000,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Hasliberg Hohfluh",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:32:43.321Z",
+      "validThrough": "2026-12-24T09:22:02.296Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -421,7 +421,7 @@
       "url": "https://my.jobalino.ch/job/611a40b073396ed9ea3b6db4e77091d5/physiotherapeut-in",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T21:32:42.885Z",
+      "crawledAt": "2026-11-24T09:22:01.823Z",
       "addressLocality": "Hasliberg Hohfluh",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -473,7 +473,7 @@
       },
       "streetAddress": "Hasliberg Hohfluh",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T21:32:42.885Z",
+      "validThrough": "2026-12-30T09:22:01.823Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -507,7 +507,7 @@
       "url": "https://my.jobalino.ch/job/7f88938b74161e93abe97023bf98d031/assistent-in-der-geschaeftsleitung_1151",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T21:32:42.440Z",
+      "crawledAt": "2026-11-24T09:22:01.432Z",
       "addressLocality": "Hasliberg Hohfluh",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -569,7 +569,7 @@
       },
       "streetAddress": "Hasliberg Hohfluh",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:32:42.440Z",
+      "validThrough": "2027-02-15T09:22:01.432Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -657,7 +657,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-23T09:28:57.828Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

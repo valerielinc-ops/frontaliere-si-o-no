@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-11-23T21:33:32.401Z",
-  "runId": "45268419941",
+  "assembledAt": "2026-11-24T09:23:21.388Z",
+  "runId": "45363929187",
   "jobs": [
     {
       "id": "ghol-52354c0ae92c",
@@ -50,7 +50,7 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:33:24.205Z",
+      "crawledAt": "2026-11-24T09:23:13.778Z",
       "needsRetranslation": false,
       "requirementsByLocale": {
         "it": [
@@ -110,7 +110,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:33:24.205Z",
+      "validThrough": "2026-12-24T09:23:13.778Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -160,7 +160,7 @@
       "applyUrl": "https://app.beehire.com/invite/FbUuocJWF",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:33:24.204Z",
+      "crawledAt": "2026-11-24T09:23:13.777Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
@@ -186,7 +186,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:33:24.204Z",
+      "validThrough": "2026-12-24T09:23:13.777Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -236,7 +236,7 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:33:24.204Z",
+      "crawledAt": "2026-11-24T09:23:13.777Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
@@ -268,7 +268,7 @@
       },
       "streetAddress": "Rolle",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:33:24.204Z",
+      "validThrough": "2026-12-24T09:23:13.777Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -318,7 +318,7 @@
       "applyUrl": "https://app.beehire.com/invite/tGAb_cui0",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:33:24.203Z",
+      "crawledAt": "2026-11-24T09:23:13.776Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "infirmier-ere-chef-fe-des-urgences-adultes-groupement-hospitalier-de-l-ouest-lemanique"
@@ -350,7 +350,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:33:24.203Z",
+      "validThrough": "2026-12-24T09:23:13.776Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -400,7 +400,7 @@
       "applyUrl": "https://app.beehire.com/invite/I_TEMIvLa",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:33:24.202Z",
+      "crawledAt": "2026-11-24T09:23:13.774Z",
       "previousSlugs": [
         "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
       ],
@@ -425,89 +425,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T21:33:24.202Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "ghol-05bfa91fa669",
-      "slug": "collaboratore-di-fatturazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-      "slugByLocale": {
-        "it": "collaboratore-di-fatturazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "invoicing-collaborator-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "fakturierungsmitarbeiter-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Collaborateur-trice facturation",
-      "titleByLocale": {
-        "it": "Collaboratore di fatturazione",
-        "en": "Invoicing Collaborator",
-        "de": "Fakturierungsmitarbeiter",
-        "fr": "Collaborateur-trice facturation"
-      },
-      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n\nDescriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Saisir les prestations médicales ambulatoires et stationnaires, médicaments et autres prestations non-médicales\n\n• Contrôler des données administratives des dossiers patients\n\n• S’assurer de la saisie de l’intégralité des honoraires médicaux\n\n• S’assurer l’exhaustivité des prestations saisies des dossiers\n\n• Générer les factures ambulatoire et stationnaire de l’ensemble des disciplines médicales du GHOL\n\n• Traiter les retours de factures et leur justification auprès de nos partenaires payeurs en défendant au mieux les intérêts de l’Institution\n\n• Se tenir au courant des nouveautés relatives à son secteur d’activité\n\n• Traiter les demandes complémentaires des patients et tiers\n\n• Répondre aux appels téléphoniques\n\n• Collaborer étroitement avec les autres services de la Gestion Patient et médico-soignants.\n\n• Participer à la mise à jour des procédures de travail et à l’amélioration continue des pratiques\n\n• Participer activement aux bouclements mensuels, trimestriels et annuels de la facturation\n\n• Anticiper les nouveautés des catalogues tarifaires dans leur globalité\n Profil requis :\n Nous sommes convaincus de votre intégration rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience minimum de 3 ans dans le milieu hospitalier ou dans le domaine des assurances maladie/accident\n\n• Connaissances approfondies des structures tarifaires (CPTMA, Tarmed, SwissDRG)\n\n• Bonnes connaissances du système assuranciel suisse (LAMal, LAA, LCA)\n\n• Capacité d’analyse et force de proposition\n\n• Flexibilité et bonne gestion du stresse\n\n• Très bonne maitrise des outils informatiques (Opale, MOffice, Excel)\n\n• Intérêt pour l’innovation et les nouveautés se rattachant à votre secteur\n\n• Bonne connaissance en anglais, allemand un atout\n Niveau de formation :\n CFC employé d’administration ou titre jugé équivalent\n Avantages :\n Un cadre de travail agréable avec des horaires flexible et la possibilité de travail à domicile ;\n Une équipe à taille humaine favorisant les échanges et votre progression ;\n Collaborer avec des managers innovants, actifs dans leur environnement et créatifs pour répondre aux défis actuels et futurs ;\n L’opportunité de mener des projets de développer dans un secteur stratégique ;\n Participer au développement d’outils d’intelligence artificielle, dans le cadre de la mise en œuvre de la data science au sein de l’établissement\n Le fonctionnement dynamique d’une entreprise privée dont la reconnaissance d’intérêt public garantit les avantages de la CCT applicable dans le secteur parapublic de la santé.",
-      "descriptionByLocale": {
-        "it": "GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle. Domani, proponiamo di continuare il vostro sviluppo professionale coinvolgendovi nelle vostre nuove missioni e partecipando allo sviluppo di GHOL, nel suo nuovo edificio ospedaliero presso il sito Nyon.\n\nDescrizione della posizione:\nNei vostri nuovi doveri, le vostre missioni hanno un impatto sulla qualità della cura del paziente. Il tuo ruolo includerà:\n\n• Prevedere servizi medici ambulatoriale e stazionario, farmaci e altri servizi non medici\n\n• Controllare i dati amministrativi dei record dei pazienti\n\n• Assicurare il pieno sequestro delle spese mediche\n\n• Assicurare la completezza dei benefici inseriti dai file\n\n• Generare fatture ambulatoriale e stazionarie da tutte le discipline mediche GHOL\n\n• Procedimento delle fatture e la loro giustificazione con i nostri partner paganti difendendo i migliori interessi dell'istituzione\n\n• Tenere aggiornato sugli sviluppi nel settore delle imprese\n\n• Elaborare richieste aggiuntive da pazienti e terze parti\n\n• Rispondere alle telefonate\n\n• Lavorare a stretto contatto con altri servizi nella gestione delle cure mediche e dei pazienti.\n\n• Partecipazione all'aggiornamento delle procedure di lavoro e al miglioramento continuo delle pratiche\n\n• Partecipa attivamente a cicli di fatturazione mensili, trimestrali e annuali\n\n• Anticipazione delle nuove caratteristiche dei cataloghi tariffari nel suo complesso\nProfilo richiesto:\nSiamo convinti della vostra rapida integrazione nelle vostre funzioni future attraverso la vostra:\n\n• Esperienza minima di 3 anni in ospedale o nel campo dell'assicurazione malattia/incidente\n\n• Conoscenza approfondita delle strutture tariffarie (CPTMA, Tarmed, SwissDRG)\n\n• Buona conoscenza del sistema aereo svizzero (LAMal, LAA, LCA)\n\n• Capacità di analisi e forza della proposta\n\n• Flessibilità e buona gestione dello stress\n\n• Ottima padronanza degli strumenti per computer (Opale, MOY, Excel)\n\n• Interesse per l'innovazione e nuovi sviluppi relativi al vostro settore\n\n• Buona conoscenza in inglese, tedesco un bene\nLivello di formazione:\nDipendente amministrativo SWC o equivalente\nVantaggi:\nUn ambiente di lavoro piacevole con orari di lavoro flessibili e la possibilità di lavorare a casa;\nUn team di dimensioni umane che promuove scambi e progressi;\nCollabora con manager innovativi, attivi nel loro ambiente e creativi per affrontare sfide attuali e future;\nL'opportunità di realizzare progetti da sviluppare in un settore strategico;\nPartecipare allo sviluppo di strumenti di intelligenza artificiale nell'attuazione della scienza dei dati all'interno dell'istituzione\nIl funzionamento dinamico di una società privata il cui riconoscimento dell'interesse pubblico garantisce i benefici del CTC applicabile nel settore della sanità pubblica.",
-        "en": "GHOL is the reference hospital for the German West with its structures on Nyon and Rolle. Tomorrow, we propose to continue your professional development by involving you in your new missions and by participating in the development of GHOL, in its new hospital building at the Nyon site.\n\nDescription of position:\nIn your new duties, your missions have an impact on the quality of patient care. Your role will include:\n\n• Seizing outpatient and stationary medical services, drugs and other non-medical services\n\n• Control administrative data of patient records\n\n• Ensure full seizure of medical fees\n\n• Ensure completeness of benefits entered from files\n\n• Generate outpatient and stationary invoices from all GHOL medical disciplines\n\n• Process returns of invoices and their justification with our paying partners by defending the best interests of the Institution\n\n• Keep up to date on developments in its business sector\n\n• Process additional requests from patients and third parties\n\n• Answering telephone calls\n\n• Work closely with other services in Patient and Medical Care Management.\n\n• Participate in updating work procedures and continuous improvement of practices\n\n• Actively participate in monthly, quarterly and annual billing loops\n\n• Anticipating the new features of tariff catalogues as a whole\nProfile required:\nWe are convinced of your rapid integration into your future functions through your:\n\n• Minimum experience of 3 years in hospital or in the field of sickness/accident insurance\n\n• In-depth knowledge of tariff structures (CPTMA, Tarmed, SwissDRG)\n\n• Good knowledge of the Swiss airframe system (LAMal, LAA, LCA)\n\n• Analysis capacity and proposal strength\n\n• Flexibility and good stress management\n\n• Very good computer tools mastery (Opale, MOY, Excel)\n\n• Interest in innovation and new developments related to your sector\n\n• Good knowledge in English, German an asset\nLevel of training:\nSWC administrative employee or equivalent\nBenefits:\nA pleasant working environment with flexible working hours and the possibility of working at home;\nA human-sized team that promotes exchanges and your progress;\nCollaborate with innovative managers, active in their environment and creative to meet current and future challenges;\nThe opportunity to carry out projects to develop in a strategic sector;\nParticipate in the development of artificial intelligence tools in the implementation of data science within the institution\nThe dynamic operation of a private company whose recognition of the public interest guarantees the benefits of the CTC applicable in the parapublic health sector.",
-        "de": "GHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen auf Nyon und Rolle. Morgen schlagen wir vor, Ihre berufliche Entwicklung fortzusetzen, indem wir Sie in Ihre neuen Missionen einbeziehen und an der Entwicklung von GHOL in seinem neuen Krankenhausgebäude am Standort Nyon teilnehmen.\n\nBeschreibung der Position:\nIn Ihren neuen Aufgaben haben Ihre Missionen einen Einfluss auf die Qualität der Patientenversorgung. Ihre Rolle umfasst:\n\n• Beschlagnahme ambulanter und stationärer medizinischer Dienstleistungen, Arzneimittel und anderer nichtmedizinischer Dienstleistungen\n\n• Verwaltungsdaten der Kontrolle von Patientenakten\n\n• Gewährleistung der vollständigen Beschlagnahme von Arztgebühren\n\n• Vollständigkeit der aus den Akten eingegebenen Vorteile\n\n• Generieren Sie ambulante und stationäre Rechnungen aus allen medizinischen Disziplinen von GHOL\n\n• Rückgabe von Rechnungen und deren Rechtfertigung mit unseren zahlenden Partnern durch die Verteidigung der besten Interessen der Institution\n\n• Bleiben Sie auf dem Laufenden über die Entwicklungen im Geschäftsbereich\n\n• Zusätzliche Anfragen von Patienten und Dritten bearbeiten\n\n• Beantwortung von Telefonanrufen\n\n• Arbeiten Sie eng mit anderen Diensten im Patienten- und Gesundheitsmanagement zusammen.\n\n• Beteiligen Sie sich an der Aktualisierung von Arbeitsabläufen und der kontinuierlichen Verbesserung von Praktiken\n\n• Aktive Teilnahme an monatlichen, vierteljährlichen und jährlichen Abrechnungsschleifen\n\n• Antizipieren der neuen Merkmale von Tarifkatalogen als Ganzes\nProfil erforderlich:\nWir sind überzeugt von Ihrer schnellen Integration in Ihre zukünftigen Funktionen durch Ihre:\n\n• Mindesterfahrung von 3 Jahren im Krankenhaus oder im Bereich der Kranken-/Unfallversicherung\n\n• Vertiefte Kenntnis der Tarifstrukturen (CPTMA, Tarmed, SwissDRG)\n\n• Gute Kenntnisse des Schweizer Flugzeugzellensystems (LAMal, LAA, LCA)\n\n• Analysekapazität und Vorschlagsstärke\n\n• Flexibilität und gutes Stressmanagement\n\n• Sehr gute Computer-Tools Beherrschung (Opale, MOY, Excel)\n\n• Interesse an Innovationen und neuen Entwicklungen in Ihrer Branche\n\n• Gute Englischkenntnisse, Deutsch ein Asset\nAusbildungsniveau:\nSWC Verwaltungsangestellte oder gleichwertige\nLeistungen:\nEin angenehmes Arbeitsumfeld mit flexiblen Arbeitszeiten und der Möglichkeit, zu Hause zu arbeiten;\nEin Team in menschlicher Größe, das den Austausch und Ihren Fortschritt fördert;\nZusammenarbeit mit innovativen Managern, die in ihrem Umfeld aktiv und kreativ sind, um aktuelle und zukünftige Herausforderungen zu meistern;\nDie Möglichkeit, Projekte durchzuführen, um sich in einem strategischen Sektor zu entwickeln;\nBeteiligen Sie sich an der Entwicklung von Tools für künstliche Intelligenz bei der Implementierung von Data Science innerhalb der Institution\nDer dynamische Betrieb eines privaten Unternehmens, dessen Anerkennung des öffentlichen Interesses die Vorteile des CTC garantiert, die im paraöffentlichen Gesundheitssektor gelten.",
-        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n\nDescriptif du poste :\nDans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Saisir les prestations médicales ambulatoires et stationnaires, médicaments et autres prestations non-médicales\n\n• Contrôler des données administratives des dossiers patients\n\n• S’assurer de la saisie de l’intégralité des honoraires médicaux\n\n• S’assurer l’exhaustivité des prestations saisies des dossiers\n\n• Générer les factures ambulatoire et stationnaire de l’ensemble des disciplines médicales du GHOL\n\n• Traiter les retours de factures et leur justification auprès de nos partenaires payeurs en défendant au mieux les intérêts de l’Institution\n\n• Se tenir au courant des nouveautés relatives à son secteur d’activité\n\n• Traiter les demandes complémentaires des patients et tiers\n\n• Répondre aux appels téléphoniques\n\n• Collaborer étroitement avec les autres services de la Gestion Patient et médico-soignants.\n\n• Participer à la mise à jour des procédures de travail et à l’amélioration continue des pratiques\n\n• Participer activement aux bouclements mensuels, trimestriels et annuels de la facturation\n\n• Anticiper les nouveautés des catalogues tarifaires dans leur globalité\nProfil requis :\nNous sommes convaincus de votre intégration rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience minimum de 3 ans dans le milieu hospitalier ou dans le domaine des assurances maladie/accident\n\n• Connaissances approfondies des structures tarifaires (CPTMA, Tarmed, SwissDRG)\n\n• Bonnes connaissances du système assuranciel suisse (LAMal, LAA, LCA)\n\n• Capacité d’analyse et force de proposition\n\n• Flexibilité et bonne gestion du stresse\n\n• Très bonne maitrise des outils informatiques (Opale, MOffice, Excel)\n\n• Intérêt pour l’innovation et les nouveautés se rattachant à votre secteur\n\n• Bonne connaissance en anglais, allemand un atout\nNiveau de formation :\nCFC employé d’administration ou titre jugé équivalent\nAvantages :\nUn cadre de travail agréable avec des horaires flexible et la possibilité de travail à domicile ;\nUne équipe à taille humaine favorisant les échanges et votre progression ;\nCollaborer avec des managers innovants, actifs dans leur environnement et créatifs pour répondre aux défis actuels et futurs ;\nL’opportunité de mener des projets de développer dans un secteur stratégique ;\nParticiper au développement d’outils d’intelligence artificielle, dans le cadre de la mise en œuvre de la data science au sein de l’établissement\nLe fonctionnement dynamique d’une entreprise privée dont la reconnaissance d’intérêt public garantit les avantages de la CCT applicable dans le secteur parapublic de la santé."
-      },
-      "location": "Nyon",
-      "canton": "VD",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1260",
-      "category": "healthcare",
-      "sector": "Salute / Ospedale",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://app.beehire.com/invite/5d21Gnrjl",
-      "applyUrl": "https://app.beehire.com/invite/5d21Gnrjl",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:33:24.201Z",
-      "needsRetranslation": false,
-      "previousSlugs": [
-        "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "en": [
-          "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "de": [
-          "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ]
-      },
-      "firstSeenAt": "2026-10-19T21:29:33.210Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Nyon",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T21:33:24.201Z",
+      "validThrough": "2027-01-01T09:23:13.774Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -557,7 +475,7 @@
       "applyUrl": "https://app.beehire.com/invite/yxQoAFzqJ",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:33:24.200Z",
+      "crawledAt": "2026-11-24T09:23:13.773Z",
       "previousSlugs": [
         "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
@@ -588,34 +506,34 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:33:24.200Z",
+      "validThrough": "2026-12-26T09:23:13.773Z",
       "validThroughSource": "last-observed-window"
     },
     {
-      "id": "ghol-b5750f3ce390",
-      "slug": "stage-professionale-commerciale-3-1-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "id": "ghol-05bfa91fa669",
+      "slug": "collaboratore-di-fatturazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
-        "it": "stage-professionale-commerciale-3-1-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "intern-commercial-professional-maturity-3-1-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "interne-kaufmannische-berufslaufzeit-3-1-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "stagiaire-maturite-professionnelle-commerciale-3-1-groupement-hospitalier-de-l-ouest"
+        "it": "collaboratore-di-fatturazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "invoicing-collaborator-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "fakturierungsmitarbeiter-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
       "companyKey": "ghol",
       "companyDomain": "ghol.ch",
-      "title": "Stagiaire maturité professionnelle commerciale 3+1",
+      "title": "Collaborateur-trice facturation",
       "titleByLocale": {
-        "it": "Stage professionale commerciale 3+1",
-        "en": "Intern commercial professional maturity 3+1",
-        "de": "Interne kaufmännische Berufslaufzeit 3+1",
-        "fr": "Stagiaire maturité professionnelle commerciale 3+1"
+        "it": "Collaboratore di fatturazione",
+        "en": "Invoicing Collaborator",
+        "de": "Fakturierungsmitarbeiter",
+        "fr": "Collaborateur-trice facturation"
       },
-      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n Le service de la facturation hospitalière est un acteur essentiel du parcours administratif des patients et de la gestion financière de l’hôpital. Nous offrons une première expérience professionnelle enrichissante et formatrice, dans un environnement dynamique et exigeant, qui te permettra de mettre en pratique les connaissances acquises durant tes études.\n Destiné aux étudiants qui, dans le cadre de leur formation en école de commerce ou au gymnase (option économie et commerce), achèvent leur cursus par une année de stage de pratique, ce programme permet de développer des compétences solides, à la fois techniques et interpersonnelles, dans un milieu hospitalier stimulant.\n En complément, tu auras également l’opportunité d’effectuer des stages d’immersion dans d’autres services du GHOL, afin de répondre à l’ensemble de tes objectifs de formation et ainsi mieux comprendre le fonctionnement global de l’hôpital.\n Description du poste :\n En tant que stagiaire 3+1 au service de la facturation hospitalière, tu intégreras pleinement l’équipe et seras impliqué dans ses activités quotidiennes. Sous la supervision d’une formatrice, tu auras l’occasion de :\n\n• Participer à la saisie, au contrôle et au suivi des prestations médicales et paramédicales\n\n• Contribuer à la préparation, l’envoi et le contrôle des factures destinées aux caisses et aux patients\n\n• Assurer certaines tâches administratives de suivi et de coordination\n\n• Collaborer à des projets d’amélioration des processus et outils internes\n\n• Découvrir les interactions avec les différents services hospitaliers\n Profil requis :\n Nous sommes convaincus que ton stage sera couronné de succès grâce, d’une part, à notre engagement dans ta formation et, d’autre part, grâce à ta soif de réussite. Par ailleurs, il te faudra :\n\n• Être en dernière année d’école de commerce / Gymnase, option économie et commerce\n\n• Répondre aux conditions d’admission à la maturité professionnelle commerciale (MPC)\n\n• Un intérêt marqué pour le secteur de la santé et le domaine administratif\n\n• Un sens de l’organisation, rigueur et capacité à travailler en équipe\n\n• Être dynamique, curieux et avoir envie d’apprendre\n Niveau de formation :\n Certificat de maturité gymnasiale",
+      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n\nDescriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Saisir les prestations médicales ambulatoires et stationnaires, médicaments et autres prestations non-médicales\n\n• Contrôler des données administratives des dossiers patients\n\n• S’assurer de la saisie de l’intégralité des honoraires médicaux\n\n• S’assurer l’exhaustivité des prestations saisies des dossiers\n\n• Générer les factures ambulatoire et stationnaire de l’ensemble des disciplines médicales du GHOL\n\n• Traiter les retours de factures et leur justification auprès de nos partenaires payeurs en défendant au mieux les intérêts de l’Institution\n\n• Se tenir au courant des nouveautés relatives à son secteur d’activité\n\n• Traiter les demandes complémentaires des patients et tiers\n\n• Répondre aux appels téléphoniques\n\n• Collaborer étroitement avec les autres services de la Gestion Patient et médico-soignants.\n\n• Participer à la mise à jour des procédures de travail et à l’amélioration continue des pratiques\n\n• Participer activement aux bouclements mensuels, trimestriels et annuels de la facturation\n\n• Anticiper les nouveautés des catalogues tarifaires dans leur globalité\n Profil requis :\n Nous sommes convaincus de votre intégration rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience minimum de 3 ans dans le milieu hospitalier ou dans le domaine des assurances maladie/accident\n\n• Connaissances approfondies des structures tarifaires (CPTMA, Tarmed, SwissDRG)\n\n• Bonnes connaissances du système assuranciel suisse (LAMal, LAA, LCA)\n\n• Capacité d’analyse et force de proposition\n\n• Flexibilité et bonne gestion du stresse\n\n• Très bonne maitrise des outils informatiques (Opale, MOffice, Excel)\n\n• Intérêt pour l’innovation et les nouveautés se rattachant à votre secteur\n\n• Bonne connaissance en anglais, allemand un atout\n Niveau de formation :\n CFC employé d’administration ou titre jugé équivalent\n Avantages :\n Un cadre de travail agréable avec des horaires flexible et la possibilité de travail à domicile ;\n Une équipe à taille humaine favorisant les échanges et votre progression ;\n Collaborer avec des managers innovants, actifs dans leur environnement et créatifs pour répondre aux défis actuels et futurs ;\n L’opportunité de mener des projets de développer dans un secteur stratégique ;\n Participer au développement d’outils d’intelligence artificielle, dans le cadre de la mise en œuvre de la data science au sein de l’établissement\n Le fonctionnement dynamique d’une entreprise privée dont la reconnaissance d’intérêt public garantit les avantages de la CCT applicable dans le secteur parapublic de la santé.",
       "descriptionByLocale": {
-        "it": "GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle. Domani, proponiamo di continuare il vostro sviluppo professionale coinvolgendovi nelle vostre nuove missioni e partecipando allo sviluppo di GHOL, nel suo nuovo edificio ospedaliero presso il sito Nyon.\nIl servizio di fatturazione ospedaliera è una parte essenziale del percorso amministrativo del paziente e della gestione finanziaria dell'ospedale. Offriamo una prima e arricchente esperienza professionale, in un ambiente dinamico ed esigente, che vi permetterà di mettere in pratica le conoscenze acquisite durante i vostri studi.\nIntenso per gli studenti che, nell'ambito della loro formazione in business school o palestra (opzione economia e commercio), completano il loro corso con un anno di stage, questo programma permette di sviluppare solide competenze, sia tecniche che interpersonali, in un ambiente ospedaliero stimolante.\nInoltre, avrete anche la possibilità di condurre corsi di immersione in altri servizi GHOL, al fine di soddisfare tutti i vostri obiettivi di formazione e quindi comprendere meglio il funzionamento generale dell'ospedale.\nDescrizione della posizione:\nCome tirocinante 3+1 per la fatturazione ospedaliera, si integra completamente il team e sarà coinvolto nelle sue attività quotidiane. Sotto la supervisione di un allenatore, si avrà la possibilità di:\n\n• Partecipazione al sequestro, controllo e monitoraggio dei servizi medici e paramedici\n\n• Contribuire alla preparazione, alla spedizione e al controllo delle fatture per caisses e pazienti\n\n• Assicurare determinati compiti amministrativi per il monitoraggio e il coordinamento\n\n• Collaborare con i progetti per migliorare i processi e gli strumenti interni\n\n• Scopri le interazioni con diversi servizi ospedalieri\nProfilo richiesto:\nSiamo fiduciosi che il vostro stage avrà successo grazie, da un lato, al nostro impegno per la vostra formazione e, dall'altro, alla vostra sete di successo. Dovrai anche:\n\n• Essere nell'ultimo anno di business school / Gymnase, economia di opzione e business\n\n• Per soddisfare i requisiti di ammissione alla maturità professionale commerciale (MPC)\n\n• Forte interesse nei settori sanitario e amministrativo\n\n• Un senso di organizzazione, rigore e capacità di lavorare come squadra\n\n• Sii dinamico, curioso e voglio imparare\nLivello di formazione:\nCertificato di maturità ginnica",
-        "en": "GHOL is the reference hospital for the German West with its structures on Nyon and Rolle. Tomorrow, we propose to continue your professional development by involving you in your new missions and by participating in the development of GHOL, in its new hospital building at the Nyon site.\nThe hospital billing service is an essential part of the patient's administrative path and the financial management of the hospital. We offer a first and enriching professional experience, in a dynamic and demanding environment, which will allow you to put into practice the knowledge acquired during your studies.\nIntended for students who, as part of their training in business school or gymnasium (economy and commerce option), complete their course with a year of practice placement, this program allows to develop solid skills, both technical and interpersonal, in a stimulating hospital environment.\nIn addition, you will also have the opportunity to conduct immersion courses in other GHOL services, in order to meet all your training objectives and thus better understand the overall functioning of the hospital.\nDescription of position:\nAs a 3+1 intern for hospital billing, you will fully integrate the team and be involved in its daily activities. Under the supervision of a trainer, you will have the opportunity to:\n\n• Participate in the seizure, control and monitoring of medical and paramedical services\n\n• Contribute to the preparation, dispatch and control of invoices for caisses and patients\n\n• Ensuring certain administrative tasks for monitoring and coordination\n\n• Collaborate on projects to improve internal processes and tools\n\n• Discover interactions with different hospital services\nProfile required:\nWe are confident that your internship will be successful thanks, on the one hand, to our commitment to your training and, on the other hand, to your thirst for success. You will also need to:\n\n• Be in the final year of business school / Gymnase, option economy and business\n\n• To meet the requirements for admission to commercial professional maturity (MPC)\n\n• Strong interest in the health and administrative sectors\n\n• A sense of organization, rigour and ability to work as a team\n\n• Be dynamic, curious and want to learn\nLevel of training:\nCertificate of gymnastic maturity",
-        "de": "GHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen auf Nyon und Rolle. Morgen schlagen wir vor, Ihre berufliche Entwicklung fortzusetzen, indem wir Sie in Ihre neuen Missionen einbeziehen und an der Entwicklung von GHOL in seinem neuen Krankenhausgebäude am Standort Nyon teilnehmen.\nDer Krankenhausabrechnungsservice ist ein wesentlicher Bestandteil des Verwaltungswegs des Patienten und des Finanzmanagements des Krankenhauses. Wir bieten eine erste und bereichernde Berufserfahrung in einem dynamischen und anspruchsvollen Umfeld, das es Ihnen ermöglicht, das während Ihres Studiums erworbene Wissen in die Praxis umzusetzen.\nFür Studenten, die im Rahmen ihrer Ausbildung in Business School oder Gymnasium (Wirtschaft und Handel Option) ihren Kurs mit einem Jahr Praxispraktikum abschließen, ermöglicht dieses Programm, solide Fähigkeiten zu entwickeln, sowohl technische als auch zwischenmenschliche, in einem anregenden Krankenhausumfeld.\nDarüber hinaus haben Sie auch die Möglichkeit, Immersionskurse in anderen GHOL-Diensten durchzuführen, um alle Ihre Trainingsziele zu erreichen und so die Gesamtfunktion des Krankenhauses besser zu verstehen.\nBeschreibung der Position:\nAls 3+1 Praktikant für die Krankenhausabrechnung integrieren Sie das Team vollständig und werden in seine täglichen Aktivitäten einbezogen. Unter der Aufsicht eines Trainers haben Sie die Möglichkeit:\n\n• Beschlagnahme, Kontrolle und Überwachung medizinischer und paramedizinischer Dienste\n\n• Beitrag zur Vorbereitung, zum Versand und zur Kontrolle von Rechnungen für Caisses und Patienten\n\n• Gewährleistung bestimmter Verwaltungsaufgaben für die Überwachung und Koordinierung\n\n• Zusammenarbeit bei Projekten zur Verbesserung interner Prozesse und Tools\n\n• Entdecken Sie Interaktionen mit verschiedenen Krankenhausdiensten\nProfil erforderlich:\nWir sind zuversichtlich, dass Ihr Praktikum zum einen dank unseres Engagements für Ihre Ausbildung und zum anderen dank Ihres Erfolgsdurstes erfolgreich sein wird. Sie müssen auch:\n\n• Seien Sie im letzten Jahr der Business School / Gymnase, Option Wirtschaft und Business\n\n• Um die Anforderungen für die Zulassung zur kommerziellen Berufsreife (MPC) zu erfüllen\n\n• Starkes Interesse am Gesundheits- und Verwaltungssektor\n\n• Ein Gefühl von Organisation, Strenge und Fähigkeit, als Team zu arbeiten\n\n• Seien Sie dynamisch, neugierig und wollen lernen\nAusbildungsniveau:\nBescheinigung über die Turnzeit",
-        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\nLe service de la facturation hospitalière est un acteur essentiel du parcours administratif des patients et de la gestion financière de l’hôpital. Nous offrons une première expérience professionnelle enrichissante et formatrice, dans un environnement dynamique et exigeant, qui te permettra de mettre en pratique les connaissances acquises durant tes études.\nDestiné aux étudiants qui, dans le cadre de leur formation en école de commerce ou au gymnase (option économie et commerce), achèvent leur cursus par une année de stage de pratique, ce programme permet de développer des compétences solides, à la fois techniques et interpersonnelles, dans un milieu hospitalier stimulant.\nEn complément, tu auras également l’opportunité d’effectuer des stages d’immersion dans d’autres services du GHOL, afin de répondre à l’ensemble de tes objectifs de formation et ainsi mieux comprendre le fonctionnement global de l’hôpital.\nDescription du poste :\nEn tant que stagiaire 3+1 au service de la facturation hospitalière, tu intégreras pleinement l’équipe et seras impliqué dans ses activités quotidiennes. Sous la supervision d’une formatrice, tu auras l’occasion de :\n\n• Participer à la saisie, au contrôle et au suivi des prestations médicales et paramédicales\n\n• Contribuer à la préparation, l’envoi et le contrôle des factures destinées aux caisses et aux patients\n\n• Assurer certaines tâches administratives de suivi et de coordination\n\n• Collaborer à des projets d’amélioration des processus et outils internes\n\n• Découvrir les interactions avec les différents services hospitaliers\nProfil requis :\nNous sommes convaincus que ton stage sera couronné de succès grâce, d’une part, à notre engagement dans ta formation et, d’autre part, grâce à ta soif de réussite. Par ailleurs, il te faudra :\n\n• Être en dernière année d’école de commerce / Gymnase, option économie et commerce\n\n• Répondre aux conditions d’admission à la maturité professionnelle commerciale (MPC)\n\n• Un intérêt marqué pour le secteur de la santé et le domaine administratif\n\n• Un sens de l’organisation, rigueur et capacité à travailler en équipe\n\n• Être dynamique, curieux et avoir envie d’apprendre\nNiveau de formation :\nCertificat de maturité gymnasiale"
+        "it": "GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle. Domani, proponiamo di continuare il vostro sviluppo professionale coinvolgendovi nelle vostre nuove missioni e partecipando allo sviluppo di GHOL, nel suo nuovo edificio ospedaliero presso il sito Nyon.\n\nDescrizione della posizione:\nNei vostri nuovi doveri, le vostre missioni hanno un impatto sulla qualità della cura del paziente. Il tuo ruolo includerà:\n\n• Prevedere servizi medici ambulatoriale e stazionario, farmaci e altri servizi non medici\n\n• Controllare i dati amministrativi dei record dei pazienti\n\n• Assicurare il pieno sequestro delle spese mediche\n\n• Assicurare la completezza dei benefici inseriti dai file\n\n• Generare fatture ambulatoriale e stazionarie da tutte le discipline mediche GHOL\n\n• Procedimento delle fatture e la loro giustificazione con i nostri partner paganti difendendo i migliori interessi dell'istituzione\n\n• Tenere aggiornato sugli sviluppi nel settore delle imprese\n\n• Elaborare richieste aggiuntive da pazienti e terze parti\n\n• Rispondere alle telefonate\n\n• Lavorare a stretto contatto con altri servizi nella gestione delle cure mediche e dei pazienti.\n\n• Partecipazione all'aggiornamento delle procedure di lavoro e al miglioramento continuo delle pratiche\n\n• Partecipa attivamente a cicli di fatturazione mensili, trimestrali e annuali\n\n• Anticipazione delle nuove caratteristiche dei cataloghi tariffari nel suo complesso\nProfilo richiesto:\nSiamo convinti della vostra rapida integrazione nelle vostre funzioni future attraverso la vostra:\n\n• Esperienza minima di 3 anni in ospedale o nel campo dell'assicurazione malattia/incidente\n\n• Conoscenza approfondita delle strutture tariffarie (CPTMA, Tarmed, SwissDRG)\n\n• Buona conoscenza del sistema aereo svizzero (LAMal, LAA, LCA)\n\n• Capacità di analisi e forza della proposta\n\n• Flessibilità e buona gestione dello stress\n\n• Ottima padronanza degli strumenti per computer (Opale, MOY, Excel)\n\n• Interesse per l'innovazione e nuovi sviluppi relativi al vostro settore\n\n• Buona conoscenza in inglese, tedesco un bene\nLivello di formazione:\nDipendente amministrativo SWC o equivalente\nVantaggi:\nUn ambiente di lavoro piacevole con orari di lavoro flessibili e la possibilità di lavorare a casa;\nUn team di dimensioni umane che promuove scambi e progressi;\nCollabora con manager innovativi, attivi nel loro ambiente e creativi per affrontare sfide attuali e future;\nL'opportunità di realizzare progetti da sviluppare in un settore strategico;\nPartecipare allo sviluppo di strumenti di intelligenza artificiale nell'attuazione della scienza dei dati all'interno dell'istituzione\nIl funzionamento dinamico di una società privata il cui riconoscimento dell'interesse pubblico garantisce i benefici del CTC applicabile nel settore della sanità pubblica.",
+        "en": "GHOL is the reference hospital for the German West with its structures on Nyon and Rolle. Tomorrow, we propose to continue your professional development by involving you in your new missions and by participating in the development of GHOL, in its new hospital building at the Nyon site.\n\nDescription of position:\nIn your new duties, your missions have an impact on the quality of patient care. Your role will include:\n\n• Seizing outpatient and stationary medical services, drugs and other non-medical services\n\n• Control administrative data of patient records\n\n• Ensure full seizure of medical fees\n\n• Ensure completeness of benefits entered from files\n\n• Generate outpatient and stationary invoices from all GHOL medical disciplines\n\n• Process returns of invoices and their justification with our paying partners by defending the best interests of the Institution\n\n• Keep up to date on developments in its business sector\n\n• Process additional requests from patients and third parties\n\n• Answering telephone calls\n\n• Work closely with other services in Patient and Medical Care Management.\n\n• Participate in updating work procedures and continuous improvement of practices\n\n• Actively participate in monthly, quarterly and annual billing loops\n\n• Anticipating the new features of tariff catalogues as a whole\nProfile required:\nWe are convinced of your rapid integration into your future functions through your:\n\n• Minimum experience of 3 years in hospital or in the field of sickness/accident insurance\n\n• In-depth knowledge of tariff structures (CPTMA, Tarmed, SwissDRG)\n\n• Good knowledge of the Swiss airframe system (LAMal, LAA, LCA)\n\n• Analysis capacity and proposal strength\n\n• Flexibility and good stress management\n\n• Very good computer tools mastery (Opale, MOY, Excel)\n\n• Interest in innovation and new developments related to your sector\n\n• Good knowledge in English, German an asset\nLevel of training:\nSWC administrative employee or equivalent\nBenefits:\nA pleasant working environment with flexible working hours and the possibility of working at home;\nA human-sized team that promotes exchanges and your progress;\nCollaborate with innovative managers, active in their environment and creative to meet current and future challenges;\nThe opportunity to carry out projects to develop in a strategic sector;\nParticipate in the development of artificial intelligence tools in the implementation of data science within the institution\nThe dynamic operation of a private company whose recognition of the public interest guarantees the benefits of the CTC applicable in the parapublic health sector.",
+        "de": "GHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen auf Nyon und Rolle. Morgen schlagen wir vor, Ihre berufliche Entwicklung fortzusetzen, indem wir Sie in Ihre neuen Missionen einbeziehen und an der Entwicklung von GHOL in seinem neuen Krankenhausgebäude am Standort Nyon teilnehmen.\n\nBeschreibung der Position:\nIn Ihren neuen Aufgaben haben Ihre Missionen einen Einfluss auf die Qualität der Patientenversorgung. Ihre Rolle umfasst:\n\n• Beschlagnahme ambulanter und stationärer medizinischer Dienstleistungen, Arzneimittel und anderer nichtmedizinischer Dienstleistungen\n\n• Verwaltungsdaten der Kontrolle von Patientenakten\n\n• Gewährleistung der vollständigen Beschlagnahme von Arztgebühren\n\n• Vollständigkeit der aus den Akten eingegebenen Vorteile\n\n• Generieren Sie ambulante und stationäre Rechnungen aus allen medizinischen Disziplinen von GHOL\n\n• Rückgabe von Rechnungen und deren Rechtfertigung mit unseren zahlenden Partnern durch die Verteidigung der besten Interessen der Institution\n\n• Bleiben Sie auf dem Laufenden über die Entwicklungen im Geschäftsbereich\n\n• Zusätzliche Anfragen von Patienten und Dritten bearbeiten\n\n• Beantwortung von Telefonanrufen\n\n• Arbeiten Sie eng mit anderen Diensten im Patienten- und Gesundheitsmanagement zusammen.\n\n• Beteiligen Sie sich an der Aktualisierung von Arbeitsabläufen und der kontinuierlichen Verbesserung von Praktiken\n\n• Aktive Teilnahme an monatlichen, vierteljährlichen und jährlichen Abrechnungsschleifen\n\n• Antizipieren der neuen Merkmale von Tarifkatalogen als Ganzes\nProfil erforderlich:\nWir sind überzeugt von Ihrer schnellen Integration in Ihre zukünftigen Funktionen durch Ihre:\n\n• Mindesterfahrung von 3 Jahren im Krankenhaus oder im Bereich der Kranken-/Unfallversicherung\n\n• Vertiefte Kenntnis der Tarifstrukturen (CPTMA, Tarmed, SwissDRG)\n\n• Gute Kenntnisse des Schweizer Flugzeugzellensystems (LAMal, LAA, LCA)\n\n• Analysekapazität und Vorschlagsstärke\n\n• Flexibilität und gutes Stressmanagement\n\n• Sehr gute Computer-Tools Beherrschung (Opale, MOY, Excel)\n\n• Interesse an Innovationen und neuen Entwicklungen in Ihrer Branche\n\n• Gute Englischkenntnisse, Deutsch ein Asset\nAusbildungsniveau:\nSWC Verwaltungsangestellte oder gleichwertige\nLeistungen:\nEin angenehmes Arbeitsumfeld mit flexiblen Arbeitszeiten und der Möglichkeit, zu Hause zu arbeiten;\nEin Team in menschlicher Größe, das den Austausch und Ihren Fortschritt fördert;\nZusammenarbeit mit innovativen Managern, die in ihrem Umfeld aktiv und kreativ sind, um aktuelle und zukünftige Herausforderungen zu meistern;\nDie Möglichkeit, Projekte durchzuführen, um sich in einem strategischen Sektor zu entwickeln;\nBeteiligen Sie sich an der Entwicklung von Tools für künstliche Intelligenz bei der Implementierung von Data Science innerhalb der Institution\nDer dynamische Betrieb eines privaten Unternehmens, dessen Anerkennung des öffentlichen Interesses die Vorteile des CTC garantiert, die im paraöffentlichen Gesundheitssektor gelten.",
+        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n\nDescriptif du poste :\nDans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Saisir les prestations médicales ambulatoires et stationnaires, médicaments et autres prestations non-médicales\n\n• Contrôler des données administratives des dossiers patients\n\n• S’assurer de la saisie de l’intégralité des honoraires médicaux\n\n• S’assurer l’exhaustivité des prestations saisies des dossiers\n\n• Générer les factures ambulatoire et stationnaire de l’ensemble des disciplines médicales du GHOL\n\n• Traiter les retours de factures et leur justification auprès de nos partenaires payeurs en défendant au mieux les intérêts de l’Institution\n\n• Se tenir au courant des nouveautés relatives à son secteur d’activité\n\n• Traiter les demandes complémentaires des patients et tiers\n\n• Répondre aux appels téléphoniques\n\n• Collaborer étroitement avec les autres services de la Gestion Patient et médico-soignants.\n\n• Participer à la mise à jour des procédures de travail et à l’amélioration continue des pratiques\n\n• Participer activement aux bouclements mensuels, trimestriels et annuels de la facturation\n\n• Anticiper les nouveautés des catalogues tarifaires dans leur globalité\nProfil requis :\nNous sommes convaincus de votre intégration rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience minimum de 3 ans dans le milieu hospitalier ou dans le domaine des assurances maladie/accident\n\n• Connaissances approfondies des structures tarifaires (CPTMA, Tarmed, SwissDRG)\n\n• Bonnes connaissances du système assuranciel suisse (LAMal, LAA, LCA)\n\n• Capacité d’analyse et force de proposition\n\n• Flexibilité et bonne gestion du stresse\n\n• Très bonne maitrise des outils informatiques (Opale, MOffice, Excel)\n\n• Intérêt pour l’innovation et les nouveautés se rattachant à votre secteur\n\n• Bonne connaissance en anglais, allemand un atout\nNiveau de formation :\nCFC employé d’administration ou titre jugé équivalent\nAvantages :\nUn cadre de travail agréable avec des horaires flexible et la possibilité de travail à domicile ;\nUne équipe à taille humaine favorisant les échanges et votre progression ;\nCollaborer avec des managers innovants, actifs dans leur environnement et créatifs pour répondre aux défis actuels et futurs ;\nL’opportunité de mener des projets de développer dans un secteur stratégique ;\nParticiper au développement d’outils d’intelligence artificielle, dans le cadre de la mise en œuvre de la data science au sein de l’établissement\nLe fonctionnement dynamique d’une entreprise privée dont la reconnaissance d’intérêt public garantit les avantages de la CCT applicable dans le secteur parapublic de la santé."
       },
       "location": "Nyon",
       "canton": "VD",
@@ -626,51 +544,51 @@
       "postalCode": "1260",
       "category": "healthcare",
       "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "CONTRACTOR",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
       "experienceLevel": "mid",
       "currency": "CHF",
       "featured": false,
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "url": "https://app.beehire.com/invite/NVFf6OQjf",
-      "applyUrl": "https://app.beehire.com/invite/NVFf6OQjf",
+      "url": "https://app.beehire.com/invite/5d21Gnrjl",
+      "applyUrl": "https://app.beehire.com/invite/5d21Gnrjl",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:33:24.199Z",
+      "crawledAt": "2026-11-24T09:23:13.773Z",
       "needsRetranslation": false,
       "previousSlugs": [
-        "stagiaire-maturite-professionnelle-commerciale-3-1-groupement-hospitalier-de-l-ouest"
+        "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-maturite-professionnelle-commerciale-3-1-groupement-hospitalier-de-l-ouest"
+          "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
-          "stagiaire-maturite-professionnelle-commerciale-3-1-groupement-hospitalier-de-l-ouest"
+          "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
-          "stagiaire-maturite-professionnelle-commerciale-3-1-groupement-hospitalier-de-l-ouest"
+          "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
-      "firstSeenAt": "2026-11-17T09:32:21.364Z",
-      "salaryMin": 77500,
-      "salaryMax": 108000,
+      "firstSeenAt": "2026-10-19T21:29:33.210Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 77500,
-          "maxValue": 108000,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-16T21:33:24.199Z",
+      "validThrough": "2027-01-18T09:23:13.773Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -720,7 +638,7 @@
       "applyUrl": "https://app.beehire.com/invite/991xXK1-6",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:33:24.199Z",
+      "crawledAt": "2026-11-24T09:23:13.772Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "ambulancier-ere-es-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -746,7 +664,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T21:33:24.199Z",
+      "validThrough": "2027-01-04T09:23:13.772Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -796,7 +714,7 @@
       "applyUrl": "https://app.beehire.com/invite/z7t0fy8gS",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:33:24.198Z",
+      "crawledAt": "2026-11-24T09:23:13.771Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "medecin-chef-fe-de-clinique-service-des-urgences-groupement-hospitalier-de-l-ouest"
@@ -828,7 +746,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:33:24.198Z",
+      "validThrough": "2027-02-16T09:23:13.771Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -878,7 +796,7 @@
       "applyUrl": "https://app.beehire.com/invite/Vom0mKPyO",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:33:24.198Z",
+      "crawledAt": "2026-11-24T09:23:13.771Z",
       "previousSlugs": [
         "secretaire-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest",
         "assistante-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest"
@@ -914,7 +832,89 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:33:24.198Z",
+      "validThrough": "2027-02-09T09:23:13.771Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "ghol-b5750f3ce390",
+      "slug": "stage-professionale-commerciale-3-1-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slugByLocale": {
+        "it": "stage-professionale-commerciale-3-1-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "intern-commercial-professional-maturity-3-1-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "interne-kaufmannische-berufslaufzeit-3-1-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "stagiaire-maturite-professionnelle-commerciale-3-1-groupement-hospitalier-de-l-ouest"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Stagiaire maturité professionnelle commerciale 3+1",
+      "titleByLocale": {
+        "it": "Stage professionale commerciale 3+1",
+        "en": "Intern commercial professional maturity 3+1",
+        "de": "Interne kaufmännische Berufslaufzeit 3+1",
+        "fr": "Stagiaire maturité professionnelle commerciale 3+1"
+      },
+      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n Le service de la facturation hospitalière est un acteur essentiel du parcours administratif des patients et de la gestion financière de l’hôpital. Nous offrons une première expérience professionnelle enrichissante et formatrice, dans un environnement dynamique et exigeant, qui te permettra de mettre en pratique les connaissances acquises durant tes études.\n Destiné aux étudiants qui, dans le cadre de leur formation en école de commerce ou au gymnase (option économie et commerce), achèvent leur cursus par une année de stage de pratique, ce programme permet de développer des compétences solides, à la fois techniques et interpersonnelles, dans un milieu hospitalier stimulant.\n En complément, tu auras également l’opportunité d’effectuer des stages d’immersion dans d’autres services du GHOL, afin de répondre à l’ensemble de tes objectifs de formation et ainsi mieux comprendre le fonctionnement global de l’hôpital.\n Description du poste :\n En tant que stagiaire 3+1 au service de la facturation hospitalière, tu intégreras pleinement l’équipe et seras impliqué dans ses activités quotidiennes. Sous la supervision d’une formatrice, tu auras l’occasion de :\n\n• Participer à la saisie, au contrôle et au suivi des prestations médicales et paramédicales\n\n• Contribuer à la préparation, l’envoi et le contrôle des factures destinées aux caisses et aux patients\n\n• Assurer certaines tâches administratives de suivi et de coordination\n\n• Collaborer à des projets d’amélioration des processus et outils internes\n\n• Découvrir les interactions avec les différents services hospitaliers\n Profil requis :\n Nous sommes convaincus que ton stage sera couronné de succès grâce, d’une part, à notre engagement dans ta formation et, d’autre part, grâce à ta soif de réussite. Par ailleurs, il te faudra :\n\n• Être en dernière année d’école de commerce / Gymnase, option économie et commerce\n\n• Répondre aux conditions d’admission à la maturité professionnelle commerciale (MPC)\n\n• Un intérêt marqué pour le secteur de la santé et le domaine administratif\n\n• Un sens de l’organisation, rigueur et capacité à travailler en équipe\n\n• Être dynamique, curieux et avoir envie d’apprendre\n Niveau de formation :\n Certificat de maturité gymnasiale",
+      "descriptionByLocale": {
+        "it": "GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle. Domani, proponiamo di continuare il vostro sviluppo professionale coinvolgendovi nelle vostre nuove missioni e partecipando allo sviluppo di GHOL, nel suo nuovo edificio ospedaliero presso il sito Nyon.\nIl servizio di fatturazione ospedaliera è una parte essenziale del percorso amministrativo del paziente e della gestione finanziaria dell'ospedale. Offriamo una prima e arricchente esperienza professionale, in un ambiente dinamico ed esigente, che vi permetterà di mettere in pratica le conoscenze acquisite durante i vostri studi.\nIntenso per gli studenti che, nell'ambito della loro formazione in business school o palestra (opzione economia e commercio), completano il loro corso con un anno di stage, questo programma permette di sviluppare solide competenze, sia tecniche che interpersonali, in un ambiente ospedaliero stimolante.\nInoltre, avrete anche la possibilità di condurre corsi di immersione in altri servizi GHOL, al fine di soddisfare tutti i vostri obiettivi di formazione e quindi comprendere meglio il funzionamento generale dell'ospedale.\nDescrizione della posizione:\nCome tirocinante 3+1 per la fatturazione ospedaliera, si integra completamente il team e sarà coinvolto nelle sue attività quotidiane. Sotto la supervisione di un allenatore, si avrà la possibilità di:\n\n• Partecipazione al sequestro, controllo e monitoraggio dei servizi medici e paramedici\n\n• Contribuire alla preparazione, alla spedizione e al controllo delle fatture per caisses e pazienti\n\n• Assicurare determinati compiti amministrativi per il monitoraggio e il coordinamento\n\n• Collaborare con i progetti per migliorare i processi e gli strumenti interni\n\n• Scopri le interazioni con diversi servizi ospedalieri\nProfilo richiesto:\nSiamo fiduciosi che il vostro stage avrà successo grazie, da un lato, al nostro impegno per la vostra formazione e, dall'altro, alla vostra sete di successo. Dovrai anche:\n\n• Essere nell'ultimo anno di business school / Gymnase, economia di opzione e business\n\n• Per soddisfare i requisiti di ammissione alla maturità professionale commerciale (MPC)\n\n• Forte interesse nei settori sanitario e amministrativo\n\n• Un senso di organizzazione, rigore e capacità di lavorare come squadra\n\n• Sii dinamico, curioso e voglio imparare\nLivello di formazione:\nCertificato di maturità ginnica",
+        "en": "GHOL is the reference hospital for the German West with its structures on Nyon and Rolle. Tomorrow, we propose to continue your professional development by involving you in your new missions and by participating in the development of GHOL, in its new hospital building at the Nyon site.\nThe hospital billing service is an essential part of the patient's administrative path and the financial management of the hospital. We offer a first and enriching professional experience, in a dynamic and demanding environment, which will allow you to put into practice the knowledge acquired during your studies.\nIntended for students who, as part of their training in business school or gymnasium (economy and commerce option), complete their course with a year of practice placement, this program allows to develop solid skills, both technical and interpersonal, in a stimulating hospital environment.\nIn addition, you will also have the opportunity to conduct immersion courses in other GHOL services, in order to meet all your training objectives and thus better understand the overall functioning of the hospital.\nDescription of position:\nAs a 3+1 intern for hospital billing, you will fully integrate the team and be involved in its daily activities. Under the supervision of a trainer, you will have the opportunity to:\n\n• Participate in the seizure, control and monitoring of medical and paramedical services\n\n• Contribute to the preparation, dispatch and control of invoices for caisses and patients\n\n• Ensuring certain administrative tasks for monitoring and coordination\n\n• Collaborate on projects to improve internal processes and tools\n\n• Discover interactions with different hospital services\nProfile required:\nWe are confident that your internship will be successful thanks, on the one hand, to our commitment to your training and, on the other hand, to your thirst for success. You will also need to:\n\n• Be in the final year of business school / Gymnase, option economy and business\n\n• To meet the requirements for admission to commercial professional maturity (MPC)\n\n• Strong interest in the health and administrative sectors\n\n• A sense of organization, rigour and ability to work as a team\n\n• Be dynamic, curious and want to learn\nLevel of training:\nCertificate of gymnastic maturity",
+        "de": "GHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen auf Nyon und Rolle. Morgen schlagen wir vor, Ihre berufliche Entwicklung fortzusetzen, indem wir Sie in Ihre neuen Missionen einbeziehen und an der Entwicklung von GHOL in seinem neuen Krankenhausgebäude am Standort Nyon teilnehmen.\nDer Krankenhausabrechnungsservice ist ein wesentlicher Bestandteil des Verwaltungswegs des Patienten und des Finanzmanagements des Krankenhauses. Wir bieten eine erste und bereichernde Berufserfahrung in einem dynamischen und anspruchsvollen Umfeld, das es Ihnen ermöglicht, das während Ihres Studiums erworbene Wissen in die Praxis umzusetzen.\nFür Studenten, die im Rahmen ihrer Ausbildung in Business School oder Gymnasium (Wirtschaft und Handel Option) ihren Kurs mit einem Jahr Praxispraktikum abschließen, ermöglicht dieses Programm, solide Fähigkeiten zu entwickeln, sowohl technische als auch zwischenmenschliche, in einem anregenden Krankenhausumfeld.\nDarüber hinaus haben Sie auch die Möglichkeit, Immersionskurse in anderen GHOL-Diensten durchzuführen, um alle Ihre Trainingsziele zu erreichen und so die Gesamtfunktion des Krankenhauses besser zu verstehen.\nBeschreibung der Position:\nAls 3+1 Praktikant für die Krankenhausabrechnung integrieren Sie das Team vollständig und werden in seine täglichen Aktivitäten einbezogen. Unter der Aufsicht eines Trainers haben Sie die Möglichkeit:\n\n• Beschlagnahme, Kontrolle und Überwachung medizinischer und paramedizinischer Dienste\n\n• Beitrag zur Vorbereitung, zum Versand und zur Kontrolle von Rechnungen für Caisses und Patienten\n\n• Gewährleistung bestimmter Verwaltungsaufgaben für die Überwachung und Koordinierung\n\n• Zusammenarbeit bei Projekten zur Verbesserung interner Prozesse und Tools\n\n• Entdecken Sie Interaktionen mit verschiedenen Krankenhausdiensten\nProfil erforderlich:\nWir sind zuversichtlich, dass Ihr Praktikum zum einen dank unseres Engagements für Ihre Ausbildung und zum anderen dank Ihres Erfolgsdurstes erfolgreich sein wird. Sie müssen auch:\n\n• Seien Sie im letzten Jahr der Business School / Gymnase, Option Wirtschaft und Business\n\n• Um die Anforderungen für die Zulassung zur kommerziellen Berufsreife (MPC) zu erfüllen\n\n• Starkes Interesse am Gesundheits- und Verwaltungssektor\n\n• Ein Gefühl von Organisation, Strenge und Fähigkeit, als Team zu arbeiten\n\n• Seien Sie dynamisch, neugierig und wollen lernen\nAusbildungsniveau:\nBescheinigung über die Turnzeit",
+        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\nLe service de la facturation hospitalière est un acteur essentiel du parcours administratif des patients et de la gestion financière de l’hôpital. Nous offrons une première expérience professionnelle enrichissante et formatrice, dans un environnement dynamique et exigeant, qui te permettra de mettre en pratique les connaissances acquises durant tes études.\nDestiné aux étudiants qui, dans le cadre de leur formation en école de commerce ou au gymnase (option économie et commerce), achèvent leur cursus par une année de stage de pratique, ce programme permet de développer des compétences solides, à la fois techniques et interpersonnelles, dans un milieu hospitalier stimulant.\nEn complément, tu auras également l’opportunité d’effectuer des stages d’immersion dans d’autres services du GHOL, afin de répondre à l’ensemble de tes objectifs de formation et ainsi mieux comprendre le fonctionnement global de l’hôpital.\nDescription du poste :\nEn tant que stagiaire 3+1 au service de la facturation hospitalière, tu intégreras pleinement l’équipe et seras impliqué dans ses activités quotidiennes. Sous la supervision d’une formatrice, tu auras l’occasion de :\n\n• Participer à la saisie, au contrôle et au suivi des prestations médicales et paramédicales\n\n• Contribuer à la préparation, l’envoi et le contrôle des factures destinées aux caisses et aux patients\n\n• Assurer certaines tâches administratives de suivi et de coordination\n\n• Collaborer à des projets d’amélioration des processus et outils internes\n\n• Découvrir les interactions avec les différents services hospitaliers\nProfil requis :\nNous sommes convaincus que ton stage sera couronné de succès grâce, d’une part, à notre engagement dans ta formation et, d’autre part, grâce à ta soif de réussite. Par ailleurs, il te faudra :\n\n• Être en dernière année d’école de commerce / Gymnase, option économie et commerce\n\n• Répondre aux conditions d’admission à la maturité professionnelle commerciale (MPC)\n\n• Un intérêt marqué pour le secteur de la santé et le domaine administratif\n\n• Un sens de l’organisation, rigueur et capacité à travailler en équipe\n\n• Être dynamique, curieux et avoir envie d’apprendre\nNiveau de formation :\nCertificat de maturité gymnasiale"
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "CONTRACTOR",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://app.beehire.com/invite/NVFf6OQjf",
+      "applyUrl": "https://app.beehire.com/invite/NVFf6OQjf",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-24T09:23:13.771Z",
+      "needsRetranslation": false,
+      "previousSlugs": [
+        "stagiaire-maturite-professionnelle-commerciale-3-1-groupement-hospitalier-de-l-ouest"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-maturite-professionnelle-commerciale-3-1-groupement-hospitalier-de-l-ouest"
+        ],
+        "en": [
+          "stagiaire-maturite-professionnelle-commerciale-3-1-groupement-hospitalier-de-l-ouest"
+        ],
+        "de": [
+          "stagiaire-maturite-professionnelle-commerciale-3-1-groupement-hospitalier-de-l-ouest"
+        ]
+      },
+      "firstSeenAt": "2026-11-17T09:32:21.364Z",
+      "salaryMin": 77500,
+      "salaryMax": 108000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77500,
+          "maxValue": 108000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Nyon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-17T09:23:13.771Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -964,7 +964,7 @@
       "applyUrl": "https://app.beehire.com/invite/6NMbh5sJz",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:33:24.197Z",
+      "crawledAt": "2026-11-24T09:23:13.770Z",
       "previousSlugs": [
         "sous-chef-de-cuisine-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
@@ -995,7 +995,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:33:24.197Z",
+      "validThrough": "2027-02-16T09:23:13.770Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1045,7 +1045,7 @@
       "applyUrl": "https://app.beehire.com/invite/mINV-Y_jl",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:33:24.195Z",
+      "crawledAt": "2026-11-24T09:23:13.767Z",
       "previousSlugs": [
         "sous-chef-de-cuisine-junior-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
@@ -1076,7 +1076,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:33:24.195Z",
+      "validThrough": "2027-02-16T09:23:13.767Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1126,7 +1126,7 @@
       "applyUrl": "https://app.beehire.com/invite/giDi1CNGz",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:33:24.194Z",
+      "crawledAt": "2026-11-24T09:23:13.765Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "referent-e-de-secretariat-des-consultations-specialisees-groupement-hospitalier-de-l-ouest"
@@ -1158,7 +1158,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:33:24.194Z",
+      "validThrough": "2027-02-16T09:23:13.765Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1208,7 +1208,7 @@
       "applyUrl": "https://app.beehire.com/invite/M56bNKLh6",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:33:24.193Z",
+      "crawledAt": "2026-11-24T09:23:13.764Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "logisticien-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -1240,7 +1240,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:33:24.193Z",
+      "validThrough": "2027-02-19T09:23:13.764Z",
       "validThroughSource": "last-observed-window"
     }
   ]
