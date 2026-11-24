@@ -1,7 +1,7 @@
 {
   "key": "prodyna-com",
   "label": "PRODYNA (Schweiz) AG",
-  "generatedAt": "2026-11-23T21:50:14.285Z",
+  "generatedAt": "2026-11-24T09:45:17.676Z",
   "total": 2,
   "discovered": 2,
   "parsed": 2,
@@ -60,10 +60,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 13449,
-  "avgDurationMs": 13449,
+  "durationMs": 12139,
+  "avgDurationMs": 12139,
   "durationHistory": [
-    13449
+    12139
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -81,7 +81,7 @@
       "url": "https://www.prodyna.com/jobs/senior-data-engineer-athens",
       "source": "PRODYNA (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-23T21:49:23.169Z",
+      "crawledAt": "2026-11-24T09:44:36.119Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -104,7 +104,7 @@
       "salaryMax": 151000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:49:23.169Z",
+      "validThrough": "2027-02-09T09:44:36.119Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -126,7 +126,7 @@
       "url": "https://www.prodyna.com/jobs/senior-java-developer-athens",
       "source": "PRODYNA (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-23T21:49:23.164Z",
+      "crawledAt": "2026-11-24T09:44:36.112Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -149,7 +149,7 @@
       "salaryMax": 169500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:49:23.164Z",
+      "validThrough": "2027-02-09T09:44:36.112Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -160,5 +160,5 @@
       }
     }
   ],
-  "codeCommit": "7b684909df7304f91c3a19b75aa2a6088ce7630a"
+  "codeCommit": "ad4d13f2bbfca567e72148b3349ab6c6b8a5dd5d"
 }
