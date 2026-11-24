@@ -1094,7 +1094,8 @@
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-ksbl-liestal",
-          "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-h992hy"
+          "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-h992hy",
+          "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal"
         ],
         "fr": [
           "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal",
@@ -3278,12 +3279,6 @@
       "applyUrl": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-a/9c4567ad-4375-43f2-bfa0-040fda7adc34",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-d9d0683b62",
-        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-fapojd",
-        "infermiera-a-kantonsspital-baselland-ksbl-liestal"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
@@ -3294,7 +3289,12 @@
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-fapojd"
         ]
       },
-      "firstSeenAt": "2026-05-19T10:23:51.599Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-d9d0683b62",
+        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-fapojd",
+        "infermiera-a-kantonsspital-baselland-ksbl-liestal"
+      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -3311,7 +3311,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-24T09:45:59.889Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-05-19T10:23:51.599Z"
     },
     {
       "id": "ksbl-4c6d447f0fcd",
@@ -5312,12 +5313,6 @@
       "applyUrl": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/dipl-pflegefachfrau-pflegefachmann-a/28dc23e7-e705-4a3e-aea9-882468bde609",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-c49e1ca61f",
-        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-tiu1kw",
-        "infermiera-a-kantonsspital-baselland-ksbl-liestal"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
@@ -5328,7 +5323,13 @@
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-tiu1kw"
         ]
       },
-      "firstSeenAt": "2026-05-19T10:23:51.599Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
+        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-c49e1ca61f",
+        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-tiu1kw",
+        "infermiera-a-kantonsspital-baselland-ksbl-liestal",
+        "infermiera-a-kantonsspital-baselland-ksbl-liestal-a67061767f"
+      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -5345,7 +5346,8 @@
       "streetAddress": "Liestal",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-24T09:45:44.484Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-05-19T10:23:51.599Z"
     },
     {
       "id": "ksbl-ceaa9727b08f",

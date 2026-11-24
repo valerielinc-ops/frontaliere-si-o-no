@@ -4108,7 +4108,6 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-13T21:15:57.563Z",
       "salaryMin": 114500,
       "salaryMax": 203000,
@@ -4128,7 +4127,10 @@
       "validThrough": "2027-02-11T09:21:12.137Z",
       "validThroughSource": "last-observed-window",
       "crawlerMissStreak": 1,
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 6023,
+      "needsRetranslation": true
     },
     {
       "id": "srg-ssr-aa61ed38c2f0",

@@ -4590,16 +4590,23 @@
       "jobReqId": "744000162455775",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "secretaire-medical-ou-medicale-100-hug-geneve",
-          "segreteria-medica-o-medica-100-hug-geneve"
+          "segreteria-medica-o-medica-100-hug-geneve",
+          "segreteria-medica-o-medica-100-hug-geneve-76605f738d"
+        ],
+        "en": [
+          "secretaire-medical-ou-medicale-100-hug-geneve"
+        ],
+        "de": [
+          "secretaire-medical-ou-medicale-100-hug-geneve"
         ]
       },
       "previousSlugs": [
         "secretaire-medical-ou-medicale-100-hug-geneve",
-        "segreteria-medica-o-medica-100-hug-geneve"
+        "segreteria-medica-o-medica-100-hug-geneve",
+        "segreteria-medica-o-medica-100-hug-geneve-76605f738d"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -5610,7 +5617,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
