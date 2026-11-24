@@ -130,21 +130,33 @@ fi
 # old-history-guard sopra resta attivo anche per i tag.
 run_sibling_reminder() {
   local budget=${FRONTALIERE_PRE_PUSH_SIBLING_TIMEOUT_S:-120}
-  local marker
-  marker=$(mktemp "${TMPDIR:-/tmp}/sibling-gate-timeout.XXXXXX")
-  rm -f "$marker"
-  node scripts/ci/check-sibling-patterns.mjs "$@" &
+  local tmp_root=${TMPDIR:-/tmp}
+  tmp_root=${tmp_root%/}
+  local run_tmp
+  # Advisory: without a temp dir the checker cannot run anyway, and the
+  # reminder must never block the push.
+  if ! run_tmp=$(mktemp -d "$tmp_root/sibling-gate.XXXXXX" 2>/dev/null); then
+    echo "sibling-gate: TMPDIR non scrivibile ($tmp_root), promemoria saltato (il push continua)"
+    return 0
+  fi
+  # Private TMPDIR: when the cap kills node, the HEAD snapshots it could not
+  # clean up (100+ MB each) go away with this directory. The result cache
+  # stays shared so later pushes of the same SHA still reuse it.
+  TMPDIR="$run_tmp" CHECK_SIBLING_PATTERNS_CACHE_DIR="$tmp_root/frontaliere-check-sibling-patterns" \
+    node scripts/ci/check-sibling-patterns.mjs "$@" &
   local pid=$!
   # The watcher's stdio is detached: a leftover `sleep` must not hold the
   # push's output pipe open after the reminder ends.
-  ( sleep "$budget"; : >"$marker"; kill -TERM "$pid" 2>/dev/null ) >/dev/null 2>&1 &
+  ( sleep "$budget"; : >"$run_tmp/.timed-out"; kill -TERM "$pid" 2>/dev/null ) >/dev/null 2>&1 &
   local watcher=$!
   local status=0
   wait "$pid" || status=$?
   pkill -P "$watcher" 2>/dev/null || true
   kill "$watcher" 2>/dev/null || true
-  if [ -e "$marker" ]; then
-    rm -f "$marker"
+  local timed_out=0
+  [ -e "$run_tmp/.timed-out" ] && timed_out=1
+  rm -rf "$run_tmp"
+  if [ "$timed_out" = 1 ]; then
     echo "sibling-gate: interrotto dopo ${budget}s, promemoria saltato (il push continua)"
     return 0
   fi

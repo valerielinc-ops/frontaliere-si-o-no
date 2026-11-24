@@ -308,12 +308,13 @@ function shOk(cmd) {
   }
 }
 
-function gitOut(args, { allowFail = false, maxBuffer = 1024 * 1024 } = {}) {
+function gitOut(args, { allowFail = false, maxBuffer = 1024 * 1024, timeout } = {}) {
   try {
     return execFileSync('git', args, {
       encoding: 'utf8',
       stdio: ['ignore', 'pipe', 'ignore'],
       maxBuffer,
+      ...(timeout ? { timeout, killSignal: 'SIGTERM' } : {}),
     }).trim();
   } catch (e) {
     if (allowFail) return '';
@@ -322,6 +323,7 @@ function gitOut(args, { allowFail = false, maxBuffer = 1024 * 1024 } = {}) {
 }
 
 const SNAPSHOT_PUSH_TIMEOUT_MS = 10 * 60 * 1000;
+const LS_REMOTE_TIMEOUT_MS = 60 * 1000;
 function gitOk(args, { timeout } = {}) {
   try {
     execFileSync('git', args, { stdio: 'ignore', ...(timeout ? { timeout, killSignal: 'SIGTERM' } : {}) });
@@ -470,7 +472,10 @@ function localTagSha(tag) {
 }
 
 function remoteTagSha(tag) {
-  const raw = gitOut(['ls-remote', '--refs', 'origin', `refs/tags/${tag}`], { allowFail: true });
+  // Bounded like the snapshot push: a stalled read must not hold the prune
+  // lock. A timeout reads as "not on the remote"; the push that follows then
+  // either creates the tag or is refused, and the post-push check decides.
+  const raw = gitOut(['ls-remote', '--refs', 'origin', `refs/tags/${tag}`], { allowFail: true, timeout: LS_REMOTE_TIMEOUT_MS });
   return raw.split('\n').map((line) => line.trim().split(/\s+/)[0]).find(Boolean) || null;
 }
 
