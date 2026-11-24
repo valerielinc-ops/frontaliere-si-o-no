@@ -1,7 +1,7 @@
 {
   "crawlerKey": "klinik-arlesheim",
-  "assembledAt": "2026-11-24T09:39:13.170Z",
-  "runId": "45364093516",
+  "assembledAt": "2026-11-24T21:30:01.397Z",
+  "runId": "45489855642",
   "jobs": [
     {
       "id": "klinik-arlesheim-0da3ec875850",
@@ -35,7 +35,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/fb81d846-baa0-4569-bcac-e1d37e8221c8/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T09:39:05.895Z",
+      "crawledAt": "2026-11-24T21:29:52.530Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -130,7 +130,7 @@
       },
       "streetAddress": "Pfeffingerweg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-03T09:39:05.895Z",
+      "validThrough": "2027-01-03T21:29:52.530Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -165,7 +165,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/40ed87b2-7458-45c7-86ca-bcbdd434ae7b/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T09:39:05.447Z",
+      "crawledAt": "2026-11-24T21:29:52.040Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -235,7 +235,7 @@
       },
       "streetAddress": "Pfeffingerweg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-30T09:39:05.447Z",
+      "validThrough": "2026-12-29T21:29:52.040Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -269,7 +269,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/53d7d098-9ffd-4a26-8846-aaee9439e20e/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T09:39:04.992Z",
+      "crawledAt": "2026-11-24T21:29:51.555Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -340,7 +340,7 @@
       },
       "streetAddress": "Pfeffingerweg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-30T09:39:04.992Z",
+      "validThrough": "2026-12-29T21:29:51.555Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -375,7 +375,7 @@
       "url": "https://jobs.dualoo.com/portal/s60emmh3/52e615fd-01b0-4394-b020-078596bb3e0a/detail?lang=DE",
       "source": "Klinik Arlesheim Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T09:39:04.515Z",
+      "crawledAt": "2026-11-24T21:29:51.062Z",
       "addressLocality": "Arlesheim",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -435,7 +435,7 @@
       },
       "streetAddress": "Pfeffingerweg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-01T09:39:04.515Z",
+      "validThrough": "2027-01-31T21:29:51.062Z",
       "validThroughSource": "last-observed-window"
     }
   ]
