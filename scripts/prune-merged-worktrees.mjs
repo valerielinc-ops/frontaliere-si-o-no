@@ -308,12 +308,13 @@ function shOk(cmd) {
   }
 }
 
-function gitOut(args, { allowFail = false, maxBuffer = 1024 * 1024 } = {}) {
+function gitOut(args, { allowFail = false, maxBuffer = 1024 * 1024, timeout } = {}) {
   try {
     return execFileSync('git', args, {
       encoding: 'utf8',
       stdio: ['ignore', 'pipe', 'ignore'],
       maxBuffer,
+      ...(timeout ? { timeout, killSignal: 'SIGTERM' } : {}),
     }).trim();
   } catch (e) {
     if (allowFail) return '';
@@ -321,9 +322,11 @@ function gitOut(args, { allowFail = false, maxBuffer = 1024 * 1024 } = {}) {
   }
 }
 
-function gitOk(args) {
+const SNAPSHOT_PUSH_TIMEOUT_MS = 10 * 60 * 1000;
+const LS_REMOTE_TIMEOUT_MS = 60 * 1000;
+function gitOk(args, { timeout } = {}) {
   try {
-    execFileSync('git', args, { stdio: 'ignore' });
+    execFileSync('git', args, { stdio: 'ignore', ...(timeout ? { timeout, killSignal: 'SIGTERM' } : {}) });
     return true;
   } catch {
     return false;
@@ -469,7 +472,10 @@ function localTagSha(tag) {
 }
 
 function remoteTagSha(tag) {
-  const raw = gitOut(['ls-remote', '--refs', 'origin', `refs/tags/${tag}`], { allowFail: true });
+  // Bounded like the snapshot push: a stalled read must not hold the prune
+  // lock. A timeout reads as "not on the remote"; the push that follows then
+  // either creates the tag or is refused, and the post-push check decides.
+  const raw = gitOut(['ls-remote', '--refs', 'origin', `refs/tags/${tag}`], { allowFail: true, timeout: LS_REMOTE_TIMEOUT_MS });
   return raw.split('\n').map((line) => line.trim().split(/\s+/)[0]).find(Boolean) || null;
 }
 
@@ -540,7 +546,10 @@ function snapshotExpiryBeforeDelete(branch, sha) {
   if (candidate.remote !== sha) {
     const local = localTagSha(candidate.tag);
     if (!local && !gitOk(['tag', candidate.tag, sha])) return false;
-    if (!gitOk(['push', 'origin', `refs/tags/${candidate.tag}`])) return false;
+    // Network push from an unattended sweep that holds the prune lock: bounded,
+    // like every hook/script network call (AGENTS.md). A timeout keeps the
+    // worktree (no verified snapshot) and the next sweep retries.
+    if (!gitOk(['push', 'origin', `refs/tags/${candidate.tag}`], { timeout: SNAPSHOT_PUSH_TIMEOUT_MS })) return false;
     if (remoteTagSha(candidate.tag) !== sha) return false;
   }
   if (!recordSnapshot({ tag: candidate.tag, branch: branch || null, sha, kind: 'expiry' })) return false;

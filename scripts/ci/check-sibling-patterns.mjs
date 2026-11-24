@@ -118,11 +118,13 @@ import {
   rmSync,
   statSync,
   writeFileSync,
+  writeSync,
 } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 
 import { resolveMergeBase, formatUnresolvableMergeBaseVerdict } from './lib/resolve-merge-base.mjs';
+import { isProcessAlive } from '../lib/single-flight-lock.mjs';
 import {
   astMatchLabels,
   collectAstFacts,
@@ -301,10 +303,14 @@ function readCachedResult(cachePath) {
   }
 }
 
-function tryClaimCacheLock(lockPath) {
+export function tryClaimCacheLock(lockPath) {
   try {
     const fd = openSync(lockPath, 'wx');
-    closeSync(fd);
+    try {
+      writeSync(fd, String(process.pid));
+    } finally {
+      closeSync(fd);
+    }
     return true;
   } catch (error) {
     if (error?.code === 'EEXIST') return false;
@@ -312,9 +318,17 @@ function tryClaimCacheLock(lockPath) {
   }
 }
 
-function cacheLockIsStale(lockPath) {
+// An owner killed before its 'exit' cleanup (the pre-push time cap sends
+// SIGTERM, or SIGKILL/crash) leaves its lock behind. The lock carries the
+// owner's pid, so a dead owner frees it at once instead of after
+// CHECK_CACHE_STALE_MS; without this a retry of the same SHA spent its whole
+// budget waiting. A lock without a pid (being written, or from an older
+// checker) and a recycled pid fall back to the age rule.
+export function cacheLockIsStale(lockPath, { isAlive = isProcessAlive } = {}) {
   try {
-    return Date.now() - statSync(lockPath).mtimeMs > CHECK_CACHE_STALE_MS;
+    if (Date.now() - statSync(lockPath).mtimeMs > CHECK_CACHE_STALE_MS) return true;
+    const pid = Number.parseInt(readFileSync(lockPath, 'utf8').trim(), 10);
+    return Number.isInteger(pid) && pid > 0 && !isAlive(pid);
   } catch {
     return false;
   }
@@ -352,7 +366,11 @@ function createHeadCache(base, mergeBase) {
     mergeBase,
   ].join('\n');
   const key = createHash('sha256').update(identity).digest('hex');
-  const cacheDir = join(tmpdir(), 'frontaliere-check-sibling-patterns');
+  // The pre-push hook runs the checker under a private TMPDIR it deletes
+  // afterwards and pins the shared cache here, so results still carry over
+  // between pushes.
+  const cacheDir = process.env.CHECK_SIBLING_PATTERNS_CACHE_DIR
+    || join(tmpdir(), 'frontaliere-check-sibling-patterns');
   const cachePath = join(cacheDir, `${key}.json`);
   const lockPath = join(cacheDir, `${key}.lock`);
 
