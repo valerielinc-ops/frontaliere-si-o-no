@@ -26,6 +26,8 @@ let oldAheadHead = '';
 let zeroWorktree = '';
 let scratchWorktree = '';
 let raceWorktree = '';
+let hooksPushLog = '';
+let mainPushLog = '';
 
 function git(cwd: string, args: string[], extraEnv: NodeJS.ProcessEnv = {}): string {
   // Dopo la configurazione dello shim usato per simulare la race, il fixture
@@ -205,6 +207,20 @@ for p in $(printf '%s' "$FAKE_LSOF_CWDS" | tr ':' ' '); do printf 'p1\\nn%s\\n' 
 exit 0
 `, { mode: 0o755 });
 
+  // Snapshot pushes must run the pre-push of the hooks checkout (kept on
+  // origin/main), not the one of the main checkout the sweep runs from: two
+  // marker hooks tell them apart.
+  hooksPushLog = path.join(root, 'hooks-main-pre-push.log');
+  mainPushLog = path.join(root, 'main-pre-push.log');
+  const hooksMainHooks = path.join(worktreePath('hooks-main'), '.githooks');
+  fs.mkdirSync(hooksMainHooks, { recursive: true });
+  fs.writeFileSync(path.join(hooksMainHooks, 'pre-push'), `#!/bin/sh\n{ pwd; cat; } >> '${hooksPushLog}'\n`, { mode: 0o755 });
+  const mainHooks = path.join(root, 'main-checkout-hooks');
+  fs.mkdirSync(mainHooks, { recursive: true });
+  fs.writeFileSync(path.join(mainHooks, 'pre-push'), `#!/bin/sh\n{ pwd; cat; } >> '${mainPushLog}'\n`, { mode: 0o755 });
+  git(clone, ['config', 'core.hooksPath', mainHooks]);
+  env.FRONTALIERE_PRUNE_HOOKS_CHECKOUT = worktreePath('hooks-main');
+
   dryRun = runScript();
   const dryTags = remoteTags();
   expect(dryRun).toContain('dry-run: niente rimosso');
@@ -216,7 +232,7 @@ exit 0
 const fs = require('node:fs');
 const { spawnSync } = require('node:child_process');
 const args = process.argv.slice(2);
-if (args[0] === 'push' && args.some((arg) => arg.includes('/fix/issue-130-race')) && !fs.existsSync(process.env.PRUNE_RACE_MARKER)) {
+if (args.includes('push') && args.some((arg) => arg.includes('/fix/issue-130-race')) && !fs.existsSync(process.env.PRUNE_RACE_MARKER)) {
   fs.writeFileSync(process.env.PRUNE_RACE_MARKER, 'mutated\\n');
   fs.writeFileSync(process.env.PRUNE_RACE_FILE, 'race changed during apply\\n');
 }
@@ -285,6 +301,13 @@ describe('scadenza con snapshot per worktree e branch', () => {
     expect(applyRun).toContain('worktree diventato sporco durante lo sweep');
     expect(fs.existsSync(raceWorktree)).toBe(true);
     expect(refExists('refs/heads/fix/issue-130-race')).toBe(true);
+  });
+
+  it('spinge gli snapshot dal checkout degli hook con il suo pre-push, non da quello principale', () => {
+    const log = fs.readFileSync(hooksPushLog, 'utf8');
+    expect(log).toContain(fs.realpathSync(worktreePath('hooks-main')));
+    expect(log).toMatch(/refs\/tags\/snapshot\/\S+\/fix\/issue-123-old /);
+    expect(fs.existsSync(mainPushLog)).toBe(false);
   });
 
   it('non rimuove nulla se il push dello snapshot fallisce', () => {
