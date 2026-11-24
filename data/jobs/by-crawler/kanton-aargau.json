@@ -6021,9 +6021,9 @@
       "companyDomain": "ag.ch",
       "title": "Mitarbeiterin / Mitarbeiter Technik/Betrieb Museum Aargau 70%",
       "titleByLocale": {
-        "it": "Mitarbeiterin / Collaboratore/trice Technik/Betrieb Museum Aargau 70%",
-        "en": "Employee / Employee Technology / Operation Museum Aargau 70 %",
         "de": "Mitarbeiterin / Mitarbeiter Technik/Betrieb Museum Aargau 70%",
+        "it": "Museo della Tecnologia/Operazioni dei Dipendenti Aargau 70%",
+        "en": "Employee / Employee Technology / Operation Museum Aargau 70 %",
         "fr": "Employé / Employé Technologie / Exploitation Musée Argovie 70 %"
       },
       "description": "Spannende Aufgaben warten:\n• Operative und administrative Mitarbeit und Verantwortlichkeit im technischen, infrastrukturellen und kaufmännischen Facility Management an zwei Standorten des Museum Aargau\n• Verantwortlich für den Unterhalt sämtlicher technischer und multimedialer Installationen sowie das Dokumentationswesen von in Anspruch genommener Dienstleistungen und Materialbestellungen im Bereich Technik (Verträge, Lieferscheine, Rechnungen etc.)\n• Verantwortlich für den Unterhalt der betrieblichen Infrastruktur (Licht-, Wärme- und Kühltechnik, sanitäre Anlagen, Abfallentsorgung etc.) sowie für die Überwachung von Brandmelde- und Alarmanlagen und allgemein sicherheitsrelevanter Technik\n• Mitarbeit im Veranstaltungs-/Museumsbetrieb und Sicherstellen eines gepflegten Erscheinungsbilds, sicherer Betriebsabläufe sowie einer funktionierenden, qualitativ hochstehenden Servicekette für alle Besucherinnen und Besucher\n• Koordinieren und Anleiten von Zivildienstleistenden und anderen Helfern sowie externen Dienstleistern\n\nWas Sie mitbringen:\n• Abgeschlossene handwerkliche Berufsausbildung EFZ, mit breiten handwerklichen Fähigkeiten und Bereitschaft sich in den Bereich Multimedia einzuarbeiten\n• Gute Kenntnisse in Showtechnik, Multimedia und Informatik, sowie versierter Umgang mit MS-Office-Anwendungen\n• Mehrjährige Erfahrung in einem ähnlichen Berufsumfeld\n• Technisches und handwerkliches Geschick mit ausgeprägter Problemlösungsfähigkeit\n• Dienstleistungsorientierte Persönlichkeit mit organisatorischen Fähigkeiten sowie einer sorgfältigen und selbständigen Arbeitsweise\n\nMuseum Aargau gehört mit rund 300'000 Besuchenden zu den grössten historischen Museen der Schweiz. An zehn originalen Schauplätzen kann man Geschichte erleben. In den Schlössern Lenzburg, Hallwyl, Wildegg und Habsburg, im Kloster Königsfelden, auf der Klosterhalbinsel Wettingen, auf dem Legionärspfad Vindonissa und im Vindonissa Museum, auf der IndustriekulTOUR Aabach sowie im Sammlungszentrum Egliswil. Attraktive Angebote laden ein zu einmaligen Entdeckungsreisen von der Antike bis ins Heute.\n\nBenefits\nGesund bleiben\n• Ganzheitliches Betriebliches Gesundheitsmanagement zur Förderung von körperlichem, psychischem und sozialem Wohlbefinden\n• Verschiedene Sportangebote\nFair bezahlt\n• Gleicher Lohn für gleiche Arbeit\n• Dienstaltersgeschenk nach 15 Jahren\n\n• Pensum: 50 - 80%\n• Anstellung: unbefristet\n• Abteilung: Abteilung Kultur\n• Arbeitsort: Windisch",
@@ -6060,9 +6060,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Abteilung Kultur",
-      "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-technik-betrieb-museum-aargau-70-kanton-aargau-ch"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-technik-betrieb-museum-aargau-70-kanton-aargau-ch"
@@ -6074,7 +6071,9 @@
           "mitarbeiterin-mitarbeiter-technik-betrieb-museum-aargau-70-kanton-aargau-ch"
         ]
       },
-      "firstSeenAt": "2026-11-23T21:27:46.077Z",
+      "previousSlugs": [
+        "mitarbeiterin-mitarbeiter-technik-betrieb-museum-aargau-70-kanton-aargau-ch"
+      ],
       "salaryMin": 50800,
       "salaryMax": 77400,
       "salarySource": "estimated",
@@ -6090,7 +6089,8 @@
       },
       "streetAddress": "Windisch",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source"
+      "validThroughSource": "source",
+      "firstSeenAt": "2026-11-23T21:27:46.077Z"
     },
     {
       "id": "kanton-aargau-6e1ae7b8837a",
