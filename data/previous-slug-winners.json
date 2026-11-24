@@ -25199,6 +25199,15 @@
     "candidatesCount": 2,
     "canton": "LU"
   },
+  "LU::en::gartner-in-garten-und-landschaftsbau-fur-vielseitige-kundenarbeiten-luzern-luzern": {
+    "winnerJobIdentifier": "stellenpartner-f93a902a7f22",
+    "winnerCanonical": "gardener-gardening-and-landscaping-for-versatile-client-work-stellenpartner-ag-luzern-luzern",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
+    "lastSeenAt": "2026-11-23T00:00:00.000Z",
+    "score": 0.0526,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
   "LU::en::gartner-in-garten-und-landschaftsbau-fur-vielseitigen-aussenbereich-luzern-luzern": {
     "winnerJobIdentifier": "stellentreff-06cc6dda4182",
     "winnerCanonical": "gardener-garden-and-landscape-construction-for-versatile-outdoor-areas-stellentreff-ag-luzern-luzern",
@@ -26303,6 +26312,15 @@
     "decidedAt": "2026-11-20T00:00:00.000Z",
     "lastSeenAt": "2026-11-23T00:00:00.000Z",
     "score": 0.0385,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::fr::gartner-in-garten-und-landschaftsbau-fur-vielseitige-kundenarbeiten-luzern-luzern": {
+    "winnerJobIdentifier": "stellenpartner-f93a902a7f22",
+    "winnerCanonical": "jardinier-jardinage-et-amenagement-paysager-pour-un-travail-client-polyvalent-stellenpartner-ag-luzern-luzern",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
+    "lastSeenAt": "2026-11-23T00:00:00.000Z",
+    "score": 0.0476,
     "candidatesCount": 2,
     "canton": "LU"
   },
@@ -28180,7 +28198,7 @@
   },
   "LU::it::gartner-in-garten-und-landschaftsbau-fur-vielseitige-kundenarbeiten-luzern-luzern": {
     "winnerJobIdentifier": "stellenpartner-f93a902a7f22",
-    "winnerCanonical": "giardiniere-giardinaggio-e-giardinaggio-per-un-lavoro-versatile-con-i-clienti-stellenpartner-ag-luzern",
+    "winnerCanonical": "giardiniere-giardinaggio-e-giardinaggio-per-un-lavoro-versatile-con-i-clienti-stellenpartner-ag-luzern-luzern",
     "decidedAt": "2026-11-23T00:00:00.000Z",
     "lastSeenAt": "2026-11-23T00:00:00.000Z",
     "score": 0.0476,
@@ -29898,12 +29916,12 @@
     "canton": "LU"
   },
   "LU::it::verkaufer-in-food-coop-buttisholz-2": {
-    "winnerJobIdentifier": "company-db1nx4",
-    "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-buttisholz-3aea65",
-    "decidedAt": "2026-11-22T00:00:00.000Z",
+    "winnerJobIdentifier": "company-jo9dzf",
+    "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-buttisholz-8a5e30",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
     "lastSeenAt": "2026-11-23T00:00:00.000Z",
     "score": 0.1818,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::it::verkaufer-in-food-coop-emmen": {
@@ -31986,21 +32004,21 @@
     "canton": "SG"
   },
   "SG::de::dipl-nursing-professional-80-100-hoch-health-ostschweiz-st-gallen-317fe7": {
-    "winnerJobIdentifier": "hoch-health-26120e9ab615",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen",
-    "decidedAt": "2026-11-22T00:00:00.000Z",
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kssg-ch",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
     "lastSeenAt": "2026-11-23T00:00:00.000Z",
-    "score": 0.5385,
-    "candidatesCount": 2,
+    "score": 0.2,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::de::dipl-nursing-professional-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-dc118e": {
-    "winnerJobIdentifier": "hoch-health-26120e9ab615",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen",
-    "decidedAt": "2026-11-22T00:00:00.000Z",
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kssg-ch",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
     "lastSeenAt": "2026-11-23T00:00:00.000Z",
-    "score": 0.4,
-    "candidatesCount": 2,
+    "score": 0.2667,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::de::dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen": {
@@ -32049,21 +32067,21 @@
     "canton": "SG"
   },
   "SG::de::dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-ka6ysp": {
-    "winnerJobIdentifier": "hoch-health-26120e9ab615",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen",
-    "decidedAt": "2026-11-22T00:00:00.000Z",
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kssg-ch",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
     "lastSeenAt": "2026-11-23T00:00:00.000Z",
-    "score": 0.9,
-    "candidatesCount": 2,
+    "score": 0.4167,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::de::dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-xmqepb": {
-    "winnerJobIdentifier": "hoch-health-26120e9ab615",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen",
-    "decidedAt": "2026-11-22T00:00:00.000Z",
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kssg-ch",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
     "lastSeenAt": "2026-11-23T00:00:00.000Z",
-    "score": 0.9,
-    "candidatesCount": 2,
+    "score": 0.4167,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::de::dipl-pflegefachfrau-mann-80-100-hoch-health-wil": {
@@ -32103,21 +32121,21 @@
     "canton": "SG"
   },
   "SG::de::dipl-professionnels-des-soins-infirmiers-80-100-hoch-health-ostschweiz-st-gallen-317fe7": {
-    "winnerJobIdentifier": "hoch-health-26120e9ab615",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen",
-    "decidedAt": "2026-11-22T00:00:00.000Z",
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kssg-ch",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
     "lastSeenAt": "2026-11-23T00:00:00.000Z",
-    "score": 0.4667,
-    "candidatesCount": 2,
+    "score": 0.1765,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::de::dipl-professionnels-des-soins-infirmiers-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-dc118e": {
-    "winnerJobIdentifier": "hoch-health-26120e9ab615",
-    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen",
-    "decidedAt": "2026-11-22T00:00:00.000Z",
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-kssg-ch",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
     "lastSeenAt": "2026-11-23T00:00:00.000Z",
-    "score": 0.3529,
-    "candidatesCount": 2,
+    "score": 0.2353,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::de::dipl-specialiste-des-soins-40-100-hoch-health-ostschweiz-uznach": {
@@ -32616,10 +32634,10 @@
     "canton": "SG"
   },
   "SG::de::verkaufer-in-denner": {
-    "winnerJobIdentifier": "denner-eacecba7aace",
-    "winnerCanonical": "verkaufer-in-denner-rapperswil-sg",
-    "decidedAt": "2026-11-03T00:00:00.000Z",
-    "lastSeenAt": "2026-11-04T00:00:00.000Z",
+    "winnerJobIdentifier": "denner-d678288121ef",
+    "winnerCanonical": "verkaufer-in-denner-gossau-sg",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
+    "lastSeenAt": "2026-11-23T00:00:00.000Z",
     "score": 0.6,
     "candidatesCount": 1,
     "canton": "SG"
@@ -32814,12 +32832,12 @@
     "canton": "SG"
   },
   "SG::en::dipl-nursing-professional-80-100-hoch-health-ostschweiz-st-gallen-317fe7": {
-    "winnerJobIdentifier": "hoch-health-26120e9ab615",
-    "winnerCanonical": "registered-nurse-80-100-hoch-health-ostschweiz-st-gallen",
-    "decidedAt": "2026-11-22T00:00:00.000Z",
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-nursing-professional-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-2abf53",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
     "lastSeenAt": "2026-11-23T00:00:00.000Z",
-    "score": 0.5385,
-    "candidatesCount": 2,
+    "score": 0.5333,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::en::dipl-nursing-professional-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-dc118e": {
@@ -32895,21 +32913,21 @@
     "canton": "SG"
   },
   "SG::en::dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-ka6ysp": {
-    "winnerJobIdentifier": "hoch-health-26120e9ab615",
-    "winnerCanonical": "registered-nurse-80-100-hoch-health-ostschweiz-st-gallen",
-    "decidedAt": "2026-11-22T00:00:00.000Z",
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-nursing-professional-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-2abf53",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
     "lastSeenAt": "2026-11-23T00:00:00.000Z",
-    "score": 0.4615,
-    "candidatesCount": 2,
+    "score": 0.375,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::en::dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-xmqepb": {
-    "winnerJobIdentifier": "hoch-health-26120e9ab615",
-    "winnerCanonical": "registered-nurse-80-100-hoch-health-ostschweiz-st-gallen",
-    "decidedAt": "2026-11-22T00:00:00.000Z",
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-nursing-professional-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-2abf53",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
     "lastSeenAt": "2026-11-23T00:00:00.000Z",
-    "score": 0.4615,
-    "candidatesCount": 2,
+    "score": 0.375,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::en::dipl-pflegefachfrau-mann-80-100-hoch-health-wil": {
@@ -32931,12 +32949,12 @@
     "canton": "SG"
   },
   "SG::en::dipl-professionnels-des-soins-infirmiers-80-100-hoch-health-ostschweiz-st-gallen-317fe7": {
-    "winnerJobIdentifier": "hoch-health-26120e9ab615",
-    "winnerCanonical": "registered-nurse-80-100-hoch-health-ostschweiz-st-gallen",
-    "decidedAt": "2026-11-22T00:00:00.000Z",
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-nursing-professional-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-2abf53",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
     "lastSeenAt": "2026-11-23T00:00:00.000Z",
-    "score": 0.4667,
-    "candidatesCount": 2,
+    "score": 0.3158,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::en::dipl-professionnels-des-soins-infirmiers-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-dc118e": {
@@ -33579,12 +33597,12 @@
     "canton": "SG"
   },
   "SG::fr::dipl-nursing-professional-80-100-hoch-health-ostschweiz-st-gallen-317fe7": {
-    "winnerJobIdentifier": "hoch-health-26120e9ab615",
-    "winnerCanonical": "infirmier-ere-diplome-e-80-100-hoch-health-ostschweiz-st-gallen",
-    "decidedAt": "2026-11-22T00:00:00.000Z",
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-professionnels-des-soins-infirmiers-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-2abf53",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
     "lastSeenAt": "2026-11-23T00:00:00.000Z",
-    "score": 0.4667,
-    "candidatesCount": 2,
+    "score": 0.3158,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::fr::dipl-nursing-professional-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-dc118e": {
@@ -33651,21 +33669,21 @@
     "canton": "SG"
   },
   "SG::fr::dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-ka6ysp": {
-    "winnerJobIdentifier": "hoch-health-26120e9ab615",
-    "winnerCanonical": "infirmier-ere-diplome-e-80-100-hoch-health-ostschweiz-st-gallen",
-    "decidedAt": "2026-11-22T00:00:00.000Z",
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-professionnels-des-soins-infirmiers-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-2abf53",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
     "lastSeenAt": "2026-11-23T00:00:00.000Z",
-    "score": 0.4,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::fr::dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-xmqepb": {
-    "winnerJobIdentifier": "hoch-health-26120e9ab615",
-    "winnerCanonical": "infirmier-ere-diplome-e-80-100-hoch-health-ostschweiz-st-gallen",
-    "decidedAt": "2026-11-22T00:00:00.000Z",
+    "winnerJobIdentifier": "hoch-health-589580badcf8",
+    "winnerCanonical": "dipl-professionnels-des-soins-infirmiers-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-2abf53",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
     "lastSeenAt": "2026-11-23T00:00:00.000Z",
-    "score": 0.4,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::fr::dipl-pflegefachfrau-mann-80-100-hoch-health-wil": {
@@ -35074,10 +35092,10 @@
   },
   "SG::it::dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen": {
     "winnerJobIdentifier": "hoch-health-26120e9ab615",
-    "winnerCanonical": "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen-0f5225",
-    "decidedAt": "2026-11-22T00:00:00.000Z",
+    "winnerCanonical": "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
     "lastSeenAt": "2026-11-23T00:00:00.000Z",
-    "score": 0.5,
+    "score": 0.5385,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -35443,10 +35461,10 @@
   },
   "SG::it::fachfrau-mann-gesundheit-40-100-hoch-health-uznach": {
     "winnerJobIdentifier": "hoch-health-663a18ef9a3e",
-    "winnerCanonical": "operatrice-operatore-sociosanitario-40-100-hoch-health-ostschweiz-uznach",
-    "decidedAt": "2026-11-03T00:00:00.000Z",
+    "winnerCanonical": "operatrice-operatore-sociosanitario-40-100-hoch-health-ostschweiz-uznach-0925f05398",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
     "lastSeenAt": "2026-11-23T00:00:00.000Z",
-    "score": 0.4167,
+    "score": 0.3846,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -41742,11 +41760,11 @@
     "canton": "SO"
   },
   "SO::it::verkaufer-in-food-coop-solothurn": {
-    "winnerJobIdentifier": "company-j5ejk5",
-    "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-solothurn-9b82e6",
-    "decidedAt": "2026-11-16T00:00:00.000Z",
+    "winnerJobIdentifier": "company-97kbik",
+    "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-solothurn",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
     "lastSeenAt": "2026-11-23T00:00:00.000Z",
-    "score": 0.2,
+    "score": 0.2222,
     "candidatesCount": 1,
     "canton": "SO"
   },
@@ -50571,12 +50589,12 @@
     "canton": "VD"
   },
   "VD::it::apprendista-elektroniker-in-cfc-confederazione-svizzera-payerne-a8596868c9": {
-    "winnerJobIdentifier": "confederazione-ticino-e2f622e67005",
-    "winnerCanonical": "apprendista-elektroniker-in-cfc-confederazione-svizzera-payerne",
+    "winnerJobIdentifier": "company-wp6zeb",
+    "winnerCanonical": "apprendista-elektroniker-in-cfc-confederazione-svizzera-payerne-261711",
     "decidedAt": "2026-11-23T00:00:00.000Z",
     "lastSeenAt": "2026-11-23T00:00:00.000Z",
-    "score": 0.875,
-    "candidatesCount": 2,
+    "score": 0.7778,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::it::apprenti-e-assistant-e-medicale-tous-genres-medbase-ch": {
@@ -51453,12 +51471,12 @@
     "canton": "VD"
   },
   "VD::it::lernende-r-elektroniker-in-efz-confederazione-payerne": {
-    "winnerJobIdentifier": "confederazione-ticino-e2f622e67005",
-    "winnerCanonical": "apprendista-elektroniker-in-cfc-confederazione-svizzera-payerne",
+    "winnerJobIdentifier": "company-wp6zeb",
+    "winnerCanonical": "apprendista-elektroniker-in-cfc-confederazione-svizzera-payerne-261711",
     "decidedAt": "2026-11-23T00:00:00.000Z",
     "lastSeenAt": "2026-11-23T00:00:00.000Z",
-    "score": 0.4,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::it::manor-collaborateur-trice-caisse-parfumerie-50-nyon": {
@@ -58040,6 +58058,24 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::en::polymechaniker-in-cnc-fertigung-fur-3-achs-und-5-achs-frasmaschinen-pfaffikon-zurich": {
+    "winnerJobIdentifier": "stellenpartner-4d4f6424f72a",
+    "winnerCanonical": "polymechanic-cnc-manufacturing-for-3-axis-and-5-axis-milling-machines-stellenpartner-ag-pfaffikon-zurich",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
+    "lastSeenAt": "2026-11-23T00:00:00.000Z",
+    "score": 0.2381,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::en::polymechaniker-in-cnc-fertigung-mit-einzelteilen-und-kleinserien-winterthur-zurich": {
+    "winnerJobIdentifier": "stellenpartner-b6873821e719",
+    "winnerCanonical": "polymechanic-cnc-manufacturing-with-individual-parts-and-small-series-stellenpartner-ag-winterthur-zurich",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
+    "lastSeenAt": "2026-11-23T00:00:00.000Z",
+    "score": 0.15,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::en::polymechaniker-in-cnc-fertigung-mit-heidenhain-und-fanuc-programmierung-winterthur-zurich": {
     "winnerJobIdentifier": "stellenpartner-8c19a2b4e48c",
     "winnerCanonical": "polymechanic-cnc-production-with-heidenhain-and-fanuc-programming-stellenpartner-ag-winterthur-zurich",
@@ -58832,6 +58868,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::en::zimmermann-zimmerin-hilfsarbeiter-in-fur-umbauten-und-renovierungen-dielsdorf-zurich": {
+    "winnerJobIdentifier": "stellenpartner-af3ebf9db973",
+    "winnerCanonical": "carpenter-assistant-for-conversions-and-renovations-stellenpartner-ag-dielsdorf-zurich",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
+    "lastSeenAt": "2026-11-23T00:00:00.000Z",
+    "score": 0.1111,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::en::zimmermann-zimmerin-holzbau-vorarbeiter-in-mit-leitung-und-koordination-winterthur-zurich": {
     "winnerJobIdentifier": "fachkraft-7cf7d7b95681",
     "winnerCanonical": "carpenter-timber-construction-foreman-with-management-and-coordination-fachkraft-ch-gmbh-winterthur-zurich",
@@ -58851,11 +58896,11 @@
     "canton": "ZH"
   },
   "ZH::en::zusteller-in-briefe-und-pakete-post": {
-    "winnerJobIdentifier": "posta-svizzera-centro-regionale-24fa13472583",
-    "winnerCanonical": "letter-and-parcel-delivery-driver-die-schweizerische-post-wald-zh",
-    "decidedAt": "2026-10-16T00:00:00.000Z",
-    "lastSeenAt": "2026-11-04T00:00:00.000Z",
-    "score": 0.0667,
+    "winnerJobIdentifier": "posta-svizzera-centro-regionale-dc81b6419533",
+    "winnerCanonical": "letter-and-parcel-delivery-person-die-schweizerische-post-effretikon",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
+    "lastSeenAt": "2026-11-23T00:00:00.000Z",
+    "score": 0.0714,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -61073,6 +61118,24 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::fr::polymechaniker-in-cnc-fertigung-fur-3-achs-und-5-achs-frasmaschinen-pfaffikon-zurich": {
+    "winnerJobIdentifier": "stellenpartner-4d4f6424f72a",
+    "winnerCanonical": "polymecanique-fabrication-cnc-pour-fraiseuses-3-et-5-axes-stellenpartner-ag-pfaffikon-zurich",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
+    "lastSeenAt": "2026-11-23T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::fr::polymechaniker-in-cnc-fertigung-mit-einzelteilen-und-kleinserien-winterthur-zurich": {
+    "winnerJobIdentifier": "stellenpartner-b6873821e719",
+    "winnerCanonical": "polymecanique-fabrication-cnc-avec-pieces-individuelles-et-petites-series-stellenpartner-ag-winterthur-zurich",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
+    "lastSeenAt": "2026-11-23T00:00:00.000Z",
+    "score": 0.15,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::fr::polymechaniker-in-cnc-fertigung-mit-heidenhain-und-fanuc-programmierung-winterthur-zurich": {
     "winnerJobIdentifier": "stellenpartner-8c19a2b4e48c",
     "winnerCanonical": "polymecanicien-ne-fabrication-cnc-avec-programmation-heidenhain-et-fanuc-stellenpartner-ag-winterthur-zurich",
@@ -61856,6 +61919,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::fr::zimmermann-zimmerin-hilfsarbeiter-in-fur-umbauten-und-renovierungen-dielsdorf-zurich": {
+    "winnerJobIdentifier": "stellenpartner-af3ebf9db973",
+    "winnerCanonical": "charpentier-assistant-pour-les-transformations-et-renovations-stellenpartner-ag-dielsdorf-zurich",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
+    "lastSeenAt": "2026-11-23T00:00:00.000Z",
+    "score": 0.1053,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::fr::zimmermann-zimmerin-holzbau-vorarbeiter-in-mit-leitung-und-koordination-winterthur-zurich": {
     "winnerJobIdentifier": "fachkraft-7cf7d7b95681",
     "winnerCanonical": "charpentier-charpentiere-contremaitre-contremaitresse-de-construction-en-bois-avec-direction-et-coordination-fachkraft",
@@ -61875,11 +61947,11 @@
     "canton": "ZH"
   },
   "ZH::fr::zusteller-in-briefe-und-pakete-post": {
-    "winnerJobIdentifier": "posta-svizzera-centro-regionale-24fa13472583",
-    "winnerCanonical": "livreur-euse-de-lettres-et-de-colis-die-schweizerische-post-wald-zh",
-    "decidedAt": "2026-10-16T00:00:00.000Z",
-    "lastSeenAt": "2026-11-04T00:00:00.000Z",
-    "score": 0.0625,
+    "winnerJobIdentifier": "posta-svizzera-centro-regionale-dc81b6419533",
+    "winnerCanonical": "livreur-livreuse-de-lettres-et-de-colis-die-schweizerische-post-effretikon",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
+    "lastSeenAt": "2026-11-23T00:00:00.000Z",
+    "score": 0.0667,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -62643,7 +62715,7 @@
     "winnerJobIdentifier": "clienia-ag-65469bd8576b",
     "winnerCanonical": "assistente-medico-m-f-d-80-100-clienia-ag-pfaffikon-zh",
     "decidedAt": "2026-08-31T00:00:00.000Z",
-    "lastSeenAt": "2026-11-22T00:00:00.000Z",
+    "lastSeenAt": "2026-11-23T00:00:00.000Z",
     "score": 0.4,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -63524,7 +63596,7 @@
   "ZH::it::crew-mcdonalds-switzerland-winterthur-p8-319501-1": {
     "winnerJobIdentifier": "mcdonald-s-switzerland-b49289703ae9",
     "winnerCanonical": "crew-mcdonalds-switzerland-winterthur-p8-319504-1",
-    "decidedAt": "2026-11-02T00:00:00.000Z",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
     "lastSeenAt": "2026-11-23T00:00:00.000Z",
     "score": 0.75,
     "candidatesCount": 1,
@@ -63534,7 +63606,7 @@
     "winnerJobIdentifier": "mcdonald-s-switzerland-6b257021fa06",
     "winnerCanonical": "crew-mcdonalds-switzerland-winterthur-p8-319503-1",
     "decidedAt": "2026-10-06T00:00:00.000Z",
-    "lastSeenAt": "2026-11-22T00:00:00.000Z",
+    "lastSeenAt": "2026-11-23T00:00:00.000Z",
     "score": 0.75,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -66882,7 +66954,7 @@
     "winnerJobIdentifier": "posta-svizzera-centro-regionale-449fb81e22fc",
     "winnerCanonical": "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-die-schweizerische-post-horgen",
     "decidedAt": "2026-11-16T00:00:00.000Z",
-    "lastSeenAt": "2026-11-22T00:00:00.000Z",
+    "lastSeenAt": "2026-11-23T00:00:00.000Z",
     "score": 0.0588,
     "candidatesCount": 2,
     "canton": "ZH"
@@ -67914,11 +67986,11 @@
     "canton": "ZH"
   },
   "ZH::it::metzger-in-fleischfachfrau-fleischfachmann-coop-bachenbulach": {
-    "winnerJobIdentifier": "company-bqixk1",
-    "winnerCanonical": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-bachenbulach-e7270f",
-    "decidedAt": "2026-11-21T00:00:00.000Z",
+    "winnerJobIdentifier": "company-fdq34t",
+    "winnerCanonical": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-bachenbulach",
+    "decidedAt": "2026-11-23T00:00:00.000Z",
     "lastSeenAt": "2026-11-23T00:00:00.000Z",
-    "score": 0.1667,
+    "score": 0.1818,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -68976,11 +69048,11 @@
     "canton": "ZH"
   },
   "ZH::it::polymechaniker-in-cnc-fertigung-fur-3-achs-und-5-achs-frasmaschinen-pfaffikon-zurich": {
-    "winnerJobIdentifier": "fachkraft-d39247e6786b",
-    "winnerCanonical": "polimeccanico-a-produzione-cnc-per-fresatrici-a-3-e-5-assi-fachkraft-ch-gmbh-pfaffikon-zurich",
+    "winnerJobIdentifier": "stellenpartner-4d4f6424f72a",
+    "winnerCanonical": "polimeccanica-produzione-cnc-per-fresatrici-a-3-e-5-assi-stellenpartner-ag-pfaffikon-zurich",
     "decidedAt": "2026-11-23T00:00:00.000Z",
     "lastSeenAt": "2026-11-23T00:00:00.000Z",
-    "score": 0.2273,
+    "score": 0.2381,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -69012,11 +69084,11 @@
     "canton": "ZH"
   },
   "ZH::it::polymechaniker-in-cnc-fertigung-mit-einzelteilen-und-kleinserien-winterthur-zurich": {
-    "winnerJobIdentifier": "fachkraft-f26748b33227",
-    "winnerCanonical": "polimeccanico-a-produzione-cnc-con-pezzi-singoli-e-piccole-serie-fachkraft-ch-gmbh-winterthur-zurich",
+    "winnerJobIdentifier": "stellenpartner-b6873821e719",
+    "winnerCanonical": "polimeccanica-produzione-cnc-con-singoli-componenti-e-piccole-serie-stellenpartner-ag-winterthur-zurich",
     "decidedAt": "2026-11-23T00:00:00.000Z",
     "lastSeenAt": "2026-11-23T00:00:00.000Z",
-    "score": 0.1364,
+    "score": 0.15,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -72315,11 +72387,11 @@
     "canton": "ZH"
   },
   "ZH::it::zimmermann-zimmerin-hilfsarbeiter-in-fur-umbauten-und-renovierungen-dielsdorf-zurich": {
-    "winnerJobIdentifier": "fachkraft-d20d7f9f4c1d",
-    "winnerCanonical": "carpentiere-a-operaio-a-ausiliario-a-per-ristrutturazioni-e-rinnovamenti-fachkraft-ch-gmbh-dielsdorf-zurich",
+    "winnerJobIdentifier": "stellenpartner-af3ebf9db973",
+    "winnerCanonical": "falegname-assistente-per-riconversioni-e-ristrutturazioni-stellenpartner-ag-dielsdorf-zurich",
     "decidedAt": "2026-11-23T00:00:00.000Z",
     "lastSeenAt": "2026-11-23T00:00:00.000Z",
-    "score": 0.0952,
+    "score": 0.1111,
     "candidatesCount": 2,
     "canton": "ZH"
   },
