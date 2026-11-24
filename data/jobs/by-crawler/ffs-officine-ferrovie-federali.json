@@ -2577,7 +2577,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:24:39.192Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-52a9d5d4ffe1",
@@ -6629,7 +6630,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:24:38.664Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-497bafee26b9",
@@ -6973,7 +6975,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:24:24.180Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-a8a82df876ad",
@@ -8316,7 +8319,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:24:45.657Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-6eb1004dd0e5",
@@ -8433,7 +8437,7 @@
       "slugByLocale": {
         "it": "creatore-di-decisione-del-ciclo-di-vita-ib-ffs-officine-ferrovie-federali-bellinzona",
         "en": "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona-lqr57y",
-        "de": "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona",
+        "de": "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona-lqr57y",
         "fr": "decideur-du-cycle-de-vie-ib-ffs-officine-ferrovie-federali-bellinzona-00cef5"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -8503,8 +8507,7 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-23T21:24:38.170Z",
       "previousSlugs": [
-        "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona",
-        "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona-lqr57y"
+        "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8514,7 +8517,7 @@
           "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona"
         ],
         "de": [
-          "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona-lqr57y"
+          "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona"
         ],
         "fr": [
           "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona"
@@ -10842,7 +10845,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T21:25:05.702Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-09d681dc8204",
@@ -12894,7 +12898,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-23T21:25:49.748Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-83c61f0a4674",
@@ -18380,7 +18385,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:22:20.339Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-b77e54cb9f58",
@@ -18883,7 +18889,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Gestionnaire-de-produit-Installations-de-lignes-a%C3%A9riennes-%28hfd%29/1459706833",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-24T09:22:20.670Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-de-produit-installations-de-lignes-aeriennes-h-f-d-ffs-officine-ferrovie-federali-ticino"
@@ -19189,7 +19194,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Junior-Controllerin-Finanzen%2C-Daten-&-Reporting/1459323633",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-24T09:22:20.975Z",
-      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -19502,7 +19506,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:22:21.115Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-9634e780d4e6",
@@ -19656,7 +19661,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:22:21.314Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-c511144680b8",
@@ -20105,7 +20111,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Produktmanagerin-Freileitungen/1459706933",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-24T09:22:21.644Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -20366,7 +20371,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:22:21.732Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-f913935c4daa",
@@ -20482,7 +20488,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Responsabile-della-contabilit%C3%A0-finanziaria-%28mfd%29/1459754833",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-24T09:22:21.968Z",
-      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000,
       "salarySource": "estimated",
@@ -21258,7 +21263,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Teamleiterin-Finanzbuchhaltung/1459754933",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-24T09:22:22.444Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -21330,7 +21334,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Transportlogistikerin-Bern/1459766133",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-24T09:22:22.488Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -23422,7 +23425,6 @@
       "url": "https://careers.sbb.ch/job/Erstfeld-Quereinsteigerin-Feuerwehrmann-oder-Feuerwehrfrau-und-Lokf%C3%BChrerin/1460088033",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-24T09:22:24.042Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinsteiger-in-feuerwehrmann-oder-feuerwehrfrau-und-lokfuhrer-in-ffs-officine-ferrovie-federali-ticino"
@@ -26172,7 +26174,6 @@
       "url": "https://careers.sbb.ch/job/Olten-Leiterin-Services-und-Zentrum-f%C3%BCr-Lernende-und-F%C3%BChrungsunterst%C3%BCtzung/1460084033",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-24T09:22:26.049Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-services-und-zentrum-fur-lernende-und-fuhrungsunterstutzung-ffs-officine-ferrovie-federali-ticino"
@@ -29949,7 +29950,6 @@
       "url": "https://careers.sbb.ch/job/Yverdon-les-Bains-Gestionnaire-des-demandes-d'exploitation-%28hfd%29-Pers/1454846733",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-24T09:22:28.765Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-des-demandes-d-exploitation-h-f-d-ffs-officine-ferrovie-federali-ticino"

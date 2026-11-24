@@ -669653,7 +669653,9 @@
     "canonicalSlug": "branch-manager-craft-city-m-f-d-80-sfs-group-hinwil",
     "slugByLocale": {
       "de": "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil",
-      "fr": "directeur-de-branche-craft-city-h-f-d-80-sfs-group-hinwil"
+      "fr": "directeur-de-branche-craft-city-h-f-d-80-sfs-group-hinwil",
+      "it": "filialleiter-in-handwerkstadt-m-f-d-sfs-group-bern",
+      "en": "filialleiter-in-handwerkstadt-m-f-d-sfs-group-bern"
     },
     "createdAt": "2026-09-08",
     "canton": "ZH"
@@ -1042577,7 +1042579,8 @@
     "slugByLocale": {
       "en": "retail-business-analytics-manager-msc-geneva",
       "it": "responsabile-analisi-aziendale-retail-msc-group-geneva",
-      "fr": "gestionnaire-d-analyses-commerciales-de-detail-msc-group-geneva"
+      "fr": "gestionnaire-d-analyses-commerciales-de-detail-msc-group-geneva",
+      "de": "responsabile-analisi-aziendale-retail-msc-group-geneva"
     },
     "createdAt": "2026-11-15",
     "canton": "GE"
@@ -1100361,7 +1100364,9 @@
     "canonicalSlug": "schreiner-efz-eba-m-w-lu-luzern-opus-personal-ch",
     "slugByLocale": {
       "de": "schreiner-efz-eba-m-w-lu-luzern-opus-personal-ch",
-      "it": "schreiner-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-lu-luzern"
+      "it": "schreiner-cfc-afp-m-w-opus-personal-ag-zweigniederlassung-altdorf-lu-luzern",
+      "en": "schreiner-efz-eba-m-w-opus-personal-ag-zweigniederlassung-altdorf-luzern",
+      "fr": "schreiner-efz-eba-m-w-opus-personal-ag-zweigniederlassung-altdorf-luzern"
     },
     "createdAt": "2026-11-23",
     "canton": "LU"
@@ -1101701,7 +1101706,8 @@
     "slugByLocale": {
       "de": "mitarbeiter-management-office-w-m-d-raiffeisen-mels",
       "it": "collaboratore-trice-management-office-m-w-d-raiffeisen-mels",
-      "fr": "bureau-de-la-gestion-des-employes-h-f-d-raiffeisen-mels"
+      "fr": "bureau-de-la-gestion-des-employes-h-f-d-raiffeisen-mels",
+      "en": "employee-management-office-m-f-d-raiffeisen-mels"
     },
     "createdAt": "2026-11-24",
     "canton": "SG"
@@ -1101748,7 +1101754,10 @@
   "id|lever.co|430256dc-e9b8-4673-8ec4-b48b16cee5eb": {
     "canonicalSlug": "robotics-systems-engineer-mechanical-anybotics-ch",
     "slugByLocale": {
-      "en": "robotics-systems-engineer-mechanical-anybotics-ch"
+      "en": "robotics-systems-engineer-mechanical-anybotics-ch",
+      "it": "robotics-systems-ingegnere-mechanical-anybotics-zurich-switzerland",
+      "de": "robotics-systems-ingenieur-mechanical-anybotics-zurich-switzerland",
+      "fr": "robotics-systems-ingenieur-mechanical-anybotics-zurich-switzerland"
     },
     "createdAt": "2026-11-24",
     "canton": "ZH"
@@ -1102086,7 +1102095,8 @@
     "canonicalSlug": "sales-agent-basel-greifengasse-50-sunrise-basel",
     "slugByLocale": {
       "de": "sales-agent-basel-greifengasse-50-sunrise-basel",
-      "it": "agente-vendite-basel-greifengasse-50-sunrise-communications-ag-basel"
+      "it": "agente-vendite-basel-greifengasse-50-sunrise-communications-ag-basel",
+      "fr": "agent-commercial-basel-greifengasse-50-sunrise-communications-ag-basel"
     },
     "createdAt": "2026-11-24",
     "canton": "BS"
@@ -1102203,7 +1102213,10 @@
   "id|nestle.com|1459806833": {
     "canonicalSlug": "nutrition-specialist-nestle-ch",
     "slugByLocale": {
-      "en": "nutrition-specialist-nestle-ch"
+      "en": "nutrition-specialist-nestle-ch",
+      "it": "nutrition-specialista-nestle-la-tour-de-peilz",
+      "de": "nutrition-spezialist-nestle-la-tour-de-peilz",
+      "fr": "nutrition-specialiste-nestle-la-tour-de-peilz"
     },
     "createdAt": "2026-11-24",
     "canton": "VD"
@@ -1102221,7 +1102234,8 @@
     "canonicalSlug": "ict-system-spezialist-in-security-e-encryption-confederazione-svizzera-bern",
     "slugByLocale": {
       "de": "ict-system-spezialist-in-security-und-encryption-confederazione-bern",
-      "it": "ict-system-spezialist-in-security-e-encryption-confederazione-svizzera-bern"
+      "it": "ict-system-spezialist-in-security-e-encryption-confederazione-svizzera-bern",
+      "fr": "specialiste-des-systemes-tic-en-securite-et-chiffrement-confederazione-svizzera-bern"
     },
     "createdAt": "2026-11-24",
     "canton": "BE"
@@ -1102229,7 +1102243,10 @@
   "id|admin.ch|abe8f6e4-d2b2-43ff-980d-c4af69176431": {
     "canonicalSlug": "praktikant-in-hms-wms-3-1-1-jahr-confederazione-biel-bienne",
     "slugByLocale": {
-      "de": "praktikant-in-hms-wms-3-1-1-jahr-confederazione-biel-bienne"
+      "de": "praktikant-in-hms-wms-3-1-1-jahr-confederazione-biel-bienne",
+      "it": "stagista-hms-wms-3-1-1-anno-confederazione-svizzera-biel-bienne",
+      "en": "intern-hms-wms-3-1-1-year-confederazione-svizzera-biel-bienne",
+      "fr": "stagiaire-hms-wms-3-1-1-an-confederazione-svizzera-biel-bienne"
     },
     "createdAt": "2026-11-24",
     "canton": "BE"
@@ -1102246,7 +1102263,10 @@
   "id|nestle.com|1459736633": {
     "canonicalSlug": "administrative-assistant-nestle-ch",
     "slugByLocale": {
-      "en": "administrative-assistant-nestle-ch"
+      "en": "administrative-assistant-nestle-ch",
+      "it": "assistente-amministrativo-nestle-konolfingen",
+      "de": "administrative-assistent-nestle-konolfingen",
+      "fr": "assistant-administratif-nestle-konolfingen"
     },
     "createdAt": "2026-11-24",
     "canton": "BE"
@@ -1102262,7 +1102282,10 @@
   "id|liebherr.com|1459672233": {
     "canonicalSlug": "servicemonteur-erdbewegung-deutschschweiz-m-w-liebherr-reiden",
     "slugByLocale": {
-      "de": "servicemonteur-erdbewegung-deutschschweiz-m-w-liebherr-reiden"
+      "de": "servicemonteur-erdbewegung-deutschschweiz-m-w-liebherr-reiden",
+      "it": "servizio-fitter-movimento-terra-germania-svizzera-m-f-liebherr-reiden",
+      "en": "service-fitter-earth-movement-german-switzerland-m-f-liebherr-reiden",
+      "fr": "service-installateur-mouvement-terrestre-allemand-suisse-h-f-liebherr-reiden"
     },
     "createdAt": "2026-11-24",
     "canton": "LU"
@@ -1102270,7 +1102293,10 @@
   "id|liebherr.com|1459647533": {
     "canonicalSlug": "young-talent-approvisionnement-m-f-x-liebherr-bulle",
     "slugByLocale": {
-      "fr": "young-talent-approvisionnement-m-f-x-liebherr-bulle"
+      "fr": "young-talent-approvisionnement-m-f-x-liebherr-bulle",
+      "it": "young-talent-alimentazione-m-f-x-liebherr-bulle",
+      "en": "young-talent-supply-m-f-x-liebherr-bulle",
+      "de": "junge-talente-versorgung-m-w-x-liebherr-bulle"
     },
     "createdAt": "2026-11-24",
     "canton": "FR"
@@ -1102278,7 +1102304,10 @@
   "id|ag.ch|0ce94563-bc5c-4dc4-a691-08ea38215feb": {
     "canonicalSlug": "handwerkerin-handwerker-mit-fuhrerausweis-ce-100-kanton-aargau-ch",
     "slugByLocale": {
-      "de": "handwerkerin-handwerker-mit-fuhrerausweis-ce-100-kanton-aargau-ch"
+      "de": "handwerkerin-handwerker-mit-fuhrerausweis-ce-100-kanton-aargau-ch",
+      "it": "operaia-operaio-specializzato-con-patente-di-guida-ce-100-kanton-aargau-lenzburg",
+      "en": "craftsman-craftsman-with-driver-s-license-ce-100-kanton-aargau-lenzburg",
+      "fr": "artisan-artisan-avec-permis-de-conduire-ce-100-kanton-aargau-lenzburg"
     },
     "createdAt": "2026-11-24",
     "canton": "AG"
@@ -1102286,7 +1102315,10 @@
   "id|ag.ch|788cb7f1-7fe9-4e17-a119-cc4ad79c71aa": {
     "canonicalSlug": "juristisches-praktikum-80-100-kanton-aargau-ch",
     "slugByLocale": {
-      "de": "juristisches-praktikum-80-100-kanton-aargau-ch"
+      "de": "juristisches-praktikum-80-100-kanton-aargau-ch",
+      "it": "stage-giuridico-80-100-kanton-aargau-aarau",
+      "en": "legal-internship-80-100-kanton-aargau-aarau",
+      "fr": "stage-juridique-80-100-kanton-aargau-aarau"
     },
     "createdAt": "2026-11-24",
     "canton": "AG"
@@ -1102294,7 +1102326,10 @@
   "id|ag.ch|ab0a10bb-65ef-4ef3-920c-3b99a144c158": {
     "canonicalSlug": "mittelschullehrperson-schulmusik-30-40-kanton-aargau-ch",
     "slugByLocale": {
-      "de": "mittelschullehrperson-schulmusik-30-40-kanton-aargau-ch"
+      "de": "mittelschullehrperson-schulmusik-30-40-kanton-aargau-ch",
+      "it": "insegnante-di-scuola-musica-scolastica-30-40-kanton-aargau-stein",
+      "en": "secondary-school-teacher-school-music-30-40-kanton-aargau-stein",
+      "fr": "professeur-d-ecole-secondaire-musique-de-l-ecole-30-40-kanton-aargau-stein"
     },
     "createdAt": "2026-11-24",
     "canton": "AG"
@@ -1102303,7 +1102338,9 @@
     "canonicalSlug": "mitarbeiterin-collaboratore-trice-technik-betrieb-museum-aargau-70-kanton-aargau-windisch",
     "slugByLocale": {
       "de": "mitarbeiterin-mitarbeiter-technik-betrieb-museum-aargau-70-kanton-aargau-ch",
-      "it": "mitarbeiterin-collaboratore-trice-technik-betrieb-museum-aargau-70-kanton-aargau-windisch"
+      "it": "mitarbeiterin-collaboratore-trice-technik-betrieb-museum-aargau-70-kanton-aargau-windisch",
+      "en": "employee-employee-technology-operation-museum-aargau-70-kanton-aargau-windisch",
+      "fr": "employe-employe-technologie-exploitation-musee-argovie-70-kanton-aargau-windisch"
     },
     "createdAt": "2026-11-24",
     "canton": "AG"
@@ -1102456,7 +1102493,9 @@
   "id|medartis.com|1459759333": {
     "canonicalSlug": "inspection-equipment-manager-medartis-basel",
     "slugByLocale": {
-      "de": "inspection-equipment-manager-medartis-basel"
+      "de": "inspection-equipment-manager-medartis-basel",
+      "it": "responsabile-delle-apparecchiature-di-ispezione-medartis-basel",
+      "fr": "gestionnaire-du-materiel-d-inspection-medartis-basel"
     },
     "createdAt": "2026-11-24",
     "canton": "BS"
@@ -1102486,5 +1102525,283 @@
     },
     "createdAt": "2026-11-24",
     "canton": "ZH"
+  },
+  "id|six-group.com|1459763633": {
+    "canonicalSlug": "specialist-security-surveillance-100-six-group-zurich",
+    "slugByLocale": {
+      "de": "specialist-security-surveillance-100-six-group-zurich"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "ZH"
+  },
+  "url|https://physioswiss.ch/stelleninserate/162296/sport-oder-allgemein-physiotherapeut-in-st-margrethen": {
+    "canonicalSlug": "sport-o-allgemein-physiotherapeut-in-st-margrethen-physio-swiss-st-margrethen",
+    "slugByLocale": {
+      "de": "sport-oder-allgemein-physiotherapeut-in-st-margrethen-9430-st-margrethen-physioswiss-ch",
+      "it": "sport-o-allgemein-physiotherapeut-in-st-margrethen-physio-swiss-st-margrethen",
+      "en": "sport-oder-allgemein-physiotherapeut-in-st-margrethen-physio-swiss-st-margrethen",
+      "fr": "sport-oder-allgemein-physiotherapeut-in-st-margrethen-physio-swiss-st-margrethen"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "SG"
+  },
+  "url|https://physioswiss.ch/stelleninserate/162285/physiotherapeut-in-selbststaendig-auf-provisionsbasis-40-100": {
+    "canonicalSlug": "physiotherapeut-in-selbststandig-auf-provisionsbasis-40-100-physio-swiss-villmergen",
+    "slugByLocale": {
+      "de": "physiotherapeut-in-selbststandig-auf-provisionsbasis-40-100-5612-villmergen-physioswiss-ch",
+      "it": "physiotherapeut-in-selbststandig-auf-provisionsbasis-40-100-physio-swiss-villmergen",
+      "en": "physiotherapeut-in-selbststandig-auf-provisionsbasis-40-100-physio-swiss-villmergen",
+      "fr": "physiotherapeut-in-selbststandig-auf-provisionsbasis-40-100-physio-swiss-villmergen"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "AG"
+  },
+  "url|https://physioswiss.ch/stelleninserate/162244/werde-teil-eines-teams-das-bewegt-physiotherapie-in-der-palliative-care": {
+    "canonicalSlug": "werde-teil-eines-teams-das-bewegt-physiotherapie-in-der-palliative-care-4800-zofingen",
+    "slugByLocale": {
+      "de": "werde-teil-eines-teams-das-bewegt-physiotherapie-in-der-palliative-care-4800-zofingen"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "AG"
+  },
+  "id|admin.ch|631ba75b-90a3-40f0-af2e-bb2d2b85955f": {
+    "canonicalSlug": "responsabile-geschaftsstelle-der-basisorganisation-per-krisenmanagement-confederazione-svizzera-bern",
+    "slugByLocale": {
+      "de": "leiter-in-geschaftsstelle-der-basisorganisation-fur-krisenmanagement-confederazione-bern",
+      "it": "responsabile-geschaftsstelle-der-basisorganisation-per-krisenmanagement-confederazione-svizzera-bern"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "BE"
+  },
+  "id|otis.wd504.myworkdayjobs.com|20172898": {
+    "canonicalSlug": "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-wallisellen",
+    "slugByLocale": {
+      "de": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-wallisellen",
+      "it": "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-wallisellen"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "ZH"
+  },
+  "url|https://www.alpiq.com/career/open-jobs/your-application/379": {
+    "canonicalSlug": "senior-option-trader-alpiq-lausanne",
+    "slugByLocale": {
+      "en": "senior-option-trader-alpiq-lausanne"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "VD"
+  },
+  "id|axa.com|31068": {
+    "canonicalSlug": "teamleiter-in-actuarial-modelling-l-s-axa-winterthur-3zeqvo",
+    "slugByLocale": {
+      "de": "teamleiter-in-actuarial-modelling-l-s-axa-svizzera-winterthur",
+      "it": "teamleiter-in-actuarial-modelling-l-s-axa-winterthur-3zeqvo",
+      "en": "teamleiter-in-actuarial-modelling-l-s-axa-winterthur-3zeqvo",
+      "fr": "teamleiter-in-actuarial-modelling-l-s-axa-winterthur-3zeqvo"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4106576": {
+    "canonicalSlug": "ki-losungsarchitekt-in-kantonale-verwaltung-zurich-zurich",
+    "slugByLocale": {
+      "de": "ki-losungsarchitekt-in-kanton-zuerich-zurich",
+      "it": "ki-losungsarchitekt-in-kantonale-verwaltung-zurich-zurich",
+      "en": "ki-losungsarchitekt-in-kantonale-verwaltung-zurich-zurich",
+      "fr": "ki-losungsarchitekt-in-kantonale-verwaltung-zurich-zurich"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4106720": {
+    "canonicalSlug": "apprendistato-come-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-kantonale-verwaltung-zurich-horgen",
+    "slugByLocale": {
+      "de": "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst-kanton-zuerich",
+      "it": "apprendistato-come-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-kantonale-verwaltung-zurich-horgen",
+      "en": "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst-kantonale-verwaltung-zurich-horgen",
+      "fr": "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst-kantonale-verwaltung-zurich-horgen"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4106494": {
+    "canonicalSlug": "fachspezialist-in-strategisches-flachenmanagement-kantonale-verwaltung-zurich-zurich",
+    "slugByLocale": {
+      "de": "fachspezialist-in-strategisches-flachenmanagement-kanton-zuerich-zurich",
+      "it": "fachspezialist-in-strategisches-flachenmanagement-kantonale-verwaltung-zurich-zurich",
+      "en": "fachspezialist-in-strategisches-flachenmanagement-kantonale-verwaltung-zurich-zurich",
+      "fr": "fachspezialist-in-strategisches-flachenmanagement-kantonale-verwaltung-zurich-zurich"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4106740": {
+    "canonicalSlug": "junior-responsabile-di-progetto-kantonale-verwaltung-zurich-oerlikon-zurich",
+    "slugByLocale": {
+      "de": "junior-projektleiter-in-kanton-zuerich-oerlikon-zurich",
+      "it": "junior-responsabile-di-progetto-kantonale-verwaltung-zurich-oerlikon-zurich"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "ZH"
+  },
+  "id|zurich.com|1378331757": {
+    "canonicalSlug": "strategy-task-force-coordinator-80-100-temporary-until-31-07-2027-zurich-insurance-sede",
+    "slugByLocale": {
+      "en": "strategy-task-force-coordinator-80-100-temporary-until-31-07-2027-zurich-insurance-sede"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "ZH"
+  },
+  "id|implenia.com|14165-de_de": {
+    "canonicalSlug": "projektleiter-contact-center-transformation-m-w-d-winterthur-80-100-implenia-winterthur-roter-turm",
+    "slugByLocale": {
+      "de": "projektleiter-contact-center-transformation-m-w-d-winterthur-80-100-implenia-ch",
+      "it": "projektleiter-contact-center-transformation-m-w-d-winterthur-80-100-implenia-winterthur-roter-turm"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "ZH"
+  },
+  "id|bls.ch|23825d42-c5b7-4c21-960e-d05467e31deb": {
+    "canonicalSlug": "responsabile-projekte-fahrweg-bls-ag-bern",
+    "slugByLocale": {
+      "de": "leiter-in-projekte-fahrweg-bls-ch",
+      "it": "responsabile-projekte-fahrweg-bls-ag-bern"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "BE"
+  },
+  "id|rheinmetall.com|1227977": {
+    "canonicalSlug": "gestione-team-produzione-esterna-m-f-d-rheinmetall-air-defence-ag-zurich",
+    "slugByLocale": {
+      "de": "teamleitung-global-operations-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "it": "gestione-team-produzione-esterna-m-f-d-rheinmetall-air-defence-ag-zurich",
+      "en": "team-leader-global-operations-m-f-d-rheinmetall-air-defence-ag-zurich",
+      "fr": "gestion-d-equipe-production-externe-h-f-d-rheinmetall-air-defence-ag-zurich"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "ZH"
+  },
+  "url|https://careers.msccruises.com/gb/en/job/mctmcugb18127externalengb": {
+    "canonicalSlug": "senior-analyst-revenue-analytics-commercial-insights-msc-geneva",
+    "slugByLocale": {
+      "en": "senior-analyst-revenue-analytics-commercial-insights-msc-geneva"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "GE"
+  },
+  "id|ag.ch|0ddf759b-4c39-4a03-ae31-2a533efe9d89": {
+    "canonicalSlug": "sachbearbeiterin-sachbearbeiter-revisorat-familiengericht-80-kanton-aargau-ch",
+    "slugByLocale": {
+      "de": "sachbearbeiterin-sachbearbeiter-revisorat-familiengericht-80-kanton-aargau-ch"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "AG"
+  },
+  "id|ag.ch|b33eb74c-323a-4ce0-8b65-a189271e7bd4": {
+    "canonicalSlug": "sachbearbeiterin-sachbearbeiter-rechnungswesen-100-kanton-aargau-ch",
+    "slugByLocale": {
+      "de": "sachbearbeiterin-sachbearbeiter-rechnungswesen-100-kanton-aargau-ch"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "AG"
+  },
+  "id|ag.ch|81e2d903-232f-4a29-a556-2a02f9c5fe56": {
+    "canonicalSlug": "fachbereichsleiterin-fachbereichsleiter-organisation-geschafte-80-100-kanton-aargau-ch",
+    "slugByLocale": {
+      "de": "fachbereichsleiterin-fachbereichsleiter-organisation-geschafte-80-100-kanton-aargau-ch"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "AG"
+  },
+  "id|luks.ch|99e2d0ee-9f80-4606-9000-daabc481c43f": {
+    "canonicalSlug": "infermiera-infermiere-per-il-coordinamento-a-livello-di-gruppo-delle-capacita-dei-posti-letto-e-delle-sale-operatorie-50-100-e398002ef8",
+    "slugByLocale": {
+      "de": "pflegefachfrau-pflegefachmann-fur-die-gruppenweite-koordination-der-betten-und-op",
+      "it": "infermiera-infermiere-per-il-coordinamento-a-livello-di-gruppo-delle-capacita-dei-posti-letto-e-delle-sale-operatorie-50-100-e398002ef8",
+      "en": "nursing-specialist-for-the-group-wide-coordination-of-bed-and-surgery-capacities-50-100-luzerner-kantonsspital-luks",
+      "fr": "specialiste-des-soins-infirmiers-pour-la-coordination-a-l-echelle-du-groupe-des-capacites-de-lit-et-de-chirurgie-50-100"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "LU"
+  },
+  "id|luks.ch|e09cebfa-daf1-4ca2-804d-dbb7086a9ee0": {
+    "canonicalSlug": "medizintechnikerin-medizintechniker-100-luks-luzern",
+    "slugByLocale": {
+      "de": "medizintechnikerin-medizintechniker-100-luks-luzern"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "LU"
+  },
+  "id|luks.ch|7048cc94-732e-49d0-8c36-ad7eb15310da": {
+    "canonicalSlug": "pflegefachfrau-pflegefachmann-frauenklinik-80-100-luks-luzern",
+    "slugByLocale": {
+      "de": "pflegefachfrau-pflegefachmann-frauenklinik-80-100-luks-luzern"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "LU"
+  },
+  "id|concordia.ch|40e150dd-3994-45ba-a1ec-f0e465b69765": {
+    "canonicalSlug": "kundenberater-in-100-in-granichen-concordia-granichen",
+    "slugByLocale": {
+      "de": "kundenberater-in-100-in-granichen-concordia-granichen"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "AG"
+  },
+  "id|concordia.ch|0e85ed20-4bd5-4254-b44a-839dda285374": {
+    "canonicalSlug": "conseiller-ou-conseillere-a-la-clientele-f-m-nb-100-a-lausanne-concordia-lausanne",
+    "slugByLocale": {
+      "fr": "conseiller-ou-conseillere-a-la-clientele-f-m-nb-100-a-lausanne-concordia-lausanne"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "VD"
+  },
+  "id|suva.ch|1459823833": {
+    "canonicalSlug": "business-analyst-schadenmanagement-80-100-suva-luzern-luzern-6004-schweiz",
+    "slugByLocale": {
+      "de": "business-analyst-schadenmanagement-80-100-suva-luzern-luzern-6004-schweiz"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "LU"
+  },
+  "id|raiffeisen.ch|0d261c06-033e-4a9d-bd9a-a63c49bf0fd9": {
+    "canonicalSlug": "collaboratore-trice-services-m-w-d-raiffeisen-pfaffikon-sz",
+    "slugByLocale": {
+      "de": "mitarbeiter-services-m-w-d-raiffeisen-pfaffikon-sz",
+      "it": "collaboratore-trice-services-m-w-d-raiffeisen-pfaffikon-sz"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "SZ"
+  },
+  "id|raiffeisen.ch|07a7e0dd-2db8-4303-95df-a2ee04b5fcb2": {
+    "canonicalSlug": "investment-consultant-f-m-d-raiffeisen-lausanne",
+    "slugByLocale": {
+      "fr": "investment-consultant-f-m-d-raiffeisen-lausanne"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "VD"
+  },
+  "id|baselland.ch|6451b778-5556-4dff-9ef2-39c6c86417f3": {
+    "canonicalSlug": "sachbearbeiterin-sachbearbeiter-service-center-kanton-basel-landschaft-frenkendorf",
+    "slugByLocale": {
+      "de": "sachbearbeiterin-sachbearbeiter-service-center-kanton-basel-landschaft-frenkendorf"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "BL"
+  },
+  "id|epfl.ch|1458291374": {
+    "canonicalSlug": "assistant-e-administratif-ve-epfl-lausanne",
+    "slugByLocale": {
+      "fr": "assistant-e-administratif-ve-epfl-lausanne"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "VD"
+  },
+  "id|epfl.ch|1458291174": {
+    "canonicalSlug": "senior-legal-privacy-counsel-for-sensitive-data-in-human-research-epfl-lausanne",
+    "slugByLocale": {
+      "en": "senior-legal-privacy-counsel-for-sensitive-data-in-human-research-epfl-lausanne"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "VD"
   }
 }

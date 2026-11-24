@@ -1470,7 +1470,7 @@
       "companyDomain": "physioswiss.ch",
       "title": "Physiotherapeut:in gesucht in Gossau SG und/ oder Oberuzwil 40 – 100%",
       "titleByLocale": {
-        "it": "Physiotherapeut:in gesucht in Gossau SG e/ o Oberuzwil 40 – 100%",
+        "it": "Fisioterapista/in ricercato in Gossau SG e/o Oberuzwil 40. 100%",
         "en": "Physiotherapist/in wanted in Gossau SG and/or Oberuzwil 40 – 100%",
         "de": "Physiotherapeut:in gesucht in Gossau SG und/ oder Oberuzwil 40 – 100%",
         "fr": "Physiothérapeute/en recherche dans Gossau SG et/ou Oberuzwil 40 – 100%"
@@ -1519,10 +1519,9 @@
           "physiotherapeut-in-gesucht-in-gossau-sg-und-oder-oberuzwil-40-100-physio-weber-gossau"
         ]
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 5950,
-      "retranslationAttempts": 4,
+      "retranslationAttempts": 5,
       "firstSeenAt": "2026-10-29T14:41:46.613Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1541,7 +1540,8 @@
       "streetAddress": "Gossau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T09:49:26.403Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "physioswiss-ab5fcfb8c852",
@@ -20109,7 +20109,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "sport-oder-allgemein-physiotherapeut-in-st-margrethen-9430-st-margrethen-physioswiss-ch"
@@ -20189,7 +20188,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeut-in-selbststandig-auf-provisionsbasis-40-100-5612-villmergen-physioswiss-ch"
