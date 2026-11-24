@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ecam",
-  "assembledAt": "2026-11-24T09:45:24.494Z",
-  "runId": "45365131192",
+  "assembledAt": "2026-11-24T21:55:54.503Z",
+  "runId": "45490952036",
   "jobs": [
     {
       "id": "ecam-590be7c475e5",
@@ -34,7 +34,7 @@
       "url": "https://www.ecam.swiss/wp-content/uploads/2026/01/Concorso-generale-sito-ECAM-2026.pdf",
       "source": "ECAM Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-24T09:45:19.569Z",
+      "crawledAt": "2026-11-24T21:55:15.869Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://www.ecam.swiss/wp-content/uploads/2026/11/2026_Concorso-Capostruttura-S.-Lucia-100_.pdf",
       "source": "ECAM Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-24T09:45:19.361Z",
+      "crawledAt": "2026-11-24T21:55:15.395Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -120,11 +120,10 @@
       "validThrough": "2026-12-22T23:59:59.999Z",
       "applyUrl": "https://www.ecam.swiss/lavora-con-noi/opportunita-dimpiego/",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "datePosted": "",
       "postingDateSource": "unknown",
+      "firstSeenAt": "2026-11-24T09:45:19.361Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
       "salarySource": "estimated",
@@ -140,8 +139,7 @@
       },
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "source",
-      "firstSeenAt": "2026-11-24T09:45:19.361Z"
+      "validThroughSource": "source"
     }
   ]
 }
