@@ -1,16 +1,16 @@
 {
   "key": "tarchini-group",
   "label": "Tarchini Group",
-  "generatedAt": "2026-11-24T09:17:33.702Z",
+  "generatedAt": "2026-11-24T21:22:52.623Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 4296,
-  "avgDurationMs": 4296,
+  "durationMs": 4611,
+  "avgDurationMs": 4611,
   "durationHistory": [
-    4296
+    4611
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,10 +38,10 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-24T09:17:19.055Z",
+      "crawledAt": "2026-11-24T21:22:42.117Z",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2027-02-05T09:17:19.055Z",
+      "validThrough": "2027-02-05T21:22:42.117Z",
       "id": "tarchini-group-71f08f97ca1a",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -82,7 +82,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-24T09:17:19.073Z",
+      "validThrough": "2026-12-24T21:22:42.128Z",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -94,7 +94,7 @@
       "applicationEmail": "info@tarchinigroup.com",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-24T09:17:19.073Z",
+      "crawledAt": "2026-11-24T21:22:42.128Z",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.tarchinigroup.com/it/work/1497/sales-manager",
@@ -128,10 +128,10 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-24T09:17:19.077Z",
+      "crawledAt": "2026-11-24T21:22:42.131Z",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2027-02-18T09:17:19.077Z",
+      "validThrough": "2027-02-17T21:22:42.131Z",
       "id": "tarchini-group-d9bfe5720dec",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -152,5 +152,5 @@
       }
     }
   ],
-  "codeCommit": "ad4d13f2bbfca567e72148b3349ab6c6b8a5dd5d"
+  "codeCommit": "af6487cf18de54664a2dd36f8f16e17f8a69b92f"
 }
