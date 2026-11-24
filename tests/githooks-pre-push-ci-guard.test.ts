@@ -213,6 +213,23 @@ const BRANCH_REF =
   'refs/heads/claude/fix-x 1111111111111111111111111111111111111111 refs/heads/claude/fix-x 2222222222222222222222222222222222222222\n';
 
 describe('.githooks/pre-push CI automation guard', () => {
+  it('skips only the sibling reminder for a snapshot tag push; old-history-guard still runs', () => {
+    const tagRef = 'refs/tags/snapshot/purge/x 1111111111111111111111111111111111111111 refs/tags/snapshot/purge/x 0000000000000000000000000000000000000000\n';
+    const { code, stdout, gateRan, oldHistoryRan } = runHook({ stdinRefs: tagRef });
+    expect(code).toBe(0);
+    expect(stdout).toContain('sibling-gate: skipped for tag refs/tags/snapshot/purge/x');
+    expect(gateRan).toBe(false);
+    expect(oldHistoryRan).toBe(true);
+  });
+
+  it('still runs the sibling reminder for the branch in a mixed branch + tag push', () => {
+    const tagRef = 'refs/tags/snapshot/purge/x 3333333333333333333333333333333333333333 refs/tags/snapshot/purge/x 0000000000000000000000000000000000000000\n';
+    const { gateRan, args } = runHook({ stdinRefs: BRANCH_REF + tagRef });
+    expect(gateRan).toBe(true);
+    expect(args).toContain('1111111111111111111111111111111111111111');
+    expect(args).not.toContain('3333333333333333333333333333333333333333');
+  });
+
   it('skips the sibling gate for a GitHub Actions push to main (data-refresh/article path)', () => {
     const { code, stdout, gateRan, oldHistoryRan, treeShrinkRan } = runHook({ githubActions: 'true', stdinRefs: MAIN_REF });
     expect(code).toBe(0);

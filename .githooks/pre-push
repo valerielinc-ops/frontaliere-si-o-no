@@ -116,11 +116,19 @@ if [ "${GITHUB_ACTIONS:-}" = "true" ] || [ -n "${FRONTALIERE_AUTOMATED_DATA_PUSH
 fi
 
 # Niente `--strict`: senza quel flag lo script stampa i candidati ed esce 0.
+# I tag non hanno PR né body da scrivere: il promemoria non serve a nessuno.
+# Gli snapshot `refs/tags/snapshot/*` che prune-merged-worktrees spinge prima
+# di rimuovere un worktree con commit propri lo pagavano ~37 minuti l'uno sul
+# Mac agenti (2026-11-24), con lock della sweep tenuto e diff su clone parziale.
+# old-history-guard sopra resta attivo anche per i tag.
 if [ -n "$push_input" ]; then
-  while read -r _local_ref local_sha _remote_ref _remote_sha; do
+  while read -r _local_ref local_sha remote_ref _remote_sha; do
     [ -z "$local_sha" ] && continue
     case "$local_sha" in
       0000000000000000000000000000000000000000) continue ;;
+    esac
+    case "$remote_ref" in
+      refs/tags/*) echo "sibling-gate: skipped for tag $remote_ref"; continue ;;
     esac
     node scripts/ci/check-sibling-patterns.mjs --head "$local_sha"
   done <<< "$push_input"
