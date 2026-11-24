@@ -1,31 +1,77 @@
 {
   "key": "igroove",
   "label": "iGroove AG",
-  "generatedAt": "2026-11-23T21:41:43.081Z",
-  "total": 1,
+  "generatedAt": "2026-11-24T09:44:44.197Z",
+  "total": 2,
   "discovered": null,
-  "parsed": 1,
+  "parsed": 2,
   "lastFetchOutcome": null,
   "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 1,
+  "written": 2,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
-  "updatedCount": 0,
+  "newCount": 1,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3527,
-  "avgDurationMs": 3527,
+  "unchangedCount": 0,
+  "durationMs": 6218,
+  "avgDurationMs": 6218,
   "durationHistory": [
-    3527
+    6218
   ],
-  "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "newJobs": [
+    {
+      "id": "igroove-a5f73b004cae",
+      "slug": "senior-security-engineer-igroove-pfaffikon",
+      "company": "iGroove AG",
+      "companyKey": "igroove",
+      "companyDomain": "igroovemusic.com",
+      "title": "Senior Security Engineer",
+      "location": "Pfäffikon",
+      "canton": "SZ",
+      "url": "https://igroove.jobs.personio.de/job/2902398",
+      "source": "iGroove Dedicated Parser (Personio)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-24T09:44:18.479Z",
+      "addressLocality": "Pfäffikon",
+      "addressRegion": "SZ",
+      "streetAddress": "Churerstrasse 135",
+      "postalCode": "8808",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Media / Musica digitale",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-24",
+      "postedDate": "2026-11-24",
+      "postingDateSource": "reported",
+      "applyUrl": "https://igroove.jobs.personio.de/job/2902398",
+      "jobReqId": "2902398",
+      "needsRetranslation": true,
+      "salaryMin": 114500,
+      "salaryMax": 195000,
+      "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-22T09:44:18.479Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-24T09:44:18.479Z",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 21,
+        "completeness": 25
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "igroove-612edf8c2c46",
       "slug": "responsabile-senior-delle-operazioni-e-degli-affari-aziendali-m-f-d-igroove-ag-pfaffikon",
@@ -38,7 +84,7 @@
       "url": "https://igroove.jobs.personio.de/job/2839848",
       "source": "iGroove Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-23T21:41:20.854Z",
+      "crawledAt": "2026-11-24T09:44:18.434Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "SZ",
       "streetAddress": "Churerstrasse 135",
@@ -63,7 +109,7 @@
       "salaryMax": 146000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T21:41:20.854Z",
+      "validThrough": "2027-01-11T09:44:18.434Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -74,5 +120,7 @@
       }
     }
   ],
-  "codeCommit": "7b684909df7304f91c3a19b75aa2a6088ce7630a"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "ad4d13f2bbfca567e72148b3349ab6c6b8a5dd5d"
 }

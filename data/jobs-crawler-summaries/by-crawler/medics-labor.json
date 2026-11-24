@@ -1,7 +1,7 @@
 {
   "key": "medics-labor",
   "label": "Medics Labor AG",
-  "generatedAt": "2026-11-23T21:41:46.012Z",
+  "generatedAt": "2026-11-24T09:38:26.101Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -14,16 +14,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 5421,
-  "avgDurationMs": 5421,
+  "unchangedCount": 3,
+  "durationMs": 6634,
+  "avgDurationMs": 6634,
   "durationHistory": [
-    5421
+    6634
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "medics-labor-586233e3475e",
       "slug": "analista-biomedico-principale-clinico-immunologia-medics-labor-ag-bern",
@@ -37,7 +39,7 @@
       "url": "https://app.reflinejobs.io/1474/0156/pub/113/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T21:41:22.635Z",
+      "crawledAt": "2026-11-24T09:38:06.180Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -61,7 +63,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T21:41:22.635Z",
+      "validThrough": "2027-02-21T09:38:06.180Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -70,10 +72,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "medics-labor-a5e240ae8d9b",
       "slug": "analista-biomedico-a-di-chimica-clinica-con-analisi-specialistiche-a-tempo-determinato-medics-labor-ag-bern",
@@ -87,7 +86,7 @@
       "url": "https://app.reflinejobs.io/1474/0153/pub/111/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T21:41:22.108Z",
+      "crawledAt": "2026-11-24T09:38:05.589Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -111,7 +110,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:41:22.108Z",
+      "validThrough": "2027-02-16T09:38:05.589Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -134,7 +133,7 @@
       "url": "https://app.reflinejobs.io/1474/0147/pub/109/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T21:41:21.562Z",
+      "crawledAt": "2026-11-24T09:38:04.984Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -158,7 +157,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:41:21.562Z",
+      "validThrough": "2027-02-04T09:38:04.984Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -169,5 +168,5 @@
       }
     }
   ],
-  "codeCommit": "7b684909df7304f91c3a19b75aa2a6088ce7630a"
+  "codeCommit": "ad4d13f2bbfca567e72148b3349ab6c6b8a5dd5d"
 }
