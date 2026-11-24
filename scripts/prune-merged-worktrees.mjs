@@ -321,9 +321,10 @@ function gitOut(args, { allowFail = false, maxBuffer = 1024 * 1024 } = {}) {
   }
 }
 
-function gitOk(args) {
+const SNAPSHOT_PUSH_TIMEOUT_MS = 10 * 60 * 1000;
+function gitOk(args, { timeout } = {}) {
   try {
-    execFileSync('git', args, { stdio: 'ignore' });
+    execFileSync('git', args, { stdio: 'ignore', ...(timeout ? { timeout, killSignal: 'SIGTERM' } : {}) });
     return true;
   } catch {
     return false;
@@ -540,7 +541,10 @@ function snapshotExpiryBeforeDelete(branch, sha) {
   if (candidate.remote !== sha) {
     const local = localTagSha(candidate.tag);
     if (!local && !gitOk(['tag', candidate.tag, sha])) return false;
-    if (!gitOk(['push', 'origin', `refs/tags/${candidate.tag}`])) return false;
+    // Network push from an unattended sweep that holds the prune lock: bounded,
+    // like every hook/script network call (AGENTS.md). A timeout keeps the
+    // worktree (no verified snapshot) and the next sweep retries.
+    if (!gitOk(['push', 'origin', `refs/tags/${candidate.tag}`], { timeout: SNAPSHOT_PUSH_TIMEOUT_MS })) return false;
     if (remoteTagSha(candidate.tag) !== sha) return false;
   }
   if (!recordSnapshot({ tag: candidate.tag, branch: branch || null, sha, kind: 'expiry' })) return false;

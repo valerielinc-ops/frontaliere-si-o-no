@@ -31,7 +31,8 @@ function runHook({
   automatedDataPush,
   githubActions,
   stdinRefs,
-}: { automatedDataPush?: string; githubActions?: string; stdinRefs: string }) {
+  extraEnv = {},
+}: { automatedDataPush?: string; githubActions?: string; stdinRefs: string; extraEnv?: Record<string, string> }) {
   const stubDir = mkdtempSync(join(tmpdir(), 'pre-push-guard-'));
   const marker = join(stubDir, 'gate-ran');
   const argsFile = join(stubDir, 'gate-args');
@@ -39,7 +40,7 @@ function runHook({
   const treeShrinkMarker = join(stubDir, 'tree-shrink-ran');
   writeFileSync(
     join(stubDir, 'node'),
-    `#!/usr/bin/env bash\nif [[ "\${1:-}" == *guard-main-tree-shrink.mjs ]]; then echo ran > "${treeShrinkMarker}"; exit 0; fi\nif [[ "\${1:-}" == *old-history-guard.mjs ]]; then echo ran > "${oldHistoryMarker}"; exit 0; fi\necho ran > "${marker}"\nprintf '%s\\n' "$@" > "${argsFile}"\nexit 42\n`,
+    `#!/usr/bin/env bash\nif [[ "\${1:-}" == *guard-main-tree-shrink.mjs ]]; then echo ran > "${treeShrinkMarker}"; exit 0; fi\nif [[ "\${1:-}" == *old-history-guard.mjs ]]; then echo ran > "${oldHistoryMarker}"; exit 0; fi\necho ran > "${marker}"\nprintf '%s\\n' "$@" > "${argsFile}"\nif [[ -n "\${STUB_SIBLING_SLEEP:-}" ]]; then exec sleep "\${STUB_SIBLING_SLEEP}"; fi\nexit 42\n`,
   );
   chmodSync(join(stubDir, 'node'), 0o755);
   writeFileSync(join(stubDir, 'git'), '#!/usr/bin/env bash\nif [[ "${1:-}" == cat-file ]]; then exit 0; fi\nexit 1\n');
@@ -54,6 +55,7 @@ function runHook({
           PATH: `${stubDir}:${process.env.PATH}`,
           ...(automatedDataPush !== undefined ? { FRONTALIERE_AUTOMATED_DATA_PUSH: automatedDataPush } : {}),
           ...(githubActions !== undefined ? { GITHUB_ACTIONS: githubActions } : {}),
+          ...extraEnv,
         },
         input: stdinRefs,
         encoding: 'utf8',
@@ -212,22 +214,57 @@ const DELETE_MAIN_REF =
 const BRANCH_REF =
   'refs/heads/claude/fix-x 1111111111111111111111111111111111111111 refs/heads/claude/fix-x 2222222222222222222222222222222222222222\n';
 
+// prune-merged-worktrees pushes expiry snapshots as snapshot/<host>-<date>/<branch>;
+// snapshot/purge/* tags stay local.
+const SNAPSHOT_TAG = 'refs/tags/snapshot/agents-mac-20261124/fix-x';
+const SNAPSHOT_TAG_REF =
+  `${SNAPSHOT_TAG} 3333333333333333333333333333333333333333 ${SNAPSHOT_TAG} 0000000000000000000000000000000000000000\n`;
+
 describe('.githooks/pre-push CI automation guard', () => {
   it('skips only the sibling reminder for a snapshot tag push; old-history-guard still runs', () => {
-    const tagRef = 'refs/tags/snapshot/purge/x 1111111111111111111111111111111111111111 refs/tags/snapshot/purge/x 0000000000000000000000000000000000000000\n';
-    const { code, stdout, gateRan, oldHistoryRan } = runHook({ stdinRefs: tagRef });
+    const { code, stdout, gateRan, oldHistoryRan } = runHook({ stdinRefs: SNAPSHOT_TAG_REF });
     expect(code).toBe(0);
-    expect(stdout).toContain('sibling-gate: skipped for tag refs/tags/snapshot/purge/x');
+    expect(stdout).toContain(`sibling-gate: skipped for non-branch ref ${SNAPSHOT_TAG}`);
     expect(gateRan).toBe(false);
     expect(oldHistoryRan).toBe(true);
   });
 
-  it('still runs the sibling reminder for the branch in a mixed branch + tag push', () => {
-    const tagRef = 'refs/tags/snapshot/purge/x 3333333333333333333333333333333333333333 refs/tags/snapshot/purge/x 0000000000000000000000000000000000000000\n';
-    const { gateRan, args } = runHook({ stdinRefs: BRANCH_REF + tagRef });
+  it('runs the sibling reminder only for the branch in a tag + branch push', () => {
+    // Tag first: the stub exits 42 on the branch line and `set -e` stops the
+    // hook there, so a tag listed after the branch would never be classified.
+    const { code, stdout, gateRan, args } = runHook({ stdinRefs: SNAPSHOT_TAG_REF + BRANCH_REF });
+    expect(stdout).toContain(`sibling-gate: skipped for non-branch ref ${SNAPSHOT_TAG}`);
     expect(gateRan).toBe(true);
-    expect(args).toContain('1111111111111111111111111111111111111111');
-    expect(args).not.toContain('3333333333333333333333333333333333333333');
+    expect(code).toBe(42);
+    expect(args).toEqual(['scripts/ci/check-sibling-patterns.mjs', '--head', '1111111111111111111111111111111111111111']);
+  });
+
+  it('skips the sibling reminder for other non-branch refs (notes)', () => {
+    const notesRef = 'refs/notes/commits 3333333333333333333333333333333333333333 refs/notes/commits 0000000000000000000000000000000000000000\n';
+    const { code, stdout, gateRan } = runHook({ stdinRefs: notesRef });
+    expect(code).toBe(0);
+    expect(stdout).toContain('sibling-gate: skipped for non-branch ref refs/notes/commits');
+    expect(gateRan).toBe(false);
+  });
+
+  it('a tag does not turn a GitHub Actions push to main into a full sibling sweep', () => {
+    const { code, stdout, gateRan, treeShrinkRan } = runHook({ githubActions: 'true', stdinRefs: MAIN_REF + SNAPSHOT_TAG_REF });
+    expect(code).toBe(0);
+    expect(stdout).toContain('sibling-gate: skipped (GitHub Actions automated push to main)');
+    expect(gateRan).toBe(false);
+    expect(treeShrinkRan).toBe(true);
+  });
+
+  it('bounds the sibling reminder: past the budget it is skipped and the push continues', () => {
+    const started = Date.now();
+    const { code, stdout, gateRan } = runHook({
+      stdinRefs: BRANCH_REF,
+      extraEnv: { STUB_SIBLING_SLEEP: '30', FRONTALIERE_PRE_PUSH_SIBLING_TIMEOUT_S: '1' },
+    });
+    expect(gateRan).toBe(true);
+    expect(code).toBe(0);
+    expect(stdout).toContain('sibling-gate: interrotto dopo 1s, promemoria saltato (il push continua)');
+    expect(Date.now() - started).toBeLessThan(8_000);
   });
 
   it('skips the sibling gate for a GitHub Actions push to main (data-refresh/article path)', () => {
