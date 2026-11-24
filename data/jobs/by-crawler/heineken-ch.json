@@ -1,7 +1,7 @@
 {
   "crawlerKey": "heineken-ch",
-  "assembledAt": "2026-11-23T21:40:33.559Z",
-  "runId": "45269532171",
+  "assembledAt": "2026-11-24T09:46:03.327Z",
+  "runId": "45364963326",
   "jobs": [
     {
       "id": "heineken-ch-a716028f91b3",
@@ -51,7 +51,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=149312&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T21:40:26.228Z",
+      "crawledAt": "2026-11-24T09:45:57.769Z",
       "previousSlugs": [
         "chauffeur-c-e-heineken-ch-fahrweid",
         "c-c-e-heineken-switzerland-fahrweid",
@@ -86,7 +86,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-20T21:40:26.228Z",
+      "validThrough": "2027-02-20T09:45:57.769Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -137,7 +137,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=156187&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T21:40:18.452Z",
+      "crawledAt": "2026-11-24T09:45:50.050Z",
       "previousSlugs": [
         "chauffeur-kat-c-e-heineken-ch-luzern",
         "chauffeur-kat-c-e-heineken-switzerland-luzern"
@@ -164,7 +164,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T21:40:18.452Z",
+      "validThrough": "2027-01-06T09:45:50.050Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -215,7 +215,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164368&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T21:40:09.940Z",
+      "crawledAt": "2026-11-24T09:45:41.772Z",
       "previousSlugs": [
         "sales-market-analyst-w-m-d-heineken-ch-luzern"
       ],
@@ -240,7 +240,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:40:09.940Z",
+      "validThrough": "2026-12-24T09:45:41.772Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -291,7 +291,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164840&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T21:40:02.823Z",
+      "crawledAt": "2026-11-24T09:45:33.618Z",
       "previousSlugsByLocale": {
         "de": [
           "specialist-warehouse-m-w-d-heineken-ch-belp"
@@ -327,7 +327,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:40:02.823Z",
+      "validThrough": "2026-12-24T09:45:33.618Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -378,15 +378,13 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=127858&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T21:39:53.631Z",
+      "crawledAt": "2026-11-24T09:45:24.988Z",
       "previousSlugsByLocale": {
         "de": [
           "chauffeur-kat-c-e-heineken-ch-luzern",
           "chauffeur-tankwagenfahrer-ce-gastronomie-events-m-w-d-100-heineken-ch-luzern"
         ],
         "it": [
-          "chauffeur-tankwagenfahrer-ce-gastronomie-events-m-w-d-100-heineken-ch-luzern",
-          "bezeichnung-chauffeur-c-e-heineken-ch-content-width-device-width",
           "driver-c-e-heineken-switzerland-warum-zu-uns",
           "driver-c-e-heineken-switzerland-luzern",
           "driver-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
@@ -404,7 +402,9 @@
           "chauffeur-c-e-heineken-switzerland-content-width-device-width",
           "autista-cat-c-e-heineken-switzerland-luzern",
           "autista-c-e-heineken-switzerland-warum-zu-uns",
-          "chauffeur-c-e-orion-heineken-ch-luzern"
+          "chauffeur-c-e-orion-heineken-ch-luzern",
+          "chauffeur-tankwagenfahrer-ce-gastronomie-events-m-w-d-100-heineken-ch-luzern",
+          "bezeichnung-chauffeur-c-e-heineken-ch-content-width-device-width"
         ],
         "en": [
           "driver-cat-c-e-heineken-switzerland-luzern"
@@ -458,7 +458,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:39:53.631Z",
+      "validThrough": "2026-12-24T09:45:24.988Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -509,7 +509,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164139&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T21:39:47.020Z",
+      "crawledAt": "2026-11-24T09:45:17.201Z",
       "previousSlugsByLocale": {
         "de": [
           "chauffeur-kat-c1-c-wintersaison-2026-27-chur-arosa-heineken-ch-arosa"
@@ -537,7 +537,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:39:47.020Z",
+      "validThrough": "2027-02-08T09:45:17.201Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -588,7 +588,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=168001&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T21:39:38.950Z",
+      "crawledAt": "2026-11-24T09:45:09.388Z",
       "previousSlugsByLocale": {
         "de": [
           "event-material-specialist-m-w-d-100-heineken-ch-luzern"
@@ -621,7 +621,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:39:38.950Z",
+      "validThrough": "2027-01-27T09:45:09.388Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -672,11 +672,12 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=169100&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T21:39:30.584Z",
+      "crawledAt": "2026-11-24T09:45:01.288Z",
+      "previousSlugs": [
+        "brand-management-intern-schweizer-biermarken-m-w-d-heineken-ch-luzern",
+        "praktikum-brand-management-schweizer-biermarken-m-w-d-heineken-ch-luzern"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "brand-management-intern-schweizer-biermarken-m-w-d-heineken-ch-luzern"
-        ],
         "it": [
           "brand-management-intern-schweizer-biermarken-m-w-d-heineken-ch-luzern",
           "praktikum-brand-management-schweizer-biermarken-m-w-d-heineken-ch-luzern"
@@ -684,16 +685,15 @@
         "en": [
           "brand-management-intern-schweizer-biermarken-m-w-d-heineken-ch-luzern"
         ],
+        "de": [
+          "brand-management-intern-schweizer-biermarken-m-w-d-heineken-ch-luzern"
+        ],
         "fr": [
           "brand-management-intern-schweizer-biermarken-m-w-d-heineken-ch-luzern"
         ]
       },
-      "previousSlugs": [
-        "brand-management-intern-schweizer-biermarken-m-w-d-heineken-ch-luzern",
-        "praktikum-brand-management-schweizer-biermarken-m-w-d-heineken-ch-luzern"
-      ],
-      "firstSeenAt": "2026-11-21T21:44:19.996Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-21T21:44:19.996Z",
       "salaryMin": 62000,
       "salaryMax": 95500,
       "currency": "CHF",
@@ -709,89 +709,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-20T21:39:30.584Z",
+      "validThrough": "2027-02-20T09:45:01.288Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "heineken-ch-a85de7fe0f2b",
-      "jobReqId": "165451",
-      "slug": "tecnico-dbo-m-f-d-heineken-switzerland-denges",
-      "slugByLocale": {
-        "it": "tecnico-dbo-m-f-d-heineken-switzerland-denges",
-        "en": "technician-dbo-m-w-d-heineken-ch-denges",
-        "de": "technician-dbo-m-w-d-heineken-ch-denges",
-        "fr": "technicien-dbo-m-w-d-heineken-switzerland-denges"
-      },
-      "company": "Heineken Switzerland",
-      "companyKey": "heineken-ch",
-      "companyDomain": "theheinekencompany.com",
-      "title": "Technician DBO (m/w/d)",
-      "titleByLocale": {
-        "it": "Tecnico DBO (m/f/d)",
-        "en": "Technician DBO (m/f/d)",
-        "de": "Techniker DBO (m/w/d)",
-        "fr": "Technician DBO (m/w/d)"
-      },
-      "description": "Ce poste intéressant et varié comprend les axes principaux suivants : Réalisation des opérations de maintenance et d’entretien, et rédaction d’un rapport d’état sur les systèmes de distribution en vrac, ainsi que les montages et démontages Résolution efficace et dans les délais des pannes (travaux de réparation) chez le client, ainsi que contrôle d’entretien des installations conformément au manuel Installation irréprochable et respectueuse des normes de qualité des systèmes de tirage de bière Assistance aux responsables régionaux du service après-vente (conseil à la clientèle) lors de la conception ou de la modification d’installations chez les clients en ce qui concerne le matériel, le montage, les croquis, etc. Mise en service des installations de débit de bière et formation des clients, y compris les formalités administratives sur place (signature des contrats, rédaction de rapports) Des astreintes sporadiques font également partie de ce domaine d’activité Nos exigences : Apprentissage technique achevé (mécanique, installation ou équivalent) Plusieurs années d’expérience professionnelle dans la maintenance technique, le montage et la mise en service d’équipements complexes Une méthode de travail rigoureuse et autonome, alliée à un bon contact avec les autres Un sens des responsabilités, la capacité à répondre aux différents besoins de nos clients sur le marché et à cerner leurs attentes, ainsi qu’un tempérament équilibré sont essentiels pour cette fonction. Bonnes connaissances des outils informatiques (applications MS Office) Très bonne maîtrise du français ainsi qu’une bonne maîtrise de l’allemand à l’oral et à l’écrit Un permis de conduire valide est indispensable (catégorie B, éventuellement C/C1) Domicile en Suisse romande avec un bon accès à la zone d’intervention",
-      "descriptionByLocale": {
-        "it": "Infrastrutture di trasporto Mise en service des installazioni de débit de bière et formazione des client, y compris les formalité Des astreintes sporadiques font également partie de ce domaine d’activité Nos exigences: Apprentissage technology achevé (mécanique, install ou équivalent) Plusieurs années d’expérience professionnelle dans la tecnica di manutenzione, le montage et la mise en service d’équipements complessies Une méthode de travail rigoureuse et autonome, alliée à un bon contact avec les autres Nel senso delle responsabilità, la capacità di rispondere alle difficoltà di nessun cliente sul mercato e sul mercato per la fornitura di servizi, è essenziale per la fornitura di servizi. Bonnes connaissances des outils informatiques (applicazioni MS Office) Très bonne maîtrise du français Un permis de conduire valide est indispensabili (catégorie B, éventuellement C/C1) Domicile en Suisse romande avec un bon accès à la zone d’intervention",
-        "en": "Poste intéressant et varié comprend les axes principaux suivants : Réalisation des operations de maintenance et d’entretien, et rédaction d’rapport d’état sur les systèmes de distribution en vrac, ainsi que les montages et démontages Résolution efficace et dans les délais des installations conformément au manuel Installation irréprochable et respectueuse des normes de qualité des systèmes de tirage de bière assistance aux responsables régionaux du service après-vente (conseil à la clientèle) lors de la conception ou de la modification d’installations chez les clients en ce qui concerne le matériel, le montage, les croquis, etc. Mise en service des installations de débit de bière et formation des clients, y compris les formalité Des astreintes sporadiques font également partie de ce domaine d’activité Nos exigences : Apprentissage technique achevé (mécanique, installation ou équivalent) Plusieurs années d’expérience professionnelle dans la maintenance technique, le montage et la mise en service d’équipements complexes Une méthode de travail rigoureuse et autonome, alliée à un bon contact avec les autres In the sense of the responsabilities, the capacity to respond to the difficulties of no clients on the market and on the market for the supply of services, it is essential for the provision of services. Bonnes connaissances des outils informatiques (applications MS Office) Très bonne maîtrise du français ainsi qu’une bonne maîtrise de l’allemand à l’oral et à l’écrit Un permis de conduire valide est indispensable (catégorie B, éventuellement C/C1) Domicile en Suisse romande avec un bon accès à la zone d’intervention",
-        "de": "Diese interessante und abwechslungsreiche Position umfasst die folgenden Hauptachsen: Durchführung von Wartungs- und Wartungsarbeiten und Verfassen eines Statusberichts über Massenverteilungssysteme sowie Montage und Demontage Effektive und rechtzeitige Auflösung von Pannen (Reparaturarbeiten) beim Kunden sowie Überwachung der Wartung der Anlagen gemäß der manuellen einwandfreien Installation und Einhaltung der Qualitätsstandards von Bierzeichnungssystemen Unterstützung für regionale Post-Sales-Service-Manager (Kundenberatung) bei der Gestaltung oder Änderung von Anlagen auf Kundenebene in Bezug auf Ausrüstung, Montage, Skizzen usw. Die Umsetzung von Bierliefereinrichtungen und Kundenschulungen, einschließlich der Verwaltungsverfahren vor Ort (Vertragsunterzeichnung, Berichterstattung) Sporadische Strafen gehören ebenfalls zu diesem Tätigkeitsbereich. Unsere\n• Anforderungen: Abgeschlossenes technisches Lernen (mechanisch, Installation oder gleichwertig) Mehrjährige Berufserfahrung in der technischen Wartung, Montage und Inbetriebnahme komplexer Geräte Eine strenge und autonome Arbeitsweise, kombiniert mit gutem Kontakt mit anderen Ein Verantwortungsbewusstsein, die Fähigkeit, die unterschiedlichen Bedürfnisse unserer Kunden auf dem Markt zu erfüllen und ihre Erwartungen zu erkennen, sowie ein ausgewogenes Temperament sind für diese Funktion unerlässlich. Gute Kenntnisse der IT-Tools (MS Office-Anwendungen) Sehr gute Französischkenntnisse sowie gute Deutschkenntnisse in mündlicher und schriftlicher Form Ein gültiger Führerschein ist unerlässlich (Kategorie B, möglicherweise C/C1) Home in der französischsprachigen Schweiz mit gutem Zugang zur Interventionszone",
-        "fr": "Ce poste intéressant et varié comprend les axes principaux suivants : Réalisation des opérations de maintenance et d’entretien, et rédaction d’un rapport d’état sur les systèmes de distribution en vrac, ainsi que les montages et démontages Résolution efficace et dans les délais des pannes (travaux de réparation) chez le client, ainsi que contrôle d’entretien des installations conformément au manuel Installation irréprochable et respectueuse des normes de qualité des systèmes de tirage de bière Assistance aux responsables régionaux du service après-vente (conseil à la clientèle) lors de la conception ou de la modification d’installations chez les clients en ce qui concerne le matériel, le montage, les croquis, etc. Mise en service des installations de débit de bière et formation des clients, y compris les formalités administratives sur place (signature des contrats, rédaction de rapports) Des astreintes sporadiques font également partie de ce domaine d’activité Nos exigences : Apprentissage technique achevé (mécanique, installation ou équivalent) Plusieurs années d’expérience professionnelle dans la maintenance technique, le montage et la mise en service d’équipements complexes Une méthode de travail rigoureuse et autonome, alliée à un bon contact avec les autres Un sens des responsabilités, la capacité à répondre aux différents besoins de nos clients sur le marché et à cerner leurs attentes, ainsi qu’un tempérament équilibré sont essentiels pour cette fonction. Bonnes connaissances des outils informatiques (applications MS Office) Très bonne maîtrise du français ainsi qu’une bonne maîtrise de l’allemand à l’oral et à l’écrit Un permis de conduire valide est indispensable (catégorie B, éventuellement C/C1) Domicile en Suisse romande avec un bon accès à la zone d’intervention"
-      },
-      "location": "Denges",
-      "canton": "VD",
-      "addressLocality": "Denges",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1026",
-      "streetAddress": "Denges, VD",
-      "category": "Tecnica",
-      "sector": "Industria / Alimentare",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/technician-dbo-mwd?jobid=165451",
-      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=165451&career_ns=job_application",
-      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-22T21:37:56.225Z",
-      "previousSlugs": [
-        "technician-dbo-m-w-d-heineken-ch-denges",
-        "techniker-dbo-m-w-d-heineken-switzerland-denges"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technician-dbo-m-w-d-heineken-ch-denges"
-        ],
-        "de": [
-          "techniker-dbo-m-w-d-heineken-switzerland-denges"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T23:10:19.910Z",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 71000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-22T21:37:56.225Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
     }
   ]
 }
