@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-11-23T16:54:14.249Z",
+  "assembledAt": "2026-11-24T16:49:31.902Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -88337,19 +88337,19 @@
     },
     {
       "id": "myswitzerland:7a19349cff3241578343f92b2c535389",
-      "title": "Après-Ski-Party mit dä Siebäsiechä, 16. Januar 2027",
+      "title": "Party mit dä Siebäsiächä, 16. Januar 2027",
       "titleByLocale": {
-        "it": "Après-Ski-Party mit dä Siebäsiechä, 16. Januar 2027",
-        "en": "Après-Ski-Party mit dä Siebäsiechä, 16. Januar 2027",
-        "de": "Après-Ski-Party mit dä Siebäsiechä, 16. Januar 2027",
-        "fr": "Après-Ski-Party mit dä Siebäsiechä, 16. Januar 2027"
+        "it": "Party mit dä Siebäsiächä, 16. Januar 2027",
+        "en": "Party mit dä Siebäsiächä, 16. Januar 2027",
+        "de": "Party mit dä Siebäsiächä, 16. Januar 2027",
+        "fr": "Party mit dä Siebäsiächä, 16. Januar 2027"
       },
       "startDate": "2027-01-16",
       "endDate": "2027-01-16",
-      "startTime": "12:30",
       "category": "Event",
       "venue": "Braunwald",
-      "canton": "",
+      "comune": "Glarus Süd",
+      "canton": "GL",
       "url": "https://www.myswitzerland.com/it-ch/experiences/events/apresskiparty-mit-dae-siebaesiechae-16-januar-2027/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
@@ -88358,7 +88358,14 @@
         "lng": 8.994172
       },
       "recurring": false,
-      "sourceDescriptionHash": "61e30661d588f81fa2dc13bf4e5252175bd2f93fe9b5e4c45cb7ba51aaf9c2a9"
+      "sourceDescriptionHash": "61e30661d588f81fa2dc13bf4e5252175bd2f93fe9b5e4c45cb7ba51aaf9c2a9",
+      "previousRoutes": [
+        {
+          "canton": "__UNRESOLVED-CANTON__",
+          "comune": "__other-events__",
+          "slug": "apres-ski-party-mit-da-siebasiecha-16-januar-2027-2027-01-16"
+        }
+      ]
     },
     {
       "id": "myswitzerland:7a16dc742bb7466db8a87209e0151e1f",
@@ -264368,9 +264375,8 @@
         "de": "Friday Pyjama Party",
         "fr": "Friday Pyjama Party"
       },
-      "startDate": "2026-11-13",
+      "startDate": "2027-01-22",
       "endDate": "2027-06-25",
-      "startTime": "18:00",
       "category": "Event",
       "venue": "Schlieren",
       "comune": "Schlieren",
@@ -264383,16 +264389,22 @@
         "lng": 8.4457418
       },
       "recurring": true,
-      "organizer": {
-        "@type": "Organization",
-        "name": "MySwitzerland",
-        "url": "https://www.myswitzerland.com/en/"
-      },
-      "performer": {
-        "@type": "Organization",
-        "name": "Schlieren"
-      },
-      "sourceDescriptionHash": "bc432e9cc479aa437bd52f039f17642265edfba4b05ae26aee95418c3854feca"
+      "performer": [
+        {
+          "name": "Musik"
+        },
+        {
+          "name": "Tanz"
+        }
+      ],
+      "sourceDescriptionHash": "bc432e9cc479aa437bd52f039f17642265edfba4b05ae26aee95418c3854feca",
+      "previousRoutes": [
+        {
+          "canton": "ZH",
+          "comune": "Schlieren",
+          "slug": "friday-pyjama-party-2026-11-13"
+        }
+      ]
     },
     {
       "id": "myswitzerland:7a337dfca6ed47cfa0d79a60b8d4657f",
@@ -268541,16 +268553,15 @@
     },
     {
       "id": "myswitzerland:802b7e7f24044705ae976eac7e927452",
-      "title": "RSSK – Kerzenziehen",
+      "title": "Kerzenziehen für Kinder und Erwachsene",
       "titleByLocale": {
-        "it": "RSSK – Kerzenziehen",
-        "en": "RSSK – Kerzenziehen",
-        "de": "RSSK – Kerzenziehen",
-        "fr": "RSSK – Kerzenziehen"
+        "it": "Kerzenziehen für Kinder und Erwachsene",
+        "en": "Kerzenziehen für Kinder und Erwachsene",
+        "de": "Kerzenziehen für Kinder und Erwachsene",
+        "fr": "Kerzenziehen für Kinder und Erwachsene"
       },
       "startDate": "2026-11-23",
       "endDate": "2026-11-27",
-      "startTime": "01:00",
       "category": "Event",
       "venue": "Kreuzlingen",
       "comune": "Kreuzlingen",
@@ -268563,16 +268574,14 @@
         "lng": 9.1711736
       },
       "recurring": true,
-      "organizer": {
-        "@type": "Organization",
-        "name": "MySwitzerland",
-        "url": "https://www.myswitzerland.com/en/"
-      },
-      "performer": {
-        "@type": "Organization",
-        "name": "Kreuzlingen"
-      },
-      "sourceDescriptionHash": "cd09ba4c301f37bab58c18b3693c209ea9a13ff9a2b14adb8505dbbc1ee27931"
+      "sourceDescriptionHash": "ba288ec435107dc736456d19e3ca2ea87dfe30f00e0bdd368d3fe01ad523025a",
+      "previousRoutes": [
+        {
+          "canton": "TG",
+          "comune": "Kreuzlingen",
+          "slug": "rssk-kerzenziehen-2026-11-23"
+        }
+      ]
     },
     {
       "id": "myswitzerland:7f6b5cdbbd54452f8d5317e37422754c",
@@ -280462,6 +280471,465 @@
       },
       "recurring": false,
       "sourceDescriptionHash": "a3f447bf4759ac20a2728cc1e7d8012347cb2beb9b702aea5e43054af691d801"
+    },
+    {
+      "id": "myswitzerland:808a0cd395124176bc16fd5c7f999961",
+      "title": "EHC Arosa Nachwuchs vs. SC Rapperswil-Jona Lakers: Championship match U14A",
+      "titleByLocale": {
+        "it": "EHC Arosa Nachwuchs vs. SC Rapperswil-Jona Lakers: Championship match U14A",
+        "en": "EHC Arosa Nachwuchs vs. SC Rapperswil-Jona Lakers: Championship match U14A",
+        "de": "EHC Arosa Nachwuchs vs. SC Rapperswil-Jona Lakers: Meisterschaftsspiel U14A",
+        "fr": "EHC Arosa Nachwuchs vs. SC Rapperswil-Jona Lakers : Match de championnat U14A"
+      },
+      "startDate": "2027-02-20",
+      "endDate": "2027-02-20",
+      "category": "Event",
+      "venue": "Arosa",
+      "comune": "Rapperswil-Jona",
+      "canton": "SG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/ehc-arosa-nachwuchs-vs-sc-rapperswiljona-lakers-championship-match-u14a/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.783078,
+        "lng": 9.6833687
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Speis"
+        },
+        {
+          "name": "Trank"
+        }
+      ],
+      "sourceDescriptionHash": "394fe9c525c8c840d7c6c3f489090d178af0e8068611c6fe795f0ad41894ab6d"
+    },
+    {
+      "id": "myswitzerland:7ebdda3b1f364c01ba1fa4b902a119ff",
+      "title": "FIRNSCHNEEFÄSCHT",
+      "titleByLocale": {
+        "it": "FIRNSCHNEEFÄSCHT",
+        "en": "FIRNSCHNEEFÄSCHT",
+        "de": "FIRNSCHNEEFÄSCHT",
+        "fr": "FIRNSCHNEEFÄSCHT"
+      },
+      "startDate": "2027-03-27",
+      "endDate": "2027-03-27",
+      "category": "Event",
+      "venue": "Stoos",
+      "comune": "Morschach",
+      "canton": "SZ",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/firnschneefaescht/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.9753166,
+        "lng": 8.6702375
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "e26d68f40845ea3ede5d381411afa6c1d25d908d4124747c89367d9e5e12c412"
+    },
+    {
+      "id": "myswitzerland:7d9cca20838341ce8d0f689aa5163172",
+      "title": "Spread Love: Musik. Kunst. Begegnungen",
+      "titleByLocale": {
+        "it": "Spread Love: Musik. Kunst. Begegnungen",
+        "en": "Spread Love: Musik. Kunst. Begegnungen",
+        "de": "Spread Love: Musik. Kunst. Begegnungen",
+        "fr": "Spread Love: Musik. Kunst. Begegnungen"
+      },
+      "startDate": "2026-11-29",
+      "endDate": "2026-11-29",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/spread-love-musik-kunst-begegnungen/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.381451,
+        "lng": 8.530234
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Brainfart"
+        },
+        {
+          "name": "Heidi Happy"
+        },
+        {
+          "name": "Bas Timmer"
+        }
+      ],
+      "sourceDescriptionHash": "4b407a05aa6f986dc8396c58cdc4567d65c36a7ee2028e43cebac72e04abad72"
+    },
+    {
+      "id": "myswitzerland:7d4e4f5abc8246839c0bfee15eba8553",
+      "title": "Sonntags-Brunch im Bergrestaurant Chämistube, 27. Dezember 2026",
+      "titleByLocale": {
+        "it": "Sonntags-Brunch im Bergrestaurant Chämistube, 27. Dezember 2026",
+        "en": "Sonntags-Brunch im Bergrestaurant Chämistube, 27. Dezember 2026",
+        "de": "Sonntags-Brunch im Bergrestaurant Chämistube, 27. Dezember 2026",
+        "fr": "Sonntags-Brunch im Bergrestaurant Chämistube, 27. Dezember 2026"
+      },
+      "startDate": "2026-12-27",
+      "endDate": "2026-12-27",
+      "category": "Event",
+      "venue": "Braunwald",
+      "comune": "Glarus Süd",
+      "canton": "GL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/sontagsbrunch-im-bergrestaurant-chaemistube-27-dezember-2026/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.9491046,
+        "lng": 8.9939594
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "4f9047cef6690ac44202eecd3efabc4f8e4af8e26363e5d5b293a645640007c5"
+    },
+    {
+      "id": "myswitzerland:7c7fb0e7bb014890b726a4cb3bee781f",
+      "title": "Trigger Concert Big Band feat. Thomas Faure & GK playing ElectroDeluxe",
+      "titleByLocale": {
+        "it": "Trigger Concert Big Band feat. Thomas Faure & GK playing ElectroDeluxe",
+        "en": "Trigger Concert Big Band feat. Thomas Faure & GK playing ElectroDeluxe",
+        "de": "Trigger Concert Big Band feat. Thomas Faure & GK playing ElectroDeluxe",
+        "fr": "Trigger Concert Big Band feat. Thomas Faure & GK playing ElectroDeluxe"
+      },
+      "startDate": "2026-11-28",
+      "endDate": "2026-11-28",
+      "category": "Event",
+      "venue": "Rapperswil-Jona",
+      "comune": "Rapperswil-Jona",
+      "canton": "SG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/trigger-concert-big-band-feat-thomas-faure-gk-playing-electrodeluxe-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.232076,
+        "lng": 8.8343472
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "@type": "PerformingGroup",
+          "name": "Big Band"
+        },
+        {
+          "name": "Thomas Faure"
+        }
+      ],
+      "sourceDescriptionHash": "882fd518e43c54d2749c071d137fd87388eb6c913f8e47ef09b08dfe6d4aec53"
+    },
+    {
+      "id": "myswitzerland:7b350ce23a144e07bff42b74500c944d",
+      "title": "Snow Show",
+      "titleByLocale": {
+        "it": "Snow Show",
+        "en": "Snow Show – Swiss Ski and Snowboard School, Wengen",
+        "de": "Snow Show Schweizer Ski- und Snowboardschule Wengen",
+        "fr": "Snow Show – École suisse de ski et de snowboard de Wengen"
+      },
+      "startDate": "2027-02-01",
+      "endDate": "2027-02-22",
+      "category": "Event",
+      "venue": "Wengen",
+      "comune": "Lauterbrunnen",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/snow-show/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.606736,
+        "lng": 7.922779
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "553dfaa9b4f400106d7d46f5014c93f4c01630e77c39d444994572f22dd56e98"
+    },
+    {
+      "id": "myswitzerland:7ad3cb44d3e345d09d85ebbb4902a679",
+      "title": "Afro panico",
+      "titleByLocale": {
+        "it": "Afro panico",
+        "en": "Afro panico",
+        "de": "Afro panico",
+        "fr": "Afro panico"
+      },
+      "startDate": "2026-11-27",
+      "endDate": "2026-11-27",
+      "category": "Event",
+      "venue": "Lausanne",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/afro-panico/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5226895,
+        "lng": 6.6273736
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "b05715fd7e00f09a7322673ceaa3192d925941e88bda09a81234dc641a3719ab"
+    },
+    {
+      "id": "myswitzerland:7ac255d9d61f4273939e1e30f20b68c0",
+      "title": "Sagra del Beato Manfredo Settala",
+      "titleByLocale": {
+        "it": "Sagra del Beato Manfredo Settala",
+        "en": "Feast of Blessed Manfredo Settala",
+        "de": "Fest des gesegneten Manfredo Settala",
+        "fr": "Fête du bienheureux Manfredo Settala"
+      },
+      "startDate": "2027-01-31",
+      "endDate": "2027-01-31",
+      "category": "Event",
+      "venue": "Riva San Vitale",
+      "comune": "Riva San Vitale",
+      "canton": "TI",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/sagra-del-beato-manfredo-settala/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "myswitzerland",
+        "priceField": "index-content"
+      },
+      "geo": {
+        "lat": 45.9054003,
+        "lng": 8.9710575
+      },
+      "recurring": false,
+      "italianFrontierComuni": [
+        "Porto Ceresio",
+        "Saltrio",
+        "Clivio",
+        "Viggiù",
+        "Besano"
+      ],
+      "sourceDescriptionHash": "0ba8ef686c71e89992f651162269daf83d64aca510a4382c19a3b55c3ee2d3aa"
+    },
+    {
+      "id": "myswitzerland:7a5c1bed375042438af696dd56d4afb7",
+      "title": "Astronomietag 2027",
+      "titleByLocale": {
+        "it": "Astronomietag 2027",
+        "en": "Astronomietag 2027",
+        "de": "Astronomietag 2027",
+        "fr": "Astronomietag 2027"
+      },
+      "startDate": "2027-03-13",
+      "endDate": "2027-03-13",
+      "category": "Event",
+      "venue": "Glarona",
+      "comune": "Glarus",
+      "canton": "GL",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/astronomietag-2027/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0436526,
+        "lng": 9.0659658
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Dr"
+      },
+      "sourceDescriptionHash": "465d408ee90f55d0792ba886028d374b0957cc43166b267404bf73e294969868"
+    },
+    {
+      "id": "myswitzerland:7a382a7a591547e8b88449fe08810f44",
+      "title": "MS Sports Fussball Camp Rümlang 2027",
+      "titleByLocale": {
+        "it": "MS Sports Fussball Camp Rümlang 2027",
+        "en": "MS Sports Fussball Camp Rümlang 2027",
+        "de": "MS Sports Fussball Camp Rümlang 2027",
+        "fr": "MS Sports Fussball Camp Rümlang 2027"
+      },
+      "startDate": "2027-05-03",
+      "endDate": "2027-05-07",
+      "category": "Event",
+      "venue": "Rümlang",
+      "comune": "Rümlang",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/ms-sports-fussball-camp-ruemlang-2027/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4502893,
+        "lng": 8.5302592
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MS Sports statt"
+      },
+      "sourceDescriptionHash": "a55e3d579fd829583c8bf3e98dff0ca46a67b938d924436bba5423a8dc01e4bf"
+    },
+    {
+      "id": "myswitzerland:7a00fe2047cb4577b1560355a90035f8",
+      "title": "Zämegolaufe, Tour Effi Ost",
+      "titleByLocale": {
+        "it": "Zämegolaufe, Tour Effi Ost",
+        "en": "Zämegolaufe, Tour Effi Ost",
+        "de": "Zämegolaufe, Tour Effi Ost",
+        "fr": "Zämegolaufe, Tour Effi Ost"
+      },
+      "startDate": "2026-12-14",
+      "endDate": "2026-12-14",
+      "category": "Event",
+      "venue": "Effretikon",
+      "comune": "Illnau-Effretikon",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/zaemegolaufe-tour-effi-ost/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.428684,
+        "lng": 8.699515
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "fd4e1ed520b7afd6afa955aaffcb2da866cea7c1dd1ed5b2723d0009028aa08d"
+    },
+    {
+      "id": "myswitzerland:798287bf16db4b9fa89ac2092ce2f266",
+      "title": "Adventskonzert «Mach mein Gemüt die Wiege Dein»",
+      "titleByLocale": {
+        "it": "Adventskonzert «Mach mein Gemüt die Wiege Dein»",
+        "en": "Adventskonzert «Mach mein Gemüt die Wiege Dein»",
+        "de": "Adventskonzert «Mach mein Gemüt die Wiege Dein»",
+        "fr": "Adventskonzert «Mach mein Gemüt die Wiege Dein»"
+      },
+      "startDate": "2026-12-12",
+      "endDate": "2026-12-12",
+      "category": "Event",
+      "venue": "Therwil",
+      "comune": "Therwil",
+      "canton": "BL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/adventskonzert-mach-mein-gemuet-die-wiege-dein-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.496819,
+        "lng": 7.554186
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Benjamin Britten"
+      },
+      "sourceDescriptionHash": "e2b6f556ae039a2fe3a4786e701bf31ff46837efa13805f904ebd1ae0f1e10c4"
+    },
+    {
+      "id": "myswitzerland:7974148da6934a419c9fbbeff26b24d5",
+      "title": "Silvester bei Giusis – leben, lachen & geniessen!",
+      "titleByLocale": {
+        "it": "Silvester bei Giusis – leben, lachen & geniessen!",
+        "en": "Silvester bei Giusis – leben, lachen & geniessen!",
+        "de": "Silvester bei Giusis – leben, lachen & geniessen!",
+        "fr": "Silvester bei Giusis – leben, lachen & geniessen!"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "category": "Event",
+      "venue": "Amriswil",
+      "comune": "Amriswil",
+      "canton": "TG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/silvester-bei-giusis-leben-lachen-geniessen/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5493972,
+        "lng": 9.3022782
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "b16c7a5236918f1b0f991267984bad6dfe3f78c709f9e98d5ea13dd19d52b5ed"
+    },
+    {
+      "id": "myswitzerland:78f03f791616414bad2efd5004f73bc3",
+      "title": "«Loos-Stobede»",
+      "titleByLocale": {
+        "it": "«Loos-Stobede»",
+        "en": "«Loos-Stobede»",
+        "de": "«Loos-Stobede»",
+        "fr": "«Loos-Stobede»"
+      },
+      "startDate": "2026-11-29",
+      "endDate": "2027-03-21",
+      "category": "Event",
+      "venue": "Weissbad",
+      "comune": "Schwende-Rüte",
+      "canton": "AI",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/loos-stobede-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3077244,
+        "lng": 9.4357362
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "dea28d745a64981714272665c5db02d94bc322dfbfcc68b51b02bd3bedbb1ef3"
+    },
+    {
+      "id": "myswitzerland:78e12c89b1b3494dbdfcdc8825cedeb9",
+      "title": "Concerto di Natale con il tenore Ottavio Palmieri",
+      "titleByLocale": {
+        "it": "Concerto di Natale con il tenore Ottavio Palmieri",
+        "en": "Christmas concert with the tenor Ottavio Palmieri",
+        "de": "Weihnachtskonzert mit dem Tenor Ottavio Palmieri",
+        "fr": "Concert de Noël avec le ténor Ottavio Palmieri"
+      },
+      "startDate": "2026-12-26",
+      "endDate": "2026-12-26",
+      "category": "Event",
+      "venue": "Vira (Gambarogno)",
+      "comune": "Gambarogno",
+      "canton": "TI",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/concerto-di-natale-con-il-tenore-ottavio-palmieri/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.1443641,
+        "lng": 8.84169
+      },
+      "recurring": false,
+      "italianFrontierComuni": [
+        "Maccagno con Pino e Veddasca",
+        "Curiglia con Monteviasco",
+        "Tronzano Lago Maggiore",
+        "Agra",
+        "Dumenza"
+      ],
+      "sourceDescriptionHash": "144ef5f6e2e8f102997445c528e248e755cf73273418f0aefd33aba3324fecad"
+    },
+    {
+      "id": "myswitzerland:7882730a4ee64161a70cc0848e891c7c",
+      "title": "Weihnachtsmarkt Brunnadern",
+      "titleByLocale": {
+        "it": "Weihnachtsmarkt Brunnadern",
+        "en": "Weihnachtsmarkt Brunnadern",
+        "de": "Weihnachtsmarkt Brunnadern",
+        "fr": "Weihnachtsmarkt Brunnadern"
+      },
+      "startDate": "2026-11-29",
+      "endDate": "2026-11-29",
+      "category": "Event",
+      "venue": "Brunnadern",
+      "comune": "Neckertal",
+      "canton": "SG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/weihnachtsmarkt-brunnadern/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3226115,
+        "lng": 9.1410716
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "d51d65f9c848fc4eecb9e152f22b3d957a486a551b235d83d511160b6fb37e4e"
     }
   ]
 }
