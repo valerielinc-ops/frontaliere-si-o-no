@@ -1,7 +1,7 @@
 {
   "key": "tpl-lugano",
   "label": "TPL Lugano",
-  "generatedAt": "2026-11-24T09:35:17.294Z",
+  "generatedAt": "2026-11-24T21:24:51.990Z",
   "total": 2,
   "discovered": 2,
   "written": 2,
@@ -9,10 +9,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 9532,
-  "avgDurationMs": 9532,
+  "durationMs": 7167,
+  "avgDurationMs": 7167,
   "durationHistory": [
-    9532
+    7167
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -35,7 +35,7 @@
       "datePosted": "2026-10-23",
       "postedDate": "2026-10-23",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-24T09:34:54.376Z",
+      "crawledAt": "2026-11-24T21:24:33.084Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "postalCode": "6900",
@@ -52,7 +52,7 @@
       "salarySource": "reported",
       "firstSeenAt": "2026-10-23T09:21:26.983Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T09:34:54.376Z",
+      "validThrough": "2027-01-21T21:24:33.084Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.tplsa.ch/2/50/candidati?idhr=778",
       "_qualityScore": 92,
@@ -80,7 +80,7 @@
       "datePosted": "2026-10-23",
       "postedDate": "2026-10-23",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-24T09:34:54.364Z",
+      "crawledAt": "2026-11-24T21:24:33.077Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "postalCode": "6900",
@@ -97,7 +97,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-23T09:21:26.981Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T09:34:54.364Z",
+      "validThrough": "2027-01-21T21:24:33.077Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.tplsa.ch/2/50/candidati?idhr=777",
       "_qualityScore": 92,
@@ -109,5 +109,5 @@
       }
     }
   ],
-  "codeCommit": "ad4d13f2bbfca567e72148b3349ab6c6b8a5dd5d"
+  "codeCommit": "af6487cf18de54664a2dd36f8f16e17f8a69b92f"
 }
