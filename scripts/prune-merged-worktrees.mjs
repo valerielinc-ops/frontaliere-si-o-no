@@ -1616,8 +1616,24 @@ function isCopilotWorktreePath(pathname) {
   const pathFromRoot = relative(COPILOT_WORKTREES_ROOT, canonicalPath(pathname));
   return pathFromRoot !== '' && isWithinPath(COPILOT_WORKTREES_ROOT, pathname);
 }
+// Dove gli strumenti Codex creano i worktree fuori dalle cartelle canoniche:
+// `~/.codex-worktrees/<nome>` e le cartelle sorelle `<checkout>-worktree-<nome>`
+// (accanto al checkout principale o nella cartella padre del workspace). Fino al
+// 2026-11-24 restavano fuori dallo scope e non venivano mai potati: 18 worktree
+// in `~/.codex-worktrees` fermi dal 16/11 sul Mac agenti, 30
+// `frontaliere-si-o-no-worktree-*` dal 29/10 sul Mac principale (quattro da
+// 5,5 GiB senza sparse). Valgono le stesse prove e guardie degli altri worktree;
+// il checkout principale non ha il suffisso `-worktree-` e resta escluso.
+const CODEX_WORKTREES_RE = /[/\\]\.codex-worktrees[/\\][^/\\]+/;
+const SIBLING_WORKTREE_PREFIX = `${basename(canonicalPath(mainWorktreeRoot))}-worktree-`;
+function isCodexWorktreePath(pathname) {
+  const canonical = canonicalPath(pathname);
+  if (canonical === canonicalPath(mainWorktreeRoot)) return false;
+  return CODEX_WORKTREES_RE.test(canonical)
+    || (basename(canonical).startsWith(SIBLING_WORKTREE_PREFIX) && basename(canonical).length > SIBLING_WORKTREE_PREFIX.length);
+}
 function isSupportedWorktreePath(pathname) {
-  return ISOLATION_RE.test(pathname) || isCopilotWorktreePath(pathname);
+  return ISOLATION_RE.test(pathname) || isCopilotWorktreePath(pathname) || isCodexWorktreePath(pathname);
 }
 
 const removeWt = []; // {path, branch}

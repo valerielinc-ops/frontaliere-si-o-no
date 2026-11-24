@@ -114,6 +114,19 @@ export function makeContentProver({ git, mainRef, limits = {}, noLazyGitInvocati
   // sconosciuto/assente e il chiamante può solo tentare il fetch esplicito.
   const present = new Set();
   const absent = new Set();
+  let partialClone;
+  const isPartialClone = () => {
+    if (partialClone === undefined) {
+      const config = out(['config', '--get-regexp', '^(extensions\\.partialclone|remote\\..*\\.promisor)$']) || '';
+      partialClone = String(config).split(/\r?\n/).some((line) => {
+        const [key, value = ''] = line.trim().split(/\s+/, 2);
+        if (!key) return false;
+        if (key.toLowerCase() === 'extensions.partialclone') return value !== '';
+        return value.toLowerCase() === 'true';
+      });
+    }
+    return partialClone;
+  };
   const hasCommit = (rev, { refresh = false } = {}) => {
     if (!rev) return false;
     if (!refresh) {
@@ -121,9 +134,14 @@ export function makeContentProver({ git, mainRef, limits = {}, noLazyGitInvocati
       if (absent.has(rev)) return false;
     }
     const invocation = noLazyGitInvocation(['cat-file', '-e', `${rev}^{commit}`]);
-    const found = invocation
-      ? out(invocation.args, { env: invocation.env }) !== null
-      : false;
+    let found;
+    if (invocation) found = out(invocation.args, { env: invocation.env }) !== null;
+    // A full clone has no promisor remote, so it cannot lazy-fetch: a plain
+    // probe is safe even on Git <2.44. Treating every OID as absent there made
+    // the PR-containment proofs unreachable (worktrees kept forever; seen in
+    // the e2e where the fixture git resolved to Apple Git 2.39).
+    else if (!isPartialClone()) found = out(['cat-file', '-e', `${rev}^{commit}`]) !== null;
+    else found = false;
     if (found) {
       present.add(rev);
       absent.delete(rev);
