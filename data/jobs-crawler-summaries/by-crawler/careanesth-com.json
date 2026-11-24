@@ -1,11 +1,14 @@
 {
+  "detailCandidates": 20,
+  "detailGone": 0,
+  "detailRejected": 1,
   "key": "careanesth-com",
   "label": "Careanesth AG",
-  "generatedAt": "2026-11-24T09:24:54.619Z",
+  "generatedAt": "2026-11-24T21:25:01.067Z",
   "total": 0,
   "discovered": 20,
   "parsed": 0,
-  "lastFetchOutcome": "filtered_empty",
+  "lastFetchOutcome": null,
   "fetchReceipt": {
     "specKey": "careanesth-com",
     "seedUrls": [
@@ -17,6 +20,22 @@
       {
         "status": 200,
         "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/?mainDivision=acute&amp;profession%5B%5D=14926&amp;profession%5B%5D=7849&amp;profession%5B%5D=7851&amp;profession%5B%5D=7852&amp;profession%5B%5D=10252&amp;profession%5B%5D=7850&amp;profession%5B%5D=1092&amp;profession%5B%5D=1124&amp;profession%5B%5D=7853&amp;profession%5B%5D=10251&amp;profession%5B%5D=7855&amp;profession%5B%5D=14912&amp;division%5B%5D=1211&amp;division%5B%5D=1199&amp;division%5B%5D=1200&amp;division%5B%5D=1207&amp;division%"
+      },
+      {
+        "status": 200,
+        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/pooltaetigkeit-bei-der-spitex-kanton-bern-und-solothurn-950026/"
+      },
+      {
+        "status": 200,
+        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-pflegefachfrau-mann-hf-fh-dnii-akp-fuer-temporaer-oder-tagesweise-einsaetze-in-der-psychiatrie-langzeitpflege-oder-spitex-2/"
+      },
+      {
+        "status": 200,
+        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/mein-einsatz-meine-entscheidung-958192/"
+      },
+      {
+        "status": 200,
+        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/pooltaetigkeit-bei-der-spitex-kanton-bern-und-solothurn-950025/"
       },
       {
         "status": 200,
@@ -64,63 +83,42 @@
       },
       {
         "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/pooltaetigkeit-bei-der-spitex-kanton-bern-und-solothurn-950026/"
+        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/neu-auch-als-dentalassistent-in-efz-temporaer-im-raum-zuerich-arbeiten-960497/"
       },
       {
         "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-pflegefachfrau-mann-hf-fh-dnii-akp-fuer-temporaer-oder-tagesweise-einsaetze-in-der-psychiatrie-langzeitpflege-oder-spitex-2/"
+        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/physiotherapeut-in-im-kanton-zuerich-fuer-springereinsaetze-20-40-960703/"
       },
       {
         "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/mein-einsatz-meine-entscheidung-958192/"
+        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/mpa-in-zuerich-aargau-fuer-tage-wochenweise-einsaetze-20-60-960480/"
       },
       {
         "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/pooltaetigkeit-bei-der-spitex-kanton-bern-und-solothurn-950025/"
+        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/neu-temporaer-als-dentalassistent-in-efz-im-raum-bern-durchstarten-960498/"
       },
       {
         "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/mpa-im-raum-luzern-flexibel-nach-deiner-lebenssituation-60-100-960483/"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/praktischer-arzt-aerztin-mit-einem-pensum-von-20-100-955933/"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/ergotherapeut-in-planbar-ganz-nach-deiner-lebenssituation-958360/"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/sitzwache-m-w-flexible-tageweise-einsaetze-in-zh-ag-10-60-960515/"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/entdecke-als-mpa-neue-perspektiven-spannende-einsaetze-im-raum-bern-60-100-960485/"
+        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/physiotherapeut-in-im-kanton-zuerich-fuer-temporaer-einsaetze-60-100-960704/"
       }
     ],
     "proxiedBy": [],
     "fetchOutcome": null,
     "fetchDetail": null
   },
-  "authoritativeEmptySnapshot": false,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
+  "abortKind": "no-jobs-parsed",
   "written": 0,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 23580,
-  "avgDurationMs": 23580,
-  "durationHistory": [
-    23580
-  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "earlyExit": false,
+  "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "ad4d13f2bbfca567e72148b3349ab6c6b8a5dd5d"
+  "codeCommit": "af6487cf18de54664a2dd36f8f16e17f8a69b92f"
 }
