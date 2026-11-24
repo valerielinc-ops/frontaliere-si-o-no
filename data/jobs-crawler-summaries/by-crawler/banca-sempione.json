@@ -1,16 +1,16 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-11-23T21:21:15.110Z",
+  "generatedAt": "2026-11-24T09:31:35.601Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5492,
-  "avgDurationMs": 5492,
+  "durationMs": 6510,
+  "avgDurationMs": 6510,
   "durationHistory": [
-    5492
+    6510
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -29,7 +29,7 @@
       "datePosted": "2026-04-24T08:00:41Z",
       "postedDate": "2026-04-24T08:00:41Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-23T21:21:04.588Z",
+      "crawledAt": "2026-11-24T09:31:18.231Z",
       "source": "company-website",
       "slug": "banca-del-sempione-global-wealth-management-private-banker-zurich-2",
       "sourceLang": "it",
@@ -46,7 +46,7 @@
       "applyUrl": "https://www.bancasempione.ch/job/global-wealth-management-private-banker-zurich-2/",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:21:04.588Z",
+      "validThrough": "2026-12-24T09:31:18.231Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -69,7 +69,7 @@
       "datePosted": "2026-04-23T08:30:00Z",
       "postedDate": "2026-04-23T08:30:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-23T21:21:04.588Z",
+      "crawledAt": "2026-11-24T09:31:18.231Z",
       "source": "company-website",
       "slug": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
       "sourceLang": "it",
@@ -86,7 +86,7 @@
       "employmentType": "FULL_TIME",
       "applyUrl": "https://www.bancasempione.ch/job/global-wealth-management-consulente-alla-clientela-private-banker/",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-23T21:21:04.588Z",
+      "validThrough": "2026-12-24T09:31:18.231Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -97,5 +97,5 @@
       }
     }
   ],
-  "codeCommit": "7b684909df7304f91c3a19b75aa2a6088ce7630a"
+  "codeCommit": "ad4d13f2bbfca567e72148b3349ab6c6b8a5dd5d"
 }
