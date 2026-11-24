@@ -6945,15 +6945,13 @@
       "it": "consulente-clienti-f-m-nb-100-a-losanna-concordia-lausanne",
       "en": "client-advisor-f-m-nb-100-in-lausanne-concordia-lausanne",
       "de": "kundenberater-w-m-nb-100-in-lausanne-concordia-lausanne",
-      "fr": "conseiller-ou-conseillere-a-la-clientele-f-m-nb-100-a-lausanne-concordia-lausanne"
+      "fr": "conseiller-ou-conseillere-a-la-clientele-f-m-nb-100-a-lausanne-concordia-lausanne-8ea0aaf5"
     },
     "sector": "Assicurazioni",
     "expiredAt": "2026-09-29T21:18:20.605Z",
-    "previousSlugs": [
-      "conseiller-ou-conseillere-a-la-clientele-f-m-nb-100-a-lausanne-concordia-lausanne"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "conseiller-ou-conseillere-a-la-clientele-f-m-nb-100-a-lausanne-concordia-lausanne-8ea0aaf5",
         "conseiller-ou-conseillere-a-la-clientele-f-m-nb-100-a-lausanne-concordia-lausanne"
       ],
       "en": [
@@ -6961,6 +6959,9 @@
       ],
       "de": [
         "conseiller-ou-conseillere-a-la-clientele-f-m-nb-100-a-lausanne-concordia-lausanne"
+      ],
+      "fr": [
+        "conseiller-ou-conseillere-a-la-clientele-f-m-nb-100-a-lausanne-concordia-lausanne-8ea0aaf5"
       ]
     },
     "postalCode": "1001",
@@ -6970,7 +6971,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.concordia.ch/offene-stellen/conseiller-ou-conseillere-a-la-clientele-f-m-nb-a-lausanne/d9a245eb-a667-4a13-b029-cb2ab8a63609",
-    "firstSeenAt": "2026-09-11T13:39:24.781Z"
+    "firstSeenAt": "2026-09-11T13:39:24.781Z",
+    "previousSlugs": [
+      "conseiller-ou-conseillere-a-la-clientele-f-m-nb-100-a-lausanne-concordia-lausanne"
+    ]
   },
   {
     "slug": "kundenberater-in-100-in-schwyz-concordia-schwyz",
