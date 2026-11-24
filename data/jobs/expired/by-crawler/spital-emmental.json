@@ -21,7 +21,7 @@
     },
     "slugByLocale": {
       "it": "medico-senior-gastroenterologia-medico-senior-a-spital-emmental-burgdorf-642667c3",
-      "en": "senior-physician-senior-physician-gastroenterology-a-spital-emmental-burgdorf",
+      "en": "senior-physician-senior-physician-gastroenterology-a-spital-emmental-burgdorf-d3395373",
       "de": "oberarztin-oberarzt-gastroenterologie-a-spital-emmental-burgdorf-2c5cefe0",
       "fr": "medecin-superieur-medecin-superieur-gastroenterologie-a-spital-emmental-burgdorf"
     },
@@ -49,7 +49,6 @@
       "senior-physician-a-spital-emmental-burgdorf",
       "gastroenterologie-medecin-superieur-medecin-superieur-spital-emmental-burgdorf-67fc3e30",
       "oberarztin-oberarzt-gastroenterologie-a-spital-emmental-burgdorf-b9a3ece2",
-      "medecin-principal-medecin-principal-gastroenterologie-a-spital-emmental-burgdorf",
       "medico-senior-gastroenterologia-medico-senior-a-spital-emmental-burgdorf-d4607707",
       "oberarztin-oberarzt-gastroenterologie-a-spital-emmental-burgdorf-6c62a2c9",
       "senior-physician-senior-physician-gastroenterology-a-spital-emmental-burgdorf-7aa836b7",
@@ -57,7 +56,10 @@
       "oberarztin-oberarzt-gastroenterologie-spital-emmental-burgdorf-3915fa39",
       "medico-senior-a-radiologia-spital-emmental-burgdorf-ed4d53e1",
       "senior-physician-a-radiology-spital-emmental-burgdorf-e057c099",
-      "oberarztin-oberarzt-a-radiologie-spital-emmental-burgdorf-7298a267"
+      "oberarztin-oberarzt-a-radiologie-spital-emmental-burgdorf-7298a267",
+      "medecin-principal-medecin-principal-gastroenterologie-a-spital-emmental-burgdorf",
+      "medecin-principal-medecin-principal-gastroenterologie-a-spital-emmental-burgdorf-2549fee0",
+      "senior-physician-senior-physician-gastroenterology-a-spital-emmental-burgdorf"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -80,17 +82,22 @@
         "senior-physician-rheumatology-a-spital-emmental-burgdorf",
         "senior-physician-a-radiology-spital-emmental-burgdorf",
         "senior-physician-senior-physician-radiology-spital-emmental-burgdorf",
-        "senior-physician-a-spital-emmental-burgdorf"
+        "senior-physician-a-spital-emmental-burgdorf",
+        "medecin-principal-medecin-principal-gastroenterologie-a-spital-emmental-burgdorf"
       ],
       "en": [
-        "oberarztin-oberarzt-gastroenterologie-a-spital-emmental-burgdorf-2c5cefe0"
+        "oberarztin-oberarzt-gastroenterologie-a-spital-emmental-burgdorf-2c5cefe0",
+        "medecin-principal-medecin-principal-gastroenterologie-a-spital-emmental-burgdorf",
+        "senior-physician-senior-physician-gastroenterology-a-spital-emmental-burgdorf"
       ],
       "fr": [
         "oberarztin-oberarzt-gastroenterologie-a-spital-emmental-burgdorf-2c5cefe0",
+        "medecin-principal-medecin-principal-gastroenterologie-a-spital-emmental-burgdorf-2549fee0",
         "medecin-principal-medecin-principal-gastroenterologie-a-spital-emmental-burgdorf"
       ],
       "de": [
-        "oberarztin-oberarzt-gastroenterologie-a-spital-emmental-burgdorf-b9a3ece2"
+        "oberarztin-oberarzt-gastroenterologie-a-spital-emmental-burgdorf-b9a3ece2",
+        "medecin-principal-medecin-principal-gastroenterologie-a-spital-emmental-burgdorf"
       ]
     },
     "postalCode": "3400",
@@ -322,7 +329,8 @@
         "facharztin-facharzt-fur-allgemeine-innere-medizin-a-spital-emmental-langnau"
       ],
       "de": [
-        "facharztin-facharzt-per-allgemeine-innere-medizin-a-spital-emmental-langnau"
+        "facharztin-facharzt-per-allgemeine-innere-medizin-a-spital-emmental-langnau",
+        "facharztin-facharzt-fur-allgemeine-innere-medizin-a-spital-emmental-langnau-ad41dad3"
       ]
     },
     "postalCode": "3550",
@@ -924,6 +932,9 @@
         "secretaire-medical-e-a-spital-emmental-burgdorf-3b39b8",
         "arztsekretar-in-a-spital-emmental-burgdorf-3",
         "arztsekretar-in-a-spital-emmental-burgdorf"
+      ],
+      "de": [
+        "arztsekretar-in-a-spital-emmental-burgdorf-8f94acf6"
       ]
     },
     "postalCode": "3400",
@@ -4392,21 +4403,33 @@
       "dipl-pflegefachperson-a-spital-emmental-langnau-b5yd6u",
       "infermiera-a-spital-emmental-langnau-1d4d1467",
       "dipl-nurse-a-spital-emmental-langnau-ac6cbd1d",
-      "infirmiere-a-spital-emmental-langnau-aedf05c8"
+      "infirmiere-a-spital-emmental-langnau-aedf05c8",
+      "infermiera-a-spital-emmental-langnau-75132a",
+      "dipl-pflegefachperson-a-spital-emmental-langnau-2",
+      "dipl-nurse-a-spital-emmental-langnau-75132a",
+      "infirmiere-a-spital-emmental-langnau-75132a",
+      "dipl-pflegefachperson-a-spital-emmental-langnau"
     ],
     "previousSlugsByLocale": {
       "it": [
         "dipl-pflegefachperson-a-spital-emmental-langnau-bbf2d564",
-        "infermiera-a-spital-emmental-langnau-1d4d1467"
+        "infermiera-a-spital-emmental-langnau-1d4d1467",
+        "infermiera-a-spital-emmental-langnau-75132a",
+        "dipl-pflegefachperson-a-spital-emmental-langnau-2"
       ],
       "de": [
         "dipl-pflegefachperson-a-spital-emmental-langnau-b5yd6u"
       ],
       "en": [
-        "dipl-nurse-a-spital-emmental-langnau-ac6cbd1d"
+        "dipl-nurse-a-spital-emmental-langnau-ac6cbd1d",
+        "dipl-nurse-a-spital-emmental-langnau-75132a",
+        "dipl-pflegefachperson-a-spital-emmental-langnau-2"
       ],
       "fr": [
-        "infirmiere-a-spital-emmental-langnau-aedf05c8"
+        "infirmiere-a-spital-emmental-langnau-aedf05c8",
+        "infirmiere-a-spital-emmental-langnau-75132a",
+        "dipl-pflegefachperson-a-spital-emmental-langnau",
+        "dipl-pflegefachperson-a-spital-emmental-langnau-2"
       ]
     },
     "postalCode": "3550",
@@ -5819,6 +5842,7 @@
         "arztsekretar-in-a-spital-emmental-burgdorf-e4e2a2a1",
         "segretario-medico-a-spital-emmental-burgdorf",
         "secretaire-medical-a-spital-emmental-burgdorf",
+        "medical-secretary-a-spital-emmental-burgdorf-7c658b76",
         "medical-secretary-a-spital-emmental-burgdorf"
       ],
       "fr": [
@@ -16395,12 +16419,14 @@
         "medical-secretary-in-a-spital-emmental-burgdorf-7e4c19",
         "arztsekretar-in-a-spital-emmental-burgdorf-7d662d87",
         "secretaire-medical-a-spital-emmental-burgdorf",
+        "medical-secretary-a-spital-emmental-burgdorf-b551e4fc",
         "medical-secretary-a-spital-emmental-burgdorf"
       ],
       "fr": [
         "secretaire-medical-en-a-spital-emmental-burgdorf-7e4c19",
         "arztsekretar-in-a-spital-emmental-burgdorf-7d662d87",
         "medical-secretary-a-spital-emmental-burgdorf",
+        "secretaire-medical-a-spital-emmental-burgdorf-5a66b425",
         "secretaire-medical-a-spital-emmental-burgdorf"
       ],
       "de": [
@@ -25441,6 +25467,9 @@
       "fr": [
         "arztsekretar-in-a-spital-emmental-langnau-580cd78e",
         "arztsekretar-in-a-spital-emmental-langnau"
+      ],
+      "de": [
+        "arztsekretar-in-a-spital-emmental-langnau-580cd78e"
       ]
     },
     "postalCode": "3550",
