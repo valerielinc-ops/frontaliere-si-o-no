@@ -1,46 +1,398 @@
 {
   "schemaVersion": 1,
-  "lastRunAt": "2026-11-23T14:46:35.645Z",
+  "lastRunAt": "2026-11-24T14:58:36.913Z",
   "findings": {
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-zurich/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-feuerthalen-c5acbd21/": {
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-basel/information-security-officer-iam-governance-lead-80-100-universitatsspital-zurich-usz-stettbach/": {
       "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch/en/find-jobs-zurich/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-feuerthalen-c5acbd21/",
+      "url": "https://frontaliereticino.ch/en/find-jobs-basel/information-security-officer-iam-governance-lead-80-100-universitatsspital-zurich-usz-stettbach/",
       "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-23T14:46:35.645Z",
-      "lastSeenAt": "2026-11-23T14:46:35.645Z",
-      "detail": "edge=503 count=20 live=503 surface=worker-shard"
-    },
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-lucerne/apprendistato-impiegata-impiegato-in-logistica-01-08-2027-31-07-2030-ikea-itingen/": {
-      "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch/en/find-jobs-lucerne/apprendistato-impiegata-impiegato-in-logistica-01-08-2027-31-07-2030-ikea-itingen/",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-23T14:46:35.645Z",
-      "lastSeenAt": "2026-11-23T14:46:35.645Z",
-      "detail": "edge=503 count=20 live=503 surface=worker-shard"
-    },
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-lucerne/verkaufer-in-kassen-services-coop-genossenschaft-root-f69c4b4b/": {
-      "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch/en/find-jobs-lucerne/verkaufer-in-kassen-services-coop-genossenschaft-root-f69c4b4b/",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-23T14:46:35.645Z",
-      "lastSeenAt": "2026-11-23T14:46:35.645Z",
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
       "detail": "edge=503 count=10 live=503 surface=worker-shard"
     },
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-lucerne/erp-business-analyst-tax-management-roche-ch/": {
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-zurigo/apprenticeship-merchant-mauffrau-service-administration-for-2027-confiserie-sprungli-ag-dietikon/": {
       "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch/en/find-jobs-lucerne/erp-business-analyst-tax-management-roche-ch/",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-zurigo/apprenticeship-merchant-mauffrau-service-administration-for-2027-confiserie-sprungli-ag-dietikon/",
       "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-23T14:46:35.645Z",
-      "lastSeenAt": "2026-11-23T14:46:35.645Z",
-      "detail": "edge=503 count=10 live=503 surface=worker-shard"
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=7 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-berna/apprenticeship-as-an-expert-woman-business-maintenance-efz-die-schweizerische-post-bern/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-berna/apprenticeship-as-an-expert-woman-business-maintenance-efz-die-schweizerische-post-bern/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=6 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-san-gallo/lehrperson-bodytoning-e-power-yoga-m-w-d-klubschule-aarau-klubschule-migros-aarau-1ko127/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-san-gallo/lehrperson-bodytoning-e-power-yoga-m-w-d-klubschule-aarau-klubschule-migros-aarau-1ko127/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=6 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-zurigo/metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-zurich/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-zurigo/metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-zurich/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=5 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-zurigo/pflegefachpersonen-fur-den-internen-pflegepool-sanatorium-kilchberg-kilchberg/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-zurigo/pflegefachpersonen-fur-den-internen-pflegepool-sanatorium-kilchberg-kilchberg/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=4 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/de/jobs-in-zurich/assistente-alla-direzione-della-filiale-denner-zurich-a76a7a/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/de/jobs-in-zurich/assistente-alla-direzione-della-filiale-denner-zurich-a76a7a/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=4 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/de/jobs-in-zurich/fachfrau-mann-gesundheit-efz-60-80-spitex-ch-thalwil/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/de/jobs-in-zurich/fachfrau-mann-gesundheit-efz-60-80-spitex-ch-thalwil/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=4 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-zurigo/apprenticeship-of-assembly-electrician-in-efz-all-bkw-winterthur/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-zurigo/apprenticeship-of-assembly-electrician-in-efz-all-bkw-winterthur/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=4 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-zurich/mobile-physiotherapist-50-100-top-1-salary-company-car-full-freedom-ag-zh-lu-zg-physio-swiss-zurich/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/en/find-jobs-zurich/mobile-physiotherapist-50-100-top-1-salary-company-car-full-freedom-ag-zh-lu-zg-physio-swiss-zurich/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=4 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-zurich/baker-in-pasticceria-in-casa-panetteria-coop-genossenschaft-zurich/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/en/find-jobs-zurich/baker-in-pasticceria-in-casa-panetteria-coop-genossenschaft-zurich/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=3 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-st-gallen/kaufmann-frau-cfc-immobilien-august-2027-livit-ag-st-gallen-91a03f73/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/en/find-jobs-st-gallen/kaufmann-frau-cfc-immobilien-august-2027-livit-ag-st-gallen-91a03f73/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=3 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/de/jobs-in-zurich/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-feuerthalen-bba28036/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/de/jobs-in-zurich/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-feuerthalen-bba28036/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=3 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-san-gallo/lehrperson-ratoromanisch-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen-idiszm/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-san-gallo/lehrperson-ratoromanisch-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen-idiszm/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=3 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-zurich/produits-alimentaires-vendus-coop-genossenschaft-zell-4f07befe/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/en/find-jobs-zurich/produits-alimentaires-vendus-coop-genossenschaft-zell-4f07befe/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=3 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-zurigo/apprentissage-2027-logisticien-logisticien-efz-lager-stadt-zurich-zurich/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-zurigo/apprentissage-2027-logisticien-logisticien-efz-lager-stadt-zurich-zurich/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=3 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-zurich/rayonleiter-in-brot-backwaren-coop-genossenschaft-kusnacht-7cf17ca9/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/en/find-jobs-zurich/rayonleiter-in-brot-backwaren-coop-genossenschaft-kusnacht-7cf17ca9/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=3 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-zurigo/tso-o-infermiere-strumentista-in-sala-operatoria-clinique-de-montchoisi-lausanne/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-zurigo/tso-o-infermiere-strumentista-in-sala-operatoria-clinique-de-montchoisi-lausanne/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=3 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-san-gallo/omega-luxury-timepieces-assistant-store-manager-bellagio-the-swatch-group-u-s-inc-job-location-south-las-vegas-boulevard-3600-89109-las-vega-7uaw4z/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-san-gallo/omega-luxury-timepieces-assistant-store-manager-bellagio-the-swatch-group-u-s-inc-job-location-south-las-vegas-boulevard-3600-89109-las-vega-7uaw4z/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=3 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-zurigo/senior-underwriter-esperti-di-assicurazioni-personali-f-m-d-part-time-full-time-helvetia-versicherungen-dubendorf/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-zurigo/senior-underwriter-esperti-di-assicurazioni-personali-f-m-d-part-time-full-time-helvetia-versicherungen-dubendorf/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=3 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-zurigo/qa-ingenieur-stadler-rail-wallisellen/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-zurigo/qa-ingenieur-stadler-rail-wallisellen/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=3 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-zurich/verkaufer-in-food-coop-genossenschaft-oberrieden-614045e0/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/en/find-jobs-zurich/verkaufer-in-food-coop-genossenschaft-oberrieden-614045e0/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=3 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-ginevra/medico-specialista-in-diabetologia-ed-endocrinologia-arsante-clinique-de-carouge-centre-medical-de-crissier-carouge/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ginevra/medico-specialista-in-diabetologia-ed-endocrinologia-arsante-clinique-de-carouge-centre-medical-de-crissier-carouge/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=3 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-zurigo/assistente-inferiore-clinica-ostetrica-e-ginecologica-a-kantonsspital-baselland-ksbl-liestal/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-zurigo/assistente-inferiore-clinica-ostetrica-e-ginecologica-a-kantonsspital-baselland-ksbl-liestal/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=3 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-san-gallo/impiegato-di-servizio-civile-informatico-100-spitaler-fmi-ag-unterseen/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-san-gallo/impiegato-di-servizio-civile-informatico-100-spitaler-fmi-ag-unterseen/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=2 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-zurich/rayonleiter-in-grundnahrungsmittel-coop-wadenswil-89cqy2-1f4bb515/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/en/find-jobs-zurich/rayonleiter-in-grundnahrungsmittel-coop-wadenswil-89cqy2-1f4bb515/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=2 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-zurich/verkaufer-in-kassen-services-coop-dietlikon-b7537f15/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/en/find-jobs-zurich/verkaufer-in-kassen-services-coop-dietlikon-b7537f15/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=2 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-zurigo/stellvertretungseinsatz-fachperson-betreuung-schule-schauenberg-stadt-zurich-zurich/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-zurigo/stellvertretungseinsatz-fachperson-betreuung-schule-schauenberg-stadt-zurich-zurich/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=2 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-zurich/verkaufer-in-food-coop-genossenschaft-oberrieden-cc5f0b64/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/en/find-jobs-zurich/verkaufer-in-food-coop-genossenschaft-oberrieden-cc5f0b64/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=2 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-san-gallo/progettista-di-costruzione-in-metallo-con-esperienza-cad-e-responsabilita-del-progetto-sta-personal-ag-hinwil-zurich/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-san-gallo/progettista-di-costruzione-in-metallo-con-esperienza-cad-e-responsabilita-del-progetto-sta-personal-ag-hinwil-zurich/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=2 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/de/jobs-in-zurich/consultant-en-ventes-domestiques-et-electriques-coop-genossenschaft-zurich-8c7e2cb3/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/de/jobs-in-zurich/consultant-en-ventes-domestiques-et-electriques-coop-genossenschaft-zurich-8c7e2cb3/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=2 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-zurich/foreman-stadt-zurich-zurich-68a444/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/en/find-jobs-zurich/foreman-stadt-zurich-zurich-68a444/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=2 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-st-gallen/verkaufer-in-frischprodukte-coop-genossenschaft-degersheim-13596bb9/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/en/find-jobs-st-gallen/verkaufer-in-frischprodukte-coop-genossenschaft-degersheim-13596bb9/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=2 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-zurigo/student-social-education-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-zurigo/student-social-education-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=2 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-san-gallo/fachberatung-exhibition-sanitary-and-plates-w-m-d-100-bms-building-materials-buchs/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-san-gallo/fachberatung-exhibition-sanitary-and-plates-w-m-d-100-bms-building-materials-buchs/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=2 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-zurich/magaziner-in-verkauf-coop-zurich-f7624432/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/en/find-jobs-zurich/magaziner-in-verkauf-coop-zurich-f7624432/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=2 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/de/jobs-in-zurich/principal-ingenieur-ai-forschung-and-development-google-switzerland-zurich/null/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/de/jobs-in-zurich/principal-ingenieur-ai-forschung-and-development-google-switzerland-zurich/null/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=2 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/de/jobs-in-zurich/unternehmen-wagerenhof/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/de/jobs-in-zurich/unternehmen-wagerenhof/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=2 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-ginevra/bodybuilder-pittore-emil-frey-crissier/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ginevra/bodybuilder-pittore-emil-frey-crissier/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=2 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/de/jobs-in-zurich/technology-innovation-architecte-kantonale-verwaltung-zurich-zurich/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/de/jobs-in-zurich/technology-innovation-architecte-kantonale-verwaltung-zurich-zurich/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=2 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-san-gallo/schreiner-in-responsabile-di-progetto-con-fuhrungsverantwortung-sta-personal-ag-andelfingen/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-san-gallo/schreiner-in-responsabile-di-progetto-con-fuhrungsverantwortung-sta-personal-ag-andelfingen/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=2 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-fribourg/seller-with-shift-responsibility-m-f-d-60-80-1-spreitenbach-lidl-svizzera-spreitenbach/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/en/find-jobs-fribourg/seller-with-shift-responsibility-m-f-d-60-80-1-spreitenbach-lidl-svizzera-spreitenbach/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=2 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-zurich/fachfrau-apotheke-pharma-assistentin-80-100-m-w-d-spital-maennedorf-ch/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/en/find-jobs-zurich/fachfrau-apotheke-pharma-assistentin-80-100-m-w-d-spital-maennedorf-ch/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=2 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-ticino/technicien-ne-en-salle-d-operation-iddo-a-80-100-hirslanden-lausanne-23f245c8/null/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/technicien-ne-en-salle-d-operation-iddo-a-80-100-hirslanden-lausanne-23f245c8/null/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=2 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/de/jobs-in-zurich/verkaufer-in-kassen-services-coop-horgen-b88db381/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/de/jobs-in-zurich/verkaufer-in-kassen-services-coop-horgen-b88db381/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=2 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/de/jobs-in-zurich/logopedista-logopedista-kantonsspital-winterthur-ksw-winterthur/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/de/jobs-in-zurich/logopedista-logopedista-kantonsspital-winterthur-ksw-winterthur/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=2 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-zurich/verkaufer-in-frischprodukte-neueroffnung-marz-2027-coop-zurich-v4tjmn/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/en/find-jobs-zurich/verkaufer-in-frischprodukte-neueroffnung-marz-2027-coop-zurich-v4tjmn/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=2 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-zurigo/esperto-in-cure-di-emergenza-nds-hf-kantonsspital-winterthur-ksw-winterthur-281b9119/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-zurigo/esperto-in-cure-di-emergenza-nds-hf-kantonsspital-winterthur-ksw-winterthur-281b9119/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-24T14:58:36.913Z",
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "edge=503 count=2 live=503 surface=apex-pages"
     },
     "cloudflare-5xx-unverified|source:cloudflare-5xx-unverified": {
       "code": "cloudflare-5xx-unverified",
       "url": "source:cloudflare-5xx-unverified",
-      "consecutiveRuns": 11,
+      "consecutiveRuns": 12,
       "firstSeenAt": "2026-11-13T12:18:45.545Z",
-      "lastSeenAt": "2026-11-23T14:46:35.645Z",
-      "detail": "count=25812 sampled-out-or-unprobed; no live recovery asserted"
+      "lastSeenAt": "2026-11-24T14:58:36.913Z",
+      "detail": "count=8329 sampled-out-or-unprobed; no live recovery asserted"
     }
   },
   "cleanRuns": 0,
