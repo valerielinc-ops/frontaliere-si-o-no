@@ -1048800,7 +1048800,9 @@
   "id|swatchgroup.com|34226": {
     "canonicalSlug": "sales-representative-m-w-80-omega-boutique-bern-omega-berne",
     "slugByLocale": {
-      "de": "sales-representative-m-w-80-omega-boutique-bern-omega-berne"
+      "de": "sales-representative-m-w-80-omega-boutique-bern-omega-berne",
+      "it": "addetto-a-alle-vendite-m-f-80-boutique-omega-berna-omega-sa-berne",
+      "fr": "conseiller-ere-de-vente-h-f-80-boutique-omega-berne-omega-sa-berne"
     },
     "createdAt": "2026-11-16",
     "canton": "BE"
@@ -1048808,7 +1048810,9 @@
   "id|swatchgroup.com|34231": {
     "canonicalSlug": "sales-representative-omega-boutique-zurich-m-w-omega-zurich",
     "slugByLocale": {
-      "de": "sales-representative-omega-boutique-zurich-m-w-omega-zurich"
+      "de": "sales-representative-omega-boutique-zurich-m-w-omega-zurich",
+      "it": "rappresentanti-omega-boutique-build-m-f-omega-sa-zurich",
+      "fr": "ventes-representant-omega-boutique-build-h-f-omega-sa-zurich"
     },
     "createdAt": "2026-11-16",
     "canton": "ZH"
@@ -1102803,5 +1102807,25 @@
     },
     "createdAt": "2026-11-24",
     "canton": "VD"
+  },
+  "id|swatchgroup.com|34261": {
+    "canonicalSlug": "avvertenza-della-cucina-omega-sa-biel-bienne",
+    "slugByLocale": {
+      "it": "avvertenza-della-cucina-omega-sa-biel-bienne",
+      "fr": "apprentissage-de-cuisinier-ere-cfc-omega-biel-bienne"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "BE"
+  },
+  "id|swatchgroup.com|34386": {
+    "canonicalSlug": "progetto-di-industrializzazione-omega-sa-biel-bienne",
+    "slugByLocale": {
+      "it": "progetto-di-industrializzazione-omega-sa-biel-bienne",
+      "en": "industrialization-project-head-omega-sa-biel-bienne",
+      "de": "wirtschaftsprojekt-omega-sa-biel-bienne",
+      "fr": "chef-de-projet-industrialisation-omega-biel-bienne"
+    },
+    "createdAt": "2026-11-24",
+    "canton": "BE"
   }
 }
