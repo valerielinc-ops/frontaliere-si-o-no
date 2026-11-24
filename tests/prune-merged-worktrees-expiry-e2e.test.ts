@@ -28,6 +28,7 @@ let scratchWorktree = '';
 let raceWorktree = '';
 let hooksPushLog = '';
 let mainPushLog = '';
+let foreignPushLog = '';
 
 function git(cwd: string, args: string[], extraEnv: NodeJS.ProcessEnv = {}): string {
   // Dopo la configurazione dello shim usato per simulare la race, il fixture
@@ -256,6 +257,15 @@ process.exit(result.status ?? 1);
   fs.rmSync(updateHook);
   const orphanHead = makeBranch('worktree-agent-issue-128-expired', 'orphan.txt', 'orphan\n');
   ageBranch('worktree-agent-issue-128-expired');
+  // Fallback: a hooks checkout of another repository (the corpus sweep loads
+  // the script from the site's hooks-main) must be ignored, so the orphan
+  // snapshot is pushed from the cwd with the main checkout's hooks.
+  const foreign = path.join(root, 'foreign-repo');
+  execFileSync('git', ['init', '-q', '--initial-branch', 'main', foreign], { env });
+  foreignPushLog = path.join(root, 'foreign-pre-push.log');
+  fs.mkdirSync(path.join(foreign, '.githooks'));
+  fs.writeFileSync(path.join(foreign, '.githooks', 'pre-push'), `#!/bin/sh\n{ pwd; cat; } >> '${foreignPushLog}'\n`, { mode: 0o755 });
+  env.FRONTALIERE_PRUNE_HOOKS_CHECKOUT = foreign;
   orphanDryRun = runScript(['--orphans-only']);
   orphanApplyRun = runScript(['--apply', '--orphans-only']);
 
@@ -307,7 +317,17 @@ describe('scadenza con snapshot per worktree e branch', () => {
     const log = fs.readFileSync(hooksPushLog, 'utf8');
     expect(log).toContain(fs.realpathSync(worktreePath('hooks-main')));
     expect(log).toMatch(/refs\/tags\/snapshot\/\S+\/fix\/issue-123-old /);
-    expect(fs.existsSync(mainPushLog)).toBe(false);
+    expect(log).not.toContain('worktree-agent-issue-128-expired');
+    // The main checkout's pre-push ran only for the orphan sweep below, never
+    // for the snapshots pushed while the hooks checkout was valid.
+    expect(fs.readFileSync(mainPushLog, 'utf8')).not.toContain('fix/issue-123-old');
+  });
+
+  it('ignora un checkout degli hook di un altro repository e spinge dalla cwd', () => {
+    expect(fs.existsSync(foreignPushLog)).toBe(false);
+    const log = fs.readFileSync(mainPushLog, 'utf8');
+    expect(log).toContain(fs.realpathSync(clone));
+    expect(log).toMatch(/refs\/tags\/snapshot\/\S+\/worktree-agent-issue-128-expired /);
   });
 
   it('non rimuove nulla se il push dello snapshot fallisce', () => {
