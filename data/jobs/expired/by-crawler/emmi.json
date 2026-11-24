@@ -73,29 +73,38 @@
     "slugByLocale": {
       "it": "collaboratore-trice-labor-emmi-suhr-286be5a7f2",
       "en": "associate-labor-emmi-suhr-aargau",
-      "de": "mitarbeiter-in-labor-emmi-ch",
+      "de": "mitarbeiter-in-labor-emmi-ch-4b207858",
       "fr": "collaborateur-trice-labor-emmi-suhr-aargau"
     },
     "sector": "Food & Beverage (dairy)",
     "expiredAt": "2026-11-24T09:19:48.419Z",
     "previousSlugs": [
-      "mitarbeiter-in-labor-emmi-ch",
       "mitarbeiter-in-labor-emmi-suhr",
-      "collaboratore-trice-labor-emmi-suhr"
+      "mitarbeiter-in-labor-emmi-ch",
+      "collaboratore-trice-labor-emmi-suhr",
+      "collaboratore-trice-labor-emmi-suhr-cc5fee65"
     ],
     "previousSlugsByLocale": {
       "it": [
+        "mitarbeiter-in-labor-emmi-ch-4b207858",
+        "collaboratore-trice-labor-emmi-suhr-cc5fee65",
         "mitarbeiter-in-labor-emmi-ch",
         "collaboratore-trice-labor-emmi-suhr"
       ],
       "en": [
-        "mitarbeiter-in-labor-emmi-suhr"
+        "mitarbeiter-in-labor-emmi-suhr",
+        "mitarbeiter-in-labor-emmi-ch",
+        "collaboratore-trice-labor-emmi-suhr"
       ],
       "de": [
-        "mitarbeiter-in-labor-emmi-suhr"
+        "mitarbeiter-in-labor-emmi-suhr",
+        "mitarbeiter-in-labor-emmi-ch-4b207858",
+        "collaboratore-trice-labor-emmi-suhr"
       ],
       "fr": [
-        "mitarbeiter-in-labor-emmi-suhr"
+        "mitarbeiter-in-labor-emmi-suhr",
+        "mitarbeiter-in-labor-emmi-ch",
+        "collaboratore-trice-labor-emmi-suhr"
       ]
     },
     "postalCode": "5034",
@@ -865,9 +874,7 @@
     "expiredAt": "2026-11-18T21:21:43.184Z",
     "previousSlugsByLocale": {
       "it": [
-        "betriebselektriker-in-automatiker-in-emmi-ch",
-        "betriebselektriker-in-automatiker-in-emmi-ch-2",
-        "betriebselektriker-in-automatiker-in-emmi-suhr",
+        "betriebselektriker-in-automatiker-in-emmi-suhr-0fc3e263",
         "elettricista-aziendale-automatista-emmi-dagmersellen-luzern-055967a4",
         "techniker-in-automation-emmi-ch-4c0a2f7e",
         "betriebselektriker-in-automatiker-in-emmi-ch-4090661c",
@@ -885,12 +892,18 @@
         "betriebselektriker-in-automatiker-in-emmi-dagmersellen-aa235515",
         "elettricista-aziendale-automatico-a-emmi-ostermundigen-f0b30a7b",
         "elettricista-aziendale-automatico-a-emmi-ostermundigen-a4bab186",
-        "betriebselektriker-in-automatiker-in-emmi-ostermundigen-f1bba067"
+        "betriebselektriker-in-automatiker-in-emmi-ostermundigen-f1bba067",
+        "elettricista-industriale-tecnico-a-di-automazione-emmi-suhr-aargau-a389442a",
+        "industrial-electrician-automation-technician-emmi-suhr-aargau",
+        "electricien-ne-d-exploitation-automaticien-ne-emmi-suhr-aargau",
+        "betriebselektriker-in-automatiker-in-emmi-ch",
+        "betriebselektriker-in-automatiker-in-emmi-ch-2",
+        "betriebselektriker-in-automatiker-in-emmi-suhr"
       ],
       "en": [
         "betriebselektriker-in-automatiker-in-emmi-ch",
-        "industrial-electrician-automation-technician-emmi-suhr-aargau",
-        "betriebselektriker-in-automatiker-in-emmi-suhr",
+        "industrial-electrician-automation-technician-emmi-suhr-aargau-62338d23",
+        "betriebselektriker-in-automatiker-in-emmi-suhr-0fc3e263",
         "industrial-electrician-automation-technician-emmi-dagmersellen-luzern-881e4c15",
         "betriebselektriker-in-automatiker-in-emmi-dagmersellen-39b9eb56",
         "plantelectrician-automation-technician-emmi-ostermundigen-210f6973",
@@ -906,23 +919,31 @@
         "plantelectrician-automation-technician-emmi-ostermundigen-c88eebd4",
         "plantelectrician-automation-technician-emmi-ostermundigen-d119de95",
         "betriebselektriker-in-automatiker-in-emmi-ch-2",
-        "betriebselektriker-in-automatiker-in-emmi-ostermundigen-f1bba067"
+        "betriebselektriker-in-automatiker-in-emmi-ostermundigen-f1bba067",
+        "elettricista-industriale-tecnico-a-di-automazione-emmi-suhr-aargau",
+        "electricien-ne-d-exploitation-automaticien-ne-emmi-suhr-aargau",
+        "industrial-electrician-automation-technician-emmi-suhr-aargau",
+        "betriebselektriker-in-automatiker-in-emmi-suhr"
       ],
       "de": [
-        "betriebselektriker-in-automatiker-in-emmi-ch",
-        "betriebselektriker-in-automatiker-in-emmi-suhr",
+        "betriebselektriker-in-automatiker-in-emmi-suhr-0fc3e263",
         "betriebselektriker-in-automatiker-in-emmi-ch-4090661c",
         "betriebselektriker-in-automatiker-in-emmi-dagmersellen",
         "elettricista-aziendale-automatico-a-emmi-ostermundigen",
         "plantelectrician-automation-technician-emmi-ostermundigen",
         "electricien-d-exploitation-automaticien-emmi-ostermundigen",
         "betriebselektriker-in-automatiker-in-emmi-ch-2",
-        "betriebselektriker-in-automatiker-in-emmi-ostermundigen-f1bba067"
+        "betriebselektriker-in-automatiker-in-emmi-ostermundigen-f1bba067",
+        "elettricista-industriale-tecnico-a-di-automazione-emmi-suhr-aargau",
+        "industrial-electrician-automation-technician-emmi-suhr-aargau",
+        "electricien-ne-d-exploitation-automaticien-ne-emmi-suhr-aargau",
+        "betriebselektriker-in-automatiker-in-emmi-ch",
+        "betriebselektriker-in-automatiker-in-emmi-suhr"
       ],
       "fr": [
         "betriebselektriker-in-automatiker-in-emmi-ch",
-        "electricien-ne-d-exploitation-automaticien-ne-emmi-suhr-aargau",
-        "betriebselektriker-in-automatiker-in-emmi-suhr",
+        "electricien-ne-d-exploitation-automaticien-ne-emmi-suhr-aargau-97ddca08",
+        "betriebselektriker-in-automatiker-in-emmi-suhr-0fc3e263",
         "electricien-ne-d-exploitation-automaticien-ne-emmi-dagmersellen-luzern-5e3fdbc7",
         "betriebselektriker-in-automatiker-in-emmi-dagmersellen-39b9eb56",
         "electricien-d-exploitation-automaticien-emmi-ostermundigen-9c74f31f",
@@ -938,7 +959,11 @@
         "electricien-d-exploitation-automaticien-emmi-ostermundigen-9e07d16b",
         "electricien-d-exploitation-automaticien-emmi-ostermundigen-971e0932",
         "betriebselektriker-in-automatiker-in-emmi-ch-2",
-        "betriebselektriker-in-automatiker-in-emmi-ostermundigen-f1bba067"
+        "betriebselektriker-in-automatiker-in-emmi-ostermundigen-f1bba067",
+        "elettricista-industriale-tecnico-a-di-automazione-emmi-suhr-aargau",
+        "industrial-electrician-automation-technician-emmi-suhr-aargau",
+        "electricien-ne-d-exploitation-automaticien-ne-emmi-suhr-aargau",
+        "betriebselektriker-in-automatiker-in-emmi-suhr"
       ]
     },
     "postalCode": "3072",
@@ -951,13 +976,7 @@
     "firstSeenAt": "2026-06-10T07:51:39.204Z",
     "previousSlugs": [
       "betriebselektriker-in-automatiker-in-emmi-ostermundigen-f1bba067",
-      "betriebselektriker-in-automatiker-in-emmi-ch",
-      "elettricista-industriale-tecnico-a-di-automazione-emmi-suhr-aargau",
-      "betriebselektriker-in-automatiker-in-emmi-ch-2",
-      "betriebselektriker-in-automatiker-in-emmi-suhr",
       "elettricista-aziendale-automatista-emmi-dagmersellen-luzern-055967a4",
-      "industrial-electrician-automation-technician-emmi-suhr-aargau",
-      "electricien-ne-d-exploitation-automaticien-ne-emmi-suhr-aargau",
       "techniker-in-automation-emmi-ch-4c0a2f7e",
       "betriebselektriker-in-automatiker-in-emmi-ch-4090661c",
       "betriebselektriker-in-automatiker-in-emmi-dagmersellen-39b9eb56",
@@ -994,7 +1013,17 @@
       "electricien-d-exploitation-automaticien-emmi-ostermundigen-b87b7ed2",
       "electricien-ne-d-exploitation-automaticien-ne-emmi-dagmersellen-luzern-f77986ed",
       "electricien-d-exploitation-automaticien-emmi-ostermundigen-9e07d16b",
-      "electricien-d-exploitation-automaticien-emmi-ostermundigen-971e0932"
+      "electricien-d-exploitation-automaticien-emmi-ostermundigen-971e0932",
+      "betriebselektriker-in-automatiker-in-emmi-ch",
+      "elettricista-industriale-tecnico-a-di-automazione-emmi-suhr-aargau",
+      "betriebselektriker-in-automatiker-in-emmi-ch-2",
+      "betriebselektriker-in-automatiker-in-emmi-suhr",
+      "industrial-electrician-automation-technician-emmi-suhr-aargau",
+      "electricien-ne-d-exploitation-automaticien-ne-emmi-suhr-aargau",
+      "betriebselektriker-in-automatiker-in-emmi-suhr-0fc3e263",
+      "elettricista-industriale-tecnico-a-di-automazione-emmi-suhr-aargau-a389442a",
+      "industrial-electrician-automation-technician-emmi-suhr-aargau-62338d23",
+      "electricien-ne-d-exploitation-automaticien-ne-emmi-suhr-aargau-97ddca08"
     ],
     "sourceIdentityHistory": [
       {
@@ -4863,7 +4892,12 @@
       "anlagenfuhrer-in-100-emmi-ch",
       "plant-operator-emmi-frenkendorf-basel-landschaft",
       "anlagenfuhrer-in-100-emmi-frenkendorf",
-      "operateur-trice-d-installation-emmi-frenkendorf-basel-landschaft"
+      "operateur-trice-d-installation-emmi-frenkendorf-basel-landschaft",
+      "operatore-trice-di-impianti-emmi-frenkendorf-basel-landschaft-e7e8f907",
+      "anlagenfuhrer-in-100-emmi-ch-d8773228",
+      "plant-operator-emmi-frenkendorf-basel-landschaft-5642d624",
+      "anlagenfuhrer-in-100-emmi-frenkendorf-daaa249a",
+      "operateur-trice-d-installation-emmi-frenkendorf-basel-landschaft-7bcc1f8a"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -4886,6 +4920,11 @@
         "maschinenfuhrer-in-emmi-ch-l5p4ro",
         "anlagenfuhrer-in-kasekonfektionierung-emmi-ch-e3de117b",
         "operateur-du-systeme-dans-la-preparation-du-fromage-emmi-emmen-luzern",
+        "operatore-trice-di-impianti-emmi-frenkendorf-basel-landschaft-e7e8f907",
+        "anlagenfuhrer-in-100-emmi-ch-d8773228",
+        "plant-operator-emmi-frenkendorf-basel-landschaft",
+        "anlagenfuhrer-in-100-emmi-frenkendorf",
+        "operateur-trice-d-installation-emmi-frenkendorf-basel-landschaft",
         "operatore-trice-di-impianti-emmi-frenkendorf-basel-landschaft",
         "anlagenfuhrer-in-100-emmi-ch",
         "anlagenfuhrer-in-emmi-ch"
@@ -4896,12 +4935,22 @@
         "machine-operator-emmi-emmen-luzern",
         "operator-in-emmi-emmen-luzern",
         "anlagenfuhrer-in-emmi-ch-b05e6db1",
+        "plant-operator-emmi-frenkendorf-basel-landschaft-5642d624",
+        "operatore-trice-di-impianti-emmi-frenkendorf-basel-landschaft",
+        "anlagenfuhrer-in-100-emmi-ch",
+        "anlagenfuhrer-in-100-emmi-frenkendorf",
+        "operateur-trice-d-installation-emmi-frenkendorf-basel-landschaft",
         "plant-operator-emmi-frenkendorf-basel-landschaft",
         "anlagenfuhrer-in-emmi-ch"
       ],
       "de": [
         "maschinenfuhrer-in-emmi-ch-l5p4ro",
         "anlagenfuhrer-in-kasekonfektionierung-emmi-ch-e3de117b",
+        "anlagenfuhrer-in-100-emmi-ch-d8773228",
+        "anlagenfuhrer-in-100-emmi-frenkendorf-daaa249a",
+        "operatore-trice-di-impianti-emmi-frenkendorf-basel-landschaft",
+        "plant-operator-emmi-frenkendorf-basel-landschaft",
+        "operateur-trice-d-installation-emmi-frenkendorf-basel-landschaft",
         "anlagenfuhrer-in-100-emmi-ch",
         "anlagenfuhrer-in-100-emmi-frenkendorf",
         "anlagenfuhrer-in-emmi-ch"
@@ -4914,6 +4963,11 @@
         "operateur-in-emmi-emmen-luzern",
         "anlagenfuhrer-in-emmi-ch-b05e6db1",
         "operateur-du-systeme-dans-la-preparation-du-fromage-emmi-emmen-luzern",
+        "operateur-trice-d-installation-emmi-frenkendorf-basel-landschaft-7bcc1f8a",
+        "operatore-trice-di-impianti-emmi-frenkendorf-basel-landschaft",
+        "anlagenfuhrer-in-100-emmi-ch",
+        "plant-operator-emmi-frenkendorf-basel-landschaft",
+        "anlagenfuhrer-in-100-emmi-frenkendorf",
         "operateur-trice-d-installation-emmi-frenkendorf-basel-landschaft",
         "anlagenfuhrer-in-emmi-ch"
       ]
@@ -39414,7 +39468,8 @@
       "anlagenfuhrer-in-team-butter-emmi-ch-2a7a9de3",
       "anlagenfuhrer-in-team-butter-emmi-ch-65cea8d1",
       "anlagenfuhrer-in-team-butter-emmi-ch-e0ac886e",
-      "anlagenfuhrer-in-team-butter-emmi-ch-c06509cb"
+      "anlagenfuhrer-in-team-butter-emmi-ch-c06509cb",
+      "anlagenfuhrer-in-team-butter-emmi-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -41066,6 +41121,9 @@
       "fr": [
         "anlagenfuhrer-in-mischerei-emmi-ch",
         "conducteur-d-installation-en-melange-emmi-suhr"
+      ],
+      "de": [
+        "anlagenfuhrer-in-mischerei-emmi-ch-a8a70f80"
       ]
     },
     "postalCode": "5034",
