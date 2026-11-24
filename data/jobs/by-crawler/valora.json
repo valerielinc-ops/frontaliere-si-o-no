@@ -2675,10 +2675,10 @@
     },
     {
       "id": "valora-2f12b625e2cc",
-      "slug": "verkauferin-verkaufer-k-kiosk-8-std-valora-bern",
+      "slug": "venditore-venditore-k-kiosk-8-ore-valora-group-bern",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-k-kiosk-8-std-valora-bern",
-        "it": "verkauferin-verkaufer-k-kiosk-8-std-valora-bern",
+        "it": "venditore-venditore-k-kiosk-8-ore-valora-group-bern",
         "en": "verkauferin-verkaufer-k-kiosk-8-std-valora-bern",
         "fr": "verkauferin-verkaufer-k-kiosk-8-std-valora-bern"
       },
@@ -2743,7 +2743,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-21T21:17:53.475Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-16T23:44:47.487Z"
+      "firstSeenAt": "2026-09-16T23:44:47.487Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-k-kiosk-8-std-valora-bern"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-k-kiosk-8-std-valora-bern"
+      ]
     }
   ]
 }

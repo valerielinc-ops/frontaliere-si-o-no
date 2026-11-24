@@ -10320,12 +10320,12 @@
     },
     {
       "id": "rolex-c0f93c46a0f8",
-      "slug": "responsable-de-groupe-h-f-rolex-ch-3",
+      "slug": "gestione-gruppo-m-f-rolex-bienne-37b451",
       "slugByLocale": {
         "fr": "responsable-de-groupe-h-f-rolex-ch",
-        "it": "responsable-de-groupe-h-f-rolex-ch-3",
-        "en": "responsable-de-groupe-h-f-rolex-ch-3",
-        "de": "responsable-de-groupe-h-f-rolex-ch-3"
+        "it": "gestione-gruppo-m-f-rolex-bienne-37b451",
+        "en": "group-manager-m-f-rolex-bienne-37b451",
+        "de": "gruppenleiter-m-w-rolex-bienne-37b451"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -10386,16 +10386,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:20:50.702Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-26T13:57:59.272Z"
+      "firstSeenAt": "2026-09-26T13:57:59.272Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-de-groupe-h-f-rolex-ch-3"
+        ],
+        "en": [
+          "responsable-de-groupe-h-f-rolex-ch-3"
+        ],
+        "de": [
+          "responsable-de-groupe-h-f-rolex-ch-3"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-de-groupe-h-f-rolex-ch-3"
+      ]
     },
     {
       "id": "rolex-ffae86057dc3",
-      "slug": "maitre-d-apprentissage-terminaison-m-w-d-rolex-geneve",
+      "slug": "master-di-terminazione-di-apprendimento-m-f-rolex-geneve",
       "slugByLocale": {
         "fr": "maitre-d-apprentissage-terminaison-h-f-rolex-ch",
-        "it": "maitre-d-apprentissage-terminaison-m-w-d-rolex-geneve",
-        "en": "maitre-d-apprentissage-terminaison-h-f-rolex-ch",
-        "de": "maitre-d-apprentissage-terminaison-h-f-rolex-ch"
+        "it": "master-di-terminazione-di-apprendimento-m-f-rolex-geneve",
+        "en": "master-of-learning-termination-m-f-rolex-geneve",
+        "de": "master-of-learning-termination-m-w-rolex-geneve"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -10441,11 +10455,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "maitre-d-apprentissage-terminaison-h-f-rolex-ch",
+          "maitre-d-apprentissage-terminaison-m-w-d-rolex-geneve"
+        ],
+        "en": [
+          "maitre-d-apprentissage-terminaison-h-f-rolex-ch"
+        ],
+        "de": [
           "maitre-d-apprentissage-terminaison-h-f-rolex-ch"
         ]
       },
       "previousSlugs": [
-        "maitre-d-apprentissage-terminaison-h-f-rolex-ch"
+        "maitre-d-apprentissage-terminaison-h-f-rolex-ch",
+        "maitre-d-apprentissage-terminaison-m-w-d-rolex-geneve"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -10468,12 +10490,12 @@
     },
     {
       "id": "rolex-2de4074f48a1",
-      "slug": "mecanicien-de-production-h-f-rolex-ch",
+      "slug": "ingegnere-di-produzione-m-f-rolex-bienne",
       "slugByLocale": {
         "fr": "mecanicien-de-production-h-f-rolex-ch",
-        "it": "mecanicien-de-production-h-f-rolex-ch",
-        "en": "mecanicien-de-production-h-f-rolex-ch",
-        "de": "mecanicien-de-production-h-f-rolex-ch"
+        "it": "ingegnere-di-produzione-m-f-rolex-bienne",
+        "en": "production-engineer-m-f-rolex-bienne",
+        "de": "produktionsingenieur-m-w-rolex-bienne"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -10534,16 +10556,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:20:49.425Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:20:49.425Z"
+      "firstSeenAt": "2026-11-23T21:20:49.425Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mecanicien-de-production-h-f-rolex-ch"
+        ],
+        "en": [
+          "mecanicien-de-production-h-f-rolex-ch"
+        ],
+        "de": [
+          "mecanicien-de-production-h-f-rolex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mecanicien-de-production-h-f-rolex-ch"
+      ]
     },
     {
       "id": "rolex-d6f9585ae6f7",
-      "slug": "mecanicien-h-f-rolex-ch",
+      "slug": "meccanico-m-f-rolex-bienne",
       "slugByLocale": {
         "fr": "mecanicien-h-f-rolex-ch",
-        "it": "mecanicien-h-f-rolex-ch",
-        "en": "mecanicien-h-f-rolex-ch",
-        "de": "mecanicien-h-f-rolex-ch"
+        "it": "meccanico-m-f-rolex-bienne",
+        "en": "mechanic-m-f-rolex-bienne",
+        "de": "mechanisches-m-w-rolex-bienne"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -10604,15 +10640,29 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:20:48.784Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:20:48.784Z"
+      "firstSeenAt": "2026-11-23T21:20:48.784Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mecanicien-h-f-rolex-ch"
+        ],
+        "en": [
+          "mecanicien-h-f-rolex-ch"
+        ],
+        "de": [
+          "mecanicien-h-f-rolex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mecanicien-h-f-rolex-ch"
+      ]
     },
     {
       "id": "rolex-096c63901c99",
-      "slug": "ingenieur-metier-laser-h-f-rolex-ch",
+      "slug": "ingegnere-professionale-laser-m-f-rolex-geneve",
       "slugByLocale": {
         "fr": "ingenieur-metier-laser-h-f-rolex-ch",
-        "it": "ingenieur-metier-laser-h-f-rolex-ch",
-        "en": "ingenieur-metier-laser-h-f-rolex-ch",
+        "it": "ingegnere-professionale-laser-m-f-rolex-geneve",
+        "en": "professional-engineer-laser-m-f-rolex-geneve",
         "de": "ingenieur-metier-laser-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -10674,7 +10724,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:20:48.142Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:20:48.142Z"
+      "firstSeenAt": "2026-11-23T21:20:48.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-metier-laser-h-f-rolex-ch"
+        ],
+        "en": [
+          "ingenieur-metier-laser-h-f-rolex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-metier-laser-h-f-rolex-ch"
+      ]
     },
     {
       "id": "rolex-1ad1db620193",

@@ -3152,12 +3152,12 @@
     },
     {
       "id": "srg-ssr-f850bb23575e",
-      "slug": "themenmanager-in-kommunikation-amp-dialog-srf-srg-ssr-zurich",
+      "slug": "responsabile-tematico-comunicazione-e-dialogo-srf-srg-ssr-zurich",
       "slugByLocale": {
         "de": "themenmanager-in-kommunikation-amp-dialog-srf-srg-ssr-zurich",
-        "it": "themenmanager-in-kommunikation-amp-dialog-srf-srg-ssr-zurich",
-        "en": "themenmanager-in-kommunikation-amp-dialog-srf-srg-ssr-zurich",
-        "fr": "themenmanager-in-kommunikation-amp-dialog-srf-srg-ssr-zurich"
+        "it": "responsabile-tematico-comunicazione-e-dialogo-srf-srg-ssr-zurich",
+        "en": "topic-manager-communication-dialogue-srf-srg-ssr-zurich",
+        "fr": "responsable-thematique-communication-et-dialogue-srf-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3236,7 +3236,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-21T21:19:34.557Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:19:34.557Z"
+      "firstSeenAt": "2026-11-23T21:19:34.557Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "themenmanager-in-kommunikation-amp-dialog-srf-srg-ssr-zurich"
+        ],
+        "en": [
+          "themenmanager-in-kommunikation-amp-dialog-srf-srg-ssr-zurich"
+        ],
+        "fr": [
+          "themenmanager-in-kommunikation-amp-dialog-srf-srg-ssr-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "themenmanager-in-kommunikation-amp-dialog-srf-srg-ssr-zurich"
+      ]
     },
     {
       "id": "srg-ssr-49b91deab641",
@@ -3522,10 +3536,10 @@
     },
     {
       "id": "srg-ssr-8d936deadf36",
-      "slug": "hr-partner-srg-ssr-lausanne",
+      "slug": "risorse-umane-partner-srg-ssr-lausanne",
       "slugByLocale": {
         "fr": "hr-partner-srg-ssr-lausanne",
-        "it": "hr-partner-srg-ssr-lausanne",
+        "it": "risorse-umane-partner-srg-ssr-lausanne",
         "en": "hr-partner-srg-ssr-lausanne",
         "de": "hr-partner-srg-ssr-lausanne"
       },
@@ -3610,16 +3624,24 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-21T21:19:31.902Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:19:31.902Z"
+      "firstSeenAt": "2026-11-23T21:19:31.902Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-partner-srg-ssr-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "hr-partner-srg-ssr-lausanne"
+      ]
     },
     {
       "id": "srg-ssr-2b0285846230",
-      "slug": "camerawomen-ou-cameramen-de-reportages-srg-ssr-bern",
+      "slug": "camerawomen-o-telecamera-dei-rapporti-srg-ssr-bern",
       "slugByLocale": {
         "fr": "camerawomen-ou-cameramen-de-reportages-srg-ssr-bern",
-        "it": "camerawomen-ou-cameramen-de-reportages-srg-ssr-bern",
-        "en": "camerawomen-ou-cameramen-de-reportages-srg-ssr-bern",
-        "de": "camerawomen-ou-cameramen-de-reportages-srg-ssr-bern"
+        "it": "camerawomen-o-telecamera-dei-rapporti-srg-ssr-bern",
+        "en": "camerawomen-or-camera-of-reports-srg-ssr-bern",
+        "de": "kamerafrauen-oder-kamera-von-berichten-srg-ssr-bern"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3709,7 +3731,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-21T21:19:31.202Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:19:31.202Z"
+      "firstSeenAt": "2026-11-23T21:19:31.202Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "camerawomen-ou-cameramen-de-reportages-srg-ssr-bern"
+        ],
+        "en": [
+          "camerawomen-ou-cameramen-de-reportages-srg-ssr-bern"
+        ],
+        "de": [
+          "camerawomen-ou-cameramen-de-reportages-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "camerawomen-ou-cameramen-de-reportages-srg-ssr-bern"
+      ]
     },
     {
       "id": "srg-ssr-b0106563d465",
@@ -3814,7 +3850,7 @@
     },
     {
       "id": "srg-ssr-9726f4105ba4",
-      "slug": "senior-responsabile-di-prodotto-digital-workplace-srg-ssr-zurich-8d92a7103e",
+      "slug": "senior-responsabile-di-prodotto-digital-workplace-srg-ssr-zurich",
       "slugByLocale": {
         "it": "senior-responsabile-di-prodotto-digital-workplace-srg-ssr-zurich",
         "en": "senior-product-manager-digital-workplace-srg-ssr-zurich-s0w6pm",
@@ -3879,11 +3915,13 @@
       },
       "previousSlugs": [
         "senior-produktmanager-in-digital-workplace-srg-ssr-zurich",
-        "senior-product-manager-digital-workplace-srg-ssr-zurich"
+        "senior-product-manager-digital-workplace-srg-ssr-zurich",
+        "senior-responsabile-di-prodotto-digital-workplace-srg-ssr-zurich-8d92a7103e"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-produktmanager-in-digital-workplace-srg-ssr-zurich"
+          "senior-produktmanager-in-digital-workplace-srg-ssr-zurich",
+          "senior-responsabile-di-prodotto-digital-workplace-srg-ssr-zurich-8d92a7103e"
         ],
         "en": [
           "senior-produktmanager-in-digital-workplace-srg-ssr-zurich",
@@ -3912,7 +3950,7 @@
     },
     {
       "id": "srg-ssr-c58a90ccf029",
-      "slug": "senior-product-manager-ambiente-digitale-m-f-d-srg-ssr-zurich-bb13d36b0f",
+      "slug": "senior-product-manager-ambiente-digitale-m-f-d-srg-ssr-zurich",
       "slugByLocale": {
         "it": "senior-product-manager-ambiente-digitale-m-f-d-srg-ssr-zurich",
         "en": "senior-product-manager-digital-workplace-f-m-d-srg-ssr-zurich",
@@ -3976,11 +4014,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "senior-product-manager-digital-workplace-f-m-d-srg-ssr-zurich"
+        "senior-product-manager-digital-workplace-f-m-d-srg-ssr-zurich",
+        "senior-product-manager-ambiente-digitale-m-f-d-srg-ssr-zurich-bb13d36b0f"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-product-manager-digital-workplace-f-m-d-srg-ssr-zurich"
+          "senior-product-manager-digital-workplace-f-m-d-srg-ssr-zurich",
+          "senior-product-manager-ambiente-digitale-m-f-d-srg-ssr-zurich-bb13d36b0f"
         ]
       },
       "needsRetranslation": true,

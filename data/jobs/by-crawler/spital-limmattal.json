@@ -9,8 +9,8 @@
       "slugByLocale": {
         "de": "studentin-student-fur-die-mitarbeit-im-ruckweisungsmanagement-im-stundenlohn-spital",
         "it": "studentin-student-per-la-mitarbeit-im-ruckweisungsmanagement-im-stundenlohn-spital-limmattal-schlieren",
-        "en": "studentin-student-fur-die-mitarbeit-im-ruckweisungsmanagement-im-stundenlohn-spital",
-        "fr": "studentin-student-fur-die-mitarbeit-im-ruckweisungsmanagement-im-stundenlohn-spital"
+        "en": "student-for-work-in-rejection-management-in-hourly-wages-spital-limmattal-schlieren",
+        "fr": "etudiant-pour-le-travail-dans-la-gestion-du-rejet-dans-les-salaires-horaires-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -58,6 +58,12 @@
       "previousSlugsByLocale": {
         "it": [
           "studentin-student-fur-die-mitarbeit-im-ruckweisungsmanagement-im-stundenlohn-spital"
+        ],
+        "en": [
+          "studentin-student-fur-die-mitarbeit-im-ruckweisungsmanagement-im-stundenlohn-spital"
+        ],
+        "fr": [
+          "studentin-student-fur-die-mitarbeit-im-ruckweisungsmanagement-im-stundenlohn-spital"
         ]
       },
       "previousSlugs": [
@@ -84,12 +90,12 @@
     },
     {
       "id": "spital-limmattal-513553513884",
-      "slug": "sachbearbeiter-in-patientenaufnahme-notfall-100-spital-limmattal-ch",
+      "slug": "addetto-a-all-accettazione-pazienti-pronto-soccorso-100-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "sachbearbeiter-in-patientenaufnahme-notfall-100-spital-limmattal-ch",
-        "it": "sachbearbeiter-in-patientenaufnahme-notfall-100-spital-limmattal-ch",
-        "en": "sachbearbeiter-in-patientenaufnahme-notfall-100-spital-limmattal-ch",
-        "fr": "sachbearbeiter-in-patientenaufnahme-notfall-100-spital-limmattal-ch"
+        "it": "addetto-a-all-accettazione-pazienti-pronto-soccorso-100-spital-limmattal-schlieren",
+        "en": "administrator-patient-admissions-emergency-department-100-spital-limmattal-schlieren",
+        "fr": "agent-e-administratif-ve-accueil-des-patients-aux-urgences-100-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -154,16 +160,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:14:28.677Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:14:28.677Z"
+      "firstSeenAt": "2026-11-23T21:14:28.677Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-patientenaufnahme-notfall-100-spital-limmattal-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-patientenaufnahme-notfall-100-spital-limmattal-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-patientenaufnahme-notfall-100-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-patientenaufnahme-notfall-100-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-d40fe55f8ce5",
-      "slug": "sachbearbeiter-in-patientenaufnahme-80-spital-limmattal-ch",
+      "slug": "addetto-a-all-accettazione-pazienti-80-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "sachbearbeiter-in-patientenaufnahme-80-spital-limmattal-ch",
-        "it": "sachbearbeiter-in-patientenaufnahme-80-spital-limmattal-ch",
-        "en": "sachbearbeiter-in-patientenaufnahme-80-spital-limmattal-ch",
-        "fr": "sachbearbeiter-in-patientenaufnahme-80-spital-limmattal-ch"
+        "it": "addetto-a-all-accettazione-pazienti-80-spital-limmattal-schlieren",
+        "en": "patient-admissions-clerk-80-spital-limmattal-schlieren",
+        "fr": "gestionnaire-accueil-des-patients-80-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -228,7 +248,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:14:28.208Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:14:28.208Z"
+      "firstSeenAt": "2026-11-23T21:14:28.208Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-patientenaufnahme-80-spital-limmattal-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-patientenaufnahme-80-spital-limmattal-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-patientenaufnahme-80-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-patientenaufnahme-80-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-c621b82dec64",

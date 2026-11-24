@@ -418,12 +418,12 @@
     },
     {
       "id": "privatklinik-obach-bf9f2daba443",
-      "slug": "dipl-expertin-experte-anasthesiepflege-hf-40-100-privatklinik-obach",
+      "slug": "dipl-cura-esperto-anestesia-hf-40-100-privatklinik-obach-solothurn",
       "slugByLocale": {
         "de": "dipl-expertin-experte-anasthesiepflege-hf-40-100-privatklinik-obach",
-        "it": "dipl-expertin-experte-anasthesiepflege-hf-40-100-privatklinik-obach",
-        "en": "dipl-expertin-experte-anasthesiepflege-hf-40-100-privatklinik-obach",
-        "fr": "dipl-expertin-experte-anasthesiepflege-hf-40-100-privatklinik-obach"
+        "it": "dipl-cura-esperto-anestesia-hf-40-100-privatklinik-obach-solothurn",
+        "en": "dipl-expert-anesthesia-care-hf-40-100-privatklinik-obach-solothurn",
+        "fr": "dipl-soins-anesthesiques-specialises-hf-40-100-privatklinik-obach-solothurn"
       },
       "company": "Privatklinik Obach",
       "companyKey": "privatklinik-obach",
@@ -483,7 +483,21 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-21T21:26:36.310Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-anasthesiepflege-hf-40-100-privatklinik-obach"
+        ],
+        "en": [
+          "dipl-expertin-experte-anasthesiepflege-hf-40-100-privatklinik-obach"
+        ],
+        "fr": [
+          "dipl-expertin-experte-anasthesiepflege-hf-40-100-privatklinik-obach"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-anasthesiepflege-hf-40-100-privatklinik-obach"
+      ]
     }
   ]
 }

@@ -8971,12 +8971,12 @@
     },
     {
       "id": "kliniken-valens-f675ac1952ac",
-      "slug": "praktikant-in-hms-100-m-w-a-1-jahriges-kaufmannisches-praktikum-kliniken-valens-davos",
+      "slug": "stagista-hms-100-m-f-a-tirocinio-commerciale-di-1-anno-kliniken-valens-davos-clavdel",
       "slugByLocale": {
         "de": "praktikant-in-hms-100-m-w-a-1-jahriges-kaufmannisches-praktikum-kliniken-valens-davos",
-        "it": "praktikant-in-hms-100-m-w-a-1-jahriges-kaufmannisches-praktikum-kliniken-valens-davos",
-        "en": "praktikant-in-hms-100-m-w-a-1-jahriges-kaufmannisches-praktikum-kliniken-valens-davos",
-        "fr": "praktikant-in-hms-100-m-w-a-1-jahriges-kaufmannisches-praktikum-kliniken-valens-davos"
+        "it": "stagista-hms-100-m-f-a-tirocinio-commerciale-di-1-anno-kliniken-valens-davos-clavdel",
+        "en": "intern-hms-100-m-f-a-1-year-commercial-internship-kliniken-valens-davos-clavdel",
+        "fr": "stagiaire-hms-100-m-f-a-stage-commercial-d-un-an-kliniken-valens-davos-clavdel"
       },
       "company": "Kliniken Valens",
       "companyKey": "kliniken-valens",
@@ -9038,7 +9038,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:38:47.505Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:38:47.505Z"
+      "firstSeenAt": "2026-11-23T21:38:47.505Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-hms-100-m-w-a-1-jahriges-kaufmannisches-praktikum-kliniken-valens-davos"
+        ],
+        "en": [
+          "praktikant-in-hms-100-m-w-a-1-jahriges-kaufmannisches-praktikum-kliniken-valens-davos"
+        ],
+        "fr": [
+          "praktikant-in-hms-100-m-w-a-1-jahriges-kaufmannisches-praktikum-kliniken-valens-davos"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-hms-100-m-w-a-1-jahriges-kaufmannisches-praktikum-kliniken-valens-davos"
+      ]
     }
   ]
 }

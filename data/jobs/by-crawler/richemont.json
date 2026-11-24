@@ -16435,12 +16435,12 @@
     },
     {
       "id": "richemont-04822425a915",
-      "slug": "developpeur-full-stack-richemont-le-cret-du-locle",
+      "slug": "sviluppatore-completo-stack-cartier-manufacture-le-cret-du-locle",
       "slugByLocale": {
         "fr": "developpeur-full-stack-richemont-le-cret-du-locle",
-        "it": "developpeur-full-stack-richemont-le-cret-du-locle",
-        "en": "developpeur-full-stack-richemont-le-cret-du-locle",
-        "de": "developpeur-full-stack-richemont-le-cret-du-locle"
+        "it": "sviluppatore-completo-stack-cartier-manufacture-le-cret-du-locle",
+        "en": "full-stack-developer-cartier-manufacture-le-cret-du-locle",
+        "de": "full-stack-entwickler-cartier-manufacture-le-cret-du-locle"
       },
       "company": "Cartier Manufacture",
       "companyKey": "richemont",
@@ -16502,7 +16502,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:38:39.515Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:38:39.515Z"
+      "firstSeenAt": "2026-11-23T21:38:39.515Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "developpeur-full-stack-richemont-le-cret-du-locle"
+        ],
+        "en": [
+          "developpeur-full-stack-richemont-le-cret-du-locle"
+        ],
+        "de": [
+          "developpeur-full-stack-richemont-le-cret-du-locle"
+        ]
+      },
+      "previousSlugs": [
+        "developpeur-full-stack-richemont-le-cret-du-locle"
+      ]
     },
     {
       "id": "richemont-6d901da02171",
@@ -16590,12 +16604,12 @@
     },
     {
       "id": "richemont-130163d46897",
-      "slug": "technicien-ne-de-maintenance-richemont-les-breuleux",
+      "slug": "manutenzione-tecnica-donze-baume-les-breuleux",
       "slugByLocale": {
         "fr": "technicien-ne-de-maintenance-richemont-les-breuleux",
-        "it": "technicien-ne-de-maintenance-richemont-les-breuleux",
-        "en": "technicien-ne-de-maintenance-richemont-les-breuleux",
-        "de": "technicien-ne-de-maintenance-richemont-les-breuleux"
+        "it": "manutenzione-tecnica-donze-baume-les-breuleux",
+        "en": "maintenance-technician-donze-baume-les-breuleux",
+        "de": "instandhaltungstechniker-donze-baume-les-breuleux"
       },
       "company": "Donzé Baume",
       "companyKey": "richemont",
@@ -16658,16 +16672,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:38:39.463Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:38:39.463Z"
+      "firstSeenAt": "2026-11-23T21:38:39.463Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-de-maintenance-richemont-les-breuleux"
+        ],
+        "en": [
+          "technicien-ne-de-maintenance-richemont-les-breuleux"
+        ],
+        "de": [
+          "technicien-ne-de-maintenance-richemont-les-breuleux"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ne-de-maintenance-richemont-les-breuleux"
+      ]
     },
     {
       "id": "richemont-4d1f1b6da5b5",
-      "slug": "chef-de-projet-innovation-transverse-richemont-neuchatel",
+      "slug": "leader-del-progetto-innovazione-trasversale-richemont-neuchatel",
       "slugByLocale": {
         "fr": "chef-de-projet-innovation-transverse-richemont-neuchatel",
-        "it": "chef-de-projet-innovation-transverse-richemont-neuchatel",
-        "en": "chef-de-projet-innovation-transverse-richemont-neuchatel",
-        "de": "chef-de-projet-innovation-transverse-richemont-neuchatel"
+        "it": "leader-del-progetto-innovazione-trasversale-richemont-neuchatel",
+        "en": "project-leader-transverse-innovation-richemont-neuchatel",
+        "de": "projektleiter-transverse-innovation-richemont-neuchatel"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -16730,7 +16758,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:38:39.446Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:38:39.446Z"
+      "firstSeenAt": "2026-11-23T21:38:39.446Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-projet-innovation-transverse-richemont-neuchatel"
+        ],
+        "en": [
+          "chef-de-projet-innovation-transverse-richemont-neuchatel"
+        ],
+        "de": [
+          "chef-de-projet-innovation-transverse-richemont-neuchatel"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-projet-innovation-transverse-richemont-neuchatel"
+      ]
     },
     {
       "id": "richemont-6d71a473f862",

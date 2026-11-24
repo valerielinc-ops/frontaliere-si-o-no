@@ -1857,12 +1857,12 @@
     },
     {
       "id": "opus-personal-1aafd58f33a8",
-      "slug": "galvaniker-oberflachenbeschichter-lu-luzern-opus-personal-ch",
+      "slug": "elettroplaccatura-superficie-opus-personal-ag-zweigniederlassung-altdorf-luzern",
       "slugByLocale": {
         "de": "galvaniker-oberflachenbeschichter-lu-luzern-opus-personal-ch",
-        "it": "galvaniker-oberflachenbeschichter-lu-luzern-opus-personal-ch",
-        "en": "galvaniker-oberflachenbeschichter-lu-luzern-opus-personal-ch",
-        "fr": "galvaniker-oberflachenbeschichter-lu-luzern-opus-personal-ch"
+        "it": "elettroplaccatura-superficie-opus-personal-ag-zweigniederlassung-altdorf-luzern",
+        "en": "electroplating-surface-coaters-opus-personal-ag-zweigniederlassung-altdorf-luzern",
+        "fr": "electroplacage-revetements-de-surface-opus-personal-ag-zweigniederlassung-altdorf-luzern"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -1917,19 +1917,22 @@
         "revetement-par-electroplaquage-surface-opus-personal-ag-zweigniederlassung-altdorf-lu-luzern",
         "elettroplaccatura-superficie-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
         "electroplating-surface-coaters-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
-        "electroplacage-revetements-de-surface-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
+        "electroplacage-revetements-de-surface-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+        "galvaniker-oberflachenbeschichter-lu-luzern-opus-personal-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "galvaniker-oberflachenbeschichter-region-lu-luzern-opus-personal-ch",
           "galvaniker-oberflachenbeschichter-opus-personal-ag-zweigniederlassung-altdorf-luzern",
           "elettroplaccatura-superficie-opus-personal-ag-zweigniederlassung-altdorf-lu-luzern",
-          "elettroplaccatura-superficie-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
+          "elettroplaccatura-superficie-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+          "galvaniker-oberflachenbeschichter-lu-luzern-opus-personal-ch"
         ],
         "en": [
           "galvaniker-oberflachenbeschichter-opus-personal-ag-zweigniederlassung-altdorf-luzern",
           "electroplating-surface-coaters-opus-personal-ag-zweigniederlassung-altdorf-lu-luzern",
-          "electroplating-surface-coaters-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
+          "electroplating-surface-coaters-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+          "galvaniker-oberflachenbeschichter-lu-luzern-opus-personal-ch"
         ],
         "de": [
           "galvaniker-oberflachenbeschichter-region-lu-luzern-opus-personal-ch"
@@ -1938,7 +1941,8 @@
           "revetement-par-electroplaquage-surface-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
           "galvaniker-oberflachenbeschichter-opus-personal-ag-zweigniederlassung-altdorf-luzern",
           "revetement-par-electroplaquage-surface-opus-personal-ag-zweigniederlassung-altdorf-lu-luzern",
-          "electroplacage-revetements-de-surface-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern"
+          "electroplacage-revetements-de-surface-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
+          "galvaniker-oberflachenbeschichter-lu-luzern-opus-personal-ch"
         ]
       },
       "salaryMin": 69500,
@@ -12521,8 +12525,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-kuchenmontage-a-80-100-be-bern-opus-personal-ch",
         "it": "collaboratore-trice-kuchenmontage-a-80-100-opus-personal-ag-zweigniederlassung-altdorf-bern",
-        "en": "mitarbeiter-kuchenmontage-a-80-100-be-bern-opus-personal-ch",
-        "fr": "mitarbeiter-kuchenmontage-a-80-100-be-bern-opus-personal-ch"
+        "en": "employee-kitchen-assembly-a-80-100-opus-personal-ag-zweigniederlassung-altdorf-be-bern",
+        "fr": "assemblage-de-cuisine-pour-employes-a-80-100-opus-personal-ag-zweigniederlassung-altdorf-be-bern"
       },
       "company": "Opus Personal AG, Zweigniederlassung Altdorf",
       "companyKey": "opus-personal",
@@ -12570,6 +12574,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-kuchenmontage-a-80-100-be-bern-opus-personal-ch"
+        ],
+        "en": [
+          "mitarbeiter-kuchenmontage-a-80-100-be-bern-opus-personal-ch"
+        ],
+        "fr": [
           "mitarbeiter-kuchenmontage-a-80-100-be-bern-opus-personal-ch"
         ]
       },

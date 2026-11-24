@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "impiegato-commerciale-con-funzionalita-a-tutto-tondo-otto-s-ag-dietlikon",
         "en": "sales-employee-with-all-round-functionality-otto-s-ag-dietlikon",
-        "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-dietlikon",
+        "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-dietlikon",
         "fr": "employe-commercial-avec-fonctionnalites-polyvalentes-otto-s-ag-dietlikon"
       },
       "company": "OTTO'S AG",
@@ -73,6 +73,9 @@
         ],
         "fr": [
           "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-dietlikon"
+        ],
+        "de": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-dietlikon"
         ]
       },
       "firstSeenAt": "2026-11-23T09:31:21.605Z",
@@ -2588,12 +2591,12 @@
     },
     {
       "id": "ottos-0712aa35acc4",
-      "slug": "aushilfe-verkaufer-in-food-non-food-ottos-biel",
+      "slug": "venditore-supplente-alimenti-non-alimentari-otto-s-ag-biel",
       "slugByLocale": {
         "de": "aushilfe-verkaufer-in-food-non-food-ottos-biel",
-        "it": "aushilfe-verkaufer-in-food-non-food-ottos-biel",
-        "en": "aushilfe-verkaufer-in-food-non-food-ottos-biel",
-        "fr": "aushilfe-verkaufer-in-food-non-food-ottos-biel"
+        "it": "venditore-supplente-alimenti-non-alimentari-otto-s-ag-biel",
+        "en": "substitute-salesperson-food-non-food-otto-s-ag-biel",
+        "fr": "vendeur-suppleant-aliment-non-alimentaire-otto-s-ag-biel"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -2660,7 +2663,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:39:47.560Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:39:47.560Z"
+      "firstSeenAt": "2026-11-23T21:39:47.560Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-biel"
+        ],
+        "en": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-biel"
+        ],
+        "fr": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-biel"
+        ]
+      },
+      "previousSlugs": [
+        "aushilfe-verkaufer-in-food-non-food-ottos-biel"
+      ]
     },
     {
       "id": "ottos-64d66eff7866",
@@ -6949,7 +6966,7 @@
       "slugByLocale": {
         "it": "tesoriere-otto-s-ag-cham",
         "en": "treasurer-otto-s-ag-cham",
-        "de": "kassierer-in-ottos-cham",
+        "de": "kassierer-in-otto-s-ag-cham",
         "fr": "tresorier-otto-s-ag-cham"
       },
       "company": "OTTO'S AG",
@@ -7010,6 +7027,9 @@
           "kassierer-in-ottos-cham"
         ],
         "fr": [
+          "kassierer-in-ottos-cham"
+        ],
+        "de": [
           "kassierer-in-ottos-cham"
         ]
       },
@@ -7138,12 +7158,12 @@
     },
     {
       "id": "ottos-9f27d87359b4",
-      "slug": "nachwuchskraft-filialleiter-in-otto-s-ag-biel",
+      "slug": "junior-branch-manager-otto-s-ag-biel",
       "slugByLocale": {
         "de": "nachwuchskraft-filialleiter-in-ottos-biel",
-        "it": "nachwuchskraft-filialleiter-in-otto-s-ag-biel",
+        "it": "junior-branch-manager-otto-s-ag-biel",
         "en": "nachwuchskraft-filialleiter-in-otto-s-ag-biel",
-        "fr": "nachwuchskraft-filialleiter-in-otto-s-ag-biel"
+        "fr": "directeur-junior-de-succursale-otto-s-ag-biel"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -7195,11 +7215,16 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "nachwuchskraft-filialleiter-in-ottos-biel"
+          "nachwuchskraft-filialleiter-in-ottos-biel",
+          "nachwuchskraft-filialleiter-in-otto-s-ag-biel"
+        ],
+        "fr": [
+          "nachwuchskraft-filialleiter-in-otto-s-ag-biel"
         ]
       },
       "previousSlugs": [
-        "nachwuchskraft-filialleiter-in-ottos-biel"
+        "nachwuchskraft-filialleiter-in-ottos-biel",
+        "nachwuchskraft-filialleiter-in-otto-s-ag-biel"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -12031,12 +12056,12 @@
     },
     {
       "id": "ottos-07559fe5e273",
-      "slug": "vendeur-auxiliaire-food-non-food-m-w-d-otto-s-ag-murten",
+      "slug": "alimentare-non-alimentare-ausiliario-venditore-m-f-otto-s-ag-murten",
       "slugByLocale": {
         "fr": "vendeur-auxiliaire-food-non-food-h-f-ottos-murten",
-        "it": "vendeur-auxiliaire-food-non-food-m-w-d-otto-s-ag-murten",
-        "en": "vendeur-auxiliaire-food-non-food-h-f-ottos-murten",
-        "de": "vendeur-auxiliaire-food-non-food-h-f-ottos-murten"
+        "it": "alimentare-non-alimentare-ausiliario-venditore-m-f-otto-s-ag-murten",
+        "en": "food-non-food-auxiliary-seller-m-f-otto-s-ag-murten",
+        "de": "lebensmittel-nichtlebensmittel-hilfsverkaufer-m-w-otto-s-ag-murten"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -12088,11 +12113,19 @@
       "pensum": "40 - 60%",
       "previousSlugsByLocale": {
         "it": [
+          "vendeur-auxiliaire-food-non-food-h-f-ottos-murten",
+          "vendeur-auxiliaire-food-non-food-m-w-d-otto-s-ag-murten"
+        ],
+        "en": [
+          "vendeur-auxiliaire-food-non-food-h-f-ottos-murten"
+        ],
+        "de": [
           "vendeur-auxiliaire-food-non-food-h-f-ottos-murten"
         ]
       },
       "previousSlugs": [
-        "vendeur-auxiliaire-food-non-food-h-f-ottos-murten"
+        "vendeur-auxiliaire-food-non-food-h-f-ottos-murten",
+        "vendeur-auxiliaire-food-non-food-m-w-d-otto-s-ag-murten"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -12891,9 +12924,9 @@
     },
     {
       "id": "ottos-db3eb23d8a9f",
-      "slug": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-luzern-3302b35090",
+      "slug": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-luzern",
       "slugByLocale": {
-        "it": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-luzern-3302b35090",
+        "it": "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-luzern",
         "en": "temporary-sales-assistant-food-non-food-otto-s-ag-luzern",
         "de": "aushilfe-verkaufer-in-food-non-food-ottos-luzern",
         "fr": "vendeur-euse-auxiliaire-food-non-food-otto-s-ag-luzern"
@@ -12954,7 +12987,7 @@
         "help-seller-in-food-non-food-otto-s-ag-luzern",
         "vendeur-d-aide-dans-la-nourriture-non-alimentaire-otto-s-ag-luzern",
         "aushilfe-verkaufer-in-food-non-food-ottos-luzern-0p9ekg",
-        "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-luzern"
+        "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-luzern-3302b35090"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12966,7 +12999,7 @@
           "help-seller-in-food-non-food-otto-s-ag-luzern",
           "vendeur-d-aide-dans-la-nourriture-non-alimentaire-otto-s-ag-luzern",
           "aushilfe-verkaufer-in-food-non-food-ottos-luzern-0p9ekg",
-          "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-luzern"
+          "addetto-a-alle-vendite-di-supporto-food-non-food-otto-s-ag-luzern-3302b35090"
         ],
         "en": [
           "aushilfe-verkaufer-in-food-non-food-ottos-luzern",

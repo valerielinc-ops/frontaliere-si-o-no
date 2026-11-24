@@ -3588,12 +3588,12 @@
     },
     {
       "id": "decathlon-3d7241808b55",
-      "slug": "sports-leader-verkaufsberater-m-w-d-fitness-running-50-stundenlohnvertrag-decathlon-ch",
+      "slug": "leader-sportivo-consulente-commerciale-m-f-d-fitness-running-50-contratto-salariale-orario-decathlon-spreitenbach",
       "slugByLocale": {
         "de": "sports-leader-verkaufsberater-m-w-d-fitness-running-50-stundenlohnvertrag-decathlon-ch",
-        "it": "sports-leader-verkaufsberater-m-w-d-fitness-running-50-stundenlohnvertrag-decathlon-ch",
-        "en": "sports-leader-verkaufsberater-m-w-d-fitness-running-50-stundenlohnvertrag-decathlon-ch",
-        "fr": "sports-leader-verkaufsberater-m-w-d-fitness-running-50-stundenlohnvertrag-decathlon-ch"
+        "it": "leader-sportivo-consulente-commerciale-m-f-d-fitness-running-50-contratto-salariale-orario-decathlon-spreitenbach",
+        "en": "sports-leader-sales-consultant-m-f-d-fitness-running-50-hourly-wage-contract-decathlon-spreitenbach",
+        "fr": "leader-sportif-consultant-en-ventes-h-f-d-fitness-running-50-contrat-de-salaire-horaire-decathlon-spreitenbach"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3655,7 +3655,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:35:57.707Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:35:57.707Z"
+      "firstSeenAt": "2026-11-23T21:35:57.707Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sports-leader-verkaufsberater-m-w-d-fitness-running-50-stundenlohnvertrag-decathlon-ch"
+        ],
+        "en": [
+          "sports-leader-verkaufsberater-m-w-d-fitness-running-50-stundenlohnvertrag-decathlon-ch"
+        ],
+        "fr": [
+          "sports-leader-verkaufsberater-m-w-d-fitness-running-50-stundenlohnvertrag-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sports-leader-verkaufsberater-m-w-d-fitness-running-50-stundenlohnvertrag-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-48c296923c6b",
@@ -3664,7 +3678,7 @@
         "de": "sport-leader-verkaufsberater-bike-m-w-d-50-decathlon-basel-am-dreispitz-decathlon-ch",
         "it": "sport-leader-verkaufsberater-bike-m-w-d-50-decathlon-basel-am-dreispitz-decathlon-ch",
         "en": "sport-leader-verkaufsberater-bike-m-w-d-50-decathlon-basel-am-dreispitz-decathlon-ch",
-        "fr": "sport-leader-verkaufsberater-bike-m-w-d-50-decathlon-basel-am-dreispitz-decathlon-ch"
+        "fr": "sport-leader-consultant-en-ventes-velo-h-f-d-50-decathlon-bale-a-dreispitz-decathlon-basel"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3726,7 +3740,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:35:56.942Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:35:56.942Z"
+      "firstSeenAt": "2026-11-23T21:35:56.942Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "sport-leader-verkaufsberater-bike-m-w-d-50-decathlon-basel-am-dreispitz-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sport-leader-verkaufsberater-bike-m-w-d-50-decathlon-basel-am-dreispitz-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-5d86eda7554a",

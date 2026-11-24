@@ -5191,12 +5191,12 @@
     },
     {
       "id": "hilcona-7bf3d06f880d",
-      "slug": "stv-leiter-leiterin-kommissionierung-logistik-center-neubau-oensingen-bell-schweiz-ag-oensingen",
+      "slug": "vice-capo-del-picking-ordini-centro-logistica-nuove-costruzioni-oensingen-bell-schweiz-ag-oensingen",
       "slugByLocale": {
         "de": "stv-leiter-leiterin-kommissionierung-logistik-center-neubau-oensingen-hilcona-oensingen",
-        "it": "stv-leiter-leiterin-kommissionierung-logistik-center-neubau-oensingen-bell-schweiz-ag-oensingen",
-        "en": "stv-leiter-leiterin-kommissionierung-logistik-center-neubau-oensingen-hilcona-oensingen",
-        "fr": "stv-leiter-leiterin-kommissionierung-logistik-center-neubau-oensingen-hilcona-oensingen"
+        "it": "vice-capo-del-picking-ordini-centro-logistica-nuove-costruzioni-oensingen-bell-schweiz-ag-oensingen",
+        "en": "deputy-head-of-order-picking-logistics-center-new-construction-oensingen-bell-schweiz-ag-oensingen",
+        "fr": "chef-adjoint-du-traitement-des-commandes-centre-logistique-construction-neuve-oensingen-bell-schweiz-ag-oensingen"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -5238,11 +5238,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
+          "stv-leiter-leiterin-kommissionierung-logistik-center-neubau-oensingen-hilcona-oensingen",
+          "stv-leiter-leiterin-kommissionierung-logistik-center-neubau-oensingen-bell-schweiz-ag-oensingen"
+        ],
+        "en": [
+          "stv-leiter-leiterin-kommissionierung-logistik-center-neubau-oensingen-hilcona-oensingen"
+        ],
+        "fr": [
           "stv-leiter-leiterin-kommissionierung-logistik-center-neubau-oensingen-hilcona-oensingen"
         ]
       },
       "previousSlugs": [
-        "stv-leiter-leiterin-kommissionierung-logistik-center-neubau-oensingen-hilcona-oensingen"
+        "stv-leiter-leiterin-kommissionierung-logistik-center-neubau-oensingen-hilcona-oensingen",
+        "stv-leiter-leiterin-kommissionierung-logistik-center-neubau-oensingen-bell-schweiz-ag-oensingen"
       ],
       "salaryMin": 124000,
       "salaryMax": 167500,

@@ -5650,8 +5650,8 @@
       "slugByLocale": {
         "de": "leiter-in-controlling-amp-stellvertretung-cfo-90-100-fmi-unterseen",
         "it": "responsabile-controlling-stellvertretung-cfo-90-100-spitaler-fmi-ag-unterseen",
-        "en": "leiter-in-controlling-amp-stellvertretung-cfo-90-100-fmi-unterseen",
-        "fr": "leiter-in-controlling-amp-stellvertretung-cfo-90-100-fmi-unterseen"
+        "en": "head-of-controlling-deputy-cfo-90-100-spitaler-fmi-ag-unterseen",
+        "fr": "responsable-du-controle-de-gestion-et-cfo-suppleant-e-90-100-spitaler-fmi-ag-unterseen"
       },
       "company": "Spitäler fmi AG",
       "companyKey": "fmi",
@@ -5698,6 +5698,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-controlling-amp-stellvertretung-cfo-90-100-fmi-unterseen"
+        ],
+        "en": [
+          "leiter-in-controlling-amp-stellvertretung-cfo-90-100-fmi-unterseen"
+        ],
+        "fr": [
           "leiter-in-controlling-amp-stellvertretung-cfo-90-100-fmi-unterseen"
         ]
       },

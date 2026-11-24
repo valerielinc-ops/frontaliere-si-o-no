@@ -785,11 +785,11 @@
     },
     {
       "id": "proton-eef89694dc5a",
-      "slug": "product-engineer-proton-ch",
+      "slug": "product-ingegnere-proton-geneva-switzerland",
       "slugByLocale": {
         "en": "product-engineer-proton-ch",
-        "it": "product-engineer-proton-ch",
-        "de": "product-engineer-proton-ch",
+        "it": "product-ingegnere-proton-geneva-switzerland",
+        "de": "product-ingenieur-proton-geneva-switzerland",
         "fr": "product-engineer-proton-ch"
       },
       "company": "Proton",
@@ -853,7 +853,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:23:59.685Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:23:59.685Z"
+      "firstSeenAt": "2026-11-23T21:23:59.685Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-engineer-proton-ch"
+        ],
+        "de": [
+          "product-engineer-proton-ch"
+        ]
+      },
+      "previousSlugs": [
+        "product-engineer-proton-ch"
+      ]
     },
     {
       "id": "proton-a30d2dfd8406",

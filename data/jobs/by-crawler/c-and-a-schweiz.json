@@ -2687,12 +2687,12 @@
     },
     {
       "id": "c-and-a-schweiz-1bc651889839",
-      "slug": "ch-collaboratrice-de-vente-50-cdd-decembre-et-janvier-c-and-a-schweiz-ch",
+      "slug": "coordinatore-di-vendite-ch-50-dicembre-e-gennaio-csd-c-a-schweiz-bulle-ch",
       "slugByLocale": {
         "fr": "ch-collaboratrice-de-vente-50-cdd-decembre-et-janvier-c-and-a-schweiz-ch",
-        "it": "ch-collaboratrice-de-vente-50-cdd-decembre-et-janvier-c-and-a-schweiz-ch",
-        "en": "ch-collaboratrice-de-vente-50-cdd-decembre-et-janvier-c-and-a-schweiz-ch",
-        "de": "ch-collaboratrice-de-vente-50-cdd-decembre-et-janvier-c-and-a-schweiz-ch"
+        "it": "coordinatore-di-vendite-ch-50-dicembre-e-gennaio-csd-c-a-schweiz-bulle-ch",
+        "en": "ch-sales-co-ordinator-50-december-and-january-csd-c-a-schweiz-bulle-ch",
+        "de": "ch-vertriebskoordinator-50-dezember-und-januar-csd-c-a-schweiz-bulle-ch"
       },
       "company": "C&A Schweiz",
       "companyKey": "c-and-a-schweiz",
@@ -2754,16 +2754,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:20:52.289Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T21:22:27.436Z"
+      "firstSeenAt": "2026-11-18T21:22:27.436Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ch-collaboratrice-de-vente-50-cdd-decembre-et-janvier-c-and-a-schweiz-ch"
+        ],
+        "en": [
+          "ch-collaboratrice-de-vente-50-cdd-decembre-et-janvier-c-and-a-schweiz-ch"
+        ],
+        "de": [
+          "ch-collaboratrice-de-vente-50-cdd-decembre-et-janvier-c-and-a-schweiz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ch-collaboratrice-de-vente-50-cdd-decembre-et-janvier-c-and-a-schweiz-ch"
+      ]
     },
     {
       "id": "c-and-a-schweiz-e69582792bdb",
-      "slug": "collaboratore-trice-im-vendita-m-w-d-50-per-schonbuhl-family-c-a-schweiz-schonbuhl",
+      "slug": "personale-commerciale-m-f-d-50-per-schonbuhl-family-c-a-schweiz-schonbuhl-ch",
       "slugByLocale": {
         "de": "mitarbeiter-im-verkauf-m-w-d-50-fur-schonbuhl-family-c-and-a-schweiz-ch",
-        "it": "collaboratore-trice-im-vendita-m-w-d-50-per-schonbuhl-family-c-a-schweiz-schonbuhl",
-        "en": "mitarbeiter-im-verkauf-m-w-d-50-fur-schonbuhl-family-c-and-a-schweiz-ch",
-        "fr": "mitarbeiter-im-verkauf-m-w-d-50-fur-schonbuhl-family-c-and-a-schweiz-ch"
+        "it": "personale-commerciale-m-f-d-50-per-schonbuhl-family-c-a-schweiz-schonbuhl-ch",
+        "en": "sales-staff-m-f-d-50-for-schonbuhl-family-c-a-schweiz-schonbuhl-ch",
+        "fr": "personnel-commercial-h-f-d-50-pour-la-famille-schonbuhl-c-a-schweiz-schonbuhl-ch"
       },
       "company": "C&A Schweiz",
       "companyKey": "c-and-a-schweiz",
@@ -2809,11 +2823,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-im-verkauf-m-w-d-50-fur-schonbuhl-family-c-and-a-schweiz-ch",
+          "collaboratore-trice-im-vendita-m-w-d-50-per-schonbuhl-family-c-a-schweiz-schonbuhl"
+        ],
+        "en": [
+          "mitarbeiter-im-verkauf-m-w-d-50-fur-schonbuhl-family-c-and-a-schweiz-ch"
+        ],
+        "fr": [
           "mitarbeiter-im-verkauf-m-w-d-50-fur-schonbuhl-family-c-and-a-schweiz-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-m-w-d-50-fur-schonbuhl-family-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-m-w-d-50-fur-schonbuhl-family-c-and-a-schweiz-ch",
+        "collaboratore-trice-im-vendita-m-w-d-50-per-schonbuhl-family-c-a-schweiz-schonbuhl"
       ],
       "salaryMin": 38800,
       "salaryMax": 59300,

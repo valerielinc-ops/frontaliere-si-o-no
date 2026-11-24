@@ -830,10 +830,10 @@
     },
     {
       "id": "spitex-basel-7de9972bc193",
-      "slug": "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel",
+      "slug": "infermiera-hf-fh-a-spitex-basel-basel",
       "slugByLocale": {
         "de": "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel",
-        "it": "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel",
+        "it": "infermiera-hf-fh-a-spitex-basel-basel",
         "en": "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel",
         "fr": "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel"
       },
@@ -897,7 +897,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-23T21:20:57.106Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-04T13:48:19.074Z"
+      "firstSeenAt": "2026-09-04T13:48:19.074Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel"
+        ]
+      },
+      "previousSlugs": [
+        "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel"
+      ]
     }
   ]
 }

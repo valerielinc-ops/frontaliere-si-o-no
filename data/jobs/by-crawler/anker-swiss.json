@@ -23555,9 +23555,9 @@
       "slug": "impiegato-in-logistica-100-anker-swiss-ticino-ag-mendrisio-fca22074",
       "slugByLocale": {
         "it": "impiegato-in-logistica-100-anker-swiss-ticino-ag-mendrisio-fca22074",
-        "en": "impiegato-in-logistica-100-anker-swiss-ticino-ag-mendrisio-fca22074",
-        "de": "impiegato-in-logistica-100-anker-swiss-ticino-ag-mendrisio-fca22074",
-        "fr": "impiegato-in-logistica-100-anker-swiss-ticino-ag-mendrisio-fca22074"
+        "en": "employee-in-logistics-100-anker-swiss-ticino-ag-mendrisio-fca22074",
+        "de": "angestellter-in-logistik-100-anker-swiss-ticino-ag-mendrisio-fca22074",
+        "fr": "employe-in-logistique-100-anker-swiss-ticino-ag-mendrisio-fca22074"
       },
       "slugDisambiguator": "fca22074",
       "company": "Anker Swiss Ticino AG",
@@ -23631,7 +23631,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-21T21:31:40.639Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:31:40.639Z"
+      "firstSeenAt": "2026-11-23T21:31:40.639Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "impiegato-in-logistica-100-anker-swiss-ticino-ag-mendrisio-fca22074"
+        ],
+        "de": [
+          "impiegato-in-logistica-100-anker-swiss-ticino-ag-mendrisio-fca22074"
+        ],
+        "fr": [
+          "impiegato-in-logistica-100-anker-swiss-ticino-ag-mendrisio-fca22074"
+        ]
+      },
+      "previousSlugs": [
+        "impiegato-in-logistica-100-anker-swiss-ticino-ag-mendrisio-fca22074"
+      ]
     },
     {
       "id": "anker-swiss-6279dfee10b1",
@@ -23803,12 +23817,12 @@
     },
     {
       "id": "anker-swiss-e5927fb4a437",
-      "slug": "metallbauer-100-anker-swiss-ticino-ag-bern-e5927fb4",
+      "slug": "lavoratori-100-anker-swiss-ticino-ag-bern-e5927fb4",
       "slugByLocale": {
         "de": "metallbauer-100-anker-swiss-ticino-ag-bern-e5927fb4",
-        "it": "metallbauer-100-anker-swiss-ticino-ag-bern-e5927fb4",
-        "en": "metallbauer-100-anker-swiss-ticino-ag-bern-e5927fb4",
-        "fr": "metallbauer-100-anker-swiss-ticino-ag-bern-e5927fb4"
+        "it": "lavoratori-100-anker-swiss-ticino-ag-bern-e5927fb4",
+        "en": "metalworkers-100-anker-swiss-ticino-ag-bern-e5927fb4",
+        "fr": "metaux-100-anker-swiss-ticino-ag-bern-e5927fb4"
       },
       "slugDisambiguator": "e5927fb4",
       "company": "Anker Swiss Ticino AG",
@@ -23869,16 +23883,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:31:40.637Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:31:40.637Z"
+      "firstSeenAt": "2026-11-23T21:31:40.637Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "metallbauer-100-anker-swiss-ticino-ag-bern-e5927fb4"
+        ],
+        "en": [
+          "metallbauer-100-anker-swiss-ticino-ag-bern-e5927fb4"
+        ],
+        "fr": [
+          "metallbauer-100-anker-swiss-ticino-ag-bern-e5927fb4"
+        ]
+      },
+      "previousSlugs": [
+        "metallbauer-100-anker-swiss-ticino-ag-bern-e5927fb4"
+      ]
     },
     {
       "id": "anker-swiss-cef2637aea8c",
-      "slug": "metallbauer-100-anker-swiss-ticino-ag-grenchen-cef2637a",
+      "slug": "lavoratori-100-anker-swiss-ticino-ag-grenchen-cef2637a",
       "slugByLocale": {
         "de": "metallbauer-100-anker-swiss-ticino-ag-grenchen-cef2637a",
-        "it": "metallbauer-100-anker-swiss-ticino-ag-grenchen-cef2637a",
-        "en": "metallbauer-100-anker-swiss-ticino-ag-grenchen-cef2637a",
-        "fr": "metallbauer-100-anker-swiss-ticino-ag-grenchen-cef2637a"
+        "it": "lavoratori-100-anker-swiss-ticino-ag-grenchen-cef2637a",
+        "en": "metalworkers-100-anker-swiss-ticino-ag-grenchen-cef2637a",
+        "fr": "metaux-100-anker-swiss-ticino-ag-grenchen-cef2637a"
       },
       "slugDisambiguator": "cef2637a",
       "company": "Anker Swiss Ticino AG",
@@ -23941,14 +23969,28 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:31:40.637Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:31:40.637Z"
+      "firstSeenAt": "2026-11-23T21:31:40.637Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "metallbauer-100-anker-swiss-ticino-ag-grenchen-cef2637a"
+        ],
+        "en": [
+          "metallbauer-100-anker-swiss-ticino-ag-grenchen-cef2637a"
+        ],
+        "fr": [
+          "metallbauer-100-anker-swiss-ticino-ag-grenchen-cef2637a"
+        ]
+      },
+      "previousSlugs": [
+        "metallbauer-100-anker-swiss-ticino-ag-grenchen-cef2637a"
+      ]
     },
     {
       "id": "anker-swiss-d39ef63195f2",
-      "slug": "maurer-100-anker-swiss-ticino-ag-kusnacht-zh-d39ef631",
+      "slug": "mason-100-anker-swiss-ticino-ag-kusnacht-zh-d39ef631",
       "slugByLocale": {
         "de": "maurer-100-anker-swiss-ticino-ag-kusnacht-zh-d39ef631",
-        "it": "maurer-100-anker-swiss-ticino-ag-kusnacht-zh-d39ef631",
+        "it": "mason-100-anker-swiss-ticino-ag-kusnacht-zh-d39ef631",
         "en": "maurer-100-anker-swiss-ticino-ag-kusnacht-zh-d39ef631",
         "fr": "maurer-100-anker-swiss-ticino-ag-kusnacht-zh-d39ef631"
       },
@@ -24013,16 +24055,24 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:31:40.635Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:31:40.635Z"
+      "firstSeenAt": "2026-11-23T21:31:40.635Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "maurer-100-anker-swiss-ticino-ag-kusnacht-zh-d39ef631"
+        ]
+      },
+      "previousSlugs": [
+        "maurer-100-anker-swiss-ticino-ag-kusnacht-zh-d39ef631"
+      ]
     },
     {
       "id": "anker-swiss-78568c78fd82",
-      "slug": "flachdachbauer-100-anker-swiss-ticino-ag-hunenberg-78568c78",
+      "slug": "costruzioni-di-tetto-piatto-100-anker-swiss-ticino-ag-hunenberg-78568c78",
       "slugByLocale": {
         "de": "flachdachbauer-100-anker-swiss-ticino-ag-hunenberg-78568c78",
-        "it": "flachdachbauer-100-anker-swiss-ticino-ag-hunenberg-78568c78",
-        "en": "flachdachbauer-100-anker-swiss-ticino-ag-hunenberg-78568c78",
-        "fr": "flachdachbauer-100-anker-swiss-ticino-ag-hunenberg-78568c78"
+        "it": "costruzioni-di-tetto-piatto-100-anker-swiss-ticino-ag-hunenberg-78568c78",
+        "en": "flat-roof-builders-100-anker-swiss-ticino-ag-hunenberg-78568c78",
+        "fr": "constructeurs-de-toits-plats-100-anker-swiss-ticino-ag-hunenberg-78568c78"
       },
       "slugDisambiguator": "78568c78",
       "company": "Anker Swiss Ticino AG",
@@ -24085,16 +24135,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:31:40.635Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:31:40.635Z"
+      "firstSeenAt": "2026-11-23T21:31:40.635Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "flachdachbauer-100-anker-swiss-ticino-ag-hunenberg-78568c78"
+        ],
+        "en": [
+          "flachdachbauer-100-anker-swiss-ticino-ag-hunenberg-78568c78"
+        ],
+        "fr": [
+          "flachdachbauer-100-anker-swiss-ticino-ag-hunenberg-78568c78"
+        ]
+      },
+      "previousSlugs": [
+        "flachdachbauer-100-anker-swiss-ticino-ag-hunenberg-78568c78"
+      ]
     },
     {
       "id": "anker-swiss-27b33882f878",
-      "slug": "dachdecker-100-anker-swiss-ticino-ag-hunenberg-27b33882",
+      "slug": "copertura-100-anker-swiss-ticino-ag-hunenberg-27b33882",
       "slugByLocale": {
         "de": "dachdecker-100-anker-swiss-ticino-ag-hunenberg-27b33882",
-        "it": "dachdecker-100-anker-swiss-ticino-ag-hunenberg-27b33882",
-        "en": "dachdecker-100-anker-swiss-ticino-ag-hunenberg-27b33882",
-        "fr": "dachdecker-100-anker-swiss-ticino-ag-hunenberg-27b33882"
+        "it": "copertura-100-anker-swiss-ticino-ag-hunenberg-27b33882",
+        "en": "roofing-100-anker-swiss-ticino-ag-hunenberg-27b33882",
+        "fr": "toiture-100-anker-swiss-ticino-ag-hunenberg-27b33882"
       },
       "slugDisambiguator": "27b33882",
       "company": "Anker Swiss Ticino AG",
@@ -24157,14 +24221,28 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:31:40.634Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:31:40.634Z"
+      "firstSeenAt": "2026-11-23T21:31:40.634Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dachdecker-100-anker-swiss-ticino-ag-hunenberg-27b33882"
+        ],
+        "en": [
+          "dachdecker-100-anker-swiss-ticino-ag-hunenberg-27b33882"
+        ],
+        "fr": [
+          "dachdecker-100-anker-swiss-ticino-ag-hunenberg-27b33882"
+        ]
+      },
+      "previousSlugs": [
+        "dachdecker-100-anker-swiss-ticino-ag-hunenberg-27b33882"
+      ]
     },
     {
       "id": "anker-swiss-5aecfc57d796",
-      "slug": "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-schlieren-5aecfc57",
+      "slug": "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-schlieren",
       "slugByLocale": {
         "de": "elektroinstallateur-100-anker-swiss-ticino-ag-schlieren-5aecfc57",
-        "it": "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-schlieren-5aecfc57",
+        "it": "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-schlieren",
         "en": "electrical-installer-100-anker-swiss-ticino-ag-schlieren-5aecfc57",
         "fr": "installateur-electrique-100-anker-swiss-ticino-ag-schlieren-5aecfc57"
       },
@@ -24213,11 +24291,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-100-anker-swiss-ticino-ag-schlieren-5aecfc57"
+          "elektroinstallateur-100-anker-swiss-ticino-ag-schlieren-5aecfc57",
+          "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-schlieren-5aecfc57"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-100-anker-swiss-ticino-ag-schlieren-5aecfc57"
+        "elektroinstallateur-100-anker-swiss-ticino-ag-schlieren-5aecfc57",
+        "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-schlieren-5aecfc57"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -24239,10 +24319,10 @@
     },
     {
       "id": "anker-swiss-992ff8e3a36e",
-      "slug": "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-luzern-992ff8e3",
+      "slug": "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-luzern",
       "slugByLocale": {
         "de": "elektroinstallateur-100-anker-swiss-ticino-ag-luzern-992ff8e3",
-        "it": "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-luzern-992ff8e3",
+        "it": "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-luzern",
         "en": "electrical-installer-100-anker-swiss-ticino-ag-luzern-992ff8e3",
         "fr": "installateur-electrique-100-anker-swiss-ticino-ag-luzern-992ff8e3"
       },
@@ -24291,11 +24371,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-100-anker-swiss-ticino-ag-luzern-992ff8e3"
+          "elektroinstallateur-100-anker-swiss-ticino-ag-luzern-992ff8e3",
+          "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-luzern-992ff8e3"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-100-anker-swiss-ticino-ag-luzern-992ff8e3"
+        "elektroinstallateur-100-anker-swiss-ticino-ag-luzern-992ff8e3",
+        "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-luzern-992ff8e3"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -24317,12 +24399,12 @@
     },
     {
       "id": "anker-swiss-ad51cb65fa0e",
-      "slug": "sanitarinstallateur-100-anker-swiss-ticino-ag-hintermoos-ad51cb65",
+      "slug": "installatore-sanitario-100-anker-swiss-ticino-ag-hintermoos-ad51cb65",
       "slugByLocale": {
         "de": "sanitarinstallateur-100-anker-swiss-ticino-ag-hintermoos-ad51cb65",
-        "it": "sanitarinstallateur-100-anker-swiss-ticino-ag-hintermoos-ad51cb65",
-        "en": "sanitarinstallateur-100-anker-swiss-ticino-ag-hintermoos-ad51cb65",
-        "fr": "sanitarinstallateur-100-anker-swiss-ticino-ag-hintermoos-ad51cb65"
+        "it": "installatore-sanitario-100-anker-swiss-ticino-ag-hintermoos-ad51cb65",
+        "en": "sanitary-installer-100-anker-swiss-ticino-ag-hintermoos-ad51cb65",
+        "fr": "installation-sanitaire-100-anker-swiss-ticino-ag-hintermoos-ad51cb65"
       },
       "slugDisambiguator": "ad51cb65",
       "company": "Anker Swiss Ticino AG",
@@ -24385,16 +24467,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:31:40.632Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:31:40.632Z"
+      "firstSeenAt": "2026-11-23T21:31:40.632Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sanitarinstallateur-100-anker-swiss-ticino-ag-hintermoos-ad51cb65"
+        ],
+        "en": [
+          "sanitarinstallateur-100-anker-swiss-ticino-ag-hintermoos-ad51cb65"
+        ],
+        "fr": [
+          "sanitarinstallateur-100-anker-swiss-ticino-ag-hintermoos-ad51cb65"
+        ]
+      },
+      "previousSlugs": [
+        "sanitarinstallateur-100-anker-swiss-ticino-ag-hintermoos-ad51cb65"
+      ]
     },
     {
       "id": "anker-swiss-88441e503466",
-      "slug": "heizungsinstallateur-100-anker-swiss-ticino-ag-zurich-88441e50",
+      "slug": "installatore-di-riscaldamento-100-anker-swiss-ticino-ag-zurich-88441e50",
       "slugByLocale": {
         "de": "heizungsinstallateur-100-anker-swiss-ticino-ag-zurich-88441e50",
-        "it": "heizungsinstallateur-100-anker-swiss-ticino-ag-zurich-88441e50",
-        "en": "heizungsinstallateur-100-anker-swiss-ticino-ag-zurich-88441e50",
-        "fr": "heizungsinstallateur-100-anker-swiss-ticino-ag-zurich-88441e50"
+        "it": "installatore-di-riscaldamento-100-anker-swiss-ticino-ag-zurich-88441e50",
+        "en": "heating-installer-100-anker-swiss-ticino-ag-zurich-88441e50",
+        "fr": "installateur-de-chauffage-100-anker-swiss-ticino-ag-zurich-88441e50"
       },
       "slugDisambiguator": "88441e50",
       "company": "Anker Swiss Ticino AG",
@@ -24457,16 +24553,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:31:40.632Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:31:40.632Z"
+      "firstSeenAt": "2026-11-23T21:31:40.632Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "heizungsinstallateur-100-anker-swiss-ticino-ag-zurich-88441e50"
+        ],
+        "en": [
+          "heizungsinstallateur-100-anker-swiss-ticino-ag-zurich-88441e50"
+        ],
+        "fr": [
+          "heizungsinstallateur-100-anker-swiss-ticino-ag-zurich-88441e50"
+        ]
+      },
+      "previousSlugs": [
+        "heizungsinstallateur-100-anker-swiss-ticino-ag-zurich-88441e50"
+      ]
     },
     {
       "id": "anker-swiss-3e6257824040",
-      "slug": "heizungsinstallateur-100-anker-swiss-ticino-ag-hintermoos-3e625782",
+      "slug": "installatore-di-riscaldamento-100-anker-swiss-ticino-ag-hintermoos-3e625782",
       "slugByLocale": {
         "de": "heizungsinstallateur-100-anker-swiss-ticino-ag-hintermoos-3e625782",
-        "it": "heizungsinstallateur-100-anker-swiss-ticino-ag-hintermoos-3e625782",
-        "en": "heizungsinstallateur-100-anker-swiss-ticino-ag-hintermoos-3e625782",
-        "fr": "heizungsinstallateur-100-anker-swiss-ticino-ag-hintermoos-3e625782"
+        "it": "installatore-di-riscaldamento-100-anker-swiss-ticino-ag-hintermoos-3e625782",
+        "en": "heating-installer-100-anker-swiss-ticino-ag-hintermoos-3e625782",
+        "fr": "installateur-de-chauffage-100-anker-swiss-ticino-ag-hintermoos-3e625782"
       },
       "slugDisambiguator": "3e625782",
       "company": "Anker Swiss Ticino AG",
@@ -24529,7 +24639,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:31:40.631Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:31:40.631Z"
+      "firstSeenAt": "2026-11-23T21:31:40.631Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "heizungsinstallateur-100-anker-swiss-ticino-ag-hintermoos-3e625782"
+        ],
+        "en": [
+          "heizungsinstallateur-100-anker-swiss-ticino-ag-hintermoos-3e625782"
+        ],
+        "fr": [
+          "heizungsinstallateur-100-anker-swiss-ticino-ag-hintermoos-3e625782"
+        ]
+      },
+      "previousSlugs": [
+        "heizungsinstallateur-100-anker-swiss-ticino-ag-hintermoos-3e625782"
+      ]
     },
     {
       "id": "anker-swiss-8af3d0998f3c",

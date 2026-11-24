@@ -3105,12 +3105,12 @@
     },
     {
       "id": "paraplegie-cd8e74b5ee6f",
-      "slug": "gruppenleiter-in-intensivmedizin-pflege-schweizer-paraplegiker-gruppe-nottwil",
+      "slug": "responsabile-del-gruppo-di-assistenza-infermieristica-in-terapia-intensiva-schweizer-paraplegiker-gruppe-nottwil",
       "slugByLocale": {
         "de": "gruppenleiter-in-intensivmedizin-pflege-paraplegie-nottwil",
-        "it": "gruppenleiter-in-intensivmedizin-pflege-schweizer-paraplegiker-gruppe-nottwil",
-        "en": "gruppenleiter-in-intensivmedizin-pflege-schweizer-paraplegiker-gruppe-nottwil",
-        "fr": "gruppenleiter-in-intensivmedizin-pflege-schweizer-paraplegiker-gruppe-nottwil"
+        "it": "responsabile-del-gruppo-di-assistenza-infermieristica-in-terapia-intensiva-schweizer-paraplegiker-gruppe-nottwil",
+        "en": "team-leader-for-intensive-care-nursing-schweizer-paraplegiker-gruppe-nottwil",
+        "fr": "chef-fe-de-groupe-en-soins-de-medecine-intensive-schweizer-paraplegiker-gruppe-nottwil"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -3158,11 +3158,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "gruppenleiter-in-intensivmedizin-pflege-paraplegie-nottwil"
+          "gruppenleiter-in-intensivmedizin-pflege-paraplegie-nottwil",
+          "gruppenleiter-in-intensivmedizin-pflege-schweizer-paraplegiker-gruppe-nottwil"
+        ],
+        "en": [
+          "gruppenleiter-in-intensivmedizin-pflege-schweizer-paraplegiker-gruppe-nottwil"
+        ],
+        "fr": [
+          "gruppenleiter-in-intensivmedizin-pflege-schweizer-paraplegiker-gruppe-nottwil"
         ]
       },
       "previousSlugs": [
-        "gruppenleiter-in-intensivmedizin-pflege-paraplegie-nottwil"
+        "gruppenleiter-in-intensivmedizin-pflege-paraplegie-nottwil",
+        "gruppenleiter-in-intensivmedizin-pflege-schweizer-paraplegiker-gruppe-nottwil"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,

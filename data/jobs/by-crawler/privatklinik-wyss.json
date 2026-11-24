@@ -1841,12 +1841,12 @@
     },
     {
       "id": "privatklinik-wyss-d20b12a4f05d",
-      "slug": "dipl-pflegefachperson-hf-fh-m-w-d-per-unsere-privatabteilung-privatklinik-wyss-munchenbuchsee",
+      "slug": "infermiere-a-diplomato-a-hf-fh-m-f-d-per-il-nostro-reparto-privato-privatklinik-wyss-munchenbuchsee",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-w-m-d-fur-unsere-privatabteilung-privatklinik-wyss-ch",
-        "it": "dipl-pflegefachperson-hf-fh-m-w-d-per-unsere-privatabteilung-privatklinik-wyss-munchenbuchsee",
-        "en": "dipl-pflegefachperson-hf-fh-w-m-d-fur-unsere-privatabteilung-privatklinik-wyss-ch",
-        "fr": "dipl-pflegefachperson-hf-fh-w-m-d-fur-unsere-privatabteilung-privatklinik-wyss-ch"
+        "it": "infermiere-a-diplomato-a-hf-fh-m-f-d-per-il-nostro-reparto-privato-privatklinik-wyss-munchenbuchsee",
+        "en": "dipl-care-professional-hf-fh-m-f-d-for-our-private-department-privatklinik-wyss-munchenbuchsee",
+        "fr": "dipl-soins-professionnels-hf-fh-h-f-d-pour-notre-service-prive-privatklinik-wyss-munchenbuchsee"
       },
       "company": "Privatklinik Wyss",
       "companyKey": "privatklinik-wyss",
@@ -1895,11 +1895,19 @@
       "pensum": "70 - 100%",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-fh-w-m-d-fur-unsere-privatabteilung-privatklinik-wyss-ch",
+          "dipl-pflegefachperson-hf-fh-m-w-d-per-unsere-privatabteilung-privatklinik-wyss-munchenbuchsee"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-w-m-d-fur-unsere-privatabteilung-privatklinik-wyss-ch"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-fh-w-m-d-fur-unsere-privatabteilung-privatklinik-wyss-ch"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-w-m-d-fur-unsere-privatabteilung-privatklinik-wyss-ch"
+        "dipl-pflegefachperson-hf-fh-w-m-d-fur-unsere-privatabteilung-privatklinik-wyss-ch",
+        "dipl-pflegefachperson-hf-fh-m-w-d-per-unsere-privatabteilung-privatklinik-wyss-munchenbuchsee"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

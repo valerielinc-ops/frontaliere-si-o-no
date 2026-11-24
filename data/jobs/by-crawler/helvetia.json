@@ -14178,12 +14178,12 @@
     },
     {
       "id": "helvetia-53d6c3f71824",
-      "slug": "kundenberater-w-m-d-versicherung-region-aarau-teilzeit-vollzeit-helvetia-aarau",
+      "slug": "consulente-clienti-m-f-d-regione-di-assicurazione-aarau-part-time-fulltime-helvetia-versicherungen-aarau",
       "slugByLocale": {
         "de": "kundenberater-w-m-d-versicherung-region-aarau-teilzeit-vollzeit-helvetia-aarau",
-        "it": "kundenberater-w-m-d-versicherung-region-aarau-teilzeit-vollzeit-helvetia-aarau",
-        "en": "kundenberater-w-m-d-versicherung-region-aarau-teilzeit-vollzeit-helvetia-aarau",
-        "fr": "kundenberater-w-m-d-versicherung-region-aarau-teilzeit-vollzeit-helvetia-aarau"
+        "it": "consulente-clienti-m-f-d-regione-di-assicurazione-aarau-part-time-fulltime-helvetia-versicherungen-aarau",
+        "en": "customer-advisor-m-f-d-insurance-region-aarau-part-time-full-time-helvetia-versicherungen-aarau",
+        "fr": "conseiller-client-h-f-d-assurance-region-aarau-temps-partiel-temps-plein-helvetia-versicherungen-aarau"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -14245,16 +14245,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-21T21:17:43.327Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-07-22T11:14:26.475Z"
+      "firstSeenAt": "2026-07-22T11:14:26.475Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-w-m-d-versicherung-region-aarau-teilzeit-vollzeit-helvetia-aarau"
+        ],
+        "en": [
+          "kundenberater-w-m-d-versicherung-region-aarau-teilzeit-vollzeit-helvetia-aarau"
+        ],
+        "fr": [
+          "kundenberater-w-m-d-versicherung-region-aarau-teilzeit-vollzeit-helvetia-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-w-m-d-versicherung-region-aarau-teilzeit-vollzeit-helvetia-aarau"
+      ]
     },
     {
       "id": "helvetia-5704418e7698",
-      "slug": "senior-process-manager-w-m-d-teilzeit-vollzeit-helvetia-st-gallen",
+      "slug": "senior-process-manager-m-f-d-part-time-fulltime-helvetia-versicherungen-st-gallen",
       "slugByLocale": {
         "de": "senior-process-manager-w-m-d-teilzeit-vollzeit-helvetia-st-gallen",
-        "it": "senior-process-manager-w-m-d-teilzeit-vollzeit-helvetia-st-gallen",
-        "en": "senior-process-manager-w-m-d-teilzeit-vollzeit-helvetia-st-gallen",
-        "fr": "senior-process-manager-w-m-d-teilzeit-vollzeit-helvetia-st-gallen"
+        "it": "senior-process-manager-m-f-d-part-time-fulltime-helvetia-versicherungen-st-gallen",
+        "en": "senior-process-manager-m-f-d-part-time-full-time-helvetia-versicherungen-st-gallen",
+        "fr": "gestionnaire-principal-de-processus-h-f-d-temps-partiel-temps-plein-helvetia-versicherungen-st-gallen"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -14316,7 +14330,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-21T21:17:43.326Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:17:43.326Z"
+      "firstSeenAt": "2026-11-23T21:17:43.326Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-process-manager-w-m-d-teilzeit-vollzeit-helvetia-st-gallen"
+        ],
+        "en": [
+          "senior-process-manager-w-m-d-teilzeit-vollzeit-helvetia-st-gallen"
+        ],
+        "fr": [
+          "senior-process-manager-w-m-d-teilzeit-vollzeit-helvetia-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "senior-process-manager-w-m-d-teilzeit-vollzeit-helvetia-st-gallen"
+      ]
     },
     {
       "id": "helvetia-f95d55c09fa3",

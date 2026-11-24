@@ -903,12 +903,12 @@
     },
     {
       "id": "ksw-450c297a2ea1",
-      "slug": "radiologiefachperson-hf-mtr-hf-per-den-bereich-interventionelle-radiologie-kantonsspital-winterthur-ksw-winterthur",
+      "slug": "specialista-in-radiologia-sts-tsrm-sts-per-il-settore-della-radiologia-interventistica-kantonsspital-winterthur-ksw",
       "slugByLocale": {
         "de": "radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle-radiologie-ksw-ch",
-        "it": "radiologiefachperson-hf-mtr-hf-per-den-bereich-interventionelle-radiologie-kantonsspital-winterthur-ksw-winterthur",
-        "en": "radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle-radiologie-ksw-ch",
-        "fr": "radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle-radiologie-ksw-ch"
+        "it": "specialista-in-radiologia-sts-tsrm-sts-per-il-settore-della-radiologia-interventistica-kantonsspital-winterthur-ksw",
+        "en": "radiology-specialist-hf-mtr-hf-in-the-field-of-interventional-radiology-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "specialiste-en-radiologie-hf-mtr-hf-dans-le-domaine-de-la-radiologie-interventionnelle-kantonsspital-winterthur-ksw"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -956,11 +956,19 @@
       "department": "Klinik für Radiologie und Nuklearmedizin",
       "previousSlugsByLocale": {
         "it": [
+          "radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle-radiologie-ksw-ch",
+          "radiologiefachperson-hf-mtr-hf-per-den-bereich-interventionelle-radiologie-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "en": [
+          "radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle-radiologie-ksw-ch"
+        ],
+        "fr": [
           "radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle-radiologie-ksw-ch"
         ]
       },
       "previousSlugs": [
-        "radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle-radiologie-ksw-ch"
+        "radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle-radiologie-ksw-ch",
+        "radiologiefachperson-hf-mtr-hf-per-den-bereich-interventionelle-radiologie-kantonsspital-winterthur-ksw-winterthur"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -987,8 +995,8 @@
       "slugByLocale": {
         "de": "spontanbewerbung-als-radiologiefachperson-diagnostische-oder-interventionelle-radiologie",
         "it": "spontanbewerbung-come-radiologiefachperson-diagnostische-o-interventionelle-radiologie-kantonsspital-winterthur-ksw-winterthur",
-        "en": "spontanbewerbung-als-radiologiefachperson-diagnostische-oder-interventionelle-radiologie",
-        "fr": "spontanbewerbung-als-radiologiefachperson-diagnostische-oder-interventionelle-radiologie"
+        "en": "spontaneous-application-as-radiology-specialist-diagnostic-or-interventional-radiology-kantonsspital-winterthur-ksw",
+        "fr": "application-spontanee-comme-specialiste-en-radiologie-radiologie-diagnostique-ou-interventionnelle-kantonsspital"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -1036,6 +1044,12 @@
       "department": "Klinik für Radiologie und Nuklearmedizin",
       "previousSlugsByLocale": {
         "it": [
+          "spontanbewerbung-als-radiologiefachperson-diagnostische-oder-interventionelle-radiologie"
+        ],
+        "en": [
+          "spontanbewerbung-als-radiologiefachperson-diagnostische-oder-interventionelle-radiologie"
+        ],
+        "fr": [
           "spontanbewerbung-als-radiologiefachperson-diagnostische-oder-interventionelle-radiologie"
         ]
       },
@@ -5006,12 +5020,12 @@
     },
     {
       "id": "ksw-178294cb6113",
-      "slug": "leiterin-leiter-digitalisierung-it-cio-mitglied-der-geschaftsleitung-kantonsspital-winterthur-ksw-winterthur",
+      "slug": "capo-capo-di-digitalizzazione-it-cio-membro-del-comitato-esecutivo-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "leiterin-leiter-digitalisierung-it-cio-mitglied-der-geschaftsleitung-ksw-ch",
-        "it": "leiterin-leiter-digitalisierung-it-cio-mitglied-der-geschaftsleitung-kantonsspital-winterthur-ksw-winterthur",
-        "en": "leiterin-leiter-digitalisierung-it-cio-mitglied-der-geschaftsleitung-ksw-ch",
-        "fr": "leiterin-leiter-digitalisierung-it-cio-mitglied-der-geschaftsleitung-ksw-ch"
+        "it": "capo-capo-di-digitalizzazione-it-cio-membro-del-comitato-esecutivo-kantonsspital-winterthur-ksw-winterthur",
+        "en": "head-head-of-digitalization-it-cio-member-of-the-executive-board-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "chef-chef-de-la-digitalisation-it-cio-membre-du-directoire-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -5059,11 +5073,19 @@
       "department": "Prozessgestaltung und Digitalisierung",
       "previousSlugsByLocale": {
         "it": [
+          "leiterin-leiter-digitalisierung-it-cio-mitglied-der-geschaftsleitung-ksw-ch",
+          "leiterin-leiter-digitalisierung-it-cio-mitglied-der-geschaftsleitung-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "en": [
+          "leiterin-leiter-digitalisierung-it-cio-mitglied-der-geschaftsleitung-ksw-ch"
+        ],
+        "fr": [
           "leiterin-leiter-digitalisierung-it-cio-mitglied-der-geschaftsleitung-ksw-ch"
         ]
       },
       "previousSlugs": [
-        "leiterin-leiter-digitalisierung-it-cio-mitglied-der-geschaftsleitung-ksw-ch"
+        "leiterin-leiter-digitalisierung-it-cio-mitglied-der-geschaftsleitung-ksw-ch",
+        "leiterin-leiter-digitalisierung-it-cio-mitglied-der-geschaftsleitung-kantonsspital-winterthur-ksw-winterthur"
       ],
       "salaryMin": 121500,
       "salaryMax": 206500,
@@ -5259,12 +5281,12 @@
     },
     {
       "id": "ksw-6d9ffcc4d309",
-      "slug": "fachexperte-fachexpertin-computertomographie-ksw-ch",
+      "slug": "esperto-esperto-in-tomografia-computerizzata-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "fachexperte-fachexpertin-computertomographie-ksw-ch",
-        "it": "fachexperte-fachexpertin-computertomographie-ksw-ch",
-        "en": "fachexperte-fachexpertin-computertomographie-ksw-ch",
-        "fr": "fachexperte-fachexpertin-computertomographie-ksw-ch"
+        "it": "esperto-esperto-in-tomografia-computerizzata-kantonsspital-winterthur-ksw-winterthur",
+        "en": "expert-expert-in-computed-tomography-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "expert-expert-en-tomographie-calculee-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -5327,7 +5349,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:16:32.269Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:16:32.269Z"
+      "firstSeenAt": "2026-11-23T21:16:32.269Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachexperte-fachexpertin-computertomographie-ksw-ch"
+        ],
+        "en": [
+          "fachexperte-fachexpertin-computertomographie-ksw-ch"
+        ],
+        "fr": [
+          "fachexperte-fachexpertin-computertomographie-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachexperte-fachexpertin-computertomographie-ksw-ch"
+      ]
     },
     {
       "id": "ksw-c88f6e658a66",
@@ -6878,12 +6914,12 @@
     },
     {
       "id": "ksw-aa15efcc03fe",
-      "slug": "abteilungslogistikerin-abteilungslogistiker-akutmedizin-e-stroke-unit-kantonsspital-winterthur-ksw-winterthur",
+      "slug": "specialista-in-logistica-di-reparto-per-la-medicina-d-urgenza-e-la-stroke-unit-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "abteilungslogistikerin-abteilungslogistiker-akutmedizin-und-stroke-unit-ksw-ch",
-        "it": "abteilungslogistikerin-abteilungslogistiker-akutmedizin-e-stroke-unit-kantonsspital-winterthur-ksw-winterthur",
-        "en": "abteilungslogistikerin-abteilungslogistiker-akutmedizin-und-stroke-unit-ksw-ch",
-        "fr": "abteilungslogistikerin-abteilungslogistiker-akutmedizin-und-stroke-unit-ksw-ch"
+        "it": "specialista-in-logistica-di-reparto-per-la-medicina-d-urgenza-e-la-stroke-unit-kantonsspital-winterthur-ksw-winterthur",
+        "en": "department-logistics-specialist-acute-medicine-and-stroke-unit-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "departement-de-logistique-specialiste-de-la-medecine-aigue-et-des-accidents-cerebrovasculaires-kantonsspital-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -6931,11 +6967,19 @@
       "department": "Pflege Medizin",
       "previousSlugsByLocale": {
         "it": [
+          "abteilungslogistikerin-abteilungslogistiker-akutmedizin-und-stroke-unit-ksw-ch",
+          "abteilungslogistikerin-abteilungslogistiker-akutmedizin-e-stroke-unit-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "en": [
+          "abteilungslogistikerin-abteilungslogistiker-akutmedizin-und-stroke-unit-ksw-ch"
+        ],
+        "fr": [
           "abteilungslogistikerin-abteilungslogistiker-akutmedizin-und-stroke-unit-ksw-ch"
         ]
       },
       "previousSlugs": [
-        "abteilungslogistikerin-abteilungslogistiker-akutmedizin-und-stroke-unit-ksw-ch"
+        "abteilungslogistikerin-abteilungslogistiker-akutmedizin-und-stroke-unit-ksw-ch",
+        "abteilungslogistikerin-abteilungslogistiker-akutmedizin-e-stroke-unit-kantonsspital-winterthur-ksw-winterthur"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

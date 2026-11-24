@@ -182,12 +182,12 @@
     },
     {
       "id": "barry-callebaut-f19bb7893255",
-      "slug": "project-manager-barry-callebaut-ch",
+      "slug": "responsabile-del-progetto-barry-callebaut-zurich",
       "slugByLocale": {
         "en": "project-manager-barry-callebaut-ch",
-        "it": "project-manager-barry-callebaut-ch",
-        "de": "project-manager-barry-callebaut-ch",
-        "fr": "project-manager-barry-callebaut-ch"
+        "it": "responsabile-del-progetto-barry-callebaut-zurich",
+        "de": "projektmanager-barry-callebaut-zurich",
+        "fr": "gestionnaire-de-projet-barry-callebaut-zurich"
       },
       "company": "Barry Callebaut",
       "companyKey": "barry-callebaut",
@@ -249,7 +249,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:26:33.174Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:26:33.174Z"
+      "firstSeenAt": "2026-11-23T21:26:33.174Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-manager-barry-callebaut-ch"
+        ],
+        "de": [
+          "project-manager-barry-callebaut-ch"
+        ],
+        "fr": [
+          "project-manager-barry-callebaut-ch"
+        ]
+      },
+      "previousSlugs": [
+        "project-manager-barry-callebaut-ch"
+      ]
     },
     {
       "id": "barry-callebaut-616790429beb",

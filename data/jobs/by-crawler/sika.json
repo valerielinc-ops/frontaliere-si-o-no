@@ -3567,12 +3567,12 @@
     },
     {
       "id": "sika-c23b2203c01d",
-      "slug": "content-manager-limited-for-6-months-sika-ch",
+      "slug": "content-manager-limitato-per-6-mesi-sika-baar-canton-of-zug",
       "slugByLocale": {
         "en": "content-manager-limited-for-6-months-sika-ch",
-        "it": "content-manager-limited-for-6-months-sika-ch",
-        "de": "content-manager-limited-for-6-months-sika-ch",
-        "fr": "content-manager-limited-for-6-months-sika-ch"
+        "it": "content-manager-limitato-per-6-mesi-sika-baar-canton-of-zug",
+        "de": "content-manager-begrenzt-auf-6-monate-sika-baar-canton-of-zug",
+        "fr": "gestionnaire-de-contenu-limite-a-6-mois-sika-baar-canton-of-zug"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -3648,7 +3648,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-03T21:24:19.046Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:24:19.046Z"
+      "firstSeenAt": "2026-11-23T21:24:19.046Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "content-manager-limited-for-6-months-sika-ch"
+        ],
+        "de": [
+          "content-manager-limited-for-6-months-sika-ch"
+        ],
+        "fr": [
+          "content-manager-limited-for-6-months-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "content-manager-limited-for-6-months-sika-ch"
+      ]
     },
     {
       "id": "sika-a42f2c27bff4",

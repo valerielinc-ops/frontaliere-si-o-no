@@ -1655,12 +1655,12 @@
     },
     {
       "id": "gmo-632f7507f5fe",
-      "slug": "infirmier-ere-pour-le-service-de-cardiologie-80-gmo-1213-onex-632f7507",
+      "slug": "infermiera-per-il-servizio-cardiologia-80-gmo-1213-onex-632f7507",
       "slugByLocale": {
         "fr": "infirmier-ere-pour-le-service-de-cardiologie-80-gmo-1213-onex-632f7507",
-        "it": "infirmier-ere-pour-le-service-de-cardiologie-80-gmo-1213-onex-632f7507",
-        "en": "infirmier-ere-pour-le-service-de-cardiologie-80-gmo-1213-onex-632f7507",
-        "de": "infirmier-ere-pour-le-service-de-cardiologie-80-gmo-1213-onex-632f7507"
+        "it": "infermiera-per-il-servizio-cardiologia-80-gmo-1213-onex-632f7507",
+        "en": "nurse-for-the-cardiology-service-80-gmo-1213-onex-632f7507",
+        "de": "krankenschwester-fur-den-kardiologischen-dienst-80-gmo-1213-onex-632f7507"
       },
       "slugDisambiguator": "632f7507",
       "company": "gmo",
@@ -1723,7 +1723,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:22:39.186Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:22:39.186Z"
+      "firstSeenAt": "2026-11-23T21:22:39.186Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-pour-le-service-de-cardiologie-80-gmo-1213-onex-632f7507"
+        ],
+        "en": [
+          "infirmier-ere-pour-le-service-de-cardiologie-80-gmo-1213-onex-632f7507"
+        ],
+        "de": [
+          "infirmier-ere-pour-le-service-de-cardiologie-80-gmo-1213-onex-632f7507"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-pour-le-service-de-cardiologie-80-gmo-1213-onex-632f7507"
+      ]
     }
   ]
 }

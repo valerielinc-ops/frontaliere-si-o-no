@@ -427,12 +427,12 @@
     },
     {
       "id": "pictet-d68310547293",
-      "slug": "head-of-data-pictet-geneva",
+      "slug": "responsabile-data-pictet-group-geneva",
       "slugByLocale": {
         "en": "head-of-data-pictet-geneva",
-        "it": "head-of-data-pictet-geneva",
-        "de": "head-of-data-pictet-geneva",
-        "fr": "head-of-data-pictet-geneva"
+        "it": "responsabile-data-pictet-group-geneva",
+        "de": "leiter-data-pictet-group-geneva",
+        "fr": "responsable-data-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -496,16 +496,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:26:58.004Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:26:58.004Z"
+      "firstSeenAt": "2026-11-23T21:26:58.004Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-data-pictet-geneva"
+        ],
+        "de": [
+          "head-of-data-pictet-geneva"
+        ],
+        "fr": [
+          "head-of-data-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-data-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-83501286dbc3",
-      "slug": "client-relationship-officer-institutional-asset-services-12-months-fixed-term-pictet",
+      "slug": "client-relationship-officer-istituzionali-asset-services-12-mesi-a-tempo-determinato-pictet-group-zurich",
       "slugByLocale": {
         "en": "client-relationship-officer-institutional-asset-services-12-months-fixed-term-pictet",
-        "it": "client-relationship-officer-institutional-asset-services-12-months-fixed-term-pictet",
+        "it": "client-relationship-officer-istituzionali-asset-services-12-mesi-a-tempo-determinato-pictet-group-zurich",
         "de": "client-relationship-officer-institutional-asset-services-12-months-fixed-term-pictet",
-        "fr": "client-relationship-officer-institutional-asset-services-12-months-fixed-term-pictet"
+        "fr": "agent-de-relations-avec-la-clientele-services-d-actifs-institutionnels-12-mois-de-duree-determinee-pictet-group-zurich"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -568,7 +582,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-22T21:26:56.068Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:26:56.068Z"
+      "firstSeenAt": "2026-11-23T21:26:56.068Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-relationship-officer-institutional-asset-services-12-months-fixed-term-pictet"
+        ],
+        "fr": [
+          "client-relationship-officer-institutional-asset-services-12-months-fixed-term-pictet"
+        ]
+      },
+      "previousSlugs": [
+        "client-relationship-officer-institutional-asset-services-12-months-fixed-term-pictet"
+      ]
     },
     {
       "id": "pictet-995a3cdb8b7e",

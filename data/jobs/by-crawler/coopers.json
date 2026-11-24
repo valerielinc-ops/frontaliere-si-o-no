@@ -3879,11 +3879,11 @@
     },
     {
       "id": "coopers-e7586c3aa8f9",
-      "slug": "network-engineer-m-w-d-coopers-basel-stadt",
+      "slug": "network-ingegnere-m-w-d-coopers-group-ag-basel-stadt",
       "slugByLocale": {
         "en": "network-engineer-m-w-d-coopers-basel-stadt",
-        "it": "network-engineer-m-w-d-coopers-basel-stadt",
-        "de": "network-engineer-m-w-d-coopers-basel-stadt",
+        "it": "network-ingegnere-m-w-d-coopers-group-ag-basel-stadt",
+        "de": "network-ingenieur-m-w-d-coopers-group-ag-basel-stadt",
         "fr": "network-engineer-m-w-d-coopers-basel-stadt"
       },
       "company": "Coopers Group AG",
@@ -3962,16 +3962,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-22T21:23:20.224Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:23:20.224Z"
+      "firstSeenAt": "2026-11-23T21:23:20.224Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "network-engineer-m-w-d-coopers-basel-stadt"
+        ],
+        "de": [
+          "network-engineer-m-w-d-coopers-basel-stadt"
+        ]
+      },
+      "previousSlugs": [
+        "network-engineer-m-w-d-coopers-basel-stadt"
+      ]
     },
     {
       "id": "coopers-4daea4158845",
-      "slug": "alliance-manager-m-f-d-coopers-basel-stadt",
+      "slug": "alleanza-manager-m-f-d-coopers-group-ag-basel-stadt",
       "slugByLocale": {
         "en": "alliance-manager-m-f-d-coopers-basel-stadt",
-        "it": "alliance-manager-m-f-d-coopers-basel-stadt",
-        "de": "alliance-manager-m-f-d-coopers-basel-stadt",
-        "fr": "alliance-manager-m-f-d-coopers-basel-stadt"
+        "it": "alleanza-manager-m-f-d-coopers-group-ag-basel-stadt",
+        "de": "allianzmanager-m-w-d-coopers-group-ag-basel-stadt",
+        "fr": "gestionnaire-d-alliance-h-f-d-coopers-group-ag-basel-stadt"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -4047,7 +4058,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-22T21:23:19.256Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:23:19.256Z"
+      "firstSeenAt": "2026-11-23T21:23:19.256Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "alliance-manager-m-f-d-coopers-basel-stadt"
+        ],
+        "de": [
+          "alliance-manager-m-f-d-coopers-basel-stadt"
+        ],
+        "fr": [
+          "alliance-manager-m-f-d-coopers-basel-stadt"
+        ]
+      },
+      "previousSlugs": [
+        "alliance-manager-m-f-d-coopers-basel-stadt"
+      ]
     },
     {
       "id": "coopers-25656111a153",

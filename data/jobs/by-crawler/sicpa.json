@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "sicpa-d6762f53407c",
-      "slug": "assistant-approvisionnement-sicpa-chavornay",
+      "slug": "assistente-di-approvvigionamento-sicpa-sa-chavornay",
       "slugByLocale": {
         "fr": "assistant-approvisionnement-sicpa-chavornay",
-        "it": "assistant-approvisionnement-sicpa-chavornay",
-        "en": "assistant-approvisionnement-sicpa-chavornay",
-        "de": "assistant-approvisionnement-sicpa-chavornay"
+        "it": "assistente-di-approvvigionamento-sicpa-sa-chavornay",
+        "en": "supply-assistant-sicpa-sa-chavornay",
+        "de": "assistent-approvisionnement-sicpa-sa-chavornay"
       },
       "company": "SICPA SA",
       "companyKey": "sicpa",
@@ -72,7 +72,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:35:31.687Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:35:31.687Z"
+      "firstSeenAt": "2026-11-23T21:35:31.687Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-approvisionnement-sicpa-chavornay"
+        ],
+        "en": [
+          "assistant-approvisionnement-sicpa-chavornay"
+        ],
+        "de": [
+          "assistant-approvisionnement-sicpa-chavornay"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-approvisionnement-sicpa-chavornay"
+      ]
     },
     {
       "id": "sicpa-10acf27c763d",

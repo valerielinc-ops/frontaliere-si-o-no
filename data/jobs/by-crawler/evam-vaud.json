@@ -743,10 +743,10 @@
     },
     {
       "id": "evam-vaud-8530918",
-      "slug": "gestionnaire-d-accueil-50-cdi-evam-yverdon-les-bains",
+      "slug": "host-manager-50-cdi-evam-yverdon-les-bains",
       "slugByLocale": {
         "fr": "gestionnaire-d-accueil-50-cdi-evam-vaud-ch",
-        "it": "gestionnaire-d-accueil-50-cdi-evam-yverdon-les-bains",
+        "it": "host-manager-50-cdi-evam-yverdon-les-bains",
         "en": "gestionnaire-d-accueil-50-cdi-evam-vaud-ch",
         "de": "gestionnaire-d-accueil-50-cdi-evam-vaud-ch"
       },
@@ -792,11 +792,13 @@
       "hiringOrganizationName": "EVAM",
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-d-accueil-50-cdi-evam-vaud-ch"
+          "gestionnaire-d-accueil-50-cdi-evam-vaud-ch",
+          "gestionnaire-d-accueil-50-cdi-evam-yverdon-les-bains"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-d-accueil-50-cdi-evam-vaud-ch"
+        "gestionnaire-d-accueil-50-cdi-evam-vaud-ch",
+        "gestionnaire-d-accueil-50-cdi-evam-yverdon-les-bains"
       ],
       "salaryMin": 30300,
       "salaryMax": 45800,
@@ -1406,10 +1408,10 @@
     },
     {
       "id": "evam-vaud-8779902",
-      "slug": "assistant-e-social-e-100-cdi-evam-vaud-ch-2",
+      "slug": "assistente-sociale-100-cdi-evam-lausanne",
       "slugByLocale": {
         "fr": "assistant-e-social-e-100-cdi-evam-vaud-ch",
-        "it": "assistant-e-social-e-100-cdi-evam-vaud-ch-2",
+        "it": "assistente-sociale-100-cdi-evam-lausanne",
         "en": "assistant-e-social-e-100-cdi-evam-vaud-ch-2",
         "de": "assistant-e-social-e-100-cdi-evam-vaud-ch-2"
       },
@@ -1470,7 +1472,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-21T21:26:55.339Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-12T21:40:57.961Z"
+      "firstSeenAt": "2026-10-12T21:40:57.961Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-social-e-100-cdi-evam-vaud-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-social-e-100-cdi-evam-vaud-ch-2"
+      ]
     },
     {
       "id": "evam-vaud-8619709",

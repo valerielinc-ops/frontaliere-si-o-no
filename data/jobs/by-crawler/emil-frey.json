@@ -6640,12 +6640,12 @@
     },
     {
       "id": "emil-frey-21c6db2bd885",
-      "slug": "receptionniste-telephoniste-emil-frey-marly",
+      "slug": "receptionist-operatore-emil-frey-marly",
       "slugByLocale": {
         "fr": "receptionniste-telephoniste-emil-frey-marly",
-        "it": "receptionniste-telephoniste-emil-frey-marly",
-        "en": "receptionniste-telephoniste-emil-frey-marly",
-        "de": "receptionniste-telephoniste-emil-frey-marly"
+        "it": "receptionist-operatore-emil-frey-marly",
+        "en": "receptionist-operator-emil-frey-marly",
+        "de": "rezeptionist-betreiber-emil-frey-marly"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -6707,7 +6707,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-21T21:18:31.514Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:18:31.514Z"
+      "firstSeenAt": "2026-11-23T21:18:31.514Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "receptionniste-telephoniste-emil-frey-marly"
+        ],
+        "en": [
+          "receptionniste-telephoniste-emil-frey-marly"
+        ],
+        "de": [
+          "receptionniste-telephoniste-emil-frey-marly"
+        ]
+      },
+      "previousSlugs": [
+        "receptionniste-telephoniste-emil-frey-marly"
+      ]
     },
     {
       "id": "emil-frey-989da1b06a28",

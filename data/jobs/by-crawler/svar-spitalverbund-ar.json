@@ -776,12 +776,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-430c2542f854",
-      "slug": "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slug": "infermiere-a-diplomato-a-sss-in-formazione-specializzazione-in-psichiatria-m-f-d-spitalverbund-appenzell-ausserrhoden",
       "slugByLocale": {
         "de": "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-svar-spitalverbund-ar",
-        "it": "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-svar-spitalverbund-ar",
-        "fr": "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-svar-spitalverbund-ar"
+        "it": "infermiere-a-diplomato-a-sss-in-formazione-specializzazione-in-psichiatria-m-f-d-spitalverbund-appenzell-ausserrhoden",
+        "en": "trainee-higher-education-nurse-specialisation-in-psychiatry-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "infirmiere-infirmier-es-en-formation-specialisation-en-psychiatrie-h-f-d-spitalverbund-appenzell-ausserrhoden-svar"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -829,11 +829,19 @@
       "externalId": "4106586",
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-svar-spitalverbund-ar",
+          "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ],
+        "en": [
+          "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-svar-spitalverbund-ar"
+        ],
+        "fr": [
           "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-svar-spitalverbund-ar"
         ]
       },
       "previousSlugs": [
-        "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-svar-spitalverbund-ar"
+        "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-svar-spitalverbund-ar",
+        "pflegefachfrau-mann-hf-in-ausbildung-vertiefung-psychiatrie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "salaryMin": 81000,
       "salaryMax": 113000,

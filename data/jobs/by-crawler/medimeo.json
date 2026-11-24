@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "medimeo-a5d08e001437",
-      "slug": "facharztin-facharzt-kinder-e-jugendmedizin-50-100-con-medizinischer-leitung-medimeo-ag-olten",
+      "slug": "specialista-in-pediatria-e-medicina-adolescenziale-50-100-con-gestione-medica-medimeo-ag-olten-aargau",
       "slugByLocale": {
         "de": "facharztin-facharzt-kinder-und-jugendmedizin-50-100-mit-medizinischer-leitung-olten-aargau",
-        "it": "facharztin-facharzt-kinder-e-jugendmedizin-50-100-con-medizinischer-leitung-medimeo-ag-olten",
-        "en": "facharztin-facharzt-kinder-und-jugendmedizin-50-100-mit-medizinischer-leitung-olten-aargau",
-        "fr": "facharztin-facharzt-kinder-und-jugendmedizin-50-100-mit-medizinischer-leitung-olten-aargau"
+        "it": "specialista-in-pediatria-e-medicina-adolescenziale-50-100-con-gestione-medica-medimeo-ag-olten-aargau",
+        "en": "specialist-pediatrician-and-adolescent-medicine-50-100-with-medical-direction-medimeo-ag-olten-aargau",
+        "fr": "specialiste-en-pediatrie-et-en-medecine-adolescente-50-100-avec-direction-medicale-medimeo-ag-olten-aargau"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -56,11 +56,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "facharztin-facharzt-kinder-und-jugendmedizin-50-100-mit-medizinischer-leitung-olten-aargau",
+          "facharztin-facharzt-kinder-e-jugendmedizin-50-100-con-medizinischer-leitung-medimeo-ag-olten"
+        ],
+        "en": [
+          "facharztin-facharzt-kinder-und-jugendmedizin-50-100-mit-medizinischer-leitung-olten-aargau"
+        ],
+        "fr": [
           "facharztin-facharzt-kinder-und-jugendmedizin-50-100-mit-medizinischer-leitung-olten-aargau"
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-kinder-und-jugendmedizin-50-100-mit-medizinischer-leitung-olten-aargau"
+        "facharztin-facharzt-kinder-und-jugendmedizin-50-100-mit-medizinischer-leitung-olten-aargau",
+        "facharztin-facharzt-kinder-e-jugendmedizin-50-100-con-medizinischer-leitung-medimeo-ag-olten"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -84,12 +92,12 @@
     },
     {
       "id": "medimeo-3468a177fbcb",
-      "slug": "facharzt-facharztin-ophthalmologie-60-100-wertschatzendes-kollegiales-arbeitsumfeld-olten",
+      "slug": "special-ophthalmology-60-100-ambiente-di-lavoro-competitivo-medimeo-ag-olten-aargau",
       "slugByLocale": {
         "de": "facharzt-facharztin-ophthalmologie-60-100-wertschatzendes-kollegiales-arbeitsumfeld-olten",
-        "it": "facharzt-facharztin-ophthalmologie-60-100-wertschatzendes-kollegiales-arbeitsumfeld-olten",
-        "en": "facharzt-facharztin-ophthalmologie-60-100-wertschatzendes-kollegiales-arbeitsumfeld-olten",
-        "fr": "facharzt-facharztin-ophthalmologie-60-100-wertschatzendes-kollegiales-arbeitsumfeld-olten"
+        "it": "special-ophthalmology-60-100-ambiente-di-lavoro-competitivo-medimeo-ag-olten-aargau",
+        "en": "specialist-ophthalmology-60-100-appreciative-collegial-working-environment-medimeo-ag-olten-aargau",
+        "fr": "ophtalmologie-specialisee-60-100-environnement-de-travail-collegial-et-apprecie-medimeo-ag-olten-aargau"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -151,16 +159,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:20:30.812Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-27T21:19:51.406Z"
+      "firstSeenAt": "2026-10-27T21:19:51.406Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharzt-facharztin-ophthalmologie-60-100-wertschatzendes-kollegiales-arbeitsumfeld-olten"
+        ],
+        "en": [
+          "facharzt-facharztin-ophthalmologie-60-100-wertschatzendes-kollegiales-arbeitsumfeld-olten"
+        ],
+        "fr": [
+          "facharzt-facharztin-ophthalmologie-60-100-wertschatzendes-kollegiales-arbeitsumfeld-olten"
+        ]
+      },
+      "previousSlugs": [
+        "facharzt-facharztin-ophthalmologie-60-100-wertschatzendes-kollegiales-arbeitsumfeld-olten"
+      ]
     },
     {
       "id": "medimeo-5ea25e5d9d55",
-      "slug": "mehr-verantwortung-mehr-gestaltungsspielraum-leitende-arztin-leitender-arzt-geburtshilfe",
+      "slug": "piu-responsabilita-piu-margine-di-manovra-medico-capo-medico-capo-ostetricia-e-diagnostica-prenatale-80-100-medimeo-ag",
       "slugByLocale": {
         "de": "mehr-verantwortung-mehr-gestaltungsspielraum-leitende-arztin-leitender-arzt-geburtshilfe",
-        "it": "mehr-verantwortung-mehr-gestaltungsspielraum-leitende-arztin-leitender-arzt-geburtshilfe",
-        "en": "mehr-verantwortung-mehr-gestaltungsspielraum-leitende-arztin-leitender-arzt-geburtshilfe",
-        "fr": "mehr-verantwortung-mehr-gestaltungsspielraum-leitende-arztin-leitender-arzt-geburtshilfe"
+        "it": "piu-responsabilita-piu-margine-di-manovra-medico-capo-medico-capo-ostetricia-e-diagnostica-prenatale-80-100-medimeo-ag",
+        "en": "more-responsibility-more-room-for-manoeuvre-senior-physician-obstetrics-and-prenatal-diagnosis-80-100-medimeo-ag-region",
+        "fr": "plus-de-responsabilite-plus-de-marge-de-manoeuvre-obstetrique-et-diagnostic-prenatal-80-100-medimeo-ag-region-zurich"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -222,13 +244,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:20:30.812Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-23T21:19:21.614Z"
+      "firstSeenAt": "2026-10-23T21:19:21.614Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mehr-verantwortung-mehr-gestaltungsspielraum-leitende-arztin-leitender-arzt-geburtshilfe"
+        ],
+        "en": [
+          "mehr-verantwortung-mehr-gestaltungsspielraum-leitende-arztin-leitender-arzt-geburtshilfe"
+        ],
+        "fr": [
+          "mehr-verantwortung-mehr-gestaltungsspielraum-leitende-arztin-leitender-arzt-geburtshilfe"
+        ]
+      },
+      "previousSlugs": [
+        "mehr-verantwortung-mehr-gestaltungsspielraum-leitende-arztin-leitender-arzt-geburtshilfe"
+      ]
     },
     {
       "id": "medimeo-1eaa12bbd082",
-      "slug": "pratica-generale-per-le-acquisizioni-sii-il-tuo-capo-e-guadagna-oltre-chf-200-000-medimeo-ag-olten-aargau",
+      "slug": "pratica-generale-per-le-acquisizioni-sii-il-tuo-capo-e-guadagna-oltre-chf-200-000-medimeo-ag-olten",
       "slugByLocale": {
-        "it": "pratica-generale-per-le-acquisizioni-sii-il-tuo-capo-e-guadagna-oltre-chf-200-000-medimeo-ag-olten-aargau",
+        "it": "pratica-generale-per-le-acquisizioni-sii-il-tuo-capo-e-guadagna-oltre-chf-200-000-medimeo-ag-olten",
         "en": "family-practice-for-takeover-be-your-own-boss-and-earn-over-chf-200-000-medimeo-ag-olten-aargau",
         "de": "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-und-uber-chf-200-000-erwirtschaften",
         "fr": "pratique-familiale-pour-la-reprise-soyez-votre-propre-patron-et-gagnez-plus-de-chf-200-000-medimeo-ag-olten-aargau"
@@ -275,12 +311,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-und-uber-chf-200-000-erwirtschaften",
-        "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-e-uber-chf-200-000-erwirtschaften-medimeo-ag-olten"
+        "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-e-uber-chf-200-000-erwirtschaften-medimeo-ag-olten",
+        "pratica-generale-per-le-acquisizioni-sii-il-tuo-capo-e-guadagna-oltre-chf-200-000-medimeo-ag-olten-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-und-uber-chf-200-000-erwirtschaften",
-          "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-e-uber-chf-200-000-erwirtschaften-medimeo-ag-olten"
+          "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-e-uber-chf-200-000-erwirtschaften-medimeo-ag-olten",
+          "pratica-generale-per-le-acquisizioni-sii-il-tuo-capo-e-guadagna-oltre-chf-200-000-medimeo-ag-olten-aargau"
         ],
         "en": [
           "hausarztpraxis-zur-ubernahme-ihr-eigener-chef-sein-und-uber-chf-200-000-erwirtschaften"
@@ -311,12 +349,12 @@
     },
     {
       "id": "medimeo-8beb2b7104ca",
-      "slug": "oberarztin-oberarzt-gynakologie-e-geburtshilfe-60-100-ihr-einstieg-in-der-schweiz-con-einem-erfahrenen-team-medimeo-ag-basel",
+      "slug": "medico-primario-medico-primario-di-ginecologia-e-ostetricia-60-100-il-suo-ingresso-in-svizzera-con-un-team-esperto",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-60-100-ihr-einstieg-in-der-schweiz-mit",
-        "it": "oberarztin-oberarzt-gynakologie-e-geburtshilfe-60-100-ihr-einstieg-in-der-schweiz-con-einem-erfahrenen-team-medimeo-ag-basel",
-        "en": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-60-100-ihr-einstieg-in-der-schweiz-mit",
-        "fr": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-60-100-ihr-einstieg-in-der-schweiz-mit"
+        "it": "medico-primario-medico-primario-di-ginecologia-e-ostetricia-60-100-il-suo-ingresso-in-svizzera-con-un-team-esperto",
+        "en": "senior-physician-senior-physician-gynecology-and-obstetrics-60-100-your-start-in-switzerland-with-an-experienced-team",
+        "fr": "medecin-senior-medecin-senior-gynecologie-et-obstetrique-60-100-votre-depart-en-suisse-avec-une-equipe-experimentee"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -362,11 +400,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-gynakologie-und-geburtshilfe-60-100-ihr-einstieg-in-der-schweiz-mit",
+          "oberarztin-oberarzt-gynakologie-e-geburtshilfe-60-100-ihr-einstieg-in-der-schweiz-con-einem-erfahrenen-team-medimeo-ag-basel"
+        ],
+        "en": [
+          "oberarztin-oberarzt-gynakologie-und-geburtshilfe-60-100-ihr-einstieg-in-der-schweiz-mit"
+        ],
+        "fr": [
           "oberarztin-oberarzt-gynakologie-und-geburtshilfe-60-100-ihr-einstieg-in-der-schweiz-mit"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-gynakologie-und-geburtshilfe-60-100-ihr-einstieg-in-der-schweiz-mit"
+        "oberarztin-oberarzt-gynakologie-und-geburtshilfe-60-100-ihr-einstieg-in-der-schweiz-mit",
+        "oberarztin-oberarzt-gynakologie-e-geburtshilfe-60-100-ihr-einstieg-in-der-schweiz-con-einem-erfahrenen-team-medimeo-ag-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -390,12 +436,12 @@
     },
     {
       "id": "medimeo-6dfe3dce1fc0",
-      "slug": "facharztin-facharzt-gynakologie-e-geburtshilfe-40-100-medimeo-ag-olten",
+      "slug": "medico-specialista-in-ginecologia-e-ostetricia-40-100-medimeo-ag-olten-aargau",
       "slugByLocale": {
         "de": "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-olten-aargau-medimeo-ch",
-        "it": "facharztin-facharzt-gynakologie-e-geburtshilfe-40-100-medimeo-ag-olten",
-        "en": "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-olten-aargau-medimeo-ch",
-        "fr": "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-olten-aargau-medimeo-ch"
+        "it": "medico-specialista-in-ginecologia-e-ostetricia-40-100-medimeo-ag-olten-aargau",
+        "en": "specialist-gynecology-and-obstetrics-40-100-medimeo-ag-olten-aargau",
+        "fr": "gynecologie-et-obstetrique-specialisees-40-100-medimeo-ag-olten-aargau"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -441,11 +487,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-olten-aargau-medimeo-ch",
+          "facharztin-facharzt-gynakologie-e-geburtshilfe-40-100-medimeo-ag-olten"
+        ],
+        "en": [
+          "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-olten-aargau-medimeo-ch"
+        ],
+        "fr": [
           "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-olten-aargau-medimeo-ch"
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-olten-aargau-medimeo-ch"
+        "facharztin-facharzt-gynakologie-und-geburtshilfe-40-100-olten-aargau-medimeo-ch",
+        "facharztin-facharzt-gynakologie-e-geburtshilfe-40-100-medimeo-ag-olten"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -469,12 +523,12 @@
     },
     {
       "id": "medimeo-2b799cf531ae",
-      "slug": "oberarztin-oberarzt-gynakologie-e-geburtshilfe-80-100-sechs-monate-befristet-ab-april-2027-medimeo-ag-basel",
+      "slug": "medico-senior-ginecologia-e-ostetricia-80-100-sei-mesi-temporanei-da-aprile-2027-medimeo-ag-region-basel",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-sechs-monate-befristet-ab-april",
-        "it": "oberarztin-oberarzt-gynakologie-e-geburtshilfe-80-100-sechs-monate-befristet-ab-april-2027-medimeo-ag-basel",
-        "en": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-sechs-monate-befristet-ab-april",
-        "fr": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-sechs-monate-befristet-ab-april"
+        "it": "medico-senior-ginecologia-e-ostetricia-80-100-sei-mesi-temporanei-da-aprile-2027-medimeo-ag-region-basel",
+        "en": "senior-physician-senior-physician-gynecology-and-obstetrics-80-100-six-months-limited-from-april-2027-medimeo-ag-region",
+        "fr": "medecin-principal-medecin-principal-gynecologie-et-obstetrique-80-100-six-mois-limites-a-partir-d-avril-2027-medimeo-ag"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -520,11 +574,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-sechs-monate-befristet-ab-april",
+          "oberarztin-oberarzt-gynakologie-e-geburtshilfe-80-100-sechs-monate-befristet-ab-april-2027-medimeo-ag-basel"
+        ],
+        "en": [
+          "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-sechs-monate-befristet-ab-april"
+        ],
+        "fr": [
           "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-sechs-monate-befristet-ab-april"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-sechs-monate-befristet-ab-april"
+        "oberarztin-oberarzt-gynakologie-und-geburtshilfe-80-100-sechs-monate-befristet-ab-april",
+        "oberarztin-oberarzt-gynakologie-e-geburtshilfe-80-100-sechs-monate-befristet-ab-april-2027-medimeo-ag-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -548,12 +610,12 @@
     },
     {
       "id": "medimeo-289d69377c2e",
-      "slug": "oberarztin-oberarzt-gynakologie-e-geburtshilfe-100-ihr-wechsel-in-la-schweiz-ab-januar-2027-medimeo-ag-basel",
+      "slug": "medico-senior-in-ginecologia-e-ostetricia-al-100-il-tuo-trasferimento-in-svizzera-da-gennaio-2027-medimeo-ag-region",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-100-ihr-wechsel-in-die-schweiz-ab-januar",
-        "it": "oberarztin-oberarzt-gynakologie-e-geburtshilfe-100-ihr-wechsel-in-la-schweiz-ab-januar-2027-medimeo-ag-basel",
-        "en": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-100-ihr-wechsel-in-die-schweiz-ab-januar",
-        "fr": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-100-ihr-wechsel-in-die-schweiz-ab-januar"
+        "it": "medico-senior-in-ginecologia-e-ostetricia-al-100-il-tuo-trasferimento-in-svizzera-da-gennaio-2027-medimeo-ag-region",
+        "en": "senior-physician-senior-physician-gynecology-and-obstetrics-100-moving-to-switzerland-from-january-2027-medimeo-ag",
+        "fr": "medecin-senior-medecin-senior-gynecologie-et-obstetrique-100-demenagement-en-suisse-a-partir-de-janvier-2027-medimeo-ag"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -599,11 +661,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-gynakologie-und-geburtshilfe-100-ihr-wechsel-in-die-schweiz-ab-januar",
+          "oberarztin-oberarzt-gynakologie-e-geburtshilfe-100-ihr-wechsel-in-la-schweiz-ab-januar-2027-medimeo-ag-basel"
+        ],
+        "en": [
+          "oberarztin-oberarzt-gynakologie-und-geburtshilfe-100-ihr-wechsel-in-die-schweiz-ab-januar"
+        ],
+        "fr": [
           "oberarztin-oberarzt-gynakologie-und-geburtshilfe-100-ihr-wechsel-in-die-schweiz-ab-januar"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-gynakologie-und-geburtshilfe-100-ihr-wechsel-in-die-schweiz-ab-januar"
+        "oberarztin-oberarzt-gynakologie-und-geburtshilfe-100-ihr-wechsel-in-die-schweiz-ab-januar",
+        "oberarztin-oberarzt-gynakologie-e-geburtshilfe-100-ihr-wechsel-in-la-schweiz-ab-januar-2027-medimeo-ag-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -627,12 +697,12 @@
     },
     {
       "id": "medimeo-3fb1ec323560",
-      "slug": "oberarztin-oberarzt-radiologie-80-100-vielseitige-radiologie-trifft-auf-zurcher",
+      "slug": "radiologia-medico-senior-80-100-la-radiologia-versatile-incontra-la-qualita-della-vita-di-zurigo-medimeo-ag-region",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-radiologie-80-100-vielseitige-radiologie-trifft-auf-zurcher",
-        "it": "oberarztin-oberarzt-radiologie-80-100-vielseitige-radiologie-trifft-auf-zurcher",
-        "en": "oberarztin-oberarzt-radiologie-80-100-vielseitige-radiologie-trifft-auf-zurcher",
-        "fr": "oberarztin-oberarzt-radiologie-80-100-vielseitige-radiologie-trifft-auf-zurcher"
+        "it": "radiologia-medico-senior-80-100-la-radiologia-versatile-incontra-la-qualita-della-vita-di-zurigo-medimeo-ag-region",
+        "en": "senior-physician-radiology-80-100-versatile-radiology-meets-zurich-quality-of-life-medimeo-ag-region-zurich",
+        "fr": "radiologie-medecin-senior-80-100-la-radiologie-polyvalente-repond-a-la-qualite-de-vie-de-zurich-medimeo-ag-region-zurich"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -694,7 +764,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:20:30.801Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:20:30.801Z"
+      "firstSeenAt": "2026-11-23T21:20:30.801Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-radiologie-80-100-vielseitige-radiologie-trifft-auf-zurcher"
+        ],
+        "en": [
+          "oberarztin-oberarzt-radiologie-80-100-vielseitige-radiologie-trifft-auf-zurcher"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-radiologie-80-100-vielseitige-radiologie-trifft-auf-zurcher"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-radiologie-80-100-vielseitige-radiologie-trifft-auf-zurcher"
+      ]
     },
     {
       "id": "medimeo-ad393de96d6e",
@@ -1136,12 +1220,12 @@
     },
     {
       "id": "medimeo-bbd38d288277",
-      "slug": "specialista-in-psichiatria-40-100-indipendenza-come-utente-dell-infrastruttura-medimeo-ag-region-zurich",
+      "slug": "specialista-in-psichiatria-40-100-indipendenza-come-utente-dell-infrastruttura-medimeo-ag-zurich",
       "slugByLocale": {
         "de": "facharztin-facharzt-psychiatrie-40-100-selbstandigkeit-als-infrastrukturnutzer-in-region",
-        "it": "specialista-in-psichiatria-40-100-indipendenza-come-utente-dell-infrastruttura-medimeo-ag-region-zurich",
+        "it": "specialista-in-psichiatria-40-100-indipendenza-come-utente-dell-infrastruttura-medimeo-ag-zurich",
         "en": "specialist-in-psychiatry-40-100-independence-as-an-infrastructure-user-medimeo-ag-region-zurich",
-        "fr": "specialiste-en-psychiatrie-40-100-independance-en-tant-qu-utilisateur-d-infrastructure-medimeo-ag-region-zurich"
+        "fr": "specialiste-en-psychiatrie-40-100-independance-en-tant-qu-utilisateur-d-infrastructure-medimeo-ag-zurich"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo",
@@ -1188,19 +1272,23 @@
       "previousSlugsByLocale": {
         "it": [
           "facharztin-facharzt-psychiatrie-40-100-selbstandigkeit-als-infrastrukturnutzer-in-region",
-          "facharztin-facharzt-psychiatrie-40-100-selbstandigkeit-come-infrastrukturnutzer-in-medimeo-ag-zurich"
+          "facharztin-facharzt-psychiatrie-40-100-selbstandigkeit-come-infrastrukturnutzer-in-medimeo-ag-zurich",
+          "specialista-in-psichiatria-40-100-indipendenza-come-utente-dell-infrastruttura-medimeo-ag-region-zurich"
         ],
         "en": [
           "facharztin-facharzt-psychiatrie-40-100-selbstandigkeit-als-infrastrukturnutzer-in-medimeo-ag-zurich"
         ],
         "fr": [
-          "facharztin-facharzt-psychiatrie-40-100-selbstandigkeit-als-infrastrukturnutzer-in-medimeo-ag-zurich"
+          "facharztin-facharzt-psychiatrie-40-100-selbstandigkeit-als-infrastrukturnutzer-in-medimeo-ag-zurich",
+          "specialiste-en-psychiatrie-40-100-independance-en-tant-qu-utilisateur-d-infrastructure-medimeo-ag-region-zurich"
         ]
       },
       "previousSlugs": [
         "facharztin-facharzt-psychiatrie-40-100-selbstandigkeit-als-infrastrukturnutzer-in-region",
         "facharztin-facharzt-psychiatrie-40-100-selbstandigkeit-come-infrastrukturnutzer-in-medimeo-ag-zurich",
-        "facharztin-facharzt-psychiatrie-40-100-selbstandigkeit-als-infrastrukturnutzer-in-medimeo-ag-zurich"
+        "facharztin-facharzt-psychiatrie-40-100-selbstandigkeit-als-infrastrukturnutzer-in-medimeo-ag-zurich",
+        "specialista-in-psichiatria-40-100-indipendenza-come-utente-dell-infrastruttura-medimeo-ag-region-zurich",
+        "specialiste-en-psychiatrie-40-100-independance-en-tant-qu-utilisateur-d-infrastructure-medimeo-ag-region-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

@@ -2261,12 +2261,12 @@
     },
     {
       "id": "ksml-faedb4f54049",
-      "slug": "teilpensum-4-klasse-8-lektionen-schule-belp-schulhaus-dorf-belp-40864",
+      "slug": "pensione-parziale-4-class-8-lezioni-schule-belp-schulhaus-dorf-belp-40864",
       "slugByLocale": {
         "de": "teilpensum-4-klasse-8-lektionen-schule-belp-schulhaus-dorf-belp-40864",
-        "it": "teilpensum-4-klasse-8-lektionen-schule-belp-schulhaus-dorf-belp-40864",
-        "en": "teilpensum-4-klasse-8-lektionen-schule-belp-schulhaus-dorf-belp-40864",
-        "fr": "teilpensum-4-klasse-8-lektionen-schule-belp-schulhaus-dorf-belp-40864"
+        "it": "pensione-parziale-4-class-8-lezioni-schule-belp-schulhaus-dorf-belp-40864",
+        "en": "partial-board-4-class-8-lessons-schule-belp-schulhaus-dorf-belp-40864",
+        "fr": "tableau-partiel-4-cours-8-schule-belp-schulhaus-dorf-belp-40864"
       },
       "slugDisambiguator": "40864",
       "company": "Schule Belp/ Schulhaus Dorf",
@@ -2329,7 +2329,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-21T21:36:16.000Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:36:16.000Z"
+      "firstSeenAt": "2026-11-23T21:36:16.000Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teilpensum-4-klasse-8-lektionen-schule-belp-schulhaus-dorf-belp-40864"
+        ],
+        "en": [
+          "teilpensum-4-klasse-8-lektionen-schule-belp-schulhaus-dorf-belp-40864"
+        ],
+        "fr": [
+          "teilpensum-4-klasse-8-lektionen-schule-belp-schulhaus-dorf-belp-40864"
+        ]
+      },
+      "previousSlugs": [
+        "teilpensum-4-klasse-8-lektionen-schule-belp-schulhaus-dorf-belp-40864"
+      ]
     },
     {
       "id": "ksml-5968dea76267",
@@ -5458,12 +5472,12 @@
     },
     {
       "id": "ksml-dfac16dcdab5",
-      "slug": "stellvertretung-an-einer-1-2-klasse-come-klassenlehrer-in-21-l-woche-26-4-27-24-9-27-schule-kleefeld-bern",
+      "slug": "insegnante-supplente-per-una-classe-di-1-2-elementare-21-ore-a-settimana-26-4-27-24-9-27-schule-kleefeld-bern-40865",
       "slugByLocale": {
         "de": "stellvertretung-an-einer-1-2-klasse-als-klassenlehrer-in-21-l-woche-26-4-27-24-9-27-schule-40865",
-        "it": "stellvertretung-an-einer-1-2-klasse-come-klassenlehrer-in-21-l-woche-26-4-27-24-9-27-schule-kleefeld-bern",
-        "en": "stellvertretung-an-einer-1-2-klasse-als-klassenlehrer-in-21-l-woche-26-4-27-24-9-27-schule-40865",
-        "fr": "stellvertretung-an-einer-1-2-klasse-als-klassenlehrer-in-21-l-woche-26-4-27-24-9-27-schule-40865"
+        "it": "insegnante-supplente-per-una-classe-di-1-2-elementare-21-ore-a-settimana-26-4-27-24-9-27-schule-kleefeld-bern-40865",
+        "en": "substitute-teacher-for-a-1st-2nd-grade-class-21-hours-week-26-4-27-24-9-27-schule-kleefeld-bern-40865",
+        "fr": "enseignant-suppleant-pour-une-classe-de-1re-2e-annee-21-heures-semaine-26-4-27-24-9-27-schule-kleefeld-bern-40865"
       },
       "slugDisambiguator": "40865",
       "company": "Schule Kleefeld",
@@ -5512,11 +5526,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "stellvertretung-an-einer-1-2-klasse-als-klassenlehrer-in-21-l-woche-26-4-27-24-9-27-schule-40865",
+          "stellvertretung-an-einer-1-2-klasse-come-klassenlehrer-in-21-l-woche-26-4-27-24-9-27-schule-kleefeld-bern"
+        ],
+        "en": [
+          "stellvertretung-an-einer-1-2-klasse-als-klassenlehrer-in-21-l-woche-26-4-27-24-9-27-schule-40865"
+        ],
+        "fr": [
           "stellvertretung-an-einer-1-2-klasse-als-klassenlehrer-in-21-l-woche-26-4-27-24-9-27-schule-40865"
         ]
       },
       "previousSlugs": [
-        "stellvertretung-an-einer-1-2-klasse-als-klassenlehrer-in-21-l-woche-26-4-27-24-9-27-schule-40865"
+        "stellvertretung-an-einer-1-2-klasse-als-klassenlehrer-in-21-l-woche-26-4-27-24-9-27-schule-40865",
+        "stellvertretung-an-einer-1-2-klasse-come-klassenlehrer-in-21-l-woche-26-4-27-24-9-27-schule-kleefeld-bern"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -5616,12 +5638,12 @@
     },
     {
       "id": "ksml-f283c55ddd14",
-      "slug": "stellvertretung-15-lektionen-sport-deutsch-7-wah-7-ab-01-februar-2027-oberstufe-40863",
+      "slug": "vice-15-lezioni-sport-tedesco-7-wah-7-dal-01-febbraio-2027-oberstufe-gemeindeverband-kirchberg-kirchberg-40863",
       "slugByLocale": {
         "de": "stellvertretung-15-lektionen-sport-deutsch-7-wah-7-ab-01-februar-2027-oberstufe-40863",
-        "it": "stellvertretung-15-lektionen-sport-deutsch-7-wah-7-ab-01-februar-2027-oberstufe-40863",
-        "en": "stellvertretung-15-lektionen-sport-deutsch-7-wah-7-ab-01-februar-2027-oberstufe-40863",
-        "fr": "stellvertretung-15-lektionen-sport-deutsch-7-wah-7-ab-01-februar-2027-oberstufe-40863"
+        "it": "vice-15-lezioni-sport-tedesco-7-wah-7-dal-01-febbraio-2027-oberstufe-gemeindeverband-kirchberg-kirchberg-40863",
+        "en": "deputy-15-lessons-sport-german-7-wah-7-from-01-february-2027-oberstufe-gemeindeverband-kirchberg-kirchberg-40863",
+        "fr": "adjoint-15-lecons-sport-allemand-7-wah-7-a-partir-de-01-fevrier-2027-oberstufe-gemeindeverband-kirchberg-kirchberg-40863"
       },
       "slugDisambiguator": "40863",
       "company": "Oberstufe Gemeindeverband Kirchberg",
@@ -5684,7 +5706,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-21T21:36:15.992Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:36:15.992Z"
+      "firstSeenAt": "2026-11-23T21:36:15.992Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretung-15-lektionen-sport-deutsch-7-wah-7-ab-01-februar-2027-oberstufe-40863"
+        ],
+        "en": [
+          "stellvertretung-15-lektionen-sport-deutsch-7-wah-7-ab-01-februar-2027-oberstufe-40863"
+        ],
+        "fr": [
+          "stellvertretung-15-lektionen-sport-deutsch-7-wah-7-ab-01-februar-2027-oberstufe-40863"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretung-15-lektionen-sport-deutsch-7-wah-7-ab-01-februar-2027-oberstufe-40863"
+      ]
     },
     {
       "id": "ksml-39f6dfe3d85d",
@@ -7210,12 +7246,12 @@
     },
     {
       "id": "ksml-3043209a706c",
-      "slug": "schulleitung-sekundarstufe-i-80-100-bestehend-aus-50-55-schulleitungsfunktion-e-30-45-unterricht-schulen-ruegsau-ruegsauschachen",
+      "slug": "gestione-scolastica-a-livello-secondario-inferiore-80-100-composta-dal-50-55-dal-ruolo-di-gestione-scolastica-e-40866",
       "slugByLocale": {
         "de": "schulleitung-sekundarstufe-i-80-100-bestehend-aus-50-55-schulleitungsfunktion-und-30-45-40866",
-        "it": "schulleitung-sekundarstufe-i-80-100-bestehend-aus-50-55-schulleitungsfunktion-e-30-45-unterricht-schulen-ruegsau-ruegsauschachen",
-        "en": "schulleitung-sekundarstufe-i-80-100-bestehend-aus-50-55-schulleitungsfunktion-und-30-45-40866",
-        "fr": "schulleitung-sekundarstufe-i-80-100-bestehend-aus-50-55-schulleitungsfunktion-und-30-45-40866"
+        "it": "gestione-scolastica-a-livello-secondario-inferiore-80-100-composta-dal-50-55-dal-ruolo-di-gestione-scolastica-e-40866",
+        "en": "secondary-school-management-i-80-100-consisting-of-50-55-school-management-function-and-30-45-tuition-schulen-40866",
+        "fr": "gestion-de-l-ecole-secondaire-i-80-100-comprenant-50-55-de-la-fonction-de-gestion-de-l-ecole-et-30-45-des-frais-de-40866"
       },
       "slugDisambiguator": "40866",
       "company": "Schulen Rüegsau",
@@ -7264,11 +7300,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "schulleitung-sekundarstufe-i-80-100-bestehend-aus-50-55-schulleitungsfunktion-und-30-45-40866",
+          "schulleitung-sekundarstufe-i-80-100-bestehend-aus-50-55-schulleitungsfunktion-e-30-45-unterricht-schulen-ruegsau-ruegsauschachen"
+        ],
+        "en": [
+          "schulleitung-sekundarstufe-i-80-100-bestehend-aus-50-55-schulleitungsfunktion-und-30-45-40866"
+        ],
+        "fr": [
           "schulleitung-sekundarstufe-i-80-100-bestehend-aus-50-55-schulleitungsfunktion-und-30-45-40866"
         ]
       },
       "previousSlugs": [
-        "schulleitung-sekundarstufe-i-80-100-bestehend-aus-50-55-schulleitungsfunktion-und-30-45-40866"
+        "schulleitung-sekundarstufe-i-80-100-bestehend-aus-50-55-schulleitungsfunktion-und-30-45-40866",
+        "schulleitung-sekundarstufe-i-80-100-bestehend-aus-50-55-schulleitungsfunktion-e-30-45-unterricht-schulen-ruegsau-ruegsauschachen"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -8590,12 +8634,12 @@
     },
     {
       "id": "ksml-7c4ed949e47d",
-      "slug": "schule-bethlehemacker-schulhaus-brunnen-14h-klassenhilfe-schule-bethlehemacker-bern-40867",
+      "slug": "school-bethlehemacker-scuola-brno-14h-aiuto-di-classe-schule-bethlehemacker-bern-40867",
       "slugByLocale": {
         "de": "schule-bethlehemacker-schulhaus-brunnen-14h-klassenhilfe-schule-bethlehemacker-bern-40867",
-        "it": "schule-bethlehemacker-schulhaus-brunnen-14h-klassenhilfe-schule-bethlehemacker-bern-40867",
-        "en": "schule-bethlehemacker-schulhaus-brunnen-14h-klassenhilfe-schule-bethlehemacker-bern-40867",
-        "fr": "schule-bethlehemacker-schulhaus-brunnen-14h-klassenhilfe-schule-bethlehemacker-bern-40867"
+        "it": "school-bethlehemacker-scuola-brno-14h-aiuto-di-classe-schule-bethlehemacker-bern-40867",
+        "en": "school-bethlehemacker-schoolhouse-brno-14h-class-help-schule-bethlehemacker-bern-40867",
+        "fr": "ecole-bethleemacker-schoolhouse-brno-aide-de-classe-14h-schule-bethlehemacker-bern-40867"
       },
       "slugDisambiguator": "40867",
       "company": "Schule Bethlehemacker",
@@ -8658,7 +8702,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-21T21:36:15.977Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:36:15.977Z"
+      "firstSeenAt": "2026-11-23T21:36:15.977Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schule-bethlehemacker-schulhaus-brunnen-14h-klassenhilfe-schule-bethlehemacker-bern-40867"
+        ],
+        "en": [
+          "schule-bethlehemacker-schulhaus-brunnen-14h-klassenhilfe-schule-bethlehemacker-bern-40867"
+        ],
+        "fr": [
+          "schule-bethlehemacker-schulhaus-brunnen-14h-klassenhilfe-schule-bethlehemacker-bern-40867"
+        ]
+      },
+      "previousSlugs": [
+        "schule-bethlehemacker-schulhaus-brunnen-14h-klassenhilfe-schule-bethlehemacker-bern-40867"
+      ]
     },
     {
       "id": "ksml-5ae04a7d6535",
@@ -10425,12 +10483,12 @@
     },
     {
       "id": "ksml-79f0610d9b43",
-      "slug": "mutterschaftsvertretung-klp-3-4-klasse-18-l-mo-e-di-ganzer-tag-e-fr-vormittag-primarschule-thun-neufeld-thun",
+      "slug": "rappresentanza-maternita-klp-3-4-elementare-18-l-lunedi-e-martedi-tutto-il-giorno-e-venerdi-mattina-primarschule-40806",
       "slugByLocale": {
         "de": "mutterschaftsvertretung-klp-3-4-klasse-18-l-mo-und-di-ganzer-tag-und-fr-vormittag-40806",
-        "it": "mutterschaftsvertretung-klp-3-4-klasse-18-l-mo-e-di-ganzer-tag-e-fr-vormittag-primarschule-thun-neufeld-thun",
-        "en": "mutterschaftsvertretung-klp-3-4-klasse-18-l-mo-und-di-ganzer-tag-und-fr-vormittag-40806",
-        "fr": "mutterschaftsvertretung-klp-3-4-klasse-18-l-mo-und-di-ganzer-tag-und-fr-vormittag-40806"
+        "it": "rappresentanza-maternita-klp-3-4-elementare-18-l-lunedi-e-martedi-tutto-il-giorno-e-venerdi-mattina-primarschule-40806",
+        "en": "maternity-representation-klp-3-4-class-18-l-mo-and-di-all-day-and-early-morning-primarschule-thun-neufeld-thun-40806",
+        "fr": "representation-de-la-maternite-klp-3-4-classe-18-l-mo-et-di-toute-la-journee-et-tot-le-matin-primarschule-thun-40806"
       },
       "slugDisambiguator": "40806",
       "company": "Primarschule Thun - Neufeld",
@@ -10480,11 +10538,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mutterschaftsvertretung-klp-3-4-klasse-18-l-mo-und-di-ganzer-tag-und-fr-vormittag-40806",
+          "mutterschaftsvertretung-klp-3-4-klasse-18-l-mo-e-di-ganzer-tag-e-fr-vormittag-primarschule-thun-neufeld-thun"
+        ],
+        "en": [
+          "mutterschaftsvertretung-klp-3-4-klasse-18-l-mo-und-di-ganzer-tag-und-fr-vormittag-40806"
+        ],
+        "fr": [
           "mutterschaftsvertretung-klp-3-4-klasse-18-l-mo-und-di-ganzer-tag-und-fr-vormittag-40806"
         ]
       },
       "previousSlugs": [
-        "mutterschaftsvertretung-klp-3-4-klasse-18-l-mo-und-di-ganzer-tag-und-fr-vormittag-40806"
+        "mutterschaftsvertretung-klp-3-4-klasse-18-l-mo-und-di-ganzer-tag-und-fr-vormittag-40806",
+        "mutterschaftsvertretung-klp-3-4-klasse-18-l-mo-e-di-ganzer-tag-e-fr-vormittag-primarschule-thun-neufeld-thun"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -14915,12 +14981,12 @@
     },
     {
       "id": "ksml-a03c54e242d8",
-      "slug": "kreativer-dienstagvormittag-im-marit-primarschule-marit-erlach-erlach-40872",
+      "slug": "creativo-martedi-mattina-al-marit-primarschule-marit-erlach-erlach-40872",
       "slugByLocale": {
         "de": "kreativer-dienstagvormittag-im-marit-primarschule-marit-erlach-erlach-40872",
-        "it": "kreativer-dienstagvormittag-im-marit-primarschule-marit-erlach-erlach-40872",
-        "en": "kreativer-dienstagvormittag-im-marit-primarschule-marit-erlach-erlach-40872",
-        "fr": "kreativer-dienstagvormittag-im-marit-primarschule-marit-erlach-erlach-40872"
+        "it": "creativo-martedi-mattina-al-marit-primarschule-marit-erlach-erlach-40872",
+        "en": "creative-tuesday-morning-in-the-marit-primarschule-marit-erlach-erlach-40872",
+        "fr": "mardi-matin-creatif-dans-le-marit-primarschule-marit-erlach-erlach-40872"
       },
       "slugDisambiguator": "40872",
       "company": "Primarschule Märit, Erlach",
@@ -14983,7 +15049,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-21T21:36:15.962Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:36:15.962Z"
+      "firstSeenAt": "2026-11-23T21:36:15.962Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kreativer-dienstagvormittag-im-marit-primarschule-marit-erlach-erlach-40872"
+        ],
+        "en": [
+          "kreativer-dienstagvormittag-im-marit-primarschule-marit-erlach-erlach-40872"
+        ],
+        "fr": [
+          "kreativer-dienstagvormittag-im-marit-primarschule-marit-erlach-erlach-40872"
+        ]
+      },
+      "previousSlugs": [
+        "kreativer-dienstagvormittag-im-marit-primarschule-marit-erlach-erlach-40872"
+      ]
     },
     {
       "id": "ksml-d9a627f9eee9",
@@ -17044,12 +17124,12 @@
     },
     {
       "id": "ksml-4c2c29acc9ea",
-      "slug": "klassenhilfe-3-lektionen-freitagvormittag-schule-langnau-oberfrittenbach-oberfrittenbach-40868",
+      "slug": "3-lezioni-venerdi-mattina-schule-langnau-oberfrittenbach-oberfrittenbach-40868",
       "slugByLocale": {
         "de": "klassenhilfe-3-lektionen-freitagvormittag-schule-langnau-oberfrittenbach-oberfrittenbach-40868",
-        "it": "klassenhilfe-3-lektionen-freitagvormittag-schule-langnau-oberfrittenbach-oberfrittenbach-40868",
-        "en": "klassenhilfe-3-lektionen-freitagvormittag-schule-langnau-oberfrittenbach-oberfrittenbach-40868",
-        "fr": "klassenhilfe-3-lektionen-freitagvormittag-schule-langnau-oberfrittenbach-oberfrittenbach-40868"
+        "it": "3-lezioni-venerdi-mattina-schule-langnau-oberfrittenbach-oberfrittenbach-40868",
+        "en": "class-help-3-lessons-friday-morning-schule-langnau-oberfrittenbach-oberfrittenbach-40868",
+        "fr": "cours-d-aide-en-classe-3-vendredi-matin-schule-langnau-oberfrittenbach-oberfrittenbach-40868"
       },
       "slugDisambiguator": "40868",
       "company": "Schule Langnau, Oberfrittenbach",
@@ -17112,7 +17192,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:36:15.955Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:36:15.955Z"
+      "firstSeenAt": "2026-11-23T21:36:15.955Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "klassenhilfe-3-lektionen-freitagvormittag-schule-langnau-oberfrittenbach-oberfrittenbach-40868"
+        ],
+        "en": [
+          "klassenhilfe-3-lektionen-freitagvormittag-schule-langnau-oberfrittenbach-oberfrittenbach-40868"
+        ],
+        "fr": [
+          "klassenhilfe-3-lektionen-freitagvormittag-schule-langnau-oberfrittenbach-oberfrittenbach-40868"
+        ]
+      },
+      "previousSlugs": [
+        "klassenhilfe-3-lektionen-freitagvormittag-schule-langnau-oberfrittenbach-oberfrittenbach-40868"
+      ]
     },
     {
       "id": "ksml-36f1a7583ca6",
@@ -19417,12 +19511,12 @@
     },
     {
       "id": "ksml-7b60d538032f",
-      "slug": "enseignante-ou-enseignant-de-branches-professionnelles-logisticiennes-et-logisticiens-de-40869",
+      "slug": "insegnante-in-rami-professionali-logistici-della-distribuzione-cfc-e-logistici-e-logistici-afp-15-25-ceff-40869",
       "slugByLocale": {
         "fr": "enseignante-ou-enseignant-de-branches-professionnelles-logisticiennes-et-logisticiens-de-40869",
-        "it": "enseignante-ou-enseignant-de-branches-professionnelles-logisticiennes-et-logisticiens-de-40869",
-        "en": "enseignante-ou-enseignant-de-branches-professionnelles-logisticiennes-et-logisticiens-de-40869",
-        "de": "enseignante-ou-enseignant-de-branches-professionnelles-logisticiennes-et-logisticiens-de-40869"
+        "it": "insegnante-in-rami-professionali-logistici-della-distribuzione-cfc-e-logistici-e-logistici-afp-15-25-ceff-40869",
+        "en": "teacher-in-professional-branches-logisticians-of-distribution-cfc-and-logisticians-and-logisticians-afp-15-25-ceff-40869",
+        "de": "lehrer-in-berufszweigen-logistiker-des-vertriebs-cfc-und-logistiker-und-logistiker-afp-15-25-ceff-artisanat-bienne-40869"
       },
       "slugDisambiguator": "40869",
       "company": "ceff ARTISANAT",
@@ -19486,16 +19580,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:36:15.950Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:36:15.950Z"
+      "firstSeenAt": "2026-11-23T21:36:15.950Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "enseignante-ou-enseignant-de-branches-professionnelles-logisticiennes-et-logisticiens-de-40869"
+        ],
+        "en": [
+          "enseignante-ou-enseignant-de-branches-professionnelles-logisticiennes-et-logisticiens-de-40869"
+        ],
+        "de": [
+          "enseignante-ou-enseignant-de-branches-professionnelles-logisticiennes-et-logisticiens-de-40869"
+        ]
+      },
+      "previousSlugs": [
+        "enseignante-ou-enseignant-de-branches-professionnelles-logisticiennes-et-logisticiens-de-40869"
+      ]
     },
     {
       "id": "ksml-1b983bcbd77a",
-      "slug": "enseignante-ou-enseignant-de-branches-professionnelles-maconnes-et-macons-afp-5-15-ceff-40870",
+      "slug": "insegnante-in-rami-professionali-mason-e-muratori-afp-5-15-ceff-artisanat-bienne-40870",
       "slugByLocale": {
         "fr": "enseignante-ou-enseignant-de-branches-professionnelles-maconnes-et-macons-afp-5-15-ceff-40870",
-        "it": "enseignante-ou-enseignant-de-branches-professionnelles-maconnes-et-macons-afp-5-15-ceff-40870",
-        "en": "enseignante-ou-enseignant-de-branches-professionnelles-maconnes-et-macons-afp-5-15-ceff-40870",
-        "de": "enseignante-ou-enseignant-de-branches-professionnelles-maconnes-et-macons-afp-5-15-ceff-40870"
+        "it": "insegnante-in-rami-professionali-mason-e-muratori-afp-5-15-ceff-artisanat-bienne-40870",
+        "en": "teacher-in-professional-branches-masons-and-masons-afp-5-15-ceff-artisanat-bienne-40870",
+        "de": "lehrer-in-berufszweigen-freimaurer-und-maurer-afp-5-15-ceff-artisanat-bienne-40870"
       },
       "slugDisambiguator": "40870",
       "company": "ceff ARTISANAT",
@@ -19559,7 +19667,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:36:15.950Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:36:15.950Z"
+      "firstSeenAt": "2026-11-23T21:36:15.950Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "enseignante-ou-enseignant-de-branches-professionnelles-maconnes-et-macons-afp-5-15-ceff-40870"
+        ],
+        "en": [
+          "enseignante-ou-enseignant-de-branches-professionnelles-maconnes-et-macons-afp-5-15-ceff-40870"
+        ],
+        "de": [
+          "enseignante-ou-enseignant-de-branches-professionnelles-maconnes-et-macons-afp-5-15-ceff-40870"
+        ]
+      },
+      "previousSlugs": [
+        "enseignante-ou-enseignant-de-branches-professionnelles-maconnes-et-macons-afp-5-15-ceff-40870"
+      ]
     },
     {
       "id": "ksml-297fc5ae61c0",

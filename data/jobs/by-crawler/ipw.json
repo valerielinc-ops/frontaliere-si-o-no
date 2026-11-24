@@ -278,10 +278,10 @@
     },
     {
       "id": "ipw-969baf2e4149",
-      "slug": "psychologin-psychologe-ipw-winterthur",
+      "slug": "psicologo-psicologo-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
         "de": "psychologin-psychologe-ipw-winterthur",
-        "it": "psychologin-psychologe-ipw-winterthur",
+        "it": "psicologo-psicologo-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "en": "psychologin-psychologe-ipw-winterthur",
         "fr": "psychologin-psychologe-ipw-winterthur"
       },
@@ -349,7 +349,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-23T21:29:45.057Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-08-28T05:21:58.766Z"
+      "firstSeenAt": "2026-08-28T05:21:58.766Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologin-psychologe-ipw-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "psychologin-psychologe-ipw-winterthur"
+      ]
     },
     {
       "id": "ipw-724074fc4389",

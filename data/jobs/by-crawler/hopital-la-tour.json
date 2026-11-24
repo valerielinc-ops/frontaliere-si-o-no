@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "hopital-la-tour-861b7c049de5",
-      "slug": "medecins-urgentistes-seniors-a-temps-plein-ou-temps-partiel-hopital-la-tour-meyrin",
+      "slug": "medici-di-emergenza-anziani-a-tempo-pieno-o-part-time-hopital-de-la-tour-meyrin",
       "slugByLocale": {
         "fr": "medecins-urgentistes-seniors-a-temps-plein-ou-temps-partiel-hopital-la-tour-meyrin",
-        "it": "medecins-urgentistes-seniors-a-temps-plein-ou-temps-partiel-hopital-la-tour-meyrin",
-        "en": "medecins-urgentistes-seniors-a-temps-plein-ou-temps-partiel-hopital-la-tour-meyrin",
-        "de": "medecins-urgentistes-seniors-a-temps-plein-ou-temps-partiel-hopital-la-tour-meyrin"
+        "it": "medici-di-emergenza-anziani-a-tempo-pieno-o-part-time-hopital-de-la-tour-meyrin",
+        "en": "full-time-or-part-time-senior-emergency-doctors-hopital-de-la-tour-meyrin",
+        "de": "vollzeit-oder-teilzeit-leitende-notarzte-hopital-de-la-tour-meyrin"
       },
       "company": "Hôpital de La Tour",
       "companyKey": "hopital-la-tour",
@@ -83,7 +83,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-21T21:33:07.317Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:33:07.317Z"
+      "firstSeenAt": "2026-11-23T21:33:07.317Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecins-urgentistes-seniors-a-temps-plein-ou-temps-partiel-hopital-la-tour-meyrin"
+        ],
+        "en": [
+          "medecins-urgentistes-seniors-a-temps-plein-ou-temps-partiel-hopital-la-tour-meyrin"
+        ],
+        "de": [
+          "medecins-urgentistes-seniors-a-temps-plein-ou-temps-partiel-hopital-la-tour-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "medecins-urgentistes-seniors-a-temps-plein-ou-temps-partiel-hopital-la-tour-meyrin"
+      ]
     },
     {
       "id": "hopital-la-tour-882b6ff457f2",
@@ -1961,12 +1975,12 @@
     },
     {
       "id": "hopital-la-tour-76ccd2dd675a",
-      "slug": "neurologue-a-80-100-hopital-la-tour-meyrin",
+      "slug": "neurologo-all-80-100-hopital-de-la-tour-meyrin",
       "slugByLocale": {
         "fr": "neurologue-a-80-100-hopital-la-tour-meyrin",
-        "it": "neurologue-a-80-100-hopital-la-tour-meyrin",
-        "en": "neurologue-a-80-100-hopital-la-tour-meyrin",
-        "de": "neurologue-a-80-100-hopital-la-tour-meyrin"
+        "it": "neurologo-all-80-100-hopital-de-la-tour-meyrin",
+        "en": "neurologist-at-80-100-hopital-de-la-tour-meyrin",
+        "de": "neurologe-bei-80-100-hopital-de-la-tour-meyrin"
       },
       "company": "Hôpital de La Tour",
       "companyKey": "hopital-la-tour",
@@ -2039,7 +2053,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-21T21:33:07.274Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:33:07.274Z"
+      "firstSeenAt": "2026-11-23T21:33:07.274Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "neurologue-a-80-100-hopital-la-tour-meyrin"
+        ],
+        "en": [
+          "neurologue-a-80-100-hopital-la-tour-meyrin"
+        ],
+        "de": [
+          "neurologue-a-80-100-hopital-la-tour-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "neurologue-a-80-100-hopital-la-tour-meyrin"
+      ]
     },
     {
       "id": "hopital-la-tour-fa0243493f74",

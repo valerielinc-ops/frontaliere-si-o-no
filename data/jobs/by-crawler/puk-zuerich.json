@@ -3914,12 +3914,12 @@
     },
     {
       "id": "puk-zuerich-fce19df370bb",
-      "slug": "forschungspraktikantin-forschungspraktikanten-klinische-datenaggregation-e-meta-forschung-psychiatrische-universitatsklinik-zurich",
+      "slug": "tirocinante-i-di-ricerca-aggregazione-dei-dati-clinici-e-meta-ricerca-psychiatrische-universitatsklinik-zurich-zurich",
       "slugByLocale": {
         "de": "forschungspraktikantin-forschungspraktikanten-klinische-datenaggregation-und-meta",
-        "it": "forschungspraktikantin-forschungspraktikanten-klinische-datenaggregation-e-meta-forschung-psychiatrische-universitatsklinik-zurich",
-        "en": "forschungspraktikantin-forschungspraktikanten-klinische-datenaggregation-und-meta",
-        "fr": "forschungspraktikantin-forschungspraktikanten-klinische-datenaggregation-und-meta"
+        "it": "tirocinante-i-di-ricerca-aggregazione-dei-dati-clinici-e-meta-ricerca-psychiatrische-universitatsklinik-zurich-zurich",
+        "en": "research-intern-research-intern-clinical-data-aggregation-and-meta-research-psychiatrische-universitatsklinik-zurich",
+        "fr": "stage-de-recherche-stage-de-recherche-agregation-des-donnees-cliniques-et-meta-recherche-psychiatrische"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -3970,11 +3970,19 @@
       "pensum": "40%",
       "previousSlugsByLocale": {
         "it": [
+          "forschungspraktikantin-forschungspraktikanten-klinische-datenaggregation-und-meta",
+          "forschungspraktikantin-forschungspraktikanten-klinische-datenaggregation-e-meta-forschung-psychiatrische-universitatsklinik-zurich"
+        ],
+        "en": [
+          "forschungspraktikantin-forschungspraktikanten-klinische-datenaggregation-und-meta"
+        ],
+        "fr": [
           "forschungspraktikantin-forschungspraktikanten-klinische-datenaggregation-und-meta"
         ]
       },
       "previousSlugs": [
-        "forschungspraktikantin-forschungspraktikanten-klinische-datenaggregation-und-meta"
+        "forschungspraktikantin-forschungspraktikanten-klinische-datenaggregation-und-meta",
+        "forschungspraktikantin-forschungspraktikanten-klinische-datenaggregation-e-meta-forschung-psychiatrische-universitatsklinik-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

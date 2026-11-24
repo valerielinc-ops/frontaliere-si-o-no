@@ -441,12 +441,12 @@
     },
     {
       "id": "planzer-3ced6196f43c",
-      "slug": "sachbearbeiter-administration-tauschgerate-ruv-m-w-d-planzer-schmerikon",
+      "slug": "amministrazione-scambio-attrezzature-ruv-m-f-d-planzer-schmerikon",
       "slugByLocale": {
         "de": "sachbearbeiter-administration-tauschgerate-ruv-m-w-d-planzer-schmerikon",
-        "it": "sachbearbeiter-administration-tauschgerate-ruv-m-w-d-planzer-schmerikon",
-        "en": "sachbearbeiter-administration-tauschgerate-ruv-m-w-d-planzer-schmerikon",
-        "fr": "sachbearbeiter-administration-tauschgerate-ruv-m-w-d-planzer-schmerikon"
+        "it": "amministrazione-scambio-attrezzature-ruv-m-f-d-planzer-schmerikon",
+        "en": "administration-exchange-equipment-ruv-m-f-d-planzer-schmerikon",
+        "fr": "equipement-d-echange-d-administration-ruv-h-f-d-planzer-schmerikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -509,7 +509,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-21T21:21:14.966Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:21:14.966Z"
+      "firstSeenAt": "2026-11-23T21:21:14.966Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-administration-tauschgerate-ruv-m-w-d-planzer-schmerikon"
+        ],
+        "en": [
+          "sachbearbeiter-administration-tauschgerate-ruv-m-w-d-planzer-schmerikon"
+        ],
+        "fr": [
+          "sachbearbeiter-administration-tauschgerate-ruv-m-w-d-planzer-schmerikon"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-administration-tauschgerate-ruv-m-w-d-planzer-schmerikon"
+      ]
     },
     {
       "id": "planzer-4ee710b01ef7",
@@ -689,10 +703,10 @@
     },
     {
       "id": "planzer-4c98fc412cbc",
-      "slug": "collaboratore-trice-kommissionierung-m-w-d-planzer-villmergen",
+      "slug": "addetto-al-prelievo-m-f-d-planzer-villmergen",
       "slugByLocale": {
         "de": "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen",
-        "it": "collaboratore-trice-kommissionierung-m-w-d-planzer-villmergen",
+        "it": "addetto-al-prelievo-m-f-d-planzer-villmergen",
         "en": "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen",
         "fr": "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen"
       },
@@ -743,11 +757,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen"
+          "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen",
+          "collaboratore-trice-kommissionierung-m-w-d-planzer-villmergen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen"
+        "mitarbeiter-kommissionierung-m-w-d-planzer-villmergen",
+        "collaboratore-trice-kommissionierung-m-w-d-planzer-villmergen"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -769,12 +785,12 @@
     },
     {
       "id": "planzer-d2b39417104d",
-      "slug": "employe-parc-de-vehicules-m-f-d-planzer-penthalaz",
+      "slug": "dipendente-della-flotta-di-veicoli-m-f-d-planzer-penthalaz",
       "slugByLocale": {
         "fr": "employe-parc-de-vehicules-m-f-d-planzer-penthalaz",
-        "it": "employe-parc-de-vehicules-m-f-d-planzer-penthalaz",
-        "en": "employe-parc-de-vehicules-m-f-d-planzer-penthalaz",
-        "de": "employe-parc-de-vehicules-m-f-d-planzer-penthalaz"
+        "it": "dipendente-della-flotta-di-veicoli-m-f-d-planzer-penthalaz",
+        "en": "vehicle-fleet-employee-m-f-d-planzer-penthalaz",
+        "de": "fahrzeugflottenmitarbeiter-m-w-d-planzer-penthalaz"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -837,7 +853,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-21T21:21:11.967Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:21:11.967Z"
+      "firstSeenAt": "2026-11-23T21:21:11.967Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-parc-de-vehicules-m-f-d-planzer-penthalaz"
+        ],
+        "en": [
+          "employe-parc-de-vehicules-m-f-d-planzer-penthalaz"
+        ],
+        "de": [
+          "employe-parc-de-vehicules-m-f-d-planzer-penthalaz"
+        ]
+      },
+      "previousSlugs": [
+        "employe-parc-de-vehicules-m-f-d-planzer-penthalaz"
+      ]
     },
     {
       "id": "planzer-dfe3489083e3",

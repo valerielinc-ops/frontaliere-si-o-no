@@ -5464,12 +5464,12 @@
     },
     {
       "id": "kanton-basel-landschaft-3d9b601350dc",
-      "slug": "business-analystin-business-analyst-kanton-basel-landschaft-liestal",
+      "slug": "business-analystin-business-analista-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
         "de": "business-analystin-business-analyst-kanton-basel-landschaft-liestal",
-        "it": "business-analystin-business-analyst-kanton-basel-landschaft-liestal",
+        "it": "business-analystin-business-analista-kantonale-verwaltung-basel-landschaft-liestal",
         "en": "business-analystin-business-analyst-kanton-basel-landschaft-liestal",
-        "fr": "business-analystin-business-analyst-kanton-basel-landschaft-liestal"
+        "fr": "business-analystin-business-analyste-kantonale-verwaltung-basel-landschaft-liestal"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -5531,7 +5531,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-21T21:18:14.390Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:18:14.390Z"
+      "firstSeenAt": "2026-11-23T21:18:14.390Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analystin-business-analyst-kanton-basel-landschaft-liestal"
+        ],
+        "fr": [
+          "business-analystin-business-analyst-kanton-basel-landschaft-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "business-analystin-business-analyst-kanton-basel-landschaft-liestal"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-e43e9a1e269c",

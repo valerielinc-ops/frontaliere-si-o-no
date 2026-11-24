@@ -4745,12 +4745,12 @@
     },
     {
       "id": "see-spital-da83d79654eb",
-      "slug": "projektleiter-in-gebaudemanagement-see-spital-horgen",
+      "slug": "project-manager-building-management-see-spital-horgen",
       "slugByLocale": {
         "de": "projektleiter-in-gebaudemanagement-see-spital-ch",
-        "it": "projektleiter-in-gebaudemanagement-see-spital-horgen",
+        "it": "project-manager-building-management-see-spital-horgen",
         "en": "projektleiter-in-gebaudemanagement-see-spital-ch",
-        "fr": "projektleiter-in-gebaudemanagement-see-spital-ch"
+        "fr": "chef-de-projet-gestion-des-batiments-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -4798,11 +4798,16 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-gebaudemanagement-see-spital-ch",
+          "projektleiter-in-gebaudemanagement-see-spital-horgen"
+        ],
+        "fr": [
           "projektleiter-in-gebaudemanagement-see-spital-ch"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-gebaudemanagement-see-spital-ch"
+        "projektleiter-in-gebaudemanagement-see-spital-ch",
+        "projektleiter-in-gebaudemanagement-see-spital-horgen"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

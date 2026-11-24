@@ -4086,12 +4086,12 @@
     },
     {
       "id": "concara-76dc402860da",
-      "slug": "fachperson-aktivierung-e-tageszentrum-50-60-concara-domicil-spitex-bern",
+      "slug": "specialista-in-attivazione-e-centro-diurno-50-60-concara-domicil-spitex-bern-bern",
       "slugByLocale": {
         "de": "fachperson-aktivierung-und-tageszentrum-50-60-concara-bern",
-        "it": "fachperson-aktivierung-e-tageszentrum-50-60-concara-domicil-spitex-bern",
-        "en": "fachperson-aktivierung-und-tageszentrum-50-60-concara-bern",
-        "fr": "fachperson-aktivierung-und-tageszentrum-50-60-concara-bern"
+        "it": "specialista-in-attivazione-e-centro-diurno-50-60-concara-domicil-spitex-bern-bern",
+        "en": "professional-activation-and-day-centre-50-60-concara-domicil-spitex-bern-bern",
+        "fr": "activation-professionnelle-et-centre-de-jour-50-60-concara-domicil-spitex-bern-bern"
       },
       "company": "Concara (Domicil & Spitex Bern)",
       "companyKey": "concara",
@@ -4139,11 +4139,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-aktivierung-und-tageszentrum-50-60-concara-bern",
+          "fachperson-aktivierung-e-tageszentrum-50-60-concara-domicil-spitex-bern"
+        ],
+        "en": [
+          "fachperson-aktivierung-und-tageszentrum-50-60-concara-bern"
+        ],
+        "fr": [
           "fachperson-aktivierung-und-tageszentrum-50-60-concara-bern"
         ]
       },
       "previousSlugs": [
-        "fachperson-aktivierung-und-tageszentrum-50-60-concara-bern"
+        "fachperson-aktivierung-und-tageszentrum-50-60-concara-bern",
+        "fachperson-aktivierung-e-tageszentrum-50-60-concara-domicil-spitex-bern"
       ],
       "salaryMin": 51000,
       "salaryMax": 71400,

@@ -9,8 +9,8 @@
       "slugByLocale": {
         "de": "projektleiter-instrumentierungs-losungsprojekte-f-m-d-100-endress-hauser-reinach",
         "it": "projektleiter-instrumentierungs-losungsprojekte-m-w-d-100-endress-hauser-reinach",
-        "en": "projektleiter-instrumentierungs-losungsprojekte-f-m-d-100-endress-hauser-reinach",
-        "fr": "projektleiter-instrumentierungs-losungsprojekte-f-m-d-100-endress-hauser-reinach"
+        "en": "project-manager-instrumentation-solution-projects-m-f-d-100-endress-hauser-reinach",
+        "fr": "gestionnaire-de-projet-instrumentation-solution-projets-h-f-d-100-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -58,6 +58,12 @@
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-instrumentierungs-losungsprojekte-f-m-d-100-endress-hauser-reinach"
+        ],
+        "en": [
+          "projektleiter-instrumentierungs-losungsprojekte-f-m-d-100-endress-hauser-reinach"
+        ],
+        "fr": [
+          "projektleiter-instrumentierungs-losungsprojekte-f-m-d-100-endress-hauser-reinach"
         ]
       },
       "previousSlugs": [
@@ -84,12 +90,12 @@
     },
     {
       "id": "endress-hauser-ed685a9456e5",
-      "slug": "productmanager-level-pressure-f-m-d-100-endress-hauser-reinach",
+      "slug": "livello-pressione-m-f-d-100-endress-hauser-reinach",
       "slugByLocale": {
         "de": "productmanager-level-pressure-f-m-d-100-endress-hauser-reinach",
-        "it": "productmanager-level-pressure-f-m-d-100-endress-hauser-reinach",
+        "it": "livello-pressione-m-f-d-100-endress-hauser-reinach",
         "en": "productmanager-level-pressure-f-m-d-100-endress-hauser-reinach",
-        "fr": "productmanager-level-pressure-f-m-d-100-endress-hauser-reinach"
+        "fr": "gestionnaire-de-produits-niveau-et-pression-h-f-d-100-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -151,7 +157,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:29:11.193Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:29:11.193Z"
+      "firstSeenAt": "2026-11-23T21:29:11.193Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "productmanager-level-pressure-f-m-d-100-endress-hauser-reinach"
+        ],
+        "fr": [
+          "productmanager-level-pressure-f-m-d-100-endress-hauser-reinach"
+        ]
+      },
+      "previousSlugs": [
+        "productmanager-level-pressure-f-m-d-100-endress-hauser-reinach"
+      ]
     },
     {
       "id": "endress-hauser-18362ab28664",

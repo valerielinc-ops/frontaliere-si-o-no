@@ -1602,7 +1602,7 @@
     },
     {
       "id": "efg-6349",
-      "slug": "configuration-manager-efg-geneve",
+      "slug": "gestione-configurazione-efg-international-ag-geneve",
       "company": "EFG International AG",
       "title": "Configuration Manager",
       "location": "Geneve",
@@ -1654,10 +1654,10 @@
       },
       "crawledAt": "2026-11-23T21:17:47.178Z",
       "slugByLocale": {
-        "it": "configuration-manager-efg-geneve",
+        "it": "gestione-configurazione-efg-international-ag-geneve",
         "en": "configuration-manager-efg-geneve",
         "de": "configuration-manager-efg-geneve",
-        "fr": "configuration-manager-efg-geneve"
+        "fr": "gestionnaire-de-configuration-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
       "addressCountry": "CH",
@@ -1681,7 +1681,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:17:47.178Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:17:47.178Z"
+      "firstSeenAt": "2026-11-23T21:17:47.178Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "configuration-manager-efg-geneve"
+        ],
+        "fr": [
+          "configuration-manager-efg-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "configuration-manager-efg-geneve"
+      ]
     },
     {
       "id": "efg-6071",

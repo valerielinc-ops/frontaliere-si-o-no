@@ -841,12 +841,12 @@
     },
     {
       "id": "tschuggen-bccbf670bb29",
-      "slug": "kids-club-responsabile-in-saisonanstellung-m-w-d-tschuggen-collection-ascona",
+      "slug": "responsabile-del-kids-club-nell-impiego-stagionale-m-f-d-tschuggen-collection-ascona",
       "slugByLocale": {
         "de": "kids-club-leiter-in-in-saisonanstellung-m-w-d-tschuggen-ch",
-        "it": "kids-club-responsabile-in-saisonanstellung-m-w-d-tschuggen-collection-ascona",
-        "en": "kids-club-leiter-in-in-saisonanstellung-m-w-d-tschuggen-ch",
-        "fr": "kids-club-leiter-in-in-saisonanstellung-m-w-d-tschuggen-ch"
+        "it": "responsabile-del-kids-club-nell-impiego-stagionale-m-f-d-tschuggen-collection-ascona",
+        "en": "kids-club-leader-in-seasonal-employment-m-f-d-tschuggen-collection-ascona",
+        "fr": "responsable-du-club-pour-enfants-en-h-f-d-d-emploi-saisonnier-tschuggen-collection-ascona"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -893,11 +893,19 @@
       "hotelName": "Hotel Eden Roc",
       "previousSlugsByLocale": {
         "it": [
+          "kids-club-leiter-in-in-saisonanstellung-m-w-d-tschuggen-ch",
+          "kids-club-responsabile-in-saisonanstellung-m-w-d-tschuggen-collection-ascona"
+        ],
+        "en": [
+          "kids-club-leiter-in-in-saisonanstellung-m-w-d-tschuggen-ch"
+        ],
+        "fr": [
           "kids-club-leiter-in-in-saisonanstellung-m-w-d-tschuggen-ch"
         ]
       },
       "previousSlugs": [
-        "kids-club-leiter-in-in-saisonanstellung-m-w-d-tschuggen-ch"
+        "kids-club-leiter-in-in-saisonanstellung-m-w-d-tschuggen-ch",
+        "kids-club-responsabile-in-saisonanstellung-m-w-d-tschuggen-collection-ascona"
       ],
       "salaryMin": 72000,
       "salaryMax": 90500,
@@ -921,12 +929,12 @@
     },
     {
       "id": "tschuggen-faea525b1a0b",
-      "slug": "officemitarbeiter-in-in-saisonanstellung-m-w-d-tschuggen-collection-ascona",
+      "slug": "dipendente-dell-ufficio-in-occupazione-stagionale-m-f-d-tschuggen-collection-ascona",
       "slugByLocale": {
         "de": "officemitarbeiter-in-in-saisonanstellung-m-w-d-tschuggen-ch",
-        "it": "officemitarbeiter-in-in-saisonanstellung-m-w-d-tschuggen-collection-ascona",
-        "en": "officemitarbeiter-in-in-saisonanstellung-m-w-d-tschuggen-collection-ascona",
-        "fr": "officemitarbeiter-in-in-saisonanstellung-m-w-d-tschuggen-collection-ascona"
+        "it": "dipendente-dell-ufficio-in-occupazione-stagionale-m-f-d-tschuggen-collection-ascona",
+        "en": "office-employee-in-in-seasonal-employment-m-f-d-tschuggen-collection-ascona",
+        "fr": "employe-de-bureau-in-en-emploi-saisonnier-h-f-d-tschuggen-collection-ascona"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -974,11 +982,19 @@
       "hotelName": "Hotel Eden Roc",
       "previousSlugsByLocale": {
         "it": [
-          "officemitarbeiter-in-in-saisonanstellung-m-w-d-tschuggen-ch"
+          "officemitarbeiter-in-in-saisonanstellung-m-w-d-tschuggen-ch",
+          "officemitarbeiter-in-in-saisonanstellung-m-w-d-tschuggen-collection-ascona"
+        ],
+        "en": [
+          "officemitarbeiter-in-in-saisonanstellung-m-w-d-tschuggen-collection-ascona"
+        ],
+        "fr": [
+          "officemitarbeiter-in-in-saisonanstellung-m-w-d-tschuggen-collection-ascona"
         ]
       },
       "previousSlugs": [
-        "officemitarbeiter-in-in-saisonanstellung-m-w-d-tschuggen-ch"
+        "officemitarbeiter-in-in-saisonanstellung-m-w-d-tschuggen-ch",
+        "officemitarbeiter-in-in-saisonanstellung-m-w-d-tschuggen-collection-ascona"
       ],
       "salaryMin": 53500,
       "salaryMax": 67000,
@@ -1002,12 +1018,12 @@
     },
     {
       "id": "tschuggen-5c65cb7d2025",
-      "slug": "laundry-attendant-in-saisonanstellung-m-w-d-tschuggen-ch",
+      "slug": "assistente-di-lavanderia-nella-stagione-m-f-d-tschuggen-collection-ascona",
       "slugByLocale": {
         "de": "laundry-attendant-in-saisonanstellung-m-w-d-tschuggen-ch",
-        "it": "laundry-attendant-in-saisonanstellung-m-w-d-tschuggen-ch",
+        "it": "assistente-di-lavanderia-nella-stagione-m-f-d-tschuggen-collection-ascona",
         "en": "laundry-attendant-in-saisonanstellung-m-w-d-tschuggen-ch",
-        "fr": "laundry-attendant-in-saisonanstellung-m-w-d-tschuggen-ch"
+        "fr": "lave-linge-en-saison-h-f-d-tschuggen-collection-ascona"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -1071,7 +1087,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:22:32.919Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:22:32.919Z"
+      "firstSeenAt": "2026-11-23T21:22:32.919Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "laundry-attendant-in-saisonanstellung-m-w-d-tschuggen-ch"
+        ],
+        "fr": [
+          "laundry-attendant-in-saisonanstellung-m-w-d-tschuggen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "laundry-attendant-in-saisonanstellung-m-w-d-tschuggen-ch"
+      ]
     }
   ]
 }

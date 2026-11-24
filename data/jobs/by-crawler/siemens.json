@@ -4230,12 +4230,12 @@
     },
     {
       "id": "siemens-578b109d46a6",
-      "slug": "commercial-project-manager-bid-abwicklung-project-controller-siemens-wallisellen",
+      "slug": "responsabile-del-progetto-commerciale-bid-processing-titolare-del-progetto-siemens-wallisellen",
       "slugByLocale": {
         "de": "commercial-project-manager-bid-abwicklung-project-controller-siemens-wallisellen",
-        "it": "commercial-project-manager-bid-abwicklung-project-controller-siemens-wallisellen",
+        "it": "responsabile-del-progetto-commerciale-bid-processing-titolare-del-progetto-siemens-wallisellen",
         "en": "commercial-project-manager-bid-abwicklung-project-controller-siemens-wallisellen",
-        "fr": "commercial-project-manager-bid-abwicklung-project-controller-siemens-wallisellen"
+        "fr": "gestionnaire-de-projet-commercial-bid-processing-controleur-de-projet-siemens-wallisellen"
       },
       "company": "Siemens",
       "companyKey": "siemens",
@@ -4299,7 +4299,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:16:53.558Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:16:53.558Z"
+      "firstSeenAt": "2026-11-23T21:16:53.558Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "commercial-project-manager-bid-abwicklung-project-controller-siemens-wallisellen"
+        ],
+        "fr": [
+          "commercial-project-manager-bid-abwicklung-project-controller-siemens-wallisellen"
+        ]
+      },
+      "previousSlugs": [
+        "commercial-project-manager-bid-abwicklung-project-controller-siemens-wallisellen"
+      ]
     },
     {
       "id": "siemens-30eb4125f8e0",

@@ -2419,12 +2419,12 @@
     },
     {
       "id": "triaplus-b4c746accca5",
-      "slug": "fachpsychologe-o-psychologe-in-weiterbildung-m-w-d-triaplus-ag-pfaffikon",
+      "slug": "psicologo-specialista-o-psicologo-in-formazione-continua-m-f-d-triaplus-ag-pfaffikon",
       "slugByLocale": {
         "de": "fachpsychologe-oder-psychologe-in-weiterbildung-m-w-d-triaplus-fachpsychologe-oder",
-        "it": "fachpsychologe-o-psychologe-in-weiterbildung-m-w-d-triaplus-ag-pfaffikon",
-        "en": "fachpsychologe-oder-psychologe-in-weiterbildung-m-w-d-triaplus-fachpsychologe-oder",
-        "fr": "fachpsychologe-oder-psychologe-in-weiterbildung-m-w-d-triaplus-fachpsychologe-oder"
+        "it": "psicologo-specialista-o-psicologo-in-formazione-continua-m-f-d-triaplus-ag-pfaffikon",
+        "en": "specialist-psychologist-or-psychologist-in-further-education-m-f-d-triaplus-ag-pfaffikon",
+        "fr": "psychologue-specialise-ou-psychologue-en-formation-continue-h-f-d-triaplus-ag-pfaffikon"
       },
       "company": "Triaplus AG",
       "companyKey": "triaplus",
@@ -2471,11 +2471,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachpsychologe-oder-psychologe-in-weiterbildung-m-w-d-triaplus-fachpsychologe-oder",
+          "fachpsychologe-o-psychologe-in-weiterbildung-m-w-d-triaplus-ag-pfaffikon"
+        ],
+        "en": [
+          "fachpsychologe-oder-psychologe-in-weiterbildung-m-w-d-triaplus-fachpsychologe-oder"
+        ],
+        "fr": [
           "fachpsychologe-oder-psychologe-in-weiterbildung-m-w-d-triaplus-fachpsychologe-oder"
         ]
       },
       "previousSlugs": [
-        "fachpsychologe-oder-psychologe-in-weiterbildung-m-w-d-triaplus-fachpsychologe-oder"
+        "fachpsychologe-oder-psychologe-in-weiterbildung-m-w-d-triaplus-fachpsychologe-oder",
+        "fachpsychologe-o-psychologe-in-weiterbildung-m-w-d-triaplus-ag-pfaffikon"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -2497,12 +2505,12 @@
     },
     {
       "id": "triaplus-89b271144dc6",
-      "slug": "seelsorgerin-w-m-d-triaplus-seelsorgerin-w-m-d",
+      "slug": "cappellano-m-f-d-triaplus-ag-oberwil",
       "slugByLocale": {
         "de": "seelsorgerin-w-m-d-triaplus-seelsorgerin-w-m-d",
-        "it": "seelsorgerin-w-m-d-triaplus-seelsorgerin-w-m-d",
-        "en": "seelsorgerin-w-m-d-triaplus-seelsorgerin-w-m-d",
-        "fr": "seelsorgerin-w-m-d-triaplus-seelsorgerin-w-m-d"
+        "it": "cappellano-m-f-d-triaplus-ag-oberwil",
+        "en": "chaplain-m-f-d-triaplus-ag-oberwil",
+        "fr": "aumonier-h-f-d-triaplus-ag-oberwil"
       },
       "company": "Triaplus AG",
       "companyKey": "triaplus",
@@ -2564,7 +2572,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:26:11.244Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:26:11.244Z"
+      "firstSeenAt": "2026-11-23T21:26:11.244Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "seelsorgerin-w-m-d-triaplus-seelsorgerin-w-m-d"
+        ],
+        "en": [
+          "seelsorgerin-w-m-d-triaplus-seelsorgerin-w-m-d"
+        ],
+        "fr": [
+          "seelsorgerin-w-m-d-triaplus-seelsorgerin-w-m-d"
+        ]
+      },
+      "previousSlugs": [
+        "seelsorgerin-w-m-d-triaplus-seelsorgerin-w-m-d"
+      ]
     }
   ]
 }

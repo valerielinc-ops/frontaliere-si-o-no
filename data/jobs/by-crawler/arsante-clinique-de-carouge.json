@@ -2055,12 +2055,12 @@
     },
     {
       "id": "arsante-clinique-de-carouge-b69d197eac1a",
-      "slug": "infirmier-ere-pour-le-service-de-cardiologie-80-arsante-clinique-de-carouge-onex",
+      "slug": "infermiera-per-il-servizio-cardiologia-80-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex",
       "slugByLocale": {
         "fr": "infirmier-ere-pour-le-service-de-cardiologie-80-arsante-clinique-de-carouge-onex",
-        "it": "infirmier-ere-pour-le-service-de-cardiologie-80-arsante-clinique-de-carouge-onex",
-        "en": "infirmier-ere-pour-le-service-de-cardiologie-80-arsante-clinique-de-carouge-onex",
-        "de": "infirmier-ere-pour-le-service-de-cardiologie-80-arsante-clinique-de-carouge-onex"
+        "it": "infermiera-per-il-servizio-cardiologia-80-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex",
+        "en": "nurse-for-the-cardiology-service-80-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex",
+        "de": "krankenschwester-fur-den-kardiologischen-dienst-80-arsante-clinique-de-carouge-clinique-et-permanence-d-onex-onex"
       },
       "company": "Arsanté (Clinique de Carouge) — Clinique et Permanence d'Onex",
       "companyKey": "arsante-clinique-de-carouge",
@@ -2122,7 +2122,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:24:09.645Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:24:09.645Z"
+      "firstSeenAt": "2026-11-23T21:24:09.645Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-pour-le-service-de-cardiologie-80-arsante-clinique-de-carouge-onex"
+        ],
+        "en": [
+          "infirmier-ere-pour-le-service-de-cardiologie-80-arsante-clinique-de-carouge-onex"
+        ],
+        "de": [
+          "infirmier-ere-pour-le-service-de-cardiologie-80-arsante-clinique-de-carouge-onex"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-pour-le-service-de-cardiologie-80-arsante-clinique-de-carouge-onex"
+      ]
     }
   ]
 }

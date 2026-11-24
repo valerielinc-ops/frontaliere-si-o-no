@@ -591,12 +591,12 @@
     },
     {
       "id": "swisslog-6ab856646708",
-      "slug": "instandhaltungs-techniker-m-w-d-swisslog-kaiseraugst-switzerland",
+      "slug": "tecnico-di-manutenzione-m-f-d-swisslog-kaiseraugst-switzerland",
       "slugByLocale": {
         "de": "instandhaltungs-techniker-m-w-d-swisslog-kaiseraugst-switzerland",
-        "it": "instandhaltungs-techniker-m-w-d-swisslog-kaiseraugst-switzerland",
-        "en": "instandhaltungs-techniker-m-w-d-swisslog-kaiseraugst-switzerland",
-        "fr": "instandhaltungs-techniker-m-w-d-swisslog-kaiseraugst-switzerland"
+        "it": "tecnico-di-manutenzione-m-f-d-swisslog-kaiseraugst-switzerland",
+        "en": "maintenance-technician-m-f-d-swisslog-kaiseraugst-switzerland",
+        "fr": "technicien-de-maintenance-h-f-d-swisslog-kaiseraugst-switzerland"
       },
       "company": "Swisslog",
       "companyKey": "swisslog",
@@ -659,7 +659,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:14:47.720Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:14:47.720Z"
+      "firstSeenAt": "2026-11-23T21:14:47.720Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "instandhaltungs-techniker-m-w-d-swisslog-kaiseraugst-switzerland"
+        ],
+        "en": [
+          "instandhaltungs-techniker-m-w-d-swisslog-kaiseraugst-switzerland"
+        ],
+        "fr": [
+          "instandhaltungs-techniker-m-w-d-swisslog-kaiseraugst-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "instandhaltungs-techniker-m-w-d-swisslog-kaiseraugst-switzerland"
+      ]
     }
   ]
 }

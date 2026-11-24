@@ -1197,12 +1197,12 @@
     },
     {
       "id": "jsafrasarasin-64623ab251fd",
-      "slug": "controlling-data-analyst-jsafrasarasin-ch",
+      "slug": "controlling-data-analista-j-safra-sarasin-basel-ch",
       "slugByLocale": {
         "en": "controlling-data-analyst-jsafrasarasin-ch",
-        "it": "controlling-data-analyst-jsafrasarasin-ch",
+        "it": "controlling-data-analista-j-safra-sarasin-basel-ch",
         "de": "controlling-data-analyst-jsafrasarasin-ch",
-        "fr": "controlling-data-analyst-jsafrasarasin-ch"
+        "fr": "controlling-data-analyste-j-safra-sarasin-basel-ch"
       },
       "company": "J. Safra Sarasin",
       "companyKey": "jsafrasarasin",
@@ -1264,7 +1264,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:14:54.739Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:14:54.739Z"
+      "firstSeenAt": "2026-11-23T21:14:54.739Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "controlling-data-analyst-jsafrasarasin-ch"
+        ],
+        "fr": [
+          "controlling-data-analyst-jsafrasarasin-ch"
+        ]
+      },
+      "previousSlugs": [
+        "controlling-data-analyst-jsafrasarasin-ch"
+      ]
     }
   ]
 }

@@ -1424,9 +1424,9 @@
       },
       "slug": "gestione-del-team-pianificazione-finanziaria-postfinance-bern",
       "slugByLocale": {
+        "de": "teamleitung-finanzplanung-postfinance-bern",
         "it": "gestione-del-team-pianificazione-finanziaria-postfinance-bern",
         "en": "team-management-financial-planning-postfinance-bern",
-        "de": "teamleitung-finanzplanung-postfinance",
         "fr": "planification-financiere-de-la-gestion-de-l-equipe-postfinance-bern"
       },
       "sourceLang": "de",
@@ -1451,21 +1451,6 @@
         "location": "Bern"
       },
       "id": "postfinance-d7aef0876caa",
-      "previousSlugs": [
-        "teamleitung-finanzplanung-postfinance"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleitung-finanzplanung-postfinance"
-        ],
-        "en": [
-          "teamleitung-finanzplanung-postfinance"
-        ],
-        "fr": [
-          "teamleitung-finanzplanung-postfinance"
-        ]
-      },
-      "firstSeenAt": "2026-11-23T09:52:04.992Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
       "currency": "CHF",
@@ -1485,7 +1470,25 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-23T09:52:04.992Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-finanzplanung-postfinance"
+        ],
+        "en": [
+          "teamleitung-finanzplanung-postfinance"
+        ],
+        "fr": [
+          "teamleitung-finanzplanung-postfinance"
+        ],
+        "de": [
+          "teamleitung-finanzplanung-postfinance"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-finanzplanung-postfinance"
+      ]
     },
     {
       "url": "https://jobs.postfinance.ch/job/Senior-Finanzplanerin-Region-Z%C3%BCrich-&-Zentralschweiz/75265-de_DE",
@@ -1772,10 +1775,10 @@
       },
       "slug": "pianificatore-finanziario-senior-regione-romandie-postfinance-westschweiz",
       "slugByLocale": {
-        "it": "pianificatore-finanziario-senior-regione-romandie-postfinance-westschweiz",
-        "en": "senior-financial-planner-romandie-region-postfinance-lausanne",
         "de": "senior-finanzplaner-in-region-romandie-postfinance",
-        "fr": "planificateur-financier-senior-region-romandie-postfinance-lausanne"
+        "it": "pianificatore-finanziario-senior-regione-romandie-postfinance-westschweiz",
+        "en": "senior-financial-planner-romandie-region-postfinance-westschweiz",
+        "fr": "planificateur-financier-senior-region-romandie-postfinance-westschweiz"
       },
       "sourceLang": "de",
       "department": [
@@ -1799,21 +1802,6 @@
         "location": "Lausanne"
       },
       "id": "postfinance-8c4f9548a913",
-      "previousSlugs": [
-        "senior-finanzplaner-in-region-romandie-postfinance"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-finanzplaner-in-region-romandie-postfinance"
-        ],
-        "en": [
-          "senior-finanzplaner-in-region-romandie-postfinance"
-        ],
-        "fr": [
-          "senior-finanzplaner-in-region-romandie-postfinance"
-        ]
-      },
-      "firstSeenAt": "2026-11-23T09:52:00.633Z",
       "salaryMin": 101500,
       "salaryMax": 156000,
       "currency": "CHF",
@@ -1833,7 +1821,26 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-23T09:52:00.633Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-finanzplaner-in-region-romandie-postfinance"
+        ],
+        "en": [
+          "senior-finanzplaner-in-region-romandie-postfinance",
+          "senior-financial-planner-romandie-region-postfinance-lausanne"
+        ],
+        "fr": [
+          "senior-finanzplaner-in-region-romandie-postfinance",
+          "planificateur-financier-senior-region-romandie-postfinance-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "senior-finanzplaner-in-region-romandie-postfinance",
+        "senior-financial-planner-romandie-region-postfinance-lausanne",
+        "planificateur-financier-senior-region-romandie-postfinance-lausanne"
+      ]
     },
     {
       "url": "https://jobs.postfinance.ch/job/Architecture-Owner-%28wmd%29/75191-de_DE",

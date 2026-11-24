@@ -2357,12 +2357,12 @@
     },
     {
       "id": "accor-be2df86040dd",
-      "slug": "sales-manager-h-f-x-ibis-budget-rotary-hotel-geneva-mgallery-collection-geneva-switzerland-be2df860",
+      "slug": "responsabile-vendite-m-f-x-ibis-budget-ginevra-be2df860",
       "slugByLocale": {
         "fr": "sales-manager-h-f-x-ibis-budget-rotary-hotel-geneva-mgallery-collection-geneva-switzerland-be2df860",
-        "it": "sales-manager-h-f-x-ibis-budget-rotary-hotel-geneva-mgallery-collection-geneva-switzerland-be2df860",
+        "it": "responsabile-vendite-m-f-x-ibis-budget-ginevra-be2df860",
         "en": "sales-manager-h-f-x-ibis-budget-rotary-hotel-geneva-mgallery-collection-geneva-switzerland-be2df860",
-        "de": "sales-manager-h-f-x-ibis-budget-rotary-hotel-geneva-mgallery-collection-geneva-switzerland-be2df860"
+        "de": "verkaufsleiter-m-w-x-ibis-budget-ginevra-be2df860"
       },
       "slugDisambiguator": "be2df860",
       "company": "Ibis Budget",
@@ -2425,7 +2425,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:43:55.210Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:43:55.210Z"
+      "firstSeenAt": "2026-11-23T21:43:55.210Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-manager-h-f-x-ibis-budget-rotary-hotel-geneva-mgallery-collection-geneva-switzerland-be2df860"
+        ],
+        "de": [
+          "sales-manager-h-f-x-ibis-budget-rotary-hotel-geneva-mgallery-collection-geneva-switzerland-be2df860"
+        ]
+      },
+      "previousSlugs": [
+        "sales-manager-h-f-x-ibis-budget-rotary-hotel-geneva-mgallery-collection-geneva-switzerland-be2df860"
+      ]
     },
     {
       "id": "accor-1766008bdcbd",

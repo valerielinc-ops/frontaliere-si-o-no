@@ -3790,12 +3790,12 @@
     },
     {
       "id": "etat-de-vaud-6198",
-      "slug": "specialiste-en-sante-et-securite-au-travail-charge-e-de-projets-etat-de-vaud-lausanne",
+      "slug": "specialista-per-la-salute-e-la-sicurezza-sul-lavoro-project-manager-etat-de-vaud-administration-cantonale-vaudoise",
       "slugByLocale": {
         "fr": "specialiste-en-sante-et-securite-au-travail-charge-e-de-projets-etat-de-vaud-lausanne",
-        "it": "specialiste-en-sante-et-securite-au-travail-charge-e-de-projets-etat-de-vaud-lausanne",
-        "en": "specialiste-en-sante-et-securite-au-travail-charge-e-de-projets-etat-de-vaud-lausanne",
-        "de": "specialiste-en-sante-et-securite-au-travail-charge-e-de-projets-etat-de-vaud-lausanne"
+        "it": "specialista-per-la-salute-e-la-sicurezza-sul-lavoro-project-manager-etat-de-vaud-administration-cantonale-vaudoise",
+        "en": "occupational-health-and-safety-specialist-project-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "spezialist-fur-arbeitssicherheit-projektmanager-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3857,15 +3857,29 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-21T21:33:23.157Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:33:23.157Z"
+      "firstSeenAt": "2026-11-23T21:33:23.157Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-en-sante-et-securite-au-travail-charge-e-de-projets-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "specialiste-en-sante-et-securite-au-travail-charge-e-de-projets-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "specialiste-en-sante-et-securite-au-travail-charge-e-de-projets-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-en-sante-et-securite-au-travail-charge-e-de-projets-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-6196",
-      "slug": "juriste-etat-de-vaud-epalinges",
+      "slug": "ufficiale-legale-etat-de-vaud-administration-cantonale-vaudoise-epalinges",
       "slugByLocale": {
         "fr": "juriste-etat-de-vaud-epalinges",
-        "it": "juriste-etat-de-vaud-epalinges",
-        "en": "juriste-etat-de-vaud-epalinges",
+        "it": "ufficiale-legale-etat-de-vaud-administration-cantonale-vaudoise-epalinges",
+        "en": "legal-officer-etat-de-vaud-administration-cantonale-vaudoise-epalinges",
         "de": "juriste-etat-de-vaud-epalinges"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
@@ -3928,7 +3942,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-21T21:33:22.756Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:33:22.756Z"
+      "firstSeenAt": "2026-11-23T21:33:22.756Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "juriste-etat-de-vaud-epalinges"
+        ],
+        "en": [
+          "juriste-etat-de-vaud-epalinges"
+        ]
+      },
+      "previousSlugs": [
+        "juriste-etat-de-vaud-epalinges"
+      ]
     },
     {
       "id": "etat-de-vaud-6167",

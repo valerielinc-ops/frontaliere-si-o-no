@@ -270,8 +270,8 @@
       "slugByLocale": {
         "de": "automatiker-elektroinstallateur-fur-baugruppenmontage-heerbrugg-st-gallen-hpjob-ch-ch",
         "it": "automatiker-installatore-trice-elettrico-a-per-baugruppenmontage-hp-job-gmbh-heerbrugg",
-        "en": "automatiker-elektroinstallateur-fur-baugruppenmontage-hp-job-gmbh-heerbrugg",
-        "fr": "automatiker-elektroinstallateur-fur-baugruppenmontage-hp-job-gmbh-heerbrugg"
+        "en": "automatic-electrical-installer-for-assembly-assembly-hp-job-gmbh-heerbrugg-st-gallen",
+        "fr": "installation-automatique-electrique-pour-montage-hp-job-gmbh-heerbrugg-st-gallen"
       },
       "company": "HP Job GmbH",
       "companyKey": "hpjob-ch",
@@ -320,10 +320,17 @@
       "previousSlugsByLocale": {
         "it": [
           "automatiker-elektroinstallateur-fur-baugruppenmontage-heerbrugg-st-gallen-hpjob-ch-ch"
+        ],
+        "en": [
+          "automatiker-elektroinstallateur-fur-baugruppenmontage-hp-job-gmbh-heerbrugg"
+        ],
+        "fr": [
+          "automatiker-elektroinstallateur-fur-baugruppenmontage-hp-job-gmbh-heerbrugg"
         ]
       },
       "previousSlugs": [
-        "automatiker-elektroinstallateur-fur-baugruppenmontage-heerbrugg-st-gallen-hpjob-ch-ch"
+        "automatiker-elektroinstallateur-fur-baugruppenmontage-heerbrugg-st-gallen-hpjob-ch-ch",
+        "automatiker-elektroinstallateur-fur-baugruppenmontage-hp-job-gmbh-heerbrugg"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,

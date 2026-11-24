@@ -11285,12 +11285,12 @@
     },
     {
       "id": "raiffeisen-6cb4137f708e",
-      "slug": "collaborateur-administration-financement-f-h-raiffeisen-saxon",
+      "slug": "collaboratore-amministrativo-e-finanziamento-m-f-raiffeisen-saxon",
       "slugByLocale": {
         "fr": "collaborateur-administration-financement-f-h-raiffeisen-saxon",
-        "it": "collaborateur-administration-financement-f-h-raiffeisen-saxon",
-        "en": "collaborateur-administration-financement-f-h-raiffeisen-saxon",
-        "de": "collaborateur-administration-financement-f-h-raiffeisen-saxon"
+        "it": "collaboratore-amministrativo-e-finanziamento-m-f-raiffeisen-saxon",
+        "en": "collaborator-administration-finance-m-f-raiffeisen-saxon",
+        "de": "mitarbeiterverwaltungsfinanzierung-m-w-raiffeisen-saxon"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11352,7 +11352,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:22:38.350Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:22:38.350Z"
+      "firstSeenAt": "2026-11-23T21:22:38.350Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-administration-financement-f-h-raiffeisen-saxon"
+        ],
+        "en": [
+          "collaborateur-administration-financement-f-h-raiffeisen-saxon"
+        ],
+        "de": [
+          "collaborateur-administration-financement-f-h-raiffeisen-saxon"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-administration-financement-f-h-raiffeisen-saxon"
+      ]
     },
     {
       "id": "raiffeisen-5fe5cdd00696",
@@ -11445,7 +11459,7 @@
         "de": "mitarbeiter-management-office-w-m-d-raiffeisen-mels",
         "it": "collaboratore-trice-management-office-m-w-d-raiffeisen-mels",
         "en": "mitarbeiter-management-office-w-m-d-raiffeisen-mels",
-        "fr": "mitarbeiter-management-office-w-m-d-raiffeisen-mels"
+        "fr": "bureau-de-la-gestion-des-employes-h-f-d-raiffeisen-mels"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11494,6 +11508,9 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-management-office-w-m-d-raiffeisen-mels"
+        ],
+        "fr": [
+          "mitarbeiter-management-office-w-m-d-raiffeisen-mels"
         ]
       },
       "previousSlugs": [
@@ -11523,8 +11540,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-management-office-finanzen-amp-bankenbetreuung-w-m-d-raiffeisen-st-gallen",
         "it": "collaboratore-trice-management-office-finanzen-bankenbetreuung-m-w-d-raiffeisen-st-gallen",
-        "en": "mitarbeiter-management-office-finanzen-amp-bankenbetreuung-w-m-d-raiffeisen-st-gallen",
-        "fr": "mitarbeiter-management-office-finanzen-amp-bankenbetreuung-w-m-d-raiffeisen-st-gallen"
+        "en": "employee-management-office-finance-banking-services-m-f-d-raiffeisen-st-gallen",
+        "fr": "bureau-de-gestion-des-employes-finances-et-services-bancaires-h-f-d-raiffeisen-st-gallen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11572,6 +11589,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-management-office-finanzen-amp-bankenbetreuung-w-m-d-raiffeisen-st-gallen"
+        ],
+        "en": [
+          "mitarbeiter-management-office-finanzen-amp-bankenbetreuung-w-m-d-raiffeisen-st-gallen"
+        ],
+        "fr": [
           "mitarbeiter-management-office-finanzen-amp-bankenbetreuung-w-m-d-raiffeisen-st-gallen"
         ]
       },

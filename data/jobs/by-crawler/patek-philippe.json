@@ -1539,12 +1539,12 @@
     },
     {
       "id": "patek-philippe-f6db34deea04",
-      "slug": "charge-de-projets-h-f-patek-philippe-plan-les-ouates",
+      "slug": "responsabile-del-progetto-m-f-patek-philippe-plan-les-ouates",
       "slugByLocale": {
         "fr": "charge-de-projets-h-f-patek-philippe-plan-les-ouates",
-        "it": "charge-de-projets-h-f-patek-philippe-plan-les-ouates",
-        "en": "charge-de-projets-h-f-patek-philippe-plan-les-ouates",
-        "de": "charge-de-projets-h-f-patek-philippe-plan-les-ouates"
+        "it": "responsabile-del-progetto-m-f-patek-philippe-plan-les-ouates",
+        "en": "project-manager-m-f-patek-philippe-plan-les-ouates",
+        "de": "projektmanager-m-w-patek-philippe-plan-les-ouates"
       },
       "company": "Patek Philippe",
       "companyKey": "patek-philippe",
@@ -1607,14 +1607,28 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-21T21:18:47.038Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:18:47.038Z"
+      "firstSeenAt": "2026-11-23T21:18:47.038Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-de-projets-h-f-patek-philippe-plan-les-ouates"
+        ],
+        "en": [
+          "charge-de-projets-h-f-patek-philippe-plan-les-ouates"
+        ],
+        "de": [
+          "charge-de-projets-h-f-patek-philippe-plan-les-ouates"
+        ]
+      },
+      "previousSlugs": [
+        "charge-de-projets-h-f-patek-philippe-plan-les-ouates"
+      ]
     },
     {
       "id": "patek-philippe-ffc29a60c4b3",
-      "slug": "ordonnanceur-h-f-patek-philippe-plan-les-ouates",
+      "slug": "programmatore-m-f-patek-philippe-plan-les-ouates",
       "slugByLocale": {
         "fr": "ordonnanceur-h-f-patek-philippe-plan-les-ouates",
-        "it": "ordonnanceur-h-f-patek-philippe-plan-les-ouates",
+        "it": "programmatore-m-f-patek-philippe-plan-les-ouates",
         "en": "ordonnanceur-h-f-patek-philippe-plan-les-ouates",
         "de": "ordonnanceur-h-f-patek-philippe-plan-les-ouates"
       },
@@ -1679,7 +1693,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-21T21:18:46.489Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-01T09:16:31.812Z"
+      "firstSeenAt": "2026-09-01T09:16:31.812Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ordonnanceur-h-f-patek-philippe-plan-les-ouates"
+        ]
+      },
+      "previousSlugs": [
+        "ordonnanceur-h-f-patek-philippe-plan-les-ouates"
+      ]
     }
   ]
 }

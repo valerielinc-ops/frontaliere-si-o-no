@@ -254,12 +254,12 @@
     },
     {
       "id": "zfv-unternehmungen-4a082742c8f6",
-      "slug": "arbeitsversuch-wiedereinstieg-ins-berufsleben-zfv-unternehmungen-zurich",
+      "slug": "tentativo-di-lavoro-rientro-nella-vita-professionale-zfv-unternehmungen-zurich",
       "slugByLocale": {
         "de": "arbeitsversuch-wiedereinstieg-ins-berufsleben-zfv-unternehmungen-zurich",
-        "it": "arbeitsversuch-wiedereinstieg-ins-berufsleben-zfv-unternehmungen-zurich",
-        "en": "arbeitsversuch-wiedereinstieg-ins-berufsleben-zfv-unternehmungen-zurich",
-        "fr": "arbeitsversuch-wiedereinstieg-ins-berufsleben-zfv-unternehmungen-zurich"
+        "it": "tentativo-di-lavoro-rientro-nella-vita-professionale-zfv-unternehmungen-zurich",
+        "en": "work-attempt-re-entry-into-professional-life-zfv-unternehmungen-zurich",
+        "fr": "tentative-de-travail-retour-dans-la-vie-professionnelle-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -320,7 +320,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-21T21:22:17.806Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:22:17.806Z"
+      "firstSeenAt": "2026-11-23T21:22:17.806Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arbeitsversuch-wiedereinstieg-ins-berufsleben-zfv-unternehmungen-zurich"
+        ],
+        "en": [
+          "arbeitsversuch-wiedereinstieg-ins-berufsleben-zfv-unternehmungen-zurich"
+        ],
+        "fr": [
+          "arbeitsversuch-wiedereinstieg-ins-berufsleben-zfv-unternehmungen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "arbeitsversuch-wiedereinstieg-ins-berufsleben-zfv-unternehmungen-zurich"
+      ]
     },
     {
       "id": "zfv-unternehmungen-93ee7bdc988f",

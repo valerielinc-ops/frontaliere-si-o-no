@@ -2674,7 +2674,7 @@
         "en": "2027-internship-p-c-contact-center-services-zurich-ubs-zurich",
         "it": "2027-internship-p-c-contact-center-services-zurich-ubs-zurich",
         "de": "2027-internship-p-c-contact-center-services-zurich-ubs-zurich",
-        "fr": "2027-internship-p-c-contact-center-services-zurich-ubs-zurich"
+        "fr": "2027-stage-services-du-centre-de-contact-p-c-zurich-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2759,7 +2759,15 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-21T21:20:20.755Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:20:20.755Z"
+      "firstSeenAt": "2026-11-23T21:20:20.755Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "2027-internship-p-c-contact-center-services-zurich-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "2027-internship-p-c-contact-center-services-zurich-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-cf77005a54cb",
@@ -12430,12 +12438,12 @@
     },
     {
       "id": "ubs-f1f2dedf9074",
-      "slug": "legal-supporter-fact-finding-unit-ubs-ticino-switzerland-western-switzerland-switzerland",
+      "slug": "supporto-legale-unita-di-ricerca-fatti-ubs-ticino",
       "slugByLocale": {
         "en": "legal-supporter-fact-finding-unit-ubs-ticino-switzerland-western-switzerland-switzerland",
-        "it": "legal-supporter-fact-finding-unit-ubs-ticino-switzerland-western-switzerland-switzerland",
-        "de": "legal-supporter-fact-finding-unit-ubs-ticino-switzerland-western-switzerland-switzerland",
-        "fr": "legal-supporter-fact-finding-unit-ubs-ticino-switzerland-western-switzerland-switzerland"
+        "it": "supporto-legale-unita-di-ricerca-fatti-ubs-ticino",
+        "de": "rechtsbeistand-abteilung-fur-die-sachverhaltsaufklarung-ubs-ticino",
+        "fr": "soutien-juridique-unite-de-recherche-des-faits-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -12506,16 +12514,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:19:07.504Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:19:07.504Z"
+      "firstSeenAt": "2026-11-23T21:19:07.504Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-supporter-fact-finding-unit-ubs-ticino-switzerland-western-switzerland-switzerland"
+        ],
+        "de": [
+          "legal-supporter-fact-finding-unit-ubs-ticino-switzerland-western-switzerland-switzerland"
+        ],
+        "fr": [
+          "legal-supporter-fact-finding-unit-ubs-ticino-switzerland-western-switzerland-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "legal-supporter-fact-finding-unit-ubs-ticino-switzerland-western-switzerland-switzerland"
+      ]
     },
     {
       "id": "ubs-d2205f86af1b",
-      "slug": "lawyer-litigation-fact-finding-unit-ubs-ticino-switzerland-western-switzerland-switzerland",
+      "slug": "avvocato-unita-di-rilevamento-fatti-di-litigation-ubs-ticino",
       "slugByLocale": {
         "en": "lawyer-litigation-fact-finding-unit-ubs-ticino-switzerland-western-switzerland-switzerland",
-        "it": "lawyer-litigation-fact-finding-unit-ubs-ticino-switzerland-western-switzerland-switzerland",
+        "it": "avvocato-unita-di-rilevamento-fatti-di-litigation-ubs-ticino",
         "de": "lawyer-litigation-fact-finding-unit-ubs-ticino-switzerland-western-switzerland-switzerland",
-        "fr": "lawyer-litigation-fact-finding-unit-ubs-ticino-switzerland-western-switzerland-switzerland"
+        "fr": "avocat-unite-d-enquete-sur-les-litiges-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -12586,16 +12608,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:19:06.801Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:19:06.801Z"
+      "firstSeenAt": "2026-11-23T21:19:06.801Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lawyer-litigation-fact-finding-unit-ubs-ticino-switzerland-western-switzerland-switzerland"
+        ],
+        "fr": [
+          "lawyer-litigation-fact-finding-unit-ubs-ticino-switzerland-western-switzerland-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "lawyer-litigation-fact-finding-unit-ubs-ticino-switzerland-western-switzerland-switzerland"
+      ]
     },
     {
       "id": "ubs-b707fd2a9a89",
-      "slug": "lawyer-litigation-fact-finding-unit-ubs-ticino-switzerland-western-switzerland-switzerland-2",
+      "slug": "avvocato-unita-di-rilevamento-fatti-di-litigation-ubs-ticino-bd888b",
       "slugByLocale": {
         "en": "lawyer-litigation-fact-finding-unit-ubs-ticino-switzerland-western-switzerland-switzerland-uhapd7",
-        "it": "lawyer-litigation-fact-finding-unit-ubs-ticino-switzerland-western-switzerland-switzerland-2",
+        "it": "avvocato-unita-di-rilevamento-fatti-di-litigation-ubs-ticino-bd888b",
         "de": "lawyer-litigation-fact-finding-unit-ubs-ticino-switzerland-western-switzerland-switzerland-2",
-        "fr": "lawyer-litigation-fact-finding-unit-ubs-ticino-switzerland-western-switzerland-switzerland-2"
+        "fr": "avocat-unite-d-enquete-sur-les-litiges-ubs-ticino-bd888b"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -12668,11 +12701,18 @@
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-23T21:19:06.077Z",
       "previousSlugs": [
-        "lawyer-litigation-fact-finding-unit-ubs-ticino-switzerland-western-switzerland-switzerland"
+        "lawyer-litigation-fact-finding-unit-ubs-ticino-switzerland-western-switzerland-switzerland",
+        "lawyer-litigation-fact-finding-unit-ubs-ticino-switzerland-western-switzerland-switzerland-2"
       ],
       "previousSlugsByLocale": {
         "en": [
           "lawyer-litigation-fact-finding-unit-ubs-ticino-switzerland-western-switzerland-switzerland"
+        ],
+        "it": [
+          "lawyer-litigation-fact-finding-unit-ubs-ticino-switzerland-western-switzerland-switzerland-2"
+        ],
+        "fr": [
+          "lawyer-litigation-fact-finding-unit-ubs-ticino-switzerland-western-switzerland-switzerland-2"
         ]
       }
     },

@@ -87,12 +87,12 @@
     },
     {
       "id": "tertianum-b0c598d72180",
-      "slug": "co-teamleiter-in-hauswirtschaft-tertianum-degersheim",
+      "slug": "co-team-leader-housekeeping-tertianum-degersheim",
       "slugByLocale": {
         "de": "co-teamleiter-in-hauswirtschaft-tertianum-degersheim",
-        "it": "co-teamleiter-in-hauswirtschaft-tertianum-degersheim",
+        "it": "co-team-leader-housekeeping-tertianum-degersheim",
         "en": "co-teamleiter-in-hauswirtschaft-tertianum-degersheim",
-        "fr": "co-teamleiter-in-hauswirtschaft-tertianum-degersheim"
+        "fr": "co-chef-d-equipe-entretien-menager-tertianum-degersheim"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -154,7 +154,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:36:25.969Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:36:25.969Z"
+      "firstSeenAt": "2026-11-23T21:36:25.969Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "co-teamleiter-in-hauswirtschaft-tertianum-degersheim"
+        ],
+        "fr": [
+          "co-teamleiter-in-hauswirtschaft-tertianum-degersheim"
+        ]
+      },
+      "previousSlugs": [
+        "co-teamleiter-in-hauswirtschaft-tertianum-degersheim"
+      ]
     },
     {
       "id": "tertianum-7f6e01a284df",
@@ -743,12 +754,12 @@
     },
     {
       "id": "tertianum-c5d211aa2ff6",
-      "slug": "fachfrau-fachmann-gesundheit-efz-40-100-tertianum-liestal",
+      "slug": "specialista-sanitario-efz-40-100-tertianum-liestal",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-40-100-tertianum-liestal",
-        "it": "fachfrau-fachmann-gesundheit-efz-40-100-tertianum-liestal",
-        "en": "fachfrau-fachmann-gesundheit-efz-40-100-tertianum-liestal",
-        "fr": "fachfrau-fachmann-gesundheit-efz-40-100-tertianum-liestal"
+        "it": "specialista-sanitario-efz-40-100-tertianum-liestal",
+        "en": "professional-health-efz-40-100-tertianum-liestal",
+        "fr": "sante-professionnelle-efz-40-100-tertianum-liestal"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -810,7 +821,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:36:20.741Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:36:20.741Z"
+      "firstSeenAt": "2026-11-23T21:36:20.741Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-efz-40-100-tertianum-liestal"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-efz-40-100-tertianum-liestal"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-efz-40-100-tertianum-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-efz-40-100-tertianum-liestal"
+      ]
     },
     {
       "id": "tertianum-5f7483838766",

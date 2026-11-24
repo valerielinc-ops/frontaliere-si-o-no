@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "mobiliar-5413d87ee5f8",
-      "slug": "sachbearbeiter-schaden-haftpflicht-w-m-d-mobiliar-ch",
+      "slug": "caso-ufficiale-damage-liability-m-f-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "sachbearbeiter-schaden-haftpflicht-w-m-d-mobiliar-ch",
-        "it": "sachbearbeiter-schaden-haftpflicht-w-m-d-mobiliar-ch",
-        "en": "sachbearbeiter-schaden-haftpflicht-w-m-d-mobiliar-ch",
-        "fr": "sachbearbeiter-schaden-haftpflicht-w-m-d-mobiliar-ch"
+        "it": "caso-ufficiale-damage-liability-m-f-d-die-mobiliar-bern",
+        "en": "case-officer-damage-liability-m-f-d-die-mobiliar-bern",
+        "fr": "agent-de-cas-responsabilite-civile-h-f-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -90,7 +90,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T21:23:27.437Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:23:27.437Z"
+      "firstSeenAt": "2026-11-23T21:23:27.437Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-schaden-haftpflicht-w-m-d-mobiliar-ch"
+        ],
+        "en": [
+          "sachbearbeiter-schaden-haftpflicht-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-schaden-haftpflicht-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-schaden-haftpflicht-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-b955e2146ee0",

@@ -371,12 +371,12 @@
         "de": "IT MDM Spezialist",
         "fr": "IT MDM Spécialiste"
       },
-      "slug": "it-mdm-specialist-zegna",
+      "slug": "it-mdm-specialista-ermenegildo-zegna-group-stabio",
       "slugByLocale": {
         "en": "it-mdm-specialist-ermenegildo-zegna-group-stabio",
-        "it": "it-mdm-specialist-zegna",
-        "de": "it-mdm-specialist-zegna",
-        "fr": "it-mdm-specialist-zegna"
+        "it": "it-mdm-specialista-ermenegildo-zegna-group-stabio",
+        "de": "it-mdm-spezialist-ermenegildo-zegna-group-stabio",
+        "fr": "it-mdm-specialiste-ermenegildo-zegna-group-stabio"
       },
       "department": "Corporate and Staff Functions/Information Technology",
       "category": "Corporate and Staff Functions/Information Technology",
@@ -398,6 +398,15 @@
       "id": "ermenegildo-zegna-logistica-8a7241cc6f7a",
       "previousSlugsByLocale": {
         "en": [
+          "it-mdm-specialist-zegna"
+        ],
+        "it": [
+          "it-mdm-specialist-zegna"
+        ],
+        "de": [
+          "it-mdm-specialist-zegna"
+        ],
+        "fr": [
           "it-mdm-specialist-zegna"
         ]
       },

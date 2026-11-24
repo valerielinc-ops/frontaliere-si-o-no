@@ -1251,12 +1251,12 @@
     },
     {
       "id": "aarreha-schinznach-d1256975ff50",
-      "slug": "applikationsverantwortliche-applikationsverantwortlicher-apv-aarreha-schinznach-schinznach",
+      "slug": "applicazione-responsabile-applicazione-responsabile-apv-aarreha-schinznach-schinznach-bad",
       "slugByLocale": {
         "de": "applikationsverantwortliche-applikationsverantwortlicher-apv-aarreha-schinznach-schinznach",
-        "it": "applikationsverantwortliche-applikationsverantwortlicher-apv-aarreha-schinznach-schinznach",
-        "en": "applikationsverantwortliche-applikationsverantwortlicher-apv-aarreha-schinznach-schinznach",
-        "fr": "applikationsverantwortliche-applikationsverantwortlicher-apv-aarreha-schinznach-schinznach"
+        "it": "applicazione-responsabile-applicazione-responsabile-apv-aarreha-schinznach-schinznach-bad",
+        "en": "application-responsible-application-responsible-apv-aarreha-schinznach-schinznach-bad",
+        "fr": "responsable-de-la-demande-responsable-de-la-demande-pva-aarreha-schinznach-schinznach-bad"
       },
       "company": "aarReha Schinznach",
       "companyKey": "aarreha-schinznach",
@@ -1330,7 +1330,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-21T21:17:26.494Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:17:26.494Z"
+      "firstSeenAt": "2026-11-23T21:17:26.494Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "applikationsverantwortliche-applikationsverantwortlicher-apv-aarreha-schinznach-schinznach"
+        ],
+        "en": [
+          "applikationsverantwortliche-applikationsverantwortlicher-apv-aarreha-schinznach-schinznach"
+        ],
+        "fr": [
+          "applikationsverantwortliche-applikationsverantwortlicher-apv-aarreha-schinznach-schinznach"
+        ]
+      },
+      "previousSlugs": [
+        "applikationsverantwortliche-applikationsverantwortlicher-apv-aarreha-schinznach-schinznach"
+      ]
     },
     {
       "id": "aarreha-schinznach-4854ee02f09a",
