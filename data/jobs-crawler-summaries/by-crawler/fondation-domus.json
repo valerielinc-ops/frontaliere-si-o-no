@@ -1,7 +1,7 @@
 {
   "key": "fondation-domus",
   "label": "Fondation Domus",
-  "generatedAt": "2026-11-23T21:28:11.402Z",
+  "generatedAt": "2026-11-24T09:19:03.735Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6532,
-  "avgDurationMs": 6532,
+  "durationMs": 6398,
+  "avgDurationMs": 6398,
   "durationHistory": [
-    6532
+    6398
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://www.jobup.ch/en/jobs/detail/cebd98e1-a150-49a5-ad6c-4858edba3422/?utm_source=relationship&utm_medium=referral&utm_campaign=wb%3Ajobup%7Ctg%3Ab2c%7Ccn%3Ach%7Clg%3A%7Cmg%3Ajob-application%2Cnonbrand%2Cjob%7Ccd%3Akombi",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:27:53.651Z",
+      "crawledAt": "2026-11-24T09:18:47.195Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -72,7 +72,7 @@
       },
       "streetAddress": "Route du Simplon 31",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-31T21:27:53.651Z",
+      "validThrough": "2027-01-31T09:18:47.195Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -83,5 +83,5 @@
       }
     }
   ],
-  "codeCommit": "7b684909df7304f91c3a19b75aa2a6088ce7630a"
+  "codeCommit": "ad4d13f2bbfca567e72148b3349ab6c6b8a5dd5d"
 }
