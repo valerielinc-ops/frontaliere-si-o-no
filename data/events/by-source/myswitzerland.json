@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-11-24T16:49:31.902Z",
+  "assembledAt": "2026-11-25T16:27:30.320Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -280930,6 +280930,484 @@
       },
       "recurring": false,
       "sourceDescriptionHash": "d51d65f9c848fc4eecb9e152f22b3d957a486a551b235d83d511160b6fb37e4e"
+    },
+    {
+      "id": "myswitzerland:643de57ea428402092850e01493843d5",
+      "title": "Piano Trio Fest 2027 - Soirée musicale",
+      "titleByLocale": {
+        "it": "Piano Trio Fest 2027 - Soirée musicale",
+        "en": "Piano Trio Fest 2027 - Soirée musicale",
+        "de": "Piano Trio Fest 2027 - Soirée musicale",
+        "fr": "Piano Trio Fest 2027 - Soirée musicale"
+      },
+      "startDate": "2027-02-21",
+      "endDate": "2027-02-21",
+      "category": "Event",
+      "venue": "Berna",
+      "comune": "Bern",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/piano-trio-fest-2027-soiree-musicale/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.94797,
+        "lng": 7.452598
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "@type": "PerformingGroup",
+          "name": "Piano Trio"
+        },
+        {
+          "@type": "PerformingGroup",
+          "name": "Ticino-based Trio"
+        },
+        {
+          "@type": "PerformingGroup",
+          "name": "Tessiner Ensemble"
+        },
+        {
+          "@type": "PerformingGroup",
+          "name": "Tessiner Trio"
+        }
+      ],
+      "sourceDescriptionHash": "6c9041930d51f249991ddeaf2851c6948a7bc281d4aa938002456d05b4e86841"
+    },
+    {
+      "id": "myswitzerland:63e88e9b758349efa5745bebf471e130",
+      "title": "ALLES FAMILIE",
+      "titleByLocale": {
+        "it": "ALLES FAMILIE",
+        "en": "Alles Familie",
+        "de": "ALLES FAMILIE",
+        "fr": "ALLES FAMILIE"
+      },
+      "startDate": "2027-01-10",
+      "endDate": "2027-01-17",
+      "category": "Event",
+      "venue": "Winterthur",
+      "comune": "Winterthur",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/alles-familie/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4991905,
+        "lng": 8.7295081
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "ace679dc4b1ac25cf64e5c8ae545a1722662103cf2bf5d2c5a07644badc27336"
+    },
+    {
+      "id": "myswitzerland:63dcda5b195b4ee89a39e409bc89aa77",
+      "title": "50 Jahre Aarauer Kerzenziehen 2026",
+      "titleByLocale": {
+        "it": "50 Jahre Aarauer Kerzenziehen 2026",
+        "en": "50 Jahre Aarauer Kerzenziehen 2026",
+        "de": "50 Jahre Aarauer Kerzenziehen 2026",
+        "fr": "50 Jahre Aarauer Kerzenziehen 2026"
+      },
+      "startDate": "2026-11-27",
+      "endDate": "2026-12-13",
+      "category": "Event",
+      "venue": "Aarau",
+      "comune": "Aarau",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/50-jahre-aarauer-kerzenziehen-2026/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.392507,
+        "lng": 8.045317
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "44cc1779cce48450befffa32dbf55a5a612729ecb292fdc4c2551d97ca10bd75"
+    },
+    {
+      "id": "myswitzerland:63d91dd771df4b86a27672e0bbf5f88f",
+      "title": "2. STOOS CUP",
+      "titleByLocale": {
+        "it": "2. STOOS CUP",
+        "en": "2. STOOS CUP",
+        "de": "2. STOOS CUP",
+        "fr": "1. STOOS CUP"
+      },
+      "startDate": "2026-12-27",
+      "endDate": "2026-12-27",
+      "category": "Event",
+      "venue": "Stoos",
+      "comune": "Morschach",
+      "canton": "SZ",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/2-stoos-cup/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.9771026,
+        "lng": 8.6664404
+      },
+      "recurring": false,
+      "performer": {
+        "name": "DJ"
+      },
+      "sourceDescriptionHash": "c29a709cdec54a8e79e37809aa4560b9d3f79f6c6415e2677be547aca4a745cf"
+    },
+    {
+      "id": "myswitzerland:6378e7f037aa4c2881a61ccee917e734",
+      "title": "Company Spokenmovements – Einfach Mann",
+      "titleByLocale": {
+        "it": "Company Spokenmovements – Einfach Mann",
+        "en": "Company Spokenmovements – Einfach Mann",
+        "de": "Company Spokenmovements – Einfach Mann",
+        "fr": "Company Spokenmovements – Einfach Mann"
+      },
+      "startDate": "2027-01-30",
+      "endDate": "2027-01-30",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/company-spokenmovements-einfach-mann/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3517119,
+        "lng": 8.5613559
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "f2348bf5b828b38fa321d4deec311b327f5237479adaffbbf82e19988c3130b1"
+    },
+    {
+      "id": "myswitzerland:6343be20bba24c7e942e32c9000414ac",
+      "title": "Kyiv Modern-Ballet «Regen & In Pivo Veritas»",
+      "titleByLocale": {
+        "it": "Kyiv Modern-Ballet «Regen & In Pivo Veritas»",
+        "en": "Kyiv Modern Ballet “Regen & In Pivo Veritas”",
+        "de": "Kyiv Modern-Ballet „Regen & In Pivo Veritas“",
+        "fr": "Kyiv Modern-Ballet «Regen & In Pivo Veritas»"
+      },
+      "startDate": "2027-01-30",
+      "endDate": "2027-01-30",
+      "category": "Event",
+      "venue": "Zurigo",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/kyiv-modernballet-regen-in-pivo-veritas/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3659938,
+        "lng": 8.5372508
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Talent"
+        },
+        {
+          "name": "Vision"
+        },
+        {
+          "name": "Identität"
+        },
+        {
+          "name": "Stil"
+        }
+      ],
+      "sourceDescriptionHash": "c11b3be2749b7d89d677b577f8302e15e216c0297eea1d4c1b85831eabe73adb"
+    },
+    {
+      "id": "myswitzerland:6312df54ce9d4fd78c5e487c1ae90f0d",
+      "title": "Silvestervorstellung: Romulus der Grosse",
+      "titleByLocale": {
+        "it": "Silvestervorstellung: Romulus der Grosse",
+        "en": "Silvestervorstellung: Romulus der Grosse",
+        "de": "Silvestervorstellung: Romulus der Grosse",
+        "fr": "Silvestervorstellung: Romulus der Grosse"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "category": "Event",
+      "venue": "Solothurn",
+      "comune": "Solothurn",
+      "canton": "SO",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/silvestervorstellung-romulus-der-grosse/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.2069984,
+        "lng": 7.5381375
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "7ae0d9fbfeada0048372e03a9819c0107e21a5d8f480589215fe1169af234228"
+    },
+    {
+      "id": "myswitzerland:62c5382046ca475e8566819e0b4ccd13",
+      "title": "OSI al LAC",
+      "titleByLocale": {
+        "it": "OSI al LAC",
+        "en": "OSI al LAC",
+        "de": "OSI al LAC",
+        "fr": "OSI al LAC"
+      },
+      "startDate": "2026-11-26",
+      "endDate": "2027-04-22",
+      "category": "Event",
+      "venue": "Lugano",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/osi-al-lac/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 45.999409,
+        "lng": 8.9478873
+      },
+      "recurring": true,
+      "performer": {
+        "name": "Alexander Malofeev"
+      },
+      "italianFrontierComuni": [
+        "Campione d'Italia",
+        "Brusimpiano",
+        "Alta Valle Intelvi",
+        "Valsolda",
+        "Lavena Ponte Tresa"
+      ],
+      "sourceDescriptionHash": "3ea6936ef26ec6bce74c6eee62f8cd3c0c8f5dbefb1c18ca36da144e4326ca2f"
+    },
+    {
+      "id": "myswitzerland:62b953672adf4cc8a853fe5f6a5d8fb3",
+      "title": "Equitazione su pony",
+      "titleByLocale": {
+        "it": "Equitazione su pony",
+        "en": "Pony riding",
+        "de": "Ponyreiten",
+        "fr": "Promenade à poney"
+      },
+      "startDate": "2027-03-07",
+      "endDate": "2027-07-18",
+      "category": "Event",
+      "venue": "Dietikon",
+      "comune": "Dietikon",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/equitazione-su-pony/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3998842,
+        "lng": 8.4000799
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "76e7996d8b57e282f30cdadc1193defdbf4eee06e8805714891af988096dc641"
+    },
+    {
+      "id": "myswitzerland:626399e64bfb4cc99cffa75056f92f8b",
+      "title": "Filodrammatica Poschiavina",
+      "titleByLocale": {
+        "it": "Filodrammatica Poschiavina",
+        "en": "Filodrammatica Poschiavina",
+        "de": "Filodrammatica Poschiavina",
+        "fr": "Filodrammatica Poschiavina"
+      },
+      "startDate": "2027-02-20",
+      "endDate": "2027-02-20",
+      "category": "Event",
+      "venue": "Poschiavo",
+      "comune": "Poschiavo",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/filodrammatica-poschiavina-6/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.326089,
+        "lng": 10.057903
+      },
+      "recurring": false,
+      "italianFrontierComuni": [
+        "Tirano",
+        "Villa di Tirano"
+      ],
+      "sourceDescriptionHash": "d460493ad5b3cfdcf62ff47896d47dc5fb171f7d1a15bdbce4f5e147e9d55b30"
+    },
+    {
+      "id": "myswitzerland:61bce1a86b454496afb7bdd0f0ffe768",
+      "title": "The Last Yeti",
+      "titleByLocale": {
+        "it": "The Last Yeti",
+        "en": "The Last Yeti",
+        "de": "Der letzte Yeti",
+        "fr": "Le Dernier Yéti"
+      },
+      "startDate": "2026-12-02",
+      "endDate": "2026-12-31",
+      "category": "Event",
+      "venue": "Lausanne",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/the-last-yeti/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5225597,
+        "lng": 6.636135
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "1f34a80cf0521e89c686cbe4bd6c70849a798b581ad9f7a35398b88d79fe1c89"
+    },
+    {
+      "id": "myswitzerland:61bb34bb31c942d2926fd3083868c380",
+      "title": "Jam Session im Archiv",
+      "titleByLocale": {
+        "it": "Jam Session im Archiv",
+        "en": "Jam Session im Archiv",
+        "de": "Jam Session im Archiv",
+        "fr": "Jam Session im Archiv"
+      },
+      "startDate": "2026-12-04",
+      "endDate": "2027-10-01",
+      "category": "Event",
+      "venue": "Glarus",
+      "comune": "Glarus",
+      "canton": "GL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/jam-session-im-archiv/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.031664,
+        "lng": 9.076121
+      },
+      "recurring": true,
+      "performer": {
+        "name": "Barbetrieb"
+      },
+      "sourceDescriptionHash": "da6c08517adec80a6084c84d8abbc15a1bff63c13430b61db2485a0fc12efc30"
+    },
+    {
+      "id": "myswitzerland:61b7ee89b412408bad19a516f7ae07b8",
+      "title": "Weihnachtsmarkt \"Aarburg Leuchtet\"",
+      "titleByLocale": {
+        "it": "Weihnachtsmarkt \"Aarburg Leuchtet\"",
+        "en": "Weihnachtsmarkt \"Aarburg Leuchtet\"",
+        "de": "Weihnachtsmarkt \"Aarburg Leuchtet\"",
+        "fr": "Weihnachtsmarkt \"Aarburg Leuchtet\""
+      },
+      "startDate": "2026-11-28",
+      "endDate": "2026-11-28",
+      "category": "Event",
+      "venue": "Aarburg",
+      "comune": "Aarburg",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/weihnachtsmarkt-aarburg-leuchtet-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3219178,
+        "lng": 7.8984294
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "99457a7de19b5bbd55fd7d9f504c85cb56f5fe8784e3942818316c7e49c7be17"
+    },
+    {
+      "id": "myswitzerland:6184f506a83b4e3b827c7401518afdde",
+      "title": "Zoe Gwerder + Gäste - HINTER DER SCHLAGZEILE",
+      "titleByLocale": {
+        "it": "Zoe Gwerder + Gäste - HINTER DER SCHLAGZEILE",
+        "en": "Zoe Gwerder + Gäste - HINTER DER SCHLAGZEILE",
+        "de": "Zoe Gwerder + Gäste - HINTER DER SCHLAGZEILE",
+        "fr": "Zoe Gwerder + Gäste - HINTER DER SCHLAGZEILE"
+      },
+      "startDate": "2026-11-26",
+      "endDate": "2026-11-26",
+      "category": "Event",
+      "venue": "Zug",
+      "comune": "Zug",
+      "canton": "ZG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/zoe-gwerder-gaeste-hinter-der-schlagzeile/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.164248,
+        "lng": 8.5145922
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "0b8c980519ab8af399c5c4ca9d5e8cb81f5f8a42e9744d2cd090e6e1a4523cb4"
+    },
+    {
+      "id": "myswitzerland:61455213ceb841f4999e161b23414e43",
+      "title": "Jamin Heaven - Live-Performances at The Alpina Gstaad",
+      "titleByLocale": {
+        "it": "Jamin Heaven - Live-Performances at The Alpina Gstaad",
+        "en": "Jamin Heaven - Live-Performances at The Alpina Gstaad",
+        "de": "Jamin Heaven - Live-Performances at The Alpina Gstaad",
+        "fr": "Jamin Heaven - Live-Performances at The Alpina Gstaad"
+      },
+      "startDate": "2026-12-26",
+      "endDate": "2027-01-23",
+      "category": "Event",
+      "venue": "Gstaad",
+      "comune": "Saanen",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/jamin-heaven-live-performances-at-the-alpina-gstaad/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.4751345,
+        "lng": 7.2885873
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "632ba570dcef13a78a620bee55ad98c334037c82f1c1a0e4a320a8a0204adb5f"
+    },
+    {
+      "id": "myswitzerland:612960e1af9341bcbfd187c18f87c56e",
+      "title": "Après-Ski Wagen Chur - Arosa / Arosa - Chur",
+      "titleByLocale": {
+        "it": "Après-Ski Wagen Chur - Arosa / Arosa - Chur",
+        "en": "Après-Ski Wagen Chur - Arosa / Arosa - Chur",
+        "de": "Après-Ski Wagen Chur - Arosa / Arosa - Chur",
+        "fr": "Après-Ski Wagen Chur - Arosa / Arosa - Chur"
+      },
+      "startDate": "2027-01-30",
+      "endDate": "2027-03-14",
+      "category": "Event",
+      "venue": "Chur",
+      "comune": "Arosa",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/apres-ski-wagen-chur-arosa-arosa-chur/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.853703,
+        "lng": 9.530564
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "e5d2fafcbe8a451be37677131c55d92e5ac499bea10d41ec3a98d8d3da2a6d7a"
+    },
+    {
+      "id": "myswitzerland:61143f7ad06c44cbb5ea0116eaa1dd35",
+      "title": "New Year's Eve on the Gurnigel – Festive Gala Dinner to Ring in the New Year",
+      "titleByLocale": {
+        "it": "New Year's Eve on the Gurnigel – Festive Gala Dinner to Ring in the New Year",
+        "en": "New Year's Eve on the Gurnigel – Festive Gala Dinner to Ring in the New Year",
+        "de": "Silvester auf dem Gurnigel – Festliches Gala-Dinner zum Jahreswechsel",
+        "fr": "Le réveillon du Nouvel An au Gurnigel – Dîner de gala festif pour fêter la nouvelle année"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "startTime": "19:00",
+      "category": "Event",
+      "venue": "Rüti bei Riggisberg",
+      "comune": "Riggisberg",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/new-years-eve-on-the-gurnigel-festive-gala-dinner-to-ring-in-the-new-year/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.7336021,
+        "lng": 7.4531062
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "876a2f3687e9301e3e11fbcf1fc7d3a8dcf59a50ce5139d11fd5f8a9094bdbe8"
     }
   ]
 }
