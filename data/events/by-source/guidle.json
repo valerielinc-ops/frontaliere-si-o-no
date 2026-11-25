@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-11-24T16:37:21.238Z",
+  "assembledAt": "2026-11-25T16:15:23.944Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -50448,8 +50448,8 @@
         "de": "Vully Blues Festival",
         "fr": "Vully Blues Festival"
       },
-      "startDate": "2026-11-06",
-      "endDate": "2026-11-07",
+      "startDate": "2027-11-06",
+      "endDate": "2027-11-06",
       "startTime": "18:00",
       "category": "Festival / Incontro",
       "venue": "Vully Blues Club",
@@ -50465,17 +50465,23 @@
         "lat": 46.95434,
         "lng": 7.10007
       },
-      "recurring": true,
-      "organizer": {
-        "@type": "Organization",
-        "name": "Guidle",
-        "url": "https://www.guidle.com/"
-      },
-      "performer": {
-        "@type": "Organization",
-        "name": "Vully Blues Club"
-      },
-      "sourceDescriptionHash": "f38619d9e28ee1b8f10d28dc3e4a1727e4a19e6ee92318a11032e8b68a88824e"
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Orten"
+        },
+        {
+          "name": "Atmosphäre"
+        }
+      ],
+      "sourceDescriptionHash": "f38619d9e28ee1b8f10d28dc3e4a1727e4a19e6ee92318a11032e8b68a88824e",
+      "previousRoutes": [
+        {
+          "canton": "FR",
+          "comune": "__other-events__",
+          "slug": "vully-blues-festival-2026-11-06"
+        }
+      ]
     },
     {
       "id": "guidle:AfqD8Na",
@@ -171572,7 +171578,7 @@
       "startDate": "2028-06-09",
       "endDate": "2028-06-09",
       "startTime": "17:00",
-      "category": "Concorso / Premiazione",
+      "category": "Pop generalmente",
       "venue": "Stadtplatz Kloten",
       "comune": "Kloten",
       "canton": "ZH",
@@ -206597,9 +206603,9 @@
       "title": "Alles ist Circus - Das Musical über die Geschichte des Schweizer Nationalzirkus",
       "titleByLocale": {
         "it": "Alles ist Circus - Das Musical über die Geschichte des Schweizer Nationalzirkus",
-        "en": "Alles ist Circus - Das Musical über die Geschichte des Schweizer Nationalzirkus",
-        "de": "Alles ist Circus - Das Musical über die Geschichte des Schweizer Nationalzirkus",
-        "fr": "Alles ist Circus - Das Musical über die Geschichte des Schweizer Nationalzirkus"
+        "en": "Alles ist Circus – The Musical about the History of the Swiss National Circus",
+        "de": "Alles ist Zirkus – Das Musical über die Geschichte des Schweizer Nationalzirkus",
+        "fr": "Alles ist Circus – La comédie musicale sur l’histoire du Cirque national suisse"
       },
       "startDate": "2027-08-26",
       "endDate": "2027-08-28",
@@ -206626,16 +206632,16 @@
         "lng": 8.8197293
       },
       "recurring": true,
-      "sourceDescriptionHash": "5317b0894758f08d16a291cd0fc49e514222dea158c79c0a2a5c18e11070fe52"
+      "sourceDescriptionHash": "5c8ab13e98b0d4c3942125df3a7fd536aebedaf7c64a6de4999a7d85f018abd3"
     },
     {
       "id": "guidle:ATwq18F",
       "title": "SunIce Festival",
       "titleByLocale": {
         "it": "SunIce Festival",
-        "en": "SunIce Festival",
-        "de": "SunIce Festival",
-        "fr": "SunIce Festival"
+        "en": "Sun Ice Festival",
+        "de": "Sonneneisfest",
+        "fr": "Festival de glace du soleil"
       },
       "startDate": "2027-09-23",
       "endDate": "2027-09-23",
@@ -206658,8 +206664,8 @@
       "titleByLocale": {
         "it": "THE BEACH",
         "en": "THE BEACH",
-        "de": "THE BEACH",
-        "fr": "THE BEACH"
+        "de": "DER STRAND",
+        "fr": "La plage"
       },
       "startDate": "2027-06-18",
       "endDate": "2027-06-18",
@@ -206808,7 +206814,7 @@
         "@type": "PerformingGroup",
         "name": "Juni Orchester"
       },
-      "sourceDescriptionHash": "23618812f43f44666c825bf84faf725df01a22cb6cb99f7d1f7406e6f6c161ad"
+      "sourceDescriptionHash": "c79a107f40e82673f8ccccd98d5073b895d3aefddbf21b59bf120bd880e52602"
     },
     {
       "id": "guidle:A95Y1FX",
@@ -206839,7 +206845,7 @@
         "lng": 7.6597327
       },
       "recurring": false,
-      "sourceDescriptionHash": "19f2c69fe466c34e1b39f5736ffbba35127824a08b590f6a35bfbe023fcc8133"
+      "sourceDescriptionHash": "d94b417f429e8f6b0880d7cf709ee8c4377af063ed9b661d7e7eaccbe8645496"
     },
     {
       "id": "guidle:AE8eprJ",
@@ -206924,7 +206930,7 @@
       "performer": {
         "name": "Spaziergängen"
       },
-      "sourceDescriptionHash": "45e030ec4378e2f7b9ac00fe1d730fa262271b2fb6d1a284bb304fbde8a4f403"
+      "sourceDescriptionHash": "5a580de7e829828b26e28e00635793310517d866c5c27640cd474016d0fa0328"
     },
     {
       "id": "guidle:A9PVnH2",
@@ -206964,7 +206970,7 @@
       "performer": {
         "name": "Rockbusters"
       },
-      "sourceDescriptionHash": "1064656258a628f2df35f12bf5e145b89a6dccdb9cee53be2e5190cb92629d02"
+      "sourceDescriptionHash": "56ae1ef9668fac320e4cdd495c0752cbfd2d279aeb28c24a8095e145420f4fd9"
     },
     {
       "id": "guidle:AMnPHrW",
@@ -207055,7 +207061,7 @@
       "startDate": "2027-06-20",
       "endDate": "2027-06-20",
       "startTime": "09:00",
-      "category": "Cibo con un teatro / concerto",
+      "category": "Banda di ottoni",
       "venue": "Mehrzweckhalle Blatt",
       "canton": "ZH",
       "url": "https://www.guidle.com/it/veranstaltungen/musik/tann/brunchkonzert_AZvPVBh",
@@ -207075,7 +207081,7 @@
         "lng": 8.856238
       },
       "recurring": false,
-      "sourceDescriptionHash": "9cc9e12b93b230abc7ed0e4508f59b8206c908b0e3c8a1954da001cb9d147d33"
+      "sourceDescriptionHash": "2963e4dbefe3a8327db4fdf0f5172e16c5261758b533e161ddd0e4bf9faa699a"
     },
     {
       "id": "guidle:AKdHY8q",
@@ -207145,7 +207151,7 @@
         "lng": 9.40814
       },
       "recurring": false,
-      "sourceDescriptionHash": "fa9c7397ecbe979f4a9cad456ea49514ba19dea75628b1be461693c4842f3230"
+      "sourceDescriptionHash": "b1407425bf93562d1cc6416d2233bffc7fb48a74835cfaa80e6fb12021da2c16"
     },
     {
       "id": "guidle:AEdL6jL",
@@ -207291,9 +207297,9 @@
       "id": "guidle:AMvSZap",
       "title": "Seeländische Musiktage 2027",
       "titleByLocale": {
-        "it": "Seeländische Musiktage 2027",
-        "en": "Seeländische Musiktage 2027",
-        "de": "Seeländische Musiktage 2027",
+        "it": "Concorso musicale del Seeland 2027",
+        "en": "Seeland Music Competition 2027",
+        "de": "Musikwettbewerb Seeland 2027",
         "fr": "Concours de la Musique du Seeland 2027"
       },
       "startDate": "2027-06-05",
@@ -207315,16 +207321,16 @@
         "lng": 7.267803
       },
       "recurring": true,
-      "sourceDescriptionHash": "e3c3aaa523bf03c82e390c3bba4b289ce7ee043eed48d83f7ae3fe0e643cec9f"
+      "sourceDescriptionHash": "3af5472bd53117e118666f849f80366973865bef278006f964fb926d22c02a57"
     },
     {
       "id": "guidle:Ard6c2X",
       "title": "Kulturnacht Rapperswil-Jona 2027",
       "titleByLocale": {
         "it": "Kulturnacht Rapperswil-Jona 2027",
-        "en": "Kulturnacht Rapperswil-Jona 2027",
-        "de": "Kulturnacht Rapperswil-Jona 2027",
-        "fr": "Kulturnacht Rapperswil-Jona 2027"
+        "en": "Rapperswil-Jona Culture Night 2027",
+        "de": "Kulturnacht Rappers Andril-Androna 2027",
+        "fr": "Nuit de la culture de Rapperswil-Jona 2027"
       },
       "startDate": "2027-09-18",
       "endDate": "2027-09-18",
@@ -207349,7 +207355,7 @@
         "lng": 8.818329
       },
       "recurring": false,
-      "sourceDescriptionHash": "003a9317dbd3afca17052d07e32aa9597aa36dfd872e1fbfc4b064f0916ad5ff",
+      "sourceDescriptionHash": "43ee828d15f8b89c15ccc1516ccfc489f95196d428d65a46382b2b72df74f82f",
       "previousRoutes": [
         {
           "canton": "SG",
@@ -207363,9 +207369,9 @@
       "title": "Beach Bunny (US) - out of office tour",
       "titleByLocale": {
         "it": "Beach Bunny (US) - out of office tour",
-        "en": "Beach Bunny (US) - out of office tour",
-        "de": "Beach Bunny (US) - out of office tour",
-        "fr": "Beach Bunny (US) - out of office tour"
+        "en": "Beach Bunny (US) – Out of Office Tour",
+        "de": "Beach Bunny (US) – Out of Office Tour",
+        "fr": "Beach Bunny (États-Unis) - tournée Out of Office"
       },
       "startDate": "2027-06-08",
       "endDate": "2027-06-08",
@@ -207403,16 +207409,16 @@
           "name": "Indie-Pop"
         }
       ],
-      "sourceDescriptionHash": "ecfae8fb1a8c0dbac259464cd1218f2658d089ab73ce679a84144a827b5fed94"
+      "sourceDescriptionHash": "44fc57c4b96a077b7f90b70bfeca636e6d7de8e02aa711fec6bec042e0f1fd4d"
     },
     {
       "id": "guidle:A47prd2",
       "title": "Sommerkonzert",
       "titleByLocale": {
-        "it": "Sommerkonzert",
+        "it": "Concerto estivo",
         "en": "Summer concert",
-        "de": "Sommerkonzert",
-        "fr": "Sommerkonzert"
+        "de": "\"Sommerkonzert\"",
+        "fr": "Concert d'été"
       },
       "startDate": "2027-06-12",
       "endDate": "2027-06-12",
@@ -207441,16 +207447,16 @@
           "name": "Natalie Gozzi Moderation"
         }
       ],
-      "sourceDescriptionHash": "78b110639f20f41fd3068cdbdc893f813fd0f0373c5407e595c5827834446592"
+      "sourceDescriptionHash": "0a74d925e778b4c02921e99b9379957d35aaa059023de82276994806649430bd"
     },
     {
       "id": "guidle:AT5FwJs",
       "title": "Jorja Smith - Luzern Live 2027",
       "titleByLocale": {
         "it": "Jorja Smith - Luzern Live 2027",
-        "en": "Jorja Smith - Luzern Live 2027",
-        "de": "Jorja Smith - Luzern Live 2027",
-        "fr": "Jorja Smith - Luzern Live 2027"
+        "en": "Jorja Smith – Lucerne Live 2027",
+        "de": "Jorja Smith – Luzern Live 2027",
+        "fr": "Jorja Smith – Lucerne Live 2027"
       },
       "startDate": "2027-07-24",
       "endDate": "2027-07-24",
@@ -207481,16 +207487,16 @@
       "performer": {
         "name": "Luzern Live"
       },
-      "sourceDescriptionHash": "5048ba37875f6dafd6a653ebee52cb704b76bde38c53bc53c942f8357240e497"
+      "sourceDescriptionHash": "95b4ee8faf93faa3c456008486d69d231c5736955d99e00f6a321b8ebaa07477"
     },
     {
       "id": "guidle:A4V2E8M",
       "title": "Kingfishr - Luzern Live 2027",
       "titleByLocale": {
         "it": "Kingfishr - Luzern Live 2027",
-        "en": "Kingfishr - Luzern Live 2027",
-        "de": "Kingfishr - Luzern Live 2027",
-        "fr": "Kingfishr - Luzern Live 2027"
+        "en": "Kingfishr – Lucerne Live 2027",
+        "de": "Kingfishr – Luzern Live 2027",
+        "fr": "Kingfishr - Lucerne Live 2027"
       },
       "startDate": "2027-07-20",
       "endDate": "2027-07-20",
@@ -207521,16 +207527,16 @@
       "performer": {
         "name": "Luzern Live"
       },
-      "sourceDescriptionHash": "5048ba37875f6dafd6a653ebee52cb704b76bde38c53bc53c942f8357240e497"
+      "sourceDescriptionHash": "95b4ee8faf93faa3c456008486d69d231c5736955d99e00f6a321b8ebaa07477"
     },
     {
       "id": "guidle:Aaa1K2L",
       "title": "Camel Power Club",
       "titleByLocale": {
         "it": "Camel Power Club",
-        "en": "Camel Power Club",
-        "de": "Camel Power Club",
-        "fr": "Camel Power Club"
+        "en": "Camel Po Club",
+        "de": "Camel Po ⑤er Club",
+        "fr": "Club de puissance de chameau"
       },
       "startDate": "2027-10-07",
       "endDate": "2027-10-07",
@@ -207558,7 +207564,7 @@
         "lng": 7.5418087
       },
       "recurring": false,
-      "sourceDescriptionHash": "018d1fbf75d13e0aff5b35f236454046e93e6842921a40a1e507b8c85424464e"
+      "sourceDescriptionHash": "06e97fde33c3d19d4f6aa1005815208ebf338db51dc9360e2cf3381d53d7ec4b"
     },
     {
       "id": "guidle:ApFCUvU",
@@ -209820,6 +209826,372 @@
         }
       ],
       "sourceDescriptionHash": "2b4d65eca4f2388f123e309cf4f4946fea403a95da24669b92f7e75e3fd45fb4"
+    },
+    {
+      "id": "guidle:AXWSLZd",
+      "title": "GLENN MILLER ORCHESTRA - directed by Uli Plettendorff",
+      "titleByLocale": {
+        "it": "GLENN MILLER ORCHESTRA - directed by Uli Plettendorff",
+        "en": "GLENN MILLER ORCHESTRA – directed by Uli Plettendorff",
+        "de": "GLENN MILLER ORCHESTRA – unter der Leitung von Uli Plettendorff",
+        "fr": "GLENN MILLER ORCHESTRA - dirigé par Uli Plettendorff"
+      },
+      "startDate": "2027-05-22",
+      "endDate": "2027-05-22",
+      "startTime": "20:00",
+      "category": "Big Band",
+      "venue": "Inselhalle Lindau",
+      "comune": "Lindau",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/lindau-bodensee/glenn-miller-orchestra-directed-by-uli-plettendorff_AXWSLZd",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 50,
+        "currency": "EUR",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Zwanzigerstraße 10",
+        "postalCode": "88131"
+      },
+      "geo": {
+        "lat": 47.5487521,
+        "lng": 9.6857019
+      },
+      "recurring": false,
+      "performer": {
+        "@type": "PerformingGroup",
+        "name": "Big Band"
+      },
+      "sourceDescriptionHash": "87661ad11e26e47b01785a7d07f7ca0601ae58b67ab7d4fd587ebad25cdcdc55"
+    },
+    {
+      "id": "guidle:AAk4i72",
+      "title": "The BluesBones (15 years on the road)",
+      "titleByLocale": {
+        "it": "The BluesBones (15 years on the road)",
+        "en": "The BluesBones (15 years on the road)",
+        "de": "The BluesBones (15 years on the road)",
+        "fr": "The BluesBones (15 years on the road)"
+      },
+      "startDate": "2027-05-27",
+      "endDate": "2027-05-27",
+      "startTime": "20:00",
+      "category": "Rock generalmente",
+      "venue": "Mahogany Hall Bern",
+      "comune": "Bern",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/bern/the-bluesbones-15-years-on-the-road_AAk4i72",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Klösterlistutz 18",
+        "postalCode": "3013"
+      },
+      "geo": {
+        "lat": 46.9490555,
+        "lng": 7.4597239
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Entwicklung"
+        },
+        {
+          "@type": "PerformingGroup",
+          "name": "Beste Band"
+        }
+      ],
+      "sourceDescriptionHash": "f8d2e269132313f7e823366c8f20ec179a9db3d0d283e8bdddc79060f15e2e2f"
+    },
+    {
+      "id": "guidle:AJ76d7w",
+      "title": "Earth Wind & Fire Experience by Al McKay",
+      "titleByLocale": {
+        "it": "Earth Wind & Fire Experience by Al McKay",
+        "en": "Earth Wind & Fire Experience by Al McKay",
+        "de": "Earth Wind & Fire Experience by Al McKay",
+        "fr": "Earth Wind & Fire Experience by Al McKay"
+      },
+      "startDate": "2027-05-24",
+      "endDate": "2027-05-24",
+      "startTime": "20:00",
+      "category": "Soul",
+      "venue": "Bierhübeli",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/bern/earth-wind-und-fire-experience-by-al-mckay_AJ76d7w",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 2,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Neubrückstrasse 43",
+        "postalCode": "3012"
+      },
+      "geo": {
+        "lat": 46.9562568,
+        "lng": 7.4378171
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Al McKay"
+        },
+        {
+          "name": "Tim Owens"
+        },
+        {
+          "name": "Jahren"
+        },
+        {
+          "name": "Michael Jackson"
+        },
+        {
+          "name": "Boogie Wonderland"
+        },
+        {
+          "name": "Wind"
+        }
+      ],
+      "sourceDescriptionHash": "75db9de66c8bafd491cefc17cad70452255f918d8e10aea68f18f0effd41c7d9"
+    },
+    {
+      "id": "guidle:AsZE6Uh",
+      "title": "EARTH, WIND & FIRE EXPERIENCE by Al McKay",
+      "titleByLocale": {
+        "it": "EARTH, WIND & FIRE EXPERIENCE by Al McKay",
+        "en": "EARTH, WIND & FIRE EXPERIENCE by Al McKay",
+        "de": "EARTH, WIND & FIRE EXPERIENCE by Al McKay",
+        "fr": "EARTH, WIND & FIRE EXPERIENCE by Al McKay"
+      },
+      "startDate": "2027-05-23",
+      "endDate": "2027-05-23",
+      "startTime": "19:00",
+      "category": "Soul",
+      "venue": "Alhambra",
+      "canton": "GE",
+      "url": "https://www.guidle.com/it/evenements/musique/geneve/earth-wind-und-fire-experience-by-al-mckay_AsZE6Uh",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Rue de la Rôtisserie 10",
+        "postalCode": "1204"
+      },
+      "geo": {
+        "lat": 46.2026176,
+        "lng": 6.1466775
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Al McKay"
+      },
+      "sourceDescriptionHash": "7c7da0f2039599fb6fdde8189a3d2b68af9b00c1d111876c5f248b1e0bfcdd2e"
+    },
+    {
+      "id": "guidle:ABSbpfg",
+      "title": "The Cold Stares",
+      "titleByLocale": {
+        "it": "The Cold Stares",
+        "en": "The Cold Stares",
+        "de": "The Cold Stares",
+        "fr": "The Cold Stares"
+      },
+      "startDate": "2027-05-22",
+      "endDate": "2027-05-22",
+      "startTime": "20:15",
+      "category": "Rock generalmente",
+      "venue": "Konservi",
+      "comune": "Seon",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/seon/the-cold-stares_ABSbpfg",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 50,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Seetalstrasse 2",
+        "postalCode": "5703"
+      },
+      "geo": {
+        "lat": 47.3458221,
+        "lng": 8.1593372
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "1a16c56df438ed1adfd25a5b902b379957f15521dff4a38f8aac0d8901a3bfc4"
+    },
+    {
+      "id": "guidle:AsAKN1T",
+      "title": "Dritchino",
+      "titleByLocale": {
+        "it": "Dritchino",
+        "en": "Dritchino",
+        "de": "Dritchino",
+        "fr": "Dritchino"
+      },
+      "startDate": "2027-05-27",
+      "endDate": "2027-05-29",
+      "startTime": "17:00",
+      "category": "Pop generalmente",
+      "venue": "Jura'zic",
+      "comune": "Courgenay",
+      "canton": "JU",
+      "url": "https://www.guidle.com/it/evenements/musique/courgenay/dritchino_AsAKN1T",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Champ Charbon 1",
+        "postalCode": "2950"
+      },
+      "geo": {
+        "lat": 47.4029478,
+        "lng": 7.1115707
+      },
+      "recurring": true,
+      "performer": {
+        "name": "Ehre"
+      },
+      "sourceDescriptionHash": "784fab455823bd6787a4801cf160171c1fbdc1dbf2949d5f957a97538415b213"
+    },
+    {
+      "id": "guidle:AESLB43",
+      "title": "Kansas - European Tour 2027",
+      "titleByLocale": {
+        "it": "Kansas - European Tour 2027",
+        "en": "Kansas - European Tour 2027",
+        "de": "Kansas - European Tour 2027",
+        "fr": "Kansas - European Tour 2027"
+      },
+      "startDate": "2027-06-29",
+      "endDate": "2027-06-29",
+      "startTime": "19:30",
+      "category": "Altri musica",
+      "venue": "THE HALL",
+      "comune": "Dübendorf",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/duebendorf/kansas-european-tour-2027_AESLB43",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 80.3,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Hoffnigstrasse 1",
+        "postalCode": "8600"
+      },
+      "geo": {
+        "lat": 47.3957944,
+        "lng": 8.5979351
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Keyboarder Ronnie Platt"
+      },
+      "sourceDescriptionHash": "db4861d08b29b4831aab77431aa788750d227a65981c9f025441d2741e0e957e"
+    },
+    {
+      "id": "guidle:AsFyMNP",
+      "title": "The Robert Cray Band",
+      "titleByLocale": {
+        "it": "The Robert Cray Band",
+        "en": "The Robert Cray Band",
+        "de": "The Robert Cray Band",
+        "fr": "The Robert Cray Band"
+      },
+      "startDate": "2027-06-14",
+      "endDate": "2027-06-14",
+      "startTime": "20:00",
+      "category": "Blues",
+      "venue": "Kaufleuten",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/the-robert-cray-band_AsFyMNP",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 75.8,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Pelikanstrasse 18",
+        "postalCode": "8001"
+      },
+      "geo": {
+        "lat": 47.3717637,
+        "lng": 8.5363913
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Platz"
+      },
+      "sourceDescriptionHash": "0ed14028a701dfb9da1b2d692f09fa3b07f3654bfe525dafb73b5bd6e72fa0fe"
+    },
+    {
+      "id": "guidle:AxhUZvF",
+      "title": "Heimweh",
+      "titleByLocale": {
+        "it": "Heimweh",
+        "en": "Heimweh",
+        "de": "Heimweh",
+        "fr": "Heimweh"
+      },
+      "startDate": "2027-06-06",
+      "endDate": "2027-06-06",
+      "startTime": "19:00",
+      "category": "Coro Folk",
+      "venue": "Forum Landquart",
+      "comune": "Landquart",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/veranstaltungen/musik/landquart/heimweh_AxhUZvF",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 70,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Schulstrasse 78",
+        "postalCode": "7302"
+      },
+      "geo": {
+        "lat": 46.9574214,
+        "lng": 9.5630026
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "01fc303685aa754336ddc1e6714c762055344fd2fafa0e97e3a1a36678903cb7"
     }
   ]
 }

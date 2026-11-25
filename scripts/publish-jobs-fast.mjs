@@ -14,10 +14,12 @@ import {
   mergeFastJobSitemapIndex,
   mergeFastJobVariantShard,
   mergeFastJobsSitemap,
+  listActiveJobSitemapFilenames,
   listJobVariantShardFilenames,
   nextJobVariantShardFilename,
   routeActiveJobSitemapRemovals,
   selectJobVariantShardFilename,
+  stalePublishedActiveJobDetailLocs,
   staleActiveJobDetailLocs,
 } from "./lib/jobs-fast-sitemap.mjs";
 import { SITEMAP_SHARD_CAP } from "./lib/sitemap-limits.mjs";
@@ -835,27 +837,6 @@ async function prepareSitemapUpdates(
     .filter((item) => item.locale === "it")
     .map((item) => item.loc);
   const unresolvedItRemovals = new Set(itRemovals);
-  if (entries.length > 0 || itRemovals.length > 0) {
-    const jobsXml =
-      liveJobsSitemapXml ??
-      (await fetchLiveText(`${BASE_URL}/sitemap-jobs.xml`));
-    const rootRemovalPlan = routeActiveJobSitemapRemovals(
-      itRemovals,
-      new Map([["/sitemap-jobs.xml", jobsXml]]),
-    );
-    const rootRemovals = [...(rootRemovalPlan.get("/sitemap-jobs.xml") || [])];
-    if (entries.length > 0 || rootRemovals.length > 0) {
-      updates.set(
-        "/sitemap-jobs.xml",
-        mergeFastJobsSitemap(jobsXml, entries, { removeLocs: rootRemovals }),
-      );
-    }
-    for (const loc of rootRemovals) {
-      unresolvedItRemovals.delete(loc);
-      recordRemoval("/sitemap-jobs.xml", loc);
-    }
-  }
-
   const variants = new Map();
   for (const entry of entries) {
     for (const variant of entry.variants || []) {
@@ -876,12 +857,14 @@ async function prepareSitemapUpdates(
     variants.get(key).removals.push(old.loc);
   }
 
-  if (variants.size === 0 && unresolvedItRemovals.size === 0)
-    return { ...writeSitemapPayloads(updates, sitemapDir), removalsByPath };
   let indexXml = await fetchLiveText(`${BASE_URL}/sitemap-index.xml`);
   let indexChanged = false;
   const createdFiles = new Set();
   const liveFiles = new Map();
+  const jobsXml =
+    liveJobsSitemapXml ??
+    (await fetchLiveText(`${BASE_URL}/sitemap-jobs.xml`));
+  liveFiles.set("sitemap-jobs.xml", jobsXml);
   const loadFile = async (filename) => {
     if (liveFiles.has(filename)) return liveFiles.get(filename);
     if (createdFiles.has(filename)) return "";
@@ -898,6 +881,55 @@ async function prepareSitemapUpdates(
       mutations.set(filename, { entries: [], removals: new Set() });
     return mutations.get(filename);
   };
+
+  const activeSitemapSources = new Map([["/sitemap-jobs.xml", jobsXml]]);
+  for (const filename of listActiveJobSitemapFilenames(indexXml)) {
+    if (filename === "sitemap-jobs.xml") continue;
+    activeSitemapSources.set(`/${filename}`, await loadFile(filename));
+  }
+  const stalePublishedRemovals = stalePublishedActiveJobDetailLocs(
+    activeSitemapSources,
+    fullBuildSitemapLocs,
+  );
+  const stalePublishedCount = [...stalePublishedRemovals.values()].reduce(
+    (count, locs) => count + locs.size,
+    0,
+  );
+  if (stalePublishedCount > 0) {
+    console.log(
+      `[jobs-fast] live-sitemap stale detail cleanup=${stalePublishedCount}`,
+    );
+  }
+  for (const [pathname, locs] of stalePublishedRemovals) {
+    if (pathname === "/sitemap-jobs.xml") continue;
+    const filename = pathname.slice(1);
+    for (const loc of locs) {
+      mutation(filename).removals.add(loc);
+      recordRemoval(pathname, loc);
+    }
+  }
+
+  const rootRemovalPlan = routeActiveJobSitemapRemovals(
+    itRemovals,
+    new Map([["/sitemap-jobs.xml", jobsXml]]),
+  );
+  const rootRemovals = new Set(
+    rootRemovalPlan.get("/sitemap-jobs.xml") || [],
+  );
+  for (const loc of stalePublishedRemovals.get("/sitemap-jobs.xml") || [])
+    rootRemovals.add(loc);
+  if (entries.length > 0 || rootRemovals.size > 0) {
+    updates.set(
+      "/sitemap-jobs.xml",
+      mergeFastJobsSitemap(jobsXml, entries, {
+        removeLocs: [...rootRemovals],
+      }),
+    );
+  }
+  for (const loc of rootRemovals) {
+    unresolvedItRemovals.delete(loc);
+    recordRemoval("/sitemap-jobs.xml", loc);
+  }
 
   if (unresolvedItRemovals.size > 0) {
     const legacyFilenames = [

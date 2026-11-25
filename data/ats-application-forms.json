@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-24T16:32:53.564Z",
+  "updatedAt": "2026-11-25T16:11:46.554Z",
   "snapshots": {
     "teamtailor:mks-pamp-74eaacf6a62f:773e8366508c": {
       "provider": "teamtailor",
@@ -1768,188 +1768,6 @@
         ]
       }
     },
-    "greenhouse:on-running-15fa0effdfb7:b1e7c9bfeaa6": {
-      "provider": "greenhouse",
-      "jobId": "on-running-15fa0effdfb7",
-      "jobSlug": "lead-test-di-abbigliamento-on-running-zurich",
-      "jobUrl": "https://boards.greenhouse.io/onrunning/jobs/7775612",
-      "snapshot": {
-        "provider": "greenhouse",
-        "sourceUrl": "https://boards.greenhouse.io/onrunning/jobs/7775612",
-        "jobUrl": "https://boards.greenhouse.io/onrunning/jobs/7775612",
-        "checkedAt": "2026-11-17T14:58:37.227Z",
-        "stage": "Lead - Apparel Testing",
-        "fields": [
-          {
-            "label": "First Name",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Last Name",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Preferred First Name",
-            "type": "text",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Email",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Phone",
-            "type": "text",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Resume/CV",
-            "type": "file",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Resume/CV",
-            "type": "textarea",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Cover Letter",
-            "type": "file",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Cover Letter",
-            "type": "textarea",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "LinkedIn Profile",
-            "type": "text",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Website",
-            "type": "text",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "LinkedIn Profile or Website",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "How did you hear about this job?",
-            "type": "select",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Facebook",
-              "LinkedIn",
-              "Stack Overflow",
-              "On Career Site",
-              "Events",
-              "Jobboards (University)",
-              "Other"
-            ]
-          },
-          {
-            "label": "Your Nationality",
-            "type": "multiselect",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Afghan",
-              "Albanian",
-              "Algerian",
-              "American",
-              "Andorran",
-              "Angolan",
-              "Antiguans",
-              "Argentinean",
-              "Armenian",
-              "Australian",
-              "Austrian",
-              "Azerbaijani",
-              "Bahamian",
-              "Bahraini",
-              "Bangladeshi",
-              "Barbadian",
-              "Barbudans",
-              "Batswana",
-              "Belarusian",
-              "Belgian",
-              "Belizean",
-              "Beninese",
-              "Bhutanese",
-              "Bolivian",
-              "Bosnian",
-              "Brazilian",
-              "British",
-              "Bruneian",
-              "Bulgarian",
-              "Burkinabe",
-              "Burmese",
-              "Burundian",
-              "Cambodian",
-              "Cameroonian",
-              "Canadian",
-              "Cape Verdean",
-              "Central African",
-              "Chadian",
-              "Chilean",
-              "Chinese"
-            ]
-          },
-          {
-            "label": "Would On need to apply for a working permit or visa on your behalf?",
-            "type": "select",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Yes",
-              "No"
-            ]
-          },
-          {
-            "label": "Your Pronouns",
-            "type": "select",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Prefer not to answer",
-              "She/Her/Hers",
-              "He/Him/His",
-              "They/Them/Their",
-              "Another option not listed"
-            ]
-          },
-          {
-            "label": "Data Transfer",
-            "type": "multiselect",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "By continuing, you acknowledge that you have read our Privacy Policy above."
-            ]
-          }
-        ]
-      }
-    },
     "recruitee:climeworks-3d890243a9d7:f60c6830fe6d": {
       "provider": "recruitee",
       "jobId": "climeworks-3d890243a9d7",
@@ -3143,158 +2961,6 @@
         ]
       }
     },
-    "greenhouse:on-running-3b40800b8e4a:67edfe884af4": {
-      "provider": "greenhouse",
-      "jobId": "on-running-3b40800b8e4a",
-      "jobSlug": "piombo-flussi-di-risposta-e-nos-on-running-zurich",
-      "jobUrl": "https://boards.greenhouse.io/onrunning/jobs/8095893",
-      "snapshot": {
-        "provider": "greenhouse",
-        "sourceUrl": "https://boards.greenhouse.io/onrunning/jobs/8095893",
-        "jobUrl": "https://boards.greenhouse.io/onrunning/jobs/8095893",
-        "checkedAt": "2026-11-17T14:58:45.310Z",
-        "stage": "Lead – Responsive & NOS Flows",
-        "fields": [
-          {
-            "label": "First Name",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Last Name",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Email",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Phone",
-            "type": "text",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Resume/CV",
-            "type": "file",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Resume/CV",
-            "type": "textarea",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Would On need to apply for a working permit or visa on your behalf?",
-            "type": "select",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Yes",
-              "No"
-            ]
-          },
-          {
-            "label": "Your Nationality",
-            "type": "multiselect",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Afghan",
-              "Albanian",
-              "Algerian",
-              "American",
-              "Andorran",
-              "Angolan",
-              "Antiguans",
-              "Argentinean",
-              "Armenian",
-              "Australian",
-              "Austrian",
-              "Azerbaijani",
-              "Bahamian",
-              "Bahraini",
-              "Bangladeshi",
-              "Barbadian",
-              "Barbudans",
-              "Batswana",
-              "Belarusian",
-              "Belgian",
-              "Belizean",
-              "Beninese",
-              "Bhutanese",
-              "Bolivian",
-              "Bosnian",
-              "Brazilian",
-              "British",
-              "Bruneian",
-              "Bulgarian",
-              "Burkinabe",
-              "Burmese",
-              "Burundian",
-              "Cambodian",
-              "Cameroonian",
-              "Canadian",
-              "Cape Verdean",
-              "Central African",
-              "Chadian",
-              "Chilean",
-              "Chinese"
-            ]
-          },
-          {
-            "label": "How did you hear about this job?",
-            "type": "select",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Facebook",
-              "LinkedIn",
-              "Stack Overflow",
-              "On Career Site",
-              "Events",
-              "Jobboards (University)",
-              "Other"
-            ]
-          },
-          {
-            "label": "LinkedIn Profile or Website",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Your Pronouns",
-            "type": "select",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Prefer not to answer",
-              "She/Her/Hers",
-              "He/Him/His",
-              "They/Them/Their",
-              "Another option not listed"
-            ]
-          },
-          {
-            "label": "Data Transfer",
-            "type": "multiselect",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "By continuing, you acknowledge that you have read our Privacy Policy above."
-            ]
-          }
-        ]
-      }
-    },
     "workable:guess-europe-2c515c134ec8:b47ef63c1d5b": {
       "provider": "workable",
       "jobId": "guess-europe-2c515c134ec8",
@@ -3936,158 +3602,6 @@
         ]
       }
     },
-    "greenhouse:on-running-5c1e3920f10a:b14970b265ac": {
-      "provider": "greenhouse",
-      "jobId": "on-running-5c1e3920f10a",
-      "jobSlug": "piombo-sample-maker-on-running-zurich",
-      "jobUrl": "https://boards.greenhouse.io/onrunning/jobs/8158962",
-      "snapshot": {
-        "provider": "greenhouse",
-        "sourceUrl": "https://boards.greenhouse.io/onrunning/jobs/8158962",
-        "jobUrl": "https://boards.greenhouse.io/onrunning/jobs/8158962",
-        "checkedAt": "2026-11-17T14:58:46.366Z",
-        "stage": "Lead - Sample Maker",
-        "fields": [
-          {
-            "label": "First Name",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Last Name",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Email",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Phone",
-            "type": "text",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Resume/CV",
-            "type": "file",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Resume/CV",
-            "type": "textarea",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Website or portfolio",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "How did you hear about this job?",
-            "type": "select",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Facebook",
-              "LinkedIn",
-              "Stack Overflow",
-              "On Career Site",
-              "Events",
-              "Jobboards (University)",
-              "Other"
-            ]
-          },
-          {
-            "label": "Your Nationality",
-            "type": "multiselect",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Afghan",
-              "Albanian",
-              "Algerian",
-              "American",
-              "Andorran",
-              "Angolan",
-              "Antiguans",
-              "Argentinean",
-              "Armenian",
-              "Australian",
-              "Austrian",
-              "Azerbaijani",
-              "Bahamian",
-              "Bahraini",
-              "Bangladeshi",
-              "Barbadian",
-              "Barbudans",
-              "Batswana",
-              "Belarusian",
-              "Belgian",
-              "Belizean",
-              "Beninese",
-              "Bhutanese",
-              "Bolivian",
-              "Bosnian",
-              "Brazilian",
-              "British",
-              "Bruneian",
-              "Bulgarian",
-              "Burkinabe",
-              "Burmese",
-              "Burundian",
-              "Cambodian",
-              "Cameroonian",
-              "Canadian",
-              "Cape Verdean",
-              "Central African",
-              "Chadian",
-              "Chilean",
-              "Chinese"
-            ]
-          },
-          {
-            "label": "Would On need to apply for a working permit or visa on your behalf?",
-            "type": "select",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Yes",
-              "No"
-            ]
-          },
-          {
-            "label": "Your Pronouns",
-            "type": "select",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Prefer not to answer",
-              "She/Her/Hers",
-              "He/Him/His",
-              "They/Them/Their",
-              "Another option not listed"
-            ]
-          },
-          {
-            "label": "Data Transfer",
-            "type": "multiselect",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "By continuing, you acknowledge that you have read our Privacy Policy above."
-            ]
-          }
-        ]
-      }
-    },
     "ncoreplat:company-j2eigp:8958e0df9e91": {
       "provider": "ncoreplat",
       "jobId": "company-j2eigp",
@@ -4131,63 +3645,6 @@
           }
         ],
         "jobUrl": "https://app.ncoreplat.com/jobposition/816552/senior-planning-manager-ch/csc-costruzioni-sa"
-      }
-    },
-    "workable:guess-europe-33e9c7e71040:31dac72f5a3c": {
-      "provider": "workable",
-      "jobId": "guess-europe-33e9c7e71040",
-      "jobSlug": "gtm-campaign-marketing-coordinatore-guess-europe-sagl-bioggio",
-      "jobUrl": "https://apply.workable.com/guess-europe-sagl/j/809974A177/apply",
-      "snapshot": {
-        "provider": "workable",
-        "sourceUrl": "https://apply.workable.com/guess-europe-sagl/j/809974A177/apply/",
-        "jobUrl": "https://apply.workable.com/guess-europe-sagl/j/809974A177/apply/",
-        "checkedAt": "2026-11-17T14:58:48.754Z",
-        "stage": "",
-        "fields": [
-          {
-            "label": "First name",
-            "type": "text",
-            "required": true,
-            "kind": "question",
-            "section": "Personal information"
-          },
-          {
-            "label": "Last name",
-            "type": "text",
-            "required": true,
-            "kind": "question",
-            "section": "Personal information"
-          },
-          {
-            "label": "Email",
-            "type": "email",
-            "required": true,
-            "kind": "question",
-            "section": "Personal information"
-          },
-          {
-            "label": "Phone",
-            "type": "tel",
-            "required": true,
-            "kind": "question",
-            "section": "Personal information"
-          },
-          {
-            "label": "Resume",
-            "type": "file",
-            "required": true,
-            "kind": "question",
-            "section": "Profile"
-          },
-          {
-            "label": "Cover letter",
-            "type": "textarea",
-            "required": false,
-            "kind": "question",
-            "section": "Details"
-          }
-        ]
       }
     },
     "teamtailor:axpo-group-47b25ee1a0f8:9f6c2c92a591": {
@@ -8536,198 +7993,6 @@
         ]
       }
     },
-    "lever:anybotics-e058a61d5ec1:521ccba26790": {
-      "provider": "lever",
-      "jobId": "anybotics-e058a61d5ec1",
-      "jobSlug": "stage-3d-perception-computer-vision-ai-anybotics-zurich-switzerland",
-      "jobUrl": "https://jobs.lever.co/anybotics/06e5edc9-4092-4518-8ee4-cc02a2ee4c3e",
-      "snapshot": {
-        "provider": "lever",
-        "sourceUrl": "https://jobs.lever.co/anybotics/06e5edc9-4092-4518-8ee4-cc02a2ee4c3e/apply",
-        "jobUrl": "https://jobs.lever.co/anybotics/06e5edc9-4092-4518-8ee4-cc02a2ee4c3e",
-        "checkedAt": "2026-11-17T14:59:19.428Z",
-        "stage": "Internship – 3D Perception, Computer Vision & AI",
-        "fields": [
-          {
-            "label": "Resume/CV",
-            "type": "file",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Full name",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Email",
-            "type": "email",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Phone",
-            "type": "text",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Current location",
-            "type": "text",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Current company",
-            "type": "text",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "LinkedIn URL",
-            "type": "text",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Other website",
-            "type": "text",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Nationality",
-            "type": "select",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Choose a country",
-              "Afghanistan",
-              "Albania",
-              "Algeria",
-              "Andorra",
-              "Angola",
-              "Antigua and Barbuda",
-              "Argentina",
-              "Armenia",
-              "Australia",
-              "Austria",
-              "Azerbaijan",
-              "Bahamas",
-              "Bahrain",
-              "Bangladesh",
-              "Barbados",
-              "Belarus",
-              "Belgium",
-              "Belize",
-              "Benin",
-              "Bhutan",
-              "Bolivia",
-              "Bosnia and Herzegovina",
-              "Botswana",
-              "Brazil",
-              "Brunei",
-              "Bulgaria",
-              "Burkina Faso",
-              "Burundi",
-              "Cabo Verde",
-              "Cambodia",
-              "Cameroon",
-              "Canada",
-              "Central African Republic",
-              "Chad",
-              "Chile",
-              "China",
-              "Colombia",
-              "Comoros",
-              "Congo (Congo-Brazzaville)"
-            ]
-          },
-          {
-            "label": "What is your date of birth? (dd/mm/yyyy)",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Do you have a valid permit or are you legally eligible to apply for a permit to work in Switzerland?",
-            "type": "select",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Select which applied best",
-              "I have a valid L Permit (Eligible to work)",
-              "I have a valid B Permit (Eligible to work)",
-              "I have a valid Swiss C Permit (Settlement Permit)",
-              "I am a Swiss Citizen",
-              "I am a graduate of a Swiss university and applying under the post-study work regulations. (within 6 months after graduation)",
-              "I am an EU/EFTA national and eligible for an L or B Permit",
-              "I am a Non-EU/EFTA national eligible for a work permit tied to my partner's permit",
-              "I am a Non-EU/EFTA national and do not have a work permit or a Swiss university degree"
-            ]
-          },
-          {
-            "label": "If you have a permit, what is the expire date? (dd/mm/yyyy)",
-            "type": "text",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "When are you able to start?",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Are you available for minimum of 5 months?",
-            "type": "select",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Internship are intended for 6 months",
-              "Yes",
-              "No"
-            ]
-          },
-          {
-            "label": "Is this internship mandatory for your studies?",
-            "type": "select",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "For Non-EU/EFTA nationals, this is a MUST",
-              "Yes",
-              "No"
-            ]
-          },
-          {
-            "label": "Upload detailed letter of motivation",
-            "type": "file",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Upload grade transcript",
-            "type": "file",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "If required - Upload letter from university confirming the internship is part of your studies",
-            "type": "file",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Yes, ANYbotics can contact me about future job opportunities for up to 2 years",
-            "type": "checkbox",
-            "required": false,
-            "kind": "consent"
-          }
-        ]
-      }
-    },
     "workable:sophia-genetics-2fcdd4f27250:f179e7b5e39a": {
       "provider": "workable",
       "jobId": "sophia-genetics-2fcdd4f27250",
@@ -9620,108 +8885,6 @@
               "Female",
               "Male"
             ]
-          }
-        ]
-      }
-    },
-    "teamtailor:axpo-group-e3940a514fdc:bbe8e16c083c": {
-      "provider": "teamtailor",
-      "jobId": "axpo-group-e3940a514fdc",
-      "jobSlug": "responsabile-di-progetto-per-l-illuminazione-pubblica-m-f-d-ckw-luzern",
-      "jobUrl": "https://ckw.teamtailor.com/jobs/8548720-projektleiter-in-offentliche-beleuchtung-w-m-d",
-      "snapshot": {
-        "provider": "teamtailor",
-        "sourceUrl": "https://ckw.teamtailor.com/jobs/8548720-projektleiter-in-offentliche-beleuchtung-w-m-d/applications/new",
-        "jobUrl": "https://ckw.teamtailor.com/jobs/8548720-projektleiter-in-offentliche-beleuchtung-w-m-d",
-        "checkedAt": "2026-11-17T14:59:24.677Z",
-        "stage": "Diese Website verwendet Cookies, um dir das beste Erlebnis bieten zu können.",
-        "fields": [
-          {
-            "label": "Mit welchem Geschlecht identifizierst du dich? Bei CKW schätzen wir Vielfalt und Inklusion. Um uns kontinuierlich bei der stetigen Sicherstellung einer vielfältigen Belegschaft zu unterstützen, bitten wir Bewerberinnen und Bewerber freundli",
-            "type": "radio",
-            "required": false,
-            "kind": "question",
-            "options": [
-              "Weiblich",
-              "Männlich",
-              "Divers"
-            ]
-          },
-          {
-            "label": "Wurde dir die Stelle von einem CKW/Axpo Group Mitarbeitenden empfohlen?",
-            "type": "radio",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Ja",
-              "Nein"
-            ]
-          },
-          {
-            "label": "E-Mail der Person, die dich empfohlen hat:",
-            "type": "text",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Nenne uns deine jährliche Salärerwartung in CHF für ein 100% Pensum inkl. allfälligen Bonuszahlungen",
-            "type": "number",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Nenne uns deine Kündigungsfrist resp. deine Verfügbarkeit.",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Vorname",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Nachname",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "E-Mail",
-            "type": "email",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Telefon",
-            "type": "tel",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Bewerbungsschreiben",
-            "type": "textarea",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Ich habe die Datenschutzerklärung gelesen bin mit der Datenschutzerklärung einverstanden.",
-            "type": "checkbox",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Ich bin damit einverstanden, dass meine Daten auch über eine konkrete Stellenbesetzung hinaus gespeichert werden und ich auf interessante Stellenangebote hingewiesen werde.",
-            "type": "checkbox",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "CKW darf meine Telefonnummer für die Kommunikation per SMS im Zusammenhang mit der Personalbeschaffung verwenden.",
-            "type": "checkbox",
-            "required": false,
-            "kind": "consent"
           }
         ]
       }
@@ -33635,6 +32798,811 @@
           }
         ]
       }
+    },
+    "workable:guess-europe-4ed8af668e0a:77c8abbe872d": {
+      "provider": "workable",
+      "jobId": "guess-europe-4ed8af668e0a",
+      "jobSlug": "store-manager-area-di-ginevra-guess-europe-sagl-geneva",
+      "jobUrl": "https://apply.workable.com/guess-europe-sagl/j/2C7D6BF760/apply",
+      "snapshot": {
+        "provider": "workable",
+        "sourceUrl": "https://apply.workable.com/guess-europe-sagl/j/2C7D6BF760/apply/",
+        "jobUrl": "https://apply.workable.com/guess-europe-sagl/j/2C7D6BF760/apply/",
+        "checkedAt": "2026-11-25T16:11:30.693Z",
+        "stage": "",
+        "fields": [
+          {
+            "label": "First name",
+            "type": "text",
+            "required": true,
+            "kind": "question",
+            "section": "Personal information"
+          },
+          {
+            "label": "Last name",
+            "type": "text",
+            "required": true,
+            "kind": "question",
+            "section": "Personal information"
+          },
+          {
+            "label": "Email",
+            "type": "email",
+            "required": true,
+            "kind": "question",
+            "section": "Personal information"
+          },
+          {
+            "label": "Address",
+            "type": "text",
+            "required": false,
+            "kind": "question",
+            "section": "Personal information"
+          },
+          {
+            "label": "Photo",
+            "type": "file",
+            "required": false,
+            "kind": "question",
+            "section": "Personal information"
+          },
+          {
+            "label": "Resume",
+            "type": "file",
+            "required": true,
+            "kind": "question",
+            "section": "Profile"
+          },
+          {
+            "label": "Cover letter",
+            "type": "textarea",
+            "required": false,
+            "kind": "question",
+            "section": "Details"
+          },
+          {
+            "label": "Do you have at least 3 years of experience in a similar position?",
+            "type": "checkbox",
+            "required": true,
+            "kind": "question",
+            "section": "Details"
+          }
+        ]
+      }
+    },
+    "greenhouse:proton-895906bfa11f:097ecb861312": {
+      "provider": "greenhouse",
+      "jobId": "proton-895906bfa11f",
+      "jobSlug": "machine-learning-ingegnere-proton-geneva-taipei",
+      "jobUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4823205101",
+      "snapshot": {
+        "provider": "greenhouse",
+        "sourceUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4823205101",
+        "jobUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4823205101",
+        "checkedAt": "2026-11-25T16:11:30.713Z",
+        "stage": "Machine Learning Engineer",
+        "fields": [
+          {
+            "label": "First Name",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Last Name",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Email",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Phone",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Resume/CV",
+            "type": "file",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Resume/CV",
+            "type": "textarea",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Cover Letter",
+            "type": "file",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Cover Letter",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Why do you think this role is a good fit for you?",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "What it is about Proton that excites you?",
+            "type": "textarea",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Please share your LinkedIn profile / GitHub / Portfolio",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "What are your salary expectations? Please include your salary expectations (number only). We only ask this to make sure we're in the same ballpark before asking you to commit your time to interviewing with us.",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Salary expectations - please select the right choice between:",
+            "type": "select",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "gross annual",
+              "gross monthly",
+              "net annual",
+              "net monthly"
+            ]
+          },
+          {
+            "label": "Salary expectations - please select the currency for the number above:",
+            "type": "select",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "CHF",
+              "CZK",
+              "EUR",
+              "GBP",
+              "MKD",
+              "TWD",
+              "USD"
+            ]
+          },
+          {
+            "label": "When can you start working with us?",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Are you currently located in Geneva or Taipei?",
+            "type": "select",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "label": "From what Proton's office location you'd like to work (please state country and a city)?",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Do you have an eligibility / working permit to work in this particular location?",
+            "type": "select",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "label": "If \"yes\" can you specify the type of working permit you posses (citizenship, permanent residency, type of visa etc.)?",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Where are you currently located? (City, Country)",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Anything else you want to share?",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          }
+        ]
+      }
+    },
+    "greenhouse:proton-99576e543104:5d2adb45af1f": {
+      "provider": "greenhouse",
+      "jobId": "proton-99576e543104",
+      "jobSlug": "product-ingegnere-linux-proton-geneva",
+      "jobUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/5047353101",
+      "snapshot": {
+        "provider": "greenhouse",
+        "sourceUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/5047353101",
+        "jobUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/5047353101",
+        "checkedAt": "2026-11-25T16:11:30.953Z",
+        "stage": "Product Engineer (Linux)",
+        "fields": [
+          {
+            "label": "First Name",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Last Name",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Preferred First Name",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Email",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Phone",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Resume/CV",
+            "type": "file",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Resume/CV",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Cover Letter",
+            "type": "file",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Cover Letter",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Do you have a work permit or eligibility to work in the office location you're applying for? If so, please specify your work permit or visa type.",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Where are you currently located? Please state the country.",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "What are your salary expectations? Please include the currency and specify whether it's monthly/annual, gross/net. We only ask this to make sure we're in the same ballpark before asking you to commit your time to interviewing with us.",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Please share your LinkedIn profile / GitHub / Portfolio",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Anything else you want to share?",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          }
+        ]
+      }
+    },
+    "lever:anybotics-1d785a1b0b91:c02f48fbe617": {
+      "provider": "lever",
+      "jobId": "anybotics-1d785a1b0b91",
+      "jobSlug": "marketing-tirocinante-events-community-anybotics-zurich",
+      "jobUrl": "https://jobs.lever.co/anybotics/d5b4a438-2d8f-4964-8adf-21bd697f5338",
+      "snapshot": {
+        "provider": "lever",
+        "sourceUrl": "https://jobs.lever.co/anybotics/d5b4a438-2d8f-4964-8adf-21bd697f5338/apply",
+        "jobUrl": "https://jobs.lever.co/anybotics/d5b4a438-2d8f-4964-8adf-21bd697f5338",
+        "checkedAt": "2026-11-25T16:11:30.712Z",
+        "stage": "Marketing Intern - Events & Community",
+        "fields": [
+          {
+            "label": "Resume/CV",
+            "type": "file",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Full name",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Email",
+            "type": "email",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Phone",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Current location",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Current company",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "LinkedIn URL",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Other website",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Nationality",
+            "type": "select",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Choose a country",
+              "Afghanistan",
+              "Albania",
+              "Algeria",
+              "Andorra",
+              "Angola",
+              "Antigua and Barbuda",
+              "Argentina",
+              "Armenia",
+              "Australia",
+              "Austria",
+              "Azerbaijan",
+              "Bahamas",
+              "Bahrain",
+              "Bangladesh",
+              "Barbados",
+              "Belarus",
+              "Belgium",
+              "Belize",
+              "Benin",
+              "Bhutan",
+              "Bolivia",
+              "Bosnia and Herzegovina",
+              "Botswana",
+              "Brazil",
+              "Brunei",
+              "Bulgaria",
+              "Burkina Faso",
+              "Burundi",
+              "Cabo Verde",
+              "Cambodia",
+              "Cameroon",
+              "Canada",
+              "Central African Republic",
+              "Chad",
+              "Chile",
+              "China",
+              "Colombia",
+              "Comoros",
+              "Congo (Congo-Brazzaville)"
+            ]
+          },
+          {
+            "label": "What is your date of birth? (dd/mm/yyyy)",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Do you have a valid permit or are you legally eligible to apply for a permit to work in Switzerland?",
+            "type": "select",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Select which applied best",
+              "I have a valid L Permit (Eligible to work)",
+              "I have a valid B Permit (Eligible to work)",
+              "I have a valid Swiss C Permit (Settlement Permit)",
+              "I am a Swiss Citizen",
+              "I am a graduate of a Swiss university and applying under the post-study work regulations. (within 6 months after graduation)",
+              "I am an EU/EFTA national and eligible for an L or B Permit",
+              "I am a Non-EU/EFTA national eligible for a work permit tied to my partner's permit",
+              "I am a Non-EU/EFTA national and do not have a work permit or a Swiss university degree"
+            ]
+          },
+          {
+            "label": "If you have a permit, what is the expire date? (dd/mm/yyyy)",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "When are you able to start?",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Are you available for minimum of 5 months?",
+            "type": "select",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Internship are intended for 6 months",
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "label": "Is this internship mandatory for your studies?",
+            "type": "select",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "For Non-EU/EFTA nationals, this is a MUST",
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "label": "Upload detailed letter of motivation",
+            "type": "file",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Upload grade transcript",
+            "type": "file",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "If required - Upload letter from university confirming the internship is part of your studies",
+            "type": "file",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Yes, ANYbotics can contact me about future job opportunities for up to 2 years",
+            "type": "checkbox",
+            "required": false,
+            "kind": "consent"
+          }
+        ]
+      }
+    },
+    "greenhouse:proton-e4bf8d27fb2c:310b6f457200": {
+      "provider": "greenhouse",
+      "jobId": "proton-e4bf8d27fb2c",
+      "jobSlug": "product-ingegnere-windows-proton-geneva",
+      "jobUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/5047344101",
+      "snapshot": {
+        "provider": "greenhouse",
+        "sourceUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/5047344101",
+        "jobUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/5047344101",
+        "checkedAt": "2026-11-25T16:11:30.988Z",
+        "stage": "Product Engineer (Windows)",
+        "fields": [
+          {
+            "label": "First Name",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Last Name",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Preferred First Name",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Email",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Phone",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Resume/CV",
+            "type": "file",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Resume/CV",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Cover Letter",
+            "type": "file",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Cover Letter",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Do you have a work permit or eligibility to work in the office location you're applying for? If so, please specify your work permit or visa type.",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Where are you currently located? Please state the country.",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "What are your salary expectations? Please include the currency and specify whether it's monthly/annual, gross/net. We only ask this to make sure we're in the same ballpark before asking you to commit your time to interviewing with us.",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Please share your LinkedIn profile / GitHub / Portfolio",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Anything else you want to share?",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          }
+        ]
+      }
+    },
+    "teamtailor:axpo-group-64d1a3dc0f26:049c81fe0451": {
+      "provider": "teamtailor",
+      "jobId": "axpo-group-64d1a3dc0f26",
+      "jobSlug": "ingegnere-noc-nel-centro-di-controllo-operativo-occ-m-f-d-axpo-systems-ag-lupfig",
+      "jobUrl": "https://axposystemsag.teamtailor.com/jobs/8763996-noc-engineer-im-operations-control-center-occ-w-m-d",
+      "snapshot": {
+        "provider": "teamtailor",
+        "sourceUrl": "https://axposystemsag.teamtailor.com/jobs/8763996-noc-engineer-im-operations-control-center-occ-w-m-d/applications/new",
+        "jobUrl": "https://axposystemsag.teamtailor.com/jobs/8763996-noc-engineer-im-operations-control-center-occ-w-m-d",
+        "checkedAt": "2026-11-25T16:11:30.711Z",
+        "stage": "Diese Website verwendet Cookies, um Ihnen das beste Erlebnis bieten zu können.",
+        "fields": [
+          {
+            "label": "Bewirbst du dich aufgrund einer Empfehlung eines Mitarbeiters der Axpo Gruppe? Wenn du mit \"Ja\" antwortest, senden wir dir eine Email mit Anweisungen zum weiteren Ablauf unseres Empfehlungsprozesses.",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "ja",
+              "nein"
+            ]
+          },
+          {
+            "label": "Hast Du Erfahrungen im NOC?",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Ja",
+              "Nein"
+            ]
+          },
+          {
+            "label": "Was sind die 3 wichtigsten Aufgaben eines NOC Engineers?",
+            "type": "textarea",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Hast Du Erfahrungen im Incident Prozess?",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Ja",
+              "Nein"
+            ]
+          },
+          {
+            "label": "Nenne deine Erfahrung aus einem Incident, den du geführt hast:",
+            "type": "textarea",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Nenne uns deine jährliche Salärerwartung in CHF für ein 100% Pensum inkl. allfälligen Bonuszahlungen",
+            "type": "number",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Nenne uns deine Kündigungsfrist resp. deine Verfügbarkeit",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Vorname",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Nachname",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "E-Mail",
+            "type": "email",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Telefon",
+            "type": "tel",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Motivationsschreiben",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Mit dem Absenden meiner Bewerbung bestätige ich, dass ich die Datenschutzerklärung gelesen habe. Weiterhin bestätige ich, dass Axpo Systems AG meine personenbezogenen Daten zum Zweck der Bearbeitung meiner Bewerbung speichern darf.",
+            "type": "checkbox",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Ja, Axpo Systems AG kann mich direkt über bestimmte zukünftige Stellen informieren.",
+            "type": "checkbox",
+            "required": false,
+            "kind": "question"
+          }
+        ]
+      }
+    },
+    "lever:anybotics-3f2f1510f128:3f8bc28a5ac2": {
+      "provider": "lever",
+      "jobId": "anybotics-3f2f1510f128",
+      "jobSlug": "responsabile-revenue-commercial-operations-anybotics-zurich",
+      "jobUrl": "https://jobs.lever.co/anybotics/971da75c-46e5-40a1-b5d9-d49f17996027",
+      "snapshot": {
+        "provider": "lever",
+        "sourceUrl": "https://jobs.lever.co/anybotics/971da75c-46e5-40a1-b5d9-d49f17996027/apply",
+        "jobUrl": "https://jobs.lever.co/anybotics/971da75c-46e5-40a1-b5d9-d49f17996027",
+        "checkedAt": "2026-11-25T16:11:30.834Z",
+        "stage": "Head of Revenue & Commercial Operations",
+        "fields": [
+          {
+            "label": "Resume/CV",
+            "type": "file",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Full name",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Email",
+            "type": "email",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Phone",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Current location",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Current company",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "LinkedIn URL",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Other website",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Yes, ANYbotics can contact me about future job opportunities for up to 2 years",
+            "type": "checkbox",
+            "required": false,
+            "kind": "consent"
+          }
+        ]
+      }
     }
   },
   "attempts": {
@@ -33768,14 +33736,6 @@
       "outcome": "gone",
       "status": 404
     },
-    "greenhouse:on-running-15fa0effdfb7:b1e7c9bfeaa6": {
-      "provider": "greenhouse",
-      "jobUrl": "https://boards.greenhouse.io/onrunning/jobs/7775612",
-      "attemptedAt": "2026-11-17T14:58:37.227Z",
-      "nextAttemptAt": "2026-12-17T14:58:39.702Z",
-      "attemptCount": 1,
-      "outcome": "captured"
-    },
     "recruitee:climeworks-3d890243a9d7:f60c6830fe6d": {
       "provider": "recruitee",
       "jobUrl": "https://climeworks.recruitee.com/o/lead-electrical-engineer-100",
@@ -33882,14 +33842,6 @@
       "attemptCount": 1,
       "outcome": "captured"
     },
-    "greenhouse:on-running-3b40800b8e4a:67edfe884af4": {
-      "provider": "greenhouse",
-      "jobUrl": "https://boards.greenhouse.io/onrunning/jobs/8095893",
-      "attemptedAt": "2026-11-17T14:58:45.310Z",
-      "nextAttemptAt": "2026-12-17T14:58:45.462Z",
-      "attemptCount": 1,
-      "outcome": "captured"
-    },
     "workable:guess-europe-2c515c134ec8:b47ef63c1d5b": {
       "provider": "workable",
       "jobUrl": "https://apply.workable.com/guess-europe-sagl/j/9AB5DFE4AC/apply",
@@ -33938,27 +33890,11 @@
       "attemptCount": 1,
       "outcome": "captured"
     },
-    "greenhouse:on-running-5c1e3920f10a:b14970b265ac": {
-      "provider": "greenhouse",
-      "jobUrl": "https://boards.greenhouse.io/onrunning/jobs/8158962",
-      "attemptedAt": "2026-11-17T14:58:46.366Z",
-      "nextAttemptAt": "2026-12-17T14:58:48.757Z",
-      "attemptCount": 1,
-      "outcome": "captured"
-    },
     "ncoreplat:company-j2eigp:8958e0df9e91": {
       "provider": "ncoreplat",
       "jobUrl": "https://app.ncoreplat.com/jobposition/816552/senior-planning-manager-ch/csc-costruzioni-sa",
       "attemptedAt": "2026-11-17T14:58:45.980Z",
       "nextAttemptAt": "2026-12-17T14:58:48.824Z",
-      "attemptCount": 1,
-      "outcome": "captured"
-    },
-    "workable:guess-europe-33e9c7e71040:31dac72f5a3c": {
-      "provider": "workable",
-      "jobUrl": "https://apply.workable.com/guess-europe-sagl/j/809974A177/apply",
-      "attemptedAt": "2026-11-17T14:58:48.754Z",
-      "nextAttemptAt": "2026-12-17T14:58:48.902Z",
       "attemptCount": 1,
       "outcome": "captured"
     },
@@ -34290,14 +34226,6 @@
       "attemptCount": 1,
       "outcome": "captured"
     },
-    "lever:anybotics-e058a61d5ec1:521ccba26790": {
-      "provider": "lever",
-      "jobUrl": "https://jobs.lever.co/anybotics/06e5edc9-4092-4518-8ee4-cc02a2ee4c3e",
-      "attemptedAt": "2026-11-17T14:59:19.428Z",
-      "nextAttemptAt": "2026-12-17T14:59:24.452Z",
-      "attemptCount": 1,
-      "outcome": "captured"
-    },
     "workable:sophia-genetics-2fcdd4f27250:f179e7b5e39a": {
       "provider": "workable",
       "jobUrl": "https://apply.workable.com/sophia-genetics/j/0AC0C60E7E",
@@ -34343,14 +34271,6 @@
       "jobUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5440646008",
       "attemptedAt": "2026-11-17T14:59:24.819Z",
       "nextAttemptAt": "2026-12-17T14:59:24.883Z",
-      "attemptCount": 1,
-      "outcome": "captured"
-    },
-    "teamtailor:axpo-group-e3940a514fdc:bbe8e16c083c": {
-      "provider": "teamtailor",
-      "jobUrl": "https://ckw.teamtailor.com/jobs/8548720-projektleiter-in-offentliche-beleuchtung-w-m-d",
-      "attemptedAt": "2026-11-17T14:59:24.677Z",
-      "nextAttemptAt": "2026-12-17T14:59:25.086Z",
       "attemptCount": 1,
       "outcome": "captured"
     },
@@ -35984,6 +35904,62 @@
       "jobUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4826396101",
       "attemptedAt": "2026-11-24T16:32:53.407Z",
       "nextAttemptAt": "2026-12-24T16:32:53.561Z",
+      "attemptCount": 1,
+      "outcome": "captured"
+    },
+    "workable:guess-europe-4ed8af668e0a:77c8abbe872d": {
+      "provider": "workable",
+      "jobUrl": "https://apply.workable.com/guess-europe-sagl/j/2C7D6BF760/apply",
+      "attemptedAt": "2026-11-25T16:11:30.693Z",
+      "nextAttemptAt": "2026-12-25T16:11:30.834Z",
+      "attemptCount": 1,
+      "outcome": "captured"
+    },
+    "greenhouse:proton-895906bfa11f:097ecb861312": {
+      "provider": "greenhouse",
+      "jobUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4823205101",
+      "attemptedAt": "2026-11-25T16:11:30.713Z",
+      "nextAttemptAt": "2026-12-25T16:11:30.953Z",
+      "attemptCount": 1,
+      "outcome": "captured"
+    },
+    "greenhouse:proton-99576e543104:5d2adb45af1f": {
+      "provider": "greenhouse",
+      "jobUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/5047353101",
+      "attemptedAt": "2026-11-25T16:11:30.953Z",
+      "nextAttemptAt": "2026-12-25T16:11:30.988Z",
+      "attemptCount": 1,
+      "outcome": "captured"
+    },
+    "lever:anybotics-1d785a1b0b91:c02f48fbe617": {
+      "provider": "lever",
+      "jobUrl": "https://jobs.lever.co/anybotics/d5b4a438-2d8f-4964-8adf-21bd697f5338",
+      "attemptedAt": "2026-11-25T16:11:30.712Z",
+      "nextAttemptAt": "2026-12-25T16:11:32.803Z",
+      "attemptCount": 1,
+      "outcome": "captured"
+    },
+    "greenhouse:proton-e4bf8d27fb2c:310b6f457200": {
+      "provider": "greenhouse",
+      "jobUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/5047344101",
+      "attemptedAt": "2026-11-25T16:11:30.988Z",
+      "nextAttemptAt": "2026-12-25T16:11:32.806Z",
+      "attemptCount": 1,
+      "outcome": "captured"
+    },
+    "teamtailor:axpo-group-64d1a3dc0f26:049c81fe0451": {
+      "provider": "teamtailor",
+      "jobUrl": "https://axposystemsag.teamtailor.com/jobs/8763996-noc-engineer-im-operations-control-center-occ-w-m-d",
+      "attemptedAt": "2026-11-25T16:11:30.711Z",
+      "nextAttemptAt": "2026-12-25T16:11:32.932Z",
+      "attemptCount": 1,
+      "outcome": "captured"
+    },
+    "lever:anybotics-3f2f1510f128:3f8bc28a5ac2": {
+      "provider": "lever",
+      "jobUrl": "https://jobs.lever.co/anybotics/971da75c-46e5-40a1-b5d9-d49f17996027",
+      "attemptedAt": "2026-11-25T16:11:30.834Z",
+      "nextAttemptAt": "2026-12-25T16:11:46.551Z",
       "attemptCount": 1,
       "outcome": "captured"
     }
