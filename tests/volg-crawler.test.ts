@@ -9,8 +9,11 @@ import {
   resolveVolgJobBodies,
   sourceLangFromDetailUrl,
   stripVolgInventedSlots,
+  suppressSpuriousVolgRetranslationFlags,
   VOLG_INVENTED_TEXT_RX,
 } from '../scripts/update-volg-jobs.mjs';
+import { snapshotRetranslationBaseline } from '../scripts/lib/crawler-retranslation-baseline.mjs';
+import { isIncomplete } from '../scripts/lib/translation-incomplete.mjs';
 
 // First sentence of the retired fenaco company paragraph (VOLG_INVENTED_TEXT_MARKERS).
 const VOLG_INVENTED_TEXT_MARKERS_FOR_TEST = 'fenaco Genossenschaft ist die grösste Agrargenossenschaft der Schweiz mit über 11.000 Mitarbeitenden.';
@@ -18,6 +21,16 @@ const VOLG_INVENTED_TEXT_MARKERS_FOR_TEST = 'fenaco Genossenschaft ist die grös
 afterEach(() => {
   vi.unstubAllGlobals();
 });
+
+const retranslationPairs = JSON.parse(
+  fs.readFileSync(path.resolve(import.meta.dirname, 'fixtures', 'crawler-retranslation-flag', 'real-pairs.json'), 'utf8'),
+) as Array<{ case: string, before: Record<string, unknown>, after: Record<string, unknown> }>;
+
+function retranslationPair(name: string) {
+  const found = retranslationPairs.find((pair) => pair.case === name);
+  if (!found) throw new Error(`Missing retranslation fixture: ${name}`);
+  return structuredClone(found);
+}
 
 /**
  * Tests for the Volg/fenaco crawler detail page parser.
@@ -545,5 +558,40 @@ describe('Volg/fenaco crawler — quality guards', () => {
       const ratio = result.text.length / result.sourceBodyLength;
       expect(ratio).toBeGreaterThanOrEqual(0.25);
     }
+  });
+});
+
+describe('Volg/fenaco crawler — detail enrichment retranslation flags', () => {
+  it('clears an unchanged complete detail marker before localization can bypass its cache', () => {
+    const { before, after } = retranslationPair('source-unchanged');
+    after.needsRetranslation = true;
+
+    expect(isIncomplete(after)).toBe(false);
+    const report = suppressSpuriousVolgRetranslationFlags(
+      [after],
+      snapshotRetranslationBaseline([before]),
+    );
+
+    expect(report).toMatchObject({ flagged: 1, dropped: 1, keptSourceChanged: 0, keptIncomplete: 0 });
+    expect(after.needsRetranslation).toBeUndefined();
+  });
+
+  it('keeps the marker when the source changed', () => {
+    const { before, after } = retranslationPair('source-changed');
+    after.needsRetranslation = true;
+    const report = suppressSpuriousVolgRetranslationFlags([after], snapshotRetranslationBaseline([before]));
+
+    expect(after.needsRetranslation).toBe(true);
+    expect(report).toMatchObject({ dropped: 0, keptSourceChanged: 1 });
+  });
+
+  it('keeps the marker when a locale is incomplete', () => {
+    const { before, after } = retranslationPair('source-unchanged');
+    after.needsRetranslation = true;
+    after.descriptionByLocale.en = '';
+    const report = suppressSpuriousVolgRetranslationFlags([after], snapshotRetranslationBaseline([before]));
+
+    expect(after.needsRetranslation).toBe(true);
+    expect(report).toMatchObject({ dropped: 0, keptIncomplete: 1 });
   });
 });

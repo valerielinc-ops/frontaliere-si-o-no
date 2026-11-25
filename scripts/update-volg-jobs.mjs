@@ -69,6 +69,11 @@ import { collapseRepublishedCoopVacancies, enrichCoopSourceBackedJobs } from './
 import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
+import {
+  dropSpuriousRetranslationFlags,
+  getRetranslationBaseline,
+} from './lib/crawler-retranslation-baseline.mjs';
+import { isIncomplete } from './lib/translation-incomplete.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -732,6 +737,15 @@ export function buildJob(raw) {
 }
 
 /* ── Merge ─────────────────────────────────────────────────── */
+/**
+ * Removes a detail-enrichment marker that has no translation work behind it.
+ * This runs before the localization worker so unchanged jobs retain cache hits.
+ */
+export function suppressSpuriousVolgRetranslationFlags(jobs, baseline = getRetranslationBaseline(COMPANY_KEY)) {
+  if (!baseline) return null;
+  return dropSpuriousRetranslationFlags(jobs, baseline, { isIncomplete });
+}
+
 function mergeJobs(discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
@@ -773,6 +787,16 @@ function mergeJobs(discoveredJobs) {
     delete merged._enrichedFromDetail;
     return stripVolgInventedSlots(merged);
   }).filter(Boolean);
+
+  // Detail enrichment used to set needsRetranslation for every existing job
+  // before the locale worker ran. The slice writer applies this same shared
+  // baseline rule later, but that is too late: a spurious flag bypasses the
+  // translation cache and enables title-contamination repair. Apply it while
+  // the pre-run baseline is still available, before translateMissingJobLocales.
+  const retrans = suppressSpuriousVolgRetranslationFlags(mergedTarget);
+  if (retrans?.dropped > 0) {
+    console.log(`  🧮 Retranslation flags: dropped ${retrans.dropped}/${retrans.flagged} unchanged complete Volg record(s) before localization`);
+  }
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];
   writeJson(DATA_JOBS, allJobs);
