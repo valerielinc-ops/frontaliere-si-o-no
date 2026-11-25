@@ -13,9 +13,11 @@ import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
  * row is a real regression worth a human look).
  *
  * Zero-Claude, report-only: a missing source observation is persisted as an
- * explicit null row and fails the workflow. A partial run must never look
- * green, because a missing page is not evidence that the page had no
- * regression.
+ * explicit null row and fails the workflow when the page had traffic or when
+ * traffic cannot be confirmed. A complete page-view report proving that a
+ * target had zero visits records a quiet, non-comparable row instead. A
+ * partial run must never look green, because a visited page missing CWV data
+ * is not evidence that the page had no regression.
  *
  * Source: GA4 only, since decision H9 (2026-10-05, «rimpiazza PostHog con
  * GA4»). PostHog is under quota by choice (2026-08-25) and was already
@@ -39,6 +41,7 @@ import { reconcileMonitorIssues } from './lib/monitor-issue-reconcile.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
 import { checkGa4Liveness, declareNotMeasurable } from './lib/source-liveness.mjs';
 import {
+  fetchGa4PageViews,
   fetchGa4WebVitals,
   GA4_READONLY_SCOPE,
   ga4DateRange,
@@ -474,8 +477,24 @@ export async function fetchGa4CwvFallback({
   return hasSignificantOtherBucket(rows) || (rows.coverage?.truncated || rows.coverage?.distributionIncomplete) ? null : rows;
 }
 
+export async function fetchGa4PageViewsFallback({
+  windowDays,
+  now = new Date(),
+  paths = TARGET_PAGES.map((page) => page.path),
+  fetchImpl = fetch,
+  getTokenImpl = getServiceAccountToken,
+} = {}) {
+  const token = getTokenImpl === getServiceAccountToken
+    ? await getServiceAccountToken([GA4_READONLY_SCOPE])
+    : await getTokenImpl([GA4_READONLY_SCOPE]);
+  if (!token) return null;
+  const { startDate, endDate } = ga4DateRange(Number(windowDays), 2, now);
+  return fetchGa4PageViews({ token, startDate, endDate, paths, fetchImpl });
+}
+
 export async function main({
   ga4FallbackImpl = fetchGa4CwvFallback,
+  ga4PageViewsImpl = fetchGa4PageViewsFallback,
   checkLivenessImpl = checkGa4Liveness,
   now = new Date(),
   reconcileIo,
@@ -521,10 +540,26 @@ export async function main({
       history, file: HISTORY_FILE, date: today, reason, dryRun, liveness,
     });
   }
+  const pagesWithoutObservation = TARGET_PAGES.filter((page) => !ga4Rows?.some((row) =>
+    row.path === page.path && (row.metric === 'CLS' || row.metric === 'INP'),
+  ));
+  let pageViews = null;
+  if (Array.isArray(ga4Rows) && pagesWithoutObservation.length > 0) {
+    try {
+      pageViews = await ga4PageViewsImpl({
+        windowDays: WINDOW_DAYS,
+        now,
+        paths: pagesWithoutObservation.map((page) => page.path),
+      });
+    } catch (error) {
+      console.error(`[cwv-monitor-check] page-view report failed: ${error.message}`);
+    }
+  }
+  const pageViewsComplete = typeof pageViews?.get === 'function' && pageViews.coverage?.complete === true;
   const hasTargetObservation = ga4Rows?.some((row) =>
     TARGET_PAGES.some((page) => page.path === row.path && (row.metric === 'CLS' || row.metric === 'INP')),
   );
-  if (!hasTargetObservation) {
+  if (!hasTargetObservation && !pageViewsComplete) {
     const reason = `${liveness.reason}; GA4 web_vitals report returned no usable target CLS/INP observations`;
     return sourceUnavailableResult({
       history, file: HISTORY_FILE, date: today, reason, dryRun, liveness,
@@ -541,8 +576,23 @@ export async function main({
   const regressions = [];
   let queryFailures = 0;
   const unavailablePages = [];
+  const quietPages = [];
 
   for (const page of TARGET_PAGES) {
+    const hasPageObservation = !pagesWithoutObservation.includes(page);
+    if (!hasPageObservation && pageViewsComplete && Number(pageViews.get(page.path) || 0) === 0) {
+      recordSnapshot(history, page.key, page.path, today, {
+        ...measurement,
+        cls_p75: null,
+        cls_n: 0,
+        inp_p75: null,
+        inp_n: 0,
+        sourceUnavailable: `no page views in ${WINDOW_DAYS}d window`,
+      });
+      quietPages.push(page.key);
+      console.error(`[cwv-monitor-check] ${page.key} (${page.path}) had no page views — no CWV verdict for this page`);
+      continue;
+    }
     let snapshot;
     try {
       snapshot = { ...ga4CwvSnapshot(ga4Rows, page.path), devices: Object.fromEntries(DEVICES.map((device) => [device, ga4CwvSnapshot(ga4Rows, page.path, device)])) };
@@ -632,6 +682,7 @@ export async function main({
       queryFailures,
       unavailablePages,
       regressions,
+      quietPages,
     };
   }
 
@@ -650,7 +701,7 @@ export async function main({
 
   if (!regressions.length) {
     const reconciled = await reconcile();
-    return { status: 'ok', date: today, source, regressions, reconciled };
+    return { status: 'ok', date: today, source, regressions, quietPages, reconciled };
   }
 
   const synced = await syncErrorIssues({
@@ -667,7 +718,7 @@ export async function main({
     bodyFor: (entry) => buildIssueBody(entry),
   });
   const reconciled = await reconcile();
-  return { status: 'ok', date: today, source, regressions, synced, reconciled };
+  return { status: 'ok', date: today, source, regressions, quietPages, synced, reconciled };
 }
 
 // Run only when invoked directly (not when imported by the test suite), so

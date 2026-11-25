@@ -483,6 +483,72 @@ export async function fetchGa4WebVitals({
   return observations;
 }
 
+/**
+ * Return settled page-view counts for a set of exact paths. The CWV monitor
+ * uses this companion report to distinguish a quiet target page from a page
+ * that received traffic but stopped emitting `web_vitals`.
+ *
+ * The report is deliberately paginated and carries an explicit completeness
+ * flag. A missing row is evidence of zero views only when the whole filtered
+ * report is complete; an incomplete response must remain fail-closed.
+ */
+export async function fetchGa4PageViews({
+  token,
+  startDate,
+  endDate,
+  paths,
+  pageSize = 100000,
+  maxRows = GA4_RUNREPORT_DEFAULT_MAX_ROWS,
+  fetchImpl = fetch,
+} = {}) {
+  const report = await paginateGa4Report({
+    pageSize,
+    maxRows,
+    fetchPage: (body) => runGa4Report({ token, fetchImpl, body }),
+    body: {
+      dateRanges: [{ startDate, endDate }],
+      dimensions: [{ name: 'pagePath' }],
+      metrics: [{ name: 'screenPageViews' }],
+      ...(paths?.length ? { dimensionFilter: {
+        filter: { fieldName: 'pagePath', inListFilter: { values: paths } },
+      } } : {}),
+    },
+  });
+  const pageViews = new Map();
+  for (const row of report.rows) {
+    const path = row.dimensionValues?.[0]?.value || '';
+    const count = Number(row.metricValues?.[0]?.value || 0);
+    if (!path || !Number.isFinite(count) || count < 0) continue;
+    pageViews.set(path, count);
+  }
+  const metadata = report.metadata;
+  const otherCount = report.rows
+    .filter((row) => row.dimensionValues?.some((dimension) => dimension?.value === '(other)'))
+    .reduce((sum, row) => sum + (Number(row.metricValues?.[0]?.value || 0) || 0), 0);
+  const incomplete = !report.complete
+    || Boolean(metadata.dataLossFromOtherRow)
+    || Boolean(metadata.subjectToThresholding)
+    || Boolean(metadata.dataTruncationReasons?.length)
+    || Boolean(metadata.schemaRestrictionResponse?.activeMetricRestrictions?.length)
+    || Boolean(metadata.samplingMetadatas?.some((sample) => Number(sample.samplesReadCount) < Number(sample.samplingSpaceSize)));
+  Object.defineProperty(pageViews, 'coverage', {
+    value: {
+      complete: !incomplete,
+      returnedRows: report.rows.length,
+      totalRows: report.rowCount,
+      timeZone: metadata.timeZone || null,
+      dataLossFromOtherRow: Boolean(metadata.dataLossFromOtherRow),
+      subjectToThresholding: Boolean(metadata.subjectToThresholding),
+      dataTruncationReasons: metadata.dataTruncationReasons || [],
+      samplingMetadatas: metadata.samplingMetadatas || [],
+      otherCount,
+      truncated: !report.complete,
+    },
+    enumerable: false,
+  });
+  return pageViews;
+}
+
 function rowEventCount(row) {
   const count = Number(row.metricValues?.[0]?.value || 0);
   return Number.isFinite(count) && count > 0 ? count : 0;

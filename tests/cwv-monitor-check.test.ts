@@ -1,5 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 
 /**
  * Coverage for scripts/cwv-monitor-check.mjs — the #4302 weekly CLS/INP
@@ -225,7 +227,7 @@ describe('loadHistory / saveHistory round-trip', () => {
 
 describe('main() — GA4 is the only source (H9)', () => {
   const originalEnv = { ...process.env };
-  const HISTORY = '/tmp/cwv-monitor-check-test-history.json';
+  const HISTORY = join(process.env.CWV_MONITOR_TEST_DIR || tmpdir(), 'cwv-monitor-check-test-history.json');
   const ALIVE = { alive: true, reason: 'ga4 alive', source: 'ga4', windowDays: 7, floor: 500 };
 
   /** GA4 web_vitals rows for every target page except `skip`. */
@@ -240,6 +242,14 @@ describe('main() — GA4 is the only source (H9)', () => {
       }
     }
     return Object.assign(rows, { coverage: { timeZone: 'Europe/Zurich' } });
+  }
+
+  function ga4PageViews(counts: Record<string, number> = {}) {
+    const pageViews = new Map(Object.entries(counts));
+    Object.defineProperty(pageViews, 'coverage', {
+      value: { complete: true, timeZone: 'Europe/Zurich' },
+    });
+    return pageViews;
   }
 
   beforeEach(() => {
@@ -318,6 +328,39 @@ describe('main() — GA4 is the only source (H9)', () => {
       sourceUnavailable: 'no target observations in 7d window',
     });
     expect(execFileSync).not.toHaveBeenCalled();
+  });
+
+  it('keeps a quiet target non-comparable when a complete page-view report proves zero visits', async () => {
+    const quietPath = '/traffico-dogane/chiasso-brogeda/oggi/';
+    const result = await main({
+      checkLivenessImpl: async () => ALIVE,
+      ga4FallbackImpl: async () => ga4Rows({ skip: [quietPath] }),
+      ga4PageViewsImpl: async () => ga4PageViews(),
+    });
+
+    expect(result.status).toBe('ok');
+    expect(result.quietPages).toContain('traffico_chiasso_brogeda_oggi');
+    expect(loadHistory(HISTORY).pages.traffico_chiasso_brogeda_oggi.weeks.at(-1)).toMatchObject({
+      cls_p75: null,
+      inp_p75: null,
+      sourceUnavailable: 'no page views in 7d window',
+    });
+    expect(execFileSync).not.toHaveBeenCalled();
+  });
+
+  it('still fails closed when a target has page views but no CWV observation', async () => {
+    const missingPath = '/traffico-dogane/chiasso-brogeda/oggi/';
+    const result = await main({
+      checkLivenessImpl: async () => ALIVE,
+      ga4FallbackImpl: async () => ga4Rows({ skip: [missingPath] }),
+      ga4PageViewsImpl: async () => ga4PageViews({ [missingPath]: 1 }),
+    });
+
+    expect(result.status).toBe('source-unavailable');
+    expect(result.unavailablePages).toContain('traffico_chiasso_brogeda_oggi');
+    expect(loadHistory(HISTORY).pages.traffico_chiasso_brogeda_oggi.weeks.at(-1)).toMatchObject({
+      sourceUnavailable: 'no target observations in 7d window',
+    });
   });
 
   it('fails the page measurement when desktop INP is absent even if mobile CLS is present', async () => {
