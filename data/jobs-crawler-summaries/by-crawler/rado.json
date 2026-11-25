@@ -1,17 +1,17 @@
 {
   "key": "rado",
   "label": "rado",
-  "generatedAt": "2026-11-25T09:25:13.153Z",
+  "generatedAt": "2026-11-25T21:29:27.186Z",
   "total": 3,
-  "authoritativeEmptySnapshot": true,
+  "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 409239,
-  "avgDurationMs": 409239,
+  "durationMs": 250940,
+  "avgDurationMs": 250940,
   "durationHistory": [
-    409239
+    250940
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -36,7 +36,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "rado",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-11-24T21:23:06.116Z",
+      "crawledAt": "2026-11-25T21:27:56.631Z",
       "firstSeenAt": "2026-10-22T21:24:47.922Z",
       "sourceLang": "en",
       "salaryMin": 85000,
@@ -48,9 +48,8 @@
       "addressRegion": "BE",
       "streetAddress": "Lengnau BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T21:23:06.116Z",
+      "validThrough": "2026-12-25T21:27:56.631Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -78,7 +77,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "rado",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-11-24T21:23:06.116Z",
+      "crawledAt": "2026-11-25T21:27:56.631Z",
       "firstSeenAt": "2026-09-24T14:28:31.911Z",
       "sourceLang": "de",
       "salaryMin": 57500,
@@ -90,9 +89,8 @@
       "addressRegion": "BE",
       "streetAddress": "Lengnau BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T21:23:06.116Z",
+      "validThrough": "2026-12-25T21:27:56.631Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -120,7 +118,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "rado",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-11-24T21:23:06.116Z",
+      "crawledAt": "2026-11-25T21:27:56.631Z",
       "firstSeenAt": "2026-10-23T21:17:42.290Z",
       "sourceLang": "de",
       "salaryMin": 68500,
@@ -132,9 +130,8 @@
       "addressRegion": "BE",
       "streetAddress": "Lengnau BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T21:23:06.116Z",
+      "validThrough": "2026-12-25T21:27:56.631Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -144,5 +141,5 @@
       }
     }
   ],
-  "codeCommit": "55fd511dba5e5c1bd3b4047690c697040c8b6c58"
+  "codeCommit": "0c64b1f2eae0b337b537e356aa5de051b9c4c6cc"
 }
