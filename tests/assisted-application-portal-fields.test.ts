@@ -384,6 +384,7 @@ describe('portal field extraction', () => {
     </main>`, 'https://career2.successfactors.eu/portalcareer');
     const city = snapshot.fields.find((field: any) => field.domId === 'city');
     const country = snapshot.fields.find((field: any) => field.domId === 'country');
+    country.options = [{ value: 'IT', label: 'Italia' }];
 
     expect(city).toMatchObject({ addressContext: { owners: ['Informazioni profilo'], unknown: false } });
     expect(country).toMatchObject({ addressContext: { owners: ['Informazioni profilo'], unknown: false } });
