@@ -5,6 +5,8 @@ import {
   SECTION_LEGACY_TI,
   TI_LEGACY_CITY_HUB_SLUGS,
 } from '../../build-plugins/shared/cantonResolvers.mjs';
+import { isJobBoardSectorHubPath } from '../../build-plugins/shared/jobSectorSlugs.mjs';
+import { JOB_BOARD_COMPANY_HUB_PATH_RX } from './jobBoardCompanyHubPath.mjs';
 import {
   createJobBoardDetailPathMatcher,
   JOB_BOARD_DETAIL_PATH_RE,
@@ -59,4 +61,33 @@ export function isJobBoardDetailPath(input) {
   // Without route data a sparse checkout cannot prove that a one-tail path is
   // a city hub. Full checkouts always use the data-driven matcher above.
   return tail.length === 1;
+}
+
+const NON_DETAIL_EXACT_SLUGS = new Set([
+  'tutti', 'all', 'alle', 'tous',
+  'aziende', 'companies', 'unternehmen', 'entreprises',
+  'settori', 'sectors', 'branchen', 'secteurs',
+  'categoria', 'category', 'kategorie', 'categorie',
+  'ricerca', 'recherche', 'search', 'suche',
+]);
+const NON_DETAIL_SLUG_PREFIXES = [
+  'ricerca-', 'search-', 'suche-', 'recherche-',
+  'categoria-', 'category-', 'kategorie-', 'categorie-',
+  'pagina-', 'page-', 'seite-',
+];
+
+/**
+ * True only for a job-detail-shaped route, excluding the hub families that
+ * share the same section/leaf shape and are also allowed in job sitemaps.
+ * This is the safe population for cleanup against the JobPosting allowlist.
+ */
+export function isJobBoardSitemapDetailPath(input) {
+  if (!isJobBoardDetailPath(input)) return false;
+  if (JOB_BOARD_COMPANY_HUB_PATH_RX.test(input)) return false;
+  if (isJobBoardSectorHubPath(input)) return false;
+  const slug = String(input).split('/').filter(Boolean).at(-1)?.toLowerCase() || '';
+  return (
+    !NON_DETAIL_EXACT_SLUGS.has(slug) &&
+    !NON_DETAIL_SLUG_PREFIXES.some((prefix) => slug.startsWith(prefix))
+  );
 }
