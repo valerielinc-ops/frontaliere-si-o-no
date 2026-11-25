@@ -2523,6 +2523,27 @@ export function shouldMarkSkipAiRetranslation(job, {
   return previous.hash !== retranslationSourceHash(job);
 }
 
+/**
+ * A complete map can still translate the previous source text. Keep its
+ * retranslation marker through SKIP_AI_TRANSLATION until the central drain
+ * has rebuilt the non-source slots from the changed body.
+ */
+export function hasRetranslationBaselineSourceDrift(job, crawlerKey = job?.companyKey) {
+  const previous = getRetranslationBaselineEntry(crawlerKey, job);
+  return Boolean(previous && !previous.flagged && previous.hash !== retranslationSourceHash(job));
+}
+
+/**
+ * FRO-549 may recache only jobs with no outstanding retranslation signal.
+ * The pre-localization filter removes spurious signals; every marker still
+ * present here is either an older queue entry, an incomplete locale map, or
+ * a source change and must survive SKIP_AI_TRANSLATION.
+ */
+export function shouldKeepSkipAiRetranslation(job, crawlerKey = job?.companyKey) {
+  return job?.needsRetranslation === true
+    || hasRetranslationBaselineSourceDrift(job, crawlerKey);
+}
+
 export function isLocalizationAllowedForJob(job = {}, ctx = {}) {
   const { LOCALIZE_ONLY_COMPANY_KEYS, normalizeCompanyKey: nck, normalizeHost: nh, hostOf: ho } = ctx;
   if (!(LOCALIZE_ONLY_COMPANY_KEYS instanceof Set) || LOCALIZE_ONLY_COMPANY_KEYS.size === 0) return true;
@@ -3844,7 +3865,8 @@ export async function translateMissingJobLocales({
           sourceLang: descLang || titleLang,
           minDescriptionChars,
         });
-        if (titlesComplete && someNonSourceTranslated && completeTextCoverage) {
+        const keepRetranslationMarker = shouldKeepSkipAiRetranslation(job);
+        if (titlesComplete && someNonSourceTranslated && completeTextCoverage && !keepRetranslationMarker) {
           // Translations complete — update cache so next run gets a hit
           translationCache[jobCacheKey] = buildCacheEntry(job, contentHash);
           cacheUpdated = true;

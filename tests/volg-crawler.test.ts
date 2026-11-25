@@ -14,7 +14,11 @@ import {
   suppressSpuriousVolgRetranslationFlags,
   VOLG_INVENTED_TEXT_RX,
 } from '../scripts/update-volg-jobs.mjs';
-import { snapshotRetranslationBaseline } from '../scripts/lib/crawler-retranslation-baseline.mjs';
+import {
+  _resetRetranslationBaselines,
+  recordRetranslationBaseline,
+  snapshotRetranslationBaseline,
+} from '../scripts/lib/crawler-retranslation-baseline.mjs';
 import { isIncomplete } from '../scripts/lib/translation-incomplete.mjs';
 import { translateMissingJobLocales } from '../scripts/lib/dedicated-crawler-common.mjs';
 
@@ -24,6 +28,7 @@ const VOLG_INVENTED_TEXT_MARKERS_FOR_TEST = 'fenaco Genossenschaft ist die grös
 afterEach(() => {
   vi.unstubAllGlobals();
   vi.unstubAllEnvs();
+  _resetRetranslationBaselines();
 });
 
 const retranslationPairs = JSON.parse(
@@ -670,6 +675,78 @@ describe('Volg/fenaco crawler — detail enrichment retranslation flags', () => 
       });
       const merged = JSON.parse(fs.readFileSync(dataJobsPath, 'utf8'));
       expect(merged[0].needsRetranslation).toBe(true);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps a changed source queued through the real SKIP_AI_TRANSLATION worker', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'volg-retranslation-'));
+    const dataJobsPath = path.join(root, 'jobs.json');
+    const { before, after } = retranslationPair('source-changed');
+    const previous = asVolgRecord(before);
+    const discovered = {
+      ...asVolgRecord(after),
+      _enrichedFromDetail: true,
+    };
+    const fetchSpy = vi.fn();
+    vi.stubGlobal('fetch', fetchSpy);
+    vi.stubEnv('SKIP_AI_TRANSLATION', '1');
+    recordRetranslationBaseline('volg-fenaco', [previous]);
+
+    try {
+      mergeJobs([discovered], {
+        existingJobs: [previous],
+        dataJobsPath,
+        publicJobsPath: path.join(root, 'public.json'),
+        retranslationBaseline: snapshotRetranslationBaseline([previous]),
+      });
+      expect(JSON.parse(fs.readFileSync(dataJobsPath, 'utf8'))[0].needsRetranslation).toBe(true);
+
+      const result = await translateMissingJobLocales({
+        dataJobsPath,
+        isTargetJob: (job) => job.companyKey === 'volg-fenaco',
+        retranslationFlagFilter: (jobs) =>
+          suppressSpuriousVolgRetranslationFlags(jobs, snapshotRetranslationBaseline([previous]))?.dropped || 0,
+      });
+
+      expect(result.translated).toBe(0);
+      expect(JSON.parse(fs.readFileSync(dataJobsPath, 'utf8'))[0].needsRetranslation).toBe(true);
+      expect(fetchSpy).not.toHaveBeenCalled();
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps an already queued job through the real SKIP_AI_TRANSLATION worker', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'volg-retranslation-'));
+    const dataJobsPath = path.join(root, 'jobs.json');
+    const { before, after } = retranslationPair('source-unchanged');
+    const previous = { ...asVolgRecord(before), needsRetranslation: true };
+    const discovered = {
+      ...asVolgRecord(after),
+      _enrichedFromDetail: true,
+    };
+    vi.stubGlobal('fetch', vi.fn());
+    vi.stubEnv('SKIP_AI_TRANSLATION', '1');
+    recordRetranslationBaseline('volg-fenaco', [previous]);
+
+    try {
+      mergeJobs([discovered], {
+        existingJobs: [previous],
+        dataJobsPath,
+        publicJobsPath: path.join(root, 'public.json'),
+        retranslationBaseline: snapshotRetranslationBaseline([previous]),
+      });
+
+      await translateMissingJobLocales({
+        dataJobsPath,
+        isTargetJob: (job) => job.companyKey === 'volg-fenaco',
+        retranslationFlagFilter: (jobs) =>
+          suppressSpuriousVolgRetranslationFlags(jobs, snapshotRetranslationBaseline([previous]))?.dropped || 0,
+      });
+
+      expect(JSON.parse(fs.readFileSync(dataJobsPath, 'utf8'))[0].needsRetranslation).toBe(true);
     } finally {
       fs.rmSync(root, { recursive: true, force: true });
     }
