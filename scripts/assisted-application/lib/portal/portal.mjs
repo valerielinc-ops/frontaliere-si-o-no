@@ -6081,6 +6081,7 @@ export function formPostingMatch(formText, job = {}, {
   paidPostingUrl = '',
   pageHeading = '',
   pageHeadings = undefined,
+  formSections = [],
   postingRouteProof = null,
   applyUrl = '',
 } = {}) {
@@ -6226,7 +6227,16 @@ export function formPostingMatch(formText, job = {}, {
   if (brassRingPrivacyGateForm && roleHeading !== 'mismatch' && !headingConflict) return 'match';
   const sameBoundPosting = bound && samePostingAddress(pageUrl, formPostingUrl);
   const boundPinpointApplication = bound && isPinpointPostingEntry({ applyUrl: pageUrl, postingUrl: postingUrl || paidPostingUrl });
-  const successFactorsBound = successFactorsRequisitionShown(postingEvidenceText, job, { pageUrl, applyUrl });
+  const successFactorsRoute = { pageUrl, applyUrl };
+  const requisitionSections = [...new Set(formSections.map(section => String(section || '').trim()))]
+    .filter(section => /\(\s*\d{1,20}\s*\)$/.test(section));
+  // Native application groups can expose their title through aria-labelledby
+  // without a standalone line in the body text or an H1.
+  const sectionBindsRequisition = requisitionSections.length === 1
+    && roleHeading !== 'mismatch'
+    && successFactorsRequisitionShown(requisitionSections[0], job, successFactorsRoute);
+  const successFactorsBound = successFactorsRequisitionShown(postingEvidenceText, job, successFactorsRoute)
+    || sectionBindsRequisition;
   if (headingConflict && !trustedUmantisApplication && !sameBoundPosting && !successFactorsBound) return 'mismatch';
   if (direct === 'match' && !talentSoftAlias
     && (trustedUmantisApplication
@@ -12590,7 +12600,7 @@ export async function submitViaPortal(ctx) {
     // The form must be the posting's: an address that lands on a list of jobs
     // with a "Bewerben" must not apply to another one. Valerie's retry, after
     // she looked at the screenshot, goes on.
-    const formMatch = async () => {
+    const formMatch = async (current = snapshot) => {
       const pageUrl = page.url();
       const pageHeadings = await postingMainHeadings(page);
       const pageHeading = Array.isArray(pageHeadings) && pageHeadings.length === 1 ? pageHeadings[0] : '';
@@ -12617,6 +12627,7 @@ export async function submitViaPortal(ctx) {
         paidPostingUrl: ctx.postingUrl || '',
         pageHeading,
         pageHeadings,
+        formSections: current.fields.map(field => field.section),
         postingRouteProof: ctx.postingRouteProof,
         applyUrl: ctx.applyUrl,
       });
@@ -14319,7 +14330,7 @@ export async function submitViaPortal(ctx) {
         applyUrl: ctx.applyUrl, postingUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting,
         ...stageEntryProvenance(page.url()), job: ctx.job, url: page.url(),
       });
-      const finalMatch = await formMatch();
+      const finalMatch = await formMatch(after);
       const expectedJobKey = portalJobKey(ctx.applyUrl, sourceProtocol);
       const currentJobKey = portalJobKey(page.url(), sourceProtocol);
       const workdayBound = !isWorkdayTenantUrl(ctx.applyUrl) || isWorkdayJobRouteBound(page.url(), ctx.applyUrl);
