@@ -2,62 +2,6 @@
   "schemaVersion": 1,
   "pending": [
     {
-      "id": "reel-2026-11-22",
-      "channel": "instagram",
-      "kind": "reel",
-      "day": "2026-11-22",
-      "caption": "Lavoro oltreconfine: il contesto da leggere con chiarezza\n\n📌 Campione d'Italia: vivere nell'enclave e lavorare in Ticino — 28 visualizzazioni ieri.\n\nSegui Frontaliere per capire il lavoro oltreconfine.\nFonte e dettagli sono nel link in bio.\nTesto verificato mostrato nel video; fonti e dettagli nel link in bio.\n\n#frontalieri #ticino #svizzera #italia #lavoro",
-      "imageUrls": [
-        "https://cdn.frontaliereticino.ch/images/social/instagram/reel-article-2026-11-22-reel-follow-0.jpg"
-      ],
-      "video": {
-        "url": "https://cdn.frontaliereticino.ch/images/social/instagram/reel-article-2026-11-22-reel-follow.mp4",
-        "bytes": 250399,
-        "sha256": "768f8b54cc1898177e30d33e611e3a7ea11bbaee2697c1cfdc454ecfbf75a540",
-        "durationMs": 11500,
-        "width": 1080,
-        "height": 1920,
-        "creativeVariant": "reel-follow"
-      },
-      "ledgerEntries": [
-        {
-          "id": "article:vivere-campione-italia-frontaliere-ticino",
-          "kind": "reel",
-          "sourceKind": "article",
-          "sourceId": "vivere-campione-italia-frontaliere-ticino",
-          "url": "https://frontaliereticino.ch/articoli-frontaliere/vivere-campione-italia-frontaliere-ticino/?utm_source=instagram&utm_medium=social&utm_campaign=instagram_reel_experiment&utm_content=reel-follow-vivere-campione-italia-frontaliere-ticino--cpe1e656e043e06845-reel.ig-reel-follow-context.acontesto-chiaro.d",
-          "day": "2026-11-22",
-          "views": 28,
-          "creativeId": "reel-follow",
-          "creativeBaseId": "reel",
-          "creativeVariant": "reel-follow",
-          "creativeLabel": "Aggiornamento da seguire",
-          "creativeObjective": "follow",
-          "primaryMetric": "follows",
-          "engagementMechanic": "profile-follow",
-          "hookType": "useful-update",
-          "attentionMechanic": "verified-update",
-          "engagementLoop": "follow-for-reliable-updates",
-          "followUpFormat": "none",
-          "creativeFormat": "reel",
-          "copyMode": "codex",
-          "copySlot": "reel",
-          "copyPromptVersion": "frontaliere-social-copy-v5",
-          "copyPackId": "e1e656e043e06845",
-          "copyTemplateId": "ig-reel-follow-context",
-          "copyAssignmentMode": "deterministic",
-          "copyObjective": "follow",
-          "copyAngleId": "contesto-chiaro",
-          "copyPillarId": "vita-oltreconfine",
-          "copyAngleIntent": "searchable",
-          "copyHook": "Lavoro oltreconfine: il contesto da leggere con chiarezza",
-          "copyCta": "Segui Frontaliere per capire il lavoro oltreconfine."
-        }
-      ],
-      "createdAt": "2026-11-23T19:31:33.098Z",
-      "expiresAt": "2026-11-25T19:31:33.098Z"
-    },
-    {
       "id": "article-2026-11-23",
       "channel": "instagram",
       "kind": "article",
