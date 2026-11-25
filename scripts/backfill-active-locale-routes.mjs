@@ -164,6 +164,35 @@ function changedBaseBlobs(base, head) {
   return blobs;
 }
 
+/** Return untracked crawler input slices reported by `git status --porcelain`. */
+export function untrackedSlicePathsFromStatus(statusText) {
+  const paths = [];
+  for (const line of String(statusText || '').split('\n')) {
+    if (!line.startsWith('?? ')) continue;
+    const rawPath = line.slice(3).trim();
+    const relativePath = rawPath.startsWith('"')
+      ? (() => {
+        try { return JSON.parse(rawPath); } catch { return rawPath; }
+      })()
+      : rawPath;
+    const normalized = String(relativePath).replaceAll('\\', '/');
+    const underInputDir = [ACTIVE_DIR_REL, EXPIRED_DIR_REL]
+      .some((directory) => normalized.startsWith(`${directory}/`));
+    if (underInputDir && isSliceFile(path.posix.basename(normalized))) paths.push(normalized);
+  }
+  return paths;
+}
+
+function assertNoUntrackedInputSlices() {
+  const status = execFileSync('git', [
+    'status', '--porcelain=v1', '--untracked-files=all', '--', ACTIVE_DIR_REL, EXPIRED_DIR_REL,
+  ], { cwd: ROOT, encoding: 'utf8' });
+  const untracked = untrackedSlicePathsFromStatus(status);
+  if (untracked.length > 0) {
+    throw new Error(`crawler data has untracked input slices: ${untracked.join(', ')}`);
+  }
+}
+
 async function loadChangedBaseRows(base, head) {
   const blobs = changedBaseBlobs(base, head);
   const rows = [];
@@ -206,6 +235,7 @@ function assertSelectedHead(head) {
   } catch {
     throw new Error('crawler data differs from selected revision');
   }
+  assertNoUntrackedInputSlices();
   return selected;
 }
 

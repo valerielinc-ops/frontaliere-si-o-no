@@ -197,8 +197,9 @@ export function planActiveLocaleRouteRecovery({
     const fingerprint = baseRow?.fingerprint || fingerprintOf(baseJob);
     const identities = stableJobIdentityKeys(baseJob, () => fingerprint);
     if (identities.length === 0) {
-      for (const [locale, value] of Object.entries(baseJob.slugByLocale || {})) {
-        if (JOB_LOCALES.includes(locale) && nonblank(value)) {
+      for (const locale of JOB_LOCALES) {
+        const value = servedSlug(baseJob, locale, false);
+        if (nonblank(value)) {
           summary.baseLocaleRoutes += 1;
           skip('weakFingerprint');
         }
@@ -211,8 +212,9 @@ export function planActiveLocaleRouteRecovery({
       for (const row of headByIdentity.get(identity) || []) ownersById.set(ownerIdOf(row), row);
     }
     const owners = [...ownersById.values()];
-    for (const [locale, rawSlug] of Object.entries(baseJob.slugByLocale || {})) {
-      if (!JOB_LOCALES.includes(locale) || !nonblank(rawSlug)) continue;
+    for (const locale of JOB_LOCALES) {
+      const rawSlug = servedSlug(baseJob, locale, false);
+      if (!nonblank(rawSlug)) continue;
       summary.baseLocaleRoutes += 1;
       const slug = rawSlug.trim();
       let baseRoute;

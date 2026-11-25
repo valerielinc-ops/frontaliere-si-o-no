@@ -4,6 +4,7 @@ import {
   buildExpiredEntry,
   mergeExpiredRouteEvidence,
 } from '../scripts/lib/expired-jobs-archive.mjs';
+import { resolveExpiredRouteCanton } from '../scripts/lib/expired-route-canton.mjs';
 
 describe('expired route evidence', () => {
   it('persists canton in new archive records and carries old locale routes into history', () => {
@@ -42,6 +43,26 @@ describe('expired route evidence', () => {
 
     expect(survivor.canton).toBe('TI');
     expect(survivor.previousSlugsByLocale?.de).toEqual(['old-de']);
+  });
+
+  it('keeps the historical canton on a transferred route', () => {
+    const survivor: Record<string, any> = {
+      slug: 'canonical',
+      canton: 'TI',
+      slugByLocale: { en: 'new' },
+    };
+    const historical: Record<string, any> = {
+      slug: 'canonical',
+      canton: 'ZH',
+      slugByLocale: { en: 'old' },
+    };
+
+    mergeExpiredRouteEvidence(survivor, historical);
+
+    expect(survivor.previousSlugsByLocale?.en).toEqual(['old']);
+    expect(survivor.previousSlugCantonByLocale?.en?.old).toBe('ZH');
+    expect(resolveExpiredRouteCanton(survivor, 'en', 'old')).toBe('ZH');
+    expect(resolveExpiredRouteCanton(survivor, 'en', 'new')).toBe('TI');
   });
 
   it('fails closed before mutating malformed survivor history', () => {

@@ -127,6 +127,12 @@ function buildExpiredEntry(job) {
       Object.keys(job.previousSlugsByLocale).length > 0
         ? JSON.parse(JSON.stringify(job.previousSlugsByLocale))
         : undefined,
+    previousSlugCantonByLocale:
+      job.previousSlugCantonByLocale &&
+      typeof job.previousSlugCantonByLocale === 'object' &&
+      Object.keys(job.previousSlugCantonByLocale).length > 0
+        ? JSON.parse(JSON.stringify(job.previousSlugCantonByLocale))
+        : undefined,
     postalCode: job.postalCode || '',
     streetAddress: job.streetAddress || '',
     salaryMin: job.salaryMin || null,

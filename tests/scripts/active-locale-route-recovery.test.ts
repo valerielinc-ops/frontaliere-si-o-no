@@ -70,6 +70,28 @@ function plan({
 }
 
 describe('active locale route recovery', () => {
+  it('recovers the canonical fallback route for every locale', () => {
+    const base = row({
+      job: { slug: 'old', slugByLocale: {} },
+    });
+    const head = row({
+      job: { slug: 'new', slugByLocale: {} },
+    });
+    const result = plan({ baseRows: [base], headRows: [head] });
+
+    expect(result.actions).toHaveLength(4);
+    expect(result.actions.map((action) => action.locale)).toEqual(['de', 'en', 'fr', 'it']);
+    expect(result.actions.every((action) => action.slug === 'old')).toBe(true);
+
+    for (const action of result.actions) applyActiveLocaleRouteAlias(head.job, action);
+    expect(head.job.previousSlugsByLocale).toEqual({
+      de: ['old'],
+      en: ['old'],
+      fr: ['old'],
+      it: ['old'],
+    });
+  });
+
   it('uses exact identity across a crawler transfer and never changes the active slug', () => {
     const base = row({
       fileName: 'source.json',
