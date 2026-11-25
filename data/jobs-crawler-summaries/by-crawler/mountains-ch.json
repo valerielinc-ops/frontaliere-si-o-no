@@ -1,7 +1,7 @@
 {
   "key": "mountains-ch",
   "label": "Engadin St. Moritz Mountains AG",
-  "generatedAt": "2026-11-24T21:47:43.373Z",
+  "generatedAt": "2026-11-25T09:41:27.822Z",
   "total": 4,
   "discovered": 3,
   "parsed": 3,
@@ -54,77 +54,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 13857,
-  "avgDurationMs": 13857,
+  "durationMs": 12421,
+  "avgDurationMs": 12421,
   "durationHistory": [
-    13857
+    12421
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "mountains-ch-c70b5beba287",
-      "slug": "responsabile-servizi-aziendali-cfo-engadin-st-moritz-mountains-ag-7500-st-moritz",
-      "company": "Engadin St. Moritz Mountains AG",
-      "companyKey": "mountains-ch",
-      "companyDomain": "mountains.ch",
-      "title": "Leiter Corporate Services / CFO",
-      "location": "7500 St. Moritz",
-      "canton": "GR",
-      "url": "https://www.mountains.ch/de/offene-stellen/leiter-corporate-services-cfo",
-      "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:45:18.037Z",
-      "addressLocality": "St. Moritz",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7500",
-      "streetAddress": "Via S. Gian 30",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.mountains.ch/de/offene-stellen/leiter-corporate-services-cfo",
-      "firstSeenAt": "2026-11-04T21:50:30.507Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "salarySource": "estimated",
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Engadin St. Moritz Mountains AG",
-        "streetAddress": "Via S. Gian 30",
-        "postalCode": "7500",
-        "registeredName": "Engadin St. Moritz Mountains AG",
-        "matchType": "exact",
-        "streetAddressSource": "zefix-registry",
-        "jobPostalCode": "7500",
-        "addressLocality": "St. Moritz",
-        "addressRegion": "GR",
-        "checkedAt": "2026-11-16T15:23:08.822Z"
-      },
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T09:45:18.037Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 23
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "mountains-ch-41df2560cca5",
@@ -138,7 +77,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/mitarbeiterin-human-ressources",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:47:16.292Z",
+      "crawledAt": "2026-11-25T09:40:40.685Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -175,7 +114,7 @@
         "checkedAt": "2026-11-16T15:23:08.822Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T21:47:16.292Z",
+      "validThrough": "2027-02-03T09:40:40.685Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -197,7 +136,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/schnupperlehre-seilbahnmechatronikerin-efz",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:47:16.291Z",
+      "crawledAt": "2026-11-25T09:40:40.684Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -234,7 +173,7 @@
         "checkedAt": "2026-11-16T15:23:08.822Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T21:47:16.291Z",
+      "validThrough": "2027-02-03T09:40:40.684Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -256,7 +195,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/leitung-rezeption-und-bankette",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:47:16.286Z",
+      "crawledAt": "2026-11-25T09:40:40.682Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -293,7 +232,7 @@
         "checkedAt": "2026-11-16T15:23:08.822Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T21:47:16.286Z",
+      "validThrough": "2027-02-03T09:40:40.682Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -354,7 +293,7 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-05T09:43:28.254Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -364,5 +303,5 @@
       }
     }
   ],
-  "codeCommit": "af6487cf18de54664a2dd36f8f16e17f8a69b92f"
+  "codeCommit": "55fd511dba5e5c1bd3b4047690c697040c8b6c58"
 }

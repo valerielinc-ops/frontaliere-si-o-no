@@ -1,7 +1,7 @@
 {
   "crawlerKey": "csl-immobilien-ag",
-  "assembledAt": "2026-11-24T21:45:09.806Z",
-  "runId": "45491139132",
+  "assembledAt": "2026-11-25T09:39:56.682Z",
+  "runId": "45585532877",
   "jobs": [
     {
       "id": "csl-immobilien-ag-bd764aaf76dc",
@@ -34,7 +34,7 @@
       "url": "https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/90894baf-5ec6-cf55-6b6d-d1ff32afbbe3?jp=ABACUS",
       "source": "CSL Immobilien AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:44:58.011Z",
+      "crawledAt": "2026-11-25T09:39:40.575Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T21:44:58.011Z",
+      "validThrough": "2027-02-18T09:39:40.575Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -117,7 +117,7 @@
       "url": "https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/60f30749-e92e-f98c-fab8-ecf4fbf29579?jp=ABACUS",
       "source": "CSL Immobilien AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:44:58.011Z",
+      "crawledAt": "2026-11-25T09:39:40.567Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -168,7 +168,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T21:44:58.011Z",
+      "validThrough": "2027-02-07T09:39:40.567Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -202,7 +202,7 @@
       "url": "https://app.jobportal.abaservices.ch/job-advertisement/cslimmobilien/7fdb40d6-c3ba-5548-b8ad-e55232c8a90b?jp=ABACUS",
       "source": "CSL Immobilien AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:44:58.009Z",
+      "crawledAt": "2026-11-25T09:39:40.557Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -257,7 +257,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:44:58.009Z",
+      "validThrough": "2027-01-26T09:39:40.557Z",
       "validThroughSource": "last-observed-window"
     }
   ]

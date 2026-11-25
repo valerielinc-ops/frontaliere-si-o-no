@@ -1,7 +1,7 @@
 {
   "key": "skan",
   "label": "Skan AG",
-  "generatedAt": "2026-11-24T21:48:22.517Z",
+  "generatedAt": "2026-11-25T09:44:31.496Z",
   "total": 2,
   "discovered": 8,
   "parsed": 8,
@@ -17,6 +17,18 @@
       {
         "status": 200,
         "url": "https://jobs.skan.com/go/Jobs-in-Allschwil-%28Switzerland%29/9780357/"
+      },
+      {
+        "status": 200,
+        "url": "https://jobs.skan.com/job/Allschwil-Process-Validation-Engineer/1348986457/"
+      },
+      {
+        "status": 200,
+        "url": "https://jobs.skan.com/job/Allschwil-Apprenticeship-in-2027-Automation-Engineer-EFZ/1365455957/"
+      },
+      {
+        "status": 200,
+        "url": "https://jobs.skan.com/job/Allschwil-Field-Engineer/1374656857/"
       },
       {
         "status": 200,
@@ -37,18 +49,6 @@
       {
         "status": 200,
         "url": "https://jobs.skan.com/job/Allschwil-Commissioning-&-Qualification-Engineer-%28inhouse-&-onsite%29/1369906157/"
-      },
-      {
-        "status": 200,
-        "url": "https://jobs.skan.com/job/Allschwil-Apprenticeship-in-2027-Automation-Engineer-EFZ/1365455957/"
-      },
-      {
-        "status": 200,
-        "url": "https://jobs.skan.com/job/Allschwil-Process-Validation-Engineer/1348986457/"
-      },
-      {
-        "status": 200,
-        "url": "https://jobs.skan.com/job/Allschwil-Field-Engineer/1374656857/"
       }
     ],
     "proxiedBy": [],
@@ -68,74 +68,15 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 14465,
-  "avgDurationMs": 14465,
+  "durationMs": 18134,
+  "avgDurationMs": 18134,
   "durationHistory": [
-    14465
+    18134
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
-    {
-      "id": "skan-4ebca8c52ac9",
-      "slug": "process-validation-ingegnere-skan-ag-allschwil",
-      "company": "Skan AG",
-      "companyKey": "skan",
-      "companyDomain": "jobs.skan.com",
-      "title": "Process Validation Engineer",
-      "location": "Allschwil",
-      "canton": "BL",
-      "url": "https://jobs.skan.com/job/Allschwil-Process-Validation-Engineer/1348986457/",
-      "source": "Skan AG Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-24T21:47:49.217Z",
-      "addressLocality": "Allschwil",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.skan.com/job/Allschwil-Process-Validation-Engineer/1348986457/",
-      "firstSeenAt": "2026-11-16T21:37:17.258Z",
-      "salaryMin": 72500,
-      "salaryMax": 110500,
-      "salarySource": "estimated",
-      "postalCode": "4123",
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "SKAN AG",
-        "streetAddress": "Kreuzstrasse 5",
-        "postalCode": "4123",
-        "registeredName": "Skan AG",
-        "matchType": "exact",
-        "streetAddressSource": "zefix-registry",
-        "jobPostalCode": "4123",
-        "addressLocality": "Allschwil",
-        "addressRegion": "BL",
-        "checkedAt": "2026-11-09T15:43:20.118Z"
-      },
-      "streetAddress": "Kreuzstrasse 5",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-14T21:47:49.217Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 23
-      }
-    },
     {
       "id": "skan-26be4c75137a",
       "slug": "commissioning-qualification-ingegnere-inhouse-onsite-skan-ag-allschwil",
@@ -148,7 +89,7 @@
       "url": "https://jobs.skan.com/job/Allschwil-Commissioning-&-Qualification-Engineer-%28inhouse-&-onsite%29/1369906157/",
       "source": "Skan AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-24T21:47:49.215Z",
+      "crawledAt": "2026-11-25T09:43:53.542Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -185,7 +126,66 @@
       },
       "streetAddress": "Kreuzstrasse 5",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-22T21:47:49.215Z",
+      "validThrough": "2027-02-22T09:43:53.542Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 23
+      }
+    },
+    {
+      "id": "skan-4ebca8c52ac9",
+      "slug": "process-validation-ingegnere-skan-ag-allschwil",
+      "company": "Skan AG",
+      "companyKey": "skan",
+      "companyDomain": "jobs.skan.com",
+      "title": "Process Validation Engineer",
+      "location": "Allschwil",
+      "canton": "BL",
+      "url": "https://jobs.skan.com/job/Allschwil-Process-Validation-Engineer/1348986457/",
+      "source": "Skan AG Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-25T09:43:53.517Z",
+      "addressLocality": "Allschwil",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.skan.com/job/Allschwil-Process-Validation-Engineer/1348986457/",
+      "firstSeenAt": "2026-11-16T21:37:17.258Z",
+      "salaryMin": 72500,
+      "salaryMax": 110500,
+      "salarySource": "estimated",
+      "postalCode": "4123",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "SKAN AG",
+        "streetAddress": "Kreuzstrasse 5",
+        "postalCode": "4123",
+        "registeredName": "Skan AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "4123",
+        "addressLocality": "Allschwil",
+        "addressRegion": "BL",
+        "checkedAt": "2026-11-09T15:43:20.118Z"
+      },
+      "streetAddress": "Kreuzstrasse 5",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-15T09:43:53.517Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -196,5 +196,5 @@
       }
     }
   ],
-  "codeCommit": "af6487cf18de54664a2dd36f8f16e17f8a69b92f"
+  "codeCommit": "55fd511dba5e5c1bd3b4047690c697040c8b6c58"
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "mountains-ch",
-  "assembledAt": "2026-11-24T21:47:27.533Z",
-  "runId": "45491139132",
+  "assembledAt": "2026-11-25T09:40:50.068Z",
+  "runId": "45585532877",
   "jobs": [
     {
       "id": "mountains-ch-41df2560cca5",
@@ -34,7 +34,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/mitarbeiterin-human-ressources",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:47:16.292Z",
+      "crawledAt": "2026-11-25T09:40:40.685Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -98,7 +98,7 @@
         "checkedAt": "2026-11-16T15:23:08.822Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T21:47:16.292Z",
+      "validThrough": "2027-02-03T09:40:40.685Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -132,7 +132,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/schnupperlehre-seilbahnmechatronikerin-efz",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:47:16.291Z",
+      "crawledAt": "2026-11-25T09:40:40.684Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -200,7 +200,7 @@
         "checkedAt": "2026-11-16T15:23:08.822Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T21:47:16.291Z",
+      "validThrough": "2027-02-03T09:40:40.684Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -234,7 +234,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/leitung-rezeption-und-bankette",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:47:16.286Z",
+      "crawledAt": "2026-11-25T09:40:40.682Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -303,7 +303,7 @@
         "checkedAt": "2026-11-16T15:23:08.822Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T21:47:16.286Z",
+      "validThrough": "2027-02-03T09:40:40.682Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -412,7 +412,7 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-05T09:43:28.254Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
