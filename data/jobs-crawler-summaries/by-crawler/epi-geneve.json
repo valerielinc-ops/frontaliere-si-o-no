@@ -1,7 +1,7 @@
 {
   "key": "epi-geneve",
   "label": "Établissements publics pour l'intégration",
-  "generatedAt": "2026-11-25T09:17:40.583Z",
+  "generatedAt": "2026-11-25T21:19:02.467Z",
   "total": 2,
   "discovered": null,
   "parsed": 3,
@@ -14,13 +14,13 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 32583,
-  "avgDurationMs": 32583,
+  "unchangedCount": 0,
+  "durationMs": 39395,
+  "avgDurationMs": 39395,
   "durationHistory": [
-    32583
+    39395
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000160169383-un-e-socio-educateur-trice-studios-chene-44-90-?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:16:58.969Z",
+      "crawledAt": "2026-11-25T21:18:01.932Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Route de Chêne 44",
@@ -60,7 +60,7 @@
       "salaryMax": 82400,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T09:16:58.969Z",
+      "validThrough": "2027-02-04T21:18:01.932Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -69,10 +69,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "epi-geneve-faee8247923d",
       "slug": "cura-e-accompagnamento-asa-turno-notturno-thonex-1-85-cdm-6-mesi-etablissements-publics-pour-l-integration-thonex-ge",
@@ -85,7 +82,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000162308481--un-e-aide-en-soins-et-accompagnement-asa-poste-de-nuit-thonex-1-85-cdm-6-mois?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:16:58.965Z",
+      "crawledAt": "2026-11-25T21:18:01.923Z",
       "addressLocality": "Thônex",
       "addressRegion": "GE",
       "streetAddress": "Avenue Adrien-Jeandin",
@@ -109,7 +106,7 @@
       "salaryMax": 77800,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-17T09:16:58.965Z",
+      "validThrough": "2027-02-16T21:18:01.923Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -120,5 +117,7 @@
       }
     }
   ],
-  "codeCommit": "55fd511dba5e5c1bd3b4047690c697040c8b6c58"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "0c64b1f2eae0b337b537e356aa5de051b9c4c6cc"
 }
