@@ -1,7 +1,7 @@
 {
   "crawlerKey": "lipsuisse-ch",
-  "assembledAt": "2026-11-25T09:44:42.861Z",
-  "runId": "45585532877",
+  "assembledAt": "2026-11-25T21:46:03.761Z",
+  "runId": "45704355338",
   "jobs": [
     {
       "id": "lipsuisse-ch-9701ef901d62",
@@ -34,7 +34,7 @@
       "url": "https://www.lipsuisse.ch/offres-emploi/menuisier-poseur-dagencement",
       "source": "LIP Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:43:39.815Z",
+      "crawledAt": "2026-11-25T21:45:58.003Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -54,10 +54,13 @@
       "applyUrl": "https://www.lipsuisse.ch/offres-emploi/menuisier-poseur-dagencement",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "menuisier-poseur-d-agencement-geneve-lipsuisse-ch-ch",
+        "carpenter-di-installazione-lip-suisse-geneve",
+        "carpenter-di-installazione-lip-suisse-geneve-ed8ed3d17f",
+        "menuisier-poseur-d-agencement-lip-suisse-geneve"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "menuisier-poseur-d-agencement-lip-suisse-geneve"
-        ],
         "it": [
           "menuisier-poseur-d-agencement-geneve-lipsuisse-ch-ch",
           "carpenter-di-installazione-lip-suisse-geneve",
@@ -68,14 +71,11 @@
         ],
         "de": [
           "menuisier-poseur-d-agencement-geneve-lipsuisse-ch-ch"
+        ],
+        "fr": [
+          "menuisier-poseur-d-agencement-lip-suisse-geneve"
         ]
       },
-      "previousSlugs": [
-        "menuisier-poseur-d-agencement-geneve-lipsuisse-ch-ch",
-        "carpenter-di-installazione-lip-suisse-geneve",
-        "carpenter-di-installazione-lip-suisse-geneve-ed8ed3d17f",
-        "menuisier-poseur-d-agencement-lip-suisse-geneve"
-      ],
       "firstSeenAt": "2026-11-14T16:44:54.922Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -91,7 +91,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:43:39.815Z",
+      "validThrough": "2027-02-18T21:45:58.003Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -125,7 +125,7 @@
       "url": "https://www.lipsuisse.ch/offres-emploi/serrurier-experimente-ouverture-de-portes",
       "source": "LIP Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:43:39.815Z",
+      "crawledAt": "2026-11-25T21:45:58.003Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -145,10 +145,11 @@
       "applyUrl": "https://www.lipsuisse.ch/offres-emploi/serrurier-experimente-ouverture-de-portes",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "serrurier-experimente-ouverture-de-portes-geneve-lipsuisse-ch-ch",
+        "serrurier-experimente-ouverture-de-portes-lip-suisse-geneve"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "serrurier-experimente-ouverture-de-portes-lip-suisse-geneve"
-        ],
         "it": [
           "serrurier-experimente-ouverture-de-portes-geneve-lipsuisse-ch-ch"
         ],
@@ -157,12 +158,11 @@
         ],
         "de": [
           "serrurier-experimente-ouverture-de-portes-geneve-lipsuisse-ch-ch"
+        ],
+        "fr": [
+          "serrurier-experimente-ouverture-de-portes-lip-suisse-geneve"
         ]
       },
-      "previousSlugs": [
-        "serrurier-experimente-ouverture-de-portes-geneve-lipsuisse-ch-ch",
-        "serrurier-experimente-ouverture-de-portes-lip-suisse-geneve"
-      ],
       "firstSeenAt": "2026-11-19T21:46:09.665Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -178,193 +178,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T09:43:39.815Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "lipsuisse-ch-766a972e756f",
-      "slug": "carriera-lip-suisse-geneve",
-      "slugByLocale": {
-        "it": "carriera-lip-suisse-geneve",
-        "en": "carrier-lip-suisse-geneve",
-        "de": "beforderer-lip-suisse-geneve",
-        "fr": "carreleur-geneve-1200-lipsuisse-ch-ch"
-      },
-      "company": "LIP Suisse",
-      "companyKey": "lipsuisse-ch",
-      "companyDomain": "lipsuisse.ch",
-      "title": "Carreleur",
-      "titleByLocale": {
-        "it": "Carriera",
-        "en": "Carrier",
-        "de": "Beförderer",
-        "fr": "Carreleur"
-      },
-      "description": "Résumé\n- Expérience 5\nDescription du poste\nLes missions du poste :\n– Lecture de plans et calculs de surfaces\n– Chantiers neufs et rénovation\n– Pose de carreaux tout Format (Sol, Faïences, Mosaïque)\n– Réalisation de douche italienne\n– Préparation des supports (Petite maçonnerie, ragréage, Etanchéité)\nLe profil recherché :\n– CFC ou diplôme équivalent\n– 2 Ans d’expérience minimum dans la branche\n– Outillé\n– Véhiculé\n– Disponible rapidement\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire",
-      "descriptionByLocale": {
-        "it": "Sintesi esecutiva\n- Esperienza 5\nDescrizione del post\nMissioni post:\n– Piani di lettura e calcoli superficiali\n– Nuovi edifici e ristrutturazioni\n– Lay piastrelle all-format (Sol, terracotta, Mosaico)\n– Fare la doccia italiana\n– Preparazione di supporti (piccola muratura, furia, sigillatura)\nIl profilo ricercato:\n– SWC o diploma equivalente\n– 2 anni esperienza minima nel ramo\n– Attrezzato\n– Veicolo\n– Disponibile rapidamente\n- Senior Assistant Building M/F\n- @ LIP Svizzera\n- Losanna\nFisso",
-        "en": "Executive summary\n- Experience 5\nDescription of post\nPost missions:\n– Reading plans and surface calculations\n– New buildings and renovation\n– Lay all-format tiles (Sol, earthenware, Mosaic)\n– Italian shower making\n– Preparation of supports (small masonry, raging, sealing)\nThe profile sought:\n– SWC or equivalent diploma\n– 2 Years minimum experience in the branch\n– Tooled\n– Vehicle\n– Available quickly\n- Senior Assistant Building M/F\n- @ LIP Switzerland\n- Lausanne\nFixed",
-        "de": "Zusammenfassung\n- Erfahrung 5\nBeschreibung der Post\nPostmissionen:\n- Lesepläne und Oberflächenberechnungen\n– Neubauten und Renovierung\n– Legen Sie alle Formatfliesen (Sol, Steingut, Mosaik)\nItalienische Dusche machen\n– Vorbereitung der Stützen (kleines Mauerwerk, tobend, versiegelnd)\nGesuchtes Profil:\nSWC oder gleichwertiges Diplom\n– 2 Jahre Mindesterfahrung in der Branche\n– Tooled\n– Fahrzeug\n- Schnell verfügbar\n- Senior Assistant Gebäude M/W\n- @ LIP Schweiz\n- Lausanne\nFestnetz",
-        "fr": "Résumé\n- Expérience 5\nDescription du poste\nLes missions du poste :\n– Lecture de plans et calculs de surfaces\n– Chantiers neufs et rénovation\n– Pose de carreaux tout Format (Sol, Faïences, Mosaïque)\n– Réalisation de douche italienne\n– Préparation des supports (Petite maçonnerie, ragréage, Etanchéité)\nLe profil recherché :\n– CFC ou diplôme équivalent\n– 2 Ans d’expérience minimum dans la branche\n– Outillé\n– Véhiculé\n– Disponible rapidement\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire"
-      },
-      "location": "Genève, 1200",
-      "canton": "GE",
-      "url": "https://www.lipsuisse.ch/offres-emploi/carreleur",
-      "source": "LIP Suisse Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:43:39.809Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1201",
-      "streetAddress": "Genève",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-20",
-      "postedDate": "2026-11-20",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.lipsuisse.ch/offres-emploi/carreleur",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "fr": [
-          "carreleur-lip-suisse-geneve"
-        ],
-        "it": [
-          "carreleur-geneve-1200-lipsuisse-ch-ch",
-          "carriera-lip-suisse-geneve-1200"
-        ],
-        "en": [
-          "carrier-lip-suisse-geneve-1200",
-          "carreleur-geneve-1200-lipsuisse-ch-ch"
-        ],
-        "de": [
-          "beforderer-lip-suisse-geneve-1200",
-          "carreleur-geneve-1200-lipsuisse-ch-ch"
-        ]
-      },
-      "previousSlugs": [
-        "carreleur-geneve-1200-lipsuisse-ch-ch",
-        "carriera-lip-suisse-geneve-1200",
-        "carrier-lip-suisse-geneve-1200",
-        "beforderer-lip-suisse-geneve-1200",
-        "carreleur-lip-suisse-geneve"
-      ],
-      "firstSeenAt": "2026-11-04T21:49:56.499Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:43:39.809Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "lipsuisse-ch-d30a7476c034",
-      "slug": "carpenter-in-legno-lip-suisse-geneve",
-      "slugByLocale": {
-        "it": "carpenter-in-legno-lip-suisse-geneve",
-        "en": "wood-carpenter-lip-suisse-geneve",
-        "de": "holztischler-lip-suisse-geneve",
-        "fr": "charpentier-bois-geneve-1227-lipsuisse-ch-ch"
-      },
-      "company": "LIP Suisse",
-      "companyKey": "lipsuisse-ch",
-      "companyDomain": "lipsuisse.ch",
-      "title": "Charpentier bois",
-      "titleByLocale": {
-        "it": "Carpenter in legno",
-        "en": "Wood carpenter",
-        "de": "Holztischler",
-        "fr": "Charpentier bois"
-      },
-      "description": "Résumé\n- Langues Français\nDescription du poste\nVotre agence LIP SUISSE recherche actuellement un charpentier H/F sur le secteur de Genève.\nVotre mission :\n– Réalisation de travaux de charpente en atelier et sur le chantiers\n– Intervention sur chantier neuf et rénovation\n– Pose et assemblage des éléments de charpente et d’ossature bois\n– Conception et pose de terrasse bois ou composite\nVotre profil :\n– Vous possédez idéalement le CFC Charpentier ou équivalent\n– Vous avez minimum 2 ans d’expérience en Suisse\n– Vous êtes outillé\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire",
-      "descriptionByLocale": {
-        "it": "Sintesi esecutiva\n- Lingue\nDescrizione del post\nLIP SUISSE è attualmente alla ricerca di un falegname M/F nell'area di Ginevra.\nLa vostra missione:\n– Lavori di costruzione nel laboratorio e sul cantiere\n– Nuovo intervento e ristrutturazione del sito\n– Installazione e montaggio di elementi strutturali e in legno\n– Progettazione e installazione di terrazze in legno o composito\nIl tuo profilo:\n– Possiedi idealmente il CFC Charpentier o equivalente\n– Hai esperienza minima di 2 anni in Svizzera\n- Sei equipaggiato.\n- Senior Assistant Building M/F\n- @ LIP Svizzera\n- Losanna\nFisso",
-        "en": "Executive summary\n- Languages\nDescription of post\nYour LIP SUISSE agency is currently looking for a M/F carpenter in the Geneva area.\nYour mission:\n– Construction work in the workshop and on the construction site\n– New site intervention and renovation\n– Installation and assembly of structural and wood frame elements\n– Design and installation of wooden or composite terraces\nYour profile:\n– You ideally own the CFC Charpentier or equivalent\n– You have minimum 2 years experience in Switzerland\n– You're equipped.\n- Senior Assistant Building M/F\n- @ LIP Switzerland\n- Lausanne\nFixed",
-        "de": "Zusammenfassung\n- Sprachen\nBeschreibung der Post\nIhre LIP SUISSE Agentur sucht derzeit einen M/W Schreiner im Raum Genf.\nIhre Mission:\nBauarbeiten in der Werkstatt und auf der Baustelle\n– Neue Standortintervention und Renovierung\nInstallation und Montage von Struktur- und Holzrahmenelementen\n– Design und Installation von Holz- oder Verbundterrassen\nIhr Profil:\n– Sie besitzen idealerweise den CFC Charpentier oder ein gleichwertiges\nSie haben mindestens 2 Jahre Erfahrung in der Schweiz\nDu bist ausgerüstet.\n- Senior Assistant Gebäude M/W\n- @ LIP Schweiz\n- Lausanne\nFestnetz",
-        "fr": "Résumé\n- Langues Français\nDescription du poste\nVotre agence LIP SUISSE recherche actuellement un charpentier H/F sur le secteur de Genève.\nVotre mission :\n– Réalisation de travaux de charpente en atelier et sur le chantiers\n– Intervention sur chantier neuf et rénovation\n– Pose et assemblage des éléments de charpente et d’ossature bois\n– Conception et pose de terrasse bois ou composite\nVotre profil :\n– Vous possédez idéalement le CFC Charpentier ou équivalent\n– Vous avez minimum 2 ans d’expérience en Suisse\n– Vous êtes outillé\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire"
-      },
-      "location": "Genève, 1227",
-      "canton": "GE",
-      "url": "https://www.lipsuisse.ch/offres-emploi/charpentier-bois",
-      "source": "LIP Suisse Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:43:39.808Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1201",
-      "streetAddress": "Genève",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-20",
-      "postedDate": "2026-11-20",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.lipsuisse.ch/offres-emploi/charpentier-bois",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "fr": [
-          "charpentier-bois-lip-suisse-geneve"
-        ],
-        "it": [
-          "charpentier-bois-geneve-1227-lipsuisse-ch-ch",
-          "carpenter-in-legno-lip-suisse-geneve-1227"
-        ],
-        "en": [
-          "wood-carpenter-lip-suisse-geneve-1227",
-          "charpentier-bois-geneve-1227-lipsuisse-ch-ch"
-        ],
-        "de": [
-          "holztischler-lip-suisse-geneve-1227",
-          "charpentier-bois-geneve-1227-lipsuisse-ch-ch"
-        ]
-      },
-      "previousSlugs": [
-        "charpentier-bois-geneve-1227-lipsuisse-ch-ch",
-        "carpenter-in-legno-lip-suisse-geneve-1227",
-        "wood-carpenter-lip-suisse-geneve-1227",
-        "holztischler-lip-suisse-geneve-1227",
-        "charpentier-bois-lip-suisse-geneve"
-      ],
-      "firstSeenAt": "2026-11-14T16:44:54.925Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:43:39.808Z",
+      "validThrough": "2027-02-17T21:45:58.003Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -398,7 +212,7 @@
       "url": "https://www.lipsuisse.ch/offres-emploi/menuisier-atelier",
       "source": "LIP Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:43:39.808Z",
+      "crawledAt": "2026-11-25T21:45:58.002Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -418,10 +232,13 @@
       "applyUrl": "https://www.lipsuisse.ch/offres-emploi/menuisier-atelier",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "menuisier-atelier-geneve-lipsuisse-ch-ch",
+        "carpenter-del-laboratorio-lip-suisse-geneve",
+        "carpenter-del-laboratorio-lip-suisse-geneve-2d5c1cf940",
+        "menuisier-atelier-lip-suisse-geneve"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "menuisier-atelier-lip-suisse-geneve"
-        ],
         "it": [
           "menuisier-atelier-geneve-lipsuisse-ch-ch",
           "carpenter-del-laboratorio-lip-suisse-geneve",
@@ -432,14 +249,11 @@
         ],
         "de": [
           "menuisier-atelier-geneve-lipsuisse-ch-ch"
+        ],
+        "fr": [
+          "menuisier-atelier-lip-suisse-geneve"
         ]
       },
-      "previousSlugs": [
-        "menuisier-atelier-geneve-lipsuisse-ch-ch",
-        "carpenter-del-laboratorio-lip-suisse-geneve",
-        "carpenter-del-laboratorio-lip-suisse-geneve-2d5c1cf940",
-        "menuisier-atelier-lip-suisse-geneve"
-      ],
       "firstSeenAt": "2026-11-14T16:44:54.924Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -455,7 +269,100 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:43:39.808Z",
+      "validThrough": "2027-02-18T21:45:58.002Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "lipsuisse-ch-766a972e756f",
+      "slug": "carriera-lip-suisse-geneve",
+      "slugByLocale": {
+        "it": "carriera-lip-suisse-geneve",
+        "en": "carrier-lip-suisse-geneve",
+        "de": "beforderer-lip-suisse-geneve",
+        "fr": "carreleur-geneve-1200-lipsuisse-ch-ch"
+      },
+      "company": "LIP Suisse",
+      "companyKey": "lipsuisse-ch",
+      "companyDomain": "lipsuisse.ch",
+      "title": "Carreleur",
+      "titleByLocale": {
+        "it": "Carriera",
+        "en": "Carrier",
+        "de": "Beförderer",
+        "fr": "Carreleur"
+      },
+      "description": "Résumé\n- Expérience 5\nDescription du poste\nLes missions du poste :\n– Lecture de plans et calculs de surfaces\n– Chantiers neufs et rénovation\n– Pose de carreaux tout Format (Sol, Faïences, Mosaïque)\n– Réalisation de douche italienne\n– Préparation des supports (Petite maçonnerie, ragréage, Etanchéité)\nLe profil recherché :\n– CFC ou diplôme équivalent\n– 2 Ans d’expérience minimum dans la branche\n– Outillé\n– Véhiculé\n– Disponible rapidement\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire",
+      "descriptionByLocale": {
+        "it": "Sintesi esecutiva\n- Esperienza 5\nDescrizione del post\nMissioni post:\n– Piani di lettura e calcoli superficiali\n– Nuovi edifici e ristrutturazioni\n– Lay piastrelle all-format (Sol, terracotta, Mosaico)\n– Fare la doccia italiana\n– Preparazione di supporti (piccola muratura, furia, sigillatura)\nIl profilo ricercato:\n– SWC o diploma equivalente\n– 2 anni esperienza minima nel ramo\n– Attrezzato\n– Veicolo\n– Disponibile rapidamente\n- Senior Assistant Building M/F\n- @ LIP Svizzera\n- Losanna\nFisso",
+        "en": "Executive summary\n- Experience 5\nDescription of post\nPost missions:\n– Reading plans and surface calculations\n– New buildings and renovation\n– Lay all-format tiles (Sol, earthenware, Mosaic)\n– Italian shower making\n– Preparation of supports (small masonry, raging, sealing)\nThe profile sought:\n– SWC or equivalent diploma\n– 2 Years minimum experience in the branch\n– Tooled\n– Vehicle\n– Available quickly\n- Senior Assistant Building M/F\n- @ LIP Switzerland\n- Lausanne\nFixed",
+        "de": "Zusammenfassung\n- Erfahrung 5\nBeschreibung der Post\nPostmissionen:\n- Lesepläne und Oberflächenberechnungen\n– Neubauten und Renovierung\n– Legen Sie alle Formatfliesen (Sol, Steingut, Mosaik)\nItalienische Dusche machen\n– Vorbereitung der Stützen (kleines Mauerwerk, tobend, versiegelnd)\nGesuchtes Profil:\nSWC oder gleichwertiges Diplom\n– 2 Jahre Mindesterfahrung in der Branche\n– Tooled\n– Fahrzeug\n- Schnell verfügbar\n- Senior Assistant Gebäude M/W\n- @ LIP Schweiz\n- Lausanne\nFestnetz",
+        "fr": "Résumé\n- Expérience 5\nDescription du poste\nLes missions du poste :\n– Lecture de plans et calculs de surfaces\n– Chantiers neufs et rénovation\n– Pose de carreaux tout Format (Sol, Faïences, Mosaïque)\n– Réalisation de douche italienne\n– Préparation des supports (Petite maçonnerie, ragréage, Etanchéité)\nLe profil recherché :\n– CFC ou diplôme équivalent\n– 2 Ans d’expérience minimum dans la branche\n– Outillé\n– Véhiculé\n– Disponible rapidement\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire"
+      },
+      "location": "Genève, 1200",
+      "canton": "GE",
+      "url": "https://www.lipsuisse.ch/offres-emploi/carreleur",
+      "source": "LIP Suisse Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-25T21:45:58.002Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1201",
+      "streetAddress": "Genève",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-20",
+      "postedDate": "2026-11-20",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.lipsuisse.ch/offres-emploi/carreleur",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "carreleur-geneve-1200-lipsuisse-ch-ch",
+        "carriera-lip-suisse-geneve-1200",
+        "carrier-lip-suisse-geneve-1200",
+        "beforderer-lip-suisse-geneve-1200",
+        "carreleur-lip-suisse-geneve"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "carreleur-geneve-1200-lipsuisse-ch-ch",
+          "carriera-lip-suisse-geneve-1200"
+        ],
+        "en": [
+          "carrier-lip-suisse-geneve-1200",
+          "carreleur-geneve-1200-lipsuisse-ch-ch"
+        ],
+        "de": [
+          "beforderer-lip-suisse-geneve-1200",
+          "carreleur-geneve-1200-lipsuisse-ch-ch"
+        ],
+        "fr": [
+          "carreleur-lip-suisse-geneve"
+        ]
+      },
+      "firstSeenAt": "2026-11-04T21:49:56.499Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-18T21:45:58.002Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -489,7 +396,7 @@
       "url": "https://www.lipsuisse.ch/offres-emploi/aide-installateur-sanitaire",
       "source": "LIP Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:43:39.807Z",
+      "crawledAt": "2026-11-25T21:45:58.001Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -509,10 +416,13 @@
       "applyUrl": "https://www.lipsuisse.ch/offres-emploi/aide-installateur-sanitaire",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "aide-installateur-sanitaire-geneve-lipsuisse-ch-ch",
+        "aiuto-facilita-sanitaria-lip-suisse-geneve",
+        "aiuto-facilita-sanitaria-lip-suisse-geneve-d0385532e5",
+        "aide-installateur-sanitaire-lip-suisse-geneve"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "aide-installateur-sanitaire-lip-suisse-geneve"
-        ],
         "it": [
           "aide-installateur-sanitaire-geneve-lipsuisse-ch-ch",
           "aiuto-facilita-sanitaria-lip-suisse-geneve",
@@ -523,14 +433,11 @@
         ],
         "de": [
           "aide-installateur-sanitaire-geneve-lipsuisse-ch-ch"
+        ],
+        "fr": [
+          "aide-installateur-sanitaire-lip-suisse-geneve"
         ]
       },
-      "previousSlugs": [
-        "aide-installateur-sanitaire-geneve-lipsuisse-ch-ch",
-        "aiuto-facilita-sanitaria-lip-suisse-geneve",
-        "aiuto-facilita-sanitaria-lip-suisse-geneve-d0385532e5",
-        "aide-installateur-sanitaire-lip-suisse-geneve"
-      ],
       "firstSeenAt": "2026-11-14T16:44:54.925Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -546,41 +453,41 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:43:39.807Z",
+      "validThrough": "2027-02-18T21:45:58.001Z",
       "validThroughSource": "last-observed-window"
     },
     {
-      "id": "lipsuisse-ch-d5896c098b43",
-      "slug": "m-f-assemblatore-elettrico-negozio-di-convenienza-lip-suisse-geneve-b875083e2d",
+      "id": "lipsuisse-ch-d30a7476c034",
+      "slug": "carpenter-in-legno-lip-suisse-geneve",
       "slugByLocale": {
-        "it": "m-f-assemblatore-elettrico-negozio-di-convenienza-lip-suisse-geneve-b875083e2d",
-        "en": "m-f-electric-assembler-convenience-store-lip-suisse-geneve",
-        "de": "m-w-elektromontage-convenience-store-lip-suisse-geneve",
-        "fr": "monteur-depanneur-electricien-h-f-geneve-lipsuisse-ch-ch"
+        "it": "carpenter-in-legno-lip-suisse-geneve",
+        "en": "wood-carpenter-lip-suisse-geneve",
+        "de": "holztischler-lip-suisse-geneve",
+        "fr": "charpentier-bois-geneve-1227-lipsuisse-ch-ch"
       },
       "company": "LIP Suisse",
       "companyKey": "lipsuisse-ch",
       "companyDomain": "lipsuisse.ch",
-      "title": "Monteur / dépanneur électricien H/F",
+      "title": "Charpentier bois",
       "titleByLocale": {
-        "it": "M/F assemblatore elettrico / negozio di convenienza",
-        "en": "M/F electric assembler / convenience store",
-        "de": "M/W Elektromontage / Convenience Store",
-        "fr": "Monteur / dépanneur électricien H/F"
+        "it": "Carpenter in legno",
+        "en": "Wood carpenter",
+        "de": "Holztischler",
+        "fr": "Charpentier bois"
       },
-      "description": "Description du poste\nVotre agence LIP Suisse SA recherche pour l’un de ses clients un monteur / dépanneur électricien.\nVos principales missions :\n– Cablage IRC\n– Dépannage / Raccordement de tableaux MCR\n– Raccordement électrique de PAC\n– Travaux sur chantiers (neuf et rénovation) si pas d’interventions\nVotre profil:\n– Autonome, vous justifiez d’au moins 3 ans d’expérience en Suisse\n– Expérience en chaufferies\n– Vous êtes titulaire du permis de conduire B\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire",
+      "description": "Résumé\n- Langues Français\nDescription du poste\nVotre agence LIP SUISSE recherche actuellement un charpentier H/F sur le secteur de Genève.\nVotre mission :\n– Réalisation de travaux de charpente en atelier et sur le chantiers\n– Intervention sur chantier neuf et rénovation\n– Pose et assemblage des éléments de charpente et d’ossature bois\n– Conception et pose de terrasse bois ou composite\nVotre profil :\n– Vous possédez idéalement le CFC Charpentier ou équivalent\n– Vous avez minimum 2 ans d’expérience en Suisse\n– Vous êtes outillé\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire",
       "descriptionByLocale": {
-        "it": "Descrizione del post\nLa vostra agenzia LIP Svizzera SA è alla ricerca di un assemblatore elettrico / negozio di convenienza per uno dei suoi clienti.\nLe vostre missioni principali:\n– Cablaggio IRC\n– Risoluzione dei problemi / Connessione delle tabelle MCR\n– Collegamento elettrico CAP\n– Lavorare su cantieri (nuovi e rinnovati) se non interventi\nIl tuo profilo:\n– Autonoma, giustifica almeno 3 anni di esperienza in Svizzera\n– Esperienza nelle caldaie\n– Hai una patente di guida B\n- Senior Assistant Building M/F\n- @ LIP Svizzera\n- Losanna\nFisso",
-        "en": "Description of post\nYour agency LIP Switzerland SA is looking for an electrician assembler / convenience store for one of its customers.\nYour main missions:\n– IRC Cabling\n– Troubleshooting / Connection of MCR tables\n– CAP electrical connection\n– Work on construction sites (new and renovated) if no interventions\nYour profile:\n– Autonomous, you justify at least 3 years of experience in Switzerland\n– Experience in boiler plants\n– You have a driving licence B\n- Senior Assistant Building M/F\n- @ LIP Switzerland\n- Lausanne\nFixed",
-        "de": "Beschreibung der Post\nIhre Agentur LIP Switzerland SA sucht einen Elektriker Montage / Convenience Store für einen ihrer Kunden.\nIhre wichtigsten Missionen:\nIRC Cabling\n– Fehlerbehebung / Verbindung von MCR-Tabellen\n- CAP elektrische Verbindung\n– Arbeiten auf Baustellen (neu und renoviert), wenn keine Eingriffe\nIhr Profil:\n– Autonom, Sie rechtfertigen mindestens 3 Jahre Erfahrung in der Schweiz\nErfahrung in Kesselanlagen\nSie haben einen Führerschein B\n- Senior Assistant Gebäude M/W\n- @ LIP Schweiz\n- Lausanne\nFestnetz",
-        "fr": "Description du poste\nVotre agence LIP Suisse SA recherche pour l’un de ses clients un monteur / dépanneur électricien.\nVos principales missions :\n– Cablage IRC\n– Dépannage / Raccordement de tableaux MCR\n– Raccordement électrique de PAC\n– Travaux sur chantiers (neuf et rénovation) si pas d’interventions\nVotre profil:\n– Autonome, vous justifiez d’au moins 3 ans d’expérience en Suisse\n– Expérience en chaufferies\n– Vous êtes titulaire du permis de conduire B\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire"
+        "it": "Sintesi esecutiva\n- Lingue\nDescrizione del post\nLIP SUISSE è attualmente alla ricerca di un falegname M/F nell'area di Ginevra.\nLa vostra missione:\n– Lavori di costruzione nel laboratorio e sul cantiere\n– Nuovo intervento e ristrutturazione del sito\n– Installazione e montaggio di elementi strutturali e in legno\n– Progettazione e installazione di terrazze in legno o composito\nIl tuo profilo:\n– Possiedi idealmente il CFC Charpentier o equivalente\n– Hai esperienza minima di 2 anni in Svizzera\n- Sei equipaggiato.\n- Senior Assistant Building M/F\n- @ LIP Svizzera\n- Losanna\nFisso",
+        "en": "Executive summary\n- Languages\nDescription of post\nYour LIP SUISSE agency is currently looking for a M/F carpenter in the Geneva area.\nYour mission:\n– Construction work in the workshop and on the construction site\n– New site intervention and renovation\n– Installation and assembly of structural and wood frame elements\n– Design and installation of wooden or composite terraces\nYour profile:\n– You ideally own the CFC Charpentier or equivalent\n– You have minimum 2 years experience in Switzerland\n– You're equipped.\n- Senior Assistant Building M/F\n- @ LIP Switzerland\n- Lausanne\nFixed",
+        "de": "Zusammenfassung\n- Sprachen\nBeschreibung der Post\nIhre LIP SUISSE Agentur sucht derzeit einen M/W Schreiner im Raum Genf.\nIhre Mission:\nBauarbeiten in der Werkstatt und auf der Baustelle\n– Neue Standortintervention und Renovierung\nInstallation und Montage von Struktur- und Holzrahmenelementen\n– Design und Installation von Holz- oder Verbundterrassen\nIhr Profil:\n– Sie besitzen idealerweise den CFC Charpentier oder ein gleichwertiges\nSie haben mindestens 2 Jahre Erfahrung in der Schweiz\nDu bist ausgerüstet.\n- Senior Assistant Gebäude M/W\n- @ LIP Schweiz\n- Lausanne\nFestnetz",
+        "fr": "Résumé\n- Langues Français\nDescription du poste\nVotre agence LIP SUISSE recherche actuellement un charpentier H/F sur le secteur de Genève.\nVotre mission :\n– Réalisation de travaux de charpente en atelier et sur le chantiers\n– Intervention sur chantier neuf et rénovation\n– Pose et assemblage des éléments de charpente et d’ossature bois\n– Conception et pose de terrasse bois ou composite\nVotre profil :\n– Vous possédez idéalement le CFC Charpentier ou équivalent\n– Vous avez minimum 2 ans d’expérience en Suisse\n– Vous êtes outillé\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire"
       },
-      "location": "Genève",
+      "location": "Genève, 1227",
       "canton": "GE",
-      "url": "https://www.lipsuisse.ch/offres-emploi/monteur-depanneur-electricien-h-f",
+      "url": "https://www.lipsuisse.ch/offres-emploi/charpentier-bois",
       "source": "LIP Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:43:39.806Z",
+      "crawledAt": "2026-11-25T21:45:58.001Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -597,32 +504,34 @@
       "datePosted": "2026-11-20",
       "postedDate": "2026-11-20",
       "postingDateSource": "reported",
-      "applyUrl": "https://www.lipsuisse.ch/offres-emploi/monteur-depanneur-electricien-h-f",
+      "applyUrl": "https://www.lipsuisse.ch/offres-emploi/charpentier-bois",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "charpentier-bois-geneve-1227-lipsuisse-ch-ch",
+        "carpenter-in-legno-lip-suisse-geneve-1227",
+        "wood-carpenter-lip-suisse-geneve-1227",
+        "holztischler-lip-suisse-geneve-1227",
+        "charpentier-bois-lip-suisse-geneve"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "monteur-depanneur-electricien-h-f-lip-suisse-geneve"
-        ],
         "it": [
-          "monteur-depanneur-electricien-h-f-geneve-lipsuisse-ch-ch",
-          "m-f-assemblatore-elettrico-negozio-di-convenienza-lip-suisse-geneve",
-          "m-f-assemblatore-elettrico-negozio-di-convenienza-lip-suisse-geneve-7ccda5c31b"
+          "charpentier-bois-geneve-1227-lipsuisse-ch-ch",
+          "carpenter-in-legno-lip-suisse-geneve-1227"
         ],
         "en": [
-          "monteur-depanneur-electricien-h-f-geneve-lipsuisse-ch-ch"
+          "wood-carpenter-lip-suisse-geneve-1227",
+          "charpentier-bois-geneve-1227-lipsuisse-ch-ch"
         ],
         "de": [
-          "monteur-depanneur-electricien-h-f-geneve-lipsuisse-ch-ch"
+          "holztischler-lip-suisse-geneve-1227",
+          "charpentier-bois-geneve-1227-lipsuisse-ch-ch"
+        ],
+        "fr": [
+          "charpentier-bois-lip-suisse-geneve"
         ]
       },
-      "previousSlugs": [
-        "monteur-depanneur-electricien-h-f-geneve-lipsuisse-ch-ch",
-        "m-f-assemblatore-elettrico-negozio-di-convenienza-lip-suisse-geneve",
-        "m-f-assemblatore-elettrico-negozio-di-convenienza-lip-suisse-geneve-7ccda5c31b",
-        "monteur-depanneur-electricien-h-f-lip-suisse-geneve"
-      ],
-      "firstSeenAt": "2026-11-14T16:44:54.926Z",
+      "firstSeenAt": "2026-11-14T16:44:54.925Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -637,7 +546,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:43:39.806Z",
+      "validThrough": "2027-02-18T21:45:58.001Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -671,7 +580,7 @@
       "url": "https://www.lipsuisse.ch/offres-emploi/realisateur-publicitaire-peintre-en-lettres",
       "source": "LIP Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:43:39.804Z",
+      "crawledAt": "2026-11-25T21:45:58.000Z",
       "addressLocality": "Lonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -691,10 +600,13 @@
       "applyUrl": "https://www.lipsuisse.ch/offres-emploi/realisateur-publicitaire-peintre-en-lettres",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "realisateur-publicitaire-peintre-en-lettres-lonay-lipsuisse-ch-ch",
+        "direttore-pubblicitario-pittore-in-lettere-lip-suisse-lonay",
+        "direttore-pubblicitario-pittore-in-lettere-lip-suisse-lonay-0673cdf6c8",
+        "realisateur-publicitaire-peintre-en-lettres-lip-suisse-lonay"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "realisateur-publicitaire-peintre-en-lettres-lip-suisse-lonay"
-        ],
         "it": [
           "realisateur-publicitaire-peintre-en-lettres-lonay-lipsuisse-ch-ch",
           "direttore-pubblicitario-pittore-in-lettere-lip-suisse-lonay",
@@ -705,14 +617,11 @@
         ],
         "de": [
           "realisateur-publicitaire-peintre-en-lettres-lonay-lipsuisse-ch-ch"
+        ],
+        "fr": [
+          "realisateur-publicitaire-peintre-en-lettres-lip-suisse-lonay"
         ]
       },
-      "previousSlugs": [
-        "realisateur-publicitaire-peintre-en-lettres-lonay-lipsuisse-ch-ch",
-        "direttore-pubblicitario-pittore-in-lettere-lip-suisse-lonay",
-        "direttore-pubblicitario-pittore-in-lettere-lip-suisse-lonay-0673cdf6c8",
-        "realisateur-publicitaire-peintre-en-lettres-lip-suisse-lonay"
-      ],
       "firstSeenAt": "2026-11-14T16:44:54.933Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -728,98 +637,98 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:43:39.804Z",
+      "validThrough": "2027-02-18T21:45:58.000Z",
       "validThroughSource": "last-observed-window"
     },
     {
-      "id": "lipsuisse-ch-e80b07a2872c",
-      "slug": "electricity-project-manager-m-f-lip-suisse-nyon-8df7699c5f",
+      "id": "lipsuisse-ch-d5896c098b43",
+      "slug": "m-f-assemblatore-elettrico-negozio-di-convenienza-lip-suisse-geneve-b875083e2d",
       "slugByLocale": {
-        "it": "electricity-project-manager-m-f-lip-suisse-nyon-8df7699c5f",
-        "en": "electricity-project-manager-m-f-lip-suisse-nyon",
-        "de": "stromprojektmanager-m-w-lip-suisse-nyon",
-        "fr": "chef-de-projet-electricite-h-f-nyon-lipsuisse-ch-ch"
+        "it": "m-f-assemblatore-elettrico-negozio-di-convenienza-lip-suisse-geneve-b875083e2d",
+        "en": "m-f-electric-assembler-convenience-store-lip-suisse-geneve",
+        "de": "m-w-elektromontage-convenience-store-lip-suisse-geneve",
+        "fr": "monteur-depanneur-electricien-h-f-geneve-lipsuisse-ch-ch"
       },
       "company": "LIP Suisse",
       "companyKey": "lipsuisse-ch",
       "companyDomain": "lipsuisse.ch",
-      "title": "Chef de projet électricité H/F",
+      "title": "Monteur / dépanneur électricien H/F",
       "titleByLocale": {
-        "it": "Electricity Project Manager M/F",
-        "en": "Electricity Project Manager M/F",
-        "de": "Stromprojektmanager M/W",
-        "fr": "Chef de projet électricité H/F"
+        "it": "M/F assemblatore elettrico / negozio di convenienza",
+        "en": "M/F electric assembler / convenience store",
+        "de": "M/W Elektromontage / Convenience Store",
+        "fr": "Monteur / dépanneur électricien H/F"
       },
-      "description": "Description du poste\nPour le compte de l’un de nos clients, une entreprise reconnue et solidement implantée en Suisse romande, nous recherchons un(e) Chef(fe) de projet en électricité afin de renforcer son équipe.\nVotre mission\nVous prenez en charge la gestion complète de projets électriques d’envergure, de leur préparation jusqu’à leur réception. Véritable chef d’orchestre, vous assurez la coordination des équipes, le suivi technique, financier et administratif des chantiers, tout en garantissant la qualité des prestations et le respect des délais.\nLe secteur d’activité couvre la région comprise entre Coppet et Morges , avec une forte présence sur des projets variés et de grande importance.\nVos responsabilités\n- Piloter des projets électriques de moyenne et grande envergure.\n- Planifier, organiser et coordonner les ressources humaines et matérielles.\n- Assurer le suivi technique, financier et administratif des mandats.\n- Encadrer les équipes de chantier et coordonner les sous-traitants.\n- Entretenir les relations avec les maîtres d’ouvrage, architectes, bureaux techniques et partenaires.\n- Garantir le respect des normes, des délais, des budgets et des exigences de qualité.\n- Participer au développement commercial et à la fidélisation de la clientèle.\nVotre profil\n- Idéalement titulaire du Brevet fédéral de Chef de projet en installation et sécurité ou d’une formation équivalente.\n- À défaut, titulaire d’un CFC d’installateur-électricien avec une expérience significative et réussie dans une fonction similaire.\n- Solide expérience dans la gestion de projets et le management d’équipes en Suisse.\n- Excellentes capacités d’organisation, d’anticipation et de communication.\n- Permis de conduire indispensable.\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire",
+      "description": "Description du poste\nVotre agence LIP Suisse SA recherche pour l’un de ses clients un monteur / dépanneur électricien.\nVos principales missions :\n– Cablage IRC\n– Dépannage / Raccordement de tableaux MCR\n– Raccordement électrique de PAC\n– Travaux sur chantiers (neuf et rénovation) si pas d’interventions\nVotre profil:\n– Autonome, vous justifiez d’au moins 3 ans d’expérience en Suisse\n– Expérience en chaufferies\n– Vous êtes titulaire du permis de conduire B\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire",
       "descriptionByLocale": {
-        "it": "Descrizione del post\nPer conto di uno dei nostri clienti, una società ben nota e consolidata in Svizzera francofona, stiamo cercando un responsabile del progetto elettrico per rafforzare il suo team.\nLa tua missione\nSi prende il carico della gestione completa di grandi progetti elettrici, dalla loro preparazione alla loro ricezione. Un vero direttore d'orchestra, assicura il coordinamento delle squadre, il monitoraggio tecnico, finanziario e amministrativo dei cantieri, garantendo al contempo la qualità dei servizi e il rispetto delle scadenze.\nIl settore delle attività copre la regione tra Coppet e Morges, con una forte presenza su vari progetti di grande importanza.\nLe tue responsabilità\n- Progetti elettrici a medio e su larga scala.\n- Pianificazione, organizzazione e coordinamento delle risorse umane e materiali.\n- Assicurare il monitoraggio tecnico, finanziario e amministrativo dei mandati.\n- Supervisionare le squadre del sito e coordinare i subappaltatori.\n- Mantenere le relazioni con gli appaltatori, gli architetti, gli uffici tecnici e i partner.\n- Assicurare il rispetto di standard, scadenze, budget e requisiti di qualità.\n- Partecipa allo sviluppo aziendale e alla fidelizzazione del cliente.\nIl tuo profilo\n- Idealmente titolare del brevetto del leader del progetto federale in installazione e sicurezza o formazione equivalente.\n- In assenza di un CFC, installatore-elettrico con esperienza significativa e di successo in una funzione simile.\n- Forte esperienza nella gestione dei progetti e nella gestione del team in Svizzera.\n- Eccellente capacità organizzativa, anticipazione e comunicazione.\n- Patente di guida richiesta.\n- Senior Assistant Building M/F\n- @ LIP Svizzera\n- Losanna\nFisso",
-        "en": "Description of post\nOn behalf of one of our customers, a well-known and well-established company in French-speaking Switzerland, we are looking for an electrical project manager to strengthen his team.\nYour Mission\nYou take charge of the complete management of large-scale electrical projects, from their preparation to their reception. A true conductor, you ensure the coordination of the teams, the technical, financial and administrative monitoring of the yards, while guaranteeing the quality of the services and the respect of deadlines.\nThe sector of activity covers the region between Coppet and Morges, with a strong presence on various projects of great importance.\nYour responsibilities\n- Pilot medium- and large-scale electrical projects.\n- Planning, organizing and coordinating human and material resources.\n- Ensure technical, financial and administrative monitoring of mandates.\n- Supervise site teams and coordinate subcontractors.\n- Maintain relations with contractors, architects, technical offices and partners.\n- Ensure compliance with standards, deadlines, budgets and quality requirements.\n- Participate in business development and customer loyalty.\nYour profile\n- Ideally holder of the Federal Project Leader Patent in Installation and Security or equivalent training.\n- In the absence of a CFC, installer-electrician with significant and successful experience in a similar function.\n- Strong experience in project management and team management in Switzerland.\n- Excellent organizational, anticipation and communication skills.\n- Driving licence required.\n- Senior Assistant Building M/F\n- @ LIP Switzerland\n- Lausanne\nFixed",
-        "de": "Beschreibung der Post\nIm Namen eines unserer Kunden, eines bekannten und etablierten Unternehmens in der französischsprachigen Schweiz, suchen wir einen elektrischen Projektmanager, um sein Team zu verstärken.\nDeine Mission\nSie übernehmen das komplette Management von elektrischen Großprojekten, von der Vorbereitung bis zum Empfang. Als echter Dirigent gewährleisten Sie die Koordination der Teams, die technische, finanzielle und administrative Überwachung der Werften und garantieren gleichzeitig die Qualität der Dienstleistungen und die Einhaltung der Fristen.\nDer Tätigkeitsbereich umfasst die Region zwischen Coppet und Morges, mit einer starken Präsenz bei verschiedenen Projekten von großer Bedeutung.\nIhre Verantwortung\n- Pilotprojekte für mittlere und große Elektroprojekte.\n- Planung, Organisation und Koordination der personellen und materiellen Ressourcen.\n- Gewährleistung der technischen, finanziellen und administrativen Überwachung der Mandate.\n- Beaufsichtigen Sie Site-Teams und koordinieren Sie Subunternehmer.\n- Pflegen Sie Beziehungen zu Auftragnehmern, Architekten, technischen Büros und Partnern.\n- Gewährleistung der Einhaltung von Standards, Fristen, Budgets und Qualitätsanforderungen.\n- Beteiligen Sie sich an der Geschäftsentwicklung und Kundenbindung.\nDein Profil\n- Idealerweise Inhaber des Bundesprojektleiterpatents für Installation und Sicherheit oder einer gleichwertigen Ausbildung.\n- In Abwesenheit eines FCKW, Installateur-Elektriker mit bedeutenden und erfolgreichen Erfahrung in einer ähnlichen Funktion.\n- Starke Erfahrung im Projektmanagement und Teammanagement in der Schweiz.\n- Hervorragende Organisations-, Antizipations- und Kommunikationsfähigkeiten.\n- Führerschein erforderlich.\n- Senior Assistant Gebäude M/W\n- @ LIP Schweiz\n- Lausanne\nFestnetz",
-        "fr": "Description du poste\nPour le compte de l’un de nos clients, une entreprise reconnue et solidement implantée en Suisse romande, nous recherchons un(e) Chef(fe) de projet en électricité afin de renforcer son équipe.\nVotre mission\nVous prenez en charge la gestion complète de projets électriques d’envergure, de leur préparation jusqu’à leur réception. Véritable chef d’orchestre, vous assurez la coordination des équipes, le suivi technique, financier et administratif des chantiers, tout en garantissant la qualité des prestations et le respect des délais.\nLe secteur d’activité couvre la région comprise entre Coppet et Morges , avec une forte présence sur des projets variés et de grande importance.\nVos responsabilités\n- Piloter des projets électriques de moyenne et grande envergure.\n- Planifier, organiser et coordonner les ressources humaines et matérielles.\n- Assurer le suivi technique, financier et administratif des mandats.\n- Encadrer les équipes de chantier et coordonner les sous-traitants.\n- Entretenir les relations avec les maîtres d’ouvrage, architectes, bureaux techniques et partenaires.\n- Garantir le respect des normes, des délais, des budgets et des exigences de qualité.\n- Participer au développement commercial et à la fidélisation de la clientèle.\nVotre profil\n- Idéalement titulaire du Brevet fédéral de Chef de projet en installation et sécurité ou d’une formation équivalente.\n- À défaut, titulaire d’un CFC d’installateur-électricien avec une expérience significative et réussie dans une fonction similaire.\n- Solide expérience dans la gestion de projets et le management d’équipes en Suisse.\n- Excellentes capacités d’organisation, d’anticipation et de communication.\n- Permis de conduire indispensable.\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire"
+        "it": "Descrizione del post\nLa vostra agenzia LIP Svizzera SA è alla ricerca di un assemblatore elettrico / negozio di convenienza per uno dei suoi clienti.\nLe vostre missioni principali:\n– Cablaggio IRC\n– Risoluzione dei problemi / Connessione delle tabelle MCR\n– Collegamento elettrico CAP\n– Lavorare su cantieri (nuovi e rinnovati) se non interventi\nIl tuo profilo:\n– Autonoma, giustifica almeno 3 anni di esperienza in Svizzera\n– Esperienza nelle caldaie\n– Hai una patente di guida B\n- Senior Assistant Building M/F\n- @ LIP Svizzera\n- Losanna\nFisso",
+        "en": "Description of post\nYour agency LIP Switzerland SA is looking for an electrician assembler / convenience store for one of its customers.\nYour main missions:\n– IRC Cabling\n– Troubleshooting / Connection of MCR tables\n– CAP electrical connection\n– Work on construction sites (new and renovated) if no interventions\nYour profile:\n– Autonomous, you justify at least 3 years of experience in Switzerland\n– Experience in boiler plants\n– You have a driving licence B\n- Senior Assistant Building M/F\n- @ LIP Switzerland\n- Lausanne\nFixed",
+        "de": "Beschreibung der Post\nIhre Agentur LIP Switzerland SA sucht einen Elektriker Montage / Convenience Store für einen ihrer Kunden.\nIhre wichtigsten Missionen:\nIRC Cabling\n– Fehlerbehebung / Verbindung von MCR-Tabellen\n- CAP elektrische Verbindung\n– Arbeiten auf Baustellen (neu und renoviert), wenn keine Eingriffe\nIhr Profil:\n– Autonom, Sie rechtfertigen mindestens 3 Jahre Erfahrung in der Schweiz\nErfahrung in Kesselanlagen\nSie haben einen Führerschein B\n- Senior Assistant Gebäude M/W\n- @ LIP Schweiz\n- Lausanne\nFestnetz",
+        "fr": "Description du poste\nVotre agence LIP Suisse SA recherche pour l’un de ses clients un monteur / dépanneur électricien.\nVos principales missions :\n– Cablage IRC\n– Dépannage / Raccordement de tableaux MCR\n– Raccordement électrique de PAC\n– Travaux sur chantiers (neuf et rénovation) si pas d’interventions\nVotre profil:\n– Autonome, vous justifiez d’au moins 3 ans d’expérience en Suisse\n– Expérience en chaufferies\n– Vous êtes titulaire du permis de conduire B\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire"
       },
-      "location": "Nyon",
-      "canton": "VD",
-      "url": "https://www.lipsuisse.ch/offres-emploi/chef-de-projet-electricite-h-f",
+      "location": "Genève",
+      "canton": "GE",
+      "url": "https://www.lipsuisse.ch/offres-emploi/monteur-depanneur-electricien-h-f",
       "source": "LIP Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:43:39.803Z",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
+      "crawledAt": "2026-11-25T21:45:58.000Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "1260",
-      "streetAddress": "Nyon",
+      "postalCode": "1201",
+      "streetAddress": "Genève",
       "category": "Altro",
       "contract": "other",
       "employmentType": "OTHER",
-      "experienceLevel": "senior",
+      "experienceLevel": "mid",
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
       "datePosted": "2026-11-20",
       "postedDate": "2026-11-20",
       "postingDateSource": "reported",
-      "applyUrl": "https://www.lipsuisse.ch/offres-emploi/chef-de-projet-electricite-h-f",
+      "applyUrl": "https://www.lipsuisse.ch/offres-emploi/monteur-depanneur-electricien-h-f",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "monteur-depanneur-electricien-h-f-geneve-lipsuisse-ch-ch",
+        "m-f-assemblatore-elettrico-negozio-di-convenienza-lip-suisse-geneve",
+        "m-f-assemblatore-elettrico-negozio-di-convenienza-lip-suisse-geneve-7ccda5c31b",
+        "monteur-depanneur-electricien-h-f-lip-suisse-geneve"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "chef-de-projet-electricite-h-f-lip-suisse-nyon"
-        ],
         "it": [
-          "chef-de-projet-electricite-h-f-nyon-lipsuisse-ch-ch",
-          "electricity-project-manager-m-f-lip-suisse-nyon",
-          "electricity-project-manager-m-f-lip-suisse-nyon-e67454a562"
+          "monteur-depanneur-electricien-h-f-geneve-lipsuisse-ch-ch",
+          "m-f-assemblatore-elettrico-negozio-di-convenienza-lip-suisse-geneve",
+          "m-f-assemblatore-elettrico-negozio-di-convenienza-lip-suisse-geneve-7ccda5c31b"
         ],
         "en": [
-          "chef-de-projet-electricite-h-f-nyon-lipsuisse-ch-ch"
+          "monteur-depanneur-electricien-h-f-geneve-lipsuisse-ch-ch"
         ],
         "de": [
-          "chef-de-projet-electricite-h-f-nyon-lipsuisse-ch-ch"
+          "monteur-depanneur-electricien-h-f-geneve-lipsuisse-ch-ch"
+        ],
+        "fr": [
+          "monteur-depanneur-electricien-h-f-lip-suisse-geneve"
         ]
       },
-      "previousSlugs": [
-        "chef-de-projet-electricite-h-f-nyon-lipsuisse-ch-ch",
-        "electricity-project-manager-m-f-lip-suisse-nyon",
-        "electricity-project-manager-m-f-lip-suisse-nyon-e67454a562",
-        "chef-de-projet-electricite-h-f-lip-suisse-nyon"
-      ],
-      "firstSeenAt": "2026-11-14T16:44:54.932Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
+      "firstSeenAt": "2026-11-14T16:44:54.926Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:43:39.803Z",
+      "validThrough": "2027-02-18T21:45:58.000Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -853,7 +762,7 @@
       "url": "https://www.lipsuisse.ch/offres-emploi/planificateur-electricien-h-f",
       "source": "LIP Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:43:39.802Z",
+      "crawledAt": "2026-11-25T21:45:57.999Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -873,10 +782,13 @@
       "applyUrl": "https://www.lipsuisse.ch/offres-emploi/planificateur-electricien-h-f",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "planificateur-electricien-h-f-geneve-lipsuisse-ch-ch",
+        "planner-elettrico-m-f-lip-suisse-geneve",
+        "planner-elettrico-m-f-lip-suisse-geneve-fee62716e0",
+        "planificateur-electricien-h-f-lip-suisse-geneve"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "planificateur-electricien-h-f-lip-suisse-geneve"
-        ],
         "it": [
           "planificateur-electricien-h-f-geneve-lipsuisse-ch-ch",
           "planner-elettrico-m-f-lip-suisse-geneve",
@@ -887,14 +799,11 @@
         ],
         "de": [
           "planificateur-electricien-h-f-geneve-lipsuisse-ch-ch"
+        ],
+        "fr": [
+          "planificateur-electricien-h-f-lip-suisse-geneve"
         ]
       },
-      "previousSlugs": [
-        "planificateur-electricien-h-f-geneve-lipsuisse-ch-ch",
-        "planner-elettrico-m-f-lip-suisse-geneve",
-        "planner-elettrico-m-f-lip-suisse-geneve-fee62716e0",
-        "planificateur-electricien-h-f-lip-suisse-geneve"
-      ],
       "firstSeenAt": "2026-11-14T16:44:54.931Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -910,98 +819,98 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:43:39.802Z",
+      "validThrough": "2027-02-18T21:45:57.999Z",
       "validThroughSource": "last-observed-window"
     },
     {
-      "id": "lipsuisse-ch-6a6b045f225e",
-      "slug": "armadio-polivalente-m-f-lip-suisse-geneve-cfae7ae619",
+      "id": "lipsuisse-ch-e80b07a2872c",
+      "slug": "electricity-project-manager-m-f-lip-suisse-nyon-8df7699c5f",
       "slugByLocale": {
-        "it": "armadio-polivalente-m-f-lip-suisse-geneve-cfae7ae619",
-        "en": "polyvalent-m-f-locker-lip-suisse-geneve",
-        "de": "polyvalentes-m-w-schlie-fach-lip-suisse-geneve",
-        "fr": "depanneur-serrurier-polyvalent-h-f-geneve-lipsuisse-ch-ch"
+        "it": "electricity-project-manager-m-f-lip-suisse-nyon-8df7699c5f",
+        "en": "electricity-project-manager-m-f-lip-suisse-nyon",
+        "de": "stromprojektmanager-m-w-lip-suisse-nyon",
+        "fr": "chef-de-projet-electricite-h-f-nyon-lipsuisse-ch-ch"
       },
       "company": "LIP Suisse",
       "companyKey": "lipsuisse-ch",
       "companyDomain": "lipsuisse.ch",
-      "title": "Dépanneur Serrurier Polyvalent (H/F)",
+      "title": "Chef de projet électricité H/F",
       "titleByLocale": {
-        "it": "Armadio polivalente (M/F)",
-        "en": "Polyvalent (M/F) Locker",
-        "de": "Polyvalentes (M/W) Schließfach",
-        "fr": "Dépanneur Serrurier Polyvalent (H/F)"
+        "it": "Electricity Project Manager M/F",
+        "en": "Electricity Project Manager M/F",
+        "de": "Stromprojektmanager M/W",
+        "fr": "Chef de projet électricité H/F"
       },
-      "description": "Résumé\n- Langues Français\n- Expérience 5 ans minimum\nDescription du poste\nVos missions\nEn tant que Dépanneur Serrurier Polyvalent , vous serez amené(e) à :\n- Réaliser les interventions de dépannage urgentes chez nos clients.\n- Effectuer le chiffrage, les réparations et les travaux d’entretien adaptés aux besoins des clients.\n- Assurer un suivi de qualité des interventions.\n- Établir les devis, les rapports d’intervention et les commandes de matériel.\n- Travailler en étroite collaboration avec les fournisseurs, les clients et les équipes administratives.\n- Proposer, mettre en place et assurer le suivi de contrats d’entretien sur différents ouvrages (portes de garage, portails, rideaux métalliques, motorisations, etc.).\n- Apporter un soutien ponctuel aux équipes de l’atelier selon les besoins.\n- Effectuer des déplacements quotidiens sur l’ensemble du canton de Genève\nVotre profil\nNous recherchons une personne qui possède :\n- Un CFC de constructeur métallique , de serrurier ou une formation équivalente.\n- Une expérience de 5 ans minimum en Suisse .\n- Une expérience confirmée dans le dépannage , indispensable.\n- De solides connaissances des portes de garage et des motorisations électriques .\n- Un excellent sens du service client.\n- Une personnalité rigoureuse, autonome, motivée et appréciant le travail en équipe.\n- Une présentation soignée, de la courtoisie et de la ponctualité.\n- Le goût du travail bien fait et de la qualité.\n- Un permis de conduire\nCompétences requises\ndépannage\nserrurerie\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire",
+      "description": "Description du poste\nPour le compte de l’un de nos clients, une entreprise reconnue et solidement implantée en Suisse romande, nous recherchons un(e) Chef(fe) de projet en électricité afin de renforcer son équipe.\nVotre mission\nVous prenez en charge la gestion complète de projets électriques d’envergure, de leur préparation jusqu’à leur réception. Véritable chef d’orchestre, vous assurez la coordination des équipes, le suivi technique, financier et administratif des chantiers, tout en garantissant la qualité des prestations et le respect des délais.\nLe secteur d’activité couvre la région comprise entre Coppet et Morges , avec une forte présence sur des projets variés et de grande importance.\nVos responsabilités\n- Piloter des projets électriques de moyenne et grande envergure.\n- Planifier, organiser et coordonner les ressources humaines et matérielles.\n- Assurer le suivi technique, financier et administratif des mandats.\n- Encadrer les équipes de chantier et coordonner les sous-traitants.\n- Entretenir les relations avec les maîtres d’ouvrage, architectes, bureaux techniques et partenaires.\n- Garantir le respect des normes, des délais, des budgets et des exigences de qualité.\n- Participer au développement commercial et à la fidélisation de la clientèle.\nVotre profil\n- Idéalement titulaire du Brevet fédéral de Chef de projet en installation et sécurité ou d’une formation équivalente.\n- À défaut, titulaire d’un CFC d’installateur-électricien avec une expérience significative et réussie dans une fonction similaire.\n- Solide expérience dans la gestion de projets et le management d’équipes en Suisse.\n- Excellentes capacités d’organisation, d’anticipation et de communication.\n- Permis de conduire indispensable.\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire",
       "descriptionByLocale": {
-        "it": "Sintesi esecutiva\n- Lingue\n- Esperienza 5 anni minimo\nDescrizione del post\nLe vostre missioni\nCome Serratore Polivalente, vi verrà richiesto di:\n- Eseguire la risoluzione dei problemi urgenti con i nostri clienti.\n- Esegui costi, riparazioni e lavori di manutenzione su misura per le esigenze dei clienti.\n- Assicurare il monitoraggio della qualità degli interventi.\n- Preparare preventivi, rapporti di risposta e ordini di attrezzature.\n- Lavorare a stretto contatto con fornitori, clienti e team amministrativi.\n- Proporre, implementare e monitorare i contratti di manutenzione su varie opere (porte di carico, porte, tende metalliche, motorizzazioni, ecc.).\n- Fornire supporto ad hoc ai team di workshop come richiesto.\n- Viaggia ogni giorno in tutto il Cantone di Ginevra\nIl tuo profilo\nStiamo cercando qualcuno che possiede:\n- Un produttore di metallo CFC, fabbro CFC o formazione equivalente.\n- Esperienza minima di 5 anni in Svizzera.\n- Un'esperienza confermata nella risoluzione dei problemi, indispensabile.\n- Forte conoscenza delle porte del garage e delle motorizzazioni elettriche.\n- Un ottimo senso del servizio clienti.\n- Una personalità rigorosa, autosufficiente e motivata che apprezza il lavoro di squadra.\n- Una presentazione attenta, cortesia e puntualità.\n- Il gusto del buon lavoro e della qualità.\n- Una patente di guida\nQualifiche\nrisoluzione dei problemi\nArmadio\n- Senior Assistant Building M/F\n- @ LIP Svizzera\n- Losanna\nFisso",
-        "en": "Executive summary\n- Languages\n- Experience 5 years minimum\nDescription of post\nYour missions\nAs a Polyvalent Serrator, you will be prompted to:\n- Carry out urgent troubleshooting with our clients.\n- Performs costing, repairs and maintenance work tailored to the needs of customers.\n- Ensure quality monitoring of interventions.\n- Prepare estimates, response reports and equipment orders.\n- Work closely with suppliers, customers and administrative teams.\n- Propose, implement and monitor maintenance contracts on various works (gauge doors, gates, metal curtains, motorizations, etc.).\n- Provide ad hoc support to workshop teams as required.\n- Travel daily throughout the Canton of Geneva\nYour profile\nWe're looking for someone who owns:\n- A metal manufacturer CFC, locksmith CFC or equivalent training.\n- A minimum of 5 years experience in Switzerland.\n- An experience confirmed in troubleshooting, indispensable.\n- Strong knowledge of garage doors and electric motorizations.\n- An excellent sense of customer service.\n- A rigorous, self-reliant, motivated personality who appreciates teamwork.\n- A careful presentation, courtesy and punctuality.\n- The taste of good work and quality.\n- A driving licence\nQualifications\ntroubleshooting\nLocker\n- Senior Assistant Building M/F\n- @ LIP Switzerland\n- Lausanne\nFixed",
-        "de": "Zusammenfassung\n- Sprachen\n- Erfahrung mindestens 5 Jahre\nBeschreibung der Post\nIhre Missionen\nAls polyvalenter Serrator werden Sie aufgefordert:\n- Führen Sie dringende Fehlersuche mit unseren Kunden durch.\n- Führt Kosten-, Reparatur- und Wartungsarbeiten durch, die auf die Bedürfnisse der Kunden zugeschnitten sind.\n- Gewährleistung einer Qualitätsüberwachung der Interventionen.\n- Erstellen Sie Schätzungen, Antwortberichte und Ausrüstungsaufträge.\n- Arbeiten Sie eng mit Lieferanten, Kunden und Verwaltungsteams zusammen.\n- Vorschlag, Umsetzung und Überwachung von Wartungsverträgen für verschiedene Arbeiten (Spurtüren, Tore, Metallvorhänge, Motorisierungen usw.).\n- Geben Sie bei Bedarf Ad-hoc-Unterstützung für Workshop-Teams.\n- Tägliche Reise durch den Kanton Genf\nDein Profil\nWir suchen jemanden, der besitzt:\n- Ein Metallhersteller CFC, Schlosser CFC oder gleichwertige Ausbildung.\n- Mindestens 5 Jahre Erfahrung in der Schweiz.\n- Eine Erfahrung in der Fehlersuche bestätigt, unverzichtbar.\n- Starkes Wissen über Garagentore und Elektromotorisierungen.\n- Ein ausgezeichnetes Gefühl für Kundenservice.\n- Eine strenge, selbstständige, motivierte Persönlichkeit, die Teamwork schätzt.\n- Eine sorgfältige Präsentation, Höflichkeit und Pünktlichkeit.\n- Der Geschmack von guter Arbeit und Qualität.\n- Führerschein\nQualifikationen\nFehlersuche\nSchließfach\n- Senior Assistant Gebäude M/W\n- @ LIP Schweiz\n- Lausanne\nFestnetz",
-        "fr": "Résumé\n- Langues Français\n- Expérience 5 ans minimum\nDescription du poste\nVos missions\nEn tant que Dépanneur Serrurier Polyvalent , vous serez amené(e) à :\n- Réaliser les interventions de dépannage urgentes chez nos clients.\n- Effectuer le chiffrage, les réparations et les travaux d’entretien adaptés aux besoins des clients.\n- Assurer un suivi de qualité des interventions.\n- Établir les devis, les rapports d’intervention et les commandes de matériel.\n- Travailler en étroite collaboration avec les fournisseurs, les clients et les équipes administratives.\n- Proposer, mettre en place et assurer le suivi de contrats d’entretien sur différents ouvrages (portes de garage, portails, rideaux métalliques, motorisations, etc.).\n- Apporter un soutien ponctuel aux équipes de l’atelier selon les besoins.\n- Effectuer des déplacements quotidiens sur l’ensemble du canton de Genève\nVotre profil\nNous recherchons une personne qui possède :\n- Un CFC de constructeur métallique , de serrurier ou une formation équivalente.\n- Une expérience de 5 ans minimum en Suisse .\n- Une expérience confirmée dans le dépannage , indispensable.\n- De solides connaissances des portes de garage et des motorisations électriques .\n- Un excellent sens du service client.\n- Une personnalité rigoureuse, autonome, motivée et appréciant le travail en équipe.\n- Une présentation soignée, de la courtoisie et de la ponctualité.\n- Le goût du travail bien fait et de la qualité.\n- Un permis de conduire\nCompétences requises\ndépannage\nserrurerie\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire"
+        "it": "Descrizione del post\nPer conto di uno dei nostri clienti, una società ben nota e consolidata in Svizzera francofona, stiamo cercando un responsabile del progetto elettrico per rafforzare il suo team.\nLa tua missione\nSi prende il carico della gestione completa di grandi progetti elettrici, dalla loro preparazione alla loro ricezione. Un vero direttore d'orchestra, assicura il coordinamento delle squadre, il monitoraggio tecnico, finanziario e amministrativo dei cantieri, garantendo al contempo la qualità dei servizi e il rispetto delle scadenze.\nIl settore delle attività copre la regione tra Coppet e Morges, con una forte presenza su vari progetti di grande importanza.\nLe tue responsabilità\n- Progetti elettrici a medio e su larga scala.\n- Pianificazione, organizzazione e coordinamento delle risorse umane e materiali.\n- Assicurare il monitoraggio tecnico, finanziario e amministrativo dei mandati.\n- Supervisionare le squadre del sito e coordinare i subappaltatori.\n- Mantenere le relazioni con gli appaltatori, gli architetti, gli uffici tecnici e i partner.\n- Assicurare il rispetto di standard, scadenze, budget e requisiti di qualità.\n- Partecipa allo sviluppo aziendale e alla fidelizzazione del cliente.\nIl tuo profilo\n- Idealmente titolare del brevetto del leader del progetto federale in installazione e sicurezza o formazione equivalente.\n- In assenza di un CFC, installatore-elettrico con esperienza significativa e di successo in una funzione simile.\n- Forte esperienza nella gestione dei progetti e nella gestione del team in Svizzera.\n- Eccellente capacità organizzativa, anticipazione e comunicazione.\n- Patente di guida richiesta.\n- Senior Assistant Building M/F\n- @ LIP Svizzera\n- Losanna\nFisso",
+        "en": "Description of post\nOn behalf of one of our customers, a well-known and well-established company in French-speaking Switzerland, we are looking for an electrical project manager to strengthen his team.\nYour Mission\nYou take charge of the complete management of large-scale electrical projects, from their preparation to their reception. A true conductor, you ensure the coordination of the teams, the technical, financial and administrative monitoring of the yards, while guaranteeing the quality of the services and the respect of deadlines.\nThe sector of activity covers the region between Coppet and Morges, with a strong presence on various projects of great importance.\nYour responsibilities\n- Pilot medium- and large-scale electrical projects.\n- Planning, organizing and coordinating human and material resources.\n- Ensure technical, financial and administrative monitoring of mandates.\n- Supervise site teams and coordinate subcontractors.\n- Maintain relations with contractors, architects, technical offices and partners.\n- Ensure compliance with standards, deadlines, budgets and quality requirements.\n- Participate in business development and customer loyalty.\nYour profile\n- Ideally holder of the Federal Project Leader Patent in Installation and Security or equivalent training.\n- In the absence of a CFC, installer-electrician with significant and successful experience in a similar function.\n- Strong experience in project management and team management in Switzerland.\n- Excellent organizational, anticipation and communication skills.\n- Driving licence required.\n- Senior Assistant Building M/F\n- @ LIP Switzerland\n- Lausanne\nFixed",
+        "de": "Beschreibung der Post\nIm Namen eines unserer Kunden, eines bekannten und etablierten Unternehmens in der französischsprachigen Schweiz, suchen wir einen elektrischen Projektmanager, um sein Team zu verstärken.\nDeine Mission\nSie übernehmen das komplette Management von elektrischen Großprojekten, von der Vorbereitung bis zum Empfang. Als echter Dirigent gewährleisten Sie die Koordination der Teams, die technische, finanzielle und administrative Überwachung der Werften und garantieren gleichzeitig die Qualität der Dienstleistungen und die Einhaltung der Fristen.\nDer Tätigkeitsbereich umfasst die Region zwischen Coppet und Morges, mit einer starken Präsenz bei verschiedenen Projekten von großer Bedeutung.\nIhre Verantwortung\n- Pilotprojekte für mittlere und große Elektroprojekte.\n- Planung, Organisation und Koordination der personellen und materiellen Ressourcen.\n- Gewährleistung der technischen, finanziellen und administrativen Überwachung der Mandate.\n- Beaufsichtigen Sie Site-Teams und koordinieren Sie Subunternehmer.\n- Pflegen Sie Beziehungen zu Auftragnehmern, Architekten, technischen Büros und Partnern.\n- Gewährleistung der Einhaltung von Standards, Fristen, Budgets und Qualitätsanforderungen.\n- Beteiligen Sie sich an der Geschäftsentwicklung und Kundenbindung.\nDein Profil\n- Idealerweise Inhaber des Bundesprojektleiterpatents für Installation und Sicherheit oder einer gleichwertigen Ausbildung.\n- In Abwesenheit eines FCKW, Installateur-Elektriker mit bedeutenden und erfolgreichen Erfahrung in einer ähnlichen Funktion.\n- Starke Erfahrung im Projektmanagement und Teammanagement in der Schweiz.\n- Hervorragende Organisations-, Antizipations- und Kommunikationsfähigkeiten.\n- Führerschein erforderlich.\n- Senior Assistant Gebäude M/W\n- @ LIP Schweiz\n- Lausanne\nFestnetz",
+        "fr": "Description du poste\nPour le compte de l’un de nos clients, une entreprise reconnue et solidement implantée en Suisse romande, nous recherchons un(e) Chef(fe) de projet en électricité afin de renforcer son équipe.\nVotre mission\nVous prenez en charge la gestion complète de projets électriques d’envergure, de leur préparation jusqu’à leur réception. Véritable chef d’orchestre, vous assurez la coordination des équipes, le suivi technique, financier et administratif des chantiers, tout en garantissant la qualité des prestations et le respect des délais.\nLe secteur d’activité couvre la région comprise entre Coppet et Morges , avec une forte présence sur des projets variés et de grande importance.\nVos responsabilités\n- Piloter des projets électriques de moyenne et grande envergure.\n- Planifier, organiser et coordonner les ressources humaines et matérielles.\n- Assurer le suivi technique, financier et administratif des mandats.\n- Encadrer les équipes de chantier et coordonner les sous-traitants.\n- Entretenir les relations avec les maîtres d’ouvrage, architectes, bureaux techniques et partenaires.\n- Garantir le respect des normes, des délais, des budgets et des exigences de qualité.\n- Participer au développement commercial et à la fidélisation de la clientèle.\nVotre profil\n- Idéalement titulaire du Brevet fédéral de Chef de projet en installation et sécurité ou d’une formation équivalente.\n- À défaut, titulaire d’un CFC d’installateur-électricien avec une expérience significative et réussie dans une fonction similaire.\n- Solide expérience dans la gestion de projets et le management d’équipes en Suisse.\n- Excellentes capacités d’organisation, d’anticipation et de communication.\n- Permis de conduire indispensable.\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire"
       },
-      "location": "Genève",
-      "canton": "GE",
-      "url": "https://www.lipsuisse.ch/offres-emploi/depanneur-serrurier-polyvalent-h-f",
+      "location": "Nyon",
+      "canton": "VD",
+      "url": "https://www.lipsuisse.ch/offres-emploi/chef-de-projet-electricite-h-f",
       "source": "LIP Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:43:39.801Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
+      "crawledAt": "2026-11-25T21:45:57.999Z",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "1201",
-      "streetAddress": "Genève",
+      "postalCode": "1260",
+      "streetAddress": "Nyon",
       "category": "Altro",
       "contract": "other",
       "employmentType": "OTHER",
-      "experienceLevel": "mid",
+      "experienceLevel": "senior",
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
       "datePosted": "2026-11-20",
       "postedDate": "2026-11-20",
       "postingDateSource": "reported",
-      "applyUrl": "https://www.lipsuisse.ch/offres-emploi/depanneur-serrurier-polyvalent-h-f",
+      "applyUrl": "https://www.lipsuisse.ch/offres-emploi/chef-de-projet-electricite-h-f",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "chef-de-projet-electricite-h-f-nyon-lipsuisse-ch-ch",
+        "electricity-project-manager-m-f-lip-suisse-nyon",
+        "electricity-project-manager-m-f-lip-suisse-nyon-e67454a562",
+        "chef-de-projet-electricite-h-f-lip-suisse-nyon"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "depanneur-serrurier-polyvalent-h-f-lip-suisse-geneve"
-        ],
         "it": [
-          "depanneur-serrurier-polyvalent-h-f-geneve-lipsuisse-ch-ch",
-          "armadio-polivalente-m-f-lip-suisse-geneve",
-          "armadio-polivalente-m-f-lip-suisse-geneve-95c2280dc8"
+          "chef-de-projet-electricite-h-f-nyon-lipsuisse-ch-ch",
+          "electricity-project-manager-m-f-lip-suisse-nyon",
+          "electricity-project-manager-m-f-lip-suisse-nyon-e67454a562"
         ],
         "en": [
-          "depanneur-serrurier-polyvalent-h-f-geneve-lipsuisse-ch-ch"
+          "chef-de-projet-electricite-h-f-nyon-lipsuisse-ch-ch"
         ],
         "de": [
-          "depanneur-serrurier-polyvalent-h-f-geneve-lipsuisse-ch-ch"
+          "chef-de-projet-electricite-h-f-nyon-lipsuisse-ch-ch"
+        ],
+        "fr": [
+          "chef-de-projet-electricite-h-f-lip-suisse-nyon"
         ]
       },
-      "previousSlugs": [
-        "depanneur-serrurier-polyvalent-h-f-geneve-lipsuisse-ch-ch",
-        "armadio-polivalente-m-f-lip-suisse-geneve",
-        "armadio-polivalente-m-f-lip-suisse-geneve-95c2280dc8",
-        "depanneur-serrurier-polyvalent-h-f-lip-suisse-geneve"
-      ],
-      "firstSeenAt": "2026-11-14T16:44:54.930Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "firstSeenAt": "2026-11-14T16:44:54.932Z",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 83500,
+          "maxValue": 126500,
           "unitText": "YEAR"
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:43:39.801Z",
+      "validThrough": "2027-02-18T21:45:57.999Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1035,7 +944,7 @@
       "url": "https://www.lipsuisse.ch/offres-emploi/constructeur-aluminium-experimente-h-f-2",
       "source": "LIP Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:43:39.798Z",
+      "crawledAt": "2026-11-25T21:45:57.998Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1055,10 +964,13 @@
       "applyUrl": "https://www.lipsuisse.ch/offres-emploi/constructeur-aluminium-experimente-h-f-2",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "constructeur-aluminium-experimente-h-f-fribourg-lipsuisse-ch-ch",
+        "produttore-di-alluminio-esperto-m-f-lip-suisse-fribourg",
+        "produttore-di-alluminio-esperto-m-f-lip-suisse-fribourg-407872be0e",
+        "constructeur-aluminium-experimente-h-f-lip-suisse-fribourg"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "constructeur-aluminium-experimente-h-f-lip-suisse-fribourg"
-        ],
         "it": [
           "constructeur-aluminium-experimente-h-f-fribourg-lipsuisse-ch-ch",
           "produttore-di-alluminio-esperto-m-f-lip-suisse-fribourg",
@@ -1069,14 +981,11 @@
         ],
         "de": [
           "constructeur-aluminium-experimente-h-f-fribourg-lipsuisse-ch-ch"
+        ],
+        "fr": [
+          "constructeur-aluminium-experimente-h-f-lip-suisse-fribourg"
         ]
       },
-      "previousSlugs": [
-        "constructeur-aluminium-experimente-h-f-fribourg-lipsuisse-ch-ch",
-        "produttore-di-alluminio-esperto-m-f-lip-suisse-fribourg",
-        "produttore-di-alluminio-esperto-m-f-lip-suisse-fribourg-407872be0e",
-        "constructeur-aluminium-experimente-h-f-lip-suisse-fribourg"
-      ],
       "firstSeenAt": "2026-11-14T16:44:54.929Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1092,48 +1001,48 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:43:39.798Z",
+      "validThrough": "2027-02-18T21:45:57.998Z",
       "validThroughSource": "last-observed-window"
     },
     {
-      "id": "lipsuisse-ch-b809d033ef76",
-      "slug": "installatore-sanitario-m-f-lip-suisse-geneve-aba1bded04",
+      "id": "lipsuisse-ch-6a6b045f225e",
+      "slug": "armadio-polivalente-m-f-lip-suisse-geneve-cfae7ae619",
       "slugByLocale": {
-        "it": "installatore-sanitario-m-f-lip-suisse-geneve-aba1bded04",
-        "en": "m-f-sanitary-installer-lip-suisse-geneve",
-        "de": "sanitarinstallateur-m-w-lip-suisse-geneve",
-        "fr": "installateur-sanitaire-h-f-geneve-lipsuisse-ch-ch"
+        "it": "armadio-polivalente-m-f-lip-suisse-geneve-cfae7ae619",
+        "en": "polyvalent-m-f-locker-lip-suisse-geneve",
+        "de": "polyvalentes-m-w-schlie-fach-lip-suisse-geneve",
+        "fr": "depanneur-serrurier-polyvalent-h-f-geneve-lipsuisse-ch-ch"
       },
       "company": "LIP Suisse",
       "companyKey": "lipsuisse-ch",
       "companyDomain": "lipsuisse.ch",
-      "title": "Installateur sanitaire H/F",
+      "title": "Dépanneur Serrurier Polyvalent (H/F)",
       "titleByLocale": {
-        "it": "Installatore sanitario M/F",
-        "en": "M/F sanitary installer",
-        "de": "Sanitärinstallateur M/W",
-        "fr": "Installateur sanitaire H/F"
+        "it": "Armadio polivalente (M/F)",
+        "en": "Polyvalent (M/F) Locker",
+        "de": "Polyvalentes (M/W) Schließfach",
+        "fr": "Dépanneur Serrurier Polyvalent (H/F)"
       },
-      "description": "Résumé\n- Expérience 3 ans\nDescription du poste\nVotre agence LIP SUISSE SA recherche pour l’un de ses clients des installateurs sanitaires H/F.\nVotre mission :\n- Installation complète d’équipements sanitaires sur chantiers neufs et en rénovation\n- Lecture et interprétation de plans techniques\n- Pose et raccordement de réseaux d’eau, d’évacuation et d’appareils sanitaires\n- Travaux de sertissage, soudure et mise en service\n- Intervention en totale autonomie sur les chantiers\n- Respect des normes de qualité et de sécurité en vigueur\nVotre profil :\n- CFC d’installateur sanitaire ou formation jugée équivalente\n- Expérience confirmée sur des chantiers en Suisse\n- Excellente maîtrise des techniques d’installation sanitaire\n- Capacité à travailler de manière autonome\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire",
+      "description": "Résumé\n- Langues Français\n- Expérience 5 ans minimum\nDescription du poste\nVos missions\nEn tant que Dépanneur Serrurier Polyvalent , vous serez amené(e) à :\n- Réaliser les interventions de dépannage urgentes chez nos clients.\n- Effectuer le chiffrage, les réparations et les travaux d’entretien adaptés aux besoins des clients.\n- Assurer un suivi de qualité des interventions.\n- Établir les devis, les rapports d’intervention et les commandes de matériel.\n- Travailler en étroite collaboration avec les fournisseurs, les clients et les équipes administratives.\n- Proposer, mettre en place et assurer le suivi de contrats d’entretien sur différents ouvrages (portes de garage, portails, rideaux métalliques, motorisations, etc.).\n- Apporter un soutien ponctuel aux équipes de l’atelier selon les besoins.\n- Effectuer des déplacements quotidiens sur l’ensemble du canton de Genève\nVotre profil\nNous recherchons une personne qui possède :\n- Un CFC de constructeur métallique , de serrurier ou une formation équivalente.\n- Une expérience de 5 ans minimum en Suisse .\n- Une expérience confirmée dans le dépannage , indispensable.\n- De solides connaissances des portes de garage et des motorisations électriques .\n- Un excellent sens du service client.\n- Une personnalité rigoureuse, autonome, motivée et appréciant le travail en équipe.\n- Une présentation soignée, de la courtoisie et de la ponctualité.\n- Le goût du travail bien fait et de la qualité.\n- Un permis de conduire\nCompétences requises\ndépannage\nserrurerie\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire",
       "descriptionByLocale": {
-        "it": "Sintesi esecutiva\n- Esperienza 3 anni\nDescrizione del post\nLIP SUISSE SA è alla ricerca di uno dei suoi clienti di installatore sanitario M/F.\nLa vostra missione:\n- Installazione completa di attrezzature sanitarie su nuovi cantieri e ristrutturazioni\n- Lettura e interpretazione dei piani tecnici\n- Installazione e connessione di sistemi idrici, di drenaggio e di sanificazione\n- Saldatura, saldatura e messa in servizio\n- Intervento totale autonomo sui cantieri\n- Rispetto degli standard di qualità e sicurezza esistenti\nIl tuo profilo:\n- Installatore di salute CFC o formazione equivalente\n- Esperienza confermata sui cantieri in Svizzera\n- Eccellente padronanza delle tecniche di installazione sanitaria\n- Capacità di lavorare in modo indipendente\n- Senior Assistant Building M/F\n- @ LIP Svizzera\n- Losanna\nFisso",
-        "en": "Executive summary\n- Experience 3 years\nDescription of post\nYour LIP SUISSE SA agency is looking for one of its M/F sanitary installer customers.\nYour mission:\n- Complete installation of sanitary equipment on new construction sites and renovations\n- Reading and interpreting technical plans\n- Installation and connection of water, drainage and sanitation systems\n- Welding, welding and commissioning\n- Totally autonomous intervention on construction sites\n- Compliance with existing quality and safety standards\nYour profile:\n- CFC health installer or equivalent training\n- Experience confirmed on construction sites in Switzerland\n- Excellent mastery of sanitary installation techniques\n- Ability to work independently\n- Senior Assistant Building M/F\n- @ LIP Switzerland\n- Lausanne\nFixed",
-        "de": "Zusammenfassung\n- Erfahrung 3 Jahre\nBeschreibung der Post\nIhre Agentur LIP SUISSE SA sucht einen Kunden ihrer Sanitärinstallateure M/W.\nIhre Mission:\n- Komplette Installation von Sanitäranlagen auf neuen Baustellen und Renovierungen\n- Lesen und Dolmetschen von technischen Plänen\n- Installation und Anschluss von Wasser-, Entwässerungs- und Sanitärsystemen\n- Schweißen, Schweißen und Inbetriebnahme\n- Völlig autonomes Eingreifen auf Baustellen\n- Einhaltung bestehender Qualitäts- und Sicherheitsstandards\nIhr Profil:\n- CFC-Gesundheitsinstallateur oder gleichwertige Schulung\n- Erfahrung bestätigt auf Baustellen in der Schweiz\n- Hervorragende Beherrschung von Sanitärinstallationstechniken\n- Fähigkeit, selbstständig zu arbeiten\n- Senior Assistant Gebäude M/W\n- @ LIP Schweiz\n- Lausanne\nFestnetz",
-        "fr": "Résumé\n- Expérience 3 ans\nDescription du poste\nVotre agence LIP SUISSE SA recherche pour l’un de ses clients des installateurs sanitaires H/F.\nVotre mission :\n- Installation complète d’équipements sanitaires sur chantiers neufs et en rénovation\n- Lecture et interprétation de plans techniques\n- Pose et raccordement de réseaux d’eau, d’évacuation et d’appareils sanitaires\n- Travaux de sertissage, soudure et mise en service\n- Intervention en totale autonomie sur les chantiers\n- Respect des normes de qualité et de sécurité en vigueur\nVotre profil :\n- CFC d’installateur sanitaire ou formation jugée équivalente\n- Expérience confirmée sur des chantiers en Suisse\n- Excellente maîtrise des techniques d’installation sanitaire\n- Capacité à travailler de manière autonome\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire"
+        "it": "Sintesi esecutiva\n- Lingue\n- Esperienza 5 anni minimo\nDescrizione del post\nLe vostre missioni\nCome Serratore Polivalente, vi verrà richiesto di:\n- Eseguire la risoluzione dei problemi urgenti con i nostri clienti.\n- Esegui costi, riparazioni e lavori di manutenzione su misura per le esigenze dei clienti.\n- Assicurare il monitoraggio della qualità degli interventi.\n- Preparare preventivi, rapporti di risposta e ordini di attrezzature.\n- Lavorare a stretto contatto con fornitori, clienti e team amministrativi.\n- Proporre, implementare e monitorare i contratti di manutenzione su varie opere (porte di carico, porte, tende metalliche, motorizzazioni, ecc.).\n- Fornire supporto ad hoc ai team di workshop come richiesto.\n- Viaggia ogni giorno in tutto il Cantone di Ginevra\nIl tuo profilo\nStiamo cercando qualcuno che possiede:\n- Un produttore di metallo CFC, fabbro CFC o formazione equivalente.\n- Esperienza minima di 5 anni in Svizzera.\n- Un'esperienza confermata nella risoluzione dei problemi, indispensabile.\n- Forte conoscenza delle porte del garage e delle motorizzazioni elettriche.\n- Un ottimo senso del servizio clienti.\n- Una personalità rigorosa, autosufficiente e motivata che apprezza il lavoro di squadra.\n- Una presentazione attenta, cortesia e puntualità.\n- Il gusto del buon lavoro e della qualità.\n- Una patente di guida\nQualifiche\nrisoluzione dei problemi\nArmadio\n- Senior Assistant Building M/F\n- @ LIP Svizzera\n- Losanna\nFisso",
+        "en": "Executive summary\n- Languages\n- Experience 5 years minimum\nDescription of post\nYour missions\nAs a Polyvalent Serrator, you will be prompted to:\n- Carry out urgent troubleshooting with our clients.\n- Performs costing, repairs and maintenance work tailored to the needs of customers.\n- Ensure quality monitoring of interventions.\n- Prepare estimates, response reports and equipment orders.\n- Work closely with suppliers, customers and administrative teams.\n- Propose, implement and monitor maintenance contracts on various works (gauge doors, gates, metal curtains, motorizations, etc.).\n- Provide ad hoc support to workshop teams as required.\n- Travel daily throughout the Canton of Geneva\nYour profile\nWe're looking for someone who owns:\n- A metal manufacturer CFC, locksmith CFC or equivalent training.\n- A minimum of 5 years experience in Switzerland.\n- An experience confirmed in troubleshooting, indispensable.\n- Strong knowledge of garage doors and electric motorizations.\n- An excellent sense of customer service.\n- A rigorous, self-reliant, motivated personality who appreciates teamwork.\n- A careful presentation, courtesy and punctuality.\n- The taste of good work and quality.\n- A driving licence\nQualifications\ntroubleshooting\nLocker\n- Senior Assistant Building M/F\n- @ LIP Switzerland\n- Lausanne\nFixed",
+        "de": "Zusammenfassung\n- Sprachen\n- Erfahrung mindestens 5 Jahre\nBeschreibung der Post\nIhre Missionen\nAls polyvalenter Serrator werden Sie aufgefordert:\n- Führen Sie dringende Fehlersuche mit unseren Kunden durch.\n- Führt Kosten-, Reparatur- und Wartungsarbeiten durch, die auf die Bedürfnisse der Kunden zugeschnitten sind.\n- Gewährleistung einer Qualitätsüberwachung der Interventionen.\n- Erstellen Sie Schätzungen, Antwortberichte und Ausrüstungsaufträge.\n- Arbeiten Sie eng mit Lieferanten, Kunden und Verwaltungsteams zusammen.\n- Vorschlag, Umsetzung und Überwachung von Wartungsverträgen für verschiedene Arbeiten (Spurtüren, Tore, Metallvorhänge, Motorisierungen usw.).\n- Geben Sie bei Bedarf Ad-hoc-Unterstützung für Workshop-Teams.\n- Tägliche Reise durch den Kanton Genf\nDein Profil\nWir suchen jemanden, der besitzt:\n- Ein Metallhersteller CFC, Schlosser CFC oder gleichwertige Ausbildung.\n- Mindestens 5 Jahre Erfahrung in der Schweiz.\n- Eine Erfahrung in der Fehlersuche bestätigt, unverzichtbar.\n- Starkes Wissen über Garagentore und Elektromotorisierungen.\n- Ein ausgezeichnetes Gefühl für Kundenservice.\n- Eine strenge, selbstständige, motivierte Persönlichkeit, die Teamwork schätzt.\n- Eine sorgfältige Präsentation, Höflichkeit und Pünktlichkeit.\n- Der Geschmack von guter Arbeit und Qualität.\n- Führerschein\nQualifikationen\nFehlersuche\nSchließfach\n- Senior Assistant Gebäude M/W\n- @ LIP Schweiz\n- Lausanne\nFestnetz",
+        "fr": "Résumé\n- Langues Français\n- Expérience 5 ans minimum\nDescription du poste\nVos missions\nEn tant que Dépanneur Serrurier Polyvalent , vous serez amené(e) à :\n- Réaliser les interventions de dépannage urgentes chez nos clients.\n- Effectuer le chiffrage, les réparations et les travaux d’entretien adaptés aux besoins des clients.\n- Assurer un suivi de qualité des interventions.\n- Établir les devis, les rapports d’intervention et les commandes de matériel.\n- Travailler en étroite collaboration avec les fournisseurs, les clients et les équipes administratives.\n- Proposer, mettre en place et assurer le suivi de contrats d’entretien sur différents ouvrages (portes de garage, portails, rideaux métalliques, motorisations, etc.).\n- Apporter un soutien ponctuel aux équipes de l’atelier selon les besoins.\n- Effectuer des déplacements quotidiens sur l’ensemble du canton de Genève\nVotre profil\nNous recherchons une personne qui possède :\n- Un CFC de constructeur métallique , de serrurier ou une formation équivalente.\n- Une expérience de 5 ans minimum en Suisse .\n- Une expérience confirmée dans le dépannage , indispensable.\n- De solides connaissances des portes de garage et des motorisations électriques .\n- Un excellent sens du service client.\n- Une personnalité rigoureuse, autonome, motivée et appréciant le travail en équipe.\n- Une présentation soignée, de la courtoisie et de la ponctualité.\n- Le goût du travail bien fait et de la qualité.\n- Un permis de conduire\nCompétences requises\ndépannage\nserrurerie\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire"
       },
       "location": "Genève",
       "canton": "GE",
-      "url": "https://www.lipsuisse.ch/offres-emploi/installateur-sanitaire-h-f",
+      "url": "https://www.lipsuisse.ch/offres-emploi/depanneur-serrurier-polyvalent-h-f",
       "source": "LIP Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:43:39.797Z",
+      "crawledAt": "2026-11-25T21:45:57.998Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "1201",
       "streetAddress": "Genève",
-      "category": "Tecnica",
+      "category": "Altro",
       "contract": "other",
       "employmentType": "OTHER",
       "experienceLevel": "mid",
@@ -1143,47 +1052,47 @@
       "datePosted": "2026-11-20",
       "postedDate": "2026-11-20",
       "postingDateSource": "reported",
-      "applyUrl": "https://www.lipsuisse.ch/offres-emploi/installateur-sanitaire-h-f",
+      "applyUrl": "https://www.lipsuisse.ch/offres-emploi/depanneur-serrurier-polyvalent-h-f",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "depanneur-serrurier-polyvalent-h-f-geneve-lipsuisse-ch-ch",
+        "armadio-polivalente-m-f-lip-suisse-geneve",
+        "armadio-polivalente-m-f-lip-suisse-geneve-95c2280dc8",
+        "depanneur-serrurier-polyvalent-h-f-lip-suisse-geneve"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "installateur-sanitaire-h-f-lip-suisse-geneve"
-        ],
         "it": [
-          "installateur-sanitaire-h-f-geneve-lipsuisse-ch-ch",
-          "installatore-sanitario-m-f-lip-suisse-geneve",
-          "installatore-sanitario-m-f-lip-suisse-geneve-4d7a0d7bd7"
+          "depanneur-serrurier-polyvalent-h-f-geneve-lipsuisse-ch-ch",
+          "armadio-polivalente-m-f-lip-suisse-geneve",
+          "armadio-polivalente-m-f-lip-suisse-geneve-95c2280dc8"
         ],
         "en": [
-          "installateur-sanitaire-h-f-geneve-lipsuisse-ch-ch"
+          "depanneur-serrurier-polyvalent-h-f-geneve-lipsuisse-ch-ch"
         ],
         "de": [
-          "installateur-sanitaire-h-f-geneve-lipsuisse-ch-ch"
+          "depanneur-serrurier-polyvalent-h-f-geneve-lipsuisse-ch-ch"
+        ],
+        "fr": [
+          "depanneur-serrurier-polyvalent-h-f-lip-suisse-geneve"
         ]
       },
-      "previousSlugs": [
-        "installateur-sanitaire-h-f-geneve-lipsuisse-ch-ch",
-        "installatore-sanitario-m-f-lip-suisse-geneve",
-        "installatore-sanitario-m-f-lip-suisse-geneve-4d7a0d7bd7",
-        "installateur-sanitaire-h-f-lip-suisse-geneve"
-      ],
-      "firstSeenAt": "2026-11-14T16:44:54.927Z",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
+      "firstSeenAt": "2026-11-14T16:44:54.930Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 71000,
-          "maxValue": 107500,
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:43:39.797Z",
+      "validThrough": "2027-02-18T21:45:57.998Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1217,7 +1126,7 @@
       "url": "https://www.lipsuisse.ch/offres-emploi/constructeur-metallique-atelier-et-pose-h-f",
       "source": "LIP Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:43:39.797Z",
+      "crawledAt": "2026-11-25T21:45:57.997Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1237,10 +1146,13 @@
       "applyUrl": "https://www.lipsuisse.ch/offres-emploi/constructeur-metallique-atelier-et-pose-h-f",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "constructeur-metallique-atelier-et-pose-h-f-geneve-lipsuisse-ch-ch",
+        "workshop-e-installazione-del-costruttore-di-metallo-m-f-lip-suisse-geneve",
+        "workshop-e-installazione-del-costruttore-di-metallo-m-f-lip-suisse-geneve-0a38b29d76",
+        "constructeur-metallique-atelier-et-pose-h-f-lip-suisse-geneve"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "constructeur-metallique-atelier-et-pose-h-f-lip-suisse-geneve"
-        ],
         "it": [
           "constructeur-metallique-atelier-et-pose-h-f-geneve-lipsuisse-ch-ch",
           "workshop-e-installazione-del-costruttore-di-metallo-m-f-lip-suisse-geneve",
@@ -1251,14 +1163,11 @@
         ],
         "de": [
           "constructeur-metallique-atelier-et-pose-h-f-geneve-lipsuisse-ch-ch"
+        ],
+        "fr": [
+          "constructeur-metallique-atelier-et-pose-h-f-lip-suisse-geneve"
         ]
       },
-      "previousSlugs": [
-        "constructeur-metallique-atelier-et-pose-h-f-geneve-lipsuisse-ch-ch",
-        "workshop-e-installazione-del-costruttore-di-metallo-m-f-lip-suisse-geneve",
-        "workshop-e-installazione-del-costruttore-di-metallo-m-f-lip-suisse-geneve-0a38b29d76",
-        "constructeur-metallique-atelier-et-pose-h-f-lip-suisse-geneve"
-      ],
       "firstSeenAt": "2026-11-14T16:44:54.928Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1274,7 +1183,98 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:43:39.797Z",
+      "validThrough": "2027-02-18T21:45:57.997Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "lipsuisse-ch-b809d033ef76",
+      "slug": "installatore-sanitario-m-f-lip-suisse-geneve-aba1bded04",
+      "slugByLocale": {
+        "it": "installatore-sanitario-m-f-lip-suisse-geneve-aba1bded04",
+        "en": "m-f-sanitary-installer-lip-suisse-geneve",
+        "de": "sanitarinstallateur-m-w-lip-suisse-geneve",
+        "fr": "installateur-sanitaire-h-f-geneve-lipsuisse-ch-ch"
+      },
+      "company": "LIP Suisse",
+      "companyKey": "lipsuisse-ch",
+      "companyDomain": "lipsuisse.ch",
+      "title": "Installateur sanitaire H/F",
+      "titleByLocale": {
+        "it": "Installatore sanitario M/F",
+        "en": "M/F sanitary installer",
+        "de": "Sanitärinstallateur M/W",
+        "fr": "Installateur sanitaire H/F"
+      },
+      "description": "Résumé\n- Expérience 3 ans\nDescription du poste\nVotre agence LIP SUISSE SA recherche pour l’un de ses clients des installateurs sanitaires H/F.\nVotre mission :\n- Installation complète d’équipements sanitaires sur chantiers neufs et en rénovation\n- Lecture et interprétation de plans techniques\n- Pose et raccordement de réseaux d’eau, d’évacuation et d’appareils sanitaires\n- Travaux de sertissage, soudure et mise en service\n- Intervention en totale autonomie sur les chantiers\n- Respect des normes de qualité et de sécurité en vigueur\nVotre profil :\n- CFC d’installateur sanitaire ou formation jugée équivalente\n- Expérience confirmée sur des chantiers en Suisse\n- Excellente maîtrise des techniques d’installation sanitaire\n- Capacité à travailler de manière autonome\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire",
+      "descriptionByLocale": {
+        "it": "Sintesi esecutiva\n- Esperienza 3 anni\nDescrizione del post\nLIP SUISSE SA è alla ricerca di uno dei suoi clienti di installatore sanitario M/F.\nLa vostra missione:\n- Installazione completa di attrezzature sanitarie su nuovi cantieri e ristrutturazioni\n- Lettura e interpretazione dei piani tecnici\n- Installazione e connessione di sistemi idrici, di drenaggio e di sanificazione\n- Saldatura, saldatura e messa in servizio\n- Intervento totale autonomo sui cantieri\n- Rispetto degli standard di qualità e sicurezza esistenti\nIl tuo profilo:\n- Installatore di salute CFC o formazione equivalente\n- Esperienza confermata sui cantieri in Svizzera\n- Eccellente padronanza delle tecniche di installazione sanitaria\n- Capacità di lavorare in modo indipendente\n- Senior Assistant Building M/F\n- @ LIP Svizzera\n- Losanna\nFisso",
+        "en": "Executive summary\n- Experience 3 years\nDescription of post\nYour LIP SUISSE SA agency is looking for one of its M/F sanitary installer customers.\nYour mission:\n- Complete installation of sanitary equipment on new construction sites and renovations\n- Reading and interpreting technical plans\n- Installation and connection of water, drainage and sanitation systems\n- Welding, welding and commissioning\n- Totally autonomous intervention on construction sites\n- Compliance with existing quality and safety standards\nYour profile:\n- CFC health installer or equivalent training\n- Experience confirmed on construction sites in Switzerland\n- Excellent mastery of sanitary installation techniques\n- Ability to work independently\n- Senior Assistant Building M/F\n- @ LIP Switzerland\n- Lausanne\nFixed",
+        "de": "Zusammenfassung\n- Erfahrung 3 Jahre\nBeschreibung der Post\nIhre Agentur LIP SUISSE SA sucht einen Kunden ihrer Sanitärinstallateure M/W.\nIhre Mission:\n- Komplette Installation von Sanitäranlagen auf neuen Baustellen und Renovierungen\n- Lesen und Dolmetschen von technischen Plänen\n- Installation und Anschluss von Wasser-, Entwässerungs- und Sanitärsystemen\n- Schweißen, Schweißen und Inbetriebnahme\n- Völlig autonomes Eingreifen auf Baustellen\n- Einhaltung bestehender Qualitäts- und Sicherheitsstandards\nIhr Profil:\n- CFC-Gesundheitsinstallateur oder gleichwertige Schulung\n- Erfahrung bestätigt auf Baustellen in der Schweiz\n- Hervorragende Beherrschung von Sanitärinstallationstechniken\n- Fähigkeit, selbstständig zu arbeiten\n- Senior Assistant Gebäude M/W\n- @ LIP Schweiz\n- Lausanne\nFestnetz",
+        "fr": "Résumé\n- Expérience 3 ans\nDescription du poste\nVotre agence LIP SUISSE SA recherche pour l’un de ses clients des installateurs sanitaires H/F.\nVotre mission :\n- Installation complète d’équipements sanitaires sur chantiers neufs et en rénovation\n- Lecture et interprétation de plans techniques\n- Pose et raccordement de réseaux d’eau, d’évacuation et d’appareils sanitaires\n- Travaux de sertissage, soudure et mise en service\n- Intervention en totale autonomie sur les chantiers\n- Respect des normes de qualité et de sécurité en vigueur\nVotre profil :\n- CFC d’installateur sanitaire ou formation jugée équivalente\n- Expérience confirmée sur des chantiers en Suisse\n- Excellente maîtrise des techniques d’installation sanitaire\n- Capacité à travailler de manière autonome\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire"
+      },
+      "location": "Genève",
+      "canton": "GE",
+      "url": "https://www.lipsuisse.ch/offres-emploi/installateur-sanitaire-h-f",
+      "source": "LIP Suisse Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-25T21:45:57.996Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1201",
+      "streetAddress": "Genève",
+      "category": "Tecnica",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-20",
+      "postedDate": "2026-11-20",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.lipsuisse.ch/offres-emploi/installateur-sanitaire-h-f",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "installateur-sanitaire-h-f-geneve-lipsuisse-ch-ch",
+        "installatore-sanitario-m-f-lip-suisse-geneve",
+        "installatore-sanitario-m-f-lip-suisse-geneve-4d7a0d7bd7",
+        "installateur-sanitaire-h-f-lip-suisse-geneve"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "installateur-sanitaire-h-f-geneve-lipsuisse-ch-ch",
+          "installatore-sanitario-m-f-lip-suisse-geneve",
+          "installatore-sanitario-m-f-lip-suisse-geneve-4d7a0d7bd7"
+        ],
+        "en": [
+          "installateur-sanitaire-h-f-geneve-lipsuisse-ch-ch"
+        ],
+        "de": [
+          "installateur-sanitaire-h-f-geneve-lipsuisse-ch-ch"
+        ],
+        "fr": [
+          "installateur-sanitaire-h-f-lip-suisse-geneve"
+        ]
+      },
+      "firstSeenAt": "2026-11-14T16:44:54.927Z",
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-18T21:45:57.996Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1308,7 +1308,7 @@
       "url": "https://www.lipsuisse.ch/offres-emploi/assistant-de-direction-batiment-h-f",
       "source": "LIP Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:43:39.793Z",
+      "crawledAt": "2026-11-25T21:45:57.996Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1328,10 +1328,11 @@
       "applyUrl": "https://www.lipsuisse.ch/offres-emploi/assistant-de-direction-batiment-h-f",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistant-de-direction-batiment-h-f-lausanne-lipsuisse-ch-ch",
+        "assistant-de-direction-batiment-h-f-lip-suisse-lausanne"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "assistant-de-direction-batiment-h-f-lip-suisse-lausanne"
-        ],
         "it": [
           "assistant-de-direction-batiment-h-f-lausanne-lipsuisse-ch-ch"
         ],
@@ -1340,12 +1341,11 @@
         ],
         "de": [
           "assistant-de-direction-batiment-h-f-lausanne-lipsuisse-ch-ch"
+        ],
+        "fr": [
+          "assistant-de-direction-batiment-h-f-lip-suisse-lausanne"
         ]
       },
-      "previousSlugs": [
-        "assistant-de-direction-batiment-h-f-lausanne-lipsuisse-ch-ch",
-        "assistant-de-direction-batiment-h-f-lip-suisse-lausanne"
-      ],
       "firstSeenAt": "2026-11-14T16:44:54.939Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -1361,105 +1361,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:43:39.793Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "lipsuisse-ch-15d58340f84d",
-      "slug": "progettista-progetto-manager-nella-costruzione-di-metalli-lip-suisse-geneve",
-      "slugByLocale": {
-        "it": "progettista-progetto-manager-nella-costruzione-di-metalli-lip-suisse-geneve",
-        "en": "drafter-project-manager-in-metal-construction-lip-suisse-geneve",
-        "de": "zeichner-projektleiter-im-metallbau-lip-suisse-geneve",
-        "fr": "dessinateur-chef-de-projet-en-construction-metallique-geneve-lipsuisse-ch-ch"
-      },
-      "company": "LIP Suisse",
-      "companyKey": "lipsuisse-ch",
-      "companyDomain": "lipsuisse.ch",
-      "title": "Dessinateur / chef de projet en construction métallique",
-      "titleByLocale": {
-        "it": "Progettista/progetto manager nella costruzione di metalli",
-        "en": "Drafter/project manager in metal construction",
-        "de": "Zeichner/Projektleiter im Metallbau",
-        "fr": "Dessinateur / chef de projet en construction métallique"
-      },
-      "description": "Description du poste\nVotre agence LIP SUISSE SA recherche pour l’un de ses clients un dessinateur en construction métallique qualifié H/F\nVotre mission :\nCréation et mise en plan sur Solidworks\nRéalisation des gammes opératoires (Montage, usinage)\nRelevés de mesures sur chantier.\nCoordination et suivi de chantier.\nGestion et commande des matières premières.\nVotre profil :\n-Titulaire d’un CFC ou diplômes équivalents (Connaissance des normes Suisse)\n-Maîtrise Solidworks\n-Sens des responsabilités, rigoureux et précis\n-Permis de conduire.\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire",
-      "descriptionByLocale": {
-        "it": "Descrizione del post\nLa vostra agenzia LIP SWISSE SA è alla ricerca di un progettista di costruzione in metallo qualificato M/F\nLa vostra missione:\nCreazione e layout su Solidworks\nProduzione di gamme operative (montaggio, lavorazione)\nMisure in loco.\nCoordinamento e monitoraggio dei progetti di costruzione.\nGestione e controllo delle materie prime.\nIl tuo profilo:\n- Diploma di studio o equivalente (conoscenza degli standard svizzeri)\n- Master Solidworks\n-Consapevole delle responsabilità, rigorose e precise\n- Permesso di guidare.\n- Senior Assistant Building M/F\n- @ LIP Svizzera\n- Losanna\nFisso",
-        "en": "Description of post\nYour agency LIP SWISSE SA is looking for a qualified metal construction designer M/F\nYour mission:\nCreation and layout on Solidworks\nProduction of operating ranges (mounting, machining)\nOn-site measurements.\nCoordination and monitoring of construction projects.\nManagement and control of raw materials.\nYour profile:\n-Student or equivalent diploma (Knowledge of Swiss standards)\n- Master Solidworks\n-Aware of responsibilities, rigorous and precise\n-Permit to drive.\n- Senior Assistant Building M/F\n- @ LIP Switzerland\n- Lausanne\nFixed",
-        "de": "Beschreibung der Post\nIhre Agentur LIP SWISSE SA sucht einen qualifizierten Metallbaudesigner M/W\nIhre Mission:\nErstellung und Layout auf Solidworks\nHerstellung von Arbeitsbereichen (Montage, Bearbeitung)\nMessungen vor Ort.\nKoordinierung und Überwachung von Bauprojekten.\nManagement und Kontrolle der Rohstoffe.\nIhr Profil:\n-Student oder gleichwertiges Diplom (Kenntnisse der Schweizer Standards)\n- Master Solidworks\nVerantwortungsbewusstsein, streng und präzise\n-Erlauben Sie zu fahren.\n- Senior Assistant Gebäude M/W\n- @ LIP Schweiz\n- Lausanne\nFestnetz",
-        "fr": "Description du poste\nVotre agence LIP SUISSE SA recherche pour l’un de ses clients un dessinateur en construction métallique qualifié H/F\nVotre mission :\nCréation et mise en plan sur Solidworks\nRéalisation des gammes opératoires (Montage, usinage)\nRelevés de mesures sur chantier.\nCoordination et suivi de chantier.\nGestion et commande des matières premières.\nVotre profil :\n-Titulaire d’un CFC ou diplômes équivalents (Connaissance des normes Suisse)\n-Maîtrise Solidworks\n-Sens des responsabilités, rigoureux et précis\n-Permis de conduire.\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire"
-      },
-      "location": "Genève",
-      "canton": "GE",
-      "url": "https://www.lipsuisse.ch/offres-emploi/dessinateur-chef-de-projet-en-construction-metallique-2",
-      "source": "LIP Suisse Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:43:39.789Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1201",
-      "streetAddress": "Genève",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-20",
-      "postedDate": "2026-11-20",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.lipsuisse.ch/offres-emploi/dessinateur-chef-de-projet-en-construction-metallique-2",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "fr": [
-          "dessinateur-chef-de-projet-en-construction-metallique-geneve-lipsuisse-ch-lipsuisse-ch-ch",
-          "dessinateur-chef-de-projet-en-construction-metallique-lip-suisse-geneve"
-        ],
-        "it": [
-          "dessinateur-chef-de-projet-en-construction-metallique-geneve-lipsuisse-ch-ch",
-          "progettista-progetto-manager-nella-costruzione-di-metalli-lip-suisse-geneve-d2eb7a",
-          "dessinateur-chef-de-projet-en-construction-metallique-geneve-lipsuisse-ch-lipsuisse-ch-ch"
-        ],
-        "en": [
-          "drafter-project-manager-in-metal-construction-lip-suisse-geneve-d2eb7a",
-          "dessinateur-chef-de-projet-en-construction-metallique-geneve-lipsuisse-ch-ch",
-          "dessinateur-chef-de-projet-en-construction-metallique-geneve-lipsuisse-ch-lipsuisse-ch-ch"
-        ],
-        "de": [
-          "zeichner-projektleiter-im-metallbau-lip-suisse-geneve-d2eb7a",
-          "dessinateur-chef-de-projet-en-construction-metallique-geneve-lipsuisse-ch-ch",
-          "dessinateur-chef-de-projet-en-construction-metallique-geneve-lipsuisse-ch-lipsuisse-ch-ch"
-        ]
-      },
-      "previousSlugs": [
-        "dessinateur-chef-de-projet-en-construction-metallique-geneve-lipsuisse-ch-ch",
-        "progettista-progetto-manager-nella-costruzione-di-metalli-lip-suisse-geneve-d2eb7a",
-        "dessinateur-chef-de-projet-en-construction-metallique-geneve-lipsuisse-ch-lipsuisse-ch-ch",
-        "drafter-project-manager-in-metal-construction-lip-suisse-geneve-d2eb7a",
-        "zeichner-projektleiter-im-metallbau-lip-suisse-geneve-d2eb7a",
-        "dessinateur-chef-de-projet-en-construction-metallique-lip-suisse-geneve"
-      ],
-      "firstSeenAt": "2026-11-14T16:44:54.936Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:43:39.789Z",
+      "validThrough": "2027-02-11T21:45:57.996Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1493,7 +1395,7 @@
       "url": "https://www.lipsuisse.ch/offres-emploi/chef-de-projet-cvc-h-f",
       "source": "LIP Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:43:39.785Z",
+      "crawledAt": "2026-11-25T21:45:57.995Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1513,10 +1415,13 @@
       "applyUrl": "https://www.lipsuisse.ch/offres-emploi/chef-de-projet-cvc-h-f",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "chef-de-projet-cvc-h-f-geneve-lipsuisse-ch-ch",
+        "direttore-del-progetto-hvac-m-f-lip-suisse-geneve",
+        "direttore-del-progetto-hvac-m-f-lip-suisse-geneve-fd544bb98d",
+        "chef-de-projet-cvc-h-f-lip-suisse-geneve"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "chef-de-projet-cvc-h-f-lip-suisse-geneve"
-        ],
         "it": [
           "chef-de-projet-cvc-h-f-geneve-lipsuisse-ch-ch",
           "direttore-del-progetto-hvac-m-f-lip-suisse-geneve",
@@ -1527,14 +1432,11 @@
         ],
         "de": [
           "chef-de-projet-cvc-h-f-geneve-lipsuisse-ch-ch"
+        ],
+        "fr": [
+          "chef-de-projet-cvc-h-f-lip-suisse-geneve"
         ]
       },
-      "previousSlugs": [
-        "chef-de-projet-cvc-h-f-geneve-lipsuisse-ch-ch",
-        "direttore-del-progetto-hvac-m-f-lip-suisse-geneve",
-        "direttore-del-progetto-hvac-m-f-lip-suisse-geneve-fd544bb98d",
-        "chef-de-projet-cvc-h-f-lip-suisse-geneve"
-      ],
       "firstSeenAt": "2026-11-14T16:44:54.936Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -1550,7 +1452,105 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:43:39.785Z",
+      "validThrough": "2027-02-18T21:45:57.995Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "lipsuisse-ch-15d58340f84d",
+      "slug": "progettista-progetto-manager-nella-costruzione-di-metalli-lip-suisse-geneve",
+      "slugByLocale": {
+        "it": "progettista-progetto-manager-nella-costruzione-di-metalli-lip-suisse-geneve",
+        "en": "drafter-project-manager-in-metal-construction-lip-suisse-geneve",
+        "de": "zeichner-projektleiter-im-metallbau-lip-suisse-geneve",
+        "fr": "dessinateur-chef-de-projet-en-construction-metallique-geneve-lipsuisse-ch-ch"
+      },
+      "company": "LIP Suisse",
+      "companyKey": "lipsuisse-ch",
+      "companyDomain": "lipsuisse.ch",
+      "title": "Dessinateur / chef de projet en construction métallique",
+      "titleByLocale": {
+        "it": "Progettista/progetto manager nella costruzione di metalli",
+        "en": "Drafter/project manager in metal construction",
+        "de": "Zeichner/Projektleiter im Metallbau",
+        "fr": "Dessinateur / chef de projet en construction métallique"
+      },
+      "description": "Description du poste\nVotre agence LIP SUISSE SA recherche pour l’un de ses clients un dessinateur en construction métallique qualifié H/F\nVotre mission :\nCréation et mise en plan sur Solidworks\nRéalisation des gammes opératoires (Montage, usinage)\nRelevés de mesures sur chantier.\nCoordination et suivi de chantier.\nGestion et commande des matières premières.\nVotre profil :\n-Titulaire d’un CFC ou diplômes équivalents (Connaissance des normes Suisse)\n-Maîtrise Solidworks\n-Sens des responsabilités, rigoureux et précis\n-Permis de conduire.\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire",
+      "descriptionByLocale": {
+        "it": "Descrizione del post\nLa vostra agenzia LIP SWISSE SA è alla ricerca di un progettista di costruzione in metallo qualificato M/F\nLa vostra missione:\nCreazione e layout su Solidworks\nProduzione di gamme operative (montaggio, lavorazione)\nMisure in loco.\nCoordinamento e monitoraggio dei progetti di costruzione.\nGestione e controllo delle materie prime.\nIl tuo profilo:\n- Diploma di studio o equivalente (conoscenza degli standard svizzeri)\n- Master Solidworks\n-Consapevole delle responsabilità, rigorose e precise\n- Permesso di guidare.\n- Senior Assistant Building M/F\n- @ LIP Svizzera\n- Losanna\nFisso",
+        "en": "Description of post\nYour agency LIP SWISSE SA is looking for a qualified metal construction designer M/F\nYour mission:\nCreation and layout on Solidworks\nProduction of operating ranges (mounting, machining)\nOn-site measurements.\nCoordination and monitoring of construction projects.\nManagement and control of raw materials.\nYour profile:\n-Student or equivalent diploma (Knowledge of Swiss standards)\n- Master Solidworks\n-Aware of responsibilities, rigorous and precise\n-Permit to drive.\n- Senior Assistant Building M/F\n- @ LIP Switzerland\n- Lausanne\nFixed",
+        "de": "Beschreibung der Post\nIhre Agentur LIP SWISSE SA sucht einen qualifizierten Metallbaudesigner M/W\nIhre Mission:\nErstellung und Layout auf Solidworks\nHerstellung von Arbeitsbereichen (Montage, Bearbeitung)\nMessungen vor Ort.\nKoordinierung und Überwachung von Bauprojekten.\nManagement und Kontrolle der Rohstoffe.\nIhr Profil:\n-Student oder gleichwertiges Diplom (Kenntnisse der Schweizer Standards)\n- Master Solidworks\nVerantwortungsbewusstsein, streng und präzise\n-Erlauben Sie zu fahren.\n- Senior Assistant Gebäude M/W\n- @ LIP Schweiz\n- Lausanne\nFestnetz",
+        "fr": "Description du poste\nVotre agence LIP SUISSE SA recherche pour l’un de ses clients un dessinateur en construction métallique qualifié H/F\nVotre mission :\nCréation et mise en plan sur Solidworks\nRéalisation des gammes opératoires (Montage, usinage)\nRelevés de mesures sur chantier.\nCoordination et suivi de chantier.\nGestion et commande des matières premières.\nVotre profil :\n-Titulaire d’un CFC ou diplômes équivalents (Connaissance des normes Suisse)\n-Maîtrise Solidworks\n-Sens des responsabilités, rigoureux et précis\n-Permis de conduire.\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire"
+      },
+      "location": "Genève",
+      "canton": "GE",
+      "url": "https://www.lipsuisse.ch/offres-emploi/dessinateur-chef-de-projet-en-construction-metallique-2",
+      "source": "LIP Suisse Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-25T21:45:57.995Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1201",
+      "streetAddress": "Genève",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-20",
+      "postedDate": "2026-11-20",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.lipsuisse.ch/offres-emploi/dessinateur-chef-de-projet-en-construction-metallique-2",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dessinateur-chef-de-projet-en-construction-metallique-geneve-lipsuisse-ch-ch",
+        "progettista-progetto-manager-nella-costruzione-di-metalli-lip-suisse-geneve-d2eb7a",
+        "dessinateur-chef-de-projet-en-construction-metallique-geneve-lipsuisse-ch-lipsuisse-ch-ch",
+        "drafter-project-manager-in-metal-construction-lip-suisse-geneve-d2eb7a",
+        "zeichner-projektleiter-im-metallbau-lip-suisse-geneve-d2eb7a",
+        "dessinateur-chef-de-projet-en-construction-metallique-lip-suisse-geneve"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dessinateur-chef-de-projet-en-construction-metallique-geneve-lipsuisse-ch-ch",
+          "progettista-progetto-manager-nella-costruzione-di-metalli-lip-suisse-geneve-d2eb7a",
+          "dessinateur-chef-de-projet-en-construction-metallique-geneve-lipsuisse-ch-lipsuisse-ch-ch"
+        ],
+        "en": [
+          "drafter-project-manager-in-metal-construction-lip-suisse-geneve-d2eb7a",
+          "dessinateur-chef-de-projet-en-construction-metallique-geneve-lipsuisse-ch-ch",
+          "dessinateur-chef-de-projet-en-construction-metallique-geneve-lipsuisse-ch-lipsuisse-ch-ch"
+        ],
+        "de": [
+          "zeichner-projektleiter-im-metallbau-lip-suisse-geneve-d2eb7a",
+          "dessinateur-chef-de-projet-en-construction-metallique-geneve-lipsuisse-ch-ch",
+          "dessinateur-chef-de-projet-en-construction-metallique-geneve-lipsuisse-ch-lipsuisse-ch-ch"
+        ],
+        "fr": [
+          "dessinateur-chef-de-projet-en-construction-metallique-geneve-lipsuisse-ch-lipsuisse-ch-ch",
+          "dessinateur-chef-de-projet-en-construction-metallique-lip-suisse-geneve"
+        ]
+      },
+      "firstSeenAt": "2026-11-14T16:44:54.936Z",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-18T21:45:57.995Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1584,7 +1584,7 @@
       "url": "https://www.lipsuisse.ch/offres-emploi/chauffagiste-2",
       "source": "LIP Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:43:39.784Z",
+      "crawledAt": "2026-11-25T21:45:57.994Z",
       "addressLocality": "Nyon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1604,10 +1604,13 @@
       "applyUrl": "https://www.lipsuisse.ch/offres-emploi/chauffagiste-2",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "chauffagiste-nyon-lipsuisse-ch-ch",
+        "driver-lip-suisse-nyon",
+        "driver-lip-suisse-nyon-4ea41c8dde",
+        "chauffagiste-lip-suisse-nyon"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "chauffagiste-lip-suisse-nyon"
-        ],
         "it": [
           "chauffagiste-nyon-lipsuisse-ch-ch",
           "driver-lip-suisse-nyon",
@@ -1618,14 +1621,11 @@
         ],
         "de": [
           "chauffagiste-nyon-lipsuisse-ch-ch"
+        ],
+        "fr": [
+          "chauffagiste-lip-suisse-nyon"
         ]
       },
-      "previousSlugs": [
-        "chauffagiste-nyon-lipsuisse-ch-ch",
-        "driver-lip-suisse-nyon",
-        "driver-lip-suisse-nyon-4ea41c8dde",
-        "chauffagiste-lip-suisse-nyon"
-      ],
       "firstSeenAt": "2026-11-14T16:44:54.935Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1641,7 +1641,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:43:39.784Z",
+      "validThrough": "2027-02-18T21:45:57.994Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1675,7 +1675,7 @@
       "url": "https://www.lipsuisse.ch/offres-emploi/parqueteur-h-f-lausanne",
       "source": "LIP Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:43:39.780Z",
+      "crawledAt": "2026-11-25T21:45:57.993Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1695,10 +1695,13 @@
       "applyUrl": "https://www.lipsuisse.ch/offres-emploi/parqueteur-h-f-lausanne",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "parqueteur-h-f-lausanne-lausanne-lipsuisse-ch-ch",
+        "parker-m-f-lausanne-lip-suisse-lausanne",
+        "parker-m-f-lausanne-lip-suisse-lausanne-452e7d4d83",
+        "parqueteur-h-f-lausanne-lip-suisse-lausanne"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "parqueteur-h-f-lausanne-lip-suisse-lausanne"
-        ],
         "it": [
           "parqueteur-h-f-lausanne-lausanne-lipsuisse-ch-ch",
           "parker-m-f-lausanne-lip-suisse-lausanne",
@@ -1709,105 +1712,11 @@
         ],
         "de": [
           "parqueteur-h-f-lausanne-lausanne-lipsuisse-ch-ch"
-        ]
-      },
-      "previousSlugs": [
-        "parqueteur-h-f-lausanne-lausanne-lipsuisse-ch-ch",
-        "parker-m-f-lausanne-lip-suisse-lausanne",
-        "parker-m-f-lausanne-lip-suisse-lausanne-452e7d4d83",
-        "parqueteur-h-f-lausanne-lip-suisse-lausanne"
-      ],
-      "firstSeenAt": "2026-11-14T16:44:54.934Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:43:39.780Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "lipsuisse-ch-c068c366c60e",
-      "slug": "macchinista-m2-lip-suisse-geneve-6cb4ae27a2",
-      "slugByLocale": {
-        "it": "macchinista-m2-lip-suisse-geneve-6cb4ae27a2",
-        "en": "machinist-m2-lip-suisse-geneve",
-        "de": "maschinist-m2-lip-suisse-geneve",
-        "fr": "machiniste-m2-geneve-lipsuisse-ch-ch"
-      },
-      "company": "LIP Suisse",
-      "companyKey": "lipsuisse-ch",
-      "companyDomain": "lipsuisse.ch",
-      "title": "Machiniste M2",
-      "titleByLocale": {
-        "it": "Macchinista M2",
-        "en": "Machinist M2",
-        "de": "Maschinist M2",
-        "fr": "Machiniste M2"
-      },
-      "description": "Description du poste\nVotre agence LIP SUISSE SA recherche pour l’un de ses clients un machiniste expérimenté titulaire du permis SUVA M2 , pour intervenir sur un gros chantier dans le canton de Genève.\nVos missions\n- Conduite de pelles à pneus\n- Travaux de terrassement, fouilles et nivellement\n- Chargement et déplacement de matériaux\n- Entretien courant et contrôle de la machine\n- Respect des règles de sécurité et des directives du chantier\n- Collaboration avec les équipes présentes sur le chantier\nVotre profil\n- Permis SUVA M2 obligatoire\n- Minimum 5 ans d’expérience en tant que machiniste\n- Expérience confirmée sur pelle à pneus\n- Bonne maîtrise de la machine et des différentes techniques de terrassement\n- Autonomie, précision et sens des responsabilités\n- Respect des consignes de sécurité sur les chantiers\n- Permis de conduire, un atout\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire",
-      "descriptionByLocale": {
-        "it": "Descrizione del post\nLa vostra agenzia LIP SUISSE SA sta cercando un esperto macchinista che detiene la licenza SUVA M2 per uno dei suoi clienti, per intervenire su un grande sito nel cantone di Ginevra.\nLe vostre missioni\n- Escavatori pneumatici di guida\n- Lavori terrestri, scavi e livellamento\n- Carico e movimentazione dei materiali\n- Manutenzione e controllo della macchina\n- Rispetto delle regole di sicurezza e delle linee guida del sito\n- Collaborazione con i team presenti sul sito\nIl tuo profilo\n- Licenza obbligatoria SUVA M2\n- Esperienza minima di 5 anni come macchinista\n- Esperienza confermata sulla pala gommata\n- Buon controllo della macchina e delle diverse tecniche di movimento terra\n- Autonomia, precisione e senso di responsabilità\n- conformità con le istruzioni di sicurezza del sito\n- Patente di guida, una risorsa\n- Senior Assistant Building M/F\n- @ LIP Svizzera\n- Losanna\nFisso",
-        "en": "Description of post\nYour LIP SUISSE SA agency is looking for an experienced machinist who holds the SUVA M2 licence for one of its customers, to intervene on a large site in the canton of Geneva.\nYour missions\n- Driving tire excavators\n- Earthworks, excavations and levelling\n- Loading and moving of materials\n- Current maintenance and machine control\n- Compliance with safety rules and site guidelines\n- Collaboration with the teams present on the site\nYour profile\n- Compulsory SUVA M2 licence\n- Minimum 5 years experience as a machinist\n- Experience confirmed on tire shovel\n- Good control of the machine and the different earth-moving techniques\n- Autonomy, accuracy and sense of responsibility\n- Compliance with site safety instructions\n- Driver's license, an asset\n- Senior Assistant Building M/F\n- @ LIP Switzerland\n- Lausanne\nFixed",
-        "de": "Beschreibung der Post\nIhre Agentur LIP SUISSE SA sucht einen erfahrenen Maschinisten, der für einen seiner Kunden die SUVA M2-Lizenz besitzt, um auf einem großen Gelände im Kanton Genf einzugreifen.\nIhre Missionen\n- Antrieb von Reifenbaggern\n- Erdarbeiten, Ausgrabungen und Plantagen\n- Beladen und Bewegen von Materialien\n- Aktuelle Wartung und Maschinensteuerung\n- Einhaltung von Sicherheitsvorschriften und Standortrichtlinien\n- Zusammenarbeit mit den auf der Website vorhandenen Teams\nDein Profil\n- Obligatorische SUVA-M2-Lizenz\n- Mindestens 5 Jahre Erfahrung als Maschinist\n- Erfahrung bestätigt auf Reifenschaufel\n- Gute Steuerung der Maschine und der verschiedenen Erdbewegungstechniken\n- Autonomie, Genauigkeit und Verantwortungsbewusstsein\n- Einhaltung der Betriebssicherheitsanweisungen\n- Führerschein, ein Asset\n- Senior Assistant Gebäude M/W\n- @ LIP Schweiz\n- Lausanne\nFestnetz",
-        "fr": "Description du poste\nVotre agence LIP SUISSE SA recherche pour l’un de ses clients un machiniste expérimenté titulaire du permis SUVA M2 , pour intervenir sur un gros chantier dans le canton de Genève.\nVos missions\n- Conduite de pelles à pneus\n- Travaux de terrassement, fouilles et nivellement\n- Chargement et déplacement de matériaux\n- Entretien courant et contrôle de la machine\n- Respect des règles de sécurité et des directives du chantier\n- Collaboration avec les équipes présentes sur le chantier\nVotre profil\n- Permis SUVA M2 obligatoire\n- Minimum 5 ans d’expérience en tant que machiniste\n- Expérience confirmée sur pelle à pneus\n- Bonne maîtrise de la machine et des différentes techniques de terrassement\n- Autonomie, précision et sens des responsabilités\n- Respect des consignes de sécurité sur les chantiers\n- Permis de conduire, un atout\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire"
-      },
-      "location": "Genève",
-      "canton": "GE",
-      "url": "https://www.lipsuisse.ch/offres-emploi/machiniste-m2",
-      "source": "LIP Suisse Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:43:39.779Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1201",
-      "streetAddress": "Genève",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-20",
-      "postedDate": "2026-11-20",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.lipsuisse.ch/offres-emploi/machiniste-m2",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
+        ],
         "fr": [
-          "machiniste-m2-lip-suisse-geneve"
-        ],
-        "it": [
-          "machiniste-m2-geneve-lipsuisse-ch-ch",
-          "macchinista-m2-lip-suisse-geneve",
-          "macchinista-m2-lip-suisse-geneve-cd55ce5c94"
-        ],
-        "en": [
-          "machiniste-m2-geneve-lipsuisse-ch-ch"
-        ],
-        "de": [
-          "machiniste-m2-geneve-lipsuisse-ch-ch"
+          "parqueteur-h-f-lausanne-lip-suisse-lausanne"
         ]
       },
-      "previousSlugs": [
-        "machiniste-m2-geneve-lipsuisse-ch-ch",
-        "macchinista-m2-lip-suisse-geneve",
-        "macchinista-m2-lip-suisse-geneve-cd55ce5c94",
-        "machiniste-m2-lip-suisse-geneve"
-      ],
       "firstSeenAt": "2026-11-14T16:44:54.934Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1823,7 +1732,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:43:39.779Z",
+      "validThrough": "2027-02-18T21:45:57.993Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1857,7 +1766,7 @@
       "url": "https://www.lipsuisse.ch/offres-emploi/peintre-vernisseur-h-f",
       "source": "LIP Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:43:39.778Z",
+      "crawledAt": "2026-11-25T21:45:57.992Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1877,10 +1786,13 @@
       "applyUrl": "https://www.lipsuisse.ch/offres-emploi/peintre-vernisseur-h-f",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "peintre-vernisseur-h-f-geneve-lipsuisse-ch-ch",
+        "vernice-per-verniciatura-m-f-lip-suisse-geneve",
+        "vernice-per-verniciatura-m-f-lip-suisse-geneve-c422907c18",
+        "peintre-vernisseur-h-f-lip-suisse-geneve"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "peintre-vernisseur-h-f-lip-suisse-geneve"
-        ],
         "it": [
           "peintre-vernisseur-h-f-geneve-lipsuisse-ch-ch",
           "vernice-per-verniciatura-m-f-lip-suisse-geneve",
@@ -1891,14 +1803,11 @@
         ],
         "de": [
           "peintre-vernisseur-h-f-geneve-lipsuisse-ch-ch"
+        ],
+        "fr": [
+          "peintre-vernisseur-h-f-lip-suisse-geneve"
         ]
       },
-      "previousSlugs": [
-        "peintre-vernisseur-h-f-geneve-lipsuisse-ch-ch",
-        "vernice-per-verniciatura-m-f-lip-suisse-geneve",
-        "vernice-per-verniciatura-m-f-lip-suisse-geneve-c422907c18",
-        "peintre-vernisseur-h-f-lip-suisse-geneve"
-      ],
       "firstSeenAt": "2026-11-14T16:44:54.933Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1914,7 +1823,98 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T09:43:39.778Z",
+      "validThrough": "2027-02-18T21:45:57.992Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "lipsuisse-ch-c068c366c60e",
+      "slug": "macchinista-m2-lip-suisse-geneve-6cb4ae27a2",
+      "slugByLocale": {
+        "it": "macchinista-m2-lip-suisse-geneve-6cb4ae27a2",
+        "en": "machinist-m2-lip-suisse-geneve",
+        "de": "maschinist-m2-lip-suisse-geneve",
+        "fr": "machiniste-m2-geneve-lipsuisse-ch-ch"
+      },
+      "company": "LIP Suisse",
+      "companyKey": "lipsuisse-ch",
+      "companyDomain": "lipsuisse.ch",
+      "title": "Machiniste M2",
+      "titleByLocale": {
+        "it": "Macchinista M2",
+        "en": "Machinist M2",
+        "de": "Maschinist M2",
+        "fr": "Machiniste M2"
+      },
+      "description": "Description du poste\nVotre agence LIP SUISSE SA recherche pour l’un de ses clients un machiniste expérimenté titulaire du permis SUVA M2 , pour intervenir sur un gros chantier dans le canton de Genève.\nVos missions\n- Conduite de pelles à pneus\n- Travaux de terrassement, fouilles et nivellement\n- Chargement et déplacement de matériaux\n- Entretien courant et contrôle de la machine\n- Respect des règles de sécurité et des directives du chantier\n- Collaboration avec les équipes présentes sur le chantier\nVotre profil\n- Permis SUVA M2 obligatoire\n- Minimum 5 ans d’expérience en tant que machiniste\n- Expérience confirmée sur pelle à pneus\n- Bonne maîtrise de la machine et des différentes techniques de terrassement\n- Autonomie, précision et sens des responsabilités\n- Respect des consignes de sécurité sur les chantiers\n- Permis de conduire, un atout\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire",
+      "descriptionByLocale": {
+        "it": "Descrizione del post\nLa vostra agenzia LIP SUISSE SA sta cercando un esperto macchinista che detiene la licenza SUVA M2 per uno dei suoi clienti, per intervenire su un grande sito nel cantone di Ginevra.\nLe vostre missioni\n- Escavatori pneumatici di guida\n- Lavori terrestri, scavi e livellamento\n- Carico e movimentazione dei materiali\n- Manutenzione e controllo della macchina\n- Rispetto delle regole di sicurezza e delle linee guida del sito\n- Collaborazione con i team presenti sul sito\nIl tuo profilo\n- Licenza obbligatoria SUVA M2\n- Esperienza minima di 5 anni come macchinista\n- Esperienza confermata sulla pala gommata\n- Buon controllo della macchina e delle diverse tecniche di movimento terra\n- Autonomia, precisione e senso di responsabilità\n- conformità con le istruzioni di sicurezza del sito\n- Patente di guida, una risorsa\n- Senior Assistant Building M/F\n- @ LIP Svizzera\n- Losanna\nFisso",
+        "en": "Description of post\nYour LIP SUISSE SA agency is looking for an experienced machinist who holds the SUVA M2 licence for one of its customers, to intervene on a large site in the canton of Geneva.\nYour missions\n- Driving tire excavators\n- Earthworks, excavations and levelling\n- Loading and moving of materials\n- Current maintenance and machine control\n- Compliance with safety rules and site guidelines\n- Collaboration with the teams present on the site\nYour profile\n- Compulsory SUVA M2 licence\n- Minimum 5 years experience as a machinist\n- Experience confirmed on tire shovel\n- Good control of the machine and the different earth-moving techniques\n- Autonomy, accuracy and sense of responsibility\n- Compliance with site safety instructions\n- Driver's license, an asset\n- Senior Assistant Building M/F\n- @ LIP Switzerland\n- Lausanne\nFixed",
+        "de": "Beschreibung der Post\nIhre Agentur LIP SUISSE SA sucht einen erfahrenen Maschinisten, der für einen seiner Kunden die SUVA M2-Lizenz besitzt, um auf einem großen Gelände im Kanton Genf einzugreifen.\nIhre Missionen\n- Antrieb von Reifenbaggern\n- Erdarbeiten, Ausgrabungen und Plantagen\n- Beladen und Bewegen von Materialien\n- Aktuelle Wartung und Maschinensteuerung\n- Einhaltung von Sicherheitsvorschriften und Standortrichtlinien\n- Zusammenarbeit mit den auf der Website vorhandenen Teams\nDein Profil\n- Obligatorische SUVA-M2-Lizenz\n- Mindestens 5 Jahre Erfahrung als Maschinist\n- Erfahrung bestätigt auf Reifenschaufel\n- Gute Steuerung der Maschine und der verschiedenen Erdbewegungstechniken\n- Autonomie, Genauigkeit und Verantwortungsbewusstsein\n- Einhaltung der Betriebssicherheitsanweisungen\n- Führerschein, ein Asset\n- Senior Assistant Gebäude M/W\n- @ LIP Schweiz\n- Lausanne\nFestnetz",
+        "fr": "Description du poste\nVotre agence LIP SUISSE SA recherche pour l’un de ses clients un machiniste expérimenté titulaire du permis SUVA M2 , pour intervenir sur un gros chantier dans le canton de Genève.\nVos missions\n- Conduite de pelles à pneus\n- Travaux de terrassement, fouilles et nivellement\n- Chargement et déplacement de matériaux\n- Entretien courant et contrôle de la machine\n- Respect des règles de sécurité et des directives du chantier\n- Collaboration avec les équipes présentes sur le chantier\nVotre profil\n- Permis SUVA M2 obligatoire\n- Minimum 5 ans d’expérience en tant que machiniste\n- Expérience confirmée sur pelle à pneus\n- Bonne maîtrise de la machine et des différentes techniques de terrassement\n- Autonomie, précision et sens des responsabilités\n- Respect des consignes de sécurité sur les chantiers\n- Permis de conduire, un atout\n- Aide monteur fibre optique\n- @ LIP Suisse\n- Genève\nTemporaire"
+      },
+      "location": "Genève",
+      "canton": "GE",
+      "url": "https://www.lipsuisse.ch/offres-emploi/machiniste-m2",
+      "source": "LIP Suisse Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-25T21:45:57.992Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1201",
+      "streetAddress": "Genève",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-20",
+      "postedDate": "2026-11-20",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.lipsuisse.ch/offres-emploi/machiniste-m2",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "machiniste-m2-geneve-lipsuisse-ch-ch",
+        "macchinista-m2-lip-suisse-geneve",
+        "macchinista-m2-lip-suisse-geneve-cd55ce5c94",
+        "machiniste-m2-lip-suisse-geneve"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "machiniste-m2-geneve-lipsuisse-ch-ch",
+          "macchinista-m2-lip-suisse-geneve",
+          "macchinista-m2-lip-suisse-geneve-cd55ce5c94"
+        ],
+        "en": [
+          "machiniste-m2-geneve-lipsuisse-ch-ch"
+        ],
+        "de": [
+          "machiniste-m2-geneve-lipsuisse-ch-ch"
+        ],
+        "fr": [
+          "machiniste-m2-lip-suisse-geneve"
+        ]
+      },
+      "firstSeenAt": "2026-11-14T16:44:54.934Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-18T21:45:57.992Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1948,7 +1948,7 @@
       "url": "https://www.lipsuisse.ch/offres-emploi/serrurier-soudeur",
       "source": "LIP Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:43:39.774Z",
+      "crawledAt": "2026-11-25T21:45:57.991Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1968,10 +1968,11 @@
       "applyUrl": "https://www.lipsuisse.ch/offres-emploi/serrurier-soudeur",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "serrurier-soudeur-geneve-lipsuisse-ch-ch",
+        "serrurier-soudeur-lip-suisse-geneve"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "serrurier-soudeur-lip-suisse-geneve"
-        ],
         "it": [
           "serrurier-soudeur-geneve-lipsuisse-ch-ch"
         ],
@@ -1980,12 +1981,11 @@
         ],
         "de": [
           "serrurier-soudeur-geneve-lipsuisse-ch-ch"
+        ],
+        "fr": [
+          "serrurier-soudeur-lip-suisse-geneve"
         ]
       },
-      "previousSlugs": [
-        "serrurier-soudeur-geneve-lipsuisse-ch-ch",
-        "serrurier-soudeur-lip-suisse-geneve"
-      ],
       "firstSeenAt": "2026-11-24T09:45:17.671Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -2001,7 +2001,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T09:43:39.774Z",
+      "validThrough": "2027-02-22T21:45:57.991Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2035,7 +2035,7 @@
       "url": "https://www.lipsuisse.ch/offres-emploi/aide-monteur-fibre-optique",
       "source": "LIP Suisse Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:43:39.772Z",
+      "crawledAt": "2026-11-25T21:45:57.990Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2055,10 +2055,11 @@
       "applyUrl": "https://www.lipsuisse.ch/offres-emploi/aide-monteur-fibre-optique",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "aide-monteur-fibre-optique-geneve-lipsuisse-ch-ch",
+        "aide-monteur-fibre-optique-lip-suisse-geneve"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "aide-monteur-fibre-optique-lip-suisse-geneve"
-        ],
         "it": [
           "aide-monteur-fibre-optique-geneve-lipsuisse-ch-ch"
         ],
@@ -2067,12 +2068,11 @@
         ],
         "de": [
           "aide-monteur-fibre-optique-geneve-lipsuisse-ch-ch"
+        ],
+        "fr": [
+          "aide-monteur-fibre-optique-lip-suisse-geneve"
         ]
       },
-      "previousSlugs": [
-        "aide-monteur-fibre-optique-geneve-lipsuisse-ch-ch",
-        "aide-monteur-fibre-optique-lip-suisse-geneve"
-      ],
       "firstSeenAt": "2026-11-24T21:47:46.572Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -2088,7 +2088,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T09:43:39.772Z",
+      "validThrough": "2027-02-22T21:45:57.990Z",
       "validThroughSource": "last-observed-window"
     }
   ]
