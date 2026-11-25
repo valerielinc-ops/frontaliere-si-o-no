@@ -851,7 +851,16 @@ function nativeQuestionText(value, counter = null) {
           const matches = node.ownerDocument.querySelectorAll(`[id="${CSS.escape(id)}"]`);
           if (matches.length !== 1) { result.unknown = true; return result; }
           const named = matches[0];
-          const name = captionText(named, element);
+          let name = captionText(named, element);
+          // In SuccessFactors RCM the group explicitly references a heading
+          // whose sole content is the section toggle. Its caption names this
+          // group, unlike a button incidentally embedded in a field label.
+          if (!name && isSuccessFactorsPage() && node.getAttribute('role') === 'group'
+            && /^H[1-4]$/.test(named.tagName) && !node.contains(named)
+            && node.parentElement?.contains(named)) {
+            const toggles = named.querySelectorAll('button, [role="button"]');
+            if (toggles.length === 1 && shown(toggles[0])) name = captionTextWithoutInteractiveControls(toggles[0]);
+          }
           if (!name) { result.unknown = true; return result; }
           if (!addName(name)) return result;
         }
