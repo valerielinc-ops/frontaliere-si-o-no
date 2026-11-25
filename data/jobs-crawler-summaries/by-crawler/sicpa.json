@@ -1,7 +1,7 @@
 {
   "key": "sicpa",
   "label": "SICPA SA",
-  "generatedAt": "2026-11-25T09:28:24.087Z",
+  "generatedAt": "2026-11-25T21:42:24.818Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 9977,
-  "avgDurationMs": 9977,
+  "durationMs": 8843,
+  "avgDurationMs": 8843,
   "durationHistory": [
-    9977
+    8843
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "url": "https://jobs.sicpa.com/job/Chavornay-Apprenti%28e%29-logisticien%28ne%29/1458132733/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:28:00.578Z",
+      "crawledAt": "2026-11-25T21:42:10.011Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -62,7 +62,7 @@
       "salarySource": "estimated",
       "streetAddress": "Chavornay",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T09:28:00.578Z",
+      "validThrough": "2027-02-15T21:42:10.011Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -85,7 +85,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-AI-&-Data-Solution-Expert/1454766333/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T09:27:59.986Z",
+      "crawledAt": "2026-11-25T21:42:09.430Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -122,7 +122,7 @@
       },
       "streetAddress": "Avenue de Florissant 41",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T09:27:59.986Z",
+      "validThrough": "2027-02-03T21:42:09.430Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -145,7 +145,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Apprenti%28e%29-employ%C3%A9%28e%29-de-commerce/1458129633/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:27:59.400Z",
+      "crawledAt": "2026-11-25T21:42:08.872Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -182,7 +182,7 @@
       },
       "streetAddress": "Avenue de Florissant 41",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-15T09:27:59.400Z",
+      "validThrough": "2027-02-15T21:42:08.872Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -205,7 +205,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Senior-Patent-Counsel/1448011633/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T09:27:58.830Z",
+      "crawledAt": "2026-11-25T21:42:08.315Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -242,7 +242,7 @@
       },
       "streetAddress": "Avenue de Florissant 41",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-13T09:27:58.830Z",
+      "validThrough": "2027-01-13T21:42:08.315Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -264,7 +264,7 @@
       "url": "https://jobs.sicpa.com/job/Chavornay-Op%C3%A9rateur-de-logistique-confirm%C3%A9/1400431333/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:27:58.220Z",
+      "crawledAt": "2026-11-25T21:42:07.730Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -287,7 +287,7 @@
       "salarySource": "estimated",
       "streetAddress": "Chavornay",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:27:58.220Z",
+      "validThrough": "2026-12-26T21:42:07.730Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -309,7 +309,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Principal-Software-Engineer-Mobile-SDK-Tooling-&-On%E2%80%91Device-Computer-Vision-%28iOSAndroid%29/1393025833/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T09:27:57.611Z",
+      "crawledAt": "2026-11-25T21:42:07.122Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -346,7 +346,7 @@
       },
       "streetAddress": "Avenue de Florissant 41",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-02T09:27:57.611Z",
+      "validThrough": "2027-01-02T21:42:07.122Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -368,7 +368,7 @@
       "url": "https://jobs.sicpa.com/job/Chavornay-Assistant-Approvisionnement/1459841233/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:27:57.012Z",
+      "crawledAt": "2026-11-25T21:42:06.531Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -391,7 +391,7 @@
       "salarySource": "estimated",
       "streetAddress": "Chavornay",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T09:27:57.012Z",
+      "validThrough": "2027-02-21T21:42:06.531Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -402,5 +402,5 @@
       }
     }
   ],
-  "codeCommit": "55fd511dba5e5c1bd3b4047690c697040c8b6c58"
+  "codeCommit": "0c64b1f2eae0b337b537e356aa5de051b9c4c6cc"
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "zermatt-bergbahnen",
-  "assembledAt": "2026-11-25T09:31:45.609Z",
-  "runId": "45584503469",
+  "assembledAt": "2026-11-25T21:43:19.337Z",
+  "runId": "45703348361",
   "jobs": [
     {
       "id": "zermatt-bergbahnen-4992cc0352fc",
@@ -49,7 +49,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/kuechenchef-kuechenchefin-im-tagesbetrieb_job_5225639",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:31:38.334Z",
+      "crawledAt": "2026-11-25T21:43:13.533Z",
       "previousSlugs": [
         "kuchenchef-kuchenchefin-im-tagesbetrieb-zermatt-zermatt-bergbahnen"
       ],
@@ -89,7 +89,7 @@
       },
       "streetAddress": "Schluhmattstrasse 123",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-04T09:31:38.334Z",
+      "validThrough": "2027-01-03T21:43:13.533Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -138,7 +138,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-metallbauer-in-efz_job_4602024",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:31:37.773Z",
+      "crawledAt": "2026-11-25T21:43:12.908Z",
       "previousSlugs": [
         "lehrstelle-metallbauer-in-efz-zermatt-zermatt-bergbahnen"
       ],
@@ -178,7 +178,7 @@
       },
       "streetAddress": "Schluhmattstrasse 123",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-20T09:31:37.773Z",
+      "validThrough": "2027-02-19T21:43:12.908Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -227,7 +227,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-seilbahnmechatroniker-in-efz_job_3704876",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:31:37.223Z",
+      "crawledAt": "2026-11-25T21:43:12.331Z",
       "previousSlugs": [
         "lehrstelle-seilbahnmechatroniker-in-efz-zermatt-zermatt-bergbahnen",
         "apprendistato-seilbahnmechatroniker-in-cfc-zermatt-bergbahnen-zermatt"
@@ -275,7 +275,7 @@
       },
       "streetAddress": "Schluhmattstrasse 123",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-17T09:31:37.223Z",
+      "validThrough": "2027-02-17T21:43:12.331Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -324,7 +324,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-polymechaniker-in-produktionsmechaniker-in_job_3700464",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:31:36.583Z",
+      "crawledAt": "2026-11-25T21:43:11.748Z",
       "previousSlugs": [
         "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt",
         "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-zermatt-bergbahnen"
@@ -371,7 +371,7 @@
       },
       "streetAddress": "Schluhmattstrasse 123",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-20T09:31:36.583Z",
+      "validThrough": "2027-02-19T21:43:11.748Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -420,7 +420,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/mitarbeitende-r-unterhalt-revision-gletscherlifte_job_3001261",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:31:35.917Z",
+      "crawledAt": "2026-11-25T21:43:11.147Z",
       "requirementsByLocale": {
         "it": [
           "Costituisce titolo preferenziale l'esperienza nella costruzione di funivie o impianti",
@@ -470,142 +470,8 @@
       },
       "streetAddress": "Schluhmattstrasse 123",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-25T09:31:35.917Z",
+      "validThrough": "2026-12-25T21:43:11.147Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "zermatt-bergbahnen-44fe7c8677eb",
-      "slug": "apprendistato-informatiker-in-cfc-zermatt-bergbahnen-zermatt",
-      "slugByLocale": {
-        "it": "apprendistato-informatiker-in-cfc-zermatt-bergbahnen-zermatt",
-        "en": "apprenticeship-computer-scientist-efz-zermatt-bergbahnen-zermatt",
-        "de": "lehrstelle-informatiker-in-efz-zermatt-zermatt-bergbahnen",
-        "fr": "apprentissage-informatique-efz-zermatt-bergbahnen-zermatt"
-      },
-      "company": "Zermatt Bergbahnen",
-      "companyKey": "zermatt-bergbahnen",
-      "companyDomain": "matterhornparadise.ch",
-      "title": "Lehrstelle Informatiker/in EFZ",
-      "titleByLocale": {
-        "it": "Apprendistato in informatica EFZ",
-        "en": "Apprenticeship as a computer scientist EFZ",
-        "de": "Lehrstelle Informatiker/in EFZ",
-        "fr": "Apprentissage en tant qu'informaticienne EFZ"
-      },
-      "description": "Lehrbeginn Juli 2028\n\nWillkommen in der faszinierenden Welt der Zermatt IT AG, einer Tochtergesellschaft der Zermatt Bergbahnen! Die Lehrstelle als Informatiker/in EFZ bietet nicht nur die Möglichkeit, die IT-Infrastruktur eines führenden Bergbahnunternehmens zu gestalten, sondern präsentiert sich als Tor zur Vielfalt digitaler Herausforderungen in der gesamten Destination Zermatt - Matterhorn. Angehende Informatiker/innen übernehmen bei uns eine zentrale Funktion in der Entwicklung, Wartung und Optimierung von IT-Systemen. Diese unterstützen nicht nur die Bergbahnen, sondern auch eine Vielzahl von Kunden in der atemberaubenden Umgebung von Zermatt. Gestalte gemeinsam mit uns die digitale Zukunft in den Zermatter Bergen.\n\nBeginn\n\nSommer 2028\n\n31.03.2028\n\nBewerbungsfrist\n\n4 Jahre\n\nLehrdauer\n\nInformatik\n\nTeam\n\ndas lernst du bei uns\n\nDeine Karriere bei uns\n\n• Du arbeitest an Hard- und Softwareinstallationen und lernst deren Konfiguration und Unterhalt kenne\n\n• Du telefonierst mit unseren Kunden und lernst jedem Computerproblem auf die Schliche zu kommen\n\n• Du setzt deinen ersten Computer und Server zusammen und richtest sie ein\n\n• Du wirst deine ersten Netzwerke mit Switches, Firewalls, Access Points realisieren\n\n• Du bedienst und supportest alle im Betrieb eingesetzten Applikationen\n\nErfahre mehr über die Lehrstelle auf unserer Webseite:\n\nJetzt informieren\n\nWas wir von dir erwarten\n\n• Gute Analysefähigkeit, vernetztes Denken\n\n• Technisches Geschick und Interesse für technologische Trend\n\n• Team- und Kommunikationsfähigkeit\n\n• Geduld und Ausdauer\n\nWas du von uns erwarten kannst\n\n• Wir bieten dir einen Arbeitsplatz, bei dem dir nicht langweilig wird\n\n• Wir versprechen dir eine aktive Zusammenarbeit in einem familiären Arbeitsklime\n\n• Wir nehmen uns Zeit, dir ein umfassendes, theoretisches und praktisches Wissen zu vermitteln",
-      "descriptionByLocale": {
-        "it": "Inizio dell'insegnamento luglio 2028\n\nBenvenuti nell'affascinante mondo di Zermatt IT AG, filiale di Zermatt Bergbahnen! L'apprendistato come scienziato informatico EFZ non solo offre l'opportunità di progettare l'infrastruttura IT di una società ferroviaria di montagna leader, ma si presenta anche come un gateway per la varietà di sfide digitali in tutta la destinazione Zermatt - Matterhorn. Gli aspiranti scienziati informatici assumono una funzione centrale nello sviluppo, nella manutenzione e nell'ottimizzazione dei sistemi IT. Questi non solo sostengono le ferrovie di montagna, ma anche un gran numero di clienti nell'ambiente mozzafiato di Zermatt. Insieme a noi, plasmare il futuro digitale nella Zermatter Bergen.\n\nData di inizio\n\nEstate 2028\n\n31.03.2028\n\nTermine per la presentazione\n\n4 anni\n\nDurata dell'insegnamento\n\nScienza informatica\n\nTeam\n\nimparerai con noi\n\nLa tua carriera con noi\n\n• Lavori su installazioni hardware e software e scopri la loro configurazione e manutenzione\n\n• Si parla con i nostri clienti al telefono e imparare a mettersi in contatto con ogni problema del computer\n\n• Hai messo insieme il tuo primo computer e server e configurarli\n\n• Realizzerai le tue prime reti con switch, firewall, punti di accesso\n\n• Servi e supporta tutte le applicazioni utilizzate in azienda\n\nMaggiori informazioni sulla posizione didattica sul nostro sito web:\n\nInformare ora\n\nCosa ci aspettiamo da te\n\n• Buona capacità analitica, pensiero in rete\n\n• Abilità tecnica e interesse per la tendenza tecnologica\n\n• Competenze di team e comunicazione\n\n• Pazienza e perseveranza\n\nCosa puoi aspettarti da noi\n\n• Vi offriamo un posto di lavoro dove non ci si annoia\n\n• Vi promettiamo una collaborazione attiva in un arto di lavoro familiare\n\n• Ci prendiamo il tempo per darvi una conoscenza completa, teorica e pratica",
-        "en": "Start of teaching July 2028\n\nWelcome to the fascinating world of Zermatt IT AG, a subsidiary of Zermatt Bergbahnen! The apprenticeship as a computer scientist EFZ not only offers the opportunity to design the IT infrastructure of a leading mountain railway company, but also presents itself as a gateway to the variety of digital challenges in the entire destination Zermatt - Matterhorn. Aspiring computer scientists assume a central function in the development, maintenance and optimization of IT systems. These not only support the mountain railways, but also a large number of customers in the breathtaking environment of Zermatt. Together with us, shape the digital future in the Zermatter Bergen.\n\nStart date\n\nSummer 2028\n\n31.03.2028\n\nApplication deadline\n\n4 years\n\nTeaching duration\n\nComputer science\n\nTeam\n\nYou will learn with us\n\nYour career with us\n\n• You work on hardware and software installations and learn about their configuration and maintenance\n\n• You talk to our customers on the phone and learn to get to grips with every computer problem\n\n• You put together your first computer and server and set them up\n\n• You will realize your first networks with switches, firewalls, access points\n\n• You serve and support all applications used in the company\n\nLearn more about the teaching position on our website:\n\nInform now\n\nWhat we expect from you\n\n• Good analytical ability, networked thinking\n\n• Technical skill and interest in technological trend\n\n• Team and communication skills\n\n• Patience and perseverance\n\nWhat you can expect from us\n\n• We offer you a workplace where you will not get bored\n\n• We promise you an active cooperation in a family work limb\n\n• We take the time to give you a comprehensive, theoretical and practical knowledge",
-        "de": "Lehrbeginn Juli 2028\n\nWillkommen in der faszinierenden Welt der Zermatt IT AG, einer Tochtergesellschaft der Zermatt Bergbahnen! Die Lehrstelle als Informatiker/in EFZ bietet nicht nur die Möglichkeit, die IT-Infrastruktur eines führenden Bergbahnunternehmens zu gestalten, sondern präsentiert sich als Tor zur Vielfalt digitaler Herausforderungen in der gesamten Destination Zermatt - Matterhorn. Angehende Informatiker/innen übernehmen bei uns eine zentrale Funktion in der Entwicklung, Wartung und Optimierung von IT-Systemen. Diese unterstützen nicht nur die Bergbahnen, sondern auch eine Vielzahl von Kunden in der atemberaubenden Umgebung von Zermatt. Gestalte gemeinsam mit uns die digitale Zukunft in den Zermatter Bergen.\n\nBeginn\n\nSommer 2028\n\n31.03.2028\n\nBewerbungsfrist\n\n4 Jahre\n\nLehrdauer\n\nInformatik\n\nTeam\n\ndas lernst du bei uns\n\nDeine Karriere bei uns\n\n• Du arbeitest an Hard- und Softwareinstallationen und lernst deren Konfiguration und Unterhalt kenne\n\n• Du telefonierst mit unseren Kunden und lernst jedem Computerproblem auf die Schliche zu kommen\n\n• Du setzt deinen ersten Computer und Server zusammen und richtest sie ein\n\n• Du wirst deine ersten Netzwerke mit Switches, Firewalls, Access Points realisieren\n\n• Du bedienst und supportest alle im Betrieb eingesetzten Applikationen\n\nErfahre mehr über die Lehrstelle auf unserer Webseite:\n\nJetzt informieren\n\nWas wir von dir erwarten\n\n• Gute Analysefähigkeit, vernetztes Denken\n\n• Technisches Geschick und Interesse für technologische Trend\n\n• Team- und Kommunikationsfähigkeit\n\n• Geduld und Ausdauer\n\nWas du von uns erwarten kannst\n\n• Wir bieten dir einen Arbeitsplatz, bei dem dir nicht langweilig wird\n\n• Wir versprechen dir eine aktive Zusammenarbeit in einem familiären Arbeitsklime\n\n• Wir nehmen uns Zeit, dir ein umfassendes, theoretisches und praktisches Wissen zu vermitteln",
-        "fr": "Début de l'enseignement Juillet 2028\n\nBienvenue dans le monde fascinant de Zermatt IT AG, filiale de Zermatt Bergbahnen! L'apprentissage en tant qu'informaticien EFZ offre non seulement la possibilité de concevoir l'infrastructure informatique d'une entreprise ferroviaire de montagne de premier plan, mais se présente également comme une passerelle vers la variété des défis numériques dans toute la destination Zermatt - Matterhorn. Les informaticiens aspirants assument une fonction centrale dans le développement, la maintenance et l'optimisation des systèmes informatiques. Ceux-ci soutiennent non seulement les chemins de fer de montagne, mais aussi un grand nombre de clients dans l'environnement à couper le souffle de Zermatt. Avec nous, façonnez l'avenir numérique dans le Zermatter Bergen.\n\nDate de début\n\nÉté 2028\n\n31.03.2028\n\nDate limite de présentation des demandes\n\n4 ans\n\nDurée de l'enseignement\n\nInformatique\n\nÉquipe\n\nTu apprendras avec nous\n\nVotre carrière avec nous\n\n• Vous travaillez sur des installations matérielles et logicielles et découvrez leur configuration et leur maintenance\n\n• Vous parlez à nos clients au téléphone et apprenez à saisir chaque problème informatique\n\n• Vous avez assemblé votre premier ordinateur et serveur et les avez configurés\n\n• Vous réaliserez vos premiers réseaux avec commutateurs, pare-feu, points d'accès\n\n• Vous servez et supportez toutes les applications utilisées dans l'entreprise\n\nEn savoir plus sur le poste d'enseignant sur notre site web:\n\nInformez maintenant\n\nCe que nous attendons de vous\n\n• Bonne capacité d'analyse, pensée en réseau\n\n• Compétences techniques et intérêt pour les tendances technologiques\n\n• Compétences en équipe et en communication\n\n• Patience et persévérance\n\nCe que vous pouvez attendre de nous\n\n• Nous vous offrons un lieu de travail où vous ne vous ennuyerez pas\n\n• Nous vous promettons une coopération active dans un membre du travail familial\n\n• Nous prenons le temps de vous donner une connaissance complète, théorique et pratique"
-      },
-      "location": "Zermatt",
-      "canton": "VS",
-      "addressLocality": "Zermatt",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3920",
-      "category": "technology",
-      "sector": "Turismo / Funivie",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-informatiker-in-efz_job_3706844",
-      "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-informatiker-in-efz_job_3706844",
-      "source": "Zermatt Bergbahnen Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-24T09:33:16.495Z",
-      "requirementsByLocale": {
-        "en": [
-          "Good analytical skills and networked thinking",
-          "Technical aptitude and interest in technological trends",
-          "Team and communication skills",
-          "Patience and perseverance",
-          "Installation, configuration and maintenance of hardware and software",
-          "Customer support and troubleshooting computer issues",
-          "Assembly and setup of computers, servers, networks, switches, firewalls and access points",
-          "Operation and support of all company applications"
-        ],
-        "fr": [
-          "Bonnes capacités d'analyse et pensée en réseau",
-          "Habileté technique et intérêt pour les tendances technologiques",
-          "Capacité à travailler en équipe et à communiquer",
-          "Patience et persévérance",
-          "Installation, configuration et maintenance de hardware et software",
-          "Support client et résolution de problèmes informatiques",
-          "Assemblage et configuration d'ordinateurs, serveurs, réseaux, switches, firewalls et access points",
-          "Utilisation et support de toutes les applications de l'entreprise"
-        ]
-      },
-      "previousSlugs": [
-        "apprendistato-informatiker-in-cfc-zermatt-bergbahnen-zermatt-pplw7q",
-        "apprenticeship-computer-scientist-efz-zermatt-bergbahnen-zermatt",
-        "apprentissage-informatique-efz-zermatt-bergbahnen-zermatt",
-        "it-and-telecommunications-technician-efz-zermatt-bergbahnen-zermatt",
-        "it-and-telecommunications-internship-zermatt-bergbahnen-zermatt",
-        "informatica-zermatt-bergbahnen-zermatt",
-        "computer-scientist-zermatt-bergbahnen-zermatt",
-        "informatiker-in-zermatt-zermatt-bergbahnen",
-        "informatique-zermatt-bergbahnen-zermatt",
-        "informaticien-ne-zermatt-bergbahnen-zermatt",
-        "informatiker-in-zermatt-bergbahnen-zermatt",
-        "lehrstelle-informatiker-in-efz-zermatt-zermatt-bergbahnen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "apprendistato-informatiker-in-cfc-zermatt-bergbahnen-zermatt-pplw7q",
-          "apprenticeship-computer-scientist-efz-zermatt-bergbahnen-zermatt",
-          "apprentissage-informatique-efz-zermatt-bergbahnen-zermatt",
-          "it-and-telecommunications-technician-efz-zermatt-bergbahnen-zermatt",
-          "it-and-telecommunications-internship-zermatt-bergbahnen-zermatt",
-          "informatica-zermatt-bergbahnen-zermatt",
-          "computer-scientist-zermatt-bergbahnen-zermatt",
-          "informatiker-in-zermatt-zermatt-bergbahnen",
-          "informatique-zermatt-bergbahnen-zermatt",
-          "informaticien-ne-zermatt-bergbahnen-zermatt",
-          "informatiker-in-zermatt-bergbahnen-zermatt",
-          "lehrstelle-informatiker-in-efz-zermatt-zermatt-bergbahnen"
-        ]
-      },
-      "firstSeenAt": "2026-08-27T00:53:04.281Z",
-      "salaryMin": 57000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57000,
-          "maxValue": 97000,
-          "unitText": "YEAR"
-        }
-      },
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Zermatt Bergbahnen",
-        "streetAddress": "Schluhmattstrasse 123",
-        "postalCode": "3920",
-        "registeredName": "Zermatt Bergbahnen AG",
-        "matchType": "exact",
-        "streetAddressSource": "zefix-registry",
-        "jobPostalCode": "3920",
-        "addressLocality": "Zermatt",
-        "addressRegion": "VS",
-        "checkedAt": "2026-11-16T15:23:08.822Z"
-      },
-      "streetAddress": "Schluhmattstrasse 123",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-24T09:33:16.495Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
     }
   ]
 }
