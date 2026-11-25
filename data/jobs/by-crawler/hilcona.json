@@ -532,7 +532,6 @@
           "mitarbeiter-mitarbeiterin-fuer-die-qualitaetssicherung-produktmanagement-hilcona-schlieren"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-05T21:25:59.662Z",
       "salaryMin": 76000,
       "salaryMax": 102500,
@@ -552,8 +551,7 @@
       "streetAddress": "Schlieren",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:25:45.331Z",
-      "validThroughSource": "last-observed-window",
-      "retranslationAttempts": 1
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hilcona-3f05dcfdb106",
@@ -697,7 +695,6 @@
           "mitarbeiter-mitarbeiterin-gebaeudeunterhalt-und-technik-hlkk-bell-schweiz-ag-oensingen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-02T09:26:56.215Z",
       "salaryMin": 71000,
       "salaryMax": 95500,
@@ -717,8 +714,7 @@
       "streetAddress": "Oensingen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:25:43.667Z",
-      "validThroughSource": "last-observed-window",
-      "retranslationAttempts": 1
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hilcona-86e5430d36ee",

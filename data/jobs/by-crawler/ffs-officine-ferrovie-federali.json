@@ -751,7 +751,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:33:48.862Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-fed9394dc62c",
@@ -1829,7 +1830,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:33:49.735Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-beb64dd74712",
@@ -1895,7 +1897,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:33:49.763Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-c511144680b8",
@@ -2209,7 +2212,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:33:50.155Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-ac74818af417",
