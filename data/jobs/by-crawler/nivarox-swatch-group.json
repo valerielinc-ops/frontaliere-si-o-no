@@ -1,7 +1,7 @@
 {
   "crawlerKey": "nivarox-swatch-group",
-  "assembledAt": "2026-11-24T21:23:59.718Z",
-  "runId": "45487817100",
+  "assembledAt": "2026-11-25T09:24:47.633Z",
+  "runId": "45582439223",
   "jobs": [
     {
       "id": "company-7ucpag",
@@ -94,7 +94,8 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-05T21:23:06.116Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.swatchgroup.com/fr/job/34451"
+      "sourceIdentity": "url:https://www.swatchgroup.com/fr/job/34451",
+      "crawlerMissStreak": 1
     },
     {
       "id": "company-7ucolh",
@@ -188,7 +189,7 @@
       "validThrough": "2027-01-02T21:33:20.467Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.swatchgroup.com/fr/job/34371",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "company-7ucokr",
@@ -282,7 +283,7 @@
       "validThrough": "2027-02-16T21:33:20.467Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.swatchgroup.com/fr/job/34366",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

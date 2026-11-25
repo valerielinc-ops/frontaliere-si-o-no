@@ -1,7 +1,7 @@
 {
   "crawlerKey": "modellstation-somosa",
-  "assembledAt": "2026-11-24T21:15:04.390Z",
-  "runId": "45487817100",
+  "assembledAt": "2026-11-25T09:16:51.470Z",
+  "runId": "45582439223",
   "jobs": [
     {
       "id": "modellstation-somosa-d93e007bb54a",
@@ -34,7 +34,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/fachperson-medienwerkstatt-80",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:14:57.111Z",
+      "crawledAt": "2026-11-25T09:16:42.976Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T21:14:57.111Z",
+      "validThrough": "2027-01-21T09:16:42.976Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -117,7 +117,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/sozialpaedagogen-sozialpaedagoginnen-wg-a-80",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:14:56.591Z",
+      "crawledAt": "2026-11-25T09:16:42.440Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -166,7 +166,7 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:14:56.591Z",
+      "validThrough": "2027-01-25T09:16:42.440Z",
       "validThroughSource": "last-observed-window"
     }
   ]
