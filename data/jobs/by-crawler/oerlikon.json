@@ -1,7 +1,7 @@
 {
   "crawlerKey": "oerlikon",
-  "assembledAt": "2026-11-25T09:34:35.474Z",
-  "runId": "45585186167",
+  "assembledAt": "2026-11-25T21:53:38.471Z",
+  "runId": "45704013253",
   "jobs": [
     {
       "id": "oerlikon-70e9507b0b14",
@@ -34,7 +34,7 @@
       "url": "https://careers.oerlikon.com/job/Marketing-Specialist/105306-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-25T09:33:54.960Z",
+      "crawledAt": "2026-11-25T21:53:30.169Z",
       "addressLocality": "Mendrisio, TI",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -77,7 +77,7 @@
       },
       "streetAddress": "Mendrisio, TI",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:33:54.960Z",
+      "validThrough": "2027-02-07T21:53:30.169Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -111,7 +111,7 @@
       "url": "https://careers.oerlikon.com/job/Project-Manager-%28gn%29/104915-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:33:54.378Z",
+      "crawledAt": "2026-11-25T21:53:29.484Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -130,7 +130,9 @@
       "applyUrl": "https://careers.oerlikon.com/job/Project-Manager-%28gn%29/104915-en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-11-24T21:44:16.456Z",
+      "previousSlugs": [
+        "project-manager-gn-oerlikon-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "project-manager-gn-oerlikon-ch"
@@ -142,9 +144,7 @@
           "project-manager-gn-oerlikon-ch"
         ]
       },
-      "previousSlugs": [
-        "project-manager-gn-oerlikon-ch"
-      ],
+      "firstSeenAt": "2026-11-24T21:44:16.456Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -160,7 +160,7 @@
       },
       "streetAddress": "Wohlen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T09:33:54.378Z",
+      "validThrough": "2027-02-22T21:53:29.484Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -194,7 +194,7 @@
       "url": "https://careers.oerlikon.com/job/Konstruktionsingenieur-%28gn%29/104466-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:33:53.847Z",
+      "crawledAt": "2026-11-25T21:53:28.813Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -248,7 +248,7 @@
       },
       "streetAddress": "Wohlen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-20T09:33:53.847Z",
+      "validThrough": "2027-02-19T21:53:28.813Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -282,7 +282,7 @@
       "url": "https://careers.oerlikon.com/job/Automatiker-%28gn%29-im-Anlagenbau/103438-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:33:53.301Z",
+      "crawledAt": "2026-11-25T21:53:28.099Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -332,7 +332,7 @@
       },
       "streetAddress": "Wohlen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T09:33:53.301Z",
+      "validThrough": "2026-12-25T21:53:28.099Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -366,7 +366,7 @@
       "url": "https://careers.oerlikon.com/job/Team-Lead-Electrical-Engineering-%28gn%29/105195-en_US",
       "source": "Oerlikon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:33:52.733Z",
+      "crawledAt": "2026-11-25T21:53:27.406Z",
       "addressLocality": "Wohlen",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -415,7 +415,258 @@
       },
       "streetAddress": "Wohlen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-29T09:33:52.733Z",
+      "validThrough": "2027-01-29T21:53:27.406Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "oerlikon-a72a73319303",
+      "slug": "tecnico-di-servizio-gn-oerlikon-wohlen",
+      "slugByLocale": {
+        "it": "tecnico-di-servizio-gn-oerlikon-wohlen",
+        "en": "service-technician-gn-oerlikon-wohlen",
+        "de": "servicetechniker-gn-oerlikon-ch",
+        "fr": "technicien-des-services-gn-oerlikon-wohlen"
+      },
+      "company": "Oerlikon",
+      "companyKey": "oerlikon",
+      "companyDomain": "oerlikon.com",
+      "title": "Servicetechniker (gn)",
+      "titleByLocale": {
+        "it": "Tecnico di servizio (gn)",
+        "en": "Service technician (gn)",
+        "de": "Servicetechniker (gn)",
+        "fr": "Technicien des services (gn)"
+      },
+      "description": "Willst Du etwas bewegen und hast Du Spass an Auslandseinsätzen weltweit (ca. 60%). Dann bist Du bei uns richtig!\n\nServicetechniker (gn)\n\nDein Aufgabenbereich\n\n• Du bist für die weltweite Installation und Inbetriebnahme von thermischen Beschichtungssystemen verantwortlich (Einsatzdauer ca. 4-6 Wochen). Dabei arbeitest Du sehr eng mit unserem Kunden zusammen\n\n• Du bist verantwortlich für interne Abnahmen von Beschichtungssystemen\n\n• Du führst Service-, Kalibrier- und Wartungsarbeiten an thermischen Beschichtungsanlagen durch, sowie Umbauten und Aufrüstungen\n\n• Du erstellst einfache Rapporte von deinen Einsätzen\n\n• Du gibst Schulungen und berätst die Kunden und Bediener vor Ort\n\n• Du unterstützt bei Innovationsprojekten\n\nDein Profil\n\n• Du hast eine abgeschlossene Ausbildung als Elektrotechniker, Mechatroniker oder Automatiker (gn), sowie Erfahrung im Anlagenbau mit Steuerungs-/Regeltechnik und vorzugsweise erste Robotik Kenntnisse\n\n• Du zeigst Interesse an einer Herausforderung, die einen breiten technischen Hintergrund sowie Einfallsreichtum und Flexibilität fordern\n\n• Der Kunde steht für Dich an erster Stelle und Du setzt alles daran im Team Projekte erfolgreich umzusetzen\n\n• Du fühlst Dich wohl in Deutsch und Englisch, um mit internationalen Kunden zu kommunizieren\n\nDas kannst du von uns erwarten\n\n• Ein sehr aufregendes, spannendes, internationales Arbeitsumfeld im High-Tech-Bereich\n\n• Du kannst dich persönlich und beruflich weiterentwickeln\n\n• Anfang 2027 wird Oerlikon Metco nach Hausen (AG) umziehen – ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung wartet auf uns\n\n• Wir sind offen und ehrlich im Umgang miteinander\n\n• Wir sind ein Team dass Dich stets unterstützt\n\n• Wir bieten fortschrittliche Anstellungsbedingungen, ein attraktives Vergütungspaket, mit guten Sozialleistungen\n\n• Über die Pensionskasse bieten wir Dir eine gut ausgebaute Altersvorsorge\n\nFühlst Du dich angesprochen? Dann sind wir neugierig darauf, Dich kennen zu lernen! Bewirb Dich sich bitte online über unsere Career-Seite www.oerlikon.com/career\n\nÜber Oerlikon\n\nOerlikon ist weltweit führend in Material Science Engineering. Mit der richtigen Kombination aus Oberflächentechnologien, Advanced Materials, Beschichtungsanlagen, Komponenten und Advanced Manufacturing helfen wir Kunden, die Leistung, Effizienz, Langlebigkeit und Nachhaltigkeit ihrer Produkte und Prozesse zu verbessern. Unsere Technologien sind für Endnutzer oft unsichtbar, aber geschäftskritisch für die Branchen, die das moderne Leben ermöglichen: Luft- und Raumfahrt, Energie, Halbleiter, Medizintechnik, Luxusgüter, Werkzeugindustrie, Automobilindustrie und allgemeine Industrie. Oerlikon hat seinen Hauptsitz in Pfäffikon, Schweiz, ist in 38 Ländern tätig und beschäftigt weltweit rund 10.000 Mitarbeitende. Im Jahr 2025 erzielte Oerlikon einen Umsatz von CHF 1,6 Milliarden.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\n LinkedIn  |  Instagram  |  YouTube\n\nwww.oerlikon.com",
+      "descriptionByLocale": {
+        "it": "Se vuoi fare la differenza e ti diverti in missioni all'estero in tutto il mondo (circa il 60%). Allora hai ragione con noi!\n\nTecnico di servizio (gn)\n\nLe tue responsabilità\n\n• Sei responsabile per l'installazione e la messa in servizio in tutto il mondo di sistemi di rivestimento termico (tempo d'uso circa 4-6 settimane). Lavori molto a stretto contatto con il nostro cliente\n\n• Sei responsabile dell'accettazione interna dei sistemi di rivestimento\n\n• Effettuate lavori di assistenza, taratura e manutenzione sugli impianti di rivestimento termico, nonché conversioni e aggiornamenti\n\n• Crea semplici rapporti delle tue scommesse\n\n• Si dà formazione e consiglia i clienti e gli operatori sul posto\n\n• Supporti progetti di innovazione\n\nIl tuo profilo\n\n• Hai completato la formazione come ingegnere elettrico, ingegnere meccatronico o ingegnere automatico (gn), così come l'esperienza in ingegneria vegetale con tecnologia di controllo / controllo e preferibilmente la conoscenza robotica iniziale\n\n• Si mostra interesse per una sfida che richiede un ampio background tecnico, ingenuità e flessibilità\n\n• Il cliente è la vostra prima priorità e fate tutto nel vostro team per implementare con successo progetti\n\n• Ti senti comoda in tedesco e inglese per comunicare con i clienti internazionali\n\nSi può aspettare che da noi\n\n• Un ambiente di lavoro internazionale molto emozionante, emozionante nel settore high-tech\n\n• Si può sviluppare personalmente e professionalmente\n\n• All'inizio del 2027 Oerlikon Metco si trasferirà ad Hausen (AG) – un moderno centro di produzione e tecnologia per il rivestimento termico ci aspetta\n\n• Siamo aperti e onesti l'uno con l'altro\n\n• Siamo una squadra che ti supporta sempre\n\n• Offriamo condizioni di lavoro avanzate, un pacchetto di compensazione attraente, con buoni benefici sociali\n\n• Attraverso il fondo pensione vi offriamo una pensione ben sviluppata\n\nTi senti indirizzato? Allora siamo curiosi di conoscerti! Si prega di applicare online tramite la nostra pagina Carriera www.oerlikon.com/career\n\nInformazioni su Oerlikon\n\nOerlikon è un leader globale nell'ingegneria delle scienze materiali. Con la giusta combinazione di tecnologie di superficie, materiali avanzati, attrezzature di rivestimento, componenti e produzione avanzata, aiutiamo i clienti a migliorare le prestazioni, l'efficienza, la durata e la sostenibilità dei loro prodotti e processi. Le nostre tecnologie sono spesso invisibili agli utenti finali, ma critiche al business delle industrie che rendono possibile la vita moderna: aerospaziale, energia, semiconduttori, tecnologia medica, beni di lusso, industria degli strumenti, industria automobilistica e industria generale. Oerlikon ha sede a Pfäffikon, Svizzera, opera in 38 paesi e impiega circa 10.000 persone in tutto il mondo. Nel 2025, Oerlikon ha generato vendite di CHF 1,6 miliardi.\n\nOffriamo una vasta gamma di profili di attività in un ambiente dinamico e di supporto in cui le persone sono abilitate a crescere e raggiungere il loro pieno potenziale, guidato dai nostri valori fondamentali di integrità, spirito di squadra, eccellenza e innovazione.\n\nSegui Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
+        "en": "If you want to make a difference and you have fun on missions abroad worldwide (about 60%). Then you are right with us!\n\nService technician (gn)\n\nYour responsibilities\n\n• You are responsible for the worldwide installation and commissioning of thermal coating systems (use time approximately 4-6 weeks). You work very closely with our customer\n\n• You are responsible for internal acceptance of coating systems\n\n• You carry out service, calibration and maintenance work on thermal coating plants, as well as conversions and upgrades\n\n• You create simple rapports of your bets\n\n• You give training and advise the customers and operators on site\n\n• You support innovation projects\n\nYour profile\n\n• You have completed training as an electrical engineer, mechatronics engineer or automatic engineer (gn), as well as experience in plant engineering with control/control technology and preferably initial robotics knowledge\n\n• You show interest in a challenge that requires a broad technical background, ingenuity and flexibility\n\n• The customer is your first priority and you do everything in your team to successfully implement projects\n\n• You feel Get comfortable in German and English to communicate with international customers\n\nYou can expect that from us\n\n• A very exciting, exciting, international working environment in the high-tech sector\n\n• You can develop personally and professionally\n\n• At the beginning of 2027 Oerlikon Metco will move to Hausen (AG) – a modern production and technology centre for thermal coating is waiting for us\n\n• We are open and honest with each other\n\n• We are a team that always supports you\n\n• We offer advanced employment conditions, an attractive compensation package, with good social benefits\n\n• Through the pension fund we offer you a well-developed pension provision\n\nDo you feel addressed? Then we are curious to meet you! Please apply online via our Career page www.oerlikon.com/career\n\nAbout Oerlikon\n\nOerlikon is a global leader in material science engineering. With the right combination of surface technologies, advanced materials, coating equipment, components and advanced manufacturing, we help customers improve the performance, efficiency, durability and sustainability of their products and processes. Our technologies are often invisible to end users, but critical to the business of the industries that make modern life possible: aerospace, energy, semiconductors, medical technology, luxury goods, tool industry, automotive industry and general industry. Oerlikon is headquartered in Pfäffikon, Switzerland, operates in 38 countries and employs around 10,000 people worldwide. In 2025, Oerlikon generated sales of CHF 1.6 billion.\n\nWe offer a wide variety of activity profiles in a dynamic, supportive environment where people are empowered to grow and reach their full potential, guided by our core values of integrity, team spirit, excellence and innovation.\n\nFollow Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
+        "de": "Willst Du etwas bewegen und hast Du Spass an Auslandseinsätzen weltweit (ca. 60%). Dann bist Du bei uns richtig!\n\nServicetechniker (gn)\n\nDein Aufgabenbereich\n\n• Du bist für die weltweite Installation und Inbetriebnahme von thermischen Beschichtungssystemen verantwortlich (Einsatzdauer ca. 4-6 Wochen). Dabei arbeitest Du sehr eng mit unserem Kunden zusammen\n\n• Du bist verantwortlich für interne Abnahmen von Beschichtungssystemen\n\n• Du führst Service-, Kalibrier- und Wartungsarbeiten an thermischen Beschichtungsanlagen durch, sowie Umbauten und Aufrüstungen\n\n• Du erstellst einfache Rapporte von deinen Einsätzen\n\n• Du gibst Schulungen und berätst die Kunden und Bediener vor Ort\n\n• Du unterstützt bei Innovationsprojekten\n\nDein Profil\n\n• Du hast eine abgeschlossene Ausbildung als Elektrotechniker, Mechatroniker oder Automatiker (gn), sowie Erfahrung im Anlagenbau mit Steuerungs-/Regeltechnik und vorzugsweise erste Robotik Kenntnisse\n\n• Du zeigst Interesse an einer Herausforderung, die einen breiten technischen Hintergrund sowie Einfallsreichtum und Flexibilität fordern\n\n• Der Kunde steht für Dich an erster Stelle und Du setzt alles daran im Team Projekte erfolgreich umzusetzen\n\n• Du fühlst Dich wohl in Deutsch und Englisch, um mit internationalen Kunden zu kommunizieren\n\nDas kannst du von uns erwarten\n\n• Ein sehr aufregendes, spannendes, internationales Arbeitsumfeld im High-Tech-Bereich\n\n• Du kannst dich persönlich und beruflich weiterentwickeln\n\n• Anfang 2027 wird Oerlikon Metco nach Hausen (AG) umziehen – ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung wartet auf uns\n\n• Wir sind offen und ehrlich im Umgang miteinander\n\n• Wir sind ein Team dass Dich stets unterstützt\n\n• Wir bieten fortschrittliche Anstellungsbedingungen, ein attraktives Vergütungspaket, mit guten Sozialleistungen\n\n• Über die Pensionskasse bieten wir Dir eine gut ausgebaute Altersvorsorge\n\nFühlst Du dich angesprochen? Dann sind wir neugierig darauf, Dich kennen zu lernen! Bewirb Dich sich bitte online über unsere Career-Seite www.oerlikon.com/career\n\nÜber Oerlikon\n\nOerlikon ist weltweit führend in Material Science Engineering. Mit der richtigen Kombination aus Oberflächentechnologien, Advanced Materials, Beschichtungsanlagen, Komponenten und Advanced Manufacturing helfen wir Kunden, die Leistung, Effizienz, Langlebigkeit und Nachhaltigkeit ihrer Produkte und Prozesse zu verbessern. Unsere Technologien sind für Endnutzer oft unsichtbar, aber geschäftskritisch für die Branchen, die das moderne Leben ermöglichen: Luft- und Raumfahrt, Energie, Halbleiter, Medizintechnik, Luxusgüter, Werkzeugindustrie, Automobilindustrie und allgemeine Industrie. Oerlikon hat seinen Hauptsitz in Pfäffikon, Schweiz, ist in 38 Ländern tätig und beschäftigt weltweit rund 10.000 Mitarbeitende. Im Jahr 2025 erzielte Oerlikon einen Umsatz von CHF 1,6 Milliarden.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
+        "fr": "Si vous voulez faire une différence et que vous vous amusez dans des missions à l'étranger (environ 60%). Alors tu as raison avec nous !\n\nTechnicien des services (gn)\n\nVos responsabilités\n\n• Vous êtes responsable de l'installation et de la mise en service de systèmes de revêtement thermique dans le monde entier (utilisation d'environ 4-6 semaines). Vous travaillez en étroite collaboration avec notre client\n\n• Vous êtes responsable de l'acceptation interne des systèmes de revêtement\n\n• Vous effectuez des travaux de service, d'étalonnage et d'entretien sur les installations de revêtement thermique, ainsi que des conversions et des mises à niveau\n\n• Vous créez des rapports simples de vos paris\n\n• Vous formez et conseillez les clients et opérateurs sur place\n\n• Vous soutenez des projets d'innovation\n\nVotre profil\n\n• Vous avez suivi une formation d'ingénieur électricien, d'ingénieur mécatronique ou d'ingénieur automatique (gn), ainsi qu'une expérience en ingénierie d'usine avec des technologies de contrôle et de robotique de préférence initiale\n\n• Vous manifestez de l'intérêt pour un défi qui nécessite un vaste contexte technique, l'ingéniosité et la flexibilité\n\n• Le client est votre première priorité et vous faites tout dans votre équipe pour mettre en œuvre avec succès des projets\n\n• Vous vous sentez à l'aise en allemand et en anglais pour communiquer avec des clients internationaux\n\nVous pouvez attendre ça de nous.\n\n• Un environnement de travail international très excitant dans le secteur de la haute technologie\n\n• Vous pouvez développer personnellement et professionnellement\n\n• Au début de 2027, Oerlikon Metco déménage à Hausen (AG) – un centre de production et de technologie moderne pour le revêtement thermique nous attend\n\n• Nous sommes ouverts et honnêtes les uns avec les autres\n\n• Nous sommes une équipe qui vous soutient toujours\n\n• Nous offrons des conditions d'emploi avancées, une rémunération attrayante, avec de bons avantages sociaux\n\n• Par l'intermédiaire de la caisse de retraite, nous vous offrons une pension bien développée\n\nVous sentez-vous adressé ? Alors nous sommes curieux de vous rencontrer ! Veuillez postuler en ligne sur notre page Carrière www.oerlikon.com/career\n\nÀ propos d'Oerlikon\n\nOerlikon est un leader mondial en ingénierie des sciences des matériaux. Avec la bonne combinaison de technologies de surface, matériaux avancés, équipement de revêtement, composants et fabrication avancée, nous aidons les clients à améliorer la performance, l'efficacité, la durabilité et la durabilité de leurs produits et procédés. Nos technologies sont souvent invisibles pour les utilisateurs finaux, mais critiques pour les entreprises des industries qui rendent la vie moderne possible: aérospatiale, énergie, semi-conducteurs, technologie médicale, produits de luxe, industrie des outils, industrie automobile et industrie générale. Oerlikon a son siège social à Pfäffikon, en Suisse, opère dans 38 pays et emploie environ 10 000 personnes dans le monde. En 2025, Oerlikon a généré des ventes de 1,6 milliard de francs suisses.\n\nNous offrons une grande variété de profils d'activités dans un environnement dynamique et favorable où les gens sont habilités à croître et à réaliser leur plein potentiel, guidés par nos valeurs fondamentales d'intégrité, d'esprit d'équipe, d'excellence et d'innovation.\n\nSuivez Oerlikon :\nInstagram YouTube\n\nLe site www.oerlikon.com"
+      },
+      "location": "Wohlen",
+      "canton": "AG",
+      "url": "https://careers.oerlikon.com/job/Servicetechniker-%28gn%29/104661-en_US",
+      "source": "Oerlikon Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-25T21:53:26.705Z",
+      "addressLocality": "Wohlen",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5610",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Tecnologia / Ingegneria di superficie",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://careers.oerlikon.com/job/Servicetechniker-%28gn%29/104661-en_US",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "servicetechniker-gn-oerlikon-ch",
+        "servicetechniker-gn-oerlikon-wohlen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "servicetechniker-gn-oerlikon-ch",
+          "servicetechniker-gn-oerlikon-wohlen"
+        ],
+        "en": [
+          "servicetechniker-gn-oerlikon-wohlen"
+        ],
+        "de": [
+          "servicetechniker-gn-oerlikon-wohlen"
+        ],
+        "fr": [
+          "servicetechniker-gn-oerlikon-wohlen"
+        ]
+      },
+      "firstSeenAt": "2026-11-10T21:46:25.984Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Wohlen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-08T21:53:26.705Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "oerlikon-36b0a730fba6",
+      "slug": "project-contract-manager-gn-oerlikon-wohlen",
+      "slugByLocale": {
+        "it": "project-contract-manager-gn-oerlikon-wohlen",
+        "en": "project-contract-manager-gn-oerlikon-ch",
+        "de": "project-contract-manager-gn-oerlikon-ch",
+        "fr": "gestionnaire-de-contrat-de-projet-gn-oerlikon-wohlen"
+      },
+      "company": "Oerlikon",
+      "companyKey": "oerlikon",
+      "companyDomain": "oerlikon.com",
+      "title": "Project Contract Manager (gn)",
+      "titleByLocale": {
+        "it": "Responsabile dei contratti di progetto (gn)",
+        "en": "Project Contract Manager (GM)",
+        "de": "Project Contract Manager (gn)",
+        "fr": "Responsable des contrats de projet (gn)"
+      },
+      "description": "Project Contract Manager (gn)\n\nIhre Aufgaben\n\nIn dieser vielseitigen Funktion übernehmen Sie sowohl die operative Leitung internationaler Kundenprojekte als auch das vertragliche Management über den gesamten Projektlebenszyklus. Sie agieren als zentrale Schnittstelle zwischen Kunden, Lieferanten, internen Fachabteilungen sowie externen Partnern und tragen die Verantwortung für den erfolgreichen Projektverlauf aus technischer, kommerzieller und vertraglicher Sicht.\n\nProjektmanagement\n\n• Führung und Abwicklung internationaler Kundenprojekte in den Bereichen Aero, Automotive, IGT (Industrial Gas Turbine) und Medical\n\n• Gesamtverantwortung für Qualität, Kosten und Termine der zugewiesenen Projekte\n\n• Ansprechpartner für Kunden während der gesamten Projektabwicklung vom Auftragseingang bis zur Übergabe an die Serviceorganisation\n\n• Koordination interner Fachstellen, Lieferanten und Drittanbieter\n\n• Sicherstellung einer vollständigen und nachvollziehbaren Projektdokumentation\n\nVertragsmanagement\n\n• Sicherstellung der Einhaltung vertraglicher Verpflichtungen, Termine und Meilensteine\n\n• Beratung und Unterstützung der Projektleiter bei vertraglichen Fragestellungen\n\n• Früherkennung, Bewertung und Minimierung vertraglicher Risiken\n\n• Sicherstellung der Einhaltung interner Richtlinien, Compliance-Vorgaben und gesetzlicher Anforderungen\n\nIhr Profil\n\n• Abgeschlossenes Studium in Maschinenbau, Verfahrenstechnik, Energietechnik, Betriebswirtschaft, Wirtschaftsrecht oder vergleichbare Ausbildung\n\n• Mehrjährige Erfahrung im internationalen Projektmanagement und/oder Vertragsmanagement\n\n• Erfahrung in technischen, organisatorischen und kommerziellen Fragestellungen\n\n• Ausgeprägte Kommunikations-, Verhandlungs- und Durchsetzungsfähigkeit\n\n• Strukturierte, selbstständige und lösungsorientierte Arbeitsweise\n\n• Idealerweise Weiterbildung im Projektmanagement (z.B. IPMA Level C)\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift, Französisch von Vorteil\n\nWir bieten\n\n• Attraktives Vergütungspaket mit guten Sozialleistungen\n\n• Ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung ab 2027 in Hausen (AG)\n\n• Abwechslungsreiche Tätigkeit in einem international ausgerichteten Unternehmen im Hightech-Bereich\n\n• Offene Unternehmenskultur und ein freundliches, aufgeschlossenen Team\n\n• Perspektiven zur persönlichen und fachlichen Weiterentwicklung\n\n• Eigenverantwortliches Arbeiten in einem attraktiven Arbeitsumfeld\n\nFühlen Sie sich angesprochen? Dann sind wir neugierig darauf, Sie kennen zu lernen!\n\nBewerben Sie sich bitte online über unsere Career-Seite www.oerlikon.com/career\n\nFür diese Vakanz können Bewerbungen von Personalvermittlungen nicht berücksichtigt werden. Vielen Dank für Ihr Verständnis.\n\nÜber Oerlikon\n\nOerlikon ist weltweit führend in Material Science Engineering. Mit der richtigen Kombination aus Oberflächentechnologien, Advanced Materials, Beschichtungsanlagen, Komponenten und Advanced Manufacturing helfen wir Kunden, die Leistung, Effizienz, Langlebigkeit und Nachhaltigkeit ihrer Produkte und Prozesse zu verbessern. Unsere Technologien sind für Endnutzer oft unsichtbar, aber geschäftskritisch für die Branchen, die das moderne Leben ermöglichen: Luft- und Raumfahrt, Energie, Halbleiter, Medizintechnik, Luxusgüter, Werkzeugindustrie, Automobilindustrie und allgemeine Industrie. Oerlikon hat seinen Hauptsitz in Pfäffikon, Schweiz, ist in 38 Ländern tätig und beschäftigt weltweit rund 10.000 Mitarbeitende. Im Jahr 2025 erzielte Oerlikon einen Umsatz von CHF 1,6 Milliarden.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\n LinkedIn  |  Instagram  |  YouTube\n\nwww.oerlikon.com",
+      "descriptionByLocale": {
+        "it": "Responsabile di progetto e contratti (gn)\n\nLe vostre mansioni\n\nIn questa versatile funzione, assumete sia la direzione operativa di progetti internazionali per clienti sia la gestione contrattuale durante l'intero ciclo di vita del progetto. Agite da interfaccia centrale tra clienti, fornitori, reparti specialistici interni e partner esterni e siete responsabili del buon esito del progetto dal punto di vista tecnico, commerciale e contrattuale.\n\nGestione dei progetti\n\n- Conduzione e gestione di progetti internazionali per clienti nei settori Aero, Automotive, IGT (Industrial Gas Turbine) e Medical\n- Responsabilità complessiva per qualità, costi e scadenze dei progetti assegnati\n- Referente per i clienti durante l'intera gestione del progetto, dalla ricezione dell'ordine fino al trasferimento all'organizzazione di assistenza\n- Coordinamento dei reparti specialistici interni, dei fornitori e dei fornitori terzi\n- Garanzia di una documentazione completa e tracciabile del progetto\n\nGestione dei contratti\n\n- Garanzia del rispetto degli obblighi contrattuali, delle scadenze e delle milestone\n- Consulenza e supporto ai responsabili di progetto per questioni contrattuali\n- Individuazione precoce, valutazione e minimizzazione dei rischi contrattuali\n- Garanzia del rispetto delle direttive interne, dei requisiti di compliance e delle disposizioni di legge\n\nIl vostro profilo\n\n- Laurea in ingegneria meccanica, ingegneria dei processi, ingegneria energetica, economia aziendale, diritto economico o formazione equivalente\n- Esperienza pluriennale nella gestione internazionale di progetti e/o nella gestione dei contratti\n- Esperienza in questioni tecniche, organizzative e commerciali\n- Spiccate capacità comunicative, negoziali e di assertività\n- Metodo di lavoro strutturato, autonomo e orientato alle soluzioni\n- Preferibilmente formazione continua nella gestione dei progetti (ad es. IPMA Level C)\n- Ottima conoscenza del tedesco e dell'inglese, sia orale sia scritta; il francese costituisce un vantaggio\n\nOffriamo\n\n- Pacchetto retributivo interessante con buone prestazioni sociali\n- Un moderno centro di produzione e tecnologia per il rivestimento termico a partire dal 2027 a Hausen (AG)\n- Attività variegata in un'azienda orientata al mercato internazionale nel settore high-tech\n- Cultura aziendale aperta e un team cordiale e dalla mentalità aperta\n- Prospettive di crescita personale e professionale\n- Lavoro autonomo in un ambiente di lavoro attraente\n\nContatti\n\nSi riconosce in questa descrizione? In tal caso, saremo lieti di conoscerla!\n\nLa preghiamo di candidarsi online tramite la nostra pagina Career www.oerlikon.com/career\n\nPer questa posizione non saranno prese in considerazione candidature da parte di agenzie di reclutamento. Grazie per la comprensione.\n\nInformazioni su Oerlikon\n\nOerlikon è leader mondiale nell'ingegneria delle scienze dei materiali. Grazie alla giusta combinazione di tecnologie per le superfici, materiali avanzati, impianti di rivestimento, componenti e produzione avanzata, aiutiamo i clienti a migliorare le prestazioni, l'efficienza, la durata e la sostenibilità dei loro prodotti e processi. Le nostre tecnologie sono spesso invisibili agli utenti finali, ma sono essenziali per il business nei settori che rendono possibile la vita moderna: aerospaziale, energia, semiconduttori, tecnologia medicale, beni di lusso, industria degli utensili, industria automobilistica e industria generale. Oerlikon ha sede centrale a Pfäffikon, in Svizzera, opera in 38 paesi e impiega circa 10.000 persone in tutto il mondo. Nel 2025 Oerlikon ha registrato un fatturato di CHF 1,6 miliardi.\n\nOffriamo un'ampia varietà di profili professionali in un ambiente dinamico e di supporto, in cui le persone sono messe nelle condizioni di crescere e sviluppare appieno il proprio potenziale – guidate dai nostri valori fondamentali: integrità, spirito di squadra, eccellenza e innovazione.\n\nSeguite Oerlikon:\nLinkedIn, Instagram, YouTube\n\nwww.oerlikon.com",
+        "en": "Project Contract Manager (gn)\n\nYour responsibilities\n\nIn this versatile role, you will take on both the operational management of international customer projects and contractual management throughout the entire project life cycle. You will act as the central interface between customers, suppliers, internal specialist departments and external partners, and will be responsible for the successful progress of projects from a technical, commercial and contractual perspective.\n\nProject management\n\n- Management and execution of international customer projects in the areas of Aero, Automotive, IGT (Industrial Gas Turbine) and Medical\n- Overall responsibility for the quality, costs and deadlines of assigned projects\n- Point of contact for customers throughout project execution, from receipt of the order to handover to the service organization\n- Coordination of internal specialist departments, suppliers and third-party providers\n- Ensuring complete and traceable project documentation\n\nContract management\n\n- Ensuring compliance with contractual obligations, deadlines and milestones\n- Advising and supporting project managers on contractual matters\n- Early identification, assessment and minimization of contractual risks\n- Ensuring compliance with internal guidelines, compliance requirements and statutory requirements\n\nYour profile\n\n- Completed degree in mechanical engineering, process engineering, energy engineering, business administration, business law or comparable training\n- Several years of experience in international project management and/or contract management\n- Experience with technical, organizational and commercial matters\n- Strong communication, negotiation and assertiveness skills\n- Structured, independent and solution-oriented way of working\n- Ideally, further training in project management (e.g. IPMA Level C)\n- Very good German and English skills, both written and spoken; French an advantage\n\nWe offer\n\n- Attractive compensation package with good social benefits\n- A modern production and technology center for thermal coating in Hausen (AG) from 2027\n- Varied work in an internationally oriented high-tech company\n- Open corporate culture and a friendly, open-minded team\n- Opportunities for personal and professional development\n- Working independently in an attractive work environment\n\nContact\n\nDoes this sound like you? Then we are eager to get to know you!\n\nPlease apply online via our Career page www.oerlikon.com/career\n\nFor this vacancy, applications from recruitment agencies cannot be considered. Thank you for your understanding.\n\nAbout Oerlikon\n\nOerlikon is a global leader in Material Science Engineering. With the right combination of surface technologies, Advanced Materials, coating equipment, components and Advanced Manufacturing, we help customers improve the performance, efficiency, durability and sustainability of their products and processes. Our technologies are often invisible to end users, but business-critical for the industries that enable modern life: aerospace, energy, semiconductors, medical technology, luxury goods, the tool industry, the automotive industry and general industry. Oerlikon is headquartered in Pfäffikon, Switzerland, operates in 38 countries and employs around 10.000 people worldwide. In 2025, Oerlikon generated revenue of CHF 1,6 billion.\n\nWe offer a wide range of roles in a dynamic, supportive environment where people are empowered to grow and reach their full potential – guided by our core values of integrity, team spirit, excellence and innovation.\n\nFollow Oerlikon:\nLinkedIn, Instagram, YouTube\n\nwww.oerlikon.com",
+        "de": "Project Contract Manager (gn)\n\nIhre Aufgaben\n\nIn dieser vielseitigen Funktion übernehmen Sie sowohl die operative Leitung internationaler Kundenprojekte als auch das vertragliche Management über den gesamten Projektlebenszyklus. Sie agieren als zentrale Schnittstelle zwischen Kunden, Lieferanten, internen Fachabteilungen sowie externen Partnern und tragen die Verantwortung für den erfolgreichen Projektverlauf aus technischer, kommerzieller und vertraglicher Sicht.\n\nProjektmanagement\n\n• Führung und Abwicklung internationaler Kundenprojekte in den Bereichen Aero, Automotive, IGT (Industrial Gas Turbine) und Medical\n\n• Gesamtverantwortung für Qualität, Kosten und Termine der zugewiesenen Projekte\n\n• Ansprechpartner für Kunden während der gesamten Projektabwicklung vom Auftragseingang bis zur Übergabe an die Serviceorganisation\n\n• Koordination interner Fachstellen, Lieferanten und Drittanbieter\n\n• Sicherstellung einer vollständigen und nachvollziehbaren Projektdokumentation\n\nVertragsmanagement\n\n• Sicherstellung der Einhaltung vertraglicher Verpflichtungen, Termine und Meilensteine\n\n• Beratung und Unterstützung der Projektleiter bei vertraglichen Fragestellungen\n\n• Früherkennung, Bewertung und Minimierung vertraglicher Risiken\n\n• Sicherstellung der Einhaltung interner Richtlinien, Compliance-Vorgaben und gesetzlicher Anforderungen\n\nIhr Profil\n\n• Abgeschlossenes Studium in Maschinenbau, Verfahrenstechnik, Energietechnik, Betriebswirtschaft, Wirtschaftsrecht oder vergleichbare Ausbildung\n\n• Mehrjährige Erfahrung im internationalen Projektmanagement und/oder Vertragsmanagement\n\n• Erfahrung in technischen, organisatorischen und kommerziellen Fragestellungen\n\n• Ausgeprägte Kommunikations-, Verhandlungs- und Durchsetzungsfähigkeit\n\n• Strukturierte, selbstständige und lösungsorientierte Arbeitsweise\n\n• Idealerweise Weiterbildung im Projektmanagement (z.B. IPMA Level C)\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift, Französisch von Vorteil\n\nWir bieten\n\n• Attraktives Vergütungspaket mit guten Sozialleistungen\n\n• Ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung ab 2027 in Hausen (AG)\n\n• Abwechslungsreiche Tätigkeit in einem international ausgerichteten Unternehmen im Hightech-Bereich\n\n• Offene Unternehmenskultur und ein freundliches, aufgeschlossenen Team\n\n• Perspektiven zur persönlichen und fachlichen Weiterentwicklung\n\n• Eigenverantwortliches Arbeiten in einem attraktiven Arbeitsumfeld\n\nFühlen Sie sich angesprochen? Dann sind wir neugierig darauf, Sie kennen zu lernen!\n\nBewerben Sie sich bitte online über unsere Career-Seite www.oerlikon.com/career\n\nFür diese Vakanz können Bewerbungen von Personalvermittlungen nicht berücksichtigt werden. Vielen Dank für Ihr Verständnis.\n\nÜber Oerlikon\n\nOerlikon ist weltweit führend in Material Science Engineering. Mit der richtigen Kombination aus Oberflächentechnologien, Advanced Materials, Beschichtungsanlagen, Komponenten und Advanced Manufacturing helfen wir Kunden, die Leistung, Effizienz, Langlebigkeit und Nachhaltigkeit ihrer Produkte und Prozesse zu verbessern. Unsere Technologien sind für Endnutzer oft unsichtbar, aber geschäftskritisch für die Branchen, die das moderne Leben ermöglichen: Luft- und Raumfahrt, Energie, Halbleiter, Medizintechnik, Luxusgüter, Werkzeugindustrie, Automobilindustrie und allgemeine Industrie. Oerlikon hat seinen Hauptsitz in Pfäffikon, Schweiz, ist in 38 Ländern tätig und beschäftigt weltweit rund 10.000 Mitarbeitende. Im Jahr 2025 erzielte Oerlikon einen Umsatz von CHF 1,6 Milliarden.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
+        "fr": "Responsable de projets et de contrats (gn)\n\nVos missions\n\nDans cette fonction polyvalente, vous assumez à la fois la direction opérationnelle de projets clients internationaux et la gestion contractuelle sur l’ensemble du cycle de vie du projet. Vous agissez en tant qu’interface centrale entre les clients, les fournisseurs, les services internes spécialisés ainsi que les partenaires externes et êtes responsable du bon déroulement du projet d’un point de vue technique, commercial et contractuel.\n\nGestion de projet\n\n- Pilotage et réalisation de projets clients internationaux dans les domaines de l’Aero, de l’Automotive, de l’IGT (Industrial Gas Turbine) et du Medical\n- Responsabilité globale de la qualité, des coûts et des délais des projets attribués\n- Point de contact pour les clients pendant toute la réalisation du projet, de la réception de la commande jusqu’au transfert à l’organisation de service\n- Coordination des services internes spécialisés, des fournisseurs et des prestataires tiers\n- Garantie d’une documentation de projet complète et traçable\n\nGestion des contrats\n\n- Veiller au respect des obligations contractuelles, des délais et des jalons\n- Conseil et assistance aux chefs de projet pour les questions contractuelles\n- Détection précoce, évaluation et minimisation des risques contractuels\n- Garantie du respect des directives internes, des exigences de conformité et des obligations légales\n\nVotre profil\n\n- Formation universitaire achevée en génie mécanique, génie des procédés, génie énergétique, gestion d’entreprise, droit des affaires ou formation équivalente\n- Plusieurs années d’expérience en gestion de projets internationaux et/ou en gestion des contrats\n- Expérience dans des problématiques techniques, organisationnelles et commerciales\n- Excellentes capacités de communication, de négociation et d’affirmation\n- Méthode de travail structurée, autonome et orientée vers les solutions\n- Idéalement, formation complémentaire en gestion de projets (p. ex. IPMA Level C)\n- Très bonnes connaissances de l’allemand et de l’anglais à l’oral et à l’écrit, le français constituant un avantage\n\nNous offrons\n\n- Un package de rémunération attractif avec de bonnes prestations sociales\n- Un centre moderne de production et de technologie pour le revêtement thermique à partir de 2027 à Hausen (AG)\n- Une activité variée au sein d’une entreprise à vocation internationale dans le secteur des hautes technologies\n- Une culture d’entreprise ouverte et une équipe sympathique et ouverte d’esprit\n- Des perspectives de développement personnel et professionnel\n- Travail autonome dans un environnement de travail attrayant\n\nContact\n\nVous sentez-vous concerné(e) ? Alors, nous sommes curieux de faire votre connaissance !\n\nVeuillez postuler en ligne via notre page Carrière www.oerlikon.com/career\n\nPour ce poste, les candidatures d’agences de recrutement ne peuvent pas être prises en compte. Nous vous remercions de votre compréhension.\n\nÀ propos d’Oerlikon\n\nOerlikon est leader mondial dans le domaine de l’ingénierie des matériaux. Grâce à la combinaison adéquate de technologies de surface, de matériaux avancés, d’équipements de revêtement, de composants et de fabrication avancée, nous aidons nos clients à améliorer les performances, l’efficacité, la longévité et la durabilité de leurs produits et processus. Nos technologies sont souvent invisibles pour les utilisateurs finaux, mais essentielles aux secteurs qui rendent la vie moderne possible : aéronautique et aérospatiale, énergie, semi-conducteurs, technologies médicales, produits de luxe, industrie de l’outillage, industrie automobile et industrie générale. Oerlikon a son siège à Pfäffikon, en Suisse, est présente dans 38 pays et emploie environ 10.000 collaborateurs dans le monde. En 2025, Oerlikon a réalisé un chiffre d’affaires de CHF 1,6 milliard.\n\nNous offrons une grande diversité de profils professionnels dans un environnement dynamique et bienveillant, où chacun est encouragé à grandir et à développer pleinement son potentiel, guidé par nos valeurs fondamentales que sont l’intégrité, l’esprit d’équipe, l’excellence et l’innovation.\n\nSuivez Oerlikon :\nLinkedIn, Instagram, YouTube\n\nwww.oerlikon.com"
+      },
+      "location": "Wohlen",
+      "canton": "AG",
+      "url": "https://careers.oerlikon.com/job/Project-Contract-Manager-%28gn%29/104392-en_US",
+      "source": "Oerlikon Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-25T21:53:26.025Z",
+      "addressLocality": "Wohlen",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5610",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Tecnologia / Ingegneria di superficie",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://careers.oerlikon.com/job/Project-Contract-Manager-%28gn%29/104392-en_US",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "project-contract-manager-gn-oerlikon-ch",
+        "responsabile-del-contratto-di-progetto-gn-oerlikon-wohlen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "project-contract-manager-gn-oerlikon-ch",
+          "responsabile-del-contratto-di-progetto-gn-oerlikon-wohlen"
+        ]
+      },
+      "firstSeenAt": "2026-08-25T10:10:41.061Z",
+      "salaryMin": 85500,
+      "salaryMax": 129500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 129500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Wohlen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-25T21:53:26.025Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "oerlikon-934beb8e0afc",
+      "slug": "ingegnere-di-progetto-gn-ingegneria-elettrica-oerlikon-wohlen",
+      "slugByLocale": {
+        "it": "ingegnere-di-progetto-gn-ingegneria-elettrica-oerlikon-wohlen",
+        "en": "project-engineer-gn-electrical-engineering-oerlikon-wohlen",
+        "de": "projektingenieur-gn-electrical-engineering-oerlikon-ch",
+        "fr": "ingenieur-de-projet-gn-genie-electrique-oerlikon-wohlen"
+      },
+      "company": "Oerlikon",
+      "companyKey": "oerlikon",
+      "companyDomain": "oerlikon.com",
+      "title": "Inbetriebnahme (gn) Engineer",
+      "titleByLocale": {
+        "it": "Messa in funzione (gn) Ingegnere",
+        "en": "Commissioning (gn) Engineer",
+        "de": "Inbetriebnahme (gn) Engineer",
+        "fr": "Mise en service (gn) Ingénieur"
+      },
+      "description": "Inbetriebnahme (gn) Engineer\n\nIhre Aufgaben\n\n• Inbetriebnahme und Prüfung von Kundenanlagen, Unterstützung bei der Projektübergabe (Abnahme, Schulung) im Werk oder beim Kunden im In- und Ausland\n\n• Mitarbeit bei Projektstudien und Erarbeitung von kundenspezifischen Problemlösungen\n\n• Erstellen von elektrotechnischen Fertigungsunterlagen und Steuerungssoftware (SPS, Roboter)\n\n• Unterstützung bei der Erstellung technischer Dokumentationen\n\n• Weiterentwicklung bestehender Produkte und Evaluierung neuer Komponenten und Technologien\n\nIhr Profil\n\n• Technische Grundausbildung und Weiterbildung auf Stufe HF oder FH (Elektrotechnik, Automation oder Systemtechnik) und einige Jahre Berufserfahrung in einer vergleichbaren Funktion\n\n• Vertiefte PLC Kenntnisse mit Siemens Tia Portal und Allen Bradley Rockwell Automation\n\n• Erfahrungen mit EPLAN, COMOS und Robotik (ABB, Fanuc) von Vorteil\n\n• Gewandt im Umgang mit international tätigen Kunden in deutscher und englischer Sprache B2\n\n• Selbstständig, neugierig, proaktiv und teamfähig\n\n• Bereitschaft für Reisen und Kenntnisse im Umgang mit ERP Systemen runden Ihr Profil optimal ab\n\nWir bieten\n\n• Attraktives Vergütungspaket mit guten Sozialleistungen\n\n• Ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung ab 2027 in Hausen (AG)\n\n• Abwechslungsreiche Tätigkeit in einem international ausgerichteten Unternehmen im Hightech-Bereich\n\n• Offene Unternehmenskultur und ein freundliches, aufgeschlossenen Team\n\n• Perspektiven zur persönlichen und fachlichen Weiterentwicklung\n\n• Eigenverantwortliches Arbeiten in einem attraktiven Arbeitsumfeld\n\nFühlen Sie sich angesprochen? Dann sind wir neugierig darauf, Sie kennen zu lernen!\n\nBewerben Sie sich bitte online über unsere Career-Seite www.oerlikon.com/career\n\nFür diese Vakanz können Bewerbungen von Personalvermittlungen nicht berücksichtigt werden. Vielen Dank für Ihr Verständnis.\n\nÜber Oerlikon\n\nOerlikon ist weltweit führend in Material Science Engineering. Mit der richtigen Kombination aus Oberflächentechnologien, Advanced Materials, Beschichtungsanlagen, Komponenten und Advanced Manufacturing helfen wir Kunden, die Leistung, Effizienz, Langlebigkeit und Nachhaltigkeit ihrer Produkte und Prozesse zu verbessern. Unsere Technologien sind für Endnutzer oft unsichtbar, aber geschäftskritisch für die Branchen, die das moderne Leben ermöglichen: Luft- und Raumfahrt, Energie, Halbleiter, Medizintechnik, Luxusgüter, Werkzeugindustrie, Automobilindustrie und allgemeine Industrie. Oerlikon hat seinen Hauptsitz in Pfäffikon, Schweiz, ist in 38 Ländern tätig und beschäftigt weltweit rund 10.000 Mitarbeitende. Im Jahr 2025 erzielte Oerlikon einen Umsatz von CHF 1,6 Milliarden.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\n LinkedIn  |  Instagram  |  YouTube\n\nwww.oerlikon.com",
+      "descriptionByLocale": {
+        "it": "Ingegnere di Servizio (gn)\n\nI tuoi compiti\n\n• Messa in servizio e test dei sistemi del cliente, supporto nella consegna del progetto (accettazione, formazione) in fabbrica o a casa del cliente e all'estero\n\n• Collaborazione negli studi di progetto e nello sviluppo di soluzioni specifiche per i clienti ai problemi\n\n• Creazione di documenti di produzione elettrotecnica e software di controllo (PLC, robot)\n\n• Supporto nella preparazione della documentazione tecnica\n\n• Ulteriore sviluppo dei prodotti esistenti e valutazione di nuovi componenti e tecnologie\n\nIl tuo profilo\n\n• Formazione tecnica di base e formazione ulteriore a livello HF o FH (ingegneria elettrica, automazione o tecnologia di sistema) e diversi anni di esperienza professionale in una funzione comparabile\n\n• Conoscenza approfondita dei PLC con Siemens Tia Portal e Allen Bradley Rockwell Automation\n\n• L'esperienza con EPLAN, COMOS e robotica (ABB, Fanuc) è un vantaggio\n\n• Competente nel trattare con clienti attivi a livello internazionale in tedesco e inglese B2\n\n• Indipendente, curioso, proattivo e un giocatore di squadra\n\n• Disponibilità a viaggiare e conoscenza nell'utilizzo di sistemi ERP completano perfettamente il tuo profilo\n\nOffriamo\n\n• Pacchetto retributivo attraente con buoni benefici sociali\n\n• Un moderno centro di produzione e tecnologia per il rivestimento termico dal 2027 a Hausen (AG)\n\n• Lavoro vario in un'azienda orientata all'internazionale nel settore high-tech\n\n• Cultura aziendale aperta e un team amichevole e di mentalità aperta\n\n• Prospettive per lo sviluppo personale e professionale\n\n• Lavoro indipendente in un ambiente di lavoro attraente\n\nTi senti richiamato? Allora siamo curiosi di conoscerti!\n\nTi invitiamo a candidarti online tramite la nostra pagina carriera www.oerlikon.com/career\n\nLe candidature delle agenzie di reclutamento non possono essere considerate per questa posizione. Grazie per la vostra comprensione.\n\nInformazioni su Oerlikon\n\nOerlikon è un leader globale nell'Ingegneria della Scienza dei Materiali. Con la giusta combinazione di tecnologie superficiali, materiali avanzati, apparecchiature per rivestimenti, componenti e produzione avanzata, aiutiamo i clienti a migliorare le prestazioni, l'efficienza, la durabilità e la sostenibilità dei loro prodotti e processi. Le nostre tecnologie sono spesso invisibili agli utenti finali, ma critiche per i settori che permettono la vita moderna: aerospaziale, energia, semiconduttori, dispositivi medici, beni di lusso, utensili, automotive e industria generale. Con sede a Pfäffikon, Svizzera, Oerlikon opera in 38 paesi e impiega circa 10.000 persone in tutto il mondo. Nel 2025, Oerlikon ha generato vendite di CHF 1,6 miliardi.\n\nOffriamo una vasta gamma di profili lavorativi in un ambiente dinamico e di supporto in cui le persone sono motivate a crescere e raggiungere il proprio pieno potenziale – guidate dai nostri valori fondamentali di integrità, spirito di squadra, eccellenza e innovazione.\n\nSegui Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
+        "en": "Commissioning (gn) Engineer\n\nYour tasks\n\n• Commissioning and testing of customer systems, support in project handover (acceptance, training) in the factory or at the customer's home and abroad\n\n• Collaboration in project studies and development of customer-specific solutions to problems\n\n• Creation of electrotechnical production documents and control software (PLC, robots)\n\n• Support in the preparation of technical documentation\n\n• Further development of existing products and evaluation of new components and technologies\n\nYour profile\n\n• Basic technical training and further education at HF or FH level (electrical engineering, automation or system technology) and several years of professional experience in a comparable function\n\n• In-depth PLC knowledge with Siemens Tia Portal and Allen Bradley Rockwell Automation\n\n• Experience with EPLAN, COMOS and robotics (ABB, Fanuc) is an advantage\n\n• Skilled in dealing with international customers in German and English B2\n\n• Independent, curious, proactive and a team player\n\n• Willingness to travel and knowledge of ERP systems round off your profile optimally\n\nWe offer\n\n• Attractive compensation package with good social benefits\n\n• A modern production and technology center for thermal coating from 2027 in Hausen (AG)\n\n• Varied work in an internationally oriented company in the high-tech sector\n\n• Open corporate culture and a friendly, open-minded team\n\n• Perspectives for personal and professional development\n\n• Independent work in an attractive working environment\n\nDo you feel addressed? Then we are curious to get to know you!\n\nPlease apply online via our career page www.oerlikon.com/career\n\nApplications from recruitment agencies cannot be considered for this vacancy. Thank you for your understanding.\n\nAbout Oerlikon\n\nOerlikon is a global leader in Material Science Engineering. With the right combination of surface technologies, advanced materials, coating equipment, components and advanced manufacturing, we help customers improve the performance, efficiency, durability and sustainability of their products and processes. Our technologies are often invisible to end users, but mission-critical for the industries that enable modern life: aerospace, energy, semiconductors, medical devices, luxury goods, tooling, automotive and general industry. Headquartered in Pfäffikon, Switzerland, Oerlikon operates in 38 countries and employs around 10,000 people worldwide. In 2025, Oerlikon generated sales of CHF 1.6 billion.\n\nWe offer a wide variety of job profiles in a dynamic, supportive environment where people are empowered to grow and reach their full potential – guided by our core values of integrity, team spirit, excellence and innovation.\n\nFollow Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
+        "de": "Inbetriebnahme (gn) Engineer\n\nIhre Aufgaben\n\n• Inbetriebnahme und Prüfung von Kundenanlagen, Unterstützung bei der Projektübergabe (Abnahme, Schulung) im Werk oder beim Kunden im In- und Ausland\n\n• Mitarbeit bei Projektstudien und Erarbeitung von kundenspezifischen Problemlösungen\n\n• Erstellen von elektrotechnischen Fertigungsunterlagen und Steuerungssoftware (SPS, Roboter)\n\n• Unterstützung bei der Erstellung technischer Dokumentationen\n\n• Weiterentwicklung bestehender Produkte und Evaluierung neuer Komponenten und Technologien\n\nIhr Profil\n\n• Technische Grundausbildung und Weiterbildung auf Stufe HF oder FH (Elektrotechnik, Automation oder Systemtechnik) und einige Jahre Berufserfahrung in einer vergleichbaren Funktion\n\n• Vertiefte PLC Kenntnisse mit Siemens Tia Portal und Allen Bradley Rockwell Automation\n\n• Erfahrungen mit EPLAN, COMOS und Robotik (ABB, Fanuc) von Vorteil\n\n• Gewandt im Umgang mit international tätigen Kunden in deutscher und englischer Sprache B2\n\n• Selbstständig, neugierig, proaktiv und teamfähig\n\n• Bereitschaft für Reisen und Kenntnisse im Umgang mit ERP Systemen runden Ihr Profil optimal ab\n\nWir bieten\n\n• Attraktives Vergütungspaket mit guten Sozialleistungen\n\n• Ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung ab 2027 in Hausen (AG)\n\n• Abwechslungsreiche Tätigkeit in einem international ausgerichteten Unternehmen im Hightech-Bereich\n\n• Offene Unternehmenskultur und ein freundliches, aufgeschlossenen Team\n\n• Perspektiven zur persönlichen und fachlichen Weiterentwicklung\n\n• Eigenverantwortliches Arbeiten in einem attraktiven Arbeitsumfeld\n\nFühlen Sie sich angesprochen? Dann sind wir neugierig darauf, Sie kennen zu lernen!\n\nBewerben Sie sich bitte online über unsere Career-Seite www.oerlikon.com/career\n\nFür diese Vakanz können Bewerbungen von Personalvermittlungen nicht berücksichtigt werden. Vielen Dank für Ihr Verständnis.\n\nÜber Oerlikon\n\nOerlikon ist weltweit führend in Material Science Engineering. Mit der richtigen Kombination aus Oberflächentechnologien, Advanced Materials, Beschichtungsanlagen, Komponenten und Advanced Manufacturing helfen wir Kunden, die Leistung, Effizienz, Langlebigkeit und Nachhaltigkeit ihrer Produkte und Prozesse zu verbessern. Unsere Technologien sind für Endnutzer oft unsichtbar, aber geschäftskritisch für die Branchen, die das moderne Leben ermöglichen: Luft- und Raumfahrt, Energie, Halbleiter, Medizintechnik, Luxusgüter, Werkzeugindustrie, Automobilindustrie und allgemeine Industrie. Oerlikon hat seinen Hauptsitz in Pfäffikon, Schweiz, ist in 38 Ländern tätig und beschäftigt weltweit rund 10.000 Mitarbeitende. Im Jahr 2025 erzielte Oerlikon einen Umsatz von CHF 1,6 Milliarden.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
+        "fr": "Ingénieur Mise en Service (gn)\n\nVos tâches\n\n• Mise en service et tests des systèmes clients, accompagnement lors de la transmission du projet (réception, formation) en usine ou chez le client et à l'étranger\n\n• Participation aux études de projets et développement de solutions aux problèmes spécifiques du client\n\n• Création de documents de production électrique et de logiciels de contrôle (automates, robots)\n\n• Accompagnement dans la création de documentation technique\n\n• Poursuite du développement des produits existants et évaluation de nouveaux composants et technologies\n\nVotre profil\n\n• Formation technique de base et formation continue de niveau HF ou FH (électrotechnique, automatisme ou technologie des systèmes) et plusieurs années d'expérience professionnelle dans un poste comparable\n\n• Connaissance approfondie des API avec Siemens Tia Portal et Allen Bradley Rockwell Automation\n\n• Une expérience avec EPLAN, COMOS et la robotique (ABB, Fanuc) est un avantage\n\n• Maîtrise des relations avec des clients actifs à l'échelle internationale en allemand et en anglais B2\n\n• Indépendant, curieux, proactif et joueur d'équipe\n\n• L'envie de voyager et la connaissance de l'utilisation des systèmes ERP complètent parfaitement votre profil.\n\nNous offrons\n\n• Une rémunération attractive avec de bons avantages sociaux\n\n• Un centre de production et de technologie moderne pour le revêtement thermique à partir de 2027 à Hausen (AG)\n\n• Travail varié dans une entreprise à vocation internationale dans le secteur high-tech\n\n• Culture d'entreprise ouverte et équipe sympathique et ouverte d'esprit\n\n• Perspectives de développement personnel et professionnel\n\n• Travailler de manière indépendante dans un environnement de travail attractif\n\nVous sentez-vous interpellé ? Alors nous sommes curieux de faire votre connaissance !\n\nVeuillez postuler en ligne via notre page carrières www.oerlikon.com/career\n\nLes candidatures des agences de recrutement ne peuvent pas être prises en compte pour ce poste. Merci pour votre compréhension.\n\nÀ propos de Oerlikon\n\nOerlikon est un leader mondial en ingénierie des sciences des matériaux. Avec la bonne combinaison de technologies de surface, de matériaux avancés, de systèmes de revêtement, de composants et de fabrication avancée, nous aidons nos clients à améliorer les performances, l'efficacité, la longévité et la durabilité de leurs produits et processus. Nos technologies sont souvent invisibles pour les utilisateurs finaux, mais elles sont essentielles aux industries qui permettent la vie moderne : aérospatiale, énergie, semi-conducteurs, dispositifs médicaux, produits de luxe, outillage, automobile et industrie générale. Oerlikon a son siège à Pfäffikon, en Suisse, est présente dans 38 pays et emploie environ 10 000 personnes dans le monde. En 2025, Oerlikon a réalisé un chiffre d'affaires de 1,6 milliard de francs.\n\nNous proposons une grande variété de profils d'emploi dans un environnement dynamique et solidaire où les gens sont habilités à grandir et à développer leur plein potentiel - guidés par nos valeurs fondamentales d'intégrité, d'esprit d'équipe, d'excellence et d'innovation.\n\nSuivez Oerlikon :\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com"
+      },
+      "location": "Wohlen",
+      "canton": "AG",
+      "url": "https://careers.oerlikon.com/job/Inbetriebnahme-%28gn%29-Engineer/104461-en_US",
+      "source": "Oerlikon Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-25T21:53:25.138Z",
+      "addressLocality": "Wohlen",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5610",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Tecnologia / Ingegneria di superficie",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://careers.oerlikon.com/job/Inbetriebnahme-%28gn%29-Engineer/104461-en_US",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "de": [
+          "inbetriebnahme-gn-ingenieur-oerlikon-wohlen",
+          "inbetriebnahme-gn-engineer-oerlikon-ch",
+          "inbetriebnahme-gn-engineer-oerlikon-wohlen"
+        ],
+        "it": [
+          "inbetriebnahme-gn-engineer-oerlikon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "inbetriebnahme-gn-engineer-oerlikon-ch",
+        "inbetriebnahme-gn-ingenieur-oerlikon-wohlen",
+        "inbetriebnahme-gn-engineer-oerlikon-wohlen"
+      ],
+      "firstSeenAt": "2026-08-19T09:48:37.612Z",
+      "salaryMin": 72500,
+      "salaryMax": 110500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72500,
+          "maxValue": 110500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Wohlen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-25T21:53:25.138Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -498,258 +749,8 @@
       "streetAddress": "Wohlen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:33:52.183Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "oerlikon-a72a73319303",
-      "slug": "tecnico-di-servizio-gn-oerlikon-wohlen",
-      "slugByLocale": {
-        "it": "tecnico-di-servizio-gn-oerlikon-wohlen",
-        "en": "service-technician-gn-oerlikon-wohlen",
-        "de": "servicetechniker-gn-oerlikon-ch",
-        "fr": "technicien-des-services-gn-oerlikon-wohlen"
-      },
-      "company": "Oerlikon",
-      "companyKey": "oerlikon",
-      "companyDomain": "oerlikon.com",
-      "title": "Servicetechniker (gn)",
-      "titleByLocale": {
-        "it": "Tecnico di servizio (gn)",
-        "en": "Service technician (gn)",
-        "de": "Servicetechniker (gn)",
-        "fr": "Technicien des services (gn)"
-      },
-      "description": "Willst Du etwas bewegen und hast Du Spass an Auslandseinsätzen weltweit (ca. 60%). Dann bist Du bei uns richtig!\n\nServicetechniker (gn)\n\nDein Aufgabenbereich\n\n• Du bist für die weltweite Installation und Inbetriebnahme von thermischen Beschichtungssystemen verantwortlich (Einsatzdauer ca. 4-6 Wochen). Dabei arbeitest Du sehr eng mit unserem Kunden zusammen\n\n• Du bist verantwortlich für interne Abnahmen von Beschichtungssystemen\n\n• Du führst Service-, Kalibrier- und Wartungsarbeiten an thermischen Beschichtungsanlagen durch, sowie Umbauten und Aufrüstungen\n\n• Du erstellst einfache Rapporte von deinen Einsätzen\n\n• Du gibst Schulungen und berätst die Kunden und Bediener vor Ort\n\n• Du unterstützt bei Innovationsprojekten\n\nDein Profil\n\n• Du hast eine abgeschlossene Ausbildung als Elektrotechniker, Mechatroniker oder Automatiker (gn), sowie Erfahrung im Anlagenbau mit Steuerungs-/Regeltechnik und vorzugsweise erste Robotik Kenntnisse\n\n• Du zeigst Interesse an einer Herausforderung, die einen breiten technischen Hintergrund sowie Einfallsreichtum und Flexibilität fordern\n\n• Der Kunde steht für Dich an erster Stelle und Du setzt alles daran im Team Projekte erfolgreich umzusetzen\n\n• Du fühlst Dich wohl in Deutsch und Englisch, um mit internationalen Kunden zu kommunizieren\n\nDas kannst du von uns erwarten\n\n• Ein sehr aufregendes, spannendes, internationales Arbeitsumfeld im High-Tech-Bereich\n\n• Du kannst dich persönlich und beruflich weiterentwickeln\n\n• Anfang 2027 wird Oerlikon Metco nach Hausen (AG) umziehen – ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung wartet auf uns\n\n• Wir sind offen und ehrlich im Umgang miteinander\n\n• Wir sind ein Team dass Dich stets unterstützt\n\n• Wir bieten fortschrittliche Anstellungsbedingungen, ein attraktives Vergütungspaket, mit guten Sozialleistungen\n\n• Über die Pensionskasse bieten wir Dir eine gut ausgebaute Altersvorsorge\n\nFühlst Du dich angesprochen? Dann sind wir neugierig darauf, Dich kennen zu lernen! Bewirb Dich sich bitte online über unsere Career-Seite www.oerlikon.com/career\n\nÜber Oerlikon\n\nOerlikon ist weltweit führend in Material Science Engineering. Mit der richtigen Kombination aus Oberflächentechnologien, Advanced Materials, Beschichtungsanlagen, Komponenten und Advanced Manufacturing helfen wir Kunden, die Leistung, Effizienz, Langlebigkeit und Nachhaltigkeit ihrer Produkte und Prozesse zu verbessern. Unsere Technologien sind für Endnutzer oft unsichtbar, aber geschäftskritisch für die Branchen, die das moderne Leben ermöglichen: Luft- und Raumfahrt, Energie, Halbleiter, Medizintechnik, Luxusgüter, Werkzeugindustrie, Automobilindustrie und allgemeine Industrie. Oerlikon hat seinen Hauptsitz in Pfäffikon, Schweiz, ist in 38 Ländern tätig und beschäftigt weltweit rund 10.000 Mitarbeitende. Im Jahr 2025 erzielte Oerlikon einen Umsatz von CHF 1,6 Milliarden.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\n LinkedIn  |  Instagram  |  YouTube\n\nwww.oerlikon.com",
-      "descriptionByLocale": {
-        "it": "Se vuoi fare la differenza e ti diverti in missioni all'estero in tutto il mondo (circa il 60%). Allora hai ragione con noi!\n\nTecnico di servizio (gn)\n\nLe tue responsabilità\n\n• Sei responsabile per l'installazione e la messa in servizio in tutto il mondo di sistemi di rivestimento termico (tempo d'uso circa 4-6 settimane). Lavori molto a stretto contatto con il nostro cliente\n\n• Sei responsabile dell'accettazione interna dei sistemi di rivestimento\n\n• Effettuate lavori di assistenza, taratura e manutenzione sugli impianti di rivestimento termico, nonché conversioni e aggiornamenti\n\n• Crea semplici rapporti delle tue scommesse\n\n• Si dà formazione e consiglia i clienti e gli operatori sul posto\n\n• Supporti progetti di innovazione\n\nIl tuo profilo\n\n• Hai completato la formazione come ingegnere elettrico, ingegnere meccatronico o ingegnere automatico (gn), così come l'esperienza in ingegneria vegetale con tecnologia di controllo / controllo e preferibilmente la conoscenza robotica iniziale\n\n• Si mostra interesse per una sfida che richiede un ampio background tecnico, ingenuità e flessibilità\n\n• Il cliente è la vostra prima priorità e fate tutto nel vostro team per implementare con successo progetti\n\n• Ti senti comoda in tedesco e inglese per comunicare con i clienti internazionali\n\nSi può aspettare che da noi\n\n• Un ambiente di lavoro internazionale molto emozionante, emozionante nel settore high-tech\n\n• Si può sviluppare personalmente e professionalmente\n\n• All'inizio del 2027 Oerlikon Metco si trasferirà ad Hausen (AG) – un moderno centro di produzione e tecnologia per il rivestimento termico ci aspetta\n\n• Siamo aperti e onesti l'uno con l'altro\n\n• Siamo una squadra che ti supporta sempre\n\n• Offriamo condizioni di lavoro avanzate, un pacchetto di compensazione attraente, con buoni benefici sociali\n\n• Attraverso il fondo pensione vi offriamo una pensione ben sviluppata\n\nTi senti indirizzato? Allora siamo curiosi di conoscerti! Si prega di applicare online tramite la nostra pagina Carriera www.oerlikon.com/career\n\nInformazioni su Oerlikon\n\nOerlikon è un leader globale nell'ingegneria delle scienze materiali. Con la giusta combinazione di tecnologie di superficie, materiali avanzati, attrezzature di rivestimento, componenti e produzione avanzata, aiutiamo i clienti a migliorare le prestazioni, l'efficienza, la durata e la sostenibilità dei loro prodotti e processi. Le nostre tecnologie sono spesso invisibili agli utenti finali, ma critiche al business delle industrie che rendono possibile la vita moderna: aerospaziale, energia, semiconduttori, tecnologia medica, beni di lusso, industria degli strumenti, industria automobilistica e industria generale. Oerlikon ha sede a Pfäffikon, Svizzera, opera in 38 paesi e impiega circa 10.000 persone in tutto il mondo. Nel 2025, Oerlikon ha generato vendite di CHF 1,6 miliardi.\n\nOffriamo una vasta gamma di profili di attività in un ambiente dinamico e di supporto in cui le persone sono abilitate a crescere e raggiungere il loro pieno potenziale, guidato dai nostri valori fondamentali di integrità, spirito di squadra, eccellenza e innovazione.\n\nSegui Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
-        "en": "If you want to make a difference and you have fun on missions abroad worldwide (about 60%). Then you are right with us!\n\nService technician (gn)\n\nYour responsibilities\n\n• You are responsible for the worldwide installation and commissioning of thermal coating systems (use time approximately 4-6 weeks). You work very closely with our customer\n\n• You are responsible for internal acceptance of coating systems\n\n• You carry out service, calibration and maintenance work on thermal coating plants, as well as conversions and upgrades\n\n• You create simple rapports of your bets\n\n• You give training and advise the customers and operators on site\n\n• You support innovation projects\n\nYour profile\n\n• You have completed training as an electrical engineer, mechatronics engineer or automatic engineer (gn), as well as experience in plant engineering with control/control technology and preferably initial robotics knowledge\n\n• You show interest in a challenge that requires a broad technical background, ingenuity and flexibility\n\n• The customer is your first priority and you do everything in your team to successfully implement projects\n\n• You feel Get comfortable in German and English to communicate with international customers\n\nYou can expect that from us\n\n• A very exciting, exciting, international working environment in the high-tech sector\n\n• You can develop personally and professionally\n\n• At the beginning of 2027 Oerlikon Metco will move to Hausen (AG) – a modern production and technology centre for thermal coating is waiting for us\n\n• We are open and honest with each other\n\n• We are a team that always supports you\n\n• We offer advanced employment conditions, an attractive compensation package, with good social benefits\n\n• Through the pension fund we offer you a well-developed pension provision\n\nDo you feel addressed? Then we are curious to meet you! Please apply online via our Career page www.oerlikon.com/career\n\nAbout Oerlikon\n\nOerlikon is a global leader in material science engineering. With the right combination of surface technologies, advanced materials, coating equipment, components and advanced manufacturing, we help customers improve the performance, efficiency, durability and sustainability of their products and processes. Our technologies are often invisible to end users, but critical to the business of the industries that make modern life possible: aerospace, energy, semiconductors, medical technology, luxury goods, tool industry, automotive industry and general industry. Oerlikon is headquartered in Pfäffikon, Switzerland, operates in 38 countries and employs around 10,000 people worldwide. In 2025, Oerlikon generated sales of CHF 1.6 billion.\n\nWe offer a wide variety of activity profiles in a dynamic, supportive environment where people are empowered to grow and reach their full potential, guided by our core values of integrity, team spirit, excellence and innovation.\n\nFollow Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
-        "de": "Willst Du etwas bewegen und hast Du Spass an Auslandseinsätzen weltweit (ca. 60%). Dann bist Du bei uns richtig!\n\nServicetechniker (gn)\n\nDein Aufgabenbereich\n\n• Du bist für die weltweite Installation und Inbetriebnahme von thermischen Beschichtungssystemen verantwortlich (Einsatzdauer ca. 4-6 Wochen). Dabei arbeitest Du sehr eng mit unserem Kunden zusammen\n\n• Du bist verantwortlich für interne Abnahmen von Beschichtungssystemen\n\n• Du führst Service-, Kalibrier- und Wartungsarbeiten an thermischen Beschichtungsanlagen durch, sowie Umbauten und Aufrüstungen\n\n• Du erstellst einfache Rapporte von deinen Einsätzen\n\n• Du gibst Schulungen und berätst die Kunden und Bediener vor Ort\n\n• Du unterstützt bei Innovationsprojekten\n\nDein Profil\n\n• Du hast eine abgeschlossene Ausbildung als Elektrotechniker, Mechatroniker oder Automatiker (gn), sowie Erfahrung im Anlagenbau mit Steuerungs-/Regeltechnik und vorzugsweise erste Robotik Kenntnisse\n\n• Du zeigst Interesse an einer Herausforderung, die einen breiten technischen Hintergrund sowie Einfallsreichtum und Flexibilität fordern\n\n• Der Kunde steht für Dich an erster Stelle und Du setzt alles daran im Team Projekte erfolgreich umzusetzen\n\n• Du fühlst Dich wohl in Deutsch und Englisch, um mit internationalen Kunden zu kommunizieren\n\nDas kannst du von uns erwarten\n\n• Ein sehr aufregendes, spannendes, internationales Arbeitsumfeld im High-Tech-Bereich\n\n• Du kannst dich persönlich und beruflich weiterentwickeln\n\n• Anfang 2027 wird Oerlikon Metco nach Hausen (AG) umziehen – ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung wartet auf uns\n\n• Wir sind offen und ehrlich im Umgang miteinander\n\n• Wir sind ein Team dass Dich stets unterstützt\n\n• Wir bieten fortschrittliche Anstellungsbedingungen, ein attraktives Vergütungspaket, mit guten Sozialleistungen\n\n• Über die Pensionskasse bieten wir Dir eine gut ausgebaute Altersvorsorge\n\nFühlst Du dich angesprochen? Dann sind wir neugierig darauf, Dich kennen zu lernen! Bewirb Dich sich bitte online über unsere Career-Seite www.oerlikon.com/career\n\nÜber Oerlikon\n\nOerlikon ist weltweit führend in Material Science Engineering. Mit der richtigen Kombination aus Oberflächentechnologien, Advanced Materials, Beschichtungsanlagen, Komponenten und Advanced Manufacturing helfen wir Kunden, die Leistung, Effizienz, Langlebigkeit und Nachhaltigkeit ihrer Produkte und Prozesse zu verbessern. Unsere Technologien sind für Endnutzer oft unsichtbar, aber geschäftskritisch für die Branchen, die das moderne Leben ermöglichen: Luft- und Raumfahrt, Energie, Halbleiter, Medizintechnik, Luxusgüter, Werkzeugindustrie, Automobilindustrie und allgemeine Industrie. Oerlikon hat seinen Hauptsitz in Pfäffikon, Schweiz, ist in 38 Ländern tätig und beschäftigt weltweit rund 10.000 Mitarbeitende. Im Jahr 2025 erzielte Oerlikon einen Umsatz von CHF 1,6 Milliarden.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
-        "fr": "Si vous voulez faire une différence et que vous vous amusez dans des missions à l'étranger (environ 60%). Alors tu as raison avec nous !\n\nTechnicien des services (gn)\n\nVos responsabilités\n\n• Vous êtes responsable de l'installation et de la mise en service de systèmes de revêtement thermique dans le monde entier (utilisation d'environ 4-6 semaines). Vous travaillez en étroite collaboration avec notre client\n\n• Vous êtes responsable de l'acceptation interne des systèmes de revêtement\n\n• Vous effectuez des travaux de service, d'étalonnage et d'entretien sur les installations de revêtement thermique, ainsi que des conversions et des mises à niveau\n\n• Vous créez des rapports simples de vos paris\n\n• Vous formez et conseillez les clients et opérateurs sur place\n\n• Vous soutenez des projets d'innovation\n\nVotre profil\n\n• Vous avez suivi une formation d'ingénieur électricien, d'ingénieur mécatronique ou d'ingénieur automatique (gn), ainsi qu'une expérience en ingénierie d'usine avec des technologies de contrôle et de robotique de préférence initiale\n\n• Vous manifestez de l'intérêt pour un défi qui nécessite un vaste contexte technique, l'ingéniosité et la flexibilité\n\n• Le client est votre première priorité et vous faites tout dans votre équipe pour mettre en œuvre avec succès des projets\n\n• Vous vous sentez à l'aise en allemand et en anglais pour communiquer avec des clients internationaux\n\nVous pouvez attendre ça de nous.\n\n• Un environnement de travail international très excitant dans le secteur de la haute technologie\n\n• Vous pouvez développer personnellement et professionnellement\n\n• Au début de 2027, Oerlikon Metco déménage à Hausen (AG) – un centre de production et de technologie moderne pour le revêtement thermique nous attend\n\n• Nous sommes ouverts et honnêtes les uns avec les autres\n\n• Nous sommes une équipe qui vous soutient toujours\n\n• Nous offrons des conditions d'emploi avancées, une rémunération attrayante, avec de bons avantages sociaux\n\n• Par l'intermédiaire de la caisse de retraite, nous vous offrons une pension bien développée\n\nVous sentez-vous adressé ? Alors nous sommes curieux de vous rencontrer ! Veuillez postuler en ligne sur notre page Carrière www.oerlikon.com/career\n\nÀ propos d'Oerlikon\n\nOerlikon est un leader mondial en ingénierie des sciences des matériaux. Avec la bonne combinaison de technologies de surface, matériaux avancés, équipement de revêtement, composants et fabrication avancée, nous aidons les clients à améliorer la performance, l'efficacité, la durabilité et la durabilité de leurs produits et procédés. Nos technologies sont souvent invisibles pour les utilisateurs finaux, mais critiques pour les entreprises des industries qui rendent la vie moderne possible: aérospatiale, énergie, semi-conducteurs, technologie médicale, produits de luxe, industrie des outils, industrie automobile et industrie générale. Oerlikon a son siège social à Pfäffikon, en Suisse, opère dans 38 pays et emploie environ 10 000 personnes dans le monde. En 2025, Oerlikon a généré des ventes de 1,6 milliard de francs suisses.\n\nNous offrons une grande variété de profils d'activités dans un environnement dynamique et favorable où les gens sont habilités à croître et à réaliser leur plein potentiel, guidés par nos valeurs fondamentales d'intégrité, d'esprit d'équipe, d'excellence et d'innovation.\n\nSuivez Oerlikon :\nInstagram YouTube\n\nLe site www.oerlikon.com"
-      },
-      "location": "Wohlen",
-      "canton": "AG",
-      "url": "https://careers.oerlikon.com/job/Servicetechniker-%28gn%29/104661-en_US",
-      "source": "Oerlikon Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:33:51.632Z",
-      "addressLocality": "Wohlen",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5610",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Tecnologia / Ingegneria di superficie",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://careers.oerlikon.com/job/Servicetechniker-%28gn%29/104661-en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "servicetechniker-gn-oerlikon-ch",
-        "servicetechniker-gn-oerlikon-wohlen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "servicetechniker-gn-oerlikon-ch",
-          "servicetechniker-gn-oerlikon-wohlen"
-        ],
-        "en": [
-          "servicetechniker-gn-oerlikon-wohlen"
-        ],
-        "de": [
-          "servicetechniker-gn-oerlikon-wohlen"
-        ],
-        "fr": [
-          "servicetechniker-gn-oerlikon-wohlen"
-        ]
-      },
-      "firstSeenAt": "2026-11-10T21:46:25.984Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Wohlen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:33:51.632Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "oerlikon-36b0a730fba6",
-      "slug": "project-contract-manager-gn-oerlikon-wohlen",
-      "slugByLocale": {
-        "it": "project-contract-manager-gn-oerlikon-wohlen",
-        "en": "project-contract-manager-gn-oerlikon-ch",
-        "de": "project-contract-manager-gn-oerlikon-ch",
-        "fr": "gestionnaire-de-contrat-de-projet-gn-oerlikon-wohlen"
-      },
-      "company": "Oerlikon",
-      "companyKey": "oerlikon",
-      "companyDomain": "oerlikon.com",
-      "title": "Project Contract Manager (gn)",
-      "titleByLocale": {
-        "it": "Responsabile dei contratti di progetto (gn)",
-        "en": "Project Contract Manager (GM)",
-        "de": "Project Contract Manager (gn)",
-        "fr": "Responsable des contrats de projet (gn)"
-      },
-      "description": "Project Contract Manager (gn)\n\nIhre Aufgaben\n\nIn dieser vielseitigen Funktion übernehmen Sie sowohl die operative Leitung internationaler Kundenprojekte als auch das vertragliche Management über den gesamten Projektlebenszyklus. Sie agieren als zentrale Schnittstelle zwischen Kunden, Lieferanten, internen Fachabteilungen sowie externen Partnern und tragen die Verantwortung für den erfolgreichen Projektverlauf aus technischer, kommerzieller und vertraglicher Sicht.\n\nProjektmanagement\n\n• Führung und Abwicklung internationaler Kundenprojekte in den Bereichen Aero, Automotive, IGT (Industrial Gas Turbine) und Medical\n\n• Gesamtverantwortung für Qualität, Kosten und Termine der zugewiesenen Projekte\n\n• Ansprechpartner für Kunden während der gesamten Projektabwicklung vom Auftragseingang bis zur Übergabe an die Serviceorganisation\n\n• Koordination interner Fachstellen, Lieferanten und Drittanbieter\n\n• Sicherstellung einer vollständigen und nachvollziehbaren Projektdokumentation\n\nVertragsmanagement\n\n• Sicherstellung der Einhaltung vertraglicher Verpflichtungen, Termine und Meilensteine\n\n• Beratung und Unterstützung der Projektleiter bei vertraglichen Fragestellungen\n\n• Früherkennung, Bewertung und Minimierung vertraglicher Risiken\n\n• Sicherstellung der Einhaltung interner Richtlinien, Compliance-Vorgaben und gesetzlicher Anforderungen\n\nIhr Profil\n\n• Abgeschlossenes Studium in Maschinenbau, Verfahrenstechnik, Energietechnik, Betriebswirtschaft, Wirtschaftsrecht oder vergleichbare Ausbildung\n\n• Mehrjährige Erfahrung im internationalen Projektmanagement und/oder Vertragsmanagement\n\n• Erfahrung in technischen, organisatorischen und kommerziellen Fragestellungen\n\n• Ausgeprägte Kommunikations-, Verhandlungs- und Durchsetzungsfähigkeit\n\n• Strukturierte, selbstständige und lösungsorientierte Arbeitsweise\n\n• Idealerweise Weiterbildung im Projektmanagement (z.B. IPMA Level C)\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift, Französisch von Vorteil\n\nWir bieten\n\n• Attraktives Vergütungspaket mit guten Sozialleistungen\n\n• Ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung ab 2027 in Hausen (AG)\n\n• Abwechslungsreiche Tätigkeit in einem international ausgerichteten Unternehmen im Hightech-Bereich\n\n• Offene Unternehmenskultur und ein freundliches, aufgeschlossenen Team\n\n• Perspektiven zur persönlichen und fachlichen Weiterentwicklung\n\n• Eigenverantwortliches Arbeiten in einem attraktiven Arbeitsumfeld\n\nFühlen Sie sich angesprochen? Dann sind wir neugierig darauf, Sie kennen zu lernen!\n\nBewerben Sie sich bitte online über unsere Career-Seite www.oerlikon.com/career\n\nFür diese Vakanz können Bewerbungen von Personalvermittlungen nicht berücksichtigt werden. Vielen Dank für Ihr Verständnis.\n\nÜber Oerlikon\n\nOerlikon ist weltweit führend in Material Science Engineering. Mit der richtigen Kombination aus Oberflächentechnologien, Advanced Materials, Beschichtungsanlagen, Komponenten und Advanced Manufacturing helfen wir Kunden, die Leistung, Effizienz, Langlebigkeit und Nachhaltigkeit ihrer Produkte und Prozesse zu verbessern. Unsere Technologien sind für Endnutzer oft unsichtbar, aber geschäftskritisch für die Branchen, die das moderne Leben ermöglichen: Luft- und Raumfahrt, Energie, Halbleiter, Medizintechnik, Luxusgüter, Werkzeugindustrie, Automobilindustrie und allgemeine Industrie. Oerlikon hat seinen Hauptsitz in Pfäffikon, Schweiz, ist in 38 Ländern tätig und beschäftigt weltweit rund 10.000 Mitarbeitende. Im Jahr 2025 erzielte Oerlikon einen Umsatz von CHF 1,6 Milliarden.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\n LinkedIn  |  Instagram  |  YouTube\n\nwww.oerlikon.com",
-      "descriptionByLocale": {
-        "it": "Responsabile di progetto e contratti (gn)\n\nLe vostre mansioni\n\nIn questa versatile funzione, assumete sia la direzione operativa di progetti internazionali per clienti sia la gestione contrattuale durante l'intero ciclo di vita del progetto. Agite da interfaccia centrale tra clienti, fornitori, reparti specialistici interni e partner esterni e siete responsabili del buon esito del progetto dal punto di vista tecnico, commerciale e contrattuale.\n\nGestione dei progetti\n\n- Conduzione e gestione di progetti internazionali per clienti nei settori Aero, Automotive, IGT (Industrial Gas Turbine) e Medical\n- Responsabilità complessiva per qualità, costi e scadenze dei progetti assegnati\n- Referente per i clienti durante l'intera gestione del progetto, dalla ricezione dell'ordine fino al trasferimento all'organizzazione di assistenza\n- Coordinamento dei reparti specialistici interni, dei fornitori e dei fornitori terzi\n- Garanzia di una documentazione completa e tracciabile del progetto\n\nGestione dei contratti\n\n- Garanzia del rispetto degli obblighi contrattuali, delle scadenze e delle milestone\n- Consulenza e supporto ai responsabili di progetto per questioni contrattuali\n- Individuazione precoce, valutazione e minimizzazione dei rischi contrattuali\n- Garanzia del rispetto delle direttive interne, dei requisiti di compliance e delle disposizioni di legge\n\nIl vostro profilo\n\n- Laurea in ingegneria meccanica, ingegneria dei processi, ingegneria energetica, economia aziendale, diritto economico o formazione equivalente\n- Esperienza pluriennale nella gestione internazionale di progetti e/o nella gestione dei contratti\n- Esperienza in questioni tecniche, organizzative e commerciali\n- Spiccate capacità comunicative, negoziali e di assertività\n- Metodo di lavoro strutturato, autonomo e orientato alle soluzioni\n- Preferibilmente formazione continua nella gestione dei progetti (ad es. IPMA Level C)\n- Ottima conoscenza del tedesco e dell'inglese, sia orale sia scritta; il francese costituisce un vantaggio\n\nOffriamo\n\n- Pacchetto retributivo interessante con buone prestazioni sociali\n- Un moderno centro di produzione e tecnologia per il rivestimento termico a partire dal 2027 a Hausen (AG)\n- Attività variegata in un'azienda orientata al mercato internazionale nel settore high-tech\n- Cultura aziendale aperta e un team cordiale e dalla mentalità aperta\n- Prospettive di crescita personale e professionale\n- Lavoro autonomo in un ambiente di lavoro attraente\n\nContatti\n\nSi riconosce in questa descrizione? In tal caso, saremo lieti di conoscerla!\n\nLa preghiamo di candidarsi online tramite la nostra pagina Career www.oerlikon.com/career\n\nPer questa posizione non saranno prese in considerazione candidature da parte di agenzie di reclutamento. Grazie per la comprensione.\n\nInformazioni su Oerlikon\n\nOerlikon è leader mondiale nell'ingegneria delle scienze dei materiali. Grazie alla giusta combinazione di tecnologie per le superfici, materiali avanzati, impianti di rivestimento, componenti e produzione avanzata, aiutiamo i clienti a migliorare le prestazioni, l'efficienza, la durata e la sostenibilità dei loro prodotti e processi. Le nostre tecnologie sono spesso invisibili agli utenti finali, ma sono essenziali per il business nei settori che rendono possibile la vita moderna: aerospaziale, energia, semiconduttori, tecnologia medicale, beni di lusso, industria degli utensili, industria automobilistica e industria generale. Oerlikon ha sede centrale a Pfäffikon, in Svizzera, opera in 38 paesi e impiega circa 10.000 persone in tutto il mondo. Nel 2025 Oerlikon ha registrato un fatturato di CHF 1,6 miliardi.\n\nOffriamo un'ampia varietà di profili professionali in un ambiente dinamico e di supporto, in cui le persone sono messe nelle condizioni di crescere e sviluppare appieno il proprio potenziale – guidate dai nostri valori fondamentali: integrità, spirito di squadra, eccellenza e innovazione.\n\nSeguite Oerlikon:\nLinkedIn, Instagram, YouTube\n\nwww.oerlikon.com",
-        "en": "Project Contract Manager (gn)\n\nYour responsibilities\n\nIn this versatile role, you will take on both the operational management of international customer projects and contractual management throughout the entire project life cycle. You will act as the central interface between customers, suppliers, internal specialist departments and external partners, and will be responsible for the successful progress of projects from a technical, commercial and contractual perspective.\n\nProject management\n\n- Management and execution of international customer projects in the areas of Aero, Automotive, IGT (Industrial Gas Turbine) and Medical\n- Overall responsibility for the quality, costs and deadlines of assigned projects\n- Point of contact for customers throughout project execution, from receipt of the order to handover to the service organization\n- Coordination of internal specialist departments, suppliers and third-party providers\n- Ensuring complete and traceable project documentation\n\nContract management\n\n- Ensuring compliance with contractual obligations, deadlines and milestones\n- Advising and supporting project managers on contractual matters\n- Early identification, assessment and minimization of contractual risks\n- Ensuring compliance with internal guidelines, compliance requirements and statutory requirements\n\nYour profile\n\n- Completed degree in mechanical engineering, process engineering, energy engineering, business administration, business law or comparable training\n- Several years of experience in international project management and/or contract management\n- Experience with technical, organizational and commercial matters\n- Strong communication, negotiation and assertiveness skills\n- Structured, independent and solution-oriented way of working\n- Ideally, further training in project management (e.g. IPMA Level C)\n- Very good German and English skills, both written and spoken; French an advantage\n\nWe offer\n\n- Attractive compensation package with good social benefits\n- A modern production and technology center for thermal coating in Hausen (AG) from 2027\n- Varied work in an internationally oriented high-tech company\n- Open corporate culture and a friendly, open-minded team\n- Opportunities for personal and professional development\n- Working independently in an attractive work environment\n\nContact\n\nDoes this sound like you? Then we are eager to get to know you!\n\nPlease apply online via our Career page www.oerlikon.com/career\n\nFor this vacancy, applications from recruitment agencies cannot be considered. Thank you for your understanding.\n\nAbout Oerlikon\n\nOerlikon is a global leader in Material Science Engineering. With the right combination of surface technologies, Advanced Materials, coating equipment, components and Advanced Manufacturing, we help customers improve the performance, efficiency, durability and sustainability of their products and processes. Our technologies are often invisible to end users, but business-critical for the industries that enable modern life: aerospace, energy, semiconductors, medical technology, luxury goods, the tool industry, the automotive industry and general industry. Oerlikon is headquartered in Pfäffikon, Switzerland, operates in 38 countries and employs around 10.000 people worldwide. In 2025, Oerlikon generated revenue of CHF 1,6 billion.\n\nWe offer a wide range of roles in a dynamic, supportive environment where people are empowered to grow and reach their full potential – guided by our core values of integrity, team spirit, excellence and innovation.\n\nFollow Oerlikon:\nLinkedIn, Instagram, YouTube\n\nwww.oerlikon.com",
-        "de": "Project Contract Manager (gn)\n\nIhre Aufgaben\n\nIn dieser vielseitigen Funktion übernehmen Sie sowohl die operative Leitung internationaler Kundenprojekte als auch das vertragliche Management über den gesamten Projektlebenszyklus. Sie agieren als zentrale Schnittstelle zwischen Kunden, Lieferanten, internen Fachabteilungen sowie externen Partnern und tragen die Verantwortung für den erfolgreichen Projektverlauf aus technischer, kommerzieller und vertraglicher Sicht.\n\nProjektmanagement\n\n• Führung und Abwicklung internationaler Kundenprojekte in den Bereichen Aero, Automotive, IGT (Industrial Gas Turbine) und Medical\n\n• Gesamtverantwortung für Qualität, Kosten und Termine der zugewiesenen Projekte\n\n• Ansprechpartner für Kunden während der gesamten Projektabwicklung vom Auftragseingang bis zur Übergabe an die Serviceorganisation\n\n• Koordination interner Fachstellen, Lieferanten und Drittanbieter\n\n• Sicherstellung einer vollständigen und nachvollziehbaren Projektdokumentation\n\nVertragsmanagement\n\n• Sicherstellung der Einhaltung vertraglicher Verpflichtungen, Termine und Meilensteine\n\n• Beratung und Unterstützung der Projektleiter bei vertraglichen Fragestellungen\n\n• Früherkennung, Bewertung und Minimierung vertraglicher Risiken\n\n• Sicherstellung der Einhaltung interner Richtlinien, Compliance-Vorgaben und gesetzlicher Anforderungen\n\nIhr Profil\n\n• Abgeschlossenes Studium in Maschinenbau, Verfahrenstechnik, Energietechnik, Betriebswirtschaft, Wirtschaftsrecht oder vergleichbare Ausbildung\n\n• Mehrjährige Erfahrung im internationalen Projektmanagement und/oder Vertragsmanagement\n\n• Erfahrung in technischen, organisatorischen und kommerziellen Fragestellungen\n\n• Ausgeprägte Kommunikations-, Verhandlungs- und Durchsetzungsfähigkeit\n\n• Strukturierte, selbstständige und lösungsorientierte Arbeitsweise\n\n• Idealerweise Weiterbildung im Projektmanagement (z.B. IPMA Level C)\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift, Französisch von Vorteil\n\nWir bieten\n\n• Attraktives Vergütungspaket mit guten Sozialleistungen\n\n• Ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung ab 2027 in Hausen (AG)\n\n• Abwechslungsreiche Tätigkeit in einem international ausgerichteten Unternehmen im Hightech-Bereich\n\n• Offene Unternehmenskultur und ein freundliches, aufgeschlossenen Team\n\n• Perspektiven zur persönlichen und fachlichen Weiterentwicklung\n\n• Eigenverantwortliches Arbeiten in einem attraktiven Arbeitsumfeld\n\nFühlen Sie sich angesprochen? Dann sind wir neugierig darauf, Sie kennen zu lernen!\n\nBewerben Sie sich bitte online über unsere Career-Seite www.oerlikon.com/career\n\nFür diese Vakanz können Bewerbungen von Personalvermittlungen nicht berücksichtigt werden. Vielen Dank für Ihr Verständnis.\n\nÜber Oerlikon\n\nOerlikon ist weltweit führend in Material Science Engineering. Mit der richtigen Kombination aus Oberflächentechnologien, Advanced Materials, Beschichtungsanlagen, Komponenten und Advanced Manufacturing helfen wir Kunden, die Leistung, Effizienz, Langlebigkeit und Nachhaltigkeit ihrer Produkte und Prozesse zu verbessern. Unsere Technologien sind für Endnutzer oft unsichtbar, aber geschäftskritisch für die Branchen, die das moderne Leben ermöglichen: Luft- und Raumfahrt, Energie, Halbleiter, Medizintechnik, Luxusgüter, Werkzeugindustrie, Automobilindustrie und allgemeine Industrie. Oerlikon hat seinen Hauptsitz in Pfäffikon, Schweiz, ist in 38 Ländern tätig und beschäftigt weltweit rund 10.000 Mitarbeitende. Im Jahr 2025 erzielte Oerlikon einen Umsatz von CHF 1,6 Milliarden.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
-        "fr": "Responsable de projets et de contrats (gn)\n\nVos missions\n\nDans cette fonction polyvalente, vous assumez à la fois la direction opérationnelle de projets clients internationaux et la gestion contractuelle sur l’ensemble du cycle de vie du projet. Vous agissez en tant qu’interface centrale entre les clients, les fournisseurs, les services internes spécialisés ainsi que les partenaires externes et êtes responsable du bon déroulement du projet d’un point de vue technique, commercial et contractuel.\n\nGestion de projet\n\n- Pilotage et réalisation de projets clients internationaux dans les domaines de l’Aero, de l’Automotive, de l’IGT (Industrial Gas Turbine) et du Medical\n- Responsabilité globale de la qualité, des coûts et des délais des projets attribués\n- Point de contact pour les clients pendant toute la réalisation du projet, de la réception de la commande jusqu’au transfert à l’organisation de service\n- Coordination des services internes spécialisés, des fournisseurs et des prestataires tiers\n- Garantie d’une documentation de projet complète et traçable\n\nGestion des contrats\n\n- Veiller au respect des obligations contractuelles, des délais et des jalons\n- Conseil et assistance aux chefs de projet pour les questions contractuelles\n- Détection précoce, évaluation et minimisation des risques contractuels\n- Garantie du respect des directives internes, des exigences de conformité et des obligations légales\n\nVotre profil\n\n- Formation universitaire achevée en génie mécanique, génie des procédés, génie énergétique, gestion d’entreprise, droit des affaires ou formation équivalente\n- Plusieurs années d’expérience en gestion de projets internationaux et/ou en gestion des contrats\n- Expérience dans des problématiques techniques, organisationnelles et commerciales\n- Excellentes capacités de communication, de négociation et d’affirmation\n- Méthode de travail structurée, autonome et orientée vers les solutions\n- Idéalement, formation complémentaire en gestion de projets (p. ex. IPMA Level C)\n- Très bonnes connaissances de l’allemand et de l’anglais à l’oral et à l’écrit, le français constituant un avantage\n\nNous offrons\n\n- Un package de rémunération attractif avec de bonnes prestations sociales\n- Un centre moderne de production et de technologie pour le revêtement thermique à partir de 2027 à Hausen (AG)\n- Une activité variée au sein d’une entreprise à vocation internationale dans le secteur des hautes technologies\n- Une culture d’entreprise ouverte et une équipe sympathique et ouverte d’esprit\n- Des perspectives de développement personnel et professionnel\n- Travail autonome dans un environnement de travail attrayant\n\nContact\n\nVous sentez-vous concerné(e) ? Alors, nous sommes curieux de faire votre connaissance !\n\nVeuillez postuler en ligne via notre page Carrière www.oerlikon.com/career\n\nPour ce poste, les candidatures d’agences de recrutement ne peuvent pas être prises en compte. Nous vous remercions de votre compréhension.\n\nÀ propos d’Oerlikon\n\nOerlikon est leader mondial dans le domaine de l’ingénierie des matériaux. Grâce à la combinaison adéquate de technologies de surface, de matériaux avancés, d’équipements de revêtement, de composants et de fabrication avancée, nous aidons nos clients à améliorer les performances, l’efficacité, la longévité et la durabilité de leurs produits et processus. Nos technologies sont souvent invisibles pour les utilisateurs finaux, mais essentielles aux secteurs qui rendent la vie moderne possible : aéronautique et aérospatiale, énergie, semi-conducteurs, technologies médicales, produits de luxe, industrie de l’outillage, industrie automobile et industrie générale. Oerlikon a son siège à Pfäffikon, en Suisse, est présente dans 38 pays et emploie environ 10.000 collaborateurs dans le monde. En 2025, Oerlikon a réalisé un chiffre d’affaires de CHF 1,6 milliard.\n\nNous offrons une grande diversité de profils professionnels dans un environnement dynamique et bienveillant, où chacun est encouragé à grandir et à développer pleinement son potentiel, guidé par nos valeurs fondamentales que sont l’intégrité, l’esprit d’équipe, l’excellence et l’innovation.\n\nSuivez Oerlikon :\nLinkedIn, Instagram, YouTube\n\nwww.oerlikon.com"
-      },
-      "location": "Wohlen",
-      "canton": "AG",
-      "url": "https://careers.oerlikon.com/job/Project-Contract-Manager-%28gn%29/104392-en_US",
-      "source": "Oerlikon Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:33:51.092Z",
-      "addressLocality": "Wohlen",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5610",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Tecnologia / Ingegneria di superficie",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://careers.oerlikon.com/job/Project-Contract-Manager-%28gn%29/104392-en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "project-contract-manager-gn-oerlikon-ch",
-        "responsabile-del-contratto-di-progetto-gn-oerlikon-wohlen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "project-contract-manager-gn-oerlikon-ch",
-          "responsabile-del-contratto-di-progetto-gn-oerlikon-wohlen"
-        ]
-      },
-      "firstSeenAt": "2026-08-25T10:10:41.061Z",
-      "salaryMin": 85500,
-      "salaryMax": 129500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Wohlen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T09:33:51.092Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "oerlikon-934beb8e0afc",
-      "slug": "ingegnere-di-progetto-gn-ingegneria-elettrica-oerlikon-wohlen",
-      "slugByLocale": {
-        "it": "ingegnere-di-progetto-gn-ingegneria-elettrica-oerlikon-wohlen",
-        "en": "project-engineer-gn-electrical-engineering-oerlikon-wohlen",
-        "de": "projektingenieur-gn-electrical-engineering-oerlikon-ch",
-        "fr": "ingenieur-de-projet-gn-genie-electrique-oerlikon-wohlen"
-      },
-      "company": "Oerlikon",
-      "companyKey": "oerlikon",
-      "companyDomain": "oerlikon.com",
-      "title": "Inbetriebnahme (gn) Engineer",
-      "titleByLocale": {
-        "it": "Messa in funzione (gn) Ingegnere",
-        "en": "Commissioning (gn) Engineer",
-        "de": "Inbetriebnahme (gn) Engineer",
-        "fr": "Mise en service (gn) Ingénieur"
-      },
-      "description": "Inbetriebnahme (gn) Engineer\n\nIhre Aufgaben\n\n• Inbetriebnahme und Prüfung von Kundenanlagen, Unterstützung bei der Projektübergabe (Abnahme, Schulung) im Werk oder beim Kunden im In- und Ausland\n\n• Mitarbeit bei Projektstudien und Erarbeitung von kundenspezifischen Problemlösungen\n\n• Erstellen von elektrotechnischen Fertigungsunterlagen und Steuerungssoftware (SPS, Roboter)\n\n• Unterstützung bei der Erstellung technischer Dokumentationen\n\n• Weiterentwicklung bestehender Produkte und Evaluierung neuer Komponenten und Technologien\n\nIhr Profil\n\n• Technische Grundausbildung und Weiterbildung auf Stufe HF oder FH (Elektrotechnik, Automation oder Systemtechnik) und einige Jahre Berufserfahrung in einer vergleichbaren Funktion\n\n• Vertiefte PLC Kenntnisse mit Siemens Tia Portal und Allen Bradley Rockwell Automation\n\n• Erfahrungen mit EPLAN, COMOS und Robotik (ABB, Fanuc) von Vorteil\n\n• Gewandt im Umgang mit international tätigen Kunden in deutscher und englischer Sprache B2\n\n• Selbstständig, neugierig, proaktiv und teamfähig\n\n• Bereitschaft für Reisen und Kenntnisse im Umgang mit ERP Systemen runden Ihr Profil optimal ab\n\nWir bieten\n\n• Attraktives Vergütungspaket mit guten Sozialleistungen\n\n• Ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung ab 2027 in Hausen (AG)\n\n• Abwechslungsreiche Tätigkeit in einem international ausgerichteten Unternehmen im Hightech-Bereich\n\n• Offene Unternehmenskultur und ein freundliches, aufgeschlossenen Team\n\n• Perspektiven zur persönlichen und fachlichen Weiterentwicklung\n\n• Eigenverantwortliches Arbeiten in einem attraktiven Arbeitsumfeld\n\nFühlen Sie sich angesprochen? Dann sind wir neugierig darauf, Sie kennen zu lernen!\n\nBewerben Sie sich bitte online über unsere Career-Seite www.oerlikon.com/career\n\nFür diese Vakanz können Bewerbungen von Personalvermittlungen nicht berücksichtigt werden. Vielen Dank für Ihr Verständnis.\n\nÜber Oerlikon\n\nOerlikon ist weltweit führend in Material Science Engineering. Mit der richtigen Kombination aus Oberflächentechnologien, Advanced Materials, Beschichtungsanlagen, Komponenten und Advanced Manufacturing helfen wir Kunden, die Leistung, Effizienz, Langlebigkeit und Nachhaltigkeit ihrer Produkte und Prozesse zu verbessern. Unsere Technologien sind für Endnutzer oft unsichtbar, aber geschäftskritisch für die Branchen, die das moderne Leben ermöglichen: Luft- und Raumfahrt, Energie, Halbleiter, Medizintechnik, Luxusgüter, Werkzeugindustrie, Automobilindustrie und allgemeine Industrie. Oerlikon hat seinen Hauptsitz in Pfäffikon, Schweiz, ist in 38 Ländern tätig und beschäftigt weltweit rund 10.000 Mitarbeitende. Im Jahr 2025 erzielte Oerlikon einen Umsatz von CHF 1,6 Milliarden.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\n LinkedIn  |  Instagram  |  YouTube\n\nwww.oerlikon.com",
-      "descriptionByLocale": {
-        "it": "Ingegnere di Servizio (gn)\n\nI tuoi compiti\n\n• Messa in servizio e test dei sistemi del cliente, supporto nella consegna del progetto (accettazione, formazione) in fabbrica o a casa del cliente e all'estero\n\n• Collaborazione negli studi di progetto e nello sviluppo di soluzioni specifiche per i clienti ai problemi\n\n• Creazione di documenti di produzione elettrotecnica e software di controllo (PLC, robot)\n\n• Supporto nella preparazione della documentazione tecnica\n\n• Ulteriore sviluppo dei prodotti esistenti e valutazione di nuovi componenti e tecnologie\n\nIl tuo profilo\n\n• Formazione tecnica di base e formazione ulteriore a livello HF o FH (ingegneria elettrica, automazione o tecnologia di sistema) e diversi anni di esperienza professionale in una funzione comparabile\n\n• Conoscenza approfondita dei PLC con Siemens Tia Portal e Allen Bradley Rockwell Automation\n\n• L'esperienza con EPLAN, COMOS e robotica (ABB, Fanuc) è un vantaggio\n\n• Competente nel trattare con clienti attivi a livello internazionale in tedesco e inglese B2\n\n• Indipendente, curioso, proattivo e un giocatore di squadra\n\n• Disponibilità a viaggiare e conoscenza nell'utilizzo di sistemi ERP completano perfettamente il tuo profilo\n\nOffriamo\n\n• Pacchetto retributivo attraente con buoni benefici sociali\n\n• Un moderno centro di produzione e tecnologia per il rivestimento termico dal 2027 a Hausen (AG)\n\n• Lavoro vario in un'azienda orientata all'internazionale nel settore high-tech\n\n• Cultura aziendale aperta e un team amichevole e di mentalità aperta\n\n• Prospettive per lo sviluppo personale e professionale\n\n• Lavoro indipendente in un ambiente di lavoro attraente\n\nTi senti richiamato? Allora siamo curiosi di conoscerti!\n\nTi invitiamo a candidarti online tramite la nostra pagina carriera www.oerlikon.com/career\n\nLe candidature delle agenzie di reclutamento non possono essere considerate per questa posizione. Grazie per la vostra comprensione.\n\nInformazioni su Oerlikon\n\nOerlikon è un leader globale nell'Ingegneria della Scienza dei Materiali. Con la giusta combinazione di tecnologie superficiali, materiali avanzati, apparecchiature per rivestimenti, componenti e produzione avanzata, aiutiamo i clienti a migliorare le prestazioni, l'efficienza, la durabilità e la sostenibilità dei loro prodotti e processi. Le nostre tecnologie sono spesso invisibili agli utenti finali, ma critiche per i settori che permettono la vita moderna: aerospaziale, energia, semiconduttori, dispositivi medici, beni di lusso, utensili, automotive e industria generale. Con sede a Pfäffikon, Svizzera, Oerlikon opera in 38 paesi e impiega circa 10.000 persone in tutto il mondo. Nel 2025, Oerlikon ha generato vendite di CHF 1,6 miliardi.\n\nOffriamo una vasta gamma di profili lavorativi in un ambiente dinamico e di supporto in cui le persone sono motivate a crescere e raggiungere il proprio pieno potenziale – guidate dai nostri valori fondamentali di integrità, spirito di squadra, eccellenza e innovazione.\n\nSegui Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
-        "en": "Commissioning (gn) Engineer\n\nYour tasks\n\n• Commissioning and testing of customer systems, support in project handover (acceptance, training) in the factory or at the customer's home and abroad\n\n• Collaboration in project studies and development of customer-specific solutions to problems\n\n• Creation of electrotechnical production documents and control software (PLC, robots)\n\n• Support in the preparation of technical documentation\n\n• Further development of existing products and evaluation of new components and technologies\n\nYour profile\n\n• Basic technical training and further education at HF or FH level (electrical engineering, automation or system technology) and several years of professional experience in a comparable function\n\n• In-depth PLC knowledge with Siemens Tia Portal and Allen Bradley Rockwell Automation\n\n• Experience with EPLAN, COMOS and robotics (ABB, Fanuc) is an advantage\n\n• Skilled in dealing with international customers in German and English B2\n\n• Independent, curious, proactive and a team player\n\n• Willingness to travel and knowledge of ERP systems round off your profile optimally\n\nWe offer\n\n• Attractive compensation package with good social benefits\n\n• A modern production and technology center for thermal coating from 2027 in Hausen (AG)\n\n• Varied work in an internationally oriented company in the high-tech sector\n\n• Open corporate culture and a friendly, open-minded team\n\n• Perspectives for personal and professional development\n\n• Independent work in an attractive working environment\n\nDo you feel addressed? Then we are curious to get to know you!\n\nPlease apply online via our career page www.oerlikon.com/career\n\nApplications from recruitment agencies cannot be considered for this vacancy. Thank you for your understanding.\n\nAbout Oerlikon\n\nOerlikon is a global leader in Material Science Engineering. With the right combination of surface technologies, advanced materials, coating equipment, components and advanced manufacturing, we help customers improve the performance, efficiency, durability and sustainability of their products and processes. Our technologies are often invisible to end users, but mission-critical for the industries that enable modern life: aerospace, energy, semiconductors, medical devices, luxury goods, tooling, automotive and general industry. Headquartered in Pfäffikon, Switzerland, Oerlikon operates in 38 countries and employs around 10,000 people worldwide. In 2025, Oerlikon generated sales of CHF 1.6 billion.\n\nWe offer a wide variety of job profiles in a dynamic, supportive environment where people are empowered to grow and reach their full potential – guided by our core values of integrity, team spirit, excellence and innovation.\n\nFollow Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
-        "de": "Inbetriebnahme (gn) Engineer\n\nIhre Aufgaben\n\n• Inbetriebnahme und Prüfung von Kundenanlagen, Unterstützung bei der Projektübergabe (Abnahme, Schulung) im Werk oder beim Kunden im In- und Ausland\n\n• Mitarbeit bei Projektstudien und Erarbeitung von kundenspezifischen Problemlösungen\n\n• Erstellen von elektrotechnischen Fertigungsunterlagen und Steuerungssoftware (SPS, Roboter)\n\n• Unterstützung bei der Erstellung technischer Dokumentationen\n\n• Weiterentwicklung bestehender Produkte und Evaluierung neuer Komponenten und Technologien\n\nIhr Profil\n\n• Technische Grundausbildung und Weiterbildung auf Stufe HF oder FH (Elektrotechnik, Automation oder Systemtechnik) und einige Jahre Berufserfahrung in einer vergleichbaren Funktion\n\n• Vertiefte PLC Kenntnisse mit Siemens Tia Portal und Allen Bradley Rockwell Automation\n\n• Erfahrungen mit EPLAN, COMOS und Robotik (ABB, Fanuc) von Vorteil\n\n• Gewandt im Umgang mit international tätigen Kunden in deutscher und englischer Sprache B2\n\n• Selbstständig, neugierig, proaktiv und teamfähig\n\n• Bereitschaft für Reisen und Kenntnisse im Umgang mit ERP Systemen runden Ihr Profil optimal ab\n\nWir bieten\n\n• Attraktives Vergütungspaket mit guten Sozialleistungen\n\n• Ein modernes Produktions- und Technologiezentrum für Thermische Beschichtung ab 2027 in Hausen (AG)\n\n• Abwechslungsreiche Tätigkeit in einem international ausgerichteten Unternehmen im Hightech-Bereich\n\n• Offene Unternehmenskultur und ein freundliches, aufgeschlossenen Team\n\n• Perspektiven zur persönlichen und fachlichen Weiterentwicklung\n\n• Eigenverantwortliches Arbeiten in einem attraktiven Arbeitsumfeld\n\nFühlen Sie sich angesprochen? Dann sind wir neugierig darauf, Sie kennen zu lernen!\n\nBewerben Sie sich bitte online über unsere Career-Seite www.oerlikon.com/career\n\nFür diese Vakanz können Bewerbungen von Personalvermittlungen nicht berücksichtigt werden. Vielen Dank für Ihr Verständnis.\n\nÜber Oerlikon\n\nOerlikon ist weltweit führend in Material Science Engineering. Mit der richtigen Kombination aus Oberflächentechnologien, Advanced Materials, Beschichtungsanlagen, Komponenten und Advanced Manufacturing helfen wir Kunden, die Leistung, Effizienz, Langlebigkeit und Nachhaltigkeit ihrer Produkte und Prozesse zu verbessern. Unsere Technologien sind für Endnutzer oft unsichtbar, aber geschäftskritisch für die Branchen, die das moderne Leben ermöglichen: Luft- und Raumfahrt, Energie, Halbleiter, Medizintechnik, Luxusgüter, Werkzeugindustrie, Automobilindustrie und allgemeine Industrie. Oerlikon hat seinen Hauptsitz in Pfäffikon, Schweiz, ist in 38 Ländern tätig und beschäftigt weltweit rund 10.000 Mitarbeitende. Im Jahr 2025 erzielte Oerlikon einen Umsatz von CHF 1,6 Milliarden.\n\nWir bieten eine große Vielfalt an Tätigkeitsprofilen in einem dynamischen, unterstützenden Umfeld, in dem Menschen befähigt werden, zu wachsen und ihr volles Potenzial zu entfalten – geleitet von unseren Kernwerten Integrität, Teamgeist, Exzellenz und Innovation.\n\nFolgen Sie Oerlikon:\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com",
-        "fr": "Ingénieur Mise en Service (gn)\n\nVos tâches\n\n• Mise en service et tests des systèmes clients, accompagnement lors de la transmission du projet (réception, formation) en usine ou chez le client et à l'étranger\n\n• Participation aux études de projets et développement de solutions aux problèmes spécifiques du client\n\n• Création de documents de production électrique et de logiciels de contrôle (automates, robots)\n\n• Accompagnement dans la création de documentation technique\n\n• Poursuite du développement des produits existants et évaluation de nouveaux composants et technologies\n\nVotre profil\n\n• Formation technique de base et formation continue de niveau HF ou FH (électrotechnique, automatisme ou technologie des systèmes) et plusieurs années d'expérience professionnelle dans un poste comparable\n\n• Connaissance approfondie des API avec Siemens Tia Portal et Allen Bradley Rockwell Automation\n\n• Une expérience avec EPLAN, COMOS et la robotique (ABB, Fanuc) est un avantage\n\n• Maîtrise des relations avec des clients actifs à l'échelle internationale en allemand et en anglais B2\n\n• Indépendant, curieux, proactif et joueur d'équipe\n\n• L'envie de voyager et la connaissance de l'utilisation des systèmes ERP complètent parfaitement votre profil.\n\nNous offrons\n\n• Une rémunération attractive avec de bons avantages sociaux\n\n• Un centre de production et de technologie moderne pour le revêtement thermique à partir de 2027 à Hausen (AG)\n\n• Travail varié dans une entreprise à vocation internationale dans le secteur high-tech\n\n• Culture d'entreprise ouverte et équipe sympathique et ouverte d'esprit\n\n• Perspectives de développement personnel et professionnel\n\n• Travailler de manière indépendante dans un environnement de travail attractif\n\nVous sentez-vous interpellé ? Alors nous sommes curieux de faire votre connaissance !\n\nVeuillez postuler en ligne via notre page carrières www.oerlikon.com/career\n\nLes candidatures des agences de recrutement ne peuvent pas être prises en compte pour ce poste. Merci pour votre compréhension.\n\nÀ propos de Oerlikon\n\nOerlikon est un leader mondial en ingénierie des sciences des matériaux. Avec la bonne combinaison de technologies de surface, de matériaux avancés, de systèmes de revêtement, de composants et de fabrication avancée, nous aidons nos clients à améliorer les performances, l'efficacité, la longévité et la durabilité de leurs produits et processus. Nos technologies sont souvent invisibles pour les utilisateurs finaux, mais elles sont essentielles aux industries qui permettent la vie moderne : aérospatiale, énergie, semi-conducteurs, dispositifs médicaux, produits de luxe, outillage, automobile et industrie générale. Oerlikon a son siège à Pfäffikon, en Suisse, est présente dans 38 pays et emploie environ 10 000 personnes dans le monde. En 2025, Oerlikon a réalisé un chiffre d'affaires de 1,6 milliard de francs.\n\nNous proposons une grande variété de profils d'emploi dans un environnement dynamique et solidaire où les gens sont habilités à grandir et à développer leur plein potentiel - guidés par nos valeurs fondamentales d'intégrité, d'esprit d'équipe, d'excellence et d'innovation.\n\nSuivez Oerlikon :\nLinkedIn | Instagram | YouTube\n\nwww.oerlikon.com"
-      },
-      "location": "Wohlen",
-      "canton": "AG",
-      "url": "https://careers.oerlikon.com/job/Inbetriebnahme-%28gn%29-Engineer/104461-en_US",
-      "source": "Oerlikon Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:33:50.430Z",
-      "addressLocality": "Wohlen",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5610",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Tecnologia / Ingegneria di superficie",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://careers.oerlikon.com/job/Inbetriebnahme-%28gn%29-Engineer/104461-en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "inbetriebnahme-gn-ingenieur-oerlikon-wohlen",
-          "inbetriebnahme-gn-engineer-oerlikon-ch",
-          "inbetriebnahme-gn-engineer-oerlikon-wohlen"
-        ],
-        "it": [
-          "inbetriebnahme-gn-engineer-oerlikon-ch"
-        ]
-      },
-      "previousSlugs": [
-        "inbetriebnahme-gn-engineer-oerlikon-ch",
-        "inbetriebnahme-gn-ingenieur-oerlikon-wohlen",
-        "inbetriebnahme-gn-engineer-oerlikon-wohlen"
-      ],
-      "firstSeenAt": "2026-08-19T09:48:37.612Z",
-      "salaryMin": 72500,
-      "salaryMax": 110500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72500,
-          "maxValue": 110500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Wohlen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T09:33:50.430Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     }
   ]
 }
