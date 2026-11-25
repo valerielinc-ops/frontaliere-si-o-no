@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kiabi",
-  "assembledAt": "2026-11-24T21:19:27.162Z",
-  "runId": "45488545825",
+  "assembledAt": "2026-11-25T09:16:08.721Z",
+  "runId": "45583135609",
   "jobs": [
     {
       "id": "kiabi-8372070d20fb",
@@ -34,7 +34,7 @@
       "url": "https://jobs.smartrecruiters.com/KIABI/744000153728909-conseiller-de-vente-en-renfort-d-equipe-contrat-sur-appel-cdi-etudiant-e-temps-partiel-h-f-nb-kiabi-fribourg?oga=true",
       "source": "Kiabi Suisse Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-24T21:19:19.192Z",
+      "crawledAt": "2026-11-25T09:16:01.288Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -84,7 +84,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T21:19:19.192Z",
+      "validThrough": "2026-12-25T09:16:01.288Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://jobs.smartrecruiters.com/KIABI/744000162350620-directeur-magasin-h-f-nb-kiabi-aigle?oga=true",
       "source": "Kiabi Suisse Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-24T21:19:19.191Z",
+      "crawledAt": "2026-11-25T09:16:01.284Z",
       "addressLocality": "AIGLE",
       "addressRegion": "VD",
       "streetAddress": "AIGLE",
@@ -164,7 +164,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:19:19.191Z",
+      "validThrough": "2027-02-17T09:16:01.284Z",
       "validThroughSource": "last-observed-window"
     }
   ]

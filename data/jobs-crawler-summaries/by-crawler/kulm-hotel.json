@@ -1,7 +1,7 @@
 {
   "key": "kulm-hotel",
   "label": "Kulm Hotel St. Moritz",
-  "generatedAt": "2026-11-24T21:23:47.446Z",
+  "generatedAt": "2026-11-25T09:24:48.287Z",
   "total": 6,
   "discovered": null,
   "parsed": 5,
@@ -14,16 +14,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 1,
-  "unchangedCount": 5,
-  "durationMs": 37825,
-  "avgDurationMs": 37825,
+  "updatedCount": 0,
+  "removedCount": 0,
+  "unchangedCount": 6,
+  "durationMs": 45661,
+  "avgDurationMs": 45661,
   "durationHistory": [
-    37825
+    45661
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "kulm-hotel-71dce2443b9a",
       "slug": "prenotazione-agente-m-f-d-kulm-hotel-st-moritz-st-moritz-28da081c78",
@@ -36,7 +38,7 @@
       "url": "https://careers.kulm.com/en/vacancies/754",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-24T21:23:00.941Z",
+      "crawledAt": "2026-11-25T09:23:49.555Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -62,7 +64,7 @@
       "salarySource": "estimated",
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T21:23:00.941Z",
+      "validThrough": "2027-02-23T09:23:49.555Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -71,61 +73,7 @@
         "translation": 25,
         "completeness": 23
       }
-    }
-  ],
-  "removedJobs": [
-    {
-      "id": "kulm-hotel-0d43a765b99f",
-      "slug": "partecipante-in-camera-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz-st-moritz",
-      "company": "Kulm Hotel St. Moritz",
-      "companyKey": "kulm-hotel",
-      "companyDomain": "kulm.com",
-      "title": "Luxury Housekeeping Specialist/ Room Attendant (m/f/d) – 5-Star Swiss & LQA Standards (m/w/d)",
-      "location": "St. Moritz",
-      "canton": "GR",
-      "url": "https://careers.kulm.com/en/vacancies/696",
-      "source": "Kulm Hotel St. Moritz Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-23T09:29:36.125Z",
-      "addressLocality": "St. Moritz",
-      "postalCode": "7500",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Housekeeping",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "contractType": "seasonal",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "jobStartDate": "2026-11-24T00:00:00.000000Z",
-      "applyUrl": "https://careers.kulm.com/en/vacancies/696",
-      "department": "Kulm Hotel",
-      "pensum": "100%",
-      "firstSeenAt": "2026-11-22T21:17:38.293Z",
-      "salaryMin": 62000,
-      "salaryMax": 78000,
-      "salarySource": "estimated",
-      "streetAddress": "St. Moritz",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T09:29:36.125Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 23
-      }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "id": "kulm-hotel-190e59d73285",
       "slug": "kitchen-director-chef-de-cuisine-new-all-day-dining-outlet-m-w-d-kulm-hotel-st-moritz",
@@ -138,7 +86,7 @@
       "url": "https://careers.kulm.com/en/vacancies/749",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-24T21:23:00.736Z",
+      "crawledAt": "2026-11-25T09:23:49.397Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -165,7 +113,7 @@
       "salarySource": "estimated",
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-20T21:23:00.736Z",
+      "validThrough": "2027-02-21T09:23:49.397Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -187,7 +135,7 @@
       "url": "https://careers.kulm.com/en/vacancies/679",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-24T21:22:59.739Z",
+      "crawledAt": "2026-11-25T09:23:48.437Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -214,7 +162,7 @@
       "salarySource": "estimated",
       "streetAddress": "Pontresina",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T21:22:59.739Z",
+      "validThrough": "2026-12-25T09:23:48.437Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -236,7 +184,7 @@
       "url": "https://careers.kulm.com/en/vacancies/751",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-24T21:22:58.744Z",
+      "crawledAt": "2026-11-25T09:23:47.480Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -264,7 +212,7 @@
       "salarySource": "estimated",
       "streetAddress": "Pontresina",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T21:22:58.744Z",
+      "validThrough": "2026-12-25T09:23:47.480Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -286,7 +234,7 @@
       "url": "https://careers.kulm.com/en/vacancies/742",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-24T21:22:57.740Z",
+      "crawledAt": "2026-11-25T09:23:46.519Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -313,7 +261,7 @@
       "salarySource": "estimated",
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-20T21:22:57.740Z",
+      "validThrough": "2027-02-21T09:23:46.519Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -364,7 +312,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:19:16.120Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -374,5 +322,5 @@
       }
     }
   ],
-  "codeCommit": "af6487cf18de54664a2dd36f8f16e17f8a69b92f"
+  "codeCommit": "55fd511dba5e5c1bd3b4047690c697040c8b6c58"
 }

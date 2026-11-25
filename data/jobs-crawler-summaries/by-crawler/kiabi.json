@@ -1,7 +1,7 @@
 {
   "key": "kiabi",
   "label": "Kiabi Suisse",
-  "generatedAt": "2026-11-24T21:19:35.958Z",
+  "generatedAt": "2026-11-25T09:16:20.222Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -15,64 +15,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 8990,
-  "avgDurationMs": 8990,
+  "durationMs": 7557,
+  "avgDurationMs": 7557,
   "durationHistory": [
-    8990
+    7557
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "kiabi-6e3ced3ef32a",
-      "slug": "consulente-di-moda-60-80-h-f-nb-cdi-kiabi-fribourg-kiabi-suisse-fribourg",
-      "company": "Kiabi Suisse",
-      "companyKey": "kiabi",
-      "companyDomain": "kiabi.com",
-      "title": "Conseiller·ère de Mode à 60% - 80% (H/F/NB) - CDI - KIABI Fribourg",
-      "location": "Fribourg",
-      "canton": "FR",
-      "url": "https://jobs.smartrecruiters.com/KIABI/744000161105332-conseiller-ere-de-mode-a-60-80-h-f-nb-cdi-kiabi-fribourg?oga=true",
-      "source": "Kiabi Suisse Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-23T09:22:53.224Z",
-      "addressLocality": "Fribourg",
-      "addressRegion": "FR",
-      "streetAddress": "Fribourg",
-      "postalCode": "1700",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "sales",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail / Abbigliamento",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-11T15:04:10.602Z",
-      "postedDate": "2026-11-11T15:04:10.602Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/KIABI/744000161105332-conseiller-ere-de-mode-a-60-80-h-f-nb-cdi-kiabi-fribourg?oga=true",
-      "jobReqId": "744000161105332",
-      "firstSeenAt": "2026-11-11T21:22:46.429Z",
-      "salaryMin": 62000,
-      "salaryMax": 94800,
-      "salarySource": "estimated",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:22:53.224Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "kiabi-8372070d20fb",
@@ -86,7 +38,7 @@
       "url": "https://jobs.smartrecruiters.com/KIABI/744000153728909-conseiller-de-vente-en-renfort-d-equipe-contrat-sur-appel-cdi-etudiant-e-temps-partiel-h-f-nb-kiabi-fribourg?oga=true",
       "source": "Kiabi Suisse Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-24T21:19:19.192Z",
+      "crawledAt": "2026-11-25T09:16:01.288Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -110,7 +62,7 @@
       "salaryMax": 118500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T21:19:19.192Z",
+      "validThrough": "2026-12-25T09:16:01.288Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -132,7 +84,7 @@
       "url": "https://jobs.smartrecruiters.com/KIABI/744000162350620-directeur-magasin-h-f-nb-kiabi-aigle?oga=true",
       "source": "Kiabi Suisse Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-24T21:19:19.191Z",
+      "crawledAt": "2026-11-25T09:16:01.284Z",
       "addressLocality": "AIGLE",
       "addressRegion": "VD",
       "streetAddress": "AIGLE",
@@ -156,7 +108,7 @@
       "salaryMax": 306000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:19:19.191Z",
+      "validThrough": "2027-02-17T09:16:01.284Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -167,5 +119,5 @@
       }
     }
   ],
-  "codeCommit": "af6487cf18de54664a2dd36f8f16e17f8a69b92f"
+  "codeCommit": "55fd511dba5e5c1bd3b4047690c697040c8b6c58"
 }
