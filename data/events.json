@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-25T16:53:12.686Z",
+  "generatedAt": "2026-11-25T17:46:23.335Z",
   "totalEvents": 18409,
   "events": [
     {
@@ -478882,7 +478882,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Exposition; data: 2026-11-25. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Exposition; data: 2026-11-25. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Exposition; date: 2026-11-25. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Exposition; datum: 2026-11-25. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Exposition; date: 2026-11-25. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:changeait-histoire-construire-recits-donner-envie-agir",
@@ -480309,11 +480317,6 @@
         {
           "canton": "TI",
           "comune": "Mendrisio",
-          "slug": "bertille-bak-voci-dalla-terra-2026-11-24"
-        },
-        {
-          "canton": "TI",
-          "comune": "Mendrisio",
           "slug": "bertille-bak-voci-dalla-terra-2026-07-07"
         },
         {
@@ -480330,6 +480333,11 @@
           "canton": "TI",
           "comune": "Mendrisio",
           "slug": "bertille-bak-voci-dalla-terra-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "Mendrisio",
+          "slug": "bertille-bak-voci-dalla-terra-2026-11-24"
         },
         {
           "canton": "TI",
@@ -482213,11 +482221,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "corpi-in-prestito-2026-11-24"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "corpi-in-prestito-2026-09-16"
         },
         {
@@ -482234,6 +482237,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "corpi-in-prestito-2026-08-21"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "corpi-in-prestito-2026-11-24"
         },
         {
           "canton": "TI",
@@ -483202,11 +483210,6 @@
         {
           "canton": "GE",
           "comune": "Genève",
-          "slug": "escape-game-en-exterieur-dans-le-parc-des-2026-11-24"
-        },
-        {
-          "canton": "GE",
-          "comune": "Genève",
           "slug": "escape-game-en-exterieur-dans-le-parc-des-2026-09-03"
         },
         {
@@ -483238,6 +483241,11 @@
           "canton": "GE",
           "comune": "Genève",
           "slug": "escape-game-en-exterieur-dans-le-parc-des-2026-09-14"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "escape-game-en-exterieur-dans-le-parc-des-2026-11-24"
         },
         {
           "canton": "GE",
@@ -483407,11 +483415,6 @@
         {
           "canton": "GE",
           "comune": "Genève",
-          "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-11-24"
-        },
-        {
-          "canton": "GE",
-          "comune": "Genève",
           "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-09-11"
         },
         {
@@ -483423,6 +483426,11 @@
           "canton": "GE",
           "comune": "Genève",
           "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-08-15"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-11-24"
         },
         {
           "canton": "GE",
@@ -484203,7 +484211,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il festival di Ginevra presenta musica, canti e danze legati a un percorso tra Scozia e Galizia. Il programma richiama miti e leggende, lingue e antiche tradizioni, in un immaginario sospeso tra terra e mare.",
+      "descriptionByLocale": {
+        "it": "Il festival di Ginevra presenta musica, canti e danze legati a un percorso tra Scozia e Galizia. Il programma richiama miti e leggende, lingue e antiche tradizioni, in un immaginario sospeso tra terra e mare.",
+        "en": "The festival in Geneva explores music, singing and dance connected with Scotland and Galicia. Its programme evokes myths and legends, languages and old traditions in a world shaped by the meeting of land and sea.",
+        "de": "Das Festival in Genf verbindet Musik, Gesang und Tanz aus dem Spannungsfeld zwischen Schottland und Galicien. Dabei stehen Mythen und Legenden sowie Sprachen und alte Traditionen im Zeichen einer Welt zwischen Land und Meer.",
+        "fr": "À Genève, le festival fait dialoguer musique, chants et danses entre l’Écosse et la Galice. Il évoque des mythes et des légendes, des langues et des traditions anciennes dans un univers situé entre terre et mer."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64101",
@@ -485691,11 +485707,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "jannis-kounellis-io-sono-un-pittore-2026-11-24"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "jannis-kounellis-io-sono-un-pittore-2026-09-20"
         },
         {
@@ -485712,6 +485723,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "jannis-kounellis-io-sono-un-pittore-2026-09-25-2"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "jannis-kounellis-io-sono-un-pittore-2026-11-24"
         },
         {
           "canton": "TI",
@@ -489142,7 +489158,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Exposition; data: 2026-11-25. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Exposition; data: 2026-11-25. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Exposition; date: 2026-11-25. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Exposition; datum: 2026-11-25. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Exposition; date: 2026-11-25. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AP78MWg",
@@ -490736,11 +490760,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "sentimento-e-osservazione-2026-11-24"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "sentimento-e-osservazione-2026-09-16"
         },
         {
@@ -490767,6 +490786,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "sentimento-e-osservazione-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "sentimento-e-osservazione-2026-11-24"
         },
         {
           "canton": "TI",
@@ -491990,17 +492014,17 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "ugo-mulas-pietro-consagra-arnaldo-pomodoro-2026-11-24"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "ugo-mulas-pietro-consagra-arnaldo-pomodoro-2026-09-25"
         },
         {
           "canton": "TI",
           "comune": "lugano",
           "slug": "ugo-mulas-pietro-consagra-arnaldo-pomodoro-2026-09-25"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "ugo-mulas-pietro-consagra-arnaldo-pomodoro-2026-11-24"
         },
         {
           "canton": "TI",
@@ -492224,11 +492248,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "umberto-boccioni-2026-11-24"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "umberto-boccioni-2026-09-15"
         },
         {
@@ -492240,6 +492259,11 @@
           "canton": "TI",
           "comune": "lugano",
           "slug": "umberto-boccioni-2026-08-15"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "umberto-boccioni-2026-11-24"
         },
         {
           "canton": "TI",
@@ -492632,11 +492656,6 @@
         {
           "canton": "TI",
           "comune": "Bellinzona",
-          "slug": "uomo-e-ambiente-il-distruttore-2026-11-24"
-        },
-        {
-          "canton": "TI",
-          "comune": "Bellinzona",
           "slug": "uomo-e-ambiente-il-distruttore-2026-09-25"
         },
         {
@@ -492648,6 +492667,11 @@
           "canton": "TI",
           "comune": "bellinzona",
           "slug": "uomo-e-ambiente-il-distruttore-2026-09-16"
+        },
+        {
+          "canton": "TI",
+          "comune": "Bellinzona",
+          "slug": "uomo-e-ambiente-il-distruttore-2026-11-24"
         },
         {
           "canton": "TI",
@@ -499459,7 +499483,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Fribourg; cantone: FR; categoria: Exposition; organizzatore: Musée d’art et d’histoire MAHF &; data: 2026-11-26; ora: 18:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Fribourg; cantone: FR; categoria: Exposition; organizzatore: Musée d’art et d’histoire MAHF &; data: 2026-11-26; ora: 18:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Fribourg; canton: FR; category: Exposition; organiser: Musée d’art et d’histoire MAHF &; date: 2026-11-26; time: 18:30. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Fribourg; kanton: FR; kategorie: Exposition; veranstalter: Musée d’art et d’histoire MAHF &; datum: 2026-11-26; uhrzeit: 18:30. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Fribourg; canton: FR; catégorie: Exposition; organisateur: Musée d’art et d’histoire MAHF &; date: 2026-11-26; heure: 18:30. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:b439d6eb27704d75a2542bb1304250bc",
@@ -499984,7 +500016,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento di Zugo esamina come un sospetto possa diventare un titolo giornalistico. Si concentra sulle condizioni che accompagnano il passaggio da un’ipotesi iniziale a una notizia pubblicata.",
+      "descriptionByLocale": {
+        "it": "L’evento di Zugo esamina come un sospetto possa diventare un titolo giornalistico. Si concentra sulle condizioni che accompagnano il passaggio da un’ipotesi iniziale a una notizia pubblicata.",
+        "en": "The event in Zug examines how a suspicion can become a news headline. It focuses on the conditions involved in moving from an initial suspicion to published news.",
+        "de": "Die Veranstaltung in Zug befasst sich damit, wie aus einem Verdacht eine Nachricht werden kann. Sie untersucht, welche Voraussetzungen den Übergang zu einer Schlagzeile bestimmen.",
+        "fr": "À Zoug, l’événement examine comment un soupçon peut se transformer en titre de presse. Il porte sur les conditions qui encadrent le passage d’une hypothèse initiale à une information publiée."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64098",
@@ -510121,7 +510161,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Visite commentée; data: 2026-11-28. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Visite commentée; data: 2026-11-28. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Visite commentée; date: 2026-11-28. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Visite commentée; datum: 2026-11-28. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Visite commentée; date: 2026-11-28. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:2ba2186b90fb48b890bc89f6e84a68b1",
@@ -516774,7 +516822,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento propone una conferenza pubblica sul tema della cefalea, con attenzione alla comprensione e alla gestione nella quotidianità. A Il Centro di Locarno intervengono una neurologa, una fisioterapista e una nutrizionista, che illustrano conoscenze scientifiche e possibili approcci terapeutici.",
+      "descriptionByLocale": {
+        "it": "L’evento propone una conferenza pubblica sul tema della cefalea, con attenzione alla comprensione e alla gestione nella quotidianità. A Il Centro di Locarno intervengono una neurologa, una fisioterapista e una nutrizionista, che illustrano conoscenze scientifiche e possibili approcci terapeutici.",
+        "en": "The event is a public conference about cephalalgia, focusing on how it can be understood and managed in everyday life. At Il Centro in Locarno, a neurologist, a physiotherapist and a nutritionist present scientific information and therapeutic approaches.",
+        "de": "Die Veranstaltung ist eine öffentliche Konferenz über Cephalea und deren Umgang im Alltag. Im Il Centro in Locarno erläutern eine Neurologin, eine Physiotherapeutin und eine Ernährungsberaterin wissenschaftliche Erkenntnisse sowie therapeutische Möglichkeiten.",
+        "fr": "Cette rencontre prend la forme d’une conférence publique consacrée aux céphalées et à leur prise en charge au quotidien. À Il Centro, à Locarno, une neurologue, une physiothérapeute et une nutritionniste présentent des éléments scientifiques ainsi que des approches thérapeutiques."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AHWfLLG",
@@ -520118,7 +520174,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "RSI Kids propone a bambine e bambini un’attività creativa in Piazza del Sole, a Bellinzona. Il programma prevede la realizzazione di decorazioni natalizie e disegni a tema invernale; l’attività è gratuita e accessibile a tutti.",
+      "descriptionByLocale": {
+        "it": "RSI Kids propone a bambine e bambini un’attività creativa in Piazza del Sole, a Bellinzona. Il programma prevede la realizzazione di decorazioni natalizie e disegni a tema invernale; l’attività è gratuita e accessibile a tutti.",
+        "en": "RSI Kids presents a creative activity for children at Piazza del Sole in Bellinzona. Participants can make Christmas decorations and winter-themed drawings, and the activity is free and open to everyone.",
+        "de": "RSI Kids gestaltet für Kinder einen kreativen Nachmittag auf der Piazza del Sole in Bellinzona. Vorgesehen sind Weihnachtsdekorationen und Zeichnungen mit winterlichen Motiven; die Teilnahme ist kostenlos und steht allen offen.",
+        "fr": "RSI Kids propose aux enfants une activité créative sur la Piazza del Sole, à Bellinzona. Ils pourront réaliser des décorations de Noël et des dessins sur le thème de l’hiver; l’activité est gratuite et ouverte à tous."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:3e36297175de4082affa76beed7a3feb",
@@ -525403,7 +525467,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Lo spettacolo di danza unisce canto e musica eseguita dal vivo. A Ginevra accosta tradizioni ed espressioni contemporanee legate al femminile.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo di danza unisce canto e musica eseguita dal vivo. A Ginevra accosta tradizioni ed espressioni contemporanee legate al femminile.",
+        "en": "This dance performance combines singing with live music. In Geneva, it brings traditional forms into dialogue with contemporary expressions related to femininity.",
+        "de": "Die Tanzaufführung verbindet Gesang mit live gespielter Musik. In Genf stellt sie Traditionen zeitgenössischen Ausdrucksformen des Weiblichen gegenüber.",
+        "fr": "Ce spectacle de danse associe le chant à une musique jouée en direct. À Genève, il établit un dialogue entre des traditions et des formes actuelles liées au féminin."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:bach-britten-beethoven",
