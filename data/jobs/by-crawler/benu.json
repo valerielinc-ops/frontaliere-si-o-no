@@ -1,7 +1,7 @@
 {
   "crawlerKey": "benu",
-  "assembledAt": "2026-11-24T21:26:50.489Z",
-  "runId": "45488366968",
+  "assembledAt": "2026-11-25T09:24:12.771Z",
+  "runId": "45582959681",
   "jobs": [
     {
       "id": "benu-ce3eda355b41",
@@ -34,7 +34,7 @@
       "url": "https://job.benu.ch/de/jobs/8505815-pharma-assistent-springer-w-m-60-80-benu-deutschschweiz",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:26:44.788Z",
+      "crawledAt": "2026-11-25T09:23:24.269Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -83,7 +83,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T21:26:44.788Z",
+      "validThrough": "2027-01-05T09:23:24.269Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -117,7 +117,7 @@
       "url": "https://job.benu.ch/de/jobs/8673824-pharma-assistent-w-m-60-benu-schwerzenbach",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:26:44.786Z",
+      "crawledAt": "2026-11-25T09:23:24.265Z",
       "addressLocality": "Schwerzenbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -166,7 +166,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:26:44.786Z",
+      "validThrough": "2027-02-04T09:23:24.265Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -200,7 +200,7 @@
       "url": "https://job.benu.ch/de/jobs/8780750-network-specialist-engineer-workplace-infrastructure-80-100-w-m-d",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:26:44.785Z",
+      "crawledAt": "2026-11-25T09:23:24.259Z",
       "addressLocality": "Köniz",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -247,17 +247,17 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T21:26:44.785Z",
+      "validThrough": "2027-02-22T09:23:24.259Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "benu-e1cf07b73d51",
-      "slug": "verantwortlicher-apotheker-w-m-80-100-benu-rotkreuz-arkadenhof-risch-rotkreuz-zoug-benu-ch",
+      "slug": "farmacista-responsabile-m-f-80-100-benu-croce-rossa-arkadenhof-benu-risch",
       "slugByLocale": {
         "de": "verantwortlicher-apotheker-w-m-80-100-benu-rotkreuz-arkadenhof-risch-rotkreuz-zoug-benu-ch",
-        "it": "verantwortlicher-apotheker-w-m-80-100-benu-rotkreuz-arkadenhof-risch-rotkreuz-zoug-benu-ch",
-        "en": "verantwortlicher-apotheker-w-m-80-100-benu-rotkreuz-arkadenhof-risch-rotkreuz-zoug-benu-ch",
-        "fr": "verantwortlicher-apotheker-w-m-80-100-benu-rotkreuz-arkadenhof-risch-rotkreuz-zoug-benu-ch"
+        "it": "farmacista-responsabile-m-f-80-100-benu-croce-rossa-arkadenhof-benu-risch",
+        "en": "responsible-pharmacist-m-f-80-100-benu-red-cross-arkadenhof-benu-risch",
+        "fr": "pharmacien-responsable-h-f-80-100-benu-croix-rouge-arkadenhof-benu-risch"
       },
       "company": "benu",
       "companyKey": "benu",
@@ -303,7 +303,7 @@
       },
       "salaryMin": 69500,
       "salaryMax": 106000,
-      "salarySource": "estimated",
+      "salarySource": "reported",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -319,7 +319,22 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-22T21:26:44.783Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-24T21:26:44.783Z"
+      "firstSeenAt": "2026-11-24T21:26:44.783Z",
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "verantwortlicher-apotheker-w-m-80-100-benu-rotkreuz-arkadenhof-risch-rotkreuz-zoug-benu-ch"
+        ],
+        "en": [
+          "verantwortlicher-apotheker-w-m-80-100-benu-rotkreuz-arkadenhof-risch-rotkreuz-zoug-benu-ch"
+        ],
+        "fr": [
+          "verantwortlicher-apotheker-w-m-80-100-benu-rotkreuz-arkadenhof-risch-rotkreuz-zoug-benu-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verantwortlicher-apotheker-w-m-80-100-benu-rotkreuz-arkadenhof-risch-rotkreuz-zoug-benu-ch"
+      ]
     }
   ]
 }

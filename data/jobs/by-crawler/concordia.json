@@ -1,7 +1,7 @@
 {
   "crawlerKey": "concordia",
-  "assembledAt": "2026-11-24T21:26:24.986Z",
-  "runId": "45488366968",
+  "assembledAt": "2026-11-25T09:24:30.030Z",
+  "runId": "45582959681",
   "jobs": [
     {
       "id": "concordia-f7160c0ae228",
@@ -35,7 +35,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/agenturleiter-in-in-kloten/a3ca201a-1f61-47cc-922e-e3956184555d",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:58.311Z",
+      "crawledAt": "2026-11-25T09:24:18.867Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T21:25:58.311Z",
+      "validThrough": "2027-01-25T09:24:18.867Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/leistungsspezialist-in-leistungspruefung-mit-franzoesisch-oder-italienischkenntnissen/9d6abfd0-f01b-491e-b8da-e745ab42256a",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:57.880Z",
+      "crawledAt": "2026-11-25T09:24:18.457Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -168,7 +168,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:25:57.880Z",
+      "validThrough": "2027-01-26T09:24:18.457Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -203,7 +203,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-80-in-chur/8ca2f2ba-ecbe-4df5-9ba8-9a71887f2b09",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:57.481Z",
+      "crawledAt": "2026-11-25T09:24:18.029Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -262,7 +262,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:25:57.481Z",
+      "validThrough": "2027-01-26T09:24:18.029Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -297,7 +297,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-in-frick/513ee04b-08ba-4e30-adb6-fc22c424133f",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:57.057Z",
+      "crawledAt": "2026-11-25T09:24:17.634Z",
       "addressLocality": "Frick",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -354,7 +354,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:25:57.057Z",
+      "validThrough": "2027-01-26T09:24:17.634Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -389,7 +389,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/versicherungsberater-in-in-lenzburg/8402b5df-8764-434b-b0b1-22fd6ebb4fbc",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:56.642Z",
+      "crawledAt": "2026-11-25T09:24:17.205Z",
       "addressLocality": "Lenzburg",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -490,7 +490,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg-8a8e1693",
           "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg-57994c97",
           "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg-e0630365",
           "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg-6e8a3562",
@@ -509,7 +508,8 @@
           "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg-940d2c10",
           "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg-82a59a7c",
           "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg-9e62e28a",
-          "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg-272f2014"
+          "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg-272f2014",
+          "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg-8a8e1693"
         ],
         "en": [
           "versicherungsberater-in-100-in-lenzburg-concordia-lenzburg",
@@ -540,7 +540,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:25:56.642Z",
+      "validThrough": "2027-01-26T09:24:17.205Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -575,7 +575,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/it-application-manager-in-80/7843dc8c-5a49-4252-97b9-3491d511f62b",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:56.230Z",
+      "crawledAt": "2026-11-25T09:24:16.797Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -621,7 +621,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:25:56.230Z",
+      "validThrough": "2027-01-26T09:24:16.797Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -656,7 +656,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/teamleiter-in-kundenberatung-in-aarau/5e068d2d-cecc-4b8d-95be-f918dceb2e65",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:55.829Z",
+      "crawledAt": "2026-11-25T09:24:16.370Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -705,7 +705,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T21:25:55.829Z",
+      "validThrough": "2027-01-28T09:24:16.370Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -740,7 +740,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-geschaeftsstelle-in-alpnach/4ac6d3ae-9e91-401a-b101-0152c955ede4",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:55.413Z",
+      "crawledAt": "2026-11-25T09:24:15.942Z",
       "addressLocality": "Alpnach",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -799,7 +799,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-29T21:25:55.413Z",
+      "validThrough": "2027-01-29T09:24:15.942Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -833,7 +833,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-90-in-hitzkirch/c289df54-d0e7-4f6f-988a-aaa689fa70a6",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:54.946Z",
+      "crawledAt": "2026-11-25T09:24:15.523Z",
       "addressLocality": "Hitzkirch",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -876,7 +876,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-29T21:25:54.946Z",
+      "validThrough": "2027-01-29T09:24:15.523Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -910,7 +910,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/versicherungsberater-in-in-luzern/a1e88c06-179c-4718-bb46-80973ade3052",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:54.529Z",
+      "crawledAt": "2026-11-25T09:24:15.102Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -977,7 +977,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-29T21:25:54.529Z",
+      "validThrough": "2027-01-29T09:24:15.102Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1012,7 +1012,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-geschaeftsstelle-in-eich/88b61566-1fd3-4cef-b756-bbafd560238c",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:54.077Z",
+      "crawledAt": "2026-11-25T09:24:14.683Z",
       "addressLocality": "Eich",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1061,7 +1061,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-31T21:25:54.077Z",
+      "validThrough": "2027-01-31T09:24:14.683Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1096,7 +1096,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/product-owner-in-lifeware-leben-60/d9a5bec2-dab6-4c4e-9558-24b656745a91",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:53.656Z",
+      "crawledAt": "2026-11-25T09:24:14.241Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1131,7 +1131,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T21:25:53.656Z",
+      "validThrough": "2027-02-01T09:24:14.241Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1166,7 +1166,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-60-in-olten/73195597-6297-47aa-95cf-27a7bb3aaccb",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:53.257Z",
+      "crawledAt": "2026-11-25T09:24:13.851Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1215,7 +1215,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:25:53.257Z",
+      "validThrough": "2027-02-02T09:24:13.851Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1250,7 +1250,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/drg-tarifspezialist-in-mit-schwerpunkt-digitale-entwicklung-80/0c123394-9d62-4ea7-b947-770ef1bae624",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:52.840Z",
+      "crawledAt": "2026-11-25T09:24:13.417Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1299,7 +1299,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:25:52.840Z",
+      "validThrough": "2027-02-02T09:24:13.417Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1334,7 +1334,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/versicherungsberater-in-in-visp/16200504-306b-4132-abc4-6e0b7e2defe6",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:52.454Z",
+      "crawledAt": "2026-11-25T09:24:12.994Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1383,7 +1383,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:25:52.454Z",
+      "validThrough": "2027-02-02T09:24:12.994Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1418,7 +1418,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-80-in-pfaeffikon-und-einsiedeln/45b3603a-0cda-48d1-b8b6-2a484d986d61",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:52.021Z",
+      "crawledAt": "2026-11-25T09:24:12.596Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1469,7 +1469,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:25:52.021Z",
+      "validThrough": "2027-02-02T09:24:12.596Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1504,7 +1504,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-80-in-buchs-sg/c6d34796-6953-4732-aead-761c834a5c24",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:51.594Z",
+      "crawledAt": "2026-11-25T09:24:12.147Z",
       "addressLocality": "Buchs 1",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1547,7 +1547,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:25:51.594Z",
+      "validThrough": "2027-02-03T09:24:12.147Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1582,7 +1582,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/gesundheitsberater-in-telemedizin-dipl-pflegefachperson-hf-60-bei-monvia/c8a4990d-2a50-4568-8253-48b8e6e5a045",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:51.183Z",
+      "crawledAt": "2026-11-25T09:24:11.740Z",
       "addressLocality": "Olten",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1625,7 +1625,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:25:51.183Z",
+      "validThrough": "2027-02-03T09:24:11.740Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1660,7 +1660,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/versicherungsberater-in-in-rapperswil/c6bfa10e-b94e-4a7b-9f91-1a5047ce2fb6",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:50.797Z",
+      "crawledAt": "2026-11-25T09:24:11.309Z",
       "addressLocality": "Rapperswil-Jona",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1709,7 +1709,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T21:25:50.797Z",
+      "validThrough": "2027-02-04T09:24:11.309Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1743,7 +1743,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/mitarbeiter-in-helpdesk-de-fr-80/fe6b9b56-b089-42d4-aea4-190216b3eafe",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:50.351Z",
+      "crawledAt": "2026-11-25T09:24:10.919Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1792,7 +1792,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T21:25:50.351Z",
+      "validThrough": "2027-02-07T09:24:10.919Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1827,7 +1827,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/leistungsspezialist-in-leistungspruefung-im-service-center-zuerich/0ccb7e0f-e6f6-4ddb-9361-ef2f8f4951df",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:49.912Z",
+      "crawledAt": "2026-11-25T09:24:10.483Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1870,7 +1870,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T21:25:49.912Z",
+      "validThrough": "2027-02-08T09:24:10.483Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1905,7 +1905,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitspruefung-bvm-80/d2a47326-f754-40f7-a4e3-afa90b5c9d97",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:49.519Z",
+      "crawledAt": "2026-11-25T09:24:10.077Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2006,7 +2006,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia-7d78bc45",
           "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia-83c4c8b2",
           "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia-1b3a1242",
           "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia-02f39d4d",
@@ -2025,7 +2024,8 @@
           "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia-11cebe5a",
           "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia-9dd1f32d",
           "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia-02e7dff9",
-          "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia-80228e5f"
+          "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia-80228e5f",
+          "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia-7d78bc45"
         ],
         "en": [
           "teamleiter-in-leistungscontrolling-und-wirtschaftlichkeitsprufung-bvm-80-100-concordia",
@@ -2054,7 +2054,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T21:25:49.519Z",
+      "validThrough": "2027-02-08T09:24:10.077Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2089,7 +2089,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/versicherungsberater-in-80-in-bern/c396c830-fc16-41f7-b307-35054677a24a",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:49.117Z",
+      "crawledAt": "2026-11-25T09:24:09.680Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2138,7 +2138,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T21:25:49.117Z",
+      "validThrough": "2027-02-08T09:24:09.680Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2173,7 +2173,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/versicherungsberater-in-in-baar/7d9fba25-5bef-4b2b-b4a5-ed01c5c48961",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:48.709Z",
+      "crawledAt": "2026-11-25T09:24:09.269Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2218,7 +2218,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:25:48.709Z",
+      "validThrough": "2027-02-09T09:24:09.269Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2253,7 +2253,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-in-sursee/d57915db-8324-4a5c-97de-2565d27e489d",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:48.301Z",
+      "crawledAt": "2026-11-25T09:24:08.879Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2302,7 +2302,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:25:48.301Z",
+      "validThrough": "2027-02-09T09:24:08.879Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2337,7 +2337,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-geschaeftsstelle-ca-in-grosswangen/7f07c222-9b43-4ec0-98c5-be1c7aad304e",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:47.840Z",
+      "crawledAt": "2026-11-25T09:24:08.455Z",
       "addressLocality": "Grosswangen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2383,7 +2383,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:25:47.840Z",
+      "validThrough": "2027-02-09T09:24:08.455Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2418,7 +2418,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-in-zuerich/dcf9bb67-8589-4db6-b753-c4767bbd6109",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:47.416Z",
+      "crawledAt": "2026-11-25T09:24:07.965Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2467,7 +2467,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:25:47.416Z",
+      "validThrough": "2027-02-09T09:24:07.965Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2501,7 +2501,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/software-tester-in-fach/10405250-2943-41b8-ad93-b65ad87f2dbe",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:46.992Z",
+      "crawledAt": "2026-11-25T09:24:07.495Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2544,7 +2544,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:25:46.992Z",
+      "validThrough": "2027-02-09T09:24:07.495Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2579,7 +2579,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-60-in-langenthal/afaf509a-4c92-4294-b30b-b064c85fa526",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:46.582Z",
+      "crawledAt": "2026-11-25T09:24:07.044Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2624,7 +2624,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T21:25:46.582Z",
+      "validThrough": "2027-02-11T09:24:07.044Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2659,7 +2659,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-temporaer-in-affoltern-am-albis/044b6221-0297-413d-9a23-241f29150358",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:46.147Z",
+      "crawledAt": "2026-11-25T09:24:06.590Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2704,7 +2704,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-12T21:25:46.147Z",
+      "validThrough": "2027-02-12T09:24:06.590Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2739,7 +2739,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/projektleiter-in-versicherungstechnik-60/b1ffc79d-0c3b-4cd2-ae44-b40029d311dd",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:45.702Z",
+      "crawledAt": "2026-11-25T09:24:06.073Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2788,7 +2788,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T21:25:45.702Z",
+      "validThrough": "2027-02-14T09:24:06.073Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2823,7 +2823,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/agenturleiter-in-in-biel/76d5edaa-7481-4031-bf55-4f38832c43cc",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:45.301Z",
+      "crawledAt": "2026-11-25T09:24:05.643Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2866,7 +2866,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-15T21:25:45.301Z",
+      "validThrough": "2027-02-15T09:24:05.643Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2901,7 +2901,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/teamleiter-in-logistik-und-dienste-80/89748302-eee7-41a5-a085-e62a6f9fefb3",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:44.874Z",
+      "crawledAt": "2026-11-25T09:24:05.160Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2950,7 +2950,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-15T21:25:44.874Z",
+      "validThrough": "2027-02-15T09:24:05.160Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2985,7 +2985,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/versicherungsberater-in-in-littau-reussbuehl/8613b7ee-6daf-4bc0-a13c-c4b1119932f6",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:44.475Z",
+      "crawledAt": "2026-11-25T09:24:04.756Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3030,7 +3030,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-16T21:25:44.475Z",
+      "validThrough": "2027-02-16T09:24:04.756Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3065,7 +3065,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-in-rapperswil/ac4b486c-b0bb-4e14-981e-4f1826306165",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:44.050Z",
+      "crawledAt": "2026-11-25T09:24:04.321Z",
       "addressLocality": "Rapperswil-Jona",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -3114,7 +3114,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-17T21:25:44.050Z",
+      "validThrough": "2027-02-17T09:24:04.321Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3148,7 +3148,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/apprentissage-d-employe-de-commerce-f-h-nb-avec-cfc-d-assurances-maladie-et-sociale-agence-de-geneve/9738c7b1-09c6-4f7b-a6b8-25efcb55aae6",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-24T21:25:43.637Z",
+      "crawledAt": "2026-11-25T09:24:03.831Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3199,7 +3199,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-17T21:25:43.637Z",
+      "validThrough": "2027-02-17T09:24:03.831Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3234,7 +3234,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/product-owner-in-system-team-ci-cd-software-development-80/9c636fd3-26cc-4640-91a8-b8983923087a",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:43.221Z",
+      "crawledAt": "2026-11-25T09:24:03.391Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3291,7 +3291,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T21:25:43.221Z",
+      "validThrough": "2027-02-18T09:24:03.391Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3326,7 +3326,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/senior-client-engineer-w-m-d/67c25af3-178f-4f40-bf76-d35bf6e39d2c",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:42.813Z",
+      "crawledAt": "2026-11-25T09:24:02.975Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3380,7 +3380,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T21:25:42.813Z",
+      "validThrough": "2027-02-18T09:24:02.975Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3415,7 +3415,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/versichrungsberater-in-in-horw/f37c7475-dceb-423a-a6ea-f40ec03c1a65",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:42.405Z",
+      "crawledAt": "2026-11-25T09:24:02.498Z",
       "addressLocality": "Horw",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3464,7 +3464,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T21:25:42.405Z",
+      "validThrough": "2027-02-18T09:24:02.498Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3499,7 +3499,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/it-application-manager-in-crm-80/58089528-d71d-416a-bf32-c839c8fa9fca",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:41.973Z",
+      "crawledAt": "2026-11-25T09:24:02.032Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3551,7 +3551,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-19T21:25:41.973Z",
+      "validThrough": "2027-02-19T09:24:02.032Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3586,7 +3586,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/senior-sql-dwh-engineer-w-m-d-80/7e997ffd-a665-42d0-b782-c4bf0ffb0239",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:41.568Z",
+      "crawledAt": "2026-11-25T09:24:01.568Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3631,7 +3631,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-19T21:25:41.568Z",
+      "validThrough": "2027-02-19T09:24:01.568Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3666,7 +3666,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/senior-database-engineer-oracle-postgresql-80/8669dc70-6b4e-4133-9ec7-5541efe6b044",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:41.142Z",
+      "crawledAt": "2026-11-25T09:24:01.120Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3723,7 +3723,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-19T21:25:41.142Z",
+      "validThrough": "2027-02-19T09:24:01.120Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3758,7 +3758,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-geschaeftsstelle-in-laufen/7f342859-1bd8-4742-ae74-e265d95d5752",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:40.717Z",
+      "crawledAt": "2026-11-25T09:24:00.647Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3821,7 +3821,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-19T21:25:40.717Z",
+      "validThrough": "2027-02-19T09:24:00.647Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3856,7 +3856,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/versicherungsberater-in-in-zug/29a4c52c-c9a7-4592-a931-ead98dda9b64",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:40.225Z",
+      "crawledAt": "2026-11-25T09:24:00.126Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3923,7 +3923,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-19T21:25:40.225Z",
+      "validThrough": "2027-02-19T09:24:00.126Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3958,7 +3958,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/senior-ai-engineer-architect-w-m-d-80/cb3e8760-006a-4470-9602-f7f33c6894b2",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:39.793Z",
+      "crawledAt": "2026-11-25T09:23:59.647Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4011,7 +4011,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-21T21:25:39.793Z",
+      "validThrough": "2027-02-21T09:23:59.647Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4046,7 +4046,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/ai-engineer-w-m-d-80/6be31a8a-054e-4f44-b6b7-3a980a2b6478",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:39.389Z",
+      "crawledAt": "2026-11-25T09:23:59.221Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4092,7 +4092,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-21T21:25:39.389Z",
+      "validThrough": "2027-02-21T09:23:59.221Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4127,7 +4127,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/devops-client-engineer-w-m-d-80/e1363863-c28a-45e0-b5f7-dd36574c3098",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:38.944Z",
+      "crawledAt": "2026-11-25T09:23:58.723Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4162,7 +4162,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-21T21:25:38.944Z",
+      "validThrough": "2027-02-21T09:23:58.723Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4196,7 +4196,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-in-graenichen/40e150dd-3994-45ba-a1ec-f0e465b69765",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:25:38.489Z",
+      "crawledAt": "2026-11-25T09:23:58.280Z",
       "addressLocality": "Gränichen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4216,7 +4216,9 @@
       "applyUrl": "https://jobs.concordia.ch/offene-stellen/kundenberater-in-in-graenichen/40e150dd-3994-45ba-a1ec-f0e465b69765",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-11-24T09:25:05.889Z",
+      "previousSlugs": [
+        "kundenberater-in-100-in-granichen-concordia-granichen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-in-100-in-granichen-concordia-granichen"
@@ -4228,9 +4230,7 @@
           "kundenberater-in-100-in-granichen-concordia-granichen"
         ]
       },
-      "previousSlugs": [
-        "kundenberater-in-100-in-granichen-concordia-granichen"
-      ],
+      "firstSeenAt": "2026-11-24T09:25:05.889Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -4245,7 +4245,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-22T21:25:38.489Z",
+      "validThrough": "2027-02-22T09:23:58.280Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4280,7 +4280,7 @@
       "url": "https://jobs.concordia.ch/offene-stellen/conseiller-ou-conseillere-a-la-clientele-f-m-nb-a-lausanne/0e85ed20-4bd5-4254-b44a-839dda285374",
       "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-24T21:25:38.039Z",
+      "crawledAt": "2026-11-25T09:23:57.823Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4300,7 +4300,9 @@
       "applyUrl": "https://jobs.concordia.ch/offene-stellen/conseiller-ou-conseillere-a-la-clientele-f-m-nb-a-lausanne/0e85ed20-4bd5-4254-b44a-839dda285374",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-11T13:39:24.781Z",
+      "previousSlugs": [
+        "conseiller-ou-conseillere-a-la-clientele-f-m-nb-100-a-lausanne-concordia-lausanne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-ou-conseillere-a-la-clientele-f-m-nb-100-a-lausanne-concordia-lausanne"
@@ -4312,9 +4314,7 @@
           "conseiller-ou-conseillere-a-la-clientele-f-m-nb-100-a-lausanne-concordia-lausanne"
         ]
       },
-      "previousSlugs": [
-        "conseiller-ou-conseillere-a-la-clientele-f-m-nb-100-a-lausanne-concordia-lausanne"
-      ],
+      "firstSeenAt": "2026-09-11T13:39:24.781Z",
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -4329,8 +4329,80 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-22T21:25:38.039Z",
+      "validThrough": "2027-02-22T09:23:57.823Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "concordia-5af27eab9787",
+      "slug": "leistungsspezialist-in-leistungsprufung-100-concordia-luzern",
+      "slugByLocale": {
+        "de": "leistungsspezialist-in-leistungsprufung-100-concordia-luzern",
+        "it": "leistungsspezialist-in-leistungsprufung-100-concordia-luzern",
+        "en": "leistungsspezialist-in-leistungsprufung-100-concordia-luzern",
+        "fr": "leistungsspezialist-in-leistungsprufung-100-concordia-luzern"
+      },
+      "company": "Concordia",
+      "companyKey": "concordia",
+      "companyDomain": "concordia.ch",
+      "title": "Leistungsspezialist:in Leistungsprüfung, 100 %",
+      "titleByLocale": {
+        "de": "Leistungsspezialist:in Leistungsprüfung, 100 %",
+        "it": "Leistungsspezialist:in Leistungsprüfung, 100 %",
+        "en": "Leistungsspezialist:in Leistungsprüfung, 100 %",
+        "fr": "Leistungsspezialist:in Leistungsprüfung, 100 %"
+      },
+      "description": "Sich auf die Arbeit freuen: 100 % gesund\nGeissensteinring 26, 6005 Luzern\nDu bist ehrgeizig und bildest dich gerne weiter? Dann starte deine Karriere bei der CONCORDIA. Wir verstärken unseren Bereich Leistungen und suchen dynamische, leistungsbereite und motivierte Menschen wie dich.\n\n## Das erwartet dich\n- Du bearbeitest ambulante und stationäre Leistungsfälle in den Bereichen KVG und VVG.\n- Leistungsansprüche kontrollierst und beurteilst du aus rechtlicher sowie medizinischer Sicht.\n- Du bearbeitest Kostengutsprachen.\n- Bei Leistungsfragen erteilst du mündlich oder schriftlich Auskunft.\n- Deine Ansprechpartner: Versicherte, Ärzte, Spitäler, Therapeuten sowie Mitarbeitende aus anderen Bereichen der CONCORDIA.\n\n## Das bringst du mit\n- Du verfügst über eine medizinische Grundausbildung (in einer Arztpraxis, Apotheke oder Drogerie) kombiniert mit einer kaufmännischen Weiterbildung (Handelsschule oder aus dem Gesundheitswesen).\n- Oder du hast eine kaufmännische Grundausbildung in der Versicherungsbranche oder im Spitalbereich absolviert.\n- Selbständig, speditiv, exakt und flexibel arbeiten? Dabei fühlst du dich wohl.\n- Du besitzt eine gute Auffassungsgabe.\n- Du schätzt ein dynamisches, vielseitiges sowie dienstleistungsorientiertes Umfeld genauso wie wir.\n- Dein stilsicheres Deutsch überzeugt, egal ob du sprichst oder schreibst.\n- Versierte MS Office Kenntnisse? Für dich kein Problem!\nDein Arbeitsort\n\n## Darum CONCORDIA\nAls Expertin für Gesundheit setzt sich die CONCORDIA für ein Arbeitsumfeld ein, in dem sich Mitarbeitende wohlfühlen und verwirklichen können. Es ist geprägt von abwechslungsreichen Aufgaben, vielseitigen Teams und einem familiären Umgang. Zudem motivieren wir unsere Mitarbeitenden, sich weiterzuentwickeln und voranzukommen. Menschen, die Spass an der Arbeit haben und beruflich vorwärtskommen wollen, finden bei uns, was sie suchen: Jobs, die zu 100 % gesund sind.\nDarum CONCORDIA\n\n## Deine Vorteile\nArbeitszeit\nDu hast eine 41-Stunden-Woche und kannst Teilzeit oder flexibel arbeiten. Für ausgewählte Tätigkeiten kannst du regelmässig von zu Hause aus arbeiten.\nAus- und Weiterbildung\nDie CONCORDIA unterstützt interne und externe Weiterbildungen. Bei deiner Karriereplanung begleiten wir dich individuell.\nBeteiligung Krankenversicherungsprämie\nDu und deine Familie profitieren von reduzierten Krankenversicherungsprämien.\nWertschätzung\nIn der CONCORDIA-Familie erlebst du Wertschätzung und Teamgeist.\nVersicherungen\nDie CONCORDIA übernimmt die Lohnabzüge für Lohnausfallversicherungen (Krankheit und Unfall) und versichert dich grosszügig.\nFerien\nDeine Erholung ist uns wichtig: Geniesse mindestens fünf Wochen Ferien pro Jahr.\nAusgezeichnet von den Mitarbeitenden\nBereits 2016 und 2018 brillierte die CONCORDIA beim Swiss Arbeitgeber Award mit hervorragenden Ergebnissen. Im Jahr 2020 holten wir uns dann sogar den ersten Platz in der Kategorie für grosse Unternehmen mit mehr als 1000 Mitarbeitenden und im Jahr 2022 wurden wir mit dem zweiten Platz ausgezeichnet. Auch im Jahr 2025 dürfen wir mit gutem Recht festhalten, dass wir zu den allerbesten Arbeitgeberinnen der Schweiz gehören.",
+      "descriptionByLocale": {
+        "de": "Sich auf die Arbeit freuen: 100 % gesund\nGeissensteinring 26, 6005 Luzern\nDu bist ehrgeizig und bildest dich gerne weiter? Dann starte deine Karriere bei der CONCORDIA. Wir verstärken unseren Bereich Leistungen und suchen dynamische, leistungsbereite und motivierte Menschen wie dich.\n\n## Das erwartet dich\n- Du bearbeitest ambulante und stationäre Leistungsfälle in den Bereichen KVG und VVG.\n- Leistungsansprüche kontrollierst und beurteilst du aus rechtlicher sowie medizinischer Sicht.\n- Du bearbeitest Kostengutsprachen.\n- Bei Leistungsfragen erteilst du mündlich oder schriftlich Auskunft.\n- Deine Ansprechpartner: Versicherte, Ärzte, Spitäler, Therapeuten sowie Mitarbeitende aus anderen Bereichen der CONCORDIA.\n\n## Das bringst du mit\n- Du verfügst über eine medizinische Grundausbildung (in einer Arztpraxis, Apotheke oder Drogerie) kombiniert mit einer kaufmännischen Weiterbildung (Handelsschule oder aus dem Gesundheitswesen).\n- Oder du hast eine kaufmännische Grundausbildung in der Versicherungsbranche oder im Spitalbereich absolviert.\n- Selbständig, speditiv, exakt und flexibel arbeiten? Dabei fühlst du dich wohl.\n- Du besitzt eine gute Auffassungsgabe.\n- Du schätzt ein dynamisches, vielseitiges sowie dienstleistungsorientiertes Umfeld genauso wie wir.\n- Dein stilsicheres Deutsch überzeugt, egal ob du sprichst oder schreibst.\n- Versierte MS Office Kenntnisse? Für dich kein Problem!\nDein Arbeitsort\n\n## Darum CONCORDIA\nAls Expertin für Gesundheit setzt sich die CONCORDIA für ein Arbeitsumfeld ein, in dem sich Mitarbeitende wohlfühlen und verwirklichen können. Es ist geprägt von abwechslungsreichen Aufgaben, vielseitigen Teams und einem familiären Umgang. Zudem motivieren wir unsere Mitarbeitenden, sich weiterzuentwickeln und voranzukommen. Menschen, die Spass an der Arbeit haben und beruflich vorwärtskommen wollen, finden bei uns, was sie suchen: Jobs, die zu 100 % gesund sind.\nDarum CONCORDIA\n\n## Deine Vorteile\nArbeitszeit\nDu hast eine 41-Stunden-Woche und kannst Teilzeit oder flexibel arbeiten. Für ausgewählte Tätigkeiten kannst du regelmässig von zu Hause aus arbeiten.\nAus- und Weiterbildung\nDie CONCORDIA unterstützt interne und externe Weiterbildungen. Bei deiner Karriereplanung begleiten wir dich individuell.\nBeteiligung Krankenversicherungsprämie\nDu und deine Familie profitieren von reduzierten Krankenversicherungsprämien.\nWertschätzung\nIn der CONCORDIA-Familie erlebst du Wertschätzung und Teamgeist.\nVersicherungen\nDie CONCORDIA übernimmt die Lohnabzüge für Lohnausfallversicherungen (Krankheit und Unfall) und versichert dich grosszügig.\nFerien\nDeine Erholung ist uns wichtig: Geniesse mindestens fünf Wochen Ferien pro Jahr.\nAusgezeichnet von den Mitarbeitenden\nBereits 2016 und 2018 brillierte die CONCORDIA beim Swiss Arbeitgeber Award mit hervorragenden Ergebnissen. Im Jahr 2020 holten wir uns dann sogar den ersten Platz in der Kategorie für grosse Unternehmen mit mehr als 1000 Mitarbeitenden und im Jahr 2022 wurden wir mit dem zweiten Platz ausgezeichnet. Auch im Jahr 2025 dürfen wir mit gutem Recht festhalten, dass wir zu den allerbesten Arbeitgeberinnen der Schweiz gehören.",
+        "it": "Sich auf die Arbeit freuen: 100 % gesund\nGeissensteinring 26, 6005 Luzern\nDu bist ehrgeizig und bildest dich gerne weiter? Dann starte deine Karriere bei der CONCORDIA. Wir verstärken unseren Bereich Leistungen und suchen dynamische, leistungsbereite und motivierte Menschen wie dich.\n\n## Das erwartet dich\n- Du bearbeitest ambulante und stationäre Leistungsfälle in den Bereichen KVG und VVG.\n- Leistungsansprüche kontrollierst und beurteilst du aus rechtlicher sowie medizinischer Sicht.\n- Du bearbeitest Kostengutsprachen.\n- Bei Leistungsfragen erteilst du mündlich oder schriftlich Auskunft.\n- Deine Ansprechpartner: Versicherte, Ärzte, Spitäler, Therapeuten sowie Mitarbeitende aus anderen Bereichen der CONCORDIA.\n\n## Das bringst du mit\n- Du verfügst über eine medizinische Grundausbildung (in einer Arztpraxis, Apotheke oder Drogerie) kombiniert mit einer kaufmännischen Weiterbildung (Handelsschule oder aus dem Gesundheitswesen).\n- Oder du hast eine kaufmännische Grundausbildung in der Versicherungsbranche oder im Spitalbereich absolviert.\n- Selbständig, speditiv, exakt und flexibel arbeiten? Dabei fühlst du dich wohl.\n- Du besitzt eine gute Auffassungsgabe.\n- Du schätzt ein dynamisches, vielseitiges sowie dienstleistungsorientiertes Umfeld genauso wie wir.\n- Dein stilsicheres Deutsch überzeugt, egal ob du sprichst oder schreibst.\n- Versierte MS Office Kenntnisse? Für dich kein Problem!\nDein Arbeitsort\n\n## Darum CONCORDIA\nAls Expertin für Gesundheit setzt sich die CONCORDIA für ein Arbeitsumfeld ein, in dem sich Mitarbeitende wohlfühlen und verwirklichen können. Es ist geprägt von abwechslungsreichen Aufgaben, vielseitigen Teams und einem familiären Umgang. Zudem motivieren wir unsere Mitarbeitenden, sich weiterzuentwickeln und voranzukommen. Menschen, die Spass an der Arbeit haben und beruflich vorwärtskommen wollen, finden bei uns, was sie suchen: Jobs, die zu 100 % gesund sind.\nDarum CONCORDIA\n\n## Deine Vorteile\nArbeitszeit\nDu hast eine 41-Stunden-Woche und kannst Teilzeit oder flexibel arbeiten. Für ausgewählte Tätigkeiten kannst du regelmässig von zu Hause aus arbeiten.\nAus- und Weiterbildung\nDie CONCORDIA unterstützt interne und externe Weiterbildungen. Bei deiner Karriereplanung begleiten wir dich individuell.\nBeteiligung Krankenversicherungsprämie\nDu und deine Familie profitieren von reduzierten Krankenversicherungsprämien.\nWertschätzung\nIn der CONCORDIA-Familie erlebst du Wertschätzung und Teamgeist.\nVersicherungen\nDie CONCORDIA übernimmt die Lohnabzüge für Lohnausfallversicherungen (Krankheit und Unfall) und versichert dich grosszügig.\nFerien\nDeine Erholung ist uns wichtig: Geniesse mindestens fünf Wochen Ferien pro Jahr.\nAusgezeichnet von den Mitarbeitenden\nBereits 2016 und 2018 brillierte die CONCORDIA beim Swiss Arbeitgeber Award mit hervorragenden Ergebnissen. Im Jahr 2020 holten wir uns dann sogar den ersten Platz in der Kategorie für grosse Unternehmen mit mehr als 1000 Mitarbeitenden und im Jahr 2022 wurden wir mit dem zweiten Platz ausgezeichnet. Auch im Jahr 2025 dürfen wir mit gutem Recht festhalten, dass wir zu den allerbesten Arbeitgeberinnen der Schweiz gehören.",
+        "en": "Sich auf die Arbeit freuen: 100 % gesund\nGeissensteinring 26, 6005 Luzern\nDu bist ehrgeizig und bildest dich gerne weiter? Dann starte deine Karriere bei der CONCORDIA. Wir verstärken unseren Bereich Leistungen und suchen dynamische, leistungsbereite und motivierte Menschen wie dich.\n\n## Das erwartet dich\n- Du bearbeitest ambulante und stationäre Leistungsfälle in den Bereichen KVG und VVG.\n- Leistungsansprüche kontrollierst und beurteilst du aus rechtlicher sowie medizinischer Sicht.\n- Du bearbeitest Kostengutsprachen.\n- Bei Leistungsfragen erteilst du mündlich oder schriftlich Auskunft.\n- Deine Ansprechpartner: Versicherte, Ärzte, Spitäler, Therapeuten sowie Mitarbeitende aus anderen Bereichen der CONCORDIA.\n\n## Das bringst du mit\n- Du verfügst über eine medizinische Grundausbildung (in einer Arztpraxis, Apotheke oder Drogerie) kombiniert mit einer kaufmännischen Weiterbildung (Handelsschule oder aus dem Gesundheitswesen).\n- Oder du hast eine kaufmännische Grundausbildung in der Versicherungsbranche oder im Spitalbereich absolviert.\n- Selbständig, speditiv, exakt und flexibel arbeiten? Dabei fühlst du dich wohl.\n- Du besitzt eine gute Auffassungsgabe.\n- Du schätzt ein dynamisches, vielseitiges sowie dienstleistungsorientiertes Umfeld genauso wie wir.\n- Dein stilsicheres Deutsch überzeugt, egal ob du sprichst oder schreibst.\n- Versierte MS Office Kenntnisse? Für dich kein Problem!\nDein Arbeitsort\n\n## Darum CONCORDIA\nAls Expertin für Gesundheit setzt sich die CONCORDIA für ein Arbeitsumfeld ein, in dem sich Mitarbeitende wohlfühlen und verwirklichen können. Es ist geprägt von abwechslungsreichen Aufgaben, vielseitigen Teams und einem familiären Umgang. Zudem motivieren wir unsere Mitarbeitenden, sich weiterzuentwickeln und voranzukommen. Menschen, die Spass an der Arbeit haben und beruflich vorwärtskommen wollen, finden bei uns, was sie suchen: Jobs, die zu 100 % gesund sind.\nDarum CONCORDIA\n\n## Deine Vorteile\nArbeitszeit\nDu hast eine 41-Stunden-Woche und kannst Teilzeit oder flexibel arbeiten. Für ausgewählte Tätigkeiten kannst du regelmässig von zu Hause aus arbeiten.\nAus- und Weiterbildung\nDie CONCORDIA unterstützt interne und externe Weiterbildungen. Bei deiner Karriereplanung begleiten wir dich individuell.\nBeteiligung Krankenversicherungsprämie\nDu und deine Familie profitieren von reduzierten Krankenversicherungsprämien.\nWertschätzung\nIn der CONCORDIA-Familie erlebst du Wertschätzung und Teamgeist.\nVersicherungen\nDie CONCORDIA übernimmt die Lohnabzüge für Lohnausfallversicherungen (Krankheit und Unfall) und versichert dich grosszügig.\nFerien\nDeine Erholung ist uns wichtig: Geniesse mindestens fünf Wochen Ferien pro Jahr.\nAusgezeichnet von den Mitarbeitenden\nBereits 2016 und 2018 brillierte die CONCORDIA beim Swiss Arbeitgeber Award mit hervorragenden Ergebnissen. Im Jahr 2020 holten wir uns dann sogar den ersten Platz in der Kategorie für grosse Unternehmen mit mehr als 1000 Mitarbeitenden und im Jahr 2022 wurden wir mit dem zweiten Platz ausgezeichnet. Auch im Jahr 2025 dürfen wir mit gutem Recht festhalten, dass wir zu den allerbesten Arbeitgeberinnen der Schweiz gehören.",
+        "fr": "Sich auf die Arbeit freuen: 100 % gesund\nGeissensteinring 26, 6005 Luzern\nDu bist ehrgeizig und bildest dich gerne weiter? Dann starte deine Karriere bei der CONCORDIA. Wir verstärken unseren Bereich Leistungen und suchen dynamische, leistungsbereite und motivierte Menschen wie dich.\n\n## Das erwartet dich\n- Du bearbeitest ambulante und stationäre Leistungsfälle in den Bereichen KVG und VVG.\n- Leistungsansprüche kontrollierst und beurteilst du aus rechtlicher sowie medizinischer Sicht.\n- Du bearbeitest Kostengutsprachen.\n- Bei Leistungsfragen erteilst du mündlich oder schriftlich Auskunft.\n- Deine Ansprechpartner: Versicherte, Ärzte, Spitäler, Therapeuten sowie Mitarbeitende aus anderen Bereichen der CONCORDIA.\n\n## Das bringst du mit\n- Du verfügst über eine medizinische Grundausbildung (in einer Arztpraxis, Apotheke oder Drogerie) kombiniert mit einer kaufmännischen Weiterbildung (Handelsschule oder aus dem Gesundheitswesen).\n- Oder du hast eine kaufmännische Grundausbildung in der Versicherungsbranche oder im Spitalbereich absolviert.\n- Selbständig, speditiv, exakt und flexibel arbeiten? Dabei fühlst du dich wohl.\n- Du besitzt eine gute Auffassungsgabe.\n- Du schätzt ein dynamisches, vielseitiges sowie dienstleistungsorientiertes Umfeld genauso wie wir.\n- Dein stilsicheres Deutsch überzeugt, egal ob du sprichst oder schreibst.\n- Versierte MS Office Kenntnisse? Für dich kein Problem!\nDein Arbeitsort\n\n## Darum CONCORDIA\nAls Expertin für Gesundheit setzt sich die CONCORDIA für ein Arbeitsumfeld ein, in dem sich Mitarbeitende wohlfühlen und verwirklichen können. Es ist geprägt von abwechslungsreichen Aufgaben, vielseitigen Teams und einem familiären Umgang. Zudem motivieren wir unsere Mitarbeitenden, sich weiterzuentwickeln und voranzukommen. Menschen, die Spass an der Arbeit haben und beruflich vorwärtskommen wollen, finden bei uns, was sie suchen: Jobs, die zu 100 % gesund sind.\nDarum CONCORDIA\n\n## Deine Vorteile\nArbeitszeit\nDu hast eine 41-Stunden-Woche und kannst Teilzeit oder flexibel arbeiten. Für ausgewählte Tätigkeiten kannst du regelmässig von zu Hause aus arbeiten.\nAus- und Weiterbildung\nDie CONCORDIA unterstützt interne und externe Weiterbildungen. Bei deiner Karriereplanung begleiten wir dich individuell.\nBeteiligung Krankenversicherungsprämie\nDu und deine Familie profitieren von reduzierten Krankenversicherungsprämien.\nWertschätzung\nIn der CONCORDIA-Familie erlebst du Wertschätzung und Teamgeist.\nVersicherungen\nDie CONCORDIA übernimmt die Lohnabzüge für Lohnausfallversicherungen (Krankheit und Unfall) und versichert dich grosszügig.\nFerien\nDeine Erholung ist uns wichtig: Geniesse mindestens fünf Wochen Ferien pro Jahr.\nAusgezeichnet von den Mitarbeitenden\nBereits 2016 und 2018 brillierte die CONCORDIA beim Swiss Arbeitgeber Award mit hervorragenden Ergebnissen. Im Jahr 2020 holten wir uns dann sogar den ersten Platz in der Kategorie für grosse Unternehmen mit mehr als 1000 Mitarbeitenden und im Jahr 2022 wurden wir mit dem zweiten Platz ausgezeichnet. Auch im Jahr 2025 dürfen wir mit gutem Recht festhalten, dass wir zu den allerbesten Arbeitgeberinnen der Schweiz gehören."
+      },
+      "needsRetranslation": true,
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://jobs.concordia.ch/offene-stellen/leistungsspezialist-in-leistungspruefung/745ec7b5-e52b-4df9-902d-e01b81d86d50",
+      "source": "Concordia Dedicated Parser (jobs.concordia.ch JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-25T09:23:57.300Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6003",
+      "streetAddress": "Geissensteinring 26",
+      "category": "Assicurazioni",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-25",
+      "postedDate": "2026-11-25",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.concordia.ch/offene-stellen/leistungsspezialist-in-leistungspruefung/745ec7b5-e52b-4df9-902d-e01b81d86d50",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 74500,
+      "salaryMax": 123500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 74500,
+          "maxValue": 123500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-23T09:23:57.300Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-10-22T21:25:15.195Z"
     }
   ]
 }
