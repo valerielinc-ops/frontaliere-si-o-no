@@ -1,7 +1,7 @@
 {
   "crawlerKey": "duferco",
-  "assembledAt": "2026-11-25T09:23:34.731Z",
-  "runId": "45583822388",
+  "assembledAt": "2026-11-25T21:21:41.060Z",
+  "runId": "45702677976",
   "jobs": [
     {
       "id": "duferco-0865d71c-96fa-4a55-83a0-dfff85adb141",
@@ -34,7 +34,7 @@
       "url": "https://duferco.talentics.ai/job/0865d71c-96fa-4a55-83a0-dfff85adb141",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T09:23:29.102Z",
+      "crawledAt": "2026-11-25T21:21:30.337Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -89,7 +89,7 @@
       },
       "streetAddress": "Via Bagutti 9",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-25T09:23:29.102Z",
+      "validThrough": "2026-12-25T21:21:30.337Z",
       "validThroughSource": "last-observed-window"
     }
   ]

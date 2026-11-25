@@ -1,7 +1,7 @@
 {
   "crawlerKey": "city-pop",
-  "assembledAt": "2026-11-25T09:23:13.721Z",
-  "runId": "45583822388",
+  "assembledAt": "2026-11-25T21:21:55.122Z",
+  "runId": "45702677976",
   "jobs": [
     {
       "id": "city-pop-0f55e4bf8abf",
@@ -34,7 +34,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/5e424093-b70a-4bfc-9797-db08aee48ab8/",
       "source": "City Pop Dedicated Parser (jobs.ch)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T09:23:08.348Z",
+      "crawledAt": "2026-11-25T21:21:44.542Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "City Pop, Militärstrasse 106, 8004 Zürich",
@@ -84,7 +84,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-12T09:23:08.348Z",
+      "validThrough": "2027-02-11T21:21:44.542Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/f005cb73-dad5-4cfb-b13f-f828ea5a2d9d/",
       "source": "City Pop Dedicated Parser (jobs.ch)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T09:23:07.936Z",
+      "crawledAt": "2026-11-25T21:21:44.239Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
@@ -168,7 +168,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:23:07.936Z",
+      "validThrough": "2027-02-07T21:21:44.239Z",
       "validThroughSource": "last-observed-window"
     }
   ]
