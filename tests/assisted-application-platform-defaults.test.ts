@@ -674,6 +674,9 @@ describe('birth-year fallback from experience and category B driving licence ded
     expect(platformDefaultAnswer(licenceBQ, fromDecision, { locale: 'it' })?.value).toBe('Sì');
 
     const explicitNo = platformCandidateFacts({
+      profile: { ownCar: true },
+      order: { candidateFacts: { ownCar: true } },
+      cvText: 'Persona automunita disponibile subito.',
       questions: [ownCarQ, licenceBQ],
       answers: { own_car: 'No' },
       decisionAnswers: { own_car: { value: 'Sì', principle: 'application_success' } },

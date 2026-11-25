@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import {
+  CANDIDATE_REPLY_RECOVERY_PER_ORDER_CAP,
   CANDIDATE_REPLY_SCHEMA,
   candidateReplyPatch,
   isRetryableCandidateReplyError,
@@ -286,5 +287,32 @@ describe('the reply trigger', () => {
       recoveryAttempts: 1,
     });
     expect(store.read(BASE)?.applicantPhone).toBe('+39 333 123 4567');
+  });
+
+  it('caps per-order recovery attempts across a large failed reply backlog', async () => {
+    const store = setup({ flow: { state: 'owner_takeover', heldBy: ['draft_failed'] } });
+    store.docs.delete(`${BASE}/candidate_replies/re-1`);
+    for (let i = 0; i < 100; i += 1) {
+      const id = `re-${String(i).padStart(3, '0')}`;
+      store.docs.set(`${BASE}/candidate_replies/${id}`, {
+        id,
+        orderId: ORDER,
+        status: 'failed',
+        attempts: 3,
+        lastError: 'codex_http_429',
+        failedAt: NOW - 1000,
+        body: REPLY,
+        subject: 'Re: candidatura',
+      });
+    }
+    const extract = vi.fn(async () => ANSWER);
+    const result = await recoverFailedCandidateRepliesForOrder({
+      db: store.db,
+      orderId: ORDER,
+      extract,
+      nowMs: NOW,
+    });
+    expect(result).toEqual({ recovered: CANDIDATE_REPLY_RECOVERY_PER_ORDER_CAP });
+    expect(extract).toHaveBeenCalledTimes(CANDIDATE_REPLY_RECOVERY_PER_ORDER_CAP);
   });
 });

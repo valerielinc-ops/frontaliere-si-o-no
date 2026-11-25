@@ -8,7 +8,7 @@ export const DRAFT_CANDIDATE_EMAIL_MISSING_CODE = 'assisted_application_candidat
 /** True when a run failed because Codex/OpenAI CLI quota/usage limit was exhausted. */
 export function isCodexUsageLimitError(error) {
   const text = String(error || '');
-  return /\b(?:you['’_]?ve hit your usage limit|usage limit reached|insufficient_quota)\b/i.test(text)
+  return /\b(?:you['’_]?ve hit your usage limit|usage limit reached|insufficient_quota|codex_http_429)\b/i.test(text)
     || /\bcodex\b[^\n]{0,120}\busage[ _-]?limit\b/i.test(text);
 }
 

@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
-import { transition } from '../functions/src/assistedApplicationFlow.js';
+import { isTransientRunError, transition } from '../functions/src/assistedApplicationFlow.js';
 import {
   CODEX_USAGE_LIMIT_RETRY_DELAYS_MS,
   DRAFT_CANDIDATE_EMAIL_MISSING_CODE,
@@ -99,6 +99,8 @@ describe('automatic recovery after a failed draft run', () => {
   it('backs off Codex usage-limit draft failures across 2h/6h/24h before owner takeover notification', () => {
     const usageErr = 'Codex auth broker rejected the request: Codex CLI exited with code 1: ERROR: You_ve hit your usage limit.';
     expect(isCodexUsageLimitError(usageErr)).toBe(true);
+    expect(isCodexUsageLimitError('codex_http_429')).toBe(true);
+    expect(isTransientRunError('codex_http_429')).toBe(false);
 
     let flow: any = { state: 'drafting', round: 1, dispatch: { mode: 'draft', round: 1, attempts: 1 } };
     let at = now;

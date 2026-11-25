@@ -520,30 +520,35 @@ function hasDrivingLicenceBFact({ order = {}, profile = {}, cvText = '', questio
     && /\b(?:patente\s*b|cat(?:egori[ae]|egory)?\.?\s*b|classe?\s*b|kat(?:egorie)?\.?\s*b|b\b|be\b|automunit[oa]|auto|car)\b/.test(structured)) {
     return true;
   }
-  const ownCarDeclared = fold([order?.candidateFacts?.ownCar, profile?.ownCar].filter((value) => typeof value === 'string' && value.trim()).join(' '));
-  if (order?.candidateFacts?.ownCar === true || profile?.ownCar === true || (ownCarDeclared && YES.test(ownCarDeclared))) {
-    return true;
-  }
-  const narrative = fold([cvText, order?.candidateNotes, profile?.summary].filter((value) => typeof value === 'string' && value.trim()).join(' \n '));
-  if (narrative) {
-    for (const match of narrative.matchAll(DRIVING_LICENCE_B_TEXT)) {
-      const prefix = narrative.slice(Math.max(0, match.index - 24), match.index);
-      if (!LICENCE_NEGATION.test(prefix)) return true;
-    }
-  }
+  let ownCarRejected = false;
   for (const q of Array.isArray(questions) ? questions : []) {
     const qText = label(q);
     if (!OWN_CAR_FACT_QUESTION.test(qText) || DRIVING_LICENCE_EXCLUSION.test(qText)) continue;
     const candidateAns = answers?.[q.id];
     const hasCandidateAns = typeof candidateAns === 'boolean'
-      || (typeof candidateAns === 'string' && candidateAns.trim().length > 0);
+      || (typeof candidateAns === 'string' && candidateAns.trim().length > 0 && !isUnknownAnswer(candidateAns));
     if (hasCandidateAns) {
       if (candidateAns === true || (typeof candidateAns === 'string' && YES.test(fold(candidateAns)))) return true;
+      if (candidateAns === false || (typeof candidateAns === 'string' && NO.test(fold(candidateAns)))) ownCarRejected = true;
       continue;
     }
     if (isUnknownAnswer(candidateAns)) continue;
     const decisionAns = decisionAnswers?.[q.id]?.value;
     if (decisionAns === true || (typeof decisionAns === 'string' && YES.test(fold(decisionAns)))) return true;
+  }
+  if (!ownCarRejected) {
+    const ownCarDeclared = fold([order?.candidateFacts?.ownCar, profile?.ownCar].filter((value) => typeof value === 'string' && value.trim()).join(' '));
+    if (order?.candidateFacts?.ownCar === true || profile?.ownCar === true || (ownCarDeclared && YES.test(ownCarDeclared))) {
+      return true;
+    }
+  }
+  const narrative = fold([cvText, order?.candidateNotes, profile?.summary].filter((value) => typeof value === 'string' && value.trim()).join(' \n '));
+  if (narrative) {
+    for (const match of narrative.matchAll(DRIVING_LICENCE_B_TEXT)) {
+      if (ownCarRejected && /^automunit[oa]$/.test(match[0])) continue;
+      const prefix = narrative.slice(Math.max(0, match.index - 24), match.index);
+      if (!LICENCE_NEGATION.test(prefix)) return true;
+    }
   }
   return false;
 }

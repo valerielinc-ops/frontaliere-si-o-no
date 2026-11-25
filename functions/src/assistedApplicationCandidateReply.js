@@ -42,6 +42,8 @@ export const CANDIDATE_REPLIES_SUBCOLLECTION = 'candidate_replies';
 export const CANDIDATE_REPLY_VERSION = 'candidate-reply-v2';
 export const CANDIDATE_REPLY_MAX_ATTEMPTS = 3;
 export const CANDIDATE_REPLY_RECOVERY_MAX_ATTEMPTS = 3;
+export const CANDIDATE_REPLY_RECOVERY_PER_ORDER_CAP = 3;
+const CANDIDATE_REPLY_RECOVERY_SCAN_LIMIT = 20;
 const PROCESSING_STALE_MS = 10 * 60_000;
 const RETRYABLE_REPLY_ERROR_RE = /codex_http_(?:408|425|429|5\d\d)|codex_auth_expired|codex_not_object|timed[ _]?out|timeout|econnreset|econnrefused|etimedout|aborterror/i;
 
@@ -496,18 +498,26 @@ export async function processAssistedApplicationCandidateReply({ db, orderId, re
  * Re-extract failed candidate replies whose failure was a transient Codex quota/HTTP error
  * before a scheduled draft regeneration runs, within a bounded per-reply recovery cap.
  */
-export async function recoverFailedCandidateRepliesForOrder({ db, orderId, extract, regenerate = null, start = null, nowMs = Date.now() }) {
+export async function recoverFailedCandidateRepliesForOrder({
+  db, orderId, extract, regenerate = null, start = null, nowMs = Date.now(),
+  maxRecoveries = CANDIDATE_REPLY_RECOVERY_PER_ORDER_CAP,
+}) {
+  const cap = Math.max(1, Math.min(CANDIDATE_REPLY_RECOVERY_PER_ORDER_CAP, Number(maxRecoveries) || CANDIDATE_REPLY_RECOVERY_PER_ORDER_CAP));
   if (typeof extract !== 'function') return { recovered: 0 };
   const snapshot = await db.collection(ASSISTED_APPLICATIONS_COLLECTION)
     .doc(String(orderId))
     .collection(CANDIDATE_REPLIES_SUBCOLLECTION)
     .where('status', '==', 'failed')
+    .limit(CANDIDATE_REPLY_RECOVERY_SCAN_LIMIT)
     .get();
+  let attempted = 0;
   let recovered = 0;
   for (const doc of snapshot.docs || []) {
+    if (attempted >= cap) break;
     const data = doc.data() || {};
     if (!isRetryableCandidateReplyError(data.lastError)) continue;
     if ((Number(data.recoveryAttempts) || 0) >= CANDIDATE_REPLY_RECOVERY_MAX_ATTEMPTS) continue;
+    attempted += 1;
     const result = await processAssistedApplicationCandidateReply({
       db, orderId, replyId: doc.id, extract, regenerate, start, allowFailedRetry: true, nowMs,
     });
