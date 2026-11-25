@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "zh-43799",
+      "sourceKey": "ZH",
+      "sourceRecordId": "43799",
+      "canton": "Zurigo",
+      "platePrefix": "ZH",
+      "plateNumber": "7707",
+      "normalizedPlate": "ZH7707",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 10600,
+      "bidCount": 27,
+      "endsAt": "2026-11-25T18:00:00.000Z",
+      "closedAt": "2026-11-25T18:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.stva.zh.ch/de/?plate_sub_type=&plate_type=car",
+      "officialDetailUrl": "https://www.auktion.stva.zh.ch/de/auction/43799",
+      "sourceFetchedAt": "2026-11-25T08:32:27.266Z",
+      "lastVerifiedAt": "2026-11-25T08:32:27.266Z",
+      "firstSeenAt": "2026-11-19T07:30:48.910Z",
+      "lastSeenAt": "2026-11-25T08:32:27.266Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "d278f3c8fbf2"
+    }
+  ]
+}

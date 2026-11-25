@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "ag-58835",
+      "sourceKey": "AG",
+      "sourceRecordId": "58835",
+      "canton": "Argovia",
+      "platePrefix": "AG",
+      "plateNumber": "90042",
+      "normalizedPlate": "AG90042",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 3000,
+      "bidCount": 31,
+      "endsAt": "2026-11-25T20:00:00.000Z",
+      "closedAt": "2026-11-25T20:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion-ag.ch/de/",
+      "officialDetailUrl": "https://www.auktion-ag.ch/de/auction/58835",
+      "sourceFetchedAt": "2026-11-25T08:30:54.076Z",
+      "lastVerifiedAt": "2026-11-25T08:30:54.076Z",
+      "firstSeenAt": "2026-11-12T15:12:29.301Z",
+      "lastSeenAt": "2026-11-25T08:30:54.076Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "7d84b8c0f12e"
+    }
+  ]
+}

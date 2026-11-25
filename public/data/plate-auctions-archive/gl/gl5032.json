@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "gl-1625",
+      "sourceKey": "GL",
+      "sourceRecordId": "1625",
+      "canton": "Glarona",
+      "platePrefix": "GL",
+      "plateNumber": "5032",
+      "normalizedPlate": "GL5032",
+      "listingType": "fixed-price",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "startingPriceChf": 600,
+      "closedAt": "2026-11-25T05:47:07.258Z",
+      "officialAuctionUrl": "https://www.gl.ch/verwaltung/sicherheit-und-justiz/justiz/strassenverkehrsamt/strassenverkehr/kontrollschilder/wunschkontrollschilder.html/450",
+      "officialDetailUrl": "https://eschild.gl.ch/api/v1/plate",
+      "sourceFetchedAt": "2026-11-25T05:47:07.258Z",
+      "lastVerifiedAt": "2026-11-25T05:47:07.258Z",
+      "firstSeenAt": "2026-11-19T20:35:39.301Z",
+      "lastSeenAt": "2026-11-25T05:47:07.258Z",
+      "sourceCategory": "fixed-price-api",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "63b1d2f1de71"
+    }
+  ]
+}

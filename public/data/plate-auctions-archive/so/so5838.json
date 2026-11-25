@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "so-3409",
+      "sourceKey": "SO",
+      "sourceRecordId": "3409",
+      "canton": "Soletta",
+      "platePrefix": "SO",
+      "plateNumber": "5838",
+      "normalizedPlate": "SO5838",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 1500,
+      "startingPriceChf": 1500,
+      "bidCount": 1,
+      "minimumIncrementChf": 50,
+      "endsAt": "2026-11-25T16:00:00.000Z",
+      "closedAt": "2026-11-25T16:00:00.000Z",
+      "officialAuctionUrl": "https://eauktion.so.ch/ecari-auction/ui/app/init?locale=de_CH",
+      "officialDetailUrl": "https://eauktion.so.ch/ecari-auction/ui/app/details/app?id=3409&locale=de_CH",
+      "sourceFetchedAt": "2026-11-25T08:31:37.738Z",
+      "lastVerifiedAt": "2026-11-25T08:31:37.738Z",
+      "firstSeenAt": "2026-11-18T20:37:21.782Z",
+      "lastSeenAt": "2026-11-25T08:31:37.738Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "8a6024b8931e"
+    }
+  ]
+}

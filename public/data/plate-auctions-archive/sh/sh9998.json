@@ -2,9 +2,9 @@
   "schema": 1,
   "rows": [
     {
-      "id": "sh-69689",
+      "id": "sh-69850",
       "sourceKey": "SH",
-      "sourceRecordId": "69689",
+      "sourceRecordId": "69850",
       "canton": "Sciaffusa",
       "platePrefix": "SH",
       "plateNumber": "9998",
@@ -13,17 +13,17 @@
       "vehicleType": "motorcycle",
       "auctionStatus": "closed",
       "currentBidChf": 100,
-      "bidCount": 0,
-      "endsAt": "2026-10-28T21:00:00.000Z",
-      "closedAt": "2026-10-28T21:00:00.000Z",
+      "bidCount": 1,
+      "endsAt": "2026-11-25T21:00:00.000Z",
+      "closedAt": "2026-11-25T21:00:00.000Z",
       "officialAuctionUrl": "https://www.auktion-stva.sh.ch/de/",
-      "officialDetailUrl": "https://www.auktion-stva.sh.ch/de/auction/69689",
-      "sourceFetchedAt": "2026-10-28T17:47:05.604Z",
-      "lastVerifiedAt": "2026-10-28T17:47:05.604Z",
-      "firstSeenAt": "2026-10-22T04:43:40.272Z",
-      "lastSeenAt": "2026-10-28T17:47:05.604Z",
+      "officialDetailUrl": "https://www.auktion-stva.sh.ch/de/auction/69850",
+      "sourceFetchedAt": "2026-11-25T08:31:35.427Z",
+      "lastVerifiedAt": "2026-11-25T08:31:35.427Z",
+      "firstSeenAt": "2026-11-19T07:29:54.088Z",
+      "lastSeenAt": "2026-11-25T08:31:35.427Z",
       "dataConfidence": "partial",
-      "rawSnapshotHash": "1f1886c3850c"
+      "rawSnapshotHash": "f31ef71269b2"
     }
   ]
 }

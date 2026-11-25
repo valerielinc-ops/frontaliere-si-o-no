@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "ag-58827",
+      "sourceKey": "AG",
+      "sourceRecordId": "58827",
+      "canton": "Argovia",
+      "platePrefix": "AG",
+      "plateNumber": "7647",
+      "normalizedPlate": "AG7647",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 7400,
+      "bidCount": 29,
+      "endsAt": "2026-11-25T20:00:00.000Z",
+      "closedAt": "2026-11-25T20:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion-ag.ch/de/",
+      "officialDetailUrl": "https://www.auktion-ag.ch/de/auction/58827",
+      "sourceFetchedAt": "2026-11-25T08:30:54.076Z",
+      "lastVerifiedAt": "2026-11-25T08:30:54.076Z",
+      "firstSeenAt": "2026-11-12T15:12:29.301Z",
+      "lastSeenAt": "2026-11-25T08:30:54.076Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "be123777535a"
+    }
+  ]
+}
