@@ -1,7 +1,7 @@
 {
   "key": "careanesth-com",
   "label": "Careanesth AG",
-  "generatedAt": "2026-11-25T09:21:20.756Z",
+  "generatedAt": "2026-11-25T21:30:51.262Z",
   "total": 0,
   "discovered": 20,
   "parsed": 0,
@@ -17,6 +17,10 @@
       {
         "status": 200,
         "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/?mainDivision=acute&amp;profession%5B%5D=14926&amp;profession%5B%5D=7849&amp;profession%5B%5D=7851&amp;profession%5B%5D=7852&amp;profession%5B%5D=10252&amp;profession%5B%5D=7850&amp;profession%5B%5D=1092&amp;profession%5B%5D=1124&amp;profession%5B%5D=7853&amp;profession%5B%5D=10251&amp;profession%5B%5D=7855&amp;profession%5B%5D=14912&amp;division%5B%5D=1211&amp;division%5B%5D=1199&amp;division%5B%5D=1200&amp;division%5B%5D=1207&amp;division%"
+      },
+      {
+        "status": 200,
+        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/recruiter-in-account-manager-in-einsatzkoordinator-in-bereich-therapien-100-standort-basel-oder-bern-961992/"
       },
       {
         "status": 200,
@@ -93,10 +97,6 @@
       {
         "status": 200,
         "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-pflegefachperson-mit-imc-weiterbildung-gesucht-im-kanton-zuerich-und-in-allen-kantonen-der-ostschweiz-952335/"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-op-pflegefachfrau-mann-toa-ota-fuer-die-deutschschweiz-80-100-954855/"
       }
     ],
     "proxiedBy": [],
@@ -111,10 +111,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 23561,
-  "avgDurationMs": 23561,
+  "durationMs": 23591,
+  "avgDurationMs": 23591,
   "durationHistory": [
-    23561
+    23591
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -122,5 +122,5 @@
   "unchangedJobs": [],
   "earlyExit": false,
   "exitCode": 0,
-  "codeCommit": "55fd511dba5e5c1bd3b4047690c697040c8b6c58"
+  "codeCommit": "0c64b1f2eae0b337b537e356aa5de051b9c4c6cc"
 }
