@@ -7,10 +7,12 @@ name: PR collision detector (funnel-critical, no-Claude)
 # oltre la prima. Tutto deterministico (scripts/ci/pr-collision-detector.mjs).
 # ZERO Claude.
 #
-# Da qui NON parte più il trigger diretto `pull_request` (rimosso per abbassare
-# il picco di job concorrenti per-PR da 4 a 1): quel caso è coperto da
-# `tests.yml`, dove lo scan su PR non è più un job `collision` a sé ma una
-# FAMIGLIA DI STEP dentro il job unico `vitest (unit + integration)`.
+# Il controllo event-driven parte sul percorso PR (`opened`, `synchronize`,
+# `reopened`, `ready_for_review`) oltre al ricalcolo periodico. Resta un
+# workflow separato: il detector scrive label su tutte le PR aperte e il suo
+# lock globale non deve mai accodare o cancellare il job required `tests.yml`.
+# Sul percorso PR il checkout punta esplicitamente a `main`, così il codice del
+# detector non viene eseguito dall'albero della PR che sta per essere valutata.
 #
 # Il lock vive SOLO qui: serializza i due scan del detector senza condividere
 # alcun gruppo con `tests.yml`. Questo è intenzionale: le concurrency di GitHub
@@ -18,11 +20,14 @@ name: PR collision detector (funnel-critical, no-Claude)
 # job dei test permetterebbe a uno scan repo-wide di cancellare un run di test.
 # Guard: `tests/ci-vitest-check-name.test.ts`.
 #
-# Questo file oggi fa SOLO il ricalcolo periodico (`schedule`, anche per
-# togliere la label `collision-risk` quando una collisione si risolve) più il
-# `workflow_dispatch` manuale.
+# Il cron resta necessario per togliere la label `collision-risk` quando una
+# collisione si risolve senza un nuovo evento PR; il dispatch manuale resta
+# disponibile per il recupero operativo.
 
 on:
+  pull_request_target:
+    branches: [main]
+    types: [opened, synchronize, reopened, ready_for_review]
   schedule:
     - cron: '*/30 * * * *' # ricalcolo periodico (anche per togliere la label)
   workflow_dispatch:
@@ -67,7 +72,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
         with:
+          ref: main
           fetch-depth: 1
+          persist-credentials: false
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
             /*

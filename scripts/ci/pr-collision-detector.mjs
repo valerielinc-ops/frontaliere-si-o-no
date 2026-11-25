@@ -444,7 +444,7 @@ function main() {
           `Le due PR restano INDIPENDENTI — nessun lock le serializza — ma la seconda a raggiungere il merge DEVE prima rebasare oltre l'altra ` +
           `(\`git merge origin/main\` dopo che l'altra è mergiata); l'auto-merge è bloccato finché \`collision-risk\` + dietro main. ` +
           `Se ci sta lavorando qualcun altro, coordinatevi qui: chi mergia per primo lascia all'altro un rebase, non un conflitto a sorpresa. ` +
-          `_Segnale deterministico da pr-collision-detector.yml (cron ogni 30 min, zero-Claude)._`);
+          `_Segnale deterministico da pr-collision-detector.yml (evento PR + cron, zero-Claude)._`);
       }
     } else if (action === 'keep') {
       console.log(`PR #${num}: nessuna collisione vista MA elenco file incompleto → tengo collision-risk (unknown ≠ non collide).`);

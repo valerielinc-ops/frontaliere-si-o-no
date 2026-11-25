@@ -403,13 +403,12 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
   // UN job pesante, di nuovo, ma per una ragione DIVERSA da quella di #6555;
   // il preflight site-only e' leggero e nessun companion metadata produce un
   // secondo check required.
-  // Il detector di collisioni e' uscito del tutto da questo workflow il
-  // 2026-08-26: e' uno SWEEPER repo-wide (ricalcola le label di tutte le PR
-  // aperte da dati vivi) e uno sweeper va su `schedule`, non su
-  // `pull_request`. Vive solo in `pr-collision-detector.yml`, cron ogni 30
-  // min. Cosi' le PR restano INDIPENDENTI: nessun mutex globale che accodi la
-  // suite di una PR dietro quella di tutte le altre, e nessuna ✗ da run
-  // sfrattato. `contract` e `typecheck` restano qui e restano bloccanti.
+  // Il detector di collisioni resta fuori da questo workflow: e' uno SWEEPER
+  // repo-wide (ricalcola le label di tutte le PR aperte da dati vivi) e vive
+  // nel workflow dedicato. Ora parte anche sul percorso event-driven
+  // `pull_request`, ma mantiene il proprio mutex globale senza condividere il
+  // gruppo di `tests.yml`: nessun lock del detector accoda o sfratta la suite
+  // required. `contract` e `typecheck` restano qui e restano bloccanti.
   it('tests.yml mantiene un solo job required e nessun lock di job', () => {
     // `post-review` (autorebase + opt-in auto-merge) gira DOPO il required,
     // non produce il check del ruleset e non puo' colorare la run.
@@ -445,7 +444,8 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
   // Il detector NON deve rientrare qui. Se qualcuno lo rimette, si riporta
   // dietro il suo `concurrency` globale — e con esso la serializzazione della
   // suite fra PR — oppure lo lascia senza lock, riaprendo la race sulle label
-  // (main-red #1454↔#1459). Il posto giusto e' `pr-collision-detector.yml`.
+  // (main-red #1454↔#1459). Il posto giusto resta
+  // `pr-collision-detector.yml`, che ora ha anche il trigger event-driven.
   it('il detector di collisioni NON vive in tests.yml', () => {
     expect(
       /pr-collision-detector\.mjs/.test(vitestBody),
@@ -454,11 +454,11 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
     ).toBe(false);
   });
 
-  it('il detector non può cancellare run tests tramite concurrency condivisa', () => {
-    // Il detector è uno sweeper repo-wide: deve partire solo da schedule/dispatch.
-    // Se torna su pull_request e condivide il lock `pr-collision-detector`, una
-    // run del detector può sfrattare il test della PR (incidente run 32965583372).
-    expect(COLLISION_YML).not.toMatch(/^\s+pull_request:/m);
+  it('il detector event-driven non può cancellare run tests tramite concurrency condivisa', () => {
+    // Il detector è uno sweeper repo-wide, ma il trigger PR riduce la finestra
+    // prima del merge. Il lock resta nel workflow dedicato e non condivide la
+    // concurrency del job required `tests.yml`.
+    expect(COLLISION_YML).toMatch(/^\s+pull_request_target:/m);
     expect(COLLISION_YML).toMatch(/concurrency:\s*\n\s+group:\s*pr-collision-detector/);
     expect(COLLISION_YML).toMatch(/cancel-in-progress:\s*false/);
     expect(TESTS_CODE).not.toContain('pr-collision-detector');
