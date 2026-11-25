@@ -2,46 +2,6 @@
   "schemaVersion": 1,
   "posted": [
     {
-      "id": "oerlikon-f6087624a04b",
-      "url": "https://frontaliereticino.ch/cerca-lavoro-argovia/automatico-gn-in-ingegneria-vegetale-oerlikon-wohlen/",
-      "ts": "2026-09-28T20:18:28.095Z",
-      "fbPostId": "951226518080080_122126915073272498",
-      "scheduledFor": "2026-09-29T04:05:00.000Z",
-      "actualPublishedAt": "2026-09-29T04:05:01.000Z"
-    },
-    {
-      "id": "med-ipersonal-bf81f9f498b7",
-      "url": "https://frontaliereticino.ch/cerca-lavoro-san-gallo/installatore-trice-elettrico-a-region-thal-ipersonal-ag-thal-st-gallen/",
-      "ts": "2026-09-28T20:18:38.969Z",
-      "fbPostId": "951226518080080_122126915199272498",
-      "scheduledFor": "2026-09-29T05:05:00.000Z",
-      "actualPublishedAt": "2026-09-29T05:05:00.000Z"
-    },
-    {
-      "id": "med-ipersonal-05c31b1232f0",
-      "url": "https://frontaliereticino.ch/cerca-lavoro-berna/installatore-trice-elettrico-a-region-bern-ipersonal-ag-bern-bern/",
-      "ts": "2026-09-28T20:18:49.780Z",
-      "fbPostId": "951226518080080_122126915259272498",
-      "scheduledFor": "2026-09-29T06:05:00.000Z",
-      "actualPublishedAt": "2026-09-29T06:05:00.000Z"
-    },
-    {
-      "id": "med-ipersonal-13aa7116c50d",
-      "url": "https://frontaliereticino.ch/cerca-lavoro-argovia/installatore-trice-elettrico-a-region-wettingen-ipersonal-ag-wettingen-aargau/",
-      "ts": "2026-09-28T20:19:00.945Z",
-      "fbPostId": "951226518080080_122126915445272498",
-      "scheduledFor": "2026-09-29T07:05:00.000Z",
-      "actualPublishedAt": "2026-09-29T07:05:00.000Z"
-    },
-    {
-      "id": "med-ipersonal-5db07939c93e",
-      "url": "https://frontaliereticino.ch/cerca-lavoro-zurigo/installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-adliswil-ipersonal-ag-adliswil-zurich/",
-      "ts": "2026-09-28T20:19:11.110Z",
-      "fbPostId": "951226518080080_122126915481272498",
-      "scheduledFor": "2026-09-29T08:05:00.000Z",
-      "actualPublishedAt": "2026-09-29T08:05:01.000Z"
-    },
-    {
       "id": "med-ipersonal-71a1bfc908f6",
       "url": "https://frontaliereticino.ch/cerca-lavoro-zugo/installation-manager-edilizia-della-cucina-regione-di-neuheim-ipersonal-ag-neuheim-zug/",
       "ts": "2026-09-28T20:19:23.044Z",
@@ -10037,7 +9997,8 @@
       "copyPillarId": "opportunita-concrete",
       "copyAngleIntent": "both",
       "copyHook": "Un'offerta da leggere con calma prima di fare il prossimo passo.",
-      "copyCta": "Controlla i dettagli dell'annuncio."
+      "copyCta": "Controlla i dettagli dell'annuncio.",
+      "actualPublishedAt": "2026-11-25T00:05:00.000Z"
     },
     {
       "id": "kanton-zuerich-9b690ce0a28c",
@@ -10055,7 +10016,8 @@
       "copyPillarId": "vita-oltreconfine",
       "copyAngleIntent": "searchable",
       "copyHook": "Una posizione da inserire nel tuo percorso professionale con criterio.",
-      "copyCta": "Approfondisci il percorso richiesto."
+      "copyCta": "Approfondisci il percorso richiesto.",
+      "actualPublishedAt": "2026-11-25T02:05:01.000Z"
     },
     {
       "id": "kliniken-valens-481e8eca72c4",
@@ -10073,7 +10035,8 @@
       "copyPillarId": "opportunita-concrete",
       "copyAngleIntent": "both",
       "copyHook": "La candidatura oltreconfine comincia dai dettagli del ruolo.",
-      "copyCta": "Verifica i requisiti dell'offerta."
+      "copyCta": "Verifica i requisiti dell'offerta.",
+      "actualPublishedAt": "2026-11-25T01:05:00.000Z"
     },
     {
       "id": "kanton-zuerich-f761f14c2f86",
@@ -10091,7 +10054,8 @@
       "copyPillarId": "strumenti-utili",
       "copyAngleIntent": "both",
       "copyHook": "Cerchi un ruolo in Ticino da esaminare con attenzione?",
-      "copyCta": "Candidati seguendo le istruzioni."
+      "copyCta": "Candidati seguendo le istruzioni.",
+      "actualPublishedAt": "2026-11-25T03:05:01.000Z"
     },
     {
       "id": "rheinmetall-air-defence-a9f86541823e",
@@ -10109,7 +10073,8 @@
       "copyPillarId": "vita-oltreconfine",
       "copyAngleIntent": "searchable",
       "copyHook": "Un'opportunità da leggere insieme al contesto del settore.",
-      "copyCta": "Leggi la descrizione completa."
+      "copyCta": "Leggi la descrizione completa.",
+      "actualPublishedAt": "2026-11-25T17:05:00.000Z"
     },
     {
       "id": "rheinmetall-air-defence-0a9494100a9d",
@@ -10117,6 +10082,97 @@
       "ts": "2026-11-24T23:20:28.817Z",
       "fbPostId": "951226518080080_122132331861272498",
       "scheduledFor": "2026-11-25T16:05:00.000Z",
+      "copyMode": "codex",
+      "copySlot": "job",
+      "copyPromptVersion": "frontaliere-social-copy-v5",
+      "copyPackId": "e1e656e043e06845",
+      "copyTemplateId": "fb-job-context-discover",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "contesto-chiaro",
+      "copyPillarId": "vita-oltreconfine",
+      "copyAngleIntent": "searchable",
+      "copyHook": "Il contesto del lavoro in Ticino aiuta a leggere meglio una posizione.",
+      "copyCta": "Scopri l'offerta completa.",
+      "actualPublishedAt": "2026-11-25T16:05:00.000Z"
+    },
+    {
+      "id": "company-gzg1vd",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-zurigo/club-di-consulenza-clienti-scuola-oerlikon-klubschule-migros-oerlikon/",
+      "ts": "2026-11-25T22:46:20.557Z",
+      "fbPostId": "951226518080080_122132416161272498",
+      "scheduledFor": "2026-11-26T00:05:00.000Z",
+      "copyMode": "codex",
+      "copySlot": "job",
+      "copyPromptVersion": "frontaliere-social-copy-v5",
+      "copyPackId": "e1e656e043e06845",
+      "copyTemplateId": "fb-job-practical-review",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "passo-pratico",
+      "copyPillarId": "opportunita-concrete",
+      "copyAngleIntent": "both",
+      "copyHook": "Un'offerta da leggere con calma prima di fare il prossimo passo.",
+      "copyCta": "Controlla i dettagli dell'annuncio."
+    },
+    {
+      "id": "company-f8nysx",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-argovia/fondo-di-assistenza-per-studenti-vendite-genossenschaft-migros-aare-villmergen/",
+      "ts": "2026-11-25T22:46:21.054Z",
+      "fbPostId": "951226518080080_122132416155272498",
+      "scheduledFor": "2026-11-26T02:05:00.000Z",
+      "copyMode": "codex",
+      "copySlot": "job",
+      "copyPromptVersion": "frontaliere-social-copy-v5",
+      "copyPackId": "e1e656e043e06845",
+      "copyTemplateId": "fb-job-question-fit",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "domanda-comune",
+      "copyPillarId": "strumenti-utili",
+      "copyAngleIntent": "both",
+      "copyHook": "Quale requisito ti serve per capire se un ruolo fa per te?",
+      "copyCta": "Trova la risposta nell'annuncio."
+    },
+    {
+      "id": "company-gzycfn",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-friburgo/leader-della-manutenzione-elsa-group-estavayer-le-lac/",
+      "ts": "2026-11-25T22:46:21.329Z",
+      "fbPostId": "951226518080080_122132416167272498",
+      "scheduledFor": "2026-11-26T01:05:00.000Z",
+      "copyMode": "codex",
+      "copySlot": "job",
+      "copyPromptVersion": "frontaliere-social-copy-v5",
+      "copyPackId": "e1e656e043e06845",
+      "copyTemplateId": "fb-job-context-path",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "contesto-chiaro",
+      "copyPillarId": "vita-oltreconfine",
+      "copyAngleIntent": "searchable",
+      "copyHook": "Una posizione da inserire nel tuo percorso professionale con criterio.",
+      "copyCta": "Approfondisci il percorso richiesto."
+    },
+    {
+      "id": "stadtspital-zuerich-9204018ed23c",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-zurigo/oberarztin-oberarzt-universitare-klinik-per-altersmedizin-stadtspital-zurich/",
+      "ts": "2026-11-25T22:46:31.462Z",
+      "fbPostId": "951226518080080_122132416299272498",
+      "scheduledFor": "2026-11-26T03:05:00.000Z",
+      "copyMode": "codex",
+      "copySlot": "job",
+      "copyPromptVersion": "frontaliere-social-copy-v5",
+      "copyPackId": "e1e656e043e06845",
+      "copyTemplateId": "fb-job-question-care",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "domanda-comune",
+      "copyPillarId": "strumenti-utili",
+      "copyAngleIntent": "both",
+      "copyHook": "La prossima candidatura parte dalla domanda giusta sul ruolo.",
+      "copyCta": "Guarda la posizione aperta."
+    },
+    {
+      "id": "spital-zofingen-472cc79dec56",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-argovia/dipl-specialista-di-radiologia-hf-fh-spital-zofingen-zofingen/",
+      "ts": "2026-11-25T22:46:43.011Z",
+      "fbPostId": "951226518080080_122132416581272498",
+      "scheduledFor": "2026-11-26T07:05:00.000Z",
       "copyMode": "codex",
       "copySlot": "job",
       "copyPromptVersion": "frontaliere-social-copy-v5",
