@@ -1035,7 +1035,7 @@ async function runSharedCrawler(
     // timeout) to their prior values (#2076).
     JOBS_AI_LOCALIZATION_CONCURRENCY: process.env.JOBS_AI_LOCALIZATION_CONCURRENCY || '2',
     // ELAPSED-AWARE localization budget (review #2205 🔴): the smaller of the
-    // remaining value `CASCADE_LOCALIZATION_DEADLINE_MS - (LEGACY_CLOCK.now() - RUN_START_MS)`
+    // remaining value `deadlineMs - (LEGACY_CLOCK.now() - RUN_START_MS)`
     // and the per-company cap; the floor at 1 is mandatory because 0 means unlimited.
     // A company starting near the deadline gets a small budget and defers its tail to the next run,
     // instead of a fresh 250min that could blow past the 350min job timeout. The
