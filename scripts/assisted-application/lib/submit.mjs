@@ -34,7 +34,7 @@ import { prepareCvPortraitDocument } from '../../../functions/src/assistedApplic
 import { ASSISTED_EMAIL_PROVIDERS, EMPLOYER_MAIL_FROM, replyThreadMessageId, senderName, textToHtml } from '../../../functions/src/assistedApplicationEmployerMail.js';
 import { operationalEmailBody, withOperationalQuestionAnswers } from '../../../functions/src/assistedApplicationOperationalAnswers.js';
 import { factCheckAcknowledged } from '../../../functions/src/assistedApplicationFlow.js';
-import { chromeErrorPageFailure, emailInfrastructureFailure, navigationInfrastructureFailure } from '../../../functions/src/assistedApplicationTransportRetryPolicy.js';
+import { chromeErrorPageFailure, codexBrokerQuotaFailure, emailInfrastructureFailure, navigationInfrastructureFailure } from '../../../functions/src/assistedApplicationTransportRetryPolicy.js';
 import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -881,6 +881,11 @@ export async function submitApplication(ctx) {
           ...(receiptFinalUrl ? { finalUrl: receiptFinalUrl } : {}),
           ...(armedSentRecord ? { sent: armedSentRecord } : {}),
         };
+      }
+      if (guard && !clicked && !succeeded && !attemptNotStored && codexBrokerQuotaFailure(error)) {
+        await guard.release('codex_quota_unavailable');
+        if (attemptKept && !(await keepAttempt(null))) throw new Error('sent_attempt_clear_failed');
+        return { type: 'submit_failed', error: 'codex_quota_unavailable' };
       }
       // Failed before the final click (temp dir, files, browser, network): nothing
       // reached the employer, so the claim is released for the retry.

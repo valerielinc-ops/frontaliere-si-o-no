@@ -28,6 +28,11 @@ export function navigationInfrastructureFailure(error) {
   return CHROME_ERROR_PAGE.test(text) || NAVIGATION_FAILURE.test(text);
 }
 
+export function codexBrokerQuotaFailure(error) {
+  return /^Codex auth broker rejected the request:\s+Codex CLI exited with code \d+:\s*ERROR:\s*You['’]ve hit your usage limit\b/iu
+    .test(String(error?.message ?? error ?? '').trim());
+}
+
 /** Legacy normalization also requires the caller to verify payment and approval. */
 export function legacyTransportHoldReason({ flow, submission = {}, draft }) {
   if (flow?.state !== 'owner_takeover' || flow?.technicalRecoveryVersion || draft?.sent || draft?.sentAttempt) return null;

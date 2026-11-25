@@ -836,7 +836,8 @@ function portalTakeover(next, current, event, nowMs, attemptsOverride = null) {
   next.reminderAt = null;
   const reason = String(event.reason || 'portal_needs_candidate');
   next.portalCodeVersion = portalCodeVersion(event.portalCodeVersion) || current.portalCodeVersion;
-  next.heldBy = [`${reason === 'email_provider_unavailable' ? 'transport' : 'portal'}:${reason.slice(0, 60)}`];
+  const transportHold = `transport:${reason.slice(0, 60)}`;
+  next.heldBy = [isInfrastructureRetryHold({ heldBy: [transportHold] }) ? transportHold : `portal:${reason.slice(0, 60)}`];
   const infrastructure = isInfrastructureRetryHold(next);
   const attempts = Number(infrastructure ? current.transportAutoRetryCount : current.portalAutoRetryCount) || 0;
   const delays = autoRetryDelaysForFlow(next);
@@ -1498,8 +1499,8 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
     }
     case 'submit_failed': {
       if (state !== 'submitting') return ignore('not_submitting');
-      if (event.error === 'email_provider_unavailable') {
-        effects = [portalTakeover(next, current, { reason: 'email_provider_unavailable' }, nowMs)].filter(Boolean);
+      if (event.error === 'email_provider_unavailable' || event.error === 'codex_quota_unavailable') {
+        effects = [portalTakeover(next, current, { reason: event.error }, nowMs)].filter(Boolean);
         break;
       }
       if (event.error === 'fact_check_not_acknowledged') {

@@ -1,4 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
+import { codexBrokerQuotaFailure } from '../functions/src/assistedApplicationTransportRetryPolicy.js';
 
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue: vi.fn(async () => '') }));
 
@@ -65,6 +66,12 @@ describe('draft failures', () => {
     const retry = transition(submitting, { type: 'submit_failed', error: brokerError }, { draft: cleanDraft, nowMs: T0 });
     expect(retry.flow.state).toBe('submitting');
     expect(retry.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'transient_retry', attempts: 2 }]);
+
+    expect(codexBrokerQuotaFailure(new Error("Codex auth broker rejected the request: Codex CLI exited with code 1: ERROR: You've hit your usage limit."))).toBe(true);
+    expect(codexBrokerQuotaFailure(new Error("Portal response: You've hit your usage limit."))).toBe(false);
+    const quota = transition(submitting, { type: 'submit_failed', error: 'codex_quota_unavailable' }, { draft: cleanDraft, nowMs: T0 });
+    expect(quota.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['transport:codex_quota_unavailable'], portalAutoRetryAt: T0 + 5 * 60_000 });
+    expect(quota.effects).toEqual([]);
 
     const contextRetry = transition(submitting, { type: 'submit_failed', error: 'requirement_context_changed' }, { draft: cleanDraft, nowMs: T0 });
     expect(contextRetry.flow.state).toBe('submitting');
