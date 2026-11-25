@@ -458,7 +458,7 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
     // Il detector è uno sweeper repo-wide, ma il trigger PR riduce la finestra
     // prima del merge. Il lock resta nel workflow dedicato e non condivide la
     // concurrency del job required `tests.yml`.
-    expect(COLLISION_YML).toMatch(/^\s+pull_request:/m);
+    expect(COLLISION_YML).toMatch(/^\s+pull_request_target:/m);
     expect(COLLISION_YML).toMatch(/concurrency:\s*\n\s+group:\s*pr-collision-detector/);
     expect(COLLISION_YML).toMatch(/cancel-in-progress:\s*false/);
     expect(TESTS_CODE).not.toContain('pr-collision-detector');
