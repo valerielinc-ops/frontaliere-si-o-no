@@ -1,23 +1,18 @@
 {
   "key": "tpl-lugano",
   "label": "TPL Lugano",
-  "generatedAt": "2026-11-24T21:24:51.990Z",
-  "total": 2,
-  "discovered": 2,
-  "written": 2,
+  "generatedAt": "2026-11-25T09:24:14.657Z",
+  "total": 0,
+  "discovered": 0,
+  "written": 0,
+  "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 7167,
-  "avgDurationMs": 7167,
-  "durationHistory": [
-    7167
-  ],
+  "removedCount": 2,
+  "unchangedCount": 0,
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Capo officina",
       "company": "TPL - Trasporti Pubblici Luganesi",
@@ -109,5 +104,7 @@
       }
     }
   ],
-  "codeCommit": "af6487cf18de54664a2dd36f8f16e17f8a69b92f"
+  "unchangedJobs": [],
+  "durationMs": 14202,
+  "codeCommit": "55fd511dba5e5c1bd3b4047690c697040c8b6c58"
 }
