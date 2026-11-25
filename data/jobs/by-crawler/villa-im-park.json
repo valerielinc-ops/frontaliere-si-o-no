@@ -1,7 +1,7 @@
 {
   "crawlerKey": "villa-im-park",
-  "assembledAt": "2026-11-24T21:21:12.946Z",
-  "runId": "45488000860",
+  "assembledAt": "2026-11-25T09:24:13.273Z",
+  "runId": "45582606921",
   "jobs": [
     {
       "id": "villa-im-park-9753ceb06164",
@@ -34,7 +34,7 @@
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152345671-dipl-experte-expertin-anasthesiepflege-nds-hf-50-100-",
       "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:21:05.279Z",
+      "crawledAt": "2026-11-25T09:24:07.013Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "streetAddress": "Rothrist",
@@ -86,7 +86,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T21:21:05.279Z",
+      "validThrough": "2026-12-28T09:24:07.013Z",
       "validThroughSource": "last-observed-window"
     }
   ]
