@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-21T17:22:25.086Z",
+  "generatedAt": "2026-11-25T16:25:51.060Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -198783,6 +198783,15 @@
       "code": "new-number",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-16T05:34:05.995Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "ge-agenda:ecart::106164d2aec1737a2f38d99fe96d0eedd058ebb6ef71f9374ac0f5a4919bb637": {
+      "id": "ge-agenda:ecart",
+      "sourceDescriptionHash": "106164d2aec1737a2f38d99fe96d0eedd058ebb6ef71f9374ac0f5a4919bb637",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-11-25T16:20:09.113Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },

@@ -1,7 +1,7 @@
 {
   "key": "barockjob",
   "label": "Barock Job AG",
-  "generatedAt": "2026-11-23T21:50:13.532Z",
+  "generatedAt": "2026-11-25T09:43:37.829Z",
   "total": 1,
   "discovered": 25,
   "parsed": 21,
@@ -132,19 +132,22 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
-  "unchangedCount": 0,
-  "durationMs": 83397,
-  "avgDurationMs": 83397,
+  "removedCount": 0,
+  "unchangedCount": 1,
+  "durationMs": 35760,
+  "avgDurationMs": 35760,
   "durationHistory": [
-    83397
+    35760
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "barockjob-62794a403cfe",
-      "slug": "betriebsmechaniker-unterhaltsmechaniker-barock-job-ag-olten",
+      "slug": "meccanico-operativo-meccanica-di-mantenimento-barock-job-ag-olten-ch-so",
       "company": "Barock Job AG",
       "companyKey": "barockjob",
       "companyDomain": "barockjob.ch",
@@ -154,7 +157,7 @@
       "url": "https://barockjob.ch/jobs/2026/08/28/betriebsmechaniker-unterhaltsmechaniker",
       "source": "Barock Job AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T21:48:33.398Z",
+      "crawledAt": "2026-11-25T09:42:50.584Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -172,62 +175,13 @@
       "postedDate": "2026-08-10T09:53:23+02:00",
       "postingDateSource": "reported",
       "applyUrl": "https://barockjob.ch/jobs/2026/08/28/betriebsmechaniker-unterhaltsmechaniker",
-      "needsRetranslation": true,
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:48:33.398Z",
-      "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-23T21:48:33.398Z",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 25
-      }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "barockjob-2d00a72cdeec",
-      "slug": "carrosserie-pittore-painter-in-barock-job-ag-solothurn",
-      "company": "Barock Job AG",
-      "companyKey": "barockjob",
-      "companyDomain": "barockjob.ch",
-      "title": "Carrosserie Maler-/Lackierer-in",
-      "location": "Solothurn, CH-SO",
-      "canton": "SO",
-      "url": "https://barockjob.ch/jobs/2026/11/23/carrosserie-maler-lackierer-in",
-      "source": "Barock Job AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-23T09:46:35.550Z",
-      "addressLocality": "Solothurn",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4500",
-      "streetAddress": "Solothurn",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-10T09:53:23+02:00",
-      "postedDate": "2026-08-10T09:53:23+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://barockjob.ch/jobs/2026/11/23/carrosserie-maler-lackierer-in",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:46:35.550Z",
+      "validThrough": "2026-12-25T09:42:50.584Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T21:46:58.341Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -237,6 +191,5 @@
       }
     }
   ],
-  "unchangedJobs": [],
-  "codeCommit": "7b684909df7304f91c3a19b75aa2a6088ce7630a"
+  "codeCommit": "55fd511dba5e5c1bd3b4047690c697040c8b6c58"
 }

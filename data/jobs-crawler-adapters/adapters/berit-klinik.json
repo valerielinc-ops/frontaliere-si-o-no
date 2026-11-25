@@ -12,19 +12,15 @@
     "https://cms-berit-klinik.deployco.de/api/media/file/ausbildungsstelle_zur_dipl._pflegefachperson_hf_dbd1e8bae0.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_dipl._experte_expertin_an_sthesiefachpflege_80_100__22daeb9433.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_oberarzt___rztin_allg._innere_medizin__50_60__de7265de53.pdf",
-    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mpa_reha_80__402991314a.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/ausbildungsstelle_zur_dipl._pflegefachperson_hf__verk_rzt__65e531cb61.pdf",
-    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_stationssekret_r__in_80_100__reha_deffb9a3a9.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_lehrstelle_fachperson_hotellerie_hauswirtschaft_efz_a3e30da3c2.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter_in_restaurant_80__785965013f.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_leitung_fakturierung_100__87c105f729.pdf",
-    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_medizinische_r_praxisassistent_in__100__f09b04abfb.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_praktikant_in_fakturierung_fd237c6182.pdf",
-    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_fachfrau_fachmann_gesundheit_100__2395849e52.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_sachbearbeiter_in_empfang_50__26b59428aa.pdf"
   ],
   "notes": "Dedicated Berit Klinik crawler parses the Next.js careers page and extracts descriptions from CMS-hosted Stelleninserat PDFs.",
-  "updatedAt": "2026-11-23T21:31:02.183Z",
+  "updatedAt": "2026-11-25T09:20:10.323Z",
   "seedMetaByUrl": {
     "https://cms-berit-klinik.deployco.de/api/media/file/ausbildungsstelle_zur_dipl._pflegefachperson_hf_dbd1e8bae0.pdf": {
       "location": "Speicher",
@@ -50,24 +46,8 @@
       "postedDate": "",
       "postingDateSource": "unknown"
     },
-    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mpa_reha_80__402991314a.pdf": {
-      "location": "Niederteufen",
-      "canton": "AR",
-      "company": "Berit Klinik",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown"
-    },
     "https://cms-berit-klinik.deployco.de/api/media/file/ausbildungsstelle_zur_dipl._pflegefachperson_hf__verk_rzt__65e531cb61.pdf": {
       "location": "Speicher",
-      "canton": "AR",
-      "company": "Berit Klinik",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown"
-    },
-    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_stationssekret_r__in_80_100__reha_deffb9a3a9.pdf": {
-      "location": "Niederteufen",
       "canton": "AR",
       "company": "Berit Klinik",
       "datePosted": "",
@@ -98,23 +78,7 @@
       "postedDate": "",
       "postingDateSource": "unknown"
     },
-    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_medizinische_r_praxisassistent_in__100__f09b04abfb.pdf": {
-      "location": "Speicher",
-      "canton": "AR",
-      "company": "Berit Klinik",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown"
-    },
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_praktikant_in_fakturierung_fd237c6182.pdf": {
-      "location": "Speicher",
-      "canton": "AR",
-      "company": "Berit Klinik",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown"
-    },
-    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_fachfrau_fachmann_gesundheit_100__2395849e52.pdf": {
       "location": "Speicher",
       "canton": "AR",
       "company": "Berit Klinik",

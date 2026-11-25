@@ -2,48 +2,8 @@
   "version": 1,
   "runCounter": 1340,
   "currentQuota": 90,
-  "lastTune": "2026-11-23T13:56:03.780Z",
+  "lastTune": "2026-11-25T13:51:45.862Z",
   "history": [
-    {
-      "tunedAt": "2026-08-11T05:13:14.605Z",
-      "prevQuota": 75,
-      "newQuota": 75,
-      "decision": "hold",
-      "reason": "ratio=0.81",
-      "provenWinRate": 0.6735,
-      "discoveryWinRate": 0.5484,
-      "ratio": 0.8143,
-      "samples": {
-        "proven": {
-          "winners": 33,
-          "total": 49
-        },
-        "discovery": {
-          "winners": 17,
-          "total": 31
-        }
-      }
-    },
-    {
-      "tunedAt": "2026-08-12T05:42:29.498Z",
-      "prevQuota": 75,
-      "newQuota": 75,
-      "decision": "hold",
-      "reason": "ratio=0.82",
-      "provenWinRate": 0.6863,
-      "discoveryWinRate": 0.5625,
-      "ratio": 0.8196,
-      "samples": {
-        "proven": {
-          "winners": 35,
-          "total": 51
-        },
-        "discovery": {
-          "winners": 18,
-          "total": 32
-        }
-      }
-    },
     {
       "tunedAt": "2026-08-13T05:46:03.182Z",
       "prevQuota": 75,
@@ -1986,6 +1946,46 @@
     },
     {
       "tunedAt": "2026-11-23T13:56:03.780Z",
+      "prevQuota": 90,
+      "newQuota": 90,
+      "decision": "hold",
+      "reason": "cold-start no aged articles",
+      "provenWinRate": 0,
+      "discoveryWinRate": 0,
+      "ratio": null,
+      "samples": {
+        "proven": {
+          "winners": 0,
+          "total": 0
+        },
+        "discovery": {
+          "winners": 0,
+          "total": 0
+        }
+      }
+    },
+    {
+      "tunedAt": "2026-11-24T14:33:57.721Z",
+      "prevQuota": 90,
+      "newQuota": 90,
+      "decision": "hold",
+      "reason": "cold-start no aged articles",
+      "provenWinRate": 0,
+      "discoveryWinRate": 0,
+      "ratio": null,
+      "samples": {
+        "proven": {
+          "winners": 0,
+          "total": 0
+        },
+        "discovery": {
+          "winners": 0,
+          "total": 0
+        }
+      }
+    },
+    {
+      "tunedAt": "2026-11-25T13:51:45.862Z",
       "prevQuota": 90,
       "newQuota": 90,
       "decision": "hold",

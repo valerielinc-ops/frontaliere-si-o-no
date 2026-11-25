@@ -1,7 +1,7 @@
 {
   "crawlerKey": "rhne-reseau-hospitalier-neuchatelois",
-  "assembledAt": "2026-11-23T21:26:17.083Z",
-  "runId": "45268068558",
+  "assembledAt": "2026-11-25T09:23:16.557Z",
+  "runId": "45583822388",
   "jobs": [
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-a6e1502aa7d7",
@@ -34,7 +34,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=0538d47b-9ac3-45df-8a14-c7b565dc8657&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:26:08.977Z",
+      "crawledAt": "2026-11-25T09:23:10.495Z",
       "addressLocality": "La Chaux-de-Fonds",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
       },
       "streetAddress": "La Chaux-de-Fonds",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T21:26:08.977Z",
+      "validThrough": "2027-01-21T09:23:10.495Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=5b29a07f-81e3-46ff-b0dc-3c2f06ed0c4b&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:26:05.936Z",
+      "crawledAt": "2026-11-25T09:23:08.114Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -169,7 +169,7 @@
       },
       "streetAddress": "Neuchâtel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:26:05.936Z",
+      "validThrough": "2027-02-07T09:23:08.114Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -203,7 +203,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=085f248b-0f1b-40ff-808d-c6e8bb831c73&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:26:03.551Z",
+      "crawledAt": "2026-11-25T09:23:05.773Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -276,7 +276,7 @@
       },
       "streetAddress": "Neuchâtel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:26:03.551Z",
+      "validThrough": "2027-02-03T09:23:05.773Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -310,7 +310,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=9b1364ab-783f-4faf-887b-43446f55cffa&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:26:01.113Z",
+      "crawledAt": "2026-11-25T09:23:02.882Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -365,7 +365,7 @@
       },
       "streetAddress": "Neuchâtel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T21:26:01.113Z",
+      "validThrough": "2027-02-17T09:23:02.882Z",
       "validThroughSource": "last-observed-window"
     }
   ]

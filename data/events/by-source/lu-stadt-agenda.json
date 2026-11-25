@@ -3,7 +3,7 @@
   "sourceKey": "lu-stadt-agenda",
   "sourceName": "Stadt Luzern — Termine",
   "canton": "LU",
-  "assembledAt": "2026-11-23T17:07:09.510Z",
+  "assembledAt": "2026-11-25T16:41:11.038Z",
   "events": [
     {
       "id": "lu-stadt-agenda:6840391",
@@ -1030,7 +1030,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7694122",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-11-23T17:07:09.510Z",
+      "crawledAt": "2026-11-24T17:07:17.562Z",
       "sourceDescriptionHash": "a4ab323c5cae39e242333889135f8cd2702640684a8b1a48191a69a22c17cce6"
     },
     {
@@ -1044,7 +1044,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7629703",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-11-23T17:07:09.510Z",
+      "crawledAt": "2026-11-25T16:41:11.038Z",
       "sourceDescriptionHash": "0a80e8375a977c6c0c0e58c634d982b666a9a17f6e8678a8e8b0bad9242fea4d"
     },
     {
@@ -1058,7 +1058,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7186733",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-11-23T17:07:09.510Z",
+      "crawledAt": "2026-11-25T16:41:11.038Z",
       "sourceDescriptionHash": "f88408e85aa7fe5374aa3f17583435810bcb2cf09506962b6410e67985166460"
     },
     {
@@ -1072,7 +1072,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7800919",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-11-23T17:07:09.510Z",
+      "crawledAt": "2026-11-25T16:41:11.038Z",
       "sourceDescriptionHash": "f15a553ff8383b69508bfde50330dfa0e09056c4b8e2669b3e04d92278a7a34d"
     },
     {
@@ -1086,7 +1086,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7806868",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-11-23T17:07:09.510Z",
+      "crawledAt": "2026-11-25T16:41:11.038Z",
       "sourceDescriptionHash": "f106ff95b4aaa6ed5040975688599ca618c8e0f6f66a5c4abc88509c85701977"
     },
     {
@@ -1100,7 +1100,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7694311",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-11-23T17:07:09.510Z",
+      "crawledAt": "2026-11-25T16:41:11.038Z",
       "sourceDescriptionHash": "b6133a698317df676e7b25bd0ae9f00cf9a7aef222171fe5566253d8165837f0"
     },
     {
@@ -1114,7 +1114,7 @@
       "url": "https://www.stadtluzern.ch/sitzung/7660909",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-11-23T17:07:09.510Z",
+      "crawledAt": "2026-11-25T16:41:11.038Z",
       "sourceDescriptionHash": "684a2e34287306118adeb03d37e2f8363fcaf672b811e76181486f164a2f0e2a"
     },
     {
@@ -1128,8 +1128,47 @@
       "url": "https://www.stadtluzern.ch/sitzung/7463725",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-11-23T17:07:09.510Z",
+      "crawledAt": "2026-11-25T16:41:11.038Z",
       "sourceDescriptionHash": "7ebccba6a44e02fce3eb77e6915d1051394788014d679cc94d3d8175ae7fa0d8"
+    },
+    {
+      "id": "lu-stadt-agenda:7626931",
+      "title": "Besichtigung Pavillon Manal, Horw",
+      "startDate": "2026-11-28",
+      "startTime": "09:00",
+      "comune": "Horw",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7626931",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-11-25T16:41:11.038Z",
+      "sourceDescriptionHash": "1808794764a98baf5b150f9e06f0793238e7532fe8f0938d4ed21728c670edfd"
+    },
+    {
+      "id": "lu-stadt-agenda:7801246",
+      "title": "Digital Safety Clinic",
+      "startDate": "2026-11-28",
+      "startTime": "10:00",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/7801246",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-11-25T16:41:11.038Z",
+      "sourceDescriptionHash": "126a9b2b0c9e1b029a251593b368779bd08c5aae7c383867608c5c3bceb5562e"
+    },
+    {
+      "id": "lu-stadt-agenda:6773767",
+      "title": "Urnengang vom 29. November 2026",
+      "startDate": "2026-11-29",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/sitzung/6773767",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-11-25T16:41:11.038Z",
+      "sourceDescriptionHash": "6e75003ea7f80f4f6b6aa811fcc1b9b8a02ab2a9b87e82d514cfc5b07f6e1bef"
     }
   ]
 }

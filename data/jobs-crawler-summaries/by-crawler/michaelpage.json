@@ -1,7 +1,7 @@
 {
   "key": "michaelpage",
   "label": "Michael Page",
-  "generatedAt": "2026-11-23T21:51:25.165Z",
+  "generatedAt": "2026-11-25T09:51:44.263Z",
   "total": 0,
   "discovered": null,
   "parsed": 0,
@@ -15,13 +15,13 @@
     "pages": 1,
     "httpStatuses": [
       {
-        "status": 503,
+        "status": 404,
         "url": "https://www.pageexecutive.com/jobs/switzerland"
       }
     ],
     "proxiedBy": [],
     "fetchOutcome": null,
-    "fetchDetail": "Prospector fetch failed for https://www.pageexecutive.com/jobs/switzerland: HTTP 503"
+    "fetchDetail": "Prospector fetch failed for https://www.pageexecutive.com/jobs/switzerland: HTTP 404"
   },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -37,5 +37,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "7b684909df7304f91c3a19b75aa2a6088ce7630a"
+  "codeCommit": "55fd511dba5e5c1bd3b4047690c697040c8b6c58"
 }

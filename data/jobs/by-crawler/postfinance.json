@@ -1,7 +1,7 @@
 {
   "crawlerKey": "postfinance",
-  "assembledAt": "2026-11-23T21:43:51.417Z",
-  "runId": "45269712796",
+  "assembledAt": "2026-11-25T09:55:09.860Z",
+  "runId": "45585358485",
   "jobs": [
     {
       "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center-Niederurnen/74899-de_DE",
@@ -42,8 +42,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-23T21:43:29.500Z",
-      "validThrough": "2026-12-29T21:43:29.500Z",
+      "crawledAt": "2026-11-25T09:55:02.951Z",
+      "validThrough": "2026-12-30T09:55:02.951Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -123,8 +123,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-23T21:43:28.021Z",
-      "validThrough": "2026-12-30T21:43:28.021Z",
+      "crawledAt": "2026-11-25T09:55:02.154Z",
+      "validThrough": "2026-12-30T09:55:02.154Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -204,8 +204,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-23T21:43:26.589Z",
-      "validThrough": "2027-02-04T21:43:26.589Z",
+      "crawledAt": "2026-11-25T09:55:01.349Z",
+      "validThrough": "2027-02-04T09:55:01.349Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -291,8 +291,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-23T21:43:25.154Z",
-      "validThrough": "2027-02-04T21:43:25.154Z",
+      "crawledAt": "2026-11-25T09:55:00.503Z",
+      "validThrough": "2027-02-04T09:55:00.503Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -378,8 +378,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-23T21:43:23.722Z",
-      "validThrough": "2027-02-08T21:43:23.722Z",
+      "crawledAt": "2026-11-25T09:54:59.679Z",
+      "validThrough": "2027-02-09T09:54:59.679Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -416,178 +416,6 @@
           "@type": "QuantitativeValue",
           "minValue": 113000,
           "maxValue": 192000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "streetAddress": "Bern",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/ICT-Application-Managerin-2nd-Level-Betrieb-&-Support/75154-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/ICT-Application-Managerin-2nd-Level-Betrieb-&-Support/75154-de_DE",
-      "title": "ICT Application Manager:in 2nd Level Betrieb & Support",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "description": "Bei PostFinance gestaltest du die Zukunft des digitalen Bankings aktiv mit. Mit deinem technischen Know-how und deinem Teamgeist unterstützt du die Integration unserer Core-Banking-Applikationen und entwickelst innovative Lösungen weiter. Du sorgst dafür, dass unsere Systeme stabil, modern und kundenorientiert bleiben. So trägst du dazu bei, dass PostFinance auch in Zukunft eine digitale Innovationsleaderin bleibt und mit frischen Lösungen rund ums Geld begeistert.\n\nDas kannst du bewirken\n\n- Du lokalisierst, grenzt ein und behebst Störungen in verschiedenen Applikationen\n\n- Du analysierst Störungen dank deinem technischen Verständnis rasch und behebst sie nachhaltig\n\n- Du stellst in Projektteams die Betreibbarkeit von Applikationen und Tools sowie deren Überführung in den produktiven Betrieb sicher\n\n- Du berätst und unterstützt verschiedene Support Levels sowie Anwender:innen bei Fragen zu Applikationen und Prozessen\n\n- Du treibst gemeinsam mit internen und externen Partnern die kontinuierliche Verbesserung unserer Systeme und Abläufe voran\n\nDas bringst du mit\n\n- Abgeschlossene Grundausbildung als Informatiker:in EFZ, idealerweise ergänzt durch Weiterbildung auf Stufe HF, FH oder Universität\n\n- Erste Berufserfahrung im Applikationssupport\n\n- Kentnisse in UNIX, SQL und Shell-Scripting sowie Erfahrung mit Kubernetes als Vorteil\n\n- Selbstständige und belastbare Persönlichkeit mit Bereitschaft für Pikettdienst und gelegentliche Einsätze ausserhalb der regulären Arbeitszeiten\n\n- Sehr gute Deutschkenntnisse und gute mündliche Englischkenntnisse",
-      "descriptionByLocale": {
-        "it": "A PostFinance, si sta attivamente modellando il futuro del digital banking. Con il tuo know-how tecnico e lo spirito di squadra, supporti l'integrazione delle nostre applicazioni core banking e sviluppi soluzioni innovative. Assicurarsi che i nostri sistemi rimangano stabili, moderni e orientati al cliente. Questo aiuterà PostFinance a rimanere un leader di innovazione digitale in futuro e ispirare con soluzioni fresche intorno al denaro.\n\nPuoi farlo.\n\n- È possibile individuare, limitare e correggere le interruzioni in varie applicazioni\n\n- Analizzi rapidamente le interruzioni grazie alla tua comprensione tecnica e le ripara in modo sostenibile\n\n- Garantisci il funzionamento di applicazioni e strumenti nei team di progetto e il loro trasferimento al funzionamento produttivo\n\n- Si consiglia e supporta vari livelli di supporto e gli utenti con domande su applicazioni e processi\n\n- Insieme a partner interni ed esterni, guidi il continuo miglioramento dei nostri sistemi e processi\n\nLo porti con te.\n\n- Formazione di base completata come scienziato informatico: in EFZ, idealmente completato da un'ulteriore formazione a livello di HF, FH o università\n\n- Prima esperienza professionale nel supporto alle applicazioni\n\n- Conoscenza in UNIX, SQL e shell scripting e l'esperienza con Kubernetes come vantaggio\n\n- Personalità indipendente e resiliente con disponibilità per piquetting e incarichi occasionali al di fuori delle ore di lavoro regolari\n\n- Conoscenza molto buona di tedesco e buona lingua orale",
-        "en": "At PostFinance, you are actively shaping the future of digital banking. With your technical know-how and team spirit, you support the integration of our core banking applications and develop innovative solutions. You ensure that our systems remain stable, modern and customer-oriented. This will help PostFinance to remain a digital innovation leader in the future and inspire with fresh solutions around the money.\n\nYou can do that.\n\n- You locate, limit and fix disruptions in various applications\n\n- You quickly analyze disruptions thanks to your technical understanding and repair them sustainably\n\n- You ensure the operation of applications and tools in project teams as well as their transfer to productive operation\n\n- You advise and support various support levels as well as users with questions about applications and processes\n\n- Together with internal and external partners, you drive forward the continuous improvement of our systems and processes\n\nYou bring that with you\n\n- Completed basic training as a computer scientist: in EFZ, ideally supplemented by further education at the level of HF, FH or university\n\n- First professional experience in application support\n\n- Knowledge in UNIX, SQL and shell scripting as well as experience with Kubernetes as an advantage\n\n- Independent and resilient personality with willingness for piquetting and occasional assignments outside regular working hours\n\n- Very good knowledge of German and good oral English",
-        "de": "Bei PostFinance gestaltest du die Zukunft des digitalen Bankings aktiv mit. Mit deinem technischen Know-how und deinem Teamgeist unterstützt du die Integration unserer Core-Banking-Applikationen und entwickelst innovative Lösungen weiter. Du sorgst dafür, dass unsere Systeme stabil, modern und kundenorientiert bleiben. So trägst du dazu bei, dass PostFinance auch in Zukunft eine digitale Innovationsleaderin bleibt und mit frischen Lösungen rund ums Geld begeistert.\n\nDas kannst du bewirken\n\n- Du lokalisierst, grenzt ein und behebst Störungen in verschiedenen Applikationen\n\n- Du analysierst Störungen dank deinem technischen Verständnis rasch und behebst sie nachhaltig\n\n- Du stellst in Projektteams die Betreibbarkeit von Applikationen und Tools sowie deren Überführung in den produktiven Betrieb sicher\n\n- Du berätst und unterstützt verschiedene Support Levels sowie Anwender:innen bei Fragen zu Applikationen und Prozessen\n\n- Du treibst gemeinsam mit internen und externen Partnern die kontinuierliche Verbesserung unserer Systeme und Abläufe voran\n\nDas bringst du mit\n\n- Abgeschlossene Grundausbildung als Informatiker:in EFZ, idealerweise ergänzt durch Weiterbildung auf Stufe HF, FH oder Universität\n\n- Erste Berufserfahrung im Applikationssupport\n\n- Kentnisse in UNIX, SQL und Shell-Scripting sowie Erfahrung mit Kubernetes als Vorteil\n\n- Selbstständige und belastbare Persönlichkeit mit Bereitschaft für Pikettdienst und gelegentliche Einsätze ausserhalb der regulären Arbeitszeiten\n\n- Sehr gute Deutschkenntnisse und gute mündliche Englischkenntnisse",
-        "fr": "Chez PostFinance, vous façonnez activement l'avenir de la banque numérique. Avec votre savoir-faire technique et votre esprit d'équipe, vous soutenez l'intégration de nos applications bancaires de base et développez des solutions innovantes. Vous veillez à ce que nos systèmes restent stables, modernes et axés sur le client. Cela aidera PostFinance à rester un leader de l'innovation numérique à l'avenir et inspirera avec de nouvelles solutions autour de l'argent.\n\nTu peux le faire.\n\n- Vous localisez, limitez et corrigez les perturbations dans diverses applications\n\n- Vous analysez rapidement les perturbations grâce à votre compréhension technique et les réparez durablement\n\n- Vous assurez le fonctionnement des applications et des outils dans les équipes de projet ainsi que leur transfert à l'exploitation productive\n\n- Vous conseillez et supportez divers niveaux de support ainsi que les utilisateurs avec des questions sur les applications et les processus\n\n- Avec des partenaires internes et externes, vous conduisez à l'amélioration continue de nos systèmes et processus\n\nApporte ça avec toi.\n\n- Achevé la formation de base en informatique: en EFZ, idéalement complétée par une formation complémentaire au niveau de la FH, de la FH ou de l'université\n\n- Première expérience professionnelle en support d'application\n\n- Connaissances dans le script UNIX, SQL et shell ainsi que l'expérience avec Kubernetes comme avantage\n\n- Personnalité indépendante et résiliente avec volonté de picettage et affectations occasionnelles en dehors des heures normales de travail\n\n- Très bonne connaissance de l'allemand et de l'anglais oral"
-      },
-      "titleByLocale": {
-        "it": "ICT Application Manager 2nd Level Operation & Support",
-        "en": "ICT Application Manager – 2nd Level Operations & Support",
-        "de": "ICT Application Manager:in 2nd Level Betrieb & Support",
-        "fr": "Responsable des applications TIC : exploitation et support de 2e niveau"
-      },
-      "slug": "ict-application-manager-2nd-level-operation-support-postfinance-bern",
-      "slugByLocale": {
-        "it": "ict-application-manager-2nd-level-operation-support-postfinance-bern",
-        "en": "ict-application-manager-2nd-level-operations-support-postfinance-bern",
-        "de": "ict-application-manager-in-2nd-level-betrieb-support-postfinance",
-        "fr": "responsable-des-applications-tic-exploitation-et-support-de-2e-niveau-postfinance-bern"
-      },
-      "sourceLang": "de",
-      "department": [
-        "Informatik und Digital Services"
-      ],
-      "category": [
-        "Informatik und Digital Services"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-11-23T21:43:22.279Z",
-      "validThrough": "2027-02-16T21:43:22.279Z",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-9d99e3468738",
-      "previousSlugs": [
-        "ict-application-manager-in-2nd-level-betrieb-support-postfinance"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ict-application-manager-in-2nd-level-betrieb-support-postfinance"
-        ],
-        "en": [
-          "ict-application-manager-in-2nd-level-betrieb-support-postfinance"
-        ],
-        "fr": [
-          "ict-application-manager-in-2nd-level-betrieb-support-postfinance"
-        ]
-      },
-      "firstSeenAt": "2026-11-18T09:50:23.221Z",
-      "salaryMin": 113000,
-      "salaryMax": 192000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 113000,
-          "maxValue": 192000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "streetAddress": "Bern",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Junior-Financial-Closing-&-Taxes-%28wmd%29/75208-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Junior-Financial-Closing-&-Taxes-%28wmd%29/75208-de_DE",
-      "title": "Junior Financial Closing & Taxes (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "description": "Im Kompetenzzentrum für Rechnungslegung und Financial Accounting sorgst du dafür, dass PostFinance auf einer hochwertigen und verlässlichen finanziellen Datenbasis agiert. Gemeinsam stellen wir eine korrekte Rechnungslegung nach IFRS und RVB sicher und schaffen damit eine wichtige Grundlage für die finanzielle Steuerung von PostFinance.\nWenn du Zahlen, Zusammenhänge und präzises Arbeiten magst, bist du bei uns genau richtig. Du übernimmst Verantwortung für eigene Themengebiete und trägst mit deiner Arbeit zu qualitativ hochwertigen Abschlüssen und einer verlässlichen finanziellen Berichterstattung bei.\n\nDas kannst du bewirken\n\n- Du wirkst bei der IFRS- und RVB-konformen Erstellung der Monats-, Quartals- und Jahresabschlüsse von PostFinance mit\n\n- Du übernimmst selbstständig Verantwortung für definierte Themengebiete im Hauptbuch und in den Nebenbüchern\n\n- Du unterstützt die finanzielle Berichterstattung an den Konzern und die Erstellung der statutarischen Jahresrechnung\n\n- Du bearbeitest Anfragen und Ad-hoc-Aufträge in deinen Themengebieten selbstständig und zuverlässig\n\n- Du bringst dich in Projekte ein und wirkst aktiv bei der Weiterentwicklung und Optimierung unserer Prozesse mit\n\nDas bringst du mit\n\n- Abgeschlossene kaufmännische Grundausbildung und idealerweise Weiterbildung im Finanz- und Rechnungswesen\n\n- Erste praktische Erfahrung im Accounting, Finanz- oder Rechnungswesen\n\n- Freude an Zahlen und ein ausgeprägtes Verständnis für finanzielle Zusammenhänge\n\n- Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n- Offenheit für Veränderungen und Motivation, zur Weiterentwicklung bestehender Prozesse\n\n- Gute Kenntnisse in Excel; Erfahrung mit SAP als Plus",
-      "descriptionByLocale": {
-        "it": "Nel centro di competenza per la contabilità e la contabilità finanziaria, si assicura che PostFinance opera su un database finanziario di alta qualità e affidabile. Insieme garantiamo una corretta contabilità secondo IFRS e RVB e creiamo così una base importante per la gestione finanziaria di PostFinance.\nSe ti piacciono i numeri, i contesti e il lavoro preciso, hai esattamente ragione con noi. Si assume la responsabilità per i propri argomenti e contribuire con il vostro lavoro a gradi di alta qualità e rendicontazione finanziaria affidabile.\n\nPuoi farlo.\n\n- Contribuisci alla preparazione dei conti mensili, trimestrali e annuali di PostFinance secondo IFRS e RVB\n\n- Si assume in modo indipendente la responsabilità di argomenti definiti nel registro e nei libri secondari\n\n- Lei sostiene la rendicontazione finanziaria al Gruppo e la preparazione dei conti annuali statutari\n\n- Elabori richieste e ordini ad hoc nelle tue aree tematiche in modo indipendente e affidabile\n\n- Sei coinvolto in progetti e partecipa attivamente all'ulteriore sviluppo e ottimizzazione dei nostri processi\n\nLo porti con te.\n\n- Completata la formazione commerciale di base e l'educazione ideale in finanza e contabilità\n\n- Prima esperienza pratica in contabilità, finanza o contabilità\n\n- Godere di numeri e una forte comprensione dei contesti finanziari\n\n- Metodo di lavoro indipendente, strutturato e affidabile\n\n- Apertura al cambiamento e alla motivazione, per sviluppare ulteriormente i processi esistenti\n\n- Buona conoscenza di Excel; Esperienza con SAP come Plus",
-        "en": "In the Competence Center for Accounting and Financial Accounting, you ensure that PostFinance operates on a high-quality and reliable financial database. Together we ensure correct accounting in accordance with IFRS and RVB and thus create an important basis for the financial management of PostFinance.\nIf you like numbers, contexts and precise work, you are exactly right with us. You take responsibility for your own topics and contribute with your work to high-quality degrees and reliable financial reporting.\n\nYou can do that.\n\n- You contribute to the preparation of PostFinance’s monthly, quarterly and annual accounts in accordance with IFRS and RVB\n\n- You independently assume responsibility for defined topics in the ledger and in the secondary books\n\n- You support the financial reporting to the Group and the preparation of the statutory annual accounts\n\n- You process inquiries and ad hoc orders in your subject areas independently and reliably\n\n- You are involved in projects and actively participate in the further development and optimization of our processes\n\nYou bring that with you\n\n- Completed basic commercial training and ideally further education in finance and accounting\n\n- First practical experience in accounting, finance or accounting\n\n- Enjoying numbers and a strong understanding of financial contexts\n\n- Independent, structured and reliable working method\n\n- Openness to change and motivation, to further develop existing processes\n\n- Good knowledge of Excel; Experience with SAP as Plus",
-        "de": "Im Kompetenzzentrum für Rechnungslegung und Financial Accounting sorgst du dafür, dass PostFinance auf einer hochwertigen und verlässlichen finanziellen Datenbasis agiert. Gemeinsam stellen wir eine korrekte Rechnungslegung nach IFRS und RVB sicher und schaffen damit eine wichtige Grundlage für die finanzielle Steuerung von PostFinance.\nWenn du Zahlen, Zusammenhänge und präzises Arbeiten magst, bist du bei uns genau richtig. Du übernimmst Verantwortung für eigene Themengebiete und trägst mit deiner Arbeit zu qualitativ hochwertigen Abschlüssen und einer verlässlichen finanziellen Berichterstattung bei.\n\nDas kannst du bewirken\n\n- Du wirkst bei der IFRS- und RVB-konformen Erstellung der Monats-, Quartals- und Jahresabschlüsse von PostFinance mit\n\n- Du übernimmst selbstständig Verantwortung für definierte Themengebiete im Hauptbuch und in den Nebenbüchern\n\n- Du unterstützt die finanzielle Berichterstattung an den Konzern und die Erstellung der statutarischen Jahresrechnung\n\n- Du bearbeitest Anfragen und Ad-hoc-Aufträge in deinen Themengebieten selbstständig und zuverlässig\n\n- Du bringst dich in Projekte ein und wirkst aktiv bei der Weiterentwicklung und Optimierung unserer Prozesse mit\n\nDas bringst du mit\n\n- Abgeschlossene kaufmännische Grundausbildung und idealerweise Weiterbildung im Finanz- und Rechnungswesen\n\n- Erste praktische Erfahrung im Accounting, Finanz- oder Rechnungswesen\n\n- Freude an Zahlen und ein ausgeprägtes Verständnis für finanzielle Zusammenhänge\n\n- Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n- Offenheit für Veränderungen und Motivation, zur Weiterentwicklung bestehender Prozesse\n\n- Gute Kenntnisse in Excel; Erfahrung mit SAP als Plus",
-        "fr": "Dans le Centre de compétences en comptabilité et en comptabilité financière, vous assurez que PostFinance fonctionne sur une base de données financières de haute qualité et fiable. Ensemble, nous garantissons une comptabilité correcte conformément aux normes IFRS et RVB et créons ainsi une base importante pour la gestion financière de PostFinance.\nSi vous aimez les chiffres, les contextes et le travail précis, vous avez exactement raison avec nous. Vous assumez la responsabilité de vos propres sujets et contribuez avec votre travail à des degrés de qualité et des rapports financiers fiables.\n\nTu peux le faire.\n\n- Vous contribuez à la préparation des comptes mensuels, trimestriels et annuels de PostFinance conformément aux normes IFRS et RVB\n\n- Vous assumez indépendamment la responsabilité de sujets définis dans le grand livre et dans les livres secondaires\n\n- Vous soutenez les rapports financiers au Groupe et la préparation des comptes annuels statutaires\n\n- Vous traitez les demandes de renseignements et les commandes ponctuelles dans vos domaines de compétence de façon indépendante et fiable\n\n- Vous participez à des projets et participez activement au développement et à l'optimisation de nos processus\n\nApporte ça avec toi.\n\n- Achevé la formation commerciale de base et idéalement la formation continue en finance et comptabilité\n\n- Première expérience pratique en comptabilité, finance ou comptabilité\n\n- Profiter des chiffres et bien comprendre les contextes financiers\n\n- Méthode de travail indépendante, structurée et fiable\n\n- Ouverture au changement et motivation, pour développer les processus existants\n\n- Bonne connaissance d'Excel; Expérience avec SAP en tant que Plus"
-      },
-      "titleByLocale": {
-        "it": "Chiusura Finanziaria Junior & Tasse (m/f/d)",
-        "en": "Junior Financial Closing & Taxes (m/f/d)",
-        "de": "Junior Financial Closing & Taxes (w/m/d)",
-        "fr": "Clôture financière junior et impôts (h/f/d)"
-      },
-      "slug": "chiusura-finanziaria-junior-tasse-m-f-d-postfinance-bern",
-      "slugByLocale": {
-        "it": "chiusura-finanziaria-junior-tasse-m-f-d-postfinance-bern",
-        "en": "junior-financial-closing-taxes-w-m-d-postfinance",
-        "de": "junior-financial-closing-taxes-w-m-d-postfinance",
-        "fr": "cloture-financiere-junior-et-impots-h-f-d-postfinance-bern"
-      },
-      "sourceLang": "de",
-      "department": [
-        "Büro-Finanzen und Revision"
-      ],
-      "category": [
-        "Büro-Finanzen und Revision"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-11-23T21:43:20.803Z",
-      "validThrough": "2027-02-16T21:43:20.803Z",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-b3a78c68a726",
-      "previousSlugs": [
-        "junior-financial-closing-taxes-w-m-d-postfinance"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "junior-financial-closing-taxes-w-m-d-postfinance"
-        ],
-        "fr": [
-          "junior-financial-closing-taxes-w-m-d-postfinance"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-11-18T09:50:22.340Z",
-      "salaryMin": 73500,
-      "salaryMax": 129000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 129000,
           "unitText": "YEAR"
         }
       },
@@ -637,8 +465,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-23T21:43:19.346Z",
-      "validThrough": "2027-02-16T21:43:19.346Z",
+      "crawledAt": "2026-11-25T09:54:58.870Z",
+      "validThrough": "2027-02-16T09:54:58.870Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -726,8 +554,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-23T21:43:17.915Z",
-      "validThrough": "2027-02-16T21:43:17.915Z",
+      "crawledAt": "2026-11-25T09:54:58.052Z",
+      "validThrough": "2027-02-16T09:54:58.052Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -813,8 +641,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-23T21:43:16.461Z",
-      "validThrough": "2027-02-04T21:43:16.461Z",
+      "crawledAt": "2026-11-25T09:54:57.224Z",
+      "validThrough": "2027-02-04T09:54:57.224Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -904,8 +732,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-23T21:43:15.019Z",
-      "validThrough": "2027-02-04T21:43:15.019Z",
+      "crawledAt": "2026-11-25T09:54:56.414Z",
+      "validThrough": "2027-02-04T09:54:56.414Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -995,8 +823,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-23T21:43:13.569Z",
-      "validThrough": "2027-02-04T21:43:13.569Z",
+      "crawledAt": "2026-11-25T09:54:55.594Z",
+      "validThrough": "2027-02-04T09:54:55.594Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -1084,8 +912,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-23T21:43:12.033Z",
-      "validThrough": "2027-02-04T21:43:12.033Z",
+      "crawledAt": "2026-11-25T09:54:54.778Z",
+      "validThrough": "2027-02-04T09:54:54.778Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -1175,8 +1003,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-23T21:43:10.355Z",
-      "validThrough": "2027-02-04T21:43:10.355Z",
+      "crawledAt": "2026-11-25T09:54:53.960Z",
+      "validThrough": "2027-02-04T09:54:53.960Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -1266,8 +1094,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-23T21:43:08.886Z",
-      "validThrough": "2027-02-04T21:43:08.886Z",
+      "crawledAt": "2026-11-25T09:54:53.149Z",
+      "validThrough": "2027-02-04T09:54:53.149Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -1358,8 +1186,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-23T21:43:07.457Z",
-      "validThrough": "2027-02-19T21:43:07.457Z",
+      "crawledAt": "2026-11-25T09:54:52.332Z",
+      "validThrough": "2027-02-19T09:54:52.332Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -1424,9 +1252,9 @@
       },
       "slug": "gestione-del-team-pianificazione-finanziaria-postfinance-bern",
       "slugByLocale": {
-        "de": "teamleitung-finanzplanung-postfinance-bern",
         "it": "gestione-del-team-pianificazione-finanziaria-postfinance-bern",
         "en": "team-management-financial-planning-postfinance-bern",
+        "de": "teamleitung-finanzplanung-postfinance",
         "fr": "planification-financiere-de-la-gestion-de-l-equipe-postfinance-bern"
       },
       "sourceLang": "de",
@@ -1439,8 +1267,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-23T21:43:05.991Z",
-      "validThrough": "2027-02-21T21:43:05.991Z",
+      "crawledAt": "2026-11-25T09:54:51.525Z",
+      "validThrough": "2027-02-21T09:54:51.525Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -1451,6 +1279,25 @@
         "location": "Bern"
       },
       "id": "postfinance-d7aef0876caa",
+      "previousSlugs": [
+        "teamleitung-finanzplanung-postfinance",
+        "teamleitung-finanzplanung-postfinance-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-finanzplanung-postfinance"
+        ],
+        "en": [
+          "teamleitung-finanzplanung-postfinance"
+        ],
+        "de": [
+          "teamleitung-finanzplanung-postfinance-bern"
+        ],
+        "fr": [
+          "teamleitung-finanzplanung-postfinance"
+        ]
+      },
+      "firstSeenAt": "2026-11-23T09:52:04.992Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
       "currency": "CHF",
@@ -1470,25 +1317,7 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:52:04.992Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleitung-finanzplanung-postfinance"
-        ],
-        "en": [
-          "teamleitung-finanzplanung-postfinance"
-        ],
-        "fr": [
-          "teamleitung-finanzplanung-postfinance"
-        ],
-        "de": [
-          "teamleitung-finanzplanung-postfinance"
-        ]
-      },
-      "previousSlugs": [
-        "teamleitung-finanzplanung-postfinance"
-      ]
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://jobs.postfinance.ch/job/Senior-Finanzplanerin-Region-Z%C3%BCrich-&-Zentralschweiz/75265-de_DE",
@@ -1529,8 +1358,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-23T21:43:04.488Z",
-      "validThrough": "2027-02-21T21:43:04.488Z",
+      "crawledAt": "2026-11-25T09:54:50.718Z",
+      "validThrough": "2027-02-21T09:54:50.718Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -1616,8 +1445,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-23T21:43:02.998Z",
-      "validThrough": "2027-02-21T21:43:02.998Z",
+      "crawledAt": "2026-11-25T09:54:49.864Z",
+      "validThrough": "2027-02-21T09:54:49.864Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -1703,8 +1532,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-23T21:43:01.529Z",
-      "validThrough": "2027-02-21T21:43:01.529Z",
+      "crawledAt": "2026-11-25T09:54:49.035Z",
+      "validThrough": "2027-02-21T09:54:49.035Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -1775,9 +1604,9 @@
       },
       "slug": "pianificatore-finanziario-senior-regione-romandie-postfinance-westschweiz",
       "slugByLocale": {
-        "de": "senior-finanzplaner-in-region-romandie-postfinance",
         "it": "pianificatore-finanziario-senior-regione-romandie-postfinance-westschweiz",
         "en": "senior-financial-planner-romandie-region-postfinance-westschweiz",
+        "de": "senior-finanzplaner-in-region-romandie-postfinance",
         "fr": "planificateur-financier-senior-region-romandie-postfinance-westschweiz"
       },
       "sourceLang": "de",
@@ -1790,8 +1619,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-23T21:43:00.067Z",
-      "validThrough": "2027-02-21T21:43:00.067Z",
+      "crawledAt": "2026-11-25T09:54:48.222Z",
+      "validThrough": "2027-02-21T09:54:48.222Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -1802,6 +1631,25 @@
         "location": "Lausanne"
       },
       "id": "postfinance-8c4f9548a913",
+      "previousSlugs": [
+        "senior-finanzplaner-in-region-romandie-postfinance",
+        "senior-financial-planner-romandie-region-postfinance-lausanne",
+        "planificateur-financier-senior-region-romandie-postfinance-lausanne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-finanzplaner-in-region-romandie-postfinance"
+        ],
+        "en": [
+          "senior-finanzplaner-in-region-romandie-postfinance",
+          "senior-financial-planner-romandie-region-postfinance-lausanne"
+        ],
+        "fr": [
+          "senior-finanzplaner-in-region-romandie-postfinance",
+          "planificateur-financier-senior-region-romandie-postfinance-lausanne"
+        ]
+      },
+      "firstSeenAt": "2026-11-23T09:52:00.633Z",
       "salaryMin": 101500,
       "salaryMax": 156000,
       "currency": "CHF",
@@ -1821,26 +1669,7 @@
       "addressRegion": "VD",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T09:52:00.633Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-finanzplaner-in-region-romandie-postfinance"
-        ],
-        "en": [
-          "senior-finanzplaner-in-region-romandie-postfinance",
-          "senior-financial-planner-romandie-region-postfinance-lausanne"
-        ],
-        "fr": [
-          "senior-finanzplaner-in-region-romandie-postfinance",
-          "planificateur-financier-senior-region-romandie-postfinance-lausanne"
-        ]
-      },
-      "previousSlugs": [
-        "senior-finanzplaner-in-region-romandie-postfinance",
-        "senior-financial-planner-romandie-region-postfinance-lausanne",
-        "planificateur-financier-senior-region-romandie-postfinance-lausanne"
-      ]
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://jobs.postfinance.ch/job/Architecture-Owner-%28wmd%29/75191-de_DE",
@@ -1881,8 +1710,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-23T21:42:58.616Z",
-      "validThrough": "2027-02-21T21:42:58.616Z",
+      "crawledAt": "2026-11-25T09:54:47.353Z",
+      "validThrough": "2027-02-21T09:54:47.353Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -1900,10 +1729,10 @@
         "it": [
           "architecture-owner-w-m-d-postfinance"
         ],
-        "fr": [
+        "en": [
           "architecture-owner-w-m-d-postfinance"
         ],
-        "en": [
+        "fr": [
           "architecture-owner-w-m-d-postfinance"
         ]
       },
@@ -1940,22 +1769,22 @@
       "country": "CH",
       "description": "Im Kompetenz-Center Kreditkarten bist du die erste Anlaufstelle für telefonische Anfragen rund um unsere Kreditkarten. Du begleitest interne und externe Kund:innen von der Eröffnung bis zur Kündigung und stellst eine kompetente Beratung sicher. Mit deinem Einsatz trägst du dazu bei, dass PostFinance auch in Zukunft eine innovationsgetriebene Finanzdienstleisterin bleibt. So schaffst du Vertrauen und stärkst die Kundenzufriedenheit nachhaltig.\n\nDas kannst du bewirken\n\n- Du beantwortest telefonische Anfragen von internen und externen Kund:innen kompetent und lösungsorientiert\n\n- Du bist Ansprechperson für verschiedene Mutationen rund um Kreditkarten wie Kündigungen oder Limiten\n\n- Du unterstützt Kundenberater:innen im physischen Vertrieb bei komplexen Fällen\n\n- Du nimmst Beschwerden sachgerecht entgegen und findest einfache, pragmatische Lösungen\n\nDas bringst du mit\n\n- Abgeschlossene kaufmännische Grundausbildung mit Erfahrung in der Finanzdienstleistungsbranche und/oder im administrativen Bereich\n\n- Schnelle Auffassungsgabe und Fähigkeit zur Orientierung in einem dynamischen Umfeld\n\n- Freude am Kundenkontakt sowie Kompetenz in der Beratung zur Schaffung eines positiven Kundenerlebnisses\n\n- Einwandfreie Deutschkenntnisse in Wort und Schrift sowie gute Französisch- und/oder Italienischkenntnisse auf Niveau B2",
       "descriptionByLocale": {
-        "de": "Im Kompetenz-Center Kreditkarten bist du die erste Anlaufstelle für telefonische Anfragen rund um unsere Kreditkarten. Du begleitest interne und externe Kund:innen von der Eröffnung bis zur Kündigung und stellst eine kompetente Beratung sicher. Mit deinem Einsatz trägst du dazu bei, dass PostFinance auch in Zukunft eine innovationsgetriebene Finanzdienstleisterin bleibt. So schaffst du Vertrauen und stärkst die Kundenzufriedenheit nachhaltig.\n\nDas kannst du bewirken\n\n- Du beantwortest telefonische Anfragen von internen und externen Kund:innen kompetent und lösungsorientiert\n\n- Du bist Ansprechperson für verschiedene Mutationen rund um Kreditkarten wie Kündigungen oder Limiten\n\n- Du unterstützt Kundenberater:innen im physischen Vertrieb bei komplexen Fällen\n\n- Du nimmst Beschwerden sachgerecht entgegen und findest einfache, pragmatische Lösungen\n\nDas bringst du mit\n\n- Abgeschlossene kaufmännische Grundausbildung mit Erfahrung in der Finanzdienstleistungsbranche und/oder im administrativen Bereich\n\n- Schnelle Auffassungsgabe und Fähigkeit zur Orientierung in einem dynamischen Umfeld\n\n- Freude am Kundenkontakt sowie Kompetenz in der Beratung zur Schaffung eines positiven Kundenerlebnisses\n\n- Einwandfreie Deutschkenntnisse in Wort und Schrift sowie gute Französisch- und/oder Italienischkenntnisse auf Niveau B2",
         "it": "Nel centro di competenza carte di credito sei il primo punto di contatto per le richieste telefoniche sulle nostre carte di credito. Si accompagnano clienti interni ed esterni dall'apertura alla cessazione e fornire consulenza competente. Con il vostro impegno, contribuite a garantire che PostFinance rimanga un fornitore di servizi finanziari orientato all'innovazione in futuro. In questo modo, si crea fiducia e rafforzare la soddisfazione del cliente in modo sostenibile.\n\nPuoi farlo.\n\n- Risponde alle richieste telefoniche di clienti interni ed esterni: competenti e orientati alla soluzione\n\n- Sei la persona di contatto per varie mutazioni intorno a carte di credito come cancellazioni o limiti\n\n- Supporti i consulenti dei clienti: nelle vendite fisiche in casi complessi\n\n- Accetti i reclami correttamente e trovi soluzioni semplici e pragmatiche\n\nLo porti con te.\n\n- Formazione commerciale completata con esperienza nell'industria dei servizi finanziari e/o nel settore amministrativo\n\n- Rapida comprensione e capacità di orientare in un ambiente dinamico\n\n- Godimento del contatto con il cliente e della competenza nella consulenza per creare un'esperienza positiva del cliente\n\n- Conoscenza completa del tedesco nelle parole e nella scrittura nonché buona conoscenza del francese e/o italiano al livello B2",
         "en": "In the Competence Center Credit Cards you are the first point of contact for telephone inquiries about our credit cards. You accompany internal and external customers from opening to termination and provide competent advice. With your commitment, you contribute to ensuring that PostFinance remains an innovation-driven financial service provider in the future. In this way, you create trust and strengthen customer satisfaction sustainably.\n\nYou can do that.\n\n- You answer telephone inquiries from internal and external customers: competent and solution-oriented\n\n- You are the contact person for various mutations around credit cards such as cancellations or limits\n\n- You support customer advisors: in physical sales in complex cases\n\n- You accept complaints properly and find simple, pragmatic solutions\n\nYou bring that with you\n\n- Completed basic commercial training with experience in the financial services industry and/or in the administrative sector\n\n- Rapid comprehension and ability to orient in a dynamic environment\n\n- Enjoyment of customer contact and competence in consulting to create a positive customer experience\n\n- Complete knowledge of German in words and writing as well as good knowledge of French and/or Italian at level B2",
+        "de": "Im Kompetenz-Center Kreditkarten bist du die erste Anlaufstelle für telefonische Anfragen rund um unsere Kreditkarten. Du begleitest interne und externe Kund:innen von der Eröffnung bis zur Kündigung und stellst eine kompetente Beratung sicher. Mit deinem Einsatz trägst du dazu bei, dass PostFinance auch in Zukunft eine innovationsgetriebene Finanzdienstleisterin bleibt. So schaffst du Vertrauen und stärkst die Kundenzufriedenheit nachhaltig.\n\nDas kannst du bewirken\n\n- Du beantwortest telefonische Anfragen von internen und externen Kund:innen kompetent und lösungsorientiert\n\n- Du bist Ansprechperson für verschiedene Mutationen rund um Kreditkarten wie Kündigungen oder Limiten\n\n- Du unterstützt Kundenberater:innen im physischen Vertrieb bei komplexen Fällen\n\n- Du nimmst Beschwerden sachgerecht entgegen und findest einfache, pragmatische Lösungen\n\nDas bringst du mit\n\n- Abgeschlossene kaufmännische Grundausbildung mit Erfahrung in der Finanzdienstleistungsbranche und/oder im administrativen Bereich\n\n- Schnelle Auffassungsgabe und Fähigkeit zur Orientierung in einem dynamischen Umfeld\n\n- Freude am Kundenkontakt sowie Kompetenz in der Beratung zur Schaffung eines positiven Kundenerlebnisses\n\n- Einwandfreie Deutschkenntnisse in Wort und Schrift sowie gute Französisch- und/oder Italienischkenntnisse auf Niveau B2",
         "fr": "Dans le Centre de compétences Cartes de crédit, vous êtes le premier point de contact pour les demandes téléphoniques concernant nos cartes de crédit. Vous accompagnez les clients internes et externes de l'ouverture à la terminaison et donnez des conseils compétents. Avec votre engagement, vous contribuez à faire en sorte que PostFinance demeure un fournisseur de services financiers axé sur l'innovation à l'avenir. De cette façon, vous créez la confiance et renforcez la satisfaction des clients de façon durable.\n\nTu peux le faire.\n\n- Vous répondez aux demandes téléphoniques des clients internes et externes : compétents et orientés vers la solution\n\n- Vous êtes la personne de contact pour diverses mutations autour des cartes de crédit telles que les annulations ou les limites\n\n- Vous aidez les conseillers clients: dans les ventes physiques dans les cas complexes\n\n- Vous acceptez les plaintes correctement et trouvez des solutions simples et pragmatiques\n\nApporte ça avec toi.\n\n- Formation commerciale de base complétée avec expérience dans le secteur des services financiers et/ou dans le secteur administratif\n\n- Compréhension rapide et capacité à s'orienter dans un environnement dynamique\n\n- Profitez du contact client et de la compétence en conseil pour créer une expérience client positive\n\n- Connaissance complète de l'allemand en mots et en écriture ainsi que bonne connaissance du français et/ou de l'italien au niveau B2"
       },
       "titleByLocale": {
-        "de": "Mitarbeiter:in Kompetenz-Center Kreditkarten",
         "it": "Collaboratore/trice Kompetenz-Center Kreditkarten",
         "en": "Associate Kompetenz-Center Kreditkarten",
+        "de": "Mitarbeiter:in Kompetenz-Center Kreditkarten",
         "fr": "Collaborateur/trice Kompetenz-Center Kreditkarten"
       },
       "slug": "collaboratore-trice-kompetenz-center-kreditkarten-postfinance-niederurnen",
       "slugByLocale": {
-        "de": "mitarbeiter-in-kompetenz-center-kreditkarten-postfinance",
         "it": "collaboratore-trice-kompetenz-center-kreditkarten-postfinance-niederurnen",
         "en": "associate-kompetenz-center-kreditkarten-postfinance-niederurnen",
+        "de": "mitarbeiter-in-kompetenz-center-kreditkarten-postfinance",
         "fr": "collaborateur-trice-kompetenz-center-kreditkarten-postfinance-niederurnen"
       },
       "sourceLang": "de",
@@ -1968,8 +1797,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-23T21:42:57.173Z",
-      "validThrough": "2026-12-23T21:42:57.173Z",
+      "crawledAt": "2026-11-25T09:54:46.543Z",
+      "validThrough": "2026-12-25T09:54:46.543Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -1979,15 +1808,16 @@
         "canton": "GL",
         "location": "Niederurnen"
       },
+      "id": "postfinance-fe195634dcc0",
+      "previousSlugs": [
+        "mitarbeiter-in-kompetenz-center-kreditkarten-postfinance"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-kompetenz-center-kreditkarten-postfinance"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-in-kompetenz-center-kreditkarten-postfinance"
-      ],
-      "id": "postfinance-fe195634dcc0",
+      "firstSeenAt": "2026-08-17T10:02:05.031Z",
       "salaryMin": 65000,
       "salaryMax": 98500,
       "currency": "CHF",
@@ -2007,8 +1837,7 @@
       "addressRegion": "GL",
       "streetAddress": "Niederurnen",
       "streetAddressSource": "to-enrich",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-08-17T10:02:05.031Z"
+      "validThroughSource": "last-observed-window"
     },
     {
       "url": "https://jobs.postfinance.ch/job/Software-Engineer-Digital-Assets-%28wmd%29/75024-de_DE",
@@ -2021,23 +1850,23 @@
       "country": "CH",
       "description": "Im Delivery Team von PostFinance entwickelst du Lösungen im Bereich Digital Assets und verbindest unsere neue Verwahrungslösung mit internen Bankensystemen. Du stellst sicher, dass Datenflüsse zuverlässig funktionieren und Transaktionen mit digitalen Vermögenswerten sicher verarbeitet werden. Mit deinem technischen Know-how schaffst du die Basis für innovative Finanzlösungen. So trägst du dazu bei, die Zukunft von PostFinance aktiv mitzugestalten.\n\nDas kannst du bewirken\n\n- Du entwickelst Backend-Komponenten mit Java und Spring Boot und setzt abgestimmte Entwicklungs-Stories in wartbaren, versionierten Code um\n\n- Du integrierst externe Systeme über APIs und Webhooks und realisierst Schnittstellen zu verschiedenen Systemen\n\n- Du implementierst Datenmapping, Validierungen und Bestandsabgleiche zur Prüfung von Quell- und Zieladressen sowie freigegebenen Adresslisten\n\n- Du stellst eine zuverlässige Verarbeitung durch Fehlerbehandlung, Timeouts, Wiederholungsmechanismen und Schutz vor doppelter Verarbeitung sicher\n\n- Du entwickelst automatisierte Tests, beteiligst dich an Code Reviews und Integrationstests und dokumentierst technische Lösungen und Schnittstellen\n\n- Du unterstützt CI/CD und Deployments auf Kubernetes mit Helm sowie Monitoring und Audit Logging und arbeitest dabei eng mit Architektur, Business Analyse, Security und Betrieb zusammen\n\nDas bringst du mit\n\n- Mehrjährige Praxiserfahrung in der Backend-Entwicklung mit Java und Spring Boot sowie abgeschlossene Informatikausbildung oder gleichwertige Berufserfahrung\n\n- Erfahrung in der Arbeit mit REST-APIs, Webhooks, asynchroner Verarbeitung und Integration verteilter Systeme\n\n- Praxis im Umgang mit Git, CI/CD, automatisierten Tests und containerisierten Anwendungen sowie Kenntnisse in Kubernetes und Helm\n\n- Verständnis für sichere Softwareentwicklung, Authentifizierung, Berechtigungen und den sorgfältigen Umgang mit Secrets und sensiblen Daten\n\n- Strukturierte und eigenverantwortliche Arbeitsweise sowie Fähigkeit zur verständlichen Vermittlung technischer Themen in Deutsch und Englisch",
       "descriptionByLocale": {
-        "de": "Im Delivery Team von PostFinance entwickelst du Lösungen im Bereich Digital Assets und verbindest unsere neue Verwahrungslösung mit internen Bankensystemen. Du stellst sicher, dass Datenflüsse zuverlässig funktionieren und Transaktionen mit digitalen Vermögenswerten sicher verarbeitet werden. Mit deinem technischen Know-how schaffst du die Basis für innovative Finanzlösungen. So trägst du dazu bei, die Zukunft von PostFinance aktiv mitzugestalten.\n\nDas kannst du bewirken\n\n- Du entwickelst Backend-Komponenten mit Java und Spring Boot und setzt abgestimmte Entwicklungs-Stories in wartbaren, versionierten Code um\n\n- Du integrierst externe Systeme über APIs und Webhooks und realisierst Schnittstellen zu verschiedenen Systemen\n\n- Du implementierst Datenmapping, Validierungen und Bestandsabgleiche zur Prüfung von Quell- und Zieladressen sowie freigegebenen Adresslisten\n\n- Du stellst eine zuverlässige Verarbeitung durch Fehlerbehandlung, Timeouts, Wiederholungsmechanismen und Schutz vor doppelter Verarbeitung sicher\n\n- Du entwickelst automatisierte Tests, beteiligst dich an Code Reviews und Integrationstests und dokumentierst technische Lösungen und Schnittstellen\n\n- Du unterstützt CI/CD und Deployments auf Kubernetes mit Helm sowie Monitoring und Audit Logging und arbeitest dabei eng mit Architektur, Business Analyse, Security und Betrieb zusammen\n\nDas bringst du mit\n\n- Mehrjährige Praxiserfahrung in der Backend-Entwicklung mit Java und Spring Boot sowie abgeschlossene Informatikausbildung oder gleichwertige Berufserfahrung\n\n- Erfahrung in der Arbeit mit REST-APIs, Webhooks, asynchroner Verarbeitung und Integration verteilter Systeme\n\n- Praxis im Umgang mit Git, CI/CD, automatisierten Tests und containerisierten Anwendungen sowie Kenntnisse in Kubernetes und Helm\n\n- Verständnis für sichere Softwareentwicklung, Authentifizierung, Berechtigungen und den sorgfältigen Umgang mit Secrets und sensiblen Daten\n\n- Strukturierte und eigenverantwortliche Arbeitsweise sowie Fähigkeit zur verständlichen Vermittlung technischer Themen in Deutsch und Englisch",
         "it": "Nel team di consegna PostFinance, sviluppate soluzioni nell'area dei beni digitali e combinate la nostra nuova soluzione di custodia con i sistemi bancari interni. Assicurarsi che i flussi di dati funzionino in modo affidabile e le transazioni con i beni digitali vengono elaborate in modo sicuro. Con il tuo know-how tecnico, crei le basi per soluzioni finanziarie innovative. Questo vi aiuterà a plasmare attivamente il futuro di PostFinance.\n\nPuoi farlo.\n\n- Sviluppare componenti backend con Java e Spring Boot e convertire le storie di sviluppo coordinate in codice manutenbile e versione\n\n- Si integrano sistemi esterni tramite API e webhooks e realizzare interfacce a diversi sistemi\n\n- Attui la mappatura dei dati, le validazioni e i confronti dell'inventario per controllare gli indirizzi sorgente e di destinazione e gli elenchi degli indirizzi condivisi\n\n- Assicurare un trattamento affidabile attraverso la gestione degli errori, timeout, meccanismi di ripetizione e protezione contro il doppio trattamento\n\n- Sviluppare test automatizzati, partecipare a recensioni di codici e test di integrazione e documentare soluzioni tecniche e interfacce\n\n- Supporti CI/CD e implementazioni su Kubernetes con casco e monitoraggio e registrazione di audit e lavori a stretto contatto con architettura, analisi aziendale, sicurezza e operazioni\n\nLo porti con te.\n\n- Diversi anni di esperienza pratica nello sviluppo di backend con Java e Spring Boot, nonché formazione completa di informatica o esperienza professionale equivalente\n\n- Esperienza di lavoro con REST API, webhooks, elaborazione asincrona e integrazione di sistemi distribuiti\n\n- Pratica nel trattare con Git, CI/CD, test automatizzati e applicazioni containerizzate, nonché la conoscenza in Kubernetes e Casco\n\n- Capire lo sviluppo sicuro del software, l'autenticazione, le autorizzazioni e la gestione di segreti e dati sensibili con attenzione\n\n- Metodi di lavoro strutturati e auto-responsabili nonché la capacità di trasmettere argomenti tecnici in tedesco e inglese",
         "en": "In the PostFinance delivery team, you develop solutions in the area of digital assets and combine our new custody solution with internal banking systems. You ensure that data flows work reliably and transactions with digital assets are processed securely. With your technical know-how, you create the basis for innovative financial solutions. This will help you actively shape the future of PostFinance.\n\nYou can do that.\n\n- Develop backend components with Java and Spring Boot and convert coordinated development stories into maintainable, versioned code\n\n- You integrate external systems via APIs and webhooks and realize interfaces to different systems\n\n- You implement data mapping, validations and inventory comparisons to check source and destination addresses and shared address lists\n\n- Ensure reliable processing through error handling, timeouts, repetition mechanisms and protection against duplicate processing\n\n- Develop automated tests, participate in code reviews and integration tests and document technical solutions and interfaces\n\n- You support CI/CD and deployments on Kubernetes with helmet as well as monitoring and audit logging and work closely with architecture, business analysis, security and operations\n\nYou bring that with you\n\n- Several years of practical experience in backend development with Java and Spring Boot as well as completed computer science training or equivalent professional experience\n\n- Experience working with REST APIs, webhooks, asynchronous processing and integration of distributed systems\n\n- Practice in dealing with Git, CI/CD, automated tests and containerized applications as well as knowledge in Kubernetes and Helmet\n\n- Understanding secure software development, authentication, permissions and handling secrets and sensitive data carefully\n\n- Structured and self-responsible working methods as well as the ability to convey technical topics in German and English",
+        "de": "Im Delivery Team von PostFinance entwickelst du Lösungen im Bereich Digital Assets und verbindest unsere neue Verwahrungslösung mit internen Bankensystemen. Du stellst sicher, dass Datenflüsse zuverlässig funktionieren und Transaktionen mit digitalen Vermögenswerten sicher verarbeitet werden. Mit deinem technischen Know-how schaffst du die Basis für innovative Finanzlösungen. So trägst du dazu bei, die Zukunft von PostFinance aktiv mitzugestalten.\n\nDas kannst du bewirken\n\n- Du entwickelst Backend-Komponenten mit Java und Spring Boot und setzt abgestimmte Entwicklungs-Stories in wartbaren, versionierten Code um\n\n- Du integrierst externe Systeme über APIs und Webhooks und realisierst Schnittstellen zu verschiedenen Systemen\n\n- Du implementierst Datenmapping, Validierungen und Bestandsabgleiche zur Prüfung von Quell- und Zieladressen sowie freigegebenen Adresslisten\n\n- Du stellst eine zuverlässige Verarbeitung durch Fehlerbehandlung, Timeouts, Wiederholungsmechanismen und Schutz vor doppelter Verarbeitung sicher\n\n- Du entwickelst automatisierte Tests, beteiligst dich an Code Reviews und Integrationstests und dokumentierst technische Lösungen und Schnittstellen\n\n- Du unterstützt CI/CD und Deployments auf Kubernetes mit Helm sowie Monitoring und Audit Logging und arbeitest dabei eng mit Architektur, Business Analyse, Security und Betrieb zusammen\n\nDas bringst du mit\n\n- Mehrjährige Praxiserfahrung in der Backend-Entwicklung mit Java und Spring Boot sowie abgeschlossene Informatikausbildung oder gleichwertige Berufserfahrung\n\n- Erfahrung in der Arbeit mit REST-APIs, Webhooks, asynchroner Verarbeitung und Integration verteilter Systeme\n\n- Praxis im Umgang mit Git, CI/CD, automatisierten Tests und containerisierten Anwendungen sowie Kenntnisse in Kubernetes und Helm\n\n- Verständnis für sichere Softwareentwicklung, Authentifizierung, Berechtigungen und den sorgfältigen Umgang mit Secrets und sensiblen Daten\n\n- Strukturierte und eigenverantwortliche Arbeitsweise sowie Fähigkeit zur verständlichen Vermittlung technischer Themen in Deutsch und Englisch",
         "fr": "Dans l'équipe de livraison PostFinance, vous développez des solutions dans le domaine des actifs numériques et combinez notre nouvelle solution de garde avec des systèmes bancaires internes. Vous vous assurez que les flux de données fonctionnent de manière fiable et que les transactions avec des actifs numériques sont traitées en toute sécurité. Avec votre savoir-faire technique, vous créez la base de solutions financières innovantes. Cela vous aidera à façonner activement l'avenir de PostFinance.\n\nTu peux le faire.\n\n- Développez des composants backend avec Java et Spring Boot et convertissez des histoires de développement coordonnées en code en version\n\n- Vous intégrez des systèmes externes via des API et des webhooks et réalisez des interfaces avec différents systèmes\n\n- Vous implémentez la cartographie des données, les validations et les comparaisons d'inventaire pour vérifier les adresses source et destination et les listes d'adresses partagées\n\n- Assurer un traitement fiable grâce au traitement des erreurs, aux délais, aux mécanismes de répétition et à la protection contre les doubles traitements\n\n- Développer des tests automatisés, participer à des examens de code et des tests d'intégration et documenter des solutions techniques et des interfaces\n\n- Vous supportez le CI/CD et les déploiements sur Kubernetes avec casque ainsi que le suivi et l'audit de l'enregistrement et travaillez en étroite collaboration avec l'architecture, l'analyse commerciale, la sécurité et les opérations\n\nApporte ça avec toi.\n\n- Plusieurs années d'expérience pratique dans le développement de backend avec Java et Spring Boot ainsi qu'une formation en informatique ou une expérience professionnelle équivalente\n\n- Expérience de travail avec les API REST, les webhooks, le traitement asynchrone et l'intégration des systèmes distribués\n\n- Pratique dans le traitement de Git, CI/CD, tests automatisés et applications conteneurisées ainsi que des connaissances dans Kubernetes et Helmet\n\n- Comprendre le développement de logiciels sécurisés, l'authentification, les autorisations et le traitement des secrets et des données sensibles avec soin\n\n- Méthodes de travail structurées et auto-responsables ainsi que la capacité de transmettre des sujets techniques en allemand et en anglais"
       },
       "titleByLocale": {
-        "de": "Software Engineer Digital Assets (w/m/d)",
         "it": "Software Ingegnere Digital Assets (w/m/d)",
         "en": "Software Engineer Digital Assets (m/f/d)",
+        "de": "Software Engineer Digital Assets (w/m/d)",
         "fr": "Software Ingénieur Digital Assets (w/m/d)"
       },
-      "slug": "software-engineer-digital-assets-w-m-d-postfinance",
+      "slug": "software-ingegnere-digital-assets-w-m-d-postfinance-bern",
       "slugByLocale": {
-        "de": "software-engineer-digital-assets-w-m-d-postfinance",
-        "it": "software-engineer-digital-assets-w-m-d-postfinance",
+        "it": "software-ingegnere-digital-assets-w-m-d-postfinance-bern",
         "en": "software-engineer-digital-assets-w-m-d-postfinance",
-        "fr": "software-engineer-digital-assets-w-m-d-postfinance"
+        "de": "software-engineer-digital-assets-w-m-d-postfinance",
+        "fr": "software-ingenieur-digital-assets-w-m-d-postfinance-bern"
       },
       "sourceLang": "de",
       "department": [
@@ -2049,8 +1878,8 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-11-23T21:42:55.619Z",
-      "validThrough": "2027-02-21T21:42:55.619Z",
+      "crawledAt": "2026-11-25T09:54:45.733Z",
+      "validThrough": "2027-02-22T09:54:45.733Z",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -2060,8 +1889,20 @@
         "canton": "BE",
         "location": "Bern"
       },
-      "needsRetranslation": true,
       "id": "postfinance-71680172d297",
+      "previousSlugs": [
+        "software-engineer-digital-assets-w-m-d-postfinance"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "software-engineer-digital-assets-w-m-d-postfinance"
+        ],
+        "fr": [
+          "software-engineer-digital-assets-w-m-d-postfinance"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-23T21:42:55.619Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
       "currency": "CHF",
@@ -2081,8 +1922,181 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/ICT-Application-Managerin-2nd-Level-Betrieb-&-Support/75154-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/ICT-Application-Managerin-2nd-Level-Betrieb-&-Support/75154-de_DE",
+      "title": "ICT Application Manager:in 2nd Level Betrieb & Support",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "description": "Bei PostFinance gestaltest du die Zukunft des digitalen Bankings aktiv mit. Mit deinem technischen Know-how und deinem Teamgeist unterstützt du die Integration unserer Core-Banking-Applikationen und entwickelst innovative Lösungen weiter. Du sorgst dafür, dass unsere Systeme stabil, modern und kundenorientiert bleiben. So trägst du dazu bei, dass PostFinance auch in Zukunft eine digitale Innovationsleaderin bleibt und mit frischen Lösungen rund ums Geld begeistert.\n\nDas kannst du bewirken\n\n- Du lokalisierst, grenzt ein und behebst Störungen in verschiedenen Applikationen\n\n- Du analysierst Störungen dank deinem technischen Verständnis rasch und behebst sie nachhaltig\n\n- Du stellst in Projektteams die Betreibbarkeit von Applikationen und Tools sowie deren Überführung in den produktiven Betrieb sicher\n\n- Du berätst und unterstützt verschiedene Support Levels sowie Anwender:innen bei Fragen zu Applikationen und Prozessen\n\n- Du treibst gemeinsam mit internen und externen Partnern die kontinuierliche Verbesserung unserer Systeme und Abläufe voran\n\nDas bringst du mit\n\n- Abgeschlossene Grundausbildung als Informatiker:in EFZ, idealerweise ergänzt durch Weiterbildung auf Stufe HF, FH oder Universität\n\n- Erste Berufserfahrung im Applikationssupport\n\n- Kentnisse in UNIX, SQL und Shell-Scripting sowie Erfahrung mit Kubernetes als Vorteil\n\n- Selbstständige und belastbare Persönlichkeit mit Bereitschaft für Pikettdienst und gelegentliche Einsätze ausserhalb der regulären Arbeitszeiten\n\n- Sehr gute Deutschkenntnisse und gute mündliche Englischkenntnisse",
+      "descriptionByLocale": {
+        "it": "A PostFinance, si sta attivamente modellando il futuro del digital banking. Con il tuo know-how tecnico e lo spirito di squadra, supporti l'integrazione delle nostre applicazioni core banking e sviluppi soluzioni innovative. Assicurarsi che i nostri sistemi rimangano stabili, moderni e orientati al cliente. Questo aiuterà PostFinance a rimanere un leader di innovazione digitale in futuro e ispirare con soluzioni fresche intorno al denaro.\n\nPuoi farlo.\n\n- È possibile individuare, limitare e correggere le interruzioni in varie applicazioni\n\n- Analizzi rapidamente le interruzioni grazie alla tua comprensione tecnica e le ripara in modo sostenibile\n\n- Garantisci il funzionamento di applicazioni e strumenti nei team di progetto e il loro trasferimento al funzionamento produttivo\n\n- Si consiglia e supporta vari livelli di supporto e gli utenti con domande su applicazioni e processi\n\n- Insieme a partner interni ed esterni, guidi il continuo miglioramento dei nostri sistemi e processi\n\nLo porti con te.\n\n- Formazione di base completata come scienziato informatico: in EFZ, idealmente completato da un'ulteriore formazione a livello di HF, FH o università\n\n- Prima esperienza professionale nel supporto alle applicazioni\n\n- Conoscenza in UNIX, SQL e shell scripting e l'esperienza con Kubernetes come vantaggio\n\n- Personalità indipendente e resiliente con disponibilità per piquetting e incarichi occasionali al di fuori delle ore di lavoro regolari\n\n- Conoscenza molto buona di tedesco e buona lingua orale",
+        "en": "At PostFinance, you are actively shaping the future of digital banking. With your technical know-how and team spirit, you support the integration of our core banking applications and develop innovative solutions. You ensure that our systems remain stable, modern and customer-oriented. This will help PostFinance to remain a digital innovation leader in the future and inspire with fresh solutions around the money.\n\nYou can do that.\n\n- You locate, limit and fix disruptions in various applications\n\n- You quickly analyze disruptions thanks to your technical understanding and repair them sustainably\n\n- You ensure the operation of applications and tools in project teams as well as their transfer to productive operation\n\n- You advise and support various support levels as well as users with questions about applications and processes\n\n- Together with internal and external partners, you drive forward the continuous improvement of our systems and processes\n\nYou bring that with you\n\n- Completed basic training as a computer scientist: in EFZ, ideally supplemented by further education at the level of HF, FH or university\n\n- First professional experience in application support\n\n- Knowledge in UNIX, SQL and shell scripting as well as experience with Kubernetes as an advantage\n\n- Independent and resilient personality with willingness for piquetting and occasional assignments outside regular working hours\n\n- Very good knowledge of German and good oral English",
+        "de": "Bei PostFinance gestaltest du die Zukunft des digitalen Bankings aktiv mit. Mit deinem technischen Know-how und deinem Teamgeist unterstützt du die Integration unserer Core-Banking-Applikationen und entwickelst innovative Lösungen weiter. Du sorgst dafür, dass unsere Systeme stabil, modern und kundenorientiert bleiben. So trägst du dazu bei, dass PostFinance auch in Zukunft eine digitale Innovationsleaderin bleibt und mit frischen Lösungen rund ums Geld begeistert.\n\nDas kannst du bewirken\n\n- Du lokalisierst, grenzt ein und behebst Störungen in verschiedenen Applikationen\n\n- Du analysierst Störungen dank deinem technischen Verständnis rasch und behebst sie nachhaltig\n\n- Du stellst in Projektteams die Betreibbarkeit von Applikationen und Tools sowie deren Überführung in den produktiven Betrieb sicher\n\n- Du berätst und unterstützt verschiedene Support Levels sowie Anwender:innen bei Fragen zu Applikationen und Prozessen\n\n- Du treibst gemeinsam mit internen und externen Partnern die kontinuierliche Verbesserung unserer Systeme und Abläufe voran\n\nDas bringst du mit\n\n- Abgeschlossene Grundausbildung als Informatiker:in EFZ, idealerweise ergänzt durch Weiterbildung auf Stufe HF, FH oder Universität\n\n- Erste Berufserfahrung im Applikationssupport\n\n- Kentnisse in UNIX, SQL und Shell-Scripting sowie Erfahrung mit Kubernetes als Vorteil\n\n- Selbstständige und belastbare Persönlichkeit mit Bereitschaft für Pikettdienst und gelegentliche Einsätze ausserhalb der regulären Arbeitszeiten\n\n- Sehr gute Deutschkenntnisse und gute mündliche Englischkenntnisse",
+        "fr": "Chez PostFinance, vous façonnez activement l'avenir de la banque numérique. Avec votre savoir-faire technique et votre esprit d'équipe, vous soutenez l'intégration de nos applications bancaires de base et développez des solutions innovantes. Vous veillez à ce que nos systèmes restent stables, modernes et axés sur le client. Cela aidera PostFinance à rester un leader de l'innovation numérique à l'avenir et inspirera avec de nouvelles solutions autour de l'argent.\n\nTu peux le faire.\n\n- Vous localisez, limitez et corrigez les perturbations dans diverses applications\n\n- Vous analysez rapidement les perturbations grâce à votre compréhension technique et les réparez durablement\n\n- Vous assurez le fonctionnement des applications et des outils dans les équipes de projet ainsi que leur transfert à l'exploitation productive\n\n- Vous conseillez et supportez divers niveaux de support ainsi que les utilisateurs avec des questions sur les applications et les processus\n\n- Avec des partenaires internes et externes, vous conduisez à l'amélioration continue de nos systèmes et processus\n\nApporte ça avec toi.\n\n- Achevé la formation de base en informatique: en EFZ, idéalement complétée par une formation complémentaire au niveau de la FH, de la FH ou de l'université\n\n- Première expérience professionnelle en support d'application\n\n- Connaissances dans le script UNIX, SQL et shell ainsi que l'expérience avec Kubernetes comme avantage\n\n- Personnalité indépendante et résiliente avec volonté de picettage et affectations occasionnelles en dehors des heures normales de travail\n\n- Très bonne connaissance de l'allemand et de l'anglais oral"
+      },
+      "titleByLocale": {
+        "it": "ICT Application Manager 2nd Level Operation & Support",
+        "en": "ICT Application Manager – 2nd Level Operations & Support",
+        "de": "ICT Application Manager:in 2nd Level Betrieb & Support",
+        "fr": "Responsable des applications TIC : exploitation et support de 2e niveau"
+      },
+      "slug": "ict-application-manager-2nd-level-operation-support-postfinance-bern",
+      "slugByLocale": {
+        "it": "ict-application-manager-2nd-level-operation-support-postfinance-bern",
+        "en": "ict-application-manager-2nd-level-operations-support-postfinance-bern",
+        "de": "ict-application-manager-in-2nd-level-betrieb-support-postfinance",
+        "fr": "responsable-des-applications-tic-exploitation-et-support-de-2e-niveau-postfinance-bern"
+      },
+      "sourceLang": "de",
+      "department": [
+        "Informatik und Digital Services"
+      ],
+      "category": [
+        "Informatik und Digital Services"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-24T09:37:11.381Z",
+      "validThrough": "2027-02-17T09:37:11.381Z",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-9d99e3468738",
+      "previousSlugs": [
+        "ict-application-manager-in-2nd-level-betrieb-support-postfinance"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-application-manager-in-2nd-level-betrieb-support-postfinance"
+        ],
+        "en": [
+          "ict-application-manager-in-2nd-level-betrieb-support-postfinance"
+        ],
+        "fr": [
+          "ict-application-manager-in-2nd-level-betrieb-support-postfinance"
+        ]
+      },
+      "firstSeenAt": "2026-11-18T09:50:23.221Z",
+      "salaryMin": 113000,
+      "salaryMax": 192000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 113000,
+          "maxValue": 192000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:42:55.619Z"
+      "crawlerMissStreak": 2
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Junior-Financial-Closing-&-Taxes-%28wmd%29/75208-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Junior-Financial-Closing-&-Taxes-%28wmd%29/75208-de_DE",
+      "title": "Junior Financial Closing & Taxes (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "description": "Im Kompetenzzentrum für Rechnungslegung und Financial Accounting sorgst du dafür, dass PostFinance auf einer hochwertigen und verlässlichen finanziellen Datenbasis agiert. Gemeinsam stellen wir eine korrekte Rechnungslegung nach IFRS und RVB sicher und schaffen damit eine wichtige Grundlage für die finanzielle Steuerung von PostFinance.\nWenn du Zahlen, Zusammenhänge und präzises Arbeiten magst, bist du bei uns genau richtig. Du übernimmst Verantwortung für eigene Themengebiete und trägst mit deiner Arbeit zu qualitativ hochwertigen Abschlüssen und einer verlässlichen finanziellen Berichterstattung bei.\n\nDas kannst du bewirken\n\n- Du wirkst bei der IFRS- und RVB-konformen Erstellung der Monats-, Quartals- und Jahresabschlüsse von PostFinance mit\n\n- Du übernimmst selbstständig Verantwortung für definierte Themengebiete im Hauptbuch und in den Nebenbüchern\n\n- Du unterstützt die finanzielle Berichterstattung an den Konzern und die Erstellung der statutarischen Jahresrechnung\n\n- Du bearbeitest Anfragen und Ad-hoc-Aufträge in deinen Themengebieten selbstständig und zuverlässig\n\n- Du bringst dich in Projekte ein und wirkst aktiv bei der Weiterentwicklung und Optimierung unserer Prozesse mit\n\nDas bringst du mit\n\n- Abgeschlossene kaufmännische Grundausbildung und idealerweise Weiterbildung im Finanz- und Rechnungswesen\n\n- Erste praktische Erfahrung im Accounting, Finanz- oder Rechnungswesen\n\n- Freude an Zahlen und ein ausgeprägtes Verständnis für finanzielle Zusammenhänge\n\n- Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n- Offenheit für Veränderungen und Motivation, zur Weiterentwicklung bestehender Prozesse\n\n- Gute Kenntnisse in Excel; Erfahrung mit SAP als Plus",
+      "descriptionByLocale": {
+        "it": "Nel centro di competenza per la contabilità e la contabilità finanziaria, si assicura che PostFinance opera su un database finanziario di alta qualità e affidabile. Insieme garantiamo una corretta contabilità secondo IFRS e RVB e creiamo così una base importante per la gestione finanziaria di PostFinance.\nSe ti piacciono i numeri, i contesti e il lavoro preciso, hai esattamente ragione con noi. Si assume la responsabilità per i propri argomenti e contribuire con il vostro lavoro a gradi di alta qualità e rendicontazione finanziaria affidabile.\n\nPuoi farlo.\n\n- Contribuisci alla preparazione dei conti mensili, trimestrali e annuali di PostFinance secondo IFRS e RVB\n\n- Si assume in modo indipendente la responsabilità di argomenti definiti nel registro e nei libri secondari\n\n- Lei sostiene la rendicontazione finanziaria al Gruppo e la preparazione dei conti annuali statutari\n\n- Elabori richieste e ordini ad hoc nelle tue aree tematiche in modo indipendente e affidabile\n\n- Sei coinvolto in progetti e partecipa attivamente all'ulteriore sviluppo e ottimizzazione dei nostri processi\n\nLo porti con te.\n\n- Completata la formazione commerciale di base e l'educazione ideale in finanza e contabilità\n\n- Prima esperienza pratica in contabilità, finanza o contabilità\n\n- Godere di numeri e una forte comprensione dei contesti finanziari\n\n- Metodo di lavoro indipendente, strutturato e affidabile\n\n- Apertura al cambiamento e alla motivazione, per sviluppare ulteriormente i processi esistenti\n\n- Buona conoscenza di Excel; Esperienza con SAP come Plus",
+        "en": "In the Competence Center for Accounting and Financial Accounting, you ensure that PostFinance operates on a high-quality and reliable financial database. Together we ensure correct accounting in accordance with IFRS and RVB and thus create an important basis for the financial management of PostFinance.\nIf you like numbers, contexts and precise work, you are exactly right with us. You take responsibility for your own topics and contribute with your work to high-quality degrees and reliable financial reporting.\n\nYou can do that.\n\n- You contribute to the preparation of PostFinance’s monthly, quarterly and annual accounts in accordance with IFRS and RVB\n\n- You independently assume responsibility for defined topics in the ledger and in the secondary books\n\n- You support the financial reporting to the Group and the preparation of the statutory annual accounts\n\n- You process inquiries and ad hoc orders in your subject areas independently and reliably\n\n- You are involved in projects and actively participate in the further development and optimization of our processes\n\nYou bring that with you\n\n- Completed basic commercial training and ideally further education in finance and accounting\n\n- First practical experience in accounting, finance or accounting\n\n- Enjoying numbers and a strong understanding of financial contexts\n\n- Independent, structured and reliable working method\n\n- Openness to change and motivation, to further develop existing processes\n\n- Good knowledge of Excel; Experience with SAP as Plus",
+        "de": "Im Kompetenzzentrum für Rechnungslegung und Financial Accounting sorgst du dafür, dass PostFinance auf einer hochwertigen und verlässlichen finanziellen Datenbasis agiert. Gemeinsam stellen wir eine korrekte Rechnungslegung nach IFRS und RVB sicher und schaffen damit eine wichtige Grundlage für die finanzielle Steuerung von PostFinance.\nWenn du Zahlen, Zusammenhänge und präzises Arbeiten magst, bist du bei uns genau richtig. Du übernimmst Verantwortung für eigene Themengebiete und trägst mit deiner Arbeit zu qualitativ hochwertigen Abschlüssen und einer verlässlichen finanziellen Berichterstattung bei.\n\nDas kannst du bewirken\n\n- Du wirkst bei der IFRS- und RVB-konformen Erstellung der Monats-, Quartals- und Jahresabschlüsse von PostFinance mit\n\n- Du übernimmst selbstständig Verantwortung für definierte Themengebiete im Hauptbuch und in den Nebenbüchern\n\n- Du unterstützt die finanzielle Berichterstattung an den Konzern und die Erstellung der statutarischen Jahresrechnung\n\n- Du bearbeitest Anfragen und Ad-hoc-Aufträge in deinen Themengebieten selbstständig und zuverlässig\n\n- Du bringst dich in Projekte ein und wirkst aktiv bei der Weiterentwicklung und Optimierung unserer Prozesse mit\n\nDas bringst du mit\n\n- Abgeschlossene kaufmännische Grundausbildung und idealerweise Weiterbildung im Finanz- und Rechnungswesen\n\n- Erste praktische Erfahrung im Accounting, Finanz- oder Rechnungswesen\n\n- Freude an Zahlen und ein ausgeprägtes Verständnis für finanzielle Zusammenhänge\n\n- Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n- Offenheit für Veränderungen und Motivation, zur Weiterentwicklung bestehender Prozesse\n\n- Gute Kenntnisse in Excel; Erfahrung mit SAP als Plus",
+        "fr": "Dans le Centre de compétences en comptabilité et en comptabilité financière, vous assurez que PostFinance fonctionne sur une base de données financières de haute qualité et fiable. Ensemble, nous garantissons une comptabilité correcte conformément aux normes IFRS et RVB et créons ainsi une base importante pour la gestion financière de PostFinance.\nSi vous aimez les chiffres, les contextes et le travail précis, vous avez exactement raison avec nous. Vous assumez la responsabilité de vos propres sujets et contribuez avec votre travail à des degrés de qualité et des rapports financiers fiables.\n\nTu peux le faire.\n\n- Vous contribuez à la préparation des comptes mensuels, trimestriels et annuels de PostFinance conformément aux normes IFRS et RVB\n\n- Vous assumez indépendamment la responsabilité de sujets définis dans le grand livre et dans les livres secondaires\n\n- Vous soutenez les rapports financiers au Groupe et la préparation des comptes annuels statutaires\n\n- Vous traitez les demandes de renseignements et les commandes ponctuelles dans vos domaines de compétence de façon indépendante et fiable\n\n- Vous participez à des projets et participez activement au développement et à l'optimisation de nos processus\n\nApporte ça avec toi.\n\n- Achevé la formation commerciale de base et idéalement la formation continue en finance et comptabilité\n\n- Première expérience pratique en comptabilité, finance ou comptabilité\n\n- Profiter des chiffres et bien comprendre les contextes financiers\n\n- Méthode de travail indépendante, structurée et fiable\n\n- Ouverture au changement et motivation, pour développer les processus existants\n\n- Bonne connaissance d'Excel; Expérience avec SAP en tant que Plus"
+      },
+      "titleByLocale": {
+        "it": "Chiusura Finanziaria Junior & Tasse (m/f/d)",
+        "en": "Junior Financial Closing & Taxes (m/f/d)",
+        "de": "Junior Financial Closing & Taxes (w/m/d)",
+        "fr": "Clôture financière junior et impôts (h/f/d)"
+      },
+      "slug": "chiusura-finanziaria-junior-tasse-m-f-d-postfinance-bern",
+      "slugByLocale": {
+        "it": "chiusura-finanziaria-junior-tasse-m-f-d-postfinance-bern",
+        "en": "junior-financial-closing-taxes-w-m-d-postfinance",
+        "de": "junior-financial-closing-taxes-w-m-d-postfinance",
+        "fr": "cloture-financiere-junior-et-impots-h-f-d-postfinance-bern"
+      },
+      "sourceLang": "de",
+      "department": [
+        "Büro-Finanzen und Revision"
+      ],
+      "category": [
+        "Büro-Finanzen und Revision"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-11-24T09:37:10.648Z",
+      "validThrough": "2027-02-17T09:37:10.648Z",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-b3a78c68a726",
+      "previousSlugs": [
+        "junior-financial-closing-taxes-w-m-d-postfinance"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-financial-closing-taxes-w-m-d-postfinance"
+        ],
+        "fr": [
+          "junior-financial-closing-taxes-w-m-d-postfinance"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-18T09:50:22.340Z",
+      "salaryMin": 73500,
+      "salaryMax": 129000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 129000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "streetAddress": "Bern",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 2
     }
   ]
 }

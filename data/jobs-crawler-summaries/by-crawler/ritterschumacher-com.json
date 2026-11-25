@@ -1,7 +1,7 @@
 {
   "key": "ritterschumacher-com",
   "label": "Ritter Schumacher AG",
-  "generatedAt": "2026-11-23T21:17:03.189Z",
+  "generatedAt": "2026-11-25T09:24:51.480Z",
   "total": 5,
   "discovered": 6,
   "parsed": 5,
@@ -72,10 +72,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 13784,
-  "avgDurationMs": 13784,
+  "durationMs": 13792,
+  "avgDurationMs": 13792,
   "durationHistory": [
-    13784
+    13792
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -93,7 +93,7 @@
       "url": "https://ritterschumacher.com/menschen/offene-stellen/gesamtprojektleiterin-hochbau-chur-oder-engadin",
       "source": "Ritter Schumacher AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T21:16:43.804Z",
+      "crawledAt": "2026-11-25T09:24:35.558Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -116,7 +116,7 @@
       "salaryMax": 120000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:16:43.804Z",
+      "validThrough": "2027-02-16T09:24:35.558Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -138,7 +138,7 @@
       "url": "https://ritterschumacher.com/menschen/offene-stellen/fachspezialistin-bauphysik-und-energie-chur",
       "source": "Ritter Schumacher AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T21:16:43.802Z",
+      "crawledAt": "2026-11-25T09:24:35.557Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -161,7 +161,7 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:16:43.802Z",
+      "validThrough": "2027-02-16T09:24:35.557Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -183,7 +183,7 @@
       "url": "https://ritterschumacher.com/menschen/offene-stellen/projekt-und-bauleiterin-energetische-sanierungen-und-bestandsbauten-chur",
       "source": "Ritter Schumacher AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T21:16:43.801Z",
+      "crawledAt": "2026-11-25T09:24:35.556Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -206,7 +206,7 @@
       "salaryMax": 120000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:16:43.801Z",
+      "validThrough": "2027-02-16T09:24:35.556Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -228,7 +228,7 @@
       "url": "https://ritterschumacher.com/menschen/offene-stellen/bauleiterin-arosa",
       "source": "Ritter Schumacher AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T21:16:43.800Z",
+      "crawledAt": "2026-11-25T09:24:35.555Z",
       "addressLocality": "Arosa",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -251,7 +251,7 @@
       "salaryMax": 120000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:16:43.800Z",
+      "validThrough": "2027-02-16T09:24:35.555Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -273,7 +273,7 @@
       "url": "https://ritterschumacher.com/menschen/offene-stellen/bauleiterin-zuerichzentralschweiz",
       "source": "Ritter Schumacher AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T21:16:43.798Z",
+      "crawledAt": "2026-11-25T09:24:35.553Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -296,7 +296,7 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:16:43.798Z",
+      "validThrough": "2027-02-16T09:24:35.553Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -307,5 +307,5 @@
       }
     }
   ],
-  "codeCommit": "7b684909df7304f91c3a19b75aa2a6088ce7630a"
+  "codeCommit": "55fd511dba5e5c1bd3b4047690c697040c8b6c58"
 }

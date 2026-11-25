@@ -1,7 +1,7 @@
 {
   "crawlerKey": "klinik-siloah",
-  "assembledAt": "2026-11-23T21:26:02.860Z",
-  "runId": "45267493827",
+  "assembledAt": "2026-11-25T09:22:57.338Z",
+  "runId": "45583303713",
   "jobs": [
     {
       "id": "klinik-siloah-01cb5b2f7dcb",
@@ -36,7 +36,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000162460319-dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation",
       "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T21:25:55.310Z",
+      "crawledAt": "2026-11-25T09:22:48.681Z",
       "addressLocality": "Muri bei Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -54,18 +54,11 @@
       "postingDateSource": "reported",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-klinik-siloah",
-        "dipl-pflegefachperson-hf-fh-40-100-per-la-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern",
-        "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern",
-        "dipl-care-specialist-hf-fh-40-100-for-the-surgical-bed-station-privatklinik-siloah-muri-bei-bern",
-        "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-klinik-siloah-d27bf830",
-        "dipl-specialiste-des-soins-hf-fh-40-100-pour-le-poste-de-lit-chirurgical-privatklinik-siloah-muri-bei-bern",
-        "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-swiss-medical-network",
-        "dipl-pflegefachperson-hf-fh-40-100-per-la-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern-5dbccb4e",
-        "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern-3c97dcd6"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-klinik-siloah-d27bf830",
+          "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern"
+        ],
         "it": [
           "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-klinik-siloah",
           "dipl-pflegefachperson-hf-fh-40-100-per-la-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern",
@@ -80,14 +73,22 @@
           "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern",
           "dipl-care-specialist-hf-fh-40-100-for-the-surgical-bed-station-privatklinik-siloah-muri-bei-bern"
         ],
-        "de": [
-          "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-klinik-siloah-d27bf830"
-        ],
         "fr": [
           "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern",
           "dipl-specialiste-des-soins-hf-fh-40-100-pour-le-poste-de-lit-chirurgical-privatklinik-siloah-muri-bei-bern"
         ]
       },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-klinik-siloah",
+        "dipl-pflegefachperson-hf-fh-40-100-per-la-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern",
+        "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern",
+        "dipl-care-specialist-hf-fh-40-100-for-the-surgical-bed-station-privatklinik-siloah-muri-bei-bern",
+        "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-klinik-siloah-d27bf830",
+        "dipl-specialiste-des-soins-hf-fh-40-100-pour-le-poste-de-lit-chirurgical-privatklinik-siloah-muri-bei-bern",
+        "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-swiss-medical-network",
+        "dipl-pflegefachperson-hf-fh-40-100-per-la-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern-5dbccb4e",
+        "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern-3c97dcd6"
+      ],
       "firstSeenAt": "2026-08-25T21:43:58.452Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -103,7 +104,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-17T21:25:55.310Z",
+      "validThrough": "2027-02-17T09:22:48.681Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -139,7 +140,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000161057390-dipl-pflegefachperson-hf-fh-mit-berufsbildnerfunktion-80-100-",
       "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T21:25:55.309Z",
+      "crawledAt": "2026-11-25T09:22:48.680Z",
       "addressLocality": "Muri bei Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -157,20 +158,20 @@
       "postingDateSource": "reported",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-mit-berufsbildnerfunktion-80-100-klinik-siloah",
-        "dipl-pflegefachperson-hf-fh-mit-berufsbildnerfunktion-80-100-privatklinik-siloah-muri-bei-bern",
-        "infermiera-qualificata-in-hf-fh-con-funzione-di-formatore-professionale-80-100-privatklinik-siloah-muri-bei-bern-77fb4f250c"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "dipl-pflegefachperson-hf-fh-mit-berufsbildnerfunktion-80-100-privatklinik-siloah-muri-bei-bern"
+        ],
         "it": [
           "dipl-pflegefachperson-hf-fh-mit-berufsbildnerfunktion-80-100-klinik-siloah",
           "infermiera-qualificata-in-hf-fh-con-funzione-di-formatore-professionale-80-100-privatklinik-siloah-muri-bei-bern-77fb4f250c"
-        ],
-        "de": [
-          "dipl-pflegefachperson-hf-fh-mit-berufsbildnerfunktion-80-100-privatklinik-siloah-muri-bei-bern"
         ]
       },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-mit-berufsbildnerfunktion-80-100-klinik-siloah",
+        "infermiera-qualificata-in-hf-fh-con-funzione-di-formatore-professionale-80-100-privatklinik-siloah-muri-bei-bern-77fb4f250c",
+        "dipl-pflegefachperson-hf-fh-mit-berufsbildnerfunktion-80-100-privatklinik-siloah-muri-bei-bern"
+      ],
       "firstSeenAt": "2026-09-30T21:17:08.487Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -186,7 +187,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:25:55.309Z",
+      "validThrough": "2027-02-10T09:22:48.680Z",
       "validThroughSource": "last-observed-window"
     }
   ]

@@ -1,10 +1,10 @@
 {
   "key": "skan-com",
   "label": "SKAN AG",
-  "generatedAt": "2026-11-23T21:50:43.903Z",
-  "total": 4,
-  "discovered": 6,
-  "parsed": 6,
+  "generatedAt": "2026-11-25T09:43:17.989Z",
+  "total": 6,
+  "discovered": 8,
+  "parsed": 8,
   "lastFetchOutcome": null,
   "fetchReceipt": {
     "specKey": "skan-com",
@@ -12,11 +12,27 @@
       "https://jobs.skan.com/go/Jobs-in-Allschwil-%28Switzerland%29/9780357/"
     ],
     "phase": "detail",
-    "pages": 7,
+    "pages": 9,
     "httpStatuses": [
       {
         "status": 200,
         "url": "https://jobs.skan.com/go/Jobs-in-Allschwil-%28Switzerland%29/9780357/"
+      },
+      {
+        "status": 200,
+        "url": "https://jobs.skan.com/job/Allschwil-Process-Validation-Engineer/1348986457/"
+      },
+      {
+        "status": 200,
+        "url": "https://jobs.skan.com/job/Allschwil-Apprenticeship-in-2027-Automation-Engineer-EFZ/1365455957/"
+      },
+      {
+        "status": 200,
+        "url": "https://jobs.skan.com/job/Allschwil-Field-Engineer/1374656857/"
+      },
+      {
+        "status": 200,
+        "url": "https://jobs.skan.com/job/Allschwil-Head-Global-ICT/1378371857/"
       },
       {
         "status": 200,
@@ -33,14 +49,6 @@
       {
         "status": 200,
         "url": "https://jobs.skan.com/job/Allschwil-Commissioning-&-Qualification-Engineer-%28inhouse-&-onsite%29/1369906157/"
-      },
-      {
-        "status": 200,
-        "url": "https://jobs.skan.com/job/Allschwil-Apprenticeship-in-2027-Automation-Engineer-EFZ/1365455957/"
-      },
-      {
-        "status": 200,
-        "url": "https://jobs.skan.com/job/Allschwil-Process-Validation-Engineer/1348986457/"
       }
     ],
     "proxiedBy": [],
@@ -49,59 +57,57 @@
   },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 4,
-  "detailCandidates": 6,
+  "written": 6,
+  "detailCandidates": 8,
   "detailGone": 0,
   "detailRejected": 0,
-  "resurrectedJobs": 1,
+  "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 10383,
-  "avgDurationMs": 10383,
+  "durationMs": 109838,
+  "avgDurationMs": 109838,
   "durationHistory": [
-    10383
+    109838
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "skan-com-2d500f53dbaa",
-      "slug": "apprendistato-in-2027-automation-ingegnere-cfc-skan-ag-allschwil",
+      "id": "skan-com-bc9fdde0911d",
+      "slug": "ict-globale-skan-ag-allschwil",
       "company": "SKAN AG",
       "companyKey": "skan-com",
       "companyDomain": "jobs.skan.com",
-      "title": "Apprenticeship in 2027: Automation Engineer EFZ",
+      "title": "Head Global ICT",
       "location": "Allschwil",
       "canton": "BL",
-      "url": "https://jobs.skan.com/job/allschwil-apprenticeship-in-2027-automation-engineer-efz/1365455957",
+      "url": "https://jobs.skan.com/job/allschwil-head-global-ict/1378371857",
       "source": "SKAN AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-23T21:50:26.583Z",
+      "crawledAt": "2026-11-25T09:40:48.430Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "4123",
       "streetAddress": "Kreuzstrasse 5",
-      "category": "Ingegneria",
+      "category": "Altro",
       "contract": "other",
       "employmentType": "OTHER",
-      "experienceLevel": "intern",
+      "experienceLevel": "senior",
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.skan.com/job/allschwil-apprenticeship-in-2027-automation-engineer-efz/1365455957",
-      "firstSeenAt": "2026-11-09T09:45:12.537Z",
-      "salaryMin": 50000,
-      "salaryMax": 76000,
+      "applyUrl": "https://jobs.skan.com/job/allschwil-head-global-ict/1378371857",
+      "firstSeenAt": "2026-11-24T21:45:37.488Z",
+      "salaryMin": 85500,
+      "salaryMax": 129500,
       "salarySource": "estimated",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -118,16 +124,78 @@
         "checkedAt": "2026-11-09T15:43:20.118Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-07T21:50:26.583Z",
+      "validThrough": "2027-02-23T09:40:48.430Z",
       "validThroughSource": "last-observed-window",
-      "_qualityScore": 95,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 22,
+        "richness": 24,
         "translation": 25,
         "completeness": 23
       }
     },
+    {
+      "id": "skan-com-365940e05744",
+      "slug": "field-ingegnere-skan-ag-allschwil",
+      "company": "SKAN AG",
+      "companyKey": "skan-com",
+      "companyDomain": "jobs.skan.com",
+      "title": "Field Engineer",
+      "location": "Allschwil",
+      "canton": "BL",
+      "url": "https://jobs.skan.com/job/allschwil-field-engineer/1374656857",
+      "source": "SKAN AG Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-25T09:40:48.425Z",
+      "addressLocality": "Allschwil",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4123",
+      "streetAddress": "Kreuzstrasse 5",
+      "category": "Ingegneria",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.skan.com/job/allschwil-field-engineer/1374656857",
+      "firstSeenAt": "2026-11-24T21:45:37.498Z",
+      "salaryMin": 72500,
+      "salaryMax": 110500,
+      "salarySource": "estimated",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "SKAN AG",
+        "streetAddress": "Kreuzstrasse 5",
+        "postalCode": "4123",
+        "registeredName": "Skan AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "4123",
+        "addressLocality": "Allschwil",
+        "addressRegion": "BL",
+        "checkedAt": "2026-11-09T15:43:20.118Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-23T09:40:48.425Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 23
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "skan-com-4cef516fb7dd",
       "slug": "capo-team-ict-engineering-operations-skan-ag-allschwil",
@@ -140,7 +208,7 @@
       "url": "https://jobs.skan.com/job/allschwil-team-lead-ict-engineering-&-operations/1361640957",
       "source": "SKAN AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-23T21:50:26.582Z",
+      "crawledAt": "2026-11-25T09:40:48.435Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -177,7 +245,7 @@
         "checkedAt": "2026-11-09T15:43:20.118Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-07T21:50:26.582Z",
+      "validThrough": "2027-02-08T09:40:48.435Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -199,7 +267,7 @@
       "url": "https://jobs.skan.com/job/allschwil-senior-ict-system-engineer-technical-project-lead-%28mwd%29/1370336957",
       "source": "SKAN AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-23T21:50:26.579Z",
+      "crawledAt": "2026-11-25T09:40:48.434Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -236,7 +304,7 @@
         "checkedAt": "2026-11-09T15:43:20.118Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-07T21:50:26.579Z",
+      "validThrough": "2027-02-08T09:40:48.434Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -258,7 +326,7 @@
       "url": "https://jobs.skan.com/job/allschwil-customer-service-specialist%2c-fixed-term%2c-9-month-contract/1366874757",
       "source": "SKAN AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-23T21:50:26.577Z",
+      "crawledAt": "2026-11-25T09:40:48.432Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -295,7 +363,66 @@
         "checkedAt": "2026-11-09T15:43:20.118Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-17T21:50:26.577Z",
+      "validThrough": "2027-02-18T09:40:48.432Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 23
+      }
+    },
+    {
+      "id": "skan-com-2d500f53dbaa",
+      "slug": "apprendistato-in-2027-automation-ingegnere-cfc-skan-ag-allschwil",
+      "company": "SKAN AG",
+      "companyKey": "skan-com",
+      "companyDomain": "jobs.skan.com",
+      "title": "Apprenticeship in 2027: Automation Engineer EFZ",
+      "location": "Allschwil",
+      "canton": "BL",
+      "url": "https://jobs.skan.com/job/allschwil-apprenticeship-in-2027-automation-engineer-efz/1365455957",
+      "source": "SKAN AG Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-25T09:40:48.422Z",
+      "addressLocality": "Allschwil",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4123",
+      "streetAddress": "Kreuzstrasse 5",
+      "category": "Ingegneria",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.skan.com/job/allschwil-apprenticeship-in-2027-automation-engineer-efz/1365455957",
+      "firstSeenAt": "2026-11-09T09:45:12.537Z",
+      "salaryMin": 50000,
+      "salaryMax": 76000,
+      "salarySource": "estimated",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "SKAN AG",
+        "streetAddress": "Kreuzstrasse 5",
+        "postalCode": "4123",
+        "registeredName": "Skan AG",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "4123",
+        "addressLocality": "Allschwil",
+        "addressRegion": "BL",
+        "checkedAt": "2026-11-09T15:43:20.118Z"
+      },
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-08T09:40:48.422Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -306,5 +433,5 @@
       }
     }
   ],
-  "codeCommit": "7b684909df7304f91c3a19b75aa2a6088ce7630a"
+  "codeCommit": "55fd511dba5e5c1bd3b4047690c697040c8b6c58"
 }

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hrc",
-  "assembledAt": "2026-11-23T21:41:58.319Z",
-  "runId": "45269157230",
+  "assembledAt": "2026-11-25T09:33:56.638Z",
+  "runId": "45584844926",
   "jobs": [
     {
       "id": "hrc-9feb303a2e31",
@@ -35,7 +35,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/apprenties-assistantes-en-soins-et-sante-communautaire-assc-cfc-656",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:41:51.890Z",
+      "crawledAt": "2026-11-25T09:33:32.168Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T21:41:51.890Z",
+      "validThrough": "2027-01-18T09:33:32.168Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/ergotherapeute-hf-en-readaptation-geriatrique-a-80-669",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:41:51.888Z",
+      "crawledAt": "2026-11-25T09:33:32.166Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -168,7 +168,7 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:41:51.888Z",
+      "validThrough": "2027-01-28T09:33:32.166Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -203,7 +203,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/medecin-chef-de-clinique-specialiste-hf-en-hematologie-fmh-ou-equivalent-675",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:41:51.885Z",
+      "crawledAt": "2026-11-25T09:33:32.165Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -257,7 +257,7 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:41:51.885Z",
+      "validThrough": "2027-02-02T09:33:32.165Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -292,7 +292,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/medecin-adjoint-hf-en-urologie-a-80-100-679",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:41:51.883Z",
+      "crawledAt": "2026-11-25T09:33:32.162Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -343,7 +343,7 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:41:51.883Z",
+      "validThrough": "2027-02-11T09:33:32.162Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -378,7 +378,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/ergotherapeute-hf-a-80-683",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:41:51.880Z",
+      "crawledAt": "2026-11-25T09:33:32.160Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -427,7 +427,7 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:41:51.880Z",
+      "validThrough": "2027-02-15T09:33:32.160Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -462,7 +462,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/infirmier-referent-hf-en-oncologie-dans-le-service-de-medecine-interne-a-60-100-681",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:41:51.861Z",
+      "crawledAt": "2026-11-25T09:33:32.158Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -511,7 +511,91 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:41:51.861Z",
+      "validThrough": "2027-02-15T09:33:32.158Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "hrc-4974a2ace32d",
+      "slug": "logisticista-m-f-nel-settore-della-logistica-farmaceutica-100-hopital-riviera-chablais-hrc-rennaz",
+      "slugByLocale": {
+        "it": "logisticista-m-f-nel-settore-della-logistica-farmaceutica-100-hopital-riviera-chablais-hrc-rennaz",
+        "en": "logistician-m-f-within-the-pharmaceutical-logistics-sector-100-hopital-riviera-chablais-hrc-rennaz",
+        "de": "logistiker-m-w-im-bereich-pharmazeutische-logistik-100-hopital-riviera-chablais-hrc-rennaz",
+        "fr": "logisticien-h-f-au-sein-du-secteur-logistique-pharmaceutique-a-100-hrc-rennaz"
+      },
+      "company": "Hôpital Riviera-Chablais (HRC)",
+      "companyKey": "hrc",
+      "companyDomain": "hopitalrivierachablais.ch",
+      "title": "Logisticien H/F au sein du Secteur Logistique Pharmaceutique à 100%",
+      "titleByLocale": {
+        "it": "Logisticista M/F nel settore della logistica farmaceutica 100%",
+        "en": "Logistician M/F within the Pharmaceutical Logistics Sector 100%",
+        "de": "Logistiker M/W im Bereich Pharmazeutische Logistik 100%",
+        "fr": "Logisticien H/F au sein du Secteur Logistique Pharmaceutique à 100%"
+      },
+      "description": "La Pharmacie des Hôpitaux de l’Est Lémanique (PHEL), répartie sur plusieurs sites, est responsable de l’approvisionnement en médicaments et de l’assistance pharmaceutique des hôpitaux, ainsi que de différents établissements de soins, de l’Est Lémanique (dont l’Hôpital Riviera-Chablais, Vaud-Valais ; HRC).\n\nPour notre site principal à Rennaz et dans le cadre d’un remplacement de longue durée, nous recherchons un/e :\n\nL ogisticien H/F à 100 % (CDD de 4 mois)\n\nau sein du Secteur Logistique Pharmaceutique\n\nLes missions principales de ce poste sont\n\n• Réception des marchandises et mise en stock\n\n• Entretien et contrôle du matériel de stockage\n\n• Préparation et facturation des commandes de solutés\n\n• Participation à l’inventaire du stock\n\n• Participation à diverses autres activités logistiques selon les besoins\n\nNous demandons\n\n· CFC de Logisticien·ne\n\n· Une bonne maîtrise du français\n\n· Une expérience professionnelle dans la logistique hospitalière serait un atout\n\n· Bonne capacité d’adaptation et une aisance à travailler en équipe pluridisciplinaire\n\n· Bonne condition physique\n\nNous offrons\n\n· Un travail stimulant et varié dans une équipe motivée et dynamique\n\n· Des conditions salariales ainsi que des avantages sociaux selon la Convention collective de travail de l’HRC\n\n· Des avantages exclusifs, tels que des réductions dans des commerces et restaurants à proximité\n\nRenseignements :\n\nDes renseignements peuvent être pris auprès de Mme Sara Oliveira Alves, cheffe d'équipe logistique au 079 171 37 47\n\nCandidature :\nSi ce poste vous intéresse, nous vous remercions d’adresser votre dossier de candidature complet (lettre de motivation, CV, copie de diplômes et de certificats de travail).\nDélai de postulation : 30 novembre 2026",
+      "descriptionByLocale": {
+        "it": "La Pharmacie des Hôpitaux de l'Est Lémanique (PHEL), diffusa su diversi siti, è responsabile della fornitura di medicinali e assistenza farmaceutica agli ospedali, nonché a varie strutture sanitarie, in East Lemanique (compreso l'Ospedale Riviera-Chablais, Vaud-Valais; HRC).\n\nPer il nostro sito principale a Rennaz e come parte di una sostituzione a lungo termine, stiamo cercando:\n\n100% Logisticista M/F (CDD di 4 mesi)\n\nnel settore della logistica farmaceutica\n\nI compiti principali di questo post sono:\n\n• Ricevimento delle merci e delle scorte\n\n• Manutenzione e controllo delle attrezzature di stoccaggio\n\n• Preparazione e fatturazione degli ordini soluti\n\n• Partecipazione all'inventario delle scorte\n\n• Partecipazione a varie altre attività logistiche come richiesto\n\nChiediamo\n\n· Logisticista CFC\n\n· Una buona padronanza del francese\n\n· Esperienza professionale nella logistica ospedaliera sarebbe un bene\n\n· Buona adattabilità e facilità di lavoro in un team multidisciplinare\n\n· Buone condizioni fisiche\n\nOffriamo\n\n· Lavoro stimolante e vario in un team motivato e dinamico\n\n· Condizioni di salario e prestazioni in base all'accordo collettivo di lavoro HRC\n\n· Vantaggi esclusivi, come sconti nei negozi e ristoranti nelle vicinanze\n\nInformazioni:\n\nLe informazioni possono essere ottenute dalla sig.ra Sara Oliveira Alves, responsabile del team logistico 079 171 37 47\n\nApplicazione:\nSe siete interessati a questa posizione, vorremmo ringraziarvi per aver inviato la vostra domanda completa (lettera mobile, CV, copia dei diplomi e certificati di lavoro).\nTermine ultimo per l'applicazione: 30 novembre 2026",
+        "en": "The Pharmacie des Hôpitaux de l'Est Lémanique (PHEL), spread over several sites, is responsible for the supply of medicines and pharmaceutical assistance to hospitals, as well as to various health facilities, in East Lemanique (including the Hospital Riviera-Chablais, Vaud-Valais; HRC).\n\nFor our main site in Rennaz and as part of a long-term replacement, we are looking for:\n\n100% Logistician M/F (CDD of 4 months)\n\nwithin the Pharmaceutical Logistics Sector\n\nThe main tasks of this post are:\n\n• Receipt of goods and stocking\n\n• Maintenance and control of storage equipment\n\n• Preparation and billing of solute orders\n\n• Participation in stock inventory\n\n• Participation in various other logistical activities as required\n\nWe ask\n\n· Logistician CFC\n\n· A good mastery of French\n\n· Professional experience in hospital logistics would be an asset\n\n· Good adaptability and ease to work in a multidisciplinary team\n\n· Good physical condition\n\nWe offer\n\n· Stimulating and varied work in a motivated and dynamic team\n\n· Wage conditions and benefits under the HRC Collective Labour Agreement\n\n· Exclusive advantages, such as discounts in nearby shops and restaurants\n\nInformation:\n\nInformation may be obtained from Ms. Sara Oliveira Alves, Head of Logistics Team at 079 171 37 47\n\nApplication:\nIf you are interested in this position, we would like to thank you for sending your complete application (motif letter, CV, copy of diplomas and work certificates).\nDeadline for application: 30 November 2026",
+        "de": "Die Pharmacie des Hôpitaux de l'Est Lémanique (PHEL) ist an mehreren Standorten für die Versorgung von Krankenhäusern sowie verschiedenen Gesundheitseinrichtungen in Ost-Lemanique (einschließlich des Krankenhauses Riviera-Chablais, Waadt-Valais; HRC) verantwortlich.\n\nFür unseren Hauptstandort in Rennaz und als Teil eines langfristigen Ersatzes suchen wir:\n\n100% Logistiker M/W (CDD von 4 Monaten)\n\ninnerhalb des Pharmazeutischen Logistiksektors\n\nDie Hauptaufgaben dieses Postens sind:\n\n• Wareneingang und Lagerhaltung\n\n• Wartung und Steuerung von Lagereinrichtungen\n\n• Vorbereitung und Abrechnung von gelösten Bestellungen\n\n• Beteiligung am Bestandsbestand\n\n• Teilnahme an verschiedenen anderen logistischen Aktivitäten nach Bedarf\n\nWir fragen\n\n· Logistiker CFC\n\n· Gute Beherrschung des Französischen\n\n· Berufserfahrung in der Krankenhauslogistik wäre ein Gewinn\n\n· Gute Anpassungsfähigkeit und einfache Arbeit in einem multidisziplinären Team\n\n· Gute körperliche Verfassung\n\nWir bieten\n\n· Anregende und abwechslungsreiche Arbeit in einem motivierten und dynamischen Team\n\n· Lohnbedingungen und Leistungen im Rahmen des HRC Collective Labour Agreement\n\n· Exklusive Vorteile wie Rabatte in nahe gelegenen Geschäften und Restaurants\n\nInformationen:\n\nInformationen erhalten Sie bei Frau Sara Oliveira Alves, Leiterin Logistik unter 079 171 37 47\n\nAnwendung:\nWenn Sie an dieser Stelle interessiert sind, möchten wir uns für die Zusendung Ihrer vollständigen Bewerbung (Motivbrief, Lebenslauf, Kopie von Diplomen und Arbeitsbescheinigungen) bedanken.\nAntragsfrist: 30. November 2026",
+        "fr": "La Pharmacie des Hôpitaux de l’Est Lémanique (PHEL), répartie sur plusieurs sites, est responsable de l’approvisionnement en médicaments et de l’assistance pharmaceutique des hôpitaux, ainsi que de différents établissements de soins, de l’Est Lémanique (dont l’Hôpital Riviera-Chablais, Vaud-Valais ; HRC).\n\nPour notre site principal à Rennaz et dans le cadre d’un remplacement de longue durée, nous recherchons un/e :\n\nL ogisticien H/F à 100 % (CDD de 4 mois)\n\nau sein du Secteur Logistique Pharmaceutique\n\nLes missions principales de ce poste sont\n\n• Réception des marchandises et mise en stock\n\n• Entretien et contrôle du matériel de stockage\n\n• Préparation et facturation des commandes de solutés\n\n• Participation à l’inventaire du stock\n\n• Participation à diverses autres activités logistiques selon les besoins\n\nNous demandons\n\n· CFC de Logisticien·ne\n\n· Une bonne maîtrise du français\n\n· Une expérience professionnelle dans la logistique hospitalière serait un atout\n\n· Bonne capacité d’adaptation et une aisance à travailler en équipe pluridisciplinaire\n\n· Bonne condition physique\n\nNous offrons\n\n· Un travail stimulant et varié dans une équipe motivée et dynamique\n\n· Des conditions salariales ainsi que des avantages sociaux selon la Convention collective de travail de l’HRC\n\n· Des avantages exclusifs, tels que des réductions dans des commerces et restaurants à proximité\n\nRenseignements :\n\nDes renseignements peuvent être pris auprès de Mme Sara Oliveira Alves, cheffe d'équipe logistique au 079 171 37 47\n\nCandidature :\nSi ce poste vous intéresse, nous vous remercions d’adresser votre dossier de candidature complet (lettre de motivation, CV, copie de diplômes et de certificats de travail).\nDélai de postulation : 30 novembre 2026"
+      },
+      "needsRetranslation": false,
+      "location": "Rennaz",
+      "canton": "VD",
+      "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/logisticien-hf-au-sein-du-secteur-logistique-pharmaceutique-a-100-685",
+      "source": "HRC Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-25T09:33:32.144Z",
+      "addressLocality": "Rennaz",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1847",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/logisticien-hf-au-sein-du-secteur-logistique-pharmaceutique-a-100-685",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-11-24T21:50:23.661Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "logisticien-h-f-au-sein-du-secteur-logistique-pharmaceutique-a-100-hrc-rennaz"
+        ],
+        "en": [
+          "logisticien-h-f-au-sein-du-secteur-logistique-pharmaceutique-a-100-hrc-rennaz"
+        ],
+        "de": [
+          "logisticien-h-f-au-sein-du-secteur-logistique-pharmaceutique-a-100-hrc-rennaz"
+        ]
+      },
+      "previousSlugs": [
+        "logisticien-h-f-au-sein-du-secteur-logistique-pharmaceutique-a-100-hrc-rennaz"
+      ],
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Rennaz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-23T09:33:32.144Z",
       "validThroughSource": "last-observed-window"
     }
   ]

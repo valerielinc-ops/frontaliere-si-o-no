@@ -1,10 +1,10 @@
 {
   "key": "pks-bewerbung-ch",
   "label": "pks-bewerbung",
-  "generatedAt": "2026-11-23T21:41:16.124Z",
-  "total": 1,
-  "discovered": 1,
-  "parsed": 1,
+  "generatedAt": "2026-11-25T09:34:41.435Z",
+  "total": 2,
+  "discovered": 2,
+  "parsed": 2,
   "lastFetchOutcome": null,
   "fetchReceipt": {
     "specKey": "pks-bewerbung-ch",
@@ -12,11 +12,15 @@
       "https://www.pks-personal.ch/pks/bewerber/stellen-kaufmaennisch.php"
     ],
     "phase": "detail",
-    "pages": 2,
+    "pages": 3,
     "httpStatuses": [
       {
         "status": 200,
         "url": "https://www.pks-personal.ch/pks/bewerber/stellen-kaufmaennisch.php"
+      },
+      {
+        "status": 200,
+        "url": "https://www.pks-personal.ch/stellen/payroll-specialist-schweiz-de-fr-80-100/basel/hrm/e30f7470"
       },
       {
         "status": 200,
@@ -29,24 +33,70 @@
   },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 1,
-  "detailCandidates": 1,
+  "written": 2,
+  "detailCandidates": 2,
   "detailGone": 0,
   "detailRejected": 0,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6158,
-  "avgDurationMs": 6158,
+  "durationMs": 5759,
+  "avgDurationMs": 5759,
   "durationHistory": [
-    6158
+    5759
   ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "id": "pks-bewerbung-ch-af13ce13eccb",
+      "slug": "payroll-specialist-schweiz-de-fr-80-100-payroll-suisse-francais-voila-c-est-votre-scene",
+      "company": "pks-bewerbung",
+      "companyKey": "pks-bewerbung-ch",
+      "companyDomain": "pks-personal.ch",
+      "title": "Payroll Specialist Schweiz (DE/FR) 80 – 100% - Lohnbuchhaltung ist dein Métier? Tant mieux!",
+      "location": "4102 Binningen",
+      "canton": "BL",
+      "url": "https://www.pks-personal.ch/stellen/payroll-specialist-schweiz-de-fr-80-100/basel/hrm/e30f7470",
+      "source": "pks-bewerbung Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-25T09:34:25.900Z",
+      "addressLocality": "Binningen",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4102",
+      "streetAddress": "Binningen",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.pks-personal.ch/stellen/payroll-specialist-schweiz-de-fr-80-100/basel/hrm/e30f7470",
+      "firstSeenAt": "2026-11-24T21:51:12.954Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-23T09:34:25.900Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 23
+      }
+    }
+  ],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -61,7 +111,7 @@
       "url": "https://www.pks-personal.ch/stellen/hr-generalistin-80-100-ihr-einstieg-in-die-hr-digitalisierung/basel/hrm/91824262",
       "source": "pks-bewerbung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T21:40:53.430Z",
+      "crawledAt": "2026-11-25T09:34:25.902Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -84,7 +134,7 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:40:53.430Z",
+      "validThrough": "2027-02-16T09:34:25.902Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -95,5 +145,5 @@
       }
     }
   ],
-  "codeCommit": "7b684909df7304f91c3a19b75aa2a6088ce7630a"
+  "codeCommit": "55fd511dba5e5c1bd3b4047690c697040c8b6c58"
 }

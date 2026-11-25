@@ -105,7 +105,8 @@ import {
   appendFileSync, existsSync, lstatSync, readdirSync, readFileSync, readlinkSync, realpathSync, renameSync, rmSync, statSync, unlinkSync,
   writeFileSync,
 } from 'node:fs';
-import { basename, isAbsolute, join, relative, resolve, sep } from 'node:path';
+import { basename, dirname, isAbsolute, join, relative, resolve, sep } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { isCodexAgentWorktreePath } from './lib/worktree-locations.mjs';
 import { homedir, hostname } from 'node:os';
 
@@ -308,12 +309,13 @@ function shOk(cmd) {
   }
 }
 
-function gitOut(args, { allowFail = false, maxBuffer = 1024 * 1024 } = {}) {
+function gitOut(args, { allowFail = false, maxBuffer = 1024 * 1024, timeout } = {}) {
   try {
     return execFileSync('git', args, {
       encoding: 'utf8',
       stdio: ['ignore', 'pipe', 'ignore'],
       maxBuffer,
+      ...(timeout ? { timeout, killSignal: 'SIGTERM' } : {}),
     }).trim();
   } catch (e) {
     if (allowFail) return '';
@@ -321,9 +323,11 @@ function gitOut(args, { allowFail = false, maxBuffer = 1024 * 1024 } = {}) {
   }
 }
 
-function gitOk(args) {
+const SNAPSHOT_PUSH_TIMEOUT_MS = 10 * 60 * 1000;
+const LS_REMOTE_TIMEOUT_MS = 60 * 1000;
+function gitOk(args, { timeout } = {}) {
   try {
-    execFileSync('git', args, { stdio: 'ignore' });
+    execFileSync('git', args, { stdio: 'ignore', ...(timeout ? { timeout, killSignal: 'SIGTERM' } : {}) });
     return true;
   } catch {
     return false;
@@ -348,6 +352,37 @@ const mainBranch = sh('git symbolic-ref --quiet --short refs/remotes/origin/HEAD
   .replace(/^origin\//, '') || 'main';
 const mainRef = `origin/${mainBranch}`;
 const gitDir = sh('git rev-parse --git-common-dir', { allowFail: true }) || '.git';
+
+// The pre-push that guards a snapshot push is the one of the work tree that
+// pushes. The sweep runs from the main checkout (`cd frontaliere-si-o-no`),
+// whose hooks lag origin/main by weeks on the agent hosts (24k commits on
+// 2026-11-24), so the tag skip and time cap of #19870 never applied there and
+// each snapshot push still paid the ~37-minute sibling sweep. Push from the
+// checkout this script was loaded from (hooks-main, kept on origin/main by
+// bin/site-hooks-refresh) with its own `.githooks`, when it belongs to this
+// repository; otherwise keep the cwd. FRONTALIERE_PRUNE_HOOKS_CHECKOUT exists
+// for the tests and goes through the same checks.
+const SNAPSHOT_PUSH_CHECKOUT = resolveSnapshotPushCheckout();
+
+function resolveSnapshotPushCheckout() {
+  const candidate = process.env.FRONTALIERE_PRUNE_HOOKS_CHECKOUT
+    || resolve(dirname(fileURLToPath(import.meta.url)), '..');
+  if (!existsSync(join(candidate, '.githooks', 'pre-push'))) return null;
+  const common = gitOut(['-C', candidate, 'rev-parse', '--git-common-dir'], { allowFail: true });
+  if (!common) return null;
+  try {
+    if (realpathSync(resolve(candidate, common)) !== realpathSync(resolve(gitDir))) return null;
+  } catch {
+    return null;
+  }
+  return candidate;
+}
+
+function snapshotPushArgs(tag) {
+  const push = ['push', 'origin', `refs/tags/${tag}`];
+  if (!SNAPSHOT_PUSH_CHECKOUT) return push;
+  return ['-C', SNAPSHOT_PUSH_CHECKOUT, '-c', `core.hooksPath=${join(SNAPSHOT_PUSH_CHECKOUT, '.githooks')}`, ...push];
+}
 const gitCommonDir = realpathSync(resolve(gitDir));
 const pruneRunLock = join(gitCommonDir, 'frontaliere-prune-run.lock');
 const fetchLock = join(gitCommonDir, 'frontaliere-prune-fetch.lock');
@@ -469,7 +504,10 @@ function localTagSha(tag) {
 }
 
 function remoteTagSha(tag) {
-  const raw = gitOut(['ls-remote', '--refs', 'origin', `refs/tags/${tag}`], { allowFail: true });
+  // Bounded like the snapshot push: a stalled read must not hold the prune
+  // lock. A timeout reads as "not on the remote"; the push that follows then
+  // either creates the tag or is refused, and the post-push check decides.
+  const raw = gitOut(['ls-remote', '--refs', 'origin', `refs/tags/${tag}`], { allowFail: true, timeout: LS_REMOTE_TIMEOUT_MS });
   return raw.split('\n').map((line) => line.trim().split(/\s+/)[0]).find(Boolean) || null;
 }
 
@@ -540,7 +578,10 @@ function snapshotExpiryBeforeDelete(branch, sha) {
   if (candidate.remote !== sha) {
     const local = localTagSha(candidate.tag);
     if (!local && !gitOk(['tag', candidate.tag, sha])) return false;
-    if (!gitOk(['push', 'origin', `refs/tags/${candidate.tag}`])) return false;
+    // Network push from an unattended sweep that holds the prune lock: bounded,
+    // like every hook/script network call (AGENTS.md). A timeout keeps the
+    // worktree (no verified snapshot) and the next sweep retries.
+    if (!gitOk(snapshotPushArgs(candidate.tag), { timeout: SNAPSHOT_PUSH_TIMEOUT_MS })) return false;
     if (remoteTagSha(candidate.tag) !== sha) return false;
   }
   if (!recordSnapshot({ tag: candidate.tag, branch: branch || null, sha, kind: 'expiry' })) return false;

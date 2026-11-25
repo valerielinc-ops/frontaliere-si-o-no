@@ -1,7 +1,7 @@
 {
   "crawlerKey": "omega",
-  "assembledAt": "2026-11-23T22:28:39.133Z",
-  "runId": "45269343795",
+  "assembledAt": "2026-11-24T22:31:12.688Z",
+  "runId": "45490590945",
   "jobs": [
     {
       "id": "omega-33609",
@@ -34,7 +34,7 @@
       "url": "https://www.swatchgroup.com/de/job/33609",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T22:28:31.911Z",
+      "crawledAt": "2026-11-24T22:31:05.633Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -96,7 +96,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T22:28:31.911Z",
+      "validThrough": "2027-01-25T22:31:05.633Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -130,7 +130,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33645",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T22:27:01.678Z",
+      "crawledAt": "2026-11-24T22:29:36.185Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -192,7 +192,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T22:27:01.678Z",
+      "validThrough": "2027-01-28T22:29:36.185Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -226,7 +226,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33698",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T22:25:30.936Z",
+      "crawledAt": "2026-11-24T22:28:06.591Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -347,8 +347,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operational-learning-omega-sa-biel-bienne-a9bf7e2f",
-          "betriebliches-lernen-omega-sa-biel-bienne-515c9d6d",
           "operational-learning-omega-sa-biel-bienne-0c5a605b",
           "betriebliches-lernen-omega-sa-biel-bienne-d417281c",
           "operational-learning-omega-sa-biel-bienne-ab9a34ba",
@@ -366,7 +364,9 @@
           "operational-learning-omega-sa-biel-bienne-df8c3bd2",
           "betriebliches-lernen-omega-sa-biel-bienne-a4a46766",
           "operational-learning-omega-sa-biel-bienne-a5e0ea17",
-          "betriebliches-lernen-omega-sa-biel-bienne-ec002c41"
+          "betriebliches-lernen-omega-sa-biel-bienne-ec002c41",
+          "operational-learning-omega-sa-biel-bienne-a9bf7e2f",
+          "betriebliches-lernen-omega-sa-biel-bienne-515c9d6d"
         ],
         "en": [
           "apprentissage-operateur-rice-en-horlogerie-afp-omega-biel-bienne",
@@ -395,7 +395,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T22:25:30.936Z",
+      "validThrough": "2027-02-01T22:28:06.591Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -429,7 +429,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33741",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T22:24:01.668Z",
+      "crawledAt": "2026-11-24T22:26:36.423Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -512,7 +512,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T22:24:01.668Z",
+      "validThrough": "2027-02-03T22:26:36.423Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -546,7 +546,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33831",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T22:22:31.046Z",
+      "crawledAt": "2026-11-24T22:25:06.370Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -607,7 +607,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T22:22:31.046Z",
+      "validThrough": "2027-02-04T22:25:06.370Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -641,7 +641,7 @@
       "url": "https://www.swatchgroup.com/fr/job/34046",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T22:21:01.149Z",
+      "crawledAt": "2026-11-24T22:23:36.568Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -709,7 +709,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T22:21:01.149Z",
+      "validThrough": "2027-02-09T22:23:36.568Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -743,7 +743,7 @@
       "url": "https://www.swatchgroup.com/fr/job/34191",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T22:19:31.315Z",
+      "crawledAt": "2026-11-24T22:22:07.734Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -805,7 +805,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T22:19:31.315Z",
+      "validThrough": "2027-02-11T22:22:07.734Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -822,24 +822,24 @@
       "companyDomain": "omegawatches.com",
       "title": "Customer Service Polisher",
       "titleByLocale": {
-        "it": "Lucidatore nel servizio clienti",
-        "en": "Customer Service Polisher",
-        "de": "Polierer im Kundenservice",
+        "it": "Lucidatore Assistenza Clienti",
+        "en": "Customer Service Refiner",
+        "de": "Polier Kundendienst",
         "fr": "Customer Service Polisher"
       },
       "description": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\n## Description du poste\n• Réaliser les travaux de rafraîchissement (polissage, satinage, lapidage, feutrage et meulage) des carrures, lunettes, fonds et bracelets des montres au sein de notre service clients\n\n• Gérer et contrôler les paniers de lavage après rafraichissement\n\n• Participer à l'amélioration des activités\n\n• Entretenir les machines et l'équipement de l'atelier\n\n## Profil\n• Polisseur de formation au bénéfice d’une solide expérience professionnelle sur les composants horlogers\n\n• De langue maternelle française (ou allemande avec bonne compréhension de la langue française) vous maîtrisez les outils informatiques courants\n\n• Personnalité polyvalente, ouverte et communicative, privilégiant le travail en équipe tout en sachant travaille de manière autonome et possédant un bon esprit de synthèse\n\n• La satisfaction du client est votre objectif principal\n\n## Langues\nDe langue maternelle française (ou allemande avec bonne compréhension de la langue française)",
       "descriptionByLocale": {
-        "it": "Introduzione della società\nOMEGA è un prestigioso marchio orologiero conosciuto in tutto il mondo per i suoi elevati standard di qualità, precisione e innovazione da oltre 170 anni. I nostri orologi sono annoverati tra i più belli al mondo e si distinguono per la loro tecnologia all'avanguardia e il loro stile senza tempo.\n\nNel corso della nostra lunga storia, abbiamo stabilito record di precisione, ridefinito il cronometraggio sportivo e mantenuto la nostra posizione all'avanguardia dell'Alta Orologeria.\n\nIn quanto marchio internazionale, siamo sempre interessati a incontrare futuri colleghi desiderosi di contribuire al lavoro dei nostri team in quasi tutti i continenti grazie ai loro talenti, ambizioni e ispirazioni.\n\nDescrizione della posizione\n• Eseguire i lavori di ravvivatura (lucidatura, satinatura, lapidatura, feltratura e molatura) delle casse, delle lunette, dei fondelli e dei bracciali degli orologi all'interno del nostro servizio clienti\n\n• Gestire e controllare i cestelli di lavaggio dopo la ravvivatura\n\n• Partecipare al miglioramento delle attività\n\n• Effettuare la manutenzione delle macchine e delle attrezzature dell'officina\n\nProfilo\n• Lucidatore di formazione, con una solida esperienza professionale sui componenti orologieri\n\n• Di madrelingua francese (o tedesca con una buona comprensione della lingua francese), padroneggiate i comuni strumenti informatici\n\n• Persona versatile, aperta e comunicativa, che predilige il lavoro di squadra, sa lavorare in autonomia ed è dotata di una buona capacità di sintesi\n\n• La soddisfazione del cliente è il vostro obiettivo principale\n\nLingue\nDi madrelingua francese (o tedesca con una buona comprensione della lingua francese)",
-        "en": "Company introduction\nOMEGA is a prestigious watchmaking brand known worldwide for its high standards of quality, precision and innovation for more than 170 years. Our watches are among the most beautiful in the world and are distinguished by their cutting-edge technology and timeless style.\n\nThroughout our long history, we have broken precision records, redefined sports timekeeping and maintained our position at the forefront of Fine Watchmaking.\n\nAs an international brand, we are always interested in meeting prospective colleagues who wish to contribute to the work of our teams on almost every continent through their talents, ambitions and inspirations.\n\nJob description\n• Carry out refinishing work (polishing, satin finishing, lapping, felt polishing and grinding) on the cases, bezels, case backs and bracelets of watches within our customer service department\n\n• Manage and inspect the washing baskets after refinishing\n\n• Participate in the improvement of activities\n\n• Maintain the workshop's machines and equipment\n\nProfile\n• Qualified polisher with solid professional experience in watch components\n\n• A native French speaker (or German speaker with a good understanding of French), you are proficient in common computer tools\n\n• A versatile, open and communicative personality, with a preference for teamwork while also being able to work independently and possessing a good ability to synthesize information\n\n• Customer satisfaction is your primary objective\n\nLanguages\nA native French speaker (or German speaker with a good understanding of French)",
-        "de": "Unternehmensvorstellung\nOMEGA ist eine renommierte, weltweit bekannte Uhrenmarke, die seit über 170 Jahren höchste Ansprüche an Qualität, Präzision und Innovation stellt. Unsere Uhren gehören zu den schönsten der Welt und zeichnen sich durch ihre Spitzentechnologie und ihren zeitlosen Stil aus.\n\nIm Laufe unserer langen Geschichte haben wir Präzisionsrekorde aufgestellt, die Sportzeitmessung neu definiert und unsere Position an der Spitze der hohen Uhrmacherkunst behauptet.\n\nAls internationale Marke sind wir stets daran interessiert, zukünftige Kolleginnen und Kollegen kennenzulernen, die mit ihren Talenten, Ambitionen und Inspirationen zur Arbeit unserer Teams auf nahezu jedem Kontinent beitragen möchten.\n\nStellenbeschreibung\n• Die Aufarbeitungsarbeiten (Polieren, Satinieren, Lapidieren, Filzen und Schleifen) an Gehäusemittelteilen, Lünetten, Böden und Armbändern von Uhren in unserer Kundendienstabteilung ausführen\n\n• Die Waschkörbe nach der Aufarbeitung verwalten und kontrollieren\n\n• An der Verbesserung der Arbeitsabläufe mitwirken\n\n• Maschinen und Werkstattausrüstung instand halten\n\nProfil\n• Sie sind ausgebildete Polierfachkraft und verfügen über fundierte Berufserfahrung im Umgang mit Uhrkomponenten\n\n• Sie sprechen Französisch als Muttersprache (oder Deutsch und verfügen über gute Französischkenntnisse) und beherrschen die gängigen IT-Anwendungen\n\n• Sie sind eine vielseitige, offene und kommunikationsstarke Persönlichkeit, die Teamarbeit bevorzugt, zugleich aber selbstständig arbeiten kann und über ein gutes Synthesevermögen verfügt\n\n• Die Kundenzufriedenheit ist Ihr oberstes Ziel\n\nSprachen\nFranzösisch ist Ihre Muttersprache (oder Deutsch, bei gutem Verständnis der französischen Sprache)",
-        "fr": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\n## Description du poste\n• Réaliser les travaux de rafraîchissement (polissage, satinage, lapidage, feutrage et meulage) des carrures, lunettes, fonds et bracelets des montres au sein de notre service clients\n\n• Gérer et contrôler les paniers de lavage après rafraichissement\n\n• Participer à l'amélioration des activités\n\n• Entretenir les machines et l'équipement de l'atelier\n\n## Profil\n• Polisseur de formation au bénéfice d’une solide expérience professionnelle sur les composants horlogers\n\n• De langue maternelle française (ou allemande avec bonne compréhension de la langue française) vous maîtrisez les outils informatiques courants\n\n• Personnalité polyvalente, ouverte et communicative, privilégiant le travail en équipe tout en sachant travaille de manière autonome et possédant un bon esprit de synthèse\n\n• La satisfaction du client est votre objectif principal\n\n## Langues\nDe langue maternelle française (ou allemande avec bonne compréhension de la langue française)"
+        "it": "Introduzione della società\nOMEGA è un marchio di orologia conosciuto in tutto il mondo per le sue esigenze di qualità, precisione e innovazione da oltre 170 anni. I nostri orologi sono tra i più belli al mondo e sono caratterizzati dalla loro tecnologia all'avanguardia e dallo stile senza tempo.\n\nNel corso della nostra lunga storia abbiamo battuto record di precisione, ridefinito i tempi sportivi e mantenuto la nostra posizione all'avanguardia dell'Alta Horlogerie.\n\nCome brand internazionale, siamo sempre interessati ad incontrare futuri colleghi che vogliono contribuire al lavoro dei nostri team in quasi ogni continente con i loro talenti, ambizioni e ispirazioni.\n\nDescrizione del posto\n• Performando il lavoro di raffreddamento (lucidato, satinato, pietra-Stoning, infeltrimento e rettifica) delle cornici, occhiali, schienali e bracciali all'interno del nostro servizio clienti\n\n• Gestire e controllare i cestini dopo il raffreddamento\n\n• Partecipare al miglioramento delle imprese\n\n• Manutenzione delle macchine e delle attrezzature dell'officina\n\nProfilo\n• Formazione lucidatrice a beneficio di una solida esperienza professionale sui componenti per orologieria\n\n• Lingua madre francese (o tedesco con una buona comprensione della lingua francese) si padroneggiano gli strumenti informatici comuni\n\n• Personalità multiuso, aperta e comunicativa, focalizzandosi sul lavoro di squadra, sapendo lavorare in modo indipendente e con un buon spirito di sintesi\n\n• La soddisfazione del cliente è il vostro obiettivo principale\n\nLingue\nLingua madre francese (o tedesco con una buona comprensione della lingua francese)",
+        "en": "Introduction of society\nOMEGA is a prestigious horology brand worldwide known for its quality, precision and innovation requirements for over 170 years. Our watches are among the most beautiful in the world and are characterized by their state-of-the-art technology and timeless style.\n\nOver the course of our long history, we have beaten records of precision, redefined sporting timing and maintained our position at the cutting edge of Haute Horlogerie.\n\nAs an international brand, we are always interested in meeting future colleagues who want to contribute to the work of our teams on almost every continent with their talents, ambitions and inspirations.\n\nDescription of the post\n• Performing the cooling work (polished, satin, stone-stoning, felting and grinding) of the watch frames, glasses, backs and bracelets within our customer service\n\n• Manage and control wash baskets after cooling\n\n• Participate in business improvement\n\n• Maintaining the workshop machinery and equipment\n\nProfile\n• Training polisher for the benefit of a solid professional experience on watchmaking components\n\n• French mother tongue (or German with a good understanding of the French language) you master the common computer tools\n\n• Multipurpose, open and communicative personality, focusing on teamwork while knowing how to work independently and with a good spirit of synthesis\n\n• Customer satisfaction is your main objective\n\nLanguages\nFrench mother tongue (or German with a good understanding of the French language)",
+        "de": "Unternehmensvorstellung\nOMEGA ist eine prestigetöse Uhrenmarke, die weltweit für ihre Qualitäts-, Präzisions- und Innovationsanforderungen seit über 170 Jahren bekannt ist. Unsere Uhren gehören zu den schönsten der Welt und zeichnen sich durch Spitzentechnologie und zeitlosen Stil aus.\n\nIm Laufe unserer langen Geschichte haben wir Präzisionsrekorde aufgestellt, das Sportchronometrie neu definiert und unsere Position an der Spitze der Haute Horlogerie gehalten.\n\nAls internationale Marke sind wir stets daran interessiert, zukünftige Kollegen kennenzulernen, die mit ihren Talenten, Ambitionen und Inspirationen zur Arbeit unserer Teams auf fast jedem Kontinent beitragen möchten.\n\nStellenbeschreibung\n• Durchführung von Auffrischungsarbeiten (Polieren, Satinieren, Lapidieren, Filzen und Schleifen) von Gehäusen, Lünetten, Gehäuseschlössern und Armbändern der Uhren in unserem Kundendienst\n\n• Verwaltung und Kontrolle der Waschkörbe nach der Auffrischung\n\n• Teilnahme an der Verbesserung der Aktivitäten\n\n• Wartung der Maschinen und der Werkstattausrüstung\n\nProfil\n• Polier mit Ausbildung und fundierter Berufserfahrung mit Uhrenkomponenten\n\n• Muttersprachler Französisch (oder Deutsch mit gutem Verständnis der französischen Sprache); Sie beherrschen gängige Computerwerkzeuge\n\n• Vielseitige, offene und kommunikative Persönlichkeit, die Teamarbeit bevorzugt, aber auch selbstständig arbeiten kann und ein gutes Synthesevermögen besitzt\n\n• Die Kundenzufriedenheit ist Ihr Hauptziel\n\nSprachen\nMuttersprachler Französisch (oder Deutsch mit gutem Verständnis der französischen Sprache)",
+        "fr": "Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\nDescription du poste\n• Réaliser les travaux de rafraîchissement (polissage, satinage, lapidage, feutrage et meulage) des carrures, lunettes, fonds et bracelets des montres au sein de notre service clients\n\n• Gérer et contrôler les paniers de lavage après rafraichissement\n\n• Participer à l'amélioration des activités\n\n• Entretenir les machines et l'équipement de l'atelier\n\nProfil\n• Polisseur de formation au bénéfice d’une solide expérience professionnelle sur les composants horlogers\n\n• De langue maternelle française (ou allemande avec bonne compréhension de la langue française) vous maîtrisez les outils informatiques courants\n\n• Personnalité polyvalente, ouverte et communicative, privilégiant le travail en équipe tout en sachant travaille de manière autonome et possédant un bon esprit de synthèse\n\n• La satisfaction du client est votre objectif principal\n\nLangues\nDe langue maternelle française (ou allemande avec bonne compréhension de la langue française)"
       },
       "location": "Biel/Bienne",
       "canton": "BE",
       "url": "https://www.swatchgroup.com/fr/job/34211",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T22:18:01.453Z",
+      "crawledAt": "2026-11-24T22:20:36.793Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -882,7 +882,6 @@
           "customer-service-polisher-omega-biel-bienne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-14T10:00:32.436Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -898,7 +897,103 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T22:18:01.453Z",
+      "validThrough": "2027-02-11T22:20:36.793Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "omega-34231",
+      "slug": "rappresentanti-omega-boutique-build-m-f-omega-sa-zurich",
+      "slugByLocale": {
+        "it": "rappresentanti-omega-boutique-build-m-f-omega-sa-zurich",
+        "en": "sales-representative-omega-boutique-zurich-m-w-omega-zurich",
+        "de": "sales-representative-omega-boutique-zurich-m-w-omega-zurich",
+        "fr": "ventes-representant-omega-boutique-build-h-f-omega-sa-zurich"
+      },
+      "company": "OMEGA SA",
+      "companyKey": "omega",
+      "companyDomain": "omegawatches.com",
+      "title": "SALES REPRESENTATIVE - OMEGA BOUTIQUE ZÜRICH (M/W)",
+      "titleByLocale": {
+        "it": "RAPPRESENTANTI — OMEGA BOUTIQUE BUILD (M/F)",
+        "en": "SALES REPRESENTATIVE — OMEGA BOUTIQUE BUILD (M/F)",
+        "de": "SALES REPRESENTATIVE - OMEGA BOUTIQUE ZÜRICH (M/W)",
+        "fr": "VENTES REPRÉSENTANT — OMEGA BOUTIQUE BUILD (H/F)"
+      },
+      "description": "## Firmenbeschreibung\nOMEGA ist eine prestigeträchtige globale Marke, die seit mehr als 170 Jahren nach höchster Qualität, äusserster Präzision und immer neuen Innovationen strebt. Unsere Uhren gehören zu den besten der Welt, sie sind das Ergebnis von Technologien, die führend in der Uhrenbranche sind und sich durch ein zeitloses Design auszeichnen.\n\nIm Laufe unserer langen Geschichte haben wir Präzisionsrekorde aufgestellt, die Sportzeitnahme entscheidend geprägt und nach wie vor nehmen wir eine Vorreiterrolle in der hohen Uhrmacherkunst ein.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen kennenzulernen, die bereit sind, unsere Teams auf praktisch jedem Kontinent durch ihre Talente, ihre Ambitionen und ihre Inspiration zu unterstützen.\n\n## Stellenbeschreibung\n• Sie leisten einen aktiven Beitrag zum Erfolg der Boutique und zur Erreichung der Verkaufsziele\n\n• Sie generieren und pflegen den Kontakt mit unserer anspruchsvollen Kundschaft\n\n• Sie sind ein Botschafter unserer Marke und beraten unsere Kunden auf höchstem Niveau, inklusiv aller technischen Feinheiten unserer Uhren\n\n## Profil\n• Ähnliche Erfahrung im Luxussegment, idealerweise in der Uhren- und Schmuckbranche\n\n• Kontaktfreudige Verkäuferpersönlichkeit mit Initiative\n\n• Serviceorientierung auf hohem Niveau für unsere anspruchsvolle Kundschaft\n\n## Berufliche Anforderungen\n• Gepflegtes, zuvorkommendes und tadelloses Auftreten\n\n• Ausgezeichneter Teamgeist, verfügbar und flexibel\n\n## Sprachkenntnisse\n• Sehr gute Kenntnisse in Deutsch oder Französisch und Englisch (zusätzliche Sprachen sind von Vorteil)",
+      "descriptionByLocale": {
+        "it": "## Descrizione della Società\nOMEGA è un prestigioso marchio globale che da oltre 170 anni si impegna per la massima qualità, massima precisione e sempre maggiore innovazione. I nostri orologi sono tra i migliori al mondo, sono il risultato di tecnologie che sono leader nell'industria orologiera e sono caratterizzati da un design senza tempo.\n\nNel corso della nostra lunga storia, abbiamo stabilito record di precisione, svolto un ruolo decisivo nel timekeeping sportivo e continuare a svolgere un ruolo pionieristico nell'arte dell'orologeria.\n\nCome brand internazionale, siamo sempre interessati a incontrare futuri colleghi che sono pronti a sostenere i nostri team in praticamente ogni continente attraverso i loro talenti, ambizioni e ispirazione.\n\n## Descrizione del lavoro\n• Essi contribuiscono attivamente al successo della boutique e al raggiungimento degli obiettivi di vendita\n\n• Essi generano e mantengono il contatto con i nostri clienti esigenti\n\n• Sei un ambasciatore del nostro marchio e consiglia ai nostri clienti al massimo livello, comprese tutte le sottigliezze tecniche dei nostri orologi\n\n## Profilo\n• Esperienza simile nel segmento di lusso, idealmente nel settore orologi e gioielli\n\n• Sociable personalità di vendita con iniziativa\n\n• L'orientamento al servizio ad alto livello per i nostri clienti esigenti\n\n## Requisiti professionali\n• Aspetto attento, cortese e impeccabile\n\n• Eccellente spirito di squadra, disponibile e flessibile\n\n## Capacità linguistiche\n• Conoscenza molto buona di tedesco o francese e inglese (le lingue aggiuntive sono vantaggiose)",
+        "en": "## Company description\nOMEGA is a prestigious global brand that has been striving for the highest quality, highest precision and ever-increasing innovation for more than 170 years. Our watches are among the best in the world, they are the result of technologies that are leaders in the watch industry and are characterized by a timeless design.\n\nOver the course of our long history, we have set precision records, played a decisive role in sports timekeeping and continue to play a pioneering role in the art of watchmaking.\n\nAs an international brand, we are always interested in meeting future colleagues who are ready to support our teams on virtually every continent through their talents, ambitions and inspiration.\n\n## Job description\n• They actively contribute to the success of the boutique and to the achievement of sales goals\n\n• They generate and maintain contact with our demanding customers\n\n• You are an ambassador of our brand and advise our customers at the highest level, including all the technical subtleties of our watches\n\n## Profile\n• Similar experience in the luxury segment, ideally in the watch and jewelry industry\n\n• Sociable sales personality with initiative\n\n• Service orientation at a high level for our demanding customers\n\n## Professional requirements\n• Careful, courteous and impeccable appearance\n\n• Excellent team spirit, available and flexible\n\n## Language skills\n• Very good knowledge of German or French and English (additional languages are advantageous)",
+        "de": "## Firmenbeschreibung\nOMEGA ist eine prestigeträchtige globale Marke, die seit mehr als 170 Jahren nach höchster Qualität, äusserster Präzision und immer neuen Innovationen strebt. Unsere Uhren gehören zu den besten der Welt, sie sind das Ergebnis von Technologien, die führend in der Uhrenbranche sind und sich durch ein zeitloses Design auszeichnen.\n\nIm Laufe unserer langen Geschichte haben wir Präzisionsrekorde aufgestellt, die Sportzeitnahme entscheidend geprägt und nach wie vor nehmen wir eine Vorreiterrolle in der hohen Uhrmacherkunst ein.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen kennenzulernen, die bereit sind, unsere Teams auf praktisch jedem Kontinent durch ihre Talente, ihre Ambitionen und ihre Inspiration zu unterstützen.\n\n## Stellenbeschreibung\n• Sie leisten einen aktiven Beitrag zum Erfolg der Boutique und zur Erreichung der Verkaufsziele\n\n• Sie generieren und pflegen den Kontakt mit unserer anspruchsvollen Kundschaft\n\n• Sie sind ein Botschafter unserer Marke und beraten unsere Kunden auf höchstem Niveau, inklusiv aller technischen Feinheiten unserer Uhren\n\n## Profil\n• Ähnliche Erfahrung im Luxussegment, idealerweise in der Uhren- und Schmuckbranche\n\n• Kontaktfreudige Verkäuferpersönlichkeit mit Initiative\n\n• Serviceorientierung auf hohem Niveau für unsere anspruchsvolle Kundschaft\n\n## Berufliche Anforderungen\n• Gepflegtes, zuvorkommendes und tadelloses Auftreten\n\n• Ausgezeichneter Teamgeist, verfügbar und flexibel\n\n## Sprachkenntnisse\n• Sehr gute Kenntnisse in Deutsch oder Französisch und Englisch (zusätzliche Sprachen sind von Vorteil)",
+        "fr": "## Désignation de l'entreprise\nOMEGA est une marque mondiale prestigieuse qui cherche depuis plus de 170 ans la plus haute qualité, la plus haute précision et l'innovation sans cesse croissante. Nos montres sont parmi les meilleures du monde, elles sont le résultat de technologies qui sont des leaders dans l'industrie horlogère et sont caractérisées par un design intemporel.\n\nAu cours de notre longue histoire, nous avons établi des records de précision, joué un rôle décisif dans l'horlogerie sportive et continuons de jouer un rôle pionnier dans l'art horloger.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues prêts à soutenir nos équipes sur pratiquement tous les continents grâce à leurs talents, ambitions et inspirations.\n\n## Description du poste\n• Ils contribuent activement au succès de la boutique et à la réalisation des objectifs de vente\n\n• Ils génèrent et maintiennent le contact avec nos clients exigeants\n\n• Vous êtes un ambassadeur de notre marque et conseillez nos clients au plus haut niveau, y compris toutes les subtilités techniques de nos montres\n\n## Profil\n• Expérience similaire dans le secteur du luxe, idéalement dans l'industrie de la montre et des bijoux\n\n• Personnalité de vente sociable avec initiative\n\n• Orientation de service à un niveau élevé pour nos clients exigeants\n\n## Exigences professionnelles\n• Comparution attentive, courtoise et impeccable\n\n• Excellent esprit d'équipe, disponible et flexible\n\n## Compétences linguistiques\n• Très bonne connaissance de l'allemand ou du français et de l'anglais (les langues supplémentaires sont avantageuses)"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.swatchgroup.com/de/job/34231",
+      "source": "OMEGA SA Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-24T22:19:06.327Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "streetAddress": "Bahnhofstrasse 48",
+      "category": "Commerciale",
+      "contract": "permanent",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Orologeria di lusso",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-15T20:54:19+01:00",
+      "postedDate": "2026-11-15T20:54:19+01:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-283671&langCode=de_DE&source=swatchgroup.com",
+      "requirements": [
+        "Ähnliche Erfahrung im Luxussegment, idealerweise in der Uhren- und Schmuckbranche",
+        "Kontaktfreudige Verkäuferpersönlichkeit mit Initiative",
+        "Serviceorientierung auf hohem Niveau für unsere anspruchsvolle Kundschaft",
+        "Gepflegtes, zuvorkommendes und tadelloses Auftreten",
+        "Ausgezeichneter Teamgeist, verfügbar und flexibel",
+        "Sehr gute Kenntnisse in Deutsch oder Französisch und Englisch (zusätzliche Sprachen sind von Vorteil)"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Ähnliche Erfahrung im Luxussegment, idealerweise in der Uhren- und Schmuckbranche",
+          "Kontaktfreudige Verkäuferpersönlichkeit mit Initiative",
+          "Serviceorientierung auf hohem Niveau für unsere anspruchsvolle Kundschaft",
+          "Gepflegtes, zuvorkommendes und tadelloses Auftreten",
+          "Ausgezeichneter Teamgeist, verfügbar und flexibel",
+          "Sehr gute Kenntnisse in Deutsch oder Französisch und Englisch (zusätzliche Sprachen sind von Vorteil)"
+        ]
+      },
+      "previousSlugs": [
+        "sales-representative-omega-boutique-zurich-m-w-omega-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-representative-omega-boutique-zurich-m-w-omega-zurich"
+        ],
+        "fr": [
+          "sales-representative-omega-boutique-zurich-m-w-omega-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-09-10T23:28:54.037Z",
+      "salaryMin": 83000,
+      "salaryMax": 127500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 127500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-13T22:19:06.327Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -932,7 +1027,7 @@
       "url": "https://www.swatchgroup.com/de/job/34226",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T22:16:32.357Z",
+      "crawledAt": "2026-11-24T22:17:35.785Z",
       "addressLocality": "Berne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1017,103 +1112,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-13T22:16:32.357Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "omega-34231",
-      "slug": "rappresentanti-omega-boutique-build-m-f-omega-sa-zurich",
-      "slugByLocale": {
-        "it": "rappresentanti-omega-boutique-build-m-f-omega-sa-zurich",
-        "en": "sales-representative-omega-boutique-zurich-m-w-omega-zurich",
-        "de": "sales-representative-omega-boutique-zurich-m-w-omega-zurich",
-        "fr": "ventes-representant-omega-boutique-build-h-f-omega-sa-zurich"
-      },
-      "company": "OMEGA SA",
-      "companyKey": "omega",
-      "companyDomain": "omegawatches.com",
-      "title": "SALES REPRESENTATIVE - OMEGA BOUTIQUE ZÜRICH (M/W)",
-      "titleByLocale": {
-        "it": "RAPPRESENTANTI — OMEGA BOUTIQUE BUILD (M/F)",
-        "en": "SALES REPRESENTATIVE — OMEGA BOUTIQUE BUILD (M/F)",
-        "de": "SALES REPRESENTATIVE - OMEGA BOUTIQUE ZÜRICH (M/W)",
-        "fr": "VENTES REPRÉSENTANT — OMEGA BOUTIQUE BUILD (H/F)"
-      },
-      "description": "## Firmenbeschreibung\nOMEGA ist eine prestigeträchtige globale Marke, die seit mehr als 170 Jahren nach höchster Qualität, äusserster Präzision und immer neuen Innovationen strebt. Unsere Uhren gehören zu den besten der Welt, sie sind das Ergebnis von Technologien, die führend in der Uhrenbranche sind und sich durch ein zeitloses Design auszeichnen.\n\nIm Laufe unserer langen Geschichte haben wir Präzisionsrekorde aufgestellt, die Sportzeitnahme entscheidend geprägt und nach wie vor nehmen wir eine Vorreiterrolle in der hohen Uhrmacherkunst ein.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen kennenzulernen, die bereit sind, unsere Teams auf praktisch jedem Kontinent durch ihre Talente, ihre Ambitionen und ihre Inspiration zu unterstützen.\n\n## Stellenbeschreibung\n• Sie leisten einen aktiven Beitrag zum Erfolg der Boutique und zur Erreichung der Verkaufsziele\n\n• Sie generieren und pflegen den Kontakt mit unserer anspruchsvollen Kundschaft\n\n• Sie sind ein Botschafter unserer Marke und beraten unsere Kunden auf höchstem Niveau, inklusiv aller technischen Feinheiten unserer Uhren\n\n## Profil\n• Ähnliche Erfahrung im Luxussegment, idealerweise in der Uhren- und Schmuckbranche\n\n• Kontaktfreudige Verkäuferpersönlichkeit mit Initiative\n\n• Serviceorientierung auf hohem Niveau für unsere anspruchsvolle Kundschaft\n\n## Berufliche Anforderungen\n• Gepflegtes, zuvorkommendes und tadelloses Auftreten\n\n• Ausgezeichneter Teamgeist, verfügbar und flexibel\n\n## Sprachkenntnisse\n• Sehr gute Kenntnisse in Deutsch oder Französisch und Englisch (zusätzliche Sprachen sind von Vorteil)",
-      "descriptionByLocale": {
-        "it": "## Descrizione della Società\nOMEGA è un prestigioso marchio globale che da oltre 170 anni si impegna per la massima qualità, massima precisione e sempre maggiore innovazione. I nostri orologi sono tra i migliori al mondo, sono il risultato di tecnologie che sono leader nell'industria orologiera e sono caratterizzati da un design senza tempo.\n\nNel corso della nostra lunga storia, abbiamo stabilito record di precisione, svolto un ruolo decisivo nel timekeeping sportivo e continuare a svolgere un ruolo pionieristico nell'arte dell'orologeria.\n\nCome brand internazionale, siamo sempre interessati a incontrare futuri colleghi che sono pronti a sostenere i nostri team in praticamente ogni continente attraverso i loro talenti, ambizioni e ispirazione.\n\n## Descrizione del lavoro\n• Essi contribuiscono attivamente al successo della boutique e al raggiungimento degli obiettivi di vendita\n\n• Essi generano e mantengono il contatto con i nostri clienti esigenti\n\n• Sei un ambasciatore del nostro marchio e consiglia ai nostri clienti al massimo livello, comprese tutte le sottigliezze tecniche dei nostri orologi\n\n## Profilo\n• Esperienza simile nel segmento di lusso, idealmente nel settore orologi e gioielli\n\n• Sociable personalità di vendita con iniziativa\n\n• L'orientamento al servizio ad alto livello per i nostri clienti esigenti\n\n## Requisiti professionali\n• Aspetto attento, cortese e impeccabile\n\n• Eccellente spirito di squadra, disponibile e flessibile\n\n## Capacità linguistiche\n• Conoscenza molto buona di tedesco o francese e inglese (le lingue aggiuntive sono vantaggiose)",
-        "en": "## Company description\nOMEGA is a prestigious global brand that has been striving for the highest quality, highest precision and ever-increasing innovation for more than 170 years. Our watches are among the best in the world, they are the result of technologies that are leaders in the watch industry and are characterized by a timeless design.\n\nOver the course of our long history, we have set precision records, played a decisive role in sports timekeeping and continue to play a pioneering role in the art of watchmaking.\n\nAs an international brand, we are always interested in meeting future colleagues who are ready to support our teams on virtually every continent through their talents, ambitions and inspiration.\n\n## Job description\n• They actively contribute to the success of the boutique and to the achievement of sales goals\n\n• They generate and maintain contact with our demanding customers\n\n• You are an ambassador of our brand and advise our customers at the highest level, including all the technical subtleties of our watches\n\n## Profile\n• Similar experience in the luxury segment, ideally in the watch and jewelry industry\n\n• Sociable sales personality with initiative\n\n• Service orientation at a high level for our demanding customers\n\n## Professional requirements\n• Careful, courteous and impeccable appearance\n\n• Excellent team spirit, available and flexible\n\n## Language skills\n• Very good knowledge of German or French and English (additional languages are advantageous)",
-        "de": "## Firmenbeschreibung\nOMEGA ist eine prestigeträchtige globale Marke, die seit mehr als 170 Jahren nach höchster Qualität, äusserster Präzision und immer neuen Innovationen strebt. Unsere Uhren gehören zu den besten der Welt, sie sind das Ergebnis von Technologien, die führend in der Uhrenbranche sind und sich durch ein zeitloses Design auszeichnen.\n\nIm Laufe unserer langen Geschichte haben wir Präzisionsrekorde aufgestellt, die Sportzeitnahme entscheidend geprägt und nach wie vor nehmen wir eine Vorreiterrolle in der hohen Uhrmacherkunst ein.\n\nAls internationale Marke sind wir immer daran interessiert, zukünftige Kollegen kennenzulernen, die bereit sind, unsere Teams auf praktisch jedem Kontinent durch ihre Talente, ihre Ambitionen und ihre Inspiration zu unterstützen.\n\n## Stellenbeschreibung\n• Sie leisten einen aktiven Beitrag zum Erfolg der Boutique und zur Erreichung der Verkaufsziele\n\n• Sie generieren und pflegen den Kontakt mit unserer anspruchsvollen Kundschaft\n\n• Sie sind ein Botschafter unserer Marke und beraten unsere Kunden auf höchstem Niveau, inklusiv aller technischen Feinheiten unserer Uhren\n\n## Profil\n• Ähnliche Erfahrung im Luxussegment, idealerweise in der Uhren- und Schmuckbranche\n\n• Kontaktfreudige Verkäuferpersönlichkeit mit Initiative\n\n• Serviceorientierung auf hohem Niveau für unsere anspruchsvolle Kundschaft\n\n## Berufliche Anforderungen\n• Gepflegtes, zuvorkommendes und tadelloses Auftreten\n\n• Ausgezeichneter Teamgeist, verfügbar und flexibel\n\n## Sprachkenntnisse\n• Sehr gute Kenntnisse in Deutsch oder Französisch und Englisch (zusätzliche Sprachen sind von Vorteil)",
-        "fr": "## Désignation de l'entreprise\nOMEGA est une marque mondiale prestigieuse qui cherche depuis plus de 170 ans la plus haute qualité, la plus haute précision et l'innovation sans cesse croissante. Nos montres sont parmi les meilleures du monde, elles sont le résultat de technologies qui sont des leaders dans l'industrie horlogère et sont caractérisées par un design intemporel.\n\nAu cours de notre longue histoire, nous avons établi des records de précision, joué un rôle décisif dans l'horlogerie sportive et continuons de jouer un rôle pionnier dans l'art horloger.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues prêts à soutenir nos équipes sur pratiquement tous les continents grâce à leurs talents, ambitions et inspirations.\n\n## Description du poste\n• Ils contribuent activement au succès de la boutique et à la réalisation des objectifs de vente\n\n• Ils génèrent et maintiennent le contact avec nos clients exigeants\n\n• Vous êtes un ambassadeur de notre marque et conseillez nos clients au plus haut niveau, y compris toutes les subtilités techniques de nos montres\n\n## Profil\n• Expérience similaire dans le secteur du luxe, idéalement dans l'industrie de la montre et des bijoux\n\n• Personnalité de vente sociable avec initiative\n\n• Orientation de service à un niveau élevé pour nos clients exigeants\n\n## Exigences professionnelles\n• Comparution attentive, courtoise et impeccable\n\n• Excellent esprit d'équipe, disponible et flexible\n\n## Compétences linguistiques\n• Très bonne connaissance de l'allemand ou du français et de l'anglais (les langues supplémentaires sont avantageuses)"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://www.swatchgroup.com/de/job/34231",
-      "source": "OMEGA SA Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-23T22:15:01.765Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "streetAddress": "Bahnhofstrasse 48",
-      "category": "Commerciale",
-      "contract": "permanent",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Orologeria di lusso",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-15T20:54:19+01:00",
-      "postedDate": "2026-11-15T20:54:19+01:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-283671&langCode=de_DE&source=swatchgroup.com",
-      "requirements": [
-        "Ähnliche Erfahrung im Luxussegment, idealerweise in der Uhren- und Schmuckbranche",
-        "Kontaktfreudige Verkäuferpersönlichkeit mit Initiative",
-        "Serviceorientierung auf hohem Niveau für unsere anspruchsvolle Kundschaft",
-        "Gepflegtes, zuvorkommendes und tadelloses Auftreten",
-        "Ausgezeichneter Teamgeist, verfügbar und flexibel",
-        "Sehr gute Kenntnisse in Deutsch oder Französisch und Englisch (zusätzliche Sprachen sind von Vorteil)"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Ähnliche Erfahrung im Luxussegment, idealerweise in der Uhren- und Schmuckbranche",
-          "Kontaktfreudige Verkäuferpersönlichkeit mit Initiative",
-          "Serviceorientierung auf hohem Niveau für unsere anspruchsvolle Kundschaft",
-          "Gepflegtes, zuvorkommendes und tadelloses Auftreten",
-          "Ausgezeichneter Teamgeist, verfügbar und flexibel",
-          "Sehr gute Kenntnisse in Deutsch oder Französisch und Englisch (zusätzliche Sprachen sind von Vorteil)"
-        ]
-      },
-      "previousSlugs": [
-        "sales-representative-omega-boutique-zurich-m-w-omega-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sales-representative-omega-boutique-zurich-m-w-omega-zurich"
-        ],
-        "fr": [
-          "sales-representative-omega-boutique-zurich-m-w-omega-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-09-10T23:28:54.037Z",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 127500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-13T22:15:01.765Z",
+      "validThrough": "2027-02-13T22:17:35.785Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1147,7 +1146,7 @@
       "url": "https://www.swatchgroup.com/fr/job/34261",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T22:13:31.714Z",
+      "crawledAt": "2026-11-24T22:16:03.044Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1206,7 +1205,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T22:13:31.714Z",
+      "validThrough": "2027-02-14T22:16:03.044Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1240,7 +1239,7 @@
       "url": "https://www.swatchgroup.com/fr/job/34386",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T22:12:01.790Z",
+      "crawledAt": "2026-11-24T22:14:33.201Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1317,7 +1316,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-16T22:12:01.790Z",
+      "validThrough": "2027-02-16T22:14:33.201Z",
       "validThroughSource": "last-observed-window"
     }
   ]

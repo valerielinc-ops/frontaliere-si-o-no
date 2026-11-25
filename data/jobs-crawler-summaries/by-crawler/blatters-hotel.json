@@ -1,7 +1,7 @@
 {
   "key": "blatters-hotel",
   "label": "Blatter",
-  "generatedAt": "2026-11-23T21:22:03.360Z",
+  "generatedAt": "2026-11-25T09:19:09.640Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -49,16 +49,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 24102,
-  "avgDurationMs": 24102,
+  "unchangedCount": 1,
+  "durationMs": 33186,
+  "avgDurationMs": 33186,
   "durationHistory": [
-    24102
+    33186
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "blatters-hotel-07c54e69f949",
       "slug": "2-tecnico-edilizio-contratto-annuale-o-stagionale-alloggio-disponibile-ingresso-su-accordo-blatter-arosa",
@@ -71,7 +73,7 @@
       "url": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/2-haustechniker-jahresvertrag-oder-4057345?rltr=comp",
       "source": "Blatter's Arosa Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-23T21:21:46.751Z",
+      "crawledAt": "2026-11-25T09:18:46.259Z",
       "addressLocality": "Arosa",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -94,7 +96,7 @@
       "postalCode": "7050",
       "streetAddress": "Arosa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T21:21:46.751Z",
+      "validThrough": "2027-02-21T09:18:46.259Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -105,7 +107,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "7b684909df7304f91c3a19b75aa2a6088ce7630a"
+  "codeCommit": "55fd511dba5e5c1bd3b4047690c697040c8b6c58"
 }

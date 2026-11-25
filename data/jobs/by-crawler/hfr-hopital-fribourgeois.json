@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hfr-hopital-fribourgeois",
-  "assembledAt": "2026-11-23T21:46:03.888Z",
-  "runId": "45268967671",
+  "assembledAt": "2026-11-25T09:35:14.559Z",
+  "runId": "45584672385",
   "jobs": [
     {
       "id": "hfr-hopital-fribourgeois-533bf9597390",
@@ -34,7 +34,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1538",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:45:56.145Z",
+      "crawledAt": "2026-11-25T09:35:03.616Z",
       "addressLocality": "Tafers",
       "addressRegion": "FR",
       "streetAddress": "Tafers",
@@ -82,7 +82,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:45:56.145Z",
+      "validThrough": "2027-01-28T09:35:03.616Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -116,7 +116,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1523",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:45:55.238Z",
+      "crawledAt": "2026-11-25T09:35:02.886Z",
       "addressLocality": "Riaz",
       "addressRegion": "FR",
       "streetAddress": "Riaz",
@@ -169,7 +169,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:45:55.238Z",
+      "validThrough": "2027-01-28T09:35:02.886Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -204,7 +204,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1508",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:45:54.682Z",
+      "crawledAt": "2026-11-25T09:35:02.146Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -255,7 +255,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:45:54.682Z",
+      "validThrough": "2027-01-28T09:35:02.146Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -290,7 +290,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1511",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:45:54.079Z",
+      "crawledAt": "2026-11-25T09:35:01.378Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -351,7 +351,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:45:54.079Z",
+      "validThrough": "2027-01-28T09:35:01.378Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -385,7 +385,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1477",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:45:53.513Z",
+      "crawledAt": "2026-11-25T09:35:00.837Z",
       "addressLocality": "Meyriez",
       "addressRegion": "FR",
       "streetAddress": "Meyriez",
@@ -433,7 +433,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:45:53.513Z",
+      "validThrough": "2027-01-28T09:35:00.837Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -468,7 +468,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1421",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:45:52.593Z",
+      "crawledAt": "2026-11-25T09:35:00.067Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -523,7 +523,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:45:52.593Z",
+      "validThrough": "2027-01-28T09:35:00.067Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -558,7 +558,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1420",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:45:52.017Z",
+      "crawledAt": "2026-11-25T09:34:59.511Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -609,7 +609,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:45:52.017Z",
+      "validThrough": "2027-01-27T09:34:59.511Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -644,7 +644,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1397",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:45:51.370Z",
+      "crawledAt": "2026-11-25T09:34:58.985Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -689,7 +689,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:45:51.370Z",
+      "validThrough": "2027-01-27T09:34:58.985Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -723,7 +723,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1605",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:45:50.734Z",
+      "crawledAt": "2026-11-25T09:34:58.182Z",
       "addressLocality": "Tafers",
       "addressRegion": "FR",
       "streetAddress": "Tafers",
@@ -771,7 +771,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:45:50.734Z",
+      "validThrough": "2027-02-03T09:34:58.182Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -805,7 +805,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1604",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:45:50.185Z",
+      "crawledAt": "2026-11-25T09:34:57.646Z",
       "addressLocality": "Tafers",
       "addressRegion": "FR",
       "streetAddress": "Tafers",
@@ -856,7 +856,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:45:50.185Z",
+      "validThrough": "2027-02-03T09:34:57.646Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -891,7 +891,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1601",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:45:49.546Z",
+      "crawledAt": "2026-11-25T09:34:57.102Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -942,7 +942,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:45:49.546Z",
+      "validThrough": "2027-02-03T09:34:57.102Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -976,7 +976,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1599",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:45:48.942Z",
+      "crawledAt": "2026-11-25T09:34:56.582Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1024,7 +1024,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:45:48.942Z",
+      "validThrough": "2027-02-03T09:34:56.582Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1059,7 +1059,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1537",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:45:48.364Z",
+      "crawledAt": "2026-11-25T09:34:55.841Z",
       "addressLocality": "Tafers",
       "addressRegion": "FR",
       "streetAddress": "Tafers",
@@ -1110,7 +1110,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:45:48.364Z",
+      "validThrough": "2027-02-04T09:34:55.841Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1144,7 +1144,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1493",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:45:47.824Z",
+      "crawledAt": "2026-11-25T09:34:55.022Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1195,7 +1195,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:45:47.824Z",
+      "validThrough": "2027-02-04T09:34:55.022Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1230,7 +1230,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1591",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:45:47.240Z",
+      "crawledAt": "2026-11-25T09:34:54.270Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1281,7 +1281,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:45:47.240Z",
+      "validThrough": "2027-02-07T09:34:54.270Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1316,7 +1316,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1476",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:45:46.649Z",
+      "crawledAt": "2026-11-25T09:34:53.528Z",
       "addressLocality": "Meyriez",
       "addressRegion": "FR",
       "streetAddress": "Meyriez",
@@ -1367,7 +1367,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:45:46.649Z",
+      "validThrough": "2027-02-09T09:34:53.528Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1401,7 +1401,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1419",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:45:46.088Z",
+      "crawledAt": "2026-11-25T09:34:52.795Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1458,7 +1458,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:45:46.088Z",
+      "validThrough": "2027-02-10T09:34:52.795Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1492,7 +1492,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1627",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:45:45.509Z",
+      "crawledAt": "2026-11-25T09:34:51.989Z",
       "addressLocality": "Riaz",
       "addressRegion": "FR",
       "streetAddress": "Riaz",
@@ -1543,7 +1543,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:45:45.509Z",
+      "validThrough": "2027-02-12T09:34:51.989Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1578,7 +1578,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1480",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:45:44.899Z",
+      "crawledAt": "2026-11-25T09:34:51.451Z",
       "addressLocality": "Riaz",
       "addressRegion": "FR",
       "streetAddress": "Riaz",
@@ -1639,7 +1639,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:45:44.899Z",
+      "validThrough": "2027-02-12T09:34:51.451Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1674,7 +1674,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1646",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:45:44.186Z",
+      "crawledAt": "2026-11-25T09:34:50.917Z",
       "addressLocality": "Riaz",
       "addressRegion": "FR",
       "streetAddress": "Riaz",
@@ -1719,7 +1719,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:45:44.186Z",
+      "validThrough": "2027-02-16T09:34:50.917Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1753,7 +1753,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1575",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:45:43.602Z",
+      "crawledAt": "2026-11-25T09:34:50.347Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1801,7 +1801,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:45:43.602Z",
+      "validThrough": "2027-02-17T09:34:50.347Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1835,7 +1835,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1626",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:45:43.035Z",
+      "crawledAt": "2026-11-25T09:34:49.815Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1880,7 +1880,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:45:43.035Z",
+      "validThrough": "2027-02-19T09:34:49.815Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1902,19 +1902,19 @@
         "de": "Medizinische Sekretärin",
         "fr": "Secrétaire médical-e"
       },
-      "description": "• accueillir les patient-e-s à la consultation du service\n\n• gérer les prises de rendez-vous et appels externes\n\n• rédiger et mettre en forme des courriers et rapports médicaux\n\n• contrôler la saisie des prestations du service\n\n• effectuer divers travaux administratifs\n\n• CFC d’employé-e de commerce ou diplôme équivalent, avec un diplôme complémentaire de secrétaire médical-e souhaité\n\n• connaissances avérées du milieu médical et/ou hospitalier\n\n• excellente maîtrise du française ou de l’allemand, avec de bonnes connaissances de l’autre langue, à l’oral comme à l’écrit\n\n• excellente maîtrise des outils informatiques (MS Office)\n\n• excellente gestion du stress, sens de l’organisation, flexibilité, aisance relationnelle et fiabilité",
+      "description": "• accueillir les patient-e-s à la consultation du service\n\n• gérer les prises de rendez-vous et appels externes\n\n• rédiger et mettre en forme des courriers et rapports médicaux\n\n• contrôler la saisie des prestations du service\n\n• effectuer divers travaux administratifs\n\n• CFC d’employé-e de commerce ou diplôme équivalent, avec un diplôme complémentaire de secrétaire médical-e souhaité\n\n• connaissances avérées du milieu médical et/ou hospitalier\n\n• excellente maîtrise du français ou de l’allemand, avec de bonnes connaissances de l’autre langue, à l’oral comme à l’écrit\n\n• excellente maîtrise des outils informatiques (MS Office)\n\n• excellente gestion du stress, sens de l’organisation, flexibilité, aisance relationnelle et fiabilité",
       "descriptionByLocale": {
         "it": "• accogliere i pazienti alla consultazione del servizio\n\n• gestire appuntamenti e chiamate esterne\n\n• redazione e formattazione corrispondenza medica e report\n\n• controllare il sequestro dei servizi\n\n• svolgere vari lavori amministrativi\n\n• SWC dipendente aziendale o grado equivalente, con un grado di segreteria medica complementare desiderato\n\n• comprovata conoscenza dell'ambiente medico e/o ospedaliero\n\n• ottimo comando di francese o tedesco, con buona conoscenza dell'altra lingua, sia orale che scritta\n\n• strumenti informatici eccellenti (MS Office)\n\n• eccellente gestione dello stress, senso organizzativo, flessibilità, facilità di relazione e affidabilità",
         "en": "• welcome patients to the service consultation\n\n• manage appointments and external calls\n\n• drafting and formatting medical correspondence and reports\n\n• control the seizure of services\n\n• carry out various administrative work\n\n• SWC business employee or equivalent degree, with a desired complementary medical secretary degree\n\n• proven knowledge of the medical and/or hospital environment\n\n• excellent command of French or German, with good knowledge of the other language, both oral and written\n\n• excellent computer tools (MS Office)\n\n• excellent stress management, organizational sense, flexibility, relationship ease and reliability",
         "de": "• Begrüßung der Patienten zur Serviceberatung\n\n• Termine und externe Anrufe verwalten\n\n• Erstellung und Formatierung von medizinischer Korrespondenz und Berichten\n\n• Kontrolle der Beschlagnahme von Dienstleistungen\n\n• verschiedene administrative Arbeiten durchführen\n\n• SWC Geschäftsangestellter oder gleichwertiger Abschluss, mit einem gewünschten komplementären medizinischen Sekretariatsabschluss\n\n• nachgewiesene Kenntnisse des medizinischen und/oder Krankenhausumfelds\n\n• ausgezeichnete Beherrschung von Französisch oder Deutsch, mit guten Kenntnissen der anderen Sprache, sowohl mündlich als auch schriftlich\n\n• Ausgezeichnete Computer-Tools (MS Office)\n\n• exzellentes Stressmanagement, Organisationssinn, Flexibilität, Beziehungsleichtigkeit und Zuverlässigkeit",
-        "fr": "• accueillir les patient-e-s à la consultation du service\n\n• gérer les prises de rendez-vous et appels externes\n\n• rédiger et mettre en forme des courriers et rapports médicaux\n\n• contrôler la saisie des prestations du service\n\n• effectuer divers travaux administratifs\n\n• CFC d’employé-e de commerce ou diplôme équivalent, avec un diplôme complémentaire de secrétaire médical-e souhaité\n\n• connaissances avérées du milieu médical et/ou hospitalier\n\n• excellente maîtrise du française ou de l’allemand, avec de bonnes connaissances de l’autre langue, à l’oral comme à l’écrit\n\n• excellente maîtrise des outils informatiques (MS Office)\n\n• excellente gestion du stress, sens de l’organisation, flexibilité, aisance relationnelle et fiabilité"
+        "fr": "• accueillir les patient-e-s à la consultation du service\n\n• gérer les prises de rendez-vous et appels externes\n\n• rédiger et mettre en forme des courriers et rapports médicaux\n\n• contrôler la saisie des prestations du service\n\n• effectuer divers travaux administratifs\n\n• CFC d’employé-e de commerce ou diplôme équivalent, avec un diplôme complémentaire de secrétaire médical-e souhaité\n\n• connaissances avérées du milieu médical et/ou hospitalier\n\n• excellente maîtrise du français ou de l’allemand, avec de bonnes connaissances de l’autre langue, à l’oral comme à l’écrit\n\n• excellente maîtrise des outils informatiques (MS Office)\n\n• excellente gestion du stress, sens de l’organisation, flexibilité, aisance relationnelle et fiabilité"
       },
       "location": "Fribourg, Switzerland",
       "canton": "FR",
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1583",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:45:42.468Z",
+      "crawledAt": "2026-11-25T09:34:49.003Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1959,41 +1959,41 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:45:42.468Z",
+      "validThrough": "2027-02-19T09:34:49.003Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-1e6bbcb48efb",
-      "slug": "ergotherapeute-hfr-hopital-fribourgeois-fribourg",
+      "slug": "terapeuta-del-lavoro-hopital-fribourgeois-hfr-fribourg",
       "slugByLocale": {
-        "fr": "ergotherapeute-hfr-hopital-fribourgeois-fribourg",
-        "it": "ergotherapeute-hfr-hopital-fribourgeois-fribourg",
-        "en": "ergotherapeute-hfr-hopital-fribourgeois-fribourg",
-        "de": "ergotherapeute-hfr-hopital-fribourgeois-fribourg"
+        "it": "terapeuta-del-lavoro-hopital-fribourgeois-hfr-fribourg",
+        "en": "occupational-therapist-hopital-fribourgeois-hfr-fribourg",
+        "de": "ergotherapeut-hopital-fribourgeois-hfr-fribourg",
+        "fr": "ergotherapeute-hfr-hopital-fribourgeois-fribourg"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
       "companyDomain": "h-fr.ch",
       "title": "Ergothérapeute",
       "titleByLocale": {
-        "fr": "Ergothérapeute",
         "it": "terapeuta del lavoro",
         "en": "Occupational therapist",
-        "de": "Ergotherapeut"
+        "de": "Ergotherapeut",
+        "fr": "Ergothérapeute"
       },
       "description": "• garantir des prestations thérapeutiques de grande qualité, dans le cadre de l’activité hospitalière en gériatrie et réadaptation en particulier ainsi que dans le cadre de l’activité ambulatoire\n\n• développer et pérenniser le travail interdisciplinaire\n\n• participer aux projets du service d'ergothérapie / physiothérapie HFR\n\n• rechercher et appliquer les guides de bonnes pratiques\n\n• favoriser la qualité des prestations à travers le duo ergothérapeute-physiothérapeute\n\n• contribuer aux changements en proposant des améliorations\n\n• contribuer à la promotion de la profession\n\n• diplôme d'ergothérapeute reconnu au niveau suisse\n\n• expérience en milieu hospitalier et en réadaptation un atout\n\n• maîtrise de la langue française ou allemande, avec de bonnes connaissances de l’autre langue\n\n• connaissances des outils informatiques usuels\n\n• qualités relationnelles et sens de la communication\n\n• autonomie et capacité d'organisation\n\n• sens des responsabilités\n\n• flexibilité et dynamisme",
       "descriptionByLocale": {
-        "fr": "• garantir des prestations thérapeutiques de grande qualité, dans le cadre de l’activité hospitalière en gériatrie et réadaptation en particulier ainsi que dans le cadre de l’activité ambulatoire\n\n• développer et pérenniser le travail interdisciplinaire\n\n• participer aux projets du service d'ergothérapie / physiothérapie HFR\n\n• rechercher et appliquer les guides de bonnes pratiques\n\n• favoriser la qualité des prestations à travers le duo ergothérapeute-physiothérapeute\n\n• contribuer aux changements en proposant des améliorations\n\n• contribuer à la promotion de la profession\n\n• diplôme d'ergothérapeute reconnu au niveau suisse\n\n• expérience en milieu hospitalier et en réadaptation un atout\n\n• maîtrise de la langue française ou allemande, avec de bonnes connaissances de l’autre langue\n\n• connaissances des outils informatiques usuels\n\n• qualités relationnelles et sens de la communication\n\n• autonomie et capacité d'organisation\n\n• sens des responsabilités\n\n• flexibilité et dynamisme",
         "it": "• garantire servizi terapeutici di alta qualità, in particolare nel contesto dell'attività ospedaliera in geriatria e riabilitazione e nel contesto dell'attività ambulatoriale\n\n• sviluppare e sostenere il lavoro interdisciplinare\n\n• partecipare alla terapia professionale / fisioterapia progetti HFR\n\n• cercare e applicare buone guide pratiche\n\n• promuovere la qualità dei servizi attraverso il duo terapista-fisioterapista professionale\n\n• contribuire al cambiamento proponendo miglioramenti\n\n• contribuire alla promozione della professione\n\n• diploma in terapista professionale riconosciuto a livello svizzero\n\n• esperienza in ospedale e riabilitazione\n\n• padronanza della lingua francese o tedesca, con buona conoscenza dell'altra lingua\n\n• conoscenza di strumenti informatici comuni\n\n• qualità relazionali e senso della comunicazione\n\n• autonomia e capacità organizzativa\n\n• responsabilità\n\n• flessibilità e dinamismo",
         "en": "• ensuring high-quality therapeutic services, in particular in the context of hospital activity in geriatrics and rehabilitation and in the context of outpatient activity\n\n• developing and sustaining interdisciplinary work\n\n• participate in occupational therapy / physiotherapy HFR projects\n\n• seek and apply good practice guides\n\n• promote the quality of services through the occupational therapist-physiotherapist duo\n\n• contribute to change by proposing improvements\n\n• contribute to the promotion of the profession\n\n• diploma in occupational therapist recognized at Swiss level\n\n• experience in hospital and rehabilitation an asset\n\n• mastery of the French or German language, with good knowledge of the other language\n\n• knowledge of common computer tools\n\n• relational qualities and sense of communication\n\n• autonomy and organizational capacity\n\n• responsibility\n\n• flexibility and dynamism",
-        "de": "• Gewährleistung qualitativ hochwertiger therapeutischer Leistungen, insbesondere im Rahmen der Krankenhaustätigkeit in der Geriatrie und Rehabilitation sowie im Rahmen der ambulanten Tätigkeit\n\n• Entwicklung und Unterstützung interdisziplinärer Arbeit\n\n• Teilnahme an Ergotherapie / Physiotherapie HFR-Projekten\n\n• Suche und Anwendung von Good Practice Guides\n\n• Förderung der Qualität der Dienstleistungen durch das Duo Ergotherapeut-Physiotherapeut\n\n• Beitrag zum Wandel durch Verbesserungsvorschläge\n\n• Beitrag zur Förderung des Berufs\n\n• Diplom in Ergotherapeut auf Schweizer Ebene anerkannt\n\n• Erfahrung in Krankenhaus und Rehabilitation ein Asset\n\n• Beherrschung der französischen oder deutschen Sprache, mit guten Kenntnissen der anderen Sprache\n\n• Kenntnisse über gängige Computerwerkzeuge\n\n• Beziehungsqualitäten und Kommunikationssinn\n\n• Autonomie und Organisationsfähigkeit\n\n• Verantwortung\n\n• Flexibilität und Dynamik"
+        "de": "• Gewährleistung qualitativ hochwertiger therapeutischer Leistungen, insbesondere im Rahmen der Krankenhaustätigkeit in der Geriatrie und Rehabilitation sowie im Rahmen der ambulanten Tätigkeit\n\n• Entwicklung und Unterstützung interdisziplinärer Arbeit\n\n• Teilnahme an Ergotherapie / Physiotherapie HFR-Projekten\n\n• Suche und Anwendung von Good Practice Guides\n\n• Förderung der Qualität der Dienstleistungen durch das Duo Ergotherapeut-Physiotherapeut\n\n• Beitrag zum Wandel durch Verbesserungsvorschläge\n\n• Beitrag zur Förderung des Berufs\n\n• Diplom in Ergotherapeut auf Schweizer Ebene anerkannt\n\n• Erfahrung in Krankenhaus und Rehabilitation ein Asset\n\n• Beherrschung der französischen oder deutschen Sprache, mit guten Kenntnissen der anderen Sprache\n\n• Kenntnisse über gängige Computerwerkzeuge\n\n• Beziehungsqualitäten und Kommunikationssinn\n\n• Autonomie und Organisationsfähigkeit\n\n• Verantwortung\n\n• Flexibilität und Dynamik",
+        "fr": "• garantir des prestations thérapeutiques de grande qualité, dans le cadre de l’activité hospitalière en gériatrie et réadaptation en particulier ainsi que dans le cadre de l’activité ambulatoire\n\n• développer et pérenniser le travail interdisciplinaire\n\n• participer aux projets du service d'ergothérapie / physiothérapie HFR\n\n• rechercher et appliquer les guides de bonnes pratiques\n\n• favoriser la qualité des prestations à travers le duo ergothérapeute-physiothérapeute\n\n• contribuer aux changements en proposant des améliorations\n\n• contribuer à la promotion de la profession\n\n• diplôme d'ergothérapeute reconnu au niveau suisse\n\n• expérience en milieu hospitalier et en réadaptation un atout\n\n• maîtrise de la langue française ou allemande, avec de bonnes connaissances de l’autre langue\n\n• connaissances des outils informatiques usuels\n\n• qualités relationnelles et sens de la communication\n\n• autonomie et capacité d'organisation\n\n• sens des responsabilités\n\n• flexibilité et dynamisme"
       },
       "location": "Fribourg, Switzerland",
       "canton": "FR",
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1086",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-23T21:45:41.889Z",
+      "crawledAt": "2026-11-25T09:34:48.454Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -2014,9 +2014,22 @@
       "jobReqId": "1086",
       "externalId": "1086",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "ergotherapeute-hfr-hopital-fribourgeois-fribourg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeute-hfr-hopital-fribourgeois-fribourg"
+        ],
+        "en": [
+          "ergotherapeute-hfr-hopital-fribourgeois-fribourg"
+        ],
+        "de": [
+          "ergotherapeute-hfr-hopital-fribourgeois-fribourg"
+        ]
       },
+      "firstSeenAt": "2026-11-23T21:45:41.889Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2031,9 +2044,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T21:45:41.889Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-23T21:45:41.889Z"
+      "validThrough": "2027-02-22T09:34:48.454Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
