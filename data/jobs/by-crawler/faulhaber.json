@@ -1,7 +1,7 @@
 {
   "crawlerKey": "faulhaber",
-  "assembledAt": "2026-11-24T09:18:22.178Z",
-  "runId": "45362025777",
+  "assembledAt": "2026-11-25T09:20:58.134Z",
+  "runId": "45582270557",
   "jobs": [
     {
       "id": "faulhaber-e099cf383828",
@@ -49,7 +49,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/52258/Production-Shift-Leader",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-24T09:18:17.406Z",
+      "crawledAt": "2026-11-25T09:20:53.175Z",
       "previousSlugs": [
         "production-shift-leader-croglio-faulhaber"
       ],
@@ -78,7 +78,7 @@
       },
       "streetAddress": "Croglio",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T09:18:17.406Z",
+      "validThrough": "2026-12-25T09:20:53.175Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -127,7 +127,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/58894/Mitarbeiter-in-Spedition-Lager-100",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T09:17:56.313Z",
+      "crawledAt": "2026-11-25T09:19:59.756Z",
       "previousSlugs": [
         "mitarbeiter-in-spedition-lager-100-croglio-faulhaber"
       ],
@@ -159,8 +159,76 @@
       },
       "streetAddress": "Croglio",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:17:56.313Z",
+      "validThrough": "2027-02-07T09:19:59.756Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "faulhaber-028f09a2a95b",
+      "slug": "stage-croglio-faulhaber",
+      "slugByLocale": {
+        "it": "stage-croglio-faulhaber",
+        "en": "stage-croglio-faulhaber",
+        "de": "stage-croglio-faulhaber",
+        "fr": "stage-croglio-faulhaber"
+      },
+      "company": "Faulhaber",
+      "companyKey": "faulhaber",
+      "companyDomain": "faulhaber.com",
+      "title": "Stage",
+      "titleByLocale": {
+        "it": "Stage",
+        "en": "Stage",
+        "de": "Stage",
+        "fr": "Stage"
+      },
+      "description": "CH - Croglio\n\nBitte eingeben..\n\nApprendistato, stage professionale\n\nTutti\n\nWe create motion. I sistemi di trasmissione FAULHABER sono capolavori di meccanica di precisione ed elettromeccanica, al limite di ciò che è tecnicamente possibile. FAULHABER è un gruppo aziendale indipendente a conduzione familiare con sede principale a Schönaich. In tutto il mondo, con i nostri oltre 2.300 collaboratori, realizziamo soluzioni all'avanguardia per quasi tutti i mercati e settori in cui la precisione e l'affidabilità in spazi ridotti sono decisive, come ad esempio nell'aerospaziale, nell'industria, nella robotica e nella medicina. Il successo dei nostri prodotti si basa sull'impegno dei nostri collaboratori - perché dietro ogni motore FAULHABER c’è la motivazione del nostro team. Accompagnaci con il tuo entusiasmo e diventa parte della nostra squadra.\n\nUno stage, tanti ambiti da scoprire\n\nAccogliamo candidature spontanee per stage nei diversi ambiti della nostra azienda. L’annuncio non è limitato a un settore o a un percorso di studi specifico: raccontaci quali attività ti interessano e in quale ambito vorresti fare esperienza.\n Ogni proposta di stage viene valutata in funzione del percorso formativo, dell’area d’interesse e delle possibilità di accoglienza del reparto nel periodo richiesto. Per offrire un’esperienza utile e un accompagnamento adeguato, l’attivazione di uno stage dipende anche dalla disponibilità delle persone che potranno seguirti. Per questo motivo, pur apprezzando ogni manifestazione d’interesse, non ci è sempre possibile dare seguito alle candidature o proporre uno stage nel periodo desiderato.\n\nRaccontaci cosa cerchi\n\nInvia la tua candidatura con un certo anticipo rispetto all’inizio desiderato, allegando il curriculum vitae e una breve presentazione. Per aiutarci a valutare la tua richiesta e a indirizzarla al reparto più adatto, indica:\n\n• il reparto o l’area che rappresenta il tuo principale interesse e le eventuali attività che vorresti approfondire;\n\n• il percorso di studi o di formazione che stai seguendo e gli obiettivi del tuo stage;\n\n• il periodo desiderato e la durata prevista;\n\n• eventuali requisiti richiesti dalla scuola o dall’istituto di formazione.\n Ci farà piacere conoscere la tua motivazione e capire se possiamo costruire insieme un’esperienza in linea con il tuo percorso.\n\nCandidarsi ora\n\nStampa lavoro\n\nBenefits\n\n• Mentore\n\n• Percorso formativo strutturato e personalizzato\n\n• Orario flessibile e compatibili con eventuali impegni di studio\n\n• Contributo spese\n\n• Mensa\n\nMaria Di Muccio\n\nFaulhaber SA\n\nVia Cantonale 6980 Croglio",
+      "descriptionByLocale": {
+        "it": "CH - Croglio\n\nBitte eingeben..\n\nApprendistato, stage professionale\n\nTutti\n\nWe create motion. I sistemi di trasmissione FAULHABER sono capolavori di meccanica di precisione ed elettromeccanica, al limite di ciò che è tecnicamente possibile. FAULHABER è un gruppo aziendale indipendente a conduzione familiare con sede principale a Schönaich. In tutto il mondo, con i nostri oltre 2.300 collaboratori, realizziamo soluzioni all'avanguardia per quasi tutti i mercati e settori in cui la precisione e l'affidabilità in spazi ridotti sono decisive, come ad esempio nell'aerospaziale, nell'industria, nella robotica e nella medicina. Il successo dei nostri prodotti si basa sull'impegno dei nostri collaboratori - perché dietro ogni motore FAULHABER c’è la motivazione del nostro team. Accompagnaci con il tuo entusiasmo e diventa parte della nostra squadra.\n\nUno stage, tanti ambiti da scoprire\n\nAccogliamo candidature spontanee per stage nei diversi ambiti della nostra azienda. L’annuncio non è limitato a un settore o a un percorso di studi specifico: raccontaci quali attività ti interessano e in quale ambito vorresti fare esperienza.\n Ogni proposta di stage viene valutata in funzione del percorso formativo, dell’area d’interesse e delle possibilità di accoglienza del reparto nel periodo richiesto. Per offrire un’esperienza utile e un accompagnamento adeguato, l’attivazione di uno stage dipende anche dalla disponibilità delle persone che potranno seguirti. Per questo motivo, pur apprezzando ogni manifestazione d’interesse, non ci è sempre possibile dare seguito alle candidature o proporre uno stage nel periodo desiderato.\n\nRaccontaci cosa cerchi\n\nInvia la tua candidatura con un certo anticipo rispetto all’inizio desiderato, allegando il curriculum vitae e una breve presentazione. Per aiutarci a valutare la tua richiesta e a indirizzarla al reparto più adatto, indica:\n\n• il reparto o l’area che rappresenta il tuo principale interesse e le eventuali attività che vorresti approfondire;\n\n• il percorso di studi o di formazione che stai seguendo e gli obiettivi del tuo stage;\n\n• il periodo desiderato e la durata prevista;\n\n• eventuali requisiti richiesti dalla scuola o dall’istituto di formazione.\n Ci farà piacere conoscere la tua motivazione e capire se possiamo costruire insieme un’esperienza in linea con il tuo percorso.\n\nCandidarsi ora\n\nStampa lavoro\n\nBenefits\n\n• Mentore\n\n• Percorso formativo strutturato e personalizzato\n\n• Orario flessibile e compatibili con eventuali impegni di studio\n\n• Contributo spese\n\n• Mensa\n\nMaria Di Muccio\n\nFaulhaber SA\n\nVia Cantonale 6980 Croglio",
+        "en": "CH - Croglio\n\nBitte eingeben..\n\nApprendistato, stage professionale\n\nTutti\n\nWe create motion. I sistemi di trasmissione FAULHABER sono capolavori di meccanica di precisione ed elettromeccanica, al limite di ciò che è tecnicamente possibile. FAULHABER è un gruppo aziendale indipendente a conduzione familiare con sede principale a Schönaich. In tutto il mondo, con i nostri oltre 2.300 collaboratori, realizziamo soluzioni all'avanguardia per quasi tutti i mercati e settori in cui la precisione e l'affidabilità in spazi ridotti sono decisive, come ad esempio nell'aerospaziale, nell'industria, nella robotica e nella medicina. Il successo dei nostri prodotti si basa sull'impegno dei nostri collaboratori - perché dietro ogni motore FAULHABER c’è la motivazione del nostro team. Accompagnaci con il tuo entusiasmo e diventa parte della nostra squadra.\n\nUno stage, tanti ambiti da scoprire\n\nAccogliamo candidature spontanee per stage nei diversi ambiti della nostra azienda. L’annuncio non è limitato a un settore o a un percorso di studi specifico: raccontaci quali attività ti interessano e in quale ambito vorresti fare esperienza.\n Ogni proposta di stage viene valutata in funzione del percorso formativo, dell’area d’interesse e delle possibilità di accoglienza del reparto nel periodo richiesto. Per offrire un’esperienza utile e un accompagnamento adeguato, l’attivazione di uno stage dipende anche dalla disponibilità delle persone che potranno seguirti. Per questo motivo, pur apprezzando ogni manifestazione d’interesse, non ci è sempre possibile dare seguito alle candidature o proporre uno stage nel periodo desiderato.\n\nRaccontaci cosa cerchi\n\nInvia la tua candidatura con un certo anticipo rispetto all’inizio desiderato, allegando il curriculum vitae e una breve presentazione. Per aiutarci a valutare la tua richiesta e a indirizzarla al reparto più adatto, indica:\n\n• il reparto o l’area che rappresenta il tuo principale interesse e le eventuali attività che vorresti approfondire;\n\n• il percorso di studi o di formazione che stai seguendo e gli obiettivi del tuo stage;\n\n• il periodo desiderato e la durata prevista;\n\n• eventuali requisiti richiesti dalla scuola o dall’istituto di formazione.\n Ci farà piacere conoscere la tua motivazione e capire se possiamo costruire insieme un’esperienza in linea con il tuo percorso.\n\nCandidarsi ora\n\nStampa lavoro\n\nBenefits\n\n• Mentore\n\n• Percorso formativo strutturato e personalizzato\n\n• Orario flessibile e compatibili con eventuali impegni di studio\n\n• Contributo spese\n\n• Mensa\n\nMaria Di Muccio\n\nFaulhaber SA\n\nVia Cantonale 6980 Croglio",
+        "de": "CH - Croglio\n\nBitte eingeben..\n\nApprendistato, stage professionale\n\nTutti\n\nWe create motion. I sistemi di trasmissione FAULHABER sono capolavori di meccanica di precisione ed elettromeccanica, al limite di ciò che è tecnicamente possibile. FAULHABER è un gruppo aziendale indipendente a conduzione familiare con sede principale a Schönaich. In tutto il mondo, con i nostri oltre 2.300 collaboratori, realizziamo soluzioni all'avanguardia per quasi tutti i mercati e settori in cui la precisione e l'affidabilità in spazi ridotti sono decisive, come ad esempio nell'aerospaziale, nell'industria, nella robotica e nella medicina. Il successo dei nostri prodotti si basa sull'impegno dei nostri collaboratori - perché dietro ogni motore FAULHABER c’è la motivazione del nostro team. Accompagnaci con il tuo entusiasmo e diventa parte della nostra squadra.\n\nUno stage, tanti ambiti da scoprire\n\nAccogliamo candidature spontanee per stage nei diversi ambiti della nostra azienda. L’annuncio non è limitato a un settore o a un percorso di studi specifico: raccontaci quali attività ti interessano e in quale ambito vorresti fare esperienza.\n Ogni proposta di stage viene valutata in funzione del percorso formativo, dell’area d’interesse e delle possibilità di accoglienza del reparto nel periodo richiesto. Per offrire un’esperienza utile e un accompagnamento adeguato, l’attivazione di uno stage dipende anche dalla disponibilità delle persone che potranno seguirti. Per questo motivo, pur apprezzando ogni manifestazione d’interesse, non ci è sempre possibile dare seguito alle candidature o proporre uno stage nel periodo desiderato.\n\nRaccontaci cosa cerchi\n\nInvia la tua candidatura con un certo anticipo rispetto all’inizio desiderato, allegando il curriculum vitae e una breve presentazione. Per aiutarci a valutare la tua richiesta e a indirizzarla al reparto più adatto, indica:\n\n• il reparto o l’area che rappresenta il tuo principale interesse e le eventuali attività che vorresti approfondire;\n\n• il percorso di studi o di formazione che stai seguendo e gli obiettivi del tuo stage;\n\n• il periodo desiderato e la durata prevista;\n\n• eventuali requisiti richiesti dalla scuola o dall’istituto di formazione.\n Ci farà piacere conoscere la tua motivazione e capire se possiamo costruire insieme un’esperienza in linea con il tuo percorso.\n\nCandidarsi ora\n\nStampa lavoro\n\nBenefits\n\n• Mentore\n\n• Percorso formativo strutturato e personalizzato\n\n• Orario flessibile e compatibili con eventuali impegni di studio\n\n• Contributo spese\n\n• Mensa\n\nMaria Di Muccio\n\nFaulhaber SA\n\nVia Cantonale 6980 Croglio",
+        "fr": "CH - Croglio\n\nBitte eingeben..\n\nApprendistato, stage professionale\n\nTutti\n\nWe create motion. I sistemi di trasmissione FAULHABER sono capolavori di meccanica di precisione ed elettromeccanica, al limite di ciò che è tecnicamente possibile. FAULHABER è un gruppo aziendale indipendente a conduzione familiare con sede principale a Schönaich. In tutto il mondo, con i nostri oltre 2.300 collaboratori, realizziamo soluzioni all'avanguardia per quasi tutti i mercati e settori in cui la precisione e l'affidabilità in spazi ridotti sono decisive, come ad esempio nell'aerospaziale, nell'industria, nella robotica e nella medicina. Il successo dei nostri prodotti si basa sull'impegno dei nostri collaboratori - perché dietro ogni motore FAULHABER c’è la motivazione del nostro team. Accompagnaci con il tuo entusiasmo e diventa parte della nostra squadra.\n\nUno stage, tanti ambiti da scoprire\n\nAccogliamo candidature spontanee per stage nei diversi ambiti della nostra azienda. L’annuncio non è limitato a un settore o a un percorso di studi specifico: raccontaci quali attività ti interessano e in quale ambito vorresti fare esperienza.\n Ogni proposta di stage viene valutata in funzione del percorso formativo, dell’area d’interesse e delle possibilità di accoglienza del reparto nel periodo richiesto. Per offrire un’esperienza utile e un accompagnamento adeguato, l’attivazione di uno stage dipende anche dalla disponibilità delle persone che potranno seguirti. Per questo motivo, pur apprezzando ogni manifestazione d’interesse, non ci è sempre possibile dare seguito alle candidature o proporre uno stage nel periodo desiderato.\n\nRaccontaci cosa cerchi\n\nInvia la tua candidatura con un certo anticipo rispetto all’inizio desiderato, allegando il curriculum vitae e una breve presentazione. Per aiutarci a valutare la tua richiesta e a indirizzarla al reparto più adatto, indica:\n\n• il reparto o l’area che rappresenta il tuo principale interesse e le eventuali attività che vorresti approfondire;\n\n• il percorso di studi o di formazione che stai seguendo e gli obiettivi del tuo stage;\n\n• il periodo desiderato e la durata prevista;\n\n• eventuali requisiti richiesti dalla scuola o dall’istituto di formazione.\n Ci farà piacere conoscere la tua motivazione e capire se possiamo costruire insieme un’esperienza in linea con il tuo percorso.\n\nCandidarsi ora\n\nStampa lavoro\n\nBenefits\n\n• Mentore\n\n• Percorso formativo strutturato e personalizzato\n\n• Orario flessibile e compatibili con eventuali impegni di studio\n\n• Contributo spese\n\n• Mensa\n\nMaria Di Muccio\n\nFaulhaber SA\n\nVia Cantonale 6980 Croglio"
+      },
+      "location": "Croglio",
+      "canton": "TI",
+      "addressLocality": "Croglio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6981",
+      "category": "general",
+      "sector": "Meccanica di precisione / Motori elettrici",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "featured": false,
+      "datePosted": "2026-11-24",
+      "postedDate": "2026-11-24",
+      "postingDateSource": "reported",
+      "url": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/59216/Stage",
+      "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/59216/Stage",
+      "source": "Faulhaber Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-11-25T09:19:38.566Z",
+      "needsRetranslation": true,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Croglio",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-22T09:19:38.566Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-25T09:19:38.566Z"
     }
   ]
 }

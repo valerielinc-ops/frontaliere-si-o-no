@@ -1,7 +1,7 @@
 {
   "key": "epi-geneve",
   "label": "Établissements publics pour l'intégration",
-  "generatedAt": "2026-11-24T21:13:28.807Z",
+  "generatedAt": "2026-11-25T09:17:40.583Z",
   "total": 2,
   "discovered": null,
   "parsed": 3,
@@ -10,22 +10,23 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 2,
-  "resurrectedJobs": 0,
+  "resurrectedJobs": 1,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4289,
-  "avgDurationMs": 4289,
+  "durationMs": 32583,
+  "avgDurationMs": 32583,
   "durationHistory": [
-    4289
+    32583
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "epi-geneve-43fe999670d9",
-      "slug": "un-e-socio-educateur-trice-studios-chene-44-90-epi-geneve-geneve-ge-switzerland",
+      "slug": "un-socio-educatore-oak-studios-44-90-etablissements-publics-pour-l-integration-geneve",
       "company": "Établissements publics pour l'intégration",
       "companyKey": "epi-geneve",
       "companyDomain": "epi.ge.ch",
@@ -35,7 +36,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000160169383-un-e-socio-educateur-trice-studios-chene-44-90-?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-24T21:13:08.694Z",
+      "crawledAt": "2026-11-25T09:16:58.969Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Route de Chêne 44",
@@ -54,63 +55,13 @@
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000160169383-un-e-socio-educateur-trice-studios-chene-44-90-?oga=true",
       "jobReqId": "744000160169383",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-06T21:20:37.867Z",
       "salaryMin": 54500,
       "salaryMax": 82400,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T21:13:08.694Z",
+      "validThrough": "2027-02-05T09:16:58.969Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:20:37.867Z",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 25
-      }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "epi-geneve-1cd68c0f030e",
-      "slug": "un-e-socio-educateur-trice-studios-chene-44-90-epi-geneve-geneve-ge-switzerland",
-      "company": "Établissements publics pour l'intégration",
-      "companyKey": "epi-geneve",
-      "companyDomain": "epi.ge.ch",
-      "title": "Un-e socio-éducateur-trice, Studios Chêne 44, 90 %",
-      "location": "Genève, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000161079970-un-e-socio-educateur-trice-studios-chene-44-90-?oga=true",
-      "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-24T09:15:41.891Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "streetAddress": "Route de Chêne 44",
-      "postalCode": "1201",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sociale / Socio-sanitario",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-06T10:58:19.690Z",
-      "postedDate": "2026-11-06T10:58:19.690Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000161079970-un-e-socio-educateur-trice-studios-chene-44-90-?oga=true",
-      "jobReqId": "744000161079970",
-      "salaryMin": 54500,
-      "salaryMax": 82400,
-      "salarySource": "estimated",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T09:15:41.891Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:20:37.867Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -120,6 +71,7 @@
       }
     }
   ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "epi-geneve-faee8247923d",
@@ -133,7 +85,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000162308481--un-e-aide-en-soins-et-accompagnement-asa-poste-de-nuit-thonex-1-85-cdm-6-mois?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-24T21:13:08.718Z",
+      "crawledAt": "2026-11-25T09:16:58.965Z",
       "addressLocality": "Thônex",
       "addressRegion": "GE",
       "streetAddress": "Avenue Adrien-Jeandin",
@@ -157,7 +109,7 @@
       "salaryMax": 77800,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-16T21:13:08.718Z",
+      "validThrough": "2027-02-17T09:16:58.965Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -168,5 +120,5 @@
       }
     }
   ],
-  "codeCommit": "af6487cf18de54664a2dd36f8f16e17f8a69b92f"
+  "codeCommit": "55fd511dba5e5c1bd3b4047690c697040c8b6c58"
 }

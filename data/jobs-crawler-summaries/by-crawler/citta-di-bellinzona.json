@@ -1,7 +1,7 @@
 {
   "key": "citta-di-bellinzona",
   "label": "Bellinzona",
-  "generatedAt": "2026-11-24T21:13:44.011Z",
+  "generatedAt": "2026-11-25T09:19:27.772Z",
   "total": 2,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -9,10 +9,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 3695,
-  "avgDurationMs": 3695,
+  "durationMs": 3797,
+  "avgDurationMs": 3797,
   "durationHistory": [
-    3695
+    3797
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -45,10 +45,10 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=c63f2847-2a77-4dfd-95e3-79a55833ca60,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-24T21:13:31.263Z",
+      "crawledAt": "2026-11-25T09:19:16.812Z",
       "firstSeenAt": "2026-11-20T21:21:25.672Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T21:13:31.263Z",
+      "validThrough": "2027-02-18T09:19:16.812Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -88,10 +88,10 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=6854e5d6-a43d-4166-b0cf-c8239799bdd0,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-24T21:13:31.615Z",
+      "crawledAt": "2026-11-25T09:19:17.014Z",
       "firstSeenAt": "2026-11-20T21:21:25.880Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T21:13:31.615Z",
+      "validThrough": "2027-02-18T09:19:17.014Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -105,5 +105,5 @@
       }
     }
   ],
-  "codeCommit": "af6487cf18de54664a2dd36f8f16e17f8a69b92f"
+  "codeCommit": "55fd511dba5e5c1bd3b4047690c697040c8b6c58"
 }
