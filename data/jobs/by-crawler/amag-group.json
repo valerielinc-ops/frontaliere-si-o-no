@@ -1,7 +1,7 @@
 {
   "crawlerKey": "amag-group",
-  "assembledAt": "2026-11-25T09:25:24.087Z",
-  "runId": "45583303713",
+  "assembledAt": "2026-11-25T21:25:01.411Z",
+  "runId": "45702165596",
   "jobs": [
     {
       "title": "Consulente vendita veicoli commerciali (m/f) - 100%",
@@ -66,7 +66,7 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-25T09:25:20.995Z",
+      "crawledAt": "2026-11-25T21:24:58.353Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://jobs.amag-group.ch/consulente-vendita-veicoli-commerciali-mf-100-it-j23843.html"
     },
@@ -133,7 +133,7 @@
       "firstSeenAt": "2026-10-09T21:30:03.052Z",
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-25T09:25:20.995Z",
+      "crawledAt": "2026-11-25T21:24:58.353Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://jobs.amag-group.ch/apprendista-impiegatoa-in-logistica-afc-2027-it-j23749.html"
     },
@@ -200,7 +200,7 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-25T09:25:20.995Z",
+      "crawledAt": "2026-11-25T21:24:58.353Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://jobs.amag-group.ch/apprendista-carrozzierea-verniciatore-trice-afc-mf-estate--it-j20676.html"
     },
@@ -285,7 +285,7 @@
       "streetAddress": "Gordola",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-25T09:25:20.995Z",
+      "crawledAt": "2026-11-25T21:24:58.353Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -351,7 +351,7 @@
       "streetAddress": "Tutti",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-25T09:25:20.995Z",
+      "crawledAt": "2026-11-25T21:24:58.353Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -418,7 +418,7 @@
       "streetAddress": "Breganzona",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-25T09:25:20.995Z",
+      "crawledAt": "2026-11-25T21:24:58.353Z",
       "crawledAtSource": "slice-writer"
     }
   ]

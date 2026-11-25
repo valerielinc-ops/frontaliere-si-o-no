@@ -687,25 +687,29 @@
     "slugByLocale": {
       "it": "diagnosta-bls-ag-spiez",
       "en": "diagnostician-bls-ag-spiez",
-      "de": "diagnostiker-in-bls-ch",
+      "de": "diagnostiker-in-bls-ch-0a7ecd5c",
       "fr": "diagnosticien-bls-ag-spiez"
     },
     "sector": "Trasporti / Ferrovia",
     "expiredAt": "2026-11-03T09:26:24.926Z",
     "previousSlugs": [
-      "diagnostiker-in-bls-ch",
-      "diagnostico-bls-ag-spiez"
+      "diagnostico-bls-ag-spiez",
+      "diagnostiker-in-bls-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "diagnostiker-in-bls-ch",
-        "diagnostico-bls-ag-spiez"
+        "diagnostiker-in-bls-ch-0a7ecd5c",
+        "diagnostico-bls-ag-spiez",
+        "diagnostiker-in-bls-ch"
       ],
       "en": [
         "diagnostiker-in-bls-ch"
       ],
       "fr": [
         "diagnostiker-in-bls-ch"
+      ],
+      "de": [
+        "diagnostiker-in-bls-ch-0a7ecd5c"
       ]
     },
     "postalCode": "3700",

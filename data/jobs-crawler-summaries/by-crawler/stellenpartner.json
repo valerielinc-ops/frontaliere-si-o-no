@@ -1,7 +1,7 @@
 {
   "key": "stellenpartner",
   "label": "Stellenpartner AG",
-  "generatedAt": "2026-11-25T09:22:11.902Z",
+  "generatedAt": "2026-11-25T21:21:59.607Z",
   "total": 0,
   "discovered": null,
   "parsed": null,
@@ -12,20 +12,28 @@
       "https://www.stellenpartner.ch/stellen/?sort=title-asc"
     ],
     "phase": "listing",
-    "pages": 2,
+    "pages": 4,
     "httpStatuses": [
       {
         "status": 200,
         "url": "https://www.stellenpartner.ch/stellen/?sort=title-asc"
       },
       {
-        "status": 403,
+        "status": 200,
         "url": "https://www.stellenpartner.ch/stellen/page/2/?sort=title-asc"
+      },
+      {
+        "status": 200,
+        "url": "https://www.stellenpartner.ch/stellen/page/3/?sort=title-asc"
+      },
+      {
+        "status": 403,
+        "url": "https://www.stellenpartner.ch/stellen/page/4/?sort=title-asc"
       }
     ],
     "proxiedBy": [],
     "fetchOutcome": null,
-    "fetchDetail": "Prospector fetch failed for https://www.stellenpartner.ch/stellen/page/2/?sort=title-asc: HTTP 403"
+    "fetchDetail": "Prospector fetch failed for https://www.stellenpartner.ch/stellen/page/4/?sort=title-asc: HTTP 403"
   },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -41,5 +49,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "55fd511dba5e5c1bd3b4047690c697040c8b6c58"
+  "codeCommit": "0c64b1f2eae0b337b537e356aa5de051b9c4c6cc"
 }
