@@ -370,6 +370,32 @@ describe('portal field extraction', () => {
     expect(profile.sectionGroupId).not.toBe(question.sectionGroupId);
   });
 
+  it('binds SuccessFactors address fields to an aria-controlled profile panel', () => {
+    const snapshot = extract(`<main>
+      <button type="button" aria-expanded="true" aria-controls="all-sections">Esplodi tutte le sezioni</button>
+      <div id="all-sections">
+        <button type="button" aria-expanded="true" aria-controls="profile-panel">Informazioni profilo</button>
+        <div id="profile-panel"><form>
+          <label for="city">* Località</label><input id="city" required>
+          <label for="country">* Paese</label><input id="country" role="combobox" aria-required="true" aria-owns="country-list">
+          <ul id="country-list" role="listbox"><li role="option">Italia</li></ul>
+        </form></div>
+      </div>
+    </main>`, 'https://career2.successfactors.eu/portalcareer');
+    const city = snapshot.fields.find((field: any) => field.domId === 'city');
+    const country = snapshot.fields.find((field: any) => field.domId === 'country');
+    country.options = [{ value: 'IT', label: 'Italia' }];
+
+    expect(city).toMatchObject({ addressContext: { owners: ['Informazioni profilo'], unknown: false } });
+    expect(country).toMatchObject({ addressContext: { owners: ['Informazioni profilo'], unknown: false } });
+    const requirements = portalRequirementsFromMissingRequired(snapshot.fields, [
+      { fieldId: city.id, question: city.label, applicationQuestion: city.label, type: 'text', options: [] },
+      { fieldId: country.id, question: country.label, applicationQuestion: country.label, type: 'choice', options: [] },
+    ]);
+    expect(requirements.unreadableFields).toBeUndefined();
+    expect(requirements.questions.map((question: any) => question.applicationQuestion)).toEqual([city.label, country.label]);
+  });
+
   it('keeps a native Umantis application opener in the action snapshot', () => {
     const snapshot = extract(`<main>
       <h1>Assistente sociale (80-100%)</h1>

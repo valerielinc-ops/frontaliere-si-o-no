@@ -871,6 +871,29 @@ function nativeQuestionText(value, counter = null) {
       }
       if (node === boundary) break;
     }
+    // SuccessFactors can render the profile/job sections as disclosure
+    // buttons whose controlled panels have no semantic region or heading.
+    // The exact aria-controls relationship is ownership proof; a nearby
+    // button label alone is not. When a page also has an expand-all control,
+    // keep the deepest controlled panel so its section owns the field.
+    if (!result.unknown && !result.owners.length) {
+      const candidates = [];
+      for (const toggle of document.querySelectorAll('button[aria-controls], [role="button"][aria-controls]')) {
+        if (!shown(toggle)) continue;
+        const references = idRefs(toggle.getAttribute('aria-controls'));
+        if (references.length !== 1) continue;
+        const targets = [...document.querySelectorAll('[id]')].filter(node => node.id === references[0]);
+        if (targets.length !== 1 || !targets[0].contains(element)) continue;
+        const labelledBy = (toggle.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)
+          .map(textOf).filter(Boolean).join(' ');
+        const label = clean(labelledBy || toggle.getAttribute('aria-label') || toggle.getAttribute('title')
+          || toggle.innerText || toggle.textContent);
+        if (label && label.length <= 300) candidates.push({ target: targets[0], label });
+      }
+      const specific = candidates.filter(candidate => !candidates.some(other =>
+        other !== candidate && other.target !== candidate.target && candidate.target.contains(other.target)));
+      if (specific.length === 1) add(specific[0].label);
+    }
     const section = headingBefore(element);
     const externalSection = actualForm && boundary === actualForm
       ? headingBeforeSoleForm(actualForm, element) : '';
