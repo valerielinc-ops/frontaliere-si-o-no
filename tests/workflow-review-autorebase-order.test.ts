@@ -20,10 +20,10 @@ const housekeepingLogic = readFileSync(new URL('../.github/workflows/housekeepin
 describe('review → autorebase ordering', () => {
   it('rileva le collisioni sul percorso PR con codice trusted e lock separato', () => {
     const parsed = YAML.parse(collisionWorkflow) as {
-      on?: { pull_request?: { branches?: string[]; types?: string[] } };
+      on?: { pull_request_target?: { branches?: string[]; types?: string[] } };
       concurrency?: { group?: string; 'cancel-in-progress'?: boolean };
     };
-    const trigger = parsed.on?.pull_request;
+    const trigger = parsed.on?.pull_request_target;
 
     expect(trigger?.branches).toEqual(['main']);
     expect(trigger?.types).toEqual(expect.arrayContaining(['opened', 'synchronize', 'reopened', 'ready_for_review']));

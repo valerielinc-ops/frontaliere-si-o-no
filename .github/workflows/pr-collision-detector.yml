@@ -25,7 +25,7 @@ name: PR collision detector (funnel-critical, no-Claude)
 # disponibile per il recupero operativo.
 
 on:
-  pull_request:
+  pull_request_target:
     branches: [main]
     types: [opened, synchronize, reopened, ready_for_review]
   schedule:
