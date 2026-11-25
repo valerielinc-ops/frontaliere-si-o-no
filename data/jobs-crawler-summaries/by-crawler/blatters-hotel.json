@@ -1,7 +1,7 @@
 {
   "key": "blatters-hotel",
   "label": "Blatter",
-  "generatedAt": "2026-11-24T21:23:29.208Z",
+  "generatedAt": "2026-11-25T09:19:09.640Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -12,18 +12,30 @@
       "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340?intcid=autosuggest-company-4340"
     ],
     "phase": "detail",
-    "pages": 2,
+    "pages": 4,
     "httpStatuses": [
       {
-        "status": 200,
+        "status": 403,
         "url": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340?intcid=autosuggest-company-4340"
       },
       {
         "status": 200,
+        "url": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340?intcid=autosuggest-company-4340",
+        "proxiedBy": "browser"
+      },
+      {
+        "status": 403,
         "url": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/2-haustechniker-jahresvertrag-oder-4057345?rltr=comp"
+      },
+      {
+        "status": 200,
+        "url": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/2-haustechniker-jahresvertrag-oder-4057345?rltr=comp",
+        "proxiedBy": "browser"
       }
     ],
-    "proxiedBy": [],
+    "proxiedBy": [
+      "browser"
+    ],
     "fetchOutcome": null,
     "fetchDetail": null
   },
@@ -40,10 +52,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4758,
-  "avgDurationMs": 4758,
+  "durationMs": 33186,
+  "avgDurationMs": 33186,
   "durationHistory": [
-    4758
+    33186
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -61,7 +73,7 @@
       "url": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/2-haustechniker-jahresvertrag-oder-4057345?rltr=comp",
       "source": "Blatter's Arosa Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:23:13.268Z",
+      "crawledAt": "2026-11-25T09:18:46.259Z",
       "addressLocality": "Arosa",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -84,7 +96,7 @@
       "postalCode": "7050",
       "streetAddress": "Arosa",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T21:23:13.268Z",
+      "validThrough": "2027-02-21T09:18:46.259Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -95,5 +107,5 @@
       }
     }
   ],
-  "codeCommit": "af6487cf18de54664a2dd36f8f16e17f8a69b92f"
+  "codeCommit": "55fd511dba5e5c1bd3b4047690c697040c8b6c58"
 }
