@@ -1,7 +1,7 @@
 {
   "key": "hermes",
   "label": "Hermès",
-  "generatedAt": "2026-11-25T09:17:23.436Z",
+  "generatedAt": "2026-11-25T21:25:29.338Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 21087,
-  "avgDurationMs": 21087,
+  "durationMs": 18409,
+  "avgDurationMs": 18409,
   "durationHistory": [
-    21087
+    18409
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/23533",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:17:09.558Z",
+      "crawledAt": "2026-11-25T21:25:12.894Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -60,7 +60,7 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:17:09.558Z",
+      "validThrough": "2027-01-18T21:25:12.894Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -82,7 +82,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24713",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:17:08.854Z",
+      "crawledAt": "2026-11-25T21:25:12.213Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:17:08.854Z",
+      "validThrough": "2027-02-01T21:25:12.213Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -127,7 +127,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24858",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:17:08.201Z",
+      "crawledAt": "2026-11-25T21:25:11.525Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -150,7 +150,7 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:17:08.201Z",
+      "validThrough": "2027-02-10T21:25:11.525Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -172,7 +172,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24867",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:17:07.560Z",
+      "crawledAt": "2026-11-25T21:25:10.851Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -195,7 +195,7 @@
       "postalCode": "2340",
       "streetAddress": "Le Noirmont",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T09:17:07.560Z",
+      "validThrough": "2027-02-14T21:25:10.851Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -217,7 +217,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24863",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:17:06.866Z",
+      "crawledAt": "2026-11-25T21:25:10.181Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -241,7 +241,7 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T09:17:06.866Z",
+      "validThrough": "2027-02-14T21:25:10.181Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -263,7 +263,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24851",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T09:17:06.150Z",
+      "crawledAt": "2026-11-25T21:25:09.468Z",
       "addressLocality": "Geneve",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -286,7 +286,7 @@
       "salarySource": "estimated",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T09:17:06.150Z",
+      "validThrough": "2027-02-21T21:25:09.468Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -297,5 +297,5 @@
       }
     }
   ],
-  "codeCommit": "55fd511dba5e5c1bd3b4047690c697040c8b6c58"
+  "codeCommit": "0c64b1f2eae0b337b537e356aa5de051b9c4c6cc"
 }
