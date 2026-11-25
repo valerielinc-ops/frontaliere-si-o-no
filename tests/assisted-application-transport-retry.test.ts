@@ -8,8 +8,8 @@ vi.mock('../scripts/assisted-application/lib/dossier.mjs', () => ({
   adPackaging: vi.fn(), dossierMode: vi.fn(), draftCandidateType: vi.fn(), packageAttachments: vi.fn(),
 }));
 import { computeDueAt } from '../functions/src/assistedApplicationAutomation.js';
-import { TRANSPORT_AUTO_RETRY_DELAYS_MS } from '../functions/src/assistedApplicationPortalRetryPolicy.js';
-import { emailInfrastructureFailure, legacyTransportHoldReason, navigationInfrastructureFailure } from '../functions/src/assistedApplicationTransportRetryPolicy.js';
+import { TRANSPORT_AUTO_RETRY_DELAYS_MS, USAGE_LIMIT_AUTO_RETRY_DELAYS_MS } from '../functions/src/assistedApplicationPortalRetryPolicy.js';
+import { codexBrokerInfrastructureFailure, emailInfrastructureFailure, legacyTransportHoldReason, navigationInfrastructureFailure } from '../functions/src/assistedApplicationTransportRetryPolicy.js';
 import { reconcileTransportHolds } from '../scripts/reconcile-assisted-application-transport-holds.mjs';
 import { buildOwnerAutomationEmail } from '../functions/src/assistedApplicationAutomationEmails.js';
 import { navigationHandoffFor, portalNetworkFailureMetadata } from '../scripts/assisted-application/lib/submit.mjs';
@@ -218,5 +218,48 @@ describe('legacy recovery is general, idempotent and only repairs the query cloc
     expect(legacyTransportHoldReason({ flow, submission: { r1: { ...record, confirmedNotSent: false } }, draft })).toBeNull();
     expect(legacyTransportHoldReason({ flow, submission: { r1: { ...record, state: 'sending' } }, draft })).toBeNull();
     expect(legacyTransportHoldReason({ flow: { ...flow, technicalRecoveryVersion: 'transport-recovery-v1' }, submission: { r1: record }, draft })).toBeNull();
+  });
+
+  it('routes Codex usage-limit submit failures to transport backoff and recovers legacy holds', async () => {
+    const usageErr = 'Codex auth broker rejected the request: Codex CLI exited with code 1: ERROR: You_ve hit your usage limit.';
+    expect(codexBrokerInfrastructureFailure(usageErr)).toBe('codex_usage_limit');
+    expect(codexBrokerInfrastructureFailure('Codex auth broker timed out')).toBe('codex_broker_unavailable');
+
+    const held = transition(approved, { type: 'submit_failed', error: usageErr }, { draft, nowMs: now });
+    expect(held.effects).toEqual([]);
+    expect(held.flow).toMatchObject({
+      state: 'owner_takeover',
+      heldBy: ['transport:codex_usage_limit'],
+      portalAutoRetryAt: now + USAGE_LIMIT_AUTO_RETRY_DELAYS_MS[0],
+    });
+
+    const path = 'assisted_applications/order_codex_submit_test';
+    const store = createMemoryFirestore({
+      [path]: { paymentStatus: 'paid', submissionStatus: 'in_progress', automationState: 'owner_takeover', automationDueAt: null },
+      [`${path}/automation/flow`]: {
+        ...approved,
+        state: 'owner_takeover',
+        heldBy: ['Codex auth broker rejected the request: Codex CLI exited with code 1: ERROR: You'],
+        transportAutoRetryCount: 0,
+      },
+      [`${path}/ai_drafts/current`]: draft,
+      [`${path}/automation/submission`]: {
+        r1: {
+          state: 'failed',
+          channel: 'portal',
+          confirmedNotSent: true,
+          clickedAt: null,
+          releasedAt: now - 1000,
+          accountFailure: { code: 'login_unobserved', stage: 'login' },
+          reason: `error: ${usageErr}`,
+        },
+      },
+    });
+    expect(await reconcileTransportHolds({ db: store.db, apply: true, nowMs: now })).toMatchObject({ eligible: 1, changed: 1 });
+    expect(store.read(`${path}/automation/flow`)).toMatchObject({
+      heldBy: ['transport:codex_usage_limit'],
+      portalAutoRetryAt: now,
+    });
+    expect(store.read(path).automationDueAt).toBe(now);
   });
 });

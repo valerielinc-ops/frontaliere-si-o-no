@@ -7,6 +7,7 @@ import { ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from '../functions/src/assiste
 
 const base = 'assisted_applications/operational_recovery_fixture';
 const now = Date.now();
+const futureAvailability = new Date(now + 7 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
 const version = 'b'.repeat(64);
 const notice = { id: 'notice', source: 'portal', question: 'Attuale periodo di preavviso', type: 'choice', options: [], required: true };
 function fixture() {
@@ -38,7 +39,7 @@ describe('source-version recovery of positively identified operational portal qu
     const availability = { id: 'availability', source: 'match', required: true,
       question: 'Disponibilità', applicationQuestion: 'Disponibilità', type: 'date', options: [] };
     store.docs.set(`${base}/ai_drafts/current`, { ...store.read(`${base}/ai_drafts/current`), questions: [availability] });
-    store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`), answers: { availability: '2026-11-20' } });
+    store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`), answers: { availability: futureAvailability } });
     expect(await reconcilePortalCode({ ...context(store), apply: false })).toMatchObject({ eligible: 1, queued: 0 });
     expect(await reconcilePortalCode({ ...context(store), apply: true })).toMatchObject({ eligible: 1, queued: 1 });
     expect(store.read(base).automationDueAt).toBe(now);
@@ -50,14 +51,14 @@ describe('source-version recovery of positively identified operational portal qu
       question: 'Disponibilità', applicationQuestion: 'Disponibilità', type: 'date', options: [] };
     store.docs.set(`${base}/ai_drafts/current`, { ...store.read(`${base}/ai_drafts/current`), questions: [availability] });
     store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`),
-      answers: { availability: '2026-11-20' }, orderQuestionAnswersEvidenceVersion: ORDER_QUESTION_ANSWER_EVIDENCE_VERSION });
+      answers: { availability: futureAvailability }, orderQuestionAnswersEvidenceVersion: ORDER_QUESTION_ANSWER_EVIDENCE_VERSION });
     expect(await reconcilePortalCode({ ...context(store), apply: true })).toMatchObject({ eligible: 1, queued: 1 });
     const queuedFlow = store.read(`${base}/automation/flow`);
-    expect(queuedFlow).toMatchObject({ answers: { availability: '2026-11-20' },
+    expect(queuedFlow).toMatchObject({ answers: { availability: futureAvailability },
       portalRecoveryMatchAnswerIds: ['availability'], portalRecoveryMatchAnswerRound: 1 });
     const execution = await loadRunnerAnswerContext({ db: store.db, orderId: base.split('/').at(-1), order: store.read(base),
       flow: queuedFlow, draft: store.read(`${base}/ai_drafts/current`), nowMs: now });
-    expect(execution.flow.answers).toMatchObject({ availability: '2026-11-20' });
+    expect(execution.flow.answers).toMatchObject({ availability: futureAvailability });
     expect(execution.flow.questionAnswers).toEqual({});
     expect(evaluateRedFlags(store.read(`${base}/ai_drafts/current`), execution.flow.answers, {},
       execution.flow.questionAnswers, execution.flow, store.read(base)).candidate).toEqual([]);

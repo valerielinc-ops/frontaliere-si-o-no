@@ -52,6 +52,7 @@ import {
 import { readConciergeSlot, releaseConciergeSlot } from './assistedApplicationWithdrawal.js';
 import { portalRetryDueAt } from './assistedApplicationPortalRetryPolicy.js';
 import { draftRetryDueAt } from './assistedApplicationDraftRetryPolicy.js';
+import { recoverFailedCandidateRepliesForOrder } from './assistedApplicationCandidateReply.js';
 import { DISPATCH_RECOVERY_DELAY_MS, DISPATCH_RECOVERY_MAX_ATTEMPTS, dispatchRecoveryCountValue, dispatchRecoveryDueAt, preDispatchFailureCode } from './assistedApplicationDispatchRetryPolicy.js';
 import { checkPostingLiveness, resolvePostingAddressOf, postingSaysClosed } from './assistedApplicationLiveness.js';
 import { scheduleFollowups } from './assistedApplicationFollowup.js';
@@ -952,7 +953,7 @@ export async function postingClosureForOrder({ db, orderId, order, fetchImpl = f
  * so that none goes out for an ad that closed (owner decision 2026-10-08). Left out, no ad is looked at.
  * `postingLookMs`: how long one look may take (POSTING_LOOK_MS).
  */
-export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), postingClosed = null, postingLookMs = POSTING_LOOK_MS } = {}) {
+export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), postingClosed = null, postingLookMs = POSTING_LOOK_MS, extractCandidateReply = null } = {}) {
   const [automationSnapshot, receiptSnapshot] = await Promise.all([
     db.collection(ASSISTED_APPLICATIONS_COLLECTION).where('automationDueAt', '<=', nowMs).limit(SWEEP_BATCH).get(),
     db.collection(ASSISTED_APPLICATIONS_COLLECTION).where('submissionReceiptDueAt', '<=', nowMs).limit(SWEEP_BATCH).get(),
@@ -1061,6 +1062,13 @@ export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), po
       }
       if (flow.state === 'owner_takeover') {
         const draftRetry = draftRetryDueAt(flow);
+        if (!needsFactRepair(flow) && draftRetry && draftRetry <= nowMs && typeof extractCandidateReply === 'function') {
+          await recoverFailedCandidateRepliesForOrder({
+            db, orderId: doc.id, extract: extractCandidateReply, nowMs,
+          }).catch(error => {
+            console.error('[assistedApplicationAutomation] candidate reply recovery failed for order', doc.id, error instanceof Error ? error.message : String(error));
+          });
+        }
         const event = needsFactRepair(flow)
           ? { type: 'repair_facts' }
           : draftRetry && draftRetry <= nowMs

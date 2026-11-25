@@ -1,13 +1,16 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
-import { transition } from '../functions/src/assistedApplicationFlow.js';
+import { isTransientRunError, transition } from '../functions/src/assistedApplicationFlow.js';
 import {
+  CODEX_USAGE_LIMIT_RETRY_DELAYS_MS,
   DRAFT_CANDIDATE_EMAIL_MISSING_CODE,
   DRAFT_CANDIDATE_EMAIL_RECOVERY_VERSION,
   DRAFT_AUTO_RETRY_DELAY_MS,
   draftRetryDueAt,
+  isCodexUsageLimitError,
 } from '../functions/src/assistedApplicationDraftRetryPolicy.js';
 import {
+  DRAFT_CODEX_USAGE_LIMIT_RECOVERY_VERSION,
   isFirestoreIndexUnavailableError,
   reconcileCandidateDocumentEmails,
   reconcileDraftFailures,
@@ -89,6 +92,62 @@ describe('automatic recovery after a failed draft run', () => {
       type: 'draft_failed', round: 2, error: 'documents_empty',
     });
 
+    expect(await reconcileDraftFailures({ db: store.db, nowMs: now, apply: true, isEnabled: async () => true }))
+      .toMatchObject({ eligible: 0, queued: 0 });
+  });
+
+  it('backs off Codex usage-limit draft failures across 2h/6h/24h before owner takeover notification', () => {
+    const usageErr = 'Codex auth broker rejected the request: Codex CLI exited with code 1: ERROR: You_ve hit your usage limit.';
+    expect(isCodexUsageLimitError(usageErr)).toBe(true);
+    expect(isCodexUsageLimitError('codex_http_429')).toBe(true);
+    expect(isTransientRunError('codex_http_429')).toBe(false);
+
+    let flow: any = { state: 'drafting', round: 1, dispatch: { mode: 'draft', round: 1, attempts: 1 } };
+    let at = now;
+    for (const delay of CODEX_USAGE_LIMIT_RETRY_DELAYS_MS) {
+      const held = transition(flow, { type: 'draft_failed', error: usageErr }, { nowMs: at });
+      expect(held.effects).toEqual([]);
+      expect(held.flow).toMatchObject({
+        state: 'owner_takeover',
+        heldBy: ['draft_failed'],
+        draftFailureKind: 'codex_usage_limit',
+        draftAutoRetryAt: at + delay,
+      });
+      expect(draftRetryDueAt(held.flow)).toBe(at + delay);
+      const retried = transition(held.flow, { type: 'draft_auto_retry' }, { draft: null, nowMs: at + delay });
+      expect(retried.effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'draft_auto_retry' }]);
+      expect(retried.flow.draftFailureKind).toBe('codex_usage_limit');
+      flow = retried.flow;
+      at += delay;
+    }
+
+    const exhausted = transition(flow, { type: 'draft_failed', error: usageErr }, { nowMs: at });
+    expect(exhausted.flow.draftAutoRetryAt).toBeNull();
+    expect(exhausted.effects).toEqual([expect.objectContaining({ type: 'email', kind: 'owner_takeover', stage: 'draft' })]);
+  });
+
+  it('recovers Codex usage-limit draft failures even when draftAutoRetryCount is 0 after burned transient retries', async () => {
+    const store = fixture();
+    store.docs.set(`${base}/automation/flow`, {
+      ...store.read(`${base}/automation/flow`),
+      draftAutoRetryCount: 0,
+      dispatch: { mode: 'draft', round: 2, attempts: 3 },
+    });
+    store.docs.set(`${base}/automation_events/usage-limit`, {
+      type: 'draft_failed',
+      round: 2,
+      error: 'Codex auth broker rejected the request: Codex CLI exited with code 1: ERROR: You_ve hit your usage limit.',
+    });
+
+    expect(await reconcileDraftFailures({ db: store.db, nowMs: now, apply: true, isEnabled: async () => true }))
+      .toMatchObject({ eligible: 1, queued: 1 });
+    expect(store.read(`${base}/automation/flow`)).toMatchObject({
+      state: 'owner_takeover',
+      draftAutoRetryCount: 0,
+      draftAutoRetryAt: now + DRAFT_AUTO_RETRY_DELAY_MS,
+      draftFailureKind: 'codex_usage_limit',
+      draftCodexUsageLimitRecoveryVersion: DRAFT_CODEX_USAGE_LIMIT_RECOVERY_VERSION,
+    });
     expect(await reconcileDraftFailures({ db: store.db, nowMs: now, apply: true, isEnabled: async () => true }))
       .toMatchObject({ eligible: 0, queued: 0 });
   });

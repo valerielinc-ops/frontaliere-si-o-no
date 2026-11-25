@@ -9,6 +9,7 @@
  * draft), so the page and the tests share it.
  */
 
+import { draftRetryDueAt } from '../functions/src/assistedApplicationDraftRetryPolicy.js';
 import { portalRetryDueAt } from '../functions/src/assistedApplicationPortalRetryPolicy.js';
 
 export type NextStepGroup = 'owner' | 'candidate' | 'fix' | 'robot' | 'done';
@@ -36,6 +37,9 @@ export interface NextStepOrder {
       deadlineAt: number | null;
       reminderAt?: number | null;
       portalAutoRetryAt?: number | null;
+      draftAutoRetryAt?: number | null;
+      draftAutoRetryCount?: number | null;
+      draftFailureKind?: string | null;
       dispatch?: { requestedAt: number; mode?: string } | null;
       history?: Array<{ at: number; event: string; state: string }>;
     } | null;
@@ -247,12 +251,14 @@ export function nextStepFor(order: NextStepOrder, nowMs: number = Date.now()): N
       return { group: 'candidate', code: 'candidate_handoff', label: 'Affidata al candidato', detail: 'Hai scelto di far completare a lui l’ultimo passaggio sul portale: l’ordine si chiude quando conferma l’invio. Puoi sempre completarla tu.' };
     case 'submitted':
       return { group: 'done', code: 'submitted', label: 'Inviata', detail: 'La candidatura è arrivata al datore.' };
-    case 'owner_takeover':
-      if (portalRetryDueAt(flow)) return {
+    case 'owner_takeover': {
+      const retryAt = draftRetryDueAt(flow) || portalRetryDueAt(flow);
+      if (retryAt) return {
         group: 'robot', code: 'portal_auto_retry', label: 'Nuovo tentativo programmato',
-        detail: `Il robot riproverà automaticamente ${clock(flow.portalAutoRetryAt)}. Non serve un intervento manuale mentre il tentativo è in attesa.`,
+        detail: `Il robot riproverà automaticamente ${clock(retryAt)}. Non serve un intervento manuale mentre il tentativo è in attesa.`,
       };
       return takeoverStep(heldBy);
+    }
     case 'failed':
       return { group: 'owner', code: 'resume', label: 'Da riprendere', detail: 'Il flusso si è interrotto: «Riprendi automazione» o completala tu.' };
     default:

@@ -7505,13 +7505,28 @@ export async function portalRequirementsForCandidate(requirements, localization 
  */
 export function dedupePortalQuestions(questions = []) {
   const seen = new Set();
-  return (Array.isArray(questions) ? questions : []).filter((question) => {
-    if (question?.source !== 'portal') return true;
-    const key = portalQuestionKey(question) || question.id;
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
+  const byId = new Map();
+  const out = [];
+  for (const question of Array.isArray(questions) ? questions : []) {
+    if (!question || typeof question !== 'object') continue;
+    const id = String(question.id || '').trim();
+    const portalKey = question.source === 'portal' ? (portalQuestionKey(question) || id) : '';
+    if (portalKey && seen.has(portalKey)) continue;
+    if (id && byId.has(id)) {
+      const prevIndex = byId.get(id);
+      const prev = out[prevIndex];
+      const preferCurrent = question.source === 'portal' && prev?.source !== 'portal';
+      if (preferCurrent) {
+        out[prevIndex] = question;
+        if (portalKey) seen.add(portalKey);
+      }
+      continue;
+    }
+    if (portalKey) seen.add(portalKey);
+    if (id) byId.set(id, out.length);
+    out.push(question);
+  }
+  return out;
 }
 
 function authFormIdentity(snapshot) {
