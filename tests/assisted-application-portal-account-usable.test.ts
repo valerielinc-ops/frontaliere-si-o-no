@@ -47,7 +47,7 @@ const signIn = (host: string, values: Map<string, string>) => ({
   url: `https://${host}/careers?company=example`,
   fields: [
     { id: 'email', kind: 'text', inputType: 'email', label: 'Email Address:*', required: true, frame: 0, formId: 'login', value: values.get('email') || '' },
-    { id: 'password', kind: 'text', inputType: 'password', label: 'Password:*', required: true, frame: 0, formId: 'login', value: values.get('password') || '' },
+    { id: 'password', kind: 'text', inputType: 'password', label: 'Password:*', required: true, frame: 0, formId: 'login', value: '' },
   ],
   buttons: [{ id: 'login', text: 'Sign In', disabled: false, frame: 0, formId: 'login' }],
   links: [{ id: 'create', text: 'Create an account', frame: 0 }],
@@ -70,6 +70,8 @@ function fakePage(host: string, current: () => any, onClick: (id: string) => voi
         click: vi.fn(async () => onClick(id)),
         fill: vi.fn(async (value: string) => { values.set(id, value); }),
         inputValue: vi.fn(async () => values.get(id) || ''),
+        evaluate: vi.fn(async (read: (element: { value: string }, expected: string) => boolean, expected: string) =>
+          read({ value: values.get(id) || '' }, expected)),
         count: vi.fn(async () => 0),
       };
       return locator;
