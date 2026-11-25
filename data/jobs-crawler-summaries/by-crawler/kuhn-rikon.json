@@ -1,7 +1,7 @@
 {
   "key": "kuhn-rikon",
   "label": "Kuhn Rikon",
-  "generatedAt": "2026-11-24T21:21:53.847Z",
+  "generatedAt": "2026-11-25T09:22:22.048Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -13,16 +13,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 5522,
-  "avgDurationMs": 5522,
+  "durationMs": 33148,
+  "avgDurationMs": 33148,
   "durationHistory": [
-    5522
+    33148
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "kuhn-rikon-7c4fd76a7d9a",
       "slug": "responsabile-kunden-e-verkaufsinnendienst-100-kuhn-rikon",
@@ -30,13 +31,13 @@
       "companyKey": "kuhn-rikon",
       "companyDomain": "kuhnrikon.com",
       "title": "Leiter/in Kunden- und Verkaufsinnendienst / 100%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Rikon",
       "canton": "ZH",
       "url": "https://my.jobalino.ch/job/c61e58abe5e399c34a90717c1135565a/leiter-in-kunden-und-verkaufsinnendienst",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:21:37.431Z",
+      "crawledAt": "2026-11-25T09:21:36.239Z",
       "addressLocality": "Rikon",
       "streetAddress": "Neschwilerstrasse 4",
       "postalCode": "8486",
@@ -57,23 +58,22 @@
       "externalId": "c61e58abe5e399c34a90717c1135565a",
       "hiringOrganizationName": "Kuhn Rikon",
       "contractDuration": "permanent",
+      "firstSeenAt": "2026-11-24T21:21:37.431Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-22T21:21:37.431Z",
+      "validThrough": "2027-02-22T09:21:36.239Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-24T21:21:37.431Z",
-      "_qualityScore": 87,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -89,7 +89,7 @@
       "url": "https://my.jobalino.ch/job/7ae949ca06781987fbd101ae9e246d6a/verkaufsberater-in-outlet-landquart-w-m",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:21:39.109Z",
+      "crawledAt": "2026-11-25T09:21:37.945Z",
       "addressLocality": "Landquart",
       "streetAddress": "Industriestrasse 1",
       "postalCode": "7302",
@@ -115,7 +115,7 @@
       "salaryMax": 84000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-24T21:21:39.109Z",
+      "validThrough": "2026-12-25T09:21:37.945Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -138,7 +138,7 @@
       "url": "https://my.jobalino.ch/job/093cd182d6b09fd293edc53c732daa2d/lehrstelle-detailhandelsfachmann-frau-efz-gestalten-von-einkaufserlebnissen-haushalt",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:21:38.726Z",
+      "crawledAt": "2026-11-25T09:21:37.549Z",
       "addressLocality": "Rikon im Tösstal",
       "streetAddress": "Neschwilerstrasse 4",
       "postalCode": "8486",
@@ -163,7 +163,7 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-24T21:21:38.726Z",
+      "validThrough": "2026-12-25T09:21:37.549Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -185,7 +185,7 @@
       "url": "https://my.jobalino.ch/job/32d44bf225d93aeca1f2eea1de8acc55/produktionsmitarbeiter-in_1275",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:21:38.238Z",
+      "crawledAt": "2026-11-25T09:21:37.046Z",
       "addressLocality": "Rikon",
       "streetAddress": "Neschwilerstrasse 4",
       "postalCode": "8486",
@@ -210,7 +210,7 @@
       "salaryMax": 102500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-24T21:21:38.238Z",
+      "validThrough": "2026-12-25T09:21:37.046Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -233,7 +233,7 @@
       "url": "https://my.jobalino.ch/job/e4d6d5c22448bf0488f22b458dfc3c7b/verkaufsberater-in-im-store-luzern-m-w_9104",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:21:37.816Z",
+      "crawledAt": "2026-11-25T09:21:36.631Z",
       "addressLocality": "Luzern",
       "streetAddress": "Weinmarkt 9",
       "postalCode": "6003",
@@ -259,7 +259,7 @@
       "salaryMax": 60800,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:21:37.816Z",
+      "validThrough": "2027-02-09T09:21:36.631Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -270,5 +270,5 @@
       }
     }
   ],
-  "codeCommit": "af6487cf18de54664a2dd36f8f16e17f8a69b92f"
+  "codeCommit": "55fd511dba5e5c1bd3b4047690c697040c8b6c58"
 }
