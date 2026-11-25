@@ -1,7 +1,7 @@
 {
   "crawlerKey": "medartis",
-  "assembledAt": "2026-11-25T09:35:54.112Z",
-  "runId": "45584672385",
+  "assembledAt": "2026-11-25T21:53:07.249Z",
+  "runId": "45703515610",
   "jobs": [
     {
       "id": "medartis-4bb51ef9dc30",
@@ -35,7 +35,7 @@
       "url": "https://careers.medartis.com/job/Quality-Inspector-100/1456101133/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:35:46.336Z",
+      "crawledAt": "2026-11-25T21:52:59.397Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:35:46.336Z",
+      "validThrough": "2027-02-08T21:52:59.397Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -116,7 +116,7 @@
       "url": "https://careers.medartis.com/job/Senior-Identity-Engineer-&-Architect/1458221833/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:35:45.808Z",
+      "crawledAt": "2026-11-25T21:52:58.749Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -162,7 +162,7 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T09:35:45.808Z",
+      "validThrough": "2027-02-15T21:52:58.749Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -197,7 +197,7 @@
       "url": "https://careers.medartis.com/job/IT-Service-Delivery-Manager/1458220133/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:35:45.255Z",
+      "crawledAt": "2026-11-25T21:52:58.144Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -243,7 +243,7 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T09:35:45.255Z",
+      "validThrough": "2027-02-15T21:52:58.144Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -277,7 +277,7 @@
       "url": "https://careers.medartis.com/job/PLM-Support-Specialist/1428557833/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:35:44.716Z",
+      "crawledAt": "2026-11-25T21:52:57.506Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -320,7 +320,7 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T09:35:44.716Z",
+      "validThrough": "2026-12-25T21:52:57.506Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -355,7 +355,7 @@
       "url": "https://careers.medartis.com/job/Inspection-Equipment-Manager/1459759333/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:35:43.855Z",
+      "crawledAt": "2026-11-25T21:52:56.504Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -401,7 +401,7 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T09:35:43.855Z",
+      "validThrough": "2027-02-21T21:52:56.504Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -483,7 +483,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:35:43.293Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     }
   ]
 }
