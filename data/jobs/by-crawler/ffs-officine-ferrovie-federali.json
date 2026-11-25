@@ -2593,7 +2593,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T21:24:39.192Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-52a9d5d4ffe1",
@@ -6527,7 +6528,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:24:38.664Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-318efd3fd54b",
@@ -6749,7 +6751,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:24:24.180Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-a8a82df876ad",
@@ -7979,7 +7982,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:24:45.657Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-6eb1004dd0e5",
@@ -8096,7 +8100,7 @@
       "slugByLocale": {
         "it": "creatore-di-decisione-del-ciclo-di-vita-ib-ffs-officine-ferrovie-federali-bellinzona",
         "en": "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona-lqr57y",
-        "de": "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona",
+        "de": "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona-lqr57y",
         "fr": "decideur-du-cycle-de-vie-ib-ffs-officine-ferrovie-federali-bellinzona-00cef5"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -8166,8 +8170,7 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-23T21:24:38.170Z",
       "previousSlugs": [
-        "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona",
-        "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona-lqr57y"
+        "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8177,7 +8180,7 @@
           "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona"
         ],
         "de": [
-          "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona-lqr57y"
+          "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona"
         ],
         "fr": [
           "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona"
@@ -10505,7 +10508,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T21:25:05.702Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-09d681dc8204",
@@ -12557,7 +12561,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-23T21:25:49.748Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-83c61f0a4674",
@@ -18029,7 +18034,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:26:07.359Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-b77e54cb9f58",
@@ -19165,7 +19171,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T21:26:08.005Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-9634e780d4e6",
@@ -19476,7 +19483,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:26:08.205Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-4b2567666b00",
@@ -19795,7 +19803,8 @@
       "streetAddress": "Ticino",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T21:26:08.420Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-58e668484ba4",

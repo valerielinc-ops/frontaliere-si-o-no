@@ -219,18 +219,28 @@
         "fr": "kommissar-in-dpsa-auswertung-swiss-armed-forces-vtg-bern-bpkas7"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "postalCode": "3004",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Papiermühlestrasse 20",
       "previousSlugsByLocale": {
         "it": [
-          "kommissar-in-dpsa-auswertung-swiss-armed-forces-vtg-bern"
+          "kommissar-in-dpsa-auswertung-swiss-armed-forces-vtg-bern",
+          "kommissar-in-dpsa-auswertung-confederazione-bern"
+        ],
+        "en": [
+          "kommissar-in-dpsa-auswertung-confederazione-bern"
+        ],
+        "de": [
+          "kommissar-in-dpsa-auswertung-confederazione-bern"
+        ],
+        "fr": [
+          "kommissar-in-dpsa-auswertung-confederazione-bern"
         ]
       },
       "previousSlugs": [
-        "kommissar-in-dpsa-auswertung-swiss-armed-forces-vtg-bern"
+        "kommissar-in-dpsa-auswertung-swiss-armed-forces-vtg-bern",
+        "kommissar-in-dpsa-auswertung-confederazione-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -504,7 +514,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.admin.ch/offene-stellen/ict-change-und-release-manager-in-senior/eb043ee3-b94d-4c1e-a32f-066e118dc180",
       "salaryMin": 175000,
-      "salaryMax": 307500
+      "salaryMax": 307500,
+      "needsRetranslation": true
     },
     {
       "id": "company-q1r8cq",
@@ -6664,7 +6675,8 @@
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.admin.ch/offene-stellen/chef-in-computer-security-incident-response-team-csirt-stv-c-cyber-fusion-center/f1899f55-5bf4-433b-94c8-f29cc4bc0fd8",
       "salaryMin": 73000,
-      "salaryMax": 124500
+      "salaryMax": 124500,
+      "needsRetranslation": true
     },
     {
       "id": "company-9e7syr",
