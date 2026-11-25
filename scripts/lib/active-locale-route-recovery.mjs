@@ -52,6 +52,11 @@ function servedSlug(job, locale, includeDerivedActiveSlug) {
   return slugify(`${source} ${suffix}`) || slugify(source);
 }
 
+function recoveryLocales(job) {
+  const explicitLocales = JOB_LOCALES.filter((locale) => nonblank(job?.slugByLocale?.[locale]));
+  return explicitLocales.length > 0 ? explicitLocales : JOB_LOCALES;
+}
+
 function slugify(value) {
   return String(value || '')
     .toLowerCase()
@@ -197,7 +202,7 @@ export function planActiveLocaleRouteRecovery({
     const fingerprint = baseRow?.fingerprint || fingerprintOf(baseJob);
     const identities = stableJobIdentityKeys(baseJob, () => fingerprint);
     if (identities.length === 0) {
-      for (const locale of JOB_LOCALES) {
+      for (const locale of recoveryLocales(baseJob)) {
         const value = servedSlug(baseJob, locale, false);
         if (nonblank(value)) {
           summary.baseLocaleRoutes += 1;
@@ -212,7 +217,7 @@ export function planActiveLocaleRouteRecovery({
       for (const row of headByIdentity.get(identity) || []) ownersById.set(ownerIdOf(row), row);
     }
     const owners = [...ownersById.values()];
-    for (const locale of JOB_LOCALES) {
+    for (const locale of recoveryLocales(baseJob)) {
       const rawSlug = servedSlug(baseJob, locale, false);
       if (!nonblank(rawSlug)) continue;
       summary.baseLocaleRoutes += 1;
