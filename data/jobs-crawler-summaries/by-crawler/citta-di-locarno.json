@@ -1,7 +1,7 @@
 {
   "key": "citta-di-locarno",
   "label": "Locarno",
-  "generatedAt": "2026-11-25T09:22:32.335Z",
+  "generatedAt": "2026-11-25T21:24:05.650Z",
   "total": 4,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -9,10 +9,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 4600,
-  "avgDurationMs": 4600,
+  "durationMs": 4646,
+  "avgDurationMs": 4646,
   "durationHistory": [
-    4600
+    4646
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -45,10 +45,10 @@
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=9698f713-121f-4dc5-99d0-119dbc201368,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-25T09:22:15.499Z",
+      "crawledAt": "2026-11-25T21:23:50.104Z",
       "firstSeenAt": "2026-11-13T09:16:23.037Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T09:22:15.499Z",
+      "validThrough": "2027-02-11T21:23:50.104Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 9900,
       "salaryMax": 15000,
@@ -88,10 +88,10 @@
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=7c48d62a-c986-4d16-a83a-45c7fe76d03a,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-25T09:22:15.813Z",
+      "crawledAt": "2026-11-25T21:23:50.321Z",
       "firstSeenAt": "2026-11-13T09:16:23.452Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T09:22:15.813Z",
+      "validThrough": "2027-02-11T21:23:50.321Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 9900,
       "salaryMax": 15000,
@@ -131,10 +131,10 @@
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=a6704156-975f-403a-810a-cc3f1ed3c0da,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-25T09:22:16.015Z",
+      "crawledAt": "2026-11-25T21:23:50.527Z",
       "firstSeenAt": "2026-11-13T09:16:23.733Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T09:22:16.015Z",
+      "validThrough": "2027-02-11T21:23:50.527Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -174,10 +174,10 @@
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=ab51cfb8-b7ee-4213-9907-7006885ec07c,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-25T09:22:16.192Z",
+      "crawledAt": "2026-11-25T21:23:50.732Z",
       "firstSeenAt": "2026-11-06T09:22:11.397Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T09:22:16.192Z",
+      "validThrough": "2027-02-04T21:23:50.732Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -191,5 +191,5 @@
       }
     }
   ],
-  "codeCommit": "55fd511dba5e5c1bd3b4047690c697040c8b6c58"
+  "codeCommit": "0c64b1f2eae0b337b537e356aa5de051b9c4c6cc"
 }
