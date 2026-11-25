@@ -14,16 +14,25 @@ const BODY = 'Wir betreuen unsere Patientinnen und Patienten während der statio
 afterEach(() => { vi.unstubAllGlobals(); vi.clearAllMocks(); });
 
 it.each(['15.06.2020', '31.02.2020', '15.06.2999'])('CRR does not promote unlabelled/start date %s', async (raw) => {
-  const url = 'https://www.crr-suva.ch/clinique-readaptation/infirmier-123.html';
-  const listing = `<a class="listElement" href="/clinique-readaptation/infirmier-123.html">Infirmier Entrée en fonction : ${raw} Taux d'activité 80%</a>`;
-  const detail = `<h1>Infirmier</h1><p>${BODY}</p><footer>Footer</footer>`;
+  const url = 'https://www.jobup.ch/en/jobs/detail/12345678-1234-4234-8234-123456789abc/';
+  const listing = `<a class="post-link" href="${url}"><h3 class="post-title">Infirmier</h3><span class="post-resume-wrapper">Sion · 80%</span></a>`;
+  const detail = `<script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'JobPosting',
+    title: 'Infirmier',
+    description: BODY,
+    jobStartDate: raw,
+    hiringOrganization: { '@type': 'Organization', name: 'Clinique romande de réadaptation' },
+    employmentType: 'Permanent position',
+    jobLocation: { '@type': 'Place', address: { '@type': 'PostalAddress', streetAddress: 'Avenue Grand Champsec 90', addressRegion: 'Sion', postalCode: '1950', addressCountry: 'CH' } },
+  })}</script>`;
   vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => new Response(String(input) === url ? detail : listing)));
   const jobs = await fetchAllCrrJobs();
   expect(jobs).toHaveLength(1);
   expect(jobs[0]).toMatchObject({ ...UNKNOWN, title: 'Infirmier', url, location: 'Sion', canton: 'VS', description: BODY });
 });
-it('CRR preserves its existing dated-card discovery filter', async () => {
-  vi.stubGlobal('fetch', vi.fn(async () => new Response('<a class="listElement" href="/clinique-readaptation/intro-123.html">Introduction</a>')));
+it('CRR only follows Jobup vacancy cards from the current listing', async () => {
+  vi.stubGlobal('fetch', vi.fn(async () => new Response('<a class="post-link" href="https://www.jobup.ch/en/companies/example/">Introduction</a>')));
   expect(await fetchAllCrrJobs()).toEqual([]);
 });
 
