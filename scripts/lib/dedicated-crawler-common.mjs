@@ -3702,7 +3702,14 @@ export async function enrichJobLocalesWithRetryDCC(job, crawlerConfig, ctx = {},
 
 // ── End FRO-234: Localization pipeline ──────────────────────────────────
 
-export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = null, maxJobs = 0, minDescriptionChars = 120, companySlug = '' }) {
+export async function translateMissingJobLocales({
+  dataJobsPath,
+  isTargetJob = null,
+  maxJobs = 0,
+  minDescriptionChars = 120,
+  companySlug = '',
+  retranslationFlagFilter = null,
+}) {
   if (!dataJobsPath || !fs.existsSync(dataJobsPath)) {
     return { changed: false, translated: 0, total: 0, details: [] };
   }
@@ -3716,6 +3723,14 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
   let translated = 0;
   const details = [];
   const concurrency = Math.max(1, Math.min(6, intFromEnv('JOBS_LOCALE_TRANSLATION_CONCURRENCY', 3)));
+
+  // A crawler may have baseline evidence that a marker hardening just raised
+  // is spurious. Run its narrow filter after hardening but before candidates
+  // are ordered and their translation-cache entries can be bypassed.
+  if (typeof retranslationFlagFilter === 'function') {
+    const dropped = Number(retranslationFlagFilter(raw)) || 0;
+    if (dropped > 0) changed = true;
+  }
 
   const filtered = isTargetJob ? raw.filter(isTargetJob) : raw;
   // FRO-327: prioritize jobs marked for retranslation (failed in a previous run)

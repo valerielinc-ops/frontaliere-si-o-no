@@ -746,8 +746,13 @@ export function suppressSpuriousVolgRetranslationFlags(jobs, baseline = getRetra
   return dropSpuriousRetranslationFlags(jobs, baseline, { isIncomplete });
 }
 
-function mergeJobs(discoveredJobs) {
-  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+export function mergeJobs(discoveredJobs, {
+  existingJobs = null,
+  dataJobsPath = DATA_JOBS,
+  publicJobsPath = PUBLIC_JOBS,
+  retranslationBaseline = getRetranslationBaseline(COMPANY_KEY),
+} = {}) {
+  const existing = existingJobs || readExistingCrawlerJobs(COMPANY_KEY, dataJobsPath);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
@@ -793,15 +798,15 @@ function mergeJobs(discoveredJobs) {
   // baseline rule later, but that is too late: a spurious flag bypasses the
   // translation cache and enables title-contamination repair. Apply it while
   // the pre-run baseline is still available, before translateMissingJobLocales.
-  const retrans = suppressSpuriousVolgRetranslationFlags(mergedTarget);
+  const retrans = suppressSpuriousVolgRetranslationFlags(mergedTarget, retranslationBaseline);
   if (retrans?.dropped > 0) {
     console.log(`  🧮 Retranslation flags: dropped ${retrans.dropped}/${retrans.flagged} unchanged complete Volg record(s) before localization`);
   }
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];
-  writeJson(DATA_JOBS, allJobs);
-  if (fs.existsSync(path.dirname(PUBLIC_JOBS))) {
-    writeJson(PUBLIC_JOBS, allJobs);
+  writeJson(dataJobsPath, allJobs);
+  if (fs.existsSync(path.dirname(publicJobsPath))) {
+    writeJson(publicJobsPath, allJobs);
   }
 
   const afterSnapshot = snapshotJobSlugs(mergedTarget);
@@ -933,6 +938,7 @@ async function main() {
   await translateMissingJobLocales({
     dataJobsPath: DATA_JOBS,
     isTargetJob,
+    retranslationFlagFilter: (jobs) => suppressSpuriousVolgRetranslationFlags(jobs)?.dropped || 0,
   });
 
   // No thin-description padding step: every body here is source text that

@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { dropFabricatedDescription } from '../scripts/lib/drop-fabricated-description.mjs';
@@ -6,6 +7,7 @@ import {
   buildJob,
   fetchAllJobs,
   isVolgInventedText,
+  mergeJobs,
   resolveVolgJobBodies,
   sourceLangFromDetailUrl,
   stripVolgInventedSlots,
@@ -14,12 +16,14 @@ import {
 } from '../scripts/update-volg-jobs.mjs';
 import { snapshotRetranslationBaseline } from '../scripts/lib/crawler-retranslation-baseline.mjs';
 import { isIncomplete } from '../scripts/lib/translation-incomplete.mjs';
+import { translateMissingJobLocales } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 // First sentence of the retired fenaco company paragraph (VOLG_INVENTED_TEXT_MARKERS).
 const VOLG_INVENTED_TEXT_MARKERS_FOR_TEST = 'fenaco Genossenschaft ist die grösste Agrargenossenschaft der Schweiz mit über 11.000 Mitarbeitenden.';
 
 afterEach(() => {
   vi.unstubAllGlobals();
+  vi.unstubAllEnvs();
 });
 
 const retranslationPairs = JSON.parse(
@@ -30,6 +34,21 @@ function retranslationPair(name: string) {
   const found = retranslationPairs.find((pair) => pair.case === name);
   if (!found) throw new Error(`Missing retranslation fixture: ${name}`);
   return structuredClone(found);
+}
+
+function asVolgRecord(job: Record<string, unknown>) {
+  return {
+    ...job,
+    companyKey: 'volg-fenaco',
+    source: 'volg-fenaco-dedicated-crawler',
+    slug: 'fixture-volg-job',
+    slugByLocale: {
+      it: 'offerta-volg-fixture',
+      en: 'volg-fixture-job',
+      de: 'schadenmitarbeiter-w-m-generalagentur-olten-acme-olten',
+      fr: 'offre-volg-fixture',
+    },
+  };
 }
 
 /**
@@ -593,5 +612,66 @@ describe('Volg/fenaco crawler — detail enrichment retranslation flags', () => 
 
     expect(after.needsRetranslation).toBe(true);
     expect(report).toMatchObject({ dropped: 0, keptIncomplete: 1 });
+  });
+
+  it('removes the unchanged detail marker before the real localization worker can miss its cache', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'volg-retranslation-'));
+    const dataJobsPath = path.join(root, 'jobs.json');
+    const { before, after } = retranslationPair('source-unchanged');
+    const previous = asVolgRecord(before);
+    const discovered = {
+      ...asVolgRecord(after),
+      _enrichedFromDetail: true,
+    };
+    const fetchSpy = vi.fn();
+    vi.stubGlobal('fetch', fetchSpy);
+    vi.stubEnv('SKIP_AI_TRANSLATION', '1');
+
+    try {
+      mergeJobs([discovered], {
+        existingJobs: [previous],
+        dataJobsPath,
+        publicJobsPath: path.join(root, 'public.json'),
+        retranslationBaseline: snapshotRetranslationBaseline([previous]),
+      });
+      const merged = JSON.parse(fs.readFileSync(dataJobsPath, 'utf8'));
+      expect(merged[0].needsRetranslation).toBeUndefined();
+
+      const result = await translateMissingJobLocales({
+        dataJobsPath,
+        isTargetJob: (job) => job.companyKey === 'volg-fenaco',
+        retranslationFlagFilter: (jobs) =>
+          suppressSpuriousVolgRetranslationFlags(jobs, snapshotRetranslationBaseline([previous]))?.dropped || 0,
+      });
+      expect(result.translated).toBe(0);
+      expect(JSON.parse(fs.readFileSync(dataJobsPath, 'utf8'))[0].needsRetranslation).toBeUndefined();
+      expect(fetchSpy).not.toHaveBeenCalled();
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('leaves a changed source queued through the merge boundary', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'volg-retranslation-'));
+    const dataJobsPath = path.join(root, 'jobs.json');
+    const { before, after } = retranslationPair('source-changed');
+    const previous = asVolgRecord(before);
+    const discovered = {
+      ...asVolgRecord(after),
+      _enrichedFromDetail: true,
+    };
+
+    try {
+      mergeJobs([discovered], {
+        existingJobs: [previous],
+        dataJobsPath,
+        publicJobsPath: path.join(root, 'public.json'),
+        retranslationBaseline: snapshotRetranslationBaseline([previous]),
+      });
+      const merged = JSON.parse(fs.readFileSync(dataJobsPath, 'utf8'));
+      expect(merged[0].needsRetranslation).toBe(true);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
   });
 });
