@@ -4323,7 +4323,7 @@
       "id": "pdgr-554046eb0602",
       "slug": "kochin-koch-pdgr-ch-2",
       "slugByLocale": {
-        "de": "kochin-koch-pdgr-ch",
+        "de": "kochin-koch-pdgr-ch-hbmsql",
         "it": "kochin-koch-pdgr-ch-2",
         "en": "kochin-koch-pdgr-ch-2",
         "fr": "kochin-koch-pdgr-ch-2"
@@ -4402,7 +4402,15 @@
       "streetAddress": "Loëstrasse 220",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-22T21:30:42.877Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugs": [
+        "kochin-koch-pdgr-ch"
+      ],
+      "previousSlugsByLocale": {
+        "de": [
+          "kochin-koch-pdgr-ch"
+        ]
+      }
     },
     {
       "id": "pdgr-84768395e5d1",
@@ -4459,7 +4467,6 @@
       "pensumMin": 60,
       "pensumMax": 100,
       "pensum": "60 - 100%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "assistenz-oder-fachpsychologe-in-pdgr-ch-2"

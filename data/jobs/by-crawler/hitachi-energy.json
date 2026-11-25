@@ -293,7 +293,6 @@
         "fr": "cnc-dreher-in-w-m-d-hitachi-energy-zurich-switzerland"
       },
       "id": "hitachi-energy-e246ac582662",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "currency": "CHF",
@@ -2114,7 +2113,7 @@
       "slugByLocale": {
         "it": "tornitore-trice-cnc-m-f-d-hitachi-energy-zurich-switzerland",
         "en": "cnc-turner-m-f-d-hitachi-energy-zurich-switzerland",
-        "de": "cnc-dreher-in-w-m-d-hitachi-energy-zurich-switzerland",
+        "de": "cnc-dreher-in-w-m-d-hitachi-energy-zurich-switzerland-fng6x6",
         "fr": "tourneur-tourneuse-cnc-h-f-d-hitachi-energy-zurich-switzerland"
       },
       "id": "hitachi-energy-4be552b2ebc4",
@@ -2149,6 +2148,9 @@
           "cnc-dreher-in-w-m-d-hitachi-energy-zurich-switzerland"
         ],
         "it": [
+          "cnc-dreher-in-w-m-d-hitachi-energy-zurich-switzerland"
+        ],
+        "de": [
           "cnc-dreher-in-w-m-d-hitachi-energy-zurich-switzerland"
         ]
       },
