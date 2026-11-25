@@ -2,6 +2,7 @@ import {
   emitSitemapXml,
   isAuthoritativeJobSitemapShardFilename,
 } from "./sitemap-shard.mjs";
+import { isJobBoardSitemapDetailPath } from "./job-board-detail-path.mjs";
 import { SITEMAP_SHARD_CAP } from "./sitemap-limits.mjs";
 
 const URL_BLOCK_RX = /<url>[\s\S]*?<\/url>/g;
@@ -60,6 +61,66 @@ function isActiveJobDetailSitemapPath(pathname) {
   const filename = String(pathname || "").replace(/^\//u, "");
   if (isAuthoritativeJobSitemapShardFilename(filename)) return true;
   return /^sitemap-jobs-[a-z0-9-]+-(?:en|de|fr)(?:-\d{3})?\.xml$/u.test(filename);
+}
+
+/** List every currently indexed file in the active job-detail sitemap family. */
+export function listActiveJobSitemapFilenames(indexXml) {
+  return [
+    ...new Set(
+      [...String(indexXml || "").matchAll(
+        /<loc>\s*https:\/\/frontaliereticino\.ch\/([^<]+?)\s*<\/loc>/gu,
+      )]
+        .map((match) => match[1].trim())
+        .filter((filename) => isActiveJobDetailSitemapPath(`/${filename}`)),
+    ),
+  ].sort();
+}
+
+/**
+ * Find detail URLs left in a live job sitemap after their full-build owner
+ * disappeared. Firestore previous-path state cannot see a stable ID that was
+ * retired entirely, so the live sitemap is the authoritative cleanup input.
+ * Only the shared positive detail matcher is eligible; hubs and other URLs
+ * remain untouched by construction.
+ */
+export function stalePublishedActiveJobDetailLocs(
+  sitemapXmlByPath,
+  fullBuildSitemapLocs,
+) {
+  if (!(sitemapXmlByPath instanceof Map)) {
+    throw new Error("[jobs-fast-sitemap] sitemap sources must be a Map");
+  }
+  assertLocSet(fullBuildSitemapLocs, "full-build sitemap allowlist");
+
+  const staleByPath = new Map();
+  for (const [pathname, xml] of sitemapXmlByPath) {
+    if (!isActiveJobDetailSitemapPath(pathname)) continue;
+    assertUrlset(xml, pathname);
+    for (const block of String(xml).match(URL_BLOCK_RX) || []) {
+      const rawLoc = block.match(LOC_RX)?.[1]?.trim();
+      if (!rawLoc) continue;
+      let parsed;
+      try {
+        parsed = new URL(rawLoc);
+      } catch {
+        continue;
+      }
+      if (
+        parsed.origin !== "https://frontaliereticino.ch" ||
+        parsed.search ||
+        parsed.hash ||
+        !parsed.pathname.endsWith("/") ||
+        !isJobBoardSitemapDetailPath(parsed.pathname)
+      ) {
+        continue;
+      }
+      const loc = parsed.href;
+      if (fullBuildSitemapLocs.has(loc)) continue;
+      if (!staleByPath.has(pathname)) staleByPath.set(pathname, new Set());
+      staleByPath.get(pathname).add(loc);
+    }
+  }
+  return staleByPath;
 }
 
 /**

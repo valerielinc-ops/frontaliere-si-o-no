@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  listActiveJobSitemapFilenames,
   listJobVariantShardFilenames,
   mergeFastJobSitemapIndex,
   mergeFastJobVariantShard,
@@ -9,6 +10,7 @@ import {
   routeActiveJobSitemapRemovals,
   selectJobVariantShardFilename,
   staleActiveJobDetailLocs,
+  stalePublishedActiveJobDetailLocs,
 } from "../scripts/lib/jobs-fast-sitemap.mjs";
 import { SITEMAP_SHARD_CAP } from "../scripts/lib/sitemap-limits.mjs";
 
@@ -84,6 +86,69 @@ describe("jobs-fast sitemap merge", () => {
     expect(xml).toContain(admittedDetail);
     expect(xml).toContain(unrelatedHub);
     expect(xml).toContain(previousSlugBridge);
+  });
+
+  it("removes retired detail URLs from every indexed active shard while keeping hubs", () => {
+    const staleRoot = "https://frontaliereticino.ch/cerca-lavoro-ticino/retired-root/";
+    const staleVariant = "https://frontaliereticino.ch/en/find-jobs-zurich/retired-variant/";
+    const currentVariant = "https://frontaliereticino.ch/en/find-jobs-zurich/current/";
+    const cantonHub = "https://frontaliereticino.ch/en/find-jobs-zurich/zurich/";
+    const companyHub = "https://frontaliereticino.ch/en/find-jobs-zurich/company-acme/";
+    const sectorHub = "https://frontaliereticino.ch/en/find-jobs-zurich/it-jobs/";
+    const paginationHub = "https://frontaliereticino.ch/en/find-jobs-zurich/page-2/";
+    const searchLanding = "https://frontaliereticino.ch/en/find-jobs-zurich/search-engineering/";
+    const categoryLanding = "https://frontaliereticino.ch/en/find-jobs-zurich/category-health/";
+    const sources = new Map([
+      ["/sitemap-jobs.xml", rootXml([urlEntry(staleRoot)])],
+      [
+        "/sitemap-jobs-zurigo-en.xml",
+        rootXml([
+          urlEntry(staleVariant),
+          urlEntry(currentVariant),
+          urlEntry(cantonHub),
+          urlEntry(companyHub),
+          urlEntry(sectorHub),
+          urlEntry(paginationHub),
+          urlEntry(searchLanding),
+          urlEntry(categoryLanding),
+        ]),
+      ],
+      ["/sitemap-jobs-expired-001.xml", rootXml([urlEntry(staleVariant)])],
+    ]);
+
+    const removals = stalePublishedActiveJobDetailLocs(
+      sources,
+      new Set([currentVariant]),
+    );
+
+    expect([...removals].map(([pathname, locs]) => [pathname, [...locs]])).toEqual([
+      ["/sitemap-jobs.xml", [staleRoot]],
+      ["/sitemap-jobs-zurigo-en.xml", [staleVariant]],
+    ]);
+    expect(removals.has("/sitemap-jobs-expired-001.xml")).toBe(false);
+    expect(removals.get("/sitemap-jobs-zurigo-en.xml")).not.toContain(cantonHub);
+    expect(removals.get("/sitemap-jobs-zurigo-en.xml")).not.toContain(companyHub);
+    expect(removals.get("/sitemap-jobs-zurigo-en.xml")).not.toContain(sectorHub);
+    expect(removals.get("/sitemap-jobs-zurigo-en.xml")).not.toContain(paginationHub);
+    expect(removals.get("/sitemap-jobs-zurigo-en.xml")).not.toContain(searchLanding);
+    expect(removals.get("/sitemap-jobs-zurigo-en.xml")).not.toContain(categoryLanding);
+  });
+
+  it("lists only active job-detail sitemap files from the sitemap index", () => {
+    const xml = indexXml([
+      "sitemap-jobs.xml",
+      "sitemap-jobs-legacy-001.xml",
+      "sitemap-jobs-zurigo-en.xml",
+      "sitemap-jobs-zurigo-en-001.xml",
+      "sitemap-jobs-expired-001.xml",
+      "sitemap-events.xml",
+    ]);
+    expect(listActiveJobSitemapFilenames(xml)).toEqual([
+      "sitemap-jobs-legacy-001.xml",
+      "sitemap-jobs-zurigo-en-001.xml",
+      "sitemap-jobs-zurigo-en.xml",
+      "sitemap-jobs.xml",
+    ]);
   });
 
   it("fails closed without every full-build sitemap decision", () => {
