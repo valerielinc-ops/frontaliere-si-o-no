@@ -1,7 +1,7 @@
 {
   "key": "premiumpflege24",
   "label": "PremiumPflege24 GmbH",
-  "generatedAt": "2026-11-24T21:49:49.854Z",
+  "generatedAt": "2026-11-25T09:56:37.567Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 7355,
-  "avgDurationMs": 7355,
+  "durationMs": 10583,
+  "avgDurationMs": 10583,
   "durationHistory": [
-    7355
+    10583
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://premiumpflege24.ch/job-registrierung/",
       "source": "PremiumPflege24 GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-24T21:49:33.074Z",
+      "crawledAt": "2026-11-25T09:56:19.017Z",
       "addressLocality": "Schweiz",
       "addressRegion": "",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "salarySource": "reported",
       "firstSeenAt": "2026-09-26T14:26:12.841Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T21:49:33.074Z",
+      "validThrough": "2026-12-25T09:56:19.017Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -72,5 +72,5 @@
       }
     }
   ],
-  "codeCommit": "af6487cf18de54664a2dd36f8f16e17f8a69b92f"
+  "codeCommit": "55fd511dba5e5c1bd3b4047690c697040c8b6c58"
 }
