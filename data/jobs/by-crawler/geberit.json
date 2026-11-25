@@ -1,7 +1,7 @@
 {
   "crawlerKey": "geberit",
-  "assembledAt": "2026-11-25T09:50:24.280Z",
-  "runId": "45585011930",
+  "assembledAt": "2026-11-25T21:42:40.469Z",
+  "runId": "45703845291",
   "jobs": [
     {
       "id": "geberit-178",
@@ -34,7 +34,7 @@
       "url": "https://jobs.geberit.com/job-invite/178/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:50:17.918Z",
+      "crawledAt": "2026-11-25T21:42:33.238Z",
       "addressLocality": "Givisiez",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -83,9 +83,88 @@
       "postalCode": "1762",
       "streetAddress": "Givisiez",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:50:17.918Z",
+      "validThrough": "2027-02-10T21:42:33.238Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-12T21:41:23.476Z"
+    },
+    {
+      "id": "geberit-1829",
+      "slug": "it-application-analista-plm-cax-a-80-100-geberit-rapperswil-jona",
+      "slugByLocale": {
+        "de": "it-application-analyst-plm-cax-a-80-100-geberit-ch",
+        "fr": "it-application-analyste-plm-cax-a-80-100-geberit-rapperswil-jona",
+        "it": "it-application-analista-plm-cax-a-80-100-geberit-rapperswil-jona",
+        "en": "it-application-analista-plm-cax-a-80-100-geberit-rapperswil-jona"
+      },
+      "company": "Geberit",
+      "companyKey": "geberit",
+      "companyDomain": "geberit.com",
+      "title": "IT Application Analyst PLM-CAx (a) 80-100%",
+      "titleByLocale": {
+        "it": "Analista Applicazioni IT PLM-CAx (a) 80-100%",
+        "en": "IT Application Analyst PLM-CAx 80-100%",
+        "de": "IT Application Analyst PLM-CAx (a) 80-100%",
+        "fr": "Analyste Applications IT PLM-CAx (a) 80-100%"
+      },
+      "description": "## HAUPTAUFGABEN​\n\nAls 3DExperience System Engineer bist du verantwortlich für die Optimierung und den Unterhalt der 3DExperience Plattform und angrenzender IT-Systeme zur Unterstützung von firmenübergreifenden Produktentwicklungs-, Fertigungs- und Änderungsprozessen im PLM/CAD-Umfeld. Dies beinhaltet folgende Hauptaufgaben:\n\n- Sicherstellung der Systemfunktionalität und Optimierung bestehender PLM-Applikationen und Betrieb von 3DExperience\n- Umsetzung von Verbesserungspotenzialen, Erarbeitung von Lösungskonzepten\n- Durchführung von Anforderungsanalysen in enger Zusammenarbeit mit Fachbereichen\n- Erstellung von technischen Spezifikationen und Dokumentationen\n- Durchführung und Organisation von Tests, Qualitätssicherung und Go-Live-Begleitung\n\n## PROFIL\n\nDu verfügst über eine fundierte Ingenieur- oder Informatikausbildung und besitzt vertiefte IT-Kenntnisse. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Erfahrung im Betrieb, Support und Customizing von CAD- ( vorzugsweise Catia ) und PDM-Systemen (vorzugsweise 3DExperience)\n- Kenntnisse der Prozesse in der Produktkonstruktion und der PLM-Philosophie\n- SAP-Kenntnisse von Vorteil\n- Stufengerechte Kommunikationsfähigkeit\n- Ganzheitliches und vernetztes Denken\n- Verhandlungssichere Deutsch- sowie gute Englischkenntnisse (B2)\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+      "descriptionByLocale": {
+        "it": "PRINCIPALI COMPITI\n\nIn qualità di ingegnere di sistema 3DExper Experience, è responsabile dell'ottimizzazione e della manutenzione della piattaforma 3DExper Experience e dei sistemi IT adiacenti per supportare lo sviluppo, la produzione e i processi di cambiamento di prodotti in ambito PLM/CAD. Ciò include le seguenti attività principali:\n\n- Garantire funzionalità di sistema e ottimizzazione delle applicazioni PLM esistenti e funzionamento 3DexperITY\n- Attuazione di potenziali miglioramenti, sviluppo di soluzioni\n- Analisi dei requisiti di condotta in stretta collaborazione con i servizi specializzati\n- Preparazione delle specifiche tecniche e della documentazione\n- Svolgimento e organizzazione di prove, garanzia della qualità e comportamento in condizioni di vita\n\nPROFILO\n\nHai una formazione di ingegneria o informatica e hai competenze IT approfondite. Inoltre, le seguenti caratteristiche e competenze sono distinte:\n\n- Esperienza in funzionamento, supporto e personalizzazione dei sistemi CAD (preferibilmente Catia) e PDM (preferibilmente 3DEXPERITY)\n- Conoscenza dei processi di progettazione dei prodotti e filosofia PLM\n- La conoscenza del SAP è vantaggiosa\n- Capacità di comunicazione basata su livelli\n- Pensiero olistico e connesso\n- Negoziabile tedesco e buone abilità inglesi (B2)\n\nNOTE AGGIUNTIVE\n\nPer questa posizione prendiamo in considerazione solo le applicazioni dirette.",
+        "en": "MAIN TASKS\n\nAs a 3DExper Experience System Engineer, you are responsible for optimizing and maintaining the 3DExper Experience platform and adjacent IT systems to support cross-field product development, manufacturing and change processes in the PLM/CAD environment. This includes the following main tasks:\n\n- Ensure system functionality and optimization of existing PLM applications and 3DExperITY operation\n- Implementation of potential improvements, development of solutions\n- Conducting requirements analyses in close cooperation with specialist departments\n- Preparation of technical specifications and documentation\n- Conduct and organisation of tests, quality assurance and go-live-conduct\n\nPROFILE\n\nYou have a sound engineering or computer science training and have in-depth IT skills. In addition, the following characteristics and skills are distinguished:\n\n- Experience in operation, support and customization of CAD (preferably Catia) and PDM systems (preferably 3DExperITY)\n- Knowledge of the processes in product design and PLM philosophy\n- SAP knowledge is beneficial\n- Level-based communication capability\n- Holistic and connected thinking\n- Negotiable German and good English skills (B2)\n\nADDITIONAL NOTES\n\nWe only take direct applications into account for this position.",
+        "de": "## HAUPTAUFGABEN​\n\nAls 3DExperience System Engineer bist du verantwortlich für die Optimierung und den Unterhalt der 3DExperience Plattform und angrenzender IT-Systeme zur Unterstützung von firmenübergreifenden Produktentwicklungs-, Fertigungs- und Änderungsprozessen im PLM/CAD-Umfeld. Dies beinhaltet folgende Hauptaufgaben:\n\n- Sicherstellung der Systemfunktionalität und Optimierung bestehender PLM-Applikationen und Betrieb von 3DExperience\n- Umsetzung von Verbesserungspotenzialen, Erarbeitung von Lösungskonzepten\n- Durchführung von Anforderungsanalysen in enger Zusammenarbeit mit Fachbereichen\n- Erstellung von technischen Spezifikationen und Dokumentationen\n- Durchführung und Organisation von Tests, Qualitätssicherung und Go-Live-Begleitung\n\n## PROFIL\n\nDu verfügst über eine fundierte Ingenieur- oder Informatikausbildung und besitzt vertiefte IT-Kenntnisse. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Erfahrung im Betrieb, Support und Customizing von CAD- ( vorzugsweise Catia ) und PDM-Systemen (vorzugsweise 3DExperience)\n- Kenntnisse der Prozesse in der Produktkonstruktion und der PLM-Philosophie\n- SAP-Kenntnisse von Vorteil\n- Stufengerechte Kommunikationsfähigkeit\n- Ganzheitliches und vernetztes Denken\n- Verhandlungssichere Deutsch- sowie gute Englischkenntnisse (B2)\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+        "fr": "TÂCHES PRINCIPALES​\n\nEn tant qu'ingénieur système 3DExperience, vous êtes responsable de l'optimisation et de la maintenance de la plate-forme 3DExperience et des systèmes informatiques adjacents pour prendre en charge les processus de développement de produits, de fabrication et de modification inter-entreprises dans l'environnement PLM/CAO. Cela comprend les tâches principales suivantes :\n\n- Assurer la fonctionnalité du système et l'optimisation des applications PLM existantes et de l'exploitation de 3DExperience\n- Mise en œuvre des potentiels d'amélioration, développement de concepts de solutions\n- Réaliser des analyses de besoins en étroite collaboration avec les services spécialisés\n- Création de spécifications techniques et de documentation\n- Réaliser et organiser les tests, l'assurance qualité et le support go-live\n\nPROFIL\n\nVous disposez d'une solide formation en ingénierie ou en informatique et disposez de connaissances informatiques approfondies. Vous possédez également les caractéristiques et compétences suivantes :\n\n- Expérience dans l'exploitation, le support et la personnalisation de systèmes CAO (de préférence Catia) et PDM (de préférence 3DExperience)\n- Connaissance des processus de conception de produits et de la philosophie PLM\n- La connaissance de SAP est un avantage\n- Compétences en communication adaptées au niveau\n- Pensée holistique et en réseau\n- Maîtrise de l'allemand des affaires et bonne maîtrise de l'anglais (B2)\n\nREMARQUES SUPPLÉMENTAIRES\n\nNous considérons uniquement les candidatures directes pour ce poste."
+      },
+      "location": "Rapperswil-Jona",
+      "canton": "SG",
+      "url": "https://jobs.geberit.com/job-invite/1829/?locale=de_DE",
+      "source": "Geberit Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-25T21:42:33.236Z",
+      "addressLocality": "Rapperswil-Jona",
+      "postalCode": "8640",
+      "streetAddress": "Schachenstrasse 77",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industrial / Sanitary technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-07-30T11:38:08Z",
+      "postedDate": "2026-07-30T11:38:08Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.geberit.com/job-invite/1829/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "it-application-analyst-plm-cax-a-80-100-geberit-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "it-application-analyst-plm-cax-a-80-100-geberit-ch"
+        ],
+        "en": [
+          "it-application-analyst-plm-cax-a-80-100-geberit-ch"
+        ]
+      },
+      "salaryMin": 60000,
+      "salaryMax": 102000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60000,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-25T21:42:33.236Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-07-15T11:30:58.134Z"
     },
     {
       "id": "geberit-1918",
@@ -118,7 +197,7 @@
       "url": "https://jobs.geberit.com/job-invite/1918/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:50:17.916Z",
+      "crawledAt": "2026-11-25T21:42:33.236Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -167,10 +246,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T09:50:17.916Z",
+      "validThrough": "2026-12-25T21:42:33.236Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-06-10T09:03:19.077Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-06-10T09:03:19.077Z"
     },
     {
       "id": "geberit-1968",
@@ -203,7 +281,7 @@
       "url": "https://jobs.geberit.com/job-invite/1968/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:50:17.915Z",
+      "crawledAt": "2026-11-25T21:42:33.235Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -250,88 +328,91 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T09:50:17.915Z",
+      "validThrough": "2026-12-25T21:42:33.235Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-08-20T09:49:50.662Z"
     },
     {
-      "id": "geberit-1829",
-      "slug": "it-application-analista-plm-cax-a-80-100-geberit-rapperswil-jona",
+      "id": "geberit-1974",
+      "slug": "apprendista-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
       "slugByLocale": {
-        "de": "it-application-analyst-plm-cax-a-80-100-geberit-ch",
-        "fr": "it-application-analyste-plm-cax-a-80-100-geberit-rapperswil-jona",
-        "it": "it-application-analista-plm-cax-a-80-100-geberit-rapperswil-jona",
-        "en": "it-application-analista-plm-cax-a-80-100-geberit-rapperswil-jona"
+        "de": "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch",
+        "it": "apprendista-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
+        "en": "apprentice-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
+        "fr": "apprenti-e-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona"
       },
       "company": "Geberit",
       "companyKey": "geberit",
       "companyDomain": "geberit.com",
-      "title": "IT Application Analyst PLM-CAx (a) 80-100%",
+      "title": "Lernender Polymechaniker (a) - Lehrbeginn 2027",
       "titleByLocale": {
-        "it": "Analista Applicazioni IT PLM-CAx (a) 80-100%",
-        "en": "IT Application Analyst PLM-CAx 80-100%",
-        "de": "IT Application Analyst PLM-CAx (a) 80-100%",
-        "fr": "Analyste Applications IT PLM-CAx (a) 80-100%"
+        "it": "Apprendista polimeccanico (a) - inizio tirocinio 2027",
+        "en": "Apprentice Polymechanic (a) - Start of apprenticeship 2027",
+        "de": "Lernender Polymechaniker (a) - Lehrbeginn 2027",
+        "fr": "Apprenti polymécanicien (a) - début de l'apprentissage en 2027"
       },
-      "description": "## HAUPTAUFGABEN​\n\nAls 3DExperience System Engineer bist du verantwortlich für die Optimierung und den Unterhalt der 3DExperience Plattform und angrenzender IT-Systeme zur Unterstützung von firmenübergreifenden Produktentwicklungs-, Fertigungs- und Änderungsprozessen im PLM/CAD-Umfeld. Dies beinhaltet folgende Hauptaufgaben:\n\n- Sicherstellung der Systemfunktionalität und Optimierung bestehender PLM-Applikationen und Betrieb von 3DExperience\n- Umsetzung von Verbesserungspotenzialen, Erarbeitung von Lösungskonzepten\n- Durchführung von Anforderungsanalysen in enger Zusammenarbeit mit Fachbereichen\n- Erstellung von technischen Spezifikationen und Dokumentationen\n- Durchführung und Organisation von Tests, Qualitätssicherung und Go-Live-Begleitung\n\n## PROFIL\n\nDu verfügst über eine fundierte Ingenieur- oder Informatikausbildung und besitzt vertiefte IT-Kenntnisse. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Erfahrung im Betrieb, Support und Customizing von CAD- ( vorzugsweise Catia ) und PDM-Systemen (vorzugsweise 3DExperience)\n- Kenntnisse der Prozesse in der Produktkonstruktion und der PLM-Philosophie\n- SAP-Kenntnisse von Vorteil\n- Stufengerechte Kommunikationsfähigkeit\n- Ganzheitliches und vernetztes Denken\n- Verhandlungssichere Deutsch- sowie gute Englischkenntnisse (B2)\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+      "description": "## HAUPTAUFGABEN​\n\nPolymechaniker/-innen fertigen Werkstücke und stellen Werkzeuge und Vorrichtungen für die Produktion her. Polymechaniker bauen Geräte, Apparate, Spritzgiesswerkzeuge, Maschinen oder Anlagen zusammen. In Zusammenarbeit mit anderen Fachleuten bearbeiten sie Aufträge oder Projekte. Sie arbeiten mit konventionellen Dreh-, Fräs-, Bohr- und Schleifmaschinen. Meistens setzten sie aber hochmoderne computergesteuerte CNC-Maschinen ein. Diese programmieren sie auf der Grundlage von Konstruktionszeichnungen. Mit präzisen Messinstrumenten überprüfen sie die Einhaltung der Qualitätsanforderungen der gefertigten Werkstücke. Die Hauptaufgaben sind:\n\n- Fertigung von Präzisionsbauteilen\n- Programmierung von Maschinen\n- Montage und Instandhaltung\n\n## PROFIL\n\nFolgende Eigenschaften und Fähigkeiten zeichnen dich aus:\n\n- Sekundarschule\n- Realschule möglich\n- Gute Leistungen in Mathematik und Geometrie\n- Technisches Verständnis\n- Räumliches Vorstellungsvermögen\n- Interesse an Mechanik und Metallbearbeitung\n- Teamfähigkeit\n- Handwerkliche Geschicklichkeit und Sorgfältigkeit",
       "descriptionByLocale": {
-        "it": "PRINCIPALI COMPITI\n\nIn qualità di ingegnere di sistema 3DExper Experience, è responsabile dell'ottimizzazione e della manutenzione della piattaforma 3DExper Experience e dei sistemi IT adiacenti per supportare lo sviluppo, la produzione e i processi di cambiamento di prodotti in ambito PLM/CAD. Ciò include le seguenti attività principali:\n\n- Garantire funzionalità di sistema e ottimizzazione delle applicazioni PLM esistenti e funzionamento 3DexperITY\n- Attuazione di potenziali miglioramenti, sviluppo di soluzioni\n- Analisi dei requisiti di condotta in stretta collaborazione con i servizi specializzati\n- Preparazione delle specifiche tecniche e della documentazione\n- Svolgimento e organizzazione di prove, garanzia della qualità e comportamento in condizioni di vita\n\nPROFILO\n\nHai una formazione di ingegneria o informatica e hai competenze IT approfondite. Inoltre, le seguenti caratteristiche e competenze sono distinte:\n\n- Esperienza in funzionamento, supporto e personalizzazione dei sistemi CAD (preferibilmente Catia) e PDM (preferibilmente 3DEXPERITY)\n- Conoscenza dei processi di progettazione dei prodotti e filosofia PLM\n- La conoscenza del SAP è vantaggiosa\n- Capacità di comunicazione basata su livelli\n- Pensiero olistico e connesso\n- Negoziabile tedesco e buone abilità inglesi (B2)\n\nNOTE AGGIUNTIVE\n\nPer questa posizione prendiamo in considerazione solo le applicazioni dirette.",
-        "en": "MAIN TASKS\n\nAs a 3DExper Experience System Engineer, you are responsible for optimizing and maintaining the 3DExper Experience platform and adjacent IT systems to support cross-field product development, manufacturing and change processes in the PLM/CAD environment. This includes the following main tasks:\n\n- Ensure system functionality and optimization of existing PLM applications and 3DExperITY operation\n- Implementation of potential improvements, development of solutions\n- Conducting requirements analyses in close cooperation with specialist departments\n- Preparation of technical specifications and documentation\n- Conduct and organisation of tests, quality assurance and go-live-conduct\n\nPROFILE\n\nYou have a sound engineering or computer science training and have in-depth IT skills. In addition, the following characteristics and skills are distinguished:\n\n- Experience in operation, support and customization of CAD (preferably Catia) and PDM systems (preferably 3DExperITY)\n- Knowledge of the processes in product design and PLM philosophy\n- SAP knowledge is beneficial\n- Level-based communication capability\n- Holistic and connected thinking\n- Negotiable German and good English skills (B2)\n\nADDITIONAL NOTES\n\nWe only take direct applications into account for this position.",
-        "de": "## HAUPTAUFGABEN​\n\nAls 3DExperience System Engineer bist du verantwortlich für die Optimierung und den Unterhalt der 3DExperience Plattform und angrenzender IT-Systeme zur Unterstützung von firmenübergreifenden Produktentwicklungs-, Fertigungs- und Änderungsprozessen im PLM/CAD-Umfeld. Dies beinhaltet folgende Hauptaufgaben:\n\n- Sicherstellung der Systemfunktionalität und Optimierung bestehender PLM-Applikationen und Betrieb von 3DExperience\n- Umsetzung von Verbesserungspotenzialen, Erarbeitung von Lösungskonzepten\n- Durchführung von Anforderungsanalysen in enger Zusammenarbeit mit Fachbereichen\n- Erstellung von technischen Spezifikationen und Dokumentationen\n- Durchführung und Organisation von Tests, Qualitätssicherung und Go-Live-Begleitung\n\n## PROFIL\n\nDu verfügst über eine fundierte Ingenieur- oder Informatikausbildung und besitzt vertiefte IT-Kenntnisse. Zudem zeichnen dich folgende Eigenschaften und Fähigkeiten aus:\n\n- Erfahrung im Betrieb, Support und Customizing von CAD- ( vorzugsweise Catia ) und PDM-Systemen (vorzugsweise 3DExperience)\n- Kenntnisse der Prozesse in der Produktkonstruktion und der PLM-Philosophie\n- SAP-Kenntnisse von Vorteil\n- Stufengerechte Kommunikationsfähigkeit\n- Ganzheitliches und vernetztes Denken\n- Verhandlungssichere Deutsch- sowie gute Englischkenntnisse (B2)\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-        "fr": "TÂCHES PRINCIPALES​\n\nEn tant qu'ingénieur système 3DExperience, vous êtes responsable de l'optimisation et de la maintenance de la plate-forme 3DExperience et des systèmes informatiques adjacents pour prendre en charge les processus de développement de produits, de fabrication et de modification inter-entreprises dans l'environnement PLM/CAO. Cela comprend les tâches principales suivantes :\n\n- Assurer la fonctionnalité du système et l'optimisation des applications PLM existantes et de l'exploitation de 3DExperience\n- Mise en œuvre des potentiels d'amélioration, développement de concepts de solutions\n- Réaliser des analyses de besoins en étroite collaboration avec les services spécialisés\n- Création de spécifications techniques et de documentation\n- Réaliser et organiser les tests, l'assurance qualité et le support go-live\n\nPROFIL\n\nVous disposez d'une solide formation en ingénierie ou en informatique et disposez de connaissances informatiques approfondies. Vous possédez également les caractéristiques et compétences suivantes :\n\n- Expérience dans l'exploitation, le support et la personnalisation de systèmes CAO (de préférence Catia) et PDM (de préférence 3DExperience)\n- Connaissance des processus de conception de produits et de la philosophie PLM\n- La connaissance de SAP est un avantage\n- Compétences en communication adaptées au niveau\n- Pensée holistique et en réseau\n- Maîtrise de l'allemand des affaires et bonne maîtrise de l'anglais (B2)\n\nREMARQUES SUPPLÉMENTAIRES\n\nNous considérons uniquement les candidatures directes pour ce poste."
+        "it": "## TASK PRINCIPALI\n\nLa polimeccanica produce pezzi e produce utensili e dispositivi per la produzione. Polymechanics assemblare attrezzature, apparati, utensili di stampaggio ad iniezione, macchine o impianti. In collaborazione con altri professionisti, gestiscono ordini o progetti. Lavorano con macchine tradizionali di tornitura, fresatura, foratura e rettifica. Tuttavia, per lo più hanno usato macchine CNC controllate da computer all'avanguardia. Essi programmano questi sulla base di disegni di costruzione. Con strumenti di misura precisi, controllano il rispetto dei requisiti di qualità dei pezzi finiti. I compiti principali sono:\n\n- Produzione di componenti di precisione\n- Servizi di programmazione di macchine\n- Montaggio e manutenzione\n\n## PROFESSIONALE\n\nLe seguenti caratteristiche e abilità ti distinguono:\n\n- Scuola secondaria\n- Scuola reale possibile\n- Buoni risultati in matematica e geometria\n- Competenze tecniche\n- L'immaginazione spaziale\n- Interessi della meccanica e della lavorazione dei metalli\n- Lavoro di squadra\n- Artigianato e cura",
+        "en": "## MAIN TASKS\n\nPolymechanics manufacture workpieces and manufacture tools and devices for production. Polymechanics assemble equipment, apparatus, injection molding tools, machines or plants. In cooperation with other professionals, they handle orders or projects. They work with conventional turning, milling, drilling and grinding machines. However, they mostly used state-of-the-art computer-controlled CNC machines. They program these on the basis of construction drawings. With precise measuring instruments, they check compliance with the quality requirements of the finished workpieces. The main tasks are:\n\n- Production of precision components\n- Machine programming services\n- Assembly and maintenance\n\n## PROFILE\n\nThe following characteristics and abilities distinguish you:\n\n- Secondary school\n- Real school possible\n- Good achievements in mathematics and geometry\n- Technical understanding\n- Spatial imagination\n- Interest in mechanics and metalworking\n- Teamwork\n- Craftsmanship and care",
+        "de": "## HAUPTAUFGABEN​\n\nPolymechaniker/-innen fertigen Werkstücke und stellen Werkzeuge und Vorrichtungen für die Produktion her. Polymechaniker bauen Geräte, Apparate, Spritzgiesswerkzeuge, Maschinen oder Anlagen zusammen. In Zusammenarbeit mit anderen Fachleuten bearbeiten sie Aufträge oder Projekte. Sie arbeiten mit konventionellen Dreh-, Fräs-, Bohr- und Schleifmaschinen. Meistens setzten sie aber hochmoderne computergesteuerte CNC-Maschinen ein. Diese programmieren sie auf der Grundlage von Konstruktionszeichnungen. Mit präzisen Messinstrumenten überprüfen sie die Einhaltung der Qualitätsanforderungen der gefertigten Werkstücke. Die Hauptaufgaben sind:\n\n- Fertigung von Präzisionsbauteilen\n- Programmierung von Maschinen\n- Montage und Instandhaltung\n\n## PROFIL\n\nFolgende Eigenschaften und Fähigkeiten zeichnen dich aus:\n\n- Sekundarschule\n- Realschule möglich\n- Gute Leistungen in Mathematik und Geometrie\n- Technisches Verständnis\n- Räumliches Vorstellungsvermögen\n- Interesse an Mechanik und Metallbearbeitung\n- Teamfähigkeit\n- Handwerkliche Geschicklichkeit und Sorgfältigkeit",
+        "fr": "## PRINCIPALES TÂCHES\n\nPolymécanique fabrique des pièces et fabrique des outils et des dispositifs pour la production. Les polymécaniques assemblent des équipements, des appareils, des outils de moulage par injection, des machines ou des usines. En collaboration avec d'autres professionnels, ils gèrent des commandes ou des projets. Ils travaillent avec des machines conventionnelles de tournage, de fraisage, de forage et de meulage. Cependant, ils utilisaient surtout des machines CNC à la fine pointe de la technologie. Ils les programment sur la base de plans de construction. Avec des instruments de mesure précis, ils vérifient la conformité aux exigences de qualité des pièces finies. Les principales tâches sont les suivantes:\n\n- Production de composants de précision\n- Services de programmation automatique\n- Montage et entretien\n\n## PROFIL\n\nLes caractéristiques et les capacités suivantes vous distinguent :\n\n- École secondaire\n- École réelle possible\n- Bonnes réalisations en mathématiques et en géométrie\n- Compréhension technique\n- L'imagination spatiale\n- Intérêt pour la mécanique et le travail des métaux\n- Travail d'équipe\n- Artisanat et soins"
       },
       "location": "Rapperswil-Jona",
       "canton": "SG",
-      "url": "https://jobs.geberit.com/job-invite/1829/?locale=de_DE",
+      "url": "https://jobs.geberit.com/job-invite/1974/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:50:17.915Z",
+      "crawledAt": "2026-11-25T21:42:33.234Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "IT",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
+      "category": "Altro",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
       "sector": "Industrial / Sanitary technology (manufacturing)",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-07-30T11:38:08Z",
-      "postedDate": "2026-07-30T11:38:08Z",
+      "datePosted": "2026-08-19T11:19:08Z",
+      "postedDate": "2026-08-19T11:19:08Z",
       "postingDateSource": "reported",
-      "applyUrl": "https://jobs.geberit.com/job-invite/1829/?locale=de_DE",
+      "applyUrl": "https://jobs.geberit.com/job-invite/1974/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "it-application-analyst-plm-cax-a-80-100-geberit-ch"
+        "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-application-analyst-plm-cax-a-80-100-geberit-ch"
+          "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
         ],
         "en": [
-          "it-application-analyst-plm-cax-a-80-100-geberit-ch"
+          "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
+        ],
+        "fr": [
+          "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
         ]
       },
-      "salaryMin": 60000,
-      "salaryMax": 102000,
+      "salaryMin": 48000,
+      "salaryMax": 73000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60000,
-          "maxValue": 102000,
+          "minValue": 48000,
+          "maxValue": 73000,
           "unitText": "YEAR"
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T09:50:17.915Z",
+      "validThrough": "2026-12-25T21:42:33.234Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-07-15T11:30:58.134Z"
+      "firstSeenAt": "2026-08-20T09:49:50.660Z"
     },
     {
       "id": "geberit-1969",
@@ -364,7 +445,7 @@
       "url": "https://jobs.geberit.com/job-invite/1969/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:50:17.914Z",
+      "crawledAt": "2026-11-25T21:42:33.234Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -438,91 +519,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T09:50:17.914Z",
+      "validThrough": "2026-12-25T21:42:33.234Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-08-20T09:49:50.662Z"
-    },
-    {
-      "id": "geberit-1974",
-      "slug": "apprendista-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
-      "slugByLocale": {
-        "de": "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch",
-        "it": "apprendista-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
-        "en": "apprentice-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
-        "fr": "apprenti-e-polymechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona"
-      },
-      "company": "Geberit",
-      "companyKey": "geberit",
-      "companyDomain": "geberit.com",
-      "title": "Lernender Polymechaniker (a) - Lehrbeginn 2027",
-      "titleByLocale": {
-        "it": "Apprendista polimeccanico (a) - inizio tirocinio 2027",
-        "en": "Apprentice Polymechanic (a) - Start of apprenticeship 2027",
-        "de": "Lernender Polymechaniker (a) - Lehrbeginn 2027",
-        "fr": "Apprenti polymécanicien (a) - début de l'apprentissage en 2027"
-      },
-      "description": "## HAUPTAUFGABEN​\n\nPolymechaniker/-innen fertigen Werkstücke und stellen Werkzeuge und Vorrichtungen für die Produktion her. Polymechaniker bauen Geräte, Apparate, Spritzgiesswerkzeuge, Maschinen oder Anlagen zusammen. In Zusammenarbeit mit anderen Fachleuten bearbeiten sie Aufträge oder Projekte. Sie arbeiten mit konventionellen Dreh-, Fräs-, Bohr- und Schleifmaschinen. Meistens setzten sie aber hochmoderne computergesteuerte CNC-Maschinen ein. Diese programmieren sie auf der Grundlage von Konstruktionszeichnungen. Mit präzisen Messinstrumenten überprüfen sie die Einhaltung der Qualitätsanforderungen der gefertigten Werkstücke. Die Hauptaufgaben sind:\n\n- Fertigung von Präzisionsbauteilen\n- Programmierung von Maschinen\n- Montage und Instandhaltung\n\n## PROFIL\n\nFolgende Eigenschaften und Fähigkeiten zeichnen dich aus:\n\n- Sekundarschule\n- Realschule möglich\n- Gute Leistungen in Mathematik und Geometrie\n- Technisches Verständnis\n- Räumliches Vorstellungsvermögen\n- Interesse an Mechanik und Metallbearbeitung\n- Teamfähigkeit\n- Handwerkliche Geschicklichkeit und Sorgfältigkeit",
-      "descriptionByLocale": {
-        "it": "## TASK PRINCIPALI\n\nLa polimeccanica produce pezzi e produce utensili e dispositivi per la produzione. Polymechanics assemblare attrezzature, apparati, utensili di stampaggio ad iniezione, macchine o impianti. In collaborazione con altri professionisti, gestiscono ordini o progetti. Lavorano con macchine tradizionali di tornitura, fresatura, foratura e rettifica. Tuttavia, per lo più hanno usato macchine CNC controllate da computer all'avanguardia. Essi programmano questi sulla base di disegni di costruzione. Con strumenti di misura precisi, controllano il rispetto dei requisiti di qualità dei pezzi finiti. I compiti principali sono:\n\n- Produzione di componenti di precisione\n- Servizi di programmazione di macchine\n- Montaggio e manutenzione\n\n## PROFESSIONALE\n\nLe seguenti caratteristiche e abilità ti distinguono:\n\n- Scuola secondaria\n- Scuola reale possibile\n- Buoni risultati in matematica e geometria\n- Competenze tecniche\n- L'immaginazione spaziale\n- Interessi della meccanica e della lavorazione dei metalli\n- Lavoro di squadra\n- Artigianato e cura",
-        "en": "## MAIN TASKS\n\nPolymechanics manufacture workpieces and manufacture tools and devices for production. Polymechanics assemble equipment, apparatus, injection molding tools, machines or plants. In cooperation with other professionals, they handle orders or projects. They work with conventional turning, milling, drilling and grinding machines. However, they mostly used state-of-the-art computer-controlled CNC machines. They program these on the basis of construction drawings. With precise measuring instruments, they check compliance with the quality requirements of the finished workpieces. The main tasks are:\n\n- Production of precision components\n- Machine programming services\n- Assembly and maintenance\n\n## PROFILE\n\nThe following characteristics and abilities distinguish you:\n\n- Secondary school\n- Real school possible\n- Good achievements in mathematics and geometry\n- Technical understanding\n- Spatial imagination\n- Interest in mechanics and metalworking\n- Teamwork\n- Craftsmanship and care",
-        "de": "## HAUPTAUFGABEN​\n\nPolymechaniker/-innen fertigen Werkstücke und stellen Werkzeuge und Vorrichtungen für die Produktion her. Polymechaniker bauen Geräte, Apparate, Spritzgiesswerkzeuge, Maschinen oder Anlagen zusammen. In Zusammenarbeit mit anderen Fachleuten bearbeiten sie Aufträge oder Projekte. Sie arbeiten mit konventionellen Dreh-, Fräs-, Bohr- und Schleifmaschinen. Meistens setzten sie aber hochmoderne computergesteuerte CNC-Maschinen ein. Diese programmieren sie auf der Grundlage von Konstruktionszeichnungen. Mit präzisen Messinstrumenten überprüfen sie die Einhaltung der Qualitätsanforderungen der gefertigten Werkstücke. Die Hauptaufgaben sind:\n\n- Fertigung von Präzisionsbauteilen\n- Programmierung von Maschinen\n- Montage und Instandhaltung\n\n## PROFIL\n\nFolgende Eigenschaften und Fähigkeiten zeichnen dich aus:\n\n- Sekundarschule\n- Realschule möglich\n- Gute Leistungen in Mathematik und Geometrie\n- Technisches Verständnis\n- Räumliches Vorstellungsvermögen\n- Interesse an Mechanik und Metallbearbeitung\n- Teamfähigkeit\n- Handwerkliche Geschicklichkeit und Sorgfältigkeit",
-        "fr": "## PRINCIPALES TÂCHES\n\nPolymécanique fabrique des pièces et fabrique des outils et des dispositifs pour la production. Les polymécaniques assemblent des équipements, des appareils, des outils de moulage par injection, des machines ou des usines. En collaboration avec d'autres professionnels, ils gèrent des commandes ou des projets. Ils travaillent avec des machines conventionnelles de tournage, de fraisage, de forage et de meulage. Cependant, ils utilisaient surtout des machines CNC à la fine pointe de la technologie. Ils les programment sur la base de plans de construction. Avec des instruments de mesure précis, ils vérifient la conformité aux exigences de qualité des pièces finies. Les principales tâches sont les suivantes:\n\n- Production de composants de précision\n- Services de programmation automatique\n- Montage et entretien\n\n## PROFIL\n\nLes caractéristiques et les capacités suivantes vous distinguent :\n\n- École secondaire\n- École réelle possible\n- Bonnes réalisations en mathématiques et en géométrie\n- Compréhension technique\n- L'imagination spatiale\n- Intérêt pour la mécanique et le travail des métaux\n- Travail d'équipe\n- Artisanat et soins"
-      },
-      "location": "Rapperswil-Jona",
-      "canton": "SG",
-      "url": "https://jobs.geberit.com/job-invite/1974/?locale=de_DE",
-      "source": "Geberit Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:50:17.913Z",
-      "addressLocality": "Rapperswil-Jona",
-      "postalCode": "8640",
-      "streetAddress": "Schachenstrasse 77",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Industrial / Sanitary technology (manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-19T11:19:08Z",
-      "postedDate": "2026-08-19T11:19:08Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.geberit.com/job-invite/1974/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
-        ],
-        "en": [
-          "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
-        ],
-        "fr": [
-          "lernender-polymechaniker-a-lehrbeginn-2027-geberit-ch"
-        ]
-      },
-      "salaryMin": 48000,
-      "salaryMax": 73000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T09:50:17.913Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-08-20T09:49:50.660Z"
     },
     {
       "id": "geberit-1977",
@@ -555,7 +554,7 @@
       "url": "https://jobs.geberit.com/job-invite/1977/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:50:17.913Z",
+      "crawledAt": "2026-11-25T21:42:33.233Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -604,88 +603,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T09:50:17.913Z",
+      "validThrough": "2026-12-25T21:42:33.233Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-08-20T09:49:50.659Z"
-    },
-    {
-      "id": "geberit-2021",
-      "slug": "apprendista-produktionsmechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
-      "slugByLocale": {
-        "de": "lernender-produktionsmechaniker-a-lehrbeginn-2027-geberit-ch",
-        "fr": "mecanicien-de-la-production-d-apprentissage-a-debut-de-l-apprentissage-2027-geberit-rapperswil-jona",
-        "it": "apprendista-produktionsmechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
-        "en": "apprentice-produktionsmechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona"
-      },
-      "company": "Geberit",
-      "companyKey": "geberit",
-      "companyDomain": "geberit.com",
-      "title": "Lernender Produktionsmechaniker (a) - Lehrbeginn 2027",
-      "titleByLocale": {
-        "it": "Apprendista meccanico di produzione (a) - inizio apprendistato 2027",
-        "en": "Apprentice Production Mechanic (a) - Start of apprenticeship 2027",
-        "de": "Lernender Produktionsmechaniker (a) - Lehrbeginn 2027",
-        "fr": "Mécanicien de la production d'apprentissage (a) - Début de l'apprentissage 2027"
-      },
-      "description": "## HAUPTAUFGABEN​\n\nProduktionsmechaniker/-innen fertigen Werkstücke und Baugruppen aus Metall und anderen Werkstoffen. Produktionsmechaniker richten Produktionsmaschinen ein, bedienen diese und überwachen den Fertigungsprozess . Dabei arbeiten sie mit konventionellen sowie computergesteuerten Maschinen .\n Anhand von technischen Zeichnungen und Arbeitsanweisungen stellen sie präzise Bauteile her und montieren Baugruppen. Mit Mess- und Prüfmitteln kontrollieren sie die Qualität ihrer Arbeiten und sorgen dafür, dass die geforderten Masse und Qualitätsstandards eingehalten werden. Zudem unterstützen sie die Wartung und den Unterhalt von Maschinen und Anlagen. Die Hauptaufgaben sind:\n\n- Fertigung von Werkstücken und Bauteilen\n- Einrichten und Bedienen von Produktionsmaschinen\n- Montage von Baugruppen und Qualitätskontrolle\n\n## PROFIL\n\nFolgende Eigenschaften und Fähigkeiten zeichnen dich aus:\n\n- Sekundarschule\n- Realschule möglich\n- Gute Leistungen in Mathematik und Geometrie\n- Technisches Verständnis\n- Interesse an Mechanik und Metallbearbeitung\n- Teamfähigkeit\n- Handwerkliche Geschicklichkeit und Sorgfältigkeit",
-      "descriptionByLocale": {
-        "it": "## PRINCIPALI RESPONSABILITÀ\n\nI meccanici di produzione producono pezzi e assemblaggi realizzati in metallo e altri materiali. I meccanici di produzione installano le macchine di produzione, le fanno funzionare e monitorano il processo produttivo. Lavorano con macchine convenzionali e controllate da computer.\nUtilizzando disegni tecnici e istruzioni di lavoro, producono componenti precisi e assemblano gli assemblaggi. Utilizzano apparecchiature di misura e test per controllare la qualità del loro lavoro e garantire che le dimensioni e gli standard di qualità richiesti vengano rispettati. Supportano inoltre la manutenzione e la manutenzione di macchine e sistemi. I compiti principali sono:\n\n- Produzione di pezzi e componenti\n- Installazione e funzionamento delle macchine di produzione\n- Assemblaggio degli assemblaggi e controllo qualità\n\n## PROFILO\n\nLe seguenti qualità e abilità ti distinguono:\n\n- Scuola secondaria\n- Realschule possibile\n- Buoni voti in matematica e geometria\n- Comprensione tecnica\n- Interesse per la meccanica e la lavorazione dei metalli\n- Capacità di lavorare in squadra\n- Maestria e diligenza",
-        "en": "## MAIN RESPONSIBILITIES\n\nProduction mechanics manufacture workpieces and assemblies made of metal and other materials. Production mechanics set up production machines, operate them and monitor the manufacturing process. They work with conventional and computer-controlled machines.\nUsing technical drawings and work instructions, they manufacture precise components and assemble assemblies. They use measuring and testing equipment to control the quality of their work and ensure that the required dimensions and quality standards are met. They also support the maintenance and servicing of machines and systems. The main tasks are:\n\n- Production of workpieces and components\n- Setting up and operating production machines\n- Assembly of assemblies and quality control\n\n## PROFILE\n\nThe following qualities and skills distinguish you:\n\n- Secondary school\n- Realschule possible\n- Good grades in mathematics and geometry\n- Technical understanding\n- Interest in mechanics and metalworking\n- Ability to work in a team\n- Craftsmanship and diligence",
-        "de": "## HAUPTAUFGABEN​\n\nProduktionsmechaniker/-innen fertigen Werkstücke und Baugruppen aus Metall und anderen Werkstoffen. Produktionsmechaniker richten Produktionsmaschinen ein, bedienen diese und überwachen den Fertigungsprozess . Dabei arbeiten sie mit konventionellen sowie computergesteuerten Maschinen .\nAnhand von technischen Zeichnungen und Arbeitsanweisungen stellen sie präzise Bauteile her und montieren Baugruppen. Mit Mess- und Prüfmitteln kontrollieren sie die Qualität ihrer Arbeiten und sorgen dafür, dass die geforderten Masse und Qualitätsstandards eingehalten werden. Zudem unterstützen sie die Wartung und den Unterhalt von Maschinen und Anlagen. Die Hauptaufgaben sind:\n\n- Fertigung von Werkstücken und Bauteilen\n- Einrichten und Bedienen von Produktionsmaschinen\n- Montage von Baugruppen und Qualitätskontrolle\n\n## PROFIL\n\nFolgende Eigenschaften und Fähigkeiten zeichnen dich aus:\n\n- Sekundarschule\n- Realschule möglich\n- Gute Leistungen in Mathematik und Geometrie\n- Technisches Verständnis\n- Interesse an Mechanik und Metallbearbeitung\n- Teamfähigkeit\n- Handwerkliche Geschicklichkeit und Sorgfältigkeit",
-        "fr": "## PRINCIPALES RESPONSABILITÉS\n\nLes mécaniciens de production fabriquent des pièces et des assemblages en métal et autres matériaux. Les mécaniciens de production installent les machines de production, les font fonctionner et surveillent le processus de fabrication. Ils travaillent avec des machines conventionnelles et contrôlées par ordinateur.\nÀ l'aide de dessins techniques et d'instructions de travail, ils fabriquent des composants précis et assemblent des ensembles. Ils utilisent des équipements de mesure et de test pour contrôler la qualité de leur travail et garantir que les dimensions et normes de qualité requises sont respectées. Ils soutiennent également la maintenance et l'entretien des machines et des systèmes. Les principales tâches sont :\n\n- Production des pièces et composants\n- Installation et exploitation des machines de production\n- Assemblage des assemblages et contrôle qualité\n\n## PROFIL\n\nLes qualités et compétences suivantes vous distinguent :\n\n- Lycée\n- Realschule possible\n- Bonnes notes en mathématiques et en géométrie\n- Compréhension technique\n- Intérêt pour la mécanique et la métallurgie\n- Capacité à travailler en équipe\n- Savoir-faire et diligence"
-      },
-      "location": "Rapperswil-Jona",
-      "canton": "SG",
-      "url": "https://jobs.geberit.com/job-invite/2021/?locale=de_DE",
-      "source": "Geberit Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:50:17.912Z",
-      "addressLocality": "Rapperswil-Jona",
-      "postalCode": "8640",
-      "streetAddress": "Schachenstrasse 77",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Industrial / Sanitary technology (manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-20T08:34:42Z",
-      "postedDate": "2026-08-20T08:34:42Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.geberit.com/job-invite/2021/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lernender-produktionsmechaniker-a-lehrbeginn-2027-geberit-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lernender-produktionsmechaniker-a-lehrbeginn-2027-geberit-ch"
-        ],
-        "en": [
-          "lernender-produktionsmechaniker-a-lehrbeginn-2027-geberit-ch"
-        ]
-      },
-      "salaryMin": 48000,
-      "salaryMax": 73000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T09:50:17.912Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-08-20T09:49:50.655Z"
     },
     {
       "id": "geberit-2129",
@@ -718,7 +638,7 @@
       "url": "https://jobs.geberit.com/job-invite/2129/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:50:17.911Z",
+      "crawledAt": "2026-11-25T21:42:33.232Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -765,9 +685,88 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T09:50:17.911Z",
+      "validThrough": "2026-12-25T21:42:33.232Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-08-20T09:49:50.651Z"
+    },
+    {
+      "id": "geberit-2021",
+      "slug": "apprendista-produktionsmechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
+      "slugByLocale": {
+        "de": "lernender-produktionsmechaniker-a-lehrbeginn-2027-geberit-ch",
+        "fr": "mecanicien-de-la-production-d-apprentissage-a-debut-de-l-apprentissage-2027-geberit-rapperswil-jona",
+        "it": "apprendista-produktionsmechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona",
+        "en": "apprentice-produktionsmechaniker-a-lehrbeginn-2027-geberit-rapperswil-jona"
+      },
+      "company": "Geberit",
+      "companyKey": "geberit",
+      "companyDomain": "geberit.com",
+      "title": "Lernender Produktionsmechaniker (a) - Lehrbeginn 2027",
+      "titleByLocale": {
+        "it": "Apprendista meccanico di produzione (a) - inizio apprendistato 2027",
+        "en": "Apprentice Production Mechanic (a) - Start of apprenticeship 2027",
+        "de": "Lernender Produktionsmechaniker (a) - Lehrbeginn 2027",
+        "fr": "Mécanicien de la production d'apprentissage (a) - Début de l'apprentissage 2027"
+      },
+      "description": "## HAUPTAUFGABEN​\n\nProduktionsmechaniker/-innen fertigen Werkstücke und Baugruppen aus Metall und anderen Werkstoffen. Produktionsmechaniker richten Produktionsmaschinen ein, bedienen diese und überwachen den Fertigungsprozess . Dabei arbeiten sie mit konventionellen sowie computergesteuerten Maschinen .\n Anhand von technischen Zeichnungen und Arbeitsanweisungen stellen sie präzise Bauteile her und montieren Baugruppen. Mit Mess- und Prüfmitteln kontrollieren sie die Qualität ihrer Arbeiten und sorgen dafür, dass die geforderten Masse und Qualitätsstandards eingehalten werden. Zudem unterstützen sie die Wartung und den Unterhalt von Maschinen und Anlagen. Die Hauptaufgaben sind:\n\n- Fertigung von Werkstücken und Bauteilen\n- Einrichten und Bedienen von Produktionsmaschinen\n- Montage von Baugruppen und Qualitätskontrolle\n\n## PROFIL\n\nFolgende Eigenschaften und Fähigkeiten zeichnen dich aus:\n\n- Sekundarschule\n- Realschule möglich\n- Gute Leistungen in Mathematik und Geometrie\n- Technisches Verständnis\n- Interesse an Mechanik und Metallbearbeitung\n- Teamfähigkeit\n- Handwerkliche Geschicklichkeit und Sorgfältigkeit",
+      "descriptionByLocale": {
+        "it": "## PRINCIPALI RESPONSABILITÀ\n\nI meccanici di produzione producono pezzi e assemblaggi realizzati in metallo e altri materiali. I meccanici di produzione installano le macchine di produzione, le fanno funzionare e monitorano il processo produttivo. Lavorano con macchine convenzionali e controllate da computer.\nUtilizzando disegni tecnici e istruzioni di lavoro, producono componenti precisi e assemblano gli assemblaggi. Utilizzano apparecchiature di misura e test per controllare la qualità del loro lavoro e garantire che le dimensioni e gli standard di qualità richiesti vengano rispettati. Supportano inoltre la manutenzione e la manutenzione di macchine e sistemi. I compiti principali sono:\n\n- Produzione di pezzi e componenti\n- Installazione e funzionamento delle macchine di produzione\n- Assemblaggio degli assemblaggi e controllo qualità\n\n## PROFILO\n\nLe seguenti qualità e abilità ti distinguono:\n\n- Scuola secondaria\n- Realschule possibile\n- Buoni voti in matematica e geometria\n- Comprensione tecnica\n- Interesse per la meccanica e la lavorazione dei metalli\n- Capacità di lavorare in squadra\n- Maestria e diligenza",
+        "en": "## MAIN RESPONSIBILITIES\n\nProduction mechanics manufacture workpieces and assemblies made of metal and other materials. Production mechanics set up production machines, operate them and monitor the manufacturing process. They work with conventional and computer-controlled machines.\nUsing technical drawings and work instructions, they manufacture precise components and assemble assemblies. They use measuring and testing equipment to control the quality of their work and ensure that the required dimensions and quality standards are met. They also support the maintenance and servicing of machines and systems. The main tasks are:\n\n- Production of workpieces and components\n- Setting up and operating production machines\n- Assembly of assemblies and quality control\n\n## PROFILE\n\nThe following qualities and skills distinguish you:\n\n- Secondary school\n- Realschule possible\n- Good grades in mathematics and geometry\n- Technical understanding\n- Interest in mechanics and metalworking\n- Ability to work in a team\n- Craftsmanship and diligence",
+        "de": "## HAUPTAUFGABEN​\n\nProduktionsmechaniker/-innen fertigen Werkstücke und Baugruppen aus Metall und anderen Werkstoffen. Produktionsmechaniker richten Produktionsmaschinen ein, bedienen diese und überwachen den Fertigungsprozess . Dabei arbeiten sie mit konventionellen sowie computergesteuerten Maschinen .\nAnhand von technischen Zeichnungen und Arbeitsanweisungen stellen sie präzise Bauteile her und montieren Baugruppen. Mit Mess- und Prüfmitteln kontrollieren sie die Qualität ihrer Arbeiten und sorgen dafür, dass die geforderten Masse und Qualitätsstandards eingehalten werden. Zudem unterstützen sie die Wartung und den Unterhalt von Maschinen und Anlagen. Die Hauptaufgaben sind:\n\n- Fertigung von Werkstücken und Bauteilen\n- Einrichten und Bedienen von Produktionsmaschinen\n- Montage von Baugruppen und Qualitätskontrolle\n\n## PROFIL\n\nFolgende Eigenschaften und Fähigkeiten zeichnen dich aus:\n\n- Sekundarschule\n- Realschule möglich\n- Gute Leistungen in Mathematik und Geometrie\n- Technisches Verständnis\n- Interesse an Mechanik und Metallbearbeitung\n- Teamfähigkeit\n- Handwerkliche Geschicklichkeit und Sorgfältigkeit",
+        "fr": "## PRINCIPALES RESPONSABILITÉS\n\nLes mécaniciens de production fabriquent des pièces et des assemblages en métal et autres matériaux. Les mécaniciens de production installent les machines de production, les font fonctionner et surveillent le processus de fabrication. Ils travaillent avec des machines conventionnelles et contrôlées par ordinateur.\nÀ l'aide de dessins techniques et d'instructions de travail, ils fabriquent des composants précis et assemblent des ensembles. Ils utilisent des équipements de mesure et de test pour contrôler la qualité de leur travail et garantir que les dimensions et normes de qualité requises sont respectées. Ils soutiennent également la maintenance et l'entretien des machines et des systèmes. Les principales tâches sont :\n\n- Production des pièces et composants\n- Installation et exploitation des machines de production\n- Assemblage des assemblages et contrôle qualité\n\n## PROFIL\n\nLes qualités et compétences suivantes vous distinguent :\n\n- Lycée\n- Realschule possible\n- Bonnes notes en mathématiques et en géométrie\n- Compréhension technique\n- Intérêt pour la mécanique et la métallurgie\n- Capacité à travailler en équipe\n- Savoir-faire et diligence"
+      },
+      "location": "Rapperswil-Jona",
+      "canton": "SG",
+      "url": "https://jobs.geberit.com/job-invite/2021/?locale=de_DE",
+      "source": "Geberit Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-25T21:42:33.232Z",
+      "addressLocality": "Rapperswil-Jona",
+      "postalCode": "8640",
+      "streetAddress": "Schachenstrasse 77",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Industrial / Sanitary technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-08-20T08:34:42Z",
+      "postedDate": "2026-08-20T08:34:42Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.geberit.com/job-invite/2021/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lernender-produktionsmechaniker-a-lehrbeginn-2027-geberit-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lernender-produktionsmechaniker-a-lehrbeginn-2027-geberit-ch"
+        ],
+        "en": [
+          "lernender-produktionsmechaniker-a-lehrbeginn-2027-geberit-ch"
+        ]
+      },
+      "salaryMin": 48000,
+      "salaryMax": 73000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48000,
+          "maxValue": 73000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-25T21:42:33.232Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-08-20T09:49:50.655Z"
     },
     {
       "id": "geberit-2186",
@@ -800,7 +799,7 @@
       "url": "https://jobs.geberit.com/job-invite/2186/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:50:17.911Z",
+      "crawledAt": "2026-11-25T21:42:33.231Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -863,7 +862,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T09:50:17.911Z",
+      "validThrough": "2026-12-25T21:42:33.231Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-03T13:50:14.076Z"
     },
@@ -898,7 +897,7 @@
       "url": "https://jobs.geberit.com/job-invite/2229/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:50:17.910Z",
+      "crawledAt": "2026-11-25T21:42:33.230Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -960,7 +959,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T09:50:17.910Z",
+      "validThrough": "2026-12-25T21:42:33.230Z",
       "validThroughSource": "last-observed-window",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:21:07.767Z"
@@ -996,7 +995,7 @@
       "url": "https://jobs.geberit.com/job-invite/2201/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:50:17.910Z",
+      "crawledAt": "2026-11-25T21:42:33.230Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1045,7 +1044,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mecanique-maintenance-mecanique-brute-a-100-geberit-rapperswil-jona",
           "mecanicien-maintenance-mecanique-lourde-a-100-geberit-rapperswil-jona",
           "manutenzione-meccanica-meccanica-grezza-a-100-geberit-rapperswil-jona",
           "meccanico-manutenzione-meccanica-generale-a-100-geberit-rapperswil-jona",
@@ -1063,8 +1061,9 @@
           "mechanic-maintenance-gross-mechanics-a-100-geberit-rapperswil-jona",
           "mechanic-maintenance-rough-mechanics-a-100-geberit-rapperswil-jona",
           "maintenance-mechanic-for-heavy-mechanical-work-a-100-geberit-rapperswil-jona",
+          "entretien-mecanique-mecanique-brute-a-100-geberit-rapperswil-jona",
           "mechaniker-instandhaltung-feinmechanik-a-100-geberit-ch",
-          "entretien-mecanique-mecanique-brute-a-100-geberit-rapperswil-jona"
+          "mecanique-maintenance-mecanique-brute-a-100-geberit-rapperswil-jona"
         ],
         "en": [
           "mechanic-maintenance-precision-mechanics-a-100-geberit-rapperswil-jona-6dfaab",
@@ -1092,7 +1091,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T09:50:17.910Z",
+      "validThrough": "2026-12-25T21:42:33.230Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-08T13:53:23.828Z"
     },
@@ -1127,7 +1126,7 @@
       "url": "https://jobs.geberit.com/job-invite/1987/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:50:17.909Z",
+      "crawledAt": "2026-11-25T21:42:33.229Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1171,10 +1170,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T09:50:17.909Z",
+      "validThrough": "2026-12-25T21:42:33.229Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-24T00:09:27.456Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-09-24T00:09:27.456Z"
     },
     {
       "id": "geberit-2243",
@@ -1207,7 +1205,7 @@
       "url": "https://jobs.geberit.com/job-invite/2243/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:50:17.908Z",
+      "crawledAt": "2026-11-25T21:42:33.227Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1279,7 +1277,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T09:50:17.908Z",
+      "validThrough": "2026-12-25T21:42:33.227Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-24T14:57:11.192Z"
     },
@@ -1314,7 +1312,7 @@
       "url": "https://jobs.geberit.com/job-invite/2262/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:50:17.907Z",
+      "crawledAt": "2026-11-25T21:42:33.226Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1384,7 +1382,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-30T09:50:17.907Z",
+      "validThrough": "2026-12-30T21:42:33.226Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-01T09:35:17.669Z"
     },
@@ -1419,7 +1417,7 @@
       "url": "https://jobs.geberit.com/job-invite/2270/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:50:17.906Z",
+      "crawledAt": "2026-11-25T21:42:33.225Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1460,7 +1458,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-04T09:50:17.906Z",
+      "validThrough": "2027-01-04T21:42:33.225Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-06T09:39:54.630Z"
     },
@@ -1495,7 +1493,7 @@
       "url": "https://jobs.geberit.com/job-invite/2279/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:50:17.905Z",
+      "crawledAt": "2026-11-25T21:42:33.224Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1542,7 +1540,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-06T09:50:17.905Z",
+      "validThrough": "2027-01-06T21:42:33.224Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-08T09:41:25.644Z"
     },
@@ -1577,7 +1575,7 @@
       "url": "https://jobs.geberit.com/job-invite/2271/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:50:17.904Z",
+      "crawledAt": "2026-11-25T21:42:33.223Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1624,7 +1622,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T09:50:17.904Z",
+      "validThrough": "2027-01-17T21:42:33.223Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-19T09:47:49.153Z"
     },
@@ -1659,7 +1657,7 @@
       "url": "https://jobs.geberit.com/job-invite/2172/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:50:17.895Z",
+      "crawledAt": "2026-11-25T21:42:33.218Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1706,91 +1704,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-20T09:50:17.895Z",
+      "validThrough": "2027-02-19T21:42:33.218Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-21T21:39:48.681Z"
-    },
-    {
-      "id": "geberit-2326",
-      "slug": "firmware-electronics-ingegnere-a-80-100-geberit-rapperswil-jona",
-      "slugByLocale": {
-        "de": "firmware-electronics-engineer-a-80-100-geberit-ch",
-        "it": "firmware-electronics-ingegnere-a-80-100-geberit-rapperswil-jona",
-        "en": "firmware-electronic-engineer-a-80-100-geberit-rapperswil-jona",
-        "fr": "firmware-electronics-ingenieur-a-80-100-geberit-rapperswil-jona"
-      },
-      "company": "Geberit",
-      "companyKey": "geberit",
-      "companyDomain": "geberit.com",
-      "title": "Firmware Electronics Engineer (a) 80-100%",
-      "titleByLocale": {
-        "it": "Firmware Electronics Ingegnere (a) 80-100%",
-        "en": "Firmware electronic engineer (a) 80- 100%",
-        "de": "Firmware Electronics Engineer (a) 80-100%",
-        "fr": "Firmware Electronics Ingénieur (a) 80-100%"
-      },
-      "description": "## HAUPTAUFGABEN​\n\nAls erfahrener Firmware Electronics Engineer entwickelst du Firmware für neue Produkte und Funktionen in Embedded-Systemen. Du treibst die technische Weiterentwicklung voran und gestaltest aktiv die Firmware zukünftiger Produkte. Dabei arbeitest du eng mit unserem Team und anderen Bereichen zusammen. Die Stelle beinhaltet folgende Tätigkeiten:\n\n- Du konzipierst, implementierst und testest Firmware eigenständig und im Team.\n- Du arbeitest mit anderen Abteilungen wie App-Entwicklung, Produktmanagement, Konstruktion und Qualitätswesen zusammen.\n- Du gestaltest Firmware- und Systemarchitekturen und bringst deine Erfahrung bei technologischen Entscheiden ein.\n- Du entwickelst Low-Level-Treiber und Bootloader sowie BLE-basierte Applikationen.\n- Darüber hinaus hast du die Möglichkeit, die Rolle eines Teilprojektleiters in der Elektronik zu übernehmen.\n\n## PROFIL\n\nDu verfügst über eine Ausbildung in Elektrotechnik, Informatik oder Technischer Informatik auf Stufe BSc/MSc und bringst mehrjährige Erfahrung in der Entwicklung von Firmware für Embedded-Systeme mit. Zudem zeichnen dich folgende Punkte aus:\n\n- Vertiefte Kenntnisse im Bereich Embedded Systems\n- Teamgeist, Innovationsfreude und ausgeprägtes Engagement\n- Sehr gute Programmierkenntnisse, insbesondere in C und praktische Erfahrung mit RTOS\n- Selbstständige Implementierung, Debugging und Testing der Firmware auf dem Zielprodukt\n- Nachvollziehbare Dokumentation der eigenen Arbeit zur Sicherstellung der Weiterentwicklung durch andere Teammitglieder\n- Bereitschaft, Verantwortung zu übernehmen und technische Entscheidungen mitzugestaltenAusgeprägtes Sicherheitsbewusstsein und idealerweise Erfahrung mit Cyber-Security-Aspekten im Embedded-Umfeld\n- Interesse an kontinuierlicher Weiterbildung und persönlicher Entwicklung\n- Erfahrung in dem Umgang mit First- und Second-Stage Bootloaders von Vorteil\n- Kenntnisse in Bluetooth-Technologien und mit STM32-Prozessoren von Vorteil\n- Stilsicheres Deutsch in Wort und Schrift sowie gute Englischkenntnisse",
-      "descriptionByLocale": {
-        "it": "## TASK PRINCIPALI\n\nCome esperto ingegnere dell'elettronica del firmware, si sviluppa il firmware per nuovi prodotti e funzioni nei sistemi incorporati. Guida lo sviluppo tecnico e progetta attivamente il firmware dei prodotti futuri. Lavori a stretto contatto con il nostro team e altre aree. L'ente comprende le seguenti attività:\n\n- Si progetta, implementa e testa il firmware in modo indipendente e in un team.\n- Lavori con altri dipartimenti come lo sviluppo delle app, la gestione dei prodotti, la costruzione e la gestione della qualità.\n- Disegni firmware e architetture di sistema e porti la tua esperienza a decisioni tecnologiche.\n- Sviluppi driver e bootloader di basso livello e applicazioni basate su BLE.\n- Inoltre, avete la possibilità di assumere il ruolo di un sub-project manager in elettronica.\n\n## PROFESSIONALE\n\nHai una formazione in ingegneria elettrica, informatica o informatica tecnica a livello BSc/MSc e portare diversi anni di esperienza nello sviluppo del firmware per sistemi incorporati. Inoltre, i seguenti punti ti distinguono:\n\n- Conoscenza approfondita dei sistemi incorporati\n- Spirito di squadra, innovazione e forte impegno\n- Molto buone capacità di programmazione, soprattutto in C e esperienza pratica con RTOS\n- implementazione indipendente, debug e test del firmware sul prodotto di destinazione\n- Documentazione completa del proprio lavoro per garantire un ulteriore sviluppo da parte di altri membri del team\n- La volontà di assumere responsabilità e di modellare le decisioni tecniche Forte consapevolezza della sicurezza e l'esperienza ideale con gli aspetti della sicurezza informatica nell'ambiente incorporato\n- Interessi di formazione continua e sviluppo personale\n- L'esperienza nel trattare con bootloader di primo e secondo stadio è vantaggioso\n- Conoscenza delle tecnologie Bluetooth e dei processori STM32\n- Stylistic tedesco in parola e scrittura così come buone competenze in inglese",
-        "en": "## MAIN TASKS\n\nAs an experienced firmware electronics engineer, you develop firmware for new products and functions in embedded systems. You drive the technical development and actively design the firmware of future products. You work closely with our team and other areas. The entity shall include the following activities:\n\n- You design, implement and test firmware independently and in a team.\n- You work with other departments such as app development, product management, construction and quality management.\n- You design firmware and system architectures and bring your experience to technological decisions.\n- You develop low-level drivers and bootloaders as well as BLE-based applications.\n- In addition, you have the opportunity to assume the role of a sub-project manager in electronics.\n\n## PROFILE\n\nYou have an education in electrical engineering, computer science or technical computer science at level BSc/MSc and bring several years of experience in the development of firmware for embedded systems. In addition, the following points distinguish you:\n\n- In-depth knowledge of embedded systems\n- Team spirit, innovation and strong commitment\n- Very good programming skills, especially in C and practical experience with RTOS\n- Independent implementation, debugging and testing of the firmware on the target product\n- Comprehensible documentation of own work to ensure further development by other team members\n- Willingness to take responsibility and shape technical decisions Strong security awareness and ideally experience with cyber security aspects in the embedded environment\n- Interest in continuous further education and personal development\n- Experience in dealing with first- and second-stage bootloaders is advantageous\n- Knowledge of Bluetooth technologies and STM32 processors\n- Stylistic German in word and writing as well as good English skills",
-        "de": "## HAUPTAUFGABEN​\n\nAls erfahrener Firmware Electronics Engineer entwickelst du Firmware für neue Produkte und Funktionen in Embedded-Systemen. Du treibst die technische Weiterentwicklung voran und gestaltest aktiv die Firmware zukünftiger Produkte. Dabei arbeitest du eng mit unserem Team und anderen Bereichen zusammen. Die Stelle beinhaltet folgende Tätigkeiten:\n\n- Du konzipierst, implementierst und testest Firmware eigenständig und im Team.\n- Du arbeitest mit anderen Abteilungen wie App-Entwicklung, Produktmanagement, Konstruktion und Qualitätswesen zusammen.\n- Du gestaltest Firmware- und Systemarchitekturen und bringst deine Erfahrung bei technologischen Entscheiden ein.\n- Du entwickelst Low-Level-Treiber und Bootloader sowie BLE-basierte Applikationen.\n- Darüber hinaus hast du die Möglichkeit, die Rolle eines Teilprojektleiters in der Elektronik zu übernehmen.\n\n## PROFIL\n\nDu verfügst über eine Ausbildung in Elektrotechnik, Informatik oder Technischer Informatik auf Stufe BSc/MSc und bringst mehrjährige Erfahrung in der Entwicklung von Firmware für Embedded-Systeme mit. Zudem zeichnen dich folgende Punkte aus:\n\n- Vertiefte Kenntnisse im Bereich Embedded Systems\n- Teamgeist, Innovationsfreude und ausgeprägtes Engagement\n- Sehr gute Programmierkenntnisse, insbesondere in C und praktische Erfahrung mit RTOS\n- Selbstständige Implementierung, Debugging und Testing der Firmware auf dem Zielprodukt\n- Nachvollziehbare Dokumentation der eigenen Arbeit zur Sicherstellung der Weiterentwicklung durch andere Teammitglieder\n- Bereitschaft, Verantwortung zu übernehmen und technische Entscheidungen mitzugestaltenAusgeprägtes Sicherheitsbewusstsein und idealerweise Erfahrung mit Cyber-Security-Aspekten im Embedded-Umfeld\n- Interesse an kontinuierlicher Weiterbildung und persönlicher Entwicklung\n- Erfahrung in dem Umgang mit First- und Second-Stage Bootloaders von Vorteil\n- Kenntnisse in Bluetooth-Technologien und mit STM32-Prozessoren von Vorteil\n- Stilsicheres Deutsch in Wort und Schrift sowie gute Englischkenntnisse",
-        "fr": "## PRINCIPAUX TÂCHES\n\nEn tant qu'ingénieur en électronique de firmware expérimenté, vous développez un firmware pour de nouveaux produits et fonctions dans des systèmes embarqués. Vous pilotez le développement technique et concevez activement le firmware des futurs produits. Vous travaillez en étroite collaboration avec notre équipe et d'autres secteurs. L'entité doit inclure les activités suivantes:\n\n- Vous concevez, implémentez et testez le firmware indépendamment et en équipe.\n- Vous travaillez avec d'autres ministères comme le développement d'applications, la gestion des produits, la construction et la gestion de la qualité.\n- Vous concevez des firmwares et des architectures de système et apportez votre expérience aux décisions technologiques.\n- Vous développez des pilotes de bas niveau et des chargeurs d'amorçage ainsi que des applications basées sur BLE.\n- De plus, vous avez la possibilité d'assumer le rôle de gestionnaire de sous-projet en électronique.\n\n## PROFIL\n\nVous avez une formation en génie électrique, en informatique ou en informatique technique au niveau BSc/MSc et apportez plusieurs années d'expérience dans le développement de firmware pour les systèmes embarqués. En outre, les points suivants vous distinguent:\n\n- Connaissance approfondie des systèmes embarqués\n- Esprit d'équipe, innovation et engagement fort\n- Très bonnes compétences en programmation, en particulier en C et expérience pratique avec RTOS\n- Mise en œuvre indépendante, débogage et essai du firmware sur le produit cible\n- Documentation complète de ses propres travaux pour assurer le développement des autres membres de l'équipe\n- Volonté de prendre des responsabilités et de façonner les décisions techniques Forte sensibilisation à la sécurité et expérience idéale des aspects de la cybersécurité dans l'environnement intégré\n- Intérêt pour la formation continue et le développement personnel\n- Expérience dans le traitement des chargeurs d'amorçage de première et deuxième étapes est avantageux\n- Connaissance des technologies Bluetooth et des processeurs STM32\n- L'allemand styliste dans la parole et l'écriture ainsi que de bonnes compétences en anglais"
-      },
-      "location": "Rapperswil-Jona",
-      "canton": "SG",
-      "url": "https://jobs.geberit.com/job-invite/2326/?locale=de_DE",
-      "source": "Geberit Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:50:17.892Z",
-      "addressLocality": "Rapperswil-Jona",
-      "postalCode": "8640",
-      "streetAddress": "Schachenstrasse 77",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industrial / Sanitary technology (manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.geberit.com/job-invite/2326/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "firmware-electronics-engineer-a-80-100-geberit-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "firmware-electronics-engineer-a-80-100-geberit-ch"
-        ],
-        "en": [
-          "firmware-electronics-engineer-a-80-100-geberit-ch"
-        ],
-        "fr": [
-          "firmware-electronics-engineer-a-80-100-geberit-ch"
-        ]
-      },
-      "salaryMin": 67000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 67000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-22T09:50:17.892Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-23T21:30:48.028Z"
     },
     {
       "id": "geberit-1560",
@@ -1823,7 +1739,7 @@
       "url": "https://jobs.geberit.com/job-invite/1560/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:50:17.892Z",
+      "crawledAt": "2026-11-25T21:42:33.217Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1870,9 +1786,173 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T09:50:17.892Z",
+      "validThrough": "2027-01-20T21:42:33.217Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-22T21:40:49.717Z"
+    },
+    {
+      "id": "geberit-2326",
+      "slug": "firmware-electronics-ingegnere-a-80-100-geberit-rapperswil-jona",
+      "slugByLocale": {
+        "de": "firmware-electronics-engineer-a-80-100-geberit-ch",
+        "it": "firmware-electronics-ingegnere-a-80-100-geberit-rapperswil-jona",
+        "en": "firmware-electronic-engineer-a-80-100-geberit-rapperswil-jona",
+        "fr": "firmware-electronics-ingenieur-a-80-100-geberit-rapperswil-jona"
+      },
+      "company": "Geberit",
+      "companyKey": "geberit",
+      "companyDomain": "geberit.com",
+      "title": "Firmware Electronics Engineer (a) 80-100%",
+      "titleByLocale": {
+        "it": "Firmware Electronics Ingegnere (a) 80-100%",
+        "en": "Firmware electronic engineer (a) 80- 100%",
+        "de": "Firmware Electronics Engineer (a) 80-100%",
+        "fr": "Firmware Electronics Ingénieur (a) 80-100%"
+      },
+      "description": "## HAUPTAUFGABEN​\n\nAls erfahrener Firmware Electronics Engineer entwickelst du Firmware für neue Produkte und Funktionen in Embedded-Systemen. Du treibst die technische Weiterentwicklung voran und gestaltest aktiv die Firmware zukünftiger Produkte. Dabei arbeitest du eng mit unserem Team und anderen Bereichen zusammen. Die Stelle beinhaltet folgende Tätigkeiten:\n\n- Du konzipierst, implementierst und testest Firmware eigenständig und im Team.\n- Du arbeitest mit anderen Abteilungen wie App-Entwicklung, Produktmanagement, Konstruktion und Qualitätswesen zusammen.\n- Du gestaltest Firmware- und Systemarchitekturen und bringst deine Erfahrung bei technologischen Entscheiden ein.\n- Du entwickelst Low-Level-Treiber und Bootloader sowie BLE-basierte Applikationen.\n- Darüber hinaus hast du die Möglichkeit, die Rolle eines Teilprojektleiters in der Elektronik zu übernehmen.\n\n## PROFIL\n\nDu verfügst über eine Ausbildung in Elektrotechnik, Informatik oder Technischer Informatik auf Stufe BSc/MSc und bringst mehrjährige Erfahrung in der Entwicklung von Firmware für Embedded-Systeme mit. Zudem zeichnen dich folgende Punkte aus:\n\n- Vertiefte Kenntnisse im Bereich Embedded Systems\n- Teamgeist, Innovationsfreude und ausgeprägtes Engagement\n- Sehr gute Programmierkenntnisse, insbesondere in C und praktische Erfahrung mit RTOS\n- Selbstständige Implementierung, Debugging und Testing der Firmware auf dem Zielprodukt\n- Nachvollziehbare Dokumentation der eigenen Arbeit zur Sicherstellung der Weiterentwicklung durch andere Teammitglieder\n- Bereitschaft, Verantwortung zu übernehmen und technische Entscheidungen mitzugestaltenAusgeprägtes Sicherheitsbewusstsein und idealerweise Erfahrung mit Cyber-Security-Aspekten im Embedded-Umfeld\n- Interesse an kontinuierlicher Weiterbildung und persönlicher Entwicklung\n- Erfahrung in dem Umgang mit First- und Second-Stage Bootloaders von Vorteil\n- Kenntnisse in Bluetooth-Technologien und mit STM32-Prozessoren von Vorteil\n- Stilsicheres Deutsch in Wort und Schrift sowie gute Englischkenntnisse",
+      "descriptionByLocale": {
+        "it": "## TASK PRINCIPALI\n\nCome esperto ingegnere dell'elettronica del firmware, si sviluppa il firmware per nuovi prodotti e funzioni nei sistemi incorporati. Guida lo sviluppo tecnico e progetta attivamente il firmware dei prodotti futuri. Lavori a stretto contatto con il nostro team e altre aree. L'ente comprende le seguenti attività:\n\n- Si progetta, implementa e testa il firmware in modo indipendente e in un team.\n- Lavori con altri dipartimenti come lo sviluppo delle app, la gestione dei prodotti, la costruzione e la gestione della qualità.\n- Disegni firmware e architetture di sistema e porti la tua esperienza a decisioni tecnologiche.\n- Sviluppi driver e bootloader di basso livello e applicazioni basate su BLE.\n- Inoltre, avete la possibilità di assumere il ruolo di un sub-project manager in elettronica.\n\n## PROFESSIONALE\n\nHai una formazione in ingegneria elettrica, informatica o informatica tecnica a livello BSc/MSc e portare diversi anni di esperienza nello sviluppo del firmware per sistemi incorporati. Inoltre, i seguenti punti ti distinguono:\n\n- Conoscenza approfondita dei sistemi incorporati\n- Spirito di squadra, innovazione e forte impegno\n- Molto buone capacità di programmazione, soprattutto in C e esperienza pratica con RTOS\n- implementazione indipendente, debug e test del firmware sul prodotto di destinazione\n- Documentazione completa del proprio lavoro per garantire un ulteriore sviluppo da parte di altri membri del team\n- La volontà di assumere responsabilità e di modellare le decisioni tecniche Forte consapevolezza della sicurezza e l'esperienza ideale con gli aspetti della sicurezza informatica nell'ambiente incorporato\n- Interessi di formazione continua e sviluppo personale\n- L'esperienza nel trattare con bootloader di primo e secondo stadio è vantaggioso\n- Conoscenza delle tecnologie Bluetooth e dei processori STM32\n- Stylistic tedesco in parola e scrittura così come buone competenze in inglese",
+        "en": "## MAIN TASKS\n\nAs an experienced firmware electronics engineer, you develop firmware for new products and functions in embedded systems. You drive the technical development and actively design the firmware of future products. You work closely with our team and other areas. The entity shall include the following activities:\n\n- You design, implement and test firmware independently and in a team.\n- You work with other departments such as app development, product management, construction and quality management.\n- You design firmware and system architectures and bring your experience to technological decisions.\n- You develop low-level drivers and bootloaders as well as BLE-based applications.\n- In addition, you have the opportunity to assume the role of a sub-project manager in electronics.\n\n## PROFILE\n\nYou have an education in electrical engineering, computer science or technical computer science at level BSc/MSc and bring several years of experience in the development of firmware for embedded systems. In addition, the following points distinguish you:\n\n- In-depth knowledge of embedded systems\n- Team spirit, innovation and strong commitment\n- Very good programming skills, especially in C and practical experience with RTOS\n- Independent implementation, debugging and testing of the firmware on the target product\n- Comprehensible documentation of own work to ensure further development by other team members\n- Willingness to take responsibility and shape technical decisions Strong security awareness and ideally experience with cyber security aspects in the embedded environment\n- Interest in continuous further education and personal development\n- Experience in dealing with first- and second-stage bootloaders is advantageous\n- Knowledge of Bluetooth technologies and STM32 processors\n- Stylistic German in word and writing as well as good English skills",
+        "de": "## HAUPTAUFGABEN​\n\nAls erfahrener Firmware Electronics Engineer entwickelst du Firmware für neue Produkte und Funktionen in Embedded-Systemen. Du treibst die technische Weiterentwicklung voran und gestaltest aktiv die Firmware zukünftiger Produkte. Dabei arbeitest du eng mit unserem Team und anderen Bereichen zusammen. Die Stelle beinhaltet folgende Tätigkeiten:\n\n- Du konzipierst, implementierst und testest Firmware eigenständig und im Team.\n- Du arbeitest mit anderen Abteilungen wie App-Entwicklung, Produktmanagement, Konstruktion und Qualitätswesen zusammen.\n- Du gestaltest Firmware- und Systemarchitekturen und bringst deine Erfahrung bei technologischen Entscheiden ein.\n- Du entwickelst Low-Level-Treiber und Bootloader sowie BLE-basierte Applikationen.\n- Darüber hinaus hast du die Möglichkeit, die Rolle eines Teilprojektleiters in der Elektronik zu übernehmen.\n\n## PROFIL\n\nDu verfügst über eine Ausbildung in Elektrotechnik, Informatik oder Technischer Informatik auf Stufe BSc/MSc und bringst mehrjährige Erfahrung in der Entwicklung von Firmware für Embedded-Systeme mit. Zudem zeichnen dich folgende Punkte aus:\n\n- Vertiefte Kenntnisse im Bereich Embedded Systems\n- Teamgeist, Innovationsfreude und ausgeprägtes Engagement\n- Sehr gute Programmierkenntnisse, insbesondere in C und praktische Erfahrung mit RTOS\n- Selbstständige Implementierung, Debugging und Testing der Firmware auf dem Zielprodukt\n- Nachvollziehbare Dokumentation der eigenen Arbeit zur Sicherstellung der Weiterentwicklung durch andere Teammitglieder\n- Bereitschaft, Verantwortung zu übernehmen und technische Entscheidungen mitzugestaltenAusgeprägtes Sicherheitsbewusstsein und idealerweise Erfahrung mit Cyber-Security-Aspekten im Embedded-Umfeld\n- Interesse an kontinuierlicher Weiterbildung und persönlicher Entwicklung\n- Erfahrung in dem Umgang mit First- und Second-Stage Bootloaders von Vorteil\n- Kenntnisse in Bluetooth-Technologien und mit STM32-Prozessoren von Vorteil\n- Stilsicheres Deutsch in Wort und Schrift sowie gute Englischkenntnisse",
+        "fr": "## PRINCIPAUX TÂCHES\n\nEn tant qu'ingénieur en électronique de firmware expérimenté, vous développez un firmware pour de nouveaux produits et fonctions dans des systèmes embarqués. Vous pilotez le développement technique et concevez activement le firmware des futurs produits. Vous travaillez en étroite collaboration avec notre équipe et d'autres secteurs. L'entité doit inclure les activités suivantes:\n\n- Vous concevez, implémentez et testez le firmware indépendamment et en équipe.\n- Vous travaillez avec d'autres ministères comme le développement d'applications, la gestion des produits, la construction et la gestion de la qualité.\n- Vous concevez des firmwares et des architectures de système et apportez votre expérience aux décisions technologiques.\n- Vous développez des pilotes de bas niveau et des chargeurs d'amorçage ainsi que des applications basées sur BLE.\n- De plus, vous avez la possibilité d'assumer le rôle de gestionnaire de sous-projet en électronique.\n\n## PROFIL\n\nVous avez une formation en génie électrique, en informatique ou en informatique technique au niveau BSc/MSc et apportez plusieurs années d'expérience dans le développement de firmware pour les systèmes embarqués. En outre, les points suivants vous distinguent:\n\n- Connaissance approfondie des systèmes embarqués\n- Esprit d'équipe, innovation et engagement fort\n- Très bonnes compétences en programmation, en particulier en C et expérience pratique avec RTOS\n- Mise en œuvre indépendante, débogage et essai du firmware sur le produit cible\n- Documentation complète de ses propres travaux pour assurer le développement des autres membres de l'équipe\n- Volonté de prendre des responsabilités et de façonner les décisions techniques Forte sensibilisation à la sécurité et expérience idéale des aspects de la cybersécurité dans l'environnement intégré\n- Intérêt pour la formation continue et le développement personnel\n- Expérience dans le traitement des chargeurs d'amorçage de première et deuxième étapes est avantageux\n- Connaissance des technologies Bluetooth et des processeurs STM32\n- L'allemand styliste dans la parole et l'écriture ainsi que de bonnes compétences en anglais"
+      },
+      "location": "Rapperswil-Jona",
+      "canton": "SG",
+      "url": "https://jobs.geberit.com/job-invite/2326/?locale=de_DE",
+      "source": "Geberit Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-25T21:42:33.216Z",
+      "addressLocality": "Rapperswil-Jona",
+      "postalCode": "8640",
+      "streetAddress": "Schachenstrasse 77",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industrial / Sanitary technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.geberit.com/job-invite/2326/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "firmware-electronics-engineer-a-80-100-geberit-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "firmware-electronics-engineer-a-80-100-geberit-ch"
+        ],
+        "en": [
+          "firmware-electronics-engineer-a-80-100-geberit-ch"
+        ],
+        "fr": [
+          "firmware-electronics-engineer-a-80-100-geberit-ch"
+        ]
+      },
+      "salaryMin": 67000,
+      "salaryMax": 102000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 67000,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-21T21:42:33.216Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-10-23T21:30:48.028Z"
+    },
+    {
+      "id": "geberit-2323",
+      "slug": "ingegnere-di-processo-tecnica-delle-materie-plastiche-a-100-geberit-rapperswil-jona",
+      "slugByLocale": {
+        "de": "process-engineer-kunststofftechnik-a-100-geberit-ch",
+        "it": "ingegnere-di-processo-tecnica-delle-materie-plastiche-a-100-geberit-rapperswil-jona",
+        "en": "process-engineer-plastics-technology-a-100-geberit-rapperswil-jona",
+        "fr": "ingenieur-procedes-technologie-des-matieres-plastiques-a-100-geberit-rapperswil-jona"
+      },
+      "company": "Geberit",
+      "companyKey": "geberit",
+      "companyDomain": "geberit.com",
+      "title": "Process Engineer - Kunststofftechnik (a) 100%",
+      "titleByLocale": {
+        "it": "Ingegnere di processo - Tecnica delle materie plastiche (a) 100%",
+        "en": "Process Engineer - Plastics Technology (a) 100%",
+        "de": "Process Engineer - Kunststofftechnik (a) 100%",
+        "fr": "Ingénieur procédés - technologie des matières plastiques (a) 100%"
+      },
+      "description": "## HAUPTAUFGABEN​\n\nIn unserer hochautomatisierten Produktion von Kunststoffbauteilen verbindest du fundiertes Kunststoff- und Spritzgusswissen mit analytischer und methodischer Kompetenz. Du analysierst komplexe technische Fragestellungen rund um Material, Prozess, Werkzeug und Maschine und treibst Projekte mit internen oder externen Partnern aktiv voran. Dein Ziel ist es, technische Zusammenhänge ganzheitlich zu verstehen und daraus effiziente und zukunftsfähige Lösungen für unsere Produktion zu entwickeln. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Schnittstellenmanagement zwischen Verfahrenstechnik sowie Werkzeug- und Maschinenbeschaffung übernehmen und komplexe Themen fachlich vorantreiben\n- Beurteilung und Weiterentwicklung der Spritzgusswerkzeuge hinsichtlich Auslegung, Funktion und Prozessverhalten\n- Systematische Analyse der Spritzgussprozesse (mittels statistischer Versuchsplanung (DoE), technische Bewertung der Ergebnisse und Ableitung von Optimierungsmassnahmen)\n- Bewertung, Auslegung und Weiterentwicklung von Sensorik sowie Prozessüberwachungs- und Assistenzsystemen für den Spritzguss\n- Nutzung von Produktions- und Prozessdaten sowie Weiterentwicklung von Lösungen zur Analyse und Visualisierung von Daten\n- Fachliche Leitung und Umsetzung technischer Projekte sowie derer Koordination mit internen und externen Partnern\n- Bewertung innovativer Technologien und Lösungen, Überführung in die Produktion und Weiterentwicklung hinsichtlich Wirtschaftlichkeit, Qualität und Sicherheit\n- Unterstützung bei komplexen Fragestellungen im Produktionsumfeld sowie Weitergabe von Wissen an Fachabteilungen und Produktion\n\n## PROFIL\n\nDu bringst ein abgeschlossenes technisches Studium mit Schwerpunkt Kunststofftechnik mit; idealerweise hast du vor deinem Studium bereits eine Ausbildung als Kunststofftechnologe absolviert und kennst den Spritzguss dadurch sowohl aus der praktischen als auch aus der ingenieurtechnischen Perspektive. Weiter zeichnen dich folgende Punkte aus:\n\n- Mehrjährige Industrieerfahrung in der Kunststoffbranche sowie im Leiten technischer Projekte\n- Analytische, praxisorientierte Arbeitsweise sowie die Fähigkeit komplexe Herausforderungen im operativen Umfeld zu lösen\n- Ausgeprägte Kommunikationsfähigkeiten und Durchsetzungsvermögen\n- Eigenverantwortliche und strukturierte Arbeitsweise mit Blick für Wirtschaftlichkeit, Effizienz und Nachhaltigkeit\n- Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+      "descriptionByLocale": {
+        "it": "## TASK PRINCIPALI\n\nNella nostra produzione altamente automatizzata di componenti plastici, si combinano una conoscenza approfondita di plastiche e stampaggio ad iniezione con competenza analitica e metodologica. Analizzerai complesse questioni tecniche riguardanti materiali, processi, strumenti e macchine e promuoverai attivamente progetti con partner interni o esterni. Il vostro obiettivo è comprendere le connessioni tecniche in modo olistico e sviluppare soluzioni efficienti e sostenibili per la nostra produzione. Questo include in particolare le seguenti attività:\n\n- Gestione dell'interfaccia tra la tecnologia di processo e l'approvvigionamento di strumenti e macchine e argomenti complessi avanzati professionalmente\n- Valutazione e ulteriore sviluppo degli strumenti di stampaggio ad iniezione per quanto riguarda la progettazione, la funzione e il comportamento di processo\n- Analisi sistematica dei processi di stampaggio ad iniezione (per mezzo di pianificazione statistica sperimentale (DoE), valutazione tecnica dei risultati e derivazione delle misure di ottimizzazione)\n- Valutazione, progettazione e ulteriore sviluppo dei sensori, nonché sistemi di monitoraggio e assistenza dei processi per lo stampaggio ad iniezione\n- Utilizzo dei dati di produzione e di processo nonché ulteriore sviluppo di soluzioni per l'analisi e la visualizzazione dei dati\n- Gestione professionale e realizzazione di progetti tecnici e coordinamento con partner interni ed esterni\n- Valutazione delle tecnologie e delle soluzioni innovative, trasferimento alla produzione e ulteriore sviluppo in termini di economia, qualità e sicurezza\n- Sostegno a questioni complesse nell'ambiente di produzione e trasferimento di conoscenze ai dipartimenti specializzati e alla produzione\n\n## PROFESSIONALE\n\nSi porterà un grado tecnico completato con un focus sulla tecnologia di plastica; Idealmente, hai già completato un apprendistato come tecnologo di plastica prima dei tuoi studi e quindi conosci lo stampaggio ad iniezione sia da una prospettiva pratica che ingegneristica. Inoltre, i seguenti punti ti distinguono:\n\n- Diversi anni di esperienza industriale nell'industria della plastica e progetti tecnici leader\n- Metodi di lavoro analitici, orientati alla pratica e la capacità di risolvere complesse sfide nell'ambiente operativo\n- Forte capacità di comunicazione e di esecuzione\n- Metodo di lavoro autoresponsabile e strutturato con un occhio alla redditività, all'efficienza e alla sostenibilità\n- Molto buona conoscenza del tedesco e dell'inglese in parola e scrittura\n\n## NOTE ADDIZIONALI\n\nPer questa posizione, consideriamo solo applicazioni dirette.",
+        "en": "## MAIN TASKS\n\nIn our highly automated production of plastic components, you combine in-depth knowledge of plastics and injection molding with analytical and methodological competence. You will analyze complex technical issues around materials, processes, tools and machines and actively advance projects with internal or external partners. Your goal is to understand technical connections holistically and to develop efficient and sustainable solutions for our production. This includes in particular the following activities:\n\n- Interface management between process technology as well as tool and machine procurement and advance complex topics professionally\n- Assessment and further development of injection moulding tools with regard to design, function and process behavior\n- Systematic analysis of injection molding processes (by means of statistical experimental planning (DoE), technical evaluation of results and derivation of optimization measures)\n- Evaluation, design and further development of sensors as well as process monitoring and assistance systems for injection molding\n- Use of production and process data as well as further development of solutions for the analysis and visualization of data\n- Professional management and implementation of technical projects as well as their coordination with internal and external partners\n- Evaluation of innovative technologies and solutions, transfer to production and further development in terms of economy, quality and safety\n- Support for complex issues in the production environment as well as transfer of knowledge to specialist departments and production\n\n## PROFILE\n\nYou will bring a completed technical degree with a focus on plastics technology; Ideally, you have already completed an apprenticeship as a plastics technologist before your studies and therefore know injection molding from both a practical and an engineering perspective. Further, the following points distinguish you:\n\n- Several years of industrial experience in the plastics industry as well as leading technical projects\n- Analytical, practice-oriented working methods as well as the ability to solve complex challenges in the operational environment\n- Strong communication and enforcement skills\n- Self-responsible and structured working method with an eye for profitability, efficiency and sustainability\n- Very good knowledge of German and English in word and writing\n\n## ADDITIONAL NOTES\n\nFor this position, we only consider direct applications.",
+        "de": "## HAUPTAUFGABEN​\n\nIn unserer hochautomatisierten Produktion von Kunststoffbauteilen verbindest du fundiertes Kunststoff- und Spritzgusswissen mit analytischer und methodischer Kompetenz. Du analysierst komplexe technische Fragestellungen rund um Material, Prozess, Werkzeug und Maschine und treibst Projekte mit internen oder externen Partnern aktiv voran. Dein Ziel ist es, technische Zusammenhänge ganzheitlich zu verstehen und daraus effiziente und zukunftsfähige Lösungen für unsere Produktion zu entwickeln. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Schnittstellenmanagement zwischen Verfahrenstechnik sowie Werkzeug- und Maschinenbeschaffung übernehmen und komplexe Themen fachlich vorantreiben\n- Beurteilung und Weiterentwicklung der Spritzgusswerkzeuge hinsichtlich Auslegung, Funktion und Prozessverhalten\n- Systematische Analyse der Spritzgussprozesse (mittels statistischer Versuchsplanung (DoE), technische Bewertung der Ergebnisse und Ableitung von Optimierungsmassnahmen)\n- Bewertung, Auslegung und Weiterentwicklung von Sensorik sowie Prozessüberwachungs- und Assistenzsystemen für den Spritzguss\n- Nutzung von Produktions- und Prozessdaten sowie Weiterentwicklung von Lösungen zur Analyse und Visualisierung von Daten\n- Fachliche Leitung und Umsetzung technischer Projekte sowie derer Koordination mit internen und externen Partnern\n- Bewertung innovativer Technologien und Lösungen, Überführung in die Produktion und Weiterentwicklung hinsichtlich Wirtschaftlichkeit, Qualität und Sicherheit\n- Unterstützung bei komplexen Fragestellungen im Produktionsumfeld sowie Weitergabe von Wissen an Fachabteilungen und Produktion\n\n## PROFIL\n\nDu bringst ein abgeschlossenes technisches Studium mit Schwerpunkt Kunststofftechnik mit; idealerweise hast du vor deinem Studium bereits eine Ausbildung als Kunststofftechnologe absolviert und kennst den Spritzguss dadurch sowohl aus der praktischen als auch aus der ingenieurtechnischen Perspektive. Weiter zeichnen dich folgende Punkte aus:\n\n- Mehrjährige Industrieerfahrung in der Kunststoffbranche sowie im Leiten technischer Projekte\n- Analytische, praxisorientierte Arbeitsweise sowie die Fähigkeit komplexe Herausforderungen im operativen Umfeld zu lösen\n- Ausgeprägte Kommunikationsfähigkeiten und Durchsetzungsvermögen\n- Eigenverantwortliche und strukturierte Arbeitsweise mit Blick für Wirtschaftlichkeit, Effizienz und Nachhaltigkeit\n- Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+        "fr": "## PRINCIPALES TÂCHES\n\nDans notre production hautement automatisée de composants plastiques, vous combinez une connaissance approfondie des plastiques et du moulage par injection avec une compétence analytique et méthodologique. Vous analyserez des questions techniques complexes concernant les matériaux, les processus, les outils et les machines et avancerez activement des projets avec des partenaires internes ou externes. Votre objectif est de comprendre les connexions techniques de manière holistique et de développer des solutions efficaces et durables pour notre production. Cela comprend notamment les activités suivantes:\n\n- Gestion de l'interface entre la technologie des procédés ainsi que l'acquisition d'outils et de machines et progression professionnelle de sujets complexes\n- Évaluation et développement des outils de moulage par injection en ce qui concerne la conception, la fonction et le comportement du procédé\n- Analyse systématique des processus de moulage par injection (au moyen de la planification expérimentale statistique (DoE), évaluation technique des résultats et dérivation des mesures d'optimisation)\n- Évaluation, conception et développement des capteurs ainsi que des systèmes de surveillance et d'assistance pour le moulage par injection\n- Utilisation des données de production et de traitement ainsi que développement de solutions pour l'analyse et la visualisation des données\n- Gestion professionnelle et mise en œuvre des projets techniques ainsi que leur coordination avec les partenaires internes et externes\n- Évaluation des technologies et solutions innovantes, transfert à la production et développement ultérieur en termes d'économie, de qualité et de sécurité\n- Soutien à des questions complexes dans l'environnement de production ainsi qu'au transfert de connaissances aux services spécialisés et à la production\n\n## PROFIL\n\nVous obtiendrez un diplôme technique avec un accent sur la technologie des plastiques; Idéalement, vous avez déjà terminé un apprentissage en tant que technologue en matière plastique avant vos études et connaissez donc le moulage par injection du point de vue pratique et technique. De plus, les points suivants vous distinguent :\n\n- Plusieurs années d'expérience industrielle dans l'industrie plastique ainsi que des projets techniques de pointe\n- Méthodes de travail analytiques axées sur la pratique et capacité de résoudre des problèmes complexes dans l ' environnement opérationnel\n- Renforcement des compétences en matière de communication et d'application de la loi\n- Méthode de travail auto-responsable et structurée avec un souci de rentabilité, d'efficacité et de durabilité\n- Très bonne connaissance de l'allemand et de l'anglais en paroles et en écriture\n\n## NOTES SUPPLÉMENTAIRES\n\nPour cette position, nous ne considérons que les demandes directes."
+      },
+      "location": "Rapperswil-Jona",
+      "canton": "SG",
+      "url": "https://jobs.geberit.com/job-invite/2323/?locale=de_DE",
+      "source": "Geberit Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-25T21:42:33.215Z",
+      "addressLocality": "Rapperswil-Jona",
+      "postalCode": "8640",
+      "streetAddress": "Schachenstrasse 77",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industrial / Sanitary technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.geberit.com/job-invite/2323/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "process-engineer-kunststofftechnik-a-100-geberit-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "process-engineer-kunststofftechnik-a-100-geberit-ch"
+        ],
+        "en": [
+          "process-engineer-kunststofftechnik-a-100-geberit-ch"
+        ],
+        "fr": [
+          "process-engineer-kunststofftechnik-a-100-geberit-ch"
+        ]
+      },
+      "salaryMin": 67000,
+      "salaryMax": 102000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 67000,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-03T21:42:33.215Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-05T21:42:01.840Z"
     },
     {
       "id": "geberit-2334",
@@ -1905,7 +1985,7 @@
       "url": "https://jobs.geberit.com/job-invite/2334/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:50:17.891Z",
+      "crawledAt": "2026-11-25T21:42:33.215Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -1957,174 +2037,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-29T09:50:17.891Z",
+      "validThrough": "2027-01-29T21:42:33.215Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-30T21:54:01.368Z"
-    },
-    {
-      "id": "geberit-2344",
-      "slug": "process-ingegnere-production-data-a-100-geberit-rapperswil-jona",
-      "slugByLocale": {
-        "de": "process-engineer-production-data-a-100-geberit-ch",
-        "fr": "process-ingenieur-production-data-a-100-geberit-rapperswil-jona",
-        "it": "process-ingegnere-production-data-a-100-geberit-rapperswil-jona",
-        "en": "process-ingegnere-production-data-a-100-geberit-rapperswil-jona"
-      },
-      "company": "Geberit",
-      "companyKey": "geberit",
-      "companyDomain": "geberit.com",
-      "title": "Process Engineer - Production & Data (a) 100%",
-      "titleByLocale": {
-        "it": "Ingegnere di Processo - Produzione e Dati (a) 100%",
-        "en": "Process Engineer - Production & Data 100%",
-        "de": "Process Engineer - Production & Data (a) 100%",
-        "fr": "Ingénieur de Processus - Production et Données (a) 100%"
-      },
-      "description": "## HAUPTAUFGABEN​\n\nIn unserer hochautomatisierten Produktion von Kunststoffbauteilen verbindest du technisches Verständnis mit Datenkompetenz und entwickelst Prozesse und Technologien kontinuierlich weiter. Dabei analysierst du Produktions- und Prozessdaten, bringst dein technisches Know-how direkt an den Anlagen ein und treibst Projekte aktiv voran. Dein Ziel ist es, Technologie, Daten und praktische Erfahrung intelligent zusammenzubringen und daraus effiziente und zukunftsfähige Produktionsprozesse abzuleiten. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Evaluation und Überführung neuer Technologien bis zur Serienreife sowie Expertenunterstützung im laufenden Betrieb, insbesondere für Vision-Systeme, Codelesesysteme, Laseranlagen sowie Fügetechnologien von Kunststoffbauteilen\n- Nutzbarmachung von Produktions- und Prozessdaten durch den Aufbau und die Weiterentwicklung von Lösungen zur Verknüpfung, Analyse und Visualisierung von Daten\n- Leitung und Umsetzung technischer Projekte mit Fokus auf Effizienzsteigerung, Modernisierung und Weiterentwicklung bestehender Prozesse und Anlagen\n- Erarbeitung fundierter Entscheidungsgrundlagen, welche technische, datenbasierte und wirtschaftliche Aspekte zusammenführen\n- Anwendung statistischer Versuchsplanung, technische Bewertung der Ergebnisse sowie Ableitung klarer Handlungsempfehlungen\n- Einführung innovativer Technologien und Lösungen in die Produktion sowie konsequente Weiterentwicklung von Potenzialen hinsichtlich Wirtschaftlichkeit, Qualität und Sicherheit\n- Technischer Support als Experte im Produktionsumfeld sowie aktiver Wissenstransfer an Produktion und Fachabteilungen\n\n## PROFIL\n\nDu bringst ein abgeschlossenes Studium in einem technischen Bereich (Maschinenbau, Kunststofftechnik oder vergleichbar) sowie Berufserfahrung im Produktionsumfeld mit. Darüber hinaus zeichnen dich folgende Punkte aus:\n\n- Praxisnahes technisches Verständnis und Freude an der Lösung komplexer Herausforderungen in der Produktion\n- Hohe Datenaffinität sowie Kenntnisse in Data Engineering und Datenanalyse, z. B. SQL, Python oder Datenbanken\n- Analytische, lösungsorientierte Denkweise und die Fähigkeit, Prozessdaten und technische Zusammenhänge in konkrete Verbesserungen zu überführen\n- Kenntnisse in den genannten Technologien sowie grundlegendes Know-how im Kunststoffbereich sind von Vorteil\n- Eigenverantwortliche und strukturierte Arbeitsweise mit Blick für Wirtschaftlichkeit, Effizienz und Nachhaltigkeit\n- Deutsch und Englisch fliessend in Wort und Schrift\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-      "descriptionByLocale": {
-        "it": "PRINCIPALI COMPITI\n\nNella nostra produzione altamente automatizzata di componenti plastici, si combinano la comprensione tecnica con la competenza dei dati e si sviluppano continuamente processi e tecnologie. Si analizzano i dati di produzione e processo, si porta il proprio know-how tecnico direttamente agli impianti e si portano avanti attivamente i progetti. Il vostro obiettivo è quello di riunire tecnologia, dati ed esperienza pratica in modo intelligente e di ricavare processi produttivi efficienti e sostenibili da esso.\n\n- Valutazione e trasferimento delle nuove tecnologie alla produzione in serie e supporto di esperti durante il funzionamento in corso, in particolare per sistemi di visione, sistemi di lettura dei codici, sistemi laser e tecnologie di giunzione di componenti in plastica\n- Rendere utilizzabili i dati di produzione e di processo mediante la costruzione e lo sviluppo di soluzioni per il collegamento, l'analisi e la visualizzazione dei dati\n- Gestione e attuazione di progetti tecnici con particolare attenzione al miglioramento dell'efficienza, alla modernizzazione e all'ulteriore sviluppo dei processi e dei sistemi esistenti\n- Sviluppo di una base decisionale solida che riunisca aspetti tecnici, basati sui dati e economici\n- Applicazione della pianificazione statistica sperimentale, valutazione tecnica dei risultati e del '94a di chiare raccomandazioni d'azione\n- Introduzione di tecnologie e soluzioni innovative nella produzione e sviluppo coerente del potenziale in termini di redditività, qualità e sicurezza\n- Assistenza tecnica come esperto nel settore produttivo e trasferimento attivo delle conoscenze ai reparti produttivi e specialistici\n\nPROFILO\n\nPotrai inoltre completare una laurea in campo tecnico (macchinari, tecnologie plastiche o comparabili) e esperienza lavorativa nell'ambiente produttivo.\n\n- Comprensione tecnica pratica e gioia nel risolvere complesse sfide della produzione\n- Alta affinità dei dati e conoscenza dell'ingegneria e dell'analisi dei dati, ad esempio SQL, Python o database\n- Pensiero analitico, orientato alla soluzione e capacità di tradurre i dati di processo e i contesti tecnici in miglioramenti concreti\n- La conoscenza delle tecnologie e del know-how di base nel settore della plastica sono vantaggiose\n- Metodi di lavoro autoresponsabili e strutturati per garantire efficienza, efficienza e sostenibilità economiche\n- Tedesco e Inglese: \"Finsend\" in Word and Writing\n\nNOTE AGGIUNTIVE\n\nPer questa posizione prendiamo in considerazione solo le applicazioni dirette.",
-        "en": "MAIN TASKS\n\nIn our highly automated production of plastic components, you combine technical understanding with data competence and continuously develop processes and technologies. You analyze production and process data, bring your technical know-how directly to the plants and actively drive projects forward. Your goal is to bring technology, data and practical experience together in a smart way and derive efficient and sustainable production processes from it. This includes in particular the following activities:\n\n- Evaluation and transfer of new technologies to series production and expert support during ongoing operation, in particular for vision systems, code reading systems, laser systems and joining technologies of plastic components\n- Making production and process data usable by building and developing solutions for linking, analysing and visualising data\n- Management and implementation of technical projects with a focus on efficiency enhancement, modernisation and further development of existing processes and systems\n- Development of sound decision-making basis, which bring together technical, data-based and economic aspects\n- Application of statistical experimental planning, technical evaluation of results and derivation of clear recommendations for action\n- Introduction of innovative technologies and solutions in production and consistent development of potential in terms of profitability, quality and safety\n- Technical support as an expert in the production environment and active knowledge transfer to production and specialist departments\n\nPROFILE\n\nYou will also be able to complete a degree in a technical field (machinery, plastics technology or comparable) and work experience in the production environment.\n\n- Practical technical understanding and joy in solving complex challenges in production\n- High data affinity and knowledge of data engineering and data analysis, e.g. SQL, Python or databases\n- Analytic, solution-oriented thinking and the ability to translate process data and technical contexts into concrete improvements\n- Knowledge of the above technologies and basic know-how in the plastics sector are advantageous\n- Self-responsible and structured working methods with a view to economic efficiency, efficiency and sustainability\n- German and English: \"Finsend\" in Word and Writing\n\nADDITIONAL NOTES\n\nWe only take direct applications into account for this position.",
-        "de": "## HAUPTAUFGABEN​\n\nIn unserer hochautomatisierten Produktion von Kunststoffbauteilen verbindest du technisches Verständnis mit Datenkompetenz und entwickelst Prozesse und Technologien kontinuierlich weiter. Dabei analysierst du Produktions- und Prozessdaten, bringst dein technisches Know-how direkt an den Anlagen ein und treibst Projekte aktiv voran. Dein Ziel ist es, Technologie, Daten und praktische Erfahrung intelligent zusammenzubringen und daraus effiziente und zukunftsfähige Produktionsprozesse abzuleiten. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Evaluation und Überführung neuer Technologien bis zur Serienreife sowie Expertenunterstützung im laufenden Betrieb, insbesondere für Vision-Systeme, Codelesesysteme, Laseranlagen sowie Fügetechnologien von Kunststoffbauteilen\n- Nutzbarmachung von Produktions- und Prozessdaten durch den Aufbau und die Weiterentwicklung von Lösungen zur Verknüpfung, Analyse und Visualisierung von Daten\n- Leitung und Umsetzung technischer Projekte mit Fokus auf Effizienzsteigerung, Modernisierung und Weiterentwicklung bestehender Prozesse und Anlagen\n- Erarbeitung fundierter Entscheidungsgrundlagen, welche technische, datenbasierte und wirtschaftliche Aspekte zusammenführen\n- Anwendung statistischer Versuchsplanung, technische Bewertung der Ergebnisse sowie Ableitung klarer Handlungsempfehlungen\n- Einführung innovativer Technologien und Lösungen in die Produktion sowie konsequente Weiterentwicklung von Potenzialen hinsichtlich Wirtschaftlichkeit, Qualität und Sicherheit\n- Technischer Support als Experte im Produktionsumfeld sowie aktiver Wissenstransfer an Produktion und Fachabteilungen\n\n## PROFIL\n\nDu bringst ein abgeschlossenes Studium in einem technischen Bereich (Maschinenbau, Kunststofftechnik oder vergleichbar) sowie Berufserfahrung im Produktionsumfeld mit. Darüber hinaus zeichnen dich folgende Punkte aus:\n\n- Praxisnahes technisches Verständnis und Freude an der Lösung komplexer Herausforderungen in der Produktion\n- Hohe Datenaffinität sowie Kenntnisse in Data Engineering und Datenanalyse, z. B. SQL, Python oder Datenbanken\n- Analytische, lösungsorientierte Denkweise und die Fähigkeit, Prozessdaten und technische Zusammenhänge in konkrete Verbesserungen zu überführen\n- Kenntnisse in den genannten Technologien sowie grundlegendes Know-how im Kunststoffbereich sind von Vorteil\n- Eigenverantwortliche und strukturierte Arbeitsweise mit Blick für Wirtschaftlichkeit, Effizienz und Nachhaltigkeit\n- Deutsch und Englisch fliessend in Wort und Schrift\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-        "fr": "TÂCHES PRINCIPALES​\n\nDans notre production hautement automatisée de composants en plastique, vous combinez compréhension technique et compétence en matière de données et développez en permanence des processus et des technologies. Vous analysez les données de production et de processus, appliquez votre savoir-faire technique directement aux systèmes et faites avancer activement les projets. Votre objectif est de rassembler intelligemment la technologie, les données et l’expérience pratique et d’en tirer des processus de production efficaces et durables. Cela comprend notamment les activités suivantes :\n\n- Évaluation et transfert de nouvelles technologies jusqu'à maturité série ainsi qu'un accompagnement expert lors des opérations en cours, notamment pour les systèmes de vision, les systèmes de lecture de codes, les systèmes laser et les technologies d'assemblage de composants plastiques\n- Rendre les données de production et de processus utilisables en créant et en développant des solutions pour relier, analyser et visualiser les données\n- Gestion et mise en œuvre de projets techniques en mettant l'accent sur l'augmentation de l'efficacité, la modernisation et le développement des processus et systèmes existants\n- Développement de principes décisionnels fondés qui rassemblent les aspects techniques, basés sur les données et économiques\n- Application de la planification des tests statistiques, évaluation technique des résultats et élaboration de recommandations d'action claires\n- Introduction de technologies et de solutions innovantes dans la production ainsi que développement constant du potentiel en termes de rentabilité, de qualité et de sécurité\n- Support technique en tant qu'expert de l'environnement de production ainsi que transfert actif de connaissances vers les départements de production et spécialisés\n\nPROFIL\n\nVous disposez d'un diplôme dans un domaine technique (génie mécanique, plasturgie ou comparable) ainsi que d'une expérience professionnelle dans un environnement de production. De plus, les points suivants vous caractérisent :\n\n- Compréhension technique pratique et joie de résoudre des défis complexes en production\n- Haute affinité avec les données ainsi que connaissances en ingénierie et analyse de données, par ex. B. SQL, Python ou bases de données\n- Mode de pensée analytique et orienté vers les solutions et capacité à convertir les données de processus et les connexions techniques en améliorations concrètes\n- La connaissance des technologies évoquées et un savoir-faire de base dans le secteur de la plasturgie sont un atout\n- Méthode de travail indépendante et structurée dans un souci de rentabilité, d'efficacité et de durabilité\n- Maîtrise de l'allemand et de l'anglais parlés et écrits\n\nREMARQUES SUPPLÉMENTAIRES\n\nNous considérons uniquement les candidatures directes pour ce poste."
-      },
-      "location": "Rapperswil-Jona",
-      "canton": "SG",
-      "url": "https://jobs.geberit.com/job-invite/2344/?locale=de_DE",
-      "source": "Geberit Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:50:17.890Z",
-      "addressLocality": "Rapperswil-Jona",
-      "postalCode": "8640",
-      "streetAddress": "Schachenstrasse 77",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industrial / Sanitary technology (manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.geberit.com/job-invite/2344/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "process-engineer-production-data-a-100-geberit-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "process-engineer-production-data-a-100-geberit-ch"
-        ],
-        "en": [
-          "process-engineer-production-data-a-100-geberit-ch"
-        ],
-        "fr": [
-          "process-engineer-production-data-a-100-geberit-ch"
-        ]
-      },
-      "salaryMin": 67000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 67000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T09:50:17.890Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:42:01.832Z",
-      "needsRetranslation": true
-    },
-    {
-      "id": "geberit-2323",
-      "slug": "ingegnere-di-processo-tecnica-delle-materie-plastiche-a-100-geberit-rapperswil-jona",
-      "slugByLocale": {
-        "de": "process-engineer-kunststofftechnik-a-100-geberit-ch",
-        "it": "ingegnere-di-processo-tecnica-delle-materie-plastiche-a-100-geberit-rapperswil-jona",
-        "en": "process-engineer-plastics-technology-a-100-geberit-rapperswil-jona",
-        "fr": "ingenieur-procedes-technologie-des-matieres-plastiques-a-100-geberit-rapperswil-jona"
-      },
-      "company": "Geberit",
-      "companyKey": "geberit",
-      "companyDomain": "geberit.com",
-      "title": "Process Engineer - Kunststofftechnik (a) 100%",
-      "titleByLocale": {
-        "it": "Ingegnere di processo - Tecnica delle materie plastiche (a) 100%",
-        "en": "Process Engineer - Plastics Technology (a) 100%",
-        "de": "Process Engineer - Kunststofftechnik (a) 100%",
-        "fr": "Ingénieur procédés - technologie des matières plastiques (a) 100%"
-      },
-      "description": "## HAUPTAUFGABEN​\n\nIn unserer hochautomatisierten Produktion von Kunststoffbauteilen verbindest du fundiertes Kunststoff- und Spritzgusswissen mit analytischer und methodischer Kompetenz. Du analysierst komplexe technische Fragestellungen rund um Material, Prozess, Werkzeug und Maschine und treibst Projekte mit internen oder externen Partnern aktiv voran. Dein Ziel ist es, technische Zusammenhänge ganzheitlich zu verstehen und daraus effiziente und zukunftsfähige Lösungen für unsere Produktion zu entwickeln. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Schnittstellenmanagement zwischen Verfahrenstechnik sowie Werkzeug- und Maschinenbeschaffung übernehmen und komplexe Themen fachlich vorantreiben\n- Beurteilung und Weiterentwicklung der Spritzgusswerkzeuge hinsichtlich Auslegung, Funktion und Prozessverhalten\n- Systematische Analyse der Spritzgussprozesse (mittels statistischer Versuchsplanung (DoE), technische Bewertung der Ergebnisse und Ableitung von Optimierungsmassnahmen)\n- Bewertung, Auslegung und Weiterentwicklung von Sensorik sowie Prozessüberwachungs- und Assistenzsystemen für den Spritzguss\n- Nutzung von Produktions- und Prozessdaten sowie Weiterentwicklung von Lösungen zur Analyse und Visualisierung von Daten\n- Fachliche Leitung und Umsetzung technischer Projekte sowie derer Koordination mit internen und externen Partnern\n- Bewertung innovativer Technologien und Lösungen, Überführung in die Produktion und Weiterentwicklung hinsichtlich Wirtschaftlichkeit, Qualität und Sicherheit\n- Unterstützung bei komplexen Fragestellungen im Produktionsumfeld sowie Weitergabe von Wissen an Fachabteilungen und Produktion\n\n## PROFIL\n\nDu bringst ein abgeschlossenes technisches Studium mit Schwerpunkt Kunststofftechnik mit; idealerweise hast du vor deinem Studium bereits eine Ausbildung als Kunststofftechnologe absolviert und kennst den Spritzguss dadurch sowohl aus der praktischen als auch aus der ingenieurtechnischen Perspektive. Weiter zeichnen dich folgende Punkte aus:\n\n- Mehrjährige Industrieerfahrung in der Kunststoffbranche sowie im Leiten technischer Projekte\n- Analytische, praxisorientierte Arbeitsweise sowie die Fähigkeit komplexe Herausforderungen im operativen Umfeld zu lösen\n- Ausgeprägte Kommunikationsfähigkeiten und Durchsetzungsvermögen\n- Eigenverantwortliche und strukturierte Arbeitsweise mit Blick für Wirtschaftlichkeit, Effizienz und Nachhaltigkeit\n- Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-      "descriptionByLocale": {
-        "it": "## TASK PRINCIPALI\n\nNella nostra produzione altamente automatizzata di componenti plastici, si combinano una conoscenza approfondita di plastiche e stampaggio ad iniezione con competenza analitica e metodologica. Analizzerai complesse questioni tecniche riguardanti materiali, processi, strumenti e macchine e promuoverai attivamente progetti con partner interni o esterni. Il vostro obiettivo è comprendere le connessioni tecniche in modo olistico e sviluppare soluzioni efficienti e sostenibili per la nostra produzione. Questo include in particolare le seguenti attività:\n\n- Gestione dell'interfaccia tra la tecnologia di processo e l'approvvigionamento di strumenti e macchine e argomenti complessi avanzati professionalmente\n- Valutazione e ulteriore sviluppo degli strumenti di stampaggio ad iniezione per quanto riguarda la progettazione, la funzione e il comportamento di processo\n- Analisi sistematica dei processi di stampaggio ad iniezione (per mezzo di pianificazione statistica sperimentale (DoE), valutazione tecnica dei risultati e derivazione delle misure di ottimizzazione)\n- Valutazione, progettazione e ulteriore sviluppo dei sensori, nonché sistemi di monitoraggio e assistenza dei processi per lo stampaggio ad iniezione\n- Utilizzo dei dati di produzione e di processo nonché ulteriore sviluppo di soluzioni per l'analisi e la visualizzazione dei dati\n- Gestione professionale e realizzazione di progetti tecnici e coordinamento con partner interni ed esterni\n- Valutazione delle tecnologie e delle soluzioni innovative, trasferimento alla produzione e ulteriore sviluppo in termini di economia, qualità e sicurezza\n- Sostegno a questioni complesse nell'ambiente di produzione e trasferimento di conoscenze ai dipartimenti specializzati e alla produzione\n\n## PROFESSIONALE\n\nSi porterà un grado tecnico completato con un focus sulla tecnologia di plastica; Idealmente, hai già completato un apprendistato come tecnologo di plastica prima dei tuoi studi e quindi conosci lo stampaggio ad iniezione sia da una prospettiva pratica che ingegneristica. Inoltre, i seguenti punti ti distinguono:\n\n- Diversi anni di esperienza industriale nell'industria della plastica e progetti tecnici leader\n- Metodi di lavoro analitici, orientati alla pratica e la capacità di risolvere complesse sfide nell'ambiente operativo\n- Forte capacità di comunicazione e di esecuzione\n- Metodo di lavoro autoresponsabile e strutturato con un occhio alla redditività, all'efficienza e alla sostenibilità\n- Molto buona conoscenza del tedesco e dell'inglese in parola e scrittura\n\n## NOTE ADDIZIONALI\n\nPer questa posizione, consideriamo solo applicazioni dirette.",
-        "en": "## MAIN TASKS\n\nIn our highly automated production of plastic components, you combine in-depth knowledge of plastics and injection molding with analytical and methodological competence. You will analyze complex technical issues around materials, processes, tools and machines and actively advance projects with internal or external partners. Your goal is to understand technical connections holistically and to develop efficient and sustainable solutions for our production. This includes in particular the following activities:\n\n- Interface management between process technology as well as tool and machine procurement and advance complex topics professionally\n- Assessment and further development of injection moulding tools with regard to design, function and process behavior\n- Systematic analysis of injection molding processes (by means of statistical experimental planning (DoE), technical evaluation of results and derivation of optimization measures)\n- Evaluation, design and further development of sensors as well as process monitoring and assistance systems for injection molding\n- Use of production and process data as well as further development of solutions for the analysis and visualization of data\n- Professional management and implementation of technical projects as well as their coordination with internal and external partners\n- Evaluation of innovative technologies and solutions, transfer to production and further development in terms of economy, quality and safety\n- Support for complex issues in the production environment as well as transfer of knowledge to specialist departments and production\n\n## PROFILE\n\nYou will bring a completed technical degree with a focus on plastics technology; Ideally, you have already completed an apprenticeship as a plastics technologist before your studies and therefore know injection molding from both a practical and an engineering perspective. Further, the following points distinguish you:\n\n- Several years of industrial experience in the plastics industry as well as leading technical projects\n- Analytical, practice-oriented working methods as well as the ability to solve complex challenges in the operational environment\n- Strong communication and enforcement skills\n- Self-responsible and structured working method with an eye for profitability, efficiency and sustainability\n- Very good knowledge of German and English in word and writing\n\n## ADDITIONAL NOTES\n\nFor this position, we only consider direct applications.",
-        "de": "## HAUPTAUFGABEN​\n\nIn unserer hochautomatisierten Produktion von Kunststoffbauteilen verbindest du fundiertes Kunststoff- und Spritzgusswissen mit analytischer und methodischer Kompetenz. Du analysierst komplexe technische Fragestellungen rund um Material, Prozess, Werkzeug und Maschine und treibst Projekte mit internen oder externen Partnern aktiv voran. Dein Ziel ist es, technische Zusammenhänge ganzheitlich zu verstehen und daraus effiziente und zukunftsfähige Lösungen für unsere Produktion zu entwickeln. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Schnittstellenmanagement zwischen Verfahrenstechnik sowie Werkzeug- und Maschinenbeschaffung übernehmen und komplexe Themen fachlich vorantreiben\n- Beurteilung und Weiterentwicklung der Spritzgusswerkzeuge hinsichtlich Auslegung, Funktion und Prozessverhalten\n- Systematische Analyse der Spritzgussprozesse (mittels statistischer Versuchsplanung (DoE), technische Bewertung der Ergebnisse und Ableitung von Optimierungsmassnahmen)\n- Bewertung, Auslegung und Weiterentwicklung von Sensorik sowie Prozessüberwachungs- und Assistenzsystemen für den Spritzguss\n- Nutzung von Produktions- und Prozessdaten sowie Weiterentwicklung von Lösungen zur Analyse und Visualisierung von Daten\n- Fachliche Leitung und Umsetzung technischer Projekte sowie derer Koordination mit internen und externen Partnern\n- Bewertung innovativer Technologien und Lösungen, Überführung in die Produktion und Weiterentwicklung hinsichtlich Wirtschaftlichkeit, Qualität und Sicherheit\n- Unterstützung bei komplexen Fragestellungen im Produktionsumfeld sowie Weitergabe von Wissen an Fachabteilungen und Produktion\n\n## PROFIL\n\nDu bringst ein abgeschlossenes technisches Studium mit Schwerpunkt Kunststofftechnik mit; idealerweise hast du vor deinem Studium bereits eine Ausbildung als Kunststofftechnologe absolviert und kennst den Spritzguss dadurch sowohl aus der praktischen als auch aus der ingenieurtechnischen Perspektive. Weiter zeichnen dich folgende Punkte aus:\n\n- Mehrjährige Industrieerfahrung in der Kunststoffbranche sowie im Leiten technischer Projekte\n- Analytische, praxisorientierte Arbeitsweise sowie die Fähigkeit komplexe Herausforderungen im operativen Umfeld zu lösen\n- Ausgeprägte Kommunikationsfähigkeiten und Durchsetzungsvermögen\n- Eigenverantwortliche und strukturierte Arbeitsweise mit Blick für Wirtschaftlichkeit, Effizienz und Nachhaltigkeit\n- Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-        "fr": "## PRINCIPALES TÂCHES\n\nDans notre production hautement automatisée de composants plastiques, vous combinez une connaissance approfondie des plastiques et du moulage par injection avec une compétence analytique et méthodologique. Vous analyserez des questions techniques complexes concernant les matériaux, les processus, les outils et les machines et avancerez activement des projets avec des partenaires internes ou externes. Votre objectif est de comprendre les connexions techniques de manière holistique et de développer des solutions efficaces et durables pour notre production. Cela comprend notamment les activités suivantes:\n\n- Gestion de l'interface entre la technologie des procédés ainsi que l'acquisition d'outils et de machines et progression professionnelle de sujets complexes\n- Évaluation et développement des outils de moulage par injection en ce qui concerne la conception, la fonction et le comportement du procédé\n- Analyse systématique des processus de moulage par injection (au moyen de la planification expérimentale statistique (DoE), évaluation technique des résultats et dérivation des mesures d'optimisation)\n- Évaluation, conception et développement des capteurs ainsi que des systèmes de surveillance et d'assistance pour le moulage par injection\n- Utilisation des données de production et de traitement ainsi que développement de solutions pour l'analyse et la visualisation des données\n- Gestion professionnelle et mise en œuvre des projets techniques ainsi que leur coordination avec les partenaires internes et externes\n- Évaluation des technologies et solutions innovantes, transfert à la production et développement ultérieur en termes d'économie, de qualité et de sécurité\n- Soutien à des questions complexes dans l'environnement de production ainsi qu'au transfert de connaissances aux services spécialisés et à la production\n\n## PROFIL\n\nVous obtiendrez un diplôme technique avec un accent sur la technologie des plastiques; Idéalement, vous avez déjà terminé un apprentissage en tant que technologue en matière plastique avant vos études et connaissez donc le moulage par injection du point de vue pratique et technique. De plus, les points suivants vous distinguent :\n\n- Plusieurs années d'expérience industrielle dans l'industrie plastique ainsi que des projets techniques de pointe\n- Méthodes de travail analytiques axées sur la pratique et capacité de résoudre des problèmes complexes dans l ' environnement opérationnel\n- Renforcement des compétences en matière de communication et d'application de la loi\n- Méthode de travail auto-responsable et structurée avec un souci de rentabilité, d'efficacité et de durabilité\n- Très bonne connaissance de l'allemand et de l'anglais en paroles et en écriture\n\n## NOTES SUPPLÉMENTAIRES\n\nPour cette position, nous ne considérons que les demandes directes."
-      },
-      "location": "Rapperswil-Jona",
-      "canton": "SG",
-      "url": "https://jobs.geberit.com/job-invite/2323/?locale=de_DE",
-      "source": "Geberit Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:50:17.890Z",
-      "addressLocality": "Rapperswil-Jona",
-      "postalCode": "8640",
-      "streetAddress": "Schachenstrasse 77",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industrial / Sanitary technology (manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.geberit.com/job-invite/2323/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "process-engineer-kunststofftechnik-a-100-geberit-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "process-engineer-kunststofftechnik-a-100-geberit-ch"
-        ],
-        "en": [
-          "process-engineer-kunststofftechnik-a-100-geberit-ch"
-        ],
-        "fr": [
-          "process-engineer-kunststofftechnik-a-100-geberit-ch"
-        ]
-      },
-      "salaryMin": 67000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 67000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-04T09:50:17.890Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:42:01.840Z"
     },
     {
       "id": "geberit-2361",
@@ -2157,7 +2072,7 @@
       "url": "https://jobs.geberit.com/job-invite/2361/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:50:17.888Z",
+      "crawledAt": "2026-11-25T21:42:33.214Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -2204,9 +2119,91 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T09:50:17.888Z",
+      "validThrough": "2027-02-10T21:42:33.214Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-12T21:41:23.431Z"
+    },
+    {
+      "id": "geberit-2344",
+      "slug": "process-ingegnere-production-data-a-100-geberit-rapperswil-jona",
+      "slugByLocale": {
+        "de": "process-engineer-production-data-a-100-geberit-ch",
+        "fr": "process-ingenieur-production-data-a-100-geberit-rapperswil-jona",
+        "it": "process-ingegnere-production-data-a-100-geberit-rapperswil-jona",
+        "en": "process-ingegnere-production-data-a-100-geberit-rapperswil-jona"
+      },
+      "company": "Geberit",
+      "companyKey": "geberit",
+      "companyDomain": "geberit.com",
+      "title": "Process Engineer - Production & Data (a) 100%",
+      "titleByLocale": {
+        "it": "Ingegnere di Processo - Produzione e Dati (a) 100%",
+        "en": "Process Engineer - Production & Data 100%",
+        "de": "Process Engineer - Production & Data (a) 100%",
+        "fr": "Ingénieur de Processus - Production et Données (a) 100%"
+      },
+      "description": "## HAUPTAUFGABEN​\n\nIn unserer hochautomatisierten Produktion von Kunststoffbauteilen verbindest du technisches Verständnis mit Datenkompetenz und entwickelst Prozesse und Technologien kontinuierlich weiter. Dabei analysierst du Produktions- und Prozessdaten, bringst dein technisches Know-how direkt an den Anlagen ein und treibst Projekte aktiv voran. Dein Ziel ist es, Technologie, Daten und praktische Erfahrung intelligent zusammenzubringen und daraus effiziente und zukunftsfähige Produktionsprozesse abzuleiten. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Evaluation und Überführung neuer Technologien bis zur Serienreife sowie Expertenunterstützung im laufenden Betrieb, insbesondere für Vision-Systeme, Codelesesysteme, Laseranlagen sowie Fügetechnologien von Kunststoffbauteilen\n- Nutzbarmachung von Produktions- und Prozessdaten durch den Aufbau und die Weiterentwicklung von Lösungen zur Verknüpfung, Analyse und Visualisierung von Daten\n- Leitung und Umsetzung technischer Projekte mit Fokus auf Effizienzsteigerung, Modernisierung und Weiterentwicklung bestehender Prozesse und Anlagen\n- Erarbeitung fundierter Entscheidungsgrundlagen, welche technische, datenbasierte und wirtschaftliche Aspekte zusammenführen\n- Anwendung statistischer Versuchsplanung, technische Bewertung der Ergebnisse sowie Ableitung klarer Handlungsempfehlungen\n- Einführung innovativer Technologien und Lösungen in die Produktion sowie konsequente Weiterentwicklung von Potenzialen hinsichtlich Wirtschaftlichkeit, Qualität und Sicherheit\n- Technischer Support als Experte im Produktionsumfeld sowie aktiver Wissenstransfer an Produktion und Fachabteilungen\n\n## PROFIL\n\nDu bringst ein abgeschlossenes Studium in einem technischen Bereich (Maschinenbau, Kunststofftechnik oder vergleichbar) sowie Berufserfahrung im Produktionsumfeld mit. Darüber hinaus zeichnen dich folgende Punkte aus:\n\n- Praxisnahes technisches Verständnis und Freude an der Lösung komplexer Herausforderungen in der Produktion\n- Hohe Datenaffinität sowie Kenntnisse in Data Engineering und Datenanalyse, z. B. SQL, Python oder Datenbanken\n- Analytische, lösungsorientierte Denkweise und die Fähigkeit, Prozessdaten und technische Zusammenhänge in konkrete Verbesserungen zu überführen\n- Kenntnisse in den genannten Technologien sowie grundlegendes Know-how im Kunststoffbereich sind von Vorteil\n- Eigenverantwortliche und strukturierte Arbeitsweise mit Blick für Wirtschaftlichkeit, Effizienz und Nachhaltigkeit\n- Deutsch und Englisch fliessend in Wort und Schrift\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+      "descriptionByLocale": {
+        "it": "PRINCIPALI COMPITI\n\nNella nostra produzione altamente automatizzata di componenti plastici, si combinano la comprensione tecnica con la competenza dei dati e si sviluppano continuamente processi e tecnologie. Si analizzano i dati di produzione e processo, si porta il proprio know-how tecnico direttamente agli impianti e si portano avanti attivamente i progetti. Il vostro obiettivo è quello di riunire tecnologia, dati ed esperienza pratica in modo intelligente e di ricavare processi produttivi efficienti e sostenibili da esso.\n\n- Valutazione e trasferimento delle nuove tecnologie alla produzione in serie e supporto di esperti durante il funzionamento in corso, in particolare per sistemi di visione, sistemi di lettura dei codici, sistemi laser e tecnologie di giunzione di componenti in plastica\n- Rendere utilizzabili i dati di produzione e di processo mediante la costruzione e lo sviluppo di soluzioni per il collegamento, l'analisi e la visualizzazione dei dati\n- Gestione e attuazione di progetti tecnici con particolare attenzione al miglioramento dell'efficienza, alla modernizzazione e all'ulteriore sviluppo dei processi e dei sistemi esistenti\n- Sviluppo di una base decisionale solida che riunisca aspetti tecnici, basati sui dati e economici\n- Applicazione della pianificazione statistica sperimentale, valutazione tecnica dei risultati e del '94a di chiare raccomandazioni d'azione\n- Introduzione di tecnologie e soluzioni innovative nella produzione e sviluppo coerente del potenziale in termini di redditività, qualità e sicurezza\n- Assistenza tecnica come esperto nel settore produttivo e trasferimento attivo delle conoscenze ai reparti produttivi e specialistici\n\nPROFILO\n\nPotrai inoltre completare una laurea in campo tecnico (macchinari, tecnologie plastiche o comparabili) e esperienza lavorativa nell'ambiente produttivo.\n\n- Comprensione tecnica pratica e gioia nel risolvere complesse sfide della produzione\n- Alta affinità dei dati e conoscenza dell'ingegneria e dell'analisi dei dati, ad esempio SQL, Python o database\n- Pensiero analitico, orientato alla soluzione e capacità di tradurre i dati di processo e i contesti tecnici in miglioramenti concreti\n- La conoscenza delle tecnologie e del know-how di base nel settore della plastica sono vantaggiose\n- Metodi di lavoro autoresponsabili e strutturati per garantire efficienza, efficienza e sostenibilità economiche\n- Tedesco e Inglese: \"Finsend\" in Word and Writing\n\nNOTE AGGIUNTIVE\n\nPer questa posizione prendiamo in considerazione solo le applicazioni dirette.",
+        "en": "MAIN TASKS\n\nIn our highly automated production of plastic components, you combine technical understanding with data competence and continuously develop processes and technologies. You analyze production and process data, bring your technical know-how directly to the plants and actively drive projects forward. Your goal is to bring technology, data and practical experience together in a smart way and derive efficient and sustainable production processes from it. This includes in particular the following activities:\n\n- Evaluation and transfer of new technologies to series production and expert support during ongoing operation, in particular for vision systems, code reading systems, laser systems and joining technologies of plastic components\n- Making production and process data usable by building and developing solutions for linking, analysing and visualising data\n- Management and implementation of technical projects with a focus on efficiency enhancement, modernisation and further development of existing processes and systems\n- Development of sound decision-making basis, which bring together technical, data-based and economic aspects\n- Application of statistical experimental planning, technical evaluation of results and derivation of clear recommendations for action\n- Introduction of innovative technologies and solutions in production and consistent development of potential in terms of profitability, quality and safety\n- Technical support as an expert in the production environment and active knowledge transfer to production and specialist departments\n\nPROFILE\n\nYou will also be able to complete a degree in a technical field (machinery, plastics technology or comparable) and work experience in the production environment.\n\n- Practical technical understanding and joy in solving complex challenges in production\n- High data affinity and knowledge of data engineering and data analysis, e.g. SQL, Python or databases\n- Analytic, solution-oriented thinking and the ability to translate process data and technical contexts into concrete improvements\n- Knowledge of the above technologies and basic know-how in the plastics sector are advantageous\n- Self-responsible and structured working methods with a view to economic efficiency, efficiency and sustainability\n- German and English: \"Finsend\" in Word and Writing\n\nADDITIONAL NOTES\n\nWe only take direct applications into account for this position.",
+        "de": "## HAUPTAUFGABEN​\n\nIn unserer hochautomatisierten Produktion von Kunststoffbauteilen verbindest du technisches Verständnis mit Datenkompetenz und entwickelst Prozesse und Technologien kontinuierlich weiter. Dabei analysierst du Produktions- und Prozessdaten, bringst dein technisches Know-how direkt an den Anlagen ein und treibst Projekte aktiv voran. Dein Ziel ist es, Technologie, Daten und praktische Erfahrung intelligent zusammenzubringen und daraus effiziente und zukunftsfähige Produktionsprozesse abzuleiten. Dies beinhaltet insbesondere folgende Tätigkeiten:\n\n- Evaluation und Überführung neuer Technologien bis zur Serienreife sowie Expertenunterstützung im laufenden Betrieb, insbesondere für Vision-Systeme, Codelesesysteme, Laseranlagen sowie Fügetechnologien von Kunststoffbauteilen\n- Nutzbarmachung von Produktions- und Prozessdaten durch den Aufbau und die Weiterentwicklung von Lösungen zur Verknüpfung, Analyse und Visualisierung von Daten\n- Leitung und Umsetzung technischer Projekte mit Fokus auf Effizienzsteigerung, Modernisierung und Weiterentwicklung bestehender Prozesse und Anlagen\n- Erarbeitung fundierter Entscheidungsgrundlagen, welche technische, datenbasierte und wirtschaftliche Aspekte zusammenführen\n- Anwendung statistischer Versuchsplanung, technische Bewertung der Ergebnisse sowie Ableitung klarer Handlungsempfehlungen\n- Einführung innovativer Technologien und Lösungen in die Produktion sowie konsequente Weiterentwicklung von Potenzialen hinsichtlich Wirtschaftlichkeit, Qualität und Sicherheit\n- Technischer Support als Experte im Produktionsumfeld sowie aktiver Wissenstransfer an Produktion und Fachabteilungen\n\n## PROFIL\n\nDu bringst ein abgeschlossenes Studium in einem technischen Bereich (Maschinenbau, Kunststofftechnik oder vergleichbar) sowie Berufserfahrung im Produktionsumfeld mit. Darüber hinaus zeichnen dich folgende Punkte aus:\n\n- Praxisnahes technisches Verständnis und Freude an der Lösung komplexer Herausforderungen in der Produktion\n- Hohe Datenaffinität sowie Kenntnisse in Data Engineering und Datenanalyse, z. B. SQL, Python oder Datenbanken\n- Analytische, lösungsorientierte Denkweise und die Fähigkeit, Prozessdaten und technische Zusammenhänge in konkrete Verbesserungen zu überführen\n- Kenntnisse in den genannten Technologien sowie grundlegendes Know-how im Kunststoffbereich sind von Vorteil\n- Eigenverantwortliche und strukturierte Arbeitsweise mit Blick für Wirtschaftlichkeit, Effizienz und Nachhaltigkeit\n- Deutsch und Englisch fliessend in Wort und Schrift\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
+        "fr": "TÂCHES PRINCIPALES​\n\nDans notre production hautement automatisée de composants en plastique, vous combinez compréhension technique et compétence en matière de données et développez en permanence des processus et des technologies. Vous analysez les données de production et de processus, appliquez votre savoir-faire technique directement aux systèmes et faites avancer activement les projets. Votre objectif est de rassembler intelligemment la technologie, les données et l’expérience pratique et d’en tirer des processus de production efficaces et durables. Cela comprend notamment les activités suivantes :\n\n- Évaluation et transfert de nouvelles technologies jusqu'à maturité série ainsi qu'un accompagnement expert lors des opérations en cours, notamment pour les systèmes de vision, les systèmes de lecture de codes, les systèmes laser et les technologies d'assemblage de composants plastiques\n- Rendre les données de production et de processus utilisables en créant et en développant des solutions pour relier, analyser et visualiser les données\n- Gestion et mise en œuvre de projets techniques en mettant l'accent sur l'augmentation de l'efficacité, la modernisation et le développement des processus et systèmes existants\n- Développement de principes décisionnels fondés qui rassemblent les aspects techniques, basés sur les données et économiques\n- Application de la planification des tests statistiques, évaluation technique des résultats et élaboration de recommandations d'action claires\n- Introduction de technologies et de solutions innovantes dans la production ainsi que développement constant du potentiel en termes de rentabilité, de qualité et de sécurité\n- Support technique en tant qu'expert de l'environnement de production ainsi que transfert actif de connaissances vers les départements de production et spécialisés\n\nPROFIL\n\nVous disposez d'un diplôme dans un domaine technique (génie mécanique, plasturgie ou comparable) ainsi que d'une expérience professionnelle dans un environnement de production. De plus, les points suivants vous caractérisent :\n\n- Compréhension technique pratique et joie de résoudre des défis complexes en production\n- Haute affinité avec les données ainsi que connaissances en ingénierie et analyse de données, par ex. B. SQL, Python ou bases de données\n- Mode de pensée analytique et orienté vers les solutions et capacité à convertir les données de processus et les connexions techniques en améliorations concrètes\n- La connaissance des technologies évoquées et un savoir-faire de base dans le secteur de la plasturgie sont un atout\n- Méthode de travail indépendante et structurée dans un souci de rentabilité, d'efficacité et de durabilité\n- Maîtrise de l'allemand et de l'anglais parlés et écrits\n\nREMARQUES SUPPLÉMENTAIRES\n\nNous considérons uniquement les candidatures directes pour ce poste."
+      },
+      "location": "Rapperswil-Jona",
+      "canton": "SG",
+      "url": "https://jobs.geberit.com/job-invite/2344/?locale=de_DE",
+      "source": "Geberit Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-25T21:42:33.214Z",
+      "addressLocality": "Rapperswil-Jona",
+      "postalCode": "8640",
+      "streetAddress": "Schachenstrasse 77",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industrial / Sanitary technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.geberit.com/job-invite/2344/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "process-engineer-production-data-a-100-geberit-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "process-engineer-production-data-a-100-geberit-ch"
+        ],
+        "en": [
+          "process-engineer-production-data-a-100-geberit-ch"
+        ],
+        "fr": [
+          "process-engineer-production-data-a-100-geberit-ch"
+        ]
+      },
+      "salaryMin": 67000,
+      "salaryMax": 102000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 67000,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-03T21:42:33.214Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-05T21:42:01.832Z"
     },
     {
       "id": "geberit-2093",
@@ -2239,7 +2236,7 @@
       "url": "https://jobs.geberit.com/job-invite/2093/?locale=de_DE",
       "source": "Geberit Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:50:17.831Z",
+      "crawledAt": "2026-11-25T21:42:33.162Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "streetAddress": "Schachenstrasse 77",
@@ -2287,92 +2284,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T09:50:17.831Z",
+      "validThrough": "2026-12-25T21:42:33.162Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-08-03T12:35:44.488Z"
-    },
-    {
-      "id": "geberit-2318",
-      "slug": "ingegneria-di-produzione-intern-project-management-a-100-geberit-rapperswil-jona",
-      "slugByLocale": {
-        "de": "praktikant-produktionsengineering-projektmanagement-a-100-geberit-ch",
-        "it": "ingegneria-di-produzione-intern-project-management-a-100-geberit-rapperswil-jona",
-        "en": "intern-production-engineering-project-management-a-100-geberit-rapperswil-jona",
-        "fr": "ingenierie-de-production-interne-et-gestion-de-projet-a-100-geberit-rapperswil-jona"
-      },
-      "company": "Geberit",
-      "companyKey": "geberit",
-      "companyDomain": "geberit.com",
-      "title": "Praktikant Produktionsengineering & Projektmanagement (a) 100%",
-      "titleByLocale": {
-        "it": "Ingegneria di produzione Intern & Project Management (a) 100%",
-        "en": "Intern Production Engineering & Project Management (a) 100%",
-        "de": "Praktikant Produktionsengineering & Projektmanagement (a) 100%",
-        "fr": "Ingénierie de production interne et gestion de projet (a) 100 %"
-      },
-      "description": "## HAUPTAUFGABEN​\n\nFür sechs Monate ab Januar 2027 unterstützt du unsere Abteilung Projektleitung Produkte (PLP) & Geberit Produktions-System (GPS) Engineering bei Projekten rund um neue Produkte, Prozesse und die Weiterentwicklung unserer manuellen Montage. Ein Schwerpunkt deines Praktikums ist die Kapazitätserweiterung einer Produktionslinie. Du analysierst bestehende Montageprozesse und Kapazitäten, entwickelst gemeinsam mit den Fachbereichen geeignete Optimierungslösungen und prüfst dabei auch mögliche Automatisierungspotenziale. Dabei übernimmst du Verantwortung für ein eigenes Projekt und treibst dieses proaktiv voran. Darüber hinaus gehören folgende Aufgaben zu deinem Praktikum:\n\n- Analyse und Optimierung von Produktions- und Montageprozessen\n- Durchführung und Auswertung von Prozess-, Zeit- und Datenanalysen\n- Identifikation von Optimierungs- und Automatisierungspotenzialen\n- Unterstützung bei Stammdatenpflege sowie technischen und organisatorischen Projektaufgaben\n\n## PROFIL\n\nDu studierst Maschinenbau, Maschinentechnik, Wirtschaftsingenieurwesen, Produktionstechnik oder einen vergleichbaren technischen Studiengang an einer Höheren Fachschule oder Fachhochschule. Idealerweise bringst du Interesse an Produktionsprozessen und Automatisierung mit.\n\n- Gutes technisches und analytisches Verständnis\n- Selbstständige, strukturierte und proaktive Arbeitsweise\n- Bereitschaft, Verantwortung für ein eigenes Projekt zu übernehmen und dieses konsequent voranzutreiben\n- Teamorientierte, zuverlässige Persönlichkeit mit Freude daran, praktische Aufgaben direkt im Produktionsumfeld anzupacken\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-      "descriptionByLocale": {
-        "it": "## TASK PRINCIPALI\n\nPer sei mesi a partire dal gennaio 2027, supporterete il nostro reparto di Ingegneria dei Prodotti (PLP) & Geberit Production System (GPS) in progetti relativi a nuovi prodotti, processi e l'ulteriore sviluppo del nostro assemblaggio manuale. Un focus del tuo stage è l'espansione della capacità di una linea di produzione. Analizzerai i processi e le capacità di assemblaggio esistenti, svilupperai soluzioni di ottimizzazione adatte insieme alle aree specializzate e esaminerai anche possibili potenzialità di automazione. Si assume la responsabilità del proprio progetto e lo spinge proattivamente in avanti. Inoltre, i seguenti compiti sono parte del tuo stage:\n\n- Analisi e ottimizzazione dei processi di produzione e assemblaggio\n- Attuazione e valutazione delle analisi di processo, tempo e dati\n- Identificazione del potenziale di ottimizzazione e automazione\n- Supporto per la manutenzione dei dati master e le attività di progetto tecnico e organizzativo\n\n## PROFESSIONALE\n\nStudia ingegneria meccanica, ingegneria meccanica, ingegneria industriale, ingegneria di produzione o un corso di laurea tecnica comparabile in una scuola superiore o università di scienze applicate. Idealmente, siete interessati ai processi produttivi e all'automazione.\n\n- Buona comprensione tecnica e analitica\n- Metodo di lavoro indipendente, strutturato e proattivo\n- Volontà di assumersi la responsabilità del proprio progetto e portarlo avanti costantemente\n- Personalità orientata al team e affidabile con piacere nell'affrontare i compiti pratici direttamente nell'ambiente di produzione\n\n## NOTE ADDIZIONALI\n\nPer questa posizione, consideriamo solo applicazioni dirette.",
-        "en": "## MAIN TASKS\n\nFor six months from January 2027, you will be supporting our Products (PLP) & Geberit Production System (GPS) Engineering department in projects related to new products, processes and the further development of our manual assembly. One focus of your internship is the capacity expansion of a production line. You will analyze existing assembly processes and capacities, develop suitable optimization solutions together with the specialist areas and also examine possible automation potential. You take responsibility for your own project and proactively drive it forward. In addition, the following tasks are part of your internship:\n\n- Analysis and optimization of production and assembly processes\n- Implementation and evaluation of process, time and data analyses\n- Identification of optimization and automation potential\n- Support for master data maintenance as well as technical and organizational project tasks\n\n## PROFILE\n\nYou study mechanical engineering, mechanical engineering, industrial engineering, production engineering or a comparable technical degree program at a high school or university of applied sciences. Ideally, you are interested in production processes and automation.\n\n- Good technical and analytical understanding\n- Independent, structured and proactive working method\n- Willingness to take responsibility for your own project and drive it forward consistently\n- Team-oriented, reliable personality with pleasure in tackling practical tasks directly in the production environment\n\n## ADDITIONAL NOTES\n\nFor this position, we only consider direct applications.",
-        "de": "## HAUPTAUFGABEN​\n\nFür sechs Monate ab Januar 2027 unterstützt du unsere Abteilung Projektleitung Produkte (PLP) & Geberit Produktions-System (GPS) Engineering bei Projekten rund um neue Produkte, Prozesse und die Weiterentwicklung unserer manuellen Montage. Ein Schwerpunkt deines Praktikums ist die Kapazitätserweiterung einer Produktionslinie. Du analysierst bestehende Montageprozesse und Kapazitäten, entwickelst gemeinsam mit den Fachbereichen geeignete Optimierungslösungen und prüfst dabei auch mögliche Automatisierungspotenziale. Dabei übernimmst du Verantwortung für ein eigenes Projekt und treibst dieses proaktiv voran. Darüber hinaus gehören folgende Aufgaben zu deinem Praktikum:\n\n- Analyse und Optimierung von Produktions- und Montageprozessen\n- Durchführung und Auswertung von Prozess-, Zeit- und Datenanalysen\n- Identifikation von Optimierungs- und Automatisierungspotenzialen\n- Unterstützung bei Stammdatenpflege sowie technischen und organisatorischen Projektaufgaben\n\n## PROFIL\n\nDu studierst Maschinenbau, Maschinentechnik, Wirtschaftsingenieurwesen, Produktionstechnik oder einen vergleichbaren technischen Studiengang an einer Höheren Fachschule oder Fachhochschule. Idealerweise bringst du Interesse an Produktionsprozessen und Automatisierung mit.\n\n- Gutes technisches und analytisches Verständnis\n- Selbstständige, strukturierte und proaktive Arbeitsweise\n- Bereitschaft, Verantwortung für ein eigenes Projekt zu übernehmen und dieses konsequent voranzutreiben\n- Teamorientierte, zuverlässige Persönlichkeit mit Freude daran, praktische Aufgaben direkt im Produktionsumfeld anzupacken\n\n## ERGÄNZENDE HINWEISE\n\nFür diese Position berücksichtigen wir ausschliesslich Direktbewerbungen.",
-        "fr": "## PRINCIPAUX TÂCHES\n\nPendant six mois à partir de janvier 2027, vous soutiendrez notre département Produits (PLP) & Geberit Production System (GPS) Engineering dans des projets liés à de nouveaux produits, procédés et le développement de notre montage manuel. Un des objectifs de votre stage est l'expansion de la capacité d'une ligne de production. Vous analyserez les processus et les capacités de montage existants, développerez des solutions d'optimisation appropriées avec les domaines spécialisés et examinerez également le potentiel d'automatisation possible. Vous assumez la responsabilité de votre propre projet et la dirigez de façon proactive. De plus, les tâches suivantes font partie de votre stage :\n\n- Analyse et optimisation des processus de production et de montage\n- Mise en œuvre et évaluation des analyses de processus, de temps et de données\n- Identification du potentiel d'optimisation et d'automatisation\n- Appui à la maintenance des données de base ainsi qu'aux tâches techniques et organisationnelles des projets\n\n## PROFIL\n\nVous étudiez l'ingénierie mécanique, l'ingénierie mécanique, l'ingénierie industrielle, l'ingénierie de production ou un programme de diplôme technique comparable dans une école secondaire ou une université des sciences appliquées. Idéalement, vous êtes intéressé par les processus de production et l'automatisation.\n\n- Bonne compréhension technique et analytique\n- Méthode de travail indépendante, structurée et proactive\n- Volonté de prendre la responsabilité de votre propre projet et de le faire avancer de façon cohérente\n- Personnalité d'équipe et de fiabilité avec plaisir dans la prise en charge des tâches pratiques directement dans l'environnement de production\n\n## NOTES SUPPLÉMENTAIRES\n\nPour cette position, nous ne considérons que les demandes directes."
-      },
-      "location": "Rapperswil-Jona",
-      "canton": "SG",
-      "url": "https://jobs.geberit.com/job-invite/2318/?locale=de_DE",
-      "source": "Geberit Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-24T09:56:13.332Z",
-      "addressLocality": "Rapperswil-Jona",
-      "postalCode": "8640",
-      "streetAddress": "Schachenstrasse 77",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Industrial / Sanitary technology (manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.geberit.com/job-invite/2318/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "praktikant-produktionsengineering-projektmanagement-a-100-geberit-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikant-produktionsengineering-projektmanagement-a-100-geberit-ch"
-        ],
-        "en": [
-          "praktikant-produktionsengineering-projektmanagement-a-100-geberit-ch"
-        ],
-        "fr": [
-          "praktikant-produktionsengineering-projektmanagement-a-100-geberit-ch"
-        ]
-      },
-      "salaryMin": 48000,
-      "salaryMax": 73000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T09:56:13.332Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-20T21:42:05.350Z",
-      "crawlerMissStreak": 2
     }
   ]
 }
