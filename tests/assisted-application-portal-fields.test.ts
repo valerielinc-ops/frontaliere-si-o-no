@@ -370,6 +370,21 @@ describe('portal field extraction', () => {
     expect(profile.sectionGroupId).not.toBe(question.sectionGroupId);
   });
 
+  it('reads the title of a SuccessFactors group named by a heading with one disclosure button', () => {
+    const snapshot = extract(`<main><form><div class="rcmFormSection">
+      <h2 id="profile-title"><button type="button">Informazioni profilo</button></h2>
+      <div role="group" aria-labelledby="profile-title">
+        <label for="street">* Via e numero civico</label><input id="street" required aria-invalid="true">
+      </div>
+    </div></form></main>`, 'https://career2.successfactors.eu/portalcareer');
+    const street = snapshot.fields.find((field: any) => field.domId === 'street');
+    expect(street.addressContext).toMatchObject({ owners: ['Informazioni profilo'], unknown: false });
+    const requirement = { fieldId: street.id, question: street.label, type: 'text', options: [] };
+    const result = portalRequirementsFromMissingRequired(snapshot.fields, [requirement]);
+    expect(result.unreadableFields).toBeUndefined();
+    expect(result.questions).toEqual([expect.objectContaining({ applicationQuestion: street.label })]);
+  });
+
   it('binds SuccessFactors address fields to an aria-controlled profile panel', () => {
     const snapshot = extract(`<main>
       <button type="button" aria-expanded="true" aria-controls="all-sections">Esplodi tutte le sezioni</button>
