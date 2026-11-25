@@ -10634,6 +10634,38 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     await parkRegistrationCredential(authStop);
     return noted({ handoff: 'portal_needs_candidate', authStop });
   };
+  const missingRegistrationHandoff = async (snapshotForQuestions, planForQuestions, { onlyQuestionBatch = false } = {}) => {
+    const fields = (snapshotForQuestions?.fields || []).filter((field) => field.inputType !== 'password');
+    const requirements = portalRequirementsFromMissingRequired(fields, planForQuestions.missingRequired, {
+      candidate,
+      candidateLocale: ctx.candidateLocale,
+    });
+    if (!onlyQuestionBatch) {
+      if (requirements.unreadableFields?.length) {
+        await parkRegistrationCredential('privacy_question_unreadable');
+        return noted({ handoff: 'question_label_unreadable' });
+      }
+      const missingRequiredFieldIds = new Set((planForQuestions.missingRequired || []).map((item) => item.fieldId).filter(Boolean));
+      const unhandledRequiredFiles = fields.filter((field) =>
+        (field.required === true || field.invalid === true || missingRequiredFieldIds.has(field.id))
+        && (field.kind === 'file' || field.inputType === 'file')
+        && !uploadIsSatisfied(field)
+        && !planForQuestions.actions.some((action) => action.fieldId === field.id && action.action === 'upload'));
+      if (unhandledRequiredFiles.length) {
+        await parkRegistrationCredential('privacy_required_file_unhandled');
+        return noted({ handoff: 'portal_required_file_unhandled' });
+      }
+    }
+    const request = await portalRequirementsForCandidate(requirements, {
+      candidateLocale: ctx.candidateLocale,
+      applicationLocale: ctx.language,
+      codex: ctx.codex,
+      log: ctx.log,
+    });
+    if (!request) return null;
+    await parkRegistrationCredential('privacy_question_missing');
+    return noted(request);
+  };
   while (true) {
     const plannedActions = registrationPlan.actions.filter((action) => !registrationActionSatisfied(
       registrationSnapshot.fields.find((field) => field.id === action.fieldId), action,
@@ -10654,6 +10686,14 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     const preflight = await registrationPrivacyPreflight(page, { accepted: privacy === 'accepted' });
     if (preflight.privacy !== 'none') privacy = preflight.privacy;
     if (preflight.blocked) {
+      // A blocked statement (for instance SuccessFactors gating the privacy dialog
+      // on a still-empty residence country) is a candidate question when a required
+      // registration field cannot be answered without asking the applicant.
+      const blockedSnapshot = preflight.filled?.fields?.length
+        ? accountRegistrationSnapshot(preflight.filled)
+        : registrationSnapshot;
+      const blockedHandoff = await missingRegistrationHandoff(blockedSnapshot, registrationPlan, { onlyQuestionBatch: true });
+      if (blockedHandoff) return blockedHandoff;
       // Nothing was pressed, so no account came of this: as with no button, a
       // retry keeps the same unverified account's encrypted password.
       if (!retryingUnverifiedAccount && credentialSaved) await ctx.accounts.discard(host, 'privacy_not_accepted');
@@ -10690,36 +10730,10 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     }
     const stableRegistrationSnapshot = privacyPlan.snapshot;
     const stablePlan = privacyPlan.plan;
-    const stableRequirements = portalRequirementsFromMissingRequired(stableRegistrationSnapshot.fields, stablePlan.missingRequired, {
-      candidate,
-      candidateLocale: ctx.candidateLocale,
-    });
-    if (stableRequirements.unreadableFields?.length) {
-      await parkRegistrationCredential('privacy_question_unreadable');
-      return noted({ handoff: 'question_label_unreadable' });
-    }
-    const missingRequiredFieldIds = new Set((stablePlan.missingRequired || []).map((item) => item.fieldId).filter(Boolean));
-    const unhandledRequiredFiles = stableRegistrationSnapshot.fields.filter((field) =>
-      (field.required === true || field.invalid === true || missingRequiredFieldIds.has(field.id))
-      && (field.kind === 'file' || field.inputType === 'file')
-      && !uploadIsSatisfied(field)
-      && !stablePlan.actions.some((action) => action.fieldId === field.id && action.action === 'upload'));
-    if (unhandledRequiredFiles.length) {
-      await parkRegistrationCredential('privacy_required_file_unhandled');
-      return noted({ handoff: 'portal_required_file_unhandled' });
-    }
     // Emit the hard-question batch only from this stable post-privacy plan;
     // the first registration plan may not include fields revealed by the notice.
-    const stableRequest = await portalRequirementsForCandidate(stableRequirements, {
-      candidateLocale: ctx.candidateLocale,
-      applicationLocale: ctx.language,
-      codex: ctx.codex,
-      log: ctx.log,
-    });
-    if (stableRequest) {
-      await parkRegistrationCredential('privacy_question_missing');
-      return noted(stableRequest);
-    }
+    const stableHandoff = await missingRegistrationHandoff(stableRegistrationSnapshot, stablePlan);
+    if (stableHandoff) return stableHandoff;
     const newlyRequiredActions = stablePlan.actions.filter((action) => !registrationActionSatisfied(
       stableRegistrationSnapshot.fields.find((field) => field.id === action.fieldId), action,
     ));
