@@ -953,7 +953,7 @@ describe('translation shadow preflight v2 mapping and run observation', () => {
     expect(shadowAt).toBeLessThan(noKeysAt);
     expect(shadowAt).toBeLessThan(sideEffectAt);
     expect(earlyReturnAt).toBeLessThan(inputFactoryAt);
-    expect(runtime).toContain('await runSharedCrawler(executionKeys, companyJobCount)');
+    expect(runtime).toContain('await runSharedCrawler(executionKeys, companyJobCount, cascadeDeadlineMs)');
     expect(runtime).toContain("if (!SHADOW_PREFLIGHT_V2.outputPath) return null");
     expect(runtime).not.toContain('keylessSamples.push');
     expect(runtime.slice(shadowAt)).not.toContain('Date.now()');
