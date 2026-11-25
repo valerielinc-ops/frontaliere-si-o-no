@@ -1,7 +1,7 @@
 {
   "key": "igroove",
   "label": "iGroove AG",
-  "generatedAt": "2026-11-24T21:55:41.562Z",
+  "generatedAt": "2026-11-25T09:28:06.059Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -14,16 +14,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 41804,
-  "avgDurationMs": 41804,
+  "unchangedCount": 2,
+  "durationMs": 3990,
+  "avgDurationMs": 3990,
   "durationHistory": [
-    41804
+    3990
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "igroove-a5f73b004cae",
       "slug": "senior-security-ingegnere-igroove-ag-pfaffikon",
@@ -36,7 +38,7 @@
       "url": "https://igroove.jobs.personio.de/job/2902398",
       "source": "iGroove Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-24T21:54:45.645Z",
+      "crawledAt": "2026-11-25T09:27:50.407Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "SZ",
       "streetAddress": "Churerstrasse 135",
@@ -60,7 +62,7 @@
       "salaryMax": 195000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-22T21:54:45.645Z",
+      "validThrough": "2027-02-22T09:27:50.407Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -69,10 +71,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "igroove-612edf8c2c46",
       "slug": "responsabile-senior-delle-operazioni-e-degli-affari-aziendali-m-f-d-igroove-ag-pfaffikon",
@@ -85,7 +84,7 @@
       "url": "https://igroove.jobs.personio.de/job/2839848",
       "source": "iGroove Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-24T21:54:45.609Z",
+      "crawledAt": "2026-11-25T09:27:50.382Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "SZ",
       "streetAddress": "Churerstrasse 135",
@@ -110,7 +109,7 @@
       "salaryMax": 146000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-11T21:54:45.609Z",
+      "validThrough": "2027-01-11T09:27:50.382Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -121,5 +120,5 @@
       }
     }
   ],
-  "codeCommit": "af6487cf18de54664a2dd36f8f16e17f8a69b92f"
+  "codeCommit": "55fd511dba5e5c1bd3b4047690c697040c8b6c58"
 }
