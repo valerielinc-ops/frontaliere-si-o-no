@@ -2879,6 +2879,15 @@
     "candidatesCount": 1,
     "canton": "AG"
   },
+  "AG::it::fachfrau-mann-gesundheit-ksa-ch": {
+    "winnerJobIdentifier": "ksa-9b02e059e86c",
+    "winnerCanonical": "fachfrau-mann-gesundheit-kantonsspital-aarau-ksa-aarau",
+    "decidedAt": "2026-11-24T00:00:00.000Z",
+    "lastSeenAt": "2026-11-24T00:00:00.000Z",
+    "score": 0.5714,
+    "candidatesCount": 2,
+    "canton": "AG"
+  },
   "AG::it::fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hauswirtschaft-ksb-ch": {
     "winnerJobIdentifier": "ksb-222b7a2d544d",
     "winnerCanonical": "fachmann-frau-hotellerie-hauswirtschaft-i-a-specializzazione-hotellerie-kantonsspital-baden-ksb-baden",
@@ -3843,12 +3852,12 @@
     "canton": "AG"
   },
   "AG::it::oberarztin-oberarzt-ksa-ch": {
-    "winnerJobIdentifier": "ksa-91d6257c78c8",
-    "winnerCanonical": "primario-kantonsspital-aarau-ksa-aarau",
-    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "winnerJobIdentifier": "ksa-61d690690298",
+    "winnerCanonical": "medico-senior-medico-senior-kantonsspital-aarau-ksa-aarau",
+    "decidedAt": "2026-11-24T00:00:00.000Z",
     "lastSeenAt": "2026-11-24T00:00:00.000Z",
-    "score": 0.1429,
-    "candidatesCount": 2,
+    "score": 0.125,
+    "candidatesCount": 1,
     "canton": "AG"
   },
   "AG::it::operaio-a-edile-con-patente-di-guida-cat-b-fachkraft-ch-gmbh-zofingen": {
@@ -4293,11 +4302,11 @@
     "canton": "AG"
   },
   "AG::it::spengler-in-per-try-hire-fachkraft-ch-gmbh-zofingen-6be0993bea": {
-    "winnerJobIdentifier": "fachkraft-3cea4725ce3f",
-    "winnerCanonical": "spengler-in-per-try-hire-fachkraft-ch-gmbh-zofingen",
-    "decidedAt": "2026-11-22T00:00:00.000Z",
-    "lastSeenAt": "2026-11-22T00:00:00.000Z",
-    "score": 0.9,
+    "winnerJobIdentifier": "fachkraft-ac98c596d7f6",
+    "winnerCanonical": "lattaio-per-try-hire-fachkraft-ch-gmbh-zofingen",
+    "decidedAt": "2026-11-24T00:00:00.000Z",
+    "lastSeenAt": "2026-11-24T00:00:00.000Z",
+    "score": 0.6364,
     "candidatesCount": 1,
     "canton": "AG"
   },
@@ -30051,36 +30060,36 @@
     "canton": "LU"
   },
   "LU::it::verkaufer-in-frischprodukte-coop-luzern": {
-    "winnerJobIdentifier": "company-ch4tih",
-    "winnerCanonical": "vendita-prodotti-freschi-coop-genossenschaft-luzern",
-    "decidedAt": "2026-11-16T00:00:00.000Z",
-    "lastSeenAt": "2026-11-24T00:00:00.000Z",
-    "score": 0.2222,
-    "candidatesCount": 4,
-    "canton": "LU"
-  },
-  "LU::it::verkaufer-in-frischprodukte-coop-luzern-2": {
-    "winnerJobIdentifier": "company-ch4tih",
-    "winnerCanonical": "vendita-prodotti-freschi-coop-genossenschaft-luzern",
-    "decidedAt": "2026-11-16T00:00:00.000Z",
+    "winnerJobIdentifier": "company-ekdyqs",
+    "winnerCanonical": "vendita-prodotti-freschi-coop-genossenschaft-luzern-fd34d1",
+    "decidedAt": "2026-11-24T00:00:00.000Z",
     "lastSeenAt": "2026-11-24T00:00:00.000Z",
     "score": 0.2,
     "candidatesCount": 3,
     "canton": "LU"
   },
-  "LU::it::verkaufer-in-frischprodukte-coop-luzern-3": {
-    "winnerJobIdentifier": "company-ch4tih",
-    "winnerCanonical": "vendita-prodotti-freschi-coop-genossenschaft-luzern",
-    "decidedAt": "2026-11-16T00:00:00.000Z",
+  "LU::it::verkaufer-in-frischprodukte-coop-luzern-2": {
+    "winnerJobIdentifier": "company-ekdyqs",
+    "winnerCanonical": "vendita-prodotti-freschi-coop-genossenschaft-luzern-fd34d1",
+    "decidedAt": "2026-11-24T00:00:00.000Z",
     "lastSeenAt": "2026-11-24T00:00:00.000Z",
-    "score": 0.2,
-    "candidatesCount": 2,
+    "score": 0.1818,
+    "candidatesCount": 3,
+    "canton": "LU"
+  },
+  "LU::it::verkaufer-in-frischprodukte-coop-luzern-3": {
+    "winnerJobIdentifier": "company-ekdyqs",
+    "winnerCanonical": "vendita-prodotti-freschi-coop-genossenschaft-luzern-fd34d1",
+    "decidedAt": "2026-11-24T00:00:00.000Z",
+    "lastSeenAt": "2026-11-24T00:00:00.000Z",
+    "score": 0.1818,
+    "candidatesCount": 3,
     "canton": "LU"
   },
   "LU::it::verkaufer-in-frischprodukte-coop-luzern-4": {
-    "winnerJobIdentifier": "company-ch4tih",
-    "winnerCanonical": "vendita-prodotti-freschi-coop-genossenschaft-luzern-20d795837f",
-    "decidedAt": "2026-11-20T00:00:00.000Z",
+    "winnerJobIdentifier": "company-g6ltm2",
+    "winnerCanonical": "vendita-prodotti-freschi-coop-genossenschaft-luzern-7f785a",
+    "decidedAt": "2026-11-24T00:00:00.000Z",
     "lastSeenAt": "2026-11-24T00:00:00.000Z",
     "score": 0.1818,
     "candidatesCount": 2,
@@ -38435,6 +38444,15 @@
     "decidedAt": "2026-10-30T00:00:00.000Z",
     "lastSeenAt": "2026-11-24T00:00:00.000Z",
     "score": 0.0476,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
+  "SH::it::gartner-in-garten-und-landschaftsbau-mit-vielseitigen-arbeiten-schaffhausen-schaffhausen": {
+    "winnerJobIdentifier": "stellenpartner-40319c27231f",
+    "winnerCanonical": "giardiniere-giardinaggio-e-giardinaggio-con-compiti-versatili-stellenpartner-ag-schaffhausen",
+    "decidedAt": "2026-11-24T00:00:00.000Z",
+    "lastSeenAt": "2026-11-24T00:00:00.000Z",
+    "score": 0.0588,
     "candidatesCount": 2,
     "canton": "SH"
   },
@@ -65885,6 +65903,15 @@
     "decidedAt": "2026-10-16T00:00:00.000Z",
     "lastSeenAt": "2026-11-24T00:00:00.000Z",
     "score": 0.2381,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::falegname-per-officina-e-lavori-di-assemblaggio-stellenpartner-ag-affoltern-am-albis": {
+    "winnerJobIdentifier": "stellenpartner-31144a1c85fd",
+    "winnerCanonical": "falegname-per-officina-e-lavori-di-assemblaggio-stellenpartner-ag-affoltern-am-albis-5ae6e4a741",
+    "decidedAt": "2026-11-24T00:00:00.000Z",
+    "lastSeenAt": "2026-11-24T00:00:00.000Z",
+    "score": 0.9231,
     "candidatesCount": 2,
     "canton": "ZH"
   },
