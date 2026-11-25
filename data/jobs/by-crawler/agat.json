@@ -1,7 +1,7 @@
 {
   "crawlerKey": "agat",
-  "assembledAt": "2026-11-24T21:37:25.468Z",
-  "runId": "45490222548",
+  "assembledAt": "2026-11-25T09:34:40.238Z",
+  "runId": "45584672385",
   "jobs": [
     {
       "id": "agat-f0ce687dd9ea",
@@ -35,7 +35,7 @@
       "url": "https://www.agat-job.com/post/ma%C3%A7on-q-a-b-100",
       "source": "AGAT ! Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-24T21:37:18.457Z",
+      "crawledAt": "2026-11-25T09:34:30.606Z",
       "addressRegion": "VS",
       "employmentType": "OTHER",
       "contract": "other",
@@ -75,7 +75,7 @@
       "addressLocality": "région de Sion",
       "streetAddress": "région de Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:37:18.457Z",
+      "validThrough": "2027-01-14T09:34:30.606Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -158,7 +158,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T09:39:24.339Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "agat-ab07dbb4ed2f",
@@ -240,7 +240,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T09:39:24.338Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "agat-bce5ec33276c",
@@ -322,7 +322,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T09:39:24.337Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "agat-a9dcab9a33ac",
@@ -404,7 +404,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T09:39:24.336Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "agat-671f6f410439",
@@ -486,7 +486,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T09:39:24.335Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "agat-7568d784ac39",
@@ -568,7 +568,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T09:39:24.332Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
