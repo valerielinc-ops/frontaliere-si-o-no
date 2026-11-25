@@ -1,9 +1,9 @@
 {
   "key": "scandit",
   "label": "Scandit AG",
-  "generatedAt": "2026-11-24T21:50:47.713Z",
+  "generatedAt": "2026-11-25T09:38:54.342Z",
   "total": 0,
-  "discovered": 10,
+  "discovered": 9,
   "parsed": 0,
   "lastFetchOutcome": "filtered_empty",
   "fetchReceipt": null,
@@ -15,10 +15,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 211,
-  "avgDurationMs": 211,
+  "durationMs": 158,
+  "avgDurationMs": 158,
   "durationHistory": [
-    211
+    158
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -26,5 +26,5 @@
   "unchangedJobs": [],
   "earlyExit": false,
   "exitCode": 0,
-  "codeCommit": "af6487cf18de54664a2dd36f8f16e17f8a69b92f"
+  "codeCommit": "55fd511dba5e5c1bd3b4047690c697040c8b6c58"
 }
