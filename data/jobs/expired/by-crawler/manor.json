@@ -1,5 +1,27 @@
 [
   {
+    "slug": "manor-mitarbeiter-in-kasse-60-rapperswil",
+    "title": "Mitarbeiter*in Kasse 60%",
+    "titleByLocale": {
+      "it": "Mitarbeiter*in Kasse 60%"
+    },
+    "company": "Manor AG",
+    "companyKey": "manor",
+    "location": "Rapperswil",
+    "addressLocality": "Rapperswil",
+    "descriptionByLocale": {
+      "de": "Erfahrung an der Kasse ist ein Plus, du hast ein gutes Zahlenflair und kennst dich mit verschiedenen Zahlungsmitteln aus.\nDu hast Freude am Kassieren und ein Gespür für unsere anspruchsvollen Kunden. Auch bei hohem Kundenaufkommen bewahrst du Ruhe und Übersicht.\nDeine positive Ausstrahlung und dein gepflegtes Auftreten zeichnen dich aus.\nDu sprichst fliessend Deutsch und bist flexibel für Einsätze von Montag bis Samstag"
+    },
+    "slugByLocale": {
+      "it": "manor-mitarbeiter-in-kasse-60-rapperswil"
+    },
+    "sector": "",
+    "expiredAt": "2026-11-25T09:33:45.855Z",
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://positions.manor.ch/job/rapperswil-mitarbeiterin-kasse-60/1378395455"
+  },
+  {
     "id": "manor-c1fe13f959c3",
     "slug": "addetto-a-alle-vendite-in-profumeria-60-manor-ag-thun",
     "title": "Mitarbeiter*in Verkauf Parfümerie 60%",
@@ -1662,6 +1684,7 @@
         "manor-collaborateur-trice-caisse-confection-messieurs-50-chavannes-de-bogis"
       ],
       "fr": [
+        "manor-collaborateur-trice-caisse-confection-messieurs-50-chavannes-de-bogis-b68c056b",
         "manor-collaborateur-trice-caisse-confection-messieurs-50-chavannes-de-bogis"
       ]
     },
@@ -1672,7 +1695,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://positions.manor.ch/job/chavannes-de-bogis-collaborateurtrice-caisse-%28confection-messieurs%29-50/1374697455",
-    "firstSeenAt": "2026-10-28T09:30:33.621Z"
+    "firstSeenAt": "2026-10-28T09:30:33.621Z",
+    "previousSlugs": [
+      "manor-collaborateur-trice-caisse-confection-messieurs-50-chavannes-de-bogis"
+    ]
   },
   {
     "id": "manor-a020c87dc35f",
@@ -12057,14 +12083,25 @@
     "previousSlugsByLocale": {
       "it": [
         "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen-5de255e7",
-        "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen"
+        "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen",
+        "addetto-a-alla-cassa-profumeria-40-manor-ag-schaffhausen",
+        "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen-2",
+        "dipendenti-in-cassa-profumeria-40-manor-ag-schaffhausen"
       ],
       "en": [
         "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen-5de255e7",
-        "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen"
+        "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen",
+        "cashier-perfumery-40-manor-ag-schaffhausen",
+        "perfumery-cashier-40-manor-ag-schaffhausen"
       ],
       "fr": [
         "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen-5de255e7",
+        "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen",
+        "employe-e-a-la-caisse-en-parfumerie-40-manor-ag-schaffhausen",
+        "employe-e-caisse-parfumerie-40-manor-ag-schaffhausen"
+      ],
+      "de": [
+        "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen-rb61sw",
         "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen"
       ]
     },
@@ -12077,7 +12114,15 @@
     "sourceIdentity": "url:https://positions.manor.ch/job/schaffhausen-mitarbeiterin-kasse-parf%c3%bcmerie-40/1374693655",
     "firstSeenAt": "2026-08-25T10:20:05.955Z",
     "previousSlugs": [
-      "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen"
+      "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen",
+      "addetto-a-alla-cassa-profumeria-40-manor-ag-schaffhausen",
+      "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen-2",
+      "dipendenti-in-cassa-profumeria-40-manor-ag-schaffhausen",
+      "cashier-perfumery-40-manor-ag-schaffhausen",
+      "perfumery-cashier-40-manor-ag-schaffhausen",
+      "employe-e-a-la-caisse-en-parfumerie-40-manor-ag-schaffhausen",
+      "employe-e-caisse-parfumerie-40-manor-ag-schaffhausen",
+      "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen-rb61sw"
     ],
     "sourceIdentityHistory": [
       {
@@ -15829,7 +15874,10 @@
       "collaboratore-trice-in-vendita-spielwaren-50-manor-ag-emmen",
       "mitarbeiter-in-sales-spielwaren-50-manor-ag-emmen",
       "mitarbeiter-in-vente-spielwaren-50-manor-ag-emmen",
-      "manor-mitarbeiter-in-verkauf-spielwaren-50-emmen"
+      "manor-mitarbeiter-in-verkauf-spielwaren-50-emmen",
+      "addetto-a-alla-vendita-di-giocattoli-50-manor-ag-emmen",
+      "toys-sales-associate-50-manor-ag-emmen",
+      "employe-e-a-la-vente-de-jouets-a-50-manor-ag-emmen"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -15837,7 +15885,8 @@
         "collaboratore-trice-in-vendita-spielwaren-50-manor-ag-emmen-e802f26a",
         "mitarbeiter-in-sales-spielwaren-50-manor-ag-emmen",
         "mitarbeiter-in-vente-spielwaren-50-manor-ag-emmen",
-        "collaboratore-trice-in-vendita-spielwaren-50-manor-ag-emmen"
+        "collaboratore-trice-in-vendita-spielwaren-50-manor-ag-emmen",
+        "addetto-a-alla-vendita-di-giocattoli-50-manor-ag-emmen"
       ],
       "en": [
         "mitarbeiter-in-sales-spielwaren-50-manor-ag-emmen-c1a16bc4",
@@ -15845,7 +15894,8 @@
         "collaboratore-trice-in-vendita-spielwaren-50-manor-ag-emmen",
         "mitarbeiter-in-vente-spielwaren-50-manor-ag-emmen",
         "mitarbeiter-in-sales-spielwaren-50-manor-ag-emmen",
-        "manor-mitarbeiter-in-verkauf-spielwaren-50-emmen"
+        "manor-mitarbeiter-in-verkauf-spielwaren-50-emmen",
+        "toys-sales-associate-50-manor-ag-emmen"
       ],
       "de": [
         "mitarbeiter-in-verkauf-spiel-aren-50-manor-ag-emmen",
@@ -15861,7 +15911,8 @@
         "collaboratore-trice-in-vendita-spielwaren-50-manor-ag-emmen",
         "mitarbeiter-in-sales-spielwaren-50-manor-ag-emmen",
         "mitarbeiter-in-vente-spielwaren-50-manor-ag-emmen",
-        "manor-mitarbeiter-in-verkauf-spielwaren-50-emmen"
+        "manor-mitarbeiter-in-verkauf-spielwaren-50-emmen",
+        "employe-e-a-la-vente-de-jouets-a-50-manor-ag-emmen"
       ]
     },
     "postalCode": "6032",
@@ -18063,7 +18114,7 @@
       "it": "collaboratore-tricein-logistica-100-manor-ag-mohlin",
       "en": "logistics-employee-100-manor-ag-mohlin",
       "de": "manor-mitarbeiter-in-logistik-100-mohlin-1af42cd1",
-      "fr": "employe-e-logistique-100-manor-ag-mohlin"
+      "fr": "employe-e-logistique-100-manor-ag-mohlin-7115fe21"
     },
     "sector": "",
     "expiredAt": "2026-10-29T21:47:31.874Z",
@@ -18077,9 +18128,11 @@
       ],
       "fr": [
         "manor-mitarbeiter-in-logistik-100-mohlin-1af42cd1",
-        "manor-mitarbeiter-in-logistik-100-mohlin"
+        "manor-mitarbeiter-in-logistik-100-mohlin",
+        "employe-e-logistique-100-manor-ag-mohlin"
       ],
       "de": [
+        "manor-mitarbeiter-in-logistik-100-mohlin-1af42cd1",
         "manor-mitarbeiter-in-logistik-100-mohlin"
       ]
     },
@@ -18089,7 +18142,11 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://positions.manor.ch/job/m%c3%b6hlin-mitarbeiterin-logistik-100/1373921655",
-    "firstSeenAt": "2026-10-22T09:43:26.967Z"
+    "firstSeenAt": "2026-10-22T09:43:26.967Z",
+    "previousSlugs": [
+      "manor-mitarbeiter-in-logistik-100-mohlin",
+      "employe-e-logistique-100-manor-ag-mohlin"
+    ]
   },
   {
     "slug": "cucina-manora-20-manor-ag-vevey",
