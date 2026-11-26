@@ -22,6 +22,7 @@ import {
   runSpecInProduction,
 } from './prospector/spec-crawler.mjs';
 import { BREFISPERSONAL_PAGINATION } from './prospector/brefispersonal-contract.mjs';
+import { extractDetailFields } from './prospector/extract.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -175,6 +176,7 @@ async function fetchJobListings() {
   const spec = normalizeBrefispersonalRuntimeSpec(loadSpec(BREFISPERSONAL_KEY));
   return runSpecInProduction(spec, {
     browserFetchImpl: fetchHtmlViaBrowser,
+    detailExtractor: extractBrefispersonalDetailFields,
   });
 }
 
@@ -202,7 +204,13 @@ export function resolveBrefispersonalGeography(listing, descriptionText = '') {
     && inferSwissTargetCanton(addressLocality) === structuredCanton,
   );
   const structured = cantonOnlyLocality
-    ? resolveSourceBackedSwissGeography({ ...listing, addressLocality: '' })
+    ? resolveSourceBackedSwissGeography({
+      ...listing,
+      // The generic extractor may compose the two structured fields as
+      // `ZH, ZH`; the verified canton is the complete source evidence here.
+      location: structuredCanton,
+      addressLocality: '',
+    })
     : resolveSourceBackedSwissGeography(listing);
   if (!cantonOnlyLocality) return structured;
 
@@ -217,6 +225,64 @@ export function resolveBrefispersonalGeography(listing, descriptionText = '') {
     if (fromDescription) return fromDescription;
   }
   return structured;
+}
+
+/**
+ * Apply Brefis' source-specific geography contract while the detail page is
+ * still inside the shared prospector runtime. Brefis publishes the canton
+ * code (`ZH`) in both `location` and `addressLocality`; the generic detail
+ * resolver correctly refuses that pair as a municipality. The ordinary
+ * Brefis parser used to repair it only after `runSpecInProduction` had
+ * already counted the detail as rejected, so a small number of valid pages
+ * could abort the whole snapshot. Keep the repair source-scoped and use only
+ * one unambiguous structured candidate; multiple candidates remain the
+ * shared resolver's fail-closed decision.
+ *
+ * @param {string} html
+ * @param {string} url
+ * @param {{ recordUrl?: string, recordTitle?: string }} [opts]
+ * @returns {Record<string, any>}
+ */
+export function extractBrefispersonalDetailFields(html = '', url = '', opts = {}) {
+  const detail = extractDetailFields(html, url, opts);
+  const candidates = Array.isArray(detail?.locationCandidates)
+    ? detail.locationCandidates
+    : [];
+  if (candidates.length !== 1) return detail;
+
+  const candidate = candidates[0] || {};
+  const sourceEvidence = {
+    ...candidate,
+    location: candidate.location || detail.location || '',
+    addressLocality: candidate.addressLocality || detail.addressLocality || '',
+    addressRegion: candidate.addressRegion || detail.addressRegion || '',
+    addressCountry: candidate.addressCountry || detail.addressCountry || '',
+  };
+  const geography = resolveBrefispersonalGeography(
+    sourceEvidence,
+    stripHtml(detail.description || ''),
+  );
+  if (!geography) return detail;
+
+  const normalizedCandidate = {
+    ...candidate,
+    location: geography.location,
+    // A canton-only source result is valid evidence for this reviewed source,
+    // but must not be presented to the shared resolver as a municipality.
+    addressLocality: geography.location === geography.canton ? '' : geography.location,
+    addressRegion: geography.canton,
+    addressCountry: geography.addressCountry || sourceEvidence.addressCountry || 'CH',
+  };
+  return {
+    ...detail,
+    location: normalizedCandidate.location,
+    addressLocality: normalizedCandidate.addressLocality,
+    addressRegion: normalizedCandidate.addressRegion,
+    addressCountry: normalizedCandidate.addressCountry,
+    country: normalizedCandidate.addressCountry,
+    locationCandidates: [normalizedCandidate],
+    authoritativeLocationConflict: false,
+  };
 }
 
 /**

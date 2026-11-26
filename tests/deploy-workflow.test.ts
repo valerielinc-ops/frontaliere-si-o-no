@@ -314,7 +314,7 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(rehydrate.env.SHARD_ARTIFACT_RUN_ID_IT).toContain('inputs.it_shard_artifact_run_id');
   });
 
-  it('prunes only the source-only image tree for opted-in published-dist replays', () => {
+  it('uses the disk-safe source profile for opted-in published-dist replays', () => {
     const workflow = YAML.parse(AUDIT_REPORT_YML) as any;
     const full = YAML.parse(AUDIT_FULL_YML) as any;
     const published = YAML.parse(AUDIT_PUBLISHED_YML) as any;
@@ -352,7 +352,43 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     });
     expect(sparseCheckout?.if).toBe('${{ inputs.prune_source_images }}');
     expect(sparseCheckout?.with?.filter).toBe('blob:none');
-    expect(sparseCheckout?.with?.['sparse-checkout']).toContain('!/public/images/');
+    for (const excludedPath of [
+      '!/public/images/',
+      '!/data/jobs/',
+      '!/data/url-first-seen/',
+      '!/data/seo-404-compat/',
+      '!/data/translation-cache/',
+      '!/packages/articles/content/*',
+      '!/data/all-known-job-slugs/',
+      '!/data/orphan-enriched-data/',
+      '!/docs/',
+      '!/public/data/',
+      '!/data/related-search-candidates.json',
+      '!/data/cf-hot-404s.json',
+      '!/data/jobs-ai-cache.json',
+      '!/data/dist-size-history.jsonl',
+      '!/data/jobs-stats-history.json',
+      '!/data/url-first-seen.json',
+      '!/data/jobs-snapshots-history/',
+      '!/data/slug-registry.json',
+      '!/data/evidence-index.json',
+      '!/data/health-premiums/',
+      '!/data/jobs-crawler-summaries/',
+    ]) {
+      expect(sparseCheckout?.with?.['sparse-checkout']).toContain(excludedPath);
+    }
+    for (const requiredArticleMeta of [
+      '/packages/articles/content/blog-meta-it.ts',
+      '/packages/articles/content/blog-meta-en.ts',
+      '/packages/articles/content/blog-meta-de.ts',
+      '/packages/articles/content/blog-meta-fr.ts',
+      '/packages/articles/content/blog-meta-ch-it.ts',
+      '/packages/articles/content/blog-meta-ch-en.ts',
+      '/packages/articles/content/blog-meta-ch-de.ts',
+      '/packages/articles/content/blog-meta-ch-fr.ts',
+    ]) {
+      expect(sparseCheckout?.with?.['sparse-checkout']).toContain(requiredArticleMeta);
+    }
     expect(sparseCheckout?.with?.['sparse-checkout-cone-mode']).toBe(false);
     expect(fullCheckout?.if).toBe('${{ !inputs.prune_source_images }}');
     expect(fullCheckout?.with?.filter).toBeUndefined();

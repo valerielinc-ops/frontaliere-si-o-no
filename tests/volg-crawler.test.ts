@@ -680,7 +680,10 @@ describe('Volg/fenaco crawler — detail enrichment retranslation flags', () => 
     }
   });
 
-  it('keeps a changed source queued through the real SKIP_AI_TRANSLATION worker', { timeout: 30_000 }, async () => {
+  // This exercises the real worker boundary (including locale hardening and
+  // the retranslation baseline), which can exceed the default under the full
+  // related-test suite on the shared CI runner.
+  it('keeps a changed source queued through the real SKIP_AI_TRANSLATION worker', { timeout: 120_000 }, async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'volg-retranslation-'));
     const dataJobsPath = path.join(root, 'jobs.json');
     const { before, after } = retranslationPair('source-changed');

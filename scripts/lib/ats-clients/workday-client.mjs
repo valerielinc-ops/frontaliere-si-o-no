@@ -105,7 +105,10 @@ export class WorkdayRateLimitError extends WorkdayApiError {
     this.retryAfterMs = retryAfterMs;
     this.consecutiveFailures = consecutiveFailures;
     this.circuitOpen = Boolean(metadata?.circuitOpen);
-    this.retryExhausted = Boolean(metadata?.retryExhausted);
+    // Opening the bounded circuit is the terminal outcome of the same retry
+    // policy. Preserve that fact so crawler boundaries can soft-exit with a
+    // health summary instead of treating the typed 429 as an uncaught crash.
+    this.retryExhausted = Boolean(metadata?.retryExhausted || metadata?.circuitOpen);
   }
 }
 
@@ -147,9 +150,15 @@ function workdayPublicUrlFromApiBase(apiBase) {
  * closes it after the Workday operation that uses it.
  *
  * @param {string} apiBase
+ * @param {{ publicUrl?: string }} [options] Optional public career-page URL
+ *   used to establish the same-origin browser session. The derived `en-US`
+ *   URL remains the default for tenants that use the standard locale path.
  * @returns {{request: (args: {url: string, method: string, body?: string, userAgent: string, timeoutMs: number}) => Promise<any>, close: () => Promise<void>}}
  */
-export function createWorkdayBrowserJsonFallback(apiBase) {
+export function createWorkdayBrowserJsonFallback(apiBase, options = {}) {
+  const publicUrl = typeof options.publicUrl === 'string' && options.publicUrl.trim()
+    ? options.publicUrl.trim()
+    : workdayPublicUrlFromApiBase(apiBase);
   let sessionPromise;
   let closed = false;
 
@@ -174,7 +183,7 @@ export function createWorkdayBrowserJsonFallback(apiBase) {
             timezoneId: 'Europe/Zurich',
           });
       page = await context.newPage();
-      await page.goto(workdayPublicUrlFromApiBase(apiBase), {
+      await page.goto(publicUrl, {
         waitUntil: 'domcontentloaded',
         timeout: Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || DEFAULT_TIMEOUT_MS,
       });

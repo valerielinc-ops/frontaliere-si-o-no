@@ -177,7 +177,8 @@ describe('JobDetailAlertPrompt', () => {
       fireEvent.click(screen.getByRole('button', { name: /Riprova/ }));
     });
     await waitFor(() => {
-      expect(onAccepted).toHaveBeenCalledTimes(1);
+      // Each explicit attempt is an intent, including a retry after an error.
+      expect(onAccepted).toHaveBeenCalledTimes(2);
     });
     expect(subscribe).toHaveBeenCalledTimes(2);
   });

@@ -16,6 +16,8 @@ import {
   platformDateOfBirth,
   platformDefaultAnswer,
   platformPostalCode,
+  platformPostalCountry,
+  extractCvDatelinePlace,
   platformQuestionTopic,
   platformStartDate,
   sanitizeCandidateFacts,
@@ -685,5 +687,50 @@ describe('birth-year fallback from experience and category B driving licence ded
     });
     expect(explicitNo.drivingLicenceB).toBe(false);
     expect(platformDefaultAnswer(licenceBQ, explicitNo, { locale: 'it' })).toBeNull();
+  });
+
+  it('deduces neighbouring DE/FR/AT/LI countries from unambiguous locality or CV dateline while keeping cross-border ambiguity closed', () => {
+    expect(platformPostalCountry('Kusterdingen', { postalCode: '72127' })).toBe('DE');
+    expect(platformPostalCountry('Annemasse')).toBe('FR');
+    expect(platformPostalCountry('Bregenz')).toBe('AT');
+    expect(platformPostalCountry('Vaduz')).toBe('LI');
+    // Shared border towns stay ambiguous without a postal length/code or region disambiguator.
+    expect(platformPostalCountry('Rheinfelden')).toBe('');
+    expect(platformPostalCountry('Rheinfelden', { postalCode: '79618' })).toBe('DE');
+    expect(platformPostalCountry('Rheinfelden', { postalCode: '4310' })).toBe('CH');
+
+    expect(extractCvDatelinePlace('Mit freundlichen Grüssen\nKusterdingen, 15. November 2026\nMax Mustermann')).toBe('Kusterdingen');
+    expect(extractCvDatelinePlace('Paris, November 15, 2026')).toBe('Paris');
+    expect(extractCvDatelinePlace('Employer address: Zurich\nTübingen, 12.10.2024')).toBe('Tübingen');
+    expect(extractCvDatelinePlace('Employer office: Kusterdingen, 15. November 2026')).toBe('');
+
+    const fromDatelineOnly = platformCandidateFacts({
+      cvText: 'Bewerbung\nKusterdingen, 15. November 2026\nMax Mustermann',
+      profile: {},
+      order: {},
+      nowMs: NOW,
+      locale: 'de',
+    });
+    expect(fromDatelineOnly.address).toMatchObject({
+      city: 'Kusterdingen',
+      postalCode: '72127',
+      country: 'DE',
+      countryName: 'Deutschland',
+    });
+
+    const fromCityAndPostal = platformCandidateFacts({
+      profile: {
+        location: 'Kusterdingen',
+        address: { street: 'Musterstrasse 10', postalCode: '72127', city: 'Kusterdingen', country: '' },
+      },
+      nowMs: NOW,
+      locale: 'it',
+    });
+    expect(fromCityAndPostal.address).toMatchObject({
+      city: 'Kusterdingen',
+      postalCode: '72127',
+      country: 'DE',
+      countryName: 'Germania',
+    });
   });
 });

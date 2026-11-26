@@ -531,6 +531,17 @@ describe('alertFunnelOutcome (#7311 — person-scoped funnel)', () => {
 });
 
 describe('alert funnel surface attribution (#7763/#7764)', () => {
+  it('registers the auth dimensions used by the optional GA4 diagnostics', () => {
+    const analyticsReport = fs.readFileSync(
+      path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../scripts/analytics-report.mjs'),
+      'utf8',
+    );
+
+    expect(analyticsReport).toContain("parameterName: 'auth_stage', displayName: 'Alert Auth Stage'");
+    expect(analyticsReport).toContain("parameterName: 'alert_auth_path', displayName: 'Alert Auth Path'");
+    expect(analyticsReport).toContain('dimensions: REQUIRED_CUSTOM_DIMS');
+  });
+
   it('keeps one seven-surface allowlist on the GA4 filter', () => {
     expect(ALERT_CTA_SURFACES).toEqual([
       'inline_card',
@@ -632,6 +643,64 @@ describe('alert funnel surface attribution (#7763/#7764)', () => {
     expect(result.note).toContain('custom dimension `cta_surface` non registrata / non popolata');
     expect(runReportImpl).toHaveBeenCalledTimes(4);
     expect(logImpl).toHaveBeenCalledWith(expect.stringContaining('(not set)'));
+  });
+
+  it('keeps the funnel score when auth diagnostic dimensions are unavailable', async () => {
+    const authDimensionError = Object.assign(
+      new Error('GA4 400: custom auth dimension is not a valid dimension.'),
+      { status: 400 },
+    );
+    const responses = [
+      { rows: [{ dimensionValues: [{ value: 'inline_card' }], metricValues: [{ value: '100' }] }] },
+      { rows: [{ metricValues: [{ value: '100' }] }] },
+      { rows: [{ metricValues: [{ value: '0' }] }] },
+      { rows: [{ metricValues: [{ value: '100' }] }] },
+      {
+        rows: [
+          { dimensionValues: [{ value: 'job_alert_cta_shown' }], metricValues: [{ value: '100' }] },
+          { dimensionValues: [{ value: 'job_alert_created' }], metricValues: [{ value: '10' }] },
+        ],
+      },
+      {
+        rows: [
+          {
+            dimensionValues: [{ value: 'job_alert_cta_shown' }, { value: 'inline_card' }],
+            metricValues: [{ value: '100' }],
+          },
+          {
+            dimensionValues: [{ value: 'job_alert_created' }, { value: 'inline_card' }],
+            metricValues: [{ value: '10' }],
+          },
+        ],
+      },
+      { rows: [] },
+      { rows: [] },
+    ];
+    const runReportImpl = vi.fn(async (_token, request) => {
+      if (request.dimensions?.some(({ name }) => [ALERT_AUTH_STAGE_DIMENSION, ALERT_AUTH_PATH_DIMENSION].includes(name))) {
+        throw authDimensionError;
+      }
+      const response = responses.shift();
+      if (!response) throw new Error('unexpected GA4 test request');
+      return response;
+    });
+    const result = await evalAlertFunnelConversionGa4({ token: 'token', runReportImpl, logImpl: vi.fn() });
+
+    expect(result).toMatchObject({
+      passed: true,
+      value: { created: 10, shown: 100, rate: 0.1 },
+    });
+    expect(result.value.diagnosticAvailability).toMatchObject({
+      authStages: { available: false },
+      authPaths: { available: false },
+    });
+    expect(result.value.dropPointBreakdown[0]).toMatchObject({
+      replayStartedUsers: null,
+      createdReplayUsers: null,
+      authStages: null,
+      authPaths: null,
+    });
+    expect(runReportImpl).toHaveBeenCalledTimes(10);
   });
 
   it('prints the coverage quota and applies the allowlist to the GA4 totals', async () => {

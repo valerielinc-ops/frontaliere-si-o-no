@@ -8741,6 +8741,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.fiscalita-tre-livelli-svizzera.title': 'Schweizer Steuerwesen: drei Ebenen und getrennte Zuständigkeiten',
     'blog.article.fiscalita-tre-livelli-svizzera.excerpt': 'Das Schweizer Steuerwesen ist auf drei Ebenen gegliedert: direkte Bundessteuer, kantonale Besteuerung und kommunale Besteuerung.',
     'blog.article.fiscalita-tre-livelli-svizzera.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.consultazione-modifiche-oosg.title': 'Gas: Konsultation zu den Änderungen an der OOSG eröffnet',
+    'blog.article.consultazione-modifiche-oosg.excerpt': 'Die Mitteilung vom 25. November 2026 kündigt eine neue Regelung der ASIG-Kosten und einen selektiv erweiterten Zugang zur Überwachung von Erdgas an.',
+    'blog.article.consultazione-modifiche-oosg.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.rimborso-imposta-secondo-pilastro-svizzero.title': 'Zweite Säule: Quellensteuer-Erstattung für Italienansässige',
+    'blog.article.rimborso-imposta-secondo-pilastro-svizzero.excerpt': 'Seit 2024 wurden laut der von Fiscomania veröffentlichten Darstellung Ablehnungen seitens der Schweizer Kantonsbehörden bei Anträgen auf Rückerstattung der auf dem Kapital der zweiten Säule einbehaltenen Quellensteuer gemeldet.',
+    'blog.article.rimborso-imposta-secondo-pilastro-svizzero.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

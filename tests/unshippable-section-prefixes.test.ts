@@ -247,7 +247,7 @@ describe('legacyAliasPlugin consults the gate — the INDEXABLE case', () => {
     // the real article page is never emitted either, so `fs.existsSync` always
     // passes and the alias always writes.
     const gate = ALIAS_SOURCE.indexOf('isUnshippablePath(entry.orphanPath, unshippablePrefixes)');
-    const collision = ALIAS_SOURCE.indexOf('if (fs.existsSync(indexTarget)) { skipped++; continue; }');
+    const collision = ALIAS_SOURCE.indexOf('fs.existsSync(indexTarget)) { skipped++; continue; }');
     expect(gate).toBeGreaterThan(-1);
     expect(collision).toBeGreaterThan(-1);
     expect(gate).toBeLessThan(collision);
