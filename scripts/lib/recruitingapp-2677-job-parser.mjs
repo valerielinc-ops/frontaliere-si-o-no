@@ -14,7 +14,11 @@ import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { fetch as undiciFetch } from 'undici';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import {
+  createCrawlerDetailSnapshotFailure,
+  slugify,
+  stripHtml,
+} from './crawler-template.mjs';
 import { isAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import {
   runUmantisSpecWithEmptyProof,
@@ -340,8 +344,19 @@ async function fetchJobListings(runtime = {}) {
     details,
   };
   if ((proof.discoveredCount > 0 || proof.attemptedDetailCount > 0) && !proof.complete) {
-    throw new Error(
+    const candidates = Math.max(proof.discoveredCount, proof.attemptedDetailCount);
+    const missingDetails = Math.max(0, candidates - proof.detailCount);
+    const rejectedDetails = Math.min(candidates, Math.max(
+      1,
+      missingDetails,
+      invalidDetailIds.size,
+      conflictingDetailIds.size,
+      conflictingListingIds.size,
+    ));
+    throw createCrawlerDetailSnapshotFailure(
       `recruitingapp-2677: incomplete detail snapshot (${proof.detailCount}/${proof.discoveredCount})`,
+      candidates,
+      rejectedDetails,
     );
   }
   return attachSnapshotProof(rows, proof, observedDetailsByUrl);

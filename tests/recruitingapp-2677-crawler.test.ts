@@ -313,8 +313,11 @@ describe('E-Recruiting LLB-Gruppe Stellen crawler parser', () => {
         <a href="/Vacancies/1994/Description/1?second=1">Title B</a>
         <a href="/Vacancies/1994/Description/1?third=1">Title C</a>`);
 
-      await expect(fetchAllRecruitingapp2677Jobs(runtime))
-        .rejects.toThrow('incomplete detail snapshot (1/1)');
+      await expect(fetchAllRecruitingapp2677Jobs(runtime)).rejects.toMatchObject({
+        message: expect.stringContaining('incomplete detail snapshot (1/1)'),
+        specDetailDrop: { candidates: 1, gone: 0, rejected: 1 },
+        specDiscoveredCount: 1,
+      });
     });
 
     it('fails closed when repeated detail identity includes an earlier thin response', async () => {
@@ -329,8 +332,11 @@ describe('E-Recruiting LLB-Gruppe Stellen crawler parser', () => {
       }, `<a href="/Vacancies/1994/Description/1">Kundenberater:in</a>
         <a href="/Vacancies/1994/Description/1?thin=1">Kundenberater:in</a>`);
 
-      await expect(fetchAllRecruitingapp2677Jobs(runtime))
-        .rejects.toThrow('incomplete detail snapshot (1/1)');
+      await expect(fetchAllRecruitingapp2677Jobs(runtime)).rejects.toMatchObject({
+        message: expect.stringContaining('incomplete detail snapshot (1/1)'),
+        specDetailDrop: { candidates: 1, gone: 0, rejected: 1 },
+        specDiscoveredCount: 1,
+      });
     });
 
     it('finds the source locality in a later intro block', async () => {
@@ -351,8 +357,11 @@ describe('E-Recruiting LLB-Gruppe Stellen crawler parser', () => {
         '1983': { title: 'Associate Institutional Banking', status: 503, body: 'temporarily unavailable' },
       });
 
-      await expect(fetchAllRecruitingapp2677Jobs(runtime))
-        .rejects.toThrow('incomplete detail snapshot (1/2)');
+      await expect(fetchAllRecruitingapp2677Jobs(runtime)).rejects.toMatchObject({
+        message: expect.stringContaining('incomplete detail snapshot (1/2)'),
+        specDetailDrop: { candidates: 2, gone: 0, rejected: 1 },
+        specDiscoveredCount: 2,
+      });
     });
 
     it('keeps an unfamiliar source locality fail-closed', async () => {
