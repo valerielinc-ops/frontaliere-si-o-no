@@ -454,6 +454,32 @@ describe('TalentLink pagination completeness', () => {
     expect(requests).toEqual([0, 2, 0, 2, 0, 2]);
   });
 
+  it('retries an invalid TalentLink envelope and publishes the next complete snapshot', async () => {
+    const requests: number[] = [];
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
+      const offset = Number(new URL(String(input)).searchParams.get('firstResult'));
+      requests.push(offset);
+      const response = requests.length === 1
+        ? { globals: { jobsCount: 1 } }
+        : offset === 0
+          ? { globals: { jobsCount: 1 }, jobs: [listing(1, 'Recovered role')] }
+          : { globals: { jobsCount: 1 }, jobs: [] };
+      return new Response(JSON.stringify(response), { headers: { 'Content-Type': 'application/json' } });
+    }));
+    const jobs = await fetchAllWeisseArenaJobs();
+    expect(jobs.map(({ title }) => title)).toEqual(['Recovered role']);
+    expect(requests).toEqual([0, 0, 1]);
+  });
+
+  it('fails closed after three invalid TalentLink envelopes', async () => {
+    const fetchSpy = vi.fn(async () => new Response(JSON.stringify({ globals: { jobsCount: 3 } }), {
+      headers: { 'Content-Type': 'application/json' },
+    }));
+    vi.stubGlobal('fetch', fetchSpy);
+    await expect(fetchAllWeisseArenaJobs()).rejects.toThrow(/did not expose a jobs array/i);
+    expect(fetchSpy).toHaveBeenCalledTimes(3);
+  });
+
   it('fails closed when an empty page arrives before the declared total', async () => {
     vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
       const offset = Number(new URL(String(input)).searchParams.get('firstResult'));

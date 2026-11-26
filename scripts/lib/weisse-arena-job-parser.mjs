@@ -44,6 +44,11 @@ const PAGE_SIZE = 50;
 const LISTING_SNAPSHOT_MAX_ATTEMPTS = 3;
 const LISTING_SNAPSHOT_RETRY_DELAY_MS = 500;
 const PAGINATION_INCOMPLETE_ERROR_CODE = 'WEISSE_ARENA_PAGINATION_INCOMPLETE';
+const INVALID_LISTING_ENVELOPE_ERROR_CODE = 'WEISSE_ARENA_INVALID_ENVELOPE';
+const RETRYABLE_LISTING_SNAPSHOT_ERROR_CODES = new Set([
+  PAGINATION_INCOMPLETE_ERROR_CODE,
+  INVALID_LISTING_ENVELOPE_ERROR_CODE,
+]);
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -225,14 +230,16 @@ async function fetchJobListingsOnce() {
     const url = `${API_BASE}?firstResult=${offset}&maxResults=${PAGE_SIZE}&sortBy=DPOSTINGSTART&sortOrder=desc`;
     const data = await callTalentLinkApi(url, { searchCriteria: {} });
 
+    if (!Array.isArray(data?.jobs)) {
+      const error = new Error('Weisse Arena source response did not expose a jobs array; refusing an unverified partial crawl.');
+      error.code = INVALID_LISTING_ENVELOPE_ERROR_CODE;
+      throw error;
+    }
     const jobs = assertJsonListShape(data, {
       key: 'jobs',
       source: WEISSE_ARENA_KEY,
       rowShapeOk: (row) => row && typeof row === 'object' && !Array.isArray(row),
     });
-    if (!Array.isArray(data?.jobs)) {
-      throw new Error('Weisse Arena source response did not expose a jobs array; refusing an unverified partial crawl.');
-    }
 
     const rawTotal = data?.globals?.jobsCount;
     const hasUsableRawTotal = (typeof rawTotal === 'number' && Number.isFinite(rawTotal))
@@ -334,7 +341,8 @@ async function fetchJobListings({ minimumExpectedCount = 0 } = {}) {
       );
     } catch (error) {
       lastError = error;
-      if (error?.code !== PAGINATION_INCOMPLETE_ERROR_CODE || attempt === LISTING_SNAPSHOT_MAX_ATTEMPTS) {
+      if (!RETRYABLE_LISTING_SNAPSHOT_ERROR_CODES.has(error?.code)
+        || attempt === LISTING_SNAPSHOT_MAX_ATTEMPTS) {
         throw error;
       }
 
