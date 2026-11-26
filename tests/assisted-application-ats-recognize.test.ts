@@ -41,6 +41,10 @@ describe('ATS recognition hints', () => {
       provider: '', mode: '', source: 'unknown',
       searchUrl: 'https://careers.example.test/search?q=REQ-42+Payroll+Specialist',
     });
+    expect(recognizeAts({
+      pageUrl: 'https://career2.successfactors.eu/portalcareer',
+      job: { title: 'Macellaia / Macellaio', requirementId: '171248' },
+    })).toMatchObject({ provider: '', mode: '', source: 'unknown', searchUrl: '' });
   });
 
   it('decodes only a numeric IdealTraits careers board key', () => {

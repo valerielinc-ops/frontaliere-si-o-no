@@ -27,7 +27,7 @@ import { isOperationalDefaultValue } from '../../../../functions/src/assistedApp
 import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, asksAttachedDocument, candidateAnswerForField, candidateAnswerForQuestion, candidateRules, evidenceInData, evidenceSupports, isAddressLikeQuestion, knownAnswer, knownValuesOf, nativeLanguageAnswerMatches, nativeLanguageKnown, ownStatusAnswer, permitBooleanOptionLabel, questionFromLabel, questionTopic } from './plan.mjs';
 import { boundedPortalContext, normalizedPortalContext, portalQuestionKey } from './question-key.mjs';
 import { allowAgentApplicationEntryClickInPage, installAgentFinalClickLockInPage, installFinalFormGuardCaptureInPage, releaseAgentFinalClickLockInPage } from './form-contract.mjs';
-import { recognizeAts } from './ats-recognize.mjs';
+import { recognizeAts, SUCCESS_FACTORS_HOST_RE } from './ats-recognize.mjs';
 import { applicationDestinationDiversionHint } from './stages.mjs';
 import { PORTAL_STOP_HINTS } from '../../../../functions/src/lib/portalStopCodes.js';
 
@@ -824,6 +824,9 @@ function searchTargetMatchesPosting(target, currentUrl, posting = {}) {
   const current = safeUrl(currentUrl);
   if (!destination || !current || destination.host !== current.host || destination.hash
     || !/(?:^|\/)(?:search|find|jobs?|careers?|openings?|vacancies|positions)(?:\/|$)/iu.test(destination.pathname)) return false;
+  // SuccessFactors tenant shells do not implement the generic search route;
+  // never let the model turn a proven application recovery into `/search`.
+  if (SUCCESS_FACTORS_HOST_RE.test(destination.hostname)) return false;
   const params = [...destination.searchParams.entries()]
     .filter(([key]) => /^(?:q|query|keyword|search|term|jobid|job_id|requisitionid|requisition_id)$/iu.test(key));
   if (params.length !== 1) return false;

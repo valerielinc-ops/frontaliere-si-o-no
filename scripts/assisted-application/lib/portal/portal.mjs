@@ -66,6 +66,7 @@ import { armFinalFormClickGuardInPage, clearFinalFormGuardInPage, installFinalFo
 import { isWorkdayApplicationRouteBound, isWorkdayJobRouteBound, isWorkdayTenantAccountRoute, isWorkdayTenantUrl, sameWorkdayJobRoute, workdayBareLocaleFallbackUrl, workdayJobRoute, workdayManualApplicationUrl } from './workday-route.mjs';
 import { POSTING_BINDING_STATUS, resolvePostingBinding } from './posting-binding.mjs';
 import { installPortalReplayFence } from './replay-fence.mjs';
+import { SUCCESS_FACTORS_HOST_RE } from './ats-recognize.mjs';
 
 function workdayPostingRouteMismatch(pageUrl, applyUrl, workdayApplicationEntryProven = false) {
   if (!isWorkdayTenantUrl(applyUrl)) return false;
@@ -5064,6 +5065,9 @@ const FORM_VOCABULARY = new Set([
   'job', 'jobs', 'detail', 'details', 'career', 'careers', 'karriere', 'carriera', 'carriere', 'stelle', 'stellen', 'offerta', 'offre', 'vacancy', 'vacancies',
   'portal', 'portale', 'portail', 'online', 'form', 'formular', 'formulaire', 'modulo', 'login', 'home', 'tracking', 'system',
   'team', 'bereich', 'welcome', 'willkommen', 'benvenuti', 'bienvenue',
+  // Italian SuccessFactors section controls and first fields are form chrome,
+  // not an employer or role heading.
+  'opzioni', 'esplodi', 'comprimi', 'tutte', 'sezioni', 'profilo', 'specifiche', 'visualizza', 'salva', 'lingua', 'appellativo',
   'number', 'numero', 'nummer',
   'process', 'prozess', 'processo', 'processus', 'recruiting', 'recruitment', 'applicant', 'candidate', 'kandidat', 'candidato', 'candidat',
   'employee', 'employees', 'staff', 'dipendente', 'dipendenti', 'mitarbeiter', 'mitarbeiterin', 'mitarbeitende',
@@ -5887,6 +5891,10 @@ const FORM_HEADING_VOCABULARY = new Set([
   'optionen', 'alle', 'abschnitte', 'einblenden', 'ausblenden', 'meine', 'weitere', 'persönlichen',
   'cercare', 'aggiungere', 'annulla', 'nome', 'cognome', 'indirizzo', 'telefono', 'cellulare', 'password', 'documenti',
   'lettera', 'presentazione', 'curriculum', 'vitae',
+  // Italian SuccessFactors shells expose their section controls before the
+  // first field («Esplodi tutte le sezioni», «Informazioni profilo»). These
+  // labels are form chrome, not a role heading.
+  'esplodi', 'comprimi', 'tutte', 'sezioni', 'profilo', 'specifiche', 'visualizza', 'salva', 'lingua', 'appellativo',
   'prénom', 'nom', 'adresse', 'téléphone', 'envoyer', 'suivant', 'enregistrer',
   'ag', 'gmbh', 'sa', 'sarl', 'ltd', 'inc', 'llc',
 ].flatMap(value => normalizeWords(value).split(' ').filter(Boolean)));
@@ -6136,6 +6144,8 @@ export function formPostingMatch(formText, job = {}, {
   );
   const umantisPairPostingUrl = umantisFormPostingUrl(formApplicationUrl, postingUrl);
   const bound = isPostingRouteBound({ pageUrl, postingUrl: formPostingUrl, postingRouteProof });
+  const successFactorsRouteBound = postingRouteProof?.via === 'successfactors'
+    && bound && isSuccessFactorsCareerPath(pageUrl);
   const brassRingRouteAddress = formPostingUrl || postingUrl || applyUrl;
   const brassRingRouteExpected = sameBrassRingPostingAddress(applyUrl, brassRingRouteAddress);
   const brassRingRouteBound = brassRingRouteExpected && sameBrassRingPostingAddress(pageUrl, brassRingRouteAddress);
@@ -6236,12 +6246,13 @@ export function formPostingMatch(formText, job = {}, {
     // SuccessFactors can render an icon-font suffix in body innerText.
     .replace(/(?:\s*\p{Co})+\s*$/u, '')
     .replace(/\s+/g, ' ').trim();
-  const nativeQuestionLines = successFactorsBound
+  const nativeQuestionLines = (successFactorsBound || successFactorsRouteBound)
     ? new Set(formFieldLabels.map(normalizeFieldLine).filter(Boolean))
     : new Set();
   const withoutNativeQuestionLines = text => nativeQuestionLines.size
     ? String(text || '').split(/\r?\n/).filter(line => !nativeQuestionLines.has(normalizeFieldLine(line))).join('\n')
     : text;
+  const employerTextWithoutNativeQuestionLines = withoutNativeQuestionLines(employerText);
   const direct = postingMatch(withoutNativeQuestionLines(postingEvidenceText), job, pageUrl);
   const rawDirect = postingMatch(withoutNativeQuestionLines(formText), job, pageUrl);
   const formTitleLine = genericOnlyTitleLine ? '' : stripGenericStageTitleSegments(rawFormTitleLine);
@@ -6273,6 +6284,11 @@ export function formPostingMatch(formText, job = {}, {
     && (direct === 'match' || (roleOnlyPostingBound && (postingEntry || Boolean(job.company))))) return 'mismatch';
   if (ambiguousBrandHeading && !verifiedFormBinding) return 'unknown';
   if (brassRingPrivacyGateForm && roleHeading !== 'mismatch' && !headingConflict) return 'match';
+  // A verified `/portalcareer` continuation is already bound to the selected
+  // module. Its native controls can mention the employer (for example a Coop
+  // group-consent question) even when the tenant omits the role caption; the
+  // explicit heading/role conflict checks above still remain authoritative.
+  if (successFactorsRouteBound && roleHeading !== 'mismatch' && !headingConflict) return 'match';
   const sameBoundPosting = bound && samePostingAddress(pageUrl, formPostingUrl);
   const boundPinpointApplication = bound && isPinpointPostingEntry({ applyUrl: pageUrl, postingUrl: postingUrl || paidPostingUrl });
   if (headingConflict && !trustedUmantisApplication && !sameBoundPosting && !successFactorsBound) return 'mismatch';
@@ -6280,7 +6296,7 @@ export function formPostingMatch(formText, job = {}, {
     && (trustedUmantisApplication
       ? umantisHeadingConflict
       : (headingConflict || (!boundPinpointApplication
-        && namesAnotherEmployer(withoutNativeQuestionLines(employerText), job, { allowPostingLocation: postingLocationBound }))))) return 'mismatch';
+        && namesAnotherEmployer(employerTextWithoutNativeQuestionLines, job, { allowPostingLocation: postingLocationBound }))))) return 'mismatch';
   // If the browser cannot return a bounded heading set on a TalentSoft form,
   // the tenant alias and title alone do not resolve who owns the final page.
   let isTalentSoftHost = false;
@@ -6351,7 +6367,7 @@ export function formPostingMatch(formText, job = {}, {
   // The requisition the runner entered, shown with its role on the same SuccessFactors tenant.
   // A conflicting employer identity on the form: no fallback to the role.
   if (successFactorsBound) return 'match';
-  if (namesAnotherEmployer(employerText, job, { allowPostingLocation: postingLocationBound })
+  if (namesAnotherEmployer(employerTextWithoutNativeQuestionLines, job, { allowPostingLocation: postingLocationBound })
     || (/\bhttps?:\/\//iu.test(formText)
       && !formTextMentionsEmployerHost(formText, job)
       && namesAnotherEmployer(formText, job, { allowPostingLocation: postingLocationBound }))) return 'mismatch';
@@ -6559,7 +6575,6 @@ function isObservedUmantisApplicationStep(snapshot, channelType) {
   return Boolean(findButton(snapshot.buttons || [], NEXT_RE, { includeDisabled: true })
     && hasIdentity && hasApplicantDetails && hasCv && (hasCoverLetter || hasSupportingDocument));
 }
-const SUCCESS_FACTORS_HOST_RE = /(?:^|\.)(?:successfactors\.(?:com|eu|localhost)|sapsf\.(?:com|eu)|jobs\.sap\.com)$/i;
 const SUCCESS_FACTORS_ROUTE_RE = /\/talentcommunity\/apply(?:[/?#]|$)/i;
 const SUCCESS_FACTORS_URL_MARKER_RE = /(?:[?&#](?:ats|channel|portal)(?:=|%3d)(?:success[\s._-]?factors|sapsf)|[?&#]career_ns(?:=|%3d)job_application)(?:[&#]|$)/i;
 
