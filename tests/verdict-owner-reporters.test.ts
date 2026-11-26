@@ -26,6 +26,7 @@ import { fileURLToPath } from 'node:url';
 import { afterAll, describe, expect, it } from 'vitest';
 import YAML from 'yaml';
 import registry from '../data/plate-auction-sources-registry.json';
+import { resolvePlateAuctionSource } from '../functions/src/plateAuctionSourceRegistry.js';
 
 process.env.GH_REPO ||= 'o/r';
 const { VERDICT_STEPS, isVerdictOnlyFailure } = await import('../scripts/ci/close-recovered-failure-issues.mjs');
@@ -314,7 +315,11 @@ describe('seo-health-loop.mjs: il verdetto che il workflow legge', () => {
 
 const OPEN_STEP = 'Open one issue per degraded plate-auction source (dedup, zero-Claude)';
 const RESOLVE_STEP = 'Resolve issues of plate-auction sources that are healthy again';
-const SOURCES = registry.sources as Record<string, Record<string, unknown>>;
+const sourceRegistryAsOf = new Date();
+const SOURCES = Object.fromEntries(Object.entries(registry.sources).map(([key, source]) => [
+  key,
+  resolvePlateAuctionSource(source, sourceRegistryAsOf),
+])) as Record<string, Record<string, unknown>>;
 
 /** Uno snapshot che il gate accetta, costruito dal registro (come in plate-auction-ingest.test.ts). */
 function healthySnapshot() {
