@@ -1,11 +1,11 @@
-const WORKDAY_HOST_RE = /^(?:[a-z0-9-]+\.)+wd\d+\.myworkdayjobs\.com$/i;
+import { WORKDAY_HOST_RE } from '../../../lib/job-url-key.mjs';
 const WORKDAY_LOCALE_SEGMENT_RE = /^[a-z]{2}(?:-[a-z]{2})?$/i;
 // Workday tenants publish more than one requisition-id spelling. The
 // standard `_R-...` form is joined by `_R...`, `_JR...`, `_REQ...`, and
 // Roche's `_YYYYMM-...` ids. Keep arbitrary `/job/123` paths out of the
 // posting identity, while accepting the tenant formats used by the public
 // Workday routes.
-const WORKDAY_REQUISITION_SLUG_RE = /^(?:.+)_(?:R-?[a-z0-9][a-z0-9-]*|JR[a-z0-9][a-z0-9-]*|REQ[a-z0-9][a-z0-9-]*|\d{6}-\d+(?:-\d+)*)$/i;
+const WORKDAY_REQUISITION_SLUG_RE = /^(?:.+)_(?:R-?[a-z0-9][a-z0-9-]*|JR-?[a-z0-9][a-z0-9-]*|REQ-?[a-z0-9][a-z0-9-]*|\d{6}-\d+(?:-\d+)*)$/i;
 const WORKDAY_DETAILS_SLUG_RE = /^[^/]+$/i;
 const WORKDAY_ACCOUNT_ROUTES = new Set([
   'login',

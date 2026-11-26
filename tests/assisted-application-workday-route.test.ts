@@ -99,9 +99,10 @@ describe('Workday tenant account routes', () => {
     'https://acme.wd3.myworkdayjobs.com/en-US/AcmeCareers/job/Lugano/Verkaufsberater_R15163',
     'https://acme.wd3.myworkdayjobs.com/en-US/AcmeCareers/job/Lugano/Store-Assistant_JR01234-1',
     'https://roche.wd3.myworkdayjobs.com/en-US/roche-ext/job/Basel/Technical-Product-Owner_202606-116471-2',
+    'https://wd3.myworkdaysite.com/recruiting/hamilton/hamilton_jobs/job/Bonaduz/CSV-Requirements-Engineer-80---100----w-m-d-_JR-6026-1',
   ])('recognizes Workday requisition-id variants: %s', (postingUrl) => {
     expect(workdayJobRoute(postingUrl)).not.toBeNull();
-    expect(isWorkdayJobRouteBound(`${postingUrl}/apply`, postingUrl)).toBe(true);
+    expect(isWorkdayJobRouteBound(postingUrl + '/apply', postingUrl)).toBe(true);
   });
 
   it.each([

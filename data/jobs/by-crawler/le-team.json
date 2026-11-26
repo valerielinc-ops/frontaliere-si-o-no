@@ -82,7 +82,8 @@
       "streetAddress": "Porrentruy",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T09:52:49.143Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://team.jobs/fr/offres-demplois/betonwerker-betonbauer/macon-b-h-f-d/hagz1kmezkufznez9jwcjo"
     },
     {
       "id": "le-team-d9001b85176e",
@@ -173,7 +174,8 @@
         "fr": [
           "macon-ne-a-b-h-f-d-100-delemont-le-team-sa-5cc014a1"
         ]
-      }
+      },
+      "sourceIdentity": "url:https://team.jobs/fr/offres-demplois/maurer-in/macon-ne-a-b-(h-f-d)-100/dmq2eztioecro2jstbywxl"
     }
   ]
 }

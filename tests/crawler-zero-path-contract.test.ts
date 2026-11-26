@@ -98,7 +98,10 @@ describe('custom runners: zero-path debt (ratchet, may only go down)', () => {
     // call/assignment is in the runner's pre-return path and uses the shared
     // `no-jobs-parsed` vocabulary, so the debt count really decreased rather
     // than the guard being bypassed.
-    const NO_ABORT_KIND_BUDGET = 103;
+    // 103 → 102: update-capri-holdings-jobs.mjs now names its classified
+    // retryable-response and connection-level fetch exits with the shared
+    // `markCrawlerSummaryAbortKind` receipt before preserving stored jobs.
+    const NO_ABORT_KIND_BUDGET = 102;
     const offenders = customRunners
       .filter(({ source }) => !/abortKind\s*[:=]|markCrawlerSummaryAbortKind\(/.test(source))
       .map(({ name }) => name);

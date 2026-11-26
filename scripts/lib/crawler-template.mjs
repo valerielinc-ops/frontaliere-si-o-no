@@ -790,6 +790,32 @@ export function normalizeCrawlerFetchResult(fetchResult) {
   return { jobs: undefined, metadata: {} };
 }
 
+/**
+ * Build the typed failure consumed by the standard pipeline when a custom
+ * parser cannot prove a complete detail snapshot. Keeping the error contract
+ * here prevents custom runners from exiting before the summary guard records
+ * the fail-closed observation.
+ *
+ * @param {string} message
+ * @param {number} candidates
+ * @param {number} rejected
+ * @returns {Error & {specDetailDrop: {candidates: number, gone: number, rejected: number}, specDiscoveredCount: number}}
+ */
+export function createCrawlerDetailSnapshotFailure(message, candidates, rejected) {
+  const candidateCount = Number.isInteger(candidates) && candidates >= 0 ? candidates : 0;
+  const rejectedCount = Number.isInteger(rejected) && rejected >= 0
+    ? Math.min(candidateCount, rejected)
+    : 0;
+  const error = new Error(message);
+  error.specDetailDrop = {
+    candidates: candidateCount,
+    gone: 0,
+    rejected: rejectedCount,
+  };
+  error.specDiscoveredCount = candidateCount;
+  return error;
+}
+
 // A source-specific parser may report how many otherwise-valid listings it
 // discarded because it could not derive a per-vacancy detail URL. Once that
 // loss exceeds 40% of the existing slice, keep the old slice: the ordinary

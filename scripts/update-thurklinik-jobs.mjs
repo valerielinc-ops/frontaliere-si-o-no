@@ -15,6 +15,7 @@ import {
   THURKLINIK_KEY,
   THURKLINIK_COMPANY_NAME,
   THURKLINIK_FABRICATED_DESCRIPTION_RE,
+  thurklinikMatchKey,
 } from './lib/thurklinik-job-parser.mjs';
 import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 
@@ -28,6 +29,8 @@ runStandardCrawlerPipeline({
   fetchJobs: fetchAllThurklinikJobs,
   isCompanyJob: isThurklinikJob,
   isTrustedDomain,
+  matchKey: thurklinikMatchKey,
+  preserveExistingSlugs: true,
   defaultSourceLang: 'de',
   prepareExistingJobs: (jobs) => dropFabricatedDescriptions(jobs, THURKLINIK_FABRICATED_DESCRIPTION_RE, THURKLINIK_COMPANY_NAME),
 }).catch((err) => {

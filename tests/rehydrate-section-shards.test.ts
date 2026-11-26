@@ -93,13 +93,46 @@ describe('rehydrate-section-shards.sh — structural invariants (issue #4881 def
     expect(script).toContain('rehydrate_locale_sections');
     expect(script).toContain('bp_run_bounded 1 rehydrate_locale_sections it en de fr');
     expect(script).toContain('rehydrate_section_for_current_locale');
-    expect(script).toContain('bp_run_bounded "$rehydrate_max_parallel" rehydrate_section_for_current_locale');
-    expect(script).toMatch(/for REHYDRATE_CURRENT_LOCALE in it en de fr; do[\s\S]*bp_run_bounded "\$rehydrate_max_parallel" rehydrate_section_for_current_locale/);
+    expect(script).toContain('bp_run_bounded "$max_parallel" rehydrate_section_for_current_locale');
+    expect(script).toMatch(/for REHYDRATE_CURRENT_LOCALE in it en de fr; do[\s\S]*rehydrate_current_locale_in_batches "\$rehydrate_max_parallel"/);
     expect(script).not.toContain('rehydrate_section "$section" &');
     expect(script).not.toContain('SECTION_PIDS=()');
     // An operator may lower the cap for a constrained runner, but cannot
     // accidentally restore the unbounded fan-out through an env override.
     expect(script).toContain('rehydrate_max_parallel=4');
+  });
+
+  it('drains one artifact batch before admitting another batch', () => {
+    const batchScheduler = script.indexOf('rehydrate_current_locale_in_batches()');
+    const batchOrder = script.indexOf('sort -n -u', batchScheduler);
+    const boundedWindow = script.indexOf(
+      'bp_run_bounded "$max_parallel" rehydrate_section_for_current_locale',
+      batchScheduler,
+    );
+    const localeLoop = script.indexOf('for REHYDRATE_CURRENT_LOCALE in it en de fr; do');
+    const batchCall = script.indexOf('rehydrate_current_locale_in_batches "$rehydrate_max_parallel"');
+
+    expect(batchScheduler).toBeGreaterThan(-1);
+    expect(batchOrder).toBeGreaterThan(batchScheduler);
+    expect(boundedWindow).toBeGreaterThan(batchScheduler);
+    expect(localeLoop).toBeGreaterThan(batchScheduler);
+    expect(batchCall).toBeGreaterThan(localeLoop);
+    expect(script).toContain('batch_failed_file="${RUNNER_TEMP:-/tmp}/section-rehydrate-failures-');
+    expect(script).toContain('export BP_FAILED_FILE="$aggregate_failed_file"');
+  });
+
+  it('validates the batch manifest before any batch reader or scheduler starts', () => {
+    const validator = script.indexOf('validate_section_shard_batches_manifest()');
+    const preflight = script.indexOf('if ! validate_section_shard_batches_manifest; then');
+    const readerLedger = script.indexOf('BATCH_READERS_DIR="${RUNNER_TEMP:-/tmp}/shard-batch-readers"');
+    const batchLoop = script.indexOf('while IFS= read -r batch;', validator);
+
+    expect(validator).toBeGreaterThan(-1);
+    expect(preflight).toBeLessThan(readerLedger);
+    expect(preflight).toBeLessThan(batchLoop);
+    expect(script.slice(validator, preflight)).toContain('jq -e');
+    expect(script.slice(validator, preflight)).toContain('return 1');
+    expect(script).toContain('isfinite and floor == . and . > 0');
   });
 
   it('checks the cross-job clone cache BEFORE the network clone, with a continue on hit', () => {
@@ -312,6 +345,7 @@ describe('rehydrate-section-shards.sh — batch artifacts are streamed from thei
     skipIt: string[] = [],
     corrupt: string[] = [],
     artifactRunId = '42',
+    prepareArtifacts = true,
   ): Fixture {
     const root = mkdtempSync(join(tmpdir(), 'rehydrate-zip-'));
     const lib = join(root, 'scripts', 'lib');
@@ -344,26 +378,28 @@ describe('rehydrate-section-shards.sh — batch artifacts are streamed from thei
     const zips = join(root, 'zips');
     mkdirSync(zips, { recursive: true });
     const ids: Record<string, string> = {};
-    for (const batch of [...new Set(Object.values(sections))]) {
-      const tars: string[] = [];
-      for (const [name, b] of Object.entries(sections)) {
-        if (b !== batch) continue;
-        writePage(join(stage, slugs[name].it, 'index.html'));
-        writePage(join(stage, slugs[name].it, 'un-lavoro', 'index.html'));
-        const tar = join(root, `${name}-dist-it.tar`);
-        execFileSync('tar', ['-C', stage, '-cf', tar, slugs[name].it]);
-        tars.push(tar);
+    if (prepareArtifacts) {
+      for (const batch of [...new Set(Object.values(sections))]) {
+        const tars: string[] = [];
+        for (const [name, b] of Object.entries(sections)) {
+          if (b !== batch) continue;
+          writePage(join(stage, slugs[name].it, 'index.html'));
+          writePage(join(stage, slugs[name].it, 'un-lavoro', 'index.html'));
+          const tar = join(root, `${name}-dist-it.tar`);
+          execFileSync('tar', ['-C', stage, '-cf', tar, slugs[name].it]);
+          tars.push(tar);
+        }
+        const id = String(1000 + batch);
+        const zip = join(zips, `${id}.zip`);
+        execFileSync('zip', ['-q', '-0', '-j', zip, ...tars]);
+        if (Object.entries(sections).some(([n, b]) => b === batch && corrupt.includes(n))) {
+          const buf = readFileSync(zip);
+          const at = buf.indexOf('PAYLOAD-MARKER');
+          buf[at] ^= 0x20;
+          writeFileSync(zip, buf);
+        }
+        ids[`shard-batch-${batch}-dist-it-${artifactRunId}`] = id;
       }
-      const id = String(1000 + batch);
-      const zip = join(zips, `${id}.zip`);
-      execFileSync('zip', ['-q', '-0', '-j', zip, ...tars]);
-      if (Object.entries(sections).some(([n, b]) => b === batch && corrupt.includes(n))) {
-        const buf = readFileSync(zip);
-        const at = buf.indexOf('PAYLOAD-MARKER');
-        buf[at] ^= 0x20;
-        writeFileSync(zip, buf);
-      }
-      ids[`shard-batch-${batch}-dist-it-${artifactRunId}`] = id;
     }
 
     const bin = join(root, 'bin');
@@ -398,7 +434,12 @@ describe('rehydrate-section-shards.sh — batch artifacts are streamed from thei
     return { root, runnerTemp, ghLog };
   }
 
-  function run(fx: Fixture, live: string[], artifactRunId = '42'): { status: number; output: string } {
+  function run(
+    fx: Fixture,
+    live: string[],
+    artifactRunId = '42',
+    maxParallel = '1',
+  ): { status: number; output: string } {
     const env: Record<string, string> = {
       ...process.env as Record<string, string>,
       PATH: `${join(fx.root, 'bin')}:${process.env.PATH}`,
@@ -409,7 +450,7 @@ describe('rehydrate-section-shards.sh — batch artifacts are streamed from thei
       DEPLOY_RUN_ID: '42',
       SHARD_ARTIFACT_RUN_ID_IT: artifactRunId,
       // Sequential, so "a reader that has not started yet" is deterministic.
-      REHYDRATE_MAX_PARALLEL: '1',
+      REHYDRATE_MAX_PARALLEL: maxParallel,
     };
     for (const name of live) env[`${name.toUpperCase()}_SHARD_LIVE`] = 'true';
     try {
@@ -457,6 +498,19 @@ describe('rehydrate-section-shards.sh — batch artifacts are streamed from thei
       expect(status, output).toBe(0);
       expect(readFileSync(fx.ghLog, 'utf8')).toContain('artifacts?name=shard-batch-1-dist-it-84');
       expect(readFileSync(fx.ghLog, 'utf8')).not.toContain('artifacts?name=shard-batch-1-dist-it-42');
+    } finally {
+      rmSync(fx.root, { recursive: true, force: true });
+    }
+  });
+
+  it('fails before rehydration when the batch manifest is malformed', () => {
+    const fx = buildFixture({ s1: 1, s2: 2 }, [], [], '42', false);
+    writeFileSync(join(fx.root, 'scripts', 'lib', 'section-shard-batches.json'), '{"s1":');
+    try {
+      const { status, output } = run(fx, ['s1', 's2'], '42', '2');
+      expect(status, output).not.toBe(0);
+      expect(output).toContain('section-shard-batches.json is malformed');
+      expect(existsSync(fx.ghLog)).toBe(false);
     } finally {
       rmSync(fx.root, { recursive: true, force: true });
     }

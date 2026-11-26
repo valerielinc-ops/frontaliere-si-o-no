@@ -303,7 +303,7 @@ exit 0
     expect(r.output).toContain('hard_regressions=0');
   });
 
-  it('errore PSI bloccante (400): exit 1 come oggi, nessuna issue di monitor', () => {
+  it('errore PSI 400 non-NO_FCP: exit 1, nessuna issue di monitor', () => {
     const r = runGate('psi-400', { field: 0.1, lab: 0.1, status: 400 });
     expect(r.status).toBe(1);
     expect(r.gh).toBe('');
