@@ -65,7 +65,7 @@ const PASSWORD_CODE_FIELD_RE = /one[- ]time|\botp\b|einmal|usage unique|\b(?:ver
 // passwords.
 const BARE_CODE_LABEL_RE = /^[\s*:]*(?:code|codice|pass[\s-]?code)[\s*:]*$/i;
 
-const VERIFY_OK_RE = /\b(verified|verifiziert|bestätigt|aktiviert|activated|confirmed|verificat[oa]|confermat[oa]|attivat[oa]|vérifiée?|confirmée?|activée?|erfolgreich|successfully)\b/i;
+const VERIFY_OK_RE = /(?:^|[^\p{L}\p{N}])(verified|verifiziert|bestätigt|aktiviert|activated|confirmed|verificat[oa]|confermat[oa]|attivat[oa]|vérifiée?s?|confirmée?s?|activée?s?|erfolgreich|successfully)(?=$|[^\p{L}\p{N}])/iu;
 const VERIFY_FAILED_RE = /(abgelaufen|expired|scadut[oa]|expirée?|ungültig|invalid|non valid[oa]|invalide|nicht (mehr )?gültig|falsch|incorrect|errat[oa]|wrong)/i;
 const VERIFY_LOADING_RE = /(chargement en cours|loading(?:\.\.\.|…)?|caricamento in corso|wird geladen|in bearbeitung|processing|traitement en cours)/i;
 

@@ -6,7 +6,7 @@ import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFile
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
 import { applicationStage } from '../scripts/assisted-application/lib/portal/stages.mjs';
 import { navigationInfrastructureFailure } from '../functions/src/assistedApplicationTransportRetryPolicy.js';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, formPostingMatch, handleAuth, hasApplicationSurface, isOtpVerificationPage, isWorkdayBareLocaleSearchShell, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, portalRequirementsFromMissingRequired, postingMatch, PREREAD_CHANNELS, profileDateQuestionsCanUseProfile, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, waitForNonBlankPage, WAVE1_CHANNELS, workdayProfileControl } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, formPostingMatch, handleAuth, hasApplicationSurface, isOtpVerificationPage, isWorkdayBareLocaleSearchShell, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, portalRequirementsFromMissingRequired, postingMatch, PREREAD_CHANNELS, profileDateQuestionsCanUseProfile, profileEntriesForSection, profileEntryAnswer, removalsOf, shouldReopenAfterAuth, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, waitForNonBlankPage, WAVE1_CHANNELS, workdayProfileControl } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 import { markOptionalAutofillDeclineInPage } from '../scripts/assisted-application/lib/portal/optional-autofill.mjs';
@@ -3693,7 +3693,7 @@ describe('portal runner helpers', () => {
     for (const text of ['Submit application', 'Bewerbung absenden', 'Ihre Bewerbung einreichen', 'Invia candidatura', 'Envoyer ma candidature', 'Postuler']) expect(SUBMIT_RE.test(text)).toBe(true);
     // Giro di prova 2026-10-01: JOIN's review page ends with «Conferma e applica».
     for (const text of ['Conferma e applica', 'Confirm and apply', 'Bestätigen und bewerben', 'Confirmer et postuler', 'Candidati', 'Inviare']) expect(SUBMIT_RE.test(text)).toBe(true);
-    for (const text of ['Continua', 'Indietro', 'Modifica', 'Applica filtro', 'Inviare i documenti']) expect(SUBMIT_RE.test(text)).toBe(false);
+    for (const text of ['Continua', 'Continuer à postuler', 'Indietro', 'Modifica', 'Applica filtro', 'Inviare i documenti']) expect(SUBMIT_RE.test(text)).toBe(false);
     // Review of #10725: the whole label, so a filter control is never the submission.
     for (const text of ['Conferma e applica filtro', 'Confirm and apply filters', 'Bestätigen und bewerben später']) expect(SUBMIT_RE.test(text)).toBe(false);
     for (const text of ['Conferma e applica →', 'Confirm and submit']) expect(SUBMIT_RE.test(text)).toBe(true);
@@ -4215,5 +4215,46 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     // Does not force a free-text degree into an incompatible fixed dropdown.
     expect(candidateAnswerForField(cand, { label: 'Degree*', context: 'Education', kind: 'select', options: [{ label: 'Bachelor' }, { label: 'Master' }] }))
       .toBeNull();
+  });
+
+  it('reopens the posting after account verification when landing on a fieldless continuation screen', () => {
+    const careerUrl = 'https://career55.sapsf.eu/career?company=ExampleCo';
+    expect(shouldReopenAfterAuth(
+      { reopen: true, verified: true },
+      {
+        text: 'Votre compte a été vérifié.',
+        fields: [],
+        buttons: [
+          { text: 'Continuer à postuler', disabled: false },
+          { text: 'Retour à la liste des postes', disabled: false },
+        ],
+      },
+      careerUrl,
+    )).toBe(true);
+
+    // A regular sign-in (without `verified`) that already exposes a wizard Next button stays on the flow.
+    expect(shouldReopenAfterAuth(
+      { reopen: true },
+      { text: 'Welcome', fields: [], buttons: [{ text: 'Continue', disabled: false }] },
+      careerUrl,
+    )).toBe(false);
+
+    // An opened application form stays put even after verification.
+    expect(shouldReopenAfterAuth(
+      { reopen: true, verified: true },
+      {
+        text: 'Votre compte a été vérifié.',
+        fields: [{ id: 'f1', kind: 'text', label: 'Vorname' }],
+        buttons: [{ text: 'Continuer', disabled: false }],
+      },
+      careerUrl,
+    )).toBe(false);
+
+    // Workday restoration has its own branch.
+    expect(shouldReopenAfterAuth(
+      { reopen: true, verified: true },
+      { text: 'Verified', fields: [], buttons: [{ text: 'Continue', disabled: false }] },
+      'https://example.wd3.myworkdayjobs.com/en-US/Jobs/job/Role/apply',
+    )).toBe(false);
   });
 });
