@@ -98,6 +98,14 @@ describe('estrazione dei path target', () => {
     expect(extractDeclaredRepairPoints(body)).toEqual([LIB]);
     expect(extractRepairPoints({ title: 'x', body }).paths).toEqual([LIB]);
   });
+  it('file alla radice e prefisso ./ sono path validi (review 🔴 su App.tsx)', () => {
+    expect(extractDeclaredRepairPoints('Repair point: `App.tsx`')).toEqual(['App.tsx']);
+    expect(extractRegionPaths('## Suggested action\nModifica `./scripts/a.mjs`.')).toEqual(['scripts/a.mjs']);
+    expect(decideLease({
+      issueNumber: 5, paths: ['App.tsx'],
+      openPrs: [{ number: 9, labels: ['agent:autofix'], headRefName: 'fix/issue-1', files: ['App.tsx'] }],
+    })).toMatchObject({ blocked: true, number: 9 });
+  });
   it('sezioni e blocchi di codice, non la prosa', () => {
     const body = 'Vedi scripts/prosa.mjs\n## Suggested action\nModifica `scripts/a.mjs`.\n## Altro\nscripts/b.mjs\n```\ntests/c.test.ts\n```';
     expect(extractRegionPaths(body).sort()).toEqual(['scripts/a.mjs', 'tests/c.test.ts']);

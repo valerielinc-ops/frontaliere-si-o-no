@@ -68,10 +68,13 @@ const PATH_CHARS = String.raw`[\w.@+()[\]{}-]+`;
 // Lista chiusa come GROUP_PATH_RE del drainer, piu' le radici di workflow generati
 // e di codice (`functions/`, `server/`, `hooks/`) che il fixer puo' toccare.
 const TARGET_PATH_RE = new RegExp(
-  String.raw`(?<![\w./-])(?:\.github\/(?:workflows|corpus-workflows)|scripts|build-plugins|services|components|packages|generator|content|tests|functions|server|hooks)(?:\/${PATH_CHARS})+\.[A-Za-z0-9]+`,
+  String.raw`(?<![\w./-])(?:\.\/)?(?:\.github\/(?:workflows|corpus-workflows)|scripts|build-plugins|services|components|packages|generator|content|tests|functions|server|hooks)(?:\/${PATH_CHARS})+\.[A-Za-z0-9]+`,
   'g',
 );
-const SAFE_PATH_RE = new RegExp(String.raw`^(?:\.github\/)?${PATH_CHARS}(?:\/${PATH_CHARS})+$`);
+// Almeno un `/`, oppure un file alla radice del repo con estensione (`App.tsx`, `package.json`).
+const SAFE_PATH_RE = new RegExp(
+  String.raw`^(?:(?:\.github\/)?${PATH_CHARS}(?:\/${PATH_CHARS})+|${PATH_CHARS}\.[A-Za-z0-9]+)$`,
+);
 const REPAIR_POINT_LINE_RE = /^[ \t]*(?:[-*][ \t]+)?(?:\*\*)?Repair point(?:\*\*)?[ \t]*:(?:\*\*)?[ \t]*(.+)$/gim;
 
 function cleanPath(raw) {
