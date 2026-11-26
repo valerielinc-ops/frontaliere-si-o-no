@@ -151,7 +151,11 @@
  */
 
 import { stableStringify } from './lib/stable-stringify.mjs';
-import { resolveZoneId as resolveZoneIdShared } from './lib/cf-analytics.mjs';
+import {
+  resolveZoneId as resolveZoneIdShared,
+  describeCfError,
+  withCfRetry,
+} from './lib/cf-analytics.mjs';
 import {
   PUBLIC_CONFIG_PATH,
   PUBLIC_CONFIG_SITE_HOST,
@@ -839,9 +843,12 @@ async function cf(method, path, body) {
 
 async function resolveZoneId() {
   try {
-    return await resolveZoneIdShared(token, ZONE_NAME, process.env.CF_ZONE_ID);
-  } catch {
-    bail(`Cannot resolve zone id for ${ZONE_NAME} (token scope?).`);
+    return await withCfRetry(
+      () => resolveZoneIdShared(token, ZONE_NAME, process.env.CF_ZONE_ID),
+      { label: 'zone lookup', token },
+    );
+  } catch (error) {
+    bail(`Cannot resolve zone id for ${ZONE_NAME}: ${describeCfError(error, token)}`);
   }
 }
 

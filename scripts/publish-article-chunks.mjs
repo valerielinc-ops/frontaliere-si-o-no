@@ -380,9 +380,10 @@ async function cf(token, method, apiPath, body) {
  */
 export async function purgeCdnFiles(token, resolvedZoneId, urls) {
   for (const { label, files } of purgeBodiesForUrls(urls)) {
-    const { json } = await cf(token, 'POST', `/zones/${resolvedZoneId}/purge_cache`, { files });
+    const { status, json } = await cf(token, 'POST', `/zones/${resolvedZoneId}/purge_cache`, { files });
     if (!json?.success) {
-      throw new Error(`[publish-article-chunks] targeted purge [${label}] failed: ${JSON.stringify(json?.errors)}`);
+      const detail = json ? JSON.stringify(json.errors) : 'non-JSON response';
+      throw new Error(`[publish-article-chunks] targeted purge [${label}] failed (HTTP ${status}): ${detail}`);
     }
   }
 }
