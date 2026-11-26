@@ -47,7 +47,7 @@ import { extractStableJobId } from './lib/job-match-key.mjs';
 import { parseSwisscomJobDescription, dropSwisscomFabricatedText } from './lib/swisscom-job-parser.mjs';
 import { inferAnyCanton, isSwissLocationText } from './lib/target-swiss-locations.mjs';
 import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './lib/workday-swiss-job-parser-common.mjs';
-import { fetchWorkdayJsonWithRetry, WorkdayRateLimitError } from './lib/ats-clients/workday-client.mjs';
+import { fetchWorkdayJsonWithRetry, shouldPropagateWorkdayFetchError } from './lib/ats-clients/workday-client.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -161,7 +161,7 @@ async function fetchJson(url, options = {}) {
         'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
     });
   } catch (err) {
-    if (throwOnError || err instanceof WorkdayRateLimitError) throw err;
+    if (shouldPropagateWorkdayFetchError(err, throwOnError)) throw err;
     console.warn(`⚠️ Fetch failed for ${url}: ${err?.message || err}`);
     return null;
   }

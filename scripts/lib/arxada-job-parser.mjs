@@ -15,7 +15,7 @@
  *   - isTrustedDomain()     — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
-import { fetchWorkdayJsonWithRetry, firstLocationSegment, WorkdayRateLimitError, workdayPostingDateFields } from './ats-clients/workday-client.mjs';
+import { fetchWorkdayJsonWithRetry, firstLocationSegment, shouldPropagateWorkdayFetchError, workdayPostingDateFields } from './ats-clients/workday-client.mjs';
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -145,7 +145,7 @@ async function fetchJson(url, options = {}) {
         'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
     });
   } catch (err) {
-    if (throwOnError || err instanceof WorkdayRateLimitError) throw err;
+    if (shouldPropagateWorkdayFetchError(err, throwOnError)) throw err;
     console.warn(`\u26a0\ufe0f Fetch failed for ${url}: ${err?.message || err}`);
     return null;
   }

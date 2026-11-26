@@ -112,6 +112,26 @@ export class WorkdayRateLimitError extends WorkdayApiError {
   }
 }
 
+/**
+ * A status code of 0 is the Workday client's explicit transport-failure
+ * marker: no HTTP response was received. Listing callers may propagate
+ * observed HTTP failures while leaving this recoverable for the standard
+ * crawler soft-exit path.
+ */
+export function isWorkdayTransportError(error) {
+  return error instanceof WorkdayApiError && error.statusCode === 0;
+}
+
+/**
+ * Preserve the shared listing policy across the dedicated Workday callers.
+ * Rate limits always propagate; `throwOnError` applies only to observed API
+ * responses, not to a transport failure that carries statusCode 0.
+ */
+export function shouldPropagateWorkdayFetchError(error, throwOnError = false) {
+  return error instanceof WorkdayRateLimitError
+    || (throwOnError && !isWorkdayTransportError(error));
+}
+
 /* ── Constants ─────────────────────────────────────────────────────────── */
 
 const DEFAULT_USER_AGENT = 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/)';
