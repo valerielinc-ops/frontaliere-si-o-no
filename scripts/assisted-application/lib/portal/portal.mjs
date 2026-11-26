@@ -11075,11 +11075,11 @@ async function typeOwnPassword({ page, snapshot, ctx, passwords, allowSaveInDryR
 }
 
 /**
- * A required field of the page is still empty. A file input's value is never
- * read by the snapshot (`holdsValue` counts it empty), so its own `files` say
- * whether the CV went in; an upload widget that clears its input reads as empty.
+ * A required field of the page is still empty. A file or password input's value
+ * is never kept in the snapshot (`holdsValue` counts it empty), so we read only
+ * non-empty presence (`files.length > 0` / `Boolean(value)`) on the DOM control.
  */
-async function requiredLeftEmpty(page, uploaded = new Set(), uploadedKeyForField = null) {
+export async function requiredLeftEmpty(page, uploaded = new Set(), uploadedKeyForField = null) {
   const url = page.url();
   const snapshot = await extractFields(page, NAVIGATION);
   const fields = snapshot.fields || [];
@@ -11089,7 +11089,9 @@ async function requiredLeftEmpty(page, uploaded = new Set(), uploadedKeyForField
     const filled = field.kind === 'file' || field.inputType === 'file'
       ? uploaded.has(uploadedKey)
         || await locatorFor(page, field).evaluate((element) => (element.files?.length || 0) > 0, null, { timeout: 2000 }).catch(() => false)
-      : holdsValue(field);
+      : field.inputType === 'password'
+        ? await locatorFor(page, field).evaluate((element) => Boolean(element.value), null, { timeout: 2000 }).catch(() => false)
+        : holdsValue(field);
     if (!filled) return true;
   }
   return false;

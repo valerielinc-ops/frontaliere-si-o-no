@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { clickSubmitButton, guardAgentStep, isPreDispatchLocatorClickFailure, AGENT_SCHEMA } from '../scripts/assisted-application/lib/portal/agent.mjs';
 import { labelsAt, learnedButton, normalizeLabel, portalKnowledgeStore, PORTAL_KNOWLEDGE_COLLECTION } from '../scripts/assisted-application/lib/portal/knowledge.mjs';
-import { anonymizePath, applicationEntryControls, clickButton, hasApplicationSurface, isStadtZurichPublicSearchButton, pageControls, stadtZurichPublicPostingTarget, stopReportFrom } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { anonymizePath, applicationEntryControls, clickButton, hasApplicationSurface, isStadtZurichPublicSearchButton, pageControls, requiredLeftEmpty, stadtZurichPublicPostingTarget, stopReportFrom } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { CONFIRM_RE, REFUSED_RE } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { candidateValues, redactStopReport, stopIssue } from '../scripts/assisted-application/lib/portal/stop-report.mjs';
@@ -931,5 +931,37 @@ describe('portal runner self-correction', () => {
       expect(CONFIRM_RE.test(text)).toBe(false);
     }
     expect(REFUSED_RE.test('Grazie per la tua candidatura, è stata inviata.')).toBe(false);
+  });
+
+  it('checks DOM presence on redacted required password inputs in requiredLeftEmpty without exposing secrets', async () => {
+    const createMockPage = (domPasswordPresent: boolean) => {
+      const frame = {
+        url: () => 'https://portal.example/Application/New/1',
+        evaluate: vi.fn(async (read: unknown) => read === extractFieldsInPage ? ({
+          url: 'https://portal.example/Application/New/1',
+          fields: [
+            { id: 'f1', kind: 'text', inputType: 'text', label: 'First name', required: true, value: 'Luca', frame: 0 },
+            { id: 'f2', kind: 'text', inputType: 'password', label: 'Passwort', required: true, value: '', frame: 0 },
+          ],
+          buttons: [{ id: 'f3', text: 'Submit', frame: 0 }],
+          links: [],
+          dialogs: [],
+          captcha: false,
+          passwordVisible: true,
+          errors: [],
+          text: '',
+        }) : null),
+        locator: vi.fn((selector: string) => ({
+          first: () => ({
+            evaluate: vi.fn(async (fn: (el: { value?: string }) => unknown) =>
+              fn(selector.includes('f2') ? { value: domPasswordPresent ? 'redacted-secret' : '' } : {})),
+          }),
+        })),
+      };
+      return { url: () => 'https://portal.example/Application/New/1', frames: () => [frame], mainFrame: () => frame };
+    };
+
+    expect(await requiredLeftEmpty(createMockPage(true))).toBe(false);
+    expect(await requiredLeftEmpty(createMockPage(false))).toBe(true);
   });
 });
