@@ -246,6 +246,7 @@ function serializeOrder(doc, cvUrl) {
     consentedAt: timestampToIso(data.consentedAt),
     submissionStatus: statusFor(data),
     automationState: boundedString(data.automationState, 40) || null,
+    candidateStaleArchivedAt: timestampToIso(data.candidateStaleArchivedAt),
     submissionNotes: optionalString(data.submissionNotes, 2000) || null,
     submittedAt: timestampToIso(data.submittedAt),
     blockedAt: timestampToIso(data.blockedAt),

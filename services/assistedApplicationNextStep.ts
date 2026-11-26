@@ -12,7 +12,7 @@
 import { draftRetryDueAt } from '../functions/src/assistedApplicationDraftRetryPolicy.js';
 import { portalRetryDueAt } from '../functions/src/assistedApplicationPortalRetryPolicy.js';
 
-export type NextStepGroup = 'owner' | 'candidate' | 'fix' | 'robot' | 'done';
+export type NextStepGroup = 'owner' | 'candidate' | 'fix' | 'robot' | 'archived' | 'done';
 
 export interface NextStep {
   group: NextStepGroup;
@@ -28,10 +28,13 @@ export interface NextStepOrder {
   submissionStatus: string;
   hasCv: boolean;
   paidAt?: string | null;
+  candidateStaleArchivedAt?: string | null;
   automation?: {
     flow: {
       state: string | null;
       heldBy: string[];
+      heldSince?: number | null;
+      candidateStaleArchivedAt?: number | null;
       /** Set on a withdrawn flow: `posting_withdrawn_by_employer` when the employer withdrew the posting. */
       withdrawnReason?: string | null;
       deadlineAt: number | null;
@@ -51,6 +54,7 @@ export const NEXT_STEP_GROUP_LABELS: Record<NextStepGroup, string> = {
   candidate: 'Aspetta il candidato',
   fix: 'Bloccate: serve una correzione',
   robot: 'Robot al lavoro',
+  archived: 'Archiviate (> 30 giorni)',
   done: 'Concluse',
 };
 
@@ -199,6 +203,12 @@ export function nextStepFor(order: NextStepOrder, nowMs: number = Date.now()): N
     if (!order.hasCv) {
       const paidMs = order.paidAt ? Date.parse(order.paidAt) : 0;
       const waiting = paidMs ? ` (pagato ${since(paidMs, nowMs)})` : '';
+      if (order.candidateStaleArchivedAt) {
+        return {
+          group: 'archived', code: 'archived_waiting_cv', label: 'Archiviata (> 30 gg · CV mancante)',
+          detail: `Il candidato non ha ancora mandato il CV${waiting}: spostata automaticamente tra le archiviate dopo 30 giorni di attesa. Appena invia il CV rientra in coda, oppure puoi avviare il rimborso.`,
+        };
+      }
       return {
         group: 'candidate', code: 'waiting_cv', label: 'Aspetta il CV',
         detail: `Il candidato non ha ancora mandato il CV${waiting}. ${paidMs && nowMs - paidMs > 5 * DAY_MS ? 'È passato molto tempo: scrivigli, oppure avvia il rimborso.' : 'Riceve da solo il promemoria dopo 48 ore.'}`,
@@ -208,6 +218,16 @@ export function nextStepFor(order: NextStepOrder, nowMs: number = Date.now()): N
   }
 
   const heldBy = flow.heldBy || [];
+  const staleArchived = Boolean(order.candidateStaleArchivedAt || flow.candidateStaleArchivedAt);
+  const archivedWaitingStep = (missing = '') => {
+    const waitingSince = since(flow.heldSince || enteredAt(flow), nowMs);
+    return {
+      group: 'archived' as const,
+      code: 'archived_waiting_candidate',
+      label: 'Archiviata (> 30 gg)',
+      detail: `Ferma in attesa del candidato${missing ? ` (${missing})` : ''}${waitingSince ? ` ${waitingSince}` : ''}: spostata qui automaticamente dopo 30 giorni senza risposta. Se risponde o riprendi la lavorazione rientra tra le candidature attive.`,
+    };
+  };
   switch (flow.state) {
     case 'drafting':
     case 'regenerating':
@@ -227,17 +247,20 @@ export function nextStepFor(order: NextStepOrder, nowMs: number = Date.now()): N
     case 'candidate_review': {
       const waitingSince = since(enteredAt(flow), nowMs);
       if (heldBy.some((held) => /^(question|document):/.test(held))) {
+        if (staleArchived) return archivedWaitingStep(countHeld(heldBy));
         return {
           group: 'candidate', code: 'waiting_candidate_answers', label: 'Aspetta il candidato',
           detail: `Mancano ${countHeld(heldBy)} che solo lui può dare${waitingSince ? ` (${waitingSince})` : ''}. Riceve promemoria a 24 e 72 ore; dopo 5 giorni arriva un avviso a te.${flow.reminderAt ? ` Prossimo promemoria ${clock(flow.reminderAt)}.` : ''}`,
         };
       }
+      if (staleArchived && !flow.deadlineAt) return archivedWaitingStep();
       return {
         group: 'candidate', code: 'waiting_candidate_approval', label: 'Aspetta il candidato',
         detail: `Sta rivedendo la bozza${waitingSince ? ` (${waitingSince})` : ''}.${flow.deadlineAt ? ` Se non risponde parte da sola ${clock(flow.deadlineAt)}.` : ''}`,
       };
     }
     case 'needs_candidate_action':
+      if (staleArchived) return archivedWaitingStep(countHeld(heldBy));
       return {
         group: 'candidate', code: 'waiting_candidate_portal', label: 'Aspetta il candidato',
         detail: `Il portale ha chiesto ${countHeld(heldBy) || 'un’informazione'} che solo lui può dare: appena risponde l’invio riparte da solo.`,
@@ -248,6 +271,7 @@ export function nextStepFor(order: NextStepOrder, nowMs: number = Date.now()): N
         detail: `Il robot sta inviando la candidatura${flow.dispatch?.requestedAt ? ` (${since(flow.dispatch.requestedAt, nowMs)})` : ''}.`,
       };
     case 'candidate_handoff':
+      if (staleArchived) return archivedWaitingStep();
       return { group: 'candidate', code: 'candidate_handoff', label: 'Affidata al candidato', detail: 'Hai scelto di far completare a lui l’ultimo passaggio sul portale: l’ordine si chiude quando conferma l’invio. Puoi sempre completarla tu.' };
     case 'submitted':
       return { group: 'done', code: 'submitted', label: 'Inviata', detail: 'La candidatura è arrivata al datore.' };

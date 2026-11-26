@@ -209,6 +209,8 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       draftAutoRetryCount: draftAutoRetryCountValue(flow),
       draftFailureKind: flow.draftFailureKind || null,
       heldBy: flow.heldBy || [],
+      heldSince: flow.heldSince || null,
+      candidateStaleArchivedAt: flow.candidateStaleArchivedAt || null,
       // Why a withdrawn order was withdrawn (assistedApplicationEmployerWithdrawal.js), and the posting's proof.
       withdrawnReason: flow.withdrawnReason || null,
       withdrawalEvidence: flow.withdrawalEvidence || null,
