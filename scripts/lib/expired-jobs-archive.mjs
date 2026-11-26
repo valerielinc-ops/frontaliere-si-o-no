@@ -654,33 +654,45 @@ export function mergeExpiredRouteEvidence(survivor, historical, source = 'expire
   }
   validateSlugHistoryShape(survivor, 'survivor');
   validateSlugHistoryShape(historical, 'removed');
+  const candidate = structuredClone(survivor);
   const before = JSON.stringify({
-    canton: survivor.canton,
-    location: survivor.location,
-    slugByLocale: survivor.slugByLocale,
-    previousSlugs: survivor.previousSlugs,
-    previousSlugsByLocale: survivor.previousSlugsByLocale,
-    previousSlugCantonByLocale: survivor.previousSlugCantonByLocale,
+    canton: candidate.canton,
+    location: candidate.location,
+    slugByLocale: candidate.slugByLocale,
+    previousSlugs: candidate.previousSlugs,
+    previousSlugsByLocale: candidate.previousSlugsByLocale,
+    previousSlugCantonByLocale: candidate.previousSlugCantonByLocale,
   });
-  if (!survivor.canton && historical.canton) survivor.canton = historical.canton;
-  if (!survivor.location && historical.location) survivor.location = historical.location;
+  if (!candidate.canton && historical.canton) candidate.canton = historical.canton;
+  if (!candidate.location && historical.location) candidate.location = historical.location;
   // The archive merge already carries locale-attributed evidence in its
   // exact buckets. Do not flatten those values into legacy history a second
   // time: that changes the persisted representation on the next identical
   // crawl even though no route changed.
-  transferSlugHistory(survivor, historical, source, {
-    syncLegacy: false,
-    skipSelfCanonical: true,
-    preserveAllExpiredRoutes: true,
-  });
+  try {
+    transferSlugHistory(candidate, historical, source, {
+      syncLegacy: false,
+      skipSelfCanonical: true,
+      preserveAllExpiredRoutes: true,
+    });
+  } catch (error) {
+    if (isLegacyRouteCapRefusal(error)) return false;
+    throw error;
+  }
   const after = JSON.stringify({
-    canton: survivor.canton,
-    location: survivor.location,
-    slugByLocale: survivor.slugByLocale,
-    previousSlugs: survivor.previousSlugs,
-    previousSlugsByLocale: survivor.previousSlugsByLocale,
-    previousSlugCantonByLocale: survivor.previousSlugCantonByLocale,
+    canton: candidate.canton,
+    location: candidate.location,
+    slugByLocale: candidate.slugByLocale,
+    previousSlugs: candidate.previousSlugs,
+    previousSlugsByLocale: candidate.previousSlugsByLocale,
+    previousSlugCantonByLocale: candidate.previousSlugCantonByLocale,
   });
+  if (before !== after) {
+    for (const key of Object.keys(survivor)) {
+      if (!(key in candidate)) delete survivor[key];
+    }
+    Object.assign(survivor, candidate);
+  }
   return before !== after;
 }
 

@@ -537,7 +537,8 @@ export function composeCoopFamilyDescription(markdown = '', page = null) {
  * Two reposts of one ad usually share their freshly built slug (same title,
  * same place): a slug the keeper already serves is not a route to bridge, and
  * handing it to `transferSlugHistory` would record the keeper's own URL as its
- * previous slug.
+ * previous slug. A legacy-route cap refusal leaves both live records separate:
+ * the duplicate cannot be removed unless every indexed route can be bridged.
  */
 function absorbRepublishedRoutes(keeper, removed) {
   const active = new Set([keeper?.slug, ...Object.values(keeper?.slugByLocale || {})].filter(Boolean));
@@ -556,18 +557,9 @@ function absorbRepublishedRoutes(keeper, removed) {
   if (!hasRoutes) return { transferred: 0, capRefusal: null };
 
   // A cap refusal is expected, but transferSlugHistory can reach it after
-  // mutating locale buckets on the survivor. Work on a route-history copy so
-  // a refused transfer leaves the active keeper byte-for-byte unchanged.
-  const candidate = {
-    ...keeper,
-    ...(Array.isArray(keeper.previousSlugs) ? { previousSlugs: [...keeper.previousSlugs] } : {}),
-    ...(keeper.previousSlugsByLocale && typeof keeper.previousSlugsByLocale === 'object'
-      ? { previousSlugsByLocale: structuredClone(keeper.previousSlugsByLocale) }
-      : {}),
-    ...(keeper.previousSlugCantonByLocale && typeof keeper.previousSlugCantonByLocale === 'object'
-      ? { previousSlugCantonByLocale: structuredClone(keeper.previousSlugCantonByLocale) }
-      : {}),
-  };
+  // mutating locale buckets on the survivor. Work on a full copy so a refused
+  // transfer leaves the active keeper byte-for-byte unchanged.
+  const candidate = structuredClone(keeper);
   let transferred;
   try {
     transferred = transferSlugHistory(candidate, routes, 'coop-job-parser.collapseRepublishedCoopVacancies');
@@ -576,10 +568,10 @@ function absorbRepublishedRoutes(keeper, removed) {
     throw error;
   }
 
-  for (const field of ['previousSlugs', 'previousSlugsByLocale', 'previousSlugCantonByLocale']) {
-    if (Object.hasOwn(candidate, field)) keeper[field] = candidate[field];
-    else delete keeper[field];
+  for (const key of Object.keys(keeper)) {
+    if (!(key in candidate)) delete keeper[key];
   }
+  Object.assign(keeper, candidate);
   return { transferred, capRefusal: null };
 }
 
@@ -701,6 +693,10 @@ export function collapseRepublishedCoopVacancies(jobs = [], {
     if (keeper && keeper !== job) {
       const routeTransfer = absorbRepublishedRoutes(keeper, job);
       if (routeTransfer.capRefusal) {
+        if (typeof onRouteHistoryOverflow !== 'function') {
+          kept.push(job);
+          continue;
+        }
         firstRouteCapRefusal ||= routeTransfer.capRefusal;
         routeHistoryOverflow.push(job);
       }
