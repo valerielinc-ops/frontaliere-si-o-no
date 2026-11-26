@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hfr-hopital-fribourgeois",
-  "assembledAt": "2026-11-26T09:52:20.952Z",
-  "runId": "45791167359",
+  "assembledAt": "2026-11-26T21:40:21.294Z",
+  "runId": "45897518485",
   "jobs": [
     {
       "id": "hfr-hopital-fribourgeois-533bf9597390",
@@ -34,7 +34,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1538",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:52:15.270Z",
+      "crawledAt": "2026-11-26T21:40:12.712Z",
       "addressLocality": "Tafers",
       "addressRegion": "FR",
       "streetAddress": "Tafers",
@@ -82,9 +82,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:52:15.270Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1538"
+      "validThrough": "2027-01-27T21:40:12.712Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-16678d3ae0ba",
@@ -117,7 +116,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1523",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:52:14.441Z",
+      "crawledAt": "2026-11-26T21:40:12.128Z",
       "addressLocality": "Riaz",
       "addressRegion": "FR",
       "streetAddress": "Riaz",
@@ -170,9 +169,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:52:14.441Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1523"
+      "validThrough": "2027-01-27T21:40:12.128Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-4f74c8067dc5",
@@ -206,7 +204,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1508",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:52:13.887Z",
+      "crawledAt": "2026-11-26T21:40:11.566Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -257,9 +255,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:52:13.887Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1508"
+      "validThrough": "2027-01-27T21:40:11.566Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-307be8c981ed",
@@ -293,7 +290,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1511",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:52:13.305Z",
+      "crawledAt": "2026-11-26T21:40:11.042Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -354,9 +351,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:52:13.305Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1511"
+      "validThrough": "2027-01-27T21:40:11.042Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-7ce6eaf60c0e",
@@ -389,7 +385,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1477",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:52:12.736Z",
+      "crawledAt": "2026-11-26T21:40:10.295Z",
       "addressLocality": "Meyriez",
       "addressRegion": "FR",
       "streetAddress": "Meyriez",
@@ -437,9 +433,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:52:12.736Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1477"
+      "validThrough": "2027-01-27T21:40:10.295Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-c7afaf5ded4c",
@@ -473,7 +468,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1421",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:52:12.213Z",
+      "crawledAt": "2026-11-26T21:40:09.144Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -528,9 +523,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:52:12.213Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1421"
+      "validThrough": "2027-01-27T21:40:09.144Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-a4787cd8f211",
@@ -564,7 +558,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1420",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:52:11.674Z",
+      "crawledAt": "2026-11-26T21:40:08.617Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -615,9 +609,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:52:11.674Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1420"
+      "validThrough": "2027-01-27T21:40:08.617Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-392144471367",
@@ -651,7 +644,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1397",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:52:10.754Z",
+      "crawledAt": "2026-11-26T21:40:08.109Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -696,9 +689,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:52:10.754Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1397"
+      "validThrough": "2027-01-27T21:40:08.109Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-0fc4713bc8fd",
@@ -731,7 +723,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1605",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:52:10.210Z",
+      "crawledAt": "2026-11-26T21:40:07.562Z",
       "addressLocality": "Tafers",
       "addressRegion": "FR",
       "streetAddress": "Tafers",
@@ -779,9 +771,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:52:10.210Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1605"
+      "validThrough": "2027-02-02T21:40:07.562Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-959146abc73a",
@@ -814,7 +805,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1604",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:52:09.583Z",
+      "crawledAt": "2026-11-26T21:40:07.056Z",
       "addressLocality": "Tafers",
       "addressRegion": "FR",
       "streetAddress": "Tafers",
@@ -865,9 +856,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:52:09.583Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1604"
+      "validThrough": "2027-02-02T21:40:07.056Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-1df5e95f3232",
@@ -901,7 +891,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1601",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:52:08.745Z",
+      "crawledAt": "2026-11-26T21:40:05.997Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -952,9 +942,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:52:08.745Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1601"
+      "validThrough": "2027-02-02T21:40:05.997Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-bbca94ce4be1",
@@ -987,7 +976,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1599",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:52:08.184Z",
+      "crawledAt": "2026-11-26T21:40:05.464Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1035,9 +1024,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:52:08.184Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1599"
+      "validThrough": "2027-02-02T21:40:05.464Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-86dd599daf8a",
@@ -1071,7 +1059,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1537",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:52:07.629Z",
+      "crawledAt": "2026-11-26T21:40:04.722Z",
       "addressLocality": "Tafers",
       "addressRegion": "FR",
       "streetAddress": "Tafers",
@@ -1122,9 +1110,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:52:07.629Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1537"
+      "validThrough": "2027-02-03T21:40:04.722Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-1f0fa0d125a7",
@@ -1157,7 +1144,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1493",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:52:07.073Z",
+      "crawledAt": "2026-11-26T21:40:04.184Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1208,9 +1195,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:52:07.073Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1493"
+      "validThrough": "2027-02-03T21:40:04.184Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-a0fdfec9c76a",
@@ -1244,7 +1230,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1591",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:52:06.512Z",
+      "crawledAt": "2026-11-26T21:40:03.666Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1295,9 +1281,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:52:06.512Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1591"
+      "validThrough": "2027-02-07T21:40:03.666Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-2251c74ebe6c",
@@ -1331,7 +1316,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1476",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:52:05.647Z",
+      "crawledAt": "2026-11-26T21:40:03.142Z",
       "addressLocality": "Meyriez",
       "addressRegion": "FR",
       "streetAddress": "Meyriez",
@@ -1382,9 +1367,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:52:05.647Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1476"
+      "validThrough": "2027-02-08T21:40:03.142Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-ebed0423d502",
@@ -1417,7 +1401,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1419",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:52:05.115Z",
+      "crawledAt": "2026-11-26T21:40:02.608Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1474,9 +1458,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:52:05.115Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1419"
+      "validThrough": "2027-02-10T21:40:02.608Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-f3e6f4f56974",
@@ -1509,7 +1492,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1627",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:52:04.589Z",
+      "crawledAt": "2026-11-26T21:40:01.899Z",
       "addressLocality": "Riaz",
       "addressRegion": "FR",
       "streetAddress": "Riaz",
@@ -1560,9 +1543,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T09:52:04.589Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1627"
+      "validThrough": "2027-02-11T21:40:01.899Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-a9ab7bb1278a",
@@ -1596,7 +1578,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1480",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:52:04.048Z",
+      "crawledAt": "2026-11-26T21:40:00.959Z",
       "addressLocality": "Riaz",
       "addressRegion": "FR",
       "streetAddress": "Riaz",
@@ -1657,9 +1639,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T09:52:04.048Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1480"
+      "validThrough": "2027-02-11T21:40:00.959Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-b15f20fbf03b",
@@ -1693,7 +1674,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1646",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:52:03.473Z",
+      "crawledAt": "2026-11-26T21:40:00.376Z",
       "addressLocality": "Riaz",
       "addressRegion": "FR",
       "streetAddress": "Riaz",
@@ -1738,9 +1719,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:52:03.473Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1646"
+      "validThrough": "2027-02-15T21:40:00.376Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-d91d574aa15b",
@@ -1773,7 +1753,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1575",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:52:02.908Z",
+      "crawledAt": "2026-11-26T21:39:59.640Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1821,9 +1801,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-17T09:52:02.908Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1575"
+      "validThrough": "2027-02-16T21:39:59.640Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-289cddd40f65",
@@ -1856,7 +1835,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1626",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:52:02.243Z",
+      "crawledAt": "2026-11-26T21:39:59.110Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1901,9 +1880,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-19T09:52:02.243Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1626"
+      "validThrough": "2027-02-18T21:39:59.110Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-a0ccd1999539",
@@ -1936,7 +1914,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1583",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:52:01.460Z",
+      "crawledAt": "2026-11-26T21:39:58.349Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -1981,9 +1959,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-19T09:52:01.460Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1583"
+      "validThrough": "2027-02-18T21:39:58.349Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hfr-hopital-fribourgeois-1e6bbcb48efb",
@@ -2016,7 +1993,7 @@
       "url": "https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/fr/sites/CX_1/job/1086",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:52:00.922Z",
+      "crawledAt": "2026-11-26T21:39:57.545Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -2067,9 +2044,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T09:52:00.922Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://fa-eswr-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/fr/sites/cx_1/job/1086"
+      "validThrough": "2027-02-21T21:39:57.545Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

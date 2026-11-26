@@ -205,28 +205,24 @@ describe('groupHandoffs: duplicati della stessa PR di origine (#10586/#10587)', 
     expect(groups.find((g) => g.origin === 10655)!.duplicates).toEqual([]);
   });
 
-  it('non chiude come duplicati due HEAD diverse della stessa origine', () => {
-    const oldEvidence = buildConflictHandoffIssue({
-      num: 10569,
-      branch: 'fix/old',
-      head: NEW_HEAD,
-      files: ['old.ts'],
+  it('due HEAD diverse della stessa origine sono duplicati: resta una sola issue', () => {
+    const withHead = (number: number, head: string, labels: string[] = []) => ({
+      number,
+      ...buildConflictHandoffIssue({ num: 10569, branch: `fix/${number}`, head, files: [`${number}.ts`] }),
+      labels,
+      created_at: OPENED,
     });
-    const currentEvidence = buildConflictHandoffIssue({
-      num: 10569,
-      branch: 'fix/current',
-      head: HEAD,
-      files: ['current.ts'],
-    });
-    const groups = groupHandoffs([
-      { number: 10586, ...oldEvidence, labels: [], created_at: OPENED },
-      { number: 10587, ...currentEvidence, labels: [], created_at: OPENED },
-    ]);
-    expect(groups).toHaveLength(2);
-    expect(groups.every((group) => group.origin === 10569 && group.duplicates.length === 0)).toBe(true);
+    const groups = groupHandoffs([withHead(10586, NEW_HEAD), withHead(10587, HEAD)]);
+    expect(groups).toHaveLength(1);
+    expect(groups[0].keeper.number).toBe(10586);
+    expect(groups[0].duplicates.map((i) => i.number)).toEqual([10587]);
+    // Con un claim sull'issue piu' recente resta quella, la piu' vecchia e' il duplicato.
+    const claimed = groupHandoffs([withHead(10586, NEW_HEAD), withHead(10587, HEAD, ['agent:in-progress'])]);
+    expect(claimed[0].keeper.number).toBe(10587);
+    expect(claimed[0].duplicates.map((i) => i.number)).toEqual([10586]);
   });
 
-  it('non fonde HEAD distinte quando il matching per prefisso non è transitivo', () => {
+  it('HEAD con prefissi diversi della stessa origine: un solo gruppo, il keeper e il suo HEAD', () => {
     const withHead = (number: number, head: string) => ({
       number,
       ...buildConflictHandoffIssue({
@@ -244,10 +240,8 @@ describe('groupHandoffs: duplicati della stessa PR di origine (#10586/#10587)', 
       withHead(10588, 'abcdef02'),
     ]);
 
-    expect(groups.map(({ head, duplicates }) => [head, duplicates.length])).toEqual([
-      ['abcdef0', 0],
-      ['abcdef01', 0],
-      ['abcdef02', 0],
+    expect(groups.map(({ head, duplicates }) => [head, duplicates.map((i) => i.number)])).toEqual([
+      ['abcdef0', [10587, 10588]],
     ]);
   });
 

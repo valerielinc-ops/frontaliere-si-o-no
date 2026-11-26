@@ -54,10 +54,10 @@ import {
 
 const CODEX_MODEL = CODEX_FALLBACK_MODEL;
 const CODEX_EFFORT = CODEX_FALLBACK_EFFORT;
-// Compatibility contract: const CODEX_CLI_VERSION = '0.153.4'; for the
+// Compatibility contract: const CODEX_CLI_VERSION = '0.172.0'; for the
 // existing text lanes. Image generation passes its explicitly attested CLI
 // version without changing that default.
-const CODEX_CLI_VERSION = argument('--codex-cli-version', '0.153.4');
+const CODEX_CLI_VERSION = argument('--codex-cli-version', '0.172.0');
 const CODEX_PROFILE = 'codex-luna-max';
 const MAX_REQUEST_BYTES = 1024 * 1024;
 const MAX_RESPONSE_BYTES = 2 * 1024 * 1024;
@@ -83,7 +83,7 @@ const MAX_TIMEOUT_MS = Number.isInteger(maxTimeoutRaw) && maxTimeoutRaw >= 60_00
 const LOGIN_REFRESH_SAFE_AGE_MS = 7 * 24 * 60 * 60 * 1000;
 const LOGIN_ACCESS_TOKEN_MIN_REMAINING_MS = MAX_TIMEOUT_MS + 30 * 60 * 1000;
 // Profilo `function`: Codex risponde come una funzione di testo. Le feature
-// spente sono i tool dell'agente; tutte esistono nella 0.153.4 pinnata e
+// spente sono i tool dell'agente; tutte esistono nella 0.172.0 pinnata e
 // `--strict-config` rifiuta una feature o una chiave sconosciuta.
 const FUNCTION_PROFILE_INSTRUCTIONS = 'You are a stateless text-processing function called by a batch job. Read the request, produce the requested output directly, and never use tools, run commands or ask questions.\n';
 const FUNCTION_PROFILE_DISABLED_FEATURES = Object.freeze([
@@ -169,7 +169,7 @@ function validateSocketParent() {
 // bwrap non poteva montare TMPDIR dentro un /tmp in sola lettura: nel gemello
 // del corpus ogni richiesta moriva prima del modello ("Codex CLI exited with
 // code 1", frontaliere-articles run 36001495484). ":root" = "deny" nasconde gia'
-// il resto di /tmp: con `codex sandbox` 0.153.4 il workspace resta leggibile,
+// il resto di /tmp: con `codex sandbox` 0.172.0 il workspace resta leggibile,
 // auth.json, config.toml e gli altri file di /tmp no, e TMPDIR resta negato.
 function permissionConfig() {
   return `default_permissions = "${CODEX_PROFILE}"

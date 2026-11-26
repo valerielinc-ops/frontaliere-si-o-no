@@ -1022,11 +1022,11 @@ jobs:
           DISPATCH_IS_DAILY: ${{ steps.dispatch_scope.outputs.is_daily_bucket }}
           DISPATCH_DAILY_KEY: ${{ steps.dispatch_scope.outputs.daily_key }}
           DISPATCH_ITEM_ID: ${{ steps.dispatch_scope.outputs.selected_item_id }}
-        # Tier high (gpt-5.6-luna, max-turns alti): issue funnel-critical — crawler/parser/
+        # Tier high (gpt-6-luna, max-turns alti): issue funnel-critical — crawler/parser/
         # build-plugin/workflow CI/test gate, o uno script che MUTA/emette dati
         # indicizzati (backfill/migrate/assemble/sitemap/canonical/slug/
         # structured-data/seo). Bug lì = rischio propagato su ogni merge → probing
-        # rigoroso paga. Tier normal per il resto (stesso modello gpt-5.6-luna,
+        # rigoroso paga. Tier normal per il resto (stesso modello gpt-6-luna,
         # unificato: Codex Luna Max, effort max; cambiano solo i turni). Mirror ESATTO di
         # pr-review-loop: il bare `scripts/` NON escala più (mandava ogni menzione
         # di script — inclusi helper `scripts/{ci,dev,evals}/` e audit/report
@@ -1166,7 +1166,7 @@ jobs:
              || grep -qiE 'seo-[a-z0-9]|audit-dist|validate-dist' <<<"$body"; then
             {
               echo "tier=high"
-              echo "model=gpt-5.6-luna"
+              echo "model=gpt-6-luna"
             # 40->50 (misurato 06-12): 44 run/7gg morti error_max_turns a
             # unbounded turns (es. run 27386343034) = run intera bruciata,
             # 0 PR, issue ri-accodata -> retry = doppio burn. Il cap esiste
@@ -1180,7 +1180,7 @@ jobs:
           else
             {
               echo "tier=normal"
-              echo "model=gpt-5.6-luna"
+              echo "model=gpt-6-luna"
             # 30->40 (misurato 2026-06-12 post-#1919): 3 run tier=normal morti
             # error_max_turns al cap nella sola finestra 06:00-07:30Z (run
             # 27397873962/27399888568/27400421268, follow-up #1918/#1931) —

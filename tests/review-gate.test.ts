@@ -1210,7 +1210,7 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
       reviews: [[codexReview]],
       codexEvidence: {
         provider: 'codex',
-        model: 'gpt-5.6-luna',
+        model: 'gpt-6-luna',
         effort: 'max',
         trigger: 'runtime-429',
         status: 'success',
@@ -1229,7 +1229,7 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
     const app = { type: 'Bot', login: 'frontaliere-automation[bot]' };
     const unmarked = { id: 5368550896, user: app, state: 'COMMENTED', body, commit_id: HEAD_SHA, submitted_at: '2026-09-30T15:39:20Z' };
     const repaired = { id: 5368555034, user: app, state: 'COMMENTED', body: `${CODEX_REVIEW_MARKER}\n${body}`, commit_id: HEAD_SHA, submitted_at: '2026-09-30T15:39:44Z' };
-    const evidence = { provider: 'codex', model: 'gpt-5.6-luna', effort: 'max', trigger: 'runtime-429', status: 'success' };
+    const evidence = { provider: 'codex', model: 'gpt-6-luna', effort: 'max', trigger: 'runtime-429', status: 'success' };
     const result = await runReviewGate({
       repo: 'owner/repo',
       pr: 10580,
@@ -1268,7 +1268,7 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
       reviews: [[approvingBotReview]],
       codexEvidence: {
         provider: 'codex',
-        model: 'gpt-5.6-luna',
+        model: 'gpt-6-luna',
         effort: 'max',
         trigger: 'preflight-quota',
         status: 'success',

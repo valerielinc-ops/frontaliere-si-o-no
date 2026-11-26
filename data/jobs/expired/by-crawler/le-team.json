@@ -33,7 +33,9 @@
       "macon-ne-a-b-h-f-d-100-delemont-le-team-sa-5cc014a1-2ea2142c",
       "macon-ne-a-b-h-f-d-100-delemont-le-team-sa-d9001b85-ad7aa78d",
       "mason-a-b-m-f-d-100-le-team-sa-delemont-5cc014a1-ce6d7677",
-      "mason-a-b-m-w-d-100-le-team-sa-delemont-5cc014a1-dcca91c1"
+      "mason-a-b-m-w-d-100-le-team-sa-delemont-5cc014a1-dcca91c1",
+      "mason-a-b-m-f-d-100-le-team-sa-delemont-d9001b85",
+      "mason-a-b-m-w-d-100-le-team-sa-delemont-d9001b85"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -50,13 +52,15 @@
         "macon-ne-a-b-h-f-d-100-delemont-le-team-sa-5cc014a1",
         "mason-a-b-m-f-d-100-le-team-sa-delemont-5cc014a1-ce6d7677",
         "macon-ne-a-b-h-f-d-100-delemont-le-team-sa-5cc014a1-2ea2142c",
-        "macon-ne-a-b-h-f-d-100-delemont-le-team-sa-d9001b85"
+        "macon-ne-a-b-h-f-d-100-delemont-le-team-sa-d9001b85",
+        "mason-a-b-m-f-d-100-le-team-sa-delemont-d9001b85"
       ],
       "de": [
         "macon-ne-a-b-h-f-d-100-delemont-le-team-sa-5cc014a1",
         "mason-a-b-m-w-d-100-le-team-sa-delemont-5cc014a1-dcca91c1",
         "macon-ne-a-b-h-f-d-100-delemont-le-team-sa-5cc014a1-2ea2142c",
-        "macon-ne-a-b-h-f-d-100-delemont-le-team-sa-d9001b85"
+        "macon-ne-a-b-h-f-d-100-delemont-le-team-sa-d9001b85",
+        "mason-a-b-m-w-d-100-le-team-sa-delemont-d9001b85"
       ]
     },
     "postalCode": "2800",
@@ -78,7 +82,15 @@
         "firstSeenAt": "2026-11-24T09:21:46.109Z",
         "title": "Maçon-ne A-B (H/F/D) 100%"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "en": {
+        "mason-a-b-m-f-d-100-le-team-sa-delemont-d9001b85": "JU"
+      },
+      "de": {
+        "mason-a-b-m-w-d-100-le-team-sa-delemont-d9001b85": "JU"
+      }
+    }
   },
   {
     "id": "le-team-1e8613cc087e",

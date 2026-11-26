@@ -246,7 +246,7 @@ describe('Claude CLI usage-limit → indirect Codex fallback', () => {
     { role: 'user', content: 'Write the article body.' },
   ];
 
-  it('uses gpt-5.6-luna at max effort, preserves output/schema, and keeps auth in the broker', async () => {
+  it('uses gpt-6-luna at max effort, preserves output/schema, and keeps auth in the broker', async () => {
     const schema = {
       name: 'article',
       schema: {
@@ -473,7 +473,7 @@ describe('Claude CLI usage-limit → indirect Codex fallback', () => {
 
   it('uses max effort for both indirect and direct Codex fallback paths', () => {
     expect(CODEX_INDIRECT_FALLBACK_EFFORT).toBe('max');
-    expect(CODEX_FALLBACK_MODEL).toBe('gpt-5.6-luna');
+    expect(CODEX_FALLBACK_MODEL).toBe('gpt-6-luna');
     expect(CODEX_FALLBACK_EFFORT).toBe('max');
   });
 });

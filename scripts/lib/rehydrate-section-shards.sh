@@ -6,6 +6,8 @@ set -uo pipefail
 . "$(dirname "${BASH_SOURCE[0]}")/ticino-tree-fanout.sh"
 # shellcheck source=scripts/lib/rehydrate-provenance.sh
 . "$(dirname "${BASH_SOURCE[0]}")/rehydrate-provenance.sh"
+# shellcheck source=scripts/lib/rehydrate-tar-member.sh
+. "$(dirname "${BASH_SOURCE[0]}")/rehydrate-tar-member.sh"
 
 # Mirrors post-deploy-validate-dist.yml's rehydrate_section(): sections write
 # disjoint dist/ subtrees, but their workers are deliberately bounded. Each
@@ -269,21 +271,21 @@ rehydrate_section() {
       # claims to contain (`tar -tf`, empty on a corrupt header) against
       # what actually landed on disk after extraction — catches a
       # truncated/corrupted tar that a bare directory check would miss.
-      # `|| true` throughout: any anomaly here must fall through to the
-      # git-clone fallback below, not abort under `set -e`.
-      # Both passes stream the member out of the batch zip (see
-      # ensure_batch_downloaded): the tar never exists as a file.
-      expected_n=$(unzip -p "$dl/$BATCH_ZIP" "$member" 2>/dev/null | tar -tf - 2>/dev/null | { grep -vc '/$' || true; })
-      unzip -p "$dl/$BATCH_ZIP" "$member" | tar -C dist -xf -
-      # unzip's verdict is the CRC-32 the zip carries for this member, the
-      # check `gh run download` used to make before any tar reached disk. It
-      # is NOT redundant with the count below: a corrupt stream is listed and
-      # extracted identically by both passes (measured: a flipped byte in
-      # obvaldo-dist-en.tar → "tar listed 1003", 1003 extracted, of 2009), so
-      # the counts agree and only the CRC says the subtree is short. Info-ZIP
-      # uses status 1 for warnings, including CRC failures; only status 0 is a
-      # clean artifact verdict.
-      unzip_rc="${PIPESTATUS[0]}"
+      # Stream the member once to both tar readers. The helper keeps the
+      # listing/extraction counts and unzip CRC verdict independent while
+      # avoiding a second full ZIP decompression pass on the hosted runner.
+      if ! stream_tar_member "$dl/$BATCH_ZIP" "$member" dist; then
+        STREAM_TAR_EXPECTED_N=0
+        STREAM_TAR_LIST_RC=2
+        STREAM_TAR_UNZIP_RC=2
+        STREAM_TAR_TEE_RC=2
+        STREAM_TAR_EXTRACT_RC=2
+      fi
+      expected_n="$STREAM_TAR_EXPECTED_N"
+      list_rc="$STREAM_TAR_LIST_RC"
+      unzip_rc="$STREAM_TAR_UNZIP_RC"
+      tee_rc="$STREAM_TAR_TEE_RC"
+      tar_rc="$STREAM_TAR_EXTRACT_RC"
       # This section has read everything it needs from the batch zip.
       batch_zip_release "$batch" "$loc" "$section"
       actual_n=0
@@ -303,7 +305,9 @@ rehydrate_section() {
       # the only check here that treats "extraction produced a different
       # count than the archive claims to hold" as a mismatch instead of a
       # pass, forcing the git-clone fallback below.
-      if [ "${unzip_rc:-2}" -eq 0 ] && [ -d "dist/$sub" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -eq "$expected_n" ]; then
+      if [ "${unzip_rc:-2}" -eq 0 ] && [ "${list_rc:-2}" -eq 0 ] \
+          && [ "${tee_rc:-2}" -eq 0 ] && [ "${tar_rc:-2}" -eq 0 ] \
+          && [ -d "dist/$sub" ] && [ "${expected_n:-0}" -gt 0 ] && [ "$actual_n" -eq "$expected_n" ]; then
         echo "rehydrated $section $loc from tar artifact: $actual_n files (tar listed $expected_n)"
         rehydrate_provenance "$sub" artifact "shard-batch-$batch-dist-$loc"
         trunk_replace_end "$section-$loc"

@@ -1,15 +1,15 @@
 {
   "key": "bossard",
   "label": "Bossard Group",
-  "generatedAt": "2026-11-26T09:48:14.748Z",
+  "generatedAt": "2026-11-26T21:55:46.700Z",
   "total": 0,
   "discovered": null,
-  "parsed": null,
-  "lastFetchOutcome": "exhausted_retry",
+  "parsed": 0,
+  "lastFetchOutcome": null,
   "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "abortKind": "retryable-http-response",
+  "abortKind": "no-jobs-parsed",
   "written": 0,
   "newCount": 0,
   "updatedCount": 0,
@@ -21,5 +21,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "bb9ecce641e4806660b82ef90e95e36b4e9d873c"
+  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
 }

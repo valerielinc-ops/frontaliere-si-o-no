@@ -108,7 +108,7 @@ describe('cascade cap (#5650) — il tetto non puo tornare giu in silenzio', () 
 
 describe('lane Codex (#5650) — il fallback non rientra nel workflow traduzioni', () => {
   it('Phase 2b non reintroduce la preferenza Codex rimossa dal percorso di traduzione', () => {
-    expect(workflowText).not.toMatch(/AI_MODELS_PREFER:\s*.*codex-cli\/gpt-5\.6-luna/);
+    expect(workflowText).not.toMatch(/AI_MODELS_PREFER:\s*.*codex-cli\//);
   });
 
   it('il processo non riceve il socket privato del broker Codex', () => {

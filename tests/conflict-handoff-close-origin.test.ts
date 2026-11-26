@@ -50,7 +50,9 @@ describe('issue di hand-off: le issue chiuse dalla PR di origine passano alla PR
   it('handOffConflictToFixer passa closingIssuesReferences della PR di origine', () => {
     const source = readFileSync('scripts/ci/pr-autorebase.mjs', 'utf8');
     const fn = source.slice(source.indexOf('function handOffConflictToFixer('), source.indexOf('function prClosingIssueNumbers('));
-    expect(fn).toContain('closes: prClosingIssueNumbers(num)');
+    // Le issue chiuse arrivano da `prClosingIssueNumbers` via `readReapplyContext`, che le usa anche per la catena.
+    expect(fn).toContain('closes: context.closes');
+    expect(fn).toContain('const closes = prClosingIssueNumbers(num);');
     expect(source).toContain("'--json', 'closingIssuesReferences'");
   });
 });

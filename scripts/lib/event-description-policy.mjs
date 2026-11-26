@@ -18,6 +18,8 @@ export {
 };
 export const EVENT_DESCRIPTION_MIN_SHARED_NGRAM = 8;
 export const EVENT_DESCRIPTION_MIN_CHARS = 30;
+const ACCEPTED_CACHE_MODELS = new Set(['gpt-5.6-luna', EVENT_DESCRIPTION_REWRITE_MODEL]);
+
 const ACCEPTED_CACHE_PROMPT_VERSIONS = new Set([
   'event-description-rewrite-v1',
   'event-description-rewrite-v2',
@@ -429,8 +431,9 @@ export function isValidRewriteCacheEntry(entry, { id, sourceHash } = {}) {
   if (!entry || entry.id !== id || !isValidSourceDescriptionHash(sourceHash) || entry.sourceDescriptionHash !== sourceHash) return false;
   // Earlier prompt versions changed generation and retry guidance, not the source hash or
   // either safety invariant. Keep already-published v1 entries usable until
-  // their source changes; new entries are written with the current version.
-  if (entry.model !== EVENT_DESCRIPTION_REWRITE_MODEL || !ACCEPTED_CACHE_PROMPT_VERSIONS.has(entry.promptVersion)) return false;
+  // their source changes. The model migration also preserves valid historical
+  // entries; new entries record the current model and version.
+  if (!ACCEPTED_CACHE_MODELS.has(entry.model) || !ACCEPTED_CACHE_PROMPT_VERSIONS.has(entry.promptVersion)) return false;
   if (!usableText(entry.rewrittenAt) || Number.isNaN(Date.parse(entry.rewrittenAt))) return false;
   const descriptions = cacheEntryDescriptions(entry);
   if (!descriptions || normalizeDescriptionText(entry.description) !== descriptions.it) return false;

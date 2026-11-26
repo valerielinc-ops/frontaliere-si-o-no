@@ -10,7 +10,7 @@
 export const THROUGHPUT_SCHEMA_VERSION = 1;
 export const REJECTION_MEMORY_SCHEMA_VERSION = 1;
 export const EVENT_DESCRIPTION_CACHE_SCHEMA_VERSION = 2;
-export const EVENT_DESCRIPTION_REWRITE_MODEL = 'gpt-5.6-luna';
+export const EVENT_DESCRIPTION_REWRITE_MODEL = 'gpt-6-luna';
 export const EVENT_DESCRIPTION_PROMPT_VERSION = 'event-description-rewrite-v3';
 export const EVENT_DESCRIPTION_POLICY_VERSION = 'event-description-policy-v3';
 

@@ -676,7 +676,7 @@ export async function buildDraft(ctx) {
     cvTextMethod: cvMethod,
     cvTextVersion: CV_TEXT_VERSION,
     postingHash: hashText(postingText),
-    model: 'codex-cli/gpt-5.6-luna',
+    model: 'codex-cli/gpt-6-luna',
     effort: 'max',
     completedAt: nowMs,
     language,

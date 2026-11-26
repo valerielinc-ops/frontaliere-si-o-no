@@ -66,7 +66,7 @@ describe('Codex Luna Max article lane setup action', () => {
   it('installs and exposes only the bounded Codex lane', () => {
     const action = fs.readFileSync(actionPath, 'utf8');
     expect(action).toContain('name: "Setup Codex Luna Max article lane"');
-    expect(action).toContain('@openai/codex@0.153.4');
+    expect(action).toContain('@openai/codex@0.172.0');
     expect(action).toContain('codex-auth-broker.mjs');
     expect(action).toContain('codex_auth_broker_socket:');
     expect(action).not.toContain('@anthropic-ai/claude-code');
@@ -108,7 +108,7 @@ describe('Codex Luna Max article lane setup action', () => {
     expect(install).toContain('PATH="$safe_path"');
     expect(install).toContain('NPM_CONFIG_USERCONFIG="$npmrc"');
     expect(install).toContain('npm_config_cache="$npm_cache"');
-    expect(install).toContain('@openai/codex@0.153.4');
+    expect(install).toContain('@openai/codex@0.172.0');
     expect(install).not.toContain('CLAUDE_CODE_OAUTH_TOKEN');
   });
 

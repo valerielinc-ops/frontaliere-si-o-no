@@ -1543,7 +1543,7 @@ ${rawText}`;
     structureDescriptionCalls++;
     const result = await callLLM(
       [{ role: 'user', content: prompt }],
-      { model: 'codex-cli/gpt-5.6-luna', maxTokens: 4000, temperature: 0.1 }
+      { model: 'codex-cli/gpt-6-luna', maxTokens: 4000, temperature: 0.1 }
     );
     if (!result) {
       setCachedAiResponse(cacheKey, AI_CACHE_RAW_SENTINEL);
@@ -1698,7 +1698,7 @@ ${contextParts.join('\n\n')}`;
     enrichThinCalls++;
     const result = await callLLM(
       [{ role: 'user', content: prompt }],
-      { model: 'codex-cli/gpt-5.6-luna', maxTokens: 4000, temperature: 0.2 }
+      { model: 'codex-cli/gpt-6-luna', maxTokens: 4000, temperature: 0.2 }
     );
     if (!result) {
       setCachedAiResponse(cacheKey, AI_CACHE_RAW_SENTINEL);

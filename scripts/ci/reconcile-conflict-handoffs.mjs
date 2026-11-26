@@ -18,7 +18,7 @@ import fs, { realpathSync } from 'node:fs';
  * sweep copre gli hand-off che nessuno rilancia.
  *
  * Ogni tick (followup-drainer.yml, prima del drain) per ogni hand-off aperto:
- *   1. duplicati della stessa PR di origine e HEAD → resta quella con un claim o una
+ *   1. duplicati della stessa PR di origine (qualunque HEAD) → resta quella con un claim o una
  *      PR in volo, poi quella instradata al fixer, poi la piu' vecchia
  *      (`electHandoffKeeper`); le altre chiuse `duplicate`, ma non prima di
  *      `MIN_DUPLICATE_AGE_MINUTES` dalla loro creazione;
@@ -162,31 +162,35 @@ export function electHandoffKeeper(members, origin, openPrs = []) {
 }
 
 /**
- * Raggruppa gli hand-off aperti per PR di origine + HEAD provata ed elegge chi
- * resta con `electHandoffKeeper`. Gli altri sono duplicati. Un body senza HEAD
- * non viene mai accoppiato a un altro body: senza la seconda chiave il
- * riconciliatore resta fail-closed e non chiude lavoro valido per errore.
+ * Raggruppa gli hand-off aperti per PR di ORIGINE ed elegge chi resta con
+ * `electHandoffKeeper`. Gli altri sono duplicati, anche se portano HEAD diverse:
+ * un push nuovo su una PR gia' passata di mano non e' un conflitto nuovo da dare
+ * a un altro fixer, che lavora comunque sul contributo corrente della PR
+ * (#20164 → #20183 e #20206, #20204 → #20230 e #20235, #20209 → #20229 e
+ * #20234, #20201 → #20232 e #20237, tutte aperte insieme). Resta chi ha lavoro
+ * avviato (claim o PR in volo), altrimenti chi e' instradato, altrimenti la piu'
+ * vecchia; la chiusura dei duplicati rispetta comunque claim e finestra
+ * d'eta' (`planDuplicateClosures`). `head` del gruppo e' quella del keeper.
  *
  * @returns {Array<{ origin: number, head: string, keeper: object, duplicates: object[] }>}
  */
 export function groupHandoffs(issues, openPrs = []) {
-  const groups = [];
+  const byOrigin = new Map();
   for (const issue of issues || []) {
     const origin = conflictHandoffOriginPr(issue?.title);
     if (origin === null) continue;
-    const head = conflictHandoffExpectedHead(issue?.body);
-    const group = head
-      ? groups.find((candidate) => candidate.origin === origin
-        && candidate.head
-        && candidate.head === head)
-      : null;
-    if (group) group.members.push(issue);
-    else groups.push({ origin, head, members: [issue] });
+    if (!byOrigin.has(origin)) byOrigin.set(origin, []);
+    byOrigin.get(origin).push(issue);
   }
-  return groups.map(({ origin, head, members }) => {
+  return [...byOrigin].map(([origin, members]) => {
     const sorted = [...members].sort((a, b) => Number(a.number) - Number(b.number));
     const keeper = electHandoffKeeper(sorted, origin, openPrs);
-    return { origin, head, keeper, duplicates: sorted.filter((issue) => issue !== keeper) };
+    return {
+      origin,
+      head: conflictHandoffExpectedHead(keeper?.body),
+      keeper,
+      duplicates: sorted.filter((issue) => issue !== keeper),
+    };
   });
 }
 
@@ -539,7 +543,7 @@ export function closingComment({ reason, pr, originNumber, keeper, contentProof 
     .map((i) => `#${i.number} (${String(i.state || '').toUpperCase() === 'CLOSED' ? 'chiusa' : `aperta, ${labelNames(i).join(', ')}`})`)
     .join(', ');
   const why = {
-    duplicate: `è un duplicato di #${keeper}: stesso hand-off della PR #${originNumber}, aperto da una seconda run concorrente di \`pr-autorebase\`. Il lavoro prosegue su #${keeper}.`,
+    duplicate: `è un duplicato di #${keeper}: stesso hand-off della PR #${originNumber}, aperto da una seconda run concorrente di \`pr-autorebase\` o per una HEAD successiva della stessa PR. Il lavoro prosegue su #${keeper}.`,
     reapplied: `la PR **#${pr}**, già mergiata, riapplica la PR #${originNumber} (\`Closes\`/\`Supersedes\`), ma GitHub non ha chiuso questa issue.`,
     'origin-merged': `la PR di origine **#${originNumber}** è stata mergiata: il conflitto è stato risolto sul suo branch e il contributo è su \`main\`. Una riapplicazione sarebbe un duplicato.`,
     'conflict-resolved': `la PR di origine **#${originNumber}** è di nuovo mergeable sulla stessa HEAD e \`pr-autorebase\` ha tolto \`has-conflicts\` dopo l'apertura di questo hand-off (merge-tree pulito): il conflitto è rientrato e la PR prosegue nel proprio ciclo di review e merge.`,

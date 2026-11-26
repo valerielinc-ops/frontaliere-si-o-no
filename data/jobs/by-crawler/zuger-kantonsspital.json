@@ -1,7 +1,7 @@
 {
   "crawlerKey": "zuger-kantonsspital",
-  "assembledAt": "2026-11-26T09:53:19.140Z",
-  "runId": "45790998801",
+  "assembledAt": "2026-11-26T21:51:47.833Z",
+  "runId": "45897382103",
   "jobs": [
     {
       "id": "zuger-kantonsspital-2a272b0e0280",
@@ -35,7 +35,7 @@
       "url": "https://jobs.zgks.ch/Leitung-Pflege-Notfallzentrum-80-100--de-j903.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:52:40.905Z",
+      "crawledAt": "2026-11-26T21:51:16.406Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -84,8 +84,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:52:40.905Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-12T21:51:16.406Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.zgks.ch/leitung-pflege-notfallzentrum-80-100--de-j903.html"
     },
     {
       "id": "zuger-kantonsspital-bc605d251d6c",
@@ -119,7 +120,7 @@
       "url": "https://jobs.zgks.ch/Expertin-Anaesthesiepflege-NDS-HF-80-100-mw-de-j904.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:52:40.335Z",
+      "crawledAt": "2026-11-26T21:51:15.818Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -168,8 +169,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T09:52:40.335Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-20T21:51:15.818Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.zgks.ch/expertin-anaesthesiepflege-nds-hf-80-100-mw-de-j904.html"
     },
     {
       "id": "zuger-kantonsspital-8606e925d15b",
@@ -202,7 +204,7 @@
       "url": "https://jobs.zgks.ch/Pflegefachperson-HF-Medizin-Allgemein-80-100-mw-de-j907.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:52:39.884Z",
+      "crawledAt": "2026-11-26T21:51:15.353Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -251,8 +253,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T09:52:39.884Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-24T21:51:15.353Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.zgks.ch/pflegefachperson-hf-medizin-allgemein-80-100-mw-de-j907.html"
     },
     {
       "id": "zuger-kantonsspital-612ccaff3bab",
@@ -286,7 +289,7 @@
       "url": "https://jobs.zgks.ch/Neuropsychologin-in-Weiterbildung-60-80-mw-de-j909.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:52:39.310Z",
+      "crawledAt": "2026-11-26T21:51:14.759Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -335,8 +338,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T09:52:39.310Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-03T21:51:14.759Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.zgks.ch/neuropsychologin-in-weiterbildung-60-80-mw-de-j909.html"
     },
     {
       "id": "zuger-kantonsspital-1df4848484e3",
@@ -369,7 +373,7 @@
       "url": "https://jobs.zgks.ch/Med-Praxisassistentin-Pneumologie-80--de-j869.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:52:38.880Z",
+      "crawledAt": "2026-11-26T21:51:14.307Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -439,8 +443,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T09:52:38.880Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T21:51:14.307Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.zgks.ch/med-praxisassistentin-pneumologie-80--de-j869.html"
     },
     {
       "id": "zuger-kantonsspital-fa8010e3fd8e",
@@ -474,7 +479,7 @@
       "url": "https://jobs.zgks.ch/Radiologiefachperson-HF-80-100--de-j901.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:52:38.296Z",
+      "crawledAt": "2026-11-26T21:51:13.711Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -523,8 +528,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T09:52:38.296Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-07T21:51:13.711Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.zgks.ch/radiologiefachperson-hf-80-100--de-j901.html"
     },
     {
       "id": "zuger-kantonsspital-7c4a56e2329c",
@@ -558,7 +564,7 @@
       "url": "https://jobs.zgks.ch/Chefarztsekretaerin-Frauenklinik-100--de-j897.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:52:37.853Z",
+      "crawledAt": "2026-11-26T21:51:13.242Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -607,8 +613,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T09:52:37.853Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-08T21:51:13.242Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.zgks.ch/chefarztsekretaerin-frauenklinik-100--de-j897.html"
     },
     {
       "id": "zuger-kantonsspital-b96f5a114328",
@@ -642,7 +649,7 @@
       "url": "https://jobs.zgks.ch/Mitarbeiterin-Notfallempfang-40-50-mw-de-j879.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:52:37.397Z",
+      "crawledAt": "2026-11-26T21:51:12.785Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -695,8 +702,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-08T09:52:37.397Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-08T21:51:12.785Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.zgks.ch/mitarbeiterin-notfallempfang-40-50-mw-de-j879.html"
     },
     {
       "id": "zuger-kantonsspital-7b7178a33fe2",
@@ -730,7 +738,7 @@
       "url": "https://jobs.zgks.ch/Expertin-Notfallpflege-NDS-HF-80-100-mw-de-j848.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:52:36.817Z",
+      "crawledAt": "2026-11-26T21:51:12.207Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -773,8 +781,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T09:52:36.817Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T21:51:12.207Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.zgks.ch/expertin-notfallpflege-nds-hf-80-100-mw-de-j848.html"
     },
     {
       "id": "zuger-kantonsspital-896f5193ac69",
@@ -808,7 +817,7 @@
       "url": "https://jobs.zgks.ch/Expertin-Anaesthesiepflege-NDS-HF-Ambulantes-Operationszen-de-j912.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:52:36.362Z",
+      "crawledAt": "2026-11-26T21:51:11.751Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -857,8 +866,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:52:36.362Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-10T21:51:11.751Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.zgks.ch/expertin-anaesthesiepflege-nds-hf-ambulantes-operationszen-de-j912.html"
     },
     {
       "id": "zuger-kantonsspital-35bd99f9e618",
@@ -892,7 +902,7 @@
       "url": "https://jobs.zgks.ch/Klinischer-Fachspezialistin-70-90-mw-de-j915.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:52:35.920Z",
+      "crawledAt": "2026-11-26T21:51:11.287Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -941,8 +951,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T09:52:35.920Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-14T21:51:11.287Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.zgks.ch/klinischer-fachspezialistin-70-90-mw-de-j915.html"
     },
     {
       "id": "zuger-kantonsspital-f0ce31a17e25",
@@ -976,7 +987,7 @@
       "url": "https://jobs.zgks.ch/Pflegefachperson-HF-FH-Notfallzentrum-80-100-mw-de-j877.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:52:35.359Z",
+      "crawledAt": "2026-11-26T21:51:10.700Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1033,8 +1044,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T09:52:35.359Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-18T21:51:10.700Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.zgks.ch/pflegefachperson-hf-fh-notfallzentrum-80-100-mw-de-j877.html"
     },
     {
       "id": "zuger-kantonsspital-c7e97cd89324",
@@ -1067,7 +1079,7 @@
       "url": "https://jobs.zgks.ch/Fachperson-Operationstechnik-HF-80-100--de-j917.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:52:34.789Z",
+      "crawledAt": "2026-11-26T21:51:10.121Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1118,8 +1130,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-21T09:52:34.789Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-21T21:51:10.121Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.zgks.ch/fachperson-operationstechnik-hf-80-100--de-j917.html"
     },
     {
       "id": "zuger-kantonsspital-5e9dfb4d220e",
@@ -1153,7 +1166,7 @@
       "url": "https://jobs.zgks.ch/Pflegefachperson-HF-Medizin-Privatabteilung-80-100--de-j895.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:52:34.205Z",
+      "crawledAt": "2026-11-26T21:51:09.656Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1196,8 +1209,89 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-23T09:52:34.205Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-23T21:51:09.656Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.zgks.ch/pflegefachperson-hf-medizin-privatabteilung-80-100--de-j895.html"
+    },
+    {
+      "id": "zuger-kantonsspital-b73e886c7d88",
+      "slug": "unterassistent-in-orthopala-e-traumatologie-m-w-d-per-februar-e-marz-2027-zuger-kantonsspital-baar",
+      "slugByLocale": {
+        "de": "unterassistent-in-orthopadie-und-traumatologie-m-w-fur-februar-und-marz-2027-zuger",
+        "it": "unterassistent-in-orthopala-e-traumatologie-m-w-d-per-februar-e-marz-2027-zuger-kantonsspital-baar",
+        "en": "unterassistent-in-orthopadie-und-traumatologie-m-w-fur-februar-und-marz-2027-zuger",
+        "fr": "unterassistent-in-orthopadie-und-traumatologie-m-w-fur-februar-und-marz-2027-zuger"
+      },
+      "company": "Zuger Kantonsspital",
+      "companyKey": "zuger-kantonsspital",
+      "companyDomain": "zgks.ch",
+      "title": "Unterassistent/in Orthopädie und Traumatologie (m/w) für Februar und März 2027",
+      "titleByLocale": {
+        "de": "Unterassistent/in Orthopädie und Traumatologie (m/w) für Februar und März 2027",
+        "it": "Unterassistent/in Orthopäla e Traumatologie (m/w) per Februar e März 2027",
+        "en": "Unterassistent/in Orthopädie und Traumatologie (m/w) für Februar und März 2027",
+        "fr": "Unterassistent/in Orthopädie und Traumatologie (m/w) für Februar und März 2027"
+      },
+      "description": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1’200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. In unserer Klinik für Orthopädie und Traumatologie werden pro Jahr etwa 2'500 Eingriffe durchgeführt sowie ungefähr 2000 stationäre und 9000 ambulante Patienten behandelt. Die Klinik teilt sich in subspezialisierte Teams auf: Schulter und Ellenbogen, Hüfte, Knie, Fuss und Sprunggelenk sowie Traumatologie. Beleg- und Konsiliarärzte sind im Bereich der Kieferchirurgie, Handchirurgie und Wirbelsäulenchirurgie tätig. Die Klinik für Orthopädie und Traumatologie hat eine Weiterbildungsberechtigung für den Facharzttitel Orthopädische Chirurgie und Traumatologie des Bewegungsapparates in der Kategorie B1. Für unsere Klinik für Orthopädie und Traumatologie suchen wir für die Monate Februar bis März 2027 eine/n Unterassistent/in (m/w) Ihre Aufgaben\n• Einsatz im Operationssaal, im Notfallzentrum und auf den Bettenstationen\n• Betreuung von Patienten in Zusammenarbeit mit den zuständigen Assistenz- und Oberärzten und Einsatz in der regulären ärztlichen Stationsarbeit\n• Teilnahme an allen regulären Weiterbildungsveranstaltungen unserer Klinik und Beteiligung am Wochenenddienst Ihr Profil\n• Medizinstudenten/-innen im Wahlstudienjahr oder PJ\n• Hohe Motivation sowie gute Teamfähigkeit\n• Hohe Dienstleistungsbereitschaft und empathischer Umgang gegenüber Patienten und Mitarbeitern\n• Sehr gute Deutschkenntnisse in Wort und Schrift Unser Angebot Wir bieten Ihnen eine monatliche Vergütung von CHF 1'400.00 (brutto), Personalzimmer mit einer finanziellen Beteiligung sowie eine neue und moderne Infrastruktur in unserem Spital an zentraler Lage, in unmittelbarer Nähe des Bahnhofs Baar und des Autobahnanschlusses. Interessiert? Wir freuen uns auf Ihre elektronische Bewerbung an Nadja Schuler, Personalassistentin. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Venessa Kerqeli, Chefarztsekretärin Klinik für Orthopädie und Traumatologie, T +41 41 399 47 30.",
+      "descriptionByLocale": {
+        "de": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1’200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. In unserer Klinik für Orthopädie und Traumatologie werden pro Jahr etwa 2'500 Eingriffe durchgeführt sowie ungefähr 2000 stationäre und 9000 ambulante Patienten behandelt. Die Klinik teilt sich in subspezialisierte Teams auf: Schulter und Ellenbogen, Hüfte, Knie, Fuss und Sprunggelenk sowie Traumatologie. Beleg- und Konsiliarärzte sind im Bereich der Kieferchirurgie, Handchirurgie und Wirbelsäulenchirurgie tätig. Die Klinik für Orthopädie und Traumatologie hat eine Weiterbildungsberechtigung für den Facharzttitel Orthopädische Chirurgie und Traumatologie des Bewegungsapparates in der Kategorie B1. Für unsere Klinik für Orthopädie und Traumatologie suchen wir für die Monate Februar bis März 2027 eine/n Unterassistent/in (m/w) Ihre Aufgaben\n• Einsatz im Operationssaal, im Notfallzentrum und auf den Bettenstationen\n• Betreuung von Patienten in Zusammenarbeit mit den zuständigen Assistenz- und Oberärzten und Einsatz in der regulären ärztlichen Stationsarbeit\n• Teilnahme an allen regulären Weiterbildungsveranstaltungen unserer Klinik und Beteiligung am Wochenenddienst Ihr Profil\n• Medizinstudenten/-innen im Wahlstudienjahr oder PJ\n• Hohe Motivation sowie gute Teamfähigkeit\n• Hohe Dienstleistungsbereitschaft und empathischer Umgang gegenüber Patienten und Mitarbeitern\n• Sehr gute Deutschkenntnisse in Wort und Schrift Unser Angebot Wir bieten Ihnen eine monatliche Vergütung von CHF 1'400.00 (brutto), Personalzimmer mit einer finanziellen Beteiligung sowie eine neue und moderne Infrastruktur in unserem Spital an zentraler Lage, in unmittelbarer Nähe des Bahnhofs Baar und des Autobahnanschlusses. Interessiert? Wir freuen uns auf Ihre elektronische Bewerbung an Nadja Schuler, Personalassistentin. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Venessa Kerqeli, Chefarztsekretärin Klinik für Orthopädie und Traumatologie, T +41 41 399 47 30.",
+        "it": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1’200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. In unserer Klinik für Orthopädie und Traumatologie werden pro Jahr etwa 2'500 Eingriffe durchgeführt sowie ungefähr 2000 stationäre und 9000 ambulante Patienten behandelt. Die Klinik teilt sich in subspezialisierte Teams auf: Schulter und Ellenbogen, Hüfte, Knie, Fuss und Sprunggelenk sowie Traumatologie. Beleg- und Konsiliarärzte sind im Bereich der Kieferchirurgie, Handchirurgie und Wirbelsäulenchirurgie tätig. Die Klinik für Orthopädie und Traumatologie hat eine Weiterbildungsberechtigung für den Facharzttitel Orthopädische Chirurgie und Traumatologie des Bewegungsapparates in der Kategorie B1. Für unsere Klinik für Orthopädie und Traumatologie suchen wir für die Monate Februar bis März 2027 eine/n Unterassistent/in (m/w) Ihre Aufgaben\n• Einsatz im Operationssaal, im Notfallzentrum und auf den Bettenstationen\n• Betreuung von Patienten in Zusammenarbeit mit den zuständigen Assistenz- und Oberärzten und Einsatz in der regulären ärztlichen Stationsarbeit\n• Teilnahme an allen regulären Weiterbildungsveranstaltungen unserer Klinik und Beteiligung am Wochenenddienst Ihr Profil\n• Medizinstudenten/-innen im Wahlstudienjahr oder PJ\n• Hohe Motivation sowie gute Teamfähigkeit\n• Hohe Dienstleistungsbereitschaft und empathischer Umgang gegenüber Patienten und Mitarbeitern\n• Sehr gute Deutschkenntnisse in Wort und Schrift Unser Angebot Wir bieten Ihnen eine monatliche Vergütung von CHF 1'400.00 (brutto), Personalzimmer mit einer finanziellen Beteiligung sowie eine neue und moderne Infrastruktur in unserem Spital an zentraler Lage, in unmittelbarer Nähe des Bahnhofs Baar und des Autobahnanschlusses. Interessiert? Wir freuen uns auf Ihre elektronische Bewerbung an Nadja Schuler, Personalassistentin. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Venessa Kerqeli, Chefarztsekretärin Klinik für Orthopädie und Traumatologie, T +41 41 399 47 30.",
+        "en": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1’200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. In unserer Klinik für Orthopädie und Traumatologie werden pro Jahr etwa 2'500 Eingriffe durchgeführt sowie ungefähr 2000 stationäre und 9000 ambulante Patienten behandelt. Die Klinik teilt sich in subspezialisierte Teams auf: Schulter und Ellenbogen, Hüfte, Knie, Fuss und Sprunggelenk sowie Traumatologie. Beleg- und Konsiliarärzte sind im Bereich der Kieferchirurgie, Handchirurgie und Wirbelsäulenchirurgie tätig. Die Klinik für Orthopädie und Traumatologie hat eine Weiterbildungsberechtigung für den Facharzttitel Orthopädische Chirurgie und Traumatologie des Bewegungsapparates in der Kategorie B1. Für unsere Klinik für Orthopädie und Traumatologie suchen wir für die Monate Februar bis März 2027 eine/n Unterassistent/in (m/w) Ihre Aufgaben\n• Einsatz im Operationssaal, im Notfallzentrum und auf den Bettenstationen\n• Betreuung von Patienten in Zusammenarbeit mit den zuständigen Assistenz- und Oberärzten und Einsatz in der regulären ärztlichen Stationsarbeit\n• Teilnahme an allen regulären Weiterbildungsveranstaltungen unserer Klinik und Beteiligung am Wochenenddienst Ihr Profil\n• Medizinstudenten/-innen im Wahlstudienjahr oder PJ\n• Hohe Motivation sowie gute Teamfähigkeit\n• Hohe Dienstleistungsbereitschaft und empathischer Umgang gegenüber Patienten und Mitarbeitern\n• Sehr gute Deutschkenntnisse in Wort und Schrift Unser Angebot Wir bieten Ihnen eine monatliche Vergütung von CHF 1'400.00 (brutto), Personalzimmer mit einer finanziellen Beteiligung sowie eine neue und moderne Infrastruktur in unserem Spital an zentraler Lage, in unmittelbarer Nähe des Bahnhofs Baar und des Autobahnanschlusses. Interessiert? Wir freuen uns auf Ihre elektronische Bewerbung an Nadja Schuler, Personalassistentin. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Venessa Kerqeli, Chefarztsekretärin Klinik für Orthopädie und Traumatologie, T +41 41 399 47 30.",
+        "fr": "Das Zuger Kantonsspital steht im Dienst der Gesundheit der Bevölkerung des Kantons Zug und der umliegenden Regionen. Rund 1’200 Mitarbeitende, davon 180 in Aus- und Weiterbildung, sind in den verschiedensten Bereichen tätig. Jedes Jahr behandeln und betreuen wir über 11'500 stationäre und über 70'000 ambulante Patientinnen und Patienten. Im interdisziplinären Notfallzentrum werden jährlich mehr als 27'500 Personen behandelt. In unserer Klinik für Orthopädie und Traumatologie werden pro Jahr etwa 2'500 Eingriffe durchgeführt sowie ungefähr 2000 stationäre und 9000 ambulante Patienten behandelt. Die Klinik teilt sich in subspezialisierte Teams auf: Schulter und Ellenbogen, Hüfte, Knie, Fuss und Sprunggelenk sowie Traumatologie. Beleg- und Konsiliarärzte sind im Bereich der Kieferchirurgie, Handchirurgie und Wirbelsäulenchirurgie tätig. Die Klinik für Orthopädie und Traumatologie hat eine Weiterbildungsberechtigung für den Facharzttitel Orthopädische Chirurgie und Traumatologie des Bewegungsapparates in der Kategorie B1. Für unsere Klinik für Orthopädie und Traumatologie suchen wir für die Monate Februar bis März 2027 eine/n Unterassistent/in (m/w) Ihre Aufgaben\n• Einsatz im Operationssaal, im Notfallzentrum und auf den Bettenstationen\n• Betreuung von Patienten in Zusammenarbeit mit den zuständigen Assistenz- und Oberärzten und Einsatz in der regulären ärztlichen Stationsarbeit\n• Teilnahme an allen regulären Weiterbildungsveranstaltungen unserer Klinik und Beteiligung am Wochenenddienst Ihr Profil\n• Medizinstudenten/-innen im Wahlstudienjahr oder PJ\n• Hohe Motivation sowie gute Teamfähigkeit\n• Hohe Dienstleistungsbereitschaft und empathischer Umgang gegenüber Patienten und Mitarbeitern\n• Sehr gute Deutschkenntnisse in Wort und Schrift Unser Angebot Wir bieten Ihnen eine monatliche Vergütung von CHF 1'400.00 (brutto), Personalzimmer mit einer finanziellen Beteiligung sowie eine neue und moderne Infrastruktur in unserem Spital an zentraler Lage, in unmittelbarer Nähe des Bahnhofs Baar und des Autobahnanschlusses. Interessiert? Wir freuen uns auf Ihre elektronische Bewerbung an Nadja Schuler, Personalassistentin. Es werden nur Direktbewerbungen berücksichtigt. Weitere Informationen zur Funktion gibt Ihnen gerne Venessa Kerqeli, Chefarztsekretärin Klinik für Orthopädie und Traumatologie, T +41 41 399 47 30."
+      },
+      "needsRetranslation": true,
+      "location": "Baar",
+      "canton": "ZG",
+      "url": "https://jobs.zgks.ch/Unterassistentin-Orthopaedie-und-Traumatologie-mw-fuer-Feb-de-j830.html",
+      "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-26T21:51:09.030Z",
+      "addressLocality": "Baar",
+      "addressRegion": "ZG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6340",
+      "streetAddress": "Landhausstrasse 11",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-26",
+      "postedDate": "2026-11-26",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.zgks.ch/Unterassistentin-Orthopaedie-und-Traumatologie-mw-fuer-Feb-de-j830.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "unterassistent-in-orthopadie-und-traumatologie-m-w-fur-februar-und-marz-2027-zuger"
+        ]
+      },
+      "previousSlugs": [
+        "unterassistent-in-orthopadie-und-traumatologie-m-w-fur-februar-und-marz-2027-zuger"
+      ],
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-24T21:51:09.030Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-26T21:51:09.030Z"
     },
     {
       "id": "zuger-kantonsspital-732d99692d94",
@@ -1282,7 +1376,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-28T21:43:30.333Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://jobs.zgks.ch/physiotherapeutin-neurologie-intensivstation-80-100-mw-de-j908.html"
     }
   ]
 }
