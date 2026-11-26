@@ -286,7 +286,7 @@ async function fetchJobListings({ fetchHtmlImpl = fetchHtml } = {}) {
       complete = true;
       break;
     }
-    if (rows.length < LISTING_PAGE_SIZE) {
+    if (rows.length < LISTING_PAGE_SIZE && total == null) {
       complete = true;
       break;
     }
@@ -351,16 +351,48 @@ async function fetchJobListings({ fetchHtmlImpl = fetchHtml } = {}) {
   };
 }
 
-function parseJobPostingJsonLd(document) {
+function structuredUrlStrings(value) {
+  if (typeof value === 'string') return [value];
+  if (Array.isArray(value)) return value.flatMap(structuredUrlStrings);
+  if (!value || typeof value !== 'object') return [];
+  return [value['@id'], value.url].flatMap(structuredUrlStrings);
+}
+
+function jobPostingUrls(posting) {
+  for (const value of [posting?.url, posting?.mainEntityOfPage, posting?.['@id']]) {
+    const urls = structuredUrlStrings(value).map((url) => url.trim()).filter(Boolean);
+    if (urls.length > 0) return urls;
+  }
+  return [];
+}
+
+function sameRitualsPostingUrl(left, right) {
+  const leftPosting = jobPostingPath(left);
+  const rightPosting = jobPostingPath(right);
+  if (!leftPosting || !rightPosting || leftPosting.jobId !== rightPosting.jobId) return false;
+  return new URL(leftPosting.url).pathname === new URL(rightPosting.url).pathname;
+}
+
+function parseJobPostingJsonLd(document, listingUrl = '') {
+  const urlLessNodes = [];
+  const requestedPosting = jobPostingPath(listingUrl);
+  let nodeCount = 0;
   for (const script of document.querySelectorAll('script[type="application/ld+json"]')) {
     try {
       const nodes = extractJobPostingNodesFromJson(JSON.parse(script.textContent || ''));
-      if (nodes[0]) return nodes[0];
+      nodeCount += nodes.length;
+      for (const node of nodes) {
+        const urls = jobPostingUrls(node);
+        if (requestedPosting && urls.some((url) => sameRitualsPostingUrl(url, listingUrl))) {
+          return node;
+        }
+        if (urls.length === 0) urlLessNodes.push(node);
+      }
     } catch {
       // An unrelated malformed JSON-LD block must not hide the detail body.
     }
   }
-  return null;
+  return nodeCount === 1 && urlLessNodes.length === 1 ? urlLessNodes[0] : null;
 }
 
 function removeSourceChrome(root) {
@@ -400,14 +432,16 @@ function detailLocation(document, listing, posting) {
   }
   for (const candidate of candidates) {
     const location = cleanRitualsLocation(candidate);
-    if (location) return location;
+    if (!location) continue;
+    const storeCanton = RITUALS_STORE_LOCALITY_CANTONS.get(normalize(location).normalize('NFC'));
+    if (storeCanton || inferSwissTargetCanton(location)) return location;
   }
   return '';
 }
 
 export function parseRitualsDetailPage(html = '', listing = {}) {
   const document = new JSDOM(String(html || '')).window.document;
-  const posting = parseJobPostingJsonLd(document);
+  const posting = parseJobPostingJsonLd(document, listing.url);
   const title = normalizeSpace(posting?.title || document.querySelector('main h1,h1')?.textContent || listing.title || '');
   const jsonDescription = posting?.description ? stripHtml(String(posting.description)) : '';
   const htmlDescription = extractDetailDescription(document);

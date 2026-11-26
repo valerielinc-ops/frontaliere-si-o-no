@@ -125,6 +125,51 @@ describe('Rituals Cosmetics Switzerland crawler parser', () => {
       expect(detail.description).not.toContain('Newsletter');
     });
 
+    it('selects the JSON-LD posting that matches the requested listing URL', () => {
+      const matchingTitle = 'Verkaufsberaterin Basel';
+      const matchingDescription = SOURCE_BODY;
+      const detailHtml = `<main><h1>Fallback title</h1></main>
+      <script type="application/ld+json">${JSON.stringify([
+        {
+          '@type': 'JobPosting',
+          url: 'https://careers.rituals.com/de-CH/jobs/other/OTHER1/',
+          title: 'Unrelated stale posting',
+          description: 'A stale body that must not be published.',
+        },
+        {
+          '@type': 'JobPosting',
+          url: DETAIL_URL,
+          title: matchingTitle,
+          description: matchingDescription,
+          jobLocation: { address: { addressLocality: 'Basel' } },
+        },
+      ])}</script>`;
+
+      const detail = parseRitualsDetailPage(detailHtml, { url: DETAIL_URL });
+
+      expect(detail).toMatchObject({
+        title: matchingTitle,
+        description: expect.stringContaining(matchingDescription.slice(0, 40)),
+        location: 'Basel',
+      });
+    });
+
+    it('continues past an unresolvable listing location to a structured Swiss locality', () => {
+      const detailHtml = `<main><h1>Aushilfe Verkaufsberater (m/w/d)</h1></main>
+      <script type="application/ld+json">${JSON.stringify({
+        '@type': 'JobPosting',
+        description: SOURCE_BODY,
+        jobLocation: { address: { addressLocality: 'Basel' } },
+      })}</script>`;
+
+      const detail = parseRitualsDetailPage(detailHtml, {
+        url: DETAIL_URL,
+        locationRaw: '20 hours',
+      });
+
+      expect(detail.location).toBe('Basel');
+    });
+
     it('publishes official jobs and skips a detail without source body', async () => {
       const fetchHtml = async (url: string) => {
         if (url === RITUALS_COSMETICS_CAREER_URL) return LISTING_HTML;
@@ -162,6 +207,32 @@ describe('Rituals Cosmetics Switzerland crawler parser', () => {
       expect(job.location.toLowerCase()).toContain('schoenbuehl');
     });
 
+    it('publishes the structured Basel locality when the listing value is not canton-resolvable', async () => {
+      const detailUrl = 'https://careers.rituals.com/de-CH/jobs/verkaufsberater-basel/R3951/';
+      const listingHtml = `<main><article>
+        <h2>Verkaufsberater Basel</h2>
+        <a href="${detailUrl}">Verkaufsberater Basel</a>
+        <span>Shop • Unknown store • 0-41 Stunden</span>
+      </article></main>`;
+      const detailHtml = `<main><h1>Verkaufsberater Basel</h1><p>${SOURCE_BODY}</p></main>
+      <script type="application/ld+json">${JSON.stringify({
+        '@type': 'JobPosting',
+        url: detailUrl,
+        description: SOURCE_BODY,
+        jobLocation: { address: { addressLocality: 'Basel' } },
+      })}</script>`;
+      const fetchHtml = async (url: string) => {
+        if (url === RITUALS_COSMETICS_CAREER_URL) return listingHtml;
+        if (url === detailUrl) return detailHtml;
+        throw new Error(`unexpected Rituals URL: ${url}`);
+      };
+
+      const jobs: any[] = await fetchAllRitualsCosmeticsJobs({ _fetchHtml: fetchHtml });
+
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({ location: 'Basel', canton: 'BS' });
+    });
+
     it('fails closed when the next listing page cannot be fetched', async () => {
       const listingHtml = `<main>${Array.from({ length: 20 }, (_, index) => `
         <article><a href="https://careers.rituals.com/de-CH/jobs/role-${index}/R${index}/">Role ${index}</a>
@@ -175,6 +246,27 @@ describe('Rituals Cosmetics Switzerland crawler parser', () => {
         specListingFailure: true,
         specDiscoveredCount: 20,
       });
+    });
+
+    it('continues pagination when a short parsed page reports a larger total', async () => {
+      const listingHtml = `<main>
+        ${Array.from({ length: 19 }, (_, index) => `
+          <article><a href="https://careers.rituals.com/de-CH/jobs/role-${index}/R${index}/">Role ${index}</a>
+          <span>Shop • Stans • 0-41 Stunden</span></article>`).join('')}
+        <p>1-20 of 40 jobs</p>
+      </main>`;
+      const requested: string[] = [];
+      const fetchHtml = async (url: string) => {
+        requested.push(url);
+        if (url === RITUALS_COSMETICS_CAREER_URL) return listingHtml;
+        throw new Error(`page unavailable: ${url}`);
+      };
+
+      await expect(fetchAllRitualsCosmeticsJobs({ _fetchHtml: fetchHtml })).rejects.toMatchObject({
+        specListingFailure: true,
+        specDiscoveredCount: 19,
+      });
+      expect(requested).toContain(`${RITUALS_COSMETICS_CAREER_URL}?from=20`);
     });
   });
 
