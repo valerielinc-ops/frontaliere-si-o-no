@@ -113,6 +113,11 @@ export const UNIVERSAL_BENIGN_PATTERNS: readonly RegExp[] = [
   /__gCrWeb/,
   /TrackerStorageType/,
 
+  // Firefox raises this when an add-on keeps a DOM reference after its parent
+  // document has been destroyed. It has no first-party call site and is the
+  // generic extension counterpart to the named globals above (#19706).
+  /can't access dead object/i,
+
   // ── Browser-extension messaging API failure — #4849 ──
   // "Invalid call to runtime.sendMessage(). Tab not found." is thrown by
   // Chrome's extension messaging API (`chrome.runtime.sendMessage` /
