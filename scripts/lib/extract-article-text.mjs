@@ -124,31 +124,37 @@ const ICMS_INACTIVE_SELECTOR = [
   '[data-icms-active="false"]', '[class~="d-none" i]', '[class~="hidden" i]',
   '[class~="inactive" i]', '[class~="is-inactive" i]',
 ].join(', ');
+const ICMS_DATE_VALUE_ATTRIBUTES = [
+  'datetime', 'content', 'data-date', 'data-published', 'data-publish-date',
+  'data-icms-date', 'data-icms-published',
+];
 
 function normalizePublishedDate(raw) {
   if (typeof raw !== 'string') return '';
   const value = raw.trim();
   if (!value) return '';
 
+  const european = value.match(/^(\d{1,2})[./-](\d{1,2})[./-](\d{4})(?:[ T](\d{1,2}):(\d{2})(?::(\d{2}))?)?$/u);
+  if (european) {
+    const [, day, month, year, hour = '00', minute = '00', second = '00'] = european;
+    const normalized = new Date(Date.UTC(
+      Number(year), Number(month) - 1, Number(day), Number(hour), Number(minute), Number(second),
+    ));
+    if (Number.isNaN(normalized.getTime())
+      || normalized.getUTCFullYear() !== Number(year)
+      || normalized.getUTCMonth() !== Number(month) - 1
+      || normalized.getUTCDate() !== Number(day)
+      || normalized.getUTCHours() !== Number(hour)
+      || normalized.getUTCMinutes() !== Number(minute)
+      || normalized.getUTCSeconds() !== Number(second)) {
+      return '';
+    }
+    return normalized.toISOString();
+  }
+
   const parsed = new Date(value);
   if (!Number.isNaN(parsed.getTime())) return parsed.toISOString();
-
-  const european = value.match(/^(\d{1,2})[./-](\d{1,2})[./-](\d{4})(?:[ T](\d{1,2}):(\d{2})(?::(\d{2}))?)?$/u);
-  if (!european) return '';
-  const [, day, month, year, hour = '00', minute = '00', second = '00'] = european;
-  const normalized = new Date(Date.UTC(
-    Number(year), Number(month) - 1, Number(day), Number(hour), Number(minute), Number(second),
-  ));
-  if (Number.isNaN(normalized.getTime())
-    || normalized.getUTCFullYear() !== Number(year)
-    || normalized.getUTCMonth() !== Number(month) - 1
-    || normalized.getUTCDate() !== Number(day)
-    || normalized.getUTCHours() !== Number(hour)
-    || normalized.getUTCMinutes() !== Number(minute)
-    || normalized.getUTCSeconds() !== Number(second)) {
-    return '';
-  }
-  return normalized.toISOString();
+  return '';
 }
 
 function querySelectorAllIncludingRoot(root, selector) {
@@ -161,6 +167,46 @@ function isActiveIcmsDateNode(node) {
   return !node.matches(ICMS_INACTIVE_SELECTOR) && !node.closest(ICMS_INACTIVE_SELECTOR);
 }
 
+function collapseNestedIcmsCandidates(candidates) {
+  const logicalCandidates = [];
+  for (const candidate of candidates) {
+    let ancestor = candidate.parentElement;
+    let nested = false;
+    while (ancestor) {
+      if (candidates.has(ancestor)) {
+        nested = true;
+        break;
+      }
+      ancestor = ancestor.parentElement;
+    }
+    if (!nested) logicalCandidates.push(candidate);
+  }
+  return logicalCandidates;
+}
+
+function readIcmsDateValue(node) {
+  for (const attribute of ICMS_DATE_VALUE_ATTRIBUTES) {
+    const value = node.getAttribute(attribute);
+    if (value) return value;
+  }
+  return '';
+}
+
+function normalizeIcmsCandidateDate(candidate, candidates) {
+  const rawValues = [];
+  for (const node of candidates) {
+    if (node !== candidate && !candidate.contains(node)) continue;
+    const value = readIcmsDateValue(node);
+    if (value) rawValues.push(value);
+  }
+  if (rawValues.length === 0) rawValues.push(candidate.textContent || '');
+
+  const normalizedValues = rawValues.map(normalizePublishedDate);
+  if (normalizedValues.some(value => !value)) return '';
+  const uniqueValues = new Set(normalizedValues);
+  return uniqueValues.size === 1 ? [...uniqueValues][0] : '';
+}
+
 function extractIcmsPublishedDate(root) {
   if (!root) return '';
 
@@ -170,22 +216,9 @@ function extractIcmsPublishedDate(root) {
       if (isActiveIcmsDateNode(candidate)) candidates.add(candidate);
     }
   }
-  if (candidates.size !== 1) return '';
-
-  const [candidate] = candidates;
-  const raw = candidate.getAttribute('datetime')
-    || candidate.getAttribute('content')
-    || candidate.getAttribute('data-date')
-    || candidate.getAttribute('data-published')
-    || candidate.getAttribute('data-publish-date')
-    || candidate.getAttribute('data-icms-date')
-    || candidate.getAttribute('data-icms-published')
-    || candidate.textContent
-    || '';
-  const publishedAt = normalizePublishedDate(raw);
-  if (publishedAt) return publishedAt;
-
-  return '';
+  const logicalCandidates = collapseNestedIcmsCandidates(candidates);
+  if (logicalCandidates.length !== 1) return '';
+  return normalizeIcmsCandidateDate(logicalCandidates[0], candidates);
 }
 
 /**
@@ -907,14 +940,16 @@ export function extractArticleText(html, opts = {}) {
   const noscriptFallbacks = opts.scriptingDisabled === true
     ? mergeNoscriptFallbackBlocks(document, maxChars, noscriptSourceMarkup)
     : null;
-  const editorialSelection = selectEditorialRoot(document, maxChars, noscriptFallbacks);
-  const publishedAt = extractPublishedDate(document, editorialSelection.root);
-
   // 1. JSON-LD articleBody (most reliable)
   const jsonLdBody = noscriptFallbacks
     ? selectNoscriptJsonLdPrecedence(document, noscriptFallbacks)
     : extractFromJsonLd(document);
-  if (jsonLdBody && jsonLdBody.length > 200) {
+  const usesJsonLdBody = Boolean(jsonLdBody && jsonLdBody.length > 200);
+  const editorialSelection = usesJsonLdBody
+    ? { root: null, paragraphs: [] }
+    : selectEditorialRoot(document, maxChars, noscriptFallbacks);
+  const publishedAt = extractPublishedDate(document, editorialSelection.root);
+  if (usesJsonLdBody) {
     const text = capExtractedText(cleanText(jsonLdBody), maxChars);
     return { text, method: 'jsonld', paragraphCount: text.split(/[.!?]\s+/).length, publishedAt };
   }

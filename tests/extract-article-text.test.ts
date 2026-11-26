@@ -125,6 +125,27 @@ describe('extractArticleText', () => {
     expect(extractArticleText(ambiguous).publishedAt).toBe('');
   });
 
+  it('collapses an iCMS marker wrapper and its nested semantic date', () => {
+    const first = 'The selected article contains enough substantive source context for the nested publication date test.';
+    const second = 'A second paragraph keeps the editorial root eligible while the wrapper and time represent one marker.';
+    const html = `<main><span class="icms-date"><time itemprop="datePublished" datetime="2025-02-01"></time></span>`
+      + `<p>${first}</p><p>${second}</p></main>`;
+
+    expect(extractArticleText(html).publishedAt).toBe('2025-02-01T00:00:00.000Z');
+  });
+
+  it('does not inherit an unrelated iCMS date when JSON-LD body wins', () => {
+    const articleBody = 'The JSON-LD article body is the authoritative source and must not inherit a date from a separate editorial shell. '.repeat(4);
+    const html = `<article data-icms-date="2024-01-01"><p>Shell paragraph one with enough content for root selection.</p>`
+      + '<p>Shell paragraph two keeps the separate article root qualifying.</p></article>'
+      + `<script type="application/ld+json">${JSON.stringify({ '@type': 'NewsArticle', articleBody })}</script>`;
+
+    const result = extractArticleText(html);
+
+    expect(result.method).toBe('jsonld');
+    expect(result.publishedAt).toBe('');
+  });
+
   it('preserves publication date through the naive fallback', () => {
     const publishedAt = new Date(Date.now() - 4 * 86_400_000).toISOString();
     const html = `<head><meta property="article:published_time" content="${publishedAt}"></head>`
@@ -671,6 +692,11 @@ describe('source publication date provenance', () => {
     '<time itemprop="datePublished" datetime="DATE">Published</time>',
   ])('retains explicitly identified publication markup: %s', (markup) => {
     expect(publication(markup.replace('DATE', publishedAt))).toBe(publishedAt);
+  });
+
+  it('parses an explicit European publication date before the host Date parser', () => {
+    expect(publication('<meta property="article:published_time" content="01/02/2025">'))
+      .toBe('2025-02-01T00:00:00.000Z');
   });
 
   it('continues past modification-only graph nodes to explicit publication', () => {
