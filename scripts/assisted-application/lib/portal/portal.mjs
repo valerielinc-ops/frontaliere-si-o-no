@@ -10512,6 +10512,12 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
         && hasActivationPrompt
         && (!usesOtpAccountCreation(host) || !codeField(after)));
     if (needsPostSignInVerification) {
+      if (account.verifiedAt) {
+        account.verifiedAt = null;
+        if (typeof ctx.accounts.mark === 'function') {
+          await ctx.accounts.mark(host, { status: 'pending', verifiedAt: null });
+        }
+      }
       return { ...await verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot: after }), pressed };
     }
     // Two password fields after a sign-in are no account's home either (a dialog opened over the form).
