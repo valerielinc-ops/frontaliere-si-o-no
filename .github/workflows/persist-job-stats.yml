@@ -44,6 +44,12 @@ jobs:
         run: node scripts/load-rc-env.mjs
 
       - name: Assemble jobs dataset (with stats)
+        env:
+          # The full expired-archive reconciliation exceeds Node's default
+          # heap as the archive grows; keep the persistence gate fail-closed
+          # while giving the assembler the same proven headroom as its sibling
+          # full-assembly callers.
+          NODE_OPTIONS: --max-old-space-size=8192
         run: node scripts/assemble-jobs-dataset.mjs --stats
 
       - name: Check job dataset churn
@@ -109,6 +115,11 @@ jobs:
           done
 
       - name: Commit and push stats history
+        env:
+          # git-push-with-retry can regenerate the stats artifacts after a
+          # concurrent main push, so its retry must use the same heap contract
+          # as the first assembly above.
+          NODE_OPTIONS: --max-old-space-size=8192
         run: |
           git config user.email "github-actions@github.com"
           git config user.name "GitHub Actions"
