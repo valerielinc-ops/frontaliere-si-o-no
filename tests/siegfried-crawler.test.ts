@@ -1,12 +1,23 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   SIEGFRIED_KEY,
   SIEGFRIED_COMPANY_NAME,
+  fetchAllSiegfriedJobs,
   isSiegfriedJob,
   isTrustedDomain,
   resolveSiegfriedPublishLocation,
 } from '../scripts/lib/siegfried-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import {
+  resetWorkdayImplicitRateLimitStateForTests,
+  WorkdayRateLimitError,
+} from '../scripts/lib/ats-clients/workday-client.mjs';
+
+afterEach(() => {
+  resetWorkdayImplicitRateLimitStateForTests();
+  vi.unstubAllGlobals();
+  vi.unstubAllEnvs();
+});
 
 describe('Siegfried crawler parser', () => {
   // ── Constants ──
@@ -88,6 +99,27 @@ describe('Siegfried crawler parser', () => {
       expect(resolveSiegfriedPublishLocation({
         jobRequisitionLocation: { descriptor: 'Evionnaz' },
       })).toBeNull();
+    });
+  });
+
+  describe('Workday rate-limit propagation', () => {
+    it('does not turn a rate-limited listing request into an empty snapshot (#19922)', async () => {
+      vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
+      vi.stubGlobal('fetch', vi.fn(async () => new Response('', {
+        status: 429,
+        headers: { 'Retry-After': '0' },
+      })));
+
+      await expect(fetchAllSiegfriedJobs()).rejects.toBeInstanceOf(WorkdayRateLimitError);
+    });
+
+    it('keeps ordinary fetch failures recoverable', async () => {
+      vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
+      vi.stubGlobal('fetch', vi.fn(async () => {
+        throw new Error('connection unavailable');
+      }));
+
+      await expect(fetchAllSiegfriedJobs()).resolves.toEqual([]);
     });
   });
 
