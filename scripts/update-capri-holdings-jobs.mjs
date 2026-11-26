@@ -35,6 +35,7 @@ import {
   writeJobsCrawlerSlice,
   writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
+  markCrawlerSummaryAbortKind,
   registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
@@ -56,7 +57,7 @@ import {
   isSwissLocationText,
   swissCityFromLocationField,
 } from './lib/target-swiss-locations.mjs';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, isConnectionLevelFetchError } from './lib/crawler-template.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -65,6 +66,7 @@ import { resolveSwissStructuredAddress } from './lib/swiss-structured-address.mj
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import { keepStoredSourceBodies } from './lib/stored-source-body.mjs';
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
+import { isRetryBudgetExhausted } from './lib/transient-fetch.mjs';
 // Brand sites and endpoints live in one place: the parser module documents
 // why a site is (no longer) queried.
 import { WORKDAY_SITES, WORKDAY_API_BASE, WORKDAY_PUBLIC_BASE } from './lib/capri-holdings-job-parser.mjs';
@@ -341,7 +343,14 @@ async function fetchJson(url, options = {}, apiBase = WORKDAY_API_BASE) {
         'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
     });
   } catch (err) {
-    if (err instanceof WorkdayRateLimitError) throw err;
+    // A listing/detail transport failure is not an empty source. Preserve the
+    // typed error so the custom main can keep the previous slice and publish a
+    // health receipt instead of turning it into a malformed-page crash.
+    if (
+      err instanceof WorkdayRateLimitError
+      || isRetryBudgetExhausted(err)
+      || isConnectionLevelFetchError(err)
+    ) throw err;
     console.warn(`⚠️ Fetch failed for ${url}: ${err?.message || err}`);
     return null;
   }
@@ -890,6 +899,20 @@ async function rewriteStoredJobsWithoutThinSource(storedJobs) {
   });
 }
 
+/**
+ * Preserve the response/no-response distinction in Capri's custom-main exit.
+ *
+ * @param {unknown} error
+ * @returns {'retryable-http-response'|'connection-level-fetch'|null}
+ */
+export function classifyCapriFetchAbortKind(error) {
+  if (error instanceof WorkdayRateLimitError || isRetryBudgetExhausted(error)) {
+    return 'retryable-http-response';
+  }
+  if (isConnectionLevelFetchError(error)) return 'connection-level-fetch';
+  return null;
+}
+
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
@@ -903,7 +926,24 @@ async function main() {
     const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(CAPRI_KEY, DATA_JOBS).filter(isCapriJob))
 
   // Phase 1: Fetch jobs from Workday API
-  const discoveredJobs = await fetchCapriHoldingsJobs();
+  let discoveredJobs;
+  try {
+    discoveredJobs = await fetchCapriHoldingsJobs();
+  } catch (err) {
+    const abortKind = classifyCapriFetchAbortKind(err);
+    if (!abortKind) throw err;
+    const retryBudgetExhausted = abortKind === 'retryable-http-response';
+    markCrawlerSummaryAbortKind(abortKind);
+    console.log(
+      retryBudgetExhausted
+        ? `\n⚠️ Capri Holdings: retryable HTTP response exhausted its retry budget (${err?.message || err}). Keeping existing jobs (no de-index).`
+        : `\n⚠️ Capri Holdings: connection-level fetch failure after retries + proxy fallback (${err?.message || err}). Keeping existing jobs (no de-index).`,
+    );
+    await rewriteStoredJobsWithoutThinSource(
+      readExistingCrawlerJobs(CAPRI_KEY, DATA_JOBS).filter(isCapriJob),
+    );
+    return;
+  }
 
   if (discoveredJobs.length === 0) {
     console.log('\n⚠️ No Swiss Capri Holdings jobs discovered.');

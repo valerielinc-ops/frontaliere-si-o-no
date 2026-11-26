@@ -55,6 +55,7 @@ import {
 } from './job-match-key.mjs';
 import {
   WORKDAY_HOST_RE,
+  workdayCanonicalHost,
   workdayReqFromLeaf,
   UMANTIS_HOST_RE,
   UMANTIS_VACANCY_PATH_RE,
@@ -6175,19 +6176,19 @@ export function extractJobIdentityFromUrl(rawUrl = '') {
     if (val) return `${registrableDomain(host)}|${val.toLowerCase()}`;
   }
 
-  // Workday (`*.myworkdayjobs.com`): the requisition id — the leaf suffix after
+  // Workday (`*.myworkdayjobs.com`/`*.myworkdaysite.com`): the requisition id — the leaf suffix after
   // the FIRST underscore — is the only rename-stable token; the title text before
   // it is freely re-slugged by the vendor, so the default `/job/<loc>/<leaf>` rule
   // (which captures the whole title-bearing leaf) mints a NEW fingerprint on every
   // title rename and the registry never re-pins the canonical slug across it.
   // Mirrors mergeUrlKey Rule W (job-url-key.mjs) so this PERSISTED identity and the
-  // crawl-time merge key derive the SAME req. Key on the FULL host (not
-  // registrableDomain): every tenant shares `myworkdayjobs.com`, so a bare req
-  // would collide across distinct employers (swisslife R11696 vs novartis R11696).
+  // crawl-time merge key derive the SAME req. Key on the canonical tenant host
+  // (not registrableDomain): every tenant shares the Workday registrable domain,
+  // so a bare req would collide across distinct employers.
   if (WORKDAY_HOST_RE.test(host)) {
     const wdLeaf = u.pathname.split('/').filter(Boolean).pop() || '';
     const req = workdayReqFromLeaf(wdLeaf);
-    if (req) return `${host}|${req}`;
+    if (req) return `${workdayCanonicalHost(u)}|${req}`;
   }
 
   // sozjobs.ch detail urls carry the per-job Jxxx requisition before a

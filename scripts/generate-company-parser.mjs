@@ -55,6 +55,7 @@ const CAREER_HINTS = [
 
 const ATS_HOST_HINTS = [
   'myworkdayjobs.com',
+  'myworkdaysite.com',
   'greenhouse.io',
   'lever.co',
   'smartrecruiters.com',
@@ -257,7 +258,8 @@ async function main() {
   const finalDomainSeeds = [...new Set((byDomain.length ? byDomain : fallbackSeeds).slice(0, 8))];
   const finalNameSeeds = [...new Set((byName.length ? byName : fallbackSeeds).slice(0, 8))];
 
-  const heuristicMode = finalDomainSeeds.some((u) => hostOf(u).includes('myworkdayjobs.com'))
+  const heuristicMode = finalDomainSeeds.some((u) => hostOf(u).includes('myworkdayjobs.com')
+    || hostOf(u).includes('myworkdaysite.com'))
     ? ['workday']
     : ['generic_ats', 'html', 'jsonld'];
   const finalModes = clampModes(proposal?.crawlerMode || heuristicMode);

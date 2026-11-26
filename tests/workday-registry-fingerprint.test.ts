@@ -33,6 +33,14 @@ describe('extractJobIdentityFromUrl — Workday requisition fingerprint (F1)', (
     expect(extractJobIdentityFromUrl(a)).not.toBe(extractJobIdentityFromUrl(b));
   });
 
+  it('preserves the Hamilton fingerprint across the Workday host migration', () => {
+    const legacy = 'https://hamilton.wd3.myworkdayjobs.com/en-US/hamilton_jobs/job/Bonaduz/CSV-Requirements-Engineer-80---100----w-m-d-_JR-6026-1';
+    const migrated = 'https://wd3.myworkdaysite.com/recruiting/hamilton/hamilton_jobs/job/Bonaduz/CSV-Requirements-Engineer-80---100----w-m-d-_JR-6026-1';
+    expect(extractJobIdentityFromUrl(legacy)).toBe('hamilton.wd3.myworkdayjobs.com|jr-6026-1');
+    expect(extractJobIdentityFromUrl(migrated)).toBe(extractJobIdentityFromUrl(legacy));
+    expect(fingerprintJob({ url: migrated })).toBe(fingerprintJob({ url: legacy }));
+  });
+
   it('handles the full spread of vendor requisition formats', () => {
     const id = (u: string) => extractJobIdentityFromUrl(u);
     expect(id('https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/CH/Cloud-Architect_31138417'))
