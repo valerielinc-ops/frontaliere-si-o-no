@@ -24,6 +24,7 @@ import {
 const PUBLIC_IP = [{ address: '93.184.216.34', family: 4 }];
 const DESCRIPTION = 'The successful candidate will plan and deliver reliable customer services, work with the engineering team, document procedures, solve operational issues, and support continuous improvement across the organisation. '.repeat(3);
 const SHORT_SOURCE_DESCRIPTION = 'Wir bieten eine abwechslungsreiche und spannende Lehrstelle. Wenn dich dieser Lehrberuf interessiert, dann bist du bei uns genau richtig. Wir suchen motivierte und begeisterte Talente. Starte deine Zukunft bei uns noch heute.';
+const VALIDATION_ENTRYPOINT = new URL('../scripts/prospect-validate.mjs', import.meta.url);
 
 function fixtureSpec({
   firstTwoLocations = 'missing',
@@ -98,6 +99,20 @@ function fixtureSpec({
 }
 
 describe('Prospector production validation', () => {
+  it('wires source ownership into complete-snapshot duplicate validation', () => {
+    const source = readFileSync(VALIDATION_ENTRYPOINT, 'utf8');
+    const ownershipLoad = 'const ownership = loadSourceHostOwnership(ROOT, { urls: true });';
+    const duplicateCheck = 'const twin = productionAudit ? null : matchExistingCrawlerForCompleteSnapshot(';
+    const ownershipLoadAt = source.indexOf(ownershipLoad);
+    const duplicateCheckAt = source.indexOf(duplicateCheck);
+    const duplicateCall = source.slice(duplicateCheckAt, source.indexOf('\n  if (twin)', duplicateCheckAt));
+
+    expect(source).toContain("import { loadSourceHostOwnership } from './lib/crawler-source-hosts.mjs';");
+    expect(ownershipLoadAt).toBeGreaterThan(-1);
+    expect(duplicateCheckAt).toBeGreaterThan(ownershipLoadAt);
+    expect(duplicateCall).toContain('\n    ownership,\n');
+  });
+
   it('keeps a grade exception incomplete and schedules the next validation retry', () => {
     const startedAt = '2026-10-20T10:00:00.000Z';
     const completeObservation = {
