@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-25T16:11:46.554Z",
+  "updatedAt": "2026-11-26T15:55:58.634Z",
   "snapshots": {
     "teamtailor:mks-pamp-74eaacf6a62f:773e8366508c": {
       "provider": "teamtailor",
@@ -3270,108 +3270,6 @@
         ]
       }
     },
-    "teamtailor:axpo-group-46a78ec61ac7:bb1e0fcb4254": {
-      "provider": "teamtailor",
-      "jobId": "axpo-group-46a78ec61ac7",
-      "jobSlug": "gestione-dei-dati-energetici-m-f-d-ckw-emmen",
-      "jobUrl": "https://ckw.teamtailor.com/jobs/8651238-energy-data-manager-w-m-d",
-      "snapshot": {
-        "provider": "teamtailor",
-        "sourceUrl": "https://ckw.teamtailor.com/jobs/8651238-energy-data-manager-w-m-d/applications/new",
-        "jobUrl": "https://ckw.teamtailor.com/jobs/8651238-energy-data-manager-w-m-d",
-        "checkedAt": "2026-11-17T14:58:45.596Z",
-        "stage": "Diese Website verwendet Cookies, um dir das beste Erlebnis bieten zu können.",
-        "fields": [
-          {
-            "label": "Mit welchem Geschlecht identifizierst du dich? Bei CKW schätzen wir Vielfalt und Inklusion. Um uns kontinuierlich bei der stetigen Sicherstellung einer vielfältigen Belegschaft zu unterstützen, bitten wir Bewerberinnen und Bewerber freundli",
-            "type": "radio",
-            "required": false,
-            "kind": "question",
-            "options": [
-              "Weiblich",
-              "Männlich",
-              "Divers"
-            ]
-          },
-          {
-            "label": "Wurde dir die Stelle von einem CKW/Axpo Group Mitarbeitenden empfohlen?",
-            "type": "radio",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Ja",
-              "Nein"
-            ]
-          },
-          {
-            "label": "E-Mail der Person, die dich empfohlen hat:",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Nenne uns deine jährliche Salärerwartung in CHF für ein 100% Pensum inkl. allfälligen Bonuszahlungen",
-            "type": "number",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Nenne uns deine Kündigungsfrist resp. deine Verfügbarkeit.",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Vorname",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Nachname",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "E-Mail",
-            "type": "email",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Telefon",
-            "type": "tel",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Bewerbungsschreiben",
-            "type": "textarea",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Ich habe die Datenschutzerklärung gelesen bin mit der Datenschutzerklärung einverstanden.",
-            "type": "checkbox",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Ich bin damit einverstanden, dass meine Daten auch über eine konkrete Stellenbesetzung hinaus gespeichert werden und ich auf interessante Stellenangebote hingewiesen werde.",
-            "type": "checkbox",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "CKW darf meine Telefonnummer für die Kommunikation per SMS im Zusammenhang mit der Personalbeschaffung verwenden.",
-            "type": "checkbox",
-            "required": false,
-            "kind": "consent"
-          }
-        ]
-      }
-    },
     "ncoreplat:company-gkno24:a9e4a0986630": {
       "provider": "ncoreplat",
       "jobId": "company-gkno24",
@@ -3745,158 +3643,6 @@
             "type": "checkbox",
             "required": false,
             "kind": "consent"
-          }
-        ]
-      }
-    },
-    "greenhouse:on-running-6374bc2a2df6:462cd9134fcf": {
-      "provider": "greenhouse",
-      "jobId": "on-running-6374bc2a2df6",
-      "jobSlug": "global-merchandising-responsabile-lifestyle-special-projects-on-running-zurich",
-      "jobUrl": "https://boards.greenhouse.io/onrunning/jobs/8069314",
-      "snapshot": {
-        "provider": "greenhouse",
-        "sourceUrl": "https://boards.greenhouse.io/onrunning/jobs/8069314",
-        "jobUrl": "https://boards.greenhouse.io/onrunning/jobs/8069314",
-        "checkedAt": "2026-11-17T14:58:49.247Z",
-        "stage": "Global Merchandising Head Of Lifestyle & Special Projects",
-        "fields": [
-          {
-            "label": "First Name",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Last Name",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Email",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Phone",
-            "type": "text",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Resume/CV",
-            "type": "file",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Resume/CV",
-            "type": "textarea",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "LinkedIn Profile or Website",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "How did you hear about this job?",
-            "type": "select",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Facebook",
-              "LinkedIn",
-              "Stack Overflow",
-              "On Career Site",
-              "Events",
-              "Jobboards (University)",
-              "Other"
-            ]
-          },
-          {
-            "label": "Your Nationality",
-            "type": "multiselect",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Afghan",
-              "Albanian",
-              "Algerian",
-              "American",
-              "Andorran",
-              "Angolan",
-              "Antiguans",
-              "Argentinean",
-              "Armenian",
-              "Australian",
-              "Austrian",
-              "Azerbaijani",
-              "Bahamian",
-              "Bahraini",
-              "Bangladeshi",
-              "Barbadian",
-              "Barbudans",
-              "Batswana",
-              "Belarusian",
-              "Belgian",
-              "Belizean",
-              "Beninese",
-              "Bhutanese",
-              "Bolivian",
-              "Bosnian",
-              "Brazilian",
-              "British",
-              "Bruneian",
-              "Bulgarian",
-              "Burkinabe",
-              "Burmese",
-              "Burundian",
-              "Cambodian",
-              "Cameroonian",
-              "Canadian",
-              "Cape Verdean",
-              "Central African",
-              "Chadian",
-              "Chilean",
-              "Chinese"
-            ]
-          },
-          {
-            "label": "Would On need to apply for a working permit or visa on your behalf?",
-            "type": "select",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Yes",
-              "No"
-            ]
-          },
-          {
-            "label": "Your Pronouns",
-            "type": "select",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Prefer not to answer",
-              "She/Her/Hers",
-              "He/Him/His",
-              "They/Them/Their",
-              "Another option not listed"
-            ]
-          },
-          {
-            "label": "Data Transfer",
-            "type": "multiselect",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "By continuing, you acknowledge that you have read our Privacy Policy above."
-            ]
           }
         ]
       }
@@ -8279,102 +8025,6 @@
             "label": "Telefon",
             "type": "tel",
             "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Bewerbungsschreiben",
-            "type": "textarea",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Ich habe die Datenschutzerklärung gelesen bin mit der Datenschutzerklärung einverstanden.",
-            "type": "checkbox",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Ich bin damit einverstanden, dass meine Daten auch über eine konkrete Stellenbesetzung hinaus gespeichert werden und ich auf interessante Stellenangebote hingewiesen werde.",
-            "type": "checkbox",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "CKW darf meine Telefonnummer für die Kommunikation per SMS im Zusammenhang mit der Personalbeschaffung verwenden.",
-            "type": "checkbox",
-            "required": false,
-            "kind": "consent"
-          }
-        ]
-      }
-    },
-    "teamtailor:axpo-group-ddf185186c7d:756358877c36": {
-      "provider": "teamtailor",
-      "jobId": "axpo-group-ddf185186c7d",
-      "jobSlug": "specialista-senior-delle-vendite-nel-settore-solare-m-f-d-ckw-egerkingen",
-      "jobUrl": "https://ckw.teamtailor.com/jobs/8626477-senior-verkaufsspezialist-in-solar-w-m-d",
-      "snapshot": {
-        "provider": "teamtailor",
-        "sourceUrl": "https://ckw.teamtailor.com/jobs/8626477-senior-verkaufsspezialist-in-solar-w-m-d/applications/new",
-        "jobUrl": "https://ckw.teamtailor.com/jobs/8626477-senior-verkaufsspezialist-in-solar-w-m-d",
-        "checkedAt": "2026-11-17T14:59:19.407Z",
-        "stage": "Diese Website verwendet Cookies, um dir das beste Erlebnis bieten zu können.",
-        "fields": [
-          {
-            "label": "Wurde dir die Stelle von einem CKW/Axpo Group Mitarbeitenden empfohlen?",
-            "type": "radio",
-            "required": true,
-            "kind": "question",
-            "options": [
-              "Ja",
-              "Nein"
-            ]
-          },
-          {
-            "label": "E-Mail der Person, die dich empfohlen hat:",
-            "type": "text",
-            "required": false,
-            "kind": "question"
-          },
-          {
-            "label": "Wo liegt deine jährliche Lohnvorstellung bei 100% (inkl. 13. Monatslohn und Bonus)?",
-            "type": "number",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Mit welchem Geschlecht identifizierst du dich? Bei CKW schätzen wir Vielfalt und Inklusion. Um uns kontinuierlich bei der stetigen Sicherstellung einer vielfältigen Belegschaft zu unterstützen, bitten wir Bewerberinnen und Bewerber freundli",
-            "type": "radio",
-            "required": false,
-            "kind": "question",
-            "options": [
-              "Weiblich",
-              "Männlich",
-              "Divers"
-            ]
-          },
-          {
-            "label": "Vorname",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Nachname",
-            "type": "text",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "E-Mail",
-            "type": "email",
-            "required": true,
-            "kind": "question"
-          },
-          {
-            "label": "Telefon",
-            "type": "tel",
-            "required": true,
             "kind": "question"
           },
           {
@@ -33603,6 +33253,451 @@
           }
         ]
       }
+    },
+    "lever:anybotics-3991b2593ad8:57fe37ed937b": {
+      "provider": "lever",
+      "jobId": "anybotics-3991b2593ad8",
+      "jobSlug": "responsabile-design-anybotics-zurich",
+      "jobUrl": "https://jobs.lever.co/anybotics/9236afb8-8439-4dee-98e9-9a2fe7e5dbcd",
+      "snapshot": {
+        "provider": "lever",
+        "sourceUrl": "https://jobs.lever.co/anybotics/9236afb8-8439-4dee-98e9-9a2fe7e5dbcd/apply",
+        "jobUrl": "https://jobs.lever.co/anybotics/9236afb8-8439-4dee-98e9-9a2fe7e5dbcd",
+        "checkedAt": "2026-11-26T15:55:52.849Z",
+        "stage": "Head of Design",
+        "fields": [
+          {
+            "label": "Which location are you applying for?",
+            "type": "select",
+            "required": false,
+            "kind": "question",
+            "options": [
+              "Select...",
+              "Zurich",
+              "Any available EOR location"
+            ]
+          },
+          {
+            "label": "Resume/CV",
+            "type": "file",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Full name",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Email",
+            "type": "email",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Phone",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Current location",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Current company",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "LinkedIn URL",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Other website",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Yes, ANYbotics can contact me about future job opportunities for up to 2 years",
+            "type": "checkbox",
+            "required": false,
+            "kind": "consent"
+          }
+        ]
+      }
+    },
+    "lever:anybotics-896bf8fdbb13:1a8b9cfde710": {
+      "provider": "lever",
+      "jobId": "anybotics-896bf8fdbb13",
+      "jobSlug": "senior-procurement-specialista-anybotics-zurich",
+      "jobUrl": "https://jobs.lever.co/anybotics/8ba02712-b54a-4447-a73e-6384563feda1",
+      "snapshot": {
+        "provider": "lever",
+        "sourceUrl": "https://jobs.lever.co/anybotics/8ba02712-b54a-4447-a73e-6384563feda1/apply",
+        "jobUrl": "https://jobs.lever.co/anybotics/8ba02712-b54a-4447-a73e-6384563feda1",
+        "checkedAt": "2026-11-26T15:55:52.852Z",
+        "stage": "Senior Procurement Specialist",
+        "fields": [
+          {
+            "label": "Resume/CV",
+            "type": "file",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Full name",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Email",
+            "type": "email",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Phone",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Current location",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Current company",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "LinkedIn URL",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Other website",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Nationality",
+            "type": "select",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Select...",
+              "Afghanistan",
+              "Albania",
+              "Algeria",
+              "Andorra",
+              "Angola",
+              "Antigua and Barbuda",
+              "Argentina",
+              "Armenia",
+              "Australia",
+              "Austria",
+              "Azerbaijan",
+              "Bahamas",
+              "Bahrain",
+              "Bangladesh",
+              "Barbados",
+              "Belarus",
+              "Belgium",
+              "Belize",
+              "Benin",
+              "Bhutan",
+              "Bolivia",
+              "Bosnia and Herzegovina",
+              "Botswana",
+              "Brazil",
+              "Brunei",
+              "Bulgaria",
+              "Burkina Faso",
+              "Burundi",
+              "Cabo Verde",
+              "Cambodia",
+              "Cameroon",
+              "Canada",
+              "Central African Republic",
+              "Chad",
+              "Chile",
+              "China",
+              "Colombia",
+              "Comoros",
+              "Congo (Congo-Brazzaville)"
+            ]
+          },
+          {
+            "label": "Work Permit",
+            "type": "select",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Select...",
+              "No Permit",
+              "B",
+              "C",
+              "L",
+              "Swiss Citizen"
+            ]
+          },
+          {
+            "label": "When are you able to start?",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Upload Letter of Motivation",
+            "type": "file",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Upload Reference Letters",
+            "type": "file",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Upload Grade Transcript",
+            "type": "file",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Other Uploads",
+            "type": "file",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Yes, ANYbotics can contact me about future job opportunities for up to 2 years",
+            "type": "checkbox",
+            "required": false,
+            "kind": "consent"
+          }
+        ]
+      }
+    },
+    "teamtailor:axpo-group-e59d33810f0b:55be3f9fc5c6": {
+      "provider": "teamtailor",
+      "jobId": "axpo-group-e59d33810f0b",
+      "jobSlug": "responsabile-vendite-per-soluzioni-di-fatturazione-zev-vewa-m-f-d-ckw-emmen",
+      "jobUrl": "https://ckw.teamtailor.com/jobs/8796166-sales-manager-in-abrechnungsloesungen-zev-vewa-w-m-d",
+      "snapshot": {
+        "provider": "teamtailor",
+        "sourceUrl": "https://ckw.teamtailor.com/jobs/8796166-sales-manager-in-abrechnungsloesungen-zev-vewa-w-m-d/applications/new",
+        "jobUrl": "https://ckw.teamtailor.com/jobs/8796166-sales-manager-in-abrechnungsloesungen-zev-vewa-w-m-d",
+        "checkedAt": "2026-11-26T15:55:52.851Z",
+        "stage": "Diese Website verwendet Cookies, um dir das beste Erlebnis bieten zu können.",
+        "fields": [
+          {
+            "label": "Mit welchem Geschlecht identifizierst du dich? Bei CKW schätzen wir Vielfalt und Inklusion. Um uns kontinuierlich bei der stetigen Sicherstellung einer vielfältigen Belegschaft zu unterstützen, bitten wir Bewerberinnen und Bewerber freundli",
+            "type": "radio",
+            "required": false,
+            "kind": "question",
+            "options": [
+              "Weiblich",
+              "Männlich",
+              "Divers"
+            ]
+          },
+          {
+            "label": "Wurde dir die Stelle von einem CKW/Axpo Group Mitarbeitenden empfohlen?",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Ja",
+              "Nein"
+            ]
+          },
+          {
+            "label": "E-Mail der Person, die dich empfohlen hat:",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Nenne uns deine jährliche Salärerwartung in CHF für ein 100% Pensum inkl. allfälligen Bonuszahlungen",
+            "type": "number",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Nenne uns deine Kündigungsfrist resp. deine Verfügbarkeit.",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Vorname",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Nachname",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "E-Mail",
+            "type": "email",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Telefon",
+            "type": "tel",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Bewerbungsschreiben",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Ich habe die Datenschutzerklärung gelesen bin mit der Datenschutzerklärung einverstanden.",
+            "type": "checkbox",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Ich bin damit einverstanden, dass meine Daten auch über eine konkrete Stellenbesetzung hinaus gespeichert werden und ich auf interessante Stellenangebote hingewiesen werde.",
+            "type": "checkbox",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "CKW darf meine Telefonnummer für die Kommunikation per SMS im Zusammenhang mit der Personalbeschaffung verwenden.",
+            "type": "checkbox",
+            "required": false,
+            "kind": "consent"
+          }
+        ]
+      }
+    },
+    "teamtailor:axpo-group-2ee4df3444a4:f1c732b82ce0": {
+      "provider": "teamtailor",
+      "jobId": "axpo-group-2ee4df3444a4",
+      "jobSlug": "specialista-di-logistica-m-f-d-ckw-luzern",
+      "jobUrl": "https://ckw.teamtailor.com/jobs/8795991-logistikfachmann-frau-w-m-d",
+      "snapshot": {
+        "provider": "teamtailor",
+        "sourceUrl": "https://ckw.teamtailor.com/jobs/8795991-logistikfachmann-frau-w-m-d/applications/new",
+        "jobUrl": "https://ckw.teamtailor.com/jobs/8795991-logistikfachmann-frau-w-m-d",
+        "checkedAt": "2026-11-26T15:55:52.825Z",
+        "stage": "Diese Website verwendet Cookies, um dir das beste Erlebnis bieten zu können.",
+        "fields": [
+          {
+            "label": "Mit welchem Geschlecht identifizierst du dich? Bei CKW schätzen wir Vielfalt und Inklusion. Um uns kontinuierlich bei der stetigen Sicherstellung einer vielfältigen Belegschaft zu unterstützen, bitten wir Bewerberinnen und Bewerber freundli",
+            "type": "radio",
+            "required": false,
+            "kind": "question",
+            "options": [
+              "Weiblich",
+              "Männlich",
+              "Divers"
+            ]
+          },
+          {
+            "label": "Wurde dir die Stelle von einem CKW/Axpo Group Mitarbeitenden empfohlen?",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Ja",
+              "Nein"
+            ]
+          },
+          {
+            "label": "E-Mail der Person, die dich empfohlen hat:",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Nenne uns deine jährliche Salärerwartung in CHF für ein 100% Pensum inkl. allfälligen Bonuszahlungen",
+            "type": "number",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Nenne uns deine Kündigungsfrist resp. deine Verfügbarkeit.",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Vorname",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Nachname",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "E-Mail",
+            "type": "email",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Telefon",
+            "type": "tel",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Bewerbungsschreiben",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Ich habe die Datenschutzerklärung gelesen bin mit der Datenschutzerklärung einverstanden.",
+            "type": "checkbox",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Ich bin damit einverstanden, dass meine Daten auch über eine konkrete Stellenbesetzung hinaus gespeichert werden und ich auf interessante Stellenangebote hingewiesen werde.",
+            "type": "checkbox",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "CKW darf meine Telefonnummer für die Kommunikation per SMS im Zusammenhang mit der Personalbeschaffung verwenden.",
+            "type": "checkbox",
+            "required": false,
+            "kind": "consent"
+          }
+        ]
+      }
     }
   },
   "attempts": {
@@ -33866,14 +33961,6 @@
       "attemptCount": 1,
       "outcome": "captured"
     },
-    "teamtailor:axpo-group-46a78ec61ac7:bb1e0fcb4254": {
-      "provider": "teamtailor",
-      "jobUrl": "https://ckw.teamtailor.com/jobs/8651238-energy-data-manager-w-m-d",
-      "attemptedAt": "2026-11-17T14:58:45.596Z",
-      "nextAttemptAt": "2026-12-17T14:58:46.091Z",
-      "attemptCount": 1,
-      "outcome": "captured"
-    },
     "ncoreplat:company-gkno24:a9e4a0986630": {
       "provider": "ncoreplat",
       "jobUrl": "https://app.ncoreplat.com/jobposition/813792/electrical-engineer-ch/csc-costruzioni-sa",
@@ -33911,14 +33998,6 @@
       "jobUrl": "https://ckw.teamtailor.com/jobs/8708637-fachmitarbeiter-in-elektro-west-w-m-d",
       "attemptedAt": "2026-11-17T14:58:48.757Z",
       "nextAttemptAt": "2026-12-17T14:58:49.247Z",
-      "attemptCount": 1,
-      "outcome": "captured"
-    },
-    "greenhouse:on-running-6374bc2a2df6:462cd9134fcf": {
-      "provider": "greenhouse",
-      "jobUrl": "https://boards.greenhouse.io/onrunning/jobs/8069314",
-      "attemptedAt": "2026-11-17T14:58:49.247Z",
-      "nextAttemptAt": "2026-12-17T14:58:49.386Z",
       "attemptCount": 1,
       "outcome": "captured"
     },
@@ -34239,14 +34318,6 @@
       "jobUrl": "https://ckw.teamtailor.com/jobs/8724507-stv-leiter-in-geschaeftsstelle-elektro-buttisholz-inkl-berufsbildung-w-m-d",
       "attemptedAt": "2026-11-17T14:59:21.959Z",
       "nextAttemptAt": "2026-12-17T14:59:24.576Z",
-      "attemptCount": 1,
-      "outcome": "captured"
-    },
-    "teamtailor:axpo-group-ddf185186c7d:756358877c36": {
-      "provider": "teamtailor",
-      "jobUrl": "https://ckw.teamtailor.com/jobs/8626477-senior-verkaufsspezialist-in-solar-w-m-d",
-      "attemptedAt": "2026-11-17T14:59:19.407Z",
-      "nextAttemptAt": "2026-12-17T14:59:24.677Z",
       "attemptCount": 1,
       "outcome": "captured"
     },
@@ -35834,15 +35905,6 @@
       "attemptCount": 1,
       "outcome": "captured"
     },
-    "greenhouse:proton-45018d9aa734:ce0d2338eec3": {
-      "provider": "greenhouse",
-      "jobUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4588886101",
-      "attemptedAt": "2026-11-24T16:32:50.207Z",
-      "nextAttemptAt": "2026-12-01T16:32:50.401Z",
-      "attemptCount": 1,
-      "outcome": "gone",
-      "status": 404
-    },
     "greenhouse:proton-a30d2dfd8406:d5876e480332": {
       "provider": "greenhouse",
       "jobUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/5044916101",
@@ -35960,6 +36022,38 @@
       "jobUrl": "https://jobs.lever.co/anybotics/971da75c-46e5-40a1-b5d9-d49f17996027",
       "attemptedAt": "2026-11-25T16:11:30.834Z",
       "nextAttemptAt": "2026-12-25T16:11:46.551Z",
+      "attemptCount": 1,
+      "outcome": "captured"
+    },
+    "lever:anybotics-3991b2593ad8:57fe37ed937b": {
+      "provider": "lever",
+      "jobUrl": "https://jobs.lever.co/anybotics/9236afb8-8439-4dee-98e9-9a2fe7e5dbcd",
+      "attemptedAt": "2026-11-26T15:55:52.849Z",
+      "nextAttemptAt": "2026-12-26T15:55:55.582Z",
+      "attemptCount": 1,
+      "outcome": "captured"
+    },
+    "lever:anybotics-896bf8fdbb13:1a8b9cfde710": {
+      "provider": "lever",
+      "jobUrl": "https://jobs.lever.co/anybotics/8ba02712-b54a-4447-a73e-6384563feda1",
+      "attemptedAt": "2026-11-26T15:55:52.852Z",
+      "nextAttemptAt": "2026-12-26T15:55:57.515Z",
+      "attemptCount": 1,
+      "outcome": "captured"
+    },
+    "teamtailor:axpo-group-e59d33810f0b:55be3f9fc5c6": {
+      "provider": "teamtailor",
+      "jobUrl": "https://ckw.teamtailor.com/jobs/8796166-sales-manager-in-abrechnungsloesungen-zev-vewa-w-m-d",
+      "attemptedAt": "2026-11-26T15:55:52.851Z",
+      "nextAttemptAt": "2026-12-26T15:55:58.487Z",
+      "attemptCount": 1,
+      "outcome": "captured"
+    },
+    "teamtailor:axpo-group-2ee4df3444a4:f1c732b82ce0": {
+      "provider": "teamtailor",
+      "jobUrl": "https://ckw.teamtailor.com/jobs/8795991-logistikfachmann-frau-w-m-d",
+      "attemptedAt": "2026-11-26T15:55:52.825Z",
+      "nextAttemptAt": "2026-12-26T15:55:58.631Z",
       "attemptCount": 1,
       "outcome": "captured"
     }
