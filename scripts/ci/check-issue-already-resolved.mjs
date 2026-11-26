@@ -70,6 +70,7 @@ import {
   hasEnumeratedItems,
   maskInlineCodeSpans,
 } from './followup-resolution-match.mjs';
+import { generatedConflictPlan } from './generated-files-registry.mjs';
 
 export { hasEnumeratedItems };
 
@@ -460,6 +461,130 @@ export function handoffResolution(pr, { expectedHead = '', conflictClearedAfterO
   return { resolved: true, reason: 'conflict-resolved-new-head' };
 }
 
+// ---------------------------------------------------------------------------
+// Hand-off «superato»: la PR di origine non va piu' riapplicata anche se non e'
+// mergiata. `handoffOriginVerdict` confronta solo lo stato della PR; il 26-11
+// cinque PR parallele (#20157, #20160, #20164, #20179, #20086) implementavano la
+// stessa fix: una e' stata mergiata e le altre, andate in conflitto, hanno
+// ricevuto un hand-off che issue-fix ha riapplicato su codice gia' in main.
+// Il verdetto e' deterministico e fail-closed: ogni lettura mancante o ambigua
+// restituisce `resolved:false` e il fixer lavora come prima.
+// ---------------------------------------------------------------------------
+
+/** Closing refs below this age may be pr-autorebase's close+reopen cycle. */
+export const SUPERSEDED_MIN_CLOSED_AGE_MS = 15 * 60 * 1000;
+const SUPERSEDED_LIST_LIMIT = 500;
+const SUPERSEDED_FILES_LIMIT = 100; // gh pr view --json files caps here: at or over = truncated
+
+const CLOSES_LINE_RE = /\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\s*:?\s+(?:[\w.-]+\/[\w.-]+)?#(\d+)/giu;
+
+function superseded(reason, extra = {}) { return { resolved: true, reason, ...extra }; }
+function notSuperseded(reason) { return { resolved: false, reason }; }
+
+/** Issue numbers an origin PR declares it closes: closingIssuesReferences, else `Closes #N` lines. Pure. */
+export function declaredClosingIssues(pr) {
+  const out = new Set();
+  const refs = Array.isArray(pr?.closingIssuesReferences) ? pr.closingIssuesReferences : [];
+  for (const ref of refs) {
+    const n = Number(ref?.number);
+    if (Number.isInteger(n) && n > 0) out.add(n);
+  }
+  if (out.size === 0) {
+    for (const match of String(pr?.body || '').matchAll(CLOSES_LINE_RE)) out.add(Number(match[1]));
+  }
+  return [...out].sort((a, b) => a - b);
+}
+
+/** Files of a `gh pr view --json files` payload, or null when missing/truncated. Pure. */
+function prFilePaths(pr) {
+  if (!Array.isArray(pr?.files) || pr.files.length === 0 || pr.files.length >= SUPERSEDED_FILES_LIMIT) return null;
+  const paths = pr.files.map((f) => (typeof f === 'string' ? f : f?.path));
+  return paths.every((p) => typeof p === 'string' && p) ? paths : null;
+}
+
+/** True when a path is an output of a generator in the generated-files registry. Pure. */
+export function isGeneratedPath(path) {
+  return generatedConflictPlan([path]).rules.length > 0;
+}
+
+/**
+ * Pure-ish verdict (all I/O goes through `read(args) -> string|null`, which
+ * returns null/'' on a failed read). See the block comment above.
+ *
+ * (a) origin CLOSED unmerged (older than SUPERSEDED_MIN_CLOSED_AGE_MS) and no
+ *     OPEN PR closes the same issues, names the hand-off, or cites the origin;
+ * (b) every issue the origin declares is CLOSED/COMPLETED by another MERGED PR
+ *     and the origin's hand-written files are all among those PRs' files.
+ *     No declared issues -> (b) does not apply.
+ */
+export function handoffSupersededVerdict({ originPr, handoffIssue, repoArgs = [], read, now = Date.now() }) {
+  const json = (args) => {
+    let raw;
+    try { raw = read([...args, ...repoArgs]); } catch { return null; }
+    if (typeof raw !== 'string' || !raw.trim()) return null;
+    try { return JSON.parse(raw); } catch { return null; }
+  };
+  const origin = json(['pr', 'view', String(originPr), '--json',
+    'number,state,closedAt,mergedAt,closingIssuesReferences,body,files']);
+  if (!origin) return notSuperseded('superseded-origin-unreadable');
+  const state = String(origin.state || '').toUpperCase();
+  if (state !== 'OPEN' && state !== 'CLOSED') return notSuperseded(`superseded-origin-${state.toLowerCase() || 'unknown'}`);
+  const issues = declaredClosingIssues(origin);
+
+  if (state === 'CLOSED') {
+    const closedAt = Date.parse(String(origin.closedAt || ''));
+    if (origin.mergedAt || !Number.isFinite(closedAt)) return notSuperseded('superseded-closed-state-ambiguous');
+    if (now - closedAt < SUPERSEDED_MIN_CLOSED_AGE_MS) return notSuperseded('superseded-closed-too-recent');
+    const open = json(['pr', 'list', '--state', 'open', '--limit', String(SUPERSEDED_LIST_LIMIT), '--json',
+      'number,headRefName,closingIssuesReferences,body']);
+    if (!Array.isArray(open) || open.length >= SUPERSEDED_LIST_LIMIT) return notSuperseded('superseded-open-prs-unreadable');
+    const citesOrigin = new RegExp(`(?:^|[^\\w/])#${Number(originPr)}(?!\\d)`, 'u');
+    const wanted = new Set([...issues, ...(handoffIssue ? [Number(handoffIssue)] : [])]);
+    for (const pr of open) {
+      if (Number(pr?.number) === Number(originPr)) continue;
+      const closes = declaredClosingIssues(pr);
+      const overlap = closes.some((n) => wanted.has(n));
+      const branchNamesHandoff = handoffIssue && new RegExp(`issue-${Number(handoffIssue)}(?!\\d)`, 'u').test(String(pr?.headRefName || ''));
+      if (overlap || branchNamesHandoff || citesOrigin.test(String(pr?.body || ''))) {
+        return notSuperseded('superseded-other-open-pr');
+      }
+    }
+    return superseded('origin-closed-unmerged', { prs: [] });
+  }
+
+  // (b) origin still OPEN: only the issues-closed-elsewhere proof applies.
+  if (issues.length === 0) return notSuperseded('superseded-no-declared-issues');
+  const originFiles = prFilePaths(origin);
+  if (!originFiles) return notSuperseded('superseded-origin-files-unreadable');
+  const handWritten = originFiles.filter((p) => !isGeneratedPath(p));
+  const coveredFiles = new Set();
+  const mergers = new Set();
+  for (const n of issues) {
+    const issue = json(['issue', 'view', String(n), '--json', 'state,stateReason,closedByPullRequestsReferences']);
+    if (!issue) return notSuperseded('superseded-issue-unreadable');
+    if (String(issue.state || '').toUpperCase() !== 'CLOSED'
+      || String(issue.stateReason || '').toUpperCase() !== 'COMPLETED') return notSuperseded('superseded-issue-not-completed');
+    const refs = Array.isArray(issue.closedByPullRequestsReferences) ? issue.closedByPullRequestsReferences : [];
+    let merged = false;
+    for (const ref of refs) {
+      const k = Number(ref?.number);
+      if (!Number.isInteger(k) || k === Number(originPr)) continue;
+      const pr = json(['pr', 'view', String(k), '--json', 'number,state,files']);
+      if (!pr) return notSuperseded('superseded-merger-unreadable');
+      if (String(pr.state || '').toUpperCase() !== 'MERGED') continue;
+      const files = prFilePaths(pr);
+      if (!files) return notSuperseded('superseded-merger-files-unreadable');
+      files.forEach((f) => coveredFiles.add(f));
+      mergers.add(k);
+      merged = true;
+    }
+    if (!merged) return notSuperseded('superseded-issue-closer-not-merged-pr');
+  }
+  const uncovered = handWritten.filter((p) => !coveredFiles.has(p));
+  if (uncovered.length > 0) return notSuperseded('superseded-handwritten-files-not-covered');
+  return superseded('issues-closed-by-merged-prs', { prs: [...mergers].sort((a, b) => a - b), issues });
+}
+
 /**
  * A conflict hand-off resolved by `handoffResolution` is done by construction:
  * the verdict reads GitHub's PR state and the merge-tree label events, not a
@@ -545,6 +670,26 @@ function main() {
       expectedHead: conflictHandoffExpectedHead(iss.body),
       conflictClearedAfterOpen,
     });
+    if (!verdict.resolved) {
+      const sup = handoffSupersededVerdict({
+        originPr: handoffOrigin,
+        handoffIssue: ISSUE,
+        repoArgs,
+        read: (args) => gh(args, { allowFail: true }),
+      });
+      if (sup.resolved) {
+        console.log(`Conflict hand-off of PR #${handoffOrigin}: ${sup.reason} → close, no reapply PR.`);
+        const mergers = (sup.prs || []).map((n) => `#${n}`).join(', ');
+        closeResolvedHandoff(
+          sup.reason === 'origin-closed-unmerged'
+            ? `✅ **Pre-flight (auto, zero-Claude)**: la PR di origine **#${handoffOrigin}** è **chiusa senza merge** e nessun'altra PR aperta la sostituisce: nulla da riapplicare.`
+            : `✅ **Pre-flight (auto, zero-Claude)**: le issue che la PR di origine **#${handoffOrigin}** dichiara di chiudere (${sup.issues.map((n) => `#${n}`).join(', ')}) sono già chiuse come completed da PR mergiate (${mergers}), che toccano già tutti i suoi file scritti a mano. La fix è su main: una PR di riapplicazione sarebbe un duplicato.`,
+          `- PR di origine #${handoffOrigin}: ${sup.reason}${mergers ? ` (${mergers})` : ''}`,
+        );
+        return;
+      }
+      console.log(`Conflict hand-off of PR #${handoffOrigin}: not superseded (${sup.reason}).`);
+    }
     if (verdict.sameHeadMergeable) {
       console.log(`Conflict hand-off of PR #${handoffOrigin}: mergeable on the same HEAD, no merge-tree proof → short-circuit, no reapply PR.`);
       shortCircuit(
