@@ -37,6 +37,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import {
   collapseDuplicateRouteEntries,
   createSameIdentityArchiveIndex,
@@ -570,7 +571,4 @@ function main() {
 }
 
 // Importing the module (tests) must not start a repository-wide backfill.
-const invokedDirectly = (() => {
-  try { return fs.realpathSync(process.argv[1]) === fs.realpathSync(__filename); } catch { return false; }
-})();
-if (invokedDirectly) main();
+if (isInvokedDirectly(import.meta.url)) main();
