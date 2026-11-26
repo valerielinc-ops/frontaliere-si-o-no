@@ -485,9 +485,9 @@ async function fetchJsonWithRetry(url, options = {}) {
 }
 
 const DEFAULT_RATE_LIMIT_COOLDOWN_MS = 60_000;
-// The group-07 runner has four crawler workers. A shared 500ms start interval
-// keeps their aggregate Workday request rate at the existing per-worker
-// default (one request every two seconds) while preventing synchronized bursts.
+// Workday crawler groups run three or four workers. A shared 500ms start
+// interval keeps their aggregate Workday request rate at the existing
+// per-worker default (one request every two seconds) while preventing bursts.
 const DEFAULT_EGRESS_MIN_DELAY_MS = 500;
 const EGRESS_LOCK_RETRY_MS = 50;
 

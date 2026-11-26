@@ -76,6 +76,7 @@ jobs:
       CRAWLER_GENERATION_RECEIPT_DIR: crawler-generation/receipts
       CRAWLER_GROUP_COMMIT_DIR: crawler-generation/commit-batch
       CRAWLER_GROUP_MAX_PARALLEL: "3"
+      WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
       AI_CACHE_PATH: .cache/jobs-ai-cache.json
     steps:
       - name: Checkout frontaliere-si-o-no (public, read-only)
