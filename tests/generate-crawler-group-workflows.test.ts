@@ -3293,13 +3293,10 @@ describe('cross-repo crawler execution artifacts', () => {
     const generateArticle = fs.readFileSync(path.join(ROOT, '.github/workflows/generate-article.yml'), 'utf8');
     expect(generateArticle).not.toMatch(/AI_MODELS_PREFER:\s*codex-cli\/gpt-5\.6-luna/);
 
-    // translate-pending usa Codex come riserva dei tier a chiave nella cascata
-    // 2b (decisione del proprietario H7, 2026-10-05) e come ultimo tier delle
-    // fasi 2d/2e, dopo Argos (decisione del 2026-09-25): stesso confinamento
-    // del secret dei crawler, e il socket solo come output del broker.
-    // Dal 2026-10-07 lo usa anche la corsia titoli 2a.2 (PR 12158, poi 12179 e
-    // 12266): quarto consumatore, con lo stesso confinamento, verificato qui
-    // sotto per ogni passo del job.
+    // translate-pending usa Codex come prima corsia della cascata (decisione
+    // proprietaria H7, 2026-10-05): stesso confinamento del secret dei
+    // crawler, e il socket solo come output del broker. Il prepass stale e le
+    // corsie 2a.2, 2b, 2d e 2e sono tutti consumer verificati qui sotto.
     const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
     const translationSteps: any[] = translation.jobs.translate.steps;
     const translationSetupStep = translationSteps.find(
@@ -3318,6 +3315,7 @@ describe('cross-repo crawler execution artifacts', () => {
     const translationConsumers = translationSteps.filter((step: any) => step.env?.CODEX_AUTH_BROKER_SOCKET
       && step.name !== 'Cleanup Codex auth broker');
     expect(translationConsumers.map((step: any) => step.name)).toEqual([
+      'Phase 2 pre: Repair stale source-copy descriptions (bounded)',
       'Phase 2a.2: Fix untranslated titles (free cascade, before descriptions)',
       'Phase 2b: Translate pending jobs (cascade top-up)',
       'Phase 2d: Fix untranslated titles (free cascade)',
