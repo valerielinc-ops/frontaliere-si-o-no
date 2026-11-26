@@ -311,7 +311,18 @@ function processSlice(sliceFile) {
       bySlug.set(entry.slug, entry);
       recoveredFromHistory++;
     } else if (compareExpiredAt(previous.expiredAt, entry.expiredAt) < 0) {
-      mergeExpiredRouteEvidence(entry, previous, `backfill-expired-from-history/${sliceFile}`);
+      let routeCapRefused = false;
+      mergeExpiredRouteEvidence(
+        entry,
+        previous,
+        `backfill-expired-from-history/${sliceFile}`,
+        { onLegacyRouteCapRefusal: () => { routeCapRefused = true; } },
+      );
+      if (routeCapRefused) {
+        // The existing record remains the proven owner of its older routes;
+        // replacing it would turn a cap refusal into an archive 404.
+        continue;
+      }
       mergeSourceIdentityHistory(entry, previous);
       bySlug.set(entry.slug, entry);
       recoveredFromHistory++;

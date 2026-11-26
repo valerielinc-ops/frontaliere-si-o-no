@@ -644,43 +644,67 @@ export function mergeSourceIdentityHistory(survivor, removed) {
  * content winner, but its locale map/history must not erase routes that were
  * actually served by the older payload. Canton is part of the public route;
  * fill it only when the newer record has no value, never overwrite a newer
- * explicit context.
+ * explicit context. A legacy-route cap refusal is an expected non-merge: the
+ * survivor remains untouched so callers can keep the records separate or keep
+ * the already-persisted winner. Other transfer failures still propagate.
  *
+ * @param {object} [options]
+ * @param {(error: Error) => void} [options.onLegacyRouteCapRefusal]
  * @returns {boolean} whether route evidence or context changed
  */
-export function mergeExpiredRouteEvidence(survivor, historical, source = 'expired-route-evidence') {
+export function mergeExpiredRouteEvidence(
+  survivor,
+  historical,
+  source = 'expired-route-evidence',
+  { onLegacyRouteCapRefusal } = {},
+) {
   if (!survivor || typeof survivor !== 'object' || !historical || typeof historical !== 'object') {
     return false;
   }
   validateSlugHistoryShape(survivor, 'survivor');
   validateSlugHistoryShape(historical, 'removed');
+  const candidate = structuredClone(survivor);
   const before = JSON.stringify({
-    canton: survivor.canton,
-    location: survivor.location,
-    slugByLocale: survivor.slugByLocale,
-    previousSlugs: survivor.previousSlugs,
-    previousSlugsByLocale: survivor.previousSlugsByLocale,
-    previousSlugCantonByLocale: survivor.previousSlugCantonByLocale,
+    canton: candidate.canton,
+    location: candidate.location,
+    slugByLocale: candidate.slugByLocale,
+    previousSlugs: candidate.previousSlugs,
+    previousSlugsByLocale: candidate.previousSlugsByLocale,
+    previousSlugCantonByLocale: candidate.previousSlugCantonByLocale,
   });
-  if (!survivor.canton && historical.canton) survivor.canton = historical.canton;
-  if (!survivor.location && historical.location) survivor.location = historical.location;
+  if (!candidate.canton && historical.canton) candidate.canton = historical.canton;
+  if (!candidate.location && historical.location) candidate.location = historical.location;
   // The archive merge already carries locale-attributed evidence in its
   // exact buckets. Do not flatten those values into legacy history a second
   // time: that changes the persisted representation on the next identical
   // crawl even though no route changed.
-  transferSlugHistory(survivor, historical, source, {
-    syncLegacy: false,
-    skipSelfCanonical: true,
-    preserveAllExpiredRoutes: true,
-  });
+  try {
+    transferSlugHistory(candidate, historical, source, {
+      syncLegacy: false,
+      skipSelfCanonical: true,
+      preserveAllExpiredRoutes: true,
+    });
+  } catch (error) {
+    if (isLegacyRouteCapRefusal(error)) {
+      onLegacyRouteCapRefusal?.(error);
+      return false;
+    }
+    throw error;
+  }
   const after = JSON.stringify({
-    canton: survivor.canton,
-    location: survivor.location,
-    slugByLocale: survivor.slugByLocale,
-    previousSlugs: survivor.previousSlugs,
-    previousSlugsByLocale: survivor.previousSlugsByLocale,
-    previousSlugCantonByLocale: survivor.previousSlugCantonByLocale,
+    canton: candidate.canton,
+    location: candidate.location,
+    slugByLocale: candidate.slugByLocale,
+    previousSlugs: candidate.previousSlugs,
+    previousSlugsByLocale: candidate.previousSlugsByLocale,
+    previousSlugCantonByLocale: candidate.previousSlugCantonByLocale,
   });
+  if (before !== after) {
+    for (const key of Object.keys(survivor)) {
+      if (!(key in candidate)) delete survivor[key];
+    }
+    Object.assign(survivor, candidate);
+  }
   return before !== after;
 }
 
@@ -892,14 +916,22 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
       indexRecord(entry);
       added++;
     } else if (compareExpiredAt(entry.expiredAt, prev.expiredAt) >= 0) {
-      const previousMetadata = firstSeenMetadata(prev);
-      unindexRecord(prev); // the replaced record no longer owns its identities or routes
-      bySlug.set(entry.slug, entry);
+      let routeCapRefused = false;
       const routeEvidenceMerged = mergeExpiredRouteEvidence(
         entry,
         prev,
         `archive-removed-jobs-to-slice/${crawlerKey}`,
+        { onLegacyRouteCapRefusal: () => { routeCapRefused = true; } },
       );
+      if (routeCapRefused) {
+        // A refusal means the old record is still the only proven owner of
+        // its routes. Keep it indexed and do not replace it with the newer
+        // payload whose history could not carry those routes.
+        continue;
+      }
+      const previousMetadata = firstSeenMetadata(prev);
+      unindexRecord(prev); // the replaced record no longer owns its identities or routes
+      bySlug.set(entry.slug, entry);
       const merged = mergeSourceIdentityHistory(entry, prev) || routeEvidenceMerged;
       indexRecord(entry); // after the merge: it may now carry the old record's identity history
       // A newer payload may replace a legacy entry that has no metadata. The

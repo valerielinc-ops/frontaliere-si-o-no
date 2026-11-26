@@ -6,6 +6,7 @@ import {
   localeRouteKeys,
   mergeExpiredRouteEvidence,
 } from '../scripts/lib/expired-jobs-archive.mjs';
+import { LEGACY_PREV_SLUGS_CAP } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { resolveExpiredRouteCanton } from '../scripts/lib/expired-route-canton.mjs';
 
 describe('expired route evidence', () => {
@@ -227,5 +228,21 @@ describe('expired route evidence', () => {
 
     expect(() => mergeExpiredRouteEvidence(survivor, historical)).toThrow(/previousSlugsByLocale/);
     expect(survivor.canton).toBeUndefined();
+  });
+
+  it('preserves a full legacy route union without dropping the historical route', () => {
+    const survivor: Record<string, any> = {
+      slug: 'canonical',
+      location: 'Lugano',
+      previousSlugs: Array.from({ length: LEGACY_PREV_SLUGS_CAP }, (_, index) => `legacy-${index}`),
+      previousSlugsByLocale: {},
+    };
+    const historical: Record<string, any> = {
+      slug: 'canonical',
+      previousSlugs: ['historical-only-route'],
+    };
+    expect(mergeExpiredRouteEvidence(survivor, historical)).toBe(true);
+    expect(survivor.previousSlugs).toHaveLength(LEGACY_PREV_SLUGS_CAP + 1);
+    expect(survivor.previousSlugs).toContain('historical-only-route');
   });
 });
