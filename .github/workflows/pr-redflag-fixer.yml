@@ -1714,6 +1714,7 @@ jobs:
           # model round before its required response artifact is written.
           command_timeout_seconds: "240"
           response_artifact: redflag-response.md
+          response_artifact_dir: redflag
           # Auth via subscription Max (zero API cost). MAI ANTHROPIC_API_KEY.
           # `github_token` alimenta gli helper provider-neutral di quota/delivery;
           # usa la stessa identità write-capable del push, ma non è il bridge Codex.
@@ -1776,7 +1777,7 @@ jobs:
             - Push sullo stesso branch: `git push origin HEAD:${{ github.event.pull_request.head.ref }}`. Il remote `origin` è già autenticato con l'App token (se disponibile, altrimenti PAT) → ri-attiva pr-review-loop (re-review). Se il push fallisce per scope/auth → documenta in un commento e TERMINA.
             - Aggiorna il body della PR: scrivi il testo completo nel file assoluto `$RUNNER_TEMP/pr-redflag-pr-body.md` (imposta `BODY_FILE` a quel path), poi esegui `node scripts/ci/pr-body-check-gate.mjs --body-file "$BODY_FILE"` e solo con exit 0 chiama `gh pr edit "$PR_NUMBER" --repo "$REPO" --body-file "$BODY_FILE"`. Non usare un body inline: il wrapper deterministico su `gh` blocca ogni riscrittura senza body-file o con body non conforme prima della chiamata remota. Mantieni `## Implementato` (aggiungi cosa hai fixato) + `## Non implementato (ancora)`. Ogni bullet della seconda sezione vuole uno STATO LETTERALE, scritto esattamente così: `in questa PR` / `PR concatenata #N` (col numero) / `per scelta` / `by construction` / `falso positivo` / `blocked: <causa esterna reale>` (AGENTS.md #8). La forma `PR concatenata` senza `#N` non è tracciabile, non chiude il bullet e va trattata come lavoro aperto. Non è cosmesi: `scripts/ci/followup-has-candidates.mjs` riapre come issue di follow-up ogni bullet `blocked: <causa tecnica>` **e ogni bullet senza stato** — un 🔴 che hai appena chiuso, descritto senza stato, torna indietro come issue nuova. Le deroghe decisionali (`per scelta`, `by construction`, `falso positivo`, `blocked: decisione del proprietario`) sono chiusure solo con `**Motivo:** <causa concreta>. **Prossimo passo:** <azione concreta>.` nello stesso bullet; una formula nuda, generica o con placeholder resta aperta e il gate la blocca. **Divieto: non scrivere MAI `per scelta` / `by construction` / `falso positivo` / `blocked: decisione del proprietario` su un item che stai SALTANDO in questo round** (sibling non sweepati, finding rimandati, lavoro che non hai fatto). Quei quattro stati chiudono la voce, e al round 2 saresti TU a rileggere il bullet che hai scritto tu come decisione già presa: ritireresti il 🔴 senza averlo fixato, con il round cap che non scatta mai perché ogni round si dichiara terminato. Per ciò che salti usa `PR concatenata #N` (col numero) o `blocked: <causa esterna reale>`; gli stati chiudenti valgono solo per ciò che hai deciso di non fare MAI, col motivo scritto dopo lo stato.
 
-            **Risposta per finding (obbligatoria, anche senza commit).** Prima del push, o prima di terminare senza commit, scrivi `$RUNNER_TEMP/redflag-response.md` con UNA riga per ogni 🔴 aperto, usando l'anchor della review:
+            **Risposta per finding (obbligatoria, anche senza commit).** Prima del push, o prima di terminare senza commit, scrivi **esattamente** `$RUNNER_TEMP/redflag/redflag-response.md` (non nella radice di `$RUNNER_TEMP` e non in un'altra directory) con UNA riga per ogni 🔴 aperto, usando l'anchor della review:
             - `` `path:L<n>` — fixed: <cosa hai cambiato, con path:L>. Verifica: <comando dell'Accettazione, o test eseguito> → <esito> `` (se il 🔴 non aveva `Accettazione:`, chiudi con `` Accettazione proposta: <il controllo eseguito> ``)
             - `` `path:L<n>` — disputed: <finding id stabile; review id + HEAD; Contratto primario: fonte citata; Prova: input/comando riproducibile con actual → expected; Accettazione invalida: motivo> `` (un veto già dichiarato cita invece il bullet con stato chiudente e perché copre il finding)
             - `` `path:L<n>` — not-fixable: <motivo concreto: decisione del proprietario, root cause non chiara> `` (una misura post-merge non è un motivo: si chiude con il trigger di revert, vedi sopra)
@@ -1972,7 +1973,7 @@ jobs:
           REVIEW_ID: ${{ github.event.review.id }}
         run: |
           set -uo pipefail
-          response="$RUNNER_TEMP/redflag-response.md"
+          response="$RUNNER_TEMP/redflag/redflag-response.md"
           if [ ! -s "$response" ]; then
             echo "Nessuna risposta per finding scritta dal fixer."
             echo "published=none" >> "$GITHUB_OUTPUT"

@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { clickSubmitButton, guardAgentStep, isPreDispatchLocatorClickFailure, AGENT_SCHEMA } from '../scripts/assisted-application/lib/portal/agent.mjs';
 import { labelsAt, learnedButton, normalizeLabel, portalKnowledgeStore, PORTAL_KNOWLEDGE_COLLECTION } from '../scripts/assisted-application/lib/portal/knowledge.mjs';
-import { anonymizePath, applicationEntryControls, clickButton, hasApplicationSurface, isStadtZurichPublicSearchButton, pageControls, stadtZurichPublicPostingTarget, stopReportFrom } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { anonymizePath, applicationEntryControls, clickButton, hasApplicationSurface, isStadtZurichPublicSearchButton, pageControls, requiredLeftEmpty, stadtZurichPublicPostingTarget, stopReportFrom } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { CONFIRM_RE, REFUSED_RE } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { candidateValues, redactStopReport, stopIssue } from '../scripts/assisted-application/lib/portal/stop-report.mjs';
@@ -69,7 +69,7 @@ describe('portal runner self-correction', () => {
     const semanticForm = { getAttribute: (name: string) => name === 'data-aa-id' ? 'f2' : '' };
     const semanticButton = {
       form: null,
-      closest: (selector: string) => selector === '[role="form"]' ? semanticForm : null,
+      closest: (selector: string) => selector.includes('[role="form"]') ? semanticForm : null,
     };
     const exactButton = {
       isVisible: vi.fn().mockResolvedValue(true),
@@ -289,6 +289,70 @@ describe('portal runner self-correction', () => {
     expect(staleClick).toHaveBeenCalledTimes(2);
     expect(candidate.evaluate).toHaveBeenCalledOnce();
     expect(exactClick).not.toHaveBeenCalled();
+  });
+
+  it('dismisses a late-appearing cookie consent banner and retries an obstructed control click', async () => {
+    let cookieVisible = true;
+    const preDispatchBlocked = new Error(
+      'locator.click: Timeout 6000ms exceeded.\nCall log:\n  - locator resolved to <a class="button">Create profile</a>\n  - <div id="onetrust-banner-sdk"> intercepts pointer events',
+    );
+    const snapshotButtons = () => ([
+      { id: 'f7', text: 'Create profile', href: 'https://apply.example/ApplicationMethods?jobId=42', disabled: false, frame: 0 },
+      ...(cookieVisible ? [
+        { id: 'f9', text: 'Customise Cookies', cookieSurface: 'banner', chrome: true, disabled: false, frame: 0 },
+        { id: 'f10', text: 'Decline optional cookies', cookieSurface: 'banner', disabled: false, frame: 0 },
+        { id: 'f11', text: 'Accept optional cookies', cookieSurface: 'banner', disabled: false, frame: 0 },
+      ] : []),
+    ]);
+    const createClick = vi.fn(async () => {
+      if (cookieVisible) throw preDispatchBlocked;
+    });
+    const cookieRejectClick = vi.fn(async () => {
+      cookieVisible = false;
+    });
+    const frame = {
+      url: () => 'https://apply.example/CHCareers/Login?jobId=42',
+      evaluate: vi.fn(async (fn: any) => {
+        if (fn === extractFieldsInPage) {
+          return {
+            url: 'https://apply.example/CHCareers/Login?jobId=42',
+            fields: [],
+            buttons: snapshotButtons(),
+            links: [],
+            dialogs: [],
+            captcha: false,
+            passwordVisible: true,
+            errors: [],
+            text: 'Manage your cookie preferences',
+          };
+        }
+        return false;
+      }),
+      locator: vi.fn((selector: string) => ({
+        first: () => ({
+          click: selector === '[data-aa-id="f10"]' ? cookieRejectClick : createClick,
+          evaluate: vi.fn().mockResolvedValue(undefined),
+        }),
+      })),
+      getByRole: vi.fn(),
+    };
+    const page = {
+      url: () => 'https://apply.example/CHCareers/Login?jobId=42',
+      frames: () => [frame],
+      mainFrame: () => frame,
+      waitForTimeout: vi.fn().mockResolvedValue(undefined),
+    };
+
+    const result = await clickButton(page as any, {
+      id: 'f7',
+      text: 'Create profile',
+      href: 'https://apply.example/ApplicationMethods?jobId=42',
+      frame: 0,
+    });
+
+    expect(result).toBe('again');
+    expect(cookieRejectClick).toHaveBeenCalledOnce();
+    expect(createClick).toHaveBeenCalledTimes(2);
   });
 
   it('level 1: the agent may name the last page’s send button; the guard keeps only a real ref', () => {
@@ -867,5 +931,37 @@ describe('portal runner self-correction', () => {
       expect(CONFIRM_RE.test(text)).toBe(false);
     }
     expect(REFUSED_RE.test('Grazie per la tua candidatura, è stata inviata.')).toBe(false);
+  });
+
+  it('checks DOM presence on redacted required password inputs in requiredLeftEmpty without exposing secrets', async () => {
+    const createMockPage = (domPasswordPresent: boolean) => {
+      const frame = {
+        url: () => 'https://portal.example/Application/New/1',
+        evaluate: vi.fn(async (read: unknown) => read === extractFieldsInPage ? ({
+          url: 'https://portal.example/Application/New/1',
+          fields: [
+            { id: 'f1', kind: 'text', inputType: 'text', label: 'First name', required: true, value: 'Luca', frame: 0 },
+            { id: 'f2', kind: 'text', inputType: 'password', label: 'Passwort', required: true, value: '', frame: 0 },
+          ],
+          buttons: [{ id: 'f3', text: 'Submit', frame: 0 }],
+          links: [],
+          dialogs: [],
+          captcha: false,
+          passwordVisible: true,
+          errors: [],
+          text: '',
+        }) : null),
+        locator: vi.fn((selector: string) => ({
+          first: () => ({
+            evaluate: vi.fn(async (fn: (el: { value?: string }) => unknown) =>
+              fn(selector.includes('f2') ? { value: domPasswordPresent ? 'redacted-secret' : '' } : {})),
+          }),
+        })),
+      };
+      return { url: () => 'https://portal.example/Application/New/1', frames: () => [frame], mainFrame: () => frame };
+    };
+
+    expect(await requiredLeftEmpty(createMockPage(true))).toBe(false);
+    expect(await requiredLeftEmpty(createMockPage(false))).toBe(true);
   });
 });

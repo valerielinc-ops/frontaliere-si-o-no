@@ -37,14 +37,14 @@ describe('classificazione della TAXONOMY: regola o argomento, col motivo', () =>
     }
   });
 
-  it.each(['canonical-sitemap', 'cls-layout', 'router-nav', 'auto-ads', 'sibling-tooling', 'structured-data'])('%s e\' argomento', (key) => {
+  it.each(['canonical-sitemap', 'cls-layout', 'router-nav', 'auto-ads', 'sibling-tooling', 'structured-data', 'structured-data-parser'])('%s e\' argomento', (key) => {
     expect(bucketEscalationKind('reviewer-finding', key)).toBe('topic');
     expect(isTopicOnlyBucket('reviewer-finding', key)).toBe(true);
   });
 
   it.each([
     'canonical-trailing-slash', 'adsense-thin-content', 'adsense-slot-lifecycle', 'adsense-bot-gate',
-    'adsense-loader-contract', 'structured-data-parser', 'structured-data-required-fields', 'workflow-scope-creds', 'pr-body-contract',
+    'adsense-loader-contract', 'structured-data-required-fields', 'workflow-scope-creds', 'pr-body-contract',
   ])('%s e\' regola', (key) => {
     expect(bucketEscalationKind('reviewer-finding', key)).toBe('rule');
     expect(isTopicOnlyBucket('reviewer-finding', key)).toBe(false);

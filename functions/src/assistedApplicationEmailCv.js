@@ -13,11 +13,11 @@
  *   2. the sender must own a paid order still open (customer or applicant
  *      address): the one the reply quotes by its reference, else the most
  *      recent, and for a CV the most recent still waiting for one;
- *   3. the first attachment whose bytes are a PDF, DOC or DOCX (≤ 5 MB) is
- *      stored in the order's folder when the order has no CV yet (an order that
- *      already has a CV is never overwritten), and the order moves to
- *      "materials received". The order-trigger then runs the usual type check,
- *      which starts the flow;
+ *   3. the first PDF, DOC, DOCX or raster image CV (automatically converted
+ *      to PDF when an image, ≤ 5 MB output) is stored in the order's folder
+ *      when the order has no CV yet (an order that already has a CV is never
+ *      overwritten), and the order moves to "materials received". The
+ *      order-trigger then runs the usual type check, which starts the flow;
  *   4. the reply's own text (no quoted history) is kept, private, as the
  *      candidate's notes for the AI draft and as a `candidate_replies` document,
  *      which assistedApplicationCandidateReply.js reads with Codex and applies
@@ -30,7 +30,7 @@ import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { CANDIDATE_REPLIES_SUBCOLLECTION } from './assistedApplicationCandidateReply.js';
-import { detectCvFileType } from './assistedApplicationCvCheck.js';
+import { resolveCvAttachmentFromEmail } from './lib/imageCvToPdf.js';
 import { parseHeaders, parseMimeMessage, senderAuthenticated, singleMailboxAddress } from './lib/mimeMessage.js';
 
 export const MAX_RAW_MESSAGE_BYTES = 9 * 1024 * 1024;
@@ -166,6 +166,7 @@ async function storeCv({ deps, orderDoc, attachment, nowMs }) {
       fromStatus: order.submissionStatus,
       toStatus: order.submissionStatus === 'awaiting_upload' ? 'in_progress' : order.submissionStatus,
       detectedType: attachment.type,
+      ...(attachment.convertedFrom ? { convertedFrom: attachment.convertedFrom, pageCount: attachment.pageCount || 1 } : {}),
     }));
     stored = true;
   });
@@ -215,9 +216,7 @@ export async function handleAssistedApplicationEmailCv(req, deps) {
   const message = parseMimeMessage(raw);
   const sender = singleMailboxAddress(message.from);
   if (!sender || !senderAuthenticated(message.headers, sender)) return { status: 200, body: { ok: true, matched: false, reason: 'unauthenticated' } };
-  const attachment = message.attachments
-    .map((item) => ({ ...item, type: detectCvFileType(item.content.subarray(0, 8)) }))
-    .find((item) => CONTENT_TYPES[item.type] && item.content.length > 0 && item.content.length <= MAX_CV_BYTES);
+  const attachment = await resolveCvAttachmentFromEmail(message.attachments, { maxDocumentBytes: MAX_CV_BYTES });
   const notes = candidateNotesFrom(message.text);
   if (!attachment && !notes) return { status: 200, body: { ok: true, matched: false, reason: 'nothing_to_read' } };
 

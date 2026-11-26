@@ -33,4 +33,11 @@ describe.each(publicFetchCallers)('%s Workday rate-limit propagation', (_name, f
 
     await expect(fetchJobs()).rejects.toBeInstanceOf(WorkdayRateLimitError);
   });
+
+  it('does not turn a failed listing request into an empty result', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
+    vi.stubGlobal('fetch', vi.fn(async () => new Response('', { status: 404 })));
+
+    await expect(fetchJobs()).rejects.toThrow(/HTTP 404/);
+  });
 });

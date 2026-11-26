@@ -567,6 +567,7 @@ describe('Classify outcome: head remota verificata fail-closed (#9730)', () => {
     base?: string;
     start?: string;
     remote?: string;
+    recovered?: boolean;
     actionOutcome?: string;
     fetchStatuses?: string;
     fetchedSequence?: string;
@@ -585,6 +586,7 @@ describe('Classify outcome: head remota verificata fail-closed (#9730)', () => {
       mkdirSync(state);
       const logs = {
         githubEnv: path.join(temp, 'github.env'),
+        githubOutput: path.join(temp, 'github.output'),
         gh: path.join(temp, 'gh.log'),
         sleep: path.join(temp, 'sleep.log'),
         timeout: path.join(temp, 'timeout.log'),
@@ -638,6 +640,7 @@ fi`);
         env: {
           PATH: `${bin}:${process.env.PATH}`,
           GITHUB_ENV: logs.githubEnv,
+          GITHUB_OUTPUT: logs.githubOutput,
           TRUSTED_GH_BIN: path.join(bin, 'trusted-gh'),
           GH_LOG: logs.gh,
           SLEEP_LOG: logs.sleep,
@@ -661,6 +664,7 @@ fi`);
           BASE_BODY_DIGEST: 'unknown',
           BODY_ONLY: 'false',
           ACTION_OUTCOME: scenario.actionOutcome ?? 'failure',
+          RECOVERED: scenario.recovered ? 'true' : 'false',
         },
       });
       const lines = (file: string) => readFileSync(file, 'utf8').split('\n').filter(Boolean);
@@ -669,6 +673,7 @@ fi`);
         stdout: result.stdout,
         stderr: result.stderr,
         githubEnv: readFileSync(logs.githubEnv, 'utf8'),
+        githubOutput: readFileSync(logs.githubOutput, 'utf8'),
         ghLog: readFileSync(logs.gh, 'utf8'),
         sleeps: lines(logs.sleep),
         timeouts: lines(logs.timeout),
@@ -727,6 +732,13 @@ fi`);
       expect(success.status, success.stdout + success.stderr).toBe(0);
       expect(success.stdout).toContain('round SUCCESS');
       expect(success.githubEnv).toBe('');
+    });
+
+    it(`${name}: un run recuperato non finalizza dopo una sostituzione`, () => {
+      const superseded = runClassify(name, { recovered: true });
+      expect(superseded.status, superseded.stdout + superseded.stderr).toBe(0);
+      expect(superseded.githubEnv).toBe('CLAIM_STATUS=released\n');
+      expect(superseded.githubOutput).not.toContain('recovered_completion=true');
     });
 
     it(`${name}: PR chiusa durante il recheck non viene classificata come head transitoria`, () => {

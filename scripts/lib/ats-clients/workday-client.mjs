@@ -116,6 +116,16 @@ export class WorkdayRateLimitError extends WorkdayApiError {
   }
 }
 
+/**
+ * Preserve the shared listing policy across the dedicated Workday callers.
+ * Rate limits always propagate; `throwOnError` makes all request failures
+ * fail closed, including the statusCode 0 transport-failure marker.
+ */
+export function shouldPropagateWorkdayFetchError(error, throwOnError = false) {
+  return error instanceof WorkdayRateLimitError
+    || throwOnError;
+}
+
 /* ── Constants ─────────────────────────────────────────────────────────── */
 
 const DEFAULT_USER_AGENT = 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/)';
@@ -559,9 +569,9 @@ async function withRunnerWorkdayEgress(operation, {
       } catch (error) {
         const status = Number(error?.statusCode ?? error?.status);
         if (status === 429) {
-          // A terminal WorkdayRateLimitError is synthetic, but carries the
-          // remaining in-process Retry-After window. Persist it too so the
-          // next worker cannot immediately recreate the same 429 burst.
+          // Persist both source 429s and terminal circuit errors. The latter
+          // carry the remaining in-process Retry-After window, which keeps
+          // another worker from immediately recreating the same burst.
           const retryAfterMs = Number.isFinite(Number(error?.retryAfterMs))
             ? Math.min(retryAfterCapMs, Math.max(0, Number(error.retryAfterMs)))
             : parseRetryAfterMs(

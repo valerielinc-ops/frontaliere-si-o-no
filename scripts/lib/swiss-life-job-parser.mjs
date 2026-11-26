@@ -27,7 +27,7 @@ import { resolveLocalityAddress } from './swiss-structured-address.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton, isKnownSwissCity, isSwissLocationText, isTargetSwissLocation } from './target-swiss-locations.mjs';
-import { fetchWorkdayJsonWithRetry, firstLocationSegment, WorkdayRateLimitError, workdayPostingDateFields } from './ats-clients/workday-client.mjs';
+import { fetchWorkdayJsonWithRetry, firstLocationSegment, shouldPropagateWorkdayFetchError, workdayPostingDateFields } from './ats-clients/workday-client.mjs';
 import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -160,6 +160,7 @@ async function fetchJson(url, options = {}, browserFallback) {
     timeoutMs: configuredTimeoutMs,
     method = 'GET',
     body,
+    throwOnError = false,
   } = options;
   const timeoutMs = Number(configuredTimeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   try {
@@ -173,7 +174,7 @@ async function fetchJson(url, options = {}, browserFallback) {
       ...(browserFallback === undefined ? {} : { browserFallback }),
     });
   } catch (err) {
-    if (err instanceof WorkdayRateLimitError) throw err;
+    if (shouldPropagateWorkdayFetchError(err, throwOnError)) throw err;
     console.warn(`⚠️ Fetch failed for ${url}: ${err?.message || err}`);
     return null;
   }
@@ -233,6 +234,7 @@ export async function fetchSwissListings({ browserFallback } = {}) {
         offset,
         searchText: '',
       }),
+      throwOnError: true,
     }, browserFallback);
 
     if (!data || !Array.isArray(data.jobPostings)) {

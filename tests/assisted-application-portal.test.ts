@@ -493,6 +493,19 @@ describe('assisted application profile history and file replacement', () => {
     }])).toBe(true);
   });
 
+  it('does not treat a camel-case Workday date endpoint as a profile row owner', () => {
+    const candidate = { profile: { experience: [
+      { role: 'First role', employer: 'First employer', start: '2020-01', end: '2022-01' },
+    ] } };
+    const question = {
+      type: 'date', applicationQuestion: 'Start Date', section: 'Work Experience 1', name: 'startDate',
+    };
+    expect(workdayProfileControl(question)).toMatchObject({
+      kind: 'experience', ordinal: 1, endpoint: 'start', owners: [],
+    });
+    expect(profileDateQuestionsCanUseProfile(candidate, [question])).toBe(true);
+  });
+
   it('does not mistake a selected Workday filename for a successful upload receipt', async () => {
     const locator = { evaluate: vi.fn(async () => ['CV.pdf']) };
     const page = {

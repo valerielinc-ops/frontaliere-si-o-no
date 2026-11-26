@@ -1210,7 +1210,7 @@ function codexActionStep(name: string): ActionStep {
 describe('handoff del response artifact Codex', () => {
   const script = codexActionStep('Run Codex primary (bounded capacity retry)').run!;
   const runtimeRootBinding = script.match(/^[ \t]*codex_primary_runtime_root="\$\{CODEX_RUNTIME_SNAPSHOT:\?Codex primary runtime snapshot unavailable\}"$/m)?.[0];
-  const responseExport = script.match(/^[ \t]*"\$node_realpath" "\$codex_primary_runtime_root\/action\/response-artifact\.mjs" export "\$CODEX_RESPONSE_ARTIFACT" "\$runner_temp" "\$scratch_dir" \|\| codex_status=1$/m)?.[0];
+  const responseExport = script.match(/^[ \t]*"\$node_realpath" "\$codex_primary_runtime_root\/action\/response-artifact\.mjs" export "\$CODEX_RESPONSE_ARTIFACT" "\$runner_temp" "\$scratch_dir" "\$CODEX_RESPONSE_ARTIFACT_DIR" \|\| codex_status=1$/m)?.[0];
 
   it('lega il runtime snapshot trusted prima di esportare la risposta dal sandbox', () => {
     expect(runtimeRootBinding).toBeDefined();
@@ -1252,6 +1252,7 @@ describe('handoff del response artifact Codex', () => {
           SCRATCH_DIR: scratchDir,
           CODEX_RUNTIME_SNAPSHOT: runtimeRoot,
           CODEX_RESPONSE_ARTIFACT: 'redcheck-response.md',
+          CODEX_RESPONSE_ARTIFACT_DIR: '',
         },
       });
 

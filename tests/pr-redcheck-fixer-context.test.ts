@@ -1,4 +1,4 @@
-import { chmodSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { chmodSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
@@ -53,17 +53,29 @@ function section(text: string, title: string) {
   return body.slice(body.indexOf('\n') + 1).split('\n###')[0];
 }
 
-function runContext(log: string) {
+function runContext(log: string, recoveredRun = false, metadataOverrides: Record<string, unknown> = {}) {
   const root = mkdtempSync(path.join(tmpdir(), 'redcheck-ctx-'));
   const bin = path.join(root, 'bin');
   const logFile = path.join(root, 'run.log');
+  const output = path.join(root, 'github-output');
+  const metadata = path.join(root, 'run.json');
   const gh = path.join(bin, 'gh');
   mkdirSync(bin, { recursive: true });
-  writeFileSync(logFile, `${log}\n`);
+  writeFileSync(logFile, log);
+  writeFileSync(metadata, JSON.stringify({
+    path: '.github/workflows/tests.yml',
+    head_sha: 'headsha',
+    status: 'completed',
+    conclusion: 'success',
+    pull_requests: [{ number: 42, base: { ref: 'main' } }],
+    ...metadataOverrides,
+  }));
+  writeFileSync(output, '');
   writeFileSync(
     gh,
     `#!/bin/sh
 if [ "$1" = run ] && [ "$2" = view ]; then cat "${logFile}"; exit 0; fi
+if [ "$1" = api ] && [ "\${2:-}" = "repos/owner/repo/actions/runs/123" ] && [ "\${RECOVERED_RUN:-false}" = true ]; then cat "${metadata}"; exit 0; fi
 exit 1
 `,
   );
@@ -78,11 +90,17 @@ exit 1
       REPO: 'owner/repo',
       FAILED_RUN_ID: '123',
       PR_NUMBER: '42',
+      EXPECTED_HEAD_SHA: 'headsha',
+      GITHUB_OUTPUT: output,
+      RECOVERED_RUN: recoveredRun ? 'true' : 'false',
     },
   });
   const failing = readFileSync(path.join(root, 'redcheck', 'failing.txt'), 'utf8');
+  const responsePath = path.join(root, 'redcheck', 'redcheck-response.md');
+  const response = existsSync(responsePath) ? readFileSync(responsePath, 'utf8') : '';
+  const outputs = readFileSync(output, 'utf8');
   rmSync(root, { recursive: true, force: true });
-  return { result, failing };
+  return { result, failing, response, outputs };
 }
 
 describe('pr-redcheck-fixer: il contesto del rosso raggiunge il fixer', () => {
@@ -107,5 +125,34 @@ describe('pr-redcheck-fixer: il contesto del rosso raggiunge il fixer', () => {
     expect(failing).toContain('FAIL  tests/example.test.ts');
     expect(section(failing, 'Gate sorgente falliti')).not.toMatch(/exit=/);
     expect(section(failing, 'Estratto attorno al primo gate sorgente fallito').trim()).toBe('');
+  });
+
+  it('classifica come rientrato un run esatto che è diventato verde prima del fixer', () => {
+    const { result, failing, response, outputs } = runContext('', true);
+    expect(result.status, `${result.stdout}\n${result.stderr}`).toBe(0);
+    expect(failing).toBe('');
+    expect(outputs).toContain('recovered=true');
+    expect(response).toContain('recovered: tests run 123');
+    expect(result.stdout).toContain('nessun round Codex');
+  });
+
+  it('normalizza il ref documentato nel path della workflow run recuperata', () => {
+    const { result, failing, response, outputs } = runContext('', true, {
+      path: '.github/workflows/tests.yml@main',
+    });
+    expect(result.status, `${result.stdout}\n${result.stderr}`).toBe(0);
+    expect(failing).toBe('');
+    expect(outputs).toContain('recovered=true');
+    expect(response).toContain('recovered: tests run 123');
+    expect(result.stdout).toContain('nessun round Codex');
+  });
+
+  it('resta fail-closed se la run verde non è sulla HEAD attesa', () => {
+    const { result, failing, response, outputs } = runContext('', true, { head_sha: 'other-head' });
+    expect(result.status, `${result.stdout}\n${result.stderr}`).toBe(0);
+    expect(failing).toBe('');
+    expect(outputs).toContain('recovered=false');
+    expect(response).toBe('');
+    expect(result.stdout).not.toContain('nessun round Codex');
   });
 });

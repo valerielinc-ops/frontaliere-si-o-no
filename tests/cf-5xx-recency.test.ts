@@ -445,22 +445,20 @@ describe('the gate cannot be disarmed silently', () => {
     expect(reportArgs).toContain('--by-hour');
   });
 
-  it('fails OPEN and says so when the hourly rows are missing', async () => {
+  it('does not file an issue when the hourly rows are missing', async () => {
     const warn = vi.spyOn(console, 'log').mockImplementation(() => {});
     mockReport({ detail: REAL_TOTALS }); // no detailByHour
 
     await cfSync.main();
 
-    expect(createCalls()).toHaveLength(2); // nothing suppressed on missing data
+    expect(createCalls()).toHaveLength(0);
     const printed = warn.mock.calls.map((c) => String(c[0])).join('\n');
-    expect(printed).toContain('recency gate inactive');
-    const bodies = createCalls().map((c) => c[c.indexOf('--body') + 1]);
-    expect(bodies.every((body) => body.includes('current failure is unverified'))).toBe(true);
-    expect(bodies.every((body) => !body.includes('sta rispondendo 5xx adesso'))).toBe(true);
+    expect(printed).toContain('recency evidence unavailable');
+    expect(printed).toContain('no issue will be opened');
     warn.mockRestore();
   });
 
-  it('does not suppress a stale-looking URL when hourly rows hit the result cap', async () => {
+  it('does not file an issue when hourly rows hit the result cap', async () => {
     const warn = vi.spyOn(console, 'log').mockImplementation(() => {});
     mockReport({
       detail: [REAL_TOTALS[0]],
@@ -470,10 +468,32 @@ describe('the gate cannot be disarmed silently', () => {
 
     await cfSync.main();
 
-    expect(createCalls()).toHaveLength(1);
-    const body = createCalls()[0][createCalls()[0].indexOf('--body') + 1];
-    expect(body).toContain('current failure is unverified');
+    expect(createCalls()).toHaveLength(0);
     expect(warn.mock.calls.map((c) => String(c[0])).join('\n')).toContain('row cap reached');
+    warn.mockRestore();
+  });
+
+  it('does not promote a flat URL absent from otherwise complete hourly rows', async () => {
+    const warn = vi.spyOn(console, 'log').mockImplementation(() => {});
+    mockReport({
+      detail: [{ status: 503, url: 'frontaliereticino.ch/de/jobs-im-tessin/', count: 27 }],
+      detailByHour: [
+        {
+          status: 503,
+          url: 'frontaliereticino.ch/other/',
+          hour: '2026-11-26T05:00:00.000Z',
+          count: 2,
+        },
+      ],
+      detailByHourComplete: true,
+    });
+
+    await cfSync.main();
+
+    expect(createCalls()).toHaveLength(0);
+    expect(warn.mock.calls.map((c) => String(c[0])).join('\n')).toContain(
+      'no complete per-URL hourly evidence',
+    );
     warn.mockRestore();
   });
 });

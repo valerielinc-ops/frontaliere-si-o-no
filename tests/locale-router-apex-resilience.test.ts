@@ -60,7 +60,7 @@ describe('locale-router apex resilience', () => {
     expect(res.status).toBe(503);
     expect(res.headers.get('Cache-Control')).toBe('no-store');
     expect(log).toHaveBeenCalledTimes(1);
-    expect(JSON.parse(String(log.mock.calls[0][0]))).toEqual({
+    expect(log.mock.calls[0][0]).toEqual({
       event: 'origin_failure',
       reason: 'apex-timeout',
       path: '/calcola-stipendio/',
@@ -78,7 +78,7 @@ describe('locale-router apex resilience', () => {
     expect(res.headers.get('Retry-After')).toBe('30');
     expect(res.headers.get('Cache-Control')).toBe('no-store');
     expect(await res.text()).toBe('Origin unavailable');
-    const signal = JSON.parse(String(log.mock.calls[0][0]));
+    const signal = log.mock.calls[0][0];
     expect(signal).toEqual({
       event: 'origin_failure',
       reason: 'router-exception',
