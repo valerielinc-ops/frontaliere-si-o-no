@@ -40,6 +40,11 @@ jobs:
         run: npm ci
 
       - name: Assemble active-job corpus
+        env:
+          # The full expired-archive reconciliation exceeds Node's default
+          # heap as the archive grows. Keep the complete assembly and give it
+          # the same proven headroom as the other full-assembly callers.
+          NODE_OPTIONS: --max-old-space-size=8192
         run: node scripts/assemble-jobs-dataset.mjs
 
       - name: Regenerate employer-profiles dataset
@@ -106,7 +111,7 @@ jobs:
           git diff --cached --quiet && echo "No employer-profiles changes to commit" && exit 0
           git commit -m "chore(data): refresh employer-profiles snapshot [skip ci]"
           bash scripts/lib/git-push-with-retry.sh \
-            --regenerate-cmd "node scripts/assemble-jobs-dataset.mjs && node scripts/build-employer-profiles.mjs && git add data/employer-profiles.json"
+            --regenerate-cmd "NODE_OPTIONS=--max-old-space-size=8192 node scripts/assemble-jobs-dataset.mjs && node scripts/build-employer-profiles.mjs && git add data/employer-profiles.json"
 
       - name: Report failure to GitHub Issues
         if: failure()
