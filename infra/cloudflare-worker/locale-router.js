@@ -3423,9 +3423,9 @@ async function readShardBodyWithRetry(resp, upstream, request, cfOpts) {
 // Returns a 200 Response on HIT, or null on MISS / cache error so the caller
 // falls back to surfacing the origin error. Only meaningful for GET (the cache
 // holds GET 200s); callers guard on method.
-async function serveStaleOnError(url, reason) {
+async function serveStaleOnError(url, reason, fields = {}) {
   const stale = await readStaleCopy(url, reason);
-  logEdgeFailure(reason, url, { stale: stale !== null });
+  logEdgeFailure(reason, url, { ...fields, stale: stale !== null });
   return stale;
 }
 
@@ -3774,7 +3774,7 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
   // Stale-if-error: origin answered but with a 5xx after retries. Serve the
   // last-good cached copy instead of propagating the error to crawler/user.
   if (request.method === 'GET' && resp.status >= 500) {
-    const stale = await serveStaleOnError(url, `origin-${resp.status}`);
+    const stale = await serveStaleOnError(url, `origin-${resp.status}`, { status: resp.status });
     if (stale) return stale;
   } else if (resp.status >= 500) {
     logUpstreamFailure(`origin-${resp.status}`, url, resp);
@@ -3845,7 +3845,7 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
       });
     }
     if (resp.status >= 500) {
-      const stale = await serveStaleOnError(url, `origin-${resp.status}`);
+      const stale = await serveStaleOnError(url, `origin-${resp.status}`, { status: resp.status });
       if (stale) return stale;
     }
     if (resp.status === 200 && body !== null) {
@@ -4314,7 +4314,7 @@ export const router = {
       try {
         const response = await fetchOriginWithRetry(url, request);
         if (request.method === 'GET' && response.status >= 500) {
-          const stale = await serveStaleOnError(url, `apex-${response.status}`);
+          const stale = await serveStaleOnError(url, `apex-${response.status}`, { status: response.status });
           if (stale) return stale;
         } else if (response.status >= 500) {
           logUpstreamFailure(`apex-${response.status}`, url, response);
@@ -4336,7 +4336,7 @@ export const router = {
         if (request.method === 'GET' && response.status === 200 && APEX_STALE_PATH_RE.test(url.pathname)) {
           const { resp, body } = await readShardBodyWithRetry(response, url, request);
           if (resp.status >= 500) {
-            const stale = await serveStaleOnError(url, `apex-${resp.status}`);
+            const stale = await serveStaleOnError(url, `apex-${resp.status}`, { status: resp.status });
             if (stale) return stale;
           }
           if (resp.status !== 200 || body === null) return resp;
