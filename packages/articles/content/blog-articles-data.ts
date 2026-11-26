@@ -48833,6 +48833,16 @@ const RAW_ARTICLES_CHUNK_19: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'protocollo-lavoro-remoto-2024',
+ category: 'novita',
+ date: '2026-11-26T13:37:38.190Z',
+ image: '/images/blog/article-frontalieri-telelavoro-protocollo-2026.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [
