@@ -16,14 +16,13 @@ import {
 import { projectPermanentEmployerFeed } from '../scripts/lib/permanentEmployerProjection.mjs';
 import { RC_TO_ENV } from '../scripts/load-rc-env.mjs';
 import { buildPermanentEmployerFeed } from '../build-plugins/adminDataPlugin';
-import { fetchAndActivate, getConfigValue } from '../services/firebase';
 import { readDirectEmployerChannelEnabled as readClientDirectEmployerChannelEnabled } from '../services/directEmployerChannelFlag';
 import {
   filterDirectEmployerSitemapXml,
   isDirectEmployerBuildEnabled,
   isDirectEmployerSeoPath,
 } from '../services/directEmployerFeature';
-import { loadPermanentEmployers } from '../services/directEmployerChannel';
+import { DIRECT_EMPLOYER_LIST_ENDPOINT, loadPermanentEmployers } from '../services/directEmployerChannel';
 import { normalizeEmployerOrigin } from '../services/employerChannelOrigin.mjs';
 
 function jsonResponse(body: unknown, status = 200) {
@@ -92,13 +91,6 @@ describe('direct employer SEO flag', () => {
     expect(RC_TO_ENV.DIRECT_EMPLOYER_CHANNEL_ENABLED).toEqual([DIRECT_EMPLOYER_FLAG]);
   });
 
-  it('keeps an enabled cached flag when activation reports no newer values', async () => {
-    vi.mocked(fetchAndActivate).mockResolvedValueOnce(false);
-    vi.mocked(getConfigValue).mockResolvedValueOnce('true');
-
-    await expect(readClientDirectEmployerChannelEnabled()).resolves.toBe(true);
-  });
-
   it('emits the prospector feed when the owner flag is enabled', () => {
     const root = mkdtempSync(join(tmpdir(), 'frontaliere-permanent-feed-'));
     const candidatesPath = join(root, 'data/prospector/candidates.json');
@@ -121,22 +113,20 @@ describe('direct employer SEO flag', () => {
   });
 
   it('keeps the enabled prospector feed visible when the runtime list is unavailable', async () => {
-    vi.mocked(fetchAndActivate).mockResolvedValueOnce(true);
     vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
       const url = String(input);
-      if (url.includes('getPermanentEmployers')) return jsonResponse({ enabled: true, employers: [] }, 503);
+      if (url === `${DIRECT_EMPLOYER_LIST_ENDPOINT}?status=1`) return jsonResponse({ enabled: true });
+      if (url === DIRECT_EMPLOYER_LIST_ENDPOINT) return jsonResponse({ enabled: true, employers: [] }, 503);
       if (url.includes('permanent-employers.json')) {
         return jsonResponse({ employers: [{ id: 'prospector-1', companyName: 'Prospector Example SA', website: 'https://prospector.example/' }] });
       }
       throw new Error(`unexpected fetch: ${url}`);
     }));
     try {
-      vi.mocked(getConfigValue).mockResolvedValueOnce('true');
       await expect(loadPermanentEmployers()).resolves.toEqual({
         enabled: true,
         employers: [{ id: 'prospector-1', companyName: 'Prospector Example SA', website: 'https://prospector.example/' }],
       });
-      expect(fetchAndActivate).toHaveBeenCalled();
     } finally {
       vi.unstubAllGlobals();
     }
@@ -145,6 +135,44 @@ describe('direct employer SEO flag', () => {
   it('reads the flag fail-closed when Remote Config is unavailable', async () => {
     expect(await readDirectEmployerChannelEnabled(async () => 'true')).toBe(true);
     expect(await readDirectEmployerChannelEnabled(async () => { throw new Error('rc unavailable'); })).toBe(false);
+  });
+});
+
+describe('public direct employer channel flag', () => {
+  it.each([
+    [200, { enabled: true }, true],
+    [200, { enabled: false }, false],
+    [200, { enabled: 'true' }, false],
+    [200, {}, false],
+    [200, null, false],
+    [200, [{ enabled: true }], false],
+    [200, { enabled: true, employers: [] }, false],
+    [201, { enabled: true }, false],
+    [503, { enabled: true }, false],
+  ])('handles HTTP %i with body %j', async (status, body, enabled) => {
+    const fetchStatus = vi.fn().mockResolvedValue(jsonResponse(body, status));
+    vi.stubGlobal('fetch', fetchStatus);
+    try {
+      await expect(readClientDirectEmployerChannelEnabled()).resolves.toBe(enabled);
+      expect(fetchStatus.mock.calls).toEqual([[
+        `${DIRECT_EMPLOYER_LIST_ENDPOINT}?status=1`,
+        { method: 'GET', credentials: 'omit', cache: 'no-store' },
+      ]]);
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
+  it('fails closed on network and JSON errors', async () => {
+    vi.stubGlobal('fetch', vi.fn()
+      .mockRejectedValueOnce(new Error('network unavailable'))
+      .mockResolvedValueOnce({ status: 200, json: vi.fn().mockRejectedValue(new SyntaxError('invalid JSON')) }));
+    try {
+      await expect(readClientDirectEmployerChannelEnabled()).resolves.toBe(false);
+      await expect(readClientDirectEmployerChannelEnabled()).resolves.toBe(false);
+    } finally {
+      vi.unstubAllGlobals();
+    }
   });
 });
 
