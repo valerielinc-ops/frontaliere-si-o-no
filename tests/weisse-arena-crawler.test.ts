@@ -25,7 +25,7 @@ import {
   parsePensum,
   buildDetailUrl,
 } from '../scripts/lib/weisse-arena-job-parser.mjs';
-import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { getCompleteWeisseArenaListingSnapshot, slugify } from '../scripts/lib/crawler-template.mjs';
 
 afterEach(() => vi.unstubAllGlobals());
 
@@ -474,6 +474,53 @@ describe('TalentLink pagination completeness', () => {
     expect(requests).toEqual([0, 2, 0, 2, 0, 2]);
   });
 
+  it('rejects a terminal response that omits a page of still-active baseline jobs', async () => {
+    const currentListings = Array.from({ length: 50 }, (_, index) => listing(index + 1, `Role ${index + 1}`));
+    const existingJobs = Array.from({ length: 100 }, (_, index) => existingJob(index + 1));
+    const listingOffsets: number[] = [];
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
+      const url = new URL(String(input));
+      const id = detailJobId(url);
+      if (id !== null) return new Response(JSON.stringify({ jobFields: { id } }), {
+        headers: { 'Content-Type': 'application/json' },
+      });
+      const offset = Number(url.searchParams.get('firstResult'));
+      listingOffsets.push(offset);
+      return new Response(JSON.stringify(offset === 0
+        ? { globals: { jobsCount: 50 }, jobs: currentListings }
+        : { globals: { jobsCount: 0 } }), { headers: { 'Content-Type': 'application/json' } });
+    }));
+    await expect(fetchAllWeisseArenaJobs({ existingJobs })).rejects.toThrow(/omitted still-active TalentLink job/i);
+    expect(listingOffsets).toEqual([0, 50, 0, 50, 0, 50]);
+    expect(existingJobs).toHaveLength(100);
+  });
+
+  it('requires receipt absence evidence bound to the actual prior and parsed IDs', () => {
+    const existingJobs = Array.from({ length: 100 }, (_, index) => existingJob(index + 1));
+    const parsedJobs = existingJobs.slice(0, 50);
+    const numbers = parsedJobs.map((job) => job.jobNumber);
+    const ids = (start: number, end: number) => Array.from({ length: end - start + 1 }, (_, index) => String(start + index));
+    const snapshot = {
+      source: 'weisse-arena', complete: true, pageCount: 2, listingCount: 50,
+      minimumExpectedCount: 50, terminalOffset: 50, terminalJobsCount: 0, terminalJobsOmitted: true,
+      listingIdentities: numbers, processedIdentities: numbers, listingJobNumbers: numbers,
+      processedJobNumbers: numbers, processedCount: 50,
+      baselineJobIds: ids(1, 100), currentJobIds: ids(1, 50), absenceVerifiedJobIds: ids(51, 100),
+    };
+    const check = (receipt: Record<string, unknown>) => getCompleteWeisseArenaListingSnapshot({
+      companyKey: 'weisse-arena', fetchMetadata: { discoveredCount: 50, sourceListingSnapshot: receipt },
+      parsedJobs, existingJobs,
+    });
+    expect(check(snapshot)).not.toBeNull();
+    expect(check({ ...snapshot, absenceVerifiedJobIds: undefined })).toBeNull();
+    expect(check({ ...snapshot, absenceVerifiedJobIds: ids(51, 99) })).toBeNull();
+    expect(check({ ...snapshot, baselineJobIds: ids(1, 99), absenceVerifiedJobIds: ids(51, 99) })).toBeNull();
+    expect(check({ ...snapshot, currentJobIds: ids(2, 51), absenceVerifiedJobIds: ids(52, 100) })).toBeNull();
+    expect(check({ ...snapshot, absenceVerifiedJobIds: [...ids(51, 100), '100'] })).toBeNull();
+    expect(check({ ...snapshot, absenceVerifiedJobIds: [...ids(51, 100), '101'] })).toBeNull();
+    expect(check({ ...snapshot, absenceVerifiedJobIds: [...ids(51, 99), '0100'] })).toBeNull();
+  });
+
   it('authorizes a two-page shrink only after the native detail endpoint proves the missing job absent', async () => {
     const currentListings = Array.from({ length: 50 }, (_, index) => listing(index + 1, `Role ${index + 1}`));
     const existingJobs = Array.from({ length: 51 }, (_, index) => existingJob(index + 1));
@@ -610,7 +657,7 @@ describe('TalentLink pagination completeness', () => {
     const fallbackListing = {
       jobFields: {
         jobNumber: ' ',
-        id: 'A-1',
+        id: '101',
         jobTitle: 'Chef',
       },
       customFields: [],
@@ -626,16 +673,18 @@ describe('TalentLink pagination completeness', () => {
     const jobs = await fetchAllWeisseArenaJobs();
 
     expect(jobs).toHaveLength(1);
-    expect(jobs[0].url).toContain('jobId=A-1');
+    expect(jobs[0].url).toContain('jobId=101');
   });
 
   it('keeps distinct output IDs when jobNumber is whitespace-only', async () => {
     const first = listing(1, 'First role');
     const second = listing(2, 'Second role');
     first.jobFields.jobNumber = ' ';
-    first.jobFields.id = 'A-1';
+    first.jobFields.id = 101;
+    first.id = 101;
     second.jobFields.jobNumber = ' ';
-    second.jobFields.id = 'B-2';
+    second.jobFields.id = 102;
+    second.id = 102;
     vi.stubGlobal('fetch', vi.fn(async (input: string | URL) => {
       const offset = Number(new URL(String(input)).searchParams.get('firstResult'));
       return new Response(JSON.stringify({

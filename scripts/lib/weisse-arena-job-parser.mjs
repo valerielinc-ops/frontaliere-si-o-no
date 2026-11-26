@@ -345,11 +345,7 @@ async function verifyTalentLinkJobAbsence(jobId) {
 }
 
 async function verifyExistingJobsAgainstListingSnapshot(snapshot, existingJobs) {
-  if (!Array.isArray(existingJobs) || existingJobs.length === 0) {
-    return { baselineJobIds: [], currentJobIds: [], absenceVerifiedJobIds: [] };
-  }
-
-  const baselineJobIds = existingJobs.map(existingTalentLinkJobId);
+  const baselineJobIds = (Array.isArray(existingJobs) ? existingJobs : []).map(existingTalentLinkJobId);
   if (new Set(baselineJobIds).size !== baselineJobIds.length) {
     throw createIncompleteSnapshotError(
       'Weisse Arena existing slice contains duplicate TalentLink jobIds; refusing to verify a shrink.',

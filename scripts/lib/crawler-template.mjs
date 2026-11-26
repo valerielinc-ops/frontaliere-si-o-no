@@ -825,7 +825,7 @@ function normalizeWeisseArenaJobNumber(value) {
  * Validate the complete Weisse Arena listing receipt before the pipeline may
  * use the existing authoritative-snapshot path for a non-empty batch.
  */
-function getCompleteWeisseArenaListingSnapshot({ companyKey, fetchMetadata, parsedJobs }) {
+export function getCompleteWeisseArenaListingSnapshot({ companyKey, fetchMetadata, parsedJobs, existingJobs }) {
   if (companyKey !== 'weisse-arena' || !Array.isArray(parsedJobs)) return null;
 
   const snapshot = fetchMetadata?.sourceListingSnapshot;
@@ -836,6 +836,9 @@ function getCompleteWeisseArenaListingSnapshot({ companyKey, fetchMetadata, pars
   const listingCount = snapshot?.listingCount;
   const minimumExpectedCount = snapshot?.minimumExpectedCount;
   const terminalJobsCount = snapshot?.terminalJobsCount;
+  const baselineJobIds = snapshot?.baselineJobIds;
+  const currentJobIds = snapshot?.currentJobIds;
+  const absenceVerifiedJobIds = snapshot?.absenceVerifiedJobIds;
 
   if (
     snapshot?.source !== companyKey
@@ -853,6 +856,10 @@ function getCompleteWeisseArenaListingSnapshot({ companyKey, fetchMetadata, pars
     || terminalJobsCount < 0
     || typeof snapshot.terminalJobsOmitted !== 'boolean'
     || (snapshot.terminalJobsOmitted && terminalJobsCount !== 0)
+    || !Array.isArray(existingJobs)
+    || !Array.isArray(baselineJobIds)
+    || !Array.isArray(currentJobIds)
+    || !Array.isArray(absenceVerifiedJobIds)
     || !Array.isArray(listingIdentities)
     || !Array.isArray(processedIdentities)
     || !Array.isArray(listingJobNumbers)
@@ -864,6 +871,41 @@ function getCompleteWeisseArenaListingSnapshot({ companyKey, fetchMetadata, pars
     || processedIdentities.length !== listingCount
     || listingJobNumbers.length !== listingCount
     || processedJobNumbers.length !== listingCount
+  ) return null;
+
+  // Tie the receipt to the slice passed to the parser and to the actual parsed
+  // URLs. A self-declared baseline or a list of job numbers alone cannot prove
+  // that an omitted TalentLink ID was checked at the detail endpoint.
+  const jobIdFromUrl = (job) => {
+    try {
+      const url = new URL(job?.url || '');
+      const ids = url.searchParams.getAll('jobId');
+      const raw = ids.length === 1 ? ids[0] : '';
+      const number = /^\d+$/.test(raw) ? Number(raw) : NaN;
+      if (url.protocol !== 'https:'
+        || !['weissearena.com', 'www.weissearena.com'].includes(url.hostname.toLowerCase())
+        || url.pathname !== '/jobs/details.html'
+        || !Number.isSafeInteger(number) || number <= 0) return '';
+      return String(number);
+    } catch { return ''; }
+  };
+  const validIds = (ids) => ids.every((id) => typeof id === 'string'
+    && /^[1-9]\d*$/.test(id) && Number.isSafeInteger(Number(id)))
+    && new Set(ids).size === ids.length;
+  const actualBaseline = existingJobs.map(jobIdFromUrl);
+  const actualCurrent = parsedJobs.map(jobIdFromUrl);
+  const baselineSet = new Set(baselineJobIds);
+  const currentSet = new Set(currentJobIds);
+  const absentSet = new Set(absenceVerifiedJobIds);
+  if (
+    !validIds(actualBaseline) || !validIds(actualCurrent)
+    || !validIds(baselineJobIds) || !validIds(currentJobIds) || !validIds(absenceVerifiedJobIds)
+    || actualBaseline.length !== baselineJobIds.length
+    || actualBaseline.some((id) => !baselineSet.has(id))
+    || actualCurrent.length !== currentJobIds.length
+    || actualCurrent.some((id) => !currentSet.has(id))
+    || absenceVerifiedJobIds.some((id) => !baselineSet.has(id) || currentSet.has(id))
+    || baselineJobIds.some((id) => !currentSet.has(id) && !absentSet.has(id))
   ) return null;
 
   const normalizedListingNumbers = listingJobNumbers.map(normalizeWeisseArenaJobNumber);
@@ -1164,6 +1206,7 @@ export async function runStandardCrawlerPipeline(config) {
     companyKey,
     fetchMetadata,
     parsedJobs,
+    existingJobs: companyExisting,
   });
 
   if (Number.isFinite(fetchMetadata?.discoveredCount)) {
