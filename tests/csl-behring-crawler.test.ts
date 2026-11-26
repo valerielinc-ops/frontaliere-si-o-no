@@ -119,11 +119,36 @@ describe('CSL Behring crawler parser', () => {
       throw new WorkdayAuthError('anti-bot block', 403, 'https://csl.wd1.myworkdayjobs.com/jobs');
     });
 
-    await expect(fetchAllCslBehringJobs()).resolves.toEqual({
-      jobs: [],
-      fetchOutcome: 'anti_bot_block',
-    });
+    const jobs = await fetchAllCslBehringJobs();
+
+    expect(Array.isArray(jobs)).toBe(true);
+    expect(jobs).toHaveLength(0);
+    expect(jobs.fetchOutcome).toBe('anti_bot_block');
     expect(workdayMocks.fetchWorkdayJobDetail).not.toHaveBeenCalled();
+    expect(context.close).toHaveBeenCalledOnce();
+  });
+
+  it('preserves an anti-bot outcome when a detail request is blocked', async () => {
+    const context = { close: vi.fn().mockResolvedValue(undefined) };
+    workdayMocks.createWorkdayRequestContext.mockReturnValue(context);
+    workdayMocks.fetchWorkdayJobs.mockImplementation(async function* (_apiBase: string, options: any) {
+      expect(options.requestContext).toBe(context);
+      yield {
+        title: 'Swiss role',
+        externalPath: '/job/Bern/Swiss_R1',
+        locationsText: 'EMEA, CH, Bern, CSL Behring',
+      };
+    });
+    workdayMocks.fetchWorkdayJobDetail.mockRejectedValue(
+      new WorkdayAuthError('anti-bot block', 403, 'https://csl.wd1.myworkdayjobs.com/job/Bern/Swiss_R1'),
+    );
+
+    const jobs = await fetchAllCslBehringJobs();
+
+    expect(Array.isArray(jobs)).toBe(true);
+    expect(jobs).toHaveLength(0);
+    expect(jobs.fetchOutcome).toBe('anti_bot_block');
+    expect(workdayMocks.fetchWorkdayJobDetail).toHaveBeenCalledOnce();
     expect(context.close).toHaveBeenCalledOnce();
   });
 

@@ -230,6 +230,14 @@ function detectEmploymentType(timeType = '', title = '') {
 
 /* ── Workday fetcher ───────────────────────────────────────── */
 
+function markFetchOutcome(jobs, fetchOutcome) {
+  Object.defineProperty(jobs, 'fetchOutcome', {
+    value: fetchOutcome,
+    enumerable: false,
+  });
+  return jobs;
+}
+
 async function fetchJobListings(requestContext) {
   const out = [];
   try {
@@ -257,11 +265,7 @@ async function fetchJobListings(requestContext) {
   } catch (err) {
     if (err instanceof WorkdayAuthError) {
       console.error(`❌ Workday anti-bot block: ${err.message}`);
-      Object.defineProperty(out, 'fetchOutcome', {
-        value: 'anti_bot_block',
-        enumerable: false,
-      });
-      return out;
+      return markFetchOutcome(out, 'anti_bot_block');
     }
     throw err;
   }
@@ -278,7 +282,7 @@ export async function fetchAllCslBehringJobs() {
     const listings = await fetchJobListings(requestContext);
     if (listings?.fetchOutcome === 'anti_bot_block') {
       console.warn('⚠️ Workday anti-bot block prevented a complete CSL Behring listing snapshot.');
-      return { jobs: [], fetchOutcome: listings.fetchOutcome };
+      return listings;
     }
     if (!listings || listings.length === 0) {
       console.warn('⚠️ No Swiss job listings returned from Workday API.');
@@ -435,6 +439,12 @@ export async function fetchAllCslBehringJobs() {
     }
     console.log(`\n📋 Total ${CSL_BEHRING_COMPANY_NAME} jobs discovered: ${jobs.length}`);
     return jobs;
+  } catch (err) {
+    if (err instanceof WorkdayAuthError) {
+      console.error(`❌ Workday anti-bot block: ${err.message}`);
+      return markFetchOutcome([], 'anti_bot_block');
+    }
+    throw err;
   } finally {
     await requestContext.close();
   }
