@@ -1112,6 +1112,7 @@ jobs:
               ' >/dev/null 2>&1; then
               printf 'recovered: tests run %s è completata con esito verde sulla PR #%s e sulla HEAD %s; nessuna riparazione necessaria.\n' \
                 "$FAILED_RUN_ID" "$PR_NUMBER" "$EXPECTED_HEAD_SHA" > "$OUT/redcheck-response.md"
+              : > "$OUT/failing.txt"
               context_recovered=true
               echo "run $FAILED_RUN_ID rientrato sulla HEAD corrente → nessun round Codex."
             else
@@ -1537,6 +1538,7 @@ jobs:
       # step non hanno continue-on-error. Mai fa-passare un gate: il round non ha
       # gate, è telemetria di colore (cfr. #2288, disambigua intenzionale vs crash).
       - name: Classify outcome (work-done, not CLI exit)
+        id: classify_outcome
         if: always() && steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
         env:
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
@@ -1673,6 +1675,10 @@ jobs:
           fi
           echo "Nessun push ma l'azione è terminata pulita ('$ACTION_OUTCOME') con una spiegazione nuova sulla PR → terminale legittimo (es. non auto-fixabile). Job verde."
           exit 0
+
+      - name: Finalize recovered redcheck claim (zero-Claude)
+        if: always() && steps.claim.outputs.claim_acquired == 'true' && steps.ctx.outputs.recovered == 'true' && steps.classify_outcome.outcome == 'success'
+        run: echo 'CLAIM_STATUS=completed' >> "$GITHUB_ENV"
 
       # The fixer action and npm lifecycle scripts ran from the PR checkout.
       # Re-materialize the claim helper from main before the final mutation.

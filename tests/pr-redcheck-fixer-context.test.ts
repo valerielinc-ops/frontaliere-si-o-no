@@ -53,7 +53,7 @@ function section(text: string, title: string) {
   return body.slice(body.indexOf('\n') + 1).split('\n###')[0];
 }
 
-function runContext(log: string, recoveredRun = false) {
+function runContext(log: string, recoveredRun = false, metadataOverrides: Record<string, unknown> = {}) {
   const root = mkdtempSync(path.join(tmpdir(), 'redcheck-ctx-'));
   const bin = path.join(root, 'bin');
   const logFile = path.join(root, 'run.log');
@@ -68,13 +68,14 @@ function runContext(log: string, recoveredRun = false) {
     status: 'completed',
     conclusion: 'success',
     pull_requests: [{ number: 42, base: { ref: 'main' } }],
+    ...metadataOverrides,
   }));
   writeFileSync(output, '');
   writeFileSync(
     gh,
     `#!/bin/sh
 if [ "$1" = run ] && [ "$2" = view ]; then cat "${logFile}"; exit 0; fi
-if [ "$1" = api ] && [ "${2:-}" = "repos/owner/repo/actions/runs/123" ] && [ "${RECOVERED_RUN:-false}" = true ]; then cat "${metadata}"; exit 0; fi
+if [ "$1" = api ] && [ "\${2:-}" = "repos/owner/repo/actions/runs/123" ] && [ "\${RECOVERED_RUN:-false}" = true ]; then cat "${metadata}"; exit 0; fi
 exit 1
 `,
   );
@@ -133,5 +134,14 @@ describe('pr-redcheck-fixer: il contesto del rosso raggiunge il fixer', () => {
     expect(outputs).toContain('recovered=true');
     expect(response).toContain('recovered: tests run 123');
     expect(result.stdout).toContain('nessun round Codex');
+  });
+
+  it('resta fail-closed se la run verde non è sulla HEAD attesa', () => {
+    const { result, failing, response, outputs } = runContext('', true, { head_sha: 'other-head' });
+    expect(result.status, `${result.stdout}\n${result.stderr}`).toBe(0);
+    expect(failing).toBe('');
+    expect(outputs).toContain('recovered=false');
+    expect(response).toBe('');
+    expect(result.stdout).not.toContain('nessun round Codex');
   });
 });
