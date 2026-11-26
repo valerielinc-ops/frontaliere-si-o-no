@@ -1,12 +1,34 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+
+const workdayMocks = vi.hoisted(() => ({
+  createWorkdayRequestContext: vi.fn(),
+  fetchWorkdayJobs: vi.fn(),
+  fetchWorkdayJobDetail: vi.fn(),
+}));
+
+vi.mock('../scripts/lib/ats-clients/workday-client.mjs', async (importOriginal) => ({
+  ...await importOriginal<typeof import('../scripts/lib/ats-clients/workday-client.mjs')>(),
+  createWorkdayRequestContext: workdayMocks.createWorkdayRequestContext,
+  fetchWorkdayJobs: workdayMocks.fetchWorkdayJobs,
+  fetchWorkdayJobDetail: workdayMocks.fetchWorkdayJobDetail,
+}));
+
 import {
   CSL_BEHRING_KEY,
   CSL_BEHRING_COMPANY_NAME,
+  fetchAllCslBehringJobs,
   isCslBehringJob,
   isTrustedDomain,
   resolveCslLocation,
   resolveCslPublishLocation,
 } from '../scripts/lib/csl-behring-job-parser.mjs';
+import { WorkdayAuthError } from '../scripts/lib/ats-clients/workday-client.mjs';
+
+afterEach(() => {
+  workdayMocks.createWorkdayRequestContext.mockReset();
+  workdayMocks.fetchWorkdayJobs.mockReset();
+  workdayMocks.fetchWorkdayJobDetail.mockReset();
+});
 
 describe('CSL Behring crawler parser', () => {
   it('resolves a normal Swiss Workday location', () => {
@@ -87,5 +109,51 @@ describe('CSL Behring crawler parser', () => {
     expect(isCslBehringJob({ company: 'Unrelated', url: 'https://example.test/job' })).toBe(false);
     expect(isTrustedDomain('https://csl.wd1.myworkdayjobs.com/CSL_External/job/1')).toBe(true);
     expect(isTrustedDomain('https://example.test/job/1')).toBe(false);
+  });
+
+  it('shares the tenant transport and preserves an anti-bot fetch outcome', async () => {
+    const context = { close: vi.fn().mockResolvedValue(undefined) };
+    workdayMocks.createWorkdayRequestContext.mockReturnValue(context);
+    workdayMocks.fetchWorkdayJobs.mockImplementation(async function* (_apiBase: string, options: any) {
+      expect(options.requestContext).toBe(context);
+      throw new WorkdayAuthError('anti-bot block', 403, 'https://csl.wd1.myworkdayjobs.com/jobs');
+    });
+
+    await expect(fetchAllCslBehringJobs()).resolves.toEqual({
+      jobs: [],
+      fetchOutcome: 'anti_bot_block',
+    });
+    expect(workdayMocks.fetchWorkdayJobDetail).not.toHaveBeenCalled();
+    expect(context.close).toHaveBeenCalledOnce();
+  });
+
+  it('reuses the tenant transport for listing and detail requests', async () => {
+    const context = { close: vi.fn().mockResolvedValue(undefined) };
+    workdayMocks.createWorkdayRequestContext.mockReturnValue(context);
+    workdayMocks.fetchWorkdayJobs.mockImplementation(async function* (_apiBase: string, options: any) {
+      expect(options.requestContext).toBe(context);
+      yield {
+        title: 'Swiss role',
+        externalPath: '/job/Bern/Swiss_R1',
+        locationsText: 'EMEA, CH, Bern, CSL Behring',
+        bulletFields: ['R1'],
+      };
+    });
+    workdayMocks.fetchWorkdayJobDetail.mockImplementation(async (_apiBase: string, _path: string, options: any) => {
+      expect(options.requestContext).toBe(context);
+      return {
+        jobPostingInfo: {
+          location: 'EMEA, CH, Bern, CSL Behring',
+          jobDescription: '<p>Responsibilities include coordinating projects, preparing documentation, supporting local teams, improving reliable processes, communicating clearly, exercising sound judgement, managing deadlines, collaborating across functions, maintaining accurate records, learning quickly, helping colleagues, solving practical problems, and delivering consistent results in a respectful workplace with professional development, flexible schedules, meaningful ownership, modern tools, and structured support for applicants.</p>',
+          timeType: 'Full time',
+        },
+      };
+    });
+
+    const jobs = await fetchAllCslBehringJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({ title: 'Swiss role', location: 'Bern', canton: 'BE' });
+    expect(context.close).toHaveBeenCalledOnce();
   });
 });
