@@ -218,7 +218,7 @@ describe('PKB Private Bank crawler parser', () => {
     expect(PKB_UPDATER).toContain("registerCrawlerSummaryGuard(PKB_KEY, 'PKB', summaryCounts)");
     expect(PKB_UPDATER).toContain('fetchAndParsePkbJobs(summaryCounts)');
     expect(PKB_UPDATER).toContain('summaryCounts.abortKind = authoritativeEmptySnapshot');
-    expect(PKB_UPDATER).toContain("failed > 0 ? 'connection-level-fetch' : 'no-jobs-parsed'");
+    expect(PKB_UPDATER).toContain('abortKindForFetchOutcome(fetchOutcome) ?? \'connection-level-fetch\'');
     expect(PKB_UPDATER).toContain('summaryCounts.lastFetchOutcome = fetchOutcome;');
     expect(PKB_UPDATER).toContain('lastFetchOutcome: summaryCounts.lastFetchOutcome');
     expect(PKB_UPDATER).toContain('authoritativeEmptySnapshot: true');

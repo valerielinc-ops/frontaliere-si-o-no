@@ -339,7 +339,7 @@ export function registerCrawlerSummaryGuard(key, label, counts = null) {
       // one case that never needed instrumenting.
       const lastFetchOutcome = normalizeFetchOutcome(counts ? counts.lastFetchOutcome : null);
       const abortKind =
-        normalizeAbortKind(counts?.abortKind) ??
+        normalizeAbortKind(counts?.abortKind, lastFetchOutcome) ??
         _summaryAbortKind ??
         (code === 0 ? null : 'crash');
       const sourceBodyFailures = Array.isArray(counts?.sourceBodyFailures)

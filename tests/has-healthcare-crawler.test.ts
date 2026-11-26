@@ -253,7 +253,7 @@ describe('HAS Healthcare crawler discovery', () => {
       detailFetchOutcomes: ['exhausted_retry', 'exhausted_retry'],
     })).toEqual({
       lastFetchOutcome: 'exhausted_retry',
-      abortKind: 'connection-level-fetch',
+      abortKind: 'retryable-http-response',
     });
   });
 

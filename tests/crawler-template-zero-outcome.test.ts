@@ -478,7 +478,7 @@ describe('every exit without publication names its cause', () => {
   });
 
   it('carries the new names through the exit-guard vocabulary, and drops unknown ones', () => {
-    for (const kind of ['missing-detail-url', 'thin-source-all', 'source-extraction-failed', 'no-jobs-parsed']) {
+    for (const kind of ['missing-detail-url', 'thin-source-all', 'source-extraction-failed', 'no-jobs-parsed', 'retryable-http-response']) {
       expect(CRAWLER_ABORT_KINDS.has(kind)).toBe(true);
       expect(normalizeAbortKind(kind)).toBe(kind);
     }
@@ -486,5 +486,14 @@ describe('every exit without publication names its cause', () => {
     // Deliberately absent: no exit of the template is a "healthy" abort.
     expect(normalizeAbortKind('observed-empty')).toBeNull();
     expect(normalizeAbortKind('filtered-empty')).toBeNull();
+  });
+
+  it('normalizes legacy exhausted HTTP receipts without relabeling connection failures', () => {
+    expect(normalizeAbortKind(null, 'exhausted_retry'))
+      .toBe('retryable-http-response');
+    expect(normalizeAbortKind('connection-level-fetch', 'exhausted_retry'))
+      .toBe('retryable-http-response');
+    expect(normalizeAbortKind('connection-level-fetch', 'connection_error'))
+      .toBe('connection-level-fetch');
   });
 });

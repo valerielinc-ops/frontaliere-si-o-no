@@ -91,7 +91,7 @@ describe('classifyUsiFetchError', () => {
     });
     expect(classifyUsiFetchError(Object.assign(new Error('HTTP 503'), { status: 503, retryExhausted: true }))).toEqual({
       lastFetchOutcome: 'exhausted_retry',
-      abortKind: 'connection-level-fetch',
+      abortKind: 'retryable-http-response',
     });
   });
 

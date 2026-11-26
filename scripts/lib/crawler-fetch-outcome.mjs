@@ -61,9 +61,10 @@ export const CRAWLER_FETCH_FAILURE_OUTCOMES = new Set([
 ]);
 
 /**
- * Outcomes where the runner could not reliably inspect the source content.
- * These may use the `connection-level-fetch` early-exit cause; a selector miss
- * or a source-side endpoint response must remain distinguishable from them.
+ * Failure outcomes where the runner could not publish source content. An
+ * exhausted HTTP retry is a response-level failure and receives its own
+ * abort kind; connection errors and anti-bot fences retain their existing
+ * `connection-level-fetch` kind.
  */
 export const CRAWLER_TRANSPORT_FAILURE_OUTCOMES = new Set([
   'anti_bot_block',
@@ -82,6 +83,9 @@ export const CRAWLER_ABORT_KINDS = new Set([
   // The parser returned nothing and offered no proof of an empty source.
   'no-jobs-parsed',
   'connection-level-fetch',
+  // The source answered with retryable HTTP statuses until its response retry
+  // budget was exhausted. Keep this separate from failures with no response.
+  'retryable-http-response',
   'crash',
   // More than MISSING_DETAIL_URL_MAX_RATIO of the stored slice lost its
   // per-vacancy detail URL in this read; the old slice is kept untouched.
@@ -153,8 +157,44 @@ export function normalizeFetchOutcome(value) {
  * Read an early-exit cause, or `null` when the producer did not report one.
  *
  * @param {unknown} value
- * @returns {'no-jobs-parsed'|'connection-level-fetch'|'crash'|'missing-detail-url'|'thin-source-all'|'source-extraction-failed'|null}
+ * @param {unknown} [fetchOutcome]
+ * @returns {'no-jobs-parsed'|'connection-level-fetch'|'retryable-http-response'|'crash'|'missing-detail-url'|'thin-source-all'|'source-extraction-failed'|null}
  */
-export function normalizeAbortKind(value) {
-  return typeof value === 'string' && CRAWLER_ABORT_KINDS.has(value) ? value : null;
+export function normalizeAbortKind(value, fetchOutcome = null) {
+  const normalized = typeof value === 'string' && CRAWLER_ABORT_KINDS.has(value)
+    ? value
+    : null;
+  // The outcome itself proves a retryable HTTP response exhausted its budget.
+  // Older summaries either omitted abortKind or mislabeled it as a connection
+  // failure; read both shapes as the precise cause without changing recovery.
+  if (
+    fetchOutcome === 'exhausted_retry' &&
+    (normalized === null || normalized === 'connection-level-fetch')
+  ) {
+    return 'retryable-http-response';
+  }
+  return normalized;
+}
+
+/**
+ * Map a fetch outcome to its early-exit cause, when it has one.
+ *
+ * @param {unknown} value
+ * @returns {'retryable-http-response'|'connection-level-fetch'|null}
+ */
+export function abortKindForFetchOutcome(value) {
+  if (value === 'exhausted_retry') return 'retryable-http-response';
+  return CRAWLER_TRANSPORT_FAILURE_OUTCOMES.has(value)
+    ? 'connection-level-fetch'
+    : null;
+}
+
+/**
+ * Both kinds are early exits at the fetch boundary, despite different evidence.
+ *
+ * @param {unknown} value
+ * @returns {boolean}
+ */
+export function isFetchBoundaryAbortKind(value) {
+  return value === 'connection-level-fetch' || value === 'retryable-http-response';
 }

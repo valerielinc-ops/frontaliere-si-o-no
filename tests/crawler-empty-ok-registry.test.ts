@@ -116,7 +116,7 @@ describe('nextCrawlerState — un abortKind riportato ma non descritto resta nom
 
   // Le cause che il monitor descrive con una frase propria; ogni altra voce
   // del vocabolario condiviso deve arrivare nell'issue col suo nome.
-  const DESCRIBED = new Set(['no-jobs-parsed', 'connection-level-fetch', 'crash']);
+  const DESCRIBED = new Set(['no-jobs-parsed', 'connection-level-fetch', 'retryable-http-response', 'crash']);
   const undescribed = [...CRAWLER_ABORT_KINDS].filter((kind) => !DESCRIBED.has(kind));
 
   it('il vocabolario condiviso ha cause che la mappa non descrive', () => {

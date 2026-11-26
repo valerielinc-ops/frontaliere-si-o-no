@@ -156,13 +156,13 @@ describe('standard template: no unnamed exit', () => {
     expect(bareReturns.length).toBeGreaterThan(0);
     for (const before of bareReturns) {
       const block = before.slice(before.lastIndexOf('if ('));
-      const namedConnectionExit = /counts\.abortKind\s*=\s*'connection-level-fetch'/.test(block);
+      const namedFetchBoundaryExit = /counts\.abortKind\s*=\s*'(?:connection-level-fetch|retryable-http-response)'/.test(block);
       const filteredEmptySuccess = block.startsWith('if (filteredEmptySnapshot) {')
         && block.includes("lastFetchOutcome: 'filtered_empty'")
         && block.includes('earlyExit: false')
         && block.includes('exitCode: 0');
       expect(
-        namedConnectionExit || filteredEmptySuccess,
+        namedFetchBoundaryExit || filteredEmptySuccess,
         `unnamed early exit:\n${block}`,
       ).toBe(true);
     }
