@@ -446,6 +446,31 @@ rehydrate_section_for_current_locale() {
   rehydrate_section "$1" "$REHYDRATE_CURRENT_LOCALE"
 }
 
+validate_section_shard_batches_manifest() {
+  local manifest="scripts/lib/section-shard-batches.json"
+  local section
+
+  if ! jq -e '
+    type == "object"
+    and ([to_entries[] | select(.key | startswith("_") | not) | .value] | length > 0)
+    and ([to_entries[] | select(.key | startswith("_") | not) | .value]
+      | all(.[]; type == "number" and isfinite and floor == . and . > 0))
+  ' "$manifest" >/dev/null; then
+    echo "::error::$manifest is malformed or contains an empty/non-positive batch value"
+    return 1
+  fi
+
+  for section in "${SECTION_NAMES[@]}"; do
+    if ! jq -e --arg s "$section" '
+      has($s)
+      and (.[$s] | type == "number" and isfinite and floor == . and . > 0)
+    ' "$manifest" >/dev/null; then
+      echo "::error::$manifest has no valid batch for live section $section"
+      return 1
+    fi
+  done
+}
+
 # A section window is safe only while it reads one artifact batch. The batch ZIP
 # is shared by its sections, but two different batches can each retain a large
 # compressed archive while their tar streams grow dist/; the old locale-only
@@ -521,6 +546,14 @@ if [ "${#SECTION_NAMES[@]}" -gt 0 ]; then
   if [ "$rehydrate_max_parallel" -gt 4 ]; then
     echo "::warning::REHYDRATE_MAX_PARALLEL=$rehydrate_max_parallel exceeds the rehydrate safety cap; using 4"
     rehydrate_max_parallel=4
+  fi
+
+  # A malformed manifest must fail before any consumer can turn jq's parse
+  # error into an empty stream. Continuing would make the audit inspect a
+  # partially rehydrated dist, which is a correctness failure rather than a
+  # fail-soft worker miss.
+  if ! validate_section_shard_batches_manifest; then
+    exit 1
   fi
 
   # Readers of each batch zip, for batch_zip_release(): one line per LIVE
