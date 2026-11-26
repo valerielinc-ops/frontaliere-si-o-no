@@ -251,7 +251,7 @@ describe('jobDataNormalization', () => {
 
   it('no CRAWLED_COMPANY_LOGOS entry uses gFavicon on a known ATS domain', () => {
     const atsDomains = [
-      'myworkdayjobs.com', 'umantis.com', 'zohorecruit.com', 'ncoreplat.com',
+      'myworkdayjobs.com', 'myworkdaysite.com', 'umantis.com', 'zohorecruit.com', 'ncoreplat.com',
       'successfactors.com', 'recruitee.com', 'careers-page.com', 'joblink.allibo.com',
       'service-now.com', 'greenhouse.io', 'lever.co', 'smartrecruiters.com',
       'icims.com', 'jobs.sbb.ch',

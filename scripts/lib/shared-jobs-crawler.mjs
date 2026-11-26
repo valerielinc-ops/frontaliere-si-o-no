@@ -3,6 +3,7 @@ import { localeTitleDropsSourceWords } from './job-title-identity.mjs';
 import { mayReplacePublishedSlug } from './published-slug-stability.mjs';
 import { sourceCompactOffsetPostingDateFields, sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
+import { WORKDAY_HOST_RE } from './job-url-key.mjs';
 /**
  * Ticino Company Careers Crawler
  *
@@ -931,7 +932,7 @@ function isKnownAtsHost(host = '') {
   const h = normalizeHost(host);
   if (!h) return false;
   return (
-    h.includes('myworkdayjobs.com') ||
+    WORKDAY_HOST_RE.test(h) ||
     h.includes('greenhouse.io') ||
     h.includes('lever.co') ||
     h.includes('smartrecruiters.com') ||
@@ -3526,7 +3527,7 @@ function extractJobPostingNodes(node) {
 
 function extractWorkdayListingUrls(html, baseUrl) {
   const out = new Set();
-  const rx = /https?:\/\/[a-z0-9.-]*myworkdayjobs\.com\/(?:[a-z]{2}-[a-z]{2}\/)?[a-z0-9_-]+(?:\?[^\s"'<]*)?/gi;
+  const rx = /https?:\/\/(?:[a-z0-9.-]*myworkdayjobs\.com\/(?:[a-z]{2}-[a-z]{2}\/)?[a-z0-9_-]+|wd\d+\.myworkdaysite\.com\/(?:[a-z]{2}(?:-[a-z]{2})?\/)?recruiting\/[a-z0-9_-]+\/[a-z0-9_-]+)(?:\?[^\s"'<]*)?/gi;
   let m;
   while ((m = rx.exec(html)) !== null) {
     const normalized = tryUrl(m[0], baseUrl);
@@ -3543,15 +3544,26 @@ function parseWorkdaySource(listingUrl) {
   } catch {
     return null;
   }
-  if (!u.hostname.includes('myworkdayjobs.com')) return null;
+  const isWorkdaySiteHost = /(?:^|\.)myworkdaysite\.com$/i.test(u.hostname);
+  if (!WORKDAY_HOST_RE.test(u.hostname)) return null;
   const parts = u.pathname.split('/').filter(Boolean);
-  let site = parts[0] || '';
-  if (/^[a-z]{2}-[a-z]{2}$/i.test(site) && parts[1]) {
-    site = parts[1];
+  let site = '';
+  let tenant = '';
+  if (isWorkdaySiteHost) {
+    let start = 0;
+    if (/^[a-z]{2}(?:-[a-z]{2})?$/i.test(parts[0] || '')) start = 1;
+    if (parts[start] !== 'recruiting') return null;
+    tenant = parts[start + 1] || '';
+    site = parts[start + 2] || '';
+  } else {
+    site = parts[0] || '';
+    if (/^[a-z]{2}-[a-z]{2}$/i.test(site) && parts[1]) {
+      site = parts[1];
+    }
+    const hostHead = u.hostname.split('.')[0];
+    tenant = hostHead || site;
   }
-  if (!site) return null;
-  const hostHead = u.hostname.split('.')[0];
-  const tenant = hostHead || site;
+  if (!/^[a-z0-9_-]+$/i.test(tenant) || !/^[a-z0-9_-]+$/i.test(site)) return null;
   const endpoint = `${u.origin}/wday/cxs/${tenant}/${site}/jobs`;
   const appliedFacets = {};
   for (const [k, v] of u.searchParams.entries()) {
@@ -5712,7 +5724,7 @@ async function processCompany(
   if (enabledModes.has('generic_ats')) {
     for (const listingUrl of genericAtsListingUrls) {
       // Skip sources already handled by dedicated adapters
-      if (listingUrl.includes('myworkdayjobs.com')) continue;
+      if (WORKDAY_HOST_RE.test(listingUrl)) continue;
       if (listingUrl.includes('greenhouse.io')) continue;
       if (listingUrl.includes('lever.co')) continue;
       if (listingUrl.includes('smartrecruiters.com')) continue;
