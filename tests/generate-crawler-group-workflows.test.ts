@@ -4697,16 +4697,18 @@ describe('generated crawler workflows stay under the GitHub size budget', () => 
     expect(Buffer.byteLength(body)).toBeLessThan(Buffer.byteLength(readableBody) - 300);
   });
 
-  it('reports and verifies the largest portable fallback workflow is within 480000 bytes', () => {
+  it('reports and verifies the largest portable fallback workflow stays within the budget', () => {
     const largestFile = '.github/corpus-workflows/crawler-group-04.yml';
     const content = fs.readFileSync(path.join(ROOT, largestFile), 'utf8');
     const bytes = Buffer.byteLength(content, 'utf8');
     // Without compact result waiter, 29 members add ~10.1 KB bringing size to ~488.9 KB (> 480000 budget).
-    // With the safe Git-metadata retry and empty-workspace cleanup, size is
-    // 473854 bytes (<= 480000 budget) after the common Git-dir guard,
-    // success-sibling commit gate, and two new hash-bound runtime paths are emitted.
-    expect(bytes).toBeLessThanOrEqual(GENERATED_WORKFLOW_SIZE_BUDGET_BYTES);
-    expect(bytes).toBe(473854);
+    // The exact byte count changes when a generated bootstrap or hash-bound
+    // runtime path changes. The durable invariant is the shared workflow
+    // budget, which keeps this largest fallback artifact deployable.
+    expect(
+      bytes,
+      `${largestFile}: ${bytes} bytes exceeds the ${GENERATED_WORKFLOW_SIZE_BUDGET_BYTES}-byte budget`,
+    ).toBeLessThanOrEqual(GENERATED_WORKFLOW_SIZE_BUDGET_BYTES);
   });
 
   it('the aggregate defines the per-member classification once instead of unrolling it', () => {
