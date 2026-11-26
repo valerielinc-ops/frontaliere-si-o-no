@@ -454,7 +454,7 @@ jobs:
               printf '| root filesystem used after (bytes) | %s |\n' "$end_used"
               printf '| peak increase over start (bytes) | %s |\n' "$peak_delta"
               printf '| REHYDRATE_MAX_PARALLEL | %s |\n' "${REHYDRATE_MAX_PARALLEL:-unknown}"
-            } >> "$summary_path"
+            } | tee -a "$summary_path"
           }
 
           rehydrateRuntimeBudgetObserved() {
