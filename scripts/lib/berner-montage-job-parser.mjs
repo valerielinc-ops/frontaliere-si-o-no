@@ -47,7 +47,10 @@ import {
   WorkdayAuthError,
   getWorkdayLocationCandidates,
 } from './ats-clients/workday-client.mjs';
-import { recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
+import {
+  isWorkdayFacetValidationError,
+  recoverWorkdayPrimarySwissPlace,
+} from './workday-swiss-job-parser-common.mjs';
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 /* ── Constants ─────────────────────────────────────────────── */
@@ -265,6 +268,7 @@ async function fetchJobListings() {
       console.error(`❌ Workday anti-bot block (${BERNER_MONTAGE_COMPANY_NAME}): ${err.message}`);
       return [];
     }
+    if (!isWorkdayFacetValidationError(err)) throw err;
     // Some tenants reject an unrecognised locationCountry facet outright —
     // fall back to the unfiltered board and rely on the per-listing
     // foreign guard below.
