@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1207,
+      "5": 1208,
       "6": 5062
     },
-    "publishedCovers": 7950,
+    "publishedCovers": 7951,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -219971,6 +219971,39 @@
         "provider": "openai-codex",
         "assetId": "article-appenzello-esterno-risparmio-verifica",
         "imageUrl": "/images/blog/article-appenzello-esterno-risparmio-verifica.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-neuchatel-supporto-progetti-piloti-disabili": {
+      "cover": "/images/blog/article-neuchatel-supporto-progetti-piloti-disabili.webp",
+      "hash": "ba27a7617460dad97276b9171f63b0459d19bce73b0d2220b58b5496312c1001",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ne",
+          "id": "neuchatel-supporto-progetti-piloti-disabili",
+          "category": "novita",
+          "date": "2026-11-26T15:28:20.281Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-neuchatel-supporto-progetti-piloti-disabili.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1796,
+      "verifiedAt": "2026-11-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-neuchatel-supporto-progetti-piloti-disabili",
+        "imageUrl": "/images/blog/article-neuchatel-supporto-progetti-piloti-disabili.webp",
         "evidence": "generated-engine-record"
       }
     }

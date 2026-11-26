@@ -35,9 +35,9 @@ const codexBrokerOutputExpression = '${{ steps.setup_claude_haiku_fallback.outpu
 const claudeOAuthExpression = '${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}';
 // Chiave `<cartella>/<file>`: `translate-pending.yml` esiste sia come chiamante
 // locale del sito (disabilitato, senza Codex) sia come artifact del corpus, che
-// usa Codex come riserva dei tier a chiave nella cascata 2b (decisione del
-// proprietario H7, 2026-10-05) e come ultimo tier delle fasi 2d/2e, dopo Argos
-// (decisione del 2026-09-25; vedi translate-pending-codex-last-tier.test.ts).
+// usa Codex come prima corsia della cascata (decisione del proprietario H7,
+// 2026-10-05), incluso nel prepass stale e nelle fasi 2b/2d/2e
+// (vedi translate-pending-codex-last-tier.test.ts).
 const noCodexWorkflows = new Set([
   'workflows/translate-pending.yml',
   'workflows/housekeeping-jobs-logic.yml',
