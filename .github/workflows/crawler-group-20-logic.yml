@@ -21,18 +21,12 @@
 #
 # The crawler steps below are a straight copy of this group's own
 # committed crawler-group-NN.yml (same source kept, disabled, for
-# rollback). Only two things differ from that body: (1) the first step
-# is a public/anonymous checkout of this repo instead of the implicit
-# "checkout whatever repo this job is already running in" — a
-# workflow_call job's workspace starts empty regardless of which repo's
-# workflow called it, and it must start anonymous because the caller's
-# own ambient token is scoped to frontaliere-articles, not this repo;
-# (2) each crawler step's own `GH_TOKEN` env line is dropped (it would
-# shadow the GITHUB_PAT-derived one bootstrapped below with the wrong,
-# read-only ambient token). CODEX_AUTH_BROKER_SOCKET and
-# FIREBASE_SERVICE_ACCOUNT_JSON are read via the normal secrets context,
-# unchanged — the caller passes them explicitly through this workflow's
-# declared workflow_call secrets.
+# rollback). The reusable workflow's cross-repo behavior is
+# specified by the parity contract in scripts/generate-crawler-group-workflows.mjs.
+# It uses shared Workday egress state, a credential-free checkout of this
+# repository, a Remote Config write-auth bootstrap, absolute composite
+# action references, and caller-scoped token removal. Inputs, secrets and
+# permissions follow the same contract.
 
 name: Crawler Group 20 logic (reusable workflow)
 on:
