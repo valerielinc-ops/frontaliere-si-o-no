@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 import { read } from './helpers/senders';
 import {
   __setFirestoreAdminForTest,
+  ensureJobAlertConsentProof,
   persistJobAlertDelivery,
 } from '../scripts/send-job-alerts.mjs';
 import { readDeliveryConsentEvidence } from '../scripts/ci/export-loop-outcomes.mjs';
@@ -21,6 +22,33 @@ function createDeliveryFakeDb() {
   });
   const collectionNode = (path: string): any => ({ doc: (id: string) => docNode(`${path}/${id}`) });
   return { db: { collection: (name: string) => collectionNode(name) }, sets };
+}
+
+function createConsentRevalidationFakeDb({ root = {}, newsletter = {}, alert = {} } = {}) {
+  const email = 'seeker@example.test';
+  const docs = new Map<string, Record<string, unknown>>([
+    [`job_alert_subscribers/${email}`, root],
+    [`newsletter_subscribers/${email}`, newsletter],
+    [`job_alert_subscribers/${email}/alerts/alert-1`, alert],
+  ]);
+  let getAllCalls = 0;
+  const snapshot = (path: string) => ({
+    exists: docs.has(path),
+    data: () => docs.get(path),
+  });
+  const ref = (path: string): any => ({
+    path,
+    collection: (name: string) => ({ doc: (id: string) => ref(`${path}/${name}/${id}`) }),
+    get: async () => snapshot(path),
+  });
+  const db = {
+    collection: (name: string) => ({ doc: (id: string) => ref(`${name}/${id}`) }),
+    getAll: async (...refs: any[]) => {
+      getAllCalls += 1;
+      return refs.map((entry) => snapshot(entry.path));
+    },
+  };
+  return { db, getAllCalls: () => getAllCalls };
 }
 
 afterEach(() => {
@@ -153,6 +181,77 @@ describe('job-alert sender base-relationship and suppression boundary', () => {
     const retryBody = source.slice(start, source.indexOf('\n// ── Main ─────────────────────────────────────────────────────', start));
     expect(retryBody).toMatch(/const consent = evaluateJobAlertConsent\(\{ alert, subscriber: newsletter \}\)/);
     expect(retryBody).toMatch(/if \(!consent\.allowed\)/);
+    expect(source).toMatch(/beforeProviderAttempt: beforeJobAlertProviderAttempt/);
+    expect(retryBody).toMatch(/beforeJobAlertProviderAttempt\(item, provider\)/);
+  });
+
+  it('refreshes only an aged proof at the provider boundary and keeps the exporter contract measurable', async () => {
+    const nowMs = Date.parse('2026-11-26T08:00:00.000Z');
+    const oldProof = {
+      allowed: true,
+      basis: 'explicit-alert',
+      checkedAt: new Date(nowMs - 21 * 60_000).toISOString(),
+    };
+    const { db, getAllCalls } = createConsentRevalidationFakeDb({
+      root: { status: 'active' },
+      newsletter: { status: 'confirmed' },
+      alert: { active: true, email: 'seeker@example.test' },
+    });
+    const item = {
+      recipient: { email: 'Seeker@Example.test' },
+      meta: { alertId: 'alert-1', consentProof: oldProof },
+    };
+
+    expect(await ensureJobAlertConsentProof(item, { db, nowMs })).toBe(true);
+    expect(getAllCalls()).toBe(1);
+    expect(item.meta.consentProof).toEqual({
+      allowed: true,
+      basis: 'explicit-alert',
+      checkedAt: new Date(nowMs).toISOString(),
+    });
+
+    const sentAt = new Date(nowMs);
+    expect(readDeliveryConsentEvidence({
+      consent_checked: true,
+      consent_allowed: true,
+      consent_basis: item.meta.consentProof.basis,
+      consent_checked_at: item.meta.consentProof.checkedAt,
+      outcome_contract_version: 1,
+    }, sentAt)).toMatchObject({ status: 'valid', basis: 'explicit-alert' });
+
+    const freshItem = {
+      recipient: { email: 'seeker@example.test' },
+      meta: {
+        alertId: 'alert-1',
+        consentProof: {
+          ...item.meta.consentProof,
+          checkedAt: new Date(nowMs - 60_000).toISOString(),
+        },
+      },
+    };
+    expect(await ensureJobAlertConsentProof(freshItem, { db, nowMs })).toBe(true);
+    expect(getAllCalls()).toBe(1);
+  });
+
+  it('fails closed when a stale proof meets a current cross-channel stop', async () => {
+    const nowMs = Date.parse('2026-11-26T08:00:00.000Z');
+    const oldProof = {
+      allowed: true,
+      basis: 'explicit-alert',
+      checkedAt: new Date(nowMs - 21 * 60_000).toISOString(),
+    };
+    const { db } = createConsentRevalidationFakeDb({
+      root: { status: 'active' },
+      newsletter: { global_email_opt_out: true },
+      alert: { active: true, email: 'seeker@example.test' },
+    });
+    const item = {
+      recipient: { email: 'seeker@example.test' },
+      meta: { alertId: 'alert-1', consentProof: oldProof },
+    };
+
+    expect(await ensureJobAlertConsentProof(item, { db, nowMs })).toBe(false);
+    expect(item.meta.consentProof).toBe(oldProof);
   });
 
   it('persists filter-time consent proof with every job-alert delivery record', () => {

@@ -17,19 +17,21 @@ import {
   GA4_READONLY_SCOPE,
   ga4DateRange,
 } from '../lib/ga4-service-account.mjs';
+import {
+  L4_DELIVERY_CONTRACT_VERSION,
+  L4_DELIVERY_CONSENT_WINDOW_MS,
+} from '../lib/l4-alert-delivery-contract.mjs';
+
+export {
+  L4_DELIVERY_CONTRACT_VERSION,
+  L4_DELIVERY_CONSENT_WINDOW_MS,
+} from '../lib/l4-alert-delivery-contract.mjs';
 
 export const DEFAULT_L1_WINDOW_DAYS = 4;
 export const DEFAULT_L5_WINDOW_DAYS = 8;
 export const DEFAULT_L3_WINDOW_DAYS = 4;
 export const L4_RETURN_WINDOW_DAYS = 7;
 export const L4_GA4_LAG_DAYS = 2;
-export const L4_DELIVERY_CONTRACT_VERSION = 1;
-// Measured on recent production alert runs: run 37100524185 took 14m05s from
-// workflow start to the last provider acceptance (the filter runs after start
-// and before matching). Keep a 5m55s margin for queue/provider variance, for a
-// named 20-minute filter-to-send window. This avoids one Firestore re-read per
-// delivery while keeping the proof bounded by observed batch duration.
-export const L4_DELIVERY_CONSENT_WINDOW_MS = 20 * 60_000;
 export const L4_DELIVERY_LOOKBACK_DAYS = L4_RETURN_WINDOW_DAYS + L4_GA4_LAG_DAYS + 1;
 export const DEFAULT_L4_WINDOW_HOURS = L4_DELIVERY_LOOKBACK_DAYS * 24;
 export const DEFAULT_L9_WINDOW_HOURS = 240;
