@@ -93,13 +93,32 @@ describe('rehydrate-section-shards.sh — structural invariants (issue #4881 def
     expect(script).toContain('rehydrate_locale_sections');
     expect(script).toContain('bp_run_bounded 1 rehydrate_locale_sections it en de fr');
     expect(script).toContain('rehydrate_section_for_current_locale');
-    expect(script).toContain('bp_run_bounded "$rehydrate_max_parallel" rehydrate_section_for_current_locale');
-    expect(script).toMatch(/for REHYDRATE_CURRENT_LOCALE in it en de fr; do[\s\S]*bp_run_bounded "\$rehydrate_max_parallel" rehydrate_section_for_current_locale/);
+    expect(script).toContain('bp_run_bounded "$max_parallel" rehydrate_section_for_current_locale');
+    expect(script).toMatch(/for REHYDRATE_CURRENT_LOCALE in it en de fr; do[\s\S]*rehydrate_current_locale_in_batches "\$rehydrate_max_parallel"/);
     expect(script).not.toContain('rehydrate_section "$section" &');
     expect(script).not.toContain('SECTION_PIDS=()');
     // An operator may lower the cap for a constrained runner, but cannot
     // accidentally restore the unbounded fan-out through an env override.
     expect(script).toContain('rehydrate_max_parallel=4');
+  });
+
+  it('drains one artifact batch before admitting another batch', () => {
+    const batchScheduler = script.indexOf('rehydrate_current_locale_in_batches()');
+    const batchOrder = script.indexOf('sort -n -u', batchScheduler);
+    const boundedWindow = script.indexOf(
+      'bp_run_bounded "$max_parallel" rehydrate_section_for_current_locale',
+      batchScheduler,
+    );
+    const localeLoop = script.indexOf('for REHYDRATE_CURRENT_LOCALE in it en de fr; do');
+    const batchCall = script.indexOf('rehydrate_current_locale_in_batches "$rehydrate_max_parallel"');
+
+    expect(batchScheduler).toBeGreaterThan(-1);
+    expect(batchOrder).toBeGreaterThan(batchScheduler);
+    expect(boundedWindow).toBeGreaterThan(batchOrder);
+    expect(localeLoop).toBeGreaterThan(batchScheduler);
+    expect(batchCall).toBeGreaterThan(localeLoop);
+    expect(script).toContain('batch_failed_file="${RUNNER_TEMP:-/tmp}/section-rehydrate-failures-');
+    expect(script).toContain('export BP_FAILED_FILE="$aggregate_failed_file"');
   });
 
   it('checks the cross-job clone cache BEFORE the network clone, with a continue on hit', () => {

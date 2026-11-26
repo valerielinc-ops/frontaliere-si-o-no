@@ -15,12 +15,14 @@ set -uo pipefail
 # (issue #7421, run 36479391795). The cap uses the shared sliding-window
 # driver already proven for the section-shard push fan-outs, so a finished
 # worker immediately admits the next section without an unbounded resource
-# spike. The fan-out below is locale-first: sections may overlap only within
-# the current locale, and the next locale starts after that window drains.
-# Keeping the four locale trees out of the same window bounds retained batch
-# ZIPs as well as concurrent extraction, fixing the ENOSPC failure that a
-# section-major cap still allowed (issue #19102, run 44030266151). When the
-# caller uses one worker, the same ordering is preserved by the serial loop.
+# spike. The fan-out below is locale-first and batch-scoped: sections may
+# overlap only within the current locale and the current artifact batch, and
+# the next batch starts after that window drains. Keeping both other locales
+# and other batch ZIPs out of the same window bounds retained archives as well
+# as concurrent extraction, fixing the ENOSPC/host-kill failure that a
+# section-only cap still allowed (issue #19102, runs 44030266151 and
+# 45054260637). When the caller uses one worker, the same ordering is preserved
+# by the serial loop.
 # Shared by
 # seed-bfs-depth-baseline.yml, seed-orphan-pages-baseline.yml,
 # seed-text-html-ratio-baseline.yml, seed-title-baselines.yml — previously
@@ -444,6 +446,48 @@ rehydrate_section_for_current_locale() {
   rehydrate_section "$1" "$REHYDRATE_CURRENT_LOCALE"
 }
 
+# A section window is safe only while it reads one artifact batch. The batch ZIP
+# is shared by its sections, but two different batches can each retain a large
+# compressed archive while their tar streams grow dist/; the old locale-only
+# window allowed exactly that peak (ticino and svizzera were the first two
+# workers). Drain each batch before admitting the next one. Parallelism within
+# the batch remains caller-controlled, so small sections still share the work
+# without reopening the cross-batch disk/memory spike.
+rehydrate_current_locale_in_batches() {
+  local max_parallel="$1"
+  local batch section section_batch batch_failed_file aggregate_failed_file
+  local locale_rc=0
+  local -a batch_sections
+  aggregate_failed_file="${RUNNER_TEMP:-/tmp}/section-rehydrate-failures.txt"
+
+  while IFS= read -r batch; do
+    [ -n "$batch" ] || continue
+    batch_sections=()
+    for section in "${SECTION_NAMES[@]}"; do
+      section_batch="$(jq -r --arg s "$section" '.[$s]' scripts/lib/section-shard-batches.json)"
+      [ "$section_batch" = "$batch" ] || continue
+      batch_sections+=("$section")
+    done
+    [ "${#batch_sections[@]}" -gt 0 ] || continue
+
+    batch_failed_file="${RUNNER_TEMP:-/tmp}/section-rehydrate-failures-${REHYDRATE_CURRENT_LOCALE}-${batch}.txt"
+    rm -f "$batch_failed_file"
+    export BP_FAILED_FILE="$batch_failed_file"
+    bp_run_bounded "$max_parallel" rehydrate_section_for_current_locale "${batch_sections[@]}" || locale_rc=1
+    if [ -s "$batch_failed_file" ]; then
+      cat "$batch_failed_file" >> "$aggregate_failed_file"
+    fi
+    rm -f "$batch_failed_file"
+  done < <(
+    for section in "${SECTION_NAMES[@]}"; do
+      jq -r --arg s "$section" '.[$s]' scripts/lib/section-shard-batches.json
+    done | sort -n -u
+  )
+
+  export BP_FAILED_FILE="$aggregate_failed_file"
+  return "$locale_rc"
+}
+
 trunk_guard_init section
 
 # Keep the resource ceiling in one shared implementation. Four is the cap
@@ -493,16 +537,17 @@ if [ "${#SECTION_NAMES[@]}" -gt 0 ]; then
   # `bp_run_bounded` records worker failures but does not abort the fan-out;
   # that preserves this script's existing fail-soft posture. With one worker,
   # use locale items. With more than one, keep the locale loop in the caller
-  # and bound only the sections for the current locale: the old section-major
-  # fan-out let two workers retain batch ZIPs for different locales while the
-  # logical dist grew, which is the disk peak this setting must avoid.
+  # and drain one artifact batch at a time: the section window can overlap
+  # within that batch, but never retains ZIPs from different batches while the
+  # logical dist grows.
   export BP_FAILED_FILE="${RUNNER_TEMP:-/tmp}/section-rehydrate-failures.txt"
+  : > "$BP_FAILED_FILE"
   section_rc=0
   if [ "$rehydrate_max_parallel" -eq 1 ]; then
     bp_run_bounded 1 rehydrate_locale_sections it en de fr || section_rc=$?
   else
     for REHYDRATE_CURRENT_LOCALE in it en de fr; do
-      bp_run_bounded "$rehydrate_max_parallel" rehydrate_section_for_current_locale "${SECTION_NAMES[@]}" || section_rc=1
+      rehydrate_current_locale_in_batches "$rehydrate_max_parallel" || section_rc=1
     done
   fi
   if [ "$section_rc" -ne 0 ]; then
