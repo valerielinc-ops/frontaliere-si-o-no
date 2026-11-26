@@ -536,6 +536,7 @@ describe('PinpointHQ New Application title and route binding', () => {
     expect(namesAnotherEmployer(`Applying to ${job.title} | Other Consulting AG\n${footer}`, job)).toBe(true);
     expect(namesAnotherEmployer('Deloitte Partners Other AG', job)).toBe(true);
     expect(namesAnotherEmployer('Acme refers to one or more of Acme Other Employer', { company: 'Acme' })).toBe(true);
+    expect(namesAnotherEmployer('Acme refers to one or more of Acme other employer', { company: 'Acme' })).toBe(true);
     expect(namesAnotherEmployer('Acme refers to one or more of Acme AG', { company: 'Acme' })).toBe(false);
     expect(formPostingMatch(`Applying to ${job.title}\nOther Consulting AG`, job, {
       postingMatched: true,

@@ -5404,12 +5404,16 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
       const suffixOffset = normalizeWords(phrase.slice(0, networkDefinition.index + networkDefinition[0].length))
         .split(' ').filter(Boolean).length;
       const suffixMatchEnd = wholeMatchEnds.get(suffixOffset);
-      const suffixEndsAtMatchedIdentity = suffixMatchEnd !== undefined
-        && words.slice(suffixMatchEnd + 1).every((word) => NOT_A_NAME.has(word));
-      const suffixMemberFirmBoilerplate = wholeStarts.has(suffixOffset)
-        && globalNetworkNoticePhrases.has(phrase.trim());
-      if (prefixCount > 0 && wholeStarts.has(0) && wholeEnds.has(prefixCount - 1)
-        && (suffixEndsAtMatchedIdentity || suffixMemberFirmBoilerplate)) continue;
+      if (prefixCount > 0 && wholeStarts.has(0) && wholeEnds.has(prefixCount - 1) && suffixMatchEnd !== undefined) {
+        const trailingWords = words.slice(suffixMatchEnd + 1);
+        const suffixEndsAtMatchedIdentity = trailingWords.every((word) => NOT_A_NAME.has(word));
+        const suffixMemberFirmBoilerplate = globalNetworkNoticePhrases.has(phrase.trim());
+        if (suffixEndsAtMatchedIdentity || suffixMemberFirmBoilerplate) continue;
+        // Any non-legal suffix following the repeated employer identity in a
+        // corporate definition phrase signals a distinct/unrelated entity unless
+        // explicitly exempted as a standard member-firm network notice.
+        if (trailingWords.some((word) => !NOT_A_NAME.has(word) && !neutral.has(word))) return true;
+      }
     }
     for (const [index, word] of words.entries()) {
       if (!ours.has(word)) continue;
