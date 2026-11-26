@@ -579,6 +579,13 @@ jobs:
           }
           console.log(`Translation run clock initialized at ${startMs}.`);
           NODE
+
+      - id: setup_claude_haiku_fallback
+        if: inputs.skip_translate != true && inputs.dry_run != true
+        uses: ./.github/actions/setup-claude-haiku-fallback
+        with:
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          broker_idle_ttl_ms: "12600000"
       - name: "Phase 2 pre: Repair stale source-copy descriptions (bounded)"
         id: repair_stale_descriptions
         if: inputs.skip_translate != true && inputs.dry_run != true && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && env.TRANSLATION_MANUAL_OVERRIDE != 'true'))
@@ -587,6 +594,12 @@ jobs:
           UNTRANSLATED_DESCRIPTION_FIX_STALE_ONLY: "1"
           UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS: "900000"
           UNTRANSLATED_DESCRIPTION_FIX_PREPASS_MAX_RAW: ${{ vars.UNTRANSLATED_DESCRIPTION_FIX_PREPASS_MAX }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: "480000"
+          FREE_TRANSLATE_CODEX_MAX_MS: "900000"
+          FREE_TRANSLATE_CODEX_LANES: "3"
+          FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: "25"
+          FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS: "3000"
         run: |-
           parseBoundedPrepassMax() {
             local value="${1:-}"
@@ -646,12 +659,6 @@ jobs:
           TRANSFORMERS_CACHE: .cache/transformers
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
-      - id: setup_claude_haiku_fallback
-        if: inputs.skip_translate != true && inputs.dry_run != true
-        uses: ./.github/actions/setup-claude-haiku-fallback
-        with:
-          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
-          broker_idle_ttl_ms: "12600000"
       - name: "Phase 2a.2: Fix untranslated titles (free cascade, before descriptions)"
         id: title_cascade_before_descriptions
         if: inputs.skip_translate != true && inputs.dry_run != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
