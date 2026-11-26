@@ -17,6 +17,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 import {
   MEMBER_LOG_FILE_ENV,
   buildCrawlerLaunchShellBody,
+  buildCrawlerSharedLauncherShellBody,
   buildCrawlerShellBody,
 } from '../scripts/generate-crawler-group-workflows.mjs';
 import { appendLogExcerpt, buildLogExcerptSection } from '../scripts/lib/github-issue-creator.mjs';
@@ -183,10 +184,13 @@ describe('generated group workflow — reporter receives the member log', () => 
 
   it('the detached worker exports the same file the launcher redirects into', () => {
     const launch = buildCrawlerLaunchShellBody({ ...crawler('true'), slug: 'excerpt-crawler' }, 13);
+    const shared = buildCrawlerSharedLauncherShellBody(13);
 
     expect(launch).toContain('log_path="$state_dir/excerpt-crawler.log"');
-    expect(launch).toContain(`export ${MEMBER_LOG_FILE_ENV}="$RUNNER_TEMP/crawler-generation/group-13/excerpt-crawler.log"`);
     expect(launch).toContain('state_dir="$RUNNER_TEMP/crawler-generation/group-13"');
+    expect(launch).toContain('CRAWLER_LAUNCH_SLUG=\'excerpt-crawler\'');
+    // The shared worker derives the same `<dir>/<slug>.log` the launch step redirects into.
+    expect(shared).toContain(`export ${MEMBER_LOG_FILE_ENV}="$d/$s.log"`);
   });
 
   it('every committed group workflow reporter passes --log-excerpt-file', () => {
@@ -213,7 +217,9 @@ describe('generated group workflow — reporter receives the member log', () => 
       // same per-crawler log path.
       const launchers = text.match(/log_path="(?:\$state_dir\/[^"]+|\$d\/\$s)\.log"/g) ?? [];
       const exports = text.match(new RegExp(`export ${MEMBER_LOG_FILE_ENV}=`, 'g')) ?? [];
-      if (launchers.length !== exports.length) offenders.push(`${path.basename(file)}: ${launchers.length} launchers, ${exports.length} log exports`);
+      // The log export lives in the one shared worker of the file, which every
+      // launcher runs: N launchers, exactly one export.
+      if (launchers.length > 0 && exports.length !== 1) offenders.push(`${path.basename(file)}: ${launchers.length} launchers, ${exports.length} log exports (expected 1 shared)`);
     }
     expect(offenders, 'regenerate with node scripts/generate-crawler-group-workflows.mjs').toEqual([]);
   });
