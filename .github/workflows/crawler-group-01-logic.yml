@@ -72,9 +72,6 @@ jobs:
       CRAWLER_GROUP_MAX_PARALLEL: "4"
       AI_CACHE_PATH: .cache/jobs-ai-cache.json
     steps:
-      - name: Configure shared Workday egress state
-        shell: bash
-        run: echo "WORKDAY_EGRESS_STATE_DIR=$RUNNER_TEMP/crawler-generation/workday-egress" >> "$GITHUB_ENV"
       - name: Checkout frontaliere-si-o-no (public, read-only)
         uses: actions/checkout@v7
         with:
@@ -154,6 +151,7 @@ jobs:
         run: "true"
       - name: Launch coop
         id: crawler-launch-coop
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:

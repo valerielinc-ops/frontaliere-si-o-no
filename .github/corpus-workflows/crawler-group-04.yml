@@ -73,9 +73,6 @@ jobs:
       CRAWLER_GROUP_MAX_PARALLEL: "4"
       AI_CACHE_PATH: .cache/jobs-ai-cache.json
     steps:
-      - name: Configure shared Workday egress state
-        shell: bash
-        run: echo "WORKDAY_EGRESS_STATE_DIR=$RUNNER_TEMP/crawler-generation/workday-egress" >> "$GITHUB_ENV"
       - name: Checkout frontaliere-si-o-no (attempt 1/2, sparse)
         id: site_checkout_primary
         uses: actions/checkout@v7
@@ -301,6 +298,7 @@ jobs:
           priority: "2"
       - name: Launch spital-limmattal
         id: crawler-launch-spital-limmattal
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -500,6 +498,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch nant
         id: crawler-launch-nant
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -699,6 +698,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch volksschule-luzern
         id: crawler-launch-volksschule-luzern
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -898,6 +898,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch pemsa
         id: crawler-launch-pemsa
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -1097,6 +1098,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch tarchini-group
         id: crawler-launch-tarchini-group
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -1293,6 +1295,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch puk-zuerich
         id: crawler-launch-puk-zuerich
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -1492,6 +1495,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch zurzach-care
         id: crawler-launch-zurzach-care
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -1691,6 +1695,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch hitachi-energy
         id: crawler-launch-hitachi-energy
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -1887,6 +1892,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch google-switzerland
         id: crawler-launch-google-switzerland
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -2086,6 +2092,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch suedhang
         id: crawler-launch-suedhang
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -2285,6 +2292,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch honegger
         id: crawler-launch-honegger
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -2484,6 +2492,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch jsafrasarasin
         id: crawler-launch-jsafrasarasin
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -2683,6 +2692,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch kanton-basel-landschaft
         id: crawler-launch-kanton-basel-landschaft
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -2882,6 +2892,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch hermes
         id: crawler-launch-hermes
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -3081,6 +3092,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch ergolz-klinik
         id: crawler-launch-ergolz-klinik
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -3280,6 +3292,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch emil-frey
         id: crawler-launch-emil-frey
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -3479,6 +3492,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch ferrovia-retica
         id: crawler-launch-ferrovia-retica
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -3678,6 +3692,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch klinik-im-hasel
         id: crawler-launch-klinik-im-hasel
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -3877,6 +3892,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch gkb
         id: crawler-launch-gkb
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -4076,6 +4092,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch cereneo
         id: crawler-launch-cereneo
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -4275,6 +4292,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch equans
         id: crawler-launch-equans
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -4473,6 +4491,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch clariant
         id: crawler-launch-clariant
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -4672,6 +4691,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch ameos-ch
         id: crawler-launch-ameos-ch
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -4871,6 +4891,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch anybotics
         id: crawler-launch-anybotics
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -5070,6 +5091,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch aarreha-schinznach
         id: crawler-launch-aarreha-schinznach
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -5269,6 +5291,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch parmag
         id: crawler-launch-parmag
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -5468,6 +5491,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch spitex-basel
         id: crawler-launch-spitex-basel
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -5667,6 +5691,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch hospice-general
         id: crawler-launch-hospice-general
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -5866,6 +5891,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch pole-sante-pays-enhaut
         id: crawler-launch-pole-sante-pays-enhaut
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -6065,6 +6091,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch medimeo
         id: crawler-launch-medimeo
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:
@@ -6264,6 +6291,7 @@ jobs:
           printf '%s\n' "$launcher_pid" > "$pid_path"
       - name: Launch opacc-software-ag
         id: crawler-launch-opacc-software-ag
+          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         if: always() && steps.crawler_group_setup.outcome == 'success'
         continue-on-error: true
         env:

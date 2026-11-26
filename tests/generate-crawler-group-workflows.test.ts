@@ -2724,6 +2724,31 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(armaniStep.env.JOBS_GIORGIO_ARMANI_STRICT).toBe("${{ inputs.strict_localization || '0' }}");
   }, CROSS_REPO_GENERATION_TIMEOUT);
 
+  it('limita lo stato egress Workday ai soli crawler-launch step env', () => {
+    const { contract, outDir } = generateArtifacts();
+    const expectedStateDir = '${{ runner.temp }}/crawler-generation/workday-egress';
+    const artifactPaths = contract.artifacts
+      .filter((artifact: any) => /^crawler-group-\d+\.yml$/.test(artifact.file))
+      .map((artifact: any) => path.join(outDir, artifact.file));
+    const logicPaths = Array.from({ length: GROUP_COUNT }, (_, index) => path.join(
+      repoRoot,
+      `.github/workflows/crawler-group-${String(index + 1).padStart(2, '0')}-logic.yml`,
+    ));
+
+    for (const workflowPath of [...artifactPaths, ...logicPaths]) {
+      const workflow = YAML.parse(fs.readFileSync(workflowPath, 'utf8'));
+      const job: any = Object.values(workflow.jobs)[0];
+      expect(job.env?.WORKDAY_EGRESS_STATE_DIR, workflowPath).toBeUndefined();
+      const launchSteps = job.steps.filter((step: any) => step.id?.startsWith('crawler-launch-'));
+      expect(launchSteps.length, workflowPath).toBeGreaterThan(0);
+      expect(launchSteps.every((step: any) =>
+        step.env?.WORKDAY_EGRESS_STATE_DIR === expectedStateDir,
+      ), workflowPath).toBe(true);
+      expect(job.steps.some((step: any) => step.env?.WORKDAY_EGRESS_STATE_DIR !== undefined
+        && !step.id?.startsWith('crawler-launch-')), workflowPath).toBe(false);
+    }
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
   it('rifiuta drift nel setup non-background, non soltanto nel roster', () => {
     const [generated] = generate({ outDir: workflowsDir, assignmentsPath, write: false });
     const logicPath = path.join(workflowsDir, 'crawler-group-01-logic.yml');

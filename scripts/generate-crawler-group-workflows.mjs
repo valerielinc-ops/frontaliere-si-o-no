@@ -3214,13 +3214,10 @@ function logicRemoteConfigStep() {
   return { name: 'Load secrets from Remote Config', run: 'node scripts/load-rc-env.mjs' };
 }
 
-function logicWorkdayEgressStateStep() {
-  return {
-    name: 'Configure shared Workday egress state',
-    shell: 'bash',
-    run: 'echo "WORKDAY_EGRESS_STATE_DIR=$RUNNER_TEMP/crawler-generation/workday-egress" >> "$GITHUB_ENV"',
-  };
-}
+// Keep the state directory explicit on every reusable and portable crawler
+// launch step. GitHub permits the runner context at step-level env, while the
+// job-level env contract cannot resolve runner.temp at this point.
+const WORKDAY_EGRESS_STATE_DIR = '${{ runner.temp }}/crawler-generation/workday-egress';
 
 // #7091 — see scripts/check-crawler-group-live-run.mjs. Each entry point
 // checks the OTHER one: the generated (workflow_dispatch) side checks the
@@ -3325,10 +3322,17 @@ export function buildCrawlerLogicWorkflow(generatedWorkflowText, {
     job.permissions = withSourceRelayJobPermissions(workflow.permissions);
   }
 
-  // Workday crawlers run concurrently in this job. Give their shared client a
-  // runner-local coordination directory so separate processes observe the
-  // same egress cooldown state. Other crawlers simply ignore this setting.
-  job.steps.unshift(logicWorkdayEgressStateStep());
+  // Workday crawlers run concurrently in this job. Give each launcher the
+  // same runner-local coordination directory so separate processes observe
+  // the shared egress cooldown state. GitHub permits runner.temp here, unlike
+  // at jobs.<job_id>.env, and other crawlers simply ignore this setting.
+  for (const step of job.steps) {
+    if (!isCrawlerLaunchStep(step)) continue;
+    step.env = {
+      ...(step.env ?? {}),
+      WORKDAY_EGRESS_STATE_DIR,
+    };
+  }
 
   const checkoutAt = job.steps.findIndex((step) => step?.uses?.startsWith('actions/checkout@'));
   const rcAt = job.steps.findIndex((step) => step?.name === 'Load secrets from Remote Config');
@@ -3448,13 +3452,6 @@ function normalizedContractStep(step, side, fileName, members) {
     return { name: copy.name, run: 'node scripts/load-rc-env.mjs' };
   }
 
-  if (copy?.name === 'Configure shared Workday egress state') {
-    if (canonicalJson(copy) !== canonicalJson(logicWorkdayEgressStateStep())) {
-      throw new Error(`${fileName}: undeclared Workday egress state bootstrap difference`);
-    }
-    return null;
-  }
-
   if (copy?.name === 'Bootstrap write auth for frontaliere-si-o-no (GITHUB_PAT from Remote Config)') {
     if (side !== 'logic' || canonicalJson(copy) !== canonicalJson(logicWriteAuthStep(members))) {
       throw new Error(`${fileName}: undeclared write-auth bootstrap difference`);
@@ -3503,19 +3500,30 @@ function normalizedJobContract(workflow, side, fileName) {
     }
     normalizedJob.permissions = { 'id-token': 'write' };
   }
-  const members = (job.steps ?? []).filter(isCrawlerLaunchStep).length;
-  const workdayStepIndexes = (job.steps ?? [])
-    .map((step, index) => step?.name === 'Configure shared Workday egress state' ? index : -1)
-    .filter((index) => index >= 0);
-  const hasOptionalGeneratedWorkdayBootstrap = side === 'generated'
-    && workdayStepIndexes.length === 0;
-  if (!hasOptionalGeneratedWorkdayBootstrap
-      && (workdayStepIndexes.length !== 1 || workdayStepIndexes[0] !== 0)) {
-    throw new Error(`${fileName}: Workday egress state bootstrap must be first and unique when present in ${side} workflows`);
+  const launchSteps = (job.steps ?? []).filter(isCrawlerLaunchStep);
+  const members = launchSteps.length;
+  if (job.env?.WORKDAY_EGRESS_STATE_DIR !== undefined) {
+    throw new Error(`${fileName}: ${side} Workday egress state must not use job-level env`);
+  }
+  const invalidStep = launchSteps.find((step) =>
+    side === 'logic'
+      ? step.env?.WORKDAY_EGRESS_STATE_DIR !== WORKDAY_EGRESS_STATE_DIR
+      : step.env?.WORKDAY_EGRESS_STATE_DIR !== undefined,
+  );
+  if (invalidStep) {
+    const expected = side === 'logic' ? 'the runner-local step environment' : 'the client default';
+    throw new Error(`${fileName}: ${side} Workday egress state must use ${expected}`);
   }
   const steps = (job.steps ?? [])
     .map((step) => normalizedContractStep(step, side, fileName, members))
     .filter(Boolean);
+  if (side === 'logic') {
+    // The reusable/corpus entry point needs the explicit runner path; the
+    // local dispatch entry point uses the same path by client default.
+    for (const step of steps) {
+      if (isCrawlerLaunchStep(step)) delete step.env?.WORKDAY_EGRESS_STATE_DIR;
+    }
+  }
   normalizedJob.steps = steps;
   return { jobName, env: workflow.env, job: normalizedJob };
 }
@@ -3524,8 +3532,8 @@ function normalizedJobContract(workflow, side, fileName) {
  * I `*-logic.yml` erano copie manuali: la loro parita' col generatore era
  * solo accidentale. Questo confronto fail-closed copre l'intero job (setup,
  * roster, env e shell body) e normalizza esclusivamente le differenze
- * dichiarate del workflow_call cross-repo: checkout esplicito, bootstrap dello
- * stato egress Workday, bootstrap PAT, composite action assolute e token
+ * dichiarate del workflow_call cross-repo: checkout esplicito, bootstrap
+ * step-level dello stato egress Workday, bootstrap PAT, composite action assolute e token
  * ambient rimosso dai crawler.
  */
 export function assertCrawlerLogicParity(generatedWorkflowText, logicWorkflowText, fileName = 'crawler logic') {
@@ -3989,7 +3997,10 @@ export function buildStandaloneCrossRepoWorkflow({
   const yaml = YAML.stringify(standalone, { lineWidth: 0 });
   const runtimeDependencyHeader = runtimePaths.length > 0
     ? [
-        ...runtimePaths.map((runtimePath) => `# - ${runtimePath}`),
+        // These are hash-bound metadata comments. The compact `#path` form
+        // preserves one auditable path per line while keeping 25 portable
+        // workflows below the repository's existing GitHub size budget.
+        ...runtimePaths.map((runtimePath) => `#${runtimePath}`),
       ]
     : [];
   const portableWorkflowHeader = workflowFile === 'translate-pending.yml'
@@ -4508,6 +4519,33 @@ export function generate({
         // genuinely over-budget group, so adding one more member cannot turn
         // a valid workflow into an unrenderable one.
         finalContent = renderGroup(true, true);
+      }
+      // The reusable logic adds the runner-local Workday state env to every
+      // crawler launcher. Check that derived artifact here too: a generated
+      // dispatch workflow can fit while its workflow_call counterpart crosses
+      // the same GitHub byte limit after the per-launcher contract is applied.
+      // Use the existing tight rendering fallback before rejecting the family.
+      const logicPath = path.join(outDir, fileName.replace(/\.yml$/u, '-logic.yml'));
+      const existingLogicText = fs.existsSync(logicPath)
+        ? fs.readFileSync(logicPath, 'utf8')
+        : '';
+      const logicByteLength = (content) => Buffer.byteLength(
+        buildCrawlerLogicWorkflow(content, {
+          groupIndex,
+          existingText: existingLogicText,
+        }),
+        'utf8',
+      );
+      if (logicByteLength(finalContent) > GENERATED_WORKFLOW_SIZE_BUDGET_BYTES) {
+        finalContent = renderGroup(true, true);
+      }
+      if (Buffer.byteLength(finalContent, 'utf8') > GENERATED_WORKFLOW_SIZE_BUDGET_BYTES
+          || logicByteLength(finalContent) > GENERATED_WORKFLOW_SIZE_BUDGET_BYTES) {
+        throw new Error([
+          `Generated crawler group ${fileName} or its reusable logic exceeds the size budget`,
+          `  dispatch: ${Buffer.byteLength(finalContent, 'utf8')} bytes`,
+          `  reusable: ${logicByteLength(finalContent)} bytes`,
+        ].join('\n'));
       }
       results.push({
         fileName,
