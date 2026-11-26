@@ -102,6 +102,13 @@ on:
         required: false
         default: '1'
         type: string
+      benchmark_rehydration:
+        description: >-
+          Collect rehydration wall time and one-second peak filesystem use for
+          a controlled same-artifact comparison. Disabled for ordinary runs.
+        required: false
+        default: false
+        type: boolean
 
   workflow_call:
     inputs:
@@ -171,6 +178,13 @@ on:
         required: false
         default: '1'
         type: string
+      benchmark_rehydration:
+        description: >-
+          Collect rehydration wall time and one-second peak filesystem use for
+          a controlled same-artifact comparison. Disabled for ordinary runs.
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: read
@@ -373,11 +387,75 @@ jobs:
           # replay opts into its separately measured two-worker contract within
           # one artifact batch (the shared script drains batches between windows).
           REHYDRATE_MAX_PARALLEL: ${{ inputs.rehydrate_max_parallel }}
+          BENCHMARK_REHYDRATION: ${{ inputs.benchmark_rehydration }}
+          BENCHMARK_DEPLOY_REF: ${{ inputs.deploy_ref }}
+          BENCHMARK_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
+          BENCHMARK_SHARD_ARTIFACT_RUN_ID: ${{ inputs.shard_artifact_run_id }}
         run: |
           set -uo pipefail
           eval "$(jq -r 'to_entries[]
                          | select(.key | test("_SHARDS?_LIVE$"))
                          | "export \(.key)=\(.value | @sh)"' <<< "$REPO_VARS_JSON")"
+
+          REHYDRATE_DISK_MONITOR_PID=
+          REHYDRATE_DISK_STARTED_NS=
+          REHYDRATE_DISK_START_USED=
+          REHYDRATE_DISK_PEAK_FILE="${RUNNER_TEMP:-/tmp}/rehydrate-disk-peak-${GITHUB_RUN_ID:-local}.txt"
+
+          rehydrateDiskUsedBytes() {
+            df -B1 --output=used / | tail -n 1 | tr -d '[:space:]'
+          }
+
+          startRehydrateDiskMonitor() {
+            [ "${BENCHMARK_REHYDRATION:-false}" = true ] || return 0
+            REHYDRATE_DISK_START_USED="$(rehydrateDiskUsedBytes)"
+            printf '%s\n' "$REHYDRATE_DISK_START_USED" > "$REHYDRATE_DISK_PEAK_FILE"
+            REHYDRATE_DISK_STARTED_NS="$(date +%s%N)"
+            (
+              while :; do
+                sampled_used="$(rehydrateDiskUsedBytes)"
+                peak_used="$(cat "$REHYDRATE_DISK_PEAK_FILE")"
+                if [ "$sampled_used" -gt "$peak_used" ]; then
+                  printf '%s\n' "$sampled_used" > "$REHYDRATE_DISK_PEAK_FILE"
+                fi
+                sleep 1
+              done
+            ) &
+            REHYDRATE_DISK_MONITOR_PID=$!
+          }
+
+          finishRehydrateDiskMonitor() {
+            [ -n "${REHYDRATE_DISK_MONITOR_PID:-}" ] || return 0
+            finished_ns="$(date +%s%N)"
+            kill "$REHYDRATE_DISK_MONITOR_PID" 2>/dev/null || true
+            wait "$REHYDRATE_DISK_MONITOR_PID" 2>/dev/null || true
+            current_used="$(rehydrateDiskUsedBytes)"
+            peak_used="$(cat "$REHYDRATE_DISK_PEAK_FILE")"
+            if [ "$current_used" -gt "$peak_used" ]; then
+              printf '%s\n' "$current_used" > "$REHYDRATE_DISK_PEAK_FILE"
+            fi
+            peak_used="$(cat "$REHYDRATE_DISK_PEAK_FILE")"
+            elapsed_ns=$((finished_ns - REHYDRATE_DISK_STARTED_NS))
+            peak_delta=$((peak_used - REHYDRATE_DISK_START_USED))
+            elapsed_seconds="$(awk -v ns="$elapsed_ns" 'BEGIN { printf "%.2f", ns / 1000000000 }')"
+            end_used="$(rehydrateDiskUsedBytes)"
+            summary_path="${GITHUB_STEP_SUMMARY:-/dev/stdout}"
+            {
+              echo '### Controlled rehydration benchmark'
+              echo
+              echo '| metric | observed |'
+              echo '| --- | ---: |'
+              printf '| code ref | %s |\n' "${BENCHMARK_DEPLOY_REF:-workflow default}"
+              printf '| deploy artifact run | %s |\n' "${BENCHMARK_DEPLOY_RUN_ID:-unknown}"
+              printf '| shard artifact run | %s |\n' "${BENCHMARK_SHARD_ARTIFACT_RUN_ID:-resolved automatically}"
+              printf '| rehydration wall time (seconds) | %s |\n' "$elapsed_seconds"
+              printf '| root filesystem used before (bytes) | %s |\n' "$REHYDRATE_DISK_START_USED"
+              printf '| root filesystem peak used (bytes, 1 s sampling) | %s |\n' "$peak_used"
+              printf '| root filesystem used after (bytes) | %s |\n' "$end_used"
+              printf '| peak increase over start (bytes) | %s |\n' "$peak_delta"
+              printf '| REHYDRATE_MAX_PARALLEL | %s |\n' "${REHYDRATE_MAX_PARALLEL:-unknown}"
+            } >> "$summary_path"
+          }
 
           rehydrateRuntimeBudgetObserved() {
             local started_at="$1"
@@ -388,6 +466,7 @@ jobs:
             local outcome=success
             local summary_path="${GITHUB_STEP_SUMMARY:-/dev/stdout}"
 
+            finishRehydrateDiskMonitor
             finished_at="$(date +%s)"
             elapsed_seconds=$((finished_at - started_at))
             if [ "$locale_rc" -ne 0 ]; then
@@ -432,6 +511,7 @@ jobs:
           }
 
           REHYDRATE_STARTED_AT="$(date +%s)"
+          startRehydrateDiskMonitor
 
           # Same order and same failure contract as post-deploy-validate-dist.yml:
           # locale first and hard-fail (an incomplete locale shard is a real
@@ -466,10 +546,10 @@ jobs:
             rehydrateRuntimeBudgetObserved "$REHYDRATE_STARTED_AT" "$LOCALE_RC" "$SECTION_RC"
             exit "$SECTION_RC"
           fi
-          echo "dist/ now holds $(find dist -type f | wc -l) files"
           # Read-only measurement: preserve the existing locale hard-fail and
           # section soft-fail contract after the summary has been emitted.
           rehydrateRuntimeBudgetObserved "$REHYDRATE_STARTED_AT" "$LOCALE_RC" "$SECTION_RC"
+          echo "dist/ now holds $(find dist -type f | wc -l) files"
           if [ "$LOCALE_RC" -ne 0 ]; then exit "$LOCALE_RC"; fi
 
       - name: Verify replay shard provenance after rehydrate
