@@ -258,8 +258,9 @@ jobs:
       #
       # General apex freshness is bounded by a 300s edge TTL
       # (APEX_EDGE_TTL_SECONDS in scripts/cf-locale-failover-setup.mjs). The
-      # Pages home and sitemap index still need exact-key purges after deploy:
-      # stale-while-revalidate can keep those specific old copies available.
+      # Pages home, sitemap index, and consent-probe pages still need exact-key
+      # purges after deploy: stale-while-revalidate can keep those specific old
+      # copies available.
       # cf-purge-cache.mjs still supports zone-wide mode for deliberate operator
       # use, but it requires CF_PURGE_ZONE_WIDE=1 and is never used here.
       # Guarded by tests/cf-zone-purge-blast-radius.test.ts.
@@ -289,18 +290,24 @@ jobs:
       # /sitemap.xml was a HIT with Last-Modified 2026-11-06, 159 entries, and
       # s-maxage=86400 while the origin had 203 entries. A manual purge of that
       # exact URL returned 203 entries (MISS then HIT, max-age=600). Once origin
-      # propagation is confirmed, purge only the Pages home and sitemap index
-      # URLs with --files. This is a targeted two-URL purge, never zone-wide;
-      # the child sitemaps were already fresh. The runtime watchdog separately
+      # propagation is confirmed, purge the Pages home, sitemap index, and the
+      # two pages used by the consent probe with --files. The section pages are
+      # Worker-routed: each apex URL is paired with its shard-origin URL because
+      # an apex-only purge returns success without clearing the cache key the
+      # Worker serves. This is a targeted six-URL purge, never zone-wide; the
+      # child sitemaps were already fresh. The runtime watchdog separately
       # checks all four locale homes.
       - name: Purge exact cache entry for the Pages home
         if: steps.propagation.outcome == 'success'
         env:
-          PAGES_PURGE_URLS: https://frontaliereticino.ch/,https://frontaliereticino.ch/sitemap.xml
+          # Non-secret canonical ID from infra/cloudflare/rules.md; the purge
+          # token need not also have Zone:Read for name-based lookup.
+          CF_ZONE_ID: 435c32ec15993fe826d2bb5eb62d3d43
+          PAGES_PURGE_URLS: https://frontaliereticino.ch/,https://frontaliereticino.ch/sitemap.xml,https://frontaliereticino.ch/cerca-lavoro-ticino/,https://origin-ticino-it.frontaliereticino.ch/cerca-lavoro-ticino/,https://frontaliereticino.ch/cerca-lavoro-zurigo/,https://origin-zurigo-it.frontaliereticino.ch/cerca-lavoro-zurigo/
         run: |
           set -euo pipefail
           if [ -z "${CF_API_TOKEN:-}" ]; then
-            echo "::error::CF_API_TOKEN missing after Remote Config load — the Pages home and sitemap index cache entries could not be purged"
+            echo "::error::CF_API_TOKEN missing after Remote Config load — the exact Pages and consent-probe cache entries could not be purged"
             exit 1
           fi
           purge_urls="${PAGES_PURGE_URLS:-}"
