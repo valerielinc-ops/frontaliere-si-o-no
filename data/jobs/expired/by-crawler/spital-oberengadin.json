@@ -56,7 +56,6 @@
     ],
     "previousSlugsByLocale": {
       "it": [
-        "dipl-pflegefachfrau-mann-hf-fh-saison-moglich-spital-oberengadin-samedan",
         "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan-e63101e6",
         "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan-bbfc627c",
         "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan-628d026c",
@@ -71,17 +70,32 @@
         "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan-144b8a20",
         "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan-4563bbee",
         "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan-b94ad047",
-        "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan-847b0b9a",
-        "dipl-infermieristica-professionale-hf-fh-possibile-stagione-spital-oberengadin-samedan-cc0d08bc",
         "dipl-pflegefachfrau-mann-hf-fh-saison-moglich-spital-oberengadin-samedan-6dc3284a",
         "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan-58b47f44",
+        "dipl-infermieristica-professionale-hf-fh-possibile-stagione-spital-oberengadin-samedan-cc0d08bc",
+        "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan-847b0b9a",
         "dipl-nursing-professional-hf-fh-season-possible-spital-oberengadin-samedan-b767851b"
       ],
       "en": [
-        "dipl-pflegefachfrau-mann-hf-fh-saison-moglich-spital-oberengadin-samedan"
+        "dipl-pflegefachfrau-mann-hf-fh-saison-moglich-spital-oberengadin-samedan-6dc3284a"
       ],
       "fr": [
-        "dipl-pflegefachfrau-mann-hf-fh-saison-moglich-spital-oberengadin-samedan"
+        "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan-e63101e6",
+        "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan-bbfc627c",
+        "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan-628d026c",
+        "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan-554dfe68",
+        "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan-b469a01a",
+        "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan-71c0b1ff",
+        "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan-1fd31ce9",
+        "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan-c1daf175",
+        "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan-9c69135d",
+        "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan-12007cdc",
+        "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan-cc25caf6",
+        "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan-144b8a20",
+        "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan-4563bbee",
+        "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan-b94ad047",
+        "dipl-pflegefachfrau-mann-hf-fh-saison-moglich-spital-oberengadin-samedan-6dc3284a",
+        "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan-58b47f44"
       ],
       "de": [
         "dipl-pflegefachfrau-mann-hf-fh-saison-moglich-spital-oberengadin-samedan-07eda4c9"
@@ -94,7 +108,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4088639",
-    "firstSeenAt": "2026-08-23T09:35:41.919Z"
+    "firstSeenAt": "2026-08-23T09:35:41.919Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4056202",
+        "firstSeenAt": "2026-08-23T09:35:41.919Z",
+        "title": "Dipl. Pflegefachfrau / -mann HF/FH (Saison möglich)"
+      },
+      {
+        "sourceIdentity": "url:https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4088639",
+        "firstSeenAt": "2026-08-23T09:35:41.919Z",
+        "title": "Dipl. Pflegefachfrau / -mann HF/FH (Saison möglich)"
+      }
+    ]
   },
   {
     "id": "spital-oberengadin-f4d47414a8f2",
@@ -248,6 +274,74 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4084910"
+  },
+  {
+    "id": "spital-oberengadin-75930e4a5723",
+    "slug": "medica-senior-medico-senior-di-medicina-interna-oppure-medica-senior-medico-senior-di-medicina-interna-facente-funzione",
+    "title": "Oberärztin / Oberarzt Innere Medizin oder Oberärztin / Oberarzt Innere Medizin i. V.",
+    "titleByLocale": {
+      "it": "Medica senior / Medico senior di medicina interna oppure Medica senior / Medico senior di medicina interna facente funzione",
+      "en": "Senior physician / Senior physician Internal Medicine or Senior physician / Senior physician Internal Medicine i.V.",
+      "de": "Oberärztin / Oberarzt Innere Medizin oder Oberärztin / Oberarzt Innere Medizin i. V.",
+      "fr": "Médecin supérieur / Médecin supérieur Médecine interne ou Médecin supérieur / Médecin supérieur Médecine interne i.V."
+    },
+    "company": "Spital Oberengadin",
+    "companyKey": "spital-oberengadin",
+    "location": "Samedan",
+    "canton": "GR",
+    "addressLocality": "Samedan",
+    "descriptionByLocale": {
+      "it": "La Spital Oberengadin AG di Samedan, società del Gruppo KSGR, è responsabile dell'assistenza medica di base e dell'assistenza di emergenza per la popolazione e gli ospiti. A causa della regolare fluttuazione, stiamo cercando un\n\nI loro compiti\n\n• co-assistenza responsabile dei pazienti ospedalizzati e ambulatoriali\n• Partecipazione ai servizi della clinica medica\n• Supervisione e Insegnamento di Dottori e Studenti Assistenti\n\nIl tuo profilo\n\n• Specialista Generale Medicina Interna o titolo specialistico riconosciuto in Svizzera (riconoscimento MEBEKO) o con formazione come specialista\n• buone capacità di comunicazione in parola e scrittura in tedesco e inglese, competenze di base italiana sarebbe auspicabile\n\nPenso: 60-80 %",
+      "en": "The Spital Oberengadin AG in Samedan, a company of the KSGR Group, is responsible for basic medical care as well as emergency care for the population and guests. Due to regular fluctuation, we are looking for an\n\nTheir tasks\n\n• responsible co-care of hospitalized and outpatient patients\n• Participation in the services of the medical clinic\n• Supervision and Teaching of Assistant Doctors and Students\n\nYour profile\n\n• Specialist General Internal Medicine or specialist title recognised in Switzerland (MEBEKO recognition) or with training as a specialist\n• good communication skills in word and writing in German and English, basic Italian skills would be desirable\n\nPensum: 60-80 %",
+      "de": "Das Spital Oberengadin AG in Samedan, ein Betrieb der KSGR-Gruppe, ist mit dem grössten Spital Südbündens für die medizinische Grundversorgung sowie für die Notfallversorgung der Bevölkerung und der Gäste verantwortlich. Aufgrund von regulärer Fluktuation suchen wir per sofort oder nach Vereinbarung eine/n\n\nIhre Aufgaben\n\n• verantwortliche Mitbetreuung der hospitalisierten und ambulanten Patient*innen\n• Teilnahme an den Diensten der medizinischen Klinik\n• Supervision und Teaching der Assistenzärzt*innen und Student*innen\n\nIhr Profil\n\n• Facharzt Allgemeine Innere Medizin resp. in der Schweiz anerkannter Facharzttitel (MEBEKO-Anerkennung) oder mit Ausbildung zum Facharzt kurz Abschluss\n• gute kommunikative Fähigkeiten in Wort und Schrift in Deutsch und Englisch, Basis-Italienischkenntnisse wären wünschenswert\n\nPensum: 60-80%",
+      "fr": "La Spital Oberengadin AG de Samedan, une société du groupe KSGR, est responsable des soins médicaux de base ainsi que des soins d'urgence pour la population et les clients. En raison de fluctuations régulières, nous cherchons\n\nLeurs tâches\n\n• co-soins responsables des patients hospitalisés et externes\n• Participation aux services de la clinique médicale\n• Supervision et enseignement des médecins adjoints et des étudiants\n\nVotre profil\n\n• Spécialiste en médecine interne ou titre de spécialiste reconnu en Suisse (reconnaissance MEBEKO) ou avec formation en tant que spécialiste\n• de bonnes compétences en communication verbale et écrite en allemand et en anglais, des compétences italiennes de base seraient souhaitables\n\nPensum: 60-80 %"
+    },
+    "slugByLocale": {
+      "it": "medica-senior-medico-senior-di-medicina-interna-oppure-medica-senior-medico-senior-di-medicina-interna-facente-funzione",
+      "en": "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-spital",
+      "de": "oberarztin-oberarzt-innere-medizin-oder-oberarztin-oberarzt-innere-medizin-i-v-spital",
+      "fr": "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-v-spital"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-11-18T21:29:09.467Z",
+    "previousSlugs": [
+      "oberarztin-oberarzt-innere-medizin-oder-oberarztin-oberarzt-innere-medizin-i-v-spital",
+      "medica-capoclinica-medico-capoclinico-di-medicina-interna-oppure-medica-capoclinica-medico-capoclinico-di-medicina",
+      "oberarztin-oberarzt-innere-medizin-o-oberarztin-oberarzt-innere-medizin-i-v-spital-oberengadin-samedan"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "oberarztin-oberarzt-innere-medizin-oder-oberarztin-oberarzt-innere-medizin-i-v-spital",
+        "medica-capoclinica-medico-capoclinico-di-medicina-interna-oppure-medica-capoclinica-medico-capoclinico-di-medicina",
+        "oberarztin-oberarzt-innere-medizin-o-oberarztin-oberarzt-innere-medizin-i-v-spital-oberengadin-samedan"
+      ],
+      "en": [
+        "oberarztin-oberarzt-innere-medizin-oder-oberarztin-oberarzt-innere-medizin-i-v-spital"
+      ],
+      "fr": [
+        "oberarztin-oberarzt-innere-medizin-oder-oberarztin-oberarzt-innere-medizin-i-v-spital"
+      ]
+    },
+    "postalCode": "7503",
+    "streetAddress": "Via Nouva 3",
+    "salaryMin": 110500,
+    "salaryMax": 154000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4089847",
+    "firstSeenAt": "2026-08-21T21:35:13.143Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4058442",
+        "firstSeenAt": "2026-08-21T21:35:13.143Z",
+        "title": "Oberärztin / Oberarzt Innere Medizin oder Oberärztin / Oberarzt Innere Medizin i. V."
+      },
+      {
+        "sourceIdentity": "url:https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4089847",
+        "firstSeenAt": "2026-08-21T21:35:13.143Z",
+        "title": "Oberärztin / Oberarzt Innere Medizin oder Oberärztin / Oberarzt Innere Medizin i. V."
+      }
+    ]
   },
   {
     "slug": "esperto-a-in-prevenzione-delle-infezioni-e-igiene-ospedaliera-possibilita-di-un-attivita-aggiuntiva-come-infermiere-a-spital-9cfeacb42e",
@@ -638,6 +732,167 @@
     ]
   },
   {
+    "slug": "direttore-della-stazione-stazione-spital-oberengadin-samedan",
+    "title": "Stationsleiterin / Stationsleiter",
+    "titleByLocale": {
+      "it": "Direttore della stazione/stazione",
+      "en": "Station manager/station manager",
+      "de": "Stationsleiterin / Stationsleiter",
+      "fr": "Gestionnaire de station/gestionnaire de station"
+    },
+    "company": "Spital Oberengadin",
+    "companyKey": "spital-oberengadin",
+    "location": "Samedan",
+    "addressLocality": "Samedan",
+    "descriptionByLocale": {
+      "it": "Spital Oberengadin AG, società del Gruppo KSGR, è responsabile dell'assistenza medica di base e dell'assistenza di emergenza per la popolazione e gli ospiti di Samedan con il più grande ospedale della Germania meridionale. Siamo alla ricerca di un'unità di assistenza interdisciplinare acuta a partire dal 01.12.2026 o di un accordo motivato\n\nI loro compiti\n\n• Gestione, sviluppo e pianificazione operativa dei dipendenti\n• Partecipazione attiva alla cura di tutti i giorni e supporto del team in situazioni di cura impegnative\n• Garantire la cura professionale, orientata al paziente e la documentazione e la condivisione delle informazioni senza soluzione di continuità\n• Monitoraggio e conformità agli standard e alle linee guida di qualità e promozione dell'alta qualità dei servizi\n• Responsabilità condivisa per l'uso economico delle risorse\n\nIl tuo profilo\n\n• Formazione completa per/per il Dipl. Specialista infermieristico HF/FH (riconoscimento SRC per gradi stranieri)\n• almeno due anni di esperienza in un ospedale acuto svizzero\n• La prima esperienza di leadership è utile\n• Formazione di leadership o la volontà di completare uno\n• Esperienze di MS Office competenze\n• conoscenza molto buona del tedesco (verbale e scritto), conoscenza del italiano vantaggioso\n\nPenso: 80-100 %",
+      "en": "Spital Oberengadin AG, a company of the KSGR Group, is responsible for basic medical care and emergency care for the population and guests in Samedan with the largest hospital in southern Germany. We are looking for an interdisciplinary acute care unit as of 01.12.2026 or by agreement a motivated\n\nTheir tasks\n\n• Management, development and operational planning of employees\n• Active participation in everyday care as well as support of the team in demanding care situations\n• Ensuring professional, patient-oriented care as well as seamless documentation and information sharing\n• Monitoring and ensuring compliance with quality standards and guidelines, and promoting high quality of service\n• Shared responsibility for the economic use of resources\n\nYour profile\n\n• Completed training for/for the Dipl. Nursing specialist HF/FH (SRC recognition for foreign degrees)\n• at least two years of experience in a Swiss acute care hospital\n• First leadership experience is beneficial\n• Leadership training or the willingness to complete one\n• Experienced MS Office skills\n• very good knowledge of German (verbal and written), knowledge of Italian advantageous\n\nPensum: 80-100 %",
+      "de": "Die Spital Oberengadin AG, ein Betrieb der KSGR-Gruppe, ist in Samedan mit dem grössten Spital Südbündens für die medizinische Grundversorgung sowie für die Notfallversorgung der Bevölkerung und der Gäste verantwortlich. Wir suchen für die interdisziplinäre Akutstation per 01.12.2026 oder nach Vereinbarung eine/n motivierte/n\n\nIhre Aufgaben\n\n• Führung, Entwicklung und Einsatzplanung der Mitarbeitenden\n• aktive Mitarbeit im Pflegealltag sowie Unterstützung des Teams in anspruchsvollen Pflegesituationen\n• Sicherstellung einer professionellen, patientenorientierten Pflege sowie einer lückenlosen Dokumentation und Informationsweitergabe\n• Überwachung und Sicherstellung der Einhaltung von Qualitätsstandards und Richtlinien, sowie Förderung einer hohen Dienstleistungsqualität\n• Mitverantwortung für den wirtschaftlichen Einsatz der Ressourcen\n\nIhr Profil\n\n• abgeschlossene Ausbildung zur/zum Dipl. Pflegefachfrau/-mann HF/FH (SRK-Anerkennung bei ausländischen Abschlüssen)\n• mindestens zwei Jahre Erfahrung in einem Schweizer Akutspital\n• erste Führungserfahrung von Vorteil\n• Führungsweiterbildung oder die Bereitschaft, eine zu absolvieren\n• versierte MS Office-Kenntnisse\n• sehr gute Deutschkenntnisse (mündlich und schriftlich), Italienischkenntnisse von Vorteil\n\nPensum: 80-100%",
+      "fr": "Spital Oberengadin AG, une société du groupe KSGR, est responsable des soins médicaux de base et des soins d'urgence pour la population et les invités à Samedan avec le plus grand hôpital du sud de l'Allemagne. Nous sommes à la recherche d'une unité interdisciplinaire de soins actifs au 01.12.2026 ou d'un accord\n\nLeurs tâches\n\n• Gestion, perfectionnement et planification opérationnelle des employés\n• Participation active aux soins quotidiens et soutien de l'équipe dans des situations exigeantes\n• Assurer des soins professionnels et axés sur le patient ainsi qu'une documentation transparente et un partage de l'information\n• Suivi et mise en conformité avec les normes et directives de qualité, et promotion d'une qualité de service élevée\n• Responsabilité partagée pour l'utilisation économique des ressources\n\nVotre profil\n\n• Formation complète pour le Dipl. Spécialiste des soins infirmiers HF/FH (reconnaissance SRC pour les diplômes étrangers)\n• au moins deux ans d'expérience dans un hôpital suisse de soins actifs\n• Première expérience de leadership est bénéfique\n• La formation en leadership ou la volonté d'en terminer une\n• Compétences expérimentées en MS Office\n• très bonne connaissance de l'allemand (verbal et écrit), connaissance de l'italien avantageux\n\nPensum: 80-100 %"
+    },
+    "slugByLocale": {
+      "it": "direttore-della-stazione-stazione-spital-oberengadin-samedan",
+      "en": "station-manager-station-manager-spital-oberengadin-samedan",
+      "de": "stationsleiterin-stationsleiter-spital-oberengadin-samedan-0bde8cfb",
+      "fr": "gestionnaire-de-station-gestionnaire-de-station-spital-oberengadin-samedan"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-10-24T09:45:17.895Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "stationsleiterin-stationsleiter-spital-oberengadin-samedan-0bde8cfb",
+        "stationsleiterin-stationsleiter-spital-oberengadin-samedan-e572e899",
+        "stationsleiterin-stationsleiter-spital-oberengadin-samedan",
+        "direttore-della-stazione-stazione-spital-oberengadin-samedan-77912e52",
+        "stationsleiterin-stationsleiter-spital-oberengadin-samedan-f8094bab"
+      ],
+      "en": [
+        "stationsleiterin-stationsleiter-spital-oberengadin-samedan-0bde8cfb",
+        "stationsleiterin-stationsleiter-spital-oberengadin-samedan",
+        "station-manager-station-manager-spital-oberengadin-samedan-af469b6c",
+        "stationsleiterin-stationsleiter-spital-oberengadin-samedan-e572e899"
+      ],
+      "fr": [
+        "stationsleiterin-stationsleiter-spital-oberengadin-samedan-0bde8cfb",
+        "stationsleiterin-stationsleiter-spital-oberengadin-samedan",
+        "gestionnaire-de-station-gestionnaire-de-station-spital-oberengadin-samedan-f41a89a6",
+        "stationsleiterin-stationsleiter-spital-oberengadin-samedan-e572e899"
+      ],
+      "de": [
+        "stationsleiterin-stationsleiter-spital-oberengadin-samedan-0bde8cfb",
+        "stationsleiterin-stationsleiter-spital-oberengadin-samedan-e572e899",
+        "stationsleiterin-stationsleiter-spital-oberengadin-samedan-f8094bab"
+      ]
+    },
+    "postalCode": "7503",
+    "salaryMin": 110500,
+    "salaryMax": 154000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4068317",
+    "firstSeenAt": "2026-09-10T23:10:17.261Z",
+    "previousSlugs": [
+      "stationsleiterin-stationsleiter-spital-oberengadin-samedan",
+      "stationsleiterin-stationsleiter-spital-oberengadin-samedan-e572e899",
+      "stationsleiterin-stationsleiter-spital-oberengadin-samedan-0bde8cfb",
+      "direttore-della-stazione-stazione-spital-oberengadin-samedan-77912e52",
+      "stationsleiterin-stationsleiter-spital-oberengadin-samedan-f8094bab",
+      "station-manager-station-manager-spital-oberengadin-samedan-af469b6c",
+      "gestionnaire-de-station-gestionnaire-de-station-spital-oberengadin-samedan-f41a89a6"
+    ],
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4068317",
+        "firstSeenAt": "2026-09-10T23:10:17.261Z",
+        "title": "Stationsleiterin / Stationsleiter"
+      },
+      {
+        "sourceIdentity": "url:https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4096938",
+        "firstSeenAt": "2026-09-10T23:10:17.261Z",
+        "title": "Stationsleiterin / Stationsleiter"
+      }
+    ]
+  },
+  {
+    "slug": "mutua-spital-oberengadin-samedan",
+    "title": "Hebamme",
+    "titleByLocale": {
+      "it": "Mutua",
+      "en": "Midwife",
+      "de": "Hebamme",
+      "fr": "Une sage-femme"
+    },
+    "company": "Spital Oberengadin",
+    "companyKey": "spital-oberengadin",
+    "location": "Samedan",
+    "addressLocality": "Samedan",
+    "descriptionByLocale": {
+      "it": "Spital Oberengadin AG, società del Gruppo KSGR, è responsabile dell'assistenza medica di base e dell'assistenza di emergenza per la popolazione e gli ospiti di Samedan con il più grande ospedale della Germania meridionale. Ogni anno accompagniamo circa 140 nascite – individualmente, professionalmente e con cuore. Per rafforzare il nostro team di ostetriche, stiamo cercando un\n\nI tuoi compiti\n\n• consulenza individuale e olistica, cura e sostegno dei genitori in attesa prima, durante e dopo la nascita\n• gestione indipendente delle nascite secondo le ultime scoperte scientifiche, nel team interprofessionale\n• Utilizzo dei servizi medici complementari\n• Partecipazione a misure preventive, diagnostiche e terapeutiche\n\nPorta con te\n\n• Diploma come ostetrica BSc / HF / FH o diploma equivalente con riconoscimento svizzero\n• Esperienza professionale\n• Affidabilità, resilienza e lavoro di squadra\n• personalità comunicativa ed empatica con elevata competenza sociale e orientamento di servizio\n• conoscenza molto buona del tedesco (verbale e scritto), conoscenza orale di italiano, altre lingue vantaggiose\n\nPenso: 50-80 %",
+      "en": "Spital Oberengadin AG, a company of the KSGR Group, is responsible for basic medical care and emergency care for the population and guests in Samedan with the largest hospital in southern Germany. Every year we accompany around 140 births – individually, professionally and with heart. In order to strengthen our midwife team, we are looking for a\n\nYour tasks\n\n• individual and holistic advice, care and support of expectant parents before, during and after the birth\n• independent management of births according to the latest scientific findings, in the interprofessional team\n• Use of complementary medical services\n• Participation in preventive, diagnostic and therapeutic measures\n\nYou bring with you\n\n• Diploma as midwife BSc / HF / FH or equivalent diploma with Swiss recognition\n• Professional experience\n• Reliability, resilience and teamwork\n• communicative and empathetic personality with high social competence and service orientation\n• very good knowledge of German (verbal and written), oral knowledge of Italian, other languages advantageous\n\nPensum: 50-80 %",
+      "de": "Die Spital Oberengadin AG, ein Betrieb der KSGR-Gruppe, ist in Samedan mit dem grössten Spital Südbündens für die medizinische Grundversorgung sowie für die Notfallversorgung der Bevölkerung und der Gäste verantwortlich. Pro Jahr begleiten wir rund 140 Geburten – individuell, professionell und mit Herz. Zur Verstärkung unseres Hebammenteams suchen wir per 01.10.2026 oder nach Vereinbarung eine\n\nDeine Aufgaben\n\n• individuelle und ganzheitliche Beratung, Betreuung und Unterstützung von werdenden Eltern vor, während und nach der Geburt\n• selbständige Leitung von Geburten nach neuesten wissenschaftlichen Erkenntnissen, im interprofessionellen Team\n• Nutzung von komplementärmedizinischen Angeboten\n• Mitwirkung bei präventiven, diagnostischen und therapeutischen Massnahmen\n\nDu bringst mit\n\n• Diplom als Hebamme BSc / HF / FH oder äquivalentes Diplom mit Schweizer Anerkennung\n• Berufserfahrung\n• Zuverlässigkeit, Belastbarkeit und Teamfähigkeit\n• kommunikative und empathische Persönlichkeit mit hoher Sozialkompetenz und Dienstleistungsorientierung\n• sehr gute Deutschkenntnisse (mündlich und schriftlich), mündliche Italienischkenntnisse, weitere Sprachen von Vorteil\n\nPensum: 50-80%",
+      "fr": "Spital Oberengadin AG, une société du groupe KSGR, est responsable des soins médicaux de base et des soins d'urgence pour la population et les invités à Samedan avec le plus grand hôpital du sud de l'Allemagne. Chaque année, nous accompagnons environ 140 naissances – individuellement, professionnellement et avec cœur. Pour renforcer notre équipe de sages-femmes, nous recherchons\n\nVos tâches\n\n• conseils individuels et holistiques, soins et soutien des parents attendus avant, pendant et après la naissance\n• gestion indépendante des naissances selon les dernières découvertes scientifiques, dans l'équipe interprofessionnelle\n• Utilisation de services médicaux complémentaires\n• Participation à des mesures préventives, diagnostiques et thérapeutiques\n\nTu amènes avec toi\n\n• Diplôme de sage-femme BSc / HF / FH ou diplôme équivalent avec reconnaissance suisse\n• Expérience professionnelle\n• Fiabilité, résilience et travail d'équipe\n• personnalité communicative et empathique avec une haute compétence sociale et une orientation de service\n• très bonne connaissance de l'allemand (verbal et écrit), connaissance orale de l'italien, autres langues avantageuses\n\nPensum: 50-80 %"
+    },
+    "slugByLocale": {
+      "it": "mutua-spital-oberengadin-samedan",
+      "en": "midwife-spital-oberengadin-samedan",
+      "de": "hebamme-spital-oberengadin-samedan-3761c524",
+      "fr": "une-sage-femme-spital-oberengadin-samedan"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-10-20T09:18:18.850Z",
+    "previousSlugs": [
+      "hebamme-spital-oberengadin-samedan-3761c524",
+      "hebamme-spital-oberengadin-samedan-b7c09c08",
+      "hebamme-spital-oberengadin-samedan",
+      "mutua-spital-oberengadin-samedan-6f37ace6",
+      "hebamme-spital-oberengadin-samedan-25ba6093",
+      "midwife-spital-oberengadin-samedan-a45eb163",
+      "une-sage-femme-spital-oberengadin-samedan-d5194ba7"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "hebamme-spital-oberengadin-samedan-3761c524",
+        "hebamme-spital-oberengadin-samedan-b7c09c08",
+        "hebamme-spital-oberengadin-samedan",
+        "mutua-spital-oberengadin-samedan-6f37ace6",
+        "hebamme-spital-oberengadin-samedan-25ba6093"
+      ],
+      "en": [
+        "hebamme-spital-oberengadin-samedan-3761c524",
+        "hebamme-spital-oberengadin-samedan-b7c09c08",
+        "hebamme-spital-oberengadin-samedan",
+        "midwife-spital-oberengadin-samedan-a45eb163",
+        "hebamme-spital-oberengadin-samedan-25ba6093"
+      ],
+      "fr": [
+        "hebamme-spital-oberengadin-samedan-3761c524",
+        "hebamme-spital-oberengadin-samedan-b7c09c08",
+        "hebamme-spital-oberengadin-samedan",
+        "une-sage-femme-spital-oberengadin-samedan-d5194ba7",
+        "hebamme-spital-oberengadin-samedan-25ba6093"
+      ]
+    },
+    "postalCode": "7503",
+    "salaryMin": 81500,
+    "salaryMax": 114000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4064056",
+    "firstSeenAt": "2026-09-07T23:30:03.228Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4064056",
+        "firstSeenAt": "2026-09-07T23:30:03.228Z",
+        "title": "Hebamme"
+      },
+      {
+        "sourceIdentity": "url:https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4096147",
+        "firstSeenAt": "2026-11-07T09:49:42.656Z",
+        "title": "Hebamme"
+      }
+    ]
+  },
+  {
     "slug": "oberarztin-oberarzt-innere-medizin-o-oberarztin-oberarzt-innere-medizin-i-v-spital-oberengadin-samedan-099dec6a",
     "title": "Oberärztin / Oberarzt Innere Medizin oder Oberärztin / Oberarzt Innere Medizin i. V.",
     "titleByLocale": {
@@ -970,18 +1225,16 @@
       "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-1d428aa1",
       "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-524b37d8",
       "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-2e6cf36a",
-      "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-spital",
-      "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-v-spital",
-      "medica-senior-medico-senior-di-medicina-interna-oppure-medica-senior-medico-senior-di-medicina-interna-facente-funzione",
-      "medica-capoclinica-medico-capoclinico-di-medicina-interna-oppure-medica-capoclinica-medico-capoclinico-di-medicina"
+      "medica-senior-medico-senior-di-medicina-interna-oppure-medica-senior-medico-senior-di-medicina-interna-facente-7a1fb88d",
+      "medica-capoclinica-medico-capoclinico-di-medicina-interna-oppure-medica-capoclinica-medico-capoclinico-di-299b703d"
     ],
     "previousSlugsByLocale": {
       "it": [
         "oberarztin-oberarzt-innere-medizin-oder-oberarztin-oberarzt-innere-medizin-i-v-spital-259c165d",
         "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-spital",
         "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-v-spital",
-        "medica-senior-medico-senior-di-medicina-interna-oppure-medica-senior-medico-senior-di-medicina-interna-facente-funzione",
-        "medica-capoclinica-medico-capoclinico-di-medicina-interna-oppure-medica-capoclinica-medico-capoclinico-di-medicina"
+        "medica-senior-medico-senior-di-medicina-interna-oppure-medica-senior-medico-senior-di-medicina-interna-facente-7a1fb88d",
+        "medica-capoclinica-medico-capoclinico-di-medicina-interna-oppure-medica-capoclinica-medico-capoclinico-di-299b703d"
       ],
       "en": [
         "oberarztin-oberarzt-innere-medizin-oder-oberarztin-oberarzt-innere-medizin-i-v-spital-259c165d",
@@ -1138,7 +1391,9 @@
         "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-d785f5fa",
         "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-d2005c5b",
         "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-524b37d8",
-        "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-spital"
+        "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-89056476",
+        "medica-senior-medico-senior-di-medicina-interna-oppure-medica-senior-medico-senior-di-medicina-interna-facente-funzione",
+        "medica-capoclinica-medico-capoclinico-di-medicina-interna-oppure-medica-capoclinica-medico-capoclinico-di-medicina"
       ],
       "fr": [
         "oberarztin-oberarzt-innere-medizin-oder-oberarztin-oberarzt-innere-medizin-i-v-spital-259c165d",
@@ -1295,11 +1550,15 @@
         "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-7ce2f9ff",
         "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-1d428aa1",
         "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-2e6cf36a",
-        "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-v-spital"
+        "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-2ee363d2",
+        "medica-senior-medico-senior-di-medicina-interna-oppure-medica-senior-medico-senior-di-medicina-interna-facente-funzione",
+        "medica-capoclinica-medico-capoclinico-di-medicina-interna-oppure-medica-capoclinica-medico-capoclinico-di-medicina"
       ],
       "de": [
         "senior-physician-senior-physician-internal-medicine-or-senior-physician-senior-physician-internal-medicine-i-v-spital",
-        "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-v-spital"
+        "medecin-superieur-medecin-superieur-medecine-interne-ou-medecin-superieur-medecin-superieur-medecine-interne-i-v-spital",
+        "medica-senior-medico-senior-di-medicina-interna-oppure-medica-senior-medico-senior-di-medicina-interna-facente-funzione",
+        "medica-capoclinica-medico-capoclinico-di-medicina-interna-oppure-medica-capoclinica-medico-capoclinico-di-medicina"
       ]
     },
     "postalCode": "7503",
@@ -1319,6 +1578,76 @@
         "sourceIdentity": "url:https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4089847",
         "firstSeenAt": "2026-08-21T21:35:13.143Z",
         "title": "Oberärztin / Oberarzt Innere Medizin oder Oberärztin / Oberarzt Innere Medizin i. V."
+      }
+    ]
+  },
+  {
+    "slug": "teamleiterin-teamleiter-toa-e-op-pflege-spital-oberengadin-samedan",
+    "title": "Teamleiterin / Teamleiter TOA und OP-Pflege",
+    "titleByLocale": {
+      "it": "Team Leader / Team Leader TOA e OP Care",
+      "en": "Team Leader / Team Leader TOA and OP care",
+      "de": "Teamleiterin / Teamleiter TOA und OP-Pflege",
+      "fr": "Chef d'équipe/chef d'équipe"
+    },
+    "company": "Spital Oberengadin",
+    "companyKey": "spital-oberengadin",
+    "location": "Samedan",
+    "addressLocality": "Samedan",
+    "descriptionByLocale": {
+      "it": "La Spital Oberengadin AG di Samedan, società del Gruppo KSGR, è responsabile dell'assistenza medica di base e dell'assistenza di emergenza per la popolazione e gli ospiti. Stiamo cercando un immediato o d'accordo\n\nI loro compiti\n\n• Gestione personale e organizzativa delle operazioni di manutenzione\n• Assicurare un funzionamento regolare e una partecipazione attiva agli interventi\n• Responsabilità per la pianificazione, il coordinamento e la stretta cooperazione interprofessionale con tutti i settori specializzati rilevanti\n• Promuovere una cultura positiva del team e sostenere lo sviluppo professionale dei dipendenti\n\nIl tuo profilo\n\n• Allenamento come Dipl. Tecnica chirurgica specialistica HF o formazione equivalente con riconoscimento SRC\n• comprovata esperienza professionale di diversi anni\n• Esperienza di leadership o volontà di avanzare nella leadership e nella gestione\n• alto livello di competenza tecnica, organizzativa e di comunicazione\n• personalità resiliente e responsabile con la consapevolezza di alta qualità\n• Lavoro di squadra e flessibilità (ottima disponibilità a fornire servizi a seconda del carico stagionale)\n• tedesco in parola e scrittura, italiano di vantaggio\n\nPenso: 80-100 %",
+      "en": "The Spital Oberengadin AG in Samedan, a company of the KSGR Group, is responsible for basic medical care as well as emergency care for the population and guests. We are looking for an immediately or by agreement\n\nTheir tasks\n\n• Personnel and organisational management of operations maintenance\n• Ensure smooth operation and active participation in interventions\n• Responsibility for planning, coordination and close interprofessional cooperation with all relevant specialist areas\n• Promoting a positive team culture and supporting the professional development of employees\n\nYour profile\n\n• Training as a Dipl. Specialist surgical technique HF or equivalent training with SRC recognition\n• proven professional experience of several years\n• Leadership experience or willingness to advance in leadership and management\n• high level of technical, organisational and communication competence\n• resilient and responsible personality with high quality awareness\n• Teamwork and flexibility (optimal willingness to provide services depending on seasonal load)\n• German in word and writing, Italian of advantage\n\nPensum: 80-100 %",
+      "de": "Das Spital Oberengadin AG in Samedan, ein Betrieb der KSGR-Gruppe, ist mit dem grössten Spital Südbündens für die medizinische Grundversorgung sowie für die Notfallversorgung der Bevölkerung und der Gäste verantwortlich. Wir suchen wir per sofort oder nach Vereinbarung eine/n\n\nIhre Aufgaben\n\n• personelle und organisatorische Führung der Operationspflege\n• Sicherstellung eines reibungslosen operativen Betriebs sowie aktive Mitarbeit bei Eingriffen\n• Verantwortung für Planung, Koordination und enge interprofessionelle Zusammenarbeit mit allen relevanten Fachbereichen\n• Förderung einer positiven Teamkultur sowie Unterstützung der fachlichen Entwicklung von Mitarbeitenden\n\nIhr Profil\n\n• Ausbildung als Dipl. Fachfrau/-mann Operationstechnik HF oder gleichwertige Ausbildung mit SRK-Anerkennung\n• nachgewiesene mehrjährige Berufserfahrung\n• Führungserfahrung oder Bereitschaft zur Weiterentwicklung im Bereich Leadership und Management\n• hohe Fach-, Organisations- und Kommunikationskompetenz\n• belastbare und verantwortungsbewusste Persönlichkeit mit hohem Qualitäts-bewusstsein\n• Teamfähigkeit und Flexibilität (optimale Dienstleistungsbereitschaft je nach saisonaler Auslastung)\n• Deutsch in Wort und Schrift, Italienisch von Vorteil\n\nPensum: 80-100%",
+      "fr": "La Spital Oberengadin AG de Samedan, une société du groupe KSGR, est responsable des soins médicaux de base ainsi que des soins d'urgence pour la population et les clients. Nous cherchons immédiatement ou par accord\n\nLeurs tâches\n\n• Gestion du personnel et de l'organisation de la maintenance des opérations\n• Assurer le bon fonctionnement et la participation active aux interventions\n• Responsabilité en matière de planification, de coordination et de coopération interprofessionnelle étroite avec tous les domaines spécialisés concernés\n• Promouvoir une culture d'équipe positive et soutenir le perfectionnement professionnel des employés\n\nVotre profil\n\n• Entraînement comme dipl. Technique chirurgicale spécialisée HF ou formation équivalente avec reconnaissance SRC\n• expérience professionnelle éprouvée de plusieurs années\n• Expérience en leadership ou volonté de faire progresser le leadership et la gestion\n• haut niveau de compétence technique, organisationnelle et de communication\n• personnalité résiliente et responsable avec une sensibilisation de haute qualité\n• Travail d'équipe et flexibilité (capacité optimale de fournir des services selon la charge saisonnière)\n• Allemand en parole et en écriture, Italien d'avantage\n\nPensum: 80-100 %"
+    },
+    "slugByLocale": {
+      "it": "teamleiterin-teamleiter-toa-e-op-pflege-spital-oberengadin-samedan",
+      "en": "team-leader-team-leader-toa-and-op-care-spital-oberengadin-samedan",
+      "de": "teamleiterin-teamleiter-toa-und-op-pflege-spital-oberengadin-samedan",
+      "fr": "chef-d-equipe-chef-d-equipe-spital-oberengadin-samedan"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-10-06T09:22:03.234Z",
+    "previousSlugs": [
+      "teamleiterin-teamleiter-toa-und-op-pflege-spital-oberengadin-samedan",
+      "teamleiterin-teamleiter-toa-e-op-pflege-spital-oberengadin-samedan-0f068d22",
+      "teamleiterin-teamleiter-toa-und-op-pflege-spital-oberengadin-samedan-ef093e74"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "teamleiterin-teamleiter-toa-und-op-pflege-spital-oberengadin-samedan",
+        "teamleiterin-teamleiter-toa-e-op-pflege-spital-oberengadin-samedan-0f068d22",
+        "teamleiterin-teamleiter-toa-und-op-pflege-spital-oberengadin-samedan-ef093e74"
+      ],
+      "en": [
+        "teamleiterin-teamleiter-toa-und-op-pflege-spital-oberengadin-samedan",
+        "teamleiterin-teamleiter-toa-und-op-pflege-spital-oberengadin-samedan-ef093e74"
+      ],
+      "fr": [
+        "teamleiterin-teamleiter-toa-und-op-pflege-spital-oberengadin-samedan",
+        "teamleiterin-teamleiter-toa-und-op-pflege-spital-oberengadin-samedan-ef093e74"
+      ],
+      "de": [
+        "teamleiterin-teamleiter-toa-und-op-pflege-spital-oberengadin-samedan-ef093e74"
+      ]
+    },
+    "postalCode": "7503",
+    "salaryMin": 81500,
+    "salaryMax": 114000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4058444",
+    "firstSeenAt": "2026-08-21T21:35:14.061Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4058444",
+        "firstSeenAt": "2026-08-21T21:35:14.061Z",
+        "title": "Teamleiterin / Teamleiter TOA und OP-Pflege"
+      },
+      {
+        "sourceIdentity": "url:https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4103691",
+        "firstSeenAt": "2026-08-21T21:35:14.061Z",
+        "title": "Teamleiterin / Teamleiter TOA und OP-Pflege"
       }
     ]
   },

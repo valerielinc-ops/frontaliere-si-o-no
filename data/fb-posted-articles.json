@@ -2,30 +2,6 @@
   "schemaVersion": 1,
   "posted": [
     {
-      "id": "svizzera-minaccia-ibrida-russa-2026",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/svizzera-minaccia-ibrida-russa-2026/",
-      "ts": "2026-05-07T13:25:37.428Z",
-      "seed": true
-    },
-    {
-      "id": "nottambuli-ticino-orari-societa",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/nottambuli-ticino-orari-societa/",
-      "ts": "2026-05-07T13:34:52.886Z",
-      "seed": true
-    },
-    {
-      "id": "economia-circolare-lavoro-carcere-varese",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/economia-circolare-lavoro-carcere-varese/",
-      "ts": "2026-05-07T13:48:31.948Z",
-      "seed": true
-    },
-    {
-      "id": "gavirate-incidente-frontalieri-2026",
-      "url": "https://frontaliereticino.ch/articoli-frontaliere/gavirate-incidente-frontalieri-2026/",
-      "ts": "2026-05-07T14:04:56.854Z",
-      "seed": true
-    },
-    {
       "id": "cedu-condanna-svizzera-liberta-manifestazione",
       "url": "https://frontaliereticino.ch/articoli-frontaliere/cedu-condanna-svizzera-liberta-manifestazione/",
       "ts": "2026-05-07T14:13:35.880Z",
@@ -6407,6 +6383,74 @@
       "copyAngleIntent": "both",
       "copyHook": "Mobilità oltreconfine: una domanda precisa per leggere meglio la guida.",
       "copyCta": "Consulta la guida."
+    },
+    {
+      "id": "protocollo-lavoro-remoto-2024",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/protocollo-lavoro-remoto-2024/",
+      "ts": "2026-11-26T19:12:06.206Z",
+      "fbPostId": "951226518080080_122132497203272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v5",
+      "copyPackId": "f0d80b4606e89a89",
+      "copyTemplateId": "fb-article-question",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "domanda-comune",
+      "copyPillarId": "strumenti-utili",
+      "copyAngleIntent": "both",
+      "copyHook": "Mobilità oltreconfine: una domanda precisa per leggere meglio la guida.",
+      "copyCta": "Consulta la guida."
+    },
+    {
+      "id": "rimborso-imposta-secondo-pilastro-svizzero",
+      "url": "https://frontaliereticino.ch/articoli-svizzera/rimborso-imposta-secondo-pilastro-svizzero/",
+      "ts": "2026-11-26T19:12:12.655Z",
+      "fbPostId": "951226518080080_122132497215272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v5",
+      "copyPackId": "f0d80b4606e89a89",
+      "copyTemplateId": "fb-article-practical",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "passo-pratico",
+      "copyPillarId": "opportunita-concrete",
+      "copyAngleIntent": "both",
+      "copyHook": "Redditi esteri: un passaggio pratico da verificare nella guida.",
+      "copyCta": "Leggi l'approfondimento."
+    },
+    {
+      "id": "consultazione-modifiche-oosg",
+      "url": "https://frontaliereticino.ch/articoli-svizzera/consultazione-modifiche-oosg/",
+      "ts": "2026-11-26T19:12:18.578Z",
+      "fbPostId": "951226518080080_122132497257272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v5",
+      "copyPackId": "f0d80b4606e89a89",
+      "copyTemplateId": "fb-article-question",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "domanda-comune",
+      "copyPillarId": "strumenti-utili",
+      "copyAngleIntent": "both",
+      "copyHook": "Mobilità oltreconfine: una domanda precisa per leggere meglio la guida.",
+      "copyCta": "Consulta la guida."
+    },
+    {
+      "id": "sem-chiasso-personale-due-mesi",
+      "url": "https://frontaliereticino.ch/articoli-frontaliere/sem-chiasso-personale-due-mesi/",
+      "ts": "2026-11-26T19:12:25.855Z",
+      "fbPostId": "951226518080080_122132497299272498",
+      "copyMode": "codex",
+      "copySlot": "article",
+      "copyPromptVersion": "frontaliere-social-copy-v5",
+      "copyPackId": "f0d80b4606e89a89",
+      "copyTemplateId": "fb-article-context",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "contesto-chiaro",
+      "copyPillarId": "vita-oltreconfine",
+      "copyAngleIntent": "searchable",
+      "copyHook": "Lavoro da remoto oltreconfine: il contesto da inquadrare prima di scegliere.",
+      "copyCta": "Approfondisci il tema."
     }
   ]
 }

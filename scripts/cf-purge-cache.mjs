@@ -55,7 +55,9 @@
  * would only slow down the fast-publish path for no benefit.
  *
  * Auth: CF_API_TOKEN — needs Zone→Cache Purge. Resolves zone by name unless
- * CF_ZONE_ID is set. Hydrate locally via:
+ * CF_ZONE_ID is set. Network errors, timeouts, 429 and 5xx are retried up to
+ * three attempts (1s, 2s); 401/403 and every other answer fail on the first.
+ * Hydrate locally via:
  *   eval "$(GOOGLE_APPLICATION_CREDENTIALS=mcp-gsc-main/service_account_credentials.json \
  *     node scripts/load-rc-env.mjs)" && node scripts/cf-purge-cache.mjs
  *
@@ -81,7 +83,12 @@
  * deploy still fails after the settle — this only smooths over the purge's
  * own propagation window.
  */
-import { resolveZoneId as resolveZoneIdShared } from './lib/cf-analytics.mjs';
+import {
+  resolveZoneId as resolveZoneIdShared,
+  cfHttpError,
+  describeCfError,
+  withCfRetry,
+} from './lib/cf-analytics.mjs';
 // Cloudflare free-plan `files` purge_cache cap. Shared with
 // scripts/ci/purge-changed-cdn-assets.mjs, which batches UP TO this value —
 // a drifting second copy there would produce lists this script rejects.
@@ -181,14 +188,18 @@ if (!token) {
 // making the deploy fatal (the intentional design). See issue #2067.
 function warnStaleEdge(reason, staleWindow = 'up to 24h (Edge TTL) until the next deploy purges it') {
   console.log(
-    `::warning title=Cloudflare cache purge failed::${reason} — edge may serve STALE content for ${staleWindow}. Re-run the purge or check CF_API_TOKEN scope (Zone→Cache Purge).`,
+    `::warning title=Cloudflare cache purge failed::${reason} — edge may serve STALE content for ${staleWindow}. Re-run the purge; on HTTP 401/403 check CF_API_TOKEN scope (Zone→Cache Purge).`,
   );
 }
+
+// Per-attempt deadline: without it a hung POST only ends when the caller kills us.
+const CF_REQUEST_TIMEOUT_MS = 15_000;
 
 async function cf(method, path, body) {
   const res = await fetch(`${REST_BASE}${path}`, {
     method,
     headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+    signal: AbortSignal.timeout(CF_REQUEST_TIMEOUT_MS),
     ...(body ? { body: JSON.stringify(body) } : {}),
   });
   const json = await res.json().catch(() => null);
@@ -197,10 +208,14 @@ async function cf(method, path, body) {
 
 async function resolveZoneId() {
   try {
-    return await resolveZoneIdShared(token, ZONE_NAME, process.env.CF_ZONE_ID);
-  } catch {
-    console.error(`❌ Cannot resolve zone id for ${ZONE_NAME} (token scope?).`);
-    warnStaleEdge(`could not resolve zone id for ${ZONE_NAME} (token scope?)`);
+    return await withCfRetry(
+      () => resolveZoneIdShared(token, ZONE_NAME, process.env.CF_ZONE_ID, fetch, CF_REQUEST_TIMEOUT_MS),
+      { label: 'zone lookup', token },
+    );
+  } catch (error) {
+    const reason = describeCfError(error, token);
+    console.error(`❌ Cannot resolve zone id for ${ZONE_NAME}: ${reason}`);
+    warnStaleEdge(`could not resolve zone id for ${ZONE_NAME}: ${reason}`);
     process.exit(1);
   }
 }
@@ -272,11 +287,20 @@ try {
     : [{ label: 'purge_everything', purge_everything: true }];
 
   for (const { label, ...purgeBody } of purgeVariants) {
-    const { json } = await cf('POST', `/zones/${zoneId}/purge_cache`, purgeBody);
-    if (!json?.success) {
-      console.error(`❌ ${purgeLabel} [${label}] failed: ${JSON.stringify(json?.errors)}`);
+    try {
+      // A purge is idempotent, so repeating it after a lost answer is safe.
+      await withCfRetry(async () => {
+        const { status, json } = await cf('POST', `/zones/${zoneId}/purge_cache`, purgeBody);
+        if (!json?.success) {
+          const detail = json ? JSON.stringify(json.errors) : 'non-JSON response';
+          throw cfHttpError(`HTTP ${status}: ${detail}`, status);
+        }
+      }, { label: `purge [${label}]`, token });
+    } catch (error) {
+      const reason = describeCfError(error, token);
+      console.error(`❌ ${purgeLabel} [${label}] failed: ${reason}`);
       warnStaleEdge(
-        `${purgeLabel} [${label}] API call failed: ${JSON.stringify(json?.errors)}`,
+        `${purgeLabel} [${label}] API call failed: ${reason}`,
         targetFiles ? `until the next successful purge of these URLs` : undefined,
       );
       process.exit(1);
@@ -323,7 +347,8 @@ try {
     await new Promise(resolve => setTimeout(resolve, PURGE_SETTLE_MS));
   }
 } catch (err) {
-  console.error(`❌ Cloudflare API request failed: ${err.message}`);
-  warnStaleEdge(`network error contacting Cloudflare API: ${err.message}`);
+  const reason = describeCfError(err, token);
+  console.error(`❌ Cloudflare cache purge failed: ${reason}`);
+  warnStaleEdge(`unexpected purge failure: ${reason}`);
   process.exit(1);
 }

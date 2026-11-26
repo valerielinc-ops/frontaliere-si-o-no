@@ -1106,6 +1106,7 @@ export async function completeWithAgent({
   page, context = null, hint, errors = [], candidate, candidateLocale, codex, files = {}, secrets = [],
   maxRounds = AGENT_ROUNDS, maxRuntimeMs = AGENT_MAX_RUNTIME_MS, fields = [], reservedButtons = [],
   navigationEnabled = true, allowApplicationEntry = false, posting = {}, ats = null, log = () => {},
+  stopForAccountSurface = null,
 }) {
   let activePage = page;
   const startedAt = Date.now();
@@ -1178,6 +1179,12 @@ export async function completeWithAgent({
     const remaining = deadline - Date.now();
     if (remaining <= 0) return await finish({ status: 'PARKED', reason: 'PARKED: runtime_budget' });
     await adoptPage();
+    if (round > 1 && typeof stopForAccountSurface === 'function'
+      && await Promise.resolve(stopForAccountSurface(activePage)).catch(() => false)) {
+      const reason = 'ACCOUNT_STEP: account_action_handled_by_runner';
+      evidence.rounds.push({ round, status: 'ACCOUNT_STEP', reason, actions: [], elapsedMs: 0, promptChars: 0 });
+      return await finish({ status: 'ACCOUNT_STEP', reason });
+    }
     let seen;
     try {
       seen = await aiSnapshot(activePage);
