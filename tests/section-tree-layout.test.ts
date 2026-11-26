@@ -708,6 +708,28 @@ describe('automatic section tree fan-out policy', () => {
     expect(await coldFailure.sections()).toEqual(new Set(SECTION_TREE_FANOUT_SECTIONS));
   });
 
+  it('does not share an in-flight registry fetch across request contexts', async () => {
+    const resolvers: Array<(response: Response) => void> = [];
+    let calls = 0;
+    const reader = createSectionTreeLayoutReader({
+      url: 'https://cdn.example/edge/section-tree-layout.json',
+      fetchImpl: () => new Promise((resolve) => {
+        calls += 1;
+        resolvers.push(resolve);
+      }),
+    });
+
+    const first = reader.sections();
+    const second = reader.sections();
+    expect(calls).toBe(2);
+    expect(resolvers).toHaveLength(2);
+    resolvers[0](new Response(JSON.stringify({ version: 1, sections: {} }), { status: 200 }));
+    resolvers[1](new Response(JSON.stringify({ version: 1, sections: { lucerna: { layout: 'hash-v1' } } }), { status: 200 }));
+
+    expect(await first).toEqual(new Set(SECTION_TREE_FANOUT_SECTIONS));
+    expect(await second).toEqual(new Set([...SECTION_TREE_FANOUT_SECTIONS, 'lucerna']));
+  });
+
   it('strict registry reads accept a missing registry but reject a fetch failure without a last good value', async () => {
     const missing = createSectionTreeLayoutReader({
       url: 'https://cdn.example/edge/section-tree-layout.json',

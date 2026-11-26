@@ -2875,14 +2875,13 @@ export function parseCorpusSectionRegistry(raw) {
 // Isolate-global memo. `value` is the last-known-good registry: it survives a
 // failed or invalid refresh for as long as the isolate lives, so a transient
 // R2 error or a bad publish never turns live sections back into 404s.
-const corpusRegistryMemo = { value: null, checkedAt: 0, nextAttemptAt: 0, inflight: null };
+const corpusRegistryMemo = { value: null, checkedAt: 0, nextAttemptAt: 0 };
 
 /** Test seam: forget the memoised registry (each test starts from a cold isolate). */
 export function __resetCorpusRegistryForTests() {
   corpusRegistryMemo.value = null;
   corpusRegistryMemo.checkedAt = 0;
   corpusRegistryMemo.nextAttemptAt = 0;
-  corpusRegistryMemo.inflight = null;
 }
 
 async function fetchCorpusRegistry() {
@@ -2904,31 +2903,25 @@ async function fetchCorpusRegistry() {
 
 /**
  * The registry this isolate should act on: fresh within CORPUS_REGISTRY_TTL_MS,
- * otherwise refreshed once (concurrent requests share the same subrequest),
- * falling back to the last-known-good copy — or null if there has never been a
- * valid one, which is the fail-closed answer.
+ * otherwise refreshed in the current request context, falling back to the
+ * last-known-good copy — or null if there has never been a valid one, which is
+ * the fail-closed answer. The CDN-side cache on the registry fetch absorbs
+ * concurrent reads; a request must not await a Promise created by another
+ * request context because Cloudflare may cancel that creator.
  */
 export async function loadCorpusSectionRegistry(now = Date.now()) {
   const memo = corpusRegistryMemo;
   if (memo.value && now - memo.checkedAt < CORPUS_REGISTRY_TTL_MS) return memo.value;
   if (now < memo.nextAttemptAt) return memo.value;
-  if (!memo.inflight) {
-    memo.inflight = fetchCorpusRegistry()
-      .then((fresh) => {
-        if (fresh) {
-          memo.value = fresh;
-          memo.checkedAt = now;
-          memo.nextAttemptAt = 0;
-        } else {
-          memo.nextAttemptAt = now + CORPUS_REGISTRY_RETRY_MS;
-        }
-        return memo.value;
-      })
-      .finally(() => {
-        memo.inflight = null;
-      });
+  const fresh = await fetchCorpusRegistry();
+  if (fresh) {
+    memo.value = fresh;
+    memo.checkedAt = now;
+    memo.nextAttemptAt = 0;
+  } else {
+    memo.nextAttemptAt = now + CORPUS_REGISTRY_RETRY_MS;
   }
-  return memo.inflight;
+  return memo.value;
 }
 
 // 404 copy for a missing page inside a LIVE section. Same deliberately tiny,

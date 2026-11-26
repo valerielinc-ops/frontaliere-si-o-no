@@ -20,7 +20,6 @@ export function createSectionTreeLayoutReader({
   let lastGood = null;
   let cachedSections = null;
   let cacheUntil = 0;
-  let pending = null;
 
   async function sections({ requireRegistry = false } = {}) {
     const requireKnownRegistry = (value) => {
@@ -31,9 +30,12 @@ export function createSectionTreeLayoutReader({
     };
     const currentTime = now();
     if (cachedSections && currentTime < cacheUntil) return requireKnownRegistry(cachedSections);
-    if (pending) return requireKnownRegistry(await pending);
 
-    pending = (async () => {
+    // Keep the network wait inside this request context. A module-level pending
+    // promise can outlive the Worker request that created it; if Cloudflare
+    // cancels that request, concurrent callers can inherit a wait that never
+    // produces a response (the same failure mode as the public-config route).
+    const loaded = (async () => {
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), 3000);
       try {
@@ -66,17 +68,15 @@ export function createSectionTreeLayoutReader({
         return cachedSections;
       } finally {
         clearTimeout(timer);
-        pending = null;
       }
     })();
-    return requireKnownRegistry(await pending);
+    return requireKnownRegistry(await loaded);
   }
 
   function reset() {
     lastGood = null;
     cachedSections = null;
     cacheUntil = 0;
-    pending = null;
   }
 
   return { sections, reset };

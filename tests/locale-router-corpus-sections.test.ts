@@ -483,6 +483,26 @@ describe('registry memo and last-known-good', () => {
     expect(registryFetches()).toHaveLength(1);
   });
 
+  it('does not share an in-flight registry fetch across request contexts', async () => {
+    const resolvers: Array<(response: Response) => void> = [];
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
+      const reqUrl = typeof input === 'string' ? input : input instanceof URL ? input.toString() : input.url;
+      fetched.push(reqUrl);
+      if (reqUrl !== REGISTRY_URL) return new Response('missing', { status: 404 });
+      return new Promise((resolve) => resolvers.push(resolve));
+    });
+
+    const first = loadCorpusSectionRegistry(1_800_000_000_000);
+    const second = loadCorpusSectionRegistry(1_800_000_000_000);
+    expect(registryFetches()).toHaveLength(2);
+    expect(resolvers).toHaveLength(2);
+    resolvers[0](new Response(JSON.stringify(registry({ 'canton-ti': { status: 'live' } })), { status: 200 }));
+    resolvers[1](new Response(JSON.stringify(registry({ 'canton-ti': { status: 'live' } })), { status: 200 }));
+
+    await expect(first).resolves.toMatchObject({ sections: { 'canton-ti': { status: 'live' } } });
+    await expect(second).resolves.toMatchObject({ sections: { 'canton-ti': { status: 'live' } } });
+  });
+
   it('keeps serving the last-known-good registry when a refresh fails or is invalid', async () => {
     const t0 = 1_800_000_000_000;
     const name = 'sitemap-cantons.xml';
