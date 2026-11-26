@@ -87,7 +87,8 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:49:22.792Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/f6400f9f-bd2d-4834-bd35-53c7d8663f65"
     },
     {
       "id": "technic-emplois-1979696e8aab",
@@ -172,7 +173,8 @@
       "streetAddress": "Vaud",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:49:21.805Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/94117ad9-d70e-4924-950a-0df571e46b5c"
     }
   ]
 }

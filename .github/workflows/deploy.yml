@@ -367,6 +367,8 @@ jobs:
           key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
       - name: Assemble jobs dataset from per-crawler slices
         id: assemble_jobs
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
         run: node scripts/assemble-jobs-dataset.mjs --stats
       - name: Save assemble-jobs cache
         if: ${{ steps.assemble_jobs.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true' && hashFiles(format('.cache/assemble-jobs/{0}/manifest.json', steps.assemble_cache_key.outputs.key)) != '' }}
