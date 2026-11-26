@@ -69,6 +69,7 @@ import { collapseRepublishedCoopVacancies, enrichCoopSourceBackedJobs } from './
 import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 import {
   dropSpuriousRetranslationFlags,
   getRetranslationBaseline,
@@ -488,6 +489,9 @@ async function enrichWithDetails(jobs) {
   // outside this no-address proof.
   const { kept: enriched, collapsed } = collapseRepublishedCoopVacancies(sourceBacked, {
     allowIdenticalSourcePostingsWithoutAddress: true,
+    onRouteHistoryOverflow: (overflowJobs, activeJobs) => {
+      archiveRemovedJobsToSlice(overflowJobs, COMPANY_KEY, { activeJobs });
+    },
   });
   for (const { url, keptUrl } of collapsed) console.log(`  ↪️ Republished vacancy ${url} collapsed into ${keptUrl}`);
   jobs.splice(0, jobs.length, ...enriched);
