@@ -444,7 +444,7 @@ runs:
           NPM_CONFIG_USERCONFIG=/dev/null \
           npm_config_cache="$install_home/cache" \
           npm_config_prefix="$codex_prefix" \
-          "$trusted_node" "$trusted_npm" install --global --no-fund --no-audit @openai/codex@0.153.4 >/dev/null
+          "$trusted_node" "$trusted_npm" install --global --no-fund --no-audit @openai/codex@0.172.0 >/dev/null
         codex_path="$codex_prefix/bin/codex"
         case "$codex_path" in
           /*) ;;
@@ -455,7 +455,7 @@ runs:
           exit 1
         fi
         codex_version="$("$codex_path" --version 2>/dev/null || true)"
-        if [ "$codex_version" != 'codex-cli 0.153.4' ]; then
+        if [ "$codex_version" != 'codex-cli 0.172.0' ]; then
           echo "::error::Unexpected Codex CLI version: $codex_version"
           exit 1
         fi
@@ -611,7 +611,7 @@ runs:
         codex_primary_runtime_root="${CODEX_RUNTIME_SNAPSHOT:?Codex primary runtime snapshot unavailable}"
         [ -x "$codex_realpath" ] || { echo '::error::Pinned Codex CLI realpath is not executable.'; exit 1; }
         codex_version="$("$codex_bin" --version 2>/dev/null || true)"
-        [ "$codex_version" = 'codex-cli 0.153.4' ] || { echo "::error::Codex CLI version changed: $codex_version"; exit 1; }
+        [ "$codex_version" = 'codex-cli 0.172.0' ] || { echo "::error::Codex CLI version changed: $codex_version"; exit 1; }
 
         # `shell_environment_policy.ignore_default_excludes=false` deliberately
         # strips GH_TOKEN/GITHUB_TOKEN from model-generated subprocesses. Keep
@@ -1023,7 +1023,7 @@ runs:
         fi
         chmod 600 "$config_file"
 
-        # 0.153.4 strict mode also validates the checked-out project config;
+        # 0.172.0 strict mode also validates the checked-out project config;
         # this repository still carries legacy MCP keys that that CLI rejects.
         # Keep the generated file as the profile source/smoke target, then pass
         # the same policy as explicit CLI TOML while ignoring project config.

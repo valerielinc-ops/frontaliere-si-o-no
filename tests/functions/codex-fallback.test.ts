@@ -432,7 +432,7 @@ describe('parità con la CI e con la rotazione', () => {
     expect(CODEX_FALLBACK_MODEL).toBe('gpt-6-luna');
   });
 
-  it('la versione della CLI imitata è quella pinnata dalla rotazione e dalle action', async () => {
+  it('la versione del trasporto applicativo coincide con quella della rotazione', async () => {
     const { CODEX_CLI_VERSION } = await import('../../functions/src/codexFallback.js');
     const rotate = await import('../../scripts/ci/codex-auth-rotate.mjs');
     expect(CODEX_CLI_VERSION).toBe(rotate.CODEX_CLI_VERSION);

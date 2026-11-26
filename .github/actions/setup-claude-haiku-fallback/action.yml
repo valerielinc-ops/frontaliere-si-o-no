@@ -24,11 +24,11 @@ description: >-
 inputs:
   codex_cli_version:
     description: >-
-      Pinned Codex CLI version. Existing text lanes keep 0.153.4; image
+      Pinned Codex CLI version. Existing text lanes keep 0.172.0; image
       generation lanes may opt into a feature-stable release explicitly.
     required: false
-    default: '0.153.4'
-    # Compatibility contract: the default lane remains @openai/codex@0.153.4;
+    default: '0.172.0'
+    # Compatibility contract: the default lane remains @openai/codex@0.172.0;
     # image-generation callers opt into a separately attested feature release.
   codex_auth_json:
     description: >-
@@ -451,12 +451,12 @@ runs:
         trusted_npm="${TRUSTED_NPM:-}"
         trusted_npm_sha256="${TRUSTED_NPM_SHA256:-}"
         # Compatibility default retained for the rotation and action parity
-        # contracts: @openai/codex@0.153.4. Image lanes pass a newer version
+        # contracts: @openai/codex@0.172.0. Image lanes pass a newer version
         # only after their own feature attestation.
-        requested_codex_version="${CODEX_CLI_VERSION:-0.153.4}"
+        requested_codex_version="${CODEX_CLI_VERSION:-0.172.0}"
         if [[ ! "$requested_codex_version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-          echo '::warning::Invalid Codex CLI version input; using 0.153.4'
-          requested_codex_version='0.153.4'
+          echo '::warning::Invalid Codex CLI version input; using 0.172.0'
+          requested_codex_version='0.172.0'
         fi
         if [ -z "$trusted_node" ] || [ -z "$trusted_npm" ]; then
           echo "::warning::Codex CLI install could not resolve a trusted Node/npm runtime; the normal fallback cascade remain available"
@@ -691,7 +691,7 @@ runs:
         nohup /usr/bin/env -i PATH="$PATH" "$node_bin" "$GITHUB_ACTION_PATH/codex-auth-broker.mjs" \
           --socket "$broker_socket" --ttl-ms "$broker_ttl_ms" --max-requests 512 \
           --max-concurrency "$broker_max_concurrency" --max-timeout-ms "$broker_max_timeout_ms" \
-          --codex-cli-version "${CODEX_CLI_VERSION:-0.153.4}" \
+          --codex-cli-version "${CODEX_CLI_VERSION:-0.172.0}" \
           --codex-bin "$CODEX_CLI_BIN" --codex-realpath "$CODEX_CLI_REALPATH" \
           --codex-sha256 "$CODEX_CLI_SHA256" --codex-prefix "$CODEX_CLI_PREFIX" \
           < "$auth_fifo" > /dev/null 2>&1 &
@@ -737,7 +737,7 @@ runs:
         echo "ENABLE_HAIKU_ARTICLE_FALLBACK=${ENABLE_HAIKU_ARTICLE_FALLBACK:-<unset>} (ignored: Haiku is disabled and no longer gates Codex)"
         echo "CODEX_ARTICLE_LANE_GATE=${CODEX_ARTICLE_LANE_GATE:-<unset>} (resolved gate)"
         if [ -n "$CODEX_CLI_BIN" ]; then
-          echo "codex CLI: attested at $CODEX_CLI_BIN (version ${CODEX_CLI_VERSION:-0.153.4})"
+          echo "codex CLI: attested at $CODEX_CLI_BIN (version ${CODEX_CLI_VERSION:-0.172.0})"
         else
           echo "codex CLI: unavailable or failed attestation — the normal model chain will continue"
         fi
