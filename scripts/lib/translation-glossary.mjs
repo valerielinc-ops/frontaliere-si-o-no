@@ -917,11 +917,12 @@ function scanMarkdownLink(context, start) {
   let cursor = skipHorizontalWhitespace(text, start + 2);
   if (cursor >= lineEnd) return -1;
   const destinationStart = cursor;
+  let destinationEnd = -1;
   let depth = 0;
   let lastClose = -1;
 
   if (text[cursor] === '<') {
-    const destinationEnd = scanAngleDestination(context, cursor);
+    destinationEnd = scanAngleDestination(context, cursor);
     if (destinationEnd < 0) return -1;
     cursor = destinationEnd;
   } else {
@@ -951,6 +952,7 @@ function scanMarkdownLink(context, start) {
       cursor += 1;
     }
     if (cursor >= limit && limit < lineEnd) return -1;
+    destinationEnd = cursor;
   }
 
   cursor = skipHorizontalWhitespace(text, cursor);
@@ -979,7 +981,14 @@ function scanMarkdownLink(context, start) {
       return Math.max(lastClose + 1, lastOpaqueUrlEnd(text, destinationStart, lastClose + 1));
     }
   }
-  return -1;
+
+  // A destination is still an opaque Markdown construct when its outer link
+  // delimiter or title is incomplete. Returning only the destination keeps
+  // the valid label boundary protected without swallowing prose after its
+  // first blank. This also covers relative destinations whose bytes do not
+  // qualify for the bare-URL scanner, including paths with nested parentheses
+  // that continue to the end of the line.
+  return destinationEnd > destinationStart ? destinationEnd : -1;
 }
 
 /**

@@ -691,6 +691,16 @@ describe('translation glossary — placeholder strip leaves links alone', () => 
       input: 'Vedi x](a](/rel/{ID}/y) (titolo %COMPANY% e basta.',
       expected: 'Vedi x](a](/rel/{ID}/y) (titolo e basta.',
     },
+    {
+      name: 'relative destination with nested parentheses continuing to end of line',
+      input: 'Vedi [offerta {COMPANY}](/cta_(assistita_(online))/apply%COMPANY%',
+      expected: 'Vedi [offerta](/cta_(assistita_(online))/apply%COMPANY%',
+    },
+    {
+      name: 'relative destination without nested parentheses still ends at line end',
+      input: '[COMPANY](/candidati/apply%COMPANY%',
+      expected: '[](/candidati/apply%COMPANY%',
+    },
   ] as const;
 
   it.each(OPAQUE_SPAN_CASES)('preserves the opaque destination: $name', ({ input, expected }) => {
