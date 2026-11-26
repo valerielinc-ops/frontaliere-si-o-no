@@ -1131,6 +1131,11 @@ describe('translation glossary — a placeholder used as link text', () => {
     }
   });
 
+  it('keeps the label and destination opaque when a Markdown title is unclosed', () => {
+    const input = '[go](/citta%COMPANY% "titolo)';
+    expect(stripPlaceholderTokens(input)).toBe(input);
+  });
+
   it('returns a label no placeholder touches identical, to the byte', () => {
     // Same review: a placeholder removed anywhere made every label of the
     // text lose the blanks at its edges.

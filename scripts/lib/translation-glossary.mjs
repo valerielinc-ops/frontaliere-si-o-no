@@ -963,7 +963,7 @@ function scanMarkdownLink(context, start, allowUnclosedDestination = false) {
       const titleEnd = character === '('
         ? scanParenthesizedSpan(context, cursor)
         : scanQuotedSpan(context, cursor, character);
-      if (titleEnd < 0) return -1;
+      if (titleEnd < 0) return allowUnclosedDestination ? destinationEnd : -1;
       cursor = skipHorizontalWhitespace(text, titleEnd);
       return cursor < lineEnd && text[cursor] === ')' ? cursor + 1 : -1;
     }
