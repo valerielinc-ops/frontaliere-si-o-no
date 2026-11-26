@@ -193,6 +193,13 @@ describe('cablaggio del workflow', () => {
     expect(workflow).toContain('gh issue close "$dup" --reason "not planned"');
   });
 
+  it('rilegge l indice delle issue con attese brevi prima di dichiarare l aggregata assente', () => {
+    expect(workflow).toContain('for attempt in 1 2 3 4 5 6; do');
+    expect(workflow).toMatch(/\[ -n "\$agg_number" \] && break\n\s+sleep 5/);
+    expect(workflow.indexOf('for attempt in 1 2 3 4 5 6; do'))
+      .toBeLessThan(workflow.indexOf('not found after create'));
+  });
+
   it('chiude l aggregata solo se il giro non la riemette, mai su un crash del monitor', () => {
     expect(workflow).toContain('HEALTH_OUTCOME: ${{ steps.health.outcome }}');
     expect(workflow).toContain('"[crawler-health] family:"*)');
