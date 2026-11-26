@@ -91,7 +91,7 @@ import {
   decodeEntities,
   extractBalancedTagBlock,
 } from './lib/hospital-custom-html-helpers.mjs';
-import { readAttr, scanStartTags } from './lib/html-attr.mjs';
+import { readAttr, scanMarkupStartTags, scanStartTags } from './lib/html-attr.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
@@ -812,8 +812,7 @@ function createIstHtmlFieldReader(html) {
 
   const readMeta = (expected) => {
     const wanted = String(expected || '').trim().toLowerCase();
-    for (const tag of tags) {
-      if (tag.name !== 'meta') continue;
+    for (const tag of scanMarkupStartTags(source, 'meta')) {
       const property = readAttr(tag.raw, 'property').trim().toLowerCase();
       const name = readAttr(tag.raw, 'name').trim().toLowerCase();
       if (property !== wanted && name !== wanted) continue;

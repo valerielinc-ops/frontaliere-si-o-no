@@ -94,6 +94,8 @@ jobs:
           key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
 
       - name: Assemble deploy job dataset
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
         run: node scripts/assemble-jobs-dataset.mjs --stats
 
       - name: Clean deploy job dataset

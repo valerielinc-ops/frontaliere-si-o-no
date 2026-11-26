@@ -8,21 +8,38 @@
  */
 
 import { BING_INDEXNOW_REMEDIATION_URLS } from './seo/bing-seo-policy.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { httpFetchWithRetry } from './lib/transient-fetch.mjs';
 import { submitIndexNowUrlsStreaming, verifyIndexNowKey } from './lib/indexnow-submit.mjs';
 
 const dryRun = process.argv.includes('--dry-run');
+const PREFLIGHT_RETRIES = 2;
+const PREFLIGHT_RETRY_BASE_MS = 1_000;
+const PREFLIGHT_TIMEOUT_MS = 30_000;
 
-async function preflight(urls) {
+export async function preflight(
+  urls,
+  {
+    fetchImpl = globalThis.fetch,
+    retries = PREFLIGHT_RETRIES,
+    retryBaseMs = PREFLIGHT_RETRY_BASE_MS,
+  } = {},
+) {
   const live = [];
   const skipped = [];
   const errors = [];
 
   for (const url of urls) {
     try {
-      const response = await fetch(url, {
+      const response = await httpFetchWithRetry(url, {
         headers: { 'user-agent': 'frontaliere-indexnow-remediation/1.0 (+https://frontaliereticino.ch/)' },
         redirect: 'follow',
-        signal: AbortSignal.timeout(30_000),
+      }, {
+        fetchImpl,
+        retries,
+        retryBaseMs,
+        timeout: PREFLIGHT_TIMEOUT_MS,
+        label: `indexnow-remediation:${url}`,
       });
       const finalUrl = response.url || url;
       if (response.body?.cancel) await response.body.cancel();
@@ -41,26 +58,28 @@ async function preflight(urls) {
   return { live, skipped, errors };
 }
 
-const checked = await preflight(BING_INDEXNOW_REMEDIATION_URLS);
-const output = {
-  dryRun,
-  requested: BING_INDEXNOW_REMEDIATION_URLS.length,
-  ...checked,
-};
+if (isInvokedDirectly(import.meta.url)) {
+  const checked = await preflight(BING_INDEXNOW_REMEDIATION_URLS);
+  const output = {
+    dryRun,
+    requested: BING_INDEXNOW_REMEDIATION_URLS.length,
+    ...checked,
+  };
 
-if (!dryRun && checked.errors.length === 0 && checked.live.length > 0) {
-  const key = await verifyIndexNowKey({ attempts: 3, delayMs: 1000 });
-  output.key = key;
-  if (!key.ok) {
-    console.error(`[indexnow-remediation] key preflight failed: ${key.reason}`);
-    process.exitCode = 1;
+  if (!dryRun && checked.errors.length === 0 && checked.live.length > 0) {
+    const key = await verifyIndexNowKey({ attempts: 3, delayMs: 1000 });
+    output.key = key;
+    if (!key.ok) {
+      console.error(`[indexnow-remediation] key preflight failed: ${key.reason}`);
+      process.exitCode = 1;
+    }
+    output.result = await submitIndexNowUrlsStreaming(checked.live, {
+      batchSize: 1,
+      delayMs: 750,
+    });
+    if (output.result.results.some((item) => !item.ok)) process.exitCode = 1;
   }
-  output.result = await submitIndexNowUrlsStreaming(checked.live, {
-    batchSize: 1,
-    delayMs: 750,
-  });
-  if (output.result.results.some((item) => !item.ok)) process.exitCode = 1;
-}
 
-if (checked.errors.length > 0) process.exitCode = 1;
-console.log(JSON.stringify(output, null, 2));
+  if (checked.errors.length > 0) process.exitCode = 1;
+  console.log(JSON.stringify(output, null, 2));
+}

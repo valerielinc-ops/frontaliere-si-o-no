@@ -290,6 +290,21 @@ describe('static SEO X cards', () => {
     expect(overridden).not.toContain('name=twitter:title content="Evento');
   });
 
+  it('does not treat twitter tags inside attributes or raw-text as overrides', () => {
+    const decoy = '<meta name="twitter:image" content="https://example.test/fake.webp">';
+    const html = buildSeoPageHtml({
+      locale: 'it',
+      title: 'Evento',
+      description: 'Descrizione evento.',
+      canonicalUrl: 'https://frontaliereticino.ch/eventi/esempio/',
+      ogImage: '/images/events/esempio.webp',
+      extraHeadHtml: `<div data-template='${decoy}'></div><script>const fake = ${JSON.stringify(decoy)};</script>`,
+      bodyHtml: '<main><h1>Evento</h1></main>',
+    });
+
+    expect(html).toContain('name=twitter:image content=https://frontaliereticino.ch/images/events/esempio.webp');
+  });
+
   it('rejects a duplicated card from a deterministic second-emitter mutation', () => {
     const html = buildSeoPageHtml({
       locale: 'it',

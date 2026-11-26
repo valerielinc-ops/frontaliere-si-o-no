@@ -412,6 +412,16 @@ describe('parseSbbDetailPage — body location override', () => {
     expect(parseSbbDetailPage(fixture).location).toBe('Aarau');
   });
 
+  it('ignores locality metadata-shaped text inside an attribute', () => {
+    const fake = '<meta itemprop="addressLocality" content="Bern">';
+    const fixture = '<span itemprop="jobLocation"><span itemprop="address">'
+      + `<div data-template='${fake}'></div>`
+      + '<meta itemprop="addressLocality" content="Aarau">'
+      + '</span></span>';
+
+    expect(extractSbbStrongMarkupLocation(fixture)).toBe('Aarau');
+  });
+
   it('ignores an unscoped locality meta and keeps the JobPosting JSON-LD locality', () => {
     const fixture = '<meta itemprop="addressLocality" content="Bern">'
       + '<script type="application/ld+json">'
