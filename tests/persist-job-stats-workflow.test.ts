@@ -10,6 +10,7 @@ const workflow = YAML.parse(
       steps: Array<{ name?: string; env?: Record<string, string>; run?: string }>;
     };
   };
+};
 
 const steps = workflow.jobs['persist-stats'].steps;
 
