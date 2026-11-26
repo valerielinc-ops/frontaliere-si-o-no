@@ -141,6 +141,7 @@ import { isIncomplete } from './lib/translation-incomplete.mjs';
 import { officialPostalCodeForLocation } from './lib/swiss-locality-directory.mjs';
 import { startPipelinePhase } from './lib/pipeline-phase-timing.mjs';
 import { stampWriterObservedCrawledAt } from './lib/job-observation-heartbeat.mjs';
+import { reexecWithLargerHeap } from './lib/cli-heap-reexec.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -5751,14 +5752,18 @@ if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process
   process.stdout.write(`${cacheKey}\n`);
   process.exit(0);
 } else if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
-  assembleJobsDataset(parseAssembleCliArgs(process.argv.slice(2)))
-    .then(() => {
-      // Some optional SDKs imported during assembly can leave idle handles
-      // open in CI. The CLI contract is done once artifacts are written.
-      process.exit(0);
-    })
-    .catch((err) => {
-      console.error('❌ Assembly failed:', err?.message || err);
-      process.exit(1);
-    });
+  // The dataset no longer fits Node's default heap and most callers set no
+  // NODE_OPTIONS (#9608). CLI only: importers keep their own process.
+  if (!reexecWithLargerHeap({ guardEnvVar: 'ASSEMBLE_JOBS_HEAP_REEXEC' })) {
+    assembleJobsDataset(parseAssembleCliArgs(process.argv.slice(2)))
+      .then(() => {
+        // Some optional SDKs imported during assembly can leave idle handles
+        // open in CI. The CLI contract is done once artifacts are written.
+        process.exit(0);
+      })
+      .catch((err) => {
+        console.error('❌ Assembly failed:', err?.message || err);
+        process.exit(1);
+      });
+  }
 }
