@@ -3443,6 +3443,56 @@ function logEdgeFailure(reason, url, fields = {}) {
   console.error({ event: 'origin_failure', reason, path: url.pathname, ...fields });
 }
 
+export const ROUTER_ERROR_MESSAGE_MAX_CHARS = 300;
+// Bounds the work of the redaction patterns, not the logged length.
+const ROUTER_ERROR_MESSAGE_MAX_INPUT_CHARS = 2000;
+
+function redactUrl(match) {
+  try {
+    const parsed = new URL(match);
+    // Drops userinfo, query and fragment.
+    return parsed.host ? `${parsed.protocol}//${parsed.host}${parsed.pathname}` : '[url]';
+  } catch {
+    return '[url]';
+  }
+}
+
+// An exception message may quote the request that caused it, so it is redacted
+// before it is logged: URL query/userinfo/fragment, email addresses,
+// credentials, `name=value` pairs and opaque tokens. Truncation comes last, so
+// it can never cut a secret into a shape the patterns no longer recognise.
+function sanitizeErrorMessage(error) {
+  try {
+    let text = String(error instanceof Error ? error.message : error);
+    if (text.length > ROUTER_ERROR_MESSAGE_MAX_INPUT_CHARS) {
+      // The word cut by the input bound may be half a secret: drop it whole.
+      text = text.slice(0, ROUTER_ERROR_MESSAGE_MAX_INPUT_CHARS).replace(/\S+$/, '');
+    }
+    text = text
+      .replace(/[\u0000-\u001f\u007f\s]+/g, ' ')
+      .trim()
+      .replace(/\b[a-z][a-z0-9+.-]*:\/\/[^\s"'<>`]+/gi, redactUrl)
+      .replace(/\?(?!\[)[^\s"'<>`]+/g, '?[query]')
+      .replace(/[^\s"'<>()[\]{},;:=/?&]+(?:@|%40)[^\s"'<>()[\]{},;:=/?&@]+\.[a-z]{2,}/gi, '[email]')
+      .replace(/\b(?:Bearer|Basic)\s+[^\s"',;]+/gi, '[redacted]')
+      .replace(
+        /\b(token|secret|password|passwd|signature|sig|api[-_]?key|access[-_]?key|cookie)\b(["']?\s*[:=]\s*)(?:"[^"]*"|'[^']*'|[^\s"',;&]+)/gi,
+        '$1$2[redacted]',
+      )
+      .replace(/\b([\w.-]+)=(?!\[)[^\s"',;&]+/g, '$1=[redacted]')
+      // Opaque runs: 20+ characters mixing letters and digits, or 40+ of any.
+      .replace(/[A-Za-z0-9_+-]{20,}/g, (run) => (
+        run.length >= 40 || (/\d/.test(run) && /[A-Za-z]/.test(run)) ? '[token]' : run
+      ));
+    return text.length > ROUTER_ERROR_MESSAGE_MAX_CHARS
+      ? `${text.slice(0, ROUTER_ERROR_MESSAGE_MAX_CHARS - 1)}…`
+      : text;
+  } catch {
+    // A diagnostic must never turn the bounded 503 into an uncaught exception.
+    return '[unreadable]';
+  }
+}
+
 function edgeFailureResponse(url, reason, body, headers, fields = {}) {
   logEdgeFailure(reason, url, fields);
   return new Response(body, { status: 503, headers });
@@ -4386,7 +4436,7 @@ export default {
       return stripStaleAssetIntegrity(request, served);
     } catch (error) {
       if (request.method === 'GET' && url.pathname === PUBLIC_CONFIG_PATH) {
-        logEdgeFailure('public-config', url, { stage: 'router' });
+        logEdgeFailure('public-config', url, { stage: 'router', errorMessage: sanitizeErrorMessage(error) });
         return publicConfigFailOpenResponse();
       }
       return edgeFailureResponse(
@@ -4398,6 +4448,9 @@ export default {
           status: 503,
           stage: 'router',
           error: error instanceof Error ? error.name : 'NonErrorThrow',
+          // `errorMessage`, not `message`: Workers Logs would promote the latter
+          // to `$metadata.message`.
+          errorMessage: sanitizeErrorMessage(error),
         },
       );
     }

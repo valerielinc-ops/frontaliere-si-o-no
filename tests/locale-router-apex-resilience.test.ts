@@ -3,13 +3,18 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — plain JS Worker module, no type declarations.
-import worker, { router } from '../infra/cloudflare-worker/locale-router.js';
+import worker, { ROUTER_ERROR_MESSAGE_MAX_CHARS, router } from '../infra/cloudflare-worker/locale-router.js';
 
 const APEX = 'https://frontaliereticino.ch';
 const page = `${APEX}/calcola-stipendio/`;
 const ctx = { waitUntil: () => {} } as unknown as ExecutionContext;
 const collect = (promises: Promise<unknown>[]) =>
   ({ waitUntil: (p: Promise<unknown>) => promises.push(p) }) as unknown as ExecutionContext;
+
+/** The first structured line the Worker logged. */
+function loggedSignal(log: { mock: { calls: unknown[][] } }) {
+  return log.mock.calls[0][0] as { errorMessage: string };
+}
 
 let cacheStore: Map<string, Response>;
 
@@ -86,9 +91,84 @@ describe('locale-router apex resilience', () => {
       status: 503,
       stage: 'router',
       error: 'TypeError',
+      errorMessage: 'token=[redacted]',
     });
     expect(JSON.stringify(signal)).not.toContain('secret');
     expect(JSON.stringify(signal)).not.toContain('must-not-leak');
+  });
+
+  it.each([
+    [
+      'keeps a runtime message readable',
+      new Error('Cannot perform I/O on behalf of a different request. (I/O type: RefcountedCanceler)'),
+      'Cannot perform I/O on behalf of a different request. (I/O type: RefcountedCanceler)',
+    ],
+    [
+      'strips URL credentials, query and fragment',
+      new Error('Fetch https://user:pw@cdn.example.com/edge/registry.json?sig=abc123#frag failed'),
+      'Fetch https://cdn.example.com/edge/registry.json failed',
+    ],
+    [
+      'drops the query of a relative URL',
+      new Error('Invalid URL: /disiscrivi/?c=abc&t=def'),
+      'Invalid URL: /disiscrivi/?[query]',
+    ],
+    [
+      'redacts plain and percent-encoded email addresses',
+      new Error('no row for persona.finta+test@example.com or persona%40example.org, nor https://example.com/u/a@example.com'),
+      'no row for [email] or [email], nor https://example.com/u/[email]',
+    ],
+    [
+      'redacts credentials and opaque tokens',
+      new Error('Authorization: Bearer abc.def.ghi rejected Zm9vYmFyMTIzNDU2Nzg5MGFiY2RlZg password: "uno due"'),
+      'Authorization: [redacted] rejected [token] password: [redacted]',
+    ],
+    ['flattens control characters', new Error('line one\n\tline two\u0000'), 'line one line two'],
+    ['reports a thrown string', 'plain failure', 'plain failure'],
+  ])('router-exception message: %s', async (_label, thrown, expected) => {
+    const log = vi.spyOn(console, 'error').mockImplementation(() => {});
+    vi.spyOn(router, 'fetch').mockRejectedValueOnce(thrown);
+
+    const res = await worker.fetch(new Request(page), {}, ctx);
+
+    expect(res.status).toBe(503);
+    expect(loggedSignal(log).errorMessage).toBe(expected);
+  });
+
+  it('truncates a long router-exception message after redacting it', async () => {
+    const log = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const filler = 'parola '.repeat(2000);
+    vi.spyOn(router, 'fetch').mockRejectedValueOnce(new Error(`${filler}persona@example.com`));
+
+    await worker.fetch(new Request(page), {}, ctx);
+
+    const { errorMessage } = loggedSignal(log);
+    expect(errorMessage).toHaveLength(ROUTER_ERROR_MESSAGE_MAX_CHARS);
+    expect(errorMessage.endsWith('…')).toBe(true);
+    expect(errorMessage).not.toContain('@');
+  });
+
+  it('never leaves half of a secret cut by the input bound', async () => {
+    const log = vi.spyOn(console, 'error').mockImplementation(() => {});
+    // URLs collapse on redaction, which would pull a half-cut address into view.
+    const longUrl = `https://example.com/a?q=${'x'.repeat(1960)}`;
+    vi.spyOn(router, 'fetch').mockRejectedValueOnce(new Error(`${longUrl} persona.finta.lunga@example.com`));
+
+    await worker.fetch(new Request(page), {}, ctx);
+
+    expect(loggedSignal(log).errorMessage).toBe('https://example.com/a');
+  });
+
+  it('still answers 503 when the thrown value cannot be read', async () => {
+    const log = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const hostile = new Error('x');
+    Object.defineProperty(hostile, 'message', { get: () => { throw new Error('boom'); } });
+    vi.spyOn(router, 'fetch').mockRejectedValueOnce(hostile);
+
+    const res = await worker.fetch(new Request(page), {}, ctx);
+
+    expect(res.status).toBe(503);
+    expect(loggedSignal(log).errorMessage).toBe('[unreadable]');
   });
 
   it('never logs on the happy path', async () => {
