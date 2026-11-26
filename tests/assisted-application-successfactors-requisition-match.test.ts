@@ -59,3 +59,24 @@ describe('SuccessFactors after sign-in: the requisition the runner entered binds
     expect(formPostingMatch(form('Application Manager/-in (20604)'), job, { pageUrl: 'https://career74.sapsf.eu/xi/ui/rcmcareer', applyUrl })).toBe('mismatch');
   });
 });
+
+it('binds the session form from its native field group caption', () => {
+  const title = 'Macellaia / Macellaio - Salumiera / Salumiere (f/m/d)';
+  const coop = { title, company: 'Coop Genossenschaft' };
+  const opts = {
+    applyUrl: 'https://career2.successfactors.eu/career?company=coop&career_ns=job_application&career_job_req_id=171248',
+    pageUrl: 'https://career2.successfactors.eu/portalcareer?_s.crb=synthetic',
+  };
+  const text = 'Profilo di candidatura\nI miei documenti\nInformazioni personali\nInvia candidatura';
+  const section = title + ' (171248)';
+  const other = title + ' (171249)';
+  expect(formPostingMatch(text, coop, opts)).toBe('mismatch');
+  expect(formPostingMatch(text, coop, { ...opts, formSections: [section, section] })).toBe('match');
+  expect(formPostingMatch(text, coop, { ...opts, formSections: [other] })).toBe('mismatch');
+  expect(formPostingMatch(text, coop, { ...opts, formSections: [section, other] })).toBe('mismatch');
+  expect(formPostingMatch(text, coop, {
+    ...opts,
+    pageUrl: opts.pageUrl.replace('career2', 'career5'),
+    formSections: [section],
+  })).toBe('mismatch');
+});
