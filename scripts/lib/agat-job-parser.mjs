@@ -12,7 +12,7 @@ export const AGAT_COMPANY_NAME = 'AGAT ! Placements fixes et temporaires SA';
 export const AGAT_COMPANY_DOMAIN = 'agat-job.com';
 
 const CAREER_URL = 'https://www.agat-job.com/blog';
-const AGAT_WORKPLACE_RE = /(?:situ[ée]e?\s+dans\s+la\s+r[ée]gion\s+de\s+|r[ée]gion\s+de\s+)(Sion|Monthey|Vevey|Martigny)\b/i;
+const AGAT_WORKPLACE_RE = /\b(?:r[ée]gion|canton)\s+(?:de|du|des|d['’])\s+[^,;\n.!?]+/giu;
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -100,10 +100,14 @@ export function extractAgatDetailFields(html = '', pageUrl = '') {
       || base.title
       || document.title,
   );
-  const workplaceMatch = AGAT_WORKPLACE_RE.exec(articleText);
-  const workplace = workplaceMatch ? `région de ${workplaceMatch[1]}` : '';
-  const geography = workplace ? resolveSourceBackedSwissGeography(workplace) : null;
-  if (!geography) {
+  const workplace = [...articleText.matchAll(AGAT_WORKPLACE_RE)]
+    .map((match) => normalizeSpace(match[0]))
+    .map((candidate) => ({
+      location: candidate,
+      geography: resolveSourceBackedSwissGeography(candidate),
+    }))
+    .find((candidate) => candidate.geography);
+  if (!workplace) {
     return {
       ...base,
       title,
@@ -119,11 +123,12 @@ export function extractAgatDetailFields(html = '', pageUrl = '') {
       locationCandidates: [],
     };
   }
+  const { geography } = workplace;
   return {
     ...base,
     title,
     description: articleText,
-    location: geography.location,
+    location: workplace.location,
     canton: geography.canton,
     addressLocality: '',
     addressRegion: geography.canton,
@@ -131,7 +136,7 @@ export function extractAgatDetailFields(html = '', pageUrl = '') {
     country: '',
     postalCode: '',
     streetAddress: '',
-    locationCandidates: [{ location: geography.location, addressRegion: geography.canton }],
+    locationCandidates: [{ location: workplace.location, addressRegion: geography.canton }],
   };
 }
 
