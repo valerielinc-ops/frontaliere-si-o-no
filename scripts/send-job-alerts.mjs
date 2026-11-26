@@ -112,6 +112,7 @@ import {
 import { computeDeliveryFinalize, computeProviderIntent, deliveryFinalizeAlreadyApplied } from './lib/job-alert-delivery-ledger.mjs';
 import { buildAlertInventory } from './lib/job-alert-inventory.mjs';
 import { createBatchBookkeeper, ledgerContext } from './lib/job-alert-batch-bookkeeping.mjs';
+import { L4_DELIVERY_CONSENT_WINDOW_MS } from './lib/l4-alert-delivery-contract.mjs';
 import { derivePersonalizationPatch } from './lib/subscriber-personalization.mjs';
 import { readNewsletterDataset } from '../services/newsletter-datasets.mjs';
 import { createDiscoveryRanker, discoveryGeography, diversifyJobEmployers, findDiscoveryBlockedRecipients, DISCOVERY_COPY } from './lib/job-alert-discovery.mjs';
@@ -991,6 +992,68 @@ async function getFirestoreAdmin() {
   return _db;
 }
 
+function hasFreshJobAlertConsentProof(proof, nowMs) {
+  if (proof?.allowed !== true || typeof proof.basis !== 'string' || proof.basis.trim() === '') return false;
+  const checkedAtMs = Date.parse(String(proof.checkedAt || ''));
+  return Number.isFinite(checkedAtMs)
+    && Math.abs(nowMs - checkedAtMs) <= L4_DELIVERY_CONSENT_WINDOW_MS;
+}
+
+/**
+ * Ensure the proof written into a job-alert delivery record is still inside
+ * the same bounded window enforced by the L4 exporter. Most items keep the
+ * audience scan's proof; only a long-running batch rereads the authoritative
+ * alert, subscriber and channel documents immediately before its provider
+ * intent. A missing or changed source fails closed and never manufactures a
+ * timestamp from `sent_at`.
+ */
+export async function ensureJobAlertConsentProof(item, { db = null, nowMs = Date.now() } = {}) {
+  if (item?.meta?.isOperatorVerification) return true;
+  const email = String(item?.recipient?.email || '').trim().toLowerCase();
+  const alertId = String(item?.meta?.alertId || '').trim();
+  if (!email || !alertId || alertId.includes('/')) return false;
+
+  const currentMs = Number.isFinite(Number(nowMs)) ? Number(nowMs) : Date.now();
+  if (hasFreshJobAlertConsentProof(item.meta?.consentProof, currentMs)) return true;
+
+  try {
+    const firestore = db || await getFirestoreAdmin();
+    const jobAlertRootRef = firestore.collection('job_alert_subscribers').doc(email);
+    const refs = [
+      jobAlertRootRef,
+      firestore.collection('newsletter_subscribers').doc(email),
+      jobAlertRootRef.collection('alerts').doc(alertId),
+    ];
+    const snapshots = typeof firestore.getAll === 'function'
+      ? await firestore.getAll(...refs)
+      : await Promise.all(refs.map((ref) => ref.get()));
+    const [jobAlertRootSnap, newsletterSnap, alertSnap] = snapshots;
+    if (!jobAlertRootSnap?.exists || !alertSnap?.exists) return false;
+
+    const jobAlertRoot = jobAlertRootSnap.data() || {};
+    const alert = alertSnap.data() || {};
+    const alertEmail = String(alert.email || '').trim().toLowerCase();
+    if (alertEmail && alertEmail !== email) return false;
+    if (alert.active !== true || alert.paused === true) return false;
+    if (isJobAlertExcluded(jobAlertRoot.status)) return false;
+
+    const newsletter = newsletterSnap?.exists ? newsletterSnap.data() || {} : null;
+    const consent = evaluateJobAlertConsent({ alert, subscriber: newsletter });
+    if (consent.allowed !== true) return false;
+
+    item.meta.consentProof = {
+      allowed: true,
+      basis: consent.reason || 'unspecified',
+      checkedAt: new Date(currentMs).toISOString(),
+    };
+    return true;
+  } catch {
+    // A provider call without a current, attributable consent source is never
+    // safe. The caller's existing retry/defer path can try again later.
+    return false;
+  }
+}
+
 // ── Load jobs from data/jobs.json ────────────────────────────
 
 // Static floor for the 4 cities the subscriber-preference flags hardcode
@@ -1808,6 +1871,11 @@ async function persistJobAlertProviderAttempt(item, provider) {
   return batchBookkeeper.requestIntent(item, provider);
 }
 
+async function beforeJobAlertProviderAttempt(item, provider) {
+  if (!await ensureJobAlertConsentProof(item)) return false;
+  return persistJobAlertProviderAttempt(item, provider);
+}
+
 async function persistJobAlertProviderAttemptTx(item, provider) {
   if (item.meta?.isOperatorVerification) return true;
   const { ref, jobs, keys, claimId } = jobAlertDeliveryLedgerContext(item);
@@ -2027,7 +2095,7 @@ async function sendBatch(emails) {
       providerMinIntervalMs: BULK_PROVIDER_MIN_INTERVAL_MS,
       onSent: onSentComposed,
       onAmbiguous: onAmbiguousComposed,
-      beforeProviderAttempt: persistJobAlertProviderAttempt,
+      beforeProviderAttempt: beforeJobAlertProviderAttempt,
       quiet: true,
     });
   } catch (error) {
@@ -2496,7 +2564,7 @@ async function processRetryQueue(db) {
       onSent: onSentComposed,
       onAmbiguous: onAmbiguousComposed,
       beforeProviderAttempt: async (item, provider) => {
-        const allowed = await persistJobAlertProviderAttempt(item, provider);
+        const allowed = await beforeJobAlertProviderAttempt(item, provider);
         if (!allowed) blockedBeforeProviderKeys.add(jobAlertDeliveryKey(item));
         return allowed;
       },
