@@ -1,7 +1,7 @@
 {
   "key": "unidistance-ch",
   "label": "UniDistance Suisse",
-  "generatedAt": "2026-11-25T21:44:28.437Z",
+  "generatedAt": "2026-11-26T10:13:27.553Z",
   "total": 5,
   "discovered": 8,
   "parsed": 5,
@@ -68,10 +68,10 @@
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 95713,
-  "avgDurationMs": 95713,
+  "durationMs": 19486,
+  "avgDurationMs": 19486,
   "durationHistory": [
-    95713
+    19486
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -87,7 +87,7 @@
       "url": "https://fernuni.ch/jobs/mehr/professuren-oeffentliches-recht",
       "source": "UniDistance Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:42:25.222Z",
+      "crawledAt": "2026-11-26T10:12:34.844Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "salaryMax": 118000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:42:25.222Z",
+      "validThrough": "2027-02-07T10:12:34.844Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -133,7 +133,7 @@
       "url": "https://fernuni.ch/jobs/mehr/doctoral-student-business-economics",
       "source": "UniDistance Suisse Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:42:25.220Z",
+      "crawledAt": "2026-11-26T10:12:34.839Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -156,7 +156,7 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:42:25.220Z",
+      "validThrough": "2027-02-15T10:12:34.839Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -178,7 +178,7 @@
       "url": "https://fernuni.ch/jobs/mehr/postdoc-in-experimental-and-behavioral-economics-80-100",
       "source": "UniDistance Suisse Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:42:25.213Z",
+      "crawledAt": "2026-11-26T10:12:34.834Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -201,7 +201,7 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:42:25.213Z",
+      "validThrough": "2027-02-15T10:12:34.834Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -223,7 +223,7 @@
       "url": "https://fernuni.ch/jobs/mehr/spezialisierte-mitarbeiterin-spezialisierter-mitarbeiter-faculty-services",
       "source": "UniDistance Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:42:25.208Z",
+      "crawledAt": "2026-11-26T10:12:34.832Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -247,7 +247,7 @@
       "salaryMax": 45800,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:42:25.208Z",
+      "validThrough": "2027-02-07T10:12:34.832Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -269,7 +269,7 @@
       "url": "https://fernuni.ch/jobs/mehr/faculty-manager-geschichte-befristet",
       "source": "UniDistance Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:42:25.201Z",
+      "crawledAt": "2026-11-26T10:12:34.813Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -293,7 +293,7 @@
       "salaryMax": 75900,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:42:25.201Z",
+      "validThrough": "2027-02-07T10:12:34.813Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -306,5 +306,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "0c64b1f2eae0b337b537e356aa5de051b9c4c6cc"
+  "codeCommit": "bb9ecce641e4806660b82ef90e95e36b4e9d873c"
 }

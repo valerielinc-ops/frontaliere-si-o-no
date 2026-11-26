@@ -1,7 +1,7 @@
 {
   "key": "prodyna-com",
   "label": "PRODYNA (Schweiz) AG",
-  "generatedAt": "2026-11-25T21:45:37.923Z",
+  "generatedAt": "2026-11-26T10:13:36.857Z",
   "total": 2,
   "discovered": 2,
   "parsed": 2,
@@ -60,10 +60,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 14668,
-  "avgDurationMs": 14668,
+  "durationMs": 14153,
+  "avgDurationMs": 14153,
   "durationHistory": [
-    14668
+    14153
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -81,7 +81,7 @@
       "url": "https://www.prodyna.com/jobs/senior-data-engineer-athens",
       "source": "PRODYNA (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:45:02.297Z",
+      "crawledAt": "2026-11-26T10:12:54.814Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -104,7 +104,7 @@
       "salaryMax": 151000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:45:02.297Z",
+      "validThrough": "2027-02-09T10:12:54.814Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -126,7 +126,7 @@
       "url": "https://www.prodyna.com/jobs/senior-java-developer-athens",
       "source": "PRODYNA (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:45:02.292Z",
+      "crawledAt": "2026-11-26T10:12:54.802Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -149,7 +149,7 @@
       "salaryMax": 169500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:45:02.292Z",
+      "validThrough": "2027-02-09T10:12:54.802Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -160,5 +160,5 @@
       }
     }
   ],
-  "codeCommit": "0c64b1f2eae0b337b537e356aa5de051b9c4c6cc"
+  "codeCommit": "bb9ecce641e4806660b82ef90e95e36b4e9d873c"
 }
