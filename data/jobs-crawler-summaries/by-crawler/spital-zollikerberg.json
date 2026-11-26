@@ -1,7 +1,7 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-11-25T21:14:46.821Z",
+  "generatedAt": "2026-11-26T09:14:52.365Z",
   "total": 7,
   "discovered": null,
   "parsed": 6,
@@ -13,16 +13,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 36843,
-  "avgDurationMs": 36843,
+  "durationMs": 63645,
+  "avgDurationMs": 63645,
   "durationHistory": [
-    36843
+    63645
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "spital-zollikerberg-94c8fdc2d1e1",
       "slug": "mitarbeiterin-collaboratore-trice-sekretariat-therapiezentrum-middle-office-spital-zollikerberg",
@@ -36,7 +37,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=4a4fa035-bbbb-4fa3-8bfc-e443a583fb25,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:14:31.530Z",
+      "crawledAt": "2026-11-26T09:14:05.145Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -53,24 +54,23 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=4a4fa035-bbbb-4fa3-8bfc-e443a583fb25,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "firstSeenAt": "2026-11-25T21:14:31.530Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddress": "Zollikerberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T21:14:31.530Z",
+      "validThrough": "2027-02-24T09:14:05.145Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-25T21:14:31.530Z",
-      "_qualityScore": 85,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -86,7 +86,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=fc7ba2df-3635-4f8a-b213-bfb93ff0dd16,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:14:31.536Z",
+      "crawledAt": "2026-11-26T09:14:05.150Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "salarySource": "estimated",
       "streetAddress": "Zollikerberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:14:31.536Z",
+      "validThrough": "2027-02-15T09:14:05.150Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -132,7 +132,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=dc748dd9-8eea-42ae-b6ff-c42183e6902b,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:14:31.536Z",
+      "crawledAt": "2026-11-26T09:14:05.150Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -155,7 +155,7 @@
       "salarySource": "estimated",
       "streetAddress": "Zollikerberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:14:31.536Z",
+      "validThrough": "2027-02-15T09:14:05.150Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -178,7 +178,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=5bf35a15-9276-4b30-b3db-a4df590e058d,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:14:31.535Z",
+      "crawledAt": "2026-11-26T09:14:05.149Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -201,7 +201,7 @@
       "salarySource": "estimated",
       "streetAddress": "Zollikerberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:14:31.535Z",
+      "validThrough": "2027-02-18T09:14:05.149Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -224,7 +224,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=6feca580-daac-478c-8600-1f88829f0356,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:14:31.533Z",
+      "crawledAt": "2026-11-26T09:14:05.148Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -247,7 +247,7 @@
       "salarySource": "estimated",
       "streetAddress": "Zollikerberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:14:31.533Z",
+      "validThrough": "2027-02-18T09:14:05.148Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -270,7 +270,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=77b4051e-c0f5-4ae3-b51e-c99b8c320604,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:14:31.532Z",
+      "crawledAt": "2026-11-26T09:14:05.146Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -293,7 +293,7 @@
       "salarySource": "estimated",
       "streetAddress": "Zollikerberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:14:31.532Z",
+      "validThrough": "2027-02-18T09:14:05.146Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -341,7 +341,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:14:47.566Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -351,5 +351,5 @@
       }
     }
   ],
-  "codeCommit": "0c64b1f2eae0b337b537e356aa5de051b9c4c6cc"
+  "codeCommit": "bb9ecce641e4806660b82ef90e95e36b4e9d873c"
 }

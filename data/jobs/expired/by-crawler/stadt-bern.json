@@ -5308,7 +5308,8 @@
       "travailleursocial-intake-stadt-bern-bern-5e04690c",
       "sozialarbeiter-in-intake-stadt-bern-bern",
       "socialworker-intake-stadt-bern-bern",
-      "travailleursocial-intake-stadt-bern-bern"
+      "travailleursocial-intake-stadt-bern-bern",
+      "reclutamento-per-assistenti-sociali-stadt-bern-bern"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -5373,7 +5374,8 @@
         "sozialarbeiter-in-intake-stadt-bern-bern-0e19b3dc",
         "sozialarbeiter-in-intake-stadt-bern-bern-0e347c7a",
         "sozialarbeiter-in-intake-stadt-bern-bern-40393d7a",
-        "sozialarbeiter-in-intake-stadt-bern-bern"
+        "sozialarbeiter-in-intake-stadt-bern-bern",
+        "reclutamento-per-assistenti-sociali-stadt-bern-bern"
       ],
       "en": [
         "socialworker-intake-stadt-bern-bern-5687612f",
@@ -5570,7 +5572,12 @@
         "firstSeenAt": "2026-11-06T21:19:36.503Z",
         "title": "Sozialarbeiter*in Intake"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "reclutamento-per-assistenti-sociali-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "automobilisti-masons-stadt-bern-bern",
@@ -7004,25 +7011,31 @@
     "slugByLocale": {
       "it": "assistente-cuoco-cuoco-ausiliario-stadt-bern-bern",
       "en": "hilfskoch-hilfskochin-stadt-bern",
-      "de": "hilfskoch-hilfskochin-stadt-bern-bern",
+      "de": "hilfskoch-hilfskochin-stadt-bern-bern-87c1bf56",
       "fr": "cuisinier-adjoint-cuisinier-auxiliaire-stadt-bern-bern"
     },
     "sector": "Amministrazione Pubblica",
     "expiredAt": "2026-10-05T12:04:55.758Z",
     "previousSlugs": [
-      "hilfskoch-hilfskochin-stadt-bern-bern",
-      "assistant-cook-auxiliary-cook-stadt-bern-bern"
+      "assistant-cook-auxiliary-cook-stadt-bern-bern",
+      "hilfskoch-hilfskochin-stadt-bern-bern"
     ],
     "previousSlugsByLocale": {
       "it": [
+        "hilfskoch-hilfskochin-stadt-bern-bern-87c1bf56",
         "hilfskoch-hilfskochin-stadt-bern-bern"
       ],
       "en": [
-        "hilfskoch-hilfskochin-stadt-bern-bern",
-        "assistant-cook-auxiliary-cook-stadt-bern-bern"
+        "hilfskoch-hilfskochin-stadt-bern-bern-87c1bf56",
+        "assistant-cook-auxiliary-cook-stadt-bern-bern",
+        "hilfskoch-hilfskochin-stadt-bern-bern"
       ],
       "fr": [
+        "hilfskoch-hilfskochin-stadt-bern-bern-87c1bf56",
         "hilfskoch-hilfskochin-stadt-bern-bern"
+      ],
+      "de": [
+        "hilfskoch-hilfskochin-stadt-bern-bern-87c1bf56"
       ]
     },
     "postalCode": "3018",
@@ -8347,7 +8360,9 @@
       "ict-supporter-in-2nd-level-stadt-bern-bern-8a6aa555",
       "ict-supporter-in-2nd-level-stadt-bern-bern-76a594e0",
       "ict-supporter-in-2nd-level-stadt-bern-bern-d3d8312d",
-      "ict-supporter-in-2nd-level-stadt-bern-bern"
+      "ict-supporter-in-2nd-level-stadt-bern-bern",
+      "addetto-a-al-supporto-ict-di-2nd-livello-stadt-bern-bern",
+      "specialiste-du-support-ict-de-2e-niveau-stadt-bern-bern"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -8487,7 +8502,8 @@
         "ict-supporter-in-2nd-level-stadt-bern-bern-8a6aa555",
         "ict-supporter-in-2nd-level-stadt-bern-bern-76a594e0",
         "ict-supporter-in-2nd-level-stadt-bern-bern-d3d8312d",
-        "ict-supporter-in-2nd-level-stadt-bern-bern"
+        "ict-supporter-in-2nd-level-stadt-bern-bern",
+        "addetto-a-al-supporto-ict-di-2nd-livello-stadt-bern-bern"
       ],
       "fr": [
         "ict-supporter-in-2nd-level-stadt-bern-bern-688aeacf",
@@ -8625,7 +8641,8 @@
         "ict-supporter-in-2nd-level-stadt-bern-bern-8a6aa555",
         "ict-supporter-in-2nd-level-stadt-bern-bern-76a594e0",
         "ict-supporter-in-2nd-level-stadt-bern-bern-d3d8312d",
-        "ict-supporter-in-2nd-level-stadt-bern-bern"
+        "ict-supporter-in-2nd-level-stadt-bern-bern",
+        "specialiste-du-support-ict-de-2e-niveau-stadt-bern-bern"
       ],
       "en": [
         "ict-supporter-in-2nd-level-stadt-bern-bern-cf505439",
@@ -8753,7 +8770,15 @@
         "firstSeenAt": "2026-09-03T23:09:22.231Z",
         "title": "ICT Supporter*in 2nd. Level"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "addetto-a-al-supporto-ict-di-2nd-livello-stadt-bern-bern": "BE"
+      },
+      "fr": {
+        "specialiste-du-support-ict-de-2e-niveau-stadt-bern-bern": "BE"
+      }
+    }
   },
   {
     "slug": "gestione-dei-casi-operativi-stadt-bern-bern",
