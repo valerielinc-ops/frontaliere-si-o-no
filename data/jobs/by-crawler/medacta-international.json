@@ -1,7 +1,7 @@
 {
   "crawlerKey": "medacta-international",
-  "assembledAt": "2026-11-26T09:50:05.064Z",
-  "runId": "45790334028",
+  "assembledAt": "2026-11-26T21:28:35.790Z",
+  "runId": "45896893954",
   "jobs": [
     {
       "id": "medacta-105719",
@@ -339,8 +339,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Castel San Pietro",
-      "postalCode": "6500",
+      "streetAddress": "Strada Regina",
+      "postalCode": "6874",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-07-06T15:24:00.372Z",
@@ -348,7 +348,7 @@
       "applyUrl": "https://joblink.allibo.com/ats3/job-offer.aspx?DM=1818&ID=104622&LN=IT&FT=455&SG=2",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "streetAddressSource": "to-enrich",
+      "streetAddressSource": "curated-company-city",
       "validThrough": "2026-12-26T09:49:04.747Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://joblink.allibo.com/ats3/job-offer.aspx?dm=1818&id=104622&ln=it&ft=455&sg=2"
@@ -449,8 +449,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Castel San Pietro",
-      "postalCode": "6500",
+      "streetAddress": "Strada Regina",
+      "postalCode": "6874",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-07-06T15:24:02.682Z",
@@ -458,7 +458,7 @@
       "applyUrl": "https://joblink.allibo.com/ats3/job-offer.aspx?DM=1818&ID=96190&LN=IT&FT=455&SG=2",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "streetAddressSource": "to-enrich",
+      "streetAddressSource": "curated-company-city",
       "validThrough": "2026-12-26T09:49:03.574Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://joblink.allibo.com/ats3/job-offer.aspx?dm=1818&id=111165&ln=it&ft=455&sg=2"

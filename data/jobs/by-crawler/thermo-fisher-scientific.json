@@ -1,16 +1,16 @@
 {
   "crawlerKey": "thermo-fisher-scientific",
-  "assembledAt": "2026-11-26T09:50:53.218Z",
-  "runId": "45790334028",
+  "assembledAt": "2026-11-26T21:32:25.279Z",
+  "runId": "45896893954",
   "jobs": [
     {
       "id": "thermo-fisher-scientific-55c622a09c4f",
-      "slug": "senior-finance-manager-thermo-fisher-scientific-ch",
+      "slug": "senior-finanza-manager-thermo-fisher-scientific-schweiz-ag-allschwil",
       "slugByLocale": {
+        "it": "senior-finanza-manager-thermo-fisher-scientific-schweiz-ag-allschwil",
         "en": "senior-finance-manager-thermo-fisher-scientific-ch",
-        "it": "senior-finance-manager-thermo-fisher-scientific-ch",
-        "de": "senior-finance-manager-thermo-fisher-scientific-ch",
-        "fr": "senior-finance-manager-thermo-fisher-scientific-ch"
+        "de": "senior-finanzen-manager-thermo-fisher-scientific-schweiz-ag-allschwil",
+        "fr": "gestionnaire-principal-des-finances-thermo-fisher-scientific-schweiz-ag-allschwil"
       },
       "company": "Thermo Fisher Scientific (Schweiz) AG",
       "companyKey": "thermo-fisher-scientific",
@@ -34,7 +34,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01376769/senior-finance-manager",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T09:50:43.600Z",
+      "crawledAt": "2026-11-26T21:31:55.862Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "1 Job Posting, 4123 Allschwil, Switzerland",
@@ -53,9 +53,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Allschwil-Switzerland/Senior-Finance-Manager_R-01376769/apply",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000,
@@ -71,10 +69,24 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-23T09:50:43.600Z",
+      "validThrough": "2027-02-23T21:31:55.862Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-26T09:50:43.600Z",
-      "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01376769/senior-finance-manager"
+      "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01376769/senior-finance-manager",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-finance-manager-thermo-fisher-scientific-ch"
+        ],
+        "de": [
+          "senior-finance-manager-thermo-fisher-scientific-ch"
+        ],
+        "fr": [
+          "senior-finance-manager-thermo-fisher-scientific-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-finance-manager-thermo-fisher-scientific-ch"
+      ]
     },
     {
       "id": "thermo-fisher-scientific-30653d8eec1b",
@@ -107,7 +119,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01344620/junior-project-manager-packaging",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T09:50:40.006Z",
+      "crawledAt": "2026-11-26T21:31:52.051Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "1 Job Posting, 4123 Allschwil, Switzerland",
@@ -199,7 +211,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T09:50:40.006Z",
+      "validThrough": "2026-12-26T21:31:52.051Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01344620/junior-project-manager-packaging"
     },
@@ -296,7 +308,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-26T09:50:36.948Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01350882/project-support-associate-distribution"
+      "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01350882/project-support-associate-distribution",
+      "crawlerMissStreak": 1
     },
     {
       "id": "thermo-fisher-scientific-8fa9d301fd00",
@@ -329,7 +342,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01371275/senior-qc-technician-befristet-auf-12-monate",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:50:35.282Z",
+      "crawledAt": "2026-11-26T21:31:48.995Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "1 Job Posting, 4123 Allschwil, Switzerland",
@@ -378,7 +391,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:50:35.282Z",
+      "validThrough": "2027-01-12T21:31:48.995Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01371275/senior-qc-technician-befristet-auf-12-monate"
     },
@@ -413,7 +426,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01371269/team-leader-secondary",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T09:50:33.612Z",
+      "crawledAt": "2026-11-26T21:31:47.189Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "1 Job Posting, 4123 Allschwil, Switzerland",
@@ -462,7 +475,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-11T09:50:33.612Z",
+      "validThrough": "2027-02-11T21:31:47.189Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01371269/team-leader-secondary"
     },
@@ -497,7 +510,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01371848/mitarbeiter-qualitatskontrolle",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:50:31.874Z",
+      "crawledAt": "2026-11-26T21:31:46.040Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "1 Job Posting, 4123 Allschwil, Switzerland",
@@ -548,7 +561,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T09:50:31.874Z",
+      "validThrough": "2027-01-18T21:31:46.040Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01371848/mitarbeiter-qualitatskontrolle"
     },
@@ -583,7 +596,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01375854/technicien-qa-calibration",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T09:50:30.468Z",
+      "crawledAt": "2026-11-26T21:31:44.717Z",
       "addressLocality": "Cheseaux-sur-Lausanne",
       "postalCode": "1033",
       "streetAddress": "1 Job Posting, 1033 Cheseaux-sur-Lausanne VD, Switzerland",
@@ -632,7 +645,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T09:50:30.468Z",
+      "validThrough": "2027-02-18T21:31:44.717Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01375854/technicien-qa-calibration"
     },
@@ -667,7 +680,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01366811/sr-qc-technician",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:50:27.887Z",
+      "crawledAt": "2026-11-26T21:31:41.967Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "1 Job Posting, 4123 Allschwil, Switzerland",
@@ -717,7 +730,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T09:50:27.887Z",
+      "validThrough": "2026-12-26T21:31:41.967Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01366811/sr-qc-technician"
     },
@@ -752,7 +765,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01370181/associate-project-manager-comparator",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T09:50:26.616Z",
+      "crawledAt": "2026-11-26T21:31:40.290Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "1 Job Posting, 4123 Allschwil, Switzerland",
@@ -801,7 +814,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-19T09:50:26.616Z",
+      "validThrough": "2027-01-19T21:31:40.290Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01370181/associate-project-manager-comparator"
     },
@@ -836,7 +849,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01371281/process-improvement-specialist",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T09:50:24.974Z",
+      "crawledAt": "2026-11-26T21:31:38.463Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "1 Job Posting, 4123 Allschwil, Switzerland",
@@ -885,7 +898,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T09:50:24.974Z",
+      "validThrough": "2027-01-13T21:31:38.463Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01371281/process-improvement-specialist"
     },
@@ -920,7 +933,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01375182/team-leader-primary-packaging",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:50:24.381Z",
+      "crawledAt": "2026-11-26T21:31:37.539Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "1 Job Posting, 4123 Allschwil, Switzerland",
@@ -967,7 +980,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T09:50:24.381Z",
+      "validThrough": "2027-02-09T21:31:37.539Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01375182/team-leader-primary-packaging"
     },
@@ -1002,7 +1015,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01373281/technician-print-production",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T09:50:23.087Z",
+      "crawledAt": "2026-11-26T21:31:35.396Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "1 Job Posting, 4123 Allschwil, Switzerland",
@@ -1051,7 +1064,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T09:50:23.087Z",
+      "validThrough": "2027-02-07T21:31:35.396Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01373281/technician-print-production"
     },
@@ -1086,7 +1099,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01373288/material-handler-lagermitarbeiter",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:50:21.370Z",
+      "crawledAt": "2026-11-26T21:31:34.578Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "1 Job Posting, 4123 Allschwil, Switzerland",
@@ -1135,7 +1148,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T09:50:21.370Z",
+      "validThrough": "2027-02-02T21:31:34.578Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01373288/material-handler-lagermitarbeiter"
     },
@@ -1170,7 +1183,7 @@
       "url": "https://jobs.thermofisher.com/global/en/job/R-01375186/client-services-project-manager-labelling",
       "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T09:50:19.781Z",
+      "crawledAt": "2026-11-26T21:31:32.877Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "1 Job Posting, 4123 Allschwil, Switzerland",
@@ -1219,116 +1232,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T09:50:19.781Z",
+      "validThrough": "2027-02-09T21:31:32.877Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01375186/client-services-project-manager-labelling"
-    },
-    {
-      "id": "thermo-fisher-scientific-cdee167510fa",
-      "slug": "operatore-macchina-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
-      "slugByLocale": {
-        "it": "operatore-macchina-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
-        "en": "machine-operator-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
-        "de": "maschinenbediener-in-druck-thermo-fisher-scientific-ch",
-        "fr": "operateur-de-machine-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
-      },
-      "company": "Thermo Fisher Scientific (Schweiz) AG",
-      "companyKey": "thermo-fisher-scientific",
-      "companyDomain": "thermofisher.com",
-      "title": "Maschinenbediener:in Druck",
-      "titleByLocale": {
-        "it": "Operatore macchina",
-        "en": "Machine operator",
-        "de": "Maschinenbediener:in Druck",
-        "fr": "Opérateur de machine"
-      },
-      "description": "## Work Schedule\n\nOther\n\n## Environmental Conditions\n\nAdherence to all Good Manufacturing Practices (GMP) Safety Standards\n\n## Job Description\n\n## Equipment Operator / Maschinenbediener:in Druck\n\n## Zusammenfassung der Funktion:Der Maschinenbediener ist für die fachgerechte Einrichtung, Bedienung und Überwachung unserer Druckanlagen zur Herstellung und/oder Bedruckung von Labels und Booklets für klinische Studien (Flexo- und Inkjet-Technologie mit integrierten Kamerasystemen) zuständig.\n\n## Ihre Aufgaben:\n\n- Fachgerechte Einrichtung, Bedienung und Überwachung unserer diversen Druckanlagen\n• Sicherstellung der termin- und qualitätsgerechten Herstellung der Produkte\n• Reinigung, Instandhaltung und Wartung der Maschinen und Systeme\n• GMP-gerechte Dokumentation der durchgeführten Aufgaben\n• Aktive Teilnahme an Prozessverbesserungen\n• Arbeiten im 3-Schicht-Modell\n\n**Ihr Profil:**• Abgeschlossene Ausbildung als Flexodrucker, Drucktechnologe oder Drucker oder mindestens 5 Jahre Berufserfahrung in der Druckbranche an Druckmaschinen in Reihenbauweise\n• Erfahrung in der Pharma- oder Lebensmittelindustrie von Vorteil\n• Sehr gute Deutschkenntnisse in Wort und Schrift (Englischkenntnisse von Vorteil)\n• Erfahrung im Umgang mit Computern sowie Grundkenntnisse in den gängigen MS-Office-Anwendungen\n• Eigenverantwortliche und selbstständige Arbeitsweise, Zuverlässigkeit sowie Bereitschaft zur Arbeit im 3-Schicht-Betrieb\n• Eigeninitiative, Flexibilität und Teamfähigkeit\n• Erfahrung im Umgang mit Maschinen",
-      "descriptionByLocale": {
-        "it": "## Programma di lavoro\n\nAltri\n\n## Condizioni ambientali\n\nAderenza a tutte le buone pratiche di fabbricazione (GMP) standard di sicurezza\n\n## Descrizione del lavoro\n\n## Operatore di attrezzature / Operatore di macchina: in stampa\n\n## L'operatore della macchina è responsabile per l'installazione, il funzionamento e il monitoraggio professionale delle nostre apparecchiature di stampa per la produzione e/o la stampa di etichette e libretti per gli studi clinici (tecnologia Flexo e inkjet con sistemi di telecamere integrati).\n\n## I loro compiti:\n\n- Installazione professionale, funzionamento e monitoraggio dei nostri vari sistemi di stampa\n• Garantire la produzione on-time e di qualità dei prodotti\n• Pulizia, manutenzione e manutenzione di macchinari e sistemi\n• Documentazione conforme a GMP dei compiti eseguiti\n• Partecipazione attiva ai miglioramenti dei processi\n• Lavorare in un modello a 3 strati\n\n**Il tuo profilo:**• Formazione completata come stampante flessografica, tecnologia di stampa o stampante o almeno 5 anni di esperienza professionale nel settore della stampa su presse stampa in linea\n• L'esperienza nell'industria farmaceutica o alimentare è vantaggiosa\n• Molto buona conoscenza del tedesco in parola e scrittura (abilità inglese di vantaggio)\n• Esperienza nel trattare con i computer e le conoscenze di base nelle applicazioni di MS Office comuni\n• Metodi di lavoro auto-responsabili e indipendenti, affidabilità e disponibilità a lavorare in funzionamento a 3 turni\n• Iniziativa, flessibilità e lavoro di squadra\n• Esperienza nelle macchine di movimentazione",
-        "en": "## Work Schedule\n\nOther\n\n## Environmental Conditions\n\nAdherence to all Good Manufacturing Practices (GMP) Safety Standards\n\n## Job description\n\n## Equipment Operator / Machine Operator:in print\n\n## The machine operator is responsible for the professional setup, operation and monitoring of our printing equipment for the production and/or printing of labels and booklets for clinical trials (flexo and inkjet technology with integrated camera systems).\n\n## Their tasks:\n\n- Professional installation, operation and monitoring of our various printing systems\n• Ensuring on-time and quality production of products\n• Cleaning, maintenance and maintenance of machinery and systems\n• GMP-compliant documentation of the tasks performed\n• Active participation in process improvements\n• Working in a 3-layer model\n\n**Your profile:**• Completed training as a flexographic printer, printing technologist or printer or at least 5 years of professional experience in the printing industry on in-line printing presses\n• Experience in the pharmaceutical or food industry is advantageous\n• Very good knowledge of German in word and writing (English skills of advantage)\n• Experience in dealing with computers as well as basic knowledge in the common MS Office applications\n• Self-responsible and independent working methods, reliability and willingness to work in 3-shift operation\n• Initiative, flexibility and teamwork\n• Experience in handling machines",
-        "de": "## Work Schedule\n\nOther\n\n## Environmental Conditions\n\nAdherence to all Good Manufacturing Practices (GMP) Safety Standards\n\n## Job Description\n\n## Equipment Operator / Maschinenbediener:in Druck\n\n## Zusammenfassung der Funktion:Der Maschinenbediener ist für die fachgerechte Einrichtung, Bedienung und Überwachung unserer Druckanlagen zur Herstellung und/oder Bedruckung von Labels und Booklets für klinische Studien (Flexo- und Inkjet-Technologie mit integrierten Kamerasystemen) zuständig.\n\n## Ihre Aufgaben:\n\n- Fachgerechte Einrichtung, Bedienung und Überwachung unserer diversen Druckanlagen\n• Sicherstellung der termin- und qualitätsgerechten Herstellung der Produkte\n• Reinigung, Instandhaltung und Wartung der Maschinen und Systeme\n• GMP-gerechte Dokumentation der durchgeführten Aufgaben\n• Aktive Teilnahme an Prozessverbesserungen\n• Arbeiten im 3-Schicht-Modell\n\n**Ihr Profil:**• Abgeschlossene Ausbildung als Flexodrucker, Drucktechnologe oder Drucker oder mindestens 5 Jahre Berufserfahrung in der Druckbranche an Druckmaschinen in Reihenbauweise\n• Erfahrung in der Pharma- oder Lebensmittelindustrie von Vorteil\n• Sehr gute Deutschkenntnisse in Wort und Schrift (Englischkenntnisse von Vorteil)\n• Erfahrung im Umgang mit Computern sowie Grundkenntnisse in den gängigen MS-Office-Anwendungen\n• Eigenverantwortliche und selbstständige Arbeitsweise, Zuverlässigkeit sowie Bereitschaft zur Arbeit im 3-Schicht-Betrieb\n• Eigeninitiative, Flexibilität und Teamfähigkeit\n• Erfahrung im Umgang mit Maschinen",
-        "fr": "## Calendrier des travaux\n\nAutres\n\n## Conditions environnementales\n\nRespect de toutes les bonnes pratiques de fabrication (BPF)\n\n## Description du poste\n\n## Opérateur d'équipement / Machine Opérateur:en impression\n\n## L'opérateur de la machine est responsable de la configuration, du fonctionnement et du suivi professionnels de notre équipement d'impression pour la production et/ou l'impression d'étiquettes et de livrets pour les essais cliniques (technologie flexo et jet d'encre avec systèmes de caméra intégrés).\n\n## Leurs tâches:\n\n- Installation professionnelle, fonctionnement et surveillance de nos différents systèmes d'impression\n• Assurer la production en temps voulu et de qualité des produits\n• Nettoyage, entretien et entretien des machines et des systèmes\n• Documentation conforme aux BPF des tâches exécutées\n• Participation active aux améliorations des processus\n• Travailler dans un modèle à 3 couches\n\n**Votre profil:**• Formation complétée en tant qu'imprimeur, technologue ou imprimeur flexographique ou au moins 5 ans d'expérience professionnelle dans l'industrie de l'impression sur des presses en ligne\n• L'expérience dans l'industrie pharmaceutique ou alimentaire est avantageuse\n• Très bonne connaissance de l'allemand en paroles et en écriture (compétences anglaises d'avantage)\n• Expérience dans le traitement des ordinateurs ainsi que des connaissances de base dans les applications communes de MS Office\n• Méthodes de travail autonomes et responsables, fiabilité et volonté de travailler en 3 équipes\n• Initiative, flexibilité et travail d'équipe\n• Expérience dans la manipulation des machines"
-      },
-      "location": "Allschwil",
-      "canton": "BL",
-      "url": "https://jobs.thermofisher.com/global/en/job/R-01366825/maschinenbediener-in-druck",
-      "source": "Thermo Fisher Scientific (Schweiz) AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:20:33.801Z",
-      "addressLocality": "Allschwil",
-      "postalCode": "4123",
-      "streetAddress": "1 Job Posting, 4123 Allschwil, Switzerland",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Life Sciences — Pharma Manufacturing & Quality",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-09T00:00:00.000+00:00",
-      "postedDate": "2026-09-09T00:00:00.000+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://thermofisher.wd5.myworkdayjobs.com/ThermoFisherCareers/job/Allschwil-Switzerland/Maschinenbediener-in-Druck_R-01366825/apply",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "maschinenbediener-in-druck-thermo-fisher-scientific-ch",
-        "operatore-secondario-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
-        "operator-secondary-thermo-fisher-scientific-ch",
-        "operateur-secondary-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
-        "primario-dell-operatore-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
-        "operator-primary-thermo-fisher-scientific-ch",
-        "operateur-primary-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
-        "operateur-primary-thermo-fisher-scientific-schweiz-ag-allschwil",
-        "operator-primary-thermo-fisher-scientific-schweiz-ag-allschwil",
-        "operator-secondary-thermo-fisher-scientific-schweiz-ag-allschwil"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "maschinenbediener-in-druck-thermo-fisher-scientific-ch",
-          "operatore-secondario-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
-          "operator-secondary-thermo-fisher-scientific-ch",
-          "operateur-secondary-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
-          "primario-dell-operatore-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
-          "operator-primary-thermo-fisher-scientific-ch",
-          "operateur-primary-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
-          "operateur-primary-thermo-fisher-scientific-schweiz-ag-allschwil",
-          "operator-primary-thermo-fisher-scientific-schweiz-ag-allschwil",
-          "operator-secondary-thermo-fisher-scientific-schweiz-ag-allschwil"
-        ],
-        "en": [
-          "maschinenbediener-in-druck-thermo-fisher-scientific-ch"
-        ],
-        "de": [
-          "operator-secondary-thermo-fisher-scientific-ch"
-        ],
-        "fr": [
-          "maschinenbediener-in-druck-thermo-fisher-scientific-ch",
-          "operateur-secondary-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-09-09T13:54:43.258Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T09:20:33.801Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "sourceIdentity": "url:https://jobs.thermofisher.com/global/en/job/r-01366825/maschinenbediener-in-druck"
     }
   ]
 }

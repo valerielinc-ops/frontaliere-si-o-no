@@ -1,7 +1,7 @@
 {
   "key": "somedia",
   "label": "Somedia AG",
-  "generatedAt": "2026-11-26T09:52:44.740Z",
+  "generatedAt": "2026-11-26T21:31:03.888Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 7161,
-  "avgDurationMs": 7161,
+  "durationMs": 9099,
+  "avgDurationMs": 9099,
   "durationHistory": [
-    7161
+    9099
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://jobs.somedia.ch/Projektleiterin-Marketing-Zeitungen-Kundenbindung-50-de-j434.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:52:25.598Z",
+      "crawledAt": "2026-11-26T21:30:42.719Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -88,7 +88,7 @@
       "url": "https://jobs.somedia.ch/Sales-Managerin-Aussendienst-80-100-de-j416.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:52:24.603Z",
+      "crawledAt": "2026-11-26T21:30:41.643Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -138,7 +138,7 @@
       "url": "https://jobs.somedia.ch/Senior-Marketing-Automation-Managerin-80-100-de-j430.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:52:23.611Z",
+      "crawledAt": "2026-11-26T21:30:40.560Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -178,5 +178,5 @@
       }
     }
   ],
-  "codeCommit": "bb9ecce641e4806660b82ef90e95e36b4e9d873c"
+  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
 }
