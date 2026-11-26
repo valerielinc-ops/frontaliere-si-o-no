@@ -57,7 +57,15 @@ const LOG_MESSAGE = '$metadata.message';
 const ORIGIN_FAILURE_MESSAGE_TOKEN = '"event":"origin_failure"';
 const JOB_CANON_V2_SUCCESS_MESSAGE_TOKEN = '"event":"job_canon_v2_success"';
 const JOB_CANON_V1_FALLBACK_MESSAGE_TOKEN = '"event":"job_canon_v1_fallback"';
+// Cloudflare aggregate sample intervals can drift slightly from the configured
+// full-sampling value. Accept at most 0.01% absolute deviation from 1.
+const FULL_SAMPLING_INTERVAL_TOLERANCE = 1e-4;
 const filter = (key, operation, value, type = 'string') => ({ key, operation, value, type });
+
+export function isCloudflareFullSamplingInterval(interval) {
+  return Number.isFinite(interval)
+    && Math.abs(interval - 1) <= FULL_SAMPLING_INTERVAL_TOLERANCE;
+}
 
 function buildStructuredLogFilters(messageToken) {
   return [
@@ -113,7 +121,7 @@ export function evaluateJobCanonV1Retirement(snapshot) {
   const signalSamplingComplete = v2SampleIntervals.length === observedDays.length
     && v2SampleIntervals.length >= WINDOW_DAYS
     && [...v2SampleIntervals, ...v1SampleIntervals]
-      .every((interval) => interval === 1);
+      .every(isCloudflareFullSamplingInterval);
   const expectedSamplingDays = Array.isArray(snapshot.workerLogSamplingExpectedDays)
     ? snapshot.workerLogSamplingExpectedDays
     : [];
@@ -139,7 +147,7 @@ export function evaluateJobCanonV1Retirement(snapshot) {
     if (bucket.rows !== 1 || !Number.isFinite(bucket.count) || bucket.count <= 0) {
       streamSamplingBlockers.push(`coverage:${day}:empty-or-ambiguous`);
     }
-    if (bucket.sampleInterval !== 1) {
+    if (!isCloudflareFullSamplingInterval(bucket.sampleInterval)) {
       streamSamplingBlockers.push(`sample-interval:${day}:${bucket.sampleInterval ?? 'unknown'}`);
     }
   }
