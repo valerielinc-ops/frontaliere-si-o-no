@@ -34,6 +34,7 @@ import { describe, it, expect } from 'vitest';
 import {
   bucketEscalationKind,
   bucketFinding,
+  clusterReportTag,
   considerBuckets,
   stripNegatedImpactClauses,
   tallyFindings,
@@ -600,7 +601,7 @@ describe('bucketFinding — #20161 non confonde sei failure mode dei parser', ()
 
     const prs = STRUCTURED_DATA_PARSER_HETEROGENEOUS_20161.map((line, index) => ({
       number: 20161 + index,
-      mergedAt: '2026-11-26T00:00:00Z',
+      mergedAt: new Date().toISOString(),
       reviews: [{ author: { login: 'claude' }, body: `## Findings\n${line}\n` }],
     }));
     const { counts, examples } = tallyFindings(prs);
