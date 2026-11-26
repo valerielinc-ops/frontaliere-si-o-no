@@ -1,5 +1,4 @@
 import fs from 'node:fs';
-import { createServer } from 'node:http';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -26,6 +25,7 @@ import {
   fetchWorkdayJobs,
   fetchWorkdaySidebarText,
   resetWorkdayImplicitRateLimitStateForTests,
+  shouldPropagateWorkdayFetchError,
   WorkdayApiError,
   WorkdayRateLimitError,
 } from '../scripts/lib/ats-clients/workday-client.mjs';
@@ -59,31 +59,44 @@ afterEach(() => {
 });
 
 describe('Workday JSON transport', () => {
-  it('shares the runner egress lock and Retry-After cooldown across concurrent processes', async () => {
+  it('propagates status-0 transport failures for fail-closed listing callers', () => {
+    const transportError = new WorkdayApiError('transport failed', 0, `${API_BASE}/jobs`);
+
+    expect(shouldPropagateWorkdayFetchError(transportError, true)).toBe(true);
+    expect(shouldPropagateWorkdayFetchError(transportError)).toBe(false);
+  });
+
+  it('shares the runner egress lock and Retry-After cooldown across processes', async () => {
     const egressStateDir = fs.mkdtempSync(path.join(os.tmpdir(), 'workday-egress-test-'));
-    const requestTimes: number[] = [];
-    const responseStatuses: number[] = [];
-    const server = createServer((_request, response) => {
-      requestTimes.push(Date.now());
-      if (requestTimes.length === 1) {
-        responseStatuses.push(429);
-        response.writeHead(429, { 'Retry-After': '1' }).end();
-        return;
-      }
-      responseStatuses.push(200);
-      response.writeHead(200, { 'Content-Type': 'application/json' })
-        .end(JSON.stringify({ ok: true }));
-    });
+    const requestLogPath = path.join(egressStateDir, 'requests.log');
+    fs.writeFileSync(requestLogPath, '');
 
     try {
-      await new Promise<void>((resolve) => server.listen(0, '127.0.0.1', resolve));
-      const address = server.address();
-      if (!address || typeof address === 'string') throw new Error('test server did not bind');
-      const apiBase = `http://127.0.0.1:${address.port}/wday/cxs/test/External`;
+      const apiBase = 'https://test.wd3.myworkdayjobs.com/wday/cxs/test/External';
       const clientUrl = pathToFileURL(path.resolve('scripts/lib/ats-clients/workday-client.mjs')).href;
       const runClientProcess = () => new Promise<void>((resolve, reject) => {
         const script = `
+          import fs from 'node:fs';
           import { fetchWorkdayJsonWithRetry } from ${JSON.stringify(clientUrl)};
+          globalThis.fetch = async () => {
+            const previous = fs.readFileSync(${JSON.stringify(requestLogPath)}, 'utf8');
+            fs.appendFileSync(${JSON.stringify(requestLogPath)}, String(Date.now()) + '\\n');
+            if (!previous) {
+              Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 100);
+              return {
+                status: 429,
+                ok: false,
+                headers: { get: (name) => name.toLowerCase() === 'retry-after' ? '1' : null },
+                text: async () => '',
+              };
+            }
+            return {
+              status: 200,
+              ok: true,
+              headers: { get: () => null },
+              text: async () => JSON.stringify({ ok: true }),
+            };
+          };
           try {
             await fetchWorkdayJsonWithRetry(${JSON.stringify(apiBase)}, ${JSON.stringify(`${apiBase}/jobs`)}, {
               retries: 0,
@@ -107,11 +120,14 @@ describe('Workday JSON transport', () => {
       const second = runClientProcess();
       await Promise.all([first, second]);
 
+      const requestTimes = fs.readFileSync(requestLogPath, 'utf8')
+        .trim()
+        .split('\n')
+        .filter(Boolean)
+        .map(Number);
       expect(requestTimes).toHaveLength(2);
-      expect(responseStatuses).toEqual([429, 200]);
       expect(requestTimes[1] - requestTimes[0]).toBeGreaterThanOrEqual(900);
     } finally {
-      await new Promise<void>((resolve) => server.close(() => resolve()));
       fs.rmSync(egressStateDir, { recursive: true, force: true });
     }
   });

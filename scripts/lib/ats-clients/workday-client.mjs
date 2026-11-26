@@ -116,6 +116,16 @@ export class WorkdayRateLimitError extends WorkdayApiError {
   }
 }
 
+/**
+ * Preserve the shared listing policy across the dedicated Workday callers.
+ * Rate limits always propagate; `throwOnError` makes all request failures
+ * fail closed, including the statusCode 0 transport-failure marker.
+ */
+export function shouldPropagateWorkdayFetchError(error, throwOnError = false) {
+  return error instanceof WorkdayRateLimitError
+    || throwOnError;
+}
+
 /* ── Constants ─────────────────────────────────────────────────────────── */
 
 const DEFAULT_USER_AGENT = 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/)';

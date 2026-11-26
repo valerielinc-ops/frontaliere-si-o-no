@@ -1,11 +1,17 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   HUNTSMAN_KEY,
   HUNTSMAN_COMPANY_NAME,
+  fetchAllHuntsmanJobs,
   isHuntsmanJob,
   isTrustedDomain,
 } from '../scripts/lib/huntsman-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+  vi.unstubAllEnvs();
+});
 
 describe('Huntsman Corporation crawler parser', () => {
   // ── Constants ──
@@ -57,6 +63,12 @@ describe('Huntsman Corporation crawler parser', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
     });
+  });
+
+  it('propagates a failed listing request instead of treating it as an empty source', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => new Response('', { status: 404 })));
+
+    await expect(fetchAllHuntsmanJobs()).rejects.toThrow(/HTTP 404/);
   });
 
   // ── slugify (imported from crawler-template) ──

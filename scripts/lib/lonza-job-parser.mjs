@@ -17,7 +17,7 @@ import {
   createWorkdayRequestContext,
   fetchWorkdayJsonWithRetry,
   firstLocationSegment,
-  WorkdayRateLimitError,
+  shouldPropagateWorkdayFetchError,
   workdayPostingDateFields,
 } from './ats-clients/workday-client.mjs';
 import { recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
@@ -117,6 +117,7 @@ async function fetchJson(url, options = {}) {
     method = 'GET',
     body,
     requestContext,
+    throwOnError = false,
   } = options;
   const timeoutMs = Number(configuredTimeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   try {
@@ -129,7 +130,7 @@ async function fetchJson(url, options = {}) {
         'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
     });
   } catch (err) {
-    if (err instanceof WorkdayRateLimitError) throw err;
+    if (shouldPropagateWorkdayFetchError(err, throwOnError)) throw err;
     console.warn(`⚠️ Fetch failed for ${url}: ${err?.message || err}`);
     return null;
   }
@@ -154,6 +155,7 @@ async function listSwissJobs(requestContext) {
       method: 'POST',
       body,
       requestContext,
+      throwOnError: true,
     });
 
     if (!data || !Array.isArray(data.jobPostings)) {

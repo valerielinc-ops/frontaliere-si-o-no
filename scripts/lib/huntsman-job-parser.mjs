@@ -13,7 +13,7 @@
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
-import { fetchWorkdayJsonWithRetry, firstLocationSegment, WorkdayRateLimitError, workdayPrimaryLocationState, workdayPostingDateFields } from './ats-clients/workday-client.mjs';
+import { fetchWorkdayJsonWithRetry, firstLocationSegment, shouldPropagateWorkdayFetchError, workdayPrimaryLocationState, workdayPostingDateFields } from './ats-clients/workday-client.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
@@ -120,7 +120,12 @@ function detectEmploymentType(timeType = '') {
 /* ── Workday API ──────────────────────────────────────────── */
 
 async function fetchJson(url, options = {}) {
-  const { timeoutMs: configuredTimeoutMs, method = 'GET', body } = options;
+  const {
+    timeoutMs: configuredTimeoutMs,
+    method = 'GET',
+    body,
+    throwOnError = false,
+  } = options;
   const timeoutMs = Number(configuredTimeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
   try {
     return await fetchWorkdayJsonWithRetry(WORKDAY_API_BASE, url, {
@@ -131,7 +136,7 @@ async function fetchJson(url, options = {}) {
         'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
     });
   } catch (err) {
-    if (err instanceof WorkdayRateLimitError) throw err;
+    if (shouldPropagateWorkdayFetchError(err, throwOnError)) throw err;
     console.warn(`⚠️ Fetch failed for ${url}: ${err?.message || err}`);
     return null;
   }
@@ -158,6 +163,10 @@ async function listSwissJobs() {
     const data = await fetchJson(`${WORKDAY_API_BASE}/jobs`, {
       method: 'POST',
       body,
+      // A failed first listing request is not an observed empty source. Let
+      // the standard pipeline classify the transport/API error and preserve
+      // the previous slice instead of turning it into `no-jobs-parsed`.
+      throwOnError: true,
     });
 
     if (!data || !Array.isArray(data.jobPostings)) {
