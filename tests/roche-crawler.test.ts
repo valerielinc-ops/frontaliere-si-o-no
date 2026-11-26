@@ -43,6 +43,7 @@ import {
   isRocheJob,
   isTrustedDomain,
 } from '../scripts/lib/roche-job-parser.mjs';
+import { WorkdayAuthError } from '../scripts/lib/ats-clients/workday-client.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 describe('Roche crawler parser', () => {
@@ -85,6 +86,25 @@ describe('Roche crawler parser', () => {
     });
     expect((jobs as any).missingDetailUrlCount).toBe(1);
     expect(mocks.fetchWorkdayJobDetailParts).toHaveBeenCalledTimes(1);
+  });
+
+  it('preserves an anti-bot outcome instead of publishing a blocked listing as an empty source', async () => {
+    mocks.fetchWorkdayJobs.mockImplementation(async function* fetchMockJobs() {
+      yield {
+        title: 'Partial listing before the block',
+        location: 'Basel',
+        externalPath: '/job/Basel/Partial-role_JR0',
+        applyUrl: 'https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Partial-role_JR0',
+        jobReqId: 'JR0',
+      };
+      throw new WorkdayAuthError('anti-bot block', 403, 'https://roche.wd3.myworkdayjobs.com/jobs');
+    });
+
+    const jobs = await fetchAllRocheJobs();
+
+    expect(jobs).toHaveLength(0);
+    expect((jobs as any).fetchOutcome).toBe('anti_bot_block');
+    expect(mocks.fetchWorkdayJobDetailParts).not.toHaveBeenCalled();
   });
 
   it('skips a Swiss vacancy whose detail has no body and never emits a Key details stub', async () => {
