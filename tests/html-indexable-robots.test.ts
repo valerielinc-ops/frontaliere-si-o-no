@@ -11,6 +11,9 @@ describe('indexable robots in generated and minified HTML', () => {
     '<meta name=robots content=index,follow><meta content=index name=robots>',
     '<META CONTENT="index, follow, max-image-preview:large" NAME=ROBOTS>',
     '<meta data-note="noindex" name=robots content=index,follow>',
+    '<div data-template=\'<meta name="robots" content="noindex">\'>'
+      + '</div><script>const fake = \'<meta name="robots" content="noindex">\';</script>'
+      + '<meta name="robots" content="index,follow">',
   ])('recognizes an indexable directive: %s', (html) => {
     expect(htmlHasIndexableRobots(html)).toBe(true);
   });
@@ -25,6 +28,8 @@ describe('indexable robots in generated and minified HTML', () => {
     '<meta name=robots-extra content=index,follow>',
     '<meta name=robots>',
     '<meta name=description content="name=robots content=index">',
+    '<div data-template=\'<meta name="robots" content="noindex">\'>'
+      + '</div><script>const fake = \'<meta name="robots" content="noindex">\';</script>',
     '<html><head></head></html>',
   ])('does not promote noindex or unknown metadata: %s', (html) => {
     expect(htmlHasIndexableRobots(html)).toBe(false);

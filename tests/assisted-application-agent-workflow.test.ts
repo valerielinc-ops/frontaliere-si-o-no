@@ -60,6 +60,18 @@ describe('assisted application agent workflow dependencies', () => {
     expect(installRun).toContain('npx playwright install chromium || npx playwright install --with-deps chromium');
   });
 
+  it('bounds the agent step below the job timeout for portal handoff recovery', () => {
+    const agentRun = steps.find(step => step.name === 'Run agent');
+    const agentTimeout = agentRun?.['timeout-minutes'] ?? 0;
+    const jobTimeout = agentJob?.['timeout-minutes'] ?? 0;
+
+    expect(agentTimeout).toBe(100);
+    expect(agentTimeout).toBeGreaterThan(0);
+    expect(agentTimeout).toBeLessThan(jobTimeout);
+    expect(portalSource).toContain('PORTAL_RUN_MAX_RUNTIME_MS');
+    expect(portalSource).toContain('portal_runtime_budget');
+  });
+
   it('uses opt-in assisted transport, bounded challenge pass, and Valerie handoff', () => {
     const runScript = steps.find(step => step.name === 'Run agent')?.run || '';
     expect(workflowSource).not.toContain('NOPECHA_EXTENSION_PATH');
