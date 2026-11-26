@@ -2897,7 +2897,14 @@ export function applicationEntryControlMatchesSelectedPosting(actionInfo = {}, e
     if (Boolean(actionHref) !== Boolean(entryHref)) return false;
     return !actionHref || samePortalRoute(actionHref, entryHref, snapshot?.url);
   });
-  if (candidates.length !== 1) return false;
+  const canonicalHrefTarget = (href) => {
+    const route = comparablePortalRoute(href, snapshot?.url);
+    return route ? `${route.origin}${route.pathname}${route.search}` : '';
+  };
+  const distinctTargets = new Set(candidates.map((entry) => canonicalHrefTarget(entry.href)).filter(Boolean));
+  const repeatedSameHrefTarget = Boolean(actionHref && candidates.length >= 1 && distinctTargets.size === 1
+    && distinctTargets.has(canonicalHrefTarget(actionHref)));
+  if (candidates.length !== 1 && !repeatedSameHrefTarget) return false;
   if (actionHref && candidates[0].href) {
     const targetRoute = comparablePortalRoute(actionHref, snapshot?.url);
     const sourceRoute = comparablePortalRoute(snapshot?.url);
@@ -4799,7 +4806,9 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
         workdayApplicationEntryProven = isWorkdayApplicationRouteBound(workdayManualTarget, stageContext?.applyUrl)
           || workdayApplicationEntryProven;
         await page.goto(workdayManualTarget, { waitUntil: 'domcontentloaded', timeout: 60_000 });
-      } else if (customSuccessFactorsEntry && (manual || apply)?.href) {
+      } else if ((customSuccessFactorsEntry
+        || (!(manual || apply)?.formId && (manual || apply)?.popup !== true && (manual || apply)?.menuItem !== true))
+        && (manual || apply)?.href) {
         page = (await clickPortalLink(page, locatorFor(page, manual || apply), { context })) || page;
       } else {
         const popup = context.waitForEvent('page', { timeout: POPUP_GRACE_MS }).catch(() => null);

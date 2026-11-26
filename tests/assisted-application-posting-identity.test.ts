@@ -166,6 +166,24 @@ describe('autonomous application-entry posting binding', () => {
       name: 'Apply', href: 'https://careers.example.ch/jobs/other-role/apply',
     }, selected, snapshot, context)).toBe(false);
     expect(applicationEntryControlMatchesSelectedPosting({ name: 'Apply' }, selected, snapshot, context)).toBe(false);
+
+    // A posting that repeats the exact same direct Apply href at top and bottom remains bound.
+    const repeatedEntries = [
+      { text: 'Postuler »', href: 'https://jobs.example.ch/talentcommunity/apply/42/?locale=fr_FR' },
+      { text: 'Postuler »', href: 'https://jobs.example.ch/talentcommunity/apply/42/?locale=fr_FR' },
+    ];
+    expect(applicationEntryControlMatchesSelectedPosting(
+      { name: 'Postuler »', href: '/talentcommunity/apply/42/?locale=fr_FR' },
+      repeatedEntries,
+      { url: 'https://jobs.example.ch/job/Role/42/', buttons: repeatedEntries, links: [] },
+      { postingUrl: 'https://jobs.example.ch/job/Role/42/', job },
+    )).toBe(true);
+    expect(applicationEntryControlMatchesSelectedPosting(
+      { name: 'Apply', href: '' },
+      [{ text: 'Apply', href: '' }, { text: 'Apply', href: '' }],
+      { url: postingUrl, buttons: [], links: [] },
+      context,
+    )).toBe(false);
   });
 
   it('rejects an external Apply card whose requisition id conflicts with the paid posting', () => {
