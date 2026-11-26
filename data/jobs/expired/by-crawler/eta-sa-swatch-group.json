@@ -186,20 +186,27 @@
     "sector": "",
     "expiredAt": "2026-11-23T21:33:20.467Z",
     "previousSlugs": [
-      "mitarbeiter-in-wasseraufbereitung-entsorgung-w01-w02-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen",
       "collaboratore-trice-wasseraufbereitung-entsorgung-w01-w02-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyt6",
-      "mitarbeiter-in-wasseraufbereitung-entsorgung-w01-w02-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyt6"
+      "mitarbeiter-in-wasseraufbereitung-entsorgung-w01-w02-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyt6",
+      "mitarbeiter-in-wasseraufbereitung-entsorgung-w01-w02-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen",
+      "mitarbeiter-in-wasseraufbereitung-entsorgung-w01-w02-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-cdee1b5b"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "mitarbeiter-in-wasseraufbereitung-entsorgung-w01-w02-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen",
-        "collaboratore-trice-wasseraufbereitung-entsorgung-w01-w02-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyt6"
+        "mitarbeiter-in-wasseraufbereitung-entsorgung-w01-w02-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-cdee1b5b",
+        "collaboratore-trice-wasseraufbereitung-entsorgung-w01-w02-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyt6",
+        "mitarbeiter-in-wasseraufbereitung-entsorgung-w01-w02-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen"
       ],
       "en": [
-        "mitarbeiter-in-wasseraufbereitung-entsorgung-w01-w02-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyt6"
+        "mitarbeiter-in-wasseraufbereitung-entsorgung-w01-w02-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyt6",
+        "mitarbeiter-in-wasseraufbereitung-entsorgung-w01-w02-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen"
       ],
       "fr": [
-        "mitarbeiter-in-wasseraufbereitung-entsorgung-w01-w02-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyt6"
+        "mitarbeiter-in-wasseraufbereitung-entsorgung-w01-w02-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0esyt6",
+        "mitarbeiter-in-wasseraufbereitung-entsorgung-w01-w02-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen"
+      ],
+      "de": [
+        "mitarbeiter-in-wasseraufbereitung-entsorgung-w01-w02-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen"
       ]
     },
     "postalCode": "2540",
@@ -209,7 +216,12 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.eta.ch/en/jobs-careers/vacancies/detail/3818",
-    "firstSeenAt": "2026-11-18T21:28:58.020Z"
+    "firstSeenAt": "2026-11-18T21:28:58.020Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "mitarbeiter-in-wasseraufbereitung-entsorgung-w01-w02-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-cdee1b5b": "SO"
+      }
+    }
   },
   {
     "slug": "disegnatore-trice-cad-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0eszd4",
@@ -762,11 +774,18 @@
     },
     "sector": "",
     "expiredAt": "2026-10-24T09:17:24.679Z",
-    "previousSlugs": [
-      "decolleteur-80-100-horaire-libre-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-sites-u02-grang"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "decolleteur-80-100-horaire-libre-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-fdd2cdee",
+        "decolleteur-80-100-horaire-libre-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-sites-u02-grang"
+      ],
+      "en": [
+        "decolleteur-80-100-horaire-libre-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-sites-u02-grang"
+      ],
+      "de": [
+        "decolleteur-80-100-horaire-libre-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-sites-u02-grang"
+      ],
+      "fr": [
         "decolleteur-80-100-horaire-libre-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-sites-u02-grang"
       ]
     },
@@ -775,7 +794,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.eta.ch/index.php/en/jobs-careers/vacancies/detail/3797",
-    "firstSeenAt": "2026-10-24T09:17:24.679Z"
+    "firstSeenAt": "2026-10-24T09:17:24.679Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "decolleteur-80-100-horaire-libre-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-fdd2cdee": "JU"
+      }
+    },
+    "previousSlugs": [
+      "decolleteur-80-100-horaire-libre-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-sites-u02-grang",
+      "decolleteur-80-100-horaire-libre-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-fdd2cdee"
+    ]
   },
   {
     "id": "company-eszcy",
@@ -806,11 +834,18 @@
     },
     "sector": "",
     "expiredAt": "2026-10-24T09:17:24.679Z",
-    "previousSlugs": [
-      "einrichter-cnc-langdreher-decolleteur-m-w-d-80-100-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "einrichter-cnc-langdreher-decolleteur-m-w-d-80-100-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-5e01f96a",
+        "einrichter-cnc-langdreher-decolleteur-m-w-d-80-100-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen"
+      ],
+      "en": [
+        "einrichter-cnc-langdreher-decolleteur-m-w-d-80-100-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen"
+      ],
+      "de": [
+        "einrichter-cnc-langdreher-decolleteur-m-w-d-80-100-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen"
+      ],
+      "fr": [
         "einrichter-cnc-langdreher-decolleteur-m-w-d-80-100-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen"
       ]
     },
@@ -820,7 +855,16 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.eta.ch/index.php/en/jobs-careers/vacancies/detail/3799",
-    "firstSeenAt": "2026-10-24T09:17:24.679Z"
+    "firstSeenAt": "2026-10-24T09:17:24.679Z",
+    "previousSlugCantonByLocale": {
+      "it": {
+        "einrichter-cnc-langdreher-decolleteur-m-w-d-80-100-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-5e01f96a": "SO"
+      }
+    },
+    "previousSlugs": [
+      "einrichter-cnc-langdreher-decolleteur-m-w-d-80-100-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen",
+      "einrichter-cnc-langdreher-decolleteur-m-w-d-80-100-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-5e01f96a"
+    ]
   },
   {
     "slug": "f-e-ingenieur-in-tribologie-materialien-80-100-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0eszd2",
@@ -1701,7 +1745,11 @@
       "polymechaniker-in-im-bereich-erosion-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-11fb84d3",
       "polymechaniker-in-im-bereich-erosion-80-100-vor-ort-eta-sa-manufacture-horlogere-suisse-ticino-7ubemf-747918d4",
       "werkzeugmacher-polymechaniker-in-sul-sito-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-grenchen-2241b1cd",
-      "polymechaniker-in-dans-la-zone-erosion-80-100-sur-place-eta-sa-swatch-group-2540-grenchen-phone-ae390c-b7fd85f6"
+      "polymechaniker-in-dans-la-zone-erosion-80-100-sur-place-eta-sa-swatch-group-2540-grenchen-phone-ae390c-b7fd85f6",
+      "polymechaniker-in-dans-la-zone-erosion-80-100-sur-place-eta-sa-swatch-group-2540-grenchen-phone-ae390c",
+      "werkzeugmacher-polymechaniker-sur-place-eta-sa-swatch-group-ticino-fab4e1",
+      "it-system-ingegnere-100-vor-ort-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino",
+      "it-system-ingegnere-100-vor-ort-eta-sa-manufacture-horlogere-suisse-ticino"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -2252,7 +2300,10 @@
       "line-mechanic-eta-sa-swatch-group-ticino",
       "leitungsmechanik-eta-sa-swatch-group-ticino",
       "leitungsmechanik-eta-sa-swatch-group-ticino-6052c0",
-      "einrichter-in-kunststofftechnik-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-phone-0801d74c"
+      "einrichter-in-kunststofftechnik-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-phone-0801d74c",
+      "einrichter-in-kunststofftechnik-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-phone",
+      "leader-in-qualitaetsage-on-site-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino-bcd572",
+      "leader-in-qualitaetsage-sur-place-eta-sa-swatch-group-ticino-bcd572"
     ],
     "previousSlugsByLocale": {
       "fr": [
@@ -2504,7 +2555,11 @@
       "establishment-in-plastic-technology-sul-sito-eta-sa-swatch-group-ticino-b6b170-9d772c81",
       "establishment-in-plastic-technology-on-site-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino-6ad6adfd",
       "einrichter-in-kunststofftechnik-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-59172ee5",
-      "etablissement-technologie-plastique-sur-place-eta-sa-swatch-group-ticino-ddaae95b"
+      "etablissement-technologie-plastique-sur-place-eta-sa-swatch-group-ticino-ddaae95b",
+      "establishment-in-plastic-technology-sul-sito-eta-sa-swatch-group-ticino-b6b170",
+      "einrichter-in-kunststofftechnik-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offent-49gsdt",
+      "etablissement-technologie-plastique-sur-place-eta-sa-swatch-group-ticino",
+      "establishment-in-plastic-technology-on-site-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino-b6b170"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -2819,7 +2874,13 @@
       "polymechaniker-in-nel-settore-area-80-100-sul-sito-produzione-horlogere-suisse-eta-sa-eta-sa-swatch-group-bceb8167",
       "polymechaniker-in-nel-settore-area-80-100-sul-sito-produzione-horlogere-suisse-eta-sa-eta-sa-swatch-group-2540-8c5d6df3",
       "polymechaniker-in-dans-la-zone-erosion-80-100-sur-place-eta-sa-swatch-group-ticino-242cd5bf",
-      "polymechaniker-in-dans-la-zone-erosion-80-100-sur-place-eta-sa-swatch-group-2540-grenchen-phone-f93bb986"
+      "polymechaniker-in-dans-la-zone-erosion-80-100-sur-place-eta-sa-swatch-group-2540-grenchen-phone-f93bb986",
+      "polymechaniker-in-dans-la-zone-erosion-80-100-sur-place-eta-sa-swatch-group-2540-grenchen-phone",
+      "polymechaniker-in-im-bereich-erosion-80-100-vor-ort-eta-sa-manufacture-horlogere-suisse-ticino",
+      "polymechaniker-in-im-bereich-erosion-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino",
+      "polymechaniker-in-nel-settore-area-80-100-sul-sito-produzione-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino",
+      "polymechaniker-in-nel-settore-area-80-100-sul-sito-produzione-horlogere-suisse-eta-sa-eta-sa-swatch-group-2540-grenchen",
+      "polymechaniker-in-dans-la-zone-erosion-80-100-sur-place-eta-sa-swatch-group-ticino"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -3213,7 +3274,8 @@
       "it-system-engineer-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-technologien-und-verfolgen-trends-sowie-entwicklungen",
       "it-system-ingegnere-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-technologien-und-verfolgen-trends-sowie-entwicklunge-6oyzog",
       "it-system-ingegnere-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-technologien-und-verfolgen-trends-sowie-entwicklungen-im-client-umfeld-mit-inte",
-      "it-system-ingegnere-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-technologien-und-verfolgen-f4664f98"
+      "it-system-ingegnere-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-technologien-und-verfolgen-f4664f98",
+      "it-system-ingenieur-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-technologien-und-verfolgen-trends-sowie-entwicklunge-6oyzog"
     ],
     "previousSlugsByLocale": {
       "it": [
