@@ -1,7 +1,7 @@
 {
   "key": "policelavaux-ch",
   "label": "Police Lavaux",
-  "generatedAt": "2026-11-26T10:22:01.896Z",
+  "generatedAt": "2026-11-26T21:57:40.104Z",
   "total": 2,
   "discovered": 3,
   "parsed": 2,
@@ -48,10 +48,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 7077,
-  "avgDurationMs": 7077,
+  "durationMs": 7706,
+  "avgDurationMs": 7706,
   "durationHistory": [
-    7077
+    7706
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -69,7 +69,7 @@
       "url": "https://www.policelavaux.ch/emplois/offres-demploi/police-lavaux-se-developpe-et-recrute",
       "source": "Police Lavaux Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T10:21:49.840Z",
+      "crawledAt": "2026-11-26T21:57:20.966Z",
       "addressLocality": "Lutry",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -93,7 +93,7 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T10:21:49.840Z",
+      "validThrough": "2027-01-27T21:57:20.966Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -115,7 +115,7 @@
       "url": "https://www.policelavaux.ch/emplois/offres-demploi/police-lavaux-recrute-des-sous-officierere-superieure",
       "source": "Police Lavaux Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T10:21:49.839Z",
+      "crawledAt": "2026-11-26T21:57:20.963Z",
       "addressLocality": "Lutry",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -139,7 +139,7 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T10:21:49.839Z",
+      "validThrough": "2027-01-27T21:57:20.963Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -150,5 +150,5 @@
       }
     }
   ],
-  "codeCommit": "bb9ecce641e4806660b82ef90e95e36b4e9d873c"
+  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
 }
