@@ -970,7 +970,8 @@ function scanMarkdownLink(context, start, allowUnclosedDestination = false) {
         : scanQuotedSpan(context, cursor, character);
       if (titleEnd < 0) return allowUnclosedDestination ? destinationEnd : -1;
       cursor = skipHorizontalWhitespace(text, titleEnd);
-      return cursor < lineEnd && text[cursor] === ')' ? cursor + 1 : -1;
+      if (cursor < lineEnd && text[cursor] === ')') return cursor + 1;
+      return allowUnclosedDestination ? destinationEnd : -1;
     }
     if (character === ')') return cursor + 1;
   }

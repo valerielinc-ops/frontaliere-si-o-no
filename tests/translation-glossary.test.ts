@@ -1131,9 +1131,13 @@ describe('translation glossary — a placeholder used as link text', () => {
     }
   });
 
-  it('keeps the label and destination opaque when a Markdown title is unclosed', () => {
-    const input = '[go](/citta%COMPANY% "titolo)';
-    expect(stripPlaceholderTokens(input)).toBe(input);
+  it('keeps the label and destination opaque when a Markdown title or outer delimiter is incomplete', () => {
+    for (const input of [
+      '[go](/citta%COMPANY% "titolo)',
+      '[%COMPANY%](/%COMPANY% "titolo"',
+    ]) {
+      expect(stripPlaceholderTokens(input)).toBe(input);
+    }
   });
 
   it('keeps an over-cap unclosed Markdown destination opaque through its boundary', () => {
