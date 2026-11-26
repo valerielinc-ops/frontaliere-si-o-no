@@ -85,7 +85,8 @@
       "streetAddress": "Lavigny",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-19T09:45:53.413Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/cd0d77ee-919c-470e-a244-097592caa851"
     },
     {
       "id": "institution-lavigny-41af3ef175c8",
@@ -172,7 +173,8 @@
       "streetAddress": "Lavigny",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:45:53.412Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/bfcca1d7-86d8-4b6f-97ff-142349e74c87"
     },
     {
       "id": "institution-lavigny-189c320785f0",
@@ -255,7 +257,8 @@
       "streetAddress": "Lavigny",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T09:45:53.412Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/6b892ec6-437b-4961-b40d-c5c38a58933c"
     },
     {
       "id": "institution-lavigny-795446df91c5",
@@ -340,7 +343,8 @@
       "streetAddress": "Lavigny",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-16T09:45:53.411Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/880f906a-0c97-4c3f-8b0b-147c1ecb5ea5"
     },
     {
       "id": "institution-lavigny-0d89c5d4af79",
@@ -427,7 +431,8 @@
       "streetAddress": "Lavigny",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:45:53.410Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/9a7505f9-ae4c-43f2-a226-8bcc9d2e87df"
     },
     {
       "id": "institution-lavigny-704b7d8e4fc6",
@@ -511,7 +516,8 @@
       "streetAddress": "Lavigny",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-15T09:45:53.409Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/985d70d4-5a16-48ea-b815-5be18774e406"
     },
     {
       "id": "institution-lavigny-5abc686a8baa",
@@ -612,7 +618,8 @@
       "streetAddress": "Lavigny",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:45:53.408Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/9c3ec1e9-e4ff-469c-a4aa-c67ef9ae9785"
     },
     {
       "id": "institution-lavigny-ce351983d251",
@@ -697,7 +704,8 @@
       "streetAddress": "Lavigny",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-05T09:45:53.407Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/40897849-22a7-4cee-8660-be666b065498"
     },
     {
       "id": "institution-lavigny-f851c143280f",
@@ -791,7 +799,8 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T09:45:53.405Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/c423650b-31f4-4adb-9505-57791a8d1df7"
     },
     {
       "id": "institution-lavigny-f3f369704fd1",
@@ -877,7 +886,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:29:13.145Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://www.jobup.ch/fr/emplois/detail/ec745dfa-2340-4b22-a1d7-ea35d02e7b40"
     }
   ]
 }
