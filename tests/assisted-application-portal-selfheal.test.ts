@@ -69,7 +69,7 @@ describe('portal runner self-correction', () => {
     const semanticForm = { getAttribute: (name: string) => name === 'data-aa-id' ? 'f2' : '' };
     const semanticButton = {
       form: null,
-      closest: (selector: string) => selector === '[role="form"]' ? semanticForm : null,
+      closest: (selector: string) => selector.includes('[role="form"]') ? semanticForm : null,
     };
     const exactButton = {
       isVisible: vi.fn().mockResolvedValue(true),

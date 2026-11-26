@@ -4804,6 +4804,18 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       page = (await clickPortalLink(page, link, { context })) || page;
     }
     await settle(page);
+    if (customSuccessFactorsEntry && stageContext?.applyUrl && isSuccessFactorsModuleRoute(new URL(stageContext.applyUrl))) {
+      try {
+        const landed = new URL(page.url());
+        const target = new URL(stageContext.applyUrl);
+        if (landed.origin === target.origin && !landed.searchParams.has('career_job_req_id') && target.searchParams.has('career_job_req_id')) {
+          await page.goto(target.href, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+          await settle(page);
+        }
+      } catch {
+        // Ignore malformed redirect URLs; standard route checks below handle fallback.
+      }
+    }
     if (!await ensurePortalChallenge()) return result({ handoff: 'captcha' });
     snapshot = await extractFields(page, NAVIGATION);
     const postEntryWorkdayMount = await waitForWorkdayApplicationSurface({ pendingEntry: followedApplicationEntryThisHop });
@@ -10380,7 +10392,8 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   // Restart the registration flow with the same password so the portal can
   // issue a fresh OTP; do not throw the credential away and try to create a
   // second one.
-  if (kind === 'sign_in' && account && !account.verifiedAt && usesOtpAccountCreation(host) && !allowExistingRegistration
+  const pendingOtpRestart = Boolean(account && !account.verifiedAt && account.status !== 'created' && usesOtpAccountCreation(host));
+  if (kind === 'sign_in' && pendingOtpRestart && !allowExistingRegistration
     && typeof ctx.accounts.accountNotice === 'function'
     && await ctx.accounts.accountNotice({ host, sinceMs: Number(account.createdAt) || 0 })) {
     // An earlier run's code was accepted, and the portal mailed that the
@@ -10393,7 +10406,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   // repeated registration of an existing address and comes back to its sign-in
   // page, and every step restarted it again until `auth_steps_exhausted`. The
   // second time the saved credential signs in; a failed sign-in is handed over.
-  if (kind === 'sign_in' && account && !account.verifiedAt && usesOtpAccountCreation(host) && !allowExistingRegistration
+  if (kind === 'sign_in' && pendingOtpRestart && !account.verifiedAt && !allowExistingRegistration
     && !registrationRestarts.has(host)) {
     // Some SuccessFactors tenants reopen `/career` on the sign-in form and
     // expose only «Anmelden». The saved credential is the safe recovery path
@@ -10438,7 +10451,8 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     if (!pressed) return accountHandoff('account', 'no_sign_in_button', 'login');
     const after = await awaitAuthOutcome(page, 'sign_in', shown, form.fields);
     diagnostics?.afterClick();
-    if (!account.verifiedAt && (VERIFY_PAGE_RE.test(accountResponseText(after)) || codeField(after))) {
+    if (!account.verifiedAt && (VERIFY_PAGE_RE.test(accountResponseText(after)) || codeField(after)
+      || isAccountVerificationResponse(after) || (authPageKind(after) !== 'create' && hasResendVerificationControl(after)))) {
       return { ...await verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot: after }), pressed };
     }
     // Workday can reveal the verification failure only after the first sign-in
