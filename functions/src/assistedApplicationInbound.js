@@ -404,7 +404,7 @@ const VERIFY_REQUEST_RE = phrases([
   String.raw`${ACCOUNT_DE}\s+${NOT_A_RECEIPT}${VERIFY_DE}(?!\s+wir)`,
   String.raw`${VERIFY_DE}\s+sie\s+${NOT_A_RECEIPT}${ACCOUNT_DE}`,
   String.raw`(?:verifica(?:re)?|conferma(?:re)?|attiva(?:re)?)\s+${NOT_A_RECEIPT}(?:e-?mail|indirizzo|account|profilo|registrazione|identit[aà])`,
-  String.raw`(?:v[eé]rifie[rz]|confirme[rz]|active[rz])\s+${NOT_A_RECEIPT}(?:adresse|e-?mail|courriel|compte|profil|identit[eé])`,
+  String.raw`(?:v[eé]rifie[rz]|confirme[rz]|active[rz]|valide[rz])\s+${NOT_A_RECEIPT}(?:adresse|e-?mail|courriel|compte|profil|identit[eé])`,
 ].join('|'));
 // A code or link with its own explicit name, also in a sentence that warns about it.
 const VERIFICATION_NAMED_RE = phrases([
@@ -413,7 +413,7 @@ const VERIFICATION_NAMED_RE = phrases([
   // «Dein Passcode für die Aktivierung deines Kontos lautet …» (SBB, SuccessFactors).
   String.raw`(?:(?:pass)?code|link|codice|lien) (?:f[üu]r|zur|for|per|pour) (?:die |the |la |l['’])?(?:verifizierung|best[aä]tigung|aktivierung|verification|confirmation|activation|verifica|conferma|attivazione|v[eé]rification)`,
   String.raw`(?:codice|link) di (?:verifica|conferma|attivazione)`,
-  String.raw`(?:code|lien) de (?:v[eé]rification|confirmation|activation)`,
+  String.raw`(?:code|lien) (?:de |d['’])(?:v[eé]rification|confirmation|activation|validation)`,
   String.raw`one[- ]time (?:password|passcode|code)|otp|mot de passe [àa] usage unique|einmal(?:passwort|kennwort|code)|einmalige[rn]? passcode`,
   String.raw`(?:e-?mail|account)[- ](?:verification|verifizierung)|verifica (?:dell['’]|del |della )?(?:account|e-?mail|indirizzo)|v[eé]rification (?:de (?:votre |l['’])|d['’])?(?:compte|e-?mail|adresse)`,
 ].join('|'));

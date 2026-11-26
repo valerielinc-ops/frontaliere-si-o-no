@@ -4,7 +4,7 @@ const runtimeState = vi.hoisted(() => {
   class StubAntiBotBlockError extends Error {}
   class StubNavigationTimeout extends Error {}
   return {
-    scenario: 'none' as 'none' | 'partial-listing' | 'listing-failure' | 'detail-failure' | 'over-total-empty' | 'discovery-error',
+    scenario: 'none' as 'none' | 'partial-listing' | 'listing-failure' | 'detail-failure' | 'structured-detail' | 'over-total-empty' | 'discovery-error',
     calls: 0,
     StubAntiBotBlockError,
     StubNavigationTimeout,
@@ -36,6 +36,15 @@ vi.mock('../scripts/lib/ats-clients/playwright-runtime.mjs', () => {
         });
       }
       if (runtimeState.scenario === 'detail-failure') {
+        if (runtimeState.calls === 1) {
+          return page({
+            rows: [{ id: 'jr1', title: 'Role', href: '/en/jobs/jr1/', maison: 'Cartier', department: 'IT', location: 'Geneva, CH' }],
+            total: 1,
+          });
+        }
+        return page('');
+      }
+      if (runtimeState.scenario === 'structured-detail') {
         if (runtimeState.calls === 1) {
           return page({
             rows: [{ id: 'jr1', title: 'Role', href: '/en/jobs/jr1/', maison: 'Cartier', department: 'IT', location: 'Geneva, CH' }],
@@ -82,11 +91,19 @@ vi.mock('../scripts/lib/ats-clients/playwright-runtime.mjs', () => {
 });
 
 // The parser tests exercise the Playwright/listing contract and pure job
-// helpers; JSON-LD extraction is not part of those scenarios. Mocking it also
-// keeps this scoped sparse-checkout test independent of the optional postal
-// snapshot used by the generic prospector extractor.
+// helpers. The structured-detail scenario returns one controlled exact
+// JobPosting record; mocking the extractor keeps this scoped sparse-checkout
+// test independent of the optional postal snapshot used by the generic
+// prospector extractor.
 vi.mock('../scripts/lib/prospector/extract.mjs', () => ({
-  extractJsonLd: () => [],
+  extractJsonLd: (_html: string, url: string) => runtimeState.scenario === 'structured-detail'
+    ? [{
+      title: 'Role',
+      url,
+      urlExplicit: true,
+      description: 'This source-backed vacancy description contains the responsibilities, requirements, working context, and application details published by the employer. '.repeat(8),
+    }]
+    : [],
 }));
 
 vi.mock('../scripts/lib/crawler-template.mjs', async () => {
@@ -139,6 +156,16 @@ describe('Richemont crawler parser', () => {
       specDiscoveredCount: 1,
       specDetailDrop: { candidates: 1, gone: 0, rejected: 1 },
     });
+    expect(runtimeState.calls).toBe(2);
+  });
+
+  it('uses an exact JobPosting body when the rendered detail markup is unavailable', async () => {
+    runtimeState.scenario = 'structured-detail';
+
+    const jobs = await fetchAllRichemontJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].description).toContain('source-backed vacancy description');
     expect(runtimeState.calls).toBe(2);
   });
 

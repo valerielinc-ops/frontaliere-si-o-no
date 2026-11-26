@@ -901,6 +901,15 @@ describe('cf-5xx-issue-sync.mjs', () => {
             { status: 502, url: 'frontaliereticino.ch/it/lavoro/', count: 45 },
             { status: 500, url: 'frontaliereticino.ch/it/rare/', count: 3 },
           ],
+          detailByHour: [
+            {
+              status: 502,
+              url: 'frontaliereticino.ch/it/lavoro/',
+              hour: new Date().toISOString(),
+              count: 45,
+            },
+          ],
+          detailByHourComplete: true,
         });
       }
       if (cmd === 'gh' && args[0] === 'issue' && args[1] === 'list') return '[]';

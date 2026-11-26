@@ -308,6 +308,16 @@ jobs:
           console.log(`Translation run clock initialized at ${startMs}.`);
           NODE
 
+      # Start the broker before the bounded stale-description prepass. The
+      # prepass is the first repair lane in the run, so it must receive the
+      # same Codex-primary capability as the later title and job cascades.
+      - id: setup_claude_haiku_fallback
+        if: inputs.skip_translate != true && inputs.dry_run != true
+        uses: valerielinc-ops/frontaliere-si-o-no/.github/actions/setup-claude-haiku-fallback@main
+        with:
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          broker_idle_ttl_ms: '12600000'
+
       # Source-copy descriptions older than the shared queue-stale threshold
       # are already serving the wrong language. Give a small, deterministic
       # repair pass a place before the long Argos/cascade phases: the late 2e
@@ -321,6 +331,12 @@ jobs:
           UNTRANSLATED_DESCRIPTION_FIX_STALE_ONLY: '1'
           UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS: '900000' # 15min from the shared run clock
           UNTRANSLATED_DESCRIPTION_FIX_PREPASS_MAX_RAW: ${{ vars.UNTRANSLATED_DESCRIPTION_FIX_PREPASS_MAX }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: '480000'
+          FREE_TRANSLATE_CODEX_MAX_MS: '900000'
+          FREE_TRANSLATE_CODEX_LANES: '3'
+          FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: '25'
+          FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS: '3000'
         run: |-
           parseBoundedPrepassMax() {
             local value="${1:-}"
@@ -435,19 +451,6 @@ jobs:
           TRANSFORMERS_CACHE: .cache/transformers
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
-
-      # ── Codex Luna Max: available from the first title repair lane on ──────
-      # Start the broker after the Argos bulk pass and BEFORE Phase 2a.2. The
-      # title lane therefore gets Codex in the same default (primary) position
-      # as 2b/2d/2e — owner decision 2026-10-06: Codex is the first lane of
-      # every translation cascade — while the existing cascade and its guards
-      # remain unchanged when the broker is unavailable or disabled.
-      - id: setup_claude_haiku_fallback
-        if: inputs.skip_translate != true && inputs.dry_run != true
-        uses: valerielinc-ops/frontaliere-si-o-no/.github/actions/setup-claude-haiku-fallback@main
-        with:
-          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
-          broker_idle_ttl_ms: '12600000'
 
       # ── Phase 2a.2: title residue to the free cascade, before descriptions ──
       # Titles Argos left as source copies go to the cascade (Codex Luna Max

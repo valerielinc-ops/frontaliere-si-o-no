@@ -1,5 +1,15 @@
 import fs from 'node:fs';
 import { afterEach, describe, it, expect, vi } from 'vitest';
+
+const { launchStealthOrChromiumMock } = vi.hoisted(() => ({
+  launchStealthOrChromiumMock: vi.fn(),
+}));
+
+vi.mock('../scripts/lib/stealth-browser.mjs', () => ({
+  chromeUserAgent: () => 'Mozilla/5.0 Chrome/140.0.0.0',
+  isStealthBrowser: () => false,
+  launchStealthOrChromium: launchStealthOrChromiumMock,
+}));
 import {
   EVEREST_RE_KEY,
   EVEREST_RE_COMPANY_NAME,
@@ -15,6 +25,7 @@ const CURRENT_WORKDAY_FIXTURE = JSON.parse(
 );
 
 afterEach(() => {
+  launchStealthOrChromiumMock.mockReset();
   vi.unstubAllGlobals();
 });
 
@@ -51,6 +62,47 @@ describe('Everest Re current Workday board', () => {
     ]);
     expect(jobs).toHaveLength(0);
     expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+  });
+
+  it('uses the real public board route for browser transport fallback', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new TypeError('fetch failed')));
+
+    const page = {
+      goto: vi.fn().mockResolvedValue({ status: () => 200 }),
+      evaluate: vi.fn(async (_evaluate: unknown, args: { requestUrl: string }) => {
+        const url = String(args.requestUrl);
+        if (url.endsWith('/jobs')) {
+          return { status: 200, body: JSON.stringify(CURRENT_WORKDAY_FIXTURE.listingResponse) };
+        }
+        const detailPath = Object.keys(CURRENT_WORKDAY_FIXTURE.detailResponses)
+          .find((path) => url.endsWith(path));
+        const detail = detailPath ? CURRENT_WORKDAY_FIXTURE.detailResponses[detailPath] : null;
+        return detail
+          ? { status: 200, body: JSON.stringify(detail) }
+          : { status: 404, body: '' };
+      }),
+      close: vi.fn().mockResolvedValue(undefined),
+    };
+    const context = {
+      newPage: vi.fn().mockResolvedValue(page),
+      close: vi.fn().mockResolvedValue(undefined),
+    };
+    const browser = {
+      version: () => '140.0.0',
+      newContext: vi.fn().mockResolvedValue(context),
+      close: vi.fn().mockResolvedValue(undefined),
+    };
+    launchStealthOrChromiumMock.mockResolvedValue(browser);
+
+    const jobs = await fetchAllEverestReJobs();
+
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+    expect(page.goto).toHaveBeenCalledWith(
+      'https://everestre.wd5.myworkdayjobs.com/External/',
+      expect.objectContaining({ waitUntil: 'domcontentloaded' }),
+    );
+    expect(browser.close).toHaveBeenCalledOnce();
   });
 });
 

@@ -233,20 +233,31 @@ function collectParts(headerText, body, depth, out) {
     return;
   }
   const disposition = header(headers, 'content-disposition');
+  const contentDisposition = disposition.split(';')[0].trim().toLowerCase();
+  const contentId = header(headers, 'content-id').replace(/^<|>$/g, '').trim();
   const filename = parameter(disposition, 'filename') || parameter(contentType, 'name');
   out.push({
     contentType: contentType.split(';')[0].trim().toLowerCase(),
     charset: parameter(contentType, 'charset') || 'utf-8',
+    contentDisposition,
+    contentId,
     filename,
     isAttachment: /^attachment/i.test(disposition) || Boolean(filename),
     content: decodeBody(body, header(headers, 'content-transfer-encoding')),
   });
 }
 
+const PLAIN_HTML_MARKUP_RE = /<(?:p|div|table|tr|td|html|body|br)\b[^>]*>/i;
+const looksLikeHtmlBody = (value) => {
+  const text = String(value || '');
+  return PLAIN_HTML_MARKUP_RE.test(text)
+    && /<\/(?:p|div|table|tr|td|a|html|body|span|strong|b|i)\s*>|<img\b[^>]*\bsrc\s*=/i.test(text);
+};
+
 /**
  * @param {Buffer|string} raw RFC 5322 message
  * @returns {{headers:Array<[string,string]>, from:string, replyTo:string, subject:string, text:string,
- *   attachments:Array<{filename:string, contentType:string, content:Buffer}>}}
+ *   attachments:Array<{filename:string, contentType:string, contentDisposition?:string, contentId?:string, content:Buffer}>}}
  */
 export function parseMimeMessage(raw) {
   const { headerText, body } = splitHeaderBody(raw);
@@ -265,7 +276,9 @@ export function parseMimeMessage(raw) {
   };
   const plainText = textPart ? contentOf(textPart) : '';
   const htmlText = htmlPart ? contentOf(htmlPart) : '';
-  if (plainText.trim()) text = htmlPart ? appendHtmlOnlyLinks(plainText, htmlText) : plainText;
+  // Some ATS platforms (SAP SuccessFactors) emit raw HTML markup inside text/plain.
+  const normalizedPlain = looksLikeHtmlBody(plainText) ? htmlToText(plainText, { safeLinksOnly: true }) : plainText;
+  if (normalizedPlain.trim()) text = htmlPart ? appendHtmlOnlyLinks(normalizedPlain, htmlText) : normalizedPlain;
   else if (htmlPart) text = htmlToText(htmlText, { safeLinksOnly: true });
   else if (textPart) text = plainText;
   const replyToHeaders = headers.filter(([key]) => key === 'reply-to');
@@ -276,7 +289,13 @@ export function parseMimeMessage(raw) {
     replyTo: replyToHeaders.length === 1 ? decodeEncodedWords(replyToHeaders[0][1]) : '',
     subject: decodeEncodedWords(header(headers, 'subject')),
     text,
-    attachments: parts.filter((part) => part.isAttachment).map(({ filename, contentType, content }) => ({ filename, contentType, content })),
+    attachments: parts.filter((part) => part.isAttachment).map(({ filename, contentType, contentDisposition, contentId, content }) => ({
+      filename,
+      contentType,
+      ...(contentDisposition ? { contentDisposition } : {}),
+      ...(contentId ? { contentId } : {}),
+      content,
+    })),
   };
 }
 

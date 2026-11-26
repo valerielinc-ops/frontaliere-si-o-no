@@ -28,7 +28,7 @@ import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { sourceLocaleDescription } from './lib/source-locale-description.mjs';
 import { sourceSlotTitleAndSlug, dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import { slugify, normalizeSpace, stripHtml, WORKDAY_API_BASE, WORKDAY_PUBLIC_BASE, COMPANY_HOST, isJuliusBaerSwissListing, resolveJuliusBaerPlace, detectCategory, detectExperienceLevel, detectEmploymentType, buildPublicUrl, dropJuliusBaerFabricatedText } from './lib/julius-baer-job-parser.mjs';
-import { fetchWorkdayJsonWithRetry, WorkdayRateLimitError } from './lib/ats-clients/workday-client.mjs';
+import { fetchWorkdayJsonWithRetry, shouldPropagateWorkdayFetchError } from './lib/ats-clients/workday-client.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -64,7 +64,12 @@ function isTrustedDomain(rawUrl = '') {
 }
 
 async function fetchJson(url, options = {}) {
-  const { timeoutMs: configuredTimeoutMs, method = 'GET', body } = options;
+  const {
+    timeoutMs: configuredTimeoutMs,
+    method = 'GET',
+    body,
+    throwOnError = false,
+  } = options;
   const timeoutMs = Number(configuredTimeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   try {
     return await fetchWorkdayJsonWithRetry(WORKDAY_API_BASE, url, {
@@ -75,7 +80,7 @@ async function fetchJson(url, options = {}) {
         'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
     });
   } catch (err) {
-    if (err instanceof WorkdayRateLimitError) throw err;
+    if (shouldPropagateWorkdayFetchError(err, throwOnError)) throw err;
     console.warn(`⚠️ Fetch failed for ${url}: ${err?.message || err}`);
     return null;
   }
@@ -109,7 +114,11 @@ async function listAllJobs() {
   let knownTotal = Infinity;
   while (true) {
     const body = JSON.stringify({ appliedFacets: { Location_Country: [SWISS_COUNTRY_FACET_ID] }, limit, offset, searchText: '' });
-    const data = await fetchJson(`${WORKDAY_API_BASE}/jobs`, { method: 'POST', body });
+    const data = await fetchJson(`${WORKDAY_API_BASE}/jobs`, {
+      method: 'POST',
+      body,
+      throwOnError: true,
+    });
     if (!data || !Array.isArray(data.jobPostings)) break;
     if (offset === 0 && Number.isFinite(data.total) && data.total > 0) knownTotal = data.total;
     for (const p of data.jobPostings) {

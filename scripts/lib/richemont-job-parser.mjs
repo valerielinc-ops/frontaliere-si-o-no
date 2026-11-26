@@ -280,9 +280,12 @@ async function fetchListingPage(context, page) {
  * on the listing pass — the clearance cookie travels with the context,
  * so detail navigations don't refire the JS challenge.
  *
- * Returns empty description with unknown publication on failure: anti-bot, timeout, missing
- * markup, or text shorter than `MIN_DETAIL_DESCRIPTION_LEN`. The caller
- * then does not publish the row.
+ * Returns empty description with unknown publication on failure: anti-bot, timeout,
+ * missing source data, or text shorter than `MIN_DETAIL_DESCRIPTION_LEN`. The
+ * caller then does not publish the row. The exact JobPosting JSON-LD body is a
+ * source-backed fallback when the rendered CMS node is unavailable; it is safe
+ * only after the title and URL identity checks above, and never synthesizes a
+ * description from listing-card fields.
  */
 async function fetchRichDetailFields(context, url, expectedTitle) {
   let page;
@@ -299,27 +302,40 @@ async function fetchRichDetailFields(context, url, expectedTitle) {
       if (!record.urlExplicit) return records.length === 1;
       try { return new URL(record.url, url).href === new URL(url).href; } catch { return false; }
     });
-    const text = await page.evaluate((selectors) => {
-      for (const sel of selectors) {
-        const el = document.querySelector(sel);
-        if (el) {
-          // Page chrome that sits inside the job container: the related-jobs
-          // sidebar and its "Save" buttons. The page is discarded after this
-          // read, so editing its live DOM is safe.
-          el.querySelectorAll('aside, .related-jobs, .sidebar, button, form, script, style')
-            .forEach((node) => node.remove());
-          // innerText keeps the line structure but not list markers: mark
-          // each item so the lists survive as "• " lines.
-          el.querySelectorAll('li').forEach((li) => {
-            li.insertBefore(document.createTextNode('• '), li.firstChild);
-          });
-          const t = (el.innerText || '').trim();
-          if (t.length >= 200) return t;
+    let renderedText = '';
+    try {
+      renderedText = await page.evaluate((selectors) => {
+        for (const sel of selectors) {
+          const el = document.querySelector(sel);
+          if (el) {
+            // Page chrome that sits inside the job container: the related-jobs
+            // sidebar and its "Save" buttons. The page is discarded after this
+            // read, so editing its live DOM is safe.
+            el.querySelectorAll('aside, .related-jobs, .sidebar, button, form, script, style')
+              .forEach((node) => node.remove());
+            // innerText keeps the line structure but not list markers: mark
+            // each item so the lists survive as "• " lines.
+            el.querySelectorAll('li').forEach((li) => {
+              li.insertBefore(document.createTextNode('• '), li.firstChild);
+            });
+            const t = (el.innerText || '').trim();
+            if (t.length >= 200) return t;
+          }
         }
-      }
-      return '';
-    }, DETAIL_SELECTORS);
-    return { description: normalizeDescriptionSpace(String(text).replace(/\u00a0/g, ' ')), ...mergeSourcePostingDates({}, matched) };
+        return '';
+      }, DETAIL_SELECTORS);
+    } catch (err) {
+      // A DOM extraction error does not invalidate the already parsed source
+      // record. Keep the structured-data path below subject to the same exact
+      // identity and body-floor checks.
+      console.warn(`   ⚠️ Detail DOM extraction error on ${url}: ${err?.message || err}`);
+    }
+    const renderedDescription = normalizeDescriptionSpace(String(renderedText).replace(/\u00a0/g, ' '));
+    const structuredDescription = normalizeDescriptionSpace(String(matched?.description || '').replace(/\u00a0/g, ' '));
+    const description = renderedDescription.length >= MIN_DETAIL_DESCRIPTION_LEN
+      ? renderedDescription
+      : structuredDescription;
+    return { description, ...mergeSourcePostingDates({}, matched) };
   } catch (err) {
     if (err instanceof AntiBotBlockError) {
       console.warn(`   ⚠️ CF block on detail ${url}: ${err.message}`);
