@@ -150,7 +150,7 @@ describe('public config edge route', () => {
     expect(await recovered.json()).toEqual({ FIREBASE_API_KEY: 'recovered-key' });
     expect(fetchMock).toHaveBeenCalledTimes(3);
     expect(errorLog).toHaveBeenCalledTimes(2);
-    expect(errorLog.mock.calls.map(([entry]) => JSON.parse(String(entry)))).toEqual([
+    expect(errorLog.mock.calls.map(([entry]) => entry)).toEqual([
       { event: 'origin_failure', reason: 'public-config', path: '/api/public-config/' },
       { event: 'origin_failure', reason: 'public-config', path: '/api/public-config/' },
     ]);
@@ -174,11 +174,11 @@ describe('public config edge route', () => {
     expect(response.status).toBe(200);
     expect(response.headers.get('Cache-Control')).toBe('no-store');
     expect(await response.json()).toEqual({});
-    expect(errorLog).toHaveBeenCalledExactlyOnceWith(JSON.stringify({
+    expect(errorLog).toHaveBeenCalledExactlyOnceWith({
       event: 'origin_failure',
       reason: 'public-config',
       path: '/api/public-config/',
-    }));
+    });
   });
 
   it.each([500, 503])('logs an upstream %i and fails open before returning it to the browser', async (status) => {
@@ -190,11 +190,11 @@ describe('public config edge route', () => {
     expect(response.status).toBe(200);
     expect(response.headers.get('Cache-Control')).toBe('no-store');
     expect(await response.json()).toEqual({});
-    expect(errorLog).toHaveBeenCalledExactlyOnceWith(JSON.stringify({
+    expect(errorLog).toHaveBeenCalledExactlyOnceWith({
       event: 'origin_failure',
       reason: 'public-config',
       path: '/api/public-config/',
       status,
-    }));
+    });
   });
 });

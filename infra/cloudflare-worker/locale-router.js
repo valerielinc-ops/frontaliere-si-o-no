@@ -1026,7 +1026,7 @@ function logJobCanonMarkerUnavailable(outcome) {
     ...(Number.isInteger(outcome.status) ? { status: outcome.status } : {}),
   };
   try {
-    console.error(JSON.stringify(details));
+    console.error(details);
   } catch {
     // Diagnostics must not alter the recovery response.
   }
@@ -1350,7 +1350,7 @@ function logJobCanonV2Success() {
   const day = new Date().toISOString().slice(0, 10);
   if (jobCanonV2SuccessLogDay === day) return;
   try {
-    console.info(JSON.stringify({ event: 'job_canon_v2_success', day }));
+    console.info({ event: 'job_canon_v2_success', day });
     jobCanonV2SuccessLogDay = day;
   } catch {
     // Observability must not block a valid v2 recovery response.
@@ -1379,7 +1379,7 @@ async function fetchJobCanonMap(slug, buildId) {
       if (resp.status === 404 || resp.status === 410) {
         if (version === 'v2') {
           try {
-            console.log(JSON.stringify({ event: 'job_canon_v1_fallback' }));
+            console.log({ event: 'job_canon_v1_fallback' });
           } catch {
             // Logging must not block the v1 recovery path.
           }
@@ -3434,7 +3434,7 @@ async function serveStaleOnError(url, reason) {
 // to invocations while a 5xx finally carries its cause. `url.pathname` only:
 // query strings may hold unsubscribe tokens and must not reach the logs.
 function logEdgeFailure(reason, url, fields = {}) {
-  console.error(JSON.stringify({ event: 'origin_failure', reason, path: url.pathname, ...fields }));
+  console.error({ event: 'origin_failure', reason, path: url.pathname, ...fields });
 }
 
 function edgeFailureResponse(url, reason, body, headers, fields = {}) {

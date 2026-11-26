@@ -204,7 +204,7 @@ describe('locale-router canton-drift 301', () => {
       expect(canonRequests[0]).toContain(`/job-canon/releases/1001/v2/${jobCanonV2ShardKey(slug)}.json`);
       expect(canonRequests[1]).toContain('/job-canon/releases/1001/so.json');
       expect(log).toHaveBeenCalledTimes(1);
-      expect(log).toHaveBeenCalledWith(JSON.stringify({ event: 'job_canon_v1_fallback' }));
+      expect(log).toHaveBeenCalledWith({ event: 'job_canon_v1_fallback' });
     },
   );
 

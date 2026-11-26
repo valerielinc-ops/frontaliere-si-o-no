@@ -111,6 +111,13 @@ describe('cf-observability-audit checks', () => {
       $metadata: { type: 'cf-worker-event', message: 'GET https://frontaliereticino.ch/calcola-stipendio/' },
       $workers: { event: { response: { status: 503 } } },
     };
+    const structuredOriginFailureLog = {
+      $metadata: { type: 'cf-worker-log' },
+      event: 'origin_failure',
+      reason: 'router-exception',
+      path: '/calcola-stipendio/',
+      status: 503,
+    };
     const originFailureLog = {
       $metadata: {
         type: 'cf-worker-log',
@@ -119,10 +126,22 @@ describe('cf-observability-audit checks', () => {
     };
 
     expect(isOriginFailureLogEvent(invocation503)).toBe(false);
+    expect(isOriginFailureLogEvent(structuredOriginFailureLog)).toBe(true);
     expect(isOriginFailureLogEvent(originFailureLog)).toBe(true);
+    expect(isOriginFailureLogEvent({
+      ...structuredOriginFailureLog,
+      event: 'other_event',
+    })).toBe(false);
     expect(buildOriginFailureLogFilters()).toEqual([
       { key: '$metadata.type', operation: 'eq', value: 'cf-worker-log', type: 'string' },
-      { key: '$metadata.message', operation: 'includes', value: '"event":"origin_failure"', type: 'string' },
+      {
+        kind: 'group',
+        filterCombination: 'or',
+        filters: [
+          { key: 'event', operation: 'eq', value: 'origin_failure', type: 'string' },
+          { key: '$metadata.message', operation: 'includes', value: '"event":"origin_failure"', type: 'string' },
+        ],
+      },
     ]);
   });
 
