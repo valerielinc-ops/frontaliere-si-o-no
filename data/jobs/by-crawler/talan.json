@@ -1,7 +1,7 @@
 {
   "crawlerKey": "talan",
-  "assembledAt": "2026-11-26T09:21:25.650Z",
-  "runId": "45788845587",
+  "assembledAt": "2026-11-26T21:21:08.430Z",
+  "runId": "45895741910",
   "jobs": [
     {
       "id": "talan-838cc2a04384",
@@ -81,7 +81,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-26T09:21:17.780Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000126717821-developpeur-abap-s-4hana?oga=true"
+      "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000126717821-developpeur-abap-s-4hana?oga=true",
+      "crawlerMissStreak": 1
     },
     {
       "id": "talan-68cff378c8b2",
@@ -115,7 +116,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:21:17.776Z",
+      "crawledAt": "2026-11-26T21:21:00.729Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -159,7 +160,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T09:21:17.776Z",
+      "validThrough": "2026-12-26T21:21:00.729Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000137693459-qa-engineer-ebanking?oga=true"
     },
@@ -194,7 +195,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:21:17.775Z",
+      "crawledAt": "2026-11-26T21:21:00.727Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -238,7 +239,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T09:21:17.775Z",
+      "validThrough": "2026-12-26T21:21:00.727Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000144774739-business-analyste-core-banking?oga=true"
     },
@@ -274,7 +275,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:21:17.774Z",
+      "crawledAt": "2026-11-26T21:21:00.726Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -334,7 +335,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:21:17.774Z",
+      "validThrough": "2026-12-26T21:21:00.726Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true"
     },
@@ -416,7 +417,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-31T09:21:17.771Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true"
+      "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
+      "crawlerMissStreak": 1
     },
     {
       "id": "talan-9addce44f74f",
@@ -499,7 +501,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-31T09:21:17.770Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000153113299-consultant-sap-basis?oga=true"
+      "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000153113299-consultant-sap-basis?oga=true",
+      "crawlerMissStreak": 1
     },
     {
       "id": "talan-77288cd4a877",
@@ -589,7 +592,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-01T09:21:17.768Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true"
+      "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
+      "crawlerMissStreak": 1
     },
     {
       "id": "talan-dbc24b5b3f3c",
@@ -623,7 +627,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:21:17.767Z",
+      "crawledAt": "2026-11-26T21:21:00.725Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -670,7 +674,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-22T09:21:17.767Z",
+      "validThrough": "2027-01-21T21:21:00.725Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000157480029-tech-lead-fullstack-net-c-?oga=true"
     },
@@ -705,7 +709,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000160297069-technical-analyst-power-trading-systems?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:21:17.765Z",
+      "crawledAt": "2026-11-26T21:21:00.722Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -755,7 +759,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T09:21:17.765Z",
+      "validThrough": "2027-02-04T21:21:00.722Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000160297069-technical-analyst-power-trading-systems?oga=true"
     },
@@ -791,7 +795,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000161839349-sales-manager-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:21:17.764Z",
+      "crawledAt": "2026-11-26T21:21:00.724Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -838,7 +842,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-15T09:21:17.764Z",
+      "validThrough": "2027-02-14T21:21:00.724Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000161839349-sales-manager-?oga=true"
     },
@@ -873,7 +877,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000163402869-senior-business-analyst-orchestrade?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:21:17.759Z",
+      "crawledAt": "2026-11-26T21:21:00.713Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -927,7 +931,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-22T09:21:17.759Z",
+      "validThrough": "2027-02-22T21:21:00.713Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000163402869-senior-business-analyst-orchestrade?oga=true"
     },
@@ -962,7 +966,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000163400415-senior-business-analyst-pricing-modelling?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:21:17.754Z",
+      "crawledAt": "2026-11-26T21:21:00.717Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -1018,7 +1022,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-22T09:21:17.754Z",
+      "validThrough": "2027-02-22T21:21:00.717Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000163400415-senior-business-analyst-pricing-modelling?oga=true"
     },
@@ -1054,7 +1058,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000163154284-expert-e-atlassian?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T09:21:17.748Z",
+      "crawledAt": "2026-11-26T21:21:00.719Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -1101,7 +1105,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-21T09:21:17.748Z",
+      "validThrough": "2027-02-21T21:21:00.719Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://jobs.smartrecruiters.com/talan/744000163154284-expert-e-atlassian?oga=true"
     }
