@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {
+  employerProfileMetaDescription,
   employerProfileLogoSrc,
   employerProfilePagesPlugin,
   type EmployerProfile,
@@ -255,6 +256,26 @@ describe('employerProfilePagesPlugin', () => {
     expect(html).toContain('name=robots content="index, follow');
     expect(html).toContain('Offerte di lavoro Small Co');
     expect(html).toContain('3');
+  });
+
+  it('front-loads live openings and locations in every localized SERP description', () => {
+    for (const [rel, expected] of [
+      ['aziende/acme-corp/index.html', 'Acme Corp: 15 offerte di lavoro aperte. Sedi: Lugano.'],
+      ['en/aziende/acme-corp/index.html', 'Acme Corp: 15 open jobs. Locations: Lugano.'],
+      ['de/aziende/acme-corp/index.html', 'Acme Corp: 15 offene Stellen. Standorte: Lugano.'],
+      ['fr/aziende/acme-corp/index.html', 'Acme Corp : 15 offres d’emploi. Sites : Lugano.'],
+    ] as const) {
+      const description = read(rel).match(/<meta name="description" content="([^"]*)">/)?.[1] ?? '';
+      expect(description, rel).toContain(expected);
+    }
+
+    expect(employerProfileMetaDescription({
+      slug: 'no-location',
+      name: 'No Location SA',
+      activeJobs: 3,
+      cantons: [],
+      cities: [],
+    }, 'it')).toBe('No Location SA: 3 offerte di lavoro aperte. Consulta posizioni, sedi e stipendi su Frontaliere Ticino.');
   });
 
   // Search-intent title/H1 (2026-08-07). GSC 90 d on data/evidence-index.json:
