@@ -6786,7 +6786,7 @@ function normalizedQuestionText(value) {
 
 const OPTION_LANGUAGE_MARKERS = Object.freeze({
   it: Object.freeze(['si', 'no', 'vero', 'falso', 'true', 'false', 'seleziona', 'selezionare']),
-  de: Object.freeze(['ja', 'nein', 'wahr', 'falsch', 'true', 'false', 'bitte wahlen', 'bitte waehlen', 'auswahlen', 'auswaehlen']),
+  de: Object.freeze(['ja', 'nein', 'wahr', 'falsch', 'true', 'false', 'bitte wahlen', 'bitte waehlen', 'bitte auswahlen', 'bitte auswaehlen', 'auswahlen', 'auswaehlen']),
   fr: Object.freeze(['oui', 'non', 'vrai', 'faux', 'choisir', 'selectionner']),
   en: Object.freeze(['yes', 'no', 'true', 'false', 'select', 'choose', 'please select', 'select an option']),
 });
@@ -6795,7 +6795,7 @@ const OPTION_FALLBACK_MARKERS = Object.freeze({
   yes: Object.freeze(['yes', 'ja', 'si', 'oui', 'vero', 'true']),
   no: Object.freeze(['no', 'nein', 'non', 'falso', 'false']),
   placeholder: Object.freeze([
-    'select', 'seleziona', 'selezionare', 'please select', 'bitte wahlen', 'bitte waehlen', 'keine auswahl',
+    'select', 'seleziona', 'selezionare', 'please select', 'bitte wahlen', 'bitte waehlen', 'bitte auswahlen', 'bitte auswaehlen', 'keine auswahl',
     'auswahlen', 'auswaehlen', 'choisir', 'selectionner', 'choose', 'select an option',
   ]),
 });
@@ -6845,6 +6845,25 @@ function fallbackOption(option, language) {
 
 const REGION_CODE_RE = /^[A-Z]{2}$/;
 const REGION_LABEL_CACHE = new Map();
+// ICU maps retired ISO 3166-1 code AN (Netherlands Antilles) to "Curaçao",
+// colliding with CW in ATS country dropdowns that still list both options.
+const RETIRED_REGION_LABELS = Object.freeze({
+  AN: Object.freeze({
+    it: 'Antille Olandesi',
+    de: 'Niederländische Antillen',
+    fr: 'Antilles néerlandaises',
+    en: 'Netherlands Antilles',
+  }),
+});
+
+function regionDisplayName(code, language, displayNames = null) {
+  const locale = String(language || '').trim().split(/[-_]/)[0].toLowerCase();
+  const override = RETIRED_REGION_LABELS[code]?.[locale];
+  if (override) return override;
+  const resolver = displayNames || new Intl.DisplayNames([locale || language], { type: 'region' });
+  const display = resolver.of(code);
+  return display && display !== code ? String(display).trim() : '';
+}
 
 function localizedRegionLabel(code, language) {
   const normalizedCode = String(code || '').trim().toUpperCase();
@@ -6853,9 +6872,9 @@ function localizedRegionLabel(code, language) {
   if (REGION_LABEL_CACHE.has(cacheKey)) return REGION_LABEL_CACHE.get(cacheKey);
   let label = '';
   try {
-    if (typeof Intl.DisplayNames === 'function') {
-      const display = new Intl.DisplayNames([language], { type: 'region' }).of(normalizedCode);
-      label = display && display !== normalizedCode ? String(display).trim() : '';
+    if (RETIRED_REGION_LABELS[normalizedCode]?.[String(language || '').trim().split(/[-_]/)[0].toLowerCase()]
+      || typeof Intl?.DisplayNames === 'function') {
+      label = regionDisplayName(normalizedCode, language);
     }
   } catch {
     label = '';
@@ -6944,6 +6963,7 @@ const DETERMINISTIC_GERMAN_QUESTION_COPIES = Object.freeze({
   postleitzahl: { key: 'postal_code', it: 'CAP', de: 'Postleitzahl', fr: 'NPA', en: 'Postal code' },
   ort: { key: 'city', it: 'Località', de: 'Ort', fr: 'Localité', en: 'City' },
   land: { key: 'country', it: 'Paese', de: 'Land', fr: 'Pays', en: 'Country' },
+  'land region des wohnorts': { key: 'country', it: 'Paese / Regione di residenza', de: 'Land / Region des Wohnorts', fr: 'Pays / Région de résidence', en: 'Country / Region of Residence' },
   nationalitat: { key: 'nationality', it: 'Nazionalità', de: 'Nationalität', fr: 'Nationalité', en: 'Nationality' },
   mobile: { key: 'mobile', it: 'Cellulare', de: 'Mobile', fr: 'Portable', en: 'Mobile phone' },
   telefon: { key: 'phone', it: 'Telefono', de: 'Telefon', fr: 'Téléphone', en: 'Telephone' },
@@ -7067,7 +7087,7 @@ function regionNameCatalogue(language) {
     for (let first = 65; first <= 90; first += 1) {
       for (let second = 65; second <= 90; second += 1) {
         const code = String.fromCharCode(first, second);
-        const label = String(displayNames.of(code) || '').trim();
+        const label = regionDisplayName(code, locale, displayNames);
         const key = normalizedQuestionText(label);
         if (!label || key === normalizedQuestionText(code) || REGION_UNKNOWN_LABELS.has(key)) continue;
         byCode.set(code, label);
@@ -7219,7 +7239,10 @@ function deterministicGermanOption(option, entry, language, applicationOptionVal
     }
   }
   const booleanOrPlaceholder = fallbackOption(text, language);
-  if (booleanOrPlaceholder !== text) return booleanOrPlaceholder;
+  if (booleanOrPlaceholder !== text
+    || OPTION_FALLBACK_MARKERS.yes.includes(normalized)
+    || OPTION_FALLBACK_MARKERS.no.includes(normalized)
+    || OPTION_FALLBACK_MARKERS.placeholder.includes(normalized)) return booleanOrPlaceholder;
   if (/^\d{1,4}\.?$/.test(text)) return text;
   return null;
 }
@@ -10720,12 +10743,21 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
         return noted({ handoff: 'portal_required_file_unhandled' });
       }
     }
-    const request = await portalRequirementsForCandidate(requirements, {
-      candidateLocale: ctx.candidateLocale,
-      applicationLocale: ctx.language,
-      codex: ctx.codex,
-      log: ctx.log,
-    });
+    let request;
+    try {
+      request = await portalRequirementsForCandidate(requirements, {
+        candidateLocale: ctx.candidateLocale,
+        applicationLocale: ctx.language,
+        codex: ctx.codex,
+        log: ctx.log,
+      });
+    } catch (error) {
+      if (error?.code === 'portal_question_localization_unavailable') {
+        await parkRegistrationCredential('privacy_question_localization_unavailable');
+        return noted({ handoff: 'question_localization_unavailable' });
+      }
+      throw error;
+    }
     if (!request) return null;
     await parkRegistrationCredential('privacy_question_missing');
     return noted(request);
@@ -11373,9 +11405,21 @@ function missingCandidatePortalRequirements(fields, candidate, candidateLocale =
 
     if (role === 'country' && fieldHasResidenceContext(field)
       && !residenceCountryPresent && !hasAnswer('portal_residence_country')) {
-      add(field, 'portal_residence_country', 'In quale Paese risiedi?',
-        'Il portale richiede il Paese di residenza per creare il profilo candidato.',
-        { type: 'choice', forceType: 'choice', requiresNativeOptions: true });
+      const residenceLang = localeCode(candidateLocale) || 'it';
+      const residenceQuestion = {
+        it: 'In quale Paese risiedi?',
+        de: 'In welchem Land wohnen Sie?',
+        fr: 'Dans quel pays résidez-vous ?',
+        en: 'Which country do you live in?',
+      }[residenceLang] || 'In quale Paese risiedi?';
+      const residenceWhy = {
+        it: 'Il portale richiede il Paese di residenza per creare il profilo candidato.',
+        de: 'Das Portal benötigt das Wohnsitzland, um das Bewerbungsprofil zu erstellen.',
+        fr: 'Le portail demande le pays de résidence pour créer le profil candidat.',
+        en: 'The portal requires your country of residence to create your candidate profile.',
+      }[residenceLang] || 'Il portale richiede il Paese di residenza per creare il profilo candidato.';
+      add(field, 'portal_residence_country', residenceQuestion, residenceWhy,
+        { type: 'choice', forceType: 'choice', requiresNativeOptions: true, candidatePrompt: residenceQuestion });
       continue;
     }
 
