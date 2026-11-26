@@ -260,6 +260,45 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     expect(login).toMatchObject({ status: 'ACCOUNT_STEP', reason: 'ACCOUNT_STEP: account_action_handled_by_runner' });
   });
 
+  it('hands off saved sign-in screens reached on a later agent round before Codex clicks registration links', async () => {
+    let currentUrl = 'https://careers.example.test/job/REQ-99';
+    const page: any = {
+      url: () => currentUrl,
+      title: async () => (currentUrl.includes('/Login') ? 'Sign in' : 'Software Engineer'),
+      content: async () => (currentUrl.includes('/Login') ? '<h1>Login</h1>' : '<h1>Software Engineer</h1>'),
+      ariaSnapshot: async () => (currentUrl.includes('/Login')
+        ? '- button "Create profile" [ref=e2]\n- button "Login" [ref=e3]'
+        : '- button "Apply" [ref=e1]'),
+      waitForTimeout: async () => {},
+      isClosed: () => false,
+      evaluate: async () => false,
+      locator: () => ({
+        evaluate: async () => ({ name: 'Apply', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }),
+        click: async () => { currentUrl = 'https://careers.example.test/Login?jobId=99'; },
+      }),
+    };
+    const codex = vi.fn(async () => turn('ACT', [act({ ref: 'e1', action: 'click', value: 'Apply' })]));
+    const stopForAccountSurface = vi.fn(async (targetPage: any) => targetPage.url().includes('/Login'));
+    const result = await completeWithAgent({
+      page,
+      hint: 'posting_mismatch',
+      candidate: null,
+      candidateLocale: 'it',
+      allowApplicationEntry: true,
+      codex,
+      stopForAccountSurface,
+    });
+    expect(result).toMatchObject({
+      status: 'ACCOUNT_STEP',
+      reason: 'ACCOUNT_STEP: account_action_handled_by_runner',
+      calls: 1,
+    });
+    expect(codex).toHaveBeenCalledTimes(1);
+    expect(stopForAccountSurface).toHaveBeenCalledTimes(1);
+    expect(result.evidence.rounds).toHaveLength(2);
+    expect(result.evidence.rounds[1]).toMatchObject({ round: 2, status: 'ACCOUNT_STEP', actions: [] });
+  });
+
   it('parks after the same page signature is seen three times', async () => {
     const page: any = {
       url: () => 'https://careers.example.test/custom-step',

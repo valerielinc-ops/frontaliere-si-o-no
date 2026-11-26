@@ -12922,16 +12922,32 @@ export async function submitViaPortal(ctx) {
         diversionHint,
       });
     };
-    const pendingOtpAccount = async (current) => {
-      if (!ctx.accounts || !codeField(current)) return null;
-      let host = '';
+    const accountHostForUrl = (targetUrl) => {
       try {
-        host = new URL(page.url()).hostname;
+        return new URL(String(targetUrl || '')).hostname;
       } catch {
-        return null;
+        return '';
       }
+    };
+    const pendingOtpAccount = async (current, targetUrl = page.url()) => {
+      if (!ctx.accounts || !codeField(current)) return null;
+      const host = accountHostForUrl(targetUrl);
+      if (!host) return null;
       const account = await ctx.accounts.load(host);
       return isOtpVerificationPage(current, host, account) ? { host, account } : null;
+    };
+    // Hand saved sign-in and pending OTP screens back to handleAuth/verifyAccount
+    // before the navigation agent asks Codex to click Create Profile or Sign Up.
+    const shouldHandOffAccountSurface = async (targetPage) => {
+      if (!ctx.accounts) return false;
+      const targetUrl = typeof targetPage?.url === 'function' ? targetPage.url() : '';
+      const host = accountHostForUrl(targetUrl);
+      if (!host) return false;
+      const targetSnapshot = await extractFields(targetPage, NAVIGATION).catch(() => null);
+      if (!targetSnapshot) return false;
+      if (await pendingOtpAccount(targetSnapshot, targetUrl)) return true;
+      if (authPageKind(targetSnapshot) !== 'sign_in') return false;
+      return Boolean(await ctx.accounts.load(host).catch(() => null));
     };
     let workdayDeterministicRestoreAttempted = false;
     const restoreWorkdayApplication = async () => {
@@ -13280,6 +13296,7 @@ export async function submitViaPortal(ctx) {
             diversionHint: applicationDiversionHint({ ...current, text: await pageText(page) }),
           },
           reservedButtons,
+          stopForAccountSurface: reservedButtons?.length ? null : shouldHandOffAccountSurface,
           log,
         });
       } catch (error) {
