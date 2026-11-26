@@ -2470,18 +2470,94 @@ async function getNextIssueNumber({ persist = false } = {}) {
 
 // ─── Log to Firestore ───────────────────────────────────────
 
-async function logSend(count, subject, status) {
+const NEWSLETTER_KPI_TIME_ZONE = 'Europe/Rome';
+const newsletterKpiDateFormat = new Intl.DateTimeFormat('sv-SE', {
+  timeZone: NEWSLETTER_KPI_TIME_ZONE,
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+});
+const newsletterInvocationCounters = {
+  sent: 'sentInvocations',
+  failed: 'failedInvocations',
+  unknown: 'unknownInvocations',
+};
+
+function checkedNewsletterCounter(value) {
+  if (!Number.isSafeInteger(value) || value < 0) {
+    throw new Error('Invalid newsletter KPI counter');
+  }
+  return value;
+}
+
+export async function persistNewsletterInvocation(db, logRef, log, quarantinedThisRun) {
+  const day = newsletterKpiDateFormat.format(log.sentAt);
+  const dailyRef = db.collection('newsletter_daily_kpi').doc(day);
+  if (!Object.hasOwn(newsletterInvocationCounters, log.status)) {
+    throw new Error('Invalid newsletter invocation status');
+  }
+  const increments = {
+    confirmedRecipientCount: checkedNewsletterCounter(log.recipientCount),
+    unresolvedAcknowledgementCount: checkedNewsletterCounter(quarantinedThisRun),
+    sentInvocations: 0,
+    failedInvocations: 0,
+    unknownInvocations: 0,
+    [newsletterInvocationCounters[log.status]]: 1,
+  };
+
+  await db.runTransaction(async (transaction) => {
+    // The immutable native log doubles as the deduplication marker.
+    if ((await transaction.get(logRef)).exists) return;
+    const snapshot = await transaction.get(dailyRef);
+    const previous = snapshot.data();
+    const identity = {
+      schemaVersion: 1,
+      day,
+      timeZone: NEWSLETTER_KPI_TIME_ZONE,
+      coverage: 'logged_invocations_only',
+    };
+    let throughAt = log.sentAt;
+    if (snapshot.exists) {
+      if (Object.entries(identity).some(([key, value]) => previous[key] !== value)) {
+        throw new Error('Invalid newsletter KPI document');
+      }
+      const previousThroughAt = previous.throughAt?.toDate?.() ?? previous.throughAt;
+      if (!(previousThroughAt instanceof Date) || !Number.isFinite(previousThroughAt.getTime())
+          || newsletterKpiDateFormat.format(previousThroughAt) !== day) {
+        throw new Error('Invalid newsletter KPI timestamp');
+      }
+      if (previousThroughAt > throughAt) throughAt = previousThroughAt;
+    }
+    const counters = Object.fromEntries(Object.entries(increments).map(([key, increment]) => [
+      key,
+      checkedNewsletterCounter((snapshot.exists ? checkedNewsletterCounter(previous[key]) : 0) + increment),
+    ]));
+
+    transaction.create(logRef, { ...log, quarantinedThisRun });
+    // No document means evidence is unavailable. Best-effort logging cannot
+    // establish zero sends or full coverage, even after the day closes.
+    transaction.set(dailyRef, { ...identity, ...counters, throughAt });
+  });
+}
+
+async function logSend(count, subject, status, { invocationId, quarantinedThisRun } = {}) {
   if (!db) return;
   try {
     // Store campaign log under newsletter_subscribers/_meta_/campaign_logs subcollection
     const metaRef = db.collection('newsletter_subscribers').doc('_meta_');
-    await metaRef.collection('campaign_logs').add({
+    const campaignLogs = metaRef.collection('campaign_logs');
+    const log = {
       sentAt: new Date(),
       recipientCount: count,
       subject,
       status,
       version: 'v2-ai',
-    });
+    };
+    if (invocationId) {
+      await persistNewsletterInvocation(db, campaignLogs.doc(invocationId), log, quarantinedThisRun);
+    } else {
+      await campaignLogs.add(log);
+    }
     // Also update _meta_ doc with last send info for quick reads
     await metaRef.set({
       last_sent_at: new Date(),
@@ -3649,7 +3725,12 @@ async function main() {
   }
 
   const sampleSubject = emails[0]?.payload?.subject || 'N/A';
-  await logSend(confirmedSent.length, sampleSubject, confirmedSent.length > 0 ? 'sent' : quarantinedThisRun > 0 ? 'unknown' : 'failed');
+  await logSend(
+    confirmedSent.length,
+    sampleSubject,
+    confirmedSent.length > 0 ? 'sent' : quarantinedThisRun > 0 ? 'unknown' : 'failed',
+    mode === 'send' ? { invocationId: deliveryAttemptId, quarantinedThisRun } : undefined,
+  );
 
   // Track featured article for rotation — only persist on real sends, not test/preview.
   // Pre-2026-05-19 every test send polluted the article history; today's test mode

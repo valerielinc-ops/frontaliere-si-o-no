@@ -118,4 +118,19 @@ describe('local dist revalidation artifact handoff', () => {
     expect(SECTION_REHYDRATE).toContain('shard-batch-$batch-dist-$loc-$artifact_run_id');
     expect(REHYDRATE_PROVENANCE).toContain('"${!var:-${SHARD_ARTIFACT_RUN_ID:-$DEPLOY_RUN_ID}}"');
   });
+
+  it('stops before the completeness gate when section rehydrate fails', () => {
+    const sectionInvocation = LOCAL_REVALIDATE.indexOf(
+      '( cd "$STAGE" && bash "$REPO_ROOT/scripts/lib/rehydrate-section-shards.sh" )',
+    );
+    const sectionStatus = LOCAL_REVALIDATE.indexOf('SECTION_RC=${PIPESTATUS[0]}', sectionInvocation);
+    const gate = LOCAL_REVALIDATE.indexOf('# ── The gate', sectionStatus);
+
+    expect(sectionInvocation).toBeGreaterThan(-1);
+    expect(sectionStatus).toBeGreaterThan(sectionInvocation);
+    expect(gate).toBeGreaterThan(sectionStatus);
+    expect(LOCAL_REVALIDATE.slice(sectionStatus, gate)).toContain(
+      'if [ "$SECTION_RC" -ne 0 ]; then',
+    );
+  });
 });

@@ -14,7 +14,7 @@ import { extractDdgDomains, guessDomains, rankDomains } from './domain-finder.mj
 // NOT the employer's own domain, so its apex would be wrong (e.g. emailing
 // ncoreplat.com). Skip email-scraping when the resolved apex is one of these.
 export const ATS_DOMAINS = new Set([
-  'lever.co', 'greenhouse.io', 'myworkdayjobs.com', 'workday.com', 'smartrecruiters.com',
+  'lever.co', 'greenhouse.io', 'myworkdayjobs.com', 'myworkdaysite.com', 'workday.com', 'smartrecruiters.com',
   'personio.de', 'personio.com', 'recruitee.com', 'ncoreplat.com', 'ostendis.com',
   'refline.ch', 'prospective.ch', 'jobs.ch', 'jobscout24.ch', 'indeed.com',
   'jobcloud.ch', 'softgarden.io', 'teamtailor.com', 'workable.com', 'bamboohr.com',

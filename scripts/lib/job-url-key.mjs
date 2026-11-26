@@ -41,7 +41,8 @@ const UUID_RE = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i;
 const NUM_ID_RE = /\b\d{6,}\b/;
 const HEX_TOKEN_RE = /\b[0-9a-f]{10,}\b/i;
 
-// Workday job URLs (`*.myworkdayjobs.com`) follow `…/job/<Location>/<Title>_<req>`
+// Workday job URLs (`*.myworkdayjobs.com` and `*.myworkdaysite.com`) follow
+// `…/job/<Location>/<Title>_<req>`
 // where <Title> is hyphen-slugified (never `_`) and the requisition id is the
 // stable per-job token, e.g.
 //   …/job/Sion/Conseiller-en-immobilier-…-Sierre-_R11696
@@ -53,7 +54,26 @@ const HEX_TOKEN_RE = /\b[0-9a-f]{10,}\b/i;
 // digit is required so a stray non-req underscore can't be mistaken for an id.
 // Host-gated so no other crawler's key changes. The `-N`/`_N` re-posting suffix
 // is kept (distinct postings of the same req must not collapse onto one id).
-const WORKDAY_HOST_RE = /(?:^|\/\/)[^/]*\.myworkdayjobs\.com(?:[:/]|$)/;
+const WORKDAY_HOST_RE = /(?:^|\/\/)(?:[^/]+\.)+(?:myworkdayjobs|myworkdaysite)\.com(?:[:/]|$)/i;
+const WORKDAY_SITE_HOST_RE = /^wd\d+\.myworkdaysite\.com$/i;
+const WORKDAY_LOCALE_SEGMENT_RE = /^[a-z]{2}(?:-[a-z]{2})?$/i;
+
+/**
+ * Return the legacy tenant-shaped host for a shared Workday career-site URL.
+ *
+ * @param {URL} url
+ * @returns {string}
+ */
+export function workdayCanonicalHost(url) {
+  const host = String(url?.hostname || '').toLowerCase();
+  if (!WORKDAY_SITE_HOST_RE.test(host)) return host;
+  const segments = String(url?.pathname || '').split('/').filter(Boolean);
+  if (WORKDAY_LOCALE_SEGMENT_RE.test(segments[0] || '')) segments.shift();
+  const tenant = segments[0]?.toLowerCase() === 'recruiting' ? segments[1] : '';
+  if (!tenant || !/^[a-z0-9_-]+$/i.test(tenant)) return host;
+  const dataCenter = host.split('.')[0];
+  return tenant + '.' + dataCenter + '.myworkdayjobs.com';
+}
 
 /**
  * Workday requisition id = the leaf substring after its FIRST underscore (the
@@ -420,16 +440,16 @@ export function mergeUrlKey(url) {
 
   // Rule W — Workday requisition id (host-gated). The stable per-job token is the
   // leaf suffix after the first underscore (title text precedes it, freely renamed).
-  // Prefix the FULL host: all Workday tenants share the `myworkdayjobs.com`
-  // registrable domain, so a bare requisition (`R11696`) would collide across
-  // distinct employers in a multi-tenant match set. Mirrors extractJobIdentityFromUrl's
-  // full-host identity (dedicated-crawler-common.mjs) for one consistent Workday key.
+  // Prefix the tenant-scoped canonical host: all Workday tenants share the
+  // Workday registrable domains, so a bare requisition (`R11696`) would collide
+  // across distinct employers in a multi-tenant match set. Mirrors
+  // extractJobIdentityFromUrl's full-host identity for one consistent key.
   // Free re-key: the merge key is recomputed live every crawl (never persisted), so
   // both the existing job and the fresh crawl rederive the host-prefixed form → match.
   if (WORKDAY_HOST_RE.test(u)) {
     const req = workdayReqFromLeaf(leaf);
     if (req) {
-      const host = u.match(/^https?:\/\/([^/]+)/)?.[1] || '';
+      const host = workdayCanonicalHost(new URL(u));
       return `req:${host}:${req}`;
     }
   }

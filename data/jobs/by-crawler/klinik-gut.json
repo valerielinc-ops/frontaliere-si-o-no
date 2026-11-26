@@ -90,7 +90,8 @@
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T09:34:02.930Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.klinik-gut.ch/de/offene-stellen"
     },
     {
       "id": "klinik-gut-5620-ab96e29a96ac",
@@ -174,7 +175,8 @@
       "streetAddress": "Fläsch",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-18T09:34:02.929Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.klinik-gut.ch/de/offene-stellen"
     },
     {
       "id": "klinik-gut-5387-75d551e2529b",
@@ -257,7 +259,8 @@
       "streetAddress": "Fläsch",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:34:02.926Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.klinik-gut.ch/de/offene-stellen"
     },
     {
       "id": "klinik-gut-1581-00c45976f0f5",
@@ -343,7 +346,8 @@
       "streetAddress": "Fläsch",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T09:34:02.922Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.klinik-gut.ch/de/offene-stellen"
     },
     {
       "id": "klinik-gut-1575-03ea5beb51fc",
@@ -422,7 +426,8 @@
       "streetAddress": "Fläsch",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T09:34:02.919Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.klinik-gut.ch/de/offene-stellen"
     },
     {
       "id": "klinik-gut-2110-1176e329961f",
@@ -511,7 +516,8 @@
       "streetAddress": "Via Paracelsus 2a",
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-26T09:34:02.895Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.klinik-gut.ch/de/offene-stellen"
     }
   ]
 }

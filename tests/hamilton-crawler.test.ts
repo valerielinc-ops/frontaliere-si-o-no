@@ -20,7 +20,7 @@ describe("Hamilton Workday crawler transport", () => {
     ];
     let options;
     fetchWorkdayJobs.mockImplementation(async function* (apiBase, receivedOptions) {
-      expect(apiBase).toBe("https://hamilton.wd3.myworkdayjobs.com/wday/cxs/hamilton/hamilton_jobs");
+      expect(apiBase).toBe("https://wd3.myworkdaysite.com/wday/cxs/hamilton/hamilton_jobs");
       options = receivedOptions;
       receivedOptions.stats.endReason = "short-page";
       yield* listings;
