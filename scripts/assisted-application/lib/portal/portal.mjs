@@ -3140,13 +3140,14 @@ function pageSignature(page, snapshot) {
  * but the field's identity, type, and required state still are: a redraw that
  * removes or replaces the password control must remain unsafe.
  */
-function questionSurfaceSignature(snapshot = {}, { ignorePasswordPolicy = false } = {}) {
+function questionSurfaceSignature(snapshot = {}, { ignorePasswordPolicy = false, ignoreValueFieldIds = null } = {}) {
   const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
   const errors = Array.isArray(snapshot.errors) ? snapshot.errors : [];
   return JSON.stringify({
     pageMarker: String(snapshot.pageMarker || ''),
     fields: fields.map((field) => {
       const passwordPolicyField = ignorePasswordPolicy && field.inputType === 'password';
+      const ignoreFieldValue = passwordPolicyField || Boolean(ignoreValueFieldIds?.has?.(String(field.id || '')));
       return [
         Number.isInteger(field.frame) ? field.frame : '',
         // SuccessFactors can replace the password input while its policy
@@ -3168,8 +3169,8 @@ function questionSurfaceSignature(snapshot = {}, { ignorePasswordPolicy = false 
         passwordPolicyField ? null : (Number.isFinite(field.maxLength) ? field.maxLength : null),
         passwordPolicyField ? '' : String(field.accept || '').replace(/\s+/g, ' ').trim(),
         passwordPolicyField ? null : (Object.hasOwn(field, 'addressContext') ? addressContextContract(field) : null),
-        passwordPolicyField ? null : createHash('sha256').update(String(field.value ?? '')).digest('hex'),
-        field.checked === true,
+        ignoreFieldValue ? null : createHash('sha256').update(String(field.value ?? '')).digest('hex'),
+        ignoreFieldValue ? null : field.checked === true,
         field.required === true, passwordPolicyField ? false : field.invalid === true,
         (Array.isArray(field.options) ? field.options : []).map((option) => [
           String(typeof option === 'string' ? option : option?.label || ''),
@@ -12412,7 +12413,12 @@ export async function submitViaPortal(ctx) {
           ? Math.min(requestedTimeoutMs, remainingMs)
           : remainingMs;
         if (timeoutMs < 1) throw portalRuntimeBudgetError();
-        return rawCodex({ ...request, timeoutMs: Math.max(1, Math.trunc(timeoutMs)) });
+        try {
+          return await rawCodex({ ...request, timeoutMs: Math.max(1, Math.trunc(timeoutMs)) });
+        } catch (error) {
+          if (Date.now() >= portalRunDeadline) throw portalRuntimeBudgetError();
+          throw error;
+        }
       },
     };
   }
@@ -14262,13 +14268,15 @@ export async function submitViaPortal(ctx) {
         // The form after the choices: with other fields than the ones planned it is read and planned again
         // (up to four times for one page), and nothing is typed into what is no longer there.
         let redrawn = false;
+        const choiceFieldIds = new Set(results.filter((result) => result.ok).map((result) => String(result.fieldId || '')).filter(Boolean));
         if (choices.length) {
           for (let waited = 0; waited < REDRAW_WAIT_MS && !redrawn && page.url() === plannedUrl; waited += 500) {
             await page.waitForTimeout(500);
             const now = await extractFields(page, NAVIGATION).catch(() => null);
             const comparableNow = now ? await snapshotWithPortalOptions(now) : null;
             redrawn = Boolean(comparableNow) && comparableNow.fields.length > 0
-              && questionSurfaceSignature(comparableNow) !== questionSurfaceSignature(snapshot);
+              && questionSurfaceSignature(comparableNow, { ignoreValueFieldIds: choiceFieldIds })
+                !== questionSurfaceSignature(snapshot, { ignoreValueFieldIds: choiceFieldIds });
           }
         }
         if (!redrawn) {
@@ -14416,7 +14424,12 @@ export async function submitViaPortal(ctx) {
           }
           if (stable.status !== 'stable') return await handoff('portal_needs_candidate');
           after = await snapshotWithPortalOptions(after);
-          if (questionSurfaceSignature(after) !== questionSurfaceSignature(snapshot)) {
+          const filledFieldIds = new Set([
+            ...results.filter((result) => result.ok).map((result) => String(result.fieldId || '')),
+            ...(ownAccount ? snapshot.fields.filter((field) => field.inputType === 'password').map((field) => String(field.id || '')) : []),
+          ].filter(Boolean));
+          if (questionSurfaceSignature(after, { ignoreValueFieldIds: filledFieldIds })
+            !== questionSurfaceSignature(snapshot, { ignoreValueFieldIds: filledFieldIds })) {
             const redrawCount = redraws.get(redrawKey) || 0;
             if (redrawCount >= MAX_REDRAWS_PER_PAGE) return await handoff('portal_needs_candidate');
             redraws.set(redrawKey, redrawCount + 1);

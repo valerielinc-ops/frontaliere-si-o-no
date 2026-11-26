@@ -1417,6 +1417,89 @@ describe('assisted portal question batching', () => {
 
     expect(result.event.type).not.toBe('submit_needs_candidate');
   });
+
+  it('does not trigger a redraw replan on static forms after the runner fills choices and text fields', async () => {
+    const fixture = fakePage({ conditional: false });
+    const { page, window } = fixture;
+    window.document.getElementById('next')!.textContent = 'Send application';
+    const context: any = {
+      on: () => {}, off: () => {}, pages: () => [page], newPage: async () => page,
+      close: async () => {}, waitForEvent: async () => null,
+    };
+    page.context = () => context;
+    const browser = { newContext: async () => context, close: async () => {}, version: () => '130.0.0.0' };
+    const fieldId = (id: string) => window.document.getElementById(id)?.getAttribute('data-aa-id') || '';
+    let plannerCalls = 0;
+    const codex = async () => {
+      plannerCalls += 1;
+      return {
+        actions: [
+          { fieldId: fieldId('country'), action: 'select', value: 'Italia', document: 'none', source: 'identity', evidence: '' },
+          { fieldId: fieldId('motivation'), action: 'fill', value: 'Experienced candidate', document: 'none', source: 'draft', evidence: '' },
+        ],
+        missingRequired: [],
+      };
+    };
+
+    const result = await submitViaPortal({
+      applyUrl: page.url(),
+      job: { title: 'Synthetic role', company: 'Example AG' },
+      language: 'en', candidateLocale: 'en',
+      candidate: { identity: { email: 'candidate@example.test', address: { country: 'Italia' } }, profile: {} },
+      files: {}, dryRun: true, skipPostingCheck: true, maxSteps: 3, codex, launch: async () => browser,
+      accounts: { load: async () => null, save: async () => {}, mark: async () => {}, discard: async () => {} },
+    });
+
+    expect(result.event.type).toBe('submit_handoff');
+    expect(['dry_run', 'posting_unbound']).toContain(result.event.reason);
+    expect(plannerCalls).toBe(1);
+    expect(result.evidence.steps).toHaveLength(1);
+    expect(result.evidence.steps.some((step: any) => step.redrawn)).toBe(false);
+  });
+
+  it('reports portal_needs_candidate only once portalRunDeadline expires and propagates early transportFault errors unchanged', async () => {
+    const context = (page: any) => ({
+      on: () => {}, off: () => {}, pages: () => [page], newPage: async () => page,
+      close: async () => {}, waitForEvent: async () => null,
+    });
+    const expiredFixture = fakePage({ conditional: false });
+    const expiredContext = context(expiredFixture.page);
+    expiredFixture.page.context = () => expiredContext;
+    const expiredBrowser = { newContext: async () => expiredContext, close: async () => {}, version: () => '130.0.0.0' };
+    const expiredResult = await submitViaPortal({
+      applyUrl: expiredFixture.page.url(),
+      job: { title: 'Synthetic role', company: 'Example AG' },
+      language: 'en', candidateLocale: 'en',
+      candidate: { identity: { email: 'candidate@example.test' }, profile: {} },
+      files: {}, skipPostingCheck: true, maxSteps: 3, maxRuntimeMs: 400,
+      codex: async (request: any) => {
+        await new Promise((resolve) => setTimeout(resolve, Number(request?.timeoutMs || 0) + 25));
+        throw Object.assign(new Error('Codex auth broker rejected the request: Codex CLI timed out after 300ms'), { transportFault: true });
+      },
+      launch: async () => expiredBrowser,
+      accounts: { load: async () => null, save: async () => {}, mark: async () => {}, discard: async () => {} },
+    });
+
+    expect(expiredResult.event).toMatchObject({ type: 'submit_handoff', reason: 'portal_needs_candidate' });
+    expect(expiredResult.evidence.runtimeBudget).toBeTruthy();
+
+    const earlyFixture = fakePage({ conditional: false });
+    const earlyContext = context(earlyFixture.page);
+    earlyFixture.page.context = () => earlyContext;
+    const earlyBrowser = { newContext: async () => earlyContext, close: async () => {}, version: () => '130.0.0.0' };
+    await expect(submitViaPortal({
+      applyUrl: earlyFixture.page.url(),
+      job: { title: 'Synthetic role', company: 'Example AG' },
+      language: 'en', candidateLocale: 'en',
+      candidate: { identity: { email: 'candidate@example.test' }, profile: {} },
+      files: {}, skipPostingCheck: true, maxSteps: 3, maxRuntimeMs: 60_000,
+      codex: async () => {
+        throw Object.assign(new Error('Codex auth broker temporarily unavailable'), { transportFault: true });
+      },
+      launch: async () => earlyBrowser,
+      accounts: { load: async () => null, save: async () => {}, mark: async () => {}, discard: async () => {} },
+    })).rejects.toThrow('Codex auth broker temporarily unavailable');
+  });
 });
 
 function elementValue(window: any, selector: string) {
