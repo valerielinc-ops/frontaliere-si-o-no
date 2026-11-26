@@ -345,6 +345,41 @@ function locationsSummary(profile: EmployerProfile): string {
   return profile.cantons.slice(0, 3).map((c) => c.name).join(', ');
 }
 
+const PROFILE_META_LOCATION_LABEL: Record<Locale, string> = {
+  it: 'Sedi:',
+  en: 'Locations:',
+  de: 'Standorte:',
+  fr: 'Sites :',
+};
+
+/**
+ * SERP description for an indexable employer profile.
+ *
+ * The long factual prose below the job list is useful on-page, but it is a
+ * poor metadata source: the shared 150-character clamp cuts its opening
+ * sentence before the locations and the action the searcher came for. Keep
+ * the snippet contract separate from visible copy and put the two strongest
+ * decision facts first: the current opening count and real profile locations.
+ */
+export function employerProfileMetaDescription(profile: EmployerProfile, locale: Locale): string {
+  const locations = locationsSummary(profile);
+  const locationPart = locations
+    ? ` ${PROFILE_META_LOCATION_LABEL[locale]} ${locations}.`
+    : '';
+  const count = profile.activeJobs;
+  switch (locale) {
+    case 'en':
+      return `${profile.name}: ${count} open jobs.${locationPart} Explore roles, locations and salaries on Frontaliere Ticino.`;
+    case 'de':
+      return `${profile.name}: ${count} offene Stellen.${locationPart} Entdecken Sie Jobs, Standorte und Gehälter auf Frontaliere Ticino.`;
+    case 'fr':
+      return `${profile.name} : ${count} offres d’emploi.${locationPart} Découvrez postes, sites et salaires sur Frontaliere Ticino.`;
+    case 'it':
+    default:
+      return `${profile.name}: ${count} offerte di lavoro aperte.${locationPart} Consulta posizioni, sedi e stipendi su Frontaliere Ticino.`;
+  }
+}
+
 /** Sector string → sector-hub key when it maps to a real hub, else null. */
 function sectorHubKeyFor(sector: string | null | undefined): SectorHubKey | null {
   if (!sector) return null;
@@ -1138,7 +1173,7 @@ export function employerProfilePagesPlugin(rootDir: string, options: EmployerPro
           const html = buildSeoPageHtml({
             locale,
             title: composePlaceTitle(titleCandidates, TITLE_MAX_CHARS, (s) => esc(s).length),
-            description: introProse(liveProfile, group, locale),
+            description: employerProfileMetaDescription(liveProfile, locale),
             canonicalUrl,
             robots: indexable ? 'index,follow' : 'noindex,follow',
             ogType: 'website',
