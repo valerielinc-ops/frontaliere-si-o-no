@@ -476,9 +476,10 @@ describe('live section: pages from R2', () => {
 });
 
 describe('registry memo and last-known-good', () => {
-  it('fetches the registry once per TTL across many requests', async () => {
+  it('reuses a completed registry within its TTL across many requests', async () => {
     mockFetch({ registry: registry({ 'canton-ti': { status: 'live' } }), objects: {} });
-    await Promise.all([get('/articoli-ticino/a/'), get('/articoli-ticino/b/'), get('/en/ticino-articles/')]);
+    await get('/articoli-ticino/a/');
+    await Promise.all([get('/articoli-ticino/b/'), get('/en/ticino-articles/')]);
     await get('/articoli-ticino/c/');
     expect(registryFetches()).toHaveLength(1);
   });

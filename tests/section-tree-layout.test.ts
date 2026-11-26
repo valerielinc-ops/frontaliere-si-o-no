@@ -724,7 +724,16 @@ describe('automatic section tree fan-out policy', () => {
     expect(calls).toBe(2);
     expect(resolvers).toHaveLength(2);
     resolvers[0](new Response(JSON.stringify({ version: 1, sections: {} }), { status: 200 }));
-    resolvers[1](new Response(JSON.stringify({ version: 1, sections: { lucerna: { layout: 'hash-v1' } } }), { status: 200 }));
+    resolvers[1](new Response(JSON.stringify({
+      version: 1,
+      sections: {
+        lucerna: {
+          layout: 'hash-v1',
+          since: '2026-11-12T00:00:00.000Z',
+          reason: { locale: 'de', pct: 44.2 },
+        },
+      },
+    }), { status: 200 }));
 
     expect(await first).toEqual(new Set(SECTION_TREE_FANOUT_SECTIONS));
     expect(await second).toEqual(new Set([...SECTION_TREE_FANOUT_SECTIONS, 'lucerna']));
