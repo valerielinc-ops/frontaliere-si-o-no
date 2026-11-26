@@ -1,3 +1,8 @@
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { pathToFileURL } from 'node:url';
+import { spawn } from 'node:child_process';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 const { launchStealthOrChromiumMock } = vi.hoisted(() => ({
@@ -53,6 +58,74 @@ afterEach(() => {
 });
 
 describe('Workday JSON transport', () => {
+  it('shares the runner egress lock and Retry-After cooldown across processes', async () => {
+    const egressStateDir = fs.mkdtempSync(path.join(os.tmpdir(), 'workday-egress-test-'));
+    const requestLogPath = path.join(egressStateDir, 'request-times.log');
+    const readRequestTimes = () => {
+      if (!fs.existsSync(requestLogPath)) return [];
+      return fs.readFileSync(requestLogPath, 'utf8')
+        .split('\n')
+        .filter(Boolean)
+        .map(Number);
+    };
+
+    try {
+      const apiBase = 'https://workday.test/wday/cxs/test/External';
+      const clientUrl = pathToFileURL(path.resolve('scripts/lib/ats-clients/workday-client.mjs')).href;
+      const runClientProcess = (status: number) => new Promise<void>((resolve, reject) => {
+        const script = `
+          import fs from 'node:fs';
+          const status = ${JSON.stringify(status)};
+          const requestLogPath = ${JSON.stringify(requestLogPath)};
+          globalThis.fetch = async () => {
+            fs.appendFileSync(requestLogPath, String(Date.now()) + '\\n');
+            if (status === 429) await new Promise((resolve) => setTimeout(resolve, 100));
+            return new Response(status === 429 ? '' : JSON.stringify({ ok: true }), {
+              status,
+              headers: status === 429
+                ? { 'Retry-After': '1' }
+                : { 'Content-Type': 'application/json' },
+            });
+          };
+          const { fetchWorkdayJsonWithRetry } = await import(${JSON.stringify(clientUrl)});
+          try {
+            await fetchWorkdayJsonWithRetry(${JSON.stringify(apiBase)}, ${JSON.stringify(`${apiBase}/jobs`)}, {
+              retries: 0,
+              browserFallback: null,
+              egressStateDir: ${JSON.stringify(egressStateDir)},
+              egressMinDelayMs: 0,
+            });
+          } catch (error) {
+            if (error?.statusCode !== 429) throw error;
+          }
+        `;
+        const child = spawn(process.execPath, ['--input-type=module', '-e', script], { stdio: 'ignore' });
+        child.once('error', reject);
+        child.once('close', (code) => {
+          if (code === 0) resolve();
+          else reject(new Error(`Workday child process exited with ${code}`));
+        });
+      });
+
+      const first = runClientProcess(429);
+      const deadline = Date.now() + 2000;
+      while (readRequestTimes().length < 1 && Date.now() < deadline) {
+        await new Promise((resolve) => setTimeout(resolve, 10));
+      }
+      expect(readRequestTimes()).toHaveLength(1);
+      const secondStartedAt = Date.now();
+      const second = runClientProcess(200);
+      await Promise.all([first, second]);
+
+      const requestTimes = readRequestTimes();
+      expect(requestTimes).toHaveLength(2);
+      expect(requestTimes[1] - requestTimes[0]).toBeGreaterThanOrEqual(900);
+      expect(Date.now() - secondStartedAt).toBeGreaterThanOrEqual(800);
+    } finally {
+      fs.rmSync(egressStateDir, { recursive: true, force: true });
+    }
+  });
+
   it('retries a rate-limited JSON request before returning the listing', async () => {
     vi.stubEnv('JOBS_CRAWLER_RETRIES', '1');
     vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
