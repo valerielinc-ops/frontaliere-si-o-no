@@ -262,7 +262,10 @@ describe('costo — il contesto è raccolto senza Claude', () => {
     expect(src).toContain('steps.ctx.outputs.recovered == \'true\' ||');
     expect(src).toContain('id: classify_outcome');
     expect(src).toContain('CLAIM_STATUS=completed');
-    expect(src).toContain("steps.classify_outcome.outcome == 'success'");
+    expect(src).toContain("RECOVERED: ${{ steps.ctx.outputs.recovered }}");
+    expect(src).toContain("echo 'recovered_completion=true' >> \"$GITHUB_OUTPUT\"");
+    expect(src).toContain("steps.classify_outcome.outputs.recovered_completion == 'true'");
+    expect(src).not.toContain("steps.classify_outcome.outcome == 'success'");
     expect(src).toContain("steps.response.outputs.published == 'yes'");
   });
 

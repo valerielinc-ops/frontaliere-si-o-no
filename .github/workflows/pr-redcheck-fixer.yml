@@ -1550,6 +1550,7 @@ jobs:
           BASE_SHA: ${{ steps.base.outputs.sha }}
           BASE_COMMENTS: ${{ steps.base.outputs.comments }}
           ACTION_OUTCOME: ${{ steps.codex_fix.outcome }}
+          RECOVERED: ${{ steps.ctx.outputs.recovered }}
         run: |
           set -uo pipefail
           HEAD_NOW=$(git rev-parse HEAD 2>/dev/null || echo "")
@@ -1673,11 +1674,14 @@ jobs:
             echo "::error::❌-check-fix: nessun commit pushato, l'azione è uscita '$ACTION_OUTCOME', e nessun commento nuovo a spiegare perché (comments $BASE_COMMENTS→$NOW_COMMENTS) → non-progress SILENZIOSO, non un terminale legittimo. Job RED (segnale preservato; round-cap → needs-human a N>=2)."
             exit 1
           fi
+          if [ "${RECOVERED:-false}" = 'true' ]; then
+            echo 'recovered_completion=true' >> "$GITHUB_OUTPUT"
+          fi
           echo "Nessun push ma l'azione è terminata pulita ('$ACTION_OUTCOME') con una spiegazione nuova sulla PR → terminale legittimo (es. non auto-fixabile). Job verde."
           exit 0
 
       - name: Finalize recovered redcheck claim (zero-Claude)
-        if: always() && steps.claim.outputs.claim_acquired == 'true' && steps.ctx.outputs.recovered == 'true' && steps.response.outputs.published == 'yes' && steps.classify_outcome.outcome == 'success'
+        if: always() && steps.claim.outputs.claim_acquired == 'true' && steps.ctx.outputs.recovered == 'true' && steps.response.outputs.published == 'yes' && steps.classify_outcome.outputs.recovered_completion == 'true'
         run: echo 'CLAIM_STATUS=completed' >> "$GITHUB_ENV"
 
       # The fixer action and npm lifecycle scripts ran from the PR checkout.
