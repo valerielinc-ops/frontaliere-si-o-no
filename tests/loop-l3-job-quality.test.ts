@@ -90,7 +90,7 @@ describe('L3 Job Quality → Apply', () => {
   it.each([
     ['aborted 429 receipt', {
       abortKind: 'connection-level-fetch',
-      fetchReceipt: { fetchOutcome: null, httpStatuses: [{ status: 429 }] },
+      fetchReceipt: { fetchOutcome: null, listingTerminalStatus: 429, httpStatuses: [{ status: 429 }] },
     }],
     ['exhausted retry', { lastFetchOutcome: 'exhausted_retry' }],
     ['unavailable feed endpoint', { lastFetchOutcome: 'feed_endpoint_unavailable' }],
@@ -137,7 +137,7 @@ describe('L3 Job Quality → Apply', () => {
 
   it('keeps legacy summaries without an explicitly failed receipt compatible', () => {
     const verdict = validateJobSummaries([summary({
-      fetchReceipt: { fetchOutcome: null, httpStatuses: [] },
+      fetchReceipt: { phase: 'detail', fetchOutcome: null, httpStatuses: [{ status: 404 }] },
     })], { outcomes: outcomes(), now: NOW });
 
     expect(verdict).toMatchObject({ ok: true, quality: 'observed' });
@@ -147,11 +147,50 @@ describe('L3 Job Quality → Apply', () => {
   it('accepts a retried 429 when the receipt records a successful final source read', () => {
     const verdict = validateJobSummaries([summary({
       lastFetchOutcome: 'ok',
-      fetchReceipt: { fetchOutcome: 'ok', httpStatuses: [{ status: 429 }, { status: 200 }] },
+      fetchReceipt: {
+        fetchOutcome: 'ok',
+        listingTerminalStatus: 200,
+        httpStatuses: [{ status: 429 }, { status: 200 }],
+      },
     })], { outcomes: outcomes(), now: NOW });
 
     expect(verdict).toMatchObject({ ok: true, quality: 'observed' });
     expect(verdict.snapshot).toMatchObject({ freshSummaries: 1, staleSummaries: 0, sourceFailedSummaries: 0 });
+  });
+
+  it('does not let an expected detail 404 make a successful listing stale', () => {
+    const verdict = validateJobSummaries([summary({
+      lastFetchOutcome: 'ok',
+      fetchReceipt: {
+        phase: 'detail',
+        fetchOutcome: 'ok',
+        listingTerminalStatus: 200,
+        httpStatuses: [
+          { status: 200, url: 'https://jobs.example.test/jobs' },
+          { status: 404, url: 'https://jobs.example.test/job/closed' },
+        ],
+      },
+    })], { outcomes: outcomes(), now: NOW });
+
+    expect(verdict).toMatchObject({ ok: true, quality: 'observed' });
+    expect(verdict.snapshot).toMatchObject({ freshSummaries: 1, staleSummaries: 0, validJobs: 1 });
+  });
+
+  it('treats a terminal listing 429 as stale without relying on a per-page status vector', () => {
+    const verdict = validateJobSummaries([summary({
+      fetchReceipt: {
+        phase: 'listing',
+        fetchOutcome: null,
+        listingTerminalStatus: 429,
+      },
+    })], { outcomes: outcomes(), now: NOW });
+
+    expect(verdict).toMatchObject({
+      ok: false,
+      quality: 'stale',
+      snapshot: { freshSummaries: 0, staleSummaries: 1, sourceFailedSummaries: 1, validJobs: 0 },
+    });
+    expect(verdict.issues.join(' ')).toContain('terminal listing HTTP 429');
   });
 
   it('keeps a source-backed handoff independent when only a sibling summary is stale', async () => {

@@ -135,14 +135,17 @@ function sourceRefreshFailureReasons(summary) {
       reasons.push('fetchReceipt is malformed');
     } else {
       addOutcome('fetchReceipt.fetchOutcome', summary.fetchReceipt.fetchOutcome);
-      const statuses = summary.fetchReceipt.httpStatuses;
-      if (statuses !== null && statuses !== undefined && !Array.isArray(statuses)) {
-        reasons.push('fetchReceipt.httpStatuses is malformed');
-      } else if (Array.isArray(statuses)) {
-        const lastStatus = statuses.map((entry) => Number(entry?.status))
-          .filter((status) => Number.isInteger(status) && status > 0)
-          .at(-1);
-        if (lastStatus >= 400) reasons.push(`fetchReceipt terminal HTTP ${lastStatus}`);
+      // `httpStatuses` includes per-vacancy detail responses. Use only the
+      // producer-attributed terminal listing status to assess source freshness.
+      if (Object.hasOwn(summary.fetchReceipt, 'listingTerminalStatus')) {
+        const listingTerminalStatus = summary.fetchReceipt.listingTerminalStatus;
+        if (listingTerminalStatus !== null && listingTerminalStatus !== undefined) {
+          if (!Number.isInteger(listingTerminalStatus) || listingTerminalStatus <= 0) {
+            reasons.push('fetchReceipt.listingTerminalStatus is malformed');
+          } else if (listingTerminalStatus >= 400) {
+            reasons.push(`fetchReceipt terminal listing HTTP ${listingTerminalStatus}`);
+          }
+        }
       }
     }
   }

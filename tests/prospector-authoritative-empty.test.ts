@@ -86,8 +86,33 @@ describe('prospector source-backed empty listing contract', () => {
       seedUrls: [SEED_URL],
       phase: 'listing',
       pages: 1,
+      listingTerminalStatus: 200,
       httpStatuses: [{ status: 200, url: SEED_URL }],
       fetchOutcome: 'ok',
+    });
+  });
+
+  it('records a terminal listing 429 separately from per-vacancy statuses', async () => {
+    const fetchImpl = async (input: string | URL | Request) => {
+      const url = String(input);
+      if (url.endsWith('/robots.txt')) return new Response('User-agent: *\nAllow: /');
+      return new Response('', { status: 429 });
+    };
+    let error: any;
+    try {
+      await runSpecInProduction(spec('A different reviewed source sentence.'), {
+        ...runtime(),
+        fetchImpl,
+      });
+    } catch (caught) {
+      error = caught;
+    }
+
+    expect(error).toBeInstanceOf(Error);
+    expect(error.specFetchReceipt).toMatchObject({
+      phase: 'listing',
+      listingTerminalStatus: 429,
+      httpStatuses: expect.arrayContaining([expect.objectContaining({ status: 429 })]),
     });
   });
 
@@ -321,6 +346,7 @@ describe('prospector source-backed empty listing contract', () => {
     expect(error.specFetchReceipt).toMatchObject({
       specKey: 'eqe-ch-fixture',
       phase: 'detail',
+      listingTerminalStatus: 200,
       httpStatuses: expect.arrayContaining([expect.objectContaining({ status: 503 })]),
       fetchOutcome: null,
     });
