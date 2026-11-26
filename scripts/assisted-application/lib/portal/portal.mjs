@@ -10459,18 +10459,20 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     if (!pressed) return accountHandoff('account', 'no_sign_in_button', 'login');
     const after = await awaitAuthOutcome(page, 'sign_in', shown, form.fields);
     diagnostics?.afterClick();
-    if (!account.verifiedAt && (VERIFY_PAGE_RE.test(accountResponseText(after)) || codeField(after)
-      || isAccountVerificationResponse(after) || (authPageKind(after) !== 'create' && hasResendVerificationControl(after)))) {
-      return { ...await verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot: after }), pressed };
-    }
-    // Workday can reveal the verification failure only after the first sign-in
-    // click. The form remains a sign-in page and may expose the copy only as a
-    // form message (without a resend control), even when the stored account
-    // record was previously marked verified. The sign-in response is the
-    // signal: the portal has just sent the verification mail.
-    if (authPageKind(after) === 'sign_in'
-      && isAccountVerificationResponse(after)
-      && !usesOtpAccountCreation(host)) {
+    const postSignInVerificationText = accountResponseText(after);
+    const hasActivationPrompt = isAccountVerificationResponse(after)
+      || (hasResendVerificationControl(after) && (!codeField(after) || VERIFY_PAGE_RE.test(postSignInVerificationText)));
+    const needsPostSignInVerification = (!account.verifiedAt
+      && (VERIFY_PAGE_RE.test(postSignInVerificationText) || codeField(after)
+        || hasActivationPrompt || (authPageKind(after) !== 'create' && hasResendVerificationControl(after))))
+      // Even when a stored account already carries `verifiedAt` (e.g. a stale or partial
+      // activation), an explicit post-login account-activation notice or resend-verification
+      // control with no OTP code challenge (or non-OTP tenant) proves the portal still
+      // requires email activation.
+      || (authPageKind(after) !== 'create'
+        && hasActivationPrompt
+        && (!usesOtpAccountCreation(host) || !codeField(after)));
+    if (needsPostSignInVerification) {
       return { ...await verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot: after }), pressed };
     }
     // Two password fields after a sign-in are no account's home either (a dialog opened over the form).
@@ -12924,16 +12926,32 @@ export async function submitViaPortal(ctx) {
         diversionHint,
       });
     };
-    const pendingOtpAccount = async (current) => {
-      if (!ctx.accounts || !codeField(current)) return null;
-      let host = '';
+    const accountHostForUrl = (targetUrl) => {
       try {
-        host = new URL(page.url()).hostname;
+        return new URL(String(targetUrl || '')).hostname;
       } catch {
-        return null;
+        return '';
       }
+    };
+    const pendingOtpAccount = async (current, targetUrl = page.url()) => {
+      if (!ctx.accounts || !codeField(current)) return null;
+      const host = accountHostForUrl(targetUrl);
+      if (!host) return null;
       const account = await ctx.accounts.load(host);
       return isOtpVerificationPage(current, host, account) ? { host, account } : null;
+    };
+    // Hand saved sign-in and pending OTP screens back to handleAuth/verifyAccount
+    // before the navigation agent asks Codex to click Create Profile or Sign Up.
+    const shouldHandOffAccountSurface = async (targetPage) => {
+      if (!ctx.accounts) return false;
+      const targetUrl = typeof targetPage?.url === 'function' ? targetPage.url() : '';
+      const host = accountHostForUrl(targetUrl);
+      if (!host) return false;
+      const targetSnapshot = await extractFields(targetPage, NAVIGATION).catch(() => null);
+      if (!targetSnapshot) return false;
+      if (await pendingOtpAccount(targetSnapshot, targetUrl)) return true;
+      if (authPageKind(targetSnapshot) !== 'sign_in') return false;
+      return Boolean(await ctx.accounts.load(host).catch(() => null));
     };
     let workdayDeterministicRestoreAttempted = false;
     const restoreWorkdayApplication = async () => {
@@ -13282,6 +13300,7 @@ export async function submitViaPortal(ctx) {
             diversionHint: applicationDiversionHint({ ...current, text: await pageText(page) }),
           },
           reservedButtons,
+          stopForAccountSurface: reservedButtons?.length ? null : shouldHandOffAccountSurface,
           log,
         });
       } catch (error) {
