@@ -110558,6 +110558,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rimborso-imposta-secondo-pilastro-svizzero': {
+    title: 'Secondo pilastro svizzero: rimborso imposta alla fonte per residenti in Italia',
+    description: 'Informazioni sui dinieghi del 2024 sul rimborso imposta alla fonte del capitale LPP per residenti fiscali in Italia (5%).',
+    keywords: 'secondo pilastro svizzero, rimborso imposta, LPP, Italia-Svizzera, AFC, capitale LPP',
+    ogTitle: 'Rimborso imposta secondo pilastro svizzero per Italia',
+    ogDescription: 'Verifica dei dinieghi sul rimborso dell\'imposta alla fonte sul capitale LPP per residenti in Italia. Riferimento all\'art. 18 Convenzione Italia-Svizzera.',
+    canonicalPath: '/articoli-svizzera/rimborso-imposta-secondo-pilastro-svizzero/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Secondo pilastro svizzero: rimborso imposta alla fonte per residenti in Italia",
+      "description": "Informazioni sui dinieghi del 2024 sul rimborso imposta alla fonte del capitale LPP per residenti fiscali in Italia (5%).",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-rimborso-imposta-secondo-pilastro-svizzero.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-26T12:10:16+00:00",
+      "dateModified": "2026-11-26T12:10:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rimborso-imposta-secondo-pilastro-svizzero/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

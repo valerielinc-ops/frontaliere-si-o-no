@@ -299,7 +299,10 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
       'for REHYDRATE_CURRENT_LOCALE in it en de fr; do',
     );
     expect(REHYDRATE_SECTION_SCRIPT).toContain(
-      'bp_run_bounded "$rehydrate_max_parallel" rehydrate_section_for_current_locale',
+      'bp_run_bounded "$max_parallel" rehydrate_section_for_current_locale',
+    );
+    expect(REHYDRATE_SECTION_SCRIPT).toContain(
+      'rehydrate_current_locale_in_batches "$rehydrate_max_parallel"',
     );
   });
 

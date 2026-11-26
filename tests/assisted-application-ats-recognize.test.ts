@@ -9,6 +9,7 @@ describe('ATS recognition hints', () => {
       expect.objectContaining({ host: 'jobs.lever.co', provider: 'lever' }),
       expect.objectContaining({ host: 'jobs.ashbyhq.com', provider: 'ashby' }),
       expect.objectContaining({ host: 'myworkdayjobs.com', provider: 'workday' }),
+      expect.objectContaining({ host: 'myworkdaysite.com', provider: 'workday' }),
       expect.objectContaining({ host: 'jobs.hr.cloud.sap', provider: 'successfactors' }),
     ]));
   });

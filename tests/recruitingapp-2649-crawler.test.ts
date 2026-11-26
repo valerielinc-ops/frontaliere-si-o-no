@@ -316,8 +316,11 @@ describe('Alexander von Humboldt-Stiftung Stellen crawler parser', () => {
         '4018': { status: 503, body: 'temporarily unavailable' },
       });
 
-      await expect(fetchAllRecruitingapp2649Jobs(runtime))
-        .rejects.toThrow('incomplete detail snapshot (1/2)');
+      await expect(fetchAllRecruitingapp2649Jobs(runtime)).rejects.toMatchObject({
+        message: expect.stringContaining('incomplete detail snapshot (1/2)'),
+        specDetailDrop: { candidates: 2, gone: 0, rejected: 1 },
+        specDiscoveredCount: 2,
+      });
     });
 
     it('fails the whole batch when a detail is thin or has no source location', async () => {
@@ -326,8 +329,11 @@ describe('Alexander von Humboldt-Stiftung Stellen crawler parser', () => {
         '4018': { body: '<main><h1>Maintenance</h1></main>' },
       });
 
-      await expect(fetchAllRecruitingapp2649Jobs(runtime))
-        .rejects.toThrow('incomplete detail snapshot (2/2)');
+      await expect(fetchAllRecruitingapp2649Jobs(runtime)).rejects.toMatchObject({
+        message: expect.stringContaining('incomplete detail snapshot (2/2)'),
+        specDetailDrop: { candidates: 2, gone: 0, rejected: 1 },
+        specDiscoveredCount: 2,
+      });
     });
 
     it('publishes a Swiss source row with stable canonical URL, ID and slug across two runs', async () => {

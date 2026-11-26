@@ -46,6 +46,7 @@ import {
   workdayFacetLeafValues,
 } from './ats-clients/workday-client.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { WORKDAY_HOST_RE } from './job-url-key.mjs';
 
 // Switzerland country UUID — standard across nearly all Workday tenants.
 export const WORKDAY_SWISS_LOCATION_IDS = ['187134fccb084a0ea9b4b95f23890dbe'];
@@ -748,7 +749,7 @@ export function createWorkdaySwissParser(config) {
       return (
         (corporateHost && (host === corporateHost || host.endsWith(`.${corporateHost}`))) ||
         host === tenantHost ||
-        host.endsWith('.myworkdayjobs.com')
+        WORKDAY_HOST_RE.test(host)
       );
     } catch {
       return false;

@@ -48,6 +48,7 @@ const ATS_HOST_MARKERS = [
  'joblink.allibo.com',
  '.allibo.com',
  'myworkdayjobs.com',
+ 'myworkdaysite.com',
  'ncoreplat.com',
  'greenhouse.io',
  'lever.co',
@@ -82,7 +83,7 @@ const cLogo = (domain: string) => `https://logo.clearbit.com/${domain}`;
  * Logo URL guidelines:
  * 1. Prefer cLogo(domain) — Clearbit returns 404 for unknown, never grey globe
  * 2. For companies where Clearbit fails: use gFavicon(realCompanyDomain) — NOT ATS domains
- * 3. Never use gFavicon on ATS domains (myworkdayjobs.com, umantis.com, zohorecruit.com, ncoreplat.com, etc.)
+ * 3. Never use gFavicon on ATS domains (myworkdayjobs.com, myworkdaysite.com, umantis.com, zohorecruit.com, ncoreplat.com, etc.)
  * 4. Test: a grey globe from Google favicon is exactly 726 bytes at sz=128
  */
 export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
