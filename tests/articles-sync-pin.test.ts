@@ -154,10 +154,13 @@ function makeCorpusRemote(
       'commit-tree', tree, ...(parent ? ['-p', parent] : []), '-m', message,
     );
     const paddingBlob = writeBlob('x');
+    const registryBlob = writeBlob('export const articles = [];\n');
     const treeForMarker = (marker: string) => {
       const markerBlob = writeBlob(marker);
       const contentEntries = [
         `100644 blob ${markerBlob}\tmarker.txt`,
+        `100644 blob ${registryBlob}\tblog-articles-data.ts`,
+        `100644 blob ${registryBlob}\tswiss-articles-data.ts`,
         ...Array.from(
           { length: extraFiles },
           (_, i) => `100644 blob ${paddingBlob}\tpad-${i}.txt`,
@@ -339,7 +342,7 @@ describe('pull-articles-corpus: the corpus follows the published API, not the br
     // One more file than the pinned tree carries: the shape of a site whose
     // registry came from a later publish than the one the API is serving.
     const dest = path.join(site, 'packages', 'articles', 'content');
-    for (let i = 0; i < 5002; i++) fs.writeFileSync(path.join(dest, `f${i}.txt`), 'x');
+    for (let i = 0; i < 5003; i++) fs.writeFileSync(path.join(dest, `f${i}.txt`), 'x');
     manifestBody = manifest(remote.head);
 
     const { code, out } = await runScript(CORPUS_SCRIPT, site, {
