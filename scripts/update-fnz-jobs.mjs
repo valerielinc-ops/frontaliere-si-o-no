@@ -61,7 +61,7 @@ import { isSwissLocationText, inferAnyCanton } from './lib/target-swiss-location
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
-import { fetchWorkdayJsonWithRetry, firstLocationSegment } from './lib/ats-clients/workday-client.mjs';
+import { fetchWorkdayJsonWithRetry, firstLocationSegment, WorkdayRateLimitError } from './lib/ats-clients/workday-client.mjs';
 import { isRetryBudgetExhausted } from './lib/transient-fetch.mjs';
 import { CRAWLER_ABORT_KINDS, CRAWLER_FETCH_OUTCOMES } from './lib/crawler-fetch-outcome.mjs';
 import { resolveFnzSwissLocation } from './lib/fnz-job-parser.mjs';
@@ -181,6 +181,7 @@ async function fetchJson(url, options = {}) {
         'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
     });
   } catch (err) {
+    if (err instanceof WorkdayRateLimitError) throw err;
     console.warn(`⚠️ Fetch failed for ${url}: ${err?.message || err}`);
     throw err;
   }
