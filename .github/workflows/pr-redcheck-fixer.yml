@@ -1087,17 +1087,37 @@ jobs:
           REPO: ${{ github.repository }}
           FAILED_RUN_ID: ${{ needs.preflight.outputs.failed_run_id }}
           PR_NUMBER: ${{ needs.preflight.outputs.pr_number }}
+          EXPECTED_HEAD_SHA: ${{ needs.preflight.outputs.head_sha }}
         run: |
           set -uo pipefail
           OUT="$RUNNER_TEMP/redcheck"
           mkdir -p "$OUT"
+          context_recovered=false
 
           # Solo i job FALLITI della run: `--log-failed` evita di scaricare
           # l'intero log della suite verde.
           "$TRUSTED_GH_BIN" run view "$FAILED_RUN_ID" --repo "$REPO" --log-failed > "$OUT/raw.log" 2>/dev/null || true
           if [ ! -s "$OUT/raw.log" ]; then
-            echo "::warning::log della run $FAILED_RUN_ID non leggibile → l'agente dovra' ricavarsi il fallimento da solo."
-            : > "$OUT/failing.txt"
+            echo "::warning::log della run $FAILED_RUN_ID non leggibile o vuoto → verifico se il failure è già rientrato."
+            current_run=''
+            if current_run=$(timeout --kill-after=5s 30s "$TRUSTED_GH_BIN" api "repos/$REPO/actions/runs/$FAILED_RUN_ID" 2>/dev/null) \
+              && printf '%s' "$current_run" | jq -e --arg head "$EXPECTED_HEAD_SHA" --arg pr "$PR_NUMBER" '
+                type == "object"
+                and (if (.path | type) == "string" then (.path | sub("@[^@]+$"; "")) == ".github/workflows/tests.yml" else false end)
+                and .head_sha == $head
+                and .status == "completed"
+                and .conclusion == "success"
+                and (.pull_requests | type) == "array"
+                and any(.pull_requests[]; (.number | tostring) == $pr and .base.ref == "main")
+              ' >/dev/null 2>&1; then
+              printf 'recovered: tests run %s è completata con esito verde sulla PR #%s e sulla HEAD %s; nessuna riparazione necessaria.\n' \
+                "$FAILED_RUN_ID" "$PR_NUMBER" "$EXPECTED_HEAD_SHA" > "$OUT/redcheck-response.md"
+              : > "$OUT/failing.txt"
+              context_recovered=true
+              echo "run $FAILED_RUN_ID rientrato sulla HEAD corrente → nessun round Codex."
+            else
+              : > "$OUT/failing.txt"
+            fi
           else
             # Il log CI porta gli escape ANSI come TESTO, non come byte: vanno
             # tolti o il grep sui nomi dei test non aggancia niente.
@@ -1134,6 +1154,7 @@ jobs:
           # di turni che questo step esiste per evitare.
           head -c 24000 "$OUT/failing.txt" > "$OUT/failing.trim" 2>/dev/null || : > "$OUT/failing.trim"
           mv "$OUT/failing.trim" "$OUT/failing.txt"
+          echo "recovered=$context_recovered" >> "$GITHUB_OUTPUT"
           echo "contesto raccolto: $(wc -c < "$OUT/failing.txt") byte, $(grep -c 'FAIL ' "$OUT/failing.txt" 2>/dev/null || echo 0) righe FAIL, $(grep -cE '\] exit=[1-9]' "$OUT/failing.txt" 2>/dev/null || true) righe di gate sorgente falliti."
           sed -n '1,25p' "$OUT/failing.txt"
 
@@ -1146,7 +1167,7 @@ jobs:
       # inclusi perché qui il bersaglio è un check rosso, non una review code.
       - name: Prepare redcheck PR diff (zero-Claude)
         id: diff_context
-        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.ctx.outcome == 'success'
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.ctx.outcome == 'success' && steps.ctx.outputs.recovered != 'true'
         env:
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           TRUSTED_GIT_BIN: ${{ steps.trusted_gh.outputs.git_path }}
@@ -1188,7 +1209,7 @@ jobs:
 
       - name: Revalidate redcheck PR snapshot immediately before model
         id: snapshot_final
-        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.ctx.outcome == 'success' && steps.body_gate.outcome == 'success'
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.ctx.outcome == 'success' && steps.ctx.outputs.recovered != 'true' && steps.body_gate.outcome == 'success'
         continue-on-error: true
         env:
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
@@ -1279,7 +1300,7 @@ jobs:
 
       - name: Run Codex Luna Max ❌-check-fix
         id: codex_fix
-        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.ctx.outcome == 'success' && steps.diff_context.outcome == 'success' && steps.snapshot_final.outputs.snapshot_valid == 'true'
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.ctx.outcome == 'success' && steps.ctx.outputs.recovered != 'true' && steps.diff_context.outcome == 'success' && steps.snapshot_final.outputs.snapshot_valid == 'true'
         # Tetto sullo step, stessa ragione del Checkout qui sopra: senza, l'unico
         # limite era il cap del job e la run moriva `cancelled`, che NON fa
         # scattare nessun `if: failure()` e si vede solo dallo scan periodico
@@ -1323,6 +1344,7 @@ jobs:
           # lo step zero-Claude le pubblica prima del classificatore, così un
           # rosso ereditato non diventa un falso "non-progress silenzioso".
           response_artifact: redcheck-response.md
+          response_artifact_dir: redcheck
           # Auth via subscription Max (zero API cost). MAI ANTHROPIC_API_KEY.
           # `github_token` alimenta gli helper provider-neutral di quota/delivery;
           # usa la stessa identità write-capable del push, ma non è il bridge Codex.
@@ -1377,7 +1399,7 @@ jobs:
             - CODE vs DATA: non scorrere i blob `data/**`/`public/**`; fixa il CODE che li genera.
             - Rilancia il test dopo il fix, e verifica che sia verde, prima di committare.
 
-            **Risposta del round (obbligatoria, anche senza commit):** prima del push, oppure prima di terminare senza commit, scrivi `$RUNNER_TEMP/redcheck-response.md` con una spiegazione concisa del risultato. Usa una riga per il check rosso:
+            **Risposta del round (obbligatoria, anche senza commit):** prima del push, oppure prima di terminare senza commit, scrivi **esattamente** `$RUNNER_TEMP/redcheck/redcheck-response.md` (non nella radice di `$RUNNER_TEMP` e non in un'altra directory) con una spiegazione concisa del risultato. Usa una riga per il check rosso:
             - `inherited: <prova che lo stesso failure è su main e perché la PR non è la causa>` se il rosso è ereditato;
             - `fixed: <cosa hai cambiato>. Verifica: <test/comando> → <esito>` se hai preparato un fix;
             - `not-fixable: <motivo concreto>` se non è riparabile con confidenza.
@@ -1458,7 +1480,7 @@ jobs:
       # "non-progress silenzioso" e mantiene il job rosso.
       - name: Publish the redcheck response (zero-Claude)
         id: response
-        if: always() && steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.ctx.outcome == 'success' && steps.diff_context.outcome == 'success' && steps.snapshot_final.outputs.snapshot_valid == 'true'
+        if: always() && steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.ctx.outcome == 'success' && (steps.ctx.outputs.recovered == 'true' || (steps.diff_context.outcome == 'success' && steps.snapshot_final.outputs.snapshot_valid == 'true'))
         env:
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -1468,7 +1490,7 @@ jobs:
           FAILED_RUN_ID: ${{ needs.preflight.outputs.failed_run_id }}
         run: |
           set -uo pipefail
-          response="$RUNNER_TEMP/redcheck-response.md"
+          response="$RUNNER_TEMP/redcheck/redcheck-response.md"
           if [ ! -s "$response" ]; then
             echo "Nessuna risposta del round scritta dal fixer."
             echo "published=none" >> "$GITHUB_OUTPUT"
@@ -1516,6 +1538,7 @@ jobs:
       # step non hanno continue-on-error. Mai fa-passare un gate: il round non ha
       # gate, è telemetria di colore (cfr. #2288, disambigua intenzionale vs crash).
       - name: Classify outcome (work-done, not CLI exit)
+        id: classify_outcome
         if: always() && steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true'
         env:
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
@@ -1527,6 +1550,7 @@ jobs:
           BASE_SHA: ${{ steps.base.outputs.sha }}
           BASE_COMMENTS: ${{ steps.base.outputs.comments }}
           ACTION_OUTCOME: ${{ steps.codex_fix.outcome }}
+          RECOVERED: ${{ steps.ctx.outputs.recovered }}
         run: |
           set -uo pipefail
           HEAD_NOW=$(git rev-parse HEAD 2>/dev/null || echo "")
@@ -1650,8 +1674,15 @@ jobs:
             echo "::error::❌-check-fix: nessun commit pushato, l'azione è uscita '$ACTION_OUTCOME', e nessun commento nuovo a spiegare perché (comments $BASE_COMMENTS→$NOW_COMMENTS) → non-progress SILENZIOSO, non un terminale legittimo. Job RED (segnale preservato; round-cap → needs-human a N>=2)."
             exit 1
           fi
+          if [ "${RECOVERED:-false}" = 'true' ]; then
+            echo 'recovered_completion=true' >> "$GITHUB_OUTPUT"
+          fi
           echo "Nessun push ma l'azione è terminata pulita ('$ACTION_OUTCOME') con una spiegazione nuova sulla PR → terminale legittimo (es. non auto-fixabile). Job verde."
           exit 0
+
+      - name: Finalize recovered redcheck claim (zero-Claude)
+        if: always() && steps.claim.outputs.claim_acquired == 'true' && steps.ctx.outputs.recovered == 'true' && steps.response.outputs.published == 'yes' && steps.classify_outcome.outputs.recovered_completion == 'true'
+        run: echo 'CLAIM_STATUS=completed' >> "$GITHUB_ENV"
 
       # The fixer action and npm lifecycle scripts ran from the PR checkout.
       # Re-materialize the claim helper from main before the final mutation.

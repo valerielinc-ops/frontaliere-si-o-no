@@ -226,7 +226,8 @@ describe('REGOLA #0 — il modo ovvio e sbagliato di far tornare verde un test',
 
   it('consegna le diagnosi senza push al classificatore tramite un artifact pubblicato da zero-Claude', () => {
     expect(src).toContain('response_artifact: redcheck-response.md');
-    expect(prompt).toContain('$RUNNER_TEMP/redcheck-response.md');
+    expect(src).toContain('response_artifact_dir: redcheck');
+    expect(prompt).toContain('$RUNNER_TEMP/redcheck/redcheck-response.md');
     expect(prompt).toContain('inherited:');
     expect(prompt).toContain('Lo step deterministico successivo pubblica quel file come commento sulla PR');
 
@@ -239,6 +240,7 @@ describe('REGOLA #0 — il modo ovvio e sbagliato di far tornare verde un test',
 
     const publisherBlock = src.slice(publisher, classifier);
     expect(publisherBlock).toContain('REDCHECK_RESPONSE');
+    expect(publisherBlock).toContain('$RUNNER_TEMP/redcheck/redcheck-response.md');
     expect(publisherBlock).toContain('pr comment "$PR_NUMBER" --repo "$REPO" --body-file "$comment"');
     expect(publisherBlock).toContain('steps.snapshot_final.outputs.snapshot_valid');
   });
@@ -251,6 +253,20 @@ describe('costo — il contesto è raccolto senza Claude', () => {
     expect(src).toContain('Collect failing check context (zero-Claude)');
     expect(src).toContain('--log-failed');
     expect(src).toMatch(/head -c 24000/);
+  });
+
+  it('non spende Codex se il run esatto è già rientrato', () => {
+    expect(src).toContain('recovered: tests run');
+    expect(src).toContain('and .conclusion == "success"');
+    expect(src).toContain('steps.ctx.outputs.recovered != \'true\'');
+    expect(src).toContain('steps.ctx.outputs.recovered == \'true\' ||');
+    expect(src).toContain('id: classify_outcome');
+    expect(src).toContain('CLAIM_STATUS=completed');
+    expect(src).toContain("RECOVERED: ${{ steps.ctx.outputs.recovered }}");
+    expect(src).toContain("echo 'recovered_completion=true' >> \"$GITHUB_OUTPUT\"");
+    expect(src).toContain("steps.classify_outcome.outputs.recovered_completion == 'true'");
+    expect(src).not.toContain("steps.classify_outcome.outcome == 'success'");
+    expect(src).toContain("steps.response.outputs.published == 'yes'");
   });
 
   it('filtra sulle sole righe `FAIL `', () => {
