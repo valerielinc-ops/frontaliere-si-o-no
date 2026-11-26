@@ -84,7 +84,9 @@ it('binds the session form from its native field group caption', () => {
 it('distinguishes native Coop questions from the employer heading', () => {
   const title = 'Macellaia / Macellaio - Salumiera / Salumiere (f/m/d)';
   const coop = { title, company: 'Coop Genossenschaft' };
+  const question = 'Sono già collaboratore/trice presso il Gruppo Coop';
   const opts = {
+    formFieldLabels: [question],
     applyUrl: 'https://career2.successfactors.eu/career?company=coop&career_ns=job_application&career_job_req_id=171248',
     pageUrl: 'https://career2.successfactors.eu/portalcareer?_s.crb=synthetic',
   };
@@ -92,9 +94,11 @@ it('distinguishes native Coop questions from the employer heading', () => {
     'Coop',
     'Profilo di candidatura',
     title + ' (171248)',
-    '* Sono già collaboratore/trice presso il Gruppo Coop',
+    '* ' + question,
   ].join('\n');
   expect(formPostingMatch(text, coop, opts)).toBe('match');
+  expect(formPostingMatch(text, coop, { ...opts, formFieldLabels: [] })).toBe('mismatch');
+  expect(formPostingMatch(text + '\nCoop Siemens AG', coop, opts)).toBe('mismatch');
   expect(formPostingMatch(text, coop, { ...opts, pageHeadings: ['Bewerbung bei Siemens AG'] })).toBe('mismatch');
   expect(formPostingMatch(text, coop, { ...opts, applyUrl: opts.applyUrl.replace('171248', '171249') })).toBe('mismatch');
 });

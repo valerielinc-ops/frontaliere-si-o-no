@@ -6106,6 +6106,7 @@ export function formPostingMatch(formText, job = {}, {
   pageHeading = '',
   pageHeadings = undefined,
   formSections = [],
+  formFieldLabels = [],
   postingRouteProof = null,
   applyUrl = '',
 } = {}) {
@@ -6262,13 +6263,19 @@ export function formPostingMatch(formText, job = {}, {
   const successFactorsBound = successFactorsRequisitionShown(postingEvidenceText, job, successFactorsRoute)
     || sectionBindsRequisition;
   if (headingConflict && !trustedUmantisApplication && !sameBoundPosting && !successFactorsBound) return 'mismatch';
-  // With an exact SuccessFactors requisition, employer names inside native
-  // questions do not identify the owner of the form. Headings still can.
+  // Only lines reproduced by a native field label are form questions.
+  // Keep headings and other employer notices in the identity check.
+  const normalizeFieldLine = line => String(line || '').replace(/^\s*\*\s*/, '').replace(/\s+/g, ' ').trim();
+  const nativeQuestionLines = successFactorsBound
+    ? new Set(formFieldLabels.map(normalizeFieldLine).filter(Boolean))
+    : new Set();
+  const employerTextOutsideQuestions = employerText.split(/\r?\n/)
+    .filter(line => !nativeQuestionLines.has(normalizeFieldLine(line))).join('\n');
   if (direct === 'match' && !talentSoftAlias
     && (trustedUmantisApplication
       ? umantisHeadingConflict
-      : (headingConflict || (!boundPinpointApplication && !successFactorsBound
-        && namesAnotherEmployer(employerText, job, { allowPostingLocation: postingLocationBound }))))) return 'mismatch';
+      : (headingConflict || (!boundPinpointApplication
+        && namesAnotherEmployer(employerTextOutsideQuestions, job, { allowPostingLocation: postingLocationBound }))))) return 'mismatch';
   // If the browser cannot return a bounded heading set on a TalentSoft form,
   // the tenant alias and title alone do not resolve who owns the final page.
   let isTalentSoftHost = false;
@@ -12655,6 +12662,7 @@ export async function submitViaPortal(ctx) {
         pageHeading,
         pageHeadings,
         formSections: current.fields.map(field => field.section),
+        formFieldLabels: current.fields.map(field => field.label),
         postingRouteProof: ctx.postingRouteProof,
         applyUrl: ctx.applyUrl,
       });
