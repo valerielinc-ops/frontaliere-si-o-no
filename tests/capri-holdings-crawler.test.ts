@@ -19,6 +19,7 @@ import {
   fetchCapriHoldingsJobs,
   assertWorkdayPage,
   assertUniqueWorkdayPostings,
+  classifyCapriFetchAbortKind,
   listSwissJobs,
   isSwissWorkdayListing,
   resolveWorkdayCity,
@@ -388,6 +389,22 @@ describe('Capri Workday location resolution', () => {
 });
 
 describe('Capri Workday brand sites', () => {
+  it('classifies transient custom-main failures as soft exits', () => {
+    expect(classifyCapriFetchAbortKind(new WorkdayRateLimitError(
+      'https://capri.test/jobs',
+      { consecutiveFailures: 2, retryAfterMs: 0, circuitOpen: true },
+    ))).toBe('retryable-http-response');
+    expect(classifyCapriFetchAbortKind(Object.assign(new Error('HTTP 503'), {
+      status: 503,
+      retryExhausted: true,
+    }))).toBe('retryable-http-response');
+    expect(classifyCapriFetchAbortKind(new TypeError('fetch failed')))
+      .toBe('connection-level-fetch');
+    expect(classifyCapriFetchAbortKind(Object.assign(new Error('HTTP 403'), {
+      status: 403,
+    }))).toBeNull();
+  });
+
   it('propagates a Workday rate limit instead of reporting a malformed page (#20016)', async () => {
     vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
     vi.stubGlobal('fetch', vi.fn(async () => new Response('', {
