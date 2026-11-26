@@ -95,6 +95,8 @@ jobs:
             const CODEX_AUTH_BLOCKED_PREFIX = '<!-- CODEX_AUTH_BLOCKED:';
             const NATIVE_LEASE_MARKER = '<!-- NATIVE_AUTO_MERGE_LEASE:';
             const TESTS_WORKFLOW_PATH = '.github/workflows/tests.yml';
+            const TESTS_WORKFLOW_EVENT = 'pull_request';
+            const REPOSITORY_FULL_NAME = `${repo.owner}/${repo.repo}`;
             const TRUSTED_AUTOMATION_BOT_RE = /^(?:github-actions|frontaliere-automation)\[bot\]$/iu;
             // The scheduled/manual native gate can authenticate with the
             // repository owner's Remote Config PAT. No other human may create
@@ -358,19 +360,28 @@ jobs:
             function workflowRunPullRequests() {
               return context.payload.workflow_run?.pull_requests || [];
             }
+            function isTrustedTestsRun(run, sha = run?.head_sha, branch = run?.head_branch) {
+              return run?.path === TESTS_WORKFLOW_PATH
+                && run?.event === TESTS_WORKFLOW_EVENT
+                && run?.repository?.full_name === REPOSITORY_FULL_NAME
+                && typeof sha === 'string' && run?.head_sha === sha
+                && typeof branch === 'string' && branch.length > 0
+                && run?.head_branch === branch;
+            }
+            function pullRequestMatchesRun(run, pullRequest, number = null) {
+              return isTrustedTestsRun(run)
+                && (number === null || Number(pullRequest?.number) === Number(number))
+                && pullRequest?.base?.ref === 'main'
+                && pullRequest?.head?.ref === run.head_branch
+                && pullRequest?.head?.sha === run.head_sha;
+            }
             async function resolvePullRequests(run = null) {
               const eventPullRequests = workflowRunPullRequests();
-              const repository = `${repo.owner}/${repo.repo}`;
               const branch = String(run?.head_branch || '');
-              if (run?.path !== TESTS_WORKFLOW_PATH
-                  || run?.event !== 'pull_request'
-                  || run?.repository?.full_name !== repository
-                  || !run?.head_sha || !branch) return [];
+              if (!isTrustedTestsRun(run, run?.head_sha, branch)) return [];
               if (eventPullRequests.length > 0) {
                 const valid = eventPullRequests
-                  .filter(pr => pr?.base?.ref === 'main'
-                    && pr?.head?.ref === branch
-                    && pr?.head?.sha === run.head_sha)
+                  .filter(pr => pullRequestMatchesRun(run, pr))
                   .map(pr => Number(pr.number))
                   .filter(Number.isSafeInteger);
                 return valid.length === eventPullRequests.length ? [...new Set(valid)] : [];
@@ -396,24 +407,15 @@ jobs:
                 ...repo, workflow_id: 'tests.yml', head_sha: sha, per_page: 100,
               });
               const candidates = runs
-                .filter(run => run?.event === 'pull_request'
-                  && run?.head_sha === sha
-                  && run?.head_branch === expectedBranch)
+                .filter(run => isTrustedTestsRun(run, sha, expectedBranch))
                 .sort((a, b) => b.id - a.id || b.run_attempt - a.run_attempt);
               for (const candidate of candidates) {
                 const detail = await github.rest.actions.getWorkflowRun({ ...repo, run_id: candidate.id });
                 const detailRun = detail.data;
                 const pullRequests = detailRun?.pull_requests;
                 const belongs = Array.isArray(pullRequests)
-                  && pullRequests.some(pr => Number(pr?.number) === Number(number)
-                    && pr?.base?.ref === 'main'
-                    && pr?.head?.ref === expectedBranch
-                    && pr?.head?.sha === sha);
-                if (detailRun?.path === TESTS_WORKFLOW_PATH
-                    && detailRun?.event === 'pull_request'
-                    && detailRun?.repository?.full_name === `${repo.owner}/${repo.repo}`
-                    && detailRun?.head_sha === sha
-                    && detailRun?.head_branch === expectedBranch
+                  && pullRequests.some(pr => pullRequestMatchesRun(detailRun, pr, number));
+                if (isTrustedTestsRun(detailRun, sha, expectedBranch)
                     && belongs) return { ...candidate, ...detailRun };
               }
               return null;
@@ -433,6 +435,8 @@ jobs:
                   || !Number.isSafeInteger(value.prNumber) || value.prNumber <= 0
                   || (number !== null && value.prNumber !== Number(number))
                   || typeof value.headSha !== 'string' || !/^[0-9a-f]{40}$/iu.test(value.headSha)
+                  || (value.headRef !== undefined
+                    && (typeof value.headRef !== 'string' || value.headRef.length === 0))
                   || typeof value.bodyRevision !== 'string' || !/^body:[0-9a-f]{64}$/iu.test(value.bodyRevision)
                   || (value.runId !== null && value.runId !== undefined
                     && (!Number.isSafeInteger(value.runId) || value.runId <= 0))
@@ -450,6 +454,7 @@ jobs:
                   || current?.base?.ref !== 'main'
                   || (current?.body !== null && typeof current?.body !== 'string')
                   || current?.head?.sha !== state.headSha
+                  || (state.headRef !== undefined && current?.head?.ref !== state.headRef)
                   || BODY_REVISION(current.body) !== state.bodyRevision) return null;
               return current;
             }
@@ -579,6 +584,7 @@ jobs:
                 runId: latest.id,
                 runAttempt: attempt,
                 headSha: pr.head.sha,
+                headRef: pr.head.ref,
                 bodyRevision: BODY_REVISION(pr.body),
                 sourceEvent: reason,
               }, existing);
@@ -586,9 +592,17 @@ jobs:
             }
             async function retryCompletedRun(number, pr, latest, existing, reason) {
               const { data: currentPr } = await github.rest.pulls.get({ ...repo, pull_number: number });
-              if (currentPr.state !== 'open' || currentPr.base?.ref !== 'main' || currentPr.head.sha !== pr.head.sha) return;
+              if (currentPr.state !== 'open' || currentPr.base?.ref !== 'main'
+                  || currentPr.head.sha !== pr.head.sha
+                  || currentPr.head.ref !== pr.head.ref) return;
               pr = currentPr;
               const currentRun = await github.rest.actions.getWorkflowRun({ ...repo, run_id: latest.id });
+              if (!isTrustedTestsRun(currentRun.data, pr.head.sha, pr.head.ref)
+                  || !Array.isArray(currentRun.data?.pull_requests)
+                  || !currentRun.data.pull_requests.some(candidate => pullRequestMatchesRun(currentRun.data, candidate, number))) {
+                core.warning(`Run ${latest.id} non verificabile come tests pull_request per PR #${number}; nessun retry trusted.`);
+                return;
+              }
               const observedAttempt = validRunAttempt(currentRun.data?.run_attempt);
               if (observedAttempt === null) {
                 throw new Error(`run ${latest.id} attempt non verificabile: marker resta pending`);
@@ -609,7 +623,7 @@ jobs:
                 const startedBeforeEdit = await runStartedBeforeLastBodyEdit(number, pr, currentRun.data);
                 await persistMarker(number, {
                   version: 1, status: 'pending', prNumber: number, runId: latest.id,
-                  runAttempt: observedAttempt, headSha: pr.head.sha,
+                  runAttempt: observedAttempt, headSha: pr.head.sha, headRef: pr.head.ref,
                   bodyRevision: bodyDigest,
                   ...(keepInterruptedRetry ? { interruptedRetry: true } : {}),
                   ...(cancellationAlreadyRequested || startedBeforeEdit === true
@@ -652,7 +666,7 @@ jobs:
                 }
                 const manualState = {
                   version: 1, status: 'manual', prNumber: number, runId: null,
-                  runAttempt: null, headSha: pr.head.sha, bodyRevision,
+                  runAttempt: null, headSha: pr.head.sha, headRef: pr.head.ref, bodyRevision,
                   sourceEvent: 'queued-reconciled',
                 };
                 await persistMarker(number, manualState, existing);
@@ -662,7 +676,7 @@ jobs:
               const nextAttempt = Number(latest.run_attempt) + 1;
               const queuedState = {
                 version: 1, status: 'queued', prNumber: number, runId: latest.id,
-                runAttempt: nextAttempt, headSha: pr.head.sha, bodyRevision,
+                runAttempt: nextAttempt, headSha: pr.head.sha, headRef: pr.head.ref, bodyRevision,
                 reconcileAttempts: Number(existing?.state?.reconcileAttempts || 0),
                 queuedAt: new Date().toISOString(),
                 ...(INTERRUPTED_CONCLUSIONS.includes(latest.conclusion) ? { interruptedRetry: true } : {}),
@@ -710,13 +724,15 @@ jobs:
             async function handleBodyEdit() {
               const number = context.payload.pull_request.number;
               const { data: pr } = await github.rest.pulls.get({ ...repo, pull_number: number });
-              if (pr.state !== 'open' || pr.base?.ref !== 'main' || pr.head.sha !== context.payload.pull_request.head.sha) return;
+              if (pr.state !== 'open' || pr.base?.ref !== 'main'
+                  || pr.head.sha !== context.payload.pull_request.head.sha
+                  || pr.head.ref !== context.payload.pull_request.head.ref) return;
               const existing = await pendingComment(number);
               const bodyRevision = BODY_REVISION(pr.body);
               if (!nativeRevokeCapabilityAvailable()) {
                 await persistMarker(number, {
                   version: 1, status: 'manual', prNumber: number, runId: null,
-                  runAttempt: null, headSha: pr.head.sha, bodyRevision,
+                  runAttempt: null, headSha: pr.head.sha, headRef: pr.head.ref, bodyRevision,
                   sourceEvent: 'native-revoke-token-unavailable',
                 }, existing);
                 core.warning(`Native auto-merge non revocabile per PR #${number}: capability App/PAT assente; checkpoint durevole, nessun retry cieco.`);
@@ -733,7 +749,7 @@ jobs:
               } catch (error) {
                 await persistMarker(number, {
                   version: 1, status: 'manual', prNumber: number, runId: null,
-                  runAttempt: null, headSha: pr.head.sha, bodyRevision,
+                  runAttempt: null, headSha: pr.head.sha, headRef: pr.head.ref, bodyRevision,
                   sourceEvent: 'native-revoke-failed',
                 }, existing);
                 core.warning(`Native auto-merge non revocabile per PR #${number}: ${String(error)}; checkpoint durevole, nessun retry cieco.`);
@@ -748,7 +764,7 @@ jobs:
                 // be re-run by this API-only recovery.
                 await persistMarker(number, {
                   version: 1, status: 'manual', prNumber: number, runId: null,
-                  runAttempt: null, headSha: pr.head.sha, bodyRevision,
+                  runAttempt: null, headSha: pr.head.sha, headRef: pr.head.ref, bodyRevision,
                   sourceEvent: 'no-existing-pull-request-run',
                 }, existing);
                 core.warning(`Nessuna run tests pull_request per PR #${number}, HEAD ${pr.head.sha}: recovery manuale richiesta; nessun dispatch trusted.`);
@@ -770,16 +786,27 @@ jobs:
               return state?.runId != null
                 && state?.runAttempt != null
                 && Number(state.runId) === Number(run?.id)
-                && Number(state.runAttempt) === Number(run?.run_attempt);
+                && Number(state.runAttempt) === Number(run?.run_attempt)
+                && state?.headSha === run?.head_sha
+                && state?.headRef === run?.head_branch
+                && isTrustedTestsRun(run, state?.headSha, state?.headRef);
             }
             function markerSameRunWithNewerAttempt(state, run) {
               const markerAttempt = validRunAttempt(state?.runAttempt);
               const observedAttempt = validRunAttempt(run?.run_attempt);
               return state?.runId != null
                 && Number(state.runId) === Number(run?.id)
+                && state?.headSha === run?.head_sha
+                && state?.headRef === run?.head_branch
+                && isTrustedTestsRun(run, state?.headSha, state?.headRef)
                 && markerAttempt !== null
                 && observedAttempt !== null
                 && observedAttempt > markerAttempt;
+            }
+            async function completedRecoveryRun(number, pr, state) {
+              const latest = await runForHead(pr.head.sha, pr.head.ref, number);
+              if (!latest || latest.status !== 'completed' || !markerMatchesRun(state, latest)) return null;
+              return latest;
             }
             async function handleWorkflowRun() {
               const run = context.payload.workflow_run;
@@ -795,9 +822,16 @@ jobs:
                   || typeof run.head_sha !== 'string') return;
               for (const number of await resolvePullRequests(run)) {
                 const { data: pr } = await github.rest.pulls.get({ ...repo, pull_number: number });
-                if (pr.state !== 'open' || pr.base?.ref !== 'main' || pr.head.sha !== run.head_sha) continue;
+                if (pr.state !== 'open' || pr.base?.ref !== 'main'
+                    || pr.head.sha !== run.head_sha || pr.head.ref !== run.head_branch) continue;
                 let existing = await pendingComment(number);
                 if (!existing?.state || existing.state.headSha !== run.head_sha) continue;
+                if (existing.state.headRef === undefined) {
+                  existing = await persistMarker(number, {
+                    ...existing.state, headRef: pr.head.ref,
+                  }, existing);
+                }
+                if (existing.state.headRef !== run.head_branch) continue;
                 // The rerun API preserves `workflow_run.id` and only advances
                 // `run_attempt`. Adopt a newer attempt from the authoritative
                 // completion event before matching/consuming the marker;
@@ -866,14 +900,25 @@ jobs:
                 if (!Number.isSafeInteger(number) || candidate?.base?.ref !== 'main' || candidate?.draft === true) continue;
                 const { data: pr } = await github.rest.pulls.get({ ...repo, pull_number: number });
                 if (pr.state !== 'open' || pr.base?.ref !== 'main' || !pr.head?.sha) continue;
-                const existing = await pendingComment(number);
+                let existing = await pendingComment(number);
                 const sourceEvent = existing?.state?.sourceEvent;
                 const nativeRevokeRequired = ['native-revoke-token-unavailable', 'native-revoke-failed'].includes(sourceEvent);
                 if (!existing?.state) continue;
                 if (existing.state.headSha !== pr.head.sha
                     || existing.state.bodyRevision !== BODY_REVISION(pr.body)) continue;
+                if (existing.state.headRef === undefined) {
+                  existing = await persistMarker(number, {
+                    ...existing.state, headRef: pr.head.ref,
+                  }, existing);
+                }
+                if (existing.state.headRef !== pr.head.ref) continue;
                 if (existing.state.status === 'completed'
                     && existing.state.nativeMergeStatus !== 'dispatched') {
+                  const latestCompletedRun = await completedRecoveryRun(number, pr, existing.state);
+                  if (!latestCompletedRun) {
+                    core.warning(`Marker completed senza una run tests verificabile sulla HEAD/branch correnti di PR #${number}; nessun dispatch trusted.`);
+                    continue;
+                  }
                   try {
                     if (!await dispatchNativeAutoMerge(number, existing.state)) continue;
                     if (!await currentRecoveryPr(number, existing.state)) {

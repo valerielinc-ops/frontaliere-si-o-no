@@ -36,7 +36,7 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
       user: { type: 'Bot', login: 'github-actions[bot]' },
       body: `<!-- BODY_REVIEW_RECOVERY_PENDING: ${JSON.stringify({
       version: 1, status: pendingStatus, prNumber: 1, runId: 42, runAttempt: 1,
-        headSha: HEAD_SHA, bodyRevision: reviewInputRevisionFromBody(body),
+        headSha: HEAD_SHA, headRef: 'fork-branch', bodyRevision: reviewInputRevisionFromBody(body),
         ...(pendingStatus === 'manual' ? { runAttempt: 2, reconcileAttempts: 1, sourceEvent: 'rerun-ambiguous' } : {}),
         ...markerExtra,
       })} -->`,
@@ -166,7 +166,7 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
       repo: { owner: 'owner', repo: 'repo' },
       payload: eventName === 'workflow_run'
         ? { workflow_run: { id: eventRunId, name: 'Code checks and review · PR #1 · synchronize', path: runPath, status: 'completed', conclusion, event: runEvent, run_attempt: eventRunAttempt, created_at: runCreatedAt, run_started_at: runStartedAt, head_sha: HEAD_SHA, head_branch: runBranch, repository: { full_name: runRepository }, pull_requests: [{ number: 1, base: { ref: 'main' }, head: { ref: runBranch, sha: HEAD_SHA } }] } }
-        : { pull_request: { number: 1, head: { sha: HEAD_SHA } } },
+        : { pull_request: { number: 1, head: { sha: HEAD_SHA, ref: 'fork-branch' } } },
     }, { info: () => undefined, warning: () => undefined }, require);
   } catch (caught) {
     if (!rerunFails && !dispatchFails) throw caught;
@@ -722,6 +722,12 @@ describe('one code verdict and metadata-triggered review recovery', () => {
         ref: 'main', inputs: { pr_number: '1' },
       }],
     });
+  });
+
+  it('does not dispatch a completed marker without an exact current-head tests run', async () => {
+    expect(await runRecovery({
+      eventName: 'schedule', pendingStatus: 'completed', workflowRuns: 'none',
+    })).toEqual({ reruns: [], dispatches: [] });
   });
 
   it('does not dispatch a malformed recovery marker', async () => {
