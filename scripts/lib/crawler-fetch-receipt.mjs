@@ -7,6 +7,8 @@
  * copying response bodies or unbounded request data into corpus summaries.
  * `listingTerminalStatus` is kept separately because `httpStatuses` also
  * contains per-vacancy detail responses, including expected stale-detail 404s.
+ * `listingCompletion` records the collector's source-level verdict so an
+ * accepted pagination-ending 404 is distinguishable from a failed listing.
  */
 
 const MAX_SEED_URLS = 20;
@@ -55,6 +57,7 @@ export function createCrawlerFetchReceipt(spec = {}) {
     pages: 0,
     httpStatuses: [],
     listingTerminalStatus: null,
+    listingCompletion: null,
     proxiedBy: [],
     fetchOutcome: null,
     fetchDetail: null,
@@ -154,6 +157,7 @@ export function normalizeCrawlerFetchReceipt(receipt) {
     pages: Number.isInteger(pages) && pages >= 0 ? pages : 0,
     httpStatuses,
     listingTerminalStatus,
+    listingCompletion: boundedString(receipt.listingCompletion, 40),
     proxiedBy,
     fetchOutcome: boundedString(receipt.fetchOutcome, 120),
     fetchDetail: boundedString(receipt.fetchDetail),

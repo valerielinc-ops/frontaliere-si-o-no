@@ -158,6 +158,28 @@ describe('L3 Job Quality → Apply', () => {
     expect(verdict.snapshot).toMatchObject({ freshSummaries: 1, staleSummaries: 0, sourceFailedSummaries: 0 });
   });
 
+  it('accepts a 404 pagination terminator only when the collector recorded completion', () => {
+    const accepted = validateJobSummaries([summary({
+      fetchReceipt: {
+        fetchOutcome: null,
+        listingTerminalStatus: 404,
+        listingCompletion: 'complete',
+      },
+    })], { outcomes: outcomes(), now: NOW });
+    expect(accepted).toMatchObject({ ok: true, quality: 'observed' });
+    expect(accepted.snapshot).toMatchObject({ freshSummaries: 1, staleSummaries: 0, sourceFailedSummaries: 0 });
+
+    const incomplete = validateJobSummaries([summary({
+      fetchReceipt: {
+        fetchOutcome: null,
+        listingTerminalStatus: 404,
+        listingCompletion: 'incomplete',
+      },
+    })], { outcomes: outcomes(), now: NOW });
+    expect(incomplete).toMatchObject({ ok: false, quality: 'stale' });
+    expect(incomplete.issues.join(' ')).toContain('listing completion is incomplete');
+  });
+
   it('does not let an expected detail 404 make a successful listing stale', () => {
     const verdict = validateJobSummaries([summary({
       lastFetchOutcome: 'ok',
@@ -181,6 +203,8 @@ describe('L3 Job Quality → Apply', () => {
       fetchReceipt: {
         phase: 'listing',
         fetchOutcome: null,
+        // Even a contradictory completion marker must never override a 429.
+        listingCompletion: 'complete',
         listingTerminalStatus: 429,
       },
     })], { outcomes: outcomes(), now: NOW });

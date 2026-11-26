@@ -412,6 +412,7 @@ const SPEC_FETCH_METADATA_KEYS = [
   'freeTextFailure',
   'freeTextRejectedReasons',
   'freeTextContractVersion',
+  'listingCompletion',
 ];
 
 /**
@@ -2833,6 +2834,15 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         }),
     });
   }
+  const listingOutcome = listingFetchOutcomeState(rows);
+  copySpecFetchMetadata(rows, {
+    // Set only after the collector returns normally. This records accepted
+    // pagination termination (including an accepted terminal 404), while
+    // source/parser failures and unverified empty listings remain incomplete.
+    listingCompletion: listingOutcome.failed || listingOutcome.unverifiedEmpty
+      ? 'incomplete'
+      : 'complete',
+  });
   return rows;
 }
 
@@ -2902,6 +2912,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
   try {
     receiptCapturePhase = 'listing';
     rows = await collectSpecListingRows(spec, runtime, validateUrl);
+    fetchReceipt.listingCompletion = rows.listingCompletion;
     let officialEmployerSiteLocation = null;
     if (rows.some(rowNeedsOfficialEmployerLocation)) {
       receiptCapturePhase = 'supporting';

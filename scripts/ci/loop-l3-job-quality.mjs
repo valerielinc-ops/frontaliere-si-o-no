@@ -136,13 +136,23 @@ function sourceRefreshFailureReasons(summary) {
     } else {
       addOutcome('fetchReceipt.fetchOutcome', summary.fetchReceipt.fetchOutcome);
       // `httpStatuses` includes per-vacancy detail responses. Use only the
-      // producer-attributed terminal listing status to assess source freshness.
+      // producer-attributed listing status and collector completion to assess
+      // source freshness; an explicit completed listing may end on a 404.
+      const listingCompletion = summary.fetchReceipt.listingCompletion;
+      if (listingCompletion !== null && listingCompletion !== undefined) {
+        if (listingCompletion !== 'complete' && listingCompletion !== 'incomplete') {
+          reasons.push('fetchReceipt.listingCompletion is malformed');
+        } else if (listingCompletion === 'incomplete') {
+          reasons.push('fetchReceipt listing completion is incomplete');
+        }
+      }
       if (Object.hasOwn(summary.fetchReceipt, 'listingTerminalStatus')) {
         const listingTerminalStatus = summary.fetchReceipt.listingTerminalStatus;
         if (listingTerminalStatus !== null && listingTerminalStatus !== undefined) {
           if (!Number.isInteger(listingTerminalStatus) || listingTerminalStatus <= 0) {
             reasons.push('fetchReceipt.listingTerminalStatus is malformed');
-          } else if (listingTerminalStatus >= 400) {
+          } else if (listingTerminalStatus >= 400
+            && !(listingTerminalStatus === 404 && listingCompletion === 'complete')) {
             reasons.push(`fetchReceipt terminal listing HTTP ${listingTerminalStatus}`);
           }
         }

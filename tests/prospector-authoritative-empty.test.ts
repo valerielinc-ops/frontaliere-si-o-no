@@ -111,6 +111,7 @@ describe('prospector source-backed empty listing contract', () => {
     expect(error).toBeInstanceOf(Error);
     expect(error.specFetchReceipt).toMatchObject({
       phase: 'listing',
+      listingCompletion: null,
       listingTerminalStatus: 429,
       httpStatuses: expect.arrayContaining([expect.objectContaining({ status: 429 })]),
     });

@@ -22,11 +22,14 @@ import {
   normalizeSpecPagination,
   readDeclaredListingPageCount,
   readDeclaredListingTotal,
+  runSpecInProduction,
   stripListingPageState,
 } from '../scripts/lib/prospector/spec-crawler.mjs';
+import { validateJobSummaries } from '../scripts/ci/loop-l3-job-quality.mjs';
 
 const ORIGIN = 'https://jobs.example.ch';
 const publicLookup = async () => [{ address: '93.184.216.34', family: 4 }];
+const daysAgo = (days: number) => new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString();
 const STELLENTREFF_PAGE_58 = fs.readFileSync(
   path.resolve(import.meta.dirname, 'fixtures/stellentreff-page-58.html'),
   'utf8',
@@ -601,6 +604,90 @@ describe('spec.pagination', () => {
     };
     const { rows } = await collect(specWith({ pagination: PAGINATION }), pages);
     expect(rows).toHaveLength(4);
+  });
+
+  it('porta un 404 paginazione accettato dalla receipt alla classificazione fresh L3', async () => {
+    const nextUrl = `${ORIGIN}/?sf_paged=2`;
+    const fixtureSpec = specWith({
+      mode: 'structured',
+      pagination: PAGINATION,
+    });
+    const description = 'The successful candidate will support operations, coordinate with colleagues, document procedures, '
+      + 'solve daily problems, improve service quality, and contribute to a reliable and welcoming team. '.repeat(4);
+    const fetchImpl = async (input: string | URL | Request) => {
+      const url = String(input);
+      if (url.endsWith('/robots.txt')) {
+        return new Response('User-agent: *\nAllow: /\n', { headers: { 'content-type': 'text/plain' } });
+      }
+      if (url === nextUrl) return new Response('not found', { status: 404 });
+      return new Response(listingPage({
+        ids: ['sa1', 'sa2', 'sa3', 'sa4'],
+        page: 1,
+        total: 4,
+        next: nextUrl,
+      }), { headers: { 'content-type': 'text/html' } });
+    };
+    const listingExtractor = async () => ['sa1', 'sa2', 'sa3', 'sa4'].map((id) => ({
+      title: `Posizione ${id}`,
+      url: `${ORIGIN}/job/${id}/`,
+      location: 'Lugano',
+      addressLocality: 'Lugano',
+      addressRegion: 'TI',
+      addressCountry: 'CH',
+      country: 'CH',
+      description,
+      company: 'Example Board',
+    }));
+    const rows: any[] = await runSpecInProduction(fixtureSpec, {
+      fetchImpl,
+      listingExtractor,
+      lookupImpl: publicLookup,
+      sleepImpl: async () => {},
+      hostDelayMs: 0,
+      retries: 0,
+      disableWafProxy: true,
+    });
+
+    expect((rows as any).fetchReceipt).toMatchObject({
+      listingTerminalStatus: 404,
+      listingCompletion: 'complete',
+    });
+    const generatedAt = daysAgo(0);
+    const verdict = validateJobSummaries([{
+      file: 'example.json',
+      data: {
+        key: 'example',
+        generatedAt,
+        total: 1,
+        newCount: 1,
+        updatedCount: 0,
+        removedCount: 0,
+        unchangedCount: 0,
+        newJobs: [{
+          id: 'job-1', slug: 'job-1', title: 'Operatore logistico', company: 'Example SA',
+          companyKey: 'example-sa', source: 'Example crawler', country: 'CH',
+          url: 'https://jobs.example.test/job-1', applyUrl: 'https://jobs.example.test/job-1/apply',
+          crawledAt: generatedAt, firstSeenAt: generatedAt,
+        }],
+        updatedJobs: [],
+        removedJobs: [],
+        unchangedJobs: [],
+        fetchReceipt: (rows as any).fetchReceipt,
+      },
+    }], {
+      outcomes: {
+        generatedAt,
+        independent: true,
+        evidence: { source: 'job-apply-telemetry', sourceRefs: ['job-crawler-summaries', 'application-handoff'] },
+        eligibleJobSessions: 120,
+        validHandoffs: 90,
+        applications: 12,
+      },
+      now: new Date(generatedAt),
+    });
+
+    expect(verdict).toMatchObject({ ok: true, quality: 'observed' });
+    expect(verdict.snapshot).toMatchObject({ freshSummaries: 1, staleSummaries: 0, sourceFailedSummaries: 0 });
   });
 
   it('accetta il 404 della pagina finale annunciata dal fixture reale Stellentreff', async () => {
