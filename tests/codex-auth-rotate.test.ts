@@ -970,13 +970,15 @@ describe('workflow codex-auth-rotate.yml', () => {
     }
   });
 
-  it('pin della CLI e politica coincidono con lo script e con le action consumer', () => {
+  it('il pin della CLI di rotazione coincide con lo script e le action condividono il pin di esecuzione', () => {
     expect(WORKFLOW.env.CODEX_CLI_VERSION).toBe(CODEX_CLI_VERSION);
     const fallback = fs.readFileSync(path.resolve('.github/actions/claude-codex-fallback/action.yml'), 'utf8');
     const haiku = fs.readFileSync(path.resolve('.github/actions/setup-claude-haiku-fallback/action.yml'), 'utf8');
     const broker = fs.readFileSync(path.resolve('.github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs'), 'utf8');
-    for (const text of [fallback, haiku]) expect(text).toContain(`@openai/codex@${CODEX_CLI_VERSION}`);
-    expect(broker).toContain(`const CODEX_CLI_VERSION = '${CODEX_CLI_VERSION}';`);
+    const runtimeVersion = /@openai\/codex@(\d+\.\d+\.\d+)/u.exec(fallback)?.[1];
+    expect(runtimeVersion).toBeDefined();
+    expect(haiku).toContain(`@openai/codex@${runtimeVersion}`);
+    expect(broker).toContain(`argument('--codex-cli-version', '${runtimeVersion}')`);
     const { policy, errors } = parsePolicy(WORKFLOW.env);
     expect(errors).toEqual([]);
     expect(policy).toEqual({ ...DEFAULT_POLICY });
