@@ -3973,12 +3973,16 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
     }
     // Localized body (see renderNotFoundPage). Fresh headers: the origin's
     // Content-Length/ETag describe the Italian 404.html, not this document.
+    const articleSection = sectionRoute?.section === 'articolifrontaliere'
+      || sectionRoute?.section === 'articolisvizzera';
+    const negativeCacheControl = jobCanonMarkerUnavailable ? 'no-store'
+      : articleSection ? CORPUS_NOT_FOUND_CACHE_CONTROL : NOT_FOUND_CACHE_CONTROL;
     const page = renderNotFoundPage(url.pathname, recoveryLocale, sectionRoute);
     if (page !== null) {
       const headers = new Headers({
         'Content-Type': 'text/html; charset=utf-8',
         'Content-Language': recoveryLocale,
-        'Cache-Control': jobCanonMarkerUnavailable ? 'no-store' : NOT_FOUND_CACHE_CONTROL,
+        'Cache-Control': negativeCacheControl,
       });
       if (negativeAliasCacheCandidate && jobAliasCacheKey) {
         headers.set(JOB_ALIAS_CACHE_DIAGNOSTIC_HEADER, 'miss');
@@ -3990,7 +3994,7 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
       });
     }
     const headers = new Headers(resp.headers);
-    headers.set('Cache-Control', jobCanonMarkerUnavailable ? 'no-store' : NOT_FOUND_CACHE_CONTROL);
+    headers.set('Cache-Control', negativeCacheControl);
     if (jobCanonMarkerUnavailable) {
       headers.delete('Location');
       headers.delete('Retry-After');
