@@ -1,7 +1,7 @@
 {
   "key": "modellstation-somosa",
   "label": "Modellstation SOMOSA",
-  "generatedAt": "2026-11-26T09:27:26.740Z",
+  "generatedAt": "2026-11-26T21:20:09.343Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4595,
-  "avgDurationMs": 4595,
+  "durationMs": 5080,
+  "avgDurationMs": 5080,
   "durationHistory": [
-    4595
+    5080
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/fachperson-medienwerkstatt-80",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:27:13.234Z",
+      "crawledAt": "2026-11-26T21:19:52.562Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "salarySource": "estimated",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:27:13.234Z",
+      "validThrough": "2027-01-20T21:19:52.562Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -83,7 +83,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/sozialpaedagogen-sozialpaedagoginnen-wg-a-80",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:27:12.670Z",
+      "crawledAt": "2026-11-26T21:19:52.068Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "salarySource": "estimated",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:27:12.670Z",
+      "validThrough": "2027-01-25T21:19:52.068Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -117,5 +117,5 @@
       }
     }
   ],
-  "codeCommit": "bb9ecce641e4806660b82ef90e95e36b4e9d873c"
+  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
 }

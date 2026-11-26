@@ -1,7 +1,7 @@
 {
   "crawlerKey": "planzer",
-  "assembledAt": "2026-11-26T09:23:53.183Z",
-  "runId": "45789003328",
+  "assembledAt": "2026-11-26T21:21:07.063Z",
+  "runId": "45895871343",
   "jobs": [
     {
       "id": "planzer-3ced6196f43c",
@@ -87,7 +87,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-22T09:23:26.035Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/planzer/job/details/4106536"
+      "sourceIdentity": "url:https://live.solique.ch/planzer/job/details/4106536",
+      "crawlerMissStreak": 1
     },
     {
       "id": "planzer-4ee710b01ef7",
@@ -177,7 +178,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-26T09:23:24.782Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/planzer/job/details/4104445"
+      "sourceIdentity": "url:https://live.solique.ch/planzer/job/details/4104445",
+      "crawlerMissStreak": 1
     },
     {
       "id": "planzer-c138ab2862a8",
@@ -211,7 +213,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4104448",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:23:23.459Z",
+      "crawledAt": "2026-11-26T21:20:34.320Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Hermetschloostrasse 12",
@@ -263,7 +265,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T09:23:23.459Z",
+      "validThrough": "2026-12-26T21:20:34.320Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://live.solique.ch/planzer/job/details/4104448"
     },
@@ -299,7 +301,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4106682",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:23:21.949Z",
+      "crawledAt": "2026-11-26T21:20:33.672Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "streetAddress": "Allmendstrasse 14",
@@ -353,7 +355,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T09:23:21.949Z",
+      "validThrough": "2026-12-26T21:20:33.672Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://live.solique.ch/planzer/job/details/4106682"
     },
@@ -389,7 +391,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4106679",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:23:20.426Z",
+      "crawledAt": "2026-11-26T21:20:33.025Z",
       "addressLocality": "Penthalaz",
       "addressRegion": "VD",
       "streetAddress": "Chemin de l'Islettaz 7",
@@ -439,7 +441,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-22T09:23:20.426Z",
+      "validThrough": "2027-02-22T21:20:33.025Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://live.solique.ch/planzer/job/details/4106679"
     },
@@ -474,7 +476,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4106826",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:23:19.408Z",
+      "crawledAt": "2026-11-26T21:20:32.376Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "streetAddress": "Feldmattstrasse 31",
@@ -524,7 +526,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-23T09:23:19.408Z",
+      "validThrough": "2027-02-23T21:20:32.376Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://live.solique.ch/planzer/job/details/4106826"
     },
@@ -560,7 +562,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4105868",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:23:17.860Z",
+      "crawledAt": "2026-11-26T21:20:31.702Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "streetAddress": "Allmendstrasse 14",
@@ -604,7 +606,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-26T09:23:17.860Z",
+      "validThrough": "2026-12-26T21:20:31.702Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://live.solique.ch/planzer/job/details/4105868"
     },
@@ -627,11 +629,11 @@
         "de": "Gastro Allrounder (m/w/d)",
         "fr": "Gastro Allrounder (h/f/d)"
       },
-      "description": "In unseren eigenen Kantinen an verschiedenen Standorten sorgen wir täglich für das Wohl unserer Mitarbeitenden. Mit frischen Zutaten, viel Leidenschaft und einem eingespielten Team schaffen wir Orte der Erholung und des Genusses. Werde Teil unserer Gastro-Familie und bringe dein Talent in unsere Küche ein!\n\nWas du bewegst\n• Die Reinigung von Geschirr, Gläsern und Besteck liegt in deinem Verantwortungsbereich und sorgst für einen glänzenden Eindruck (Montag bis Freitag, flexibel zwischen 8:00 und 15:30 Uhr)\n• Auch Kasserollen und Küchengeschirr werden von dir gründlich gereinigt, damit alles einsatzbereit ist\n• Du bist für Rüstarbeiten in der Küche zuständig und hilfst bei weiteren Mise-en-Place-Arbeiten mit\n• Auffüllen von Materialien, Aufräumarbeiten und allgemeine Reinigungsaufgaben erledigst du zuverlässig und sorgfältig\n• Gelegentliche Einsätze bei Anlässen und Events – nach Absprache auch abends oder am Samstag, bereiten dir Freude\n• Du achtest auf die Einhaltung und Umsetzung unserer Hygiene- und Reinigungsstandards\n\nWeshalb es dir gelingt\n• Idealerweise hast du bereits erste Erfahrungen in der Gastronomie gesammelt, zum Beispiel als Küchenhilfe oder in der Abwaschküche\n• Du bist körperlich fit und lässt dich auch an arbeitsintensiven Tagen nicht aus der Ruhe bringen\n• Sauberkeit und Sorgfalt sind für dich selbstverständlich und du erledigst deine Aufgaben effizient und zuverlässig\n• Mit deiner positiven Art und deiner Freude an der Zusammenarbeit bist du eine wertvolle Unterstützung für unser Team\n• Du kannst dich gut auf Deutsch verständigen und verstehst auch schriftliche Anweisungen problemlos\n• Du bist mobil und wohnst idealerweise in der Region, damit du deinen Arbeitsort unkompliziert erreichst\n\nDeine Benefits\n• Grosszügiges Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Moderne Arbeitsgeräte: Wir gehen mit der Zeit - dir stehen moderne und sichere Arbeitsgeräte zur Verfügung\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
+      "description": "In unseren eigenen Kantinen an verschiedenen Standorten sorgen wir täglich für das Wohl unserer Mitarbeitenden. Mit frischen Zutaten, viel Leidenschaft und einem eingespielten Team schaffen wir Orte der Erholung und des Genusses. Werde Teil unserer Gastro-Familie und bringe dein Talent in unsere Küche ein!\n\nWas du bewegst\n• Die Reinigung von Geschirr, Gläsern und Besteck liegt in deinem Verantwortungsbereich und sorgt für einen glänzenden Eindruck (Montag bis Freitag, flexibel zwischen 8:00 und 15:30 Uhr)\n• Auch Kasserollen und Küchengeschirr werden von dir gründlich gereinigt, damit alles einsatzbereit ist\n• Du bist für Rüstarbeiten in der Küche zuständig und hilfst bei weiteren Mise-en-Place-Arbeiten mit\n• Auffüllen von Materialien, Aufräumarbeiten und allgemeine Reinigungsaufgaben erledigst du zuverlässig und sorgfältig\n• Gelegentliche Einsätze bei Anlässen und Events – nach Absprache auch abends oder am Samstag, bereiten dir Freude\n• Du achtest auf die Einhaltung und Umsetzung unserer Hygiene- und Reinigungsstandards\n\nWeshalb es dir gelingt\n• Idealerweise hast du Erfahrungen in der Gastronomie, zum Beispiel als Küchenhilfe oder in der Abwaschküche\n• Deine körperliche Belastbarkeit ermöglicht es dir, auch an arbeitsintensiven Tagen souverän zu bleiben\n• Eine effiziente, saubere und sorgfältige Arbeitsweise zeichnet dich aus\n• Mit deiner positiven Einstellung und kooperativen Art bist du eine wertvolle Unterstützung für das Team\n• Gute mündliche Deutschkenntnisse sowie sicheres leseverständnis runden dein Profil ab\n• Deine Mobilität ist von Vorteil, denn ein regionaler Wohnsitz sorgt für kurze Wege und schnelle Einsätze\n\nDeine Benefits\n• Grosszügiges Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Moderne Arbeitsgeräte: Wir gehen mit der Zeit - dir stehen moderne und sichere Arbeitsgeräte zur Verfügung\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
       "descriptionByLocale": {
         "it": "Nelle nostre mense in vari luoghi, garantiamo il benessere dei nostri dipendenti ogni giorno. Con ingredienti freschi, molta passione e un team consolidato, creiamo luoghi di svago e divertimento. Diventa parte della nostra famiglia gastro e porta il tuo talento nella nostra cucina!\n\nChe cosa si muove\n• Piatti di pulizia, bicchieri e posate è la vostra responsabilità e assicura un'impressione lucida (lunedì a venerdì, flessibile tra le 8:00 e le 15:30)\n• Pulisci anche completamente rulli a cassetta e utensili da cucina in modo che tutto sia pronto per l'uso\n• Siete responsabili per le attrezzature in cucina e aiutare con ulteriore lavoro mise-en-place\n• I materiali di riempimento, la pulizia e le operazioni di pulizia generale si fanno in modo affidabile e con attenzione\n• Assegnazioni occasionali in occasioni ed eventi – anche la sera o il sabato, vi darà piacere\n• Prestare attenzione al rispetto e all'attuazione dei nostri standard di igiene e pulizia\n\nPerché hai successo?\n• Idealmente, avete già acquisito esperienza iniziale in gastronomia, per esempio come aiuto cucina o nella sala lavastoviglie\n• Sei fisicamente in forma e non ti lascerà uscire dal letto anche nei giorni lavorativi intensivi\n• La pulizia e la cura sono una questione naturalmente per voi e si eseguirà le vostre attività in modo efficiente e affidabile\n• Con la vostra natura positiva e il vostro piacere di lavorare insieme, siete un prezioso supporto per il nostro team\n• È possibile comunicare bene in tedesco e anche capire istruzioni scritte facilmente\n• Sei mobile e vivi idealmente nella regione in modo da poter raggiungere facilmente il tuo luogo di lavoro\n\nI tuoi vantaggi\n• Regole di vacanza generose: Con noi si inizia con 5 settimane vacanze e anche beneficiare di 6 settimane dal 5 ° anno di servizio!\n• Cultura della famiglia: Tu diventi parte della nostra cultura familiare - rispetto, fiducia e decenza sono importanti per noi\n• Attrezzature di lavoro moderne: Teniamo il passo con i tempi – attrezzature di lavoro moderne e sicure è a vostra disposizione\n• Parcheggio gratuito: Preparatevi per il parcheggio - con noi potete parcheggiare gratuitamente\n\nChi siamo\nPer noi come azienda, l'attenzione è su una cooperazione di supporto e un'atmosfera di lavoro positiva. Ecco perché apprezziamo particolarmente qualità come lo spirito di squadra, la disponibilità e la motivazione. Accogliamo anche grande importanza per la puntualità, la lealtà e l'accuratezza, in quanto questi valori costituiscono la base per un modo di lavoro affidabile e orientato al cliente.",
         "en": "In our own canteens at various locations, we ensure the well-being of our employees every day. With fresh ingredients, a lot of passion and a well-established team, we create places of recreation and enjoyment. Become part of our gastro family and bring your talent to our kitchen!\n\nWhat you move\n• Cleaning dishes, glasses and cutlery is your responsibility and ensures a shiny impression (Monday to Friday, flexible between 8:00 and 15:30)\n• You also thoroughly clean cassette rollers and kitchen utensils so that everything is ready for use\n• You are responsible for equipment in the kitchen and help with further mise-en-place work\n• Filling materials, cleaning up and general cleaning tasks you do reliably and carefully\n• Occasional assignments at occasions and events – also in the evening or on Saturday, will give you pleasure\n• You pay attention to compliance with and implementation of our hygiene and cleaning standards\n\nWhy do you succeed?\n• Ideally, you have already gained initial experience in gastronomy, for example as a kitchen aid or in the dishwashing room\n• You’re physically fit and won’t let yourself get out of bed even on work-intensive days\n• Cleanliness and care are a matter of course for you and you will perform your tasks efficiently and reliably\n• With your positive nature and your pleasure in working together, you are a valuable support for our team\n• You can communicate well in German and also understand written instructions easily\n• You are mobile and ideally live in the region so that you can easily reach your place of work\n\nYour Benefits\n• Generous holiday regulations: With us you start with 5 weeks holidays and even benefit from 6 weeks from the 5th year of service!\n• Family culture: You become part of our family culture - respect, trust and decency are important to us\n• Modern work equipment: We keep up with the times – modern and safe work equipment is available to you\n• Free parking: Get ready for parking - with us you can park for free\n\nWho we are\nFor us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
-        "de": "In unseren eigenen Kantinen an verschiedenen Standorten sorgen wir täglich für das Wohl unserer Mitarbeitenden. Mit frischen Zutaten, viel Leidenschaft und einem eingespielten Team schaffen wir Orte der Erholung und des Genusses. Werde Teil unserer Gastro-Familie und bringe dein Talent in unsere Küche ein!\n\nWas du bewegst\n• Die Reinigung von Geschirr, Gläsern und Besteck liegt in deinem Verantwortungsbereich und sorgst für einen glänzenden Eindruck (Montag bis Freitag, flexibel zwischen 8:00 und 15:30 Uhr)\n• Auch Kasserollen und Küchengeschirr werden von dir gründlich gereinigt, damit alles einsatzbereit ist\n• Du bist für Rüstarbeiten in der Küche zuständig und hilfst bei weiteren Mise-en-Place-Arbeiten mit\n• Auffüllen von Materialien, Aufräumarbeiten und allgemeine Reinigungsaufgaben erledigst du zuverlässig und sorgfältig\n• Gelegentliche Einsätze bei Anlässen und Events – nach Absprache auch abends oder am Samstag, bereiten dir Freude\n• Du achtest auf die Einhaltung und Umsetzung unserer Hygiene- und Reinigungsstandards\n\nWeshalb es dir gelingt\n• Idealerweise hast du bereits erste Erfahrungen in der Gastronomie gesammelt, zum Beispiel als Küchenhilfe oder in der Abwaschküche\n• Du bist körperlich fit und lässt dich auch an arbeitsintensiven Tagen nicht aus der Ruhe bringen\n• Sauberkeit und Sorgfalt sind für dich selbstverständlich und du erledigst deine Aufgaben effizient und zuverlässig\n• Mit deiner positiven Art und deiner Freude an der Zusammenarbeit bist du eine wertvolle Unterstützung für unser Team\n• Du kannst dich gut auf Deutsch verständigen und verstehst auch schriftliche Anweisungen problemlos\n• Du bist mobil und wohnst idealerweise in der Region, damit du deinen Arbeitsort unkompliziert erreichst\n\nDeine Benefits\n• Grosszügiges Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Moderne Arbeitsgeräte: Wir gehen mit der Zeit - dir stehen moderne und sichere Arbeitsgeräte zur Verfügung\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
+        "de": "In unseren eigenen Kantinen an verschiedenen Standorten sorgen wir täglich für das Wohl unserer Mitarbeitenden. Mit frischen Zutaten, viel Leidenschaft und einem eingespielten Team schaffen wir Orte der Erholung und des Genusses. Werde Teil unserer Gastro-Familie und bringe dein Talent in unsere Küche ein!\n\nWas du bewegst\n• Die Reinigung von Geschirr, Gläsern und Besteck liegt in deinem Verantwortungsbereich und sorgt für einen glänzenden Eindruck (Montag bis Freitag, flexibel zwischen 8:00 und 15:30 Uhr)\n• Auch Kasserollen und Küchengeschirr werden von dir gründlich gereinigt, damit alles einsatzbereit ist\n• Du bist für Rüstarbeiten in der Küche zuständig und hilfst bei weiteren Mise-en-Place-Arbeiten mit\n• Auffüllen von Materialien, Aufräumarbeiten und allgemeine Reinigungsaufgaben erledigst du zuverlässig und sorgfältig\n• Gelegentliche Einsätze bei Anlässen und Events – nach Absprache auch abends oder am Samstag, bereiten dir Freude\n• Du achtest auf die Einhaltung und Umsetzung unserer Hygiene- und Reinigungsstandards\n\nWeshalb es dir gelingt\n• Idealerweise hast du Erfahrungen in der Gastronomie, zum Beispiel als Küchenhilfe oder in der Abwaschküche\n• Deine körperliche Belastbarkeit ermöglicht es dir, auch an arbeitsintensiven Tagen souverän zu bleiben\n• Eine effiziente, saubere und sorgfältige Arbeitsweise zeichnet dich aus\n• Mit deiner positiven Einstellung und kooperativen Art bist du eine wertvolle Unterstützung für das Team\n• Gute mündliche Deutschkenntnisse sowie sicheres leseverständnis runden dein Profil ab\n• Deine Mobilität ist von Vorteil, denn ein regionaler Wohnsitz sorgt für kurze Wege und schnelle Einsätze\n\nDeine Benefits\n• Grosszügiges Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Moderne Arbeitsgeräte: Wir gehen mit der Zeit - dir stehen moderne und sichere Arbeitsgeräte zur Verfügung\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "fr": "Dans nos propres cantines à différents endroits, nous assurons le bien-être de nos employés chaque jour. Avec des ingrédients frais, beaucoup de passion et une équipe bien établie, nous créons des lieux de loisirs et de plaisir. Faites partie de notre famille de gastro et apportez votre talent à notre cuisine!\n\nCe que tu bouges\n• Le nettoyage des plats, des verres et des couverts est votre responsabilité et assure une impression brillante (lundi à vendredi, flexible entre 8h00 et 15h30)\n• Vous pouvez également nettoyer soigneusement les rouleaux de cassette et les ustensiles de cuisine afin que tout soit prêt à l'emploi\n• Vous êtes responsable de l'équipement dans la cuisine et de l'aide pour d'autres travaux de mise en place\n• Matériel de remplissage, nettoyage et tâches de nettoyage général que vous faites de façon fiable et soignée\n• Des affectations occasionnelles à des occasions et des événements – aussi le soir ou le samedi, vous donneront plaisir\n• Vous faites attention au respect et à la mise en œuvre de nos normes d'hygiène et de nettoyage\n\nPourquoi tu réussis ?\n• Idéalement, vous avez déjà acquis une expérience initiale dans la gastronomie, par exemple comme aide à la cuisine ou dans la salle de vaisselle\n• Vous êtes physiquement en forme et ne vous laissez pas sortir du lit même les jours à forte intensité de travail\n• La propreté et les soins sont une question bien sûr pour vous et vous accomplirez vos tâches efficacement et de manière fiable\n• Avec votre nature positive et votre plaisir à travailler ensemble, vous êtes un précieux support pour notre équipe\n• Vous pouvez bien communiquer en allemand et aussi comprendre les instructions écrites facilement\n• Vous êtes mobile et vivez idéalement dans la région afin que vous puissiez facilement atteindre votre lieu de travail\n\nVos avantages\n• Règles de vacances généreuses: Avec nous vous commencez par 5 semaines de vacances et même bénéficier de 6 semaines à partir de la 5ème année de service!\n• Culture familiale : vous faites partie de notre culture familiale - le respect, la confiance et la décence sont importants pour nous\n• Équipement de travail moderne: Nous nous tenons au courant des temps – des équipements de travail modernes et sûrs sont à votre disposition\n• Parking gratuit: Préparez-vous pour le stationnement - avec nous vous pouvez garer gratuitement\n\nQui nous sommes\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération solidaire et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
       },
       "location": "Villmergen",
@@ -639,7 +641,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4104749",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:23:16.474Z",
+      "crawledAt": "2026-11-26T21:20:31.056Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "streetAddress": "Allmendstrasse 14",
@@ -675,9 +677,10 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-23T09:23:16.474Z",
+      "validThrough": "2027-02-23T21:20:31.056Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/planzer/job/details/4104749"
+      "sourceIdentity": "url:https://live.solique.ch/planzer/job/details/4104749",
+      "needsRetranslation": true
     },
     {
       "id": "planzer-35f03ec2c8c9",
@@ -710,7 +713,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4105859",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:23:14.907Z",
+      "crawledAt": "2026-11-26T21:20:30.414Z",
       "addressLocality": "Seewen",
       "addressRegion": "SO",
       "streetAddress": "Seewernstrasse 203",
@@ -762,7 +765,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:23:14.907Z",
+      "validThrough": "2027-01-24T21:20:30.414Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://live.solique.ch/planzer/job/details/4105859"
     },
@@ -798,7 +801,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4107739",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:23:13.650Z",
+      "crawledAt": "2026-11-26T21:20:29.762Z",
       "addressLocality": "Seewen",
       "addressRegion": "SO",
       "streetAddress": "Seewernstrasse 203",
@@ -844,50 +847,123 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-24T09:23:13.650Z",
+      "validThrough": "2027-02-24T21:20:29.762Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://live.solique.ch/planzer/job/details/4107739"
     },
     {
-      "id": "planzer-f39723f0f10d",
-      "slug": "trainer-chauffeur-cat-be-m-f-d-planzer-kallnach",
+      "id": "planzer-ba47bd125623",
+      "slug": "sachbearbeiter-administration-m-w-d-planzer-zurich",
       "slugByLocale": {
-        "it": "trainer-chauffeur-cat-be-m-f-d-planzer-kallnach",
-        "en": "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach",
-        "de": "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach",
-        "fr": "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach"
+        "de": "sachbearbeiter-administration-m-w-d-planzer-zurich",
+        "it": "sachbearbeiter-administration-m-w-d-planzer-zurich",
+        "en": "sachbearbeiter-administration-m-w-d-planzer-zurich",
+        "fr": "sachbearbeiter-administration-m-w-d-planzer-zurich"
       },
       "company": "Planzer",
       "companyKey": "planzer",
       "companyDomain": "planzer.ch",
-      "title": "Ausbildner Chauffeur Kat. BE (m/w/d)",
+      "title": "Sachbearbeiter Administration (m/w/d)",
       "titleByLocale": {
-        "it": "Trainer Chauffeur Cat. BE (m/f/d)",
-        "en": "Trainer Chauffeur Cat. BE (m/f/d)",
-        "de": "Ausbildner Chauffeur Kat. BE (m/w/d)",
-        "fr": "Chauffeur-entraîneur Cat. BE (h/f/d)"
+        "de": "Sachbearbeiter Administration (m/w/d)",
+        "it": "Sachbearbeiter Administration (m/w/d)",
+        "en": "Sachbearbeiter Administration (m/w/d)",
+        "fr": "Sachbearbeiter Administration (m/w/d)"
       },
-      "description": "Als fest verwurzeltes Unternehmen im Seeland bieten wir umfassende Transport- und Lagerlösungen und sorgen mit unseren Abfalltransporten in über 30 Gemeinden für Sauberkeit. Unser Erfolg basiert auf motivierten Mitarbeitenden und moderner Infrastruktur. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nWas du bewegst\n• Du verteilst Stückgutsendungen gemäss Tourenplanung der Disposition in der ganzen Schweiz und sorgst für eine zuverlässige und termingerechte Auslieferung\n• Als eingefleischter Chauffeur hast du Freude daran, dein Fachwissen an Lehrlinge, Quereinsteiger und neue Fahrer weiterzugeben\n• Mit Freude begleitest du unsere Neulinge auf ihren ersten Fahrten mit Motorwagen und Anhänger und stehst ihnen mit Rat und Tat zur Seite\n• Du vermittelst praxisnah alles rund um Ladungssicherung, Anhänger, Fahrzeugaufbau, Hebebühne, sowie einen sicheren und effizienten Fahrstil\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und stets sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n\nWeshalb es dir gelingt\n• Du beherrschst das Fahren mit Anhänger der Kategorie BE und bist sicher damit unterwegs\n• Dank deiner geduldigen und wertschätzenden Art nimmst du dir Zeit Prozesse verständlich rüberzubringen\n• Du bringst eine hohe Flexibilität mit und bist bereit, deine Arbeitszeiten den täglichen Anforderungen und dem Transportvolumen anzupassen\n• Die VZV-Ausbildung ist von Vorteil, jedoch keine Voraussetzung\n• Du hast einen ADR-Ausweis? Perfekt!\n• Dein Strafregisterauszug ist einwandfrei, bei dir gibt es nicht zu beanstanden (bitte mitschicken)\n• Mündlich kannst du dich sicher in deutscher Sprache ausdrücken - Französischkenntnisse sind ein zusätzliches Plus\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualitätsbonus: Qualität wird bei uns grossgeschrieben und belohnt\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
+      "description": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Du verantwortest die Regulierung und Abwicklung von Schadenfällen und gehst dabei effizient, strukturiert und lösungsorientiert vor\n• Als zentrale Ansprechperson begleitest du unsere Kunden durch den gesamten Prozess und findest pragmatische Lösungen für ihre Anliegen\n• Die Abklärung von Unregelmäsigkeiten bei Transportsendungen sowie die Koordination mit internen und externen Stellen gehören zu deinem Alltag\n• Du behätst die Sendungen deiner Kunden im Überblick und stellst einen reibungslosen Ablauf von Auslieferungen und Abholungen sicher\n• Auch die Pflege und Kontrolle von Schaden- und Sendungsdaten gehören zu deinen Aufgaben - dabei sorgst du für eine hohe Datenqualität und vollständige Dokumentation\n\nWeshalb es dir gelingt\n• Du verfügst über eine kaufmännische Grundausbildung und bringst idealerweise Erfahung in einer vergleichbaren Funktion mit, von Vorteil in der Logistikbranche\n• Mit MS Office, insbesondere Excel und Outlook, gehst du sicher und effizient um\n• Deine ausgeprägte Kundenorientierung, dein sicheres Auftreten und deine gewinnende Art machen dich zu einer geschätzten Ansprechperson\n• Eine strukturierte, selbstständige und zuverlässige Arbeitsweise ist für dich selbstverständlich - auch wenn es hektisch wird, behältst du stets den Überblick\n• Flexibilität ist gefragt: Du arbeitest im 42.5 Stunden-Modell in versetzten Arbeitszeiten zwischen 07:30 und 20:00 Uhr\n• Sehr gute Deutschkenntnisse in Wort und Schrift runden dein Profil ab\n\nDeine Benefits\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Flexible Arbeitszeitmodelle: Early Bird oder Nachteule? Vollzeit oder Teilzeit? Wir nehmen deine Wünsche entgegen\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
       "descriptionByLocale": {
-        "it": "Come azienda fortemente radicata nella regione Seeland, offriamo soluzioni complete di trasporto e stoccaggio e garantire la pulizia in oltre 30 comunità con i nostri trasporti di rifiuti. Il nostro successo si basa su dipendenti motivati e infrastrutture moderne. Diventa parte del nostro team e modella il futuro della logistica!\n\nChe cosa si muove\n• Distribuisci spedizioni di carichi generali in tutta la Svizzera in conformità con la pianificazione programmata del tour e garantisci una consegna affidabile e tempestiva\n• Come autista duro, ti piace trasmettere la tua esperienza agli apprendisti, alle entranti laterali e ai nuovi piloti.\n• Con piacere si accompagnano i nostri nuovi arrivati nei loro primi viaggi con auto e rimorchi e stare da loro con consigli e azioni\n• Insegne tutto pratico su sicurezza del carico, rimorchio, corpo del veicolo, piattaforma di sollevamento, così come uno stile di guida sicuro ed efficiente\n• Insieme a voi, il vostro veicolo è il più importante e sempre visibile biglietto da visita della nostra azienda – in modo da prendersi cura della sua cura e manutenzione\n\nPerché hai successo?\n• Hai imparato la guida con i trailer della categoria BE e sei sicuro sulla strada\n• Grazie alla sua natura paziente e apprezzativa, ci vuole del tempo per comprendere i processi.\n• Portate un alto grado di flessibilità e siete pronti a regolare le vostre ore di lavoro alle esigenze quotidiane e al volume di trasporto\n• La formazione VZV è utile, ma non è un prerequisito\n• Hai una carta ADR? Perfetto!\n• Il tuo record criminale è impeccabile, non c'è nessun reclamo con te (per favore invia contemporaneamente)\n• Orally si può esprimere in modo sicuro in tedesco - la conoscenza del francese è un ulteriore vantaggio\n\nI vantaggi\n• Attraente regolamento vacanza: Con noi si inizia con 5 settimane vacanze e anche beneficiare di 6 settimane dal 5 ° anno di servizio!\n• Bonus di qualità: La qualità è scritta nella nostra capitale e premiata\n• Allenamento introduttivo centrale: Passerete i vostri primi giorni di lavoro nell'introduzione centrale, dove sarete insegnati le basi più importanti\n• Parcheggio gratuito: Preparatevi per il parcheggio - con noi potete parcheggiare gratuitamente\n\nChi siamo\nPer noi come azienda, l'attenzione è su una cooperazione di supporto e un'atmosfera di lavoro positiva. Ecco perché apprezziamo particolarmente qualità come lo spirito di squadra, la disponibilità e la motivazione. Accogliamo anche grande importanza per la puntualità, la lealtà e l'accuratezza, in quanto questi valori costituiscono la base per un modo di lavoro affidabile e orientato al cliente.",
-        "en": "As a firmly rooted company in the Seeland region, we offer comprehensive transport and storage solutions and ensure cleanliness in over 30 communities with our waste transports. Our success is based on motivated employees and modern infrastructure. Become part of our team and shape the future of logistics!\n\nWhat you move\n• You distribute general cargo shipments throughout Switzerland in accordance with scheduled tour planning and ensure reliable and timely delivery\n• As a die-hard chauffeur, you enjoy passing on your expertise to apprentices, lateral entrants and new drivers.\n• With pleasure you accompany our newcomers on their first trips with motor cars and trailers and stand by them with advice and deeds\n• You teach practical everything about cargo securing, trailer, vehicle body, lifting platform, as well as a safe and efficient driving style\n• Together with you, your vehicle is the most important and always visible business card of our company – so you take care of its care and maintenance\n\nWhy do you succeed?\n• You have mastered driving with trailers of the BE category and are safely on the road\n• Thanks to your patient and appreciative nature, you take time to understand processes.\n• You bring a high degree of flexibility and are ready to adjust your working hours to the daily requirements and transport volume\n• VZV training is beneficial, but not a prerequisite\n• Do you have an ADR card? Perfect!\n• Your criminal record is impeccable, there is no complaint with you (please send along)\n• Orally you can express yourself safely in German - knowledge of French is an additional plus\n\nYour benefits\n• Attractive holiday regulations: With us you start with 5 weeks holidays and even benefit from 6 weeks from the 5th year of service!\n• Quality bonus: Quality is written in our capital and rewarded\n• Central introductory training: You will spend your first working days in the central introduction, where you will be taught the most important basics\n• Free parking: Get ready for parking - with us you can park for free\n\nWho we are\nFor us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
-        "de": "Als fest verwurzeltes Unternehmen im Seeland bieten wir umfassende Transport- und Lagerlösungen und sorgen mit unseren Abfalltransporten in über 30 Gemeinden für Sauberkeit. Unser Erfolg basiert auf motivierten Mitarbeitenden und moderner Infrastruktur. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nWas du bewegst\n• Du verteilst Stückgutsendungen gemäss Tourenplanung der Disposition in der ganzen Schweiz und sorgst für eine zuverlässige und termingerechte Auslieferung\n• Als eingefleischter Chauffeur hast du Freude daran, dein Fachwissen an Lehrlinge, Quereinsteiger und neue Fahrer weiterzugeben\n• Mit Freude begleitest du unsere Neulinge auf ihren ersten Fahrten mit Motorwagen und Anhänger und stehst ihnen mit Rat und Tat zur Seite\n• Du vermittelst praxisnah alles rund um Ladungssicherung, Anhänger, Fahrzeugaufbau, Hebebühne, sowie einen sicheren und effizienten Fahrstil\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und stets sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n\nWeshalb es dir gelingt\n• Du beherrschst das Fahren mit Anhänger der Kategorie BE und bist sicher damit unterwegs\n• Dank deiner geduldigen und wertschätzenden Art nimmst du dir Zeit Prozesse verständlich rüberzubringen\n• Du bringst eine hohe Flexibilität mit und bist bereit, deine Arbeitszeiten den täglichen Anforderungen und dem Transportvolumen anzupassen\n• Die VZV-Ausbildung ist von Vorteil, jedoch keine Voraussetzung\n• Du hast einen ADR-Ausweis? Perfekt!\n• Dein Strafregisterauszug ist einwandfrei, bei dir gibt es nicht zu beanstanden (bitte mitschicken)\n• Mündlich kannst du dich sicher in deutscher Sprache ausdrücken - Französischkenntnisse sind ein zusätzliches Plus\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualitätsbonus: Qualität wird bei uns grossgeschrieben und belohnt\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
-        "fr": "En tant qu'entreprise solidement implantée dans la région de Seeland, nous proposons des solutions de transport et de stockage complètes et nous assurons la propreté dans plus de 30 communautés avec nos transports de déchets. Notre succès repose sur des employés motivés et une infrastructure moderne. Faites partie de notre équipe et façonnez l'avenir de la logistique!\n\nCe que tu bouges\n• Vous distribuez des cargaisons générales dans toute la Suisse conformément à la planification des visites et vous assurez une livraison fiable et rapide\n• En tant que chauffeur dur, vous aimez transmettre votre expertise aux apprentis, aux entrants latéraux et aux nouveaux conducteurs.\n• Avec plaisir, vous accompagnez nos nouveaux venus lors de leurs premiers voyages avec des voitures et des remorques et vous les tenez à l'écart avec des conseils et des actes\n• Vous enseignez tout sur la fixation du fret, remorque, carrosserie, plate-forme de levage, ainsi qu'un style de conduite sûr et efficace\n• Avec vous, votre véhicule est la carte de visite la plus importante et la plus visible de notre entreprise.\n\nPourquoi tu réussis ?\n• Vous avez maîtrisé la conduite avec des remorques de la catégorie BE et êtes en sécurité sur la route\n• Grâce à votre nature patiente et reconnaissante, vous prenez le temps de comprendre les processus.\n• Vous apportez un haut degré de flexibilité et êtes prêt à adapter vos heures de travail aux besoins quotidiens et au volume de transport\n• La formation VZV est bénéfique, mais pas une condition préalable\n• Avez-vous une carte ADR? Parfait !\n• Votre casier judiciaire est impeccable, il n'y a aucune plainte avec vous (veuillez envoyer)\n• Par voie orale vous pouvez vous exprimer en toute sécurité en allemand - la connaissance du français est un plus supplémentaire\n\nVos avantages\n• Des règles de vacances attrayantes: Avec nous vous commencez par 5 semaines de vacances et même bénéficier de 6 semaines à partir de la 5ème année de service!\n• Bonus de qualité: La qualité est écrite dans notre capital et récompensée\n• Formation d'introduction centrale: Vous passerez vos premiers jours de travail dans l'introduction centrale, où vous serez enseigné les bases les plus importantes\n• Parking gratuit: Préparez-vous pour le stationnement - avec nous vous pouvez vous garer gratuitement\n\nQui nous sommes\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération solidaire et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
+        "de": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Du verantwortest die Regulierung und Abwicklung von Schadenfällen und gehst dabei effizient, strukturiert und lösungsorientiert vor\n• Als zentrale Ansprechperson begleitest du unsere Kunden durch den gesamten Prozess und findest pragmatische Lösungen für ihre Anliegen\n• Die Abklärung von Unregelmäsigkeiten bei Transportsendungen sowie die Koordination mit internen und externen Stellen gehören zu deinem Alltag\n• Du behätst die Sendungen deiner Kunden im Überblick und stellst einen reibungslosen Ablauf von Auslieferungen und Abholungen sicher\n• Auch die Pflege und Kontrolle von Schaden- und Sendungsdaten gehören zu deinen Aufgaben - dabei sorgst du für eine hohe Datenqualität und vollständige Dokumentation\n\nWeshalb es dir gelingt\n• Du verfügst über eine kaufmännische Grundausbildung und bringst idealerweise Erfahung in einer vergleichbaren Funktion mit, von Vorteil in der Logistikbranche\n• Mit MS Office, insbesondere Excel und Outlook, gehst du sicher und effizient um\n• Deine ausgeprägte Kundenorientierung, dein sicheres Auftreten und deine gewinnende Art machen dich zu einer geschätzten Ansprechperson\n• Eine strukturierte, selbstständige und zuverlässige Arbeitsweise ist für dich selbstverständlich - auch wenn es hektisch wird, behältst du stets den Überblick\n• Flexibilität ist gefragt: Du arbeitest im 42.5 Stunden-Modell in versetzten Arbeitszeiten zwischen 07:30 und 20:00 Uhr\n• Sehr gute Deutschkenntnisse in Wort und Schrift runden dein Profil ab\n\nDeine Benefits\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Flexible Arbeitszeitmodelle: Early Bird oder Nachteule? Vollzeit oder Teilzeit? Wir nehmen deine Wünsche entgegen\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
+        "it": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Du verantwortest die Regulierung und Abwicklung von Schadenfällen und gehst dabei effizient, strukturiert und lösungsorientiert vor\n• Als zentrale Ansprechperson begleitest du unsere Kunden durch den gesamten Prozess und findest pragmatische Lösungen für ihre Anliegen\n• Die Abklärung von Unregelmäsigkeiten bei Transportsendungen sowie die Koordination mit internen und externen Stellen gehören zu deinem Alltag\n• Du behätst die Sendungen deiner Kunden im Überblick und stellst einen reibungslosen Ablauf von Auslieferungen und Abholungen sicher\n• Auch die Pflege und Kontrolle von Schaden- und Sendungsdaten gehören zu deinen Aufgaben - dabei sorgst du für eine hohe Datenqualität und vollständige Dokumentation\n\nWeshalb es dir gelingt\n• Du verfügst über eine kaufmännische Grundausbildung und bringst idealerweise Erfahung in einer vergleichbaren Funktion mit, von Vorteil in der Logistikbranche\n• Mit MS Office, insbesondere Excel und Outlook, gehst du sicher und effizient um\n• Deine ausgeprägte Kundenorientierung, dein sicheres Auftreten und deine gewinnende Art machen dich zu einer geschätzten Ansprechperson\n• Eine strukturierte, selbstständige und zuverlässige Arbeitsweise ist für dich selbstverständlich - auch wenn es hektisch wird, behältst du stets den Überblick\n• Flexibilität ist gefragt: Du arbeitest im 42.5 Stunden-Modell in versetzten Arbeitszeiten zwischen 07:30 und 20:00 Uhr\n• Sehr gute Deutschkenntnisse in Wort und Schrift runden dein Profil ab\n\nDeine Benefits\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Flexible Arbeitszeitmodelle: Early Bird oder Nachteule? Vollzeit oder Teilzeit? Wir nehmen deine Wünsche entgegen\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
+        "en": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Du verantwortest die Regulierung und Abwicklung von Schadenfällen und gehst dabei effizient, strukturiert und lösungsorientiert vor\n• Als zentrale Ansprechperson begleitest du unsere Kunden durch den gesamten Prozess und findest pragmatische Lösungen für ihre Anliegen\n• Die Abklärung von Unregelmäsigkeiten bei Transportsendungen sowie die Koordination mit internen und externen Stellen gehören zu deinem Alltag\n• Du behätst die Sendungen deiner Kunden im Überblick und stellst einen reibungslosen Ablauf von Auslieferungen und Abholungen sicher\n• Auch die Pflege und Kontrolle von Schaden- und Sendungsdaten gehören zu deinen Aufgaben - dabei sorgst du für eine hohe Datenqualität und vollständige Dokumentation\n\nWeshalb es dir gelingt\n• Du verfügst über eine kaufmännische Grundausbildung und bringst idealerweise Erfahung in einer vergleichbaren Funktion mit, von Vorteil in der Logistikbranche\n• Mit MS Office, insbesondere Excel und Outlook, gehst du sicher und effizient um\n• Deine ausgeprägte Kundenorientierung, dein sicheres Auftreten und deine gewinnende Art machen dich zu einer geschätzten Ansprechperson\n• Eine strukturierte, selbstständige und zuverlässige Arbeitsweise ist für dich selbstverständlich - auch wenn es hektisch wird, behältst du stets den Überblick\n• Flexibilität ist gefragt: Du arbeitest im 42.5 Stunden-Modell in versetzten Arbeitszeiten zwischen 07:30 und 20:00 Uhr\n• Sehr gute Deutschkenntnisse in Wort und Schrift runden dein Profil ab\n\nDeine Benefits\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Flexible Arbeitszeitmodelle: Early Bird oder Nachteule? Vollzeit oder Teilzeit? Wir nehmen deine Wünsche entgegen\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
+        "fr": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Du verantwortest die Regulierung und Abwicklung von Schadenfällen und gehst dabei effizient, strukturiert und lösungsorientiert vor\n• Als zentrale Ansprechperson begleitest du unsere Kunden durch den gesamten Prozess und findest pragmatische Lösungen für ihre Anliegen\n• Die Abklärung von Unregelmäsigkeiten bei Transportsendungen sowie die Koordination mit internen und externen Stellen gehören zu deinem Alltag\n• Du behätst die Sendungen deiner Kunden im Überblick und stellst einen reibungslosen Ablauf von Auslieferungen und Abholungen sicher\n• Auch die Pflege und Kontrolle von Schaden- und Sendungsdaten gehören zu deinen Aufgaben - dabei sorgst du für eine hohe Datenqualität und vollständige Dokumentation\n\nWeshalb es dir gelingt\n• Du verfügst über eine kaufmännische Grundausbildung und bringst idealerweise Erfahung in einer vergleichbaren Funktion mit, von Vorteil in der Logistikbranche\n• Mit MS Office, insbesondere Excel und Outlook, gehst du sicher und effizient um\n• Deine ausgeprägte Kundenorientierung, dein sicheres Auftreten und deine gewinnende Art machen dich zu einer geschätzten Ansprechperson\n• Eine strukturierte, selbstständige und zuverlässige Arbeitsweise ist für dich selbstverständlich - auch wenn es hektisch wird, behältst du stets den Überblick\n• Flexibilität ist gefragt: Du arbeitest im 42.5 Stunden-Modell in versetzten Arbeitszeiten zwischen 07:30 und 20:00 Uhr\n• Sehr gute Deutschkenntnisse in Wort und Schrift runden dein Profil ab\n\nDeine Benefits\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Flexible Arbeitszeitmodelle: Early Bird oder Nachteule? Vollzeit oder Teilzeit? Wir nehmen deine Wünsche entgegen\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden."
       },
-      "needsRetranslation": false,
-      "location": "Kallnach",
-      "canton": "BE",
-      "url": "https://live.solique.ch/planzer/job/details/4103492",
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://live.solique.ch/planzer/job/details/4107906",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:23:34.077Z",
+      "crawledAt": "2026-11-26T21:20:29.070Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "streetAddress": "Hermetschloostrasse 12",
+      "postalCode": "8001",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti / Logistica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://live.solique.ch/planzer/job/details/4107906",
+      "externalId": "4107906",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-24T21:20:29.070Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-26T21:20:29.070Z"
+    },
+    {
+      "id": "planzer-80e707f1cd85",
+      "slug": "betriebsleiter-fuhrpark-e-betrieb-m-w-d-planzer-kallnach",
+      "slugByLocale": {
+        "de": "betriebsleiter-fuhrpark-und-betrieb-m-w-d-planzer-kallnach",
+        "it": "betriebsleiter-fuhrpark-e-betrieb-m-w-d-planzer-kallnach",
+        "en": "betriebsleiter-fuhrpark-und-betrieb-m-w-d-planzer-kallnach",
+        "fr": "betriebsleiter-fuhrpark-und-betrieb-m-w-d-planzer-kallnach"
+      },
+      "company": "Planzer",
+      "companyKey": "planzer",
+      "companyDomain": "planzer.ch",
+      "title": "Betriebsleiter Fuhrpark und Betrieb (m/w/d)",
+      "titleByLocale": {
+        "de": "Betriebsleiter Fuhrpark und Betrieb (m/w/d)",
+        "it": "Betriebsleiter Fuhrpark e Betrieb (m/w/d)",
+        "en": "Betriebsleiter Fuhrpark und Betrieb (m/w/d)",
+        "fr": "Betriebsleiter Fuhrpark und Betrieb (m/w/d)"
+      },
+      "description": "Als fest verwurzeltes Unternehmen im Seeland bieten wir umfassende Transport- und Lagerlösungen und sorgen mit unseren Abfalltransporten in über 30 Gemeinden für Sauberkeit. Unser Erfolg basiert auf motivierten Mitarbeitenden und moderner Infrastruktur. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nWas du bewegst\n• Verantwortung zu übernehmen, macht dir Spass? Hier bekommst du die Gelegenheit ein 7-10 köpfiges Team fachlich, sowie personell zu führen\n• Als Allrounder in der Gebäudetechnik sorgst du dafür, dass alles rundläuft: von Klimaanlagen, Heizungen und Lüftungen über die Elektrik bis hin zu automatisierten Logistikanlagen, Förderanlagen und der LKW-Waschanlage\n• Damit unser Fuhrpark jederzeit einsatzbereit ist, planst und koordinierst du Wartungsarbeiten und Reparaturen\n• Die Einhaltung der Vorschriften und Richtlinien im Umgang mit Gefahrengütern hast du stets im Blick\n• Du unterstützt bei der Umsetzung und Überwachung der Arbeitssicherheitsmassnahmen und sorgst für ein sicheres Arbeitsumfeld\n• Auch die Ausbildung unseres Nachwuchses liegt dir am Herzen: Du unterstützt den Berufsbildner bei der Betreuung unserer Lernenden in den Fachrichtungen Strassentransport und Betriebsunterhalt\n\nWeshalb es dir gelingt\n• Du bringst eine abgeschlossene technische Ausbildung oder eine vergleichbare Qualifikation mit und hast idealerweise bereits einige Jahre Erfahrung in einer ähnlichen Funktion gesammelt\n• Dein fundiertes Wissen im Bereich Gebäude- und/oder Fahrzeugtechnik erleichtert dir den Arbeitsalltag\n• Du hast bereits Kenntnisse in den Themen Gefahrengutmanagement und Arbeitssicherheit oder Interesse diese in einer Weiterbildung zu vertiefen\n• Du übernimmst gerne Verantwortung, kommunizierst offen und transparent und gehst Herausforderungen lösungsorientiert an\n• Die Zusammenarbeit mit Menschen unterschiedlichen Alters macht dir Freude und du verstehst es, auf verschiedene Persönlichkeiten einzugehen\n• Gelegentlicher Pikettdienst ist für dich kein Problem\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Moderne Arbeitsgeräte: Wir gehen mit der Zeit - dir stehen moderne und sichere Arbeitsgeräte zur Verfügung\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
+      "descriptionByLocale": {
+        "de": "Als fest verwurzeltes Unternehmen im Seeland bieten wir umfassende Transport- und Lagerlösungen und sorgen mit unseren Abfalltransporten in über 30 Gemeinden für Sauberkeit. Unser Erfolg basiert auf motivierten Mitarbeitenden und moderner Infrastruktur. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nWas du bewegst\n• Verantwortung zu übernehmen, macht dir Spass? Hier bekommst du die Gelegenheit ein 7-10 köpfiges Team fachlich, sowie personell zu führen\n• Als Allrounder in der Gebäudetechnik sorgst du dafür, dass alles rundläuft: von Klimaanlagen, Heizungen und Lüftungen über die Elektrik bis hin zu automatisierten Logistikanlagen, Förderanlagen und der LKW-Waschanlage\n• Damit unser Fuhrpark jederzeit einsatzbereit ist, planst und koordinierst du Wartungsarbeiten und Reparaturen\n• Die Einhaltung der Vorschriften und Richtlinien im Umgang mit Gefahrengütern hast du stets im Blick\n• Du unterstützt bei der Umsetzung und Überwachung der Arbeitssicherheitsmassnahmen und sorgst für ein sicheres Arbeitsumfeld\n• Auch die Ausbildung unseres Nachwuchses liegt dir am Herzen: Du unterstützt den Berufsbildner bei der Betreuung unserer Lernenden in den Fachrichtungen Strassentransport und Betriebsunterhalt\n\nWeshalb es dir gelingt\n• Du bringst eine abgeschlossene technische Ausbildung oder eine vergleichbare Qualifikation mit und hast idealerweise bereits einige Jahre Erfahrung in einer ähnlichen Funktion gesammelt\n• Dein fundiertes Wissen im Bereich Gebäude- und/oder Fahrzeugtechnik erleichtert dir den Arbeitsalltag\n• Du hast bereits Kenntnisse in den Themen Gefahrengutmanagement und Arbeitssicherheit oder Interesse diese in einer Weiterbildung zu vertiefen\n• Du übernimmst gerne Verantwortung, kommunizierst offen und transparent und gehst Herausforderungen lösungsorientiert an\n• Die Zusammenarbeit mit Menschen unterschiedlichen Alters macht dir Freude und du verstehst es, auf verschiedene Persönlichkeiten einzugehen\n• Gelegentlicher Pikettdienst ist für dich kein Problem\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Moderne Arbeitsgeräte: Wir gehen mit der Zeit - dir stehen moderne und sichere Arbeitsgeräte zur Verfügung\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
+        "it": "Als fest verwurzeltes Unternehmen im Seeland bieten wir umfassende Transport- und Lagerlösungen und sorgen mit unseren Abfalltransporten in über 30 Gemeinden für Sauberkeit. Unser Erfolg basiert auf motivierten Mitarbeitenden und moderner Infrastruktur. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nWas du bewegst\n• Verantwortung zu übernehmen, macht dir Spass? Hier bekommst du die Gelegenheit ein 7-10 köpfiges Team fachlich, sowie personell zu führen\n• Als Allrounder in der Gebäudetechnik sorgst du dafür, dass alles rundläuft: von Klimaanlagen, Heizungen und Lüftungen über die Elektrik bis hin zu automatisierten Logistikanlagen, Förderanlagen und der LKW-Waschanlage\n• Damit unser Fuhrpark jederzeit einsatzbereit ist, planst und koordinierst du Wartungsarbeiten und Reparaturen\n• Die Einhaltung der Vorschriften und Richtlinien im Umgang mit Gefahrengütern hast du stets im Blick\n• Du unterstützt bei der Umsetzung und Überwachung der Arbeitssicherheitsmassnahmen und sorgst für ein sicheres Arbeitsumfeld\n• Auch die Ausbildung unseres Nachwuchses liegt dir am Herzen: Du unterstützt den Berufsbildner bei der Betreuung unserer Lernenden in den Fachrichtungen Strassentransport und Betriebsunterhalt\n\nWeshalb es dir gelingt\n• Du bringst eine abgeschlossene technische Ausbildung oder eine vergleichbare Qualifikation mit und hast idealerweise bereits einige Jahre Erfahrung in einer ähnlichen Funktion gesammelt\n• Dein fundiertes Wissen im Bereich Gebäude- und/oder Fahrzeugtechnik erleichtert dir den Arbeitsalltag\n• Du hast bereits Kenntnisse in den Themen Gefahrengutmanagement und Arbeitssicherheit oder Interesse diese in einer Weiterbildung zu vertiefen\n• Du übernimmst gerne Verantwortung, kommunizierst offen und transparent und gehst Herausforderungen lösungsorientiert an\n• Die Zusammenarbeit mit Menschen unterschiedlichen Alters macht dir Freude und du verstehst es, auf verschiedene Persönlichkeiten einzugehen\n• Gelegentlicher Pikettdienst ist für dich kein Problem\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Moderne Arbeitsgeräte: Wir gehen mit der Zeit - dir stehen moderne und sichere Arbeitsgeräte zur Verfügung\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
+        "en": "Als fest verwurzeltes Unternehmen im Seeland bieten wir umfassende Transport- und Lagerlösungen und sorgen mit unseren Abfalltransporten in über 30 Gemeinden für Sauberkeit. Unser Erfolg basiert auf motivierten Mitarbeitenden und moderner Infrastruktur. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nWas du bewegst\n• Verantwortung zu übernehmen, macht dir Spass? Hier bekommst du die Gelegenheit ein 7-10 köpfiges Team fachlich, sowie personell zu führen\n• Als Allrounder in der Gebäudetechnik sorgst du dafür, dass alles rundläuft: von Klimaanlagen, Heizungen und Lüftungen über die Elektrik bis hin zu automatisierten Logistikanlagen, Förderanlagen und der LKW-Waschanlage\n• Damit unser Fuhrpark jederzeit einsatzbereit ist, planst und koordinierst du Wartungsarbeiten und Reparaturen\n• Die Einhaltung der Vorschriften und Richtlinien im Umgang mit Gefahrengütern hast du stets im Blick\n• Du unterstützt bei der Umsetzung und Überwachung der Arbeitssicherheitsmassnahmen und sorgst für ein sicheres Arbeitsumfeld\n• Auch die Ausbildung unseres Nachwuchses liegt dir am Herzen: Du unterstützt den Berufsbildner bei der Betreuung unserer Lernenden in den Fachrichtungen Strassentransport und Betriebsunterhalt\n\nWeshalb es dir gelingt\n• Du bringst eine abgeschlossene technische Ausbildung oder eine vergleichbare Qualifikation mit und hast idealerweise bereits einige Jahre Erfahrung in einer ähnlichen Funktion gesammelt\n• Dein fundiertes Wissen im Bereich Gebäude- und/oder Fahrzeugtechnik erleichtert dir den Arbeitsalltag\n• Du hast bereits Kenntnisse in den Themen Gefahrengutmanagement und Arbeitssicherheit oder Interesse diese in einer Weiterbildung zu vertiefen\n• Du übernimmst gerne Verantwortung, kommunizierst offen und transparent und gehst Herausforderungen lösungsorientiert an\n• Die Zusammenarbeit mit Menschen unterschiedlichen Alters macht dir Freude und du verstehst es, auf verschiedene Persönlichkeiten einzugehen\n• Gelegentlicher Pikettdienst ist für dich kein Problem\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Moderne Arbeitsgeräte: Wir gehen mit der Zeit - dir stehen moderne und sichere Arbeitsgeräte zur Verfügung\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
+        "fr": "Als fest verwurzeltes Unternehmen im Seeland bieten wir umfassende Transport- und Lagerlösungen und sorgen mit unseren Abfalltransporten in über 30 Gemeinden für Sauberkeit. Unser Erfolg basiert auf motivierten Mitarbeitenden und moderner Infrastruktur. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nWas du bewegst\n• Verantwortung zu übernehmen, macht dir Spass? Hier bekommst du die Gelegenheit ein 7-10 köpfiges Team fachlich, sowie personell zu führen\n• Als Allrounder in der Gebäudetechnik sorgst du dafür, dass alles rundläuft: von Klimaanlagen, Heizungen und Lüftungen über die Elektrik bis hin zu automatisierten Logistikanlagen, Förderanlagen und der LKW-Waschanlage\n• Damit unser Fuhrpark jederzeit einsatzbereit ist, planst und koordinierst du Wartungsarbeiten und Reparaturen\n• Die Einhaltung der Vorschriften und Richtlinien im Umgang mit Gefahrengütern hast du stets im Blick\n• Du unterstützt bei der Umsetzung und Überwachung der Arbeitssicherheitsmassnahmen und sorgst für ein sicheres Arbeitsumfeld\n• Auch die Ausbildung unseres Nachwuchses liegt dir am Herzen: Du unterstützt den Berufsbildner bei der Betreuung unserer Lernenden in den Fachrichtungen Strassentransport und Betriebsunterhalt\n\nWeshalb es dir gelingt\n• Du bringst eine abgeschlossene technische Ausbildung oder eine vergleichbare Qualifikation mit und hast idealerweise bereits einige Jahre Erfahrung in einer ähnlichen Funktion gesammelt\n• Dein fundiertes Wissen im Bereich Gebäude- und/oder Fahrzeugtechnik erleichtert dir den Arbeitsalltag\n• Du hast bereits Kenntnisse in den Themen Gefahrengutmanagement und Arbeitssicherheit oder Interesse diese in einer Weiterbildung zu vertiefen\n• Du übernimmst gerne Verantwortung, kommunizierst offen und transparent und gehst Herausforderungen lösungsorientiert an\n• Die Zusammenarbeit mit Menschen unterschiedlichen Alters macht dir Freude und du verstehst es, auf verschiedene Persönlichkeiten einzugehen\n• Gelegentlicher Pikettdienst ist für dich kein Problem\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Moderne Arbeitsgeräte: Wir gehen mit der Zeit - dir stehen moderne und sichere Arbeitsgeräte zur Verfügung\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden."
+      },
+      "needsRetranslation": true,
+      "location": "Kallnach",
+      "canton": "BE",
+      "url": "https://live.solique.ch/planzer/job/details/4107909",
+      "source": "Planzer Dedicated Parser (Solique)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-26T21:20:28.301Z",
       "addressLocality": "Kallnach",
       "addressRegion": "BE",
       "streetAddress": "Brühlgasse 9",
       "postalCode": "3283",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Trasporti / Autisti",
+      "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
@@ -897,27 +973,20 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "applyUrl": "https://live.solique.ch/planzer/job/details/4103492",
-      "externalId": "4103492",
+      "applyUrl": "https://live.solique.ch/planzer/job/details/4107909",
+      "externalId": "4107909",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach",
-        "trainer-chauffeur-cat-be-m-f-d-planzer-kallnach",
-        "chauffeur-entraineur-cat-be-h-f-d-planzer-kallnach"
-      ],
+      "requirementsByLocale": {
+        "de": []
+      },
       "previousSlugsByLocale": {
         "it": [
-          "ausbildner-chauffeur-kat-be-m-w-d-planzer-kallnach"
-        ],
-        "en": [
-          "trainer-chauffeur-cat-be-m-f-d-planzer-kallnach"
-        ],
-        "fr": [
-          "chauffeur-entraineur-cat-be-h-f-d-planzer-kallnach"
+          "betriebsleiter-fuhrpark-und-betrieb-m-w-d-planzer-kallnach"
         ]
       },
-      "firstSeenAt": "2026-09-23T23:36:37.809Z",
+      "previousSlugs": [
+        "betriebsleiter-fuhrpark-und-betrieb-m-w-d-planzer-kallnach"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -932,10 +1001,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T09:23:34.077Z",
+      "validThrough": "2027-02-24T21:20:28.301Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "sourceIdentity": "url:https://live.solique.ch/planzer/job/details/4103492"
+      "firstSeenAt": "2026-11-26T21:20:28.301Z"
     }
   ]
 }
