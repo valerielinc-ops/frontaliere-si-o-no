@@ -3690,7 +3690,7 @@ describe('portal runner helpers', () => {
 
   it('recognises next, submit, confirmation and validation in four languages', () => {
     for (const text of ['Next', 'Weiter', 'Avanti', 'Suivant', 'Save and continue']) expect(NEXT_RE.test(text)).toBe(true);
-    for (const text of ['Submit application', 'Bewerbung absenden', 'Ihre Bewerbung einreichen', 'Invia candidatura', 'Envoyer ma candidature', 'Postuler']) expect(SUBMIT_RE.test(text)).toBe(true);
+    for (const text of ['Submit application', 'Bewerbung absenden', 'Ihre Bewerbung einreichen', 'Invia candidatura', 'Envoyer ma candidature', 'Postuler', 'Postuler à cette offre']) expect(SUBMIT_RE.test(text)).toBe(true);
     // Giro di prova 2026-10-01: JOIN's review page ends with «Conferma e applica».
     for (const text of ['Conferma e applica', 'Confirm and apply', 'Bestätigen und bewerben', 'Confirmer et postuler', 'Candidati', 'Inviare']) expect(SUBMIT_RE.test(text)).toBe(true);
     for (const text of ['Continua', 'Continuer à postuler', 'Indietro', 'Modifica', 'Applica filtro', 'Inviare i documenti']) expect(SUBMIT_RE.test(text)).toBe(false);

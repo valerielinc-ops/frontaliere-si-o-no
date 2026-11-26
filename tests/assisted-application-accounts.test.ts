@@ -316,6 +316,7 @@ describe('what the portal answers', () => {
     })).toBe('accepted');
     expect(verificationOutcome(page('Votre compte a été confirmé.'))).toBe('accepted');
     expect(verificationOutcome(page('Votre compte a été activé.'))).toBe('accepted');
+    expect(verificationOutcome(page('Votre compte a e\u0301te\u0301 ve\u0301rifie\u0301.'))).toBe('accepted');
     expect(verificationOutcome(page('Anmelden', [field('e', 'email', 'E-Mail'), field('p', 'password', 'Kennwort')]))).toBe('accepted');
     expect(verificationOutcome({ text: '', fields: [], errors: [], buttons: [{ text: 'Connexion', disabled: false }] })).toBe('accepted');
     expect(verificationOutcome({ text: '', fields: [], errors: [], buttons: [{ text: 'Connexion', disabled: true }] })).toBe('unconfirmed');

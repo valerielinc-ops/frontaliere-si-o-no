@@ -129,7 +129,7 @@ export function isAccountVerificationResponse(snapshot = {}) {
 }
 
 function verifiedLanding(after) {
-  const text = String(after?.text || '').trim();
+  const text = String(after?.text || '').normalize('NFC').trim();
   // A verification/instructions page may expose a generic sign-in control as
   // well; it is not proof that the OTP was accepted. A create form is also
   // not the verified landing page, even if it has a similarly named control.
@@ -161,7 +161,7 @@ export function registrationOutcome(after) {
  * `unconfirmed`, and neither is recorded as verified.
  */
 export function verificationOutcome(after) {
-  const text = String(after?.text || '').trim();
+  const text = String(after?.text || '').normalize('NFC').trim();
   const errors = (after.errors || []).map((error) => String(error).trim()).filter(Boolean);
   const loading = errors.some((error) => VERIFY_LOADING_RE.test(error));
   const rejected = errors.some((error) => !VERIFY_LOADING_RE.test(error)) || VERIFY_FAILED_RE.test(text);
