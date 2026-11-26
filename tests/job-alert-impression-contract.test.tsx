@@ -359,6 +359,29 @@ describe('#13202 — anonymous job-detail origin survives the form and auth repl
   });
 });
 
+describe('#19745 — board-filter auth prompt shown telemetry', () => {
+  it('counts prompt_shown from the mounted modal, once per handoff', () => {
+    const board = fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8');
+    const handlerStart = board.indexOf('const handleBoardFilterAlertAuthRequired');
+    const handlerEnd = board.indexOf('const handleBoardFilterAlertAuthPromptDismiss', handlerStart);
+    const handler = board.slice(handlerStart, handlerEnd);
+    const modal = fs.readFileSync(path.join(ROOT, 'components/community/JobAlertAuthPromptModal.tsx'), 'utf-8');
+
+    expect(handler).toContain("'job_board_filters',\n   'pending_saved'");
+    expect(handler).toContain('setJobBoardAlertAuthPromptOpen(true)');
+    expect(handler).not.toContain("'prompt_shown'");
+
+    const shownEffectStart = modal.indexOf('useEffect(');
+    const shownEffectEnd = modal.indexOf('}, [handoff]);', shownEffectStart);
+    const shownEffect = modal.slice(shownEffectStart, shownEffectEnd);
+    expect(shownEffect).toContain('promptShownForHandoffRef.current === handoff');
+    expect(shownEffect).toContain("'prompt_shown'");
+    expect(shownEffect).toContain("handoff.config.keywords.join(', ')");
+    expect(modal).toContain('useRef<JobBoardFilterAlertHandoff | null>(null)');
+    expect(board).toContain("'dismissed'");
+  });
+});
+
 describe('#13204 — board one-tap preserves only criteria supported by JobAlertConfig', () => {
   it('preserves a route city or explicit location and leaves unscoped searches empty', () => {
     const board = fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8');
