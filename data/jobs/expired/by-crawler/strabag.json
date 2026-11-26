@@ -1683,7 +1683,8 @@
       "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-bern",
       "baufuhrer-in-tiefbau-und-strassenbau-strabag-bern",
       "construction-manager-civil-engineering-and-road-construction-strabag-ag-bern",
-      "conducteur-rice-de-travaux-en-genie-civil-et-construction-routiere-strabag-ag-bern"
+      "conducteur-rice-de-travaux-en-genie-civil-et-construction-routiere-strabag-ag-bern",
+      "capocantiere-per-opere-di-genio-civile-e-costruzione-stradale-strabag-ag-bern"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -1737,7 +1738,8 @@
         "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-bern-1f3bd899",
         "baufuhrer-in-tiefbau-und-strassenbau-strabag-bern-e683186d",
         "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-bern",
-        "baufuhrer-in-tiefbau-und-strassenbau-strabag-bern"
+        "baufuhrer-in-tiefbau-und-strassenbau-strabag-bern",
+        "capocantiere-per-opere-di-genio-civile-e-costruzione-stradale-strabag-ag-bern"
       ],
       "en": [
         "baufuhrer-in-tiefbau-und-strassenbau-strabag-bern-6dfdeb61",
@@ -1893,7 +1895,12 @@
         "firstSeenAt": "2026-10-13T09:28:55.754Z",
         "title": "Bauführer:in Tiefbau und Strassenbau"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "capocantiere-per-opere-di-genio-civile-e-costruzione-stradale-strabag-ag-bern": "BE"
+      }
+    }
   },
   {
     "slug": "direttore-trice-dei-lavori-nel-settore-delle-costruzioni-in-legno-strabag-ag-lindau-bei-effretikon",
@@ -1949,7 +1956,8 @@
         "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon-e86bce16",
         "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon-c25cc8bd",
         "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon-fa3f4fba",
-        "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon"
+        "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon",
+        "responsabile-di-cantiere-per-costruzioni-in-legno-strabag-ag-lindau-bei-effretikon"
       ],
       "en": [
         "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon-d026323b",
@@ -2024,7 +2032,8 @@
         "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon-9e89ccff",
         "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon-e86bce16",
         "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon-c25cc8bd",
-        "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon"
+        "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon",
+        "conducteur-rice-de-travaux-en-construction-bois-strabag-ag-lindau-bei-effretikon"
       ],
       "de": [
         "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon-1442ef00",
@@ -2108,7 +2117,9 @@
       "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon-fa3f4fba",
       "construction-manager-in-timber-construction-strabag-ag-lindau-bei-effretikon-a19a1cb5",
       "baufuhrer-in-holzbau-strabag-lindau-bei-effretikon",
-      "construction-manager-in-timber-construction-strabag-ag-lindau-bei-effretikon"
+      "construction-manager-in-timber-construction-strabag-ag-lindau-bei-effretikon",
+      "responsabile-di-cantiere-per-costruzioni-in-legno-strabag-ag-lindau-bei-effretikon",
+      "conducteur-rice-de-travaux-en-construction-bois-strabag-ag-lindau-bei-effretikon"
     ],
     "sourceIdentityHistory": [
       {
@@ -2126,7 +2137,15 @@
         "firstSeenAt": "2026-09-10T23:18:09.716Z",
         "title": "Bauführer:in Holzbau"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "responsabile-di-cantiere-per-costruzioni-in-legno-strabag-ag-lindau-bei-effretikon": "ZH"
+      },
+      "fr": {
+        "conducteur-rice-de-travaux-en-construction-bois-strabag-ag-lindau-bei-effretikon": "ZH"
+      }
+    }
   },
   {
     "slug": "capo-a-cantiere-per-la-costruzione-di-strade-e-il-genio-civile-strabag-ag-bern",
@@ -2625,7 +2644,8 @@
         "technische-r-controller-in-strabag-schlieren-92018b5b",
         "technische-r-controller-in-strabag-schlieren-76bbed37",
         "technische-r-controller-in-strabag-schlieren-09769d2f",
-        "technische-r-controller-in-strabag-schlieren"
+        "technische-r-controller-in-strabag-schlieren",
+        "controllore-tecnico-strabag-ag-schlieren"
       ],
       "en": [
         "technische-r-controller-in-strabag-schlieren-39f1c938",
@@ -2876,7 +2896,8 @@
       "controleur-technique-strabag-ag-schlieren-a28aaea6",
       "technische-r-controller-in-strabag-schlieren",
       "technical-controller-strabag-ag-schlieren",
-      "controleur-technique-strabag-ag-schlieren"
+      "controleur-technique-strabag-ag-schlieren",
+      "controllore-tecnico-strabag-ag-schlieren"
     ],
     "sourceIdentityHistory": [
       {
@@ -2889,7 +2910,12 @@
         "firstSeenAt": "2026-10-07T21:49:41.196Z",
         "title": "Technische:r Controller:in"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "controllore-tecnico-strabag-ag-schlieren": "ZH"
+      }
+    }
   },
   {
     "slug": "estimator-acquisto-legname-costruzione-80-100-strabag-ag-lindau-bei-effretikon",
@@ -7944,8 +7970,8 @@
         "construction-machinery-mechanic-efz-strabag-lindau"
       ],
       "de": [
-        "baumaschinenmechaniker-in-efz-strabag-lindau",
-        "construction-machinery-mechanic-efz-strabag-lindau"
+        "construction-machinery-mechanic-efz-strabag-lindau",
+        "baumaschinenmechaniker-in-efz-strabag-lindau"
       ],
       "fr": [
         "baumaschinenmechaniker-in-efz-strabag-lindau-7e140df1",
