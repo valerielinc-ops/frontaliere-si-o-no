@@ -373,8 +373,8 @@ async function fetchJobListings({ existingJobs = [] } = {}) {
 
       if (attempt === LISTING_SNAPSHOT_MAX_ATTEMPTS) {
         const error = new Error(
-          `Weisse Arena listing snapshot remained below the existing slice after ${LISTING_SNAPSHOT_MAX_ATTEMPTS} attempts: `
-            + `fetched ${snapshot.listings.length}/${minimumExistingCount} jobs; refusing a short explicit-empty snapshot.`,
+          `Weisse Arena listing snapshot remained incomplete after ${LISTING_SNAPSHOT_MAX_ATTEMPTS} attempts: `
+            + `fetched ${snapshot.listings.length}/${minimumExistingCount} jobs; refusing a partial crawl.`,
         );
         error.code = PAGINATION_INCOMPLETE_ERROR_CODE;
         throw error;
