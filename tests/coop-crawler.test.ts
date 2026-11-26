@@ -18,7 +18,11 @@ import {
 } from '../scripts/update-coop-jobs.mjs';
 import { countDuplicateListings, fingerprintsForCrawler } from '../scripts/audit-parser-quality.mjs';
 import { jobLocationRedundancy } from '../scripts/lib/job-location-display.mjs';
-import { fingerprintJob, mergeAndDeduplicate } from '../scripts/lib/dedicated-crawler-common.mjs';
+import {
+  fingerprintJob,
+  LEGACY_PREV_SLUGS_CAP,
+  mergeAndDeduplicate,
+} from '../scripts/lib/dedicated-crawler-common.mjs';
 import { __testables as sharedCrawlerTestables } from '../scripts/lib/shared-jobs-crawler.mjs';
 import {
   extractJsonLd,
@@ -2345,5 +2349,33 @@ describe('Coop reposts without a street address (parser-quality audit #5253)', (
     expect(keeper.previousSlugsByLocale.it).toContain('disponent-coop-gossau');
     expect(keeper.previousSlugsByLocale.it).not.toContain(keeper.slug);
     expect(countDuplicateListings(kept, fingerprintsForCrawler(kept, 'title-aware'))).toBe(0);
+  });
+
+  it('keeps both reposts when the keeper cannot accept another legacy route', () => {
+    const base = {
+      title: 'Transportdisponent:in', location: 'Gossau', postalCode: '9200', streetAddress: 'Industriestrasse 109',
+      description: '- Arbeitsort: Coop, Industriestrasse 109, 9200 Gossau\n- Pensum: 100 %\n\n## Aufgaben\n- Touren planen',
+    };
+    const keeper = {
+      ...base,
+      url: 'https://jobs.coopjobs.ch/offene-stellen/transportdisponent-in/a',
+      firstSeenAt: '2026-01-01T00:00:00.000Z',
+      slug: 'transportdisponent-in-coop-gossau',
+      previousSlugs: Array.from({ length: LEGACY_PREV_SLUGS_CAP }, (_, index) => `legacy-${index}`),
+    };
+    const repost = {
+      ...base,
+      url: 'https://jobs.coopjobs.ch/offene-stellen/transportdisponent-in/b',
+      firstSeenAt: '2026-01-02T00:00:00.000Z',
+      slug: 'transportdisponent-in-coop-gossau-new',
+      previousSlugs: ['newly-indexed-route'],
+    };
+
+    const { kept, collapsed } = collapseRepublishedCoopVacancies([repost, keeper]);
+
+    expect(collapsed).toEqual([]);
+    expect(kept).toHaveLength(2);
+    expect(keeper.previousSlugs).toHaveLength(LEGACY_PREV_SLUGS_CAP);
+    expect(keeper.previousSlugs).not.toContain('newly-indexed-route');
   });
 });

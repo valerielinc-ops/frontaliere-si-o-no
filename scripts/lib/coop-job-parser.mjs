@@ -26,6 +26,7 @@ import {
   fetchFollowingValidatedRedirects,
 } from './prospector/public-fetch-policy.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
+import { isLegacyRouteCapRefusal } from './dedicated-crawler-common.mjs';
 import { transferSlugHistory } from './expired-jobs-archive.mjs';
 
 function normalizeSpace(value = '') {
@@ -536,7 +537,8 @@ export function composeCoopFamilyDescription(markdown = '', page = null) {
  * Two reposts of one ad usually share their freshly built slug (same title,
  * same place): a slug the keeper already serves is not a route to bridge, and
  * handing it to `transferSlugHistory` would record the keeper's own URL as its
- * previous slug.
+ * previous slug. A legacy-route cap refusal leaves both live records separate:
+ * the duplicate cannot be removed unless every indexed route can be bridged.
  */
 function absorbRepublishedRoutes(keeper, removed) {
   const active = new Set([keeper?.slug, ...Object.values(keeper?.slugByLocale || {})].filter(Boolean));
@@ -552,7 +554,20 @@ function absorbRepublishedRoutes(keeper, removed) {
   };
   const hasRoutes = routes.slug || routes.previousSlugs.length > 0
     || Object.keys(routes.slugByLocale).length > 0 || Object.keys(routes.previousSlugsByLocale).length > 0;
-  return hasRoutes ? transferSlugHistory(keeper, routes, 'coop-job-parser.collapseRepublishedCoopVacancies') : 0;
+  if (!hasRoutes) return true;
+
+  const candidate = structuredClone(keeper);
+  try {
+    transferSlugHistory(candidate, routes, 'coop-job-parser.collapseRepublishedCoopVacancies');
+  } catch (error) {
+    if (isLegacyRouteCapRefusal(error)) return false;
+    throw error;
+  }
+  for (const key of Object.keys(keeper)) {
+    if (!(key in candidate)) delete keeper[key];
+  }
+  Object.assign(keeper, candidate);
+  return true;
 }
 
 /**
@@ -667,7 +682,10 @@ export function collapseRepublishedCoopVacancies(jobs = [], {
     const key = keyOf(job);
     const keeper = key ? keeperByKey.get(key) : null;
     if (keeper && keeper !== job) {
-      absorbRepublishedRoutes(keeper, job);
+      if (!absorbRepublishedRoutes(keeper, job)) {
+        kept.push(job);
+        continue;
+      }
       collapsed.push({ url: job.url, keptUrl: keeper.url });
     } else {
       kept.push(job);
