@@ -1030,6 +1030,30 @@ function isSuccessFactorsPostingEntry({ applyUrl, postingUrl, postingRouteProof 
   }
 }
 
+/**
+ * Derive SuccessFactors route provenance when the resolved application channel
+ * reached a SuccessFactors module or Talent Community route directly or through
+ * a verified Prospective ATS redirect (`via: 'prospective'`).
+ */
+export function successFactorsPostingRouteProof(channel = {}, fallbackPostingUrl = '') {
+  const via = String(channel?.via || '').trim();
+  const applyUrl = String(channel?.applyUrl || '').trim();
+  const postingUrl = String(channel?.postingUrl || fallbackPostingUrl || '').trim();
+  if (!applyUrl) return null;
+  if (via === 'successfactors') return { via: 'successfactors', applyUrl, postingUrl };
+  if (via !== 'prospective' || !postingUrl) return null;
+  try {
+    const parsed = new URL(applyUrl);
+    if (isSuccessFactorsModuleRoute(parsed)
+      || (isSuccessFactorsPortalUrl(parsed) && /^\/talentcommunity\/apply\/[^/]+\/?$/i.test(parsed.pathname))) {
+      return { via: 'successfactors', applyUrl, postingUrl };
+    }
+  } catch {
+    return null;
+  }
+  return null;
+}
+
 const LOCALE_PATH_SEGMENT_RE = /^(?:it|en|de|fr)(?:-[a-z]{2})?$/i;
 
 /**

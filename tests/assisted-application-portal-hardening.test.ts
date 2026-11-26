@@ -39,6 +39,7 @@ import {
   isSecurityQuestionField,
   readPortalQuestions,
   startsApplication,
+  successFactorsPostingRouteProof,
   urlConfirms,
 } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { portalAnswerForApplication, portalOptionMap } from '../scripts/assisted-application/lib/portal/question-key.mjs';
@@ -1058,6 +1059,18 @@ describe('portal runner hardening (career-ops apply.md)', () => {
       postingRouteProof: proof,
     })).toBe(false);
     expect(isVerifiedPostingEntry({ applyUrl: portalCareerUrl.replace('career74', 'career75'), postingUrl, postingRouteProof: proof })).toBe(false);
+  });
+
+  it('derives SuccessFactors route provenance for verified prospective redirects only when targeting a SF module', () => {
+    const postingUrl = 'https://jobs.coopjobs.ch/posti-vacanti/example-role/17c583d6-0b9b-4ae5-942c-8798cd0ca234';
+    const moduleUrl = 'https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=171248&jobPipeline=coop-internet';
+    const portalCareerUrl = 'https://career2.successfactors.eu/portalcareer';
+    const proof = successFactorsPostingRouteProof({ type: 'successfactors', via: 'prospective', applyUrl: moduleUrl, postingUrl });
+    expect(proof).toEqual({ via: 'successfactors', applyUrl: moduleUrl, postingUrl });
+    expect(isVerifiedPostingEntry({ applyUrl: portalCareerUrl, postingUrl, postingRouteProof: proof })).toBe(true);
+    expect(isPostingRouteBound({ pageUrl: portalCareerUrl, postingUrl, postingRouteProof: proof })).toBe(true);
+    expect(successFactorsPostingRouteProof({ type: 'pastahr', via: 'prospective', applyUrl: 'https://prod.pastahr.com/apply/1', postingUrl })).toBeNull();
+    expect(successFactorsPostingRouteProof({ type: 'successfactors', via: '', applyUrl: moduleUrl, postingUrl })).toBeNull();
   });
 
   it('keeps a same-posting Jobs2Web shell bound while only the language control is visible', () => {
