@@ -468,4 +468,114 @@ describe('a profile or registration confirmation of the order’s account', () =
     expect(current.inbox.portalVerificationHost).toBe(SBB);
     expect(current.sendCascade).not.toHaveBeenCalled();
   });
+
+  it('recovers via Connexion and signs in when restarting unverified SuccessFactors registration hits an existing-account screen', async () => {
+    const values = new Map<string, string>();
+    const clicks: string[] = [];
+    let view: 'sign_in' | 'create' | 'exists' | 'form' = 'sign_in';
+    const host = 'career55.sapsf.eu';
+    const existingText = "Il existe déjà un compte associé à l'e-mail runner@example.test. Cliquez sur Connexion pour vous connecter à ce compte.";
+    const registrationForm = {
+      url: `https://${host}/career?register=1`,
+      fields: [
+        { id: 'email', kind: 'text', inputType: 'email', form: 0, label: 'E-Mail*', required: true, value: values.get('email') || '' },
+        { id: 'p1', kind: 'text', inputType: 'password', form: 0, label: 'Mot de passe*', required: true, value: values.get('p1') || '' },
+        { id: 'p2', kind: 'text', inputType: 'password', form: 0, label: 'Confirmer*', required: true, value: values.get('p2') || '' },
+      ],
+      buttons: [{ id: 'submit-create', text: 'Créer un compte', disabled: false, frame: 0 }],
+      links: [], dialogs: [], errors: [], captcha: false, passwordVisible: true, text: 'Créer un compte',
+    };
+    const existsScreen = {
+      url: `https://${host}/career?_s.crb=exists`,
+      fields: [],
+      buttons: [
+        { id: 'connexion', text: 'Connexion', disabled: false, frame: 0 },
+        { id: 'reset', text: 'Envoyer e-mail de réinitialisation du mot de passe', disabled: false, frame: 0 },
+      ],
+      links: [], dialogs: [], errors: [], captcha: false, passwordVisible: false, text: existingText,
+    };
+    const current = () => {
+      if (view === 'create') {
+        return {
+          ...registrationForm,
+          fields: registrationForm.fields.map((field) => ({ ...field, value: values.get(field.id) || '' })),
+        };
+      }
+      if (view === 'exists') return existsScreen;
+      if (view === 'form') return { ...sbbForm, url: `https://${host}/portalcareer` };
+      return signIn(host, values);
+    };
+    const page: any = fakePage(host, current, (id) => {
+      clicks.push(id);
+      if (id === 'create') {
+        values.clear();
+        view = 'create';
+      } else if (id === 'submit-create') {
+        values.clear();
+        view = 'exists';
+      } else if (id === 'connexion') {
+        values.clear();
+        view = 'sign_in';
+      } else if (id === 'login') {
+        view = 'form';
+      }
+    }, values);
+    // Match `openVerifiedSignInNavigation`'s locator contract for `Connexion`.
+    const baseFrame = page.mainFrame();
+    const baseLocator = baseFrame.locator;
+    baseFrame.locator = vi.fn((selector: string) => {
+      const loc = baseLocator(selector);
+      const id = /data-aa-id="([^"]+)"/.exec(selector)?.[1] || '';
+      if (id === 'connexion') {
+        loc.isVisible = vi.fn(async () => view === 'exists');
+        loc.evaluate = vi.fn(async () => ({
+          tagName: 'BUTTON',
+          role: 'button',
+          text: 'Connexion',
+          ariaLabel: '',
+          title: '',
+          labelledBy: '',
+          disabled: false,
+          inChrome: false,
+          href: null,
+          dataAutomationId: '',
+          formId: '',
+          formIdentityFields: [],
+          formHasPassword: false,
+        }));
+      }
+      return loc;
+    });
+    const account = {
+      email: 'runner@example.test',
+      password: 'synthetic-password',
+      status: 'pending',
+      createdAt: 500,
+      verifiedAt: null as number | null,
+    };
+    const recordExistingUnknownPassword = vi.fn(async () => {});
+    const accounts = {
+      load: vi.fn(async () => ({ ...account })),
+      save: vi.fn(async () => {}),
+      mark: vi.fn(async (_h: string, patch: Record<string, unknown>) => { Object.assign(account, patch); }),
+      accountNotice: vi.fn(async () => null),
+      recordExistingUnknownPassword,
+    };
+    const result = await handleAuth({
+      page,
+      snapshot: signIn(host, values) as any,
+      ctx: {
+        accounts,
+        candidate: { identity: { name: 'Mario Rossi', email: 'runner@example.test', phone: '' }, profile: {}, answers: {} },
+        candidateLocale: 'fr',
+        codex: async () => ({ actions: [], missingRequired: [] }),
+      } as any,
+    });
+    expect(clicks).toEqual(['create', 'submit-create', 'connexion', 'login']);
+    expect(recordExistingUnknownPassword).not.toHaveBeenCalled();
+    expect(result).toMatchObject({ reopen: true });
+    expect(result).not.toHaveProperty('handoff');
+    expect(account.status).toBe('created');
+    expect(account.verifiedAt).toEqual(expect.any(Number));
+  });
 });

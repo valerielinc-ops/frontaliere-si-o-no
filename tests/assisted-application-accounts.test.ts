@@ -304,6 +304,12 @@ describe('what the portal answers', () => {
     expect(registrationOutcome(page('Sign In', signIn, ['An email has been sent to you. Please verify your account.']))).toBe('verify');
     expect(registrationOutcome(page('E-mail d’activation envoyé. Vous avez créé votre compte avec succès, mais il n’a pas encore été activé. Un lien d’activation de votre compte a été envoyé à alias@candidature.example.'))).toBe('verify');
     expect(registrationOutcome(page('Create Account', createForm, ['An account already exists for this email address.']))).toBe('refused');
+    expect(registrationOutcome({
+      text: "Il existe déjà un compte associé à l'e-mail runner@example.test. Cliquez sur Connexion pour vous connecter à ce compte.",
+      fields: [],
+      errors: [],
+      buttons: [{ text: 'Connexion', disabled: false }],
+    })).toBe('refused');
   });
 
   it('records a verification only on a positive answer of the portal', () => {

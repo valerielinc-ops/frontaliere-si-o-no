@@ -453,4 +453,26 @@ describe('verified sign-in navigation from an existing-account registration page
     expect(frame.goto).not.toHaveBeenCalled();
     expect(page.request.post).not.toHaveBeenCalled();
   });
+
+  it('clicks an explicit Connexion button on a fieldless existing-account prompt page', async () => {
+    const currentUrl = 'https://career55.sapsf.eu/career?_s.crb=test';
+    const { page, frame, locator } = pageWithLink({
+      label: 'Connexion',
+      currentUrl,
+      tagName: 'BUTTON',
+    });
+    const snapshot = {
+      url: currentUrl,
+      text: "Il existe déjà un compte associé à l'e-mail runner@example.test. Cliquez sur Connexion pour vous connecter à ce compte.",
+      fields: [],
+      buttons: [{ id: 'auth-link', frame: 0, text: 'Connexion', disabled: false }],
+      links: [],
+      dialogs: [],
+    };
+
+    await expect(openVerifiedSignInNavigation(page as any, snapshot as any)).resolves.toBe(true);
+
+    expect(locator.click).toHaveBeenCalledOnce();
+    expect(frame.goto).not.toHaveBeenCalled();
+  });
 });

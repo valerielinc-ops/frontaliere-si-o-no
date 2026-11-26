@@ -79,7 +79,7 @@ export function accountResponseText(snapshot = {}) {
     .join('. ');
 }
 
-const EXISTING_ACCOUNT_ERROR_RE = /(?:\b(?:account|e-?mail(?: address)?|emailadresse|adresse e-?mail|courriel|benutzer|konto|bewerbungskonto|compte|indirizzo e-?mail)\b[^.!?\n]{0,60}\b(?:already exists|already registered|already in use|already used|already taken|is already registered|is already in use|is already used|exists already|existiert bereits|bereits registriert|bereits verwendet|bereits benutzt|esiste già|già registrat[oa]|già utilizzat[oa]|già in uso|existe déjà|déjà inscrit|déjà enregistr[ée]e?|déjà utilisé[ee]?|déjà en usage)\b|\b(?:already exists|already registered|already in use|already used|already taken|existiert bereits|bereits registriert|bereits verwendet|esiste già|existe déjà|déjà inscrit|déjà enregistr[ée]e?|déjà utilisé[ee]?)\b[^.!?\n]{0,60}\b(?:account|e-?mail|emailadresse|adresse|courriel|benutzer|konto|bewerbungskonto|compte|indirizzo)\b)/iu;
+const EXISTING_ACCOUNT_ERROR_RE = /(?:\b(?:account|e-?mail(?: address)?|emailadresse|adresse e-?mail|courriel|benutzer|konto|bewerbungskonto|compte|indirizzo e-?mail)\b[^.!?\n]{0,60}(?:already exists|already registered|already in use|already used|already taken|is already registered|is already in use|is already used|exists already|existiert bereits|bereits registriert|bereits verwendet|bereits benutzt|esiste già|già registrat[oa]|già utilizzat[oa]|già in uso|existe déjà|déjà inscrit|déjà enregistr[ée]e?|déjà utilisé[ee]?|déjà en usage)(?=$|[^\p{L}\p{N}])|(?:^|[^\p{L}\p{N}])(?:already exists|already registered|already in use|already used|already taken|existiert bereits|bereits registriert|bereits verwendet|esiste già|existe déjà|déjà inscrit|déjà enregistr[ée]e?|déjà utilisé[ee]?)[^.!?\n]{0,60}\b(?:account|e-?mail|emailadresse|adresse|courriel|benutzer|konto|bewerbungskonto|compte|indirizzo)\b|(?:^|[^\p{L}\p{N}])(?:il\s+)?existe\s+d[ée]j[àa]\s+un\s+(?:autre\s+)?(?:compte|profil)(?=$|[^\p{L}\p{N}]))/iu;
 const EXISTING_ACCOUNT_RE = new RegExp(String.raw`(?:${EXISTING_ACCOUNT_ERROR_RE.source}|\b(?:already have an? (?:application )?account|an? (?:application )?account already exists|account with (?:this|that) (?:e-?mail|address) already exists|already registered|this (?:e-?mail|address) is already in use)\b|\b(?:sie haben bereits ein(?:en)? (?:bewerbungs?)?konto|es gibt bereits ein(?:en)? (?:bewerbungs?)?konto|bereits ein konto vorhanden)\b|\b(?:vous avez déjà un compte|un compte existe déjà|vous êtes déjà inscrit)\b|\b(?:hai già un account|esiste già un account|sei già registrato)\b)`, 'iu');
 const EXISTING_ACCOUNT_NAV_QUESTION_RE = /(?:\balready have an? (?:application )?account|\balready registered|\bbereits registriert|\bsie haben bereits ein(?:en)? (?:bewerbungs?)?konto|\bvous avez déjà un compte|\bvous êtes déjà inscrit|\bhai già un account|\bsei già registrato)\s*\?/iu;
 const REGISTRATION_SIGN_IN_QUESTION_RE = /\bsei già registrat(?:o(?:\/a)?|a) come utente\s*\?/giu;
@@ -144,7 +144,7 @@ function verifiedLanding(after) {
  * `created` (it moved on).
  */
 export function registrationOutcome(after) {
-  if (authPageKind(after) === 'create') return 'refused';
+  if (authPageKind(after) === 'create' || hasExistingAccountPrompt(after)) return 'refused';
   if (VERIFY_PAGE_RE.test(accountResponseText(after)) || codeField(after)) return 'verify';
   // The sign-in page is where a portal sends a new account (Workday, with a notice of its own): its notice
   // is no refusal. The sign-in that follows says whether the account is there.
