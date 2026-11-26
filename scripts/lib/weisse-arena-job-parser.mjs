@@ -358,12 +358,32 @@ async function fetchJobListingsOnce() {
   };
 }
 
-async function fetchJobListings() {
+async function fetchJobListings({ existingJobs = [] } = {}) {
+  const minimumExistingCount = Array.isArray(existingJobs) ? existingJobs.length : 0;
   let lastError;
 
   for (let attempt = 1; attempt <= LISTING_SNAPSHOT_MAX_ATTEMPTS; attempt += 1) {
     try {
-      return await fetchJobListingsOnce();
+      const snapshot = await fetchJobListingsOnce();
+      const hasObservedOmittedTerminal = snapshot.sourceListingSnapshot.terminalJobsOmitted === true
+        && snapshot.sourceListingSnapshot.terminalJobsCount === 0;
+      if (snapshot.listings.length >= minimumExistingCount || hasObservedOmittedTerminal) {
+        return snapshot;
+      }
+
+      if (attempt === LISTING_SNAPSHOT_MAX_ATTEMPTS) {
+        const error = new Error(
+          `Weisse Arena listing snapshot remained below the existing slice after ${LISTING_SNAPSHOT_MAX_ATTEMPTS} attempts: `
+            + `fetched ${snapshot.listings.length}/${minimumExistingCount} jobs; refusing a short explicit-empty snapshot.`,
+        );
+        error.code = PAGINATION_INCOMPLETE_ERROR_CODE;
+        throw error;
+      }
+
+      console.warn(
+        `⚠️ Weisse Arena listing snapshot returned ${snapshot.listings.length}/${minimumExistingCount} jobs; `
+          + `retrying attempt ${attempt + 1}/${LISTING_SNAPSHOT_MAX_ATTEMPTS}`,
+      );
     } catch (error) {
       lastError = error;
       if (!RETRYABLE_LISTING_SNAPSHOT_ERROR_CODES.has(error?.code)
@@ -383,6 +403,25 @@ async function fetchJobListings() {
   }
 
   throw lastError ?? new Error('Weisse Arena listing snapshot retry loop ended without a result');
+}
+
+function attachWeisseArenaListingMetadata(jobs, sourceListingSnapshot, processedIdentities, processedJobNumbers) {
+  Object.defineProperties(jobs, {
+    discoveredCount: {
+      value: sourceListingSnapshot.listingCount,
+      enumerable: false,
+    },
+    sourceListingSnapshot: {
+      value: {
+        ...sourceListingSnapshot,
+        processedCount: jobs.length,
+        processedIdentities,
+        processedJobNumbers,
+      },
+      enumerable: false,
+    },
+  });
+  return jobs;
 }
 
 /* ── Description Builder ──────────────────────────────────── */
@@ -426,28 +465,20 @@ export function buildDetailUrl(jobId, jobTitle = '') {
 
 /**
  * Fetch all Weisse Arena Gruppe jobs.
- * Returns parsed source-locale jobs plus a complete listing snapshot receipt.
+ * Returns the parsed source-locale jobs array. Complete listing metadata is
+ * attached as non-enumerable array properties for the crawler template.
  *
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
-export async function fetchAllWeisseArenaJobs() {
+export async function fetchAllWeisseArenaJobs({ existingJobs = [] } = {}) {
   console.log(`🔍 Fetching Weisse Arena Gruppe jobs`);
   console.log(`   Source: ${DETAIL_BASE}\n`);
 
-  const { listings, sourceListingSnapshot } = await fetchJobListings();
+  const { listings, sourceListingSnapshot } = await fetchJobListings({ existingJobs });
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned from TalentLink API.');
-    return {
-      jobs: [],
-      discoveredCount: 0,
-      sourceListingSnapshot: {
-        ...sourceListingSnapshot,
-        processedCount: 0,
-        processedIdentities: [],
-        processedJobNumbers: [],
-      },
-    };
+    return attachWeisseArenaListingMetadata([], sourceListingSnapshot, [], []);
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
@@ -561,14 +592,10 @@ export async function fetchAllWeisseArenaJobs() {
   }
 
   console.log(`\n📋 Total Weisse Arena Gruppe jobs discovered: ${jobs.length}`);
-  return {
+  return attachWeisseArenaListingMetadata(
     jobs,
-    discoveredCount: listings.length,
-    sourceListingSnapshot: {
-      ...sourceListingSnapshot,
-      processedCount: jobs.length,
-      processedIdentities,
-      processedJobNumbers,
-    },
-  };
+    sourceListingSnapshot,
+    processedIdentities,
+    processedJobNumbers,
+  );
 }
