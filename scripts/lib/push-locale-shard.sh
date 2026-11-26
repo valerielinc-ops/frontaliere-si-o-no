@@ -205,6 +205,9 @@ push_shard() {
     dcount=0
     prev_n=0
     delta_applied=0
+    delta_requested=0
+    delta_sidecar=''
+    current_manifest=''
     delta_snapshot=''
     delta_fallback_reason=''
     delta_output="$RUNNER_TEMP/shard-delta-$loc"
@@ -215,6 +218,15 @@ push_shard() {
     verify_plan_seconds=0
     verify_stage="$RUNNER_TEMP/shard-push-verify-stage-$loc"
     verify_output="$RUNNER_TEMP/shard-push-verify-plan-$loc"
+
+    # A missing deploy key deliberately routes the publish through the PAT
+    # full-overlay path. Retain the requested delta inputs so that path can
+    # still seed the manifest sidecar for the next publication.
+    if [ "$SHARD_PUSH_MODE" = delta ]; then
+      delta_requested=1
+      delta_sidecar="$(shard_delta_manifest_sidecar "$loc")"
+      current_manifest="$manifest_dir/$loc.jsonl"
+    fi
 
     # Full mode keeps the historical push as the source of truth. When the
     # canary is enabled, build the delta index beside it without pushing; the
@@ -248,9 +260,7 @@ push_shard() {
       fi
     fi
 
-    if [ "$missing_deploy_key" != 1 ] && [ "$SHARD_PUSH_MODE" = delta ]; then
-      delta_sidecar="$(shard_delta_manifest_sidecar "$loc")"
-      current_manifest="$manifest_dir/$loc.jsonl"
+    if [ "$missing_deploy_key" != 1 ] && [ "$delta_requested" = 1 ]; then
       if shard_manifest_snapshot "$current_manifest" "$loc" "$dist_dir" "$manifest_tool" "$delta_output"; then
         delta_snapshot="$delta_output/snapshot.jsonl"
         if shard_delta_clone_and_prepare \
@@ -340,6 +350,15 @@ push_shard() {
       if [ "$delta_applied" != 1 ]; then
         echo "::warning::$loc shard: delta fallback: fallback reason=$delta_fallback_reason — using full overlay"
       fi
+    fi
+
+    # Validate independently of the skipped SSH delta preparation. Missing or
+    # invalid manifests leave delta_snapshot empty and preserve the historical
+    # full-overlay behavior without writing a sidecar.
+    if [ "$missing_deploy_key" = 1 ] && [ "$delta_requested" = 1 ] \
+       && [ -s "$current_manifest" ] \
+       && shard_manifest_snapshot "$current_manifest" "$loc" "$dist_dir" "$manifest_tool" "$delta_output"; then
+      delta_snapshot="$delta_output/snapshot.jsonl"
     fi
 
     if [ "$delta_applied" != 1 ]; then

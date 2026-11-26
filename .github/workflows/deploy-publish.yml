@@ -1934,7 +1934,7 @@ jobs:
           PROVENANCE_CDN_GATE_OUTCOME: ${{ needs.publish-it-cdn.result == 'skipped' && needs.resolve-publish-receipts.outputs.it_cdn_published == 'true' && 'success' || needs.publish-it-cdn.result }}
           # The tail receipt is written by THIS toolchain, so it declares the
           # contract version of this toolchain (locale-publish-provenance.mjs).
-          PROVENANCE_PUBLISH_CONTRACT_VERSION: '1'
+          PROVENANCE_PUBLISH_CONTRACT_VERSION: '2'
           PROVENANCE_LOCALE_PUSH_OUTCOME: deferred
           PROVENANCE_LOCALE_PACK_OUTCOME: deferred
           PROVENANCE_LOCALE_ARTIFACT_OUTCOME: deferred
@@ -2157,6 +2157,30 @@ jobs:
           ptar_extract dist "${source_parts[@]}" \
             || fail "extracting ${#source_parts[@]} source archive part(s) failed"
           rm -f "${source_parts[@]}"
+          manifest_handoff="$RUNNER_TEMP/locale-shard-source/incremental-manifest-handoff-v1.txt"
+          current_manifest="$RUNNER_TEMP/locale-shard-source/incremental-manifest/${BUILD_LOCALE}.jsonl"
+          manifest_state=legacy
+          if [ -f "$manifest_handoff" ]; then
+            manifest_state="$(cat "$manifest_handoff")"
+          fi
+          case "$manifest_state" in
+            required)
+              [ -s "$current_manifest" ] || fail "incremental manifest handoff is required but ${BUILD_LOCALE}.jsonl is missing or empty"
+              mkdir -p "$PUBLISHER_ROOT/.cache/incremental-manifest"
+              cp "$current_manifest" "$PUBLISHER_ROOT/.cache/incremental-manifest/${BUILD_LOCALE}.jsonl"
+              echo "[incremental-manifest] restored source-build ${BUILD_LOCALE}.jsonl for the current shard publisher"
+              ;;
+            disabled)
+              [ ! -e "$current_manifest" ] || fail "incremental manifest handoff is disabled but ${BUILD_LOCALE}.jsonl is present"
+              echo "[incremental-manifest] source build had manifest generation disabled"
+              ;;
+            legacy)
+              echo "::warning title=Legacy incremental manifest handoff::source artifact predates the manifest sidecar contract; delta publication may use its full-overlay fallback"
+              ;;
+            *)
+              fail "unsupported incremental manifest handoff state: $manifest_state"
+              ;;
+          esac
           [ -s dist/build-id.txt ] || fail "dist/build-id.txt missing or empty"
           [ "$(cat dist/build-id.txt)" = "$DEPLOY_BUILD_ID" ] || fail "build id $(cat dist/build-id.txt) != $DEPLOY_BUILD_ID"
           [ -s "dist/${BUILD_LOCALE}/index.html" ] || fail "dist/${BUILD_LOCALE}/index.html missing or empty"

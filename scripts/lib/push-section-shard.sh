@@ -318,6 +318,9 @@ push_section_shard() {
     delta_applied=0
     SECTION_TREE_LAYOUT_MOVE_COUNT=0
     SHARD_DELTA_LAYOUT_MOVED_PATHS=0
+    delta_requested=0
+    delta_sidecar=''
+    current_manifest=''
     delta_snapshot=''
     delta_fallback_reason=''
     delta_output="$RUNNER_TEMP/shard-delta-$section-$loc"
@@ -332,6 +335,16 @@ push_section_shard() {
     delta_base_sha=''
     delta_checkpoint_ref=''
     fast_overlay=0
+
+    # Preserve the caller's requested mode: hash-v1 detection may switch the
+    # effective mode to full, and a missing deploy key deliberately skips the
+    # SSH delta clone, but both fallbacks still need the current manifest
+    # snapshot to bootstrap the next delta publication.
+    if [ "$SHARD_PUSH_MODE" = delta ]; then
+      delta_requested=1
+      delta_sidecar="$(shard_delta_manifest_sidecar "$loc")"
+      current_manifest="$manifest_dir/$loc.jsonl"
+    fi
 
     # Full mode keeps the historical push as the source of truth. When the
     # canary is enabled, build the delta index beside it without pushing; the
@@ -365,9 +378,7 @@ push_section_shard() {
       shard_phase verify-plan
     fi
 
-    if [ "$missing_deploy_key" != 1 ] && [ "$SHARD_PUSH_MODE" = delta ]; then
-      delta_sidecar="$(shard_delta_manifest_sidecar "$loc")"
-      current_manifest="$manifest_dir/$loc.jsonl"
+    if [ "$missing_deploy_key" != 1 ] && [ "$delta_requested" = 1 ]; then
       if shard_delta_clone_and_prepare \
           "$stage" "$SHARD_REPO" "$current_manifest" "$delta_sidecar" \
           "$sub" "$stage_src/dist" "$manifest_tool" "$delta_output" \
@@ -487,6 +498,15 @@ push_section_shard() {
         echo "::warning::$section-$loc shard: delta fallback: fallback reason=$delta_fallback_reason — using full overlay"
       fi
       shard_phase delta-plan
+    fi
+
+    # The PAT path cannot perform the SSH delta clone. It still publishes a
+    # complete overlay, so seed that tree with a sidecar only when the current
+    # source manifest independently validates against the staged payload.
+    if [ "$missing_deploy_key" = 1 ] && [ "$delta_requested" = 1 ] \
+       && [ -s "$current_manifest" ] \
+       && shard_manifest_snapshot "$current_manifest" "$sub" "$stage_src/dist" "$manifest_tool" "$delta_output"; then
+      delta_snapshot="$delta_output/snapshot.jsonl"
     fi
 
     if [ "$delta_applied" != 1 ]; then
@@ -632,7 +652,11 @@ push_section_shard() {
       mkdir -p "$stage/$(dirname "$sub")"
       cp -al "$stage_src/dist/$sub" "$stage/$sub" 2>/dev/null || cp -r "$stage_src/dist/$sub" "$stage/$sub"
       shard_phase overlay-copy
-      if { [ "$SHARD_PUSH_MODE" = delta ] || [ "$verify_ready" = 1 ]; } \
+      # A delta request may switch SHARD_PUSH_MODE to full when the remote is
+      # already hash-fanned. The validated current snapshot is still the safe
+      # baseline for the next publish, so persist it during that full overlay
+      # instead of forcing every later run through the same fallback again.
+      if [ -n "$delta_sidecar" ] \
          && [ -n "$delta_snapshot" ] && [ -s "$delta_snapshot" ]; then
         mkdir -p "$stage/$(dirname "$delta_sidecar")"
         cp "$delta_snapshot" "$stage/$delta_sidecar"
