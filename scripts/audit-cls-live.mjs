@@ -137,23 +137,49 @@ function saveBaseline(baseline) {
   writeFileSync(BASELINE_PATH, JSON.stringify(baseline, null, 2) + '\n', 'utf-8');
 }
 
-// Retry on transient PSI 5xx errors (Lighthouse-side flakes) and response
-// stream interruptions. Backoff: 2s/4s/8s/16s (30s maximum wait).
+// Retry on transient PSI 5xx errors (Lighthouse-side flakes), the structured
+// Lighthouse NO_FCP 400, and response stream interruptions. Backoff:
+// 2s/4s/8s/16s (30s maximum wait).
 // PSI returns 500/502 surprisingly often under load; treating them as hard
 // failures fails the deploy gate even when Google is the problem, not us.
 // 4xx errors (bad URL, missing key, quota) are NOT retried with the same
 // credentials — they indicate a configuration/provider response that the
-// retry loop cannot fix. A configured key rejected with 401/403 gets one
-// deliberate keyless fallback below, because PSI can still serve the request
-// without a key and the live gate must not confuse key configuration with CLS.
+// retry loop cannot fix. The only 4xx exception is the structured Lighthouse
+// `NO_FCP` response: PSI reached the route but Lighthouse failed to obtain a
+// first paint, which can be transient for one live route. A configured key
+// rejected with 401/403 gets one deliberate keyless fallback below, because
+// PSI can still serve the request without a key and the live gate must not
+// confuse key configuration with CLS.
 // A body can terminate repeatedly while PSI is under load. Three attempts
 // still produced one false live failure in consecutive deploys (#9978), so
 // keep the retry bounded but allow the provider a longer recovery window.
 const PSI_MAX_ATTEMPTS = 5;
 const PSI_RETRY_BASE_MS = 2000;
+const PSI_NO_FCP_MAX_ATTEMPTS = 3;
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+/**
+ * A 400 is normally a caller/configuration error and stays fail-closed. The
+ * PSI API has one route-level exception we can identify from the provider's
+ * structured payload: Lighthouse reached the URL but could not paint it.
+ * Keep the discriminator narrow so a generic/unknown 400 is never reclassified
+ * as a transient provider response.
+ */
+function isRetryableNoFcpResponse(status, body) {
+  if (status !== 400) return false;
+  let payload;
+  try {
+    payload = JSON.parse(body);
+  } catch {
+    return false;
+  }
+  const providerError = payload?.error;
+  return providerError?.code === 400
+    && typeof providerError.message === 'string'
+    && providerError.message.startsWith('Lighthouse returned error: NO_FCP');
 }
 
 // Lab CLS retry: PSI is notoriously high-variance for layout-shift
@@ -271,8 +297,10 @@ export async function runPsiRequest(url, strategy, apiKey = '', fetchImpl = fetc
       return parsePsiResponse(j);
     }
     const isTransient5xx = r.status >= 500 && r.status < 600;
+    const isRetryableNoFcp = isRetryableNoFcpResponse(r.status, body);
     lastError = new Error(`PSI ${r.status} for ${url} (${strategy}): ${body.slice(0, 200)}`);
-    if (!isTransient5xx || attempt >= PSI_MAX_ATTEMPTS) {
+    if ((!isTransient5xx && !isRetryableNoFcp)
+      || attempt >= (isRetryableNoFcp ? PSI_NO_FCP_MAX_ATTEMPTS : PSI_MAX_ATTEMPTS)) {
       throw lastError;
     }
     await sleepImpl(PSI_RETRY_BASE_MS * Math.pow(2, attempt - 1));
