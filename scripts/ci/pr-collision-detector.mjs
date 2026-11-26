@@ -18,7 +18,8 @@ import { realpathSync } from 'node:fs';
  *   - lista PR OPEN NON-DRAFT; per ognuna i file cambiati (gh pr view N --json files).
  *   - FUNNEL-CRITICAL globs: scripts/lib/**, build-plugins/**,
  *     services/seoService.ts, services/seo/**, .github/workflows/**,
- *     scripts/update-*.mjs.
+ *     scripts/update-*.mjs, scripts/assisted-application/**,
+ *     scripts/mine-all-job-slugs.mjs, data/jobs/by-crawler/**.
  *   - per ogni COPPIA di PR open che condivide ≥1 file funnel-critical:
  *     label `collision-risk` su ENTRAMBE + UN commento per PR che nomina la PR
  *     collidente + i file condivisi (dedup via marker `<!-- COLLISION:<other> -->`).
@@ -103,14 +104,17 @@ export function duplicateClosureConfirmed({ dryRun = false, state = '' } = {}) {
 // allargarli genererebbe falsi positivi (ogni PR collide con ogni PR).
 const FUNNEL_PREDICATES = [
   (f) => f.startsWith('scripts/lib/'),
+  (f) => f.startsWith('scripts/assisted-application/'),
   (f) => f.startsWith('build-plugins/'),
   (f) => f === 'services/seoService.ts',
   (f) => f.startsWith('services/seo/'),
   (f) => f.startsWith('.github/workflows/'),
   (f) => /^scripts\/update-[^/]*\.mjs$/.test(f),
+  (f) => f === 'scripts/mine-all-job-slugs.mjs',
+  (f) => f.startsWith('data/jobs/by-crawler/'),
 ];
 
-const isFunnel = (f) => FUNNEL_PREDICATES.some((p) => p(f));
+export const isFunnel = (f) => FUNNEL_PREDICATES.some((p) => p(f));
 
 function gh(args, { json = true, allowFail = false } = {}) {
   try {
