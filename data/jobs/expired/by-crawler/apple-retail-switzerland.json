@@ -1773,6 +1773,96 @@
     ]
   },
   {
+    "slug": "computer-vision-machine-learning-ingegnere-apple-retail-switzerland-zurich",
+    "title": "Computer Vision/Machine Learning Engineer",
+    "titleByLocale": {
+      "it": "Computer Vision/Machine Learning Ingegnere",
+      "en": "Computer Vision/Machine Learning Engineer",
+      "de": "Computer Vision/Machine Learning Ingenieur",
+      "fr": "Computer Vision/Machine Learning Ingénieur"
+    },
+    "company": "Apple Retail Switzerland",
+    "companyKey": "apple-retail-switzerland",
+    "location": "Zurich",
+    "addressLocality": "Zurich",
+    "descriptionByLocale": {
+      "it": "L'organizzazione Video Computer Vision sta lavorando su tecnologie emozionanti per la corrente, come Apple Vision Pro e futuri prodotti Apple.\n• Stiamo cercando ingegneri altamente qualificati e appassionati per affrontare problemi impegnativi al confine della percezione umana e dell'intelligenza della macchina.",
+      "en": "The Video Computer Vision organization is working on exciting technologies for current, such as the Apple Vision Pro, and future Apple products. We are looking for highly skilled and passionate engineers to address challenging problems at the boundary of human perception and machine intelligence.",
+      "de": "Die Video Computer Vision Organisation arbeitet an spannenden Technologien für aktuelle, wie das Apple Vision Pro und zukünftige Apple Produkte. Wir sind auf der Suche nach hochqualifizierten und leidenschaftlichen Ingenieuren, um herausfordernde Probleme an der Grenze der menschlichen Wahrnehmung und der maschinellen Intelligenz anzugehen.",
+      "fr": "L'organisation Video Computer Vision travaille sur des technologies intéressantes pour le moment, comme l'Apple Vision Pro, et les futurs produits Apple. Nous sommes à la recherche d'ingénieurs hautement qualifiés et passionnés pour résoudre des problèmes difficiles à la frontière de la perception humaine et de l'intelligence de la machine."
+    },
+    "slugByLocale": {
+      "it": "computer-vision-machine-learning-ingegnere-apple-retail-switzerland-zurich",
+      "en": "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch",
+      "de": "computer-vision-machine-learning-ingenieur-apple-retail-switzerland-zurich",
+      "fr": "computer-vision-machine-learning-ingenieur-apple-retail-switzerland-zurich"
+    },
+    "sector": "Retail",
+    "expiredAt": "2026-09-04T23:01:28.650Z",
+    "previousSlugs": [
+      "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch",
+      "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
+      "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland",
+      "senior-machine-learning-ingenieur-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
+      "computer-vision-machine-learning-ingegnere-apple-retail-switzerland-zurich-bdbea85c",
+      "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch-e9922d28",
+      "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich-38aadf58",
+      "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland-51581beb",
+      "senior-machine-learning-ingenieur-in-human-centric-computer-vision-apple-retail-switzerland-zurich-8f9f6557",
+      "computer-vision-machine-learning-ingenieur-apple-retail-switzerland-zurich-3d9e27b1"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch",
+        "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
+        "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland",
+        "senior-machine-learning-ingenieur-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
+        "computer-vision-machine-learning-ingegnere-apple-retail-switzerland-zurich-bdbea85c",
+        "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch-e9922d28",
+        "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich-38aadf58",
+        "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland-51581beb",
+        "senior-machine-learning-ingenieur-in-human-centric-computer-vision-apple-retail-switzerland-zurich-8f9f6557"
+      ],
+      "en": [
+        "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland",
+        "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch-e9922d28",
+        "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
+        "senior-machine-learning-ingenieur-in-human-centric-computer-vision-apple-retail-switzerland-zurich"
+      ],
+      "de": [
+        "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch",
+        "senior-machine-learning-ingenieur-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
+        "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland",
+        "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich"
+      ],
+      "fr": [
+        "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch",
+        "senior-machine-learning-ingenieur-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
+        "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland",
+        "computer-vision-machine-learning-ingenieur-apple-retail-switzerland-zurich-3d9e27b1",
+        "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich"
+      ]
+    },
+    "salaryMin": 83000,
+    "salaryMax": 126000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.apple.com/en-us/details/200671129/computer-vision-machine-learning-engineer?team=hrdwr",
+    "firstSeenAt": "2026-07-03T21:19:38.766Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.apple.com/en-us/details/200668407/senior-machine-learning-engineer-in-human-centric-computer-vision?team=hrdwr",
+        "firstSeenAt": "2026-07-03T21:19:38.766Z",
+        "title": "Senior Machine Learning Engineer in Human-Centric Computer Vision"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.apple.com/en-us/details/200671129/computer-vision-machine-learning-engineer?team=hrdwr",
+        "firstSeenAt": "2026-07-03T21:19:38.766Z",
+        "title": "Computer Vision/Machine Learning Engineer"
+      }
+    ]
+  },
+  {
     "slug": "computer-vision-machine-learning-ingegnere-apple-retail-switzerland-zurich-4c11305c",
     "title": "Computer Vision/Machine Learning Engineer",
     "titleByLocale": {
@@ -1846,85 +1936,33 @@
     ]
   },
   {
-    "slug": "computer-vision-machine-learning-ingegnere-apple-retail-switzerland-zurich-bdbea85c",
-    "title": "Computer Vision/Machine Learning Engineer",
+    "slug": "staff-machine-learning-engineer-siri-attention-and-invocation-apple-retail-switzerland-ch",
+    "title": "Staff Machine Learning Engineer, Siri Attention and Invocation",
     "titleByLocale": {
-      "it": "Computer Vision/Machine Learning Ingegnere",
-      "en": "Computer Vision/Machine Learning Engineer",
-      "de": "Computer Vision/Machine Learning Ingenieur",
-      "fr": "Computer Vision/Machine Learning Ingénieur"
+      "en": "Staff Machine Learning Engineer, Siri Attention and Invocation",
+      "it": "Staff Machine Learning Ingegnere, Siri Attention and Invocation",
+      "de": "Staff Machine Learning Ingenieur, Siri Attention and Invocation",
+      "fr": "Staff Machine Learning Ingénieur, Siri Attention and Invocation"
     },
     "company": "Apple Retail Switzerland",
     "companyKey": "apple-retail-switzerland",
     "location": "Zurich",
     "addressLocality": "Zurich",
     "descriptionByLocale": {
-      "it": "L'organizzazione Video Computer Vision sta lavorando su tecnologie emozionanti per la corrente, come Apple Vision Pro e futuri prodotti Apple.\n• Stiamo cercando ingegneri altamente qualificati e appassionati per affrontare problemi impegnativi al confine della percezione umana e dell'intelligenza della macchina.",
-      "en": "The Video Computer Vision organization is working on exciting technologies for current, such as the Apple Vision Pro, and future Apple products. We are looking for highly skilled and passionate engineers to address challenging problems at the boundary of human perception and machine intelligence.",
-      "de": "Die Video Computer Vision Organisation arbeitet an spannenden Technologien für aktuelle, wie das Apple Vision Pro und zukünftige Apple Produkte. Wir sind auf der Suche nach hochqualifizierten und leidenschaftlichen Ingenieuren, um herausfordernde Probleme an der Grenze der menschlichen Wahrnehmung und der maschinellen Intelligenz anzugehen.",
-      "fr": "L'organisation Video Computer Vision travaille sur des technologies intéressantes pour le moment, comme l'Apple Vision Pro, et les futurs produits Apple. Nous sommes à la recherche d'ingénieurs hautement qualifiés et passionnés pour résoudre des problèmes difficiles à la frontière de la perception humaine et de l'intelligence de la machine."
+      "en": "As part of Siri Attention and Invocation, we collaborate to deliver the next revolution in human-computer interaction, to inspire and create groundbreaking technology for large-scale systems spanning speech, vision, and generative AI to overcome real-world challenges through innovation and user-centered design that improves the daily experience of millions of our customers.",
+      "it": "As part of Siri Attention and Invocation, we collaborate to deliver the next revolution in human-computer interaction, to inspire and create groundbreaking technology for large-scale systems spanning speech, vision, and generative AI to overcome real-world challenges through innovation and user-centered design that improves the daily experience of millions of our customers.",
+      "de": "As part of Siri Attention and Invocation, we collaborate to deliver the next revolution in human-computer interaction, to inspire and create groundbreaking technology for large-scale systems spanning speech, vision, and generative AI to overcome real-world challenges through innovation and user-centered design that improves the daily experience of millions of our customers.",
+      "fr": "As part of Siri Attention and Invocation, we collaborate to deliver the next revolution in human-computer interaction, to inspire and create groundbreaking technology for large-scale systems spanning speech, vision, and generative AI to overcome real-world challenges through innovation and user-centered design that improves the daily experience of millions of our customers."
     },
-    "slugByLocale": {
-      "it": "computer-vision-machine-learning-ingegnere-apple-retail-switzerland-zurich-bdbea85c",
-      "en": "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch-e9922d28",
-      "de": "computer-vision-machine-learning-ingenieur-apple-retail-switzerland-zurich",
-      "fr": "computer-vision-machine-learning-ingenieur-apple-retail-switzerland-zurich-3d9e27b1"
-    },
+    "slugByLocale": {},
     "sector": "Retail",
-    "expiredAt": "2026-09-04T23:01:28.650Z",
-    "previousSlugs": [
-      "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch-e9922d28",
-      "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich-38aadf58",
-      "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland-51581beb",
-      "senior-machine-learning-ingenieur-in-human-centric-computer-vision-apple-retail-switzerland-zurich-8f9f6557",
-      "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland",
-      "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
-      "senior-machine-learning-ingenieur-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
-      "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch-e9922d28",
-        "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich-38aadf58",
-        "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland-51581beb",
-        "senior-machine-learning-ingenieur-in-human-centric-computer-vision-apple-retail-switzerland-zurich-8f9f6557"
-      ],
-      "en": [
-        "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland",
-        "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
-        "senior-machine-learning-ingenieur-in-human-centric-computer-vision-apple-retail-switzerland-zurich"
-      ],
-      "de": [
-        "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch",
-        "senior-machine-learning-ingenieur-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
-        "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland",
-        "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich"
-      ],
-      "fr": [
-        "computer-vision-machine-learning-engineer-apple-retail-switzerland-ch",
-        "senior-machine-learning-ingenieur-in-human-centric-computer-vision-apple-retail-switzerland-zurich",
-        "senior-machine-learning-engineer-in-human-centric-computer-vision-apple-retail-switzerland",
-        "senior-machine-learning-ingegnere-in-human-centric-computer-vision-apple-retail-switzerland-zurich"
-      ]
-    },
+    "expiredAt": "2026-09-02T13:36:02.746Z",
     "salaryMin": 83000,
     "salaryMax": 126000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.apple.com/en-us/details/200671129/computer-vision-machine-learning-engineer?team=hrdwr",
-    "firstSeenAt": "2026-07-03T21:19:38.766Z",
-    "sourceIdentityHistory": [
-      {
-        "sourceIdentity": "url:https://jobs.apple.com/en-us/details/200668407/senior-machine-learning-engineer-in-human-centric-computer-vision?team=hrdwr",
-        "firstSeenAt": "2026-07-03T21:19:38.766Z",
-        "title": "Senior Machine Learning Engineer in Human-Centric Computer Vision"
-      },
-      {
-        "sourceIdentity": "url:https://jobs.apple.com/en-us/details/200671129/computer-vision-machine-learning-engineer?team=hrdwr",
-        "firstSeenAt": "2026-07-03T21:19:38.766Z",
-        "title": "Computer Vision/Machine Learning Engineer"
-      }
-    ]
+    "sourceIdentity": "url:https://jobs.apple.com/en-us/details/200680814/staff-machine-learning-engineer-siri-attention-and-invocation?team=mlai",
+    "firstSeenAt": "2026-09-01T23:14:17.105Z"
   },
   {
     "slug": "staff-machine-learning-engineer-siri-attention-and-invocation-apple-retail-switzerland-ch-b40b3b78",
@@ -2239,6 +2277,54 @@
     "firstSeenAt": "2026-07-03T21:19:38.768Z"
   },
   {
+    "slug": "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich",
+    "title": "AIML - Machine Learning Research Engineer, Generative AI - AFM",
+    "titleByLocale": {
+      "it": "AIML - Machine Learning Ricerca Ingegnere, Generative AI - AFM",
+      "en": "AIML - Machine Learning Research Engineer, Generative AI - AFM",
+      "de": "AIML - Machine Learning Forschung Ingenieur, Generative AI - AFM",
+      "fr": "AIML - Machine Learning Recherche Ingénieur, Generative AI - AFM"
+    },
+    "company": "Apple Retail Switzerland",
+    "companyKey": "apple-retail-switzerland",
+    "location": "Zurich",
+    "addressLocality": "Zurich",
+    "descriptionByLocale": {
+      "it": "Unisciti al team AI Generativo di Apple a Zurigo come Machine Learning Engineer specializzato nel modello di fondazione post-formazione! Il nostro team avanza l'apprendimento di rinforzo (RL) per l'uso degli strumenti agentici, la pianificazione e il ragionamento per migliorare i modelli di base di Apple. Il nostro lavoro forma direttamente le caratteristiche di Apple Intelligence come Siri, che comporta miliardi di utenti, mentre contribuisce alla ricerca all'avanguardia. Collaborerai con un gruppo dedicato di ricercatori a Zurigo e lavorerai a stretto contatto con le principali squadre di Apple Foundation Model di Cupertino e NY.",
+      "en": "Join Apple’s Generative AI team in Zurich as a Machine Learning Engineer specializing in foundation model post-training! Our team advances reinforcement learning (RL) for agentic tool use, planning and reasoning to enhance Apple’s foundation models. Our work directly shapes Apple Intelligence features such as Siri—impacting billions of users—while contributing to state-of-the-art research. You’ll collaborate with a dedicated group of researchers in Zurich and work closely with Apple’s core Foundation Model teams in Cupertino and NY.",
+      "de": "Schließen Sie sich dem Generative AI-Team von Apple in Zürich als Machine Learning Engineer an, der sich auf das Post-Training von Grundlagenmodellen spezialisiert hat! Unser Team erweitert das Reinforcement Learning (RL) für die agentische Werkzeugnutzung, Planung und Argumentation, um Apples Grundlagenmodelle zu verbessern. Unsere Arbeit prägt Apple Intelligence-Funktionen wie Siri, die Milliarden von Benutzern betreffen, und trägt gleichzeitig zu modernster Forschung bei. Sie arbeiten mit einer engagierten Forschergruppe in Zürich zusammen und arbeiten eng mit Apples Kernteams von Foundation Model in Cupertino und NY zusammen.",
+      "fr": "Rejoignez l'équipe de l'IA à Zurich en tant qu'ingénieur d'apprentissage automatique spécialisé dans les modèles post-formation ! Notre équipe avance l'apprentissage du renforcement (RL) pour l'utilisation d'outils d'agents, la planification et le raisonnement pour améliorer les modèles de fondation d'Apple. Notre travail façonne directement les fonctionnalités d'Apple Intelligence telles que Siri, qui affecte des milliards d'utilisateurs, tout en contribuant à la recherche de pointe. Vous collaborerez avec un groupe de chercheurs dévoués à Zurich et travaillerez en étroite collaboration avec les équipes de la Fondation modèle Apple à Cupertino et NY."
+    },
+    "slugByLocale": {
+      "it": "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich",
+      "en": "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch",
+      "de": "aiml-machine-learning-forschung-ingenieur-generative-ai-afm-apple-retail-switzerland-zurich",
+      "fr": "aiml-machine-learning-recherche-ingenieur-generative-ai-afm-apple-retail-switzerland-zurich"
+    },
+    "sector": "Retail",
+    "expiredAt": "2026-07-27T12:49:46.216Z",
+    "previousSlugs": [
+      "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch"
+      ],
+      "de": [
+        "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch"
+      ],
+      "fr": [
+        "aiml-machine-learning-research-engineer-generative-ai-afm-apple-retail-switzerland-ch"
+      ]
+    },
+    "salaryMin": 73500,
+    "salaryMax": 111500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.apple.com/en-us/details/200617882/aiml-machine-learning-research-engineer-generative-ai-afm?team=mlai",
+    "firstSeenAt": "2026-07-03T21:19:38.774Z"
+  },
+  {
     "slug": "aiml-machine-learning-ricerca-ingegnere-generative-ai-afm-apple-retail-switzerland-zurich-1aa6cfd7",
     "title": "AIML - Machine Learning Research Engineer, Generative AI - AFM",
     "titleByLocale": {
@@ -2510,6 +2596,54 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.apple.com/en-us/details/200617882/aiml-machine-learning-research-engineer-generative-ai-afm?team=mlai",
     "firstSeenAt": "2026-07-03T21:19:38.774Z"
+  },
+  {
+    "slug": "aiml-senior-machine-learning-ricerca-scientist-afm-apple-retail-switzerland-zurich",
+    "title": "AIML - Senior Machine Learning Research Scientist, AFM",
+    "titleByLocale": {
+      "it": "AIML - Senior Machine Learning Ricerca Scientist, AFM",
+      "en": "AIML - Senior Machine Learning Research Scientist, AFM",
+      "de": "AIML - Senior Machine Learning Forschung Scientist, AFM",
+      "fr": "AIML - Senior Machine Learning Recherche Scientist, AFM"
+    },
+    "company": "Apple Retail Switzerland",
+    "companyKey": "apple-retail-switzerland",
+    "location": "Zurich",
+    "addressLocality": "Zurich",
+    "descriptionByLocale": {
+      "it": "Pronto a trasformare come miliardi di persone interagiscono con la tecnologia? Il team Core Foundation Models di Apple sta guidando l'intelligenza che alimenta le esperienze in miliardi di dispositivi in tutto il mondo, e stiamo cercando un talento eccezionale per unirsi a noi! Il nostro team ML applicato in Europa sta cercando uno scienziato di ricerca ML esperto per lanciare sviluppi innovativi in AI! Collabora con alcune delle menti più luminose nei centri di Apple a New York, Seattle e Cupertino, mentre spingiamo oltre i limiti convenzionali e ridefiniamo le possibilità di intelligenza artificiale a livello globale. Unisciti a noi in un viaggio stimolante in cui la tua esperienza sarà strumentale nella modellazione della fase successiva dell'interazione digitale—una straordinaria opportunità attende.",
+      "en": "Ready to transform how billions of people interact with technology? Apple’s Core Foundation Models team is driving the intelligence that powers experiences across billions of devices worldwide—and we’re looking for exceptional talent to join us! Our Europe-based applied ML team is seeking an experienced ML research scientist to spearhead groundbreaking developments in AI! Collaborate with some of the brightest minds across Apple’s centers in New York, Seattle, and Cupertino as we push beyond conventional limits and redefine the possibilities of artificial intelligence globally. Join us on an inspiring journey where your expertise will be instrumental in shaping the next phase of digital interaction—an extraordinary opportunity awaits.",
+      "de": "Bereit zu transformieren, wie Milliarden von Menschen mit Technologie interagieren? Apples Core Foundation Models Team treibt die Intelligenz voran, die Erfahrungen auf Milliarden von Geräten weltweit ermöglicht – und wir suchen nach außergewöhnlichen Talenten, die sich uns anschließen! Unser in Europa ansässiges angewandtes ML-Team sucht einen erfahrenen ML-Forscher, der bahnbrechende Entwicklungen in der KI anführt! Arbeiten Sie mit einigen der klügsten Köpfe in den Apple-Zentren in New York, Seattle und Cupertino zusammen, um die konventionellen Grenzen zu überschreiten und die Möglichkeiten der künstlichen Intelligenz weltweit neu zu definieren. Begleiten Sie uns auf eine inspirierende Reise, bei der Ihre Expertise entscheidend dazu beitragen wird, die nächste Phase der digitalen Interaktion zu gestalten – eine außergewöhnliche Chance wartet.",
+      "fr": "Prêt à transformer comment des milliards de personnes interagissent avec la technologie? L'équipe de la Fondation de base d'Apple est à l'origine de l'intelligence qui alimente des milliards d'appareils dans le monde entier. Notre équipe de ML appliquée basée en Europe est à la recherche d'un chercheur expérimenté de ML pour diriger des développements révolutionnaires en AI! Collaborez avec quelques-uns des esprits les plus brillants des centres Apple à New York, Seattle et Cupertino alors que nous repoussons les limites conventionnelles et redéfinissons les possibilités de l'intelligence artificielle à l'échelle mondiale. Rejoignez-nous dans un voyage inspirant où votre expertise jouera un rôle déterminant dans la prochaine phase de l'interaction numérique – une occasion extraordinaire vous attend."
+    },
+    "slugByLocale": {
+      "it": "aiml-senior-machine-learning-ricerca-scientist-afm-apple-retail-switzerland-zurich",
+      "en": "aiml-senior-machine-learning-research-scientist-afm-apple-retail-switzerland-ch",
+      "de": "aiml-senior-machine-learning-forschung-scientist-afm-apple-retail-switzerland-zurich",
+      "fr": "aiml-senior-machine-learning-recherche-scientist-afm-apple-retail-switzerland-zurich"
+    },
+    "sector": "Retail",
+    "expiredAt": "2026-07-27T12:49:46.216Z",
+    "previousSlugs": [
+      "aiml-senior-machine-learning-research-scientist-afm-apple-retail-switzerland-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "aiml-senior-machine-learning-research-scientist-afm-apple-retail-switzerland-ch"
+      ],
+      "de": [
+        "aiml-senior-machine-learning-research-scientist-afm-apple-retail-switzerland-ch"
+      ],
+      "fr": [
+        "aiml-senior-machine-learning-research-scientist-afm-apple-retail-switzerland-ch"
+      ]
+    },
+    "salaryMin": 101500,
+    "salaryMax": 154000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.apple.com/en-us/details/200617889/aiml-senior-machine-learning-research-scientist-afm?team=mlai",
+    "firstSeenAt": "2026-07-03T21:19:38.775Z"
   },
   {
     "slug": "aiml-senior-machine-learning-ricerca-scientist-afm-apple-retail-switzerland-zurich-1ae9a0df",
@@ -2785,7 +2919,7 @@
     "firstSeenAt": "2026-07-03T21:19:38.775Z"
   },
   {
-    "slug": "ricerca-scientist-ingegnere-special-projects-apple-retail-switzerland-zurich-ea8c3693",
+    "slug": "ricerca-scientist-ingegnere-special-projects-apple-retail-switzerland-zurich",
     "title": "Research Scientist/Engineer - Special Projects",
     "titleByLocale": {
       "it": "Ricerca Scientist/Ingegnere - Special Projects",
@@ -2804,24 +2938,33 @@
       "fr": "Nous cherchons des chercheurs et des ingénieurs pour créer des innovations révolutionnaires dans l'apprentissage automatique. Nous nous intéressons particulièrement aux modèles frontières (LLM et modèles de diffusion) ainsi qu'à l'interface entre l'IA et la science. Vous travaillerez dans une organisation de classe mondiale de chercheurs et d'ingénieurs en apprentissage automatique. Notre travail alimente les technologies de pointe de l'écosystème Apple et est publié dans les revues et conférences scientifiques les plus sélectives."
     },
     "slugByLocale": {
-      "it": "ricerca-scientist-ingegnere-special-projects-apple-retail-switzerland-zurich-ea8c3693",
+      "it": "ricerca-scientist-ingegnere-special-projects-apple-retail-switzerland-zurich",
       "en": "research-scientist-engineer-special-projects-apple-retail-switzerland-ch",
-      "de": "forschung-scientist-ingenieur-special-projects-apple-retail-switzerland-zurich-45ec6b29",
-      "fr": "recherche-scientist-ingenieur-special-projects-apple-retail-switzerland-zurich-7a94b437"
+      "de": "forschung-scientist-ingenieur-special-projects-apple-retail-switzerland-zurich",
+      "fr": "recherche-scientist-ingenieur-special-projects-apple-retail-switzerland-zurich"
     },
     "sector": "Retail",
     "expiredAt": "2026-07-15T22:58:40.362Z",
     "previousSlugs": [
-      "research-scientist-engineer-special-projects-apple-retail-switzerland-ch-d234f24c"
+      "research-scientist-engineer-special-projects-apple-retail-switzerland-ch",
+      "ricerca-scientist-ingegnere-special-projects-apple-retail-switzerland-zurich-ea8c3693",
+      "forschung-scientist-ingenieur-special-projects-apple-retail-switzerland-zurich-45ec6b29",
+      "research-scientist-engineer-special-projects-apple-retail-switzerland-ch-d234f24c",
+      "recherche-scientist-ingenieur-special-projects-apple-retail-switzerland-zurich-7a94b437"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "research-scientist-engineer-special-projects-apple-retail-switzerland-ch"
+        "research-scientist-engineer-special-projects-apple-retail-switzerland-ch",
+        "ricerca-scientist-ingegnere-special-projects-apple-retail-switzerland-zurich-ea8c3693"
       ],
       "de": [
+        "research-scientist-engineer-special-projects-apple-retail-switzerland-ch",
+        "forschung-scientist-ingenieur-special-projects-apple-retail-switzerland-zurich-45ec6b29",
         "research-scientist-engineer-special-projects-apple-retail-switzerland-ch-d234f24c"
       ],
       "fr": [
+        "research-scientist-engineer-special-projects-apple-retail-switzerland-ch",
+        "recherche-scientist-ingenieur-special-projects-apple-retail-switzerland-zurich-7a94b437",
         "research-scientist-engineer-special-projects-apple-retail-switzerland-ch-d234f24c"
       ]
     },
