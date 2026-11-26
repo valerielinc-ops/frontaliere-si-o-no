@@ -49,7 +49,7 @@ import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
-import { fetchWorkdayJsonWithRetry } from './lib/ats-clients/workday-client.mjs';
+import { fetchWorkdayJsonWithRetry, WorkdayRateLimitError } from './lib/ats-clients/workday-client.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -221,6 +221,7 @@ async function fetchJobDetail(portal, externalPath) {
       userAgent: UA,
     });
   } catch (err) {
+    if (err instanceof WorkdayRateLimitError) throw err;
     console.warn(`  ⚠️ Detail fetch failed for ${externalPath}: ${err.message}`);
     return null;
   }

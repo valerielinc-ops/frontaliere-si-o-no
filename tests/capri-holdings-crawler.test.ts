@@ -27,9 +27,15 @@ import {
   dropCapriFabricatedText,
 } from '../scripts/update-capri-holdings-jobs.mjs';
 import { resolveSwissStructuredAddress } from '../scripts/lib/swiss-structured-address.mjs';
+import {
+  resetWorkdayImplicitRateLimitStateForTests,
+  WorkdayRateLimitError,
+} from '../scripts/lib/ats-clients/workday-client.mjs';
 
 afterEach(() => {
+  resetWorkdayImplicitRateLimitStateForTests();
   vi.unstubAllGlobals();
+  vi.unstubAllEnvs();
 });
 
 describe('Capri structured address resolution', () => {
@@ -382,6 +388,16 @@ describe('Capri Workday location resolution', () => {
 });
 
 describe('Capri Workday brand sites', () => {
+  it('propagates a Workday rate limit instead of reporting a malformed page (#20016)', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
+    vi.stubGlobal('fetch', vi.fn(async () => new Response('', {
+      status: 429,
+      headers: { 'Retry-After': '0' },
+    })));
+
+    await expect(fetchCapriHoldingsJobs()).rejects.toBeInstanceOf(WorkdayRateLimitError);
+  });
+
   // Versace's site on the capri tenant answers 403 S22 since the 2026-10-01
   // runs (corpus runs 36842478998, 36928432579) and failed the whole crawler.
   it('never queries the decommissioned Versace site', async () => {
