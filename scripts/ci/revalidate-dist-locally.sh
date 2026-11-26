@@ -331,8 +331,14 @@ LOCALE_RC=${PIPESTATUS[0]}
 
 ( cd "$STAGE" && bash "$REPO_ROOT/scripts/lib/rehydrate-section-shards.sh" ) 2>&1 \
   | tee "$WORKDIR/report/rehydrate-sections.log"
+SECTION_RC=${PIPESTATUS[0]}
 
 note "dist/ now holds $(find "$STAGE/dist" -type f | wc -l | tr -d ' ') files"
+
+if [ "$SECTION_RC" -ne 0 ]; then
+  echo "ERROR: section rehydrate failed (rc=$SECTION_RC) — the gate below would be measuring its own hole, not the site." >&2
+  exit "$SECTION_RC"
+fi
 
 if [ "$LOCALE_RC" -ne 0 ]; then
   echo "ERROR: locale rehydrate failed (rc=$LOCALE_RC) — the gate below would be measuring its own hole, not the site." >&2
