@@ -304,7 +304,9 @@ export const LONZA_FABRICATED_DESCRIPTION_RE =
  * Returns ParsedJob[] with source-locale fields only.
  */
 export async function fetchAllLonzaJobs() {
-  const requestContext = createWorkdayRequestContext(LONZA_API_BASE);
+  const requestContext = createWorkdayRequestContext(LONZA_API_BASE, {
+    publicUrl: LONZA_PUBLIC_BASE,
+  });
   try {
     console.log(`🔍 Fetching Lonza jobs from Workday API`);
     console.log(`   API: ${LONZA_API_BASE}/jobs`);
