@@ -21,7 +21,7 @@
  * #1), so no rate threshold applies. The rate is still printed on every run.
  */
 import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
-import { readAttr, scanMarkupStartTags } from './html-attr.mjs';
+import { readLiveMetaAttr, scanLiveMetaTags } from './live-meta-tags.mjs';
 
 const LD_JSON_RE = /<script\b[^>]*\btype\s*=\s*["']?application\/ld\+json["']?[^>]*>([\s\S]*?)<\/script>/gi;
 
@@ -84,9 +84,9 @@ export function htmlHasActiveJobPosting(html) {
 
 /** True unless a robots meta says noindex. */
 export function htmlIsIndexable(html) {
-  for (const { raw } of scanMarkupStartTags(String(html || ''), 'meta')) {
-    if (readAttr(raw, 'name').toLowerCase() !== 'robots') continue;
-    const value = readAttr(raw, 'content').toLowerCase();
+  for (const raw of scanLiveMetaTags(String(html || ''))) {
+    if (readLiveMetaAttr(raw, 'name').toLowerCase() !== 'robots') continue;
+    const value = readLiveMetaAttr(raw, 'content').toLowerCase();
     if (value.includes('noindex')) return false;
   }
   return true;

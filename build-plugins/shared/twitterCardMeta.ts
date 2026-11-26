@@ -1,6 +1,6 @@
 import { BASE_URL } from '../constants';
 import { clampMetaDescription } from './titleSuffix';
-import { readAttr, scanMarkupStartTags } from '../../scripts/lib/html-attr.mjs';
+import { readLiveMetaAttr, scanLiveMetaTags } from '../../scripts/lib/live-meta-tags.mjs';
 
 export interface TwitterCardMetaOptions {
   title: string;
@@ -20,8 +20,8 @@ function escapeMetaAttribute(value: string): string {
 
 function hasMetaName(html: string, name: string): boolean {
   const target = name.toLowerCase();
-  return scanMarkupStartTags(html, 'meta')
-    .some(({ raw }) => readAttr(raw, 'name').toLowerCase() === target);
+  return scanLiveMetaTags(html)
+    .some((raw) => readLiveMetaAttr(raw, 'name').toLowerCase() === target);
 }
 
 function absoluteCardImage(image?: string): string {
