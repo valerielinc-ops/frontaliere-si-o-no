@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { formPostingMatch, namesAnotherEmployer } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { formPostingMatch, isVerifiedPostingEntry, namesAnotherEmployer } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 describe('portal form binding identity', () => {
   it('uses the exact employer-site application entry as the binding discriminator', () => {
@@ -61,6 +61,31 @@ describe('portal form binding identity', () => {
       postingMatched: true,
       applicationEntryUrl: accountUrl,
     })).toBe('match');
+  });
+
+  it('keeps a proved SuccessFactors module bound after its auth redirect to /careers', () => {
+    const postingUrl = 'https://jobs.example.test/job/selected-role/123456/';
+    const moduleUrl = 'https://career55.sapsf.eu/career?company=synthetic&career_ns=job_application&career_job_req_id=55123';
+    const authUrl = 'https://career55.sapsf.eu/careers?company=synthetic';
+    const proof = { via: 'successfactors', applyUrl: moduleUrl, postingUrl };
+    const job = { company: 'Synthetic Employer', title: 'Synthetic Role' };
+
+    expect(isVerifiedPostingEntry({ applyUrl: authUrl, postingUrl, postingRouteProof: proof })).toBe(true);
+    expect(formPostingMatch('Career Opportunities: Sign In\nE-mail :*\nMot de passe :*\nConnexion', job, {
+      postingMatched: true,
+      postingEntry: true,
+      applicationEntry: true,
+      applicationEntryUrl: authUrl,
+      pageUrl: authUrl,
+      postingUrl,
+      applyUrl: moduleUrl,
+      postingRouteProof: proof,
+    })).toBe('match');
+    expect(isVerifiedPostingEntry({
+      applyUrl: authUrl.replace('company=synthetic', 'company=other'),
+      postingUrl,
+      postingRouteProof: proof,
+    })).toBe(false);
   });
 
   it('does not treat the selected role after a separator as another employer', () => {
