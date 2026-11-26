@@ -13759,6 +13759,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sem-chiasso-personale-due-mesi.title': 'Sem rouvre Chiasso : Ors cherche du personnel pour deux mois supplémentaires',
     'blog.article.sem-chiasso-personale-due-mesi.excerpt': 'Avec la réouverture de Chiasso par la Sem, Ors devra trouver pendant deux mois supplémentaires le personnel destiné à la gestion de via Motta.',
     'blog.article.sem-chiasso-personale-due-mesi.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.protocollo-lavoro-remoto-2024.title': 'Travailleurs frontaliers, télétravail jusqu’à 25 % à partir du 1er janvier 2024',
+    'blog.article.protocollo-lavoro-remoto-2024.excerpt': 'Le Protocole Italie-Suisse autorise le télétravail jusqu’à 25 %.',
+    'blog.article.protocollo-lavoro-remoto-2024.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;

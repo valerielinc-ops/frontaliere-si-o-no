@@ -60,7 +60,7 @@ import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { extractMetaDescriptionRaw } from './lib/meta-description-extract.mjs';
-import { readAllAttr } from './lib/html-attr.mjs';
+import { readAllAttr, readMetaContent } from './lib/html-attr.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -356,12 +356,12 @@ async function fetchPage(url, timeoutMs = 15000) {
 }
 
 function metaDescriptionFromHtml(html = '') {
-  const ogMatch = html.match(/<meta\s+property="og:description"\s+content="([^"]+)"/i);
-  if (ogMatch) return decodeHtmlEntities(ogMatch[1]).trim();
+  const ogDescription = readMetaContent(html, 'og:description');
+  if (ogDescription) return decodeHtmlEntities(ogDescription).trim();
 
   // Allibo typo: 'descritpion' (their actual attribute name)
-  const metaMatch = html.match(/<meta\s+name=['"]descritpion['"]\s+content="([^"]+)"/i);
-  if (metaMatch) return decodeHtmlEntities(metaMatch[1]).trim();
+  const typoDescription = readMetaContent(html, 'descritpion');
+  if (typoDescription) return decodeHtmlEntities(typoDescription).trim();
 
   // Standard meta description
   const stdRaw = extractMetaDescriptionRaw(html);
