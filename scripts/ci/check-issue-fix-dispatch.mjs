@@ -147,6 +147,7 @@ function scopeFor(issue) {
   const selectedItemId = malformedDailyTitle
     ? ''
     : (decision.item?.id ? String(decision.item.id).toUpperCase() : '');
+  const dailyWithoutOpenItem = decision.isDaily && !decision.terminal && !decision.item;
   const material = JSON.stringify({
     number: issue.number,
     state: issue.state,
@@ -156,8 +157,10 @@ function scopeFor(issue) {
     selectedItemId,
   });
   return {
-    valid: malformedDailyTitle ? false : decision.valid,
-    reason: malformedDailyTitle ? 'malformed-daily-title' : (decision.reason || null),
+    valid: malformedDailyTitle ? false : decision.valid && !dailyWithoutOpenItem,
+    reason: malformedDailyTitle
+      ? 'malformed-daily-title'
+      : (dailyWithoutOpenItem ? (decision.reason || 'no-open-item') : (decision.reason || null)),
     isDaily: decision.isDaily,
     terminal: malformedDailyTitle ? false : (decision.isDaily ? decision.terminal : issue.state !== 'OPEN'),
     dailyKey: daily?.dailyKey || '',
@@ -333,6 +336,7 @@ function verify() {
   }
 
   const mismatches = [];
+  if (!issueHasFixLabel(live)) mismatches.push('issue live senza routing agent:fix');
   if (eventScope.fingerprint !== frozenScope.fingerprint) mismatches.push('evento diverso dallo scope congelato');
   if (liveScope.fingerprint !== frozenScope.fingerprint) mismatches.push('issue live diversa dallo scope congelato');
   if (frozenScope.isDaily && liveScope.selectedItemId !== frozenScope.selectedItemId) {
