@@ -83,6 +83,55 @@ describe('extractArticleText', () => {
     expect(r.text).not.toContain('Cookie policy');
   });
 
+  it('takes an iCMS publication date from the root actually selected for extraction', () => {
+    const articleDate = new Date(Date.now() - 12 * 86_400_000).toISOString();
+    const mainDate = new Date(Date.now() - 3 * 86_400_000).toISOString();
+    const first = 'The real source paragraph in the main editorial root contains enough facts for the extractor to select it.';
+    const second = 'A second source paragraph confirms that the article root is the active page content rather than the short shell lead.';
+    const html = `<article><time class="icms-date" datetime="${articleDate}"></time><p>Short shell lead.</p></article>`
+      + `<main><time class="icms-date" datetime="${mainDate}"></time><p>${first}</p><p>${second}</p></main>`;
+
+    const result = extractArticleText(html);
+
+    expect(result.method).toBe('main-tag');
+    expect(result.publishedAt).toBe(mainDate);
+  });
+
+  it('ignores inactive iCMS dates and rejects ambiguous active dates', () => {
+    const publishedAt = new Date(Date.now() - 2 * 86_400_000).toISOString();
+    const first = 'The active article paragraph contains enough substantive source context for the date test.';
+    const second = 'The second active article paragraph keeps the editorial root above the extraction threshold.';
+    const oneActive = `<main><time class="icms-date d-none" datetime="2026-01-01"></time>`
+      + `<time class="icms-date" datetime="${publishedAt}"></time><p>${first}</p><p>${second}</p></main>`;
+    expect(extractArticleText(oneActive).publishedAt).toBe(publishedAt);
+
+    const ambiguous = `<main><time class="icms-date" datetime="${publishedAt}"></time>`
+      + `<time class="icms-date" datetime="2026-01-01"></time><p>${first}</p><p>${second}</p></main>`;
+    expect(extractArticleText(ambiguous).publishedAt).toBe('');
+  });
+
+  it('preserves publication date through the naive fallback', () => {
+    const publishedAt = new Date(Date.now() - 4 * 86_400_000).toISOString();
+    const html = `<head><meta property="article:published_time" content="${publishedAt}"></head>`
+      + '<body><div>Short shell text.</div></body>';
+
+    const result = extractArticleText(html);
+
+    expect(result.method).toBe('naive-fallback');
+    expect(result.publishedAt).toBe(publishedAt);
+  });
+
+  it('preserves publication date through the noscript fallback', () => {
+    const publishedAt = new Date(Date.now() - 5 * 86_400_000).toISOString();
+    const html = `<head><meta property="article:published_time" content="${publishedAt}"></head>`
+      + '<body><main><noscript>Short no-script source text.</noscript></main></body>';
+
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.method).toBe('naive-fallback');
+    expect(result.publishedAt).toBe(publishedAt);
+  });
+
   it('preserves active noscript fallback markup when scripting is disabled', () => {
     const html = `<main><noscript>
       <h1>Headline from the no-script article page</h1>

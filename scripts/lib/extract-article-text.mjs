@@ -116,7 +116,77 @@ function extractFromJsonLd(root, include = () => true) {
  * generic date metadata and unlabelled time elements do not establish when
  * the source was published; leave the date unknown instead of making it fresh.
  */
-export function extractPublishedDate(document) {
+const ICMS_PUBLICATION_DATE_SELECTORS = [
+  '[data-icms-date]',
+  '[data-icms-published]',
+  '[data-icms-published-date]',
+  '[class~="icms-date" i]',
+  '[class~="icmsDate" i]',
+  '[class*="icms-date" i]',
+  '[class*="icms-publish" i]',
+  '[class*="icms" i] [itemprop~="datePublished" i]',
+  '[class*="icms" i] time[datetime]',
+];
+const ICMS_INACTIVE_SELECTOR = [
+  '[hidden]', '[inert]', '[aria-hidden="true"]', '[data-active="false"]',
+  '[data-icms-active="false"]', '[class~="d-none" i]', '[class~="hidden" i]',
+  '[class~="inactive" i]', '[class~="is-inactive" i]',
+].join(', ');
+
+function normalizePublishedDate(raw) {
+  const value = String(raw || '').trim();
+  if (!value) return '';
+
+  const parsed = new Date(value);
+  if (!Number.isNaN(parsed.getTime())) return parsed.toISOString();
+
+  const european = value.match(/^(\d{1,2})[./-](\d{1,2})[./-](\d{4})(?:[ T](\d{1,2}):(\d{2})(?::(\d{2}))?)?$/u);
+  if (!european) return '';
+  const [, day, month, year, hour = '00', minute = '00', second = '00'] = european;
+  const normalized = new Date(Date.UTC(
+    Number(year), Number(month) - 1, Number(day), Number(hour), Number(minute), Number(second),
+  ));
+  return Number.isNaN(normalized.getTime()) ? '' : normalized.toISOString();
+}
+
+function querySelectorAllIncludingRoot(root, selector) {
+  const nodes = [...root.querySelectorAll(selector)];
+  if (typeof root.matches === 'function' && root.matches(selector)) nodes.unshift(root);
+  return nodes;
+}
+
+function isActiveIcmsDateNode(node) {
+  return !node.matches(ICMS_INACTIVE_SELECTOR) && !node.closest(ICMS_INACTIVE_SELECTOR);
+}
+
+function extractIcmsPublishedDate(root) {
+  if (!root) return '';
+
+  for (const selector of ICMS_PUBLICATION_DATE_SELECTORS) {
+    const candidates = querySelectorAllIncludingRoot(root, selector)
+      .filter(isActiveIcmsDateNode);
+    if (candidates.length === 0) continue;
+    if (candidates.length !== 1) return '';
+
+    const candidate = candidates[0];
+    const raw = candidate.getAttribute('datetime')
+      || candidate.getAttribute('content')
+      || candidate.getAttribute('data-date')
+      || candidate.getAttribute('data-published')
+      || candidate.getAttribute('data-publish-date')
+      || candidate.getAttribute('data-icms-date')
+      || candidate.getAttribute('data-icms-published')
+      || candidate.textContent
+      || '';
+    const publishedAt = normalizePublishedDate(raw);
+    if (publishedAt) return publishedAt;
+  }
+
+  return '';
+}
+
+export function extractPublishedDate(document, editorialRoot = document) {
+  if (!document) return '';
   const scripts = document.querySelectorAll('script[type="application/ld+json"]');
   for (const script of scripts) {
     let parsed;
@@ -131,10 +201,8 @@ export function extractPublishedDate(document) {
       const graph = Array.isArray(obj['@graph']) ? obj['@graph'] : [obj];
       for (const node of graph) {
         if (!node || typeof node !== 'object') continue;
-        const raw = node.datePublished;
-        if (typeof raw === 'string' && !Number.isNaN(new Date(raw).getTime())) {
-          return new Date(raw).toISOString();
-        }
+        const publishedAt = normalizePublishedDate(node.datePublished);
+        if (publishedAt) return publishedAt;
       }
     }
   }
@@ -143,14 +211,16 @@ export function extractPublishedDate(document) {
                      'meta[itemprop="datePublished"]', 'meta[name="pubdate"]']) {
     const el = document.querySelector(sel);
     const raw = el ? (el.getAttribute('content') || '').trim() : '';
-    if (raw && !Number.isNaN(new Date(raw).getTime())) return new Date(raw).toISOString();
+    const publishedAt = normalizePublishedDate(raw);
+    if (publishedAt) return publishedAt;
   }
 
   const timeEl = document.querySelector('time[itemprop~="datePublished"][datetime]');
   const timeRaw = timeEl ? (timeEl.getAttribute('datetime') || '').trim() : '';
-  if (timeRaw && !Number.isNaN(new Date(timeRaw).getTime())) return new Date(timeRaw).toISOString();
+  const timePublishedAt = normalizePublishedDate(timeRaw);
+  if (timePublishedAt) return timePublishedAt;
 
-  return '';
+  return extractIcmsPublishedDate(editorialRoot);
 }
 
 function extractFromMeta(document, selector) {
@@ -642,7 +712,7 @@ function selectNoscriptJsonLdPrecedence(document, fallbacks) {
   return bodies.reduce((best, body) => (!best || body.length > best.length ? body : best), null);
 }
 
-function safeNoscriptNaiveFallback(document, fallbacks, maxChars) {
+function safeNoscriptNaiveFallback(document, fallbacks, maxChars, publishedAt = '') {
   const sourceNoscripts = topLevelNoscripts(document.body);
   const clone = document.body.cloneNode(true);
   const clonedNoscripts = topLevelNoscripts(clone);
@@ -659,7 +729,7 @@ function safeNoscriptNaiveFallback(document, fallbacks, maxChars) {
 
   for (const node of clone.querySelectorAll('script, style')) node.remove();
   const text = capExtractedText(cleanText(clone.textContent || ''), maxChars);
-  return { text, method: 'naive-fallback', paragraphCount: 0 };
+  return { text, method: 'naive-fallback', paragraphCount: 0, publishedAt };
 }
 
 function prepareNoscriptSource(html) {
@@ -762,6 +832,16 @@ function extractParagraphs(root, maxChars = Number.POSITIVE_INFINITY, fallbacks 
   return out;
 }
 
+function selectEditorialRoot(document, maxChars, fallbacks) {
+  for (const tag of ['article', 'main']) {
+    const root = document.querySelector(tag);
+    if (!root || !isActiveIcmsDateNode(root)) continue;
+    const paragraphs = extractParagraphs(root, maxChars, fallbacks);
+    if (paragraphs.length >= 2) return { root, paragraphs };
+  }
+  return { root: null, paragraphs: [] };
+}
+
 /**
  * Extract clean article text from raw HTML.
  *
@@ -769,7 +849,7 @@ function extractParagraphs(root, maxChars = Number.POSITIVE_INFINITY, fallbacks 
  * @param {object} [opts]
  * @param {number} [opts.maxChars=8000] — hard cap on output length
  * @param {boolean} [opts.scriptingDisabled=false] — treat `<noscript>` markup as active fallback content
- * @returns {{ text: string, method: string, paragraphCount: number }}
+ * @returns {{ text: string, method: string, paragraphCount: number, publishedAt: string }}
  *          `method` is one of 'jsonld', 'article-tag', 'main-tag',
  *          'og-fallback', 'naive-fallback', 'empty'.
  */
@@ -795,7 +875,6 @@ export function extractArticleText(html, opts = {}) {
     return naiveFallback(html, maxChars);
   }
   const document = dom.window.document;
-  const publishedAt = extractPublishedDate(document);
   const noscriptSourceMarkup = new WeakMap();
 
   if (opts.scriptingDisabled === true) {
@@ -812,6 +891,8 @@ export function extractArticleText(html, opts = {}) {
   const noscriptFallbacks = opts.scriptingDisabled === true
     ? mergeNoscriptFallbackBlocks(document, maxChars, noscriptSourceMarkup)
     : null;
+  const editorialSelection = selectEditorialRoot(document, maxChars, noscriptFallbacks);
+  const publishedAt = extractPublishedDate(document, editorialSelection.root);
 
   // 1. JSON-LD articleBody (most reliable)
   const jsonLdBody = noscriptFallbacks
@@ -822,18 +903,18 @@ export function extractArticleText(html, opts = {}) {
     return { text, method: 'jsonld', paragraphCount: text.split(/[.!?]\s+/).length, publishedAt };
   }
 
-  // 2/3. Article-tag with paragraph extraction
-  const articleParagraphs = extractParagraphs(document.querySelector('article'), maxChars, noscriptFallbacks);
-  if (articleParagraphs.length >= 2) {
-    const text = capExtractedText(articleParagraphs.join('\n\n'), maxChars);
-    return { text, method: 'article-tag', paragraphCount: articleParagraphs.length, publishedAt };
-  }
-
-  // 4. Main-tag with paragraph extraction
-  const mainParagraphs = extractParagraphs(document.querySelector('main'), maxChars, noscriptFallbacks);
-  if (mainParagraphs.length >= 2) {
-    const text = capExtractedText(mainParagraphs.join('\n\n'), maxChars);
-    return { text, method: 'main-tag', paragraphCount: mainParagraphs.length, publishedAt };
+  // 2/3/4. Use the same root for date provenance and body extraction.
+  if (editorialSelection.root) {
+    const text = capExtractedText(editorialSelection.paragraphs.join('\n\n'), maxChars);
+    const method = editorialSelection.root.tagName.toLowerCase() === 'article'
+      ? 'article-tag'
+      : 'main-tag';
+    return {
+      text,
+      method,
+      paragraphCount: editorialSelection.paragraphs.length,
+      publishedAt,
+    };
   }
 
   // 5. OG description + first paragraphs anywhere
@@ -854,16 +935,16 @@ export function extractArticleText(html, opts = {}) {
   }
 
   // 6. Last resort: legacy naive strip — preserves prior behaviour.
-  if (noscriptFallbacks) return safeNoscriptNaiveFallback(document, noscriptFallbacks, maxChars);
-  return naiveFallback(html, maxChars);
+  if (noscriptFallbacks) return safeNoscriptNaiveFallback(document, noscriptFallbacks, maxChars, publishedAt);
+  return naiveFallback(html, maxChars, publishedAt);
 }
 
-function naiveFallback(html, maxChars) {
+function naiveFallback(html, maxChars, publishedAt = '') {
   const text = capExtractedText(html
     .replace(/<script[\s\S]*?<\/script>/gi, '')
     .replace(/<style[\s\S]*?<\/style>/gi, '')
     .replace(/<[^>]+>/g, ' ')
     .replace(/\s+/g, ' ')
     .trim(), maxChars);
-  return { text, method: 'naive-fallback', paragraphCount: 0 };
+  return { text, method: 'naive-fallback', paragraphCount: 0, publishedAt };
 }
