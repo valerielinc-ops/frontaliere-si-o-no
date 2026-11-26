@@ -35,9 +35,10 @@ import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
  * live defect — and it cannot mask a real outage, because an outage that is
  * still happening has an age of 0 hours.
  *
- * FAILS OPEN, LOUDLY: if the hourly rows are missing (older report build, CF
- * dropping the dimension), every entry is kept and a warning is printed. A
- * silent fail-open would restore the old behaviour with no way to notice.
+ * FAILS CLOSED FOR ISSUE CREATION, LOUDLY: if the hourly rows are missing
+ * (older report build, CF dropping the dimension), no entry is promoted from
+ * the flat total. A warning is printed and the snapshot still records the
+ * total for a later complete run.
  *
  * Env:
  *   CF_5XX_HOURS          trailing window, hours (default 23)
@@ -488,8 +489,8 @@ export async function main() {
   const hourlyComplete = Array.isArray(hourly) && data.detailByHourComplete === true;
   if (!hourlyComplete) {
     console.log(
-      '::warning title=cf-5xx recency gate inactive::cf-status-report.mjs returned no complete `detailByHour` ' +
-        '(missing rows, row cap reached, or older report version) — entries stay open on the flat window total; ' +
+      '::warning title=cf-5xx recency evidence unavailable::cf-status-report.mjs returned no complete `detailByHour` ' +
+        '(missing rows, row cap reached, or older report version) — no issue will be opened from the flat window total; ' +
         'current failure and endpoint origin are unverified.',
     );
   }
@@ -502,9 +503,23 @@ export async function main() {
     : new Map();
 
   const entries = [];
+  let unknownCount = 0;
+  let staleCount = 0;
   for (const e of overThreshold) {
     const shape = shapes.get(e.url);
+    if (!shape) {
+      unknownCount += 1;
+      console.log(
+        '[cf-5xx-issue-sync] skip ' +
+          e.url +
+          ': ' +
+          e.count +
+          ' 5xx responses have no complete per-URL hourly evidence; flat total is not actionable',
+      );
+      continue;
+    }
     if (isStaleBurst(shape)) {
+      staleCount += 1;
       console.log(
         `[cf-5xx-issue-sync] skip ${e.url}: ${e.count} 5xx in ${HOURS}h but last one ` +
           `${shape.hoursSinceLast.toFixed(1)}h ago (${shape.activeHours} active hour(s), ` +
@@ -517,8 +532,13 @@ export async function main() {
 
   if (!entries.length) {
     console.log(
-      `[cf-5xx-issue-sync] ${overThreshold.length} path(s) over threshold, all with no 5xx in the ` +
-        `last ${MAX_AGE_HOURS}h — nothing live to sync`,
+      '[cf-5xx-issue-sync] ' +
+        overThreshold.length +
+        ' path(s) over threshold were not actionable (' +
+        unknownCount +
+        ' without complete per-URL hourly evidence, ' +
+        staleCount +
+        ' stale burst(s)) — nothing to sync',
     );
     await reconcileOnly();
     return;

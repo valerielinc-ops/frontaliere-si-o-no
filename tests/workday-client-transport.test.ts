@@ -25,6 +25,7 @@ import {
   fetchWorkdayJobs,
   fetchWorkdaySidebarText,
   resetWorkdayImplicitRateLimitStateForTests,
+  shouldPropagateWorkdayFetchError,
   WorkdayApiError,
   WorkdayRateLimitError,
 } from '../scripts/lib/ats-clients/workday-client.mjs';
@@ -58,6 +59,13 @@ afterEach(() => {
 });
 
 describe('Workday JSON transport', () => {
+  it('propagates status-0 transport failures for fail-closed listing callers', () => {
+    const transportError = new WorkdayApiError('transport failed', 0, `${API_BASE}/jobs`);
+
+    expect(shouldPropagateWorkdayFetchError(transportError, true)).toBe(true);
+    expect(shouldPropagateWorkdayFetchError(transportError)).toBe(false);
+  });
+
   it('shares the runner egress lock and Retry-After cooldown across processes', async () => {
     const egressStateDir = fs.mkdtempSync(path.join(os.tmpdir(), 'workday-egress-test-'));
     const requestLogPath = path.join(egressStateDir, 'request-times.log');
