@@ -225,6 +225,9 @@ export function mergeRetiredCrawlerArchive(canonicalJobs, retiredJobs, canonical
   });
   let repairedRoutes = routeRepair.repairedRoutes;
   let capRefused = 0;
+  // A cap refusal belongs to the component that failed, not to every
+  // same-identity collision in this archive merge.
+  const capRefusedScopes = [];
 
   const rebuildRouteOwners = () => {
     routeOwners = new Map();
@@ -269,6 +272,10 @@ export function mergeRetiredCrawlerArchive(canonicalJobs, retiredJobs, canonical
       if (!isLegacyRouteCapRefusal(error)) throw error;
       merged = false;
       capRefused += 1;
+      capRefusedScopes.push({
+        entries: new Set(component),
+        routes: new Set(component.flatMap((member) => [...localeRouteKeys(member)])),
+      });
     }
     if (!merged) {
       // Keep the ambiguous component separate. A final route-repair pass below
@@ -303,6 +310,7 @@ export function mergeRetiredCrawlerArchive(canonicalJobs, retiredJobs, canonical
     // deterministic alias instead of leaving the reconciler's invariant
     // false.
     repairSharedIdentityCollisions: capRefused > 0,
+    repairSharedIdentityCollisionScopes: capRefusedScopes,
   });
   repairedRoutes += finalRouteRepair.repairedRoutes;
 
