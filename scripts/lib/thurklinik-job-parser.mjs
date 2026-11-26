@@ -56,6 +56,8 @@ const DETAIL_ROOT_SELECTORS = [
   'article',
   '.entry-content',
 ];
+const DETAIL_CHROME_SELECTOR =
+  'nav, header, footer, aside, form, script, style, noscript, .breadcrumb, .breadcrumbs, [aria-label="breadcrumb"]';
 
 /* ── Company matchers ──────────────────────────────────────── */
 
@@ -86,6 +88,42 @@ export function cleanThurklinikTitle(raw = '') {
   return normalizeSpace(text);
 }
 
+/**
+ * Representation-independent vacancy identity shared by the legacy PDF and
+ * current HTML rows. The listing title is the only value present in both
+ * source representations, so source URLs must not participate in this key.
+ */
+export function buildThurklinikVacancyKey(rawTitle = '') {
+  const titleKey = slugify(cleanThurklinikTitle(rawTitle), Number.MAX_SAFE_INTEGER);
+  if (!titleKey) return '';
+  const locationKey = slugify(HQ_CITY, Number.MAX_SAFE_INTEGER);
+  return `${THURKLINIK_KEY}:title:${titleKey}:location:${locationKey}`;
+}
+
+export function buildThurklinikJobId(rawTitle = '') {
+  const vacancyKey = buildThurklinikVacancyKey(rawTitle);
+  if (!vacancyKey) return '';
+  const hash = createHash('sha1').update(vacancyKey).digest('hex').slice(0, 12);
+  return `${THURKLINIK_KEY}-${hash}`;
+}
+
+/**
+ * Match legacy PDF rows to their HTML detail replacement by the shared
+ * listing identity. Existing stored rows predate `sourceIdentity`, so their
+ * cleaned source title is the compatibility fallback.
+ */
+export function thurklinikMatchKey(job = {}) {
+  const sourceIdentity = normalizeSpace(job?.sourceIdentity || '');
+  if (sourceIdentity.startsWith(`${THURKLINIK_KEY}:title:`)) return sourceIdentity;
+  return buildThurklinikVacancyKey(job?.title || '');
+}
+
+function normalizeThurklinikDetailUrl(rawUrl = '') {
+  const url = new URL(rawUrl);
+  url.pathname = `${url.pathname.replace(/\/+$/, '')}/`;
+  return url.href;
+}
+
 /* ── Listing parsing ──────────────────────────────────────── */
 
 /**
@@ -97,7 +135,7 @@ export function cleanThurklinikTitle(raw = '') {
  * anchor text first).
  *
  * @param {string} html
- * @returns {Array<{ pdfUrl: string, title: string, identifier: string, isSpontaneous: boolean }>}
+ * @returns {Array<{ pdfUrl?: string, detailUrl?: string, title: string, identifier: string, isSpontaneous: boolean }>}
  */
 export function parseListing(html = '') {
   if (!html) return [];
@@ -125,21 +163,23 @@ export function parseListing(html = '') {
         && url.pathname.replace(/\/+$/, '/') !== '/stellen/';
       if (!isPdf && !isDetail) continue;
 
+      const detailUrl = isDetail ? normalizeThurklinikDetailUrl(url.href) : '';
+
       const anchorText = normalizeSpace(anchor.textContent || '');
       const title = cleanThurklinikTitle(anchorText);
       if (!title || title.length < 5) continue;
 
       const identifier = isPdf
         ? decodeURIComponent(url.pathname.split('/').pop().replace(/\.pdf$/i, ''))
-        : url.pathname.replace(/\/+$/, '/');
-      const seenKey = isPdf ? `pdf:${identifier}` : `detail:${url.href}`;
+        : new URL(detailUrl).pathname;
+      const seenKey = isPdf ? `pdf:${identifier}` : `detail:${detailUrl}`;
       if (seen.has(seenKey)) continue;
       seen.add(seenKey);
 
       const isSpontaneous = /^Spontanbewerbung/i.test(anchorText)
         || /spontanbewerbung/i.test(url.pathname);
       out.push({
-        ...(isPdf ? { pdfUrl: url.href } : { detailUrl: url.href }),
+        ...(isPdf ? { pdfUrl: url.href } : { detailUrl }),
         title,
         identifier,
         isSpontaneous,
@@ -169,23 +209,25 @@ export function parseDetailPage(html = '', fallbackTitle = '') {
   const dom = new JSDOM(html);
   const document = dom.window.document;
   try {
-    const sourceTitle = cleanThurklinikTitle(
-      document.querySelector('h1')?.textContent || fallbackTitle,
-    );
     let root = null;
     for (const selector of DETAIL_ROOT_SELECTORS) {
       const candidate = document.querySelector(selector);
       if (!candidate || !candidate.querySelector('h1')) continue;
-      if (normalizeSpace(candidate.textContent || '').length < 80) continue;
       root = candidate;
       break;
     }
-    if (!root) return { title: sourceTitle, description: '' };
+    if (!root) {
+      return {
+        title: cleanThurklinikTitle(document.querySelector('h1')?.textContent || fallbackTitle),
+        description: '',
+      };
+    }
 
     const content = root.cloneNode(true);
-    content.querySelectorAll(
-      'nav, header, footer, aside, form, script, style, noscript, .breadcrumb, .breadcrumbs, [aria-label="breadcrumb"]',
-    ).forEach((node) => node.remove());
+    content.querySelectorAll(DETAIL_CHROME_SELECTOR).forEach((node) => node.remove());
+    const sourceTitle = cleanThurklinikTitle(
+      content.querySelector('h1')?.textContent || fallbackTitle,
+    );
     content.querySelectorAll('h1').forEach((node) => node.remove());
     content.querySelectorAll('a[href]').forEach((anchor) => {
       const text = normalizeSpace(anchor.textContent || '');
@@ -278,10 +320,12 @@ export async function fetchAllThurklinikJobs() {
 
     const sourceLang = detectLang(description || title, 'de');
     const jobSlug = slugify(`${title} ${THURKLINIK_KEY} ${HQ_CITY}`);
-    const urlHash = createHash('sha1').update(sourceUrl).digest('hex').slice(0, 12);
+    const vacancyKey = buildThurklinikVacancyKey(row.title);
+    const jobId = buildThurklinikJobId(row.title);
 
     jobs.push({
-      id: `${THURKLINIK_KEY}-${urlHash}`,
+      id: jobId,
+      sourceIdentity: vacancyKey,
       slug: jobSlug,
       slugByLocale: { [sourceLang]: jobSlug },
       company: THURKLINIK_COMPANY_NAME,

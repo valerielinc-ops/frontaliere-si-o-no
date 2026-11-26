@@ -8,10 +8,15 @@ import {
   parseListing,
   parseDetailPage,
   cleanThurklinikTitle,
+  buildThurklinikVacancyKey,
+  buildThurklinikJobId,
+  thurklinikMatchKey,
   buildThurklinikDescription,
   THURKLINIK_FABRICATED_DESCRIPTION_RE,
 } from '../scripts/lib/thurklinik-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { restoreExistingSlugIdentity } from '../scripts/lib/crawler-template.mjs';
+import { mergePreserveLocaleData } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { buildPdfBackedDescription } from '../scripts/lib/pdf-job-content.mjs';
 
 const FIXTURE_HTML = `
@@ -117,6 +122,10 @@ describe('Thurklinik crawler parser', () => {
       ]);
       expect(rows.filter((row) => row.isSpontaneous)).toHaveLength(1);
     });
+    it('normalizes detail links to the canonical trailing slash', () => {
+      const [row] = parseListing('<a href="/stellen/pflege">Pflegefachkraft HF</a>');
+      expect(row.detailUrl).toBe('https://thurklinik.ch/stellen/pflege/');
+    });
     it('flags Spontanbewerbung anchors via isSpontaneous', () => {
       const rows = parseListing(FIXTURE_HTML);
       const sponti = rows.filter((r) => r.isSpontaneous);
@@ -140,6 +149,12 @@ describe('Thurklinik crawler parser', () => {
   });
 
   describe('parseDetailPage', () => {
+    it('takes the vacancy title from the selected root, not the document header', () => {
+      const detail = parseDetailPage(
+        '<header><h1>Thurklinik</h1></header><main><h1>Pflegefachkraft</h1><p>Aufgabe und Anforderungen</p></main>',
+      );
+      expect(detail.title).toBe('Pflegefachkraft');
+    });
     it('keeps the vacancy body and excludes page chrome', () => {
       const detail = parseDetailPage(DETAIL_FIXTURE_HTML);
       expect(detail.title).toBe('Fachperson Operationstechnik HF oder TOA (20–80 %)');
@@ -154,6 +169,61 @@ describe('Thurklinik crawler parser', () => {
         title: 'Stelle',
         description: '',
       });
+    });
+  });
+
+  describe('identity continuity', () => {
+    it('uses one key and id for equivalent PDF and detail rows', () => {
+      const title = 'Pflegefachkraft HF 60–80 %';
+      const pdfRow = parseListing(`<a href="/wp-content/uploads/legacy.pdf">${title}</a>`)[0];
+      const detailRow = parseListing(`<a href="/stellen/pflege">${title}</a>`)[0];
+
+      expect(buildThurklinikVacancyKey(pdfRow.title)).toBe(
+        buildThurklinikVacancyKey(detailRow.title),
+      );
+      expect(buildThurklinikJobId(pdfRow.title)).toBe(
+        buildThurklinikJobId(detailRow.title),
+      );
+    });
+
+    it('matches a detail replacement to the legacy row and keeps its id and slug', () => {
+      const title = 'Pflegefachkraft HF 60–80 %';
+      const existing = {
+        id: 'thurklinik-legacy-id',
+        title,
+        titleByLocale: { de: title },
+        description: 'Aufgaben und Anforderungen im OP-Team.',
+        descriptionByLocale: { de: 'Aufgaben und Anforderungen im OP-Team.' },
+        sourceLang: 'de',
+        company: THURKLINIK_COMPANY_NAME,
+        companyKey: THURKLINIK_KEY,
+        location: 'Niederuzwil',
+        url: 'https://thurklinik.ch/wp-content/uploads/legacy.pdf',
+        slug: 'pflegefachkraft-hf-legacy',
+        slugByLocale: { de: 'pflegefachkraft-hf-legacy' },
+      };
+      const fresh = {
+        ...existing,
+        id: buildThurklinikJobId(title),
+        sourceIdentity: buildThurklinikVacancyKey(title),
+        title: 'Pflegefachkraft HF 60–80 %',
+        titleByLocale: { de: 'Pflegefachkraft HF 60–80 %' },
+        description: 'Aktuelle Aufgaben und Anforderungen im OP-Team.',
+        descriptionByLocale: { de: 'Aktuelle Aufgaben und Anforderungen im OP-Team.' },
+        url: 'https://thurklinik.ch/stellen/pflege/',
+        slug: 'pflegefachkraft-hf-current',
+        slugByLocale: { de: 'pflegefachkraft-hf-current' },
+      };
+
+      const merged = mergePreserveLocaleData([existing], [fresh], {
+        matchKey: thurklinikMatchKey,
+        retainMissingJobs: false,
+      });
+      const [restored] = restoreExistingSlugIdentity([existing], merged).jobs;
+
+      expect(restored.id).toBe(existing.id);
+      expect(restored.slug).toBe(existing.slug);
+      expect(restored.url).toBe('https://thurklinik.ch/stellen/pflege/');
     });
   });
 
