@@ -308,6 +308,22 @@ describe('report', () => {
     expect(gh).not.toHaveBeenCalled();
   });
 
+  it('does not apply the valued INP gap guard to a CLS-only non-good window', async () => {
+    const { code, err, gh } = await run(
+      ['--dry-run'],
+      {
+        ...FULL,
+        template: [row(['job_detail', 'CLS', '222', 'mobile'], 1)],
+        valuedSelectors: [row(['/', 'cwv:cls:footer:complete:footer>div|ac1|cc1', '0.2', 'mobile'], 1)],
+      },
+      fakeGh(),
+      new Date('2026-11-30T12:00:00Z'),
+    );
+    expect(code).toBe(0);
+    expect(err).not.toContain(VALUED_ATTRIBUTION_GAP_FAILURE_TITLE);
+    expect(gh).not.toHaveBeenCalled();
+  });
+
   it('reports the element, the selectors and the template p75 measured on 03-10, in order', async () => {
     const { code, out } = await run(['--dry-run'], FULL);
     expect(code).toBe(0);
