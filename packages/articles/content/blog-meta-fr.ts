@@ -13756,6 +13756,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.euro-sotto-091-sollievo.title': 'Euro sous 0,91 : soulagement pour les travailleurs frontaliers',
     'blog.article.euro-sotto-091-sollievo.excerpt': 'À 13 h 45, l\'euro a atteint 0,9076, passant sous le seuil psychologique des 91 centimes.',
     'blog.article.euro-sotto-091-sollievo.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.sem-chiasso-personale-due-mesi.title': 'Sem rouvre Chiasso : Ors cherche du personnel pour deux mois supplémentaires',
+    'blog.article.sem-chiasso-personale-due-mesi.excerpt': 'Avec la réouverture de Chiasso par la Sem, Ors devra trouver pendant deux mois supplémentaires le personnel destiné à la gestion de via Motta.',
+    'blog.article.sem-chiasso-personale-due-mesi.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;
