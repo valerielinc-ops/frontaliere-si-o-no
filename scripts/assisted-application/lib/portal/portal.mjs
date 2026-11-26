@@ -4852,6 +4852,15 @@ const normalizeWords = (text) => String(text || '').toLowerCase().normalize('NFD
 // "Coop Genossenschaft" is "coop" (its SuccessFactors pages say only "Coop").
 const NOT_A_NAME = new Set(['sa', 'ag', 'gmbh', 'sagl', 'srl', 'spa', 'sarl', 'ltd', 'inc', 'llc', 'llp', 'kg', 'genossenschaft', 'cooperativa', 'cooperative', 'the', 'und', 'and', 'del', 'della', 'des', 'les', 'der', 'die', 'das']);
 const nameWords = (text) => normalizeWords(text).split(' ').filter((word) => word.length >= 3 && !NOT_A_NAME.has(word) && !/^\d+$/.test(word));
+const DOTTED_LEGAL_FORM_SUFFIX_RE = /(?:^|\s)((?:[A-Za-zÀ-ÖØ-öø-ÿ]\s*\.\s*)+[A-Za-zÀ-ÖØ-öø-ÿ]\s*\.?)\s*$/u;
+
+function stripDottedLegalFormSuffix(value) {
+  const raw = String(value || '');
+  const match = DOTTED_LEGAL_FORM_SUFFIX_RE.exec(raw);
+  if (!match) return raw;
+  const compact = normalizeWords(match[1]).replace(/\s+/g, '');
+  return NOT_A_NAME.has(compact) ? raw.slice(0, match.index).trim() : raw;
+}
 const TALENTSOFT_HOST_RE = /(?:^|\.)talent-soft\.com$/i;
 
 /** The company's name words without a bracketed short form, when it has one and a distinctive name remains. */
@@ -5171,8 +5180,9 @@ const employerKindsOf = (words) => new Set(words.map((word) => EMPLOYER_KIND_CLA
 // the complete normalized sequence so a page that only says «Groupe» does not
 // bind to «Groupe E» by the generic employer-kind word alone.
 function companyIdentityWords(company) {
-  const normalized = companyEvidenceWords(company);
-  const baseWords = new Set(nameWords(company));
+  const source = stripDottedLegalFormSuffix(company);
+  const normalized = companyEvidenceWords(source);
+  const baseWords = new Set(nameWords(source));
   if (!baseWords.size) return [];
   return normalized.filter((word) => baseWords.has(word) || /^[a-z]$/u.test(word));
 }
@@ -5317,8 +5327,12 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     return equivalentEmployerPhrases.some((alias) => alias.length === identityWords.length
       && alias.every((word, index) => word === identityWords[index]));
   };
-  const ours = new Set([...companyIdentityWords(job.company),
-    ...(sameEmployerFamily(job.organization, job.company) ? companyIdentityWords(job.organization) : [])]);
+  const identityWords = [...companyIdentityWords(job.company),
+    ...(sameEmployerFamily(job.organization, job.company) ? companyIdentityWords(job.organization) : [])];
+  // A one-letter brand token is meaningful only inside the complete identity
+  // ("Groupe E"). It must not become standalone employer evidence in the
+  // neighbour scan, where the conjunction "e" is ordinary form copy.
+  const ours = new Set(identityWords.filter((word) => word.length > 1));
   if (!ours.size) return false;
   const ourKinds = employerKindsOf([...ours]);
   const text = String(formText || '');
@@ -5364,6 +5378,12 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
   const titleLine = lines[0]
     ? lines.find((line) => line && !NAVIGATION_TITLE_LINE_RE.test(line) && !isStandaloneNextLabel(line)) || ''
     : '';
+  const titleWordsRaw = titleLine.split(/\s+/u).filter(Boolean);
+  const titleLooksLikeSentenceCopy = identities.some((identity) => identity.some((word) => word.length === 1))
+    && titleWordsRaw.length > 1
+    && /^\p{Lu}\p{Ll}+$/u.test(titleWordsRaw[0])
+    && titleWordsRaw.slice(1).every((word) => /^\p{Ll}+(?:['’]\p{Ll}+)?[.!?…]*$/u.test(word))
+    && titleWordsRaw.slice(1).some((word) => JOINING_WORDS.has(normalizeWords(word).replace(/[.!?…]+$/u, '')));
   // A title can put the selected employer and a different employer-like phrase
   // on the same line («Grand Hotel — Other Resort»). Compare the non-kind
   // words before the ordinary neighbour scan lets the selected employer
@@ -5379,6 +5399,7 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
   // reads every phrase in the full page text.
   const title = normalizeWords(titleLine).split(' ').filter(Boolean);
   if (!isFormDateFieldLabel(titleLine) && !titleNamesOwnEmployer(titleLine)
+    && !titleLooksLikeSentenceCopy
     && title.some((word, index) => !filler(word) && !neutral.has(word)
     && !FORM_TITLE_FIELD_WORDS.has(word)
     && !EMPLOYER_KIND_WORDS.has(word) && !isSelectOneLabelToken(title, index))) return true;

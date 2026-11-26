@@ -2804,6 +2804,12 @@ describe('portal: identity on an exact posting route without a heading', () => {
     expect(postingMatch(publicDetail.replace(groupeEJob.company, 'Groupe'), groupeEJob, groupeEUrl)).toBe('mismatch');
   });
 
+  it('keeps a genuine one-letter brand in the whole identity but not in neighbour prose', () => {
+    expect(namesAnotherEmployer('Scopri e cresci', { company: 'Groupe E' })).toBe(false);
+    expect(postingMatch('Groupe E', { company: 'Groupe E S.A.' })).toBe('match');
+    expect(postingMatch('Groupe', { company: 'Groupe E S.A.' })).toBe('mismatch');
+  });
+
   it.each([
     'open navigation', 'close navigation', 'menu', 'skip to content', 'Skip to main content',
     'Zum Hauptinhalt springen', 'Salta al contenuto', 'Aller au contenu',
