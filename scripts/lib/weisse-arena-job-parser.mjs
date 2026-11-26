@@ -262,7 +262,7 @@ async function fetchJobListingsOnce() {
         source: WEISSE_ARENA_KEY,
         rowShapeOk: (row) => row && typeof row === 'object' && !Array.isArray(row),
       });
-    } else if (!hasJobsField && rawTotal === 0 && allJobs.length === offset) {
+    } else if (!hasJobsField && totalCount === 0 && allJobs.length === offset) {
       // TalentLink returns { globals: { jobsCount: 0 } } at the terminal offset
       // instead of an explicit jobs: [] array. Treat that shape as empty only
       // when the offset accounts for every row already collected and the
