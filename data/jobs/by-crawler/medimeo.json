@@ -84,7 +84,8 @@
       "streetAddress": "Valais",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-23T09:19:38.091Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://medimeo.ch/job/fachaerztin-facharzt-anaesthesie-20-80-interventionelle-schmerzmedizin-in-flexiblem-teilzeitpensum-3825"
     },
     {
       "id": "medimeo-c8eec0802a7c",
@@ -167,7 +168,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-23T09:19:38.088Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://medimeo.ch/job/fachaerztin-facharzt-psychiatrie-ambulant-80-100-am-zuerichsee-auch-kurz-vor-dem-facharzttitel-3826"
     },
     {
       "id": "medimeo-1ed341946bad",
@@ -250,7 +252,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-23T09:19:38.087Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://medimeo.ch/job/oberaerztin-oberarzt-konsiliar-und-liaisonpsychiatrie-50-100-psychiatrie-mitten-in-der-spitzenmedizin-3827"
     },
     {
       "id": "medimeo-afa5c2c1893a",
@@ -329,7 +332,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-24T09:19:38.085Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-27T21:19:51.405Z"
+      "firstSeenAt": "2026-10-27T21:19:51.405Z",
+      "sourceIdentity": "url:https://medimeo.ch/job/praktischer-arzt-allgemeinmedizinerin-mit-attraktiver-umsatzbeteiligung-3667"
     },
     {
       "id": "medimeo-60535e8fe645",
@@ -400,7 +404,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-24T09:19:38.080Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-27T21:19:51.402Z"
+      "firstSeenAt": "2026-10-27T21:19:51.402Z",
+      "sourceIdentity": "url:https://medimeo.ch/job/kinderaerztin-kinderarzt-60-100-etablierte-paediatrie-in-moderner-gruppenpraxis-3828"
     },
     {
       "id": "medimeo-6eb0b96b1ff5",
@@ -453,7 +458,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "facharztin-facharzt-gynakologie-und-geburtshilfe-40-60-nach-dem-spital-in-die-praxis-am"
@@ -480,7 +484,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-24T09:19:38.075Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-26T09:19:38.075Z"
+      "firstSeenAt": "2026-11-26T09:19:38.075Z",
+      "sourceIdentity": "url:https://medimeo.ch/job/fachaerztin-facharzt-gynaekologie-und-geburtshilfe-40-60-nach-dem-spital-in-die-praxis-am-zuerichsee-3829"
     },
     {
       "id": "medimeo-82bb67c4c124",
@@ -533,7 +538,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "facharzt-facharztin-fur-allgemeine-innere-medizin-komplementarmedizin-und-spannende"
@@ -560,7 +564,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-24T09:19:38.069Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-29T09:22:24.648Z"
+      "firstSeenAt": "2026-10-29T09:22:24.648Z",
+      "sourceIdentity": "url:https://medimeo.ch/job/facharzt-fachaerztin-fuer-allgemeine-innere-medizin-komplementaermedizin-und-spannende-entwicklungschancen-3830"
     },
     {
       "id": "medimeo-b42014531aeb",
@@ -613,7 +618,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "hausarztin-hausarzt-60-100-zeit-fur-patient-innen-statt-fliessband-arbeit-20-minuten-von"
@@ -640,7 +644,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-24T09:19:38.066Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-26T09:19:38.066Z"
+      "firstSeenAt": "2026-11-26T09:19:38.066Z",
+      "sourceIdentity": "url:https://medimeo.ch/job/hausaerztin-hausarzt-60-100-zeit-fuer-patientinnen-statt-fliessband-arbeit-20-minuten-von-zuerich-3832"
     },
     {
       "id": "medimeo-3cbf06cce48a",
@@ -693,7 +698,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -712,7 +716,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-24T09:19:38.060Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-26T09:19:38.060Z"
+      "firstSeenAt": "2026-11-26T09:19:38.060Z",
+      "sourceIdentity": "url:https://medimeo.ch/job/kinderarzt-kinderaerztin-m-w-d-praxisstelle-in-der-schweiz-mit-einarbeitung-60-100-3833"
     },
     {
       "id": "medimeo-de9c1885b085",
@@ -796,7 +801,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-22T21:24:11.448Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "sourceIdentity": "url:https://medimeo.ch/job/fachaerztin-gynaekologie-und-geburtshilfe-60-100-vom-spital-in-die-praxis-3818"
     },
     {
       "id": "medimeo-6b32be50c205",
@@ -880,7 +886,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-22T21:24:11.447Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "sourceIdentity": "url:https://medimeo.ch/job/oberaerztin-oberarzt-innere-medizin-kaderfunktion-ohne-nachtdienste-im-lehrspital-3820"
     },
     {
       "id": "medimeo-e16c871c7c45",
@@ -964,7 +971,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-23T21:24:11.445Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "sourceIdentity": "url:https://medimeo.ch/job/allgemeinmediziner-fachaerztin-allgemeinmedizin-in-der-schweiz-mit-attraktivem-gehalt-3822"
     },
     {
       "id": "medimeo-4c904927169e",
@@ -1050,7 +1058,8 @@
       },
       "previousSlugs": [
         "leitende-arztin-leitender-arzt-innere-medizin-mit-schwerpunkt-geriatrie-auch-oberarztin"
-      ]
+      ],
+      "sourceIdentity": "url:https://medimeo.ch/job/leitende-aerztin-leitender-arzt-innere-medizin-mit-schwerpunkt-geriatrie-auch-oberaerztin-oberarzt-mit-entwicklungsperspektive-moeglich-3824"
     },
     {
       "id": "medimeo-2b799cf531ae",
@@ -1136,7 +1145,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:21:19.501Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://medimeo.ch/job/oberaerztin-oberarzt-gynaekologie-und-geburtshilfe-80-100-sechs-monate-befristet-ab-april-2027-3813"
     },
     {
       "id": "medimeo-3fb1ec323560",
@@ -1220,7 +1230,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:21:19.500Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://medimeo.ch/job/oberaerztin-oberarzt-radiologie-80-100-vielseitige-radiologie-trifft-auf-zuercher-lebensqualitaet-3816"
     },
     {
       "id": "medimeo-289d69377c2e",
@@ -1306,7 +1317,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:21:19.500Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://medimeo.ch/job/oberaerztin-oberarzt-gynaekologie-und-geburtshilfe-100-ihr-wechsel-in-die-schweiz-ab-januar-2027-3814"
     },
     {
       "id": "medimeo-55c574510141",
@@ -1384,7 +1396,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-22T09:21:19.498Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://medimeo.ch/job/oberaerztin-oberarzt-gynaekologie-und-geburtshilfe-direkter-einstieg-nach-dem-facharzt-50-100-3817"
     }
   ]
 }

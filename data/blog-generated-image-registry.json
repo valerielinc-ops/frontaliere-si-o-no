@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "cdnPrefix": "/images/blog/",
-  "assetCount": 1208,
-  "generatedAt": "2026-11-26T13:16:16.535Z",
+  "assetCount": 1209,
+  "generatedAt": "2026-11-26T15:31:48.702Z",
   "assets": [
     {
       "schema": 1,
@@ -51706,6 +51706,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic photorealistic urban traffic illustration with no readable text, logos, recognizable people, or specific real event."
+      }
+    },
+    {
+      "schema": 1,
+      "assetId": "article-appenzello-esterno-risparmio-verifica",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "700d74b369abbb5d6e186c95d2dd82526c141805a2e6b76c0d709efb63000ee0",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "c3f0bd8b94511f6cb08c20a20e9af2c85fa62f81bcd5b346655d48b682c5fa54",
+      "bytes": 181690,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-11-26T13:25:56.844Z",
+      "verifiedAt": "2026-11-26T13:26:07.788Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-appenzello-esterno-risparmio-verifica.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic Appenzell landscape with traditional farmhouses; no people, text, logos, or specific-event cues."
       }
     }
   ],
