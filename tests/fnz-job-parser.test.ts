@@ -29,7 +29,10 @@ describe('FNZ fetch boundary diagnostics', () => {
       throw new TypeError('fetch failed');
     }));
 
-    await expect(fetchFnzJobs()).rejects.toMatchObject({ statusCode: 0 });
+    // The production Workday client retries through browser egress after a
+    // direct connection failure. Disable that alternate transport here so the
+    // test remains offline and exercises the direct failure boundary.
+    await expect(fetchFnzJobs({ browserFallback: null })).rejects.toMatchObject({ statusCode: 0 });
   });
 
   it('classifies connection and exhausted-response failures for the exit guard', () => {

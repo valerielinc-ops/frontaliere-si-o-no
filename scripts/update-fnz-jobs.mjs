@@ -202,7 +202,7 @@ async function fetchJson(url, options = {}) {
  * posting on pages 2+). A page cap bounds the loop if a tenant never shortens,
  * but reaching that cap without a verified end is an error, not a normal stop.
  */
-async function listSwissJobs() {
+async function listSwissJobs({ browserFallback } = {}) {
   const candidates = [];
   let discoveredCount = 0;
   let offset = 0;
@@ -222,6 +222,7 @@ async function listSwissJobs() {
     const data = await fetchJson(`${FNZ_API_BASE}/jobs`, {
       method: 'POST',
       body,
+      browserFallback,
     });
 
     const rawTotal = data?.total;
@@ -297,8 +298,8 @@ async function listSwissJobs() {
 /**
  * Fetch full detail for a single job via Workday API.
  */
-async function fetchJobDetail(externalPath) {
-  return fetchJson(`${FNZ_API_BASE}${externalPath}`);
+async function fetchJobDetail(externalPath, { browserFallback } = {}) {
+  return fetchJson(`${FNZ_API_BASE}${externalPath}`, { browserFallback });
 }
 
 /* ── Location & canton mapping ─────────────────────────────── */
@@ -421,12 +422,12 @@ function attachFetchDiagnostics(jobs, {
 
 /* ── Fetch and build all FNZ Swiss jobs ────────────────────── */
 
-export async function fetchFnzJobs() {
+export async function fetchFnzJobs({ browserFallback } = {}) {
   console.log(`🔍 Fetching FNZ jobs from Workday API`);
   console.log(`   API: ${FNZ_API_BASE}/jobs`);
   console.log(`   Keeping Swiss locations across all 26 cantons by location text\n`);
 
-  const listings = await listSwissJobs();
+  const listings = await listSwissJobs({ browserFallback });
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No Swiss job listings returned from Workday API.');
     return attachFetchDiagnostics([], {
@@ -443,7 +444,7 @@ export async function fetchFnzJobs() {
     if (!externalPath) continue;
 
     console.log(`  📄 Fetching detail: ${listing.title}`);
-    const detail = await fetchJobDetail(externalPath);
+    const detail = await fetchJobDetail(externalPath, { browserFallback });
 
     const info = detail?.jobPostingInfo || {};
     const title = normalizeSpace(info.title || listing.title || '');
