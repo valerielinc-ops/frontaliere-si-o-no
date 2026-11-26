@@ -13755,6 +13755,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.euro-sotto-091-sollievo.title': 'Euro sotto 0,91: sollievo ai frontalieri',
     'blog.article.euro-sotto-091-sollievo.excerpt': 'Alle 13:45 l\'euro ha toccato 0,9076, scendendo sotto la soglia psicologica dei 91 centesimi.',
     'blog.article.euro-sotto-091-sollievo.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.sem-chiasso-personale-due-mesi.title': 'Sem riapre Chiasso: Ors cerca personale per due mesi in più',
+    'blog.article.sem-chiasso-personale-due-mesi.excerpt': 'Con la riapertura di Chiasso da parte della Sem, Ors dovrà reperire per altri due mesi il personale destinato alla gestione di via Motta.',
+    'blog.article.sem-chiasso-personale-due-mesi.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;
