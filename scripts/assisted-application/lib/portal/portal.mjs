@@ -10457,18 +10457,19 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     if (!pressed) return accountHandoff('account', 'no_sign_in_button', 'login');
     const after = await awaitAuthOutcome(page, 'sign_in', shown, form.fields);
     diagnostics?.afterClick();
-    if (!account.verifiedAt && (VERIFY_PAGE_RE.test(accountResponseText(after)) || codeField(after)
-      || isAccountVerificationResponse(after) || (authPageKind(after) !== 'create' && hasResendVerificationControl(after)))) {
-      return { ...await verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot: after }), pressed };
-    }
-    // Workday can reveal the verification failure only after the first sign-in
-    // click. The form remains a sign-in page and may expose the copy only as a
-    // form message (without a resend control), even when the stored account
-    // record was previously marked verified. The sign-in response is the
-    // signal: the portal has just sent the verification mail.
-    if (authPageKind(after) === 'sign_in'
-      && isAccountVerificationResponse(after)
-      && !usesOtpAccountCreation(host)) {
+    const postSignInVerificationText = accountResponseText(after);
+    const hasActivationPrompt = isAccountVerificationResponse(after)
+      || (hasResendVerificationControl(after) && VERIFY_PAGE_RE.test(postSignInVerificationText));
+    const needsPostSignInVerification = (!account.verifiedAt
+      && (VERIFY_PAGE_RE.test(postSignInVerificationText) || codeField(after)
+        || hasActivationPrompt || (authPageKind(after) !== 'create' && hasResendVerificationControl(after))))
+      // Even when a stored account already carries `verifiedAt` (e.g. a stale or partial
+      // activation), an explicit post-login account-activation notice with no password/OTP
+      // challenge (or non-OTP tenant) proves the portal still requires email activation.
+      || (authPageKind(after) !== 'create'
+        && hasActivationPrompt
+        && (!usesOtpAccountCreation(host) || !codeField(after)));
+    if (needsPostSignInVerification) {
       return { ...await verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot: after }), pressed };
     }
     // Two password fields after a sign-in are no account's home either (a dialog opened over the form).
