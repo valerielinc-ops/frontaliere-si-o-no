@@ -401,6 +401,45 @@ export function addPreviousSlugRoutesKeepAll(job, routesByLocale, {
 }
 
 /**
+ * Add an unattributed legacy route without trimming the flat history list.
+ * Expired archive merges use this when the legacy route union is deeper than
+ * the active-job payload cap. The route remains flat so readers keep serving
+ * it under every locale prefix, and the existing active/general helper keeps
+ * its strict cap contract.
+ *
+ * @param {object} job
+ * @param {string} slug
+ * @param {{source?: string, reason?: string}} [options]
+ * @returns {boolean} whether a route was added
+ */
+export function addPreviousSlugToLegacyKeepAll(job, slug, {
+  source = 'addPreviousSlugToLegacyKeepAll',
+  reason = 'unattributed expired route preserved without trimming',
+} = {}) {
+  if (!job || typeof job !== 'object' || Array.isArray(job)) {
+    throw new TypeError('addPreviousSlugToLegacyKeepAll: job must be an object');
+  }
+  if (job.previousSlugs != null && !Array.isArray(job.previousSlugs)) {
+    throw new TypeError('addPreviousSlugToLegacyKeepAll: job.previousSlugs must be an array');
+  }
+  const route = String(slug ?? '').trim();
+  if (!route) return false;
+  if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
+  if (job.previousSlugs.includes(route)) return false;
+
+  job.previousSlugs.push(route);
+  recordSlugMutation({
+    jobId: job.id || '<unkeyed>',
+    locale: 'legacy',
+    slug: route,
+    action: 'capture',
+    source,
+    reason,
+  });
+  return true;
+}
+
+/**
  * Get a defensive copy of the retained events, oldest-first. Bounded by
  * `RETAINED_EVENTS_CAP`: on a run that exceeds it this is the newest slice of
  * the trace, not the whole history — `summarize()` stays exact either way.

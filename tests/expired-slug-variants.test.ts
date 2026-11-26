@@ -31,6 +31,17 @@ describe('expiredJobSlugVariants', () => {
     );
   });
 
+  it('indexes every route from a deep expired legacy history', () => {
+    const routes = Array.from({ length: 91 }, (_, index) => `historical-route-${index}`);
+    const variants = expiredJobSlugVariants({
+      slug: 'canonical',
+      previousSlugs: routes,
+      previousSlugsByLocale: { de: ['locale-history'] },
+    });
+
+    expect(new Set(variants)).toEqual(new Set(['canonical', ...routes, 'locale-history']));
+  });
+
   it('dedups repeated slugs (slug === slugByLocale.it is common)', () => {
     const variants = expiredJobSlugVariants({ slug: 'p', slugByLocale: { it: 'p', en: 'en-x' } });
     expect(variants).toEqual(['p', 'en-x']);
