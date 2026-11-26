@@ -1,7 +1,7 @@
 {
   "crawlerKey": "le-team",
-  "assembledAt": "2026-11-25T21:28:30.392Z",
-  "runId": "45702856844",
+  "assembledAt": "2026-11-26T09:53:36.410Z",
+  "runId": "45790496540",
   "jobs": [
     {
       "id": "le-team-b6ba3916dcf0",
@@ -35,7 +35,7 @@
       "url": "https://team.jobs/fr/offres-demplois/betonwerker-betonbauer/macon-b-h-f-d/Hagz1kmEzkUfZnEz9JwcJO",
       "source": "le team sa Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:28:00.971Z",
+      "crawledAt": "2026-11-26T09:52:49.143Z",
       "addressLocality": "Porrentruy",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -81,8 +81,9 @@
       "postalCode": "2900",
       "streetAddress": "Porrentruy",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T21:28:00.971Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-14T09:52:49.143Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://team.jobs/fr/offres-demplois/betonwerker-betonbauer/macon-b-h-f-d/hagz1kmezkufznez9jwcjo"
     },
     {
       "id": "le-team-d9001b85176e",
@@ -152,7 +153,7 @@
       "validThrough": "2027-02-22T09:37:34.024Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-24T09:21:46.109Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "previousSlugs": [
         "macon-ne-a-b-h-f-d-100-delemont-le-team-sa-5cc014a1",
         "mason-a-b-m-f-d-100-le-team-sa-delemont-5cc014a1",
@@ -173,7 +174,8 @@
         "fr": [
           "macon-ne-a-b-h-f-d-100-delemont-le-team-sa-5cc014a1"
         ]
-      }
+      },
+      "sourceIdentity": "url:https://team.jobs/fr/offres-demplois/maurer-in/macon-ne-a-b-(h-f-d)-100/dmq2eztioecro2jstbywxl"
     }
   ]
 }

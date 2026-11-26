@@ -1,7 +1,7 @@
 {
   "crawlerKey": "cippatrasporti",
-  "assembledAt": "2026-11-25T21:22:55.898Z",
-  "runId": "45702335461",
+  "assembledAt": "2026-11-26T09:40:50.826Z",
+  "runId": "45789987872",
   "jobs": [
     {
       "id": "cippatrasporti-c38396f76831",
@@ -34,7 +34,7 @@
       "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Customer-Service-Transport-Specialist-Commerciale-Trasporti-Chiasso-672753984.htm",
       "source": "Cippà Trasporti SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-25T21:22:49.153Z",
+      "crawledAt": "2026-11-26T09:40:43.888Z",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -90,9 +90,8 @@
       },
       "streetAddress": "Via Maestri Comacini 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-25T21:22:49.153Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://cippatrasporti.altamiraweb.com/annunci-lavoro/customer-service-transport-specialist-commerciale-trasporti-chiasso-672753984.htm"
+      "validThrough": "2026-12-26T09:40:43.888Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cippatrasporti-6360a178ef6c",
@@ -125,7 +124,7 @@
       "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Operativo-Trasporti-Terra-Trasporti-Chiasso-693485366.htm",
       "source": "Cippà Trasporti SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-25T21:22:48.624Z",
+      "crawledAt": "2026-11-26T09:40:43.649Z",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -179,9 +178,8 @@
       },
       "streetAddress": "Via Maestri Comacini 7",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-31T21:22:48.624Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://cippatrasporti.altamiraweb.com/annunci-lavoro/operativo-trasporti-terra-trasporti-chiasso-693485366.htm"
+      "validThrough": "2026-12-31T09:40:43.649Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

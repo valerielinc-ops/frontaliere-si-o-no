@@ -1774,6 +1774,10 @@ async function reportGA4(token) {
     { parameterName: 'event', displayName: 'Usage Event', description: 'Event type for chatbot_usage events (panel_open, panel_close, question_sent, etc.)' },
     { parameterName: 'action', displayName: 'Action Type', description: 'Action identifier for newsletter events (view_form, subscribe, unsubscribe, error)' },
     { parameterName: 'step_name', displayName: 'Conversion Step Name', description: 'Step name for funnel_step events (entry, input_start, calculate, compare, cta_click)' },
+    // Job alert auth diagnostics (scripts/campaign-goal-check.mjs). These
+    // event parameters must be registered before the optional GA4 breakdowns.
+    { parameterName: 'auth_stage', displayName: 'Alert Auth Stage', description: 'Authentication/replay stage for job_alert_auth_handoff events' },
+    { parameterName: 'alert_auth_path', displayName: 'Alert Auth Path', description: 'Authentication path for job_alert_created events' },
     { parameterName: 'experiment_id', displayName: 'Experiment ID', description: 'Stable experiment identifier for funnel attribution' },
     { parameterName: 'variant', displayName: 'Experiment Variant', description: 'Assigned experiment arm (control, assisted_application, rewarded_ad)' },
     { parameterName: 'access_ttl_hours', displayName: 'Reward Access TTL Hours', description: 'Rewarded application access lifetime in hours' },

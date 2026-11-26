@@ -3936,15 +3936,22 @@
     "expiredAt": "2026-10-15T09:24:50.733Z",
     "previousSlugs": [
       "senior-verkaufsspezialist-in-solar-w-m-d-ckw-egerkingen",
-      "senior-verkaufsspezialist-in-solar-w-m-d-9cc65e06-436f-4ed6-a75b-6de4ed51337c"
+      "senior-verkaufsspezialist-in-solar-w-m-d-9cc65e06-436f-4ed6-a75b-6de4ed51337c",
+      "specialista-senior-delle-vendite-nel-settore-solare-m-f-d-ckw-egerkingen",
+      "senior-verkaufsspezialist-in-solar-w-m-d-82f5a985-2802-49fc-a77f-9a5080a5c44f",
+      "senior-solar-sales-specialist-m-f-d-ckw-egerkingen"
     ],
     "previousSlugsByLocale": {
       "it": [
         "senior-verkaufsspezialist-in-solar-w-m-d-ckw-egerkingen",
-        "senior-verkaufsspezialist-in-solar-w-m-d-9cc65e06-436f-4ed6-a75b-6de4ed51337c"
+        "senior-verkaufsspezialist-in-solar-w-m-d-9cc65e06-436f-4ed6-a75b-6de4ed51337c",
+        "specialista-senior-delle-vendite-nel-settore-solare-m-f-d-ckw-egerkingen",
+        "senior-sales-specialist-solar-m-f-d-ckw-egerkingen",
+        "senior-verkaufsspezialist-in-solar-w-m-d-82f5a985-2802-49fc-a77f-9a5080a5c44f"
       ],
       "en": [
-        "senior-verkaufsspezialist-in-solar-w-m-d-ckw-egerkingen"
+        "senior-verkaufsspezialist-in-solar-w-m-d-ckw-egerkingen",
+        "senior-solar-sales-specialist-m-f-d-ckw-egerkingen"
       ],
       "fr": [
         "senior-verkaufsspezialist-in-solar-w-m-d-ckw-egerkingen"
@@ -3968,7 +3975,17 @@
         "firstSeenAt": "2026-10-27T21:27:06.867Z",
         "title": "Senior Verkaufsspezialist/in Solar (w/m/d)"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "it": {
+        "specialista-senior-delle-vendite-nel-settore-solare-m-f-d-ckw-egerkingen": "SO",
+        "senior-sales-specialist-solar-m-f-d-ckw-egerkingen": "SO",
+        "senior-verkaufsspezialist-in-solar-w-m-d-82f5a985-2802-49fc-a77f-9a5080a5c44f": "SO"
+      },
+      "en": {
+        "senior-solar-sales-specialist-m-f-d-ckw-egerkingen": "SO"
+      }
+    }
   },
   {
     "slug": "adozione-digitale-requisiti-e-implementazione-m-f-d-axpo-group-baden",
@@ -5625,11 +5642,8 @@
     "sector": "Energia & Utilities",
     "expiredAt": "2026-09-28T21:18:43.620Z",
     "previousSlugs": [
-      "project-engineer-in-control-technology-ot-security-f-m-d-axpo-group-baden",
       "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-23683f5b",
       "projektingenieur-in-leittechnik-amp-ot-security-w-m-d-5c57bbab-e151-469c-a6fc-12ce258b1fd1",
-      "ingegnere-di-progetto-in-tecnologia-di-controllo-e-sicurezza-ot-f-m-d-axpo-group-baden",
-      "projektingenieur-in-leittechnik-amp-ot-security-w-m-d-8dbc5879-39c4-47ee-9b60-b55d2cf54b3b",
       "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-6913f32f",
       "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-82309ffa",
       "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-bbb1186d",
@@ -5714,15 +5728,17 @@
       "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-e1f6fac5",
       "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-d541ba81",
       "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-2e421472",
-      "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden"
+      "ingegnere-di-progetto-in-tecnologia-di-controllo-e-sicurezza-ot-f-m-d-axpo-group-baden-16e52b2c",
+      "projektingenieur-in-leittechnik-amp-ot-security-w-m-d-8dbc5879-39c4-47ee-9b60-b55d2cf54b3b-cca878a2",
+      "project-engineer-in-control-technology-ot-security-f-m-d-axpo-group-baden-d410ea96"
     ],
     "previousSlugsByLocale": {
       "it": [
         "project-engineer-in-control-technology-ot-security-f-m-d-axpo-group-baden",
         "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-23683f5b",
         "projektingenieur-in-leittechnik-amp-ot-security-w-m-d-5c57bbab-e151-469c-a6fc-12ce258b1fd1",
-        "ingegnere-di-progetto-in-tecnologia-di-controllo-e-sicurezza-ot-f-m-d-axpo-group-baden",
-        "projektingenieur-in-leittechnik-amp-ot-security-w-m-d-8dbc5879-39c4-47ee-9b60-b55d2cf54b3b",
+        "ingegnere-di-progetto-in-tecnologia-di-controllo-e-sicurezza-ot-f-m-d-axpo-group-baden-16e52b2c",
+        "projektingenieur-in-leittechnik-amp-ot-security-w-m-d-8dbc5879-39c4-47ee-9b60-b55d2cf54b3b-cca878a2",
         "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-6913f32f",
         "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-82309ffa",
         "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-bbb1186d",
@@ -5806,12 +5822,11 @@
         "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-40325efe",
         "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-e1f6fac5",
         "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-d541ba81",
-        "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-2e421472",
-        "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden"
+        "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-2e421472"
       ],
       "en": [
         "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-23683f5b",
-        "project-engineer-in-control-technology-ot-security-f-m-d-axpo-group-baden",
+        "project-engineer-in-control-technology-ot-security-f-m-d-axpo-group-baden-d410ea96",
         "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-6913f32f",
         "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-82309ffa",
         "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-bbb1186d",
@@ -5896,7 +5911,8 @@
         "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-e1f6fac5",
         "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-d541ba81",
         "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-2e421472",
-        "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden"
+        "ingegnere-di-progetto-in-tecnologia-di-controllo-e-sicurezza-ot-f-m-d-axpo-group-baden",
+        "projektingenieur-in-leittechnik-amp-ot-security-w-m-d-8dbc5879-39c4-47ee-9b60-b55d2cf54b3b"
       ],
       "fr": [
         "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-23683f5b",
@@ -5984,7 +6000,14 @@
         "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-e1f6fac5",
         "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-d541ba81",
         "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden-2e421472",
-        "projektingenieur-in-leittechnik-ot-security-w-m-d-axpo-group-baden"
+        "ingegnere-di-progetto-in-tecnologia-di-controllo-e-sicurezza-ot-f-m-d-axpo-group-baden",
+        "projektingenieur-in-leittechnik-amp-ot-security-w-m-d-8dbc5879-39c4-47ee-9b60-b55d2cf54b3b",
+        "project-engineer-in-control-technology-ot-security-f-m-d-axpo-group-baden"
+      ],
+      "de": [
+        "ingegnere-di-progetto-in-tecnologia-di-controllo-e-sicurezza-ot-f-m-d-axpo-group-baden",
+        "projektingenieur-in-leittechnik-amp-ot-security-w-m-d-8dbc5879-39c4-47ee-9b60-b55d2cf54b3b",
+        "project-engineer-in-control-technology-ot-security-f-m-d-axpo-group-baden"
       ]
     },
     "salaryMin": 72500,
@@ -10877,10 +10900,6 @@
     "expiredAt": "2026-08-04T11:47:02.649Z",
     "previousSlugs": [
       "berater-in-kundensupport-w-m-d-7378cdd8-ad4c-4034-98c0-7b8b36f17825",
-      "consulente-m-d-ckw-emmen",
-      "berater-in-kundensupport-w-m-d-87db8efa-7c15-41ab-96f7-e090fcb3f830",
-      "consultant-m-d-ckw-emmen",
-      "consultant-m-j-ckw-emmen",
       "berater-in-kundensupport-w-m-d-ckw-emmen-c41a7d88",
       "berater-in-kundensupport-w-m-d-ckw-emmen-3d487b36",
       "berater-in-kundensupport-w-m-d-ckw-emmen-98da3173",
@@ -10965,23 +10984,35 @@
       "berater-in-kundensupport-w-m-d-ckw-emmen-79e38fbc",
       "berater-in-kundensupport-w-m-d-ckw-emmen-bb2defcb",
       "berater-in-kundensupport-w-m-d-ckw-emmen-e78d5baa",
-      "berater-in-kundensupport-w-m-d-ckw-emmen"
+      "consulente-m-d-ckw-emmen-2fe4790e",
+      "berater-in-kundensupport-w-m-d-87db8efa-7c15-41ab-96f7-e090fcb3f830-d30ecf32",
+      "consultant-m-d-ckw-emmen-7d8f5a25",
+      "consultant-m-j-ckw-emmen-7fc92414"
     ],
     "previousSlugsByLocale": {
       "it": [
         "berater-in-kundensupport-w-m-d-7378cdd8-ad4c-4034-98c0-7b8b36f17825",
-        "consulente-m-d-ckw-emmen",
-        "berater-in-kundensupport-w-m-d-87db8efa-7c15-41ab-96f7-e090fcb3f830"
+        "consulente-m-d-ckw-emmen-2fe4790e",
+        "berater-in-kundensupport-w-m-d-87db8efa-7c15-41ab-96f7-e090fcb3f830-d30ecf32",
+        "consultant-m-d-ckw-emmen",
+        "berater-in-kundensupport-w-m-d-ckw-emmen",
+        "consultant-m-j-ckw-emmen"
       ],
       "en": [
         "berater-in-kundensupport-w-m-d-7378cdd8-ad4c-4034-98c0-7b8b36f17825",
-        "consultant-m-d-ckw-emmen",
-        "berater-in-kundensupport-w-m-d-87db8efa-7c15-41ab-96f7-e090fcb3f830"
+        "consultant-m-d-ckw-emmen-7d8f5a25",
+        "berater-in-kundensupport-w-m-d-87db8efa-7c15-41ab-96f7-e090fcb3f830-d30ecf32",
+        "consulente-m-d-ckw-emmen",
+        "berater-in-kundensupport-w-m-d-ckw-emmen",
+        "consultant-m-j-ckw-emmen"
       ],
       "fr": [
         "berater-in-kundensupport-w-m-d-7378cdd8-ad4c-4034-98c0-7b8b36f17825",
-        "consultant-m-j-ckw-emmen",
-        "berater-in-kundensupport-w-m-d-87db8efa-7c15-41ab-96f7-e090fcb3f830"
+        "consultant-m-j-ckw-emmen-7fc92414",
+        "berater-in-kundensupport-w-m-d-87db8efa-7c15-41ab-96f7-e090fcb3f830-d30ecf32",
+        "consulente-m-d-ckw-emmen",
+        "consultant-m-d-ckw-emmen",
+        "berater-in-kundensupport-w-m-d-ckw-emmen"
       ],
       "de": [
         "berater-in-kundensupport-w-m-d-ckw-emmen-c41a7d88",
@@ -11068,7 +11099,11 @@
         "berater-in-kundensupport-w-m-d-ckw-emmen-79e38fbc",
         "berater-in-kundensupport-w-m-d-ckw-emmen-bb2defcb",
         "berater-in-kundensupport-w-m-d-ckw-emmen-e78d5baa",
-        "berater-in-kundensupport-w-m-d-ckw-emmen"
+        "berater-in-kundensupport-w-m-d-ckw-emmen-c231093e",
+        "consulente-m-d-ckw-emmen",
+        "berater-in-kundensupport-w-m-d-87db8efa-7c15-41ab-96f7-e090fcb3f830",
+        "consultant-m-d-ckw-emmen",
+        "consultant-m-j-ckw-emmen"
       ]
     },
     "postalCode": "6003",
@@ -11414,36 +11449,41 @@
       "chefmonteur-in-realisierung-w-m-d-ckw-luzern-e3c0a4b4",
       "chefmonteur-in-realisierung-w-m-d-ckw-luzern-549e01a0",
       "chefmonteur-in-realisierung-w-m-d-ckw-luzern-36f89238",
-      "chefmonteur-in-realisierung-w-m-d-ckw-luzern",
       "capo-montatore-trice-per-la-realizzazione-m-f-d-ckw-luzern",
-      "chefmonteur-in-realisierung-w-m-d-8aa66ff8-9499-41d9-8990-1bfeb6f4e552",
       "lead-installer-implementation-m-f-d-ckw-luzern",
       "chef-monteur-cheffe-monteuse-realisation-h-f-d-ckw-luzern",
-      "capo-montatore-trice-realizzazione-m-f-d-ckw-luzern",
-      "head-installation-engineer-implementation-m-f-d-ckw-luzern",
-      "chef-fe-monteur-se-realisation-h-f-d-ckw-luzern"
+      "chefmonteur-in-realisierung-w-m-d-8aa66ff8-9499-41d9-8990-1bfeb6f4e552-acafac58",
+      "capo-montatore-trice-realizzazione-m-f-d-ckw-luzern-ca0fc83d",
+      "head-installation-engineer-implementation-m-f-d-ckw-luzern-e55a48ad",
+      "chef-fe-monteur-se-realisation-h-f-d-ckw-luzern-c5bcd8b6"
     ],
     "previousSlugsByLocale": {
       "it": [
         "chefmonteur-in-realisierung-w-m-d-b17b1a8b-a188-47c3-b9d9-f3250059b40e",
         "chefmonteur-in-realisierung-w-m-d-ckw-luzern",
         "capo-montatore-trice-per-la-realizzazione-m-f-d-ckw-luzern",
-        "chefmonteur-in-realisierung-w-m-d-8aa66ff8-9499-41d9-8990-1bfeb6f4e552",
-        "capo-montatore-trice-realizzazione-m-f-d-ckw-luzern"
+        "chefmonteur-in-realisierung-w-m-d-8aa66ff8-9499-41d9-8990-1bfeb6f4e552-acafac58",
+        "capo-montatore-trice-realizzazione-m-f-d-ckw-luzern-ca0fc83d",
+        "head-installation-engineer-implementation-m-f-d-ckw-luzern",
+        "chef-fe-monteur-se-realisation-h-f-d-ckw-luzern"
       ],
       "en": [
         "chefmonteur-in-realisierung-w-m-d-b17b1a8b-a188-47c3-b9d9-f3250059b40e",
         "chefmonteur-in-realisierung-w-m-d-ckw-luzern",
         "lead-installer-implementation-m-f-d-ckw-luzern",
-        "chefmonteur-in-realisierung-w-m-d-8aa66ff8-9499-41d9-8990-1bfeb6f4e552",
-        "head-installation-engineer-implementation-m-f-d-ckw-luzern"
+        "chefmonteur-in-realisierung-w-m-d-8aa66ff8-9499-41d9-8990-1bfeb6f4e552-acafac58",
+        "head-installation-engineer-implementation-m-f-d-ckw-luzern-e55a48ad",
+        "capo-montatore-trice-realizzazione-m-f-d-ckw-luzern",
+        "chef-fe-monteur-se-realisation-h-f-d-ckw-luzern"
       ],
       "fr": [
         "chefmonteur-in-realisierung-w-m-d-b17b1a8b-a188-47c3-b9d9-f3250059b40e",
         "chefmonteur-in-realisierung-w-m-d-ckw-luzern",
         "chef-monteur-cheffe-monteuse-realisation-h-f-d-ckw-luzern",
-        "chefmonteur-in-realisierung-w-m-d-8aa66ff8-9499-41d9-8990-1bfeb6f4e552",
-        "chef-fe-monteur-se-realisation-h-f-d-ckw-luzern"
+        "chefmonteur-in-realisierung-w-m-d-8aa66ff8-9499-41d9-8990-1bfeb6f4e552-acafac58",
+        "chef-fe-monteur-se-realisation-h-f-d-ckw-luzern-c5bcd8b6",
+        "capo-montatore-trice-realizzazione-m-f-d-ckw-luzern",
+        "head-installation-engineer-implementation-m-f-d-ckw-luzern"
       ],
       "de": [
         "chefmonteur-in-realisierung-w-m-d-ckw-luzern-c1c31a0f",
@@ -11589,7 +11629,11 @@
         "chefmonteur-in-realisierung-w-m-d-ckw-luzern-e3c0a4b4",
         "chefmonteur-in-realisierung-w-m-d-ckw-luzern-549e01a0",
         "chefmonteur-in-realisierung-w-m-d-ckw-luzern-36f89238",
-        "chefmonteur-in-realisierung-w-m-d-ckw-luzern"
+        "chefmonteur-in-realisierung-w-m-d-ckw-luzern-154da227",
+        "chefmonteur-in-realisierung-w-m-d-8aa66ff8-9499-41d9-8990-1bfeb6f4e552",
+        "capo-montatore-trice-realizzazione-m-f-d-ckw-luzern",
+        "head-installation-engineer-implementation-m-f-d-ckw-luzern",
+        "chef-fe-monteur-se-realisation-h-f-d-ckw-luzern"
       ]
     },
     "postalCode": "6003",

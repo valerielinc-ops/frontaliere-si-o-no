@@ -139,14 +139,20 @@ function detectEmploymentType(text = '') {
 
 /* ── Workday fetcher ───────────────────────────────────────── */
 
-async function fetchJobListings() {
+async function fetchJobListings(browserFallback) {
   const out = [];
   try {
     for await (const posting of fetchWorkdayJobs(WORKDAY_API_BASE, {
       // KSB only operates in Switzerland — no location filter needed.
       maxPages: 100000,
+      publicUrl: WORKDAY_PUBLIC_BASE,
+      ...(browserFallback ? { browserFallback } : {}),
     })) {
-      const id = extractWorkdayJobIdentity(posting, { apiBase: WORKDAY_API_BASE, company: KSB_COMPANY_NAME });
+      const id = extractWorkdayJobIdentity(posting, {
+        apiBase: WORKDAY_API_BASE,
+        publicBase: WORKDAY_PUBLIC_BASE,
+        company: KSB_COMPANY_NAME,
+      });
       out.push({
         title: id.title,
         location: id.location,
@@ -171,26 +177,30 @@ export async function fetchAllKsbJobs() {
   console.log(`🏥 Fetching ${KSB_COMPANY_NAME} jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
-  const listings = await fetchJobListings();
-  if (!listings || listings.length === 0) {
-    console.warn('⚠️ No job listings returned.');
-    return [];
-  }
-
-  console.log(`  📋 Listings found: ${listings.length}`);
-
-  const detailBrowserSession = createWorkdayBrowserJsonFallback(WORKDAY_API_BASE);
-  try {
-
-  // KSB's career site shows an "About us" sidebar next to every posting, and
-  // Workday folds it into each posting's JSON-LD description. The CXS job
-  // payload never carries it, so KSB's short postings (a two-line
-  // "Spontanbewerbung", a 445-character OP-technician apprenticeship) were
-  // published at 13-35 % of what the source page states (audit run
-  // 36528331656). Read it once per run and append it to each posting body.
-  const aboutText = await fetchWorkdaySidebarText(WORKDAY_API_BASE, stripHtml, {
-    browserFallback: detailBrowserSession.request,
+  // KSB's public Workday page is German. If the direct CXS POST is blocked at
+  // the transport boundary, the browser must bootstrap on that same locale so
+  // the tenant supplies the cookies/config needed by the JSON request.
+  const browserSession = createWorkdayBrowserJsonFallback(WORKDAY_API_BASE, {
+    publicUrl: WORKDAY_PUBLIC_BASE,
   });
+  try {
+    const listings = await fetchJobListings(browserSession.request);
+    if (!listings || listings.length === 0) {
+      console.warn('⚠️ No job listings returned.');
+      return [];
+    }
+
+    console.log(`  📋 Listings found: ${listings.length}`);
+
+    // KSB's career site shows an "About us" sidebar next to every posting, and
+    // Workday folds it into each posting's JSON-LD description. The CXS job
+    // payload never carries it, so KSB's short postings (a two-line
+    // "Spontanbewerbung", a 445-character OP-technician apprenticeship) were
+    // published at 13-35 % of what the source page states (audit run
+    // 36528331656). Read it once per run and append it to each posting body.
+    const aboutText = await fetchWorkdaySidebarText(WORKDAY_API_BASE, stripHtml, {
+      browserFallback: browserSession.request,
+    });
 
   const jobs = [];
   let withoutBody = 0;
@@ -203,10 +213,10 @@ export async function fetchAllKsbJobs() {
     // site (issue 9842: no HQ fallback on unknown geography).
     const location = normalizeSpace(listing.location || '')
       || await fetchWorkdayPrimarySwissLocation(WORKDAY_API_BASE, listing.externalPath, {
-        browserFallback: detailBrowserSession.request,
+        browserFallback: browserSession.request,
       });
     const canton = location ? await fetchWorkdaySwissCanton(WORKDAY_API_BASE, listing.externalPath, location, {
-      browserFallback: detailBrowserSession.request,
+      browserFallback: browserSession.request,
     }) : '';
     if (!canton) {
       console.log(`  ⏭️  Skipped location without a Swiss canton: ${listing.location || '(roll-up without Swiss primary)'} — ${title}`);
@@ -221,7 +231,7 @@ export async function fetchAllKsbJobs() {
       WORKDAY_API_BASE,
       listing.externalPath,
       stripHtml,
-      { browserFallback: detailBrowserSession.request },
+      { browserFallback: browserSession.request },
     );
     const employmentType = detectEmploymentType(listing.timeType || detailInfo.timeType || title);
     await new Promise((r) => setTimeout(r, 400));
@@ -294,6 +304,6 @@ export async function fetchAllKsbJobs() {
   console.log(`\n📋 Total ${KSB_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
   } finally {
-    await detailBrowserSession.close();
+    await browserSession.close();
   }
 }

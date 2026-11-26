@@ -27,6 +27,7 @@ import {
   L1_GA4_EVENT_CONTRACT,
   L4_GA4_RETURN_CONTRACT,
   L4_DELIVERY_CONSENT_WINDOW_MS,
+  L4_DELIVERY_CONTRACT_EFFECTIVE_AT,
   readDeliveryConsentEvidence,
   L5_DECISION_EVENT_CONTRACT,
   l5GatedDateRange,
@@ -1035,6 +1036,8 @@ describe('read-only loop outcome exporters', () => {
       proofId = `jer_job_alert_${'a'.repeat(24)}`,
       consent = true,
       sentAt = '2026-09-12T09:00:00.000Z',
+      consentCheckedAt = null,
+      deliveredAt = '2026-09-12T09:01:00.000Z',
     } = {}) => row(`job_alert_subscribers/user@example.test/campaign_deliveries/${id}`, {
       campaign_id: alertId,
       ranking_delivery_id: proofId,
@@ -1042,11 +1045,13 @@ describe('read-only loop outcome exporters', () => {
       consent_checked: consent ? true : null,
       consent_allowed: consent ? true : null,
       consent_basis: consent ? 'explicit-alert' : null,
-      consent_checked_at: consent ? '2026-09-12T08:59:00.000Z' : null,
+      consent_checked_at: consent
+        ? (consentCheckedAt || new Date(Date.parse(sentAt) - 60_000).toISOString())
+        : null,
       outcome_contract_version: 1,
       scheduled_for: null,
       send_time_source: 'global',
-      delivered_at: '2026-09-12T09:01:00.000Z',
+      delivered_at: deliveredAt,
     });
     const ledger = ({ alertRows = [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })], deliveryRows, predicates }:
       { alertRows?: unknown[]; deliveryRows: unknown[]; predicates?: Record<string, unknown> }) => buildL4OutcomeLedger({
@@ -1165,6 +1170,147 @@ describe('read-only loop outcome exporters', () => {
           historicalAlertRowsRecovered: 1,
           mutableConsentSnapshotsSuperseded: 1,
         },
+      });
+    });
+
+    it('keeps pre-rollout rows diagnostic without treating them as current consent failures', () => {
+      const measured = buildL4OutcomeLedger({
+        now: new Date('2026-11-26T13:00:00.000Z'),
+        alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+        jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+        newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
+        deliveryRows: [
+          senderDelivery({
+            id: 'legacy',
+            sentAt: '2026-11-26T12:00:00.000Z',
+            consent: false,
+          }),
+          senderDelivery({
+            id: 'current',
+            proofId: `jer_job_alert_${'b'.repeat(24)}`,
+            sentAt: '2026-11-26T12:59:00.000Z',
+          }),
+        ],
+        deliveryContractEffectiveAt: L4_DELIVERY_CONTRACT_EFFECTIVE_AT,
+        predicates: { evaluateJobAlertConsent: () => ({ allowed: true, reason: 'explicit-alert' }) },
+      });
+
+      expect(measured).toMatchObject({
+        deliveredAlerts: 1,
+        export: {
+          consentChecked: true,
+          deduplicationChecked: true,
+          unattributedDeliveries: 0,
+          deliveryRows: 2,
+          measuredDeliveryRows: 1,
+          legacyDeliveryRows: 1,
+          legacyDeliveryRowsExcluded: 1,
+          measurementBoundary: {
+            active: true,
+            effectiveAt: L4_DELIVERY_CONTRACT_EFFECTIVE_AT,
+          },
+        },
+      });
+    });
+
+    it('retains pre-rollout rows that already carry complete immutable proof', () => {
+      const output = buildL4OutcomeLedger({
+        now: new Date('2026-11-26T13:05:00.000Z'),
+        alertRows: [
+          row('job_alert_subscribers/user@example.test/alerts/a1', { active: true }),
+          row('job_alert_subscribers/user@example.test/alerts/a2', { active: true }),
+        ],
+        jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+        newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
+        deliveryRows: [
+          senderDelivery({
+            id: 'legacy-proven',
+            alertId: 'a2',
+            sentAt: '2026-11-26T12:00:00.000Z',
+            deliveredAt: '2026-11-26T12:01:00.000Z',
+          }),
+          senderDelivery({
+            id: 'current',
+            proofId: `jer_job_alert_${'b'.repeat(24)}`,
+            sentAt: '2026-11-26T12:59:00.000Z',
+            deliveredAt: '2026-11-26T13:00:00.000Z',
+          }),
+        ],
+        deliveryContractEffectiveAt: L4_DELIVERY_CONTRACT_EFFECTIVE_AT,
+        predicates: { evaluateJobAlertConsent: () => ({ allowed: true, reason: 'explicit-alert' }) },
+      });
+
+      expect(output).toMatchObject({
+        deliveredAlerts: 2,
+        export: {
+          consentChecked: true,
+          deduplicationChecked: true,
+          unattributedDeliveries: 0,
+          measuredDeliveryRows: 2,
+          legacyDeliveryRows: 1,
+          legacyDeliveryRowsExcluded: 0,
+        },
+      });
+    });
+
+    it('does not reuse recipient-window evidence from a pre-rollout row', () => {
+      const output = buildL4OutcomeLedger({
+        now: new Date('2026-11-26T13:05:00.000Z'),
+        alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+        jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+        newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
+        deliveryRows: [
+          senderDelivery({ id: 'legacy', sentAt: '2026-11-26T12:00:00.000Z', consent: false }),
+          senderDelivery({
+            id: 'current',
+            proofId: `jer_job_alert_${'b'.repeat(24)}`,
+            sentAt: '2026-11-26T12:59:00.000Z',
+            deliveredAt: null,
+          }),
+        ],
+        eventRows: [row('job_alert_subscribers/user@example.test/events/e1', {
+          event_type: 'delivered',
+          provider: 'maileroo',
+          occurred_at: '2026-11-26T13:00:00.000Z',
+        })],
+        deliveryContractEffectiveAt: L4_DELIVERY_CONTRACT_EFFECTIVE_AT,
+        predicates: { evaluateJobAlertConsent: () => ({ allowed: true, reason: 'explicit-alert' }) },
+      });
+
+      expect(output).toMatchObject({
+        deliveredAlerts: 0,
+        export: {
+          consentChecked: true,
+          unattributedDeliveries: 0,
+          legacyDeliveryRows: 1,
+          legacyDeliveryRowsExcluded: 1,
+          measuredDeliveryRows: 1,
+          deliveryEvidenceByJoin: { recipientWindow: 0, none: 1 },
+        },
+      });
+    });
+
+    it('still fails closed for a post-rollout row without consent proof', () => {
+      const output = buildL4OutcomeLedger({
+        now: new Date('2026-11-26T13:05:00.000Z'),
+        alertRows: [row('job_alert_subscribers/user@example.test/alerts/a1', { active: true })],
+        jobAlertRoots: [row('job_alert_subscribers/user@example.test', {})],
+        newsletterRoots: [row('newsletter_subscribers/user@example.test', {})],
+        deliveryRows: [senderDelivery({
+          sentAt: '2026-11-26T12:59:00.000Z',
+          consent: false,
+        })],
+        deliveryContractEffectiveAt: L4_DELIVERY_CONTRACT_EFFECTIVE_AT,
+        predicates: { evaluateJobAlertConsent: () => ({ allowed: true, reason: 'explicit-alert' }) },
+      });
+
+      expect(output.export).toMatchObject({
+        consentChecked: false,
+        unattributedDeliveries: 1,
+        measuredDeliveryRows: 1,
+        legacyDeliveryRows: 0,
+        legacyDeliveryRowsExcluded: 0,
+        unattributedDeliveryReasons: { missingConsentEvidence: 1 },
       });
     });
   });

@@ -49,10 +49,10 @@ on:
         type: boolean
       prune_source_images:
         description: >-
-          Remove the source-only public/images tree before a replay whose
-          audits inspect only the rehydrated dist, reserving runner disk for
-          shard assembly. Keep false for arbitrary audit replays whose scripts
-          may inspect source images.
+          Use the disk-safe sparse source profile for a replay whose audits
+          inspect only the rehydrated dist, excluding source-only and generated
+          data trees before shard assembly. Keep false for arbitrary audit
+          replays whose scripts may inspect those source trees.
         required: false
         default: false
         type: boolean
@@ -130,9 +130,9 @@ on:
         type: boolean
       prune_source_images:
         description: >-
-          Remove the source-only public/images tree before a known full replay
-          to reserve runner disk for the rehydrated dist. Keep false for
-          arbitrary audit replays whose scripts may inspect source images.
+          Use the disk-safe sparse source profile before a known full replay to
+          reserve runner disk for the rehydrated dist. Keep false for arbitrary
+          audit replays whose scripts may inspect source trees.
         required: false
         default: false
         type: boolean
@@ -189,11 +189,13 @@ jobs:
     # publish even when a quality walk is slow.
     timeout-minutes: 350
     steps:
-      # Published-dist replays do not audit the source-image tree. A sparse
-      # checkout also keeps those blobs out of the local object store; deleting
-      # public/images after a full checkout would free the worktree but retain
-      # the same disk pressure in .git. Keep arbitrary replays unrestricted
-      # because they may explicitly audit source images.
+      # Published-dist replays audit the rehydrated dist, not source-only images
+      # or the generated data/article trees used to build it. Keep those blobs
+      # out of both the worktree and the local object store: deleting them after
+      # a full checkout would retain the same disk pressure in .git. This is the
+      # same measured sparse profile used by the other dist-rehydrate gates.
+      # Keep arbitrary replays unrestricted because they may explicitly audit
+      # source trees.
       - name: Checkout audit source without source-only images
         if: ${{ inputs.prune_source_images }}
         uses: actions/checkout@v7
@@ -203,6 +205,34 @@ jobs:
           sparse-checkout: |
             /*
             !/public/images/
+            !/data/jobs/
+            !/data/url-first-seen/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/*
+            /packages/articles/content/blog-meta-it.ts
+            /packages/articles/content/blog-meta-en.ts
+            /packages/articles/content/blog-meta-de.ts
+            /packages/articles/content/blog-meta-fr.ts
+            /packages/articles/content/blog-meta-ch-it.ts
+            /packages/articles/content/blog-meta-ch-en.ts
+            /packages/articles/content/blog-meta-ch-de.ts
+            /packages/articles/content/blog-meta-ch-fr.ts
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
 
       - name: Checkout repo (for audit scripts only)
@@ -340,7 +370,8 @@ jobs:
           # The complete logical dist is disk-bound even after the source-only
           # image tree is omitted from this caller's checkout. Keep the cap
           # caller-owned: the weekly full replay is serial, while the async
-          # replay opts into its separately measured two-worker contract.
+          # replay opts into its separately measured two-worker contract within
+          # one artifact batch (the shared script drains batches between windows).
           REHYDRATE_MAX_PARALLEL: ${{ inputs.rehydrate_max_parallel }}
         run: |
           set -uo pipefail

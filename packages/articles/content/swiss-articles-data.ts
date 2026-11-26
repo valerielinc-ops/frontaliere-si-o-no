@@ -30752,6 +30752,26 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'consultazione-modifiche-oosg',
+    category: 'novita',
+    date: '2026-11-26T10:15:53.913Z',
+    image: '/images/blog/article-consultazione-modifiche-oosg.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'rimborso-imposta-secondo-pilastro-svizzero',
+    category: 'fiscale',
+    date: '2026-11-26T12:10:16.144Z',
+    image: '/images/blog/article-rimborso-imposta-secondo-pilastro-svizzero.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

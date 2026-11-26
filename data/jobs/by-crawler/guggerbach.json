@@ -1,7 +1,7 @@
 {
   "crawlerKey": "guggerbach",
-  "assembledAt": "2026-11-25T21:20:19.756Z",
-  "runId": "45701486101",
+  "assembledAt": "2026-11-26T09:24:46.556Z",
+  "runId": "45789166583",
   "jobs": [
     {
       "id": "guggerbach-b74196236ac9",
@@ -34,7 +34,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/lehrstelle-fachperson-gesundheit-efz",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:20:12.610Z",
+      "crawledAt": "2026-11-26T09:24:41.738Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -95,8 +95,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T21:20:12.610Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:24:41.738Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.guggerbach.ch/guggerbach/jobs-karriere/lehrstelle-fachperson-gesundheit-efz"
     },
     {
       "id": "guggerbach-ac594784d545",
@@ -129,7 +130,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/lehrstelle-assistentin-gesundheit-und-soziales-eba",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:20:12.609Z",
+      "crawledAt": "2026-11-26T09:24:41.737Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -190,8 +191,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T21:20:12.609Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:24:41.737Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.guggerbach.ch/guggerbach/jobs-karriere/lehrstelle-assistentin-gesundheit-und-soziales-eba"
     },
     {
       "id": "guggerbach-3cbc082eeb47",
@@ -224,7 +226,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/offene-stelle-pflegehelferin",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:20:12.608Z",
+      "crawledAt": "2026-11-26T09:24:41.736Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -275,8 +277,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T21:20:12.608Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:24:41.736Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.guggerbach.ch/guggerbach/jobs-karriere/offene-stelle-pflegehelferin"
     }
   ]
 }

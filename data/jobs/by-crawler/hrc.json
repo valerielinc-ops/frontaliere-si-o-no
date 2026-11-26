@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hrc",
-  "assembledAt": "2026-11-25T21:39:30.649Z",
-  "runId": "45703682134",
+  "assembledAt": "2026-11-26T09:39:39.756Z",
+  "runId": "45791330773",
   "jobs": [
     {
       "id": "hrc-9feb303a2e31",
@@ -35,7 +35,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/apprenties-assistantes-en-soins-et-sante-communautaire-assc-cfc-656",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:39:24.218Z",
+      "crawledAt": "2026-11-26T09:39:32.047Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -84,8 +84,9 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T21:39:24.218Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-18T09:39:32.047Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://emploi.hopitalrivierachablais.ch/fr/nos-offres/apprenties-assistantes-en-soins-et-sante-communautaire-assc-cfc-656"
     },
     {
       "id": "hrc-25df93342ef8",
@@ -119,7 +120,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/ergotherapeute-hf-en-readaptation-geriatrique-a-80-669",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:39:24.217Z",
+      "crawledAt": "2026-11-26T09:39:32.045Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -168,8 +169,9 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:39:24.217Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-27T09:39:32.045Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://emploi.hopitalrivierachablais.ch/fr/nos-offres/ergotherapeute-hf-en-readaptation-geriatrique-a-80-669"
     },
     {
       "id": "hrc-5b605d9d591f",
@@ -203,7 +205,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/medecin-chef-de-clinique-specialiste-hf-en-hematologie-fmh-ou-equivalent-675",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:39:24.215Z",
+      "crawledAt": "2026-11-26T09:39:32.044Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -257,8 +259,9 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:39:24.215Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-02T09:39:32.044Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://emploi.hopitalrivierachablais.ch/fr/nos-offres/medecin-chef-de-clinique-specialiste-hf-en-hematologie-fmh-ou-equivalent-675"
     },
     {
       "id": "hrc-bbe1caa48e4e",
@@ -292,7 +295,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/medecin-adjoint-hf-en-urologie-a-80-100-679",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:39:24.213Z",
+      "crawledAt": "2026-11-26T09:39:32.042Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -343,8 +346,9 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:39:24.213Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-11T09:39:32.042Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://emploi.hopitalrivierachablais.ch/fr/nos-offres/medecin-adjoint-hf-en-urologie-a-80-100-679"
     },
     {
       "id": "hrc-1389ee1400e7",
@@ -378,7 +382,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/ergotherapeute-hf-a-80-683",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:39:24.212Z",
+      "crawledAt": "2026-11-26T09:39:32.039Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -427,8 +431,9 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:39:24.212Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-15T09:39:32.039Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://emploi.hopitalrivierachablais.ch/fr/nos-offres/ergotherapeute-hf-a-80-683"
     },
     {
       "id": "hrc-94b21acb992e",
@@ -462,7 +467,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/infirmier-referent-hf-en-oncologie-dans-le-service-de-medecine-interne-a-60-100-681",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:39:24.210Z",
+      "crawledAt": "2026-11-26T09:39:32.037Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -511,8 +516,9 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:39:24.210Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-15T09:39:32.037Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://emploi.hopitalrivierachablais.ch/fr/nos-offres/infirmier-referent-hf-en-oncologie-dans-le-service-de-medecine-interne-a-60-100-681"
     },
     {
       "id": "hrc-4974a2ace32d",
@@ -546,7 +552,7 @@
       "url": "https://emploi.hopitalrivierachablais.ch/fr/nos-offres/logisticien-hf-au-sein-du-secteur-logistique-pharmaceutique-a-100-685",
       "source": "HRC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:39:24.195Z",
+      "crawledAt": "2026-11-26T09:39:32.022Z",
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -595,8 +601,9 @@
       },
       "streetAddress": "Rennaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T21:39:24.195Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-23T09:39:32.022Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://emploi.hopitalrivierachablais.ch/fr/nos-offres/logisticien-hf-au-sein-du-secteur-logistique-pharmaceutique-a-100-685"
     }
   ]
 }

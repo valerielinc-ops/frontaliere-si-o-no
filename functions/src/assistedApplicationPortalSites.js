@@ -8,7 +8,7 @@
 
 // Families whose verification mail links to a sibling domain of the career site.
 const SITE_FAMILIES = [
-  ['myworkdayjobs.com', 'myworkday.com', 'workday.com'],
+  ['myworkdayjobs.com', 'myworkdaysite.com', 'myworkday.com', 'workday.com'],
   ['successfactors.eu', 'successfactors.com', 'sapsf.eu', 'sapsf.com'],
 ];
 

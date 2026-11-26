@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hopital-la-tour",
-  "assembledAt": "2026-11-25T21:22:28.006Z",
-  "runId": "45703019665",
+  "assembledAt": "2026-11-26T09:39:53.499Z",
+  "runId": "45790667636",
   "jobs": [
     {
       "id": "hopital-la-tour-861b7c049de5",
@@ -34,7 +34,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/medecin-urgentiste-senior-1506",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:22:22.112Z",
+      "crawledAt": "2026-11-26T09:39:47.773Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -94,8 +94,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-22T21:22:22.112Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-22T09:39:47.773Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/medecin-urgentiste-senior-1506"
     },
     {
       "id": "hopital-la-tour-882b6ff457f2",
@@ -128,7 +129,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/ergotherapeute-a-80-cdi-1514",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:22:22.111Z",
+      "crawledAt": "2026-11-26T09:39:47.771Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -182,8 +183,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-25T21:22:22.111Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:39:47.771Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/ergotherapeute-a-80-cdi-1514"
     },
     {
       "id": "hopital-la-tour-fd3402d505cf",
@@ -217,7 +219,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/technicien-ne-en-radiologie-au-service-de-radio-oncologie-a-90-1536",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:22:22.110Z",
+      "crawledAt": "2026-11-26T09:39:47.770Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -277,8 +279,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T21:22:22.110Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-02T09:39:47.770Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/technicien-ne-en-radiologie-au-service-de-radio-oncologie-a-90-1536"
     },
     {
       "id": "hopital-la-tour-f260bca1b4dd",
@@ -311,7 +314,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-en-medecine-cdm-6-mois-80-1546",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:22:22.109Z",
+      "crawledAt": "2026-11-26T09:39:47.768Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -371,8 +374,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T21:22:22.109Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-03T09:39:47.768Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-en-medecine-cdm-6-mois-80-1546"
     },
     {
       "id": "hopital-la-tour-92e650f38526",
@@ -405,7 +409,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/assistante-technique-specialisee-en-salle-doperation-atsso-a-100-1556",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:22:22.108Z",
+      "crawledAt": "2026-11-26T09:39:47.767Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -462,8 +466,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-13T21:22:22.108Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-13T09:39:47.767Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/assistante-technique-specialisee-en-salle-doperation-atsso-a-100-1556"
     },
     {
       "id": "hopital-la-tour-b41093b9e3f3",
@@ -497,7 +502,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmierere-pour-la-clinique-de-la-douleur-cdmax-12-mois-a-70-1565",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:22:22.107Z",
+      "crawledAt": "2026-11-26T09:39:47.766Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -557,8 +562,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-28T21:22:22.107Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-28T09:39:47.766Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/infirmierere-pour-la-clinique-de-la-douleur-cdmax-12-mois-a-70-1565"
     },
     {
       "id": "hopital-la-tour-a6216bdb5cb4",
@@ -591,7 +597,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/assistante-de-direction-juniore-a-100-1568",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:22:22.106Z",
+      "crawledAt": "2026-11-26T09:39:47.764Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -645,8 +651,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-29T21:22:22.106Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-29T09:39:47.764Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/assistante-de-direction-juniore-a-100-1568"
     },
     {
       "id": "hopital-la-tour-c9a152315ac3",
@@ -680,7 +687,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/preparateur-rice-en-pharmacie-60-100-1562",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:22:22.104Z",
+      "crawledAt": "2026-11-26T09:39:47.762Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -740,8 +747,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-29T21:22:22.104Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-29T09:39:47.762Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/preparateur-rice-en-pharmacie-60-100-1562"
     },
     {
       "id": "hopital-la-tour-e37141e1f9dd",
@@ -774,7 +782,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/secretaire-medicale-en-radiologie-a-80-cdi-1569",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:22:22.103Z",
+      "crawledAt": "2026-11-26T09:39:47.761Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -834,8 +842,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T21:22:22.103Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-02T09:39:47.761Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/secretaire-medicale-en-radiologie-a-80-cdi-1569"
     },
     {
       "id": "hopital-la-tour-31768c572652",
@@ -869,7 +878,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/aide-hospitalier-ere-de-jour-au-pool-70-fixe-20-flex-cdi-1574",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:22:22.102Z",
+      "crawledAt": "2026-11-26T09:39:47.760Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -929,8 +938,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T21:22:22.102Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-05T09:39:47.760Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/aide-hospitalier-ere-de-jour-au-pool-70-fixe-20-flex-cdi-1574"
     },
     {
       "id": "hopital-la-tour-967b66fb5c83",
@@ -963,7 +973,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-80-fixe-et-20-flex-cdi-1575",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:22:22.101Z",
+      "crawledAt": "2026-11-26T09:39:47.759Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1023,102 +1033,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T21:22:22.101Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "hopital-la-tour-e0cba468094a",
-      "slug": "infermiera-a-piscina-cdm-11-mesi-al-90-hopital-de-la-tour-meyrin",
-      "slugByLocale": {
-        "it": "infermiera-a-piscina-cdm-11-mesi-al-90-hopital-de-la-tour-meyrin",
-        "en": "nurse-at-pool-cdm-11-months-at-90-hopital-de-la-tour-meyrin",
-        "de": "krankenschwester-im-pool-cdm-11-monate-bei-90-hopital-de-la-tour-meyrin",
-        "fr": "infirmier-iere-au-pool-cdm-11-mois-a-90-hopital-la-tour-meyrin"
-      },
-      "company": "Hôpital de La Tour",
-      "companyKey": "hopital-la-tour",
-      "companyDomain": "la-tour.ch",
-      "title": "Infirmier (-ière) au Pool - CDM 11 mois à 90 %",
-      "titleByLocale": {
-        "it": "Infermiera a Piscina - CDM 11 mesi al 90%",
-        "en": "Nurse at Pool - CDM 11 months at 90%",
-        "de": "Krankenschwester im Pool - CDM 11 Monate bei 90%",
-        "fr": "Infirmier (-ière) au Pool - CDM 11 mois à 90 %"
-      },
-      "description": "Le Pool de personnel soignant joue un rôle essentiel au sein de notre établissement. Il met à disposition des services cliniques des professionnels expérimentés, capables d'intervenir dans différentes unités afin d'assurer la continuité des soins, de pallier les absences ponctuelles et de renforcer les équipes lors de périodes de forte activité.\n\nComposé de collaborateurs polyvalents, flexibles et autonomes, le Pool offre un environnement de travail stimulant, riche en rencontres et en expériences professionnelles.\n\nDans le cadre d'un remplacement de congé maternité, nous recrutons un/une\n\nInfirmier (-ière) au Pool - CDM 11 mois à 90 % (ref : 2072)\n\nVotre mission\n\nAu sein d'un établissement de pointe, vous évoluez dans un environnement pluridisciplinaire, en collaboration étroite avec les infirmiers(-ères), aides-soignants(-es) et médecins.\n\nVous assurez la prise en charge globale de patients présentant des pathologies variées en phase aiguë, en veillant à la qualité, à la sécurité et à la continuité des soins.\n\nÀ ce titre, vos principales responsabilités sont les suivantes :\n\n•\n Accueillir, installer et accompagner les patients, en leur présentant les informations relatives à leur séjour et à leur prise en charge.\n\n•\n Recueillir, évaluer et transmettre les données médicales et administratives, tout en assurant la mise à jour du dossier patient informatisé.\n\n•\n Organiser et planifier les soins en tenant compte des priorités, du degré d'urgence et de l'évolution de l'état clinique des patients.\n\n•\n Réaliser les soins sur prescription médicale, dans le respect des protocoles, des procédures et des exigences institutionnelles.\n\n•\n Assurer une documentation rigoureuse et complète du dossier patient informatisé.\n\n•\n Surveiller et évaluer en continu l'état clinique des patients, identifier rapidement toute évolution et adapter la prise en charge en conséquence.\n\nVotre profil\n\nVous êtes un(-e) professionnel(-le) engagé(-e), doté(-e) d'un excellent sens clinique et appréciant la diversité des situations de soins.\n\nVous disposez des qualifications et qualités suivantes :\n\n•\n Diplôme d'infirmier(-ère).\n\n•\n Reconnaissance de la Croix-Rouge suisse obligatoire pour les titulaires d'un diplôme étranger.\n\n•\n Excellent sens du contact et du service, avec une attention particulière portée à la satisfaction et au bien-être des patients.\n\n•\n Autonomie, bienveillance et sens des responsabilités.\n\n•\n Grande polyvalence et capacité à vous adapter rapidement à différents environnements et organisations de travail.\n\n•\n Excellentes capacités d'organisation, d'anticipation et de gestion des priorités.\n\n•\n Esprit d'équipe, attitude positive et aptitude à instaurer un climat de confiance avec vos collègues et les patients.\n\n•\n Grande flexibilité et disponibilité face aux exigences d'un poste au Pool.\n\nCe que nous vous proposons\n\n•\n Un poste varié offrant une réelle richesse d'expériences cliniques.\n\n•\n L'opportunité de développer et de valoriser votre polyvalence au sein de différentes unités.\n\n•\n Un environnement de travail stimulant, au contact d'équipes pluridisciplinaires expérimentées.\n\n•\n Une activité qui favorise l'autonomie, l'adaptabilité et le développement de vos compétences professionnelles.\n\nConditions du poste :\n\n•\n Type de contrat : Contrat à durée maximale de 11 mois (remplacement de congé maternité).\n\n•\n Taux d'activité : 90 %.\n\n•\n Horaires : Variables, selon les besoins des services.\n\nEnvie de relever le défi et de rejoindre notre Pool de personnel soignant ?\n\nNous nous réjouissons de découvrir votre candidature et de vous accueillir au sein de nos équipes !",
-      "descriptionByLocale": {
-        "it": "Il Caregiver Pool svolge un ruolo essenziale nella nostra istituzione. Fornisce servizi clinici a professionisti esperti che possono intervenire in diverse unità per garantire la continuità della cura, compensare eventuali assenze e rafforzare i team durante i periodi di alta attività.\n\nComposto da collaboratori versatili, flessibili e autonomi, il Pool offre un ambiente di lavoro stimolante, ricco di incontri ed esperienze professionali.\n\nCome parte di una sostituzione del congedo di maternità, reclutiamo uno / uno\n\nInfermiera a Piscina - CDM 11 mesi al 90% (rif: 2072)\n\nLa tua missione\n\nIn una struttura all'avanguardia, si lavora in un ambiente multidisciplinare, in stretta collaborazione con infermieri, assistenti e medici.\n\nAssicurate la cura complessiva dei pazienti con varie condizioni nella fase acuta, garantendo la qualità, la sicurezza e la continuità della cura.\n\nCome tale, le vostre principali responsabilità sono:\n\n•\nPer ricevere, installare e accompagnare i pazienti con informazioni sul loro soggiorno e la loro cura.\n\n•\nRaccogliere, valutare e trasmettere dati medici e amministrativi, mantenendo il record del paziente computerizzato.\n\n•\nOrganizzare e pianificare l'assistenza tenendo conto delle priorità, dell'urgenza e del cambiamento delle condizioni cliniche.\n\n•\nEseguire l'assistenza medica di prescrizione in conformità con protocolli, procedure e requisiti istituzionali.\n\n•\nAssicurare una documentazione rigorosa e completa del record del paziente computerizzato.\n\n•\nMonitorare e valutare lo stato clinico dei pazienti in modo continuo, identificare rapidamente eventuali modifiche e regolare la gestione di conseguenza.\n\nIl tuo profilo\n\nSei un professionista impegnato che ha un ottimo senso clinico e apprezza la diversità delle situazioni di cura.\n\nHai le seguenti qualifiche e qualità:\n\n•\nDiploma di infermiera.\n\n•\nRiconoscimento della Croce Rossa svizzera obbligatorio per i titolari di un diploma straniero.\n\n•\nOttimo senso di contatto e servizio, con particolare attenzione alla soddisfazione del paziente e al benessere.\n\n•\nAutonomia, benevolenza e senso di responsabilità.\n\n•\nGrande versatilità e capacità di adattarsi rapidamente a diversi ambienti di lavoro e organizzazioni.\n\n•\nEccellente capacità organizzative, di anticipazione e di gestione prioritaria.\n\n•\nSpirito di squadra, atteggiamento positivo e capacità di costruire fiducia con i vostri colleghi e pazienti.\n\n•\nGrande flessibilità e disponibilità per soddisfare le esigenze di una posizione in piscina.\n\nCosa offriamo\n\n•\nUna posizione varia che offre una ricchezza di esperienze cliniche.\n\n•\nL'opportunità di sviluppare e migliorare la vostra versatilità in diverse unità.\n\n•\nUn ambiente di lavoro stimolante, a contatto con team multidisciplinari esperti.\n\n•\nUn'attività che promuove l'autonomia, l'adattabilità e lo sviluppo delle tue competenze professionali.\n\nCondizioni postali:\n\n•\nTipo di contratto: Contratto con una durata massima di 11 mesi (sostituzione del congedo di maternità).\n\n•\nTasso di partecipazione: 90%.\n\n•\nOrari: Variabili, a seconda delle esigenze dei servizi.\n\nVuoi incontrare la sfida e unirti al nostro Caregiver Pool?\n\nNon vediamo l'ora di scoprire la tua applicazione e di darti il benvenuto ai nostri team!",
-        "en": "The Caregiver Pool plays an essential role in our institution. It provides clinical services to experienced professionals who can intervene in different units to ensure continuity of care, to compensate for occasional absences and to strengthen teams during periods of high activity.\n\nComposed of versatile, flexible and autonomous collaborators, the Pool offers a stimulating working environment, rich in meetings and professional experiences.\n\nAs part of a maternity leave replacement, we recruit one/one\n\nNurse at Pool - CDM 11 months at 90% (ref: 2072)\n\nYour Mission\n\nIn a state-of-the-art facility, you work in a multidisciplinary environment, in close collaboration with nurses, caregivers and physicians.\n\nYou ensure the overall care of patients with various conditions in the acute phase, ensuring the quality, safety and continuity of care.\n\nAs such, your main responsibilities are:\n\n•\nTo receive, install and accompany patients with information on their stay and care.\n\n•\nCollect, evaluate and transmit medical and administrative data, while maintaining the computerized patient record.\n\n•\nOrganize and plan care taking into account priorities, urgency and changing clinical conditions.\n\n•\nPerform medical prescription care in accordance with protocols, procedures and institutional requirements.\n\n•\nEnsure rigorous and complete documentation of the computerized patient record.\n\n•\nMonitor and evaluate the clinical status of patients on an ongoing basis, quickly identify any changes and adjust management accordingly.\n\nYour profile\n\nYou are a committed professional who has excellent clinical sense and appreciates the diversity of care situations.\n\nYou have the following qualifications and qualities:\n\n•\nDiploma of Nurse.\n\n•\nRecognition of the Swiss Red Cross compulsory for holders of a foreign diploma.\n\n•\nExcellent sense of contact and service, with particular attention to patient satisfaction and well-being.\n\n•\nAutonomy, benevolence and sense of responsibility.\n\n•\nGreat versatility and ability to adapt quickly to different working environments and organizations.\n\n•\nExcellent organizational, anticipation and priority management capabilities.\n\n•\nTeam spirit, positive attitude and ability to build confidence with your colleagues and patients.\n\n•\nGreat flexibility and availability to meet the requirements of a position in the Pool.\n\nWhat we offer\n\n•\nA varied position offering a wealth of clinical experiences.\n\n•\nThe opportunity to develop and enhance your versatility within different units.\n\n•\nA stimulating working environment, in contact with experienced multidisciplinary teams.\n\n•\nAn activity that promotes the autonomy, adaptability and development of your professional skills.\n\nPost conditions:\n\n•\nType of contract: Contract with a maximum duration of 11 months (replacement of maternity leave).\n\n•\nParticipation rate: 90%.\n\n•\nSchedules : Variables, depending on the needs of the services.\n\nWant to meet the challenge and join our Caregiver Pool?\n\nWe look forward to discovering your application and welcoming you to our teams!",
-        "de": "Der Caregiver Pool spielt eine wesentliche Rolle in unserer Institution. Es bietet klinische Dienstleistungen für erfahrene Fachkräfte, die in verschiedenen Einheiten eingreifen können, um die Kontinuität der Versorgung zu gewährleisten, gelegentliche Abwesenheiten auszugleichen und Teams in Zeiten hoher Aktivität zu stärken.\n\nDer Pool besteht aus vielseitigen, flexiblen und autonomen Mitarbeitern und bietet ein anregendes Arbeitsumfeld, das reich an Meetings und beruflichen Erfahrungen ist.\n\nIm Rahmen eines Mutterschaftsurlaubs ersetzen wir einen / einen\n\nNurse at Pool - CDM 11 Monate bei 90% (ref: 2072)\n\nDeine Mission\n\nIn einer hochmodernen Einrichtung arbeiten Sie in einem multidisziplinären Umfeld in enger Zusammenarbeit mit Krankenschwestern, Betreuern und Ärzten.\n\nSie gewährleisten die Gesamtversorgung von Patienten mit verschiedenen Erkrankungen in der akuten Phase und gewährleisten die Qualität, Sicherheit und Kontinuität der Versorgung.\n\nAls solche sind Ihre Hauptaufgaben:\n\n•\nUm zu empfangen, zu installieren und zu begleiten Patienten mit Informationen über ihren Aufenthalt und Pflege.\n\n•\nSammeln, bewerten und übertragen Sie medizinische und administrative Daten, während Sie die computergestützte Patientenakte beibehalten.\n\n•\nOrganisieren und planen Sie die Pflege unter Berücksichtigung von Prioritäten, Dringlichkeit und sich ändernden klinischen Bedingungen.\n\n•\nFühren Sie eine ärztliche Verschreibung in Übereinstimmung mit Protokollen, Verfahren und institutionellen Anforderungen durch.\n\n•\nGewährleistung einer strengen und vollständigen Dokumentation der computergestützten Patientenakte.\n\n•\nÜberwachen und bewerten Sie den klinischen Status von Patienten auf einer laufenden Basis, schnell zu erkennen, Änderungen und passen Sie das management entsprechend.\n\nDein Profil\n\nSie sind ein engagierter Fachmann, der einen exzellenten klinischen Sinn hat und die Vielfalt der Pflegesituationen schätzt.\n\nSie haben folgende Qualifikationen und Qualitäten:\n\n•\nDiplom der Krankenschwester.\n\n•\nAnerkennung des Schweizerischen Roten Kreuzes für Inhaber eines ausländischen Diploms.\n\n•\nAusgezeichneter Kontakt und Service, mit besonderem Augenmerk auf Patientenzufriedenheit und Wohlbefinden.\n\n•\nAutonomie, Wohlwollen und Verantwortungsbewusstsein.\n\n•\nGroße Vielseitigkeit und Fähigkeit, sich schnell an unterschiedliche Arbeitsumgebungen und Organisationen anzupassen.\n\n•\nHervorragende organisatorische, Antizipations- und Prioritätsmanagementfähigkeiten.\n\n•\nTeamgeist, positive Einstellung und Fähigkeit, Vertrauen bei Ihren Kollegen und Patienten aufzubauen.\n\n•\nGroße Flexibilität und Verfügbarkeit, um die Anforderungen einer Position im Pool zu erfüllen.\n\nWas wir bieten\n\n•\nEine abwechslungsreiche Position bietet eine Fülle von klinischen Erfahrungen.\n\n•\nDie Möglichkeit, Ihre Vielseitigkeit in verschiedenen Einheiten zu entwickeln und zu verbessern.\n\n•\nEin anregendes Arbeitsumfeld, in Kontakt mit erfahrenen multidisziplinären Teams.\n\n•\nEine Aktivität, die die Autonomie, Anpassungsfähigkeit und Entwicklung Ihrer beruflichen Fähigkeiten fördert.\n\nPostbedingungen:\n\n•\nArt des Vertrags: Vertrag mit einer maximalen Laufzeit von 11 Monaten (Ersatz des Mutterschaftsurlaubs).\n\n•\nTeilnahmequote: 90 %.\n\n•\nZeitpläne: Variablen, abhängig von den Bedürfnissen der Dienste.\n\nMöchten Sie sich der Herausforderung stellen und unserem Caregiver Pool beitreten?\n\nWir freuen uns darauf, Ihre Bewerbung zu entdecken und Sie in unseren Teams willkommen zu heißen!",
-        "fr": "Le Pool de personnel soignant joue un rôle essentiel au sein de notre établissement. Il met à disposition des services cliniques des professionnels expérimentés, capables d'intervenir dans différentes unités afin d'assurer la continuité des soins, de pallier les absences ponctuelles et de renforcer les équipes lors de périodes de forte activité.\n\nComposé de collaborateurs polyvalents, flexibles et autonomes, le Pool offre un environnement de travail stimulant, riche en rencontres et en expériences professionnelles.\n\nDans le cadre d'un remplacement de congé maternité, nous recrutons un/une\n\nInfirmier (-ière) au Pool - CDM 11 mois à 90 % (ref : 2072)\n\nVotre mission\n\nAu sein d'un établissement de pointe, vous évoluez dans un environnement pluridisciplinaire, en collaboration étroite avec les infirmiers(-ères), aides-soignants(-es) et médecins.\n\nVous assurez la prise en charge globale de patients présentant des pathologies variées en phase aiguë, en veillant à la qualité, à la sécurité et à la continuité des soins.\n\nÀ ce titre, vos principales responsabilités sont les suivantes :\n\n•\n Accueillir, installer et accompagner les patients, en leur présentant les informations relatives à leur séjour et à leur prise en charge.\n\n•\n Recueillir, évaluer et transmettre les données médicales et administratives, tout en assurant la mise à jour du dossier patient informatisé.\n\n•\n Organiser et planifier les soins en tenant compte des priorités, du degré d'urgence et de l'évolution de l'état clinique des patients.\n\n•\n Réaliser les soins sur prescription médicale, dans le respect des protocoles, des procédures et des exigences institutionnelles.\n\n•\n Assurer une documentation rigoureuse et complète du dossier patient informatisé.\n\n•\n Surveiller et évaluer en continu l'état clinique des patients, identifier rapidement toute évolution et adapter la prise en charge en conséquence.\n\nVotre profil\n\nVous êtes un(-e) professionnel(-le) engagé(-e), doté(-e) d'un excellent sens clinique et appréciant la diversité des situations de soins.\n\nVous disposez des qualifications et qualités suivantes :\n\n•\n Diplôme d'infirmier(-ère).\n\n•\n Reconnaissance de la Croix-Rouge suisse obligatoire pour les titulaires d'un diplôme étranger.\n\n•\n Excellent sens du contact et du service, avec une attention particulière portée à la satisfaction et au bien-être des patients.\n\n•\n Autonomie, bienveillance et sens des responsabilités.\n\n•\n Grande polyvalence et capacité à vous adapter rapidement à différents environnements et organisations de travail.\n\n•\n Excellentes capacités d'organisation, d'anticipation et de gestion des priorités.\n\n•\n Esprit d'équipe, attitude positive et aptitude à instaurer un climat de confiance avec vos collègues et les patients.\n\n•\n Grande flexibilité et disponibilité face aux exigences d'un poste au Pool.\n\nCe que nous vous proposons\n\n•\n Un poste varié offrant une réelle richesse d'expériences cliniques.\n\n•\n L'opportunité de développer et de valoriser votre polyvalence au sein de différentes unités.\n\n•\n Un environnement de travail stimulant, au contact d'équipes pluridisciplinaires expérimentées.\n\n•\n Une activité qui favorise l'autonomie, l'adaptabilité et le développement de vos compétences professionnelles.\n\nConditions du poste :\n\n•\n Type de contrat : Contrat à durée maximale de 11 mois (remplacement de congé maternité).\n\n•\n Taux d'activité : 90 %.\n\n•\n Horaires : Variables, selon les besoins des services.\n\nEnvie de relever le défi et de rejoindre notre Pool de personnel soignant ?\n\nNous nous réjouissons de découvrir votre candidature et de vous accueillir au sein de nos équipes !"
-      },
-      "location": "Meyrin",
-      "canton": "GE",
-      "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-cdm-11-mois-a-90-1572",
-      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:22:22.100Z",
-      "addressLocality": "Meyrin",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1217",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-cdm-11-mois-a-90-1572",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "infirmier-iere-au-pool-cdm-11-mois-a-90-hopital-la-tour-meyrin"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-iere-au-pool-cdm-11-mois-a-90-hopital-la-tour-meyrin"
-        ],
-        "en": [
-          "infirmier-iere-au-pool-cdm-11-mois-a-90-hopital-la-tour-meyrin"
-        ],
-        "de": [
-          "infirmier-iere-au-pool-cdm-11-mois-a-90-hopital-la-tour-meyrin"
-        ]
-      },
-      "firstSeenAt": "2026-11-06T21:49:52.392Z",
-      "salaryMin": 77900,
-      "salaryMax": 108500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77900,
-          "maxValue": 108500,
-          "unitText": "YEAR"
-        }
-      },
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Hôpital de La Tour",
-        "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
-        "postalCode": "1217",
-        "addressLocality": "Meyrin",
-        "addressRegion": "GE",
-        "checkedAt": "2026-10-31T20:49:16.573Z",
-        "streetAddressSource": "zefix-registry"
-      },
-      "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T21:22:22.100Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-05T09:39:47.759Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-80-fixe-et-20-flex-cdi-1575"
     },
     {
       "id": "hopital-la-tour-6c26063bb4e7",
@@ -1152,7 +1069,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/aide-hospitalier-iere-de-jour-contrat-journalier-1576",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:22:22.099Z",
+      "crawledAt": "2026-11-26T09:39:47.758Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1212,8 +1129,104 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T21:22:22.099Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-05T09:39:47.758Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/aide-hospitalier-iere-de-jour-contrat-journalier-1576"
+    },
+    {
+      "id": "hopital-la-tour-e0cba468094a",
+      "slug": "infermiera-a-piscina-cdm-11-mesi-al-90-hopital-de-la-tour-meyrin",
+      "slugByLocale": {
+        "it": "infermiera-a-piscina-cdm-11-mesi-al-90-hopital-de-la-tour-meyrin",
+        "en": "nurse-at-pool-cdm-11-months-at-90-hopital-de-la-tour-meyrin",
+        "de": "krankenschwester-im-pool-cdm-11-monate-bei-90-hopital-de-la-tour-meyrin",
+        "fr": "infirmier-iere-au-pool-cdm-11-mois-a-90-hopital-la-tour-meyrin"
+      },
+      "company": "Hôpital de La Tour",
+      "companyKey": "hopital-la-tour",
+      "companyDomain": "la-tour.ch",
+      "title": "Infirmier (-ière) au Pool - CDM 11 mois à 90 %",
+      "titleByLocale": {
+        "it": "Infermiera a Piscina - CDM 11 mesi al 90%",
+        "en": "Nurse at Pool - CDM 11 months at 90%",
+        "de": "Krankenschwester im Pool - CDM 11 Monate bei 90%",
+        "fr": "Infirmier (-ière) au Pool - CDM 11 mois à 90 %"
+      },
+      "description": "Le Pool de personnel soignant joue un rôle essentiel au sein de notre établissement. Il met à disposition des services cliniques des professionnels expérimentés, capables d'intervenir dans différentes unités afin d'assurer la continuité des soins, de pallier les absences ponctuelles et de renforcer les équipes lors de périodes de forte activité.\n\nComposé de collaborateurs polyvalents, flexibles et autonomes, le Pool offre un environnement de travail stimulant, riche en rencontres et en expériences professionnelles.\n\nDans le cadre d'un remplacement de congé maternité, nous recrutons un/une\n\nInfirmier (-ière) au Pool - CDM 11 mois à 90 % (ref : 2072)\n\nVotre mission\n\nAu sein d'un établissement de pointe, vous évoluez dans un environnement pluridisciplinaire, en collaboration étroite avec les infirmiers(-ères), aides-soignants(-es) et médecins.\n\nVous assurez la prise en charge globale de patients présentant des pathologies variées en phase aiguë, en veillant à la qualité, à la sécurité et à la continuité des soins.\n\nÀ ce titre, vos principales responsabilités sont les suivantes :\n\n•\n Accueillir, installer et accompagner les patients, en leur présentant les informations relatives à leur séjour et à leur prise en charge.\n\n•\n Recueillir, évaluer et transmettre les données médicales et administratives, tout en assurant la mise à jour du dossier patient informatisé.\n\n•\n Organiser et planifier les soins en tenant compte des priorités, du degré d'urgence et de l'évolution de l'état clinique des patients.\n\n•\n Réaliser les soins sur prescription médicale, dans le respect des protocoles, des procédures et des exigences institutionnelles.\n\n•\n Assurer une documentation rigoureuse et complète du dossier patient informatisé.\n\n•\n Surveiller et évaluer en continu l'état clinique des patients, identifier rapidement toute évolution et adapter la prise en charge en conséquence.\n\nVotre profil\n\nVous êtes un(-e) professionnel(-le) engagé(-e), doté(-e) d'un excellent sens clinique et appréciant la diversité des situations de soins.\n\nVous disposez des qualifications et qualités suivantes :\n\n•\n Diplôme d'infirmier(-ère).\n\n•\n Reconnaissance de la Croix-Rouge suisse obligatoire pour les titulaires d'un diplôme étranger.\n\n•\n Excellent sens du contact et du service, avec une attention particulière portée à la satisfaction et au bien-être des patients.\n\n•\n Autonomie, bienveillance et sens des responsabilités.\n\n•\n Grande polyvalence et capacité à vous adapter rapidement à différents environnements et organisations de travail.\n\n•\n Excellentes capacités d'organisation, d'anticipation et de gestion des priorités.\n\n•\n Esprit d'équipe, attitude positive et aptitude à instaurer un climat de confiance avec vos collègues et les patients.\n\n•\n Grande flexibilité et disponibilité face aux exigences d'un poste au Pool.\n\nCe que nous vous proposons\n\n•\n Un poste varié offrant une réelle richesse d'expériences cliniques.\n\n•\n L'opportunité de développer et de valoriser votre polyvalence au sein de différentes unités.\n\n•\n Un environnement de travail stimulant, au contact d'équipes pluridisciplinaires expérimentées.\n\n•\n Une activité qui favorise l'autonomie, l'adaptabilité et le développement de vos compétences professionnelles.\n\nConditions du poste :\n\n•\n Type de contrat : Contrat à durée maximale de 11 mois (remplacement de congé maternité).\n\n•\n Taux d'activité : 90 %.\n\n•\n Horaires : Variables, selon les besoins des services.\n\nEnvie de relever le défi et de rejoindre notre Pool de personnel soignant ?\n\nNous nous réjouissons de découvrir votre candidature et de vous accueillir au sein de nos équipes !",
+      "descriptionByLocale": {
+        "it": "Il Caregiver Pool svolge un ruolo essenziale nella nostra istituzione. Fornisce servizi clinici a professionisti esperti che possono intervenire in diverse unità per garantire la continuità della cura, compensare eventuali assenze e rafforzare i team durante i periodi di alta attività.\n\nComposto da collaboratori versatili, flessibili e autonomi, il Pool offre un ambiente di lavoro stimolante, ricco di incontri ed esperienze professionali.\n\nCome parte di una sostituzione del congedo di maternità, reclutiamo uno / uno\n\nInfermiera a Piscina - CDM 11 mesi al 90% (rif: 2072)\n\nLa tua missione\n\nIn una struttura all'avanguardia, si lavora in un ambiente multidisciplinare, in stretta collaborazione con infermieri, assistenti e medici.\n\nAssicurate la cura complessiva dei pazienti con varie condizioni nella fase acuta, garantendo la qualità, la sicurezza e la continuità della cura.\n\nCome tale, le vostre principali responsabilità sono:\n\n•\nPer ricevere, installare e accompagnare i pazienti con informazioni sul loro soggiorno e la loro cura.\n\n•\nRaccogliere, valutare e trasmettere dati medici e amministrativi, mantenendo il record del paziente computerizzato.\n\n•\nOrganizzare e pianificare l'assistenza tenendo conto delle priorità, dell'urgenza e del cambiamento delle condizioni cliniche.\n\n•\nEseguire l'assistenza medica di prescrizione in conformità con protocolli, procedure e requisiti istituzionali.\n\n•\nAssicurare una documentazione rigorosa e completa del record del paziente computerizzato.\n\n•\nMonitorare e valutare lo stato clinico dei pazienti in modo continuo, identificare rapidamente eventuali modifiche e regolare la gestione di conseguenza.\n\nIl tuo profilo\n\nSei un professionista impegnato che ha un ottimo senso clinico e apprezza la diversità delle situazioni di cura.\n\nHai le seguenti qualifiche e qualità:\n\n•\nDiploma di infermiera.\n\n•\nRiconoscimento della Croce Rossa svizzera obbligatorio per i titolari di un diploma straniero.\n\n•\nOttimo senso di contatto e servizio, con particolare attenzione alla soddisfazione del paziente e al benessere.\n\n•\nAutonomia, benevolenza e senso di responsabilità.\n\n•\nGrande versatilità e capacità di adattarsi rapidamente a diversi ambienti di lavoro e organizzazioni.\n\n•\nEccellente capacità organizzative, di anticipazione e di gestione prioritaria.\n\n•\nSpirito di squadra, atteggiamento positivo e capacità di costruire fiducia con i vostri colleghi e pazienti.\n\n•\nGrande flessibilità e disponibilità per soddisfare le esigenze di una posizione in piscina.\n\nCosa offriamo\n\n•\nUna posizione varia che offre una ricchezza di esperienze cliniche.\n\n•\nL'opportunità di sviluppare e migliorare la vostra versatilità in diverse unità.\n\n•\nUn ambiente di lavoro stimolante, a contatto con team multidisciplinari esperti.\n\n•\nUn'attività che promuove l'autonomia, l'adattabilità e lo sviluppo delle tue competenze professionali.\n\nCondizioni postali:\n\n•\nTipo di contratto: Contratto con una durata massima di 11 mesi (sostituzione del congedo di maternità).\n\n•\nTasso di partecipazione: 90%.\n\n•\nOrari: Variabili, a seconda delle esigenze dei servizi.\n\nVuoi incontrare la sfida e unirti al nostro Caregiver Pool?\n\nNon vediamo l'ora di scoprire la tua applicazione e di darti il benvenuto ai nostri team!",
+        "en": "The Caregiver Pool plays an essential role in our institution. It provides clinical services to experienced professionals who can intervene in different units to ensure continuity of care, to compensate for occasional absences and to strengthen teams during periods of high activity.\n\nComposed of versatile, flexible and autonomous collaborators, the Pool offers a stimulating working environment, rich in meetings and professional experiences.\n\nAs part of a maternity leave replacement, we recruit one/one\n\nNurse at Pool - CDM 11 months at 90% (ref: 2072)\n\nYour Mission\n\nIn a state-of-the-art facility, you work in a multidisciplinary environment, in close collaboration with nurses, caregivers and physicians.\n\nYou ensure the overall care of patients with various conditions in the acute phase, ensuring the quality, safety and continuity of care.\n\nAs such, your main responsibilities are:\n\n•\nTo receive, install and accompany patients with information on their stay and care.\n\n•\nCollect, evaluate and transmit medical and administrative data, while maintaining the computerized patient record.\n\n•\nOrganize and plan care taking into account priorities, urgency and changing clinical conditions.\n\n•\nPerform medical prescription care in accordance with protocols, procedures and institutional requirements.\n\n•\nEnsure rigorous and complete documentation of the computerized patient record.\n\n•\nMonitor and evaluate the clinical status of patients on an ongoing basis, quickly identify any changes and adjust management accordingly.\n\nYour profile\n\nYou are a committed professional who has excellent clinical sense and appreciates the diversity of care situations.\n\nYou have the following qualifications and qualities:\n\n•\nDiploma of Nurse.\n\n•\nRecognition of the Swiss Red Cross compulsory for holders of a foreign diploma.\n\n•\nExcellent sense of contact and service, with particular attention to patient satisfaction and well-being.\n\n•\nAutonomy, benevolence and sense of responsibility.\n\n•\nGreat versatility and ability to adapt quickly to different working environments and organizations.\n\n•\nExcellent organizational, anticipation and priority management capabilities.\n\n•\nTeam spirit, positive attitude and ability to build confidence with your colleagues and patients.\n\n•\nGreat flexibility and availability to meet the requirements of a position in the Pool.\n\nWhat we offer\n\n•\nA varied position offering a wealth of clinical experiences.\n\n•\nThe opportunity to develop and enhance your versatility within different units.\n\n•\nA stimulating working environment, in contact with experienced multidisciplinary teams.\n\n•\nAn activity that promotes the autonomy, adaptability and development of your professional skills.\n\nPost conditions:\n\n•\nType of contract: Contract with a maximum duration of 11 months (replacement of maternity leave).\n\n•\nParticipation rate: 90%.\n\n•\nSchedules : Variables, depending on the needs of the services.\n\nWant to meet the challenge and join our Caregiver Pool?\n\nWe look forward to discovering your application and welcoming you to our teams!",
+        "de": "Der Caregiver Pool spielt eine wesentliche Rolle in unserer Institution. Es bietet klinische Dienstleistungen für erfahrene Fachkräfte, die in verschiedenen Einheiten eingreifen können, um die Kontinuität der Versorgung zu gewährleisten, gelegentliche Abwesenheiten auszugleichen und Teams in Zeiten hoher Aktivität zu stärken.\n\nDer Pool besteht aus vielseitigen, flexiblen und autonomen Mitarbeitern und bietet ein anregendes Arbeitsumfeld, das reich an Meetings und beruflichen Erfahrungen ist.\n\nIm Rahmen eines Mutterschaftsurlaubs ersetzen wir einen / einen\n\nNurse at Pool - CDM 11 Monate bei 90% (ref: 2072)\n\nDeine Mission\n\nIn einer hochmodernen Einrichtung arbeiten Sie in einem multidisziplinären Umfeld in enger Zusammenarbeit mit Krankenschwestern, Betreuern und Ärzten.\n\nSie gewährleisten die Gesamtversorgung von Patienten mit verschiedenen Erkrankungen in der akuten Phase und gewährleisten die Qualität, Sicherheit und Kontinuität der Versorgung.\n\nAls solche sind Ihre Hauptaufgaben:\n\n•\nUm zu empfangen, zu installieren und zu begleiten Patienten mit Informationen über ihren Aufenthalt und Pflege.\n\n•\nSammeln, bewerten und übertragen Sie medizinische und administrative Daten, während Sie die computergestützte Patientenakte beibehalten.\n\n•\nOrganisieren und planen Sie die Pflege unter Berücksichtigung von Prioritäten, Dringlichkeit und sich ändernden klinischen Bedingungen.\n\n•\nFühren Sie eine ärztliche Verschreibung in Übereinstimmung mit Protokollen, Verfahren und institutionellen Anforderungen durch.\n\n•\nGewährleistung einer strengen und vollständigen Dokumentation der computergestützten Patientenakte.\n\n•\nÜberwachen und bewerten Sie den klinischen Status von Patienten auf einer laufenden Basis, schnell zu erkennen, Änderungen und passen Sie das management entsprechend.\n\nDein Profil\n\nSie sind ein engagierter Fachmann, der einen exzellenten klinischen Sinn hat und die Vielfalt der Pflegesituationen schätzt.\n\nSie haben folgende Qualifikationen und Qualitäten:\n\n•\nDiplom der Krankenschwester.\n\n•\nAnerkennung des Schweizerischen Roten Kreuzes für Inhaber eines ausländischen Diploms.\n\n•\nAusgezeichneter Kontakt und Service, mit besonderem Augenmerk auf Patientenzufriedenheit und Wohlbefinden.\n\n•\nAutonomie, Wohlwollen und Verantwortungsbewusstsein.\n\n•\nGroße Vielseitigkeit und Fähigkeit, sich schnell an unterschiedliche Arbeitsumgebungen und Organisationen anzupassen.\n\n•\nHervorragende organisatorische, Antizipations- und Prioritätsmanagementfähigkeiten.\n\n•\nTeamgeist, positive Einstellung und Fähigkeit, Vertrauen bei Ihren Kollegen und Patienten aufzubauen.\n\n•\nGroße Flexibilität und Verfügbarkeit, um die Anforderungen einer Position im Pool zu erfüllen.\n\nWas wir bieten\n\n•\nEine abwechslungsreiche Position bietet eine Fülle von klinischen Erfahrungen.\n\n•\nDie Möglichkeit, Ihre Vielseitigkeit in verschiedenen Einheiten zu entwickeln und zu verbessern.\n\n•\nEin anregendes Arbeitsumfeld, in Kontakt mit erfahrenen multidisziplinären Teams.\n\n•\nEine Aktivität, die die Autonomie, Anpassungsfähigkeit und Entwicklung Ihrer beruflichen Fähigkeiten fördert.\n\nPostbedingungen:\n\n•\nArt des Vertrags: Vertrag mit einer maximalen Laufzeit von 11 Monaten (Ersatz des Mutterschaftsurlaubs).\n\n•\nTeilnahmequote: 90 %.\n\n•\nZeitpläne: Variablen, abhängig von den Bedürfnissen der Dienste.\n\nMöchten Sie sich der Herausforderung stellen und unserem Caregiver Pool beitreten?\n\nWir freuen uns darauf, Ihre Bewerbung zu entdecken und Sie in unseren Teams willkommen zu heißen!",
+        "fr": "Le Pool de personnel soignant joue un rôle essentiel au sein de notre établissement. Il met à disposition des services cliniques des professionnels expérimentés, capables d'intervenir dans différentes unités afin d'assurer la continuité des soins, de pallier les absences ponctuelles et de renforcer les équipes lors de périodes de forte activité.\n\nComposé de collaborateurs polyvalents, flexibles et autonomes, le Pool offre un environnement de travail stimulant, riche en rencontres et en expériences professionnelles.\n\nDans le cadre d'un remplacement de congé maternité, nous recrutons un/une\n\nInfirmier (-ière) au Pool - CDM 11 mois à 90 % (ref : 2072)\n\nVotre mission\n\nAu sein d'un établissement de pointe, vous évoluez dans un environnement pluridisciplinaire, en collaboration étroite avec les infirmiers(-ères), aides-soignants(-es) et médecins.\n\nVous assurez la prise en charge globale de patients présentant des pathologies variées en phase aiguë, en veillant à la qualité, à la sécurité et à la continuité des soins.\n\nÀ ce titre, vos principales responsabilités sont les suivantes :\n\n•\n Accueillir, installer et accompagner les patients, en leur présentant les informations relatives à leur séjour et à leur prise en charge.\n\n•\n Recueillir, évaluer et transmettre les données médicales et administratives, tout en assurant la mise à jour du dossier patient informatisé.\n\n•\n Organiser et planifier les soins en tenant compte des priorités, du degré d'urgence et de l'évolution de l'état clinique des patients.\n\n•\n Réaliser les soins sur prescription médicale, dans le respect des protocoles, des procédures et des exigences institutionnelles.\n\n•\n Assurer une documentation rigoureuse et complète du dossier patient informatisé.\n\n•\n Surveiller et évaluer en continu l'état clinique des patients, identifier rapidement toute évolution et adapter la prise en charge en conséquence.\n\nVotre profil\n\nVous êtes un(-e) professionnel(-le) engagé(-e), doté(-e) d'un excellent sens clinique et appréciant la diversité des situations de soins.\n\nVous disposez des qualifications et qualités suivantes :\n\n•\n Diplôme d'infirmier(-ère).\n\n•\n Reconnaissance de la Croix-Rouge suisse obligatoire pour les titulaires d'un diplôme étranger.\n\n•\n Excellent sens du contact et du service, avec une attention particulière portée à la satisfaction et au bien-être des patients.\n\n•\n Autonomie, bienveillance et sens des responsabilités.\n\n•\n Grande polyvalence et capacité à vous adapter rapidement à différents environnements et organisations de travail.\n\n•\n Excellentes capacités d'organisation, d'anticipation et de gestion des priorités.\n\n•\n Esprit d'équipe, attitude positive et aptitude à instaurer un climat de confiance avec vos collègues et les patients.\n\n•\n Grande flexibilité et disponibilité face aux exigences d'un poste au Pool.\n\nCe que nous vous proposons\n\n•\n Un poste varié offrant une réelle richesse d'expériences cliniques.\n\n•\n L'opportunité de développer et de valoriser votre polyvalence au sein de différentes unités.\n\n•\n Un environnement de travail stimulant, au contact d'équipes pluridisciplinaires expérimentées.\n\n•\n Une activité qui favorise l'autonomie, l'adaptabilité et le développement de vos compétences professionnelles.\n\nConditions du poste :\n\n•\n Type de contrat : Contrat à durée maximale de 11 mois (remplacement de congé maternité).\n\n•\n Taux d'activité : 90 %.\n\n•\n Horaires : Variables, selon les besoins des services.\n\nEnvie de relever le défi et de rejoindre notre Pool de personnel soignant ?\n\nNous nous réjouissons de découvrir votre candidature et de vous accueillir au sein de nos équipes !"
+      },
+      "location": "Meyrin",
+      "canton": "GE",
+      "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-cdm-11-mois-a-90-1572",
+      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-26T09:39:47.758Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1217",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-cdm-11-mois-a-90-1572",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "infirmier-iere-au-pool-cdm-11-mois-a-90-hopital-la-tour-meyrin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-iere-au-pool-cdm-11-mois-a-90-hopital-la-tour-meyrin"
+        ],
+        "en": [
+          "infirmier-iere-au-pool-cdm-11-mois-a-90-hopital-la-tour-meyrin"
+        ],
+        "de": [
+          "infirmier-iere-au-pool-cdm-11-mois-a-90-hopital-la-tour-meyrin"
+        ]
+      },
+      "firstSeenAt": "2026-11-06T21:49:52.392Z",
+      "salaryMin": 77900,
+      "salaryMax": 108500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77900,
+          "maxValue": 108500,
+          "unitText": "YEAR"
+        }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Hôpital de La Tour",
+        "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
+        "postalCode": "1217",
+        "addressLocality": "Meyrin",
+        "addressRegion": "GE",
+        "checkedAt": "2026-10-31T20:49:16.573Z",
+        "streetAddressSource": "zefix-registry"
+      },
+      "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-05T09:39:47.758Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-cdm-11-mois-a-90-1572"
     },
     {
       "id": "hopital-la-tour-deb71352be47",
@@ -1246,7 +1259,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-cdm-3-mois-a-90-1573",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:22:22.098Z",
+      "crawledAt": "2026-11-26T09:39:47.757Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1306,8 +1319,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T21:22:22.098Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-05T09:39:47.757Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-cdm-3-mois-a-90-1573"
     },
     {
       "id": "hopital-la-tour-de5482717380",
@@ -1341,7 +1355,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/developpeureuse-senior-ia-1571",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:22:22.097Z",
+      "crawledAt": "2026-11-26T09:39:47.756Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1401,103 +1415,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-05T21:22:22.097Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "hopital-la-tour-9758abbdcf10",
-      "slug": "carriera-in-cura-intensiva-cdmax-9-mesi-hopital-de-la-tour-meyrin",
-      "slugByLocale": {
-        "it": "carriera-in-cura-intensiva-cdmax-9-mesi-hopital-de-la-tour-meyrin",
-        "en": "caregiver-in-intensive-care-cdmax-9-months-hopital-de-la-tour-meyrin",
-        "de": "pflegekrafte-in-der-intensivpflege-cdmax-9-monate-hopital-de-la-tour-meyrin",
-        "fr": "aide-soignant-e-en-soins-intensifs-cdmax-9-mois-hopital-la-tour-meyrin"
-      },
-      "company": "Hôpital de La Tour",
-      "companyKey": "hopital-la-tour",
-      "companyDomain": "la-tour.ch",
-      "title": "Aide-soignant(-e) en Soins Intensifs CDMax 9 mois",
-      "titleByLocale": {
-        "it": "Carriera in Cura intensiva CDMax 9 mesi",
-        "en": "Caregiver in Intensive Care CDMax 9 months",
-        "de": "Pflegekräfte in der Intensivpflege CDMax 9 Monate",
-        "fr": "Aide-soignant(-e) en Soins Intensifs CDMax 9 mois"
-      },
-      "description": "Le service des soins intensifs de l’Hôpital de La Tour a pour mission de prendre en charge des patients dont le pronostic vital peut être engagé suite à une affection médicale, traumatique ou chirurgicale. Une équipe spécialisée assure l’admission et les soins en continue 24h/24 ainsi qu' un service d’urgence et de permanence médicale . Notre service comprend toute l’infrastructure nécessaire à l’établissement d’un diagnostic pour dispenser les premiers soins et pour une surveillance, quelle que soit la gravité du cas. Il possède en outre une salle de réanimation, une salle de plâtre ainsi que diverses salles de soins et de consultations.\n\nNous recrutons un/e\n\nAide-soignant(-e) en Soins Intensifs CDMax 9 mois (ref : 2078)\n\nDans un établissement de pointe vous occupez un poste varié au sein d'une équipe pluridisciplinaire comprenant des infirmiers(-ères), des aides-soignants(-es), des médecins.\nVous devrez assurer l’accueil de patients atteints dans le cadre d’une prise en charge globale en phase aigüe.\n\nA ce titre vous êtes en charge de ;\n\n• Accueillir le patient et sa famille en les rendant acteurs de la prise en charge\n\n• Recueillir les données administratives\n\n• Prendre en charge le patient dans sa globalité en collaboration avec l’équipe pluridisciplinaire et répondre à ses besoins fondamentaux (hygiène, douleur, alimentation, confort, ...)\n\n• Assurer l'approvisionnement en matériel, vérifier leur fonctionnement et assurer la prise en charge de la maintenance, appliquer les procédures de nettoyage et de désinfection\n\n• Participer au bon fonctionnement du service, faire des transmissions sur le dossier de soins informatisé\n\n• Mettre à jour ses pratiques professionnelles en fonctions des procédures de soins du service ou institutionnelles\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diplôme d’Aide-Soignant\n\n• Autonome, bienveillance, polyvalence, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\n• Expérience en soins aigus min 2 ans (idéalement en réanimation, soins intensifs, urgences ou soins continus. Au minimum en service de médecine)\n\n• Habileté technique\n\n• Aisance dans les soins de nursing aux patients dépendants\n\n• Bon sens clinique\n\n• Dynamisme\n\n• Flexibilité\n\nNous vous proposons :\n\nType de contrat : CDM 9 mois\n Pourcentage : 75%\n Type d'horaires : variables",
-      "descriptionByLocale": {
-        "it": "Il reparto di assistenza intensiva del La Tour Hospital è responsabile per la cura di pazienti la cui aspettativa di vita può essere prevista a seguito di una condizione medica, traumatica o chirurgica. Un team specializzato assicura l'ammissione e la cura continua 24 ore al giorno, così come i servizi di emergenza e medico. Il nostro servizio comprende tutte le infrastrutture necessarie per stabilire una diagnosi per il primo soccorso e la sorveglianza, indipendentemente dalla gravità del caso. Ha anche una stanza di rianimazione, una stanza di gesso e varie sale di trattamento e consultazione.\n\nNoi ne reclutamo uno\n\nCarriera in Intensive Care CDMax 9 mesi (ref: 2078)\n\nIn un istituto all'avanguardia avete una varietà di posizioni su un team multidisciplinare tra cui infermieri, operatori sanitari, medici.\nDovrai accogliere pazienti con cura generale acuta.\n\nCome tale siete responsabili di;\n\n• Accogliere il paziente e la sua famiglia facendoli coinvolgere nella cura\n\n• Raccogliere dati amministrativi\n\n• Prendersi cura del paziente nel suo complesso in collaborazione con il team multidisciplinare e soddisfare le sue esigenze di base (igiene, dolore, cibo, comfort, ...)\n\n• Assicurare la fornitura di attrezzature, verificare il loro funzionamento e garantire la gestione della manutenzione, applicare le procedure di pulizia e disinfezione\n\n• Partecipare al corretto funzionamento del servizio, effettuare trasmissioni sul file di cura computerizzato\n\n• Aggiornamento delle pratiche professionali al servizio o alle procedure di assistenza istituzionale\n\nStiamo cercando un profilo che soddisfi i seguenti criteri:\n\n• Diploma di Caregiver\n\n• Autogoverno, benevolenza, versatilità, adattabilità, organizzazione e senso di priorità sono qualità essenziali\n\n• Esperienza in cura acuta min 2 anni (idealmente in rianimazione, terapia intensiva, emergenza o cura continua. Almeno in servizio medico)\n\n• Capacità tecnica\n\n• Prestazione in cura per i pazienti dipendenti\n\n• Senso clinico\n\n• Dinamica\n\n• Flessibilità\n\nVi offriamo:\n\nTipo di contratto: CDM 9 mesi\nPercentuale: 75%\nTipo di programma: variabili",
-        "en": "The La Tour Hospital's intensive care department is responsible for the care of patients whose life expectancy can be expected following a medical, traumatic or surgical condition. A specialized team ensures admission and continuous care 24 hours a day, as well as emergency and medical services. Our service includes all the infrastructure necessary to establish a diagnosis for first aid and surveillance, regardless of the severity of the case. It also has a resuscitation room, a plaster room and various treatment and consultation rooms.\n\nWe recruit one\n\nCaregiver in Intensive Care CDMax 9 months (ref: 2078)\n\nIn a state-of-the-art institution you have a variety of positions on a multidisciplinary team including nurses, health care workers, doctors.\nYou will need to accommodate patients with acute overall care.\n\nAs such you are in charge of;\n\n• Welcoming the patient and his family by making them involved in care\n\n• Collect administrative data\n\n• Take care of the patient as a whole in collaboration with the multidisciplinary team and meet its basic needs (hygiene, pain, food, comfort, ...)\n\n• Ensure the supply of equipment, verify their operation and ensure the management of maintenance, apply cleaning and disinfection procedures\n\n• Participate in the proper functioning of the service, make transmissions on the computerized care file\n\n• Updating of professional practices to service or institutional care procedures\n\nWe are looking for a profile that meets the following criteria:\n\n• Diploma of Caregiver\n\n• Self-governing, benevolence, versatility, adaptability, organization and sense of priority are essential qualities\n\n• Experience in acute care min 2 years (ideally in resuscitation, intensive care, emergency or continuous care. At least in medical service)\n\n• Technical skill\n\n• Attendance in nursing care for dependent patients\n\n• Clinical sense\n\n• Dynamics\n\n• Flexibility\n\nWe offer you:\n\nType of contract: CDM 9 months\nPercentage: 75%\nType of schedules: variables",
-        "de": "Die Intensivstation des La Tour Hospital ist für die Versorgung von Patienten verantwortlich, deren Lebenserwartung nach einem medizinischen, traumatischen oder chirurgischen Zustand zu erwarten ist. Ein spezialisiertes Team sorgt für die Aufnahme und kontinuierliche Betreuung 24 Stunden am Tag, sowie Notfall- und medizinische Dienste. Unser Service umfasst alle notwendigen Infrastrukturen, um eine Diagnose für Erste Hilfe und Überwachung zu erstellen, unabhängig von der Schwere des Falls. Es hat auch einen Reanimationsraum, einen Gipsraum und verschiedene Behandlungs- und Beratungsräume.\n\nWir rekrutieren einen\n\nCaregiver in Intensive Care CDMax 9 Monate (ref: 2078)\n\nIn einer hochmodernen Institution haben Sie eine Vielzahl von Positionen in einem multidisziplinären Team, darunter Krankenschwestern, Gesundheitspersonal, Ärzte.\nSie müssen Patienten mit akuter Gesamtversorgung unterbringen.\n\nAls solche sind Sie verantwortlich für;\n\n• Begrüßung des Patienten und seiner Familie, indem sie sie in die Pflege einbeziehen\n\n• Erhebung administrativer Daten\n\n• Betreuen Sie den Patienten als Ganzes in Zusammenarbeit mit dem multidisziplinären Team und erfüllen Sie seine Grundbedürfnisse (Hygiene, Schmerzen, Nahrung, Komfort, ...)\n\n• Sicherstellung der Versorgung mit Ausrüstung, Überprüfung ihres Betriebs und Gewährleistung der Wartungsverwaltung sowie Anwendung von Reinigungs- und Desinfektionsverfahren\n\n• Beteiligen Sie sich am ordnungsgemäßen Funktionieren des Dienstes, machen Sie Übertragungen auf die computergestützte Pflegedatei\n\n• Aktualisierung von Berufspraktiken auf Service- oder institutionelle Pflegeverfahren\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\n• Diplom der Pflegekraft\n\n• Selbstregierung, Wohlwollen, Vielseitigkeit, Anpassungsfähigkeit, Organisation und Prioritätsgefühl sind wesentliche Eigenschaften\n\n• Erfahrung in der Akutpflege min 2 Jahre (idealerweise in der Reanimation, Intensivpflege, Notfall- oder Dauerpflege). Zumindest im medizinischen Dienst\n\n• Technische Fähigkeiten\n\n• Betreuung in der Pflege von abhängigen Patienten\n\n• Klinischer Sinn\n\n• Dynamik\n\n• Flexibilität\n\nWir bieten Ihnen:\n\nArt des Vertrags: CDM 9 Monate\nProzentsatz: 75 %\nArt der Fahrpläne: Variablen",
-        "fr": "Le service des soins intensifs de l’Hôpital de La Tour a pour mission de prendre en charge des patients dont le pronostic vital peut être engagé suite à une affection médicale, traumatique ou chirurgicale. Une équipe spécialisée assure l’admission et les soins en continue 24h/24 ainsi qu' un service d’urgence et de permanence médicale . Notre service comprend toute l’infrastructure nécessaire à l’établissement d’un diagnostic pour dispenser les premiers soins et pour une surveillance, quelle que soit la gravité du cas. Il possède en outre une salle de réanimation, une salle de plâtre ainsi que diverses salles de soins et de consultations.\n\nNous recrutons un/e\n\nAide-soignant(-e) en Soins Intensifs CDMax 9 mois (ref : 2078)\n\nDans un établissement de pointe vous occupez un poste varié au sein d'une équipe pluridisciplinaire comprenant des infirmiers(-ères), des aides-soignants(-es), des médecins.\nVous devrez assurer l’accueil de patients atteints dans le cadre d’une prise en charge globale en phase aigüe.\n\nA ce titre vous êtes en charge de ;\n\n• Accueillir le patient et sa famille en les rendant acteurs de la prise en charge\n\n• Recueillir les données administratives\n\n• Prendre en charge le patient dans sa globalité en collaboration avec l’équipe pluridisciplinaire et répondre à ses besoins fondamentaux (hygiène, douleur, alimentation, confort, ...)\n\n• Assurer l'approvisionnement en matériel, vérifier leur fonctionnement et assurer la prise en charge de la maintenance, appliquer les procédures de nettoyage et de désinfection\n\n• Participer au bon fonctionnement du service, faire des transmissions sur le dossier de soins informatisé\n\n• Mettre à jour ses pratiques professionnelles en fonctions des procédures de soins du service ou institutionnelles\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diplôme d’Aide-Soignant\n\n• Autonome, bienveillance, polyvalence, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\n• Expérience en soins aigus min 2 ans (idéalement en réanimation, soins intensifs, urgences ou soins continus. Au minimum en service de médecine)\n\n• Habileté technique\n\n• Aisance dans les soins de nursing aux patients dépendants\n\n• Bon sens clinique\n\n• Dynamisme\n\n• Flexibilité\n\nNous vous proposons :\n\nType de contrat : CDM 9 mois\nPourcentage : 75%\nType d'horaires : variables"
-      },
-      "needsRetranslation": false,
-      "location": "Meyrin",
-      "canton": "GE",
-      "url": "https://recrutement.latour.ch/fr/nos-offres/aide-soignant-e-en-soins-intensifs-cdmax-9-mois-1578",
-      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:22:22.096Z",
-      "addressLocality": "Meyrin",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1217",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/aide-soignant-e-en-soins-intensifs-cdmax-9-mois-1578",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "aide-soignant-e-en-soins-intensifs-cdmax-9-mois-hopital-la-tour-meyrin"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "aide-soignant-e-en-soins-intensifs-cdmax-9-mois-hopital-la-tour-meyrin"
-        ],
-        "en": [
-          "aide-soignant-e-en-soins-intensifs-cdmax-9-mois-hopital-la-tour-meyrin"
-        ],
-        "de": [
-          "aide-soignant-e-en-soins-intensifs-cdmax-9-mois-hopital-la-tour-meyrin"
-        ]
-      },
-      "firstSeenAt": "2026-11-13T21:34:40.631Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Hôpital de La Tour",
-        "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
-        "postalCode": "1217",
-        "addressLocality": "Meyrin",
-        "addressRegion": "GE",
-        "checkedAt": "2026-10-31T20:49:16.573Z",
-        "streetAddressSource": "zefix-registry"
-      },
-      "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-12T21:22:22.096Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-05T09:39:47.756Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/developpeureuse-senior-ia-1571"
     },
     {
       "id": "hopital-la-tour-3ed8eade02ba",
@@ -1530,7 +1450,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/secretaire-medicale-en-angiographie-80-cdi-1577",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:22:22.095Z",
+      "crawledAt": "2026-11-26T09:39:47.755Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1590,8 +1510,105 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-09T21:22:22.095Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-09T09:39:47.755Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/secretaire-medicale-en-angiographie-80-cdi-1577"
+    },
+    {
+      "id": "hopital-la-tour-9758abbdcf10",
+      "slug": "carriera-in-cura-intensiva-cdmax-9-mesi-hopital-de-la-tour-meyrin",
+      "slugByLocale": {
+        "it": "carriera-in-cura-intensiva-cdmax-9-mesi-hopital-de-la-tour-meyrin",
+        "en": "caregiver-in-intensive-care-cdmax-9-months-hopital-de-la-tour-meyrin",
+        "de": "pflegekrafte-in-der-intensivpflege-cdmax-9-monate-hopital-de-la-tour-meyrin",
+        "fr": "aide-soignant-e-en-soins-intensifs-cdmax-9-mois-hopital-la-tour-meyrin"
+      },
+      "company": "Hôpital de La Tour",
+      "companyKey": "hopital-la-tour",
+      "companyDomain": "la-tour.ch",
+      "title": "Aide-soignant(-e) en Soins Intensifs CDMax 9 mois",
+      "titleByLocale": {
+        "it": "Carriera in Cura intensiva CDMax 9 mesi",
+        "en": "Caregiver in Intensive Care CDMax 9 months",
+        "de": "Pflegekräfte in der Intensivpflege CDMax 9 Monate",
+        "fr": "Aide-soignant(-e) en Soins Intensifs CDMax 9 mois"
+      },
+      "description": "Le service des soins intensifs de l’Hôpital de La Tour a pour mission de prendre en charge des patients dont le pronostic vital peut être engagé suite à une affection médicale, traumatique ou chirurgicale. Une équipe spécialisée assure l’admission et les soins en continue 24h/24 ainsi qu' un service d’urgence et de permanence médicale . Notre service comprend toute l’infrastructure nécessaire à l’établissement d’un diagnostic pour dispenser les premiers soins et pour une surveillance, quelle que soit la gravité du cas. Il possède en outre une salle de réanimation, une salle de plâtre ainsi que diverses salles de soins et de consultations.\n\nNous recrutons un/e\n\nAide-soignant(-e) en Soins Intensifs CDMax 9 mois (ref : 2078)\n\nDans un établissement de pointe vous occupez un poste varié au sein d'une équipe pluridisciplinaire comprenant des infirmiers(-ères), des aides-soignants(-es), des médecins.\nVous devrez assurer l’accueil de patients atteints dans le cadre d’une prise en charge globale en phase aigüe.\n\nA ce titre vous êtes en charge de ;\n\n• Accueillir le patient et sa famille en les rendant acteurs de la prise en charge\n\n• Recueillir les données administratives\n\n• Prendre en charge le patient dans sa globalité en collaboration avec l’équipe pluridisciplinaire et répondre à ses besoins fondamentaux (hygiène, douleur, alimentation, confort, ...)\n\n• Assurer l'approvisionnement en matériel, vérifier leur fonctionnement et assurer la prise en charge de la maintenance, appliquer les procédures de nettoyage et de désinfection\n\n• Participer au bon fonctionnement du service, faire des transmissions sur le dossier de soins informatisé\n\n• Mettre à jour ses pratiques professionnelles en fonctions des procédures de soins du service ou institutionnelles\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diplôme d’Aide-Soignant\n\n• Autonome, bienveillance, polyvalence, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\n• Expérience en soins aigus min 2 ans (idéalement en réanimation, soins intensifs, urgences ou soins continus. Au minimum en service de médecine)\n\n• Habileté technique\n\n• Aisance dans les soins de nursing aux patients dépendants\n\n• Bon sens clinique\n\n• Dynamisme\n\n• Flexibilité\n\nNous vous proposons :\n\nType de contrat : CDM 9 mois\n Pourcentage : 75%\n Type d'horaires : variables",
+      "descriptionByLocale": {
+        "it": "Il reparto di assistenza intensiva del La Tour Hospital è responsabile per la cura di pazienti la cui aspettativa di vita può essere prevista a seguito di una condizione medica, traumatica o chirurgica. Un team specializzato assicura l'ammissione e la cura continua 24 ore al giorno, così come i servizi di emergenza e medico. Il nostro servizio comprende tutte le infrastrutture necessarie per stabilire una diagnosi per il primo soccorso e la sorveglianza, indipendentemente dalla gravità del caso. Ha anche una stanza di rianimazione, una stanza di gesso e varie sale di trattamento e consultazione.\n\nNoi ne reclutamo uno\n\nCarriera in Intensive Care CDMax 9 mesi (ref: 2078)\n\nIn un istituto all'avanguardia avete una varietà di posizioni su un team multidisciplinare tra cui infermieri, operatori sanitari, medici.\nDovrai accogliere pazienti con cura generale acuta.\n\nCome tale siete responsabili di;\n\n• Accogliere il paziente e la sua famiglia facendoli coinvolgere nella cura\n\n• Raccogliere dati amministrativi\n\n• Prendersi cura del paziente nel suo complesso in collaborazione con il team multidisciplinare e soddisfare le sue esigenze di base (igiene, dolore, cibo, comfort, ...)\n\n• Assicurare la fornitura di attrezzature, verificare il loro funzionamento e garantire la gestione della manutenzione, applicare le procedure di pulizia e disinfezione\n\n• Partecipare al corretto funzionamento del servizio, effettuare trasmissioni sul file di cura computerizzato\n\n• Aggiornamento delle pratiche professionali al servizio o alle procedure di assistenza istituzionale\n\nStiamo cercando un profilo che soddisfi i seguenti criteri:\n\n• Diploma di Caregiver\n\n• Autogoverno, benevolenza, versatilità, adattabilità, organizzazione e senso di priorità sono qualità essenziali\n\n• Esperienza in cura acuta min 2 anni (idealmente in rianimazione, terapia intensiva, emergenza o cura continua. Almeno in servizio medico)\n\n• Capacità tecnica\n\n• Prestazione in cura per i pazienti dipendenti\n\n• Senso clinico\n\n• Dinamica\n\n• Flessibilità\n\nVi offriamo:\n\nTipo di contratto: CDM 9 mesi\nPercentuale: 75%\nTipo di programma: variabili",
+        "en": "The La Tour Hospital's intensive care department is responsible for the care of patients whose life expectancy can be expected following a medical, traumatic or surgical condition. A specialized team ensures admission and continuous care 24 hours a day, as well as emergency and medical services. Our service includes all the infrastructure necessary to establish a diagnosis for first aid and surveillance, regardless of the severity of the case. It also has a resuscitation room, a plaster room and various treatment and consultation rooms.\n\nWe recruit one\n\nCaregiver in Intensive Care CDMax 9 months (ref: 2078)\n\nIn a state-of-the-art institution you have a variety of positions on a multidisciplinary team including nurses, health care workers, doctors.\nYou will need to accommodate patients with acute overall care.\n\nAs such you are in charge of;\n\n• Welcoming the patient and his family by making them involved in care\n\n• Collect administrative data\n\n• Take care of the patient as a whole in collaboration with the multidisciplinary team and meet its basic needs (hygiene, pain, food, comfort, ...)\n\n• Ensure the supply of equipment, verify their operation and ensure the management of maintenance, apply cleaning and disinfection procedures\n\n• Participate in the proper functioning of the service, make transmissions on the computerized care file\n\n• Updating of professional practices to service or institutional care procedures\n\nWe are looking for a profile that meets the following criteria:\n\n• Diploma of Caregiver\n\n• Self-governing, benevolence, versatility, adaptability, organization and sense of priority are essential qualities\n\n• Experience in acute care min 2 years (ideally in resuscitation, intensive care, emergency or continuous care. At least in medical service)\n\n• Technical skill\n\n• Attendance in nursing care for dependent patients\n\n• Clinical sense\n\n• Dynamics\n\n• Flexibility\n\nWe offer you:\n\nType of contract: CDM 9 months\nPercentage: 75%\nType of schedules: variables",
+        "de": "Die Intensivstation des La Tour Hospital ist für die Versorgung von Patienten verantwortlich, deren Lebenserwartung nach einem medizinischen, traumatischen oder chirurgischen Zustand zu erwarten ist. Ein spezialisiertes Team sorgt für die Aufnahme und kontinuierliche Betreuung 24 Stunden am Tag, sowie Notfall- und medizinische Dienste. Unser Service umfasst alle notwendigen Infrastrukturen, um eine Diagnose für Erste Hilfe und Überwachung zu erstellen, unabhängig von der Schwere des Falls. Es hat auch einen Reanimationsraum, einen Gipsraum und verschiedene Behandlungs- und Beratungsräume.\n\nWir rekrutieren einen\n\nCaregiver in Intensive Care CDMax 9 Monate (ref: 2078)\n\nIn einer hochmodernen Institution haben Sie eine Vielzahl von Positionen in einem multidisziplinären Team, darunter Krankenschwestern, Gesundheitspersonal, Ärzte.\nSie müssen Patienten mit akuter Gesamtversorgung unterbringen.\n\nAls solche sind Sie verantwortlich für;\n\n• Begrüßung des Patienten und seiner Familie, indem sie sie in die Pflege einbeziehen\n\n• Erhebung administrativer Daten\n\n• Betreuen Sie den Patienten als Ganzes in Zusammenarbeit mit dem multidisziplinären Team und erfüllen Sie seine Grundbedürfnisse (Hygiene, Schmerzen, Nahrung, Komfort, ...)\n\n• Sicherstellung der Versorgung mit Ausrüstung, Überprüfung ihres Betriebs und Gewährleistung der Wartungsverwaltung sowie Anwendung von Reinigungs- und Desinfektionsverfahren\n\n• Beteiligen Sie sich am ordnungsgemäßen Funktionieren des Dienstes, machen Sie Übertragungen auf die computergestützte Pflegedatei\n\n• Aktualisierung von Berufspraktiken auf Service- oder institutionelle Pflegeverfahren\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\n• Diplom der Pflegekraft\n\n• Selbstregierung, Wohlwollen, Vielseitigkeit, Anpassungsfähigkeit, Organisation und Prioritätsgefühl sind wesentliche Eigenschaften\n\n• Erfahrung in der Akutpflege min 2 Jahre (idealerweise in der Reanimation, Intensivpflege, Notfall- oder Dauerpflege). Zumindest im medizinischen Dienst\n\n• Technische Fähigkeiten\n\n• Betreuung in der Pflege von abhängigen Patienten\n\n• Klinischer Sinn\n\n• Dynamik\n\n• Flexibilität\n\nWir bieten Ihnen:\n\nArt des Vertrags: CDM 9 Monate\nProzentsatz: 75 %\nArt der Fahrpläne: Variablen",
+        "fr": "Le service des soins intensifs de l’Hôpital de La Tour a pour mission de prendre en charge des patients dont le pronostic vital peut être engagé suite à une affection médicale, traumatique ou chirurgicale. Une équipe spécialisée assure l’admission et les soins en continue 24h/24 ainsi qu' un service d’urgence et de permanence médicale . Notre service comprend toute l’infrastructure nécessaire à l’établissement d’un diagnostic pour dispenser les premiers soins et pour une surveillance, quelle que soit la gravité du cas. Il possède en outre une salle de réanimation, une salle de plâtre ainsi que diverses salles de soins et de consultations.\n\nNous recrutons un/e\n\nAide-soignant(-e) en Soins Intensifs CDMax 9 mois (ref : 2078)\n\nDans un établissement de pointe vous occupez un poste varié au sein d'une équipe pluridisciplinaire comprenant des infirmiers(-ères), des aides-soignants(-es), des médecins.\nVous devrez assurer l’accueil de patients atteints dans le cadre d’une prise en charge globale en phase aigüe.\n\nA ce titre vous êtes en charge de ;\n\n• Accueillir le patient et sa famille en les rendant acteurs de la prise en charge\n\n• Recueillir les données administratives\n\n• Prendre en charge le patient dans sa globalité en collaboration avec l’équipe pluridisciplinaire et répondre à ses besoins fondamentaux (hygiène, douleur, alimentation, confort, ...)\n\n• Assurer l'approvisionnement en matériel, vérifier leur fonctionnement et assurer la prise en charge de la maintenance, appliquer les procédures de nettoyage et de désinfection\n\n• Participer au bon fonctionnement du service, faire des transmissions sur le dossier de soins informatisé\n\n• Mettre à jour ses pratiques professionnelles en fonctions des procédures de soins du service ou institutionnelles\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diplôme d’Aide-Soignant\n\n• Autonome, bienveillance, polyvalence, capacité d'adaptation, d'organisation et sens des priorités sont des qualités essentielles\n\n• Expérience en soins aigus min 2 ans (idéalement en réanimation, soins intensifs, urgences ou soins continus. Au minimum en service de médecine)\n\n• Habileté technique\n\n• Aisance dans les soins de nursing aux patients dépendants\n\n• Bon sens clinique\n\n• Dynamisme\n\n• Flexibilité\n\nNous vous proposons :\n\nType de contrat : CDM 9 mois\nPourcentage : 75%\nType d'horaires : variables"
+      },
+      "needsRetranslation": false,
+      "location": "Meyrin",
+      "canton": "GE",
+      "url": "https://recrutement.latour.ch/fr/nos-offres/aide-soignant-e-en-soins-intensifs-cdmax-9-mois-1578",
+      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-26T09:39:47.755Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1217",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/aide-soignant-e-en-soins-intensifs-cdmax-9-mois-1578",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "aide-soignant-e-en-soins-intensifs-cdmax-9-mois-hopital-la-tour-meyrin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "aide-soignant-e-en-soins-intensifs-cdmax-9-mois-hopital-la-tour-meyrin"
+        ],
+        "en": [
+          "aide-soignant-e-en-soins-intensifs-cdmax-9-mois-hopital-la-tour-meyrin"
+        ],
+        "de": [
+          "aide-soignant-e-en-soins-intensifs-cdmax-9-mois-hopital-la-tour-meyrin"
+        ]
+      },
+      "firstSeenAt": "2026-11-13T21:34:40.631Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Hôpital de La Tour",
+        "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
+        "postalCode": "1217",
+        "addressLocality": "Meyrin",
+        "addressRegion": "GE",
+        "checkedAt": "2026-10-31T20:49:16.573Z",
+        "streetAddressSource": "zefix-registry"
+      },
+      "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-12T09:39:47.755Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/aide-soignant-e-en-soins-intensifs-cdmax-9-mois-1578"
     },
     {
       "id": "hopital-la-tour-c9438f44cd3f",
@@ -1624,7 +1641,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/coordinateurtrice-projet-rh-gestion-des-temps-et-planification-a-80-1580",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:22:22.094Z",
+      "crawledAt": "2026-11-26T09:39:47.754Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1684,8 +1701,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-10T21:22:22.094Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-10T09:39:47.754Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/coordinateurtrice-projet-rh-gestion-des-temps-et-planification-a-80-1580"
     },
     {
       "id": "hopital-la-tour-fd429834f139",
@@ -1719,7 +1737,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/lingere-cdmax-3-mois-a-50-des-que-possible-1582",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:22:22.093Z",
+      "crawledAt": "2026-11-26T09:39:47.753Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1779,8 +1797,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-12T21:22:22.093Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-12T09:39:47.753Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/lingere-cdmax-3-mois-a-50-des-que-possible-1582"
     },
     {
       "id": "hopital-la-tour-8f1a2381a572",
@@ -1813,7 +1832,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-unite-cardio-pulmonaire-et-soins-intermediaires-cdi-90-1581",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:22:22.092Z",
+      "crawledAt": "2026-11-26T09:39:47.752Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1873,8 +1892,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-12T21:22:22.092Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-12T09:39:47.752Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-unite-cardio-pulmonaire-et-soins-intermediaires-cdi-90-1581"
     },
     {
       "id": "hopital-la-tour-75a179a929f3",
@@ -1908,7 +1928,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/medecin-interne-ou-cheffe-de-clinique-a-100-cardiologie-non-invasive-1584",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:22:22.090Z",
+      "crawledAt": "2026-11-26T09:39:47.750Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1968,8 +1988,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-17T21:22:22.090Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-17T09:39:47.750Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/medecin-interne-ou-cheffe-de-clinique-a-100-cardiologie-non-invasive-1584"
     },
     {
       "id": "hopital-la-tour-76ccd2dd675a",
@@ -2003,7 +2024,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/neurologue-a-80-100-1586",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:22:22.087Z",
+      "crawledAt": "2026-11-26T09:39:47.748Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2063,8 +2084,9 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-22T21:22:22.087Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-22T09:39:47.748Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/neurologue-a-80-100-1586"
     }
   ]
 }

@@ -4,6 +4,8 @@ import {
   createCantonResolvers,
   AGGREGATE_KEY as CORE_AGGREGATE_KEY,
   SECTION_LEGACY_TI as CORE_SECTION_LEGACY_TI,
+  SECTION_LEGACY_TI_PATH as CORE_SECTION_LEGACY_TI_PATH,
+  SECTION_LEGACY_TI_ROOT as CORE_SECTION_LEGACY_TI_ROOT,
   TI_LEGACY_CITY_HUB_SLUGS as CORE_TI_LEGACY_CITY_HUB_SLUGS,
 } from './cantonResolvers.mjs';
 
@@ -22,12 +24,12 @@ export const TI_LEGACY_CITY_HUB_SLUGS: readonly string[] = CORE_TI_LEGACY_CITY_H
 
 /** `/cerca-lavoro-ticino`, `/en/find-jobs-ticino`, … — the same table with the SPA locale prefix, no trailing slash. */
 export const SECTION_LEGACY_TI_ROOT: Record<CantonLocale, string> = Object.fromEntries(
-  Object.entries(SECTION_LEGACY_TI).map(([loc, segment]) => [loc, `${loc === 'it' ? '' : `/${loc}`}/${segment}`]),
+  Object.entries(CORE_SECTION_LEGACY_TI_ROOT),
 ) as Record<CantonLocale, string>;
 
 /** The same roots with the trailing slash the emitters build hrefs from. */
 export const SECTION_LEGACY_TI_PATH: Record<CantonLocale, string> = Object.fromEntries(
-  Object.entries(SECTION_LEGACY_TI_ROOT).map(([loc, root]) => [loc, `${root}/`]),
+  Object.entries(CORE_SECTION_LEGACY_TI_PATH),
 ) as Record<CantonLocale, string>;
 
 /**

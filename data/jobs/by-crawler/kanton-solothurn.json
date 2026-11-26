@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kanton-solothurn",
-  "assembledAt": "2026-11-25T21:22:58.204Z",
-  "runId": "45702856844",
+  "assembledAt": "2026-11-26T09:52:15.043Z",
+  "runId": "45790496540",
   "jobs": [
     {
       "id": "kanton-solothurn-1ef770d83a68",
@@ -34,7 +34,7 @@
       "url": "https://job.so.ch/offene-stellen/lehrstelle-als-fachmann-fachfrau-betriebsunterhalt-efz/065b6048-21b7-4eda-b46e-718abf7d3725",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:22:18.923Z",
+      "crawledAt": "2026-11-26T09:51:25.743Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -77,8 +77,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:22:18.923Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:51:25.743Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://job.so.ch/offene-stellen/lehrstelle-als-fachmann-fachfrau-betriebsunterhalt-efz/065b6048-21b7-4eda-b46e-718abf7d3725"
     },
     {
       "id": "kanton-solothurn-d9e383691665",
@@ -112,7 +113,7 @@
       "url": "https://job.so.ch/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung/f9d698a8-5442-4fd9-8576-c7c9c9b4bd00",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:22:16.942Z",
+      "crawledAt": "2026-11-26T09:51:24.723Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -157,8 +158,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:22:16.942Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:51:24.723Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://job.so.ch/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung/f9d698a8-5442-4fd9-8576-c7c9c9b4bd00"
     },
     {
       "id": "kanton-solothurn-1e60e0e3b74e",
@@ -191,7 +193,7 @@
       "url": "https://job.so.ch/offene-stellen/lehrstelle-als-uhrmacher-in-efz/35eac920-78d1-4fa2-b308-ea4121b54715",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:22:14.928Z",
+      "crawledAt": "2026-11-26T09:51:23.720Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "streetAddress": "Grenchen",
@@ -236,8 +238,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:22:14.928Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:51:23.720Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://job.so.ch/offene-stellen/lehrstelle-als-uhrmacher-in-efz/35eac920-78d1-4fa2-b308-ea4121b54715"
     },
     {
       "id": "kanton-solothurn-fcbbf742eb3a",
@@ -271,7 +274,7 @@
       "url": "https://job.so.ch/offene-stellen/leiter-in-amt-fuer-raumplanung-kantonsplaner-in/18e3681a-4c40-4c13-925f-20fa41b7167d",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:22:12.926Z",
+      "crawledAt": "2026-11-26T09:51:22.785Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -326,8 +329,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:22:12.926Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-24T09:51:22.785Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://job.so.ch/offene-stellen/leiter-in-amt-fuer-raumplanung-kantonsplaner-in/18e3681a-4c40-4c13-925f-20fa41b7167d"
     },
     {
       "id": "kanton-solothurn-e871d11cfb51",
@@ -361,7 +365,7 @@
       "url": "https://job.so.ch/offene-stellen/stv-leiter-in-administration/b0e27c35-5db7-4032-9b9b-7896096d9d6c",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:22:10.921Z",
+      "crawledAt": "2026-11-26T09:51:21.720Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -412,8 +416,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-30T21:22:10.921Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-30T09:51:21.720Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://job.so.ch/offene-stellen/stv-leiter-in-administration/b0e27c35-5db7-4032-9b9b-7896096d9d6c"
     },
     {
       "id": "kanton-solothurn-d041640b2348",
@@ -447,7 +452,7 @@
       "url": "https://job.so.ch/offene-stellen/mitarbeiter-in-betriebe-als-fachperson-arbeitsagogik/d77455fc-9741-4ef9-bdd7-38db3598e0f9",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:22:08.939Z",
+      "crawledAt": "2026-11-26T09:51:20.729Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -498,8 +503,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-21T21:22:08.939Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-21T09:51:20.729Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://job.so.ch/offene-stellen/mitarbeiter-in-betriebe-als-fachperson-arbeitsagogik/d77455fc-9741-4ef9-bdd7-38db3598e0f9"
     },
     {
       "id": "kanton-solothurn-debfa510e046",
@@ -533,7 +539,7 @@
       "url": "https://job.so.ch/offene-stellen/fachbereichsleiter-in-aufsichtsbehoerde-kesb/175f4537-89a6-4dec-b092-7d857bcc224a",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:22:06.934Z",
+      "crawledAt": "2026-11-26T09:51:19.801Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -582,8 +588,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:22:06.934Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-25T09:51:19.801Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://job.so.ch/offene-stellen/fachbereichsleiter-in-aufsichtsbehoerde-kesb/175f4537-89a6-4dec-b092-7d857bcc224a"
     },
     {
       "id": "kanton-solothurn-078638ff2251",
@@ -617,7 +624,7 @@
       "url": "https://job.so.ch/offene-stellen/informatiker-in-efz-systemadministration-pc-support/f0e0bce1-4953-4d42-8938-7e34027903c1",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:22:04.923Z",
+      "crawledAt": "2026-11-26T09:51:18.743Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -666,8 +673,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:22:04.923Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-26T09:51:18.743Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://job.so.ch/offene-stellen/informatiker-in-efz-systemadministration-pc-support/f0e0bce1-4953-4d42-8938-7e34027903c1"
     },
     {
       "id": "kanton-solothurn-1833f6f47b36",
@@ -700,7 +708,7 @@
       "url": "https://job.so.ch/offene-stellen/stv-schlosswart-in/781df1de-77e0-4f97-a057-d94abd28a914",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:22:02.922Z",
+      "crawledAt": "2026-11-26T09:51:17.737Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "Olten",
@@ -749,8 +757,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:22:02.922Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-28T09:51:17.737Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://job.so.ch/offene-stellen/stv-schlosswart-in/781df1de-77e0-4f97-a057-d94abd28a914"
     },
     {
       "id": "kanton-solothurn-2551fa658cc6",
@@ -783,7 +792,7 @@
       "url": "https://job.so.ch/offene-stellen/lehrstelle-als-kaufmann-frau-efz/26543a07-e4e2-45c8-a68c-aa8fe24d44c6",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:22:00.922Z",
+      "crawledAt": "2026-11-26T09:51:16.772Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -862,8 +871,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:22:00.922Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-31T09:51:16.772Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://job.so.ch/offene-stellen/lehrstelle-als-kaufmann-frau-efz/26543a07-e4e2-45c8-a68c-aa8fe24d44c6"
     },
     {
       "id": "kanton-solothurn-214870ea35e4",
@@ -897,7 +907,7 @@
       "url": "https://job.so.ch/offene-stellen/stv-lehrer-in-sonderschule-zyklus-2/f7b081e7-663d-4774-a049-2222b9090b04",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:58.937Z",
+      "crawledAt": "2026-11-26T09:51:15.719Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -946,8 +956,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:21:58.937Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-03T09:51:15.719Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://job.so.ch/offene-stellen/stv-lehrer-in-sonderschule-zyklus-2/f7b081e7-663d-4774-a049-2222b9090b04"
     },
     {
       "id": "kanton-solothurn-cb9308a3c019",
@@ -981,7 +992,7 @@
       "url": "https://job.so.ch/offene-stellen/leiter-in-legistik-und-justiz/9103908e-5f7e-4a04-bc8c-39f6609a3678",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:56.921Z",
+      "crawledAt": "2026-11-26T09:51:14.726Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -1045,8 +1056,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:21:56.921Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-04T09:51:14.726Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://job.so.ch/offene-stellen/leiter-in-legistik-und-justiz/9103908e-5f7e-4a04-bc8c-39f6609a3678"
     },
     {
       "id": "kanton-solothurn-1cd37eb80b34",
@@ -1080,7 +1092,7 @@
       "url": "https://job.so.ch/offene-stellen/sachbearbeiter-in-familienergaenzungsleistungen/da73adf0-63c8-482c-acfa-35d18809600b",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:54.924Z",
+      "crawledAt": "2026-11-26T09:51:13.652Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -1129,8 +1141,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:21:54.924Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-09T09:51:13.652Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://job.so.ch/offene-stellen/sachbearbeiter-in-familienergaenzungsleistungen/da73adf0-63c8-482c-acfa-35d18809600b"
     },
     {
       "id": "kanton-solothurn-cf007db60b00",
@@ -1164,7 +1177,7 @@
       "url": "https://job.so.ch/offene-stellen/mitarbeiter-in-waffenbuero/ea3bb014-6c5c-4721-837b-c3149aeee44b",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:52.925Z",
+      "crawledAt": "2026-11-26T09:51:13.120Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -1215,8 +1228,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:21:52.925Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-08T09:51:13.120Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://job.so.ch/offene-stellen/mitarbeiter-in-waffenbuero/ea3bb014-6c5c-4721-837b-c3149aeee44b"
     },
     {
       "id": "kanton-solothurn-4d02551a11e0",
@@ -1250,7 +1264,7 @@
       "url": "https://job.so.ch/offene-stellen/logopaede-in/355d2688-20a1-4cab-9f31-765a26c5c6be",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:50.942Z",
+      "crawledAt": "2026-11-26T09:51:12.798Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "streetAddress": "Olten",
@@ -1299,8 +1313,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:21:50.942Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-08T09:51:12.798Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://job.so.ch/offene-stellen/logopaede-in/355d2688-20a1-4cab-9f31-765a26c5c6be"
     },
     {
       "id": "kanton-solothurn-7fa7533b4c8f",
@@ -1334,7 +1349,7 @@
       "url": "https://job.so.ch/offene-stellen/leiter-in-grundbuchamt/c5a2ad76-bfb5-405b-b08e-9025edbc85e7",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:48.973Z",
+      "crawledAt": "2026-11-26T09:51:12.472Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -1383,8 +1398,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:21:48.973Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-11T09:51:12.472Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://job.so.ch/offene-stellen/leiter-in-grundbuchamt/c5a2ad76-bfb5-405b-b08e-9025edbc85e7"
     },
     {
       "id": "kanton-solothurn-e01a3766c9b0",
@@ -1418,7 +1434,7 @@
       "url": "https://job.so.ch/offene-stellen/leiter-in-rechtsdienst-smv/c753ec72-1821-4f16-bb40-3549d495926a",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:46.961Z",
+      "crawledAt": "2026-11-26T09:51:12.098Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -1469,8 +1485,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:21:46.961Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-16T09:51:12.098Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://job.so.ch/offene-stellen/leiter-in-rechtsdienst-smv/c753ec72-1821-4f16-bb40-3549d495926a"
     },
     {
       "id": "kanton-solothurn-62a23ee1e21d",
@@ -1504,7 +1521,7 @@
       "url": "https://job.so.ch/offene-stellen/informationssicherheitsverantwortliche-r-und-projektleiter-in/e5c12cb5-2238-4b31-8eb0-8c625551ba56",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:44.923Z",
+      "crawledAt": "2026-11-26T09:51:11.696Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -1557,8 +1574,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:21:44.923Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-16T09:51:11.696Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://job.so.ch/offene-stellen/informationssicherheitsverantwortliche-r-und-projektleiter-in/e5c12cb5-2238-4b31-8eb0-8c625551ba56"
     },
     {
       "id": "kanton-solothurn-e4598b5a949b",
@@ -1592,7 +1610,7 @@
       "url": "https://job.so.ch/offene-stellen/klassenlehrer-in-mittelstufe/7be7c322-40ac-48fb-b639-6b4339488ce3",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:42.965Z",
+      "crawledAt": "2026-11-26T09:51:11.296Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -1641,8 +1659,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-18T21:21:42.965Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-18T09:51:11.296Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://job.so.ch/offene-stellen/klassenlehrer-in-mittelstufe/7be7c322-40ac-48fb-b639-6b4339488ce3"
     },
     {
       "id": "kanton-solothurn-c9a3898947a0",
@@ -1676,7 +1695,7 @@
       "url": "https://job.so.ch/offene-stellen/praktikant-in/e7f3c7bc-1b32-41fc-a643-2889e7ed61e2",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:40.961Z",
+      "crawledAt": "2026-11-26T09:51:10.864Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -1725,8 +1744,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T21:21:40.961Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-21T09:51:10.864Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://job.so.ch/offene-stellen/praktikant-in/e7f3c7bc-1b32-41fc-a643-2889e7ed61e2"
     },
     {
       "id": "kanton-solothurn-ceb59a5aeb29",
@@ -1759,7 +1779,7 @@
       "url": "https://job.so.ch/offene-stellen/lehrer-in-deutsch-und-englisch/7fef5ed9-f644-4168-b9b8-4b66f8762fd6",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:38.966Z",
+      "crawledAt": "2026-11-26T09:51:10.480Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -1802,8 +1822,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T21:21:38.966Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-21T09:51:10.480Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://job.so.ch/offene-stellen/lehrer-in-deutsch-und-englisch/7fef5ed9-f644-4168-b9b8-4b66f8762fd6"
     },
     {
       "id": "kanton-solothurn-1f3084509d84",
@@ -1836,7 +1857,7 @@
       "url": "https://job.so.ch/offene-stellen/sachbearbeiter-in/434568cd-f4e9-44a4-ac00-dd515b2820cd",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:36.943Z",
+      "crawledAt": "2026-11-26T09:51:10.082Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -1879,8 +1900,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T21:21:36.943Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-21T09:51:10.082Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://job.so.ch/offene-stellen/sachbearbeiter-in/434568cd-f4e9-44a4-ac00-dd515b2820cd"
     },
     {
       "id": "kanton-solothurn-9bcef9c82f18",
@@ -1913,7 +1935,7 @@
       "url": "https://job.so.ch/offene-stellen/lehrer-in-deutsch-und-franzoesisch/686d20e6-dae6-457a-abef-cbb2ed98cedb",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:34.977Z",
+      "crawledAt": "2026-11-26T09:51:09.682Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -1956,41 +1978,43 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T21:21:34.977Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-23T09:51:09.682Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://job.so.ch/offene-stellen/lehrer-in-deutsch-und-franzoesisch/686d20e6-dae6-457a-abef-cbb2ed98cedb"
     },
     {
       "id": "kanton-solothurn-a707dee43680",
       "slug": "responsabile-gesundheitsdienst-80-100-kanton-solothurn",
       "slugByLocale": {
-        "de": "leiter-in-gesundheitsdienst-80-100-kanton-solothurn-solothurn",
         "it": "responsabile-gesundheitsdienst-80-100-kanton-solothurn",
-        "en": "leiter-in-gesundheitsdienst-80-100-kanton-solothurn-solothurn",
-        "fr": "leiter-in-gesundheitsdienst-80-100-kanton-solothurn-solothurn"
+        "en": "head-of-health-services-80-100-kanton-solothurn-solothurn",
+        "de": "leiter-in-gesundheitsdienst-80-100-kanton-solothurn-solothurn",
+        "fr": "responsable-du-service-de-sante-80-100-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
       "companyDomain": "so.ch",
       "title": "Leiter/-in Gesundheitsdienst, 80-100%",
       "titleByLocale": {
-        "de": "Leiter/-in Gesundheitsdienst, 80-100%",
         "it": "Responsabile del servizio sanitario, 80-100%",
         "en": "Head of health services, 80-100%",
+        "de": "Leiter/-in Gesundheitsdienst, 80-100%",
         "fr": "Responsable du service de santé, 80-100%"
       },
       "description": "Das Amt für Justizvollzug stellt den rechtmässigen, risiko- und ressourcenorientierten Vollzug von rechtskräftigen Sanktionen und von Freiheitsentzug vor, während oder ausserhalb von Strafverfahren sicher. Wir leisten von der Prävention bis hin zur Wiedereingliederung einen Beitrag zur öffentlichen Sicherheit. Der Gesundheitsdienst sorgt in Zusammenarbeit mit ärztlichen, forensisch-therapeutischen und pharmazeutischen Fachpersonen aus Somatik und forensischer Psychiatrie für die medizinische Versorgung in den Vollzugseinrichtungen. Für den Gesundheitsdienst suchen wir per sofort oder nach Vereinbarung an den Standorten Solothurn, Olten und Deitingen eine/-n Leiter/-in Gesundheitsdienst, 80-100%.\n\nIhre Verantwortung\n\n• Sie leiten den Gesundheitsdienst an drei Standorten in personeller, fachlicher, organisatorischer und finanzieller Hinsicht und fördern die Entwicklung Ihrer Mitarbeitenden.\n\n• Gemeinsam mit Ihrem engagierten Team stellen Sie die medizinische und pflegerische Versorgung der über 200 eingewiesenen Personen sowie die interdisziplinäre Zusammenarbeit und Kommunikation mit internen und externen Zielgruppen sicher.\n\n• Sie sorgen für die Umsetzung der fachlichen, rechtlichen und betrieblichen Vorgaben im Vollzugsalltag, entwickeln die medizinischen und pflegerischen Abläufe weiter, sind für die Qualitätssicherung verantwortlich und leiten einen Standort operativ.\n\n• Den geplanten Übergang der beiden heutigen Gefängnisse in das kantonale Zentralgefängnis (ZGSO) gestalten Sie im Bereich Gesundheitsversorgung aktiv mit und bringen Ihre Erfahrung in Projekten und Veränderungsprozessen ein.\n\n• Als Mitglied der Geschäftsleitung des Amtes für Justizvollzug sind Sie in Ihrem Fachgebiet unter anderem für die Bearbeitung von Stellungnahmen sowie die Vertretung des Amtes gegenüber externen Dienstleistenden und Dritten zuständig.\n\nIhr Profil\n\n• Sie sind eine dynamische, flexible, belastbare und entscheidungsfreudige Persönlichkeit mit einem Masterabschluss in Pflege mit der Qualifikation als Advanced Practice Nurse (APN) oder einer vergleichbaren Ausbildung.\n\n• Sie haben mehrjährige Berufserfahrung in der Akutpflege mit Schwerpunkt Somatik und/oder Psychiatrie.\n\n• Ihre auf Erfahrung und Ausbildung beruhenden Führungskompetenzen kombinieren Sie mit Ihrem Flair für Projekt- und Changemanagement.\n\n• Auf einen Umgang auf Augenhöhe legen Sie Wert und freuen sich auf eine professionelle Beziehungsgestaltung in der Arbeit mit eingewiesenen Personen unterschiedlicher kultureller Herkunft.\n\n• Sie bringen die Bereitschaft zu unregelmässigen Arbeitszeiten sowie ein Flair für digitale Anwendungen mit und verfügen über einen guten Leumund.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nMichael Leutwyler\nAmtschef\n032 627 63 36\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
       "descriptionByLocale": {
-        "de": "Das Amt für Justizvollzug stellt den rechtmässigen, risiko- und ressourcenorientierten Vollzug von rechtskräftigen Sanktionen und von Freiheitsentzug vor, während oder ausserhalb von Strafverfahren sicher. Wir leisten von der Prävention bis hin zur Wiedereingliederung einen Beitrag zur öffentlichen Sicherheit. Der Gesundheitsdienst sorgt in Zusammenarbeit mit ärztlichen, forensisch-therapeutischen und pharmazeutischen Fachpersonen aus Somatik und forensischer Psychiatrie für die medizinische Versorgung in den Vollzugseinrichtungen. Für den Gesundheitsdienst suchen wir per sofort oder nach Vereinbarung an den Standorten Solothurn, Olten und Deitingen eine/-n Leiter/-in Gesundheitsdienst, 80-100%.\n\nIhre Verantwortung\n\n• Sie leiten den Gesundheitsdienst an drei Standorten in personeller, fachlicher, organisatorischer und finanzieller Hinsicht und fördern die Entwicklung Ihrer Mitarbeitenden.\n\n• Gemeinsam mit Ihrem engagierten Team stellen Sie die medizinische und pflegerische Versorgung der über 200 eingewiesenen Personen sowie die interdisziplinäre Zusammenarbeit und Kommunikation mit internen und externen Zielgruppen sicher.\n\n• Sie sorgen für die Umsetzung der fachlichen, rechtlichen und betrieblichen Vorgaben im Vollzugsalltag, entwickeln die medizinischen und pflegerischen Abläufe weiter, sind für die Qualitätssicherung verantwortlich und leiten einen Standort operativ.\n\n• Den geplanten Übergang der beiden heutigen Gefängnisse in das kantonale Zentralgefängnis (ZGSO) gestalten Sie im Bereich Gesundheitsversorgung aktiv mit und bringen Ihre Erfahrung in Projekten und Veränderungsprozessen ein.\n\n• Als Mitglied der Geschäftsleitung des Amtes für Justizvollzug sind Sie in Ihrem Fachgebiet unter anderem für die Bearbeitung von Stellungnahmen sowie die Vertretung des Amtes gegenüber externen Dienstleistenden und Dritten zuständig.\n\nIhr Profil\n\n• Sie sind eine dynamische, flexible, belastbare und entscheidungsfreudige Persönlichkeit mit einem Masterabschluss in Pflege mit der Qualifikation als Advanced Practice Nurse (APN) oder einer vergleichbaren Ausbildung.\n\n• Sie haben mehrjährige Berufserfahrung in der Akutpflege mit Schwerpunkt Somatik und/oder Psychiatrie.\n\n• Ihre auf Erfahrung und Ausbildung beruhenden Führungskompetenzen kombinieren Sie mit Ihrem Flair für Projekt- und Changemanagement.\n\n• Auf einen Umgang auf Augenhöhe legen Sie Wert und freuen sich auf eine professionelle Beziehungsgestaltung in der Arbeit mit eingewiesenen Personen unterschiedlicher kultureller Herkunft.\n\n• Sie bringen die Bereitschaft zu unregelmässigen Arbeitszeiten sowie ein Flair für digitale Anwendungen mit und verfügen über einen guten Leumund.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nMichael Leutwyler\nAmtschef\n032 627 63 36\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
         "it": "L'Ufficio per l'esecuzione delle carceri garantisce l'esecuzione lecita, rischiosa e orientata alle risorse delle sanzioni finali e della privazione della libertà prima, durante o fuori dei procedimenti penali. Contribuiamo alla sicurezza pubblica, dalla prevenzione alla reintegrazione. Il servizio sanitario prevede in collaborazione con specialisti medici, terapeutici forensi e farmaceutici di somatica e psichiatria forense per l'assistenza medica nelle strutture della prigione. Per il servizio sanitario stiamo cercando immediatamente o d'accordo nelle località Solothurn, Olten e Deitingen un capo di servizio sanitario, 80-100%.\n\nLa tua responsabilità\n\n• Si gestisce il servizio sanitario in tre sedi in termini umani, professionali, organizzativi e finanziari e promuovere lo sviluppo dei dipendenti.\n\n• Insieme al vostro team dedicato, assicurate l'assistenza medica e infermieristica delle oltre 200 persone istruite, nonché la cooperazione interdisciplinare e la comunicazione con i gruppi target interni ed esterni.\n\n• Si occupano dell'attuazione dei requisiti professionali, legali e operativi nell'esecuzione quotidiana, sviluppano ulteriormente i processi medici e di cura, sono responsabili della garanzia della qualità e gestiscono un sito in modo operativo.\n\n• La prevista transizione delle due prigioni attuali alla prigione centrale cantonale (ZGSO) sarà formata attivamente nel settore dell'assistenza sanitaria e contribuirà la vostra esperienza nei progetti e nei processi di cambiamento.\n\n• In qualità di membro del comitato esecutivo dell'Ufficio per l'attuazione della giustizia, Lei è responsabile nel Suo campo, tra l'altro, per elaborare pareri e rappresentare l'Ufficio nei confronti dei fornitori di servizi esterni e di terzi.\n\nIl tuo profilo\n\n• Sei una personalità dinamica, flessibile, resiliente e decisionale con un master in allattamento con la qualifica come Infermiere di pratica avanzata (APN) o istruzione equivalente.\n\n• Hanno diversi anni di esperienza professionale in cura acuta con un focus sulla somatica e/o psichiatria.\n\n• Le tue competenze di leadership basate sull'esperienza e sulla formazione si combinano con il tuo fascino per la gestione dei progetti e dei cambiamenti.\n\n• Si attribuisce importanza a trattare su un piano di parità e guardare avanti a un rapporto professionale nel lavoro con persone istruite di diverse origini culturali.\n\n• Portano la volontà di lavorare ore irregolari e un tocco per applicazioni digitali e hanno una buona reputazione.\n\n• Promuovere l'equilibrio personale della vita lavorativa attraverso un modello annuale di tempo di lavoro\n\n• Lavoro a tempo parziale, anche in cadre\n\n• Opportunità di lavorare mobile\n\n• Condizioni di lavoro progressive basate su un GAV\n\n• Pari retribuzione tra uomini e donne\n\n• Ricompense fedeltà\n\n• 16 settimane di congedo di maternità a pagamento completo\n\n• 2 settimane congedo di paternità\n\n• Contributi finanziari all'assistenza all'infanzia\n\n• Completa offerta di formazione interna ed esterna\n\nDomande?\n\nMichael Leutwyler\nCapo di Stato Maggiore\n032 627 63 36\n\nSpostarsi con impegno. – Questa è l'opportunità di assumersi la responsabilità di una significativa attività di rilevanza politica e sociale e di spostare gli sviluppi sostenibili per la popolazione e l'economia con la propria impronta. Dietro questa promessa sorge il cantone di Solothurn con innumerevoli possibilità, una flessibilità tangibile e una stabilità nell'ambiente di lavoro.\n\nConvinto?\n\nVorremmo riempire questa posizione senza il supporto di fornitori di servizi esterni. Le applicazioni e-mail non possono essere considerate.",
         "en": "The Office for Prison Enforcement shall ensure the lawful, risk- and resource-oriented execution of final sanctions and deprivation of liberty before, during or outside criminal proceedings. We contribute to public safety, from prevention to reintegration. The health service provides in cooperation with medical, forensic-therapeutic and pharmaceutical specialists from somatics and forensic psychiatry for medical care in the prison facilities. For the health service we are looking for immediately or by agreement at the locations Solothurn, Olten and Deitingen a head of health service, 80-100%.\n\nYour responsibility\n\n• You manage the health service at three locations in human, professional, organizational and financial terms and promote the development of your employees.\n\n• Together with your dedicated team, you ensure the medical and nursing care of the more than 200 instructed persons as well as the interdisciplinary cooperation and communication with internal and external target groups.\n\n• They take care of the implementation of the professional, legal and operational requirements in day-to-day execution, develop the medical and nursing processes further, are responsible for quality assurance and manage a site operationally.\n\n• The planned transition of the two current prisons to the Cantonal Central Prison (ZGSO) will be actively shaped in the area of health care and will contribute your experience in projects and change processes.\n\n• As a member of the Executive Board of the Office for the Implementation of Justice, you are responsible in your field, among other things, for processing opinions and representing the Office vis-à-vis external service providers and third parties.\n\nYour profile\n\n• You are a dynamic, flexible, resilient and decision-making personality with a master’s degree in nursing with the qualification as an Advanced Practice Nurse (APN) or equivalent education.\n\n• They have several years of professional experience in acute care with a focus on somatics and/or psychiatry.\n\n• Your experience and training-based leadership skills combine with your flair for project and change management.\n\n• You attach importance to dealing on an equal footing and look forward to a professional relationship in the work with instructed persons of different cultural origins.\n\n• They bring the willingness to work irregular hours as well as a flair for digital applications and have a good reputation.\n\n• Promoting personal work-life balance through an annual working time model\n\n• Part-time work, also in cadre\n\n• Opportunity to work mobile\n\n• Progressive employment conditions based on a GAV\n\n• Equal pay between men and women\n\n• Loyalty rewards\n\n• 16 weeks of maternity leave on full pay\n\n• 2 weeks paternity leave\n\n• Financial contributions to childcare\n\n• Comprehensive offer of internal and external training\n\nQuestions?\n\nMichael Leutwyler\nChief of Staff\n032 627 63 36\n\nMoving with commitment. – This is the opportunity to bear responsibility in meaningful activity of political and social relevance and to move sustainable developments for the population and economy with their own imprint. Behind this promise stands the canton of Solothurn with countless possibilities, a tangible flexibility and a stability in the working environment.\n\nConvinced?\n\nWe would like to fill this position without the support of external service providers. Email applications cannot be considered.",
+        "de": "Das Amt für Justizvollzug stellt den rechtmässigen, risiko- und ressourcenorientierten Vollzug von rechtskräftigen Sanktionen und von Freiheitsentzug vor, während oder ausserhalb von Strafverfahren sicher. Wir leisten von der Prävention bis hin zur Wiedereingliederung einen Beitrag zur öffentlichen Sicherheit. Der Gesundheitsdienst sorgt in Zusammenarbeit mit ärztlichen, forensisch-therapeutischen und pharmazeutischen Fachpersonen aus Somatik und forensischer Psychiatrie für die medizinische Versorgung in den Vollzugseinrichtungen. Für den Gesundheitsdienst suchen wir per sofort oder nach Vereinbarung an den Standorten Solothurn, Olten und Deitingen eine/-n Leiter/-in Gesundheitsdienst, 80-100%.\n\nIhre Verantwortung\n\n• Sie leiten den Gesundheitsdienst an drei Standorten in personeller, fachlicher, organisatorischer und finanzieller Hinsicht und fördern die Entwicklung Ihrer Mitarbeitenden.\n\n• Gemeinsam mit Ihrem engagierten Team stellen Sie die medizinische und pflegerische Versorgung der über 200 eingewiesenen Personen sowie die interdisziplinäre Zusammenarbeit und Kommunikation mit internen und externen Zielgruppen sicher.\n\n• Sie sorgen für die Umsetzung der fachlichen, rechtlichen und betrieblichen Vorgaben im Vollzugsalltag, entwickeln die medizinischen und pflegerischen Abläufe weiter, sind für die Qualitätssicherung verantwortlich und leiten einen Standort operativ.\n\n• Den geplanten Übergang der beiden heutigen Gefängnisse in das kantonale Zentralgefängnis (ZGSO) gestalten Sie im Bereich Gesundheitsversorgung aktiv mit und bringen Ihre Erfahrung in Projekten und Veränderungsprozessen ein.\n\n• Als Mitglied der Geschäftsleitung des Amtes für Justizvollzug sind Sie in Ihrem Fachgebiet unter anderem für die Bearbeitung von Stellungnahmen sowie die Vertretung des Amtes gegenüber externen Dienstleistenden und Dritten zuständig.\n\nIhr Profil\n\n• Sie sind eine dynamische, flexible, belastbare und entscheidungsfreudige Persönlichkeit mit einem Masterabschluss in Pflege mit der Qualifikation als Advanced Practice Nurse (APN) oder einer vergleichbaren Ausbildung.\n\n• Sie haben mehrjährige Berufserfahrung in der Akutpflege mit Schwerpunkt Somatik und/oder Psychiatrie.\n\n• Ihre auf Erfahrung und Ausbildung beruhenden Führungskompetenzen kombinieren Sie mit Ihrem Flair für Projekt- und Changemanagement.\n\n• Auf einen Umgang auf Augenhöhe legen Sie Wert und freuen sich auf eine professionelle Beziehungsgestaltung in der Arbeit mit eingewiesenen Personen unterschiedlicher kultureller Herkunft.\n\n• Sie bringen die Bereitschaft zu unregelmässigen Arbeitszeiten sowie ein Flair für digitale Anwendungen mit und verfügen über einen guten Leumund.\n\n• Förderung der persönlichen Work-Life-Balance durch ein Jahresarbeitszeitmodell\n\n• Teilzeitarbeit, auch im Kader\n\n• Möglichkeit zum mobilen Arbeiten\n\n• Fortschrittliche Anstellungsbedingungen auf Basis eines GAV\n\n• Lohngleichheit zwischen Mann und Frau\n\n• Treueprämien\n\n• 16 Wochen Mutterschaftsurlaub bei vollem Lohn\n\n• 2 Wochen Vaterschaftsurlaub\n\n• Finanzielle Beiträge zur Kinderbetreuung\n\n• Umfassendes Angebot an internen und externen Weiterbildungen\n\nFragen?\n\nMichael Leutwyler\nAmtschef\n032 627 63 36\n\nMit Engagement bewegen. – Das ist die Chance, in einer sinnstiftenden Tätigkeit von politischer und gesellschaftlicher Relevanz, Verantwortung zu tragen und mit dem eigenen Abdruck nachhaltige Entwicklungen für Bevölkerung und Wirtschaft zu bewegen. Hinter diesem Versprechen steht der Kanton Solothurn mit unzähligen Möglichkeiten, einer erlebbaren Flexibilität und einer Stabilität im Arbeitsumfeld.\n\nÜberzeugt?\n\nDiese Stelle möchten wir ohne Unterstützung von externen Dienstleistern besetzen. E-Mail-Bewerbungen können nicht berücksichtigt werden.",
         "fr": "Le Bureau de l'application des peines dans les prisons veille à l'exécution légale, axée sur les risques et les ressources, des sanctions finales et de la privation de liberté avant, pendant ou en dehors des procédures pénales. Nous contribuons à la sécurité publique, de la prévention à la réinsertion. Le service de santé assure, en coopération avec des spécialistes de la médecine, de la médecine légale, de la médecine et de la pharmacie de la somatique et de la psychiatrie légale, des soins médicaux dans les établissements pénitentiaires. Pour le service de santé que nous recherchons immédiatement ou par accord sur les lieux Soleure, Olten et Deitingen un chef de service de santé, 80-100%.\n\nVotre responsabilité\n\n• Vous gérez le service de santé à trois endroits en termes humains, professionnels, organisationnels et financiers et favorisez le perfectionnement de vos employés.\n\n• Avec votre équipe dévouée, vous assurez les soins médicaux et infirmiers de plus de 200 personnes instruites ainsi que la coopération interdisciplinaire et la communication avec les groupes cibles internes et externes.\n\n• Ils s'occupent de la mise en œuvre des exigences professionnelles, juridiques et opérationnelles dans l'exécution quotidienne, développent les processus médicaux et infirmiers, sont responsables de l'assurance de la qualité et gèrent un site sur le plan opérationnel.\n\n• La transition prévue des deux prisons actuelles vers la prison centrale cantonale (ZGSO) sera activement façonnée dans le domaine des soins de santé et apportera votre expérience dans les projets et les processus de changement.\n\n• En tant que membre du Directoire de l'Office pour la mise en œuvre de la justice, vous êtes notamment responsable du traitement des avis et de la représentation de l'Office auprès des prestataires de services externes et des tiers.\n\nVotre profil\n\n• Vous êtes une personnalité dynamique, flexible, résiliente et décisionnelle avec une maîtrise en sciences infirmières avec la qualification d'infirmière en pratique avancée (APN) ou une formation équivalente.\n\n• Ils ont plusieurs années d'expérience professionnelle en soins aigus en mettant l'accent sur la somatique et/ou la psychiatrie.\n\n• Votre expérience et vos compétences en leadership basées sur la formation se combinent avec votre style pour la gestion de projet et de changement.\n\n• Vous attachez de l'importance à traiter sur un pied d'égalité et attendez avec intérêt une relation professionnelle dans le travail avec des personnes instruites d'origines culturelles différentes.\n\n• Ils apportent la volonté de travailler des heures irrégulières ainsi qu'un flair pour les applications numériques et ont une bonne réputation.\n\n• Promouvoir l'équilibre entre vie professionnelle et vie privée au moyen d'un modèle annuel de temps de travail\n\n• Travail à temps partiel, également en milieu de travail\n\n• Possibilité de travailler mobile\n\n• Conditions d'emploi progressives basées sur un VAB\n\n• Égalité de rémunération entre hommes et femmes\n\n• Récompenses de fidélité\n\n• 16 semaines de congé de maternité à plein salaire\n\n• 2 semaines de congé de paternité\n\n• Contributions financières à la garde des enfants\n\n• Offre complète de formation interne et externe\n\nDes questions ?\n\nMichael Leutwyler\nChef de cabinet\n032 627 63 36\n\nSe déplacer avec engagement. – C'est l'occasion d'assumer la responsabilité d'activités significatives d'importance politique et sociale et de faire évoluer les développements durables pour la population et l'économie avec leur propre empreinte. Derrière cette promesse se trouve le canton de Soleure avec d'innombrables possibilités, une flexibilité tangible et une stabilité dans l'environnement de travail.\n\nConvaincu ?\n\nNous aimerions combler ce poste sans le soutien de fournisseurs de services externes. Les demandes par courriel ne peuvent pas être prises en considération."
       },
+      "needsRetranslation": false,
       "location": "Solothurn",
       "canton": "SO",
       "url": "https://job.so.ch/offene-stellen/leiter-in-gesundheitsdienst/bedc7dab-ea40-4b12-95a4-72a0fe5c4226",
       "source": "Kanton Solothurn Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:21:32.953Z",
+      "crawledAt": "2026-11-26T09:51:09.283Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "Solothurn",
@@ -2009,17 +2033,22 @@
       "postingDateSource": "reported",
       "applyUrl": "https://job.so.ch/offene-stellen/leiter-in-gesundheitsdienst/bedc7dab-ea40-4b12-95a4-72a0fe5c4226",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "leiter-in-gesundheitsdienst-80-100-kanton-solothurn-solothurn"
-        ]
-      },
+      "requirementsByLocale": {},
       "previousSlugs": [
         "leiter-in-gesundheitsdienst-80-100-kanton-solothurn-solothurn"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-in-gesundheitsdienst-80-100-kanton-solothurn-solothurn"
+        ],
+        "en": [
+          "leiter-in-gesundheitsdienst-80-100-kanton-solothurn-solothurn"
+        ],
+        "fr": [
+          "leiter-in-gesundheitsdienst-80-100-kanton-solothurn-solothurn"
+        ]
+      },
+      "firstSeenAt": "2026-11-25T21:21:32.953Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -2034,9 +2063,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T21:21:32.953Z",
+      "validThrough": "2027-02-23T09:51:09.283Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-25T21:21:32.953Z"
+      "sourceIdentity": "url:https://job.so.ch/offene-stellen/leiter-in-gesundheitsdienst/bedc7dab-ea40-4b12-95a4-72a0fe5c4226"
     }
   ]
 }

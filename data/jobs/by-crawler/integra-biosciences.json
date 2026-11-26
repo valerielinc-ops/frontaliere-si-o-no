@@ -1,7 +1,7 @@
 {
   "crawlerKey": "integra-biosciences",
-  "assembledAt": "2026-11-25T21:47:57.918Z",
-  "runId": "45703515610",
+  "assembledAt": "2026-11-26T09:51:52.813Z",
+  "runId": "45791167359",
   "jobs": [
     {
       "id": "integra-biosciences-5522c74ca89c",
@@ -34,7 +34,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/350/Description/2?lang=eng",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:47:50.428Z",
+      "crawledAt": "2026-11-26T09:51:48.643Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -89,8 +89,9 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T21:47:50.428Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-07T09:51:48.643Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.integra-biosciences.com/vacancies/350/description/2?lang=eng"
     },
     {
       "id": "integra-biosciences-eab8fd2b0d66",
@@ -123,7 +124,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/347/Description/2?lang=eng",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:47:48.897Z",
+      "crawledAt": "2026-11-26T09:51:46.988Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -176,8 +177,9 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-20T21:47:48.897Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-20T09:51:46.988Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.integra-biosciences.com/vacancies/347/description/2?lang=eng"
     },
     {
       "id": "integra-biosciences-bdf83c146301",
@@ -258,7 +260,9 @@
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-30T21:47:46.993Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
+      "sourceIdentity": "url:https://jobs.integra-biosciences.com/vacancies/345/description/1?lang=ger"
     },
     {
       "id": "integra-biosciences-20ac990943c5",
@@ -348,7 +352,8 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T09:38:23.064Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://jobs.integra-biosciences.com/vacancies/349/description/1?lang=ger"
     }
   ]
 }

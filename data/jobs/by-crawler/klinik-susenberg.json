@@ -1,7 +1,7 @@
 {
   "crawlerKey": "klinik-susenberg",
-  "assembledAt": "2026-11-25T21:52:41.389Z",
-  "runId": "45703515610",
+  "assembledAt": "2026-11-26T09:51:37.386Z",
+  "runId": "45791167359",
   "jobs": [
     {
       "id": "klinik-susenberg-41c7b455532d",
@@ -34,7 +34,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/00-Unterassistent_Oktober-Dezember_2026-10-22.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:52:34.824Z",
+      "crawledAt": "2026-11-26T09:51:32.851Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -80,8 +80,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-01T21:52:34.824Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-01T09:51:32.851Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.susenbergklinik.ch/fileadmin/user_upload/stellen/00-unterassistent_oktober-dezember_2026-10-22.pdf"
     },
     {
       "id": "klinik-susenberg-a2e676a9c4ab",
@@ -115,7 +116,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/04-Stv._Leitung_Gastronomie_80-100_2026-10-16.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:52:34.628Z",
+      "crawledAt": "2026-11-26T09:51:32.675Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -167,8 +168,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-14T21:52:34.628Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-15T09:51:32.675Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.susenbergklinik.ch/fileadmin/user_upload/stellen/04-stv._leitung_gastronomie_80-100_2026-10-16.pdf"
     },
     {
       "id": "klinik-susenberg-57637f18a2c8",
@@ -201,7 +203,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/13-Berufsbildner-in_HF_FH-40-60-2026-08-28.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:52:34.416Z",
+      "crawledAt": "2026-11-26T09:51:32.508Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -245,8 +247,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T21:52:34.416Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:51:32.508Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.susenbergklinik.ch/fileadmin/user_upload/stellen/13-berufsbildner-in_hf_fh-40-60-2026-08-28.pdf"
     },
     {
       "id": "klinik-susenberg-a4c20d36a963",
@@ -280,7 +283,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/13-dipl._Pflegefachperson_HF_FH_mit_Zusatzfunktion_BB_80-100_2026-08-05.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:52:34.189Z",
+      "crawledAt": "2026-11-26T09:51:32.329Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -326,8 +329,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T21:52:34.189Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:51:32.329Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.susenbergklinik.ch/fileadmin/user_upload/stellen/13-dipl._pflegefachperson_hf_fh_mit_zusatzfunktion_bb_80-100_2026-08-05.pdf"
     },
     {
       "id": "klinik-susenberg-775970114f1b",
@@ -360,7 +364,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/16-FAGE-BB-80-100-per_sofort_2026-07-02-.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:52:33.809Z",
+      "crawledAt": "2026-11-26T09:51:32.025Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -406,8 +410,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T21:52:33.809Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:51:32.025Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.susenbergklinik.ch/fileadmin/user_upload/stellen/16-fage-bb-80-100-per_sofort_2026-07-02-.pdf"
     },
     {
       "id": "klinik-susenberg-31c384727e78",
@@ -441,7 +446,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/03-Mitarbeiterin-VerwaltungServices_80-100-2026-11-18.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:52:33.518Z",
+      "crawledAt": "2026-11-26T09:51:31.807Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -487,8 +492,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:52:33.518Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-03T09:51:31.807Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.susenbergklinik.ch/fileadmin/user_upload/stellen/03-mitarbeiterin-verwaltungservices_80-100-2026-11-18.pdf"
     }
   ]
 }

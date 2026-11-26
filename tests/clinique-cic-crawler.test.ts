@@ -11,6 +11,7 @@ import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty
 
 const DETAIL_URL = 'https://company.jobcloud.ch/fr/jobs/clinique-cic-suisse/00000000-0000-0000-0000-000000000001/';
 const FAILED_DETAIL_URL = 'https://company.jobcloud.ch/fr/jobs/clinique-cic-suisse/00000000-0000-0000-0000-000000000004/';
+const THIN_DETAIL_URL = 'https://company.jobcloud.ch/fr/jobs/clinique-cic-suisse/00000000-0000-0000-0000-000000000006/';
 const PLACEHOLDER_SAXON_URL = 'https://company.jobcloud.ch/fr/jobs/clinique-cic-suisse/00000000-0000-0000-0000-000000000002/';
 const PLACEHOLDER_CLARENS_URL = 'https://company.jobcloud.ch/fr/jobs/clinique-cic-suisse/00000000-0000-0000-0000-000000000003/';
 const BODY = ('Rejoignez notre équipe soignante et accompagnez les patients dans un environnement clinique moderne et collaboratif. '
@@ -190,15 +191,20 @@ describe('clinique CIC JobCloud parser', () => {
     await expect(fetchAllCicJobs()).rejects.toThrow(/no usable title/);
   });
 
-  it('rejects a detail whose source description is below the minimum instead of emitting an empty description', async () => {
+  it('withholds a detail below the source-body minimum without aborting sibling jobs', async () => {
     vi.stubGlobal('fetch', vi.fn(async (input: unknown) => {
       const target = String(input);
-      if (target === LISTING_URL) return response(listingHtml([DETAIL_URL]));
-      if (target === DETAIL_URL) return response(detailHtml({ description: 'Soins aux patients.' }));
+      if (target === LISTING_URL) return response(listingHtml([DETAIL_URL, THIN_DETAIL_URL]));
+      if (target === DETAIL_URL) return response(detailHtml());
+      if (target === THIN_DETAIL_URL) return response(detailHtml({ description: 'Soins aux patients.' }));
       throw new Error(`unexpected URL ${target}`);
     }));
 
-    await expect(fetchAllCicJobs()).rejects.toThrow(/no source body meeting the minimum/);
+    const jobs = await fetchAllCicJobs();
+
+    expect(jobs).toHaveLength(2);
+    expect(jobs.find((job) => job.url === DETAIL_URL)).toMatchObject({ description: BODY });
+    expect(jobs.find((job) => job.url === THIN_DETAIL_URL)).toMatchObject({ description: '' });
   });
 
   it('resolves relative JobCloud application links against the detail URL', async () => {

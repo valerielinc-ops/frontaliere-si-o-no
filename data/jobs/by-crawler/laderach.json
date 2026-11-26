@@ -1,7 +1,7 @@
 {
   "crawlerKey": "laderach",
-  "assembledAt": "2026-11-25T21:27:28.396Z",
-  "runId": "45701994453",
+  "assembledAt": "2026-11-26T09:28:28.305Z",
+  "runId": "45789658977",
   "jobs": [
     {
       "id": "laderach-8bb5e0b40a88",
@@ -46,9 +46,10 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/68936201/IT-Business-Solutions-Project-Manager-Corporate-Functions-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-11-25T21:26:52.947Z",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-11-25T09:19:38.702Z",
+      "crawledAt": "2026-11-26T09:28:14.061Z",
+      "previousSlugs": [
+        "it-business-solutions-project-manager-corporate-functions-laderach-bilten"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "it-business-solutions-project-manager-corporate-functions-laderach-bilten"
@@ -57,9 +58,8 @@
           "it-business-solutions-project-manager-corporate-functions-laderach-bilten"
         ]
       },
-      "previousSlugs": [
-        "it-business-solutions-project-manager-corporate-functions-laderach-bilten"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-25T09:19:38.702Z",
       "salaryMin": 118500,
       "salaryMax": 159500,
       "salarySource": "estimated",
@@ -78,8 +78,9 @@
       "addressRegion": "GL",
       "streetAddress": "Bilten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T21:26:52.947Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-23T09:28:14.061Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/68936201/it-business-solutions-project-manager-corporate-functions-"
     },
     {
       "id": "laderach-e5fbe1982693",
@@ -124,9 +125,10 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/68935506/Senior-Designer-Packaging-Project-Manager-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-11-25T21:26:52.704Z",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-11-25T09:19:38.527Z",
+      "crawledAt": "2026-11-26T09:28:13.790Z",
+      "previousSlugs": [
+        "senior-designer-packaging-project-manager-laderach-bilten"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-designer-packaging-project-manager-laderach-bilten"
@@ -135,9 +137,8 @@
           "senior-designer-packaging-project-manager-laderach-bilten"
         ]
       },
-      "previousSlugs": [
-        "senior-designer-packaging-project-manager-laderach-bilten"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-25T09:19:38.527Z",
       "salaryMin": 118500,
       "salaryMax": 159500,
       "salarySource": "estimated",
@@ -156,8 +157,9 @@
       "addressRegion": "GL",
       "streetAddress": "Bilten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T21:26:52.704Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-23T09:28:13.790Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/68935506/senior-designer-packaging-project-manager-"
     },
     {
       "id": "laderach-2cf3f2be68c2",
@@ -202,7 +204,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/68882526/Stv-Filialleiter-Chocolaterie-Bern-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-11-25T21:26:52.231Z",
+      "crawledAt": "2026-11-26T09:28:13.266Z",
       "previousSlugs": [
         "stv-filialleiter-chocolaterie-bern-w-m-d-laderach-bern"
       ],
@@ -236,8 +238,9 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-20T21:26:52.231Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-20T09:28:13.266Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/68882526/stv-filialleiter-chocolaterie-bern-w-m-d-"
     },
     {
       "id": "laderach-84b98d9577ce",
@@ -282,7 +285,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/68757790/Responsable-de-chocolaterie-fribourg-ad-interim-f-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-11-25T21:26:50.913Z",
+      "crawledAt": "2026-11-26T09:28:11.385Z",
       "previousSlugs": [
         "responsable-de-chocolaterie-fribourg-ad-interim-f-m-d-laderach-fribourg"
       ],
@@ -316,8 +319,9 @@
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T21:26:50.913Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-15T09:28:11.385Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/68757790/responsable-de-chocolaterie-fribourg-ad-interim-f-m-d-"
     },
     {
       "id": "laderach-2a4b29e29c82",
@@ -362,7 +366,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/66866905/Facility-Manager-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-11-25T21:26:50.663Z",
+      "crawledAt": "2026-11-26T09:28:11.114Z",
       "previousSlugsByLocale": {
         "de": [
           "facility-manager-w-m-d-laderach-glarus-nord"
@@ -407,8 +411,9 @@
       "addressRegion": "GL",
       "streetAddress": "Glarus Nord",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:26:50.663Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:28:11.114Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/66866905/facility-manager-w-m-d-"
     },
     {
       "id": "laderach-00bfb4a4f9d9",
@@ -453,7 +458,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/68686768/HR-Generalist-80-100-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-11-25T21:26:50.424Z",
+      "crawledAt": "2026-11-26T09:28:10.837Z",
       "firstSeenAt": "2026-11-12T09:25:53.948Z",
       "salaryMin": 67000,
       "salaryMax": 90500,
@@ -473,8 +478,9 @@
       "addressRegion": "GL",
       "streetAddress": "Bilten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:26:50.424Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-10T09:28:10.837Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/68686768/hr-generalist-80-100-w-m-d-"
     },
     {
       "id": "laderach-f7ea0044fb3b",
@@ -519,7 +525,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/68334638/IT-Infrastructure-Project-Manager-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-11-25T21:26:50.180Z",
+      "crawledAt": "2026-11-26T09:28:10.560Z",
       "previousSlugs": [
         "it-infrastructure-project-manager-laderach-bilten"
       ],
@@ -551,8 +557,9 @@
       "addressRegion": "GL",
       "streetAddress": "Bilten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:26:50.180Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-09T09:28:10.560Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/68334638/it-infrastructure-project-manager-"
     },
     {
       "id": "laderach-056a2d74e557",
@@ -597,7 +604,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/68671398/Filialleiter-ad-interim-Chocolaterie-Basel-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-11-25T21:26:49.938Z",
+      "crawledAt": "2026-11-26T09:28:10.287Z",
       "previousSlugs": [
         "filialleiter-ad-interim-chocolaterie-basel-w-m-d-laderach-basel"
       ],
@@ -631,8 +638,9 @@
       "addressRegion": "BS",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:26:49.938Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-09T09:28:10.287Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/68671398/filialleiter-ad-interim-chocolaterie-basel-w-m-d-"
     },
     {
       "id": "laderach-7b7d7d2896f8",
@@ -677,7 +685,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/68644478/Product-Developer-80-100-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-11-25T21:26:49.459Z",
+      "crawledAt": "2026-11-26T09:28:09.738Z",
       "previousSlugs": [
         "product-developer-80-100-w-m-d-laderach-ennenda"
       ],
@@ -722,8 +730,9 @@
       },
       "streetAddress": "Bleiche 14",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-25T21:26:49.459Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:28:09.738Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/68644478/product-developer-80-100-w-m-d-"
     },
     {
       "id": "laderach-338771637566",
@@ -768,7 +777,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/68444882/Facharbeiter-Confiserie---Schokoladenproduktion-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-11-25T21:26:48.736Z",
+      "crawledAt": "2026-11-26T09:28:08.811Z",
       "previousSlugsByLocale": {
         "de": [
           "facharbeiter-confiserie-schokoladenproduktion-w-m-d-laderach-ennenda-glarus-schweiz",
@@ -824,8 +833,9 @@
       },
       "streetAddress": "Bleiche 14",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-28T21:26:48.736Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-29T09:28:08.811Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/68444882/facharbeiter-confiserie---schokoladenproduktion-w-m-d-"
     },
     {
       "id": "laderach-98daaec00c6c",
@@ -870,7 +880,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/68343123/Team-Lead-IT-Standard-Applications/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-11-25T21:26:48.492Z",
+      "crawledAt": "2026-11-26T09:28:08.448Z",
       "previousSlugs": [
         "team-lead-it-standard-applications-laderach-bilten",
         "team-lead-it-standard-applications-laderach-bilten-glarus-schweiz"
@@ -906,8 +916,9 @@
       "addressRegion": "GL",
       "streetAddress": "Bilten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:26:48.492Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-27T09:28:08.448Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/68343123/team-lead-it-standard-applications"
     },
     {
       "id": "laderach-c7b0cad10348",
@@ -952,7 +963,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/68334738/IT-Infrastructure-Architect-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-11-25T21:26:48.243Z",
+      "crawledAt": "2026-11-26T09:28:08.174Z",
       "previousSlugs": [
         "it-infrastructure-architect-laderach-bilten",
         "it-infrastructure-architect-laderach-schweiz-ag-bilten",
@@ -991,8 +1002,9 @@
       "addressRegion": "GL",
       "streetAddress": "Bilten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:26:48.243Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-27T09:28:08.174Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/68334738/it-infrastructure-architect-"
     },
     {
       "id": "laderach-ec63a5953b46",
@@ -1037,7 +1049,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/67413612/Stv-Filialleiter-Chocolaterie-Oerlikon-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-11-25T21:26:45.124Z",
+      "crawledAt": "2026-11-26T09:28:04.485Z",
       "previousSlugs": [
         "stv-filialleiter-chocolaterie-oerlikon-w-m-d-laderach-zurich",
         "stv-filialleiter-chocolaterie-oerlikon-w-m-d-laderach-zurich-zurich-schweiz",
@@ -1079,8 +1091,9 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:26:45.124Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:28:04.485Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67413612/stv-filialleiter-chocolaterie-oerlikon-w-m-d-"
     },
     {
       "id": "laderach-d638f6ff59b7",
@@ -1125,7 +1138,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/67232685/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-11-25T21:26:43.910Z",
+      "crawledAt": "2026-11-26T09:28:02.692Z",
       "previousSlugs": [
         "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich",
         "lehrstelle-im-retail-efz-2027-w-m-d-laderach-schweiz-ag-zurich",
@@ -1188,8 +1201,9 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:26:43.910Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:28:02.692Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67232685/lehrstelle-im-detailhandel-efz-2027-w-m-d-"
     },
     {
       "id": "laderach-03df285b9260",
@@ -1234,7 +1248,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/67139555/Saisonaushilfe-20-100-flexibel-Chocolaterie-Zermatt-01-12-2026-31-03-2027-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-11-25T21:26:43.667Z",
+      "crawledAt": "2026-11-26T09:28:02.325Z",
       "previousSlugs": [
         "saisonaushilfe-20-100-flexibel-chocolaterie-zermatt-01-12-2026-31-03-2027-laderach-zermatt",
         "saisonaushilfe-20-100-flexibel-chocolaterie-zermatt-01-12-2026-31-03-2027-laderach-zermatt-wallis-schweiz"
@@ -1273,8 +1287,9 @@
       "addressRegion": "VS",
       "streetAddress": "Zermatt",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:26:43.667Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:28:02.325Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/67139555/saisonaushilfe-20-100-flexibel-chocolaterie-zermatt-01-12-2026-31-03-2027-"
     },
     {
       "id": "laderach-b632c366aa12",
@@ -1319,7 +1334,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/66510273/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-11-25T21:26:43.427Z",
+      "crawledAt": "2026-11-26T09:28:02.052Z",
       "previousSlugs": [
         "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich",
         "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich-3yn6pl",
@@ -1353,8 +1368,9 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:26:43.427Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:28:02.052Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/66510273/lehrstelle-im-detailhandel-efz-2027-w-m-d-"
     },
     {
       "id": "laderach-fd6fc2b31468",
@@ -1399,7 +1415,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/66510088/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-11-25T21:26:43.187Z",
+      "crawledAt": "2026-11-26T09:28:01.698Z",
       "previousSlugs": [
         "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-flughafen",
         "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-flughafen-zurich-schweiz"
@@ -1438,8 +1454,9 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich-Flughafen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:26:43.187Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:28:01.698Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/66510088/lehrstelle-im-detailhandel-efz-2027-w-m-d-"
     },
     {
       "id": "laderach-418e501d68ff",
@@ -1484,7 +1501,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/66510048/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-11-25T21:26:42.943Z",
+      "crawledAt": "2026-11-26T09:28:01.422Z",
       "previousSlugs": [
         "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich",
         "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich-3yn89f"
@@ -1514,8 +1531,9 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:26:42.943Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:28:01.422Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/66510048/lehrstelle-im-detailhandel-efz-2027-w-m-d-"
     },
     {
       "id": "laderach-9eb36eb15ad5",
@@ -1560,7 +1578,7 @@
       "postingDateSource": "unknown",
       "url": "https://laderach.career.softgarden.de/jobs/66509728/Lehrstelle-im-Detailhandel-EFZ-2027-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-11-25T21:26:42.701Z",
+      "crawledAt": "2026-11-26T09:28:01.060Z",
       "previousSlugs": [
         "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-basel",
         "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-basel-basel-stadt-schweiz"
@@ -1599,8 +1617,9 @@
       "addressRegion": "BS",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:26:42.701Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:28:01.060Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://laderach.career.softgarden.de/jobs/66509728/lehrstelle-im-detailhandel-efz-2027-w-m-d-"
     }
   ]
 }

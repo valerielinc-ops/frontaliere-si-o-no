@@ -1,9 +1,9 @@
 {
   "schemaVersion": 5,
   "promptVersion": "frontaliere-social-copy-v5",
-  "packId": "e1e656e043e06845",
-  "generatedAt": "2026-11-15T21:04:59.489Z",
-  "validUntil": "2026-12-30T21:04:59.489Z",
+  "packId": "f0d80b4606e89a89",
+  "generatedAt": "2026-11-26T10:43:16.726Z",
+  "validUntil": "2027-01-10T10:43:16.726Z",
   "editorialPlan": {
     "pillars": [
       {
@@ -512,57 +512,57 @@
           "id": "ig-article-share-practical",
           "objective": "share",
           "angleId": "passo-pratico",
-          "hook": "Redditi esteri: il passo da verificare prima di fare una scelta",
-          "cta": "Condividi questo passaggio con chi deve orientarsi."
+          "hook": "Redditi esteri: il passaggio da verificare nella guida",
+          "cta": "Condividi questo passaggio con chi si sta orientando."
         },
         {
           "id": "ig-article-share-context",
           "objective": "share",
           "angleId": "contesto-chiaro",
-          "hook": "Lavorare oltreconfine: il contesto da leggere prima di decidere",
+          "hook": "Lavoro da remoto oltreconfine: il contesto da leggere",
           "cta": "Condividi il contesto con chi lavora oltreconfine."
         },
         {
           "id": "ig-article-share-question",
           "objective": "share",
           "angleId": "domanda-comune",
-          "hook": "Una domanda sulla mobilità da portare nella lettura",
-          "cta": "Condividi la domanda con chi sta cercando risposte."
+          "hook": "Mobilità tra Italia e Svizzera: una domanda da portare nella guida",
+          "cta": "Condividi la domanda con chi cerca risposte."
         },
         {
           "id": "ig-article-save-practical",
           "objective": "save",
           "angleId": "passo-pratico",
           "hook": "Redditi esteri: il riferimento da ritrovare quando serve",
-          "cta": "Salva il riferimento per rileggerlo quando serve."
+          "cta": "Salva il riferimento per rileggerlo."
         },
         {
           "id": "ig-article-save-context",
           "objective": "save",
           "angleId": "contesto-chiaro",
-          "hook": "Smart working oltreconfine: il contesto da tenere vicino",
-          "cta": "Conserva il contesto per tornarci con calma."
+          "hook": "Lavoro oltreconfine: il contesto da tenere vicino",
+          "cta": "Conserva il contesto per tornarci."
         },
         {
           "id": "ig-article-save-question",
           "objective": "save",
           "angleId": "domanda-comune",
-          "hook": "Mobilità tra Italia e Svizzera: il dubbio da rileggere",
-          "cta": "Metti da parte la risposta per il momento giusto."
+          "hook": "Doppia tassazione: il dubbio da rileggere con calma",
+          "cta": "Metti da parte la risposta utile."
         },
         {
           "id": "ig-article-talk-practical",
           "objective": "conversation",
           "angleId": "passo-pratico",
-          "hook": "Quale passaggio sui redditi esteri vuoi controllare?",
-          "cta": "Quale passaggio vuoi controllare? Scrivilo nei commenti."
+          "hook": "Quale passaggio sui redditi esteri vuoi verificare?",
+          "cta": "Quale passaggio vuoi verificare? Scrivilo nei commenti."
         },
         {
           "id": "ig-article-talk-context",
           "objective": "conversation",
           "angleId": "contesto-chiaro",
-          "hook": "Che cosa vuoi capire del lavoro oltreconfine?",
-          "cta": "Che cosa vuoi capire meglio? Raccontacelo nei commenti."
+          "hook": "Che cosa vuoi capire del lavoro da remoto oltreconfine?",
+          "cta": "Che cosa vuoi capire? Raccontacelo nei commenti."
         },
         {
           "id": "ig-article-talk-question",
@@ -584,8 +584,8 @@
           "id": "ig-job-share-context",
           "objective": "share",
           "angleId": "contesto-chiaro",
-          "hook": "Requisiti e contesto: un'offerta da condividere con criterio",
-          "cta": "Condividi l'offerta con chi deve confrontare i requisiti."
+          "hook": "Un'offerta da leggere insieme ai requisiti richiesti",
+          "cta": "Condividi l'offerta con chi confronta i requisiti."
         },
         {
           "id": "ig-job-share-question",
@@ -598,28 +598,28 @@
           "id": "ig-job-save-practical",
           "objective": "save",
           "angleId": "passo-pratico",
-          "hook": "Un ruolo in Ticino da ritrovare mentre confronti le opzioni",
-          "cta": "Salva il ruolo per confrontarlo con calma."
+          "hook": "Un ruolo in Ticino da ritrovare mentre valuti le opzioni",
+          "cta": "Salva il ruolo per rileggerlo."
         },
         {
           "id": "ig-job-save-context",
           "objective": "save",
           "angleId": "contesto-chiaro",
           "hook": "I requisiti dell'offerta da tenere a portata di mano",
-          "cta": "Conserva i requisiti per rileggerli più tardi."
+          "cta": "Conserva i requisiti dell'offerta."
         },
         {
           "id": "ig-job-save-question",
           "objective": "save",
           "angleId": "domanda-comune",
           "hook": "Una candidatura da rileggere prima di decidere",
-          "cta": "Metti da parte l'annuncio prima di scegliere."
+          "cta": "Metti da parte l'annuncio."
         },
         {
           "id": "ig-job-talk-practical",
           "objective": "conversation",
           "angleId": "passo-pratico",
-          "hook": "Quale requisito controlli prima in un'offerta?",
+          "hook": "Quale requisito controlli prima di una candidatura?",
           "cta": "Quale requisito controlli? Scrivilo nei commenti."
         },
         {
@@ -627,7 +627,7 @@
           "objective": "conversation",
           "angleId": "contesto-chiaro",
           "hook": "Che cosa vuoi capire del ruolo oltreconfine?",
-          "cta": "Che cosa vuoi capire del ruolo? Raccontacelo nei commenti."
+          "cta": "Che cosa vuoi capire? Raccontacelo nei commenti."
         },
         {
           "id": "ig-job-talk-question",
@@ -664,21 +664,21 @@
           "objective": "save",
           "angleId": "passo-pratico",
           "hook": "Mobilità tra Italia e Svizzera: il riferimento da ritrovare",
-          "cta": "Salva il riferimento per ritrovarlo prima di muoverti."
+          "cta": "Salva il riferimento per ritrovarlo."
         },
         {
           "id": "ig-border-save-context",
           "objective": "save",
           "angleId": "contesto-chiaro",
-          "hook": "I collegamenti oltreconfine: il contesto da tenere vicino",
-          "cta": "Conserva il contesto per rivederlo quando serve."
+          "hook": "Collegamenti oltreconfine: il contesto da tenere vicino",
+          "cta": "Conserva il contesto per rivederlo."
         },
         {
           "id": "ig-border-save-question",
           "objective": "save",
           "angleId": "domanda-comune",
           "hook": "Un dubbio sul confine da rileggere prima di muoverti",
-          "cta": "Metti da parte questo riferimento prima di partire."
+          "cta": "Metti da parte questo riferimento."
         },
         {
           "id": "ig-border-talk-practical",
@@ -714,7 +714,7 @@
           "id": "ig-reel-follow-context",
           "objective": "follow",
           "angleId": "contesto-chiaro",
-          "hook": "Lavoro oltreconfine: il contesto da leggere con chiarezza",
+          "hook": "Lavoro da remoto oltreconfine: il contesto da leggere",
           "cta": "Segui Frontaliere per capire il lavoro oltreconfine."
         },
         {
@@ -737,7 +737,7 @@
         {
           "id": "tt-article-context",
           "angleId": "contesto-chiaro",
-          "hook": "Lavoro oltreconfine: il contesto prima di scegliere",
+          "hook": "Lavoro da remoto oltreconfine: il contesto da verificare",
           "cta": "Approfondisci dal link in bio."
         },
         {
@@ -804,7 +804,7 @@
           "id": "tt-video-question",
           "angleId": "domanda-comune",
           "hook": "Mobilità oltreconfine: una domanda da seguire",
-          "cta": "Approfondisci dal link in bio."
+          "cta": "Consulta il video dal link in bio."
         }
       ]
     },
@@ -819,7 +819,7 @@
         {
           "id": "fb-article-context",
           "angleId": "contesto-chiaro",
-          "hook": "Lavoro oltreconfine: il contesto da inquadrare prima di scegliere.",
+          "hook": "Lavoro da remoto oltreconfine: il contesto da inquadrare prima di scegliere.",
           "cta": "Approfondisci il tema."
         },
         {
@@ -955,7 +955,7 @@
         {
           "id": "li-article-context",
           "angleId": "contesto-chiaro",
-          "hook": "Lavoro oltreconfine: il contesto utile prima di una scelta professionale.",
+          "hook": "Lavoro da remoto oltreconfine: il contesto utile prima di una scelta professionale.",
           "cta": "Approfondisci il tema."
         },
         {

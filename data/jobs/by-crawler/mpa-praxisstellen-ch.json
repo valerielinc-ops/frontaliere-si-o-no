@@ -1,7 +1,7 @@
 {
   "crawlerKey": "mpa-praxisstellen-ch",
-  "assembledAt": "2026-11-25T21:23:25.326Z",
-  "runId": "45701486101",
+  "assembledAt": "2026-11-26T09:23:52.598Z",
+  "runId": "45789166583",
   "jobs": [
     {
       "id": "mpa-praxisstellen-ch-445577b9d250",
@@ -34,7 +34,7 @@
       "url": "https://www.pks-personal.ch/stellen/disponent-internationale-landverkehre-100-basel/basel/logistik-spedition/90afef0b",
       "source": "mpa-praxisstellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:23:19.195Z",
+      "crawledAt": "2026-11-26T09:23:47.977Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -85,8 +85,9 @@
       },
       "streetAddress": "Binningen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:23:19.195Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-27T09:23:47.977Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.pks-personal.ch/stellen/disponent-internationale-landverkehre-100-basel/basel/logistik-spedition/90afef0b"
     },
     {
       "id": "mpa-praxisstellen-ch-876d78ae4997",
@@ -119,7 +120,7 @@
       "url": "https://www.pks-personal.ch/stellen/zolldeklarant-in-import-export-50/basel/logistik-spedition/74191d9a",
       "source": "mpa-praxisstellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:23:19.192Z",
+      "crawledAt": "2026-11-26T09:23:47.976Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -170,8 +171,9 @@
       },
       "streetAddress": "Binningen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:23:19.192Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-27T09:23:47.976Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.pks-personal.ch/stellen/zolldeklarant-in-import-export-50/basel/logistik-spedition/74191d9a"
     },
     {
       "id": "mpa-praxisstellen-ch-70ea7625f26a",
@@ -204,7 +206,7 @@
       "url": "https://www.pks-personal.ch/stellen/sachbearbeiter-in-spedition-export-100/basel/logistik-spedition/e5809283",
       "source": "mpa-praxisstellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:23:19.189Z",
+      "crawledAt": "2026-11-26T09:23:47.975Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -255,8 +257,9 @@
       },
       "streetAddress": "Binningen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:23:19.189Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-27T09:23:47.975Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.pks-personal.ch/stellen/sachbearbeiter-in-spedition-export-100/basel/logistik-spedition/e5809283"
     }
   ]
 }

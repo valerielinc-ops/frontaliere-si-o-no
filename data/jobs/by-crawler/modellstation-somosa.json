@@ -84,7 +84,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T09:27:13.234Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.somosa.ch/offene-stellen-detail/fachperson-medienwerkstatt-80"
     },
     {
       "id": "modellstation-somosa-fe86357a0d1c",
@@ -167,7 +168,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-25T09:27:12.670Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.somosa.ch/offene-stellen-detail/sozialpaedagogen-sozialpaedagoginnen-wg-a-80"
     }
   ]
 }

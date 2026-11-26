@@ -1,7 +1,7 @@
 {
   "crawlerKey": "gesundheitsnetz-kuesnacht",
-  "assembledAt": "2026-11-25T21:21:04.356Z",
-  "runId": "45702856844",
+  "assembledAt": "2026-11-26T09:53:22.250Z",
+  "runId": "45790496540",
   "jobs": [
     {
       "id": "gesundheitsnetz-kuesnacht-f31ea0125d8c",
@@ -34,7 +34,7 @@
       "url": "https://apply.refline.ch/780392/0142/pub/1/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:20:57.400Z",
+      "crawledAt": "2026-11-26T09:53:13.059Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -87,8 +87,9 @@
       },
       "streetAddress": "Küsnacht",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:20:57.400Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-15T09:53:13.059Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/780392/0142/pub/1/index.html"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-6960f0406320",
@@ -121,7 +122,7 @@
       "url": "https://apply.refline.ch/780392/0141/pub/1/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:20:56.975Z",
+      "crawledAt": "2026-11-26T09:53:12.629Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -173,8 +174,9 @@
       },
       "streetAddress": "Küsnacht",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:20:56.975Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-04T09:53:12.629Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/780392/0141/pub/1/index.html"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-6b72e33594c3",
@@ -208,7 +210,7 @@
       "url": "https://apply.refline.ch/780392/0087/pub/13/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:20:56.549Z",
+      "crawledAt": "2026-11-26T09:53:12.201Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -269,8 +271,9 @@
       },
       "streetAddress": "Küsnacht",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:20:56.549Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:53:12.201Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/780392/0087/pub/13/index.html"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-d499e6b4a673",
@@ -304,7 +307,7 @@
       "url": "https://apply.refline.ch/780392/0140/pub/2/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:20:56.124Z",
+      "crawledAt": "2026-11-26T09:53:11.774Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -359,8 +362,9 @@
       },
       "streetAddress": "Küsnacht",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:20:56.124Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-29T09:53:11.774Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/780392/0140/pub/2/index.html"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-8d604f702258",
@@ -394,7 +398,7 @@
       "url": "https://apply.refline.ch/780392/0139/pub/1/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:20:55.698Z",
+      "crawledAt": "2026-11-26T09:53:11.345Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -447,8 +451,9 @@
       },
       "streetAddress": "Küsnacht",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:20:55.698Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-28T09:53:11.345Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/780392/0139/pub/1/index.html"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-eed18fd6c304",
@@ -482,7 +487,7 @@
       "url": "https://apply.refline.ch/780392/0137/pub/1/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:20:55.272Z",
+      "crawledAt": "2026-11-26T09:53:10.919Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -535,8 +540,9 @@
       },
       "streetAddress": "Küsnacht",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T21:20:55.272Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-14T09:53:10.919Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/780392/0137/pub/1/index.html"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-baaa1d27c093",
@@ -570,7 +576,7 @@
       "url": "https://apply.refline.ch/780392/0134/pub/1/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:20:54.845Z",
+      "crawledAt": "2026-11-26T09:53:10.493Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -625,8 +631,9 @@
       },
       "streetAddress": "Küsnacht",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T21:20:54.845Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-11T09:53:10.493Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/780392/0134/pub/1/index.html"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-6384df6a2443",
@@ -659,7 +666,7 @@
       "url": "https://apply.refline.ch/780392/0084/pub/15/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:20:54.418Z",
+      "crawledAt": "2026-11-26T09:53:10.067Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -754,8 +761,9 @@
       },
       "streetAddress": "Küsnacht",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:20:54.418Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:53:10.067Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/780392/0084/pub/15/index.html"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-309d447cb9b5",
@@ -789,7 +797,7 @@
       "url": "https://apply.refline.ch/780392/0090/pub/12/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:20:53.991Z",
+      "crawledAt": "2026-11-26T09:53:09.649Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -848,8 +856,9 @@
       },
       "streetAddress": "Küsnacht",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:20:53.991Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:53:09.649Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/780392/0090/pub/12/index.html"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-99f0e5658868",
@@ -883,7 +892,7 @@
       "url": "https://apply.refline.ch/780392/0102/pub/12/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:20:53.564Z",
+      "crawledAt": "2026-11-26T09:53:08.021Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -942,8 +951,9 @@
       },
       "streetAddress": "Küsnacht",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:20:53.564Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:53:08.021Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/780392/0102/pub/12/index.html"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-8ca654b7f08c",
@@ -977,7 +987,7 @@
       "url": "https://apply.refline.ch/780392/0130/pub/1/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:20:53.137Z",
+      "crawledAt": "2026-11-26T09:53:07.466Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1030,8 +1040,9 @@
       },
       "streetAddress": "Küsnacht",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:20:53.137Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:53:07.466Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/780392/0130/pub/1/index.html"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-94cb6efd5bb0",
@@ -1065,7 +1076,7 @@
       "url": "https://apply.refline.ch/780392/0131/pub/1/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:20:52.710Z",
+      "crawledAt": "2026-11-26T09:53:07.040Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1118,8 +1129,9 @@
       },
       "streetAddress": "Küsnacht",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:20:52.710Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:53:07.040Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/780392/0131/pub/1/index.html"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-5a814129df34",
@@ -1152,7 +1164,7 @@
       "url": "https://apply.refline.ch/780392/0111/pub/6/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:20:52.280Z",
+      "crawledAt": "2026-11-26T09:53:06.611Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1207,8 +1219,9 @@
       },
       "streetAddress": "Küsnacht",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:20:52.280Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:53:06.611Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/780392/0111/pub/6/index.html"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-1096ad3c9f78",
@@ -1242,7 +1255,7 @@
       "url": "https://apply.refline.ch/780392/0088/pub/10/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:20:51.853Z",
+      "crawledAt": "2026-11-26T09:53:06.186Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1314,8 +1327,9 @@
       },
       "streetAddress": "Küsnacht",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:20:51.853Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:53:06.186Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/780392/0088/pub/10/index.html"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-d0d0d8356eaf",
@@ -1349,7 +1363,7 @@
       "url": "https://apply.refline.ch/780392/0085/pub/10/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:20:51.425Z",
+      "crawledAt": "2026-11-26T09:53:05.761Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1406,8 +1420,9 @@
       },
       "streetAddress": "Küsnacht",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:20:51.425Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:53:05.761Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/780392/0085/pub/10/index.html"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-b8deabf9771b",
@@ -1441,7 +1456,7 @@
       "url": "https://apply.refline.ch/780392/0121/pub/1/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:20:50.998Z",
+      "crawledAt": "2026-11-26T09:53:05.337Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1494,8 +1509,9 @@
       },
       "streetAddress": "Küsnacht",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:20:50.998Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:53:05.337Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/780392/0121/pub/1/index.html"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-ef7d2c7a23a2",
@@ -1529,7 +1545,7 @@
       "url": "https://apply.refline.ch/780392/0120/pub/1/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:20:50.568Z",
+      "crawledAt": "2026-11-26T09:53:04.911Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1584,8 +1600,9 @@
       },
       "streetAddress": "Küsnacht",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:20:50.568Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:53:04.911Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/780392/0120/pub/1/index.html"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-219ed08db9aa",
@@ -1618,7 +1635,7 @@
       "url": "https://apply.refline.ch/780392/0119/pub/1/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:20:50.139Z",
+      "crawledAt": "2026-11-26T09:53:04.484Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1690,8 +1707,9 @@
       },
       "streetAddress": "Küsnacht",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:20:50.139Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:53:04.484Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/780392/0119/pub/1/index.html"
     },
     {
       "id": "gesundheitsnetz-kuesnacht-475b4b57c6de",
@@ -1725,7 +1743,7 @@
       "url": "https://apply.refline.ch/780392/0093/pub/4/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:20:49.708Z",
+      "crawledAt": "2026-11-26T09:53:04.054Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1778,8 +1796,9 @@
       },
       "streetAddress": "Küsnacht",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:20:49.708Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:53:04.054Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://apply.refline.ch/780392/0093/pub/4/index.html"
     }
   ]
 }

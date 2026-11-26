@@ -266,6 +266,12 @@ export function classifySocialCopyFallbackFailure(error, phase = 'request') {
   const hasRateLimitMessage = /rate[_ -]?limit(?:[_ -]?exceeded)?|tokens?\s+per\s+minute|tokens?_remaining_day|quota|too many requests|resource exhausted/.test(message);
   const hasTransientMessage = /empty response|no endpoints? available|temporarily unavailable|service unavailable|upstream/.test(message);
   const hasModelUnavailableMessage = /model[^\n]{0,60}(not found|unavailable|does not exist)/.test(message);
+  // `ai-models` annotates provider-side response/transport failures before
+  // rethrowing them. Consume those markers here instead of collapsing them
+  // into the generic request-failed bucket, which would turn an otherwise
+  // retryable free-provider outage into a red workflow.
+  const hasProviderTransientMarker = error?.contentFailure === true
+    || (typeof error?.hostUnreachable === 'string' && error.hostUnreachable.length > 0);
   // Groq reports its free-tier TPM exhaustion as HTTP 413 with a
   // `rate_limit_exceeded` body. That is capacity exhaustion, not a bad pack or
   // a revoked credential, so it must be classified before the generic 4xx
@@ -290,6 +296,7 @@ export function classifySocialCopyFallbackFailure(error, phase = 'request') {
     return 'provider-temporary-failure';
   }
   if (status !== null && status >= 400) return 'provider-request-rejected';
+  if (hasProviderTransientMarker) return 'provider-temporary-failure';
   if (hasRateLimitMessage) return 'provider-quota-or-rate-limit';
   if (hasModelUnavailableMessage) return 'model-unavailable';
   if (/timeout|timed out|aborted|econnreset|econnrefused|enotfound|eai_again|fetch failed/.test(message)) {

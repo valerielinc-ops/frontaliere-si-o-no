@@ -56,7 +56,7 @@ import {
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
-import { fetchWorkdayJsonWithRetry, firstLocationSegment, workdayPostingDateFields } from './lib/ats-clients/workday-client.mjs';
+import { fetchWorkdayJsonWithRetry, firstLocationSegment, WorkdayRateLimitError, workdayPostingDateFields } from './lib/ats-clients/workday-client.mjs';
 import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './lib/workday-swiss-job-parser-common.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import { keepStoredSourceBodies } from './lib/stored-source-body.mjs';
@@ -274,7 +274,7 @@ async function fetchJobDetail(externalPath, browserFallback) {
     // A detail endpoint that stays rate-limited after the shared retry budget
     // is exhausted means the snapshot is incomplete. Let main() preserve the
     // previous slice instead of silently publishing a partial listing.
-    if (isRetryBudgetExhausted(err)) throw err;
+    if (err instanceof WorkdayRateLimitError || isRetryBudgetExhausted(err)) throw err;
     console.warn(`⚠️ Bracco detail unavailable for ${externalPath}: ${err.message}`);
     return null;
   }
@@ -711,7 +711,9 @@ async function rewriteStoredJobsWithoutThinSource(storedJobs) {
  * @returns {'retryable-http-response'|'connection-level-fetch'|null}
  */
 export function classifyBraccoFetchAbortKind(error) {
-  if (isRetryBudgetExhausted(error)) return 'retryable-http-response';
+  if (error instanceof WorkdayRateLimitError || isRetryBudgetExhausted(error)) {
+    return 'retryable-http-response';
+  }
   if (isConnectionLevelFetchError(error)) return 'connection-level-fetch';
   return null;
 }

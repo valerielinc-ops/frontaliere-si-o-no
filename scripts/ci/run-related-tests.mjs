@@ -681,6 +681,12 @@ const relatedSourceTestScopes = [
       /^tests\/router\/job-intent-routing\.test\.[cm]?[jt]sx?$/,
     ],
   },
+  {
+    // The validation entrypoint executes at module load, so its wiring is
+    // pinned by a source contract instead of being imported by Vitest.
+    matches: (file) => file === 'scripts/prospect-validate.mjs',
+    tests: [/^tests\/prospector-validation-runtime\.test\.ts$/],
+  },
 ];
 const sourceTestScopeFor = (file) => relatedSourceTestScopes.find((scope) => scope.matches(file)) || null;
 // faq-readability-gate misura il ratchet sulle FAQ dell'INTERO corpus articoli

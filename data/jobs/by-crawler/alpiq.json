@@ -1,7 +1,7 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-11-25T21:50:04.341Z",
-  "runId": "45703515610",
+  "assembledAt": "2026-11-26T09:54:55.136Z",
+  "runId": "45791167359",
   "jobs": [
     {
       "id": "alpiq-f05066085344",
@@ -50,7 +50,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=281&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:49:30.023Z",
+      "crawledAt": "2026-11-26T09:54:34.111Z",
       "firstSeenAt": "2026-10-30T09:47:47.856Z",
       "companyRegisteredAddress": {
         "status": "matched",
@@ -64,7 +64,7 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-28T21:49:30.023Z",
+      "validThrough": "2027-01-28T09:54:34.111Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 130000,
       "salaryMax": 198000,
@@ -78,8 +78,7 @@
           "maxValue": 198000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/281"
+      }
     },
     {
       "id": "alpiq-e2526cd82bc9",
@@ -128,10 +127,10 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=283&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:49:30.026Z",
+      "crawledAt": "2026-11-26T09:54:34.113Z",
       "firstSeenAt": "2026-10-30T21:41:25.278Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T21:49:30.026Z",
+      "validThrough": "2027-01-29T09:54:34.113Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 83000,
       "salaryMax": 127000,
@@ -145,8 +144,7 @@
           "maxValue": 127000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/283"
+      }
     },
     {
       "id": "alpiq-722140b8ffd5",
@@ -195,13 +193,13 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=311&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:49:30.030Z",
+      "crawledAt": "2026-11-26T09:54:34.116Z",
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3103,
-      "retranslationAttempts": 38,
+      "retranslationAttempts": 40,
       "firstSeenAt": "2026-09-25T15:00:06.553Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:49:30.030Z",
+      "validThrough": "2026-12-26T09:54:34.116Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 92000,
       "salaryMax": 140000,
@@ -216,8 +214,7 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
-      "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/311"
+      "needsRetranslation": true
     },
     {
       "id": "alpiq-d4b7d5a85b98",
@@ -262,11 +259,11 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=379&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:49:30.031Z",
+      "crawledAt": "2026-11-26T09:54:34.116Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-11-24T09:38:16.296Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-22T21:49:30.031Z",
+      "validThrough": "2027-02-22T09:54:34.116Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 117500,
       "salaryMax": 179500,
@@ -280,8 +277,7 @@
           "maxValue": 179500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/379"
+      }
     },
     {
       "id": "alpiq-fb57e3fc766f",
@@ -330,10 +326,10 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=399&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:49:30.032Z",
+      "crawledAt": "2026-11-26T09:54:34.117Z",
       "firstSeenAt": "2026-11-23T09:47:46.733Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-21T21:49:30.032Z",
+      "validThrough": "2027-02-21T09:54:34.117Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 117500,
       "salaryMax": 179500,
@@ -347,8 +343,7 @@
           "maxValue": 179500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/399"
+      }
     },
     {
       "id": "alpiq-dddf07529865",
@@ -367,15 +362,13 @@
       },
       "description": "Mission\n\nIn this role, you help bring our value “We learn and grow together” into everyday practice by continuously challenging trading approaches, strengthening risk capabilities, and learning from outcomes. By sharing the steering wheel with Assets and taking clear ownership of risk, performance, and value creation, you ensure robust results while enabling sustainable growth. Your work is highly collaborative. You act as a strategic sparring partner to Asset Management, Origination, Risk, and senior leadership, focusing on outcomes while translating strategy into execution, driving transformation, developing talent, and reinforcing a culture of ownership and accountability across the desk.\n\nYour main responsibilities\n\n• Lead the active trading and risk management of the Asset portfolio, ensuring disciplined execution and clear ownership of positions and outcomes.\n\n• Drive business growth by unlocking optimization potential, new trading opportunities, and portfolio enhancements.\n\n• Act as the primary interface to Asset Management, Origination, Risk, Quants, Structuring, Asset Optimisation, Market Analysis, Middle Office, other trading desks and other key stakeholders, ensuring strong alignment and fast decision‑making.\n\n• Develop, coach, and empower team members, strengthening individual accountability, technical skills, and leadership capabilities.\n\n• Foster a strong performance culture anchored in learning, ownership, transparency, and outcome focus.\n\n• Lead transformation initiatives across processes, tools, and ways of working to elevate trading and risk standards.\n\n• Full P&L accountability\n\nYour profile\n\n• Strong motivation and capability to grow into a leadership role.\n\n• Passion for developing people, fostering learning, and building high‑performing, empowered teams.\n\n• Comfortable driving transformation in processes, tools, and ways of working in a complex environment.\n\n• Excellent communication skills, with the ability to clearly articulate risks, performance, and strategic choices to senior management.\n\n• Strong track record of P&L ownership in energy markets.\n\n• Proven experience in options trading.\n\n• 10+ years’ experience in trading European Gas & Power markets\n\n• Language: English Fluent, Other languages is a strong advantage\n\n• Programming skills: advanced level (python)",
       "descriptionByLocale": {
-        "en": "Mission\n\nIn this role, you help bring our value “We learn and grow together” into everyday practice by continuously challenging trading approaches, strengthening risk capabilities, and learning from outcomes. By sharing the steering wheel with Assets and taking clear ownership of risk, performance, and value creation, you ensure robust results while enabling sustainable growth. Your work is highly collaborative. You act as a strategic sparring partner to Asset Management, Origination, Risk, and senior leadership, focusing on outcomes while translating strategy into execution, driving transformation, developing talent, and reinforcing a culture of ownership and accountability across the desk.\n\nYour main responsibilities\n\n• Lead the active trading and risk management of the Asset portfolio, ensuring disciplined execution and clear ownership of positions and outcomes.\n\n• Drive business growth by unlocking optimization potential, new trading opportunities, and portfolio enhancements.\n\n• Act as the primary interface to Asset Management, Origination, Risk, Quants, Structuring, Asset Optimisation, Market Analysis, Middle Office, other trading desks and other key stakeholders, ensuring strong alignment and fast decision‑making.\n\n• Develop, coach, and empower team members, strengthening individual accountability, technical skills, and leadership capabilities.\n\n• Foster a strong performance culture anchored in learning, ownership, transparency, and outcome focus.\n\n• Lead transformation initiatives across processes, tools, and ways of working to elevate trading and risk standards.\n\n• Full P&L accountability\n\nYour profile\n\n• Strong motivation and capability to grow into a leadership role.\n\n• Passion for developing people, fostering learning, and building high‑performing, empowered teams.\n\n• Comfortable driving transformation in processes, tools, and ways of working in a complex environment.\n\n• Excellent communication skills, with the ability to clearly articulate risks, performance, and strategic choices to senior management.\n\n• Strong track record of P&L ownership in energy markets.\n\n• Proven experience in options trading.\n\n• 10+ years’ experience in trading European Gas & Power markets\n\n• Language: English Fluent, Other languages is a strong advantage\n\n• Programming skills: advanced level (python)",
         "it": "Missione\n\nIn questo ruolo, aiuta a portare il nostro valore “Noi impariamo e cresciamo insieme” nella pratica quotidiana sfidando continuamente approcci di trading, rafforzando le capacità di rischio e imparando dai risultati. Condividendo il volante con Assets e assumendo una chiara proprietà del rischio, delle prestazioni e della creazione di valore, garantisci risultati robusti, consentendo una crescita sostenibile. Il tuo lavoro è altamente collaborativo. Agisci come partner strategico per Asset Management, Origination, Risk e leadership senior, concentrandosi sui risultati, traducendo la strategia in esecuzione, la trasformazione della guida, lo sviluppo del talento, e rafforzando una cultura di proprietà e di responsabilità attraverso la scrivania.\n\nLe tue principali responsabilità\n\n• Guidare il trading attivo e la gestione dei rischi del portafoglio Asset, assicurando l'esecuzione disciplinata e la chiara proprietà di posizioni e risultati.\n\n• Guidare la crescita aziendale sbloccando il potenziale di ottimizzazione, nuove opportunità di trading e miglioramenti del portafoglio.\n\n• Agire come interfaccia primaria per Asset Management, Origination, Risk, Quants, Structuring, Asset Optimisation, Market Analysis, Middle Office, altri banchi di trading e altri principali stakeholder, garantendo un forte allineamento e un rapido processo decisionale.\n\n• Sviluppare, allenare e potenziare i membri del team, rafforzare la responsabilità individuale, le competenze tecniche e le capacità di leadership.\n\n• Promuovere una forte cultura delle prestazioni ancorata nell'apprendimento, la proprietà, la trasparenza e la messa a fuoco dei risultati.\n\n• Condurre iniziative di trasformazione attraverso processi, strumenti e modi di lavorare per elevare gli standard di trading e di rischio.\n\n• Responsabilità P&L completa\n\nIl tuo profilo\n\n• Forte motivazione e capacità di crescere in un ruolo di leadership.\n\n• Passione per lo sviluppo delle persone, l'apprendimento e la costruzione di team altamente performanti e potenziati.\n\n• Confortevole trasformazione di guida in processi, strumenti e modi di lavorare in un ambiente complesso.\n\n• Eccellente capacità di comunicazione, con la capacità di articolare chiaramente i rischi, le prestazioni e le scelte strategiche per la gestione senior.\n\n• Forte record di proprietà P&L nei mercati dell'energia.\n\n• Esperienza comprovata nel trading di opzioni.\n\n• 10+ anni di esperienza nel commercio dei mercati europei del gas e del potere\n\n• Lingua: Inglese fluente, Altre lingue è un forte vantaggio\n\n• Capacità di programmazione: livello avanzato (pitone)",
+        "en": "Mission\n\nIn this role, you help bring our value “We learn and grow together” into everyday practice by continuously challenging trading approaches, strengthening risk capabilities, and learning from outcomes. By sharing the steering wheel with Assets and taking clear ownership of risk, performance, and value creation, you ensure robust results while enabling sustainable growth. Your work is highly collaborative. You act as a strategic sparring partner to Asset Management, Origination, Risk, and senior leadership, focusing on outcomes while translating strategy into execution, driving transformation, developing talent, and reinforcing a culture of ownership and accountability across the desk.\n\nYour main responsibilities\n\n• Lead the active trading and risk management of the Asset portfolio, ensuring disciplined execution and clear ownership of positions and outcomes.\n\n• Drive business growth by unlocking optimization potential, new trading opportunities, and portfolio enhancements.\n\n• Act as the primary interface to Asset Management, Origination, Risk, Quants, Structuring, Asset Optimisation, Market Analysis, Middle Office, other trading desks and other key stakeholders, ensuring strong alignment and fast decision‑making.\n\n• Develop, coach, and empower team members, strengthening individual accountability, technical skills, and leadership capabilities.\n\n• Foster a strong performance culture anchored in learning, ownership, transparency, and outcome focus.\n\n• Lead transformation initiatives across processes, tools, and ways of working to elevate trading and risk standards.\n\n• Full P&L accountability\n\nYour profile\n\n• Strong motivation and capability to grow into a leadership role.\n\n• Passion for developing people, fostering learning, and building high‑performing, empowered teams.\n\n• Comfortable driving transformation in processes, tools, and ways of working in a complex environment.\n\n• Excellent communication skills, with the ability to clearly articulate risks, performance, and strategic choices to senior management.\n\n• Strong track record of P&L ownership in energy markets.\n\n• Proven experience in options trading.\n\n• 10+ years’ experience in trading European Gas & Power markets\n\n• Language: English Fluent, Other languages is a strong advantage\n\n• Programming skills: advanced level (python)",
         "de": "Mission\n\nIn dieser Rolle tragen Sie dazu bei, unseren Wert \"Wir lernen und wachsen zusammen\" in die tägliche Praxis zu bringen, indem Sie kontinuierlich Handelsansätze herausfordern, Risikofähigkeiten stärken und von Ergebnissen lernen. Indem Sie das Lenkrad mit Assets teilen und klare Verantwortung für Risiko, Leistung und Wertschöpfung übernehmen, sorgen Sie für robuste Ergebnisse und ermöglichen gleichzeitig nachhaltiges Wachstum. Ihre Arbeit ist sehr kooperativ. Sie agieren als strategischer Sparringspartner für Asset Management, Origination, Risk und Senior Leadership und konzentrieren sich auf Ergebnisse, während Sie die Strategie in die Ausführung übersetzen, die Transformation vorantreiben, Talente entwickeln und eine Kultur des Eigentums und der Rechenschaftspflicht am Schreibtisch stärken.\n\nIhre Hauptaufgaben\n\n• Führen Sie den aktiven Handel und das Risikomanagement des Asset-Portfolios, um eine disziplinierte Ausführung und ein klares Eigentum an Positionen und Ergebnissen zu gewährleisten.\n\n• Steigern Sie das Geschäftswachstum, indem Sie Optimierungspotenzial, neue Handelsmöglichkeiten und Portfolioerweiterungen erschließen.\n\n• Handeln Sie als primäre Schnittstelle zu Asset Management, Origination, Risk, Quants, Structuring, Asset Optimisation, Market Analysis, Middle Office, anderen Trading Desks und anderen wichtigen Stakeholdern, um eine starke Ausrichtung und schnelle Entscheidungsfindung zu gewährleisten.\n\n• Entwickeln, coachen und stärken Sie Teammitglieder und stärken Sie die individuelle Rechenschaftspflicht, technische Fähigkeiten und Führungsfähigkeiten.\n\n• Pflegen Sie eine starke Leistungskultur, die im Lernen, Eigentum, Transparenz und Ergebnisfokus verankert ist.\n\n• Führen Sie Transformationsinitiativen über Prozesse, Tools und Arbeitsweisen hinweg, um Handels- und Risikostandards zu erhöhen.\n\n• Vollständige P&L Rechenschaftspflicht\n\nDein Profil\n\n• Starke Motivation und Fähigkeit, in eine Führungsrolle zu wachsen.\n\n• Leidenschaft für die Entwicklung von Menschen, die Förderung des Lernens und den Aufbau leistungsstarker, befähigter Teams.\n\n• Komfortable Fahrtransformation in Prozessen, Werkzeugen und Arbeitsweisen in einem komplexen Umfeld.\n\n• Hervorragende Kommunikationsfähigkeiten mit der Fähigkeit, Risiken, Leistung und strategische Entscheidungen für die Geschäftsleitung klar zu artikulieren.\n\n• Starke Erfolgsbilanz des P&L-Eigentums in den Energiemärkten.\n\n• Bewährte Erfahrung im Optionshandel.\n\n• 10+ Jahre Erfahrung im Handel mit europäischen Gas & Power Märkten\n\n• Sprache: Englisch fließend, Andere Sprachen sind ein großer Vorteil\n\n• Programmierkenntnisse: Advanced Level (Python)",
         "fr": "Mission\n\nDans ce rôle, vous aidez à mettre en pratique notre valeur.Nous apprenons et nous développons ensemble dans la pratique quotidienne en défiant continuellement les approches commerciales, en renforçant les capacités de risque et en apprenant des résultats. En partageant le volant avec les actifs et en prenant clairement en charge les risques, les performances et la création de valeur, vous assurez des résultats robustes tout en permettant une croissance durable. Votre travail est très collaboratif. Vous agissez comme partenaire stratégique de la gestion des actifs, de l'origine, du risque et de la direction, en mettant l'accent sur les résultats tout en traduisant la stratégie en exécution, en favorisant la transformation, en développant les talents et en renforçant une culture de propriété et de responsabilisation à travers le bureau.\n\nVos principales responsabilités\n\n• Diriger la négociation active et la gestion des risques du portefeuille d'actifs, en assurant l'exécution rigoureuse et la propriété claire des positions et des résultats.\n\n• Favoriser la croissance des entreprises en débloquant le potentiel d'optimisation, de nouvelles opportunités de trading et des améliorations de portefeuille.\n\n• Agir en tant qu'interface principale pour la gestion des actifs, l'origine, le risque, les quantités, la structure, l'optimisation des actifs, l'analyse de marché, le bureau central, d'autres bureaux de négociation et d'autres intervenants clés, en assurant un alignement solide et une prise de décision rapide.\n\n• Développer, entraîner et responsabiliser les membres de l'équipe, renforcer la responsabilisation individuelle, les compétences techniques et les capacités de leadership.\n\n• Favoriser une solide culture du rendement ancrée dans l'apprentissage, l'appropriation, la transparence et l'orientation des résultats.\n\n• Diriger les initiatives de transformation à l'échelle des processus, des outils et des façons de travailler pour élever les normes de négociation et de risque.\n\n• Responsabilité complète en matière de P et L\n\nVotre profil\n\n• Une forte motivation et la capacité de devenir un rôle de leadership.\n\n• Passion pour développer les gens, favoriser l'apprentissage et créer des équipes hautement performantes et autonomisées.\n\n• Une transformation confortable des processus, des outils et des façons de travailler dans un environnement complexe.\n\n• Excellentes compétences en communication, avec la capacité d'articuler clairement les risques, le rendement et les choix stratégiques pour la haute direction.\n\n• Forte expérience de la propriété de P&L sur les marchés de l'énergie.\n\n• Expérience éprouvée dans le trading d'options.\n\n• 10+ ans d'expérience dans le commerce des marchés européens du gaz et de l'électricité\n\n• Langue: Anglais Fluent, Autres langues est un fort avantage\n\n• Compétences en programmation: niveau avancé (python)"
       },
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "location": "Lausanne",
       "canton": "VD",
       "postalCode": "1003",
@@ -395,10 +388,11 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=417&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:49:30.032Z",
+      "crawledAt": "2026-11-26T09:54:34.118Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-25T21:49:30.032Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T21:49:30.032Z",
+      "validThrough": "2027-02-24T09:54:34.118Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 83000,
       "salaryMax": 127000,
@@ -412,9 +406,7 @@
           "maxValue": 127000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-11-25T21:49:30.032Z",
-      "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/417"
+      }
     },
     {
       "id": "alpiq-c2c4ff785d39",
@@ -432,15 +424,13 @@
       },
       "description": "Mission Als Social Media Content Creator (m/w/d) gestaltest du die digitale Präsenz von Alpiq aktiv mit. Deine Mission ist es, starke Geschichten zu erkennen, sie über alle Kanäle hinweg visuell zum Leben zu erwecken und Inhalte zu schaffen, die echte Wirkung erzielen – nicht nur Output. Du verbindest kreatives Storytelling mit effizienter Umsetzung und einem klaren Verständnis für Zielgruppen, Plattformlogiken und Performance.\n\nYour main responsibility\n\n• Du konzipierst und produzierst digitale Inhalte mit Fokus auf Social Media für alle digitalen Kanäle, z. B. Videos, Animationen und neue Formate\n\n• Du verantwortest Produktionen von A bis Z – von der Ideenfindung über den Dreh und den Schnitt bis zur Veröffentlichung\n\n• Du bist Superuser:in für unsere digitalen Kanäle (Social Media, Website, Intranet)\n\n• Du bringst eigene Story-Ideen ein und setzt sie selbstständig, kreativ und zielgruppengerecht um\n\n• Du beobachtest Social-Media- und Video-Trends und überträgst sie in neue Formate und Ansätze\n\n• Du analysierst die Performance deiner Inhalte und leitest daraus Optimierungen ab\n\n• Du begleitest und betreust eine:n Mediamatik-Lernende:n und gibst dein Wissen aktiv weiter\n\n• Du übernimmst eine aktive Rolle in der Alpiq Corporate Newsroom\n\n• Gemeinsam mit einem funktionsübergreifenden Team entwickelst du unseren digitalen Auftritt laufend weiter\n\n• Du bringst «eine andere Art von Energie» mit\nYour impact Mit deiner Arbeit machst du das Markenversprechen von Alpiq erlebbar. Du sorgst für hochwertige, konsistente und zielgruppengerechte Inhalte auf allen relevanten Kanälen. Durch datenbasierte Optimierung, ein ausgeprägtes Gespür für Trends und kreative Umsetzung leistest du einen wesentlichen Beitrag zur Weiterentwicklung der digitalen Kommunikation und der Content-Strategie – und stärkst so die Positionierung von Alpiq.\n\nSend us your application\n\nAre you looking to make an impact in the energy sector? Become part of Alpiq - your energy matters!\n\nApply now\n\nYour profile\n\n• Lehre als Mediamatiker:in EFZ oder Abschluss in Multimedia-Produktion\n\n• Erste Berufserfahrung in der Content- oder Medienproduktion\n\n• Sehr gute Kenntnisse der Adobe Creative Suite und Offenheit gegenüber neuen KI-Tools\n\n• Erfahrung mit Social Media, CMS (idealerweise TYPO3) und SharePoint-basierten Lösungen\n\n• Strukturierte und selbstständige Arbeitsweise mit ausgeprägter Eigeninitiative\n\n• Zuverlässig in der Projektumsetzung und mit sicherem Termin- und Deadline-Management\n\n• Teamplayer:in mit positiver Grundhaltung und Hands-on-Mentalität\n\n• Verhandlungssicher in Deutsch und Englisch; Französischkenntnisse sind ein Plus\n#LI-DNI",
       "descriptionByLocale": {
-        "de": "Mission Als Social Media Content Creator (m/w/d) gestaltest du die digitale Präsenz von Alpiq aktiv mit. Deine Mission ist es, starke Geschichten zu erkennen, sie über alle Kanäle hinweg visuell zum Leben zu erwecken und Inhalte zu schaffen, die echte Wirkung erzielen – nicht nur Output. Du verbindest kreatives Storytelling mit effizienter Umsetzung und einem klaren Verständnis für Zielgruppen, Plattformlogiken und Performance.\n\nYour main responsibility\n\n• Du konzipierst und produzierst digitale Inhalte mit Fokus auf Social Media für alle digitalen Kanäle, z. B. Videos, Animationen und neue Formate\n\n• Du verantwortest Produktionen von A bis Z – von der Ideenfindung über den Dreh und den Schnitt bis zur Veröffentlichung\n\n• Du bist Superuser:in für unsere digitalen Kanäle (Social Media, Website, Intranet)\n\n• Du bringst eigene Story-Ideen ein und setzt sie selbstständig, kreativ und zielgruppengerecht um\n\n• Du beobachtest Social-Media- und Video-Trends und überträgst sie in neue Formate und Ansätze\n\n• Du analysierst die Performance deiner Inhalte und leitest daraus Optimierungen ab\n\n• Du begleitest und betreust eine:n Mediamatik-Lernende:n und gibst dein Wissen aktiv weiter\n\n• Du übernimmst eine aktive Rolle in der Alpiq Corporate Newsroom\n\n• Gemeinsam mit einem funktionsübergreifenden Team entwickelst du unseren digitalen Auftritt laufend weiter\n\n• Du bringst «eine andere Art von Energie» mit\nYour impact Mit deiner Arbeit machst du das Markenversprechen von Alpiq erlebbar. Du sorgst für hochwertige, konsistente und zielgruppengerechte Inhalte auf allen relevanten Kanälen. Durch datenbasierte Optimierung, ein ausgeprägtes Gespür für Trends und kreative Umsetzung leistest du einen wesentlichen Beitrag zur Weiterentwicklung der digitalen Kommunikation und der Content-Strategie – und stärkst so die Positionierung von Alpiq.\n\nSend us your application\n\nAre you looking to make an impact in the energy sector? Become part of Alpiq - your energy matters!\n\nApply now\n\nYour profile\n\n• Lehre als Mediamatiker:in EFZ oder Abschluss in Multimedia-Produktion\n\n• Erste Berufserfahrung in der Content- oder Medienproduktion\n\n• Sehr gute Kenntnisse der Adobe Creative Suite und Offenheit gegenüber neuen KI-Tools\n\n• Erfahrung mit Social Media, CMS (idealerweise TYPO3) und SharePoint-basierten Lösungen\n\n• Strukturierte und selbstständige Arbeitsweise mit ausgeprägter Eigeninitiative\n\n• Zuverlässig in der Projektumsetzung und mit sicherem Termin- und Deadline-Management\n\n• Teamplayer:in mit positiver Grundhaltung und Hands-on-Mentalität\n\n• Verhandlungssicher in Deutsch und Englisch; Französischkenntnisse sind ein Plus\n#LI-DNI",
         "it": "Come creatore di contenuti social media (m/f/d), si modella attivamente la presenza digitale di Alpiq. La vostra missione è di identificare storie forti, portarle in vita visivamente in tutti i canali, e creare contenuti che rende un impatto reale, non solo l'output. Unisci lo storytelling creativo con un'implementazione efficiente e una chiara comprensione dei gruppi target, delle logiche della piattaforma e delle prestazioni.\n\nLa responsabilità principale\n\n• Progettare e produrre contenuti digitali con un focus sui social media per tutti i canali digitali, come video, animazioni e nuovi formati\n\n• Sei responsabile per le produzioni da A a Z – dall'ideazione al tiro e al montaggio alla pubblicazione\n\n• Sei superutente: per i nostri canali digitali (social media, sito web, intranet)\n\n• Porti le tue idee di storia e le implementi in modo indipendente, creativo e in linea con il gruppo target\n\n• Osserva i social media e le tendenze video e li traduci in nuovi formati e approcci\n\n• Analizzi le prestazioni dei tuoi contenuti e ne deriva le ottimizzazioni\n\n• Si accompagna e supervisiona un:n Mediamatics learner:n e passa attivamente la vostra conoscenza\n\n• Si assume un ruolo attivo nella sala stampa aziendale Alpiq\n\n• Insieme a un team interfunzionale, continuerai a sviluppare la nostra presenza digitale\n\n• Porti “un tipo diverso di energia”\nIl vostro impatto Con il vostro lavoro fate la promessa del marchio di Alpiq tangibile. Garantisci contenuti di alta qualità, coerenti e orientati al gruppo target su tutti i canali pertinenti. Attraverso l'ottimizzazione basata sui dati, un forte senso di tendenze e di implementazione creativa, si contribuisce significativamente all'ulteriore sviluppo della comunicazione digitale e della strategia dei contenuti, rafforzando così il posizionamento di Alpiq.\n\nInviaci la tua richiesta\n\nStai cercando di avere un impatto nel settore energetico? Entra a far parte di Alpiq - la tua energia è importante!\n\nApplicare ora\n\nIl tuo profilo\n\n• Insegnamento come mediamatista: in EFZ o laurea in produzione multimediale\n\n• Prima esperienza professionale nella produzione di contenuti o media\n\n• Ottima conoscenza di Adobe Creative Suite e apertura ai nuovi strumenti AI\n\n• Esperienza con i social media, CMS (idealmente TYPO3) e soluzioni basate su SharePoint\n\n• Metodo di lavoro strutturato e indipendente con forte propria iniziativa\n\n• Affidabile nell'implementazione del progetto e con tempi e tempi di gestione sicuri\n\n• Giocatore di squadra: in con un atteggiamento positivo e mentalità hands-on\n\n• Confidente in tedesco e inglese; La conoscenza del francese è un plus\n#LI-DNI",
         "en": "As a social media content creator (m/f/d), you actively shape Alpiq’s digital presence. Your mission is to identify strong stories, bring them to life visually across all channels, and create content that makes a real impact, not just output. You combine creative storytelling with efficient implementation and a clear understanding of target groups, platform logics and performance.\n\nYour main responsibility\n\n• You design and produce digital content with a focus on social media for all digital channels, such as videos, animations and new formats\n\n• You are responsible for productions from A to Z – from ideation to shooting and editing to publication\n\n• You are superuser: in for our digital channels (social media, website, intranet)\n\n• You bring your own story ideas and implement them independently, creatively and in line with the target group\n\n• You observe social media and video trends and translate them into new formats and approaches\n\n• You analyze the performance of your content and derive optimizations from it\n\n• You accompany and supervise a:n Mediamatics learner:n and actively pass on your knowledge\n\n• You take on an active role in the Alpiq Corporate Newsroom\n\n• Together with a cross-functional team, you will continue to develop our digital presence\n\n• You bring “a different kind of energy”\nYour impact With your work you make the brand promise of Alpiq tangible. You ensure high-quality, consistent and target-group-oriented content on all relevant channels. Through data-based optimization, a strong sense of trends and creative implementation, you make a significant contribution to the further development of digital communication and content strategy – and thus strengthen the positioning of Alpiq.\n\nSend us your application\n\nAre you looking to make an impact in the energy sector? Become part of Alpiq - your energy matters!\n\nApply now\n\nYour profile\n\n• Teaching as a mediamatist: in EFZ or degree in multimedia production\n\n• First professional experience in content or media production\n\n• Very good knowledge of Adobe Creative Suite and openness to new AI tools\n\n• Experience with social media, CMS (ideally TYPO3) and SharePoint-based solutions\n\n• Structured and independent working method with strong own initiative\n\n• Reliable in project implementation and with secure deadline and deadline management\n\n• Team player: in with a positive attitude and hands-on mentality\n\n• Confident in German and English; Knowledge of French is a plus\n#LI-DNI",
+        "de": "Mission Als Social Media Content Creator (m/w/d) gestaltest du die digitale Präsenz von Alpiq aktiv mit. Deine Mission ist es, starke Geschichten zu erkennen, sie über alle Kanäle hinweg visuell zum Leben zu erwecken und Inhalte zu schaffen, die echte Wirkung erzielen – nicht nur Output. Du verbindest kreatives Storytelling mit effizienter Umsetzung und einem klaren Verständnis für Zielgruppen, Plattformlogiken und Performance.\n\nYour main responsibility\n\n• Du konzipierst und produzierst digitale Inhalte mit Fokus auf Social Media für alle digitalen Kanäle, z. B. Videos, Animationen und neue Formate\n\n• Du verantwortest Produktionen von A bis Z – von der Ideenfindung über den Dreh und den Schnitt bis zur Veröffentlichung\n\n• Du bist Superuser:in für unsere digitalen Kanäle (Social Media, Website, Intranet)\n\n• Du bringst eigene Story-Ideen ein und setzt sie selbstständig, kreativ und zielgruppengerecht um\n\n• Du beobachtest Social-Media- und Video-Trends und überträgst sie in neue Formate und Ansätze\n\n• Du analysierst die Performance deiner Inhalte und leitest daraus Optimierungen ab\n\n• Du begleitest und betreust eine:n Mediamatik-Lernende:n und gibst dein Wissen aktiv weiter\n\n• Du übernimmst eine aktive Rolle in der Alpiq Corporate Newsroom\n\n• Gemeinsam mit einem funktionsübergreifenden Team entwickelst du unseren digitalen Auftritt laufend weiter\n\n• Du bringst «eine andere Art von Energie» mit\nYour impact Mit deiner Arbeit machst du das Markenversprechen von Alpiq erlebbar. Du sorgst für hochwertige, konsistente und zielgruppengerechte Inhalte auf allen relevanten Kanälen. Durch datenbasierte Optimierung, ein ausgeprägtes Gespür für Trends und kreative Umsetzung leistest du einen wesentlichen Beitrag zur Weiterentwicklung der digitalen Kommunikation und der Content-Strategie – und stärkst so die Positionierung von Alpiq.\n\nSend us your application\n\nAre you looking to make an impact in the energy sector? Become part of Alpiq - your energy matters!\n\nApply now\n\nYour profile\n\n• Lehre als Mediamatiker:in EFZ oder Abschluss in Multimedia-Produktion\n\n• Erste Berufserfahrung in der Content- oder Medienproduktion\n\n• Sehr gute Kenntnisse der Adobe Creative Suite und Offenheit gegenüber neuen KI-Tools\n\n• Erfahrung mit Social Media, CMS (idealerweise TYPO3) und SharePoint-basierten Lösungen\n\n• Strukturierte und selbstständige Arbeitsweise mit ausgeprägter Eigeninitiative\n\n• Zuverlässig in der Projektumsetzung und mit sicherem Termin- und Deadline-Management\n\n• Teamplayer:in mit positiver Grundhaltung und Hands-on-Mentalität\n\n• Verhandlungssicher in Deutsch und Englisch; Französischkenntnisse sind ein Plus\n#LI-DNI",
         "fr": "En tant que créateur de contenu de médias sociaux (h/f/d), vous façonnez activement la présence numérique d'Alpiq. Votre mission est d'identifier des histoires fortes, de les mettre en valeur visuellement sur tous les canaux, et de créer un contenu qui a un impact réel, pas seulement la sortie. Vous combinez la narration créative avec une mise en œuvre efficace et une compréhension claire des groupes cibles, des logiques de plateforme et des performances.\n\nVotre principale responsabilité\n\n• Vous concevez et produisez du contenu numérique en mettant l'accent sur les médias sociaux pour tous les canaux numériques, tels que les vidéos, les animations et les nouveaux formats\n\n• Vous êtes responsable des productions de A à Z – de l'idée à la prise de vue et l'édition à la publication\n\n• Vous êtes superutilisateur: pour nos canaux numériques (médias sociaux, site web, intranet)\n\n• Vous apportez vos propres idées d'histoire et les implémentez de façon indépendante, créative et en ligne avec le groupe cible\n\n• Vous observez les tendances des médias sociaux et vidéo et les traduisez en nouveaux formats et approches\n\n• Vous analysez les performances de votre contenu et en tirez des optimisations\n\n• Vous accompagnez et supervisez un:n Médiamatique apprenant:n et transmettez activement vos connaissances\n\n• Vous participez activement à la salle de presse Alpiq Corporate Newsroom\n\n• Avec une équipe interfonctionnelle, vous continuerez à développer notre présence numérique\n\n• Vous apportez une énergie différente\nVotre impact Avec votre travail, vous rendez la promesse de marque d'Alpiq tangible. Vous assurez un contenu de haute qualité, cohérent et axé sur les groupes cibles sur tous les canaux pertinents. Grâce à l'optimisation basée sur les données, à un fort sens des tendances et à une mise en œuvre créative, vous contribuez de manière significative au développement ultérieur de la stratégie de communication et de contenu numériques, renforçant ainsi le positionnement d'Alpiq.\n\nEnvoyez-nous votre demande\n\nVous cherchez à avoir un impact dans le secteur de l'énergie? Devenez membre d'Alpiq - votre énergie compte!\n\nAppliquer maintenant\n\nVotre profil\n\n• Enseignement en tant que médiamatiste: en EFZ ou diplôme en production multimédia\n\n• Première expérience professionnelle dans la production de contenus ou de médias\n\n• Très bonne connaissance d'Adobe Creative Suite et ouverture aux nouveaux outils d'IA\n\n• Expérience des médias sociaux, CMS (idéalement TYPO3) et des solutions basées sur SharePoint\n\n• Méthode de travail structurée et indépendante avec une forte initiative\n\n• Fiabilité de la mise en œuvre du projet et gestion des délais et des délais\n\n• Joueur d'équipe: avec une attitude positive et une mentalité pratique\n\n• Confiance en allemand et en anglais; La connaissance du français est un plus\n#LI-DNI"
       },
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "location": "Schweiz",
       "canton": "VD",
       "postalCode": "1000",
@@ -460,10 +450,11 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=427&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:49:30.040Z",
+      "crawledAt": "2026-11-26T09:54:34.120Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-25T21:49:30.040Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T21:49:30.040Z",
+      "validThrough": "2027-02-24T09:54:34.120Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 83000,
       "salaryMax": 127000,
@@ -477,9 +468,7 @@
           "maxValue": 127000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-11-25T21:49:30.040Z",
-      "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/427"
+      }
     },
     {
       "id": "alpiq-0eb04f38ce49",
@@ -542,76 +531,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/401"
-    },
-    {
-      "id": "alpiq-0d54e1b2a0a9",
-      "slug": "stagiaire-employee-de-commerce-alpiq-suisse",
-      "slugByLocale": {
-        "it": "interno-dipendente-commerciale-alpiq-suisse",
-        "en": "intern-commercial-employee-alpiq-suisse",
-        "de": "angestellter-von-intern-commercial-alpiq-suisse",
-        "fr": "stagiaire-employee-de-commerce-alpiq-suisse"
-      },
-      "company": "Alpiq",
-      "companyKey": "alpiq",
-      "companyDomain": "alpiq.com",
-      "title": "Stagiaire Employee de commerce",
-      "titleByLocale": {
-        "it": "Interno Dipendente commerciale",
-        "en": "Intern Commercial employee",
-        "de": "Angestellter von Intern Commercial",
-        "fr": "Stagiaire Employee de commerce"
-      },
-      "description": "Operational Support\n\nStagiaire Employee de commerce\n\n•\n\nLausanne, CH - 100% | Full time\n\nAbout the Role\n\nType de poste : Durée déterminée (01.08.2027 - 31.07.2028)| Lieu : Suisse | Modèle : Hybride | Niveau de déplacements : 10 %\n\nMission\n\nEn tant que stagiaire employé·e de commerce, vous soutenez notre équipe et contribuez au bon déroulement des activités quotidiennes. Vous prenez en charge des tâches administratives, de communication et d'événementiel ainsi que du soutien en finance. C'est une occasion concrète de découvrir de l'intérieur le fonctionnement d'une entreprise énergétique de premier plan.\n\nYour main responsibilities\n\n• Rédaction et préparation de courriers et mailings en plusieurs langues\n\n• Impression de documents et classement des données dans des fichiers Excel et des mailings\n\n• Préparation de réunions : ordres du jour, présentations PowerPoint, procès-verbaux\n\n• Réservation de voyages d'affaires à l'étranger pour les collaborateurs\n\n• Co-organisation de divers événements internes et externes\n\n• Représentation de l'entreprise lors d'événements\n\n• Co-organisation de séminaires en Suisse\n\n• Traitement et comptabilisation des factures\n\n• Suivi des factures fournisseurs via SAP et Excel, y compris le contrôle de la TVA\n\n• Consultation des commandes fournisseurs dans SAP\nYour impact\n\nVous facilitez le travail quotidien de l'équipe en traitant les tâches administratives avec fiabilité et précision, ce qui permet à vos collègues de se concentrer sur leurs activités principales. Grâce à des réunions, des voyages et des événements bien préparés, vous contribuez à une image professionnelle de l'entreprise auprès des collaborateurs, des partenaires et des invités. Dans le domaine financier, votre suivi rigoureux des factures fournisseurs et de la TVA soutient une comptabilité exacte et des processus de paiement fluides. Parallèlement, vous posez des bases solides pour votre carrière commerciale et acquérez une expérience pratique dans un environnement international.\n\nSend us your application\n\nAre you looking to make an impact in the energy sector? Become part of Alpiq - your energy matters!\n\nApply now\n\nYour profile\n\n• Maturité ou diplôme équivalent\n\n• Bonne maîtrise des outils informatiques\n\n• Bonnes connaissances de l'anglais et de l'allemand\n\n• Bonne expression écrite et orthographe irréprochable",
-      "descriptionByLocale": {
-        "it": "Supporto operativo\n\nInterno Dipendente commerciale\n\n•\n\nLosanna, CH - 100%\n\nInformazioni sul ruolo\n\nTipo di posizione: Term (01.08.2027 - 31.07.2028) Ubicazione: Svizzera\n\nMissione\n\nCome tirocinante d'affari, supporti il nostro team e contribuisci al regolare svolgimento delle attività quotidiane. Si occupa di attività amministrative, di comunicazione e di eventi, nonché di supporto finanziario. È un'occasione concreta per scoprire dall'interno del funzionamento di un'azienda energetica leader.\n\nLe tue responsabilità\n\n• Scrivere e preparare lettere e mailing in diverse lingue\n\n• Stampare documenti e archiviare dati in file Excel e mailing\n\n• Preparazione delle riunioni: agende, presentazioni di PowerPoint, minuti\n\n• Prenotazioni viaggi di lavoro all'estero per dipendenti\n\n• Co-organizzazione di vari eventi interni ed esterni\n\n• Rappresentanza dell'azienda agli eventi\n\n• Co-organizzazione dei seminari in Svizzera\n\n• Trattamento e contabilità delle fatture\n\n• Monitoraggio delle fatture dei fornitori tramite SAP ed Excel, compreso il controllo IVA\n\n• Visualizza gli ordini dei fornitori in SAP\nIl tuo impatto\n\nSi facilita il lavoro quotidiano del team trattando i compiti amministrativi in modo affidabile e preciso, permettendo ai colleghi di concentrarsi sulle loro principali attività. Attraverso incontri, viaggi ed eventi ben preparati, contribuisci ad un'immagine professionale dell'azienda tra dipendenti, partner e ospiti. Nel settore finanziario, il monitoraggio rigoroso delle fatture dei fornitori e dell'IVA supporta processi di contabilità e pagamento lisci. Allo stesso tempo, si pone una solida base per la vostra carriera aziendale e acquisire esperienza pratica in un ambiente internazionale.\n\nInviaci la tua richiesta\n\nStai cercando di avere un impatto nel settore energetico? Diventa parte di Alpiq - La tua energia è importante!\n\nApplicare ora\n\nIl tuo profilo\n\n• Maturità o diploma equivalente\n\n• Buon controllo degli strumenti informatici\n\n• Buona conoscenza dell'inglese e del tedesco\n\n• Buona espressione scritta e ortografia irreprensibile",
-        "en": "Operational Support\n\nIntern Commercial employee\n\n•\n\nLausanne, CH - 100%\n\nAbout the Role\n\nType of position: Term (01.08.2027 - 31.07.2028) Location: Switzerland\n\nMission\n\nAs a business trainee, you support our team and contribute to the smooth running of daily activities. You take over administrative, communication and event tasks as well as financial support. It is a concrete opportunity to discover from within the operation of a leading energy company.\n\nYour hand responsibilities\n\n• Writing and preparing letters and mailings in several languages\n\n• Printing documents and filing data in Excel files and mailings\n\n• Preparation of meetings: agendas, PowerPoint presentations, minutes\n\n• Booking business trips abroad for employees\n\n• Co-organisation of various internal and external events\n\n• Representation of the company at events\n\n• Co-organisation of seminars in Switzerland\n\n• Processing and accounting of invoices\n\n• Tracking supplier invoices via SAP and Excel, including VAT control\n\n• View supplier orders in SAP\nYour impact\n\nYou facilitate the day-to-day work of the team by treating administrative tasks reliably and accurately, allowing your colleagues to focus on their main activities. Through well-prepared meetings, trips and events, you contribute to a professional image of the company among employees, partners and guests. In the financial field, your rigorous monitoring of supplier invoices and VAT supports accurate accounting and smooth payment processes. At the same time, you lay a solid foundation for your business career and gain practical experience in an international environment.\n\nSend us your application\n\nAre you looking to make an impact in the energy sector? Become part of Alpiq - Your energy matters!\n\nApply now\n\nYour profile\n\n• Maturity or equivalent diploma\n\n• Good control of computer tools\n\n• Good knowledge of English and German\n\n• Good written expression and irreproachable spelling",
-        "de": "Operationelle Unterstützung\n\nAngestellter von Intern Commercial\n\n•\n\nLausanne, CH - 100%\n\nÜber die Rolle\n\nArt der Position: Laufzeit (01.08.2027 - 31.07.2028) Standort: Schweiz\n\nMission\n\nAls Business Trainee unterstützen Sie unser Team und tragen zum reibungslosen Ablauf der täglichen Aktivitäten bei. Sie übernehmen Verwaltungs-, Kommunikations- und Veranstaltungsaufgaben sowie finanzielle Unterstützung. Es ist eine konkrete Gelegenheit, aus dem Betrieb eines führenden Energieunternehmens zu entdecken.\n\nIhre Hand Verantwortung\n\n• Schreiben und Vorbereiten von Briefen und Mailings in mehreren Sprachen\n\n• Drucken von Dokumenten und Ablegen von Daten in Excel Dateien und Mailings\n\n• Vorbereitung von Meetings: Tagesordnungen, PowerPoint-Präsentationen, Protokolle\n\n• Buchung von Geschäftsreisen im Ausland für Mitarbeiter\n\n• Koorganisation verschiedener interner und externer Veranstaltungen\n\n• Vertretung des Unternehmens bei Veranstaltungen\n\n• Ko-Organisation von Seminaren in der Schweiz\n\n• Bearbeitung und Abrechnung von Rechnungen\n\n• Tracking von Lieferantenrechnungen über SAP und Excel, inklusive Mehrwertsteuerkontrolle\n\n• Lieferantenaufträge in SAP anzeigen\nIhre Wirkung\n\nSie erleichtern die tägliche Arbeit des Teams, indem Sie administrative Aufgaben zuverlässig und genau bearbeiten und Ihre Kollegen sich auf ihre Hauptaktivitäten konzentrieren können. Durch gut vorbereitete Meetings, Reisen und Events tragen Sie zu einem professionellen Image des Unternehmens bei Mitarbeitern, Partnern und Gästen bei. Im Finanzbereich unterstützt Ihre strenge Überwachung von Lieferantenrechnungen und Mehrwertsteuer eine genaue Buchhaltung und reibungslose Zahlungsprozesse. Gleichzeitig legen Sie eine solide Grundlage für Ihre unternehmerische Karriere und sammeln praktische Erfahrungen im internationalen Umfeld.\n\nSenden Sie uns Ihre Bewerbung\n\nMöchten Sie im Energiesektor etwas bewirken? Werde Teil von Alpiq - Deine Energie zählt!\n\nJetzt bewerben\n\nDein Profil\n\n• Laufzeit oder gleichwertiges Diplom\n\n• Gute Kontrolle von Computer-Tools\n\n• Gute Englisch- und Deutschkenntnisse\n\n• Guter schriftlicher Ausdruck und einwandfreie Schreibweise",
-        "fr": "Operational Support\n\nStagiaire Employee de commerce\n\n•\n\nLausanne, CH - 100% | Full time\n\nAbout the Role\n\nType de poste : Durée déterminée (01.08.2027 - 31.07.2028)| Lieu : Suisse | Modèle : Hybride | Niveau de déplacements : 10 %\n\nMission\n\nEn tant que stagiaire employé·e de commerce, vous soutenez notre équipe et contribuez au bon déroulement des activités quotidiennes. Vous prenez en charge des tâches administratives, de communication et d'événementiel ainsi que du soutien en finance. C'est une occasion concrète de découvrir de l'intérieur le fonctionnement d'une entreprise énergétique de premier plan.\n\nYour main responsibilities\n\n• Rédaction et préparation de courriers et mailings en plusieurs langues\n\n• Impression de documents et classement des données dans des fichiers Excel et des mailings\n\n• Préparation de réunions : ordres du jour, présentations PowerPoint, procès-verbaux\n\n• Réservation de voyages d'affaires à l'étranger pour les collaborateurs\n\n• Co-organisation de divers événements internes et externes\n\n• Représentation de l'entreprise lors d'événements\n\n• Co-organisation de séminaires en Suisse\n\n• Traitement et comptabilisation des factures\n\n• Suivi des factures fournisseurs via SAP et Excel, y compris le contrôle de la TVA\n\n• Consultation des commandes fournisseurs dans SAP\nYour impact\n\nVous facilitez le travail quotidien de l'équipe en traitant les tâches administratives avec fiabilité et précision, ce qui permet à vos collègues de se concentrer sur leurs activités principales. Grâce à des réunions, des voyages et des événements bien préparés, vous contribuez à une image professionnelle de l'entreprise auprès des collaborateurs, des partenaires et des invités. Dans le domaine financier, votre suivi rigoureux des factures fournisseurs et de la TVA soutient une comptabilité exacte et des processus de paiement fluides. Parallèlement, vous posez des bases solides pour votre carrière commerciale et acquérez une expérience pratique dans un environnement international.\n\nSend us your application\n\nAre you looking to make an impact in the energy sector? Become part of Alpiq - your energy matters!\n\nApply now\n\nYour profile\n\n• Maturité ou diplôme équivalent\n\n• Bonne maîtrise des outils informatiques\n\n• Bonnes connaissances de l'anglais et de l'allemand\n\n• Bonne expression écrite et orthographe irréprochable"
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Suisse",
-      "canton": "VD",
-      "postalCode": "1000",
-      "streetAddress": "Suisse",
-      "addressLocality": "Suisse",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "energy",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/320",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=320&lang=en_GB",
-      "source": "Alpiq Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-24T21:37:48.210Z",
-      "firstSeenAt": "2026-11-04T22:03:16.706Z",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:37:48.210Z",
-      "validThroughSource": "last-observed-window",
-      "salaryMin": 74000,
-      "salaryMax": 113000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 74000,
-          "maxValue": 113000,
-          "unitText": "YEAR"
-        }
-      },
       "crawlerMissStreak": 2,
-      "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/320"
+      "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/401"
     }
   ]
 }

@@ -916,11 +916,14 @@ function isSuccessFactorsModuleRoute(url) {
   return Boolean(successFactorsModuleIdentity(url));
 }
 
+const SUCCESS_FACTORS_CAREER_PATHS = new Set(['/career', '/portalcareer', '/careers']);
+const SUCCESS_FACTORS_CONTINUATION_PATHS = new Set(['/portalcareer', '/careers']);
+
 function isSuccessFactorsCareerPath(value) {
   try {
     const url = new URL(String(value || ''));
     return isSuccessFactorsPortalUrl(url) && !url.username && !url.password && !url.hash
-      && ['/career', '/portalcareer'].includes(url.pathname.replace(/\/+$/, ''));
+      && SUCCESS_FACTORS_CAREER_PATHS.has(url.pathname.replace(/\/+$/, ''));
   } catch {
     return false;
   }
@@ -972,7 +975,7 @@ function isSuccessFactorsPortalCareerContinuation({ applyUrl, postingUrl, postin
     const source = successFactorsModuleIdentity(new URL(String(postingRouteProof?.applyUrl || '')));
     if (!source || postingRouteProof?.via !== 'successfactors'
       || !isSuccessFactorsCareerPath(current.href)
-      || current.pathname.replace(/\/+$/, '') !== '/portalcareer'
+      || !SUCCESS_FACTORS_CONTINUATION_PATHS.has(current.pathname.replace(/\/+$/, ''))
       || current.origin !== source.origin
       || !samePostingAddress(postingRouteProof.postingUrl, posting.href)) return false;
 
@@ -1738,7 +1741,7 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
   }));
   // Older drafts may predate the profile enrichment done during draft mode;
   // resolve once more at the browser boundary without an external geocoder.
-  const resolved = resolveResidenceAddress(profile.address, profile.location);
+  const resolved = resolveResidenceAddress(profile.address, profile.location, draft?.factSources?.text || '');
   // Owner decision 2026-11-09 (functions/src/assistedApplicationPlatformDefaults.js): what the CV does not
   // say, a form receives from the platform: the town's postal code and country, and a street when a form
   // requires one. Form-only: the letter and the CV are written from `profile`, never from this object.
@@ -4844,7 +4847,7 @@ function verifiedDirectApplicationUrl(stageContext, currentUrl) {
 const normalizeWords = (text) => String(text || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, ' ');
 // Legal forms and short words name no company: "Ospedale ABC SA" is "ospedale abc",
 // "Coop Genossenschaft" is "coop" (its SuccessFactors pages say only "Coop").
-const NOT_A_NAME = new Set(['sa', 'ag', 'gmbh', 'sagl', 'srl', 'spa', 'sarl', 'ltd', 'inc', 'llc', 'kg', 'genossenschaft', 'cooperativa', 'cooperative', 'the', 'und', 'and', 'del', 'della', 'des', 'les', 'der', 'die', 'das']);
+const NOT_A_NAME = new Set(['sa', 'ag', 'gmbh', 'sagl', 'srl', 'spa', 'sarl', 'ltd', 'inc', 'llc', 'llp', 'kg', 'genossenschaft', 'cooperativa', 'cooperative', 'the', 'und', 'and', 'del', 'della', 'des', 'les', 'der', 'die', 'das']);
 const nameWords = (text) => normalizeWords(text).split(' ').filter((word) => word.length >= 3 && !NOT_A_NAME.has(word) && !/^\d+$/.test(word));
 const TALENTSOFT_HOST_RE = /(?:^|\.)talent-soft\.com$/i;
 
@@ -5055,7 +5058,7 @@ export function postingMatch(pageText, job = {}, pageUrl = '') {
 const FORM_VOCABULARY = new Set([
   // Pinpoint can put its save-later action and cookie control before the first
   // field; those labels describe the form surface, not another employer.
-  'application', 'applications', 'apply', 'save', 'later', 'cookies', 'remove', 'cancel', 'close', 'discard', 'delete', 'jetzt', 'now', 'maintenant', 'ora', 'subito', 'spater', 'bewerbung', 'bewerbungen', 'bewerben', 'abbrechen', 'schliessen', 'annulla', 'chiudi', 'candidatura', 'candidature', 'candidati', 'postuler',
+  'application', 'applications', 'applying', 'apply', 'save', 'later', 'cookies', 'remove', 'cancel', 'close', 'discard', 'delete', 'jetzt', 'now', 'maintenant', 'ora', 'subito', 'spater', 'bewerbung', 'bewerbungen', 'bewerben', 'abbrechen', 'schliessen', 'annulla', 'chiudi', 'candidatura', 'candidature', 'candidati', 'postuler',
   // Once a generic stage heading is removed, the first visible control labels
   // can become the page's first line. These labels describe form fields, not a
   // second employer («Vorname», «Nachname», «E-Mail-Adresse», «Weiter»).
@@ -5169,7 +5172,7 @@ const FILLER_WORDS = new Set([
 ]);
 const filler = (word) => word.length < 3 || FILLER_WORDS.has(word) || /^\d+$/.test(word);
 // What ends a phrase: a line, a dash between spaces, a bar, a dot, a colon… never a hyphen inside a word («Other-Hotel»).
-const PHRASE_END_RE = /[\n\r—–|·•:;,.()\/]|\s-\s/;
+const PHRASE_END_RE = /[\n\r—–|·•:;,.!?()\/]|\s-\s/;
 const GENERIC_APPLICATION_HEADING_WORDS = new Set([
   'additional', 'applicant', 'application', 'background', 'candidate', 'certification', 'certifications', 'contact',
   'data', 'detail', 'details', 'disclosure', 'disclosures', 'document', 'documents', 'education', 'educational', 'employment',
@@ -5374,6 +5377,7 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     // Where the employer stands named whole (legal forms and filler between its words allowed).
     const wholeStarts = new Set();
     const wholeEnds = new Set();
+    const wholeMatchEnds = new Map();
     for (let index = 0; index < words.length; index += 1) {
       for (const identity of identities) {
         let at = index;
@@ -5386,7 +5390,26 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
         if (matched === identity.length) {
           wholeStarts.add(index);
           wholeEnds.add(at - 1);
+          const prevEnd = wholeMatchEnds.get(index) ?? -1;
+          if (at - 1 > prevEnd) wholeMatchEnds.set(index, at - 1);
         }
+      }
+    }
+    const networkDefinition = /\brefers\s+to\s+(?:one\s+or\s+more\s+of\s+)?/iu.exec(phrase);
+    if (networkDefinition) {
+      const prefixCount = normalizeWords(phrase.slice(0, networkDefinition.index)).split(' ').filter(Boolean).length;
+      const suffixOffset = normalizeWords(phrase.slice(0, networkDefinition.index + networkDefinition[0].length))
+        .split(' ').filter(Boolean).length;
+      const suffixMatchEnd = wholeMatchEnds.get(suffixOffset);
+      if (prefixCount > 0 && wholeStarts.has(0) && wholeEnds.has(prefixCount - 1) && suffixMatchEnd !== undefined) {
+        if (words.slice(suffixMatchEnd + 1).every((word) => NOT_A_NAME.has(word))) continue;
+        const trimmedPhrase = phrase.trim();
+        const isMemberFirmBoilerplate = trimmedPhrase.length > 0 && text.split(/\r?\n/).some((line) =>
+          line.includes(trimmedPhrase)
+          && /\brefers\s+to\s+one\s+or\s+more\s+of\b[^\n]{1,180}\b(?:network\s+of\s+member\s+firms|member\s+firms?\b[^\n]{0,80}\b(?:legal(?:ly)?\s+separate|independent\s+entit(?:y|ies)|related\s+entities))\b/iu.test(line)
+          && !normalizeWords(line).split(' ').some((word) => OTHER_EMPLOYER_MARKER_WORDS.has(word)));
+        if (isMemberFirmBoilerplate) continue;
+        return true;
       }
     }
     for (const [index, word] of words.entries()) {
@@ -5822,6 +5845,11 @@ async function postingMainHeadings(page) {
   if (typeof page?.evaluate !== 'function') return null;
   const headings = await page.evaluate(() => [...document.querySelectorAll('h1, [role="heading"][aria-level="1"]')]
     .filter((node) => {
+      const inMain = Boolean(node.closest('main, article, [role="main"]'));
+      const inNav = Boolean(node.closest('nav'));
+      const header = node.closest('header');
+      const isHeaderLogo = Boolean(header && node.closest('a[href], [class*="logo" i]'));
+      if (!inMain && (inNav || isHeaderLogo)) return false;
       const rect = node.getBoundingClientRect();
       const style = window.getComputedStyle(node);
       return rect.width > 0 && rect.height > 0 && style.display !== 'none' && style.visibility !== 'hidden';
@@ -6284,10 +6312,10 @@ export function formPostingMatch(formText, job = {}, {
     && (direct === 'match' || (roleOnlyPostingBound && (postingEntry || Boolean(job.company))))) return 'mismatch';
   if (ambiguousBrandHeading && !verifiedFormBinding) return 'unknown';
   if (brassRingPrivacyGateForm && roleHeading !== 'mismatch' && !headingConflict) return 'match';
-  // A verified `/portalcareer` continuation is already bound to the selected
-  // module. Its native controls can mention the employer (for example a Coop
-  // group-consent question) even when the tenant omits the role caption; the
-  // explicit heading/role conflict checks above still remain authoritative.
+  // A verified `/portalcareer` or `/careers` auth continuation is already bound
+  // to the selected module. Its native controls can mention the employer (for
+  // example a Coop group-consent question) even when the tenant omits the role
+  // caption; the explicit heading/role conflict checks above remain authoritative.
   if (successFactorsRouteBound && roleHeading !== 'mismatch' && !headingConflict) return 'match';
   const sameBoundPosting = bound && samePostingAddress(pageUrl, formPostingUrl);
   const boundPinpointApplication = bound && isPinpointPostingEntry({ applyUrl: pageUrl, postingUrl: postingUrl || paidPostingUrl });

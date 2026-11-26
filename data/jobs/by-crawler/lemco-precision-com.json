@@ -1,7 +1,7 @@
 {
   "crawlerKey": "lemco-precision-com",
-  "assembledAt": "2026-11-25T21:45:45.459Z",
-  "runId": "45704355338",
+  "assembledAt": "2026-11-26T10:12:16.325Z",
+  "runId": "45791999505",
   "jobs": [
     {
       "id": "lemco-precision-com-6a36ce5ef8c4",
@@ -34,7 +34,7 @@
       "url": "https://www.lemco-precision.com/career/job-openings/decolleteur-programmeur-iso-h-f-description-in-french",
       "source": "Lemco Précision SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-25T21:45:36.978Z",
+      "crawledAt": "2026-11-26T10:12:00.538Z",
       "addressLocality": "Vionnaz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -97,8 +97,9 @@
         "checkedAt": "2026-11-16T15:23:23.814Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T21:45:36.978Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-03T10:12:00.538Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.lemco-precision.com/career/job-openings/decolleteur-programmeur-iso-h-f-description-in-french"
     }
   ]
 }

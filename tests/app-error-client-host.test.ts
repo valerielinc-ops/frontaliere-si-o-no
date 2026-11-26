@@ -65,4 +65,18 @@ describe('client: GA4 error events by host', () => {
     const events = await emitFrom('frontaliereticino.ch');
     expect(events).toEqual(expect.arrayContaining(['exception', 'app_error']));
   });
+
+  it('does not emit a benign Firefox dead-object error through the direct sink', async () => {
+    jsdom.reconfigure({ url: 'https://frontaliereticino.ch/it/' });
+    vi.resetModules();
+    const { Analytics } = await import('../services/analytics');
+    Analytics.trackAppError('error_boundary', {
+      message: "TypeError: can't access dead object",
+      stack: 'at :0:1',
+    });
+    Analytics.trackJobAlertDeleted();
+    await vi.waitFor(() => expect(sentEvents()).toContain('job_alert_deleted'));
+    expect(sentEvents()).not.toContain('app_error');
+    expect(sentEvents()).not.toContain('exception');
+  });
 });

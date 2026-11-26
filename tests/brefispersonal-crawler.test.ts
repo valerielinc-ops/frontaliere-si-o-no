@@ -7,6 +7,7 @@ import {
   isTrustedDomain,
   normalizeBrefispersonalSpec,
   normalizeBrefispersonalRuntimeSpec,
+  extractBrefispersonalDetailFields,
   resolveBrefispersonalGeography,
 } from '../scripts/lib/brefispersonal-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
@@ -184,6 +185,77 @@ describe('brefis personal ag crawler parser', () => {
         { location: '', addressLocality: 'QQ', addressRegion: '', addressCountry: 'CH' },
         'Arbeitsort: Zürich.',
       )).toBeNull();
+    });
+  });
+
+  describe('detail extraction', () => {
+    const detailUrl = 'https://brefis.ch/Vacancyboard/Detail/46980';
+    const detailTitle = 'Sanitärinstallateur/in EFZ';
+    const description = [
+      'Arbeitsort: Zürich.',
+      'Die verantwortungsvolle Tätigkeit umfasst Montage, Wartung, Kundenberatung,',
+      'selbstständige Planung, Dokumentation und die Zusammenarbeit mit erfahrenen',
+      'Fachpersonen in einem zuverlässigen Team.',
+    ].join(' ');
+
+    function detailHtml(addressLocality, detailDescription = description) {
+      return `<script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'JobPosting',
+        title: detailTitle,
+        description: detailDescription,
+        url: detailUrl,
+        hiringOrganization: { '@type': 'Organization', name: BREFISPERSONAL_COMPANY_NAME },
+        jobLocation: {
+          '@type': 'Place',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality,
+            addressRegion: 'ZH',
+            addressCountry: 'CH',
+          },
+        },
+      })}</script>`;
+    }
+
+    it('repairs a canton-only detail location before the shared detail gate', () => {
+      const detail = extractBrefispersonalDetailFields(
+        detailHtml('ZH'),
+        detailUrl,
+        { recordUrl: detailUrl, recordTitle: detailTitle },
+      );
+
+      expect(detail.location).toBe('Zürich');
+      expect(detail.addressRegion).toBe('ZH');
+      expect(detail.addressLocality).toBe('Zürich');
+      expect(detail.locationCandidates).toEqual([
+        expect.objectContaining({
+          location: 'Zürich',
+          addressLocality: 'Zürich',
+          addressRegion: 'ZH',
+          addressCountry: 'CH',
+        }),
+      ]);
+    });
+
+    it('keeps canton-only evidence when the vacancy has no workplace city', () => {
+      const detail = extractBrefispersonalDetailFields(
+        detailHtml('ZH', 'Eine Stelle für Einsätze im Kanton ZH. Die Tätigkeit umfasst Montage, Wartung, Dokumentation und Kundenberatung im Team.'),
+        detailUrl,
+        { recordUrl: detailUrl, recordTitle: detailTitle },
+      );
+
+      expect(detail.location).toBe('ZH');
+      expect(detail.addressRegion).toBe('ZH');
+      expect(detail.addressLocality).toBe('');
+      expect(detail.locationCandidates).toEqual([
+        expect.objectContaining({
+          location: 'ZH',
+          addressLocality: '',
+          addressRegion: 'ZH',
+          addressCountry: 'CH',
+        }),
+      ]);
     });
   });
 

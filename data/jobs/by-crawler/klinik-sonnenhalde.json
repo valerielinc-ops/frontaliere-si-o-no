@@ -1,7 +1,7 @@
 {
   "crawlerKey": "klinik-sonnenhalde",
-  "assembledAt": "2026-11-25T21:43:23.167Z",
-  "runId": "45703845291",
+  "assembledAt": "2026-11-26T10:21:53.209Z",
+  "runId": "45791495259",
   "jobs": [
     {
       "id": "klinik-sonnenhalde-f74f498d3bb7",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/311/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:43:15.063Z",
+      "crawledAt": "2026-11-26T10:21:47.578Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -94,8 +94,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:43:15.063Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T10:21:47.578Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/311/description/1"
     },
     {
       "id": "klinik-sonnenhalde-193b0c90bcc8",
@@ -128,7 +129,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/318/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:43:14.235Z",
+      "crawledAt": "2026-11-26T10:21:46.701Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -172,8 +173,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:43:14.235Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T10:21:46.701Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/318/description/1"
     },
     {
       "id": "klinik-sonnenhalde-733386d47707",
@@ -207,7 +209,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/320/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:43:13.372Z",
+      "crawledAt": "2026-11-26T10:21:45.786Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -261,8 +263,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:43:13.372Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T10:21:45.786Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/320/description/1"
     },
     {
       "id": "klinik-sonnenhalde-ca132c018962",
@@ -296,7 +299,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/389/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:43:12.814Z",
+      "crawledAt": "2026-11-26T10:21:44.875Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -345,8 +348,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:43:12.814Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T10:21:44.875Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/389/description/1"
     },
     {
       "id": "klinik-sonnenhalde-b3a36c11609a",
@@ -380,7 +384,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/396/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:43:11.976Z",
+      "crawledAt": "2026-11-26T10:21:43.973Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -435,8 +439,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:43:11.976Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T10:21:43.973Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/396/description/1"
     },
     {
       "id": "klinik-sonnenhalde-74e1f1b55a1b",
@@ -469,7 +474,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/398/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:43:11.149Z",
+      "crawledAt": "2026-11-26T10:21:42.847Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -519,8 +524,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:43:11.149Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T10:21:42.847Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/398/description/1"
     },
     {
       "id": "klinik-sonnenhalde-e40f838d52ed",
@@ -553,7 +559,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/399/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:43:10.298Z",
+      "crawledAt": "2026-11-26T10:21:41.938Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -607,8 +613,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:43:10.298Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T10:21:41.938Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/399/description/1"
     },
     {
       "id": "klinik-sonnenhalde-5119a6eb8091",
@@ -642,7 +649,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/406/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:43:09.460Z",
+      "crawledAt": "2026-11-26T10:21:41.026Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -686,8 +693,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:43:09.460Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T10:21:41.026Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/406/description/1"
     },
     {
       "id": "klinik-sonnenhalde-37d831f58fd1",
@@ -721,7 +729,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/407/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:43:08.622Z",
+      "crawledAt": "2026-11-26T10:21:40.162Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -771,8 +779,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:43:08.622Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T10:21:40.162Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/407/description/1"
     },
     {
       "id": "klinik-sonnenhalde-b9ce51f5470b",
@@ -805,7 +814,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/409/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:43:07.823Z",
+      "crawledAt": "2026-11-26T10:21:39.532Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -855,8 +864,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T21:43:07.823Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-06T10:21:39.532Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/409/description/1"
     },
     {
       "id": "klinik-sonnenhalde-a2d866529cc9",
@@ -890,7 +900,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/410/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:43:06.923Z",
+      "crawledAt": "2026-11-26T10:21:38.599Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -940,8 +950,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:43:06.923Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T10:21:38.599Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/410/description/1"
     },
     {
       "id": "klinik-sonnenhalde-e4c0942fefa5",
@@ -975,7 +986,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/416/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:43:06.060Z",
+      "crawledAt": "2026-11-26T10:21:37.679Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1027,8 +1038,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:43:06.060Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T10:21:37.679Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/416/description/1"
     },
     {
       "id": "klinik-sonnenhalde-aad4a450f969",
@@ -1061,7 +1073,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/417/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:43:05.231Z",
+      "crawledAt": "2026-11-26T10:21:36.750Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1111,8 +1123,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:43:05.231Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-01T10:21:36.750Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/417/description/1"
     },
     {
       "id": "klinik-sonnenhalde-2634a0f26a14",
@@ -1146,7 +1159,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/418/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:43:04.411Z",
+      "crawledAt": "2026-11-26T10:21:35.844Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1196,8 +1209,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:43:04.411Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-01T10:21:35.844Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/418/description/1"
     },
     {
       "id": "klinik-sonnenhalde-b3fe494a5c4f",
@@ -1230,7 +1244,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/419/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:43:03.516Z",
+      "crawledAt": "2026-11-26T10:21:34.894Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1280,8 +1294,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:43:03.516Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-04T10:21:34.894Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/419/description/1"
     },
     {
       "id": "klinik-sonnenhalde-dc3d9be4f5c1",
@@ -1315,7 +1330,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/420/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:43:02.690Z",
+      "crawledAt": "2026-11-26T10:21:34.010Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1365,8 +1380,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:43:02.690Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-04T10:21:34.010Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/420/description/1"
     },
     {
       "id": "klinik-sonnenhalde-b816975895c8",
@@ -1400,7 +1416,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/421/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:43:01.632Z",
+      "crawledAt": "2026-11-26T10:21:33.045Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1450,8 +1466,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:43:01.632Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-01T10:21:33.045Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/421/description/1"
     },
     {
       "id": "klinik-sonnenhalde-e8a671ffb857",
@@ -1485,7 +1502,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/422/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:43:00.753Z",
+      "crawledAt": "2026-11-26T10:21:32.122Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1535,8 +1552,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-19T21:43:00.753Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-19T10:21:32.122Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/422/description/1"
     },
     {
       "id": "klinik-sonnenhalde-a92a4c49234f",
@@ -1570,7 +1588,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/424/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:42:59.871Z",
+      "crawledAt": "2026-11-26T10:21:31.184Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1616,8 +1634,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:42:59.871Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T10:21:31.184Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/424/description/1"
     },
     {
       "id": "klinik-sonnenhalde-7d8980fd024e",
@@ -1651,7 +1670,7 @@
       "url": "https://recruitingapp-3030.umantis.com/Vacancies/425/Description/1",
       "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:42:58.978Z",
+      "crawledAt": "2026-11-26T10:21:30.262Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1701,93 +1720,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:42:58.978Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "klinik-sonnenhalde-f966edca4084",
-      "slug": "collaboratore-trice-service-klinik-sonnenhalde-riehen",
-      "slugByLocale": {
-        "it": "collaboratore-trice-service-klinik-sonnenhalde-riehen",
-        "en": "associate-service-klinik-sonnenhalde-riehen",
-        "de": "mitarbeiter-in-service-klinik-sonnenhalde-riehen",
-        "fr": "collaborateur-trice-service-klinik-sonnenhalde-riehen"
-      },
-      "company": "Klinik Sonnenhalde",
-      "companyKey": "klinik-sonnenhalde",
-      "companyDomain": "sonnenhalde.ch",
-      "title": "Mitarbeiter:in Service",
-      "titleByLocale": {
-        "it": "Collaboratore/trice Service",
-        "en": "Associate Service",
-        "de": "Mitarbeiter:in Service",
-        "fr": "Collaborateur/trice Service"
-      },
-      "description": "Mitarbeiter:in Service , 80%\n\nStandort: Riehen\n\nAb dem 01.02.2027 oder nach Vereinbarung\n\nGegründet im Jahr 1900, ist die Klinik Sonnenhalde in Riehen heute eine etablierte Privatklinik für Psychiatrie und Psychotherapie in der Schweiz und im südbadischen Raum. Wir verfolgen eine ganzheitliche, menschenzentrierte, milieutherapeutische Psychiatrie, die exzellente fachliche Qualität mit einer christlichen Wertebasis verbindet. Die Klinik verfügt über 68 stationäre Betten, 4 Tageskliniken sowie 4 Ambulatorien. Als eine der ersten Kliniken der Schweiz fördern wir aktiv digitale Therapieangebote, wie Blended-Therapy und Virtual-Reality und haben im Februar 2023 die erste Hybrid-Tagesklinik der Schweiz eröffnet.\n\nSie schaffen mit Ihrer herzlichen und aufmerksamen Art eine angenehme Atmosphäre für unsere Gäste, gehen auf ihre individuellen Bedürfnisse ein und tragen gemeinsam mit dem Team zu einem reibungslosen und gastfreundlichen Restaurantbetrieb bei.\n\nIhr Aufgabenbereich\n\n• Sie betreuen unsere Gäste freundlich, aufmerksam und professionell und gehen auf individuelle Bedürfnisse wie Allergien ein\n• Sie übernehmen Verantwortung für Ihren zugewiesenen Servicebereich und sorgen für einen reibungslosen Ablauf\n• Sie kümmern sich um das Bestellwesen für Getränke, Food-/Non-Food-Artikel, Kioskartikel und Verbrauchsmaterialien\n• Sie stellen einen gepflegten Restaurantbereich sicher und arbeiten eng mit der Küche sowie Ihren Teamkolleg zusammen\n\nIhr Profil\n\n• Sie überzeugen durch ein freundliches und professionelles Auftreten im Umgang mit Patientinnen und Patienten\n• Sie verfügen über eine empathische und serviceorientierte Haltung sowie Erfahrung im Kundenkontakt oder Servicebereich\n• Sie arbeiten zuverlässig, selbstständig und verantwortungsbewusst\n• Sie bringen solide Deutschkenntnisse in Wort und Schrift sowie Teamfähigkeit und Flexibilität hinsichtlich Aufgaben und Arbeitszeiten mit\n\nIhre Möglichkeiten\n\n• Grossen Gestaltungsfreiraum in ihrem Tätigkeitsbereich\n• Vielseitiges Arbeitportfolio mit attraktiven Anstellungsbedingungen\n• Ein angenehmes Arbeitsumfeld in einer wertschätzenden Unternehmenskultur bei überschaubarer Unternehmensgrösse\n\nIhre Vorteile\n\nKultur\n\nWertschätzende und offene Kultur\n\nFerien\n\nTeilzeit\n\nTeilzeitarbeitsmodelle möglich\n\nUrlaub\n\nUnbezahlter Urlaub möglich\n\nGeschenk\n\nPause\n\nPension\n\nUnfall\n\nAttraktive Unfallversicherung\n\nLohn\n\nLohnfortzahlungsleistungen bei Krankheit\n\nBildung\n\nUnterstützung von Fort- und Weiterbildung\n\nVereinbarkeit\n\nVereinbarkeit von Beruf und Familie\n\nZulagen\n\nFreiwillige Kinder- und Familienzulage\n\nVerpflegung\n\nVergünstigte Mittagsverpflegung\n\nEvents\n\nReka\n\nPick-e-bike\n\nJobticket\n\nHaben wir Ihr Interesse geweckt? Dann bewerben Sie sich jetzt! Wir freuen uns, Sie kennenzulernen!",
-      "descriptionByLocale": {
-        "it": "Dipendenti: in Servizio, 80 %\n\nPosizione: Riehen\n\nDal 01.12.2027 o d'accordo\n\nFondata nel 1900, il Klinik Sonnenhalde a Riehen è ora una clinica privata fondata per la psichiatria e la psicoterapia in Svizzera e nel Baden meridionale. Perseguiamo una psichiatria olistica, concentrata sull'uomo, milieuterapeutica che combina un'eccellente qualità professionale con una base di valore cristiano. La clinica ha 68 letti stazionari, 4 cliniche e 4 ambulatorie. Come una delle prime cliniche in Svizzera, promuoviamo attivamente offerte di terapia digitale, come la terapia miscelata e la realtà virtuale e abbiamo aperto la prima clinica ibrida in Svizzera nel febbraio 2023.\n\nCon la vostra natura calda e attenta, si crea un'atmosfera piacevole per i nostri ospiti, rispondere alle loro esigenze individuali e contribuire insieme con il team ad un'operazione ristorante liscio e ospitale.\n\nLe tue responsabilità\n\n• Si prendono cura dei nostri ospiti in modo amichevole, attento e professionale e rispondono alle esigenze individuali come allergie\n• Ti assumerai la responsabilità della tua area di servizio assegnata e garantirai un processo regolare\n• Si prendono cura di ordinare per bevande, prodotti alimentari/non alimentari, chioschi e materiali di consumo\n• Assicurate un ristorante ben curato e lavorate a stretto contatto con la cucina e il vostro compagno di squadra\n\nIl tuo profilo\n\n• Convincono attraverso un approccio amichevole e professionale ai pazienti\n• Hai un atteggiamento empatico e orientato al servizio e l'esperienza nel contatto con il cliente o nell'area di servizio\n• Funzionano in modo affidabile, indipendente e responsabile\n• Hai una solida conoscenza del tedesco nelle parole e nella scrittura così come il lavoro di squadra e la flessibilità in termini di compiti e ore di lavoro\n\nLe loro possibilità\n\n• Grande libertà di progettazione nel loro campo di attività\n• Portafoglio di lavoro versatile con condizioni di lavoro attraenti\n• Un ambiente di lavoro piacevole in una cultura aziendale apprezzata con dimensioni aziendali gestibili\n\nI loro vantaggi\n\nCultura\n\nCultura apprezzata e aperta\n\nVacanze\n\nTempo parziale\n\nModelli di lavoro a tempo parziale possibili\n\npermesso non pagato possibile\n\nRegalo\n\nPausa\n\nPensione\n\nIncidente\n\nAssicurazione infortuni attraente\n\nSalari\n\nPagamento continuato delle prestazioni di malattia\n\nIstruzione\n\nSupporto per la formazione\n\nCompatibilità\n\nRiconciliazione del lavoro e della famiglia\n\nConsentire\n\nIndennità volontaria di figlio e di famiglia\n\nCibo\n\nOfferta pranzo\n\nEventi\n\nReka\n\nPick-e-bike\n\nBiglietto di lavoro\n\nAbbiamo suscitato il vostro interesse? Quindi applicare ora! Non vediamo l'ora di incontrarvi!",
-        "en": "Employees: in Service, 80 %\n\nLocation: Riehen\n\nFrom 01.12.2027 or by agreement\n\nFounded in 1900, the Klinik Sonnenhalde in Riehen is now an established private clinic for psychiatry and psychotherapy in Switzerland and southern Baden. We pursue a holistic, human-centered, milieutherapeutic psychiatry that combines excellent professional quality with a Christian value base. The clinic has 68 stationary beds, 4 day clinics and 4 ambulatories. As one of the first clinics in Switzerland, we are actively promoting digital therapy offerings, such as blended therapy and virtual reality and opened the first hybrid day clinic in Switzerland in February 2023.\n\nWith your warm and attentive nature, you create a pleasant atmosphere for our guests, respond to their individual needs and contribute together with the team to a smooth and hospitable restaurant operation.\n\nYour responsibilities\n\n• They look after our guests in a friendly, attentive and professional manner and respond to individual needs such as allergies\n• You take responsibility for your assigned service area and ensure a smooth process\n• They take care of ordering for drinks, food/non-food items, kiosks and consumables\n• You ensure a well-kept restaurant area and work closely with the kitchen and your teammate\n\nYour profile\n\n• They convince through a friendly and professional approach to patients\n• You have an empathetic and service-oriented attitude as well as experience in customer contact or service area\n• They work reliably, independently and responsibly\n• You have a solid knowledge of German in words and writing as well as teamwork and flexibility in terms of tasks and working hours\n\nTheir possibilities\n\n• Great design freedom in their field of activity\n• Versatile work portfolio with attractive employment conditions\n• A pleasant working environment in an appreciative corporate culture with manageable company size\n\nTheir advantages\n\nCulture\n\nAppreciative and open culture\n\nHolidays\n\nPart-time\n\nPart-time working models possible\n\nUnpaid leave possible\n\nGift\n\nPause\n\nPension\n\nAccident\n\nAttractive accident insurance\n\nWages\n\nContinued payment of sickness benefits\n\nEducation\n\nSupport for training\n\nCompatibility\n\nReconciliation of work and family\n\nAllowance\n\nVoluntary child and family allowance\n\nFood\n\nDiscount lunch meals\n\nEvents\n\nReka\n\nPick-e-bike\n\nJob ticket\n\nHave we aroused your interest? Then apply now! We look forward to meeting you!",
-        "de": "Mitarbeiter:in Service , 80%\n\nStandort: Riehen\n\nAb dem 01.02.2027 oder nach Vereinbarung\n\nGegründet im Jahr 1900, ist die Klinik Sonnenhalde in Riehen heute eine etablierte Privatklinik für Psychiatrie und Psychotherapie in der Schweiz und im südbadischen Raum. Wir verfolgen eine ganzheitliche, menschenzentrierte, milieutherapeutische Psychiatrie, die exzellente fachliche Qualität mit einer christlichen Wertebasis verbindet. Die Klinik verfügt über 68 stationäre Betten, 4 Tageskliniken sowie 4 Ambulatorien. Als eine der ersten Kliniken der Schweiz fördern wir aktiv digitale Therapieangebote, wie Blended-Therapy und Virtual-Reality und haben im Februar 2023 die erste Hybrid-Tagesklinik der Schweiz eröffnet.\n\nSie schaffen mit Ihrer herzlichen und aufmerksamen Art eine angenehme Atmosphäre für unsere Gäste, gehen auf ihre individuellen Bedürfnisse ein und tragen gemeinsam mit dem Team zu einem reibungslosen und gastfreundlichen Restaurantbetrieb bei.\n\nIhr Aufgabenbereich\n\n• Sie betreuen unsere Gäste freundlich, aufmerksam und professionell und gehen auf individuelle Bedürfnisse wie Allergien ein\n• Sie übernehmen Verantwortung für Ihren zugewiesenen Servicebereich und sorgen für einen reibungslosen Ablauf\n• Sie kümmern sich um das Bestellwesen für Getränke, Food-/Non-Food-Artikel, Kioskartikel und Verbrauchsmaterialien\n• Sie stellen einen gepflegten Restaurantbereich sicher und arbeiten eng mit der Küche sowie Ihren Teamkolleg zusammen\n\nIhr Profil\n\n• Sie überzeugen durch ein freundliches und professionelles Auftreten im Umgang mit Patientinnen und Patienten\n• Sie verfügen über eine empathische und serviceorientierte Haltung sowie Erfahrung im Kundenkontakt oder Servicebereich\n• Sie arbeiten zuverlässig, selbstständig und verantwortungsbewusst\n• Sie bringen solide Deutschkenntnisse in Wort und Schrift sowie Teamfähigkeit und Flexibilität hinsichtlich Aufgaben und Arbeitszeiten mit\n\nIhre Möglichkeiten\n\n• Grossen Gestaltungsfreiraum in ihrem Tätigkeitsbereich\n• Vielseitiges Arbeitportfolio mit attraktiven Anstellungsbedingungen\n• Ein angenehmes Arbeitsumfeld in einer wertschätzenden Unternehmenskultur bei überschaubarer Unternehmensgrösse\n\nIhre Vorteile\n\nKultur\n\nWertschätzende und offene Kultur\n\nFerien\n\nTeilzeit\n\nTeilzeitarbeitsmodelle möglich\n\nUrlaub\n\nUnbezahlter Urlaub möglich\n\nGeschenk\n\nPause\n\nPension\n\nUnfall\n\nAttraktive Unfallversicherung\n\nLohn\n\nLohnfortzahlungsleistungen bei Krankheit\n\nBildung\n\nUnterstützung von Fort- und Weiterbildung\n\nVereinbarkeit\n\nVereinbarkeit von Beruf und Familie\n\nZulagen\n\nFreiwillige Kinder- und Familienzulage\n\nVerpflegung\n\nVergünstigte Mittagsverpflegung\n\nEvents\n\nReka\n\nPick-e-bike\n\nJobticket\n\nHaben wir Ihr Interesse geweckt? Dann bewerben Sie sich jetzt! Wir freuen uns, Sie kennenzulernen!",
-        "fr": "Employés: en service, 80 %\n\nLieu: Riehen\n\nA partir du 01.12.2027 ou par accord\n\nFondée en 1900, la Klinik Sonnenhalde de Riehen est une clinique privée de psychiatrie et de psychothérapie établie en Suisse et dans le sud du Bade. Nous poursuivons une psychiatrie holistique, centrée sur l'humain, milieuthérapeutique qui combine une excellente qualité professionnelle avec une base de valeur chrétienne. La clinique compte 68 lits fixes, 4 cliniques de jour et 4 ambulatoires. En tant que l'une des premières cliniques en Suisse, nous promouvons activement les offres de thérapie numérique, comme la thérapie mixte et la réalité virtuelle et avons ouvert la première clinique hybride en Suisse en février 2023.\n\nAvec votre nature chaleureuse et attentive, vous créez une atmosphère agréable pour nos clients, répondez à leurs besoins individuels et contribuez avec l'équipe à une opération de restaurant douce et accueillante.\n\nVos responsabilités\n\n• Ils s'occupent de nos clients de manière amicale, attentive et professionnelle et répondent aux besoins individuels tels que les allergies\n• Vous assumez la responsabilité de votre zone de service assignée et vous assurez un processus sans heurt\n• Ils s'occupent de la commande de boissons, d'articles alimentaires/non alimentaires, de kiosques et de consommables\n• Vous assurez un espace restaurant bien entretenu et travaillez en étroite collaboration avec la cuisine et votre coéquipier\n\nVotre profil\n\n• Ils convainquent par une approche amicale et professionnelle des patients\n• Vous avez une attitude empathique et axée sur le service ainsi que l'expérience dans le contact client ou la zone de service\n• Ils travaillent de manière fiable, indépendante et responsable\n• Vous avez une solide connaissance de l'allemand dans les mots et l'écriture ainsi que le travail d'équipe et la flexibilité en termes de tâches et d'heures de travail\n\nLeurs possibilités\n\n• Grande liberté de conception dans leur domaine d'activité\n• Portefeuille de travail polyvalent avec des conditions d'emploi attrayantes\n• Un environnement de travail agréable dans une culture d'entreprise reconnaissante avec une taille d'entreprise gérable\n\nLeurs avantages\n\nCulture\n\nUne culture reconnaissante et ouverte\n\nVacances\n\nTemps partiel\n\nModèles de travail à temps partiel possibles\n\nCongés non payés possibles\n\nCadeau\n\nPause\n\nPension\n\nAccident\n\nAssurance accidents attrayants\n\nSalaires\n\nPaiement continu des prestations de maladie\n\nÉducation\n\nAppui à la formation\n\nCompatibilité\n\nRéconciliation entre travail et famille\n\nIndemnité\n\nAllocation volontaire pour enfant et famille\n\nProduits alimentaires\n\nDéjeuners à rabais\n\nÉvénements\n\nReka\n\nPick-e-bike\n\nBillets d'emploi\n\nAvons-nous suscité votre intérêt ? Alors appliquez maintenant ! Nous sommes impatients de vous rencontrer!"
-      },
-      "location": "Riehen",
-      "canton": "BS",
-      "url": "https://recruitingapp-3030.umantis.com/Vacancies/414/Description/1",
-      "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-24T22:00:42.633Z",
-      "addressLocality": "Riehen",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4125",
-      "category": "Amministrazione",
-      "department": "Querschnittsdienste Finanzen, Prozesse und Services",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recruitingapp-3030.umantis.com/Vacancies/414/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-service-klinik-sonnenhalde-riehen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-service-klinik-sonnenhalde-riehen"
-        ],
-        "en": [
-          "mitarbeiter-in-service-klinik-sonnenhalde-riehen"
-        ],
-        "fr": [
-          "mitarbeiter-in-service-klinik-sonnenhalde-riehen"
-        ]
-      },
-      "firstSeenAt": "2026-11-06T21:58:51.433Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Riehen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T22:00:42.633Z",
+      "validThrough": "2027-02-04T10:21:30.262Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "sourceIdentity": "url:https://recruitingapp-3030.umantis.com/vacancies/425/description/1"
     }
   ]
 }

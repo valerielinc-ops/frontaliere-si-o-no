@@ -259,35 +259,38 @@
     "slugByLocale": {
       "it": "postauto-autista-postauto-ag-sarnen",
       "en": "postauto-driver-postauto-ag-sarnen",
-      "de": "postauto-chauffeur-in-postauto-sarnen",
+      "de": "postauto-chauffeur-in-postauto-sarnen-e707a5f2",
       "fr": "chauffeur-postauto-in-postauto-ag-sarnen"
     },
     "sector": "Trasporti pubblici / Autobus",
     "expiredAt": "2026-11-13T21:50:33.683Z",
     "previousSlugs": [
-      "postauto-chauffeur-in-postauto-sarnen",
       "postauto-autista-postauto-ag-bad-ragaz",
       "postauto-chauffeur-in-postauto-bad-ragaz",
       "postauto-chauffeur-in-post",
-      "postcar-chauffeur-postauto-ag-bad-ragaz"
+      "postcar-chauffeur-postauto-ag-bad-ragaz",
+      "postauto-chauffeur-in-postauto-sarnen"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "postauto-chauffeur-in-postauto-sarnen",
+        "postauto-chauffeur-in-postauto-sarnen-e707a5f2",
         "postauto-autista-postauto-ag-bad-ragaz",
         "postauto-chauffeur-in-postauto-bad-ragaz",
-        "postauto-chauffeur-in-post"
+        "postauto-chauffeur-in-post",
+        "postauto-chauffeur-in-postauto-sarnen"
       ],
       "en": [
         "postcar-chauffeur-postauto-ag-bad-ragaz",
         "postauto-chauffeur-in-post",
+        "postauto-chauffeur-in-postauto-sarnen-e707a5f2",
         "postauto-chauffeur-in-postauto-sarnen"
       ],
       "de": [
         "postauto-chauffeur-in-postauto-bad-ragaz"
       ],
       "fr": [
-        "postauto-chauffeur-in-post"
+        "postauto-chauffeur-in-post",
+        "postauto-chauffeur-in-postauto-sarnen-e707a5f2"
       ]
     },
     "postalCode": "6060",
@@ -689,7 +692,7 @@
     },
     "slugByLocale": {
       "it": "autista-postauto-postauto-ag-reichenburg",
-      "en": "postauto-driver-postauto-ag-reichenburg",
+      "en": "postauto-driver-postauto-ag-reichenburg-f9e0f17d",
       "de": "postauto-fahrer-in-postauto-reichenburg-da847804",
       "fr": "conducteur-rice-postauto-postauto-ag-reichenburg"
     },
@@ -713,7 +716,8 @@
       "pilote-postbus-in-postauto-ag-reichenburg",
       "pilote-postbus-in-postauto-reichenburg",
       "pilote-postbus-in-postauto-appenzell",
-      "postauto-fahrer-in-postauto-reichenburg"
+      "postauto-fahrer-in-postauto-reichenburg",
+      "postauto-driver-postauto-ag-reichenburg"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -731,16 +735,18 @@
         "postauto-fahrer-in-postauto-reichenburg"
       ],
       "en": [
-        "postauto-fahrer-in-postauto-reichenburg",
+        "postauto-fahrer-in-postauto-reichenburg-da847804",
         "postbus-drivers-postauto-ag-ilanz",
         "postbus-driver-in-postauto-ilanz",
         "postauto-fahrer-in-post",
         "postauto-fahrer-in-postauto-ilanz",
         "postbus-driver-in-postauto-reichenburg",
-        "postbus-driver-in-postauto-appenzell"
+        "postbus-driver-in-postauto-appenzell",
+        "postauto-fahrer-in-postauto-reichenburg",
+        "postauto-driver-postauto-ag-reichenburg"
       ],
       "fr": [
-        "postauto-fahrer-in-postauto-reichenburg",
+        "postauto-fahrer-in-postauto-reichenburg-da847804",
         "pilotes-postbus-postauto-ag-ilanz",
         "postauto-fahrer-in-postauto-ilanz",
         "pilote-postbus-in-postauto-ilanz",
@@ -748,12 +754,12 @@
         "pilote-postbus-in-postauto-ag-ilanz",
         "pilote-postbus-in-postauto-ag-reichenburg",
         "pilote-postbus-in-postauto-reichenburg",
-        "pilote-postbus-in-postauto-appenzell"
+        "pilote-postbus-in-postauto-appenzell",
+        "postauto-fahrer-in-postauto-reichenburg"
       ],
       "de": [
         "postauto-fahrer-in-postauto-ilanz",
-        "postauto-fahrer-in-postauto-appenzell",
-        "postauto-fahrer-in-postauto-reichenburg-da847804"
+        "postauto-fahrer-in-postauto-appenzell"
       ]
     },
     "postalCode": "8864",
@@ -2149,9 +2155,12 @@
       "ticket-inspector-and-customer-service-advisor-postauto-ag-brugg-ag",
       "controleur-euse-de-billets-et-conseil-a-la-clientele-postauto-ag-brugg-ag",
       "ticketkontrolleur-in-und-kundenberatung-postauto-bern-e8435e89",
+      "ticketkontrolleur-in-e-kundenberatung-postauto-ag-bern-be0b5b17",
       "ticketkontrolleur-in-e-kundenberatung-postauto-ag-bern",
       "ticketkontrolleur-in-und-kundenberatung-postauto-bern",
-      "ticketkontrolleur-in-e-kundenberatung-postauto-ag-bern-be0b5b17"
+      "ticketkontrolleur-in-und-kundenberatung-postauto-bern-35e111d4",
+      "ticket-inspector-and-customer-service-postauto-ag-interlaken",
+      "controleur-de-billets-et-conseil-client-postauto-ag-interlaken"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -2860,6 +2869,8 @@
         "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken",
         "ticket-inspector-and-customer-service-advisor-postauto-ag-brugg-ag",
         "ticketkontrolleur-in-e-kundenberatung-postauto-ag-bern",
+        "ticketkontrolleur-in-und-kundenberatung-postauto-bern-35e111d4",
+        "ticket-inspector-and-customer-service-postauto-ag-interlaken",
         "ticketkontrolleur-in-und-kundenberatung-postauto-bern"
       ],
       "fr": [
@@ -3029,6 +3040,8 @@
         "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken",
         "controleur-euse-de-billets-et-conseil-a-la-clientele-postauto-ag-brugg-ag",
         "ticketkontrolleur-in-e-kundenberatung-postauto-ag-bern",
+        "ticketkontrolleur-in-und-kundenberatung-postauto-bern-35e111d4",
+        "controleur-de-billets-et-conseil-client-postauto-ag-interlaken",
         "ticketkontrolleur-in-und-kundenberatung-postauto-bern"
       ],
       "de": [
@@ -3332,7 +3345,15 @@
         "firstSeenAt": "2026-09-02T13:45:16.905Z",
         "title": "Ticketkontrolleur:in und Kundenberatung"
       }
-    ]
+    ],
+    "previousSlugCantonByLocale": {
+      "en": {
+        "ticket-inspector-and-customer-service-postauto-ag-interlaken": "BE"
+      },
+      "fr": {
+        "controleur-de-billets-et-conseil-client-postauto-ag-interlaken": "BE"
+      }
+    }
   },
   {
     "slug": "driver-auxiliary-driver-carpostal-aubonne-postauto-ag-aubonne",
@@ -4019,7 +4040,7 @@
     "firstSeenAt": "2026-09-02T13:45:42.584Z"
   },
   {
-    "slug": "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur",
+    "slug": "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur-157287a6",
     "title": "Sicherheitsspezialist:in Öffentlicher Verkehr",
     "titleByLocale": {
       "it": "Specialista di sicurezza: nei trasporti pubblici",
@@ -4038,44 +4059,52 @@
       "fr": "La sécurité vous intéresse ? Souhaitez-vous soutenir PostBus dans la vérification des billets de différentes compagnies de transport public, principalement dans le canton de Zurich (Zurich Transport Association)? Faites votre demande dès maintenant, car chaque passager voyage avec un billet valide.\n\nTu peux le faire.\n\n- Avec votre coéquipier, vous êtes responsable de la mise en œuvre professionnelle des contrôles des billets et du maintien de la sécurité sur de nombreuses entreprises de transport de l'Association des transports de Zurich.\n\n- En cas d'actions perturbatrices, de conflits ou de violences lors des contrôles de tickets, vous désamorcez et intervenez si nécessaire.\n\n- Vous exécutez un large éventail de tâches de sécurité dans le cadre des contrôles de billets et de fournir la sécurité et la commande avec votre présence.\n\n- Votre conseil compétent et amical à nos passagers dans les véhicules de transport en commun sera demandé.\n\n- Vous contribuez de manière significative à la sécurité des revenus et des transports publics.\n\nApporte ça avec toi.\n\n- Vous avez terminé un apprentissage professionnel et avez le permis de conduire Cat. B ou sont prêts à obtenir votre diplôme.\n\n- Vous agissez de manière indépendante, avez de l'assurance et êtes psychologiquement et physiquement résistant.\n\n- Votre expérience en sécurité facilite votre travail quotidien.\n\n- Les avantages des horaires de travail irréguliers, y compris Vous appréciez les dimanches et les jours fériés ainsi que la nuit et vous êtes flexible.\n\n- Comme une bonne personnalité de communication, vous pouvez argumenter habilement dans la conversation. Vous avez également une forte orientation de l'équipe.\n\n- Votre très bonne connaissance de l'allemand et de la langue française et/ou italienne vous aidera à mener à bien cette activité de manière optimale. Toute autre langue étrangère est bénéfique."
     },
     "slugByLocale": {
-      "it": "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur",
-      "en": "security-specialist-in-public-transport-postauto-winterthur",
+      "it": "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur-157287a6",
+      "en": "security-specialist-in-public-transport-postauto-winterthur-90e3e640",
       "de": "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen-95ae3855",
-      "fr": "specialiste-de-la-securite-dans-les-transports-publics-postauto-winterthur"
+      "fr": "specialiste-de-la-securite-dans-les-transports-publics-postauto-winterthur-bd736faa"
     },
     "sector": "Trasporti pubblici / Autobus",
     "expiredAt": "2026-10-01T21:30:18.163Z",
-    "previousSlugs": [
-      "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
-      "security-specialist-in-public-transport-postauto-ag-winterthur",
-      "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur",
-      "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
-      "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-winterthur",
-      "sicherheitsspezialist-in-offentlicher-verkehr-post",
-      "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
-    ],
     "previousSlugsByLocale": {
       "de": [
-        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
-        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
-      ],
-      "it": [
-        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur-310587cb",
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen-7ebba078",
         "security-specialist-in-public-transport-postauto-ag-winterthur",
         "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur",
         "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
         "sicherheitsspezialist-in-offentlicher-verkehr-post",
-        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen-95ae3855"
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-winterthur"
+      ],
+      "it": [
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur-310587cb",
+        "security-specialist-in-public-transport-postauto-ag-winterthur-d70f7739",
+        "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur-ab371c39",
+        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur-e34d635d",
+        "sicherheitsspezialist-in-offentlicher-verkehr-post-c127f7dc",
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen-95ae3855",
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-winterthur",
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen-6a00f451"
       ],
       "en": [
-        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-winterthur",
-        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
-        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen-95ae3855"
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-winterthur-04bab0e6",
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur-310587cb",
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen-95ae3855",
+        "security-specialist-in-public-transport-postauto-ag-winterthur",
+        "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur",
+        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
+        "sicherheitsspezialist-in-offentlicher-verkehr-post",
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen-6a00f451"
       ],
       "fr": [
-        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-winterthur",
-        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
-        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen-95ae3855"
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-winterthur-04bab0e6",
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur-310587cb",
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen-95ae3855",
+        "security-specialist-in-public-transport-postauto-ag-winterthur",
+        "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur",
+        "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
+        "sicherheitsspezialist-in-offentlicher-verkehr-post",
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen-6a00f451"
       ]
     },
     "salaryMin": 73500,
@@ -4100,6 +4129,21 @@
         "firstSeenAt": "2026-10-27T09:58:02.143Z",
         "title": "Sicherheitsspezialist:in Öffentlicher Verkehr"
       }
+    ],
+    "previousSlugs": [
+      "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur-310587cb",
+      "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen-7ebba078",
+      "security-specialist-in-public-transport-postauto-ag-winterthur",
+      "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur",
+      "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
+      "sicherheitsspezialist-in-offentlicher-verkehr-post",
+      "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-winterthur",
+      "security-specialist-in-public-transport-postauto-ag-winterthur-d70f7739",
+      "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur-ab371c39",
+      "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur-e34d635d",
+      "sicherheitsspezialist-in-offentlicher-verkehr-post-c127f7dc",
+      "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen-6a00f451",
+      "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-winterthur-04bab0e6"
     ]
   },
   {
@@ -4412,51 +4456,79 @@
     },
     "slugByLocale": {
       "it": "ticketkontrolleur-in-e-kundenberatung-postauto-ag-bern-f2dd3ff6",
-      "en": "ticket-controller-in-and-customer-advice-postauto-ag-bern",
+      "en": "ticket-controller-in-and-customer-advice-postauto-ag-bern-8c452c32",
       "de": "ticketkontrolleur-in-und-kundenberatung-postauto-bern-35e111d4",
-      "fr": "controleur-de-billetterie-in-et-conseil-client-postauto-ag-bern"
+      "fr": "controleur-de-billetterie-in-et-conseil-client-postauto-ag-bern-acb2e27d"
     },
     "sector": "Trasporti pubblici / Autobus",
     "expiredAt": "2026-09-24T00:04:43.639Z",
     "previousSlugs": [
-      "ticketkontrolleur-in-e-kundenberatung-postauto-ag-brugg-ag",
-      "ticket-controller-in-and-customer-advice-postauto-ag-brugg-ag",
-      "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag",
-      "controleur-de-billetterie-in-et-conseil-client-postauto-ag-brugg-ag",
-      "ticketkontrolleur-in-und-kundenberatung-post",
-      "ticketkontrolleur-in-e-kundenberatung-postauto-ag-interlaken",
-      "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken",
-      "ticket-controller-in-and-customer-advice-postauto-ag-interlaken",
-      "controleur-de-billetterie-in-et-conseil-client-postauto-ag-interlaken",
-      "ticketkontrolleur-in-und-kundenberatung-postauto-bern-e8435e89"
+      "ticketkontrolleur-in-und-kundenberatung-postauto-bern-e8435e89",
+      "ticketkontrolleur-in-e-kundenberatung-postauto-ag-brugg-ag-a1abeb37",
+      "ticket-controller-in-and-customer-advice-postauto-ag-brugg-ag-a719cd4d",
+      "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag-ca4aa0a7",
+      "controleur-de-billetterie-in-et-conseil-client-postauto-ag-brugg-ag-2670e6c7",
+      "ticketkontrolleur-in-und-kundenberatung-post-e4478c0b",
+      "ticketkontrolleur-in-e-kundenberatung-postauto-ag-interlaken-198c27b5",
+      "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken-e56e937f",
+      "ticket-controller-in-and-customer-advice-postauto-ag-interlaken-73cd4759",
+      "controleur-de-billetterie-in-et-conseil-client-postauto-ag-interlaken-b6e39134"
     ],
     "previousSlugsByLocale": {
       "it": [
         "ticketkontrolleur-in-und-kundenberatung-postauto-bern-35e111d4",
-        "ticketkontrolleur-in-e-kundenberatung-postauto-ag-brugg-ag",
-        "ticket-controller-in-and-customer-advice-postauto-ag-brugg-ag",
-        "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag",
-        "controleur-de-billetterie-in-et-conseil-client-postauto-ag-brugg-ag",
-        "ticketkontrolleur-in-und-kundenberatung-post",
-        "ticketkontrolleur-in-e-kundenberatung-postauto-ag-interlaken",
-        "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken"
+        "ticketkontrolleur-in-e-kundenberatung-postauto-ag-brugg-ag-a1abeb37",
+        "ticket-controller-in-and-customer-advice-postauto-ag-brugg-ag-a719cd4d",
+        "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag-ca4aa0a7",
+        "controleur-de-billetterie-in-et-conseil-client-postauto-ag-brugg-ag-2670e6c7",
+        "ticketkontrolleur-in-und-kundenberatung-post-e4478c0b",
+        "ticketkontrolleur-in-e-kundenberatung-postauto-ag-interlaken-198c27b5",
+        "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken-e56e937f",
+        "ticket-controller-in-and-customer-advice-postauto-ag-interlaken",
+        "controleur-de-billetterie-in-et-conseil-client-postauto-ag-interlaken",
+        "ticket-controller-in-and-customer-advice-postauto-ag-bern",
+        "controleur-de-billetterie-in-et-conseil-client-postauto-ag-bern"
       ],
       "en": [
         "ticketkontrolleur-in-und-kundenberatung-postauto-bern-e8435e89",
-        "ticket-controller-in-and-customer-advice-postauto-ag-brugg-ag",
-        "ticket-controller-in-and-customer-advice-postauto-ag-interlaken",
-        "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken"
+        "ticket-controller-in-and-customer-advice-postauto-ag-brugg-ag-a719cd4d",
+        "ticket-controller-in-and-customer-advice-postauto-ag-interlaken-73cd4759",
+        "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken-e56e937f",
+        "ticketkontrolleur-in-e-kundenberatung-postauto-ag-brugg-ag-a1abeb37",
+        "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag-ca4aa0a7",
+        "controleur-de-billetterie-in-et-conseil-client-postauto-ag-brugg-ag",
+        "ticketkontrolleur-in-und-kundenberatung-post",
+        "ticketkontrolleur-in-e-kundenberatung-postauto-ag-interlaken-198c27b5",
+        "controleur-de-billetterie-in-et-conseil-client-postauto-ag-interlaken",
+        "ticket-controller-in-and-customer-advice-postauto-ag-bern-8c452c32",
+        "controleur-de-billetterie-in-et-conseil-client-postauto-ag-bern"
       ],
       "de": [
-        "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag",
-        "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken",
-        "ticketkontrolleur-in-und-kundenberatung-postauto-bern-35e111d4"
+        "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag-ca4aa0a7",
+        "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken-e56e937f",
+        "ticketkontrolleur-in-e-kundenberatung-postauto-ag-brugg-ag-a1abeb37",
+        "ticket-controller-in-and-customer-advice-postauto-ag-brugg-ag",
+        "controleur-de-billetterie-in-et-conseil-client-postauto-ag-brugg-ag",
+        "ticketkontrolleur-in-und-kundenberatung-post",
+        "ticketkontrolleur-in-e-kundenberatung-postauto-ag-interlaken-198c27b5",
+        "ticket-controller-in-and-customer-advice-postauto-ag-interlaken",
+        "controleur-de-billetterie-in-et-conseil-client-postauto-ag-interlaken",
+        "ticket-controller-in-and-customer-advice-postauto-ag-bern",
+        "controleur-de-billetterie-in-et-conseil-client-postauto-ag-bern"
       ],
       "fr": [
         "ticketkontrolleur-in-und-kundenberatung-postauto-bern-e8435e89",
-        "controleur-de-billetterie-in-et-conseil-client-postauto-ag-brugg-ag",
-        "controleur-de-billetterie-in-et-conseil-client-postauto-ag-interlaken",
-        "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken"
+        "controleur-de-billetterie-in-et-conseil-client-postauto-ag-brugg-ag-2670e6c7",
+        "controleur-de-billetterie-in-et-conseil-client-postauto-ag-interlaken-b6e39134",
+        "ticketkontrolleur-in-und-kundenberatung-postauto-interlaken-e56e937f",
+        "ticketkontrolleur-in-e-kundenberatung-postauto-ag-brugg-ag-a1abeb37",
+        "ticket-controller-in-and-customer-advice-postauto-ag-brugg-ag",
+        "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag-ca4aa0a7",
+        "ticketkontrolleur-in-und-kundenberatung-post",
+        "ticketkontrolleur-in-e-kundenberatung-postauto-ag-interlaken-198c27b5",
+        "ticket-controller-in-and-customer-advice-postauto-ag-interlaken",
+        "controleur-de-billetterie-in-et-conseil-client-postauto-ag-bern-acb2e27d",
+        "ticket-controller-in-and-customer-advice-postauto-ag-bern"
       ]
     },
     "postalCode": "3030",

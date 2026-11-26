@@ -1,7 +1,7 @@
 {
   "crawlerKey": "migros-hq",
-  "assembledAt": "2026-11-25T21:47:11.537Z",
-  "runId": "45704183777",
+  "assembledAt": "2026-11-26T09:54:36.447Z",
+  "runId": "45791833064",
   "jobs": [
     {
       "id": "migros-hq-4103526f36bb",
@@ -34,7 +34,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/application-manager-wmd/c7a8f09b-0219-4d8c-b9ba-8926d74095c9",
       "source": "Migros-Genossenschafts-Bund National Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:47:05.184Z",
+      "crawledAt": "2026-11-26T09:54:30.275Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8001",
@@ -83,8 +83,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-03T21:47:05.184Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-03T09:54:30.275Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/application-manager-wmd/c7a8f09b-0219-4d8c-b9ba-8926d74095c9"
     },
     {
       "id": "migros-hq-c13ef844ed5b",
@@ -117,7 +118,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/senior-fullstack-software-engineer-wmd/09ccf7b4-dac3-4044-8c6b-e99ce019a15e",
       "source": "Migros-Genossenschafts-Bund National Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:47:05.180Z",
+      "crawledAt": "2026-11-26T09:54:30.272Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8001",
@@ -166,8 +167,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:47:05.180Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-27T09:54:30.272Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/senior-fullstack-software-engineer-wmd/09ccf7b4-dac3-4044-8c6b-e99ce019a15e"
     },
     {
       "id": "migros-hq-453100a7e7dc",
@@ -200,7 +202,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/product-owner-it-service-management-prozesse-wmd/1154b515-4e45-4735-a454-ac9d1965f08c",
       "source": "Migros-Genossenschafts-Bund National Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:47:05.173Z",
+      "crawledAt": "2026-11-26T09:54:30.268Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8001",
@@ -247,8 +249,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T21:47:05.173Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-31T09:54:30.268Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/product-owner-it-service-management-prozesse-wmd/1154b515-4e45-4735-a454-ac9d1965f08c"
     },
     {
       "id": "migros-hq-0cf886b0ea77",
@@ -281,7 +284,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/product-owner-servicenow-plattform-basis-wmd/5ebe9a24-db13-4fee-a3b1-b041531b7f2b",
       "source": "Migros-Genossenschafts-Bund National Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:47:05.138Z",
+      "crawledAt": "2026-11-26T09:54:30.250Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8001",
@@ -332,8 +335,9 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-31T21:47:05.138Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-31T09:54:30.250Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/product-owner-servicenow-plattform-basis-wmd/5ebe9a24-db13-4fee-a3b1-b041531b7f2b"
     }
   ]
 }

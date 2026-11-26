@@ -779,6 +779,11 @@ export const ATS_BOARD_HOSTS = Object.freeze([
     "mode": "host_path"
   },
   {
+    "host": "myworkdaysite.com",
+    "provider": "workday",
+    "mode": "host_path"
+  },
+  {
     "host": "ultipro.com",
     "provider": "ukg",
     "mode": "host_tenant_board"

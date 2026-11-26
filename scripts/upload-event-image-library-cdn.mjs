@@ -5,7 +5,7 @@ import crypto from 'node:crypto';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import {
-  validateGeneratedImageRegistry,
+  validateEventImageRegistryForPublishedEvents,
   validateGeneratedImageRecordWithRegistry,
 } from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
 
@@ -45,10 +45,10 @@ if (!assets.length) {
   console.error('Registry contains no assets; nothing to upload.');
   process.exit(2);
 }
-const registryValidation = validateGeneratedImageRegistry(registry, {
-  scope: 'event-library',
-  allowLegacyVision: true,
-});
+// The event builder replaces stale, unreferenced licensed-photo records before
+// publication. Keep the uploader aligned with that event-specific contract;
+// each asset selected for upload is still checked strictly below.
+const registryValidation = validateEventImageRegistryForPublishedEvents([], registry);
 if (!registryValidation.valid) {
   console.error(`Invalid event image registry: ${registryValidation.errors.join('; ')}`);
   process.exit(1);

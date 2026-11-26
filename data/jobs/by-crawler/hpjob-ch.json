@@ -78,7 +78,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-23T09:27:37.454Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://hpjob.ch/jobs/verkaufs-sachbearbeiter-mit-technischem-flair-gossau-sg-c642b"
     },
     {
       "id": "hpjob-ch-5d7066a9c9af",
@@ -161,7 +162,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-23T09:27:37.454Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://hpjob.ch/jobs/polymechaniker-efz-cnc-programmierer-5-achs-haag-c81de"
     },
     {
       "id": "hpjob-ch-65274209d9ce",
@@ -238,7 +240,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-23T09:27:37.453Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://hpjob.ch/jobs/mitarbeiter-technischer-kundendienst-mit-elektrobackground-st-gallen-8a1f1"
     },
     {
       "id": "hpjob-ch-3ee7c2f9df93",
@@ -321,7 +324,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-23T09:27:37.452Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://hpjob.ch/jobs/servicetechniker-fuer-digitale-druckmaschinen-im-weltweiten-einsatz-st-74850"
     },
     {
       "id": "hpjob-ch-e0b00674ba98",
@@ -407,7 +411,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:18:39.342Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://hpjob.ch/jobs/sales-manager-vertriebsentwickler-schweiz-heerbrugg-be040"
     },
     {
       "id": "hpjob-ch-25d14b680eed",
@@ -497,7 +502,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-17T09:18:39.340Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://hpjob.ch/jobs/biomediziner-medizintechniker-fuer-klinische-forschung-heerbrugg-35357"
     },
     {
       "id": "hpjob-ch-ce002dfdda86",
@@ -582,7 +588,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-21T09:18:39.339Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://hpjob.ch/jobs/automatiker-elektroinstallateur-fuer-baugruppenmontage-heerbrugg-76c9b"
     }
   ]
 }

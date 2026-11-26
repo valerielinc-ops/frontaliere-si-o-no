@@ -46,6 +46,7 @@ import {
   workdayFacetLeafValues,
 } from './ats-clients/workday-client.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { WORKDAY_HOST_RE } from './job-url-key.mjs';
 
 // Switzerland country UUID — standard across nearly all Workday tenants.
 export const WORKDAY_SWISS_LOCATION_IDS = ['187134fccb084a0ea9b4b95f23890dbe'];
@@ -655,6 +656,9 @@ function detectEmploymentType(timeType = '', title = '') {
  *   a municipality with explicit evidence.
  * @param {string} [config.sector='Altro']
  * @param {string} [config.defaultSourceLang='en']
+ * @param {string} [config.browserPublicUrl] Public career-page URL used to
+ *   bootstrap the Workday browser fallback when the API host's derived
+ *   `en-US` page is not the tenant's real public site.
  * @param {string[]} [config.locationFilters] Override the Swiss country facet.
  * @param {string} [config.countryFacetParameter='locationCountry'] Name of the
  *   tenant's country/location facet. Most tenants call it `locationCountry`;
@@ -705,6 +709,7 @@ export function createWorkdaySwissParser(config) {
     defaultPostalCode = '',
     sector = 'Altro',
     defaultSourceLang = 'en',
+    browserPublicUrl,
     locationFilters = WORKDAY_SWISS_LOCATION_IDS,
     countryFacetParameter = 'locationCountry',
     proveSwissAbsentFromLiveBoard = true,
@@ -748,7 +753,7 @@ export function createWorkdaySwissParser(config) {
       return (
         (corporateHost && (host === corporateHost || host.endsWith(`.${corporateHost}`))) ||
         host === tenantHost ||
-        host.endsWith('.myworkdayjobs.com')
+        WORKDAY_HOST_RE.test(host)
       );
     } catch {
       return false;
@@ -914,7 +919,7 @@ export function createWorkdaySwissParser(config) {
     // board-summary, sidebar and detail calls now observe the same Retry-After
     // window and reuse one lazy browser session; a terminal transient failure
     // still returns an unproven batch and therefore remains fail-closed.
-    const requestContext = createWorkdayRequestContext(API_BASE);
+    const requestContext = createWorkdayRequestContext(API_BASE, { publicUrl: browserPublicUrl });
     try {
 
     let facetApplied = true;

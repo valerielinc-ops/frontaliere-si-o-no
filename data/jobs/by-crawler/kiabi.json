@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kiabi",
-  "assembledAt": "2026-11-25T21:24:12.834Z",
-  "runId": "45701994453",
+  "assembledAt": "2026-11-26T09:23:49.621Z",
+  "runId": "45789658977",
   "jobs": [
     {
       "id": "kiabi-8372070d20fb",
@@ -34,7 +34,7 @@
       "url": "https://jobs.smartrecruiters.com/KIABI/744000153728909-conseiller-de-vente-en-renfort-d-equipe-contrat-sur-appel-cdi-etudiant-e-temps-partiel-h-f-nb-kiabi-fribourg?oga=true",
       "source": "Kiabi Suisse Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:24:07.534Z",
+      "crawledAt": "2026-11-26T09:23:43.836Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "Fribourg",
@@ -84,8 +84,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:24:07.534Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-26T09:23:43.836Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.smartrecruiters.com/kiabi/744000153728909-conseiller-de-vente-en-renfort-d-equipe-contrat-sur-appel-cdi-etudiant-e-temps-partiel-h-f-nb-kiabi-fribourg?oga=true"
     },
     {
       "id": "kiabi-a8709a01c782",
@@ -118,7 +119,7 @@
       "url": "https://jobs.smartrecruiters.com/KIABI/744000162350620-directeur-magasin-h-f-nb-kiabi-aigle?oga=true",
       "source": "Kiabi Suisse Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:24:07.532Z",
+      "crawledAt": "2026-11-26T09:23:43.834Z",
       "addressLocality": "AIGLE",
       "addressRegion": "VD",
       "streetAddress": "AIGLE",
@@ -164,8 +165,9 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T21:24:07.532Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-17T09:23:43.834Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://jobs.smartrecruiters.com/kiabi/744000162350620-directeur-magasin-h-f-nb-kiabi-aigle?oga=true"
     }
   ]
 }

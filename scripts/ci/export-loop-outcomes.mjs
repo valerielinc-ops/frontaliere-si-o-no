@@ -17,19 +17,23 @@ import {
   GA4_READONLY_SCOPE,
   ga4DateRange,
 } from '../lib/ga4-service-account.mjs';
+import {
+  L4_DELIVERY_CONTRACT_VERSION,
+  L4_DELIVERY_CONSENT_WINDOW_MS,
+  L4_DELIVERY_CONTRACT_EFFECTIVE_AT,
+} from '../lib/l4-alert-delivery-contract.mjs';
+
+export {
+  L4_DELIVERY_CONTRACT_VERSION,
+  L4_DELIVERY_CONSENT_WINDOW_MS,
+  L4_DELIVERY_CONTRACT_EFFECTIVE_AT,
+} from '../lib/l4-alert-delivery-contract.mjs';
 
 export const DEFAULT_L1_WINDOW_DAYS = 4;
 export const DEFAULT_L5_WINDOW_DAYS = 8;
 export const DEFAULT_L3_WINDOW_DAYS = 4;
 export const L4_RETURN_WINDOW_DAYS = 7;
 export const L4_GA4_LAG_DAYS = 2;
-export const L4_DELIVERY_CONTRACT_VERSION = 1;
-// Measured on recent production alert runs: run 37100524185 took 14m05s from
-// workflow start to the last provider acceptance (the filter runs after start
-// and before matching). Keep a 5m55s margin for queue/provider variance, for a
-// named 20-minute filter-to-send window. This avoids one Firestore re-read per
-// delivery while keeping the proof bounded by observed batch duration.
-export const L4_DELIVERY_CONSENT_WINDOW_MS = 20 * 60_000;
 export const L4_DELIVERY_LOOKBACK_DAYS = L4_RETURN_WINDOW_DAYS + L4_GA4_LAG_DAYS + 1;
 export const DEFAULT_L4_WINDOW_HOURS = L4_DELIVERY_LOOKBACK_DAYS * 24;
 export const DEFAULT_L9_WINDOW_HOURS = 240;
@@ -1202,7 +1206,7 @@ function rootStopTimes(newsletter) {
  * Events already joined by message id to some delivery are never reused, and
  * a claimed event cannot support a second delivery.
  */
-function claimRecipientWindowEvidence({ events, email, provider, sentAt, idJoinedKeys }) {
+function claimRecipientWindowEvidence({ events, email, provider, sentAt, idJoinedKeys, blockedSentAt = [] }) {
   const claimed = new Set();
   const list = events.byRecipient.get(email) || [];
   for (const event of list) {
@@ -1210,6 +1214,10 @@ function claimRecipientWindowEvidence({ events, email, provider, sentAt, idJoine
     if (event.consumed || claimed.has(event.evidenceClass)) continue;
     if (event.occurredAtMs < sentAt - L4_RECIPIENT_WINDOW_BEFORE_MS) continue;
     if (event.messageKey && idJoinedKeys.has(event.messageKey)) continue;
+    if (blockedSentAt.some((legacySentAt) => (
+      event.occurredAtMs >= legacySentAt - L4_RECIPIENT_WINDOW_BEFORE_MS
+      && event.occurredAtMs <= legacySentAt + L4_RECIPIENT_WINDOW_AFTER_MS
+    ))) continue;
     if (provider && event.provider && provider !== event.provider) continue;
     event.consumed = true;
     claimed.add(event.evidenceClass);
@@ -1313,6 +1321,7 @@ export function buildL4OutcomeLedger({
   window = rollingWindow(now, DEFAULT_L4_WINDOW_HOURS),
   predicates = {},
   ga4ReturnUsers7d = null,
+  deliveryContractEffectiveAt = L4_DELIVERY_CONTRACT_EFFECTIVE_AT,
 } = {}) {
   const evaluateConsent = predicates.evaluateJobAlertConsent
     || (({ alert }) => ({ allowed: alert?.backfilled_from ? false : true, reason: 'fallback' }));
@@ -1399,6 +1408,12 @@ export function buildL4OutcomeLedger({
   };
   let quietHoursEvidenceComplete = true;
   let deliveryRowCount = 0;
+  const contractEffectiveAtMs = toMillis(deliveryContractEffectiveAt);
+  const contractBoundaryActive = contractEffectiveAtMs != null && now.getTime() >= contractEffectiveAtMs;
+  let measuredDeliveryRows = 0;
+  let legacyDeliveryRows = 0;
+  let legacyDeliveryRowsExcluded = 0;
+  const legacyDeliverySentAtByEmail = new Map();
   let senderProvenDeliveries = 0;
   let senderProofMissing = 0;
   let historicalAlertRowsRecovered = 0;
@@ -1445,11 +1460,30 @@ export function buildL4OutcomeLedger({
     const email = child.parentId.toLowerCase();
     const alertId = String(first(data, ['campaign_id', 'campaignId']) || '').trim();
     const sentAt = toMillis(first(data, ['sent_at', 'sentAt']));
-    const key = buildAlertKey(email, alertId);
+    const beforeContractBoundary = contractBoundaryActive
+      && sentAt != null
+      && sentAt < contractEffectiveAtMs;
+    if (beforeContractBoundary) legacyDeliveryRows += 1;
     const senderEvidence = readJobAlertSenderEvidence(data);
+    let consentEvidence = sentAt == null ? { status: 'missing' } : readDeliveryConsentEvidence(data, sentAt);
+
+    // A pre-rollout row with an incomplete immutable proof is retained for
+    // diagnostics but is not evidence for the current cohort. Inferring its
+    // consent from mutable alert/subscriber state would turn unknown history
+    // into a false positive. Keep its recipient window reserved so engagement
+    // cannot be reused by a newer row.
+    const legacyProofIncomplete = beforeContractBoundary
+      && (!alertId || senderEvidence.status !== 'valid' || consentEvidence.status === 'missing');
+    if (legacyProofIncomplete) {
+      legacyDeliveryRowsExcluded += 1;
+      if (!legacyDeliverySentAtByEmail.has(email)) legacyDeliverySentAtByEmail.set(email, []);
+      legacyDeliverySentAtByEmail.get(email).push(sentAt);
+      continue;
+    }
+    measuredDeliveryRows += 1;
+    const key = buildAlertKey(email, alertId);
     if (senderEvidence.status === 'valid') senderProvenDeliveries += 1;
     else senderProofMissing += 1;
-    let consentEvidence = sentAt == null ? { status: 'missing' } : readDeliveryConsentEvidence(data, sentAt);
     const knownAlert = knownAlertKeys.has(key);
     const currentConsent = currentConsentByAlertKey.get(key);
     let subscriberStopEvents = newsletterStopEvidence.bySubscriber.get(email) || [];
@@ -1588,7 +1622,14 @@ export function buildL4OutcomeLedger({
   for (const { deliveryId, data, email, sentAt, provider, messageKey } of attributed) {
     const eventTypes = messageKey ? (events.byMessage.get(messageKey) || new Set()) : new Set();
     const windowClasses = eventTypes.size === 0
-      ? claimRecipientWindowEvidence({ events, email, provider, sentAt, idJoinedKeys })
+      ? claimRecipientWindowEvidence({
+        events,
+        email,
+        provider,
+        sentAt,
+        idJoinedKeys,
+        blockedSentAt: legacyDeliverySentAtByEmail.get(email) || [],
+      })
       : new Set();
     const deliveredAtEvidence = toMillis(first(data, ['delivered_at', 'deliveredAt'])) != null;
     const clickedEvidence = toMillis(first(data, ['clicked_at', 'clickedAt'])) != null
@@ -1682,6 +1723,14 @@ export function buildL4OutcomeLedger({
       noConsentedAlertCauses,
       unattributedDeliveryShapes,
       deliveryRows: deliveryRowCount,
+      measuredDeliveryRows,
+      legacyDeliveryRows,
+      legacyDeliveryRowsExcluded,
+      measurementBoundary: {
+        effectiveAt: contractEffectiveAtMs == null ? null : new Date(contractEffectiveAtMs).toISOString(),
+        active: contractBoundaryActive,
+        policy: 'pre-contract rows without complete immutable proof remain diagnostic and are excluded from the consented measurement cohort',
+      },
       senderEvidence: 'ranking_delivery_id matches jer_job_alert_<24 hex>',
       senderProvenDeliveries,
       senderProofMissing,
@@ -1717,6 +1766,7 @@ export async function exportL4({
   analyticsClient = null,
   propertyId = null,
   predicates = null,
+  deliveryContractEffectiveAt = L4_DELIVERY_CONTRACT_EFFECTIVE_AT,
 } = {}) {
   const firestore = client || new GoogleDataClient();
   const window = rollingWindow(now, DEFAULT_L4_WINDOW_HOURS);
@@ -1774,6 +1824,7 @@ export async function exportL4({
     now,
     window,
     predicates: consent,
+    deliveryContractEffectiveAt,
   });
   outcome.export.stopEvidenceContract = {
     eventWindow: `timestamp >= ${consentEventWindowStart}`,
