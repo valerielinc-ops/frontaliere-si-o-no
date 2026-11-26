@@ -62,7 +62,11 @@ describe('custom runners: zero-path debt (ratchet, may only go down)', () => {
     // argument. Its discovery and post-parser assignments populate the
     // counters, and both zero paths name the validated `no-jobs-parsed` kind,
     // so this runner no longer has the null-counter guard shape.
-    const TWO_ARGUMENT_GUARD_BUDGET = 98;
+    // 98 → 97: update-fnz-jobs.mjs now passes `summaryCounts` as the third
+    // argument. Its listing and post-parser assignments populate the
+    // counters, and its zero paths name the validated `no-jobs-parsed` kind,
+    // so this runner no longer has the null-counter guard shape.
+    const TWO_ARGUMENT_GUARD_BUDGET = 97;
     const offenders = customRunners
       .filter(({ source }) => summaryGuardCalls(source).some((args) => args.length === 2))
       .map(({ name }) => name);
@@ -101,7 +105,10 @@ describe('custom runners: zero-path debt (ratchet, may only go down)', () => {
     // 103 → 102: update-capri-holdings-jobs.mjs now names its classified
     // retryable-response and connection-level fetch exits with the shared
     // `markCrawlerSummaryAbortKind` receipt before preserving stored jobs.
-    const NO_ABORT_KIND_BUDGET = 102;
+    // 102 → 101: update-fnz-jobs.mjs now names its classified retryable
+    // response and connection-level fetch exits with the shared
+    // `markCrawlerSummaryAbortKind` receipt before preserving stored jobs.
+    const NO_ABORT_KIND_BUDGET = 101;
     const offenders = customRunners
       .filter(({ source }) => !/abortKind\s*[:=]|markCrawlerSummaryAbortKind\(/.test(source))
       .map(({ name }) => name);
