@@ -2875,13 +2875,21 @@ export function parseCorpusSectionRegistry(raw) {
 // Isolate-global memo. `value` is the last-known-good registry: it survives a
 // failed or invalid refresh for as long as the isolate lives, so a transient
 // R2 error or a bad publish never turns live sections back into 404s.
-const corpusRegistryMemo = { value: null, checkedAt: 0, nextAttemptAt: 0 };
+const corpusRegistryMemo = {
+  value: null,
+  checkedAt: 0,
+  nextAttemptAt: 0,
+  refreshSequence: 0,
+  publishedRefreshSequence: 0,
+};
 
 /** Test seam: forget the memoised registry (each test starts from a cold isolate). */
 export function __resetCorpusRegistryForTests() {
   corpusRegistryMemo.value = null;
   corpusRegistryMemo.checkedAt = 0;
   corpusRegistryMemo.nextAttemptAt = 0;
+  corpusRegistryMemo.refreshSequence += 1;
+  corpusRegistryMemo.publishedRefreshSequence = corpusRegistryMemo.refreshSequence;
 }
 
 async function fetchCorpusRegistry() {
@@ -2913,15 +2921,21 @@ export async function loadCorpusSectionRegistry(now = Date.now()) {
   const memo = corpusRegistryMemo;
   if (memo.value && now - memo.checkedAt < CORPUS_REGISTRY_TTL_MS) return memo.value;
   if (now < memo.nextAttemptAt) return memo.value;
+  const refreshSequence = ++memo.refreshSequence;
   const fresh = await fetchCorpusRegistry();
-  if (fresh) {
-    memo.value = fresh;
-    memo.checkedAt = now;
-    memo.nextAttemptAt = 0;
-  } else {
-    memo.nextAttemptAt = now + CORPUS_REGISTRY_RETRY_MS;
+  // A late response from an older request must not replace a newer registry
+  // or move its freshness window backwards.
+  if (refreshSequence > memo.publishedRefreshSequence) {
+    memo.publishedRefreshSequence = refreshSequence;
+    if (fresh) {
+      memo.value = fresh;
+      memo.checkedAt = now;
+      memo.nextAttemptAt = 0;
+    } else {
+      memo.nextAttemptAt = now + CORPUS_REGISTRY_RETRY_MS;
+    }
   }
-  return memo.value;
+  return memo.value ?? fresh;
 }
 
 // 404 copy for a missing page inside a LIVE section. Same deliberately tiny,

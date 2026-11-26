@@ -20,6 +20,8 @@ export function createSectionTreeLayoutReader({
   let lastGood = null;
   let cachedSections = null;
   let cacheUntil = 0;
+  let refreshSequence = 0;
+  let publishedRefreshSequence = 0;
 
   async function sections({ requireRegistry = false } = {}) {
     const requireKnownRegistry = (value) => {
@@ -35,6 +37,7 @@ export function createSectionTreeLayoutReader({
     // promise can outlive the Worker request that created it; if Cloudflare
     // cancels that request, concurrent callers can inherit a wait that never
     // produces a response (the same failure mode as the public-config route).
+    const requestSequence = ++refreshSequence;
     const loaded = (async () => {
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), 3000);
@@ -46,26 +49,38 @@ export function createSectionTreeLayoutReader({
           signal: controller.signal,
         });
         if (response?.status === 404) {
-          lastGood ??= new Set(SECTION_TREE_FANOUT_SECTIONS);
-          cachedSections = lastGood;
-          cacheUntil = now() + cacheTtlMs;
-          return lastGood;
+          const fallback = lastGood ?? new Set(SECTION_TREE_FANOUT_SECTIONS);
+          if (requestSequence > publishedRefreshSequence) {
+            publishedRefreshSequence = requestSequence;
+            lastGood ??= fallback;
+            cachedSections = lastGood;
+            cacheUntil = now() + cacheTtlMs;
+          }
+          return lastGood ?? fallback;
         }
         if (!response?.ok) throw new Error(`registry fetch returned ${response?.status ?? 'no response'}`);
         const body = await response.text();
         if (body.length > SECTION_TREE_LAYOUT_MAX_BYTES) throw new Error('registry exceeds the size limit');
         const registry = parseSectionTreeLayoutRegistry(JSON.parse(body));
-        lastGood = new Set([
+        const fresh = new Set([
           ...SECTION_TREE_FANOUT_SECTIONS,
           ...Object.keys(registry.sections),
         ]);
-        cachedSections = lastGood;
-        cacheUntil = now() + cacheTtlMs;
-        return lastGood;
+        if (requestSequence > publishedRefreshSequence) {
+          publishedRefreshSequence = requestSequence;
+          lastGood = fresh;
+          cachedSections = lastGood;
+          cacheUntil = now() + cacheTtlMs;
+        }
+        return lastGood ?? fresh;
       } catch {
-        cachedSections = lastGood ?? new Set(SECTION_TREE_FANOUT_SECTIONS);
-        cacheUntil = now() + retryMs;
-        return cachedSections;
+        const fallback = lastGood ?? new Set(SECTION_TREE_FANOUT_SECTIONS);
+        if (requestSequence > publishedRefreshSequence) {
+          publishedRefreshSequence = requestSequence;
+          cachedSections = fallback;
+          cacheUntil = now() + retryMs;
+        }
+        return lastGood ?? fallback;
       } finally {
         clearTimeout(timer);
       }
@@ -77,6 +92,8 @@ export function createSectionTreeLayoutReader({
     lastGood = null;
     cachedSections = null;
     cacheUntil = 0;
+    refreshSequence += 1;
+    publishedRefreshSequence = refreshSequence;
   }
 
   return { sections, reset };

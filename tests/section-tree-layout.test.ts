@@ -739,6 +739,57 @@ describe('automatic section tree fan-out policy', () => {
     expect(await second).toEqual(new Set([...SECTION_TREE_FANOUT_SECTIONS, 'lucerna']));
   });
 
+  it('keeps the newer layout and its full TTL when refreshes finish out of order', async () => {
+    let currentTime = 1_000;
+    let calls = 0;
+    const resolvers: Array<(response: Response) => void> = [];
+    const reader = createSectionTreeLayoutReader({
+      url: 'https://cdn.example/edge/section-tree-layout.json',
+      now: () => currentTime,
+      cacheTtlMs: 100,
+      fetchImpl: () => new Promise((resolve) => {
+        calls += 1;
+        resolvers.push(resolve);
+      }),
+    });
+    const older = reader.sections();
+    const newer = reader.sections();
+    expect(calls).toBe(2);
+
+    currentTime = 2_000;
+    resolvers[1](new Response(JSON.stringify({
+      version: 1,
+      sections: {
+        lucerna: {
+          layout: 'hash-v1',
+          since: '2026-11-12T00:00:00.000Z',
+          reason: { locale: 'de', pct: 44.2 },
+        },
+      },
+    }), { status: 200 }));
+    const expected = new Set([...SECTION_TREE_FANOUT_SECTIONS, 'lucerna']);
+    await expect(newer).resolves.toEqual(expected);
+
+    currentTime = 2_050;
+    resolvers[0](new Response(JSON.stringify({ version: 1, sections: {} }), { status: 200 }));
+    await expect(older).resolves.toEqual(expected);
+
+    currentTime = 2_100;
+    const afterNewerTtl = reader.sections();
+    expect(calls).toBe(3);
+    resolvers[2](new Response(JSON.stringify({
+      version: 1,
+      sections: {
+        lucerna: {
+          layout: 'hash-v1',
+          since: '2026-11-12T00:00:00.000Z',
+          reason: { locale: 'de', pct: 44.2 },
+        },
+      },
+    }), { status: 200 }));
+    await expect(afterNewerTtl).resolves.toEqual(expected);
+  });
+
   it('strict registry reads accept a missing registry but reject a fetch failure without a last good value', async () => {
     const missing = createSectionTreeLayoutReader({
       url: 'https://cdn.example/edge/section-tree-layout.json',

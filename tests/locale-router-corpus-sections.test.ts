@@ -504,6 +504,31 @@ describe('registry memo and last-known-good', () => {
     await expect(second).resolves.toMatchObject({ sections: { 'canton-ti': { status: 'live' } } });
   });
 
+  it('keeps the newer registry and its TTL when refreshes finish out of order', async () => {
+    const resolvers: Array<(response: Response) => void> = [];
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
+      const reqUrl = typeof input === 'string' ? input : input instanceof URL ? input.toString() : input.url;
+      fetched.push(reqUrl);
+      if (reqUrl !== REGISTRY_URL) return new Response('missing', { status: 404 });
+      return new Promise((resolve) => resolvers.push(resolve));
+    });
+
+    const t0 = 1_800_000_000_000;
+    const older = loadCorpusSectionRegistry(t0);
+    const newer = loadCorpusSectionRegistry(t0 + 50);
+    expect(registryFetches()).toHaveLength(2);
+    expect(resolvers).toHaveLength(2);
+
+    resolvers[1](new Response(JSON.stringify(registry({ 'canton-ti': { status: 'live' } })), { status: 200 }));
+    await expect(newer).resolves.toMatchObject({ sections: { 'canton-ti': { status: 'live' } } });
+    resolvers[0](new Response(JSON.stringify(registry({ 'canton-ti': { status: 'draft' } })), { status: 200 }));
+    await expect(older).resolves.toMatchObject({ sections: { 'canton-ti': { status: 'live' } } });
+
+    await expect(loadCorpusSectionRegistry(t0 + 50 + CORPUS_REGISTRY_TTL_MS - 1))
+      .resolves.toMatchObject({ sections: { 'canton-ti': { status: 'live' } } });
+    expect(registryFetches()).toHaveLength(2);
+  });
+
   it('keeps serving the last-known-good registry when a refresh fails or is invalid', async () => {
     const t0 = 1_800_000_000_000;
     const name = 'sitemap-cantons.xml';
