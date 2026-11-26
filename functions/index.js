@@ -178,8 +178,8 @@ import { getStorage as getAssistedApplicationStorage } from 'firebase-admin/stor
 import { resolveCvLink as resolveAssistedApplicationFileLink } from './src/publisherApplicationsCore.js';
 import { purgeExpiredApplicationIntents } from './src/applicationIntentRetention.js';
 import {
+  handleGetPermanentEmployers,
   listPermanentEmployerSignals,
-  listPermanentEmployers,
   markPermanentEmployer as markPermanentEmployerCore,
   moderatePermanentEmployerSignal,
   readDirectEmployerChannelEnabled,
@@ -675,27 +675,10 @@ export const getHouseAdCreativeAssignment = onRequest(
  },
 );
 
-/** Public sanitized list of employers that accept spontaneous applications. */
+/** Public channel status and sanitized list of employers accepting spontaneous applications. */
 export const getPermanentEmployers = onRequest(
   { region: 'europe-west6', memory: '256MiB', timeoutSeconds: 30, cors: true },
-  async (_req, res) => {
-    try {
-      if (!(await readDirectEmployerChannelEnabled())) {
-        res.set('Cache-Control', 'no-store');
-        res.status(200).json({ enabled: false, employers: [] });
-        return;
-      }
-      const employers = await listPermanentEmployers();
-      res.set('Cache-Control', 'public, max-age=300, s-maxage=300');
-      res.status(200).json({ enabled: true, employers });
-    } catch (error) {
-      console.error('[getPermanentEmployers]', error instanceof Error ? error.message : String(error));
-      // The flag was read successfully above. Keep enabled:true so clients can
-      // distinguish a temporary data outage from an intentionally disabled
-      // channel and use the generated prospector feed as its primary source.
-      res.status(503).json({ enabled: true, employers: [], error: 'employers_unavailable' });
-    }
-  },
+  handleGetPermanentEmployers,
 );
 
 /** Candidate signal for a spontaneous-application employer. No candidate PII is accepted. */
