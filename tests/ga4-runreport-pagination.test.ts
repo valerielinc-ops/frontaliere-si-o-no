@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
 
-import { fetchGa4WebVitals, paginateGa4Report, runGa4ReportPaged } from '../scripts/lib/ga4-service-account.mjs';
+import { fetchGa4PageViews, fetchGa4WebVitals, paginateGa4Report, runGa4ReportPaged } from '../scripts/lib/ga4-service-account.mjs';
 import { fetchAttribution } from '../scripts/lib/cwv-attribution.mjs';
 import { assertCompleteReport } from '../scripts/lib/conversion-funnel-report.mjs';
 
@@ -142,6 +142,102 @@ describe('fetchGa4WebVitals', () => {
     expect(observations).toHaveLength(total);
     expect(observations.coverage.truncated).toBe(false);
     expect(observations.coverage.returnedRows).toBe(observations.coverage.totalRows);
+  });
+});
+
+describe('fetchGa4PageViews', () => {
+  it('returns exact-path counts and marks a complete filtered report', async () => {
+    const fetchImpl = vi.fn(async (_url: string, init: { body: string }) => {
+      const body = JSON.parse(init.body);
+      expect(body.dimensions).toEqual([{ name: 'pagePath' }]);
+      expect(body.metrics).toEqual([{ name: 'screenPageViews' }]);
+      expect(body.dimensionFilter.filter.inListFilter.values).toEqual(['/quiet-page/']);
+      return {
+        ok: true,
+        status: 200,
+        json: async () => ({ rows: [{
+          dimensionValues: [{ value: '/quiet-page/' }],
+          metricValues: [{ value: '0' }],
+        }] }),
+        text: async () => '',
+      };
+    });
+
+    const pageViews: any = await fetchGa4PageViews({
+      token: 't',
+      startDate: '2026-09-01',
+      endDate: '2026-09-07',
+      paths: ['/quiet-page/'],
+      fetchImpl,
+    });
+
+    expect(pageViews.get('/quiet-page/')).toBe(0);
+    expect(pageViews.coverage).toMatchObject({ complete: true, truncated: false });
+  });
+
+  it('marks a target row with a missing screenPageViews value incomplete', async () => {
+    const fetchImpl = vi.fn(async () => ({
+      ok: true,
+      status: 200,
+      json: async () => ({ rows: [{
+        dimensionValues: [{ value: '/quiet-page/' }],
+        metricValues: [],
+      }] }),
+      text: async () => '',
+    }));
+
+    const pageViews: any = await fetchGa4PageViews({
+      token: 't',
+      startDate: '2026-09-01',
+      endDate: '2026-09-07',
+      paths: ['/quiet-page/'],
+      fetchImpl,
+    });
+
+    expect(pageViews.get('/quiet-page/')).toBeUndefined();
+    expect(pageViews.coverage).toMatchObject({ complete: false, invalidRows: 1 });
+  });
+
+  it('marks a boolean screenPageViews value incomplete', async () => {
+    const fetchImpl = vi.fn(async () => ({
+      ok: true,
+      status: 200,
+      json: async () => ({ rows: [{
+        dimensionValues: [{ value: '/quiet-page/' }],
+        metricValues: [{ value: false }],
+      }] }),
+      text: async () => '',
+    }));
+
+    const pageViews: any = await fetchGa4PageViews({
+      token: 't',
+      startDate: '2026-09-01',
+      endDate: '2026-09-07',
+      paths: ['/quiet-page/'],
+      fetchImpl,
+    });
+
+    expect(pageViews.get('/quiet-page/')).toBeUndefined();
+    expect(pageViews.coverage).toMatchObject({ complete: false, invalidRows: 1 });
+  });
+
+  it('marks an unknown sampling metadata entry incomplete', async () => {
+    const fetchImpl = vi.fn(async () => ({
+      ok: true,
+      status: 200,
+      json: async () => ({ rows: [], metadata: { samplingMetadatas: [{}] } }),
+      text: async () => '',
+    }));
+
+    const pageViews: any = await fetchGa4PageViews({
+      token: 't',
+      startDate: '2026-09-01',
+      endDate: '2026-09-07',
+      paths: ['/quiet-page/'],
+      fetchImpl,
+    });
+
+    expect(pageViews.coverage).toMatchObject({ complete: false, samplingMetadatas: [{}] });
   });
 });
 
