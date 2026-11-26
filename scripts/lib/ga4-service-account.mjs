@@ -521,7 +521,8 @@ export async function fetchGa4PageViews({
     if (!path) continue;
     const rawCount = row.metricValues?.[0]?.value;
     const count = Number(rawCount);
-    if (rawCount === undefined || rawCount === null || String(rawCount).trim() === ''
+    const scalarCount = typeof rawCount === 'number' || typeof rawCount === 'string';
+    if (!scalarCount || String(rawCount).trim() === ''
       || !Number.isFinite(count) || count < 0) {
       invalidRows += 1;
       continue;

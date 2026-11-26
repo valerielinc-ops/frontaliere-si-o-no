@@ -198,6 +198,29 @@ describe('fetchGa4PageViews', () => {
     expect(pageViews.coverage).toMatchObject({ complete: false, invalidRows: 1 });
   });
 
+  it('marks a boolean screenPageViews value incomplete', async () => {
+    const fetchImpl = vi.fn(async () => ({
+      ok: true,
+      status: 200,
+      json: async () => ({ rows: [{
+        dimensionValues: [{ value: '/quiet-page/' }],
+        metricValues: [{ value: false }],
+      }] }),
+      text: async () => '',
+    }));
+
+    const pageViews: any = await fetchGa4PageViews({
+      token: 't',
+      startDate: '2026-09-01',
+      endDate: '2026-09-07',
+      paths: ['/quiet-page/'],
+      fetchImpl,
+    });
+
+    expect(pageViews.get('/quiet-page/')).toBeUndefined();
+    expect(pageViews.coverage).toMatchObject({ complete: false, invalidRows: 1 });
+  });
+
   it('marks an unknown sampling metadata entry incomplete', async () => {
     const fetchImpl = vi.fn(async () => ({
       ok: true,
