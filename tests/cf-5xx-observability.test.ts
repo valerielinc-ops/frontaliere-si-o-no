@@ -21,6 +21,7 @@ import {
   couldServeStaleHaveHelped,
   SURFACES,
   LOCALE_SHARD_PREFIXES,
+  SECTION_SHARD_PREFIXES,
   CACHE_HAD_COPY,
 } from '../scripts/lib/cf-error-surface.mjs';
 import {
@@ -53,10 +54,19 @@ describe('classifySurface — the split that was missing', () => {
     }
   });
 
+  it('classifies every explicit section shard route, including the article hub, as worker-shard', () => {
+    for (const prefix of SECTION_SHARD_PREFIXES) {
+      expect(classifySurface({ host: 'frontaliereticino.ch', path: `${prefix}/` })).toBe('worker-shard');
+      expect(classifySurface({ host: 'frontaliereticino.ch', path: `${prefix}.html` })).toBe('worker-shard');
+    }
+    expect(classifyCfErrorUrl('frontaliereticino.ch/articoli-frontaliere/')).toBe('worker-shard');
+    expect(classifyCfErrorUrl('frontaliereticino.ch/en/cross-border-articles/')).toBe('worker-shard');
+  });
+
   it('does NOT mistake an IT path that merely contains a locale token for a shard', () => {
-    // `/cerca-lavoro-…` pages are IT/apex. A `.includes('/de/')`-style check would have
-    // swallowed these into worker-shard and inflated the wrong surface.
-    expect(classifySurface({ host: 'frontaliereticino.ch', path: '/cerca-lavoro-svizzera/ricerca-de-jong/' })).toBe(
+    // A `.includes('/de/')`-style check would swallow ordinary IT paths into worker-shard and
+    // inflate the wrong surface. Actual section routes are tested above; look-alikes are not.
+    expect(classifySurface({ host: 'frontaliereticino.ch', path: '/cerca-lavoro-svizzera-altro/ricerca-de-jong/' })).toBe(
       'apex-pages',
     );
     expect(classifySurface({ host: 'frontaliereticino.ch', path: '/guida-frontaliere/en-route/' })).toBe('apex-pages');
