@@ -145,6 +145,7 @@ async function fetchJobListings() {
     for await (const posting of fetchWorkdayJobs(WORKDAY_API_BASE, {
       // KSB only operates in Switzerland — no location filter needed.
       maxPages: 100000,
+      publicUrl: WORKDAY_PUBLIC_BASE,
     })) {
       const id = extractWorkdayJobIdentity(posting, { apiBase: WORKDAY_API_BASE, company: KSB_COMPANY_NAME });
       out.push({
@@ -179,7 +180,9 @@ export async function fetchAllKsbJobs() {
 
   console.log(`  📋 Listings found: ${listings.length}`);
 
-  const detailBrowserSession = createWorkdayBrowserJsonFallback(WORKDAY_API_BASE);
+  const detailBrowserSession = createWorkdayBrowserJsonFallback(WORKDAY_API_BASE, {
+    publicUrl: WORKDAY_PUBLIC_BASE,
+  });
   try {
 
   // KSB's career site shows an "About us" sidebar next to every posting, and

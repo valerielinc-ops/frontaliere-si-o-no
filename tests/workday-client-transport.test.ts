@@ -621,6 +621,52 @@ describe('Workday JSON transport', () => {
     expect(browser.close).toHaveBeenCalledOnce();
   });
 
+  it('boots the KSB fallback on its German public Workday site after a listing failure', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new TypeError('fetch failed')));
+
+    const vacancy = '<p>Für unsere Intensivstation suchen wir eine engagierte Pflegefachperson. Sie arbeiten eng mit Kolleginnen und Kollegen aus mehreren Bereichen zusammen, dokumentieren Ihre Arbeit sorgfältig, bringen Ideen zur Verbesserung der Abläufe ein und erhalten flexible Arbeitszeiten, Weiterbildungen sowie ein kollegiales Team in einem modernen Umfeld. Gute Deutschkenntnisse und eine strukturierte Arbeitsweise runden Ihr Profil ab.</p>';
+    const { page } = browserTransport(null);
+    page.evaluate.mockImplementation(async (_fn, args) => {
+      const url = String(args.requestUrl);
+      if (url.endsWith('/jobs')) {
+        return {
+          status: 200,
+          body: JSON.stringify({
+            total: 1,
+            jobPostings: [{
+              title: 'Pflegefachperson Intensivpflege',
+              externalPath: '/job/Baden/Pflegefachperson_R-10001',
+              locationsText: 'Baden, Switzerland',
+            }],
+          }),
+        };
+      }
+      if (url.endsWith('/sidebar')) return { status: 200, body: '[]' };
+      return {
+        status: 200,
+        body: JSON.stringify({
+          jobPostingInfo: {
+            title: 'Pflegefachperson Intensivpflege',
+            location: 'Baden, Switzerland',
+            jobDescription: vacancy,
+            timeType: 'Full time',
+          },
+        }),
+      };
+    });
+
+    const jobs = await fetchAllKsbJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({ title: 'Pflegefachperson Intensivpflege', canton: 'AG' });
+    expect(page.goto).toHaveBeenCalledWith(
+      'https://kantonsspitalbaden.wd3.myworkdayjobs.com/de-DE/ksb-careers',
+      expect.objectContaining({ waitUntil: 'domcontentloaded' }),
+    );
+  });
+
   it('keeps a retry-exhausted status when the browser fallback is also transient', async () => {
     vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('', { status: 503 })));
