@@ -20,6 +20,7 @@ on:
       - 'scripts/lib/posthog-client.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
+      - 'scripts/lib/crawler-fetch-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - 'scripts/lib/loop-fleet-issue.mjs'
       - '.github/workflows/loop-l3-job-quality.yml'
@@ -39,6 +40,7 @@ on:
       - 'scripts/lib/posthog-client.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
+      - 'scripts/lib/crawler-fetch-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - 'scripts/lib/loop-fleet-issue.mjs'
       - '.github/workflows/loop-l3-job-quality.yml'
@@ -82,6 +84,7 @@ jobs:
             /scripts/lib/posthog-client.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/loop-fleet-outcome.mjs
+            /scripts/lib/crawler-fetch-outcome.mjs
             /scripts/lib/github-issue-creator.mjs
             /scripts/lib/https-url.mjs
             /scripts/lib/loop-fleet-issue.mjs
