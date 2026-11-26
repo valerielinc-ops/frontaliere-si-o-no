@@ -62,7 +62,10 @@ describe('declared Codex response handoff', () => {
     mkdirSync(join(f.runnerTemp, directory));
     mkdirSync(join(f.scratchRoot, directory));
     const scoped = { ...f, directory };
+    const target = join(f.runnerTemp, directory, f.filename);
+    writeFileSync(target, 'stale response');
     prepareResponseArtifact(scoped);
+    expect(existsSync(target)).toBe(false);
     const response = 'recovered: the source run is green now.\n';
     writeFileSync(join(f.scratchRoot, directory, f.filename), response);
 
@@ -128,7 +131,7 @@ describe('declared Codex response handoff', () => {
     expect(action.inputs.response_artifact.default).toBe('');
     expect(action.inputs.response_artifact_dir.default).toBe('');
     expect(snapshot).toContain('sanitize-git-config.mjs response-artifact.mjs; do');
-    expect(snapshot).toContain('prepare "$CODEX_RESPONSE_ARTIFACT" "$runner_temp" "$CODEX_RESPONSE_ARTIFACT_DIR"');
+    expect(snapshot).toContain('prepare "$CODEX_RESPONSE_ARTIFACT" "$runner_temp" "" "$CODEX_RESPONSE_ARTIFACT_DIR"');
     expect(caller?.with?.response_artifact).toBe('redflag-response.md');
     expect(caller?.with?.response_artifact_dir).toBe('redflag');
     expect(codex).toContain('RUNNER_TEMP="$scratch_dir"');

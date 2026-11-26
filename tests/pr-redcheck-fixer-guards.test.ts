@@ -263,6 +263,7 @@ describe('costo — il contesto è raccolto senza Claude', () => {
     expect(src).toContain('id: classify_outcome');
     expect(src).toContain('CLAIM_STATUS=completed');
     expect(src).toContain("steps.classify_outcome.outcome == 'success'");
+    expect(src).toContain("steps.response.outputs.published == 'yes'");
   });
 
   it('filtra sulle sole righe `FAIL `', () => {

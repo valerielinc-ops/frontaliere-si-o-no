@@ -1103,7 +1103,7 @@ jobs:
             if current_run=$(timeout --kill-after=5s 30s "$TRUSTED_GH_BIN" api "repos/$REPO/actions/runs/$FAILED_RUN_ID" 2>/dev/null) \
               && printf '%s' "$current_run" | jq -e --arg head "$EXPECTED_HEAD_SHA" --arg pr "$PR_NUMBER" '
                 type == "object"
-                and .path == ".github/workflows/tests.yml"
+                and (if (.path | type) == "string" then (.path | sub("@[^@]+$"; "")) == ".github/workflows/tests.yml" else false end)
                 and .head_sha == $head
                 and .status == "completed"
                 and .conclusion == "success"
@@ -1677,7 +1677,7 @@ jobs:
           exit 0
 
       - name: Finalize recovered redcheck claim (zero-Claude)
-        if: always() && steps.claim.outputs.claim_acquired == 'true' && steps.ctx.outputs.recovered == 'true' && steps.classify_outcome.outcome == 'success'
+        if: always() && steps.claim.outputs.claim_acquired == 'true' && steps.ctx.outputs.recovered == 'true' && steps.response.outputs.published == 'yes' && steps.classify_outcome.outcome == 'success'
         run: echo 'CLAIM_STATUS=completed' >> "$GITHUB_ENV"
 
       # The fixer action and npm lifecycle scripts ran from the PR checkout.

@@ -384,7 +384,7 @@ runs:
         snapshot_file "$workspace_root/scripts/ci/claude-rate-limit-contract.mjs" "$snapshot_root/ci/claude-rate-limit-contract.mjs"
         snapshot_file "$workspace_root/scripts/lib/codex-fallback-contract.mjs" "$snapshot_root/lib/codex-fallback-contract.mjs"
         if [ -n "$CODEX_RESPONSE_ARTIFACT" ]; then
-          "$TRUSTED_NODE" "$snapshot_root/action/response-artifact.mjs" prepare "$CODEX_RESPONSE_ARTIFACT" "$runner_temp" "$CODEX_RESPONSE_ARTIFACT_DIR"
+          "$TRUSTED_NODE" "$snapshot_root/action/response-artifact.mjs" prepare "$CODEX_RESPONSE_ARTIFACT" "$runner_temp" "" "$CODEX_RESPONSE_ARTIFACT_DIR"
         fi
         printf 'runtime_root=%s\n' "$snapshot_root" >> "$GITHUB_OUTPUT"
 

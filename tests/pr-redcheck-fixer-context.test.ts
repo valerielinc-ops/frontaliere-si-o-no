@@ -136,6 +136,17 @@ describe('pr-redcheck-fixer: il contesto del rosso raggiunge il fixer', () => {
     expect(result.stdout).toContain('nessun round Codex');
   });
 
+  it('normalizza il ref documentato nel path della workflow run recuperata', () => {
+    const { result, failing, response, outputs } = runContext('', true, {
+      path: '.github/workflows/tests.yml@main',
+    });
+    expect(result.status, `${result.stdout}\n${result.stderr}`).toBe(0);
+    expect(failing).toBe('');
+    expect(outputs).toContain('recovered=true');
+    expect(response).toContain('recovered: tests run 123');
+    expect(result.stdout).toContain('nessun round Codex');
+  });
+
   it('resta fail-closed se la run verde non è sulla HEAD attesa', () => {
     const { result, failing, response, outputs } = runContext('', true, { head_sha: 'other-head' });
     expect(result.status, `${result.stdout}\n${result.stderr}`).toBe(0);
