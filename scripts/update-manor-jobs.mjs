@@ -62,7 +62,7 @@ import {
 } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { decodeEntities } from './lib/hospital-custom-html-helpers.mjs';
-import { readAttr } from './lib/html-attr.mjs';
+import { readAttr, readMetaContent as readSharedMetaContent } from './lib/html-attr.mjs';
 import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
 import { extractDetailFields } from './lib/prospector/extract.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -586,13 +586,7 @@ export function readManorDescriptionLang(html) {
 }
 
 function readMetaContent(html, key) {
-  for (const match of String(html || '').matchAll(/<meta\b[^>]*>/gi)) {
-    const tag = match[0];
-    const property = readHtmlAttribute(tag, 'property').toLowerCase();
-    const name = readHtmlAttribute(tag, 'name').toLowerCase();
-    if (property === key || name === key) return readHtmlAttribute(tag, 'content');
-  }
-  return '';
+  return decodeEntities(readSharedMetaContent(html, key));
 }
 
 function readItempropContent(html, key) {

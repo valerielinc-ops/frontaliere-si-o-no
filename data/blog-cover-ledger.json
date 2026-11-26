@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1206,
+      "5": 1207,
       "6": 5062
     },
-    "publishedCovers": 7949,
+    "publishedCovers": 7950,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -219938,6 +219938,39 @@
         "provider": "openai-codex",
         "assetId": "article-priorita-traffico-cinque-tratti",
         "imageUrl": "/images/blog/article-priorita-traffico-cinque-tratti.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-appenzello-esterno-risparmio-verifica": {
+      "cover": "/images/blog/article-appenzello-esterno-risparmio-verifica.webp",
+      "hash": "c3f0bd8b94511f6cb08c20a20e9af2c85fa62f81bcd5b346655d48b682c5fa54",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-appenzello",
+          "id": "appenzello-esterno-risparmio-verifica",
+          "category": "fiscale",
+          "date": "2026-11-26T13:26:08.407Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-appenzello-esterno-risparmio-verifica.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1796,
+      "verifiedAt": "2026-11-26",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-appenzello-esterno-risparmio-verifica",
+        "imageUrl": "/images/blog/article-appenzello-esterno-risparmio-verifica.webp",
         "evidence": "generated-engine-record"
       }
     }

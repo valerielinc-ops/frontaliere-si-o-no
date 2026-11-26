@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { StringDecoder } from 'node:string_decoder';
 import { deflateSync, inflateSync } from 'node:zlib';
-import { readAttr } from '../../scripts/lib/html-attr.mjs';
+import { readAttr, scanMarkupStartTags } from '../../scripts/lib/html-attr.mjs';
 import { stripSourceComments } from '../../scripts/lib/source-comments.mjs';
 import {
   computeInputHash,
@@ -1286,7 +1286,7 @@ export function refreshHtmlBuildId(html, buildId) {
 
 export function htmlHasIndexableRobots(html) {
   let found = false;
-  for (const [rawTag] of String(html).matchAll(/<meta\b[^>]*>/gi)) {
+  for (const { raw: rawTag } of scanMarkupStartTags(String(html), 'meta')) {
     // Keep an authored self-closing delimiter out of unquoted directives.
     // Normalize only this metadata probe, never arbitrary URL attributes.
     const tag = rawTag.replace(/\/>$/, ' />');

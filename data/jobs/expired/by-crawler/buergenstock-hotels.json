@@ -2003,7 +2003,6 @@
       "commis-de-rang-banquet-100-f-m-i-burgenstock-hotels-ag-obburgen",
       "chef-de-rank-100-f-m-i-burgenstock-hotels-ag-obburgen-cfc6192e",
       "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen-f8e8f27a",
-      "chef-de-rang-jack-s-brasserie-100-m-w-d-buergenstock-hotels-obburgen",
       "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen-0653a37a",
       "chef-de-rank-100-f-m-i-burgenstock-hotels-ag-obburgen-652f0a7b",
       "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen-d71d2906",
@@ -2513,16 +2512,15 @@
       "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen-a2b4c26a",
       "chef-de-rank-100-f-m-i-burgenstock-hotels-ag-obburgen-0a44b5b1",
       "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen-9a81b105",
-      "commis-de-rang-in-room-dining-100-w-m-i-buergenstock-hotels-obburgen",
-      "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen",
-      "ottone-di-chef-de-rang-jack-100-m-f-d-burgenstock-hotels-ag-obburgen",
-      "chief-of-rank-jack-s-brasserie-100-m-f-d-burgenstock-hotels-ag-obburgen",
-      "chef-de-rang-jack-s-10-100-h-f-d-burgenstock-hotels-ag-obburgen",
-      "commissione-di-rango-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe",
-      "commis-de-rank-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe",
-      "commission-de-grade-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe",
       "chef-de-rank-100-f-m-i-burgenstock-hotels-ag-obburgen",
-      "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen"
+      "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen",
+      "chef-de-rang-jack-s-brasserie-100-m-w-d-buergenstock-hotels-obburgen-d22c0b95",
+      "ottone-di-chef-de-rang-jack-100-m-f-d-burgenstock-hotels-ag-obburgen-00bdda29",
+      "commissione-di-rango-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe-a1fa6679",
+      "chief-of-rank-jack-s-brasserie-100-m-f-d-burgenstock-hotels-ag-obburgen-1952dcbe",
+      "commis-de-rank-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe-1ce9504c",
+      "chef-de-rang-jack-s-10-100-h-f-d-burgenstock-hotels-ag-obburgen-1cff5e51",
+      "commission-de-grade-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe-82ae821e"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -2534,7 +2532,7 @@
         "commis-de-rang-banquet-100-f-m-i-burgenstock-hotels-ag-obburgen",
         "chef-de-rank-100-f-m-i-burgenstock-hotels-ag-obburgen-cfc6192e",
         "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen-f8e8f27a",
-        "chef-de-rang-jack-s-brasserie-100-m-w-d-buergenstock-hotels-obburgen",
+        "chef-de-rang-jack-s-brasserie-100-m-w-d-buergenstock-hotels-obburgen-d22c0b95",
         "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen-0653a37a",
         "chef-de-rank-100-f-m-i-burgenstock-hotels-ag-obburgen-652f0a7b",
         "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen-d71d2906",
@@ -3043,12 +3041,14 @@
         "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen-a2b4c26a",
         "chef-de-rank-100-f-m-i-burgenstock-hotels-ag-obburgen-0a44b5b1",
         "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen-9a81b105",
-        "commis-de-rang-in-room-dining-100-w-m-i-buergenstock-hotels-obburgen",
-        "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen",
-        "ottone-di-chef-de-rang-jack-100-m-f-d-burgenstock-hotels-ag-obburgen",
-        "commissione-di-rango-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe",
+        "ottone-di-chef-de-rang-jack-100-m-f-d-burgenstock-hotels-ag-obburgen-00bdda29",
+        "commissione-di-rango-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe-a1fa6679",
         "chef-de-rank-100-f-m-i-burgenstock-hotels-ag-obburgen",
-        "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen"
+        "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen",
+        "chief-of-rank-jack-s-brasserie-100-m-f-d-burgenstock-hotels-ag-obburgen",
+        "commis-de-rank-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe",
+        "chef-de-rang-jack-s-10-100-h-f-d-burgenstock-hotels-ag-obburgen",
+        "commission-de-grade-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe"
       ],
       "en": [
         "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen-4a12a1b9",
@@ -3417,11 +3417,15 @@
         "chef-de-rank-100-f-m-i-burgenstock-hotels-ag-obburgen-0b97258b",
         "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen-a2b4c26a",
         "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen-9a81b105",
-        "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen",
-        "chief-of-rank-jack-s-brasserie-100-m-f-d-burgenstock-hotels-ag-obburgen",
-        "commis-de-rank-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe",
+        "chief-of-rank-jack-s-brasserie-100-m-f-d-burgenstock-hotels-ag-obburgen-1952dcbe",
+        "commis-de-rank-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe-1ce9504c",
         "chef-de-rank-100-f-m-i-burgenstock-hotels-ag-obburgen",
-        "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen"
+        "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen",
+        "chef-de-rang-jack-s-brasserie-100-m-w-d-buergenstock-hotels-obburgen",
+        "ottone-di-chef-de-rang-jack-100-m-f-d-burgenstock-hotels-ag-obburgen",
+        "commissione-di-rango-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe",
+        "chef-de-rang-jack-s-10-100-h-f-d-burgenstock-hotels-ag-obburgen",
+        "commission-de-grade-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe"
       ],
       "de": [
         "commis-de-rang-bankett-100-w-m-i-buergenstock-hotels-obburgen",
@@ -3639,9 +3643,14 @@
         "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen-03ff77ef",
         "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen-95140c20",
         "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen-9a81b105",
-        "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen",
-        "chef-de-rang-jack-s-brasserie-100-m-w-d-buergenstock-hotels-obburgen",
-        "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen"
+        "chef-de-rang-jack-s-brasserie-100-m-w-d-buergenstock-hotels-obburgen-d22c0b95",
+        "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen",
+        "ottone-di-chef-de-rang-jack-100-m-f-d-burgenstock-hotels-ag-obburgen",
+        "commissione-di-rango-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe",
+        "chief-of-rank-jack-s-brasserie-100-m-f-d-burgenstock-hotels-ag-obburgen",
+        "commis-de-rank-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe",
+        "chef-de-rang-jack-s-10-100-h-f-d-burgenstock-hotels-ag-obburgen",
+        "commission-de-grade-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe"
       ],
       "fr": [
         "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen-4a12a1b9",
@@ -3961,10 +3970,14 @@
         "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen-03ff77ef",
         "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen-a2b4c26a",
         "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen-9a81b105",
-        "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen",
-        "chef-de-rang-jack-s-10-100-h-f-d-burgenstock-hotels-ag-obburgen",
-        "commission-de-grade-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe",
-        "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen"
+        "chef-de-rang-jack-s-10-100-h-f-d-burgenstock-hotels-ag-obburgen-1cff5e51",
+        "commission-de-grade-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe-82ae821e",
+        "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen",
+        "chef-de-rang-jack-s-brasserie-100-m-w-d-buergenstock-hotels-obburgen",
+        "ottone-di-chef-de-rang-jack-100-m-f-d-burgenstock-hotels-ag-obburgen",
+        "commissione-di-rango-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe",
+        "chief-of-rank-jack-s-brasserie-100-m-f-d-burgenstock-hotels-ag-obburgen",
+        "commis-de-rank-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe"
       ]
     },
     "postalCode": "6363",
@@ -6545,8 +6558,7 @@
       "spa-wellness-attendant-100-w-m-i-buergenstock-hotels-obburgen-f55162b0",
       "spa-wellness-attendant-100-w-m-i-buergenstock-hotels-obburgen-3d0edf10",
       "spa-wellness-attendant-100-w-m-i-buergenstock-hotels-obburgen-e02d188d",
-      "spa-wellness-attendant-100-w-m-i-buergenstock-hotels-obburgen",
-      "centro-benessere-100-f-m-i-burgenstock-hotels-ag-obburgen"
+      "centro-benessere-100-f-m-i-burgenstock-hotels-ag-obburgen-c764b599"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -6726,8 +6738,7 @@
         "spa-wellness-attendant-100-w-m-i-buergenstock-hotels-obburgen-f55162b0",
         "spa-wellness-attendant-100-w-m-i-buergenstock-hotels-obburgen-3d0edf10",
         "spa-wellness-attendant-100-w-m-i-buergenstock-hotels-obburgen-e02d188d",
-        "spa-wellness-attendant-100-w-m-i-buergenstock-hotels-obburgen",
-        "centro-benessere-100-f-m-i-burgenstock-hotels-ag-obburgen"
+        "centro-benessere-100-f-m-i-burgenstock-hotels-ag-obburgen-c764b599"
       ],
       "en": [
         "spa-therapist-80-m-w-d-burgenstock-hotels-ag-obburgen",
@@ -6782,7 +6793,7 @@
         "spa-wellness-attendant-100-w-m-i-buergenstock-hotels-obburgen-45393860",
         "spa-wellness-attendant-100-w-m-i-buergenstock-hotels-obburgen-0ca0d3a0",
         "spa-wellness-attendant-100-w-m-i-buergenstock-hotels-obburgen-527926f8",
-        "spa-wellness-attendant-100-w-m-i-buergenstock-hotels-obburgen"
+        "centro-benessere-100-f-m-i-burgenstock-hotels-ag-obburgen"
       ],
       "de": [
         "spa-therapist-80-m-w-d-buergenstock-hotels-obburgen",
@@ -6836,7 +6847,7 @@
         "spa-wellness-attendant-100-w-m-i-buergenstock-hotels-obburgen-45393860",
         "spa-wellness-attendant-100-w-m-i-buergenstock-hotels-obburgen-0ca0d3a0",
         "spa-wellness-attendant-100-w-m-i-buergenstock-hotels-obburgen-527926f8",
-        "spa-wellness-attendant-100-w-m-i-buergenstock-hotels-obburgen"
+        "centro-benessere-100-f-m-i-burgenstock-hotels-ag-obburgen"
       ],
       "fr": [
         "therapeute-spa-80-h-f-d-burgenstock-hotels-ag-obburgen",
@@ -6892,7 +6903,7 @@
         "spa-wellness-attendant-100-w-m-i-buergenstock-hotels-obburgen-45393860",
         "spa-wellness-attendant-100-w-m-i-buergenstock-hotels-obburgen-0ca0d3a0",
         "spa-wellness-attendant-100-w-m-i-buergenstock-hotels-obburgen-527926f8",
-        "spa-wellness-attendant-100-w-m-i-buergenstock-hotels-obburgen"
+        "centro-benessere-100-f-m-i-burgenstock-hotels-ag-obburgen"
       ]
     },
     "postalCode": "6363",
@@ -6921,7 +6932,7 @@
     ]
   },
   {
-    "slug": "f-b-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen",
+    "slug": "f-b-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen-998a0e1d",
     "title": "F&B Supervisor 100% (w/m/i)",
     "titleByLocale": {
       "it": "F&B Supervisor 100% (w/m/i)",
@@ -6940,40 +6951,121 @@
       "fr": "Superviseur F&B 100% (f/m/i) - Bürgenstock Resort --> Une icône de l'hôtellerie suisse et une légende depuis son ouverture sensationnelle en 1873. Situé sur le Bürgenberg, un affleurement rocheux de 500 mètres de haut dans le centre de la Suisse, le Bürgenstock Resort Lake Lucerne se distingue par son design audacieux, sa durabilité révolutionnaire, ses paysages à couper le souffle et ses activités de loisirs de pointe. Environ 700 employés de 54 pays offrent une excellente hospitalité et un cadre parfait pour des moments au-delà de l'imagination. Trois hôtels exclusifs, le Bürgenstock Hotel & Alpine Spa (5* Superior) avec les deux options d'hébergement Le Contemporain et Le Patrimoine, le Waldhotel by Bürgenstock (5* Superior) et la Tavern 1879 (3*) sont à votre disposition. Chacune de ces maisons sait créer une atmosphère unique. Douze restaurants, salons et bars sont la vitrine de l'excellence culinaire; Au Bürgenstock Alpine Spa primé et au Waldhotel Spa, vous trouverez la détente ultime. La station est non seulement une destination de rêve pour les voyageurs du monde entier, mais aussi un lieu de travail avec une excellente culture d'entreprise. Pour la troisième année consécutive, le Bürgenstock Resort a été officiellement certifié « Great Place to Work » en Suisse – un prix qui remplit toute l'équipe avec fierté. Pour renforcer notre équipe, nous sommes à la recherche d'un superviseur F&B 100% (f/m/i) dès maintenant ou par accord Dans cette position accueillante, vous êtes responsable : de gérer l'opération quotidienne dans le restaurant et d'assurer un bon fonctionnement\n\nResponsabilité de l'équipe pendant vos quarts de travail et collaboration étroite avec le directeur du restaurant et son adjoint\n\nAider à la planification des employés avec Mirus 3.0, créer des fermetures de fin de journée et assurer des normes de qualité et d'hygiène\n\nOrganiser de petites séances de formation pour renforcer l ' équipe et mettre en œuvre les politiques opérationnelles\n\nCela vous apporte avec une formation complète dans l'industrie de la restauration / hôtel ou un degré d'expérience professionnelle dans une position comparable et la manipulation sûre de Micros Symphony Expérience dans les opérations hôtelières haut de gamme et dans le service de chambre Fluent compétences en allemand et en anglais, toutes les autres langues étrangères est un sens plus de responsabilité, de flexibilité, de résilience et une sensibilisation à la qualité prononcée Sensibilité à traiter avec des invités internationaux, plaisir dans la gestion des employés et une apparition gagnante\n\nIl vous attend une activité polyvalente dans une grande équipe et avec de nombreux avantages, tels que la maison du personnel avec salle de sport, salon TV, salle de piscine et bibliothèque. Vous recevrez des réductions dans les restaurants, dans l'hôtel pour l'hébergement de nuit pour vous et votre famille et vos amis, des réductions pour le tennis, le golf, les articles de sport et l'assurance. Vous pouvez suivre des cours de groupe à des prix attractifs et obtenir des contrôles REKA de notre part à des conditions préférentielles. L'arrivée par les transports publics est soutenue financièrement par l'entreprise et les places de stationnement sont offertes à des prix attractifs. En tant qu'employé, vous avez accès à l'application des employés Beekeeper, profitez de possibilités intéressantes de formation et de promotion interne et plus encore. Si vous vous identifiez également à nos valeurs d'enthousiasme, d'engagement, de responsabilité et d'entrepreneuriat (BEvU), alors profitez de cette occasion unique d'une tâche variée avec beaucoup de potentiel pour apprendre de nouvelles choses et contribuer au succès de la station de classe mondiale au cœur de la Suisse. Nous attendons avec impatience vos documents de candidature complets avec lettres de motivation, certificats d'emploi et photo. Awards Swiss Location Awards «Le meilleur lieu de réunion de la Suisse» World Spa Awards «Le meilleur hôtel de Suisse Spa 2025» LHW Adhérent Awards «Sustainability Leader» Great Place To Work 2025 The New York Times' «52 Lieux à visiter en 2018» Travel + Leisure «500 List 2021» Handelszeitung «Best Employer in the Hospitality Sector 2023» Conneisseur Circle «Best Gourmet Hotel» MICHELIN Wellness Awards «Best Wellness Hotel» GALA Spa Awards «Best Spa Concept» MICHELIN Keys «3/3 Keys» BÜRGENSTOCK HOTELS AG Sabine Heinrich Junior HR Business Partner Bürgenstock 30 6363 Obbürgen"
     },
     "slugByLocale": {
-      "de": "f-b-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
-      "fr": "f-b-superviseur-100-w-m-i-burgenstock-hotels-ag-obburgen"
+      "de": "f-b-supervisor-100-w-m-i-buergenstock-hotels-obburgen-cd383256",
+      "fr": "f-b-superviseur-100-w-m-i-burgenstock-hotels-ag-obburgen-9d5a4817"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-09-24T14:43:51.969Z",
     "previousSlugs": [
-      "f-b-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
+      "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen-974598dd",
+      "housekeeping-floor-supervisore-100-w-m-d-burgenstock-hotels-ag-obburgen-f60d9388",
+      "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen-c3a7d5e6",
+      "housekeeping-floor-superviseur-100-w-m-d-burgenstock-hotels-ag-obburgen-465bbec8",
+      "f-b-supervisor-100-w-m-i-burgenstock-collection-ch-e7868f37",
+      "f-b-supervisor-100-m-f-d-burgenstock-hotels-ag-obburgen-f8040cca",
+      "f-b-supervisor-zu-100-w-m-i-burgenstock-hotels-ag-obburgen-c24da012",
+      "superviseur-f-b-100-h-f-d-burgenstock-hotels-ag-obburgen-8b46b57c",
+      "night-audit-100-w-m-i-buergenstock-hotels-obburgen-c2966887",
+      "the-amount-of-the-aid-to-be-recovered-from-the-beneficiary-is-eur-per-year-burgenstock-hotels-ag-obburgen-5013bc5b",
+      "nachtaudit-100-w-m-i-burgenstock-hotels-ag-obburgen-172cbf0f",
+      "verification-de-nuit-100-m-m-i-burgenstock-hotels-ag-obburgen-c4eb8ea8",
+      "housekeeping-floor-superviseur-100-w-m-d-burgenstock-hotels-ag-obburgen-292e5387",
+      "supervisore-banquet-100-f-m-i-burgenstock-hotels-ag-obburgen-04a7c0a0",
+      "bankett-supervisor-100-w-m-i-buergenstock-hotels-obburgen-fd0dd514",
+      "bankett-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen-b2c14cb9",
+      "bankett-supervisor-100-w-m-i-burgenstock-collection-ch-b2884795",
+      "banquet-supervisor-100-m-f-i-burgenstock-hotels-ag-obburgen",
+      "superviseur-banquets-100-h-f-i-burgenstock-hotels-ag-obburgen",
+      "banquet-supervisor-100-m-f-i-burgenstock-hotels-ag-obburgen-ab856345",
+      "housekeeping-floor-supervisore-100-w-m-d-burgenstock-hotels-ag-obburgen-84cdf69a",
+      "housekeeping-floor-superviseur-100-w-m-d-burgenstock-hotels-ag-obburgen-d7e3e0d1",
+      "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen",
       "f-b-supervisor-100-w-m-i-burgenstock-collection-ch",
       "f-b-supervisor-100-m-f-d-burgenstock-hotels-ag-obburgen",
       "f-b-supervisor-zu-100-w-m-i-burgenstock-hotels-ag-obburgen",
       "superviseur-f-b-100-h-f-d-burgenstock-hotels-ag-obburgen",
       "night-audit-100-w-m-i-buergenstock-hotels-obburgen",
-      "the-amount-of-the-aid-to-be-recovered-from-the-beneficiary-is-eur-per-year-burgenstock-hotels-ag-obburgen",
       "nachtaudit-100-w-m-i-burgenstock-hotels-ag-obburgen",
       "verification-de-nuit-100-m-m-i-burgenstock-hotels-ag-obburgen",
       "supervisore-banquet-100-f-m-i-burgenstock-hotels-ag-obburgen",
       "bankett-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
       "bankett-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen",
       "bankett-supervisor-100-w-m-i-burgenstock-collection-ch",
-      "banquet-supervisor-100-m-f-i-burgenstock-hotels-ag-obburgen",
-      "superviseur-banquets-100-h-f-i-burgenstock-hotels-ag-obburgen",
-      "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen-974598dd",
-      "housekeeping-floor-supervisore-100-w-m-d-burgenstock-hotels-ag-obburgen-f60d9388",
-      "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen-c3a7d5e6",
-      "housekeeping-floor-superviseur-100-w-m-d-burgenstock-hotels-ag-obburgen-465bbec8",
-      "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen",
-      "housekeeping-floor-supervisore-100-w-m-d-burgenstock-hotels-ag-obburgen",
-      "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen",
-      "housekeeping-floor-superviseur-100-w-m-d-burgenstock-hotels-ag-obburgen"
+      "the-amount-of-the-aid-to-be-recovered-from-the-beneficiary-is-eur-per-year-burgenstock-hotels-ag-obburgen",
+      "superviseur-banquets-100-h-f-i-burgenstock-hotels-ag-obburgen-1661d9ce"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "f-b-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
+        "f-b-supervisor-100-w-m-i-buergenstock-hotels-obburgen-cd383256",
         "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen-974598dd",
+        "f-b-supervisor-100-w-m-i-burgenstock-collection-ch-e7868f37",
+        "f-b-supervisor-100-m-f-d-burgenstock-hotels-ag-obburgen-f8040cca",
+        "f-b-supervisor-zu-100-w-m-i-burgenstock-hotels-ag-obburgen-c24da012",
+        "superviseur-f-b-100-h-f-d-burgenstock-hotels-ag-obburgen-8b46b57c",
+        "night-audit-100-w-m-i-buergenstock-hotels-obburgen-c2966887",
+        "the-amount-of-the-aid-to-be-recovered-from-the-beneficiary-is-eur-per-year-burgenstock-hotels-ag-obburgen-5013bc5b",
+        "nachtaudit-100-w-m-i-burgenstock-hotels-ag-obburgen-172cbf0f",
+        "verification-de-nuit-100-m-m-i-burgenstock-hotels-ag-obburgen-c4eb8ea8",
+        "housekeeping-floor-supervisore-100-w-m-d-burgenstock-hotels-ag-obburgen-f60d9388",
+        "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen-c3a7d5e6",
+        "housekeeping-floor-superviseur-100-w-m-d-burgenstock-hotels-ag-obburgen-292e5387",
+        "supervisore-banquet-100-f-m-i-burgenstock-hotels-ag-obburgen-04a7c0a0",
+        "bankett-supervisor-100-w-m-i-buergenstock-hotels-obburgen-fd0dd514",
+        "bankett-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen-b2c14cb9",
+        "bankett-supervisor-100-w-m-i-burgenstock-collection-ch-b2884795",
+        "banquet-supervisor-100-m-f-i-burgenstock-hotels-ag-obburgen",
+        "superviseur-banquets-100-h-f-i-burgenstock-hotels-ag-obburgen"
+      ],
+      "en": [
+        "f-b-supervisor-100-w-m-i-buergenstock-hotels-obburgen-cd383256",
+        "the-amount-of-the-aid-to-be-recovered-from-the-beneficiary-is-eur-per-year-burgenstock-hotels-ag-obburgen-5013bc5b",
+        "banquet-supervisor-100-m-f-i-burgenstock-hotels-ag-obburgen-ab856345",
+        "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen-c3a7d5e6",
+        "housekeeping-floor-supervisore-100-w-m-d-burgenstock-hotels-ag-obburgen-84cdf69a",
+        "housekeeping-floor-superviseur-100-w-m-d-burgenstock-hotels-ag-obburgen-d7e3e0d1",
+        "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen",
+        "f-b-supervisor-100-w-m-i-burgenstock-collection-ch",
+        "f-b-supervisor-100-m-f-d-burgenstock-hotels-ag-obburgen",
+        "f-b-supervisor-zu-100-w-m-i-burgenstock-hotels-ag-obburgen",
+        "superviseur-f-b-100-h-f-d-burgenstock-hotels-ag-obburgen",
+        "night-audit-100-w-m-i-buergenstock-hotels-obburgen",
+        "nachtaudit-100-w-m-i-burgenstock-hotels-ag-obburgen",
+        "verification-de-nuit-100-m-m-i-burgenstock-hotels-ag-obburgen",
+        "supervisore-banquet-100-f-m-i-burgenstock-hotels-ag-obburgen",
+        "bankett-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
+        "bankett-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen",
+        "bankett-supervisor-100-w-m-i-burgenstock-collection-ch",
+        "superviseur-banquets-100-h-f-i-burgenstock-hotels-ag-obburgen"
+      ],
+      "de": [
+        "f-b-supervisor-100-w-m-i-burgenstock-collection-ch-e7868f37",
+        "nachtaudit-100-w-m-i-burgenstock-hotels-ag-obburgen-172cbf0f",
+        "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen-c3a7d5e6",
+        "bankett-supervisor-100-w-m-i-buergenstock-hotels-obburgen-fd0dd514",
+        "bankett-supervisor-100-w-m-i-burgenstock-collection-ch-b2884795",
+        "housekeeping-floor-supervisore-100-w-m-d-burgenstock-hotels-ag-obburgen-84cdf69a",
+        "housekeeping-floor-superviseur-100-w-m-d-burgenstock-hotels-ag-obburgen-d7e3e0d1",
+        "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen",
+        "f-b-supervisor-100-w-m-i-buergenstock-hotels-obburgen-cd383256",
+        "f-b-supervisor-100-m-f-d-burgenstock-hotels-ag-obburgen",
+        "f-b-supervisor-zu-100-w-m-i-burgenstock-hotels-ag-obburgen",
+        "superviseur-f-b-100-h-f-d-burgenstock-hotels-ag-obburgen",
+        "night-audit-100-w-m-i-buergenstock-hotels-obburgen",
+        "the-amount-of-the-aid-to-be-recovered-from-the-beneficiary-is-eur-per-year-burgenstock-hotels-ag-obburgen",
+        "verification-de-nuit-100-m-m-i-burgenstock-hotels-ag-obburgen",
+        "supervisore-banquet-100-f-m-i-burgenstock-hotels-ag-obburgen",
+        "bankett-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen",
+        "banquet-supervisor-100-m-f-i-burgenstock-hotels-ag-obburgen",
+        "superviseur-banquets-100-h-f-i-burgenstock-hotels-ag-obburgen"
+      ],
+      "fr": [
+        "f-b-supervisor-100-w-m-i-buergenstock-hotels-obburgen-cd383256",
+        "verification-de-nuit-100-m-m-i-burgenstock-hotels-ag-obburgen-c4eb8ea8",
+        "housekeeping-floor-superviseur-100-w-m-d-burgenstock-hotels-ag-obburgen-465bbec8",
+        "superviseur-banquets-100-h-f-i-burgenstock-hotels-ag-obburgen-1661d9ce",
+        "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen-c3a7d5e6",
+        "housekeeping-floor-supervisore-100-w-m-d-burgenstock-hotels-ag-obburgen-84cdf69a",
+        "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen",
         "f-b-supervisor-100-w-m-i-burgenstock-collection-ch",
         "f-b-supervisor-100-m-f-d-burgenstock-hotels-ag-obburgen",
         "f-b-supervisor-zu-100-w-m-i-burgenstock-hotels-ag-obburgen",
@@ -6981,49 +7073,11 @@
         "night-audit-100-w-m-i-buergenstock-hotels-obburgen",
         "the-amount-of-the-aid-to-be-recovered-from-the-beneficiary-is-eur-per-year-burgenstock-hotels-ag-obburgen",
         "nachtaudit-100-w-m-i-burgenstock-hotels-ag-obburgen",
-        "verification-de-nuit-100-m-m-i-burgenstock-hotels-ag-obburgen",
-        "housekeeping-floor-supervisore-100-w-m-d-burgenstock-hotels-ag-obburgen-f60d9388",
-        "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen-c3a7d5e6",
-        "housekeeping-floor-superviseur-100-w-m-d-burgenstock-hotels-ag-obburgen",
         "supervisore-banquet-100-f-m-i-burgenstock-hotels-ag-obburgen",
         "bankett-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
         "bankett-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen",
         "bankett-supervisor-100-w-m-i-burgenstock-collection-ch",
-        "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen",
-        "housekeeping-floor-supervisore-100-w-m-d-burgenstock-hotels-ag-obburgen",
-        "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen"
-      ],
-      "en": [
-        "f-b-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
-        "the-amount-of-the-aid-to-be-recovered-from-the-beneficiary-is-eur-per-year-burgenstock-hotels-ag-obburgen",
-        "banquet-supervisor-100-m-f-i-burgenstock-hotels-ag-obburgen",
-        "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen-c3a7d5e6",
-        "housekeeping-floor-supervisore-100-w-m-d-burgenstock-hotels-ag-obburgen",
-        "housekeeping-floor-superviseur-100-w-m-d-burgenstock-hotels-ag-obburgen",
-        "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen",
-        "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen"
-      ],
-      "de": [
-        "f-b-supervisor-100-w-m-i-burgenstock-collection-ch",
-        "nachtaudit-100-w-m-i-burgenstock-hotels-ag-obburgen",
-        "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen-c3a7d5e6",
-        "bankett-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
-        "bankett-supervisor-100-w-m-i-burgenstock-collection-ch",
-        "housekeeping-floor-supervisore-100-w-m-d-burgenstock-hotels-ag-obburgen",
-        "housekeeping-floor-superviseur-100-w-m-d-burgenstock-hotels-ag-obburgen",
-        "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen",
-        "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen"
-      ],
-      "fr": [
-        "f-b-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
-        "verification-de-nuit-100-m-m-i-burgenstock-hotels-ag-obburgen",
-        "housekeeping-floor-superviseur-100-w-m-d-burgenstock-hotels-ag-obburgen-465bbec8",
-        "superviseur-banquets-100-h-f-i-burgenstock-hotels-ag-obburgen",
-        "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen-c3a7d5e6",
-        "housekeeping-floor-supervisore-100-w-m-d-burgenstock-hotels-ag-obburgen",
-        "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen",
-        "housekeeping-floor-superviseur-100-w-m-d-burgenstock-hotels-ag-obburgen",
-        "housekeeping-floor-supervisor-100-w-m-d-buergenstock-hotels-obburgen"
+        "banquet-supervisor-100-m-f-i-burgenstock-hotels-ag-obburgen"
       ]
     },
     "postalCode": "6363",
@@ -8083,14 +8137,13 @@
       "medico-capoclinica-anestesiologia-eoc-ente-ospedaliero-cantonale-mendrisio-1adbae3b",
       "chief-clinician-anesthesiology-eoc-ente-ospedaliero-cantonale-mendrisio-41d068b0",
       "clinicien-en-chef-anesthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio-c248784c",
-      "aushilfe-housekeeping-zimmerreinigung-40-80-m-w-d-stundenlohn-buergenstock-hotels-obburgen",
-      "pulizia-delle-camere-40-80-m-f-d-salario-orario-burgenstock-hotels-ag-obburgen",
-      "housekeeping-room-cleaning-40-80-m-f-d-hourly-wage-burgenstock-hotels-ag-obburgen",
-      "menage-nettoyage-de-chambre-40-80-h-f-d-salaire-horaire-burgenstock-hotels-ag-obburgen",
       "medico-capoclinica-anestesiologia-eoc-ente-ospedaliero-cantonale-mendrisio",
       "chief-clinician-anesthesiology-eoc-ente-ospedaliero-cantonale-mendrisio",
       "chefarzt-anasthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
-      "clinicien-en-chef-anesthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio"
+      "clinicien-en-chef-anesthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
+      "pulizia-delle-camere-40-80-m-f-d-salario-orario-burgenstock-hotels-ag-obburgen-1b89f47e",
+      "housekeeping-room-cleaning-40-80-m-f-d-hourly-wage-burgenstock-hotels-ag-obburgen-a25c8ecc",
+      "menage-nettoyage-de-chambre-40-80-h-f-d-salaire-horaire-burgenstock-hotels-ag-obburgen-83724bff"
     ],
     "previousSlugsByLocale": {
       "de": [
@@ -8319,8 +8372,10 @@
         "aushilfe-housekeeping-zimmerreinigung-40-80-m-w-d-stundenlohn-buergenstock-hotels-obburgen-21936738",
         "chefarzt-anasthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio-d0cd1e02",
         "aushilfe-housekeeping-zimmerreinigung-40-80-m-w-d-stundenlohn-buergenstock-hotels-obburgen-03f3b0b5",
-        "aushilfe-housekeeping-zimmerreinigung-40-80-m-w-d-stundenlohn-buergenstock-hotels-obburgen",
-        "chefarzt-anasthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio"
+        "chefarzt-anasthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "pulizia-delle-camere-40-80-m-f-d-salario-orario-burgenstock-hotels-ag-obburgen",
+        "housekeeping-room-cleaning-40-80-m-f-d-hourly-wage-burgenstock-hotels-ag-obburgen",
+        "menage-nettoyage-de-chambre-40-80-h-f-d-salaire-horaire-burgenstock-hotels-ag-obburgen"
       ],
       "it": [
         "aushilfe-housekeeping-zimmerreinigung-40-80-m-w-d-stundenlohn-buergenstock-hotels-obburgen-b01246bd",
@@ -8666,12 +8721,13 @@
         "clinicien-en-chef-anesthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio-f60c9afc",
         "medico-capoclinica-anestesiologia-eoc-ente-ospedaliero-cantonale-mendrisio-1adbae3b",
         "aushilfe-housekeeping-zimmerreinigung-40-80-m-w-d-stundenlohn-buergenstock-hotels-obburgen-03f3b0b5",
-        "aushilfe-housekeeping-zimmerreinigung-40-80-m-w-d-stundenlohn-buergenstock-hotels-obburgen",
-        "pulizia-delle-camere-40-80-m-f-d-salario-orario-burgenstock-hotels-ag-obburgen",
+        "pulizia-delle-camere-40-80-m-f-d-salario-orario-burgenstock-hotels-ag-obburgen-1b89f47e",
         "chief-clinician-anesthesiology-eoc-ente-ospedaliero-cantonale-mendrisio",
         "chefarzt-anasthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
         "clinicien-en-chef-anesthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "medico-capoclinica-anestesiologia-eoc-ente-ospedaliero-cantonale-mendrisio"
+        "medico-capoclinica-anestesiologia-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "housekeeping-room-cleaning-40-80-m-f-d-hourly-wage-burgenstock-hotels-ag-obburgen",
+        "menage-nettoyage-de-chambre-40-80-h-f-d-salaire-horaire-burgenstock-hotels-ag-obburgen"
       ],
       "en": [
         "chief-clinician-anesthesiology-eoc-ente-ospedaliero-cantonale-mendrisio-0463e191",
@@ -8872,9 +8928,10 @@
         "aushilfe-housekeeping-zimmerreinigung-40-80-m-w-d-stundenlohn-buergenstock-hotels-obburgen-00951753",
         "chief-clinician-anesthesiology-eoc-ente-ospedaliero-cantonale-mendrisio-41d068b0",
         "aushilfe-housekeeping-zimmerreinigung-40-80-m-w-d-stundenlohn-buergenstock-hotels-obburgen-ad4a1b3b",
-        "aushilfe-housekeeping-zimmerreinigung-40-80-m-w-d-stundenlohn-buergenstock-hotels-obburgen",
-        "housekeeping-room-cleaning-40-80-m-f-d-hourly-wage-burgenstock-hotels-ag-obburgen",
-        "chief-clinician-anesthesiology-eoc-ente-ospedaliero-cantonale-mendrisio"
+        "housekeeping-room-cleaning-40-80-m-f-d-hourly-wage-burgenstock-hotels-ag-obburgen-a25c8ecc",
+        "chief-clinician-anesthesiology-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "pulizia-delle-camere-40-80-m-f-d-salario-orario-burgenstock-hotels-ag-obburgen",
+        "menage-nettoyage-de-chambre-40-80-h-f-d-salaire-horaire-burgenstock-hotels-ag-obburgen"
       ],
       "fr": [
         "clinicien-en-chef-anesthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio-c31f94da",
@@ -9075,9 +9132,10 @@
         "aushilfe-housekeeping-zimmerreinigung-40-80-m-w-d-stundenlohn-buergenstock-hotels-obburgen-00951753",
         "clinicien-en-chef-anesthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio-c248784c",
         "aushilfe-housekeeping-zimmerreinigung-40-80-m-w-d-stundenlohn-buergenstock-hotels-obburgen-ad4a1b3b",
-        "aushilfe-housekeeping-zimmerreinigung-40-80-m-w-d-stundenlohn-buergenstock-hotels-obburgen",
-        "menage-nettoyage-de-chambre-40-80-h-f-d-salaire-horaire-burgenstock-hotels-ag-obburgen",
-        "clinicien-en-chef-anesthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio"
+        "menage-nettoyage-de-chambre-40-80-h-f-d-salaire-horaire-burgenstock-hotels-ag-obburgen-83724bff",
+        "clinicien-en-chef-anesthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "pulizia-delle-camere-40-80-m-f-d-salario-orario-burgenstock-hotels-ag-obburgen",
+        "housekeeping-room-cleaning-40-80-m-f-d-hourly-wage-burgenstock-hotels-ag-obburgen"
       ]
     },
     "postalCode": "6363",
@@ -11801,28 +11859,30 @@
       "fr": "Assistant Floral Design Manager 100% (w/m/i)"
     },
     "slugByLocale": {
-      "de": "floor-vorgesetzter-100-w-m-i-burgenstock-hotels-ag-obburgen"
+      "de": "floor-vorgesetzter-100-w-m-i-burgenstock-hotels-ag-obburgen-9aab54f9"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-05-26T22:14:39.698Z",
     "previousSlugs": [
       "bodenbetreuer-100-w-m-i-burgenstock-hotels-ag-obburgen",
-      "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen-f8c37c5b",
-      "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen"
+      "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen-f8c37c5b"
     ],
     "previousSlugsByLocale": {
       "de": [
         "bodenbetreuer-100-w-m-i-burgenstock-hotels-ag-obburgen",
-        "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen-f8c37c5b"
+        "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen-f8c37c5b",
+        "floor-vorgesetzter-100-w-m-i-burgenstock-hotels-ag-obburgen-9aab54f9"
       ],
       "fr": [
-        "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen-f8c37c5b"
+        "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen-f8c37c5b",
+        "floor-vorgesetzter-100-w-m-i-burgenstock-hotels-ag-obburgen-9aab54f9"
       ],
       "it": [
-        "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen"
+        "floor-vorgesetzter-100-w-m-i-burgenstock-hotels-ag-obburgen-9aab54f9"
       ],
       "en": [
-        "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen-f8c37c5b"
+        "superviseur-de-chambre-100-w-m-i-burgenstock-hotels-ag-obburgen-f8c37c5b",
+        "floor-vorgesetzter-100-w-m-i-burgenstock-hotels-ag-obburgen-9aab54f9"
       ]
     },
     "postalCode": "6363",

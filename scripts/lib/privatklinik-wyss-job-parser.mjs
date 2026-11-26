@@ -37,6 +37,7 @@ import {
   detectHealthcareExperienceLevel,
 } from './hospital-custom-html-helpers.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { readMetaContent } from './html-attr.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -139,9 +140,8 @@ function extractDetail(html = '') {
   // Title comes from <title> / og:title — the <h1> on every Wyss job page is
   // just the generic "Offene Stelle" eyebrow. Pattern: "{Job Title} | Privatklinik Wyss"
   let title = '';
-  const ogMatch = noScripts.match(/<meta[^>]*property="og:title"[^>]*content="([^"]+)"/i);
   const titleTag = noScripts.match(/<title>([^<]+)<\/title>/i);
-  const raw = (ogMatch && ogMatch[1]) || (titleTag && titleTag[1]) || '';
+  const raw = readMetaContent(noScripts, 'og:title') || (titleTag && titleTag[1]) || '';
   if (raw) {
     // Strip the " | Privatklinik Wyss" / " - Privatklinik Wyss" suffix
     title = normalizeSpace(decodeEntities(raw))

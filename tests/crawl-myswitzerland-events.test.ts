@@ -1370,6 +1370,8 @@ describe('source optional metadata fallbacks', () => {
 
   it('reads event-scoped OpenGraph/itemprop images and named contact blocks', () => {
     const html = `
+      <div data-template='<meta property="og:image" content="/fake.jpg">'></div>
+      <script>const fake = '<meta property="og:image" content="/fake-script.jpg">';</script>
       <meta property="og:image" content="/-/media/events/autechre.jpg">
       <h2>Contatto</h2><div>Fabriktheater Rote Fabrik<br>Seestrasse 395<br>8038 Zürich</div>
     `;

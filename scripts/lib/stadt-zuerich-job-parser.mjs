@@ -63,6 +63,7 @@ import { dropIdenticalPostings } from './identical-posting-dedupe.mjs';
 import { MIN_SOURCE_BODY_WORDS, meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { parseCsbDetailPage } from './successfactors-shared-job-parser-common.mjs';
 import { fetchSuccessFactorsJobs } from './ats-clients/successfactors-client.mjs';
+import { readAttr, scanMarkupStartTags } from './html-attr.mjs';
 import {
   closeAll,
   createBrowser,
@@ -493,11 +494,10 @@ function currentPortalCanonicalUrls(html = '') {
       if (href) urls.push(href);
     }
   }
-  for (const match of String(html || '').matchAll(/<meta\b[^>]*>/gi)) {
-    const tag = match[0];
-    const property = (htmlAttribute(tag, 'property') || htmlAttribute(tag, 'name')).toLowerCase();
+  for (const { raw: tag } of scanMarkupStartTags(html, 'meta')) {
+    const property = (readAttr(tag, 'property') || readAttr(tag, 'name')).toLowerCase();
     if (property === 'og:url') {
-      const content = htmlAttribute(tag, 'content');
+      const content = readAttr(tag, 'content');
       if (content) urls.push(content);
     }
   }

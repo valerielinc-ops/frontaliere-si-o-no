@@ -45,11 +45,7 @@
  * boundary explicit and makes attribute ORDER irrelevant for free.
  */
 
-/**
- * A whole `<meta …>` tag. The alternation skips over quoted segments so a
- * literal `>` inside `content="…"` cannot truncate the tag.
- */
-const META_TAG_RE = /<meta\b((?:[^>"']|"[^"]*"|'[^']*')*)>/gi;
+import { readAttr, scanMarkupStartTags } from './html-attr.mjs';
 
 /**
  * One attribute inside a tag: a name, then optionally `=` and a value that is
@@ -88,13 +84,9 @@ export function parseAttributes(rawAttrs) {
  */
 export function extractMetaDescriptionRaw(html) {
   if (typeof html !== 'string' || html === '') return null;
-  META_TAG_RE.lastIndex = 0;
-  let tag;
-  while ((tag = META_TAG_RE.exec(html)) !== null) {
-    const attrs = parseAttributes(tag[1]);
-    if (attrs.name === undefined) continue;
-    if (attrs.name.trim().toLowerCase() !== 'description') continue;
-    const content = (attrs.content ?? '').trim();
+  for (const { raw } of scanMarkupStartTags(html, 'meta')) {
+    if (readAttr(raw, 'name').trim().toLowerCase() !== 'description') continue;
+    const content = readAttr(raw, 'content').trim();
     if (content === '') continue; // keep looking: an empty tag is not a description
     return content;
   }
