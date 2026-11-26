@@ -1,7 +1,7 @@
 {
   "key": "schweizerhof-flims",
   "label": "Schweizerhof",
-  "generatedAt": "2026-11-25T21:23:37.949Z",
+  "generatedAt": "2026-11-26T09:16:26.016Z",
   "total": 1,
   "discovered": 28,
   "parsed": 1,
@@ -17,6 +17,10 @@
       {
         "status": 200,
         "url": "https://romantikhotels.hcm4all.de/list/?l=de"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/19839"
       },
       {
         "status": 200,
@@ -45,10 +49,6 @@
       {
         "status": 200,
         "url": "https://romantikhotels.hcm4all.de/list/17012"
-      },
-      {
-        "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/19839"
       },
       {
         "status": 200,
@@ -148,10 +148,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 73907,
-  "avgDurationMs": 73907,
+  "durationMs": 62992,
+  "avgDurationMs": 62992,
   "durationHistory": [
-    73907
+    62992
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -169,7 +169,7 @@
       "url": "https://romantikhotels.hcm4all.de/list/19839",
       "source": "Schweizerhof Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T21:22:34.451Z",
+      "crawledAt": "2026-11-26T09:15:40.493Z",
       "addressLocality": "Flims",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -192,7 +192,7 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-25T21:22:34.451Z",
+      "validThrough": "2026-12-26T09:15:40.493Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -203,5 +203,5 @@
       }
     }
   ],
-  "codeCommit": "0c64b1f2eae0b337b537e356aa5de051b9c4c6cc"
+  "codeCommit": "bb9ecce641e4806660b82ef90e95e36b4e9d873c"
 }
