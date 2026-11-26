@@ -159,9 +159,22 @@ trunk_replace_begin() {
       # `name="robots" … content="noindex,follow"`, but a future emitter could
       # invert it, so both orders match. One recursive pass, not one grep per
       # file — the walk is bounded by the same subtree `find` already crosses.
-      grep -rLiE --include='*.html' --include='*.htm' \
-        '<meta[^>]*(robots[^>]*noindex|noindex[^>]*robots)' \
-        "$dist/$p" 2>/dev/null \
+      if [ -d "$dist/$p" ]; then
+        grep -rLiE --include='*.html' --include='*.htm' \
+          '<meta[^>]*(robots[^>]*noindex|noindex[^>]*robots)' \
+          "$dist/$p" 2>/dev/null || [ "$?" -eq 1 ]
+      elif [ -f "$dist/$p" ]; then
+        case "$p" in
+          *.html|*.htm)
+            # --include applies to recursive directory traversal, not an
+            # explicitly named file. Handle root-level HTML directly so an
+            # indexable flat page is still classified before removal.
+            grep -LiE \
+              '<meta[^>]*(robots[^>]*noindex|noindex[^>]*robots)' \
+              "$dist/$p" 2>/dev/null || [ "$?" -eq 1 ]
+            ;;
+        esac
+      fi \
         | awk -v root="$root_prefix" '{ if (index($0, root) == 1) print substr($0, length(root) + 1); }' \
         >> "$idx"
     done
