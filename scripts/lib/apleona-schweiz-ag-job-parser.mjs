@@ -198,7 +198,8 @@ export function extractApleonaDetailFields(html = '', pageUrl = '', opts = {}) {
 
     // The same tenant currently serves a second Apleona-owned skin where the
     // vacancy sections are either plain `<section><div class="container"><h2>...`
-    // blocks or Umantis `showblock`/`customdatablock` pairs.
+    // blocks, Umantis `showblock`/`customdatablock` pairs, or semantic headings
+    // without a section wrapper.
     // Heading identity is the boundary: generic company/contact sections are
     // intentionally excluded even when they are longer. The heading pattern is
     // German-only because the spec pins the seed to `lang=ger` and declares
