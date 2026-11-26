@@ -106,11 +106,17 @@ function pdfFileNameFrom(name) {
   return `${base}.pdf`;
 }
 
+function isInlineEmailImage(item) {
+  const disposition = String(item?.contentDisposition ?? item?.disposition ?? '').trim().toLowerCase();
+  if (disposition.startsWith('inline') || item?.isInline === true) return true;
+  return Boolean(String(item?.contentId || '').trim());
+}
+
 /**
  * Selects the CV from inbound email attachments: prefers verified document
  * formats (PDF/DOC/DOCX) and otherwise converts qualifying raster CV images
  * into a single multi-page PDF.
- * @param {Array<{filename?: string, content: Buffer}>} attachments
+ * @param {Array<{filename?: string, contentDisposition?: string, contentId?: string, content: Buffer}>} attachments
  * @param {{ maxDocumentBytes?: number, maxImageInputBytes?: number }} [options]
  * @returns {Promise<{filename: string, type: 'pdf'|'doc'|'docx', content: Buffer, convertedFrom?: string, pageCount?: number}|null>}
  */
@@ -128,6 +134,7 @@ export async function resolveCvAttachmentFromEmail(
   const imageCandidates = [];
   for (const item of list) {
     if (!Buffer.isBuffer(item?.content) || item.content.length === 0 || item.content.length > maxImageInputBytes) continue;
+    if (isInlineEmailImage(item)) continue;
     const imageType = detectCvImageType(item.content.subarray(0, 16));
     if (!imageType) continue;
     if (await isQualifyingCvImage(item.content)) {

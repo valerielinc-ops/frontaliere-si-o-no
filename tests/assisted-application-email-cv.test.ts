@@ -342,6 +342,55 @@ describe('CV by e-mail reply', () => {
     });
   });
 
+  it('filters MIME-inline and Content-ID banners from resolveCvAttachmentFromEmail while converting attached CV images', async () => {
+    const sharp = (await import('sharp')).default;
+    const { resolveCvAttachmentFromEmail } = await import('../functions/src/lib/imageCvToPdf.js');
+    // High-entropy 600x200 raster so compressed output exceeds 25 KB.
+    const raw = Buffer.alloc(600 * 200 * 3);
+    for (let i = 0; i < raw.length; i += 1) raw[i] = (i * 73 + (i >> 5)) & 0xff;
+    const banner = await sharp(raw, { raw: { width: 600, height: 200, channels: 3 } })
+      .jpeg({ quality: 92 })
+      .toBuffer();
+    expect(banner.length).toBeGreaterThan(25_000);
+
+    expect(await resolveCvAttachmentFromEmail([
+      { filename: 'sig-banner.jpg', contentType: 'image/jpeg', contentDisposition: 'inline', content: banner },
+    ])).toBeNull();
+    expect(await resolveCvAttachmentFromEmail([
+      { filename: 'cid-banner.jpg', contentType: 'image/jpeg', contentId: 'banner@example.com', content: banner },
+    ])).toBeNull();
+
+    const parsedInline = parseMimeMessage(Buffer.from([
+      'From: Maria Rossi <maria.rossi@gmail.com>',
+      'Subject: Re: CV',
+      'MIME-Version: 1.0',
+      'Content-Type: multipart/mixed; boundary="b_cid"',
+      '',
+      '--b_cid',
+      'Content-Type: text/plain; charset=utf-8',
+      '',
+      'Saluti',
+      '--b_cid',
+      'Content-Type: image/jpeg; name="banner.jpg"',
+      'Content-Disposition: inline; filename="banner.jpg"',
+      'Content-ID: <banner123@gmail.com>',
+      'Content-Transfer-Encoding: base64',
+      '',
+      banner.toString('base64').replace(/(.{76})/g, '$1\r\n'),
+      '--b_cid--',
+      '',
+    ].join('\r\n')));
+    expect(parsedInline.attachments[0]).toMatchObject({ contentDisposition: 'inline', contentId: 'banner123@gmail.com' });
+    expect(await resolveCvAttachmentFromEmail(parsedInline.attachments)).toBeNull();
+
+    const attached = await resolveCvAttachmentFromEmail([
+      { filename: 'CV_Photo.jpg', contentType: 'image/jpeg', contentDisposition: 'attachment', content: banner },
+    ]);
+    expect(attached).not.toBeNull();
+    expect(attached?.type).toBe('pdf');
+    expect(attached?.content.subarray(0, 5).toString('utf8')).toBe('%PDF-');
+  });
+
   it('normalizes raster image uploads via normalizeUploadedCvBuffer for admin/owner uploads', async () => {
     const sharp = (await import('sharp')).default;
     const { normalizeUploadedCvBuffer } = await import('../functions/src/lib/imageCvToPdf.js');
