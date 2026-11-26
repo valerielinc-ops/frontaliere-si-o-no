@@ -197,6 +197,25 @@ describe('fetchGa4PageViews', () => {
     expect(pageViews.get('/quiet-page/')).toBeUndefined();
     expect(pageViews.coverage).toMatchObject({ complete: false, invalidRows: 1 });
   });
+
+  it('marks an unknown sampling metadata entry incomplete', async () => {
+    const fetchImpl = vi.fn(async () => ({
+      ok: true,
+      status: 200,
+      json: async () => ({ rows: [], metadata: { samplingMetadatas: [{}] } }),
+      text: async () => '',
+    }));
+
+    const pageViews: any = await fetchGa4PageViews({
+      token: 't',
+      startDate: '2026-09-01',
+      endDate: '2026-09-07',
+      paths: ['/quiet-page/'],
+      fetchImpl,
+    });
+
+    expect(pageViews.coverage).toMatchObject({ complete: false, samplingMetadatas: [{}] });
+  });
 });
 
 // Fake della Data API che rispetta offset/limit (default GA4: 10000 righe).

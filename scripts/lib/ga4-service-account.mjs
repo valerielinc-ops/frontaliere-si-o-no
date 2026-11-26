@@ -532,13 +532,28 @@ export async function fetchGa4PageViews({
   const otherCount = report.rows
     .filter((row) => row.dimensionValues?.some((dimension) => dimension?.value === '(other)'))
     .reduce((sum, row) => sum + (Number(row.metricValues?.[0]?.value || 0) || 0), 0);
+  const samplingMetadatas = metadata.samplingMetadatas;
+  const parseNonNegativeNumber = (value) => {
+    if ((typeof value !== 'number' && typeof value !== 'string')
+      || (typeof value === 'string' && value.trim() === '')) return null;
+    const parsed = Number(value);
+    return Number.isFinite(parsed) && parsed >= 0 ? parsed : null;
+  };
+  const samplingMetadataIncomplete = samplingMetadatas !== undefined
+    && samplingMetadatas !== null
+    && (!Array.isArray(samplingMetadatas) || samplingMetadatas.some((sample) => {
+      const rawSample = sample && typeof sample === 'object' ? sample : {};
+      const samplesRead = parseNonNegativeNumber(rawSample.samplesReadCount);
+      const samplingSpace = parseNonNegativeNumber(rawSample.samplingSpaceSize);
+      return samplesRead === null || samplingSpace === null || samplesRead !== samplingSpace;
+    }));
   const incomplete = invalidRows > 0
     || !report.complete
     || Boolean(metadata.dataLossFromOtherRow)
     || Boolean(metadata.subjectToThresholding)
     || Boolean(metadata.dataTruncationReasons?.length)
     || Boolean(metadata.schemaRestrictionResponse?.activeMetricRestrictions?.length)
-    || Boolean(metadata.samplingMetadatas?.some((sample) => Number(sample.samplesReadCount) < Number(sample.samplingSpaceSize)));
+    || samplingMetadataIncomplete;
   Object.defineProperty(pageViews, 'coverage', {
     value: {
       complete: !incomplete,

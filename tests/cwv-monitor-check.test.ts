@@ -260,6 +260,14 @@ describe('main() — GA4 is the only source (H9)', () => {
     return pageViews;
   }
 
+  function incompleteSamplingGa4PageViews() {
+    const pageViews = new Map();
+    Object.defineProperty(pageViews, 'coverage', {
+      value: { complete: false, samplingMetadatas: [{}], timeZone: 'Europe/Zurich' },
+    });
+    return pageViews;
+  }
+
   beforeEach(() => {
     vi.resetAllMocks();
     process.env.CWV_MONITOR_HISTORY_FILE = HISTORY;
@@ -384,6 +392,19 @@ describe('main() — GA4 is the only source (H9)', () => {
     expect(loadHistory(HISTORY).pages.traffico_chiasso_brogeda_oggi.weeks.at(-1)).toMatchObject({
       sourceUnavailable: 'no target observations in 7d window',
     });
+  });
+
+  it('fails closed when page-view sampling metadata is unknown', async () => {
+    const missingPath = '/traffico-dogane/chiasso-brogeda/oggi/';
+    const result = await main({
+      checkLivenessImpl: async () => ALIVE,
+      ga4FallbackImpl: async () => ga4Rows({ skip: [missingPath] }),
+      ga4PageViewsImpl: async () => incompleteSamplingGa4PageViews(),
+    });
+
+    expect(result.status).toBe('source-unavailable');
+    expect(result.unavailablePages).toContain('traffico_chiasso_brogeda_oggi');
+    expect(result.quietPages).not.toContain('traffico_chiasso_brogeda_oggi');
   });
 
   it('fails the page measurement when desktop INP is absent even if mobile CLS is present', async () => {
