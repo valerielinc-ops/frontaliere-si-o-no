@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-26T06:01:32.199Z",
+  "generatedAt": "2026-11-26T07:29:22.012Z",
   "totalEvents": 18409,
   "events": [
     {
@@ -479362,7 +479362,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Lo spettacolo teatrale presentato a Ginevra prende spunto da un fatto di cronaca avvenuto nelle foreste del Maine. Esamina in chiave metafisica e poetica il mistero dell’esistenza umana, sia nella relazione con gli altri sia in loro assenza.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo teatrale presentato a Ginevra prende spunto da un fatto di cronaca avvenuto nelle foreste del Maine. Esamina in chiave metafisica e poetica il mistero dell’esistenza umana, sia nella relazione con gli altri sia in loro assenza.",
+        "en": "This theatre production in Geneva takes its starting point from a real news story that occurred in the forests of Maine. It explores the mystery of human existence from a metaphysical and poetic perspective, both in relation to others and apart from them.",
+        "de": "Die Theaterproduktion in Genf geht von einem tatsächlichen Vorfall in den Wäldern von Maine aus. Sie untersucht in metaphysischer und poetischer Weise das Rätsel der menschlichen Existenz, sowohl im Verhältnis zu anderen als auch ohne sie.",
+        "fr": "Cette pièce de théâtre présentée à Genève prend pour point de départ un fait divers survenu dans les forêts du Maine. Elle propose une réflexion métaphysique et poétique sur le mystère de la condition humaine, en considérant la présence d’autrui comme son absence."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:15f6afee851347d98abafe21f09fe0c9",
@@ -772037,7 +772045,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Drake Milligan si esibisce al Kaufleuten, nel cantone di Zurigo. L’appuntamento unisce la musica country classica al carattere disinvolto del primo rock ’n’ roll.",
+      "descriptionByLocale": {
+        "it": "Drake Milligan si esibisce al Kaufleuten, nel cantone di Zurigo. L’appuntamento unisce la musica country classica al carattere disinvolto del primo rock ’n’ roll.",
+        "en": "Drake Milligan performs at Kaufleuten in the canton of Zurich. The event combines classic country music with the relaxed character of early rock and roll.",
+        "de": "Drake Milligan tritt im Kaufleuten im Kanton Zürich auf. Die Veranstaltung verbindet klassische Country-Musik mit der gelassenen Ausstrahlung des frühen Rock ’n’ Roll.",
+        "fr": "Drake Milligan se produit au Kaufleuten, dans le canton de Zurich. Le rendez-vous associe la country classique à l’esprit décontracté des débuts du rock ’n’ roll."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AmGYBRE",
@@ -798800,7 +798816,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Eros Ramazzotti è il titolo di un evento di musica pop al Hallenstadion di Zurigo. La scheda indica Terra Promessa come performer.",
+      "descriptionByLocale": {
+        "it": "Eros Ramazzotti è il titolo di un evento di musica pop al Hallenstadion di Zurigo. La scheda indica Terra Promessa come performer.",
+        "en": "The listing is for Eros Ramazzotti, a pop event at Hallenstadion Zürich in Zürich. Terra Promessa is listed as the performer.",
+        "de": "Eros Ramazzotti ist der Titel einer Popveranstaltung im Hallenstadion Zürich. Terra Promessa ist als Performer angegeben.",
+        "fr": "Eros Ramazzotti est le titre d’un événement de musique pop au Hallenstadion Zürich, à Zurich. Terra Promessa est indiqué comme interprète."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AijjReP",
