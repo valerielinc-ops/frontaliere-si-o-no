@@ -154,6 +154,28 @@ describe('Rituals Cosmetics Switzerland crawler parser', () => {
       });
     });
 
+    it('matches a JSON-LD posting through mainEntityOfPage when url is stale', () => {
+      const matchingTitle = 'Verkaufsberaterin Basel';
+      const matchingDescription = SOURCE_BODY;
+      const detailHtml = `<main><h1>Fallback title</h1></main>
+      <script type="application/ld+json">${JSON.stringify({
+        '@type': 'JobPosting',
+        url: 'https://careers.rituals.com/de-CH/jobs/other/OTHER1/',
+        mainEntityOfPage: DETAIL_URL,
+        title: matchingTitle,
+        description: matchingDescription,
+        jobLocation: { address: { addressLocality: 'Basel' } },
+      })}</script>`;
+
+      const detail = parseRitualsDetailPage(detailHtml, { url: DETAIL_URL });
+
+      expect(detail).toMatchObject({
+        title: matchingTitle,
+        description: expect.stringContaining(matchingDescription.slice(0, 40)),
+        location: 'Basel',
+      });
+    });
+
     it('continues past an unresolvable listing location to a structured Swiss locality', () => {
       const detailHtml = `<main><h1>Aushilfe Verkaufsberater (m/w/d)</h1></main>
       <script type="application/ld+json">${JSON.stringify({

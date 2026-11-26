@@ -359,11 +359,10 @@ function structuredUrlStrings(value) {
 }
 
 function jobPostingUrls(posting) {
-  for (const value of [posting?.url, posting?.mainEntityOfPage, posting?.['@id']]) {
-    const urls = structuredUrlStrings(value).map((url) => url.trim()).filter(Boolean);
-    if (urls.length > 0) return urls;
-  }
-  return [];
+  return [posting?.url, posting?.mainEntityOfPage, posting?.['@id']]
+    .flatMap(structuredUrlStrings)
+    .map((url) => url.trim())
+    .filter(Boolean);
 }
 
 function sameRitualsPostingUrl(left, right) {
