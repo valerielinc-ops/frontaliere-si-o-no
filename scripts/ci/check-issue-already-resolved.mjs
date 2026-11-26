@@ -536,7 +536,7 @@ export function handoffSupersededVerdict({ originPr, handoffIssue, repoArgs = []
     if (origin.mergedAt || !Number.isFinite(closedAt)) return notSuperseded('superseded-closed-state-ambiguous');
     if (now - closedAt < SUPERSEDED_MIN_CLOSED_AGE_MS) return notSuperseded('superseded-closed-too-recent');
     const open = json(['pr', 'list', '--state', 'open', '--limit', String(SUPERSEDED_LIST_LIMIT), '--json',
-      'number,headRefName,closingIssuesReferences,body']);
+      'number,headRefName,closingIssuesReferences,title,body']);
     if (!Array.isArray(open) || open.length >= SUPERSEDED_LIST_LIMIT) return notSuperseded('superseded-open-prs-unreadable');
     const citesOrigin = new RegExp(`(?:^|[^\\w/])#${Number(originPr)}(?!\\d)`, 'u');
     const wanted = new Set([...issues, ...(handoffIssue ? [Number(handoffIssue)] : [])]);
@@ -545,7 +545,7 @@ export function handoffSupersededVerdict({ originPr, handoffIssue, repoArgs = []
       const closes = declaredClosingIssues(pr);
       const overlap = closes.some((n) => wanted.has(n));
       const branchNamesHandoff = handoffIssue && new RegExp(`issue-${Number(handoffIssue)}(?!\\d)`, 'u').test(String(pr?.headRefName || ''));
-      if (overlap || branchNamesHandoff || citesOrigin.test(String(pr?.body || ''))) {
+      if (overlap || branchNamesHandoff || citesOrigin.test(`${pr?.title || ''}\n${pr?.body || ''}`)) {
         return notSuperseded('superseded-other-open-pr');
       }
     }

@@ -44,6 +44,7 @@ describe('handoffSupersededVerdict', () => {
     const origin = { number: 20157, state: 'CLOSED', closedAt: OLD, closingIssuesReferences: [{ number: 101 }], files: files('a.mjs') };
     expect(run({ 'pr view 20157': origin, 'pr list list': [{ number: 5, headRefName: 'x', closingIssuesReferences: [{ number: 101 }], body: '' }] }).resolved).toBe(false);
     expect(run({ 'pr view 20157': origin, 'pr list list': [{ number: 5, headRefName: 'x', closingIssuesReferences: [], body: 'Supersedes #20157' }] }).resolved).toBe(false);
+    expect(run({ 'pr view 20157': origin, 'pr list list': [{ number: 5, title: 'supersedes #20157', headRefName: 'x', closingIssuesReferences: [], body: '' }] })).toMatchObject({ resolved: false, reason: 'superseded-other-open-pr' });
     expect(run({ 'pr view 20157': origin, 'pr list list': [{ number: 5, headRefName: 'fix/issue-30001', closingIssuesReferences: [], body: '' }] }).resolved).toBe(false);
   });
 
