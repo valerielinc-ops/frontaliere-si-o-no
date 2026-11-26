@@ -20,6 +20,7 @@ import {
   fetchWorkdayJobs,
   fetchWorkdaySidebarText,
   resetWorkdayImplicitRateLimitStateForTests,
+  shouldPropagateWorkdayFetchError,
   WorkdayApiError,
   WorkdayRateLimitError,
 } from '../scripts/lib/ats-clients/workday-client.mjs';
@@ -53,6 +54,13 @@ afterEach(() => {
 });
 
 describe('Workday JSON transport', () => {
+  it('propagates status-0 transport failures for fail-closed listing callers', () => {
+    const transportError = new WorkdayApiError('transport failed', 0, `${API_BASE}/jobs`);
+
+    expect(shouldPropagateWorkdayFetchError(transportError, true)).toBe(true);
+    expect(shouldPropagateWorkdayFetchError(transportError)).toBe(false);
+  });
+
   it('retries a rate-limited JSON request before returning the listing', async () => {
     vi.stubEnv('JOBS_CRAWLER_RETRIES', '1');
     vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
