@@ -277,7 +277,7 @@ async function fetchJobListingsOnce() {
       }
       jobs = [];
     } else {
-      const error = new Error('Weisse Arena source did not expose a valid jobs array; refusing an unverified partial crawl.');
+      const error = new Error('Weisse Arena source did not expose a jobs array with valid entries; refusing an unverified partial crawl.');
       error.code = INVALID_LISTING_ENVELOPE_ERROR_CODE;
       throw error;
     }
