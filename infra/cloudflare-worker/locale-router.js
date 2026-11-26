@@ -2923,17 +2923,16 @@ export async function loadCorpusSectionRegistry(now = Date.now()) {
   if (now < memo.nextAttemptAt) return memo.value;
   const refreshSequence = ++memo.refreshSequence;
   const fresh = await fetchCorpusRegistry();
-  // A late response from an older request must not replace a newer registry
-  // or move its freshness window backwards.
-  if (refreshSequence > memo.publishedRefreshSequence) {
+  // Only successful publications advance this sequence: a newer failed
+  // attempt must not prevent an older in-flight valid registry from seeding
+  // an otherwise empty memo.
+  if (fresh && refreshSequence > memo.publishedRefreshSequence) {
     memo.publishedRefreshSequence = refreshSequence;
-    if (fresh) {
-      memo.value = fresh;
-      memo.checkedAt = now;
-      memo.nextAttemptAt = 0;
-    } else {
-      memo.nextAttemptAt = now + CORPUS_REGISTRY_RETRY_MS;
-    }
+    memo.value = fresh;
+    memo.checkedAt = now;
+    memo.nextAttemptAt = 0;
+  } else if (!fresh && refreshSequence === memo.refreshSequence) {
+    memo.nextAttemptAt = now + CORPUS_REGISTRY_RETRY_MS;
   }
   return memo.value ?? fresh;
 }

@@ -529,6 +529,29 @@ describe('registry memo and last-known-good', () => {
     expect(registryFetches()).toHaveLength(2);
   });
 
+  it.each([404, 500])('lets an older valid registry seed an empty memo after a newer HTTP %s', async (status) => {
+    const resolvers: Array<(response: Response) => void> = [];
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
+      const reqUrl = typeof input === 'string' ? input : input instanceof URL ? input.toString() : input.url;
+      fetched.push(reqUrl);
+      if (reqUrl !== REGISTRY_URL) return new Response('missing', { status: 404 });
+      return new Promise((resolve) => resolvers.push(resolve));
+    });
+
+    const t0 = 1_800_000_000_000;
+    const older = loadCorpusSectionRegistry(t0);
+    const newer = loadCorpusSectionRegistry(t0 + 50);
+    resolvers[1](new Response('unavailable', { status }));
+    await expect(newer).resolves.toBeNull();
+    resolvers[0](new Response(JSON.stringify(registry({ 'canton-ti': { status: 'live' } })), { status: 200 }));
+    await expect(older).resolves.toMatchObject({ sections: { 'canton-ti': { status: 'live' } } });
+
+    await expect(loadCorpusSectionRegistry(t0 + 50)).resolves.toMatchObject({
+      sections: { 'canton-ti': { status: 'live' } },
+    });
+    expect(registryFetches()).toHaveLength(2);
+  });
+
   it('keeps serving the last-known-good registry when a refresh fails or is invalid', async () => {
     const t0 = 1_800_000_000_000;
     const name = 'sitemap-cantons.xml';

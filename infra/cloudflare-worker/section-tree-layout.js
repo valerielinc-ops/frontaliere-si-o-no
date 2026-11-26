@@ -50,8 +50,7 @@ export function createSectionTreeLayoutReader({
         });
         if (response?.status === 404) {
           const fallback = lastGood ?? new Set(SECTION_TREE_FANOUT_SECTIONS);
-          if (requestSequence > publishedRefreshSequence) {
-            publishedRefreshSequence = requestSequence;
+          if (requestSequence === refreshSequence) {
             lastGood ??= fallback;
             cachedSections = lastGood;
             cacheUntil = now() + cacheTtlMs;
@@ -75,8 +74,7 @@ export function createSectionTreeLayoutReader({
         return lastGood ?? fresh;
       } catch {
         const fallback = lastGood ?? new Set(SECTION_TREE_FANOUT_SECTIONS);
-        if (requestSequence > publishedRefreshSequence) {
-          publishedRefreshSequence = requestSequence;
+        if (requestSequence === refreshSequence) {
           cachedSections = fallback;
           cacheUntil = now() + retryMs;
         }
