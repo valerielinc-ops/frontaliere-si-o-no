@@ -1651,6 +1651,13 @@ export const Analytics = {
  // Decode React minified errors (e.g., "Minified React error #310" → human-readable)
  const decodedMessage = decodeReactError(info.message || 'unknown');
 
+ // ErrorBoundary/SilentErrorBoundary call this sink directly, bypassing both
+ // errorReporter and the global window handlers. Keep the shared app-error
+ // deny-list at the final emission boundary too, so a browser-extension error
+ // such as Firefox's dead-object wrapper cannot leak into GA4 through a
+ // boundary path even when its stack is only `at :0:1`.
+ if (isBenignErrorMessage(decodedMessage)) return;
+
  // GA4 hard-truncates every custom event parameter VALUE to ~100 chars at
  // ingestion (platform limit, independent of the `truncate()` length args
  // below). Callers prefix `message` with a `[Component:Name] ` diagnostic
