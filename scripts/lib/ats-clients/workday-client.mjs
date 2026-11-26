@@ -491,6 +491,17 @@ const DEFAULT_RATE_LIMIT_COOLDOWN_MS = 60_000;
 const DEFAULT_EGRESS_MIN_DELAY_MS = 500;
 const EGRESS_LOCK_RETRY_MS = 50;
 
+function defaultWorkdayEgressStateDir() {
+  const configured = String(process.env.WORKDAY_EGRESS_STATE_DIR || '').trim();
+  if (configured) return configured;
+  const runnerTemp = typeof process.env.RUNNER_TEMP === 'string'
+    ? process.env.RUNNER_TEMP.trim()
+    : '';
+  return runnerTemp
+    ? path.join(runnerTemp, 'crawler-generation', 'workday-egress')
+    : null;
+}
+
 function readWorkdayEgressState(statePath) {
   try {
     const state = JSON.parse(fs.readFileSync(statePath, 'utf8'));
@@ -620,7 +631,7 @@ export function createWorkdayRequestContext(apiBase, options = {}) {
     retryAfterCapMs = MAX_RETRY_AFTER_MS,
     fallbackCooldownMs = DEFAULT_RATE_LIMIT_COOLDOWN_MS,
     rateLimitCircuitThreshold = DEFAULT_RATE_LIMIT_CIRCUIT_THRESHOLD,
-    egressStateDir = process.env.WORKDAY_EGRESS_STATE_DIR || null,
+    egressStateDir = defaultWorkdayEgressStateDir(),
     egressMinDelayMs = DEFAULT_EGRESS_MIN_DELAY_MS,
   } = options;
   let browserSession = null;

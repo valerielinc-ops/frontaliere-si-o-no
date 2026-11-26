@@ -73,9 +73,6 @@ jobs:
       CRAWLER_GROUP_MAX_PARALLEL: "8"
       AI_CACHE_PATH: .cache/jobs-ai-cache.json
     steps:
-      - name: Configure shared Workday egress state
-        shell: bash
-        run: echo "WORKDAY_EGRESS_STATE_DIR=$RUNNER_TEMP/crawler-generation/workday-egress" >> "$GITHUB_ENV"
       - name: Checkout frontaliere-si-o-no (attempt 1/2, sparse)
         id: site_checkout_primary
         uses: actions/checkout@v7
