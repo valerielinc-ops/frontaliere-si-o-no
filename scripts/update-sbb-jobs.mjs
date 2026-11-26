@@ -1270,7 +1270,14 @@ export function resolveSbbJobLocation({
   // Re-select from the raw detail page whenever identity is available. This
   // keeps callers that still hold a first-match JobPosting from bypassing the
   // URL/title guard at the final location boundary.
-  const resolvedJobPosting = extractSbbJsonLd(html, identity) || jobPosting;
+  const hasIdentity = Boolean(
+    String(identity?.title || '').trim() || String(identity?.url || '').trim(),
+  );
+  const hasDetailHtml = Boolean(String(html || '').trim());
+  const selectedJobPosting = extractSbbJsonLd(html, identity);
+  const resolvedJobPosting = hasIdentity && hasDetailHtml
+    ? selectedJobPosting
+    : (selectedJobPosting || jobPosting);
   const resolvedDetailLocation = extractLocationFromJobPosting(resolvedJobPosting, html, null);
   const apiFallbackLocation = String(apiMeta?.city || '').trim();
   return String(

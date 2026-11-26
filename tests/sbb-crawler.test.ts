@@ -360,6 +360,33 @@ describe('parseSbbDetailPage — body location override', () => {
     })).toBe('Bellinzona');
   });
 
+  it('does not restore an ambiguous first-match JobPosting at the location boundary', () => {
+    const detailUrl = 'https://jobs.sbb.ch/v2/offene-stellen/current';
+    const fixture = `<script type="application/ld+json">${JSON.stringify({
+      '@graph': [
+        {
+          '@type': 'JobPosting',
+          title: 'Current',
+          url: '/related-one',
+          jobLocation: { address: { addressLocality: 'Bern' } },
+        },
+        {
+          '@type': 'JobPosting',
+          title: 'Current',
+          url: '/related-two',
+          jobLocation: { address: { addressLocality: 'Zürich' } },
+        },
+      ],
+    })}</script>`;
+
+    expect(resolveSbbJobLocation({
+      jobPosting: { jobLocation: { address: { addressLocality: 'Bern' } } },
+      html: fixture,
+      identity: { title: 'Current', url: detailUrl },
+      apiMeta: { city: 'Bellinzona' },
+    })).toBe('Bellinzona');
+  });
+
   it('extracts the rendered workplace city from intro lines', () => {
     expect(extractSbbBodyLocation(FIXTURE_BODY_LOCATION_WINS_HTML)).toBe('Chur');
   });
