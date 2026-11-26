@@ -119,6 +119,8 @@ import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
 import { stampCodeCommit } from './lib/checkout-code-commit.mjs';
 import { readJsonFile } from './lib/read-large-json.mjs';
 import { readExpiredSliceRows } from './lib/expired-slice-store.mjs';
+import { createExpiredDescriptionSpill, withoutDescriptions } from './lib/expired-description-spill.mjs';
+import { startHeapPhase } from './lib/heap-phase-monitor.mjs';
 import { alignSummaryWithPublishedSlice, publishedSliceFor, recordPublishedSlice } from './lib/crawler-summary-partition.mjs';
 import { decontaminateEntries, decontaminateJobs, readFleetForSingleOwner } from './decontaminate-prev-slugs.mjs';
 import { extractNarrativeJobTitle } from './lib/job-title-normalization.mjs';
@@ -4488,6 +4490,7 @@ export function repairExpiredArchiveSlicesAgainstActive(activeJobs, { sliceDir =
       mergedSlugs: 0,
     };
   }
+  const slicesHeap = startHeapPhase('expired slices: route repair');
   let changed = 0;
   let repairedRoutes = 0;
   let collapsedRoutes = 0;
@@ -4527,17 +4530,24 @@ export function repairExpiredArchiveSlicesAgainstActive(activeJobs, { sliceDir =
     } else if (archiveChanged) {
       writeJson(slicePath, workingEntries);
     }
-    allEntries.push(...workingEntries);
+    // Only ghost reconciliation reads this population, and it matches on
+    // identity, title, company, location and routes. Its removals re-read the
+    // slices, so the descriptions must not stay alive for the whole corpus.
+    for (const entry of workingEntries) allEntries.push(withoutDescriptions(entry));
+    slicesHeap.sample(path.basename(slicePath));
   }
+  slicesHeap.finish();
 
   // Ghost reconciliation used to see only the capped aggregate assembled
   // below. A same-posting expired entry beyond EXPIRED_JOBS_CAP therefore
   // survived in its uncapped source slice and still owned the active route.
   // Scan the complete slice corpus before aggregation so the cap remains a
   // publication limit, never a correctness boundary.
+  const ghostHeap = startHeapPhase('expired slices: ghost reconciliation');
   const ghostRepair = malformed
     ? { ghostCount: 0, mergedSlugs: 0 }
     : reconcileGhostExpired(activeJobs, allEntries, { sliceDir });
+  ghostHeap.finish();
 
   return {
     changed,
@@ -4599,16 +4609,17 @@ export function assembleExpiredJobs({ sliceDir = EXPIRED_SLICES_DIR, aggregatePa
   const bySlug = new Map();
   let totalSliceEntries = 0;
   const malformedExpired = [];
-  const parsedSlices = [];
 
+  // Every file is validated before the first one is rewritten below. The parsed
+  // rows are dropped at once: only one file is held at a time in either pass.
+  const validateHeap = startHeapPhase('expired assembly: validate slices');
   for (const slicePath of sliceFiles) {
-    const entries = readJson(slicePath, null);
-    if (!Array.isArray(entries)) {
+    if (!Array.isArray(readJson(slicePath, null))) {
       malformedExpired.push(path.basename(slicePath));
-      continue;
     }
-    parsedSlices.push({ slicePath, entries });
+    validateHeap.sample(path.basename(slicePath));
   }
+  validateHeap.finish();
   if (malformedExpired.length > 0) {
     throw new Error(
       `Refusing to assemble expired slices: ${malformedExpired.length} malformed:\n` +
@@ -4617,7 +4628,14 @@ export function assembleExpiredJobs({ sliceDir = EXPIRED_SLICES_DIR, aggregatePa
     );
   }
 
-  for (const { slicePath, entries } of parsedSlices) {
+  const descriptions = createExpiredDescriptionSpill();
+  const readHeap = startHeapPhase('expired assembly: normalize and dedupe slices');
+  for (const slicePath of sliceFiles) {
+    const entries = readJson(slicePath, null);
+    // Validated above: only a concurrent writer can get here.
+    if (!Array.isArray(entries)) {
+      throw new Error(`Refusing to assemble expired slices: ${path.basename(slicePath)} changed during assembly`);
+    }
     totalSliceEntries += entries.length;
     // Repair before the entries reach the sort + `slice(0, EXPIRED_JOBS_CAP)`
     // below: `compareExpiredAt` sends an unparseable value to the tail, which
@@ -4632,10 +4650,15 @@ export function assembleExpiredJobs({ sliceDir = EXPIRED_SLICES_DIR, aggregatePa
       // Keep the most recently expired entry for each slug
       if (!existing || compareExpiredAt(entry.expiredAt, existing.expiredAt) >= 0) {
         bySlug.set(key, entry);
+        // After the slice was persisted above, which needs the full rows.
+        descriptions.detach(entry);
       }
     }
+    readHeap.sample(path.basename(slicePath));
   }
+  readHeap.finish();
 
+  const collapseHeap = startHeapPhase('expired assembly: merge aggregate, collapse and cap');
   // Also merge any existing aggregated expired-jobs.json (from deploy-time cleanup)
   const existingAgg = readJson(aggregatePath, []);
   if (Array.isArray(existingAgg)) {
@@ -4646,9 +4669,11 @@ export function assembleExpiredJobs({ sliceDir = EXPIRED_SLICES_DIR, aggregatePa
       const existing = bySlug.get(key);
       if (!existing || compareExpiredAt(entry.expiredAt, existing.expiredAt) >= 0) {
         bySlug.set(key, entry);
+        descriptions.detach(entry);
       }
     }
   }
+  collapseHeap.sample('existing aggregate merged');
 
   // Sort by expiredAt descending, cap at EXPIRED_JOBS_CAP.
   // `expiredKey` dedups on companyKey + CURRENT slug, which two entries whose
@@ -4669,12 +4694,14 @@ export function assembleExpiredJobs({ sliceDir = EXPIRED_SLICES_DIR, aggregatePa
   if (assembled.length > EXPIRED_JOBS_CAP) {
     assembled = assembled.slice(0, EXPIRED_JOBS_CAP);
   }
+  for (const entry of assembled) descriptions.restore(entry);
 
   // Expired entries carry `company` too, and feed the soft-landing pages that
   // sit under the same employer brand. Reconcile them in the same pass so a
   // corrected label does not read one way on the active page and another on
   // the expired one.
   relabelExpiredArchiveEntries(assembled);
+  collapseHeap.finish();
 
   console.log(`  📄 ${sliceFiles.length} expired slices: ${totalSliceEntries} entries → ${assembled.length} unique slugs`);
   return assembled;
@@ -5514,6 +5541,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
       writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
     }
     const expiredJobs = assembleExpiredJobs();
+    const publishHeap = startHeapPhase('expired archive: reconcile and persist');
     if (expiredJobs !== null) {
       let repairedExpiredJobs = expiredJobs;
       if (assembled) {
@@ -5600,6 +5628,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
         console.log(`✅ data/expired-jobs.json assembled: ${repairedExpiredJobs.length} expired jobs`);
       }
     }
+    publishHeap.finish();
   } else {
     console.log('⏭️  Expired jobs skipped (--active-only): archive and expired-slug reconciliation left as-is');
   }
