@@ -22,7 +22,7 @@ import { readJsonFile } from './lib/read-large-json.mjs';
 import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, isConnectionLevelFetchError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import {
@@ -40,6 +40,7 @@ import {
   writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
+  markCrawlerSummaryAbortKind,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -60,7 +61,9 @@ import { isSwissLocationText, inferAnyCanton } from './lib/target-swiss-location
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
-import { fetchWorkdayJsonWithRetry, firstLocationSegment, WorkdayRateLimitError } from './lib/ats-clients/workday-client.mjs';
+import { fetchWorkdayJsonWithRetry, firstLocationSegment } from './lib/ats-clients/workday-client.mjs';
+import { isRetryBudgetExhausted } from './lib/transient-fetch.mjs';
+import { CRAWLER_ABORT_KINDS, CRAWLER_FETCH_OUTCOMES } from './lib/crawler-fetch-outcome.mjs';
 import { resolveFnzSwissLocation } from './lib/fnz-job-parser.mjs';
 import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './lib/workday-swiss-job-parser-common.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
@@ -178,9 +181,8 @@ async function fetchJson(url, options = {}) {
         'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
     });
   } catch (err) {
-    if (err instanceof WorkdayRateLimitError) throw err;
     console.warn(`⚠️ Fetch failed for ${url}: ${err?.message || err}`);
-    return null;
+    throw err;
   }
 }
 
@@ -201,6 +203,7 @@ async function fetchJson(url, options = {}) {
  */
 async function listSwissJobs() {
   const candidates = [];
+  let discoveredCount = 0;
   let offset = 0;
   let total = null;
   let pages = 0;
@@ -239,8 +242,7 @@ async function listSwissJobs() {
 
     if (!data || !Array.isArray(data.jobPostings)) {
       if (offset === 0 && total === null) {
-        console.warn('⚠️ Failed to fetch Workday listings.');
-        break;
+        throw new Error('FNZ Workday listing response unavailable before any page was observed.');
       }
       throw new Error(
         `FNZ Workday pagination incomplete at offset ${offset}: ` +
@@ -249,6 +251,7 @@ async function listSwissJobs() {
     }
 
     pages += 1;
+    discoveredCount += data.jobPostings.length;
 
     for (const posting of data.jobPostings) {
       const locText = posting.locationsText || '';
@@ -283,6 +286,10 @@ async function listSwissJobs() {
     }
   }
 
+  Object.defineProperty(candidates, 'discoveredCount', {
+    value: discoveredCount,
+    enumerable: false,
+  });
   return candidates;
 }
 
@@ -389,6 +396,28 @@ function buildPublicUrl(externalPath) {
   return `${FNZ_PUBLIC_BASE}${externalPath}`;
 }
 
+function attachFetchDiagnostics(jobs, {
+  discoveredCount = null,
+  fetchOutcome = null,
+  abortKind = null,
+} = {}) {
+  Object.defineProperties(jobs, {
+    discoveredCount: {
+      value: Number.isSafeInteger(discoveredCount) ? discoveredCount : null,
+      enumerable: false,
+    },
+    fetchOutcome: {
+      value: CRAWLER_FETCH_OUTCOMES.has(fetchOutcome) ? fetchOutcome : null,
+      enumerable: false,
+    },
+    abortKind: {
+      value: CRAWLER_ABORT_KINDS.has(abortKind) ? abortKind : null,
+      enumerable: false,
+    },
+  });
+  return jobs;
+}
+
 /* ── Fetch and build all FNZ Swiss jobs ────────────────────── */
 
 export async function fetchFnzJobs() {
@@ -399,7 +428,10 @@ export async function fetchFnzJobs() {
   const listings = await listSwissJobs();
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No Swiss job listings returned from Workday API.');
-    return [];
+    return attachFetchDiagnostics([], {
+      discoveredCount: listings?.discoveredCount ?? 0,
+      fetchOutcome: (listings?.discoveredCount ?? 0) > 0 ? 'filtered_empty' : 'ok',
+    });
   }
 
   console.log(`  📋 Swiss job listings found: ${listings.length}`);
@@ -521,7 +553,11 @@ export async function fetchFnzJobs() {
   }
 
   console.log(`\n📋 Total unique FNZ jobs discovered: ${jobs.length}`);
-  return jobs;
+  return attachFetchDiagnostics(jobs, {
+    discoveredCount: listings.discoveredCount ?? listings.length,
+    fetchOutcome: jobs.length > 0 ? 'ok' : 'selector_miss',
+    abortKind: jobs.length > 0 ? null : 'no-jobs-parsed',
+  });
 }
 
 /* ── Merge into data/jobs.json ─────────────────────────────── */
@@ -697,6 +733,33 @@ function logStats(beforeSnapshot = new Map()) {
 
 }
 
+function writeFnzSummary(crawlDiff, summaryCounts) {
+  const _durationMs = getCrawlerElapsedMs();
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
+  const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isFnzJob) : [];
+  writeSummaryCrawlerSlice({
+    key: FNZ_KEY,
+    label: 'FNZ',
+    generatedAt: new Date().toISOString(),
+    total: _sliceJobs.length,
+    discovered: summaryCounts.discovered,
+    parsed: summaryCounts.parsed,
+    written: _sliceJobs.length,
+    lastFetchOutcome: summaryCounts.lastFetchOutcome,
+    newCount: crawlDiff.newJobs.length,
+    updatedCount: crawlDiff.updatedJobs.length,
+    removedCount: crawlDiff.removedJobs.length,
+    unchangedCount: crawlDiff.unchangedCount,
+    durationMs: _durationMs,
+    avgDurationMs: _durationMs,
+    durationHistory: [_durationMs],
+    newJobs: crawlDiff.newJobs.slice(0, 30),
+    updatedJobs: crawlDiff.updatedJobs.slice(0, 30),
+    removedJobs: crawlDiff.removedJobs.slice(0, 30),
+    unchangedJobs: (crawlDiff.unchangedJobs || []).slice(0, 30),
+  });
+}
+
 function validateLocales() {
   validateDedicatedLocaleCoverage({
     strictEnvVar: 'JOBS_FNZ_STRICT',
@@ -725,11 +788,30 @@ async function rewriteStoredJobsWithoutThinSource(storedJobs) {
   });
 }
 
+/**
+ * Preserve the response/no-response distinction when FNZ cannot fetch its
+ * Workday listing. A transport failure is not an empty Swiss source.
+ *
+ * @param {unknown} error
+ * @returns {'retryable-http-response'|'connection-level-fetch'|null}
+ */
+export function classifyFnzFetchAbortKind(error) {
+  if (isRetryBudgetExhausted(error)) return 'retryable-http-response';
+  if (isConnectionLevelFetchError(error)) return 'connection-level-fetch';
+  return null;
+}
+
 /* ── Main ──────────────────────────────────────────────────── */
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(FNZ_KEY, 'FNZ');
+  const summaryCounts = {
+    discovered: null,
+    parsed: null,
+    lastFetchOutcome: null,
+    abortKind: null,
+  };
+  registerCrawlerSummaryGuard(FNZ_KEY, 'FNZ', summaryCounts);
   let crawlDiff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
   console.log('═══════════════════════════════════════════════');
   console.log('  FNZ (Switzerland) AG — Dedicated Crawler');
@@ -740,7 +822,31 @@ async function main() {
   const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(FNZ_KEY, DATA_JOBS).filter(isFnzJob))
 
   // Phase 1: Fetch jobs from Workday API
-  const discoveredJobs = await fetchFnzJobs();
+  let discoveredJobs;
+  try {
+    discoveredJobs = await fetchFnzJobs();
+  } catch (err) {
+    const abortKind = classifyFnzFetchAbortKind(err);
+    if (!abortKind) throw err;
+    summaryCounts.lastFetchOutcome = abortKind === 'retryable-http-response'
+      ? 'exhausted_retry'
+      : 'connection_error';
+    summaryCounts.abortKind = abortKind;
+    markCrawlerSummaryAbortKind(abortKind);
+    console.log(
+      abortKind === 'retryable-http-response'
+        ? `\n⚠️ FNZ: retryable HTTP response exhausted its retry budget (${err?.message || err}). Keeping existing jobs (no de-index).`
+        : `\n⚠️ FNZ: connection-level fetch failure after retries (${err?.message || err}). Keeping existing jobs (no de-index).`,
+    );
+    await rewriteStoredJobsWithoutThinSource(
+      readExistingCrawlerJobs(FNZ_KEY, DATA_JOBS).filter(isFnzJob),
+    );
+    return;
+  }
+  summaryCounts.discovered = discoveredJobs.discoveredCount;
+  summaryCounts.parsed = discoveredJobs.length;
+  summaryCounts.lastFetchOutcome = discoveredJobs.fetchOutcome;
+  summaryCounts.abortKind = discoveredJobs.abortKind;
 
   if (discoveredJobs.length === 0) {
     console.log('\n⚠️ No FNZ jobs discovered.');
@@ -751,6 +857,11 @@ async function main() {
     );
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;
+    if (summaryCounts.lastFetchOutcome === 'ok' || summaryCounts.lastFetchOutcome === 'filtered_empty') {
+      writeFnzSummary(crawlDiff, summaryCounts);
+    } else if (!summaryCounts.abortKind) {
+      summaryCounts.abortKind = 'no-jobs-parsed';
+    }
     return;
   }
 
@@ -780,27 +891,10 @@ async function main() {
   console.log('\n✅ FNZ crawler complete.');
 
   // Write per-crawler slice and reassemble global dataset
-  const _durationMs = getCrawlerElapsedMs();
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isFnzJob) : [];
   writeJobsCrawlerSlice(FNZ_KEY, _sliceJobs, { observedJobs: discoveredJobs });
-  writeSummaryCrawlerSlice({
-    key: FNZ_KEY,
-    label: 'FNZ',
-    generatedAt: new Date().toISOString(),
-    total: _sliceJobs.length,
-    newCount: crawlDiff.newJobs.length,
-    updatedCount: crawlDiff.updatedJobs.length,
-    removedCount: crawlDiff.removedJobs.length,
-    unchangedCount: crawlDiff.unchangedCount,
-    durationMs: _durationMs,
-    avgDurationMs: _durationMs,
-    durationHistory: [_durationMs],
-    newJobs: crawlDiff.newJobs.slice(0, 30),
-    updatedJobs: crawlDiff.updatedJobs.slice(0, 30),
-    removedJobs: crawlDiff.removedJobs.slice(0, 30),
-    unchangedJobs: (crawlDiff.unchangedJobs || []).slice(0, 30),
-  });
+  writeFnzSummary(crawlDiff, summaryCounts);
   await assembleJobsDataset();
 }
 

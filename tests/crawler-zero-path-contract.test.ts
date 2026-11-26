@@ -58,11 +58,11 @@ describe('custom runners: zero-path debt (ratchet, may only go down)', () => {
     // Giorgio Armani runner too. The budget must EQUAL the count: lower it in
     // the same PR that instruments a runner; never raise it. Reproduce with:
     //   node -e "const fs=require('fs');let n=0;for(const f of fs.readdirSync('scripts')){if(!/^update-.*-jobs\.mjs$/.test(f))continue;const s=fs.readFileSync('scripts/'+f,'utf8');if([...s.matchAll(/registerCrawlerSummaryGuard\(([^()]*)\)/g)].some(m=>m[1].split(',').filter(a=>a.trim()).length===2))n++}console.log(n)"
-    // 99 → 98: update-jysk-jobs.mjs now passes `summaryCounts` as the third
-    // argument. Its discovery and post-parser assignments populate the
+    // 99 → 97: update-jysk-jobs.mjs and update-fnz-jobs.mjs now pass
+    // `summaryCounts` as the third argument. Their discovery and post-parser assignments populate the
     // counters, and both zero paths name the validated `no-jobs-parsed` kind,
     // so this runner no longer has the null-counter guard shape.
-    const TWO_ARGUMENT_GUARD_BUDGET = 98;
+    const TWO_ARGUMENT_GUARD_BUDGET = 97;
     const offenders = customRunners
       .filter(({ source }) => summaryGuardCalls(source).some((args) => args.length === 2))
       .map(({ name }) => name);
@@ -90,15 +90,17 @@ describe('custom runners: zero-path debt (ratchet, may only go down)', () => {
     // The budget must EQUAL the count: lower it in the same PR in which a
     // runner starts naming its bail-out; never raise it. Reproduce with:
     //   node -e "const fs=require('fs');let n=0;for(const f of fs.readdirSync('scripts')){if(!/^update-.*-jobs\.mjs$/.test(f))continue;const s=fs.readFileSync('scripts/'+f,'utf8');if(s.includes('registerCrawlerSummaryGuard(')&&!/abortKind\s*[:=]|markCrawlerSummaryAbortKind\(/.test(s))n++}console.log(n)"
-    // 104 → 103: the zero-job exits in
+    // 104 → 102: the zero-job exits in
     // update-casale-jobs.mjs, update-citta-di-lugano-jobs.mjs,
     // update-ems-chemie-jobs.mjs, update-ferrovia-retica-jobs.mjs,
     // update-helsinn-jobs.mjs, update-jysk-jobs.mjs, and
-    // update-sintetica-jobs.mjs now name their bail-out. Each
+    // update-sintetica-jobs.mjs and update-fnz-jobs.mjs now name their
+    // bail-out. FNZ also rethrows a failed Workday listing instead of
+    // converting it to an empty result. Each
     // call/assignment is in the runner's pre-return path and uses the shared
     // `no-jobs-parsed` vocabulary, so the debt count really decreased rather
     // than the guard being bypassed.
-    const NO_ABORT_KIND_BUDGET = 103;
+    const NO_ABORT_KIND_BUDGET = 102;
     const offenders = customRunners
       .filter(({ source }) => !/abortKind\s*[:=]|markCrawlerSummaryAbortKind\(/.test(source))
       .map(({ name }) => name);

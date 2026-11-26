@@ -1,13 +1,74 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import fs from 'node:fs';
 import { resolveFnzSwissLocation, hasFnzSwissPrimaryLocation } from '../scripts/lib/fnz-job-parser.mjs';
-import { resolveFnzLocation, buildFnzDescriptionFields, dropFnzFabricatedText } from '../scripts/update-fnz-jobs.mjs';
+import {
+  classifyFnzFetchAbortKind,
+  fetchFnzJobs,
+  resolveFnzLocation,
+  buildFnzDescriptionFields,
+  dropFnzFabricatedText,
+} from '../scripts/update-fnz-jobs.mjs';
+import { resetWorkdayImplicitRateLimitStateForTests } from '../scripts/lib/ats-clients/workday-client.mjs';
 import { isCantonOnlyLabel } from '../scripts/lib/target-swiss-locations.mjs';
 
 const fnzCrawlerSource = fs.readFileSync(
   new URL('../scripts/update-fnz-jobs.mjs', import.meta.url),
   'utf8',
 );
+
+afterEach(() => {
+  resetWorkdayImplicitRateLimitStateForTests();
+  vi.unstubAllGlobals();
+  vi.unstubAllEnvs();
+});
+
+describe('FNZ fetch boundary diagnostics', () => {
+  it('does not turn a listing transport failure into an empty result', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
+    vi.stubGlobal('fetch', vi.fn(async () => {
+      throw new TypeError('fetch failed');
+    }));
+
+    await expect(fetchFnzJobs()).rejects.toMatchObject({ statusCode: 0 });
+  });
+
+  it('classifies connection and exhausted-response failures for the exit guard', () => {
+    expect(classifyFnzFetchAbortKind(new TypeError('fetch failed')))
+      .toBe('connection-level-fetch');
+    expect(classifyFnzFetchAbortKind(Object.assign(new Error('HTTP 503'), {
+      status: 503,
+      retryBudgetExhausted: true,
+    }))).toBe('retryable-http-response');
+  });
+
+  it('marks a verified empty Workday response as a normal empty outcome', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({
+      total: 0,
+      jobPostings: [],
+    }), { status: 200, headers: { 'Content-Type': 'application/json' } })));
+
+    const jobs = await fetchFnzJobs();
+
+    expect(jobs).toEqual([]);
+    expect(jobs.discoveredCount).toBe(0);
+    expect(jobs.fetchOutcome).toBe('ok');
+    expect(jobs.abortKind).toBeNull();
+  });
+
+  it('distinguishes a populated non-Swiss source from an unavailable source', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({
+      total: 1,
+      jobPostings: [{ externalPath: '/job/london', locationsText: 'London, United Kingdom' }],
+    }), { status: 200, headers: { 'Content-Type': 'application/json' } })));
+
+    const jobs = await fetchFnzJobs();
+
+    expect(jobs).toEqual([]);
+    expect(jobs.discoveredCount).toBe(1);
+    expect(jobs.fetchOutcome).toBe('filtered_empty');
+    expect(jobs.abortKind).toBeNull();
+  });
+});
 
 describe('fnz-job-parser / resolveFnzSwissLocation', () => {
   it('prefers a later specific Swiss candidate over a country-only value', () => {
