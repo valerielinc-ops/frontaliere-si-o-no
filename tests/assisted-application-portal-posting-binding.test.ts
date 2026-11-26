@@ -71,7 +71,7 @@ describe('portal form binding identity', () => {
     const job = { company: 'Synthetic Employer', title: 'Synthetic Role' };
 
     expect(isVerifiedPostingEntry({ applyUrl: authUrl, postingUrl, postingRouteProof: proof })).toBe(true);
-    expect(formPostingMatch('Career Opportunities: Sign In\nE-mail :*\nMot de passe :*\nConnexion', job, {
+    expect(formPostingMatch('Connexion\nE-mail :*\nMot de passe :*', job, {
       postingMatched: true,
       postingEntry: true,
       applicationEntry: true,
