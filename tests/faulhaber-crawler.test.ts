@@ -40,6 +40,44 @@ const DETAIL_HTML = `
       </div>
     </div>
   </div>`;
+const DETAIL_HTML_SOURCE_LOCATION = `
+  <div class="annonce">
+    <script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Tecnico di misura',
+      url: DETAIL_URL,
+      jobLocation: {
+        address: {
+          addressLocality: 'Grenchen',
+          addressCountry: 'CH',
+        },
+      },
+    })}</script>
+    <h1>Tecnico di misura</h1>
+    <div id="position" class="content">
+      <div class="location">CH - Croglio</div>
+      <div class="annonce-row">
+        Per il nostro team Quality Management cerchiamo un tecnico di misura con esperienza nella metrologia,
+        nel controllo qualità e nella documentazione dei risultati. La posizione collabora con produzione e ingegneria.
+        Pianifichi le misure sui micromotori, programmi le macchine di misura a coordinate, analizzi le deviazioni
+        con i reparti coinvolti e proponi azioni correttive documentate secondo le norme ISO in vigore nello stabilimento.
+      </div>
+    </div>
+  </div>`;
+const DETAIL_HTML_MULTIPLE_POSTINGS = DETAIL_HTML_SOURCE_LOCATION.replace(
+  /<script type="application\/ld\+json">[\s\S]*?<\/script>/,
+  `<script type="application/ld+json">${JSON.stringify({
+    '@type': 'JobPosting',
+    title: 'Other vacancy',
+    url: 'https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/99999/Other',
+    jobLocation: { address: { addressLocality: 'München', addressCountry: 'DE' } },
+  })}</script><script type="application/ld+json">${JSON.stringify({
+    '@type': 'JobPosting',
+    title: 'Tecnico di misura',
+    url: DETAIL_URL,
+    jobLocation: { address: { addressLocality: 'Grenchen', addressCountry: 'CH' } },
+  })}</script>`,
+);
 
 function httpError(status: number) {
   return Object.assign(new Error(`HTTP ${status}`), { status });
@@ -53,6 +91,49 @@ describe('Faulhaber crawler parser', () => {
       location: 'CH - Croglio',
       description: expect.stringContaining('tecnico di misura'),
     });
+  });
+
+  it('prefers the structured detail workplace over a stale listing site', async () => {
+    const jobs = await fetchAllFaulhaberJobs({
+      fetchHtmlImpl: vi.fn(async (url: string) => (
+        url === LISTING_DATA_URL ? LISTING_JSON : DETAIL_HTML_SOURCE_LOCATION
+      )),
+      fetchJinaImpl: vi.fn(),
+    });
+
+    expect(jobs[0]).toMatchObject({
+      location: 'Grenchen',
+      addressLocality: 'Grenchen',
+      canton: 'SO',
+      slug: 'tecnico-di-misura-grenchen-faulhaber',
+    });
+  });
+
+  it('selects the identity-matching JobPosting when a related vacancy comes first', async () => {
+    const jobs = await fetchAllFaulhaberJobs({
+      fetchHtmlImpl: vi.fn(async (url: string) => (
+        url === LISTING_DATA_URL ? LISTING_JSON : DETAIL_HTML_MULTIPLE_POSTINGS
+      )),
+      fetchJinaImpl: vi.fn(),
+    });
+
+    expect(jobs[0]).toMatchObject({
+      location: 'Grenchen',
+      canton: 'SO',
+      slug: 'tecnico-di-misura-grenchen-faulhaber',
+    });
+  });
+
+  it('drops a detail whose locality is only a foreign city plus the country word', async () => {
+    const foreignDetail = DETAIL_HTML_SOURCE_LOCATION.replace('Grenchen', 'Paris');
+    const jobs = await fetchAllFaulhaberJobs({
+      fetchHtmlImpl: vi.fn(async (url: string) => (
+        url === LISTING_DATA_URL ? LISTING_JSON : foreignDetail
+      )),
+      fetchJinaImpl: vi.fn(),
+    });
+
+    expect(jobs).toEqual([]);
   });
 
   // ── Constants ──
