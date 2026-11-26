@@ -248,6 +248,47 @@ jobs:
             echo 'sections=["frontaliere","svizzera"]' >> "$GITHUB_OUTPUT"
           fi
 
+  # Keep the stale attestation fail-closed, but do not leave the current main
+  # tip without a validated deploy that can replay the hub writer. The durable
+  # request is consumed once by deploy.yml; its publisher then dispatches this
+  # workflow again with a matching SHA.
+  rearm-stale-deploy:
+    name: Re-arm deploy after stale hub deferral
+    needs: plan
+    if: needs.plan.result == 'success' && needs.plan.outputs.deferred == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      actions: read
+      statuses: write
+    steps:
+      - name: Checkout deploy re-arm helper
+        uses: actions/checkout@v7
+        with:
+          ref: refs/heads/main
+          sparse-checkout: |
+            /scripts/ci/deploy-rearm-request.mjs
+            /scripts/lib/is-invoked-directly.mjs
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - name: Queue current-main deploy after stale hub deferral
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_RUN_ID: ${{ github.run_id }}
+          SOURCE_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          node scripts/ci/deploy-rearm-request.mjs \
+            --reason article-surface-rerender-stale-deploy \
+            --source-run-id "$SOURCE_RUN_ID" \
+            --source-sha "$SOURCE_SHA"
+
   rerender:
     needs: plan
     if: needs.plan.outputs.deferred != 'true'

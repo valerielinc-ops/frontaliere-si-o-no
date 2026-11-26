@@ -252,6 +252,49 @@ jobs:
             echo 'sections=["frontaliere","svizzera"]' >> "$GITHUB_OUTPUT"
           fi
 
+  # The attested publisher can legitimately finish for an older main tip. The
+  # plan must remain fail-closed in that case, but a clean deferral without a
+  # durable build request leaves the current tip unpublished forever when no
+  # later deploy happens to arrive. Queue the existing bounded deploy re-arm;
+  # deploy.yml will publish the current shell before dispatching this writer
+  # again, so the stale rerender never writes against an unvalidated deploy.
+  rearm-stale-deploy:
+    name: Re-arm deploy after stale corpus deferral
+    needs: plan
+    if: needs.plan.result == 'success' && needs.plan.outputs.deferred == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      actions: read
+      statuses: write
+    steps:
+      - name: Checkout deploy re-arm helper
+        uses: actions/checkout@v7
+        with:
+          ref: refs/heads/main
+          sparse-checkout: |
+            /scripts/ci/deploy-rearm-request.mjs
+            /scripts/lib/is-invoked-directly.mjs
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - name: Queue current-main deploy after stale corpus deferral
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_RUN_ID: ${{ github.run_id }}
+          SOURCE_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          node scripts/ci/deploy-rearm-request.mjs \
+            --reason article-surface-rerender-stale-deploy \
+            --source-run-id "$SOURCE_RUN_ID" \
+            --source-sha "$SOURCE_SHA"
+
   rerender:
     needs: plan
     if: needs.plan.result == 'success' && needs.plan.outputs.deferred != 'true'

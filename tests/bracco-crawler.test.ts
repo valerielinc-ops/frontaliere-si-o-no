@@ -12,7 +12,10 @@ import {
   dropBraccoFabricatedText,
   fetchBraccoJobs,
 } from '../scripts/update-bracco-jobs.mjs';
-import { resetWorkdayImplicitRateLimitStateForTests } from '../scripts/lib/ats-clients/workday-client.mjs';
+import {
+  resetWorkdayImplicitRateLimitStateForTests,
+  WorkdayRateLimitError,
+} from '../scripts/lib/ats-clients/workday-client.mjs';
 import { keepStoredSourceBodies } from '../scripts/lib/stored-source-body.mjs';
 
 const TEXT = fs.readFileSync(path.join(__dirname, 'fixtures', 'bracco', 'workday-description-cadempino.txt'), 'utf8').trim();
@@ -25,6 +28,16 @@ afterEach(() => {
 });
 
 describe('Bracco custom-main fetch abort taxonomy', () => {
+  it('treats the tenant rate-limit circuit as a retryable HTTP response', () => {
+    const error = new WorkdayRateLimitError('https://bracco.wd103.myworkdayjobs.com/wday/cxs/bracco/BraccoCareers/jobs', {
+      consecutiveFailures: 2,
+      retryAfterMs: 60_000,
+      circuitOpen: true,
+    });
+
+    expect(classifyBraccoFetchAbortKind(error)).toBe('retryable-http-response');
+  });
+
   it('records an exhausted retryable HTTP response separately from a connection error', () => {
     expect(classifyBraccoFetchAbortKind(Object.assign(new Error('HTTP 429'), {
       status: 429,
@@ -100,6 +113,34 @@ describe('Bracco crawl provenance', () => {
       retryExhausted: true,
       status: 429,
     });
+    await vi.runAllTimersAsync();
+    await rejection;
+    expect(detailAttempts).toBe(2);
+  });
+
+  it('does not hide a tenant rate-limit circuit opened during detail fetch', async () => {
+    vi.useFakeTimers();
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '3');
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    let detailAttempts = 0;
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      if (url.endsWith('/jobs')) {
+        return new Response(JSON.stringify({
+          total: 1,
+          jobPostings: [{
+            title: 'Digital Learning & Training Internship',
+            externalPath: '/job/CHE---Cadempino/Digital-Learning_R1',
+            locationsText: 'Cadempino, Switzerland',
+          }],
+        }), { status: 200 });
+      }
+      detailAttempts += 1;
+      return new Response('', { status: 429 });
+    }));
+
+    const rejection = expect(fetchBraccoJobs({ browserFallback: null })).rejects.toBeInstanceOf(
+      WorkdayRateLimitError,
+    );
     await vi.runAllTimersAsync();
     await rejection;
     expect(detailAttempts).toBe(2);

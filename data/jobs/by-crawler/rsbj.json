@@ -1,7 +1,7 @@
 {
   "crawlerKey": "rsbj",
-  "assembledAt": "2026-11-25T21:47:32.378Z",
-  "runId": "45703515610",
+  "assembledAt": "2026-11-26T09:48:18.306Z",
+  "runId": "45791167359",
   "jobs": [
     {
       "id": "rsbj-97f459a61e1e",
@@ -35,7 +35,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_18026/fr/des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-interne-generale-fmh",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:47:19.527Z",
+      "crawledAt": "2026-11-26T09:48:13.124Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -85,7 +85,7 @@
       },
       "streetAddress": "Sainte-Croix",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-19T21:47:19.527Z",
+      "validThrough": "2027-02-20T09:48:13.124Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -120,7 +120,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_42203/fr/un-e-medecin-generaliste-/-medecin-de-famille-independant-ou-dependant-taux-a-definir",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:47:18.603Z",
+      "crawledAt": "2026-11-26T09:48:12.166Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -163,7 +163,7 @@
       },
       "streetAddress": "Sainte-Croix",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:47:18.603Z",
+      "validThrough": "2026-12-26T09:48:12.166Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -197,7 +197,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_54318/fr/infirmier-ere-expert-e-en-prevention-des-infections-associees-aux-soins-epias",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:47:17.511Z",
+      "crawledAt": "2026-11-26T09:48:11.227Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -246,7 +246,7 @@
       },
       "streetAddress": "Sainte-Croix",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:47:17.511Z",
+      "validThrough": "2026-12-26T09:48:11.227Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -281,7 +281,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_58809/fr/ergotherapeute-entre-40-et-50",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:47:16.394Z",
+      "crawledAt": "2026-11-26T09:48:10.099Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -334,7 +334,7 @@
       },
       "streetAddress": "Sainte-Croix",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T21:47:16.394Z",
+      "validThrough": "2027-01-03T09:48:10.099Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -368,7 +368,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_58819/fr/assistant-e-en-soins-et-sante-communautaire-assc-cdd-de-6-mois",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:47:15.012Z",
+      "crawledAt": "2026-11-26T09:48:09.288Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -417,7 +417,7 @@
       },
       "streetAddress": "Sainte-Croix",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T21:47:15.012Z",
+      "validThrough": "2026-12-26T09:48:09.288Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -452,7 +452,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_59109/fr/un-e-physiotherapeute-entre-60-et-80",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:47:13.649Z",
+      "crawledAt": "2026-11-26T09:48:08.294Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -503,7 +503,7 @@
       },
       "streetAddress": "Sainte-Croix",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:47:13.649Z",
+      "validThrough": "2027-01-13T09:48:08.294Z",
       "validThroughSource": "last-observed-window"
     }
   ]

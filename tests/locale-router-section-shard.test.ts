@@ -632,6 +632,11 @@ describe.each(ARTICLE_SECTION_ROUTES)('article shard $prefix', ({ prefix }: { pr
 
     expect(response.status).toBe(404);
     expect(response.headers.get('Cache-Control')).toBe('public, max-age=60, s-maxage=60');
+    const originRequest = vi.mocked(fetch).mock.calls.find(([input]) =>
+      input instanceof Request && input.url.includes('/pending-article/'));
+    expect(originRequest?.[1]).toMatchObject({
+      cf: { cacheTtlByStatus: { '200-299': 7200, '400-427': 60 } },
+    });
   });
 });
 

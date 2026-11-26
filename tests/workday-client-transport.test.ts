@@ -388,6 +388,7 @@ describe('Workday JSON transport', () => {
         statusCode: 429,
         consecutiveFailures: 2,
         circuitOpen: true,
+        retryExhausted: true,
       });
       await vi.runAllTimersAsync();
       await rejection;

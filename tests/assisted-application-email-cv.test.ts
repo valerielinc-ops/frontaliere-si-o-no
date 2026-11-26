@@ -253,4 +253,17 @@ describe('CV by e-mail reply', () => {
     expect(result.body).toMatchObject({ matched: false, reason: 'unauthenticated' });
     expect(bucket.files.size).toBe(0);
   });
+
+  it('strips Spanish and wrapped multi-line Gmail quote attribution headers in candidateNotesFrom', async () => {
+    const { candidateNotesFrom } = await import('../functions/src/assistedApplicationEmailCv.js');
+    expect(candidateNotesFrom(
+      'Permesso G valido.\n\nEl lun, 23 nov 2026, 8:35, Valerie · Frontaliere Ticino <\nvalerie@frontaliereticino.ch> escribió:\n> vecchio testo'
+    )).toBe('Permesso G valido.');
+    expect(candidateNotesFrom(
+      'El lun, 23 nov 2026, 8:35, Valerie · Frontaliere Ticino <\nvalerie@frontaliereticino.ch> escribió:\n> vecchio testo'
+    )).toBe('');
+    expect(candidateNotesFrom(
+      'Le mie competenze\nX a écrit:\nnota'
+    )).toBe('Le mie competenze\nX a écrit:\nnota');
+  });
 });

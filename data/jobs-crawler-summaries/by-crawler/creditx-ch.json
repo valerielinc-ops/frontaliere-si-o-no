@@ -1,7 +1,7 @@
 {
   "key": "creditx-ch",
   "label": "CreditX Sàrl",
-  "generatedAt": "2026-11-25T21:44:28.398Z",
+  "generatedAt": "2026-11-26T10:13:47.382Z",
   "total": 2,
   "discovered": 2,
   "parsed": 2,
@@ -52,10 +52,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 19384,
-  "avgDurationMs": 19384,
+  "durationMs": 18391,
+  "avgDurationMs": 18391,
   "durationHistory": [
-    19384
+    18391
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -73,7 +73,7 @@
       "url": "https://www.creditx.ch/careers/relationship-manager-senior-sion",
       "source": "CreditX Sàrl Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:43:48.379Z",
+      "crawledAt": "2026-11-26T10:13:08.701Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       },
       "streetAddress": "Place de l'Aubade 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-25T21:43:48.379Z",
+      "validThrough": "2026-12-26T10:13:08.701Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -132,7 +132,7 @@
       "url": "https://www.creditx.ch/careers/relationship-manager-junior-sion",
       "source": "CreditX Sàrl Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-25T21:43:48.372Z",
+      "crawledAt": "2026-11-26T10:13:08.695Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -169,7 +169,7 @@
       },
       "streetAddress": "Place de l'Aubade 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-28T21:43:48.372Z",
+      "validThrough": "2027-01-28T10:13:08.695Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -180,5 +180,5 @@
       }
     }
   ],
-  "codeCommit": "0c64b1f2eae0b337b537e356aa5de051b9c4c6cc"
+  "codeCommit": "bb9ecce641e4806660b82ef90e95e36b4e9d873c"
 }

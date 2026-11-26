@@ -22,7 +22,7 @@ describe('secret alert sweep', () => {
       'utf8',
     );
     expect(workflow).toContain(
-      "SECRET_SCAN_ALLOWED_UNAVAILABLE: 'valerielinc-ops/villacomo'",
+      "SECRET_SCAN_ALLOWED_UNAVAILABLE: 'valerielinc-ops/villacomo,valerielinc-ops/frontaliere-operator'",
     );
   });
 

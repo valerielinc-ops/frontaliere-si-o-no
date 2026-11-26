@@ -8741,6 +8741,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.fiscalita-tre-livelli-svizzera.title': 'Swiss taxation: three levels and distinct areas of responsibility',
     'blog.article.fiscalita-tre-livelli-svizzera.excerpt': 'Swiss taxation is structured across three levels: direct federal tax, cantonal taxation and municipal taxation.',
     'blog.article.fiscalita-tre-livelli-svizzera.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.consultazione-modifiche-oosg.title': 'Gas: consultation opened on amendments to the OOSG',
+    'blog.article.consultazione-modifiche-oosg.excerpt': 'The communication of November 25, 2026 announces new regulation of ASIG costs and expanded selective access to natural gas monitoring.',
+    'blog.article.consultazione-modifiche-oosg.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

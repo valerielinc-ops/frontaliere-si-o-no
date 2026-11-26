@@ -86,6 +86,8 @@ describe('social copy free-model fallback', () => {
     [new Error('[model] HTTP 503: unavailable'), 'provider-temporary-failure'],
     [new Error('[model] Empty response after 1 attempts'), 'provider-temporary-failure'],
     [new Error('[model] No endpoints available for this model'), 'provider-temporary-failure'],
+    [Object.assign(new Error('provider request failed'), { contentFailure: true }), 'provider-temporary-failure'],
+    [Object.assign(new Error('provider request failed'), { hostUnreachable: 'ECONNRESET' }), 'provider-temporary-failure'],
     [new Error('[model] HTTP 400: request rejected'), 'provider-request-rejected'],
     [new Error('fetch failed: ECONNRESET'), 'provider-temporary-failure'],
   ])('classifies provider failures safely as %s', (error, category) => {

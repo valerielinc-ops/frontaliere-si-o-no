@@ -37,27 +37,36 @@ function normalize(value) {
     .trim();
 }
 
-const inputs = { IT: argValue('--it'), CH: argValue('--ch') };
+const COUNTRY_RULES = [
+  { code: 'IT', flag: '--it', url: 'https://download.geonames.org/export/zip/IT.zip', digits: /^\d{5}$/, region: (cols) => cols[6], validRegion: /^[A-Z]{2}$/ },
+  { code: 'CH', flag: '--ch', url: 'https://download.geonames.org/export/zip/CH.zip', digits: /^\d{4}$/, region: (cols) => cols[4], validRegion: /^[A-Z]{2}$/ },
+  { code: 'DE', flag: '--de', url: 'https://download.geonames.org/export/zip/DE.zip', digits: /^\d{5}$/, region: (cols) => cols[4], validRegion: /^[A-Z]{2}$/ },
+  { code: 'FR', flag: '--fr', url: 'https://download.geonames.org/export/zip/FR.zip', digits: /^\d{5}$/, region: (cols) => cols[6] || cols[4], validRegion: /^(?:\d{2,3}|2[AB])$/ },
+  { code: 'AT', flag: '--at', url: 'https://download.geonames.org/export/zip/AT.zip', digits: /^\d{4}$/, region: (cols) => cols[4], validRegion: /^\d{2}$/ },
+  { code: 'LI', flag: '--li', url: 'https://download.geonames.org/export/zip/LI.zip', digits: /^\d{4}$/, region: () => 'LI', validRegion: /^LI$/ },
+];
+
 const version = argValue('--version');
-if (!inputs.IT || !inputs.CH || !version) {
-  console.error('usage: node generate-platform-postal-codes.mjs --it <IT.txt> --ch <CH.txt> --version <YYYY-MM-DD>');
+const inputs = COUNTRY_RULES
+  .map((rule) => ({ ...rule, path: argValue(rule.flag) }))
+  .filter((rule) => Boolean(rule.path));
+if (!inputs.some((rule) => rule.code === 'IT') || !inputs.some((rule) => rule.code === 'CH') || !version) {
+  console.error('usage: node generate-platform-postal-codes.mjs --it <IT.txt> --ch <CH.txt> [--de <DE.txt> --fr <FR.txt> --at <AT.txt> --li <LI.txt>] --version <YYYY-MM-DD>');
   process.exit(2);
 }
 
 const best = new Map();
 const hashes = {};
 let sourceRows = 0;
-for (const [country, path] of Object.entries(inputs)) {
+for (const { code: country, path, digits, region: readRegion, validRegion } of inputs) {
   const text = readFileSync(path, 'utf8');
   hashes[country] = createHash('sha256').update(text).digest('hex');
-  const digits = country === 'IT' ? /^\d{5}$/ : /^\d{4}$/;
   for (const line of text.replace(/^﻿/, '').split(/\r?\n/)) {
     if (!line) continue;
     const columns = line.split('\t');
     const [countryCode, postalCode, place] = columns;
-    // IT: province code (column 7); CH: canton code (column 5).
-    const region = country === 'IT' ? columns[6] : columns[4];
-    if (countryCode !== country || !digits.test(postalCode) || !/^[A-Z]{2}$/.test(region || '')) continue;
+    const region = String(readRegion(columns) || '').trim().toUpperCase();
+    if (countryCode !== country || !digits.test(postalCode) || !validRegion.test(region)) continue;
     const name = normalize(place);
     if (!name || /\d/.test(name)) continue;
     sourceRows++;
@@ -73,7 +82,7 @@ const entries = [...best].map(([key, code]) => [...key.split('|'), code])
 const metadata = {
   generatedAt: new Date().toISOString().slice(0, 10),
   source: 'GeoNames postal code data',
-  sourceUrls: ['https://download.geonames.org/export/zip/IT.zip', 'https://download.geonames.org/export/zip/CH.zip'],
+  sourceUrls: inputs.map((rule) => rule.url),
   license: 'CC BY 4.0',
   sourceVersion: version,
   sourceSha256: hashes,

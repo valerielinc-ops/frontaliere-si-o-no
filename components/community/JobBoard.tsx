@@ -8951,6 +8951,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onAccepted={() => {
  const category = jobDetailPromptCategory;
  Analytics.trackJobAlertCtaClick('job_detail_prompt', 'accept', category);
+ }}
+ onSubscribed={() => {
+ const category = jobDetailPromptCategory;
+ Analytics.trackJobAlertCtaClick('job_detail_prompt', 'success', category);
  // Mirror inline-form behaviour: fire job_alert_created on successful
  // one-tap subscribe so Firestore writes and PostHog counts reconcile.
  Analytics.trackJobAlertCreated({
@@ -12101,11 +12105,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
   );
   requestSlot('job-board-alert-auth-prompt', POPUP_PRIORITY.AUTH_GATE);
   setJobBoardAlertAuthPromptOpen(true);
-  Analytics.trackJobAlertAuthHandoff(
-   'job_board_filters',
-   'prompt_shown',
-   keyword,
-  );
  };
 
  const handleBoardFilterAlertAuthPromptDismiss = () => {
