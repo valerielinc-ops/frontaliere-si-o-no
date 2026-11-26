@@ -39,8 +39,11 @@ describe('HTTP 422 crawler regressions', () => {
 
   it('treats Workday 400 and literal 422 facet responses as validation, then discovers the tenant facet', () => {
     const workday = source('scripts/lib/workday-swiss-job-parser-common.mjs');
-    expect(workday).toContain('![400, 422].includes(err?.statusCode)');
-    expect(workday).toContain('fetchWorkdayBoardSummary(API_BASE)');
+    expect(workday).toContain('const WORKDAY_FACET_REJECTION_STATUS_CODES = new Set([400, 422])');
+    expect(workday).toContain('function isWorkdayFacetValidationError(error)');
+    expect(workday).toContain('error instanceof WorkdayRateLimitError');
+    expect(withoutComments(workday)).toContain('!isWorkdayFacetValidationError(err)');
+    expect(workday).toContain('fetchWorkdayBoardSummary(API_BASE, { requestContext })');
     expect(withoutComments(workday)).not.toMatch(/quarantine.*422/i);
   });
 });
