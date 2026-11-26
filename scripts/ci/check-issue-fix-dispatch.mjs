@@ -27,7 +27,7 @@ const MODE = process.argv[2] || '--verify';
 const ISSUE = String(process.env.ISSUE_NUMBER || '').trim();
 const REPO = String(process.env.GH_REPO || process.env.REPO || process.env.GITHUB_REPOSITORY || '').trim();
 const SNAPSHOT_FILE = process.env.ISSUE_FIX_SNAPSHOT_FILE || '';
-const EVENT_FILE = process.env.GITHUB_EVENT_PATH || '';
+const EVENT_FILE = process.env.ISSUE_FIX_EVENT_PATH || '';
 const EXPECTED_SCOPE_FINGERPRINT = String(process.env.DISPATCH_SCOPE_FINGERPRINT || '').trim();
 const EXPECTED_ITEM_ID = String(process.env.DISPATCH_ITEM_ID || '').trim().toUpperCase();
 const EXPECTED_IS_DAILY = String(process.env.DISPATCH_IS_DAILY || '').trim() === 'true';

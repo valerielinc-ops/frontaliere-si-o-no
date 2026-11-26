@@ -576,7 +576,7 @@ jobs:
           GH_REPO: ${{ github.repository }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           ISSUE_FIX_SNAPSHOT_FILE: ${{ runner.temp }}/issue-fix-ctx/issue.json
-          GITHUB_EVENT_PATH: ${{ github.event_path }}
+          ISSUE_FIX_EVENT_PATH: ${{ github.event_path }}
           DISPATCH_SCOPE_FINGERPRINT: ${{ steps.dispatch_scope.outputs.scope_fingerprint }}
           DISPATCH_IS_DAILY: ${{ steps.dispatch_scope.outputs.is_daily_bucket }}
           DISPATCH_ITEM_ID: ${{ steps.dispatch_scope.outputs.selected_item_id }}
@@ -937,7 +937,7 @@ jobs:
         # FAIL-CLOSED: `mint-app-token.mjs` scrive APP_TOKEN_WORKFLOWS su OGNI cammino di
         # uscita, e una variabile non scritta è comunque `!= 'true'` → il guard gira. Non
         # esiste un modo di arrivare a «capacità concessa» senza che l'API l'abbia detto.
-        if: steps.issue_snapshot.outputs.verified == 'true' && steps.stale_dispatch.outputs.proceed == 'true' && env.APP_TOKEN_WORKFLOWS != 'true' && steps.preflight.outputs.already_resolved != 'true'
+        if: steps.issue_snapshot.outputs.verified == 'true' && env.APP_TOKEN_WORKFLOWS != 'true' && steps.stale_dispatch.outputs.proceed == 'true' && steps.preflight.outputs.already_resolved != 'true'
         # PROCEED-SAFE, same contract as `preflight` above: the script is total (catches
         # its own throws → emits workflows_blocked=false), continue-on-error is
         # belt-and-suspenders so an infra fault never strands the issue.
