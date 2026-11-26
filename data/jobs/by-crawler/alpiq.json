@@ -194,10 +194,9 @@
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-11-26T09:54:34.116Z",
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3103,
-      "retranslationAttempts": 38,
+      "retranslationAttempts": 39,
       "firstSeenAt": "2026-09-25T15:00:06.553Z",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T09:54:34.116Z",
@@ -214,7 +213,8 @@
           "maxValue": 140000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "alpiq-d4b7d5a85b98",

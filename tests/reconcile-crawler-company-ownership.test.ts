@@ -542,6 +542,87 @@ describe('issue #6759 reconciliation', () => {
     for (const route of requiredRoutes) expect(served.has(route), route).toBe(true);
   });
 
+  it('limits shared-identity repair to the component whose merge hit the cap', () => {
+    const daysAgo = (days: number) => new Date(Date.now() - days * 86_400_000).toISOString();
+    const capSourceIdentity = 'source:cap-refused';
+    const capEntry = (slug: string, expiredDaysAgo: number) => ({
+      slug,
+      companyKey: 'acme',
+      sourceIdentity: capSourceIdentity,
+      expiredAt: daysAgo(expiredDaysAgo),
+      slugByLocale: { it: slug },
+      previousSlugs: [
+        'cap-shared-route',
+        ...Array.from({ length: 79 }, (_, index) => `${slug}-history-${index}`),
+      ],
+      previousSlugsByLocale: {} as Record<string, string[]>,
+    });
+    const capNewer = capEntry('cap-newer', 1);
+    const capOlder = capEntry('cap-older', 2);
+
+    // This named component is rejected for the route-union/heldByOthers guard:
+    // moving `held-evicted-0` from the full `fr` bucket to flat legacy history
+    // would also serve it under `de`, where the unnamed third-party entry owns
+    // the route. It is not a cap refusal and must remain byte-for-byte route
+    // stable when the cap component elsewhere triggers repair mode.
+    const sharedSourceIdentity = 'source:held-by-third-party';
+    const heldNewest = {
+      slug: 'held-newest',
+      companyKey: 'acme',
+      sourceIdentity: sharedSourceIdentity,
+      expiredAt: daysAgo(3),
+      slugByLocale: { it: 'held-newest' },
+      previousSlugs: [],
+      previousSlugsByLocale: {
+        it: ['held-bridge'],
+        fr: Array.from({ length: DEFAULT_PREV_SLUG_CAP }, (_, index) => `held-evicted-${index}`),
+      },
+    };
+    const heldOlder = {
+      slug: 'held-older',
+      companyKey: 'acme',
+      sourceIdentity: sharedSourceIdentity,
+      expiredAt: daysAgo(4),
+      slugByLocale: { it: 'held-older' },
+      previousSlugs: [],
+      previousSlugsByLocale: {
+        it: ['held-bridge'],
+        fr: ['held-extra'],
+      },
+    };
+    const thirdParty = {
+      slug: 'third-party',
+      companyKey: 'acme',
+      expiredAt: daysAgo(5),
+      slugByLocale: { it: 'third-party', de: 'held-evicted-0' },
+      previousSlugs: [],
+      previousSlugsByLocale: {},
+    };
+    const heldRoutesBefore = new Map([
+      [heldNewest.slug, [...localeRouteKeys(heldNewest)].sort()],
+      [heldOlder.slug, [...localeRouteKeys(heldOlder)].sort()],
+    ]);
+
+    const result = collapseDuplicateRouteEntries([
+      heldOlder,
+      thirdParty,
+      capOlder,
+      heldNewest,
+      capNewer,
+    ], { source: 'test/cap-refused-scope' });
+
+    expect(result.capRefused).toBe(1);
+    expect(result.repairedRoutes).toBeGreaterThan(0);
+    expect(result.entries.filter((entry) => entry.sourceIdentity === capSourceIdentity)).toHaveLength(2);
+    expect(result.entries.filter((entry) => entry.sourceIdentity === sharedSourceIdentity)).toHaveLength(2);
+    expect(result.entries.find((entry) => entry.slug === 'cap-older')?.previousSlugs)
+      .not.toContain('cap-shared-route');
+    for (const entry of [heldNewest, heldOlder]) {
+      expect([...localeRouteKeys(entry)].sort()).toEqual(heldRoutesBefore.get(entry.slug));
+    }
+    expect([...localeRouteKeys(thirdParty)].sort()).toEqual(['de:held-evicted-0', 'it:third-party']);
+  });
+
   it('leaves a cap-refused sweep slice unchanged, including its order', () => {
     const dir = mkdtempSync(join(tmpdir(), 'expired-cap-refusal-'));
     const entries = [
@@ -905,6 +986,49 @@ describe('issue #6759 reconciliation', () => {
     expect(result.jobs).toHaveLength(2);
     expect([...beforeRoutes].filter((route) => !afterRoutes.has(route))).toEqual([]);
     expect(() => assertNoDuplicateRoutesWithin(result.jobs, 'cap-refused archive')).not.toThrow();
+  });
+
+  it('repairs a cap-refused archive collision when both rows name the same posting', () => {
+    const daysAgo = (days: number) => new Date(Date.now() - days * 86_400_000).toISOString();
+    const sharedSourceIdentity = 'source:same-posting';
+    const deep = (slug: string, expiredDaysAgo: number) => ({
+      companyKey: 'canonical',
+      slug,
+      expiredAt: daysAgo(expiredDaysAgo),
+      slugByLocale: { it: slug },
+      previousSlugs: [
+        'shared-history-route',
+        ...Array.from({ length: 79 }, (_, index) => `${slug}-history-${index}`),
+      ],
+      previousSlugsByLocale: {},
+      sourceIdentity: sharedSourceIdentity,
+    });
+    const canonical = deep('canonical-newer', 10);
+    const retired = deep('retired-older', 20);
+    const beforeRoutes = new Set([
+      ...localeRouteKeys(canonical),
+      ...localeRouteKeys(retired),
+    ]);
+
+    const result = mergeRetiredCrawlerArchive([canonical], [retired], 'canonical');
+    const afterRoutes = new Set(result.jobs.flatMap((entry) => [...localeRouteKeys(entry)]));
+
+    expect(result.capRefused).toBe(1);
+    expect(result.repairedRoutes).toBeGreaterThan(0);
+    expect(result.jobs).toHaveLength(2);
+    expect([...beforeRoutes].filter((route) => !afterRoutes.has(route))).toEqual([]);
+    expect(() => assertNoDuplicateRoutesWithin(result.jobs, 'shared-identity cap-refused archive')).not.toThrow();
+
+    const writerResult = collapseDuplicateRouteEntries([
+      deep('writer-newer', 10),
+      deep('writer-older', 20),
+    ], { source: 'shared-identity-cap-refused-writer' });
+    expect(writerResult.capRefused).toBe(1);
+    expect(writerResult.repairedRoutes).toBeGreaterThan(0);
+    expect(() => assertNoDuplicateRoutesWithin(
+      writerResult.entries,
+      'shared-identity cap-refused writer',
+    )).not.toThrow();
   });
 
   it('collapses matching aliases while preserving active and historical routes', () => {

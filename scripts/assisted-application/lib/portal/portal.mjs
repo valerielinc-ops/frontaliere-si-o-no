@@ -1738,7 +1738,7 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
   }));
   // Older drafts may predate the profile enrichment done during draft mode;
   // resolve once more at the browser boundary without an external geocoder.
-  const resolved = resolveResidenceAddress(profile.address, profile.location);
+  const resolved = resolveResidenceAddress(profile.address, profile.location, draft?.factSources?.text || '');
   // Owner decision 2026-11-09 (functions/src/assistedApplicationPlatformDefaults.js): what the CV does not
   // say, a form receives from the platform: the town's postal code and country, and a street when a form
   // requires one. Form-only: the letter and the CV are written from `profile`, never from this object.
@@ -5842,6 +5842,11 @@ async function postingMainHeadings(page) {
   if (typeof page?.evaluate !== 'function') return null;
   const headings = await page.evaluate(() => [...document.querySelectorAll('h1, [role="heading"][aria-level="1"]')]
     .filter((node) => {
+      const inMain = Boolean(node.closest('main, article, [role="main"]'));
+      const inNav = Boolean(node.closest('nav'));
+      const header = node.closest('header');
+      const isHeaderLogo = Boolean(header && node.closest('a[href], [class*="logo" i]'));
+      if (!inMain && (inNav || isHeaderLogo)) return false;
       const rect = node.getBoundingClientRect();
       const style = window.getComputedStyle(node);
       return rect.width > 0 && rect.height > 0 && style.display !== 'none' && style.visibility !== 'hidden';

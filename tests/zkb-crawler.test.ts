@@ -1,11 +1,124 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, beforeEach, describe, it, expect, vi } from 'vitest';
+const { fetchHtml } = vi.hoisted(() => ({ fetchHtml: vi.fn() }));
+vi.mock('../scripts/lib/hospital-custom-html-helpers.mjs', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('../scripts/lib/hospital-custom-html-helpers.mjs')>()),
+  fetchHtml,
+}));
+
 import {
   ZKB_KEY,
   ZKB_COMPANY_NAME,
+  buildZkbDetailUrl,
+  fetchAllZkbJobs,
   isZkbJob,
   isTrustedDomain,
+  parseZkbApiResponse,
+  parseZkbDetailPage,
+  resolveZkbLocation,
 } from '../scripts/lib/zkb-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+function nesDetailPage() {
+  const tokens = Array.from({ length: 19 }, () => '');
+  tokens[0] = 'Platform Engineer Observability (m/w/d)';
+  tokens[3] = 'Zürich|Zürich|ZH|Schweiz|CHE';
+  tokens[18] = '<p>Die Zürcher Kantonalbank ist die zweitgrösste Universalbank der Schweiz.</p>'
+    + '<p>In dieser Rolle entwickelst und betreibst du eine moderne Plattform für Observability und Automatisierung.</p>'
+    + '<p>Du arbeitest eng mit unseren Teams zusammen, verbesserst die Stabilität und gestaltest die technische Weiterentwicklung.</p>'
+    + '<ul><li>Du konzipierst skalierbare Services.</li><li>Du betreibst Kubernetes und Cloud-Infrastruktur.</li></ul>'
+    + '<p>Gemeinsam sorgst du für verlässliche Lösungen und einen nachhaltigen Betrieb.</p>';
+  return `<div id="search-wrapper">${tokens.map((value) => (
+    `<div class="joblayouttoken"><span class="rtltextaligneligible">${value}</span></div>`
+  )).join('')}</div>`;
+}
+
+describe('ZKB current SuccessFactors source', () => {
+  beforeEach(() => {
+    fetchHtml.mockReset();
+  });
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    vi.restoreAllMocks();
+  });
+
+  it('builds the slash-canonical detail URL from a NES API record', () => {
+    expect(buildZkbDetailUrl({
+      id: '67',
+      unifiedUrlTitle: 'Platform-Engineer-Observability-%28mwd%29',
+    })).toBe('https://jobs.zkb.ch/job/Platform-Engineer-Observability-%28mwd%29/67-de_DE/');
+  });
+
+  it('fails closed on a recruiting page without stable row identities', () => {
+    expect(() => parseZkbApiResponse({ jobSearchResult: [{ response: {} }] }, 2))
+      .toThrow('row 0 has no stable identity');
+  });
+
+  it('parses the current NES detail token layout without inventing a body', () => {
+    const parsed = parseZkbDetailPage(nesDetailPage(), 'https://jobs.zkb.ch/job/Role/67-de_DE/');
+    expect(parsed).toMatchObject({
+      title: 'Platform Engineer Observability (m/w/d)',
+      city: 'Zürich',
+      region: 'ZH',
+    });
+    expect(parsed.description.split(/\s+/).filter(Boolean).length).toBeGreaterThan(50);
+    expect(parsed.description).toContain('Du betreibst Kubernetes');
+    expect(parsed.description).toMatch(/\n- Du konzipierst skalierbare Services/);
+  });
+
+  it('discovers ZKB postings from the official recruiting API and detail page', async () => {
+    const requests: Array<{ url: string; init?: RequestInit }> = [];
+    vi.stubGlobal('fetch', vi.fn(async (url: string, init?: RequestInit) => {
+      requests.push({ url, init });
+      return new Response(JSON.stringify({
+        totalJobs: 1,
+        jobSearchResult: [{ response: {
+          id: '67',
+          brandUrl: 'ZKB',
+          unifiedUrlTitle: 'Platform-Engineer-Observability-%28mwd%29',
+          jobLocationShort: ['Zürich|Zürich|ZH|Schweiz|CHE'],
+        } }],
+      }), { status: 200, headers: { 'content-type': 'application/json' } });
+    }));
+    fetchHtml.mockResolvedValue(nesDetailPage());
+
+    const jobs = await fetchAllZkbJobs();
+
+    expect(requests).toHaveLength(1);
+    expect(requests[0].url).toBe('https://jobs.zkb.ch/services/recruiting/v1/jobs');
+    expect(JSON.parse(String(requests[0].init?.body))).toMatchObject({
+      locale: 'de_DE', pageNumber: 0, pageSize: 10, sortBy: 'date',
+    });
+    expect(fetchHtml).toHaveBeenCalledWith(
+      'https://jobs.zkb.ch/job/Platform-Engineer-Observability-%28mwd%29/67-de_DE/',
+    );
+    expect(jobs[0]).toMatchObject({
+      companyKey: 'zkb',
+      title: 'Platform Engineer Observability (m/w/d)',
+      location: 'Zürich',
+      canton: 'ZH',
+      externalId: '67',
+      url: 'https://jobs.zkb.ch/job/Platform-Engineer-Observability-%28mwd%29/67-de_DE/',
+    });
+  });
+
+  it('requires an explicit Swiss country discriminator before resolving a location', () => {
+    expect(resolveZkbLocation(
+      { city: 'Zürich', region: 'ZH', places: [] },
+      { jobLocationShort: ['Zürich||ZH||'] },
+    )).toBeNull();
+
+    expect(resolveZkbLocation(
+      { city: 'Zürich', region: 'ZH', country: 'CHE' },
+      { jobLocationShort: ['Zürich||ZH||'] },
+    )).toEqual({ city: 'Zürich', canton: 'ZH' });
+
+    expect(resolveZkbLocation(
+      { places: [] },
+      { jobLocationShort: ['Zürich||ZH||CHE'] },
+    )).toEqual({ city: 'Zürich', canton: 'ZH' });
+  });
+});
 
 describe('ZKB crawler parser', () => {
   // ── Constants ──
@@ -28,12 +141,20 @@ describe('ZKB crawler parser', () => {
       expect(isZkbJob({ url: 'https://www.zkb.ch/de/ueber-uns/jobs-karriere/123' })).toBe(true);
     });
 
+    it('matches by URL domain (current official career portal)', () => {
+      expect(isZkbJob({ url: 'https://jobs.zkb.ch/job/Platform-Engineer/67-de_DE/' })).toBe(true);
+    });
+
     it('matches by Refline tenant listing URL', () => {
       expect(isZkbJob({ url: 'https://apply.refline.ch/792841/11001/pub/1' })).toBe(true);
     });
 
     it('rejects unrelated jobs', () => {
       expect(isZkbJob({ companyKey: 'other-company', company: 'Other', url: 'https://other.com/jobs' })).toBe(false);
+    });
+
+    it('rejects a lookalike host in the URL ownership check', () => {
+      expect(isZkbJob({ url: 'https://notzkb.ch/job/x/' })).toBe(false);
     });
 
     it('handles null/undefined gracefully', () => {
@@ -47,6 +168,10 @@ describe('ZKB crawler parser', () => {
   describe('isTrustedDomain', () => {
     it('trusts corporate domain', () => {
       expect(isTrustedDomain('https://www.zkb.ch/de/ueber-uns/jobs-karriere/123')).toBe(true);
+    });
+
+    it('trusts the current official career portal', () => {
+      expect(isTrustedDomain('https://jobs.zkb.ch/job/Platform-Engineer/67-de_DE/')).toBe(true);
     });
 
     it('trusts Refline tenant domain', () => {
