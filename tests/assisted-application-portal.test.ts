@@ -3525,6 +3525,15 @@ describe('portal runner helpers', () => {
     expect(resolveResidenceAddress({}, '', 'Employer address: Via Roma 1, 43039').postalCode).toBe('');
   });
 
+  it('deduces Germania from German postal/locality and unambiguous CV datelines without network lookup', () => {
+    expect(resolveResidenceAddress({ street: 'Musterstrasse 10', postalCode: '72127', city: 'Kusterdingen', country: '' }, 'Kusterdingen'))
+      .toMatchObject({ postalCode: '72127', city: 'Kusterdingen', country: 'Germania' });
+    expect(resolveResidenceAddress({}, '', 'Sehr geehrte Damen und Herren,\nKusterdingen, 15. November 2026\nMax Mustermann'))
+      .toMatchObject({ postalCode: '72127', city: 'Kusterdingen', country: 'Germania' });
+    expect(residenceCountryCode('AT - Österreich')).toBe('AT');
+    expect(residenceCountryCode('Fürstentum Liechtenstein')).toBe('LI');
+  });
+
   it('deduplicates a portal question after an ATS changes its wording', () => {
     const questions = [
       { id: 'portal_old_address', source: 'portal', question: 'Qual è la tua via e il numero civico?' },

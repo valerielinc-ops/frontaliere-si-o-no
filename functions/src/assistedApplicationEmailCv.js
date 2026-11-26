@@ -57,14 +57,39 @@ function millis(value) {
 }
 
 /** The reply without quoted history and signatures' long tails. */
+const QUOTE_HEADER_START_RE = /^(?:il giorno|am|le|on|el|em)\b/i;
+const QUOTE_HEADER_END_RE = /^(?:il giorno|am|le|on|el|em)\b.{0,240}(?:ha scritto|schrieb|a écrit|wrote|escribi[oó]|escreveu)\s*:?\s*$/iu;
+
 export function candidateNotesFrom(text) {
   const lines = [];
+  let pendingQuoteHeader = [];
   for (const line of String(text || '').replace(/\r\n?/g, '\n').split('\n')) {
     if (/^\s*>/.test(line)) continue;
-    // "Il giorno … ha scritto:", "Am … schrieb …:", "Le … a écrit :", "On … wrote:"
-    if (/^(il giorno|am |le |on ).{0,200}(ha scritto|schrieb|a écrit|wrote)\s*:?\s*$/i.test(line.trim())) break;
+    const trimmed = line.trim();
+    if (QUOTE_HEADER_END_RE.test(trimmed)) {
+      pendingQuoteHeader = [];
+      break;
+    }
+    if (pendingQuoteHeader.length) {
+      const joined = [...pendingQuoteHeader, trimmed].join(' ').replace(/\s+/g, ' ').trim();
+      if (QUOTE_HEADER_END_RE.test(joined)) {
+        pendingQuoteHeader = [];
+        break;
+      }
+      if (pendingQuoteHeader.length < 3 && joined.length <= 240 && trimmed) {
+        pendingQuoteHeader.push(trimmed);
+        continue;
+      }
+      lines.push(...pendingQuoteHeader);
+      pendingQuoteHeader = [];
+    }
+    if (QUOTE_HEADER_START_RE.test(trimmed) && trimmed.length <= 200) {
+      pendingQuoteHeader = [line];
+      continue;
+    }
     lines.push(line);
   }
+  if (pendingQuoteHeader.length) lines.push(...pendingQuoteHeader);
   return lines.join('\n').replace(/\n{3,}/g, '\n\n').trim().slice(0, MAX_NOTES_CHARS);
 }
 
