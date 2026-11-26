@@ -64,6 +64,7 @@ import { realpathSync } from 'node:fs';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { GH_EXEC_MAX_BUFFER } from '../lib/gh-exec-buffer.mjs';
 import { readFileSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
 import {
   VITEST_CHECK_NAME,
   VITEST_EXECUTION_JOB_NAME,
@@ -110,6 +111,7 @@ import { PR_FIX_CLAIM_MARKER, latestPrFixClaims } from './pr-fixer-claim.mjs';
 import { conflictHandoffExpectedHead, conflictHandoffOriginPr } from './check-issue-already-resolved.mjs';
 import {
   GENERATED_FILE_REGISTRY,
+  generatedConflictPartition,
   generatedConflictPlan,
   generatedConflictWorktreePaths,
 } from './generated-files-registry.mjs';
@@ -580,6 +582,7 @@ export function resolveGeneratedConflictMerge({
       status: 'ineligible',
       conflictPaths,
       unregistered: plan.unregistered,
+      partition: generatedConflictPartition(conflictPaths, registry),
     };
   }
 
@@ -683,7 +686,12 @@ export function decideGeneratedConflictHandoff({
 
   const plan = generatedConflictPlan(conflictPaths);
   if (!plan.eligible) {
-    return { action: 'handoff', reason: 'manual-conflict', unregistered: plan.unregistered };
+    return {
+      action: 'handoff',
+      reason: 'manual-conflict',
+      unregistered: plan.unregistered,
+      partition: generatedConflictPartition(conflictPaths),
+    };
   }
   if (resolutionStatus === 'not-started') {
     return { action: 'regenerate', reason: 'generated-only', rules: plan.rules.map((rule) => rule.id) };
@@ -2091,6 +2099,61 @@ export function agentPrConflictNeedsHandOff({
   return conflicted === true && !nearMerge && !lockBlocks && isAgentOwnedPr(labels, headRefName);
 }
 
+// --- CATENA DI RIAPPLICAZIONI -------------------------------------------------
+// La PR di riapplicazione (`Supersedes #M`, branch `fix/issue-<K>` con K issue di
+// hand-off) puo' andare a sua volta in conflitto e generare un hand-off di
+// seconda generazione: #20179 → #20185 → PR #20203 → #20231 (26-11). La
+// generazione e' scritta nel body della issue (marker) e si ricava da li', mai da
+// uno stato in memoria: la catena non si ricorda, si rilegge.
+export const CHAIN_MARKER_PREFIX = '<!-- CONFLICT_HANDOFF_CHAIN';
+/** Hand-off consentiti per catena: il terzo non si apre, la PR passa a una persona. */
+export const MAX_HANDOFF_GENERATIONS = 2;
+export const CHAIN_LIMIT_MARKER = '<!-- AUTOREBASE_HANDOFF_CHAIN_LIMIT -->';
+
+/** Generazione e radice di un hand-off dal suo body (assenza di marker = generazione 1). Pura. */
+export function parseHandoffChain(body, title = '') {
+  const m = /<!-- CONFLICT_HANDOFF_CHAIN root=(\d+) gen=(\d+)(?: prev=(\d+))? -->/u.exec(String(body || ''));
+  if (m) return { root: Number(m[1]), generation: Number(m[2]), prev: m[3] ? Number(m[3]) : null };
+  const origin = conflictHandoffOriginPr(title);
+  return origin === null ? null : { root: origin, generation: 1, prev: null };
+}
+
+/** Numeri delle issue che la PR di riapplicazione dichiara di servire: branch del fixer, poi `Closes`. Pura. */
+export function reapplyIssueCandidates({ branch, closes }) {
+  const out = [];
+  const fromBranch = /^fix\/issue-(\d+)(?:$|[-/])/u.exec(String(branch || ''));
+  if (fromBranch) out.push(Number(fromBranch[1]));
+  for (const n of Array.isArray(closes) ? closes : []) if (!out.includes(Number(n))) out.push(Number(n));
+  return out;
+}
+
+/**
+ * Posizione di una PR in conflitto nella catena. `issues` sono le issue candidate
+ * lette (`{number,title,body}`): contano solo quelle che sono hand-off. Una PR
+ * che dichiara `Supersedes #M` ma senza issue leggibile e' comunque una
+ * riapplicazione (generazione precedente almeno 1). Pura.
+ * @returns {{ isReapply:boolean, root:number|null, prev:number|null, generation:number, blocked:boolean }}
+ */
+export function decideHandoffChain({ num, prBody = '', issues = [], maxGenerations = MAX_HANDOFF_GENERATIONS }) {
+  const handoffs = (issues || [])
+    .map((issue) => ({ issue, chain: conflictHandoffOriginPr(issue?.title) === null ? null : parseHandoffChain(issue.body, issue.title) }))
+    .filter((entry) => entry.chain);
+  const supersedes = /\bsupersedes\s+#(\d+)(?!\d)/iu.exec(String(prBody || ''));
+  if (handoffs.length === 0 && !supersedes) {
+    return { isReapply: false, root: Number(num), prev: null, generation: 1, blocked: false };
+  }
+  const top = handoffs.reduce((best, cur) => (!best || cur.chain.generation > best.chain.generation ? cur : best), null);
+  const previousGeneration = top ? top.chain.generation : 1;
+  const generation = previousGeneration + 1;
+  return {
+    isReapply: true,
+    root: top ? top.chain.root : Number(supersedes[1]),
+    prev: top ? top.issue.number : null,
+    generation,
+    blocked: generation > maxGenerations,
+  };
+}
+
 /**
  * Titolo e body della issue di hand-off. Puro: niente rete. Il titolo cambia
  * con il LGTM: la dedup si fa sulla PR di origine (`handoffIssuesForOrigin`).
@@ -2103,8 +2166,36 @@ export function buildConflictHandoffIssue({
   lgtm = true,
   closes = null,
   generatedResolution = null,
+  chain = null,
 }) {
   const list = (files || []).slice(0, 30).map((f) => `- \`${f}\``).join('\n') || '- (elenco non disponibile: ricalcolalo con il comando sotto)';
+  // Conflitto misto: due elenchi distinti. Il fixer non deve perdere tempo sui
+  // file del registro (si rigenerano) ne' risolverli a mano (si sbagliano).
+  const partition = generatedConflictPartition(files || []);
+  const filesSection = partition.generated.length === 0
+    ? ['File in conflitto:', '', list]
+    : [
+      partition.manual.length > 0
+        ? 'File da RISOLVERE (conflitto nel codice scritto a mano):'
+        : 'Nessun file da risolvere a mano: il conflitto e\' tutto su file generati.',
+      '',
+      ...(partition.manual.length > 0 ? [partition.manual.slice(0, 30).map((f) => `- \`${f}\``).join('\n'), ''] : []),
+      'File da RIGENERARE (non risolverli a mano):',
+      '',
+      partition.generated.slice(0, 30).map((f) => `- \`${f}\``).join('\n'),
+      '',
+      ...(partition.inputConflicts.length > 0
+        ? [`Ordine obbligato: ${partition.inputConflicts.map((f) => `\`${f}\``).join(', ')} e' input del generatore. Risolvilo PRIMA, poi rigenera: rigenerare con il conflitto aperto produce artefatti sbagliati.`, '']
+        : []),
+      renderMainConflictGuidance(partition.generated),
+    ];
+  const chainLines = chain
+    ? [
+      '',
+      `Catena di riapplicazioni: radice PR #${chain.root}, generazione ${chain.generation} di ${MAX_HANDOFF_GENERATIONS}${chain.prev ? `; la PR #${num} riapplicava gia' l'hand-off #${chain.prev}` : ''}. Alla generazione successiva il ciclo non apre altri hand-off e passa la PR a una persona (\`needs-human\`): risolvi il conflitto con attenzione, includendo il contributo di tutta la catena.`,
+      `${CHAIN_MARKER_PREFIX} root=${chain.root} gen=${chain.generation}${chain.prev ? ` prev=${chain.prev}` : ''} -->`,
+    ]
+    : [];
   // Le issue che #N chiude passano alla PR nuova: #10095 chiudeva #10082, la sua
   // riapplicazione #10145 no, e #10082 sarebbe rimasta aperta a farsi rifare.
   // `null` = elenco illeggibile: l'agente lo ricava dal body di #N.
@@ -2129,10 +2220,9 @@ export function buildConflictHandoffIssue({
   const body = [
     opening,
     ...generatedFailure,
+    ...chainLines,
     '',
-    'File in conflitto:',
-    '',
-    list,
+    ...filesSection,
     '',
     'Da fare:',
     '',
@@ -2371,27 +2461,30 @@ function readOpenHandoffRows() {
 const handoffIssueIndex = createHandoffIssueIndex(readOpenHandoffRows);
 
 /**
- * Che cosa fare degli hand-off gia' aperti per la coppia PR di origine + HEAD.
- * Pura.
+ * Che cosa fare degli hand-off gia' aperti per la PR di ORIGINE. Pura.
+ * La chiave e' l'origine, non la coppia origine + HEAD: un push nuovo su una PR
+ * gia' passata di mano non e' un conflitto nuovo da dare a un altro fixer
+ * (#20164: HEAD `4a55b92` → #20183, HEAD `ff6d604` → #20206; stessa sorte per
+ * #20204, #20209, #20201). Il fixer lavora sul contributo della PR, che include
+ * il push nuovo.
  *   - nessuno → `create`;
- *   - quello eletto (`electHandoffKeeper`, la funzione del riconciliatore,
- *     qui senza l'elenco delle PR aperte) e' gia' instradato o reclamato e porta la stessa HEAD →
- *     `already-handed-off`: nessuna scrittura, anche se il marker sulla PR
- *     manca (l'idempotenza non dipende da un secondo write riuscito);
- *   - altrimenti → `reuse`: si riusa solo il keeper della HEAD corrente e gli
- *     si aggiorna l'evidenza prima di applicare `agent:fix`.
- *
- * Una issue della stessa PR ma con una HEAD diversa non entra nell'elezione:
- * resta il lavoro della coppia precedente e non può ricevere il routing della
- * coppia nuova.
+ *   - il keeper (`electHandoffKeeper`: reclamata, poi instradata, poi la piu'
+ *     vecchia) e' gia' instradato o reclamato e porta la stessa HEAD →
+ *     `already-handed-off`: nessuna scrittura;
+ *   - il keeper e' reclamato (`handoffBusy`) ma l'evidenza porta un'altra HEAD →
+ *     `note-new-head`: nessuna issue nuova, nessuna modifica del contesto sotto
+ *     un fixer in volo, al massimo un commento con la HEAD nuova;
+ *   - altrimenti → `reuse`: si riusa il keeper e se ne aggiorna l'evidenza
+ *     (HEAD e file) prima di applicare `agent:fix`.
+ * Una issue chiusa non e' in `existing` (l'elenco e' delle sole aperte): resta chiusa.
  */
 export function planConflictHandoff({ existing, num, head }) {
   if (!Array.isArray(existing) || existing.length === 0) return { action: 'create' };
-  const currentHead = existing.filter((issue) => handoffEvidenceMatchesHead(issue, head));
-  if (currentHead.length === 0) return { action: 'create' };
-  const keeper = electHandoffKeeper(currentHead, Number(num), []);
-  const handedOff = handoffRouted(keeper) || handoffBusy(keeper, Number(num), []);
-  if (handedOff) return { action: 'already-handed-off', issue: keeper.number };
+  const keeper = electHandoffKeeper(existing, Number(num), []);
+  const busy = handoffBusy(keeper, Number(num), []);
+  const sameHead = handoffEvidenceMatchesHead(keeper, head);
+  if (sameHead && (handoffRouted(keeper) || busy)) return { action: 'already-handed-off', issue: keeper.number };
+  if (busy) return { action: 'note-new-head', issue: Number(keeper.number) };
   return { action: 'reuse', issue: Number(keeper.number) };
 }
 
@@ -2411,14 +2504,16 @@ export function planConflictHandoff({ existing, num, head }) {
  * @param {string} head HEAD corrente della PR di origine
  */
 function closeDuplicateHandoffIssues(members, num, head) {
-  const currentHead = (members || []).filter((member) => handoffEvidenceMatchesHead(member, head));
-  if (currentHead.length === 0) {
-    console.log(`::warning::PR #${num}: nessuna evidenza leggibile per HEAD ${String(head || '').slice(0, 12)} → nessuna issue instradata.`);
+  const all = members || [];
+  if (all.length === 0) {
+    console.log(`::warning::PR #${num}: nessun hand-off aperto da eleggere.`);
     return '';
   }
-  const canonical = electHandoffKeeper(currentHead, num, []).number;
+  // Tutti gli hand-off aperti della PR di origine, qualunque HEAD portino: la
+  // HEAD nuova aggiorna l'evidenza del keeper, non genera un'altra issue.
+  const canonical = electHandoffKeeper(all, num, []).number;
   const now = Date.now();
-  for (const member of currentHead) {
+  for (const member of all) {
     const dup = member.number;
     if (dup === canonical) continue;
     if (handoffBusy(member, num, [])) {
@@ -2431,7 +2526,7 @@ function closeDuplicateHandoffIssues(members, num, head) {
     }
     if (DRY) { console.log(`[dry] chiude la issue di hand-off duplicata #${dup} (canonica #${canonical})`); continue; }
     gh(['issue', 'close', String(dup), '--repo', REPO, '--reason', 'not planned', '--comment',
-      `Duplicata di #${canonical}: stesso hand-off di conflitto della PR #${num} sulla HEAD ${String(head || '').slice(0, 12)}, aperto da due sweep di pr-autorebase (concorrenti, o prima e dopo il LGTM). Il lavoro prosegue su #${canonical}. _Segnale deterministico da pr-autorebase (zero-Claude)._`],
+      `Duplicata di #${canonical}: stesso hand-off di conflitto della PR #${num} (HEAD corrente ${String(head || '').slice(0, 12)}), aperto da due sweep di pr-autorebase o da una HEAD successiva di una PR gia' passata di mano. Il lavoro prosegue su #${canonical}, che riapplica il contributo della PR com'e' adesso. _Segnale deterministico da pr-autorebase (zero-Claude)._`],
     { json: false, allowFail: true });
     console.log(`issue di hand-off #${dup} duplicata di #${canonical} → chiusa.`);
   }
@@ -2439,12 +2534,13 @@ function closeDuplicateHandoffIssues(members, num, head) {
 }
 
 /**
- * Scrive l'evidenza corrente prima del routing. Un keeper già reclamato o
- * instradato è immutabile: non si sostituisce il contesto sotto un fixer in
- * volo. In tutti gli altri casi un errore di edit è fail-closed.
+ * Scrive l'evidenza corrente (HEAD e file) prima del routing. Un keeper già
+ * reclamato è immutabile: non si sostituisce il contesto sotto un fixer in volo.
+ * Uno solo instradato ma non ancora reclamato porta l'evidenza della HEAD
+ * nuova. Un errore di edit è fail-closed.
  */
 function refreshHandoffEvidence(issue, body, origin) {
-  if (!issue || issue.body === body || handoffRouted(issue) || handoffBusy(issue, origin, [])) return true;
+  if (!issue || issue.body === body || handoffBusy(issue, origin, [])) return true;
   const edited = ghRun(['issue', 'edit', String(issue.number), '--repo', REPO, '--body', body]);
   if (!edited.ok) {
     console.log(`::warning::issue #${issue.number}: evidenza HEAD/file non aggiornata (${edited.error}) → routing rinviato.`);
@@ -2537,6 +2633,12 @@ function handOffConflictToFixer(
     alreadyHandedOff: (lgtm || agentOwned) && hasCommentMarker(num, marker),
     conflictLockState: lock.state,
   })) return;
+  // Catena gia' arrestata (3a generazione): la PR e' di una persona, nessun
+  // altro hand-off e nessuna lettura in piu' a ogni tick.
+  if (hasCommentMarker(num, CHAIN_LIMIT_MARKER)) {
+    console.log(`PR #${num}: catena di riapplicazioni gia' fermata con needs-human → nessun hand-off.`);
+    return;
+  }
   // Il ramo chiamante puo' essersi basato su `mergeable=CONFLICTING`, che e'
   // una cache: l'hand-off parte solo se merge-tree conferma ADESSO un
   // conflitto. `clean` o `unknown` → nessuna issue (fail-closed).
@@ -2555,14 +2657,25 @@ function handOffConflictToFixer(
   if (onMain.state === 'unknown') {
     console.log(`PR #${num}: confronto per blob con main non determinabile (${onMain.reason}) → hand-off invariato.`);
   }
+  const context = readReapplyContext(num, branch);
+  if (context === null) {
+    console.log(`::warning::PR #${num}: body/issue della catena non leggibili → hand-off rinviato al prossimo tick.`);
+    return;
+  }
+  const chain = decideHandoffChain({ num, prBody: context.body, issues: context.issues });
+  if (chain.blocked) {
+    stopHandoffChain(num, chain, reviewInput);
+    return;
+  }
   const { title, body } = buildConflictHandoffIssue({
     num,
     branch,
     head,
     files: verdict.files,
     lgtm,
-    closes: prClosingIssueNumbers(num),
+    closes: context.closes,
     generatedResolution,
+    chain: chain.isReapply ? chain : null,
   });
   if (DRY) { console.log(`[dry] #${num} conflitto dopo LGTM → issue agent:fix «${title}»`); return; }
   // La chiave e' la coppia PR di ORIGINE + HEAD, non il titolo (che cambia con
@@ -2577,6 +2690,10 @@ function handOffConflictToFixer(
   const plan = planConflictHandoff({ existing, num, head });
   if (plan.action === 'already-handed-off') {
     console.log(`PR #${num}: hand-off gia' instradato con #${plan.issue} per la stessa HEAD → nessuna scrittura.`);
+    return;
+  }
+  if (plan.action === 'note-new-head') {
+    noteNewHeadOnBusyHandoff(num, head, plan.issue, marker, reviewInput);
     return;
   }
   let issue = '';
@@ -2633,6 +2750,61 @@ function handOffConflictToFixer(
     `${marker}\n♻️ **autorebase / conflitto${lgtm ? ' dopo LGTM' : ' di una PR del ciclo'}**: affidato a issue-fix con #${issue}, che riapplica il contributo${lgtm ? ' approvato' : ''} su \`main\` in una PR nuova. _Segnale deterministico da pr-autorebase (zero-Claude)._`],
   { json: false, allowFail: true });
   console.log(`PR #${num}: conflitto${lgtm ? ' dopo LGTM' : ' di una PR del ciclo'} → hand-off a issue-fix con #${issue}.`);
+}
+
+/**
+ * Body della PR, issue che dichiara di chiudere (`prClosingIssueNumbers`) e, fra queste, quelle che la
+ * posizionano nella catena (branch `fix/issue-<K>`). `null` se una lettura
+ * fallisce: la catena non si indovina, il chiamante rinvia.
+ */
+function readReapplyContext(num, branch) {
+  const view = gh(['pr', 'view', String(num), '--repo', REPO, '--json', 'body'], { allowFail: true });
+  if (!view || typeof view !== 'object') return null;
+  const closes = prClosingIssueNumbers(num);
+  const issues = [];
+  for (const k of reapplyIssueCandidates({ branch, closes })) {
+    const issue = gh(['issue', 'view', String(k), '--repo', REPO, '--json', 'number,title,body'], { allowFail: true });
+    if (!issue || typeof issue !== 'object') {
+      if (new RegExp(`^fix/issue-${k}(?:$|[-/])`, 'u').test(String(branch || ''))) return null;
+      continue;
+    }
+    issues.push(issue);
+  }
+  return { body: String(view.body || ''), closes, issues };
+}
+
+/** 3a generazione: niente hand-off, `needs-human` sulla PR e un commento che spiega il ciclo. */
+function stopHandoffChain(num, chain, reviewInput) {
+  if (DRY) { console.log(`[dry] #${num} catena alla generazione ${chain.generation} → needs-human, nessun hand-off`); return; }
+  if (!reviewInputStableForMutation(num, reviewInput, 'l\'arresto della catena di hand-off')) return;
+  const added = ghRun(['pr', 'edit', String(num), '--repo', REPO, '--add-label', 'needs-human']);
+  if (!added.ok) {
+    console.log(`::warning::PR #${num}: needs-human non applicata (${added.error}) → arresto rinviato al prossimo tick.`);
+    return;
+  }
+  gh(['pr', 'comment', String(num), '--repo', REPO, '--body',
+    `${CHAIN_LIMIT_MARKER}\n🛑 **autorebase / catena di riapplicazioni ferma**: questa PR e' una riapplicazione (radice #${chain.root}${chain.prev ? `, ultimo hand-off #${chain.prev}` : ''}) ed e' di nuovo in conflitto con \`main\`. Sarebbe la generazione ${chain.generation} della catena (massimo ${MAX_HANDOFF_GENERATIONS}): un altro hand-off ripeterebbe il ciclo conflitto → riapplicazione → conflitto senza convergere. Nessuna issue aperta; messa \`needs-human\`. Serve una persona che risolva il conflitto sul branch di questa PR. _Segnale deterministico da pr-autorebase (zero-Claude)._`],
+  { json: false, allowFail: true });
+  console.log(`PR #${num}: catena di riapplicazioni alla generazione ${chain.generation} → needs-human, nessun hand-off.`);
+}
+
+/**
+ * Il keeper e' reclamato e la PR di origine ha una HEAD nuova: nessuna issue
+ * nuova, il fixer in volo lavora sul contributo della PR. Un commento
+ * idempotente (marker per HEAD) sulla issue e il marker di hand-off sulla PR.
+ */
+function noteNewHeadOnBusyHandoff(num, head, issue, marker, reviewInput) {
+  const noteMarker = `<!-- CONFLICT_HANDOFF_NEW_HEAD head=${String(head).slice(0, 12)} -->`;
+  if (!reviewInputStableForMutation(num, reviewInput, 'la nota di HEAD nuova sull\'hand-off')) return;
+  if (!hasCommentMarker(issue, noteMarker)) {
+    gh(['issue', 'comment', String(issue), '--repo', REPO, '--body',
+      `${noteMarker}\nLa PR di origine #${num} ha una HEAD nuova (\`${String(head).slice(0, 12)}\`) ed e' ancora in conflitto con \`main\`. Nessuna issue nuova: il contributo da riapplicare e' quello della PR com'e' adesso, comprensivo dell'ultimo push (\`git diff $(git merge-base origin/main origin/<branch>) origin/<branch>\`). _Segnale deterministico da pr-autorebase (zero-Claude)._`],
+    { json: false, allowFail: true });
+  }
+  gh(['pr', 'comment', String(num), '--repo', REPO, '--body',
+    `${marker}\n♻️ **autorebase / conflitto**: la PR e' gia' affidata a issue-fix con #${issue} (in lavorazione): nessuna issue nuova per la HEAD \`${String(head).slice(0, 12)}\`, il fixer riapplica il contributo corrente. _Segnale deterministico da pr-autorebase (zero-Claude)._`],
+  { json: false, allowFail: true });
+  console.log(`PR #${num}: hand-off #${issue} gia' reclamato, HEAD nuova → nessuna issue nuova.`);
 }
 
 function prClosingIssueNumbers(num) {
@@ -2717,25 +2889,29 @@ export function resolveImportConflictsInText(text) {
 /** Applica resolveImportConflictsInText a tutti i file in conflitto. true se TUTTI
  * risolti in modo sicuro (import-only) + `git add`-ati; false se almeno uno non è
  * auto-risolvibile (il chiamante deve `git merge --abort`). */
-function resolveImportUnionConflicts() {
-  const raw = git(['diff', '--name-only', '--diff-filter=U'], { allowFail: true }) || '';
+export function resolveImportUnionConflicts({ cwd, files: onlyFiles } = {}) {
+  const run = (args, options) => (cwd ? gitAt(cwd, args, options) : git(args, options));
+  const abs = (f) => (cwd ? join(cwd, f) : f);
+  const raw = Array.isArray(onlyFiles) ? onlyFiles.join('\n') : (run(['diff', '--name-only', '--diff-filter=U'], { allowFail: true }) || '');
   const files = raw.split('\n').map((s) => s.trim()).filter(Boolean);
   if (!files.length) return false;
   for (const f of files) {
     let resolved;
-    try { resolved = resolveImportConflictsInText(readFileSync(f, 'utf8')); }
+    try { resolved = resolveImportConflictsInText(readFileSync(abs(f), 'utf8')); }
     catch { return false; }
     if (resolved === null) { console.log(`  conflitto non import-only in ${f} → non auto-risolvibile`); return false; }
-    try { writeFileSync(f, resolved); } catch { return false; }
-    git(['add', f], { allowFail: true });
+    try { writeFileSync(abs(f), resolved); } catch { return false; }
+    run(['add', f], { allowFail: true });
   }
   console.log(`auto-resolve: ${files.length} file conflitto import-union risolti per unione`);
   return true;
 }
 
 /** Risolve il merge in corso, mantenendo il percorso import-union precedente. */
-function resolveMergeConflict() {
-  const generated = resolveGeneratedConflictMerge();
+export function resolveMergeConflict({ cwd, commandRunner } = {}) {
+  const generatedOptions = { ...(cwd ? { cwd } : {}), ...(commandRunner ? { commandRunner } : {}) };
+  const run = (args, options) => (cwd ? gitAt(cwd, args, options) : git(args, options));
+  const generated = resolveGeneratedConflictMerge(generatedOptions);
   if (generated.status === 'resolved') {
     return { resolved: true, mode: 'generated', generated };
   }
@@ -2743,7 +2919,29 @@ function resolveMergeConflict() {
     console.log(`  rigenerazione dei conflitti generati fallita → abort: ${generated.reason}`);
     return { resolved: false, mode: 'generated-failed', generated };
   }
-  if (resolveImportUnionConflicts() && git(['commit', '--no-edit'], { allowFail: true }) !== null) {
+  // Conflitto MISTO: i file del registro si rigenerano, quelli scritti a mano si
+  // risolvono. Si prova la sola risoluzione che il ciclo sa dimostrare (unione
+  // di import) sui file scritti a mano e, solo se riesce per TUTTI, si
+  // rigenera. Un file scritto a mano che e' input del generatore non si tocca
+  // e non si rigenera: l'ordine giusto e' risolvere, poi rigenerare.
+  const partition = generated.partition;
+  if (generated.status === 'ineligible' && partition
+    && partition.generated.length > 0
+    && partition.manual.length > 0
+    && partition.inputConflicts.length === 0) {
+    if (resolveImportUnionConflicts({ cwd, files: partition.manual })) {
+      const regenerated = resolveGeneratedConflictMerge(generatedOptions);
+      if (regenerated.status === 'resolved') {
+        return { resolved: true, mode: 'generated+import-union', generated: regenerated };
+      }
+      if (regenerated.status === 'failed') {
+        console.log(`  rigenerazione dopo la risoluzione dei file scritti a mano fallita → abort: ${regenerated.reason}`);
+        return { resolved: false, mode: 'generated-failed', generated: regenerated };
+      }
+    }
+    return { resolved: false, mode: 'mixed-manual', generated };
+  }
+  if (resolveImportUnionConflicts({ cwd }) && run(['commit', '--no-edit'], { allowFail: true }) !== null) {
     return { resolved: true, mode: 'import-union', generated };
   }
   return { resolved: false, mode: 'none', generated };
