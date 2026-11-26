@@ -85,7 +85,8 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T21:25:32.241Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.crr-suva.ch/clinique-readaptation/assistant-qualite-processus-2396.html"
     },
     {
       "id": "crr-suva-sion-58cb24be429f",
@@ -168,7 +169,8 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T21:25:31.326Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.crr-suva.ch/clinique-readaptation/infirmier-2445.html"
     },
     {
       "id": "crr-suva-sion-3f33c060cfb1",
@@ -252,7 +254,8 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:25:30.490Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.crr-suva.ch/clinique-readaptation/stagiaire-mp-e-2449.html"
     },
     {
       "id": "crr-suva-sion-90f7b1317b3e",
@@ -338,7 +341,8 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:25:29.887Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.crr-suva.ch/clinique-readaptation/apprenti-gestionnaire-hotellerie-intendance-2448.html"
     },
     {
       "id": "crr-suva-sion-65098bc91794",
@@ -422,7 +426,8 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:25:29.195Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.crr-suva.ch/clinique-readaptation/apprenti-bottier-ere-orthopediste-2446.html"
     },
     {
       "id": "crr-suva-sion-6dedf67d2c82",
@@ -505,7 +510,8 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:25:28.716Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.crr-suva.ch/clinique-readaptation/apprenti-assistant-soins-sante-communautaire-2447.html"
     }
   ]
 }
