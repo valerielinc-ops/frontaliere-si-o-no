@@ -395,6 +395,50 @@ describe('SuccessFactors registration: country, retyped e-mail, then the privacy
     expect(accounts).toEqual([]);
   });
 
+  it('preserves ISO option values across an empty-value placeholder so variant German country labels localize to Italian', async () => {
+    const germanMarkup = SF_REGISTRATION
+      .replace(
+        '<label for="country">Country/Region of Residence:*</label><select id="country" name="country"><option value="">Select -</option><option value="CH">Switzerland</option><option value="IT">Italy</option><option value="DE">Germany</option></select>',
+        '<label for="country">Land/Region des Wohnorts:*</label><select id="country" name="country"><option value="">- Bitte auswählen -</option><option value="CH">Schweiz</option><option value="DE">Deutschland</option><option value="GB">Grossbritannien</option><option value="CZ">Tschechische Republik</option><option value="BQ">Bonaire, Sint Eustatius and Saba</option><option value="CW">Curaçao</option><option value="AN">Niederländische Antillen</option></select>',
+      );
+    const profile = { address: { city: 'zzzzzzzzzzzzzz', country: '' }, location: 'zzzzzzzzzzzzzz' };
+    const facts = platformCandidateFacts({
+      order: { candidateFacts: { workPermit: 'none', passport: 'other', nationality: 'spagnola' } },
+      profile,
+      identity: { firstName: 'Ada' },
+      locale: 'it',
+      seed: 'synthetic',
+    });
+    expect(facts.address.country).toBe('');
+    const candidate = candidateForForm({
+      identity: { name: 'Ada Esempio', firstName: 'Ada', lastName: 'Esempio', email: EMAIL, phone: '' },
+      profile,
+      platformFacts: facts,
+      language: 'de',
+    });
+    const { auth, eventType, reason, questions, seen, accounts } = await register(
+      plannerSilent,
+      germanMarkup,
+      'https://career2.successfactors.eu/career',
+      candidate,
+      { candidateLocale: 'it' },
+    );
+    expect(eventType).toBe('submit_needs_candidate');
+    expect(reason).not.toBe('question_localization_unavailable');
+    expect(auth).toMatchObject({ outcome: 'questions', privacy: 'unavailable' });
+    expect(questions).toEqual([
+      expect.objectContaining({
+        applicationQuestion: 'Land/Region des Wohnorts:*',
+        question: 'In quale Paese risiedi?',
+        localizationStatus: 'translated',
+        applicationOptionValues: ['', 'CH', 'DE', 'GB', 'CZ', 'BQ', 'CW', 'AN'],
+        options: expect.arrayContaining(['Seleziona', 'Svizzera', 'Germania', 'Regno Unito', 'Curaçao', 'Antille Olandesi']),
+      }),
+    ]);
+    expect(seen).toMatchObject({ opened: 0, ctaClicks: 0, created: 0 });
+    expect(accounts).toEqual([]);
+  });
+
   it('turns registration question localization failure into a typed handoff instead of throwing', async () => {
     const profile = { address: { city: 'zzzzzzzzzzzzzz', country: '' }, location: 'zzzzzzzzzzzzzz' };
     const facts = platformCandidateFacts({
