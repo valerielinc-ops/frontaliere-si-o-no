@@ -5358,12 +5358,6 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     && title.some((word, index) => !filler(word) && !neutral.has(word)
     && !FORM_TITLE_FIELD_WORDS.has(word)
     && !EMPLOYER_KIND_WORDS.has(word) && !isSelectOneLabelToken(title, index))) return true;
-  const globalNetworkNoticePhrases = new Set(
-    text.split(/\r?\n/)
-      .filter((line) => /\brefers\s+to\s+one\s+or\s+more\s+of\b[^\n]{1,180}\b(?:network\s+of\s+member\s+firms|member\s+firms?\b[^\n]{0,80}\b(?:legal(?:ly)?\s+separate|independent\s+entit(?:y|ies)|related\s+entities))\b/iu.test(line)
-        && !/\b(?:other|another|andere[rsn]?|altro|altra|autre|autres)\b/iu.test(line))
-      .flatMap((line) => line.split(PHRASE_END_RE).map((segment) => segment.trim()).filter(Boolean)),
-  );
   // The order's employer named whole: its name, its name without the short form in brackets, or that short form.
   for (const phrase of text.split(PHRASE_END_RE)) {
     if (isFormDateFieldLabel(phrase)) continue;
@@ -5405,14 +5399,14 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
         .split(' ').filter(Boolean).length;
       const suffixMatchEnd = wholeMatchEnds.get(suffixOffset);
       if (prefixCount > 0 && wholeStarts.has(0) && wholeEnds.has(prefixCount - 1) && suffixMatchEnd !== undefined) {
-        const trailingWords = words.slice(suffixMatchEnd + 1);
-        const suffixEndsAtMatchedIdentity = trailingWords.every((word) => NOT_A_NAME.has(word));
-        const suffixMemberFirmBoilerplate = globalNetworkNoticePhrases.has(phrase.trim());
-        if (suffixEndsAtMatchedIdentity || suffixMemberFirmBoilerplate) continue;
-        // Any non-legal suffix following the repeated employer identity in a
-        // corporate definition phrase signals a distinct/unrelated entity unless
-        // explicitly exempted as a standard member-firm network notice.
-        if (trailingWords.some((word) => !NOT_A_NAME.has(word) && !neutral.has(word))) return true;
+        if (words.slice(suffixMatchEnd + 1).every((word) => NOT_A_NAME.has(word))) continue;
+        const trimmedPhrase = phrase.trim();
+        const isMemberFirmBoilerplate = trimmedPhrase.length > 0 && text.split(/\r?\n/).some((line) =>
+          line.includes(trimmedPhrase)
+          && /\brefers\s+to\s+one\s+or\s+more\s+of\b[^\n]{1,180}\b(?:network\s+of\s+member\s+firms|member\s+firms?\b[^\n]{0,80}\b(?:legal(?:ly)?\s+separate|independent\s+entit(?:y|ies)|related\s+entities))\b/iu.test(line)
+          && !normalizeWords(line).split(' ').some((word) => OTHER_EMPLOYER_MARKER_WORDS.has(word)));
+        if (isMemberFirmBoilerplate) continue;
+        return true;
       }
     }
     for (const [index, word] of words.entries()) {
