@@ -2523,6 +2523,27 @@ export function shouldMarkSkipAiRetranslation(job, {
   return previous.hash !== retranslationSourceHash(job);
 }
 
+/**
+ * A complete map can still translate the previous source text. Keep its
+ * retranslation marker through SKIP_AI_TRANSLATION until the central drain
+ * has rebuilt the non-source slots from the changed body.
+ */
+export function hasRetranslationBaselineSourceDrift(job, crawlerKey = job?.companyKey) {
+  const previous = getRetranslationBaselineEntry(crawlerKey, job);
+  return Boolean(previous && !previous.flagged && previous.hash !== retranslationSourceHash(job));
+}
+
+/**
+ * FRO-549 may recache only jobs with no outstanding retranslation signal.
+ * The pre-localization filter removes spurious signals; every marker still
+ * present here is either an older queue entry, an incomplete locale map, or
+ * a source change and must survive SKIP_AI_TRANSLATION.
+ */
+export function shouldKeepSkipAiRetranslation(job, crawlerKey = job?.companyKey) {
+  return job?.needsRetranslation === true
+    || hasRetranslationBaselineSourceDrift(job, crawlerKey);
+}
+
 export function isLocalizationAllowedForJob(job = {}, ctx = {}) {
   const { LOCALIZE_ONLY_COMPANY_KEYS, normalizeCompanyKey: nck, normalizeHost: nh, hostOf: ho } = ctx;
   if (!(LOCALIZE_ONLY_COMPANY_KEYS instanceof Set) || LOCALIZE_ONLY_COMPANY_KEYS.size === 0) return true;
@@ -3702,7 +3723,14 @@ export async function enrichJobLocalesWithRetryDCC(job, crawlerConfig, ctx = {},
 
 // ── End FRO-234: Localization pipeline ──────────────────────────────────
 
-export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = null, maxJobs = 0, minDescriptionChars = 120, companySlug = '' }) {
+export async function translateMissingJobLocales({
+  dataJobsPath,
+  isTargetJob = null,
+  maxJobs = 0,
+  minDescriptionChars = 120,
+  companySlug = '',
+  retranslationFlagFilter = null,
+}) {
   if (!dataJobsPath || !fs.existsSync(dataJobsPath)) {
     return { changed: false, translated: 0, total: 0, details: [] };
   }
@@ -3716,6 +3744,14 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
   let translated = 0;
   const details = [];
   const concurrency = Math.max(1, Math.min(6, intFromEnv('JOBS_LOCALE_TRANSLATION_CONCURRENCY', 3)));
+
+  // A crawler may have baseline evidence that a marker hardening just raised
+  // is spurious. Run its narrow filter after hardening but before candidates
+  // are ordered and their translation-cache entries can be bypassed.
+  if (typeof retranslationFlagFilter === 'function') {
+    const dropped = Number(retranslationFlagFilter(raw)) || 0;
+    if (dropped > 0) changed = true;
+  }
 
   const filtered = isTargetJob ? raw.filter(isTargetJob) : raw;
   // FRO-327: prioritize jobs marked for retranslation (failed in a previous run)
@@ -3829,7 +3865,8 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
           sourceLang: descLang || titleLang,
           minDescriptionChars,
         });
-        if (titlesComplete && someNonSourceTranslated && completeTextCoverage) {
+        const keepRetranslationMarker = shouldKeepSkipAiRetranslation(job);
+        if (titlesComplete && someNonSourceTranslated && completeTextCoverage && !keepRetranslationMarker) {
           // Translations complete — update cache so next run gets a hit
           translationCache[jobCacheKey] = buildCacheEntry(job, contentHash);
           cacheUpdated = true;
