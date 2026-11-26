@@ -149,6 +149,54 @@ describe('PSI provider failures — gate inconclusive, not CLS regression', () =
 });
 
 describe('PSI response streams', () => {
+  it('ritenta solo il 400 strutturato NO_FCP di Lighthouse e recupera una misura valida', async () => {
+    let attempts = 0;
+    const fetchImpl = async () => {
+      attempts += 1;
+      if (attempts === 1) {
+        return {
+          ok: false,
+          status: 400,
+          text: async () => JSON.stringify({
+            error: { code: 400, message: 'Lighthouse returned error: NO_FCP. The page did not paint any content.' },
+          }),
+        };
+      }
+      return {
+        ok: true,
+        text: async () => JSON.stringify({
+          lighthouseResult: {
+            audits: { 'cumulative-layout-shift': { numericValue: 0.12 } },
+          },
+        }),
+      };
+    };
+
+    const result = await runPsiRequest('https://example.test', 'mobile', '', fetchImpl, async () => {});
+
+    expect(attempts).toBe(2);
+    expect(result.effective).toBe(0.12);
+  });
+
+  it('mantiene bloccante un NO_FCP persistente dopo il budget bounded', async () => {
+    let attempts = 0;
+    const fetchImpl = async () => {
+      attempts += 1;
+      return {
+        ok: false,
+        status: 400,
+        text: async () => JSON.stringify({
+          error: { code: 400, message: 'Lighthouse returned error: NO_FCP. The page did not paint any content.' },
+        }),
+      };
+    };
+
+    await expect(
+      runPsiRequest('https://example.test', 'mobile', '', fetchImpl, async () => {}),
+    ).rejects.toThrow('PSI 400');
+    expect(attempts).toBe(3);
+  });
+
   it('survives repeated terminated response bodies within the bounded retry budget', async () => {
     let attempts = 0;
     const fetchImpl = async () => {
