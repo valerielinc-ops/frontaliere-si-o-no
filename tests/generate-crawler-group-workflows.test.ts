@@ -2663,9 +2663,34 @@ describe('cross-repo crawler execution artifacts', () => {
 
     for (const artifact of contract.artifacts.filter((entry: any) => /^crawler-group-/.test(entry.file))) {
       const content = fs.readFileSync(path.join(outDir, artifact.file), 'utf8');
-      const declaredClosure = [...content.matchAll(/^# - ((?:scripts\/[A-Za-z0-9._/-]+|functions\/src\/githubApiHeaders\.js))$/gm)]
+      const declaredClosure = [...content.matchAll(/^#((?:scripts\/[A-Za-z0-9._/-]+|functions\/src\/githubApiHeaders\.js))$/gm)]
         .map((match) => match[1]);
       expect(declaredClosure, artifact.file).toEqual(expectedClosure);
+    }
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('limita lo stato egress Workday ai soli crawler-launch step env', () => {
+    const { contract, outDir } = generateArtifacts();
+    const expectedStateDir = '${{ runner.temp }}/crawler-generation/workday-egress';
+    const artifactPaths = contract.artifacts
+      .filter((artifact: any) => /^crawler-group-\d+\.yml$/.test(artifact.file))
+      .map((artifact: any) => path.join(outDir, artifact.file));
+    const logicPaths = Array.from({ length: GROUP_COUNT }, (_, index) => path.join(
+      repoRoot,
+      `.github/workflows/crawler-group-${String(index + 1).padStart(2, '0')}-logic.yml`,
+    ));
+
+    for (const workflowPath of [...artifactPaths, ...logicPaths]) {
+      const workflow = YAML.parse(fs.readFileSync(workflowPath, 'utf8'));
+      const job: any = Object.values(workflow.jobs)[0];
+      expect(job.env?.WORKDAY_EGRESS_STATE_DIR, workflowPath).toBeUndefined();
+      const launchSteps = job.steps.filter((step: any) => step.id?.startsWith('crawler-launch-'));
+      expect(launchSteps.length, workflowPath).toBeGreaterThan(0);
+      expect(launchSteps.every((step: any) =>
+        step.env?.WORKDAY_EGRESS_STATE_DIR === expectedStateDir,
+      ), workflowPath).toBe(true);
+      expect(job.steps.some((step: any) => step.env?.WORKDAY_EGRESS_STATE_DIR !== undefined
+        && !step.id?.startsWith('crawler-launch-')), workflowPath).toBe(false);
     }
   }, CROSS_REPO_GENERATION_TIMEOUT);
 
@@ -4695,18 +4720,17 @@ describe('generated crawler workflows stay under the GitHub size budget', () => 
     expect(Buffer.byteLength(body)).toBeLessThan(Buffer.byteLength(readableBody) - 300);
   });
 
-  it('reports and verifies the largest portable fallback workflow stays within the budget', () => {
+  it('reports and verifies the largest portable fallback workflow is within 480000 bytes', () => {
     const largestFile = '.github/corpus-workflows/crawler-group-04.yml';
     const content = fs.readFileSync(path.join(ROOT, largestFile), 'utf8');
     const bytes = Buffer.byteLength(content, 'utf8');
     // Without compact result waiter, 29 members add ~10.1 KB bringing size to ~488.9 KB (> 480000 budget).
-    // The exact byte count changes when a generated bootstrap or hash-bound
-    // runtime path changes. The durable invariant is the shared workflow
-    // budget, which keeps this largest fallback artifact deployable.
-    expect(
-      bytes,
-      `${largestFile}: ${bytes} bytes exceeds the ${GENERATED_WORKFLOW_SIZE_BUDGET_BYTES}-byte budget`,
-    ).toBeLessThanOrEqual(GENERATED_WORKFLOW_SIZE_BUDGET_BYTES);
+    // With the safe Git-metadata retry, empty-workspace cleanup, and compact
+    // Workday job environment, size is 473867 bytes (<= 480000 budget) after
+    // the common Git-dir guard, success-sibling commit gate, and hash-bound
+    // runtime paths are emitted.
+    expect(bytes).toBeLessThanOrEqual(GENERATED_WORKFLOW_SIZE_BUDGET_BYTES);
+    expect(bytes).toBe(473867);
   });
 
   it('the aggregate defines the per-member classification once instead of unrolling it', () => {
