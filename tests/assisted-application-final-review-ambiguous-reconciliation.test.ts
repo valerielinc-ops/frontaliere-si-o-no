@@ -52,6 +52,10 @@ describe('shared final-review predicate', () => {
 
   it('accepts a bound review page that asks for another active final submit', () => {
     expect(advancedToFinalReview(reviewSnapshot, { url: finalUrl, submissionUrl, applyUrl, job: { title: 'Example role' } })).toBe(true);
+    expect(advancedToFinalReview(
+      { ...reviewSnapshot, text: `* Champ obligatoire\n${reviewSnapshot.text}` },
+      { url: finalUrl, submissionUrl, applyUrl, job: { title: 'Example role' }, preSubmitText: '* Champ obligatoire\nPostuler' },
+    )).toBe(true);
   });
 
   it('rejects a confirmation page and a validation error page', () => {

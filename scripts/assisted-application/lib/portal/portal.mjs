@@ -59,7 +59,8 @@ import { formatInternationalPhone, phoneCountryLabel } from '../../../../functio
 import { serializeAccountFailure } from '../../../../functions/src/assistedApplicationSubmissionGuard.js';
 import { aliasLocalPart } from '../../../../functions/src/assistedApplicationAlias.js';
 import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from './residence-address.mjs';
-import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseChooserFiles, documentPaths, findButton, locatorFor, uploadReceipt } from './fill.mjs';
+import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseChooserFiles, documentPaths, findButton, hasNewValidationText, locatorFor, uploadReceipt } from './fill.mjs';
+export { hasNewValidationText } from './fill.mjs';
 import { detectLanguageWithConfidence } from '../../../lib/detect-language.mjs';
 import { classifyLiveness, isHardClosed } from '../liveness.mjs';
 import { armFinalFormClickGuardInPage, clearFinalFormGuardInPage, installFinalFormGuardCaptureInPage, readFinalFormGuardStatusInPage } from './form-contract.mjs';
@@ -11334,19 +11335,6 @@ export function umantisBirthDateRejected(snapshot, submissionUrl) {
   } catch {
     return false;
   }
-}
-
-/** Whether any line matching VALIDATION_RE appeared only after the final click (ignoring pre-submit legends like "* Champ obligatoire"). */
-export function hasNewValidationText(text = '', preSubmitText = '') {
-  const after = String(text || '');
-  if (!VALIDATION_RE.test(after)) return false;
-  if (!preSubmitText) return true;
-  const previousLines = new Set(
-    String(preSubmitText).split(/\r?\n/u).map((line) => line.replace(/\s+/gu, ' ').trim()).filter(Boolean),
-  );
-  return after.split(/\r?\n/u)
-    .map((line) => line.replace(/\s+/gu, ' ').trim())
-    .some((line) => line && !previousLines.has(line) && VALIDATION_RE.test(line));
 }
 
 async function waitForOutcome(page, context = {}) {

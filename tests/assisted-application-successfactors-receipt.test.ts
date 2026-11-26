@@ -17,6 +17,7 @@ const context = { url: submissionUrl, applyUrl, submissionUrl, job };
 
 describe('SuccessFactors receipt at the same session route (Helsana s2Tbwwjd)', () => {
   it('is a receipt after the runner\'s final click', () => {
+    expect(applicationStage(receiptPage, context).kind).toBe('receipt');
     expect(applicationReceipt(receiptPage, context)).toBe(true);
     // The site's own language selector in the header (marked `chrome` by the extractor) is no form left on the page.
     expect(applicationReceipt({ ...receiptPage, fields: [{ label: 'Sprache', kind: 'combobox', required: false, value: 'Deutsch', chrome: true }] }, context)).toBe(true);
