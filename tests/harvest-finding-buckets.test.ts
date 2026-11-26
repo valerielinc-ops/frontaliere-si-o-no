@@ -34,6 +34,7 @@ import { describe, it, expect } from 'vitest';
 import {
   bucketEscalationKind,
   bucketFinding,
+  clusterReportTag,
   considerBuckets,
   stripNegatedImpactClauses,
   tallyFindings,
@@ -575,6 +576,50 @@ describe('bucketFinding — structured-data separa emettitori del sito e parser 
     const { counts } = tallyFindings(prs);
     expect(counts['structured-data-parser']).toBe(STRUCTURED_DATA_PARSER_FINDINGS.length);
     expect(counts['structured-data']).toBe(STRUCTURED_DATA_EMITTER_FINDINGS.length);
+  });
+});
+
+// Verbatim-style blocking findings from escalation #20161. They all live in
+// crawler/parser code, but their discriminators are different: document-root
+// selection, structured scalar coercion, ambiguous arrays, stale provenance,
+// dedupe ordering and HTML boundary preservation. The parser path is therefore
+// useful for report grouping, not evidence of one shared rule.
+const STRUCTURED_DATA_PARSER_HETEROGENEOUS_20161 = [
+  "scripts/lib/thurklinik-job-parser.mjs:L184: 🔴 Important: [funnel] 'sourceTitle' reads the first 'h1' in the whole document before the semantic root is selected, so a site/header heading can replace the vacancy title while the body comes from the vacancy root, producing the wrong job title, slug, and structured data.",
+  "scripts/lib/crr-suva-sion-job-parser.mjs:L160: 🔴 Important: [contract] 'parseCrrDetail()' coerces a schema.org 'addressCountry' object to '[object Object]'; the truthy garbage value then bypasses the 'CH' fallback and can emit invalid JobPosting address data.",
+  "scripts/lib/teo-jakob-ag-job-parser.mjs:L47: 🔴 Important: [contract] 'firstObject()' silently takes the first member of array-valued 'hiringOrganization', 'jobLocation', or 'address', so ambiguous JSON-LD can publish the wrong employer or geography instead of failing closed; reject ambiguous array-valued source fields.",
+  "scripts/lib/caritas-schweiz-job-parser.mjs:L320: 🔴 Important: [contract] 'fetchAllCaritasSchweizJobs()' uses a stale listing 'hints' postal code when a city was accepted by the detail but the detail contains no postal code, emitting a 'JobPosting' address mixed between two locations.",
+  "scripts/lib/delvitech-job-parser.mjs:L201: 🔴 Important: [funnel] 'parseDelvitechCareerPage()' adds an href to 'seen' before validating the semantic row title, so an icon-only or generic-link row suppresses the matching structured 'JobPosting' and drops a real vacancy even when JSON-LD supplies its title.",
+  "scripts/lib/yousty-job-parser.mjs:L410: 🔴 Important: [funnel] 'current.textContent' collapses '<br>' and nested address boundaries before the regex at L423, so a native block becomes non-parseable and emits no location candidate; the resulting detail cannot satisfy the JobPosting address contract.",
+];
+
+describe('bucketFinding — #20161 non confonde sei failure mode dei parser', () => {
+  it('mantiene il gruppo nel report ma lo classifica come topic-only', () => {
+    for (const line of STRUCTURED_DATA_PARSER_HETEROGENEOUS_20161) {
+      expect(bucketFinding(line)).toBe('structured-data-parser');
+    }
+
+    const prs = STRUCTURED_DATA_PARSER_HETEROGENEOUS_20161.map((line, index) => ({
+      number: 20161 + index,
+      mergedAt: new Date().toISOString(),
+      reviews: [{ author: { login: 'claude' }, body: `## Findings\n${line}\n` }],
+    }));
+    const { counts, examples } = tallyFindings(prs);
+    const [cluster] = considerBuckets({
+      source: 'reviewer-finding',
+      counts,
+      examples,
+      corpus: 'structured data json-ld JobPosting mandatory fields are documented',
+      threshold: 3,
+    }).filter((entry) => entry.key === 'structured-data-parser');
+
+    expect(counts['structured-data-parser']).toBe(6);
+    expect(cluster).toMatchObject({
+      escalationKind: 'topic',
+      recurringDespiteRule: false,
+      topicAboveLimit: true,
+    });
+    expect(clusterReportTag(cluster)).toBe('TOPIC-REPORT-ONLY');
   });
 });
 

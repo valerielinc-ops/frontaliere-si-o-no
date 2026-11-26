@@ -37,7 +37,8 @@ import { draftRefFor, flowRefFor } from './assistedApplicationAutomation.js';
 import { isUnconfirmedSubmission, submissionRefFor } from './assistedApplicationSubmissionGuard.js';
 import { runAutomationEffect } from './assistedApplicationAutomationEffects.js';
 import { readRendererCheck } from './assistedApplicationRendererCheck.js';
-import { ASSISTED_APPLICATION_STORAGE_BUCKET, detectCvFileType } from './assistedApplicationCvCheck.js';
+import { ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
+import { MAX_CV_IMAGE_INPUT_BYTES, normalizeUploadedCvBuffer } from './lib/imageCvToPdf.js';
 import {
   ASSISTED_APPLICATIONS_COLLECTION,
   ASSISTED_APPLICATION_ADMIN_STATUSES,
@@ -881,18 +882,27 @@ function collectStorageKeys(orderId, value, keys = new Set()) {
   return keys;
 }
 
-function cvContentFrom(raw) {
+async function cvContentFrom(raw) {
   const content = String(raw.contentBase64 || '').trim();
-  if (!content || content.length > Math.ceil(MAX_CV_BYTES / 3) * 4 + 8
+  const maxEncodedChars = Math.ceil(MAX_CV_IMAGE_INPUT_BYTES / 3) * 4 + 8;
+  if (!content || content.length > maxEncodedChars
     || !/^[A-Za-z0-9+/]+={0,2}$/u.test(content) || content.length % 4 === 1) {
     throw new AssistedApplicationAdminError('invalid_input', 400);
   }
-  const buffer = Buffer.from(content, 'base64');
-  const type = detectCvFileType(buffer.subarray(0, 8));
-  if (!type || buffer.length === 0 || buffer.length > MAX_CV_BYTES) {
+  const decoded = Buffer.from(content, 'base64');
+  const normalized = await normalizeUploadedCvBuffer(decoded, {
+    maxDocumentBytes: MAX_CV_BYTES,
+    maxImageInputBytes: MAX_CV_IMAGE_INPUT_BYTES,
+  });
+  if (!normalized) {
     throw new AssistedApplicationAdminError('invalid_cv_file', 400);
   }
-  return { buffer, type, sha256: createHash('sha256').update(buffer).digest('hex') };
+  return {
+    buffer: normalized.buffer,
+    type: normalized.type,
+    convertedFrom: normalized.convertedFrom || null,
+    sha256: createHash('sha256').update(decoded).digest('hex'),
+  };
 }
 
 function reopenMarkerFor(raw, sha256) {
@@ -946,7 +956,7 @@ function assertReopenEligibility({ order, flow, draft, submission, orderId, mark
 async function handleOwnerCvReplacementAfterWithdrawal(db, raw, adminEmail) {
   const orderId = boundedString(raw.orderId, 200);
   const nowMs = Date.now();
-  const content = cvContentFrom(raw);
+  const content = await cvContentFrom(raw);
   const marker = reopenMarkerFor(raw, content.sha256);
   if (marker.authorizedOrderId !== orderId) throw new AssistedApplicationAdminError('invalid_input', 400);
 
@@ -1071,13 +1081,10 @@ async function handleOwnerCvReplacementAfterWithdrawal(db, raw, adminEmail) {
  */
 async function handleOwnerCvUpload(db, raw, adminEmail) {
   const orderId = boundedString(raw.orderId, 200);
+  if (!orderId) throw new AssistedApplicationAdminError('invalid_input', 400);
   const content = String(raw.contentBase64 || '');
-  if (!orderId || !content || content.length > Math.ceil(MAX_CV_BYTES / 3) * 4 + 8) {
-    throw new AssistedApplicationAdminError('invalid_input', 400);
-  }
-  const buffer = Buffer.from(content, 'base64');
-  const type = detectCvFileType(buffer.subarray(0, 8));
-  if (!type || buffer.length === 0 || buffer.length > MAX_CV_BYTES) throw new AssistedApplicationAdminError('invalid_cv_file', 400);
+  const normalized = await cvContentFrom({ contentBase64: content });
+  const { buffer, type } = normalized;
   const stem = boundedString(raw.fileName, 120).replace(/\.[A-Za-z0-9]{1,5}$/, '').replace(/[^A-Za-z0-9_-]+/g, '-').slice(0, 60) || 'cv';
   const key = `assisted-application-uploads/${orderId}/${Date.now()}-${randomUUID()}-${stem}.${type}`;
   const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);

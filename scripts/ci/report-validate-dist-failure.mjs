@@ -109,8 +109,10 @@ export const DEDUP_TITLE_PREFIX_LEN = 60;
 // riceveva un riassunto invece di un difetto. 40 supera il numero di gate
 // esistenti: la riassuntiva resta per il rosso senza gate riconosciuti.
 export const MAX_PER_GATE_ISSUES = 40;
-// Job di cui si scaricano i log (non gate): limite di costo delle chiamate API.
-const MAX_FAILED_JOBS = 3;
+// Numero massimo di excerpt da inserire nel fallback legacy. Tutti i job
+// validate-dist falliti devono essere letti prima di estrarre i gate: il limite
+// qui non può stare sulla raccolta, altrimenti i gate dei job successivi spariscono.
+const MAX_FAILED_JOB_EXCERPTS = 3;
 
 /**
  * Gate non bloccanti misurati anche da cathedral-seo-gates-check sul corpus
@@ -627,7 +629,7 @@ export function buildIssuePayloads(input) {
     '## Gate falliti',
     gateBlock,
     '',
-    ...excerptSections(failedJobs.slice(0, MAX_FAILED_JOBS)),
+    ...excerptSections(failedJobs.slice(0, MAX_FAILED_JOB_EXCERPTS)),
     ...(notes.length > 0 ? ['## Note', ...notes, ''] : []),
     ...reproSection(primaryGate),
     '',
@@ -665,8 +667,8 @@ export function findCurrentBuildJob(jobs, jobKey, locale) {
 
 // `gh api` non ha un timeout proprio e il keepalive TCP non copre uno stream
 // che rallenta senza morire: su un log da decine di MB execFileSync resterebbe
-// bloccato a oltranza. Il tetto per chiamata tiene il job dentro il suo
-// timeout-minutes anche nel caso peggiore (3 job × 2 tentativi).
+// bloccato a oltranza. Il tetto per chiamata mantiene ogni lettura bounded;
+// tutti i job falliti vengono comunque ispezionati perché i gate vivono nei log.
 const GH_TIMEOUT_MS = 120_000;
 
 function gh(args, { maxBuffer = 256 * 1024 * 1024 } = {}) {
@@ -855,7 +857,7 @@ export function reportDist({ dryRun }) {
       const failed = (data.jobs || []).filter(
         (j) => j.conclusion === 'failure' && /validate-dist/.test(j.name || ''),
       );
-      for (const job of failed.slice(0, MAX_FAILED_JOBS)) {
+      for (const job of failed) {
         const log = fetchJobLog(repo, job.id);
         const parsed = log ? parseGateLines(log) : { failedGates: [], passedGates: [], summaryLines: [] };
         for (const g of parsed.passedGates) passedGates.add(g);
