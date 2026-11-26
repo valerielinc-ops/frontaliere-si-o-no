@@ -8,7 +8,7 @@
  *
  *   502 on cdn.frontaliereticino.ch/assets|data           -> origin R2
  *   502 on frontaliereticino.ch/commit-hash.txt, /fonts/  -> origin GitHub Pages
- *   503 on frontaliereticino.ch/{en,de,fr}/…              -> Worker -> per-locale Pages shard
+ *   503 on Worker-routed section paths (including /articoli-frontaliere/) -> Pages shard
  *   5xx on frontaliereticino.ch/api/public-config/         -> Worker -> public-config Function
  *
  * The cost of that conflation is concrete: `serve_stale`, applied to the CDN rule only, was
@@ -60,6 +60,7 @@ export const SECTION_SHARD_PREFIXES = Object.freeze(
 
 /** Mirror `matchSection()`'s boundary rules for the observability taxonomy. */
 export function isSectionShardPath(pathname) {
+  if (typeof pathname !== 'string') return false;
   return SECTION_SHARD_PREFIXES.some(
     (prefix) => pathname === prefix
       || pathname === `${prefix}.html`
