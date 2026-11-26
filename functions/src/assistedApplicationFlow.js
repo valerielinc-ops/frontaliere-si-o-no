@@ -35,7 +35,8 @@ import { operationalDefaultAnswer, withOperationalQuestionAnswers } from './assi
 import { portalCodeVersion } from './assistedApplicationPortalRecoveryPolicy.js';
 import { openRequiredDocuments, requiredDocumentsFor } from './assistedApplicationExtraDocuments.js';
 import { autoRetryDelaysForFlow, isAutoRetryablePortalHold, isCaptchaHandoffReason, isCaptchaPortalHold, isInfrastructureRetryHold, portalAutoRetryCountValue, portalExhaustedRecoveryPending, portalFinalReviewAmbiguousRecoveryPending, portalRetryDueAt, PORTAL_AUTO_RETRY_DELAYS_MS as PORTAL_RETRY_DELAYS, PORTAL_FINAL_REVIEW_AMBIGUOUS_RECOVERY_VERSION, SWISS_EGRESS_NETWORK_RECOVERY_VERSION, TRANSPORT_AUTO_RETRY_DELAYS_MS } from './assistedApplicationPortalRetryPolicy.js';
-import { DRAFT_AUTO_RETRY_MAX_ATTEMPTS, draftAutoRetryCountValue, draftRetryDueAt } from './assistedApplicationDraftRetryPolicy.js';
+import { DRAFT_AUTO_RETRY_MAX_ATTEMPTS, draftAutoRetryAttemptsRemaining, draftAutoRetryCountValue, draftRetryDelayMs, draftRetryDueAt, draftRetryMaxAttempts, isCodexUsageLimitError } from './assistedApplicationDraftRetryPolicy.js';
+import { codexBrokerInfrastructureFailure } from './assistedApplicationTransportRetryPolicy.js';
 import { dispatchRecoveryCountValue, dispatchRecoveryDueAt } from './assistedApplicationDispatchRetryPolicy.js';
 import { EMPLOYER_WITHDRAWAL_EMAIL_KIND, EMPLOYER_WITHDRAWAL_REASON, nativeClosureOf, recordedNativeClosure } from './assistedApplicationEmployerWithdrawal.js';
 import { refundEndsAtStart } from './assistedApplicationConstants.js';
@@ -106,9 +107,10 @@ const TRANSIENT_RUN_ERROR_RE = /runner_infrastructure_unavailable|portal_questio
 
 /** Codex broker refusals, timeouts, rate limits, 5xx: worth another run. */
 // runner_timeout is the watchdog's own verdict after its re-dispatches: not retried again.
+// Codex quota/usage limits won't clear within minutes and use delayed draft/transport backoff instead.
 export function isTransientRunError(error) {
   const text = String(error || '');
-  return text !== 'runner_timeout' && TRANSIENT_RUN_ERROR_RE.test(text);
+  return text !== 'runner_timeout' && !isCodexUsageLimitError(text) && TRANSIENT_RUN_ERROR_RE.test(text);
 }
 
 /** Another run for a transient failure, or null once the attempts are used up. */
@@ -218,10 +220,10 @@ export function evaluateRedFlags(draft, answers = {}, documents = {}, questionAn
     locale: platformFacts?.locale, facts: platformFacts, suppressDefaultQuestionIds: candidateAnswerDefaultSuppressionIds,
     candidateAnswerSuppressedQuestionContracts,
   }).answers;
-  const candidate = questions
+  const candidate = [...new Set(questions
     .filter((question) => question.required
       && (!String(projected?.[question.id] ?? '').trim() || !requiredPortalConsentAffirmed(question, projected?.[question.id])))
-    .map((question) => question.id);
+    .map((question) => question.id))];
   // A required document (school reports, a test result…) the candidate has not given yet.
   return { owner, candidate, documents: openRequiredDocuments(draft, documents, flow) };
 }
@@ -484,6 +486,8 @@ function base(flow) {
     // An explicitly malformed persisted count must fail closed instead of
     // creating another automatic draft run.
     draftAutoRetryCount: draftAutoRetryCountValue(flow) ?? -1,
+    ...(typeof flow?.draftFailureKind === 'string' && flow.draftFailureKind
+      ? { draftFailureKind: flow.draftFailureKind } : {}),
     dispatchRecoveryAt: Number(flow?.dispatchRecoveryAt) || null,
     // An explicitly malformed count must fail closed instead of minting a
     // second retry after a pre-dispatch failure.
@@ -836,7 +840,8 @@ function portalTakeover(next, current, event, nowMs, attemptsOverride = null) {
   next.reminderAt = null;
   const reason = String(event.reason || 'portal_needs_candidate');
   next.portalCodeVersion = portalCodeVersion(event.portalCodeVersion) || current.portalCodeVersion;
-  next.heldBy = [`${reason === 'email_provider_unavailable' ? 'transport' : 'portal'}:${reason.slice(0, 60)}`];
+  const prefix = reason === 'email_provider_unavailable' || reason.startsWith('codex_') ? 'transport' : 'portal';
+  next.heldBy = [`${prefix}:${reason.slice(0, 60)}`];
   const infrastructure = isInfrastructureRetryHold(next);
   const attempts = Number(infrastructure ? current.transportAutoRetryCount : current.portalAutoRetryCount) || 0;
   const delays = autoRetryDelaysForFlow(next);
@@ -890,6 +895,7 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
   switch (event.type) {
     case 'draft_ready':
       if (state !== 'drafting' && state !== 'regenerating') return ignore('not_drafting');
+      next.draftFailureKind = null;
       // A clean draft is safe to show to the candidate immediately. The owner
       // review remains a hard gate for fact, channel, legitimacy and posting
       // flags, but a normal CV must not wait for an owner acknowledgement just
@@ -902,6 +908,20 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       break;
     case 'draft_failed': {
       if (state !== 'drafting' && state !== 'regenerating') return ignore('not_drafting');
+      if (isCodexUsageLimitError(event.error)) {
+        next.state = 'owner_takeover';
+        next.heldBy = ['draft_failed'];
+        next.draftFailureKind = 'codex_usage_limit';
+        if (draftAutoRetryAttemptsRemaining(next)) {
+          next.draftAutoRetryAt = nowMs + draftRetryDelayMs(next);
+          effects = [];
+        } else {
+          next.draftAutoRetryAt = null;
+          effects = [takeoverEmail(flow, event, 'draft')];
+        }
+        break;
+      }
+      next.draftFailureKind = null;
       // A transient failure gets another run first; the owner takes over only
       // after the last attempt, or for an error another run will not fix.
       const retry = transientRetry(flow, event, 'draft');
@@ -964,7 +984,7 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       if (!retryAt || retryAt > nowMs) return ignore('draft_retry_not_due');
       if (!roundDraftMissing(current, draft)) return ignore('draft_available');
       const attempts = draftAutoRetryCountValue(current);
-      if (attempts === null || attempts >= DRAFT_AUTO_RETRY_MAX_ATTEMPTS) return ignore('draft_retry_limit');
+      if (attempts === null || attempts >= draftRetryMaxAttempts(current)) return ignore('draft_retry_limit');
       next.draftAutoRetryCount = attempts + 1;
       effects = redraftSameRound(next, 'draft_auto_retry');
       break;
@@ -1510,9 +1530,18 @@ export function transition(flow, event, { order = {}, draft = null, answers = {}
       // lib/submit.mjs) replays an application already sent, and one that may
       // have left (after the final click, or an e-mail of unknown outcome)
       // comes back as *_ambiguous, which is never retried.
+      const codexReason = codexBrokerInfrastructureFailure(event.error);
+      if (codexReason === 'codex_usage_limit') {
+        effects = [portalTakeover(next, current, { reason: codexReason }, nowMs)].filter(Boolean);
+        break;
+      }
       const retry = transientRetry(flow, event, 'submit');
       if (retry) {
         effects = retry;
+        break;
+      }
+      if (codexReason) {
+        effects = [portalTakeover(next, current, { reason: codexReason }, nowMs)].filter(Boolean);
         break;
       }
       next.state = 'owner_takeover';

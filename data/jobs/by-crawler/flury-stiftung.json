@@ -1,7 +1,7 @@
 {
   "crawlerKey": "flury-stiftung",
-  "assembledAt": "2026-11-20T22:21:04.981Z",
-  "runId": "44820100410",
+  "assembledAt": "2026-11-25T21:56:09.288Z",
+  "runId": "45703845291",
   "jobs": [
     {
       "id": "flury-stiftung-e3c629d4f6e6",
@@ -34,7 +34,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/Lehrstelle%20Fachfperson%20Hotellerie-Hauswirtschaft%202027.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:20:57.001Z",
+      "crawledAt": "2026-11-25T21:56:02.615Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -110,9 +110,8 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T22:20:57.001Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.flurystiftung.ch/sites/default/files/2026-02/lehrstelle%20fachfperson%20hotellerie-hauswirtschaft%202027.pdf"
+      "validThrough": "2026-12-25T21:56:02.615Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-2736465a21b7",
@@ -145,7 +144,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/MPA_MZK.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:20:56.051Z",
+      "crawledAt": "2026-11-25T21:56:00.317Z",
       "addressLocality": "Klosters",
       "postalCode": "7250",
       "addressCountry": "CH",
@@ -198,9 +197,8 @@
       "addressRegion": "GR",
       "streetAddress": "Klosters",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T22:20:56.051Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.flurystiftung.ch/sites/default/files/2026-10/mpa_mzk.pdf"
+      "validThrough": "2026-12-31T21:56:00.317Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-ccf7fd962c44",
@@ -233,7 +231,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Praxisassistenz%20Hausarztmedizin%2050-100%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:20:54.044Z",
+      "crawledAt": "2026-11-25T21:55:57.928Z",
       "addressLocality": "Klosters",
       "postalCode": "7250",
       "addressCountry": "CH",
@@ -298,9 +296,8 @@
       "addressRegion": "GR",
       "streetAddress": "Klosters",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T22:20:54.044Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.flurystiftung.ch/sites/default/files/2026-03/praxisassistenz%20hausarztmedizin%2050-100%25.pdf"
+      "validThrough": "2026-12-25T21:55:57.928Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-1e6940acb70a",
@@ -333,7 +330,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-07/Inserat_Dipl_Pflegefachperson_Fachperson%20Gesundheit_80-100_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:20:51.475Z",
+      "crawledAt": "2026-11-25T21:55:54.779Z",
       "addressLocality": "Jenaz",
       "postalCode": "7233",
       "addressCountry": "CH",
@@ -436,9 +433,8 @@
       "addressRegion": "GR",
       "streetAddress": "Jenaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T22:20:51.475Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.flurystiftung.ch/sites/default/files/2026-07/inserat_dipl_pflegefachperson_fachperson%20gesundheit_80-100_0.pdf"
+      "validThrough": "2026-12-25T21:55:54.779Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-f18e892d8c2c",
@@ -471,7 +467,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/Inserat_Stationsleitung_AHJ_Demenz_80-100_0_1.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:20:49.178Z",
+      "crawledAt": "2026-11-25T21:55:52.261Z",
       "addressLocality": "Jenaz",
       "postalCode": "7233",
       "addressCountry": "CH",
@@ -526,9 +522,8 @@
       "addressRegion": "GR",
       "streetAddress": "Jenaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T22:20:49.178Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.flurystiftung.ch/sites/default/files/2026-10/inserat_stationsleitung_ahj_demenz_80-100_0_1.pdf"
+      "validThrough": "2027-01-18T21:55:52.261Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-de2dfd255ba9",
@@ -561,7 +556,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-11/FaGe%20oder%20Dipl.%20Pflegefachperson%20HF_FH%20%28w_m%29%2050%25%20AHS_%20Nachtdienst.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:20:46.592Z",
+      "crawledAt": "2026-11-25T21:55:49.058Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -627,9 +622,8 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T22:20:46.592Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.flurystiftung.ch/sites/default/files/2026-11/fage%20oder%20dipl.%20pflegefachperson%20hf_fh%20%28w_m%29%2050%25%20ahs_%20nachtdienst.pdf"
+      "validThrough": "2027-02-05T21:55:49.058Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-2f717b7dc49d",
@@ -662,7 +656,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/Dipl.%20Pflegefachperson%20HF_FH%20%28w_m%29%2080-100%25%20AHS.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:20:43.845Z",
+      "crawledAt": "2026-11-25T21:55:45.801Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -726,9 +720,8 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-04T22:20:43.845Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.flurystiftung.ch/sites/default/files/2026-10/dipl.%20pflegefachperson%20hf_fh%20%28w_m%29%2080-100%25%20ahs.pdf"
+      "validThrough": "2027-01-04T21:55:45.801Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-4fb0719c59ca",
@@ -761,7 +754,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-08/FAGE%2080-100%25%20Altersheim%20Schiers.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:20:41.129Z",
+      "crawledAt": "2026-11-25T21:55:42.639Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -828,9 +821,8 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T22:20:41.129Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.flurystiftung.ch/sites/default/files/2026-08/fage%2080-100%25%20altersheim%20schiers.pdf"
+      "validThrough": "2026-12-25T21:55:42.639Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-1fcbb4730196",
@@ -863,7 +855,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-11/26_11_06_FAGE%20oder%20HF%2080-100%25%20Altersheim%20Klosters_1.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:20:40.568Z",
+      "crawledAt": "2026-11-25T21:55:39.746Z",
       "addressLocality": "Klosters",
       "postalCode": "7250",
       "addressCountry": "CH",
@@ -918,9 +910,8 @@
       "addressRegion": "GR",
       "streetAddress": "Klosters",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T22:20:40.568Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.flurystiftung.ch/sites/default/files/2026-11/26_11_06_fage%20oder%20hf%2080-100%25%20altersheim%20klosters_1.pdf"
+      "validThrough": "2027-02-05T21:55:39.746Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-148bb6f6b9d5",
@@ -953,7 +944,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-11/2026_11_06_Inserat%20FaGe%20Nachtwache%2030-50%25_AHK_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:20:40.179Z",
+      "crawledAt": "2026-11-25T21:55:37.192Z",
       "addressLocality": "Klosters",
       "postalCode": "7250",
       "addressCountry": "CH",
@@ -1006,9 +997,8 @@
       "addressRegion": "GR",
       "streetAddress": "Klosters",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T22:20:40.179Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.flurystiftung.ch/sites/default/files/2026-11/2026_11_06_inserat%20fage%20nachtwache%2030-50%25_ahk_0.pdf"
+      "validThrough": "2027-02-05T21:55:37.192Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-5d66327c13a9",
@@ -1041,7 +1031,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-11/2026_11_%2006_Inserat%20FaGe%20Nachtwache-Splitting_100%25_AHK-AHS.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:20:39.702Z",
+      "crawledAt": "2026-11-25T21:55:34.623Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1105,9 +1095,8 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T22:20:39.702Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.flurystiftung.ch/sites/default/files/2026-11/2026_11_%2006_inserat%20fage%20nachtwache-splitting_100%25_ahk-ahs.pdf"
+      "validThrough": "2027-02-05T21:55:34.623Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-d2d90052d654",
@@ -1140,7 +1129,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2022-07/20220719Unterassistenz%20Chirurgie_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:20:39.330Z",
+      "crawledAt": "2026-11-25T21:55:32.430Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1204,9 +1193,8 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T22:20:39.330Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.flurystiftung.ch/sites/default/files/2022-07/20220719unterassistenz%20chirurgie_0.pdf"
+      "validThrough": "2026-12-25T21:55:32.430Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-09e6f7077792",
@@ -1239,7 +1227,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2023-06/20230426_unterassistenz_innere_medizin.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:20:38.762Z",
+      "crawledAt": "2026-11-25T21:55:28.399Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1304,9 +1292,8 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T22:20:38.762Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.flurystiftung.ch/sites/default/files/2023-06/20230426_unterassistenz_innere_medizin.pdf"
+      "validThrough": "2026-12-25T21:55:28.399Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-38d69eb9653b",
@@ -1339,7 +1326,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/20220719%20Unterassistenz%20An%C3%A4sthesie.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:20:36.460Z",
+      "crawledAt": "2026-11-25T21:55:25.263Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1409,9 +1396,8 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T22:20:36.460Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.flurystiftung.ch/sites/default/files/2026-02/20220719%20unterassistenz%20an%c3%a4sthesie.pdf"
+      "validThrough": "2026-12-25T21:55:25.263Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-53962d4794b1",
@@ -1444,7 +1430,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2023-08/assistenzarzt_innere_medizin_m_w_100.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:20:33.611Z",
+      "crawledAt": "2026-11-25T21:55:20.862Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1515,9 +1501,8 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T22:20:33.611Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.flurystiftung.ch/sites/default/files/2023-08/assistenzarzt_innere_medizin_m_w_100.pdf"
+      "validThrough": "2026-12-25T21:55:20.862Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-4309b061e85f",
@@ -1550,7 +1535,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Assistenz%C3%A4rztin_Assistenzarzt%20Chirurgie%20%28w_m%29_Neu_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:20:31.290Z",
+      "crawledAt": "2026-11-25T21:55:17.741Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1629,9 +1614,8 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T22:20:31.290Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.flurystiftung.ch/sites/default/files/2026-03/assistenz%c3%a4rztin_assistenzarzt%20chirurgie%20%28w_m%29_neu_0.pdf"
+      "validThrough": "2026-12-25T21:55:17.741Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-c251812a4881",
@@ -1639,7 +1623,7 @@
       "slugByLocale": {
         "it": "mutua-flury-stiftung-schiers",
         "en": "midwife-flury-stiftung-schiers",
-        "de": "hebamme-flury-stiftung-schiers",
+        "de": "hebamme-flury-stiftung-ch",
         "fr": "une-sage-femme-flury-stiftung-schiers"
       },
       "company": "Flury Stiftung",
@@ -1664,7 +1648,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/Hebamme.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:20:28.876Z",
+      "crawledAt": "2026-11-25T21:55:13.781Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1687,7 +1671,8 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "previousSlugs": [
-        "hebamme-flury-stiftung-ch"
+        "hebamme-flury-stiftung-ch",
+        "hebamme-flury-stiftung-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1696,10 +1681,10 @@
         "en": [
           "hebamme-flury-stiftung-ch"
         ],
-        "fr": [
-          "hebamme-flury-stiftung-ch"
-        ],
         "de": [
+          "hebamme-flury-stiftung-schiers"
+        ],
+        "fr": [
           "hebamme-flury-stiftung-ch"
         ]
       },
@@ -1731,9 +1716,8 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-26T22:20:28.876Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.flurystiftung.ch/sites/default/files/2026-10/hebamme.pdf"
+      "validThrough": "2027-01-26T21:55:13.781Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-6bd8c1330628",
@@ -1766,7 +1750,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/MPA%20oder%20FaGe%2080%20-%20100%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:20:28.354Z",
+      "crawledAt": "2026-11-25T21:55:10.952Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1824,9 +1808,8 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-24T22:20:28.354Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.flurystiftung.ch/sites/default/files/2026-10/mpa%20oder%20fage%2080%20-%20100%25.pdf"
+      "validThrough": "2027-01-24T21:55:10.952Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-127104c40da7",
@@ -1859,7 +1842,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-07/Radiologiefachperson_MTRA%2080%20-%20100%25%20Radiologie_Angiologie.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:20:27.966Z",
+      "crawledAt": "2026-11-25T21:55:08.117Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1923,9 +1906,8 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T22:20:27.966Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.flurystiftung.ch/sites/default/files/2026-07/radiologiefachperson_mtra%2080%20-%20100%25%20radiologie_angiologie.pdf"
+      "validThrough": "2026-12-25T21:55:08.117Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-c2748dc1f60a",
@@ -1958,7 +1940,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-11/Dipl.%20Pflegefachperson%2050%25-100%25%20mit%20Zusatzm%C3%B6glichkeiten.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:20:27.556Z",
+      "crawledAt": "2026-11-25T21:55:04.925Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -2024,9 +2006,8 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T22:20:27.556Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.flurystiftung.ch/sites/default/files/2026-11/dipl.%20pflegefachperson%2050%25-100%25%20mit%20zusatzm%c3%b6glichkeiten.pdf"
+      "validThrough": "2027-02-05T21:55:04.925Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-3f369e449e3d",
@@ -2059,7 +2040,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-11/Dipl.%20Pflegefachperson%20An%C3%A4sthesie%2060%20-%20100%25%202026.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:20:27.115Z",
+      "crawledAt": "2026-11-25T21:55:03.015Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -2123,107 +2104,8 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T22:20:27.115Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.flurystiftung.ch/sites/default/files/2026-11/dipl.%20pflegefachperson%20an%c3%a4sthesie%2060%20-%20100%25%202026.pdf"
-    },
-    {
-      "id": "flury-stiftung-c3a80c5676d5",
-      "slug": "specialista-del-tessuto-flury-stiftung-schiers-c35b20b4de",
-      "slugByLocale": {
-        "it": "specialista-del-tessuto-flury-stiftung-schiers-c35b20b4de",
-        "en": "wound-specialist-flury-stiftung-schiers",
-        "de": "wundfachperson-flury-stiftung-schiers",
-        "fr": "specialiste-des-blessures-flury-stiftung-schiers"
-      },
-      "company": "Flury Stiftung",
-      "companyKey": "flury-stiftung",
-      "companyDomain": "flurystiftung.ch",
-      "title": "Wundfachperson",
-      "titleByLocale": {
-        "it": "Specialista del tessuto",
-        "en": "Wound specialist",
-        "de": "Wundfachperson",
-        "fr": "Spécialiste des blessures"
-      },
-      "description": "WUNDVERSORGUNG MIT WIRKUNG. Gestalten Sie mit uns den nächsten Schritt. WUNDFACHPERSON 40 % | AB 1. JANUAR 2027 ODER NACH VEREINBARUNG Sie möchten Menschen mit akuten und chronischen Wunden fachlich kompetent begleiten und die Wundversorgung aktiv mitprägen? Dann bringen Sie Ihr Wissen und Ihre Ideen in unser Wundambulatorium am Spital Schiers ein. WER SIND WIR Die Flury Stiftung stellt mit rund 600 Mitarbeitenden eine umfassende und integrierte Gesundheitsversorgung im Prät- tigau zwischen Grüsch und Klosters sicher. Dazu gehören das Spital Schiers, die Altersheime Schiers, Jenaz und Klosters, die Spitex, Wohnen mit Service, die Kinderkrippe, die Elternberatung und das Medizinische Zentrum Klosters. Das Spital Schiers ist ein modernes Akutspital im Kanton Graubünden. Mit den Kliniken Chirurgie/Orthopädie, Medizin, Gynäkologie und Geburtshilfe sowie einem breiten belegärztlichen Angebot ermöglicht es eine erweiterte Grundversor- gung. Zur modernen Infrastruktur gehören drei Operationssäle, eine zertifizierte IMC, eine Tagesklinik und eine Betten- station mit ausschliesslich Einzelzimmern. IHRE AUFGABE – VIELSEITIG UND SINNSTIFTEND\n\n- Sie beurteilen, behandeln und dokumentieren akute und chronische Wunden fachgerecht.\n\n- Sie beraten und begleiten Patientinnen und Patienten sowie deren Angehörige rund um die Wundversorgung.\n\n- Sie unterstützen und beraten Pflegefachpersonen und weitere Berufsgruppen bei komplexen Wundsituationen.\n\n- Sie stellen eine professionelle, evidenzbasierte Wundversorgung nach aktuellen Standards sicher.\n\nDAS BRINGEN SIE MIT\n\n- Abgeschlossene Grundausbildung als dipl. Pflegefachperson HF/FH.\n\n- Anerkannte Weiterbildung im Wundmanagement oder die Bereitschaft, diese zu absolvieren.\n\n- Berufserfahrung in der Pflege; Erfahrung mit komplexen und chronischen Wunden ist von Vorteil.\n\n- Hohe Sozial- und Fachkompetenz sowie Freude an konstruktiver interdisziplinärer und interprofessioneller Zusam-\n\nmenarbeit. DAS ERWARTET SIE BEI UNS\n\n- Ein zukunftsorientiertes und innovatives Unternehmen.\n\n- Ein abwechslungsreiches, interessantes und anspruchsvolles Aufgabengebiet.\n\n- Individuelle Pensenlösungen und abteilungsübergreifende Kombinationen sind möglich\n\n- Eine eigene Kinderkrippe.\n\nLUST, MITZUGESTALTEN? Für erste Fragen ist Irene Mir, Bereichsleitung Spezialpflege und Diagnostik, gerne für Sie da: +41 81 308 08 71 oder irene.mir@flurystiftung.ch Wir freuen uns auf Ihre Bewerbungsunterlagen per E-Mail an hr@flurystiftung.ch. Weitere Informationen: flurystiftung.ch",
-      "descriptionByLocale": {
-        "it": "fornitura della ferita con effetto. Fai il prossimo passo con noi. PRESIDENZA DEL VICEPRESIDENTE Vuoi accompagnare persone con ferite acute e croniche professionalmente e attivamente modellare la cura delle ferite? Allora porta le tue conoscenze e le tue idee al nostro ambulatorio della ferita all'ospedale Schiers. Con circa 600 dipendenti, la Flury Foundation garantisce un'assistenza sanitaria completa e integrata nella città tra Grüsch e Klosters. Questi includono l'Ospedale Schiers, le case di riposo Schiers, Jenaz e Klosters, Spitex, che vivono con servizio, il crèche, la consulenza genitoriale e il Medical Center Klosters. Spital Schiers è un moderno ospedale acuto nel cantone di Grigioni. Con le cliniche chirurgia / ortopedia, medicina, ginecologia e ostetricia, nonché una vasta gamma di documenti, consente una lunga cura di base. L'infrastruttura moderna comprende tre sale operatorie, un IMC certificato, una clinica diurna e una stazione a letto con solo camere singole. ITS TASK – MULTIPLE E MEANING\n\n- Essi valutano, trattano e documentano ferite acute e croniche professionalmente.\n\n- Essi consigliano e accompagnano i pazienti e i loro parenti intorno alla cura delle ferite.\n\n- Supportano e consigliano infermieri e altri gruppi professionali in situazioni di ferite complesse.\n\n- Garantiscono cure professionali e basate su prove secondo gli standard attuali.\n\nPortali con te.\n\n- Completata la formazione di base come dipl. Professionista HF/FH.\n\n- Riconosciuto ulteriore formazione nella gestione delle ferite o la volontà di completarlo.\n\n- esperienza professionale nella cura; Esperienza con ferite complesse e croniche è benefica.\n\n- Alta competenza sociale e professionale, nonché il godimento della cooperazione interdisciplinare e interprofessionale costruttiva\n\nlavoro umano. E' quello che ti aspetti di vedere in noi.\n\n- Un'azienda orientata al futuro e innovativa.\n\n- Un'area di responsabilità varia, interessante e impegnativa.\n\n- Sono possibili soluzioni individuali e combinazioni interdipartimentali\n\n- Ha un proprio crèche.\n\nVuoi unirti al treno? Per le domande iniziali, Irene Mir, Responsabile di Special Care and Diagnostics, è lieto di aiutarvi: +41 308 08 71 o irene.mir@flurystiftung.ch Non vediamo l'ora di ricevere i tuoi documenti di richiesta via e-mail a hr@flurystiftung.ch. Ulteriori informazioni: flurystiftung.ch",
-        "en": "wound supply with effect. Make the next step with us. WUNDFACHPERSON 40 % | FROM 1 JANUARY 2027 OR AFTER AGREEMENT Do you want to accompany people with acute and chronic wounds professionally and actively shape wound care? Then bring your knowledge and ideas to our wound ambulatorium at the Schiers Hospital. With around 600 employees, the Flury Foundation ensures comprehensive and integrated health care in the city between Grüsch and Klosters. These include the Hospital Schiers, the retirement homes Schiers, Jenaz and Klosters, the Spitex, living with service, the crèche, the parental counselling and the Medical Center Klosters. Spital Schiers is a modern acute care hospital in the canton of Graubünden. With the clinics surgery/orthopedics, medicine, gynecology and obstetrics as well as a wide range of documents, it enables an extended basic care. The modern infrastructure includes three operating rooms, a certified IMC, a day clinic and a bed station with only single rooms. ITS TASK – MULTIPLE AND MEANING\n\n- They assess, treat and document acute and chronic wounds professionally.\n\n- They advise and accompany patients and their relatives around wound care.\n\n- They support and advise nurses and other professional groups in complex wound situations.\n\n- They ensure professional, evidence-based wound care according to current standards.\n\nBring them with you.\n\n- Completed basic training as dipl. Care professional HF/FH.\n\n- Recognized further training in wound management or the willingness to complete it.\n\n- professional experience in care; Experience with complex and chronic wounds is beneficial.\n\n- High social and professional competence as well as enjoyment of constructive interdisciplinary and interprofessional cooperation\n\nhuman work. That's what you expect to see in us.\n\n- A future-oriented and innovative company.\n\n- A varied, interesting and demanding area of responsibility.\n\n- Individual breakthrough solutions and cross-departmental combinations are possible\n\n- It has its own crèche.\n\nWant to join the train? For initial questions, Irene Mir, Head of Special Care and Diagnostics, is happy to help you: +41 81 308 08 71 or irene.mir@flurystiftung.ch We look forward to receiving your application documents by e-mail to hr@flurystiftung.ch. Further information: flurystiftung.ch",
-        "de": "WUNDVERSORGUNG MIT WIRKUNG. Gestalten Sie mit uns den nächsten Schritt. WUNDFACHPERSON 40 % | AB 1. JANUAR 2027 ODER NACH VEREINBARUNG Sie möchten Menschen mit akuten und chronischen Wunden fachlich kompetent begleiten und die Wundversorgung aktiv mitprägen? Dann bringen Sie Ihr Wissen und Ihre Ideen in unser Wundambulatorium am Spital Schiers ein. WER SIND WIR Die Flury Stiftung stellt mit rund 600 Mitarbeitenden eine umfassende und integrierte Gesundheitsversorgung im Prät- tigau zwischen Grüsch und Klosters sicher. Dazu gehören das Spital Schiers, die Altersheime Schiers, Jenaz und Klosters, die Spitex, Wohnen mit Service, die Kinderkrippe, die Elternberatung und das Medizinische Zentrum Klosters. Das Spital Schiers ist ein modernes Akutspital im Kanton Graubünden. Mit den Kliniken Chirurgie/Orthopädie, Medizin, Gynäkologie und Geburtshilfe sowie einem breiten belegärztlichen Angebot ermöglicht es eine erweiterte Grundversor- gung. Zur modernen Infrastruktur gehören drei Operationssäle, eine zertifizierte IMC, eine Tagesklinik und eine Betten- station mit ausschliesslich Einzelzimmern. IHRE AUFGABE – VIELSEITIG UND SINNSTIFTEND\n\n- Sie beurteilen, behandeln und dokumentieren akute und chronische Wunden fachgerecht.\n\n- Sie beraten und begleiten Patientinnen und Patienten sowie deren Angehörige rund um die Wundversorgung.\n\n- Sie unterstützen und beraten Pflegefachpersonen und weitere Berufsgruppen bei komplexen Wundsituationen.\n\n- Sie stellen eine professionelle, evidenzbasierte Wundversorgung nach aktuellen Standards sicher.\n\nDAS BRINGEN SIE MIT\n\n- Abgeschlossene Grundausbildung als dipl. Pflegefachperson HF/FH.\n\n- Anerkannte Weiterbildung im Wundmanagement oder die Bereitschaft, diese zu absolvieren.\n\n- Berufserfahrung in der Pflege; Erfahrung mit komplexen und chronischen Wunden ist von Vorteil.\n\n- Hohe Sozial- und Fachkompetenz sowie Freude an konstruktiver interdisziplinärer und interprofessioneller Zusam-\n\nmenarbeit. DAS ERWARTET SIE BEI UNS\n\n- Ein zukunftsorientiertes und innovatives Unternehmen.\n\n- Ein abwechslungsreiches, interessantes und anspruchsvolles Aufgabengebiet.\n\n- Individuelle Pensenlösungen und abteilungsübergreifende Kombinationen sind möglich\n\n- Eine eigene Kinderkrippe.\n\nLUST, MITZUGESTALTEN? Für erste Fragen ist Irene Mir, Bereichsleitung Spezialpflege und Diagnostik, gerne für Sie da: +41 81 308 08 71 oder irene.mir@flurystiftung.ch Wir freuen uns auf Ihre Bewerbungsunterlagen per E-Mail an hr@flurystiftung.ch. Weitere Informationen: flurystiftung.ch",
-        "fr": "approvisionnement en plaies avec effet. Faites l'étape suivante avec nous. WUNDFACHPERSON 40 % DU 1er JANVIER 2027 OU APRÈS L'ACCORD Voulez-vous accompagner les gens avec des blessures aiguës et chroniques professionnelles et façonner activement les soins des plaies? Apportez vos connaissances et vos idées à notre ambulatoire blessé à l'hôpital Schiers. Avec environ 600 employés, la Fondation Flury assure des soins de santé complets et intégrés dans la ville entre Grüsch et Klosters. Il s'agit notamment de l'Hôpital Schiers, des maisons de retraite Schiers, Jenaz et Klosters, du Spitex, vivant avec service, de la crèche, du conseil parental et du Centre médical Klosters. Spital Schiers est un hôpital moderne de soins actifs dans le canton des Grisons. Avec les cliniques de chirurgie/orthopédie, la médecine, la gynécologie et l'obstétrique ainsi qu'un large éventail de documents, il permet un traitement de base étendu. L'infrastructure moderne comprend trois salles d'opération, un IMC certifié, une clinique de jour et une station de lit avec seulement des chambres individuelles. SA TÂCHE – MULTIPLE ET MENAGE\n\n- Ils évaluent, traitent et documentent professionnellement les blessures aiguës et chroniques.\n\n- Ils conseillent et accompagnent les patients et leurs proches autour des soins.\n\n- Ils appuient et conseillent les infirmières et les autres groupes professionnels dans des situations de blessure complexes.\n\n- Ils assurent des soins professionnels fondés sur des données probantes conformément aux normes actuelles.\n\nAmenez-les avec vous.\n\n- Achevé la formation de base comme dipl. Soins professionnels HF/FH.\n\n- Reconnaissance de la formation continue en gestion des blessures ou de la volonté de la compléter.\n\n- Expérience professionnelle en soins; L'expérience des blessures complexes et chroniques est bénéfique.\n\n- Haute compétence sociale et professionnelle ainsi que la jouissance d'une coopération interdisciplinaire et interprofessionnelle constructive\n\ntravail humain. C'est ce que vous attendez de nous.\n\n- Une entreprise tournée vers l'avenir et innovante.\n\n- Un domaine de responsabilité varié, intéressant et exigeant.\n\n- Des solutions individuelles et des combinaisons interministérielles sont possibles\n\n- Il a sa propre crèche.\n\nTu veux rejoindre le train ? Pour les questions initiales, Irene Mir, responsable des soins spéciaux et des diagnostics, est heureuse de vous aider: +41 81 308 08 71 ou irene.mir@flurystiftung.ch Nous sommes impatients de recevoir vos documents de candidature par courriel à hr@flurystiftung.ch. Informations supplémentaires: flurystiftung.ch"
-      },
-      "location": "Schiers",
-      "canton": "GR",
-      "url": "https://www.flurystiftung.ch/sites/default/files/2026-11/Wundfachperson.pdf",
-      "source": "Flury Stiftung Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:20:26.709Z",
-      "addressLocality": "Schiers",
-      "postalCode": "7220",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.flurystiftung.ch/sites/default/files/2026-11/Wundfachperson.pdf",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Spital Schiers",
-      "pensum": "100%",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "previousSlugs": [
-        "wundfachperson-flury-stiftung-ch",
-        "specialista-del-tessuto-flury-stiftung-schiers"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "wundfachperson-flury-stiftung-ch",
-          "specialista-del-tessuto-flury-stiftung-schiers"
-        ],
-        "de": [
-          "wundfachperson-flury-stiftung-ch"
-        ]
-      },
-      "firstSeenAt": "2026-10-20T09:30:57.503Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR",
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Flury Stiftung",
-        "streetAddress": "Tersierstrasse",
-        "postalCode": "7220",
-        "addressLocality": "Schiers",
-        "addressRegion": "GR",
-        "checkedAt": "2026-10-31T20:48:57.412Z",
-        "streetAddressSource": "zefix-registry"
-      },
-      "streetAddress": "Tersierstrasse",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-18T22:20:26.709Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.flurystiftung.ch/sites/default/files/2026-11/wundfachperson.pdf"
+      "validThrough": "2027-02-03T21:55:03.015Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-b3fa2849fdd9",
@@ -2256,7 +2138,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-08/Stelleninserat_Applikationsmanager.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:20:26.270Z",
+      "crawledAt": "2026-11-25T21:55:00.677Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -2314,9 +2196,8 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T22:20:26.270Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.flurystiftung.ch/sites/default/files/2026-08/stelleninserat_applikationsmanager.pdf"
+      "validThrough": "2026-12-25T21:55:00.677Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-6989a32d2557",
@@ -2349,7 +2230,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-11/Dipl.%20Pflegefachperson%20HF%20in%20Ausbildung.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:20:25.842Z",
+      "crawledAt": "2026-11-25T21:54:58.163Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -2419,9 +2300,8 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T22:20:25.842Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.flurystiftung.ch/sites/default/files/2026-11/dipl.%20pflegefachperson%20hf%20in%20ausbildung.pdf"
+      "validThrough": "2026-12-25T21:54:58.163Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "flury-stiftung-defc2bc47d80",
@@ -2454,7 +2334,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-06/Fachperson%20Gesundheit%20im%20Personalpool%2040-80%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T22:20:25.411Z",
+      "crawledAt": "2026-11-25T21:54:55.949Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -2518,9 +2398,107 @@
       },
       "streetAddress": "Tersierstrasse",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T22:20:25.411Z",
+      "validThrough": "2026-12-25T21:54:55.949Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "flury-stiftung-c3a80c5676d5",
+      "slug": "specialista-del-tessuto-flury-stiftung-schiers-c35b20b4de",
+      "slugByLocale": {
+        "it": "specialista-del-tessuto-flury-stiftung-schiers-c35b20b4de",
+        "en": "wound-specialist-flury-stiftung-schiers",
+        "de": "wundfachperson-flury-stiftung-ch",
+        "fr": "specialiste-des-blessures-flury-stiftung-schiers"
+      },
+      "company": "Flury Stiftung",
+      "companyKey": "flury-stiftung",
+      "companyDomain": "flurystiftung.ch",
+      "title": "Wundfachperson",
+      "titleByLocale": {
+        "it": "Specialista del tessuto",
+        "en": "Wound specialist",
+        "de": "Wundfachperson",
+        "fr": "Spécialiste des blessures"
+      },
+      "description": "WUNDVERSORGUNG MIT WIRKUNG. Gestalten Sie mit uns den nächsten Schritt. WUNDFACHPERSON 40 % | AB 1. JANUAR 2027 ODER NACH VEREINBARUNG Sie möchten Menschen mit akuten und chronischen Wunden fachlich kompetent begleiten und die Wundversorgung aktiv mitprägen? Dann bringen Sie Ihr Wissen und Ihre Ideen in unser Wundambulatorium am Spital Schiers ein. WER SIND WIR Die Flury Stiftung stellt mit rund 600 Mitarbeitenden eine umfassende und integrierte Gesundheitsversorgung im Prät- tigau zwischen Grüsch und Klosters sicher. Dazu gehören das Spital Schiers, die Altersheime Schiers, Jenaz und Klosters, die Spitex, Wohnen mit Service, die Kinderkrippe, die Elternberatung und das Medizinische Zentrum Klosters. Das Spital Schiers ist ein modernes Akutspital im Kanton Graubünden. Mit den Kliniken Chirurgie/Orthopädie, Medizin, Gynäkologie und Geburtshilfe sowie einem breiten belegärztlichen Angebot ermöglicht es eine erweiterte Grundversor- gung. Zur modernen Infrastruktur gehören drei Operationssäle, eine zertifizierte IMC, eine Tagesklinik und eine Betten- station mit ausschliesslich Einzelzimmern. IHRE AUFGABE – VIELSEITIG UND SINNSTIFTEND\n\n- Sie beurteilen, behandeln und dokumentieren akute und chronische Wunden fachgerecht.\n\n- Sie beraten und begleiten Patientinnen und Patienten sowie deren Angehörige rund um die Wundversorgung.\n\n- Sie unterstützen und beraten Pflegefachpersonen und weitere Berufsgruppen bei komplexen Wundsituationen.\n\n- Sie stellen eine professionelle, evidenzbasierte Wundversorgung nach aktuellen Standards sicher.\n\nDAS BRINGEN SIE MIT\n\n- Abgeschlossene Grundausbildung als dipl. Pflegefachperson HF/FH.\n\n- Anerkannte Weiterbildung im Wundmanagement oder die Bereitschaft, diese zu absolvieren.\n\n- Berufserfahrung in der Pflege; Erfahrung mit komplexen und chronischen Wunden ist von Vorteil.\n\n- Hohe Sozial- und Fachkompetenz sowie Freude an konstruktiver interdisziplinärer und interprofessioneller Zusam-\n\nmenarbeit. DAS ERWARTET SIE BEI UNS\n\n- Ein zukunftsorientiertes und innovatives Unternehmen.\n\n- Ein abwechslungsreiches, interessantes und anspruchsvolles Aufgabengebiet.\n\n- Individuelle Pensenlösungen und abteilungsübergreifende Kombinationen sind möglich\n\n- Eine eigene Kinderkrippe.\n\nLUST, MITZUGESTALTEN? Für erste Fragen ist Irene Mir, Bereichsleitung Spezialpflege und Diagnostik, gerne für Sie da: +41 81 308 08 71 oder irene.mir@flurystiftung.ch Wir freuen uns auf Ihre Bewerbungsunterlagen per E-Mail an hr@flurystiftung.ch. Weitere Informationen: flurystiftung.ch",
+      "descriptionByLocale": {
+        "it": "fornitura della ferita con effetto. Fai il prossimo passo con noi. PRESIDENZA DEL VICEPRESIDENTE Vuoi accompagnare persone con ferite acute e croniche professionalmente e attivamente modellare la cura delle ferite? Allora porta le tue conoscenze e le tue idee al nostro ambulatorio della ferita all'ospedale Schiers. Con circa 600 dipendenti, la Flury Foundation garantisce un'assistenza sanitaria completa e integrata nella città tra Grüsch e Klosters. Questi includono l'Ospedale Schiers, le case di riposo Schiers, Jenaz e Klosters, Spitex, che vivono con servizio, il crèche, la consulenza genitoriale e il Medical Center Klosters. Spital Schiers è un moderno ospedale acuto nel cantone di Grigioni. Con le cliniche chirurgia / ortopedia, medicina, ginecologia e ostetricia, nonché una vasta gamma di documenti, consente una lunga cura di base. L'infrastruttura moderna comprende tre sale operatorie, un IMC certificato, una clinica diurna e una stazione a letto con solo camere singole. ITS TASK – MULTIPLE E MEANING\n\n- Essi valutano, trattano e documentano ferite acute e croniche professionalmente.\n\n- Essi consigliano e accompagnano i pazienti e i loro parenti intorno alla cura delle ferite.\n\n- Supportano e consigliano infermieri e altri gruppi professionali in situazioni di ferite complesse.\n\n- Garantiscono cure professionali e basate su prove secondo gli standard attuali.\n\nPortali con te.\n\n- Completata la formazione di base come dipl. Professionista HF/FH.\n\n- Riconosciuto ulteriore formazione nella gestione delle ferite o la volontà di completarlo.\n\n- esperienza professionale nella cura; Esperienza con ferite complesse e croniche è benefica.\n\n- Alta competenza sociale e professionale, nonché il godimento della cooperazione interdisciplinare e interprofessionale costruttiva\n\nlavoro umano. E' quello che ti aspetti di vedere in noi.\n\n- Un'azienda orientata al futuro e innovativa.\n\n- Un'area di responsabilità varia, interessante e impegnativa.\n\n- Sono possibili soluzioni individuali e combinazioni interdipartimentali\n\n- Ha un proprio crèche.\n\nVuoi unirti al treno? Per le domande iniziali, Irene Mir, Responsabile di Special Care and Diagnostics, è lieto di aiutarvi: +41 308 08 71 o irene.mir@flurystiftung.ch Non vediamo l'ora di ricevere i tuoi documenti di richiesta via e-mail a hr@flurystiftung.ch. Ulteriori informazioni: flurystiftung.ch",
+        "en": "wound supply with effect. Make the next step with us. WUNDFACHPERSON 40 % | FROM 1 JANUARY 2027 OR AFTER AGREEMENT Do you want to accompany people with acute and chronic wounds professionally and actively shape wound care? Then bring your knowledge and ideas to our wound ambulatorium at the Schiers Hospital. With around 600 employees, the Flury Foundation ensures comprehensive and integrated health care in the city between Grüsch and Klosters. These include the Hospital Schiers, the retirement homes Schiers, Jenaz and Klosters, the Spitex, living with service, the crèche, the parental counselling and the Medical Center Klosters. Spital Schiers is a modern acute care hospital in the canton of Graubünden. With the clinics surgery/orthopedics, medicine, gynecology and obstetrics as well as a wide range of documents, it enables an extended basic care. The modern infrastructure includes three operating rooms, a certified IMC, a day clinic and a bed station with only single rooms. ITS TASK – MULTIPLE AND MEANING\n\n- They assess, treat and document acute and chronic wounds professionally.\n\n- They advise and accompany patients and their relatives around wound care.\n\n- They support and advise nurses and other professional groups in complex wound situations.\n\n- They ensure professional, evidence-based wound care according to current standards.\n\nBring them with you.\n\n- Completed basic training as dipl. Care professional HF/FH.\n\n- Recognized further training in wound management or the willingness to complete it.\n\n- professional experience in care; Experience with complex and chronic wounds is beneficial.\n\n- High social and professional competence as well as enjoyment of constructive interdisciplinary and interprofessional cooperation\n\nhuman work. That's what you expect to see in us.\n\n- A future-oriented and innovative company.\n\n- A varied, interesting and demanding area of responsibility.\n\n- Individual breakthrough solutions and cross-departmental combinations are possible\n\n- It has its own crèche.\n\nWant to join the train? For initial questions, Irene Mir, Head of Special Care and Diagnostics, is happy to help you: +41 81 308 08 71 or irene.mir@flurystiftung.ch We look forward to receiving your application documents by e-mail to hr@flurystiftung.ch. Further information: flurystiftung.ch",
+        "de": "WUNDVERSORGUNG MIT WIRKUNG. Gestalten Sie mit uns den nächsten Schritt. WUNDFACHPERSON 40 % | AB 1. JANUAR 2027 ODER NACH VEREINBARUNG Sie möchten Menschen mit akuten und chronischen Wunden fachlich kompetent begleiten und die Wundversorgung aktiv mitprägen? Dann bringen Sie Ihr Wissen und Ihre Ideen in unser Wundambulatorium am Spital Schiers ein. WER SIND WIR Die Flury Stiftung stellt mit rund 600 Mitarbeitenden eine umfassende und integrierte Gesundheitsversorgung im Prät- tigau zwischen Grüsch und Klosters sicher. Dazu gehören das Spital Schiers, die Altersheime Schiers, Jenaz und Klosters, die Spitex, Wohnen mit Service, die Kinderkrippe, die Elternberatung und das Medizinische Zentrum Klosters. Das Spital Schiers ist ein modernes Akutspital im Kanton Graubünden. Mit den Kliniken Chirurgie/Orthopädie, Medizin, Gynäkologie und Geburtshilfe sowie einem breiten belegärztlichen Angebot ermöglicht es eine erweiterte Grundversor- gung. Zur modernen Infrastruktur gehören drei Operationssäle, eine zertifizierte IMC, eine Tagesklinik und eine Betten- station mit ausschliesslich Einzelzimmern. IHRE AUFGABE – VIELSEITIG UND SINNSTIFTEND\n\n- Sie beurteilen, behandeln und dokumentieren akute und chronische Wunden fachgerecht.\n\n- Sie beraten und begleiten Patientinnen und Patienten sowie deren Angehörige rund um die Wundversorgung.\n\n- Sie unterstützen und beraten Pflegefachpersonen und weitere Berufsgruppen bei komplexen Wundsituationen.\n\n- Sie stellen eine professionelle, evidenzbasierte Wundversorgung nach aktuellen Standards sicher.\n\nDAS BRINGEN SIE MIT\n\n- Abgeschlossene Grundausbildung als dipl. Pflegefachperson HF/FH.\n\n- Anerkannte Weiterbildung im Wundmanagement oder die Bereitschaft, diese zu absolvieren.\n\n- Berufserfahrung in der Pflege; Erfahrung mit komplexen und chronischen Wunden ist von Vorteil.\n\n- Hohe Sozial- und Fachkompetenz sowie Freude an konstruktiver interdisziplinärer und interprofessioneller Zusam-\n\nmenarbeit. DAS ERWARTET SIE BEI UNS\n\n- Ein zukunftsorientiertes und innovatives Unternehmen.\n\n- Ein abwechslungsreiches, interessantes und anspruchsvolles Aufgabengebiet.\n\n- Individuelle Pensenlösungen und abteilungsübergreifende Kombinationen sind möglich\n\n- Eine eigene Kinderkrippe.\n\nLUST, MITZUGESTALTEN? Für erste Fragen ist Irene Mir, Bereichsleitung Spezialpflege und Diagnostik, gerne für Sie da: +41 81 308 08 71 oder irene.mir@flurystiftung.ch Wir freuen uns auf Ihre Bewerbungsunterlagen per E-Mail an hr@flurystiftung.ch. Weitere Informationen: flurystiftung.ch",
+        "fr": "approvisionnement en plaies avec effet. Faites l'étape suivante avec nous. WUNDFACHPERSON 40 % DU 1er JANVIER 2027 OU APRÈS L'ACCORD Voulez-vous accompagner les gens avec des blessures aiguës et chroniques professionnelles et façonner activement les soins des plaies? Apportez vos connaissances et vos idées à notre ambulatoire blessé à l'hôpital Schiers. Avec environ 600 employés, la Fondation Flury assure des soins de santé complets et intégrés dans la ville entre Grüsch et Klosters. Il s'agit notamment de l'Hôpital Schiers, des maisons de retraite Schiers, Jenaz et Klosters, du Spitex, vivant avec service, de la crèche, du conseil parental et du Centre médical Klosters. Spital Schiers est un hôpital moderne de soins actifs dans le canton des Grisons. Avec les cliniques de chirurgie/orthopédie, la médecine, la gynécologie et l'obstétrique ainsi qu'un large éventail de documents, il permet un traitement de base étendu. L'infrastructure moderne comprend trois salles d'opération, un IMC certifié, une clinique de jour et une station de lit avec seulement des chambres individuelles. SA TÂCHE – MULTIPLE ET MENAGE\n\n- Ils évaluent, traitent et documentent professionnellement les blessures aiguës et chroniques.\n\n- Ils conseillent et accompagnent les patients et leurs proches autour des soins.\n\n- Ils appuient et conseillent les infirmières et les autres groupes professionnels dans des situations de blessure complexes.\n\n- Ils assurent des soins professionnels fondés sur des données probantes conformément aux normes actuelles.\n\nAmenez-les avec vous.\n\n- Achevé la formation de base comme dipl. Soins professionnels HF/FH.\n\n- Reconnaissance de la formation continue en gestion des blessures ou de la volonté de la compléter.\n\n- Expérience professionnelle en soins; L'expérience des blessures complexes et chroniques est bénéfique.\n\n- Haute compétence sociale et professionnelle ainsi que la jouissance d'une coopération interdisciplinaire et interprofessionnelle constructive\n\ntravail humain. C'est ce que vous attendez de nous.\n\n- Une entreprise tournée vers l'avenir et innovante.\n\n- Un domaine de responsabilité varié, intéressant et exigeant.\n\n- Des solutions individuelles et des combinaisons interministérielles sont possibles\n\n- Il a sa propre crèche.\n\nTu veux rejoindre le train ? Pour les questions initiales, Irene Mir, responsable des soins spéciaux et des diagnostics, est heureuse de vous aider: +41 81 308 08 71 ou irene.mir@flurystiftung.ch Nous sommes impatients de recevoir vos documents de candidature par courriel à hr@flurystiftung.ch. Informations supplémentaires: flurystiftung.ch"
+      },
+      "location": "Schiers",
+      "canton": "GR",
+      "url": "https://www.flurystiftung.ch/sites/default/files/2026-11/Wundfachperson.pdf",
+      "source": "Flury Stiftung Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-24T22:00:25.162Z",
+      "addressLocality": "Schiers",
+      "postalCode": "7220",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.flurystiftung.ch/sites/default/files/2026-11/Wundfachperson.pdf",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Spital Schiers",
+      "pensum": "100%",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "previousSlugs": [
+        "wundfachperson-flury-stiftung-ch",
+        "specialista-del-tessuto-flury-stiftung-schiers",
+        "wundfachperson-flury-stiftung-schiers"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "wundfachperson-flury-stiftung-ch",
+          "specialista-del-tessuto-flury-stiftung-schiers"
+        ],
+        "de": [
+          "wundfachperson-flury-stiftung-schiers"
+        ]
+      },
+      "firstSeenAt": "2026-10-20T09:30:57.503Z",
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Flury Stiftung",
+        "streetAddress": "Tersierstrasse",
+        "postalCode": "7220",
+        "addressLocality": "Schiers",
+        "addressRegion": "GR",
+        "checkedAt": "2026-10-31T20:48:57.412Z",
+        "streetAddressSource": "zefix-registry"
+      },
+      "streetAddress": "Tersierstrasse",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-01-18T22:00:25.162Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.flurystiftung.ch/sites/default/files/2026-06/fachperson%20gesundheit%20im%20personalpool%2040-80%25.pdf"
+      "crawlerMissStreak": 2
     }
   ]
 }

@@ -46,12 +46,15 @@ describe('git-no-lazy', () => {
     expect(readFileSync(fake.trace, 'utf8')).toBe('version\n');
   });
 
-  it('hasCommit tratta Git vecchio come assente senza eseguire una sonda sull’OID', () => {
+  it('hasCommit su un clone parziale con Git vecchio risponde assente senza sondare l’OID', () => {
     const fake = fakeGit('2.39.2');
     const gitCalls: string[][] = [];
     const prover = makeContentProver({
       mainRef: 'origin/main',
-      git: (args: string[]) => { gitCalls.push(args); return null; },
+      git: (args: string[]) => {
+        gitCalls.push(args);
+        return args[0] === 'config' ? 'remote.origin.promisor true\n' : null;
+      },
       noLazyGitInvocation: createNoLazyGitInvocation({ env: fake.env }),
     });
     const sha = 'e'.repeat(40);
@@ -59,7 +62,9 @@ describe('git-no-lazy', () => {
     expect(prover.hasCommit(sha)).toBe(false);
     expect(prover.hasCommit(sha)).toBe(false);
     expect(prover.hasCommit(sha, { refresh: true })).toBe(false);
-    expect(gitCalls).toEqual([]);
+    // Solo la lettura (memoizzata) della configurazione: nessun cat-file sull'OID.
+    expect(gitCalls.filter((args) => args[0] !== 'config')).toEqual([]);
+    expect(gitCalls.filter((args) => args[0] === 'config')).toHaveLength(1);
     expect(readFileSync(fake.trace, 'utf8')).toBe('version\n');
   });
 });

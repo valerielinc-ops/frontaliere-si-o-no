@@ -1,7 +1,7 @@
 {
   "crawlerKey": "cdg-beratungen",
-  "assembledAt": "2026-11-20T21:56:08.128Z",
-  "runId": "44820571493",
+  "assembledAt": "2026-11-25T21:42:27.186Z",
+  "runId": "45704355338",
   "jobs": [
     {
       "id": "cdg-beratungen-8a6a6d42e096",
@@ -34,7 +34,7 @@
       "url": "https://cdg-beratungen.softgarden.io/job/67261350?l=de",
       "source": "cdg Beratungen AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:55:50.881Z",
+      "crawledAt": "2026-11-25T21:42:16.382Z",
       "addressLocality": "Opfikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -80,9 +80,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:55:50.881Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://cdg-beratungen.softgarden.io/job/67261350?l=de"
+      "validThrough": "2027-01-12T21:42:16.382Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

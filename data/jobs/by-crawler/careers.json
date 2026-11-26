@@ -1,7 +1,7 @@
 {
   "crawlerKey": "careers",
-  "assembledAt": "2026-11-19T21:43:10.479Z",
-  "runId": "44617000254",
+  "assembledAt": "2026-11-25T21:21:31.972Z",
+  "runId": "45702511722",
   "jobs": [
     {
       "id": "careers-60f21094e7fe",
@@ -34,7 +34,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Anlagenf%C3%BChrerin-mit-Ausbildung-KochK%C3%B6chin-oder-B%C3%A4ckerin%2C-100-BL/1434644333/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:43:00.532Z",
+      "crawledAt": "2026-11-25T21:21:25.516Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -82,9 +82,8 @@
       "postalCode": "4461",
       "streetAddress": "Böckten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:43:00.532Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.orior.ch/job/b%c3%b6ckten-anlagenf%c3%bchrerin-mit-ausbildung-kochk%c3%b6chin-oder-b%c3%a4ckerin%2c-100-bl/1434644333"
+      "validThrough": "2026-12-25T21:21:25.516Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "careers-f8d46e0f1337",
@@ -117,7 +116,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Praktikantin-Product-Management-&-QMQS%2C-40-100-BL/1447904133/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-19T21:43:00.530Z",
+      "crawledAt": "2026-11-25T21:21:25.515Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -167,9 +166,8 @@
       "postalCode": "4461",
       "streetAddress": "Böckten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T21:43:00.530Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://careers.orior.ch/job/b%c3%b6ckten-praktikantin-product-management-&-qmqs%2c-40-100-bl/1447904133"
+      "validThrough": "2027-01-13T21:21:25.515Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

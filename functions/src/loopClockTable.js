@@ -52,6 +52,22 @@ const entries = [
   { id: 'corpus-triage-pending', repo: 'corpus', workflow: 'issue-triage.yml', everyMinutes: 10, condition: 'untriaged-issues' },
   { id: 'corpus-triage-sweep', repo: 'corpus', workflow: 'issue-triage.yml', everyMinutes: 240 },
   { id: 'corpus-closer', repo: 'corpus', workflow: 'close-recovered-failure-issues.yml', everyMinutes: 60 },
+  {
+    id: 'corpus-section-page-reconcile',
+    repo: 'corpus',
+    workflow: 'reconcile-section-pages.yml',
+    everyMinutes: 120,
+    introducedAt: '2026-11-21T12:05:00Z',
+    inputs: { dry_run: 'false', retry_pending: 'true' },
+  },
+  {
+    id: 'corpus-article-shard-reconcile',
+    repo: 'corpus',
+    workflow: 'reconcile-article-shards.yml',
+    everyMinutes: 120,
+    introducedAt: '2026-11-21T12:05:00Z',
+    inputs: { dry_run: 'false' },
+  },
   { id: 'site-loop-clock-observer', repo: 'site', workflow: 'orchestrator-heartbeat.yml', everyMinutes: 30 },
   // Walks every CDN script and stylesheet the live pages reference. Its native
   // `*/15` cron delivers a handful of runs a day and its deploy triggers are

@@ -1,6 +1,7 @@
 const SLOT_MINUTES = Object.freeze({ frontaliere: 7, svizzera: 37 });
 
 export const GENERATION_SLOT_MAX_LATE_MINUTES = 13;
+const CANTON_GENERATION_SLOT_MAX_LATE_MINUTES = 16;
 export const GENERATION_SLOT_SETTLE_MINUTES = 2;
 // These markers stay outside LOOP_CLOCK_ENTRIES: the observer owns ordinary
 // workflow cadences, while generation health has its own article-progress scan.
@@ -64,11 +65,13 @@ export function parseCantonGenerationSchedule(document) {
 /**
  * Resolve the nominal UTC generation slot owned by this clock tick.
  * Cloud Scheduler ticks on five-minute boundaries; :10 and :40 own the :07
- * and :37 generation slots respectively. A bounded late window lets the next
- * two ticks recover one missed invocation without ever inventing a new slot.
+ * and :37 generation slots respectively. Canton slots can first be eligible
+ * six minutes after their nominal minute, so allow two further clock ticks.
  */
 export function generationSlotDateForEntry(entry, scheduledAt, {
-  maxLateMinutes = GENERATION_SLOT_MAX_LATE_MINUTES,
+  maxLateMinutes = typeof entry?.generationSlot === 'string' && entry.generationSlot.startsWith('canton-')
+    ? CANTON_GENERATION_SLOT_MAX_LATE_MINUTES
+    : GENERATION_SLOT_MAX_LATE_MINUTES,
   settleMinutes = GENERATION_SLOT_SETTLE_MINUTES,
 } = {}) {
   const minute = entry?.slotMinute ?? generationSlotMinute(entry?.generationSlot);

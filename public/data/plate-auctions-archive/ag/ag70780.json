@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "ag-58834",
+      "sourceKey": "AG",
+      "sourceRecordId": "58834",
+      "canton": "Argovia",
+      "platePrefix": "AG",
+      "plateNumber": "70780",
+      "normalizedPlate": "AG70780",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 3040,
+      "bidCount": 69,
+      "endsAt": "2026-11-25T20:00:00.000Z",
+      "closedAt": "2026-11-25T20:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion-ag.ch/de/",
+      "officialDetailUrl": "https://www.auktion-ag.ch/de/auction/58834",
+      "sourceFetchedAt": "2026-11-25T08:30:54.076Z",
+      "lastVerifiedAt": "2026-11-25T08:30:54.076Z",
+      "firstSeenAt": "2026-11-12T15:12:29.301Z",
+      "lastSeenAt": "2026-11-25T08:30:54.076Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "8932f3a7995b"
+    }
+  ]
+}

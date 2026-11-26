@@ -10,6 +10,7 @@ import {
   LoopClockDispatchError,
   dispatchLoopClock,
   dueLoopClockEntries,
+  loopClockOffsetMinutes,
   loopClockSlot,
 } from '../functions/src/loopClockDispatch.js';
 import { dueGenerationSlotEntries } from '../functions/src/generationSlotSchedule.js';
@@ -364,6 +365,58 @@ describe('loop clock dispatch', () => {
 
     expect(report.results[0]).toMatchObject({ dispatched: true, condition: 'condition_lookup_failed' });
     expect(JSON.stringify(report)).not.toContain('secret-token');
+  });
+
+  it.each([
+    {
+      id: 'corpus-section-page-reconcile',
+      workflow: 'reconcile-section-pages.yml',
+      inputs: { dry_run: 'false', retry_pending: 'true' },
+      offset: 65,
+    },
+    {
+      id: 'corpus-article-shard-reconcile',
+      workflow: 'reconcile-article-shards.yml',
+      inputs: { dry_run: 'false' },
+      offset: 95,
+    },
+  ])('dispatches $id on its due tick with the declared inputs', async ({ id, workflow, inputs, offset }) => {
+    const entry = LOOP_CLOCK_ENTRIES.find((candidate) => candidate.id === id);
+    expect(entry).toEqual({
+      id,
+      repo: 'corpus',
+      workflow,
+      everyMinutes: 120,
+      introducedAt: '2026-11-21T12:05:00Z',
+      inputs,
+    });
+    if (!entry) throw new Error(`Missing clock entry: ${id}`);
+    expect(loopClockOffsetMinutes(entry)).toBe(offset);
+
+    const tick = tickForEntries([entry]);
+    const fetchImpl = vi.fn(async (_url: string, _init: RequestInit) => new Response(null, { status: 204 }));
+    const report = await dispatchLoopClock({
+      scheduledAt: tick,
+      entries: [entry],
+      fetchImpl,
+      getRepoConfigImpl: repoConfig,
+      getRemoteConfigValueImpl: async (key: string) => key === 'GITHUB_PAT_NANAKO' ? 'corpus-test-token' : '',
+    });
+
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    const [url, init] = fetchImpl.mock.calls[0];
+    expect(url).toBe(`https://api.github.com/repos/${LOOP_CLOCK_CORPUS_REPOSITORY}/actions/workflows/${workflow}/dispatches`);
+    expect(init.method).toBe('POST');
+    expect(new Headers(init.headers).get('Authorization')).toBe('Bearer corpus-test-token');
+    expect(JSON.parse(String(init.body))).toEqual({
+      ref: 'main',
+      inputs: { ...inputs, loop_clock: `${id}@${tick.toISOString().slice(0, 16)}Z` },
+    });
+    expect(report).toMatchObject({
+      dueCount: 1,
+      results: [{ id, dispatched: true, status: 204 }],
+      warnings: [],
+    });
   });
 
   it('fails the tick when the corpus token is missing, after the site entries were dispatched', async () => {

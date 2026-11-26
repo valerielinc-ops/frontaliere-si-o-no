@@ -1,188 +1,312 @@
 #!/usr/bin/env node
 /**
- * Teo Jakob AG job parser — Fetcher and job builder.
+ * Teo Jakob AG — Jobalino tenant parser.
  *
- * Source: https://my.jobalino.ch/public/job/de/6627a44879cd0/lernende-detailhandel-efz-moebel-m-w
- *
- * Exports the 4 required functions for the crawler template:
- *   - fetchAllTeoJakobAgJobs()  — Fetch and parse all jobs
- *   - isTeoJakobAgJob()         — Match jobs belonging to this company
- *   - isTrustedDomain()           — Validate URLs belong to this company
- *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
+ * The public component is the tenant inventory. Detail pages provide the
+ * JobPosting body and address evidence. The component also carries openings
+ * for teo jakob real estate AG, so ownership is accepted only when the source
+ * employer name is exactly Teo Jakob AG.
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
-import { copySpecFetchMetadata, loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import {
+  extractJobalinoJobPostingJsonLd,
+  fetchJobalinoComponentListing,
+  fetchJobalinoDetailHtml,
+  isExplicitlyInactiveJobalinoPosting,
+  jobalinoDescriptionToText,
+  parseJobalinoListingHtml,
+} from './jobalino-common.mjs';
 import {
   resolveSourceBackedSwissGeography,
   sourceBackedSwissGeographyFields,
 } from './prospector/location-evidence.mjs';
 
-/* ── Constants ─────────────────────────────────────────────── */
-
 export const TEO_JAKOB_AG_KEY = 'teo-jakob-ag';
 export const TEO_JAKOB_AG_COMPANY_NAME = 'Teo Jakob AG';
 export const TEO_JAKOB_AG_COMPANY_DOMAIN = 'my.jobalino.ch';
 
-const CAREER_URL = 'https://my.jobalino.ch/public/job/de/6627a44879cd0/lernende-detailhandel-efz-moebel-m-w';
+const LISTING_COMPANY = 'teo-jakob-ag';
+const SOURCE_COMPANY_NAME = 'teo jakob ag';
+const CAREER_URL = 'https://my.jobalino.ch/public/component/jobsfactory?company_name=teo-jakob-ag&lang=de&lang_filter=de&task=framelistjobs';
+const DETAIL_DELAY_MS = 250;
 
-/* ── Helpers ───────────────────────────────────────────────── */
+export { slugify, stripHtml };
 
 function normalize(value = '') {
-  return String(value || '').trim().toLowerCase();
+  return String(value || '').replace(/\s+/g, ' ').trim().toLowerCase();
 }
 
-function normalizeSpace(s = '') {
-  return String(s || '').replace(/\s+/g, ' ').trim();
+function normalizeSpace(value = '') {
+  return String(value || '').replace(/\s+/g, ' ').trim();
 }
 
-/* ── Company Matchers ──────────────────────────────────────── */
+function hasOwn(object, key) {
+  return Object.prototype.hasOwnProperty.call(object, key);
+}
 
-/**
- * Check if a job belongs to Teo Jakob AG.
- * Used by the template to filter this company's jobs from the global dataset.
- */
+function objectValues(value) {
+  const values = Array.isArray(value) ? value : [value];
+  if (values.length === 0
+    || values.some((entry) => !entry || typeof entry !== 'object' || Array.isArray(entry))) {
+    return null;
+  }
+  return values;
+}
+
+function hasGeographicEvidence(address = {}) {
+  return [
+    address.addressLocality,
+    address.addressRegion,
+    address.addressCountry,
+    address.postalCode,
+    address.streetAddress,
+  ].some((value) => typeof value === 'string' && normalizeSpace(value));
+}
+
+function tenantEmployer(tile = {}, posting = {}) {
+  if (!hasOwn(posting, 'hiringOrganization')) {
+    const listingName = normalizeSpace(tile.company || '');
+    return { name: listingName, isTenant: normalize(listingName) === SOURCE_COMPANY_NAME };
+  }
+  if (Array.isArray(posting.hiringOrganization) && posting.hiringOrganization.length > 1) {
+    throw new Error('Teo Jakob AG hiringOrganization is ambiguous');
+  }
+  const organizations = objectValues(posting.hiringOrganization);
+  if (!organizations) {
+    throw new Error('Teo Jakob AG hiringOrganization is unusable');
+  }
+  const named = organizations
+    .map((organization) => normalizeSpace(organization.name || ''))
+    .filter(Boolean);
+  if (named.length !== organizations.length) {
+    throw new Error('Teo Jakob AG hiringOrganization is unusable');
+  }
+  const matching = named.filter((name) => normalize(name) === SOURCE_COMPANY_NAME);
+  if (matching.length > 1) {
+    throw new Error('Teo Jakob AG hiringOrganization is ambiguous');
+  }
+  if (matching.length === 1) return { name: matching[0], isTenant: true };
+  return { name: named.join(' | '), isTenant: false };
+}
+
+function addressCandidates(posting = {}) {
+  if (!hasOwn(posting, 'jobLocation')) return null;
+  if (Array.isArray(posting.jobLocation) && posting.jobLocation.length > 1) {
+    throw new Error('Teo Jakob AG jobLocation is ambiguous');
+  }
+  const locations = objectValues(posting.jobLocation);
+  if (!locations) throw new Error('Teo Jakob AG jobLocation is unusable');
+  const addresses = [];
+  for (const location of locations) {
+    if (!hasOwn(location, 'address')) {
+      throw new Error('Teo Jakob AG jobLocation address is unusable');
+    }
+    if (Array.isArray(location.address) && location.address.length > 1) {
+      throw new Error('Teo Jakob AG jobLocation is ambiguous');
+    }
+    const locationAddresses = objectValues(location.address);
+    if (!locationAddresses) {
+      throw new Error('Teo Jakob AG jobLocation address is unusable');
+    }
+    addresses.push(...locationAddresses.filter(hasGeographicEvidence));
+  }
+  if (addresses.length === 0) {
+    throw new Error('Teo Jakob AG jobLocation address is unusable');
+  }
+  return addresses;
+}
+
+function sourceGeography(tile = {}, posting = {}) {
+  const listingCity = normalizeSpace(tile.city || '');
+  const listingPostal = normalizeSpace(tile.zip || '');
+  const candidates = addressCandidates(posting);
+  const sourceCandidates = candidates || [{}];
+  const matches = [];
+  const matchingAddressKeys = new Set();
+
+  for (const address of sourceCandidates) {
+    const candidateCity = normalizeSpace(address.addressLocality || '');
+    const candidatePostal = normalizeSpace(address.postalCode || '');
+    if (listingCity && candidateCity && normalize(listingCity) !== normalize(candidateCity)) continue;
+    if (listingPostal && candidatePostal && listingPostal !== candidatePostal) continue;
+    const addressLocality = listingCity || candidateCity;
+    const addressCountry = normalizeSpace(address.addressCountry || tile.country || '');
+    const sourceAddressKey = JSON.stringify({
+      addressLocality: candidateCity,
+      addressRegion: normalizeSpace(address.addressRegion || ''),
+      postalCode: candidatePostal,
+      streetAddress: normalizeSpace(address.streetAddress || ''),
+    });
+    const evidence = {
+      location: addressLocality,
+      addressLocality,
+      addressRegion: normalizeSpace(address.addressRegion || ''),
+      addressCountry,
+      country: addressCountry,
+      postalCode: listingPostal || candidatePostal,
+      streetAddress: normalizeSpace(address.streetAddress) || normalizeSpace(tile.address),
+    };
+    const resolved = resolveSourceBackedSwissGeography(evidence);
+    if (!resolved) continue;
+    matchingAddressKeys.add(sourceAddressKey);
+    matches.push(sourceBackedSwissGeographyFields(evidence, resolved));
+  }
+
+  if (matchingAddressKeys.size > 1) {
+    throw new Error('Teo Jakob AG jobLocation is ambiguous');
+  }
+  const distinct = new Map(matches.map((candidate) => [JSON.stringify({
+    addressLocality: candidate.addressLocality,
+    addressRegion: candidate.addressRegion,
+    addressCountry: candidate.addressCountry,
+    postalCode: candidate.postalCode,
+    streetAddress: candidate.streetAddress,
+  }), candidate]));
+  if (distinct.size > 1) throw new Error('Teo Jakob AG jobLocation is ambiguous');
+  return distinct.values().next().value || null;
+}
+
 export function isTeoJakobAgJob(job) {
-  const key = normalize(job?.companyKey || job?.company || '')
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
+  const key = normalize(job?.companyKey || '');
   const company = normalize(job?.company || '');
-
-  return (
-    key === TEO_JAKOB_AG_KEY ||
-    key.startsWith('teo-jakob-ag-') ||
-    company.includes('teo jakob ag')
-  );
+  return key === TEO_JAKOB_AG_KEY || company === SOURCE_COMPANY_NAME;
 }
 
-/**
- * Validate that a URL belongs to Teo Jakob AG's domain.
- */
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'my.jobalino.ch' || host.endsWith('.my.jobalino.ch');
+    return host === TEO_JAKOB_AG_COMPANY_DOMAIN
+      || host.endsWith('.' + TEO_JAKOB_AG_COMPANY_DOMAIN);
   } catch {
     return false;
   }
 }
 
-/* ── Category Detection ────────────────────────────────────── */
-
 function detectCategory(title = '') {
-  const t = normalize(title);
-  if (/\b(ingegner|engineer|entwickl)/.test(t)) return 'Ingegneria';
-  if (/\b(techni|tecnic|mecanic|elektr|install)/.test(t)) return 'Tecnica';
-  if (/\b(admin|segret|contab|buchhalt|account)/.test(t)) return 'Amministrazione';
-  if (/\b(vendita|sales|verkauf|commerce)/.test(t)) return 'Commerciale';
-  if (/\b(logist|magazz|lager|warehouse)/.test(t)) return 'Logistica';
-  if (/\b(produz|operat|operator|manufactur)/.test(t)) return 'Produzione';
-  if (/\b(qualit|qa|qc|quality)/.test(t)) return 'Qualità';
-  if (/\b(it|software|develop|programm)/.test(t)) return 'IT';
-  if (/\b(hr|human|risorse|personal)/.test(t)) return 'Risorse Umane';
-  if (/\b(market|kommunik|comunicaz)/.test(t)) return 'Marketing';
-  if (/\b(finanz|finance|financ)/.test(t)) return 'Finanza';
-  if (/\b(legal|giurid|recht)/.test(t)) return 'Legale';
+  const value = normalize(title);
+  if (/\b(logist|lager|warehouse|ausliefer|montag)/.test(value)) return 'Logistica';
+  if (/\b(verkauf|sales|vendita|commerce|detailhandel)/.test(value)) return 'Commerciale';
+  if (/\b(immobil|architektur|interior|design)/.test(value)) return 'Design / Architettura';
+  if (/\b(admin|sekret|contab|buchhalt|account)/.test(value)) return 'Amministrazione';
+  if (/\b(hr|human|personal|risorse)/.test(value)) return 'Risorse Umane';
+  if (/\b(it|software|develop|programm)/.test(value)) return 'IT';
   return 'Altro';
 }
 
 function detectExperienceLevel(title = '') {
-  const t = normalize(title);
-  if (/\b(praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
-  if (/\b(junior|jr)/.test(t)) return 'junior';
-  if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab)/.test(t)) return 'senior';
+  const value = normalize(title);
+  if (/\b(praktik|stage|stagiair|intern|apprendist|lehr|lernend|apprenti)/.test(value)) return 'intern';
+  if (/\b(junior|jr)\b/.test(value)) return 'junior';
+  if (/\b(senior|sr|lead|head|director|chef|verantwort|responsab)\b/.test(value)) return 'senior';
   return 'mid';
 }
 
-function detectEmploymentType(text = '') {
-  const t = normalize(text);
-  if (/\b(part.?time|teilzeit|tempo parziale|temps partiel)/.test(t)) return 'PART_TIME';
-  if (/\b(full.?time|vollzeit|tempo pieno|temps plein)/.test(t)) return 'FULL_TIME';
-  return 'OTHER';
+function workloadFields(workload = '', title = '') {
+  const text = normalizeSpace(workload);
+  const range = text.match(/(\d{1,3})\s*%?\s*-\s*(\d{1,3})\s*%/);
+  const single = text.match(/(\d{1,3})\s*%/);
+  let pensumMin = null;
+  let pensumMax = null;
+  if (range) {
+    pensumMin = Number.parseInt(range[1], 10);
+    pensumMax = Number.parseInt(range[2], 10);
+  } else if (single) {
+    pensumMin = Number.parseInt(single[1], 10);
+    pensumMax = pensumMin;
+  }
+  const words = normalize(text + ' ' + title);
+  const employmentType = Number.isFinite(pensumMax)
+    ? (pensumMax < 90 ? 'PART_TIME' : 'FULL_TIME')
+    : /\b(teilzeit|part.?time|tempo parziale|temps partiel)\b/.test(words)
+      ? 'PART_TIME'
+      : /\b(vollzeit|full.?time|tempo pieno|temps plein)\b/.test(words)
+        ? 'FULL_TIME'
+        : 'OTHER';
+  return {
+    employmentType,
+    contract: employmentType === 'PART_TIME'
+      ? 'part-time'
+      : employmentType === 'FULL_TIME' ? 'full-time' : 'other',
+    ...(text ? { pensum: text } : {}),
+    ...(Number.isFinite(pensumMin) ? { pensumMin } : {}),
+    ...(Number.isFinite(pensumMax) ? { pensumMax } : {}),
+  };
 }
 
-/* ── Fetcher guidato dalla spec ───────────────────────────────
- * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
- * template degli URL di dettaglio, appresi dalla pagina reale.
- */
-async function fetchJobListings() {
-  const spec = loadSpec(TEO_JAKOB_AG_KEY);
-  return runSpecInProduction(spec);
-}
-
-/**
- * Fetch all Teo Jakob AG jobs.
- * Returns an array of ParsedJob objects (source-locale only).
- *
- * IMPORTANT: Only set source-locale fields. Other locales are filled
- * by the AI localization step and translate-pending pipeline.
- */
 export async function fetchAllTeoJakobAgJobs() {
-  console.log(`🔍 Fetching Teo Jakob AG jobs`);
-  console.log(`   Source: ${CAREER_URL}\n`);
+  console.log('🔍 Fetching Teo Jakob AG jobs');
+  console.log('   Source: ' + CAREER_URL + '\n');
 
-  const listings = await fetchJobListings();
-  if (!listings || listings.length === 0) {
-    console.warn('⚠️ No job listings returned.');
-    return copySpecFetchMetadata([], listings || []);
+  const listing = await fetchJobalinoComponentListing({
+    companyName: LISTING_COMPANY,
+    locale: 'de',
+  });
+  if (listing.error) throw new Error('Jobalino listing error: ' + listing.error);
+
+  const tiles = parseJobalinoListingHtml(listing.html);
+  if (!tiles.length) {
+    throw new Error('No openings parsed from the Teo Jakob AG Jobalino listing');
   }
 
-  console.log(`  📋 Listings found: ${listings.length}`);
-
   const jobs = [];
-  for (const listing of listings) {
-    // TODO: Extract fields from each listing.
-    // Adapt these field names to match the actual API response.
-    const title = normalizeSpace(listing.title || '');
-    if (!title || title.length < 3) continue;
+  let foreignCompany = 0;
+  let inactive = 0;
 
-    const sourceGeographyEvidence = {
-      location: listing.location,
-      addressLocality: listing.addressLocality,
-      addressRegion: listing.addressRegion,
-      addressCountry: listing.addressCountry,
-      country: listing.country,
-      postalCode: listing.postalCode,
-      streetAddress: listing.streetAddress,
-    };
-    const resolvedGeography = resolveSourceBackedSwissGeography(listing);
-    const geography = resolvedGeography
-      && (typeof sourceBackedSwissGeographyFields === 'function'
-        ? sourceBackedSwissGeographyFields(sourceGeographyEvidence, resolvedGeography)
-        : resolvedGeography);
-    // Required structured-data geography must come from the vacancy source.
-    // Missing, foreign or non-specific values are not replaced with an HQ.
-    if (!geography) continue;
-    const {
-      location,
-      canton,
-      addressLocality,
-      addressRegion,
-      addressCountry,
-      postalCode,
-      streetAddress,
-    } = geography;
-    const descriptionHtml = listing.description || '';
-    const descriptionText = stripHtml(descriptionHtml);
-    if (!descriptionText) continue;
-    // The detail URL is the vacancy identity: falling back to the listing page
-    // would give every posting the same `url`, `applyUrl` and `id` hash.
-    if (!listing.url) continue;
-    const publicUrl = listing.url;
-    const employmentType = detectEmploymentType(listing.timeType || title);
+  for (let index = 0; index < tiles.length; index += 1) {
+    const tile = tiles[index];
+    if (tile.company && normalize(tile.company) !== SOURCE_COMPANY_NAME) {
+      foreignCompany += 1;
+      continue;
+    }
 
-    const sourceLang = detectLang(descriptionText || title, 'de');
-    const jobSlug = slugify(`${title} ${location} teo-jakob-ag ch`);
+    let detailHtml = '';
+    try {
+      detailHtml = await fetchJobalinoDetailHtml(tile.url);
+    } catch (error) {
+      throw new Error(
+        'Teo Jakob AG detail fetch failed for ' + tile.url + ': ' + (error?.message || error),
+        { cause: error },
+      );
+    }
+    const posting = extractJobalinoJobPostingJsonLd(detailHtml);
+    if (isExplicitlyInactiveJobalinoPosting(detailHtml, posting)) {
+      inactive += 1;
+      continue;
+    }
+    if (!posting) {
+      throw new Error('Teo Jakob AG detail has no JobPosting JSON-LD: ' + tile.url);
+    }
+    const employer = tenantEmployer(tile, posting || {});
+    if (!employer.name) {
+      throw new Error('Teo Jakob AG employer is missing from listing and detail: ' + tile.url);
+    }
+    if (!employer.isTenant) {
+      foreignCompany += 1;
+      continue;
+    }
+
+    const title = normalizeSpace(posting?.title || tile.title || '');
+    const description = jobalinoDescriptionToText(posting?.description || '');
+    const geography = sourceGeography(tile, posting || {});
+    if (!title || !meetsSourceBodyFloor(description) || !geography
+      || !geography.addressLocality || !geography.postalCode || !geography.streetAddress) {
+      throw new Error('Teo Jakob AG required source fields are incomplete: ' + tile.url);
+    }
+
+    const sourceLang = detectLang(description || title, 'de');
+    const publicUrl = tile.url;
+    const jobSlug = slugify(title + ' ' + geography.location + ' teo-jakob-ag ch');
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
+    const workload = workloadFields(tile.workload, title);
+    const publication = mergeSourcePostingDates({}, posting || {});
+    const validThrough = normalizeSpace(posting?.validThrough || '');
 
-    const job = {
-      // ── Required fields ──
-      id: `teo-jakob-ag-${urlHash}`,
+    jobs.push({
+      id: TEO_JAKOB_AG_KEY + '-' + urlHash,
       slug: jobSlug,
       slugByLocale: { [sourceLang]: jobSlug },
       company: TEO_JAKOB_AG_COMPANY_NAME,
@@ -190,43 +314,45 @@ export async function fetchAllTeoJakobAgJobs() {
       companyDomain: TEO_JAKOB_AG_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText,
-      descriptionByLocale: { [sourceLang]: descriptionText },
-      location,
-      canton,
+      description,
+      descriptionByLocale: { [sourceLang]: description },
+      needsRetranslation: true,
+      location: geography.location,
+      canton: geography.canton,
       url: publicUrl,
-      source: 'Teo Jakob AG Dedicated Parser',
+      source: 'Teo Jakob AG Dedicated Parser (Jobalino)',
       sourceLang,
       crawledAt: new Date().toISOString(),
-
-      // ── Recommended fields ──
-      // Prospected runtime rows retain the selected structured candidate;
-      // other ATS tiers use the same fields when their client exposes them.
-      addressLocality: normalizeSpace(addressLocality || location.split(/[,;/|]/)[0]),
-      addressRegion: normalizeSpace(addressRegion || canton),
-      addressCountry: normalizeSpace(addressCountry || 'CH'),
-      country: normalizeSpace(addressCountry || 'CH'),
-      ...(postalCode ? { postalCode: normalizeSpace(postalCode) } : {}),
-      ...(streetAddress ? { streetAddress: normalizeSpace(streetAddress) } : {}),
+      addressLocality: geography.addressLocality,
+      addressRegion: geography.addressRegion || geography.canton,
+      addressCountry: 'CH',
+      country: 'CH',
+      postalCode: geography.postalCode,
+      streetAddress: geography.streetAddress,
+      streetAddressSource: 'listing-source',
       category: detectCategory(title),
-      contract: employmentType === 'PART_TIME'
-        ? 'part-time'
-        : employmentType === 'FULL_TIME' ? 'full-time' : 'other',
-      employmentType,
+      ...workload,
       experienceLevel: detectExperienceLevel(title),
-      sector: 'Altro', // TODO: Set appropriate sector
+      sector: 'Arredamento / Interior design',
       currency: 'CHF',
       featured: false,
-      // Keep publication evidence separate from observation/creation aliases.
-      ...mergeSourcePostingDates({}, listing),
+      ...publication,
+      ...(validThrough ? { validThrough } : {}),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
-    };
+      externalId: String(tile.id),
+      hiringOrganizationName: TEO_JAKOB_AG_COMPANY_NAME,
+    });
 
-    jobs.push(job);
+    if (index < tiles.length - 1) {
+      await new Promise((resolve) => setTimeout(resolve, DETAIL_DELAY_MS));
+    }
   }
 
-  console.log(`\n📋 Total Teo Jakob AG jobs discovered: ${jobs.length}`);
-  return copySpecFetchMetadata(jobs, listings || []);
+  console.log(
+    '\n📋 Total Teo Jakob AG jobs discovered: ' + jobs.length
+    + ' (' + foreignCompany + ' other-company, ' + inactive + ' inactive)',
+  );
+  return jobs;
 }

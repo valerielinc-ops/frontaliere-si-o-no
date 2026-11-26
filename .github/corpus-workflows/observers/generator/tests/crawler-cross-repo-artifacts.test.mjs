@@ -324,7 +324,7 @@ test('il reporter diagnostico usa identita e workflow standalone corpus richiudi
     assert.match(text, new RegExp(`workflow-name: ${escapedName}`));
     assert.match(
       text,
-      /if: failure\(\) && \(steps\.site_checkout_primary\.outcome == 'success' \|\| steps\.site_checkout_retry\.outcome == 'success'\)/,
+      /if: (?:failure\(\) && .*steps\.site_checkout_primary\.outcome == 'success'.*steps\.site_checkout_retry\.outcome == 'success'|always\(\) && .*failure\(\).*repair_stale_descriptions.*steps\.site_checkout_primary\.outcome == 'success'.*steps\.site_checkout_retry\.outcome == 'success')/,
     );
     assert.match(text, new RegExp(`workflow-file: \\.github/corpus-workflows/${artifact.file.replace('.', '\\.')}\\b`));
     assert.doesNotMatch(text, /workflow-file: .*logic\.yml/);

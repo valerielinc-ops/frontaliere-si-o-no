@@ -559,6 +559,12 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
     + '|\\bsicherheitsdienst|\\bwachmann|\\bvigilanz'
     + '|\\bguardia' + SEC_SEP + 'giurat'
     + '|\\bagent' + SEC_SEP + 'de' + SEC_SEP + 's[eé]curit'
+    // Protectas pubblica in italiano "Agente di sicurezza ausiliario". Il
+    // ruolo fisico deve restare nello stesso campo; i veti condivisi sui due
+    // lati tengono fuori sia la sicurezza informatica sia quella sul lavoro.
+    + `|(?<!${CYBER_QUALIFIER_SRC}${INTRA_FIELD_SEP})\\bagent[ei]`
+      + INTRA_FIELD_SEP + '(?:di|della)' + INTRA_FIELD_SEP + 'sicurezza\\b'
+      + `(?!${INTRA_FIELD_SEP}${SECURITY_SYSTEM_SUFFIX_VETO_SRC})`
     // The TI corpus also contains project and technician roles for physical
     // security systems (access control, video surveillance and intrusion
     // alarms). They are physical-security jobs even when the title has no

@@ -13,6 +13,7 @@ import {
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 import { resolveLocalityAddress } from '../scripts/lib/swiss-structured-address.mjs';
 import { inferAnyCanton } from '../scripts/lib/target-swiss-locations.mjs';
+import { resetWorkdayImplicitRateLimitStateForTests } from '../scripts/lib/ats-clients/workday-client.mjs';
 
 function makeListing(id: string, locationsText = 'Zürich, Switzerland') {
   return {
@@ -34,7 +35,10 @@ function jsonResponse(body: unknown) {
 }
 
 afterEach(() => {
+  resetWorkdayImplicitRateLimitStateForTests();
   vi.unstubAllGlobals();
+  vi.unstubAllEnvs();
+  vi.useRealTimers();
 });
 
 describe('Swiss Life crawler parser', () => {
@@ -360,6 +364,7 @@ describe('Swiss Life crawler parser', () => {
 
   describe('national pagination', () => {
     it('retries a transient Workday rate limit before reading the national board', async () => {
+      vi.useFakeTimers();
       const previousRetryBaseMs = process.env.JOBS_CRAWLER_RETRY_BASE_MS;
       process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
       const listing = makeListing('rate-limited-once');
@@ -369,7 +374,9 @@ describe('Swiss Life crawler parser', () => {
       vi.stubGlobal('fetch', fetchMock);
 
       try {
-        const listings = await fetchSwissListings();
+        const pending = fetchSwissListings();
+        await vi.runAllTimersAsync();
+        const listings = await pending;
 
         expect(listings).toEqual([listing]);
         expect(fetchMock).toHaveBeenCalledTimes(2);
@@ -379,11 +386,11 @@ describe('Swiss Life crawler parser', () => {
       }
     });
 
-    it('recovers a retry-exhausted board through the Workday browser transport', async () => {
+    it('recovers a retry-exhausted transient board through the Workday browser transport', async () => {
       const previousRetryBaseMs = process.env.JOBS_CRAWLER_RETRY_BASE_MS;
       process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
       const listing = makeListing('rate-limited-through-browser');
-      const directFetch = vi.fn().mockResolvedValue(new Response('', { status: 429 }));
+      const directFetch = vi.fn().mockResolvedValue(new Response('', { status: 503 }));
       const browserFallback = vi.fn().mockResolvedValue({ total: 1, jobPostings: [listing] });
       vi.stubGlobal('fetch', directFetch);
 

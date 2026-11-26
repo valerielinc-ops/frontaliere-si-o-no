@@ -27,6 +27,7 @@ import {
 } from './prospector/public-fetch-policy.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
 import { transferSlugHistory } from './expired-jobs-archive.mjs';
+import { isLegacyRouteCapRefusal } from './dedicated-crawler-common.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -552,7 +553,34 @@ function absorbRepublishedRoutes(keeper, removed) {
   };
   const hasRoutes = routes.slug || routes.previousSlugs.length > 0
     || Object.keys(routes.slugByLocale).length > 0 || Object.keys(routes.previousSlugsByLocale).length > 0;
-  return hasRoutes ? transferSlugHistory(keeper, routes, 'coop-job-parser.collapseRepublishedCoopVacancies') : 0;
+  if (!hasRoutes) return { transferred: 0, capRefusal: null };
+
+  // A cap refusal is expected, but transferSlugHistory can reach it after
+  // mutating locale buckets on the survivor. Work on a route-history copy so
+  // a refused transfer leaves the active keeper byte-for-byte unchanged.
+  const candidate = {
+    ...keeper,
+    ...(Array.isArray(keeper.previousSlugs) ? { previousSlugs: [...keeper.previousSlugs] } : {}),
+    ...(keeper.previousSlugsByLocale && typeof keeper.previousSlugsByLocale === 'object'
+      ? { previousSlugsByLocale: structuredClone(keeper.previousSlugsByLocale) }
+      : {}),
+    ...(keeper.previousSlugCantonByLocale && typeof keeper.previousSlugCantonByLocale === 'object'
+      ? { previousSlugCantonByLocale: structuredClone(keeper.previousSlugCantonByLocale) }
+      : {}),
+  };
+  let transferred;
+  try {
+    transferred = transferSlugHistory(candidate, routes, 'coop-job-parser.collapseRepublishedCoopVacancies');
+  } catch (error) {
+    if (isLegacyRouteCapRefusal(error)) return { transferred: 0, capRefusal: error };
+    throw error;
+  }
+
+  for (const field of ['previousSlugs', 'previousSlugsByLocale', 'previousSlugCantonByLocale']) {
+    if (Object.hasOwn(candidate, field)) keeper[field] = candidate[field];
+    else delete keeper[field];
+  }
+  return { transferred, capRefusal: null };
 }
 
 /**
@@ -586,12 +614,14 @@ function absorbRepublishedRoutes(keeper, removed) {
  * @param {{
  *   allowIdenticalSourcePostingsWithoutAddress?: boolean,
  *   sourceBackedUrls?: Iterable<string>,
+ *   onRouteHistoryOverflow?: (overflowJobs: object[], activeJobs: object[]) => void,
  * }} [options]
  * @returns {{ kept: object[], collapsed: Array<{url: string, keptUrl: string}> }}
  */
 export function collapseRepublishedCoopVacancies(jobs = [], {
   allowIdenticalSourcePostingsWithoutAddress = false,
   sourceBackedUrls = [],
+  onRouteHistoryOverflow,
 } = {}) {
   const input = Array.isArray(jobs) ? jobs : [];
   const sourceBackedUrlSet = new Set(sourceBackedUrls || []);
@@ -663,15 +693,25 @@ export function collapseRepublishedCoopVacancies(jobs = [], {
   }
   const kept = [];
   const collapsed = [];
+  const routeHistoryOverflow = [];
+  let firstRouteCapRefusal = null;
   for (const job of input) {
     const key = keyOf(job);
     const keeper = key ? keeperByKey.get(key) : null;
     if (keeper && keeper !== job) {
-      absorbRepublishedRoutes(keeper, job);
+      const routeTransfer = absorbRepublishedRoutes(keeper, job);
+      if (routeTransfer.capRefusal) {
+        firstRouteCapRefusal ||= routeTransfer.capRefusal;
+        routeHistoryOverflow.push(job);
+      }
       collapsed.push({ url: job.url, keptUrl: keeper.url });
     } else {
       kept.push(job);
     }
+  }
+  if (routeHistoryOverflow.length > 0) {
+    if (typeof onRouteHistoryOverflow !== 'function') throw firstRouteCapRefusal;
+    onRouteHistoryOverflow(routeHistoryOverflow, kept);
   }
   return { kept, collapsed };
 }
@@ -681,8 +721,8 @@ export function collapseRepublishedCoopVacancies(jobs = [], {
  * Interdiscount): returns the kept records, logs each collapse and keeps the
  * enricher's non-enumerable `.detailDrop` summary on the returned array.
  */
-export function withoutRepublishedCoopVacancies(jobs = [], label = 'Coop-family') {
-  const { kept, collapsed } = collapseRepublishedCoopVacancies(jobs);
+export function withoutRepublishedCoopVacancies(jobs = [], label = 'Coop-family', options = {}) {
+  const { kept, collapsed } = collapseRepublishedCoopVacancies(jobs, options);
   for (const { url, keptUrl } of collapsed) console.log(`  ↪️ Republished ${label} vacancy ${url} collapsed into ${keptUrl}`);
   if (jobs?.detailDrop) {
     Object.defineProperty(kept, 'detailDrop', { value: jobs.detailDrop, enumerable: false, configurable: true });

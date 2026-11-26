@@ -1,11 +1,14 @@
 {
+  "detailCandidates": 0,
+  "detailGone": 0,
+  "detailRejected": 0,
   "key": "brefispersonal",
   "label": "brefis personal ag",
-  "generatedAt": "2026-11-20T22:05:25.056Z",
+  "generatedAt": "2026-11-25T21:49:50.283Z",
   "total": 0,
-  "discovered": null,
+  "discovered": 0,
   "parsed": 0,
-  "lastFetchOutcome": "selector_miss",
+  "lastFetchOutcome": null,
   "fetchReceipt": {
     "specKey": "brefispersonal",
     "seedUrls": [
@@ -15,17 +18,17 @@
     "pages": 1,
     "httpStatuses": [
       {
-        "status": 503,
+        "status": 200,
         "url": "https://brefis.ch/Vacancyboard/"
       }
     ],
     "proxiedBy": [],
     "fetchOutcome": null,
-    "fetchDetail": "Prospector fetch failed for https://brefis.ch/Vacancyboard/: HTTP 503"
+    "fetchDetail": null
   },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "abortKind": "source-extraction-failed",
+  "abortKind": "no-jobs-parsed",
   "written": 0,
   "newCount": 0,
   "updatedCount": 0,
@@ -37,5 +40,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "07c2e8305c6747f1893222ba4bfdddc597008157"
+  "codeCommit": "0c64b1f2eae0b337b537e356aa5de051b9c4c6cc"
 }

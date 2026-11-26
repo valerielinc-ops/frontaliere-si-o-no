@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109795",
+      "sourceKey": "TG",
+      "sourceRecordId": "109795",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "27351",
+      "normalizedPlate": "TG27351",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 600,
+      "bidCount": 0,
+      "endsAt": "2026-11-25T18:00:00.000Z",
+      "closedAt": "2026-11-25T18:00:00.000Z",
+      "officialAuctionUrl": "https://auktion.tg.ch/de/",
+      "officialDetailUrl": "https://auktion.tg.ch/de/auction/109795",
+      "sourceFetchedAt": "2026-11-25T08:32:10.287Z",
+      "lastVerifiedAt": "2026-11-25T08:32:10.287Z",
+      "firstSeenAt": "2026-11-11T06:14:40.113Z",
+      "lastSeenAt": "2026-11-25T08:32:10.287Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "d11b21372e36"
+    }
+  ]
+}

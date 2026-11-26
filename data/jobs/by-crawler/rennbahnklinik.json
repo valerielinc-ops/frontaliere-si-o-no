@@ -1,7 +1,7 @@
 {
   "crawlerKey": "rennbahnklinik",
-  "assembledAt": "2026-11-20T21:49:02.412Z",
-  "runId": "44819141080",
+  "assembledAt": "2026-11-25T21:26:18.174Z",
+  "runId": "45702856844",
   "jobs": [
     {
       "id": "rennbahnklinik-56d6e1ef71bf",
@@ -34,7 +34,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/assistenzarzt-aerztin-sport-orthopaedie",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:48:55.348Z",
+      "crawledAt": "2026-11-25T21:26:12.615Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -110,9 +110,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:48:55.348Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.rennbahnklinik.ch/jobs/assistenzarzt-aerztin-sport-orthopaedie"
+      "validThrough": "2026-12-25T21:26:12.615Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rennbahnklinik-6a1155962fc5",
@@ -145,7 +144,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/pflegefachperson-hf",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:48:54.323Z",
+      "crawledAt": "2026-11-25T21:26:11.716Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -194,9 +193,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-31T21:48:54.323Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.rennbahnklinik.ch/jobs/pflegefachperson-hf"
+      "validThrough": "2027-02-01T21:26:11.716Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rennbahnklinik-3d9ef18a62e5",
@@ -230,7 +228,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/technische-operationsfachkraft-toa",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:48:53.299Z",
+      "crawledAt": "2026-11-25T21:26:10.766Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -318,9 +316,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:48:53.299Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.rennbahnklinik.ch/jobs/technische-operationsfachkraft-toa"
+      "validThrough": "2026-12-25T21:26:10.766Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rennbahnklinik-2bb6a8f768ae",
@@ -354,7 +351,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/praktikum-biomechanik",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:48:52.224Z",
+      "crawledAt": "2026-11-25T21:26:09.761Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -382,6 +379,7 @@
           "praktikant-in-biomechanik-6-monate-100-rennbahnklinik-muttenz"
         ]
       },
+      "firstSeenAt": "2026-11-21T21:37:23.671Z",
       "salaryMin": 79000,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -396,9 +394,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-18T21:48:52.224Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.rennbahnklinik.ch/jobs/praktikum-biomechanik"
+      "validThrough": "2027-02-20T21:26:09.761Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rennbahnklinik-6ec85dad4d98",
@@ -431,7 +428,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/wissenschaftliche-n-mitarbeiter-in",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:48:51.198Z",
+      "crawledAt": "2026-11-25T21:26:08.865Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -482,9 +479,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-31T21:48:51.198Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.rennbahnklinik.ch/jobs/wissenschaftliche-n-mitarbeiter-in"
+      "validThrough": "2027-02-01T21:26:08.865Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rennbahnklinik-44aacd7c7eb2",
@@ -517,7 +513,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/unterassistenz",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:48:50.181Z",
+      "crawledAt": "2026-11-25T21:26:07.919Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -578,9 +574,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:48:50.181Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.rennbahnklinik.ch/jobs/unterassistenz"
+      "validThrough": "2026-12-25T21:26:07.919Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rennbahnklinik-789220b61924",
@@ -613,7 +608,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/physiotherapeut-in",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:48:49.100Z",
+      "crawledAt": "2026-11-25T21:26:07.016Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -662,9 +657,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:48:49.100Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.rennbahnklinik.ch/jobs/physiotherapeut-in"
+      "validThrough": "2027-01-26T21:26:07.016Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rennbahnklinik-1b691dd5bebc",
@@ -698,7 +692,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/pflegepraktikum-fuer-medizinstudierende",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:48:48.066Z",
+      "crawledAt": "2026-11-25T21:26:06.100Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -753,9 +747,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:48:48.066Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.rennbahnklinik.ch/jobs/pflegepraktikum-fuer-medizinstudierende"
+      "validThrough": "2026-12-25T21:26:06.100Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rennbahnklinik-ac2b7ed23e81",
@@ -789,7 +782,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/gruppenfitnessinstruktor-in",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:48:46.995Z",
+      "crawledAt": "2026-11-25T21:26:05.186Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -838,9 +831,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T21:48:46.995Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.rennbahnklinik.ch/jobs/gruppenfitnessinstruktor-in"
+      "validThrough": "2027-02-07T21:26:05.186Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "rennbahnklinik-ebecf2ba958a",
@@ -874,7 +866,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/medizinische-praxisassistent-in-efz-im-labor",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:48:45.956Z",
+      "crawledAt": "2026-11-25T21:26:04.138Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -923,94 +915,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:48:45.956Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.rennbahnklinik.ch/jobs/medizinische-praxisassistent-in-efz-im-labor"
-    },
-    {
-      "id": "rennbahnklinik-52041f946dda",
-      "slug": "dipendenti-commerciali-n-50-rennbahnklinik-muttenz",
-      "slugByLocale": {
-        "it": "dipendenti-commerciali-n-50-rennbahnklinik-muttenz",
-        "en": "commercial-employees-n-50-rennbahnklinik-muttenz",
-        "de": "kaufmannische-n-angestellte-n-50-rennbahnklinik-muttenz",
-        "fr": "salaries-commerciaux-n-50-rennbahnklinik-muttenz"
-      },
-      "company": "Rennbahnklinik",
-      "companyKey": "rennbahnklinik",
-      "companyDomain": "rennbahnklinik.ch",
-      "title": "Kaufmännische/n Angestellte/n 50%",
-      "titleByLocale": {
-        "it": "Dipendenti commerciali/n 50%",
-        "en": "Commercial employees/n 50%",
-        "de": "Kaufmännische/n Angestellte/n 50%",
-        "fr": "Salariés commerciaux/n 50%"
-      },
-      "description": "Die Rennbahnklinik ist führend in der ganzheitlichen Betreuung aktiver Menschen. Zu den Kernkompetenzen der Klinik gehören Orthopädie, Sportmedizin, Physiotherapie und funktionelle Diagnostik. Seit 45 Jahren arbeitet das Team mit Athleten und Verbänden verschiedenster Sportarten zusammen und hat dabei höchste Standards entwickelt. Zur Unterstützung unseres HR-Teams suchen wir per 1. Januar 2027 und befristet für 12 Monate eine/n\n\nKaufmännische/n Angestellte/n\n\nDeine Aufgaben:\n• Unterstützung im Bewerbungsmanagement\n• Unterstützung beim Einscannen und Archivieren von diversen Dokumenten\n• Bei Bedarf weitere administrative Aufgaben Du bringst mit:\n• Einen kaufmännischen Abschluss EFZ/EBA oder Student/in\n• Absolute Verschwiegenheit, Diskretion und Verlässlichkeit\n• Freude am Arbeiten in einem kleinen Team\n• Interesse an Aufgaben im Personalbereich\n• Perfekte Deutschkenntnisse in Wort und Schrift Wir bieten an:\n• Flexible Einsatztage und -zeiten zwischen 08:00 – 17:00 Uhr (kein Homeoffice)\n• Moderne Infrastruktur\n• Attraktive Anstellungsbedingungen Bist du interessiert? Dann sende uns deine vollständigen Bewerbungsunterlagen über das untenstehende Bewerbungsformular. Wir freuen uns darauf, dich kennenzulernen! Jobangaben Seitentitle Pensum Frühester Startzeitpunkt Personalien Vorname Nachname Adresse Postleitzahl Ort Geburtsdatum Nationalität Arbeitsbewilligung (wenn nicht Nationalität CH) E-Mail Telefon Dokumente hochladen Motivationsschreiben Lebenslauf inkl. Foto Diplome, Zeugnisse und andere Dokumente (Empfehlung, Referenz etc.) Ich habe die Datenschutzerklärung gelesen und akzeptiert. Absenden Unsere Kompetenzen Patientinnen und Patienten der Rennbahnklinik profitieren von einer ganzheitlichen Behandlung unter einem Dach. Unsere Spezialisten betreuen und behandeln Sie von der Diagnose, über die Operation bis hin zur Rehabilitation.\n• Orthopädie\n• Sportmedizin\n• Handchirurgie\n• Physiotherapie\n• Leistungsdiagnostik\n• Biomechanik\n• Betriebliches Gesundheitsmanagement\n• Training Unsere Kompetenzen Unser Qualitätsanspruch Unser Qualitätsanspruch Die #1 in der Region :\n• Höchste Qualität der Behandlung\n• Höchste Patientenzufriedenheit\n• Tiefste Kosten Mehr dazu",
-      "descriptionByLocale": {
-        "it": "Il Rennbahnklinik è un leader nella cura olistica delle persone attive. Le competenze principali della clinica includono ortopedia, medicina sportiva, fisioterapia e diagnostica funzionale. Per 45 anni, il team ha lavorato con atleti e associazioni di vari sport e ha sviluppato i più alti standard. Al fine di supportare il nostro team HR, ne stiamo cercando uno dal 1 gennaio 2027 e per un periodo limitato di 12 mesi.\n\nDipendenti commerciali\n\nI vostri compiti:\n• Supporto per la gestione delle applicazioni\n• Supporto per la scansione e l'archiviazione di vari documenti\n• Se necessario, ulteriori compiti amministrativi Porti con te:\n• Un grado commerciale EFZ/EBA o studente\n• assoluta riservatezza, discrezione e affidabilità\n• Godetevi il lavoro in una piccola squadra\n• Interessi nei compiti delle risorse umane\n• Perfetto tedesco competenze in parola e scrittura Offriamo:\n• Giorni e ore di lavoro flessibili tra le 08:00 e le 17:00 (senza ufficio)\n• Infrastrutture moderne\n• Condizioni di lavoro interessanti Sei interessato? Quindi inviaci i tuoi documenti di applicazione completi tramite il modulo di richiesta sottostante. Non vediamo l'ora di incontrarvi! Pagetitle Pensum Prima volta di inizio Personals Nome cognome Indirizzo Postcode Luogo di nascita Nationality permesso di lavoro (se non nazionalità CH) Email Documenti di telefono Carica lettera di motivazione CV incl. Diplomi fotografici, certificati e altri documenti (raccomandazione, riferimento, ecc.) Ho letto e accettato la privacy policy. Le nostre competenze I pazienti della Rennbahnklinik beneficiano di un trattamento olistico sotto un tetto. I nostri specialisti si prendono cura e ti trattano dalla diagnosi alla chirurgia e riabilitazione.\n• Ortopedia\n• Medicina sportiva\n• Chirurgia della mano\n• Terapia fisica\n• Diagnostica delle prestazioni\n• Biomeccanica\n• Gestione della salute sul lavoro\n• Formazione Le nostre competenze I nostri standard di qualità I nostri standard di qualità La #1 nella regione:\n• Alta qualità del trattamento\n• Soddisfazione del paziente\n• Costi più bassi Più su questo",
-        "en": "The Rennbahnklinik is a leader in the holistic care of active people. The clinic’s core competencies include orthopaedics, sports medicine, physiotherapy and functional diagnostics. For 45 years, the team has worked with athletes and associations of various sports and has developed the highest standards. In order to support our HR team, we are looking for one from January 1, 2027 and for a limited period of 12 months.\n\nCommercial employee(s)\n\nYour tasks:\n• Support in application management\n• Support for scanning and archiving various documents\n• If necessary, further administrative tasks You bring with you:\n• A commercial degree EFZ/EBA or student\n• Absolute confidentiality, discretion and reliability\n• Enjoy working in a small team\n• Interest in human resources tasks\n• Perfect German skills in word and writing We offer:\n• Flexible working days and hours between 08:00 – 17:00 (no home office)\n• Modern infrastructure\n• Attractive employment conditions Are you interested? Then send us your complete application documents via the application form below. We look forward to meeting you! Job details Pagetitle Pensum Earliest start time Personals First name Last name Address Postcode Place of birth Nationality Work permit (if not nationality CH) Email Phone documents Upload motivation letter CV incl. Photo Diplomas, certificates and other documents (recommendation, reference, etc.) I have read and accepted the privacy policy. Our competences Patients of the Rennbahnklinik benefit from a holistic treatment under one roof. Our specialists look after and treat you from diagnosis to surgery and rehabilitation.\n• Orthopaedics\n• Sports medicine\n• Hand surgery\n• Physical therapy\n• Performance diagnostics\n• Biomechanics\n• Occupational health management\n• Training Our Competences Our quality standards Our quality standards The #1 in the region :\n• Highest quality of treatment\n• Highest patient satisfaction\n• Lowest Costs More on this",
-        "de": "Die Rennbahnklinik ist führend in der ganzheitlichen Betreuung aktiver Menschen. Zu den Kernkompetenzen der Klinik gehören Orthopädie, Sportmedizin, Physiotherapie und funktionelle Diagnostik. Seit 45 Jahren arbeitet das Team mit Athleten und Verbänden verschiedenster Sportarten zusammen und hat dabei höchste Standards entwickelt. Zur Unterstützung unseres HR-Teams suchen wir per 1. Januar 2027 und befristet für 12 Monate eine/n\n\nKaufmännische/n Angestellte/n\n\nDeine Aufgaben:\n• Unterstützung im Bewerbungsmanagement\n• Unterstützung beim Einscannen und Archivieren von diversen Dokumenten\n• Bei Bedarf weitere administrative Aufgaben Du bringst mit:\n• Einen kaufmännischen Abschluss EFZ/EBA oder Student/in\n• Absolute Verschwiegenheit, Diskretion und Verlässlichkeit\n• Freude am Arbeiten in einem kleinen Team\n• Interesse an Aufgaben im Personalbereich\n• Perfekte Deutschkenntnisse in Wort und Schrift Wir bieten an:\n• Flexible Einsatztage und -zeiten zwischen 08:00 – 17:00 Uhr (kein Homeoffice)\n• Moderne Infrastruktur\n• Attraktive Anstellungsbedingungen Bist du interessiert? Dann sende uns deine vollständigen Bewerbungsunterlagen über das untenstehende Bewerbungsformular. Wir freuen uns darauf, dich kennenzulernen! Jobangaben Seitentitle Pensum Frühester Startzeitpunkt Personalien Vorname Nachname Adresse Postleitzahl Ort Geburtsdatum Nationalität Arbeitsbewilligung (wenn nicht Nationalität CH) E-Mail Telefon Dokumente hochladen Motivationsschreiben Lebenslauf inkl. Foto Diplome, Zeugnisse und andere Dokumente (Empfehlung, Referenz etc.) Ich habe die Datenschutzerklärung gelesen und akzeptiert. Absenden Unsere Kompetenzen Patientinnen und Patienten der Rennbahnklinik profitieren von einer ganzheitlichen Behandlung unter einem Dach. Unsere Spezialisten betreuen und behandeln Sie von der Diagnose, über die Operation bis hin zur Rehabilitation.\n• Orthopädie\n• Sportmedizin\n• Handchirurgie\n• Physiotherapie\n• Leistungsdiagnostik\n• Biomechanik\n• Betriebliches Gesundheitsmanagement\n• Training Unsere Kompetenzen Unser Qualitätsanspruch Unser Qualitätsanspruch Die #1 in der Region :\n• Höchste Qualität der Behandlung\n• Höchste Patientenzufriedenheit\n• Tiefste Kosten Mehr dazu",
-        "fr": "Le Rennbahnklinik est un leader dans la prise en charge holistique des personnes actives. Les compétences de base de la clinique comprennent l'orthopédie, la médecine sportive, la physiothérapie et le diagnostic fonctionnel. Depuis 45 ans, l'équipe travaille avec des athlètes et des associations de différents sports et a développé les normes les plus élevées. Afin de soutenir notre équipe de RH, nous en cherchons une à partir du 1er janvier 2027 et pour une période limitée de 12 mois.\n\nEmployé(s) de commerce\n\nVos tâches:\n• Appui à la gestion des applications\n• Support pour la numérisation et l'archivage de divers documents\n• Si nécessaire, tâches administratives supplémentaires Vous apportez avec vous:\n• Diplôme commercial EFZ/EBA ou étudiant\n• Confidentialité absolue, discrétion et fiabilité\n• Profitez de travailler dans une petite équipe\n• Intérêt pour les tâches liées aux ressources humaines\n• Parfaites compétences en allemand dans la parole et l'écriture Nous offrons:\n• Jours et heures de travail flexibles entre 08:00 et 17:00 (pas de bureau à domicile)\n• Infrastructures modernes\n• Conditions d'emploi attrayantes Ça t'intéresse ? Envoyez-nous ensuite vos documents de candidature complets via le formulaire de candidature ci-dessous. Nous sommes impatients de vous rencontrer! Détails de l'emploi Pagetitle Pensum Heure de début la plus précoce Personnalités Prénom Nom Adresse Code postal Lieu de naissance Nationalité Permis de travail (si ce n'est la nationalité CH) E-mail Téléphones Télécharger la lettre de motivation CV incl. Diplômes photo, certificats et autres documents (recommandation, référence, etc.) J'ai lu et accepté la politique de confidentialité. Nos compétences Les patients du Rennbahnklinik bénéficient d'un traitement holistique sous un même toit. Nos spécialistes vous soignent et vous traitent depuis le diagnostic jusqu'à la chirurgie et la réadaptation.\n• Orthopédie\n• Médecine du sport\n• Chirurgie des mains\n• Thérapie physique\n• Diagnostic des performances\n• Biomécanique\n• Gestion de la santé au travail\n• Formation Nos compétences Nos normes de qualité Nos normes de qualité Le #1 dans la région :\n• Qualité maximale du traitement\n• Plus grande satisfaction du patient\n• Plus de coûts sur ce"
-      },
-      "needsRetranslation": false,
-      "location": "Muttenz",
-      "canton": "BL",
-      "url": "https://www.rennbahnklinik.ch/jobs/kaufmaennische-n-angestellte-n",
-      "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:48:44.919Z",
-      "addressLocality": "Muttenz",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4132",
-      "streetAddress": "Kriegackerstrasse 100",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.rennbahnklinik.ch/jobs/kaufmaennische-n-angestellte-n",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "kaufmannische-n-angestellte-n-50-rennbahnklinik-muttenz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kaufmannische-n-angestellte-n-50-rennbahnklinik-muttenz"
-        ],
-        "en": [
-          "kaufmannische-n-angestellte-n-50-rennbahnklinik-muttenz"
-        ],
-        "fr": [
-          "kaufmannische-n-angestellte-n-50-rennbahnklinik-muttenz"
-        ]
-      },
-      "firstSeenAt": "2026-11-17T08:25:07.300Z",
-      "salaryMin": 44000,
-      "salaryMax": 61500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 44000,
-          "maxValue": 61500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-15T21:48:44.919Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.rennbahnklinik.ch/jobs/kaufmaennische-n-angestellte-n"
+      "validThrough": "2027-01-26T21:26:04.138Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

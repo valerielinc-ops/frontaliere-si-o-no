@@ -438,7 +438,7 @@ git config user.email "296434481+frontaliere-automation[bot]@users.noreply.githu
 # without that PR is not an in-flight snapshot: its generated files may be
 # older than the current main tree. Start that run from main and replace the
 # orphaned tip with a lease, rather than carrying the stale tree forward.
-if [ "$RECONCILE_COMPAT" = false ] && [ -n "$REMOTE_HEAD" ]; then
+if [ -n "$REMOTE_HEAD" ]; then
   OPEN_PR="$(run_bounded "$GH_PR_TIMEOUT_SECONDS" "gh pr list stable refresh PR before reconciliation" \
     gh pr list \
     --repo "$REPOSITORY" \

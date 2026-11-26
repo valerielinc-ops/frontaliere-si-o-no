@@ -775,6 +775,16 @@ describe('deny-list parity (scripts/lib/error-issue-sync.mjs cannot import the .
     expect(ISSUE_DENY_PATTERNS.map((p: RegExp) => p.source)).toContain(benignPattern!.source);
   });
 
+  it('mirrors the privacy-protected Battery Status pattern from services/benignErrorPatterns.ts byte-for-byte (#19704)', () => {
+    const benignPattern = UNIVERSAL_BENIGN_PATTERNS.find((p) =>
+      p.test('NotAllowedError: Battery access is blocked by privacy protection.'),
+    );
+    expect(benignPattern).toBeDefined();
+    expect(ISSUE_DENY_PATTERNS.map((p: RegExp) => p.source)).toContain(benignPattern!.source);
+    expect(isIssueDenied('NotAllowedError: Battery access is blocked by privacy protection.')).toBe(true);
+    expect(isIssueDenied('NotAllowedError: Battery access is blocked by permissions policy.')).toBe(false);
+  });
+
   it('denies unsupported-browser parse failures (#4172) and OS/hardware file-read failures (#4175)', () => {
     // Old browser parsing optional-chaining / nullish on a modern chunk.
     expect(isIssueDenied("Unexpected token '?'")).toBe(true);

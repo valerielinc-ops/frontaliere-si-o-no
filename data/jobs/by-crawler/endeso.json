@@ -1,7 +1,7 @@
 {
   "crawlerKey": "endeso",
-  "assembledAt": "2026-11-20T21:56:46.313Z",
-  "runId": "44818983620",
+  "assembledAt": "2026-11-25T21:24:57.258Z",
+  "runId": "45702677976",
   "jobs": [
     {
       "id": "endeso-8f8b0f0b248b",
@@ -34,7 +34,7 @@
       "url": "https://endeso.ch/jobs/job-28134-haushaltshilfe-raumpflege-teilzeit-region-zuerich-stadt/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:56:41.093Z",
+      "crawledAt": "2026-11-25T21:24:49.516Z",
       "addressLocality": "Zürich Stadt",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -87,9 +87,8 @@
       },
       "firstSeenAt": "2026-10-23T09:46:03.738Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T21:56:41.093Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://endeso.ch/jobs/job-28134-haushaltshilfe-raumpflege-teilzeit-region-zuerich-stadt"
+      "validThrough": "2027-01-20T21:24:49.516Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "endeso-059be3085543",
@@ -122,7 +121,7 @@
       "url": "https://endeso.ch/jobs/job-28135-webentwickler-in-backend-php/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:56:41.092Z",
+      "crawledAt": "2026-11-25T21:24:49.515Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -163,13 +162,27 @@
         "web-developer-php-backend-endeso-gmbh-thurgau-bodensee",
         "developpeur-euse-web-backend-php-endeso-gmbh-thurgau-bodensee",
         "webentwickler-in-backend-php-thurgau-bodensee-endeso-ch",
-        "webentwickler-in-backend-php-endeso-gmbh-thurgau"
+        "webentwickler-in-backend-php-endeso-gmbh-thurgau",
+        "sviluppatore-trice-web-backend-php-endeso-gmbh-thurgau-bodensee-f8ef6070",
+        "sviluppatore-sviluppatrice-web-backend-php-endeso-gmbh-thurgau-bodensee-7e6a836d",
+        "webentwickler-in-backend-php-thurgau-bodensee-endeso-ch-93ead0e9",
+        "web-developer-php-backend-endeso-gmbh-thurgau-bodensee-0b904144",
+        "backend-php-web-developer-endeso-gmbh-thurgau-bodensee-15acd4b1",
+        "developpeur-euse-web-backend-php-endeso-gmbh-thurgau-bodensee-9eeca169",
+        "developpeur-euse-web-back-end-php-endeso-gmbh-thurgau-bodensee-fc20e6af"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sviluppatore-sviluppatrice-web-backend-php-endeso-gmbh-thurgau-bodensee",
           "sviluppatore-trice-web-backend-php-endeso-gmbh-thurgau-bodensee",
-          "webentwickler-in-backend-php-thurgau-bodensee-endeso-ch"
+          "webentwickler-in-backend-php-thurgau-bodensee-endeso-ch",
+          "sviluppatore-trice-web-backend-php-endeso-gmbh-thurgau-bodensee-f8ef6070",
+          "sviluppatore-sviluppatrice-web-backend-php-endeso-gmbh-thurgau-bodensee-7e6a836d",
+          "webentwickler-in-backend-php-thurgau-bodensee-endeso-ch-93ead0e9",
+          "web-developer-php-backend-endeso-gmbh-thurgau-bodensee-0b904144",
+          "backend-php-web-developer-endeso-gmbh-thurgau-bodensee-15acd4b1",
+          "developpeur-euse-web-backend-php-endeso-gmbh-thurgau-bodensee-9eeca169",
+          "developpeur-euse-web-back-end-php-endeso-gmbh-thurgau-bodensee-fc20e6af"
         ],
         "en": [
           "backend-php-web-developer-endeso-gmbh-thurgau-bodensee",
@@ -185,9 +198,8 @@
       },
       "firstSeenAt": "2026-10-23T09:46:03.738Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T21:56:41.092Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://endeso.ch/jobs/job-28135-webentwickler-in-backend-php"
+      "validThrough": "2027-01-20T21:24:49.515Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "endeso-bc238871f65b",
@@ -220,7 +232,7 @@
       "url": "https://endeso.ch/jobs/job-28136-personalberater-in-hr-funktionen/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:56:41.091Z",
+      "crawledAt": "2026-11-25T21:24:49.514Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -255,11 +267,19 @@
       "salarySource": "estimated",
       "previousSlugs": [
         "conseiller-ere-en-personnel-pour-les-fonctions-rh-endeso-gmbh-frauenfeld",
-        "personalberater-in-hr-funktionen-frauenfeld-endeso-ch"
+        "personalberater-in-hr-funktionen-frauenfeld-endeso-ch",
+        "personalberater-in-hr-funktionen-frauenfeld-endeso-ch-290af469",
+        "consulente-del-personale-per-funzioni-hr-endeso-gmbh-frauenfeld-426ee9cc",
+        "recruitment-consultant-for-hr-functions-endeso-gmbh-frauenfeld-52d950c8",
+        "conseiller-ere-en-personnel-pour-les-fonctions-rh-endeso-gmbh-frauenfeld-b00d3c21"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "personalberater-in-hr-funktionen-frauenfeld-endeso-ch"
+          "personalberater-in-hr-funktionen-frauenfeld-endeso-ch",
+          "personalberater-in-hr-funktionen-frauenfeld-endeso-ch-290af469",
+          "consulente-del-personale-per-funzioni-hr-endeso-gmbh-frauenfeld-426ee9cc",
+          "recruitment-consultant-for-hr-functions-endeso-gmbh-frauenfeld-52d950c8",
+          "conseiller-ere-en-personnel-pour-les-fonctions-rh-endeso-gmbh-frauenfeld-b00d3c21"
         ],
         "fr": [
           "conseiller-ere-en-personnel-pour-les-fonctions-rh-endeso-gmbh-frauenfeld"
@@ -278,9 +298,8 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-20T21:56:41.091Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://endeso.ch/jobs/job-28136-personalberater-in-hr-funktionen"
+      "validThrough": "2027-01-20T21:24:49.514Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "endeso-5674819bcf04",
@@ -313,7 +332,7 @@
       "url": "https://endeso.ch/jobs/job-28137-regionalbetreiber-luzern/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:56:41.091Z",
+      "crawledAt": "2026-11-25T21:24:49.513Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -351,14 +370,14 @@
         "regionalbetreiber-luzern-luzern-endeso-ch"
       ],
       "previousSlugsByLocale": {
-        "de": [
-          "regionalbetreiber-luzern-endeso-gmbh-luzern"
-        ],
         "it": [
           "regionalbetreiber-luzern-endeso-gmbh-luzern",
           "regionalbetreiber-luzern-luzern-endeso-ch"
         ],
         "en": [
+          "regionalbetreiber-luzern-endeso-gmbh-luzern"
+        ],
+        "de": [
           "regionalbetreiber-luzern-endeso-gmbh-luzern"
         ],
         "fr": [
@@ -367,9 +386,8 @@
       },
       "firstSeenAt": "2026-10-23T09:46:03.737Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T21:56:41.091Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://endeso.ch/jobs/job-28137-regionalbetreiber-luzern"
+      "validThrough": "2027-01-20T21:24:49.513Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "endeso-a70b94cc4fdb",
@@ -402,7 +420,7 @@
       "url": "https://endeso.ch/jobs/job-28138-regionalbetreiber-zug/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:56:41.091Z",
+      "crawledAt": "2026-11-25T21:24:49.513Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -440,18 +458,17 @@
         "regionalbetreiber-zug-endeso-gmbh-zug"
       ],
       "previousSlugsByLocale": {
-        "de": [
-          "regionalbetreiber-zug-endeso-gmbh-zug"
-        ],
         "it": [
           "regionalbetreiber-zug-zug-endeso-ch"
+        ],
+        "de": [
+          "regionalbetreiber-zug-endeso-gmbh-zug"
         ]
       },
       "firstSeenAt": "2026-10-08T21:30:36.198Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:56:41.091Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://endeso.ch/jobs/job-28138-regionalbetreiber-zug"
+      "validThrough": "2026-12-25T21:24:49.513Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "endeso-7ed931fee6a9",
@@ -484,7 +501,7 @@
       "url": "https://endeso.ch/jobs/job-28139-regionalbetreiber-bern/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:56:41.090Z",
+      "crawledAt": "2026-11-25T21:24:49.512Z",
       "addressLocality": "Region Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -527,9 +544,8 @@
       },
       "firstSeenAt": "2026-09-19T23:00:29.195Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:56:41.090Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://endeso.ch/jobs/job-28139-regionalbetreiber-bern"
+      "validThrough": "2026-12-25T21:24:49.512Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "endeso-eece576fcbe5",
@@ -562,7 +578,7 @@
       "url": "https://endeso.ch/jobs/job-28140-regionale-repraesentantin-swissbutler/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:56:41.087Z",
+      "crawledAt": "2026-11-25T21:24:49.509Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -605,9 +621,8 @@
       },
       "firstSeenAt": "2026-09-19T23:00:29.190Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:56:41.087Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://endeso.ch/jobs/job-28140-regionale-repraesentantin-swissbutler"
+      "validThrough": "2026-12-25T21:24:49.509Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "endeso-b57322022c3e",
@@ -640,7 +655,7 @@
       "url": "https://endeso.ch/jobs/job-28141-haushaelterin-im-monatsgehalt-angestellt-privathaushalt/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:56:41.087Z",
+      "crawledAt": "2026-11-25T21:24:49.508Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -683,9 +698,8 @@
       },
       "firstSeenAt": "2026-09-19T23:00:29.189Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:56:41.087Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://endeso.ch/jobs/job-28141-haushaelterin-im-monatsgehalt-angestellt-privathaushalt"
+      "validThrough": "2026-12-25T21:24:49.508Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "endeso-66216181cba7",
@@ -718,7 +732,7 @@
       "url": "https://endeso.ch/jobs/job-28142-chefgaertner-in-fuer-die-parkanlage-eines-schlosses/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:56:41.086Z",
+      "crawledAt": "2026-11-25T21:24:49.507Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -763,9 +777,8 @@
       },
       "firstSeenAt": "2026-09-19T23:00:29.183Z",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:56:41.086Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://endeso.ch/jobs/job-28142-chefgaertner-in-fuer-die-parkanlage-eines-schlosses"
+      "validThrough": "2026-12-25T21:24:49.507Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "endeso-5604cb481735",
@@ -798,7 +811,7 @@
       "url": "https://endeso.ch/jobs/job-28143-projektleiter-in-elektroinstallation/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:56:41.085Z",
+      "crawledAt": "2026-11-25T21:24:49.506Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -852,9 +865,8 @@
         "streetAddressSource": "zefix-registry"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T21:56:41.085Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://endeso.ch/jobs/job-28143-projektleiter-in-elektroinstallation"
+      "validThrough": "2026-12-25T21:24:49.506Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

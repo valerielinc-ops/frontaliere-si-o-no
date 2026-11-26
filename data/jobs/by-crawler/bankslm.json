@@ -1,7 +1,7 @@
 {
   "crawlerKey": "bankslm",
-  "assembledAt": "2026-11-20T21:57:40.341Z",
-  "runId": "44818983620",
+  "assembledAt": "2026-11-25T21:22:15.089Z",
+  "runId": "45702677976",
   "jobs": [
     {
       "id": "bankslm-2f173056316e",
@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "consulente-clienti-privato-basato-sul-60-bank-slm-ag-munsingen",
         "en": "private-client-advisor-based-on-60-bank-slm-ag-munsingen",
-        "de": "privatkundenberater-in-basis-60-bank-slm-ag-munsingen",
+        "de": "privatkundenberater-in-basis-60-munsingen-bankslm-ch",
         "fr": "conseiller-client-prive-selon-60-bank-slm-ag-munsingen"
       },
       "company": "Bank SLM AG",
@@ -34,7 +34,7 @@
       "url": "https://karriere.bankslm.ch/jobs/7019430-privatkundenberater-in-basis-60",
       "source": "Bank SLM AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:57:35.640Z",
+      "crawledAt": "2026-11-25T21:22:06.190Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -66,11 +66,11 @@
         "en": [
           "privatkundenberater-in-basis-60-bank-slm-ag-munsingen"
         ],
-        "fr": [
+        "de": [
           "privatkundenberater-in-basis-60-bank-slm-ag-munsingen"
         ],
-        "de": [
-          "privatkundenberater-in-basis-60-munsingen-bankslm-ch"
+        "fr": [
+          "privatkundenberater-in-basis-60-bank-slm-ag-munsingen"
         ]
       },
       "firstSeenAt": "2026-11-17T21:24:18.149Z",
@@ -88,9 +88,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:57:35.640Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://karriere.bankslm.ch/jobs/7019430-privatkundenberater-in-basis-60"
+      "validThrough": "2026-12-25T21:22:06.190Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bankslm-0b9d9916dc57",
@@ -98,7 +97,7 @@
       "slugByLocale": {
         "it": "specialista-di-pianificazione-finanziaria-nei-clienti-pensioni-60-80-bank-slm-ag-munsingen",
         "en": "financial-planning-specialist-for-pension-clients-60-80-bank-slm-ag-munsingen",
-        "de": "finanzplanungsspezialist-in-vorsorgekunden-60-80-bank-slm-ag-munsingen",
+        "de": "finanzplanungsspezialist-in-vorsorgekunden-60-80-munsingen-bankslm-ch",
         "fr": "specialiste-de-la-planification-financiere-chez-les-beneficiaires-de-pensions-60-80-bank-slm-ag-munsingen"
       },
       "company": "Bank SLM AG",
@@ -123,7 +122,7 @@
       "url": "https://karriere.bankslm.ch/jobs/8690206-finanzplanungsspezialist-in-vorsorgekunden-60-80",
       "source": "Bank SLM AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:57:35.639Z",
+      "crawledAt": "2026-11-25T21:22:06.188Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -155,11 +154,11 @@
         "en": [
           "finanzplanungsspezialist-in-vorsorgekunden-60-80-bank-slm-ag-munsingen"
         ],
-        "fr": [
+        "de": [
           "finanzplanungsspezialist-in-vorsorgekunden-60-80-bank-slm-ag-munsingen"
         ],
-        "de": [
-          "finanzplanungsspezialist-in-vorsorgekunden-60-80-munsingen-bankslm-ch"
+        "fr": [
+          "finanzplanungsspezialist-in-vorsorgekunden-60-80-bank-slm-ag-munsingen"
         ]
       },
       "firstSeenAt": "2026-11-15T09:26:33.334Z",
@@ -177,9 +176,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T21:57:35.639Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://karriere.bankslm.ch/jobs/8690206-finanzplanungsspezialist-in-vorsorgekunden-60-80"
+      "validThrough": "2027-02-07T21:22:06.188Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bankslm-f5eafef0ca66",
@@ -187,7 +185,7 @@
       "slugByLocale": {
         "it": "impiegato-a-in-rischio-compliance-40-50-bank-slm-ag-munsingen",
         "en": "risk-compliance-administrator-40-50-bank-slm-ag-munsingen",
-        "de": "sachbearbeiter-in-risiko-compliance-40-50-bank-slm-ag-munsingen",
+        "de": "sachbearbeiter-in-risiko-compliance-40-50-munsingen-bankslm-ch",
         "fr": "personnel-en-matiere-de-risque-et-de-conformite-40-50-bank-slm-ag-munsingen"
       },
       "company": "Bank SLM AG",
@@ -212,7 +210,7 @@
       "url": "https://karriere.bankslm.ch/jobs/8690578-sachbearbeiter-in-risiko-compliance-40-50",
       "source": "Bank SLM AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:57:35.638Z",
+      "crawledAt": "2026-11-25T21:22:06.186Z",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -244,11 +242,11 @@
         "en": [
           "sachbearbeiter-in-risiko-compliance-40-50-bank-slm-ag-munsingen"
         ],
-        "fr": [
+        "de": [
           "sachbearbeiter-in-risiko-compliance-40-50-bank-slm-ag-munsingen"
         ],
-        "de": [
-          "sachbearbeiter-in-risiko-compliance-40-50-munsingen-bankslm-ch"
+        "fr": [
+          "sachbearbeiter-in-risiko-compliance-40-50-bank-slm-ag-munsingen"
         ]
       },
       "firstSeenAt": "2026-11-15T09:26:33.332Z",
@@ -266,9 +264,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-07T21:57:35.638Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://karriere.bankslm.ch/jobs/8690578-sachbearbeiter-in-risiko-compliance-40-50"
+      "validThrough": "2027-02-07T21:22:06.186Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

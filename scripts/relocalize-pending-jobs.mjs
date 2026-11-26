@@ -141,7 +141,7 @@ export const SMALL_COMPANY_JOB_LIMIT = 4;
  * the drain, and it stopped it at ~10% of the window.
  *
  * The constraint that stops it now is the cascade's clock — since 2026-10-02 a
- * 30-minute window of its own under a run-wide ceiling (JOBS_CASCADE_WINDOW_MS,
+ * 30-minute minimum window under a run-wide ceiling (JOBS_CASCADE_WINDOW_MS,
  * JOBS_CASCADE_DEADLINE_MS) instead of a 90-minute run-wide deadline: on the
  * slow runs (31690534255: 87,3 min for the same 100 jobs, 1,15 jobs/min, every
  * free model exhausted) the clock binds long before 900. So this cap can only
@@ -397,15 +397,20 @@ const TIME_BUDGET_MS = 320 * 60 * 1000;
 const RUN_START_MS = resolveRunStartMs();
 // Run-wide deadline for the slow HTTP/ONNX cascade. Default 250min (cascade-first
 // era: the cascade IS the primary translator). Under Argos-first translate-pending
-// caps it via JOBS_CASCADE_DEADLINE_MS (a run-wide ceiling) and gives it its own
-// window, JOBS_CASCADE_WINDOW_MS, counted from THIS process's start: the deadline
-// is min(ceiling, elapsed at start + window). Without the window a long Phase 2a
-// took the cascade's whole slot — corpus run 36779310211 (2026-10-01): Argos ran
-// 150min, the cascade started at 159min against a 90min run-wide deadline and
-// translated 0 jobs, with Azure available.
+// caps it via JOBS_CASCADE_DEADLINE_MS (a run-wide ceiling) and gives it a minimum
+// window, JOBS_CASCADE_WINDOW_MS, counted from THIS process's start. Once the
+// queue is known, cascadeQueueDeadlineMs() can extend that window proportionally
+// to the eligible company count, but never beyond the same ceiling. Without the
+// minimum window a long Phase 2a took the cascade's whole slot — corpus run
+// 36779310211 (2026-10-01): Argos ran 150min, the cascade started at 159min
+// against a 90min run-wide deadline and translated 0 jobs, with Azure available.
+const CASCADE_LOCALIZATION_CEILING_MS =
+  Number(process.env.JOBS_CASCADE_DEADLINE_MS) || 250 * 60 * 1000;
+const CASCADE_LOCALIZATION_WINDOW_MS =
+  Number(process.env.JOBS_CASCADE_WINDOW_MS) || 0;
 const CASCADE_LOCALIZATION_DEADLINE_MS = windowedDeadlineMs({
-  deadlineMs: Number(process.env.JOBS_CASCADE_DEADLINE_MS) || 250 * 60 * 1000,
-  windowMs: Number(process.env.JOBS_CASCADE_WINDOW_MS) || 0,
+  deadlineMs: CASCADE_LOCALIZATION_CEILING_MS,
+  windowMs: CASCADE_LOCALIZATION_WINDOW_MS,
   elapsedAtStartMs: Date.now() - RUN_START_MS,
 });
 const CASCADE_PER_COMPANY_BUDGET_MS =
@@ -441,6 +446,39 @@ export function cascadeExecutionTimeBudgetMs(
 ) {
   const count = Math.max(1, Number(companyCount) || 1);
   return Math.max(1, Math.min(deadlineMs - elapsedMs, perCompanyMs * count));
+}
+
+/**
+ * Turn the configured cascade window into a queue-aware deadline.
+ *
+ * JOBS_CASCADE_WINDOW_MS is the guaranteed minimum, not a fixed allowance:
+ * each eligible company contributes one per-company budget, while the run-wide
+ * ceiling remains the hard boundary that preserves mop-up and persistence.
+ * With no configured window (the cascade-first path), keep the legacy run-wide
+ * deadline unchanged.
+ */
+export function cascadeQueueDeadlineMs({
+  deadlineMs,
+  windowMs,
+  elapsedAtStartMs,
+  companyCount,
+  perCompanyMs = CASCADE_PER_COMPANY_BUDGET_MS,
+}) {
+  const ceiling = Number(deadlineMs);
+  if (!Number.isFinite(ceiling) || ceiling <= 0) return 1;
+
+  const baseWindow = Number(windowMs);
+  if (!Number.isFinite(baseWindow) || baseWindow <= 0) return ceiling;
+
+  const start = Number.isFinite(Number(elapsedAtStartMs))
+    ? Math.max(0, Number(elapsedAtStartMs))
+    : 0;
+  const count = Math.max(0, Math.floor(Number(companyCount) || 0));
+  const companyBudget = Number.isFinite(Number(perCompanyMs)) && Number(perCompanyMs) > 0
+    ? Number(perCompanyMs)
+    : 0;
+  const queueWindow = Math.max(baseWindow, count * companyBudget);
+  return Math.max(1, Math.min(ceiling, start + queueWindow));
 }
 
 /** Put failed companies at the back of a retry queue so healthy pending work
@@ -967,7 +1005,11 @@ export function orderPendingByTraffic(pending, { capture } = {}) {
 /**
  * Run the shared crawler in LOCALIZE_EXISTING_ONLY mode (in-process).
  */
-async function runSharedCrawler(companyKeys, maxJobs) {
+async function runSharedCrawler(
+  companyKeys,
+  maxJobs,
+  deadlineMs = CASCADE_LOCALIZATION_DEADLINE_MS,
+) {
   const overrides = {
     JOBS_CRAWLER_COMPANY_KEYS: companyKeys.join(','),
     JOBS_CRAWLER_FORCE_LOCALIZE_KEYS: companyKeys.join(','),
@@ -993,7 +1035,7 @@ async function runSharedCrawler(companyKeys, maxJobs) {
     // timeout) to their prior values (#2076).
     JOBS_AI_LOCALIZATION_CONCURRENCY: process.env.JOBS_AI_LOCALIZATION_CONCURRENCY || '2',
     // ELAPSED-AWARE localization budget (review #2205 🔴): the smaller of the
-    // remaining value `CASCADE_LOCALIZATION_DEADLINE_MS - (LEGACY_CLOCK.now() - RUN_START_MS)`
+    // remaining value `deadlineMs - (LEGACY_CLOCK.now() - RUN_START_MS)`
     // and the per-company cap; the floor at 1 is mandatory because 0 means unlimited.
     // A company starting near the deadline gets a small budget and defers its tail to the next run,
     // instead of a fresh 250min that could blow past the 350min job timeout. The
@@ -1008,6 +1050,7 @@ async function runSharedCrawler(companyKeys, maxJobs) {
     JOBS_AI_LOCALIZATION_TIME_BUDGET_MS: String(
       cascadeExecutionTimeBudgetMs(LEGACY_CLOCK.now() - RUN_START_MS, {
         companyCount: companyKeys.length,
+        deadlineMs,
       }),
     ),
   };
@@ -2005,12 +2048,22 @@ export async function runRelocalization(phase) {
   let consecutiveFailures = 0;
   const observedStartTime = LEGACY_CLOCK.now();
   const fallbackNowMs = readWallClockMs();
+  const elapsedAtStartMs = observedStartTime >= RUN_START_MS
+    ? observedStartTime - RUN_START_MS
+    : fallbackNowMs - RUN_START_MS;
+  const cascadeDeadlineMs = cascadeQueueDeadlineMs({
+    deadlineMs: CASCADE_LOCALIZATION_CEILING_MS,
+    windowMs: CASCADE_LOCALIZATION_WINDOW_MS,
+    elapsedAtStartMs,
+    companyCount: cascadeCompanyKeys.length,
+  });
+  phase.deadlineMs = cascadeDeadlineMs;
   // Published here, not at the bottom: from this instant the window is a known
   // fact, and a crash on the next line must not report it as unknown.
   const window = computeCascadeWindow({
     nowMs: observedStartTime,
     runStartMs: RUN_START_MS,
-    deadlineMs: CASCADE_LOCALIZATION_DEADLINE_MS,
+    deadlineMs: cascadeDeadlineMs,
     fallbackNowMs,
   });
   const usedClockFallback = observedStartTime < RUN_START_MS
@@ -2037,7 +2090,7 @@ export async function runRelocalization(phase) {
     allCompaniesSkipped: cascadeCompanyKeys.length === 0 && companyKeys.length > 0,
     nowMs: cascadeNow(),
     runStartMs: RUN_START_MS,
-    cascadeDeadlineMs: CASCADE_LOCALIZATION_DEADLINE_MS,
+    cascadeDeadlineMs,
     passStartMs: startTime,
     timeBudgetMs: TIME_BUDGET_MS,
     timeBudgetFraction: 1,
@@ -2082,7 +2135,7 @@ export async function runRelocalization(phase) {
       : cascadeStopReason({
         nowMs: companyNowMs,
         runStartMs: RUN_START_MS,
-        cascadeDeadlineMs: CASCADE_LOCALIZATION_DEADLINE_MS,
+        cascadeDeadlineMs,
         passStartMs: startTime,
         timeBudgetMs: TIME_BUDGET_MS,
         timeBudgetFraction: 1,
@@ -2175,7 +2228,7 @@ export async function runRelocalization(phase) {
       let servedCompanyKeys = new Set();
       let sterileCompanyKeys = new Set();
       try {
-        crawlerResult = await runSharedCrawler(executionKeys, companyJobCount);
+        crawlerResult = await runSharedCrawler(executionKeys, companyJobCount, cascadeDeadlineMs);
         const coverage = companyCoverageFromCrawlerResult(crawlerResult);
         servedCompanyKeys = coverage.served;
         sterileCompanyKeys = coverage.sterile;
@@ -2342,7 +2395,7 @@ export async function runRelocalization(phase) {
   const retryStartReason = cascadeStopReason({
     nowMs: cascadeNow(),
     runStartMs: RUN_START_MS,
-    cascadeDeadlineMs: CASCADE_LOCALIZATION_DEADLINE_MS,
+    cascadeDeadlineMs,
     passStartMs: startTime,
     timeBudgetMs: TIME_BUDGET_MS,
     timeBudgetFraction: 0.85,
@@ -2397,7 +2450,7 @@ export async function runRelocalization(phase) {
         const retryCompanyStopReason = cascadeStopReason({
           nowMs: cascadeNow(),
           runStartMs: RUN_START_MS,
-          cascadeDeadlineMs: CASCADE_LOCALIZATION_DEADLINE_MS,
+          cascadeDeadlineMs,
           passStartMs: startTime,
           timeBudgetMs: TIME_BUDGET_MS,
           timeBudgetFraction: 0.95,
@@ -2431,7 +2484,7 @@ export async function runRelocalization(phase) {
           let retryCrawlerResult = null;
           let retryServedCompanyKeys = new Set();
           try {
-            retryCrawlerResult = await runSharedCrawler(retryKeys, count);
+            retryCrawlerResult = await runSharedCrawler(retryKeys, count, cascadeDeadlineMs);
             retryServedCompanyKeys = servedCompanyKeysFromCrawlerResult(retryCrawlerResult);
           } finally {
             if (retryHandle) retryHandle.restore();

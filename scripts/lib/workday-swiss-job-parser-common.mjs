@@ -39,6 +39,7 @@ import {
   workdayPostingDateFields,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
+  WorkdayRateLimitError,
   workdayPrimaryLocationState,
   fetchWorkdayBoardSummary,
   workdayFacetLeafValues,
@@ -547,7 +548,8 @@ export async function fetchWorkdaySwissCanton(apiBase, externalPath, location, o
   let detail = null;
   try {
     detail = await fetchDetail(apiBase, externalPath, browserFallback === undefined ? {} : { browserFallback });
-  } catch {
+  } catch (err) {
+    if (err instanceof WorkdayRateLimitError) throw err;
     detail = null;
   }
   return resolveWorkdaySwissCanton(text, detail?.jobPostingInfo || {});
@@ -575,7 +577,8 @@ export async function fetchWorkdayPrimarySwissLocation(apiBase, externalPath, op
   let detail = null;
   try {
     detail = await fetchDetail(apiBase, externalPath, browserFallback === undefined ? {} : { browserFallback });
-  } catch {
+  } catch (err) {
+    if (err instanceof WorkdayRateLimitError) throw err;
     detail = null;
   }
   return resolveWorkdayPrimarySwissLocation(detail?.jobPostingInfo || {});
@@ -795,6 +798,7 @@ export function createWorkdaySwissParser(config) {
       try {
         summary = await fetchWorkdayBoardSummary(API_BASE, { requestContext });
       } catch (err) {
+        if (err instanceof WorkdayRateLimitError) throw err;
         console.warn(`⚠️ ${companyName}: could not read the unfiltered Workday board to prove the Swiss zero (${err?.message || err}).`);
         return empty;
       }
@@ -867,6 +871,7 @@ export function createWorkdaySwissParser(config) {
     try {
       summary = await fetchWorkdayBoardSummary(API_BASE, { requestContext });
     } catch (summaryErr) {
+      if (summaryErr instanceof WorkdayRateLimitError) throw summaryErr;
       console.warn(`⚠️ ${companyName}: could not read the Workday board facets to find the country facet (${summaryErr?.message || summaryErr}).`);
       return null;
     }
@@ -918,6 +923,7 @@ export function createWorkdaySwissParser(config) {
         facetParameter,
       });
     } catch (err) {
+      if (err instanceof WorkdayRateLimitError) throw err;
       console.warn(`⚠️ ${companyName}: ${countryFacetParameter} facet rejected (${err?.message || err}).`);
       const discovered = await discoverCountryFacetAfterRejection(err, boardCache, requestContext);
       let discoveredListings = null;
@@ -933,6 +939,7 @@ export function createWorkdaySwissParser(config) {
           });
           facetParameter = discovered.facetParameter;
         } catch (retryErr) {
+          if (retryErr instanceof WorkdayRateLimitError) throw retryErr;
           console.warn(`⚠️ ${companyName}: discovered facet "${discovered.facetParameter}" rejected too (${retryErr?.message || retryErr}).`);
         }
       }
@@ -1065,7 +1072,8 @@ export function createWorkdaySwissParser(config) {
       let detail = null;
       try {
         detail = await fetchWorkdayJobDetail(API_BASE, listing.externalPath, { requestContext });
-      } catch {
+      } catch (err) {
+        if (err instanceof WorkdayRateLimitError) throw err;
         detail = null;
       }
       const detailInfo = detail?.jobPostingInfo || {};

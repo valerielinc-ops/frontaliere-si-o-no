@@ -5,6 +5,7 @@ import path from 'node:path';
 import YAML from 'yaml';
 import {
   createLocalePublishProvenance,
+  PUBLISH_CONTRACT_VERSION,
   validateLocalePublishProvenance,
   validateLocaleSourceProvenance,
 } from '../scripts/ci/locale-publish-provenance.mjs';
@@ -77,6 +78,7 @@ function receipt(locale: 'it' | 'en' | 'de' | 'fr', buildId = BUILD_ID) {
     sourceRunId: SOURCE_RUN_ID,
     sourceSha: SOURCE_SHA,
     deployBuildId: buildId,
+    publishContractVersion: PUBLISH_CONTRACT_VERSION,
     distDir: tempDist(buildId),
     runnerTemp,
     outcomes,
@@ -88,6 +90,9 @@ function legacyReceipt(locale: 'en' | 'de' | 'fr') {
   const { sourceArtifact: _sourceArtifact, tailBudget: _tailBudget, ...outcomes } = current.outcomes;
   return {
     ...current,
+    // Version 1 is still accepted by the version-2 publisher, so this fixture
+    // exercises the pre-split receipt shape rather than the older unversioned contract.
+    publishContractVersion: PUBLISH_CONTRACT_VERSION - 1,
     outputBuildId: '',
     buildId: '',
     cdnBuildId: '',
@@ -149,6 +154,7 @@ describe('locale publish provenance', () => {
       sourceRunId: SOURCE_RUN_ID,
       sourceSha: SOURCE_SHA,
       deployBuildId: BUILD_ID,
+      publishContractVersion: PUBLISH_CONTRACT_VERSION,
       distDir: tempDist(),
       outcomes: { build: 'failure' },
     });
@@ -165,6 +171,7 @@ describe('locale publish provenance', () => {
       sourceSha: SOURCE_SHA,
       deployBuildId: BUILD_ID,
       artifactRunId: SOURCE_RUN_ID,
+      publishContractVersion: PUBLISH_CONTRACT_VERSION,
       distDir: tempDist(),
       outcomes: { build: 'success', validate: 'success', sourceArtifact: 'success' },
     });
@@ -188,6 +195,7 @@ describe('locale publish provenance', () => {
       sourceRunId: SOURCE_RUN_ID,
       sourceSha: SOURCE_SHA,
       deployBuildId: BUILD_ID,
+      publishContractVersion: PUBLISH_CONTRACT_VERSION,
       distDir: tempDist(),
       runnerTemp,
       outcomes: {
@@ -303,6 +311,7 @@ describe('locale publish admission plan', () => {
       sourceSha: SOURCE_SHA,
       deployBuildId: BUILD_ID,
       artifactRunId: SOURCE_RUN_ID,
+      publishContractVersion: PUBLISH_CONTRACT_VERSION,
       distDir: tempDist(),
       outcomes: { build: 'success', validate: 'success', sourceArtifact: 'success' },
     });
@@ -545,7 +554,8 @@ describe('locale publish workflow wiring', () => {
         expect(itSourceOutcome).toBe(packOutcome === 'success' && uploadOutcome === 'success' ? 'success' : 'failure');
         const source = createLocalePublishProvenance({
           locale, sourceRunId: SOURCE_RUN_ID, sourceSha: SOURCE_SHA,
-          deployBuildId: BUILD_ID, artifactRunId: SOURCE_RUN_ID, distDir: tempDist(),
+          deployBuildId: BUILD_ID, artifactRunId: SOURCE_RUN_ID,
+          publishContractVersion: PUBLISH_CONTRACT_VERSION, distDir: tempDist(),
           outcomes: { build: 'success', validate: 'success', sourceArtifact },
         });
         expect(validateLocaleSourceProvenance(source, {
@@ -557,7 +567,8 @@ describe('locale publish workflow wiring', () => {
           jobs: jobs(), provenance: [
           { file: 'it.json', manifest: createLocalePublishProvenance({
             locale: 'it', sourceRunId: SOURCE_RUN_ID, sourceSha: SOURCE_SHA,
-            deployBuildId: BUILD_ID, artifactRunId: SOURCE_RUN_ID, distDir: tempDist(),
+            deployBuildId: BUILD_ID, artifactRunId: SOURCE_RUN_ID,
+            publishContractVersion: PUBLISH_CONTRACT_VERSION, distDir: tempDist(),
             outcomes: { build: 'success', validate: 'success', sourceArtifact: itSourceOutcome },
           }) },
             { file: `${locale}.json`, manifest: source },

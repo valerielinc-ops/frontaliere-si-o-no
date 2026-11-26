@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "be-231653",
+      "sourceKey": "BE",
+      "sourceRecordId": "231653",
+      "canton": "Berna",
+      "platePrefix": "BE",
+      "plateNumber": "200056",
+      "normalizedPlate": "BE200056",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 390,
+      "bidCount": 1,
+      "endsAt": "2026-11-25T20:00:00.000Z",
+      "closedAt": "2026-11-25T20:00:00.000Z",
+      "officialAuctionUrl": "https://auktion-be.ch/de/",
+      "officialDetailUrl": "https://auktion-be.ch/de/auction/231653",
+      "sourceFetchedAt": "2026-11-25T08:30:57.988Z",
+      "lastVerifiedAt": "2026-11-25T08:30:57.988Z",
+      "firstSeenAt": "2026-11-19T07:29:18.134Z",
+      "lastSeenAt": "2026-11-25T08:30:57.988Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "2034d368dec4"
+    }
+  ]
+}

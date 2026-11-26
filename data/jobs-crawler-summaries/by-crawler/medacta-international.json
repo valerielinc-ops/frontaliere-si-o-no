@@ -1,16 +1,16 @@
 {
   "key": "medacta-international",
   "label": "Medacta",
-  "generatedAt": "2026-11-20T21:56:03.789Z",
+  "generatedAt": "2026-11-25T21:21:47.095Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 65923,
-  "avgDurationMs": 65923,
+  "durationMs": 100616,
+  "avgDurationMs": 100616,
   "durationHistory": [
-    65923
+    100616
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "source": "Allibo ATS detail page",
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
-      "crawledAt": "2026-11-20T21:55:10.354Z",
+      "crawledAt": "2026-11-25T21:20:03.292Z",
       "sourceLang": "it",
       "addressLocality": "Castel San Pietro/Rancate",
       "addressCountry": "CH",
@@ -46,12 +46,13 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://joblink.allibo.com/ats3/job-offer.aspx?DM=1818&ID=105719&LN=IT&FT=465&SG=2",
-      "firstSeenAt": "2026-10-02T09:20:13.498Z",
+      "firstSeenAt": "2026-07-06T15:24:11.535Z",
       "datePosted": "",
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:55:10.354Z",
+      "validThrough": "2026-12-25T21:20:03.292Z",
       "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://joblink.allibo.com/ats3/job-offer.aspx?dm=1818&id=105719&ln=it&ft=465&sg=2",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -81,7 +82,7 @@
       "source": "Allibo ATS detail page",
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
-      "crawledAt": "2026-11-20T21:55:07.713Z",
+      "crawledAt": "2026-11-25T21:20:01.097Z",
       "sourceLang": "it",
       "addressLocality": "Rancate",
       "addressCountry": "CH",
@@ -97,8 +98,9 @@
       "postingDateSource": "unknown",
       "streetAddress": "Rancate",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:55:07.713Z",
+      "validThrough": "2026-12-25T21:20:01.097Z",
       "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://joblink.allibo.com/ats3/job-offer.aspx?dm=1818&id=105591&ln=it&ft=458&sg=2",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -130,7 +132,7 @@
       "source": "Allibo ATS detail page",
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
-      "crawledAt": "2026-11-20T21:55:05.970Z",
+      "crawledAt": "2026-11-25T21:19:58.604Z",
       "sourceLang": "en",
       "addressLocality": "Castel San Pietro",
       "addressCountry": "CH",
@@ -146,8 +148,9 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:55:05.970Z",
+      "validThrough": "2026-12-25T21:19:58.604Z",
       "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://joblink.allibo.com/ats3/job-offer.aspx?dm=1818&id=104173&ln=it&ft=455&sg=2",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -176,7 +179,7 @@
       "source": "Allibo ATS detail page",
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
-      "crawledAt": "2026-11-20T21:55:05.707Z",
+      "crawledAt": "2026-11-25T21:19:58.427Z",
       "sourceLang": "it",
       "addressLocality": "Castel San Pietro",
       "addressCountry": "CH",
@@ -192,8 +195,9 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:55:05.707Z",
+      "validThrough": "2026-12-25T21:19:58.427Z",
       "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://joblink.allibo.com/ats3/job-offer.aspx?dm=1818&id=104622&ln=it&ft=455&sg=2",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -222,7 +226,7 @@
       "source": "Allibo ATS detail page",
       "companyDomain": "medacta.com",
       "sector": "Dispositivi medici",
-      "crawledAt": "2026-11-20T21:55:04.545Z",
+      "crawledAt": "2026-11-25T21:19:57.207Z",
       "sourceLang": "it",
       "addressLocality": "Castel San Pietro",
       "addressCountry": "CH",
@@ -238,8 +242,9 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:55:04.545Z",
+      "validThrough": "2026-12-25T21:19:57.207Z",
       "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://joblink.allibo.com/ats3/job-offer.aspx?dm=1818&id=111165&ln=it&ft=455&sg=2",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -249,5 +254,5 @@
       }
     }
   ],
-  "codeCommit": "07c2e8305c6747f1893222ba4bfdddc597008157"
+  "codeCommit": "0c64b1f2eae0b337b537e356aa5de051b9c4c6cc"
 }

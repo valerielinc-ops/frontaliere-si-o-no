@@ -1,7 +1,7 @@
 {
   "crawlerKey": "cnvo-ch",
-  "assembledAt": "2026-11-20T21:26:54.188Z",
-  "runId": "44818337854",
+  "assembledAt": "2026-11-25T21:29:13.494Z",
+  "runId": "45701994453",
   "jobs": [
     {
       "id": "cnvo-ch-331408950081",
@@ -34,7 +34,7 @@
       "url": "https://www.cnvo.ch/offres-demploi",
       "source": "CNVO SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:26:48.015Z",
+      "crawledAt": "2026-11-25T21:29:08.377Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -104,9 +104,8 @@
         "checkedAt": "2026-11-16T15:23:20.848Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-14T21:26:48.015Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.cnvo.ch/offres-demploi"
+      "validThrough": "2027-02-14T21:29:08.377Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

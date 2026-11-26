@@ -1,7 +1,7 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-11-20T21:43:36.725Z",
+  "generatedAt": "2026-11-25T21:48:56.142Z",
   "total": 4,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,10 +9,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 2862,
-  "avgDurationMs": 2862,
+  "durationMs": 1790,
+  "avgDurationMs": 1790,
   "durationHistory": [
-    2862
+    1790
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -52,7 +52,7 @@
       "streetAddress": "Chiasso, Ticino, Switzerland",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-20T21:43:20.166Z",
+      "crawledAt": "2026-11-25T21:48:38.817Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://boardinternationalsa.applytojob.com/apply/ip3ojxtnya/senior-genai-engineer",
       "_qualityScore": 99,
@@ -97,7 +97,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-02T21:49:51.090Z",
-      "crawledAt": "2026-11-20T21:43:20.166Z",
+      "crawledAt": "2026-11-25T21:48:38.817Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://boardinternationalsa.applytojob.com/apply/agso9lcexd/senior-software-engineer",
       "_qualityScore": 99,
@@ -143,7 +143,7 @@
       "streetAddress": "Chiasso, Ticino, Switzerland",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-20T21:43:20.166Z",
+      "crawledAt": "2026-11-25T21:48:38.817Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -174,7 +174,7 @@
       "postedDate": "2026-08-14",
       "employmentType": "full time",
       "contractType": "full-time",
-      "validThrough": "2026-12-20T21:43:20.166Z",
+      "validThrough": "2026-12-25T21:48:38.817Z",
       "id": "board-international-2a78e3e57c3b",
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -187,7 +187,7 @@
       "streetAddress": "Chiasso, Switzerland",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-20T21:43:20.166Z",
+      "crawledAt": "2026-11-25T21:48:38.817Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://boardinternationalsa.applytojob.com/apply/900twkeik9/solution-developer",
       "_qualityScore": 99,
@@ -199,5 +199,5 @@
       }
     }
   ],
-  "codeCommit": "07c2e8305c6747f1893222ba4bfdddc597008157"
+  "codeCommit": "0c64b1f2eae0b337b537e356aa5de051b9c4c6cc"
 }

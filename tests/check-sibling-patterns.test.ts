@@ -26,8 +26,8 @@
  * with no shared token (see worked example in the script's registry doc).
  */
 import { describe, it, expect, beforeAll, afterAll } from 'vitest';
-import { execFileSync } from 'node:child_process';
-import { mkdirSync, mkdtempSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
+import { execFileSync, spawnSync } from 'node:child_process';
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, symlinkSync, utimesSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import {
@@ -38,6 +38,8 @@ import {
   detectCloseBundleOrdering,
   detectPersistTimeCountryStamp,
   PATTERN_CLASSES,
+  cacheLockIsStale,
+  tryClaimCacheLock,
   candidateStrength,
 } from '../scripts/ci/check-sibling-patterns.mjs';
 
@@ -670,4 +672,47 @@ describe('runtime noise versus project evidence (CLI)', () => {
       rmSync(repo, { recursive: true, force: true });
     }
   }, 60_000);
+});
+
+describe('--head result cache lock', () => {
+  let dir: string;
+  beforeAll(() => {
+    dir = mkdtempSync(join(tmpdir(), 'sibling-cache-lock-'));
+  });
+  afterAll(() => {
+    rmSync(dir, { recursive: true, force: true });
+  });
+
+  it('the owner writes its pid into the lock it claims, and a second claim fails', () => {
+    const lock = join(dir, 'claim.lock');
+    expect(tryClaimCacheLock(lock)).toBe(true);
+    expect(readFileSync(lock, 'utf8')).toBe(String(process.pid));
+    expect(tryClaimCacheLock(lock)).toBe(false);
+  });
+
+  it('a lock whose owner is dead is stale at once (owner killed before its exit cleanup)', () => {
+    const lock = join(dir, 'dead.lock');
+    const child = spawnSync(process.execPath, ['-e', '']);
+    expect(child.status).toBe(0);
+    writeFileSync(lock, String(child.pid));
+    expect(cacheLockIsStale(lock)).toBe(true);
+    expect(cacheLockIsStale(lock, { isAlive: () => true })).toBe(false);
+  });
+
+  it('a fresh lock of a live owner, or without a pid yet, is not stale', () => {
+    const live = join(dir, 'live.lock');
+    writeFileSync(live, String(process.pid));
+    expect(cacheLockIsStale(live)).toBe(false);
+    const empty = join(dir, 'empty.lock');
+    writeFileSync(empty, '');
+    expect(cacheLockIsStale(empty)).toBe(false);
+  });
+
+  it('an old lock is stale even when its pid looks alive (recycled pid)', () => {
+    const old = join(dir, 'old.lock');
+    writeFileSync(old, String(process.pid));
+    const elevenMinutesAgo = (Date.now() - 11 * 60 * 1000) / 1000;
+    utimesSync(old, elevenMinutesAgo, elevenMinutesAgo);
+    expect(cacheLockIsStale(old)).toBe(true);
+  });
 });

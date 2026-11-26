@@ -1079,6 +1079,39 @@ describe('sweep', () => {
     expect(effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'draft_auto_retry' }]);
   });
 
+  it('bounds candidate-reply recovery to the per-order cap before dispatching draft_auto_retry', async () => {
+    const { CANDIDATE_REPLY_RECOVERY_PER_ORDER_CAP } = await import('../functions/src/assistedApplicationCandidateReply.js');
+    const docs: Record<string, any> = {
+      [ORDER_PATH]: { ...paidOrder(), automationState: 'owner_takeover', automationDueAt: T0 },
+      [`${ORDER_PATH}/automation/flow`]: {
+        state: 'owner_takeover', round: 2, heldBy: ['draft_failed'], draftAutoRetryCount: 0,
+        draftAutoRetryAt: T0, dispatch: { mode: 'draft', round: 2, attempts: 1 },
+      },
+      [`${ORDER_PATH}/ai_drafts/current`]: { status: 'ready', round: 1 },
+      [`${ORDER_PATH}/automation/submission`]: { r1: { state: 'failed', channel: 'portal', confirmedNotSent: true } },
+    };
+    for (let i = 0; i < 100; i += 1) {
+      const id = `re-${String(i).padStart(3, '0')}`;
+      docs[`${ORDER_PATH}/candidate_replies/${id}`] = {
+        id,
+        orderId: ORDER,
+        status: 'failed',
+        attempts: 3,
+        lastError: 'codex_http_429',
+        failedAt: T0 - 1000,
+        body: 'Disponibile subito, +39 333 123 4567',
+        subject: 'Re: candidatura',
+      };
+    }
+    store = createMemoryFirestore(docs);
+    effects = [];
+    const extractCandidateReply = vi.fn(async () => ({ phone: '+39 333 123 4567', phonePassage: '+39 333 123 4567' }));
+
+    expect(await runAutomationSweep({ db: store.db, runEffect, extractCandidateReply, nowMs: T0 })).toMatchObject({ redispatched: 1 });
+    expect(extractCandidateReply).toHaveBeenCalledTimes(CANDIDATE_REPLY_RECOVERY_PER_ORDER_CAP);
+    expect(effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'draft_auto_retry' }]);
+  });
+
   it('does not expose a scheduler due time after the portal retry budget is exhausted', () => {
     expect(computeDueAt({ state: 'owner_takeover', heldBy: ['portal:portal_needs_candidate'],
       portalAutoRetryAt: T0, portalAutoRetryCount: PORTAL_AUTO_RETRY_DELAYS_MS.length })).toBeNull();

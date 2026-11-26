@@ -144,6 +144,8 @@ describe('account verification recovery', () => {
           }),
           fill: vi.fn(async (value: string) => { values.set(id, value); }),
           inputValue: vi.fn(async () => values.get(id) || ''),
+          evaluate: vi.fn(async (read: (element: { value: string }, expected: string) => boolean, expected: string) =>
+            read({ value: values.get(id) || '' }, expected)),
           count: vi.fn(async () => 0),
         };
         return locator;
@@ -209,6 +211,8 @@ describe('account verification recovery', () => {
           click: vi.fn(async () => { if (id === 'sign-in') afterClick = true; }),
           fill: vi.fn(async (value: string) => { values.set(id, value); }),
           inputValue: vi.fn(async () => values.get(id) || ''),
+          evaluate: vi.fn(async (read: (element: { value: string }, expected: string) => boolean, expected: string) =>
+            read({ value: values.get(id) || '' }, expected)),
           count: vi.fn(async () => 0),
         };
         return locator;
@@ -277,6 +281,8 @@ describe('account verification recovery', () => {
           click: vi.fn(async () => { if (id === 'sign-in') afterClick = true; }),
           fill: vi.fn(async (value: string) => { values.set(id, value); }),
           inputValue: vi.fn(async () => values.get(id) || ''),
+          evaluate: vi.fn(async (read: (element: { value: string }, expected: string) => boolean, expected: string) =>
+            read({ value: values.get(id) || '' }, expected)),
           count: vi.fn(async () => 0),
         };
         return locator;
@@ -343,6 +349,8 @@ describe('account verification recovery', () => {
           click: vi.fn(async () => { if (id === 'sign-in') afterClick = true; }),
           fill: vi.fn(async (value: string) => { values.set(id, value); }),
           inputValue: vi.fn(async () => values.get(id) || ''),
+          evaluate: vi.fn(async (read: (element: { value: string }, expected: string) => boolean, expected: string) =>
+            read({ value: values.get(id) || '' }, expected)),
           count: vi.fn(async () => 0),
         };
         return locator;

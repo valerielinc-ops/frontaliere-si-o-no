@@ -1,7 +1,7 @@
 {
   "crawlerKey": "averecura-holding-ag",
-  "assembledAt": "2026-11-20T21:44:27.435Z",
-  "runId": "44819467598",
+  "assembledAt": "2026-11-25T21:46:01.668Z",
+  "runId": "45703183374",
   "jobs": [
     {
       "id": "averecura-holding-ag-5d0ad46bd7f5",
@@ -34,7 +34,7 @@
       "url": "https://app.reflinejobs.io/3034/0108/index.html",
       "source": "averecura holding ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:44:18.057Z",
+      "crawledAt": "2026-11-25T21:45:56.060Z",
       "addressLocality": "Hombrechtikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -90,9 +90,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:44:18.057Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://app.reflinejobs.io/3034/0108/index.html"
+      "validThrough": "2026-12-25T21:45:56.060Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

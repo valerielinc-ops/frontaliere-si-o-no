@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "be-231657",
+      "sourceKey": "BE",
+      "sourceRecordId": "231657",
+      "canton": "Berna",
+      "platePrefix": "BE",
+      "plateNumber": "901005",
+      "normalizedPlate": "BE901005",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 390,
+      "bidCount": 1,
+      "endsAt": "2026-11-25T20:00:00.000Z",
+      "closedAt": "2026-11-25T20:00:00.000Z",
+      "officialAuctionUrl": "https://auktion-be.ch/de/",
+      "officialDetailUrl": "https://auktion-be.ch/de/auction/231657",
+      "sourceFetchedAt": "2026-11-25T08:30:57.988Z",
+      "lastVerifiedAt": "2026-11-25T08:30:57.988Z",
+      "firstSeenAt": "2026-11-19T07:29:18.134Z",
+      "lastSeenAt": "2026-11-25T08:30:57.988Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "b0551460fe15"
+    }
+  ]
+}

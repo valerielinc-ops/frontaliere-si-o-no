@@ -656,6 +656,7 @@ describe('issue #6759 reconciliation', () => {
     // finiva degradato a `unmergeable` silenzioso.
     const job = {
       id: 'acme-deep-history',
+      slugByLocale: { it: 'active-route' },
       previousSlugs: Array.from({ length: LEGACY_PREV_SLUGS_CAP }, (_, i) => `legacy-${i}`),
       previousSlugsByLocale: {},
     };
@@ -670,6 +671,7 @@ describe('issue #6759 reconciliation', () => {
     expect(isLegacyRouteCapRefusal(thrown)).toBe(true);
     // Il cap ha rifiutato: la voce non e' stata scritta oltre il limite.
     expect(job.previousSlugs).toHaveLength(LEGACY_PREV_SLUGS_CAP);
+    expect(localeRouteKeys(job).has('it:active-route')).toBe(true);
 
     // Un guasto qualunque con lo STESSO messaggio non e' un rifiuto del cap.
     const impostor = new Error((thrown as Error).message);

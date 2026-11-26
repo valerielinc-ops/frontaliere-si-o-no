@@ -1,7 +1,7 @@
 {
   "crawlerKey": "bachtelen",
-  "assembledAt": "2026-11-19T14:27:10.961Z",
-  "runId": "44275660644",
+  "assembledAt": "2026-11-25T21:51:44.917Z",
+  "runId": "45704013253",
   "jobs": [
     {
       "id": "bachtelen-696d214df72c",
@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "educatore-trice-sociale-sup-sss-80-stiftung-bachtelen-grenchen-1ae8c8ced1",
         "en": "social-pedagogue-fh-hf-80-stiftung-bachtelen-grenchen",
-        "de": "sozialpadagog-in-fh-hf-80-stiftung-bachtelen-grenchen",
+        "de": "sozialpadagog-in-fh-hf-80-bachtelen-grenchen",
         "fr": "educateur-trice-social-e-hes-es-80-stiftung-bachtelen-grenchen"
       },
       "company": "Stiftung Bachtelen",
@@ -35,7 +35,7 @@
       "url": "https://www.bachtelen.ch/stelle/sozialpaedagoge-sozialpaedagogin-fh-hf-80/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:49:41.366Z",
+      "crawledAt": "2026-11-25T21:51:35.018Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -56,7 +56,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sozialpadagog-in-fh-hf-80-bachtelen-grenchen",
-        "educatore-trice-sociale-sup-sss-80-stiftung-bachtelen-grenchen"
+        "educatore-trice-sociale-sup-sss-80-stiftung-bachtelen-grenchen",
+        "sozialpadagog-in-fh-hf-80-stiftung-bachtelen-grenchen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -64,7 +65,7 @@
           "educatore-trice-sociale-sup-sss-80-stiftung-bachtelen-grenchen"
         ],
         "de": [
-          "sozialpadagog-in-fh-hf-80-bachtelen-grenchen"
+          "sozialpadagog-in-fh-hf-80-stiftung-bachtelen-grenchen"
         ]
       },
       "firstSeenAt": "2026-09-21T16:15:14.629Z",
@@ -83,9 +84,8 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:49:41.366Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.bachtelen.ch/stelle/sozialpaedagoge-sozialpaedagogin-fh-hf-80"
+      "validThrough": "2026-12-25T21:51:35.018Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bachtelen-4837e191cd07",
@@ -119,7 +119,7 @@
       "url": "https://www.bachtelen.ch/stelle/fachangestellter-betreuung-kindheit-sozialpaedagogin-40-60/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:49:41.364Z",
+      "crawledAt": "2026-11-25T21:51:35.015Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -174,9 +174,8 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:49:41.364Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.bachtelen.ch/stelle/fachangestellter-betreuung-kindheit-sozialpaedagogin-40-60"
+      "validThrough": "2026-12-25T21:51:35.015Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bachtelen-7e84c9bca835",
@@ -209,7 +208,7 @@
       "url": "https://www.bachtelen.ch/stelle/sozialpaedagogin-sozialpaedagoge-fh-hf-70-80/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:49:41.361Z",
+      "crawledAt": "2026-11-25T21:51:35.013Z",
       "addressLocality": "Hägendorf",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -252,9 +251,8 @@
       },
       "streetAddress": "Hägendorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:49:41.361Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.bachtelen.ch/stelle/sozialpaedagogin-sozialpaedagoge-fh-hf-70-80"
+      "validThrough": "2026-12-25T21:51:35.013Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bachtelen-80970a31d42e",
@@ -287,7 +285,7 @@
       "url": "https://www.bachtelen.ch/stelle/heilpaedagogen-heilpaedagoginnen-resp-lehrpersonen-60-100/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:49:41.355Z",
+      "crawledAt": "2026-11-25T21:51:35.010Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -347,9 +345,8 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:49:41.355Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.bachtelen.ch/stelle/heilpaedagogen-heilpaedagoginnen-resp-lehrpersonen-60-100"
+      "validThrough": "2026-12-25T21:51:35.010Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bachtelen-ccc1394f236d",
@@ -383,7 +380,7 @@
       "url": "https://www.bachtelen.ch/stelle/praktikantinnen-schulsozialpaedagogik-70/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:49:41.353Z",
+      "crawledAt": "2026-11-25T21:51:35.009Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -432,9 +429,8 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:49:41.353Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.bachtelen.ch/stelle/praktikantinnen-schulsozialpaedagogik-70"
+      "validThrough": "2026-12-25T21:51:35.009Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bachtelen-c63bf5236e17",
@@ -468,7 +464,7 @@
       "url": "https://www.bachtelen.ch/stelle/fruehlogopaedin-fruehlogopaede-50-70/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:49:41.349Z",
+      "crawledAt": "2026-11-25T21:51:35.007Z",
       "addressLocality": "Solothurn und Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -514,9 +510,8 @@
       },
       "streetAddress": "Solothurn und Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:49:41.349Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.bachtelen.ch/stelle/fruehlogopaedin-fruehlogopaede-50-70"
+      "validThrough": "2026-12-25T21:51:35.007Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bachtelen-834896f22e47",
@@ -550,7 +545,7 @@
       "url": "https://www.bachtelen.ch/stelle/schulischer-heilpaedagogin-resp-lehrperson-einer-zyklusdurchmischten-klasse-zyklus-1-und-2/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:49:41.346Z",
+      "crawledAt": "2026-11-25T21:51:35.005Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -601,9 +596,8 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:49:41.346Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.bachtelen.ch/stelle/schulischer-heilpaedagogin-resp-lehrperson-einer-zyklusdurchmischten-klasse-zyklus-1-und-2"
+      "validThrough": "2027-01-13T21:51:35.005Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bachtelen-7eb69d7df2a3",
@@ -637,7 +631,7 @@
       "url": "https://www.bachtelen.ch/stelle/schulischer-heilpaedagogin-resp-lehrperson/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:49:41.343Z",
+      "crawledAt": "2026-11-25T21:51:35.003Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -686,9 +680,8 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:49:41.343Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.bachtelen.ch/stelle/schulischer-heilpaedagogin-resp-lehrperson"
+      "validThrough": "2027-01-13T21:51:35.003Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bachtelen-58298d2a2c1c",
@@ -722,7 +715,7 @@
       "url": "https://www.bachtelen.ch/stelle/sozialpaedagogin-hf-fh-oder-fachperson-betreuung-fachrichtung-kinder/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:49:41.340Z",
+      "crawledAt": "2026-11-25T21:51:35.001Z",
       "addressLocality": "Hägendorf",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -773,9 +766,8 @@
       },
       "streetAddress": "Hägendorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:49:41.340Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.bachtelen.ch/stelle/sozialpaedagogin-hf-fh-oder-fachperson-betreuung-fachrichtung-kinder"
+      "validThrough": "2027-01-26T21:51:35.001Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bachtelen-077ea542274c",
@@ -809,7 +801,7 @@
       "url": "https://www.bachtelen.ch/stelle/gruppenleiterin-mit-stv-der-kitaleitung-80-100/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:49:41.335Z",
+      "crawledAt": "2026-11-25T21:51:34.998Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -858,9 +850,8 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:49:41.335Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.bachtelen.ch/stelle/gruppenleiterin-mit-stv-der-kitaleitung-80-100"
+      "validThrough": "2027-02-07T21:51:34.998Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bachtelen-4649a84c4b8e",
@@ -894,7 +885,7 @@
       "url": "https://www.bachtelen.ch/stelle/schulischer-heilpaedagogin-zyklus-1-34/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:49:41.333Z",
+      "crawledAt": "2026-11-25T21:51:34.997Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -937,9 +928,8 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:49:41.333Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.bachtelen.ch/stelle/schulischer-heilpaedagogin-zyklus-1-34"
+      "validThrough": "2027-02-08T21:51:34.997Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bachtelen-ffa645df5fc5",
@@ -960,11 +950,11 @@
         "de": "Schulleiter:in 70-100%",
         "fr": "Directeur/Directrice d’école : 80-100 %"
       },
-      "description": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n Der Bereich Schule und Berufsbildung bietet einen ressourcenorientierten Unterricht mit individualisierter Förderung. Unsere Schüler:innen bringen einen besonderen Bildungsbedarf mit. Individuelle schulische Förderung, persönliche Entwicklung und die Vorbereitung auf den Beruf stehen dabei im Zentrum.\n Für die Schule an der Bachtelenstrasse 38 in Grenchen suchen wir per sofort oder ab 01.02.2027 eine:n\n Schulleiter:in 70-100%\n Deine Arbeit beinhaltet:\n\n• Du übernimmst engagiert die personelle, fachlich-pädagogische sowie administrative und organisatorische Führungsverantwortung\n\n• Gemeinsam mit den beiden Co-Schulleiterinnen gestaltest du die Weiterentwicklung der Schule aktiv mit\n\n• Im Schulalltag begleitest und stärkst du die Klassenteams und stehst ihnen auch in herausfordernden Situationen unterstützend zur Seite\n\n• Eine konstruktive und wertschätzende Zusammenarbeit im multiprofessionellen Team ist dir wichtig und wird von dir aktiv gefördert\n\n• Die schulische Integration gestaltest du mit und entwickelst sie gemeinsam mit den Mitarbeitenden weiter\n\n• Als Mitglied des Leitungsteams übernimmst du Mitverantwortung für die Weiterentwicklung aller Schulen des Bachtelen\n\n• Eigenverantwortliches Arbeiten und ein enger, regelmässiger Austausch mit der Bereichsleitung Schulen gehören zu deinem Führungsalltag\n\n• Die Werte des Bachtelen lebst du im Alltag und vertrittst sie nach innen und aussen\n\n• Bei Interesse besteht die Möglichkeit, zusätzlich die Stellvertretung der Bereichsleiterin Schulen zu übernehmen\n\nDas bringst du mit:\n\n• EDK–anerkannte Lehrpersonen-Grundausbildung, idealerweise mit Zusatzausbildung in Heilpädagogik MA\n\n• Führungsausbildung und mehrjährige Erfahrung als Leitungsperson\n\n• Umfassendes Wissen zur Regel- und Sonderschule\n\n• Gute Kenntnisse der kantonalen Bildungslandschaft\n\n• Flexibilität und lösungsorientiertes Denken und Handeln\n\n• Flair für die Kontaktpflege zu unterschiedlichen Anspruchsgruppen\n\nDas bieten wir dir:\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien, kurze Entscheidungswege und ein offenes, wertschätzendes Miteinander\n\n• Beruf und Freizeit gut planbar dank frühzeitiger Dienstpläne\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n\nDu hast Fragen?\n Gerne gibt dir Alexandra Pauli, Bereichsleiterin Schulen unter 032 654 85 22 oder alexandra.pauli@bachtelen.ch Auskunft.\n Wir freuen uns auf deine Bewerbung!\n\nKontakt\n\nAlexandra\n\nPauli\n\nBereichsleiterin Schulen\n\n032 654 85 22\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
+      "description": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n Der Bereich Schule und Berufsbildung bietet einen ressourcenorientierten Unterricht mit individualisierter Förderung. Unsere Schüler:innen bringen einen besonderen Bildungsbedarf mit. Individuelle schulische Förderung, persönliche Entwicklung und die Vorbereitung auf den Beruf stehen dabei im Zentrum.\n Für die Schule an der Bachtelenstrasse 38 in Grenchen suchen wir per 01.02.2027 oder nach Vereinbarung eine:n\n Schulleiter:in 70-100%\n Deine Arbeit beinhaltet:\n\n• Du übernimmst engagiert die personelle, fachlich-pädagogische sowie administrative und organisatorische Führungsverantwortung\n\n• Gemeinsam mit den beiden Co-Schulleiterinnen gestaltest du die Weiterentwicklung der Schule aktiv mit\n\n• Im Schulalltag begleitest und stärkst du die Klassenteams und stehst ihnen auch in herausfordernden Situationen unterstützend zur Seite\n\n• Eine konstruktive und wertschätzende Zusammenarbeit im multiprofessionellen Team ist dir wichtig und wird von dir aktiv gefördert\n\n• Die schulische Integration gestaltest du mit und entwickelst sie gemeinsam mit den Mitarbeitenden weiter\n\n• Als Mitglied des Leitungsteams übernimmst du Mitverantwortung für die Weiterentwicklung aller Schulen des Bachtelen\n\n• Eigenverantwortliches Arbeiten und ein enger, regelmässiger Austausch mit der Bereichsleitung Schulen gehören zu deinem Führungsalltag\n\n• Die Werte des Bachtelen lebst du im Alltag und vertrittst sie nach innen und aussen\n\n• Bei Interesse besteht die Möglichkeit, zusätzlich die Stellvertretung der Bereichsleiterin Schulen zu übernehmen\n\nDas bringst du mit:\n\n• EDK–anerkannte Lehrpersonen-Grundausbildung, idealerweise mit Zusatzausbildung in Heilpädagogik MA\n\n• Führungsausbildung und mehrjährige Erfahrung als Leitungsperson\n\n• Umfassendes Wissen zur Regel- und Sonderschule\n\n• Gute Kenntnisse der kantonalen Bildungslandschaft\n\n• Flexibilität und lösungsorientiertes Denken und Handeln\n\n• Flair für die Kontaktpflege zu unterschiedlichen Anspruchsgruppen\n\nDas bieten wir dir:\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien, kurze Entscheidungswege und ein offenes, wertschätzendes Miteinander\n\n• Beruf und Freizeit gut planbar dank frühzeitiger Dienstpläne\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n\nDu hast Fragen?\n Gerne gibt dir Alexandra Pauli, Bereichsleiterin Schulen unter 032 654 85 22 oder alexandra.pauli@bachtelen.ch Auskunft.\n Wir freuen uns auf deine Bewerbung!\n\nKontakt\n\nAlexandra\n\nPauli\n\nBereichsleiterin Schulen\n\n032 654 85 22\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
       "descriptionByLocale": {
         "it": "Bachtelen è coinvolto nel cantone di Solothurn con una vasta gamma di offerte per la promozione, il supporto e l'integrazione dei giovani. Questo include scuole speciali, varie offerte di alloggi, offerte terapeutiche coordinate individualmente, nonché consultazioni e centri di assistenza. Bachtelen impiega circa 550 persone.\nIl settore della formazione scolastica e professionale offre un insegnamento orientato alle risorse con un sostegno individualizzato. I nostri studenti: all'interno portare una speciale esigenza educativa. L'istruzione individuale, lo sviluppo personale e la preparazione per la professione sono al centro.\nPer la scuola di Bachtelenstrasse 38 a Grenchen stiamo cercando un:n\nPrincipale: in 80-100 %\n\nIl tuo lavoro include:\n\n• Si assume il personale impegnato, responsabilità di leadership pedagogica e amministrativa e organizzativa\n\n• Insieme ai due co-direttori si forma attivamente l'ulteriore sviluppo della scuola\n\n• Nella vita quotidiana della scuola, accompagni e rafforzi i team di classe e li sostenga in situazioni difficili.\n\n• Una cooperazione costruttiva e apprezzativa nel team multiprofessionale è importante per voi ed è attivamente promossa da voi\n\n• Aiuta a modellare l'integrazione scolastica e a svilupparla ulteriormente insieme ai dipendenti\n\n• Come membro del team di gestione, si assume la responsabilità congiunta per l'ulteriore sviluppo di tutte le scuole di Bachtelen\n\n• Lavoro auto-responsabile e uno scambio stretto e regolare con le scuole di gestione del dipartimento fanno parte della vostra routine di gestione quotidiana\n\n• I valori di Bachtelen si vivono nella vita quotidiana e li rappresentano dentro e fuori\n\n• Se siete interessati, è possibile prendere il controllo del vice capo dipartimento delle scuole in aggiunta.\n\nQuesto è ciò che portate con voi:\n\n• EDK ha riconosciuto la formazione di base degli insegnanti, idealmente con formazione aggiuntiva in educazione curativa MA\n\n• Formazione di leadership e diversi anni di esperienza come manager\n\n• Conoscenza completa delle scuole regolari e speciali\n\n• Buona conoscenza del paesaggio didattico cantonale\n\n• Flessibilità e riflessione e azione orientate alla soluzione\n\n• Flair per mantenere il contatto con diversi stakeholder\n\nQuesto è ciò che vi offriamo:\n\n• Un posto di lavoro attraente con un sacco di spazio per iniziativa e partecipazione\n\n• Gerarchie piatte, brevi percorsi decisionali e una cooperazione aperta e apprezzata\n\n• Carriera e tempo libero ben pianificato grazie ai primi programmi\n\n• Condizioni di lavoro contemporanee secondo gli orientamenti cantonali\n\n• Un ambiente di lavoro significativo in cui il tuo lavoro fa una vera differenza\n\n• Sostegno generoso (money and/or time) per l'ulteriore istruzione\n\nHai delle domande?\nAlexandra Pauli, responsabile delle scuole al 032 654 85 22 o alexandra.pauli@bachtelen.ch vi fornirà volentieri informazioni.\nAttendiamo con ansia la vostra applicazione!\n\nInformazioni di contatto\n\nAlexandra\n\nPauli\n\nCapo delle scuole del Dipartimento\n\n032 654 85 22\n\nE-mail\nBachtelen Foundation — Special and Social Education Foundation nel Cantone di Solothurn.",
         "en": "Bachtelen is involved in the canton of Solothurn with a wide range of offers for the promotion, support and integration of young people. This includes special schools, various housing offers, individually coordinated therapy offers as well as consultations and day care centers. Bachtelen employs around 550 people.\nThe school and vocational training sector offers resource-oriented teaching with individualised support. Our students: inside bring a special educational need. Individual education, personal development and preparation for the profession are the focus.\nFor the school at Bachtelenstrasse 38 in Grenchen we are looking for a:n\nPrincipal: in 80-100 %\n\nYour work includes:\n\n• You take on the committed personnel, pedagogical and administrative and organizational leadership responsibility\n\n• Together with the two co-directors you actively shape the further development of the school\n\n• In everyday school life, you accompany and strengthen the class teams and support them in challenging situations.\n\n• A constructive and appreciative cooperation in the multiprofessional team is important to you and is actively promoted by you\n\n• You help shape school integration and develop it further together with the employees\n\n• As a member of the management team, you take on joint responsibility for the further development of all schools of Bachtelen\n\n• Self-responsible work and a close, regular exchange with the department management schools are part of your daily management routine\n\n• The values of Bachtelen you live in everyday life and represent them inside and outside\n\n• If you are interested, it is possible to take over the deputy department head of schools in addition.\n\nThis is what you bring with you:\n\n• EDK-recognized basic teacher training, ideally with additional training in curative education MA\n\n• Leadership training and several years of experience as a manager\n\n• Comprehensive knowledge of regular and special schools\n\n• Good knowledge of the cantonal educational landscape\n\n• Flexibility and solution-oriented thinking and action\n\n• Flair for maintaining contact with different stakeholders\n\nThis is what we offer you:\n\n• An attractive workplace with plenty of room for initiative and participation\n\n• Flat hierarchies, short decision paths and an open, appreciative cooperation\n\n• Career and leisure well planned thanks to early schedules\n\n• Contemporary employment conditions according to cantonal guidelines\n\n• A meaningful work environment where your work makes a real difference\n\n• Generous support (money and/or time) for further education\n\nYou have questions?\nAlexandra Pauli, Head of Schools at 032 654 85 22 or alexandra.pauli@bachtelen.ch will gladly provide you with information.\nWe look forward to your application!\n\nContact details\n\nAlexandra\n\nPauli\n\nHead of Department Schools\n\n032 654 85 22\n\nE-mail\nBachtelen Foundation — Special and Social Education Foundation in the Canton of Solothurn.",
-        "de": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n Der Bereich Schule und Berufsbildung bietet einen ressourcenorientierten Unterricht mit individualisierter Förderung. Unsere Schüler:innen bringen einen besonderen Bildungsbedarf mit. Individuelle schulische Förderung, persönliche Entwicklung und die Vorbereitung auf den Beruf stehen dabei im Zentrum.\n Für die Schule an der Bachtelenstrasse 38 in Grenchen suchen wir per sofort oder ab 01.02.2027 eine:n\n Schulleiter:in 70-100%\n Deine Arbeit beinhaltet:\n\n• Du übernimmst engagiert die personelle, fachlich-pädagogische sowie administrative und organisatorische Führungsverantwortung\n\n• Gemeinsam mit den beiden Co-Schulleiterinnen gestaltest du die Weiterentwicklung der Schule aktiv mit\n\n• Im Schulalltag begleitest und stärkst du die Klassenteams und stehst ihnen auch in herausfordernden Situationen unterstützend zur Seite\n\n• Eine konstruktive und wertschätzende Zusammenarbeit im multiprofessionellen Team ist dir wichtig und wird von dir aktiv gefördert\n\n• Die schulische Integration gestaltest du mit und entwickelst sie gemeinsam mit den Mitarbeitenden weiter\n\n• Als Mitglied des Leitungsteams übernimmst du Mitverantwortung für die Weiterentwicklung aller Schulen des Bachtelen\n\n• Eigenverantwortliches Arbeiten und ein enger, regelmässiger Austausch mit der Bereichsleitung Schulen gehören zu deinem Führungsalltag\n\n• Die Werte des Bachtelen lebst du im Alltag und vertrittst sie nach innen und aussen\n\n• Bei Interesse besteht die Möglichkeit, zusätzlich die Stellvertretung der Bereichsleiterin Schulen zu übernehmen\n\nDas bringst du mit:\n\n• EDK–anerkannte Lehrpersonen-Grundausbildung, idealerweise mit Zusatzausbildung in Heilpädagogik MA\n\n• Führungsausbildung und mehrjährige Erfahrung als Leitungsperson\n\n• Umfassendes Wissen zur Regel- und Sonderschule\n\n• Gute Kenntnisse der kantonalen Bildungslandschaft\n\n• Flexibilität und lösungsorientiertes Denken und Handeln\n\n• Flair für die Kontaktpflege zu unterschiedlichen Anspruchsgruppen\n\nDas bieten wir dir:\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien, kurze Entscheidungswege und ein offenes, wertschätzendes Miteinander\n\n• Beruf und Freizeit gut planbar dank frühzeitiger Dienstpläne\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n\nDu hast Fragen?\n Gerne gibt dir Alexandra Pauli, Bereichsleiterin Schulen unter 032 654 85 22 oder alexandra.pauli@bachtelen.ch Auskunft.\n Wir freuen uns auf deine Bewerbung!\n\nKontakt\n\nAlexandra\n\nPauli\n\nBereichsleiterin Schulen\n\n032 654 85 22\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
+        "de": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n Der Bereich Schule und Berufsbildung bietet einen ressourcenorientierten Unterricht mit individualisierter Förderung. Unsere Schüler:innen bringen einen besonderen Bildungsbedarf mit. Individuelle schulische Förderung, persönliche Entwicklung und die Vorbereitung auf den Beruf stehen dabei im Zentrum.\n Für die Schule an der Bachtelenstrasse 38 in Grenchen suchen wir per 01.02.2027 oder nach Vereinbarung eine:n\n Schulleiter:in 70-100%\n Deine Arbeit beinhaltet:\n\n• Du übernimmst engagiert die personelle, fachlich-pädagogische sowie administrative und organisatorische Führungsverantwortung\n\n• Gemeinsam mit den beiden Co-Schulleiterinnen gestaltest du die Weiterentwicklung der Schule aktiv mit\n\n• Im Schulalltag begleitest und stärkst du die Klassenteams und stehst ihnen auch in herausfordernden Situationen unterstützend zur Seite\n\n• Eine konstruktive und wertschätzende Zusammenarbeit im multiprofessionellen Team ist dir wichtig und wird von dir aktiv gefördert\n\n• Die schulische Integration gestaltest du mit und entwickelst sie gemeinsam mit den Mitarbeitenden weiter\n\n• Als Mitglied des Leitungsteams übernimmst du Mitverantwortung für die Weiterentwicklung aller Schulen des Bachtelen\n\n• Eigenverantwortliches Arbeiten und ein enger, regelmässiger Austausch mit der Bereichsleitung Schulen gehören zu deinem Führungsalltag\n\n• Die Werte des Bachtelen lebst du im Alltag und vertrittst sie nach innen und aussen\n\n• Bei Interesse besteht die Möglichkeit, zusätzlich die Stellvertretung der Bereichsleiterin Schulen zu übernehmen\n\nDas bringst du mit:\n\n• EDK–anerkannte Lehrpersonen-Grundausbildung, idealerweise mit Zusatzausbildung in Heilpädagogik MA\n\n• Führungsausbildung und mehrjährige Erfahrung als Leitungsperson\n\n• Umfassendes Wissen zur Regel- und Sonderschule\n\n• Gute Kenntnisse der kantonalen Bildungslandschaft\n\n• Flexibilität und lösungsorientiertes Denken und Handeln\n\n• Flair für die Kontaktpflege zu unterschiedlichen Anspruchsgruppen\n\nDas bieten wir dir:\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien, kurze Entscheidungswege und ein offenes, wertschätzendes Miteinander\n\n• Beruf und Freizeit gut planbar dank frühzeitiger Dienstpläne\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n\nDu hast Fragen?\n Gerne gibt dir Alexandra Pauli, Bereichsleiterin Schulen unter 032 654 85 22 oder alexandra.pauli@bachtelen.ch Auskunft.\n Wir freuen uns auf deine Bewerbung!\n\nKontakt\n\nAlexandra\n\nPauli\n\nBereichsleiterin Schulen\n\n032 654 85 22\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
         "fr": "Bachtelen est impliqué dans le canton de Soleure avec un large éventail d'offres pour la promotion, le soutien et l'intégration des jeunes. Il s'agit notamment d'écoles spéciales, de diverses offres de logement, de thérapies coordonnées individuellement ainsi que de consultations et de garderies. Bachtelen emploie environ 550 personnes.\nLe secteur scolaire et de la formation professionnelle offre un enseignement axé sur les ressources avec un soutien individualisé. Nos étudiants: à l'intérieur apporter un besoin éducatif spécial. L'éducation individuelle, le développement personnel et la préparation à la profession sont au centre des préoccupations.\nPour l'école de Bachtelenstrasse 38 à Grenchen, nous recherchons:\nPrincipal: dans 80 à 100 %\n\nVotre travail comprend :\n\n• Vous assumez la responsabilité du personnel engagé, pédagogique et administratif et de leadership organisationnel\n\n• Avec les deux codirecteurs, vous façonnez activement le développement de l'école\n\n• Dans la vie scolaire quotidienne, vous accompagnez et renforcez les équipes de classe et les accompagnez dans des situations difficiles.\n\n• Une coopération constructive et reconnaissante au sein de l'équipe multiprofessionnelle est importante pour vous et est activement promue par vous\n\n• Vous aidez à façonner l'intégration scolaire et à le développer davantage avec les employés\n\n• En tant que membre de l'équipe de direction, vous assumez la responsabilité conjointe du développement de toutes les écoles de Bachtelen\n\n• Un travail autonome et un échange étroit et régulier avec les écoles de gestion du département font partie de votre routine de gestion quotidienne.\n\n• Les valeurs de Bachtelen que vous vivez dans la vie quotidienne et les représenter à l'intérieur et à l'extérieur\n\n• Si vous êtes intéressé, il est possible de prendre en charge le directeur adjoint des écoles.\n\nVoici ce que vous apportez avec vous :\n\n• EDK-reconnue formation de base des enseignants, idéalement avec une formation supplémentaire en éducation curative MA\n\n• Formation en leadership et plusieurs années d'expérience en tant que gestionnaire\n\n• Connaissance approfondie des écoles ordinaires et spéciales\n\n• Bonne connaissance du paysage éducatif cantonal\n\n• Flexibilité et réflexion et action axées sur la solution\n\n• Flair pour maintenir le contact avec les différentes parties prenantes\n\nVoici ce que nous vous proposons :\n\n• Un lieu de travail attrayant avec beaucoup de place pour l'initiative et la participation\n\n• Hiérarchies plates, chemins de décision courts et coopération ouverte et appréciée\n\n• Carrière et loisirs bien planifiés grâce aux horaires précoces\n\n• Conditions d'emploi contemporaines selon les directives cantonales\n\n• Un environnement de travail significatif où votre travail fait une vraie différence\n\n• Soutien généreux (argent et/ou temps) à la formation continue\n\nVous avez des questions ?\nAlexandra Pauli, chef des écoles au 032 654 85 22 ou alexandra.pauli@bachtelen.ch vous fournira volontiers des informations.\nNous attendons avec impatience votre candidature!\n\nCoordonnées\n\nAlexandra\n\nPauli\n\nChef des écoles départementales\n\n032 654 85 22\n\nCourriel\nFondation Bachtelen — Fondation pour l'éducation spéciale et sociale dans le canton de Soleure."
       },
       "location": "Grenchen",
@@ -972,7 +962,7 @@
       "url": "https://www.bachtelen.ch/stelle/schulleiterin-80-100/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:49:41.331Z",
+      "crawledAt": "2026-11-25T21:51:34.996Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1023,9 +1013,8 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:49:41.331Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.bachtelen.ch/stelle/schulleiterin-80-100"
+      "validThrough": "2027-02-09T21:51:34.996Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bachtelen-b2eaae7af892",
@@ -1058,7 +1047,7 @@
       "url": "https://www.bachtelen.ch/stelle/gruppenleiterin-80-100/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:49:41.329Z",
+      "crawledAt": "2026-11-25T21:51:34.994Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1107,9 +1096,8 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:49:41.329Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.bachtelen.ch/stelle/gruppenleiterin-80-100"
+      "validThrough": "2027-02-09T21:51:34.994Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bachtelen-abc435bde353",
@@ -1142,7 +1130,7 @@
       "url": "https://www.bachtelen.ch/stelle/paedagogische-fachperson-80-100/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:49:41.328Z",
+      "crawledAt": "2026-11-25T21:51:34.993Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1191,9 +1179,8 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:49:41.328Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.bachtelen.ch/stelle/paedagogische-fachperson-80-100"
+      "validThrough": "2027-02-10T21:51:34.993Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bachtelen-c8e963400ed9",
@@ -1226,7 +1213,7 @@
       "url": "https://www.bachtelen.ch/stelle/paedagogische-fachperson-60/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:49:41.325Z",
+      "crawledAt": "2026-11-25T21:51:34.992Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1275,9 +1262,8 @@
       },
       "streetAddress": "Grenchen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:49:41.325Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.bachtelen.ch/stelle/paedagogische-fachperson-60"
+      "validThrough": "2027-02-10T21:51:34.992Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bachtelen-29bfdbc3c9c9",
@@ -1310,7 +1296,7 @@
       "url": "https://www.bachtelen.ch/stelle/miterzieherin-und-verantwortlicher-schuelertransport-40/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:49:41.323Z",
+      "crawledAt": "2026-11-25T21:51:34.990Z",
       "addressLocality": "Lommiswil",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1361,17 +1347,16 @@
       },
       "streetAddress": "Lommiswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:49:41.323Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.bachtelen.ch/stelle/miterzieherin-und-verantwortlicher-schuelertransport-40"
+      "validThrough": "2027-02-10T21:51:34.990Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bachtelen-1ac3bf487bb0",
       "slug": "vice-responsabile-del-settore-scuole-50-80-stiftung-bachtelen-grenchen",
       "slugByLocale": {
-        "de": "stellvertreter-in-bereichsleiterin-schulen-50-80-bachtelen-grenchen",
         "it": "vice-responsabile-del-settore-scuole-50-80-stiftung-bachtelen-grenchen",
         "en": "deputy-head-of-the-schools-department-50-80-stiftung-bachtelen-grenchen",
+        "de": "stellvertreter-in-bereichsleiterin-schulen-50-80-bachtelen-grenchen",
         "fr": "suppleant-e-responsable-du-secteur-ecoles-50-80-stiftung-bachtelen-grenchen"
       },
       "company": "Stiftung Bachtelen",
@@ -1379,24 +1364,24 @@
       "companyDomain": "bachtelen.ch",
       "title": "Stellvertreter:in Bereichsleiterin Schulen 50-80%",
       "titleByLocale": {
-        "de": "Stellvertreter:in Bereichsleiterin Schulen 50-80%",
         "it": "Vice responsabile del settore Scuole 50-80%",
         "en": "Deputy Head of the Schools Department 50–80%",
+        "de": "Stellvertreter:in Bereichsleiterin Schulen 50-80%",
         "fr": "Suppléant(e) : responsable du secteur Écoles 50-80 %"
       },
       "description": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n Der Bereich Schule und Berufsbildung bietet einen ressourcenorientierten Unterricht mit individualisierter Förderung. Unsere Schüler:innen bringen einen besonderen Bildungsbedarf mit. Individuelle schulische Förderung, persönliche Entwicklung und die Vorbereitung auf den Beruf stehen dabei im Zentrum.\n Zur Unterstützung und Mitgestaltung unseres Bereichs Schule und Berufsbildung suchen wir nach Vereinbarung eine initiative und engagierte Führungs-persönlichkeit als\n Stellvertreter:in Bereichsleiterin Schulen 50-80%\n\nDeine Arbeit beinhaltet:\n\n• Unterstützung und Stellvertretung der Bereichsleiterin in sämtlichen Führungs- und Organisationsfragen\n\n• Begleitung und Unterstützung der Schulleiter:innen unserer verschiedenen Schulangebote\n\n• Aktive Mitgestaltung der strategischen, pädagogischen und organisatorischen Schulentwicklung\n\n• Eigenverantwortliche Leitung von bereichsübergreifenden Projekten\n\n• Weiterentwicklung der Schulqualität und Förderung der schulübergreifenden Zusammenarbeit\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung an einer Pädagogischen Hochschule, in Schulischer Heilpädagogik (SHP) sowie als Schulleitung\n\n• Mehrjährige Erfahrung in der Schulleitung\n\n• Erfahrung in der Schulentwicklung und Projektleitung\n\n• Fundierte Kenntnisse der Bildungslandschaft und der aktuellen Herausforderungen der Regel- und Sonderschulen\n\n• Vernetztes und strategisches Denken, Innovationsfreude und Umsetzungsstärke\n\n• Ausgeprägte Kommunikations- und Sozialkompetenz\n\nDas bieten wir dir:\n\n• Eine vielseitige, anspruchsvolle Führungsaufgabe mit grossem Gestaltungsspielraum, kurzen Entscheidungswegen und der Möglichkeit, die Zukunft unserer Schulen massgeblich mitzuprägen\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien und ein offenes, wertschätzendes Miteinander\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n\nDu hast Fragen?\n Gerne gibt dir Alexandra Pauli, Bereichsleiterin Schulen unter 032 654 85 22 oder alexandra.pauli@bachtelen.ch Auskunft.\n Wir freuen uns auf deine Bewerbung!\n\nKontakt\n\nAlexandra\n\nPauli\n\nBereichsleiterin Schulen\n\n032 654 85 22\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
       "descriptionByLocale": {
+        "it": "Bachtelen è coinvolto nel cantone di Solothurn con una vasta gamma di offerte per la promozione, il supporto e l'integrazione dei giovani. Questo include scuole speciali, varie offerte di alloggi, offerte terapeutiche coordinate individualmente, nonché consultazioni e centri di assistenza. Bachtelen impiega circa 550 persone.\nIl settore della formazione scolastica e professionale offre un insegnamento orientato alle risorse con un sostegno individualizzato. I nostri studenti: all'interno portare una speciale esigenza educativa. L'istruzione individuale, lo sviluppo personale e la preparazione per la professione sono al centro.\nAl fine di sostenere e modellare il nostro campo di istruzione e formazione professionale, stiamo cercando un'iniziativa e leader impegnati come\nCapo delle scuole 50-80 %\n\nIl vostro lavoro comprende:\n\n• Sostegno e vice capo dipartimento in tutte le questioni gestionali e organizzative\n\n• Accompagnare e sostenere i leader scolastici: all'interno delle nostre varie offerte scolastiche\n\n• Partecipazione attiva allo sviluppo scolastico strategico, pedagogico e organizzativo\n\n• Gestione auto-responsabile dei progetti di taglio incrociato\n\n• Sviluppare ulteriormente la qualità della scuola e promuovere la cooperazione interscolastica\n\nQuesto è ciò che portate con voi:\n\n• Formazione completa in un'università pedagogica, in istruzione curativa scolastica (SHP) e come gestione scolastica\n\n• Diversi anni di esperienza nella gestione scolastica\n\n• Esperienza nello sviluppo scolastico e nella gestione dei progetti\n\n• Conoscenza approfondita del paesaggio educativo e delle sfide attuali delle scuole regolari e speciali\n\n• pensiero, innovazione e forza di implementazione in rete e strategica\n\n• Forte comunicazione e competenze sociali\n\nQuesto è ciò che vi offriamo:\n\n• Un compito di gestione versatile ed esigente con una grande quantità di spazio per i percorsi decisionali brevi e l'opportunità di plasmare significativamente il futuro delle nostre scuole\n\n• Un posto di lavoro attraente con un sacco di spazio per iniziativa e partecipazione\n\n• Gerarchie piatte e una cooperazione aperta e apprezzata\n\n• Condizioni di lavoro contemporanee secondo gli orientamenti cantonali\n\n• Un ambiente di lavoro significativo in cui il tuo lavoro fa una vera differenza\n\n• Supporto genetico (money e/o time) per un'ulteriore formazione\n\nHai delle domande?\nAlexandra Pauli, responsabile delle scuole al 032 654 85 22 o alexandra.pauli@bachtelen.ch vi fornirà volentieri informazioni.\nAttendiamo con ansia la vostra applicazione!\n\nInformazioni di contatto\n\nAlexandra\n\nPauli\n\nCapo delle scuole del Dipartimento\n\n032 654 85 22\n\nE-mail\nBachtelen Foundation — Special and Social Education Foundation nel Cantone di Solothurn.",
+        "en": "Bachtelen is involved in the canton of Solothurn with a wide range of offers for the promotion, support and integration of young people. This includes special schools, various housing offers, individually coordinated therapy offers as well as consultations and daycare centers. Bachtelen employs around 550 people.\nThe school and vocational training sector offers resource-oriented teaching with individualised support. Our students: inside bring a special educational need. Individual education, personal development and preparation for the profession are the focus.\nIn order to support and shape our field of school and vocational education and training, we are looking for an initiative and committed leader as\nDeputy Head of Schools 50-80 %\n\nYour work includes:\n\n• Support and deputy head of department in all management and organizational issues\n\n• Accompanying and supporting school leaders: inside our various school offers\n\n• Active participation in strategic, pedagogical and organizational school development\n\n• Self-responsible management of cross-cutting projects\n\n• Further develop school quality and promote inter-school cooperation\n\nThis is what you bring with you:\n\n• Completed training at a pedagogical university, in school curative education (SHP) and as school management\n\n• Several years of experience in school management\n\n• Experience in school development and project management\n\n• In-depth knowledge of the educational landscape and the current challenges of regular and special schools\n\n• Networked and strategic thinking, innovation and implementation strength\n\n• Strong communication and social skills\n\nThis is what we offer you:\n\n• A versatile, demanding management task with a great deal of room for manoeuvre, short decision-making paths and the opportunity to significantly shape the future of our schools\n\n• An attractive workplace with plenty of room for initiative and participation\n\n• Flat hierarchies and an open, appreciative cooperation\n\n• Contemporary employment conditions according to cantonal guidelines\n\n• A meaningful work environment where your work makes a real difference\n\n• Generous support (money and/or time) for further training\n\nYou have questions?\nAlexandra Pauli, Head of Schools at 032 654 85 22 or alexandra.pauli@bachtelen.ch will gladly provide you with information.\nWe look forward to your application!\n\nContact details\n\nAlexandra\n\nPauli\n\nHead of Department Schools\n\n032 654 85 22\n\nE-mail\nBachtelen Foundation — Special and Social Education Foundation in the Canton of Solothurn.",
         "de": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n Der Bereich Schule und Berufsbildung bietet einen ressourcenorientierten Unterricht mit individualisierter Förderung. Unsere Schüler:innen bringen einen besonderen Bildungsbedarf mit. Individuelle schulische Förderung, persönliche Entwicklung und die Vorbereitung auf den Beruf stehen dabei im Zentrum.\n Zur Unterstützung und Mitgestaltung unseres Bereichs Schule und Berufsbildung suchen wir nach Vereinbarung eine initiative und engagierte Führungs-persönlichkeit als\n Stellvertreter:in Bereichsleiterin Schulen 50-80%\n\nDeine Arbeit beinhaltet:\n\n• Unterstützung und Stellvertretung der Bereichsleiterin in sämtlichen Führungs- und Organisationsfragen\n\n• Begleitung und Unterstützung der Schulleiter:innen unserer verschiedenen Schulangebote\n\n• Aktive Mitgestaltung der strategischen, pädagogischen und organisatorischen Schulentwicklung\n\n• Eigenverantwortliche Leitung von bereichsübergreifenden Projekten\n\n• Weiterentwicklung der Schulqualität und Förderung der schulübergreifenden Zusammenarbeit\n\nDas bringst du mit:\n\n• Abgeschlossene Ausbildung an einer Pädagogischen Hochschule, in Schulischer Heilpädagogik (SHP) sowie als Schulleitung\n\n• Mehrjährige Erfahrung in der Schulleitung\n\n• Erfahrung in der Schulentwicklung und Projektleitung\n\n• Fundierte Kenntnisse der Bildungslandschaft und der aktuellen Herausforderungen der Regel- und Sonderschulen\n\n• Vernetztes und strategisches Denken, Innovationsfreude und Umsetzungsstärke\n\n• Ausgeprägte Kommunikations- und Sozialkompetenz\n\nDas bieten wir dir:\n\n• Eine vielseitige, anspruchsvolle Führungsaufgabe mit grossem Gestaltungsspielraum, kurzen Entscheidungswegen und der Möglichkeit, die Zukunft unserer Schulen massgeblich mitzuprägen\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien und ein offenes, wertschätzendes Miteinander\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n\nDu hast Fragen?\n Gerne gibt dir Alexandra Pauli, Bereichsleiterin Schulen unter 032 654 85 22 oder alexandra.pauli@bachtelen.ch Auskunft.\n Wir freuen uns auf deine Bewerbung!\n\nKontakt\n\nAlexandra\n\nPauli\n\nBereichsleiterin Schulen\n\n032 654 85 22\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
-        "it": "Bachtelen è coinvolto nel cantone di Solothurn con una vasta gamma di offerte per la promozione, il supporto e l'integrazione dei giovani. Questo include scuole speciali, varie offerte di alloggi, offerte terapeutiche coordinate individualmente, nonché consultazioni e centri di assistenza. Bachtelen impiega circa 550 persone.\n Il settore della formazione scolastica e professionale offre un insegnamento orientato alle risorse con un sostegno individualizzato. I nostri studenti: all'interno portare una speciale esigenza educativa. L'istruzione individuale, lo sviluppo personale e la preparazione per la professione sono al centro.\n Al fine di sostenere e modellare il nostro campo di istruzione e formazione professionale, stiamo cercando un'iniziativa e leader impegnati come\n Capo delle scuole 50-80 %\n\nIl vostro lavoro comprende:\n\n• Sostegno e vice capo dipartimento in tutte le questioni gestionali e organizzative\n\n• Accompagnare e sostenere i leader scolastici: all'interno delle nostre varie offerte scolastiche\n\n• Partecipazione attiva allo sviluppo scolastico strategico, pedagogico e organizzativo\n\n• Gestione auto-responsabile dei progetti di taglio incrociato\n\n• Sviluppare ulteriormente la qualità della scuola e promuovere la cooperazione interscolastica\n\nQuesto è ciò che portate con voi:\n\n• Formazione completa in un'università pedagogica, in istruzione curativa scolastica (SHP) e come gestione scolastica\n\n• Diversi anni di esperienza nella gestione scolastica\n\n• Esperienza nello sviluppo scolastico e nella gestione dei progetti\n\n• Conoscenza approfondita del paesaggio educativo e delle sfide attuali delle scuole regolari e speciali\n\n• pensiero, innovazione e forza di implementazione in rete e strategica\n\n• Forte comunicazione e competenze sociali\n\nQuesto è ciò che vi offriamo:\n\n• Un compito di gestione versatile ed esigente con una grande quantità di spazio per i percorsi decisionali brevi e l'opportunità di plasmare significativamente il futuro delle nostre scuole\n\n• Un posto di lavoro attraente con un sacco di spazio per iniziativa e partecipazione\n\n• Gerarchie piatte e una cooperazione aperta e apprezzata\n\n• Condizioni di lavoro contemporanee secondo gli orientamenti cantonali\n\n• Un ambiente di lavoro significativo in cui il tuo lavoro fa una vera differenza\n\n• Supporto genetico (money e/o time) per un'ulteriore formazione\n\nHai delle domande?\n Alexandra Pauli, responsabile delle scuole al 032 654 85 22 o alexandra.pauli@bachtelen.ch vi fornirà volentieri informazioni.\n Attendiamo con ansia la vostra applicazione!\n\nInformazioni di contatto\n\nAlexandra\n\nPauli\n\nCapo delle scuole del Dipartimento\n\n032 654 85 22\n\nE-mail\nBachtelen Foundation — Special and Social Education Foundation nel Cantone di Solothurn.",
-        "en": "Bachtelen is involved in the canton of Solothurn with a wide range of offers for the promotion, support and integration of young people. This includes special schools, various housing offers, individually coordinated therapy offers as well as consultations and daycare centers. Bachtelen employs around 550 people.\n The school and vocational training sector offers resource-oriented teaching with individualised support. Our students: inside bring a special educational need. Individual education, personal development and preparation for the profession are the focus.\n In order to support and shape our field of school and vocational education and training, we are looking for an initiative and committed leader as\n Deputy Head of Schools 50-80 %\n\nYour work includes:\n\n• Support and deputy head of department in all management and organizational issues\n\n• Accompanying and supporting school leaders: inside our various school offers\n\n• Active participation in strategic, pedagogical and organizational school development\n\n• Self-responsible management of cross-cutting projects\n\n• Further develop school quality and promote inter-school cooperation\n\nThis is what you bring with you:\n\n• Completed training at a pedagogical university, in school curative education (SHP) and as school management\n\n• Several years of experience in school management\n\n• Experience in school development and project management\n\n• In-depth knowledge of the educational landscape and the current challenges of regular and special schools\n\n• Networked and strategic thinking, innovation and implementation strength\n\n• Strong communication and social skills\n\nThis is what we offer you:\n\n• A versatile, demanding management task with a great deal of room for manoeuvre, short decision-making paths and the opportunity to significantly shape the future of our schools\n\n• An attractive workplace with plenty of room for initiative and participation\n\n• Flat hierarchies and an open, appreciative cooperation\n\n• Contemporary employment conditions according to cantonal guidelines\n\n• A meaningful work environment where your work makes a real difference\n\n• Generous support (money and/or time) for further training\n\nYou have questions?\n Alexandra Pauli, Head of Schools at 032 654 85 22 or alexandra.pauli@bachtelen.ch will gladly provide you with information.\n We look forward to your application!\n\nContact details\n\nAlexandra\n\nPauli\n\nHead of Department Schools\n\n032 654 85 22\n\nE-mail\nBachtelen Foundation — Special and Social Education Foundation in the Canton of Solothurn.",
-        "fr": "Bachtelen est impliqué dans le canton de Soleure avec un large éventail d'offres pour la promotion, le soutien et l'intégration des jeunes. Cela comprend des écoles spéciales, diverses offres de logement, des offres de thérapies coordonnées individuellement ainsi que des consultations et des garderies. Bachtelen emploie environ 550 personnes.\n Le secteur scolaire et de la formation professionnelle offre un enseignement axé sur les ressources avec un soutien individualisé. Nos élèves: à l'intérieur apporter un besoin éducatif spécial. L'éducation individuelle, le développement personnel et la préparation à la profession sont au centre des préoccupations.\n Pour soutenir et façonner notre domaine de l'éducation et de la formation scolaires et professionnelles, nous recherchons une initiative et un leader engagé en tant que\n Chef adjoint des écoles 50-80 %\n\nVotre travail comprend :\n\n• Soutien et chef adjoint de département pour toutes les questions de gestion et d'organisation\n\n• Accompagner et soutenir les chefs d'école : à l'intérieur de nos différentes offres scolaires\n\n• Participation active au développement scolaire stratégique, pédagogique et organisationnel\n\n• Gestion autonome des projets transversaux\n\n• Développer la qualité des écoles et promouvoir la coopération interscolaire\n\nC'est ce que vous apportez avec vous :\n\n• Achevé une formation dans une université pédagogique, en éducation curative scolaire (SHP) et en gestion scolaire\n\n• Plusieurs années d'expérience en gestion scolaire\n\n• Expérience en développement scolaire et gestion de projet\n\n• Connaissance approfondie du paysage éducatif et des défis actuels des écoles ordinaires et spéciales\n\n• Réflexion en réseau et stratégique, innovation et force de mise en œuvre\n\n• Forte communication et compétences sociales\n\nVoici ce que nous vous proposons :\n\n• Une tâche de gestion polyvalente et exigeante avec beaucoup de marge de manœuvre, de courtes voies de décision et l'occasion de façonner de façon significative l'avenir de nos écoles\n\n• Un lieu de travail attrayant avec beaucoup de place pour l'initiative et la participation\n\n• Hiérarchies plates et coopération ouverte et appréciée\n\n• Conditions d'emploi contemporaines selon les orientations cantonales\n\n• Un environnement de travail significatif où votre travail fait une réelle différence\n\n• Soutien généreux (argent et/ou temps) à la formation continue\n\nVous avez des questions ?\n Alexandra Pauli, chef des écoles au 032 654 85 22 ou alexandra.pauli@bachtelen.ch vous fournira volontiers des informations.\n Nous nous réjouissons de votre candidature!\n\nCoordonnées\n\nAlexandra\n\nPauli\n\nChef des écoles départementales\n\n032 654 85 22\n\nCourriel\nFondation Bachtelen — Fondation pour l'éducation spéciale et sociale dans le canton de Soleure."
+        "fr": "Bachtelen est impliqué dans le canton de Soleure avec un large éventail d'offres pour la promotion, le soutien et l'intégration des jeunes. Cela comprend des écoles spéciales, diverses offres de logement, des offres de thérapies coordonnées individuellement ainsi que des consultations et des garderies. Bachtelen emploie environ 550 personnes.\nLe secteur scolaire et de la formation professionnelle offre un enseignement axé sur les ressources avec un soutien individualisé. Nos élèves: à l'intérieur apporter un besoin éducatif spécial. L'éducation individuelle, le développement personnel et la préparation à la profession sont au centre des préoccupations.\nPour soutenir et façonner notre domaine de l'éducation et de la formation scolaires et professionnelles, nous recherchons une initiative et un leader engagé en tant que\nChef adjoint des écoles 50-80 %\n\nVotre travail comprend :\n\n• Soutien et chef adjoint de département pour toutes les questions de gestion et d'organisation\n\n• Accompagner et soutenir les chefs d'école : à l'intérieur de nos différentes offres scolaires\n\n• Participation active au développement scolaire stratégique, pédagogique et organisationnel\n\n• Gestion autonome des projets transversaux\n\n• Développer la qualité des écoles et promouvoir la coopération interscolaire\n\nC'est ce que vous apportez avec vous :\n\n• Achevé une formation dans une université pédagogique, en éducation curative scolaire (SHP) et en gestion scolaire\n\n• Plusieurs années d'expérience en gestion scolaire\n\n• Expérience en développement scolaire et gestion de projet\n\n• Connaissance approfondie du paysage éducatif et des défis actuels des écoles ordinaires et spéciales\n\n• Réflexion en réseau et stratégique, innovation et force de mise en œuvre\n\n• Forte communication et compétences sociales\n\nVoici ce que nous vous proposons :\n\n• Une tâche de gestion polyvalente et exigeante avec beaucoup de marge de manœuvre, de courtes voies de décision et l'occasion de façonner de façon significative l'avenir de nos écoles\n\n• Un lieu de travail attrayant avec beaucoup de place pour l'initiative et la participation\n\n• Hiérarchies plates et coopération ouverte et appréciée\n\n• Conditions d'emploi contemporaines selon les orientations cantonales\n\n• Un environnement de travail significatif où votre travail fait une réelle différence\n\n• Soutien généreux (argent et/ou temps) à la formation continue\n\nVous avez des questions ?\nAlexandra Pauli, chef des écoles au 032 654 85 22 ou alexandra.pauli@bachtelen.ch vous fournira volontiers des informations.\nNous nous réjouissons de votre candidature!\n\nCoordonnées\n\nAlexandra\n\nPauli\n\nChef des écoles départementales\n\n032 654 85 22\n\nCourriel\nFondation Bachtelen — Fondation pour l'éducation spéciale et sociale dans le canton de Soleure."
       },
       "location": "Grenchen",
       "canton": "SO",
       "url": "https://www.bachtelen.ch/stelle/stellvertreterin-bereichsleiterin-schulen-50-80/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:49:41.305Z",
+      "crawledAt": "2026-11-25T21:51:34.977Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1414,27 +1399,10 @@
       "postingDateSource": "reported",
       "applyUrl": "https://www.bachtelen.ch/stelle/stellvertreterin-bereichsleiterin-schulen-50-80/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 58400,
-      "salaryMax": 99600,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58400,
-          "maxValue": 99600,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Grenchen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:49:41.305Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:49:41.305Z",
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "stellvertreter-in-bereichsleiterin-schulen-50-80-bachtelen-grenchen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "stellvertreter-in-bereichsleiterin-schulen-50-80-bachtelen-grenchen"
@@ -1446,18 +1414,32 @@
           "stellvertreter-in-bereichsleiterin-schulen-50-80-bachtelen-grenchen"
         ]
       },
-      "previousSlugs": [
-        "stellvertreter-in-bereichsleiterin-schulen-50-80-bachtelen-grenchen"
-      ],
-      "sourceIdentity": "url:https://www.bachtelen.ch/stelle/stellvertreterin-bereichsleiterin-schulen-50-80"
+      "firstSeenAt": "2026-11-18T09:49:41.305Z",
+      "salaryMin": 90400,
+      "salaryMax": 153600,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 90400,
+          "maxValue": 153600,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Grenchen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-16T21:51:34.977Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "bachtelen-13364635ba9b",
       "slug": "educatore-educatrice-sociale-ciclo-3-60-75-stiftung-bachtelen-dornach",
       "slugByLocale": {
-        "de": "sozialpadagog-in-zyklus-3-60-75-bachtelen-dornach",
         "it": "educatore-educatrice-sociale-ciclo-3-60-75-stiftung-bachtelen-dornach",
         "en": "social-pedagogue-cycle-3-60-75-stiftung-bachtelen-dornach",
+        "de": "sozialpadagog-in-zyklus-3-60-75-bachtelen-dornach",
         "fr": "educateur-educatrice-social-e-cycle-3-60-75-stiftung-bachtelen-dornach"
       },
       "company": "Stiftung Bachtelen",
@@ -1465,24 +1447,24 @@
       "companyDomain": "bachtelen.ch",
       "title": "Sozialpädagog:in (Zyklus 3) 60-75%",
       "titleByLocale": {
-        "de": "Sozialpädagog:in (Zyklus 3) 60-75%",
         "it": "Educatore/educatrice sociale (ciclo 3) 60-75%",
         "en": "Social pedagogue (Cycle 3) 60–75%",
+        "de": "Sozialpädagog:in (Zyklus 3) 60-75%",
         "fr": "Éducateur/éducatrice social/e (cycle 3) 60-75 %"
       },
       "description": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n Der Bereich Schule und Berufsbildung bietet einen ressourcenorientierten Unterricht mit individualisierter Förderung. Unsere Schüler:innen bringen einen besonderen Bildungsbedarf mit. Individuelle schulische Förderung, persönliche Entwicklung und die Vorbereitung auf den Beruf stehen dabei im Zentrum.\n Im Schwerpunkt Grundangebot suchen wir an der Bachtelen Schule in Dornach per 1. Februar 2027 eine:n\n Sozialpädagog:in (Zyklus 3) 60-75%\n\nDeine Arbeit beinhaltet:\n\n• Begleitung und Förderung von Jugendlichen\n\n• Bezugspersonenarbeit\n\n• Teilnahme an Schullagern und ausserschulischen Aktivitäten\n\n• Projekte umsetzen\n\n• Arbeit in einem multiprofessionellen Team\n\n• Verantwortung übernehmen\n\nDas bringst du mit:\n\n• Anerkannter Abschluss als Sozialpädagog:in\n\n• Interesse und Freude an der Arbeit mit Jugendlichen mit herausforderndem Verhalten und besonderen Bedürfnissen\n\n• Erfahrung mit Jugendlichen mit sonderpädagogischem Bedarf\n\n• Freude an pädagogisch neuen Wegen\n\n• Kreativität und Humor\n\n• Persönliche und zeitliche Flexibilität\n\nDas bieten wir dir:\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien, kurze Entscheidungswege und ein offenes, wertschätzendes Miteinander\n\n• Verschiedene Mitarbeiterevents\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n\n• Täglich zwei bezahlte Kurzpausen – inklusive kostenlosem Pausenkaffee\n\nDu hast Fragen?\n Gerne gibt dir Alex Brunner unter 061 599 00 02 oder alex.brunner@bachtelen.ch Auskunft.\n\nWir freuen uns auf deine Bewerbung!\n\nKontakt\n\nAlex\n\nBrunner\n\nSchulleiter\n\n061 599 00 02\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
       "descriptionByLocale": {
+        "it": "Bachtelen è coinvolto nel cantone di Solothurn con una vasta gamma di offerte per la promozione, il supporto e l'integrazione dei giovani. Questo include scuole speciali, varie offerte di alloggi, offerte terapeutiche coordinate individualmente, nonché consultazioni e centri di assistenza. Bachtelen impiega circa 550 persone.\nIl settore della formazione scolastica e professionale offre un insegnamento orientato alle risorse con un sostegno individualizzato. I nostri studenti: all'interno portare una speciale esigenza educativa. L'istruzione individuale, lo sviluppo personale e la preparazione per la professione sono al centro.\nAl centro dell'offerta di base, stiamo cercando la Bachtelen School di Dornach il 1 ° gennaio. Febbraio 2027 uno:n\nIstruzione sociale: in (ciclo 3) 60-75 %\n\nIl vostro lavoro comprende:\n\n• Accompagnamento e promozione dei giovani\n\n• Lavoro di riferimento\n\n• Partecipazione ai campi scolastici e alle attività extracurriculari\n\n• Implementazione di progetti\n\n• Lavorare in un team multi-professionale\n\n• Assumere la responsabilità\n\nQuesto è ciò che portate con voi:\n\n• Grado riconosciuto come un pedagogogo sociale:in\n\n• Interessi e piacere nel lavorare con i giovani con comportamenti impegnativi e bisogni speciali\n\n• Esperienza con i giovani con bisogni educativi speciali\n\n• Gioia di modi pedagogicamente nuovi\n\n• Creatività e umorismo\n\n• Flessibilità personale e temporale\n\nQuesto è ciò che vi offriamo:\n\n• Un posto di lavoro attraente con un sacco di spazio per iniziativa e partecipazione\n\n• Gerarchie piatte, brevi percorsi decisionali e una cooperazione aperta e apprezzata\n\n• Vari eventi sui dipendenti\n\n• Condizioni di lavoro contemporanee secondo gli orientamenti cantonali\n\n• Un ambiente di lavoro significativo in cui il tuo lavoro fa una vera differenza\n\n• Supporto genetico (money e/o time) per un'ulteriore formazione\n\n• Ogni giorno due brevi pause pagate – compreso il caffè gratuito\n\nHai delle domande?\nAlex Brunner può fornirti informazioni al 061 599 00 02 o alex.brunner@bachtelen.ch.\n\nAttendiamo con ansia la vostra applicazione!\n\nInformazioni di contatto\n\nAlex\n\nBrunner\n\nCapo della scuola\n\n061 599 00 02\n\nE-mail\nBachtelen Foundation — Special and Social Education Foundation nel Cantone di Solothurn.",
+        "en": "Bachtelen is involved in the canton of Solothurn with a wide range of offers for the promotion, support and integration of young people. This includes special schools, various housing offers, individually coordinated therapy offers as well as consultations and daycare centers. Bachtelen employs around 550 people.\nThe school and vocational training sector offers resource-oriented teaching with individualised support. Our students: inside bring a special educational need. Individual education, personal development and preparation for the profession are the focus.\nIn the focus of the basic offer, we are looking for at the Bachtelen School in Dornach on 1st January. February 2027 one:n\nSocial Education: in (cycle 3) 60-75 %\n\nYour work includes:\n\n• Accompaniment and promotion of young people\n\n• Reference work\n\n• Participation in school camps and extracurricular activities\n\n• Implementing projects\n\n• Working in a multi-professional team\n\n• Taking responsibility\n\nThis is what you bring with you:\n\n• Recognized degree as a social pedagogue:in\n\n• Interest and pleasure in working with young people with challenging behavior and special needs\n\n• Experience with young people with special educational needs\n\n• Joy of pedagogically new ways\n\n• Creativity and humor\n\n• Personal and time flexibility\n\nThis is what we offer you:\n\n• An attractive workplace with plenty of room for initiative and participation\n\n• Flat hierarchies, short decision paths and an open, appreciative cooperation\n\n• Various employee events\n\n• Contemporary employment conditions according to cantonal guidelines\n\n• A meaningful work environment where your work makes a real difference\n\n• Generous support (money and/or time) for further training\n\n• Daily two paid short breaks – including free coffee\n\nYou have questions?\nAlex Brunner can provide you with information at 061 599 00 02 or alex.brunner@bachtelen.ch.\n\nWe look forward to your application!\n\nContact details\n\nAlex\n\nBrunner\n\nHead of school\n\n061 599 00 02\n\nE-mail\nBachtelen Foundation — Special and Social Education Foundation in the Canton of Solothurn.",
         "de": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n Der Bereich Schule und Berufsbildung bietet einen ressourcenorientierten Unterricht mit individualisierter Förderung. Unsere Schüler:innen bringen einen besonderen Bildungsbedarf mit. Individuelle schulische Förderung, persönliche Entwicklung und die Vorbereitung auf den Beruf stehen dabei im Zentrum.\n Im Schwerpunkt Grundangebot suchen wir an der Bachtelen Schule in Dornach per 1. Februar 2027 eine:n\n Sozialpädagog:in (Zyklus 3) 60-75%\n\nDeine Arbeit beinhaltet:\n\n• Begleitung und Förderung von Jugendlichen\n\n• Bezugspersonenarbeit\n\n• Teilnahme an Schullagern und ausserschulischen Aktivitäten\n\n• Projekte umsetzen\n\n• Arbeit in einem multiprofessionellen Team\n\n• Verantwortung übernehmen\n\nDas bringst du mit:\n\n• Anerkannter Abschluss als Sozialpädagog:in\n\n• Interesse und Freude an der Arbeit mit Jugendlichen mit herausforderndem Verhalten und besonderen Bedürfnissen\n\n• Erfahrung mit Jugendlichen mit sonderpädagogischem Bedarf\n\n• Freude an pädagogisch neuen Wegen\n\n• Kreativität und Humor\n\n• Persönliche und zeitliche Flexibilität\n\nDas bieten wir dir:\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien, kurze Entscheidungswege und ein offenes, wertschätzendes Miteinander\n\n• Verschiedene Mitarbeiterevents\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n\n• Täglich zwei bezahlte Kurzpausen – inklusive kostenlosem Pausenkaffee\n\nDu hast Fragen?\n Gerne gibt dir Alex Brunner unter 061 599 00 02 oder alex.brunner@bachtelen.ch Auskunft.\n\nWir freuen uns auf deine Bewerbung!\n\nKontakt\n\nAlex\n\nBrunner\n\nSchulleiter\n\n061 599 00 02\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
-        "it": "Bachtelen è coinvolto nel cantone di Solothurn con una vasta gamma di offerte per la promozione, il supporto e l'integrazione dei giovani. Questo include scuole speciali, varie offerte di alloggi, offerte terapeutiche coordinate individualmente, nonché consultazioni e centri di assistenza. Bachtelen impiega circa 550 persone.\n Il settore della formazione scolastica e professionale offre un insegnamento orientato alle risorse con un sostegno individualizzato. I nostri studenti: all'interno portare una speciale esigenza educativa. L'istruzione individuale, lo sviluppo personale e la preparazione per la professione sono al centro.\n Al centro dell'offerta di base, stiamo cercando la Bachtelen School di Dornach il 1 ° gennaio. Febbraio 2027 uno:n\n Istruzione sociale: in (ciclo 3) 60-75 %\n\nIl vostro lavoro comprende:\n\n• Accompagnamento e promozione dei giovani\n\n• Lavoro di riferimento\n\n• Partecipazione ai campi scolastici e alle attività extracurriculari\n\n• Implementazione di progetti\n\n• Lavorare in un team multi-professionale\n\n• Assumere la responsabilità\n\nQuesto è ciò che portate con voi:\n\n• Grado riconosciuto come un pedagogogo sociale:in\n\n• Interessi e piacere nel lavorare con i giovani con comportamenti impegnativi e bisogni speciali\n\n• Esperienza con i giovani con bisogni educativi speciali\n\n• Gioia di modi pedagogicamente nuovi\n\n• Creatività e umorismo\n\n• Flessibilità personale e temporale\n\nQuesto è ciò che vi offriamo:\n\n• Un posto di lavoro attraente con un sacco di spazio per iniziativa e partecipazione\n\n• Gerarchie piatte, brevi percorsi decisionali e una cooperazione aperta e apprezzata\n\n• Vari eventi sui dipendenti\n\n• Condizioni di lavoro contemporanee secondo gli orientamenti cantonali\n\n• Un ambiente di lavoro significativo in cui il tuo lavoro fa una vera differenza\n\n• Supporto genetico (money e/o time) per un'ulteriore formazione\n\n• Ogni giorno due brevi pause pagate – compreso il caffè gratuito\n\nHai delle domande?\n Alex Brunner può fornirti informazioni al 061 599 00 02 o alex.brunner@bachtelen.ch.\n\nAttendiamo con ansia la vostra applicazione!\n\nInformazioni di contatto\n\nAlex\n\nBrunner\n\nCapo della scuola\n\n061 599 00 02\n\nE-mail\nBachtelen Foundation — Special and Social Education Foundation nel Cantone di Solothurn.",
-        "en": "Bachtelen is involved in the canton of Solothurn with a wide range of offers for the promotion, support and integration of young people. This includes special schools, various housing offers, individually coordinated therapy offers as well as consultations and daycare centers. Bachtelen employs around 550 people.\n The school and vocational training sector offers resource-oriented teaching with individualised support. Our students: inside bring a special educational need. Individual education, personal development and preparation for the profession are the focus.\n In the focus of the basic offer, we are looking for at the Bachtelen School in Dornach on 1st January. February 2027 one:n\n Social Education: in (cycle 3) 60-75 %\n\nYour work includes:\n\n• Accompaniment and promotion of young people\n\n• Reference work\n\n• Participation in school camps and extracurricular activities\n\n• Implementing projects\n\n• Working in a multi-professional team\n\n• Taking responsibility\n\nThis is what you bring with you:\n\n• Recognized degree as a social pedagogue:in\n\n• Interest and pleasure in working with young people with challenging behavior and special needs\n\n• Experience with young people with special educational needs\n\n• Joy of pedagogically new ways\n\n• Creativity and humor\n\n• Personal and time flexibility\n\nThis is what we offer you:\n\n• An attractive workplace with plenty of room for initiative and participation\n\n• Flat hierarchies, short decision paths and an open, appreciative cooperation\n\n• Various employee events\n\n• Contemporary employment conditions according to cantonal guidelines\n\n• A meaningful work environment where your work makes a real difference\n\n• Generous support (money and/or time) for further training\n\n• Daily two paid short breaks – including free coffee\n\nYou have questions?\n Alex Brunner can provide you with information at 061 599 00 02 or alex.brunner@bachtelen.ch.\n\nWe look forward to your application!\n\nContact details\n\nAlex\n\nBrunner\n\nHead of school\n\n061 599 00 02\n\nE-mail\nBachtelen Foundation — Special and Social Education Foundation in the Canton of Solothurn.",
-        "fr": "Bachtelen est impliqué dans le canton de Soleure avec un large éventail d'offres pour la promotion, le soutien et l'intégration des jeunes. Cela comprend des écoles spéciales, diverses offres de logement, des offres de thérapies coordonnées individuellement ainsi que des consultations et des garderies. Bachtelen emploie environ 550 personnes.\n Le secteur scolaire et de la formation professionnelle offre un enseignement axé sur les ressources avec un soutien individualisé. Nos élèves: à l'intérieur apporter un besoin éducatif spécial. L'éducation individuelle, le développement personnel et la préparation à la profession sont au centre des préoccupations.\n Au centre de l'offre de base, nous recherchons à l'école Bachtelen de Dornach le 1er janvier. Février 2027 :\n Éducation sociale: en (cycle 3) 60-75 %\n\nVotre travail comprend :\n\n• Accompagnement et promotion des jeunes\n\n• Travaux de référence\n\n• Participation aux camps scolaires et activités extrascolaires\n\n• Mise en œuvre de projets\n\n• Travailler dans une équipe multiprofessionnelle\n\n• Prise de responsabilité\n\nC'est ce que vous apportez avec vous :\n\n• Diplôme reconnu comme pédagogie sociale:\n\n• Intérêt et plaisir de travailler avec des jeunes ayant des comportements difficiles et des besoins spéciaux\n\n• Expérience des jeunes ayant des besoins éducatifs spéciaux\n\n• Joy de nouvelles manières pédagogiques\n\n• Créativité et humour\n\n• Flexibilité personnelle et temporelle\n\nVoici ce que nous vous proposons :\n\n• Un lieu de travail attrayant avec beaucoup de place pour l'initiative et la participation\n\n• Hiérarchies plates, chemins de décision courts et coopération ouverte et appréciée\n\n• Divers événements pour les employés\n\n• Conditions d'emploi contemporaines selon les orientations cantonales\n\n• Un environnement de travail significatif où votre travail fait une réelle différence\n\n• Soutien généreux (argent et/ou temps) à la formation continue\n\n• Deux pauses quotidiennes courtes payées – y compris le café gratuit\n\nVous avez des questions ?\n Alex Brunner peut vous fournir des informations au 061 599 00 02 ou alex.brunner@bachtelen.ch.\n\nNous nous réjouissons de votre candidature!\n\nCoordonnées\n\nAlex\n\nBruneau\n\nChef d ' école\n\n061 599 00 02\n\nCourriel\nFondation Bachtelen — Fondation pour l'éducation spéciale et sociale dans le canton de Soleure."
+        "fr": "Bachtelen est impliqué dans le canton de Soleure avec un large éventail d'offres pour la promotion, le soutien et l'intégration des jeunes. Cela comprend des écoles spéciales, diverses offres de logement, des offres de thérapies coordonnées individuellement ainsi que des consultations et des garderies. Bachtelen emploie environ 550 personnes.\nLe secteur scolaire et de la formation professionnelle offre un enseignement axé sur les ressources avec un soutien individualisé. Nos élèves: à l'intérieur apporter un besoin éducatif spécial. L'éducation individuelle, le développement personnel et la préparation à la profession sont au centre des préoccupations.\nAu centre de l'offre de base, nous recherchons à l'école Bachtelen de Dornach le 1er janvier. Février 2027 :\nÉducation sociale: en (cycle 3) 60-75 %\n\nVotre travail comprend :\n\n• Accompagnement et promotion des jeunes\n\n• Travaux de référence\n\n• Participation aux camps scolaires et activités extrascolaires\n\n• Mise en œuvre de projets\n\n• Travailler dans une équipe multiprofessionnelle\n\n• Prise de responsabilité\n\nC'est ce que vous apportez avec vous :\n\n• Diplôme reconnu comme pédagogie sociale:\n\n• Intérêt et plaisir de travailler avec des jeunes ayant des comportements difficiles et des besoins spéciaux\n\n• Expérience des jeunes ayant des besoins éducatifs spéciaux\n\n• Joy de nouvelles manières pédagogiques\n\n• Créativité et humour\n\n• Flexibilité personnelle et temporelle\n\nVoici ce que nous vous proposons :\n\n• Un lieu de travail attrayant avec beaucoup de place pour l'initiative et la participation\n\n• Hiérarchies plates, chemins de décision courts et coopération ouverte et appréciée\n\n• Divers événements pour les employés\n\n• Conditions d'emploi contemporaines selon les orientations cantonales\n\n• Un environnement de travail significatif où votre travail fait une réelle différence\n\n• Soutien généreux (argent et/ou temps) à la formation continue\n\n• Deux pauses quotidiennes courtes payées – y compris le café gratuit\n\nVous avez des questions ?\nAlex Brunner peut vous fournir des informations au 061 599 00 02 ou alex.brunner@bachtelen.ch.\n\nNous nous réjouissons de votre candidature!\n\nCoordonnées\n\nAlex\n\nBruneau\n\nChef d ' école\n\n061 599 00 02\n\nCourriel\nFondation Bachtelen — Fondation pour l'éducation spéciale et sociale dans le canton de Soleure."
       },
       "location": "Dornach",
       "canton": "SO",
       "url": "https://www.bachtelen.ch/stelle/sozialpaedagogin-zyklus-3-60-75/",
       "source": "Bachtelen Dedicated Parser (WP REST stelle)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:49:41.300Z",
+      "crawledAt": "2026-11-25T21:51:34.976Z",
       "addressLocality": "Dornach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1500,9 +1482,22 @@
       "postingDateSource": "reported",
       "applyUrl": "https://www.bachtelen.ch/stelle/sozialpaedagogin-zyklus-3-60-75/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sozialpadagog-in-zyklus-3-60-75-bachtelen-dornach"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialpadagog-in-zyklus-3-60-75-bachtelen-dornach"
+        ],
+        "en": [
+          "sozialpadagog-in-zyklus-3-60-75-bachtelen-dornach"
+        ],
+        "fr": [
+          "sozialpadagog-in-zyklus-3-60-75-bachtelen-dornach"
+        ]
       },
+      "firstSeenAt": "2026-11-18T09:49:41.300Z",
       "salaryMin": 54800,
       "salaryMax": 93400,
       "salarySource": "estimated",
@@ -1518,24 +1513,93 @@
       },
       "streetAddress": "Dornach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-16T09:49:41.300Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-18T09:49:41.300Z",
+      "validThrough": "2027-02-16T21:51:34.976Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "bachtelen-96ecb617c0c6",
+      "slug": "capo-del-servizio-tecnico-al-100-stiftung-bachtelen-grenchen",
+      "slugByLocale": {
+        "it": "capo-del-servizio-tecnico-al-100-stiftung-bachtelen-grenchen",
+        "en": "head-of-technical-service-100-stiftung-bachtelen-grenchen",
+        "de": "leiter-in-technischer-dienst-100-bachtelen-grenchen",
+        "fr": "chef-du-service-technique-a-100-stiftung-bachtelen-grenchen"
+      },
+      "company": "Stiftung Bachtelen",
+      "companyKey": "bachtelen",
+      "companyDomain": "bachtelen.ch",
+      "title": "Leiter:in Technischer Dienst 100%",
+      "titleByLocale": {
+        "it": "Capo del Servizio Tecnico al 100%",
+        "en": "Head of Technical Service 100%",
+        "de": "Leiter:in Technischer Dienst 100%",
+        "fr": "Chef du service technique à 100 %"
+      },
+      "description": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n Der Bereich Immobilien und Dienste umfasst die technischen, handwerklichen und ICT-bezogenen unterstützenden Dienstleistungsangebote des Bachtelen.\n Per 1. April 2027 suchen wir für den Bereich Immobilien und Dienste eine:n\n Leiter:in Technischer Dienst 100%\n\nDeine Arbeit beinhaltet:\n\n• Instandhaltung der Gebäude, Fahrzeuge und Anlagen des Bachtelen, Koordination sowie selbständige Ausführung von Aufgaben\n\n• Leitung von Projekten im Fachbereich\n\n• Begleitung von Jugendlichen bei Einsätzen im Technischen Dienst, mit der dafür notwendigen Geduld, Einfühlvermögen und Verständnis\n\n• Führung des Teams mit drei Mitarbeitenden\n\n• Aufbau und Bewirtschaftung des CAFM\n\nDas bringst du mit:\n\n• Ausbildung im Bereich Sanitär / Heizung auf Stufe EFZ und Weiterbildung zur Hauswart:in oder fundierte Erfahrung in der Haustechnik\n\n• Ausbildung zur SIBE Brandschutz von Vorteil\n\n• Führerausweis Kat. B und Bereitschaft für Einsätze an allen Standorten des Bachtelen\n\n• Hohe Sozialkompetenz und ein Flair für den Umgang mit Kindern und Jugendlichen. Idealerweise bringst du bereits die Ausbildung zur Berufsbildung mit\n\nDas bieten wir dir:\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien, kurze Entscheidungswege und ein offenes, wertschätzendes Miteinander\n\n• Beruf und Freizeit gut planbar dank frühzeitiger Dienstpläne\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n\nDu hast Fragen?\n Gerne gibt dir Christoph Mohn unter 032 654 85 20 oder christoph.mohn@bachtelen.ch Auskunft.\n\nWir freuen uns auf deine Bewerbung!\n\nKontakt\n\nChristoph\n\nMohn\n\nBereichsleiter Immobilien und Dienste\n\n032 654 85 20\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
+      "descriptionByLocale": {
+        "it": "Bachtelen è coinvolto nel cantone di Solothurn con una vasta gamma di offerte per la promozione, il supporto e l'integrazione dei giovani. Questo include scuole speciali, varie offerte di alloggi, offerte terapeutiche coordinate individualmente, nonché consultazioni e centri di assistenza. Bachtelen impiega circa 550 persone.\nIl settore immobiliare e dei servizi comprende i servizi di supporto tecnico, artigianale e ICT offerti da Bachtelen.\nA partire dal 1 aprile 2027, stiamo cercando un:n\nHead:in Servizio Tecnico 100%\n\nIl tuo lavoro include:\n\n• Manutenzione di edifici, veicoli e impianti di Bachtelen, coordinamento e esecuzione indipendente dei compiti\n\n• Gestione dei progetti nel settore\n\n• Accompagnamento dei giovani in missioni di servizio tecnico, con la necessaria pazienza, empatia e comprensione\n\n• Leadership del team con tre dipendenti\n\n• Istituzione e gestione del CAFM\n\nQuesto è ciò che portate con voi:\n\n• Formazione nel campo dell'igiene/riscaldamento a livello EFZ e ulteriore formazione come domestica: esperienza approfondita o approfondita nella tecnologia dell'edilizia\n\n• La formazione per la protezione antincendio SIBE è vantaggiosa\n\n• Cat B patente di guida e disponibilità per le operazioni in tutte le sedi di Bachtelen\n\n• Un'alta competenza sociale e un'infinità per affrontare i bambini e i giovani. L'obiettivo è quello di promuovere la formazione professionale.\n\nQuesto è ciò che vi offriamo:\n\n• Un posto di lavoro attraente con un sacco di spazio per iniziativa e partecipazione\n\n• Gerarchie piatte, brevi percorsi decisionali e una cooperazione aperta e apprezzata\n\n• Carriera e tempo libero ben pianificato grazie ai primi programmi\n\n• Condizioni di lavoro contemporanee secondo gli orientamenti cantonali\n\n• Un ambiente di lavoro significativo in cui il tuo lavoro fa una vera differenza\n\n• Sostegno generoso (money and/or time) per l'ulteriore istruzione\n\nHai delle domande?\nChristoph Mohn può fornirvi informazioni su 032 654 85 20 o christoph.mohn@bachtelen.ch.\n\nAttendiamo con ansia la vostra applicazione!\n\nInformazioni di contatto\n\nChristoph\n\nPoppy\n\nResponsabile Immobili e Servizi\n\n032 654 85 20\n\nE-mail\nBachtelen Foundation — Special and Social Education Foundation nel Cantone di Solothurn.",
+        "en": "Bachtelen is involved in the canton of Solothurn with a wide range of offers for the promotion, support and integration of young people. This includes special schools, various housing offers, individually coordinated therapy offers as well as consultations and day care centers. Bachtelen employs around 550 people.\nThe real estate and services sector comprises the technical, artisanal and ICT-related support services offered by Bachtelen.\nAs of April 1, 2027, we are looking for a:n\nHead:in Technical Service 100%\n\nYour work includes:\n\n• Maintenance of buildings, vehicles and facilities of Bachtelen, coordination and independent execution of tasks\n\n• Management of projects in the field\n\n• Accompaniment of young people in technical service missions, with the necessary patience, empathy and understanding\n\n• Leadership of the team with three employees\n\n• Establishment and management of the CAFM\n\nThis is what you bring with you:\n\n• Training in the field of sanitary / heating at the EFZ level and further education as a housekeeper: in or in-depth experience in building technology\n\n• Training for SIBE fire protection is advantageous\n\n• Cat B driving licence and readiness for operations at all Bachtelen locations\n\n• High social competence and a flair for dealing with children and young people. Ideally, you already bring the training for vocational training\n\nThis is what we offer you:\n\n• An attractive workplace with plenty of room for initiative and participation\n\n• Flat hierarchies, short decision paths and an open, appreciative cooperation\n\n• Career and leisure well planned thanks to early schedules\n\n• Contemporary employment conditions according to cantonal guidelines\n\n• A meaningful work environment where your work makes a real difference\n\n• Generous support (money and/or time) for further education\n\nYou have questions?\nChristoph Mohn can provide you with information on 032 654 85 20 or christoph.mohn@bachtelen.ch.\n\nWe look forward to your application!\n\nContact details\n\nChristoph\n\nPoppy\n\nHead of Real Estate and Services\n\n032 654 85 20\n\nE-mail\nBachtelen Foundation — Special and Social Education Foundation in the Canton of Solothurn.",
+        "de": "Das Bachtelen engagiert sich im Kanton Solothurn mit vielfältigen Angeboten für die Förderung, Begleitung und Integration junger Menschen. Dazu gehören Sonderschulen, verschiedene Wohnangebote, individuell abgestimmte Therapieangebote sowie Beratungen und Kindertagesstätten. Das Bachtelen beschäftigt rund 550 Mitarbeitende.\n Der Bereich Immobilien und Dienste umfasst die technischen, handwerklichen und ICT-bezogenen unterstützenden Dienstleistungsangebote des Bachtelen.\n Per 1. April 2027 suchen wir für den Bereich Immobilien und Dienste eine:n\n Leiter:in Technischer Dienst 100%\n\nDeine Arbeit beinhaltet:\n\n• Instandhaltung der Gebäude, Fahrzeuge und Anlagen des Bachtelen, Koordination sowie selbständige Ausführung von Aufgaben\n\n• Leitung von Projekten im Fachbereich\n\n• Begleitung von Jugendlichen bei Einsätzen im Technischen Dienst, mit der dafür notwendigen Geduld, Einfühlvermögen und Verständnis\n\n• Führung des Teams mit drei Mitarbeitenden\n\n• Aufbau und Bewirtschaftung des CAFM\n\nDas bringst du mit:\n\n• Ausbildung im Bereich Sanitär / Heizung auf Stufe EFZ und Weiterbildung zur Hauswart:in oder fundierte Erfahrung in der Haustechnik\n\n• Ausbildung zur SIBE Brandschutz von Vorteil\n\n• Führerausweis Kat. B und Bereitschaft für Einsätze an allen Standorten des Bachtelen\n\n• Hohe Sozialkompetenz und ein Flair für den Umgang mit Kindern und Jugendlichen. Idealerweise bringst du bereits die Ausbildung zur Berufsbildung mit\n\nDas bieten wir dir:\n\n• Einen attraktiven Arbeitsplatz mit viel Raum für Eigeninitiative und Mitgestaltung\n\n• Flache Hierarchien, kurze Entscheidungswege und ein offenes, wertschätzendes Miteinander\n\n• Beruf und Freizeit gut planbar dank frühzeitiger Dienstpläne\n\n• Zeitgemässe Anstellungsbedingungen nach kantonalen Richtlinien\n\n• Ein sinnstiftendes Arbeitsumfeld, in dem deine Arbeit einen echten Unterschied macht\n\n• Grosszügige Unterstützung (Geld und/oder Zeit) bei Weiterbildungen\n\nDu hast Fragen?\n Gerne gibt dir Christoph Mohn unter 032 654 85 20 oder christoph.mohn@bachtelen.ch Auskunft.\n\nWir freuen uns auf deine Bewerbung!\n\nKontakt\n\nChristoph\n\nMohn\n\nBereichsleiter Immobilien und Dienste\n\n032 654 85 20\n\nE-Mail\nStiftung Bachtelen — Sonder- und sozialpädagogische Stiftung im Kanton Solothurn.",
+        "fr": "Bachtelen est impliqué dans le canton de Soleure avec un large éventail d'offres pour la promotion, le soutien et l'intégration des jeunes. Il s'agit notamment d'écoles spéciales, de diverses offres de logement, de thérapies coordonnées individuellement ainsi que de consultations et de garderies. Bachtelen emploie environ 550 personnes.\nLe secteur de l'immobilier et des services comprend les services de soutien technique, artisanal et TIC offerts par Bachtelen.\nEn date du 1er avril 2027, nous recherchons :\nChef:dans le service technique 100%\n\nVotre travail comprend :\n\n• Entretien des bâtiments, véhicules et installations de Bachtelen, coordination et exécution indépendante des tâches\n\n• Gestion des projets sur le terrain\n\n• Accompagnement des jeunes dans les missions de service technique, avec la patience, l'empathie et la compréhension nécessaires\n\n• Leadership de l'équipe avec trois employés\n\n• Établissement et gestion du CAFM\n\nVoici ce que vous apportez avec vous :\n\n• Formation dans le domaine de l'hygiène / chauffage au niveau de l'EFZ et formation continue en tant que femme de ménage: expérience ou expérience approfondie en matière de technologie du bâtiment\n\n• La formation pour la protection contre l'incendie SIBE est avantageuse\n\n• Permis de conduire Cat B et préparation aux opérations dans tous les emplacements de Bachtelen\n\n• Une grande compétence sociale et un flair pour traiter avec les enfants et les jeunes. Idéalement, vous apportez déjà la formation pour la formation professionnelle\n\nVoici ce que nous vous proposons :\n\n• Un lieu de travail attrayant avec beaucoup de place pour l'initiative et la participation\n\n• Hiérarchies plates, chemins de décision courts et coopération ouverte et appréciée\n\n• Carrière et loisirs bien planifiés grâce aux horaires précoces\n\n• Conditions d'emploi contemporaines selon les directives cantonales\n\n• Un environnement de travail significatif où votre travail fait une vraie différence\n\n• Soutien généreux (argent et/ou temps) à la formation continue\n\nVous avez des questions ?\nChristoph Mohn peut vous fournir des informations au 032 654 85 20 ou christoph.mohn@bachtelen.ch.\n\nNous attendons avec impatience votre candidature!\n\nCoordonnées\n\nChristoph\n\nPoppy\n\nResponsable de l'immobilier et des services\n\n032 654 85 20\n\nCourriel\nFondation Bachtelen — Fondation pour l'éducation spéciale et sociale dans le canton de Soleure."
+      },
+      "location": "Grenchen",
+      "canton": "SO",
+      "url": "https://www.bachtelen.ch/stelle/leiterin-technischer-dienst-100/",
+      "source": "Bachtelen Dedicated Parser (WP REST stelle)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-25T21:51:34.958Z",
+      "addressLocality": "Grenchen",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2540",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sociale / Educazione",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-19T07:48:18Z",
+      "postedDate": "2026-11-19T07:48:18Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.bachtelen.ch/stelle/leiterin-technischer-dienst-100/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "leiter-in-technischer-dienst-100-bachtelen-grenchen",
+        "responsabile-technischer-dienst-100-stiftung-bachtelen-grenchen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialpadagog-in-zyklus-3-60-75-bachtelen-dornach"
+          "leiter-in-technischer-dienst-100-bachtelen-grenchen",
+          "responsabile-technischer-dienst-100-stiftung-bachtelen-grenchen"
         ],
         "en": [
-          "sozialpadagog-in-zyklus-3-60-75-bachtelen-dornach"
+          "leiter-in-technischer-dienst-100-bachtelen-grenchen"
         ],
         "fr": [
-          "sozialpadagog-in-zyklus-3-60-75-bachtelen-dornach"
+          "leiter-in-technischer-dienst-100-bachtelen-grenchen"
         ]
       },
-      "previousSlugs": [
-        "sozialpadagog-in-zyklus-3-60-75-bachtelen-dornach"
-      ],
-      "sourceIdentity": "url:https://www.bachtelen.ch/stelle/sozialpaedagogin-zyklus-3-60-75"
+      "firstSeenAt": "2026-11-21T21:43:18.295Z",
+      "salaryMin": 105500,
+      "salaryMax": 160000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 105500,
+          "maxValue": 160000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Grenchen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-17T21:51:34.958Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

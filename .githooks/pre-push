@@ -8,7 +8,10 @@
 # Runs check-sibling-patterns.mjs against the commit being pushed: prints every
 # untouched file that shares a distinctive construct with the diff
 # (SCREAMING_SNAKE, camelCase helper, kebab import, literal slug). Always exits
-# 0 — see the ADVISORY note below.
+# 0 — see the ADVISORY note below. Only branch pushes (`refs/heads/*`) get the
+# reminder, since only a branch becomes a PR with a body to write; tags and
+# other refs skip it. The run is bounded by FRONTALIERE_PRE_PUSH_SIBLING_TIMEOUT_S
+# (default 120 s): past that the reminder is skipped and the push continues.
 #
 # ADVISORY dal 2026-09-04 (istruzione diretta del proprietario): questo hook
 # STAMPA i candidati e lascia passare il push. Non blocca piu'.
@@ -102,6 +105,9 @@ if [ "${GITHUB_ACTIONS:-}" = "true" ] || [ -n "${FRONTALIERE_AUTOMATED_DATA_PUSH
   all_main=1
   while read -r _local_ref _local_sha remote_ref _remote_sha; do
     [ -z "$remote_ref" ] && continue
+    # Tags and other non-branch refs never get the reminder (loop below), so
+    # they must not turn a main-only data push into a full sibling sweep.
+    case "$remote_ref" in refs/heads/*) ;; *) continue ;; esac
     any_ref=1
     if [ "$remote_ref" != "refs/heads/main" ]; then all_main=0; fi
   done <<< "$push_input"
@@ -116,14 +122,57 @@ if [ "${GITHUB_ACTIONS:-}" = "true" ] || [ -n "${FRONTALIERE_AUTOMATED_DATA_PUSH
 fi
 
 # Niente `--strict`: senza quel flag lo script stampa i candidati ed esce 0.
+# Solo un branch diventa una PR con un body da scrivere: tag e altri ref non
+# ricevono il promemoria.
+# Gli snapshot `refs/tags/snapshot/*` che prune-merged-worktrees spinge prima
+# di rimuovere un worktree con commit propri lo pagavano ~37 minuti l'uno sul
+# Mac agenti (2026-11-24), con lock della sweep tenuto e diff su clone parziale.
+# old-history-guard sopra resta attivo anche per i tag.
+run_sibling_reminder() {
+  local budget=${FRONTALIERE_PRE_PUSH_SIBLING_TIMEOUT_S:-120}
+  local tmp_root=${TMPDIR:-/tmp}
+  tmp_root=${tmp_root%/}
+  local run_tmp
+  # Advisory: without a temp dir the checker cannot run anyway, and the
+  # reminder must never block the push.
+  if ! run_tmp=$(mktemp -d "$tmp_root/sibling-gate.XXXXXX" 2>/dev/null); then
+    echo "sibling-gate: TMPDIR non scrivibile ($tmp_root), promemoria saltato (il push continua)"
+    return 0
+  fi
+  # Private TMPDIR: when the cap kills node, the HEAD snapshots it could not
+  # clean up (100+ MB each) go away with this directory. The result cache
+  # stays shared so later pushes of the same SHA still reuse it.
+  TMPDIR="$run_tmp" CHECK_SIBLING_PATTERNS_CACHE_DIR="$tmp_root/frontaliere-check-sibling-patterns" \
+    node scripts/ci/check-sibling-patterns.mjs "$@" &
+  local pid=$!
+  # The watcher's stdio is detached: a leftover `sleep` must not hold the
+  # push's output pipe open after the reminder ends.
+  ( sleep "$budget"; : >"$run_tmp/.timed-out"; kill -TERM "$pid" 2>/dev/null ) >/dev/null 2>&1 &
+  local watcher=$!
+  local status=0
+  wait "$pid" || status=$?
+  pkill -P "$watcher" 2>/dev/null || true
+  kill "$watcher" 2>/dev/null || true
+  local timed_out=0
+  [ -e "$run_tmp/.timed-out" ] && timed_out=1
+  rm -rf "$run_tmp"
+  if [ "$timed_out" = 1 ]; then
+    echo "sibling-gate: interrotto dopo ${budget}s, promemoria saltato (il push continua)"
+    return 0
+  fi
+  return "$status"
+}
+
 if [ -n "$push_input" ]; then
-  while read -r _local_ref local_sha _remote_ref _remote_sha; do
+  while read -r _local_ref local_sha remote_ref _remote_sha; do
     [ -z "$local_sha" ] && continue
-    case "$local_sha" in
-      0000000000000000000000000000000000000000) continue ;;
+    is_zero_sha "$local_sha" && continue
+    case "$remote_ref" in
+      refs/heads/*) ;;
+      *) echo "sibling-gate: skipped for non-branch ref $remote_ref"; continue ;;
     esac
-    node scripts/ci/check-sibling-patterns.mjs --head "$local_sha"
+    run_sibling_reminder --head "$local_sha"
   done <<< "$push_input"
 else
-  node scripts/ci/check-sibling-patterns.mjs
+  run_sibling_reminder
 fi

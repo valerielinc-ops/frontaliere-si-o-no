@@ -12,20 +12,20 @@
       "listingType": "auction",
       "vehicleType": "car",
       "auctionStatus": "closed",
-      "currentBidChf": 860,
+      "currentBidChf": 1200,
       "startingPriceChf": 500,
-      "bidCount": 10,
+      "bidCount": 17,
       "minimumIncrementChf": 20,
       "endsAt": "2026-11-18T18:30:00.000Z",
       "closedAt": "2026-11-18T18:30:00.000Z",
       "officialAuctionUrl": "https://egov.stva.sg.ch/ecari-auction/ui/app/init",
       "officialDetailUrl": "https://egov.stva.sg.ch/ecari-auction/ui/app/details/app?id=6710",
-      "sourceFetchedAt": "2026-11-18T07:26:38.499Z",
-      "lastVerifiedAt": "2026-11-18T07:26:38.499Z",
+      "sourceFetchedAt": "2026-11-18T17:47:07.965Z",
+      "lastVerifiedAt": "2026-11-18T17:47:07.965Z",
       "firstSeenAt": "2026-11-12T00:42:29.829Z",
-      "lastSeenAt": "2026-11-18T07:26:38.499Z",
+      "lastSeenAt": "2026-11-18T17:47:07.965Z",
       "dataConfidence": "partial",
-      "rawSnapshotHash": "ecb8802044bd"
+      "rawSnapshotHash": "458011bd82b6"
     }
   ]
 }

@@ -7,7 +7,7 @@
   "seedUrls": [
     "https://servicekuhn.ch/jobs/"
   ],
-  "detailTemplate": "/jobs/",
+  "detailTemplate": "/jobs/*",
   "detailEnrichment": false,
   "detailFetchWorkers": 4,
   "sampleVacancyCount": 2,

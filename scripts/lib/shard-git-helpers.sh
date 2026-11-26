@@ -134,6 +134,42 @@ shard_delta_report_missing_paths() {
   done < "$details_file"
 }
 
+# shard_delta_map_path_list <input> <output> <layout> [scope_prefix]
+# Delta manifests and source inventories remain canonical. Only paths written
+# to or compared with the seeded Git index are mapped to the remote physical
+# layout. Keep this bridge shared by unchanged checks, tombstones, and source
+# updates so those three views cannot disagree about a hash-v1 target.
+shard_delta_map_path_list() {
+  local input="$1" output="$2" layout="${3:-canonical}" scope_prefix="${4:-}"
+  local fanout_section
+  [ -f "$input" ] || return 1
+  case "$layout" in
+    canonical)
+      # Match map-paths semantics exactly: empty records are separators, not
+      # paths. Keeping one here would shift the parallel source/target streams
+      # consumed by shard_delta_apply_source_tree.
+      perl -e '
+        use strict;
+        use warnings;
+        local $/ = "\0";
+        while (defined(my $path = <STDIN>)) {
+          $path =~ s/\0\z//;
+          print "$path\0" if $path ne q{};
+        }
+      ' < "$input" > "$output"
+      ;;
+    ticino-hash-v1|zurigo-hash-v1)
+      fanout_section="${layout%-hash-v1}"
+      node "$SHARD_GIT_HELPERS_DIR/ticino-tree-fanout.mjs" \
+        map-paths "$fanout_section" "$scope_prefix" < "$input" > "$output"
+      ;;
+    *)
+      SHARD_DELTA_REASON="unsupported delta path layout '$layout'"
+      return 1
+      ;;
+  esac
+}
+
 # shard_manifest_snapshot <current_manifest> <scope> <source_root> <tool> <out_dir>
 # Validates the current build manifest and writes the filtered snapshot used by
 # a full fallback as well as by a successful delta. The Node tool owns the
@@ -155,20 +191,23 @@ shard_manifest_snapshot() {
 
 # shard_delta_clone_and_prepare <stage> <repo> <current_manifest>
 #   <sidecar_path> <scope> <source_root> <tool> <out_dir> <history_cap> <label>
-#   [full_rewrite_threshold] [remote_layout_path]
+#   [full_rewrite_threshold] [remote_layout_path] [remote_hash_layout]
 # Clone the remote without checking out blobs, validate both manifest sides,
 # and seed the index from HEAD. Return 0 only when the caller may apply a delta.
 # Normal fallback reasons return 1 and are exposed in SHARD_DELTA_REASON. When
-# remote_layout_path is supplied, a proven _tree below that path returns 2 and
-# sets SHARD_DELTA_REMOTE_LAYOUT_FANNED; the section publisher must use its full
-# overlay in that case because the delta manifest still names canonical paths.
+# remote_layout_path is supplied, the probe selects either canonical or the
+# explicit hash-v1 path layout. An unreadable probe remains a full fallback;
+# a readable hash-v1 remote keeps the manifest canonical and maps only index
+# operations through shard_delta_map_path_list.
 shard_delta_clone_and_prepare() {
   local stage="$1" repo="$2" current="$3" sidecar="$4" scope="$5"
   local source_root="$6" tool="$7" out_dir="$8" history_cap="$9" label="${10:-shard}"
   local full_rewrite_threshold="${11:-}" remote_layout_path="${12:-}"
+  local remote_hash_layout="${13:-canonical}"
   local clone_err previous_manifest layout_probe_rc
   SHARD_DELTA_REASON=''
   SHARD_DELTA_REMOTE_LAYOUT_FANNED=0
+  SHARD_DELTA_PATH_LAYOUT=canonical
   SHARD_DELTA_DCOUNT=0
   SHARD_DELTA_PREV_N=0
   SHARD_DELTA_FULL_REWRITE=0
@@ -197,8 +236,13 @@ shard_delta_clone_and_prepare() {
       0) ;;
       1)
         SHARD_DELTA_REMOTE_LAYOUT_FANNED=1
-        SHARD_DELTA_REASON='remote layout already hash-fanned'
-        return 2
+        case "$remote_hash_layout" in
+          ticino-hash-v1|zurigo-hash-v1) SHARD_DELTA_PATH_LAYOUT="$remote_hash_layout" ;;
+          *)
+            SHARD_DELTA_REASON="remote hash-fanned layout conflicts with registry layout '$remote_hash_layout'"
+            return 1
+            ;;
+        esac
         ;;
       *)
         SHARD_DELTA_REASON="${SHARD_REMOTE_LAYOUT_PROBE_REASON:-remote layout probe unreadable}"
@@ -524,13 +568,19 @@ shard_index_has_content_changes() {
 # x.html are different published files even when they describe one route.
 shard_delta_check_unchanged_payload_paths() {
   local stage="$1" scope_prefix="$2" unchanged_file_list="$3"
-  local work index_dump missing_file
+  local layout="${4:-canonical}"
+  local work index_dump missing_file mapped_unchanged
   [ -n "$unchanged_file_list" ] && [ -f "$unchanged_file_list" ] || return 0
   [ -s "$unchanged_file_list" ] || return 0
 
   work="$(mktemp -d)" || return 1
   index_dump="$work/index.dump"
   missing_file="$work/missing-unchanged"
+  mapped_unchanged="$work/mapped-unchanged"
+  if ! shard_delta_map_path_list "$unchanged_file_list" "$mapped_unchanged" "$layout"; then
+    rm -rf "$work"
+    return 1
+  fi
   if [ -n "$scope_prefix" ]; then
     if ! git -C "$stage" -c core.quotePath=false ls-files --stage -z -- "$scope_prefix/" > "$index_dump"; then
       rm -rf "$work"
@@ -589,7 +639,7 @@ shard_delta_check_unchanged_payload_paths() {
         print {$missing} "$target$nul$reason$nul";
       }
       close $missing or die "close $missing_file: $!";
-    ' "$index_dump" "$unchanged_file_list" "$scope_prefix" "$missing_file"; then
+    ' "$index_dump" "$mapped_unchanged" "$scope_prefix" "$missing_file"; then
     rm -rf "$work"
     return 1
   fi
@@ -626,8 +676,10 @@ shard_delta_remove_stale_payload_paths() {
   local stage="$1" scope_prefix="$2" payload_file_list="$3" removed_file="$4"
   local require_tombstones="${5:-1}"
   local manifest_payload_file="${6:-}"
+  local layout="${7:-canonical}"
   local work index_dump delete_info count_file missing_file missing_reason_file
   local noop_file noop_reason_file removed_count noop_reason
+  local mapped_payload mapped_manifest_payload mapped_removed
   # This pass runs once per shard before source application. Reset the
   # per-plan counters here so a multi-shard deploy cannot inherit removals
   # from the preceding locale/section shard.
@@ -652,6 +704,15 @@ shard_delta_remove_stale_payload_paths() {
   missing_reason_file="$work/missing-tombstone-details"
   noop_file="$work/noop-tombstones"
   noop_reason_file="$work/noop-tombstone-details"
+  mapped_payload="$work/mapped-payload"
+  mapped_manifest_payload="$work/mapped-manifest-payload"
+  mapped_removed="$work/mapped-removed"
+  if ! shard_delta_map_path_list "$payload_file_list" "$mapped_payload" "$layout" \
+    || ! shard_delta_map_path_list "$manifest_payload_file" "$mapped_manifest_payload" "$layout" \
+    || ! shard_delta_map_path_list "$removed_file" "$mapped_removed" "$layout" "$scope_prefix"; then
+    rm -rf "$work"
+    return 1
+  fi
   if [ -n "$scope_prefix" ]; then
     if ! git -C "$stage" -c core.quotePath=false ls-files --stage -z -- "$scope_prefix/" > "$index_dump"; then
       rm -rf "$work"
@@ -810,7 +871,7 @@ shard_delta_remove_stale_payload_paths() {
       open my $count_handle, ">:raw", $count_file or die "open $count_file: $!";
       print {$count_handle} "$matched\n";
       close $count_handle or die "close $count_file: $!";
-    ' "$index_dump" "$payload_file_list" "$manifest_payload_file" "$removed_file" "$scope_prefix" \
+    ' "$index_dump" "$mapped_payload" "$mapped_manifest_payload" "$mapped_removed" "$scope_prefix" \
       "$delete_info" "$count_file" "$missing_file" "$missing_reason_file" "$noop_file" "$noop_reason_file"; then
     rm -rf "$work"
     return 1
@@ -852,7 +913,7 @@ shard_delta_remove_file() {
 
 # shard_delta_apply_source_tree <stage> <source_root> <target_prefix>
 #   <changed_file_list> <unmanifested_file_list> <payload_file_list>
-#   [write_all_hashed_objects]
+#   [write_all_hashed_objects] [layout]
 # Manifest-covered paths arrive from shard-manifest-delta.mjs as a changed
 # file list; all other payload paths arrive as a second list. Unchanged live
 # paths stay as index entries pointing at the remote blobs and are never
@@ -863,7 +924,8 @@ shard_delta_apply_source_tree() {
   local stage="$1" source_root="$2" target_prefix="$3"
   local changed_file_list="$4" unmanifested_file_list="$5" payload_file_list="$6"
   local write_all_hashed_objects="${7:-0}"
-  local work candidate_list metadata source_paths index_dump hashes
+  local layout="${8:-canonical}"
+  local work candidate_list target_list metadata source_paths index_dump hashes
   local changed_sources index_info count_file source_count unmanifested_count changed_count
   [ -d "$source_root" ] || return 1
   source_root="$(cd "$source_root" && pwd)" || return 1
@@ -878,6 +940,7 @@ shard_delta_apply_source_tree() {
   SHARD_DELTA_CONTENT_CHANGES="${SHARD_DELTA_CONTENT_CHANGES:-0}"
   work="$(mktemp -d)" || return 1
   candidate_list="$work/candidates.list"
+  target_list="$work/targets.list"
   metadata="$work/metadata.list"
   source_paths="$work/source-paths.list"
   index_dump="$work/index.dump"
@@ -888,6 +951,10 @@ shard_delta_apply_source_tree() {
 
   if ! cp "$changed_file_list" "$candidate_list" \
     || ! cat "$unmanifested_file_list" >> "$candidate_list"; then
+    rm -rf "$work"
+    return 1
+  fi
+  if ! shard_delta_map_path_list "$candidate_list" "$target_list" "$layout"; then
     rm -rf "$work"
     return 1
   fi
@@ -903,16 +970,20 @@ shard_delta_apply_source_tree() {
     if ! perl -e '
         use strict;
         use warnings;
-        my ($root, $prefix, $candidate_file, $metadata_file, $source_file) = @ARGV;
+        my ($root, $prefix, $candidate_file, $target_file, $metadata_file, $source_file) = @ARGV;
         open my $input, "<:raw", $candidate_file or die "open $candidate_file: $!";
+        open my $targets, "<:raw", $target_file or die "open $target_file: $!";
         open my $metadata, ">:raw", $metadata_file or die "open $metadata_file: $!";
         open my $sources, ">:raw", $source_file or die "open $source_file: $!";
         local $/ = "\0";
         while (defined(my $relative = <$input>)) {
           chop $relative;
           next if $relative eq q{};
+          my $target_relative = <$targets>;
+          die "target path list shorter than source path list" unless defined $target_relative;
+          chop $target_relative;
           my $source = "$root/$relative";
-          my $target = $prefix eq q{} ? $relative : "$prefix/$relative";
+          my $target = $prefix eq q{} ? $target_relative : "$prefix/$target_relative";
           # `git hash-object --stdin-paths` is newline-delimited and has no
           # NUL mode. Reject this otherwise valid Git path before building the
           # bridge rather than splitting it into multiple source paths.
@@ -924,10 +995,12 @@ shard_delta_apply_source_tree() {
           # the NUL streams remain authoritative everywhere else.
           print {$sources} "$source\n";
         }
+        die "target path list longer than source path list" if defined <$targets>;
         close $input or die "close $candidate_file: $!";
+        close $targets or die "close $target_file: $!";
         close $metadata or die "close $metadata_file: $!";
         close $sources or die "close $source_file: $!";
-      ' "$source_root" "$target_prefix" "$candidate_list" "$metadata" "$source_paths"; then
+      ' "$source_root" "$target_prefix" "$candidate_list" "$target_list" "$metadata" "$source_paths"; then
       rm -rf "$work"
       return 1
     fi
@@ -1095,7 +1168,9 @@ shard_delta_verify_prepare() {
       SHARD_VERIFY_REASON='verification output directory unavailable'
       return 1
     fi
-    if ! ( cd "$payload_root" && find . -type f -print0 | perl -0ne 's#^\./##; print "$_\0"' ) > "$out_dir/payload-files.txt"; then
+    # Perl's -0 reader keeps the NUL delimiter in $_; print the record as-is
+    # after removing ./ so the source and mapped-target streams stay one-to-one.
+    if ! ( cd "$payload_root" && find . -type f -print0 | perl -0ne 's#^\./##; print' ) > "$out_dir/payload-files.txt"; then
       SHARD_VERIFY_REASON='verification payload listing failed'
       return 1
     fi

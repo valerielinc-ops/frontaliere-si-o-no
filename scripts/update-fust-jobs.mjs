@@ -989,7 +989,11 @@ async function writeReconciledFustScratch(discovery, priorJobs, { refreshSource 
   // and facts) is one vacancy. The collapsed URL leaves the authoritative set
   // like a withdrawn one, so the completeness check does not count it as a
   // parse failure.
-  const { kept: distinctJobs, collapsed } = collapseRepublishedCoopVacancies(sourceBackedJobs);
+  const { kept: distinctJobs, collapsed } = collapseRepublishedCoopVacancies(sourceBackedJobs, {
+    onRouteHistoryOverflow: (overflowJobs, activeJobs) => {
+      archiveRemovedJobsToSlice(overflowJobs, FUST_KEY, { activeJobs });
+    },
+  });
   for (const { url, keptUrl } of collapsed) {
     fustCollapsedUrls.add(url);
     goneUrls.push(url);

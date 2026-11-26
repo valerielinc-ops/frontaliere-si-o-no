@@ -170,6 +170,12 @@ export const ISSUE_DENY_PATTERNS = [
   // MUST mirror UNIVERSAL_BENIGN_PATTERNS in services/benignErrorPatterns.ts
   // — parity-pinned by tests/error-issue-sync.test.ts ("deny-list parity").
   /NotReadableError: The I\/O read operation failed/i,
+  // Privacy-protected Battery Status API access (#19704): a third-party
+  // battery probe is rejected by the browser's privacy layer, and this app
+  // does not call navigator.getBattery(). Keep the exact phrase narrow.
+  // MUST mirror UNIVERSAL_BENIGN_PATTERNS in services/benignErrorPatterns.ts
+  // — parity-pinned by tests/error-issue-sync.test.ts.
+  /Battery access is blocked by privacy protection\.?$/i,
 ];
 
 /**

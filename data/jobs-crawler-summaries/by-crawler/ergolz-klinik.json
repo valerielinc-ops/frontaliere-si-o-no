@@ -1,7 +1,7 @@
 {
   "key": "ergolz-klinik",
   "label": "Ergolz Klinik",
-  "generatedAt": "2026-11-20T21:24:58.523Z",
+  "generatedAt": "2026-11-25T21:24:55.523Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4853,
-  "avgDurationMs": 4853,
+  "durationMs": 4242,
+  "avgDurationMs": 4242,
   "durationHistory": [
-    4853
+    4242
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/04/Inserat-Anasthesie-Pflege-60-80.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:24:39.671Z",
+      "crawledAt": "2026-11-25T21:24:36.102Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -73,7 +73,7 @@
       },
       "streetAddress": "Hammerstrasse 35",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T21:24:39.671Z",
+      "validThrough": "2026-12-25T21:24:36.102Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -84,5 +84,5 @@
       }
     }
   ],
-  "codeCommit": "07c2e8305c6747f1893222ba4bfdddc597008157"
+  "codeCommit": "0c64b1f2eae0b337b537e356aa5de051b9c4c6cc"
 }

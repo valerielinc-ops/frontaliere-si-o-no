@@ -37,7 +37,10 @@ import {
   BROWSER_EXTENSION_ORIGIN_PATTERN,
   isGoogleVignetteInjectedOpaqueError,
   isGoogleIosAppInjectedStackOverflow,
+  isFirefoxDeadObjectFromRedactedSource,
   isOriginRedactedThirdPartyStack,
+  readErrorDetailsSafely,
+  readErrorEventDetailsSafely,
 } from './benignErrorPatterns';
 
 /** Patterns that match benign / unactionable exception messages. */
@@ -74,12 +77,27 @@ export const THIRD_PARTY_STACK_ORIGINS: readonly RegExp[] = [
   // The library is third-party and can throw errors entirely inside its own
   // securepubads.g.doubleclick.net frames; no first-party fix is possible.
   /^https:\/\/securepubads\.g\.doubleclick\.net\//i,
+  // Google Funding Choices CMP — #19705.
+  // The reported PostHog sample is a RangeError whose resolved frames are
+  // Funding Choices
+  // runtime URLs interleaved with `[native code]`; the recursion is inside the
+  // vendor CMP, not the page. Keep the origin check narrow and fail open for
+  // any first-party frame.
+  /^https:\/\/fundingchoicesmessages\.google\.com\//i,
   // Google reCAPTCHA Enterprise — #19025.
   // The live PostHog sample was `reCAPTCHA Timeout (b)` with every resolved
   // frame in Google's gstatic reCAPTCHA release; the timeout is inside the
   // vendor client and cannot be fixed by this application.
   /^https:\/\/www\.gstatic\.com\/recaptcha\//i,
 ];
+
+/**
+ * V8/WebKit can expose native frames alongside the URL-bearing frames of a
+ * third-party runtime. They carry no ownership information, so they are
+ * neutral in the all-third-party verdict; a stack containing only native
+ * frames still fails open.
+ */
+export const NATIVE_CODE_FRAME_PATTERN = /^\[native code\]$/i;
 
 /**
  * Minimal PostHog event shape we depend on. Avoids importing posthog-js
@@ -159,15 +177,19 @@ function eventPageUrl(event: PostHogExceptionEvent): string {
 }
 
 /**
- * True when the exception has at least one resolved stack frame AND every
- * frame's origin matches a known third-party script we do not control
- * (see `THIRD_PARTY_STACK_ORIGINS`). An exception with zero frames is NOT
- * considered third-party-only (nothing to go on — fail open, keep visible).
+ * True when the exception has at least one ownership-bearing resolved stack
+ * frame AND every such frame's origin matches a known third-party script we do
+ * not control (see `THIRD_PARTY_STACK_ORIGINS`). Native frames are neutral:
+ * browsers can insert them into a vendor stack, but they do not prove
+ * first-party ownership. An exception with zero ownership-bearing frames is
+ * NOT considered third-party-only (nothing to go on — fail open, keep visible).
  */
 function isThirdPartyStackOnly(event: PostHogExceptionEvent): boolean {
   const origins = extractStackFrameOrigins(event);
   if (origins.length === 0) return false;
-  return origins.every((origin) => THIRD_PARTY_STACK_ORIGINS.some((pattern) => pattern.test(origin)));
+  const ownershipBearingOrigins = origins.filter((origin) => !NATIVE_CODE_FRAME_PATTERN.test(origin));
+  if (ownershipBearingOrigins.length === 0) return false;
+  return ownershipBearingOrigins.every((origin) => THIRD_PARTY_STACK_ORIGINS.some((pattern) => pattern.test(origin)));
 }
 
 // ──────────────────────────────────────────────────────────────────────────
@@ -223,6 +245,18 @@ function lookupRawErrorStack(message: string): string {
 }
 
 /**
+ * PostHog may preserve Analytics' source-less synthetic fallback as the raw
+ * stack. `at :0:1` carries line/column placeholders but no file or origin, so
+ * it must not defeat the already message+Firefox-gated dead-object classifier.
+ * Every other non-empty raw stack remains source evidence (fail open).
+ */
+function rawStackHasIdentifiableSource(rawStack: string): boolean {
+  const normalized = rawStack.trim();
+  if (!normalized) return false;
+  return !/^(?:TypeError:\s*can't access dead object\s*\n)?\s*at\s+:0:1$/i.test(normalized);
+}
+
+/**
  * Register the raw-stack recorder. Idempotent, and a no-op outside the browser.
  * Call synchronously from `initPostHog()` before the PostHog SDK is imported.
  */
@@ -230,12 +264,12 @@ export function installRawStackRecorder(): void {
   if (rawStackRecorderInstalled || typeof window === 'undefined') return;
   rawStackRecorderInstalled = true;
   window.addEventListener('error', (event) => {
-    const err = (event as ErrorEvent).error;
-    if (err instanceof Error && err.stack) recordRawErrorStack(err.message || event.message || '', err.stack);
+    const details = readErrorEventDetailsSafely(event as ErrorEvent);
+    if (details.stack) recordRawErrorStack(details.message || event.message || '', details.stack);
   });
   window.addEventListener('unhandledrejection', (event) => {
-    const reason = (event as PromiseRejectionEvent).reason;
-    if (reason instanceof Error && reason.stack) recordRawErrorStack(reason.message || '', reason.stack);
+    const details = readErrorDetailsSafely((event as PromiseRejectionEvent).reason);
+    if (details.stack) recordRawErrorStack(details.message, details.stack);
   });
 }
 
@@ -256,6 +290,11 @@ export function createExceptionFilter() {
     if (isThirdPartyStackOnly(event)) return null;
     const origins = extractStackFrameOrigins(event);
     const rawStack = origins.length === 0 ? lookupRawErrorStack(blob) : '';
+    if (isFirefoxDeadObjectFromRedactedSource({
+      message: blob,
+      userAgent: eventUserAgent(event),
+      hasSource: origins.length > 0 || rawStackHasIdentifiableSource(rawStack),
+    })) return null;
     if (isGoogleIosAppInjectedStackOverflow(
       blob,
       origins.length > 0 ? origins.join('\n') : rawStack,

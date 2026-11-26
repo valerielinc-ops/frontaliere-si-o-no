@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hermes",
-  "assembledAt": "2026-11-20T21:26:04.249Z",
-  "runId": "44817363600",
+  "assembledAt": "2026-11-25T21:25:19.181Z",
+  "runId": "45700986462",
   "jobs": [
     {
       "id": "hermes-da512457b984",
@@ -34,7 +34,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/23533",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:25:57.774Z",
+      "crawledAt": "2026-11-25T21:25:12.894Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -86,9 +86,8 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T21:25:57.774Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://talents.hermes.com/en/sites/cx/job/23533"
+      "validThrough": "2027-01-18T21:25:12.894Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hermes-d9d48120d0a2",
@@ -121,7 +120,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24713",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:25:57.057Z",
+      "crawledAt": "2026-11-25T21:25:12.213Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -172,9 +171,8 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:25:57.057Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://talents.hermes.com/en/sites/cx/job/24713"
+      "validThrough": "2027-02-01T21:25:12.213Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hermes-b27da2909ac4",
@@ -207,7 +205,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24858",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:25:56.382Z",
+      "crawledAt": "2026-11-25T21:25:11.525Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -256,9 +254,8 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:25:56.382Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://talents.hermes.com/en/sites/cx/job/24858"
+      "validThrough": "2027-02-10T21:25:11.525Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hermes-e6ef73b9a7bf",
@@ -291,7 +288,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24867",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:25:55.672Z",
+      "crawledAt": "2026-11-25T21:25:10.851Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -340,9 +337,8 @@
       "postalCode": "2340",
       "streetAddress": "Le Noirmont",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:25:55.672Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://talents.hermes.com/en/sites/cx/job/24867"
+      "validThrough": "2027-02-14T21:25:10.851Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hermes-fbd6d61750c5",
@@ -375,7 +371,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24863",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T21:25:54.910Z",
+      "crawledAt": "2026-11-25T21:25:10.181Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -425,44 +421,44 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:25:54.910Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://talents.hermes.com/en/sites/cx/job/24863"
+      "validThrough": "2027-02-14T21:25:10.181Z",
+      "validThroughSource": "last-observed-window"
     },
     {
-      "id": "hermes-e7aff9ec59f7",
-      "slug": "cdd-supporto-invernale-m-f-hermes-gstaad-bern-switzerland",
+      "id": "hermes-67e5225af957",
+      "slug": "csd-controller-interno-ginevra-m-f-hermes-geneve-geneva-switzerland",
       "slugByLocale": {
-        "it": "cdd-supporto-invernale-m-f-hermes-gstaad-bern-switzerland",
-        "en": "cdd-winter-support-w-m-hermes-ch",
-        "de": "cdd-winter-support-w-m-hermes-ch",
-        "fr": "cdd-soutien-hivernal-h-f-hermes-gstaad-bern-switzerland"
+        "it": "csd-controller-interno-ginevra-m-f-hermes-geneve-geneva-switzerland",
+        "en": "csd-internal-controller-geneva-m-f-hermes-geneve-geneva-switzerland",
+        "de": "csd-interner-controller-genf-m-w-hermes-geneve-geneva-switzerland",
+        "fr": "cdd-controleur-euse-interne-geneve-f-h-hermes-ch"
       },
       "company": "Hermès",
       "companyKey": "hermes",
       "companyDomain": "hermes.com",
-      "title": "CDD - Winter Support (W/M)",
+      "title": "CDD - Contrôleur(euse) interne Genève (F/H)",
       "titleByLocale": {
-        "it": "CDD - Supporto invernale (M/F)",
-        "en": "CDD - Winter Support (W/M)",
-        "de": "CDD - Winter Support (M/W)",
-        "fr": "CDD - Soutien hivernal (H/F)"
+        "it": "CSD - Controller interno Ginevra (M/F)",
+        "en": "CSD - Internal Controller Geneva (M/F)",
+        "de": "CSD - Interner Controller Genf (M/W)",
+        "fr": "CDD - Contrôleur(euse) interne Genève (F/H)"
       },
-      "description": "Hermès is the name of a house, but above all it is the name of a family that, for almost two centuries, has written the history of a Parisian company founded on know-how and quality, tradition, and innovation.\n\nFrom harness-maker to saddler, Hermès today deploys its creativity through 16 crafts. The watchwords have remained the same: exacting standards and authenticity, elegance and sobriety, fantasy, and audacity.\n\nHermès creates, sells and manufactures beautiful, useful and durable objects. The company employs over 25,000 people in 50 countries and 60 subsidiaries, all artisans in their own way and all committed to the House's long-term project.\n\nOur DNA is built up of People, Passion, Personality and of course, our wonderful Product.\n\nThe desired dates would be from December 14, 2026, to January 15, 2026, at our store in Gstaad.\n\nWhat will your daily life look like?\n\n• You will be the client’s first impression of Hermès image and convey simplicity & generosity at all times\n\n• You provide excellent customer service adapted the culture & personality of each client and maintain a pleasant shopping environment consistent with the Hermès brand image\n\n• You develop sales across all product universes, always keeping in mind the quality of products & the excellence of service that Hermès wishes to give to its clients\n\n• You call on current & potential customers to establish & maintain client relationship and to inform about new products & services\n\n• You identify & handle client enquiries and concerns\n\nWhat can we offer you?\n\n• You will be part of a collective adventure, joining a small dynamic team with great spirit and high standards\n\n• You will discover a growing house with a strong and family base and responsible values\n\n• You will have the chance to build your bespoke career path\n\n• You will have the opportunity to bring & develop your own local client network.\n\nProfile:\n\n• Excellent communication skills, a service-oriented mindset, and a warm, welcoming demeanor\n\n• Good stress management, a sense of priorities, and high reliability\n\n• Great adaptability and a curious mindset\n\n• Fluency in English and either French or German\n\n• Elegance, dynamism, and enthusiasm\n\n• Team spirit and a caring attitude\n\nAs a responsible employer, we are committed to ethics, diversity and inclusion. Join the Hermès human adventure!",
+      "description": "CONTEXTE :\n Hermès est présent en Suisse depuis plus de 70 ans et opère aujourd'hui un réseau de 8 magasins sur le territoire helvétique. La filiale suisse assure également le pilotage d'un périmètre Retail international comprenant deux boutiques en Europe centrale, en Pologne et en République tchèque.\n Afin d'accompagner la croissance de ce réseau et de garantir les plus hauts standards d'excellence opérationnelle, la Direction Financière recherche un Responsable Contrôle Interne Retail.\n Basé à Genève, ce poste à forte dimension terrain et internationale contribue à la sécurisation des opérations, à la protection des actifs et à l'amélioration continue des processus au sein de l'ensemble du réseau.\n MISSION DETAILLEES :\n\n• Piloter le dispositif de contrôle interne Retail\n\n• Identifier et évaluer les risques opérationnels, financiers et de conformité du réseau de boutiques.\n\n• Définir et déployer le plan annuel de contrôle interne.\n\n• Réaliser des revues régulières en boutique et suivre les plans d'actions associés.\n\n• Contrôler les processus clés : ventes, encaissements, stocks, inventaires, retours, remises et protection des actifs.\n\n• Analyser les incidents, écarts d'inventaire et risques de fraude afin de renforcer les dispositifs de prévention.\n\n• Assurer la bonne application des procédures Groupe et des réglementations locales.\n\n2. Accompagner les projets et la transformation Retail\n\n• Intégrer les enjeux de maîtrise des risques dans les projets d'ouverture, rénovation ou transformation de boutiques.\n\n• Participer à l'évolution des processus et outils Retail (POS, stock, omnicanal, clienteling).\n\n• Évaluer les risques liés aux nouveaux projets et définir les contrôles adaptés.\n\n• Garantir la conformité des dispositifs déployés avec les standards du Groupe.\n\n3. Développer la culture risque et contrôle interne\n\n• Former et accompagner les équipes boutiques et les managers.\n\n• Sensibiliser aux enjeux de fraude, conformité, protection des actifs et gestion des stocks.\n\n• Diffuser les bonnes pratiques et promouvoir l'amélioration continue.\n\n• Assurer le suivi des incidents et le partage des retours d'expérience au sein du réseau.\n\nProfil\n\n• Bac +5 (École de commerce, Université ou équivalent).\n\n• Minimum 3 ans d'expérience en audit externe, audit interne ou contrôle interne.\n\n• Expérience dans le Retail appréciée.\n\n• Bonne compréhension des opérations en boutique et des enjeux de protection des actifs.\n\n• Excellentes capacités d'analyse, d'organisation et de communication.\n\n• Autonomie, pragmatisme et sens du terrain.\n\n• Maîtrise des outils Microsoft Office ; connaissances de Cegid un atout\n\n• Maitrise du français et de l’anglais\n\nPoints clés du poste\n\n• Périmètre international de 10 boutiques en propre.\n\n• Forte présence terrain et proximité avec les équipes Retail.\n\n• Poste transversal sans management direct.\n\n• Déplacements réguliers.\n\n• Rôle clé dans la sécurisation des opérations et le maintien des standards d'excellence.\n\n• Mission ouverte au programme de mobilité Eole\n\nEn tant qu'employeur responsable, nous nous engageons en faveur de l'éthique, de la diversité et de l'inclusion.",
       "descriptionByLocale": {
-        "it": "Hermès è il nome di una casa, ma soprattutto è il nome di una famiglia che, da quasi due secoli, ha scritto la storia di un'azienda parigina fondata su know-how e qualità, tradizione e innovazione.\n\nDa imbracatrice a sella, Hermès distribuisce oggi la sua creatività attraverso 16 mestieri. Le parole d'ordine sono rimaste le stesse: standard e autenticità, eleganza e sobrietà, fantasia e audacia.\n\nHermès crea, vende e produce oggetti belli, utili e durevoli. L'azienda impiega oltre 25.000 persone in 50 paesi e 60 filiali, tutti artigiani a loro modo e tutti impegnati nel progetto a lungo termine della Casa.\n\nIl nostro DNA è costituito da Persone, Passione, Personalità e, naturalmente, il nostro meraviglioso prodotto.\n\nLe date desiderate sarebbero dal 14 dicembre 2026, al 15 gennaio 2026, presso il nostro negozio a Gstaad.\n\nQuale sarà la tua vita quotidiana?\n\n• Sarete la prima impressione del cliente di Hermès immagine e trasmettere semplicità e generosità in ogni momento\n\n• Fornire un eccellente servizio clienti adattato alla cultura e alla personalità di ogni cliente e mantenere un ambiente di shopping piacevole coerente con l'immagine del marchio Hermès\n\n• Sviluppi le vendite in tutti gli universi di prodotto, tenendo sempre presente la qualità dei prodotti e l'eccellenza del servizio che Hermès desidera dare ai suoi clienti\n\n• Chieda ai clienti attuali e potenziali di stabilire e mantenere il rapporto con i clienti e di informare sui nuovi prodotti e servizi\n\n• Identifichi e gestisci richieste e preoccupazioni dei clienti\n\nCosa possiamo offrirvi?\n\n• Sarete parte di un'avventura collettiva, unendo un piccolo team dinamico con grande spirito e elevati standard\n\n• Scoprirai una casa in crescita con una base solida e familiare e valori responsabili\n\n• Avrete la possibilità di costruire il vostro percorso di carriera su misura\n\n• Avrete l'opportunità di portare e sviluppare la vostra rete client locale.\n\nProfilo:\n\n• Eccellente capacità di comunicazione, una mentalità orientata al servizio, e un demeanor caldo e accogliente\n\n• Buona gestione dello stress, senso delle priorità e alta affidabilità\n\n• Grande adattabilità e una mentalità curiosa\n\n• Fluency in inglese e francese o tedesco\n\n• Eleganza, dinamismo e entusiasmo\n\n• Spirito di squadra e un atteggiamento attento\n\nCome datore di lavoro responsabile, ci impegniamo per l'etica, la diversità e l'inclusione. Unisciti all'avventura umana di Hermès!",
-        "en": "Hermès is the name of a house, but above all it is the name of a family that, for almost two centuries, has written the history of a Parisian company founded on know-how and quality, tradition, and innovation.\n\nFrom harness-maker to saddler, Hermès today deploys its creativity through 16 crafts. The watchwords have remained the same: exacting standards and authenticity, elegance and sobriety, fantasy, and audacity.\n\nHermès creates, sells and manufactures beautiful, useful and durable objects. The company employs over 25,000 people in 50 countries and 60 subsidiaries, all artisans in their own way and all committed to the House's long-term project.\n\nOur DNA is built up of People, Passion, Personality and of course, our wonderful Product.\n\nThe desired dates would be from December 14, 2026, to January 15, 2026, at our store in Gstaad.\n\nWhat will your daily life look like?\n\n• You will be the client’s first impression of Hermès image and convey simplicity & generosity at all times\n\n• You provide excellent customer service adapted the culture & personality of each client and maintain a pleasant shopping environment consistent with the Hermès brand image\n\n• You develop sales across all product universes, always keeping in mind the quality of products & the excellence of service that Hermès wishes to give to its clients\n\n• You call on current & potential customers to establish & maintain client relationship and to inform about new products & services\n\n• You identify & handle client enquiries and concerns\n\nWhat can we offer you?\n\n• You will be part of a collective adventure, joining a small dynamic team with great spirit and high standards\n\n• You will discover a growing house with a strong and family base and responsible values\n\n• You will have the chance to build your bespoke career path\n\n• You will have the opportunity to bring & develop your own local client network.\n\nProfile:\n\n• Excellent communication skills, a service-oriented mindset, and a warm, welcoming demeanor\n\n• Good stress management, a sense of priorities, and high reliability\n\n• Great adaptability and a curious mindset\n\n• Fluency in English and either French or German\n\n• Elegance, dynamism, and enthusiasm\n\n• Team spirit and a caring attitude\n\nAs a responsible employer, we are committed to ethics, diversity and inclusion. Join the Hermès human adventure!",
-        "de": "Hermès ist der Name eines Hauses, aber vor allem ist es der Name einer Familie, die seit fast zwei Jahrhunderten die Geschichte eines Pariser Unternehmens geschrieben hat, das auf Know-how und Qualität, Tradition und Innovation gegründet wurde.\n\nVom Geschirrmacher bis zum Sattler setzt Hermès seine Kreativität heute in 16 Handwerken ein. Die Schlagworte sind gleich geblieben: anspruchsvolle Standards und Authentizität, Eleganz und Nüchternheit, Fantasie und Kühnheit.\n\nHermès kreiert, verkauft und produziert schöne, nützliche und langlebige Objekte. Das Unternehmen beschäftigt über 25.000 Mitarbeiter in 50 Ländern und 60 Tochtergesellschaften, alle auf ihre eigene Weise und alle engagiert für das langfristige Projekt des Hauses.\n\nUnsere DNA besteht aus Menschen, Leidenschaft, Persönlichkeit und natürlich unserem wunderbaren Produkt.\n\nDie gewünschten Daten wären vom 14. Dezember 2026 bis zum 15. Januar 2026 in unserem Geschäft in Gstaad.\n\nWie wird dein tägliches Leben aussehen?\n\n• Sie werden der erste Eindruck des Kunden von Hermès Image sein und jederzeit Einfachheit und Großzügigkeit vermitteln.\n\n• Sie bieten einen hervorragenden Kundenservice, der die Kultur und Persönlichkeit jedes Kunden anpasst und ein angenehmes Einkaufsumfeld bietet, das dem Markenimage von Hermès entspricht\n\n• Sie entwickeln den Vertrieb in allen Produktuniversen, wobei Sie immer die Qualität der Produkte und die Exzellenz des Service berücksichtigen, den Hermès seinen Kunden bieten möchte\n\n• Sie rufen aktuelle und potenzielle Kunden auf, Kundenbeziehungen aufzubauen und aufrechtzuerhalten und über neue Produkte und Dienstleistungen zu informieren\n\n• Sie identifizieren und bearbeiten Kundenanfragen und Bedenken\n\nWas können wir Ihnen bieten?\n\n• Sie werden Teil eines kollektiven Abenteuers und treten einem kleinen dynamischen Team mit großem Geist und hohen Standards bei\n\n• Sie werden ein wachsendes Haus mit einer starken und familiären Basis und verantwortungsvollen Werten entdecken\n\n• Sie haben die Chance, Ihren maßgeschneiderten Karriereweg aufzubauen\n\n• Sie haben die Möglichkeit, Ihr eigenes lokales Kundennetzwerk mitzubringen und zu entwickeln.\n\nProfil:\n\n• Hervorragende Kommunikationsfähigkeiten, eine serviceorientierte Denkweise und ein warmes, einladendes Auftreten\n\n• Gutes Stressmanagement, Sinn für Prioritäten und hohe Zuverlässigkeit\n\n• Große Anpassungsfähigkeit und neugierige Denkweise\n\n• fließend in Englisch und entweder Französisch oder Deutsch\n\n• Eleganz, Dynamik und Begeisterung\n\n• Teamgeist und eine fürsorgliche Haltung\n\nAls verantwortungsvoller Arbeitgeber bekennen wir uns zu Ethik, Diversität und Inklusion. Nehmen Sie am menschlichen Abenteuer Hermès teil!",
-        "fr": "Hermès est le nom d'une maison, mais surtout le nom d'une famille qui, depuis près de deux siècles, a écrit l'histoire d'une entreprise parisienne fondée sur le savoir-faire et la qualité, la tradition et l'innovation.\n\nDe harnais à seller, Hermès déploie aujourd'hui sa créativité à travers 16 métiers. Les mots d'ordre sont restés les mêmes : normes exigeantes et authenticité, élégance et sobriété, fantaisie et audace.\n\nHermès crée, vend et fabrique des objets beaux, utiles et durables. L'entreprise emploie plus de 25 000 personnes dans 50 pays et 60 filiales, tous artisans à leur manière et tous engagés dans le projet à long terme de la Maison.\n\nNotre ADN est construit de People, Passion, Personnalité et bien sûr, notre produit merveilleux.\n\nLes dates souhaitées seraient du 14 décembre 2026 au 15 janvier 2026, dans notre magasin de Gstaad.\n\nÀ quoi ressemblera votre vie quotidienne?\n\n• Vous serez la première impression de Hermès image et transmettre la simplicité et la générosité en tout temps\n\n• Vous fournissez un excellent service à la clientèle adapté à la culture et à la personnalité de chaque client et maintenez un environnement commercial agréable compatible avec l'image de marque Hermès\n\n• Vous développez des ventes dans tous les univers de produits, en gardant toujours à l'esprit la qualité des produits et l'excellence du service que Hermès souhaite offrir à ses clients\n\n• Vous faites appel aux clients actuels et potentiels pour établir et maintenir une relation client et informer sur les nouveaux produits et services\n\n• Vous identifiez et traitez les demandes et les préoccupations des clients\n\nQue pouvons-nous vous offrir ?\n\n• Vous ferez partie d'une aventure collective, rejoignant une petite équipe dynamique avec un grand esprit et des normes élevées\n\n• Vous découvrirez une maison en pleine croissance avec une base familiale forte et des valeurs responsables\n\n• Vous aurez la chance de construire votre parcours professionnel sur mesure\n\n• Vous aurez la possibilité d'apporter et de développer votre propre réseau client local.\n\nProfil :\n\n• Excellentes compétences en communication, un état d'esprit orienté vers le service et un comportement chaleureux et accueillant\n\n• Bonne gestion du stress, sens des priorités et grande fiabilité\n\n• Une grande adaptabilité et une curieuse mentalité\n\n• Connaissance de l'anglais et du français ou de l'allemand\n\n• Élégance, dynamisme et enthousiasme\n\n• Esprit d'équipe et attitude bienveillante\n\nEn tant qu'employeur responsable, nous sommes attachés à l'éthique, à la diversité et à l'inclusion. Rejoignez l'aventure humaine Hermès !"
+        "it": "Sfondo:\nHermès è presente in Svizzera da oltre 70 anni e ora gestisce una rete di 8 negozi in Svizzera. La filiale svizzera gestisce anche un perimetro al dettaglio internazionale costituito da due negozi in Europa centrale, Polonia e Repubblica Ceca.\nPer sostenere la crescita di questa rete e per garantire i più elevati standard di eccellenza operativa, la Direzione Finanziaria sta cercando un Responsabile Internal Control Retail.\nCon sede a Ginevra, questo campo forte e la posizione internazionale contribuiscono alla sicurezza delle operazioni, alla protezione dei beni e al continuo miglioramento dei processi in tutta la rete.\nMISSIONI DETTAGLIATE:\n\n• Dispositivo di controllo interno pilota\n\n• Identificare e valutare i rischi operativi, finanziari e di conformità della rete commerciale.\n\n• Definire e distribuire il piano di controllo interno annuale.\n\n• Condurre regolarmente in-store recensioni e seguire i piani di azione associati.\n\n• Processi chiave di controllo: vendite, ricevute, inventori, inventori, ritorni, sconti e protezione degli asset.\n\n• Analizzare incidenti, discrepanze di inventario e rischi di frode per rafforzare i meccanismi di prevenzione.\n\n• Assicurare una corretta applicazione delle procedure di Gruppo e delle normative locali.\n\n2. Progetti di supporto e vendita al dettaglio di trasformazione\n\n• Integrare i problemi di gestione del rischio nell'apertura, ristrutturazione o trasformazione dei negozi.\n\n• Partecipa all'evoluzione dei processi e degli strumenti Retail (POS, stock, omnichannel, clientela).\n\n• Valutare i rischi associati a nuovi progetti e definire controlli appropriati.\n\n• Assicurare la conformità dei dispositivi distribuiti con gli standard di Gruppo.\n\n3. Sviluppo della cultura del rischio e del controllo interno\n\n• Allena e accompagna team e manager boutique.\n\n• Aumentare la consapevolezza di frodi, conformità, protezione degli asset e problemi di gestione delle scorte.\n\n• Diffusione di buone pratiche e promozione di un miglioramento continuo.\n\n• Monitorare gli incidenti e condividere feedback all'interno della rete.\n\nProfilo\n\n• Bac +5 (Scuola di lavoro, Università o equivalente).\n\n• Esperienza minima di 3 anni in audit esterno, audit interno o controllo interno.\n\n• Esperienza nel popolare Retail.\n\n• Buona comprensione delle operazioni di deposito e problemi di protezione degli asset.\n\n• Eccellente capacità analitiche, organizzative e di comunicazione.\n\n• Autonomia, pragmatismo e senso del terreno.\n\n• Mastery di Microsoft Office strumenti; conoscenza di Cegid un bene\n\n• Mastery di francese e inglese\n\nPunti chiave del post\n\n• Perimetro internazionale di 10 negozi puliti.\n\n• Forte presenza sul campo e vicinanza ai team Retail.\n\n• Posto trasversale senza gestione diretta.\n\n• Movimenti regolari.\n\n• ruolo chiave nel garantire le operazioni e mantenere standard di eccellenza.\n\n• Missione aperta al programma di mobilità Eole\n\nCome datore di lavoro responsabile, siamo impegnati a etica, diversità e inclusione.",
+        "en": "Background:\nHermès has been present in Switzerland for more than 70 years and now operates a network of 8 stores in Switzerland. The Swiss subsidiary also manages an International Retail perimeter consisting of two shops in Central Europe, Poland and the Czech Republic.\nIn order to support the growth of this network and to guarantee the highest standards of operational excellence, the Financial Directorate is looking for an Internal Control Retail Manager.\nBased in Geneva, this strong field and international position contributes to the security of operations, the protection of assets and the continuous improvement of processes throughout the network.\nDETAILED MISSIONS:\n\n• Pilot Internal Control Device Retail\n\n• Identify and assess the operational, financial and compliance risks of the shop network.\n\n• Define and deploy the annual internal control plan.\n\n• Conduct regular in-store reviews and follow associated action plans.\n\n• Control key processes: sales, receipts, inventories, inventories, returns, discounts and asset protection.\n\n• Analyze incidents, inventory discrepancies and fraud risks to strengthen prevention mechanisms.\n\n• Ensure proper application of Group procedures and local regulations.\n\n2. Supporting Projects and Transformation Retail\n\n• Integrate risk management issues into the opening, renovation or transformation of shops.\n\n• Participate in the evolution of Retail processes and tools (POS, stock, omnichannel, clienteling).\n\n• Assess the risks associated with new projects and define appropriate controls.\n\n• Ensure compliance of deployed devices with Group standards.\n\n3. Developing risk culture and internal control\n\n• Train and accompany boutique teams and managers.\n\n• Raise awareness of fraud, compliance, asset protection and inventory management issues.\n\n• Disseminating good practices and promoting continuous improvement.\n\n• Monitor incidents and share feedback within the network.\n\nProfile\n\n• Bac +5 (Business School, University or equivalent).\n\n• Minimum 3 years experience in external audit, internal audit or internal control.\n\n• Experience in the popular Retail.\n\n• Good understanding of store operations and asset protection issues.\n\n• Excellent analytical, organizational and communication capabilities.\n\n• Autonomy, pragmatism and sense of the ground.\n\n• Mastery of Microsoft Office tools; knowledge of Cegid an asset\n\n• Mastery of French and English\n\nKey points of the post\n\n• International Perimeter of 10 clean shops.\n\n• Strong field presence and proximity to Retail teams.\n\n• Transversal post without direct management.\n\n• Regular movements.\n\n• Key role in securing operations and maintaining standards of excellence.\n\n• Open mission to the Eole mobility programme\n\nAs responsible employer, we are committed to ethics, diversity and inclusion.",
+        "de": "Hintergrund:\nHermès ist seit über 70 Jahren in der Schweiz präsent und betreibt heute ein Netzwerk von 8 Filialen in der Schweiz. Die Schweizer Tochtergesellschaft verwaltet zudem einen International Retail Perimeter, bestehend aus zwei Shops in Mitteleuropa, Polen und Tschechien.\nUm das Wachstum dieses Netzwerks zu unterstützen und die höchsten Standards für operative Exzellenz zu gewährleisten, sucht die Finanzdirektion einen Retail Manager für interne Kontrolle.\nMit Sitz in Genf trägt dieses starke Feld und die internationale Position zur Sicherheit des Betriebs, zum Schutz der Vermögenswerte und zur kontinuierlichen Verbesserung der Prozesse im gesamten Netzwerk bei.\nAUSGESTELLTE MISSIONEN:\n\n• Pilot Interne Steuerung Gerät Retail\n\n• Identifizieren und bewerten Sie die operativen, finanziellen und Compliance-Risiken des Shop-Netzwerks.\n\n• Festlegung und Umsetzung des jährlichen internen Kontrollplans.\n\n• Führen Sie regelmäßige In-Store-Reviews durch und befolgen Sie die zugehörigen Aktionspläne.\n\n• Kontrollieren Sie Schlüsselprozesse: Verkäufe, Quittungen, Lagerbestände, Lagerbestände, Retouren, Rabatte und Vermögensschutz.\n\n• Analysieren Sie Vorfälle, Bestandsunterschiede und Betrugsrisiken, um die Präventionsmechanismen zu stärken.\n\n• Gewährleistung der ordnungsgemäßen Anwendung von Gruppenverfahren und lokalen Vorschriften.\n\n2. Unterstützung von Projekten und Transformation Retail\n\n• Integrieren Sie Risikomanagement-Themen in die Eröffnung, Renovierung oder Transformation von Geschäften.\n\n• Beteiligen Sie sich an der Entwicklung von Retail-Prozessen und -Tools (POS, Stock, Omnichannel, Clienteling).\n\n• Bewertung der mit neuen Projekten verbundenen Risiken und Festlegung geeigneter Kontrollen.\n\n• Stellen Sie sicher, dass bereitgestellte Geräte den Gruppenstandards entsprechen.\n\n3. Entwicklung von Risikokultur und interner Kontrolle\n\n• Trainieren und begleiten Sie Boutique-Teams und Manager.\n\n• Sensibilisierung für Betrug, Compliance, Vermögensschutz und Bestandsverwaltung.\n\n• Verbreitung bewährter Verfahren und Förderung kontinuierlicher Verbesserung.\n\n• Überwachen Sie Vorfälle und teilen Sie Feedback innerhalb des Netzwerks.\n\nProfil\n\n• Bac +5 (Business School, Universität oder gleichwertig).\n\n• Mindestens 3 Jahre Erfahrung in der externen Revision, internen Revision oder internen Kontrolle.\n\n• Erfahrung im beliebten Einzelhandel.\n\n• Gutes Verständnis von Store-Operationen und Asset-Schutz-Themen.\n\n• Hervorragende analytische, organisatorische und Kommunikationsfähigkeiten.\n\n• Autonomie, Pragmatismus und Bodengefühl.\n\n• Beherrschung von Microsoft Office-Tools; Kenntnis von Cegid ein Asset\n\n• Beherrschung von Französisch und Englisch\n\nSchlüsselpunkte der Post\n\n• International Perimeter von 10 sauberen Geschäften.\n\n• Starke Präsenz vor Ort und Nähe zu Retail-Teams.\n\n• Transversale Post ohne direkte Verwaltung.\n\n• Regelmäßige Bewegungen.\n\n• Schlüsselrolle bei der Sicherung des Betriebs und der Aufrechterhaltung von Exzellenzstandards.\n\n• Offene Mission zum Mobilitätsprogramm Eole\n\nAls verantwortungsbewusster Arbeitgeber bekennen wir uns zu Ethik, Diversität und Inklusion.",
+        "fr": "CONTEXTE :\nHermès est présent en Suisse depuis plus de 70 ans et opère aujourd'hui un réseau de 8 magasins sur le territoire helvétique. La filiale suisse assure également le pilotage d'un périmètre Retail international comprenant deux boutiques en Europe centrale, en Pologne et en République tchèque.\nAfin d'accompagner la croissance de ce réseau et de garantir les plus hauts standards d'excellence opérationnelle, la Direction Financière recherche un Responsable Contrôle Interne Retail.\nBasé à Genève, ce poste à forte dimension terrain et internationale contribue à la sécurisation des opérations, à la protection des actifs et à l'amélioration continue des processus au sein de l'ensemble du réseau.\nMISSION DETAILLEES :\n\n• Piloter le dispositif de contrôle interne Retail\n\n• Identifier et évaluer les risques opérationnels, financiers et de conformité du réseau de boutiques.\n\n• Définir et déployer le plan annuel de contrôle interne.\n\n• Réaliser des revues régulières en boutique et suivre les plans d'actions associés.\n\n• Contrôler les processus clés : ventes, encaissements, stocks, inventaires, retours, remises et protection des actifs.\n\n• Analyser les incidents, écarts d'inventaire et risques de fraude afin de renforcer les dispositifs de prévention.\n\n• Assurer la bonne application des procédures Groupe et des réglementations locales.\n\n2. Accompagner les projets et la transformation Retail\n\n• Intégrer les enjeux de maîtrise des risques dans les projets d'ouverture, rénovation ou transformation de boutiques.\n\n• Participer à l'évolution des processus et outils Retail (POS, stock, omnicanal, clienteling).\n\n• Évaluer les risques liés aux nouveaux projets et définir les contrôles adaptés.\n\n• Garantir la conformité des dispositifs déployés avec les standards du Groupe.\n\n3. Développer la culture risque et contrôle interne\n\n• Former et accompagner les équipes boutiques et les managers.\n\n• Sensibiliser aux enjeux de fraude, conformité, protection des actifs et gestion des stocks.\n\n• Diffuser les bonnes pratiques et promouvoir l'amélioration continue.\n\n• Assurer le suivi des incidents et le partage des retours d'expérience au sein du réseau.\n\nProfil\n\n• Bac +5 (École de commerce, Université ou équivalent).\n\n• Minimum 3 ans d'expérience en audit externe, audit interne ou contrôle interne.\n\n• Expérience dans le Retail appréciée.\n\n• Bonne compréhension des opérations en boutique et des enjeux de protection des actifs.\n\n• Excellentes capacités d'analyse, d'organisation et de communication.\n\n• Autonomie, pragmatisme et sens du terrain.\n\n• Maîtrise des outils Microsoft Office ; connaissances de Cegid un atout\n\n• Maitrise du français et de l’anglais\n\nPoints clés du poste\n\n• Périmètre international de 10 boutiques en propre.\n\n• Forte présence terrain et proximité avec les équipes Retail.\n\n• Poste transversal sans management direct.\n\n• Déplacements réguliers.\n\n• Rôle clé dans la sécurisation des opérations et le maintien des standards d'excellence.\n\n• Mission ouverte au programme de mobilité Eole\n\nEn tant qu'employeur responsable, nous nous engageons en faveur de l'éthique, de la diversité et de l'inclusion."
       },
-      "location": "Gstaad, Bern, Switzerland",
-      "canton": "BE",
-      "url": "https://talents.hermes.com/en/sites/CX/job/24934",
+      "location": "Geneve, Geneva, Switzerland",
+      "canton": "GE",
+      "url": "https://talents.hermes.com/en/sites/CX/job/24851",
       "source": "Hermès Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-20T09:22:20.278Z",
-      "addressLocality": "Gstaad",
-      "addressRegion": "BE",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-25T21:25:09.468Z",
+      "addressLocality": "Geneve",
+      "postalCode": "1201",
+      "addressRegion": "Genève",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Altro",
@@ -472,44 +468,44 @@
       "sector": "Luxury goods / fashion / watchmaking",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-11-17",
-      "postedDate": "2026-11-17",
+      "datePosted": "2026-11-23",
+      "postedDate": "2026-11-23",
       "postingDateSource": "reported",
-      "applyUrl": "https://talents.hermes.com/en/sites/CX/job/24934",
+      "applyUrl": "https://talents.hermes.com/en/sites/CX/job/24851",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cdd-winter-support-w-m-hermes-ch"
+        "cdd-controleur-euse-interne-geneve-f-h-hermes-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cdd-winter-support-w-m-hermes-ch"
+          "cdd-controleur-euse-interne-geneve-f-h-hermes-ch"
         ],
-        "fr": [
-          "cdd-winter-support-w-m-hermes-ch"
+        "en": [
+          "cdd-controleur-euse-interne-geneve-f-h-hermes-ch"
+        ],
+        "de": [
+          "cdd-controleur-euse-interne-geneve-f-h-hermes-ch"
         ]
       },
-      "firstSeenAt": "2026-11-17T21:24:09.122Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "firstSeenAt": "2026-11-23T09:24:22.260Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3780",
-      "streetAddress": "Gstaad",
+      "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T09:22:20.278Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://talents.hermes.com/en/sites/cx/job/24934",
-      "crawlerMissStreak": 1
+      "validThrough": "2027-02-21T21:25:09.468Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

@@ -4,27 +4,27 @@
   "generatorSha256": "1160bcf9f1305489cf0610b3d0e18fa4c827b6cc17458ba7226e758de93dbc6b",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "50069be8d74f3c3dfad5ee4e6c0354b224d01c6d",
+  "sourceCommit": "5672f789b3e16cadb009ac8bf1366f59df8fa39f",
   "sourceCommitVerified": true,
   "artifactObservation": {
     "generatorSha256": "1160bcf9f1305489cf0610b3d0e18fa4c827b6cc17458ba7226e758de93dbc6b",
     "sourceRef": "main",
-    "sourceCommit": "50069be8d74f3c3dfad5ee4e6c0354b224d01c6d"
+    "sourceCommit": "5672f789b3e16cadb009ac8bf1366f59df8fa39f"
   },
   "groupCount": 25,
   "artifactCount": 26,
   "observerCount": 8,
-  "crawlerCount": 713,
+  "crawlerCount": 712,
   "crawlerRosterCardinality": {
-    "sourceCommit": "50069be8d74f3c3dfad5ee4e6c0354b224d01c6d",
+    "sourceCommit": "5672f789b3e16cadb009ac8bf1366f59df8fa39f",
     "groupCount": 25,
     "artifactCount": 26,
-    "crawlerCount": 713
+    "crawlerCount": 712
   },
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:cc60fdd844012e5eb708b0c23695f36f14cc3d5d7253e52e62c6736fd02b8d48",
+    "rosterDigest": "sha256:0f432838ba1c5e73a861b3b2ab1ba658f3d6dcb4dbe85af31e0633de043ceacb",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -625,7 +625,6 @@
     "scripts/update-technic-emplois-jobs.mjs",
     "scripts/update-temenos-jobs.mjs",
     "scripts/update-teo-jakob-ag-jobs.mjs",
-    "scripts/update-teo-jakob-jobs.mjs",
     "scripts/update-tertianum-jobs.mjs",
     "scripts/update-tether-jobs.mjs",
     "scripts/update-therapiezentrum-meggen-jobs.mjs",
@@ -683,7 +682,7 @@
     {
       "source": "observers/generator/tests/crawler-cross-repo-artifacts.test.mjs",
       "target": "generator/tests/crawler-cross-repo-artifacts.test.mjs",
-      "sha256": "382670e473ce7f7aea645997295a43de2ccb8b393e587e1da7bc1560f2d4662f"
+      "sha256": "4fcaaff61c827baaa7f56072c3dd78450ef79a1022e8a98af0f459f8189dd69b"
     },
     {
       "source": "observers/workflows/crawler-generation-observer-shadow.yml",
@@ -916,8 +915,8 @@
     {
       "file": "crawler-group-06.yml",
       "sourceLogic": "crawler-group-06-logic.yml",
-      "sourceSha256": "dcf23acc9c7504b3c752f2c2a9758e4fc2e3ce6d03e12b32cc0ac8d106b84c03",
-      "artifactSha256": "7863cf9f839a0c9fe614c8a5cd80b522a43937f8d03c23b4f3c7f95fada524f1",
+      "sourceSha256": "e8e84ce36d928b8e58ed8bd22bd19d0d1edbd083b8e2835b3c48eaa992024a7c",
+      "artifactSha256": "488a09319145db55a6183bd6241d6a71f20bcbe2d5831c16bd065e33f8e1ac80",
       "generatorSha256": "1160bcf9f1305489cf0610b3d0e18fa4c827b6cc17458ba7226e758de93dbc6b",
       "members": [
         "merian-iselin",
@@ -949,7 +948,6 @@
         "ehnv",
         "mueller-steinmaur",
         "siegfried",
-        "teo-jakob",
         "hpjob-ch"
       ]
     },
@@ -1684,8 +1682,8 @@
     {
       "file": "translate-pending.yml",
       "sourceLogic": "translate-pending-logic.yml",
-      "sourceSha256": "f1f285661897585d3623f79ca03aedfe37cd55ace7d5ea6e995cbf6b360e36e5",
-      "artifactSha256": "f38087a90ec97297ae780cfbab25cb0c46490447e1114e1c2e2a6b7a981f1a48",
+      "sourceSha256": "88796fbd4fdaee29b6bc91f8322d2a7e774c06a02b392a8638ff10d0cbbb61ee",
+      "artifactSha256": "2e6f84fb78406cfbed949a806d5c26bd95f7e075789e686bcab5a8adc2d6c51a",
       "generatorSha256": "1160bcf9f1305489cf0610b3d0e18fa4c827b6cc17458ba7226e758de93dbc6b",
       "members": []
     }

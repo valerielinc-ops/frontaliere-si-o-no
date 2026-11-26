@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "zh-43819",
+      "sourceKey": "ZH",
+      "sourceRecordId": "43819",
+      "canton": "Zurigo",
+      "platePrefix": "ZH",
+      "plateNumber": "74750",
+      "normalizedPlate": "ZH74750",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 1320,
+      "bidCount": 53,
+      "endsAt": "2026-11-25T18:00:00.000Z",
+      "closedAt": "2026-11-25T18:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.stva.zh.ch/de/?plate_sub_type=&plate_type=car",
+      "officialDetailUrl": "https://www.auktion.stva.zh.ch/de/auction/43819",
+      "sourceFetchedAt": "2026-11-25T08:32:27.266Z",
+      "lastVerifiedAt": "2026-11-25T08:32:27.266Z",
+      "firstSeenAt": "2026-11-19T07:30:48.910Z",
+      "lastSeenAt": "2026-11-25T08:32:27.266Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "0cc7b29f3f61"
+    }
+  ]
+}

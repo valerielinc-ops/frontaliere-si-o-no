@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "gr-2264",
+      "sourceKey": "GR",
+      "sourceRecordId": "2264",
+      "canton": "Grigioni",
+      "platePrefix": "GR",
+      "plateNumber": "14399",
+      "normalizedPlate": "GR14399",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 700,
+      "startingPriceChf": 500,
+      "bidCount": 1,
+      "minimumIncrementChf": 50,
+      "endsAt": "2026-11-22T19:00:00.000Z",
+      "closedAt": "2026-11-22T19:00:00.000Z",
+      "officialAuctionUrl": "https://eauktion.gr.ch/ecari-auction/ui/app/init?locale=de_CH",
+      "officialDetailUrl": "https://eauktion.gr.ch/ecari-auction/ui/app/details/app?id=2264&locale=de_CH",
+      "sourceFetchedAt": "2026-11-22T06:45:21.032Z",
+      "lastVerifiedAt": "2026-11-22T06:45:21.032Z",
+      "firstSeenAt": "2026-11-09T22:23:12.168Z",
+      "lastSeenAt": "2026-11-22T06:45:21.032Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "99ad3b80e0e2"
+    }
+  ]
+}

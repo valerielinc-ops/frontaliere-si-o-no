@@ -57,6 +57,20 @@ describe('createExceptionFilter()', () => {
     expect(filter(event)).toBeNull();
   });
 
+  it('drops privacy-protected Battery Status API errors (#19704)', () => {
+    const event = makeExceptionEvent(
+      'NotAllowedError: Battery access is blocked by privacy protection.',
+    );
+    expect(filter(event)).toBeNull();
+  });
+
+  it('keeps other Battery Status permission errors visible', () => {
+    const event = makeExceptionEvent(
+      'NotAllowedError: Battery access is blocked by permissions policy.',
+    );
+    expect(filter(event)).toBe(event);
+  });
+
   it('drops the browser-extension tab bridge no-listener error (#18593)', () => {
     const event = makeExceptionEvent('Error: No Listener: tabs:outgoing.message.ready');
     expect(filter(event)).toBeNull();
@@ -198,6 +212,60 @@ describe('createExceptionFilter()', () => {
       properties: {
         $exception_values: [{ type: 'Error', value: 'oa' }],
         $exception_list: [{ type: 'Error', value: 'oa' }],
+      },
+    };
+    expect(filter(event)).toBe(event);
+  });
+
+  it('drops the Funding Choices stack overflow with native frames (#19705)', () => {
+    const event = {
+      event: '$exception',
+      properties: {
+        $exception_values: [{ type: 'RangeError', value: 'Maximum call stack size exceeded.' }],
+        $exception_list: [{
+          type: 'RangeError',
+          value: 'Maximum call stack size exceeded.',
+          stacktrace: { frames: [
+            { filename: '[native code]' },
+            { filename: 'https://fundingchoicesmessages.google.com/f/AGSKWxVBoaDqwRKNV5lhNtsg67yDx1i0PxiXW0Qm5tWcZ_XGH3Fk-o_C-JIkMSRXg9XdQ-JFK0dL0OPMObHPl8xr_9ziA9d0saX-kDA9bnzetDaYevwhHmvvbkbYVlRanztYE_zwr5LWNw==' },
+            { filename: '[native code]' },
+            { filename: 'https://fundingchoicesmessages.google.com/f/AGSKWxUE6J8gNbcVoWFwVWk9veKRBNsJVkCVQ0Z-0xEkRkd9RpRyd3khJZGHzZUzA7rQIDf8kl65f5qzGdUhKcQnEm-dCAEbZTK95s_j4_6LhLDQ67tsh_CBenloe-APq-LKRcC6KoVChQ==' },
+          ] },
+        }],
+      },
+    };
+    expect(filter(event)).toBeNull();
+  });
+
+  it('keeps a Funding Choices stack overflow with a first-party frame (#19705)', () => {
+    const event = {
+      event: '$exception',
+      properties: {
+        $exception_values: [{ type: 'RangeError', value: 'Maximum call stack size exceeded.' }],
+        $exception_list: [{
+          type: 'RangeError',
+          value: 'Maximum call stack size exceeded.',
+          stacktrace: { frames: [
+            { filename: '[native code]' },
+            { filename: 'https://fundingchoicesmessages.google.com/f/vendor.js' },
+            { filename: 'https://frontaliereticino.ch/assets/index-entry.js' },
+          ] },
+        }],
+      },
+    };
+    expect(filter(event)).toBe(event);
+  });
+
+  it('keeps a stack made only of native frames', () => {
+    const event = {
+      event: '$exception',
+      properties: {
+        $exception_values: [{ type: 'RangeError', value: 'Maximum call stack size exceeded.' }],
+        $exception_list: [{
+          type: 'RangeError',
+          value: 'Maximum call stack size exceeded.',
+          stacktrace: { frames: [{ filename: '[native code]' }] },
+        }],
       },
     };
     expect(filter(event)).toBe(event);

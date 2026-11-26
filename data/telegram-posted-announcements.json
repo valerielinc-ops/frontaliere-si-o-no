@@ -40,6 +40,27 @@
       "copyAngleIntent": "both",
       "copyHook": "Controlli al confine: una domanda pratica da chiarire.",
       "copyCta": "Approfondisci il tema."
+    },
+    {
+      "id": "border-ranking:2026-11-16",
+      "ts": "2026-11-23T18:59:36.233Z",
+      "weekStart": "2026-11-16",
+      "weekEnd": "2026-11-22",
+      "socialReservationType": "border-digest",
+      "socialReservationId": "2026-11-16",
+      "telegramDeliveryId": "6865af81-5ccd-4fcc-950f-e907b60e2147",
+      "telegramMessageId": 151,
+      "copyMode": "codex",
+      "copySlot": "border",
+      "copyPromptVersion": "frontaliere-social-copy-v5",
+      "copyPackId": "e1e656e043e06845",
+      "copyTemplateId": "tg-border-practical",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "passo-pratico",
+      "copyPillarId": "opportunita-concrete",
+      "copyAngleIntent": "both",
+      "copyHook": "Mobilità oltreconfine: un passaggio utile da verificare.",
+      "copyCta": "Leggi le indicazioni."
     }
   ]
 }

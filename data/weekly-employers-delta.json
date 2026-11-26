@@ -1,266 +1,260 @@
 {
-  "generatedAt": "2026-11-16T14:54:01.175Z",
+  "generatedAt": "2026-11-23T17:39:22.597Z",
   "degraded": false,
-  "currentWeek": "2026-47",
-  "previousWeek": "2026-46",
+  "currentWeek": "2026-48",
+  "previousWeek": "2026-47",
   "cities": {
     "ticino": {
-      "totalActive": 34449,
+      "totalActive": 34416,
       "topCompanies": [
         {
-          "employer": "fachkraft.ch GmbH",
-          "employerKey": "fachkraft",
-          "active": 3254,
-          "delta": 125
-        },
-        {
-          "employer": "yellowshark AG",
-          "employerKey": "yellowshark",
-          "active": 887,
-          "delta": 40
-        },
-        {
-          "employer": "OK Job SA, succursale di Mendrisio",
-          "employerKey": "okjob",
-          "active": 34,
-          "delta": 34
-        },
-        {
-          "employer": "ACTIV FITNESS",
-          "employerKey": "migros-ticino",
-          "active": 921,
-          "delta": 29
-        },
-        {
-          "employer": "Delvitech SA",
-          "employerKey": "delvitech-sa",
-          "active": 35,
-          "delta": 28
-        },
-        {
-          "employer": "Bucherer",
-          "employerKey": "bucherer",
-          "active": 21,
-          "delta": 21
-        },
-        {
-          "employer": "LIP Suisse",
-          "employerKey": "lipsuisse-ch",
-          "active": 20,
-          "delta": 20
-        },
-        {
-          "employer": "Swiss Armed Forces (VTG)",
-          "employerKey": "swiss-armed-forces-vtg",
-          "active": 167,
-          "delta": 19
-        },
-        {
-          "employer": "Universitätsspital Zürich (USZ)",
-          "employerKey": "usz",
-          "active": 239,
-          "delta": 17
-        },
-        {
-          "employer": "Rittmeyer AG",
-          "employerKey": "rittmeyer-ag",
-          "active": 17,
-          "delta": 17
-        },
-        {
-          "employer": "Lidl Svizzera",
-          "employerKey": "lidl-svizzera",
-          "active": 244,
-          "delta": 15
+          "employer": "STA Personal AG",
+          "employerKey": "sta",
+          "active": 1745,
+          "delta": 191
         },
         {
           "employer": "FFS Officine (Ferrovie Federali)",
           "employerKey": "ffs-officine-ferrovie-federali",
-          "active": 173,
+          "active": 355,
+          "delta": 182
+        },
+        {
+          "employer": "Stellenpartner AG",
+          "employerKey": "stellenpartner",
+          "active": 742,
+          "delta": 101
+        },
+        {
+          "employer": "Manpower SA",
+          "employerKey": "seco-jobroom",
+          "active": 2064,
+          "delta": 39
+        },
+        {
+          "employer": "PEMSA",
+          "employerKey": "pemsa",
+          "active": 315,
+          "delta": 38
+        },
+        {
+          "employer": "Roche",
+          "employerKey": "roche",
+          "active": 131,
+          "delta": 22
+        },
+        {
+          "employer": "Stellentreff AG",
+          "employerKey": "stellentreff",
+          "active": 793,
+          "delta": 21
+        },
+        {
+          "employer": "Restaurant & Hôtel Vatel",
+          "employerKey": "vatel-ch",
+          "active": 20,
+          "delta": 20
+        },
+        {
+          "employer": "Etat de Fribourg",
+          "employerKey": "etat-de-fribourg",
+          "active": 108,
+          "delta": 18
+        },
+        {
+          "employer": "Spitex Zürich AG",
+          "employerKey": "spitex-ch",
+          "active": 45,
+          "delta": 17
+        },
+        {
+          "employer": "Global Sana",
+          "employerKey": "ch",
+          "active": 20,
+          "delta": 17
+        },
+        {
+          "employer": "JYSK",
+          "employerKey": "jysk",
+          "active": 47,
+          "delta": 16
+        },
+        {
+          "employer": "Frutiger AG",
+          "employerKey": "frutiger-com",
+          "active": 14,
           "delta": 14
-        },
-        {
-          "employer": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
-          "employerKey": "ksml",
-          "active": 268,
-          "delta": 13
-        },
-        {
-          "employer": "JUMBO",
-          "employerKey": "jumbo",
-          "active": 196,
-          "delta": 12
-        },
-        {
-          "employer": "SRG SSR",
-          "employerKey": "srg-ssr",
-          "active": 52,
-          "delta": 11
-        },
-        {
-          "employer": "État de Vaud (Administration cantonale vaudoise)",
-          "employerKey": "etat-de-vaud",
-          "active": 50,
-          "delta": 10
-        },
-        {
-          "employer": "IKEA",
-          "employerKey": "ikea",
-          "active": 35,
-          "delta": 10
-        },
-        {
-          "employer": "Schweizer Paraplegiker-Gruppe",
-          "employerKey": "paraplegie",
-          "active": 32,
-          "delta": 10
-        },
-        {
-          "employer": "Senevita",
-          "employerKey": "senevita",
-          "active": 211,
-          "delta": 9
         },
         {
           "employer": "HUG",
           "employerKey": "hug",
-          "active": 52,
+          "active": 65,
+          "delta": 13
+        },
+        {
+          "employer": "Swiss Armed Forces (VTG)",
+          "employerKey": "swiss-armed-forces-vtg",
+          "active": 178,
+          "delta": 11
+        },
+        {
+          "employer": "Stadt Luzern",
+          "employerKey": "stadt-luzern",
+          "active": 33,
+          "delta": 11
+        },
+        {
+          "employer": "Senevita",
+          "employerKey": "senevita",
+          "active": 221,
+          "delta": 10
+        },
+        {
+          "employer": "Kanton St. Gallen",
+          "employerKey": "kanton-st-gallen",
+          "active": 87,
+          "delta": 10
+        },
+        {
+          "employer": "Tertianum",
+          "employerKey": "tertianum",
+          "active": 277,
+          "delta": 9
+        },
+        {
+          "employer": "Richemont",
+          "employerKey": "richemont",
+          "active": 198,
           "delta": 9
         }
       ],
       "newcomers": [
         {
-          "employer": "OK Job SA, succursale di Mendrisio",
-          "employerKey": "okjob",
-          "active": 34
-        },
-        {
-          "employer": "Bucherer",
-          "employerKey": "bucherer",
-          "active": 21
-        },
-        {
-          "employer": "LIP Suisse",
-          "employerKey": "lipsuisse-ch",
+          "employer": "Restaurant & Hôtel Vatel",
+          "employerKey": "vatel-ch",
           "active": 20
         },
         {
-          "employer": "Rittmeyer AG",
-          "employerKey": "rittmeyer-ag",
-          "active": 17
+          "employer": "Frutiger AG",
+          "employerKey": "frutiger-com",
+          "active": 14
         },
         {
-          "employer": "Artificialy",
-          "employerKey": "artificialy",
+          "employer": "Ritter Schumacher AG",
+          "employerKey": "ritterschumacher-com",
           "active": 5
         },
         {
-          "employer": "City Pop",
-          "employerKey": "city-pop",
+          "employer": "HP Job GmbH",
+          "employerKey": "hpjob-ch",
+          "active": 4
+        },
+        {
+          "employer": "Nivarox-FAR S.A.",
+          "employerKey": "nivarox-swatch-group",
           "active": 3
         },
         {
-          "employer": "DATA UNIT AG",
-          "employerKey": "data-unit-ag",
-          "active": 3
-        },
-        {
-          "employer": "Benisa SA",
-          "employerKey": "benisasa-ch",
-          "active": 3
-        },
-        {
-          "employer": "Bank SLM AG",
-          "employerKey": "bankslm",
+          "employer": "Technic Emplois SA",
+          "employerKey": "technic-emplois",
           "active": 2
         },
         {
-          "employer": "CreditX Sàrl",
-          "employerKey": "creditx-ch",
+          "employer": "le team sa",
+          "employerKey": "le-team",
           "active": 2
+        },
+        {
+          "employer": "Medimeo AG",
+          "employerKey": "medimeo-ch",
+          "active": 1
+        },
+        {
+          "employer": "Comune di Losone",
+          "employerKey": "comune-di-losone",
+          "active": 1
+        },
+        {
+          "employer": "Comune di Blenio",
+          "employerKey": "comune-di-blenio",
+          "active": 1
         }
       ]
     },
     "lugano": {
-      "totalActive": 294,
+      "totalActive": 292,
       "topCompanies": [
-        {
-          "employer": "Manor AG",
-          "employerKey": "manor",
-          "active": 8,
-          "delta": 5
-        },
-        {
-          "employer": "Artificialy",
-          "employerKey": "artificialy",
-          "active": 5,
-          "delta": 5
-        },
-        {
-          "employer": "EOC – Ente Ospedaliero Cantonale",
-          "employerKey": "eoc-ente-ospedaliero-cantonale",
-          "active": 45,
-          "delta": 3
-        },
         {
           "employer": "PEMSA",
           "employerKey": "pemsa",
-          "active": 15,
-          "delta": 3
+          "active": 20,
+          "delta": 5
         },
         {
-          "employer": "Ticino Premium Properties SA",
-          "employerKey": "engel-voelkers",
+          "employer": "Raiffeisen",
+          "employerKey": "raiffeisen",
           "active": 2,
           "delta": 2
         },
         {
           "employer": "Cornèr Banca",
           "employerKey": "corner-banca",
-          "active": 9,
+          "active": 10,
           "delta": 1
         },
         {
-          "employer": "BPS (Banca Popolare di Sondrio) SUISSE",
-          "employerKey": "bps-suisse",
+          "employer": "CSC Costruzioni SA",
+          "employerKey": "csc-costruzioni-sa",
+          "active": 8,
+          "delta": 1
+        },
+        {
+          "employer": "Fincons Group",
+          "employerKey": "fincons-group",
           "active": 5,
           "delta": 1
         },
         {
-          "employer": "AXA Svizzera",
-          "employerKey": "axa-svizzera",
+          "employer": "Scuola Club Migros",
+          "employerKey": "migros-ticino",
           "active": 3,
           "delta": 1
         },
         {
-          "employer": "SUPSI / DTI",
-          "employerKey": "supsi-dti",
+          "employer": "Coop Genossenschaft",
+          "employerKey": "coop-ticino",
+          "active": 2,
+          "delta": 1
+        },
+        {
+          "employer": "Helvetia Versicherungen",
+          "employerKey": "helvetia",
           "active": 2,
           "delta": 1
         },
         {
           "employer": "SRG SSR",
           "employerKey": "srg-ssr",
+          "active": 2,
+          "delta": 1
+        },
+        {
+          "employer": "VZ VermögensZentrum",
+          "employerKey": "vz-vermoegenszentrum",
           "active": 1,
           "delta": 1
         },
         {
-          "employer": "Confederazione Svizzera",
-          "employerKey": "confederazione-ticino",
+          "employer": "ALTEN Switzerland",
+          "employerKey": "alten-switzerland",
           "active": 1,
           "delta": 1
         },
         {
-          "employer": "VF International (The North Face, Timberland)",
-          "employerKey": "vf-international-the-north-face-timberland",
+          "employer": "Protectas SA",
+          "employerKey": "protectas-sa",
           "active": 1,
           "delta": 1
-        },
-        {
-          "employer": "Tether Operations",
-          "employerKey": "tether",
-          "active": 21,
-          "delta": 0
         },
         {
           "employer": "Città di Lugano",
@@ -281,14 +275,20 @@
           "delta": 0
         },
         {
-          "employer": "CSC Costruzioni SA",
-          "employerKey": "csc-costruzioni-sa",
-          "active": 7,
+          "employer": "BPS (Banca Popolare di Sondrio) SUISSE",
+          "employerKey": "bps-suisse",
+          "active": 5,
           "delta": 0
         },
         {
           "employer": "Fondazione La Fonte",
           "employerKey": "la-fonte",
+          "active": 5,
+          "delta": 0
+        },
+        {
+          "employer": "Artificialy",
+          "employerKey": "artificialy",
           "active": 5,
           "delta": 0
         },
@@ -307,64 +307,53 @@
       ],
       "newcomers": [
         {
-          "employer": "Artificialy",
-          "employerKey": "artificialy",
-          "active": 5
-        },
-        {
-          "employer": "Ticino Premium Properties SA",
-          "employerKey": "engel-voelkers",
+          "employer": "Raiffeisen",
+          "employerKey": "raiffeisen",
           "active": 2
         },
         {
-          "employer": "SRG SSR",
-          "employerKey": "srg-ssr",
+          "employer": "VZ VermögensZentrum",
+          "employerKey": "vz-vermoegenszentrum",
           "active": 1
         },
         {
-          "employer": "Confederazione Svizzera",
-          "employerKey": "confederazione-ticino",
+          "employer": "ALTEN Switzerland",
+          "employerKey": "alten-switzerland",
           "active": 1
         },
         {
-          "employer": "VF International (The North Face, Timberland)",
-          "employerKey": "vf-international-the-north-face-timberland",
+          "employer": "Protectas SA",
+          "employerKey": "protectas-sa",
           "active": 1
         }
       ]
     },
     "mendrisio": {
-      "totalActive": 127,
+      "totalActive": 121,
       "topCompanies": [
+        {
+          "employer": "OK Job SA, succursale di Mendrisio",
+          "employerKey": "okjob",
+          "active": 4,
+          "delta": 4
+        },
+        {
+          "employer": "Anker Swiss Ticino AG",
+          "employerKey": "anker-swiss",
+          "active": 5,
+          "delta": 1
+        },
+        {
+          "employer": "AXA Svizzera",
+          "employerKey": "axa-svizzera",
+          "active": 1,
+          "delta": 1
+        },
         {
           "employer": "Delvitech SA",
           "employerKey": "delvitech-sa",
           "active": 35,
-          "delta": 28
-        },
-        {
-          "employer": "PEMSA",
-          "employerKey": "pemsa",
-          "active": 7,
-          "delta": 3
-        },
-        {
-          "employer": "Damiani Group",
-          "employerKey": "damiani-group",
-          "active": 11,
-          "delta": 1
-        },
-        {
-          "employer": "Organizzazione Sociopsichiatrica Cantonale (OSC) — Cantone Ticino",
-          "employerKey": "canton-ticino-osc",
-          "active": 4,
-          "delta": 1
-        },
-        {
-          "employer": "SUPSI / DTI",
-          "employerKey": "supsi-dti",
-          "active": 1,
-          "delta": 1
+          "delta": 0
         },
         {
           "employer": "EOC – Ente Ospedaliero Cantonale",
@@ -373,15 +362,21 @@
           "delta": 0
         },
         {
-          "employer": "Anker Swiss Ticino AG",
-          "employerKey": "seco-jobroom",
-          "active": 17,
+          "employer": "PEMSA",
+          "employerKey": "pemsa",
+          "active": 7,
           "delta": 0
         },
         {
-          "employer": "Città di Mendrisio",
-          "employerKey": "citta-di-mendrisio",
-          "active": 8,
+          "employer": "Organizzazione Sociopsichiatrica Cantonale (OSC) — Cantone Ticino",
+          "employerKey": "canton-ticino-osc",
+          "active": 4,
+          "delta": 0
+        },
+        {
+          "employer": "Sintetica SA",
+          "employerKey": "sintetica",
+          "active": 3,
           "delta": 0
         },
         {
@@ -427,6 +422,12 @@
           "delta": 0
         },
         {
+          "employer": "Riri Group",
+          "employerKey": "riri-group",
+          "active": 1,
+          "delta": 0
+        },
+        {
           "employer": "USI – Università della Svizzera italiana",
           "employerKey": "usi-universita-della-svizzera-italiana",
           "active": 1,
@@ -449,35 +450,40 @@
           "employerKey": "ecam",
           "active": 1,
           "delta": 0
-        },
-        {
-          "employer": "Riri Group",
-          "employerKey": "riri-group",
-          "active": 1,
-          "delta": -1
         }
       ],
       "newcomers": [
         {
-          "employer": "SUPSI / DTI",
-          "employerKey": "supsi-dti",
+          "employer": "OK Job SA, succursale di Mendrisio",
+          "employerKey": "okjob",
+          "active": 4
+        },
+        {
+          "employer": "AXA Svizzera",
+          "employerKey": "axa-svizzera",
           "active": 1
         }
       ]
     },
     "chiasso": {
-      "totalActive": 47,
+      "totalActive": 52,
       "topCompanies": [
+        {
+          "employer": "Point Service Interim SA",
+          "employerKey": "seco-jobroom",
+          "active": 4,
+          "delta": 2
+        },
+        {
+          "employer": "PEMSA",
+          "employerKey": "pemsa",
+          "active": 2,
+          "delta": 2
+        },
         {
           "employer": "Swiss Medical Network",
           "employerKey": "swiss-medical-network",
-          "active": 1,
-          "delta": 1
-        },
-        {
-          "employer": "Physio swiss",
-          "employerKey": "physioswiss",
-          "active": 1,
+          "active": 2,
           "delta": 1
         },
         {
@@ -493,6 +499,12 @@
           "delta": 0
         },
         {
+          "employer": "Board International",
+          "employerKey": "board-international",
+          "active": 4,
+          "delta": 0
+        },
+        {
           "employer": "FNZ (Switzerland) AG",
           "employerKey": "fnz",
           "active": 3,
@@ -501,6 +513,12 @@
         {
           "employer": "Confederazione Svizzera",
           "employerKey": "confederazione-ticino",
+          "active": 2,
+          "delta": 0
+        },
+        {
+          "employer": "Cippà Trasporti SA",
+          "employerKey": "cippatrasporti",
           "active": 2,
           "delta": 0
         },
@@ -523,6 +541,12 @@
           "delta": 0
         },
         {
+          "employer": "AXA Svizzera",
+          "employerKey": "axa-svizzera",
+          "active": 1,
+          "delta": 0
+        },
+        {
           "employer": "Comune di Chiasso",
           "employerKey": "comune-di-chiasso",
           "active": 1,
@@ -541,57 +565,52 @@
           "delta": 0
         },
         {
-          "employer": "Tether Operations",
-          "employerKey": "tether",
+          "employer": "Physio swiss",
+          "employerKey": "physioswiss",
           "active": 1,
           "delta": 0
         },
         {
-          "employer": "Board International",
-          "employerKey": "board-international",
-          "active": 4,
-          "delta": -1
-        },
-        {
-          "employer": "Cippà Trasporti SA",
-          "employerKey": "cippatrasporti",
-          "active": 2,
-          "delta": -1
-        },
-        {
-          "employer": "AXA Svizzera",
-          "employerKey": "axa-svizzera",
+          "employer": "Tether Operations",
+          "employerKey": "tether",
           "active": 1,
-          "delta": -1
-        },
-        {
-          "employer": "Team Personnel Solutions SA",
-          "employerKey": "seco-jobroom",
-          "active": 2,
-          "delta": -4
+          "delta": 0
         }
       ],
       "newcomers": [
         {
-          "employer": "Swiss Medical Network",
-          "employerKey": "swiss-medical-network",
-          "active": 1
-        },
-        {
-          "employer": "Physio swiss",
-          "employerKey": "physioswiss",
-          "active": 1
+          "employer": "PEMSA",
+          "employerKey": "pemsa",
+          "active": 2
         }
       ]
     },
     "stabio": {
-      "totalActive": 83,
+      "totalActive": 87,
       "topCompanies": [
         {
           "employer": "avec compétence GmbH",
           "employerKey": "seco-jobroom",
-          "active": 5,
+          "active": 8,
           "delta": 3
+        },
+        {
+          "employer": "Ermenegildo Zegna Group",
+          "employerKey": "ermenegildo-zegna-logistica",
+          "active": 4,
+          "delta": 1
+        },
+        {
+          "employer": "PEMSA",
+          "employerKey": "pemsa",
+          "active": 2,
+          "delta": 1
+        },
+        {
+          "employer": "Elettra 1938",
+          "employerKey": "elettra-1938",
+          "active": 1,
+          "delta": 1
         },
         {
           "employer": "Rapelli - ORIOR Food AG",
@@ -600,21 +619,9 @@
           "delta": 0
         },
         {
-          "employer": "Ermenegildo Zegna Group",
-          "employerKey": "ermenegildo-zegna-logistica",
-          "active": 3,
-          "delta": 0
-        },
-        {
           "employer": "Guess Europe Sagl",
           "employerKey": "guess-europe",
           "active": 2,
-          "delta": 0
-        },
-        {
-          "employer": "PEMSA",
-          "employerKey": "pemsa",
-          "active": 1,
           "delta": 0
         },
         {
@@ -632,61 +639,49 @@
         {
           "employer": "VF International (The North Face, Timberland)",
           "employerKey": "vf-international-the-north-face-timberland",
-          "active": 61,
-          "delta": -1
+          "active": 59,
+          "delta": -2
         }
       ],
-      "newcomers": []
+      "newcomers": [
+        {
+          "employer": "Elettra 1938",
+          "employerKey": "elettra-1938",
+          "active": 1
+        }
+      ]
     },
     "bellinzona": {
-      "totalActive": 240,
+      "totalActive": 206,
       "topCompanies": [
         {
-          "employer": "Die Schweizerische Post",
-          "employerKey": "posta-svizzera-centro-regionale",
-          "active": 18,
-          "delta": 4
+          "employer": "Adecco",
+          "employerKey": "seco-jobroom",
+          "active": 42,
+          "delta": 1
+        },
+        {
+          "employer": "Confederazione Svizzera",
+          "employerKey": "confederazione-ticino",
+          "active": 2,
+          "delta": 1
+        },
+        {
+          "employer": "Coop Genossenschaft",
+          "employerKey": "coop-ticino",
+          "active": 1,
+          "delta": 1
+        },
+        {
+          "employer": "Città di Bellinzona",
+          "employerKey": "citta-di-bellinzona",
+          "active": 2,
+          "delta": 0
         },
         {
           "employer": "Anker Swiss Ticino AG",
           "employerKey": "anker-swiss",
           "active": 2,
-          "delta": 2
-        },
-        {
-          "employer": "EOC – Ente Ospedaliero Cantonale",
-          "employerKey": "eoc-ente-ospedaliero-cantonale",
-          "active": 107,
-          "delta": 1
-        },
-        {
-          "employer": "FFS Officine (Ferrovie Federali)",
-          "employerKey": "ffs-officine-ferrovie-federali",
-          "active": 5,
-          "delta": 1
-        },
-        {
-          "employer": "AXA Svizzera",
-          "employerKey": "axa-svizzera",
-          "active": 1,
-          "delta": 1
-        },
-        {
-          "employer": "Bank Cler",
-          "employerKey": "banca-cler",
-          "active": 1,
-          "delta": 1
-        },
-        {
-          "employer": "Opus Personal AG, Zweigniederlassung Altdorf",
-          "employerKey": "opus-personal",
-          "active": 24,
-          "delta": 0
-        },
-        {
-          "employer": "PEMSA",
-          "employerKey": "pemsa",
-          "active": 12,
           "delta": 0
         },
         {
@@ -708,8 +703,14 @@
           "delta": 0
         },
         {
-          "employer": "Confederazione Svizzera",
-          "employerKey": "confederazione-ticino",
+          "employer": "AXA Svizzera",
+          "employerKey": "axa-svizzera",
+          "active": 1,
+          "delta": 0
+        },
+        {
+          "employer": "Bank Cler",
+          "employerKey": "banca-cler",
           "active": 1,
           "delta": 0
         },
@@ -760,51 +761,59 @@
           "employerKey": "relewant",
           "active": 1,
           "delta": 0
+        },
+        {
+          "employer": "Organizzazione Sociopsichiatrica Cantonale (OSC) — Cantone Ticino",
+          "employerKey": "canton-ticino-osc",
+          "active": 1,
+          "delta": 0
+        },
+        {
+          "employer": "EOC – Ente Ospedaliero Cantonale",
+          "employerKey": "eoc-ente-ospedaliero-cantonale",
+          "active": 105,
+          "delta": -2
         }
       ],
       "newcomers": [
         {
-          "employer": "Anker Swiss Ticino AG",
-          "employerKey": "anker-swiss",
-          "active": 2
-        },
-        {
-          "employer": "AXA Svizzera",
-          "employerKey": "axa-svizzera",
-          "active": 1
-        },
-        {
-          "employer": "Bank Cler",
-          "employerKey": "banca-cler",
+          "employer": "Coop Genossenschaft",
+          "employerKey": "coop-ticino",
           "active": 1
         }
       ]
     },
     "locarno": {
-      "totalActive": 63,
+      "totalActive": 68,
       "topCompanies": [
         {
-          "employer": "Città di Locarno",
-          "employerKey": "citta-di-locarno",
-          "active": 4,
-          "delta": 3
+          "employer": "Anker Swiss Ticino AG",
+          "employerKey": "seco-jobroom",
+          "active": 27,
+          "delta": 4
+        },
+        {
+          "employer": "PEMSA",
+          "employerKey": "pemsa",
+          "active": 7,
+          "delta": 1
         },
         {
           "employer": "AXA Svizzera",
           "employerKey": "axa-svizzera",
+          "active": 2,
+          "delta": 1
+        },
+        {
+          "employer": "Anker Swiss Ticino AG",
+          "employerKey": "anker-swiss",
           "active": 1,
           "delta": 1
         },
         {
-          "employer": "Locarno Film Festival",
-          "employerKey": "locarno-film-festival",
-          "active": 1,
-          "delta": 1
-        },
-        {
-          "employer": "EOC – Ente Ospedaliero Cantonale",
-          "employerKey": "eoc-ente-ospedaliero-cantonale",
-          "active": 16,
+          "employer": "Città di Locarno",
+          "employerKey": "citta-di-locarno",
+          "active": 4,
           "delta": 0
         },
         {
@@ -838,12 +847,6 @@
           "delta": 0
         },
         {
-          "employer": "ETH Zürich",
-          "employerKey": "eth-zurich",
-          "active": 1,
-          "delta": 0
-        },
-        {
           "employer": "Sun Store Apotheke (Galenica)",
           "employerKey": "galenica",
           "active": 1,
@@ -868,27 +871,22 @@
           "delta": 0
         },
         {
-          "employer": "PEMSA",
-          "employerKey": "pemsa",
-          "active": 6,
-          "delta": -2
+          "employer": "Locarno Film Festival",
+          "employerKey": "locarno-film-festival",
+          "active": 1,
+          "delta": 0
         },
         {
-          "employer": "MK Ticino Security Sagl",
-          "employerKey": "seco-jobroom",
-          "active": 23,
-          "delta": -20
+          "employer": "EOC – Ente Ospedaliero Cantonale",
+          "employerKey": "eoc-ente-ospedaliero-cantonale",
+          "active": 15,
+          "delta": -1
         }
       ],
       "newcomers": [
         {
-          "employer": "AXA Svizzera",
-          "employerKey": "axa-svizzera",
-          "active": 1
-        },
-        {
-          "employer": "Locarno Film Festival",
-          "employerKey": "locarno-film-festival",
+          "employer": "Anker Swiss Ticino AG",
+          "employerKey": "anker-swiss",
           "active": 1
         }
       ]

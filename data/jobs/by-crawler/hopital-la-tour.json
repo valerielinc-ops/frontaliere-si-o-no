@@ -1,8 +1,102 @@
 {
   "crawlerKey": "hopital-la-tour",
-  "assembledAt": "2026-11-20T22:28:40.244Z",
-  "runId": "44819300030",
+  "assembledAt": "2026-11-25T21:22:28.006Z",
+  "runId": "45703019665",
   "jobs": [
+    {
+      "id": "hopital-la-tour-861b7c049de5",
+      "slug": "medici-di-emergenza-anziani-a-tempo-pieno-o-part-time-hopital-de-la-tour-meyrin",
+      "slugByLocale": {
+        "it": "medici-di-emergenza-anziani-a-tempo-pieno-o-part-time-hopital-de-la-tour-meyrin",
+        "en": "full-time-or-part-time-senior-emergency-doctors-hopital-de-la-tour-meyrin",
+        "de": "vollzeit-oder-teilzeit-leitende-notarzte-hopital-de-la-tour-meyrin",
+        "fr": "medecins-urgentistes-seniors-a-temps-plein-ou-temps-partiel-hopital-la-tour-meyrin"
+      },
+      "company": "Hôpital de La Tour",
+      "companyKey": "hopital-la-tour",
+      "companyDomain": "la-tour.ch",
+      "title": "Médecins urgentistes seniors à temps plein ou temps partiel",
+      "titleByLocale": {
+        "it": "Medici di emergenza anziani a tempo pieno o part-time",
+        "en": "Full-time or part-time senior emergency doctors",
+        "de": "Vollzeit oder Teilzeit leitende Notärzte",
+        "fr": "Médecins urgentistes seniors à temps plein ou temps partiel"
+      },
+      "description": "'Hôpital de La Tour est l'un des établissements de santé privés de référence en Suisse romande, reconnu pour l'excellence de ses soins et son environnement de travail exigeant mais humain. Situé à Meyrin, aux portes de Genève, il bénéficie d'une position stratégique unique : centre de référence pour la rive droite genevoise, les organisations internationales et la France voisine.\n\nDans le cadre de son développement, le Service des Urgences Médicales recrute plusieurs médecins urgentistes seniors pour rejoindre une équipe structurée, bienveillante et attachée à la qualité des soins.\n\nMédecins urgentistes seniors à temps plein ou temps partiel (ref : 1933)\n\nReconnu par la Société Suisse de Médecine d'Urgence et de Sauvetage (SSMUS) et membre du Réseau d'Urgence Genevois (RUG), notre service assure une prise en charge complète, 24h/24 et 365 jours/an :\n\n• Plus de 33 000 passages annuels, avec une activité médicale variée et soutenue.\n\n• Une unité ambulatoire d'urgence et une filière de patients « couchés » (urgences vitales et semi-urgences).\n\n• Une unité d'observation de courte durée (UOCD), équivalent de l'UHCD française.\n\n• Une unité de consultation post-urgence pour le suivi rapproché des patients.\n\n• Un accès direct aux spécialistes hospitaliers, sans délai et dans un esprit de collaboration.\n\nCe que vous ferez\n\nEn tant que médecin senior, vous exercez avec une réelle autonomie clinique, tout en contribuant activement à la vie du service :\n\n• Prise en charge de patients adultes dans toute la diversité des urgences médicales et chirurgicales, de l'urgence vitale à la consultation non programmée.\n\n• Supervision clinique des médecins assistants et internes : encadrement, validation des décisions et transmission quotidienne du savoir.\n\n• Participation à l'amélioration continue des protocoles et des pratiques du service.\n\n• Collaboration transversale avec les équipes soignantes et les spécialistes de l'hôpital.\n\nLe profil que nous recherchons\n\nNous recrutons aussi bien un urgentiste confirmé souhaitant quitter l'hôpital public pour un cadre plus serein, qu'un jeune spécialiste ambitieux prêt à construire son parcours dans un environnement d'excellence. Ce qui nous importe :\n\n• Diplôme de médecine obtenu dans un pays membre de l'UE, éligible à une reconnaissance MEBEKO.\n\n• Titre spécialisé en médecine d'urgence : DES, DESC, certificat européen de médecine d'urgence, formation SSMUS suisse ou équivalent européen reconnu.\n\n• Expérience significative en service d'urgences à haut volume : minimum 5 ans en SAU ou poste équivalent de chef de clinique.\n\n• Maîtrise du français courant indispensable ; langue de travail et de transmission au quotidien.\n\n• Capacité à gérer l'urgence avec autonomie, discernement et esprit d'équipe.\n\n• Intérêt sincère pour l'encadrement clinique et la formation des médecins juniors.\n\nCe que nous vous proposons\n\nOrganisation et conditions de travail\n\n• Poste salarié à temps plein ou temps partiel, dans un cadre légal suisse.\n\n• 40 heures hebdomadaires (pour un temps complet), avec des horaires mixtes (plages de 8h et de 12h) répartis équitablement entre jours, nuits et week-ends.\n\n• Compensation des nuits conforme à la Loi sur le travail (LTr) et aux pratiques suisses.\n\n• Parking gratuit assuré pour les gardes de nuit, les week-ends et les jours fériés.\n\n• Desserte en transports publics directe (arrêt de bus à proximité immédiate de l'hôpital).\n\nRémunération\n\nDes conditions salariales attractives, en cohérence avec les standards suisses pour des médecins seniors en urgences. Les détails seront communiqués lors du premier entretien.\n\nEnvironnement professionnel et cadre de vie\n\n• Une institution à taille humaine, où l'autonomie médicale est réelle et les décisions collégiales.\n\n• Une équipe senior expérimentée, soudée et accessible, avec une culture d'entraide.\n\n• Un accompagnement personnalisé.\n\n• Des perspectives de développement de compétences en médecine d'urgence.",
+      "descriptionByLocale": {
+        "it": "'L'Hôpital de La Tour è una delle principali strutture sanitarie private della Svizzera francofona, riconosciuta per l'eccellenza della sua cura e il suo ambiente di lavoro esigente ma umano. Situato a Meyrin, alle porte di Ginevra, gode di una posizione strategica unica: un centro di riferimento per la giusta banca Ginevra, organizzazioni internazionali e la vicina Francia.\n\nNell'ambito del suo sviluppo, il Medical Emergencies Service recluta diversi medici di emergenza senior per unirsi a un team strutturato, curante e di qualità-of-care.\n\nMedici di emergenza a tempo pieno o part-time (rif: 1933)\n\nRiconosciuto dalla Società Svizzera di Medicina d'Emergenza e di Soccorso (SSMUS) e da un membro della Rete di Emergenza Genevois (RUG), il nostro servizio garantisce una completa assistenza, 24 ore al giorno e 365 giorni all'anno:\n\n• Più di 33.000 passaggi annuali, con attività medica varia e sostenuta.\n\n• Un'unità ambulatoriale di emergenza e una linea di pazienti \"abbassati\" (emergenza vitale e semiemergenza).\n\n• Un'unità di osservazione a breve termine (UOCD), equivalente all'UHCD francese.\n\n• Un'unità di riferimento post-emergenza per un attento monitoraggio del paziente.\n\n• Accesso diretto agli specialisti ospedalieri, senza indugio e in spirito di collaborazione.\n\nCosa farai\n\nCome medico senior, si esercita con reale autonomia clinica, mentre contribuisce attivamente alla vita del servizio:\n\n• Gestione di pazienti adulti in tutta la diversità di emergenze mediche e chirurgiche, dall'emergenza vitale alla consultazione non programmata.\n\n• Supervisione clinica di assistenti e medici interni: supervisione, convalida delle decisioni e trasmissione quotidiana della conoscenza.\n\n• Partecipazione al miglioramento continuo dei protocolli e delle pratiche di servizio.\n\n• Collaborazione incrociata con team sanitari e specialisti ospedalieri.\n\nIl profilo che stiamo cercando\n\nAssumiamo sia uno specialista di emergenza confermato che vuole lasciare l'ospedale pubblico per un ambiente più sereno, e un giovane specialista ambizioso che è pronto a costruire la sua carriera in un ambiente di eccellenza. Cosa ci importa:\n\n• Diploma in medicina ottenuto in uno Stato membro dell'UE, idoneo per il riconoscimento MEBEKO.\n\n• Specializzato in medicina d'emergenza: DES, DESC, certificato europeo di medicina d'emergenza, formazione svizzera SSMUS o equivalente europeo riconosciuto.\n\n• Esperienza significativa nel servizio di emergenza ad alto volume: minimo 5 anni in UAA o posizione equivalente come capo della clinica.\n\n• Masterizzazione del francese attuale essenziale; lingua di lavoro e trasmissione quotidiana.\n\n• Capacità di gestire l'emergenza con autonomia, discernimento e spirito di squadra.\n\n• Un sincero interesse per la supervisione clinica e la formazione dei medici junior.\n\nCosa offriamo\n\nOrganizzazione e condizioni di lavoro\n\n• Dipendente a tempo pieno o a tempo parziale, in un quadro giuridico svizzero.\n\n• 40 ore alla settimana (per un tempo pieno), con ore miste (8:00 e 12h) distribuite ugualmente tra giorni, notti e fine settimana.\n\n• Compensazione per notti secondo la legge del lavoro (LTr) e le pratiche svizzere.\n\n• Parcheggio gratuito per guardie notturne, fine settimana e festivi.\n\n• Trasporto pubblico diretto (fermata degli autobus nelle immediate vicinanze dell'ospedale).\n\nCompensazione\n\nCondizioni salariali attraenti, coerenti con gli standard svizzeri per i medici anziani nelle emergenze. I dettagli saranno forniti durante la prima intervista.\n\nAmbiente professionale e ambiente di vita\n\n• Un'istituzione di dimensioni umane, dove l'autonomia medica è decisioni reali e collegiali.\n\n• Un team anziano esperto, saldato e accessibile, con una cultura di auto-aiuto.\n\n• Supporto personale.\n\n• Prospettive per lo sviluppo di competenze in medicina di emergenza.",
+        "en": "'Hôpital de La Tour is one of the leading private health facilities in French-speaking Switzerland, recognized for the excellence of its care and its demanding but human work environment. Located in Meyrin, at the gates of Geneva, it enjoys a unique strategic position: a centre of reference for the right bank Geneva, international organizations and neighbouring France.\n\nAs part of its development, the Medical Emergencies Service recruits several senior emergency physicians to join a structured, caring and quality-of-care team.\n\nSenior full-time or part-time emergency physicians (ref: 1933)\n\nRecognized by the Swiss Society of Emergency and Rescue Medicine (SSMUS) and a member of the Genevois Emergency Network (RUG), our service ensures complete care, 24 hours a day and 365 days a year:\n\n• More than 33,000 annual passages, with varied and sustained medical activity.\n\n• An emergency outpatient unit and a line of patients \"bed down\" (vital and semi-emergency emergencies).\n\n• A short-term observation unit (UOCD), equivalent to the French UHCD.\n\n• A post-emergency referral unit for close patient monitoring.\n\n• Direct access to hospital specialists, without delay and in a spirit of collaboration.\n\nWhat You Will Do\n\nAs a senior physician, you exercise with real clinical autonomy, while actively contributing to the life of the service:\n\n• Management of adult patients in all the diversity of medical and surgical emergencies, from vital emergency to unscheduled consultation.\n\n• Clinical supervision of assistants and internal physicians: supervision, validation of decisions and daily transmission of knowledge.\n\n• Participation in continuous improvement of service protocols and practices.\n\n• Cross-cutting collaboration with health care teams and hospital specialists.\n\nThe profile we're looking for\n\nWe recruit both a confirmed emergency specialist who wants to leave the public hospital for a more serene setting, and an ambitious young specialist who is ready to build his career in an environment of excellence. What matters to us:\n\n• Diploma in medicine obtained in an EU Member State, eligible for MEBEKO recognition.\n\n• Specialised in emergency medicine: DES, DESC, European emergency medicine certificate, Swiss SSMUS training or recognised European equivalent.\n\n• Significant experience in high-volume emergency service: minimum 5 years in UAA or equivalent position as head of clinic.\n\n• Mastery of essential current French; language of work and daily transmission.\n\n• Ability to manage emergency with autonomy, discernment and team spirit.\n\n• A sincere interest in the clinical supervision and training of junior physicians.\n\nWhat we offer\n\nOrganization and working conditions\n\n• Full-time or part-time employee, in a Swiss legal framework.\n\n• 40 hours per week (for a full time), with mixed hours (8am and 12h) distributed equally between days, nights and weekends.\n\n• Compensation for nights in accordance with the Labour Act (LTr) and Swiss practices.\n\n• Free parking for night guards, weekends and public holidays.\n\n• Direct public transport (bus stop in the immediate vicinity of the hospital).\n\nCompensation\n\nAttractive salary conditions, consistent with Swiss standards for senior doctors in emergencies. Details will be provided during the first interview.\n\nProfessional environment and living environment\n\n• An institution of human size, where medical autonomy is real and collegial decisions.\n\n• A senior team experienced, welded and accessible, with a culture of self-help.\n\n• Personal support.\n\n• Prospects for developing skills in emergency medicine.",
+        "de": "Das Hotel de La Tour ist eine der führenden privaten Gesundheitseinrichtungen in der französischsprachigen Schweiz, die für ihre hervorragende Pflege und ihr anspruchsvolles, aber menschliches Arbeitsumfeld bekannt ist. Das Hotel liegt in Meyrin, vor den Toren von Genf, genießt es eine einzigartige strategische Lage: ein Bezugspunkt für das rechte Ufer Genf, internationale Organisationen und das benachbarte Frankreich.\n\nAls Teil seiner Entwicklung rekrutiert der Medical Emergencies Service mehrere leitende Notfallärzte, um sich einem strukturierten, fürsorglichen und qualitativ hochwertigen Team anzuschließen.\n\nSenior Vollzeit- oder Teilzeit-Notärzte (Ref: 1933)\n\nAnerkannt von der Schweizerischen Gesellschaft für Notfall- und Rettungsmedizin (SSMUS) und einem Mitglied des Genevois Emergency Network (RUG), gewährleistet unser Service eine vollständige Versorgung, 24 Stunden am Tag und 365 Tage im Jahr:\n\n• Mehr als 33.000 jährliche Passagen, mit vielfältiger und nachhaltiger medizinischer Aktivität.\n\n• Eine ambulante Notfallstation und eine Reihe von Patienten \"betten\" (vitale und semi-Notfall-Notfälle).\n\n• Eine Kurzzeitbeobachtungseinheit (UOCD), die der französischen UHCD entspricht.\n\n• Eine Post-Emergency-Empfehlungseinheit für eine enge Patientenüberwachung.\n\n• Direkter Zugang zu Krankenhausspezialisten, ohne Verzögerung und im Geiste der Zusammenarbeit.\n\nWas Sie tun werden\n\nAls leitender Arzt trainieren Sie mit echter klinischer Autonomie, während Sie aktiv zum Leben des Dienstes beitragen:\n\n• Management von erwachsenen Patienten in der ganzen Vielfalt der medizinischen und chirurgischen Notfälle, von lebenswichtigen Notfall zu ungeplanten Beratung.\n\n• Klinische Betreuung von Assistenten und internen Ärzten: Überwachung, Validierung von Entscheidungen und tägliche Weitergabe von Wissen.\n\n• Teilnahme an der kontinuierlichen Verbesserung von Serviceprotokollen und -praktiken.\n\n• Querschnittliche Zusammenarbeit mit Gesundheitsteams und Krankenhausspezialisten.\n\nDas Profil, das wir suchen\n\nWir rekrutieren sowohl einen bestätigten Notfallspezialisten, der das öffentliche Krankenhaus für eine ruhigere Umgebung verlassen möchte, als auch einen ehrgeizigen jungen Spezialisten, der bereit ist, seine Karriere in einem Umfeld von Exzellenz aufzubauen. Was uns wichtig ist:\n\n• In einem EU-Mitgliedstaat erworbenes Diplom in Medizin, das für die Anerkennung von MEBEKO in Frage kommt.\n\n• Spezialisiert auf Notfallmedizin: DES, DESC, Europäisches Notfallmedizinzertifikat, Schweizer SSMUS-Ausbildung oder anerkanntes europäisches Äquivalent.\n\n• Signifikante Erfahrung im hochvolumigen Notdienst: mindestens 5 Jahre in UAA oder gleichwertige Position als Leiter der Klinik.\n\n• Beherrschung der wesentlichen aktuellen Französisch; Sprache der Arbeit und tägliche Übertragung.\n\n• Fähigkeit, Notfälle mit Autonomie, Unterscheidungsvermögen und Teamgeist zu bewältigen.\n\n• Ein aufrichtiges Interesse an der klinischen Betreuung und Ausbildung von Nachwuchsärzten.\n\nWas wir bieten\n\nOrganisation und Arbeitsbedingungen\n\n• Vollzeit- oder Teilzeitbeschäftigte, in einem Schweizer Rechtsrahmen.\n\n• 40 Stunden pro Woche (für eine Vollzeit), mit gemischten Stunden (8am und 12h), die gleichmäßig zwischen Tagen, Nächten und Wochenenden verteilt sind.\n\n• Entschädigung für Übernachtungen nach dem Arbeitsgesetz (LTr) und Schweizer Praktiken.\n\n• Kostenlose Parkplätze für Nachtwächter, Wochenenden und Feiertage.\n\n• Direkte öffentliche Verkehrsmittel (Bushaltestelle in unmittelbarer Nähe des Krankenhauses).\n\nAusgleich\n\nAttraktive Lohnkonditionen, im Einklang mit Schweizer Standards für leitende Ärzte in Notfällen. Details werden während des ersten Interviews angegeben.\n\nBerufliches Umfeld und Wohnumfeld\n\n• Eine Institution von menschlicher Größe, in der medizinische Autonomie reale und kollegiale Entscheidungen sind.\n\n• Ein erfahrenes, geschweißtes und zugängliches Team mit einer Kultur der Selbsthilfe.\n\n• Persönliche Unterstützung.\n\n• Perspektiven für die Entwicklung von Fähigkeiten in der Notfallmedizin.",
+        "fr": "'Hôpital de La Tour est l'un des établissements de santé privés de référence en Suisse romande, reconnu pour l'excellence de ses soins et son environnement de travail exigeant mais humain. Situé à Meyrin, aux portes de Genève, il bénéficie d'une position stratégique unique : centre de référence pour la rive droite genevoise, les organisations internationales et la France voisine.\n\nDans le cadre de son développement, le Service des Urgences Médicales recrute plusieurs médecins urgentistes seniors pour rejoindre une équipe structurée, bienveillante et attachée à la qualité des soins.\n\nMédecins urgentistes seniors à temps plein ou temps partiel (ref : 1933)\n\nReconnu par la Société Suisse de Médecine d'Urgence et de Sauvetage (SSMUS) et membre du Réseau d'Urgence Genevois (RUG), notre service assure une prise en charge complète, 24h/24 et 365 jours/an :\n\n• Plus de 33 000 passages annuels, avec une activité médicale variée et soutenue.\n\n• Une unité ambulatoire d'urgence et une filière de patients « couchés » (urgences vitales et semi-urgences).\n\n• Une unité d'observation de courte durée (UOCD), équivalent de l'UHCD française.\n\n• Une unité de consultation post-urgence pour le suivi rapproché des patients.\n\n• Un accès direct aux spécialistes hospitaliers, sans délai et dans un esprit de collaboration.\n\nCe que vous ferez\n\nEn tant que médecin senior, vous exercez avec une réelle autonomie clinique, tout en contribuant activement à la vie du service :\n\n• Prise en charge de patients adultes dans toute la diversité des urgences médicales et chirurgicales, de l'urgence vitale à la consultation non programmée.\n\n• Supervision clinique des médecins assistants et internes : encadrement, validation des décisions et transmission quotidienne du savoir.\n\n• Participation à l'amélioration continue des protocoles et des pratiques du service.\n\n• Collaboration transversale avec les équipes soignantes et les spécialistes de l'hôpital.\n\nLe profil que nous recherchons\n\nNous recrutons aussi bien un urgentiste confirmé souhaitant quitter l'hôpital public pour un cadre plus serein, qu'un jeune spécialiste ambitieux prêt à construire son parcours dans un environnement d'excellence. Ce qui nous importe :\n\n• Diplôme de médecine obtenu dans un pays membre de l'UE, éligible à une reconnaissance MEBEKO.\n\n• Titre spécialisé en médecine d'urgence : DES, DESC, certificat européen de médecine d'urgence, formation SSMUS suisse ou équivalent européen reconnu.\n\n• Expérience significative en service d'urgences à haut volume : minimum 5 ans en SAU ou poste équivalent de chef de clinique.\n\n• Maîtrise du français courant indispensable ; langue de travail et de transmission au quotidien.\n\n• Capacité à gérer l'urgence avec autonomie, discernement et esprit d'équipe.\n\n• Intérêt sincère pour l'encadrement clinique et la formation des médecins juniors.\n\nCe que nous vous proposons\n\nOrganisation et conditions de travail\n\n• Poste salarié à temps plein ou temps partiel, dans un cadre légal suisse.\n\n• 40 heures hebdomadaires (pour un temps complet), avec des horaires mixtes (plages de 8h et de 12h) répartis équitablement entre jours, nuits et week-ends.\n\n• Compensation des nuits conforme à la Loi sur le travail (LTr) et aux pratiques suisses.\n\n• Parking gratuit assuré pour les gardes de nuit, les week-ends et les jours fériés.\n\n• Desserte en transports publics directe (arrêt de bus à proximité immédiate de l'hôpital).\n\nRémunération\n\nDes conditions salariales attractives, en cohérence avec les standards suisses pour des médecins seniors en urgences. Les détails seront communiqués lors du premier entretien.\n\nEnvironnement professionnel et cadre de vie\n\n• Une institution à taille humaine, où l'autonomie médicale est réelle et les décisions collégiales.\n\n• Une équipe senior expérimentée, soudée et accessible, avec une culture d'entraide.\n\n• Un accompagnement personnalisé.\n\n• Des perspectives de développement de compétences en médecine d'urgence."
+      },
+      "location": "Meyrin",
+      "canton": "GE",
+      "url": "https://recrutement.latour.ch/fr/nos-offres/medecin-urgentiste-senior-1506",
+      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-25T21:22:22.112Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1217",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/medecin-urgentiste-senior-1506",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "medecins-urgentistes-seniors-a-temps-plein-ou-temps-partiel-hopital-la-tour-meyrin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medecins-urgentistes-seniors-a-temps-plein-ou-temps-partiel-hopital-la-tour-meyrin"
+        ],
+        "en": [
+          "medecins-urgentistes-seniors-a-temps-plein-ou-temps-partiel-hopital-la-tour-meyrin"
+        ],
+        "de": [
+          "medecins-urgentistes-seniors-a-temps-plein-ou-temps-partiel-hopital-la-tour-meyrin"
+        ]
+      },
+      "firstSeenAt": "2026-11-23T21:33:07.317Z",
+      "salaryMin": 116500,
+      "salaryMax": 162500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 116500,
+          "maxValue": 162500,
+          "unitText": "YEAR"
+        }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Hôpital de La Tour",
+        "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
+        "postalCode": "1217",
+        "addressLocality": "Meyrin",
+        "addressRegion": "GE",
+        "checkedAt": "2026-10-31T20:49:16.573Z",
+        "streetAddressSource": "zefix-registry"
+      },
+      "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-22T21:22:22.112Z",
+      "validThroughSource": "last-observed-window"
+    },
     {
       "id": "hopital-la-tour-882b6ff457f2",
       "slug": "ergoterapista-in-cdi-80-hopital-de-la-tour-meyrin",
@@ -34,7 +128,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/ergotherapeute-a-80-cdi-1514",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:28:33.150Z",
+      "crawledAt": "2026-11-25T21:22:22.111Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -88,9 +182,8 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T22:28:33.150Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/ergotherapeute-a-80-cdi-1514"
+      "validThrough": "2026-12-25T21:22:22.111Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hopital-la-tour-fd3402d505cf",
@@ -124,7 +217,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/technicien-ne-en-radiologie-au-service-de-radio-oncologie-a-90-1536",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:28:33.148Z",
+      "crawledAt": "2026-11-25T21:22:22.110Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -184,99 +277,8 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T22:28:33.148Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/technicien-ne-en-radiologie-au-service-de-radio-oncologie-a-90-1536"
-    },
-    {
-      "id": "hopital-la-tour-fa0243493f74",
-      "slug": "100-neuropsicologo-cdi-centro-di-memoria-hopital-de-la-tour-meyrin",
-      "slugByLocale": {
-        "it": "100-neuropsicologo-cdi-centro-di-memoria-hopital-de-la-tour-meyrin",
-        "en": "100-neuropsychologist-cdi-centre-for-memory-hopital-de-la-tour-meyrin",
-        "de": "100-neuropsychologe-cdi-zentrum-fur-gedachtnis-hopital-de-la-tour-meyrin",
-        "fr": "neuropsychologue-a-100-cdi-centre-de-la-memoire-hopital-la-tour-meyrin"
-      },
-      "company": "Hôpital de La Tour",
-      "companyKey": "hopital-la-tour",
-      "companyDomain": "la-tour.ch",
-      "title": "Neuropsychologue à 100 % CDI – Centre de la mémoire",
-      "titleByLocale": {
-        "it": "100 % Neuropsicologo CDI – Centro di Memoria",
-        "en": "100 % Neuropsychologist CDI – Centre for Memory",
-        "de": "100 % Neuropsychologe CDI – Zentrum für Gedächtnis",
-        "fr": "Neuropsychologue à 100 % CDI – Centre de la mémoire"
-      },
-      "description": "Rejoignez-nous et participez à la création de notre Centre de la mémoire !\n\nL’Hôpital de La Tour ouvre un Centre de la mémoire et recherche un(e) Neuropsychologue à 100 % pour rejoindre une équipe pluridisciplinaire dynamique et contribuer au développement de cette activité.\n\nNeuropsychologue à 100 % CDI – Centre de la mémoire (ref : 2008)\n\nVous souhaitez mettre votre expertise au service d’une prise en charge personnalisée, multidisciplinaire et centrée sur le patient ? Ce poste vous offre l’opportunité de jouer un rôle clé dans le parcours des patients présentant des troubles cognitifs et de participer activement à la création et l’évolution du Centre.\n\nVotre rôle\n\nAu sein du Centre de la mémoire, vous serez notamment amené(e) à :\n\n• réaliser des bilans neuropsychologiques complets et adaptés aux problématiques des patients ;\n\n• évaluer et caractériser les troubles cognitifs et leurs répercussions dans la vie quotidienne ;\n\n• contribuer à l’orientation diagnostique en étroite collaboration avec les neurologues ;\n\n• rédiger les comptes rendus et assurer la restitution des résultats aux patients et à leurs proches ;\n\n• proposer des recommandations et stratégies de compensation adaptées ;\n\n• participer aux réunions et décisions de prise en charge pluridisciplinaires ;\n\n• contribuer au suivi des patients et à l’évolution de leur parcours ;\n\n• participer au développement des projets, des pratiques et des prestations du Centre de la mémoire .\n\nVotre profil\n\n• Master en psychologie, spécialisation neuropsychologie , ou titre reconnu équivalent ;\n\n• expérience en évaluation neuropsychologique, idéalement auprès de patients présentant des troubles cognitifs, neurologiques ou neurodégénératifs ;\n\n• excellente capacité d’analyse, de synthèse et de rédaction ;\n\n• aisance relationnelle et capacité à expliquer des résultats complexes avec pédagogie ;\n\n• goût pour le travail en équipe pluridisciplinaire ;\n\n• autonomie, rigueur, curiosité et esprit d’initiative.\n\nUne expérience en Centre de la mémoire, neurologie, gériatrie ou consultation spécialisée est un atout.\n\nPourquoi nous rejoindre ?\n\nVous intégrerez un environnement stimulant, innovant et pluridisciplinaire , au sein d’un établissement reconnu pour la qualité de sa prise en charge.\n\nVous aurez surtout l’opportunité de participer à un projet en développement , de contribuer à la construction des parcours patients et de faire évoluer les pratiques autour des troubles cognitifs.\n\nTaux d’activité : 100 %\n Lieu : Hôpital de La Tour – Meyrin, Genève\n Entrée en fonction : 1 er novembre 2026\n\nEnvie de participer à cette aventure et de contribuer au développement du Centre de la mémoire de l’Hôpital de La Tour ? Nous nous réjouissons de recevoir votre candidature.",
-      "descriptionByLocale": {
-        "it": "Unisciti a noi e partecipa alla creazione del nostro Centro Memoria!\n\nL'Ospedale di La Tour apre un Centro di Memoria e cerca un neuropsicologo al 100% per unire un team dinamico multidisciplinare e contribuire allo sviluppo di questa attività.\n\n100 % Neuropsicologo CDI – Centro per la Memoria (rif: 2008)\n\nVuoi mettere la tua esperienza al servizio della gestione personalizzata, multidisciplinare e paziente-centro? Questa posizione vi offre l'opportunità di svolgere un ruolo chiave nel viaggio dei pazienti con disturbi cognitivi e di partecipare attivamente alla creazione e all'evoluzione del Centro.\n\nIl tuo ruolo\n\nAll'interno del centro di memoria, vi verrà chiesto di:\n\n• eseguire valutazioni neuropsicologiche complete adattate ai problemi dei pazienti;\n\n• valutare e caratterizzare i disturbi cognitivi e il loro impatto sulla vita quotidiana;\n\n• contribuire all'orientamento diagnostico in stretta collaborazione con i neurologi;\n\n• preparare i rapporti e garantire il ritorno dei risultati ai pazienti e ai loro parenti;\n\n• proporre raccomandazioni e strategie di compensazione appropriate;\n\n• partecipare a riunioni e decisioni di gestione multidisciplinari;\n\n• contribuire al follow-up dei pazienti e all'evoluzione del loro viaggio;\n\n• partecipare allo sviluppo di progetti, pratiche e servizi del Centro Memoria .\n\nIl tuo profilo\n\n• Laurea magistrale in psicologia, specializzazione neuropsicologia, o titolo riconosciuto equivalente;\n\n• esperienza nella valutazione neuropsicologica, idealmente in pazienti con disturbi cognitivi, neurologici o neurodegenerativi;\n\n• ottima capacità di analisi, sintesi e scrittura;\n\n• facilità relazionale e capacità di spiegare risultati complessi con pedagogia;\n\n• gusto per il lavoro di squadra multidisciplinare;\n\n• autonomia, rigore, curiosità e iniziativa.\n\nUn'esperienza nel Centro per la Memoria, la Neurologia, la Geriatria o la Consultazione Specializzata è una risorsa.\n\nPerché unirsi a noi?\n\nIntegrerai un ambiente stimolante, innovativo e multidisciplinare in uno stabilimento riconosciuto per la qualità della sua gestione.\n\nSoprattutto, avrete l'opportunità di partecipare a un progetto in via di sviluppo, di contribuire alla costruzione di percorsi pazienti e di cambiare le pratiche intorno ai disturbi cognitivi.\n\nTasso di partecipazione: 100%\nUbicazione: La Tour Hospital – Meyrin, Ginevra\nIngresso in ufficio: 1 novembre 2026\n\nVuoi partecipare a questa avventura e contribuire allo sviluppo del Centro Memorial dell'Ospedale di La Tour? Non vediamo l'ora di ricevere la vostra domanda.",
-        "en": "Join us and participate in the creation of our Memory Centre!\n\nThe Hospital of La Tour opens a Memory Centre and seeks a Neuropsychologist 100% to join a dynamic multidisciplinary team and contribute to the development of this activity.\n\n100 % Neuropsychologist CDI – Centre for Memory (ref: 2008)\n\nDo you want to put your expertise at the service of personalized, multidisciplinary and patient-centred management? This position offers you the opportunity to play a key role in the journey of patients with cognitive disorders and to participate actively in the creation and evolution of the Centre.\n\nYour role\n\nWithin the Memory Centre, you will be asked to:\n\n• perform complete neuropsychological assessments adapted to patients' problems;\n\n• assess and characterize cognitive disorders and their impact on everyday life;\n\n• contribute to diagnostic orientation in close collaboration with neurologists;\n\n• preparing reports and ensuring the return of results to patients and their relatives;\n\n• propose appropriate compensation recommendations and strategies;\n\n• participate in multidisciplinary management meetings and decisions;\n\n• contribute to the follow-up of patients and the evolution of their journey;\n\n• participate in the development of projects, practices and services of the Memory Centre .\n\nYour profile\n\n• Master's degree in psychology, neuropsychology specialization, or equivalent recognized title;\n\n• experience in neuropsychological evaluation, ideally in patients with cognitive, neurological or neurodegenerative disorders;\n\n• excellent capacity for analysis, synthesis and writing;\n\n• relational ease and ability to explain complex results with pedagogy;\n\n• taste for multidisciplinary team work;\n\n• autonomy, rigour, curiosity and initiative.\n\nAn experience in the Centre for Memory, Neurology, Geriatrics or Specialized Consultation is an asset.\n\nWhy join us?\n\nYou will integrate a stimulating, innovative and multidisciplinary environment into an establishment recognized for the quality of its management.\n\nAbove all, you will have the opportunity to participate in a developing project, to contribute to the construction of patient paths and to change practices around cognitive disorders.\n\nParticipation rate: 100%\nLocation: La Tour Hospital – Meyrin, Geneva\nEntry into office: 1 November 2026\n\nWant to participate in this adventure and contribute to the development of the Memorial Centre of the Hospital of La Tour ? We look forward to receiving your application.",
-        "de": "Begleiten Sie uns und beteiligen Sie sich an der Schaffung unseres Erinnerungszentrums!\n\nDas Krankenhaus von La Tour eröffnet ein Gedächtniszentrum und sucht einen Neuropsychologen zu 100%, um sich einem dynamischen multidisziplinären Team anzuschließen und zur Entwicklung dieser Aktivität beizutragen.\n\n100 % Neuropsychologe CDI – Zentrum für Gedächtnis (ref: 2008)\n\nMöchten Sie Ihre Expertise in den Dienst eines personalisierten, multidisziplinären und patientenzentrierten Managements stellen? Diese Position bietet Ihnen die Möglichkeit, eine Schlüsselrolle auf dem Weg von Patienten mit kognitiven Störungen zu spielen und sich aktiv an der Gründung und Entwicklung des Zentrums zu beteiligen.\n\nDeine Rolle\n\nIm Memory Center werden Sie aufgefordert:\n\n• vollständige neuropsychologische Bewertungen durchführen, die an die Probleme der Patienten angepasst sind;\n\n• Bewertung und Charakterisierung kognitiver Störungen und ihrer Auswirkungen auf den Alltag;\n\n• Beitrag zur diagnostischen Ausrichtung in enger Zusammenarbeit mit Neurologen;\n\n• Erstellung von Berichten und Gewährleistung der Rückgabe der Ergebnisse an Patienten und ihre Angehörigen;\n\n• geeignete Vergütungsempfehlungen und -strategien vorzuschlagen;\n\n• an multidisziplinären Managementsitzungen und -entscheidungen teilnehmen;\n\n• Beitrag zur Nachsorge von Patienten und zur Entwicklung ihrer Reise;\n\n• an der Entwicklung von Projekten, Praktiken und Dienstleistungen des Gedächtniszentrums mitwirken.\n\nDein Profil\n\n• Master-Abschluss in Psychologie, Neuropsychologie Spezialisierung oder gleichwertiger anerkannter Titel;\n\n• Erfahrung in der neuropsychologischen Auswertung, idealerweise bei Patienten mit kognitiven, neurologischen oder neurodegenerativen Störungen;\n\n• ausgezeichnete Fähigkeit zur Analyse, Synthese und Schreiben;\n\n• relationale Leichtigkeit und Fähigkeit, komplexe Ergebnisse mit Pädagogik zu erklären;\n\n• Geschmack für multidisziplinäre Teamarbeit;\n\n• Autonomie, Strenge, Neugier und Initiative.\n\nEine Erfahrung im Zentrum für Gedächtnis, Neurologie, Geriatrie oder Fachberatung ist ein Gewinn.\n\nWarum mitmachen?\n\nSie integrieren ein anregendes, innovatives und multidisziplinäres Umfeld in eine Einrichtung, die für die Qualität ihres Managements anerkannt ist.\n\nVor allem haben Sie die Möglichkeit, an einem sich entwickelnden Projekt teilzunehmen, zum Aufbau von Patientenpfaden beizutragen und Praktiken rund um kognitive Störungen zu ändern.\n\nTeilnahmequote: 100%\nLage: La Tour Hospital – Meyrin, Genf\nAmtsantritt: 1. November 2026\n\nMöchten Sie an diesem Abenteuer teilnehmen und zur Entwicklung des Gedenkzentrums des Krankenhauses von La Tour beitragen? Wir freuen uns auf Ihre Bewerbung.",
-        "fr": "Rejoignez-nous et participez à la création de notre Centre de la mémoire !\n\nL’Hôpital de La Tour ouvre un Centre de la mémoire et recherche un(e) Neuropsychologue à 100 % pour rejoindre une équipe pluridisciplinaire dynamique et contribuer au développement de cette activité.\n\nNeuropsychologue à 100 % CDI – Centre de la mémoire (ref : 2008)\n\nVous souhaitez mettre votre expertise au service d’une prise en charge personnalisée, multidisciplinaire et centrée sur le patient ? Ce poste vous offre l’opportunité de jouer un rôle clé dans le parcours des patients présentant des troubles cognitifs et de participer activement à la création et l’évolution du Centre.\n\nVotre rôle\n\nAu sein du Centre de la mémoire, vous serez notamment amené(e) à :\n\n• réaliser des bilans neuropsychologiques complets et adaptés aux problématiques des patients ;\n\n• évaluer et caractériser les troubles cognitifs et leurs répercussions dans la vie quotidienne ;\n\n• contribuer à l’orientation diagnostique en étroite collaboration avec les neurologues ;\n\n• rédiger les comptes rendus et assurer la restitution des résultats aux patients et à leurs proches ;\n\n• proposer des recommandations et stratégies de compensation adaptées ;\n\n• participer aux réunions et décisions de prise en charge pluridisciplinaires ;\n\n• contribuer au suivi des patients et à l’évolution de leur parcours ;\n\n• participer au développement des projets, des pratiques et des prestations du Centre de la mémoire .\n\nVotre profil\n\n• Master en psychologie, spécialisation neuropsychologie , ou titre reconnu équivalent ;\n\n• expérience en évaluation neuropsychologique, idéalement auprès de patients présentant des troubles cognitifs, neurologiques ou neurodégénératifs ;\n\n• excellente capacité d’analyse, de synthèse et de rédaction ;\n\n• aisance relationnelle et capacité à expliquer des résultats complexes avec pédagogie ;\n\n• goût pour le travail en équipe pluridisciplinaire ;\n\n• autonomie, rigueur, curiosité et esprit d’initiative.\n\nUne expérience en Centre de la mémoire, neurologie, gériatrie ou consultation spécialisée est un atout.\n\nPourquoi nous rejoindre ?\n\nVous intégrerez un environnement stimulant, innovant et pluridisciplinaire , au sein d’un établissement reconnu pour la qualité de sa prise en charge.\n\nVous aurez surtout l’opportunité de participer à un projet en développement , de contribuer à la construction des parcours patients et de faire évoluer les pratiques autour des troubles cognitifs.\n\nTaux d’activité : 100 %\nLieu : Hôpital de La Tour – Meyrin, Genève\nEntrée en fonction : 1 er novembre 2026\n\nEnvie de participer à cette aventure et de contribuer au développement du Centre de la mémoire de l’Hôpital de La Tour ? Nous nous réjouissons de recevoir votre candidature."
-      },
-      "needsRetranslation": false,
-      "location": "Meyrin",
-      "canton": "GE",
-      "url": "https://recrutement.latour.ch/fr/nos-offres/neuropsychologue-a-100-cdi-centre-de-la-memoire-1542",
-      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:28:33.147Z",
-      "addressLocality": "Meyrin",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1217",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/neuropsychologue-a-100-cdi-centre-de-la-memoire-1542",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "neuropsychologue-a-100-cdi-centre-de-la-memoire-hopital-la-tour-meyrin"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "neuropsychologue-a-100-cdi-centre-de-la-memoire-hopital-la-tour-meyrin"
-        ]
-      },
-      "firstSeenAt": "2026-09-09T23:13:01.829Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Hôpital de La Tour",
-        "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
-        "postalCode": "1217",
-        "addressLocality": "Meyrin",
-        "addressRegion": "GE",
-        "checkedAt": "2026-10-31T20:49:16.573Z",
-        "streetAddressSource": "zefix-registry"
-      },
-      "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-20T22:28:33.147Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/neuropsychologue-a-100-cdi-centre-de-la-memoire-1542"
+      "validThrough": "2027-02-02T21:22:22.110Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hopital-la-tour-f260bca1b4dd",
@@ -309,7 +311,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-en-medecine-cdm-6-mois-80-1546",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:28:33.146Z",
+      "crawledAt": "2026-11-25T21:22:22.109Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -369,9 +371,8 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T22:28:33.146Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-en-medecine-cdm-6-mois-80-1546"
+      "validThrough": "2027-02-03T21:22:22.109Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hopital-la-tour-92e650f38526",
@@ -404,7 +405,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/assistante-technique-specialisee-en-salle-doperation-atsso-a-100-1556",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:28:33.144Z",
+      "crawledAt": "2026-11-25T21:22:22.108Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -461,9 +462,8 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-12T22:28:33.144Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/assistante-technique-specialisee-en-salle-doperation-atsso-a-100-1556"
+      "validThrough": "2027-01-13T21:22:22.108Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hopital-la-tour-b41093b9e3f3",
@@ -497,7 +497,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmierere-pour-la-clinique-de-la-douleur-cdmax-12-mois-a-70-1565",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:28:33.143Z",
+      "crawledAt": "2026-11-25T21:22:22.107Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -557,9 +557,8 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-27T22:28:33.143Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/infirmierere-pour-la-clinique-de-la-douleur-cdmax-12-mois-a-70-1565"
+      "validThrough": "2027-01-28T21:22:22.107Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hopital-la-tour-a6216bdb5cb4",
@@ -592,7 +591,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/assistante-de-direction-juniore-a-100-1568",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:28:33.141Z",
+      "crawledAt": "2026-11-25T21:22:22.106Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -646,9 +645,8 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-28T22:28:33.141Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/assistante-de-direction-juniore-a-100-1568"
+      "validThrough": "2027-01-29T21:22:22.106Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hopital-la-tour-c9a152315ac3",
@@ -671,9 +669,9 @@
       },
       "description": "L'Hôpital de La Tour réunit le meilleur de deux mondes. La médecine privée dans un environnement qui stimule le développement de la compétence. La pratique indépendante couplée au soutien institutionnel des médecins dans la recherche et la qualité.\n\nA l'Hôpital de La Tour, nous aspirons à rassembler les meilleurs talents autour de nos patients, à développer une équipe qui s'inspire de ce qui se fait de mieux dans le monde et à être un lieu de motivation pour les professionnels de la santé qui ont l'ambition de prodiguer des soins chaque jour meilleurs.\n\nAfin de compléter notre Pharmacie nous recrutons un/e\n\nPréparateur(-rice) en pharmacie 60% - 100% (ref : 1849)\n\nVotre mission :\n\nAu sein d’une équipe de pharmacie dynamique, vous occupez un poste varié en collaboration quotidienne avec les équipes médico-soignantes.\n\nA ce titre vous serez en charge ;\n\n• D’une activité principale de pharmacotechnie : production centralisée de chimiothérapies et aseptique, collaboration interprofessionnelle étroite avec le personnel de soins\n\n• D’activités secondaires :\n\n• Remplacement et contrôle des productions non stériles\n\n• Participation aux activités de distribution (préparation des commandes globales de médicaments, gestion des pharmacies d’étage, réponse aux demandes des clients) et de facturation patiente\n\n• Participation à l’amélioration continue de la qualité\n\n• Facturation et gestion des protocoles de chimiothérapies administrés et chimiothérapie per os\n\n• Activités générales de service\n\n• Accueil physique et téléphonique des collaborateurs de l’institution\n\n• Participation aux colloques de service\n\n• Participation à la démarche d’amélioration continue de la qualité\n\n• Assurer la logistique pharmaceutique des médicaments de la pharmacie centrale vers les pharmacies d'unités de soins.\n\n• Assurer la gestion et le suivi du stock de la pharmacie centrale et des unités de soins\n\n• Assurer la fabrication des préparations aseptiques et/ou non stériles\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diplôme de préparateur en pharmacie ou titre jugé équivalent, formation aseptique\n\n• Une personne rigoureuse, consciencieuse, bienveillante, dotée d’un bon sens de l’organisation et appréciant le travail en équipe\n\n• Maîtrise des outils informatiques de bureautique standards\n\nNous vous proposons :\n\n• Type de contrat : Contrat à Durée Indéterminée\n\n• Absence d'astreinte et de garde\n\nDes renseignements complémentaires sur le poste peuvent être obtenus auprès de la Dre Delphine Carli, Pharmacienne cheffe : delphine.carli@latour.ch",
       "descriptionByLocale": {
-        "it": "L'Ospedale di La Tour riunisce il meglio di due mondi. Medicina privata in un ambiente che stimola lo sviluppo delle competenze. Pratica indipendente accoppiata con il sostegno istituzionale dei medici nella ricerca e nella qualità.\n\nAl La Tour Hospital, ci proponiamo di riunire i migliori talenti intorno ai nostri pazienti, sviluppare un team che si ispira a ciò che è meglio al mondo ed essere un luogo di motivazione per i professionisti sanitari che hanno l'ambizione di fornire una migliore assistenza ogni giorno.\n\nPer completare la nostra Farmacia stiamo reclutando un\n\nPreparatore farmaceutico 60% - 100% (ref: 1849)\n\nLa vostra missione:\n\nIn un team di farmacie dinamico, avete una posizione variata in collaborazione quotidiana con i team di assistenza medica.\n\nCome tale sarete responsabili;\n\n• Principali attività farmacotecnica: produzione centralizzata di chemioterapia e asettica, stretta collaborazione interprofessionale con il personale sanitario\n\n• Attività secondarie:\n\n• Sostituzione e controllo della produzione non sterili\n\n• Partecipazione alle attività di distribuzione (preparazione degli ordini di droga globali, gestione delle farmacie, risposta alle richieste dei clienti) e fatturazione dei pazienti\n\n• Partecipazione al miglioramento continuo della qualità\n\n• Fatturazione e gestione dei protocolli di chemioterapia e chemioterapia amministrati\n\n• Servizi generali\n\n• Ricezione fisica e telefonica dei dipendenti dell'istituzione\n\n• Partecipazione ai seminari di assistenza\n\n• Fornire logistica farmaceutica di farmaci dalla farmacia centrale alle farmacie di unità di cura.\n\n• Gestire e monitorare lo stock della farmacia centrale e unità di cura\n\n• Assicurare la produzione di preparati asettici e/o non sterili\n\nStiamo cercando un profilo che soddisfi i seguenti criteri:\n\n• Diploma di preparazione in farmacia o equivalente, formazione asettica\n\n• Una persona rigorosa, coscienziosa e premurosa con un senso comune di organizzazione e di piacere al lavoro di squadra\n\n• Mastery degli strumenti standard di automazione degli uffici\n\nVi offriamo:\n\n• Tipo di contratto: Contratto con Durata indeterminata\n\n• Assenza di periodicità e custodia\n\nUlteriori informazioni sulla posizione possono essere ottenute dal Dr. Delphine Carli, Chief Pharmacist: delphine.carli@latour.ch",
-        "en": "The Hospital of La Tour brings together the best of two worlds. Private medicine in an environment that stimulates the development of competence. Independent practice coupled with the institutional support of physicians in research and quality.\n\nAt La Tour Hospital, we aim to bring together the best talents around our patients, develop a team that is inspired by what is best in the world and be a place of motivation for healthcare professionals who have the ambition to provide better care every day.\n\nTo complete our Pharmacy we are recruiting a\n\nPharmaceutical preparer 60% - 100% (ref: 1849)\n\nYour mission:\n\nIn a dynamic pharmacy team, you have a varied position in daily collaboration with the medical-care teams.\n\nAs such you will be in charge;\n\n• Main pharmacotechnic activity: centralized production of chemotherapy and aseptics, close interprofessional collaboration with healthcare staff\n\n• Secondary activities:\n\n• Replacement and control of non-sterile production\n\n• Participation in distribution activities (preparation of global drug orders, management of floor pharmacies, response to customer requests) and patient billing\n\n• Participation in continuous quality improvement\n\n• Invoicing and management of administered chemotherapy and chemotherapy protocols\n\n• General service activities\n\n• Physical and telephone reception of employees of the institution\n\n• Participation in service seminars\n\n• Provide pharmaceutical logistics of drugs from the central pharmacy to pharmacies of care units.\n\n• Manage and track the stock of the central pharmacy and care units\n\n• Ensure the manufacture of aseptic and/or non-sterile preparations\n\nWe are looking for a profile that meets the following criteria:\n\n• Diploma of preparation in pharmacy or equivalent, aseptic training\n\n• A rigorous, conscientious, caring person with a common sense of organization and enjoying teamwork\n\n• Mastery of standard office automation tools\n\nWe offer you:\n\n• Type of contract: Contract with Indeterminate Duration\n\n• Absence of periodicity and custody\n\nFurther information on the position can be obtained from Dr. Delphine Carli, Chief Pharmacist: delphine.carli@latour.ch",
-        "de": "Das Hospital of La Tour vereint das Beste aus zwei Welten. Privatmedizin in einem Umfeld, das die Kompetenzentwicklung stimuliert. Unabhängige Praxis gepaart mit der institutionellen Unterstützung der Ärzte in Forschung und Qualität.\n\nAm La Tour Hospital wollen wir die besten Talente rund um unsere Patienten zusammenbringen, ein Team entwickeln, das von dem Besten der Welt inspiriert ist, und ein Ort der Motivation für medizinische Fachkräfte sein, die den Ehrgeiz haben, jeden Tag eine bessere Versorgung zu bieten.\n\nUm unsere Apotheke abzuschließen, rekrutieren wir eine\n\nPharmazeutischer Präparator 60% - 100% (Ref: 1849)\n\nIhre Mission:\n\nIn einem dynamischen Apothekenteam haben Sie eine abwechslungsreiche Position in der täglichen Zusammenarbeit mit den medizinischen Pflegeteams.\n\nAls solche wirst du verantwortlich sein;\n\n• Pharmakotechnische Haupttätigkeit: zentralisierte Produktion von Chemotherapie und Aseptik, enge interprofessionelle Zusammenarbeit mit dem Gesundheitspersonal\n\n• Nebentätigkeiten:\n\n• Ersatz und Kontrolle der nichtsterilen Produktion\n\n• Teilnahme an Vertriebsaktivitäten (Vorbereitung globaler Arzneimittelbestellungen, Verwaltung von Bodenapotheken, Reaktion auf Kundenanfragen) und Patientenabrechnung\n\n• Teilnahme an kontinuierlicher Qualitätsverbesserung\n\n• Rechnungsstellung und Verwaltung der verabreichten Chemotherapie und Chemotherapieprotokolle\n\n• Allgemeine Dienstleistungen\n\n• Physischer und telefonischer Empfang der Bediensteten des Organs\n\n• Teilnahme an Dienstseminaren\n\n• Bereitstellung der pharmazeutischen Logistik von Medikamenten von der zentralen Apotheke bis zu Apotheken von Pflegeeinheiten.\n\n• Verwalten und verfolgen Sie den Bestand der zentralen Apotheke und Pflegeeinheiten\n\n• Herstellung aseptischer und/oder nicht steriler Zubereitungen\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\n• Diplom der Vorbereitung in der Apotheke oder gleichwertig, aseptische Ausbildung\n\n• Eine strenge, gewissenhafte, fürsorgliche Person mit einem gesunden Organisationssinn und Spaß an Teamarbeit\n\n• Beherrschung von Standard Office Automation Tools\n\nWir bieten Ihnen:\n\n• Art des Vertrags: Vertrag mit unbestimmter Laufzeit\n\n• Keine Periodizität und Verwahrung\n\nWeitere Informationen zur Position erhalten Sie bei Dr. Delphine Carli, Chefapothekerin: delphine.carli@latour.ch",
+        "it": "L'Ospedale di La Tour riunisce il meglio di due mondi. Medicina privata in un ambiente che stimola lo sviluppo delle competenze. Pratica indipendente accoppiata con il sostegno istituzionale dei medici nella ricerca e nella qualità.\n\nAl La Tour Hospital, ci proponiamo di riunire i migliori talenti intorno ai nostri pazienti, per sviluppare un team che si ispira a ciò che è meglio al mondo e per essere un luogo di motivazione per i professionisti della salute che hanno l'ambizione di fornire una migliore assistenza ogni giorno.\n\nPer completare la nostra Farmacia ne reclutiamo uno\n\nPreparazione farmacia 60% - 100% (ref: 1849)\n\nLa vostra missione:\n\nAll'interno di un team di farmacie dinamico, si ha una posizione varia in collaborazione quotidiana con team di assistenza medica.\n\nIn quanto tale sarete responsabili;\n\n• Principali attività farmacotecnica: produzione centralizzata di chemioterapia e asettica, stretta collaborazione interprofessionale con il personale sanitario\n\n• Attività secondarie:\n\n• Sostituzione e controllo della produzione non sterili\n\n• Partecipazione alle attività di distribuzione (preparazione degli ordini di droga globali, gestione delle farmacie, risposta alle richieste dei clienti) e fatturazione dei pazienti\n\n• Partecipazione al miglioramento continuo della qualità\n\n• Fatturazione e gestione dei protocolli di chemioterapia somministrati e chemioterapia per os\n\n• Attività di servizio\n\n• Ricezione fisica e telefonica dei dipendenti dell'istituzione\n\n• Partecipazione a seminari di assistenza\n\n• Partecipazione al miglioramento continuo della qualità\n\n• Fornire logistica farmaceutica di farmaci dalla farmacia centrale alle farmacie di unità di cura.\n\n• Gestire e monitorare lo stock di farmacie e unità di cura centrali\n\n• Fabbricazione di preparazioni asettiche e/o non sterili\n\nStiamo cercando un profilo che soddisfi i seguenti criteri:\n\n• Diploma in farmacia o equivalente, formazione asettica\n\n• Una persona rigorosa, coscienziosa e premurosa con un buon senso dell'organizzazione e del lavoro di squadra\n\n• Mastery degli strumenti standard di automazione degli uffici\n\nVi offriamo:\n\n• Tipo di contratto: Contratto con Durata indeterminata\n\n• Assenza di periodicità e custodia\n\nUlteriori informazioni sulla posizione possono essere ottenute dal Dr. Delphine Carli, Chief Pharmacist: delphine.carli@latour.ch",
+        "en": "The Hospital of La Tour brings together the best of two worlds. Private medicine in an environment that stimulates the development of competence. Independent practice coupled with the institutional support of physicians in research and quality.\n\nAt La Tour Hospital, we aim to bring together the best talents around our patients, to develop a team that is inspired by what is best in the world and to be a place of motivation for health professionals who have the ambition to provide better care every day.\n\nIn order to complete our Pharmacy we recruit one\n\nPharmacy preparer 60% - 100% (ref: 1849)\n\nYour mission:\n\nWithin a dynamic pharmacy team, you hold a varied position in daily collaboration with medical-care teams.\n\nAs such you will be in charge;\n\n• Main pharmacotechnic activity: centralized production of chemotherapy and aseptics, close interprofessional collaboration with healthcare staff\n\n• Secondary activities:\n\n• Replacement and control of non-sterile production\n\n• Participation in distribution activities (preparation of global drug orders, management of floor pharmacies, response to customer requests) and patient billing\n\n• Participation in continuous quality improvement\n\n• Invoicing and management of chemotherapy protocols administered and chemotherapy per os\n\n• General service activities\n\n• Physical and telephone reception of employees of the institution\n\n• Participation in service seminars\n\n• Participation in continuous quality improvement\n\n• Provide pharmaceutical logistics of drugs from the central pharmacy to pharmacies of care units.\n\n• Manage and track stock of central pharmacy and care units\n\n• Manufacture aseptic and/or non-sterile preparations\n\nWe are looking for a profile that meets the following criteria:\n\n• Diploma in pharmacy or equivalent, aseptic training\n\n• A rigorous, conscientious, caring person with a common sense of organization and enjoying teamwork\n\n• Mastery of standard office automation tools\n\nWe offer you:\n\n• Type of contract: Contract with Indeterminate Duration\n\n• Absence of periodicity and custody\n\nAdditional information on the position can be obtained from Dr. Delphine Carli, Chief Pharmacist: delphine.carli@latour.ch",
+        "de": "Das Hospital of La Tour vereint das Beste aus zwei Welten. Privatmedizin in einem Umfeld, das die Kompetenzentwicklung stimuliert. Unabhängige Praxis gepaart mit der institutionellen Unterstützung der Ärzte in Forschung und Qualität.\n\nAm La Tour Hospital wollen wir die besten Talente rund um unsere Patienten zusammenbringen, ein Team entwickeln, das von dem Besten der Welt inspiriert ist und ein Ort der Motivation für Gesundheitsexperten sein soll, die den Ehrgeiz haben, jeden Tag eine bessere Versorgung zu bieten.\n\nUm unsere Apotheke abzuschließen, rekrutieren wir eine\n\nApotheker 60 % - 100 % (Ref: 1849)\n\nIhre Mission:\n\nInnerhalb eines dynamischen Apothekenteams bekleiden Sie eine abwechslungsreiche Position in der täglichen Zusammenarbeit mit Ärzteteams.\n\nAls solche wirst du verantwortlich sein;\n\n• Pharmakotechnische Haupttätigkeit: zentralisierte Produktion von Chemotherapie und Aseptik, enge interprofessionelle Zusammenarbeit mit Gesundheitspersonal\n\n• Nebentätigkeiten:\n\n• Ersatz und Kontrolle der nichtsterilen Produktion\n\n• Teilnahme an Vertriebsaktivitäten (Vorbereitung globaler Arzneimittelbestellungen, Verwaltung von Bodenapotheken, Reaktion auf Kundenanfragen) und Patientenabrechnung\n\n• Teilnahme an kontinuierlicher Qualitätsverbesserung\n\n• Fakturierung und Verwaltung von Chemotherapieprotokollen und Chemotherapie per os\n\n• Allgemeine Dienstleistungen\n\n• Physischer und telefonischer Empfang der Bediensteten des Organs\n\n• Teilnahme an Dienstseminaren\n\n• Teilnahme an kontinuierlicher Qualitätsverbesserung\n\n• Bereitstellung der pharmazeutischen Logistik von Medikamenten von der zentralen Apotheke bis zu Apotheken von Pflegeeinheiten.\n\n• Verwalten und verfolgen Sie den Bestand der zentralen Apotheken und Pflegeeinheiten\n\n• Herstellung aseptischer und/oder nicht steriler Zubereitungen\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\n• Diplom in Apotheke oder gleichwertig, aseptische Ausbildung\n\n• Eine strenge, gewissenhafte, fürsorgliche Person mit einem gesunden Organisationssinn und Spaß an Teamarbeit\n\n• Beherrschung von Standard-Office-Automation-Tools\n\nWir bieten Ihnen:\n\n• Art des Vertrags: Vertrag mit unbestimmter Laufzeit\n\n• Keine Periodizität und Verwahrung\n\nWeitere Informationen zur Position erhalten Sie bei Dr. Delphine Carli, Chefapothekerin: delphine.carli@latour.ch",
         "fr": "L'Hôpital de La Tour réunit le meilleur de deux mondes. La médecine privée dans un environnement qui stimule le développement de la compétence. La pratique indépendante couplée au soutien institutionnel des médecins dans la recherche et la qualité.\n\nA l'Hôpital de La Tour, nous aspirons à rassembler les meilleurs talents autour de nos patients, à développer une équipe qui s'inspire de ce qui se fait de mieux dans le monde et à être un lieu de motivation pour les professionnels de la santé qui ont l'ambition de prodiguer des soins chaque jour meilleurs.\n\nAfin de compléter notre Pharmacie nous recrutons un/e\n\nPréparateur(-rice) en pharmacie 60% - 100% (ref : 1849)\n\nVotre mission :\n\nAu sein d’une équipe de pharmacie dynamique, vous occupez un poste varié en collaboration quotidienne avec les équipes médico-soignantes.\n\nA ce titre vous serez en charge ;\n\n• D’une activité principale de pharmacotechnie : production centralisée de chimiothérapies et aseptique, collaboration interprofessionnelle étroite avec le personnel de soins\n\n• D’activités secondaires :\n\n• Remplacement et contrôle des productions non stériles\n\n• Participation aux activités de distribution (préparation des commandes globales de médicaments, gestion des pharmacies d’étage, réponse aux demandes des clients) et de facturation patiente\n\n• Participation à l’amélioration continue de la qualité\n\n• Facturation et gestion des protocoles de chimiothérapies administrés et chimiothérapie per os\n\n• Activités générales de service\n\n• Accueil physique et téléphonique des collaborateurs de l’institution\n\n• Participation aux colloques de service\n\n• Participation à la démarche d’amélioration continue de la qualité\n\n• Assurer la logistique pharmaceutique des médicaments de la pharmacie centrale vers les pharmacies d'unités de soins.\n\n• Assurer la gestion et le suivi du stock de la pharmacie centrale et des unités de soins\n\n• Assurer la fabrication des préparations aseptiques et/ou non stériles\n\nNous recherchons un profil répondant aux critères suivants :\n\n• Diplôme de préparateur en pharmacie ou titre jugé équivalent, formation aseptique\n\n• Une personne rigoureuse, consciencieuse, bienveillante, dotée d’un bon sens de l’organisation et appréciant le travail en équipe\n\n• Maîtrise des outils informatiques de bureautique standards\n\nNous vous proposons :\n\n• Type de contrat : Contrat à Durée Indéterminée\n\n• Absence d'astreinte et de garde\n\nDes renseignements complémentaires sur le poste peuvent être obtenus auprès de la Dre Delphine Carli, Pharmacienne cheffe : delphine.carli@latour.ch"
       },
       "needsRetranslation": false,
@@ -682,7 +680,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/preparateur-rice-en-pharmacie-60-100-1562",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:28:33.139Z",
+      "crawledAt": "2026-11-25T21:22:22.104Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -742,9 +740,8 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-28T22:28:33.139Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/preparateur-rice-en-pharmacie-60-100-1562"
+      "validThrough": "2027-01-29T21:22:22.104Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hopital-la-tour-e37141e1f9dd",
@@ -777,7 +774,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/secretaire-medicale-en-radiologie-a-80-cdi-1569",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:28:33.139Z",
+      "crawledAt": "2026-11-25T21:22:22.103Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -837,9 +834,8 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-02T22:28:33.139Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/secretaire-medicale-en-radiologie-a-80-cdi-1569"
+      "validThrough": "2027-02-02T21:22:22.103Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hopital-la-tour-31768c572652",
@@ -873,7 +869,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/aide-hospitalier-ere-de-jour-au-pool-70-fixe-20-flex-cdi-1574",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:28:33.138Z",
+      "crawledAt": "2026-11-25T21:22:22.102Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -933,9 +929,8 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T22:28:33.138Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/aide-hospitalier-ere-de-jour-au-pool-70-fixe-20-flex-cdi-1574"
+      "validThrough": "2027-02-05T21:22:22.102Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hopital-la-tour-967b66fb5c83",
@@ -968,7 +963,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-80-fixe-et-20-flex-cdi-1575",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:28:33.137Z",
+      "crawledAt": "2026-11-25T21:22:22.101Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1028,9 +1023,8 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T22:28:33.137Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-80-fixe-et-20-flex-cdi-1575"
+      "validThrough": "2027-02-05T21:22:22.101Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hopital-la-tour-e0cba468094a",
@@ -1063,7 +1057,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-cdm-11-mois-a-90-1572",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:28:33.136Z",
+      "crawledAt": "2026-11-25T21:22:22.100Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1123,9 +1117,8 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T22:28:33.136Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-cdm-11-mois-a-90-1572"
+      "validThrough": "2027-02-05T21:22:22.100Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hopital-la-tour-6c26063bb4e7",
@@ -1159,7 +1152,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/aide-hospitalier-iere-de-jour-contrat-journalier-1576",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:28:33.135Z",
+      "crawledAt": "2026-11-25T21:22:22.099Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1219,9 +1212,8 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T22:28:33.135Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/aide-hospitalier-iere-de-jour-contrat-journalier-1576"
+      "validThrough": "2027-02-05T21:22:22.099Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hopital-la-tour-deb71352be47",
@@ -1254,7 +1246,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-cdm-3-mois-a-90-1573",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:28:33.134Z",
+      "crawledAt": "2026-11-25T21:22:22.098Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1314,9 +1306,8 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T22:28:33.134Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/infirmier-iere-au-pool-cdm-3-mois-a-90-1573"
+      "validThrough": "2027-02-05T21:22:22.098Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hopital-la-tour-de5482717380",
@@ -1350,7 +1341,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/developpeureuse-senior-ia-1571",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:28:33.133Z",
+      "crawledAt": "2026-11-25T21:22:22.097Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1410,9 +1401,8 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T22:28:33.133Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/developpeureuse-senior-ia-1571"
+      "validThrough": "2027-02-05T21:22:22.097Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hopital-la-tour-9758abbdcf10",
@@ -1446,7 +1436,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/aide-soignant-e-en-soins-intensifs-cdmax-9-mois-1578",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:28:33.132Z",
+      "crawledAt": "2026-11-25T21:22:22.096Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1506,9 +1496,8 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-11T22:28:33.132Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/aide-soignant-e-en-soins-intensifs-cdmax-9-mois-1578"
+      "validThrough": "2027-02-12T21:22:22.096Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hopital-la-tour-3ed8eade02ba",
@@ -1541,7 +1530,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/secretaire-medicale-en-angiographie-80-cdi-1577",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:28:33.132Z",
+      "crawledAt": "2026-11-25T21:22:22.095Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1601,9 +1590,8 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-08T22:28:33.132Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/secretaire-medicale-en-angiographie-80-cdi-1577"
+      "validThrough": "2027-02-09T21:22:22.095Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hopital-la-tour-c9438f44cd3f",
@@ -1636,7 +1624,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/coordinateurtrice-projet-rh-gestion-des-temps-et-planification-a-80-1580",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:28:33.131Z",
+      "crawledAt": "2026-11-25T21:22:22.094Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1696,9 +1684,8 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-09T22:28:33.131Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/coordinateurtrice-projet-rh-gestion-des-temps-et-planification-a-80-1580"
+      "validThrough": "2027-02-10T21:22:22.094Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hopital-la-tour-fd429834f139",
@@ -1732,7 +1719,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/lingere-cdmax-3-mois-a-50-des-que-possible-1582",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:28:33.128Z",
+      "crawledAt": "2026-11-25T21:22:22.093Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1792,9 +1779,8 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-11T22:28:33.128Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/lingere-cdmax-3-mois-a-50-des-que-possible-1582"
+      "validThrough": "2027-02-12T21:22:22.093Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hopital-la-tour-8f1a2381a572",
@@ -1827,7 +1813,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-unite-cardio-pulmonaire-et-soins-intermediaires-cdi-90-1581",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:28:33.127Z",
+      "crawledAt": "2026-11-25T21:22:22.092Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1887,9 +1873,8 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-11T22:28:33.127Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/infirmier-ere-de-nuit-unite-cardio-pulmonaire-et-soins-intermediaires-cdi-90-1581"
+      "validThrough": "2027-02-12T21:22:22.092Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "hopital-la-tour-75a179a929f3",
@@ -1923,7 +1908,7 @@
       "url": "https://recrutement.latour.ch/fr/nos-offres/medecin-interne-ou-cheffe-de-clinique-a-100-cardiologie-non-invasive-1584",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-20T22:28:33.124Z",
+      "crawledAt": "2026-11-25T21:22:22.090Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1983,9 +1968,103 @@
       },
       "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-16T22:28:33.124Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://recrutement.latour.ch/fr/nos-offres/medecin-interne-ou-cheffe-de-clinique-a-100-cardiologie-non-invasive-1584"
+      "validThrough": "2027-02-17T21:22:22.090Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "hopital-la-tour-76ccd2dd675a",
+      "slug": "neurologo-all-80-100-hopital-de-la-tour-meyrin",
+      "slugByLocale": {
+        "it": "neurologo-all-80-100-hopital-de-la-tour-meyrin",
+        "en": "neurologist-at-80-100-hopital-de-la-tour-meyrin",
+        "de": "neurologe-bei-80-100-hopital-de-la-tour-meyrin",
+        "fr": "neurologue-a-80-100-hopital-la-tour-meyrin"
+      },
+      "company": "Hôpital de La Tour",
+      "companyKey": "hopital-la-tour",
+      "companyDomain": "la-tour.ch",
+      "title": "Neurologue à 80%-100%",
+      "titleByLocale": {
+        "it": "Neurologo all'80%-100%",
+        "en": "Neurologist at 80%-100%",
+        "de": "Neurologe bei 80%-100%",
+        "fr": "Neurologue à 80%-100%"
+      },
+      "description": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible pour ses patients, l’Hôpital de La Tour place l’amélioration continue, l’excellence médicale et l’accompagnement de ses collaborateurs au cœur de ses priorités. L’institution emploie plus de 1’200 collaborateurs, représentant plus de 60 métiers, et collabore avec plus de 550 médecins agréés.\n\nNous recrutons un/e\n\nNeurologue à 80%-100% (ref : 2088)\n\nCentre de la mémoire et activité de consultation en neurologie\n\nParticipez à la création d’un nouveau Centre de la mémoire à l’Hôpital de La Tour, développé en partenariat avec les HUG.\n\nDans le cadre du développement de son offre de soins, l’Hôpital de La Tour ouvrira prochainement un Centre de la mémoire , dédié à l’évaluation, au diagnostic et à la prise en charge des patients présentant des troubles cognitifs.\n\nPour accompagner la création et le développement de ce nouveau centre, nous recherchons un(e) : Neurologue à 80–100 %.\n\nLe poste offre une configuration attractive, associant une activité salariée à 50 % au sein du Centre de la mémoire et la possibilité de développer, à hauteur de 30 à 50 % , une activité de consultations en neurologie en dehors du Centre de la mémoire , au sein de l’Hôpital de La Tour.\n\nVotre mission :\n\nAu sein du Centre de la mémoire – 50 %\n\nIntégré(e) à une équipe pluridisciplinaire, vous contribuerez activement à la mise en place du centre et à la prise en charge des patients.\n\nÀ ce titre, vous serez notamment amené(e) à :\n\n• assurer des consultations neurologiques spécialisées dans le domaine des troubles cognitifs et de la mémoire ;\n\n• réaliser l’évaluation diagnostique des patients présentant des troubles de la mémoire ou d’autres troubles cognitifs ;\n\n• contribuer à l’élaboration et au suivi des projets thérapeutiques individualisés ;\n\n• travailler en étroite collaboration avec les neuropsychologues, l’équipe infirmière, les gériatres et les autres spécialistes impliqués dans le parcours du patient ;\n\n• participer à la coordination du parcours de soins et à l’orientation des patients vers les ressources adaptées ;\n\n• contribuer à la définition et au développement des protocoles, parcours de soins et outils du Centre de la mémoire ;\n\n• participer activement au développement et à l’évolution du projet médical du centre.\n\nDéveloppement d’une activité de consultation en neurologie – 30 à 50 %\n\nEn complément de votre activité au sein du Centre de la mémoire, vous disposerez de la possibilité de développer votre propre activité de consultation en neurologie au sein de l’Hôpital de La Tour , dans le cadre d’une activité indépendante.\n\nVous pourrez ainsi constituer et développer votre patientèle et exercer une activité de neurologie générale et/ou orientée vers vos domaines d’expertise, en bénéficiant de l’environnement médical et des infrastructures de l’établissement.\n\nCette organisation permet ainsi d’associer l’implication dans un projet médical structurant et innovant à la possibilité de développer une activité clinique personnelle au sein de l’hôpital .\n\nNous recherchons un profil répondant aux critères suivants :\n\n• diplôme fédéral de médecin ou titre reconnu comme équivalent en Suisse ;\n\n• titre de spécialiste en neurologie reconnu en Suisse ;\n\n• expérience ou expertise en neurologie cognitive et/ou dans la prise en charge des troubles de la mémoire ;\n\n• intérêt marqué pour le travail pluridisciplinaire et la prise en charge globale du patient ;\n\n• excellentes qualités relationnelles et capacité à travailler en réseau ;\n\n• intérêt pour le développement de nouveaux projets médicaux et l’envie de contribuer à la construction d’une nouvelle activité.",
+      "descriptionByLocale": {
+        "it": "Il La Tour Hospital è una struttura acuta di alto livello, privata, indipendente e su scala umana. Fondato nella sua missione di ripristinare la migliore qualità di vita possibile per i suoi pazienti, l'Ospedale de La Tour pone il miglioramento continuo, l'eccellenza medica e l'accompagnamento dei suoi collaboratori al centro delle sue priorità. L'istituzione impiega oltre 1.200 dipendenti, che rappresentano più di 60 professioni, e collabora con più di 550 medici registrati.\n\nStiamo reclutando\n\n80-100% neurologo (ref: 2088)\n\nCentro di Memoria e Neurologia Attività di Consulenza\n\nPartecipa alla creazione di un nuovo Centro Memoria all'Ospedale La Tour, sviluppato in collaborazione con gli HUG.\n\nNell'ambito dello sviluppo della sua offerta di assistenza, La Tour Hospital aprirà presto un Centro di Memoria, dedicato alla valutazione, alla diagnosi e alla gestione dei pazienti con disturbi cognitivi.\n\nPer sostenere la creazione e lo sviluppo di questo nuovo centro, stiamo cercando un neurologo 80-100%.\n\nLa posizione offre una configurazione attraente, combinando un'attività a pagamento del 50% all'interno del Centro Memoria e la possibilità di sviluppare, fino al 30 al 50%, un'attività di consulenza neurologica al di fuori del Centro Memoria, all'interno dell'Ospedale La Tour.\n\nLa vostra missione:\n\nAll'interno del centro di memoria – 50%\n\nIntegrato in un team multidisciplinare, contribuirà attivamente alla creazione del centro e alla cura dei pazienti.\n\nCome tale, vi verrà chiesto di:\n\n• fornire consultazioni neurologiche specializzate nel campo dei disturbi cognitivi e della memoria;\n\n• eseguire la valutazione diagnostica di pazienti con memoria o altri disturbi cognitivi;\n\n• contribuire allo sviluppo e al monitoraggio di progetti terapeutici individualizzati;\n\n• lavorare a stretto contatto con i neuropsicologi, la squadra di cura, geriatrici e altri specialisti coinvolti nel viaggio del paziente;\n\n• partecipare al coordinamento del percorso di cura e il rinvio dei pazienti a risorse appropriate;\n\n• contribuire alla definizione e sviluppo di protocolli, percorsi di cura e strumenti del centro di memoria;\n\n• partecipare attivamente allo sviluppo e allo sviluppo del progetto medico del centro.\n\nSviluppo di attività di consultazione neurologica – dal 30 al 50%\n\nOltre alla vostra attività all'interno del Centro di Memoria, avrete l'opportunità di sviluppare la vostra attività di consulenza neurologica all'interno dell'Ospedale di La Tour, nell'ambito di un'attività indipendente.\n\nQuesto vi permetterà di costruire e sviluppare il vostro paziente e di svolgere un'attività neurologica generale e/o orientata verso le vostre aree di competenza, beneficiando dell'ambiente medico e dell'infrastruttura dell'istituzione.\n\nQuesta organizzazione permette così di associare il coinvolgimento in un progetto medico strutturante e innovativo con la possibilità di sviluppare un'attività clinica personale all'interno dell'ospedale.\n\nStiamo cercando un profilo che soddisfi i seguenti criteri:\n\n• Diploma federale in medicina o titolo riconosciuto come equivalente in Svizzera;\n\n• uno specialista riconosciuto in neurologia in Svizzera;\n\n• esperienza o competenza nella neurologia cognitiva e/o nella gestione dei disturbi della memoria;\n\n• forte interesse per il lavoro multidisciplinare e la cura complessiva del paziente;\n\n• qualità relazionali eccellenti e capacità di rete;\n\n• interesse a sviluppare nuovi progetti medici e il desiderio di contribuire alla costruzione di una nuova attività.",
+        "en": "The La Tour Hospital is a high-level, private, independent and human-scale acute care facility. Founded in its mission to restore the best possible quality of life for its patients, the Hospital de La Tour places continuous improvement, medical excellence and the accompaniment of its collaborators at the heart of its priorities. The institution employs more than 1,200 employees, representing more than 60 professions, and collaborates with more than 550 registered doctors.\n\nWe are recruiting\n\n80-100% neurologist (ref: 2088)\n\nMemory Centre and Neurology Consultation Activity\n\nParticipate in the creation of a new Memory Centre at La Tour Hospital, developed in partnership with the HUGs.\n\nAs part of the development of its care offer, La Tour Hospital will soon open a Memory Centre, dedicated to the assessment, diagnosis and management of patients with cognitive disorders.\n\nTo support the creation and development of this new centre, we are looking for an 80–100% neurologist.\n\nThe position offers an attractive configuration, combining a 50% paid activity within the Memory Centre and the possibility to develop, up to 30 to 50%, a neurology consulting activity outside the Memory Centre, within the La Tour Hospital.\n\nYour mission:\n\nWithin the Memory Centre – 50%\n\nIntegrated into a multidisciplinary team, you will actively contribute to the establishment of the centre and the care of patients.\n\nAs such, you will be asked to:\n\n• provide specialized neurological consultations in the field of cognitive disorders and memory;\n\n• perform diagnostic assessment of patients with memory or other cognitive disorders;\n\n• contribute to the development and monitoring of individualized therapeutic projects;\n\n• work closely with neuropsychologists, the nursing team, geriatricians and other specialists involved in the patient's journey;\n\n• participate in the coordination of the care path and the referral of patients to appropriate resources;\n\n• contribute to the definition and development of protocols, care pathways and memory centre tools;\n\n• participate actively in the development and development of the medical project of the centre.\n\nDevelopment of neurology consultation activity – 30 to 50%\n\nIn addition to your activity within the Memory Centre, you will have the opportunity to develop your own neurology consulting activity within the Hospital of La Tour, as part of an independent activity.\n\nThis will enable you to build and develop your patient and carry out a general neurology activity and/or oriented towards your areas of expertise, benefiting from the medical environment and the institution's infrastructure.\n\nThis organisation thus allows to associate involvement in a structuring and innovative medical project with the possibility of developing a personal clinical activity within the hospital.\n\nWe are looking for a profile that meets the following criteria:\n\n• Federal diploma in medicine or title recognized as equivalent in Switzerland;\n\n• a recognized specialist in neurology in Switzerland;\n\n• experience or expertise in cognitive neurology and/or management of memory disorders;\n\n• strong interest in multidisciplinary work and overall patient care;\n\n• excellent relational qualities and ability to network;\n\n• interest in developing new medical projects and the desire to contribute to the construction of a new activity.",
+        "de": "Das La Tour Hospital ist eine hochkarätige, private, unabhängige und menschliche Akutversorgungseinrichtung. Gegründet in seiner Mission, die bestmögliche Lebensqualität für seine Patienten wiederherzustellen, stellt das Hospital de La Tour kontinuierliche Verbesserung, medizinische Exzellenz und die Begleitung seiner Mitarbeiter in den Mittelpunkt seiner Prioritäten. Die Einrichtung beschäftigt mehr als 1.200 Mitarbeiter, die mehr als 60 Berufe repräsentieren, und arbeitet mit mehr als 550 registrierten Ärzten zusammen.\n\nWir rekrutieren\n\n80-100% Neurologe (Ref: 2088)\n\nMemory Center und Neurologie Beratung Aktivität\n\nBeteiligen Sie sich an der Schaffung eines neuen Gedächtniszentrums im La Tour Hospital, das in Partnerschaft mit den HUGs entwickelt wurde.\n\nIm Rahmen der Entwicklung seines Pflegeangebots wird das La Tour Hospital in Kürze ein Gedächtniszentrum eröffnen, das sich der Beurteilung, Diagnose und dem Management von Patienten mit kognitiven Störungen widmet.\n\nUm die Schaffung und Entwicklung dieses neuen Zentrums zu unterstützen, suchen wir einen 80-100% Neurologen.\n\nDie Position bietet eine attraktive Konfiguration, die eine 50% bezahlte Aktivität innerhalb des Gedächtniszentrums und die Möglichkeit kombiniert, bis zu 30 bis 50% eine neurologische Beratungsaktivität außerhalb des Gedächtniszentrums im La Tour Hospital zu entwickeln.\n\nIhre Mission:\n\nInnerhalb des Memory Centers – 50%\n\nIntegriert in ein multidisziplinäres Team tragen Sie aktiv zur Einrichtung des Zentrums und zur Versorgung der Patienten bei.\n\nDaher werden Sie aufgefordert,\n\n• spezielle neurologische Konsultationen auf dem Gebiet der kognitiven Störungen und des Gedächtnisses anbieten;\n\n• Durchführung einer diagnostischen Beurteilung von Patienten mit Gedächtnisstörungen oder anderen kognitiven Störungen;\n\n• Beitrag zur Entwicklung und Überwachung individualisierter therapeutischer Projekte;\n\n• eng mit Neuropsychologen, dem Pflegeteam, Geriatern und anderen Spezialisten zusammenarbeiten, die an der Reise des Patienten beteiligt sind;\n\n• an der Koordinierung des Versorgungswegs und der Überweisung von Patienten an geeignete Ressourcen mitwirken;\n\n• Beitrag zur Definition und Entwicklung von Protokollen, Pflegewegen und Tools für Speicherzentren;\n\n• sich aktiv an der Entwicklung und Entwicklung des medizinischen Projekts des Zentrums beteiligen.\n\nEntwicklung der neurologischen Beratungstätigkeit - 30 bis 50%\n\nZusätzlich zu Ihrer Aktivität im Memory Center haben Sie die Möglichkeit, Ihre eigene neurologische Beratungsaktivität im Hospital of La Tour im Rahmen einer unabhängigen Aktivität zu entwickeln.\n\nDies ermöglicht es Ihnen, Ihren Patienten aufzubauen und zu entwickeln und eine allgemeine neurologische Aktivität durchzuführen und / oder sich an Ihren Fachgebieten zu orientieren, wobei Sie vom medizinischen Umfeld und der Infrastruktur der Institution profitieren.\n\nDiese Organisation ermöglicht es somit, die Beteiligung an einem strukturierenden und innovativen medizinischen Projekt mit der Möglichkeit der Entwicklung einer persönlichen klinischen Aktivität im Krankenhaus zu verbinden.\n\nWir suchen ein Profil, das folgende Kriterien erfüllt:\n\n• Bundesdiplom in Medizin oder Titel anerkannt als gleichwertig in der Schweiz;\n\n• ein anerkannter Spezialist für Neurologie in der Schweiz;\n\n• Erfahrung oder Fachwissen in der kognitiven Neurologie und/oder dem Management von Gedächtnisstörungen;\n\n• starkes Interesse an multidisziplinärer Arbeit und allgemeiner Patientenversorgung;\n\n• ausgezeichnete Beziehungsqualitäten und Netzwerkfähigkeit;\n\n• Interesse an der Entwicklung neuer medizinischer Projekte und der Wunsch, zum Aufbau einer neuen Tätigkeit beizutragen.",
+        "fr": "L’Hôpital de La Tour est un établissement de soins aigus de haut niveau, privé, indépendant et à dimension humaine. Ancré dans sa mission de restaurer la meilleure qualité de vie possible pour ses patients, l’Hôpital de La Tour place l’amélioration continue, l’excellence médicale et l’accompagnement de ses collaborateurs au cœur de ses priorités. L’institution emploie plus de 1’200 collaborateurs, représentant plus de 60 métiers, et collabore avec plus de 550 médecins agréés.\n\nNous recrutons un/e\n\nNeurologue à 80%-100% (ref : 2088)\n\nCentre de la mémoire et activité de consultation en neurologie\n\nParticipez à la création d’un nouveau Centre de la mémoire à l’Hôpital de La Tour, développé en partenariat avec les HUG.\n\nDans le cadre du développement de son offre de soins, l’Hôpital de La Tour ouvrira prochainement un Centre de la mémoire , dédié à l’évaluation, au diagnostic et à la prise en charge des patients présentant des troubles cognitifs.\n\nPour accompagner la création et le développement de ce nouveau centre, nous recherchons un(e) : Neurologue à 80–100 %.\n\nLe poste offre une configuration attractive, associant une activité salariée à 50 % au sein du Centre de la mémoire et la possibilité de développer, à hauteur de 30 à 50 % , une activité de consultations en neurologie en dehors du Centre de la mémoire , au sein de l’Hôpital de La Tour.\n\nVotre mission :\n\nAu sein du Centre de la mémoire – 50 %\n\nIntégré(e) à une équipe pluridisciplinaire, vous contribuerez activement à la mise en place du centre et à la prise en charge des patients.\n\nÀ ce titre, vous serez notamment amené(e) à :\n\n• assurer des consultations neurologiques spécialisées dans le domaine des troubles cognitifs et de la mémoire ;\n\n• réaliser l’évaluation diagnostique des patients présentant des troubles de la mémoire ou d’autres troubles cognitifs ;\n\n• contribuer à l’élaboration et au suivi des projets thérapeutiques individualisés ;\n\n• travailler en étroite collaboration avec les neuropsychologues, l’équipe infirmière, les gériatres et les autres spécialistes impliqués dans le parcours du patient ;\n\n• participer à la coordination du parcours de soins et à l’orientation des patients vers les ressources adaptées ;\n\n• contribuer à la définition et au développement des protocoles, parcours de soins et outils du Centre de la mémoire ;\n\n• participer activement au développement et à l’évolution du projet médical du centre.\n\nDéveloppement d’une activité de consultation en neurologie – 30 à 50 %\n\nEn complément de votre activité au sein du Centre de la mémoire, vous disposerez de la possibilité de développer votre propre activité de consultation en neurologie au sein de l’Hôpital de La Tour , dans le cadre d’une activité indépendante.\n\nVous pourrez ainsi constituer et développer votre patientèle et exercer une activité de neurologie générale et/ou orientée vers vos domaines d’expertise, en bénéficiant de l’environnement médical et des infrastructures de l’établissement.\n\nCette organisation permet ainsi d’associer l’implication dans un projet médical structurant et innovant à la possibilité de développer une activité clinique personnelle au sein de l’hôpital .\n\nNous recherchons un profil répondant aux critères suivants :\n\n• diplôme fédéral de médecin ou titre reconnu comme équivalent en Suisse ;\n\n• titre de spécialiste en neurologie reconnu en Suisse ;\n\n• expérience ou expertise en neurologie cognitive et/ou dans la prise en charge des troubles de la mémoire ;\n\n• intérêt marqué pour le travail pluridisciplinaire et la prise en charge globale du patient ;\n\n• excellentes qualités relationnelles et capacité à travailler en réseau ;\n\n• intérêt pour le développement de nouveaux projets médicaux et l’envie de contribuer à la construction d’une nouvelle activité."
+      },
+      "needsRetranslation": false,
+      "location": "Meyrin",
+      "canton": "GE",
+      "url": "https://recrutement.latour.ch/fr/nos-offres/neurologue-a-80-100-1586",
+      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-25T21:22:22.087Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1217",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recrutement.latour.ch/fr/nos-offres/neurologue-a-80-100-1586",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "neurologue-a-80-100-hopital-la-tour-meyrin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "neurologue-a-80-100-hopital-la-tour-meyrin"
+        ],
+        "en": [
+          "neurologue-a-80-100-hopital-la-tour-meyrin"
+        ],
+        "de": [
+          "neurologue-a-80-100-hopital-la-tour-meyrin"
+        ]
+      },
+      "firstSeenAt": "2026-11-23T21:33:07.274Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Hôpital de La Tour",
+        "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
+        "postalCode": "1217",
+        "addressLocality": "Meyrin",
+        "addressRegion": "GE",
+        "checkedAt": "2026-10-31T20:49:16.573Z",
+        "streetAddressSource": "zefix-registry"
+      },
+      "streetAddress": "Avenue Jacob-Daniel-MAILLARD 3",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2027-02-22T21:22:22.087Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

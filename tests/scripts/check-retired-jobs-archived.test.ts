@@ -66,6 +66,38 @@ describe('measureRetiredArchiveCoverage()', () => {
     expect(result.retiredUnarchived).toEqual([]);
   });
 
+  it('requires the original locale route when an active row moves to another crawler', () => {
+    const baseRow = job('canonical-it', {
+      slugByLocale: { it: 'canonical-it', en: 'old-english-route' },
+    });
+    const headRow = job('canonical-it', {
+      slugByLocale: { it: 'canonical-it', en: 'new-english-route' },
+    });
+    const lost = measureRetiredArchiveCoverage({
+      baseActive: map({ 'crawler-a': [baseRow] }),
+      baseExpired: map({}),
+      headActive: map({ 'crawler-b': [headRow] }),
+      headExpired: map({}),
+    });
+    expect(lost.activeLocaleSlugLost.map(({ locale, slug }) => [locale, slug])).toEqual([
+      ['en', 'old-english-route'],
+    ]);
+
+    const carried = measureRetiredArchiveCoverage({
+      baseActive: map({ 'crawler-a': [baseRow] }),
+      baseExpired: map({}),
+      headActive: map({
+        'crawler-b': [job('canonical-it', {
+          slugByLocale: { it: 'canonical-it', en: 'new-english-route' },
+          previousSlugsByLocale: { en: ['old-english-route'] },
+        })],
+      }),
+      headExpired: map({}),
+    });
+    expect(carried.activeLocaleSlugLost).toEqual([]);
+    expect(carried.retiredUnarchived).toEqual([]);
+  });
+
   it('flags an archive that shrinks between two revisions (Rittmeyer shape: 12 records -> [])', () => {
     const records = Array.from({ length: 12 }, (_, n) => job(`sales-engineer-${n}`));
     const result = measureRetiredArchiveCoverage({

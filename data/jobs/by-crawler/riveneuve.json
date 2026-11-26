@@ -1,7 +1,7 @@
 {
   "crawlerKey": "riveneuve",
-  "assembledAt": "2026-11-16T09:22:17.671Z",
-  "runId": "43837093122",
+  "assembledAt": "2026-11-25T21:23:37.465Z",
+  "runId": "45701486101",
   "jobs": [
     {
       "id": "riveneuve-6211b5c5e83a",
@@ -35,7 +35,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32273/fr/un-e-infirmier-ere-a-100-taux-negociable",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T09:22:12.120Z",
+      "crawledAt": "2026-11-25T21:23:30.603Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -108,11 +108,24 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Blonay",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-16T09:22:12.120Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.riveneuve.ch/jcms/rivd_32273/fr/un-e-infirmier-ere-a-100-taux-negociable"
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Fondation Rive-Neuve",
+        "streetAddress": "Chemin des Cuarroz 57",
+        "postalCode": "1807",
+        "registeredName": "Fondation Rive-Neuve",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "1807",
+        "addressLocality": "Blonay",
+        "addressRegion": "VD",
+        "checkedAt": "2026-11-16T15:23:25.631Z"
+      },
+      "streetAddress": "Chemin des Cuarroz 57",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-25T21:23:30.603Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "riveneuve-dfb61271a2a1",
@@ -145,7 +158,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32285/fr/un-e-assistant-e-en-soins-et-sante-communautaire-a-80",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T09:22:11.152Z",
+      "crawledAt": "2026-11-25T21:23:29.254Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -209,11 +222,24 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Blonay",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-16T09:22:11.152Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.riveneuve.ch/jcms/rivd_32285/fr/un-e-assistant-e-en-soins-et-sante-communautaire-a-80"
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Fondation Rive-Neuve",
+        "streetAddress": "Chemin des Cuarroz 57",
+        "postalCode": "1807",
+        "registeredName": "Fondation Rive-Neuve",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "1807",
+        "addressLocality": "Blonay",
+        "addressRegion": "VD",
+        "checkedAt": "2026-11-16T15:23:25.631Z"
+      },
+      "streetAddress": "Chemin des Cuarroz 57",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-25T21:23:29.254Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "riveneuve-45a8da7c68c9",
@@ -246,7 +272,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32286/fr/un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T09:22:10.192Z",
+      "crawledAt": "2026-11-25T21:23:27.828Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -310,11 +336,24 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Blonay",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-16T09:22:10.192Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.riveneuve.ch/jcms/rivd_32286/fr/un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere"
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Fondation Rive-Neuve",
+        "streetAddress": "Chemin des Cuarroz 57",
+        "postalCode": "1807",
+        "registeredName": "Fondation Rive-Neuve",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "1807",
+        "addressLocality": "Blonay",
+        "addressRegion": "VD",
+        "checkedAt": "2026-11-16T15:23:25.631Z"
+      },
+      "streetAddress": "Chemin des Cuarroz 57",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-25T21:23:27.828Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "riveneuve-f9adaf7dd0d2",
@@ -348,7 +387,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32287/fr/un-e-infirmier-ere-journalier-ere",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T09:22:09.224Z",
+      "crawledAt": "2026-11-25T21:23:26.408Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -424,11 +463,24 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Blonay",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-16T09:22:09.224Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.riveneuve.ch/jcms/rivd_32287/fr/un-e-infirmier-ere-journalier-ere"
+      "companyRegisteredAddress": {
+        "status": "matched",
+        "source": "zefix-lindas",
+        "companyName": "Fondation Rive-Neuve",
+        "streetAddress": "Chemin des Cuarroz 57",
+        "postalCode": "1807",
+        "registeredName": "Fondation Rive-Neuve",
+        "matchType": "exact",
+        "streetAddressSource": "zefix-registry",
+        "jobPostalCode": "1807",
+        "addressLocality": "Blonay",
+        "addressRegion": "VD",
+        "checkedAt": "2026-11-16T15:23:25.631Z"
+      },
+      "streetAddress": "Chemin des Cuarroz 57",
+      "streetAddressSource": "zefix-registry",
+      "validThrough": "2026-12-25T21:23:26.408Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

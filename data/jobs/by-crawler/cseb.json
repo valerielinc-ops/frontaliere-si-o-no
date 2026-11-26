@@ -1,7 +1,7 @@
 {
   "crawlerKey": "cseb",
-  "assembledAt": "2026-11-20T21:46:02.016Z",
-  "runId": "44819798367",
+  "assembledAt": "2026-11-25T21:49:04.255Z",
+  "runId": "45703515610",
   "jobs": [
     {
       "id": "cseb-9853e3fe8e87",
@@ -34,7 +34,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/9a9485d9-f2ed-e134-c7e3-e9a1cd37376f",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:45:51.021Z",
+      "crawledAt": "2026-11-25T21:48:54.378Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -62,7 +62,8 @@
         "koch-kochin-100-cseb-ch-5c949d22",
         "cucinare-cucinare-100-center-da-sanadad-engiadina-bassa-scuol-afe67b3b",
         "cook-cook-100-center-da-sanadad-engiadina-bassa-scuol-97d28686",
-        "cuisiniere-cuisiniere-100-center-da-sanadad-engiadina-bassa-scuol-ddb73348"
+        "cuisiniere-cuisiniere-100-center-da-sanadad-engiadina-bassa-scuol-ddb73348",
+        "koch-kochin-100-center-da-sanadad-engiadina-bassa-scuol"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -75,11 +76,12 @@
         "en": [
           "koch-kochin-100-cseb-ch"
         ],
+        "de": [
+          "koch-kochin-100-cseb-ch-5c949d22",
+          "koch-kochin-100-center-da-sanadad-engiadina-bassa-scuol"
+        ],
         "fr": [
           "koch-kochin-100-cseb-ch"
-        ],
-        "de": [
-          "koch-kochin-100-cseb-ch-5c949d22"
         ]
       },
       "firstSeenAt": "2026-07-10T22:41:03.087Z",
@@ -98,9 +100,8 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T21:45:51.021Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/9a9485d9-f2ed-e134-c7e3-e9a1cd37376f"
+      "validThrough": "2027-02-14T21:48:54.378Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cseb-95dbbd9e2898",
@@ -133,7 +134,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/83d87eb4-3acc-86af-0636-ef3cdee84024",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:45:51.018Z",
+      "crawledAt": "2026-11-25T21:48:54.376Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -158,7 +159,8 @@
       "contactPerson": "Corsina Feuerstein Betschart",
       "previousSlugs": [
         "leitende-arztin-leitender-arzt-chirurgie-75-80-cseb-ch",
-        "leitende-arztin-leitender-arzt-allgemeinchirurgie-mit-schwerpunkt-traumatologie-75-80-cseb"
+        "leitende-arztin-leitender-arzt-allgemeinchirurgie-mit-schwerpunkt-traumatologie-75-80-cseb",
+        "leitende-arztin-leitender-arzt-allgemeinchirurgie-mit-schwerpunkt-traumatologie-75-80-center-da-sanadad-engiadina-bassa"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -169,7 +171,8 @@
           "leitende-arztin-leitender-arzt-chirurgie-75-80-cseb-ch"
         ],
         "de": [
-          "leitende-arztin-leitender-arzt-chirurgie-75-80-cseb-ch"
+          "leitende-arztin-leitender-arzt-chirurgie-75-80-cseb-ch",
+          "leitende-arztin-leitender-arzt-allgemeinchirurgie-mit-schwerpunkt-traumatologie-75-80-center-da-sanadad-engiadina-bassa"
         ],
         "fr": [
           "leitende-arztin-leitender-arzt-chirurgie-75-80-cseb-ch"
@@ -191,9 +194,8 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T21:45:51.018Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/83d87eb4-3acc-86af-0636-ef3cdee84024"
+      "validThrough": "2027-01-28T21:48:54.376Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cseb-04a1d26ffed4",
@@ -226,7 +228,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/a9ca581b-8d0a-0482-de04-bf3dc66b811a",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:45:51.015Z",
+      "crawledAt": "2026-11-25T21:48:54.375Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -261,6 +263,9 @@
         "en": [
           "dipl-experte-expertin-anasthesiepflege-nds-hf-40-center-da-sanadad-engiadina-bassa-scuol"
         ],
+        "de": [
+          "dipl-experte-expertin-anasthesiepflege-nds-hf-40-center-da-sanadad-engiadina-bassa-scuol"
+        ],
         "fr": [
           "dipl-experte-expertin-anasthesiepflege-nds-hf-40-center-da-sanadad-engiadina-bassa-scuol"
         ]
@@ -281,9 +286,8 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-14T21:45:51.015Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/a9ca581b-8d0a-0482-de04-bf3dc66b811a"
+      "validThrough": "2027-01-14T21:48:54.375Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cseb-2fc6aed46f6d",
@@ -316,7 +320,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/483a1989-909c-f906-1dee-ab44b41e4e1a",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:45:51.012Z",
+      "crawledAt": "2026-11-25T21:48:54.373Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -363,9 +367,8 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:45:51.012Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/483a1989-909c-f906-1dee-ab44b41e4e1a"
+      "validThrough": "2026-12-27T21:48:54.373Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cseb-a235e9659411",
@@ -398,7 +401,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/0cff7fb9-949b-90f2-ec4e-0c777297d67b",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:45:51.008Z",
+      "crawledAt": "2026-11-25T21:48:54.371Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -445,9 +448,8 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-27T21:45:51.008Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/0cff7fb9-949b-90f2-ec4e-0c777297d67b"
+      "validThrough": "2026-12-27T21:48:54.371Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cseb-bae2d5a6498f",
@@ -480,7 +482,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/f910b490-39a2-ff4d-6a4e-cd4be69a89dc",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:45:51.005Z",
+      "crawledAt": "2026-11-25T21:48:54.369Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -584,16 +586,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-aktivierung-40-60-cseb-ch",
-          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-8152df3c",
-          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-e3f793bd",
-          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-6f6c8b37",
-          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-9884eb0e",
-          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-cacbd523",
-          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-7c9147b9",
-          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-cfd0e37f",
-          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-f95ed470",
-          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-e47881ac",
           "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-05ce973b",
           "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-e84419da",
           "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-86dea197",
@@ -603,7 +595,17 @@
           "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-f2fa3125",
           "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-d4e9f950",
           "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-4e7fb2bb",
-          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-858977fb"
+          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-858977fb",
+          "mitarbeiterin-mitarbeiter-aktivierung-40-60-cseb-ch",
+          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-8152df3c",
+          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-e3f793bd",
+          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-6f6c8b37",
+          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-9884eb0e",
+          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-cacbd523",
+          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-7c9147b9",
+          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-cfd0e37f",
+          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-f95ed470",
+          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-e47881ac"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-aktivierung-40-60-center-da-sanadad-engiadina-bassa-scuol"
@@ -628,9 +630,8 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:45:51.005Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/f910b490-39a2-ff4d-6a4e-cd4be69a89dc"
+      "validThrough": "2026-12-25T21:48:54.369Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cseb-61e2594cb790",
@@ -663,7 +664,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/503105ab-ee65-b500-19e8-988c5592f6c5",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:45:51.001Z",
+      "crawledAt": "2026-11-25T21:48:54.367Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -720,9 +721,8 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:45:51.001Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/503105ab-ee65-b500-19e8-988c5592f6c5"
+      "validThrough": "2026-12-25T21:48:54.367Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cseb-cd2dab6f01ac",
@@ -755,7 +755,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/439cb41c-0371-94c9-6c59-909203c12844",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:45:50.997Z",
+      "crawledAt": "2026-11-25T21:48:54.365Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -809,9 +809,8 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:45:50.997Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/439cb41c-0371-94c9-6c59-909203c12844"
+      "validThrough": "2026-12-25T21:48:54.365Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cseb-5fa447124a26",
@@ -844,7 +843,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/08090cea-a5af-e391-1b01-d1e40cf402a3",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:45:50.993Z",
+      "crawledAt": "2026-11-25T21:48:54.363Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -906,9 +905,8 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:45:50.993Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/08090cea-a5af-e391-1b01-d1e40cf402a3"
+      "validThrough": "2026-12-25T21:48:54.363Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cseb-3e74b504b5fc",
@@ -941,7 +939,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/0aae7b8e-6401-ca9e-3f64-552a05cd547d",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:45:50.989Z",
+      "crawledAt": "2026-11-25T21:48:54.361Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1045,16 +1043,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-bassa",
-          "psychologiepraktikant-in-clinica-curativa-60-100-cseb-ch",
-          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-8617b6ae",
-          "lehrstellen-als-fachfrau-fachmann-gesundheit-efz-fage-cseb-ch-8d293d39",
-          "spontanbewerbung-pflegeberufe-langzeitpflege-center-da-sanadad-engiadina-bassa-scuol-3d0f1cad",
-          "lehrstellen-als-fachfrau-fachmann-gesundheit-efz-fage-center-da-sanadad-engiadina-bassa-scuol-960e9d85",
-          "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol-30e00046",
-          "assistente-sanitario-pj-anno-center-da-sanadad-engiadina-bassa-scuol-acae4fcb",
-          "assistente-sanitaria-e-sociale-assistente-infermieristico-srk-o-assistente-sociale-50-90-center-da-sanadad-e20018d7",
-          "medico-ginecologo-e-ostetrico-senior-25-50-center-da-sanadad-engiadina-bassa-scuol-4c13c6e3",
           "assistent-in-gesundheit-e-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-c565b07a",
           "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-cseb-ch-06337104",
           "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-2251086a",
@@ -1064,7 +1052,17 @@
           "candidature-spontanee-pour-les-professions-infirmieres-soins-a-long-terme-center-da-sanadad-engiadina-bassa-3ed7f5f8",
           "apprenti-en-sante-efz-fage-center-da-sanadad-engiadina-bassa-scuol-f34f1fe3",
           "medico-ginecologo-e-ostetrico-senior-25-50-center-da-sanadad-engiadina-bassa-scuol",
-          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-d-01e5b919"
+          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-d-01e5b919",
+          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-bassa",
+          "psychologiepraktikant-in-clinica-curativa-60-100-cseb-ch",
+          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-8617b6ae",
+          "lehrstellen-als-fachfrau-fachmann-gesundheit-efz-fage-cseb-ch-8d293d39",
+          "spontanbewerbung-pflegeberufe-langzeitpflege-center-da-sanadad-engiadina-bassa-scuol-3d0f1cad",
+          "lehrstellen-als-fachfrau-fachmann-gesundheit-efz-fage-center-da-sanadad-engiadina-bassa-scuol-960e9d85",
+          "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol-30e00046",
+          "assistente-sanitario-pj-anno-center-da-sanadad-engiadina-bassa-scuol-acae4fcb",
+          "assistente-sanitaria-e-sociale-assistente-infermieristico-srk-o-assistente-sociale-50-90-center-da-sanadad-e20018d7",
+          "medico-ginecologo-e-ostetrico-senior-25-50-center-da-sanadad-engiadina-bassa-scuol-4c13c6e3"
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
@@ -1083,9 +1081,8 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:45:50.989Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/0aae7b8e-6401-ca9e-3f64-552a05cd547d"
+      "validThrough": "2026-12-25T21:48:54.361Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cseb-2badd2d6bd27",
@@ -1118,7 +1115,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/18e63da7-2e49-eb9c-601d-b22238e3ef49",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:45:50.986Z",
+      "crawledAt": "2026-11-25T21:48:54.359Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1219,16 +1216,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistente-sanitario-pj-anno-center-da-sanadad-engiadina-bassa-scuol",
-          "unterassistenten-innen-pj-jahr-cseb-ch",
-          "candidature-spontanee-pour-les-professions-infirmieres-soins-a-long-terme-center-da-sanadad-engiadina-bassa-cf1640f2",
-          "spontanbewerbung-pflegeberufe-langzeitpflege-cseb-ch-f9f550b9",
-          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-cseb-ch-a04377f7",
-          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-d340c3bb",
-          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-0ce952ed",
-          "spontanbewerbung-pflegeberufe-langzeitpflege-center-da-sanadad-engiadina-bassa-scuol-635f8c2d",
-          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-90ed9157",
-          "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol-675fe1a0",
           "assistente-sanitaria-e-sociale-assistente-infermieristico-srk-o-assistente-sociale-50-90-center-da-sanadad-ed957796",
           "medico-ginecologo-e-ostetrico-senior-25-50-center-da-sanadad-engiadina-bassa-scuol-655f196a",
           "psychologiepraktikant-in-clinica-curativa-60-100-center-da-sanadad-engiadina-bassa-scuol-d8156a61",
@@ -1238,7 +1225,17 @@
           "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-688f4b76",
           "spontaneous-application-for-nursing-professions-long-term-care-center-da-sanadad-engiadina-bassa-scuol-32b606ee",
           "candidature-spontanee-pour-les-professions-infirmieres-soins-a-long-terme-center-da-sanadad-engiadina-bassa-355261a0",
-          "medico-ginecologo-e-ostetrico-senior-25-50-center-da-sanadad-engiadina-bassa-scuol"
+          "medico-ginecologo-e-ostetrico-senior-25-50-center-da-sanadad-engiadina-bassa-scuol",
+          "assistente-sanitario-pj-anno-center-da-sanadad-engiadina-bassa-scuol",
+          "unterassistenten-innen-pj-jahr-cseb-ch",
+          "candidature-spontanee-pour-les-professions-infirmieres-soins-a-long-terme-center-da-sanadad-engiadina-bassa-cf1640f2",
+          "spontanbewerbung-pflegeberufe-langzeitpflege-cseb-ch-f9f550b9",
+          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-cseb-ch-a04377f7",
+          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-d340c3bb",
+          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-0ce952ed",
+          "spontanbewerbung-pflegeberufe-langzeitpflege-center-da-sanadad-engiadina-bassa-scuol-635f8c2d",
+          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-90ed9157",
+          "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol-675fe1a0"
         ],
         "en": [
           "healthcare-assistant-pj-year-center-da-sanadad-engiadina-bassa-scuol"
@@ -1266,9 +1263,8 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:45:50.986Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/18e63da7-2e49-eb9c-601d-b22238e3ef49"
+      "validThrough": "2026-12-25T21:48:54.359Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cseb-af45cb1ba821",
@@ -1301,7 +1297,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/14b338b2-6622-bade-427a-7760f0bba7f7",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:45:50.983Z",
+      "crawledAt": "2026-11-25T21:48:54.357Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1405,16 +1401,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-srk-oder-sozialbetreuer-in-50-90-cseb",
-          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-4553dd59",
-          "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol-8e51cce4",
-          "assistente-sanitario-pj-anno-center-da-sanadad-engiadina-bassa-scuol-5f9c81e2",
-          "medico-ginecologo-e-ostetrico-senior-25-50-center-da-sanadad-engiadina-bassa-scuol-0c6721ac",
-          "psychologiepraktikant-in-clinica-curativa-60-100-center-da-sanadad-engiadina-bassa-scuol-f52a780b",
-          "assistent-in-gesundheit-e-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-942c6d82",
-          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-cseb-ch-76b587f4",
-          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-c0c6f178",
-          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-20690da5",
           "spontaneous-application-for-nursing-professions-long-term-care-center-da-sanadad-engiadina-bassa-scuol-346e4c3c",
           "candidature-spontanee-pour-les-professions-infirmieres-soins-a-long-terme-center-da-sanadad-engiadina-bassa-dd7a416c",
           "infermiere-diplomato-a-in-assistenza-chirurgica-80-100-center-da-sanadad-engiadina-bassa-scuol-bbccdbeb",
@@ -1424,7 +1410,17 @@
           "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-d-2ff53524",
           "analista-biomedico-in-hf-med-techn-assistente-di-laboratorio-in-mtla-80-100-center-da-sanadad-engiadina-bassa-15d99a50",
           "assistente-sanitaria-e-sociale-assistente-infermieristico-srk-o-assistente-sociale-50-90-center-da-sanadad-2216afb0",
-          "assistente-sanitaria-e-sociale-assistente-infermieristico-srk-o-assistente-sociale-50-90-center-da-sanadad-e741f2c6"
+          "assistente-sanitaria-e-sociale-assistente-infermieristico-srk-o-assistente-sociale-50-90-center-da-sanadad-e741f2c6",
+          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-srk-oder-sozialbetreuer-in-50-90-cseb",
+          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-4553dd59",
+          "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol-8e51cce4",
+          "assistente-sanitario-pj-anno-center-da-sanadad-engiadina-bassa-scuol-5f9c81e2",
+          "medico-ginecologo-e-ostetrico-senior-25-50-center-da-sanadad-engiadina-bassa-scuol-0c6721ac",
+          "psychologiepraktikant-in-clinica-curativa-60-100-center-da-sanadad-engiadina-bassa-scuol-f52a780b",
+          "assistent-in-gesundheit-e-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-942c6d82",
+          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-cseb-ch-76b587f4",
+          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-c0c6f178",
+          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-20690da5"
         ],
         "de": [
           "assistent-in-gesundheit-und-soziales-pflegehelfer-in-srk-oder-sozialbetreuer-in-50-90-center-da-sanadad-engiadina-bassa-"
@@ -1449,9 +1445,8 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:45:50.983Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/14b338b2-6622-bade-427a-7760f0bba7f7"
+      "validThrough": "2026-12-25T21:48:54.357Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cseb-85f3ce228e5b",
@@ -1484,7 +1479,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/a356d4be-f8e0-8a97-0c2c-121cd5f89c14",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:45:50.980Z",
+      "crawledAt": "2026-11-25T21:48:54.356Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1588,16 +1583,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-soccorritore-sanitario-srk-hf-40-100-center-da-sanadad-engiadina-bassa-scuol",
-          "dipl-rettungssanitater-in-hf-40-100-cseb-ch",
-          "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol-d59d8b36",
-          "assistente-sanitario-pj-anno-center-da-sanadad-engiadina-bassa-scuol-11328e24",
-          "assistente-sanitaria-e-sociale-assistente-infermieristico-srk-o-assistente-sociale-50-90-center-da-sanadad-fc48ec35",
-          "medico-ginecologo-e-ostetrico-senior-25-50-center-da-sanadad-engiadina-bassa-scuol-c63a7d2d",
-          "psychologiepraktikant-in-clinica-curativa-60-100-center-da-sanadad-engiadina-bassa-scuol-c6bf5037",
-          "assistent-in-gesundheit-e-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-c39a858b",
-          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-81b0e155",
-          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-cseb-ch-44cbcbc4",
           "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-a9e87da6",
           "spontaneous-application-for-nursing-professions-long-term-care-center-da-sanadad-engiadina-bassa-scuol-cd6e363d",
           "candidature-spontanee-pour-les-professions-infirmieres-soins-a-long-terme-center-da-sanadad-engiadina-bassa-53dd2cbb",
@@ -1607,7 +1592,17 @@
           "staff-in-gastronomia-chasa-puntota-50-center-da-sanadad-engiadina-bassa-scuol-e0eff97e",
           "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-d-4c29a44e",
           "analista-biomedico-in-hf-med-techn-assistente-di-laboratorio-in-mtla-80-100-center-da-sanadad-engiadina-bassa-9dcced70",
-          "dipl-rettungssanitater-in-hf-40-100-center-da-sanadad-engiadina-bassa-scuol"
+          "dipl-rettungssanitater-in-hf-40-100-center-da-sanadad-engiadina-bassa-scuol",
+          "dipl-soccorritore-sanitario-srk-hf-40-100-center-da-sanadad-engiadina-bassa-scuol",
+          "dipl-rettungssanitater-in-hf-40-100-cseb-ch",
+          "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol-d59d8b36",
+          "assistente-sanitario-pj-anno-center-da-sanadad-engiadina-bassa-scuol-11328e24",
+          "assistente-sanitaria-e-sociale-assistente-infermieristico-srk-o-assistente-sociale-50-90-center-da-sanadad-fc48ec35",
+          "medico-ginecologo-e-ostetrico-senior-25-50-center-da-sanadad-engiadina-bassa-scuol-c63a7d2d",
+          "psychologiepraktikant-in-clinica-curativa-60-100-center-da-sanadad-engiadina-bassa-scuol-c6bf5037",
+          "assistent-in-gesundheit-e-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-c39a858b",
+          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-81b0e155",
+          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-cseb-ch-44cbcbc4"
         ],
         "en": [
           "dipl-emergency-medical-technician-srk-hf-40-100-center-da-sanadad-engiadina-bassa-scuol"
@@ -1636,9 +1631,8 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:45:50.980Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/a356d4be-f8e0-8a97-0c2c-121cd5f89c14"
+      "validThrough": "2026-12-25T21:48:54.356Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cseb-e8ed71fb8165",
@@ -1671,7 +1665,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/9789088f-9f3e-b7a4-bf69-6d9c765dbea3",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:45:50.977Z",
+      "crawledAt": "2026-11-25T21:48:54.354Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1772,16 +1766,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol",
-          "lehrstelle-als-kauffrau-kaufmann-efz-cseb-ch",
-          "spontanbewerbung-pflegeberufe-langzeitpflege-cseb-ch-16169ddb",
-          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-cseb-ch-f22d4d27",
-          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-0a580cbe",
-          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-4f14fa10",
-          "spontanbewerbung-pflegeberufe-langzeitpflege-center-da-sanadad-engiadina-bassa-scuol-677a6b83",
-          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-7087e16c",
-          "assistente-sanitario-pj-anno-center-da-sanadad-engiadina-bassa-scuol-798ccb59",
-          "assistente-sanitaria-e-sociale-assistente-infermieristico-srk-o-assistente-sociale-50-90-center-da-sanadad-3e6aa32f",
           "medico-ginecologo-e-ostetrico-senior-25-50-center-da-sanadad-engiadina-bassa-scuol-d21e14a7",
           "psychologiepraktikant-in-clinica-curativa-60-100-center-da-sanadad-engiadina-bassa-scuol-1e7247fb",
           "assistent-in-gesundheit-e-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-b0be4e08",
@@ -1791,7 +1775,17 @@
           "spontaneous-application-for-nursing-professions-long-term-care-center-da-sanadad-engiadina-bassa-scuol-a1267a2f",
           "candidature-spontanee-pour-les-professions-infirmieres-soins-a-long-terme-center-da-sanadad-engiadina-bassa-fc47bab9",
           "medico-ginecologo-e-ostetrico-senior-25-50-center-da-sanadad-engiadina-bassa-scuol",
-          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-d-b20eb570"
+          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-d-b20eb570",
+          "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol",
+          "lehrstelle-als-kauffrau-kaufmann-efz-cseb-ch",
+          "spontanbewerbung-pflegeberufe-langzeitpflege-cseb-ch-16169ddb",
+          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-cseb-ch-f22d4d27",
+          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-0a580cbe",
+          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-4f14fa10",
+          "spontanbewerbung-pflegeberufe-langzeitpflege-center-da-sanadad-engiadina-bassa-scuol-677a6b83",
+          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-7087e16c",
+          "assistente-sanitario-pj-anno-center-da-sanadad-engiadina-bassa-scuol-798ccb59",
+          "assistente-sanitaria-e-sociale-assistente-infermieristico-srk-o-assistente-sociale-50-90-center-da-sanadad-3e6aa32f"
         ],
         "en": [
           "apprenticeship-as-commercial-employee-efz-center-da-sanadad-engiadina-bassa-scuol"
@@ -1819,9 +1813,8 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:45:50.977Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/9789088f-9f3e-b7a4-bf69-6d9c765dbea3"
+      "validThrough": "2026-12-25T21:48:54.354Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cseb-62814af0ac8f",
@@ -1854,7 +1847,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/4fd73428-f73e-6f49-2855-8204b00cbdc0",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:45:50.974Z",
+      "crawledAt": "2026-11-25T21:48:54.352Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1955,16 +1948,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprendista-assistente-sanita-e-sociale-eba-ags-center-da-sanadad-engiadina-bassa-scuol",
-          "lehrstelle-als-assistentin-assistent-gesundheit-und-soziales-eba-ags-cseb-ch",
-          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-cseb-ch-f570e823",
-          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-daaadceb",
-          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-06e51548",
-          "spontanbewerbung-pflegeberufe-langzeitpflege-center-da-sanadad-engiadina-bassa-scuol-33e863cf",
-          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-9c380b3f",
-          "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol-dfcafe2c",
-          "assistente-sanitario-pj-anno-center-da-sanadad-engiadina-bassa-scuol-2d0c5c8b",
-          "assistente-sanitaria-e-sociale-assistente-infermieristico-srk-o-assistente-sociale-50-90-center-da-sanadad-7cbdb9f1",
           "medico-ginecologo-e-ostetrico-senior-25-50-center-da-sanadad-engiadina-bassa-scuol-6602a0ca",
           "psychologiepraktikant-in-clinica-curativa-60-100-center-da-sanadad-engiadina-bassa-scuol-7dc2508b",
           "assistent-in-gesundheit-e-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-301ad591",
@@ -1974,7 +1957,17 @@
           "spontaneous-application-for-nursing-professions-long-term-care-center-da-sanadad-engiadina-bassa-scuol-96d12fd2",
           "candidature-spontanee-pour-les-professions-infirmieres-soins-a-long-terme-center-da-sanadad-engiadina-bassa-0cbce546",
           "medico-ginecologo-e-ostetrico-senior-25-50-center-da-sanadad-engiadina-bassa-scuol",
-          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-d-5776eacc"
+          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-d-5776eacc",
+          "apprendista-assistente-sanita-e-sociale-eba-ags-center-da-sanadad-engiadina-bassa-scuol",
+          "lehrstelle-als-assistentin-assistent-gesundheit-und-soziales-eba-ags-cseb-ch",
+          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-cseb-ch-f570e823",
+          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-daaadceb",
+          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-06e51548",
+          "spontanbewerbung-pflegeberufe-langzeitpflege-center-da-sanadad-engiadina-bassa-scuol-33e863cf",
+          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-9c380b3f",
+          "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol-dfcafe2c",
+          "assistente-sanitario-pj-anno-center-da-sanadad-engiadina-bassa-scuol-2d0c5c8b",
+          "assistente-sanitaria-e-sociale-assistente-infermieristico-srk-o-assistente-sociale-50-90-center-da-sanadad-7cbdb9f1"
         ],
         "de": [
           "lehrstelle-als-assistentin-assistent-gesundheit-und-soziales-eba-ags-center-da-sanadad-engiadina-bassa-scuol"
@@ -1999,9 +1992,8 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:45:50.974Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/4fd73428-f73e-6f49-2855-8204b00cbdc0"
+      "validThrough": "2026-12-25T21:48:54.352Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cseb-52167726eb87",
@@ -2034,7 +2026,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/1ef3689c-79c6-eae7-139e-1ad10eb84ac7",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:45:50.972Z",
+      "crawledAt": "2026-11-25T21:48:54.350Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -2135,16 +2127,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprendista-cucina-cuoco-efz-center-da-sanadad-engiadina-bassa-scuol",
-          "lehrstelle-als-kochin-koch-efz-cseb-ch",
-          "spontanbewerbung-pflegeberufe-langzeitpflege-center-da-sanadad-engiadina-bassa-scuol-36bd11b4",
-          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-77eb7dce",
-          "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol-ecce95fe",
-          "assistente-sanitario-pj-anno-center-da-sanadad-engiadina-bassa-scuol-64968712",
-          "assistente-sanitaria-e-sociale-assistente-infermieristico-srk-o-assistente-sociale-50-90-center-da-sanadad-e0393da6",
-          "medico-ginecologo-e-ostetrico-senior-25-50-center-da-sanadad-engiadina-bassa-scuol-8beb2e13",
-          "psychologiepraktikant-in-clinica-curativa-60-100-center-da-sanadad-engiadina-bassa-scuol-4b90e88f",
-          "assistent-in-gesundheit-e-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-ca6d30c6",
           "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-fe4a675f",
           "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-cseb-ch-05e2431d",
           "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-0f858996",
@@ -2154,7 +2136,17 @@
           "arztliche-co-leitung-o-leitende-r-arztin-arzt-stationare-schmerztherapie-60-80-center-da-sanadad-engiadina-830ad78b",
           "dipendente-del-bagno-romano-irlandese-40-60-center-da-sanadad-engiadina-bassa-scuol-2408989b",
           "staff-in-gastronomia-chasa-puntota-50-center-da-sanadad-engiadina-bassa-scuol-ca6bfde7",
-          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-d-d5163fd2"
+          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-d-d5163fd2",
+          "apprendista-cucina-cuoco-efz-center-da-sanadad-engiadina-bassa-scuol",
+          "lehrstelle-als-kochin-koch-efz-cseb-ch",
+          "spontanbewerbung-pflegeberufe-langzeitpflege-center-da-sanadad-engiadina-bassa-scuol-36bd11b4",
+          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-77eb7dce",
+          "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol-ecce95fe",
+          "assistente-sanitario-pj-anno-center-da-sanadad-engiadina-bassa-scuol-64968712",
+          "assistente-sanitaria-e-sociale-assistente-infermieristico-srk-o-assistente-sociale-50-90-center-da-sanadad-e0393da6",
+          "medico-ginecologo-e-ostetrico-senior-25-50-center-da-sanadad-engiadina-bassa-scuol-8beb2e13",
+          "psychologiepraktikant-in-clinica-curativa-60-100-center-da-sanadad-engiadina-bassa-scuol-4b90e88f",
+          "assistent-in-gesundheit-e-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-ca6d30c6"
         ],
         "en": [
           "apprentice-kitchen-cook-efz-center-da-sanadad-engiadina-bassa-scuol"
@@ -2182,9 +2174,8 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:45:50.972Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/1ef3689c-79c6-eae7-139e-1ad10eb84ac7"
+      "validThrough": "2026-12-25T21:48:54.350Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cseb-c39c5502febb",
@@ -2217,7 +2208,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/e9f51ab1-b60e-a609-9b43-ea1cde468af8",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:45:50.969Z",
+      "crawledAt": "2026-11-25T21:48:54.348Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -2321,16 +2312,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztinnen-assistenzarzte-70-100-cseb-ch",
-          "spontanbewerbung-pflegeberufe-langzeitpflege-cseb-ch-d5f9a54f",
-          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-cseb-ch-bbf3dab6",
-          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-c7ad3983",
-          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-80f38101",
-          "spontanbewerbung-pflegeberufe-langzeitpflege-center-da-sanadad-engiadina-bassa-scuol-9124ca2a",
-          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-257b06be",
-          "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol-185f2207",
-          "assistente-sanitario-pj-anno-center-da-sanadad-engiadina-bassa-scuol-e699f9b1",
-          "assistente-sanitaria-e-sociale-assistente-infermieristico-srk-o-assistente-sociale-50-90-center-da-sanadad-24377bb5",
           "medico-ginecologo-e-ostetrico-senior-25-50-center-da-sanadad-engiadina-bassa-scuol-bc5b5622",
           "psychologiepraktikant-in-clinica-curativa-60-100-center-da-sanadad-engiadina-bassa-scuol-4619cb27",
           "assistent-in-gesundheit-e-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-bc71fd5e",
@@ -2340,7 +2321,17 @@
           "spontaneous-application-for-nursing-professions-long-term-care-center-da-sanadad-engiadina-bassa-scuol-b82f046f",
           "candidature-spontanee-pour-les-professions-infirmieres-soins-a-long-terme-center-da-sanadad-engiadina-bassa-165e4edd",
           "medico-ginecologo-e-ostetrico-senior-25-50-center-da-sanadad-engiadina-bassa-scuol",
-          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-d-eaae40a5"
+          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-d-eaae40a5",
+          "assistenzarztinnen-assistenzarzte-70-100-cseb-ch",
+          "spontanbewerbung-pflegeberufe-langzeitpflege-cseb-ch-d5f9a54f",
+          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-cseb-ch-bbf3dab6",
+          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-c7ad3983",
+          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-80f38101",
+          "spontanbewerbung-pflegeberufe-langzeitpflege-center-da-sanadad-engiadina-bassa-scuol-9124ca2a",
+          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-257b06be",
+          "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol-185f2207",
+          "assistente-sanitario-pj-anno-center-da-sanadad-engiadina-bassa-scuol-e699f9b1",
+          "assistente-sanitaria-e-sociale-assistente-infermieristico-srk-o-assistente-sociale-50-90-center-da-sanadad-24377bb5"
         ],
         "en": [
           "resident-physicians-70-100-center-da-sanadad-engiadina-bassa-scuol"
@@ -2365,9 +2356,8 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:45:50.969Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/e9f51ab1-b60e-a609-9b43-ea1cde468af8"
+      "validThrough": "2026-12-25T21:48:54.348Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cseb-be71dc9f1257",
@@ -2400,7 +2390,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/9b888521-c84d-59c9-4222-e9cc2d551af6",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:45:50.965Z",
+      "crawledAt": "2026-11-25T21:48:54.345Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -2501,16 +2491,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "famulatore-center-da-sanadad-engiadina-bassa-scuol",
-          "famulatur-stelle-cseb-ch",
-          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-cseb-ch-fdcfe87b",
-          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-c706b6eb",
-          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-e58d08ea",
-          "spontanbewerbung-pflegeberufe-langzeitpflege-center-da-sanadad-engiadina-bassa-scuol-5b6dea3e",
-          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-cdb2ae8c",
-          "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol-26fcf20b",
-          "assistente-sanitario-pj-anno-center-da-sanadad-engiadina-bassa-scuol-19391d9b",
-          "assistente-sanitaria-e-sociale-assistente-infermieristico-srk-o-assistente-sociale-50-90-center-da-sanadad-599ce2c9",
           "medico-ginecologo-e-ostetrico-senior-25-50-center-da-sanadad-engiadina-bassa-scuol-4ef0f42c",
           "psychologiepraktikant-in-clinica-curativa-60-100-center-da-sanadad-engiadina-bassa-scuol-77c84ab5",
           "assistent-in-gesundheit-e-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-e3b97f7e",
@@ -2520,7 +2500,17 @@
           "spontaneous-application-for-nursing-professions-long-term-care-center-da-sanadad-engiadina-bassa-scuol-f27edd31",
           "candidature-spontanee-pour-les-professions-infirmieres-soins-a-long-terme-center-da-sanadad-engiadina-bassa-2019b378",
           "medico-ginecologo-e-ostetrico-senior-25-50-center-da-sanadad-engiadina-bassa-scuol",
-          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-d-1aa99564"
+          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-d-1aa99564",
+          "famulatore-center-da-sanadad-engiadina-bassa-scuol",
+          "famulatur-stelle-cseb-ch",
+          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-cseb-ch-fdcfe87b",
+          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-c706b6eb",
+          "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-e58d08ea",
+          "spontanbewerbung-pflegeberufe-langzeitpflege-center-da-sanadad-engiadina-bassa-scuol-5b6dea3e",
+          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-cdb2ae8c",
+          "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol-26fcf20b",
+          "assistente-sanitario-pj-anno-center-da-sanadad-engiadina-bassa-scuol-19391d9b",
+          "assistente-sanitaria-e-sociale-assistente-infermieristico-srk-o-assistente-sociale-50-90-center-da-sanadad-599ce2c9"
         ],
         "en": [
           "famulature-position-center-da-sanadad-engiadina-bassa-scuol",
@@ -2552,9 +2542,8 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:45:50.965Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/9b888521-c84d-59c9-4222-e9cc2d551af6"
+      "validThrough": "2026-12-25T21:48:54.345Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cseb-781bb83526e4",
@@ -2587,7 +2576,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/b572e71d-482e-bc3a-6aef-b24595f38cb4",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:45:50.962Z",
+      "crawledAt": "2026-11-25T21:48:54.342Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -2688,16 +2677,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstellen-als-fachfrau-fachmann-gesundheit-efz-fage-cseb-ch",
-          "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol-c802e940",
-          "assistente-sanitario-pj-anno-center-da-sanadad-engiadina-bassa-scuol-9140a59b",
-          "assistente-sanitaria-e-sociale-assistente-infermieristico-srk-o-assistente-sociale-50-90-center-da-sanadad-c48a74f6",
-          "medico-ginecologo-e-ostetrico-senior-25-50-center-da-sanadad-engiadina-bassa-scuol-ae6f10f0",
-          "psychologiepraktikant-in-clinica-curativa-60-100-center-da-sanadad-engiadina-bassa-scuol-2c8134b6",
-          "assistent-in-gesundheit-e-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-17637680",
-          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-70894aa6",
-          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-cseb-ch-3940bc28",
-          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-0853eddf",
           "spontaneous-application-for-nursing-professions-long-term-care-center-da-sanadad-engiadina-bassa-scuol-c87e047b",
           "candidature-spontanee-pour-les-professions-infirmieres-soins-a-long-terme-center-da-sanadad-engiadina-bassa-03210aee",
           "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-d-82d45d71",
@@ -2707,7 +2686,17 @@
           "spontaneous-application-for-nursing-professions-long-term-care-center-da-sanadad-engiadina-bassa-scuol-29297581",
           "candidature-spontanee-pour-les-professions-infirmieres-soins-a-long-terme-center-da-sanadad-engiadina-bassa-f9ba2b20",
           "assistent-in-gesundheit-und-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-777e326c",
-          "spontanbewerbung-pflegeberufe-langzeitpflege-center-da-sanadad-engiadina-bassa-scuol-ea8d62c7"
+          "spontanbewerbung-pflegeberufe-langzeitpflege-center-da-sanadad-engiadina-bassa-scuol-ea8d62c7",
+          "lehrstellen-als-fachfrau-fachmann-gesundheit-efz-fage-cseb-ch",
+          "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol-c802e940",
+          "assistente-sanitario-pj-anno-center-da-sanadad-engiadina-bassa-scuol-9140a59b",
+          "assistente-sanitaria-e-sociale-assistente-infermieristico-srk-o-assistente-sociale-50-90-center-da-sanadad-c48a74f6",
+          "medico-ginecologo-e-ostetrico-senior-25-50-center-da-sanadad-engiadina-bassa-scuol-ae6f10f0",
+          "psychologiepraktikant-in-clinica-curativa-60-100-center-da-sanadad-engiadina-bassa-scuol-2c8134b6",
+          "assistent-in-gesundheit-e-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-17637680",
+          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-70894aa6",
+          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-cseb-ch-3940bc28",
+          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-0853eddf"
         ],
         "en": [
           "healthcare-efz-fage-apprentice-center-da-sanadad-engiadina-bassa-scuol"
@@ -2738,9 +2727,8 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:45:50.962Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/b572e71d-482e-bc3a-6aef-b24595f38cb4"
+      "validThrough": "2026-12-25T21:48:54.342Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "cseb-edfd069cce8c",
@@ -2773,7 +2761,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/d42b368b-500b-999e-0f77-ed4017b03b98",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T21:45:50.945Z",
+      "crawledAt": "2026-11-25T21:48:54.330Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -2874,16 +2862,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-collaboratore-trice-aktivierung-40-60-center-da-sanadad-engiadina-bassa-scuol",
-          "spontanbewerbung-pflegeberufe-langzeitpflege-cseb-ch",
-          "assistente-sanitaria-e-sociale-assistente-infermieristico-srk-o-assistente-sociale-50-90-center-da-sanadad-7e92b0dc",
-          "medico-ginecologo-e-ostetrico-senior-25-50-center-da-sanadad-engiadina-bassa-scuol-0176c140",
-          "psychologiepraktikant-in-clinica-curativa-60-100-center-da-sanadad-engiadina-bassa-scuol-9e00c48b",
-          "assistent-in-gesundheit-e-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-11dce459",
-          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-d003cc7d",
-          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-cseb-ch-a806a103",
-          "apprendista-in-salute-efz-fage-center-da-sanadad-engiadina-bassa-scuol-946ddc6e",
-          "healthcare-efz-fage-apprentice-center-da-sanadad-engiadina-bassa-scuol-342bdbd6",
           "apprenti-en-sante-efz-fage-center-da-sanadad-engiadina-bassa-scuol-4172c63c",
           "infermiere-diplomato-a-in-assistenza-chirurgica-80-100-center-da-sanadad-engiadina-bassa-scuol-f90e9b0f",
           "arztliche-co-leitung-o-leitende-r-arztin-arzt-stationare-schmerztherapie-60-80-center-da-sanadad-engiadina-713fa081",
@@ -2893,7 +2871,17 @@
           "analista-biomedico-in-hf-med-techn-assistente-di-laboratorio-in-mtla-80-100-center-da-sanadad-engiadina-bassa-897efb09",
           "apprendista-in-salute-efz-fage-center-da-sanadad-engiadina-bassa-scuol",
           "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-f0b2ce0f",
-          "healthcare-efz-fage-apprentice-center-da-sanadad-engiadina-bassa-scuol"
+          "healthcare-efz-fage-apprentice-center-da-sanadad-engiadina-bassa-scuol",
+          "mitarbeiterin-collaboratore-trice-aktivierung-40-60-center-da-sanadad-engiadina-bassa-scuol",
+          "spontanbewerbung-pflegeberufe-langzeitpflege-cseb-ch",
+          "assistente-sanitaria-e-sociale-assistente-infermieristico-srk-o-assistente-sociale-50-90-center-da-sanadad-7e92b0dc",
+          "medico-ginecologo-e-ostetrico-senior-25-50-center-da-sanadad-engiadina-bassa-scuol-0176c140",
+          "psychologiepraktikant-in-clinica-curativa-60-100-center-da-sanadad-engiadina-bassa-scuol-9e00c48b",
+          "assistent-in-gesundheit-e-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-11dce459",
+          "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-d003cc7d",
+          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-cseb-ch-a806a103",
+          "apprendista-in-salute-efz-fage-center-da-sanadad-engiadina-bassa-scuol-946ddc6e",
+          "healthcare-efz-fage-apprentice-center-da-sanadad-engiadina-bassa-scuol-342bdbd6"
         ],
         "en": [
           "employee-activation-40-60-center-da-sanadad-engiadina-bassa-scuol"
@@ -2923,9 +2911,8 @@
       },
       "addressRegion": "GR",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:45:50.945Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/d42b368b-500b-999e-0f77-ed4017b03b98"
+      "validThrough": "2026-12-25T21:48:54.330Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

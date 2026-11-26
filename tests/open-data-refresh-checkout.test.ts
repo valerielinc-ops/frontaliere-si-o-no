@@ -6,6 +6,12 @@ import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 
 const ROOT = path.resolve(__dirname, '..');
+// The git the fixture stubs delegate to: the binary of the git on PATH, taken
+// from its exec-path so wrappers (the workspace shim) are bypassed. Hardcoding
+// /usr/bin/git picked Apple Git 2.39 on macOS, which lacks the
+// `merge-tree --merge-base` the reconciler uses (git >= 2.40), so three
+// reconcile cases failed only on developer Macs while CI stayed green.
+const REAL_GIT = path.join(execFileSync('git', ['--exec-path'], { encoding: 'utf8' }).trim(), 'git');
 const directories: string[] = [];
 const identity = {
   GIT_AUTHOR_NAME: 'frontaliere-automation[bot]',
@@ -39,6 +45,8 @@ const PUBLISHER_RUNTIME_FILES = [
   'scripts/lib/git-fetch-target.mjs',
   'scripts/lib/run-bounded-command.mjs',
   'scripts/lib/compare-merge-base.sh',
+  'scripts/lib/git-no-lazy.mjs',
+  'scripts/lib/is-invoked-directly.mjs',
   'scripts/lib/pipeline-phase-timing.mjs',
   'scripts/lib/single-flight-lock.mjs',
   'scripts/lib/git-add-resolved.mjs',
@@ -123,9 +131,9 @@ function fixture() {
     '    esac',
     '  done',
     '  if [ "${REFRESH_FIXTURE_ORPHAN_RESET_RACE:-0}" = 1 ]; then',
-    '    /usr/bin/git --git-dir="$REFRESH_FIXTURE_REMOTE" update-ref "refs/heads/chore/refresh" "$REFRESH_FIXTURE_ORPHAN_RESET_RACE_HEAD"',
+    `    '${REAL_GIT}' --git-dir="$REFRESH_FIXTURE_REMOTE" update-ref "refs/heads/chore/refresh" "$REFRESH_FIXTURE_ORPHAN_RESET_RACE_HEAD"`,
     '  fi',
-    '  /usr/bin/git --git-dir="$REFRESH_FIXTURE_REMOTE" update-ref "refs/heads/chore/refresh" "$cas_after" "$cas_before" || exit 1',
+    `  '${REAL_GIT}' --git-dir="$REFRESH_FIXTURE_REMOTE" update-ref "refs/heads/chore/refresh" "$cas_after" "$cas_before" || exit 1`,
     '  if [ -n "${REFRESH_FIXTURE_PATCH_MARKER:-}" ]; then touch "$REFRESH_FIXTURE_PATCH_MARKER"; fi',
     '  if [ -n "${REFRESH_FIXTURE_PATCH_LOG:-}" ]; then printf "%s\\n" "$cas_before->$cas_after" >> "$REFRESH_FIXTURE_PATCH_LOG"; fi',
     '  echo "$cas_after"',
@@ -143,11 +151,11 @@ function fixture() {
     '    esac',
     '  done',
     '  if [ "${REFRESH_FIXTURE_ORPHAN_RESET_RACE:-0}" = 1 ] && [ "$patch_force" = false ]; then',
-    '    /usr/bin/git --git-dir="$REFRESH_FIXTURE_REMOTE" update-ref "refs/heads/$patch_ref" "$REFRESH_FIXTURE_ORPHAN_RESET_RACE_HEAD"',
+    `    '${REAL_GIT}' --git-dir="$REFRESH_FIXTURE_REMOTE" update-ref "refs/heads/$patch_ref" "$REFRESH_FIXTURE_ORPHAN_RESET_RACE_HEAD"`,
     '    exit 1',
     '  fi',
     '  if [ -n "${REFRESH_FIXTURE_PATCH_MARKER:-}" ]; then touch "$REFRESH_FIXTURE_PATCH_MARKER"; fi',
-    '  /usr/bin/git --git-dir="$REFRESH_FIXTURE_REMOTE" update-ref "refs/heads/$patch_ref" "$patch_sha"',
+    `  '${REAL_GIT}' --git-dir="$REFRESH_FIXTURE_REMOTE" update-ref "refs/heads/$patch_ref" "$patch_sha"`,
     '  echo "$patch_sha"',
     '  exit 0',
     'fi',
@@ -183,7 +191,7 @@ function fixture() {
     '    exit 77',
     '  fi',
     'fi',
-    'exec /usr/bin/git "$@"',
+    `exec '${REAL_GIT}' "$@"`,
     '',
   ].join('\n'));
   fs.chmodSync(gitWrapper, 0o755);
@@ -1102,6 +1110,18 @@ function compatHistoryFixture(
     `const compareResponse = ${JSON.stringify(compareResponse)};`,
     'const args = process.argv.slice(2);',
     "if (args[0] === 'api') {",
+    "  if (args[1] === 'graphql') {",
+    "    const field = (name) => { const value = args.find((arg) => arg.startsWith(name + '=')); return value ? value.slice(name.length + 1) : ''; };",
+    "    const before = field('beforeOid');",
+    "    const after = field('afterOid');",
+    "    const ref = field('name');",
+    "    if (!ref || spawnSync('git', ['--git-dir=' + remote, 'update-ref', ref, after, before], { encoding: 'utf8' }).status !== 0) process.exit(1);",
+    '    process.exit(0);',
+    '  }',
+    "  if (args[1] === 'repos/fixture/publisher') {",
+    "    process.stdout.write('fixture-node-id\\n');",
+    '    process.exit(0);',
+    '  }',
     "  const endpoint = args.find((arg) => arg.startsWith('repos/fixture/publisher/compare/'));",
     "  if (endpoint) {",
     "    if (compareResponse === 'too-large') {",
@@ -1120,6 +1140,7 @@ function compatHistoryFixture(
     "    process.stdout.write(result.stdout); process.exit(0);",
     '  }',
     '}',
+    "if (args[0] === 'pr' && args[1] === 'list' && process.env.REFRESH_FIXTURE_OPEN_PR !== '0') process.stdout.write('42\\n');",
     "if (args[0] === 'pr' && args[1] === 'create') process.stdout.write('https://github.com/fixture/publisher/pull/1\\n');",
     'process.exit(0);',
     '',
@@ -1131,7 +1152,7 @@ function compatHistoryFixture(
   return { directory, remote, runner, bin, body, gitConfig };
 }
 
-function publishCompat(setup: ReturnType<typeof compatHistoryFixture>) {
+function publishCompat(setup: ReturnType<typeof compatHistoryFixture>, extraEnv: Record<string, string> = {}) {
   write(setup.runner, COMPAT_SHARD, JSON.stringify({ paths: ['/base', '/main', '/run'] }, null, 2) + '\n');
   const result = spawnSync('bash', [
     'scripts/lib/open-data-refresh-pr.sh',
@@ -1144,6 +1165,8 @@ function publishCompat(setup: ReturnType<typeof compatHistoryFixture>) {
       PATH: `${setup.bin}${path.delimiter}${process.env.PATH || ''}`,
       GH_TOKEN: 'fixture-token', GITHUB_REPOSITORY: 'fixture/publisher',
       GIT_CONFIG_GLOBAL: setup.gitConfig,
+      REFRESH_FIXTURE_OPEN_PR: '1',
+      ...extraEnv,
     },
   });
   return {
@@ -1297,7 +1320,21 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
     expect(boundedRuns[0].commitCount).toBe(boundedRuns[1].commitCount);
   }, 120_000);
 
-  it('falls back to a bounded blobless merge-base lookup when GitHub rejects a large compare diff', () => {
+  it('rebuilds an orphaned compat branch from main when no refresh PR is open', () => {
+    const setup = compatHistoryFixture(50);
+    const staleHead = git(setup.remote, ['rev-parse', COMPAT_BRANCH]);
+    const currentMainHead = git(setup.remote, ['rev-parse', 'main']);
+
+    const run = publishCompat(setup, { REFRESH_FIXTURE_OPEN_PR: '0' });
+
+    expect(run.result.status, run.output).toBe(0);
+    expect(run.output).toContain(`No open refresh PR for ${COMPAT_BRANCH}`);
+    expect(run.shard).toEqual({ paths: ['/base', '/main', '/run'] });
+    expect(git(setup.remote, ['rev-parse', `${COMPAT_BRANCH}^`])).toBe(currentMainHead);
+    expect(git(setup.remote, ['rev-parse', COMPAT_BRANCH])).not.toBe(staleHead);
+  }, 120_000);
+
+  it('falls back to a bounded treeless merge-base lookup when GitHub rejects a large compare diff', () => {
     const setup = compatHistoryFixture(50, undefined, undefined, { compareResponse: 'too-large' });
     advanceCompatMain(setup);
     const currentMainHead = git(setup.remote, ['rev-parse', 'refs/heads/main']);

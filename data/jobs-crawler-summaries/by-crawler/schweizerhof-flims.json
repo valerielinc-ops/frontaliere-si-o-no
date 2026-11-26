@@ -1,7 +1,7 @@
 {
   "key": "schweizerhof-flims",
   "label": "Schweizerhof",
-  "generatedAt": "2026-11-20T09:26:19.713Z",
+  "generatedAt": "2026-11-25T21:23:37.949Z",
   "total": 1,
   "discovered": 28,
   "parsed": 1,
@@ -20,11 +20,27 @@
       },
       {
         "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/18877"
+        "url": "https://romantikhotels.hcm4all.de/list/5642"
       },
       {
         "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/2566"
+        "url": "https://romantikhotels.hcm4all.de/list/1463"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/8087"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/19217"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/16251"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/19369"
       },
       {
         "status": 200,
@@ -32,11 +48,11 @@
       },
       {
         "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/16248"
+        "url": "https://romantikhotels.hcm4all.de/list/19839"
       },
       {
         "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/19369"
+        "url": "https://romantikhotels.hcm4all.de/list/16248"
       },
       {
         "status": 200,
@@ -60,15 +76,7 @@
       },
       {
         "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/1463"
-      },
-      {
-        "status": 200,
         "url": "https://romantikhotels.hcm4all.de/list/17153"
-      },
-      {
-        "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/19217"
       },
       {
         "status": 200,
@@ -100,14 +108,6 @@
       },
       {
         "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/5642"
-      },
-      {
-        "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/8087"
-      },
-      {
-        "status": 200,
         "url": "https://romantikhotels.hcm4all.de/list/6589"
       },
       {
@@ -116,19 +116,19 @@
       },
       {
         "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/2086"
+        "url": "https://romantikhotels.hcm4all.de/list/5699"
       },
       {
         "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/2085"
+        "url": "https://romantikhotels.hcm4all.de/list/5644"
       },
       {
         "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/4543"
+        "url": "https://romantikhotels.hcm4all.de/list/9157"
       },
       {
         "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/2087"
+        "url": "https://romantikhotels.hcm4all.de/list/2320"
       }
     ],
     "proxiedBy": [],
@@ -148,28 +148,28 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 34708,
-  "avgDurationMs": 34708,
+  "durationMs": 73907,
+  "avgDurationMs": 73907,
   "durationHistory": [
-    34708
+    73907
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
-      "id": "schweizerhof-flims-f2f02441a96d",
-      "slug": "housekeeping-collaboratore-trice-m-w-d-schweizerhof-flims",
+      "id": "schweizerhof-flims-eb0413bcceba",
+      "slug": "porter-housekeeping-m-f-d-schweizerhof-flims-graubunden",
       "company": "Schweizerhof",
       "companyKey": "schweizerhof-flims",
       "companyDomain": "romantikhotels.hcm4all.de",
-      "title": "Housekeeping-Mitarbeiter/in (m/w/d)",
+      "title": "Portier Housekeeping (m/w/d)",
       "location": "Flims, Graubünden",
       "canton": "GR",
-      "url": "https://romantikhotels.hcm4all.de/list/18877",
+      "url": "https://romantikhotels.hcm4all.de/list/19839",
       "source": "Schweizerhof Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-20T09:26:00.782Z",
+      "crawledAt": "2026-11-25T21:22:34.451Z",
       "addressLocality": "Flims",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -186,13 +186,13 @@
       "datePosted": "2026-08-20",
       "postedDate": "2026-08-20",
       "postingDateSource": "reported",
-      "applyUrl": "https://romantikhotels.hcm4all.de/list/18877",
-      "firstSeenAt": "2026-09-29T21:15:02.870Z",
+      "applyUrl": "https://romantikhotels.hcm4all.de/list/19839",
+      "firstSeenAt": "2026-09-29T21:15:02.867Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T09:26:00.782Z",
+      "validThrough": "2026-12-25T21:22:34.451Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -203,5 +203,5 @@
       }
     }
   ],
-  "codeCommit": "07c2e8305c6747f1893222ba4bfdddc597008157"
+  "codeCommit": "0c64b1f2eae0b337b537e356aa5de051b9c4c6cc"
 }

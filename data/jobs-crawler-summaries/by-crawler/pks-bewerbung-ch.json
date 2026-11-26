@@ -1,8 +1,8 @@
 {
   "key": "pks-bewerbung-ch",
   "label": "pks-bewerbung",
-  "generatedAt": "2026-11-18T09:49:14.851Z",
-  "total": 3,
+  "generatedAt": "2026-11-25T21:56:29.515Z",
+  "total": 2,
   "discovered": 2,
   "parsed": 2,
   "lastFetchOutcome": null,
@@ -20,11 +20,11 @@
       },
       {
         "status": 200,
-        "url": "https://www.pks-personal.ch/stellen/hr-generalistin-80-100-ihr-einstieg-in-die-hr-digitalisierung/basel/hrm/91824262"
+        "url": "https://www.pks-personal.ch/stellen/payroll-specialist-schweiz-de-fr-80-100/basel/hrm/e30f7470"
       },
       {
         "status": 200,
-        "url": "https://www.pks-personal.ch/stellen/hr-assistent-in-50-60-befristet-fuer-4-monate/basel/hrm/82e9b75e"
+        "url": "https://www.pks-personal.ch/stellen/hr-generalistin-80-100-ihr-einstieg-in-die-hr-digitalisierung/basel/hrm/91824262"
       }
     ],
     "proxiedBy": [],
@@ -33,7 +33,7 @@
   },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 3,
+  "written": 2,
   "detailCandidates": 2,
   "detailGone": 0,
   "detailRejected": 0,
@@ -41,16 +41,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 36196,
-  "avgDurationMs": 36196,
+  "durationMs": 7247,
+  "avgDurationMs": 7247,
   "durationHistory": [
-    36196
+    7247
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "pks-bewerbung-ch-a08c935471a7",
       "slug": "risorse-umane-generalistin-80-100-ihr-einstieg-in-la-risorse-umane-digitalisierung-come-abacus-consulente-pks-bewerbung-binningen",
@@ -63,7 +65,7 @@
       "url": "https://www.pks-personal.ch/stellen/hr-generalistin-80-100-ihr-einstieg-in-die-hr-digitalisierung/basel/hrm/91824262",
       "source": "pks-bewerbung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-18T09:48:28.174Z",
+      "crawledAt": "2026-11-25T21:56:12.820Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -82,12 +84,11 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://www.pks-personal.ch/stellen/hr-generalistin-80-100-ihr-einstieg-in-die-hr-digitalisierung/basel/hrm/91824262",
       "firstSeenAt": "2026-11-17T09:38:11.580Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T09:48:28.174Z",
+      "validThrough": "2027-02-15T21:56:12.820Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -96,30 +97,27 @@
         "translation": 25,
         "completeness": 23
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
-      "id": "pks-bewerbung-ch-86dea4b351cf",
-      "slug": "hr-professional-50-con-esperienza-nel-payroll-e-preciso-a-come-l-origami-fino-all-ultimo-centesimo-pks-bewerbung-4102",
+      "id": "pks-bewerbung-ch-af13ce13eccb",
+      "slug": "payroll-specialist-schweiz-de-fr-80-100-payroll-suisse-francais-voila-c-est-votre-scene",
       "company": "pks-bewerbung",
       "companyKey": "pks-bewerbung-ch",
       "companyDomain": "pks-personal.ch",
-      "title": "HR Professional 50% (mit Payroll-Erfahrung) - Sie sind präzise wie Origami. Bis auf den letzten Rappen...",
+      "title": "Payroll Specialist Schweiz (DE/FR) 80 – 100% - Lohnbuchhaltung ist dein Métier? Tant mieux!",
       "location": "4102 Binningen",
       "canton": "BL",
-      "url": "https://www.pks-personal.ch/stellen/hr-professional-50-mit-payroll-erfahrung/basel/hrm/15cad6a3",
+      "url": "https://www.pks-personal.ch/stellen/payroll-specialist-schweiz-de-fr-80-100/basel/hrm/e30f7470",
       "source": "pks-bewerbung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:38:11.583Z",
+      "crawledAt": "2026-11-25T21:56:12.818Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "4102",
       "streetAddress": "Binningen",
-      "category": "Risorse Umane",
+      "category": "Altro",
       "contract": "other",
       "employmentType": "OTHER",
       "experienceLevel": "mid",
@@ -129,15 +127,14 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "applyUrl": "https://www.pks-personal.ch/stellen/hr-professional-50-mit-payroll-erfahrung/basel/hrm/15cad6a3",
-      "firstSeenAt": "2026-11-13T21:47:41.796Z",
-      "salaryMin": 31000,
-      "salaryMax": 47000,
+      "applyUrl": "https://www.pks-personal.ch/stellen/payroll-specialist-schweiz-de-fr-80-100/basel/hrm/e30f7470",
+      "firstSeenAt": "2026-11-24T21:51:12.954Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T09:38:11.583Z",
+      "validThrough": "2027-02-22T21:56:12.818Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -145,53 +142,7 @@
         "translation": 25,
         "completeness": 23
       }
-    },
-    {
-      "id": "pks-bewerbung-ch-82a92461d441",
-      "slug": "consulente-abacus-80-100-paghe-hr-perfetto-ingresso-laterale-per-professionisti-hr-pks-bewerbung-4102-binningen",
-      "company": "pks-bewerbung",
-      "companyKey": "pks-bewerbung-ch",
-      "companyDomain": "pks-personal.ch",
-      "title": "Berater:in ABACUS 80 - 100% (Lohn/HR) - perfekter Quereinstieg für HR-Profis",
-      "location": "4102 Binningen",
-      "canton": "BL",
-      "url": "https://www.pks-personal.ch/stellen/berater-in-abacus-80-100-lohn-hr/basel/hrm/d6f62e50",
-      "source": "pks-bewerbung Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:50:49.382Z",
-      "addressLocality": "Binningen",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4102",
-      "streetAddress": "Binningen",
-      "category": "Risorse Umane",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.pks-personal.ch/stellen/berater-in-abacus-80-100-lohn-hr/basel/hrm/d6f62e50",
-      "firstSeenAt": "2026-10-29T21:49:28.681Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:50:49.382Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 23
-      }
     }
   ],
-  "codeCommit": "c09e64fc08a252ae7234edb7cb9fdea84c5eb705"
+  "codeCommit": "0c64b1f2eae0b337b537e356aa5de051b9c4c6cc"
 }

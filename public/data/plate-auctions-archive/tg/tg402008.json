@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109973",
+      "sourceKey": "TG",
+      "sourceRecordId": "109973",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "402008",
+      "normalizedPlate": "TG402008",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 600,
+      "bidCount": 1,
+      "endsAt": "2026-11-25T18:00:00.000Z",
+      "closedAt": "2026-11-25T18:00:00.000Z",
+      "officialAuctionUrl": "https://auktion.tg.ch/de/",
+      "officialDetailUrl": "https://auktion.tg.ch/de/auction/109973",
+      "sourceFetchedAt": "2026-11-24T22:27:44.482Z",
+      "lastVerifiedAt": "2026-11-24T22:27:44.482Z",
+      "firstSeenAt": "2026-11-16T22:04:44.543Z",
+      "lastSeenAt": "2026-11-24T22:27:44.482Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "ef82cc04fb55"
+    }
+  ]
+}
