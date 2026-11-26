@@ -1,7 +1,7 @@
 {
   "crawlerKey": "svar-spitalverbund-ar",
-  "assembledAt": "2026-11-26T09:21:35.191Z",
-  "runId": "45789166583",
+  "assembledAt": "2026-11-26T21:25:42.471Z",
+  "runId": "45895998405",
   "jobs": [
     {
       "id": "svar-spitalverbund-ar-95afc988cdca",
@@ -89,7 +89,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-20T09:20:56.533Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4104201"
+      "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4104201",
+      "crawlerMissStreak": 1
     },
     {
       "id": "svar-spitalverbund-ar-faaa90d05853",
@@ -177,7 +178,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:20:55.962Z",
       "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4097361"
+      "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4097361",
+      "crawlerMissStreak": 1
     },
     {
       "id": "svar-spitalverbund-ar-4245e239babb",
@@ -210,7 +212,7 @@
       "url": "https://live.solique.ch/svar/job/details/4089111",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:20:55.199Z",
+      "crawledAt": "2026-11-26T21:25:13.909Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -260,7 +262,7 @@
       },
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:20:55.199Z",
+      "validThrough": "2026-12-26T21:25:13.909Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4089111"
     },
@@ -296,7 +298,7 @@
       "url": "https://live.solique.ch/svar/job/details/4090648",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:20:54.498Z",
+      "crawledAt": "2026-11-26T21:25:13.323Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -347,7 +349,7 @@
       },
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-24T09:20:54.498Z",
+      "validThrough": "2027-02-24T21:25:13.323Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4090648"
     },
@@ -383,7 +385,7 @@
       "url": "https://live.solique.ch/svar/job/details/4106625",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:20:53.625Z",
+      "crawledAt": "2026-11-26T21:25:12.736Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -435,7 +437,7 @@
       },
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:20:53.625Z",
+      "validThrough": "2026-12-26T21:25:12.736Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4106625"
     },
@@ -471,7 +473,7 @@
       "url": "https://live.solique.ch/svar/job/details/4106586",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:20:52.871Z",
+      "crawledAt": "2026-11-26T21:25:12.150Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -523,7 +525,7 @@
       },
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:20:52.871Z",
+      "validThrough": "2027-01-25T21:25:12.150Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4106586"
     },
@@ -539,11 +541,11 @@
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
       "companyDomain": "svar.ch",
-      "title": "Fachfrau/Fachmann Gesundheit für die Intensivstation 60 - 100%",
+      "title": "Fachfrau/Fachmann Gesundheit für die Intensivstation",
       "titleByLocale": {
         "it": "Specialista sanitario per l'unità di terapia intensiva 60 - 100%",
         "en": "Professional Health for the intensive care unit 60 - 100%",
-        "de": "Fachfrau/Fachmann Gesundheit für die Intensivstation 60 - 100%",
+        "de": "Fachfrau/Fachmann Gesundheit für die Intensivstation",
         "fr": "Santé professionnelle pour l'unité de soins intensifs 60 - 100%"
       },
       "description": "Deine Aufgaben\n• Schwerpunktmässige Übernahme von organisatorischen, logistischen und administrativen Aufgaben im Aussendienst der Intensivstation\n• Sicherstellung eines reibungslosen Stationsablaufs in enger Zusammenarbeit mit dem diplomierten Pflegepersonal\n• Bewirtschaftung und Bereitstellung von Pflege- und Verbrauchsmaterialien sowie medizinischen Geräten\n• Durchführung von Materialbestellungen, Lagerbewirtschaftung und Dokumentenverwaltung\n• Unterstützung bei der Überwachung, Pflege und Betreuung von Patientinnen und Patienten nach Bedarf und im Rahmen der eigenen Kompetenzen\n• Mitverantwortung für die Einhaltung der Hygiene- und Qualitätsstandards\n\nDein Profil\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ\n• Mindestens zwei Jahre Berufserfahrung, idealerweise im Akutbereich\n• Freude an organisatorischen, logistischen und administrativen Tätigkeiten\n• Bereitschaft, überwiegend im Aussendienst und unterstützend in der direkten Patientenpflege tätig zu sein\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Sicherer Umgang mit gängigen PC-Anwendungen und internen Bestellsystemen\n• Bereitschaft zur Arbeit im Früh-, Spät- und Nachtdienst\n• Kommunikative, offene und teamorientierte Persönlichkeit\n\nZusätzlich profitierst Du von\n\nEintritt: 25. November 2026",
@@ -553,13 +555,13 @@
         "de": "Deine Aufgaben\n• Schwerpunktmässige Übernahme von organisatorischen, logistischen und administrativen Aufgaben im Aussendienst der Intensivstation\n• Sicherstellung eines reibungslosen Stationsablaufs in enger Zusammenarbeit mit dem diplomierten Pflegepersonal\n• Bewirtschaftung und Bereitstellung von Pflege- und Verbrauchsmaterialien sowie medizinischen Geräten\n• Durchführung von Materialbestellungen, Lagerbewirtschaftung und Dokumentenverwaltung\n• Unterstützung bei der Überwachung, Pflege und Betreuung von Patientinnen und Patienten nach Bedarf und im Rahmen der eigenen Kompetenzen\n• Mitverantwortung für die Einhaltung der Hygiene- und Qualitätsstandards\n\nDein Profil\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ\n• Mindestens zwei Jahre Berufserfahrung, idealerweise im Akutbereich\n• Freude an organisatorischen, logistischen und administrativen Tätigkeiten\n• Bereitschaft, überwiegend im Aussendienst und unterstützend in der direkten Patientenpflege tätig zu sein\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Sicherer Umgang mit gängigen PC-Anwendungen und internen Bestellsystemen\n• Bereitschaft zur Arbeit im Früh-, Spät- und Nachtdienst\n• Kommunikative, offene und teamorientierte Persönlichkeit\n\nZusätzlich profitierst Du von\n\nEintritt: 25. November 2026",
         "fr": "Vos tâches\n• Accent mis sur la prise en charge des tâches organisationnelles, logistiques et administratives dans le service sur le terrain de l'unité de soins intensifs\n• Assurer le bon fonctionnement de la station en étroite collaboration avec des infirmières qualifiées\n• Gestion et fourniture de soins, de consommables et de matériel médical\n• Mise en œuvre des commandes de matériel, gestion des entrepôts et gestion des documents\n• Soutien au suivi, aux soins et aux soins des patients selon les besoins et dans le cadre de leurs propres compétences\n• Coresponsabilité pour le respect des normes d'hygiène et de qualité\n\nVotre profil\n• Formation complète en tant que spécialiste de la santé EFZ\n• Au moins deux ans d'expérience professionnelle, idéalement dans le domaine aigu\n• Profitez des activités organisationnelles, logistiques et administratives\n• Volonté de travailler principalement sur le terrain et soutien aux soins directs des patients\n• Méthode de travail indépendante, structurée et fiable\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Gestion sûre des applications PC communes et des systèmes de commande interne\n• Préparation au travail tôt, tard et nuit\n• Personnalité communicative, ouverte et axée sur l'équipe\n\nEn outre, vous bénéficiez\n\nEntrée : 25. novembre 2026"
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Herisau",
       "canton": "AR",
       "url": "https://live.solique.ch/svar/job/details/4106999",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:20:52.232Z",
+      "crawledAt": "2026-11-26T21:25:11.563Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -567,7 +569,7 @@
       "postalCode": "9100",
       "category": "IT",
       "contract": "full-time",
-      "employmentType": "FULL_TIME",
+      "employmentType": "OTHER",
       "experienceLevel": "mid",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
@@ -580,11 +582,13 @@
       "requirementsByLocale": {},
       "externalId": "4106999",
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-fur-die-intensivstation-60-100-svar-spitalverbund-ar-herisau"
+        "fachfrau-fachmann-gesundheit-fur-die-intensivstation-60-100-svar-spitalverbund-ar-herisau",
+        "fachfrau-fachmann-gesundheit-fur-die-intensivstation-svar-spitalverbund-ar-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-fur-die-intensivstation-60-100-svar-spitalverbund-ar-herisau"
+          "fachfrau-fachmann-gesundheit-fur-die-intensivstation-60-100-svar-spitalverbund-ar-herisau",
+          "fachfrau-fachmann-gesundheit-fur-die-intensivstation-svar-spitalverbund-ar-herisau"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-fur-die-intensivstation-60-100-svar-spitalverbund-ar-herisau"
@@ -609,7 +613,7 @@
       },
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-23T09:20:52.232Z",
+      "validThrough": "2027-02-22T21:25:11.563Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4106999"
     },
@@ -645,7 +649,7 @@
       "url": "https://live.solique.ch/svar/job/details/4107422",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:20:51.559Z",
+      "crawledAt": "2026-11-26T21:25:10.976Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -695,7 +699,7 @@
       },
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:20:51.559Z",
+      "validThrough": "2026-12-26T21:25:10.976Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4107422"
     },
@@ -731,7 +735,7 @@
       "url": "https://live.solique.ch/svar/job/details/4107533",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:20:51.002Z",
+      "crawledAt": "2026-11-26T21:25:10.391Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -781,7 +785,7 @@
       },
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:20:51.002Z",
+      "validThrough": "2027-02-11T21:25:10.391Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4107533"
     },
@@ -816,7 +820,7 @@
       "url": "https://live.solique.ch/svar/job/details/4097284",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T09:20:50.329Z",
+      "crawledAt": "2026-11-26T21:25:09.801Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -834,17 +838,23 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/svar/job/details/4097284",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "4097284",
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-fur-die-intensivstation-w-m-d-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "professional-health-for-the-intensive-care-unit-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ],
+        "fr": [
+          "sante-professionnelle-pour-l-unite-de-soins-intensifs-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-fur-die-intensivstation-w-m-d-svar-spitalverbund-ar-herisau"
+        "fachfrau-fachmann-gesundheit-fur-die-intensivstation-w-m-d-svar-spitalverbund-ar-herisau",
+        "professional-health-for-the-intensive-care-unit-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "sante-professionnelle-pour-l-unite-de-soins-intensifs-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "salaryMin": 69500,
       "salaryMax": 118500,
@@ -861,10 +871,11 @@
       },
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:20:50.329Z",
+      "validThrough": "2027-01-25T21:25:09.801Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-10-27T21:20:41.857Z",
-      "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4097284"
+      "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4097284",
+      "needsRetranslation": false
     },
     {
       "id": "svar-spitalverbund-ar-5dac55f9c1fa",
@@ -952,42 +963,123 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T21:20:43.335Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4102554"
     },
     {
-      "id": "svar-spitalverbund-ar-2033b26f6300",
-      "slug": "dipl-carriera-hf-gerontopsychiatry-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "id": "svar-spitalverbund-ar-eb64f7eab3d1",
+      "slug": "dipl-pflegefachperson-50-per-la-tagesklinik-e-voruntersuchung-m-w-d-ohne-schichtdienst-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
-        "it": "dipl-carriera-hf-gerontopsychiatry-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "dipl-pflegefachperson-hf-gerontopsychiatrie-svar-spitalverbund-ar-herisau",
-        "de": "dipl-pflegefachperson-hf-gerontopsychiatrie-svar-spitalverbund-ar-herisau",
-        "fr": "dipl-pflegefachperson-hf-gerontopsychiatrie-svar-spitalverbund-ar-herisau"
+        "de": "dipl-pflegefachperson-50-fur-die-tagesklinik-und-voruntersuchung-m-w-d-ohne-schichtdienst",
+        "it": "dipl-pflegefachperson-50-per-la-tagesklinik-e-voruntersuchung-m-w-d-ohne-schichtdienst-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "dipl-pflegefachperson-50-fur-die-tagesklinik-und-voruntersuchung-m-w-d-ohne-schichtdienst",
+        "fr": "dipl-pflegefachperson-50-fur-die-tagesklinik-und-voruntersuchung-m-w-d-ohne-schichtdienst"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
       "companyDomain": "svar.ch",
-      "title": "Dipl. Pflegefachperson HF Gerontopsychiatrie",
+      "title": "Dipl. Pflegefachperson 50% für die Tagesklinik und Voruntersuchung (m/w/d) - ohne Schichtdienst",
       "titleByLocale": {
-        "it": "Dipl. Carriera HF Gerontopsychiatry",
-        "en": "Dipl. Caregiver HF Gerontopsychiatry",
-        "de": "Dipl. Pflegefachperson HF Gerontopsychiatrie",
-        "fr": "Dipl. Médecin HF Gérontopsychiatrie"
+        "de": "Dipl. Pflegefachperson 50% für die Tagesklinik und Voruntersuchung (m/w/d) - ohne Schichtdienst",
+        "it": "Dipl. Pflegefachperson 50% per la Tagesklinik e Voruntersuchung (m/w/d) - ohne Schichtdienst",
+        "en": "Dipl. Pflegefachperson 50% für die Tagesklinik und Voruntersuchung (m/w/d) - ohne Schichtdienst",
+        "fr": "Dipl. Pflegefachperson 50% für die Tagesklinik und Voruntersuchung (m/w/d) - ohne Schichtdienst"
       },
-      "description": "Ihre Aufgaben\n• Verantwortung für die Sicherstellung sowie Umsetzung einer qualitativ hochstehenden Pflege und Betreuung der Patienten\n• Planen und Evaluieren der pflegerischen Versorgung der Patienten\n• Durchführung und Gestaltung von Gruppenangeboten sowie Planung und Durchführung von Einzelgesprächen\n• Mitgestaltung des Gruppenalltags\n• Kontaktpflege zu externen Bezugspersonen\n\nIhr Profil\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF\n• Erfahrung in der Langzeitpflege von Vorteil\n• Flexibilität und Interesse auf verschieden Stationen die Teams bei Engpässen zu verstärken\n• Interesse an der Zusammenarbeit in einem interprofessionellen Behandlungsteam\n• Bereitschaft zur Schichtarbeit in einem 24 Stunden Betrieb\n• Freude an Situationen die teilweise nicht planbar sind\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Oktober 2026",
+      "description": "Deine Aufgaben\n• Fachgerechte, kompetente und individuell angepasste Betreuung der ambulanten Patientinnen und Patienten\n• Ausführung präoperativer Massnahmen gemäss Handlungsanweisung und/oder ärztlicher Verordnung\n• Vorbereitung und Überwachung von Patienten vor und nach speziellen Untersuchungen\n• Postoperative Überwachung und Betreuung ambulanter Patientinnen und Patienten sowie intensive Überwachung stationärer Patientinnen und Patienten der Aufwachstation\n• Betreuung und Überwachung bei Infusions- und Medikamententherapie\n• Elektronische Pflegedokumentation und Leistungserfassung\n• Durchführung der Voruntersuchungssprechstunde inklusive Labor und Dokumentationen\n• Material- sowie Medikamentenbewirtschaftung\n\nDein Profil\n• Abgeschlossene Ausbildung als Diplomierte Pflegefachfrau, als Diplomierter Pflegefachmann oder als Gesundheits- und Krankenpflegerin, als Gesundheits- und Krankenpfleger mit Schweizer Anerkennung\n• Du hast Kenntnisse im akutsomatischen Spitalumfeld\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Du bist selbständiges Arbeiten gewohnt und übernimmst gerne Verantwortung\n• Offene und patientenorientierte Grundhaltung\n• Interdisziplinäre Arbeit bereitet dir Freude\n\nZusätzlich profitierst Du von\n\nEintritt: 27. November 2026",
       "descriptionByLocale": {
-        "it": "I loro compiti\n• Responsabilità per garantire e implementare la cura e la cura dei pazienti di alta qualità\n• Pianificazione e valutazione della cura dei pazienti\n• Attuazione e progettazione di offerte di gruppo, pianificazione e conduzione di singole riunioni\n• Partecipazione alla vita di gruppo\n• Mantenere il contatto con persone di riferimento esterne\n\nIl tuo profilo\n• Allenamento completato come Dipl. Professionista HF\n• L'esperienza nella cura a lungo termine è utile\n• Flessibilità e interesse in diverse stazioni per aumentare le squadre in caso di colli di bottiglia\n• Interessato a lavorare in un team di trattamento interprofessionale\n• Volontà a turni di lavoro in un'operazione di 24 ore\n• Gioia di situazioni che sono in parte inspiegabili\n\nInoltre, si beneficia di\n\nIngresso: 1 ottobre 2026",
-        "en": "Their tasks\n• Responsibility for ensuring and implementing high-quality patient care and care\n• Planning and evaluating patient care\n• Implementation and design of group offers as well as planning and conducting individual meetings\n• Participation in group life\n• Maintaining contact with external reference persons\n\nYour profile\n• Completed training as a Dipl. Care professional HF\n• Experience in long-term care is beneficial\n• Flexibility and interest in different stations to increase teams in case of bottlenecks\n• Interested in working in an interprofessional treatment team\n• Willingness to work shifts in a 24-hour operation\n• Joy of situations that are partly unplannable\n\nIn addition, you benefit from\n\nEntrance: October 1, 2026",
-        "de": "Ihre Aufgaben\n• Verantwortung für die Sicherstellung sowie Umsetzung einer qualitativ hochstehenden Pflege und Betreuung der Patienten\n• Planen und Evaluieren der pflegerischen Versorgung der Patienten\n• Durchführung und Gestaltung von Gruppenangeboten sowie Planung und Durchführung von Einzelgesprächen\n• Mitgestaltung des Gruppenalltags\n• Kontaktpflege zu externen Bezugspersonen\n\nIhr Profil\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF\n• Erfahrung in der Langzeitpflege von Vorteil\n• Flexibilität und Interesse auf verschieden Stationen die Teams bei Engpässen zu verstärken\n• Interesse an der Zusammenarbeit in einem interprofessionellen Behandlungsteam\n• Bereitschaft zur Schichtarbeit in einem 24 Stunden Betrieb\n• Freude an Situationen die teilweise nicht planbar sind\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Oktober 2026",
-        "fr": "Leurs tâches\n• Responsabilité d'assurer et de mettre en œuvre des soins et des soins de qualité pour les patients\n• Planification et évaluation des soins aux patients\n• Mise en œuvre et conception des offres de groupe ainsi que planification et organisation de réunions individuelles\n• Participation à la vie de groupe\n• Maintenir le contact avec les personnes de référence externes\n\nVotre profil\n• La formation terminée en tant que dipl. Soins professionnels HF\n• L'expérience des soins de longue durée est bénéfique\n• Flexibilité et intérêt pour les différentes stations pour augmenter les équipes en cas de goulots d'étranglement\n• Intéressé à travailler dans une équipe interprofessionnelle de traitement\n• Volonté de travailler 24 heures sur 24\n• Joie de situations partiellement inplanifiables\n\nEn outre, vous bénéficiez\n\nEntrée : 1er octobre 2026"
+        "de": "Deine Aufgaben\n• Fachgerechte, kompetente und individuell angepasste Betreuung der ambulanten Patientinnen und Patienten\n• Ausführung präoperativer Massnahmen gemäss Handlungsanweisung und/oder ärztlicher Verordnung\n• Vorbereitung und Überwachung von Patienten vor und nach speziellen Untersuchungen\n• Postoperative Überwachung und Betreuung ambulanter Patientinnen und Patienten sowie intensive Überwachung stationärer Patientinnen und Patienten der Aufwachstation\n• Betreuung und Überwachung bei Infusions- und Medikamententherapie\n• Elektronische Pflegedokumentation und Leistungserfassung\n• Durchführung der Voruntersuchungssprechstunde inklusive Labor und Dokumentationen\n• Material- sowie Medikamentenbewirtschaftung\n\nDein Profil\n• Abgeschlossene Ausbildung als Diplomierte Pflegefachfrau, als Diplomierter Pflegefachmann oder als Gesundheits- und Krankenpflegerin, als Gesundheits- und Krankenpfleger mit Schweizer Anerkennung\n• Du hast Kenntnisse im akutsomatischen Spitalumfeld\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Du bist selbständiges Arbeiten gewohnt und übernimmst gerne Verantwortung\n• Offene und patientenorientierte Grundhaltung\n• Interdisziplinäre Arbeit bereitet dir Freude\n\nZusätzlich profitierst Du von\n\nEintritt: 27. November 2026",
+        "it": "Deine Aufgaben\n• Fachgerechte, kompetente und individuell angepasste Betreuung der ambulanten Patientinnen und Patienten\n• Ausführung präoperativer Massnahmen gemäss Handlungsanweisung und/oder ärztlicher Verordnung\n• Vorbereitung und Überwachung von Patienten vor und nach speziellen Untersuchungen\n• Postoperative Überwachung und Betreuung ambulanter Patientinnen und Patienten sowie intensive Überwachung stationärer Patientinnen und Patienten der Aufwachstation\n• Betreuung und Überwachung bei Infusions- und Medikamententherapie\n• Elektronische Pflegedokumentation und Leistungserfassung\n• Durchführung der Voruntersuchungssprechstunde inklusive Labor und Dokumentationen\n• Material- sowie Medikamentenbewirtschaftung\n\nDein Profil\n• Abgeschlossene Ausbildung als Diplomierte Pflegefachfrau, als Diplomierter Pflegefachmann oder als Gesundheits- und Krankenpflegerin, als Gesundheits- und Krankenpfleger mit Schweizer Anerkennung\n• Du hast Kenntnisse im akutsomatischen Spitalumfeld\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Du bist selbständiges Arbeiten gewohnt und übernimmst gerne Verantwortung\n• Offene und patientenorientierte Grundhaltung\n• Interdisziplinäre Arbeit bereitet dir Freude\n\nZusätzlich profitierst Du von\n\nEintritt: 27. November 2026",
+        "en": "Deine Aufgaben\n• Fachgerechte, kompetente und individuell angepasste Betreuung der ambulanten Patientinnen und Patienten\n• Ausführung präoperativer Massnahmen gemäss Handlungsanweisung und/oder ärztlicher Verordnung\n• Vorbereitung und Überwachung von Patienten vor und nach speziellen Untersuchungen\n• Postoperative Überwachung und Betreuung ambulanter Patientinnen und Patienten sowie intensive Überwachung stationärer Patientinnen und Patienten der Aufwachstation\n• Betreuung und Überwachung bei Infusions- und Medikamententherapie\n• Elektronische Pflegedokumentation und Leistungserfassung\n• Durchführung der Voruntersuchungssprechstunde inklusive Labor und Dokumentationen\n• Material- sowie Medikamentenbewirtschaftung\n\nDein Profil\n• Abgeschlossene Ausbildung als Diplomierte Pflegefachfrau, als Diplomierter Pflegefachmann oder als Gesundheits- und Krankenpflegerin, als Gesundheits- und Krankenpfleger mit Schweizer Anerkennung\n• Du hast Kenntnisse im akutsomatischen Spitalumfeld\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Du bist selbständiges Arbeiten gewohnt und übernimmst gerne Verantwortung\n• Offene und patientenorientierte Grundhaltung\n• Interdisziplinäre Arbeit bereitet dir Freude\n\nZusätzlich profitierst Du von\n\nEintritt: 27. November 2026",
+        "fr": "Deine Aufgaben\n• Fachgerechte, kompetente und individuell angepasste Betreuung der ambulanten Patientinnen und Patienten\n• Ausführung präoperativer Massnahmen gemäss Handlungsanweisung und/oder ärztlicher Verordnung\n• Vorbereitung und Überwachung von Patienten vor und nach speziellen Untersuchungen\n• Postoperative Überwachung und Betreuung ambulanter Patientinnen und Patienten sowie intensive Überwachung stationärer Patientinnen und Patienten der Aufwachstation\n• Betreuung und Überwachung bei Infusions- und Medikamententherapie\n• Elektronische Pflegedokumentation und Leistungserfassung\n• Durchführung der Voruntersuchungssprechstunde inklusive Labor und Dokumentationen\n• Material- sowie Medikamentenbewirtschaftung\n\nDein Profil\n• Abgeschlossene Ausbildung als Diplomierte Pflegefachfrau, als Diplomierter Pflegefachmann oder als Gesundheits- und Krankenpflegerin, als Gesundheits- und Krankenpfleger mit Schweizer Anerkennung\n• Du hast Kenntnisse im akutsomatischen Spitalumfeld\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Du bist selbständiges Arbeiten gewohnt und übernimmst gerne Verantwortung\n• Offene und patientenorientierte Grundhaltung\n• Interdisziplinäre Arbeit bereitet dir Freude\n\nZusätzlich profitierst Du von\n\nEintritt: 27. November 2026"
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Herisau",
       "canton": "AR",
-      "url": "https://live.solique.ch/svar/job/details/4102217",
+      "url": "https://live.solique.ch/svar/job/details/4108301",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-25T09:23:04.048Z",
+      "crawledAt": "2026-11-26T21:25:09.208Z",
+      "addressLocality": "Herisau",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9100",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://live.solique.ch/svar/job/details/4108301",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "4108301",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-50-fur-die-tagesklinik-und-voruntersuchung-m-w-d-ohne-schichtdienst"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-50-fur-die-tagesklinik-und-voruntersuchung-m-w-d-ohne-schichtdienst"
+      ],
+      "salaryMin": 40500,
+      "salaryMax": 56500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 40500,
+          "maxValue": 56500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Herisau",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-24T21:25:09.208Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-26T21:25:09.208Z"
+    },
+    {
+      "id": "svar-spitalverbund-ar-f86ca75a043f",
+      "slug": "dipl-biomedizinische-r-analytiker-in-hf-m-w-d-svar-spitalverbund-ar-herisau",
+      "slugByLocale": {
+        "de": "dipl-biomedizinische-r-analytiker-in-hf-m-w-d-svar-spitalverbund-ar-herisau",
+        "it": "dipl-biomedizinische-r-analytiker-in-hf-m-w-d-svar-spitalverbund-ar-herisau",
+        "en": "dipl-biomedizinische-r-analytiker-in-hf-m-w-d-svar-spitalverbund-ar-herisau",
+        "fr": "dipl-biomedizinische-r-analytiker-in-hf-m-w-d-svar-spitalverbund-ar-herisau"
+      },
+      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+      "companyKey": "svar-spitalverbund-ar",
+      "companyDomain": "svar.ch",
+      "title": "Dipl. Biomedizinische/r Analytiker/in HF (m/w/d)",
+      "titleByLocale": {
+        "de": "Dipl. Biomedizinische/r Analytiker/in HF (m/w/d)",
+        "it": "Dipl. Biomedizinische/r Analytiker/in HF (m/w/d)",
+        "en": "Dipl. Biomedizinische/r Analytiker/in HF (m/w/d)",
+        "fr": "Dipl. Biomedizinische/r Analytiker/in HF (m/w/d)"
+      },
+      "description": "Deine Aufgaben\n• Durchführen von Analysen mit modernsten Analysengeräten im Bereich der Klinischen Chemie, Hämatologie, Immunhämatologie, Gerinnung, Urinanalytik, Mikrobiologie und Punktatdiagnostik\n• Blutentnahmen ambulanter Patienten\n• Korrekte Handhabung der Reagenzien und Laborgeräte\n• Vollständige Dokumentation der Reagenzien und Befunde\n• Vollständige Leistungserfassung\n• Präanalytik, Analytik und Postanalytik der Patientenproben\n• Technische und Medizinische Validation\n• Durchführung interner und externer Qualitätskontrollen\n\nDein Profil\n• Du verfügst über eine abgeschlossene Berufsausbildung als Biomedizinischer Analytiker HF oder Biomedizinische Analytikerin HF\n• Berufserfahrung in einer ähnlichen Position wünschenswert\n• Du hast Freude am polyvalenten Arbeiten\n• Teamorientierte und wertschätzende Grundhaltung\n\nZusätzlich profitierst Du von\n\nEintritt: 27. November 2026",
+      "descriptionByLocale": {
+        "de": "Deine Aufgaben\n• Durchführen von Analysen mit modernsten Analysengeräten im Bereich der Klinischen Chemie, Hämatologie, Immunhämatologie, Gerinnung, Urinanalytik, Mikrobiologie und Punktatdiagnostik\n• Blutentnahmen ambulanter Patienten\n• Korrekte Handhabung der Reagenzien und Laborgeräte\n• Vollständige Dokumentation der Reagenzien und Befunde\n• Vollständige Leistungserfassung\n• Präanalytik, Analytik und Postanalytik der Patientenproben\n• Technische und Medizinische Validation\n• Durchführung interner und externer Qualitätskontrollen\n\nDein Profil\n• Du verfügst über eine abgeschlossene Berufsausbildung als Biomedizinischer Analytiker HF oder Biomedizinische Analytikerin HF\n• Berufserfahrung in einer ähnlichen Position wünschenswert\n• Du hast Freude am polyvalenten Arbeiten\n• Teamorientierte und wertschätzende Grundhaltung\n\nZusätzlich profitierst Du von\n\nEintritt: 27. November 2026",
+        "it": "Deine Aufgaben\n• Durchführen von Analysen mit modernsten Analysengeräten im Bereich der Klinischen Chemie, Hämatologie, Immunhämatologie, Gerinnung, Urinanalytik, Mikrobiologie und Punktatdiagnostik\n• Blutentnahmen ambulanter Patienten\n• Korrekte Handhabung der Reagenzien und Laborgeräte\n• Vollständige Dokumentation der Reagenzien und Befunde\n• Vollständige Leistungserfassung\n• Präanalytik, Analytik und Postanalytik der Patientenproben\n• Technische und Medizinische Validation\n• Durchführung interner und externer Qualitätskontrollen\n\nDein Profil\n• Du verfügst über eine abgeschlossene Berufsausbildung als Biomedizinischer Analytiker HF oder Biomedizinische Analytikerin HF\n• Berufserfahrung in einer ähnlichen Position wünschenswert\n• Du hast Freude am polyvalenten Arbeiten\n• Teamorientierte und wertschätzende Grundhaltung\n\nZusätzlich profitierst Du von\n\nEintritt: 27. November 2026",
+        "en": "Deine Aufgaben\n• Durchführen von Analysen mit modernsten Analysengeräten im Bereich der Klinischen Chemie, Hämatologie, Immunhämatologie, Gerinnung, Urinanalytik, Mikrobiologie und Punktatdiagnostik\n• Blutentnahmen ambulanter Patienten\n• Korrekte Handhabung der Reagenzien und Laborgeräte\n• Vollständige Dokumentation der Reagenzien und Befunde\n• Vollständige Leistungserfassung\n• Präanalytik, Analytik und Postanalytik der Patientenproben\n• Technische und Medizinische Validation\n• Durchführung interner und externer Qualitätskontrollen\n\nDein Profil\n• Du verfügst über eine abgeschlossene Berufsausbildung als Biomedizinischer Analytiker HF oder Biomedizinische Analytikerin HF\n• Berufserfahrung in einer ähnlichen Position wünschenswert\n• Du hast Freude am polyvalenten Arbeiten\n• Teamorientierte und wertschätzende Grundhaltung\n\nZusätzlich profitierst Du von\n\nEintritt: 27. November 2026",
+        "fr": "Deine Aufgaben\n• Durchführen von Analysen mit modernsten Analysengeräten im Bereich der Klinischen Chemie, Hämatologie, Immunhämatologie, Gerinnung, Urinanalytik, Mikrobiologie und Punktatdiagnostik\n• Blutentnahmen ambulanter Patienten\n• Korrekte Handhabung der Reagenzien und Laborgeräte\n• Vollständige Dokumentation der Reagenzien und Befunde\n• Vollständige Leistungserfassung\n• Präanalytik, Analytik und Postanalytik der Patientenproben\n• Technische und Medizinische Validation\n• Durchführung interner und externer Qualitätskontrollen\n\nDein Profil\n• Du verfügst über eine abgeschlossene Berufsausbildung als Biomedizinischer Analytiker HF oder Biomedizinische Analytikerin HF\n• Berufserfahrung in einer ähnlichen Position wünschenswert\n• Du hast Freude am polyvalenten Arbeiten\n• Teamorientierte und wertschätzende Grundhaltung\n\nZusätzlich profitierst Du von\n\nEintritt: 27. November 2026"
+      },
+      "needsRetranslation": true,
+      "location": "Herisau",
+      "canton": "AR",
+      "url": "https://live.solique.ch/svar/job/details/4108035",
+      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-26T21:25:08.459Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -1003,27 +1095,12 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "applyUrl": "https://live.solique.ch/svar/job/details/4102217",
+      "applyUrl": "https://live.solique.ch/svar/job/details/4108035",
       "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4102217",
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-gerontopsychiatrie-svar-spitalverbund-ar-herisau",
-        "dipl-caregiver-hf-gerontopsychiatry-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "dipl-medecin-hf-gerontopsychiatrie-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-hf-gerontopsychiatrie-svar-spitalverbund-ar-herisau"
-        ],
-        "en": [
-          "dipl-caregiver-hf-gerontopsychiatry-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-        ],
-        "fr": [
-          "dipl-medecin-hf-gerontopsychiatrie-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-        ]
+      "requirementsByLocale": {
+        "de": []
       },
-      "firstSeenAt": "2026-09-11T13:33:11.167Z",
+      "externalId": "4108035",
       "salaryMin": 81000,
       "salaryMax": 113000,
       "salarySource": "estimated",
@@ -1039,10 +1116,9 @@
       },
       "streetAddress": "Herisau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T09:23:04.048Z",
+      "validThrough": "2027-02-24T21:25:08.459Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "sourceIdentity": "url:https://live.solique.ch/svar/job/details/4102217"
+      "firstSeenAt": "2026-11-26T21:25:08.459Z"
     }
   ]
 }

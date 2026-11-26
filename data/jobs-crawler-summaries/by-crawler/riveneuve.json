@@ -1,7 +1,7 @@
 {
   "key": "riveneuve",
   "label": "Fondation Rive-Neuve",
-  "generatedAt": "2026-11-26T09:21:52.587Z",
+  "generatedAt": "2026-11-26T21:29:07.174Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 7741,
-  "avgDurationMs": 7741,
+  "durationMs": 8317,
+  "avgDurationMs": 8317,
   "durationHistory": [
-    7741
+    8317
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32273/fr/un-e-infirmier-ere-a-100-taux-negociable",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:21:35.126Z",
+      "crawledAt": "2026-11-26T21:28:53.636Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -76,7 +76,7 @@
       },
       "streetAddress": "Chemin des Cuarroz 57",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T09:21:35.126Z",
+      "validThrough": "2026-12-26T21:28:53.636Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -98,7 +98,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32285/fr/un-e-assistant-e-en-soins-et-sante-communautaire-a-80",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:21:34.276Z",
+      "crawledAt": "2026-11-26T21:28:52.731Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -135,7 +135,7 @@
       },
       "streetAddress": "Chemin des Cuarroz 57",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T09:21:34.276Z",
+      "validThrough": "2026-12-26T21:28:52.731Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -157,7 +157,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32286/fr/un-e-assistant-e-en-soins-et-sante-communautaire-journalier-ere",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:21:33.422Z",
+      "crawledAt": "2026-11-26T21:28:51.692Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -194,7 +194,7 @@
       },
       "streetAddress": "Chemin des Cuarroz 57",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T09:21:33.422Z",
+      "validThrough": "2026-12-26T21:28:51.692Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -217,7 +217,7 @@
       "url": "https://www.riveneuve.ch/jcms/rivd_32287/fr/un-e-infirmier-ere-journalier-ere",
       "source": "Rive-Neuve Dedicated Parser (Jalios JCMS publication-body)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-26T09:21:32.552Z",
+      "crawledAt": "2026-11-26T21:28:50.550Z",
       "addressLocality": "Blonay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -254,7 +254,7 @@
       },
       "streetAddress": "Chemin des Cuarroz 57",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T09:21:32.552Z",
+      "validThrough": "2026-12-26T21:28:50.550Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -265,5 +265,5 @@
       }
     }
   ],
-  "codeCommit": "bb9ecce641e4806660b82ef90e95e36b4e9d873c"
+  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
 }
