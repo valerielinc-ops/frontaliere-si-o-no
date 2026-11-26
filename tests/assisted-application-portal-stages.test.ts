@@ -838,6 +838,17 @@ describe('application stage ownership', () => {
       applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42',
       job: { title: 'Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)' },
     })).toMatchObject({ kind: 'form' });
+    expect(applicationStage({
+      ...snapshot,
+      text: 'Offre: Ingénieur système\nCandidature',
+      buttons: [
+        { text: 'Développer toutes les sections', frame: 0 },
+        { text: 'Postuler', formId: 'application', frame: 0, applicationScopeId: 'app-scope' },
+      ],
+    }, {
+      applyUrl: 'https://career55.sapsf.eu/careers?company=GroupeE',
+      job: { title: 'Ingénieur système' },
+    })).toMatchObject({ kind: 'form' });
     expect(applicationStage({ ...snapshot, buttons: [{ text: 'Bewerben', formId: 'application', frame: 0 }] }, {
       applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42',
       job: { title: 'Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)' },
