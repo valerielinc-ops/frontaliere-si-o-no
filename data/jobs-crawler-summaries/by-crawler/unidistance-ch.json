@@ -1,9 +1,9 @@
 {
   "key": "unidistance-ch",
   "label": "UniDistance Suisse",
-  "generatedAt": "2026-11-26T10:13:27.553Z",
+  "generatedAt": "2026-11-26T21:44:23.820Z",
   "total": 5,
-  "discovered": 8,
+  "discovered": 9,
   "parsed": 5,
   "lastFetchOutcome": null,
   "fetchReceipt": {
@@ -12,11 +12,15 @@
       "https://fernuni.ch/jobs"
     ],
     "phase": "detail",
-    "pages": 9,
+    "pages": 10,
     "httpStatuses": [
       {
         "status": 200,
         "url": "https://fernuni.ch/jobs"
+      },
+      {
+        "status": 200,
+        "url": "https://fernuni.ch/jobs/mehr/assistant-e-doctorant-e-de-recherche-et-denseignement-en-droit-international-droit-europeen-70"
       },
       {
         "status": 200,
@@ -58,9 +62,9 @@
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 5,
-  "detailCandidates": 8,
+  "detailCandidates": 9,
   "detailGone": 0,
-  "detailRejected": 3,
+  "detailRejected": 4,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
@@ -68,10 +72,10 @@
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 19486,
-  "avgDurationMs": 19486,
+  "durationMs": 19891,
+  "avgDurationMs": 19891,
   "durationHistory": [
-    19486
+    19891
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -87,7 +91,7 @@
       "url": "https://fernuni.ch/jobs/mehr/professuren-oeffentliches-recht",
       "source": "UniDistance Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T10:12:34.844Z",
+      "crawledAt": "2026-11-26T21:43:36.720Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -111,7 +115,7 @@
       "salaryMax": 118000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T10:12:34.844Z",
+      "validThrough": "2027-02-07T21:43:36.720Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -133,7 +137,7 @@
       "url": "https://fernuni.ch/jobs/mehr/doctoral-student-business-economics",
       "source": "UniDistance Suisse Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T10:12:34.839Z",
+      "crawledAt": "2026-11-26T21:43:36.715Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -156,7 +160,7 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T10:12:34.839Z",
+      "validThrough": "2027-02-14T21:43:36.715Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -178,7 +182,7 @@
       "url": "https://fernuni.ch/jobs/mehr/postdoc-in-experimental-and-behavioral-economics-80-100",
       "source": "UniDistance Suisse Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-26T10:12:34.834Z",
+      "crawledAt": "2026-11-26T21:43:36.711Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -201,7 +205,7 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T10:12:34.834Z",
+      "validThrough": "2027-02-14T21:43:36.711Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -223,7 +227,7 @@
       "url": "https://fernuni.ch/jobs/mehr/spezialisierte-mitarbeiterin-spezialisierter-mitarbeiter-faculty-services",
       "source": "UniDistance Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T10:12:34.832Z",
+      "crawledAt": "2026-11-26T21:43:36.703Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -247,7 +251,7 @@
       "salaryMax": 45800,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T10:12:34.832Z",
+      "validThrough": "2027-02-07T21:43:36.703Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -269,7 +273,7 @@
       "url": "https://fernuni.ch/jobs/mehr/faculty-manager-geschichte-befristet",
       "source": "UniDistance Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T10:12:34.813Z",
+      "crawledAt": "2026-11-26T21:43:36.696Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -293,7 +297,7 @@
       "salaryMax": 75900,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T10:12:34.813Z",
+      "validThrough": "2027-02-07T21:43:36.696Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -306,5 +310,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "bb9ecce641e4806660b82ef90e95e36b4e9d873c"
+  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
 }

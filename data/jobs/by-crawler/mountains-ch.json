@@ -1,7 +1,7 @@
 {
   "crawlerKey": "mountains-ch",
-  "assembledAt": "2026-11-26T10:11:31.292Z",
-  "runId": "45791999505",
+  "assembledAt": "2026-11-26T21:44:26.474Z",
+  "runId": "45898143422",
   "jobs": [
     {
       "id": "mountains-ch-41df2560cca5",
@@ -34,7 +34,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/mitarbeiterin-human-ressources",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T10:11:11.242Z",
+      "crawledAt": "2026-11-26T21:44:09.030Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -98,9 +98,8 @@
         "checkedAt": "2026-11-16T15:23:08.822Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T10:11:11.242Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.mountains.ch/de/offene-stellen/mitarbeiterin-human-ressources"
+      "validThrough": "2027-02-03T21:44:09.030Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "mountains-ch-84dab299dc9e",
@@ -133,7 +132,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/schnupperlehre-seilbahnmechatronikerin-efz",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T10:11:11.233Z",
+      "crawledAt": "2026-11-26T21:44:09.028Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -201,9 +200,8 @@
         "checkedAt": "2026-11-16T15:23:08.822Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T10:11:11.233Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.mountains.ch/de/offene-stellen/schnupperlehre-seilbahnmechatronikerin-efz"
+      "validThrough": "2027-02-03T21:44:09.028Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "mountains-ch-e8130da12b54",
@@ -236,7 +234,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/leitung-rezeption-und-bankette",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-26T10:11:11.226Z",
+      "crawledAt": "2026-11-26T21:44:09.023Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -305,9 +303,8 @@
         "checkedAt": "2026-11-16T15:23:08.822Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T10:11:11.226Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://www.mountains.ch/de/offene-stellen/leitung-rezeption-und-bankette"
+      "validThrough": "2027-02-03T21:44:09.023Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
