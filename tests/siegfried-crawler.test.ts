@@ -113,13 +113,16 @@ describe('Siegfried crawler parser', () => {
       await expect(fetchAllSiegfriedJobs()).rejects.toBeInstanceOf(WorkdayRateLimitError);
     });
 
-    it('keeps ordinary fetch failures recoverable', async () => {
+    it('does not turn ordinary listing failures into an empty snapshot', async () => {
       vi.stubEnv('JOBS_CRAWLER_RETRIES', '0');
       vi.stubGlobal('fetch', vi.fn(async () => {
         throw new Error('connection unavailable');
       }));
 
-      await expect(fetchAllSiegfriedJobs()).resolves.toEqual([]);
+      await expect(fetchAllSiegfriedJobs()).rejects.toMatchObject({
+        name: 'WorkdayApiError',
+        statusCode: 0,
+      });
     });
   });
 
