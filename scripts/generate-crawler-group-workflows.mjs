@@ -3214,9 +3214,8 @@ function logicRemoteConfigStep() {
   return { name: 'Load secrets from Remote Config', run: 'node scripts/load-rc-env.mjs' };
 }
 
-// Keep the state directory explicit on every reusable and portable crawler
-// launch step. GitHub permits the runner context at step-level env, while the
-// job-level env contract cannot resolve runner.temp at this point.
+// Keep the state directory explicit on reusable crawler launch steps. The
+// portable/manual caller uses the Workday client's runner-local default.
 const WORKDAY_EGRESS_STATE_DIR = '${{ runner.temp }}/crawler-generation/workday-egress';
 
 // #7091 — see scripts/check-crawler-group-live-run.mjs. Each entry point
@@ -3452,13 +3451,6 @@ function normalizedContractStep(step, side, fileName, members) {
     return { name: copy.name, run: 'node scripts/load-rc-env.mjs' };
   }
 
-  if (copy?.name === 'Configure shared Workday egress state') {
-    if (canonicalJson(copy) !== canonicalJson(logicWorkdayEgressStateStep())) {
-      throw new Error(`${fileName}: undeclared Workday egress state bootstrap difference`);
-    }
-    return null;
-  }
-
   if (copy?.name === 'Bootstrap write auth for frontaliere-si-o-no (GITHUB_PAT from Remote Config)') {
     if (side !== 'logic' || canonicalJson(copy) !== canonicalJson(logicWriteAuthStep(members))) {
       throw new Error(`${fileName}: undeclared write-auth bootstrap difference`);
@@ -3539,8 +3531,8 @@ function normalizedJobContract(workflow, side, fileName) {
  * I `*-logic.yml` erano copie manuali: la loro parita' col generatore era
  * solo accidentale. Questo confronto fail-closed copre l'intero job (setup,
  * roster, env e shell body) e normalizza esclusivamente le differenze
- * dichiarate del workflow_call cross-repo: checkout esplicito, bootstrap
- * step-level dello stato egress Workday, bootstrap PAT, composite action assolute e token
+ * dichiarate del workflow_call cross-repo: checkout esplicito, env step-level
+ * dello stato egress Workday, bootstrap PAT, composite action assolute e token
  * ambient rimosso dai crawler.
  */
 export function assertCrawlerLogicParity(generatedWorkflowText, logicWorkflowText, fileName = 'crawler logic') {
@@ -4096,25 +4088,26 @@ function canonicalizePortableCrawlerIdentities(content, logic, sourceMembers) {
   return { content: canonicalContent, members: canonicalMembers };
 }
 
-function removePortableWorkdayEgressStateStep(content, workflowFile) {
+function removePortableWorkdayEgressStateOverride(content, workflowFile) {
   if (!workflowFile.startsWith('crawler-group-') || !workflowFile.endsWith('.yml')) return content;
 
-  const expected = logicWorkdayEgressStateStep();
+  const workflow = YAML.parse(content);
+  const job = Object.values(workflow.jobs ?? {})[0];
+  const launchSteps = (job?.steps ?? []).filter(isCrawlerLaunchStep);
+  if (launchSteps.length === 0 || job.env?.WORKDAY_EGRESS_STATE_DIR !== undefined) {
+    throw new Error(`${workflowFile}: portable workflow has no valid Workday launch contract`);
+  }
+  const expected = WORKDAY_EGRESS_STATE_DIR;
+  if (!launchSteps.every((step) => step.env?.WORKDAY_EGRESS_STATE_DIR === expected)) {
+    throw new Error(`${workflowFile}: portable Workday launchers drifted from the reusable state environment`);
+  }
   const lines = content.split('\n');
-  const stepIndex = lines.findIndex((line) => line.trim() === `- name: ${expected.name}`);
-  if (stepIndex < 0) {
-    throw new Error(`${workflowFile}: portable workflow is missing the Workday egress state bootstrap`);
+  const overrideLine = `WORKDAY_EGRESS_STATE_DIR: ${expected}`;
+  const overrideCount = lines.filter((line) => line.trim() === overrideLine).length;
+  if (overrideCount !== launchSteps.length) {
+    throw new Error(`${workflowFile}: expected one Workday state override per crawler launcher`);
   }
-  const expectedLines = [
-    `- name: ${expected.name}`,
-    `shell: ${expected.shell}`,
-    `run: ${expected.run}`,
-  ];
-  if (expectedLines.some((line, offset) => lines[stepIndex + offset]?.trim() !== line)) {
-    throw new Error(`${workflowFile}: portable Workday egress state bootstrap drifted from its generated form`);
-  }
-  lines.splice(stepIndex, expectedLines.length);
-  return lines.join('\n');
+  return lines.filter((line) => line.trim() !== overrideLine).join('\n');
 }
 
 /** Genera i 24 workflow crawler + translate-pending e il loro contratto hash. */
@@ -4203,13 +4196,10 @@ export function generateCrossRepoExecutionArtifacts({
         }
       }
     }
-    // The Workday client derives this same runner-local path from
-    // RUNNER_TEMP plus CRAWLER_GROUP_MAX_PARALLEL/JOBS_SLICE_FILE. Keep the
-    // explicit bootstrap in reusable site logic, but omit its duplicate from
-    // the portable artifact after size-profile selection. Selecting the
-    // profile before removal keeps existing compact groups byte-stable apart
-    // from the redundant step itself.
-    const content = removePortableWorkdayEgressStateStep(portable.content, fileName);
+    // Reusable site logic receives an explicit runner-local state path; the
+    // portable/manual caller uses the Workday client's derived default. Select
+    // the size profile before removing the per-launch overrides.
+    const content = removePortableWorkdayEgressStateOverride(portable.content, fileName);
     YAML.parse(content);
     workflowPayloads.set(fileName, content);
     artifactContents.push(content);

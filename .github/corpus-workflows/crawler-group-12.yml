@@ -313,7 +313,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: klinik-sgm
           JOBS_SLICE_FILE: data/jobs/by-crawler/klinik-sgm.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -512,7 +511,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: kanton-st-gallen
           JOBS_SLICE_FILE: data/jobs/by-crawler/kanton-st-gallen.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -712,7 +710,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: suchthilfe-region-basel
           JOBS_SLICE_FILE: data/jobs/by-crawler/suchthilfe-region-basel.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -912,7 +909,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: tally-weijl
           JOBS_SLICE_FILE: data/jobs/by-crawler/tally-weijl.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -1112,7 +1108,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: la-fonte
           JOBS_SLICE_FILE: data/jobs/by-crawler/la-fonte.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -1312,7 +1307,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: privatklinik-obach
           JOBS_SLICE_FILE: data/jobs/by-crawler/privatklinik-obach.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -1512,7 +1506,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: epfl
           JOBS_SLICE_FILE: data/jobs/by-crawler/epfl.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -1712,7 +1705,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: swiss-life
           JOBS_SLICE_FILE: data/jobs/by-crawler/swiss-life.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -1912,7 +1904,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: sanatorium-kilchberg
           JOBS_SLICE_FILE: data/jobs/by-crawler/sanatorium-kilchberg.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -2112,7 +2103,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: raiffeisen
           JOBS_SLICE_FILE: data/jobs/by-crawler/raiffeisen.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -2312,7 +2302,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: upd
           JOBS_SLICE_FILE: data/jobs/by-crawler/upd.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -2512,7 +2501,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: imad
           JOBS_SLICE_FILE: data/jobs/by-crawler/imad.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -2712,7 +2700,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: cippatrasporti
           JOBS_SLICE_FILE: data/jobs/by-crawler/cippatrasporti.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -2912,7 +2899,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: kuehne-nagel
           JOBS_SLICE_FILE: data/jobs/by-crawler/kuehne-nagel.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -3112,7 +3098,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: manor
           JOBS_SLICE_FILE: data/jobs/by-crawler/manor.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -3313,7 +3298,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: giorgio-armani
           JOBS_SLICE_FILE: data/jobs/by-crawler/giorgio-armani.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -3513,7 +3497,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: sika
           JOBS_SLICE_FILE: data/jobs/by-crawler/sika.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -3713,7 +3696,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: klinik-gut
           JOBS_SLICE_FILE: data/jobs/by-crawler/klinik-gut.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -3913,7 +3895,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: nvidia-zurich
           JOBS_SLICE_FILE: data/jobs/by-crawler/nvidia-zurich.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -4113,7 +4094,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: coopers
           JOBS_SLICE_FILE: data/jobs/by-crawler/coopers.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -4313,7 +4293,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: balgrist
           JOBS_SLICE_FILE: data/jobs/by-crawler/balgrist.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -4514,7 +4493,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: clinica-hildebrand
           JOBS_SLICE_FILE: data/jobs/by-crawler/clinica-hildebrand.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -4711,7 +4689,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: agie-charmilles
           JOBS_SLICE_FILE: data/jobs/by-crawler/agie-charmilles.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -4911,7 +4888,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: brack-alltron
           JOBS_SLICE_FILE: data/jobs/by-crawler/brack-alltron.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -5111,7 +5087,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: clinique-generale-ste-anne
           JOBS_SLICE_FILE: data/jobs/by-crawler/clinique-generale-ste-anne.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -5311,7 +5286,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: canton-ticino-osc
           JOBS_SLICE_FILE: data/jobs/by-crawler/canton-ticino-osc.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -5511,7 +5485,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: stadt-luzern
           JOBS_SLICE_FILE: data/jobs/by-crawler/stadt-luzern.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -5711,7 +5684,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: lindt-spruengli
           JOBS_SLICE_FILE: data/jobs/by-crawler/lindt-spruengli.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -5908,7 +5880,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: axa-svizzera
           JOBS_SLICE_FILE: data/jobs/by-crawler/axa-svizzera.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -6108,7 +6079,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: servicekuhn-ch
           JOBS_SLICE_FILE: data/jobs/by-crawler/servicekuhn-ch.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"
@@ -6308,7 +6278,6 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: heini-ch-heini-ch
           JOBS_SLICE_FILE: data/jobs/by-crawler/heini-ch-heini-ch.json
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          WORKDAY_EGRESS_STATE_DIR: ${{ runner.temp }}/crawler-generation/workday-egress
         run: |-
           set -euo pipefail
           state_dir="$RUNNER_TEMP/crawler-generation/group-12"

@@ -2669,7 +2669,7 @@ describe('cross-repo crawler execution artifacts', () => {
     }
   }, CROSS_REPO_GENERATION_TIMEOUT);
 
-  it('limita lo stato egress Workday ai soli crawler-launch step env', () => {
+  it('usa il default Workday nei workflow portabili e l’override solo nei launcher riutilizzabili', () => {
     const { contract, outDir } = generateArtifacts();
     const expectedStateDir = '${{ runner.temp }}/crawler-generation/workday-egress';
     const artifactPaths = contract.artifacts
@@ -2680,7 +2680,7 @@ describe('cross-repo crawler execution artifacts', () => {
       `.github/workflows/crawler-group-${String(index + 1).padStart(2, '0')}-logic.yml`,
     ));
 
-    for (const workflowPath of [...artifactPaths, ...logicPaths]) {
+    const assertStateScope = (workflowPath: string, expectedStateDir: string | undefined) => {
       const workflow = YAML.parse(fs.readFileSync(workflowPath, 'utf8'));
       const job: any = Object.values(workflow.jobs)[0];
       expect(job.env?.WORKDAY_EGRESS_STATE_DIR, workflowPath).toBeUndefined();
@@ -2691,7 +2691,10 @@ describe('cross-repo crawler execution artifacts', () => {
       ), workflowPath).toBe(true);
       expect(job.steps.some((step: any) => step.env?.WORKDAY_EGRESS_STATE_DIR !== undefined
         && !step.id?.startsWith('crawler-launch-')), workflowPath).toBe(false);
-    }
+    };
+
+    for (const workflowPath of artifactPaths) assertStateScope(workflowPath, undefined);
+    for (const workflowPath of logicPaths) assertStateScope(workflowPath, expectedStateDir);
   }, CROSS_REPO_GENERATION_TIMEOUT);
 
   it('dichiara gli input runtime in ogni forma del workflow e usa il contesto portabile', () => {
