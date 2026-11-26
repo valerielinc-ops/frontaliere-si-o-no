@@ -200,7 +200,7 @@ describe('locale-router canton-root-validity guard — expired job-detail slug (
     expect(canonPaths[2]).toBe(canonPaths[0]);
     expect(canonPaths[3]).toBe('/job-canon/releases/1001/ex.json');
     expect(log).toHaveBeenCalledTimes(2);
-    expect(log).toHaveBeenCalledWith(JSON.stringify({ event: 'job_canon_v1_fallback' }));
+    expect(log).toHaveBeenCalledWith({ event: 'job_canon_v1_fallback' });
   });
 
   it('301s a DE registry-known expired job (page gone) to a live section root', async () => {
