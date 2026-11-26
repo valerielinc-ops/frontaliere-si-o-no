@@ -3291,7 +3291,7 @@ describe('cross-repo crawler execution artifacts', () => {
         && step.env?.CLAUDE_CODE_OAUTH_TOKEN === undefined)).toBe(true);
 
     const generateArticle = fs.readFileSync(path.join(ROOT, '.github/workflows/generate-article.yml'), 'utf8');
-    expect(generateArticle).not.toMatch(/AI_MODELS_PREFER:\s*codex-cli\/gpt-5\.6-luna/);
+    expect(generateArticle).not.toMatch(/AI_MODELS_PREFER:\s*codex-cli\//);
 
     // translate-pending usa Codex come prima corsia della cascata (decisione
     // proprietaria H7, 2026-10-05): stesso confinamento del secret dei
