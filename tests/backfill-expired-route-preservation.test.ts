@@ -10,7 +10,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { processSlice } from '../scripts/backfill-expired-from-history.mjs';
-import { localeRouteKeys } from '../scripts/lib/expired-jobs-archive.mjs';
+import { carryReplacedExpiredEntry, localeRouteKeys } from '../scripts/lib/expired-jobs-archive.mjs';
 
 type Row = Record<string, any>;
 
@@ -284,5 +284,26 @@ describe('history backfill: served expired routes', () => {
     expect(missing(before, first)).toEqual([]);
     expect(routesOf(first).has('de:mitarbeiter-umschlag-dintikon')).toBe(true);
     expect(missing(before, readArchive())).toEqual([]);
+  });
+});
+
+describe('replacing an archived record with a newer payload (cleanup-jobs)', () => {
+  it('carries the replaced routes and identities onto the newer payload', () => {
+    const previous = record('fiorista-ascona', 1, {
+      slugByLocale: { it: 'fiorista-ascona', de: 'florist-ascona' },
+      previousSlugsByLocale: { fr: ['fleuriste-ascona'] },
+    });
+    const entry: Row = record('fiorista-ascona', 2, { expiredAt: daysAgo(1) });
+    const before = routesOf([previous]);
+
+    expect(carryReplacedExpiredEntry(entry, previous, 'test')).toBe(true);
+
+    expect(missing(before, [entry])).toEqual([]);
+    expect(entry.sourceIdentityHistory.map((h: Row) => h.sourceIdentity).sort())
+      .toEqual([`url:${sourceUrl(1)}`, `url:${sourceUrl(2)}`]);
+  });
+
+  it('accepts a payload that replaces nothing', () => {
+    expect(carryReplacedExpiredEntry(record('barista-ascona', 3), undefined, 'test')).toBe(true);
   });
 });

@@ -753,6 +753,29 @@ export function mergeExpiredRouteEvidence(
 }
 
 /**
+ * Let a newer payload take over an archived record without forgetting what that
+ * record served: its routes and source identities travel onto `entry`.
+ *
+ * @param {object} entry the newer payload (mutated)
+ * @param {object|undefined} previous the archived record it would replace
+ * @param {string} source label for the slug journal
+ * @returns {boolean} `false` when the route cap refuses the union: the caller
+ *   keeps `previous`, still the only proven owner of its routes.
+ */
+export function carryReplacedExpiredEntry(entry, previous, source) {
+  let routeCapRefused = false;
+  mergeExpiredRouteEvidence(
+    entry,
+    previous,
+    source,
+    { onLegacyRouteCapRefusal: () => { routeCapRefused = true; } },
+  );
+  if (routeCapRefused) return false;
+  mergeSourceIdentityHistory(entry, previous);
+  return true;
+}
+
+/**
  * Index an archive by source identity, so a writer can recognise a posting the
  * archive already represents under ANOTHER slug (a rename, or the alias a
  * collision repair moved it to). Shared by `archiveRemovedJobsToSlice` and the
