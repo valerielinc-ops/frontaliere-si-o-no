@@ -12,7 +12,6 @@ import { fetchAllMedicsLaborJobs } from '../scripts/lib/medics-labor-job-parser.
 import { fetchAllPfisterJobs } from '../scripts/lib/pfister-job-parser.mjs';
 import { fetchAllPukZuerichJobs } from '../scripts/lib/puk-zuerich-job-parser.mjs';
 import { fetchAllStiftungKindAutismusJobs } from '../scripts/lib/stiftung-kind-autismus-job-parser.mjs';
-import { fetchAllZkbJobs } from '../scripts/lib/zkb-job-parser.mjs';
 import { mergePreserveLocaleData } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 const consumers = [
@@ -22,7 +21,6 @@ const consumers = [
   ['pfister', fetchAllPfisterJobs],
   ['puk-zuerich', fetchAllPukZuerichJobs],
   ['stiftung-kind-autismus', fetchAllStiftungKindAutismusJobs],
-  ['zkb', fetchAllZkbJobs],
 ] as const;
 const unknown = { postedDate: '', datePosted: '', postingDateSource: 'unknown' };
 // Relative to the actual clock: no stale-prune time bomb in the fixture.
