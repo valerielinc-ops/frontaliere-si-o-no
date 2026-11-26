@@ -10398,7 +10398,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
   // Restart the registration flow with the same password so the portal can
   // issue a fresh OTP; do not throw the credential away and try to create a
   // second one.
-  const pendingOtpRestart = Boolean(account && !account.verifiedAt && account.status !== 'created' && usesOtpAccountCreation(host));
+  const pendingOtpRestart = Boolean(account && !account.verifiedAt && usesOtpAccountCreation(host));
   if (kind === 'sign_in' && pendingOtpRestart && !allowExistingRegistration
     && typeof ctx.accounts.accountNotice === 'function'
     && await ctx.accounts.accountNotice({ host, sinceMs: Number(account.createdAt) || 0 })) {
