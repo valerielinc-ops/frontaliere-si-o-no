@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it } from 'vitest';
 import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 import { clearPoliteFetchStateForTests } from '../scripts/lib/prospector/polite-fetch.mjs';
 import { runSpecInProduction } from '../scripts/lib/prospector/spec-crawler.mjs';
+import { errorWithSpecFetchReceipt, rowsWithFetchReceipt } from './helpers/crawler-fetch-receipt';
 
 const SEED_URL = 'https://eqe.example/unternehmen-2/karriere';
 const EMPTY_MARKER = "We don't have any open positions at the moment";
@@ -81,13 +82,39 @@ describe('prospector source-backed empty listing contract', () => {
     expect(rows).toHaveProperty('fetchOutcome', 'ok');
     expect(rows).toHaveProperty('discoveredCount', 0);
     expect(rows).toHaveProperty('authoritativeEmptyEvidence', expect.stringContaining(EMPTY_MARKER));
-    expect((rows as any).fetchReceipt).toMatchObject({
+    expect(rowsWithFetchReceipt(rows).fetchReceipt).toMatchObject({
       specKey: 'eqe-ch-fixture',
       seedUrls: [SEED_URL],
       phase: 'listing',
       pages: 1,
+      listingTerminalStatus: 200,
       httpStatuses: [{ status: 200, url: SEED_URL }],
       fetchOutcome: 'ok',
+    });
+  });
+
+  it('records a terminal listing 429 separately from per-vacancy statuses', async () => {
+    const fetchImpl = async (input: string | URL | Request) => {
+      const url = String(input);
+      if (url.endsWith('/robots.txt')) return new Response('User-agent: *\nAllow: /');
+      return new Response('', { status: 429 });
+    };
+    let caughtError: unknown;
+    try {
+      await runSpecInProduction(spec('A different reviewed source sentence.'), {
+        ...runtime(),
+        fetchImpl,
+      });
+    } catch (caught) {
+      caughtError = caught;
+    }
+
+    expect(caughtError).toBeInstanceOf(Error);
+    expect(errorWithSpecFetchReceipt(caughtError).specFetchReceipt).toMatchObject({
+      phase: 'listing',
+      listingCompletion: null,
+      listingTerminalStatus: 429,
+      httpStatuses: expect.arrayContaining([expect.objectContaining({ status: 429 })]),
     });
   });
 
@@ -321,6 +348,7 @@ describe('prospector source-backed empty listing contract', () => {
     expect(error.specFetchReceipt).toMatchObject({
       specKey: 'eqe-ch-fixture',
       phase: 'detail',
+      listingTerminalStatus: 200,
       httpStatuses: expect.arrayContaining([expect.objectContaining({ status: 503 })]),
       fetchOutcome: null,
     });

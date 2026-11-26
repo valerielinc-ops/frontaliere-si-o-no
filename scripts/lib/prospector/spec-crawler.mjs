@@ -412,6 +412,7 @@ const SPEC_FETCH_METADATA_KEYS = [
   'freeTextFailure',
   'freeTextRejectedReasons',
   'freeTextContractVersion',
+  'listingCompletion',
 ];
 
 /**
@@ -2833,6 +2834,15 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         }),
     });
   }
+  const listingOutcome = listingFetchOutcomeState(rows);
+  copySpecFetchMetadata(rows, {
+    // Set only after the collector returns normally. This records accepted
+    // pagination termination (including an accepted terminal 404), while
+    // source/parser failures and unverified empty listings remain incomplete.
+    listingCompletion: listingOutcome.failed || listingOutcome.unverifiedEmpty
+      ? 'incomplete'
+      : 'complete',
+  });
   return rows;
 }
 
@@ -2881,17 +2891,18 @@ export async function runSpecInProduction(spec, runtime = {}) {
     runtime = { ...runtime, browserFetchImpl: fetchHtmlViaBrowser };
   }
   const fetchReceipt = createCrawlerFetchReceipt(spec);
+  let receiptCapturePhase = 'listing';
   const previousPageFetched = runtime.onPageFetched;
   const previousPageFetchFailed = runtime.onPageFetchFailed;
   runtime = {
     ...runtime,
     onPageFetched(page, requestedUrl) {
-      recordCrawlerFetchReceiptPage(fetchReceipt, page, requestedUrl);
+      recordCrawlerFetchReceiptPage(fetchReceipt, page, requestedUrl, receiptCapturePhase);
       if (typeof previousPageFetched === 'function') return previousPageFetched(page, requestedUrl);
       return undefined;
     },
     onPageFetchFailed(page, requestedUrl) {
-      recordCrawlerFetchReceiptPage(fetchReceipt, page, requestedUrl);
+      recordCrawlerFetchReceiptPage(fetchReceipt, page, requestedUrl, receiptCapturePhase);
       if (typeof previousPageFetchFailed === 'function') return previousPageFetchFailed(page, requestedUrl);
       return undefined;
     },
@@ -2899,11 +2910,19 @@ export async function runSpecInProduction(spec, runtime = {}) {
   const validateUrl = createSpecUrlPolicy(spec, { lookupImpl: runtime.lookupImpl || dnsLookup });
   let rows = null;
   try {
+    receiptCapturePhase = 'listing';
     rows = await collectSpecListingRows(spec, runtime, validateUrl);
-    const officialEmployerSiteLocation = rows.some(rowNeedsOfficialEmployerLocation)
-      ? (runtime.officialEmployerSiteLocation
-        || await fetchOfficialEmployerSiteLocation(spec, runtime))
-      : null;
+    fetchReceipt.listingCompletion = rows.listingCompletion;
+    let officialEmployerSiteLocation = null;
+    if (rows.some(rowNeedsOfficialEmployerLocation)) {
+      receiptCapturePhase = 'supporting';
+      try {
+        officialEmployerSiteLocation = runtime.officialEmployerSiteLocation
+          || await fetchOfficialEmployerSiteLocation(spec, runtime);
+      } finally {
+        receiptCapturePhase = 'listing';
+      }
+    }
     const listingOutcome = listingFetchOutcomeState(rows);
     const listingAuthoritativeEmpty = rows.length > 0
       && rows.listingAuthoritativeEmptyState === 'authoritative-source-zero'
@@ -2931,6 +2950,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
     // in the listing phase so a zero is not reported as if detail pages had
     // been observed and filtered out.
     fetchReceipt.phase = 'listing';
+    receiptCapturePhase = 'listing';
     if (!needsDetails) {
       const dropCounts = {
         source_backed_geography_missing: 0,
@@ -3064,6 +3084,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
     }
 
     fetchReceipt.phase = rows.length > 0 ? 'detail' : 'listing';
+    receiptCapturePhase = fetchReceipt.phase;
     // Template extraction has no per-row semantics. Visit the detail pages with
     // a bounded pool so location and full descriptions are source-backed.
     // Workers complete out of order; index-addressed writes keep the listing

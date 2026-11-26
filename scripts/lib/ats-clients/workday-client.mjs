@@ -569,9 +569,9 @@ async function withRunnerWorkdayEgress(operation, {
       } catch (error) {
         const status = Number(error?.statusCode ?? error?.status);
         if (status === 429) {
-          // A terminal WorkdayRateLimitError is synthetic, but carries the
-          // remaining in-process Retry-After window. Persist it too so the
-          // next worker cannot immediately recreate the same 429 burst.
+          // Persist both source 429s and terminal circuit errors. The latter
+          // carry the remaining in-process Retry-After window, which keeps
+          // another worker from immediately recreating the same burst.
           const retryAfterMs = Number.isFinite(Number(error?.retryAfterMs))
             ? Math.min(retryAfterCapMs, Math.max(0, Number(error.retryAfterMs)))
             : parseRetryAfterMs(
