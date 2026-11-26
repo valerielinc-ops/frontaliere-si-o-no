@@ -673,6 +673,16 @@ describe('rehydrate-trunk-guard.sh — structural invariants', () => {
     expect(begin.indexOf('grep -rLiE')).toBeLessThan(begin.lastIndexOf('rm -rf'));
   });
 
+  it('builds begin inventories in bulk, not with one shell iteration per page', () => {
+    const begin = guard.slice(guard.indexOf('trunk_replace_begin()'), guard.indexOf('trunk_replace_end()'));
+
+    expect(begin).toContain('find "$dist/$p" -type f -print');
+    expect(begin).toContain('grep -rLiE');
+    expect(begin).toContain('awk -v root="$root_prefix"');
+    expect(begin).not.toMatch(/while IFS= read -r f/);
+    expect(begin).not.toMatch(/\$\{f#"\$dist\//);
+  });
+
   it('classifies the whole replaced subtree with batch inventories, not shell calls per path', () => {
     const end = guard.slice(guard.indexOf('trunk_replace_end()'), guard.indexOf('trunk_guard_verdict()'));
     expect(end).toContain('find "$dist/$p" -type f -print');

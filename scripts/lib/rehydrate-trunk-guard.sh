@@ -131,7 +131,10 @@ trunk_guard_init() {
 # Snapshot every file currently under the given dist-relative paths, classify
 # the HTML among them as indexable/noindex WHILE IT STILL EXISTS (it is about
 # to be deleted, so this cannot be deferred to trunk_replace_end), then remove
-# the paths exactly as the original `rm -rf` did.
+# the paths exactly as the original `rm -rf` did. The inventories are written
+# through bulk find/grep pipelines: a shell read/printf iteration for every
+# page made the guard itself the long-running part of the rehydrate on the
+# multi-million-file dist used by cathedral-seo-gates-check (#7421).
 trunk_replace_begin() {
   local label="$1"; shift
   local dist="${TRUNK_GUARD_DIST:-dist}"
@@ -139,7 +142,7 @@ trunk_replace_begin() {
   local all="$state/$label.all"
   local idx="$state/$label.idx"
   local scope="$state/$label.scope"
-  local p f
+  local p root_prefix="${dist%/}/"
   mkdir -p "$state" 2>/dev/null || true
   if [ ! -f "$all" ]; then
     : > "$all"
@@ -148,19 +151,19 @@ trunk_replace_begin() {
     for p in "$@"; do
       printf '%s\n' "$p" >> "$scope" 2>/dev/null || true
       if [ ! -e "$dist/$p" ]; then continue; fi
-      while IFS= read -r f; do
-        if [ -n "$f" ]; then printf '%s\n' "${f#"$dist/"}" >> "$all"; fi
-      done < <(find "$dist/$p" -type f 2>/dev/null)
+      find "$dist/$p" -type f -print 2>/dev/null \
+        | awk -v root="$root_prefix" '{ if (index($0, root) == 1) print substr($0, length(root) + 1); }' \
+        >> "$all"
       # -L lists the files WITHOUT a robots-noindex meta, i.e. the indexable
       # ones. Attribute order is not assumed: constants.ts emits
       # `name="robots" … content="noindex,follow"`, but a future emitter could
       # invert it, so both orders match. One recursive pass, not one grep per
       # file — the walk is bounded by the same subtree `find` already crosses.
-      while IFS= read -r f; do
-        if [ -n "$f" ]; then printf '%s\n' "${f#"$dist/"}" >> "$idx"; fi
-      done < <(grep -rLiE --include='*.html' --include='*.htm' \
-                 '<meta[^>]*(robots[^>]*noindex|noindex[^>]*robots)' \
-                 "$dist/$p" 2>/dev/null)
+      grep -rLiE --include='*.html' --include='*.htm' \
+        '<meta[^>]*(robots[^>]*noindex|noindex[^>]*robots)' \
+        "$dist/$p" 2>/dev/null \
+        | awk -v root="$root_prefix" '{ if (index($0, root) == 1) print substr($0, length(root) + 1); }' \
+        >> "$idx"
     done
   fi
   for p in "$@"; do
