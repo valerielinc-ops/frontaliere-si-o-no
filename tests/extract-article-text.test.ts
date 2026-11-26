@@ -97,16 +97,31 @@ describe('extractArticleText', () => {
     expect(result.publishedAt).toBe(mainDate);
   });
 
+  it('keeps the publication date inside an article root when that root wins', () => {
+    const articleDate = new Date(Date.now() - 8 * 86_400_000).toISOString();
+    const mainDate = new Date(Date.now() - 2 * 86_400_000).toISOString();
+    const first = 'The article root contains the complete source paragraph with enough facts for editorial extraction.';
+    const second = 'The second article paragraph confirms that the article root is the selected source body.';
+    const html = `<article><time class="icms-date" datetime="${articleDate}"></time><p>${first}</p><p>${second}</p></article>`
+      + `<main><time class="icms-date" datetime="${mainDate}"></time><p>${first}</p><p>${second}</p></main>`;
+
+    const result = extractArticleText(html);
+
+    expect(result.method).toBe('article-tag');
+    expect(result.publishedAt).toBe(articleDate);
+  });
+
   it('ignores inactive iCMS dates and rejects ambiguous active dates', () => {
     const publishedAt = new Date(Date.now() - 2 * 86_400_000).toISOString();
+    const inactiveDate = new Date(Date.now() - 10 * 86_400_000).toISOString();
     const first = 'The active article paragraph contains enough substantive source context for the date test.';
     const second = 'The second active article paragraph keeps the editorial root above the extraction threshold.';
-    const oneActive = `<main><time class="icms-date d-none" datetime="2026-01-01"></time>`
+    const oneActive = `<main><time class="icms-date d-none" datetime="${inactiveDate}"></time>`
       + `<time class="icms-date" datetime="${publishedAt}"></time><p>${first}</p><p>${second}</p></main>`;
     expect(extractArticleText(oneActive).publishedAt).toBe(publishedAt);
 
     const ambiguous = `<main><time class="icms-date" datetime="${publishedAt}"></time>`
-      + `<time class="icms-date" datetime="2026-01-01"></time><p>${first}</p><p>${second}</p></main>`;
+      + `<time class="icms-date" datetime="${inactiveDate}"></time><p>${first}</p><p>${second}</p></main>`;
     expect(extractArticleText(ambiguous).publishedAt).toBe('');
   });
 

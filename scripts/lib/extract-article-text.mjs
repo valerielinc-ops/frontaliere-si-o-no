@@ -106,16 +106,8 @@ function extractFromJsonLd(root, include = () => true) {
   return best;
 }
 
-/**
- * Publication date of the SOURCE article, ISO string or ''.
- *
- * Added 2026-07-28: a 25 January 2026 source was republished as fresh news on
- * 28 July 2026, in the future tense, because nothing in the pipeline ever
- * looked at when the source was written. Reads JSON-LD `datePublished` first
- * then metadata explicitly labelled as publication. Creation, modification,
- * generic date metadata and unlabelled time elements do not establish when
- * the source was published; leave the date unknown instead of making it fresh.
- */
+// iCMS date markers are resolved only inside the editorial root selected for
+// body extraction; shell dates must not become the source publication date.
 const ICMS_PUBLICATION_DATE_SELECTORS = [
   '[data-icms-date]',
   '[data-icms-published]',
@@ -134,7 +126,8 @@ const ICMS_INACTIVE_SELECTOR = [
 ].join(', ');
 
 function normalizePublishedDate(raw) {
-  const value = String(raw || '').trim();
+  if (typeof raw !== 'string') return '';
+  const value = raw.trim();
   if (!value) return '';
 
   const parsed = new Date(value);
@@ -146,7 +139,16 @@ function normalizePublishedDate(raw) {
   const normalized = new Date(Date.UTC(
     Number(year), Number(month) - 1, Number(day), Number(hour), Number(minute), Number(second),
   ));
-  return Number.isNaN(normalized.getTime()) ? '' : normalized.toISOString();
+  if (Number.isNaN(normalized.getTime())
+    || normalized.getUTCFullYear() !== Number(year)
+    || normalized.getUTCMonth() !== Number(month) - 1
+    || normalized.getUTCDate() !== Number(day)
+    || normalized.getUTCHours() !== Number(hour)
+    || normalized.getUTCMinutes() !== Number(minute)
+    || normalized.getUTCSeconds() !== Number(second)) {
+    return '';
+  }
+  return normalized.toISOString();
 }
 
 function querySelectorAllIncludingRoot(root, selector) {
@@ -162,29 +164,43 @@ function isActiveIcmsDateNode(node) {
 function extractIcmsPublishedDate(root) {
   if (!root) return '';
 
+  const candidates = new Set();
   for (const selector of ICMS_PUBLICATION_DATE_SELECTORS) {
-    const candidates = querySelectorAllIncludingRoot(root, selector)
-      .filter(isActiveIcmsDateNode);
-    if (candidates.length === 0) continue;
-    if (candidates.length !== 1) return '';
-
-    const candidate = candidates[0];
-    const raw = candidate.getAttribute('datetime')
-      || candidate.getAttribute('content')
-      || candidate.getAttribute('data-date')
-      || candidate.getAttribute('data-published')
-      || candidate.getAttribute('data-publish-date')
-      || candidate.getAttribute('data-icms-date')
-      || candidate.getAttribute('data-icms-published')
-      || candidate.textContent
-      || '';
-    const publishedAt = normalizePublishedDate(raw);
-    if (publishedAt) return publishedAt;
+    for (const candidate of querySelectorAllIncludingRoot(root, selector)) {
+      if (isActiveIcmsDateNode(candidate)) candidates.add(candidate);
+    }
   }
+  if (candidates.size !== 1) return '';
+
+  const [candidate] = candidates;
+  const raw = candidate.getAttribute('datetime')
+    || candidate.getAttribute('content')
+    || candidate.getAttribute('data-date')
+    || candidate.getAttribute('data-published')
+    || candidate.getAttribute('data-publish-date')
+    || candidate.getAttribute('data-icms-date')
+    || candidate.getAttribute('data-icms-published')
+    || candidate.textContent
+    || '';
+  const publishedAt = normalizePublishedDate(raw);
+  if (publishedAt) return publishedAt;
 
   return '';
 }
 
+/**
+ * Publication date of the SOURCE article, ISO string or ''.
+ *
+ * Added 2026-07-28: a 25 January 2026 source was republished as fresh news on
+ * 28 July 2026, in the future tense, because nothing in the pipeline ever
+ * looked at when the source was written. Reads JSON-LD `datePublished` first
+ * then metadata explicitly labelled as publication. Creation, modification,
+ * generic date metadata and unlabelled time elements do not establish when
+ * the source was published; leave the date unknown instead of making it fresh.
+ *
+ * `editorialRoot` is the root that actually won body extraction; iCMS dates
+ * are never inferred from an unrelated shell root.
+ */
 export function extractPublishedDate(document, editorialRoot = document) {
   if (!document) return '';
   const scripts = document.querySelectorAll('script[type="application/ld+json"]');
@@ -856,7 +872,7 @@ function selectEditorialRoot(document, maxChars, fallbacks) {
 export function extractArticleText(html, opts = {}) {
   const maxChars = Number(opts.maxChars || MAX_DEFAULT_LEN);
   if (!html || typeof html !== 'string') {
-    return { text: '', method: 'empty', paragraphCount: 0 };
+    return { text: '', method: 'empty', paragraphCount: 0, publishedAt: '' };
   }
 
   let dom;
