@@ -358,7 +358,7 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
       '!/data/url-first-seen/',
       '!/data/seo-404-compat/',
       '!/data/translation-cache/',
-      '!/packages/articles/content/',
+      '!/packages/articles/content/*',
       '!/data/all-known-job-slugs/',
       '!/data/orphan-enriched-data/',
       '!/docs/',

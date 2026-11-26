@@ -209,7 +209,7 @@ jobs:
             !/data/url-first-seen/
             !/data/seo-404-compat/
             !/data/translation-cache/
-            !/packages/articles/content/
+            !/packages/articles/content/*
             /packages/articles/content/blog-meta-it.ts
             /packages/articles/content/blog-meta-en.ts
             /packages/articles/content/blog-meta-de.ts
