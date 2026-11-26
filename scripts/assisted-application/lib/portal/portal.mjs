@@ -12409,7 +12409,6 @@ export async function submitViaPortal(ctx) {
         assertPortalRuntime();
         const remainingMs = portalRunDeadline - Date.now();
         const requestedTimeoutMs = Number(request?.timeoutMs);
-        const budgetTruncated = Number.isFinite(requestedTimeoutMs) && requestedTimeoutMs > 0 && remainingMs < requestedTimeoutMs;
         const timeoutMs = Number.isFinite(requestedTimeoutMs) && requestedTimeoutMs > 0
           ? Math.min(requestedTimeoutMs, remainingMs)
           : remainingMs;
@@ -12417,9 +12416,7 @@ export async function submitViaPortal(ctx) {
         try {
           return await rawCodex({ ...request, timeoutMs: Math.max(1, Math.trunc(timeoutMs)) });
         } catch (error) {
-          if (Date.now() >= portalRunDeadline || (budgetTruncated && error?.transportFault)) {
-            throw portalRuntimeBudgetError();
-          }
+          if (Date.now() >= portalRunDeadline) throw portalRuntimeBudgetError();
           throw error;
         }
       },
@@ -14271,7 +14268,7 @@ export async function submitViaPortal(ctx) {
         // The form after the choices: with other fields than the ones planned it is read and planned again
         // (up to four times for one page), and nothing is typed into what is no longer there.
         let redrawn = false;
-        const choiceFieldIds = new Set(choices.map((action) => String(action.fieldId || '')).filter(Boolean));
+        const choiceFieldIds = new Set(results.filter((result) => result.ok).map((result) => String(result.fieldId || '')).filter(Boolean));
         if (choices.length) {
           for (let waited = 0; waited < REDRAW_WAIT_MS && !redrawn && page.url() === plannedUrl; waited += 500) {
             await page.waitForTimeout(500);
@@ -14428,7 +14425,7 @@ export async function submitViaPortal(ctx) {
           if (stable.status !== 'stable') return await handoff('portal_needs_candidate');
           after = await snapshotWithPortalOptions(after);
           const filledFieldIds = new Set([
-            ...actions.filter((action) => action.action !== 'skip').map((action) => String(action.fieldId || '')),
+            ...results.filter((result) => result.ok).map((result) => String(result.fieldId || '')),
             ...(ownAccount ? snapshot.fields.filter((field) => field.inputType === 'password').map((field) => String(field.id || '')) : []),
           ].filter(Boolean));
           if (questionSurfaceSignature(after, { ignoreValueFieldIds: filledFieldIds })
