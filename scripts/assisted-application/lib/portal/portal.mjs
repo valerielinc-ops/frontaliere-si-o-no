@@ -11978,6 +11978,8 @@ export async function readPortalRequirements(ctx) {
         paidPostingUrl: ctx.postingUrl || '',
         pageHeading,
         pageHeadings,
+        formSections: snapshot.fields.map(field => field.section),
+        formFieldLabels: snapshot.fields.map(field => field.label),
         postingRouteProof: ctx.postingRouteProof,
         applyUrl: ctx.applyUrl,
       });
