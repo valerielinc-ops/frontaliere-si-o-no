@@ -4885,6 +4885,15 @@ const normalizeWords = (text) => String(text || '').toLowerCase().normalize('NFD
 // "Coop Genossenschaft" is "coop" (its SuccessFactors pages say only "Coop").
 const NOT_A_NAME = new Set(['sa', 'ag', 'gmbh', 'sagl', 'srl', 'spa', 'sarl', 'ltd', 'inc', 'llc', 'llp', 'kg', 'genossenschaft', 'cooperativa', 'cooperative', 'the', 'und', 'and', 'del', 'della', 'des', 'les', 'der', 'die', 'das']);
 const nameWords = (text) => normalizeWords(text).split(' ').filter((word) => word.length >= 3 && !NOT_A_NAME.has(word) && !/^\d+$/.test(word));
+const DOTTED_LEGAL_FORM_SUFFIX_RE = /(?:^|\s)((?:[A-Za-zÀ-ÖØ-öø-ÿ]\s*\.\s*)+[A-Za-zÀ-ÖØ-öø-ÿ]\s*\.?)\s*$/u;
+
+function stripDottedLegalFormSuffix(value) {
+  const raw = String(value || '');
+  const match = DOTTED_LEGAL_FORM_SUFFIX_RE.exec(raw);
+  if (!match) return raw;
+  const compact = normalizeWords(match[1]).replace(/\s+/g, '');
+  return NOT_A_NAME.has(compact) ? raw.slice(0, match.index).trim() : raw;
+}
 const TALENTSOFT_HOST_RE = /(?:^|\.)talent-soft\.com$/i;
 
 /** The company's name words without a bracketed short form, when it has one and a distinctive name remains. */
@@ -5070,13 +5079,13 @@ function employerHostPrefixMatches(pageText, job = {}, pageUrl = '') {
 }
 
 export function postingMatch(pageText, job = {}, pageUrl = '') {
-  const company = nameWords(job.company);
+  const company = companyIdentityWords(job.company);
   const titles = jobTitleCandidates(job);
   const title = titles.flatMap(value => nameWords(value)).filter((word) => word.length >= 4);
   if (!company.length && !title.length) return 'unknown';
   if (company.length) {
     // The page's words filtered as the name is ("Ospedale Regionale di Lugano" = "ospedale regionale lugano").
-    const named = ` ${nameWords(pageText).join(' ')} `;
+    const named = ` ${companyEvidenceWords(pageText).join(' ')} `;
     // The whole name without the short form the order adds in brackets is the same employer, written out:
     // «Ente Case Anziani Mendrisiotto (ECAM)» signs its notice «Ente Case Anziani Mendrisiotto» (CVRDEqJ3,
     // 2026-11-11). The short form alone stays no match (an «ECAM» or an «EOC» on a page is initials).
@@ -5158,13 +5167,13 @@ const FORM_TITLE_FIELD_WORDS = new Set([
  * and at least one word that is a name (never two «Hotel Schweiz» and «Hotel Deutschland» of anybody).
  */
 export function sameEmployerFamily(one, other) {
-  const core = (name) => nameWords(name).filter((word) => !BRANCH_WORDS.has(word));
+  const core = (name) => companyIdentityWords(name).filter((word) => !BRANCH_WORDS.has(word));
   const first = core(one);
   return first.some((word) => !EMPLOYER_KIND_WORDS.has(word) && !FORM_VOCABULARY.has(word)) && first.join(' ') === core(other).join(' ');
 }
 
 function hasDistinctiveCompanyIdentity(company) {
-  return nameWords(company).some((word) => !EMPLOYER_KIND_WORDS.has(word)
+  return companyIdentityWords(company).some((word) => !EMPLOYER_KIND_WORDS.has(word)
     && !FORM_VOCABULARY.has(word) && !BRANCH_WORDS.has(word));
 }
 
@@ -5198,6 +5207,25 @@ const EMPLOYER_KIND_CLASS = new Map([
   ...['group', 'gruppe', 'gruppo', 'groupe'].map((word) => [word, 'group']),
 ]);
 const employerKindsOf = (words) => new Set(words.map((word) => EMPLOYER_KIND_CLASS.get(word)).filter(Boolean));
+
+// A short brand token can be meaningful when it is part of a longer source
+// company name («Groupe E»), but a lone initial is not employer evidence. Keep
+// the complete normalized sequence so a page that only says «Groupe» does not
+// bind to «Groupe E» by the generic employer-kind word alone.
+function companyIdentityWords(company) {
+  const source = stripDottedLegalFormSuffix(company);
+  const normalized = companyEvidenceWords(source);
+  const baseWords = new Set(nameWords(source));
+  if (!baseWords.size) return [];
+  return normalized.filter((word) => baseWords.has(word) || /^[a-z]$/u.test(word));
+}
+
+function companyEvidenceWords(value) {
+  return normalizeWords(value).split(' ')
+    .filter((word) => word && !/^\d+$/u.test(word)
+      && (word.length === 1 || (word.length >= 3 && !NOT_A_NAME.has(word))));
+}
+
 // Filler that only joins two names («Muster und Hotel …»): skipping it can still reach a word of a name.
 const JOINING_WORDS = new Set(['and', 'und', 'e', 'ed', 'et', 'o', 'or', 'oder', 'ou', 'sowie']);
 // Filler between two words: skipped when looking for the word next to a company word.
@@ -5332,8 +5360,12 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     return equivalentEmployerPhrases.some((alias) => alias.length === identityWords.length
       && alias.every((word, index) => word === identityWords[index]));
   };
-  const ours = new Set([...nameWords(job.company),
-    ...(sameEmployerFamily(job.organization, job.company) ? nameWords(job.organization) : [])]);
+  const identityWords = [...companyIdentityWords(job.company),
+    ...(sameEmployerFamily(job.organization, job.company) ? companyIdentityWords(job.organization) : [])];
+  // A one-letter brand token is meaningful only inside the complete identity
+  // ("Groupe E"). It must not become standalone employer evidence in the
+  // neighbour scan, where the conjunction "e" is ordinary form copy.
+  const ours = new Set(identityWords.filter((word) => word.length > 1));
   if (!ours.size) return false;
   const ourKinds = employerKindsOf([...ours]);
   const text = String(formText || '');
@@ -5359,7 +5391,7 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
     ...(allowPostingLocation ? FIELD_LABEL_WORDS : []),
     ...FORM_VOCABULARY,
   ]);
-  const identities = [nameWords(job.company), companyLongFormWords(job.company), ...companyShortForms(job.company)]
+  const identities = [companyIdentityWords(job.company), companyLongFormWords(job.company), ...companyShortForms(job.company)]
     .filter((words) => words.length > 0);
   const titleNamesOwnEmployer = (line) => {
     const words = normalizeWords(line).split(' ').filter(Boolean);
@@ -5379,6 +5411,12 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
   const titleLine = lines[0]
     ? lines.find((line) => line && !NAVIGATION_TITLE_LINE_RE.test(line) && !isStandaloneNextLabel(line)) || ''
     : '';
+  const titleWordsRaw = titleLine.split(/\s+/u).filter(Boolean);
+  const titleLooksLikeSentenceCopy = identities.some((identity) => identity.some((word) => word.length === 1))
+    && titleWordsRaw.length > 1
+    && /^\p{Lu}\p{Ll}+$/u.test(titleWordsRaw[0])
+    && titleWordsRaw.slice(1).every((word) => /^\p{Ll}+(?:['’]\p{Ll}+)?[.!?…]*$/u.test(word))
+    && titleWordsRaw.slice(1).some((word) => JOINING_WORDS.has(normalizeWords(word).replace(/[.!?…]+$/u, '')));
   // A title can put the selected employer and a different employer-like phrase
   // on the same line («Grand Hotel — Other Resort»). Compare the non-kind
   // words before the ordinary neighbour scan lets the selected employer
@@ -5394,6 +5432,7 @@ export function namesAnotherEmployer(formText, job = {}, { allowPostingLocation 
   // reads every phrase in the full page text.
   const title = normalizeWords(titleLine).split(' ').filter(Boolean);
   if (!isFormDateFieldLabel(titleLine) && !titleNamesOwnEmployer(titleLine)
+    && !titleLooksLikeSentenceCopy
     && title.some((word, index) => !filler(word) && !neutral.has(word)
     && !FORM_TITLE_FIELD_WORDS.has(word)
     && !EMPLOYER_KIND_WORDS.has(word) && !isSelectOneLabelToken(title, index))) return true;
@@ -5496,7 +5535,7 @@ const EMPLOYER_HEADING_DESCRIPTION_PATTERNS = [
  */
 function hasUnexplainedEmployerCommaHeading(value, job = {}) {
   const employerTokens = [
-    ...nameWords(job.company), ...companyLongFormWords(job.company), ...companyShortForms(job.company).flat(),
+    ...companyIdentityWords(job.company), ...companyLongFormWords(job.company), ...companyShortForms(job.company).flat(),
     ...alternateEmployerNamePhrases(job.company).flat(),
   ].filter((word) => word.length >= 3 && !EMPLOYER_KIND_WORDS.has(word) && !NOT_A_NAME.has(word));
   if (!employerTokens.length) return false;
@@ -5993,8 +6032,8 @@ function formRoleHeadingStatus(formText, job = {}) {
     ...FORM_HEADING_VOCABULARY,
     ...TITLE_GENDER_MARKERS,
     ...candidates.flatMap(title => nameWords(title)),
-    ...nameWords(job.company),
-    ...nameWords(job.organization),
+    ...companyIdentityWords(job.company),
+    ...companyIdentityWords(job.organization),
   ]);
   const knownTitleLanguages = new Set(candidates.flatMap((candidate) => {
     const detected = detectLanguageWithConfidence(candidate);
@@ -6041,8 +6080,8 @@ function formRoleHeadingStatus(formText, job = {}) {
 // posting route or a stale heading would otherwise make the form look bound.
 function hasExplicitFormRoleHeading(formText, job = {}) {
   const companyWords = new Set([
-    ...nameWords(job.company),
-    ...nameWords(job.organization),
+    ...companyIdentityWords(job.company),
+    ...companyIdentityWords(job.organization),
   ]);
   const lines = String(formText || '').split(/\r?\n/).map(value => value.trim())
     .filter(value => value && !NAVIGATION_TITLE_LINE_RE.test(value)).slice(0, 12);

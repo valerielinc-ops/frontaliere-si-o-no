@@ -2777,6 +2777,39 @@ describe('portal: identity on an exact posting route without a heading', () => {
     })).toBe(true);
   });
 
+  it('binds the Groupe E brand on its Jobs2Web detail route without accepting Groupe alone', () => {
+    const groupeEJob = { company: 'Groupe E', title: 'Cheffe ou Chef d’équipe infrastructures' };
+    const groupeEUrl = 'https://job.groupe-e.ch/job/cheffe-chef-equipe-infrastructures/123456/';
+    const publicDetail = [
+      groupeEJob.company,
+      groupeEJob.title,
+      'Langue',
+      'Afficher plus d’options',
+      'Rechercher les offres',
+      'Réinitialiser',
+      'Créer une alerte',
+      'Postuler »',
+      'Sélectionnez la fréquence (en jours) de réception d’une alerte :',
+    ].join('\n');
+    const evidence = {
+      pageUrl: groupeEUrl,
+      pageTitle: `${groupeEJob.title} | ${groupeEJob.company}`,
+      pageHeading: groupeEJob.title,
+      postingUrl: groupeEUrl,
+      uniqueApplicationEntryProven: true,
+    };
+
+    expect(postingMatch(publicDetail, groupeEJob, groupeEUrl)).toBe('match');
+    expect(hasVacancySpecificPostingEvidence(publicDetail, groupeEJob, evidence)).toBe(true);
+    expect(postingMatch(publicDetail.replace(groupeEJob.company, 'Groupe'), groupeEJob, groupeEUrl)).toBe('mismatch');
+  });
+
+  it('keeps a genuine one-letter brand in the whole identity but not in neighbour prose', () => {
+    expect(namesAnotherEmployer('Scopri e cresci', { company: 'Groupe E' })).toBe(false);
+    expect(postingMatch('Groupe E', { company: 'Groupe E S.A.' })).toBe('match');
+    expect(postingMatch('Groupe', { company: 'Groupe E S.A.' })).toBe('mismatch');
+  });
+
   it.each([
     'open navigation', 'close navigation', 'menu', 'skip to content', 'Skip to main content',
     'Zum Hauptinhalt springen', 'Salta al contenuto', 'Aller au contenu',
