@@ -203,11 +203,29 @@ describe('loop clock table and cadence', () => {
     expect(`${LOOP_CLOCK_RUN_MARKER_PREFIX}marker-entry-two@2026-10-07T10:50Z]`).not.toContain(loopClockRunMarker(entry));
     expect(() => loopClockInputValue({ id: 'Not A Slug' }, slot)).toThrow(TypeError);
   });
+
+  it('keeps verified autoclose enabled by default for the follow-up drainer', () => {
+    const workflow = YAML.parse(readFileSync(`${root}/.github/workflows/followup-drainer.yml`, 'utf8'));
+    expect(workflow.on.workflow_dispatch.inputs.no_autoclose).toMatchObject({
+      type: 'choice',
+      required: false,
+      default: '0',
+      options: ['0', '1'],
+    });
+  });
 });
 
 describe('loop clock dispatch', () => {
-  it('dispatches all due entries with the main ref and GitHub API headers', async () => {
-    const entry = customEntry('dispatch-success');
+  it('dispatches the follow-up drainer every 20 minutes with site authorization and only the marker input', async () => {
+    const entry = LOOP_CLOCK_ENTRIES.find((candidate) => candidate.id === 'site-followup-drainer');
+    expect(entry).toEqual({
+      id: 'site-followup-drainer',
+      repo: 'site',
+      workflow: 'followup-drainer.yml',
+      everyMinutes: 20,
+      introducedAt: '2026-11-26T18:00:00Z',
+    });
+    if (!entry) throw new Error('Missing clock entry: site-followup-drainer');
     const tick = tickForEntries([entry]);
     const fetchImpl = vi.fn(async () => new Response(null, { status: 204 }));
     const report = await dispatchLoopClock({

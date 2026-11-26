@@ -9,6 +9,13 @@ const entries = [
   { id: 'site-triage-sweep', repo: 'site', workflow: 'issue-triage.yml', everyMinutes: 240 },
   { id: 'site-closer', repo: 'site', workflow: 'close-recovered-failure-issues.yml', everyMinutes: 60 },
   { id: 'site-retry-automerge', repo: 'site', workflow: 'retry-native-automerge.yml', everyMinutes: 20 },
+  {
+    id: 'site-followup-drainer',
+    repo: 'site',
+    workflow: 'followup-drainer.yml',
+    everyMinutes: 20,
+    introducedAt: '2026-11-26T18:00:00Z',
+  },
   { id: 'site-production-canary', repo: 'site', workflow: 'production-canary.yml', everyMinutes: 15 },
   // This entry joined an already-running clock. The observer uses the
   // introduction time for its first warm-up window; the dispatcher ignores

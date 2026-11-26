@@ -1,4 +1,5 @@
 name: Follow-up drainer (queue → agent:fix, no-Claude)
+run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.loop_clock != '' && format('Follow-up drainer (queue → agent:fix, no-Claude) [loop-clock {0}]', inputs.loop_clock) || 'Follow-up drainer (queue → agent:fix, no-Claude)' }}
 
 # Drena la coda dei follow-up `agent:fix-queued` riempiendo fino a 15 slot per
 # issue diverse. La chiave per-issue di `issue-fix.yml` serializza solo gli
@@ -12,6 +13,11 @@ on:
     - cron: '*/20 * * * *' # drena la coda ~ogni 20min
   workflow_dispatch:
     inputs:
+      loop_clock:
+        description: 'Set only by the Cloud Scheduler loop clock (entry id @ slot): it names the run, nothing else reads it'
+        required: false
+        type: string
+        default: ''
       no_autoclose:
         description: 'Imposta 1 solo per sospendere l autoclose verificato in un run manuale'
         required: false
