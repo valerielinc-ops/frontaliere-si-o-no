@@ -15,8 +15,8 @@ describe('servicekuhn crawler parser', () => {
 
     expect(spec.detailTemplate).toBe('/jobs/*');
     expect(detailTemplate.test('/jobs/')).toBe(false);
-    expect(detailTemplate.test('/jobs/automobil-mechatroniker-in-efz-schwerpunkt-porsche-100/')).toBe(true);
-    expect(detailTemplate.test('/jobs/automobil-diagnostiker-in-schwerpunkt-porsche-100/')).toBe(true);
+    expect(detailTemplate.test('/jobs/automobil-mechatroniker/')).toBe(true);
+    expect(detailTemplate.test('/jobs/automobil-diagnostiker/')).toBe(true);
   });
 
   // ── Constants ──
