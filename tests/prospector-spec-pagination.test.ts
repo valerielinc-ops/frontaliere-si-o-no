@@ -13,6 +13,7 @@ import path from 'node:path';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { clearPoliteFetchStateForTests } from '../scripts/lib/prospector/polite-fetch.mjs';
 import { SKIP_LIVE_DATA } from './helpers/live-data';
+import { rowsWithFetchReceipt } from './helpers/crawler-fetch-receipt';
 import {
   collectSpecListingRows,
   createSpecUrlPolicy,
@@ -638,7 +639,7 @@ describe('spec.pagination', () => {
       description,
       company: 'Example Board',
     }));
-    const rows: any[] = await runSpecInProduction(fixtureSpec, {
+    const rows = await runSpecInProduction(fixtureSpec, {
       fetchImpl,
       listingExtractor,
       lookupImpl: publicLookup,
@@ -648,7 +649,8 @@ describe('spec.pagination', () => {
       disableWafProxy: true,
     });
 
-    expect((rows as any).fetchReceipt).toMatchObject({
+    const rowsWithReceipt = rowsWithFetchReceipt(rows);
+    expect(rowsWithReceipt.fetchReceipt).toMatchObject({
       listingTerminalStatus: 404,
       listingCompletion: 'complete',
     });
@@ -672,7 +674,7 @@ describe('spec.pagination', () => {
         updatedJobs: [],
         removedJobs: [],
         unchangedJobs: [],
-        fetchReceipt: (rows as any).fetchReceipt,
+        fetchReceipt: rowsWithReceipt.fetchReceipt,
       },
     }], {
       outcomes: {
