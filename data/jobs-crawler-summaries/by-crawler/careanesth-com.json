@@ -1,126 +1,44 @@
 {
+  "detailCandidates": 0,
+  "detailGone": 0,
+  "detailRejected": 0,
   "key": "careanesth-com",
   "label": "Careanesth AG",
-  "generatedAt": "2026-11-26T09:23:34.188Z",
+  "generatedAt": "2026-11-26T21:25:52.738Z",
   "total": 0,
-  "discovered": 20,
+  "discovered": 0,
   "parsed": 0,
-  "lastFetchOutcome": "filtered_empty",
+  "lastFetchOutcome": null,
   "fetchReceipt": {
     "specKey": "careanesth-com",
     "seedUrls": [
       "https://careanesth.com/de/fuer-stellensuchende/stellen/?mainDivision=acute&amp;profession%5B%5D=14926&amp;profession%5B%5D=7849&amp;profession%5B%5D=7851&amp;profession%5B%5D=7852&amp;profession%5B%5D=10252&amp;profession%5B%5D=7850&amp;profession%5B%5D=1092&amp;profession%5B%5D=1124&amp;profession%5B%5D=7853&amp;profession%5B%5D=10251&amp;profession%5B%5D=7855&amp;profession%5B%5D=14912&amp;division%5B%5D=1211&amp;division%5B%5D=1199&amp;division%5B%5D=1200&amp;division%5B%5D=1207&amp;division%"
     ],
-    "phase": "detail",
-    "pages": 21,
+    "phase": "listing",
+    "pages": 1,
     "httpStatuses": [
       {
         "status": 200,
         "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/?mainDivision=acute&amp;profession%5B%5D=14926&amp;profession%5B%5D=7849&amp;profession%5B%5D=7851&amp;profession%5B%5D=7852&amp;profession%5B%5D=10252&amp;profession%5B%5D=7850&amp;profession%5B%5D=1092&amp;profession%5B%5D=1124&amp;profession%5B%5D=7853&amp;profession%5B%5D=10251&amp;profession%5B%5D=7855&amp;profession%5B%5D=14912&amp;division%5B%5D=1211&amp;division%5B%5D=1199&amp;division%5B%5D=1200&amp;division%5B%5D=1207&amp;division%"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/recruiter-in-account-manager-in-einsatzkoordinator-in-bereich-therapien-100-standort-basel-oder-bern-961992/"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-experte-in-intensivpflege-nds-hf-gesucht-952371/"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-experte-in-anaesthesiepflege-nds-hf-fuer-die-deutschschweiz-80-100-954852/"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-experte-in-notfallpflege-nds-hf-gesucht-in-basel-solothurn-und-bern-952365/"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/fachfrau-fachmann-gesundheit-efz-gesucht-in-zuerich-und-in-der-ostschweiz-952346/"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/fachfrau-fachmann-gesundheit-efz-gesucht-in-basel-solothurn-und-bern-952352/"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-experte-in-notfallpflege-nds-hf-fuer-die-deutschschweiz-80-100-954853/"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-experte-in-notfallpflege-nds-hf-952376/"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-op-pflegefachfrau-mann-toa-ota-fuer-zuerich-und-der-ostschweiz-gesucht-952348/"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-experte-in-in-anaesthesiepflege-nds-952334/"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-experte-in-intensivpflege-nds-hf-fuer-die-deutschschweiz-80-100-954854/"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-pflegefachperson-mit-imc-weiterbildung-952377/"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-experte-in-intensivpflege-nds-hf-gesucht-in-zuerich-und-in-der-ostschweiz-952349/"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-pflegefachperson-mit-imc-weiterbildung-gesucht-im-kanton-zuerich-und-in-allen-kantonen-der-ostschweiz-952335/"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-op-pflegefachfrau-mann-toa-ota-fuer-die-deutschschweiz-80-100-954855/"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-pflegefachperson-mit-imc-weiterbildung-gesucht-im-kanton-basel-solothurn-und-bern-952366/"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-op-pflegefachfrau-mann-toa-ota-gesucht-952370/"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-pflegefachperson-akp-dnii-hf-fh-gesucht-fuer-zuerich-und-die-ostschweiz-952350/"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-experte-in-notfallpflege-nds-hf-gesucht-in-zuerich-und-in-der-ostschweiz-952383/"
-      },
-      {
-        "status": 200,
-        "url": "https://careanesth.com/de/fuer-stellensuchende/stellen/dipl-pflegefachperson-akp-dnii-hf-fh-m-w-fuer-tageweise-einsaetze-20-40-am-oberen-zuerichsee-gesucht-960192/"
       }
     ],
     "proxiedBy": [],
     "fetchOutcome": null,
     "fetchDetail": null
   },
-  "authoritativeEmptySnapshot": false,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
+  "abortKind": "no-jobs-parsed",
   "written": 0,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 23532,
-  "avgDurationMs": 23532,
-  "durationHistory": [
-    23532
-  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "earlyExit": false,
+  "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "bb9ecce641e4806660b82ef90e95e36b4e9d873c"
+  "codeCommit": "29de5f786b2935cb3f1e27e022c6a8b3d27595bb"
 }
