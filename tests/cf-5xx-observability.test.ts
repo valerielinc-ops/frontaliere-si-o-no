@@ -21,6 +21,8 @@ import {
   couldServeStaleHaveHelped,
   SURFACES,
   LOCALE_SHARD_PREFIXES,
+  IT_SECTION_SHARD_PREFIXES,
+  IT_SECTION_SHARD_EXACT,
   CACHE_HAD_COPY,
 } from '../scripts/lib/cf-error-surface.mjs';
 import {
@@ -53,11 +55,19 @@ describe('classifySurface — the split that was missing', () => {
     }
   });
 
-  it('does NOT mistake an IT path that merely contains a locale token for a shard', () => {
-    // `/cerca-lavoro-…` pages are IT/apex. A `.includes('/de/')`-style check would have
-    // swallowed these into worker-shard and inflated the wrong surface.
-    expect(classifySurface({ host: 'frontaliereticino.ch', path: '/cerca-lavoro-svizzera/ricerca-de-jong/' })).toBe(
+  it('classifies every Italian section prefix routed to a Pages shard', () => {
+    for (const prefix of IT_SECTION_SHARD_PREFIXES) {
+      expect(classifySurface({ host: 'frontaliereticino.ch', path: `${prefix}tutti/` })).toBe('worker-shard');
+    }
+    for (const root of IT_SECTION_SHARD_EXACT) {
+      expect(classifySurface({ host: 'frontaliereticino.ch', path: root })).toBe('worker-shard');
+    }
+    // A look-alike is not claimed by SECTION_ROUTES and remains apex passthrough.
+    expect(classifySurface({ host: 'frontaliereticino.ch', path: '/cerca-lavoro-ticino-altro/tutti/' })).toBe(
       'apex-pages',
+    );
+    expect(classifySurface({ host: 'frontaliereticino.ch', path: '/cerca-lavoro-svizzera/ricerca-de-jong/' })).toBe(
+      'worker-shard',
     );
     expect(classifySurface({ host: 'frontaliereticino.ch', path: '/guida-frontaliere/en-route/' })).toBe('apex-pages');
   });

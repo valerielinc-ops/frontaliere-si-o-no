@@ -8,7 +8,7 @@
  *
  *   502 on cdn.frontaliereticino.ch/assets|data           -> origin R2
  *   502 on frontaliereticino.ch/commit-hash.txt, /fonts/  -> origin GitHub Pages
- *   503 on frontaliereticino.ch/{en,de,fr}/…              -> Worker -> per-locale Pages shard
+ *   503 on frontaliereticino.ch/{en,de,fr}/… or an IT section -> Worker -> Pages section shard
  *   5xx on frontaliereticino.ch/api/public-config/         -> Worker -> public-config Function
  *
  * The cost of that conflation is concrete: `serve_stale`, applied to the CDN rule only, was
@@ -22,6 +22,7 @@
  */
 
 import { PUBLIC_CONFIG_PATH } from '../../services/publicConfigConstants.mjs';
+import SECTION_SHARD_SLUGS from './section-shard-slugs.json' with { type: 'json' };
 
 /** R2 CDN host. Also used by cf-5xx-snapshot.mjs for per-surface reporting. */
 export const CDN_HOST = 'cdn.frontaliereticino.ch';
@@ -46,6 +47,28 @@ export const LOCALE_SHARD_PREFIXES = ['/en/', '/de/', '/fr/'];
 export const LOCALE_SHARD_EXACT = new Set(['/en', '/de', '/fr', '/en.html', '/de.html', '/fr.html']);
 
 /**
+ * Italian section prefixes are also routed by the Worker, but they are not
+ * covered by the generic /en|/de|/fr cache-rule expression. Derive them from
+ * the section-shard slug table so a new section cannot silently return to the
+ * apex-pages bucket in this taxonomy.
+ */
+const IT_SECTION_SHARD_ROOTS = Object.entries(SECTION_SHARD_SLUGS)
+  .filter(([section]) => section !== '_comment')
+  .map(([section, slugs]) => {
+    const { it } = slugs ?? {};
+    if (typeof it !== 'string' || it.length === 0) {
+      throw new Error(`section-shard-slugs.json contains an invalid Italian slug for ${section}`);
+    }
+    return `/${it}`;
+  });
+
+export const IT_SECTION_SHARD_PREFIXES = IT_SECTION_SHARD_ROOTS.map((root) => `${root}/`);
+export const IT_SECTION_SHARD_EXACT = new Set([
+  ...IT_SECTION_SHARD_ROOTS,
+  ...IT_SECTION_SHARD_ROOTS.map((root) => `${root}.html`),
+]);
+
+/**
  * The surfaces. `origin` is the field that matters for diagnosis: it says WHO failed to
  * answer, which is exactly the information the `cloudflare-5xx` label erased.
  */
@@ -57,7 +80,7 @@ export const SURFACES = {
     serveStale: true,
   },
   'worker-shard': {
-    origin: 'frontaliere-locale-router Worker -> per-locale GitHub Pages shard',
+    origin: 'frontaliere-locale-router Worker -> locale/section GitHub Pages shard',
     cacheRule: 'locale-shard-failover-cache',
     serveStale: false,
   },
@@ -139,8 +162,12 @@ export function classifySurface(row) {
   const path = row?.path == null ? null : String(row.path);
   if (path === '' || path === null) return 'apex-unknown';
   if (path === PUBLIC_CONFIG_PATH) return 'worker-public-config';
-  if (LOCALE_SHARD_EXACT.has(path)) return 'worker-shard';
-  if (LOCALE_SHARD_PREFIXES.some((p) => path.startsWith(p))) return 'worker-shard';
+  if (
+    LOCALE_SHARD_EXACT.has(path)
+    || LOCALE_SHARD_PREFIXES.some((p) => path.startsWith(p))
+    || IT_SECTION_SHARD_EXACT.has(path)
+    || IT_SECTION_SHARD_PREFIXES.some((p) => path.startsWith(p))
+  ) return 'worker-shard';
   return 'apex-pages';
 }
 
