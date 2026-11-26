@@ -150,9 +150,15 @@ function workdayPublicUrlFromApiBase(apiBase) {
  * closes it after the Workday operation that uses it.
  *
  * @param {string} apiBase
+ * @param {{ publicUrl?: string }} [options] Optional public career-page URL
+ *   used to establish the same-origin browser session. The derived `en-US`
+ *   URL remains the default for tenants that use the standard locale path.
  * @returns {{request: (args: {url: string, method: string, body?: string, userAgent: string, timeoutMs: number}) => Promise<any>, close: () => Promise<void>}}
  */
-export function createWorkdayBrowserJsonFallback(apiBase) {
+export function createWorkdayBrowserJsonFallback(apiBase, options = {}) {
+  const publicUrl = typeof options.publicUrl === 'string' && options.publicUrl.trim()
+    ? options.publicUrl.trim()
+    : workdayPublicUrlFromApiBase(apiBase);
   let sessionPromise;
   let closed = false;
 
@@ -177,7 +183,7 @@ export function createWorkdayBrowserJsonFallback(apiBase) {
             timezoneId: 'Europe/Zurich',
           });
       page = await context.newPage();
-      await page.goto(workdayPublicUrlFromApiBase(apiBase), {
+      await page.goto(publicUrl, {
         waitUntil: 'domcontentloaded',
         timeout: Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || DEFAULT_TIMEOUT_MS,
       });
