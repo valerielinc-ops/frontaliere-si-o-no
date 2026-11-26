@@ -3449,7 +3449,7 @@ function normalizedContractStep(step, side, fileName, members) {
   }
 
   if (copy?.name === 'Configure shared Workday egress state') {
-    if (side !== 'logic' || canonicalJson(copy) !== canonicalJson(logicWorkdayEgressStateStep())) {
+    if (canonicalJson(copy) !== canonicalJson(logicWorkdayEgressStateStep())) {
       throw new Error(`${fileName}: undeclared Workday egress state bootstrap difference`);
     }
     return null;
@@ -3507,9 +3507,8 @@ function normalizedJobContract(workflow, side, fileName) {
   const workdayStepIndexes = (job.steps ?? [])
     .map((step, index) => step?.name === 'Configure shared Workday egress state' ? index : -1)
     .filter((index) => index >= 0);
-  if ((side === 'generated' && workdayStepIndexes.length !== 0) ||
-      (side === 'logic' && (workdayStepIndexes.length !== 1 || workdayStepIndexes[0] !== 0))) {
-    throw new Error(`${fileName}: Workday egress state bootstrap must be absent from generated workflows and first in logic workflows`);
+  if (workdayStepIndexes.length !== 1 || workdayStepIndexes[0] !== 0) {
+    throw new Error(`${fileName}: Workday egress state bootstrap must be first and unique in ${side} workflows`);
   }
   const steps = (job.steps ?? [])
     .map((step) => normalizedContractStep(step, side, fileName, members))
