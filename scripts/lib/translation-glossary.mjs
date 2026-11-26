@@ -905,14 +905,15 @@ function scanAngleDestination(context, start) {
 
 /**
  * Scan a Markdown link/image beginning at its `](` delimiter; index after the
- * closing `)`, or -1.
+ * closing `)`, or the safe destination boundary when the caller has already
+ * confirmed a matching label and the outer delimiter is incomplete, or -1.
  *
  * A final matched `)` can be the outer link close even when the destination
  * contains a lone `(`; this keeps the previous permissive behavior for URL
  * paths such as `a(b/slug`.
  */
-function scanMarkdownLink(context, start) {
-  if (lastOnLine(context, ')') < start + 2) return -1;
+function scanMarkdownLink(context, start, allowUnclosedDestination = false) {
+  if (!allowUnclosedDestination && lastOnLine(context, ')') < start + 2) return -1;
   const { text, lineEnd } = context;
   let cursor = skipHorizontalWhitespace(text, start + 2);
   if (cursor >= lineEnd) return -1;
@@ -978,7 +979,11 @@ function scanMarkdownLink(context, start) {
       // That `)` was balanced inside the destination: when a URL of the
       // destination runs past it (`](https://h/a_(b)/c`), the span must not
       // end before the URL does, or its tail would be left to the strip.
-      return Math.max(lastClose + 1, lastOpaqueUrlEnd(text, destinationStart, lastClose + 1));
+      return Math.max(
+        lastClose + 1,
+        destinationEnd,
+        lastOpaqueUrlEnd(text, destinationStart, lastClose + 1),
+      );
     }
   }
 
@@ -1260,11 +1265,11 @@ function findOpaqueSpans(text) {
     }
 
     if (character === ']' && text[index + 1] === '(') {
-      const end = scanMarkdownLink(context, index);
+      const open = matchingOpenBracket(text, index);
+      const end = scanMarkdownLink(context, index, open >= 0);
       if (end > 0) {
         // The whole link is one opaque span and its label is stripped as a
         // text of its own (see `stripLinkLabel`).
-        const open = matchingOpenBracket(text, index);
         let outside = spans.length;
         while (open >= 0 && outside > 0 && spans[outside - 1].start > open) outside -= 1;
         if (open >= 0 && (outside === 0 || spans[outside - 1].end <= open)) {

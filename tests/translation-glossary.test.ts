@@ -701,6 +701,11 @@ describe('translation glossary — placeholder strip leaves links alone', () => 
       input: '[COMPANY](/candidati/apply%COMPANY%',
       expected: '[](/candidati/apply%COMPANY%',
     },
+    {
+      name: 'an unlabelled near-match stays open to the placeholder scrubber',
+      input: 'x](/candidati/apply%COMPANY%',
+      expected: 'x](/candidati/apply',
+    },
   ] as const;
 
   it.each(OPAQUE_SPAN_CASES)('preserves the opaque destination: $name', ({ input, expected }) => {
