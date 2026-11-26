@@ -6682,7 +6682,8 @@ function questionsFrom(missingRequired, stableQuestionIds = new Map()) {
       applicationQuestion,
       ...(readableQuestionCandidate(item.candidatePrompt) ? { candidatePrompt: readableQuestionCandidate(item.candidatePrompt) } : {}),
       ...(applicationOptions.length ? { applicationOptions } : {}),
-      ...(applicationOptions.length > 0 && applicationOptionValues.length === applicationOptions.length && applicationOptionValues.every(Boolean)
+      // Keep aligned option values even when a placeholder row carries value="".
+      ...(applicationOptions.length > 0 && applicationOptionValues.length === applicationOptions.length && applicationOptionValues.some(Boolean)
         ? { applicationOptionValues } : {}),
       ...(optionMap.length ? { optionMap } : {}),
       ...(item.context ? { context: String(item.context).slice(0, 240) } : {}),
@@ -11591,8 +11592,8 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired, {
           .map((option) => String(option || '').trim())
           .filter(Boolean);
         const applicationOptionValues = field && readableOptions.length === applicationOptions.length
-          && readableOptions.every(option => typeof option !== 'string' && String(option?.value || '').trim())
-          ? readableOptions.map(option => String(option.value).trim()) : [];
+          && readableOptions.some(option => typeof option !== 'string' && String(option?.value || '').trim())
+          ? readableOptions.map(option => (typeof option === 'string' ? '' : String(option?.value || '').trim())) : [];
         const nativeChoiceField = Boolean(field && fieldRequiresNativeOptions(field) && (
           ['select', 'radio', 'listbox'].includes(field.kind)
           || field.selectLike === true
